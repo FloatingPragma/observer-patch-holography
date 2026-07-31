@@ -157,7 +157,14 @@ rest are proved conditionally, and the conditions are work in progress.
 ## 18.5 The Two Equations the Loop Writes for Itself
 
 Here the loop writes closure equations on its two survivors, and the
-self-reference acquires quantitative targets.
+self-reference acquires quantitative targets. The loop imposes two demands
+on each number. The reading the world hands back must land on one value,
+and only one; call that consistency. And the outside reading and the inside
+reading must be readings of the same quantity; call that identity. In a
+self-simulating universe the simulating and the simulated description are
+one system, so neither demand is optional. Consistency is mathematics and
+can be certified. Identity is physics: each claimed identification is a
+separate attachment that has to be established on its own.
 
 The local number comes from one cell of the screen, and that cell has two
 readings. From outside the
@@ -229,6 +236,17 @@ $$
 \Lambda\ell_\star^2=\frac{3\pi}{N} .
 $$
 
+The capacity equation itself now has a candidate form. The finite
+mathematics proves that the three axioms alone do not force one, so any
+capacity law is a further named commitment. The candidate subtracts from
+the weak-sector budget the small reserve the screen withholds to keep its
+two descriptions identified, about seven hundredths of a nat out of two
+hundred eighty-one, and lands inside the current measurement band of the
+observed cosmological constant. That landing is a look-back check rather
+than a prediction, because the target was known first. The proposal stands
+on four named premises that are open work, and it fails outright if the
+measured capacity ever comes in above the uncorrected budget.
+
 Each number is supplied to the world and returned by
 the world, and closure keeps the value only when the two readings coincide.
 
@@ -281,7 +299,9 @@ world it is the correctable public record reconstructed by observers. Proving
 that these are readings of one universe-level carrier is work in progress. A
 separate comparison asks whether the screen's record load and the weak
 sector's load are one and the same carrier; the two readings differ by about
-$6.6$ percent.
+$6.6$ percent, and the candidate reserve correction reads that gap as the
+withheld closure reserve, a reading that remains retrospective until its
+premises are discharged.
 
 If both equations land on source-derived maps, the two constants come back
 from the architecture rather than from measurement. That would remove the

@@ -20,6 +20,20 @@ stated source or physical interfaces. The three axioms supply the observer
 system; they do not silently select every action, representation, continuum
 limit, or laboratory attachment.
 
+Beside the axioms sits one closure principle: the universe is modeled as a
+self-referential fixed point, so the simulating and the simulated
+description are one system. Any quantity with both an outer construction
+reading and an inner readback reading must then satisfy consistency (its
+return map closes on a unique fixed point) and identity (the two readings
+name one invariant, a separately typed physical attachment). This principle
+imposes the two quantitative closures: the screen-grain equation for $P$,
+with an interval-certified fixed point and its hadronic transport open, and
+the candidate capacity equation
+$\ln(N/\pi)=6\pi/(P\,\alpha_U)-P/24$, which carries four named premises,
+agrees with the measured cosmological constant retrospectively, and fails
+outright if the measured capacity ever exceeds the uncorrected bridge
+value.
+
 ## Start Here
 
 Physics has revised its idea of what is fundamental before. Space was

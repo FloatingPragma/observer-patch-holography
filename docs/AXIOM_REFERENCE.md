@@ -539,6 +539,34 @@ three-axiom basis stated above.
   orientation-preserving incidence automorphism group of the carrier
   boundary. The symbol names a group, never an axiom.
 
+## The closure principle (not an axiom)
+
+Beside the three axioms the framework carries one modeling principle: the
+universe is modeled as a self-referential fixed point, so the simulating
+and the simulated description are one system. The principle is not a fourth
+axiom and never enters an axiom count. It imposes, for every quantity with
+both a construction-side and a readback-side reading:
+
+- **consistency** — the readback return map closes on a unique fixed point
+  on its declared domain;
+- **identity** — the two readings are readings of one invariant; each such
+  identity is a separately typed physical attachment
+  (`physical_identification` with its own `attachment_state`), never a free
+  move.
+
+Two closures instantiate the principle. The screen-grain closure
+\(P=\varphi+\sqrt{\pi}/A_T(P)\) has an interval-certified unique fixed
+point; its laboratory attachment awaits the same-scheme hadronic transport.
+The capacity closure is an additional named source law (the axioms alone
+provably do not force a unique capacity law); the current candidate
+\(\ln(N/\pi)=6\pi/(P\,\alpha_U)-P/24\) carries the shared-cut
+\(\mathbb Z_6\) protected-reserve overhead, four named premises (invariant
+seam implementation, interface completeness, seam multiplicity one, seam
+record content), and a pending horizon-record attachment; its agreement
+with the measured cosmological constant is retrospective. The closure class
+is falsified as a whole by any measured capacity above the uncorrected
+bridge value \(\pi\exp(6\pi/(P\,\alpha_U))\).
+
 ## Dependency rules
 
 1. A surface that states or counts the basis gives exactly three axioms and
