@@ -21,15 +21,15 @@ def test_receipt_builds_with_expected_status() -> None:
 
 def test_bound_value_matches_exact_identification() -> None:
     receipt = cb.finalize(cb.build_receipt())
-    assert receipt["bound"]["carrier_scale_upper_bound_m"] == "1.279e-27"
-    assert receipt["bound"]["planck_length_headroom"] == "7.913e+07"
+    assert receipt["bound"]["carrier_scale_upper_bound_m"] == "8.825e-29"
+    assert receipt["bound"]["planck_length_headroom"] == "5.460e+06"
     # independent recomputation with floats
     import math
 
-    a_gev = math.sqrt(20) / 6.9e11
+    a_gev = math.sqrt(20) / 1.0e13
     a_m = a_gev * 1.97327e-16
-    assert abs(a_m - 1.279e-27) / a_m < 1e-3
-    assert abs(a_m / 1.616255e-35 - 7.913e7) / 7.913e7 < 1e-3
+    assert abs(a_m - 8.825e-29) / a_m < 1e-3
+    assert abs(a_m / 1.616255e-35 - 5.460e6) / 5.460e6 < 1e-3
 
 
 def test_no_linear_term_statement_is_true_of_the_stencil() -> None:

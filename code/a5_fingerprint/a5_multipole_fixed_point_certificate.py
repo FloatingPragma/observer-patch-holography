@@ -206,11 +206,10 @@ def _frac_sqrt(f: Fraction) -> Fraction | None:
 def _int_sqrt(n: int) -> int | None:
     if n < 0:
         return None
-    r = int(n**0.5)
-    for cand in (r - 1, r, r + 1, r + 2):
-        if cand >= 0 and cand * cand == n:
-            return cand
-    return None
+    from math import isqrt
+
+    r = isqrt(n)
+    return r if r * r == n else None
 
 
 # ---------------------------------------------------------------------------

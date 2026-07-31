@@ -14,15 +14,17 @@ selection premise:
   with ``U`` the Chebyshev polynomials of the second kind evaluated over
   ``Q(sqrt5)``. The certificate computes the exact table and certifies
   ``m_1 = ... = m_5 = 0`` and ``m_6 = 1``.
-* **Universality.** Any finite-range invariant kinetic operator
-  ``lambda_a(k) = sum_d w(d) [1 - cos(a k . d)]`` with an invariant
-  direction multiset and invariant weights has, at order
+* **Universality.** Any finite-range invariant scalar cosine symbol
+  ``lambda_a(k) = a^-2 sum_d c(d) [1 - cos(a k . d)]`` with an invariant
+  direction multiset and scale-independent invariant coefficients has, at
+  order
   ``a^{2m-2} k^{2m}``, an angular part that is an invariant polynomial of
   degree ``2m``. The invariant table forces exact isotropy through spin
   five at every order; every directional term below spin ten is one
   multiple of the same normalized ``I6``; and the possible artifact
   spins are exactly the even invariant levels ``{6, 10, 12, 16, ...}``,
-  so spin six is the least spin any member can populate. Whenever the
+  so spin six is the least symmetry-allowed nonzero anisotropic spin.
+  Whenever the
   weighted sixth-moment ``I6`` coefficient is nonzero, a condition
   certified here for the equal-weight stencil and each fundamental
   orbit, the first artifact sits at ``a^4 k^6`` and one binary
@@ -38,16 +40,16 @@ selection premise:
   pinned by the issue #654 certificate.
 
 Boundary. The theorem concerns the registered finite carrier class under
-an invariance and finite-range premise; the operator is a
-finite-difference generator on continuum fields, so no periodic lattice
+an invariance, finite-range, and self-similar-coefficient premise; the
+operator is a finite-difference generator on continuum fields, so no periodic lattice
 is invoked (no three-dimensional periodic lattice carries this point
 group), and the physical carrier realization, scale, sector assignment,
-and residue amplitude are open, with no comparison opened here. The
-Standard Model with General Relativity carries exact intrinsic vacuum
-rotational invariance in this sector: the fundamental couplings produce
-no intrinsic vacuum rotational residue of any shape at any order, so a
-certified intrinsic residue with this signature is outside that
-baseline, while a null result bounds the carrier scale.
+and residue amplitude are open, with no comparison opened here. Minimal
+locally Lorentz-invariant Standard Model plus General Relativity contains
+no intrinsic preferred spatial tensor in local vacuum. A physical
+comparison still needs a sector map, a carrier frame, orientation
+transport, an environmental model, and an amplitude floor before a null
+can reject the branch.
 """
 
 from __future__ import annotations
@@ -55,6 +57,7 @@ from __future__ import annotations
 import argparse
 import json
 from fractions import Fraction
+from math import factorial
 from pathlib import Path
 from typing import Any
 
@@ -69,6 +72,29 @@ STATUS = (
     "SPIN_SIX_LEAST_POPULATABLE_SPIN__I6_RIGID_BELOW_SPIN_TEN__"
     "GENERIC_LEADING_ORDER__AMPLITUDE_OPEN"
 )
+
+
+def load_parent_receipt() -> tuple[bytes, dict[str, Any]]:
+    """Load the fingerprint receipt with schema, status, digest, and bytes checked."""
+
+    parent_bytes = base.RECEIPT_PATH.read_bytes()
+    try:
+        parent = json.loads(parent_bytes)
+    except json.JSONDecodeError as error:
+        raise base.FingerprintError("invalid fingerprint parent JSON") from error
+    require(
+        parent_bytes == base.canonical_json_bytes(parent),
+        "fingerprint parent is not canonical JSON",
+    )
+    require(parent.get("schema") == base.SCHEMA, "fingerprint parent schema drift")
+    require(parent.get("status") == base.STATUS, "fingerprint parent status drift")
+    claimed = parent.get("receipt_sha256")
+    body = {key: value for key, value in parent.items() if key != "receipt_sha256"}
+    require(
+        claimed == base.tagged_sha256(base.canonical_json_bytes(body)),
+        "fingerprint parent self-digest drift",
+    )
+    return parent_bytes, parent
 
 q5 = base.q5
 Q5 = base.Q5
@@ -161,6 +187,50 @@ def invariant_table_certificate() -> dict[str, Any]:
         "no_invariant_below_six": True,
         "level_six_dimension_one": True,
         "first_odd_invariant_level": 15,
+    }
+
+
+def double_factorial(n: int) -> int:
+    """Exact double factorial, with the standard 0!! = (-1)!! = 1."""
+
+    require(n >= -1, "double factorial domain drift")
+    result = 1
+    while n > 0:
+        result *= n
+        n -= 2
+    return result
+
+
+def monomial_level_six_coefficient(even_power: int) -> Fraction:
+    """Coefficient of P6 in t^even_power on [-1, 1]."""
+
+    require(even_power >= 6 and even_power % 2 == 0, "invalid even power")
+    return Fraction(
+        13 * factorial(even_power),
+        double_factorial(even_power - 6)
+        * double_factorial(even_power + 7),
+    )
+
+
+def all_order_level_six_certificate() -> dict[str, Any]:
+    """Pin the positive P6 coefficient used by the all-order argument."""
+
+    values = {
+        power: monomial_level_six_coefficient(power)
+        for power in range(6, 18, 2)
+    }
+    require(values[6] == Fraction(16, 231), "t^6 to P6 coefficient drift")
+    require(values[8] == Fraction(64, 495), "t^8 to P6 coefficient drift")
+    require(all(value > 0 for value in values.values()), "P6 coefficient sign drift")
+    return {
+        "formula": (
+            "[P6] t^(2m) = 13 (2m)! / ((2m-6)!! (2m+7)!!), "
+            "strictly positive for every m >= 3"
+        ),
+        "checked_even_powers": {
+            str(power): str(value) for power, value in values.items()
+        },
+        "strictly_positive": True,
     }
 
 
@@ -348,6 +418,71 @@ def tuned_cancellation_control(i6_reduced) -> dict[str, Any]:
     residue.pop((0, 0, 0), None)
     require(p_is_zero(residue), "tuned member leaks below spin ten at k^6")
 
+    # The same-radius member has a nonzero spin-ten harmonic.  Each P10
+    # orbit sum is already harmonic, so a nonzero reduced polynomial proves
+    # that the first allowed anisotropic spin after the cancelled I6 line is
+    # actually populated.
+    p10_total = p_zero()
+    for name, w in (("vertex_12", Fraction(1)), ("face_20", Fraction(27, 25))):
+        data = orbits[name]
+        inv2 = q5_div(ONE, data["norm_sq"])
+        orbit_p10 = p_zero()
+        for power, coeff in enumerate(base.LEGENDRE[10]):
+            if coeff == 0:
+                continue
+            raw = moment_sum(data["dirs"], power)
+            if power % 2 == 1:
+                require(p_is_zero(raw), "odd moment leak in P10 control")
+                continue
+            orbit_p10 = p_add(
+                orbit_p10,
+                p_scale_q5(
+                    raw,
+                    q5_scale(q5_pow(inv2, power // 2), coeff),
+                ),
+            )
+        p10_total = p_add(p10_total, p_scale(orbit_p10, w))
+    p10_reduced = p_reduce_sphere(p10_total)
+    require(not p_is_zero(p10_reduced), "tuned member loses its spin-ten line")
+    p10_probe = sorted(p10_reduced)[0]
+
+    # A multi-radius control shows why a sixth-moment cancellation need not
+    # remove I6 at every higher order.  Vertex radius 1 with weight 1 and
+    # face radius 2 with weight 27/1600 cancel the k^6 I6 coefficient, while
+    # the k^8 coefficient remains -256/125.
+    beta_by_orbit_power: dict[tuple[str, int], Q5] = {}
+    for name in ("vertex_12", "face_20"):
+        data = orbits[name]
+        inv2 = q5_div(ONE, data["norm_sq"])
+        for power in (6, 8):
+            normalized = p_scale_q5(
+                moment_sum(data["dirs"], power),
+                q5_pow(inv2, power // 2),
+            )
+            reduced_power = p_reduce_sphere(normalized)
+            beta_by_orbit_power[(name, power)] = q5_div(
+                reduced_power.get(probe, ZERO), i6_reduced[probe]
+            )
+    require(
+        beta_by_orbit_power[("vertex_12", 8)] == q5(Fraction(256, 375)),
+        "vertex eighth-moment I6 coefficient drift",
+    )
+    require(
+        beta_by_orbit_power[("face_20", 8)] == q5(Fraction(-256, 405)),
+        "face eighth-moment I6 coefficient drift",
+    )
+    multi_weight = q5(Fraction(27, 1600))
+    multi_beta6 = q5_add(
+        beta_by_orbit_power[("vertex_12", 6)],
+        q5_mul(q5_scale(multi_weight, 2**6), beta_by_orbit_power[("face_20", 6)]),
+    )
+    multi_beta8 = q5_add(
+        beta_by_orbit_power[("vertex_12", 8)],
+        q5_mul(q5_scale(multi_weight, 2**8), beta_by_orbit_power[("face_20", 8)]),
+    )
+    require(multi_beta6 == ZERO, "multi-radius k^6 cancellation drift")
+    require(multi_beta8 == q5(Fraction(-256, 125)), "multi-radius k^8 control drift")
+
     return {
         "member": (
             "unit directions, weight 1 on the twelve vertex directions and "
@@ -363,12 +498,27 @@ def tuned_cancellation_control(i6_reduced) -> dict[str, Any]:
             "vanishes at every order and its first artifact sits at a "
             "higher even invariant spin"
         ),
-        "multi_radius_note": (
-            "a tuned member whose directions span several radii can "
-            "cancel spin six at one order only, so in general a vanishing "
-            "sixth-moment coefficient moves the first artifact to higher "
-            "order in a rather than to a higher spin"
-        ),
+        "spin_ten_control": {
+            "nonzero": True,
+            "probe_monomial": "-".join(str(value) for value in p10_probe),
+            "probe_coefficient": q5_str(p10_reduced[p10_probe]),
+            "reading": (
+                "the same-radius positive tuned member has a nonzero P10 "
+                "orbit sum after its I6 line is cancelled"
+            ),
+        },
+        "multi_radius_control": {
+            "member": (
+                "vertex radius 1 with weight 1 plus face radius 2 with "
+                "weight 27/1600"
+            ),
+            "k6_i6_coefficient": q5_str(multi_beta6),
+            "k8_i6_coefficient": q5_str(multi_beta8),
+            "reading": (
+                "a multi-radius member can cancel I6 at k^6 while "
+                "retaining it at k^8"
+            ),
+        },
         "reading": (
             "the leading-order and 1/16 clauses hold under the certified "
             "nonvanishing-coefficient condition and fail on tuned members "
@@ -386,9 +536,12 @@ def tuned_cancellation_control(i6_reduced) -> dict[str, Any]:
 def universality_statement() -> dict[str, Any]:
     return {
         "carrier_class": (
-            "every kinetic operator lambda_a(k) = sum_d w(d)[1 - cos(a k.d)] "
-            "with a finite direction multiset and weights invariant under "
-            "the proper icosahedral rotation group"
+            "every scalar cosine symbol lambda_a(k) = a^-2 sum_d "
+            "c(d)[1 - cos(a k.d)] with a finite dimensionless direction "
+            "multiset and scale-independent coefficients invariant under "
+            "the proper icosahedral rotation group; nonnegative coefficients "
+            "and the second-moment normalization make it a positive normalized "
+            "kinetic symbol"
         ),
         "argument": (
             "the order a^{2m-2} k^{2m} angular content is an invariant "
@@ -402,8 +555,8 @@ def universality_statement() -> dict[str, Any]:
         ),
         "consequences": {
             "least_populatable_spin": (
-                "spin six is the least spin any member of the class can "
-                "populate, and every directional term below spin ten "
+                "spin six is the least symmetry-allowed nonzero anisotropic "
+                "spin, and every anisotropic harmonic component below spin ten "
                 "carries the exact I6 angular dependence with the "
                 "sign-symmetric 62-point census of the issue #654 "
                 "certificate: 12 and 20 extrema of opposite index and 30 "
@@ -418,7 +571,8 @@ def universality_statement() -> dict[str, Any]:
                 "nonzero, certified here for the equal-weight stencil and "
                 "each fundamental orbit, the first artifact sits at "
                 "a^4 k^6 and one binary refinement step suppresses it by "
-                "exactly 1/16 at that order; a tuned vanishing coefficient "
+                "exactly 1/16 at fixed physical k for the same dimensionless "
+                "stencil under binary refinement; a tuned vanishing coefficient "
                 "moves the first artifact to higher order in a, and for "
                 "single-radius members to a higher even invariant spin"
             ),
@@ -431,13 +585,12 @@ def universality_statement() -> dict[str, Any]:
             ),
         },
         "baseline_contrast": (
-            "the fundamental couplings of the Standard Model with General "
-            "Relativity are exactly rotationally invariant in vacuum and "
-            "produce no intrinsic rotational residue of any shape at any "
-            "order; environmental and frame anisotropies are separately "
-            "modeled and subtracted by the search pipelines; a certified "
-            "intrinsic residue with this signature therefore lies outside "
-            "that baseline, and a null result bounds the carrier scale"
+            "minimal locally Lorentz-invariant Standard Model plus General "
+            "Relativity has no intrinsic preferred spatial tensor in local "
+            "vacuum and therefore supplies no coefficient on this template; "
+            "nonminimal effective operators, media, source effects, gravity, "
+            "and instruments can imitate or contaminate an anisotropy and must "
+            "be included in any physical comparison"
         ),
         "open_premises": {
             "physical_carrier_realization": (
@@ -447,6 +600,11 @@ def universality_statement() -> dict[str, Any]:
                 "three-dimensional lattice carries this point group, and "
                 "the realization with its propagation-sector assignment is "
                 "owned by the source lanes"
+            ),
+            "sector_and_frame": (
+                "a scalar or polarization-independent physical sector, a "
+                "carrier rest frame, and coherent orientation transport into "
+                "the comparison frame are not established by this theorem"
             ),
             "amplitude_and_scale": (
                 "no residue amplitude or carrier scale is derived; the "
@@ -468,10 +626,11 @@ def build_receipt() -> dict[str, Any]:
     cartesian.pop("_vertices_object")
     i6_reduced = p_reduce_sphere(i6)
     invariants = invariant_table_certificate()
+    all_order = all_order_level_six_certificate()
     orbits = orbit_moment_certificate(i6_reduced)
     tuned = tuned_cancellation_control(i6_reduced)
     statement = universality_statement()
-    parent = base.RECEIPT_PATH.read_bytes()
+    parent, _ = load_parent_receipt()
     receipt = {
         "schema": SCHEMA,
         "status": STATUS,
@@ -487,6 +646,7 @@ def build_receipt() -> dict[str, Any]:
             }
         ],
         "invariant_table": invariants,
+        "all_order_level_six_coefficient": all_order,
         "orbit_verification": orbits,
         "tuned_cancellation_control": tuned,
         "universality": statement,

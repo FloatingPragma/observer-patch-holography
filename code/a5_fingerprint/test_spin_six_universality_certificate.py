@@ -34,6 +34,21 @@ def test_tuned_cancellation_is_exact_and_positive_weight() -> None:
     assert control["weights_positive"] is True
     assert control["k6_i6_coefficient"].startswith("0 ")
     assert Fraction(64, 175) - Fraction(27, 25) * Fraction(64, 189) == 0
+    assert control["spin_ten_control"]["nonzero"] is True
+    assert control["multi_radius_control"]["k6_i6_coefficient"].startswith("0")
+    assert control["multi_radius_control"]["k8_i6_coefficient"].startswith(
+        "-256/125"
+    )
+
+
+def test_all_order_level_six_coefficient_is_exact_and_positive() -> None:
+    receipt = su.build_receipt()
+    certificate = receipt["all_order_level_six_coefficient"]
+    assert certificate["strictly_positive"] is True
+    assert certificate["checked_even_powers"]["6"] == "16/231"
+    assert certificate["checked_even_powers"]["8"] == "64/495"
+    for power in range(6, 30, 2):
+        assert su.monomial_level_six_coefficient(power) > 0
 
 
 def test_independent_sympy_invariant_dimensions() -> None:
@@ -98,3 +113,18 @@ def test_parent_pin_matches_fingerprint_receipt() -> None:
     pin = receipt["parent_pins"][0]
     payload = su.base.RECEIPT_PATH.read_bytes()
     assert pin["sha256"] == su.base.tagged_sha256(payload)
+
+
+@pytest.mark.parametrize("field", ["schema", "status", "receipt_sha256"])
+def test_parent_loader_rejects_typed_drift(
+    monkeypatch: pytest.MonkeyPatch, tmp_path, field: str
+) -> None:
+    import json
+
+    parent = json.loads(su.base.RECEIPT_PATH.read_text())
+    parent[field] = "tampered"
+    path = tmp_path / "parent.json"
+    path.write_bytes(su.base.canonical_json_bytes(parent))
+    monkeypatch.setattr(su.base, "RECEIPT_PATH", path)
+    with pytest.raises(su.base.FingerprintError):
+        su.build_receipt()

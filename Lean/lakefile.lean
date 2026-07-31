@@ -33,7 +33,7 @@ lean_lib «OPHScreen» where
     `A5AngularMultiplets, `A5AngularBands, `A5AngularKernels,
     `ExteriorSelection, `EqualStateWeights,
     `A5FamilyBand, `RGRepresentationFrontier, `CommonEWOrderUnit,
-    `KineticFormDichotomy]
+    `KineticFormDichotomy, `A5PrimitivePortPrediction]
 
 lean_exe «oph» where
   root := `Main

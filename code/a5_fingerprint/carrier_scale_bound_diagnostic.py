@@ -18,18 +18,20 @@ Chain, exact where the sources are exact:
 * the standard quadratic parameterization is
   ``omega^2 = k^2 [1 - (k/E_QG2)^2]``, so the identification is exact at
   the defining leading order: ``a = sqrt(20) / E_QG2``;
-* the selection rule is declared: consume the strongest published
-  subluminal quadratic time-of-flight bound. That bound is
-  E_QG2 > 6.9 x 10^11 GeV at 95 percent confidence from GRB 221009A
-  (LHAASO collaboration, Physical Review Letters 133, 071501 (2024));
-  the earlier Fermi bound E_QG2 > 1.3 x 10^11 GeV (Vasileiou et al.,
-  Physical Review D 87, 122001 (2013)) is retained as the cross-check.
+* the selection rule is declared: consume the strongest peer-reviewed
+  published numerical subluminal quadratic time-of-flight lower limit found
+  by the dated source audit. That limit is E_QG2 > 1.0 x 10^13 GeV at
+  95 percent confidence from GRB 221009A (Xi and Shu, Chinese Physics C 49,
+  125101 (2025)). The LHAASO collaboration likelihood result
+  E_QG2 > 6.9 x 10^11 GeV (Physical Review Letters 133, 071501 (2024)) is
+  retained as the collaboration cross-check, since the two analyses make
+  different source-lag and statistical choices.
   The conversion constant is hbar c = 1.97327 x 10^-16 GeV m (CODATA,
   declared exposed input).
 
 Reading: the carrier grain on this branch is finer than about
-1.3 x 10^-27 m, roughly 8 x 10^7 Planck lengths above the Planck
-length, so a Planck-scale carrier passes with nearly eight orders of
+8.8 x 10^-29 m, roughly 5.5 x 10^6 Planck lengths above the Planck
+length, so a Planck-scale carrier passes with more than six orders of
 headroom and the diagnostic neither confirms nor endangers the
 framework. The anisotropic spin-six residue at the same scale enters at
 (a k)^4, far below the sensitivity of the consumed searches; the
@@ -62,8 +64,8 @@ SCHEMA = "oph.carrier_scale_bound_receipt.v1"
 STATUS = "EXPOSED_RETROSPECTIVE_CARRIER_SCALE_BOUND__DIAGNOSTIC_ONLY"
 
 # declared exposed public inputs
-E_QG2_GEV = Fraction(69, 10) * 10**11          # LHAASO 2024, 95% CL, subluminal
-E_QG2_CROSSCHECK_GEV = Fraction(13, 10) * 10**11  # Vasileiou et al. 2013
+E_QG2_GEV = Fraction(10, 1) * 10**12  # Xi and Shu 2025, 95% CL, subluminal
+E_QG2_CROSSCHECK_GEV = Fraction(69, 10) * 10**11  # LHAASO 2024
 HBARC_GEV_M = Fraction(197327, 10**21)          # 1.97327e-16 GeV m, CODATA
 PLANCK_LENGTH_M = Fraction(1616255, 10**41)     # 1.616255e-35 m, CODATA
 
@@ -97,7 +99,24 @@ def sci(x: Fraction, digits: int = 4) -> str:
 def build_receipt() -> dict[str, Any]:
     # pin the parent stencil coefficient from the fingerprint receipt
     parent_bytes = base.RECEIPT_PATH.read_bytes()
-    parent = json.loads(parent_bytes)
+    try:
+        parent = json.loads(parent_bytes)
+    except json.JSONDecodeError as error:
+        raise base.FingerprintError("invalid fingerprint parent JSON") from error
+    require(
+        parent_bytes == base.canonical_json_bytes(parent),
+        "fingerprint parent is not canonical JSON",
+    )
+    require(parent.get("schema") == base.SCHEMA, "fingerprint parent schema drift")
+    require(parent.get("status") == base.STATUS, "fingerprint parent status drift")
+    parent_body = {
+        key: value for key, value in parent.items() if key != "receipt_sha256"
+    }
+    require(
+        parent.get("receipt_sha256")
+        == base.tagged_sha256(base.canonical_json_bytes(parent_body)),
+        "fingerprint parent self-digest drift",
+    )
     expansion = parent["kinetic_stencil_conditional"]["expansion"]
     require(
         "- (a^2/20) k^4" in expansion,
@@ -146,28 +165,35 @@ def build_receipt() -> dict[str, Any]:
         },
         "exposed_public_inputs": {
             "selection_rule": (
-                "consume the strongest published subluminal quadratic "
-                "time-of-flight bound; retain the previous strongest as "
-                "the cross-check"
+                "consume the strongest peer-reviewed published numerical "
+                "subluminal quadratic time-of-flight lower limit found by "
+                "the 2026-07-31 source audit; retain the experimental-"
+                "collaboration likelihood result as a robustness cross-check"
             ),
             "E_QG2_GeV": sci(E_QG2_GEV),
             "source": (
-                "LHAASO collaboration, Physical Review Letters 133, "
-                "071501 (2024): E_QG2 > 6.9e11 GeV at 95 percent "
-                "confidence, subluminal quadratic vacuum dispersion, "
-                "GRB 221009A"
+                "Yu Xi and Fu-Wen Shu, Chinese Physics C 49, 125101 "
+                "(2025), doi:10.1088/1674-1137/adfa01: Shannon-entropy "
+                "DisCan analysis gives E_QG2 > 1.0e13 GeV at 95 percent "
+                "confidence, subluminal quadratic, GRB 221009A"
             ),
             "crosscheck_E_QG2_GeV": sci(E_QG2_CROSSCHECK_GEV),
             "crosscheck_source": (
-                "Vasileiou et al., Physical Review D 87, 122001 (2013): "
-                "E_QG2 > 1.3e11 GeV, subluminal quadratic, GRB 090510"
+                "LHAASO collaboration, Physical Review Letters 133, "
+                "071501 (2024): E_QG2 > 6.9e11 GeV at 95 percent "
+                "confidence, subluminal quadratic likelihood, GRB 221009A"
+            ),
+            "source_caveat": (
+                "the primary and cross-check analyses use different source-"
+                "lag and statistical models; the bound is reported as a "
+                "retrospective diagnostic rather than evidential support"
             ),
             "hbar_c_GeV_m": sci(HBARC_GEV_M),
             "planck_length_m": sci(PLANCK_LENGTH_M),
             "frame_note": (
-                "the bound is consumed in the observer frame; the "
-                "carrier-frame statement differs by boost admixtures at "
-                "the frame velocity, negligible for an isotropic bound"
+                "the published bound is consumed in its stated observer "
+                "frame; a carrier-frame translation requires a separately "
+                "declared boost and orientation contract"
             ),
             "exposure_class": "EXPOSED_RETROSPECTIVE",
             "exposure_vocabulary_note": (
@@ -196,8 +222,8 @@ def build_receipt() -> dict[str, Any]:
             "planck_length_headroom": sci(headroom),
             "reading": (
                 "the carrier grain on the declared branch is finer than "
-                "about 1.3e-27 m; a Planck-scale carrier sits nearly "
-                "eight orders of magnitude below the ceiling, so the "
+                "about 8.8e-29 m; a Planck-scale carrier sits more than "
+                "six orders of magnitude below the ceiling, so the "
                 "consumed public bounds neither confirm nor endanger the "
                 "framework, and each published tightening lowers the "
                 "ceiling"

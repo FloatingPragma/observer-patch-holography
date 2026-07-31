@@ -4,6 +4,7 @@ import TopThreeKernelFix
 import UnitSplit12
 import Z6Exact
 import A2HolonomyBridge
+import A5PrimitivePortPrediction
 
 /-!
 # OPH screen arithmetic umbrella
