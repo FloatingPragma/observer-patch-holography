@@ -9,15 +9,15 @@ F_set,r,epsilon(D) = {M_epsilon(q): q in Omega_tilde(r,D)},
 M_0(q) = alpha(G_q).
 ```
 
-The first line is the official universe-level closure equation; the next two
-lines are its typed finite implementation.
+The first line is the direct global proposal; the next two lines are its typed
+finite implementation.
 
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
-define the direct map. The bounded counterfamily carried the interim verdict
-`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`, and the complete
-packet lift decides the completed class: the locked verdict emits no
-universe-level physical `N` and closes the class negatively.
+define the direct map. The bounded counterfamily has verdict
+`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`. The complete packet
+lift decides the complete declared class: the locked verdict emits no
+universe-level physical `N`.
 
 The independent finite (A_5) control is summarized in
 [`A5_FINITE_CONTROL_STATUS_2026-07-20.md`](A5_FINITE_CONTROL_STATUS_2026-07-20.md).
@@ -90,7 +90,7 @@ second physical packet or a cosmic selector.
   disagreement is also proved in
   `Lean/ObserverPatchHolography/CapacityNonidentifiability.lean`.
 - [`direct_n_closure_verdict.py`](direct_n_closure_verdict.py) consumes that
-  result in the official direct equation and records that no numeric cosmic
+  result in the direct global proposal and records that no numeric cosmic
   value or cosmological comparison is permitted.
 - [`public_record_capacity.py`](public_record_capacity.py) and its tests retain
   the superseded Pro4 checkpoint-fixed projection branch as a control. A cyclic
@@ -100,7 +100,7 @@ The `D=24` artifact is a source-derived fixed-cutoff packet in the declared
 simulator category. The all-rung counterfamily proves nonidentifiability for
 the base-agreement, positivity, and carrier-bound completion class, and the
 complete A1--A3 packet lift transports the full structure across the
-generation-register family with a locked negative verdict: the completed
+generation-register family with a locked negative verdict: the complete
 declared class entails no unique slack zero under either continuation
 reading. The lift receipts live in
 [`complete_packet_capacity_lift.py`](complete_packet_capacity_lift.py) with
@@ -142,8 +142,9 @@ invalidates the comparison.
 
 ## Downstream bridges
 
-These bridges consume a unique-zero direct closure that the completed class
-does not supply; they stand as contracts for an additional named source law:
+These bridges consume a unique-zero direct closure that the complete declared
+class does not supply; they stand as contracts for an additional named source
+law:
 
 - identifying the correctable record carrier with the de Sitter horizon may
   identify `log D_star` with

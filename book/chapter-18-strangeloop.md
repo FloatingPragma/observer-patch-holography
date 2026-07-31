@@ -243,13 +243,16 @@ The capacity equation takes a sharper form once both readings have been
 constructed. The three axioms leave the capacity law free. The loop demands
 equality because the outside universe and the inside universe are the same
 object, but it does not tell us which local screen event counts against the
-global ledger.
+global ledger. Calling the equation a closure law, a balance, or a fixed point
+does not change that logic. Once the two sides are shown to read the same
+quantity, allowing them to differ would amount to describing two universes.
 
 The finite collar branch supplies one tempting candidate. Its declared total
-reserve has probability $P/4$. If that reserve is shared equally among six
-classes, each class has probability $P/24$. If nature singles out one class
-as the blocked event, and its scalar-weighted survival acts once on the whole
-capacity, the budget is multiplied by $1-P/24$. A Poisson reading would
+reserve expectation is $P/4$. If that reserve is shared equally among six
+classes, each class has presence probability $P/24$. If nature singles out one
+class as the blocked event, its scalar-weighted receipt holds, and its
+normalized survival acts once on the whole capacity, the budget is multiplied
+by $1-P/24$. A Poisson reading would
 instead multiply it by $e^{-P/24}$, but that reading needs another carrier.
 The class choice, weighted receipt, and global attachment are work in
 progress. The first candidate lands about $0.63$
@@ -258,8 +261,10 @@ about $0.39$ percent below it. We knew the destination before trying either
 route, so the proximity is a clue to investigate, not evidence that chooses
 the route.
 
-Each number is supplied to the world and returned by
-the world, and closure keeps the value only when the two readings coincide.
+The common-load formula supplies a candidate budget. A physical horizon
+readback has to return that same budget. Self-reference enforces their
+equality after the common-load and horizon bridges have shown that both sides
+describe one capacity.
 
 ## 18.6 One Universe, No Place to Hide
 
@@ -304,19 +309,20 @@ second is the experimental value used for comparison. The residual is a few
 parts per million. A same-scheme hadronic spectral transport is required for a
 physical low-energy prediction and is work in progress.
 
-The global equation proposes two descriptions of one horizon. From the
-capacity side it is the logarithm of the carrier dimension. From inside the
-world it is the correctable public record reconstructed by observers. If a
-typed bridge proves that these are readings of one universe-level carrier,
-their equality is unavoidable. Building that bridge is the difficult part.
+The direct global proposal compares an assigned global capacity with the
+record budget reconstructed from inside. On the construction side it is the
+logarithm of the carrier dimension. If a typed bridge proves that the internal
+record and the assigned budget are one universe-level capacity, their equality
+is unavoidable. Linking that capacity to a de Sitter horizon is another bridge.
 
 A separate comparison asks whether the screen's record load and the weak
 sector's load are the same physical quantity. The uncorrected readings differ
 by about $6.6$ percent. Applying the conditional one-class
 presence-survival factor gives
-$N\approx3.2921\times10^{122}$. Treating the same number as a Poisson mean
-gives $N\approx3.3001\times10^{122}$. The Planck base-$\Lambda$CDM chain
-places the comparison coordinate near $3.313\times10^{122}$. The first
+$N\approx3.2920979\times10^{122}$. Treating the class expectation as a
+Poisson mean gives $N\approx3.3000722\times10^{122}$. The Planck
+base-$\Lambda$CDM chain places the comparison coordinate near
+$3.3129271\times10^{122}$. The first
 offset is about $0.63$ percent and the second about $0.39$ percent. Neither
 factor is attached to the global ledger by the present theorem.
 

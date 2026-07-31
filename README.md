@@ -27,11 +27,13 @@ are proved to read the same invariant, self-identity forces their equality.
 The physical bridge and return map have to be constructed. Existence,
 uniqueness, and stability are separate tests. The screen-grain map for $P$
 has one interval-certified root on its declared domain, with its hadronic
-attachment open. The completed direct-capacity source class does not select
-a cosmic $N$. A separate common-load branch has a conditional finite-presence
-candidate $N=N_0(1-P/24)$ for one declared reserve class, where
-$N_0=\pi\exp[6\pi/(P\alpha_U)]$. Its global attachment is open. The
-alternative $N=N_0e^{-P/24}$ requires a distinct mean-count or continuum
+attachment open. The complete declared direct-capacity source class does not
+select a cosmic $N$. On the source-forward coordinate $P_{\rm fwd}$, a
+separate common-load branch has the conditional finite-presence candidate
+$N=N_0(1-P_{\rm fwd}/24)$ for one declared reserve class, where
+$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]$. Its global
+attachment is open. The alternative $N=N_0e^{-P_{\rm fwd}/24}$ requires a
+distinct mean-count or continuum
 carrier. The physical one-class selection, scalar-weighted reserve receipt,
 and global attachment are open. Their close retrospective comparisons with a Planck
 base-$\Lambda$CDM coordinate carry no predictive weight.
@@ -494,25 +496,30 @@ comparison has diagnostic status, with a physical
 fine-structure constant claim outside its scope.
 
 **$N$ is the public-record capacity** of the whole observer system, or in
-simulation language, how much correctable memory the substrate carries. It is
-secondary. The observed universe can simply be read: $N$ is reverse-engineered
-from measurement the way any machine setting is reverse-engineered from the
-machine's behavior, and no result in the core reconstruction depends on
-deriving it from first principles. A conditional self-read condition,
-$N=\log M_0(\mathfrak U_N)$, proposes to return it from the correctable
-public-record capacity. The finite counting theorems are exact. Their
-completed source class has incompatible fixed sets, so it emits no cosmic
+simulation language, how much correctable memory the substrate carries. The
+direct self-read condition,
+$N=\log M_0(\mathfrak U_N)$, compares the capacity supplied to a trial
+universe with the correctable public-record capacity reconstructed inside it.
+If a typed bridge proves that these are two readings of one universe-level
+invariant, self-reference forces equality. Measurement supplies a comparison
+coordinate; it cannot supply that bridge or return map. No result in the core
+reconstruction depends on a first-principles value of $N$. The finite counting
+theorems are exact. Their
+complete declared source class has incompatible fixed sets, so it emits no cosmic
 value. A separate common-load balance equates screen and electroweak readings
-after a physical same-load identification. Its uncorrected value is
-$N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3.5321\times10^{122}$. On the declared
-finite collar branch, the total reserve expectation and six-class
-equidistribution give presence probability $P/24$ for each class. Physically
-selecting one class, discharging its scalar-weighted receipt, and attaching
-that normalized survival factor to global capacity gives the provisional value
-$N_{\rm pres}=N_0(1-P/24)=3.2921\times10^{122}$. This is about $0.63$ percent
-below the Planck base-$\Lambda$CDM comparison coordinate. Reading $P/24$ as a
-Poisson mean instead gives $N_0e^{-P/24}=3.3001\times10^{122}$, about $0.39$
-percent below it, but requires a separate mean-count or continuum carrier.
+after a physical same-load identification. On the independently evaluated
+source-forward coordinate $P_{\rm fwd}$, its uncorrected value is
+$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3.5321315\times10^{122}$.
+On the declared finite collar branch, the total reserve expectation and
+six-class equidistribution give presence probability $P_{\rm fwd}/24$ for
+each class. Physically selecting one class, discharging its scalar-weighted
+receipt, and attaching that normalized survival factor to global capacity
+gives the provisional value
+$N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3.2920979\times10^{122}$. This is about $0.63$
+percent below the weighted Planck base-$\Lambda$CDM comparison coordinate
+$3.3129271\times10^{122}$. Reading $P_{\rm fwd}/24$ as a Poisson mean instead
+gives $N_0e^{-P_{\rm fwd}/24}=3.3000722\times10^{122}$, about $0.39$ percent below it, but
+requires a separate mean-count or continuum carrier.
 Neither attachment is derived, neither result belongs to the blind direct-$N$
 protocol, and both comparisons are retrospective.
 
@@ -532,8 +539,8 @@ protocol, and both comparisons are retrospective.
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
-| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero, and the complete A1--A3 packet lift proves the same non-entailment for the completed declared class, so no cosmic value is emitted and a capacity selector is an additional named source law | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Conditional common-load $N$ candidates | Self-identity forces the screen and electroweak readings to agree once a physical same-load bridge proves that they denote one invariant. The uncorrected balance gives $N_0=\pi\exp[6\pi/(P\alpha_U(P))]$. On the declared finite collar branch, total reserve expectation $P/4$ and six-class equidistribution give one-class presence $P/24$. If one class is physically selected, its scalar-weighted receipt is discharged, and its survival factor acts on global capacity, $N_{\rm pres}=N_0(1-P/24)=3.2921\times10^{122}$. The exponential value $N_0e^{-P/24}=3.3001\times10^{122}$ needs a separate mean-count or continuum carrier. The inherited bridge, same-load, physical seam, one-class, scalar-weighted, global-capacity, and horizon attachments are open. Both comparisons with the Planck base-$\Lambda$CDM coordinate are retrospective, so neither is an OPH prediction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero, and the complete A1--A3 packet lift proves the same non-entailment for the complete declared class, so no cosmic value is emitted and a capacity selector is an additional named source law | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Conditional common-load $N$ candidates | Self-identity forces the screen and electroweak readings to agree once a physical same-load bridge proves that they denote one invariant. On the source-forward coordinate $P_{\rm fwd}$, the uncorrected balance gives $N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3.5321315\times10^{122}$. On the declared finite collar branch, total reserve expectation $P_{\rm fwd}/4$ and six-class equidistribution give one-class presence $P_{\rm fwd}/24$. If one class is physically selected, its scalar-weighted receipt is discharged, and its survival factor acts on global capacity, $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3.2920979\times10^{122}$. The exponential value $N_0e^{-P_{\rm fwd}/24}=3.3000722\times10^{122}$ needs a separate mean-count or continuum carrier. The inherited bridge, same-load, physical seam, one-class, scalar-weighted, global-capacity, and horizon attachments are open. Against the weighted Planck base-$\Lambda$CDM coordinate $3.3129271\times10^{122}$, the residuals are $-0.63$ and $-0.39$ percent. Both comparisons are retrospective, so neither is an OPH prediction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Why Take The Claim Seriously?
@@ -626,7 +633,7 @@ attachment is open. The fixed-point theorems certify roots of declared maps;
 they do not turn an observed basin or target-defined coordinate into a
 physical derivation. The source-derived fixed-cutoff correctable-record
 realization is exact. The complete capacity-indexed A1--A3 packet lift
-carries a locked negative verdict: the completed declared class entails no
+carries a locked negative verdict: the complete declared class entails no
 unique slack zero, so a direct $N$ requires an additional named source law. The named common-load closure has a unique
 conditional root, with its physical same-load and horizon identifications
 open.
@@ -653,7 +660,7 @@ agreement, positivity, and the carrier bound admit completions with different
 slack-zero sets. The complete A1--A3 packet lift transports terminal fibers,
 atom maps, sections, histories, joint kernels, meaning maps, feasible sets,
 and extension controls across the generation-register family, and the
-completed declared class does not entail a unique slack zero: source-closed
+complete declared class does not entail a unique slack zero: source-closed
 continuations saturate every rung, and the widened survivors carry
 inequivalent zero sets. Selecting one capacity would require an additional
 named source law, so no cosmic value is emitted. A physical \(N\) theorem

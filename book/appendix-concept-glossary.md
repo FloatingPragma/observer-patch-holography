@@ -632,8 +632,12 @@ the record carrier has dimension $D$, then $N$ is the logarithm of $D$. The book
 gives its closure equation and an exact twenty-four-record screen example. A
 bounded family of continuations has incompatible fixed sets, while the
 complete three-axiom packet lift retains those incompatible fixed sets. An
-additional source law and the universe attachment are required. Treat $N$ as
-a labeled unknown rather than a derived cosmic value.
+additional source law and the universe attachment are required. A separate
+common-load balance gives finite-presence and Poisson candidates under
+different physical premises. Both are retrospective comparison coordinates.
+Self-reference forces equality only after a typed bridge proves that the
+construction and readback denote the same capacity. Treat $N$ as a labeled
+unknown rather than a derived cosmic value.
 
 No-cloning
 :   The no-cloning theorem says an unknown quantum state cannot be

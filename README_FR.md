@@ -32,13 +32,14 @@ leur égalité. Le pont physique et l’application de retour doivent néanmoins
 être construits. L’existence, l’unicité et la stabilité sont des tests
 distincts. L’application locale de $P$ possède une racine certifiée sur son
 domaine déclaré, avec son attachement hadronique ouvert. La classe de source
-directe complétée ne sélectionne aucune valeur cosmique de $N$. Une branche
-distincte de charge commune donne le candidat fini
-$N=N_0(1-P/24)$ pour une classe de réserve déclarée, avec
-$N_0=\pi\exp[6\pi/(P\alpha_U)]$. La sélection physique de cette classe, son
+directe déclarée complète ne sélectionne aucune valeur cosmique de $N$. Une branche
+distincte de charge commune, évaluée à la coordonnée issue de la source
+$P_{\rm fwd}$, donne le candidat fini
+$N=N_0(1-P_{\rm fwd}/24)$ pour une classe de réserve déclarée, avec
+$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]$. La sélection physique de cette classe, son
 reçu scalaire pondéré et l’attachement du facteur de survie à la capacité
 globale restent ouverts. La variante
-$N=N_0e^{-P/24}$ exige un porteur distinct de comptage moyen ou de limite
+$N=N_0e^{-P_{\rm fwd}/24}$ exige un porteur distinct de comptage moyen ou de limite
 continue. Leurs comparaisons rétrospectives avec une coordonnée issue du
 modèle $\Lambda$CDM de base de Planck n’ont aucun poids prédictif.
 
@@ -336,27 +337,30 @@ champ d’un énoncé sur la constante de structure fine physique.
 
 **$N$ est la capacité de registres publics** de l’ensemble du système
 d’observateurs, ou dans le langage de la simulation, la mémoire corrigible que
-porte le substrat. $N$ est secondaire. L’univers observé peut simplement être
-lu : $N$ se rétro-ingénie à partir de la mesure comme n’importe quel réglage
-de machine se rétro-ingénie à partir du comportement de la machine, et aucun
-résultat de la reconstruction centrale ne dépend de sa dérivation à partir de
-premiers principes. Une condition conditionnelle d’auto-lecture,
-$N=\log M_0(\mathfrak U_N)$, propose de la retrouver depuis la capacité des
-registres publics corrigibles. Les théorèmes de comptage fini sont exacts.
-Leur classe de source complétée possède des ensembles de points fixes
+porte le substrat. La condition directe d’auto-lecture
+$N=\log M_0(\mathfrak U_N)$ compare la capacité fournie à un univers d’essai
+avec la capacité de registres publics corrigibles reconstruite en son sein.
+Si un pont typé prouve qu’il s’agit de deux lectures du même invariant
+universel, l’autoréférence impose leur égalité. La mesure fournit une
+coordonnée de comparaison ; elle ne construit ni ce pont ni l’application de
+retour. Aucun résultat de la reconstruction centrale ne dépend d’une valeur de
+$N$ issue des premiers principes. Les théorèmes de comptage fini sont exacts.
+Leur classe de source déclarée complète possède des ensembles de points fixes
 incompatibles et n’émet donc aucune valeur cosmique. Une autre balance de
 charge commune identifie les lectures de l’écran et du secteur électrofaible
-après l’établissement d’un pont physique. Sa valeur non corrigée est
-$N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3{,}5321\times10^{122}$. Sur la branche
+après l’établissement d’un pont physique. À la coordonnée issue de la source
+$P_{\rm fwd}$, sa valeur non corrigée est
+$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3{,}5321315\times10^{122}$. Sur la branche
 finie déclarée, l’espérance totale de réserve et l’équidistribution des six
-classes donnent la probabilité $P/24$ pour chaque classe. La sélection
+classes donnent la probabilité de présence $P_{\rm fwd}/24$ pour chaque classe. La sélection
 physique d’une classe, la validation de son reçu scalaire pondéré et
 l’attachement de son facteur de survie normalisé à la capacité globale
 donnent provisoirement
-$N_{\rm pres}=N_0(1-P/24)=3{,}2921\times10^{122}$, soit environ $0{,}63$ pour
-cent sous la coordonnée de comparaison issue du modèle $\Lambda$CDM de base
-de Planck. Une lecture de $P/24$ comme moyenne de Poisson donne plutôt
-$N_0e^{-P/24}=3{,}3001\times10^{122}$, soit environ $0{,}39$ pour cent sous
+$N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3{,}2920979\times10^{122}$, soit environ $0{,}63$ pour
+cent sous la coordonnée pondérée
+$3{,}3129271\times10^{122}$ issue du modèle $\Lambda$CDM de base de Planck.
+Une lecture de $P_{\rm fwd}/24$ comme moyenne de Poisson donne plutôt
+$N_0e^{-P_{\rm fwd}/24}=3{,}3000722\times10^{122}$, soit environ $0{,}39$ pour cent sous
 cette coordonnée, mais exige un porteur distinct de comptage moyen ou de
 limite continue. Aucun de ces attachements n’est dérivé et aucune de ces
 comparaisons rétrospectives ne constitue une prédiction.
@@ -662,8 +666,8 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition. Deux moteurs bruts de boucles véritablement indépendants, un troisième vérificateur de production, des contours complexes et données de Laurent certifiés, la covariance, les amplitudes de courant physique, l’appariement à la source et l’horloge sont absents. Aucun pôle natif d’OPH n’est donc promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
-| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact. Une famille de contre-modèles sans donnée cible prouve que l’accord à la base, la positivité et la borne du porteur ne sélectionnent pas un zéro unique. Le relèvement complet du paquet A1--A3 prouve la même non-implication pour la classe déclarée complétée, avec un verdict négatif verrouillé ; aucune valeur cosmique n’est émise et un sélecteur de capacité serait une loi de source nommée supplémentaire | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Candidats conditionnels de clôture de $N$ par charge commune | L’autoréférence impose l’égalité des lectures de l’écran et du secteur électrofaible lorsqu’un pont physique démontre qu’elles portent le même invariant. La balance non corrigée donne $N_0=\pi\exp[6\pi/(P\alpha_U(P))]$. Sur la branche finie déclarée, l’espérance totale $P/4$ et l’équidistribution des six classes donnent une présence de classe $P/24$. Si une classe est sélectionnée physiquement, son reçu scalaire pondéré est validé et son facteur de survie agit sur la capacité globale, $N_{\rm pres}=N_0(1-P/24)=3{,}2921\times10^{122}$. La valeur exponentielle $N_0e^{-P/24}=3{,}3001\times10^{122}$ exige un porteur distinct de comptage moyen ou de limite continue. Les prémisses héritées du pont et les attachements de charge commune, de couture physique, de classe, de pondération scalaire, de capacité globale et d’horizon sont ouverts. Les deux comparaisons avec la coordonnée issue du modèle $\Lambda$CDM de base de Planck sont rétrospectives ; aucune n’est une prédiction d’OPH | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact. Une famille de contre-modèles sans donnée cible prouve que l’accord à la base, la positivité et la borne du porteur ne sélectionnent pas un zéro unique. Le relèvement complet du paquet A1--A3 prouve la même non-implication pour la classe déclarée complète, avec un verdict négatif verrouillé ; aucune valeur cosmique n’est émise et un sélecteur de capacité serait une loi de source nommée supplémentaire | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
+| Candidats conditionnels de clôture de $N$ par charge commune | L’autoréférence impose l’égalité des lectures de l’écran et du secteur électrofaible lorsqu’un pont physique démontre qu’elles portent le même invariant. À la coordonnée issue de la source $P_{\rm fwd}$, la balance non corrigée donne $N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3{,}5321315\times10^{122}$. Sur la branche finie déclarée, l’espérance totale $P_{\rm fwd}/4$ et l’équidistribution des six classes donnent une présence de classe $P_{\rm fwd}/24$. Si une classe est sélectionnée physiquement, son reçu scalaire pondéré est validé et son facteur de survie agit sur la capacité globale, $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3{,}2920979\times10^{122}$. La valeur exponentielle $N_0e^{-P_{\rm fwd}/24}=3{,}3000722\times10^{122}$ exige un porteur distinct de comptage moyen ou de limite continue. Les prémisses héritées du pont et les attachements de charge commune, de couture physique, de classe, de pondération scalaire, de capacité globale et d’horizon sont ouverts. Face à la coordonnée pondérée $3{,}3129271\times10^{122}$ issue du modèle $\Lambda$CDM de base de Planck, les résidus valent $-0{,}63$ et $-0{,}39$ pour cent. Les deux comparaisons sont rétrospectives ; aucune n’est une prédiction d’OPH | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
 
 ## Choisir un parcours de lecture
@@ -751,12 +755,12 @@ physique est ouvert. Les théorèmes de point fixe certifient les racines des
 applications déclarées ; ils ne transforment pas un bassin observé ou une
 coordonnée définie par la cible en dérivation physique. Le paquet corrigible à
 coupure fixe est exact ; le relèvement complet A1--A3 indexé par la capacité
-porte un verdict négatif verrouillé : la classe déclarée complétée n’implique
+porte un verdict négatif verrouillé : la classe déclarée complète n’implique
 aucun zéro unique de l’écart, et une clôture directe de $N$ exigerait une loi
 de source nommée supplémentaire. La clôture déclarée
 de charge commune possède une racine conditionnelle unique ; son
 identification physique à une même charge reste ouverte et l’attachement à
-l’horizon est clos non évaluable. La
+l’horizon reste ouvert. La
 lecture de $N$ dans l’univers laisse intactes les conséquences des trois
 axiomes.
 

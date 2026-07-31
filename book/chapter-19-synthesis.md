@@ -302,6 +302,9 @@ Call the total capacity $N$. Imagine building a trial universe with a given
 record budget, then asking how many public records its internal observers can
 reconstruct through every allowed checkpoint. Closure occurs when the answer
 returned from inside equals the budget supplied from outside.
+Once a typed bridge proves that both readings describe one capacity of the
+self-referential universe, their equality is compulsory. Constructing that
+bridge and the return map is the physical work.
 
 If the correctable record carrier is the de Sitter horizon ledger, its area
 gives a second reading:
@@ -375,20 +378,22 @@ local pixel.
 
 ### Where the Readings Stand
 
-The local electroweak comparison corresponds to an uncorrected capacity near
-$3.53\times10^{122}$. The Planck base-$\Lambda$CDM chain places the
-cosmological comparison coordinate near $3.313\times10^{122}$. They differ
+The source-forward common-load balance gives an uncorrected capacity near
+$3.5321315\times10^{122}$. The Planck base-$\Lambda$CDM chain places the
+cosmological comparison coordinate near $3.3129271\times10^{122}$. They differ
 by $6.6$ percent on the unrounded central values. A physical identification
 has to explain that gap.
 
-On the finite collar branch, the declared total reserve probability $P/4$
-is shared equally among six classes, giving $P/24$ for each. If nature
+On the finite collar branch, the declared total reserve expectation $P/4$
+is shared equally among six classes, giving presence probability $P/24$ for
+each. If nature
 selects one class as the blocked event, its scalar-weighted receipt holds,
 and its normalized survival factor acts on global capacity, the result is
-$3.2921\times10^{122}$, about $0.63$ percent below the comparison coordinate.
-A Poisson interpretation gives $3.3001\times10^{122}$, about $0.39$ percent
+$3.2920979\times10^{122}$, about $0.63$ percent below the comparison
+coordinate. A Poisson interpretation gives
+$3.3000722\times10^{122}$, about $0.39$ percent
 below it, and needs a separate mean-count or continuum carrier. Neither
-class selection, weighted receipt, or global attachment has been derived.
+class selection, weighted receipt, nor global attachment has been derived.
 The target was known before both
 readings were considered, so their proximity does not choose between them.
 

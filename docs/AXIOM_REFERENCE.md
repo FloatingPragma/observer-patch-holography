@@ -559,7 +559,7 @@ The screen-grain proposal
 \(P=\varphi+\sqrt{\pi}/A_T(P)\) has an interval-certified fixed
 point; its laboratory attachment awaits the same-scheme hadronic transport.
 The direct capacity proposal \(N=\log M_0(\mathfrak U_N)\) is
-nonidentifiable on the completed finite source class. A capacity selector
+nonidentifiable on the complete declared finite source class. A capacity selector
 therefore requires an additional named source law.
 
 A separate common-load branch defines
