@@ -997,24 +997,30 @@ expectation on the finite physical collar quotient algebra. Thus
 \[
 \tau_{q,r,C}(1)=1.
 \]
-For a nonzero projection \(p\), define the reciprocal reserve-depth trace by
+For a projection \(p\) with \(\tau_{q,r,C}(p)>0\), define the reciprocal
+reserve depth by
 \[
-\operatorname{Tr}^{\#}_{q,r,C}(p):=\tau_{q,r,C}(p)^{-1}.
+d^{\#}_{q,r,C}(p):=\tau_{q,r,C}(p)^{-1}.
 \]
 The reserve survival coefficient always uses the normalized mean \(\tau_q\), not
-the reciprocal trace. Thus
+the reciprocal depth. Thus
 \[
 \tau_q(Z_{6,r,C})=\frac{P}{24}
 \quad\text{is the presence probability,}
 \]
 while
 \[
-\operatorname{Tr}^{\#}_q(Z_{6,r,C})=\frac{24}{P}
-\quad\text{is the reciprocal slot-depth trace.}
+d^{\#}_q(Z_{6,r,C})=\frac{24}{P}
+\quad\text{is the reciprocal slot depth.}
 \]
 The notation \(\operatorname{Tr}_q(Z_{6,r,C})=24/P\) is valid only when
-\(\operatorname{Tr}_q\) is explicitly defined as a reciprocal slot-count trace;
-otherwise the reciprocal quantity is \(\operatorname{Tr}^{\#}_q\).
+\(\operatorname{Tr}_q\) is explicitly defined as a legacy reciprocal
+slot-count statistic. It is not an operator-algebra trace; the reciprocal
+quantity used here is \(d^{\#}_q\).
+Here and below the unindexed \(Z_{6,r,C}\) denotes one declared protected
+class projector, not the sum over all six class projectors. The indexed and
+total projectors are defined in
+Definition~\ref{def:z6-reserve-projector}.
 
 \begin{definition}[Physical collar quotient and edge-center map]
 \label{def:physical-collar-edge-center-map}
@@ -1189,31 +1195,46 @@ finite commutative algebra, functional calculus is internal to
 
 \begin{definition}[Protected \(Z_6\) reserve projector]
 \label{def:z6-reserve-projector}
-Let the realized Standard Model quotient be
+Let the declared faithful matter image on this finite protected-center branch
+be
 \[
-G_{\rm phys}
+G_{\rm packet}
 =
 \frac{SU(3)\times SU(2)\times U(1)}{\mathbb Z_6}.
 \]
+This branch declaration does not select the physical global form.
 On the protected-center finite-collar branch, let
 \[
-\zeta_{6,r,C}:\Xi_{r,C}\to\{0,1\}
+\zeta^{(j)}_{6,r,C}:\Xi_{r,C}\to\{0,1\},
+\qquad j\in\mathbb Z_6,
 \]
-be the quotient-visible indicator that an edge-center sector carries the
-protected \(Z_6\) reserve class.
+be six pairwise disjoint quotient-visible indicators for the protected
+\(\mathbb Z_6\) reserve classes. Their sum is the indicator of the total
+protected-reserve support. Define
+\[
+Z^{(j)}_{6,r,C}
+:=
+\sum_{\xi:\zeta^{(j)}_{6,r,C}(\xi)=1}e_{\xi,r,C},
+\qquad
+Z^{\rm tot}_{6,r,C}:=\sum_{j\in\mathbb Z_6}Z^{(j)}_{6,r,C}.
+\]
 
-Define
+Fixing one declared class \(j_0\), write
 \[
 \boxed{
 Z_{6,r,C}
 :=
-\sum_{\xi:\zeta_{6,r,C}(\xi)=1}e_{\xi,r,C}.
+Z^{(j_0)}_{6,r,C}.
 }
 \]
 Then
 \[
-Z_{6,r,C}\in\mathcal E_{r,C}.
+Z^{(j)}_{6,r,C},Z^{\rm tot}_{6,r,C},Z_{6,r,C}
+\in\mathcal E_{r,C}.
 \]
+This notation does not select \(j_0\) as the physical blocked class. Any
+use of one class rather than the total projector carries that attachment
+separately.
 \end{definition}
 
 \begin{theorem}[Same-register and commutation theorem]
@@ -1268,7 +1289,7 @@ the physical quotient has been taken.
 \label{thm:scalar-channel-exhaustion}
 Assume edge-center scalar completeness, scalar activation channel completeness,
 and protected-center realization. Then the scalar activation channel is
-exhausted by \(\Pi^{\rm scal}_{r,C}\), and the protected reserve splits it as
+exhausted by \(\Pi^{\rm scal}_{r,C}\), and the declared class \(j_0\) splits it as
 \[
 \boxed{
 \Pi^{\rm scal}_{r,C}
@@ -1278,8 +1299,9 @@ exhausted by \(\Pi^{\rm scal}_{r,C}\), and the protected reserve splits it as
 \Pi^{\rm scal}_{r,C}Z_{6,r,C}.
 }
 \]
-The first summand is the reserve-surviving scalar channel. The second summand
-is the reserve-blocked scalar channel.
+The first summand survives the declared \(j_0\) event. The second summand is
+blocked by that event. Calling \(j_0\) the physical blocked class is a separate
+attachment, and replacing it by the total projector gives a different split.
 \end{theorem}
 
 \begin{proof}
@@ -1554,75 +1576,92 @@ representation, hence \(\rho^{it}a\rho^{-it}=a\) for all \(a\) and \(t\).
 The shared-edge protected-reserve branch carries two named branch inputs: the shared cut entropy
 density \(\bar\ell_{\rm shared}=P/4\) and the \(\mathbb Z_6\) class equidistribution stated in
 Theorem~\ref{thm:z6-reserve-trace} are declared assumptions of the branch, not derived
-quantities. Every value downstream of the \(P/24\) exponent inherits both inputs.
+quantities. Every value downstream of the \(P/24\) class mean inherits both inputs.
 
-\begin{theorem}[Protected reserve mean and reciprocal trace]
+\begin{theorem}[Protected reserve mean and reciprocal depth]
 \label{thm:z6-reserve-trace}
-On the shared-edge protected-reserve branch, with the declared branch input
-\(\bar\ell_{\rm shared}=P/4\) and the declared \(\mathbb Z_6\) class
-equidistribution hypothesis (the shared-edge reserve is distributed uniformly
-over the six protected center classes; a declared branch input alongside the
-shared-cut density),
+On the shared-edge protected-reserve branch, assume \(P>0\), the declared total
+reserve expectation
+\[
+\tau_{q,r,C}(Z^{\rm tot}_{6,r,C})
+=\bar\ell_{\rm shared}=\frac P4
+\]
+and the declared \(\mathbb Z_6\) class-equidistribution hypothesis. Then for
+every \(j\in\mathbb Z_6\),
 \[
 \boxed{
-\tau_{q,r,C}(Z_{6,r,C})=\frac{P}{24}.
+\tau_{q,r,C}(Z^{(j)}_{6,r,C})=\frac{P}{24}.
 }
 \]
-Equivalently, for the reciprocal reserve-depth trace,
+In particular the same formula holds for the declared unindexed
+\(Z_{6,r,C}=Z^{(j_0)}_{6,r,C}\).
+Equivalently, for the reciprocal reserve depth,
 \[
 \boxed{
-\operatorname{Tr}^{\#}_{q,r,C}(Z_{6,r,C})=\frac{24}{P}.
+d^{\#}_{q,r,C}(Z_{6,r,C})=\frac{24}{P}.
 }
 \]
-Using
+At the comparison coordinate
 \[
-P=1.630968209403959,
+P_C=1.630968209403959,
 \]
 one has
 \[
-\frac{P}{24}=0.06795700872516496,
+\frac{P_C}{24}=0.06795700872516496,
 \]
 \[
-\frac{24}{P}=14.715185655746689,
+\frac{24}{P_C}=14.715185655746689,
 \]
 and, under the presence reading of
 Lemma~\ref{lem:presence-reading-reserve},
 \[
-1-\frac{P}{24}=0.9320429912748350.
+1-\frac{P_C}{24}=0.9320429912748350.
 \]
 \end{theorem}
 
 \begin{proof}
-The shared cut entropy density on this branch is the declared branch input
+The total protected reserve expectation on this branch is the declared
+branch input
 \[
-\bar\ell_{\rm shared}=\frac{P}{4}.
+\tau_q(Z^{\rm tot}_{6,r,C})
+=\bar\ell_{\rm shared}=\frac{P}{4}.
 \]
-The protected reserve is the declared \(\mathbb Z_6\) center-class reserve.
-By the declared \(\mathbb Z_6\) class-equidistribution hypothesis, splitting
-the shared-edge reserve uniformly over the six protected center classes gives
+By the declared class-equidistribution hypothesis, each of the six pairwise
+disjoint class projectors has the same normalized expectation. Additivity
+and the total expectation therefore give, for every \(j\),
 \[
-\epsilon_{\mathbb Z_6}
+\tau_q(Z^{(j)}_{6,r,C})
 =
-\frac{\bar\ell_{\rm shared}}{|\mathbb Z_6|}
+\frac{\tau_q(Z^{\rm tot}_{6,r,C})}{|\mathbb Z_6|}
 =
 \frac{P/4}{6}
 =
 \frac{P}{24}.
 \]
 
-Thus the normalized quotient reserve mean is
+For the declared class \(j_0\), the normalized quotient reserve mean is
 \[
 \tau_q(Z_{6,r,C})=\frac{P}{24}.
 \]
-By definition of the reciprocal reserve-depth trace,
+By definition of the reciprocal reserve depth,
 \[
-\operatorname{Tr}^{\#}_q(Z_{6,r,C})
+d^{\#}_q(Z_{6,r,C})
 =
 \frac{1}{\tau_q(Z_{6,r,C})}
 =
 \frac{24}{P}.
 \]
 \end{proof}
+
+The total projector and the declared one-class projector are distinct:
+\[
+\tau_q(Z^{\rm tot}_{6,r,C})=\frac P4,
+\qquad
+\tau_q(Z_{6,r,C})=\frac P{24}.
+\]
+The \(1-P/24\) survival coefficient uses the latter. A physical application
+must therefore identify one class as the blocked event; class
+equidistribution alone does not make that choice.
 
 \begin{remark}[Oriented-register denominator coincidence]
 The oriented \(24\)-slot register of
@@ -1865,9 +1904,9 @@ probability attains the Poisson zero-count factor \(e^{-\epsilon}\):
 \(e^{-\epsilon}\), which is the supremum of that family, attained by no finite
 regulator. A mean-count reading, in which \(\epsilon(y)\) is consumed as the
 expectation of an \(\mathbb N\)-valued occupancy rather than as the presence
-probability, severs the link to the projection trace and consumes a scalar
-carrier beyond \(Z_{6,r,C}\), which the no-separate-carrier clause of
-Definition~\ref{def:oriented-24-slot-register} excludes; its assumption-minimal
+probability, severs the link to the projection trace and consumes a
+mean-count or projective-limit carrier beyond \(Z_{6,r,C}\). That carrier is
+not supplied by the finite-projection branch; its assumption-minimal
 consequence is recorded in Remark~\ref{rem:mean-count-markov-band}.
 \end{lemma}
 
@@ -2095,7 +2134,7 @@ and under the mean-count reading it may add only the Markov band
 
 The coefficient ledger imposes the following checks. No survival coefficient may use
 \(24/P\); occurrences of \(\operatorname{Tr}_q(Z_6)\) with \(24/P\) must be
-renamed to \(\operatorname{Tr}^{\#}_q\) or explicitly declared reciprocal;
+renamed to \(d^{\#}_q\) or explicitly declared a reciprocal statistic;
 every exact \(1-P/24\) coefficient claim must cite
 Theorem~\ref{thm:exact-uniform-product-thickening-coefficient}; every Markov
 lower bound must cite the weighted-mean result; and every statement that the
@@ -2277,10 +2316,14 @@ particular observer-facing support cut looks like after quotienting hidden imple
 and choosing a geometric presentation. The microscopic carrier may be graph-like, federated,
 multi-patch, and locally polyhedral.
 
-The \(P,N\) closures supply the geometric side of that chart. If
-\(P_\star=a_{\mathrm{cell}}/\ell_\star^2\) and \(N_\Lambda=A_{\mathrm{screen}}/(4\ell_\star^2)\)
-with \(N_\Lambda=3.31\times10^{122}\) the \(\Lambda\)-located working capacity,
-then an equal-area cellulation has
+The \(P,N\) closures supply the geometric side of that chart. Write
+\[
+P_\star=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
+\qquad
+N_\Lambda=\frac{A_{\mathrm{screen}}}{4\ell_\star^2},
+\]
+where \(N_\Lambda=3.31\times10^{122}\) is the \(\Lambda\)-located working
+capacity. An equal-area cellulation then has
 \[
 K_{\mathrm{cell}}
 =\frac{A_{\mathrm{screen}}}{a_{\mathrm{cell}}}
@@ -2443,8 +2486,9 @@ normalized central-readback Hilbert--Schmidt cost
 \item an append-only twelve-register event packet in which writes and
 retractions carry signs \(+1\) and \(-1\), together with conservative
 whole-unit seam repairs and minimum-move settling cost;
-\item orientation-preserving incidence isomorphisms along refinement that
-preserve the port-center/readback packet and obey the refinement cocycle; and
+\item every refinement carries an orientation-preserving incidence
+isomorphism. It preserves the port centers and readback packet, and these
+isomorphisms obey the refinement cocycle; and
 \item a source manifest that rejects Standard Model, product-adjoint, gauge,
 coupling, particle, measured-target, and fitted-coordinate fields, is closed
 to undeclared fields, and encodes trace fractions with exact JSON integers.

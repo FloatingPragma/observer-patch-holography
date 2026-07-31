@@ -1,6 +1,7 @@
 import ObserverPatchHolography
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
+import ObserverPatchHolography.CapacityClosurePrinciple
 import ObserverPatchHolography.SeedPi
 import EventAlgebra
 

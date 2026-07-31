@@ -319,9 +319,10 @@ The exact finite construction has twelve ports and two record orientations.
 Its carrier dimension is $D=24$, and all twenty-four public records survive. Several
 finite continuations share this base value, remain positive, and stay below
 their carrier sizes, yet have different fixed-point sets. A formal proof checks
-that arithmetic disagreement. The complete observer construction across
-carrier sizes and its attachment to the universe are work in progress, so the
-finite result supplies no cosmic value of $N$.
+that arithmetic disagreement. The complete three-axiom packet lift across the
+declared carrier family retains the incompatible fixed sets. It therefore
+selects no direct cosmic value of $N$. A successful direct closure needs an
+additional source law and a separate attachment to the universe.
 
 ### The Local Number
 
@@ -374,13 +375,22 @@ local pixel.
 
 ### Where the Readings Stand
 
-The local electroweak comparison corresponds to a capacity near
-$3.53\times10^{122}$. The de Sitter reading is
-$3.31\times10^{122}$. They differ by $6.6$ percent on the unrounded central
-values. A physical identification has to explain that gap. The strange-loop
-closure reads it as the withheld $P/24$ reserve, which brings the corrected
-capacity to about $3.30\times10^{122}$, inside the measurement band of the
-observed cosmological constant.
+The local electroweak comparison corresponds to an uncorrected capacity near
+$3.53\times10^{122}$. The Planck base-$\Lambda$CDM chain places the
+cosmological comparison coordinate near $3.313\times10^{122}$. They differ
+by $6.6$ percent on the unrounded central values. A physical identification
+has to explain that gap.
+
+On the finite collar branch, the declared total reserve probability $P/4$
+is shared equally among six classes, giving $P/24$ for each. If nature
+selects one class as the blocked event, its scalar-weighted receipt holds,
+and its normalized survival factor acts on global capacity, the result is
+$3.2921\times10^{122}$, about $0.63$ percent below the comparison coordinate.
+A Poisson interpretation gives $3.3001\times10^{122}$, about $0.39$ percent
+below it, and needs a separate mean-count or continuum carrier. Neither
+class selection, weighted receipt, or global attachment has been derived.
+The target was known before both
+readings were considered, so their proximity does not choose between them.
 
 There is another suggestive count. The gauge algebra has twelve directions,
 and adding an orientation label gives twenty-four slots. The icosahedral
@@ -390,11 +400,11 @@ that respects the algebra, the symmetry, and refinement.
 
 The compact score is therefore easy to state. The local equation has a unique
 root on its declared mathematical map. The global lane has one exact
-twenty-four-record packet and a bounded counterfamily with incompatible fixed
-sets. A complete source law, a universe carrier, the horizon ledger, and the
-scale bridge are work in progress. The $6.6$ percent comparison is a
-diagnostic rather than a closure result; the withheld $P/24$ reserve is
-what accounts for the gap.
+twenty-four-record packet and a complete declared source class with
+incompatible fixed sets. An additional source law, a universe carrier, the
+horizon ledger, and the scale bridge are required for a direct cosmic
+closure. The two reserve readings are conditional diagnostics. The finite
+presence theorem and the Poisson carrier must not be folded into one formula.
 
 ### The Dark-Sector Continuation
 

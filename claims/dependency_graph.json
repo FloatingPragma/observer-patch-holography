@@ -50,6 +50,7 @@
     "OPH-SM-Q4-RESONANCE-CONTINUATION",
     "OPH-GAUGE-EXTERIOR-SM-WITNESS",
     "OPH-Q-PN-CLOSURE",
+    "OPH-Q-N-RESERVE-CANDIDATES",
     "OPH-HIER-EW",
     "OPH-SCREEN-24-CLOCK-DETERMINANT",
     "OPH-SOURCE-DIMENSIONLESS-GAP",
@@ -266,6 +267,16 @@
       "from": "OPH-Q-PN-CLOSURE",
       "to": "OPH-HIER-EW",
       "role": "supplies P and N only after their respective physical closure receipts; the bounded N counterfamily is not a direct value and the EW/Higgs relation is downstream"
+    },
+    {
+      "from": "OPH-HIER-EW",
+      "to": "OPH-Q-N-RESERVE-CANDIDATES",
+      "role": "supplies the conditional uncorrected coordinate N_0 only after the common screen/electroweak load premise; it supplies no global capacity attachment"
+    },
+    {
+      "from": "OPH-Q-PN-CLOSURE",
+      "to": "OPH-Q-N-RESERVE-CANDIDATES",
+      "role": "supplies the locked direct-capacity nonidentifiability boundary that keeps both reserve branches classified as target-exposed diagnostics"
     },
     {
       "from": "OPH-GR-D6-CAPACITY",

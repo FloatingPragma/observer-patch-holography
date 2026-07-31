@@ -34,6 +34,16 @@ Mapping between Lean 4 theorems in this project and statements in
   (algebraic layer of the coupling theorem only; no physical-derivation
   content, the physical identities I1/I2 are outside the formalised set;
   does **not** bear on the Prop 4.2 / Def 4.1 counts)
+- Typed capacity closure
+  (`ObserverPatchHolography/CapacityClosurePrinciple.lean`): sorry-free.
+  A typed equivalence and commuting readback square imply equality of the two
+  readings; a declared source return law and closure identification give a
+  fixed point; uniqueness remains a separate hypothesis. The module also
+  proves that the finite-presence and Poisson reserve factors differ for
+  nonzero `P`, and that a normalized translation-invariant weight on the six
+  `ZMod 6` classes is uniform. It does not select either reserve branch,
+  construct the physical source return map, identify a global capacity, or
+  supply a horizon attachment.
 - Scalar completed seam repair
   (`ObserverPatchHolography/ScalarSeamRepair.lean`): sorry-free finite
   linear algebra. A seam-supported map whose output endpoints agree and whose

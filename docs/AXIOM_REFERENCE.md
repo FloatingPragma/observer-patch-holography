@@ -541,31 +541,48 @@ three-axiom basis stated above.
 
 ## The closure principle (not an axiom)
 
-Beside the three axioms the framework carries one modeling principle: the
+Beside the three axioms the framework carries one global closure principle: the
 universe is modeled as a self-referential fixed point, so the simulating
 and the simulated description are one system. The principle is not a fourth
-axiom and never enters an axiom count. It imposes, for every quantity with
-both a construction-side and a readback-side reading:
+axiom and never enters an axiom count. For every quantity with independently
+constructed outer and inner readings, it imposes:
 
-- **consistency** — the readback return map closes on a unique fixed point
-  on its declared domain;
-- **identity** — the two readings are readings of one invariant; each such
-  identity is a separately typed physical attachment
-  (`physical_identification` with its own `attachment_state`), never a free
-  move.
+- **identity**: once a typed bridge proves that both readings denote the
+  same invariant, self-identity forces their equality;
+- **construction**: the bridge and return map must be produced independently
+  of the value they are later compared with;
+- **determinacy**: existence, uniqueness, and stability are proved on the
+  declared physical domain. Equality by itself does not establish any of
+  these three properties.
 
-Two closures instantiate the principle. The screen-grain closure
-\(P=\varphi+\sqrt{\pi}/A_T(P)\) has an interval-certified unique fixed
+The screen-grain proposal
+\(P=\varphi+\sqrt{\pi}/A_T(P)\) has an interval-certified fixed
 point; its laboratory attachment awaits the same-scheme hadronic transport.
-The capacity closure is an additional named source law (the axioms alone
-provably do not force a unique capacity law); the current candidate
-\(\ln(N/\pi)=6\pi/(P\,\alpha_U)-P/24\) carries the shared-cut
-\(\mathbb Z_6\) protected-reserve overhead, four named premises (invariant
-seam implementation, interface completeness, seam multiplicity one, seam
-record content), and a pending horizon-record attachment; its agreement
-with the measured cosmological constant is retrospective. The closure class
-is falsified as a whole by any measured capacity above the uncorrected
-bridge value \(\pi\exp(6\pi/(P\,\alpha_U))\).
+The direct capacity proposal \(N=\log M_0(\mathfrak U_N)\) is
+nonidentifiable on the completed finite source class. A capacity selector
+therefore requires an additional named source law.
+
+A separate common-load branch defines
+\[
+N_0=\pi\exp\!\left(\frac{6\pi}{P\,\alpha_U(P)}\right).
+\]
+On the cited finite collar branch, declared total reserve expectation \(P/4\)
+and six-class equidistribution give presence probability \(P/24\) for each
+declared class, not a load in nats. Physical selection of one blocked class,
+its scalar-weighted presence receipt, and a theorem identifying that
+normalized finite collar-survival factor with the global-capacity survival
+would give
+\[
+N_{\mathrm{pres}}=N_0\left(1-\frac{P}{24}\right).
+\]
+The alternative \(N_{\mathrm{Pois}}=N_0e^{-P/24}\) requires a separate
+mean-count or continuum carrier. Neither branch has the required global
+attachment. The common-load identity, physical \(\mathbb Z_6\) seam action,
+one-class reserve selection, scalar-weighted receipt, reserve-to-capacity
+map, and horizon-record identity are open, alongside the inherited
+electroweak bridge premises. The comparisons with a Planck
+base-\(\Lambda\)CDM coordinate are retrospective and do not select between
+the branches.
 
 ## Dependency rules
 

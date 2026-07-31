@@ -631,8 +631,9 @@ N
 the record carrier has dimension $D$, then $N$ is the logarithm of $D$. The book
 gives its closure equation and an exact twenty-four-record screen example. A
 bounded family of continuations has incompatible fixed sets, while the
-complete observer construction and its universe attachment are work in
-progress. Treat $N$ as a labeled unknown rather than a derived cosmic value.
+complete three-axiom packet lift retains those incompatible fixed sets. An
+additional source law and the universe attachment are required. Treat $N$ as
+a labeled unknown rather than a derived cosmic value.
 
 No-cloning
 :   The no-cloning theorem says an unknown quantum state cannot be

@@ -1,0 +1,109 @@
+{
+  "artifact": "oph_n_closure_branch_certificate",
+  "branches": [
+    {
+      "N": "3.2920978773264648415161534810791168151139470709213326167631298845812036778762719e+122",
+      "branch_id": "finite_presence",
+      "factor": "0.93204282933921260929314525402054351548003640604837697146395166666666666666666667",
+      "formula": "N = N0 * (1 - P/24)",
+      "log_N_over_pi": "280.96217647367017999416188885997318832762831735780636190408223790405622870333067",
+      "mean_count_or_projective_limit_carrier_required": false,
+      "open_gates": {
+        "common_load_identification": "open",
+        "global_capacity_attachment": "open",
+        "horizon_record_identity": "open",
+        "inherited_screen_electroweak_bridge_premises": "open",
+        "one_class_reserve_attachment": "open",
+        "physical_repair_law_attachment": "open",
+        "scalar_weighted_reserve_receipt": "open"
+      },
+      "selected": false,
+      "source_semantics": "the finite edge-center receipt types 1 - P/24 as the finite one-step presence value",
+      "source_type": "finite_one_step_presence",
+      "status": "conditional_unselected_retrospective"
+    },
+    {
+      "N": "3.3000722253776516712441592372320472606886036885583657380077848859501249777821057e+122",
+      "additional_open_gate": {
+        "mean_count_or_projective_limit_carrier": "open"
+      },
+      "branch_id": "poisson_projective_limit",
+      "factor": "0.93430048819284296955391905650155456067869846148104888456223442561352844078457434",
+      "formula": "N = N0 * exp(-P/24)",
+      "log_N_over_pi": "280.96459581413517862482710645714350406588764946762424109838304902616780925192165",
+      "mean_count_or_projective_limit_carrier_required": true,
+      "open_gates": {
+        "common_load_identification": "open",
+        "global_capacity_attachment": "open",
+        "horizon_record_identity": "open",
+        "inherited_screen_electroweak_bridge_premises": "open",
+        "one_class_reserve_attachment": "open",
+        "physical_repair_law_attachment": "open",
+        "scalar_weighted_reserve_receipt": "open"
+      },
+      "selected": false,
+      "source_semantics": "the finite edge-center receipt supplies exp(-P/24) only as a refinement limit; consuming it as a capacity factor requires a separate mean-count or projective-limit carrier",
+      "source_type": "poisson_or_projective_limit",
+      "status": "conditional_unselected_retrospective"
+    }
+  ],
+  "conditional_baseline": {
+    "N0": "3.5321315434189358312271204430193231457023521437020508907627186541755607125026121e+122",
+    "formula": "N0 = pi * exp(6*pi/(P*alpha_U))",
+    "log_N0_over_pi": "281.03255298479596601553396120312296055040761306157586412691909735950114258525498",
+    "physical_status": "conditional screen/electroweak bridge; inherited premises and common-load identification remain open"
+  },
+  "issue": 648,
+  "promotion_controls": {
+    "global_capacity": false,
+    "horizon_record_count": false,
+    "physical_cosmological_constant": false,
+    "prediction": false,
+    "prospective_freeze": false
+  },
+  "reserve_coordinate": {
+    "P_over_24": "0.067957170660787390706854745979456484519963593951623028536048333333333333333333333",
+    "finite_factor_strictly_below_poisson_factor": true
+  },
+  "schema": "oph.n_closure_branch_certificate.v1",
+  "scope": {
+    "branch_selected": false,
+    "comparison_data_consumed": false,
+    "global_capacity_derived": false,
+    "horizon_attachment_derived": false,
+    "prediction_promoted": false,
+    "retrospective": true,
+    "target_blind_forecast": false
+  },
+  "self_reference_boundary": {
+    "principle": "self-reference forces equality after the simulator-side and simulated-side readings are proved to be the same typed quantity",
+    "same_typed_quantity_identified": false,
+    "source_return_map_physically_attached": false,
+    "uniqueness_from_self_reference_alone": false
+  },
+  "source_inputs": {
+    "P": "1.6309720958588973769645139035069556284791262548389526848651600000000000000000000",
+    "alpha_U": "0.041124247441816685140889933889659719437707742031358790000000000000000000000000000",
+    "source_artifact_scope": "source-audit branch witness, not a full endpoint proof",
+    "source_artifact_status": "source_audit_branch_witness_not_full_endpoint_proof"
+  },
+  "source_pins": [
+    {
+      "bytes": 654,
+      "path": "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+      "sha256": "sha256:5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c"
+    },
+    {
+      "bytes": 66969,
+      "path": "code/cosmology/manifests/edge_center_clock_certificate.json",
+      "sha256": "sha256:61f5ed9b1a8f3cf2d8a68fa6f29c11f5d6e415953d53776cc97d5f372c6e04f5"
+    },
+    {
+      "bytes": 28152,
+      "path": "code/capacity_readback/manifests/capacity_semantics_menu_reference.json",
+      "sha256": "sha256:c15eabab4e430671337801dc964dde5b3a7de172579a1223ca4f29a2635a9c18"
+    }
+  ],
+  "status": "RETROSPECTIVE_UNSELECTED_CONDITIONAL_BRANCH_MENU",
+  "verdict": "ARITHMETIC_REPRODUCED_TWO_RETROSPECTIVE_BRANCHES_UNSELECTED_PHYSICAL_ATTACHMENTS_OPEN"
+}

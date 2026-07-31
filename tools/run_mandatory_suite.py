@@ -128,6 +128,24 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the typed retrospective N-closure branch packet",
+        [
+            sys.executable,
+            "code/capacity_readback/n_closure_branch_certificate.py",
+            "--validate-only",
+        ],
+    ),
+    (
+        "Execute the N-closure branch arithmetic and promotion gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_n_closure_branch_certificate.py",
+        ],
+    ),
+    (
         "Validate the discriminator stratum verdicts",
         [
             sys.executable,

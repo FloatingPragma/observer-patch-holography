@@ -157,14 +157,17 @@ rest are proved conditionally, and the conditions are work in progress.
 ## 18.5 The Two Equations the Loop Writes for Itself
 
 Here the loop writes closure equations on its two survivors, and the
-self-reference acquires quantitative targets. The loop imposes two demands
-on each number. The reading the world hands back must land on one value,
-and only one; call that consistency. And the outside reading and the inside
-reading must be readings of the same quantity; call that identity. In a
-self-simulating universe the simulating and the simulated description are
-one system, so neither demand is optional. Consistency is mathematics.
-Identity is physics, and each identification is a physical statement in its
-own right.
+self-reference acquires quantitative targets. The loop imposes equality:
+once the outside reading and the inside reading have been shown to describe
+the same invariant, they cannot disagree. The simulating and the simulated
+description are one system.
+
+A zero-dial closure asks for more. The return equation must have an
+admissible solution, and it should select one stable value rather than a
+menu. That is the determinacy test. Self-identity forces the equality;
+mathematics decides whether its equation exists, is unique, and is stable.
+Physics supplies the bridge proving that the two readings really refer to
+the same thing.
 
 The local number comes from one cell of the screen, and that cell has two
 readings. From outside the
@@ -236,15 +239,24 @@ $$
 \Lambda\ell_\star^2=\frac{3\pi}{N} .
 $$
 
-The capacity equation takes a sharper form. The three axioms leave the
-capacity law free; the loop itself supplies the missing law. The screen
-withholds a small reserve, the load of keeping its two descriptions
-identified, and the public capacity is the weak-sector budget minus that
-reserve. The reserve is one twenty-fourth of the pixel constant, about
-seven hundredths of a nat out of two hundred eighty-one, and with it in
-place the capacity lands inside the measurement band of the observed
-cosmological constant. The equation fails outright if the measured
-capacity ever comes in above the uncorrected budget.
+The capacity equation takes a sharper form once both readings have been
+constructed. The three axioms leave the capacity law free. The loop demands
+equality because the outside universe and the inside universe are the same
+object, but it does not tell us which local screen event counts against the
+global ledger.
+
+The finite collar branch supplies one tempting candidate. Its declared total
+reserve has probability $P/4$. If that reserve is shared equally among six
+classes, each class has probability $P/24$. If nature singles out one class
+as the blocked event, and its scalar-weighted survival acts once on the whole
+capacity, the budget is multiplied by $1-P/24$. A Poisson reading would
+instead multiply it by $e^{-P/24}$, but that reading needs another carrier.
+The class choice, weighted receipt, and global attachment are work in
+progress. The first candidate lands about $0.63$
+percent below the Planck cosmology comparison coordinate. The second lands
+about $0.39$ percent below it. We knew the destination before trying either
+route, so the proximity is a clue to investigate, not evidence that chooses
+the route.
 
 Each number is supplied to the world and returned by
 the world, and closure keeps the value only when the two readings coincide.
@@ -294,16 +306,19 @@ physical low-energy prediction and is work in progress.
 
 The global equation proposes two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
-world it is the correctable public record reconstructed by observers. Proving
-that these are readings of one universe-level carrier is work in progress. A
-separate comparison asks whether the screen's record load and the weak
-sector's load are one and the same carrier. The raw readings differ by
-about $6.6$ percent. The closure reserve accounts for the gap: subtracting
-$P/24$ from the budget brings the capacity to within four parts in a
-thousand of the value located from the observed cosmological constant,
-well inside a measurement band that is itself about $2.6$ percent wide.
-The equation is destroyed outright if the measured capacity ever comes in
-above the uncorrected budget.
+world it is the correctable public record reconstructed by observers. If a
+typed bridge proves that these are readings of one universe-level carrier,
+their equality is unavoidable. Building that bridge is the difficult part.
+
+A separate comparison asks whether the screen's record load and the weak
+sector's load are the same physical quantity. The uncorrected readings differ
+by about $6.6$ percent. Applying the conditional one-class
+presence-survival factor gives
+$N\approx3.2921\times10^{122}$. Treating the same number as a Poisson mean
+gives $N\approx3.3001\times10^{122}$. The Planck base-$\Lambda$CDM chain
+places the comparison coordinate near $3.313\times10^{122}$. The first
+offset is about $0.63$ percent and the second about $0.39$ percent. Neither
+factor is attached to the global ledger by the present theorem.
 
 If both equations land on source-derived maps, the two constants come back
 from the architecture rather than from measurement. That would remove the
@@ -321,13 +336,14 @@ capacity positive, and never exceed the carrier size. One keeps every copy, one
 collapses copies, one keeps two classes, and one hides spectator copies. Their
 fixed-point sets disagree.
 
-This finite counterfamily proves that those three requirements do not select a
+The finite counterfamily proves that those three requirements do not select a
 unique capacity. The machine-checked proof covers that arithmetic
-disagreement. It does not carry the complete observer packet, agreement maps,
-randomness constraints, and refinement controls through every carrier size.
-That full three-axiom construction is work in progress. So is the attachment
-between any selected carrier and the universe. No direct cosmic value of $N$
-follows from the finite packet or its counterfamily.
+disagreement. The complete three-axiom packet lift carries the observer
+packet, agreement maps, randomness constraints, and refinement controls
+through the declared carrier family and retains the incompatible fixed sets.
+This closes the stated finite source class without a direct cosmic value of
+$N$. Any successful direct closure therefore needs an additional source law,
+followed by an attachment between its selected carrier and the universe.
 
 The two numbers have different jobs. $P_\star$ is the local grain of
 observation. $N$ would be the global capacity for records. The first sets the

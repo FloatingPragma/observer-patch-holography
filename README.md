@@ -22,17 +22,19 @@ limit, or laboratory attachment.
 
 Beside the axioms sits one closure principle: the universe is modeled as a
 self-referential fixed point, so the simulating and the simulated
-description are one system. Any quantity with both an outer construction
-reading and an inner readback reading must then satisfy consistency (its
-return map closes on a unique fixed point) and identity (the two readings
-name one invariant, a separately typed physical attachment). This principle
-imposes the two quantitative closures: the screen-grain equation for $P$,
-with an interval-certified fixed point and its hadronic transport open, and
-the candidate capacity equation
-$\ln(N/\pi)=6\pi/(P\,\alpha_U)-P/24$, which carries four named premises,
-agrees with the measured cosmological constant retrospectively, and fails
-outright if the measured capacity ever exceeds the uncorrected bridge
-value.
+description are one system. Once independent outer and inner constructions
+are proved to read the same invariant, self-identity forces their equality.
+The physical bridge and return map have to be constructed. Existence,
+uniqueness, and stability are separate tests. The screen-grain map for $P$
+has one interval-certified root on its declared domain, with its hadronic
+attachment open. The completed direct-capacity source class does not select
+a cosmic $N$. A separate common-load branch has a conditional finite-presence
+candidate $N=N_0(1-P/24)$ for one declared reserve class, where
+$N_0=\pi\exp[6\pi/(P\alpha_U)]$. Its global attachment is open. The
+alternative $N=N_0e^{-P/24}$ requires a distinct mean-count or continuum
+carrier. The physical one-class selection, scalar-weighted reserve receipt,
+and global attachment are open. Their close retrospective comparisons with a Planck
+base-$\Lambda$CDM coordinate carry no predictive weight.
 
 ## Start Here
 
@@ -179,7 +181,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 1000 theorems and lemmas, with
+The supporting Lean library contains more than 1100 theorems and lemmas, with
 per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.
@@ -498,17 +500,21 @@ from measurement the way any machine setting is reverse-engineered from the
 machine's behavior, and no result in the core reconstruction depends on
 deriving it from first principles. A conditional self-read condition,
 $N=\log M_0(\mathfrak U_N)$, proposes to return it from the correctable
-public-record capacity; its finite counting branch is exact and its physical
-attachment is not established. A separate named common-load closure equates
-the screen and electroweak readings and has the unique conditional root
-$N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward
-branch. It contains no measured cosmological constant. Its coupling to the
-electroweak bridge excludes it from the independent direct-$N$ blindness
-protocol. The source-bound same-load identification and horizon attachment
-are open, and the result is $6.63$ percent above the
-$\Lambda$-located comparison coordinate. The direct correctable-record map
-remains the canonical producer in the proof spine; the common-load result is a
-conditional closure candidate and downstream test.
+public-record capacity. The finite counting theorems are exact. Their
+completed source class has incompatible fixed sets, so it emits no cosmic
+value. A separate common-load balance equates screen and electroweak readings
+after a physical same-load identification. Its uncorrected value is
+$N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3.5321\times10^{122}$. On the declared
+finite collar branch, the total reserve expectation and six-class
+equidistribution give presence probability $P/24$ for each class. Physically
+selecting one class, discharging its scalar-weighted receipt, and attaching
+that normalized survival factor to global capacity gives the provisional value
+$N_{\rm pres}=N_0(1-P/24)=3.2921\times10^{122}$. This is about $0.63$ percent
+below the Planck base-$\Lambda$CDM comparison coordinate. Reading $P/24$ as a
+Poisson mean instead gives $N_0e^{-P/24}=3.3001\times10^{122}$, about $0.39$
+percent below it, but requires a separate mean-count or continuum carrier.
+Neither attachment is derived, neither result belongs to the blind direct-$N$
+protocol, and both comparisons are retrospective.
 
 ## Results At A Glance
 
@@ -527,7 +533,7 @@ conditional closure candidate and downstream test.
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
 | Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero, and the complete A1--A3 packet lift proves the same non-entailment for the completed declared class, so no cosmic value is emitted and a capacity selector is an additional named source law | [Observers Are All You Need](paper/observers_are_all_you_need.pdf) |
-| Conditional common-load $N$ candidate | The named screen/electroweak self-read law has the unique root $N=\pi\exp(6\pi/(P\alpha_U(P)))=3.5321\times10^{122}$ on the source-forward branch. It uses no measured $\Lambda$. Its theorem-level coupling to the electroweak bridge excludes it from the blind direct-$N$ forecast class. The completed direct-capacity source class is locked nonidentifiable, the horizon attachment closed not evaluable, and the physical same-load identity stays open; the bridge root is $6.63$ percent above the $\Lambda$-located comparison coordinate | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Conditional common-load $N$ candidates | Self-identity forces the screen and electroweak readings to agree once a physical same-load bridge proves that they denote one invariant. The uncorrected balance gives $N_0=\pi\exp[6\pi/(P\alpha_U(P))]$. On the declared finite collar branch, total reserve expectation $P/4$ and six-class equidistribution give one-class presence $P/24$. If one class is physically selected, its scalar-weighted receipt is discharged, and its survival factor acts on global capacity, $N_{\rm pres}=N_0(1-P/24)=3.2921\times10^{122}$. The exponential value $N_0e^{-P/24}=3.3001\times10^{122}$ needs a separate mean-count or continuum carrier. The inherited bridge, same-load, physical seam, one-class, scalar-weighted, global-capacity, and horizon attachments are open. Both comparisons with the Planck base-$\Lambda$CDM coordinate are retrospective, so neither is an OPH prediction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Why Take The Claim Seriously?

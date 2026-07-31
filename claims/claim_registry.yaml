@@ -1669,6 +1669,59 @@
       "gates": []
     },
     {
+      "claim_id": "OPH-Q-N-RESERVE-CANDIDATES",
+      "statement": "The closure principle requires equality after a typed bridge proves that construction-side and readback-side expressions are readings of one invariant. On the conditional electroweak bridge, let N_0=pi exp(6 pi/(P alpha_U)). On the declared protected-center branch, total reserve expectation P/4 plus six-class equidistribution gives one-class expectation P/24. A finite collar survival factor 1-P/24 additionally requires selection of that one-class event and the scalar-weighted reserve receipt. If one normalized connected-cut survival is then attached once to global capacity, the finite branch gives N_presence=N_0(1-P/24). The alternative N_Poisson=N_0 exp(-P/24) requires an additional source-derived mean-count or projective-limit carrier that turns P/24 into additive logarithmic load. Neither branch is selected as cosmic capacity, and neither discharges the direct public-record, global attachment, horizon-record, or physical endpoint gates. Comparison with the Planck base-LambdaCDM chain is target-exposed and retrospective. The pair has conditional diagnostic status and no prediction status.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "target_exposed_conditional_candidate_pair",
+      "assumptions": [
+        "declared_pixel_map",
+        "COMMON_EW_LOAD_CARRIER",
+        "closure_same_invariant_bridge",
+        "admissible_Z6_seam_action",
+        "self_reference_Z6_seam_content",
+        "declared_total_Z6_reserve_expectation_P_over_4",
+        "declared_Z6_class_equidistribution",
+        "scalar_weighted_Z6_reserve_mean",
+        "physical_Z6_blocked_event_selection",
+        "single_normalized_Z6_presence_attachment",
+        "poisson_mean_count_carrier",
+        "source_endpoint_separation",
+        "HORIZON_RECORD_SATURATION"
+      ],
+      "imported_results": [
+        "finite_probability_algebra",
+        "standard_exponential_limit",
+        "Planck_base_LambdaCDM_posterior"
+      ],
+      "oph_specific_delta": "The candidate pair keeps the conditional finite probability type visible. The finite branch distinguishes the declared total expectation, class equidistribution, one-class projector, scalar-weighted receipt, and global connected-cut attachment. The exponential branch states the extra carrier needed to interpret the same number as an additive logarithmic load. Self-reference forces equality only after the same-invariant bridge is established. It does not select either reserve semantics or identify either expression with cosmic N.",
+      "novelty_type": "target_exposed_two_branch_capacity_diagnostic",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "code/cosmology/edge_center_clock_certificate.py",
+        "code/cosmology/manifests/edge_center_clock_certificate.json",
+        "code/capacity_readback/n_closure_branch_certificate.py",
+        "code/capacity_readback/manifests/n_closure_branch_certificate.json",
+        "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
+        "Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean"
+      ],
+      "falsifier": "The declared total reserve expectation or class equidistribution fails, the one-class or scalar-weighted presence reading is not realized, the displayed branch arithmetic fails, the two readings cannot be typed as one invariant, another admissible reserve semantics survives without a selection theorem, or the retrospective Planck comparison is presented as a prospective prediction.",
+      "scope_if_false": "The reserve-corrected N candidates fall. The closure principle, the locked direct-N nonidentifiability result, the finite collar theorem, and structural OPH claims remain separate unless they import the failed identification.",
+      "status": "finite_presence_candidate_source_typed__poisson_carrier_open__global_capacity_and_horizon_attachments_open__retrospective_only",
+      "claim_class": "empirical_implementation",
+      "gates": [
+        503,
+        547,
+        567,
+        569,
+        631,
+        648,
+        649,
+        650
+      ]
+    },
+    {
       "claim_id": "OPH-HIER-EW",
       "statement": "The exterior Standard Model representation witness has exactly four weak-doublet copies per generation and hence additive weak load 4P under the normalized load law. The screen invariant line and the four-copy weak center line admit a unique abstract positive unital normalized-trace-preserving isomorphism after both one-dimensional order-unit lines are constructed. That algebraic map does not identify their physical meanings or intertwine the screen load law with electroweak readout. Conditional on an independently obtained direct public-record fixed point, the screen-sieve relation, the source transmutation relation, and a separately supplied physical common screen/electroweak load carrier, the quantitative branch implies N_CRC=pi exp(6 pi/(P alpha_U(P))). It does not construct the physical common-load bridge or the direct cosmic capacity map.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
