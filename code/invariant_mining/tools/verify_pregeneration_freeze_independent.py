@@ -1043,6 +1043,122 @@ def verify(
             str(pairing_row and pairing_row["relation_certificate"]),
         )
 
+        gate = registry.get("hard_physicalization_gate", {})
+        recomputed_eligible = sum(
+            1
+            for candidate in candidates
+            if candidate.get("hard_eligibility") == "ELIGIBLE"
+        )
+        require(
+            gate.get("eligible_candidate_count") == recomputed_eligible,
+            "HARD_GATE_COUNT_DRIFT",
+            str(gate.get("eligible_candidate_count")),
+        )
+        for candidate in candidates:
+            claims_row = candidate.get("weight_claims", {})
+            expected_eligibility = (
+                "ELIGIBLE"
+                if claims_row.get("physicalization_complete")
+                else "INELIGIBLE_OPEN_PHYSICAL_MAP"
+            )
+            require(
+                candidate.get("hard_eligibility") == expected_eligibility,
+                "HARD_GATE_ELIGIBILITY_DRIFT",
+                str(candidate.get("candidate_id")),
+            )
+        expected_state = (
+            "COMPLETE_BOUNDED_NEGATIVE_INVENTORY__ZERO_ELIGIBLE_CANDIDATES"
+            if recomputed_eligible == 0
+            else "ELIGIBLE_CANDIDATES_PRESENT"
+        )
+        require(
+            gate.get("inventory_state") == expected_state,
+            "HARD_GATE_STATE_DRIFT",
+            str(gate.get("inventory_state")),
+        )
+        search = registry.get("whole_stack_antecedent_search", {})
+        require(
+            isinstance(search.get("searched_inventory"), list)
+            and len(search["searched_inventory"]) >= 15
+            and isinstance(search.get("missing_maps"), dict)
+            and len(search["missing_maps"]) >= 5,
+            "ANTECEDENT_SEARCH_MISSING",
+            "search inventory absent or thin",
+        )
+
+        def q5_smul(factor, x):
+            return (factor * x[0], factor * x[1])
+
+        def q5_add2(x, y):
+            return (x[0] + y[0], x[1] + y[1])
+
+        def mul_inv_sqrt5(x):
+            return (x[1], x[0] / 5)
+
+        legendre = [(Fraction(1), Fraction(0)), (Fraction(0), Fraction(1, 5))]
+        for level in range(1, 14):
+            term = q5_smul(
+                Fraction(2 * level + 1), mul_inv_sqrt5(legendre[level])
+            )
+            term = q5_add2(term, q5_smul(-Fraction(level), legendre[level - 1]))
+            legendre.append(q5_smul(Fraction(1, level + 1), term))
+        equal_port = []
+        for level in range(15):
+            plus = legendre[level]
+            minus = q5_smul(Fraction((-1) ** level), plus)
+            value = (
+                Fraction(1 + (-1) ** level)
+                + 5 * (plus[0] + minus[0])
+            ) / 12
+            require(
+                (plus[1] + minus[1]) == 0,
+                "EQUAL_PORT_IRRATIONAL",
+                str(level),
+            )
+            equal_port.append(value)
+        require(
+            [equal_port[l] for l in (2, 4, 6, 8, 10, 12, 14)]
+            == [
+                Fraction(0),
+                Fraction(0),
+                Fraction(11, 25),
+                Fraction(0),
+                Fraction(247, 1875),
+                Fraction(1071, 3125),
+                Fraction(0),
+            ]
+            and all(equal_port[l] == 0 for l in range(1, 15, 2)),
+            "EQUAL_PORT_VECTOR_DRIFT",
+            "recomputed comb differs",
+        )
+        comb_row = by_id.get("a5-equal-port-angular-comb")
+        require(
+            comb_row is not None
+            and comb_row["relation_certificate"]["even_vector"]
+            == ["0", "0", "11/25", "0", "247/1875", "1071/3125", "0"],
+            "CANDIDATE_COMB_DRIFT",
+            str(comb_row and comb_row["relation_certificate"]),
+        )
+        kernel_pair = (Fraction(5), Fraction(-1))
+        quintet_pair = (Fraction(3), Fraction(1))
+        invariant = (
+            (3 * kernel_pair[0] + 5 * quintet_pair[0]) / 8,
+            (3 * kernel_pair[1] + 5 * quintet_pair[1]) / 8,
+        )
+        require(
+            invariant == (Fraction(15, 4), Fraction(1, 4)),
+            "KINETIC_PROJECTION_DRIFT",
+            str(invariant),
+        )
+        ray_row = by_id.get("wz-kinetic-invariant-projection-ray")
+        require(
+            ray_row is not None
+            and ray_row["relation_certificate"]["invariant_ray"]
+            == ["1/4", "5+1*sqrt5", "15/4+1/4*sqrt5"],
+            "CANDIDATE_RAY_DRIFT",
+            str(ray_row and ray_row["relation_certificate"]),
+        )
+
         registry_keys = all_keys(registry)
         leaked = sorted(
             registry_keys & set(policy.get("forbidden_document_keys", []))

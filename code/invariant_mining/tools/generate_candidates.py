@@ -955,6 +955,89 @@ def produce_a5_angular_candidates(
             },
         },
     ]
+    candidates.append(
+        {
+            "candidate_id": "a5-equal-port-angular-comb",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "angular_selection_cross_level_correlation",
+            "statement": (
+                "the equal-port carrier measure has the exact angular comb "
+                "with every odd level zero and even initial vector "
+                "(0, 0, 11/25, 0, 247/1875, 1071/3125, 0), from the closed "
+                "formula over the port dot-product classes"
+            ),
+            "expression": _expression(
+                grammar,
+                "closed equal-port Legendre average over the four "
+                "dot-product classes",
+                ["registered_exact_algebraic", "registered_correlation"],
+                1 * 2 + 3,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "exact_certificate_with_lean_layer",
+                "even_vector": ["0", "0", "11/25", "0", "247/1875", "1071/3125", "0"],
+                "producer": "code/angular_sprint/angular_interpolant_certificate.py",
+                "lean": "Lean/Screen/A5AngularBands.lean",
+            },
+            "kill_rule": (
+                "a certified equal-port transfer whose even comb deviates "
+                "from the exact vector falsifies the carrier measure branch"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": True,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": True,
+                "open_physical_map": True,
+            },
+        }
+    )
+    candidates.append(
+        {
+            "candidate_id": "a5-readback-parity-law",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "exact_zero_forbidden_transition",
+            "statement": (
+                "the inverse-port readback acts on the interpolated level-l "
+                "image by the alternating parity (-1)^(l+1), so even-parity "
+                "readback response on the odd-parity levels is forbidden"
+            ),
+            "expression": _expression(
+                grammar,
+                "exact_zero of the anomalous-parity readback component",
+                ["registered_character", "registered_index"],
+                1 * 2 + 3 + 4,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "exact_certificate_with_lean_layer",
+                "parity_signs": [-1, 1, -1, 1],
+                "producer": "code/angular_sprint/angular_interpolant_certificate.py",
+                "lean": "Lean/Screen/A5AngularBands.lean",
+            },
+            "kill_rule": (
+                "a certified readback channel violating the alternating "
+                "parity on the interpolated image falsifies the response "
+                "branch"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": True,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": True,
+                "open_physical_map": True,
+            },
+        }
+    )
     for candidate in candidates:
         require(
             candidate["grammar_class"] in set(slot["allowed_grammar_class_ids"]),
@@ -967,7 +1050,8 @@ def produce_a5_angular_candidates(
         candidate["nuisance_matrix"] = nuisance_matrix
         candidate["baseline_contract"] = baseline_contract
         candidate["physicalization_status"] = (
-            "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED"
+            "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__"
+            "TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT"
         )
         candidate["exposure_surfaces"] = exposure_surfaces
     return candidates
@@ -1131,6 +1215,92 @@ def produce_wz_scale_free_candidates(
             },
         },
     ]
+    candidates.append(
+        {
+            "candidate_id": "wz-kinetic-invariant-projection-ray",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "homogeneous_scale_free_combination",
+            "statement": (
+                "the ad-invariant restriction of the source-current pairing "
+                "to the three ideals is the ray (1/4, 5+sqrt5, "
+                "(15+sqrt5)/4); the raw pairing is not invariant on the "
+                "su(3) ideal, and the representation-index reference ray "
+                "and the quadratic-commutant relation are excluded exactly"
+            ),
+            "expression": _expression(
+                grammar,
+                "ideal-restricted pairing ray up to one overall scale",
+                ["registered_exact_algebraic"],
+                1 * 2 + 5,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "exact_certificate",
+                "invariant_ray": ["1/4", "5+1*sqrt5", "15/4+1/4*sqrt5"],
+                "reference_ray_excluded": True,
+                "commutant_relation_excluded": True,
+                "producer": "code/angular_sprint/kinetic_ray_certificate.py",
+            },
+            "kill_rule": (
+                "a certified kinetic-action bridge whose induced ray "
+                "deviates from the invariant projection falsifies the "
+                "pairing identification"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": True,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": False,
+                "open_physical_map": True,
+            },
+        }
+    )
+    candidates.append(
+        {
+            "candidate_id": "wz-frozen-rg-determinant",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "homogeneous_scale_free_combination",
+            "statement": (
+                "the scale-free renormalization-line statistic "
+                "det(alpha_inverse, k, b) = 0 is frozen with the kinetic "
+                "column from the invariant-projection ray and the beta "
+                "column from the registered census; the coupling column "
+                "stays sealed with the comparison surface"
+            ),
+            "expression": _expression(
+                grammar,
+                "three-column determinant with one sealed column",
+                ["registered_exact_algebraic", "registered_index"],
+                1 * 2 + 3,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "frozen_statistic_definition",
+                "sealed_column": "alpha_inverse",
+                "producer": "code/angular_sprint/kinetic_ray_certificate.py",
+            },
+            "kill_rule": (
+                "under a certified kinetic-action bridge, a nonvanishing "
+                "determinant at the frozen budget falsifies the frozen "
+                "chain"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": False,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": False,
+                "open_physical_map": True,
+            },
+        }
+    )
     for candidate in candidates:
         require(
             candidate["grammar_class"] in set(slot["allowed_grammar_class_ids"]),
@@ -1143,7 +1313,7 @@ def produce_wz_scale_free_candidates(
         candidate["nuisance_matrix"] = nuisance_matrix
         candidate["baseline_contract"] = baseline_contract
         candidate["physicalization_status"] = (
-            "OPEN_MAP__POLE_RESIDUE_READOUT_AND_LABORATORY_ATTACHMENT_REQUIRED"
+            "OPEN_MAP__KINETIC_ACTION_BRIDGE_OR_POLE_ATTACHMENT_REQUIRED"
         )
         candidate["exposure_surfaces"] = exposure_surfaces
     return candidates
@@ -1495,6 +1665,54 @@ def build_registry() -> dict[str, Any]:
         "REGISTERED_AWAITING_GENERATION" not in slot_states.values(),
         "registry incomplete: a slot has no generation outcome",
     )
+    for candidate in candidates:
+        candidate["hard_eligibility"] = (
+            "ELIGIBLE"
+            if candidate.get("weight_claims", {}).get("physicalization_complete")
+            else "INELIGIBLE_OPEN_PHYSICAL_MAP"
+        )
+    eligible_count = sum(
+        1
+        for candidate in candidates
+        if candidate["hard_eligibility"] == "ELIGIBLE"
+    )
+    antecedent_search = {
+        "protocol": (
+            "before any missing-map declaration, the registered source "
+            "surfaces are searched for an emitting producer; a no-hit "
+            "records the searched inventory rather than a bare absence"
+        ),
+        "searched_inventory": sorted(
+            row["path"]
+            for row in load_json(
+                PACKAGE_ROOT / "outputs" / "source_projection.json"
+            ).get("source_artifacts", [])
+        ),
+        "missing_maps": {
+            "screen_to_sky_transfer": (
+                "no registered producer emits a sky-valued geometry-imprint "
+                "field or a second independently observed channel; the "
+                "angular sprint receipt records the constructive "
+                "transfer-nonidentifiability witness"
+            ),
+            "kinetic_action_bridge": (
+                "no registered producer proves the identity of the finite "
+                "pairing with the physical continuum kinetic action"
+            ),
+            "interferometer_readout": (
+                "no registered producer maps the twist-sector spectrum to "
+                "an interferometer observable"
+            ),
+            "line_operator_attachment": (
+                "no registered producer attaches the line and flux classes "
+                "to a laboratory observable"
+            ),
+            "family_attachment": (
+                "the physical family carrier verdict is open on its "
+                "dedicated issue"
+            ),
+        },
+    }
     typing_correction = {
         "classification": (
             "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED"
@@ -1538,6 +1756,20 @@ def build_registry() -> dict[str, Any]:
         "slot_generation_states": slot_states,
         "skip_records": skip_records,
         "typing_correction": typing_correction,
+        "hard_physicalization_gate": {
+            "rule": (
+                "a candidate ranks into the issue-639 comparison surface "
+                "only when its physical map is closed; open-map rows are "
+                "ineligible rather than score-penalized"
+            ),
+            "eligible_candidate_count": eligible_count,
+            "inventory_state": (
+                "COMPLETE_BOUNDED_NEGATIVE_INVENTORY__ZERO_ELIGIBLE_CANDIDATES"
+                if eligible_count == 0
+                else "ELIGIBLE_CANDIDATES_PRESENT"
+            ),
+        },
+        "whole_stack_antecedent_search": antecedent_search,
         "descent_congruence_table": descent_congruence_table(),
         "candidates": candidates,
         "candidate_count": len(candidates),
