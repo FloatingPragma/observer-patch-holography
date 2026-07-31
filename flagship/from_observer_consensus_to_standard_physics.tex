@@ -34,27 +34,35 @@
 Normal Forms, the Standard Model Lie Type, and a Route to the Einstein Field Equation}
 
 \author{Bernhard Mueller\textsuperscript{1,*}\quad
-Alexander Osika\quad
-Mario Poneder\quad
-Kai Xue\\
-Ben Cassie\quad
-Peter Nguyen\quad
-Maarten Antoine Visser\quad
-Kale Arnav Anirudha\\
-David Matscheko\quad
-Jonathan Hill\quad
-William T. Glynn}
-\date{\OPHPaperReleaseDate}
+Alexander Osika\textsuperscript{2}\quad
+Mario Poneder\textsuperscript{3}\quad
+Kai Xue\textsuperscript{4}\\
+Ben Cassie\textsuperscript{5}\quad
+Peter Nguyen\textsuperscript{6}\quad
+Maarten Antoine Visser\textsuperscript{7}\quad
+Kale Arnav Anirudha\textsuperscript{8}\\
+David Matscheko\textsuperscript{9}\quad
+Jonathan Hill\textsuperscript{10}\quad
+William T. Glynn\textsuperscript{11}}
+\date{}
 
 \begin{document}
 \maketitle
 
-\noindent\textbf{Paper release: \OPHPaperReleaseID}
-
 \begin{center}
-\footnotesize\textbf{Author affiliation:}\\
+\footnotesize\textbf{Author affiliations:}\\
 \begin{tabular}{rl}
-\textsuperscript{1} & Pragma Research Inc., Washington State, United States
+\textsuperscript{1} & Pragma Research Inc., Washington State, United States\\
+\textsuperscript{2} & Independent researcher, Stockholm, Sweden\\
+\textsuperscript{3} & Independent researcher, Bangkok, Thailand\\
+\textsuperscript{4} & Independent researcher, Singapore\\
+\textsuperscript{5} & Independent researcher, London, United Kingdom\\
+\textsuperscript{6} & Independent researcher, Hanoi, Vietnam\\
+\textsuperscript{7} & Independent researcher, Amsterdam, Netherlands\\
+\textsuperscript{8} & Independent researcher, Pune, India\\
+\textsuperscript{9} & Independent researcher, Linz, Austria\\
+\textsuperscript{10} & Independent researcher, Huntsville, Texas, United States\\
+\textsuperscript{11} & Independent researcher, South Dennis, Massachusetts, United States
 \end{tabular}\\
 \textsuperscript{*}Corresponding author:
 \href{mailto:bernhard@floatingpragma.ai}{\nolinkurl{bernhard@floatingpragma.ai}}.
@@ -63,17 +71,22 @@ William T. Glynn}
 \begin{abstract}
 We ask whether consensus among finite self-reading observer patches can
 function as a reconstruction principle while keeping finite consistency
-distinct from physical realization. Each patch has local state, a boundary,
-durable records, overlap readback, and repair moves. We prove observer-indexed
-normal forms, refinement stability, and complexity bounds for
-boundary-extension problems. On an
-oriented twelve-port carrier, quadratic descent and a local-diamond condition
-yield a schedule-independent public record. Complete reversible port response
+distinct from physical realization. The framework models the universe as a
+timeless self-referential structure: the physical configuration is a fixed
+point of its own repair dynamics, there is no global clock, and time is
+emergent along each observer's record chain. Each patch has local state, a
+boundary, durable records, overlap readback, and repair moves. Two results
+anchor the paper. We prove that the observable record determines a
+canonical configuration, an observer-indexed normal form, with quantitative
+stability under refinement and explicit computational obstructions. On an
+oriented twelve-port carrier, a discrete Lyapunov descent and a commutation
+property of repairs make the completed public record independent of the
+update schedule. Complete reversible port response
 and endogenous overlap transport force the compact local Lie-algebra type
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ with no ambient
 gauge-group premise. Exact source calculations derive the
-carrier module and inverse-port response; source reconstruction of the current
-derivative and same-current holonomy is work in progress. A conditional matrix
+carrier module and inverse-port response; reconstruction of the current
+derivative and same-current holonomy from the axioms alone remains open. A conditional matrix
 realization and a separate trace-balanced matter module give an anomaly-free
 fifteen-state exterior witness and its $\mathbb Z_6$ kernel within a declared
 scan. The conformal two-sphere supplies a Lorentz-group action whose physical
@@ -84,10 +97,10 @@ and the Bianchi identity yield the Einstein field equation up to a
 cosmological constant. Exact quantitative closures sharpen the case: a
 positive-chamber circulant identity forces the Koide relation at balance, a
 finite capacity identity fixes the sign of a conditional de Sitter
-transfer, and an
-interval-certified screen-grain fixed point lands within parts per million
-of the measured inverse coupling, each typed as theorem, diagnostic, or
-registered conditional test. The physical tower and continuum limit are
+transfer, and an interval-certified screen-grain fixed point reproduces the
+measured inverse coupling to parts per million; the identities are finite
+theorems, and every comparison against measurement is a diagnostic or a
+registered conditional test, never a prediction. The physical tower and continuum limit are
 open.
 \end{abstract}
 
@@ -101,7 +114,8 @@ structure.
 \label{sec:intro}
 
 Quantum probability, Lorentzian kinematics, gravitational dynamics, and gauge
-structure enter standard theories through distinct mathematical inputs.
+structure enter standard theories through distinct mathematical inputs
+\cite{hardy2001,chiribella2011,masanes2011,jacobson95,dr90}.
 Observer Patch Holography (OPH) asks which structures follow from a specified
 finite patch system whose components retain records, compare overlap
 readbacks, and repair disagreement. The source object is narrower than generic
@@ -131,7 +145,7 @@ Together these sources specify a proposed observer-patch architecture and its
 conditional physical consequences. Each conclusion retains its own premises
 and verification artifacts, which readers can inspect directly.
 
-Table~\ref{tab:claim-status} gives the four status descriptions used
+Table~\ref{tab:claim-status} gives the six status descriptions used
 throughout.
 
 \begin{table}[htbp]
@@ -152,9 +166,18 @@ include displayed geometric or physical premises.\\
 \textbf{Open realization map} & A required map from a finite object to a
 physical event, current, field, clock, scale, or continuum structure for which
 no construction is asserted.\\
+\textbf{Diagnostic} & A certified computation compared against measured
+values that it consumes; never counted as a prediction.\\
+\textbf{Registered conditional test} & A diagnostic with a custody-bound
+target definition, kill band, precision floor, and decision rule fixed
+before comparison.\\
 \bottomrule
 \end{tabular}
 \end{table}
+
+Throughout, ``source'' means computed from the declared axioms and
+carrier alone, with no measured physical input; ``source-only'' marks a
+quantity whose entire dependency cone is of that kind.
 
 The distinction is mathematical: a finite implication and a physical
 realization of its antecedents are different claims. Machine-readable receipts
@@ -200,7 +223,7 @@ conditional witness for this type. Under a separate trace-balanced matter
 contract, the exterior module gives a faithful image with $\mathbb Z_6$ cover
 kernel and an anomaly-free fifteen-state representation. Source selection of
 the matrix current, physical matter action, global quotient, and laboratory
-current is work in progress.
+current remains open.
 
 The finite record-algebra development packages projection events, state
 updates, partition expectations, and the Clauser--Horne--Shimony--Holt bound
@@ -238,8 +261,9 @@ the observer-fiber normalizer with sharp refinement control, the semantic
 transaction contract yielding the local diamond, the complete-response and
 endogenous-transport forcing theorem with its compact fixed-space exclusion,
 the conditional four-band witness, the exhaustive selection result within its
-declared exterior menu, and their placement beside a typed
-geometry-to-dynamics implication.
+declared exterior menu, the explicit nine-direction null reconstruction
+design with exact determinant and decoder constants, and their placement
+beside a typed geometry-to-dynamics implication.
 
 \subsection{The three axioms}
 
@@ -357,10 +381,56 @@ and hence the Lorentz kinematic type used below. The results below state which
 structures follow from these axioms, which require added premises, and which
 realization maps remain open.
 
-\subsection{Closure conditions from self-reference}
-\label{sec:closure-principle}
+\subsection{The self-referential closure hypothesis}
+\label{sec:strange-loop}
 
-\input{../paper/tex_fragments/CLOSURE_PRINCIPLE.tex}
+One structural hypothesis sits beside the axioms without joining them, and
+the program regards it as the reason a reconstruction of this kind can
+exist at all. The universe is modeled as a timeless, closed,
+self-referential mathematical structure: the simulating description and
+the simulated system are one object, and the physical configuration is a
+fixed point $T(\mathfrak U)=\mathfrak U$ of its own repair dynamics.
+There is no global clock anywhere in the model. Repair order is a partial
+order on commits, and time is emergent per observer, read along each
+observer's own chain of completed records.
+
+The hypothesis has a forcing character. A structure that is closed under
+its own description must contain the description; a self-explaining
+structure must therefore contain subsystems that read, record, compare,
+and reconstruct it. On this reading, observers are structurally required
+rather than accidental: within their emergent subjective time they
+assemble a consistent account of the structure, reverse engineer its
+architecture, and rebuild its description, and the fixed point is exactly
+the configuration in which the rebuilt description and the inhabited
+structure agree. Both sides of the loop must read the same invariant
+quantities.
+
+Three finite results support the hypothesis at the level this paper can
+claim. The packet-quotient closure theorem proves, on the declared finite
+consensus branch, that the closure map is an affine idempotent whose fixed
+points are exactly the packets supported on consensus normal forms; its
+habitat-level extension is typed open \cite{ophconsensus}. The
+universe-level record-closure equation $N=\log M_0(\mathfrak U_N)$ is
+posed exactly, and the complete declared direct source class is proved
+non-identifying, so any successful completion requires an additional
+source law whose two readings agree \cite{ophobservers}. The A2
+endogeneity clause makes every proper recharting an operation implemented
+from inside the response, which is the local form of the same closure
+demand.
+
+The hypothesis also fixes how the declared carrier is to be read. Under
+closure there is no outside vantage from which an architecture could be
+tuned; the twelve-port carrier is part of the solution that observers
+inside the structure reverse engineer, and the axioms are the recovered
+description of that solution. This reading motivates the declaration and
+is typed as a hypothesis: the theorems of this paper consume the declared
+carrier as a premise and stand without the reading, and no uniqueness
+theorem over carriers is claimed. The quantitative closure candidates the
+hypothesis generates, the screen-grain equation and the capacity
+coordinate, are developed with full typing in
+Section~\ref{sec:closure-principle}. Existence, uniqueness, and stability
+of the physical fixed point are separate determinacy tests, and the
+finite theorems prove closure only on their declared finite branches.
 
 \subsection{How the constraints work together}
 
@@ -384,14 +454,11 @@ silently import such a law: it consumes the complete response clause of A1
 and the endogenous transport clause of A2. Source derivation of those two
 objects remains a separate realization problem.
 
-The same rule applies to measures. Carrier counting and algebraic traces
-supply finite candidate measures. Agreement and repair determine whether they
-descend to a schedule-independent public quotient. A physical realization map
-must then preserve them as spacetime or laboratory measures. Until that final
-map is constructed, a finite measure remains an exact property of the
-regulated observer system rather than a measured quantity in nature. This
-dependency discipline is how the framework separates forced structure from
-formal resemblance.
+The same rule applies to measures: carrier counting and algebraic traces
+supply finite candidate measures, agreement and repair determine whether
+they descend to the public quotient, and a physical realization map must
+then preserve them as spacetime or laboratory measures. This dependency
+discipline separates forced structure from formal resemblance.
 
 \subsection{The theorem chain}
 
@@ -554,10 +621,8 @@ Two features of this pipeline carry the unification claim. First, the
 branches consume one substrate and one dynamics: the same completed records
 that define measurement feed the event geometry, and the same overlap
 transport that defines agreement feeds the gauge forcing. Second, every
-arrow in the table is typed. Where the arrow is a finite theorem, the paper
-proves it; where it is a certified computation, the paper cites its
-receipt; where it requires a physical realization map, the paper names the
-map and leaves it open. The universe claim of the program is exactly the
+arrow in the table is typed as a finite theorem, a certified computation,
+or an open realization map. The universe claim of the program is the
 conjunction: a physical carrier that realizes the hardware and runs the
 protocol produces public records whose readouts include quantum
 probability, Lorentzian causal structure, Einstein dynamics, and the
@@ -1195,8 +1260,8 @@ rung, with cone margins
 \begin{equation}
 -5.6,\qquad -3.2,\qquad -1.4
 \end{equation}
-whose magnitudes shrink along that path. The rows change support width and
-cross-edge density, so they do not constitute a convergence sequence. At
+on rows that differ in support width and cross-edge density, so the
+shrinking magnitudes do not form a convergence sequence. At
 $262{,}144$ carriers the same-size support-width-$96$ control has $312$
 cross-observer edges and inertia $(2,2)$, while the support-width-$384$ row
 has $1{,}062$ edges and inertia $(1,3)$. In this finite comparison, changing
@@ -1219,24 +1284,23 @@ attachment is an open realization map.
 
 One deterministic capture at $16{,}384$ carriers supplies: a finite causal
 complex of $2{,}304$ events with exact acyclicity and a strict time
-function; a certified four-column chart, nondegenerate on the sample, whose
-global held-out form has inertia $(1,3)$; six closed observer-visibility
-neighborhoods with exact induced affine transitions, cocycles, orientation,
-and time orientation; an observer-visible seam complex of $8{,}662$ carriers
-and $11{,}816$ seams whose $38$ triangles are all frustrated under the
-declared orientation-reversing seam transport, with lift-ambiguity rank
-$3{,}117$ over $\mathbb F_{2}$; typed scalar, chiral, and gauge sections
-with a sign-twisted local derivative whose adjoint, kinetic, covariance,
-gluing, refinement, and boundary identities are verified by exact integer
-evaluation; and a signed-graph rank theorem giving a zero twisted kernel,
-hence an exactly positive dimensionless spectral gap for the declared local
-operator. The capture is a certified finite computation; its rank and
-positivity statements are finite theorems.
-
-One provenance graph binds the construction, and an isolated rerun reproduces
-the canonical receipt content byte for byte. The verifier rejects any receipt
-that promotes this finite domain to a continuum spacetime, a physical clock,
-or a physical mass scale.
+function; a certified four-column chart whose global held-out form has
+inertia $(1,3)$; six closed observer-visibility neighborhoods with exact
+induced affine transitions, cocycles, orientation, and time orientation;
+an observer-visible seam complex of $8{,}662$ carriers and $11{,}816$
+seams whose $38$ triangles are all frustrated (no global sign assignment
+satisfies every seam) under the declared orientation-reversing transport,
+with lift-ambiguity rank $3{,}117$ over $\mathbb F_{2}$; typed scalar,
+chiral, and gauge sections whose sign-twisted local derivative passes
+exact integer adjoint, kinetic, covariance, gluing, refinement, and
+boundary checks; and a signed-graph rank theorem giving a zero twisted
+kernel, hence an exactly positive dimensionless spectral gap for the
+declared local operator. The capture is a certified finite computation;
+its rank and positivity statements are finite theorems. One provenance
+graph binds the construction, an isolated rerun reproduces the canonical
+receipt byte for byte, and the verifier rejects any receipt that promotes
+this finite domain to a continuum spacetime, a physical clock, or a
+physical mass scale (Online Resource~3).
 
 %=====================================================================
 \section{Einstein reconstruction}
@@ -1295,30 +1359,18 @@ The four-dimensional small-ball coefficients used in entanglement-equilibrium
 arguments \cite{jacobson16} can be isolated from their physical
 interpretation.
 
-\begin{proposition}[Small-ball coefficient identity]
-\label{prop:small-ball}
-Let $G_N>0$ and $\ell>0$. If scalars
-$\delta S_{\mathrm{bulk}},\delta A,t,f$ satisfy
-\[
+With $G_N>0$ and $\ell>0$, scalars
+$\delta S_{\mathrm{bulk}},\delta A,t,f$ satisfying
+\begin{equation}
 \delta S_{\mathrm{bulk}}
 =\frac{8\pi^2\ell^4}{15}\,t,\qquad
 \delta A=-\frac{4\pi\ell^4}{15}\,f,\qquad
-\delta S_{\mathrm{bulk}}+\frac{\delta A}{4G_N}=0,
-\]
-then
-\[
-f=8\pi G_Nt.
-\]
-\end{proposition}
-
-\begin{proof}
-Substitution gives
-\[
-\frac{4\pi\ell^4}{15}
-\left(2\pi t-\frac{f}{4G_N}\right)=0.
-\]
-The prefactor and $G_N$ are nonzero, so cancellation gives the result.
-\end{proof}
+\delta S_{\mathrm{bulk}}+\frac{\delta A}{4G_N}=0
+\label{eq:smallball}
+\end{equation}
+obey $f=8\pi G_Nt$ exactly: substitution cancels the common nonzero
+prefactor. The identity isolates the numerical coefficients from their
+physical reading and is checked by machine.
 
 The tensor completion begins at an explicitly realized null-balance
 relation. This is the point at which the physical bridge enters the
@@ -1374,8 +1426,8 @@ $\delta\langle Z_L\rangle=\delta A/(4G_N)$, the modular first law, and
 generalized-entropy stationarity;
 \item one family with $\ell_r>0$, $\ell_r\to0$, all named remainders
 $o(\ell_r^4)$, the continuum diamond-kernel and fixed-volume area formulas
-used in Proposition~\ref{prop:small-ball}, and enough local observer
-directions to establish \eqref{eq:null-balance}; and
+used in the small-ball identity \eqref{eq:smallball}, and enough local
+observer directions to establish \eqref{eq:null-balance}; and
 \item universal coupling of the stress and entropy branches, a vacuum
 reference, and a physical scale calibration establishing
 $\kappa=8\pi G_N$.
@@ -1536,8 +1588,16 @@ commutator-closed response algebra, and A2 supplies its inner proper-carrier
 action. The theorem fixes the abstract local Lie-algebra type. The source
 receipts derive the carrier module, the inverse-port response, and its relative
 band signs. Source reconstruction of $D$ from ordered reversible histories and
-same-current holonomy is work in progress. The physical matrix current,
+same-current holonomy remains open. The physical matrix current,
 couplings, matter action, global quotient, and laboratory attachment are open.
+The port count twelve equals the dimension of the forced algebra, so A1
+fixes the dimension by declaration; the content of the theorem is the
+exclusion, through compactness and the one-dimensional fixed space, of the
+only other twelve-dimensional compact type $\mathfrak{su}(2)^4$, and the
+forcing of the unique center. No uniqueness claim over carriers is made,
+and under the closure hypothesis of Section~\ref{sec:strange-loop} the
+carrier is read as part of the reconstructed solution rather than an
+external tuning; the theorem's premises stand without that reading.
 \end{boundary}
 
 Let
@@ -1634,8 +1694,12 @@ line is the center of $\mathfrak u(3)$. Direct evaluation identifies it with
 the uniform port vector and exhibits a nonzero commutator involving the
 five-dimensional band. Equivariance and positive definiteness of the pairing
 $-\operatorname{Re}\operatorname{tr}(K(f)K(f'))$ are exact calculations in
-$\mathbb Q(\sqrt5)$ reproduced by the released certificate. It also verifies,
-for all sixty elements, that $\Pi(g)$ is the exponential of an element of
+$\mathbb Q(\sqrt5)$, verified over the full sixty-element domain by the
+exact-arithmetic certificate with its manifest, receipt, and negative
+controls (Online Resource~2); by the exhaustive-computation rule of
+Table~\ref{tab:claim-status} these calculations are part of the proof.
+The same certificate verifies, for all sixty elements, that $\Pi(g)$ is
+the exponential of an element of
 $\operatorname{im}K$; hence its conjugation action is inner. The finite
 refinement and persistence diagrams recorded in the certificate are checked
 there as separate commuting-square computations.
@@ -1847,12 +1911,26 @@ enough to be tested numerically. Each surface below is stated with its type
 from Table~\ref{tab:claim-status}: the theorems are finite theorems, the
 numerical enclosures are certified finite computations, and every
 comparison against measurement is a diagnostic or a registered conditional
-test rather than a source-only prediction. The interval-certified
-screen-grain fixed point, whose gauge-width root lies at relative
-separation $2.5\times10^{-6}$ from the 2022 CODATA inverse coupling
-\cite{codata2022}, is stated with the closure principle in
-Section~\ref{sec:closure-principle} and is consumed here only by
-cross-reference.
+test rather than a source-only prediction. The closure hypothesis of
+Section~\ref{sec:strange-loop} contributes its quantitative candidates
+here, in Section~\ref{sec:closure-principle}, under the same typing.
+
+\subsection{Closure candidates: the screen grain and the capacity
+coordinate}
+\label{sec:closure-principle}
+
+In the displayed proposals, $A_T(\cdot)$ is the inverse electromagnetic
+coupling the declared Thomson-limit source map returns at a trial screen
+grain, $\alpha_U(\cdot)$ the coupling the same declared map returns at
+its unification point, $\mathfrak U_N$ the regulated universe-level
+observer system at capacity budget $N$, and $M_0$ the correctable-code
+capacity of its terminal public record; the grain scalar of these
+equations is distinct from the port set and the event projectors used
+elsewhere in this paper. The gauge-width root lies at relative separation
+$2.5\times10^{-6}$ from the 2022 CODATA inverse coupling
+\cite{codata2022}.
+
+\input{../paper/tex_fragments/CLOSURE_PRINCIPLE.tex}
 
 \subsection{The positive-chamber Koide identity}
 
@@ -1907,17 +1985,21 @@ exactly under the declared tracial premises; the Lean development checks
 the circulant identity and the equivalence \cite{ophkoide}.
 
 Under the balance and mass-ordering premises, the measured electron and
-muon masses determine the tau mass through one quadratic. The
+muon masses \cite{pdg2026} determine the tau mass through one quadratic,
+and the comparison is governed by a registered conditional test whose
+target definition, precision floor of $0.045$~MeV, and decision rule were
+fixed before any future comparison \cite{ophregister}. The
 outward-rounded enclosure is
 $[1776.968991,\allowbreak\,1776.969063]$~MeV, a $72$-eV window whose
-center sits $0.43\sigma$ from the measured $1776.93\pm0.09$~MeV. The premise ancestry is declared: the balance premise
-was first abstracted from the measured triple, so this is a
-target-informed conditional postdiction whose evidential weight lies in the
-kill direction. The registered test fixes the target definition, a
-precision floor of $0.045$ MeV, and the decision rule before any future
-comparison: a world-average or dedicated-measurement central value more
-than three standard uncertainties from $1776.969027$ MeV refutes the
-balanced-circulant premise \cite{ophregister}. The physical family attachment and phase
+center sits $0.43\sigma$ from the measured $1776.93\pm0.09$~MeV
+\cite{pdg2026}. The premise ancestry is declared: the balance premise was
+first abstracted from the measured triple, so this is a target-informed
+conditional postdiction whose evidential weight lies in the kill
+direction. A world-average or dedicated-measurement central value more
+than three standard uncertainties from $1776.969027$~MeV refutes the
+balanced-circulant premise, and with it the equal-rank-two-block tracial
+reading of the face-circulant sector, the only exact family-sector
+mechanism this framework offers. The physical family attachment and phase
 selection are open realization maps, so this surface is logically
 independent of the diagnostic below.
 
@@ -1970,7 +2052,10 @@ $f\mapsto\log(1-f)$ are elementary.
 Identifying capacity with horizon area, the transfer coordinate with
 observer mass, and the associated finite port operator with the
 gravitational shock supplies a conditional de Sitter time-advance mechanism
-with a definite sign. The finite identities make none of those physical
+with a definite sign: under those dictionaries an observer absorbing a
+capacity fraction $f$ strictly lowers the maximal generalized horizon
+entropy by $\log(1-f)$, and the one-sided boundary maximum carries the
+definite sign of the associated time shift. The finite identities make none of those physical
 identifications; the horizon and observer dictionaries are the open maps,
 and the finite calculation supplies no positive cyclic static-patch trace.
 
@@ -2240,14 +2325,15 @@ Why measurements have definite public outcomes & measurement as a
 schedule-independent consensus normal form
 (Theorem~\ref{thm:confluence}); no observer-external collapse postulate &
 physical record and readback identification\\
-Why quantum probability takes the Born form, with L\"uders update and the
-Tsirelson bound & finite theorems on the completed record surface
-(Theorem~\ref{thm:born}) & the algebra-state map for laboratory records\\
+Why completed-record statistics take the Born form, with L\"uders
+update and the Tsirelson bound, given the algebra-state reading & finite
+theorems on the completed record surface (Theorem~\ref{thm:born}) & the
+algebra-state map for laboratory records\\
 Why spacetime is Lorentzian with three spatial dimensions of observer
 freedom & $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ with
 $H^3$ velocity fibers \eqref{eq:lorentz}; measured held-out inertia
-$(1,3)$ on the declared path & event population and the continuum tower
-(E1)--(E7)\\
+$(1,3)$, with negative cone margins, on the declared path & event
+population and the continuum tower (E1)--(E7)\\
 Why gravity couples universally and takes the Einstein form & null balance
 plus Ward and Bianchi force the full field equation
 (Theorem~\ref{thm:einstein}) & the joint tower premises (G1)--(G6),
@@ -2372,11 +2458,9 @@ Observable normalizer, stability, refinement, and complexity
    \path{extra/observable_normal_forms.tex}\\
 Transactional diamond and consensus normal form
  & general local-diamond and Newman arguments proved in this manuscript;
-   \path{Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean}
-   for observation-relative endpoint uniqueness;
-   \path{code/consensus/verify_issue_517_proof_obligations.py} and its
-   \path{code/consensus/runs/issue_517_proof_obligations.json} receipt for
-   one finite transaction model and its negative controls\\
+   the observation-relative endpoint-uniqueness module of the Lean
+   library; the finite transaction-model verifier with its receipt and
+   negative controls (Online Resource~2)\\
 Event algebra, Born, L\"uders, Tsirelson
  & \texttt{Lean/EventAlgebra/} (\texttt{Basic}, \texttt{Lueders},
    \texttt{Tsirelson}, \texttt{ExpectationBound}, partition and state
@@ -2466,8 +2550,26 @@ composition principles \cite{hardy2001,chiribella2011,masanes2011}. OPH makes
 a narrower statement at the quantum stage: a completed finite record, once
 represented by an algebra-state pair, carries the standard event,
 conditioning, expectation, and correlation identities. The distinctive
-input is the observer-indexed normal form and its transaction contract. The
-algebra-state representation remains explicit.
+input is the observer-indexed normal form and its transaction contract.
+Unlike those reconstructions, which derive the quantum state space itself
+from operational axioms, OPH takes the finite algebra-state representation
+as an explicit input; its contribution is the completed-record surface on
+which the identities operate and the consensus theorem that defines
+completion.
+
+Two further neighbors calibrate the record story. Quantum Darwinism
+locates classical objectivity in redundant environmental records
+accessible to many observers \cite{zurek2003}; the completed-consensus
+record plays the same public role, with redundancy replaced by protected
+overlap agreement and an explicit repair dynamics. The cellular-automaton
+program reconstructs quantum mechanics from a deterministic finite
+substrate \cite{thooft2016}; OPH shares the finite substrate and differs
+by locating the quantum identities on the completed record surface rather
+than in an underlying ontological basis. Wigner's-friend extensions
+constrain theories whose agents reason about one another's unfinished
+measurements \cite{fr2018}; the public records of this framework are
+post-consensus objects by construction, and the no-go premises concern
+pre-consensus perspectives that the completed surface does not represent.
 
 Relational quantum mechanics treats physical facts as relational
 \cite{rovelli1996}; the thermal-time program reads time from modular structure
@@ -2484,7 +2586,13 @@ inclusions supply established analytic ingredients \cite{bw75,bw76,
 wiesbrock93}. The contribution of Theorem~\ref{thm:einstein} is the explicit
 composition contract: event, modular, stress, entropy, asymptotic, vacuum, and
 scale premises appear in one statement, while the finite null ambiguity
-identifies exactly where a metric-proportional term enters.
+identifies exactly where a metric-proportional term enters. The route from
+a null-projected balance and the Bianchi identity to the full equation,
+with $\Lambda$ as an integration constant, is familiar from trace-free
+and unimodular formulations \cite{vdbij1982,ellis2011}; the contribution
+here is the finite nine-direction design with exact determinant and
+decoder constants and the premise contract (G1)--(G6) stated as one
+implication.
 
 The gauge section contains two reconstruction routes and one conditional
 global-form witness.
@@ -2557,7 +2665,8 @@ universe.
 
 All theorems, certificates, simulation configurations, receipts, and the
 formal library are public in the project repositories \cite{ophrepo,ophsim}.
-The paper release manifest records PDF hashes and sizes. Computational receipt
+The paper release manifest records the release identifier
+(\OPHPaperReleaseID) together with PDF hashes and sizes. Computational receipt
 bundles pin the applicable source or module revision, configuration, seed
 where stochastic, and output hashes. Clean-checkout rebuild instructions and
 negative controls accompany the artifacts. The claim ledger and prediction
@@ -2587,9 +2696,10 @@ component relationship is disclosed here so that overlap is visible.
 The authors declare that no external grants or dedicated third-party research
 funding were received for the preparation of this manuscript.
 
-\noindent\textbf{Author affiliation.}
+\noindent\textbf{Author affiliations.}
 Bernhard Mueller is affiliated with Pragma Research Inc., Washington State,
-United States.
+United States. The remaining authors are independent researchers; their
+city-level locations appear with the author list.
 
 \noindent\textbf{Author contributions.}
 Bernhard Mueller developed the OPH concept and mathematical synthesis, wrote
@@ -2708,7 +2818,13 @@ Mueller, B., Osika, A., Xue, K., Cassie, B., Visser, M.\,A., and Matscheko,
 D. (2026). \emph{Federated Echosahedral Screen Microphysics: Patch Hardware,
 Records, and Observer Synchronization in Observer-Patch Holography}. Public
 manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/paper/screen_microphysics_and_observer_synchronization.pdf}
+
+\bibitem{ophobservers}
+Mueller, B., Osika, A., Poneder, M., Xue, K., Cassie, B., Nguyen, P.,
+Visser, M.\,A., Anirudha, K.\,A., Matscheko, D., Hill, J., and Glynn,
+W.\,T. (2026). \emph{Observers Are All You Need}. Public manuscript.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/paper/observers_are_all_you_need.pdf}
 
 \bibitem{ophEinstein}
 Mueller, B., Osika, A., Poneder, M., Xue, K., Nguyen, P., Visser, M.\,A.,
@@ -2726,17 +2842,17 @@ Observer Overlap Consistency}. Public manuscript.
 Mueller, B., Osika, A., Poneder, M., Xue, K., Visser, M.\,A., and
 Matscheko, D. (2026). \emph{Deriving the Particle Zoo from Observer
 Consistency}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}
 
 \bibitem{ophkoide}
 Mueller, B. (2026). \emph{The Positive-Chamber Koide Identity for
 Icosahedral Face Circulants}. Public manuscript and formal artifact.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/koide_identity_from_positive_c3_face_circulants.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/extra/koide_identity_from_positive_c3_face_circulants.pdf}
 
 \bibitem{ophdesitter}
 Mueller, B. (2026). \emph{The de Sitter Time-Advance Sign from a Finite
 Screen with Fixed Capacity}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf}
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf}
 
 \bibitem{hardy2001}
 Hardy, L. (2001). ``Quantum theory from five reasonable axioms.''
@@ -2815,6 +2931,23 @@ time-thermodynamics relation in generally covariant quantum theories.''
 \emph{Classical and Quantum Gravity} \textbf{11}, 2899--2917.
 \url{https://doi.org/10.1088/0264-9381/11/12/007}
 
+\bibitem{zurek2003}
+Zurek, W.\,H. (2003). ``Decoherence, einselection, and the quantum
+origins of the classical.'' \emph{Reviews of Modern Physics}
+\textbf{75}, 715--775.
+\url{https://doi.org/10.1103/RevModPhys.75.715}
+
+\bibitem{thooft2016}
+'t Hooft, G. (2016). \emph{The Cellular Automaton Interpretation of
+Quantum Mechanics}. Fundamental Theories of Physics 185. Springer, Cham.
+\url{https://doi.org/10.1007/978-3-319-41285-6}
+
+\bibitem{fr2018}
+Frauchiger, D., and Renner, R. (2018). ``Quantum theory cannot
+consistently describe the use of itself.'' \emph{Nature Communications}
+\textbf{9}, 3711.
+\url{https://doi.org/10.1038/s41467-018-05739-8}
+
 \bibitem{ratcliffe2019}
 Ratcliffe, J.\,G. (2019). \emph{Foundations of Hyperbolic Manifolds},
 3rd ed. Graduate Texts in Mathematics 149. Springer, Cham.
@@ -2862,6 +2995,18 @@ state.'' \emph{Physical Review Letters} \textbf{75}, 1260--1263.
 Jacobson, T. (2016). ``Entanglement equilibrium and the Einstein equation.''
 \emph{Physical Review Letters} \textbf{116}, 201101.
 \url{https://doi.org/10.1103/PhysRevLett.116.201101}
+
+\bibitem{vdbij1982}
+van der Bij, J.\,J., van Dam, H., and Ng, Y.\,J. (1982). ``The exchange
+of massless spin-two particles.'' \emph{Physica A} \textbf{116},
+307--320.
+\url{https://doi.org/10.1016/0378-4371(82)90247-3}
+
+\bibitem{ellis2011}
+Ellis, G.\,F.\,R., van Elst, H., Murugan, J., and Uzan, J.-P. (2011).
+``On the trace-free Einstein equations as a viable alternative to general
+relativity.'' \emph{Classical and Quantum Gravity} \textbf{28}, 225007.
+\url{https://doi.org/10.1088/0264-9381/28/22/225007}
 
 \bibitem{vanraamsdonk2010}
 Van Raamsdonk, M. (2010). ``Building up spacetime with quantum entanglement.''
@@ -2923,6 +3068,11 @@ Mohr, P.\,J., Newell, D.\,B., Taylor, B.\,N., and Tiesinga, E. (2025).
 ``CODATA recommended values of the fundamental physical constants: 2022.''
 \emph{Reviews of Modern Physics} \textbf{97}, 025002.
 \url{https://doi.org/10.1103/RevModPhys.97.025002}
+
+\bibitem{pdg2026}
+Particle Data Group (2026). \emph{Review of Particle Physics: 2026 particle
+listings.}
+\url{https://pdg.lbl.gov/2026/listings/particle_properties.html}
 
 \end{thebibliography}
 
