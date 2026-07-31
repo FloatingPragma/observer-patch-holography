@@ -196,6 +196,15 @@ $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
 $$
 
+The carrier does not contain the name of a force. It provides twelve ports,
+their incidences, and a short menu of symmetry channels. Many response rules
+fit that geometry. Axiom 1 says that the reversible response is faithful,
+complete, compact, and closed under composition. Axiom 2 says that a proper
+change of carrier chart has to be performed inside that same response. The
+single fixed line then becomes decisive: every centreless compact alternative
+has the wrong fixed-space dimension. The Standard Model local algebra is
+selected by geometry, dynamics, and observer agreement acting together.
+
 The $\mathbb Z_6$ is the six-element set of transformations that acts
 trivially on every tensor in the declared matter package. The cover and the
 intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
@@ -492,8 +501,27 @@ views mutually legible without erasing their differences.
 
 Every branch of the construction hangs off one dependency map, and the map
 says which links are theorems and which are unfinished bridges.
-Symmetry determines the available roles. The dynamics within those roles
-determines masses, mixing, binding, and decay.
+The carrier supplies possible channels. Reversible response determines which
+channel combinations form a closed dynamics. Observer agreement determines
+which rechartings must mean the same operation. When a branch needs settled
+records, its repair law must terminate and erase schedule dependence. Maximum
+randomness selects a state only after these constraints have defined the
+feasible set. Physical law appears where the requirements intersect.
+
+The same structure governs measures: counting gives a measure on the finite
+carrier, while agreement and repair decide whether that counting survives as
+a public fact. A physical bridge has to show that the public count is the length,
+energy, probability, or area read by an instrument. The book keeps those
+steps separate because a beautiful finite number is not automatically a
+number measured in nature.
+
+The gauge theorem gives the clearest example: icosahedral incidence fixes the
+twelve-dimensional symmetry module, while the complete-response clause of
+Axiom 1 and the internal-transport clause of Axiom 2 force the local Standard
+Model algebra. The descent repair law is not used in that theorem. It governs
+the public records from which a source realization of the response could be
+reconstructed. Symmetry determines the available roles. The interacting
+dynamics within those roles determines masses, mixing, binding, and decay.
 
 The local ruler carries the conditional comparison surface into numbers. The
 charged-lepton face carrier has an exact positive-chamber identity,
