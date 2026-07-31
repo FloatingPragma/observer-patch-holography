@@ -1,6 +1,7 @@
 {
   "artifact": "fractional_simulator_correctness",
   "claim": "FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC",
+  "freshness_scope": "PINNED_STATIC_SNAPSHOT",
   "material_claim": false,
   "promotion_allowed": false,
   "readiness_gates": {
@@ -33,5 +34,8 @@
     "SOURCE_HAMILTONIAN_FROZEN": true,
     "SOURCE_LAW_FROZEN": true
   },
+  "runtime_capture_commit": "52dc7355a657b7fd0ab413d9aa5321c5f37e2145",
+  "runtime_capture_status": "RUNTIME_CAPTURE_PINNED",
+  "runtime_capture_tree": "4ddf19b45ead9b68ea19a98de115fbb2e1ffdd6a",
   "simulator_quotient_correctness_receipt": true
 }

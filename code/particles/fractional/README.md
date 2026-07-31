@@ -38,5 +38,16 @@ run); `generate_runtime_kernel_harness.py` renders it into the Lean
 regression harness
 `Lean/ObserverPatchHolography/QuotientLumpabilityRuntimeHarness.lean`, which
 runs all four certified checkers on the captured data and pins its pointwise
-equality with the transcribed instance. `--check` (wrapped by the pytest
-suite) fails if either file drifts from the other.
+equality with the transcribed instance. Capture resolves the simulator commit
+and tree through Git and refuses a dirty checkout, including when the source
+checkout is itself a Git worktree. The generated receipt records that immutable
+revision plus hashes of both the capture and Lean harness.
+
+`--check` (wrapped by the pytest suite) fails if the capture and generated Lean
+file drift. That is a static-snapshot check; to also require a current clean
+simulator checkout to match the pinned revision and tree, run:
+
+```bash
+python3 fractional/generate_runtime_kernel_harness.py \
+  --check --sim-repo /path/to/oph-physics-sim
+```

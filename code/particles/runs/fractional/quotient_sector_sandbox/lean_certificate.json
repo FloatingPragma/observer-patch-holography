@@ -39,7 +39,7 @@
     "REPRESENTATIVE_INVARIANCE": true
   },
   "claim": "FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC",
-  "fail_closed": "any certificate_status other than CERTIFICATE_PINNED reads all four certified receipts as False",
+  "fail_closed": "any certificate_status other than CERTIFICATE_PINNED reads all four certified receipts as False; any runtime_capture_status other than RUNTIME_CAPTURE_PINNED makes SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT False",
   "lean_module": "ObserverPatchHolography.QuotientLumpability",
   "lean_source": "Lean/ObserverPatchHolography/QuotientLumpability.lean",
   "material_claim": false,
@@ -74,5 +74,13 @@
     "SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT": true,
     "SOURCE_HAMILTONIAN_FROZEN": true,
     "SOURCE_LAW_FROZEN": true
-  }
+  },
+  "runtime_capture_commit": "52dc7355a657b7fd0ab413d9aa5321c5f37e2145",
+  "runtime_capture_path": "code/particles/fractional/runtime_kernel_capture.json",
+  "runtime_capture_sha256": "sha256:fa498a56691cde3a7b1e3288c7b5b7e30a35a4100f62e55f0b988e0c110b43ae",
+  "runtime_capture_status": "RUNTIME_CAPTURE_PINNED",
+  "runtime_capture_tree": "4ddf19b45ead9b68ea19a98de115fbb2e1ffdd6a",
+  "runtime_freshness": "PINNED_STATIC_SNAPSHOT; run generate_runtime_kernel_harness.py --check --sim-repo <path> to verify a current simulator checkout",
+  "runtime_harness_path": "Lean/ObserverPatchHolography/QuotientLumpabilityRuntimeHarness.lean",
+  "runtime_harness_sha256": "sha256:db526085ab1f55f60e054e24ff9081a3180ff190634caa1927ac44b687dfa4da"
 }

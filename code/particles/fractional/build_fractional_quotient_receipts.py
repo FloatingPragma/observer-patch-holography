@@ -17,6 +17,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import generate_runtime_kernel_harness as runtime_harness
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = ROOT / "particles" / "runs" / "fractional" / "quotient_sector_sandbox"
@@ -35,6 +37,13 @@ LEAN_CERTIFICATE_SOURCE = (
 )
 DEFAULT_CERTIFICATE = (
     Path(__file__).resolve().parent / "fractional_quotient_certificate.json"
+)
+RUNTIME_CAPTURE = Path(__file__).resolve().parent / "runtime_kernel_capture.json"
+RUNTIME_HARNESS = (
+    ROOT.parent
+    / "Lean"
+    / "ObserverPatchHolography"
+    / "QuotientLumpabilityRuntimeHarness.lean"
 )
 LEAN_CERTIFIED_RECEIPTS = (
     "CANONICALIZER_IDEMPOTENCE",
@@ -232,6 +241,28 @@ def load_lean_certificate(certificate: Path | None) -> tuple[dict[str, Any] | No
     return cert, "CERTIFICATE_PINNED"
 
 
+def load_runtime_binding() -> tuple[dict[str, Any] | None, str]:
+    """Bind the captured simulator revision to its generated Lean harness."""
+    if not RUNTIME_CAPTURE.is_file():
+        return None, "RUNTIME_CAPTURE_MISSING"
+    try:
+        cap = json.loads(RUNTIME_CAPTURE.read_text(encoding="utf-8"))
+        rendered = runtime_harness.render(cap)
+    except (
+        json.JSONDecodeError,
+        OSError,
+        KeyError,
+        TypeError,
+        runtime_harness.CaptureError,
+    ):
+        return None, "RUNTIME_CAPTURE_INVALID"
+    if not RUNTIME_HARNESS.is_file():
+        return cap, "RUNTIME_HARNESS_MISSING"
+    if RUNTIME_HARNESS.read_text(encoding="utf-8") != rendered:
+        return cap, "RUNTIME_HARNESS_STALE"
+    return cap, "RUNTIME_CAPTURE_PINNED"
+
+
 DECLARED_SANDBOX_RECEIPTS = tuple(
     name
     for name in SANDBOX_REQUIREMENTS
@@ -248,7 +279,7 @@ def receipt_provenance() -> dict[str, str]:
         elif name == "NO_TARGET_LEAK_DAG":
             provenance[name] = "COMPUTED_TOKEN_SCAN"
         elif name == "SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT":
-            provenance[name] = "DERIVED_CONJUNCTION"
+            provenance[name] = "DERIVED_CONJUNCTION_WITH_RUNTIME_BINDING"
         elif name in SANDBOX_REQUIREMENTS:
             provenance[name] = "DECLARED_SANDBOX_SCAFFOLD"
         else:
@@ -259,6 +290,7 @@ def receipt_provenance() -> dict[str, str]:
 def build_receipts(config: Path | None, certificate: Path | None = None) -> dict[str, bool]:
     leak_hits = target_leak_hits(config)
     cert, cert_status = load_lean_certificate(certificate)
+    _, runtime_status = load_runtime_binding()
     verdicts = cert.get("verdicts", {}) if isinstance(cert, dict) else {}
     receipts = {name: False for name in RECEIPTS}
     for name in DECLARED_SANDBOX_RECEIPTS:
@@ -276,7 +308,7 @@ def build_receipts(config: Path | None, certificate: Path | None = None) -> dict
             "NO_ORBIT_SIZE_BIAS",
             "NO_TARGET_LEAK_DAG",
         )
-    )
+    ) and runtime_status == "RUNTIME_CAPTURE_PINNED"
     return receipts
 
 
@@ -307,6 +339,7 @@ def build_payloads(
     claim, first_blocked, missing = strongest_allowed_claim(receipts)
     leak_hits = target_leak_hits(config)
     cert, cert_status = load_lean_certificate(certificate)
+    runtime_capture, runtime_status = load_runtime_binding()
     cert_path = certificate or DEFAULT_CERTIFICATE
     base = base_payload("fractional_quotient_base", claim=claim, receipts=receipts)
     return {
@@ -336,9 +369,33 @@ def build_payloads(
             "certificate_verdicts": (cert or {}).get("verdicts"),
             "certificate_theorems": (cert or {}).get("theorems"),
             "certificate_witnesses": (cert or {}).get("witnesses"),
+            "runtime_capture_path": str(RUNTIME_CAPTURE.relative_to(ROOT.parent)),
+            "runtime_capture_sha256": (
+                sha256_bytes(RUNTIME_CAPTURE.read_bytes())
+                if RUNTIME_CAPTURE.is_file()
+                else None
+            ),
+            "runtime_capture_status": runtime_status,
+            "runtime_capture_commit": (runtime_capture or {}).get(
+                "captured_at_commit"
+            ),
+            "runtime_capture_tree": (runtime_capture or {}).get("captured_tree"),
+            "runtime_harness_path": str(RUNTIME_HARNESS.relative_to(ROOT.parent)),
+            "runtime_harness_sha256": (
+                sha256_bytes(RUNTIME_HARNESS.read_bytes())
+                if RUNTIME_HARNESS.is_file()
+                else None
+            ),
+            "runtime_freshness": (
+                "PINNED_STATIC_SNAPSHOT; run "
+                "generate_runtime_kernel_harness.py --check --sim-repo <path> "
+                "to verify a current simulator checkout"
+            ),
             "fail_closed": (
                 "any certificate_status other than CERTIFICATE_PINNED reads all four "
-                "certified receipts as False"
+                "certified receipts as False; any runtime_capture_status other than "
+                "RUNTIME_CAPTURE_PINNED makes SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT "
+                "False"
             ),
         },
         "material_presentation.json": {
@@ -419,6 +476,12 @@ def build_payloads(
             **base,
             "artifact": "fractional_simulator_correctness",
             "simulator_quotient_correctness_receipt": receipts["SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT"],
+            "runtime_capture_status": runtime_status,
+            "runtime_capture_commit": (runtime_capture or {}).get(
+                "captured_at_commit"
+            ),
+            "runtime_capture_tree": (runtime_capture or {}).get("captured_tree"),
+            "freshness_scope": "PINNED_STATIC_SNAPSHOT",
         },
         "refinement.json": {
             **base,
