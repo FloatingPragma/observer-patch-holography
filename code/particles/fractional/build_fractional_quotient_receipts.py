@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -19,6 +20,33 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = ROOT / "particles" / "runs" / "fractional" / "quotient_sector_sandbox"
+
+# Lean-to-Python bridge for the four quotient-correctness gates.  The Lean
+# module renders the certified checker verdicts on the exact sandbox instance
+# into a JSON payload and pins the rendered text with `#guard_msgs`, so any
+# drift in the instance data or verdicts fails the Lean build.  The checked-in
+# certificate file carries the same payload; before any verdict is read from
+# it, it is verified byte-for-byte (after parsing) against the pin in the Lean
+# source.  Dependency direction: Lean source -> pinned payload -> checked-in
+# certificate -> this builder.  Nothing here calls Lean at build time, and
+# nothing in Lean depends on this scaffold.
+LEAN_CERTIFICATE_SOURCE = (
+    ROOT.parent / "Lean" / "ObserverPatchHolography" / "QuotientLumpability.lean"
+)
+DEFAULT_CERTIFICATE = (
+    Path(__file__).resolve().parent / "fractional_quotient_certificate.json"
+)
+LEAN_CERTIFIED_RECEIPTS = (
+    "CANONICALIZER_IDEMPOTENCE",
+    "REPRESENTATIVE_INVARIANCE",
+    "QUOTIENT_LUMPABILITY",
+    "NO_ORBIT_SIZE_BIAS",
+)
+_LEAN_PIN_PATTERN = re.compile(
+    r"/--\s*info:\s*(\{.*?\})\s*-/\s*#guard_msgs\s+in\s*"
+    r"#eval\s+IO\.println\s+\w*CertificateJson",
+    re.DOTALL,
+)
 
 CLAIM_TIERS = (
     "DIAGNOSTIC_ONLY",
@@ -125,6 +153,7 @@ FORBIDDEN_SOURCE_TOKENS = (
 
 REQUIRED_FILES = (
     "manifest.json",
+    "lean_certificate.json",
     "material_presentation.json",
     "quotient_schema.json",
     "source_law.json",
@@ -167,11 +196,75 @@ def target_leak_hits(config: Path | None) -> list[str]:
     return sorted(token for token in FORBIDDEN_SOURCE_TOKENS if token in haystack)
 
 
-def build_receipts(config: Path | None) -> dict[str, bool]:
+def lean_pinned_certificates(source: Path = LEAN_CERTIFICATE_SOURCE) -> list[dict[str, Any]]:
+    """Extract every #guard_msgs-pinned certificate payload from the Lean source."""
+    if not source.is_file():
+        return []
+    text = source.read_text(encoding="utf-8")
+    payloads: list[dict[str, Any]] = []
+    for match in _LEAN_PIN_PATTERN.finditer(text):
+        try:
+            payloads.append(json.loads(match.group(1)))
+        except json.JSONDecodeError:
+            continue
+    return payloads
+
+
+def load_lean_certificate(certificate: Path | None) -> tuple[dict[str, Any] | None, str]:
+    """Load the certificate and bind it to the Lean pin.
+
+    Returns the parsed certificate (when parseable) and a status.  Only
+    `CERTIFICATE_PINNED` allows verdicts to be read; every other status reads
+    the four certified receipts as False.
+    """
+    path = certificate or DEFAULT_CERTIFICATE
+    if not path.is_file():
+        return None, "CERTIFICATE_MISSING"
+    try:
+        cert = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None, "CERTIFICATE_UNPARSEABLE"
+    pins = lean_pinned_certificates()
+    if not pins:
+        return cert, "LEAN_PIN_NOT_FOUND"
+    if cert not in pins:
+        return cert, "CERTIFICATE_NOT_PINNED"
+    return cert, "CERTIFICATE_PINNED"
+
+
+DECLARED_SANDBOX_RECEIPTS = tuple(
+    name
+    for name in SANDBOX_REQUIREMENTS
+    if name not in LEAN_CERTIFIED_RECEIPTS
+    and name not in ("NO_TARGET_LEAK_DAG", "SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT")
+)
+
+
+def receipt_provenance() -> dict[str, str]:
+    provenance: dict[str, str] = {}
+    for name in RECEIPTS:
+        if name in LEAN_CERTIFIED_RECEIPTS:
+            provenance[name] = "COMPUTED_FROM_LEAN_CERTIFICATE"
+        elif name == "NO_TARGET_LEAK_DAG":
+            provenance[name] = "COMPUTED_TOKEN_SCAN"
+        elif name == "SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT":
+            provenance[name] = "DERIVED_CONJUNCTION"
+        elif name in SANDBOX_REQUIREMENTS:
+            provenance[name] = "DECLARED_SANDBOX_SCAFFOLD"
+        else:
+            provenance[name] = "DECLARED_UNMET"
+    return provenance
+
+
+def build_receipts(config: Path | None, certificate: Path | None = None) -> dict[str, bool]:
     leak_hits = target_leak_hits(config)
+    cert, cert_status = load_lean_certificate(certificate)
+    verdicts = cert.get("verdicts", {}) if isinstance(cert, dict) else {}
     receipts = {name: False for name in RECEIPTS}
-    for name in SANDBOX_REQUIREMENTS:
+    for name in DECLARED_SANDBOX_RECEIPTS:
         receipts[name] = True
+    for name in LEAN_CERTIFIED_RECEIPTS:
+        receipts[name] = cert_status == "CERTIFICATE_PINNED" and verdicts.get(name) is True
     receipts["NO_TARGET_LEAK_DAG"] = not leak_hits
     receipts["SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT"] = all(
         receipts[name]
@@ -207,12 +300,47 @@ def base_payload(artifact: str, *, claim: str, receipts: dict[str, bool]) -> dic
     }
 
 
-def build_payloads(config: Path | None) -> dict[str, str | dict[str, Any]]:
-    receipts = build_receipts(config)
+def build_payloads(
+    config: Path | None, certificate: Path | None = None
+) -> dict[str, str | dict[str, Any]]:
+    receipts = build_receipts(config, certificate)
     claim, first_blocked, missing = strongest_allowed_claim(receipts)
     leak_hits = target_leak_hits(config)
+    cert, cert_status = load_lean_certificate(certificate)
+    cert_path = certificate or DEFAULT_CERTIFICATE
     base = base_payload("fractional_quotient_base", claim=claim, receipts=receipts)
     return {
+        "lean_certificate.json": {
+            **base,
+            "artifact": "fractional_lean_certificate_binding",
+            "mechanism": (
+                "The Lean module renders its certified checker verdicts on the exact "
+                "sandbox instance into a JSON payload pinned by #guard_msgs; the "
+                "checked-in certificate file must match that pin before any verdict "
+                "is read. Lean depends on nothing here; this builder only reads."
+            ),
+            "lean_module": "ObserverPatchHolography.QuotientLumpability",
+            "lean_source": "Lean/ObserverPatchHolography/QuotientLumpability.lean",
+            "certificate_path": (
+                str(cert_path.resolve().relative_to(ROOT.parent))
+                if cert_path.resolve().is_relative_to(ROOT.parent)
+                else str(cert_path)
+            ),
+            "certificate_sha256": (
+                sha256_bytes(cert_path.read_bytes()) if cert_path.is_file() else None
+            ),
+            "certificate_status": cert_status,
+            "certified_receipts": {
+                name: receipts[name] for name in LEAN_CERTIFIED_RECEIPTS
+            },
+            "certificate_verdicts": (cert or {}).get("verdicts"),
+            "certificate_theorems": (cert or {}).get("theorems"),
+            "certificate_witnesses": (cert or {}).get("witnesses"),
+            "fail_closed": (
+                "any certificate_status other than CERTIFICATE_PINNED reads all four "
+                "certified receipts as False"
+            ),
+        },
         "material_presentation.json": {
             **base,
             "artifact": "fractional_material_presentation",
@@ -227,6 +355,8 @@ def build_payloads(config: Path | None) -> dict[str, str | dict[str, Any]]:
             "representative_invariance": receipts["REPRESENTATIVE_INVARIANCE"],
             "quotient_lumpability": receipts["QUOTIENT_LUMPABILITY"],
             "no_orbit_size_bias": receipts["NO_ORBIT_SIZE_BIAS"],
+            "verdict_source": "lean_certificate.json",
+            "certificate_status": cert_status,
         },
         "source_law.json": {
             **base,
@@ -308,7 +438,12 @@ def build_payloads(config: Path | None) -> dict[str, str | dict[str, Any]]:
             "artifact": "fractional_failure_states",
             "fail_closed_states": list(FAIL_CLOSED_STATES),
         },
-        "receipts.json": {**base, "artifact": "fractional_receipts", "readiness_gates": receipts},
+        "receipts.json": {
+            **base,
+            "artifact": "fractional_receipts",
+            "readiness_gates": receipts,
+            "receipt_provenance": receipt_provenance(),
+        },
         "claim_ladder.json": {
             **base,
             "artifact": "fractional_claim_ladder",
@@ -332,8 +467,10 @@ def write_payload(path: Path, payload: str | dict[str, Any]) -> None:
         path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def build_bundle(out_dir: Path, *, config: Path | None) -> dict[str, Any]:
-    payloads = build_payloads(config)
+def build_bundle(
+    out_dir: Path, *, config: Path | None, certificate: Path | None = None
+) -> dict[str, Any]:
+    payloads = build_payloads(config, certificate)
     out_dir.mkdir(parents=True, exist_ok=True)
     file_hashes: dict[str, str] = {}
     for rel_path, payload in payloads.items():
@@ -367,9 +504,20 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build fractional quotient-sector receipt scaffold.")
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     parser.add_argument("--config")
+    parser.add_argument(
+        "--certificate",
+        help=(
+            "Path to a Lean-pinned verdict certificate "
+            f"(default: {DEFAULT_CERTIFICATE})"
+        ),
+    )
     args = parser.parse_args()
 
-    manifest = build_bundle(Path(args.output), config=Path(args.config) if args.config else None)
+    manifest = build_bundle(
+        Path(args.output),
+        config=Path(args.config) if args.config else None,
+        certificate=Path(args.certificate) if args.certificate else None,
+    )
     print(Path(args.output) / "manifest.json")
     print(
         f"claim={manifest['strongest_allowed_claim']} "

@@ -1,0 +1,54 @@
+{
+  "artifact": "fractional_quotient_lean_negative_control_certificate",
+  "instance": "fractionalSandbox negative controls: fractionalSandboxBadKernel (integer rate weights), fractionalSandboxBadCanonicalizer, fractionalSandboxBadObservable, fractionalSandboxBiasedOrbitSize",
+  "lean_module": "ObserverPatchHolography.QuotientLumpability",
+  "theorems": {
+    "CANONICALIZER_IDEMPOTENCE": [
+      "fractionalSandboxBadCanonicalizer_rejected",
+      "fractionalSandboxBadCanonicalizer_not_idempotent"
+    ],
+    "NO_ORBIT_SIZE_BIAS": [
+      "fractionalSandboxBiasedOrbit_rejected",
+      "fractionalSandboxBiasedOrbit_not_free"
+    ],
+    "QUOTIENT_LUMPABILITY": [
+      "fractionalSandboxBadKernel_rejected",
+      "fractionalSandboxBadKernel_not_lumpable"
+    ],
+    "REPRESENTATIVE_INVARIANCE": [
+      "fractionalSandboxBadObservable_rejected",
+      "fractionalSandboxBadObservable_not_invariant"
+    ]
+  },
+  "verdicts": {
+    "CANONICALIZER_IDEMPOTENCE": false,
+    "NO_ORBIT_SIZE_BIAS": false,
+    "QUOTIENT_LUMPABILITY": false,
+    "REPRESENTATIVE_INVARIANCE": false
+  },
+  "witnesses": {
+    "CANONICALIZER_IDEMPOTENCE": "a0",
+    "NO_ORBIT_SIZE_BIAS": {
+      "kind": "tracks_hidden_count",
+      "positive_pair": [
+        "anyon_e_over_3",
+        "vacuum"
+      ],
+      "size_pair": [
+        "anyon_e_over_3",
+        "vacuum"
+      ]
+    },
+    "QUOTIENT_LUMPABILITY": {
+      "fibre": "vacuum",
+      "pair": [
+        "a0",
+        "a1"
+      ]
+    },
+    "REPRESENTATIVE_INVARIANCE": [
+      "a0",
+      "a1"
+    ]
+  }
+}

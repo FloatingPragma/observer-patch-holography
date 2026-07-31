@@ -1,0 +1,78 @@
+{
+  "artifact": "fractional_lean_certificate_binding",
+  "certificate_path": "code/particles/fractional/fractional_quotient_certificate.json",
+  "certificate_sha256": "sha256:eea6802df116087555aefd06295081f8119b0da60e610c662c6f7e467b6b37b9",
+  "certificate_status": "CERTIFICATE_PINNED",
+  "certificate_theorems": {
+    "CANONICALIZER_IDEMPOTENCE": [
+      "fractionalSandboxCanonicalizer_accepted",
+      "fractionalSandboxCanonicalizer_idempotent",
+      "checkCanonicalizerIdempotent_iff"
+    ],
+    "NO_ORBIT_SIZE_BIAS": [
+      "fractionalSandboxNoOrbitSizeBias_accepted",
+      "fractionalSandboxNoOrbitSizeBias",
+      "checkNoOrbitSizeBias_iff"
+    ],
+    "QUOTIENT_LUMPABILITY": [
+      "fractionalSandbox_accepted",
+      "fractionalSandbox_lumpable",
+      "checkLumpable_iff"
+    ],
+    "REPRESENTATIVE_INVARIANCE": [
+      "fractionalSandboxRepresentativeInvariant_accepted",
+      "fractionalSandboxRepresentativeInvariant",
+      "checkRepresentativeInvariant_iff"
+    ]
+  },
+  "certificate_verdicts": {
+    "CANONICALIZER_IDEMPOTENCE": true,
+    "NO_ORBIT_SIZE_BIAS": true,
+    "QUOTIENT_LUMPABILITY": true,
+    "REPRESENTATIVE_INVARIANCE": true
+  },
+  "certificate_witnesses": null,
+  "certified_receipts": {
+    "CANONICALIZER_IDEMPOTENCE": true,
+    "NO_ORBIT_SIZE_BIAS": true,
+    "QUOTIENT_LUMPABILITY": true,
+    "REPRESENTATIVE_INVARIANCE": true
+  },
+  "claim": "FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC",
+  "fail_closed": "any certificate_status other than CERTIFICATE_PINNED reads all four certified receipts as False",
+  "lean_module": "ObserverPatchHolography.QuotientLumpability",
+  "lean_source": "Lean/ObserverPatchHolography/QuotientLumpability.lean",
+  "material_claim": false,
+  "mechanism": "The Lean module renders its certified checker verdicts on the exact sandbox instance into a JSON payload pinned by #guard_msgs; the checked-in certificate file must match that pin before any verdict is read. Lean depends on nothing here; this builder only reads.",
+  "promotion_allowed": false,
+  "readiness_gates": {
+    "ACTIVE_PROJECTOR_CERTIFICATE": true,
+    "BAND_GEOMETRY_CERTIFICATE": true,
+    "BINDING_DRIFT_BOUND": true,
+    "BULK_EDGE_CONSISTENCY_CERTIFICATE": true,
+    "CANONICALIZER_IDEMPOTENCE": true,
+    "CHERN_BAND_CERTIFICATE": true,
+    "EDGE_COLLAR_CERTIFICATE": true,
+    "EXPERIMENT_SPECIFIC_SOURCE_LAW_RECEIPT": false,
+    "FLUX_INSERTION_CHARGE_PUMP_CERTIFICATE": true,
+    "FROZEN_COMPARISON_RECEIPT": true,
+    "FROZEN_SAMPLE_COMPARISON_RECEIPT": false,
+    "GAP_CERTIFICATE": true,
+    "GROUND_STATE_DEGENERACY_CERTIFICATE": true,
+    "HALL_CONDUCTANCE_CERTIFICATE": true,
+    "K_T_LEDGER_CERTIFICATE": true,
+    "LINE_FAN_FROZEN_PREDICTION": true,
+    "MATERIAL_QUOTIENT_NORMAL_FORM_RECEIPT": true,
+    "MATERIAL_SPECIFIC_HAMILTONIAN_PROOF_RECEIPT": false,
+    "NO_ORBIT_SIZE_BIAS": true,
+    "NO_TARGET_LEAK_DAG": true,
+    "OPTICAL_MODULE_CERTIFICATE": true,
+    "OPTICAL_OPERATOR_CERTIFICATE": true,
+    "OPTICAL_SECTOR_IDENTIFIED": true,
+    "QUOTIENT_LUMPABILITY": true,
+    "REPRESENTATIVE_INVARIANCE": true,
+    "SIMULATOR_QUOTIENT_CORRECTNESS_RECEIPT": true,
+    "SOURCE_HAMILTONIAN_FROZEN": true,
+    "SOURCE_LAW_FROZEN": true
+  }
+}

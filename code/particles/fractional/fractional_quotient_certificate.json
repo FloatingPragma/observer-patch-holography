@@ -1,0 +1,72 @@
+{
+  "artifact": "fractional_quotient_lean_certificate",
+  "instance": "fractionalSandbox: oph-physics-sim@87767593 oph_fractional/compare.py:47-61",
+  "kernel": {
+    "a0": {
+      "a0": "0/1",
+      "a1": "1/2",
+      "vac": "1/2"
+    },
+    "a1": {
+      "a0": "1/2",
+      "a1": "0/1",
+      "vac": "1/2"
+    },
+    "vac": {
+      "a0": "0/1",
+      "a1": "0/1",
+      "vac": "1/1"
+    }
+  },
+  "lean_module": "ObserverPatchHolography.QuotientLumpability",
+  "orbit_sizes": {
+    "anyon_e_over_3": "1",
+    "vacuum": "1"
+  },
+  "quotient_map": {
+    "a0": "anyon_e_over_3",
+    "a1": "anyon_e_over_3",
+    "vac": "vacuum"
+  },
+  "sector_weights": {
+    "anyon_e_over_3": "1/1",
+    "vacuum": "1/1"
+  },
+  "sectors": [
+    "anyon_e_over_3",
+    "vacuum"
+  ],
+  "states": [
+    "a0",
+    "a1",
+    "vac"
+  ],
+  "theorems": {
+    "CANONICALIZER_IDEMPOTENCE": [
+      "fractionalSandboxCanonicalizer_accepted",
+      "fractionalSandboxCanonicalizer_idempotent",
+      "checkCanonicalizerIdempotent_iff"
+    ],
+    "NO_ORBIT_SIZE_BIAS": [
+      "fractionalSandboxNoOrbitSizeBias_accepted",
+      "fractionalSandboxNoOrbitSizeBias",
+      "checkNoOrbitSizeBias_iff"
+    ],
+    "QUOTIENT_LUMPABILITY": [
+      "fractionalSandbox_accepted",
+      "fractionalSandbox_lumpable",
+      "checkLumpable_iff"
+    ],
+    "REPRESENTATIVE_INVARIANCE": [
+      "fractionalSandboxRepresentativeInvariant_accepted",
+      "fractionalSandboxRepresentativeInvariant",
+      "checkRepresentativeInvariant_iff"
+    ]
+  },
+  "verdicts": {
+    "CANONICALIZER_IDEMPOTENCE": true,
+    "NO_ORBIT_SIZE_BIAS": true,
+    "QUOTIENT_LUMPABILITY": true,
+    "REPRESENTATIVE_INVARIANCE": true
+  }
+}

@@ -1,6 +1,7 @@
 {
   "artifact": "fractional_quotient_schema",
   "canonicalizer_idempotence": true,
+  "certificate_status": "CERTIFICATE_PINNED",
   "claim": "FRACTIONAL_QUOTIENT_SANDBOX_DIAGNOSTIC",
   "material_claim": false,
   "no_orbit_size_bias": true,
@@ -36,5 +37,6 @@
     "SOURCE_HAMILTONIAN_FROZEN": true,
     "SOURCE_LAW_FROZEN": true
   },
-  "representative_invariance": true
+  "representative_invariance": true,
+  "verdict_source": "lean_certificate.json"
 }
