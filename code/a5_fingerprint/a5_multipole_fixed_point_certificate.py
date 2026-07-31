@@ -746,7 +746,7 @@ def build_pole_frame(i6_cartesian: Poly) -> dict[str, Any]:
     # In this frame Re((x+iy)^5) carries exactly the s^5 cos(5 phi)
     # factor, so the claim is:
     #   i6_even  == P6(z)  and  s^5-part == (21/8) z Re((x+iy)^5) / s^5
-    # where the stored s5 bucket already has the s^5 factored out as a
+    # where the stored s5 bucket carries the s^5 factored out as a
     # polynomial in (x, y) of degree five over the ring radius; concretely
     # the bucket must equal (21/8) z * Re5(x, y) / s_up^5 with
     # Re5(x, y) = x^5 - 10 x^3 y^2 + 5 x y^4.

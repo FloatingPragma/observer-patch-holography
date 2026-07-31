@@ -27,9 +27,10 @@ selection premise:
   certified here for the equal-weight stencil and each fundamental
   orbit, the first artifact sits at ``a^4 k^6`` and one binary
   refinement step suppresses it by exactly ``1/16`` at that order. A
-  tuned vanishing coefficient moves the first artifact to a higher even
-  invariant spin; the exact tuned-cancellation control below exhibits
-  one such positive-weight member.
+  tuned vanishing coefficient moves the first artifact to higher order
+  in ``a``; for members whose directions share one radius, such as the
+  exhibited control, the spin-six content cancels at every order and the
+  first artifact moves to a higher even invariant spin.
 * **Constructive verification.** The three fundamental orbits (twelve
   vertex, twenty face, thirty edge directions) are certified explicitly:
   second and fourth moment sums isotropic, sixth moment sums equal to an
@@ -296,6 +297,39 @@ def tuned_cancellation_control(i6_reduced) -> dict[str, Any]:
     cancelled = q5_add(vertex_multiple, q5_mul(weight, face_multiple))
     require(cancelled == ZERO, "tuned cancellation drift")
 
+    # single-radius proportionality lemma: for a unit orbit O the
+    # spin-six content of sum_{d in O} (d.n)^{2m} is c_{2m,6} s_O with
+    # one orbit scalar s_O = the I6 multiple of sum_{d in O} P6(d.n)
+    # and c_{2m,6} > 0, so cancelling s_v + (27/25) s_f kills spin six
+    # at every order for this member. Certify the orbit scalars.
+    orbits_lemma = orbit_directions()
+    i6_probe = next(m for m in i6_reduced if sum(m) > 0)
+    scalars = {}
+    for name in ("vertex_12", "face_20"):
+        data = orbits_lemma[name]
+        inv2 = q5_div(ONE, data["norm_sq"])
+        total = p_zero()
+        for power, coeff in enumerate(base.LEGENDRE[6]):
+            if coeff == 0:
+                continue
+            raw = moment_sum(data["dirs"], power)
+            if power % 2 == 1:
+                require(p_is_zero(raw), "odd moment leak in lemma")
+                continue
+            total = p_add(
+                total,
+                p_scale_q5(raw, q5_scale(q5_pow(inv2, power // 2), coeff)),
+            )
+        reduced = p_reduce_sphere(total)
+        scalars[name] = q5_div(reduced.get(i6_probe, ZERO), i6_reduced[i6_probe])
+    require(scalars["vertex_12"] == q5(Fraction(132, 25)), "s_v drift")
+    require(scalars["face_20"] == q5(Fraction(-44, 9)), "s_f drift")
+    require(
+        q5_add(scalars["vertex_12"], q5_mul(weight, scalars["face_20"]))
+        == ZERO,
+        "every-order cancellation scalar drift",
+    )
+
     # independent recomputation from the orbit sums
     orbits = orbit_directions()
     probe = next(m for m in i6_reduced if sum(m) > 0)
@@ -321,6 +355,20 @@ def tuned_cancellation_control(i6_reduced) -> dict[str, Any]:
         ),
         "weights_positive": True,
         "k6_i6_coefficient": "0 (exact cancellation 64/175 - (27/25)(64/189))",
+        "single_radius_lemma": (
+            "for a unit orbit the spin-six content of every moment is one "
+            "positive multiple of the orbit scalar s_O, the I6 multiple "
+            "of the orbit's P6 sum; certified s_v = 132/25, s_f = -44/9, "
+            "and s_v + (27/25) s_f = 0, so this member's spin-six content "
+            "vanishes at every order and its first artifact sits at a "
+            "higher even invariant spin"
+        ),
+        "multi_radius_note": (
+            "a tuned member whose directions span several radii can "
+            "cancel spin six at one order only, so in general a vanishing "
+            "sixth-moment coefficient moves the first artifact to higher "
+            "order in a rather than to a higher spin"
+        ),
         "reading": (
             "the leading-order and 1/16 clauses hold under the certified "
             "nonvanishing-coefficient condition and fail on tuned members "
@@ -346,7 +394,7 @@ def universality_statement() -> dict[str, Any]:
             "the order a^{2m-2} k^{2m} angular content is an invariant "
             "polynomial of degree 2m; its harmonic components sit at even "
             "levels l <= 2m; the exact invariant table forces zero at "
-            "l = 2, 4 and a one-dimensional space at l = 6, so the class "
+            "l = 2, 4, 8 and a one-dimensional space at l = 6, so the class "
             "is exactly isotropic through spin five at every order, every "
             "directional term below spin ten is one multiple of the same "
             "normalized I6, and the possible artifact spins are exactly "
@@ -371,7 +419,8 @@ def universality_statement() -> dict[str, Any]:
                 "each fundamental orbit, the first artifact sits at "
                 "a^4 k^6 and one binary refinement step suppresses it by "
                 "exactly 1/16 at that order; a tuned vanishing coefficient "
-                "moves the first artifact to a higher even invariant spin"
+                "moves the first artifact to higher order in a, and for "
+                "single-radius members to a higher even invariant spin"
             ),
             "selection_premise_weakened": (
                 "the issue #654 stencil receipt's declared equal-weight "

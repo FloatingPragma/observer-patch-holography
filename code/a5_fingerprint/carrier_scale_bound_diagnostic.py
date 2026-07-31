@@ -16,22 +16,28 @@ Chain, exact where the sources are exact:
   dispersion at any order and the strongest published linear bounds
   constrain it not at all;
 * the standard quadratic parameterization is
-  ``omega^2 = k^2 [1 - (k/E_QG2)^2]``, so the identification is exact:
-  ``a = sqrt(20) / E_QG2``;
-* the consumed public bound is E_QG2 > 1.3 x 10^11 GeV at 95 percent
-  confidence for subluminal quadratic dispersion from GRB 090510
-  (Vasileiou et al., Physical Review D 87, 122001 (2013)); the
-  conversion constant is hbar c = 1.97327 x 10^-16 GeV m (CODATA,
+  ``omega^2 = k^2 [1 - (k/E_QG2)^2]``, so the identification is exact at
+  the defining leading order: ``a = sqrt(20) / E_QG2``;
+* the selection rule is declared: consume the strongest published
+  subluminal quadratic time-of-flight bound. That bound is
+  E_QG2 > 6.9 x 10^11 GeV at 95 percent confidence from GRB 221009A
+  (LHAASO collaboration, Physical Review Letters 133, 071501 (2024));
+  the earlier Fermi bound E_QG2 > 1.3 x 10^11 GeV (Vasileiou et al.,
+  Physical Review D 87, 122001 (2013)) is retained as the cross-check.
+  The conversion constant is hbar c = 1.97327 x 10^-16 GeV m (CODATA,
   declared exposed input).
 
 Reading: the carrier grain on this branch is finer than about
-7 x 10^-27 m, roughly 4 x 10^8 Planck lengths above the Planck length,
-so a Planck-scale carrier passes with eight orders of headroom and the
-diagnostic neither confirms nor endangers the framework. The
-anisotropic spin-six residue at the same scale enters at (a k)^4 and is
-far below current sensitivity at accessible energies; the isotropic
-tower carries the binding constraint, and the spin-six shape stays the
-discriminating fingerprint for any future resolved anisotropy.
+1.3 x 10^-27 m, roughly 8 x 10^7 Planck lengths above the Planck
+length, so a Planck-scale carrier passes with nearly eight orders of
+headroom and the diagnostic neither confirms nor endangers the
+framework. The anisotropic spin-six residue at the same scale enters at
+(a k)^4, far below the sensitivity of the consumed searches; the
+isotropic tower carries the binding constraint, the spin-six shape
+stays the discriminating fingerprint for any resolved anisotropy, and
+the consumed limit is isotropic while the FZ-11 kill bands are
+anisotropic-shape statements, so this consumption is disjoint from
+every registered kill direction.
 Off-stencil members of the invariant class change the order-one
 isotropic coefficient, so the bound is exact on the declared branch and
 order-of-magnitude on the class. Ladder row FZ-11 and the issue #639
@@ -56,7 +62,8 @@ SCHEMA = "oph.carrier_scale_bound_receipt.v1"
 STATUS = "EXPOSED_RETROSPECTIVE_CARRIER_SCALE_BOUND__DIAGNOSTIC_ONLY"
 
 # declared exposed public inputs
-E_QG2_GEV = Fraction(13, 10) * 10**11          # Vasileiou et al. 2013, 95% CL
+E_QG2_GEV = Fraction(69, 10) * 10**11          # LHAASO 2024, 95% CL, subluminal
+E_QG2_CROSSCHECK_GEV = Fraction(13, 10) * 10**11  # Vasileiou et al. 2013
 HBARC_GEV_M = Fraction(197327, 10**21)          # 1.97327e-16 GeV m, CODATA
 PLANCK_LENGTH_M = Fraction(1616255, 10**41)     # 1.616255e-35 m, CODATA
 
@@ -78,8 +85,11 @@ def sci(x: Fraction, digits: int = 4) -> str:
     while y < 1:
         y *= 10
         exponent -= 1
-    scaled = y * 10 ** (digits - 1)
+    scaled = y * 10 ** (digits - 1) + Fraction(1, 2)
     mantissa_int = scaled.numerator // scaled.denominator
+    if mantissa_int >= 10**digits:
+        mantissa_int //= 10
+        exponent += 1
     mantissa = str(mantissa_int)
     return f"{mantissa[0]}.{mantissa[1:]}e{exponent:+03d}"
 
@@ -135,21 +145,44 @@ def build_receipt() -> dict[str, Any]:
             ),
         },
         "exposed_public_inputs": {
+            "selection_rule": (
+                "consume the strongest published subluminal quadratic "
+                "time-of-flight bound; retain the previous strongest as "
+                "the cross-check"
+            ),
             "E_QG2_GeV": sci(E_QG2_GEV),
             "source": (
+                "LHAASO collaboration, Physical Review Letters 133, "
+                "071501 (2024): E_QG2 > 6.9e11 GeV at 95 percent "
+                "confidence, subluminal quadratic vacuum dispersion, "
+                "GRB 221009A"
+            ),
+            "crosscheck_E_QG2_GeV": sci(E_QG2_CROSSCHECK_GEV),
+            "crosscheck_source": (
                 "Vasileiou et al., Physical Review D 87, 122001 (2013): "
-                "E_QG2 > 1.3e11 GeV at 95 percent confidence, subluminal "
-                "quadratic vacuum dispersion, GRB 090510"
+                "E_QG2 > 1.3e11 GeV, subluminal quadratic, GRB 090510"
             ),
             "hbar_c_GeV_m": sci(HBARC_GEV_M),
             "planck_length_m": sci(PLANCK_LENGTH_M),
+            "frame_note": (
+                "the bound is consumed in the observer frame; the "
+                "carrier-frame statement differs by boost admixtures at "
+                "the frame velocity, negligible for an isotropic bound"
+            ),
             "exposure_class": "EXPOSED_RETROSPECTIVE",
+            "exposure_vocabulary_note": (
+                "deliberate extension of the four-class exposed-data "
+                "vocabulary: retrospective consumption of a published "
+                "upper limit with no comparison and no score"
+            ),
         },
         "translation": {
             "identification": (
                 "omega^2 = k^2[1 - (a^2/20)k^2] matches "
-                "omega^2 = k^2[1 - (k/E_QG2)^2] exactly, so "
-                "a = sqrt(20)/E_QG2"
+                "omega^2 = k^2[1 - (k/E_QG2)^2] exactly at the defining "
+                "leading order, so a = sqrt(20)/E_QG2; the published "
+                "parameterization writes the correction in photon energy, "
+                "a difference of relative order (k/E_QG2)^2"
             ),
             "no_linear_term": (
                 "the hop expansion carries even powers only, so the class "
@@ -163,18 +196,21 @@ def build_receipt() -> dict[str, Any]:
             "planck_length_headroom": sci(headroom),
             "reading": (
                 "the carrier grain on the declared branch is finer than "
-                "about 7e-27 m; a Planck-scale carrier sits eight orders "
-                "of magnitude below the bound, so current public data "
-                "neither confirm nor endanger the framework and every "
-                "future tightening lowers the ceiling"
+                "about 1.3e-27 m; a Planck-scale carrier sits nearly "
+                "eight orders of magnitude below the ceiling, so the "
+                "consumed public bounds neither confirm nor endanger the "
+                "framework, and each published tightening lowers the "
+                "ceiling"
             ),
             "spin_six_note": (
                 "at the bound-saturating scale the anisotropic spin-six "
-                "residue enters at (a k)^4 and is far below current "
-                "sensitivity at accessible energies; the isotropic tower "
-                "carries the binding constraint and the rigid spin-six "
-                "template stays the discriminating fingerprint for any "
-                "future resolved anisotropy"
+                "residue enters at (a k)^4, far below the sensitivity of "
+                "the consumed searches; the isotropic tower carries the "
+                "binding constraint, the rigid spin-six template stays "
+                "the discriminating fingerprint for any resolved "
+                "anisotropy, and this isotropic consumption is disjoint "
+                "from the anisotropic-shape kill bands of ladder row "
+                "FZ-11"
             ),
         },
         "comparison_boundary": {
