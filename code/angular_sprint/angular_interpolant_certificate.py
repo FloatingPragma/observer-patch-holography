@@ -32,18 +32,29 @@ certificate proves, in exact arithmetic:
   = (0, 0, 11/25, 0, 247/1875, 1071/3125, 0)``.
 
 The transfer decision follows the frozen stop rules without comparison
-data. Two source-admissible support-field completions are exhibited, the
-band-limited interpolant and the equal-port comb, and their normalized
-angular statistics disagree exactly: the interpolant carries zero power at
-level six while the comb carries ``11/25`` there, so no declared source
-premise selects between them and the row closes transfer-nonidentifiable.
-The bounded ancestry search over the registered source surfaces records
-that no producer emits a geometry-imprint sky field or a second
-independently observed channel, so the normalized parity cross-response has
-no two-channel input and a bare amplitude would be a free signal amplitude.
-The interpolant, the equal-port carrier measure, and the two-channel parity
-response stay three distinct source objects. No public measurement is read
-and no comparison is opened.
+data. Two completions of the twelve base-port values are exhibited and
+registered as distinct source objects: the smooth band-limited canonical
+interpolant of degree at most three and the discrete equal-port carrier
+measure. Their normalized angular statistics disagree exactly: the
+interpolant carries zero power at level six while the comb carries
+``11/25`` there, so the twelve base-port values alone do not select the
+sky completion. That is static base-port underdetermination, not
+nonidentifiability of the full source: the refinement tower,
+coarse-graining, and the repair semigroup are registered source structure
+that the static witness ignores, and for the canonical degree<=3 band a
+same-codomain smooth counterfunction vanishing on the twelve base ports
+is separated by the level-one refinement vertex set
+(``code/angular_sprint/refinement_transfer_certificate.py``). The
+transfer row stays open pending the refinement, coarse-graining, and
+repair-semigroup transfer decision under the registered repair law
+(``oph-physics-sim docs/CANONICAL_REPAIR_LAW.md``). The bounded ancestry
+search over the registered source surfaces records that no producer
+emits a geometry-imprint sky field or a second independently observed
+channel, so the normalized parity cross-response has no two-channel
+input and a bare amplitude would be a free signal amplitude. The
+interpolant, the equal-port carrier measure, and the two-channel parity
+response stay three distinct source objects. No public measurement is
+read and no comparison is opened.
 """
 
 from __future__ import annotations
@@ -61,7 +72,10 @@ RUNTIME = HERE / "runtime"
 RECEIPT_PATH = RUNTIME / "angular_template_receipt.json"
 
 SCHEMA = "oph.angular_template_receipt.v1"
-STATUS = "EXACT_SOURCE_TEMPLATE__TRANSFER_NONIDENTIFIABLE"
+STATUS = (
+    "EXACT_SOURCE_TEMPLATE__STATIC_BASE_PORT_TRANSFER_NONIDENTIFIABLE__"
+    "REFINEMENT_REPAIR_SKY_TRANSFER_OPEN"
+)
 MAX_LEVEL = 14
 
 
@@ -724,22 +738,56 @@ def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[
         "a registered surface emits a second observed channel",
     )
     return {
+        "verdict": "STATIC_BASE_PORT_UNDERDETERMINATION",
+        "verdict_typing": (
+            "the two completions are distinct source objects, a smooth "
+            "band-limited interpolant and a discrete equal-port carrier "
+            "measure; their exact level-six power disagreement certifies "
+            "that the twelve base-port values alone do not select the sky "
+            "completion; it does not certify nonidentifiability of the "
+            "full source, because the refinement tower, coarse-graining, "
+            "and the repair semigroup are registered source structure "
+            "that the static witness ignores"
+        ),
         "stop_rule": (
-            "two source-admissible transfer completions giving different "
-            "normalized statistics close the row transfer-nonidentifiable "
-            "without opening comparison data"
+            "two distinct source objects that agree on the twelve base "
+            "ports and disagree in an exact normalized statistic close "
+            "the static base-port row underdetermined without opening "
+            "comparison data; the row does not close "
+            "transfer-nonidentifiable, and the sky-transfer row stays "
+            "open pending the refinement, coarse-graining, and "
+            "repair-semigroup transfer decision"
         ),
         "completion_a": {
             "name": "band-limited canonical interpolant",
+            "object_type": "smooth band-limited field of degree at most 3",
             "support": "levels zero through three",
             "normalized_power_at_level_6": interpolant_power["6"],
         },
         "completion_b": {
             "name": "equal-port angular comb",
+            "object_type": "discrete equal-port carrier measure",
             "support": "all even levels with the exact comb weights",
             "normalized_power_at_level_6": comb_power["6"],
         },
         "normalized_statistics_disagree_exactly": disagreement,
+        "static_base_port_underdetermination": disagreement,
+        "refinement_frontier": {
+            "separation_witness": (
+                "a same-codomain smooth counterfunction vanishing on the "
+                "twelve base ports is separated by the level-one "
+                "refinement vertex set for the canonical degree<=3 band"
+            ),
+            "producer": (
+                "code/angular_sprint/refinement_transfer_certificate.py"
+            ),
+            "future_verdict_requirement": (
+                "any future nonidentifiability verdict must exhibit two "
+                "source-admissible completions that intertwine "
+                "refinement, coarse-graining, and the repair semigroup"
+            ),
+            "repair_law": "oph-physics-sim docs/CANONICAL_REPAIR_LAW.md",
+        },
         "geometry_imprint_search": {
             **sweep,
             "note": (
@@ -826,8 +874,9 @@ def build_receipt() -> dict[str, Any]:
     )
     decision = transfer_decision(data, equal_port)
     require(
-        decision["normalized_statistics_disagree_exactly"],
-        "transfer disagreement witness failed",
+        decision["normalized_statistics_disagree_exactly"]
+        and decision["static_base_port_underdetermination"],
+        "static base-port disagreement witness failed",
     )
     receipt = {
         "schema": SCHEMA,
@@ -857,7 +906,20 @@ def build_receipt() -> dict[str, Any]:
             "public_measurement_read": False,
             "comparison_permitted": False,
         },
-        "reopen_condition": (
+        "row_state": {
+            "static_base_port_underdetermination": "CERTIFIED",
+            "refinement_repair_sky_transfer": "OPEN",
+            "close_conditions": (
+                "the transfer row closes identifiable when a selection "
+                "certificate derives the sky completion from the "
+                "registered refinement, coarse-graining, and "
+                "repair-semigroup structure; it closes nonidentifiable "
+                "only when two source-admissible completions are "
+                "exhibited that intertwine refinement, coarse-graining, "
+                "and the repair semigroup"
+            ),
+        },
+        "evaluation_condition": (
             "a source-derived geometry-imprint field or a second "
             "independently observed channel, together with a source premise "
             "selecting one transfer completion"

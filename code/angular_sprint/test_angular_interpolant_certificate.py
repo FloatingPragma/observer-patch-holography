@@ -7,11 +7,16 @@ import pytest
 import angular_interpolant_certificate as ac
 
 
+NARROWED_STATUS = (
+    "EXACT_SOURCE_TEMPLATE__STATIC_BASE_PORT_TRANSFER_NONIDENTIFIABLE__"
+    "REFINEMENT_REPAIR_SKY_TRANSFER_OPEN"
+)
+RETIRED_STATUS = "EXACT_SOURCE_TEMPLATE__TRANSFER_NONIDENTIFIABLE"
+
+
 def test_receipt_builds_with_expected_status() -> None:
     receipt = ac.build_receipt()
-    assert receipt["status"] == (
-        "EXACT_SOURCE_TEMPLATE__TRANSFER_NONIDENTIFIABLE"
-    )
+    assert receipt["status"] == NARROWED_STATUS
     assert receipt["projector_certificate"]["mutually_orthogonal"] is True
     assert receipt["projector_certificate"]["resolution_of_identity"] is True
     assert receipt["projector_certificate"]["ranks"] == ["1", "3", "5", "3"]
@@ -39,13 +44,63 @@ def test_equal_port_vector_matches_plan_values() -> None:
 def test_transfer_decision_disagreement_is_exact() -> None:
     receipt = ac.build_receipt()
     decision = receipt["transfer_decision"]
+    assert decision["verdict"] == "STATIC_BASE_PORT_UNDERDETERMINATION"
     assert decision["normalized_statistics_disagree_exactly"] is True
+    assert decision["static_base_port_underdetermination"] is True
     assert decision["completion_a"]["normalized_power_at_level_6"] == "0"
     assert decision["completion_b"]["normalized_power_at_level_6"] == "11/25"
+    assert decision["completion_a"]["object_type"] == (
+        "smooth band-limited field of degree at most 3"
+    )
+    assert decision["completion_b"]["object_type"] == (
+        "discrete equal-port carrier measure"
+    )
     search = decision["geometry_imprint_search"]
     assert search["sky_field_emission_found"] is False
     assert search["second_independent_channel_found"] is False
     assert len(decision["distinct_source_objects"]) == 3
+
+
+def test_stop_rule_keeps_transfer_row_open() -> None:
+    receipt = ac.build_receipt()
+    decision = receipt["transfer_decision"]
+    assert "does not close" in decision["stop_rule"]
+    assert "stays open" in decision["stop_rule"]
+    assert receipt["row_state"]["refinement_repair_sky_transfer"] == "OPEN"
+    assert receipt["row_state"]["static_base_port_underdetermination"] == (
+        "CERTIFIED"
+    )
+    assert "intertwine refinement" in receipt["row_state"]["close_conditions"]
+
+
+def test_refinement_frontier_is_recorded() -> None:
+    receipt = ac.build_receipt()
+    frontier = receipt["transfer_decision"]["refinement_frontier"]
+    assert frontier["producer"] == (
+        "code/angular_sprint/refinement_transfer_certificate.py"
+    )
+    assert frontier["repair_law"] == (
+        "oph-physics-sim docs/CANONICAL_REPAIR_LAW.md"
+    )
+    assert "level-one refinement vertex set" in frontier["separation_witness"]
+    assert "vanishing on the twelve base ports" in (
+        frontier["separation_witness"]
+    )
+    assert "intertwine" in frontier["future_verdict_requirement"]
+    assert "repair semigroup" in frontier["future_verdict_requirement"]
+
+
+def test_narrowed_verdict_string_is_pinned() -> None:
+    assert ac.STATUS == NARROWED_STATUS
+    receipt = ac.build_receipt()
+    assert receipt["status"] == NARROWED_STATUS
+
+
+def test_receipt_drops_general_nonidentifiability_status() -> None:
+    committed = ac.RECEIPT_PATH.read_bytes()
+    assert RETIRED_STATUS.encode("ascii") not in committed
+    assert NARROWED_STATUS.encode("ascii") in committed
+    assert b"reopen_condition" not in committed
 
 
 def test_committed_receipt_is_byte_exact() -> None:

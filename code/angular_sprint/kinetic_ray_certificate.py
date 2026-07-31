@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Issue #646 fast-falsification lane: source-canonical kinetic rays.
+"""Issue #646 fast-falsification lane: port-coordinate kinetic-ray arithmetic.
 
 The registered port-current pairing carries the exact Hilbert--Schmidt band
 coefficients of the pinned port receipt: unit ``1/4``, frame ``5+sqrt5``,
@@ -8,28 +8,36 @@ the even block is ``u(3)`` carrying the unit, frame, and quintet bands, and
 the kernel block is ``so(3)``: the current algebra splits as
 ``u(1) + su(2) + su(3)`` with the unit band on ``u(1)``, the kernel band on
 ``su(2)``, and the frame and quintet bands jointly on the eight-dimensional
-``su(3)``. This producer restricts the pairing to the three ideals in exact
-quadratic-field arithmetic and enumerates every source-canonical kinetic
-ray:
+``su(3)``.
 
-* the raw block ray reads the band coefficients directly; on ``su(3)`` the
-  frame and quintet blocks disagree, so the raw pairing is not an invariant
-  kinetic form on the simple ideal, and that non-invariance is itself an
-  exact source fact recorded with both block values;
-* the invariant-projection ray replaces the ``su(3)`` blocks by the unique
-  ad-invariant average ``(3 k_frame + 5 k_quintet)/8 = (15+4 sqrt5)/4``;
+Typing, superseding the v1 wording of this file: the pairing
+``B(f,h) = -Re tr(K(f) K(h))`` is ad-invariant by trace cyclicity, verified
+exactly on the full structure-constant table by
+``kinetic_form_selection_certificate.py``. The distinct frame and quintet
+band coefficients are eigenvalue data of the pullback relative to the port
+Euclidean metric; they witness that the port coordinate metric and the
+representation trace metric are not isometrically identified, not an
+invariance failure on the simple ``su(3)`` ideal. This producer therefore
+enumerates port-coordinate ray arithmetic:
+
+* the two raw block rays read the band coefficients per port-normalized
+  band, one branch per ``su(3)`` block;
+* the dimension-weighted band average
+  ``(3 k_frame + 5 k_quintet)/8 = (15+4 sqrt5)/4`` is retained as
+  port-metric arithmetic; no projection metric or repair operation selects
+  it, and it is not the canonical invariant coefficient (the Killing-relative
+  coefficients live in the selection receipt);
 * the tested reference ray is the representation-index ray ``(5/3, 1, 1)``.
 
 The exact tests run without any measured value: whether any single overall
-scale carries a source ray onto the reference ray, and whether the
+scale carries a port-coordinate ray onto the reference ray, and whether the
 conditional quadratic-commutant relation ``k1 = 3 k2 - 2 k3`` holds on any
-source ray. The scale-free renormalization-line statistic
-``det(alpha_inverse, k, b) = 0`` is frozen as a definition only: the beta
-vector comes from the registered rank-fifteen census, the kinetic ray from
-this producer, and the inverse-coupling column stays sealed with the
-comparison surface. Every normalization choice is declared: block
-coefficients are stated per unit-index generator basis, and the per-ideal
-scale freedom is quotiented only by the single overall ray scale.
+port-coordinate ray. Neither test refutes the representation-index ray: that
+ray arises from the rank-fifteen matter trace form, a different quadratic
+form whose Killing-relative arithmetic and frozen renormalization-line
+statistic are recorded in ``kinetic_form_selection_certificate.py``. The
+statistic's beta column is frozen there with exact values; this file records
+the same frozen columns and defers ownership to that receipt.
 
 No public measurement is read and no comparison is opened.
 """
@@ -55,8 +63,11 @@ PORT_RECEIPT_PATH = (
     / "port_current_inner_reference.receipt.json"
 )
 
-SCHEMA = "oph.kinetic_ray_receipt.v1"
-STATUS = "EXACT_KINETIC_RAY_ENUMERATION__REFERENCE_RAY_EXCLUDED"
+SCHEMA = "oph.kinetic_ray_receipt.v2"
+STATUS = (
+    "EXACT_PORT_COORDINATE_RAY_ARITHMETIC__"
+    "REFERENCE_RAY_DISTINCT_FORM_NOT_REFUTED"
+)
 
 
 class KineticError(ValueError):
@@ -148,12 +159,12 @@ def load_pinned_bands() -> dict[str, Q5]:
 def ideal_decomposition(bands: dict[str, Q5]) -> dict[str, Any]:
     frame = bands["frame_band"]
     quintet = bands["quintet_band"]
-    invariant_su3 = q5_scale(
+    average_su3 = q5_scale(
         q5_add(q5_scale(frame, Fraction(3)), q5_scale(quintet, Fraction(5))),
         Fraction(1, 8),
     )
-    require(invariant_su3 == q5(Fraction(15, 4), Fraction(1)), "su3 average drift")
-    non_invariant = frame != quintet
+    require(average_su3 == q5(Fraction(15, 4), Fraction(1)), "su3 average drift")
+    non_isometric = frame != quintet
     return {
         "ideal_dimensions": {"u1": 1, "su2": 3, "su3": 8},
         "band_to_ideal": {
@@ -167,20 +178,24 @@ def ideal_decomposition(bands: dict[str, Q5]) -> dict[str, Any]:
             "receipt: the even block is u(3) on the unit, frame, and "
             "quintet bands, and the kernel block is so(3)"
         ),
-        "su3_blocks_disagree": non_invariant,
+        "su3_blocks_disagree": non_isometric,
         "su3_block_values": [q5_str(frame), q5_str(quintet)],
-        "su3_invariant_projection": q5_str(invariant_su3),
+        "su3_dimension_weighted_average": q5_str(average_su3),
         "invariance_statement": (
-            "the raw pairing restricted to the simple su(3) ideal carries "
-            "two distinct block coefficients, so it is not an ad-invariant "
-            "kinetic form; the unique ad-invariant projection averages the "
-            "blocks with dimension weights three and five"
+            "the pairing is ad-invariant by trace cyclicity; the two "
+            "distinct su(3) block coefficients are eigenvalue data of the "
+            "pullback relative to the port Euclidean metric and witness the "
+            "non-isometry between port coordinates and the representation "
+            "trace metric; the dimension-weighted average of the blocks is "
+            "port-metric arithmetic, and the canonical invariant "
+            "coefficients are the Killing-relative values in the "
+            "kinetic-form selection receipt"
         ),
     }
 
 
 def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[dict[str, Any]]:
-    invariant_su3 = parse_q5(decomposition["su3_invariant_projection"])
+    average_su3 = parse_q5(decomposition["su3_dimension_weighted_average"])
     return [
         {
             "ray_id": "raw-block-ray-frame-branch",
@@ -207,16 +222,18 @@ def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[
             ),
         },
         {
-            "ray_id": "invariant-projection-ray",
+            "ray_id": "dimension-weighted-average-ray",
             "components": [
                 q5_str(bands["unit_band"]),
                 q5_str(bands["kernel_band"]),
-                q5_str(invariant_su3),
+                q5_str(average_su3),
             ],
             "note": (
-                "the unique ad-invariant restriction of the pairing to the "
-                "three ideals: u(1) unit, su(2) kernel block, su(3) "
-                "invariant projection"
+                "port-metric arithmetic: unit and kernel band coefficients "
+                "with the dimension-weighted su(3) block average; no "
+                "projection metric or repair operation selects this "
+                "average, and the canonical Killing-relative coefficients "
+                "live in the kinetic-form selection receipt"
             ),
         },
     ]
@@ -260,6 +277,12 @@ def ray_tests(rays: list[dict[str, Any]]) -> dict[str, Any]:
         "commutant_relation_hit": any(
             row["quadratic_commutant_k1_eq_3k2_minus_2k3"] for row in results
         ),
+        "scope": (
+            "the port-coordinate rays are distinct from the reference ray; "
+            "this does not refute the representation-index ray, which "
+            "arises from the rank-fifteen matter trace form recorded in "
+            "the kinetic-form selection receipt"
+        ),
     }
 
 
@@ -268,16 +291,28 @@ def frozen_rg_statistic(decomposition: dict[str, Any]) -> dict[str, Any]:
         "statistic": "det(alpha_inverse, k, b) = 0",
         "definition": (
             "the three-by-three determinant of the inverse-coupling column, "
-            "the source kinetic ray column, and the one-loop beta column "
-            "vanishes exactly when the three renormalization lines are "
-            "concurrent in the inverse-coupling plane"
+            "the kinetic column, and the one-loop beta column vanishes "
+            "exactly when the inverse-coupling vector lies in the plane "
+            "spanned by the kinetic and beta columns"
         ),
-        "kinetic_column": "the invariant-projection ray of this receipt",
-        "beta_column": (
-            "the one-loop coefficients of the registered rank-fifteen "
-            "census under the frozen field content, computed at scoring "
-            "time from the census receipt without threshold adjustments"
+        "owner": (
+            "kinetic_form_selection_certificate.py freezes the matter-trace "
+            "branch of this statistic with exact columns and cofactors; "
+            "this receipt records the same frozen values"
         ),
+        "kinetic_column": ["10/3", "2", "2"],
+        "kinetic_column_premise": (
+            "the rank-fifteen matter-trace branch of the open kinetic-form "
+            "selection premise; the port-coordinate rays of this receipt "
+            "are not kinetic columns"
+        ),
+        "beta_column": ["41/6", "-19/6", "-7"],
+        "beta_column_premise": (
+            "one-loop imported QFT law at the declared (nG, nH) = (3, 1) "
+            "completion in the census hypercharge normalization"
+        ),
+        "exact_cofactors": ["-23/3", "37", "-218/9"],
+        "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
         "alpha_column": (
             "sealed: measured inverse couplings enter only through the "
             "issue-639 custody surface at its single comparison"
@@ -320,20 +355,22 @@ def build_receipt() -> dict[str, Any]:
             }
         ],
         "kinetic_action_bridge": (
-            "OPEN: the identity of the finite Hilbert--Schmidt pairing with "
-            "the physical continuum kinetic action is unproved; per the "
-            "frozen stop rule, three independent invariant kinetic "
-            "coefficients remain the default freedom and the enumerated "
-            "rays become predictive only after that bridge is proved or "
-            "independently tested"
+            "OPEN: the identity of any finite invariant form with the "
+            "physical continuum kinetic action is unproved; per the frozen "
+            "stop rule, three independent invariant kinetic coefficients "
+            "remain the default freedom, the selection between the "
+            "port-response pullback and the matter trace form is a named "
+            "open premise, and any ray becomes predictive only after that "
+            "bridge is proved or independently tested"
         ),
         "comparison_boundary": {
             "public_measurement_read": False,
             "comparison_permitted": False,
         },
         "reopen_condition": (
-            "a proved or independently tested kinetic-action bridge, at "
-            "which point the frozen determinant statistic becomes the "
+            "a proved or independently tested kinetic-action bridge and a "
+            "resolved kinetic-form selection premise, at which point the "
+            "frozen matter-branch determinant statistic becomes the "
             "issue-639 candidate under its declared scheme and threshold "
             "budget"
         ),
@@ -371,8 +408,8 @@ def main() -> int:
                     "status": receipt["status"],
                     "reference_ray_hit": receipt["ray_tests"]["reference_ray_hit"],
                     "commutant_hit": receipt["ray_tests"]["commutant_relation_hit"],
-                    "su3_invariant": receipt["ideal_decomposition"][
-                        "su3_invariant_projection"
+                    "su3_average": receipt["ideal_decomposition"][
+                        "su3_dimension_weighted_average"
                     ],
                 },
                 indent=2,

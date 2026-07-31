@@ -32,7 +32,8 @@ lean_lib «OPHScreen» where
     `A5IncidenceResponse, `TraceBalancedKernel, `TrichotomyCases, `Z6Descent,
     `A5AngularMultiplets, `A5AngularBands, `A5AngularKernels,
     `ExteriorSelection, `EqualStateWeights,
-    `A5FamilyBand, `RGRepresentationFrontier, `CommonEWOrderUnit]
+    `A5FamilyBand, `RGRepresentationFrontier, `CommonEWOrderUnit,
+    `KineticFormDichotomy]
 
 lean_exe «oph» where
   root := `Main

@@ -628,6 +628,34 @@ def produce_z6_candidates(
         },
     ]
 
+    per_candidate_counterexamples = {
+        "z6-descent-congruence": (
+            "a color-singlet weak-singlet representation with 6Y = 3 is a "
+            "consistent representation of the unquotiented global form and "
+            "violates the descent congruence, so the baseline image is not "
+            "contained in the relation"
+        ),
+        "z6-color-singlet-integer-charge": (
+            "a color-singlet field with fractional electric charge is a "
+            "consistent representation of the unquotiented global form and "
+            "violates the integer-charge corollary"
+        ),
+        "z6-color-triplet-charge-classes": (
+            "a color triplet with an electric charge off the two descended "
+            "duality classes is consistent for the unquotiented global "
+            "form and violates the class table"
+        ),
+        "z6-flux-class-count": (
+            "an unquotiented or Z2/Z3-quotiented global form carries a "
+            "different flux-class count, and every count is "
+            "baseline-consistent as a free discrete choice"
+        ),
+        "z6-line-lattice-exclusion": (
+            "an electric line class outside the descended lattice is "
+            "realized in the unquotiented global form, which the baseline "
+            "permits as a free discrete choice"
+        ),
+    }
     for candidate in candidates:
         require(
             candidate["grammar_class"] in allowed_classes,
@@ -638,7 +666,18 @@ def produce_z6_candidates(
             "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
         }
         candidate["nuisance_matrix"] = shared_nuisance_matrix
-        candidate["baseline_contract"] = baseline_contract
+        counterexample = per_candidate_counterexamples.get(
+            candidate["candidate_id"]
+        )
+        require(
+            counterexample is not None,
+            f"missing candidate-specific baseline: {candidate['candidate_id']}",
+        )
+        candidate["baseline_contract"] = {
+            **baseline_contract,
+            "counterexample": counterexample,
+            "counterexample_scope": "CANDIDATE_SPECIFIC",
+        }
         candidate["physicalization_status"] = (
             "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED"
         )
@@ -1130,6 +1169,48 @@ def produce_a5_angular_candidates(
             },
         }
     )
+    per_candidate_counterexamples = {
+        "a5-band-multiplicity-pattern": (
+            "a baseline angular response carries no adjacency band "
+            "structure, so any multiplicity pattern other than "
+            "(5:1, sqrt5:3, -sqrt5:3, -1:5) is baseline-consistent"
+        ),
+        "a5-cross-band-pairing-zero": (
+            "a baseline response with a nonzero pairing between the two "
+            "three-dimensional bands is baseline-consistent and violates "
+            "the exact zero"
+        ),
+        "a5-galois-conjugate-correlation": (
+            "a baseline response whose two channel correlations are not "
+            "Galois conjugates is baseline-consistent and violates the "
+            "conjugacy identity"
+        ),
+        "a5-kernel-band-even-block-zero": (
+            "a baseline response with a nonzero kernel-band component on "
+            "the even block is baseline-consistent and violates the exact "
+            "block zero"
+        ),
+        "a5-equal-port-angular-comb": (
+            "a baseline sky statistic with any level-six power fraction "
+            "other than 11/25 is baseline-consistent; the baseline imposes "
+            "no comb"
+        ),
+        "a5-readback-parity-law": (
+            "a baseline readback response without the alternating "
+            "(-1)^(l+1) level signs is baseline-consistent and violates "
+            "the parity law"
+        ),
+        "a5-invariant-level-support-fingerprint": (
+            "a baseline angular spectrum with nonzero odd-level support or "
+            "support off the invariant levels is baseline-consistent and "
+            "violates the fingerprint"
+        ),
+        "a5-odd-parity-blindness-kill": (
+            "a baseline response that reads odd-level power is "
+            "baseline-consistent; certified odd-level sensitivity violates "
+            "the blindness rule"
+        ),
+    }
     for candidate in candidates:
         require(
             candidate["grammar_class"] in set(slot["allowed_grammar_class_ids"]),
@@ -1140,10 +1221,22 @@ def produce_a5_angular_candidates(
             "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
         }
         candidate["nuisance_matrix"] = nuisance_matrix
-        candidate["baseline_contract"] = baseline_contract
+        counterexample = per_candidate_counterexamples.get(
+            candidate["candidate_id"]
+        )
+        require(
+            counterexample is not None,
+            f"missing candidate-specific baseline: {candidate['candidate_id']}",
+        )
+        candidate["baseline_contract"] = {
+            **baseline_contract,
+            "counterexample": counterexample,
+            "counterexample_scope": "CANDIDATE_SPECIFIC",
+        }
         candidate["physicalization_status"] = (
             "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__"
-            "TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT"
+            "STATIC_BASE_PORT_UNDERDETERMINATION_PER_SPRINT_RECEIPT__"
+            "REFINEMENT_REPAIR_SKY_TRANSFER_OPEN"
         )
         candidate["exposure_surfaces"] = exposure_surfaces
     return candidates
@@ -1309,19 +1402,20 @@ def produce_wz_scale_free_candidates(
     ]
     candidates.append(
         {
-            "candidate_id": "wz-kinetic-invariant-projection-ray",
+            "candidate_id": "wz-kinetic-form-dichotomy",
             "slot_id": slot["slot_id"],
             "grammar_class": "homogeneous_scale_free_combination",
             "statement": (
-                "the ad-invariant restriction of the source-current pairing "
-                "to the three ideals is the ray (1/4, 5-sqrt5, "
-                "(15+4 sqrt5)/4); the raw pairing is not invariant on the "
-                "su(3) ideal, and the representation-index reference ray "
-                "and the quadratic-commutant relation are excluded exactly"
+                "the port-current pairing is ad-invariant, and its "
+                "Killing-relative coefficients on the simple ideals are "
+                "(c2, c3) = (1, 1/6), ratio six; the rank-fifteen matter "
+                "trace form carries (1, 2/3), ratio three halves; the two "
+                "candidate kinetic forms are exactly distinct, and the "
+                "selection between them is a named open source premise"
             ),
             "expression": _expression(
                 grammar,
-                "ideal-restricted pairing ray up to one overall scale",
+                "Killing-relative ideal coefficients of two invariant forms",
                 ["registered_exact_algebraic"],
                 1 * 2 + 5,
                 3,
@@ -1329,15 +1423,29 @@ def produce_wz_scale_free_candidates(
             ),
             "relation_certificate": {
                 "kind": "exact_certificate",
-                "invariant_ray": ["1/4", "5+-1*sqrt5", "15/4+1*sqrt5"],
-                "reference_ray_excluded": True,
-                "commutant_relation_excluded": True,
-                "producer": "code/angular_sprint/kinetic_ray_certificate.py",
+                "port_response_killing_relative": ["1", "1/6"],
+                "matter_trace_killing_relative": ["1", "2/3"],
+                "ratio_dichotomy": ["6", "3/2"],
+                "port_metric_band_data_retained": (
+                    "(1/4, 5+sqrt5, 5-sqrt5, 3+sqrt5) with the "
+                    "dimension-weighted su(3) average (15+4 sqrt5)/4, typed "
+                    "as embedding non-isometry data, not invariant "
+                    "coefficients"
+                ),
+                "producer": (
+                    "code/angular_sprint/kinetic_form_selection_certificate.py"
+                ),
+                "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
             },
             "kill_rule": (
-                "a certified kinetic-action bridge whose induced ray "
-                "deviates from the invariant projection falsifies the "
-                "pairing identification"
+                "a certified kinetic-action bridge whose Killing-relative "
+                "ratio differs from the selected branch value falsifies "
+                "that branch identification"
+            ),
+            "baseline_counterexample": (
+                "a baseline gauge action with any third independent "
+                "kinetic coefficient triple is baseline-consistent; the "
+                "baseline imposes neither Killing-relative ratio"
             ),
             "weight_claims": {
                 "exact_global_certificate": True,
@@ -1346,7 +1454,62 @@ def produce_wz_scale_free_candidates(
                 "baseline_freedom_counterexample": True,
                 "all_registered_completions_covered": False,
                 "all_continuous_parameters_covered": False,
-                "conditional_branch": False,
+                "conditional_branch": True,
+                "open_physical_map": True,
+            },
+        }
+    )
+    candidates.append(
+        {
+            "candidate_id": "wz-matter-trace-kinetic-ray",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "homogeneous_scale_free_combination",
+            "statement": (
+                "on the matter-trace branch of the open kinetic-form "
+                "selection premise, the normalized kinetic ray is the "
+                "representation-index ray (5/3, 1, 1) from the per-copy "
+                "Weyl indices (10/3, 2, 2) of the registered rank-fifteen "
+                "census"
+            ),
+            "expression": _expression(
+                grammar,
+                "index ray of the matter trace form up to one overall scale",
+                ["registered_exact_algebraic", "registered_index"],
+                1 * 2 + 3,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "exact_certificate",
+                "per_copy_weyl_indices": ["10/3", "2", "2"],
+                "normalized_ray": ["5/3", "1", "1"],
+                "index_pin": (
+                    "Lean/Screen/RGRepresentationFrontier.lean, theorem "
+                    "representation_indices"
+                ),
+                "producer": (
+                    "code/angular_sprint/kinetic_form_selection_certificate.py"
+                ),
+            },
+            "kill_rule": (
+                "a certified kinetic-action bridge selecting the matter "
+                "trace with a measured kinetic ray off (5/3, 1, 1) "
+                "falsifies the branch chain"
+            ),
+            "baseline_counterexample": (
+                "a baseline model whose kinetic normalization is not tied "
+                "to its matter representation indices is "
+                "baseline-consistent; the baseline leaves the three "
+                "coefficients free"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": True,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": True,
                 "open_physical_map": True,
             },
         }
@@ -1358,10 +1521,12 @@ def produce_wz_scale_free_candidates(
             "grammar_class": "homogeneous_scale_free_combination",
             "statement": (
                 "the scale-free renormalization-line statistic "
-                "det(alpha_inverse, k, b) = 0 is frozen with the kinetic "
-                "column from the invariant-projection ray and the beta "
-                "column from the registered census; the coupling column "
-                "stays sealed with the comparison surface"
+                "det(alpha_inverse, k, b) = 0 is frozen on the matter-trace "
+                "branch with kinetic column (10/3, 2, 2), one-loop beta "
+                "column (41/6, -19/6, -7) at the declared (nG, nH) = (3, 1) "
+                "completion, exact cofactors (-23/3, 37, -218/9), and "
+                "integer zero locus 69 x1 - 333 x2 + 218 x3 = 0; the "
+                "coupling column stays sealed with the comparison surface"
             ),
             "expression": _expression(
                 grammar,
@@ -1374,25 +1539,56 @@ def produce_wz_scale_free_candidates(
             "relation_certificate": {
                 "kind": "frozen_statistic_definition",
                 "sealed_column": "alpha_inverse",
-                "producer": "code/angular_sprint/kinetic_ray_certificate.py",
+                "kinetic_column": ["10/3", "2", "2"],
+                "beta_column": ["41/6", "-19/6", "-7"],
+                "exact_cofactors": ["-23/3", "37", "-218/9"],
+                "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
+                "beta_premises": (
+                    "one-loop imported QFT law, (nG, nH) = (3, 1), census "
+                    "hypercharge normalization, single threshold, no extra "
+                    "fields"
+                ),
+                "producer": (
+                    "code/angular_sprint/kinetic_form_selection_certificate.py"
+                ),
+                "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
             },
             "kill_rule": (
-                "under a certified kinetic-action bridge, a nonvanishing "
-                "determinant at the frozen budget falsifies the frozen "
-                "chain"
+                "under a certified kinetic-action bridge selecting the "
+                "matter trace, a nonvanishing determinant at the frozen "
+                "budget falsifies the frozen chain"
+            ),
+            "baseline_counterexample": (
+                "the baseline imposes no concurrency constraint on the "
+                "three one-loop renormalization lines: a baseline coupling "
+                "vector off the frozen plane is baseline-consistent, so the "
+                "vanishing determinant is a genuine discriminator of the "
+                "frozen branch chain"
             ),
             "weight_claims": {
-                "exact_global_certificate": False,
+                "exact_global_certificate": True,
                 "independent_recomputation": True,
                 "physicalization_complete": False,
                 "baseline_freedom_counterexample": True,
                 "all_registered_completions_covered": False,
                 "all_continuous_parameters_covered": False,
-                "conditional_branch": False,
+                "conditional_branch": True,
                 "open_physical_map": True,
             },
         }
     )
+    per_candidate_counterexamples = {
+        "wz-galois-cost-ratio-phi-squared": (
+            "a response model whose conjugate-channel cost ratio differs "
+            "from the squared golden ratio is baseline-consistent and "
+            "violates the identity"
+        ),
+        "wz-band-channel-shared-identity": (
+            "a baseline response whose family-attachment channel vector "
+            "differs from its port-graph band eigenvalues is "
+            "baseline-consistent and violates the shared identity"
+        ),
+    }
     for candidate in candidates:
         require(
             candidate["grammar_class"] in set(slot["allowed_grammar_class_ids"]),
@@ -1403,7 +1599,19 @@ def produce_wz_scale_free_candidates(
             "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
         }
         candidate["nuisance_matrix"] = nuisance_matrix
-        candidate["baseline_contract"] = baseline_contract
+        counterexample = candidate.pop(
+            "baseline_counterexample",
+            per_candidate_counterexamples.get(candidate["candidate_id"]),
+        )
+        require(
+            counterexample is not None,
+            f"missing candidate-specific baseline: {candidate['candidate_id']}",
+        )
+        candidate["baseline_contract"] = {
+            **baseline_contract,
+            "counterexample": counterexample,
+            "counterexample_scope": "CANDIDATE_SPECIFIC",
+        }
         candidate["physicalization_status"] = (
             "OPEN_MAP__KINETIC_ACTION_BRIDGE_OR_POLE_ATTACHMENT_REQUIRED"
         )
@@ -1616,6 +1824,21 @@ def produce_overlap_candidates(
             },
         },
     ]
+    per_candidate_counterexamples = {
+        "overlap-unique-flat-sector": (
+            "a baseline twist spectrum with zero or several flat sectors "
+            "is baseline-consistent; the baseline imposes no unique flat "
+            "sector"
+        ),
+        "overlap-conjugate-sector-symmetry": (
+            "a baseline twist spectrum without the conjugate-sector "
+            "pairing is baseline-consistent and violates the symmetry"
+        ),
+        "overlap-flat-sector-refinement-stability": (
+            "a baseline spectrum whose flat sector moves under refinement "
+            "is baseline-consistent and violates the stability identity"
+        ),
+    }
     for candidate in candidates:
         require(
             candidate["grammar_class"] in set(slot["allowed_grammar_class_ids"]),
@@ -1626,7 +1849,18 @@ def produce_overlap_candidates(
             "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
         }
         candidate["nuisance_matrix"] = nuisance_matrix
-        candidate["baseline_contract"] = baseline_contract
+        counterexample = per_candidate_counterexamples.get(
+            candidate["candidate_id"]
+        )
+        require(
+            counterexample is not None,
+            f"missing candidate-specific baseline: {candidate['candidate_id']}",
+        )
+        candidate["baseline_contract"] = {
+            **baseline_contract,
+            "counterexample": counterexample,
+            "counterexample_scope": "CANDIDATE_SPECIFIC",
+        }
         candidate["physicalization_status"] = (
             "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED"
         )
@@ -1688,6 +1922,52 @@ def rank_candidates(
 # ---------------------------------------------------------------------------
 # Assembly
 # ---------------------------------------------------------------------------
+
+
+HARD_ELIGIBILITY_CLAIM_GATES: tuple[str, ...] = (
+    "physicalization_complete",
+    "exact_global_certificate",
+    "independent_recomputation",
+    "all_registered_completions_covered",
+    "all_continuous_parameters_covered",
+    "baseline_freedom_counterexample",
+)
+
+
+def hard_eligibility_verdict(candidate: dict[str, Any]) -> tuple[str, list[str]]:
+    """Full-conjunction eligibility: every gate must pass before ranking.
+
+    A candidate becomes eligible for the issue-639 comparison surface only
+    when its physical map is closed, its certificate is exact and globally
+    covered, every registered alternative completion and continuous
+    parameter direction is quotiented or covered, its baseline contract
+    carries a candidate-specific counterexample, its exposure class is
+    registered, and its uncertainty budget and kill-threshold/power contract
+    are frozen. Any missing gate makes the candidate ineligible with the
+    failed gates recorded; a single passing boolean can never rank a row.
+    """
+
+    claims = candidate.get("weight_claims", {})
+    failed: list[str] = []
+    for gate in HARD_ELIGIBILITY_CLAIM_GATES:
+        if claims.get(gate) is not True:
+            failed.append(f"weight_claims.{gate}")
+    if claims.get("open_physical_map") is not False:
+        failed.append("weight_claims.open_physical_map_must_be_false")
+    baseline = candidate.get("baseline_contract", {})
+    if baseline.get("counterexample_scope") != "CANDIDATE_SPECIFIC":
+        failed.append("baseline_contract.counterexample_scope")
+    if not candidate.get("exposure_surfaces"):
+        failed.append("exposure_surfaces")
+    if candidate.get("uncertainty_budget", {}).get("frozen") is not True:
+        failed.append("uncertainty_budget.frozen")
+    if candidate.get("power_contract", {}).get("frozen") is not True:
+        failed.append("power_contract.frozen")
+    if failed:
+        if "weight_claims.physicalization_complete" in failed:
+            return "INELIGIBLE_OPEN_PHYSICAL_MAP", sorted(failed)
+        return "INELIGIBLE_MISSING_FROZEN_CONTRACTS", sorted(failed)
+    return "ELIGIBLE", []
 
 
 def build_registry() -> dict[str, Any]:
@@ -1758,11 +2038,9 @@ def build_registry() -> dict[str, Any]:
         "registry incomplete: a slot has no generation outcome",
     )
     for candidate in candidates:
-        candidate["hard_eligibility"] = (
-            "ELIGIBLE"
-            if candidate.get("weight_claims", {}).get("physicalization_complete")
-            else "INELIGIBLE_OPEN_PHYSICAL_MAP"
-        )
+        eligibility, failed_gates = hard_eligibility_verdict(candidate)
+        candidate["hard_eligibility"] = eligibility
+        candidate["hard_eligibility_failed_gates"] = failed_gates
     eligible_count = sum(
         1
         for candidate in candidates
@@ -1784,12 +2062,18 @@ def build_registry() -> dict[str, Any]:
             "screen_to_sky_transfer": (
                 "no registered producer emits a sky-valued geometry-imprint "
                 "field or a second independently observed channel; the "
-                "angular sprint receipt records the constructive "
-                "transfer-nonidentifiability witness"
+                "angular sprint receipt records static base-port "
+                "underdetermination, and the refinement-transfer receipt "
+                "records level-one identifiability of the canonical band, "
+                "so the refinement/repair sky transfer stays an open "
+                "selection direction rather than a closed nonidentifiability"
             ),
             "kinetic_action_bridge": (
-                "no registered producer proves the identity of the finite "
-                "pairing with the physical continuum kinetic action"
+                "no registered producer proves the identity of any finite "
+                "invariant form with the physical continuum kinetic action, "
+                "and the selection between the port-response pullback and "
+                "the matter trace form is a named open premise recorded in "
+                "the kinetic-form selection receipt"
             ),
             "interferometer_readout": (
                 "no registered producer maps the twist-sector spectrum to "
@@ -1851,14 +2135,35 @@ def build_registry() -> dict[str, Any]:
         "hard_physicalization_gate": {
             "rule": (
                 "a candidate ranks into the issue-639 comparison surface "
-                "only when its physical map is closed; open-map rows are "
-                "ineligible rather than score-penalized"
+                "only when every eligibility gate passes: closed physical "
+                "map, exact global certificate, independent recomputation, "
+                "registered-completion and continuous-parameter coverage, "
+                "candidate-specific baseline counterexample, registered "
+                "exposure class, and frozen uncertainty and power "
+                "contracts; open-map or open-contract rows are ineligible "
+                "rather than score-penalized"
+            ),
+            "gate_list": sorted(
+                [f"weight_claims.{gate}" for gate in HARD_ELIGIBILITY_CLAIM_GATES]
+                + [
+                    "weight_claims.open_physical_map_must_be_false",
+                    "baseline_contract.counterexample_scope",
+                    "exposure_surfaces",
+                    "uncertainty_budget.frozen",
+                    "power_contract.frozen",
+                ]
             ),
             "eligible_candidate_count": eligible_count,
             "inventory_state": (
-                "COMPLETE_BOUNDED_NEGATIVE_INVENTORY__ZERO_ELIGIBLE_CANDIDATES"
+                "ZERO_ELIGIBLE_CANDIDATES__PROVISIONAL_INVENTORY"
                 if eligible_count == 0
                 else "ELIGIBLE_CANDIDATES_PRESENT"
+            ),
+            "completeness_boundary": (
+                "zero eligible candidates is a statement about the current "
+                "inventory only; it is not a complete bounded negative "
+                "inventory claim, which would need every registered slot "
+                "closed by theorem, typed skip, or exhausted grammar"
             ),
         },
         "whole_stack_antecedent_search": antecedent_search,

@@ -10,25 +10,37 @@ import kinetic_ray_certificate as kc
 def test_receipt_builds_with_expected_status() -> None:
     receipt = kc.build_receipt()
     assert receipt["status"] == (
-        "EXACT_KINETIC_RAY_ENUMERATION__REFERENCE_RAY_EXCLUDED"
+        "EXACT_PORT_COORDINATE_RAY_ARITHMETIC__"
+        "REFERENCE_RAY_DISTINCT_FORM_NOT_REFUTED"
     )
     assert receipt["comparison_boundary"]["comparison_permitted"] is False
     assert receipt["frozen_rg_statistic"]["frozen_before_comparison"] is True
     assert len(receipt["candidate_rays"]) == 3
 
 
-def test_su3_invariant_projection_is_exact() -> None:
+def test_frozen_beta_column_carries_exact_values() -> None:
+    statistic = kc.frozen_rg_statistic({})
+    assert statistic["kinetic_column"] == ["10/3", "2", "2"]
+    assert statistic["beta_column"] == ["41/6", "-19/6", "-7"]
+    assert statistic["exact_cofactors"] == ["-23/3", "37", "-218/9"]
+    assert statistic["integer_zero_locus"] == "69 x1 - 333 x2 + 218 x3 = 0"
+    assert "computed at scoring" not in str(statistic)
+
+
+def test_su3_dimension_weighted_average_is_exact() -> None:
     bands = kc.load_pinned_bands()
     decomposition = kc.ideal_decomposition(bands)
     assert decomposition["su3_blocks_disagree"] is True
-    assert decomposition["su3_invariant_projection"] == "15/4+1*sqrt5"
+    assert decomposition["su3_dimension_weighted_average"] == "15/4+1*sqrt5"
+    assert "ad-invariant by trace cyclicity" in decomposition["invariance_statement"]
+    assert "not an ad-invariant" not in decomposition["invariance_statement"]
     frame = kc.parse_q5(decomposition["su3_block_values"][0])
     quintet = kc.parse_q5(decomposition["su3_block_values"][1])
     average = kc.q5_scale(
         kc.q5_add(kc.q5_scale(frame, Fraction(3)), kc.q5_scale(quintet, Fraction(5))),
         Fraction(1, 8),
     )
-    assert kc.q5_str(average) == decomposition["su3_invariant_projection"]
+    assert kc.q5_str(average) == decomposition["su3_dimension_weighted_average"]
 
 
 def test_reference_ray_and_commutant_are_excluded() -> None:
