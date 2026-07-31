@@ -41,6 +41,7 @@ def test_ladder_excludes_the_retrospective_fz04_reservation():
         "FZ-08",
         "FZ-09",
         "FZ-10",
+        "FZ-11",
     ]
     result = live_register()["retrospective_results"][0]
     assert result["id"] == "RR-506-ALPHA-HVP"

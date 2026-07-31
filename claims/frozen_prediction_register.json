@@ -200,6 +200,19 @@
       "milestone": "C4",
       "owning_issue": 546,
       "status": "frozen_stamped_upgrade_pending"
+    },
+    {
+      "attestation": null,
+      "comparison_protocol": "Template registration only. No dataset is declared, no measurement is read, and no comparison is opened at this status. A future freeze must declare the dataset class (resonant-cavity, clock-comparison, astrophysical dispersion or birefringence, or another rotational-invariance search), the frame convention for the carrier orientation, the estimator, the anisotropy budget, and the decision rule, before any exposure; the one-comparison campaign rule applies through issue #639.",
+      "content": "Spin-six carrier signature: for every finite-range kinetic operator with direction multiset and weights invariant under the proper icosahedral rotation group, realized as a finite-difference operator on the emergent continuum, the dispersion is exactly isotropic through spin five at every order in the carrier scale; every directional artifact below spin ten is one multiple of the unique normalized invariant I6 with the exact 62-direction stationary census (12 maxima, 20 minima, 30 saddles), generically first at order a^4 k^6; and one binary refinement step suppresses the leading residue by exactly 1/16 at that order. Premise ancestry declared: invariance and finite range are the load-bearing premises; the physical carrier realization and the residue amplitude are open and owned by issue #655 and the kinetic-form dichotomy lane. The Standard Model with General Relativity carries exact vacuum rotational invariance in this sector and produces no such residue at any order.",
+      "content_sha256": null,
+      "custody": null,
+      "frozen_utc": null,
+      "id": "FZ-11",
+      "kill_band": "FZ11-R01: a certified carrier-correlated leading rotational residue at any spin from one through five refutes the icosahedral carrier class outright. FZ11-R02: a certified spin-six leading residue whose angular dependence deviates from the rigid I6 template, or whose stationary census deviates from (12, 20, 30), refutes the class equally. FZ11-R03 (POSITIVE DIRECTION, GATED): a certified residue matching the template is an effect with no Standard Model or General Relativity source; it may be scored as OPH-positive only after the carrier realization and a source-derived amplitude exist and only through the sealed issue #639 comparison custody. Shape kills are parameter-free; no tolerance may be tuned after exposure.",
+      "milestone": "C3-V",
+      "owning_issue": 655,
+      "status": "registered_pending_freeze"
     }
   ],
   "schema": "oph.frozen_prediction_register.v3"
