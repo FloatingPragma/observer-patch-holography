@@ -88,31 +88,40 @@ no positive evidential weight.
 
 ## W3b — selector and port-menu ablation
 
-u(1)+su(2)+su(3) is available on the source-bound twelve-port response branch, not uniquely selected across the carrier menu. Seven alternative deltahedra have no compatible producer and are unknown; they are not counted as exclusions.
+Within A1's declared twelve-port icosahedral boundary and the A2 same-response internal-holonomy premise, the abstract Lie type u(1)+su(2)+su(3) is forced. This is an axiom-domain theorem, not a selection among eight deltahedral carriers. The seven counterfactual carriers lie outside A1 and have no compatible producer; they are not counted as exclusions. Source reconstruction of the matrix current remains open.
 
 | Vertex configuration | Ports | Producer state | SM Lie type |
 |---|---:|---|---|
-| `tetrahedron` | 4 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `triangular_bipyramid` | 5 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `octahedron` | 6 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `pentagonal_bipyramid` | 7 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `snub_disphenoid` | 8 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `triaugmented_triangular_prism` | 9 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `gyroelongated_square_bipyramid` | 10 | `UNDECLARED_ALTERNATIVE_PRODUCER` | unknown (fail closed) |
-| `icosahedron` | 12 | `AVAILABLE_NOT_UNIQUELY_SELECTED` | available; **not uniquely selected** |
+| `tetrahedron` | 4 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `triangular_bipyramid` | 5 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `octahedron` | 6 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `pentagonal_bipyramid` | 7 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `snub_disphenoid` | 8 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `triaugmented_triangular_prism` | 9 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `gyroelongated_square_bipyramid` | 10 | `UNDECLARED_ALTERNATIVE_PRODUCER` | outside A1; no producer |
+| `icosahedron` | 12 | `AXIOM_DOMAIN_FORCED__COUNTERFACTUAL_MENU_UNTESTED` | **forced in the A1/A2 domain**; physical matrix current open |
 
-For the only executable port-response entry (the 12-port icosahedron),
-the exact coefficient classification leaves three viable compact Lie
-types: `su(3)+su(2)+u(1)`, `su(2)+su(2)+u(1)^6`, and `u(1)^12`.
-The conditional response construction realizes the first, but its physical
-source binding remains false. The source reduct also admits both
+For the A1 twelve-port icosahedral carrier, the coefficient-module
+classification by itself leaves three viable compact Lie types:
+`su(3)+su(2)+u(1)`, `su(2)+su(2)+u(1)^6`, and `u(1)^12`.
+The complete faithful A1 response and A2 same-response internal
+holonomy supply the stronger fixed-space theorem that forces the first
+abstract Lie type. The charged-double-triplet matrices are an exact
+declared witness. The response artifact does not reconstruct those
+generators, their bracket, or same-current holonomy, so physical source
+binding and laboratory gauge-current identification remain open.
+
+The small completion no-go uses a bare source reduct that omits the
+complete-response and internal-holonomy premises. That weaker reduct admits
+both
 `abelian_12` and `compact_sm_lie_type`.
+Its nonuniqueness does not contradict the A1/A2 abstract theorem.
 
 Matter completion is likewise non-unique: the same reduct admits
 `rank15_exterior_packet` and `rank15_plus_sterile_singlet`. The
 rank-15 projector is verified, but the sterile-singlet completion is not
-excluded. Seven alternative deltahedra lack a compatible producer and are
-left unknown rather than treated as negative results.
+excluded. Seven alternative deltahedra lie outside A1 and lack a compatible
+producer. They are counterfactual ablations, not competing OPH branches.
 
 ## W3c — RSCC zero-`w²` ablation gate
 
@@ -252,15 +261,15 @@ it can enter a claim. A short-expression near hit is not a derivation.
 | Input | SHA-256 |
 |---|---|
 | `code/P_derivation/interval_contraction_certificate.py` | `4177208147d18f0c2d36b027ea5acb3a6db15335fa088d610c98163b6bfd7efb` |
-| `code/a5_closure/a5_screen_sm_closure.json` | `33c8edf0e3c12899dfefdf1000efeb489c4ef398d6ffa576b5cbb998d90ed1ec` |
+| `code/a5_closure/a5_screen_sm_closure.json` | `b190f9dcb3b79405d809ed9e1f78fb45a382ab9170a1e8c74afe6dc022134e51` |
 | `code/a5_closure/claim_boundary_certificates.py` | `c0ae090aecb638bac1a9c3538a58bd95a8dda32defe7baac8dc73c93d638d53b` |
 | `code/a5_closure/echosahedral_selector_certificate.py` | `e140adad7fe3162e38dbe44736669d9ea35f98a94acf90625d09fce9766385f7` |
 | `code/a5_closure/manifests/echosahedral_federation_reference.json` | `12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14` |
-| `code/a5_closure/manifests/port_current_response_reference.json` | `b4385017e209fa3b9765e89fdf987089b555d0335572e95e09f6e38f826bc71a` |
-| `code/a5_closure/port_current_inner_certificate.py` | `a273a30bec5b0cfd9ea81610ab8ba4e1e4481858036d1c21d31fc0178a640b8c` |
+| `code/a5_closure/manifests/port_current_response_reference.json` | `6293cf69746dcf665197eba9ddda28f568ffb88b311ef45fabf1993bd84c8f74` |
+| `code/a5_closure/port_current_inner_certificate.py` | `8ac3f51d08155decc328ebb8c12909bf92f9a50313f14ebc0faf70c0d2513436` |
 | `code/a5_closure/receipts/echosahedral_federation_reference.receipt.json` | `bffec48f0d11d488fb02b852dd110394148a997b739a366f519fec5f9ac31ca5` |
-| `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `ea960bac290fa0f9f75c681fed92f3673cdb6d7e48f04484653f29258cc53f07` |
-| `code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json` | `e8ddbb9efe2cbc4baf31431340ceecc5c8c92357068ae3b4612f2a03b4be7e81` |
+| `code/a5_closure/receipts/port_current_inner_reference.receipt.json` | `efa206d21f59af5a96006ff283a191418c7f4a8c5f3125fcb42d1e03b1f5289b` |
+| `code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json` | `528090fb708fb398ec1d385486757c483e2d0b5ad84500592aa61f3b17748ef3` |
 | `code/particles/data/flag_2024_light_quark_ratio_fixture.json` | `82df19655fa2db8973376f0b5627729189c40f40042d38bfdc0f08bd1dce3e78` |
 | `code/particles/flavor/audit_quark_rscc_completion_candidate.py` | `8cae451efe3d23b5b6bceda7c756d13d004e1f9ca0a1772ade7d1502b27fbccc` |
 | `code/particles/flavor/derive_clebsch_register_pairing_selection.py` | `0947e1033f405ac564cae2cc4496ac19ce722b9473ffcc9537ee6dcead338a76` |

@@ -26,7 +26,16 @@ POLICY_REL = (
 DEFAULT_OUTPUT = HERE / "outputs" / "source_parent_inventory.json"
 
 SCHEMA = "oph.wz.source_parent_inventory.v1"
-STATUS = "FINITE_SOURCE_PARENTS_BOUND__NATIVE_ACTION_AND_PHYSICAL_ATTACHMENT_OPEN"
+STATUS = (
+    "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__"
+    "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
+)
+RESOLVED_BOUNDARY_SENTINELS = {
+    "finite_local_domain_boundary": "LOCAL_DOMAIN_INHABITATION_RECEIPT",
+    "finite_spectral_quantum_discrimination_boundary":
+        "CLASSICAL_REALIZATION_RECEIPT",
+    "physical_unit_boundary": "CLOCK_UNIT_BOUNDED_INTERFACE_AUDIT",
+}
 
 
 class FrontierBuildError(ValueError):
@@ -162,6 +171,7 @@ def expand_binding(
     spec: Mapping[str, Any],
     *,
     status: str,
+    context_status: str | None = None,
 ) -> tuple[dict[str, Any], list[Any]]:
     pins: list[dict[str, Any]] = []
     payloads: list[Any] = []
@@ -169,18 +179,18 @@ def expand_binding(
         pin, payload = file_pin(repo_root, file_spec)
         pins.append(pin)
         payloads.append(payload)
-    return (
-        {
-            "role": spec["role"],
-            "issue": spec["issue"],
-            "verifier_id": spec["verifier_id"],
-            "status": status,
-            "files": pins,
-            "usable_exports": spec["usable_exports"],
-            "excluded_promotions": spec["excluded_promotions"],
-        },
-        payloads,
-    )
+    binding = {
+        "role": spec["role"],
+        "issue": spec["issue"],
+        "verifier_id": spec["verifier_id"],
+        "status": status,
+        "files": pins,
+        "usable_exports": spec["usable_exports"],
+        "excluded_promotions": spec["excluded_promotions"],
+    }
+    if context_status is not None:
+        binding["context_status"] = context_status
+    return binding, payloads
 
 
 def _acyclic(nodes: list[dict[str, Any]], edges: list[dict[str, str]]) -> bool:
@@ -238,6 +248,7 @@ def _forbidden_ancestry_paths(
 def source_dag(
     positive: list[dict[str, Any]],
     conditional: list[dict[str, Any]],
+    resolved_boundaries: list[dict[str, Any]],
     interfaces: list[dict[str, Any]],
 ) -> dict[str, Any]:
     nodes = [
@@ -254,9 +265,18 @@ def source_dag(
             "id": binding["role"],
             "class": "conditional_context",
             "issue": binding["issue"],
-            "status": "conditional_open_interface",
+            "status": binding["context_status"],
         }
         for binding in conditional
+    )
+    nodes.extend(
+        {
+            "id": item["boundary_id"],
+            "class": "resolved_boundary",
+            "issue": item["owner_issue"],
+            "status": item["outcome"],
+        }
+        for item in resolved_boundaries
     )
     nodes.extend(
         {
@@ -275,12 +295,6 @@ def source_dag(
                 "issue": 594,
                 "status": "blocked",
             },
-            {
-                "id": "external_qft_pole_consumer",
-                "class": "external_validation_consumer",
-                "issue": 593,
-                "status": "open_dependency",
-            },
         ]
     )
 
@@ -293,13 +307,13 @@ def source_dag(
     ]
     for binding in positive:
         edges.append({"from": binding["role"], "to": "oph_native_dimensionless_packet"})
-    for binding in conditional:
-        edges.append({"from": binding["role"], "to": "oph_native_dimensionless_packet"})
     for interface in interfaces:
-        edges.append({"from": interface["gate_id"], "to": "oph_native_dimensionless_packet"})
-    edges.append(
-        {"from": "oph_native_dimensionless_packet", "to": "external_qft_pole_consumer"}
-    )
+        for prerequisite in interface["prerequisites"]:
+            edges.append({"from": prerequisite, "to": interface["gate_id"]})
+        if interface["terminal_for_dimensionless_output"]:
+            edges.append(
+                {"from": interface["gate_id"], "to": "oph_native_dimensionless_packet"}
+            )
 
     protected = ["oph_native_dimensionless_packet"]
     forbidden_classes = [
@@ -331,78 +345,76 @@ def acceptance_map() -> list[dict[str, Any]]:
     return [
         {
             "acceptance_index": 1,
-            "status": "open",
-            "summary": "finite group, matter, and conditional coefficient spaces are bound, but no unique OPH action, complete coupled-sector census, or numerical Yukawa packet is emitted",
-            "blocking_gates": [
-                "event_and_spacetime_action_parent",
-                "common_screen_electroweak_carrier",
-                "source_complete_field_census",
-                "scalar_higgs_and_fj_coordinate",
-                "full_yukawa_operator_and_coefficients",
-            ],
+            "status": "closed_bounded",
+            "summary": "issue 634 supplies a finite causal and local-operator domain; no continuum Lorentzian or quantum-EFT promotion follows",
+            "blocking_gates": [],
         },
         {
             "acceptance_index": 2,
-            "status": "open",
-            "summary": "v_chart and v_F remain distinct typed coordinates; the #630 two-completion witness proves that the current parents do not select their map",
-            "blocking_gates": ["scalar_higgs_and_fj_coordinate"],
+            "status": "closed_not_evaluable",
+            "summary": "issue 633 closes the physical-unit row as PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE under a bounded schema/source scan and named channel-nonuse experiment; no complete-domain clock non-identifiability theorem follows",
+            "blocking_gates": [],
         },
         {
             "acceptance_index": 3,
-            "status": "partial",
-            "summary": (
-                "the #32 frontier supplies exact per-copy representation indices "
-                "and a parametric one-loop gauge law under an imported QFT "
-                "functional; the complete census, ordered intervals, thresholds, "
-                "finite maps, Jacobians, masks, and remainders are absent"
-            ),
-            "blocking_gates": ["target_clean_rg_threshold_matching"],
+            "status": "open",
+            "summary": "the finite rank-forty-five candidate is bound, but no source-selected scalar action, complete Yukawa matrices, physical family action, or coupled-sector census is emitted",
+            "blocking_gates": [
+                "physical_family_and_matter_pole_attachment",
+                "scalar_yukawa_fj_integration",
+                "common_screen_electroweak_carrier",
+                "source_complete_field_census"
+            ],
         },
         {
             "acceptance_index": 4,
             "status": "open",
-            "summary": "no unique deterministic source point or target-independent joint law and covariance is emitted",
-            "blocking_gates": ["unique_source_root_and_joint_law"],
+            "summary": "v_chart and v_F remain distinct typed coordinates; the source-to-FJ map is owned by issue 638 and its integration by issue 630",
+            "blocking_gates": [
+                "source_to_fj_coordinate_map",
+                "scalar_yukawa_fj_integration"
+            ],
         },
         {
             "acceptance_index": 5,
-            "status": "open",
-            "summary": "substitution into unchanged validated QFT algorithms waits for the production consumer",
-            "blocking_gates": ["validated_qft_consumer"],
+            "status": "partial",
+            "summary": (
+                "the issue-32 frontier supplies exact per-copy representation "
+                "indices and a parametric one-loop gauge law under an imported "
+                "QFT functional; ordered intervals, thresholds, finite maps, "
+                "Jacobians, masks, and remainders are absent"
+            ),
+            "blocking_gates": ["target_clean_rg_threshold_matching"],
         },
         {
             "acceptance_index": 6,
-            "status": "partial",
-            "summary": "the #633 frontier proves the exact interval inversion and isolates the SI chart, but emits no physical clock gap, source energy interval, pole coordinate, or physical unit",
-            "blocking_gates": ["source_operational_clock"],
+            "status": "open",
+            "summary": "the finite domain has no certified transfer to a Lorentzian Spin quantum EFT accepted by the pole consumer",
+            "blocking_gates": ["finite_to_lorentzian_quantum_eft_transfer"],
         },
         {
             "acceptance_index": 7,
+            "status": "open",
+            "summary": "substitution into unchanged validated QFT algorithms waits for the source packet and the production consumer",
+            "blocking_gates": [
+                "unique_source_root_and_joint_law",
+                "validated_qft_consumer"
+            ],
+        },
+        {
+            "acceptance_index": 8,
             "status": "partial",
             "summary": "source paths and structured ancestry are allowlisted and target-free; hermetic runtime and human-selection receipts remain open",
             "blocking_gates": ["runtime_and_human_target_firewall"],
         },
         {
-            "acceptance_index": 8,
+            "acceptance_index": 9,
             "status": "open",
-            "summary": "the full conjunction cannot be replayed before the source packet and production consumer exist",
+            "summary": "independent replay of the complete native source-to-consumer conjunction requires every open producer and firewall gate",
             "blocking_gates": [
                 "unique_source_root_and_joint_law",
                 "validated_qft_consumer",
-                "runtime_and_human_target_firewall",
-            ],
-        },
-        {
-            "acceptance_index": 9,
-            "status": "partial",
-            "summary": "four finite source parents are hash-bound; the local action, pre-Yukawa family attachment, scalar/FJ and full-Yukawa source action, physical common-load semantics, and source-complete coupled census remain open",
-            "blocking_gates": [
-                "event_and_spacetime_action_parent",
-                "physical_family_and_matter_pole_attachment",
-                "scalar_higgs_and_fj_coordinate",
-                "full_yukawa_operator_and_coefficients",
-                "common_screen_electroweak_carrier",
-                "source_complete_field_census",
+                "runtime_and_human_target_firewall"
             ],
         },
     ]
@@ -436,16 +448,67 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
             repo_root,
             spec,
             status="conditional_context_only",
+            context_status=spec["status"],
         )
         conditional.append(binding)
         scientific_payloads.extend(payloads)
 
     consumer_schemas = [schema_pin(repo_root, spec) for spec in policy["consumer_schemas"]]
+    resolved_boundaries: list[dict[str, Any]] = []
+    resolved_boundary_payloads: list[Any] = []
+    for item in policy["resolved_boundaries"]:
+        pins: list[dict[str, Any]] = []
+        payloads: list[dict[str, Any]] = []
+        for file_spec in item["files"]:
+            pin, payload = file_pin(repo_root, file_spec)
+            pins.append(pin)
+            payloads.append(payload)
+        require(
+            len(payloads) == 1,
+            f"resolved boundary {item['boundary_id']} must bind one receipt",
+        )
+        payload = payloads[0]
+        require(
+            payload.get("issue") == item["owner_issue"],
+            f"resolved boundary {item['boundary_id']} has the wrong issue owner",
+        )
+        require(
+            payload.get("verdict") == item["expected_verdict"],
+            f"resolved boundary {item['boundary_id']} verdict drifted",
+        )
+        require(
+            payload.get("physical_promotion_allowed") is False,
+            f"resolved boundary {item['boundary_id']} was physically promoted",
+        )
+        sentinel = RESOLVED_BOUNDARY_SENTINELS[item["boundary_id"]]
+        require(
+            payload.get(sentinel) is True
+            and payload.get("controls_fail_closed") is True
+            and payload.get("blockers") == [],
+            f"resolved boundary {item['boundary_id']} lacks its attained controls",
+        )
+        resolved_boundary_payloads.append(payload)
+        resolved_boundaries.append(
+            {
+                "boundary_id": item["boundary_id"],
+                "owner_issue": item["owner_issue"],
+                "outcome": item["outcome"],
+                "scope": item["scope"],
+                "effect": item["effect"],
+                "scientific_parent_status": item["scientific_parent_status"],
+                "resolution_authority": item["resolution_authority"],
+                "verdict": payload["verdict"],
+                "files": pins,
+            }
+        )
     interfaces = [
         {
             "gate_id": item["gate_id"],
             "owner_issues": item["owner_issues"],
             "required_output": item["required_output"],
+            "prerequisites": item["prerequisites"],
+            "terminal_for_dimensionless_output":
+                item["terminal_for_dimensionless_output"],
             "status": "open",
             "evidence": [],
         }
@@ -458,6 +521,10 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
         file["path"]
         for binding in positive + conditional
         for file in binding["files"]
+    ] + [
+        file["path"]
+        for boundary in resolved_boundaries
+        for file in boundary["files"]
     ] + [item["path"] for item in consumer_schemas]
     require(len(resolved_paths) == len(set(resolved_paths)), "duplicate source input path")
     forbidden_paths = set(firewall_policy["forbidden_source_paths"])
@@ -468,13 +535,18 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
     )
     tokens = [token.lower() for token in firewall_policy["forbidden_structured_tokens"]]
     content_hits: list[str] = []
+    scientific_paths = [
+        file["path"]
+        for binding in positive + conditional
+        for file in binding["files"]
+    ] + [
+        file["path"]
+        for boundary in resolved_boundaries
+        for file in boundary["files"]
+    ]
     for path, payload in zip(
-        [
-            file["path"]
-            for binding in positive + conditional
-            for file in binding["files"]
-        ],
-        scientific_payloads,
+        scientific_paths,
+        scientific_payloads + resolved_boundary_payloads,
         strict=True,
     ):
         content_hits.extend(
@@ -527,6 +599,8 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
         "unit_scope": {
             "native_coordinates": "E_star_normalized_dimensionless",
             "physical_clock_required": True,
+            "physical_unit_verdict":
+                "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE",
             "dimensionful_values_present": False,
             "emitted_observables": [],
         },
@@ -546,8 +620,14 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
             "frozen_algorithm_substitution_ready": False,
             "common_subject_digest_ready": False,
         },
+        "resolved_boundaries": resolved_boundaries,
         "open_interfaces": interfaces,
-        "source_dag": source_dag(positive, conditional, interfaces),
+        "source_dag": source_dag(
+            positive,
+            conditional,
+            resolved_boundaries,
+            interfaces,
+        ),
         "target_firewall": {
             "allowed_source_roots": allowed_roots,
             "resolved_source_paths": sorted(resolved_paths),

@@ -404,9 +404,11 @@ def validate_manifest(
     require(response.get("reversible") is True, "RESPONSE_TYPING", "response automorphisms must be typed reversible")
     require(response.get("defines_currents") is True, "RESPONSE_TYPING", "response automorphisms must be the declared current source")
 
-    # A production packet binds the semantic response artifact, so the
-    # construction is derived from finite carrier structure. The declared
-    # lane survives only for negative controls.
+    # The semantic artifact binds incidence, inverse-port response constraints,
+    # the oriented frame, and refinement maps.  It does not select a Lie
+    # bracket.  The matrix current construction is therefore a declared
+    # algebraic fixture until an ordered-response/overlap-holonomy producer
+    # supplies the missing source bridge.
     contract = manifest.get("response_declaration_contract")
     require(isinstance(contract, Mapping), "RESPONSE_TYPING", "response_declaration_contract is missing")
     require(
@@ -443,38 +445,45 @@ def validate_manifest(
     model = manifest.get("construction_model")
     if model is not None:
         require(
-            allow_control_models,
-            "CONSTRUCTION_MODEL_STRING",
-            "the production current construction is derived from the bound "
-            "semantic artifact; construction-model strings are control-lane only",
-        )
-        require(
             model
             in ("charged_double_triplet", "abelian_record", "symmetric_record_control"),
             "RESPONSE_MODEL",
             "unknown control construction model",
         )
-        require(
-            contract.get("status")
-            in ("declared_branch_premise", "source_bound_semantic_artifact"),
-            "RESPONSE_TYPING",
-            "control-lane response construction status is untyped",
-        )
-        artifact_ref = None
-        response_status = "declared_branch_premise"
+        if allow_control_models:
+            artifact_ref = None
+            response_status = "declared_branch_premise"
+        else:
+            require(
+                model == "charged_double_triplet",
+                "RESPONSE_MODEL",
+                "the production algebraic fixture must be charged_double_triplet",
+            )
+            require(
+                isinstance(artifact_ref, Mapping),
+                "ARTIFACT_REFERENCE",
+                "the production fixture must bind the response-constraint artifact",
+            )
+            require(
+                contract.get("status")
+                == "declared_current_fixture_with_source_bound_response_constraints",
+                "RESPONSE_TYPING",
+                "the production fixture must be typed as a declared current "
+                "fixture with source-bound response constraints",
+            )
+            response_status = (
+                "declared_current_fixture_with_source_bound_response_constraints"
+            )
     else:
         require(
-            isinstance(artifact_ref, Mapping),
-            "ARTIFACT_REFERENCE",
-            "a production manifest must bind the semantic response artifact",
-        )
-        require(
-            contract.get("status") == "source_bound_semantic_artifact",
-            "RESPONSE_TYPING",
-            "response construction status must be 'source_bound_semantic_artifact'",
+            allow_control_models,
+            "CONSTRUCTION_MODEL_STRING",
+            "a production manifest must name its algebraic current fixture; "
+            "the response artifact does not select it",
         )
         model = "charged_double_triplet"
-        response_status = "source_bound_semantic_artifact"
+        artifact_ref = None
+        response_status = "declared_branch_premise"
 
     scales_raw = manifest.get("response_band_scales")
     require(isinstance(scales_raw, Mapping), "RESPONSE_SCALES", "response_band_scales is missing")
@@ -566,13 +575,13 @@ def artifact_self_hash(artifact: Mapping[str, Any]) -> str:
 def load_semantic_artifact(
     artifact_ref: Mapping[str, Any],
     base_dir: Path,
-    allow_control_models: bool,
+    allow_inline_artifact_for_tests: bool,
 ) -> dict[str, Any]:
     if "value" in artifact_ref:
         require(
-            allow_control_models,
+            allow_inline_artifact_for_tests,
             "ARTIFACT_REFERENCE",
-            "inline artifacts are control-lane only; production binds a hash-pinned path",
+            "inline artifacts are test-only; production binds a hash-pinned path",
         )
         artifact = artifact_ref["value"]
     else:
@@ -1025,12 +1034,18 @@ def bind_semantic_artifact(
 
     derived = artifact.get("derived")
     require(isinstance(derived, Mapping), "ARTIFACT_SCALES", "derived block missing")
+    lift_status = derived.get("current_lift_status")
     require(
-        derived.get("construction") == "charged_double_triplet"
-        and derived.get("construction_provenance")
-        == "canonical_equivariant_compact_lift_from_the_impulse_readback_derived_antipode_response",
-        "ARTIFACT_SCALES",
-        "the artifact construction is not derived from the impulse/readback response",
+        "construction" not in derived
+        and "construction_provenance" not in derived
+        and isinstance(lift_status, Mapping)
+        and lift_status.get("source_selected") is False
+        and lift_status.get("commutator_reconstructed_from_ordered_response")
+        is False
+        and lift_status.get("overlap_holonomy_internality_certified") is False
+        and lift_status.get("charged_double_triplet_forced") is False,
+        "ARTIFACT_CURRENT_BOUNDARY",
+        "the response artifact must fail closed at the unconstructed current lift",
     )
     derived_scales = derived.get("response_band_scales")
     require(isinstance(derived_scales, Mapping), "ARTIFACT_SCALES", "derived scales missing")
@@ -1110,7 +1125,16 @@ def bind_semantic_artifact(
             "galois_pairing_recomputed": True,
             "tight_frame_constant_recomputed": "10 + 2*sqrt(5)",
             "frame_assignment_source": "artifact port_vertex_frame",
-            "derived_construction": derived.get("construction"),
+            "current_lift_source_selected": lift_status.get("source_selected"),
+            "commutator_reconstructed_from_ordered_response": lift_status.get(
+                "commutator_reconstructed_from_ordered_response"
+            ),
+            "overlap_holonomy_internality_certified": lift_status.get(
+                "overlap_holonomy_internality_certified"
+            ),
+            "charged_double_triplet_forced": lift_status.get(
+                "charged_double_triplet_forced"
+            ),
             "response_operator": source_response.get("operator"),
             "response_source": source_response.get("source"),
             "impulse_readback_status": protocol.get("status"),
@@ -1552,6 +1576,7 @@ def certificate_payload(
     base_dir: Path | None = None,
     *,
     allow_control_models: bool = False,
+    allow_inline_artifact_for_tests: bool = False,
 ) -> dict[str, Any]:
     base = base_dir or MODULE_DIR
     params = validate_manifest(manifest, base, allow_control_models=allow_control_models)
@@ -1562,7 +1587,7 @@ def certificate_payload(
     artifact_binding: dict[str, Any] | None = None
     if params["artifact_ref"] is not None:
         artifact = load_semantic_artifact(
-            params["artifact_ref"], base, allow_control_models
+            params["artifact_ref"], base, allow_inline_artifact_for_tests
         )
         artifact_binding = bind_semantic_artifact(
             artifact, carrier, carrier_manifest, verts, matched, plus, params
@@ -1951,14 +1976,30 @@ def certificate_payload(
     }
     require(all(gate.values()), "GATE", "conditional algebraic gate did not pass")
 
-    bound = artifact_binding is not None
+    constraints_bound = artifact_binding is not None
+    current_source_bound = bool(
+        constraints_bound
+        and artifact_binding["report"].get("current_lift_source_selected") is True
+        and artifact_binding["report"].get(
+            "commutator_reconstructed_from_ordered_response"
+        )
+        is True
+        and artifact_binding["report"].get(
+            "overlap_holonomy_internality_certified"
+        )
+        is True
+    )
     physical_gate = {
-        "response_model_source_bound": bound,
-        "response_coefficients_source_bound": bound,
-        "target_blind_impulse_readback_recomputed": bound,
-        "physical_refinement_intertwining_source_bound": bound
+        "response_model_source_bound": current_source_bound,
+        "response_coefficients_source_bound": constraints_bound,
+        "target_blind_impulse_readback_recomputed": constraints_bound,
+        "response_constraint_refinement_source_bound": constraints_bound,
+        "ordered_response_commutator_reconstructed": current_source_bound,
+        "a2_overlap_holonomy_fullness_source_bound": current_source_bound,
+        "same_current_internal_implementers_source_bound": current_source_bound,
+        "physical_refinement_intertwining_source_bound": current_source_bound
         and bool(physical_naturality_maps),
-        "passed": bound and bool(physical_naturality_maps),
+        "passed": current_source_bound and bool(physical_naturality_maps),
     }
 
     return {
@@ -1970,49 +2011,36 @@ def certificate_payload(
             "forbidden_dependency_hits": [],
             "uses_only": [
                 "certified twelve-port carrier packet",
-                (
-                    "hash-pinned semantic response artifact deriving R=-J from "
-                    "the carrier incidence and binding it to the runtime dynamics"
-                    if bound
-                    else "declared algebraic response construction"
-                ),
+                "declared charged-double-triplet algebraic current fixture",
                 "reversible response automorphism typing",
-                (
-                    "four relative response signs determined by exact eigenspaces "
-                    "of R=-J; the common sign is a charge-conjugation convention"
-                    if bound
-                    else "four exact signed response coefficients"
-                ),
+                "hash-pinned response-constraint artifact deriving R=-J and its "
+                "four exact sector signs from carrier incidence",
                 "irreversible strict-descent repair ledger (excluded from currents)",
             ],
         },
         "source_definedness": {
             "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
             "operators": (
-                "K built from the artifact-bound oriented frame, the Galois-twisted "
-                "kernel intertwiner, and the artifact-determined response scales"
-                if bound
-                else "K built from the derived oriented frame, the Galois-twisted kernel intertwiner, and the declared response scales"
+                "K is the declared charged-double-triplet fixture, evaluated on "
+                "the artifact-bound oriented frame and exact response signs"
             ),
             "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
             "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients",
             "refinement_maps": (
-                "the declared carrier tower maps and the artifact-bound physical "
-                "persistence maps, each intertwined by the current lift"
-                if bound
-                else "the declared carrier tower maps, each intertwined by the current lift"
+                "the source-bound carrier persistence maps are intertwined by "
+                "the declared current fixture; this verifies a conditional "
+                "intertwining identity, not a source selection of K"
             ),
             "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
             "response_construction_status": params["response_status"],
             "response_data_provenance": (
-                "derived from the unique nonidentity central antipode involution "
-                "and independently recomputed here; overall sign is conventional"
-                if bound
-                else "the charged-double-triplet construction and four signed A5-equivariant response coefficients, declared"
+                "the response signs and oriented carrier constraints are derived "
+                "from the unique nonidentity central antipode involution; the "
+                "charged-double-triplet matrix lift and its Lie bracket are declared"
             ),
-            "carrier_and_refinement_source_bound": True,
-            "response_model_declared_as_branch_premise": not bound,
-            "physical_response_source_bound": bound,
+            "carrier_and_response_constraint_maps_source_bound": constraints_bound,
+            "response_model_declared_as_branch_premise": True,
+            "physical_response_source_bound": current_source_bound,
             "algebraic_construction_verified": True,
         },
         "frame_realization": {
@@ -2023,7 +2051,7 @@ def certificate_payload(
             "canonical_assignment": list(psi),
             "assignment_source": (
                 "semantic artifact port_vertex_frame"
-                if bound
+                if constraints_bound
                 else "first orientation-matched realization"
             ),
             "axis_representatives": [carrier.ports[p] for p in frame.axis_reps],
@@ -2031,8 +2059,8 @@ def certificate_payload(
         "port_to_generator_map": {
             "model": params["model"],
             "construction_provenance": (
-                "derived_from_bound_semantic_artifact"
-                if bound
+                "declared_charged_double_triplet_fixture_constrained_by_source_response"
+                if constraints_bound
                 else "declared_construction_model"
             ),
             "signed_response_band_coefficients": {k: str(v) for k, v in params["scales"].items()},
@@ -2110,7 +2138,9 @@ def certificate_payload(
             "equivariant_lift_dimension": moduli_dimension,
             "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
             "source_data_status": (
-                "determined_by_semantic_artifact" if bound else "open"
+                "response_signs_determined_current_lift_open"
+                if constraints_bound
+                else "open"
             ),
             "band_coefficient_provenance": (
                 {
@@ -2119,7 +2149,7 @@ def certificate_payload(
                     "frame_band": "positive eigenspace of the conventional representative R=-J",
                     "kernel_band": "positive eigenspace of the conventional representative R=-J",
                 }
-                if bound
+                if constraints_bound
                 else {
                     "unit_band": "signed unit-band response coefficient (open)",
                     "quintet_band": "signed quintet-band response coefficient (open)",
@@ -2144,7 +2174,7 @@ def certificate_payload(
         "conditional_algebraic_gate": {**gate, "passed": True},
         "physical_source_gate": physical_gate,
         "semantic_response_binding": (
-            artifact_binding["report"] if bound else None
+            artifact_binding["report"] if constraints_bound else None
         ),
         "lean_cross_check": {
             "module": "Lean/Screen/A5IncidenceResponse.lean",
@@ -2164,19 +2194,17 @@ def certificate_payload(
             {
                 "step": 1,
                 "premise": (
-                    "response manifest with firewall, repair/response typing, and "
-                    "the hash-pinned semantic response artifact"
-                    if bound
-                    else "declared response manifest with firewall and repair/response typing"
+                    "response manifest with firewall, repair/response typing, a "
+                    "declared matrix-current fixture, and the hash-pinned "
+                    "response-constraint artifact"
                 ),
                 "uses": ["schema validation", "forbidden-token firewall", "reversible/irreversible typing split"],
                 "source_artifact": "manifests/port_current_response_reference.json",
                 "conclusion": (
-                    "the production packet is admissible: the construction, "
-                    "coefficients, frame, and physical refinement maps enter "
-                    "through the bound artifact, and repairs are excluded from currents"
-                    if bound
-                    else "the conditional algebraic packet is admissible: a declared construction, four exact signed coefficients, and repairs excluded from currents"
+                    "the conditional algebraic packet is admissible: the "
+                    "charged-double-triplet construction is declared, its exact "
+                    "response constraints are bound, and repairs are excluded "
+                    "from currents"
                 ),
             },
             {
@@ -2190,16 +2218,15 @@ def certificate_payload(
                 ],
                 "source_artifact": (
                     "manifests/charged_response_semantic_artifact.json"
-                    if bound
+                    if constraints_bound
                     else "absent: declared control lane"
                 ),
                 "conclusion": (
-                    "the charged response representation, the four signed "
-                    "coefficients, the oriented frame, and the physical refinement "
-                    "maps are determined by finite carrier structure, with a common "
-                    "charge-conjugation sign convention"
-                    if bound
-                    else "no semantic artifact is bound; the physical source gate stays false"
+                    "the four signed response constraints, oriented frame, and "
+                    "carrier persistence maps are determined by finite carrier "
+                    "structure; no current representation or Lie bracket is selected"
+                    if constraints_bound
+                    else "no semantic response-constraint artifact is bound"
                 ),
             },
             {
@@ -2225,7 +2252,10 @@ def certificate_payload(
             },
             {
                 "step": 5,
-                "premise": "declared band scales attached to the derived band maps",
+                "premise": (
+                    "the declared charged-double-triplet fixture with exact band "
+                    "scales constrained by the response artifact"
+                ),
                 "uses": ["skew-adjointness check", "exact rank over Q(sqrt5)"],
                 "source_artifact": "ChargedDoubleTripletModel.generator",
                 "conclusion": "injective port-to-generator map, image real dimension 12 with verified block dimensions (9, 3) and real kernel block",
@@ -2285,10 +2315,9 @@ def certificate_payload(
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_566_negative_controls.json",
                 "conclusion": (
-                    "the conditional algebraic gate and simulator physical-source "
-                    "gate pass on the target-blind impulse/readback producer"
-                    if bound
-                    else "the conditional algebraic gate passes on the reference packet and fails on every algebraic countermodel; the physical source gate is false on the declared control lane"
+                    "the conditional algebraic gate passes on the declared "
+                    "fixture and fails on every algebraic countermodel; the "
+                    "physical current-source gate remains false"
                 ),
             },
         ],
@@ -2303,28 +2332,23 @@ def certificate_payload(
         },
         "branch_scope": {
             "branch": (
-                "source-bound impulse/readback echosahedral response branch"
-                if bound
-                else "declared echosahedral response branch"
+                "declared charged-double-triplet current fixture on the "
+                "source-bound echosahedral response-constraint branch"
             ),
             "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
             "response_data": (
-                "the charged-double-triplet construction and four relative "
-                "A5-equivariant response signs, determined by the bound semantic "
-                "artifact and recomputed here; the common sign is conventional"
-                if bound
-                else "the charged-double-triplet construction and four signed A5-equivariant response coefficients, explicitly typed as branch premises rather than measurements"
+                "the charged-double-triplet matrix lift is a declared algebraic "
+                "fixture; the four relative A5-equivariant response signs and "
+                "carrier maps are source-bound constraints"
             ),
             "not_claimed": (
-                "no statement about arbitrary OPH carriers, no laboratory "
-                "measurement of the response channels, and no identification "
-                "with the physical Standard Model gauge group"
-                if bound
-                else "no physical source binding of the response model or coefficients, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group"
+                "no source selection of the current representation or Lie "
+                "bracket, no statement about arbitrary OPH carriers, and no "
+                "identification with the physical Standard Model gauge group"
             ),
         },
         "acceptance_criteria_status": {
-            "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": bound,
+            "current_operators_and_physical_refinement_source_defined": current_source_bound,
             "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": True,
             "abelian_record_and_rank_deficient_models_fail_physical_current_gate": True,
             "coefficient_classification_distinguished_from_physical_current_realization": True,
@@ -2332,23 +2356,19 @@ def certificate_payload(
         },
         "issue_closure_condition": {
             "produced_locally": (
-                "the full-rank compact skew-adjoint commutator-closed current "
-                "lift with inner A5 action, derived from the bound semantic "
-                "response artifact with exact tower and physical-map covariance "
-                "over Q(sqrt5)"
-                if bound
-                else "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift with inner A5 action and exact declared-tower covariance over Q(sqrt5)"
+                "the conditional full-rank compact skew-adjoint "
+                "commutator-closed algebraic lift for the declared fixture, "
+                "with inner A5 action and exact covariance over Q(sqrt5)"
             ),
             "response_field_provenance": params["response_status"],
             "conditional_algebraic_gate_passed": True,
             "physical_source_realization_gate_passed": physical_gate["passed"],
             "met_locally": physical_gate["passed"],
             "remaining_producer": (
-                "none for the simulator carrier response: the target-blind "
-                "impulse/readback protocol determines it. Laboratory attachment "
-                "to gauge currents remains in #569"
-                if bound
-                else "a semantic upstream response artifact must determine the charged response representation, four signed coefficients, and physical refinement maps"
+                "a source producer must reconstruct twelve current generators "
+                "and their commutator from ordered response histories, realize "
+                "every proper carrier recharting by same-current closed overlap "
+                "holonomy, and verify refinement intertwining"
             ),
         },
         "dependency_acyclicity_note": {
@@ -2364,36 +2384,20 @@ def certificate_payload(
         "verifier_command": "python3 code/a5_closure/port_current_inner_certificate.py verify --manifest code/a5_closure/manifests/port_current_response_reference.json --receipt code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "claim_boundary": {
             "proves": (
-                "the exact port-current algebra with the charged response "
-                "representation, coefficients, frame, and physical refinement "
-                "maps determined by the bound semantic artifact"
-                if bound
-                else "the conditional exact port-current algebra for the declared charged-double-triplet response construction"
+                "the conditional exact port-current algebra for the declared "
+                "charged-double-triplet response construction"
             ),
-            "status": (
-                "proved_on_source_bound_impulse_readback_artifact"
-                if bound
-                else "proved_conditional_on_declared_response_representation"
-            ),
-            "does_not_close": (
-                [
-                    "laboratory measurement of the response channels and the physical attachment lane (#569)",
-                    "block determinant balance and PORT-SPIN-LIFT",
-                    "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
-                    "matter attachment, family structure, and exterior package selection",
-                    "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number",
-                ]
-                if bound
-                else [
-                    "PORT-CURRENT-INNER as a physical source-bound receipt",
-                    "derivation or measurement of the response representation and coefficients from physical carrier response",
-                    "physical refinement intertwining beyond the declared algebraic tower maps",
-                    "block determinant balance and PORT-SPIN-LIFT",
-                    "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
-                    "matter attachment, family structure, and exterior package selection",
-                    "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number",
-                ]
-            ),
+            "status": "proved_conditional_on_declared_response_representation",
+            "does_not_close": [
+                "PORT-CURRENT-INNER as a physical source-bound receipt",
+                "reconstruction of the current generators and bracket from ordered physical response",
+                "A2 overlap-holonomy fullness and same-current internal implementers",
+                "physical refinement intertwining beyond the declared algebraic tower maps",
+                "block determinant balance and PORT-SPIN-LIFT",
+                "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
+                "matter attachment, family structure, and exterior package selection",
+                "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number",
+            ],
         },
     }
 
@@ -2479,11 +2483,11 @@ def negative_control_cases(
     cases.append(("inject_downstream_target", forbidden, "FORBIDDEN_DEPENDENCY"))
 
     production_model_string = copy.deepcopy(manifest)
-    production_model_string["construction_model"] = "charged_double_triplet"
+    production_model_string.pop("construction_model", None)
     cases.append(
-        ("production_construction_model_string", production_model_string, "CONSTRUCTION_MODEL_STRING")
+        ("production_missing_construction_fixture", production_model_string, "CONSTRUCTION_MODEL_STRING")
     )
-    # This control runs in production mode: PRODUCTION_MODE_CASES below.
+    # This control, like all artifact mutations, runs through production validation.
 
     artifact_ref = manifest.get("semantic_response_artifact")
     if isinstance(artifact_ref, Mapping) and "path" in artifact_ref:
@@ -2538,6 +2542,20 @@ def negative_control_cases(
         )
         cases.append(
             ("artifact_coefficient_mismatch", _with_inline_artifact(manifest, mismatched), "COEFFICIENT_MISMATCH")
+        )
+
+        false_source_selection = _mutated_artifact(
+            artifact,
+            lambda a: a["derived"]["current_lift_status"].update(
+                source_selected=True
+            ),
+        )
+        cases.append(
+            (
+                "artifact_forged_current_source_selection",
+                _with_inline_artifact(manifest, false_source_selection),
+                "ARTIFACT_CURRENT_BOUNDARY",
+            )
         )
 
         def _doctor_map(a: dict[str, Any]) -> None:
@@ -2611,7 +2629,14 @@ def negative_control_cases(
     return cases
 
 
-PRODUCTION_MODE_CASES = {"production_construction_model_string"}
+CONTROL_LANE_CASES = {
+    "abelian_record_model",
+    "rank_deficient_kernel_band",
+    "rank_deficient_dead_center",
+    "non_equivariant_axis_response",
+    "odd_axis_sign_not_common",
+    "symmetric_record_pairing",
+}
 
 
 def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None = None) -> dict[str, Any]:
@@ -2622,7 +2647,8 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
             certificate_payload(
                 mutant,
                 base_dir,
-                allow_control_models=name not in PRODUCTION_MODE_CASES,
+                allow_control_models=name in CONTROL_LANE_CASES,
+                allow_inline_artifact_for_tests=name.startswith("artifact_"),
             )
         except CertificateError as exc:
             actual_code = exc.code
@@ -2662,9 +2688,9 @@ def negative_control_payload(manifest: Mapping[str, Any], base_dir: Path | None 
                 "firewall": "a measured-coupling target in the source manifest fails closed",
             },
             "artifact": {
-                "construction_model_string": "a production manifest naming a construction-model string fails closed; the construction is derived from the bound artifact",
+                "construction_fixture": "a production manifest without an explicit charged-double-triplet fixture fails closed; the response artifact does not select a matrix current",
                 "hash_binding": "self-hash tamper, wrong carrier pin, and unrelated JSON fail closed",
-                "structure_binding": "old schemas, missing sectors, swapped channels, source-antipode or eigensign tampering, coefficient mismatches, and doctored refinement maps fail closed",
+                "structure_binding": "all inline artifact mutations run through production validation; old schemas, missing sectors, swapped channels, forged source selection, source-antipode or eigensign tampering, coefficient mismatches, and doctored refinement maps fail closed",
             },
         },
     }

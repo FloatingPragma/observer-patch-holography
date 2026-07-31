@@ -29,15 +29,94 @@ def test_live_register_validates_and_surface_is_current():
     assert rendered == committed
 
 
-def test_ladder_is_contiguous_fz01_through_fz10():
+def test_ladder_excludes_the_retrospective_fz04_reservation():
     rows = fz_tool.validate(live_register())
-    assert [row["id"] for row in rows] == [f"FZ-{i:02d}" for i in range(1, 11)]
+    assert [row["id"] for row in rows] == [
+        "FZ-01",
+        "FZ-02",
+        "FZ-03",
+        "FZ-05",
+        "FZ-06",
+        "FZ-07",
+        "FZ-08",
+        "FZ-09",
+        "FZ-10",
+    ]
+    result = live_register()["retrospective_results"][0]
+    assert result["id"] == "RR-506-ALPHA-HVP"
+    assert result["former_ladder_reservation"] == "FZ-04"
+
+
+def test_fz06_is_attested_history_without_prediction_eligibility():
+    register = live_register()
+    fz06 = next(row for row in register["rows"] if row["id"] == "FZ-06")
+    assert fz06["status"] == "superseded_void"
+    assert fz06["frozen_utc"] is None
+    assert fz06["comparison_protocol"].lower().startswith("none;")
+    assert fz06["kill_band"].lower().startswith("none;")
+    assert "alpha = 4" in fz06["content"]
+    assert "void" in fz06["content"].lower()
+    fz_tool.validate(register)
+
+    register = live_register()
+    fz06 = next(row for row in register["rows"] if row["id"] == "FZ-06")
+    fz06["comparison_protocol"] = "score every loud event"
+    with pytest.raises(SystemExit, match="must refuse comparison"):
+        fz_tool.validate(register)
+
+    register = live_register()
+    fz06 = next(row for row in register["rows"] if row["id"] == "FZ-06")
+    fz06["frozen_utc"] = "2026-07-17T07:18:00Z"
+    with pytest.raises(SystemExit, match="cannot retain a freeze time"):
+        fz_tool.validate(register)
+
+    rendered = fz_tool.render(live_register(), fz_tool.validate(live_register()))
+    active_table = rendered.split("## Superseded records outside the ladder", 1)[0]
+    assert "| FZ-06 |" not in active_table
+    assert "These identifiers preserve attested historical bytes" in rendered
+    assert "| FZ-06 |" in rendered
 
 
 def test_fz02_hash_is_bound_to_the_live_receipt():
     register = live_register()
     register["rows"][1]["content_sha256"] = "0" * 64
     with pytest.raises(SystemExit, match="does not equal the live"):
+        fz_tool.validate(register)
+
+
+def test_fz02_frame_lock_is_ineligible_pending_issue_643():
+    register = live_register()
+    fz02 = next(row for row in register["rows"] if row["id"] == "FZ-02")
+    assert "frame-lock clause is not established" in fz02["content"]
+    assert "ineligible pending issue #643" in fz02["content"]
+    assert "Status correction 2026-07-30" in fz02["content"]
+    assert "retired from the scientific target" in fz02["content"]
+    assert "no frame-lock verdict may be issued" in fz02["comparison_protocol"]
+    assert "FZ02-R03a" in fz02["kill_band"]
+    assert "FZ02-R03b (INELIGIBLE; #643)" in fz02["kill_band"]
+    assert "FZ02-R03b correction 2026-07-30" in fz02["kill_band"]
+    fz_tool.validate(register)
+
+    register = live_register()
+    fz02 = next(row for row in register["rows"] if row["id"] == "FZ-02")
+    fz02["comparison_protocol"] = (
+        "The registered frame-lock clause is READY for comparison."
+    )
+    with pytest.raises(SystemExit, match="unsupported frame-lock clause"):
+        fz_tool.validate(register)
+
+
+def test_fz05_requires_physical_attachment_and_retrospective_exposure():
+    register = live_register()
+    fz05 = next(row for row in register["rows"] if row["id"] == "FZ-05")
+    assert "#503 and #589" in fz05["content"]
+    assert "retrospective" in fz05["comparison_protocol"].lower()
+    assert (
+        "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT" in fz05["kill_band"]
+    )
+
+    fz05["content"] = "A positive finite N is a cosmological prediction."
+    with pytest.raises(SystemExit, match="FZ-05 must keep"):
         fz_tool.validate(register)
 
 
@@ -104,6 +183,126 @@ def test_pending_row_requires_a_kill_band():
         fz_tool.validate(register)
 
 
+def test_issue506_result_is_retrospective_and_bound_to_live_verdict():
+    register = live_register()
+    result = register["retrospective_results"][0]
+    assert result["status"] == "retrospective_not_evaluable"
+    assert result["former_ladder_reservation"] not in {
+        row["id"] for row in register["rows"]
+    }
+    fz_tool.validate(register)
+
+    register["retrospective_results"][0]["payload_sha256"] = "0" * 64
+    with pytest.raises(SystemExit, match="retrospective payload hash"):
+        fz_tool.validate(register)
+
+
+def test_retrospective_reservation_cannot_be_inserted_into_ladder():
+    register = live_register()
+    register["rows"].insert(
+        3,
+        {
+            "attestation": None,
+            "comparison_protocol": "retrospective",
+            "content": "not a prospective freeze",
+            "content_sha256": None,
+            "custody": None,
+            "frozen_utc": None,
+            "id": "FZ-04",
+            "kill_band": "none",
+            "milestone": "C1",
+            "owning_issue": 506,
+            "status": "registered_pending_freeze",
+        },
+    )
+    with pytest.raises(SystemExit, match="must not appear"):
+        fz_tool.validate(register)
+
+
+def write_verdict(path: Path, payload: dict) -> None:
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+
+def refresh_verdict_digest(payload: dict) -> None:
+    canonical = {
+        key: value for key, value in payload.items() if key != "verdict_sha256"
+    }
+    payload["verdict_sha256"] = "sha256:" + fz_tool.sha256_bytes(
+        fz_tool.canonical_json_bytes(canonical)
+    )
+
+
+def test_issue506_self_reported_digest_is_not_trusted(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    payload = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload["class_matrix"]["tabulated_dispersive"]["claim_boundary"] += " altered"
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    with pytest.raises(SystemExit, match="self-digest"):
+        fz_tool.validate(live_register())
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    [
+        ("prospective_freeze", True, "scope differs"),
+        ("physical_alpha_prediction_emitted", True, "scope differs"),
+    ],
+)
+def test_issue506_scope_mutations_fail_even_with_refreshed_self_digest(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    field: str,
+    value: bool,
+    message: str,
+):
+    payload = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload["scope"][field] = value
+    refresh_verdict_digest(payload)
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    with pytest.raises(SystemExit, match=message):
+        fz_tool.validate(live_register())
+
+
+def test_issue506_claim_mutation_fails_even_with_refreshed_self_digest(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    payload = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload["claim_boundary"] = "A stronger claim."
+    refresh_verdict_digest(payload)
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    with pytest.raises(SystemExit, match="claim boundary"):
+        fz_tool.validate(live_register())
+
+
+def test_issue506_payload_mutation_fails_with_both_digests_refreshed(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    canonical = json.loads(fz_tool.FZ04_VERDICT_PATH.read_text(encoding="utf-8"))
+    payload = json.loads(json.dumps(canonical))
+    payload["class_matrix"]["tabulated_dispersive"]["claim_boundary"] += " altered"
+    refresh_verdict_digest(payload)
+    path = tmp_path / "verdict.json"
+    write_verdict(path, payload)
+
+    register = live_register()
+    register["retrospective_results"][0]["payload_sha256"] = payload[
+        "verdict_sha256"
+    ].removeprefix("sha256:")
+    monkeypatch.setattr(fz_tool, "FZ04_VERDICT_PATH", path)
+    monkeypatch.setattr(
+        fz_tool, "rebuild_issue506_verdict", lambda: canonical
+    )
+    with pytest.raises(SystemExit, match="canonical producer replay"):
+        fz_tool.validate(register)
+
+
 def test_attestation_status_cannot_promote_calendar_pending_to_bitcoin():
     register = live_register()
     register["external_custody_contracts"]["FZ-02"][
@@ -163,6 +362,21 @@ def test_external_custody_rejects_artifact_tampering(tmp_path: Path):
     )
     target.write_bytes(target.read_bytes() + b"\n")
     with pytest.raises(SystemExit, match="custody artifact hash mismatch"):
+        fz_tool.verify_external_custody(register, custody_root)
+
+
+def test_external_custody_rejects_scientific_erratum_tampering(tmp_path: Path):
+    register = live_register()
+    custody_root = copy_external_custody(tmp_path)
+    erratum = (
+        custody_root
+        / "falsification"
+        / "frozen_targets"
+        / "fz02_2026-07-26"
+        / "SCIENTIFIC_ERRATUM_2026-07-29.md"
+    )
+    erratum.write_bytes(erratum.read_bytes() + b"\n")
+    with pytest.raises(SystemExit, match="scientific erratum hash mismatch"):
         fz_tool.verify_external_custody(register, custody_root)
 
 

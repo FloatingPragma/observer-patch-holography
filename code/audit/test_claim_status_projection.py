@@ -200,9 +200,9 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         for row in by_id["alpha_in_thomson"]["blocking_issues"]
     }
     assert alpha_blockers == {
-        318: "open_work_item",
-        545: "open_work_item",
-        425: "parked_computational_blocker",
+        318: "resource_deferred_blocker",
+        545: "resource_deferred_blocker",
+        425: "resource_deferred_blocker",
     }
     assert (
         by_id["repair_generator_yang_mills_hamiltonian"]["source_anchors"]
@@ -216,8 +216,6 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
     }
     assert de_sitter_blockers == {
         334: "open_work_item",
-        505: "open_work_item",
-        589: "open_work_item",
         595: "open_work_item",
         608: "open_work_item",
     }

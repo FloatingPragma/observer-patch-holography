@@ -20,6 +20,12 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert payload["github_issue"] == 234
     assert payload["status"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
     assert payload["promotion_allowed"] is False
+    assert (
+        payload["finalization_gates"][
+            "empirical_hadron_spectral_endpoint_packet_available"
+        ]
+        is True
+    )
     assert payload["closure_gate"]["closable_now"] is True
     assert payload["convention_sensitivity"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"
     row_map = {row["particle_id"]: row for row in payload["rows"]}

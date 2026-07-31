@@ -2,12 +2,13 @@
 """Completeness-scope certificate for GitHub issue #613: ROUTED-SEAM GRAMMAR.
 
 The input is the hash-pinned #567 descent manifest together with the two
-measured artifacts it binds: the global-form artifact (order-120 deck action
-on the incidence-nerve federation, six-axis class group with Smith invariants
-(1,1,1,1,1,6), order-six flux-sector menu, two-puncture witnesses) and the
-spin-statistics artifact (binary-icosahedral double-cover transport with
-group order 120, unique involution, centre of order two). No physics pinned
-by those artifacts is recomputed; this certificate consumes their fields,
+finite artifacts it binds.  The first measures an order-120 deck action and
+six antipodal axes on the incidence-nerve federation, then computes a class
+group with Smith invariants (1,1,1,1,1,6), an order-six flux-sector menu, and
+two-puncture witnesses inside a declared axis coefficient system.  The second
+records binary-icosahedral double-cover transport with group order 120, unique
+involution, and centre of order two. No physics pinned by those artifacts is
+recomputed; this certificate consumes their fields,
 reconstructs the documented incidence structures, and proves three scope
 statements by exact integer and rational arithmetic:
 
@@ -18,7 +19,7 @@ statements by exact integer and rational arithmetic:
   invariants, and constructive flux tubes from the start puncture to every
   other face generate the full sum-zero holonomy lattice, so every central
   2-cochain class on the nerve is realized by exactly one of the six
-  measured sectors;
+  declared-system sectors;
 * closure of the composition laws: pairwise seam composition, triple-overlap
   coherence (the composed boundary vanishes identically and every
   face-holonomy assignment sums to zero), and routed-loop composition
@@ -213,7 +214,7 @@ def load_descent_manifest(manifest: Mapping[str, Any], base: Path) -> dict[str, 
 
 
 def load_global_form_artifact(descent: Mapping[str, Any], base: Path) -> dict[str, Any]:
-    """Load the measured global-form artifact through the descent manifest's pin."""
+    """Load the conditional global-form artifact through the descent pin."""
 
     path = resolve(
         descent.get("global_form_artifact_path"), base, "GLOBAL_FORM_ARTIFACT", "global_form_artifact_path"
@@ -236,6 +237,16 @@ def load_global_form_artifact(descent: Mapping[str, Any], base: Path) -> dict[st
         "GLOBAL_FORM_ARTIFACT",
         "the pinned artifact is not a #567 global form artifact",
     )
+    source_gate = artifact.get("physical_source_gate", {})
+    require(
+        source_gate.get("finite_declared_coefficient_system_gate_passed") is True
+        and source_gate.get("passed") is False
+        and source_gate.get("axis_relation_lattice_source_selected") is False
+        and source_gate.get("complete_character_category_source_derived") is False
+        and source_gate.get("same_source_loop_to_tensor_kernel_identification") is False,
+        "PHYSICAL_SCOPE",
+        "the global-form artifact must retain its declared-system scope and open physical-source gate",
+    )
     axis = artifact.get("six_axis_class_measurement", {})
     require(
         axis.get("axis_count") == 6
@@ -244,7 +255,7 @@ def load_global_form_artifact(descent: Mapping[str, Any], base: Path) -> dict[st
         and axis.get("rotation_action_transitive") is True
         and axis.get("antipode_reverses_every_oriented_axis") is True,
         "GLOBAL_FORM_ARTIFACT",
-        "the measured six-axis class group block is incomplete",
+        "the declared-system six-axis class group block is incomplete",
     )
     deck = artifact.get("federation_deck_action", {})
     require(
@@ -253,7 +264,7 @@ def load_global_form_artifact(descent: Mapping[str, Any], base: Path) -> dict[st
         and deck.get("seams") == 30
         and deck.get("triple_overlaps") == 20,
         "GLOBAL_FORM_ARTIFACT",
-        "the measured federation deck action block is incomplete",
+        "the finite federation deck action block is incomplete",
     )
     menu = artifact.get("sector_menu", {})
     require(
@@ -267,7 +278,7 @@ def load_global_form_artifact(descent: Mapping[str, Any], base: Path) -> dict[st
         is True
         and len(menu.get("flux_tube_witnesses", [])) == 6,
         "GLOBAL_FORM_ARTIFACT",
-        "the measured sector menu block is incomplete",
+        "the declared-system sector menu block is incomplete",
     )
     require(
         artifact.get("federation_sector_class", {}).get("measured_sector_class") == 0
@@ -749,8 +760,8 @@ def central_column_completeness(
             "Smith invariants and zero column sums, so the routed-seam "
             "holonomy map surjects onto the sum-zero central 2-cochain "
             "lattice; every central 2-cochain class on the nerve is realized "
-            "by exactly one of the six measured sectors, and every "
-            "seam-routable central flux mechanism lies in the measured "
+            "by exactly one of the six declared-system sectors, and every "
+            "seam-routable central flux mechanism lies in the declared "
             "order-six menu"
         ),
         "status": "exact",
@@ -1165,6 +1176,12 @@ def certificate_payload(
                 "one A1 federation of twelve charts, thirty seams, and "
                 "twenty triple overlaps"
             ),
+            "physical_scope": {
+                "declared_axis_coefficient_system_exact": True,
+                "axis_relation_lattice_source_selected": False,
+                "physical_global_form_selected": False,
+                "same_source_loop_to_tensor_kernel_identification": False,
+            },
             "global_form_fields": [
                 "six_axis_class_measurement",
                 "federation_deck_action",
@@ -1217,7 +1234,8 @@ def certificate_payload(
         "claim_boundary": {
             "proves": (
                 "exact completeness of the routed-seam grammar with seam data "
-                "valued in the central order-six class group, closure of the "
+                "valued in the order-six class group of the declared axis "
+                "coefficient system, closure of the "
                 "pairwise, triple-overlap, and routed-loop composition laws "
                 "on the finite nerve, and the existence of a measured "
                 "routed-seam mechanism with noncentral nonabelian values on "
@@ -1225,6 +1243,8 @@ def certificate_payload(
             ),
             "does_not_close": [
                 "grammar exhaustiveness for routed mechanisms with values outside the central column",
+                "source selection of the axis relation lattice or a physical global form",
+                "same-source identification of the routed-seam class group with the matter-action kernel",
                 "four-dimensional instanton normalization and theta periodicity (separate gates)",
                 "laboratory current lines (issue 569)",
                 "continuum quantum field theory",
@@ -1232,7 +1252,7 @@ def certificate_payload(
             "bounded_exit": "conditional_open_interface",
             "bounded_exit_scope": (
                 "the central column exits exact_named_realization inside the "
-                "measured order-six menu; the general grammar exits "
+                "declared-system order-six menu; the general grammar exits "
                 "conditional_open_interface on the nonabelian witness"
             ),
         },

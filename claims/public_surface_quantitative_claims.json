@@ -92,7 +92,7 @@
         "artifact_id": "oph_d10_gravity_shared_edge_entropy_bridge",
         "value_pointer": "/pixel_cancellation/G_geom_over_ell_star_squared",
         "guards": {
-          "/status": "closed",
+          "/status": "closed_conditional_algebraic_identity",
           "/proof_gate": "branch_preserving_nonabelian_edge_entropy_identity",
           "/pixel_cancellation/checks/shared_edge_equals_P_over_4": true,
           "/pixel_cancellation/checks/pixel_factor_cancels": true

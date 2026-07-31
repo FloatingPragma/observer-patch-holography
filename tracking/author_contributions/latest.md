@@ -1,7 +1,7 @@
 # Author Contribution Tracking
 
-- Generated (UTC): `2026-07-26T12:46:02+00:00`
-- Repo head: `50106883`
+- Generated (UTC): `2026-07-30T12:09:34+00:00`
+- Repo head: `e5584242`
 - Repo status when generated: dirty
 
 ## Author Summary
@@ -12,11 +12,16 @@
 | Mario Poneder | 37 | 26040 | 2398 | book=2, code=212, extra=5, other=22, paper=4, readme=4 |
 | Peter Nguyen | 24 | 525 | 417 | book=17, extra=1, paper=39, readme=7 |
 | Kale Arnav Anirudha | 3 | 726 | 309 | paper=3 |
-| Jonathan Hill | 35 | 2768 | 298 | lean=40, other=2 |
+| Jonathan Hill | 8 | 2532 | 84 | extra=2, lean=18, other=5, paper=1, readme=2 |
+| William T. Glynn | 11 | 2103 | 132 | code=33, extra=5, lean=2, other=10, paper=11 |
 
 ## Paper Rankings
 
 ### Derivation papers
+
+No tracked co-author commits on this file.
+
+### Flagship paper
 
 No tracked co-author commits on this file.
 
@@ -26,6 +31,7 @@ No tracked co-author commits on this file.
 | --- | --- | ---: |
 | 1 | Kai Xue | 50 |
 | 2 | Peter Nguyen | 13 |
+| 3 | William T. Glynn | 1 |
 
 ### Consensus paper
 
@@ -33,6 +39,8 @@ No tracked co-author commits on this file.
 | --- | --- | ---: |
 | 1 | Kai Xue | 21 |
 | 2 | Kale Arnav Anirudha | 3 |
+| 3 | Jonathan Hill | 1 |
+| 4 | William T. Glynn | 1 |
 
 ### Particle paper
 
@@ -40,12 +48,14 @@ No tracked co-author commits on this file.
 | --- | --- | ---: |
 | 1 | Kai Xue | 27 |
 | 2 | Mario Poneder | 1 |
+| 3 | William T. Glynn | 1 |
 
 ### Microphysics paper
 
 | Rank | Author | Commits touching target file |
 | --- | --- | ---: |
 | 1 | Kai Xue | 13 |
+| 2 | William T. Glynn | 1 |
 
 ### Main paper core fragment
 
@@ -179,15 +189,48 @@ No tracked co-author commits on this file.
 
 - Aliases: `Jonathan Hill <jonathan.f.hill@gmail.com>, qizwiz <jonathan.f.hill@gmail.com>, Your Name <jonathan.f.hill@gmail.com>`
 - Notes: Git identities mapped to Jonathan Hill's Lean formalisation and proof-audit contributions.
-- Non-merge commits: `35`
-- Line delta: `+2768 / -298`
-- Files touched: `42` touches across `6` unique files
+- Non-merge commits: `8`
+- Line delta: `+2532 / -84`
+- Files touched: `28` touches across `21` unique files
 - Core paper file counts:
+  - `consensus`: `1`
 - Most-touched files:
-  - `LEAN/ObserverPatchHolography/Primitives.lean`: `29`
   - `LEAN/ObserverPatchHolography/Rule90.lean`: `5`
   - `LEAN/ObserverPatchHolography.lean`: `2`
   - `LEAN/PROOF_INDEX.md`: `2`
   - `LEAN/README.md`: `2`
-  - `.github/workflows/lean-ci.yml`: `2`
+  - `Lean/ObserverPatchHolography.lean`: `1`
+  - `Lean/ObserverPatchHolography/RepairGapChain.lean`: `1`
+  - `Lean/ObserverPatchHolography/YangMillsGap.lean`: `1`
+  - `Lean/ObserverPatchHolography/YangMillsGapWitness.lean`: `1`
+  - `Lean/ObserverPatchHolography/YangMillsLemma72.lean`: `1`
+  - `Lean/ObserverPatchHolography/YangMillsProp81.lean`: `1`
 - Recent paper commits:
+  - `2026-07-27` `ae6e3f3` Machine-check the finite repair-gap for the collar generator
+
+### William T. Glynn
+
+- Aliases: `WGlynn <willglynn123@gmail.com>`
+- Notes: Git identity used for William T. Glynn's simulator, computational, reproducibility, and release-validation contributions.
+- Non-merge commits: `11`
+- Line delta: `+2103 / -132`
+- Files touched: `61` touches across `56` unique files
+- Core paper file counts:
+  - `synthesis`: `1`
+  - `consensus`: `1`
+  - `particle`: `1`
+  - `microphysics`: `1`
+- Most-touched files:
+  - `.github/workflows/mandatory-suite.yml`: `2`
+  - `tools/test_paper_release_manifest.py`: `2`
+  - `tools/validate_paper_release_manifest.py`: `2`
+  - `paper/build_warning_allowlist.json`: `2`
+  - `REPRODUCE.md`: `2`
+  - `paper/tools/check_build_warnings.py`: `1`
+  - `paper/tools/gen_warning_allowlist.py`: `1`
+  - `paper/tools/test_check_build_warnings.py`: `1`
+  - `Lean/ObserverPatchHolography/Source/ObserverPatchHolography.lean`: `1`
+  - `Lean/ObserverPatchHolography/Source/ObserverPatchHolography/IcosahedralOrbitStabilizer.lean`: `1`
+- Recent paper commits:
+  - `2026-07-18` `dc53cfd` #542: anchor underfull budget to source location + badness (drop blanket per-file counts)
+  - `2026-07-18` `833618b` #542: typesetting hardening + underfull warning-budget allowlist

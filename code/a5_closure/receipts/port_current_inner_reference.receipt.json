@@ -3,14 +3,14 @@
     "abelian_record_and_rank_deficient_models_fail_physical_current_gate": true,
     "closure_compactness_rank_faithfulness_icosahedral_intertwiner_proved": true,
     "coefficient_classification_distinguished_from_physical_current_realization": true,
-    "no_measured_coupling_particle_assignment_or_standard_model_current_input": true,
-    "operators_domain_inner_product_response_pairing_refinement_maps_source_defined": true
+    "current_operators_and_physical_refinement_source_defined": false,
+    "no_measured_coupling_particle_assignment_or_standard_model_current_input": true
   },
   "branch_scope": {
-    "branch": "source-bound impulse/readback echosahedral response branch",
+    "branch": "declared charged-double-triplet current fixture on the source-bound echosahedral response-constraint branch",
     "carrier": "the certified quotient-visible twelve-port carrier lineage of the pinned reference manifest",
-    "not_claimed": "no statement about arbitrary OPH carriers, no laboratory measurement of the response channels, and no identification with the physical Standard Model gauge group",
-    "response_data": "the charged-double-triplet construction and four relative A5-equivariant response signs, determined by the bound semantic artifact and recomputed here; the common sign is conventional"
+    "not_claimed": "no source selection of the current representation or Lie bracket, no statement about arbitrary OPH carriers, and no identification with the physical Standard Model gauge group",
+    "response_data": "the charged-double-triplet matrix lift is a declared algebraic fixture; the four relative A5-equivariant response signs and carrier maps are source-bound constraints"
   },
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charged_faithfulness": {
@@ -21,14 +21,17 @@
   },
   "claim_boundary": {
     "does_not_close": [
-      "laboratory measurement of the response channels and the physical attachment lane (#569)",
+      "PORT-CURRENT-INNER as a physical source-bound receipt",
+      "reconstruction of the current generators and bracket from ordered physical response",
+      "A2 overlap-holonomy fullness and same-current internal implementers",
+      "physical refinement intertwining beyond the declared algebraic tower maps",
       "block determinant balance and PORT-SPIN-LIFT",
       "physical Z6 deck/line descent (AXIS-CENTER-DESCENT)",
       "matter attachment, family structure, and exterior package selection",
       "continuum Yang-Mills quantum field theory, couplings, masses, or any measured number"
     ],
-    "proves": "the exact port-current algebra with the charged response representation, coefficients, frame, and physical refinement maps determined by the bound semantic artifact",
-    "status": "proved_on_source_bound_impulse_readback_artifact"
+    "proves": "the conditional exact port-current algebra for the declared charged-double-triplet response construction",
+    "status": "proved_conditional_on_declared_response_representation"
   },
   "classification_vs_realization": {
     "coefficient_layer": "the compact-Lie trichotomy classifies coefficient algebras; coefficient records can commute",
@@ -1029,8 +1032,8 @@
   },
   "derivation_chain": [
     {
-      "conclusion": "the production packet is admissible: the construction, coefficients, frame, and physical refinement maps enter through the bound artifact, and repairs are excluded from currents",
-      "premise": "response manifest with firewall, repair/response typing, and the hash-pinned semantic response artifact",
+      "conclusion": "the conditional algebraic packet is admissible: the charged-double-triplet construction is declared, its exact response constraints are bound, and repairs are excluded from currents",
+      "premise": "response manifest with firewall, repair/response typing, a declared matrix-current fixture, and the hash-pinned response-constraint artifact",
       "source_artifact": "manifests/port_current_response_reference.json",
       "step": 1,
       "uses": [
@@ -1040,7 +1043,7 @@
       ]
     },
     {
-      "conclusion": "the charged response representation, the four signed coefficients, the oriented frame, and the physical refinement maps are determined by finite carrier structure, with a common charge-conjugation sign convention",
+      "conclusion": "the four signed response constraints, oriented frame, and carrier persistence maps are determined by finite carrier structure; no current representation or Lie bracket is selected",
       "premise": "semantic response artifact derived from the finite carrier incidence and bound to the runtime dynamics",
       "source_artifact": "manifests/charged_response_semantic_artifact.json",
       "step": "1a",
@@ -1082,7 +1085,7 @@
     },
     {
       "conclusion": "injective port-to-generator map, image real dimension 12 with verified block dimensions (9, 3) and real kernel block",
-      "premise": "declared band scales attached to the derived band maps",
+      "premise": "the declared charged-double-triplet fixture with exact band scales constrained by the response artifact",
       "source_artifact": "ChargedDoubleTripletModel.generator",
       "step": 5,
       "uses": [
@@ -1165,7 +1168,7 @@
       ]
     },
     {
-      "conclusion": "the conditional algebraic gate and simulator physical-source gate pass on the target-blind impulse/readback producer",
+      "conclusion": "the conditional algebraic gate passes on the declared fixture and fails on every algebraic countermodel; the physical current-source gate remains false",
       "premise": "gate aggregation and finite countermodels",
       "source_artifact": "negative_controls/issue_566_negative_controls.json",
       "step": 13,
@@ -2551,11 +2554,11 @@
   "issue": 566,
   "issue_closure_condition": {
     "conditional_algebraic_gate_passed": true,
-    "met_locally": true,
-    "physical_source_realization_gate_passed": true,
-    "produced_locally": "the full-rank compact skew-adjoint commutator-closed current lift with inner A5 action, derived from the bound semantic response artifact with exact tower and physical-map covariance over Q(sqrt5)",
-    "remaining_producer": "none for the simulator carrier response: the target-blind impulse/readback protocol determines it. Laboratory attachment to gauge currents remains in #569",
-    "response_field_provenance": "source_bound_semantic_artifact"
+    "met_locally": false,
+    "physical_source_realization_gate_passed": false,
+    "produced_locally": "the conditional full-rank compact skew-adjoint commutator-closed algebraic lift for the declared fixture, with inner A5 action and exact covariance over Q(sqrt5)",
+    "remaining_producer": "a source producer must reconstruct twelve current generators and their commutator from ordered response histories, realize every proper carrier recharting by same-current closed overlap holonomy, and verify refinement intertwining",
+    "response_field_provenance": "declared_current_fixture_with_source_bound_response_constraints"
   },
   "lean_cross_check": {
     "declarations": [
@@ -2566,12 +2569,16 @@
     "scope": "independently checks unique graph-distance-three readback and the integral identity 10J=A^3-4A^2-5A+10I; the operational impulse/readback contract and laboratory attachment remain outside these Lean incidence theorems",
     "standard_axioms_only": true
   },
-  "manifest_sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c",
+  "manifest_sha256": "1aa53f62c7137e1f63233723deedaaae14f82090cc2d7fa9875984b85b32816e",
   "physical_source_gate": {
-    "passed": true,
-    "physical_refinement_intertwining_source_bound": true,
+    "a2_overlap_holonomy_fullness_source_bound": false,
+    "ordered_response_commutator_reconstructed": false,
+    "passed": false,
+    "physical_refinement_intertwining_source_bound": false,
     "response_coefficients_source_bound": true,
-    "response_model_source_bound": true,
+    "response_constraint_refinement_source_bound": true,
+    "response_model_source_bound": false,
+    "same_current_internal_implementers_source_bound": false,
     "target_blind_impulse_readback_recomputed": true
   },
   "port_to_generator_map": {
@@ -2587,7 +2594,7 @@
     },
     "block_dimensions_verified": true,
     "compact_lie_type": "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)",
-    "construction_provenance": "derived_from_bound_semantic_artifact",
+    "construction_provenance": "declared_charged_double_triplet_fixture_constrained_by_source_response",
     "image_real_dimension": 12,
     "injective": true,
     "kernel_block_real_verified": true,
@@ -2663,7 +2670,7 @@
     },
     "burnside_rank_check": "sum of squared fixed-port counts over A5 equals 240 = 4 * 60",
     "equivariant_lift_dimension": 4,
-    "source_data_status": "determined_by_semantic_artifact"
+    "source_data_status": "response_signs_determined_current_lift_open"
   },
   "response_versus_register_relabeling": {
     "conclusion": "the current lift factors through genuinely non-relabeling response sectors; register relabeling provably cannot generate these currents",
@@ -2685,9 +2692,11 @@
   "schema": "oph.port_current_inner_receipt.v5",
   "semantic_response_binding": {
     "antipode_polynomial_identity_recomputed": true,
-    "artifact_sha256": "sha256:f7924cbb05d27eabcf3e3b7c284787770f47742a4d4beb62ce7660dbc75ba0f2",
+    "artifact_sha256": "sha256:72dbb4f2f0d443c35d7451bb5ba34ba8a75305ff75161b0bad418529b79c5aa4",
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
-    "derived_construction": "charged_double_triplet",
+    "charged_double_triplet_forced": false,
+    "commutator_reconstructed_from_ordered_response": false,
+    "current_lift_source_selected": false,
     "derived_response_band_scales": {
       "frame_band": "1",
       "kernel_band": "1",
@@ -2706,6 +2715,7 @@
     "impulse_readback_status": "source_bound_operational_producer",
     "normalization_rule": "the source response is the self-adjoint unitary involution R = -J; each band scale is its exactly recomputed eigenvalue; the common overall sign is a charge-conjugation convention",
     "overall_u1_charge_sign": "not selected by the finite response operator; overall charge conjugation is a convention",
+    "overlap_holonomy_internality_certified": false,
     "physical_perturb_readback_source_bound": true,
     "physical_refinement_map_count": 2,
     "producer": "oph_fpe.core.charged_response",
@@ -2724,24 +2734,24 @@
   "source_definedness": {
     "algebraic_construction_verified": true,
     "carrier_and_refinement_provenance": "derived from the hash-pinned certified carrier packet",
-    "carrier_and_refinement_source_bound": true,
+    "carrier_and_response_constraint_maps_source_bound": true,
     "domain": "real port fields on the twelve primitive central atoms of the certified carrier",
     "inner_product": "standard Hermitian pairing on the charged double-triplet response space C^3 (+) C^3",
-    "operators": "K built from the artifact-bound oriented frame, the Galois-twisted kernel intertwiner, and the artifact-determined response scales",
-    "physical_response_source_bound": true,
-    "refinement_maps": "the declared carrier tower maps and the artifact-bound physical persistence maps, each intertwined by the current lift",
-    "response_construction_status": "source_bound_semantic_artifact",
-    "response_data_provenance": "derived from the unique nonidentity central antipode involution and independently recomputed here; overall sign is conventional",
-    "response_model_declared_as_branch_premise": false,
+    "operators": "K is the declared charged-double-triplet fixture, evaluated on the artifact-bound oriented frame and exact response signs",
+    "physical_response_source_bound": false,
+    "refinement_maps": "the source-bound carrier persistence maps are intertwined by the declared current fixture; this verifies a conditional intertwining identity, not a source selection of K",
+    "response_construction_status": "declared_current_fixture_with_source_bound_response_constraints",
+    "response_data_provenance": "the response signs and oriented carrier constraints are derived from the unique nonidentity central antipode involution; the charged-double-triplet matrix lift and its Lie bracket are declared",
+    "response_model_declared_as_branch_premise": true,
     "response_pairing": "Hilbert-Schmidt pullback -Re tr(K(f)K(f')) with exact band coefficients"
   },
   "source_firewall": {
     "forbidden_dependency_hits": [],
     "uses_only": [
       "certified twelve-port carrier packet",
-      "hash-pinned semantic response artifact deriving R=-J from the carrier incidence and binding it to the runtime dynamics",
+      "declared charged-double-triplet algebraic current fixture",
       "reversible response automorphism typing",
-      "four relative response signs determined by exact eigenspaces of R=-J; the common sign is a charge-conjugation convention",
+      "hash-pinned response-constraint artifact deriving R=-J and its four exact sector signs from carrier incidence",
       "irreversible strict-descent repair ledger (excluded from currents)"
     ]
   },

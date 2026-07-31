@@ -2,9 +2,9 @@
 
 The original v1 certificate silently identified an abstract seam coefficient
 group with the pure hypercharge character.  That produced the exact fixed
-dimensions 7, 3, and 1, but it was not the canonical diagonal Standard Model
-Z6 action.  The diagonal color-weak-hypercharge quotient kernel acts trivially
-on every realized local matter state.
+dimensions 7, 3, and 1, but it was not the diagonal kernel action of the
+declared color-weak-hypercharge fixture.  That kernel acts trivially on every
+state in the declared local matter table.
 
 This corrected certificate keeps three objects separate:
 
@@ -12,12 +12,14 @@ This corrected certificate keeps three objects separate:
   open after the #624 audit;
 * the complete menu of characters of Z2, Z3, and Z6 on the declared
   hypercharge spectrum, including the trivial character;
-* the canonical diagonal global-form kernel from #567, which fixes all
-  fifteen states.
+* the conditional common kernel computed by #567 from the declared current
+  and matter tables, which fixes all fifteen states.
 
 No character or 2-representation is promoted to the physical seam action.
-That selection and its synchronization with the line/flux attachment remain
-a named conditional interface outside this bounded classification.
+Neither is the computed kernel promoted to a source-selected physical global
+form.  Those selections and their synchronization with the line/flux
+attachment remain named conditional interfaces outside this bounded
+classification.
 """
 
 from __future__ import annotations
@@ -178,13 +180,13 @@ def diagonal_kernel_action(
     axis_receipt: Mapping[str, Any],
     matter_receipt: Mapping[str, Any],
 ) -> dict[str, Any]:
-    """Verify the canonical diagonal quotient kernel on realized matter."""
+    """Verify the conditional diagonal kernel on the declared matter table."""
 
     generator = tuple(axis_receipt["kernel_on_realized_tensors"]["cyclic_generator"])
     require(
         generator == (1, 1, 1),
         "DIAGONAL_KERNEL",
-        "the canonical diagonal kernel generator must be (1,1,1)",
+        "the declared-table diagonal kernel generator must be (1,1,1)",
     )
     weights = axis_receipt["realized_weight_table"]
     fields = matter_receipt["realized_package"]["fields"]
@@ -228,9 +230,53 @@ def diagonal_kernel_action(
             for order in (2, 3, 6)
         ],
         "boundary": (
-            "this is the local action of the canonical diagonal quotient "
-            "kernel. It does not identify a seam flux or higher-sector "
-            "2-representation with that kernel"
+            "this is the common stabilizer action computed from the declared "
+            "current and matter tables. It does not select a physical global "
+            "form or identify a seam flux or higher-sector 2-representation "
+            "with that kernel"
+        ),
+    }
+
+
+def conditional_scope_status(
+    axis_receipt: Mapping[str, Any],
+    matter_receipt: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Fail closed unless both upstream packets retain their open source gates."""
+
+    matter_conditional = matter_receipt["conditional_algebraic_gate"]
+    matter_physical = matter_receipt["physical_source_gate"]
+    axis_conditional = axis_receipt["conditional_algebraic_gate"]
+    axis_physical = axis_receipt["physical_global_form_gate"]
+    require(
+        matter_conditional["passed"] is True
+        and axis_conditional["passed"] is True,
+        "CONDITIONAL_SCOPE",
+        "the conditional matter and axis arithmetic gates must both pass",
+    )
+    require(
+        matter_physical["passed"] is False
+        and matter_physical["matter_lift_source_bound"] is False
+        and matter_physical["upstream_current_representation_source_bound"] is False,
+        "PHYSICAL_SCOPE",
+        "the matter packet must retain its open physical-source boundary",
+    )
+    require(
+        axis_physical["passed"] is False
+        and axis_physical["upstream_response_physically_source_bound"] is False
+        and axis_physical["upstream_matter_physically_source_bound"] is False
+        and axis_physical["same_source_loop_to_tensor_kernel_identification"] is False,
+        "PHYSICAL_SCOPE",
+        "the axis packet must retain its open physical-global-form boundary",
+    )
+    return {
+        "conditional_current_matter_kernel_arithmetic": True,
+        "physical_matter_lift_source_bound": False,
+        "physical_global_form_source_selected": False,
+        "same_source_seam_to_tensor_kernel_identification": False,
+        "scope": (
+            "declared current, matter, and weight-table fixture; no physical "
+            "matter action, global form, or seam-to-kernel identification"
         ),
     }
 
@@ -485,6 +531,7 @@ def build_payload() -> dict[str, Any]:
     matter_receipt, matter_pin = pin_file(MATTER_RECEIPT_PATH)
     axis_receipt, axis_pin = pin_file(AXIS_RECEIPT_PATH)
 
+    scope = conditional_scope_status(axis_receipt, matter_receipt)
     branch = grammar_branch_status(seam_receipt)
     characters = hypercharge_character_menu(
         matter_receipt["realized_package"]["charge_spectrum"]
@@ -522,19 +569,21 @@ def build_payload() -> dict[str, Any]:
         "issue": ISSUE,
         "claim_boundary": (
             "The pinned finite order-six seam branch, the complete "
-            "pure-hypercharge character menus, and the canonical diagonal "
-            "global-form kernel action are separately classified. The "
+            "pure-hypercharge character menus, and the conditional common "
+            "kernel action of the declared current and matter tables are "
+            "separately classified. The "
             "7/3/1 fixed-space values belong only to particular nontrivial "
-            "pure-hypercharge characters; the diagonal quotient kernel fixes "
-            "all fifteen realized matter states. No seam character, flux "
-            "action, or 2-representation is selected, and general seam-grammar "
-            "exhaustiveness remains open."
+            "pure-hypercharge characters; the declared-table kernel fixes all "
+            "fifteen matter states. No physical global form, seam character, "
+            "flux action, or 2-representation is selected, and general "
+            "seam-grammar exhaustiveness remains open."
         ),
         "upstream_pins": {
             "seam_classification_receipt": seam_pin,
             "matter_receipt": matter_pin,
             "diagonal_global_form_receipt": axis_pin,
         },
+        "conditional_scope": scope,
         "grammar_branch": branch,
         "hypercharge_character_menu": characters,
         "diagonal_kernel_action": diagonal,
@@ -547,8 +596,9 @@ def build_payload() -> dict[str, Any]:
             "statement": (
                 "selection requires a source-derived seam mechanism, a "
                 "character or 2-representation, its relation to the diagonal "
-                "global-form kernel and line/flux data, refinement transport, "
-                "and the physical family-chain receipts"
+                "table kernel and line/flux data, a source-selected physical "
+                "global form, refinement transport, and the physical "
+                "family-chain receipts"
             ),
         },
         "controls": controls,

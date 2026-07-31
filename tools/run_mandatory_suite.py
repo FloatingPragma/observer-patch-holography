@@ -41,6 +41,218 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/build_fz_registry.py", "--check"],
     ),
     (
+        "Validate the deterministic postdiction ledger",
+        [
+            sys.executable,
+            "code/particles/scripts/build_postdiction_ledger.py",
+            "--check",
+        ],
+    ),
+    (
+        "Validate the retrospective alpha/HVP accounting verdict",
+        [
+            sys.executable,
+            "code/particles/alpha_hvp_audit/build_alpha_hvp_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the alpha/HVP provenance and mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/particles/alpha_hvp_audit/tests/test_alpha_hvp_verdict.py",
+        ],
+    ),
+    (
+        "Execute the source-derived fixed-capacity receipt gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_source_derived_public_checkpoint_packet.py",
+        ],
+    ),
+    (
+        "Validate the bounded capacity-indexed counterfamily",
+        [
+            sys.executable,
+            "code/capacity_readback/capacity_indexed_source_family.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the bounded capacity-family mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_capacity_indexed_source_family.py",
+        ],
+    ),
+    (
+        "Validate the complete-packet capacity lift receipts",
+        [
+            sys.executable,
+            "code/capacity_readback/complete_packet_capacity_lift.py",
+            "--check",
+        ],
+    ),
+    (
+        "Replay the complete-packet lift with the independent verifier",
+        [
+            sys.executable,
+            "code/capacity_readback/verify_complete_packet_lift_independent.py",
+        ],
+    ),
+    (
+        "Execute the complete-packet lift mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_complete_packet_capacity_lift.py",
+        ],
+    ),
+    (
+        "Validate the locked direct N source verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/direct_n_closure_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Validate the discriminator stratum verdicts",
+        [
+            sys.executable,
+            "code/discriminator_strata/stratum_verdicts.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the discriminator stratum verdict tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/discriminator_strata/test_stratum_verdicts.py",
+        ],
+    ),
+    (
+        "Validate the angular template receipt",
+        [
+            sys.executable,
+            "code/angular_sprint/angular_interpolant_certificate.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the angular template tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/angular_sprint/test_angular_interpolant_certificate.py",
+        ],
+    ),
+    (
+        "Validate the kinetic ray receipt",
+        [
+            sys.executable,
+            "code/angular_sprint/kinetic_ray_certificate.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the kinetic ray tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/angular_sprint/test_kinetic_ray_certificate.py",
+        ],
+    ),
+    (
+        "Validate the carrier specificity receipt",
+        [
+            sys.executable,
+            "code/discriminator_strata/carrier_specificity.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the carrier specificity tests",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/discriminator_strata/test_carrier_specificity.py",
+        ],
+    ),
+    (
+        "Validate the horizon-record attachment verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/horizon_record_attachment_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the direct N verdict mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_direct_n_closure_verdict.py",
+        ],
+    ),
+    (
+        "Validate the invariant-mining pre-generation source lock",
+        [
+            sys.executable,
+            "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
+        ],
+    ),
+    (
+        "Execute the invariant-mining pre-generation mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/invariant_mining/tests/test_pregeneration_lock.py",
+        ],
+    ),
+    (
+        "Validate the forecast-contract generated state",
+        [
+            sys.executable,
+            "code/particles/forecast_contract/forecast_contract.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the forecast-contract adversarial gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/particles/forecast_contract/tests/test_forecast_contract.py",
+        ],
+    ),
+    (
         "Validate the gravity premise ladder and its generated surface",
         [sys.executable, "tools/build_gravity_ladder.py", "--check"],
     ),
@@ -161,7 +373,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
 
 CERTIFICATE_STEPS: list[tuple[str, list[str]]] = [
     ("Execute the conditional port-current certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_port_current_inner_certificate.py"]),
-    ("Execute the source-bound matter-lift certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"]),
+    ("Execute the conditional matter-lift certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_super_tannakian_matter_lift_certificate.py"]),
     ("Execute the axis-center-descent certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_axis_center_descent_certificate.py"]),
     ("Execute the matter-menu spectral-ledger certificate suite", [sys.executable, "-m", "pytest", "-q", "code/a5_closure/tests/test_matter_menu_spectral_ledger_certificate.py"]),
 ]

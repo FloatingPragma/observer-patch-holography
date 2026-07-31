@@ -32,20 +32,48 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_conditional_and_physical_gates_pass_with_deferred_scalar_rows(self) -> None:
+    def test_conditional_gate_passes_and_physical_gate_fails_closed(self) -> None:
         gate = self.expected["conditional_algebraic_gate"]
         self.assertEqual(set(gate.values()), {True})
         self.assertEqual(len(gate), 13)
         self.assertTrue(gate["passed"])
         physical_gate = self.expected["physical_source_gate"]
-        self.assertTrue(physical_gate["passed"])
-        self.assertTrue(physical_gate["charge_pair_derived_up_to_charge_conjugation"])
-        self.assertTrue(physical_gate["conjugate_projector_pair_source_derived"])
-        self.assertTrue(physical_gate["unordered_pair_selected_by_exhaustive_anomaly_scan"])
-        self.assertTrue(physical_gate["fermionic_statistics_source_derived"])
-        self.assertTrue(physical_gate["spin_odd_weyl_category_source_derived"])
+        self.assertFalse(physical_gate["passed"])
+        self.assertTrue(
+            physical_gate[
+                "charge_pair_derived_within_declared_current_fixture"
+            ]
+        )
+        self.assertTrue(
+            physical_gate[
+                "conjugate_projector_pair_derived_within_declared_current_fixture"
+            ]
+        )
+        self.assertTrue(
+            physical_gate[
+                "unordered_pair_selected_by_exhaustive_anomaly_scan_within_declared_current_fixture"
+            ]
+        )
+        self.assertTrue(
+            physical_gate[
+                "fermionic_statistics_derived_within_declared_current_fixture"
+            ]
+        )
+        self.assertTrue(
+            physical_gate[
+                "spin_odd_weyl_category_derived_within_declared_current_fixture"
+            ]
+        )
         self.assertTrue(physical_gate["spin_statistics_artifact_source_bound"])
-        self.assertTrue(physical_gate["upstream_response_representation_source_bound"])
+        self.assertTrue(physical_gate["upstream_response_constraints_source_bound"])
+        self.assertFalse(
+            physical_gate["upstream_current_representation_source_bound"]
+        )
+        self.assertFalse(physical_gate["current_action_on_matter_source_bound"])
+        self.assertFalse(physical_gate["matter_lift_source_bound"])
+        self.assertFalse(
+            physical_gate["physical_refinement_intertwining_source_bound"]
+        )
         # Deferred and by-design rows stay false and are excluded from "passed"
         # through the explicit composition block.
         self.assertFalse(physical_gate["declared_scalar_content_source_bound"])
@@ -53,18 +81,22 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertFalse(physical_gate["single_projector_representative_source_selected"])
         composition = physical_gate["composition"]
         self.assertEqual(
-            composition["deferred"],
+            set(composition["deferred"]),
             {
-                "declared_scalar_content_source_bound": "issue 609",
-                "scalar_economy_source_bound": "issue 609",
+                "declared_scalar_content_source_bound",
+                "scalar_economy_source_bound",
             },
         )
         self.assertIn(
             "single_projector_representative_source_selected",
             composition["false_by_design"],
         )
-        for row in composition["passed_over"]:
+        for row in composition["conditional_results"]:
             self.assertTrue(physical_gate[row], row)
+        for row in composition["source_bound_inputs"]:
+            self.assertTrue(physical_gate[row], row)
+        for row in composition["blocking_false"]:
+            self.assertFalse(physical_gate[row], row)
 
     def test_selection_scan_and_forcing_are_derived(self) -> None:
         scan = self.expected["matter_selection_scan"]
@@ -105,7 +137,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertEqual(len(scalar["derived_channels_at_plus_three"]), 3)
         self.assertIn("manifest assumption", scalar["scalar_content_status"])
 
-    def test_physical_refinement_maps_are_intertwined(self) -> None:
+    def test_refinement_maps_are_intertwined_conditionally(self) -> None:
         physical = self.expected["refinement"]["physical_maps"]
         self.assertEqual(len(physical), 2)
         self.assertTrue(all(row["intertwined"] for row in physical))
@@ -270,7 +302,7 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertEqual(len(status), 12)
         self.assertTrue(
             status[
-                "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived"
+                "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_derived_within_declared_current_fixture"
             ]
         )
         self.assertTrue(
@@ -294,18 +326,18 @@ class SuperTannakianMatterLiftTests(unittest.TestCase):
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
 
-    def test_matter_lift_is_source_bound_with_named_open_lanes(self) -> None:
+    def test_matter_lift_is_conditional_with_named_open_lanes(self) -> None:
         closure_condition = self.expected["issue_closure_condition"]
         self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
-        self.assertTrue(closure_condition["physical_source_realization_gate_passed"])
-        self.assertTrue(closure_condition["met_locally"])
+        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
+        self.assertFalse(closure_condition["met_locally"])
         lanes = closure_condition["remaining_open_lanes"]
         self.assertIn("609", lanes["scalar_content_and_economy"])
         self.assertIn("569", lanes["family_and_laboratory_attachment"])
         boundary = self.expected["claim_boundary"]
         self.assertEqual(
             boundary["status"],
-            "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
+            "proved_conditionally_on_declared_current_and_scalar_fixtures",
         )
         self.assertIn("BLOCK-DETERMINANT-BALANCE", boundary["contract_provenance"])
         self.assertTrue(any("AXIS-CENTER-DESCENT" in row for row in boundary["does_not_close"]))

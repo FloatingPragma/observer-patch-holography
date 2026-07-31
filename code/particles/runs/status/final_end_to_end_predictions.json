@@ -183,7 +183,7 @@
       "witness_inside": true
     }
   },
-  "claim_status": "final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated",
+  "claim_status": "no_promotable_numerical_particle_predictions__conditional_candidates_classical_carriers_and_empirical_hadrons_separated",
   "classical_carrier_modes": [
     {
       "branch": "unbroken_deconfined_Maxwell_branch_with_Z_A_positive",
@@ -270,6 +270,19 @@
       "summary": "The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes."
     }
   ],
+  "conditional_nonpromotable_rows": [
+    {
+      "exact_kind": "conditional_declared_surface_higgs_top_candidate",
+      "label": "Higgs Boson",
+      "particle_id": "higgs",
+      "promotable": false,
+      "scope": "declared_d10_d11_running_matching_threshold_surface_only",
+      "source_artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
+      "supporting_scope_closure_artifact": null,
+      "unit": "GeV",
+      "value": 125.1995304097179
+    }
+  ],
   "direct_top_auxiliary_comparison": {
     "audit_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
     "auxiliary_direct_top_codomain": "Q007TP",
@@ -279,7 +292,7 @@
   },
   "finalization_gates": {
     "empirical_hadron_closure_policy_documented": true,
-    "empirical_hadron_spectral_dataset_integrated": true,
+    "empirical_hadron_spectral_endpoint_packet_available": true,
     "hierarchy_local_global_resonance_closed": false,
     "higgs_naturality_defect_closed": true,
     "nonhadron_prediction_surface_buildable": true,
@@ -293,10 +306,11 @@
   },
   "fine_structure": {
     "empirical_payload_policy": {
-      "dispersion_payload_status": "schema_and_source_registry_present_without_integrated_dataset",
+      "dispersion_payload_status": "separate_empirical_spectral_endpoint_not_consumed_by_this_measured_endpoint_calibration",
       "empirical_payload_schema": "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
-      "external_cross_section_data_integrated": false,
+      "external_input_scope": "measured_thomson_endpoint_only",
       "measured_thomson_endpoint_used": true,
+      "raw_cross_section_data_used_in_this_calibration": false,
       "row_class": "oph_plus_empirical_hadron_closure",
       "source_only_theorem_status": "not_promoted",
       "source_registry": "code/particles/hadron/empirical_ee_hadrons_sources.yaml"
@@ -353,7 +367,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-07-28T16:41:54Z",
+  "generated_utc": "2026-07-29T17:21:23Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -639,19 +653,7 @@
       "title": "Class-uniform public quark-frame descent"
     }
   ],
-  "predictions": [
-    {
-      "exact_kind": "conditional_declared_surface_higgs_top_candidate",
-      "label": "Higgs Boson",
-      "particle_id": "higgs",
-      "promotable": false,
-      "scope": "declared_d10_d11_running_matching_threshold_surface_only",
-      "source_artifact": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
-      "supporting_scope_closure_artifact": null,
-      "unit": "GeV",
-      "value": 125.1995304097179
-    }
-  ],
+  "predictions": [],
   "quark_axiom_level_nondefinability": {
     "additional_axioms_used": false,
     "artifact": "oph_quark_axiom_level_yukawa_moduli_nonidentifiability",

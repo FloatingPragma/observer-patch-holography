@@ -8,7 +8,7 @@ rejects the manifest when membership drifts:
 
   * papers            = RELEASE_TRACKED           (the release-tracked core set)
   * supplemental_papers = PAPERS - RELEASE_TRACKED (built but not release-tracked)
-  * extra_papers      = EXTRA_PAPERS              (discovered from extra/*.tex)
+  * extra_papers      = RELEASED_ADJUNCT_PAPERS   (the compact challenge paper)
 
 For every section the manifest key set and paper-to-PDF mapping must equal the
 derived source mapping (no missing paper, unexpected paper, or cross-paper
@@ -59,7 +59,7 @@ def expected_sections() -> dict[str, dict[str, str]]:
         },
         "extra_papers": {
             paper_id: _pdf_relative(tex_path)
-            for paper_id, tex_path in sorted(source.EXTRA_PAPERS.items())
+            for paper_id, tex_path in sorted(source.RELEASED_ADJUNCT_PAPERS.items())
         },
     }
 
@@ -157,9 +157,13 @@ def check_release_surface(manifest: dict, problems: list[str]) -> None:
         expected.add(str(pdf_rel))
     actual = {
         str(pdf.relative_to(REPO_ROOT))
-        for directory in ("paper", "extra")
-        for pdf in (REPO_ROOT / directory).glob("*.pdf")
+        for pdf in (REPO_ROOT / "paper").glob("*.pdf")
     }
+    actual.update(
+        str(pdf.relative_to(REPO_ROOT))
+        for tex_path in source.RELEASED_ADJUNCT_PAPERS.values()
+        if (pdf := REPO_ROOT / "extra" / tex_path.with_suffix(".pdf").name).is_file()
+    )
     for stray in sorted(actual - expected):
         problems.append(
             f"stray PDF is not implied by a registered source: {stray}"

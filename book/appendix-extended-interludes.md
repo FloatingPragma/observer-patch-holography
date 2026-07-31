@@ -334,9 +334,11 @@ cross-checks.
 The late-time acceleration changed the picture again. Type Ia supernova teams
 found that distant supernovae were dimmer than expected in a decelerating
 universe. A positive cosmological constant gives a de Sitter horizon radius
-$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. In OPH, the universe
-supplies that capacity to its observer network, and a scale bridge turns the
-capacity into the curvature observers measure.
+$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. OPH proposes
+identifying that entropy with the correctable record capacity of the observer
+network. A scale bridge would then turn the selected capacity into the
+curvature observers measure. The record-ledger identification, capacity
+selection, and scale bridge are open.
 
 The dark sector is the repair-charge side of the same architecture. A modular
 mismatch becomes an integer occupation with a compact phase. The dilute branch
@@ -695,16 +697,25 @@ vacuum, and scale conditions.
 
 The fourth handle is matter. The twelve port readings split exactly as
 $1+3+3'+5$. Incidence fixes the antipode as a polynomial in adjacency.
-A target-blind impulse and port readback therefore derive the signed response
-and its oriented $U(1)$, $SU(2)$, and $SU(3)$ current algebra. Under a declared
-fermionic Spin category and a conjugate rank-fifteen projector pair, anomaly
-balance supplies the Standard Model hypercharges and scalar compatibility.
-The realized tensors have a common central kernel of order six and hence a
-maximal faithful image isomorphic to the usual Standard Model quotient.
-Those tensors also descend through the cover and the order-two, order-three,
-and order-six quotients, so the physical global form is work in progress.
-Physical fermionic typing, three-family attachment, scalar multiplicity, exclusion
-of extra light sectors, and quantum field-theory construction remain separate.
+A target-blind impulse and port readback derive the signed inverse-port
+response. The complete compact response and internal overlap transport
+required by the axioms force the $U(1)$, $SU(2)$, and $SU(3)$ Lie type. Inside
+the declared exterior construction, the exhaustive matter scan leaves one
+unordered conjugate rank-fifteen pair. The separate finite non-split
+transport double cover fixes its odd-Weyl Spin typing within that
+construction.
+
+Anomaly balance supplies the Standard Model hypercharges and scalar
+compatibility. The realized tensors have a common central kernel of order six
+and hence a maximal faithful image isomorphic to the usual Standard Model
+quotient. Those tensors also descend through the cover and the order-two,
+order-three, and order-six quotients. The six-axis calculation has order six
+after declaring its coefficient relations. Selecting the physical quotient
+requires a complete source character category and a same-source
+loop-to-kernel identification. Laboratory current and flux identification,
+the continuum global form, three-family attachment, scalar multiplicity,
+exclusion of extra light sectors, and quantum field-theory construction
+remain separate.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -760,10 +771,15 @@ their fusion rules, and their duals. OPH applies that reconstruction to the
 transport-stable sectors of the patch net. On the icosahedral finite carrier,
 the twelve port readings split as $1+3+3'+5$. Incidence expresses the antipode
 as a polynomial in adjacency. The target-blind impulse and port readback then
-derive the signed response, oriented bracket, and
-$U(1)$, $SU(2)$, and $SU(3)$ Lie type. The realized matter tensors determine
-a common kernel of order six and a maximal faithful image. They do not select
-one physical global form among the four compatible central quotients.
+derive the signed inverse-port response. Complete compact response and
+endogenous carrier transport force the $U(1)$, $SU(2)$, and $SU(3)$ Lie type.
+The declared matter tensors determine a common kernel of order six and a
+maximal faithful image. The finite non-split transport double cover fixes
+their odd-Weyl Spin typing within that construction. The six-axis order uses a
+declared coefficient lattice, so the physical quotient requires a complete
+source character category and a same-source loop-to-kernel theorem. Laboratory
+current and flux identification and the continuum global form require
+separate physical attachments.
 
 Modular theory gives every suitable algebra-state pair a canonical flow. It
 becomes the geometric boost flow on a round cap only when the finite cap-flow

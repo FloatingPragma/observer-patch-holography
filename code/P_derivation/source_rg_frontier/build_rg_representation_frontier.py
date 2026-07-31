@@ -14,6 +14,7 @@ import argparse
 from fractions import Fraction
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -117,7 +118,14 @@ def target_firewall(source_rows: list[dict[str, Any]], source_payloads: dict[str
         token.casefold() for token in policy["target_firewall"]["forbidden_structured_tokens"]
     )
     structured = json.dumps(source_payloads, sort_keys=True).casefold()
-    hits = [token for token in forbidden_tokens if token in structured]
+    hits = [
+        token
+        for token in forbidden_tokens
+        if re.search(
+            rf"(?<![a-z0-9_]){re.escape(token)}(?![a-z0-9_])",
+            structured,
+        )
+    ]
     require(not hits, "TARGET_TOKEN", f"forbidden structured target tokens found: {hits}")
 
 
@@ -133,9 +141,35 @@ def representation_indices(
         "unexpected matter receipt schema",
     )
     require(
+        matter.get("conditional_algebraic_gate", {}).get("passed") is True
+        and matter.get("physical_source_gate", {}).get("passed") is False
+        and matter.get("physical_source_gate", {}).get(
+            "upstream_current_representation_source_bound"
+        )
+        is False
+        and matter.get("physical_source_gate", {}).get("matter_lift_source_bound")
+        is False,
+        "MATTER_SCOPE",
+        "the matter representation must remain a declared conditional fixture",
+    )
+    require(
         global_form.get("hypercharge_convention") == "q = 6Y",
         "HYPERCHARGE_CONVENTION",
         "global-form packet must freeze q=6Y",
+    )
+    require(
+        "do not select a physical global form"
+        in str(global_form.get("description", "")).lower(),
+        "GLOBAL_FORM_SCOPE",
+        "the charge lattice must retain its open physical-global-form boundary",
+    )
+    family_scope = family_context.get("conditional_structural_scope", {})
+    require(
+        family_scope.get("physical_current_source_bound") is False
+        and family_scope.get("physical_matter_lift_source_bound") is False
+        and family_scope.get("physical_global_form_selected") is False,
+        "FAMILY_SCOPE",
+        "the rank-three context must retain its conditional structural scope",
     )
 
     source_fields = matter["realized_package"]["fields"]
@@ -426,12 +460,19 @@ def build_frontier() -> dict[str, Any]:
         "gut_normalized_b_1": "41/10",
         "status": "conditional_declared_completion_not_OPH_selected",
         "promotion_allowed": False,
+        "resolved_bounded_context": [
+            "#634 finite local action domain; continuum promotion and physical coefficients absent"
+        ],
         "required_open_attachments": [
-            "#634 source-derived local action domain and kinetic normalization",
             "#569 physical family attachment",
-            "#630 physical scalar/Yukawa action",
+            "#636 physical scalar action and kinetic normalization",
+            "#637 complete source Yukawa matrices",
             "#631 local physical screen/electroweak carrier",
             "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling",
+        ],
+        "explicit_non_dependencies": [
+            "#630 scalar/Yukawa/FJ integration",
+            "#638 source-to-FJ coordinate map",
         ],
     }
     lean_raw = LEAN_PATH.read_bytes()
@@ -490,8 +531,10 @@ def build_frontier() -> dict[str, Any]:
                     "family, scalar, threshold, and scheme non-selection boundaries",
                 ],
                 "missing": [
-                    "positive source action and kinetic normalization",
-                    "physical family, scalar, and local carrier attachments",
+                    "physical family attachment",
+                    "physical scalar action and kinetic normalization",
+                    "complete source Yukawa matrices",
+                    "physical local carrier attachment",
                     "complete W/Z-coupled census modulo proved zero-vertex decoupling",
                 ],
             },

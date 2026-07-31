@@ -126,8 +126,9 @@
       }
     ],
     "open_blocking_dependencies": [
-      569,
-      634
+      636,
+      637,
+      638
     ],
     "semantic_dependencies": [
       314,
@@ -150,7 +151,7 @@
         "Higgs": "r_H = 2(1-a^2)",
         "top": "r_t = a^2/2"
       },
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
       "physical_promotion_allowed": false,
       "scope": "dimensionless formal readout coefficients only; no physical source action or pole value",
       "source_coordinate_domain": "0 < u < 1",
@@ -167,7 +168,7 @@
       "completion_B": "declared_one_weak_doublet_extension",
       "distinguishing_projection": "scalar_carrier_multiplicity",
       "exact_relation": "rank_scalar(A) != rank_scalar(B)",
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
       "physical_promotion_allowed": false,
       "scope": "grammar and declared-completion level; no physical scalar is selected",
       "status": "current_finite_parent_not_constant_on_scalar_content_fiber"
@@ -180,7 +181,7 @@
       "distinguishing_projection": "coordinate_one_jet",
       "exact_relation": "jet(Phi_A) != jet(Phi_B)",
       "existence_reason": "the finite parents impose no scheme, scale, Jacobian, or finite-shift equation",
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
       "physical_promotion_allowed": false,
       "scope": "formal coordinate completion only; no FJ map is emitted",
       "status": "current_finite_parent_not_constant_on_FJ_coordinate_map_fiber",
@@ -194,7 +195,7 @@
       "distinguishing_projection": "family_matrix_coordinate_projection",
       "exact_relation": "Y_A != Y_B",
       "existence_reason": "the classified complex coefficient space has positive dimension",
-      "parent_projection_digest": "20ab7b3e0dce7ce2a9ed9bd1c9fdf10d290dc5f7e5c2405e56201b735279f7ac",
+      "parent_projection_digest": "2181912d031bc025740b6d513eee46341f6626960523422bdee8be83092bec0a",
       "physical_promotion_allowed": false,
       "scope": "formal coefficient completion only; no matrix entries are emitted",
       "status": "current_finite_parent_not_constant_on_yukawa_coefficient_fiber",
@@ -246,54 +247,54 @@
         "status": "finite_non_gating_context_with_bulk_depth_open"
       },
       {
-        "byte_sha256": "ea960bac290fa0f9f75c681fed92f3673cdb6d7e48f04484653f29258cc53f07",
-        "bytes": 77299,
-        "canonical_json_sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb",
+        "byte_sha256": "efa206d21f59af5a96006ff283a191418c7f4a8c5f3125fcb42d1e03b1f5289b",
+        "bytes": 78165,
+        "canonical_json_sha256": "1ebd59e5d07109aeef0752964e887d5e3e517270447b0a451802e71f37c7e36c",
         "kind": "json",
         "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "role": "finite_current_algebra",
-        "status": "finite_positive_parent"
+        "status": "finite_conditional_parent"
       },
       {
-        "byte_sha256": "e8ddbb9efe2cbc4baf31431340ceecc5c8c92357068ae3b4612f2a03b4be7e81",
-        "bytes": 36871,
-        "canonical_json_sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70",
+        "byte_sha256": "528090fb708fb398ec1d385486757c483e2d0b5ad84500592aa61f3b17748ef3",
+        "bytes": 38319,
+        "canonical_json_sha256": "ac2be496ee7a1d4434bdff5c7c07f208c3e85b5564b0a179f71e1a54c141e462",
         "kind": "json",
         "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
         "role": "finite_chiral_matter",
-        "status": "finite_positive_parent"
+        "status": "finite_conditional_parent"
       },
       {
-        "byte_sha256": "2014c6d0575f3e5fad95a9e88da8dab4f5cae1ce20914a0ba836614d2767a653",
-        "bytes": 1640,
-        "canonical_json_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
+        "byte_sha256": "269f92b088c4cde42a9017d220bcdc8b70d1fc5e6635521827a31428def18dab",
+        "bytes": 1224,
+        "canonical_json_sha256": "c619511b04243964db7c5cfe0f1bf7a2045f054d7298fd0b87b2ec9e799d3881",
         "kind": "json",
         "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
         "role": "finite_global_form",
-        "status": "finite_positive_parent"
+        "status": "finite_conditional_parent"
       },
       {
-        "byte_sha256": "69b85b3c368247e308dc010f6d0b5d66b28a7969359399022788eaadfe03d3ab",
-        "bytes": 40545,
-        "canonical_json_sha256": "cde0c76189e10ecbaf4a1673cb1b0557f94c8658a9bbcc4d24723dd69b31e156",
+        "byte_sha256": "3a02d02fd3bcd318535348186aad7008c861c7ff3b8c9558f64d36b7ee0eb64b",
+        "bytes": 44009,
+        "canonical_json_sha256": "68b5f0095f193eb83f234bb003fe63f4dcd39807e5bb0c6a5f0d059baee342a7",
         "kind": "json",
         "path": "code/a5_closure/manifests/family_band_attachment_reference.json",
         "role": "conditional_family_attachment",
         "status": "finite_conditional_parent"
       },
       {
-        "byte_sha256": "35aa8ceb43bc33415d2746edddbb7da027bb14b8b9117fca11ebcb93e0ab5818",
-        "bytes": 18116,
-        "canonical_json_sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97",
+        "byte_sha256": "54cb301235aa49dfc147f7c03f52597f454bdd0643a27efb8c35a680cd6c03d1",
+        "bytes": 18209,
+        "canonical_json_sha256": "8536b7019176a4ebc6abe4f89ffd490e73b7b6bee4418f589ed411047f7ab5bf",
         "kind": "json",
         "path": "code/a5_closure/manifests/multiplicity_window_reference.json",
         "role": "scalar_multiplicity_boundary",
         "status": "finite_negative_boundary"
       },
       {
-        "byte_sha256": "92ab7cd942f2f80b1799c4a4dcb35337426e9d89660bb30fb73278443dc89dfd",
+        "byte_sha256": "86ce5c2cac4106fdd42f90980c1bf451c612d7669d300f271953cbfa87322e3f",
         "bytes": 5410,
-        "canonical_json_sha256": "776a9740fb61381e8f915ada2db02cd0a8e77e9ec2d04ec56af5882f3cb7c8c1",
+        "canonical_json_sha256": "d41706278527f9626b761beb8abf32cc51e630a13df092f110941284cd24ca83",
         "kind": "json",
         "path": "code/a5_closure/manifests/scalar_sector_blindness_reference.json",
         "role": "scalar_chain_boundary",
@@ -308,11 +309,11 @@
         "status": "exact_current_reduct_boundary"
       }
     ],
-    "input_bundle_digest": "f8bdb41007ce7d62447ef6cf0cfd8955a0631867208dd110931c6ab23594ec63",
+    "input_bundle_digest": "83b9c9c8814381ce0d98d7ebca09c5190947e0e1626ed86df457c918354fc831",
     "policy": {
-      "byte_sha256": "a74bc4c818ac3fcd3c56013fef1475c023397e30c9a09c85dec18f592ac447a2",
-      "bytes": 6822,
-      "canonical_json_sha256": "99423ef40226b5afb2b2cb3f22b63984b0edef0f43948c540d40a155063ebfa5",
+      "byte_sha256": "e1f93b6f388e47e63c0d11fe0a5dd003e588279dbcc81628b838cdc4d5951479",
+      "bytes": 7083,
+      "canonical_json_sha256": "18320cf0d520f4b4739d58dff67b8553e7cca2f7846311f370cff48712a0c528",
       "kind": "json",
       "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/data/higgs_yukawa_source_policy_v1.json"
     }
@@ -327,7 +328,7 @@
     "a Higgs top W or Z source value",
     "closure of issue 630"
   ],
-  "subject_digest": "7baf872770cc0a098b8892e066d2e78048b820560b7f1f6b56764babe0101e52",
+  "subject_digest": "418e55d3ebf69cda8617dad118e1e0705ff1abc78d96edc18e91874fb074d174",
   "target_firewall": {
     "external_593_packet_consumed": false,
     "forbidden_structured_keys_present": false,

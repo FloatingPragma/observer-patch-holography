@@ -12,11 +12,11 @@ their artifact pointers.  Classes:
 - computationally_blocked: needs computation beyond current resources.
 - awaiting_discriminating_test: frozen candidates with a registered test.
 
-The register also carries the massless-carrier statement receipts: exact
-photon masslessness from unbroken electromagnetic gauge invariance of the
-recovered quotient, and carrier-level gluon masslessness under unbroken
-color with the confinement caveat.  Both are statement receipts conditional
-on the recovered-core gauge structure; neither is a numerical lane.
+The register also carries three conditional classical carrier-mode receipts.
+They record the zero hard quadratic mass parameter on separately declared
+Maxwell, perturbative Yang--Mills, and pure-Einstein branches.  The recovered
+symmetry group does not supply those action, phase, background, or positivity
+premises.  The receipts do not construct quantum particles or physical poles.
 """
 
 from __future__ import annotations
@@ -206,27 +206,41 @@ def closed_entries() -> list[dict[str, Any]]:
             "artifact": "runs/leptons/charged_mcpr_completion_conditional.json",
         },
         {
-            "id": "PHOTON_EXACT_MASSLESSNESS_RECEIPT",
-            "family": "massless carriers",
+            "id": "MAXWELL_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT",
+            "family": "conditional classical carrier modes",
             "class": "closed",
             "statement": (
-                "unbroken electromagnetic gauge invariance of the recovered "
-                "quotient forces a transverse self-energy with vanishing "
-                "zero-momentum part; the photon mass is exactly zero, "
-                "conditional on the recovered-core gauge structure"
+                "on the separately declared unbroken, deconfined Maxwell "
+                "branch with positive kinetic coefficient, the transverse "
+                "classical modes have zero hard quadratic mass parameter; "
+                "the OPH quantum-particle and positive-pole receipts are open"
             ),
-            "artifact": "runs/status/theorem_gap_register.json",
+            "artifact": "runs/status/carrier_mode_acceptance.json",
         },
         {
-            "id": "GLUON_CARRIER_MASSLESSNESS_RECEIPT",
-            "family": "massless carriers",
+            "id": "YANG_MILLS_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT",
+            "family": "conditional classical carrier modes",
             "class": "closed",
             "statement": (
-                "unbroken color forces carrier-level gluon masslessness; "
-                "confinement removes asymptotic gluon states, so the "
-                "statement concerns the gauge field, never a physical pole"
+                "on the separately declared perturbative Yang--Mills branch "
+                "with positive kinetic coefficient, the free transverse "
+                "classical modes have zero hard quadratic mass parameter; "
+                "confinement blocks promotion to an asymptotic gluon particle"
             ),
-            "artifact": "runs/status/theorem_gap_register.json",
+            "artifact": "runs/status/carrier_mode_acceptance.json",
+        },
+        {
+            "id": "EINSTEIN_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT",
+            "family": "conditional classical carrier modes",
+            "class": "closed",
+            "statement": (
+                "on the separately declared pure-Einstein branch about a "
+                "suitable Ricci-flat background with positive kinetic "
+                "coefficient, the transverse-traceless classical modes have "
+                "zero hard quadratic mass parameter; no OPH graviton "
+                "Hilbert space or positive-pole receipt is supplied"
+            ),
+            "artifact": "runs/status/carrier_mode_acceptance.json",
         },
         {
             "id": "SM_QFT_Q1_Q4_CONDITIONAL_IMPLICATIONS",

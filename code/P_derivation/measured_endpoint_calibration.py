@@ -90,12 +90,16 @@ def build_measured_endpoint_calibration(
             ),
             "empirical_hadron_closure": {
                 "measured_thomson_endpoint_used": True,
-                "external_cross_section_data_integrated": False,
+                "raw_cross_section_data_used_in_this_calibration": False,
+                "external_input_scope": "measured_thomson_endpoint_only",
                 "source_registry": "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
                 "empirical_payload_schema": (
                     "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json"
                 ),
-                "dispersion_payload_status": "schema_and_source_registry_present_without_integrated_dataset",
+                "dispersion_payload_status": (
+                    "separate_empirical_spectral_endpoint_not_consumed_by_this_"
+                    "measured_endpoint_calibration"
+                ),
                 "row_class": "oph_plus_empirical_hadron_closure",
                 "source_only_theorem_status": "not_promoted",
             },

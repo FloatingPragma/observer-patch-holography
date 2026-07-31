@@ -32,16 +32,27 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         cert.verify_receipt(self.manifest, receipt)
         self.assertEqual(receipt, self.expected)
 
-    def test_algebraic_and_simulator_source_gates_pass(self) -> None:
+    def test_algebraic_gate_passes_and_source_current_gate_fails_closed(self) -> None:
         gate = self.expected["conditional_algebraic_gate"]
         self.assertTrue(gate["passed"])
         self.assertTrue(all(gate.values()))
         physical_gate = self.expected["physical_source_gate"]
-        self.assertTrue(physical_gate["passed"])
-        self.assertTrue(physical_gate["response_model_source_bound"])
+        self.assertFalse(physical_gate["passed"])
+        self.assertFalse(physical_gate["response_model_source_bound"])
         self.assertTrue(physical_gate["response_coefficients_source_bound"])
         self.assertTrue(physical_gate["target_blind_impulse_readback_recomputed"])
-        self.assertTrue(physical_gate["physical_refinement_intertwining_source_bound"])
+        self.assertTrue(
+            physical_gate["response_constraint_refinement_source_bound"]
+        )
+        self.assertFalse(
+            physical_gate["ordered_response_commutator_reconstructed"]
+        )
+        self.assertFalse(
+            physical_gate["a2_overlap_holonomy_fullness_source_bound"]
+        )
+        self.assertFalse(
+            physical_gate["same_current_internal_implementers_source_bound"]
+        )
 
     def test_port_to_generator_map_shape(self) -> None:
         row = self.expected["port_to_generator_map"]
@@ -79,32 +90,52 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
             self.assertTrue(row["conclusion"])
         status = self.expected["acceptance_criteria_status"]
         self.assertEqual(len(status), 5)
-        self.assertTrue(all(status.values()))
+        self.assertFalse(
+            status[
+                "current_operators_and_physical_refinement_source_defined"
+            ]
+        )
+        self.assertTrue(
+            all(
+                value
+                for key, value in status.items()
+                if key
+                != "current_operators_and_physical_refinement_source_defined"
+            )
+        )
         self.assertIn("branch_scope", self.expected)
         self.assertIn("factor_origins", self.expected)
         self.assertIn("dependency_acyclicity_note", self.expected)
         self.assertIn("verify", self.expected["verifier_command"])
 
-    def test_response_construction_is_source_bound(self) -> None:
+    def test_response_constraints_are_source_bound_but_current_fixture_is_not(self) -> None:
         definedness = self.expected["source_definedness"]
         self.assertEqual(
-            definedness["response_construction_status"], "source_bound_semantic_artifact"
+            definedness["response_construction_status"],
+            "declared_current_fixture_with_source_bound_response_constraints",
         )
-        self.assertTrue(definedness["carrier_and_refinement_source_bound"])
-        self.assertFalse(definedness["response_model_declared_as_branch_premise"])
-        self.assertTrue(definedness["physical_response_source_bound"])
+        self.assertTrue(
+            definedness["carrier_and_response_constraint_maps_source_bound"]
+        )
+        self.assertTrue(definedness["response_model_declared_as_branch_premise"])
+        self.assertFalse(definedness["physical_response_source_bound"])
         self.assertTrue(definedness["algebraic_construction_verified"])
         closure_condition = self.expected["issue_closure_condition"]
         self.assertTrue(closure_condition["conditional_algebraic_gate_passed"])
-        self.assertTrue(closure_condition["physical_source_realization_gate_passed"])
-        self.assertTrue(closure_condition["met_locally"])
+        self.assertFalse(closure_condition["physical_source_realization_gate_passed"])
+        self.assertFalse(closure_condition["met_locally"])
 
     def test_semantic_binding_reports_recomputed_source_response(self) -> None:
         binding = self.expected["semantic_response_binding"]
         self.assertTrue(binding["sector_structure_recomputed"])
         self.assertTrue(binding["galois_pairing_recomputed"])
         self.assertEqual(binding["tight_frame_constant_recomputed"], "10 + 2*sqrt(5)")
-        self.assertEqual(binding["derived_construction"], "charged_double_triplet")
+        self.assertFalse(binding["current_lift_source_selected"])
+        self.assertFalse(
+            binding["commutator_reconstructed_from_ordered_response"]
+        )
+        self.assertFalse(binding["overlap_holonomy_internality_certified"])
+        self.assertFalse(binding["charged_double_triplet_forced"])
         self.assertEqual(binding["response_operator"], "negative_graph_antipode_involution")
         self.assertEqual(
             binding["response_source"], "target_blind_maximal_distance_impulse_readback"
@@ -144,7 +175,7 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         mutant["construction_model"] = "abelian_record"
         with self.assertRaises(cert.CertificateError) as caught:
             cert.certificate_payload(mutant)
-        self.assertEqual(caught.exception.code, "CONSTRUCTION_MODEL_STRING")
+        self.assertEqual(caught.exception.code, "RESPONSE_MODEL")
 
     def test_production_manifest_requires_the_semantic_artifact(self) -> None:
         mutant = copy.deepcopy(self.manifest)
@@ -197,7 +228,10 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
         self.assertEqual(rigidity["multiplicity_of_kernel_band_in_even_block"], "0")
         moduli = self.expected["response_moduli"]
         self.assertEqual(moduli["equivariant_lift_dimension"], 4)
-        self.assertEqual(moduli["source_data_status"], "determined_by_semantic_artifact")
+        self.assertEqual(
+            moduli["source_data_status"],
+            "response_signs_determined_current_lift_open",
+        )
         self.assertEqual(len(moduli["band_coefficient_provenance"]), 4)
 
     def test_four_signed_coefficients_are_the_complete_parameterization(self) -> None:
@@ -259,12 +293,13 @@ class PortCurrentInnerCertificateTests(unittest.TestCase):
     def test_receipt_status_is_semantically_consistent(self) -> None:
         self.assertEqual(
             self.expected["claim_boundary"]["status"],
-            "proved_on_source_bound_impulse_readback_artifact",
+            "proved_conditional_on_declared_response_representation",
         )
-        self.assertTrue(self.expected["issue_closure_condition"]["met_locally"])
-        self.assertTrue(self.expected["physical_source_gate"]["passed"])
+        self.assertFalse(self.expected["issue_closure_condition"]["met_locally"])
+        self.assertFalse(self.expected["physical_source_gate"]["passed"])
         self.assertIn(
-            "#569", self.expected["issue_closure_condition"]["remaining_producer"]
+            "ordered response",
+            self.expected["issue_closure_condition"]["remaining_producer"],
         )
 
     def test_forbidden_downstream_data_is_rejected(self) -> None:

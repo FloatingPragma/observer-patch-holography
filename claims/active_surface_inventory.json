@@ -1,13 +1,14 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 180,
+  "surface_count": 191,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
     "docs/AXIOM_REFERENCE.md"
   ],
   "pdf_surfaces": [
+    "flagship/from_observer_consensus_to_standard_physics.pdf",
     "extra/compact_proof_of_oph.pdf",
     "paper/observers_are_all_you_need.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -26,11 +27,6 @@
     {
       "path": "README_FR.md",
       "glob": "README_FR.md",
-      "allowlisted": false
-    },
-    {
-      "path": "OPEN_PROBLEMS.md",
-      "glob": "OPEN_PROBLEMS.md",
       "allowlisted": false
     },
     {
@@ -209,58 +205,13 @@
       "allowlisted": false
     },
     {
-      "path": "extra/Photonic_fixed-point_consensus_for_SHA-256d_proof_of_work.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/chi_nu_susceptibility_bounds.tex",
-      "glob": "extra/*.tex",
+      "path": "flagship/from_observer_consensus_to_standard_physics.tex",
+      "glob": "flagship/*.tex",
       "allowlisted": false
     },
     {
       "path": "extra/compact_proof_of_oph.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/fine_structure_constant_derivation.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/koide_identity_from_positive_c3_face_circulants.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/machine_checked_finite_event_algebras.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/observable_normal_forms.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/thinking_as_patch_net_fixed_point_search.tex",
-      "glob": "extra/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/yang_mills_gap_clay_problem.tex",
-      "glob": "extra/*.tex",
+      "glob": "extra/compact_proof_of_oph.tex",
       "allowlisted": false
     },
     {
@@ -419,12 +370,22 @@
       "allowlisted": false
     },
     {
+      "path": "docs/A2_HOLONOMY_GAUGE_FORCING.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/AXIOM_REFERENCE.md",
       "glob": "docs/*.md",
       "allowlisted": true
     },
     {
       "path": "docs/BOOK_CHAPTER_LEDGER.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/CANONICAL_REPAIR_LAW_RFC.md",
       "glob": "docs/*.md",
       "allowlisted": false
     },
@@ -449,6 +410,11 @@
       "allowlisted": true
     },
     {
+      "path": "docs/GRAVITY_PREMISE_LADDER.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "docs/HACKER_NEWS_START_HERE.md",
       "glob": "docs/*.md",
       "allowlisted": false
@@ -470,6 +436,11 @@
     },
     {
       "path": "docs/OPH_FALSIFICATION_PROGRAM.md",
+      "glob": "docs/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "docs/POSTDICTION_LEDGER.md",
       "glob": "docs/*.md",
       "allowlisted": false
     },
@@ -529,6 +500,11 @@
       "allowlisted": true
     },
     {
+      "path": "claims/gravity_premise_ladder.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/physical_identification_registry.json",
       "glob": "claims/*.json",
       "allowlisted": false
@@ -541,6 +517,16 @@
     {
       "path": "claims/selection_ledger.json",
       "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A2HolonomyBridge.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5AngularBands.lean",
+      "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
     {
@@ -560,6 +546,11 @@
     },
     {
       "path": "Lean/Screen/A5CouplingSymmetry.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5FamilyBand.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -589,7 +580,17 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/CommonEWOrderUnit.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/Compact12.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/EqualStateWeights.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -610,6 +611,11 @@
     },
     {
       "path": "Lean/Screen/PortFrameGram.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/RGRepresentationFrontier.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -679,6 +685,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/ClebschRatio.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -720,6 +731,16 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/DirectedSeamRepair.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/DirectedSeamRepairProgress.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -789,7 +810,22 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/QuotientLumpability.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/RepairGapChain.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/Rule90.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/ScalarSeamRepair.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -800,6 +836,26 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/W5Stabilizer.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/YangMillsGap.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/YangMillsGapWitness.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/YangMillsLemma72.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/YangMillsProp81.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

@@ -1,11 +1,11 @@
 {
   "countermodel_witnesses": {
     "equal_spectra_rejection": "classes 0 and 3, and classes 0 and 1, have distinct exact characteristic polynomials, so an equal-spectra claim fails",
+    "exact_support_classical_completion": "on the same twelve-vertex support, the exact two-component harmonic vector-spring stiffness K_k = 5 I - A_k recovers the complete twisted adjacency spectral family",
     "false_regauge_rejection": "the class-1 witness chain has puncture holonomy one, so no verifier accepts it as a coboundary regauge of the vacuum",
     "gauge_tamper_rejection": "a chain with nonzero holonomy is refused as a regauge before any spectrum comparison",
     "hermiticity_rejection": "twisting one oriented seam without its reverse breaks the conjugate-transpose identity on that seam",
-    "ontology_independence_no_go": "classical-lattice and quantum-Hilbert interpretations expose the same hash-identical finite interface, so an interface-only particle discriminator is rejected",
-    "same_flux_classical_countermodel": "a classical finite-lattice configuration may carry the same nonzero seam chain, holonomy, and twisted spectrum; it is not rejected by this finite certificate"
+    "local_domain_context_boundary": "the separately hash-pinned issue-634 local-domain receipt matches only its own sector and scalar spectral interface; no identity bridge to the exact support or extended-domain non-identifiability theorem is emitted"
   },
   "issue": 311,
   "manifest_controls": [
@@ -25,6 +25,12 @@
       "actual_error": "UPSTREAM_HASH",
       "expected_error": "UPSTREAM_HASH",
       "name": "global_form_artifact_pin_drift",
+      "passed": true
+    },
+    {
+      "actual_error": "UPSTREAM_HASH",
+      "expected_error": "UPSTREAM_HASH",
+      "name": "classical_realization_receipt_pin_drift",
       "passed": true
     },
     {
@@ -76,7 +82,7 @@
       "passed": true
     }
   ],
-  "manifest_sha256": "4a8899e57e1087b47a8ab0bfa189883d8e747d312c7d61134dcd097607a015e9",
+  "manifest_sha256": "1cff936f956140cc59f50f0c9ecca4b6e543c40cca58cec66c32c159d00298d8",
   "schema": "oph.flux_defect_criterion_negative_controls.v3",
   "tamper_controls": [
     {
@@ -110,9 +116,15 @@
       "passed": true
     },
     {
-      "actual_error": "ONTOLOGY_INDEPENDENCE",
-      "expected_error": "ONTOLOGY_INDEPENDENCE",
-      "name": "finite_interface_particle_discriminator_claim",
+      "actual_error": "SPECTRAL_PROJECTION_CONTROL",
+      "expected_error": "SPECTRAL_PROJECTION_CONTROL",
+      "name": "declared_spectra_exclude_classical_claim",
+      "passed": true
+    },
+    {
+      "actual_error": "REALIFICATION_METRIC",
+      "expected_error": "REALIFICATION_METRIC",
+      "name": "regular_block_claimed_euclidean_orthogonal",
       "passed": true
     }
   ]

@@ -2894,11 +2894,20 @@ def separation_receipt() -> dict[str, Any]:
         and all(row["intertwined"] for row in refinement["maps"])
     )
     matter_source_gate = matter_artifact["physical_source_gate"]
-    conditional_source_ancestry_bound = (
-        matter_source_gate["upstream_response_representation_source_bound"] is True
-        and matter_source_gate["charge_pair_derived_up_to_charge_conjugation"] is True
-        and matter_source_gate["conjugate_projector_pair_source_derived"] is True
-        and matter_source_gate["physical_refinement_intertwining_source_bound"] is True
+    conditional_fixture_boundary_checked = (
+        matter_source_gate["upstream_response_constraints_source_bound"] is True
+        and matter_source_gate["upstream_current_representation_source_bound"] is False
+        and matter_source_gate["charge_pair_derived_within_declared_current_fixture"]
+        is True
+        and matter_source_gate[
+            "conjugate_projector_pair_derived_within_declared_current_fixture"
+        ]
+        is True
+        and matter_source_gate["current_action_on_matter_source_bound"] is False
+        and matter_source_gate["matter_lift_source_bound"] is False
+        and matter_source_gate["physical_refinement_intertwining_source_bound"]
+        is False
+        and matter_source_gate["passed"] is False
         and matter_artifact["block_determinant_balance"][
             "declared_matches_derived_pair_up_to_conjugation"
         ]
@@ -2973,11 +2982,11 @@ def separation_receipt() -> dict[str, Any]:
                 rows["matter_realization"]["promoted"] is False
             ),
             "conditional_spin_lift_subreceipt_checked_separately": (
-                conditional_spin_checked and conditional_source_ancestry_bound
+                conditional_spin_checked and conditional_fixture_boundary_checked
             ),
             "conditional_refinement_stable_anomaly_subreceipt_checked_separately": (
                 conditional_refinement_stable_anomalies_checked
-                and conditional_source_ancestry_bound
+                and conditional_fixture_boundary_checked
             ),
         },
     }

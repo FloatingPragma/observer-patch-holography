@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Exact finite topological-sector certificate associated with GitHub issue #311.
 
-The defect objects are the six measured flux sectors of the certified
-icosahedral support. The inputs are hash-pinned: the certified carrier
+The defect objects are the six flux sectors of a declared coefficient system
+on the certified icosahedral support. The inputs are hash-pinned: the certified carrier
 manifest supplies the twelve-vertex, thirty-seam, twenty-face oriented
-complex, and the #567 measured global-form artifact supplies the order-six
-class group together with the two-puncture flux-tube witnesses realizing
-every class. On that input this certificate derives a finite topological
+complex, and the #567 conditional global-form artifact supplies an order-six
+class group computed from declared axis relations together with the
+two-puncture flux-tube witnesses realizing every class. The carrier does not
+select those relations or identify this class group with the matter-action
+kernel. On that input this certificate derives a finite topological
 spectral receipt:
 
 * per flux class k in Z6, the twisted seam adjacency operator A_k on the
@@ -16,7 +18,8 @@ spectral receipt:
   Eisenstein ring Z[omega] with omega^2 = omega - 1, and every operator is
   verified Hermitian entry by entry;
 * the exact characteristic polynomial of every A_k over Z, computed by
-  fraction-free Faddeev-LeVerrier in the Eisenstein encoding and
+  Faddeev-LeVerrier in the Eisenstein encoding with certified exact trace
+  divisions and
   cross-checked against the integer 2n x 2n companion-block form, whose
   characteristic polynomial must equal the square of the Eisenstein result;
 * the spectral criterion: the six polynomials are not all equal; the
@@ -37,19 +40,36 @@ spectral receipt:
   the 42-vertex, 120-seam, 80-face complex of the pinned artifact's
   refinement transport, realizes all six classes between child punctures,
   and reproduces the same spectral coincidence partition.
+* an exact classical completion on this same twelve-vertex support: the
+  magnetic Laplacian K_k = 5 I - A_k is the Hessian of a two-component
+  harmonic vector-spring network in the hex-lattice coordinate metric
+  G = [[2,1],[1,2]]. Every phase block is proved G-orthogonal and the
+  symmetric energy Hessian G K_k is reconstructed exactly as an edge
+  sum of squares. Its generalized characteristic polynomial is computed
+  exactly for every flux class. Since A_k = 5 I - K_k, the complete finite
+  adjacency spectral family is recoverable from this classical stiffness
+  family;
+* a separately hash-pinned local-domain receipt for the issue-634 visible
+  seam/operator complex. It constructs a vector-spring model for that
+  different 8662-node main spectral domain and the 1052-node spectral domain
+  obtained from a 2048-carrier source configuration, together with its scalar
+  gap. The receipt is carried only as separate issue-311 context. No identity
+  bridge to the twelve-vertex/forty-two-vertex exact flux packet is asserted.
 
-These calculations do not distinguish a quantum particle from a classical
-lattice configuration carrying the same nonzero flux. They do not construct
-asymptotic states, a continuum pole, an all-depth refinement intertwiner, a
-mass calibration, or a laboratory species identification. Every arithmetic
-step in the retained finite calculation is exact integer arithmetic; no
-floating point appears in a proof step.
+Each vector-spring result is confined to its named finite interface. Neither
+is a complete-interface ontology or extended-domain non-identifiability
+theorem. These calculations do not construct asymptotic states, a continuum
+pole, an all-depth refinement intertwiner, a mass calibration, or a
+laboratory species identification. Every arithmetic step in the retained
+finite topological calculation is exact integer arithmetic; no floating
+point appears in those proof steps.
 """
 
 from __future__ import annotations
 
 import argparse
 import copy
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -72,6 +92,10 @@ RECEIPT_SCHEMA = "oph.flux_defect_criterion_receipt.v3"
 NEGATIVE_SCHEMA = "oph.flux_defect_criterion_negative_controls.v3"
 CARRIER_SCHEMA = "oph.echosahedral_selector_manifest.v1"
 GLOBAL_FORM_ARTIFACT_SCHEMA = "oph.global_form_semantic_artifact.v1"
+CLASSICAL_REALIZATION_SCHEMA = "oph.local-domain-classical-realization.v1"
+CLASSICAL_REALIZATION_VERDICT = (
+    "CLASSICAL_REALIZATION_MATCHES_DECLARED_FINITE_SPECTRAL_INTERFACE"
+)
 
 FLUX_ORDER = 6
 
@@ -302,7 +326,17 @@ def load_global_form_artifact(
     require(
         artifact.get("schema") == GLOBAL_FORM_ARTIFACT_SCHEMA,
         "UPSTREAM_ARTIFACT",
-        "the pinned artifact is not a measured global form artifact",
+        "the pinned artifact is not a conditional global-form artifact",
+    )
+    source_gate = artifact.get("physical_source_gate", {})
+    require(
+        source_gate.get("finite_declared_coefficient_system_gate_passed") is True
+        and source_gate.get("passed") is False
+        and source_gate.get("axis_relation_lattice_source_selected") is False
+        and source_gate.get("complete_character_category_source_derived") is False
+        and source_gate.get("same_source_loop_to_tensor_kernel_identification") is False,
+        "PHYSICAL_SCOPE",
+        "the artifact must retain its declared coefficient-system boundary",
     )
     require(
         artifact.get("carrier_binding", {}).get("carrier_manifest_sha256") == carrier_sha256,
@@ -312,13 +346,13 @@ def load_global_form_artifact(
     require(
         artifact.get("six_axis_class_measurement", {}).get("class_group_order") == FLUX_ORDER,
         "UPSTREAM_ARTIFACT",
-        "the measured class group order is not six",
+        "the declared-system class group order is not six",
     )
     menu = artifact.get("sector_menu", {})
     require(
         menu.get("realized_flux_menu") == list(range(FLUX_ORDER)),
         "UPSTREAM_ARTIFACT",
-        "the measured sector menu does not realize every class of Z6",
+        "the declared-system sector menu does not realize every class of Z6",
     )
     require(
         menu.get("single_puncture_impossibility", {}).get(
@@ -326,9 +360,187 @@ def load_global_form_artifact(
         )
         is True,
         "UPSTREAM_ARTIFACT",
-        "the measured single-puncture impossibility is missing",
+        "the declared-system single-puncture impossibility is missing",
     )
     return artifact
+
+
+def load_classical_realization_receipt(
+    manifest: Mapping[str, Any],
+    base_dir: Path,
+) -> dict[str, Any]:
+    """Resolve the bounded two-component vector-spring control by byte hash."""
+
+    path_raw = manifest.get("classical_realization_receipt_path")
+    require(
+        isinstance(path_raw, str),
+        "UPSTREAM_REFERENCE",
+        "classical_realization_receipt_path is missing",
+    )
+    path = Path(path_raw)
+    if not path.is_absolute():
+        path = base_dir / path
+    try:
+        raw = path.read_bytes()
+        receipt = json.loads(raw.decode("utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise CertificateError(
+            "UPSTREAM_REFERENCE",
+            f"cannot load the classical realization receipt: {exc}",
+        ) from exc
+    require(
+        isinstance(receipt, dict),
+        "UPSTREAM_REFERENCE",
+        "the classical realization receipt is not an object",
+    )
+    byte_sha256 = "sha256:" + hashlib.sha256(raw).hexdigest()
+    require(
+        manifest.get("classical_realization_receipt_byte_sha256") == byte_sha256,
+        "UPSTREAM_HASH",
+        "the classical realization receipt byte hash does not match the declared pin",
+    )
+    require(
+        receipt.get("schema") == CLASSICAL_REALIZATION_SCHEMA
+        and receipt.get("issue") == 311,
+        "UPSTREAM_REFERENCE",
+        "the pinned vector-spring receipt has the wrong schema or issue",
+    )
+    require(
+        receipt.get("verdict") == CLASSICAL_REALIZATION_VERDICT
+        and receipt.get("physical_promotion_allowed") is False
+        and receipt.get("CLASSICAL_REALIZATION_RECEIPT") is True
+        and receipt.get("controls_fail_closed") is True
+        and receipt.get("blockers") == [],
+        "UPSTREAM_REFERENCE",
+        "the pinned vector-spring receipt lacks its bounded attained verdict",
+    )
+    completion = receipt.get("classical_completion", {})
+    object_description = str(completion.get("object", "")).lower()
+    stiffness_rule = str(completion.get("stiffness_rule", "")).lower()
+    require(
+        "two-component classical harmonic network" in object_description
+        and "q_v in r^2" in object_description
+        and "fixed orthogonal transport" in object_description
+        and "rotor" not in object_description
+        and "exact realification" in stiffness_rule,
+        "UPSTREAM_REFERENCE",
+        "the pinned classical model is not the declared harmonic realification",
+    )
+    interface = receipt.get("spectral_interface_identity", {})
+    main_domain = interface.get("main_domain", {})
+    ladder_domain = interface.get("ladder_domain", {})
+    require(
+        interface.get("producer_schema")
+        == "oph.local-domain-defect-sector-spectra.v1"
+        and interface.get(
+            "rer_exact_flux_12_42_vertex_identity_bridge"
+        )
+        is False
+        and interface.get("separate_from_rer_exact_flux_certificate")
+        is True
+        and main_domain.get("source_projection_sha256")
+        == receipt.get("source_projection_sha256")
+        and main_domain.get("topology_freeze_sha256")
+        == receipt.get("domain_freeze_sha256")
+        and main_domain.get("source_carrier_count") == 16384
+        and main_domain.get("visible_node_count") == 8662
+        and main_domain.get("visible_edge_count") == 11816
+        and ladder_domain.get("source_carrier_count") == 2048
+        and ladder_domain.get("visible_node_count") == 1052
+        and ladder_domain.get("visible_edge_count") == 1663
+        and str(ladder_domain.get("source_projection_sha256", "")).startswith(
+            "sha256:"
+        )
+        and str(ladder_domain.get("topology_freeze_sha256", "")).startswith(
+            "sha256:"
+        ),
+        "UPSTREAM_REFERENCE",
+        "the local-domain spectral identity is missing or was conflated "
+        "with the exact twelve/forty-two-vertex flux packet",
+    )
+    gates = receipt.get("numerical_gates", {})
+    gap_tolerance = gates.get("gap_match_abs_tolerance")
+    kernel_floor = gates.get("kernel_eigenvalue_abs_floor")
+    symmetry_tolerance = gates.get("symmetry_max_residual_tolerance")
+    require(
+        isinstance(gap_tolerance, (int, float))
+        and 0 < gap_tolerance <= 1.0e-9
+        and isinstance(kernel_floor, (int, float))
+        and 0 < kernel_floor <= 1.0e-9
+        and isinstance(symmetry_tolerance, (int, float))
+        and 0 < symmetry_tolerance <= 1.0e-12,
+        "UPSTREAM_REFERENCE",
+        "the vector-spring numerical gates are missing or too permissive",
+    )
+    sector_rows = completion.get("sector_readings", [])
+    ladder_rows = completion.get("ladder_point_readings", [])
+    require(
+        len(sector_rows) == FLUX_ORDER
+        and len(ladder_rows) == FLUX_ORDER
+        and [row.get("sector") for row in sector_rows]
+        == list(range(FLUX_ORDER))
+        and [row.get("sector") for row in ladder_rows]
+        == list(range(FLUX_ORDER))
+        and all(
+            row.get("gap_match") is True
+            and row.get("kernel_match") is True
+            and row.get("symmetric") is True
+            and row.get("classical_kernel_count")
+            == row.get("expected_doubled_kernel")
+            and isinstance(
+                row.get("kernel_max_abs_eigenvalue"),
+                (int, float),
+            )
+            and row.get("kernel_max_abs_eigenvalue") < kernel_floor
+            and isinstance(
+                row.get("first_nonkernel_abs_eigenvalue"),
+                (int, float),
+            )
+            and row.get("first_nonkernel_abs_eigenvalue") > kernel_floor
+            and row.get("gap_abs_residual", gap_tolerance) < gap_tolerance
+            and row.get("symmetry_max_residual", symmetry_tolerance)
+            < symmetry_tolerance
+            and row.get("kernel_eigenvalue_abs_floor") == kernel_floor
+            for row in sector_rows + ladder_rows
+        )
+        and completion.get("scalar_gap_match") is True
+        and completion.get("scalar_gap_abs_residual", gap_tolerance)
+        < gap_tolerance,
+        "UPSTREAM_REFERENCE",
+        "the vector-spring spectral residual or kernel gate failed",
+    )
+    clauses = receipt.get("clause_verdicts", {})
+    require(
+        clauses.get("same_source_domain_binding") is True
+        and clauses.get("ladder_source_domain_binding") is True
+        and clauses.get("spectral_interface_scope_bound") is True
+        and clauses.get("classical_completion_exhibited") is True
+        and clauses.get("sector_payload_identity") is True
+        and clauses.get("scalar_gap_payload_identity") is True
+        and clauses.get("ladder_payload_identity") is True
+        and clauses.get("declared_serialized_interface_censused") is True,
+        "UPSTREAM_REFERENCE",
+        "the vector-spring receipt does not match the declared spectral projection",
+    )
+    census = receipt.get("serialized_interface_census", {})
+    require(
+        "explicitly listed serialized finite receipts" in str(census.get("scope", ""))
+        and census.get("no_declared_discriminator_key_match") is True,
+        "UPSTREAM_REFERENCE",
+        "the vector-spring receipt lost its bounded lexical-census result",
+    )
+    boundary = str(receipt.get("claim_boundary", "")).lower()
+    require(
+        "local-domain spectral interface" in boundary
+        and "no identity bridge" in boundary
+        and "12/42-vertex exact-flux certificate" in boundary
+        and "bounded lexical census" in boundary
+        and "does not close a criterion over an extended domain" in boundary,
+        "UPSTREAM_REFERENCE",
+        "the vector-spring receipt overstates its declared spectral scope",
+    )
+    receipt["_resolved_byte_sha256"] = byte_sha256
+    return receipt
 
 
 def verify_witness_chains(
@@ -580,6 +792,347 @@ def twisted_spectra(
     }
 
 
+def integer_block_image(
+    operator: Sequence[Mapping[int, tuple[int, int]]],
+) -> list[dict[int, int]]:
+    """Exact integer companion-block image of an Eisenstein operator."""
+
+    dimension = len(operator)
+    image: list[dict[int, int]] = [dict() for _ in range(2 * dimension)]
+    identity = ((1, 0), (0, 1))
+    for u, row in enumerate(operator):
+        for v, (a, b) in row.items():
+            block = tuple(
+                tuple(
+                    a * identity[i][j] + b * OMEGA_BLOCK[i][j]
+                    for j in range(2)
+                )
+                for i in range(2)
+            )
+            for i in range(2):
+                for j in range(2):
+                    if block[i][j]:
+                        image[2 * u + i][2 * v + j] = block[i][j]
+    return image
+
+
+HEX_GRAM = ((2, 1), (1, 2))
+
+
+def dense_integer_matrix(
+    operator: Sequence[Mapping[int, int]],
+) -> list[list[int]]:
+    """Expand a sparse integer matrix for exact small-matrix identities."""
+
+    dimension = len(operator)
+    return [
+        [operator[i].get(j, 0) for j in range(dimension)]
+        for i in range(dimension)
+    ]
+
+
+def integer_matmul(
+    left: Sequence[Sequence[int]],
+    right: Sequence[Sequence[int]],
+) -> list[list[int]]:
+    """Exact dense integer matrix product."""
+
+    rows = len(left)
+    inner = len(right)
+    columns = len(right[0]) if right else 0
+    require(
+        all(len(row) == inner for row in left)
+        and all(len(row) == columns for row in right),
+        "CLASSICAL_REALIFICATION",
+        "an exact matrix product has incompatible dimensions",
+    )
+    return [
+        [
+            sum(left[i][k] * right[k][j] for k in range(inner))
+            for j in range(columns)
+        ]
+        for i in range(rows)
+    ]
+
+
+def integer_transpose(
+    matrix: Sequence[Sequence[int]],
+) -> list[list[int]]:
+    return [list(column) for column in zip(*matrix, strict=True)]
+
+
+def block_diagonal_hex_gram(vertex_count: int) -> list[list[int]]:
+    dimension = 2 * vertex_count
+    gram = [[0] * dimension for _ in range(dimension)]
+    for vertex in range(vertex_count):
+        for i in range(2):
+            for j in range(2):
+                gram[2 * vertex + i][2 * vertex + j] = HEX_GRAM[i][j]
+    return gram
+
+
+def phase_block(exponent: int) -> list[list[int]]:
+    return [list(row) for row in omega_block_power(exponent)]
+
+
+def exact_hex_metric_hessian(
+    vertex_count: int,
+    edges: Sequence[tuple[int, int]],
+    chain: Mapping[int, int],
+    flux_class: int,
+    stiffness: Sequence[Mapping[int, tuple[int, int]]],
+) -> dict[str, Any]:
+    """Verify the classical Hessian in the exact hex-lattice metric.
+
+    In the integral basis (1, omega), multiplication by omega is not
+    orthogonal for the standard dot product. It is an isometry of
+    G = [[2,1],[1,2]]. The classical kinetic metric is block-diagonal G.
+    Summing each edge energy
+
+        (q_u - R q_v)^T G (q_u - R q_v) / 2
+
+    produces the ordinary symmetric Hessian H = G_total K. The generalized
+    normal-mode operator relative to the kinetic metric is K.
+    """
+
+    require(
+        HEX_GRAM[0][0] > 0
+        and HEX_GRAM[0][0] * HEX_GRAM[1][1]
+        - HEX_GRAM[0][1] * HEX_GRAM[1][0]
+        > 0,
+        "CLASSICAL_REALIFICATION",
+        "the hex-lattice coordinate metric is not positive definite",
+    )
+    dimension = 2 * vertex_count
+    gram = block_diagonal_hex_gram(vertex_count)
+    energy_hessian = [[0] * dimension for _ in range(dimension)]
+    metric_isometry_checks = 0
+
+    for position, (u, v) in enumerate(edges):
+        exponent = (
+            flux_class * chain.get(position, 0)
+        ) % FLUX_ORDER
+        rotation = phase_block(exponent)
+        rotation_t = integer_transpose(rotation)
+        require(
+            integer_matmul(
+                integer_matmul(rotation_t, HEX_GRAM),
+                rotation,
+            )
+            == [list(row) for row in HEX_GRAM],
+            "CLASSICAL_REALIFICATION",
+            "a seam phase is not an isometry of the hex-lattice metric",
+        )
+        metric_isometry_checks += 1
+
+        g_rotation = integer_matmul(HEX_GRAM, rotation)
+        rotation_t_g = integer_matmul(rotation_t, HEX_GRAM)
+        for i in range(2):
+            for j in range(2):
+                energy_hessian[2 * u + i][2 * u + j] += HEX_GRAM[i][j]
+                energy_hessian[2 * v + i][2 * v + j] += HEX_GRAM[i][j]
+                energy_hessian[2 * u + i][2 * v + j] -= g_rotation[i][j]
+                energy_hessian[2 * v + i][2 * u + j] -= rotation_t_g[i][j]
+
+    stiffness_block = dense_integer_matrix(integer_block_image(stiffness))
+    gram_stiffness = integer_matmul(gram, stiffness_block)
+    require(
+        integer_matmul(integer_transpose(stiffness_block), gram)
+        == gram_stiffness,
+        "CLASSICAL_REALIFICATION",
+        "the stiffness operator is not self-adjoint in the hex metric",
+    )
+    require(
+        energy_hessian == gram_stiffness,
+        "CLASSICAL_REALIFICATION",
+        "the edge sum-of-squares Hessian does not equal G K",
+    )
+    require(
+        integer_transpose(energy_hessian) == energy_hessian,
+        "CLASSICAL_REALIFICATION",
+        "the classical energy Hessian is not symmetric",
+    )
+    return {
+        "coordinate_metric": [list(row) for row in HEX_GRAM],
+        "metric_leading_principal_minors": [2, 3],
+        "metric_positive_definite": True,
+        "phase_metric_isometry_checks": metric_isometry_checks,
+        "metric_self_adjoint_entry_checks": dimension * dimension,
+        "edge_sum_of_squares_hessian_entry_checks": dimension * dimension,
+        "energy_hessian_equals_metric_times_stiffness": True,
+        "energy_hessian_symmetric": True,
+        "positive_semidefinite_by_edge_sum_of_squares": True,
+    }
+
+
+def exact_support_vector_spring_control(
+    support: Mapping[str, Any],
+    chain_one: Mapping[int, int],
+    adjacency_polynomials: Mapping[int, Sequence[int]],
+) -> dict[str, Any]:
+    """Construct the classical completion of the exact support spectra.
+
+    For each class k, K_k = d I - A_k is the magnetic graph Laplacian.
+    It is the Hessian of
+
+        1/2 sum_{(u,v)} ||q_u - R_{k f(u,v)} q_v||^2,
+
+    with q_v in R^2 and R the real rotation represented by the unit
+    Eisenstein phase. This sum-of-squares form is positive semidefinite.
+    Since A_k = d I - K_k, the exact A_k spectral family and the classical
+    stiffness family contain the same finite spectral information.
+    """
+
+    vertex_count = support["vertex_count"]
+    edges = support["edges"]
+    degrees = [0] * vertex_count
+    for u, v in edges:
+        degrees[u] += 1
+        degrees[v] += 1
+    require(
+        len(set(degrees)) == 1,
+        "CLASSICAL_REALIFICATION",
+        "the exact support is not regular",
+    )
+    degree = degrees[0]
+    require(
+        degree == 5 and vertex_count == 12 and len(edges) == 30,
+        "CLASSICAL_REALIFICATION",
+        "the exact support is not the declared five-regular icosahedral graph",
+    )
+
+    per_class: list[dict[str, Any]] = []
+    phase_norm_checks = 0
+    hessian_entry_checks = 0
+    for flux_class in range(FLUX_ORDER):
+        adjacency = build_twisted_operator(
+            vertex_count,
+            edges,
+            chain_one,
+            flux_class,
+        )
+        require(
+            charpoly_hermitian_eisenstein(adjacency, vertex_count)
+            == list(adjacency_polynomials[flux_class]),
+            "CLASSICAL_REALIFICATION",
+            "the supplied adjacency polynomial does not belong to this sector",
+        )
+        stiffness: list[dict[int, tuple[int, int]]] = [
+            {u: (degree, 0)} for u in range(vertex_count)
+        ]
+        for u, row in enumerate(adjacency):
+            for v, value in row.items():
+                stiffness[u][v] = (-value[0], -value[1])
+                phase_norm_checks += int(
+                    eis_mul(value, eis_conj(value)) == (1, 0)
+                )
+        require(
+            phase_norm_checks == (flux_class + 1) * 2 * len(edges),
+            "CLASSICAL_REALIFICATION",
+            "a seam phase is not a unit rotation",
+        )
+        require_hermitian(stiffness)
+
+        for u in range(vertex_count):
+            positions = set(adjacency[u]) | set(stiffness[u]) | {u}
+            for v in positions:
+                a = adjacency[u].get(v, (0, 0))
+                k = stiffness[u].get(v, (0, 0))
+                expected = (degree, 0) if u == v else (0, 0)
+                require(
+                    (a[0] + k[0], a[1] + k[1]) == expected,
+                    "CLASSICAL_REALIFICATION",
+                    "the exact K = d I - A Hessian identity failed",
+                )
+                hessian_entry_checks += 1
+
+        stiffness_polynomial = charpoly_hermitian_eisenstein(
+            stiffness,
+            vertex_count,
+        )
+        hessian_certificate = exact_hex_metric_hessian(
+            vertex_count,
+            edges,
+            chain_one,
+            flux_class,
+            stiffness,
+        )
+        block_polynomial = charpoly_integer_sparse(
+            integer_block_image(stiffness),
+            2 * vertex_count,
+        )
+        require(
+            block_polynomial == polynomial_square(stiffness_polynomial),
+            "CLASSICAL_REALIFICATION",
+            "the classical stiffness companion image lost the doubled spectrum",
+        )
+        per_class.append(
+            {
+                "flux_class": flux_class,
+                "adjacency_characteristic_polynomial": list(
+                    adjacency_polynomials[flux_class]
+                ),
+                "stiffness_characteristic_polynomial": stiffness_polynomial,
+                "stiffness_characteristic_polynomial_sha256":
+                    sha256_json(stiffness_polynomial),
+                "real_generalized_characteristic_polynomial":
+                    polynomial_square(stiffness_polynomial),
+                "exact_adjacency_recovery": "A_k = 5 I - K_k",
+                "classical_hessian_certificate": hessian_certificate,
+            }
+        )
+
+    return {
+        "domain": {
+            "name": "certified_icosahedral_support",
+            "vertex_count": vertex_count,
+            "seam_count": len(edges),
+            "regular_degree": degree,
+            "separate_from_local_domain_seam_complex": True,
+        },
+        "classical_model": (
+            "two-component harmonic vector-spring network on the exact "
+            "twelve-vertex support, with q_v in R^2 and one phase-rotation "
+            "spring per seam"
+        ),
+        "potential": (
+            "one half the sum over seams of "
+            "(q_u - R_(k f(e)) q_v)^T G "
+            "(q_u - R_(k f(e)) q_v)"
+        ),
+        "stiffness_rule": "K_k = 5 I - A_k",
+        "realification_rule": (
+            "use the integral (1, omega) basis with positive metric "
+            "G = [[2,1],[1,2]]; multiplication by every unit Eisenstein "
+            "phase is a G-isometry, and G K is the symmetric ordinary "
+            "energy Hessian"
+        ),
+        "normal_mode_problem": (
+            "G_total K_block q = lambda_mode G_total q"
+        ),
+        "phase_unit_checks": phase_norm_checks,
+        "hessian_entry_identity_checks": hessian_entry_checks,
+        "phase_metric_isometry_checks": sum(
+            row["classical_hessian_certificate"][
+                "phase_metric_isometry_checks"
+            ]
+            for row in per_class
+        ),
+        "edge_hessian_identity_entry_checks": sum(
+            row["classical_hessian_certificate"][
+                "edge_sum_of_squares_hessian_entry_checks"
+            ]
+            for row in per_class
+        ),
+        "per_class": per_class,
+        "declared_adjacency_spectral_family_recoverable": True,
+        "scalar_operator_or_gap_matched": False,
+        "complete_interface_ontology_no_go": False,
+        "extended_domain_non_identifiability": False,
+        "physical_promotion_allowed": False,
+    }
+
+
 def coincidence_partition(polynomials: Mapping[int, Sequence[int]]) -> list[list[int]]:
     groups: dict[tuple[int, ...], list[int]] = {}
     for flux_class in sorted(polynomials):
@@ -775,8 +1328,9 @@ def local_coboundary_control(
     holonomy k - j != 0 while every coboundary has zero holonomy everywhere.
 
     This does not distinguish quantum and classical realizations of one flux
-    class. A classical lattice configuration may carry the same nonzero seam
-    chain and therefore the same twisted spectrum.
+    class. On this same support, the magnetic Laplacian is the stiffness
+    matrix of the exact two-component vector-spring completion recorded by
+    the certificate.
     """
 
     basis_checks = require_coboundary_holonomy_zero(support)
@@ -809,116 +1363,100 @@ def local_coboundary_control(
             "obstruction, and four charge-conjugacy bands have distinct "
             "twisted characteristic polynomials"
         ),
-        "same_flux_classical_countermodel": (
-            "a classical finite-lattice configuration carrying the same "
-            "nonzero seam chain has the same holonomy and twisted adjacency "
-            "spectrum; this certificate contains no quantum/classical "
-            "discriminator"
+        "same_support_classical_completion": (
+            "on the same twelve-vertex support, K_k = 5 I - A_k is the "
+            "Hessian of a two-component harmonic vector-spring model; the "
+            "exact A_k spectral family is recoverable from K_k"
         ),
         "excludes_every_classical_localized_record": False,
         "physical_particle_discrimination": False,
     }
 
 
-def ontology_independence_no_go(
-    support: Mapping[str, Any],
-    chains: Mapping[int, Mapping[int, int]],
-    polynomials: Mapping[int, Sequence[int]],
-    fusion: Mapping[str, Any],
-    refinement: Mapping[str, Any],
+def local_domain_vector_spring_context(
+    receipt: Mapping[str, Any],
 ) -> dict[str, Any]:
-    """Prove non-identifiability of particle ontology at the finite interface.
+    """Project the separate local-domain receipt onto its bounded claim."""
 
-    The same exact seam chain and Hermitian operator may be read as a classical
-    finite-lattice flux/wave operator or as a quantum Hilbert-space Hamiltonian
-    candidate. Every observer-visible datum exported by this certificate is
-    identical. Therefore no discriminator that factors only through this
-    interface can separate the two interpretations.
-    """
-
-    interface_data = {
-        "carrier_manifest_sha256": support["carrier_manifest_sha256"],
-        "vertex_count": support["vertex_count"],
-        "edges": [list(edge) for edge in support["edges"]],
-        "per_flux_class": {
-            str(flux): {
-                "seam_chain": [
-                    [position, chains[flux].get(position, 0)]
-                    for position in range(len(support["edges"]))
-                ],
-                "operator_entries": [
-                    [u, v, value[0], value[1]]
-                    for u, row in enumerate(
-                        build_twisted_operator(
-                            support["vertex_count"],
-                            support["edges"],
-                            chains[1],
-                            flux,
-                        )
-                    )
-                    for v, value in sorted(row.items())
-                ],
-                "characteristic_polynomial": list(polynomials[flux]),
-                "hermitian": True,
-            }
-            for flux in range(FLUX_ORDER)
-        },
-        "charge_and_fusion": dict(fusion),
-        "one_step_refinement_check": dict(refinement),
-    }
-    interface_sha256 = sha256_json(interface_data)
-    classical = {
-        "interpretation": (
-            "classical finite-lattice flux configuration with a complex "
-            "linear wave/adjacency operator"
-        ),
-        "observer_visible_interface_sha256": interface_sha256,
-    }
-    quantum = {
-        "interpretation": (
-            "quantum Hilbert-space flux-sector Hamiltonian candidate on the "
-            "same complex vector space"
-        ),
-        "observer_visible_interface_sha256": interface_sha256,
-    }
-    require(
-        classical["observer_visible_interface_sha256"]
-        == quantum["observer_visible_interface_sha256"],
-        "ONTOLOGY_NO_GO",
-        "the two interpretation models do not share identical finite data",
-    )
+    completion = receipt["classical_completion"]
+    clauses = receipt["clause_verdicts"]
+    census = receipt["serialized_interface_census"]
+    interface_identity = receipt["spectral_interface_identity"]
+    sector_rows = completion["sector_readings"]
+    ladder_rows = completion["ladder_point_readings"]
     return {
-        "interface": (
-            "the exact finite carrier, all six seam chains, twisted Hermitian "
-            "operators and characteristic polynomials, finite fusion and "
-            "composition rows, and one-step refinement check exported by this packet"
+        "receipt_schema": receipt["schema"],
+        "receipt_byte_sha256": receipt["_resolved_byte_sha256"],
+        "verdict": receipt["verdict"],
+        "spectral_interface_identity": interface_identity,
+        "separate_from_exact_flux_support": True,
+        "exact_flux_identity_bridge": False,
+        "classical_model": completion["object"],
+        "stiffness_rule": completion["stiffness_rule"],
+        "declared_projection": (
+            "the issue-634 local-domain six-sector spectra, its scalar "
+            "finite-operator gap, and the separately recorded 2048-carrier "
+            "source-configuration spectral point"
         ),
-        "observer_visible_interface_sha256": interface_sha256,
-        "classical_model": classical,
-        "quantum_model": quantum,
-        "observer_visible_data_identical": True,
+        "sector_payload_identity": clauses["sector_payload_identity"],
+        "scalar_gap_payload_identity": clauses["scalar_gap_payload_identity"],
+        "ladder_payload_identity": clauses["ladder_payload_identity"],
+        "classical_completion_exhibited": clauses["classical_completion_exhibited"],
+        "numerical_gates": receipt["numerical_gates"],
+        "numerical_readback": {
+            "maximum_sector_gap_abs_residual": max(
+                row["gap_abs_residual"] for row in sector_rows
+            ),
+            "scalar_gap_abs_residual":
+                completion["scalar_gap_abs_residual"],
+            "maximum_ladder_gap_abs_residual": max(
+                row["gap_abs_residual"] for row in ladder_rows
+            ),
+            "maximum_symmetry_residual": max(
+                row["symmetry_max_residual"]
+                for row in sector_rows + ladder_rows
+            ),
+            "all_kernel_counts_match_exact_doubling": all(
+                row["kernel_match"] for row in sector_rows + ladder_rows
+            ),
+        },
+        "bounded_lexical_census": {
+            "scope": census["scope"],
+            "no_declared_discriminator_key_match":
+                census["no_declared_discriminator_key_match"],
+            "completeness_theorem": False,
+        },
         "conclusion": (
-            "every deterministic discriminator that factors only through the "
-            "declared finite interface has the same value on both models; a "
-            "dynamics, pole, quantization, or equivalent extra premise is "
-            "necessary for particle ontology"
+            "the separately declared issue-634 local-domain six-sector and "
+            "scalar spectral projection admits the explicit two-component "
+            "harmonic vector-spring realization; this says nothing about an "
+            "identity with the twelve-vertex exact flux packet"
         ),
-        "exhaustive_scope": (
-            "all predicates and deterministic algorithms whose complete input "
-            "is the declared finite observer-visible interface"
-        ),
-        "negative_closure_at_declared_interface": True,
+        "complete_interface_ontology_no_go": False,
+        "extended_domain_non_identifiability": False,
+        "cofinal_refinement_or_asymptotic_claim": False,
+        "physical_promotion_allowed": False,
     }
 
 
-def assert_finite_interface_distinguishes_ontology(no_go: Mapping[str, Any]) -> None:
-    """Reject a particle-ontology claim based only on the identical interface."""
+def assert_exact_support_spectra_exclude_classical(
+    control: Mapping[str, Any],
+) -> None:
+    """Reject exclusion of the exact-support classical completion."""
 
     require(
-        no_go["classical_model"]["observer_visible_interface_sha256"]
-        != no_go["quantum_model"]["observer_visible_interface_sha256"],
-        "ONTOLOGY_INDEPENDENCE",
-        "classical and quantum interpretations have identical finite interface data",
+        not (
+            control["declared_adjacency_spectral_family_recoverable"]
+            and all(
+                row["classical_hessian_certificate"][
+                    "positive_semidefinite_by_edge_sum_of_squares"
+                ]
+                for row in control["per_class"]
+            )
+        ),
+        "SPECTRAL_PROJECTION_CONTROL",
+        "the exact support spectra are recoverable from the explicit "
+        "vector-spring stiffness family",
     )
 
 
@@ -1133,7 +1671,7 @@ def charge_fusion_certificate(
             )
             composition_checks += 1
     return {
-        "charge_group": "Z6, the measured flux class group",
+        "charge_group": "Z6, the class group of the declared axis coefficient system",
         "fusion_rule": "class j fused with class k is class j + k mod 6",
         "fusion_pairs_checked": fusion_checks,
         "second_puncture_pair_faces": [second_start, second_end],
@@ -1306,6 +1844,7 @@ def certificate_payload(
     artifact = load_global_form_artifact(
         manifest, base, support["carrier_manifest_sha256"]
     )
+    classical_receipt = load_classical_realization_receipt(manifest, base)
     witness = verify_witness_chains(support, artifact)
     chains = witness["chains"]
 
@@ -1318,8 +1857,13 @@ def certificate_payload(
     refinement = refinement_certificate(
         support, witness, verdict["coincidence_partition"], artifact
     )
-    ontology_no_go = ontology_independence_no_go(
-        support, chains, polynomials, fusion, refinement
+    exact_classical_control = exact_support_vector_spring_control(
+        support,
+        chains[1],
+        polynomials,
+    )
+    local_domain_classical_context = local_domain_vector_spring_context(
+        classical_receipt
     )
 
     per_class_invariants = {
@@ -1340,6 +1884,12 @@ def certificate_payload(
         "manifest_sha256": sha256_json(manifest),
         "carrier_manifest_sha256": support["carrier_manifest_sha256"],
         "global_form_artifact_sha256": artifact["artifact_sha256"],
+        "global_form_scope": {
+            "declared_axis_coefficient_system_exact": True,
+            "axis_relation_lattice_source_selected": False,
+            "physical_global_form_selected": False,
+            "same_source_loop_to_tensor_kernel_identification": False,
+        },
         "arithmetic": {
             "ring": "Z[omega] with omega^2 = omega - 1, omega = exp(2 pi i / 6)",
             "encoding": (
@@ -1347,7 +1897,7 @@ def certificate_payload(
                 "the integer 2n x 2n companion-block image of omega"
             ),
             "characteristic_polynomial_method": (
-                "fraction-free Faddeev-LeVerrier with exact trace divisions and "
+                "Faddeev-LeVerrier with certified exact trace divisions and "
                 "a zero-omega-part requirement on every coefficient"
             ),
             "floating_point_free": True,
@@ -1356,9 +1906,12 @@ def certificate_payload(
             "objects": (
                 "seam chains on the certified support, up to coboundary "
                 "regauging; the class of a chain is its puncture holonomy in "
-                "the measured order-six class group"
+                "the order-six class group of the declared axis coefficient "
+                "system"
             ),
-            "source_defined": True,
+            "source_defined": False,
+            "conditional_declared_system_defined": True,
+            "physical_global_form_selected": False,
             "puncture_faces": {
                 "start": witness["start_face"],
                 "end": witness["end_face"],
@@ -1396,26 +1949,37 @@ def certificate_payload(
         "spectral_criterion": verdict,
         "gauge_invariance": gauge,
         "local_coboundary_control": coboundary_control,
-        "ontology_independence_no_go": ontology_no_go,
+        "exact_support_classical_realification": exact_classical_control,
+        "local_domain_classical_spectral_context":
+            local_domain_classical_context,
         "charge_and_fusion": fusion,
         "one_step_refinement_check": refinement,
         "claim_boundary": {
             "proves": (
-                "on the fixed finite support: the six measured Z6 flux sectors "
+                "on the fixed finite support and inside the declared axis "
+                "coefficient system: the six Z6 flux sectors "
                 "carry exact gauge-invariant twisted characteristic "
                 "polynomials, additive flux fusion, finite two-chain "
                 "composition, and a self-adjoint ell^2 representation; the "
                 "charge-conjugacy coincidence partition persists through one "
-                "edge-midpoint refinement check. At this finite interface, "
-                "particle ontology is unidentifiable because classical-lattice "
-                "and quantum-Hilbert interpretations have identical exported data"
+                "edge-midpoint refinement check. On that same twelve-vertex "
+                "support, the exact K_k = 5 I - A_k vector-spring "
+                "realification recovers the complete adjacency spectral "
+                "family from a classical stiffness family. A separately "
+                "hash-pinned receipt constructs a vector-spring realization "
+                "for the different issue-634 local-domain sector and scalar "
+                "spectra. No identity bridge between the two finite domains "
+                "is claimed"
             ),
-            "status": "finite_topological_flux_spectrum_with_ontology_no_go",
+            "status": (
+                "finite_topological_flux_spectrum_with_exact_support_"
+                "classical_realification_and_separate_local_domain_context"
+            ),
             "does_not_close": [
-                "a quantum-particle criterion or a discriminator between "
-                "quantum and classical realizations of the same flux chain",
-                "exclusion of a classical finite-lattice configuration carrying "
-                "the same nonzero flux and twisted spectrum",
+                "source selection of the axis relation lattice, a physical global form, or a same-source loop-to-matter-kernel identity",
+                "a complete-interface quantum/classical discriminator or "
+                "particle-ontology theorem",
+                "non-identifiability on an extended source domain",
                 "a continuum quantum pole or propagator for any defect",
                 "asymptotic states, scattering amplitudes, or asymptotic completeness",
                 "an all-depth refinement transport, operator intertwiner, or continuum limit",
@@ -1424,7 +1988,9 @@ def certificate_payload(
             ],
         },
         "finite_topological_sector_gate": {
-            "defect_objects_source_defined": True,
+            "defect_objects_source_defined": False,
+            "defect_objects_defined_in_declared_coefficient_system": True,
+            "physical_global_form_selected": False,
             "invariants_target_free": True,
             "operators_self_adjoint": True,
             "spectra_gauge_invariant": True,
@@ -1435,6 +2001,8 @@ def certificate_payload(
             "one_step_coincidence_partition_persists": True,
             "physical_particle_discrimination": False,
             "classical_same_flux_countermodel_excluded": False,
+            "exact_support_classical_realification_constructed": True,
+            "local_domain_identity_bridge_proved": False,
             "asymptotic_states_controlled": False,
             "all_depth_refinement_stability": False,
             "continuum_quantum_pole": False,
@@ -1442,19 +2010,39 @@ def certificate_payload(
             "laboratory_identification": False,
             "passed": True,
             "scope": (
-                "passed refers only to the retained finite topological rows; "
+                "passed refers only to the retained finite topological rows "
+                "inside the declared axis coefficient system; "
                 "it is not the GitHub issue's physical-particle acceptance gate"
             ),
         },
-        "negative_closure_status": {
-            "status": "proved_no_go_at_declared_finite_interface",
-            "same_data_classical_quantum_countermodels": True,
-            "all_finite_interface_discriminators_covered": True,
-            "extra_dynamics_or_pole_premise_necessary": True,
-            "scope": ontology_no_go["exhaustive_scope"],
+        "exact_support_classical_boundary": {
+            "status": "exact_classical_realification",
+            "two_component_vector_spring_model_exhibited": True,
+            "declared_adjacency_spectral_family_recoverable": True,
+            "scalar_operator_or_gap_matched": False,
+            "complete_interface_discriminators_covered": False,
+            "extended_domain_no_go": False,
+            "scope": (
+                "the exact twelve-vertex icosahedral support and its six "
+                "twisted adjacency operators"
+            ),
+        },
+        "local_domain_spectral_context_boundary": {
+            "status": "bounded_local_domain_classical_match",
+            "two_component_vector_spring_model_exhibited": True,
+            "declared_local_sector_and_scalar_spectra_matched": True,
+            "same_domain_as_exact_flux_support": False,
+            "identity_bridge_to_exact_flux_support": False,
+            "complete_interface_discriminators_covered": False,
+            "extended_domain_no_go": False,
+            "lexical_scan_completeness_theorem": False,
+            "scope": (
+                "the hash-pinned issue-634 local-domain receipt's spectral "
+                "interface only"
+            ),
         },
         "acceptance_criteria_status": {
-            "defect_object_and_equivalence_source_defined": True,
+            "defect_object_and_equivalence_source_defined": False,
             "charge_invariant_and_target_independent": True,
             "mass_invariant_and_target_independent": False,
             "mass_and_charge_invariant_and_target_independent": False,
@@ -1466,7 +2054,9 @@ def certificate_payload(
         },
         "acceptance_criteria_detail": {
             "charge_invariant_and_target_independent": (
-                "the Z6 charge is exact and target-independent"
+                "the conditional Z6 charge is exact and target-independent "
+                "inside the declared coefficient system; its physical source "
+                "selection is open"
             ),
             "mass_invariant_and_target_independent": (
                 "open: the packet emits no mass invariant"
@@ -1481,12 +2071,14 @@ def certificate_payload(
             ),
             "quantum_pole_or_equivalent_physical_spectral_criterion_proved": (
                 "open: the finite twisted spectrum is a topological invariant "
-                "shared by classical and quantum realizations of the same chain"
+                "recoverable from the exact same-support vector-spring "
+                "stiffness family; the separate local-domain spectral match "
+                "also carries no pole"
             ),
             "classical_localization_alone_cannot_pass_physical_gate": (
                 "open: a vertex mark or coboundary cannot change flux, but a "
-                "classical nonzero-flux configuration is an explicit same-data "
-                "countermodel"
+                "classical vector-spring realization exists on the exact "
+                "support; this does not settle an extended physical domain"
             ),
             "all_depth_refinement_stability_proved": (
                 "open: only one freshly reconstructed refined witness and its "
@@ -1523,6 +2115,14 @@ def negative_control_cases(
     artifact_drift["global_form_artifact_sha256"] = "sha256:" + "0" * 64
     cases.append(("global_form_artifact_pin_drift", artifact_drift, "UPSTREAM_HASH"))
 
+    classical_drift = copy.deepcopy(dict(manifest))
+    classical_drift["classical_realization_receipt_byte_sha256"] = (
+        "sha256:" + "0" * 64
+    )
+    cases.append(
+        ("classical_realization_receipt_pin_drift", classical_drift, "UPSTREAM_HASH")
+    )
+
     swapped = copy.deepcopy(dict(manifest))
     swapped["global_form_artifact_path"] = str(manifest.get("carrier_manifest_path"))
     cases.append(("swapped_artifact_path", swapped, "UPSTREAM_HASH"))
@@ -1544,6 +2144,7 @@ def tamper_control_cases(
     validate_manifest(manifest)
     support = load_carrier_complex(manifest, base)
     artifact = load_global_form_artifact(manifest, base, support["carrier_manifest_sha256"])
+    classical_receipt = load_classical_realization_receipt(manifest, base)
     witness = verify_witness_chains(support, artifact)
     chains = witness["chains"]
     polynomials = twisted_spectra(support, chains[1])["polynomials"]
@@ -1554,8 +2155,11 @@ def tamper_control_cases(
         require_spectral_distinctness(polynomials)["coincidence_partition"],
         artifact,
     )
-    ontology_no_go = ontology_independence_no_go(
-        support, chains, polynomials, fusion, refinement
+    local_domain_vector_spring_context(classical_receipt)
+    exact_classical_control = exact_support_vector_spring_control(
+        support,
+        chains[1],
+        polynomials,
     )
 
     def non_coboundary_presented_as_regauge() -> None:
@@ -1583,8 +2187,20 @@ def tamper_control_cases(
         # it is not a coboundary and the spectrum would move.
         require_regauge_invariance(support, chains[0], chains[1], 1, polynomials[0])
 
-    def finite_interface_particle_discriminator_claim() -> None:
-        assert_finite_interface_distinguishes_ontology(ontology_no_go)
+    def declared_spectra_exclude_classical_claim() -> None:
+        assert_exact_support_spectra_exclude_classical(
+            exact_classical_control
+        )
+
+    def regular_block_claimed_euclidean_orthogonal() -> None:
+        block = phase_block(1)
+        require(
+            integer_matmul(integer_transpose(block), block)
+            == [[1, 0], [0, 1]],
+            "REALIFICATION_METRIC",
+            "the integral Eisenstein block is orthogonal only in the "
+            "declared hex-lattice metric",
+        )
 
     return [
         (
@@ -1597,9 +2213,14 @@ def tamper_control_cases(
         ("non_hermitian_seam_tamper", non_hermitian_seam_tamper, "HERMITICITY"),
         ("gauge_dependence_tamper", gauge_dependence_tamper, "GAUGE_TAMPER"),
         (
-            "finite_interface_particle_discriminator_claim",
-            finite_interface_particle_discriminator_claim,
-            "ONTOLOGY_INDEPENDENCE",
+            "declared_spectra_exclude_classical_claim",
+            declared_spectra_exclude_classical_claim,
+            "SPECTRAL_PROJECTION_CONTROL",
+        ),
+        (
+            "regular_block_claimed_euclidean_orthogonal",
+            regular_block_claimed_euclidean_orthogonal,
+            "REALIFICATION_METRIC",
         ),
     ]
 
@@ -1670,15 +2291,16 @@ def negative_control_payload(
                 "a chain with nonzero holonomy is refused as a regauge before "
                 "any spectrum comparison"
             ),
-            "same_flux_classical_countermodel": (
-                "a classical finite-lattice configuration may carry the same "
-                "nonzero seam chain, holonomy, and twisted spectrum; it is not "
-                "rejected by this finite certificate"
+            "exact_support_classical_completion": (
+                "on the same twelve-vertex support, the exact two-component "
+                "harmonic vector-spring stiffness K_k = 5 I - A_k recovers "
+                "the complete twisted adjacency spectral family"
             ),
-            "ontology_independence_no_go": (
-                "classical-lattice and quantum-Hilbert interpretations expose "
-                "the same hash-identical finite interface, so an interface-only "
-                "particle discriminator is rejected"
+            "local_domain_context_boundary": (
+                "the separately hash-pinned issue-634 local-domain receipt "
+                "matches only its own sector and scalar spectral interface; "
+                "no identity bridge to the exact support or extended-domain "
+                "non-identifiability theorem is emitted"
             ),
         },
     }

@@ -45,6 +45,8 @@ def test_forced_structure_receipts_exist(result):
             assert (ledger.REPO / ref).exists(), ref
         if "artifact_ref" in row:
             assert (ledger.REPO / row["artifact_ref"]).exists()
+        for ref in row.get("artifact_refs", []):
+            assert (ledger.REPO / ref).exists()
 
 
 def test_hypercharge_spectrum_matches_receipt(result):
@@ -54,8 +56,80 @@ def test_hypercharge_spectrum_matches_receipt(result):
         if r["id"] == "hypercharge_spectrum"
     )
     receipt = json.loads(ledger.PARENTS["matter_receipt"].read_text(encoding="utf-8"))
+    menu = json.loads(ledger.PARENTS["matter_menu"].read_text(encoding="utf-8"))
     assert row["realized_spectrum"] == receipt["realized_package"]["charge_spectrum"]
     assert row["match"] == "exact"
+    assert row["subset_count"] == menu["subset_classification"]["subsets_enumerated"]
+    assert row["survivor_count"] == menu["subset_classification"]["survivor_count"]
+    assert row["survivor_dimension"] == receipt["realized_package"]["dimension"]
+    assert row["lean_declarations"]["ExteriorSelection"] == menu[
+        "subset_classification"
+    ]["lean_cross_reference"]["theorems"]
+    assert any(
+        path.endswith("/ExteriorSelection.lean")
+        for path in row["lean_receipts"]
+    )
+
+
+def test_classical_carriers_and_xy_boundary_are_visible(result):
+    rows = {r["id"]: r for r in result["sections"]["forced_structure"]}
+    for row_id in (
+        "maxwell_classical_massless_kernel",
+        "yang_mills_classical_massless_kernel",
+        "einstein_classical_massless_kernel",
+    ):
+        assert rows[row_id]["match"] == "conditional structural"
+        assert rows[row_id]["artifact_ref"] == (
+            "code/particles/runs/status/carrier_mode_acceptance.json"
+        )
+    xy = rows["simple_gut_xy_channel_absent"]
+    assert xy["match"] == "conditional algebraic channel exclusion"
+    assert "(3,2,-5/6) (+) (bar3,2,+5/6)" in xy["statement"]
+    assert xy["derivation_kind"] == "direct_executable_algebraic_corollary"
+    assert xy["artifact_ref"] == (
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
+    )
+    assert xy["adjoint_branching"]["mixed_xy_bifundamental_dimension"] == 0
+    assert "lean_receipts" not in xy
+    assert "general proton stability does not follow" in xy[
+        "hypothesis_boundary"
+    ].lower()
+    assert "physical current source gate is false" in xy[
+        "hypothesis_boundary"
+    ].lower()
+    assert xy["observed_counterpart"] == (
+        "the Standard Model product adjoint contains no connected "
+        "simple-GUT X/Y generator"
+    )
+    assert "no observed proton decay" not in xy["observed_counterpart"].lower()
+
+
+def test_lie_type_and_conditional_z6_descent_are_current(result):
+    rows = {r["id"]: r for r in result["sections"]["forced_structure"]}
+    gauge = rows["gauge_lie_algebra"]
+    assert gauge["artifact_ref"] == (
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
+    )
+    assert gauge["match"] == (
+        "axiom-forced abstract Lie type; conditional matrix witness"
+    )
+    assert "Complete compact port response" in gauge["statement"]
+    assert "ordered source histories" in gauge["hypothesis_boundary"]
+    assert "A2HolonomyBridge" in gauge["lean_declarations"]
+    assert "issues 567 and 599" not in gauge["hypothesis_boundary"]
+
+    global_form = rows["global_form_z6"]
+    assert global_form["match"] == (
+        "exact conditional kernel and maximal faithful image"
+    )
+    assert (
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
+        in global_form["artifact_refs"]
+    )
+    assert "Z6Descent" in global_form["lean_declarations"]
+    assert "sixAxisToKernel_range" in global_form["lean_declarations"]["Z6Descent"]
+    assert "character completeness" in global_form["hypothesis_boundary"]
+    assert "laboratory attachment" in global_form["hypothesis_boundary"]
 
 
 def test_alpha_row_values_match_endpoint(result):
@@ -67,7 +141,13 @@ def test_alpha_row_values_match_endpoint(result):
     assert row["measured"] == pytest.approx(
         float(endpoint["compare_only"]["codata_alpha_inv"])
     )
-    assert row["reference_deficit_inside_certified_gap"] is True
+    verdict = json.loads(
+        ledger.PARENTS["alpha_hvp_verdict"].read_text(encoding="utf-8")
+    )
+    assert row["reference_deficit_inside_recorded_accounting_interval"] is True
+    assert row["audit_verdict"] == verdict["verdict"]
+    assert row["cross_class_agreement"]["independently_evaluated_class_count"] == 0
+    assert "does not identify the physical source" in row["reading"]
 
 
 def test_lepton_rows_match_parents_and_contain_witness(result):
@@ -135,6 +215,8 @@ def test_markdown_rendered(tmp_path):
     assert "# Postdiction Ledger" in text
     assert "## Forced structure" in text
     assert "NOT_EVALUABLE" in text
+    assert "Recorded retrospective same-scheme accounting interval" in text
+    assert "Certified same-scheme anchor gap" not in text
 
 
 def test_principal_results_lead_with_closure_target(result):
@@ -164,3 +246,46 @@ def test_closure_target_row_reads_lane_artifacts(result):
     parent = json.loads(ledger.PARENTS["kappa_rectangle"].read_text(encoding="utf-8"))
     assert row["witness_point"] == parent["compare_only"]["witness_point"]
     assert "545" in row["width_floor"]
+
+
+def test_build_is_deterministic_and_has_no_wall_clock_field(tmp_path):
+    first = ledger.build(
+        tmp_path / "ignored-a.json",
+        tmp_path / "ignored-a.md",
+        write=False,
+    )
+    second = ledger.build(
+        tmp_path / "ignored-b.json",
+        tmp_path / "ignored-b.md",
+        write=False,
+    )
+    assert first == second
+    assert ledger._render_md(first) == ledger._render_md(second)
+    assert "generated_utc" not in first
+    assert first["schema_version"] == 2
+
+
+def test_fail_closed_on_missing_lean_declaration(tmp_path, monkeypatch):
+    menu = json.loads(ledger.PARENTS["matter_menu"].read_text(encoding="utf-8"))
+    menu["subset_classification"]["lean_cross_reference"]["theorems"].append(
+        "fabricated_exterior_theorem"
+    )
+    path = tmp_path / "matter-menu.json"
+    path.write_text(json.dumps(menu), encoding="utf-8")
+    monkeypatch.setitem(ledger.PARENTS, "matter_menu", path)
+    monkeypatch.setattr(ledger, "_rel", lambda key: f"test/{key}.json")
+    with pytest.raises(SystemExit, match="Lean declaration missing"):
+        ledger.build(tmp_path / "out.json", None)
+
+
+def test_fail_closed_on_inconsistent_port_current(tmp_path, monkeypatch):
+    receipt = json.loads(
+        ledger.PARENTS["port_current"].read_text(encoding="utf-8")
+    )
+    receipt["closure"]["derived_block_dimensions"]["even_block_su3"] = 9
+    path = tmp_path / "port-current.json"
+    path.write_text(json.dumps(receipt), encoding="utf-8")
+    monkeypatch.setitem(ledger.PARENTS, "port_current", path)
+    monkeypatch.setattr(ledger, "_rel", lambda key: f"test/{key}.json")
+    with pytest.raises(SystemExit, match="product algebra"):
+        ledger.build(tmp_path / "out.json", None)

@@ -76,6 +76,15 @@
             "conditional_context_only"
           ]
         },
+        "context_status": {
+          "enum": [
+            "open_finite_candidate",
+            "open_partial_context",
+            "closed_bounded_context",
+            "closed_no_go_context",
+            "bounded_clock_contract"
+          ]
+        },
         "files": {
           "type": "array",
           "minItems": 1,
@@ -144,6 +153,8 @@
         "gate_id",
         "owner_issues",
         "required_output",
+        "prerequisites",
+        "terminal_for_dimensionless_output",
         "status",
         "evidence"
       ],
@@ -165,12 +176,84 @@
           "type": "string",
           "minLength": 1
         },
+        "prerequisites": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "terminal_for_dimensionless_output": {
+          "type": "boolean"
+        },
         "status": {
           "const": "open"
         },
         "evidence": {
           "type": "array",
           "maxItems": 0
+        }
+      }
+    },
+    "resolved_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "boundary_id",
+        "owner_issue",
+        "outcome",
+        "scope",
+        "effect",
+        "scientific_parent_status",
+        "resolution_authority",
+        "verdict",
+        "files"
+      ],
+      "properties": {
+        "boundary_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "owner_issue": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "outcome": {
+          "enum": [
+            "closed_bounded",
+            "closed_no_go",
+            "closed_not_evaluable"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effect": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scientific_parent_status": {
+          "enum": [
+            "bounded_context_only",
+            "nonpromoting_final_boundary"
+          ]
+        },
+        "resolution_authority": {
+          "const": "pinned_receipt_plus_live_github_issue_tracking"
+        },
+        "verdict": {
+          "type": "string",
+          "minLength": 1
+        },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": {
+            "$ref": "#/$defs/file_pin"
+          }
         }
       }
     },
@@ -192,6 +275,7 @@
           "enum": [
             "verified_finite_parent",
             "conditional_context",
+            "resolved_boundary",
             "open_interface",
             "candidate_output",
             "external_validation_consumer"
@@ -243,7 +327,9 @@
         "status": {
           "enum": [
             "open",
-            "partial"
+            "partial",
+            "closed_bounded",
+            "closed_not_evaluable"
           ]
         },
         "summary": {
@@ -252,7 +338,6 @@
         },
         "blocking_gates": {
           "type": "array",
-          "minItems": 1,
           "uniqueItems": true,
           "items": {
             "type": "string",
@@ -275,6 +360,7 @@
     "conditional_context",
     "coordinate_bridge",
     "consumer_contract",
+    "resolved_boundaries",
     "open_interfaces",
     "source_dag",
     "target_firewall",
@@ -297,7 +383,7 @@
       "const": "post_exposure_validation"
     },
     "status": {
-      "const": "FINITE_SOURCE_PARENTS_BOUND__NATIVE_ACTION_AND_PHYSICAL_ATTACHMENT_OPEN"
+      "const": "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
     },
     "promotion_allowed": {
       "const": false
@@ -333,6 +419,7 @@
       "required": [
         "native_coordinates",
         "physical_clock_required",
+        "physical_unit_verdict",
         "dimensionful_values_present",
         "emitted_observables"
       ],
@@ -342,6 +429,9 @@
         },
         "physical_clock_required": {
           "const": true
+        },
+        "physical_unit_verdict": {
+          "const": "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
         },
         "dimensionful_values_present": {
           "const": false
@@ -362,8 +452,8 @@
     },
     "conditional_context": {
       "type": "array",
-      "minItems": 6,
-      "maxItems": 6,
+      "minItems": 7,
+      "maxItems": 7,
       "items": {
         "$ref": "#/$defs/binding"
       }
@@ -427,6 +517,14 @@
         "common_subject_digest_ready": {
           "const": false
         }
+      }
+    },
+    "resolved_boundaries": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/resolved_boundary"
       }
     },
     "open_interfaces": {

@@ -4,14 +4,30 @@
     {
       "identification_id": "alpha_in_thomson",
       "label": "alpha_in / Thomson endpoint",
-      "status": "resource_deferred",
+      "status": "undischarged",
       "claim_ids": [
         "OPH-ALPHA-PIXEL"
       ],
       "source_anchors": [
         "physical Thomson readback contract"
       ],
-      "blocking_issues": []
+      "blocking_issues": [
+        {
+          "number": 318,
+          "disposition": "resource_deferred_blocker",
+          "role": "same-scheme hadronic endpoint transport packet"
+        },
+        {
+          "number": 545,
+          "disposition": "resource_deferred_blocker",
+          "role": "physical pixel readback and unique physical-map root"
+        },
+        {
+          "number": 425,
+          "disposition": "resource_deferred_blocker",
+          "role": "source-only QCD spectral and mass backend"
+        }
+      ]
     },
     {
       "identification_id": "beta_ew_common_load_carrier",
@@ -43,9 +59,9 @@
       ],
       "blocking_issues": [
         {
-          "number": 589,
+          "number": 503,
           "disposition": "open_work_item",
-          "role": "physical horizon-record identification"
+          "role": "inhabited de Sitter carrier required by the recorded issue-589 reopen condition; the identification closed not evaluable because the completed capacity class entails no unique carrier"
         }
       ]
     },
@@ -70,16 +86,6 @@
           "role": "Newton-constant composition of the source clock and gravity-scale readout"
         },
         {
-          "number": 505,
-          "disposition": "open_work_item",
-          "role": "source-only correctable public-record capacity"
-        },
-        {
-          "number": 589,
-          "disposition": "open_work_item",
-          "role": "fixed total screen-capacity and horizon-area identification"
-        },
-        {
           "number": 595,
           "disposition": "open_work_item",
           "role": "source-bound Einstein-branch clause realization"
@@ -93,19 +99,70 @@
     },
     {
       "identification_id": "port_bracket_physical_current",
-      "label": "twelve-port bracket / physical gauge current",
+      "label": "abstract twelve-port Lie type / source current / laboratory gauge current",
       "status": "undischarged",
       "claim_ids": [
         "OPH-SCREEN-PORT-CURRENT-INNER"
       ],
       "source_anchors": [
-        "physical port-current source-binding contract"
+        "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
       ],
       "blocking_issues": [
         {
+          "number": 566,
+          "disposition": "open_work_item",
+          "role": "ordered source tomography, bracket reconstruction, and same-current A2 holonomy"
+        },
+        {
           "number": 569,
           "disposition": "open_work_item",
-          "role": "physical attachment of the source-bound current to laboratory gauge currents"
+          "role": "physical attachment of the reconstructed current to laboratory gauge currents"
+        }
+      ]
+    },
+    {
+      "identification_id": "conditional_exterior_fixture_physical_matter",
+      "label": "conditional exterior/Spin fixture / physical matter action",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
+      ],
+      "source_anchors": [
+        "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
+      ],
+      "blocking_issues": [
+        {
+          "number": 314,
+          "disposition": "open_work_item",
+          "role": "source selection of the current action and physical matter representation"
+        },
+        {
+          "number": 569,
+          "disposition": "open_work_item",
+          "role": "matter-pole, family, and laboratory attachment"
+        }
+      ]
+    },
+    {
+      "identification_id": "declared_z6_kernel_physical_global_form",
+      "label": "declared-table Z6 kernel / physical Standard Model global form",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-GAUGE-D7-D9"
+      ],
+      "source_anchors": [
+        "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
+      ],
+      "blocking_issues": [
+        {
+          "number": 567,
+          "disposition": "open_work_item",
+          "role": "source-selected character/relation lattice and same-source loop-to-kernel theorem"
+        },
+        {
+          "number": 569,
+          "disposition": "open_work_item",
+          "role": "laboratory line, flux, and current attachment"
         }
       ]
     },
@@ -122,12 +179,12 @@
       "blocking_issues": [
         {
           "number": 294,
-          "disposition": "open_work_item",
+          "disposition": "resource_deferred_blocker",
           "role": "Osterwalder-Schrader reconstruction and nontriviality"
         },
         {
           "number": 295,
-          "disposition": "open_work_item",
+          "disposition": "resource_deferred_blocker",
           "role": "finite repair-gap floor"
         }
       ]
@@ -148,7 +205,7 @@
         {
           "number": 569,
           "disposition": "open_work_item",
-          "role": "promote the finite rank-45 matter and family carrier to an observer-readable physical transition"
+          "role": "select and attach a physical matter action, then identify an observer-readable family transition across the distinct finite packets"
         },
         {
           "number": 630,
@@ -214,7 +271,7 @@
     },
     {
       "selector_id": "physical_port_current_realization",
-      "label": "current completion of the source reduct",
+      "label": "A1/A2 compact Lie-type branch selection",
       "source": "claims/selection_ledger.json",
       "status": "declared",
       "menu_size": 2,
@@ -232,13 +289,12 @@
     },
     {
       "selector_id": "capacity_closure_selector",
-      "label": "capacity-closure selector for the slack law",
+      "label": "capacity-closure selector for the slack law; the completed class entails none, so any selector is an additional named source law",
       "source": "claims/selection_ledger.json",
       "status": "undeclared",
       "menu_size": null,
       "blocking_issues": [
-        505,
-        551
+        503
       ]
     },
     {
@@ -291,7 +347,7 @@
     },
     {
       "selector_id": "physical_matter_spin_lift",
-      "label": "source-bound matter selection over the 1024-subset exterior menu",
+      "label": "conditional matter selection inside the 1024-subset exterior menu",
       "source": "claims/selection_ledger.json",
       "status": "declared",
       "menu_size": 1024,
@@ -299,7 +355,7 @@
     },
     {
       "selector_id": "z6_global_form_descent",
-      "label": "global-form selection over the four-quotient menu through the measured sector menu",
+      "label": "declared-lattice comparison over the four-quotient menu",
       "source": "claims/selection_ledger.json",
       "status": "declared",
       "menu_size": 4,
@@ -310,8 +366,7 @@
     "status": "not_computable",
     "reason": "menu_sizes_undeclared",
     "blocking_issues": [
-      505,
-      551,
+      503,
       569
     ],
     "p_acc_upper_bound": null

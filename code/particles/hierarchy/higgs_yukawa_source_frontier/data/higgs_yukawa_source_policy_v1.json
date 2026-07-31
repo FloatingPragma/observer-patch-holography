@@ -4,7 +4,7 @@
   "claim_lane": "HIGGS_YUKAWA_SOURCE_ACTION_FRONTIER",
   "issue_topology": {
     "semantic_dependencies": [314, 566, 567, 569, 634],
-    "open_blocking_dependencies": [569, 634],
+    "open_blocking_dependencies": [636, 637, 638],
     "non_gating_partial_receipt_ancestry": [
       {
         "issue": 503,
@@ -37,16 +37,17 @@
       "kind": "json",
       "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
       "role": "finite_current_algebra",
-      "status": "finite_positive_parent",
+      "status": "finite_conditional_parent",
       "usable_exports": [
-        "source-bound finite port-current algebra",
-        "charged response representation and refinement maps"
+        "finite port-current algebra in the declared charged-response fixture",
+        "conditional representation and refinement maps"
       ],
       "excluded_promotions": [
         "continuum quantum field theory",
         "scalar action",
         "Yukawa coefficients",
-        "laboratory attachment"
+        "laboratory attachment",
+        "physical current-source binding"
       ]
     },
     {
@@ -54,9 +55,9 @@
       "kind": "json",
       "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
       "role": "finite_chiral_matter",
-      "status": "finite_positive_parent",
+      "status": "finite_conditional_parent",
       "usable_exports": [
-        "rank-fifteen chiral matter module",
+        "rank-fifteen chiral matter fixture",
         "conditional scalar charge pair",
         "three invariant Yukawa channel types"
       ],
@@ -64,7 +65,8 @@
         "scalar existence or multiplicity",
         "family-space Yukawa matrices",
         "kinetic normalization",
-        "scalar potential or vacuum"
+        "scalar potential or vacuum",
+        "physical matter-source binding"
       ]
     },
     {
@@ -72,15 +74,17 @@
       "kind": "json",
       "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
       "role": "finite_global_form",
-      "status": "finite_positive_parent",
+      "status": "finite_conditional_parent",
       "usable_exports": [
-        "diagonal Z6 global form",
+        "conditional diagonal Z6 kernel of the declared matter table",
         "q equals six Y charge convention"
       ],
       "excluded_promotions": [
         "continuum local action",
         "renormalization prescription",
-        "vacuum coordinate"
+        "vacuum coordinate",
+        "physical global-form selection",
+        "same-source loop-to-matter-kernel identification"
       ]
     },
     {

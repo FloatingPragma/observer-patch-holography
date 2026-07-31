@@ -1,5 +1,5 @@
 {
-  "artifact_sha256": "sha256:f7924cbb05d27eabcf3e3b7c284787770f47742a4d4beb62ce7660dbc75ba0f2",
+  "artifact_sha256": "sha256:72dbb4f2f0d443c35d7451bb5ba34ba8a75305ff75161b0bad418529b79c5aa4",
   "carrier_binding": {
     "antipode": {
       "p00": "p03",
@@ -41,8 +41,14 @@
     ]
   },
   "derived": {
-    "construction": "charged_double_triplet",
-    "construction_provenance": "canonical_equivariant_compact_lift_from_the_impulse_readback_derived_antipode_response",
+    "current_lift_status": {
+      "charged_double_triplet_forced": false,
+      "classification": "unselected_equivariant_current_lift",
+      "commutator_reconstructed_from_ordered_response": false,
+      "overlap_holonomy_internality_certified": false,
+      "reason": "the inverse-port involution and its sector signs constrain an equivariant lift but do not determine a Lie bracket",
+      "source_selected": false
+    },
     "normalization_rule": "the source response is the self-adjoint unitary involution R = -J; each band scale is its exactly recomputed eigenvalue; the common overall sign is a charge-conjugation convention",
     "response_band_scales": {
       "frame_band": "1",

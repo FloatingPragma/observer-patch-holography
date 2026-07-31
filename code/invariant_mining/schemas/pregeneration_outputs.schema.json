@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/oph-invariant-pregeneration-outputs-v1.json",
+  "title": "OPH invariant-mining pre-generation generated outputs",
+  "type": "object",
+  "oneOf": [
+    {
+      "required": [
+        "schema",
+        "status",
+        "control_documents",
+        "source_artifacts",
+        "registered_source_paths_sha256"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.source_projection.v1"
+        }
+      }
+    },
+    {
+      "required": [
+        "schema",
+        "status",
+        "freeze_id",
+        "source_projection",
+        "document_bindings",
+        "execution_boundary"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.pregeneration_freeze.v1"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema",
+        "issue",
+        "status",
+        "generation_inputs",
+        "slot_generation_states",
+        "descent_congruence_table",
+        "candidates",
+        "candidate_count",
+        "scoring_boundary",
+        "target_cleanliness",
+        "registry_sha256",
+        "skip_records",
+        "typing_correction"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.candidate_registry.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "status": {
+          "const": "PROVISIONAL_SOURCE_IDENTITY_INVENTORY__PHYSICAL_SCORING_SEALED"
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 1
+        },
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scoring_boundary": {
+          "type": "object",
+          "required": [
+            "physical_scoring_permitted",
+            "comparison_access_permitted",
+            "reason"
+          ],
+          "properties": {
+            "physical_scoring_permitted": {
+              "const": false
+            },
+            "comparison_access_permitted": {
+              "const": false
+            }
+          }
+        }
+      }
+    }
+  ]
+}

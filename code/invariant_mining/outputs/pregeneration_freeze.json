@@ -1,0 +1,73 @@
+{
+  "direct_n_fallback_contract": {
+    "execution_status": "REGISTERED_DISABLED",
+    "fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
+    "slot_id": "direct_n_capacity_closure"
+  },
+  "document_bindings": [
+    {
+      "bytes": 3676,
+      "path": "code/invariant_mining/data/exposed_data_registry.json",
+      "sha256": "sha256:0ac2ada666da2477c6f158be541bbcf4cd21c8d3d38a6ccb2d3a5d450ff56a6c"
+    },
+    {
+      "bytes": 3292,
+      "path": "code/invariant_mining/data/nuisance_registry.json",
+      "sha256": "sha256:d215bc74110c7f6f22ef1beeeeca8555a1f26a35912c24a355bc1081031ca426"
+    },
+    {
+      "bytes": 2384,
+      "path": "code/invariant_mining/data/observable_grammar.json",
+      "sha256": "sha256:5646fe6bbab0fe1cf19be96529d49d314876c558bdf0334d7ef00078ee8f5383"
+    },
+    {
+      "bytes": 4656,
+      "path": "code/invariant_mining/data/producer_slots.json",
+      "sha256": "sha256:d1f73fffed11da5cb11b1077486188b1c2d82dfbd98da4e07031ded57163a498"
+    },
+    {
+      "bytes": 1696,
+      "path": "code/invariant_mining/data/ranking_policy.json",
+      "sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
+    },
+    {
+      "bytes": 9531,
+      "path": "code/invariant_mining/data/source_feature_registry.json",
+      "sha256": "sha256:69d357eb6cf2cb693f4a619a0df941c816796b47610230ac23bcadddd04c644b"
+    },
+    {
+      "bytes": 4275,
+      "path": "code/invariant_mining/policy/pregeneration_policy.json",
+      "sha256": "sha256:52f96e9de762355066b999418cea4a3cb04670c43a5bb8b8d5e272309a71661c"
+    },
+    {
+      "bytes": 10037,
+      "path": "code/invariant_mining/schemas/pregeneration_documents.schema.json",
+      "sha256": "sha256:962b46a3e27a73c16504de607d501ec38fd68db2f23bd9b491dc2571c90cba80"
+    },
+    {
+      "bytes": 2170,
+      "path": "code/invariant_mining/schemas/pregeneration_outputs.schema.json",
+      "sha256": "sha256:bb4040b4864d6e74b6a7c7a7a728204418147dcaed7c6bc306f3a81074187982"
+    }
+  ],
+  "execution_boundary": {
+    "candidate_count": 0,
+    "candidate_evaluator_enabled": true,
+    "candidate_generator_enabled": true,
+    "comparison_scoring_enabled": false,
+    "public_data_access_enabled": false,
+    "registry_finalization_complete": true,
+    "target_payloads_registered": false
+  },
+  "freeze_id": "sha256:c6fa62b821b9c2b43e2726124f8dd3772d6e204848a5c93b7b6217c894f06c16",
+  "issue": 647,
+  "promotion_rule": "Public-data access, target registration, and scoring stay sealed; issue 639 owns the single physical comparison and the campaign terminates after it. Grammar, ranking, nuisance, exposure, completeness, and direct-N content cannot change while generation is enabled.",
+  "schema": "oph.invariant_mining.pregeneration_freeze.v1",
+  "source_projection": {
+    "bytes": 7505,
+    "path": "code/invariant_mining/outputs/source_projection.json",
+    "sha256": "sha256:847f3923f3eddd01bb093f8df9c7c9f15959071b50a1dd3c499dfc8826845a61"
+  },
+  "status": "GENERATION_ENABLED__COMPARISON_SEALED"
+}

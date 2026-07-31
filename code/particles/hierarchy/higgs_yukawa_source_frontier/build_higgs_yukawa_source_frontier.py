@@ -94,7 +94,7 @@ def validate_policy(policy: dict[str, Any]) -> None:
     topology = policy["issue_topology"]
     require(
         topology["semantic_dependencies"] == [314, 566, 567, 569, 634]
-        and topology["open_blocking_dependencies"] == [569, 634],
+        and topology["open_blocking_dependencies"] == [636, 637, 638],
         "POLICY_DEPENDENCIES",
         "semantic or open blocking dependency set changed",
     )
@@ -226,6 +226,14 @@ def validate_parent_semantics(payloads: dict[str, Any]) -> dict[str, Any]:
         "CURRENT_SOURCE",
         "finite current construction is not verified",
     )
+    require(
+        current.get("conditional_algebraic_gate", {}).get("passed") is True
+        and current.get("physical_source_gate", {}).get("passed") is False
+        and current.get("physical_source_gate", {}).get("response_model_source_bound")
+        is False,
+        "CURRENT_SCOPE",
+        "finite current parent must remain a declared conditional fixture",
+    )
 
     matter = payloads["finite_chiral_matter"]
     require(matter.get("issue") == 314, "MATTER_ISSUE", "matter parent must be issue #314")
@@ -233,6 +241,14 @@ def validate_parent_semantics(payloads: dict[str, Any]) -> dict[str, Any]:
         matter.get("schema") == "oph.super_tannakian_matter_receipt.v5",
         "MATTER_SCHEMA",
         "unexpected matter receipt schema",
+    )
+    require(
+        matter.get("conditional_algebraic_gate", {}).get("passed") is True
+        and matter.get("physical_source_gate", {}).get("passed") is False
+        and matter.get("physical_source_gate", {}).get("matter_lift_source_bound")
+        is False,
+        "MATTER_SCOPE",
+        "finite matter parent must remain a declared conditional fixture",
     )
     scalar = matter["scalar_and_channel_selection"]
     require(
@@ -271,6 +287,12 @@ def validate_parent_semantics(payloads: dict[str, Any]) -> dict[str, Any]:
         "GLOBAL_CHARGE",
         "q=6Y convention changed",
     )
+    require(
+        "do not select a physical global form"
+        in str(global_form.get("description", "")).lower(),
+        "GLOBAL_SCOPE",
+        "global-form parent must retain its physical nonselection boundary",
+    )
 
     family = payloads["conditional_family_attachment"]
     require(family.get("issue") == 569, "FAMILY_ISSUE", "family parent must be issue #569")
@@ -284,6 +306,14 @@ def validate_parent_semantics(payloads: dict[str, Any]) -> dict[str, Any]:
         family.get("named_interface", {}).get("class") == "conditional_open_interface",
         "FAMILY_PROMOTION",
         "family parent must retain the physical attachment interface",
+    )
+    family_scope = family.get("conditional_structural_scope", {})
+    require(
+        family_scope.get("physical_current_source_bound") is False
+        and family_scope.get("physical_matter_lift_source_bound") is False
+        and family_scope.get("physical_global_form_selected") is False,
+        "FAMILY_SCOPE",
+        "family parent must retain its conditional structural scope",
     )
     require(
         family.get("generation", {}).get("weyl_state_count") == 15,

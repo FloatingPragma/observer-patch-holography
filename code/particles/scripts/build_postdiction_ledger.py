@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """Aggregate the certified postdiction rows into one ledger.
 
-The ledger is a pure aggregator: every displayed value is read live from a
-certified parent artifact, every measured reference is read from the parent
-that embeds it, and the builder introduces no physics number of its own.
-A missing parent is a hard failure, not a silently absent row.
+The ledger is a deterministic aggregator.  Numeric values and measured
+references are read live from their parent artifacts.  Structural rows are
+derived from validated structured parents, with any direct algebraic
+corollary identified as such.  A missing or inconsistent parent is a hard
+failure, not a silently absent row.
 
 Section one records the forced-structure layer: the machine-checked
 icosahedral results that pin the gauge sector before any numeric lane runs.
 The finite steps live in the Lean workspace under `Lean/Screen/`; the
-receipt entries record the module paths (existence-checked here) and the
-declared hypothesis boundaries exactly as The Standard Model gauge paper states them.
+receipt entries record the module paths and exact declaration names.  The
+builder rejects a missing declaration and records the declared hypothesis
+boundaries exactly as The Standard Model gauge paper states them.
 
 The numeric sections carry the per-lane claim discipline of their parents:
 interval rows report containment of the compare-only witness, conditional
@@ -28,7 +30,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
-from datetime import datetime, timezone
+import re
 from pathlib import Path
 from typing import Any
 
@@ -52,18 +54,26 @@ PARENTS = {
     "clebsch_selection": RUNS / "flavor" / "clebsch_register_pairing_selection.json",
     "fiber_obstruction": RUNS / "flavor" / "quark_spread_fiber_structure_transport_obstruction.json",
     "matter_receipt": CODE / "a5_closure" / "receipts" / "super_tannakian_matter_reference.receipt.json",
+    "matter_menu": CODE / "a5_closure" / "manifests" / "matter_menu_spectral_ledger_reference.json",
+    "port_current": CODE / "a5_closure" / "receipts" / "port_current_inner_reference.receipt.json",
+    "axis_center_descent": CODE / "a5_closure" / "receipts" / "axis_center_descent_reference.receipt.json",
+    "carrier_modes": RUNS / "status" / "carrier_mode_acceptance.json",
+    "alpha_hvp_verdict": PARTICLES / "alpha_hvp_audit" / "outputs" / "alpha_hvp_class_verdict.json",
     "hadron_payload": RUNS / "hadron" / "empirical_ee_hadronic_spectral_measure.json",
     "solver_standby": RUNS / "qcd" / "hadron_source_backend" / "qcd_ensemble" / "solver_on_standby.json",
 }
 
 LEAN_RECEIPTS = {
+    "A2HolonomyBridge": LEAN_SCREEN / "A2HolonomyBridge.lean",
     "A5OPH": LEAN_SCREEN / "A5OPH.lean",
     "A5CharacterField": LEAN_SCREEN / "A5CharacterField.lean",
     "A5SixAxes": LEAN_SCREEN / "A5SixAxes.lean",
     "Z6Exact": LEAN_SCREEN / "Z6Exact.lean",
+    "Z6Descent": LEAN_SCREEN / "Z6Descent.lean",
     "A5CouplingSymmetry": LEAN_SCREEN / "A5CouplingSymmetry.lean",
     "A5PortAction": LEAN_SCREEN / "A5PortAction.lean",
     "PortFrameGram": LEAN_SCREEN / "PortFrameGram.lean",
+    "ExteriorSelection": LEAN_SCREEN / "ExteriorSelection.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -77,12 +87,35 @@ def _load(key: str, override: Path | None = None) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _lean_receipt(*modules: str) -> list[str]:
+def _lean_receipt(
+    *modules: str,
+    declarations: dict[str, tuple[str, ...]] | None = None,
+) -> list[str]:
+    """Resolve Lean modules and fail closed on missing named declarations."""
+
     refs = []
+    declarations = declarations or {}
+    unknown = set(declarations) - set(modules)
+    if unknown:
+        raise SystemExit(
+            "postdiction ledger declaration map names unbound modules: "
+            + ", ".join(sorted(unknown))
+        )
     for m in modules:
         path = LEAN_RECEIPTS[m]
         if not path.exists():
             raise SystemExit(f"postdiction ledger Lean receipt missing: {path}")
+        source = path.read_text(encoding="utf-8")
+        for declaration in declarations.get(m, ()):
+            pattern = (
+                rf"(?m)^\s*(?:theorem|lemma)\s+{re.escape(declaration)}"
+                rf"(?:\s|:)"
+            )
+            if re.search(pattern, source) is None:
+                raise SystemExit(
+                    "postdiction ledger Lean declaration missing: "
+                    f"{m}.{declaration} in {path}"
+                )
         refs.append(path.relative_to(REPO).as_posix())
     return refs
 
@@ -91,23 +124,158 @@ def _rel(key: str) -> str:
     return PARENTS[key].relative_to(REPO).as_posix()
 
 
-def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
+def _forced_structure(
+    matter: dict[str, Any],
+    matter_menu: dict[str, Any],
+    port_current: dict[str, Any],
+    axis_center_descent: dict[str, Any],
+    carrier_modes: dict[str, Any],
+) -> list[dict[str, Any]]:
     spectrum = matter["realized_package"]["charge_spectrum"]
     sm_spectrum = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 6}
-    return [
+    scan = matter["matter_selection_scan"]
+    classification = matter_menu["subset_classification"]
+    scan_agreement = matter_menu["scan_agreement"]
+    menu_verdicts = matter_menu["verdicts"]
+    lean_cross_reference = classification["lean_cross_reference"]
+    subsets_enumerated = classification["subsets_enumerated"]
+    component_count = subsets_enumerated.bit_length() - 1
+    survivors = classification["survivors"]
+    survivor_dimensions = {row["dimension"] for row in survivors}
+    if (
+        2**component_count != subsets_enumerated
+        or classification["survivor_count"] != len(survivors)
+        or classification["survivor_count"] != scan["survivor_count"]
+        or subsets_enumerated != scan["subsets_enumerated"]
+        or not classification["survivors_are_conjugate_pair"]
+        or not scan["survivors_are_conjugate_pair"]
+        or survivor_dimensions != {matter["realized_package"]["dimension"]}
+        or scan["derived_block_charges"]
+        != matter_menu["declared_algebra"]["derived_block_charges"]
+        or not scan_agreement["lean_masks_match_ledger"]
+        or not scan_agreement["matter_lift_scan_matches_ledger"]
+        or menu_verdicts["menu_completeness_inside_declared_algebra"] != "exact"
+        or lean_cross_reference["agreement"] is not True
+    ):
+        raise SystemExit(
+            "matter-menu, matter-lift, and Lean cross-reference parents disagree"
+        )
+    exterior_declarations = tuple(lean_cross_reference["theorems"])
+    exterior_path = LEAN_RECEIPTS["ExteriorSelection"].relative_to(REPO).as_posix()
+    if lean_cross_reference["file"] != exterior_path:
+        raise SystemExit("matter-menu Lean source path does not match the ledger binding")
+    realized_fields = matter["realized_package"]["fields"]
+    field_order = ("Q", "u_c", "d_c", "L", "e_c")
+    field_summary = ", ".join(
+        f"{name}: {realized_fields[name]['charge']} x"
+        f"{realized_fields[name]['dimension']}"
+        for name in field_order
+    )
+
+    current_map = port_current["port_to_generator_map"]
+    current_closure = port_current["closure"]
+    derived_dimensions = current_closure["derived_block_dimensions"]
+    color_adjoint_dimension = derived_dimensions["even_block_su3"]
+    weak_adjoint_dimension = derived_dimensions["kernel_block_so3"]
+    abelian_dimension = current_closure["center_dimension"]
+    if (
+        port_current["claim_boundary"]["status"]
+        != "proved_conditional_on_declared_response_representation"
+        or port_current["physical_source_gate"]["passed"] is not False
+        or port_current["physical_source_gate"][
+            "target_blind_impulse_readback_recomputed"
+        ]
+        is not True
+        or port_current["source_definedness"][
+            "response_model_declared_as_branch_premise"
+        ]
+        is not True
+        or port_current["source_definedness"][
+            "physical_response_source_bound"
+        ]
+        is not False
+        or current_map["compact_lie_type"]
+        != "u(3) (+) so(3) = u(1) (+) su(3) (+) su(2)"
+        or current_map["block_dimensions_verified"] is not True
+        or current_map["injective"] is not True
+        or color_adjoint_dimension + weak_adjoint_dimension
+        != current_closure["derived_dimension"]
+        or (
+            color_adjoint_dimension
+            + weak_adjoint_dimension
+            + abelian_dimension
+            != current_map["image_real_dimension"]
+        )
+    ):
+        raise SystemExit("port-current parent does not realize the declared product algebra")
+    adjoint_branching = {
+        "color_adjoint": [color_adjoint_dimension, 1, 0],
+        "weak_adjoint": [1, weak_adjoint_dimension, 0],
+        "abelian": [1, 1, 0],
+        "mixed_xy_bifundamental_dimension": 0,
+    }
+
+    descent_gate = axis_center_descent["physical_global_form_gate"]
+    declared_loop = axis_center_descent["carrier_deck_and_declared_loop_system"]
+    tensor_kernel = axis_center_descent["kernel_on_realized_tensors"]
+    effective_image = axis_center_descent["maximal_effective_image"]
+    z6_bridge = axis_center_descent["two_z6_constructions"]
+    if (
+        axis_center_descent["claim_boundary"]["status"]
+        != "conditional_exact_arithmetic_with_physical_global_form_open"
+        or descent_gate["passed"] is not False
+        or descent_gate["laboratory_global_form_attachment"] is not False
+        or descent_gate["theta_periodicity_derived"] is not False
+        or descent_gate["axis_relation_lattice_source_selected"] is not False
+        or descent_gate["complete_character_category_source_derived"] is not False
+        or descent_gate["same_source_loop_to_tensor_kernel_identification"]
+        is not False
+        or tensor_kernel["kernel_order"] != 6
+        or tensor_kernel["matches_emitted_kernel_data"] is not True
+        or effective_image["group"] != "(SU(3) x SU(2) x U(1)) / Z6"
+        or declared_loop["six_axis_class_group_order"] != 6
+        or declared_loop["declared_coefficient_system_menu"] != list(range(6))
+        or declared_loop["axis_relation_lattice_source_selected"] is not False
+        or z6_bridge["physical_loop_intertwiner_derived"] is not False
+        or z6_bridge["conditional_algebraic_intertwiner_verified"] is not True
+    ):
+        raise SystemExit(
+            "axis-centre descent parent has left its conditional arithmetic boundary"
+        )
+
+    carrier_by_id = {
+        row["carrier_id"]: row for row in carrier_modes["carriers"]
+    }
+    if set(carrier_by_id) != {"photon", "gluon", "graviton"}:
+        raise SystemExit("carrier-mode packet does not contain the expected rows")
+    if not all(
+        row["classical_carrier_gate"]["passed"]
+        and not row["quantum_particle_gate"]["passed"]
+        and row["hard_quadratic_mass_parameter_squared"] == 0
+        for row in carrier_by_id.values()
+    ):
+        raise SystemExit("carrier-mode packet has left its declared boundary")
+
+    rows = [
         {
             "id": "gauge_lie_algebra",
             "statement": (
-                "Compact-Lie trichotomy on the twelve-port screen: a compact "
-                "connected group with a group-level A5 action equivalent to P12 "
-                "has Lie algebra u(1)^12, su(2)^2+u(1)^6, or su(3)+su(2)+u(1); "
-                "the noncentral quintet and the inner-action closure each select "
-                "su(3)+su(2)+u(1)"
+                "The certified twelve-port carrier has module 1+3+3'+5 and "
+                "one fixed line. Complete compact port response from A1 and "
+                "endogenous proper-carrier transport from A2 force the abstract "
+                "Lie type u(1)+su(2)+su(3). Target-blind impulse and readback "
+                "separately determine R=-J. The charged-double-triplet matrices "
+                "are an exact declared witness, while ordered source tomography "
+                "and same-current holonomy remain open"
             ),
             "observed_counterpart": "Standard Model gauge Lie algebra su(3)+su(2)+u(1)",
-            "match": "exact",
+            "match": "axiom-forced abstract Lie type; conditional matrix witness",
+            "artifact_ref": _rel("port_current"),
             "machine_checked_steps": (
-                "triviality of A5-actions on at most four objects; unique "
+                "the carrier action and fixed-space dimension are exact; Lean "
+                "checks the A2 holonomy-to-inner-action bridge, the centreless "
+                "four-factor fixed-space exclusion, triviality of A5-actions "
+                "on at most four objects, and unique "
                 "partitions 11 = 8+3 and 12 = 3+3+3+3 over the compact-simple "
                 "dimension list {3, 8, 10}; no compact semisimple algebra in "
                 "dimensions 1, 2, 4, 5, 7; the characteristic-centre step; "
@@ -117,54 +285,168 @@ def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
                 "{0, 1, 5, 6, 7, 11, 12}; six-axis 2-transitivity and the "
                 "dimension count of the dimension-six branch"
             ),
-            "lean_receipts": _lean_receipt("A5OPH", "A5CharacterField", "A5SixAxes"),
+            "lean_declarations": {
+                "A2HolonomyBridge": [
+                    "internalImplementation_of_holonomy",
+                    "four_factor_fixed_dimension_ne_one",
+                    "compact_product_dimensions_of_fixed_space",
+                ],
+                "A5OPH": [
+                    "sum_eq_eleven",
+                    "sum_eq_twelve",
+                    "action_trivial_of_card_le_four",
+                    "sum_not_mem_excluded",
+                    "quintet_noncentral",
+                ],
+                "A5CharacterField": [
+                    "multiplicities_equal_of_galoisStable",
+                    "centreDim_mem_trichotomy_list",
+                ],
+                "A5SixAxes": [
+                    "two_transitive",
+                    "V5_irreducible",
+                    "no_three_plus_three_split",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "A2HolonomyBridge",
+                "A5OPH",
+                "A5CharacterField",
+                "A5SixAxes",
+                declarations={
+                    "A2HolonomyBridge": (
+                        "internalImplementation_of_holonomy",
+                        "four_factor_fixed_dimension_ne_one",
+                        "compact_product_dimensions_of_fixed_space",
+                    ),
+                    "A5OPH": (
+                        "sum_eq_eleven",
+                        "sum_eq_twelve",
+                        "action_trivial_of_card_le_four",
+                        "sum_not_mem_excluded",
+                        "quintet_noncentral",
+                    ),
+                    "A5CharacterField": (
+                        "multiplicities_equal_of_galoisStable",
+                        "centreDim_mem_trichotomy_list",
+                    ),
+                    "A5SixAxes": (
+                        "two_transitive",
+                        "V5_irreducible",
+                        "no_three_plus_three_split",
+                    ),
+                },
+            ),
             "hypothesis_boundary": (
-                "the compact-simple classification, the torus/cocharacter step "
-                "of the rationality lemma, and irreducibility of the "
-                "five-dimensional summand stay declared classical inputs on "
-                "paper; the physical inner current action is the open premise "
-                "of issues 567 and 599"
+                "the abstract theorem uses the A1 faithful complete compact "
+                "response and A2 endogenous holonomy clauses. The direct "
+                "receipt verifies a declared charged-double-triplet witness "
+                "and does not reconstruct it from ordered source histories or "
+                "identify a laboratory current. Compact reductivity and the "
+                "compact-simple classification are declared classical inputs"
             ),
             "paper_ref": "Standard Model gauge paper, Compact-Lie trichotomy section",
         },
         {
             "id": "global_form_z6",
             "statement": (
-                "The screen gluing-class quotient Lambda_+/(Lambda_1 + Lambda_5) "
-                "is Z/6 with proper-rotation invariance and antipodal sign "
-                "reversal, matching the global form (SU(3) x SU(2) x U(1))/Z6"
+                "The common central kernel on every declared tensor is the "
+                "order-six diagonal subgroup, so the maximal faithful image "
+                "of that representation is (SU(3) x SU(2) x U(1))/Z6. "
+                "The six-axis class has order six only after diagonal and "
+                "zero-sum coefficient relations are declared. Source selection "
+                "of those relations, a complete character category, and a "
+                "same-source loop-to-kernel theorem remain open"
             ),
             "observed_counterpart": (
                 "Standard Model global gauge-group form and its charge "
                 "quantization pattern"
             ),
-            "match": "exact",
-            "lean_receipts": _lean_receipt("Z6Exact", "A5OPH"),
+            "match": "exact conditional kernel and maximal faithful image",
+            "artifact_refs": [
+                _rel("matter_receipt"),
+                _rel("axis_center_descent"),
+            ],
+            "lean_declarations": {
+                "Z6Exact": [
+                    "gauge_eq_kernel",
+                    "residue_surjective",
+                    "representative_formula",
+                ],
+                "Z6Descent": [
+                    "kernel_on_realized_weights",
+                    "four_admissible_global_forms",
+                    "sixAxis_generator_maps_to_kernel_generator",
+                    "sixAxisToKernel_intertwines_involutions",
+                    "sixAxisToKernel_injective",
+                    "sixAxisToKernel_range",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "Z6Exact",
+                "Z6Descent",
+                declarations={
+                    "Z6Exact": (
+                        "gauge_eq_kernel",
+                        "residue_surjective",
+                        "representative_formula",
+                    ),
+                    "Z6Descent": (
+                        "kernel_on_realized_weights",
+                        "four_admissible_global_forms",
+                        "sixAxis_generator_maps_to_kernel_generator",
+                        "sixAxisToKernel_intertwines_involutions",
+                        "sixAxisToKernel_injective",
+                        "sixAxisToKernel_range",
+                    ),
+                },
+            ),
             "hypothesis_boundary": (
-                "the quotient isomorphism and both invariance clauses are "
-                "machine checked; the identification with the physical global "
-                "form rides on the same inner current action premise as the "
-                "Lie-algebra row"
+                "the result is exact for the declared matter table, central "
+                "descent congruence, axis coefficient relations, and line "
+                "lattice. The source current, physical matter action, relation-"
+                "lattice selection, character completeness, loop-to-kernel "
+                "identity, laboratory attachment, and continuum quantum field "
+                "theory remain outside this result"
             ),
             "paper_ref": "Standard Model gauge paper, Z6 global-form section",
         },
         {
             "id": "hypercharge_spectrum",
             "statement": (
-                "The super-Tannakian matter lift realizes the one-generation "
-                "left-chiral hypercharge multiset "
-                "{Q: 1/6 x6, u_c: -2/3 x3, d_c: 1/3 x3, L: -1/2 x2, e_c: 1 x1}"
+                f"Inside the declared {component_count}-component "
+                "exterior-response algebra, an exhaustive scan of all "
+                f"{subsets_enumerated} subsets selects exactly one "
+                "unordered charge-conjugate pair of nonempty chiral "
+                "anomaly-free rank-"
+                f"{matter['realized_package']['dimension']} projectors. "
+                "Primitive determinant balance "
+                "fixes the block charges up to conjugation, and the selected "
+                f"representative has multiset {{{field_summary}}}"
             ),
             "observed_counterpart": (
                 "Standard Model one-generation hypercharge assignment"
             ),
             "realized_spectrum": spectrum,
             "match": "exact" if spectrum == sm_spectrum else "MISMATCH",
-            "artifact_ref": _rel("matter_receipt"),
+            "artifact_refs": [_rel("matter_receipt"), _rel("matter_menu")],
+            "subset_count": subsets_enumerated,
+            "survivor_count": classification["survivor_count"],
+            "survivor_dimension": matter["realized_package"]["dimension"],
+            "derived_block_charges": matter_menu["declared_algebra"][
+                "derived_block_charges"
+            ],
+            "lean_declarations": {"ExteriorSelection": list(exterior_declarations)},
+            "lean_receipts": _lean_receipt(
+                "ExteriorSelection",
+                declarations={"ExteriorSelection": exterior_declarations},
+            ),
             "hypothesis_boundary": (
-                "conditional on the declared super-Tannakian lift premises "
-                "recorded in the receipt claim boundary (issue 314); the "
-                "generation count is an input, not a consequence"
+                "the selection is exhaustive inside the declared exterior "
+                "algebra; completeness beyond that algebra, selection of one "
+                "charge-conjugate representative, light-sector attachment, "
+                "family multiplicity, scalar content, and laboratory "
+                "identification remain separate"
             ),
             "paper_ref": "zoo paper, matter lift section",
         },
@@ -179,7 +461,27 @@ def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
                 "universality clause of the Einstein-branch coupling law"
             ),
             "match": "structural",
-            "lean_receipts": _lean_receipt("A5CouplingSymmetry", "A5PortAction", "PortFrameGram"),
+            "lean_declarations": {
+                "A5CouplingSymmetry": [
+                    "groupAverage_port_independent",
+                    "coupling_ratio_universal",
+                ],
+                "A5PortAction": ["transitive_on_ports"],
+                "PortFrameGram": ["degree_five", "gram_sq"],
+            },
+            "lean_receipts": _lean_receipt(
+                "A5CouplingSymmetry",
+                "A5PortAction",
+                "PortFrameGram",
+                declarations={
+                    "A5CouplingSymmetry": (
+                        "groupAverage_port_independent",
+                        "coupling_ratio_universal",
+                    ),
+                    "A5PortAction": ("transitive_on_ports",),
+                    "PortFrameGram": ("degree_five", "gram_sq"),
+                },
+            ),
             "hypothesis_boundary": (
                 "reduces the universality clause to A5-equivariance of the "
                 "implemented source law; no coupling value is implied"
@@ -187,14 +489,127 @@ def _forced_structure(matter: dict[str, Any]) -> list[dict[str, Any]]:
             "paper_ref": "Standard Model gauge paper, coupling symmetry section",
         },
     ]
+    rows.extend(
+        [
+            {
+                "id": "maxwell_classical_massless_kernel",
+                "statement": (
+                    "On the declared unbroken Maxwell action and deconfined "
+                    "phase branch, the quadratic operator has zero hard mass "
+                    "parameter and two transverse classical modes with "
+                    "characteristic surface k^2=0"
+                ),
+                "observed_counterpart": (
+                    "massless classical electromagnetic propagation"
+                ),
+                "match": "conditional structural",
+                "artifact_ref": _rel("carrier_modes"),
+                "hypothesis_boundary": (
+                    "the Maxwell action, positive kinetic coefficient, field "
+                    "content, and phase are supplied branch data; no photon "
+                    "Hilbert space, positive-residue pole, or universal "
+                    "zero-mass particle theorem is emitted"
+                ),
+                "paper_ref": "Observers paper, carrier-mode acceptance section",
+            },
+            {
+                "id": "yang_mills_classical_massless_kernel",
+                "statement": (
+                    "On the declared pure Yang-Mills quadratic branch before "
+                    "nonperturbative confinement, every color generator has "
+                    "two transverse perturbative modes and zero hard "
+                    "quadratic mass parameter"
+                ),
+                "observed_counterpart": (
+                    "perturbative color-gauge kernel before confinement"
+                ),
+                "match": "conditional structural",
+                "artifact_ref": _rel("carrier_modes"),
+                "hypothesis_boundary": (
+                    "this is not a free asymptotic-gluon claim and supplies "
+                    "neither a continuum Yang-Mills gap nor a hadron mass"
+                ),
+                "paper_ref": "Observers paper, carrier-mode acceptance section",
+            },
+            {
+                "id": "einstein_classical_massless_kernel",
+                "statement": (
+                    "On the declared pure Einstein-Hilbert linearization about "
+                    "a suitable Ricci-flat background, the transverse-"
+                    "traceless quadratic operator has zero hard mass parameter "
+                    "and two classical modes with null characteristic"
+                ),
+                "observed_counterpart": (
+                    "two massless classical gravitational-wave polarizations"
+                ),
+                "match": "conditional structural",
+                "artifact_ref": _rel("carrier_modes"),
+                "hypothesis_boundary": (
+                    "the action and background are supplied branch data; no "
+                    "graviton Hilbert space, quantum pole, or exclusion of "
+                    "additional massive modes is emitted"
+                ),
+                "paper_ref": "Observers paper, carrier-mode acceptance section",
+            },
+            {
+                "id": "simple_gut_xy_channel_absent",
+                "statement": (
+                    "The declared charged-double-triplet current fixture has "
+                    "a direct-sum algebra with adjoint "
+                    f"branch dimensions {color_adjoint_dimension}, "
+                    f"{weak_adjoint_dimension}, and {abelian_dimension}. Its "
+                    "adjoint therefore contains no mixed "
+                    "(3,2,-5/6) (+) (bar3,2,+5/6) X/Y generator, so the "
+                    "ordinary minimal simple-GUT X/Y exchange channel is absent"
+                ),
+                "observed_counterpart": (
+                    "the Standard Model product adjoint contains no connected "
+                    "simple-GUT X/Y generator"
+                ),
+                "match": "conditional algebraic channel exclusion",
+                "artifact_ref": _rel("port_current"),
+                "derivation_kind": "direct_executable_algebraic_corollary",
+                "adjoint_branching": adjoint_branching,
+                "hypothesis_boundary": (
+                    "the executable corollary applies to the declared "
+                    "direct-sum matrix-current fixture. Its physical current "
+                    "source gate is false, so the result is not a physical "
+                    "current or proton-stability claim. General proton "
+                    "stability does not follow; "
+                    "higher-dimensional baryon violation, scalar mediators, "
+                    "and other ultraviolet gauge mechanisms are not excluded"
+                ),
+                "paper_ref": "Observers paper, gauge-channel boundary",
+            },
+        ]
+    )
+    return rows
 
 
-def _alpha_rows(endpoint: dict[str, Any], bridge: dict[str, Any]) -> list[dict[str, Any]]:
+def _alpha_rows(
+    endpoint: dict[str, Any],
+    bridge: dict[str, Any],
+    alpha_hvp_verdict: dict[str, Any],
+) -> list[dict[str, Any]]:
     ep = endpoint["endpoint"]
     co = endpoint["compare_only"]
-    verdict = bridge["verdict"]
-    if "reference_deficit_inside_certified_gap" not in verdict:
+    bridge_verdict = bridge["verdict"]
+    if "reference_deficit_inside_certified_gap" not in bridge_verdict:
         raise SystemExit("anchor bridge artifact lacks the containment verdict field")
+    cross_class = alpha_hvp_verdict["cross_class_agreement"]
+    scope = alpha_hvp_verdict["scope"]
+    if (
+        alpha_hvp_verdict["verdict"]
+        != "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE"
+        or cross_class["recorded_accounting_replay_count"] != 1
+        or cross_class["independently_evaluated_class_count"] != 0
+        or cross_class["verdict"] != "NOT_EVALUABLE_NO_INDEPENDENT_CLASS"
+        or scope["comparison_timing"] != "retrospective"
+        or scope["prospective_freeze"] is not False
+        or scope["physical_alpha_prediction_emitted"] is not False
+    ):
+        raise SystemExit("alpha/HVP verdict has left its retrospective audit boundary")
+    containment = bridge_verdict["reference_deficit_inside_certified_gap"]
     return [
         {
             "id": "alpha_inv_thomson_endpoint",
@@ -204,17 +619,23 @@ def _alpha_rows(endpoint: dict[str, Any], bridge: dict[str, Any]) -> list[dict[s
             "measured_source": "CODATA 2022 via the endpoint artifact, compare-only",
             "payload_release": endpoint["inputs"]["payload_release"],
             "row_class": endpoint["row_class"],
-            "tier": "T1_empirical_closure",
+            "tier": alpha_hvp_verdict["row_class"],
             "anchor_gap_interval": [float(v) for v in co["same_scheme_anchor_gap_interval_inv_alpha"]],
-            "reference_deficit_inside_certified_gap": verdict["reference_deficit_inside_certified_gap"],
+            "reference_deficit_inside_recorded_accounting_interval": containment,
+            "audit_verdict": alpha_hvp_verdict["verdict"],
+            "cross_class_agreement": cross_class,
             "reading": (
-                "the endpoint carries the full measured deficit into the "
-                "certified same-scheme anchor gap; the standard reference "
-                "deficit sits inside the certified interval, so the residual "
-                "is the one-loop anchor running deficit, not a payload or "
-                "solve defect"
+                "one retrospective KNT19 accounting row is arithmetically "
+                "compatible with the recorded same-scheme interval. The "
+                "multi-class HVP test is not evaluable because no independent "
+                "frozen class is present. Containment does not identify the "
+                "physical source of the gap or close source-only transport"
             ),
-            "artifact_refs": [_rel("endpoint"), _rel("anchor_bridge")],
+            "artifact_refs": [
+                _rel("endpoint"),
+                _rel("anchor_bridge"),
+                _rel("alpha_hvp_verdict"),
+            ],
             "blocking_issues": [425, 545],
         }
     ]
@@ -249,13 +670,16 @@ def _lepton_rows(
             "statement": (
                 "The certified solve inverts exactly at the measured triple: "
                 "one anchor-gap value closes the charged-lepton lane on the "
-                "witness, that value lies inside the certified band, and its "
+                "witness, that value lies inside the retrospective accounting "
+                "interval, and its "
                 "distance to the standard on-shell reference deficit is the "
                 "live scheme term of the open anchor bridge. The lepton "
-                "scale is localized to the width of the scheme band, and a "
+                "scale is localized only under the recorded accounting "
+                "packet. A "
                 "source-emitted bridge value is a sharp falsification "
-                "target: landing on the closure value closes the lane on "
-                "the witness, landing outside the certified band refutes "
+                "target: landing on the closure value satisfies the "
+                "conditional lane on the witness, while landing outside the "
+                "recorded interval refutes "
                 "the decomposition."
             ),
             "witness_point": witness_point,
@@ -506,14 +930,17 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
                 "The anchor-gap value "
                 f"{wp['required_anchor_gap_at_witness_inv_alpha']:.4f} closes "
                 "the charged-lepton lane exactly on the measured triple, "
-                f"inside the certified band [{glo:.4f}, {ghi:.4f}]; the "
+                f"inside the retrospective accounting interval "
+                f"[{glo:.4f}, {ghi:.4f}]; the "
                 f"distance {wp['scheme_term_difference_inv_alpha']:+.4f} to "
                 "the standard on-shell reference deficit "
                 f"{wp['reference_deficit_inv_alpha']:.4f} is the live scheme "
                 "term of the open anchor bridge (issue 545). The lepton "
-                "scale is localized to the width of the scheme band, and a "
+                "scale is localized only under that recorded accounting "
+                "packet. A "
                 "source-emitted bridge value is a falsification target: the "
-                "closure value confirms, a value outside the band refutes."
+                "closure value would satisfy the conditional lane, while a "
+                "value outside the interval refutes the declared decomposition."
             ),
         },
         {
@@ -554,24 +981,33 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
                 f"{mt['value_envelope'][1]:.2f}] GeV sits "
                 f"{mt['delta_over_sigma']:.2f} sigma from "
                 f"{mt['measured']} +- {mt['measured_sigma']} GeV, "
-                "compare-only, conditional on the declared selection axioms."
+                "compare-only, conditional on the declared selection premises."
             ),
         },
         {
             "id": "forced_gauge_structure",
             "statement": (
-                "The gauge sector is pinned before any numeric lane runs: "
-                "the twelve-port trichotomy forces su(3)+su(2)+u(1), the "
-                "gluing-class quotient gives the Z6 global form, and the "
-                "matter lift realizes the exact one-generation hypercharge "
-                "multiset, with the finite steps machine checked in "
-                "Lean/Screen and the hypothesis boundaries recorded below."
+                "Complete compact port response from A1 and endogenous overlap "
+                "transport from A2 force the abstract Lie type "
+                "su(3)+su(2)+u(1) on the twelve-port carrier. Target-blind "
+                "readback independently derives R=-J. Inside the declared "
+                "exterior-response algebra, an exhaustive scan selects the "
+                "charge-conjugate rank-15 chiral anomaly-free pair and its "
+                "one-generation hypercharge multiset; its common central "
+                "kernel is Z6. Source reconstruction of the matrix current and "
+                "matter action, physical global-form selection, laboratory "
+                "attachment, and continuum quantum field theory remain separate."
             ),
         },
     ]
 
 
-def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> dict[str, Any]:
+def build(
+    out_path: Path = DEFAULT_OUT,
+    md_path: Path | None = DEFAULT_MD,
+    *,
+    write: bool = True,
+) -> dict[str, Any]:
     surface = _load("mass_surface")
     conditional = _load("conditional_ew")
     endpoint = _load("endpoint")
@@ -583,12 +1019,23 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
     selection = _load("clebsch_selection")
     obstruction = _load("fiber_obstruction")
     matter = _load("matter_receipt")
+    matter_menu = _load("matter_menu")
+    port_current = _load("port_current")
+    axis_center_descent = _load("axis_center_descent")
+    carrier_modes = _load("carrier_modes")
+    alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
 
     sections = {
-        "forced_structure": _forced_structure(matter),
-        "alpha": _alpha_rows(endpoint, bridge),
+        "forced_structure": _forced_structure(
+            matter,
+            matter_menu,
+            port_current,
+            axis_center_descent,
+            carrier_modes,
+        ),
+        "alpha": _alpha_rows(endpoint, bridge, alpha_hvp_verdict),
         "charged_leptons": _lepton_rows(surface, rectangle, coherent, koide),
         "electroweak": _ew_rows(conditional),
         "quarks": _quark_rows(obstruction, clebsch, selection),
@@ -607,8 +1054,8 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
     }
     result = {
         "artifact": "oph_postdiction_ledger",
-        "generated_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "schema_version": 1,
+        "generator": "code/particles/scripts/build_postdiction_ledger.py",
+        "schema_version": 2,
         "row_class": "compare_only_postdiction_ledger",
         "guards": {
             "compare_only": True,
@@ -618,16 +1065,22 @@ def build(out_path: Path = DEFAULT_OUT, md_path: Path | None = DEFAULT_MD) -> di
             "hand_typed_measured_values": False,
         },
         "aggregation_policy": (
-            "every value and every measured reference is read live from the "
-            "cited parent artifact; a missing parent aborts the build"
+            "numeric values and measured references are read live from cited "
+            "parents; structural rows are derived from validated structured "
+            "parents and identify direct algebraic corollaries explicitly; a "
+            "missing or inconsistent parent aborts the build"
         ),
         "principal_results": _principal_results(sections),
         "sections": sections,
     }
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    if md_path is not None:
-        md_path.write_text(_render_md(result), encoding="utf-8")
+    if write:
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(
+            json.dumps(result, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        if md_path is not None:
+            md_path.write_text(_render_md(result), encoding="utf-8")
     return result
 
 
@@ -641,14 +1094,15 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add = lines.append
     add("# Postdiction Ledger")
     add("")
-    add(f"Generated: `{ledger['generated_utc']}` by `scripts/build_postdiction_ledger.py`; "
+    add("Generated deterministically by `scripts/build_postdiction_ledger.py`; "
         "the JSON artifact is `runs/status/postdiction_ledger.json`.")
     add("")
-    add("Every value and every measured reference on this page is read live from "
-        "the cited certified artifact. The ledger promotes nothing, changes no "
-        "solve path, and introduces no number of its own. Interval rows report "
-        "containment of the compare-only witness; conditional rows carry their "
-        "declared premises; chart coordinates keep their NOT_EVALUABLE "
+    add("Numeric values and measured references on this page are read live from "
+        "the cited parent artifacts. Structural rows are derived from validated "
+        "structured parents, and direct algebraic corollaries are identified. "
+        "The ledger promotes nothing and changes no solve path. Interval rows "
+        "report containment of the compare-only witness; conditional rows carry "
+        "their declared premises; chart coordinates keep their NOT_EVALUABLE "
         "physical-comparison status.")
     add("")
     add("## Principal results")
@@ -666,10 +1120,25 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("| Result | Observed counterpart | Match | Receipts |")
     add("| --- | --- | --- | --- |")
     for row in s["forced_structure"]:
-        receipts = row.get("lean_receipts") or [row.get("artifact_ref", "")]
+        receipts = list(row.get("lean_receipts", []))
+        if row.get("artifact_ref"):
+            receipts.append(row["artifact_ref"])
+        receipts.extend(row.get("artifact_refs", []))
         receipt_txt = ", ".join(f"`{r}`" for r in receipts)
         add(f"| {row['statement']} | {row['observed_counterpart']} | "
             f"`{row['match']}` | {receipt_txt} |")
+    add("")
+    add("Lean declaration bindings:")
+    add("")
+    for row in s["forced_structure"]:
+        bindings = row.get("lean_declarations")
+        if not bindings:
+            continue
+        rendered = "; ".join(
+            f"`{module}`: " + ", ".join(f"`{name}`" for name in names)
+            for module, names in bindings.items()
+        )
+        add(f"- `{row['id']}`: {rendered}")
     add("")
     add("Hypothesis boundaries:")
     add("")
@@ -685,10 +1154,17 @@ def _render_md(ledger: dict[str, Any]) -> str:
             f"in `[{_fmt(lo, 10)}, {_fmt(hi, 10)}]` against CODATA "
             f"`{_fmt(row['measured'], 10)}` (compare-only). Payload release "
             f"`{row['payload_release']}`.")
-        inside = "inside" if row["reference_deficit_inside_certified_gap"] else "outside"
-        add(f"- Certified same-scheme anchor gap `[{_fmt(glo, 4)}, {_fmt(ghi, 4)}]` "
-            f"inverse-alpha units; the standard reference deficit sits {inside} "
-            "the certified interval.")
+        inside = (
+            "inside"
+            if row["reference_deficit_inside_recorded_accounting_interval"]
+            else "outside"
+        )
+        add(f"- Recorded retrospective same-scheme accounting interval "
+            f"`[{_fmt(glo, 4)}, {_fmt(ghi, 4)}]` inverse-alpha units; the "
+            f"standard reference deficit sits {inside} that interval.")
+        add(f"- Independent-class verdict: `{row['audit_verdict']}`; evaluated "
+            f"independent classes: "
+            f"`{row['cross_class_agreement']['independently_evaluated_class_count']}`.")
         add(f"- Reading: {row['reading']}")
         add(f"- Blocking issues: {', '.join(f'#{i}' for i in row['blocking_issues'])}")
     add("")
@@ -807,8 +1283,22 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--md", type=Path, default=DEFAULT_MD)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if the committed JSON or Markdown differs from a live rebuild",
+    )
     args = parser.parse_args()
-    result = build(args.out, args.md)
+    result = build(args.out, args.md, write=not args.check)
+    if args.check:
+        expected_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
+        expected_md = _render_md(result)
+        if not args.out.is_file() or args.out.read_text(encoding="utf-8") != expected_json:
+            raise SystemExit(f"postdiction ledger JSON drift: {args.out}")
+        if not args.md.is_file() or args.md.read_text(encoding="utf-8") != expected_md:
+            raise SystemExit(f"postdiction ledger Markdown drift: {args.md}")
+        print("postdiction ledger parity OK")
+        return
     for name, rows in result["sections"].items():
         print(f"{name}: {len(rows)} rows")
     print(f"wrote {args.out}")

@@ -188,8 +188,9 @@ sectors on a screen can combine, break apart, and carry their opposites, the way
 those charges persist through finer and finer descriptions has to satisfy a set
 of consistency conditions. One route reconstructs a compact group from that
 persistent charge bookkeeping. Independently, the twelve-port incidence
-theorem plus the source-model response and conditional matter contract give
-the exact Standard Model charge lattice and maximal faithful matter image
+theorem plus the complete compact response and internal transport clauses
+force the Standard Model Lie type. The conditional matter contract gives the
+exact charge lattice and maximal faithful matter image
 
 $$
 SU(3)\times SU(2)\times U(1)/\mathbb Z_6.
@@ -198,23 +199,28 @@ $$
 The $\mathbb Z_6$ is the six-element set of transformations that acts
 trivially on every tensor in the declared matter package. The cover and the
 intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
-tensors. Physical global-form selection therefore needs additional line or
-bundle data. On the twelve-port icosahedral
-carrier boundary, the port readings split as
+tensors. The six-axis class has order six after its coefficient relations are
+declared. Selecting the physical quotient requires a complete source
+character category and an identification between carrier loops and the same
+central kernel. Laboratory current and flux identification and the continuum
+global form require separate physical attachments.
+
+On the twelve-port icosahedral carrier boundary, the port readings split as
 $1+3+3'+5$. Pairing antipodal ports separates even and odd modes, and the
 outward face orientation supplies the handedness needed for the second
-triplet. Pulling a compact block commutator back to those coefficients gives
-the exact Lie algebra
+triplet. Axiom 1 supplies a complete compact port response and Axiom 2 makes
+the proper carrier action internal. The single fixed line then forces the
+exact abstract Lie algebra
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$.
 Incidence alone leaves a four-dimensional equivariant linear commutant. The
 target-blind impulse/readback protocol solves the maximal-distance shell
-filter and derives \(R=-J\). The simulator and certificate realize the finite
-current. Its identification with measured laboratory gauge currents is work
-in progress.
+filter and derives \(R=-J\). The declared matrix construction realizes the
+finite algebra. Reconstructing it from source histories and identifying it
+with measured laboratory gauge currents are work in progress.
 
-The six antipodal axes also leave a sixfold lattice residue. The computed spin
-and central maps connect it to the $\mathbb Z_6$ action on every realized
-matter tensor. The
+The six antipodal axes also leave a sixfold residue in the declared
+coefficient lattice. The computed central maps connect it conditionally to
+the $\mathbb Z_6$ action on every declared matter tensor. The
 three-corner face symmetry supplies a canonical three-dimensional candidate
 family carrier. Hypercharge
 follows up to simultaneous charge conjugation from anomaly freedom and
@@ -254,12 +260,14 @@ The color triplet is structural on the conditional matter packet. The
 CP and weak-sector conditions leave a three-to-five window. Under the
 single-band and operational-cost premises, an exact finite theorem selects the
 rank-three screen band, and the declared unitary simulator reconstructs its
-response residue. On the finite local domain, that band and the exact
-generation witness form a rank-45 chiral carrier with local signed operators
-and the inherited positive gap of the finite signed seam operator. The
-three-generation physical interpretation requires matter-pole identification,
-a continuum Spin/locality limit, physical seam selection, refinement
-persistence, and laboratory attachment. Gauge
+response residue. Combining that band with the declared generation table gives
+a conditional forty-five-direction candidate; the table supplies its
+chirality and sixfold central action. A separate finite local domain checks a
+declared repeated signed operator and conditional inheritance of the positive
+gap. The source does not choose this matter action or transport the finite
+spin packet to that domain. Three-generation physical interpretation requires
+matter-pole identification, a continuum account of spin and locality,
+physical seam selection, refinement persistence, and laboratory attachment. Gauge
 factors organize candidate force directions; independently produced field
 dynamics would supply physical masses and mixing data.
 
@@ -286,7 +294,8 @@ record budget, then asking how many public records its internal observers can
 reconstruct through every allowed checkpoint. Closure occurs when the answer
 returned from inside equals the budget supplied from outside.
 
-The de Sitter horizon gives a second reading of the same quantity:
+If the correctable record carrier is the de Sitter horizon ledger, its area
+gives a second reading:
 
 $$
 N=\frac{A_{\mathrm{dS}}}{4\ell_\star^2}.
@@ -294,9 +303,16 @@ $$
 
 $A_{\mathrm{dS}}$ is the horizon area and $\ell_\star^2$ is the fundamental
 area supplied by the scale bridge. The observed cosmological constant places
-this horizon reading near $3.31\times10^{122}$ natural entropy units. A direct
-construction that produces the same capacity from public checkpoints is work
-in progress.
+this conditional horizon reading near $3.31\times10^{122}$ natural entropy
+units.
+
+The exact finite construction has twelve ports and two record orientations.
+Its carrier dimension is $D=24$, and all twenty-four public records survive. Several
+finite continuations share this base value, remain positive, and stay below
+their carrier sizes, yet have different fixed-point sets. A formal proof checks
+that arithmetic disagreement. The complete observer construction across
+carrier sizes and its attachment to the universe are work in progress, so the
+finite result supplies no cosmic value of $N$.
 
 ### The Local Number
 
@@ -333,8 +349,8 @@ scale bridge supplies $\ell_\star^2$ by matching an internal clock to a
 curvature reading. Newton's constant is then read from that area rather than
 inserted at the start.
 
-Once the bridge is available, the global and local numbers relate to the
-cosmological constant:
+Once the source law, horizon-ledger identification, and scale bridge are
+available, the global and local numbers relate to the cosmological constant:
 
 $$
 \Lambda_\star\ell_\star^2=\frac{3\pi}{N},
@@ -343,7 +359,7 @@ $$
 =\frac{3\pi P_\star}{N}.
 $$
 
-The equations say that cosmic curvature depends on the horizon's total record
+Under those premises, cosmic curvature depends on the horizon's total record
 capacity, while the cell equation expresses the same curvature through one
 local pixel.
 
@@ -361,10 +377,11 @@ a clue. Turning it into one physical object requires an explicit current map
 that respects the algebra, the symmetry, and refinement.
 
 The compact score is therefore easy to state. The local equation has a unique
-root on its declared mathematical map. The global capacity has an exact finite
-definition and witness examples. The scale bridge and the physical
-identifications are work in progress. The unresolved $6.6$ percent gap stays
-visible.
+root on its declared mathematical map. The global lane has one exact
+twenty-four-record packet and a bounded counterfamily with incompatible fixed
+sets. A complete source law, a universe carrier, the horizon ledger, and the
+scale bridge are work in progress. The $6.6$ percent comparison is a
+diagnostic rather than a closure result.
 
 ### The Dark-Sector Continuation
 
@@ -548,11 +565,17 @@ twelve icosahedral ports. $A_5$ makes that interface isotropic and decomposes
 its register readings into exact symmetry blocks. Incidence and target-blind
 port readback turn those blocks into an exact finite gauge current. Laboratory
 identification remains separate.
+
 The same separation holds elsewhere: a finite theorem explains what follows
 from a good refinement tower, while source evidence must show that the tower
 exists. On the branches where those tests pass, smooth refinement gives
-Lorentz geometry, entropy equilibrium gives gravity, and the local and global
-fixed points set the proposed electromagnetic grain and cosmic capacity.
+Lorentz geometry, and entropy equilibrium gives gravity. The local fixed point
+sets the proposed electromagnetic grain. Alongside the exact
+twenty-four-record packet, a bounded capacity family has incompatible
+fixed-point sets. Its branches share base agreement, positivity, and the carrier bound;
+they do not implement the complete three-axiom observer packet at every
+cutoff. A unique cosmic value needs that construction, a stronger source law
+if the ambiguity survives, and a universe-level carrier attachment.
 
 One question has been standing quietly behind every chapter: if observation
 is this structural, what is the observer? Chapter 20 stops postponing it.

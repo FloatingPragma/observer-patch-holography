@@ -2,18 +2,17 @@
 
 ## Result
 
-This artifact proves the exact **SUPER-TANNAKIAN-MATTER-LIFT**
-construction, including the **PORT-SPIN-LIFT** target, source-bound at
-finite source-model scope on the pinned #566/#599 current packet and the
-measured spin statistics artifact, conditional on the declared scalar
-content owned by #609:
+This artifact proves the exact conditional **SUPER-TANNAKIAN-MATTER-LIFT**
+construction, including the algebraic **PORT-SPIN-LIFT** target, on the
+pinned declared #566 matrix-current fixture and measured spin-statistics
+artifact. Scalar content remains a separate premise owned by #609:
 
 > **Theorem (conditional super-Tannakian matter lift).** On a certified
 > twelve-port echosahedral carrier lineage, given the hash-pinned
 > conditional #566 current packet (a declared charged-double-triplet
 > response representation with four signed coefficients), the declared
 > trace-balanced exterior matter contract, the fermionic statistics
-> contract, and the Spin/odd-Weyl category typing, the source packet
+> contract, and the Spin/odd-Weyl category typing, the conditional packet
 > derives: an exact non-split SU(2) double cover of the sixty proper
 > implementers (binary icosahedral, unique involution: the algebraic
 > PORT-SPIN-LIFT target); a faithful skew-adjoint Lie-algebra
@@ -36,9 +35,10 @@ content owned by #609:
 > realized packet witnesses the declared candidate matter class nonempty without
 > promoting uniqueness.
 
-The algebraic properties are machine-checked. The current algebra is
-strictly upstream through the hash-pinned #566 packet, whose physical
-source gate passes on the #599 target-blind impulse/readback producer. The
+The algebraic properties are machine-checked. The current algebra is the
+hash-pinned declared #566 matrix fixture; its physical source gate remains
+open because the #599 target-blind impulse/readback producer does not
+reconstruct its generators, commutator bracket, or same-current holonomy. The
 measured spin statistics artifact supplies the transport double cover from
 source, the exhaustive 1024-subset anomaly scan selects the unordered
 conjugate rank-15 pair with the fermionic-parity grading as an output
@@ -48,9 +48,9 @@ measured centre and section obstruction. The declared statistics and
 category contracts are validated against those derivations. Scalar
 existence and economy stay typed branch premises owned by issue #609,
 recorded as deferred rows that never enter the passing gate. The receipt
-records a passing conditional algebraic gate and a passing physical
-source gate at finite source-model scope;
-`issue_closure_condition.met_locally` is true.
+records a passing conditional algebraic gate and a fail-closed physical
+source gate;
+`issue_closure_condition.met_locally` is false.
 
 No family attachment, scalar potential, pole mass, measured coupling, or
 global-form choice is an input. Every proof decision is exact arithmetic
@@ -493,8 +493,8 @@ scope (#599). ∎
 | refinement maps intertwined | all declared (`3` in the reference tower) |
 | candidate matter class | nonempty witnessed, uniqueness not promoted |
 | conditional algebraic gate | `passed: true` |
-| physical source-realization gate | `passed: true` at finite source-model scope; scalar rows deferred to #609 |
-| issue closure condition | `met_locally: true` |
+| physical source-realization gate | `passed: false`; current and matter source selection remain open |
+| issue closure condition | `met_locally: false` |
 
 The receipt also records a twenty-one-step `derivation_chain`,
 `factor_origins` for every numeric constant, `branch_scope`,
@@ -646,7 +646,7 @@ as a Lean theorem.
 | Issue acceptance item | Discharge |
 |---|---|
 | fermionic parity, spin lift, chirality, conjugation, tensor product source-derived | open physically: each structure is derived exactly on the declared branch, while the upstream response representation and matter contract remain typed premises rather than source-bound data |
-| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | the source-bound #566 current algebra acts with rank 12 on the carrier and selected module; the #599 physical source gate passes on the target-blind producer |
+| physical current algebra acts faithfully at Lie-algebra level on the matter tensors | open physically: the declared #566 matrix current acts with exact rank 12 on the carrier and conditional matter module, while #599 derives only inverse-port response constraints and does not source-select that current |
 | conditional exterior package realized on the cover; listed perturbative anomalies and Witten parity checked | the package is realized as operators on the cover data (SU(3)-valued even implementers, the SU(2) spin lift, the R-central lane); all listed anomaly traces vanish exactly on the realized operators and the Witten parity is even (Lemma 314.10) |
 | common action kernel emitted rather than assumed as a Z6 quotient | the kernel is computed by exact congruence enumeration on the genuine cover `R x SU(3) x SU(2)`: infinite cyclic with generator `(zeta_6, omega, -1)`, sixth power the unit deck translation (not the identity on the cover), residual order six modulo the pure deck translations; verified trivial on every realized weight and emitted as data; `assume_global_quotient` is contractually false, and neither the central compactification nor the quotient is ever formed (Lemma 314.11) |
 | declared candidate matter class proved nonempty before uniqueness is promoted | the realized packet is the witness; `promote_uniqueness: true` is rejected fail-closed (M6) |
@@ -664,17 +664,17 @@ declared matter contracts over the pinned conditional current packet:
 given those premises, the super-Tannakian matter category exists, is
 realized by exact operators, passes the conditional algebraic gate, and
 its common action kernel is emitted for the downstream global-form
-descent. The physical source gate passes at finite source-model scope: the
-transport double cover is measured, the matter selection and its parity
-grading are outputs of the exhaustive anomaly scan, and the typing is
-forced by the implementation enumeration;
-`issue_closure_condition.met_locally` is `true`.
+descent. The physical source gate remains open. The transport double cover is
+measured, while the matter selection, parity grading, and typing are exact
+outputs inside the declared current and exterior-response fixture.
+`issue_closure_condition.met_locally` is `false`.
 
 The declared charge pair, channel list, statistics, and category typing
 are validated against their derivations rather than accepted as
 premises; the one-scalar choice, the kernel emission contract, and the
-candidate matter-class declaration stays a typed branch premise. The upstream #566
-packet is source-bound through the #599 target-blind producer.
+candidate matter-class declaration stays a typed branch premise. The upstream
+#566 packet is a conditional matrix fixture; the #599 target-blind producer
+does not reconstruct its generators or commutator bracket.
 
 It does not choose the global form (AXIS-CENTER-DESCENT consumes the
 emitted kernel downstream and carries the selection in its own packet),

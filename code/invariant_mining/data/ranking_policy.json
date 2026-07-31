@@ -1,0 +1,51 @@
+{
+  "schema": "oph.invariant_mining.ranking_policy.v1",
+  "issue": 647,
+  "policy_id": "oph-invariant-source-ranking-v1",
+  "freeze_status": "FROZEN_BEFORE_CANDIDATE_GENERATION",
+  "eligibility": {
+    "required": [
+      "source_feature_ancestry_complete",
+      "forbidden_terminal_scan_passes",
+      "registered_grammar_membership",
+      "candidate_specific_nuisance_matrix_present",
+      "no_direct_n_fallback_reentry"
+    ],
+    "physical_scoring_requires_later": [
+      "global_invariant_certificate",
+      "baseline_contract_and_counterexample",
+      "physicalization_map",
+      "second_nuisance_audit",
+      "issue_639_custody_and_exposure_class"
+    ]
+  },
+  "weights": {
+    "exact_global_certificate": 120,
+    "independent_recomputation": 90,
+    "physicalization_complete": 80,
+    "baseline_freedom_counterexample": 60,
+    "all_registered_completions_covered": 50,
+    "all_continuous_parameters_covered": 40,
+    "expression_complexity_unit_penalty": -3,
+    "conditional_branch_penalty": -45,
+    "open_physical_map_penalty": -80
+  },
+  "score_rule": "integer_sum_of_applicable_frozen_weights",
+  "tie_breaker": [
+    "lower_expression_complexity",
+    "lexicographically_smaller_canonical_expression",
+    "lexicographically_smaller_candidate_id"
+  ],
+  "skip_policy": {
+    "maximum_implementation_repairs_per_producer": 2,
+    "skip_conditions": [
+      "missing_registered_source",
+      "open_physical_attachment",
+      "free_observable_amplitude",
+      "incomplete_global_nuisance_coverage",
+      "baseline_contract_missing",
+      "producer_budget_exhausted"
+    ],
+    "post_skip_action": "record_negative_or_not_evaluable_row_without_grammar_expansion"
+  }
+}

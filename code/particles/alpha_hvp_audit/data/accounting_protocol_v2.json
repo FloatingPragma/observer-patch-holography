@@ -1,0 +1,67 @@
+{
+  "schema": "oph.alpha_hvp_accounting_protocol.v2",
+  "issue": 506,
+  "scope": {
+    "comparison_timing": "retrospective",
+    "prospective_freeze": false,
+    "independent_hvp_implementation": false,
+    "physical_alpha_prediction": false,
+    "statement": "This protocol records a secondary arithmetic replay of one previously evaluated KNT19-based accounting row. The comparison value and source artifacts predate the packet. The row has no prospective or independent evidential status."
+  },
+  "preexisting_source_snapshot": {
+    "commit": "fca13c1fb0d1ccb305a4929396761577bdf645ea",
+    "sha256": {
+      "code/P_derivation/anchor_scheme_bridge.py": "sha256:ba11d43fba3ff78c4932cfb57eb052dcb84e9a184754e30904d4cc7689dea020",
+      "code/P_derivation/empirical_thomson_endpoint.py": "sha256:ed2466a47e15b46fbf13599d2b0bb8855d6d9baff4346d615e2e2158c4f8d44a",
+      "code/P_derivation/runtime/anchor_scheme_bridge_current.json": "sha256:7c86ee75ec6e18d29cd42007938db25c36f123934abf4528f3320a9491841e15",
+      "code/P_derivation/runtime/empirical_thomson_endpoint_current.json": "sha256:c424e873550cf81d2faab4491ff128833034877f73fb70d5e0cb3aec0002f719",
+      "code/particles/hadron/derive_empirical_ward_projected_spectral_measure.py": "sha256:bb8b97cd080f9a718458cef9ee8429880e18bc96702f3894b6c6f4091a0bd565",
+      "code/particles/hadron/empirical_ee_hadrons_sources.yaml": "sha256:070531b74255ec83db61d7b174cca8ca7ffddb43b4aca5c0e0567484841057f8",
+      "code/particles/hadron/ingest_empirical_ee_hadrons.py": "sha256:3b1966ead5b752f754f28a4c96560b1ba796de996a669152810c9cbeeb294817",
+      "code/particles/runs/hadron/empirical_ee_hadronic_spectral_measure.json": "sha256:dee2f5d161b5f09493965d67e3a5a7806d4b91ab71987f43cf6f4a4678463b9f",
+      "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json": "sha256:05194b5b04b5f740efc0915b6f5507e9e3b141e877ad4f173bd225fda8ea7d4b"
+    }
+  },
+  "accounting_rule": {
+    "endpoint_object": "alpha_inv at the Thomson endpoint under the recorded self-consistent insertion convention",
+    "gap_object": "retrospective same-scheme anchor accounting interval",
+    "comparison_rule": "The recorded accounting row is compatible when the recomputed standard on-shell reference deficit lies inside the recomputed interval. It is refuted when all integrity gates pass and the deficit lies outside. An integrity failure is not a scientific refutation.",
+    "same_scheme_gap_interval": [
+      "0.6198609040759307629071473607087944109058081590769662204754254946822541269913529133871",
+      "0.6505569678915787629071473607087944109058081590769662204754254946822541269913529133871"
+    ],
+    "evidential_status": "retrospective_accounting_check_only"
+  },
+  "classes": {
+    "tabulated_dispersive": {
+      "description": "Published KNT19 scalar compilation replayed through the recorded endpoint accounting",
+      "evaluation_mode": "recorded_accounting_replay",
+      "release_id": "knt19_pinned_v1",
+      "citation": "A. Keshavarzi, D. Nomura, T. Teubner, Phys. Rev. D 101, 014029 (2020), DOI 10.1103/PhysRevD.101.014029, equations (3.15) and (3.16)",
+      "delta_alpha_had_5_MZ": "0.027609",
+      "uncertainty": "0.000112",
+      "unit": "dimensionless",
+      "kernel": "subtracted on-shell vacuum-polarization dispersion integral at M_Z squared",
+      "covariance_status": "published scalar uncertainty components are recorded; raw channel covariance is not ingested",
+      "exclusions_status": "NOT_APPLICABLE_TO_PUBLISHED_SCALAR_REPLAY__RAW_CHANNEL_EXCLUSIONS_NOT_INGESTED",
+      "blind_status": "comparison data known before packet construction",
+      "independence_status": "secondary arithmetic implementation over the same recorded artifacts; no independent HVP implementation"
+    },
+    "raw_dispersive": {
+      "description": "Raw electron-positron hadronic cross-section data with kernel, exclusions, and covariance",
+      "ingest_requirement": "frozen channel-level cross-section tables with covariance, release identifiers, units, exclusions, radiative-correction policy, and an explicit kernel specification",
+      "evaluation_mode": "not_evaluable_without_frozen_ingest"
+    },
+    "independent_code": {
+      "description": "An independent published evaluation code distinct from the pinned compilation chain",
+      "ingest_requirement": "a pinned independent implementation with release, inputs, license, units, kernel convention, exclusions, and covariance policy",
+      "evaluation_mode": "not_evaluable_without_frozen_ingest"
+    },
+    "lattice_hvp": {
+      "description": "Lattice HVP determination with windowed data and covariance",
+      "ingest_requirement": "frozen lattice windowed data files with covariance, release, units, kernel mapping, and continuum, finite-volume, and scale-setting documentation",
+      "evaluation_mode": "not_evaluable_without_frozen_ingest"
+    }
+  },
+  "fabrication_exclusion": "Values recalled from literature memory are not ingests. A class without a byte-pinned repository ingest cannot be marked independently evaluated."
+}

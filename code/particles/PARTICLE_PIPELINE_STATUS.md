@@ -1,9 +1,9 @@
 # Particle Pipeline Status
 
-Generated: `2026-07-28T16:41:54Z`
+Generated: `2026-07-29T17:21:23Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
-Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_hadrons_separated`
+Claim label: `no_promotable_numerical_particle_predictions__conditional_candidates_classical_carriers_and_empirical_hadrons_separated`
 
 ## P Closure
 
@@ -33,11 +33,17 @@ Claim label: `final_nonhadron_predictions_with_classical_carriers_and_empirical_
 | --- | --- | --- | --- |
 | Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. First emit a source-only quark mass matrix at one declared scale with physical determinant-line phase data. Then fix the topological-angle contribution and prove that the anomaly-invariant strong-CP phase vanishes. |
 
-## Predictions
+## Promotable Numerical Predictions
 
-| Particle | Prediction | Claim label | Scope | Promotable |
-| --- | ---: | --- | --- | --- |
-| `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` | `False` |
+No promotable numerical particle prediction is emitted on the current corpus.
+
+## Conditional Non-Promotable Candidates
+
+These numerical rows remain visible as conditional audit candidates. They are not predictions.
+
+| Particle | Candidate | Claim label | Scope |
+| --- | ---: | --- | --- |
+| `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` |
 
 ## Separated Classical Carrier Modes
 
@@ -138,7 +144,7 @@ Target-anchored empirical-closure diagnostics; the compare-only witness triple l
 - Relative coordinate difference to the endpoint: `2.89437751177916604322666514307897049455969499321918298417487080749524704872141861334049096E-7` (`0.0000289437751177916604322666514307897049455969499321918298417487080749524704872141861334049096` percent)
 - Open physical-map requirements: `['source Ward-projected hadronic spectral measure', 'same-scheme finite remainder', 'one-coordinate fixed-point evaluation', 'interval certificate and theory uncertainty']`
 - Source-only physical Thomson endpoint emitted: `False`
-- Empirical payload policy: `schema_and_source_registry_present_without_integrated_dataset`
+- Empirical payload policy: `separate_empirical_spectral_endpoint_not_consumed_by_this_measured_endpoint_calibration`
 
 ## Hierarchy And Naturality
 

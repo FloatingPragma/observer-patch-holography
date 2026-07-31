@@ -254,7 +254,7 @@ def render_markdown(report: dict) -> str:
                 f"  - `{commit['date']}` `{commit['hash'][:7]}` {commit['subject']}"
             )
         lines.append("")
-    return "\n".join(lines)
+    return "\n".join(lines).rstrip()
 
 
 def main() -> None:

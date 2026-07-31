@@ -1,0 +1,378 @@
+#!/usr/bin/env python3
+"""Issue #646 fast-falsification lane: source-canonical kinetic rays.
+
+The registered port-current pairing carries the exact Hilbert--Schmidt band
+coefficients of the pinned port receipt: unit ``1/4``, frame ``5+sqrt5``,
+kernel ``5-sqrt5``, quintet ``3+sqrt5``. The realized current algebra
+splits as ``u(1) + su(2) + su(3)`` with the unit band carrying ``u(1)``,
+the frame band carrying ``su(2)``, and the kernel and quintet bands jointly
+carrying the eight-dimensional ``su(3)``. This producer restricts the
+pairing to the three ideals in exact quadratic-field arithmetic and
+enumerates every source-canonical kinetic ray:
+
+* the raw block ray reads the band coefficients directly; on ``su(3)`` the
+  two blocks disagree, so the raw pairing is not an invariant kinetic form
+  on the simple ideal, and that non-invariance is itself an exact source
+  fact recorded with both block values;
+* the invariant-projection ray replaces the ``su(3)`` blocks by the unique
+  ad-invariant average ``(3 k_kernel + 5 k_quintet)/8 = (15+sqrt5)/4``;
+* the tested reference ray is the representation-index ray ``(5/3, 1, 1)``.
+
+The exact tests run without any measured value: whether any single overall
+scale carries a source ray onto the reference ray, and whether the
+conditional quadratic-commutant relation ``k1 = 3 k2 - 2 k3`` holds on any
+source ray. The scale-free renormalization-line statistic
+``det(alpha_inverse, k, b) = 0`` is frozen as a definition only: the beta
+vector comes from the registered rank-fifteen census, the kinetic ray from
+this producer, and the inverse-coupling column stays sealed with the
+comparison surface. Every normalization choice is declared: block
+coefficients are stated per unit-index generator basis, and the per-ideal
+scale freedom is quotiented only by the single overall ray scale.
+
+No public measurement is read and no comparison is opened.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from fractions import Fraction
+from pathlib import Path
+from typing import Any
+
+HERE = Path(__file__).resolve().parent
+REPO_ROOT = HERE.parent.parent
+RUNTIME = HERE / "runtime"
+RECEIPT_PATH = RUNTIME / "kinetic_ray_receipt.json"
+PORT_RECEIPT_PATH = (
+    REPO_ROOT
+    / "code"
+    / "a5_closure"
+    / "receipts"
+    / "port_current_inner_reference.receipt.json"
+)
+
+SCHEMA = "oph.kinetic_ray_receipt.v1"
+STATUS = "EXACT_KINETIC_RAY_ENUMERATION__REFERENCE_RAY_EXCLUDED"
+
+
+class KineticError(ValueError):
+    """The kinetic ray certificate refused to build."""
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise KineticError(message)
+
+
+def canonical_json_bytes(value: Any) -> bytes:
+    return (
+        json.dumps(
+            value,
+            allow_nan=False,
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        )
+        + "\n"
+    ).encode("ascii")
+
+
+def tagged_sha256(data: bytes) -> str:
+    return "sha256:" + hashlib.sha256(data).hexdigest()
+
+
+Q5 = tuple[Fraction, Fraction]
+
+
+def q5(a, b=0) -> Q5:
+    return (Fraction(a), Fraction(b))
+
+
+def q5_add(x: Q5, y: Q5) -> Q5:
+    return (x[0] + y[0], x[1] + y[1])
+
+
+def q5_mul(x: Q5, y: Q5) -> Q5:
+    return (x[0] * y[0] + 5 * x[1] * y[1], x[0] * y[1] + x[1] * y[0])
+
+
+def q5_scale(x: Q5, factor: Fraction) -> Q5:
+    return (x[0] * factor, x[1] * factor)
+
+
+def q5_div(x: Q5, y: Q5) -> Q5:
+    norm = y[0] * y[0] - 5 * y[1] * y[1]
+    numerator = q5_mul(x, (y[0], -y[1]))
+    return (numerator[0] / norm, numerator[1] / norm)
+
+
+def q5_str(x: Q5) -> str:
+    return f"{x[0]}+{x[1]}*sqrt5"
+
+
+def parse_q5(text: str) -> Q5:
+    cleaned = text.replace(" ", "").replace("sqrt(5)", "sqrt5")
+    head, _, _ = cleaned.partition("*sqrt5")
+    if "*sqrt5" not in cleaned:
+        return (Fraction(cleaned), Fraction(0))
+    a_part, _, b_part = head.rpartition("+")
+    if a_part == "":
+        a_part, _, b_part = head.rpartition("-")
+        if a_part != "":
+            b_part = "-" + b_part
+        else:
+            a_part, b_part = "0", head
+    return (Fraction(a_part), Fraction(b_part))
+
+
+def load_pinned_bands() -> dict[str, Q5]:
+    receipt = json.loads(PORT_RECEIPT_PATH.read_text(encoding="utf-8"))
+    coefficients = receipt["compactness"][
+        "hilbert_schmidt_pullback_band_coefficients"
+    ]
+    bands = {name: parse_q5(text) for name, text in coefficients.items()}
+    require(
+        bands["unit_band"] == q5(Fraction(1, 4))
+        and bands["frame_band"] == q5(5, 1)
+        and bands["kernel_band"] == q5(5, -1)
+        and bands["quintet_band"] == q5(3, 1),
+        "pinned band coefficient drift",
+    )
+    return bands
+
+
+def ideal_decomposition(bands: dict[str, Q5]) -> dict[str, Any]:
+    kernel = bands["kernel_band"]
+    quintet = bands["quintet_band"]
+    invariant_su3 = q5_scale(
+        q5_add(q5_scale(kernel, Fraction(3)), q5_scale(quintet, Fraction(5))),
+        Fraction(1, 8),
+    )
+    require(invariant_su3 == q5(Fraction(15, 4), Fraction(1, 4)), "su3 average drift")
+    non_invariant = kernel != quintet
+    return {
+        "ideal_dimensions": {"u1": 1, "su2": 3, "su3": 8},
+        "band_to_ideal": {
+            "unit_band": "u1",
+            "frame_band": "su2",
+            "kernel_band": "su3 (three-dimensional block)",
+            "quintet_band": "su3 (five-dimensional block)",
+        },
+        "su3_blocks_disagree": non_invariant,
+        "su3_block_values": [q5_str(kernel), q5_str(quintet)],
+        "su3_invariant_projection": q5_str(invariant_su3),
+        "invariance_statement": (
+            "the raw pairing restricted to the simple su(3) ideal carries "
+            "two distinct block coefficients, so it is not an ad-invariant "
+            "kinetic form; the unique ad-invariant projection averages the "
+            "blocks with dimension weights three and five"
+        ),
+    }
+
+
+def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[dict[str, Any]]:
+    invariant_su3 = parse_q5(decomposition["su3_invariant_projection"])
+    return [
+        {
+            "ray_id": "raw-block-ray-kernel-branch",
+            "components": [
+                q5_str(bands["unit_band"]),
+                q5_str(bands["frame_band"]),
+                q5_str(bands["kernel_band"]),
+            ],
+            "note": (
+                "reads the three-dimensional su(3) block; declared as one "
+                "branch of the non-invariant raw pairing"
+            ),
+        },
+        {
+            "ray_id": "raw-block-ray-quintet-branch",
+            "components": [
+                q5_str(bands["unit_band"]),
+                q5_str(bands["frame_band"]),
+                q5_str(bands["quintet_band"]),
+            ],
+            "note": (
+                "reads the five-dimensional su(3) block; the second branch "
+                "of the non-invariant raw pairing"
+            ),
+        },
+        {
+            "ray_id": "invariant-projection-ray",
+            "components": [
+                q5_str(bands["unit_band"]),
+                q5_str(bands["frame_band"]),
+                q5_str(invariant_su3),
+            ],
+            "note": (
+                "the unique ad-invariant restriction of the pairing to the "
+                "three ideals"
+            ),
+        },
+    ]
+
+
+def ray_tests(rays: list[dict[str, Any]]) -> dict[str, Any]:
+    reference = [q5(Fraction(5, 3)), q5(1), q5(1)]
+    results = []
+    for ray in rays:
+        components = [parse_q5(text) for text in ray["components"]]
+        proportional = True
+        scale = q5_div(components[0], reference[0])
+        for component, target in zip(components[1:], reference[1:]):
+            if q5_div(component, target) != scale:
+                proportional = False
+        k1, k2, k3 = components
+        commutant = k1 == q5_add(
+            q5_scale(k2, Fraction(3)), q5_scale(k3, Fraction(-2))
+        )
+        results.append(
+            {
+                "ray_id": ray["ray_id"],
+                "proportional_to_reference_5_3_1_1": proportional,
+                "quadratic_commutant_k1_eq_3k2_minus_2k3": commutant,
+                "commutant_left": q5_str(k1),
+                "commutant_right": q5_str(
+                    q5_add(q5_scale(k2, Fraction(3)), q5_scale(k3, Fraction(-2)))
+                ),
+            }
+        )
+    return {
+        "reference_ray": ["5/3", "1", "1"],
+        "reference_normalization": (
+            "components stated per unit-index generator basis; the single "
+            "overall ray scale is the only quotiented freedom"
+        ),
+        "results": results,
+        "reference_ray_hit": any(
+            row["proportional_to_reference_5_3_1_1"] for row in results
+        ),
+        "commutant_relation_hit": any(
+            row["quadratic_commutant_k1_eq_3k2_minus_2k3"] for row in results
+        ),
+    }
+
+
+def frozen_rg_statistic(decomposition: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "statistic": "det(alpha_inverse, k, b) = 0",
+        "definition": (
+            "the three-by-three determinant of the inverse-coupling column, "
+            "the source kinetic ray column, and the one-loop beta column "
+            "vanishes exactly when the three renormalization lines are "
+            "concurrent in the inverse-coupling plane"
+        ),
+        "kinetic_column": "the invariant-projection ray of this receipt",
+        "beta_column": (
+            "the one-loop coefficients of the registered rank-fifteen "
+            "census under the frozen field content, computed at scoring "
+            "time from the census receipt without threshold adjustments"
+        ),
+        "alpha_column": (
+            "sealed: measured inverse couplings enter only through the "
+            "issue-639 custody surface at its single comparison"
+        ),
+        "scheme_and_threshold_budget": (
+            "one-loop, single-threshold, no extra fields; any change after "
+            "scoring voids the statistic rather than repairing it"
+        ),
+        "frozen_before_comparison": True,
+    }
+
+
+def build_receipt() -> dict[str, Any]:
+    bands = load_pinned_bands()
+    decomposition = ideal_decomposition(bands)
+    rays = candidate_rays(bands, decomposition)
+    tests = ray_tests(rays)
+    require(
+        tests["reference_ray_hit"] is False,
+        "reference ray unexpectedly hit; recheck normalization",
+    )
+    statistic = frozen_rg_statistic(decomposition)
+    payload = PORT_RECEIPT_PATH.read_bytes()
+    receipt = {
+        "schema": SCHEMA,
+        "issue": 646,
+        "status": STATUS,
+        "pinned_band_coefficients": {
+            name: q5_str(value) for name, value in bands.items()
+        },
+        "ideal_decomposition": decomposition,
+        "candidate_rays": rays,
+        "ray_tests": tests,
+        "frozen_rg_statistic": statistic,
+        "parent_pins": [
+            {
+                "path": PORT_RECEIPT_PATH.relative_to(REPO_ROOT).as_posix(),
+                "bytes": len(payload),
+                "sha256": tagged_sha256(payload),
+            }
+        ],
+        "kinetic_action_bridge": (
+            "OPEN: the identity of the finite Hilbert--Schmidt pairing with "
+            "the physical continuum kinetic action is unproved; per the "
+            "frozen stop rule, three independent invariant kinetic "
+            "coefficients remain the default freedom and the enumerated "
+            "rays become predictive only after that bridge is proved or "
+            "independently tested"
+        ),
+        "comparison_boundary": {
+            "public_measurement_read": False,
+            "comparison_permitted": False,
+        },
+        "reopen_condition": (
+            "a proved or independently tested kinetic-action bridge, at "
+            "which point the frozen determinant statistic becomes the "
+            "issue-639 candidate under its declared scheme and threshold "
+            "budget"
+        ),
+    }
+    receipt["receipt_sha256"] = tagged_sha256(canonical_json_bytes(receipt))
+    return receipt
+
+
+def write_runtime() -> Path:
+    RUNTIME.mkdir(exist_ok=True)
+    RECEIPT_PATH.write_bytes(canonical_json_bytes(build_receipt()))
+    return RECEIPT_PATH
+
+
+def verify_runtime() -> None:
+    if RECEIPT_PATH.read_bytes() != canonical_json_bytes(build_receipt()):
+        raise SystemExit("kinetic ray receipt is stale")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--write", action="store_true")
+    parser.add_argument("--verify", action="store_true")
+    args = parser.parse_args()
+    if args.write:
+        print(write_runtime())
+    if args.verify:
+        verify_runtime()
+        print("KINETIC_RAY_VALID")
+    if not args.write and not args.verify:
+        receipt = build_receipt()
+        print(
+            json.dumps(
+                {
+                    "status": receipt["status"],
+                    "reference_ray_hit": receipt["ray_tests"]["reference_ray_hit"],
+                    "commutant_hit": receipt["ray_tests"]["commutant_relation_hit"],
+                    "su3_invariant": receipt["ideal_decomposition"][
+                        "su3_invariant_projection"
+                    ],
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

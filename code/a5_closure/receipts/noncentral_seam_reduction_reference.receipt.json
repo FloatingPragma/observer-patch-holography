@@ -156,6 +156,7 @@
     "bounded_exit_scope": "the flat assignment lane and explicitly typed central-coefficient lane are exact on the pinned spherical nerve; the three Z_n -> 1 rows, contractible identity S3 row, and trivial-pi_2 Z2 -> Z4 row are classified exactly. The reduced Z6/Z7 register models remain controls. These finite rows do not classify all crossed modules or all complete A1-A3 coefficient constructions",
     "does_not_close": [
       "derivation of central face coefficients from A2 naturality or triple-overlap coherence",
+      "source selection of the axis coefficient system, a physical global form, or a same-source loop-to-matter-kernel identity",
       "exhaustiveness of the rotation-centralizer register and existing order-six seam-class lanes over all complete A1-A3 coefficient constructions",
       "identification of the V4 group-extension class with a cellular H2(S2,Z2) class",
       "physical selection of one grammar, matter representation, central character, or 2-representation (issue 627)",
@@ -165,7 +166,7 @@
       "laboratory current lines (issue 569)",
       "continuum quantum field theory"
     ],
-    "proves": "exact gauge triviality of exactly coherent group-valued seam assignments under the pinned finite-group table grammar; for each separately declared abelian central coefficient group A, the exact cellular result H2(S2,A)=A; exact verification that the measured Klein-four lift realizes a nonsplit Z2 extension over V4; and compatibility of that measured Z2 centre with the {0,3} subgroup of the measured order-six menu; Z6/Z7 added coefficient registers separate the reduced seam/register interface"
+    "proves": "exact gauge triviality of exactly coherent group-valued seam assignments under the pinned finite-group table grammar; for each separately declared abelian central coefficient group A, the exact cellular result H2(S2,A)=A; exact verification that the measured Klein-four lift realizes a nonsplit Z2 extension over V4; and compatibility of that measured Z2 centre with the {0,3} subgroup of the declared-system order-six menu; Z6/Z7 added coefficient registers separate the reduced seam/register interface"
   },
   "complete_coefficient_lift": {
     "classification": {
@@ -265,6 +266,7 @@
         6
       ]
     },
+    "axis_coefficient_system_source_selected": false,
     "flux_menu_exhausted_by_central_classes": false,
     "general_exhaustiveness_status": "not_established",
     "matter_transport_effect": "not_calculated",
@@ -276,7 +278,7 @@
       4,
       5
     ],
-    "menu_statement": "the measured binary-icosahedral centre embeds as {0,3} in the measured order-six menu; this compatibility does not classify other value groups, prove general flux-menu exhaustiveness, or calculate an action on realized matter transport",
+    "menu_statement": "the measured binary-icosahedral centre embeds as {0,3} in the order-six menu of the declared axis coefficient system; this compatibility does not select that coefficient system, identify its class group with the matter-action kernel, classify other value groups, prove general flux-menu exhaustiveness, or calculate a physical action on matter transport",
     "out_of_class_control": {
       "control_complex": {
         "charts": 3,
@@ -293,6 +295,8 @@
       "scope_statement": "a nerve with nontrivial fundamental group carries flat sectors classified by conjugacy classes of homomorphisms from the fundamental group into the value group; such nerves are not admissible for the spherical support and sit outside this classification",
       "worklist_stalls": true
     },
+    "physical_global_form_selected": false,
+    "same_source_loop_to_tensor_kernel_identified": false,
     "transport_centre_embedding": {
       "centre_order": 2,
       "menu_subgroup": [
@@ -304,10 +308,16 @@
   },
   "consumed_upstream": {
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
-    "descent_manifest_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
+    "descent_manifest_sha256": "c619511b04243964db7c5cfe0f1bf7a2045f054d7298fd0b87b2ec9e799d3881",
     "extends": "the #613 routed-seam grammar certificate proves central-column completeness and exhibits the measured noncentral transport; this certificate proves the flat lane and the fixed central-coefficient lane while retaining the genuinely noncentral mechanism space as an open interface",
-    "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
-    "routed_seam_manifest_sha256": "6e3d4714ddb1666484e7ea7d0f74c133d9811a63163a1017f28c4af16db395db",
+    "global_form_artifact_sha256": "sha256:0bfdacce8a4714d0d0a518fdf96fbb47b2aea5a0f508d97f51f97dd2e97fb30d",
+    "physical_scope": {
+      "axis_relation_lattice_source_selected": false,
+      "declared_axis_coefficient_system_exact": true,
+      "physical_global_form_selected": false,
+      "same_source_loop_to_tensor_kernel_identification": false
+    },
+    "routed_seam_manifest_sha256": "46ae48d1c9a978f6e12de08a88af481fb11bc1540dcbb4a83ceabf1a9183ebef",
     "spin_statistics_artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a"
   },
   "federation_nerve": {
@@ -470,7 +480,7 @@
     ]
   },
   "issue": 624,
-  "manifest_sha256": "1e1fa8ea54b89cebccd6e308c435ed8a277bd5520b21634188712bde49cbcf90",
+  "manifest_sha256": "815384c85381e8198d0602b423f294d46a4a18f956e9ad70bf45fa5fd421f781",
   "open_boundaries": {
     "genuinely_noncentral_crossed_module": {
       "action": "conjugation",
@@ -839,7 +849,7 @@
     },
     "matter_transport_effect": "parameterized_by_the_declared_representation_or_2_representation;_physical_selection_not_supplied",
     "measured_extension_equals_spherical_h2_class": false,
-    "measured_order_six_menu": "retained_measured_menu_with_binary_icosahedral_Z2_compatibility",
+    "measured_order_six_menu": "declared_system_menu_with_measured_binary_icosahedral_Z2_compatibility",
     "measured_transport_extension": "nonsplit_Z2_extension_over_V4",
     "out_of_class_boundary": "nerves with nontrivial fundamental group carry flat sectors classified by conjugacy classes of homomorphisms from the fundamental group and are not admissible for the spherical support",
     "reduced_interface_nonidentifiability": true,

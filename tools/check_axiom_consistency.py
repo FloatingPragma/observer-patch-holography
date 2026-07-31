@@ -33,7 +33,8 @@ ACTIVE_GLOBS = [
     "README_FR.md",
     "paper/*.tex",
     "paper/tex_fragments/*.tex",
-    "extra/*.tex",
+    "flagship/*.tex",
+    "extra/compact_proof_of_oph.tex",
     "cosmology/*.tex",
     "book/*.md",
     "docs/*.md",
@@ -133,6 +134,7 @@ REQUIRED_ENUM = [
 ]
 
 PDF_SURFACES = [
+    "flagship/from_observer_consensus_to_standard_physics.pdf",
     "extra/compact_proof_of_oph.pdf",
     "paper/observers_are_all_you_need.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -162,6 +164,32 @@ def registry_checks(errors: list[str]) -> dict:
             if not axiom.get(field):
                 errors.append(f"registry: axiom {axiom.get('id')} missing {field}")
     if len(axioms) == 3:
+        a1 = axioms[0].get("formal_concise", "")
+        for needle in (
+            "finite-dimensional complex Hilbert response space",
+            "faithful real-linear map",
+            "commutator-closed",
+            "complete for the declared quotient-visible infinitesimal port response",
+            "positive definite",
+        ):
+            if needle not in a1:
+                errors.append(f"registry: A1 formal_concise missing response contract: {needle}")
+        a2 = axioms[1].get("formal_concise", "")
+        for needle in (
+            "proper carrier automorphism",
+            "one projective implementer",
+            "PU(H)",
+            "endogenous",
+            "unitary centralizer",
+        ):
+            if needle not in a2:
+                errors.append(f"registry: A2 formal_concise missing transport contract: {needle}")
+        for forbidden in ("2I", "A5", "SU(2)", "SU(3)", "su(2)", "su(3)"):
+            if forbidden in a1 or forbidden in a2:
+                errors.append(
+                    "registry: A1/A2 formal clauses contain a forbidden "
+                    f"target group name: {forbidden}"
+                )
         a3 = axioms[2].get("formal_concise", "")
         for needle in (
             "restriction map is injective",

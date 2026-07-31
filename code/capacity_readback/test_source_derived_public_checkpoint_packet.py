@@ -182,9 +182,20 @@ def test_complete_bundle_and_canonical_runtime_receipts(tmp_path: Path, packet, 
     assert emitted_manifest["terminal_world_ids"] == ["q_echosahedral_oriented_exact"]
 
 
+def test_checked_in_runtime_receipts_are_parseable_and_byte_exact(tmp_path: Path):
+    """Reject truncated or stale tracked receipts on a clean checkout."""
+    generated_paths = write_runtime_receipts(tmp_path)
+    tracked_runtime = Path(__file__).resolve().parent / "runtime"
+    for key, generated_path in generated_paths.items():
+        generated_bytes = Path(generated_path).read_bytes()
+        tracked_bytes = (tracked_runtime / Path(generated_path).name).read_bytes()
+        assert b"bytes omitted" not in tracked_bytes, key
+        assert json.loads(tracked_bytes) == json.loads(generated_bytes), key
+        assert tracked_bytes == generated_bytes, key
+
+
 def test_explicit_fiber_classifier(packet):
     assert classify_terminal_fiber([], manifest_complete=True)["fiber_kind"] == "EMPTY"
     assert classify_terminal_fiber([packet], manifest_complete=False)["fiber_kind"] == "INCOMPLETE"
     assert classify_terminal_fiber([packet], manifest_complete=True)["fiber_kind"] == "SINGLETON"
     assert classify_terminal_fiber([packet, packet], manifest_complete=True)["fiber_kind"] == "COMPLETE_SCALAR"
-

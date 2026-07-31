@@ -1,33 +1,33 @@
 {
   "acceptance_criteria_detail": {
     "all_depth_refinement_stability_proved": "open: only one freshly reconstructed refined witness and its coincidence partition are checked",
-    "charge_invariant_and_target_independent": "the Z6 charge is exact and target-independent",
-    "classical_localization_alone_cannot_pass_physical_gate": "open: a vertex mark or coboundary cannot change flux, but a classical nonzero-flux configuration is an explicit same-data countermodel",
+    "charge_invariant_and_target_independent": "the conditional Z6 charge is exact and target-independent inside the declared coefficient system; its physical source selection is open",
+    "classical_localization_alone_cannot_pass_physical_gate": "open: a vertex mark or coboundary cannot change flux, but a classical vector-spring realization exists on the exact support; this does not settle an extended physical domain",
     "mass_and_charge_invariant_and_target_independent": "false because only the charge half of the conjunction is proved",
     "mass_invariant_and_target_independent": "open: the packet emits no mass invariant",
     "multi_defect_composition_and_asymptotic_states_controlled": "partial: finite addition of two selected seam-path-disjoint chains is checked, but the puncture faces touch and no asymptotic states are constructed",
-    "quantum_pole_or_equivalent_physical_spectral_criterion_proved": "open: the finite twisted spectrum is a topological invariant shared by classical and quantum realizations of the same chain"
+    "quantum_pole_or_equivalent_physical_spectral_criterion_proved": "open: the finite twisted spectrum is a topological invariant recoverable from the exact same-support vector-spring stiffness family; the separate local-domain spectral match also carries no pole"
   },
   "acceptance_criteria_status": {
     "all_depth_refinement_stability_proved": false,
     "all_issue_acceptance_criteria_satisfied": false,
     "charge_invariant_and_target_independent": true,
     "classical_localization_alone_cannot_pass_physical_gate": false,
-    "defect_object_and_equivalence_source_defined": true,
+    "defect_object_and_equivalence_source_defined": false,
     "mass_and_charge_invariant_and_target_independent": false,
     "mass_invariant_and_target_independent": false,
     "multi_defect_composition_and_asymptotic_states_controlled": false,
     "quantum_pole_or_equivalent_physical_spectral_criterion_proved": false
   },
   "arithmetic": {
-    "characteristic_polynomial_method": "fraction-free Faddeev-LeVerrier with exact trace divisions and a zero-omega-part requirement on every coefficient",
+    "characteristic_polynomial_method": "Faddeev-LeVerrier with certified exact trace divisions and a zero-omega-part requirement on every coefficient",
     "encoding": "integer pairs (a, b) for a + b omega, cross-checked against the integer 2n x 2n companion-block image of omega",
     "floating_point_free": true,
     "ring": "Z[omega] with omega^2 = omega - 1, omega = exp(2 pi i / 6)"
   },
   "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
   "charge_and_fusion": {
-    "charge_group": "Z6, the measured flux class group",
+    "charge_group": "Z6, the class group of the declared axis coefficient system",
     "composition_scope": "addition of two finite puncture-pair chains whose selected seam paths are disjoint; no asymptotic state or scattering limit is constructed",
     "conservation": "the total holonomy of every seam chain vanishes on the closed support, so charge is created and absorbed only in puncture pairs",
     "fusion_pairs_checked": 36,
@@ -93,25 +93,28 @@
   },
   "claim_boundary": {
     "does_not_close": [
-      "a quantum-particle criterion or a discriminator between quantum and classical realizations of the same flux chain",
-      "exclusion of a classical finite-lattice configuration carrying the same nonzero flux and twisted spectrum",
+      "source selection of the axis relation lattice, a physical global form, or a same-source loop-to-matter-kernel identity",
+      "a complete-interface quantum/classical discriminator or particle-ontology theorem",
+      "non-identifiability on an extended source domain",
       "a continuum quantum pole or propagator for any defect",
       "asymptotic states, scattering amplitudes, or asymptotic completeness",
       "an all-depth refinement transport, operator intertwiner, or continuum limit",
       "mass calibration against any measured particle target",
       "laboratory identification of any species"
     ],
-    "proves": "on the fixed finite support: the six measured Z6 flux sectors carry exact gauge-invariant twisted characteristic polynomials, additive flux fusion, finite two-chain composition, and a self-adjoint ell^2 representation; the charge-conjugacy coincidence partition persists through one edge-midpoint refinement check. At this finite interface, particle ontology is unidentifiable because classical-lattice and quantum-Hilbert interpretations have identical exported data",
-    "status": "finite_topological_flux_spectrum_with_ontology_no_go"
+    "proves": "on the fixed finite support and inside the declared axis coefficient system: the six Z6 flux sectors carry exact gauge-invariant twisted characteristic polynomials, additive flux fusion, finite two-chain composition, and a self-adjoint ell^2 representation; the charge-conjugacy coincidence partition persists through one edge-midpoint refinement check. On that same twelve-vertex support, the exact K_k = 5 I - A_k vector-spring realification recovers the complete adjacency spectral family from a classical stiffness family. A separately hash-pinned receipt constructs a vector-spring realization for the different issue-634 local-domain sector and scalar spectra. No identity bridge between the two finite domains is claimed",
+    "status": "finite_topological_flux_spectrum_with_exact_support_classical_realification_and_separate_local_domain_context"
   },
   "defect_sector_definition": {
-    "objects": "seam chains on the certified support, up to coboundary regauging; the class of a chain is its puncture holonomy in the measured order-six class group",
+    "conditional_declared_system_defined": true,
+    "objects": "seam chains on the certified support, up to coboundary regauging; the class of a chain is its puncture holonomy in the order-six class group of the declared axis coefficient system",
+    "physical_global_form_selected": false,
     "puncture_faces": {
       "antipodal": true,
       "end": 6,
       "start": 0
     },
-    "source_defined": true,
+    "source_defined": false,
     "witness_dual_path_length": 5,
     "witness_family_is_scaling_of_class_1_chain": true,
     "witness_seam_support": [
@@ -122,6 +125,550 @@
       25
     ]
   },
+  "exact_support_classical_boundary": {
+    "complete_interface_discriminators_covered": false,
+    "declared_adjacency_spectral_family_recoverable": true,
+    "extended_domain_no_go": false,
+    "scalar_operator_or_gap_matched": false,
+    "scope": "the exact twelve-vertex icosahedral support and its six twisted adjacency operators",
+    "status": "exact_classical_realification",
+    "two_component_vector_spring_model_exhibited": true
+  },
+  "exact_support_classical_realification": {
+    "classical_model": "two-component harmonic vector-spring network on the exact twelve-vertex support, with q_v in R^2 and one phase-rotation spring per seam",
+    "complete_interface_ontology_no_go": false,
+    "declared_adjacency_spectral_family_recoverable": true,
+    "domain": {
+      "name": "certified_icosahedral_support",
+      "regular_degree": 5,
+      "seam_count": 30,
+      "separate_from_local_domain_seam_complex": true,
+      "vertex_count": 12
+    },
+    "edge_hessian_identity_entry_checks": 3456,
+    "extended_domain_non_identifiability": false,
+    "hessian_entry_identity_checks": 432,
+    "normal_mode_problem": "G_total K_block q = lambda_mode G_total q",
+    "per_class": [
+      {
+        "adjacency_characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -40,
+          255,
+          576,
+          -580,
+          -2640,
+          -1425,
+          3200,
+          5250,
+          3000,
+          625
+        ],
+        "classical_hessian_certificate": {
+          "coordinate_metric": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "edge_sum_of_squares_hessian_entry_checks": 576,
+          "energy_hessian_equals_metric_times_stiffness": true,
+          "energy_hessian_symmetric": true,
+          "metric_leading_principal_minors": [
+            2,
+            3
+          ],
+          "metric_positive_definite": true,
+          "metric_self_adjoint_entry_checks": 576,
+          "phase_metric_isometry_checks": 30,
+          "positive_semidefinite_by_edge_sum_of_squares": true
+        },
+        "exact_adjacency_recovery": "A_k = 5 I - K_k",
+        "flux_class": 0,
+        "real_generalized_characteristic_polynomial": [
+          1,
+          -120,
+          6840,
+          -246320,
+          6287760,
+          -120999552,
+          1822470080,
+          -22017212160,
+          216894405120,
+          -1761667010560,
+          11881184050176,
+          -66794127605760,
+          313350250885120,
+          -1224754446336000,
+          3970994098176000,
+          -10599841751040000,
+          23027082485760000,
+          -40027712716800000,
+          54304896614400000,
+          -55360143360000000,
+          39859303219200000,
+          -18059231232000000,
+          3869835264000000,
+          0,
+          0
+        ],
+        "stiffness_characteristic_polynomial": [
+          1,
+          -60,
+          1620,
+          -25960,
+          274080,
+          -1999776,
+          10278080,
+          -37167360,
+          92563200,
+          -151027200,
+          145152000,
+          -62208000,
+          0
+        ],
+        "stiffness_characteristic_polynomial_sha256": "270e8186e547318e765adf7605a8fe0ef4a31b21b97d78c896a3739130ad6732"
+      },
+      {
+        "adjacency_characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -38,
+          261,
+          564,
+          -583,
+          -2394,
+          -1062,
+          2528,
+          3249,
+          1356,
+          181
+        ],
+        "classical_hessian_certificate": {
+          "coordinate_metric": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "edge_sum_of_squares_hessian_entry_checks": 576,
+          "energy_hessian_equals_metric_times_stiffness": true,
+          "energy_hessian_symmetric": true,
+          "metric_leading_principal_minors": [
+            2,
+            3
+          ],
+          "metric_positive_definite": true,
+          "metric_self_adjoint_entry_checks": 576,
+          "phase_metric_isometry_checks": 30,
+          "positive_semidefinite_by_edge_sum_of_squares": true
+        },
+        "exact_adjacency_recovery": "A_k = 5 I - K_k",
+        "flux_class": 1,
+        "real_generalized_characteristic_polynomial": [
+          1,
+          -120,
+          6840,
+          -246324,
+          6288192,
+          -121021608,
+          1823177878,
+          -22033223856,
+          217165824648,
+          -1765244424852,
+          11918729345832,
+          -67112827881192,
+          315560173778067,
+          -1237343400637920,
+          4030024880197224,
+          -10827350104522356,
+          23744067575951016,
+          -41857973957365128,
+          58032914822380114,
+          -61281413866618392,
+          46936613185995168,
+          -24065995395566784,
+          7127560397750184,
+          -887175387792912,
+          37436788710721
+        ],
+        "stiffness_characteristic_polynomial": [
+          1,
+          -60,
+          1620,
+          -25962,
+          274176,
+          -2001804,
+          10302857,
+          -37360716,
+          93566088,
+          -154500288,
+          152936244,
+          -72498696,
+          6118561
+        ],
+        "stiffness_characteristic_polynomial_sha256": "d3265303811e996841d1ba4a7871b6a35418d84bf09eb8fefb0880e9125c9dce"
+      },
+      {
+        "adjacency_characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -34,
+          273,
+          540,
+          -583,
+          -1866,
+          -174,
+          1784,
+          561,
+          -456,
+          -53
+        ],
+        "classical_hessian_certificate": {
+          "coordinate_metric": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "edge_sum_of_squares_hessian_entry_checks": 576,
+          "energy_hessian_equals_metric_times_stiffness": true,
+          "energy_hessian_symmetric": true,
+          "metric_leading_principal_minors": [
+            2,
+            3
+          ],
+          "metric_positive_definite": true,
+          "metric_self_adjoint_entry_checks": 576,
+          "phase_metric_isometry_checks": 30,
+          "positive_semidefinite_by_edge_sum_of_squares": true
+        },
+        "exact_adjacency_recovery": "A_k = 5 I - K_k",
+        "flux_class": 2,
+        "real_generalized_characteristic_polynomial": [
+          1,
+          -120,
+          6840,
+          -246332,
+          6289056,
+          -121065720,
+          1824593510,
+          -22065250704,
+          217708819656,
+          -1772403648892,
+          11993906650632,
+          -67751500053144,
+          319994386036087,
+          -1262649172654032,
+          4148995308558264,
+          -11287565205478932,
+          25202021648111784,
+          -45607554560065032,
+          65753187939926838,
+          -73742156014514472,
+          62207435916896832,
+          -37582151979587904,
+          15065925698463480,
+          -3509646272556336,
+          352653357390489
+        ],
+        "stiffness_characteristic_polynomial": [
+          1,
+          -60,
+          1620,
+          -25966,
+          274368,
+          -2005860,
+          10352417,
+          -37747644,
+          95575176,
+          -161474304,
+          168640596,
+          -93445704,
+          18779067
+        ],
+        "stiffness_characteristic_polynomial_sha256": "22e397b8e63981e179ac6fda6afdb8c2b94ef9affdcec3938fc4764eb40c2da1"
+      },
+      {
+        "adjacency_characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -32,
+          279,
+          528,
+          -580,
+          -1584,
+          351,
+          1712,
+          -126,
+          -624,
+          169
+        ],
+        "classical_hessian_certificate": {
+          "coordinate_metric": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "edge_sum_of_squares_hessian_entry_checks": 576,
+          "energy_hessian_equals_metric_times_stiffness": true,
+          "energy_hessian_symmetric": true,
+          "metric_leading_principal_minors": [
+            2,
+            3
+          ],
+          "metric_positive_definite": true,
+          "metric_self_adjoint_entry_checks": 576,
+          "phase_metric_isometry_checks": 30,
+          "positive_semidefinite_by_edge_sum_of_squares": true
+        },
+        "exact_adjacency_recovery": "A_k = 5 I - K_k",
+        "flux_class": 3,
+        "real_generalized_characteristic_polynomial": [
+          1,
+          -120,
+          6840,
+          -246336,
+          6289488,
+          -121087776,
+          1825301344,
+          -22081265856,
+          217980395136,
+          -1775985458688,
+          12031538663808,
+          -68071472107776,
+          322218679242624,
+          -1275366055067136,
+          4208935755419136,
+          -11520279473614848,
+          25943045285541888,
+          -47527183881455616,
+          69746815463839744,
+          -80286338990125056,
+          70413269358809088,
+          -45115334083313664,
+          19778625382146048,
+          -5271939291168768,
+          641154256408576
+        ],
+        "stiffness_characteristic_polynomial": [
+          1,
+          -60,
+          1620,
+          -25968,
+          274464,
+          -2007888,
+          10377200,
+          -37941216,
+          96581376,
+          -164975232,
+          176560704,
+          -104102016,
+          25321024
+        ],
+        "stiffness_characteristic_polynomial_sha256": "3d32d33150f4c213b1e77e4ad72093d2e906fc731ab296e3fbadbabd0a839581"
+      },
+      {
+        "adjacency_characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -34,
+          273,
+          540,
+          -583,
+          -1866,
+          -174,
+          1784,
+          561,
+          -456,
+          -53
+        ],
+        "classical_hessian_certificate": {
+          "coordinate_metric": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "edge_sum_of_squares_hessian_entry_checks": 576,
+          "energy_hessian_equals_metric_times_stiffness": true,
+          "energy_hessian_symmetric": true,
+          "metric_leading_principal_minors": [
+            2,
+            3
+          ],
+          "metric_positive_definite": true,
+          "metric_self_adjoint_entry_checks": 576,
+          "phase_metric_isometry_checks": 30,
+          "positive_semidefinite_by_edge_sum_of_squares": true
+        },
+        "exact_adjacency_recovery": "A_k = 5 I - K_k",
+        "flux_class": 4,
+        "real_generalized_characteristic_polynomial": [
+          1,
+          -120,
+          6840,
+          -246332,
+          6289056,
+          -121065720,
+          1824593510,
+          -22065250704,
+          217708819656,
+          -1772403648892,
+          11993906650632,
+          -67751500053144,
+          319994386036087,
+          -1262649172654032,
+          4148995308558264,
+          -11287565205478932,
+          25202021648111784,
+          -45607554560065032,
+          65753187939926838,
+          -73742156014514472,
+          62207435916896832,
+          -37582151979587904,
+          15065925698463480,
+          -3509646272556336,
+          352653357390489
+        ],
+        "stiffness_characteristic_polynomial": [
+          1,
+          -60,
+          1620,
+          -25966,
+          274368,
+          -2005860,
+          10352417,
+          -37747644,
+          95575176,
+          -161474304,
+          168640596,
+          -93445704,
+          18779067
+        ],
+        "stiffness_characteristic_polynomial_sha256": "22e397b8e63981e179ac6fda6afdb8c2b94ef9affdcec3938fc4764eb40c2da1"
+      },
+      {
+        "adjacency_characteristic_polynomial": [
+          1,
+          0,
+          -30,
+          -38,
+          261,
+          564,
+          -583,
+          -2394,
+          -1062,
+          2528,
+          3249,
+          1356,
+          181
+        ],
+        "classical_hessian_certificate": {
+          "coordinate_metric": [
+            [
+              2,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "edge_sum_of_squares_hessian_entry_checks": 576,
+          "energy_hessian_equals_metric_times_stiffness": true,
+          "energy_hessian_symmetric": true,
+          "metric_leading_principal_minors": [
+            2,
+            3
+          ],
+          "metric_positive_definite": true,
+          "metric_self_adjoint_entry_checks": 576,
+          "phase_metric_isometry_checks": 30,
+          "positive_semidefinite_by_edge_sum_of_squares": true
+        },
+        "exact_adjacency_recovery": "A_k = 5 I - K_k",
+        "flux_class": 5,
+        "real_generalized_characteristic_polynomial": [
+          1,
+          -120,
+          6840,
+          -246324,
+          6288192,
+          -121021608,
+          1823177878,
+          -22033223856,
+          217165824648,
+          -1765244424852,
+          11918729345832,
+          -67112827881192,
+          315560173778067,
+          -1237343400637920,
+          4030024880197224,
+          -10827350104522356,
+          23744067575951016,
+          -41857973957365128,
+          58032914822380114,
+          -61281413866618392,
+          46936613185995168,
+          -24065995395566784,
+          7127560397750184,
+          -887175387792912,
+          37436788710721
+        ],
+        "stiffness_characteristic_polynomial": [
+          1,
+          -60,
+          1620,
+          -25962,
+          274176,
+          -2001804,
+          10302857,
+          -37360716,
+          93566088,
+          -154500288,
+          152936244,
+          -72498696,
+          6118561
+        ],
+        "stiffness_characteristic_polynomial_sha256": "d3265303811e996841d1ba4a7871b6a35418d84bf09eb8fefb0880e9125c9dce"
+      }
+    ],
+    "phase_metric_isometry_checks": 180,
+    "phase_unit_checks": 360,
+    "physical_promotion_allowed": false,
+    "potential": "one half the sum over seams of (q_u - R_(k f(e)) q_v)^T G (q_u - R_(k f(e)) q_v)",
+    "realification_rule": "use the integral (1, omega) basis with positive metric G = [[2,1],[1,2]]; multiplication by every unit Eisenstein phase is a G-isometry, and G K is the symmetric ordinary energy Hessian",
+    "scalar_operator_or_gap_matched": false,
+    "stiffness_rule": "K_k = 5 I - A_k"
+  },
   "finite_topological_sector_gate": {
     "all_depth_refinement_stability": false,
     "asymptotic_states_controlled": false,
@@ -129,17 +676,21 @@
     "class_0_vs_3_and_0_vs_1_distinct": true,
     "classical_same_flux_countermodel_excluded": false,
     "continuum_quantum_pole": false,
-    "defect_objects_source_defined": true,
+    "defect_objects_defined_in_declared_coefficient_system": true,
+    "defect_objects_source_defined": false,
+    "exact_support_classical_realification_constructed": true,
     "finite_disjoint_path_chain_composition_checked": true,
     "invariants_target_free": true,
     "laboratory_identification": false,
     "local_coboundary_regauge_cannot_change_flux_class": true,
+    "local_domain_identity_bridge_proved": false,
     "one_step_coincidence_partition_persists": true,
     "operators_self_adjoint": true,
     "passed": true,
+    "physical_global_form_selected": false,
     "physical_particle_discrimination": false,
     "scattering_amplitude_interface": false,
-    "scope": "passed refers only to the retained finite topological rows; it is not the GitHub issue's physical-particle acceptance gate",
+    "scope": "passed refers only to the retained finite topological rows inside the declared axis coefficient system; it is not the GitHub issue's physical-particle acceptance gate",
     "spectra_gauge_invariant": true
   },
   "gauge_invariance": {
@@ -153,7 +704,13 @@
       "affine_ramp"
     ]
   },
-  "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+  "global_form_artifact_sha256": "sha256:0bfdacce8a4714d0d0a518fdf96fbb47b2aea5a0f508d97f51f97dd2e97fb30d",
+  "global_form_scope": {
+    "axis_relation_lattice_source_selected": false,
+    "declared_axis_coefficient_system_exact": true,
+    "physical_global_form_selected": false,
+    "same_source_loop_to_tensor_kernel_identification": false
+  },
   "hilbert_representation": {
     "hermiticity_entry_checks": 360,
     "operator": "twisted seam adjacency A_k with phase omega^(k f(e)) on the oriented seam and the conjugate phase on the reverse",
@@ -168,17 +725,78 @@
     "ordered_class_pairs_with_no_connecting_regauge": 30,
     "physical_particle_discrimination": false,
     "proved_statement": "a vertex mark or coboundary regauge cannot change puncture holonomy; distinct flux classes have an exact holonomy obstruction, and four charge-conjugacy bands have distinct twisted characteristic polynomials",
-    "same_flux_classical_countermodel": "a classical finite-lattice configuration carrying the same nonzero seam chain has the same holonomy and twisted adjacency spectrum; this certificate contains no quantum/classical discriminator",
+    "same_support_classical_completion": "on the same twelve-vertex support, K_k = 5 I - A_k is the Hessian of a two-component harmonic vector-spring model; the exact A_k spectral family is recoverable from K_k",
     "scaled_basis_coboundaries_with_zero_holonomy": 60
   },
-  "manifest_sha256": "4a8899e57e1087b47a8ab0bfa189883d8e747d312c7d61134dcd097607a015e9",
-  "negative_closure_status": {
-    "all_finite_interface_discriminators_covered": true,
-    "extra_dynamics_or_pole_premise_necessary": true,
-    "same_data_classical_quantum_countermodels": true,
-    "scope": "all predicates and deterministic algorithms whose complete input is the declared finite observer-visible interface",
-    "status": "proved_no_go_at_declared_finite_interface"
+  "local_domain_classical_spectral_context": {
+    "bounded_lexical_census": {
+      "completeness_theorem": false,
+      "no_declared_discriminator_key_match": true,
+      "scope": "the explicitly listed serialized finite receipts and stage-1 array bundle; primitive type census and declared key-fragment scan only"
+    },
+    "classical_completion_exhibited": true,
+    "classical_model": "two-component classical harmonic network per sector: one coordinate q_v in R^2 and one momentum p_v in R^2 per carrier, fixed orthogonal transport R_e per oriented seam, unit masses, and H = one half sum_v |p_v|^2 plus one half sum_e |q_v - R_e q_w|^2",
+    "cofinal_refinement_or_asymptotic_claim": false,
+    "complete_interface_ontology_no_go": false,
+    "conclusion": "the separately declared issue-634 local-domain six-sector and scalar spectral projection admits the explicit two-component harmonic vector-spring realization; this says nothing about an identity with the twelve-vertex exact flux packet",
+    "declared_projection": "the issue-634 local-domain six-sector spectra, its scalar finite-operator gap, and the separately recorded 2048-carrier source-configuration spectral point",
+    "exact_flux_identity_bridge": false,
+    "extended_domain_non_identifiability": false,
+    "ladder_payload_identity": true,
+    "numerical_gates": {
+      "eigensolver_shift": -1e-06,
+      "gap_match_abs_tolerance": 1e-09,
+      "kernel_eigenvalue_abs_floor": 1e-09,
+      "orientation_control_shift_floor": 1e-09,
+      "symmetry_max_residual_tolerance": 1e-14
+    },
+    "numerical_readback": {
+      "all_kernel_counts_match_exact_doubling": true,
+      "maximum_ladder_gap_abs_residual": 2.4424906541753444e-14,
+      "maximum_sector_gap_abs_residual": 1.3766765505351941e-14,
+      "maximum_symmetry_residual": 0.0,
+      "scalar_gap_abs_residual": 1.8041124150158794e-16
+    },
+    "physical_promotion_allowed": false,
+    "receipt_byte_sha256": "sha256:0071d986e31f9df89c6a06605238d5d10903194e6ffe95f1cc5760e2152caa5a",
+    "receipt_schema": "oph.local-domain-classical-realization.v1",
+    "scalar_gap_payload_identity": true,
+    "sector_payload_identity": true,
+    "separate_from_exact_flux_support": true,
+    "spectral_interface_identity": {
+      "ladder_domain": {
+        "source_carrier_count": 2048,
+        "source_projection_sha256": "sha256:29a6e27033649d79339e36a1c5cb9da211725d7cfdd63f3cefa4ad23d87b8ea0",
+        "topology_freeze_sha256": "sha256:5b03accb3b2ea97b58f2b2c52ba8c53e58eb8bcefcba0493370f415a3987aadf",
+        "visible_edge_count": 1663,
+        "visible_node_count": 1052
+      },
+      "main_domain": {
+        "source_carrier_count": 16384,
+        "source_projection_sha256": "sha256:4870ca843af22b0875f5207585b96608d3c026ba1107fc842aa2ee4c494418bd",
+        "topology_freeze_sha256": "sha256:a0be6fc64aecf9ca375fd91c57315e8af5e5cf161c99611f4844ba8f452ae7ff",
+        "visible_edge_count": 11816,
+        "visible_node_count": 8662
+      },
+      "producer_schema": "oph.local-domain-defect-sector-spectra.v1",
+      "rer_exact_flux_12_42_vertex_identity_bridge": false,
+      "separate_from_rer_exact_flux_certificate": true
+    },
+    "stiffness_rule": "the stiffness matrix is the exact realification of the sector Laplacian, so the sector spectrum appears with every eigenvalue doubled",
+    "verdict": "CLASSICAL_REALIZATION_MATCHES_DECLARED_FINITE_SPECTRAL_INTERFACE"
   },
+  "local_domain_spectral_context_boundary": {
+    "complete_interface_discriminators_covered": false,
+    "declared_local_sector_and_scalar_spectra_matched": true,
+    "extended_domain_no_go": false,
+    "identity_bridge_to_exact_flux_support": false,
+    "lexical_scan_completeness_theorem": false,
+    "same_domain_as_exact_flux_support": false,
+    "scope": "the hash-pinned issue-634 local-domain receipt's spectral interface only",
+    "status": "bounded_local_domain_classical_match",
+    "two_component_vector_spring_model_exhibited": true
+  },
+  "manifest_sha256": "1cff936f956140cc59f50f0c9ecca4b6e543c40cca58cec66c32c159d00298d8",
   "one_step_refinement_check": {
     "all_depth_refinement_stability_proved": false,
     "characteristic_polynomials": {
@@ -343,22 +961,6 @@
       3
     ],
     "scope": "one edge-midpoint refinement with a freshly constructed child-to-child witness path"
-  },
-  "ontology_independence_no_go": {
-    "classical_model": {
-      "interpretation": "classical finite-lattice flux configuration with a complex linear wave/adjacency operator",
-      "observer_visible_interface_sha256": "dce005d174a5cbd9d7c2b298b5c8f40a651cd13dbbab718141507e1b701a694d"
-    },
-    "conclusion": "every deterministic discriminator that factors only through the declared finite interface has the same value on both models; a dynamics, pole, quantization, or equivalent extra premise is necessary for particle ontology",
-    "exhaustive_scope": "all predicates and deterministic algorithms whose complete input is the declared finite observer-visible interface",
-    "interface": "the exact finite carrier, all six seam chains, twisted Hermitian operators and characteristic polynomials, finite fusion and composition rows, and one-step refinement check exported by this packet",
-    "negative_closure_at_declared_interface": true,
-    "observer_visible_data_identical": true,
-    "observer_visible_interface_sha256": "dce005d174a5cbd9d7c2b298b5c8f40a651cd13dbbab718141507e1b701a694d",
-    "quantum_model": {
-      "interpretation": "quantum Hilbert-space flux-sector Hamiltonian candidate on the same complex vector space",
-      "observer_visible_interface_sha256": "dce005d174a5cbd9d7c2b298b5c8f40a651cd13dbbab718141507e1b701a694d"
-    }
   },
   "schema": "oph.flux_defect_criterion_receipt.v3",
   "spectral_criterion": {

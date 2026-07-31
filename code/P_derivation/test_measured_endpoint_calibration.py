@@ -43,7 +43,16 @@ def test_measured_endpoint_calibration_is_external_and_nonpromoting() -> None:
     assert payload["exact_alpha_promoted"] is False
     assert payload["external_input_used"] is True
     assert payload["empirical_hadron_closure"]["measured_thomson_endpoint_used"] is True
-    assert payload["empirical_hadron_closure"]["external_cross_section_data_integrated"] is False
+    assert (
+        payload["empirical_hadron_closure"][
+            "raw_cross_section_data_used_in_this_calibration"
+        ]
+        is False
+    )
+    assert (
+        payload["empirical_hadron_closure"]["external_input_scope"]
+        == "measured_thomson_endpoint_only"
+    )
     assert payload["empirical_hadron_closure"]["source_only_theorem_status"] == "not_promoted"
     assert payload["source_only_guard"]["codata_enters_solver"] is False
     assert payload["source_only_guard"]["may_satisfy_source_spectral_payload_gate"] is False

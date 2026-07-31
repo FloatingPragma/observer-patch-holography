@@ -98,13 +98,13 @@ Nothing in this chapter changes the equations of the earlier ones. Modular flow
 gives a restricted state an intrinsic ordering, and a calibrated instrument
 turns that ordering into a clock on the geometric branch. Horizon
 thermodynamics gives the Einstein relation when the common geometry, stress,
-vacuum, and scale premises hold. Charge transport reconstructs a compact group;
-the icosahedral certificates recognize the Standard Model Lie type and global
-form as an exact finite implication under explicit response and matter
-contracts. Incidence proves the central involution, but independent physical
-response selection, matter selection, and laboratory identification remain
-separate tests. These loops share one architecture and keep their source gates
-visible.
+vacuum, and scale premises hold. Complete reversible response and internal
+transport force the Standard Model Lie type. Under the separate matrix and
+matter contracts, the icosahedral certificates give the common central kernel
+and maximal faithful matter image. Incidence proves the central involution.
+Physical current selection, matter selection, global-form selection, and
+laboratory identification remain separate tests. These loops share one
+architecture and keep their source gates visible.
 
 ## 18.4 Self-Reference as Subtraction
 
@@ -202,27 +202,28 @@ same-scheme hadronic spectral transport. That transport is work in progress,
 so the result is a source-map fixed point rather than a laboratory
 fine-structure prediction.
 
-The global number works the same way one scale up, but the finite variable is
-the carrier dimension $D$, with $N=\log D$. Supply a carrier, construct every
-reachable terminal observer world, and ask how many public records remain
-jointly decodable through every authorized checkpoint. At universe level the
-closure equation is
+The proposed global number works the same way one scale up. Its finite
+variable is the carrier dimension $D$, with $N=\log D$. Supply a carrier,
+construct every reachable terminal observer world, and ask how many public
+records remain jointly decodable through every authorized checkpoint. The
+universe-level closure target is
 
 $$
 \boxed{N=\log M_0(\mathfrak U_N)}.
 $$
 
 $M_0$ counts the public records that survive every checkpoint; $\mathfrak U_N$
-is the universe built on a carrier of capacity $N$. The local loop reads the
-grain of one screen cell. The global loop reads the total record capacity of
-the horizon.
+is the trial universe built on a carrier of capacity $N$. One exact finite
+construction uses twelve ports with two record orientations. It has
+$D=24$ and returns all twenty-four records. This certifies one screen packet,
+not the capacity of the universe.
 
-The closure adopted in this book demands more than one favorable branch:
-every terminal world the construction can reach has to read the same
-saturated capacity, and the capacity equation has to have exactly one
-solution. Horizon-record saturation then turns that capacity into curvature,
-fixing the cosmological constant $\Lambda$ in terms of $N$ and the horizon's
-natural length unit $\ell_\star$:
+A physical global closure demands more than one favorable branch. Every
+terminal world the construction can reach has to read the same saturated
+capacity, and the capacity equation has to have exactly one solution. A
+separate horizon-record identification would then turn that capacity into
+curvature, relating the cosmological constant $\Lambda$ to $N$ and the
+horizon's natural length unit $\ell_\star$:
 
 $$
 \Lambda\ell_\star^2=\frac{3\pi}{N} .
@@ -244,10 +245,10 @@ hard to kill and hard to trust.
 
 A self-reading loop leaves nowhere to relocate once both uniqueness statements
 and their physical attachments are in place. The local map has one fixed point,
-so one cell cannot support several competing electromagnetic readings. The
-adopted global capacity equation has one solution, so the horizon cannot
-choose among several saturated record budgets. Under those premises they select one
-self-consistent universe.
+so one cell cannot support several competing electromagnetic readings. If a
+complete global source law has one solution, the horizon cannot choose among
+several saturated record budgets. Under those premises the two closures select
+one self-consistent universe.
 
 A no-dial, one-universe theory turns the usual relationship between theory and
 data inside out. Constants are readings of the architecture rather than settings
@@ -274,40 +275,64 @@ second is the experimental value used for comparison. The residual is a few
 parts per million. A same-scheme hadronic spectral transport is required for a
 physical low-energy prediction and is work in progress.
 
-The global equation identifies two descriptions of one horizon. From the
+The global equation proposes two descriptions of one horizon. From the
 capacity side it is the logarithm of the carrier dimension. From inside the
-world it is the correctable public record reconstructed by observers. A
-separate consistency check asks whether the screen's record load and the weak
-sector's load are one and the same carrier; the two readings differ
-by about $6.6$ percent, and reconciling them is work in progress.
+world it is the correctable public record reconstructed by observers. Proving
+that these are readings of one universe-level carrier is work in progress. A
+separate comparison asks whether the screen's record load and the weak
+sector's load are one and the same carrier; the two readings differ by about
+$6.6$ percent.
 
-If both equations land, OPH is a fully zero-parameter theory, with both
-numbers returned by the architecture rather than measured. The closure proofs
-are not strictly necessary, though. The loop is a closed mathematical
-structure either way, and living inside a closed structure licenses reading
-values off it: locate a constant in its basin by observation, then prove
-exact fixed-point-ness afterward. The theorems certify the located value;
-they do not have to manufacture it. Even if a first-principles closure for
-$N$ is never found, the reconstruction of the earlier chapters stands. $N$ is
-read from the universe the way any machine setting is read from the machine.
+If both equations land on source-derived maps, the two constants come back
+from the architecture rather than from measurement. That would remove the
+continuous dials from this closure branch. It would not select every physical
+action, particle attachment, or continuum limit elsewhere in the theory.
+
+Measurement can tell us where to look, but it cannot do the work of a closure
+proof. A value located by observation remains a diagnostic until one
+target-free rule builds the return map and the fixed point is shown to be
+unique. The local map has a certified mathematical root, with its physical
+low-energy transport open. The global side has a sharper obstacle. Alongside
+the exact twenty-four-record packet, a finite counterfamily is fixed without
+looking at cosmological data. Its branches agree on the base capacity, keep
+capacity positive, and never exceed the carrier size. One keeps every copy, one
+collapses copies, one keeps two classes, and one hides spectator copies. Their
+fixed-point sets disagree.
+
+This finite counterfamily proves that those three requirements do not select a
+unique capacity. The machine-checked proof covers that arithmetic
+disagreement. It does not carry the complete observer packet, agreement maps,
+randomness constraints, and refinement controls through every carrier size.
+That full three-axiom construction is work in progress. So is the attachment
+between any selected carrier and the universe. No direct cosmic value of $N$
+follows from the finite packet or its counterfamily.
 
 The two numbers have different jobs. $P_\star$ is the local grain of
-observation. $N$ is the global capacity for records. The first sets the
-electromagnetic readout of a screen cell. The second sets the cosmic
+observation. $N$ would be the global capacity for records. The first sets the
+electromagnetic readout of a screen cell. After the source law, universe
+carrier, horizon ledger, and scale are identified, the second would set cosmic
 curvature through $\Lambda=3\pi/(GN)$, with $G$ Newton's constant.
-The strange loop fixes both by demanding that the universe return the same
-numbers it was given.
+The strange loop motivates the same demand for both numbers: the outside
+construction and the inside public readback must describe one invariant. Once
+that identification is established, equality follows. Constructing the two
+readings and proving that they refer to the same thing contains the physical
+work.
 
 ## 18.8 Where the Loop Leads
 
 The strange loop converts the structure of the argument into the argument. The
-measured constants are the loop's readings through the observers it produced.
-Those observers work out the architecture of the world from inside it, making
-the self-description explicit. Escher's hands are holding instruments.
+local closure supplies a finite mathematical reading that can be compared with
+the measured electromagnetic constant once the physical transport is supplied.
+The analogous global reading needs a stronger source law that says which
+continuation the universe uses and why the inside and outside readings refer
+to the same quantity. Self-reference demands equality after that
+identification. It does not choose the measuring instrument. Observers work
+out the architecture of the world from inside it, making the self-description
+explicit. Escher's hands are holding instruments.
 
 The next chapter gathers the whole construction into one synthesis, from the
 finite port carrier and its screen chart to the shared public world, and reads
-the two-number closure as the compression claim at the center of the program.
-The chapter after it asks what a self-reading universe means for experience,
-existence, and the observers who turn out to be one of the ways reality
-reflects on itself.
+the local closure and conditional cosmic-capacity proposal as the compression
+claim at the center of the program. The chapter after it asks what a
+self-reading universe means for experience, existence, and the observers who
+turn out to be one of the ways reality reflects on itself.

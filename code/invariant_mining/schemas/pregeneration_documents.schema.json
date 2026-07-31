@@ -1,0 +1,405 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://floatingpragma.io/schemas/oph-invariant-pregeneration-documents-v1.json",
+  "title": "OPH invariant-mining pre-generation documents",
+  "type": "object",
+  "oneOf": [
+    {
+      "required": [
+        "schema",
+        "issue",
+        "registry_id",
+        "completeness",
+        "features"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.source_feature_registry.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "features": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "feature_id",
+              "feature_class",
+              "statement",
+              "premises",
+              "target_ancestry",
+              "physical_attachment_status",
+              "candidate_generation_eligible",
+              "artifacts"
+            ],
+            "properties": {
+              "feature_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "candidate_generation_eligible": {
+                "const": false
+              },
+              "artifacts": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/artifact"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "required": [
+        "schema",
+        "issue",
+        "registry_id",
+        "execution_state",
+        "slots"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.producer_slots.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "slots": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "slot_id",
+              "owner_issues",
+              "search_family",
+              "required_feature_ids",
+              "allowed_grammar_class_ids",
+              "execution_status",
+              "fallback_eligibility"
+            ],
+            "properties": {
+              "execution_status": {
+                "const": "REGISTERED_DISABLED"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "required": [
+        "schema",
+        "issue",
+        "grammar_id",
+        "freeze_status",
+        "scalar_domains",
+        "class_ids",
+        "operators",
+        "complexity_budget",
+        "equivalence_relation",
+        "forbidden_terminals"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.observable_grammar.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "freeze_status": {
+          "const": "FROZEN_BEFORE_CANDIDATE_GENERATION"
+        }
+      }
+    },
+    {
+      "required": [
+        "schema",
+        "issue",
+        "registry_id",
+        "freeze_status",
+        "taxonomy",
+        "unresolved_directions"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.nuisance_registry.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "freeze_status": {
+          "const": "FROZEN_BEFORE_CANDIDATE_GENERATION"
+        }
+      }
+    },
+    {
+      "required": [
+        "schema",
+        "issue",
+        "policy_id",
+        "freeze_status",
+        "eligibility",
+        "weights",
+        "score_rule",
+        "tie_breaker",
+        "skip_policy"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.ranking_policy.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "freeze_status": {
+          "const": "FROZEN_BEFORE_CANDIDATE_GENERATION"
+        }
+      }
+    },
+    {
+      "required": [
+        "schema",
+        "issue",
+        "policy_id",
+        "status",
+        "registry_finalization_complete",
+        "candidate_generator_enabled",
+        "candidate_evaluator_enabled",
+        "public_data_access_enabled",
+        "target_payloads_registered",
+        "candidate_count",
+        "required_feature_ids",
+        "required_producer_slot_ids",
+        "required_grammar_class_ids",
+        "required_nuisance_type_ids",
+        "required_nuisance_ids",
+        "direct_n_contract",
+        "control_artifacts",
+        "forbidden_document_keys",
+        "forbidden_repository_prefixes",
+        "forbidden_output_names",
+        "promotion_rule",
+        "required_exposure_ids",
+        "campaign_comparison_budget",
+        "declared_candidate_output"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.pregeneration_policy.v3"
+        },
+        "issue": {
+          "const": 647
+        },
+        "registry_finalization_complete": {
+          "const": true
+        },
+        "candidate_generator_enabled": {
+          "const": true
+        },
+        "candidate_evaluator_enabled": {
+          "const": true
+        },
+        "public_data_access_enabled": {
+          "const": false
+        },
+        "target_payloads_registered": {
+          "const": false
+        },
+        "candidate_count": {
+          "const": 0
+        },
+        "status": {
+          "const": "GENERATION_ENABLED__COMPARISON_SEALED"
+        },
+        "required_exposure_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "campaign_comparison_budget": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "maximum_physical_comparisons",
+            "comparisons_consumed",
+            "terminate_after_first_physical_comparison"
+          ],
+          "properties": {
+            "maximum_physical_comparisons": {
+              "const": 1
+            },
+            "comparisons_consumed": {
+              "const": 0
+            },
+            "terminate_after_first_physical_comparison": {
+              "const": true
+            }
+          }
+        },
+        "declared_candidate_output": {
+          "const": "code/invariant_mining/outputs/candidate_registry.json"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema",
+        "issue",
+        "registry_id",
+        "freeze_status",
+        "presumption_rule",
+        "exposure_classes",
+        "scoring_rule",
+        "surfaces"
+      ],
+      "properties": {
+        "schema": {
+          "const": "oph.invariant_mining.exposed_data_registry.v1"
+        },
+        "issue": {
+          "const": 647
+        },
+        "registry_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "freeze_status": {
+          "const": "FROZEN_BEFORE_CANDIDATE_GENERATION"
+        },
+        "presumption_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exposure_classes": {
+          "const": [
+            "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
+            "TARGET_ISOLATED_BLIND_POSTDICTION",
+            "EXPOSED_RETROSPECTIVE_COMPARISON",
+            "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY"
+          ]
+        },
+        "scoring_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "exposure_id",
+              "description",
+              "applies_to_slot_ids",
+              "default_exposure_class",
+              "quarantine_evidence",
+              "future_release_holdout_possible"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "exposure_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "applies_to_slot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "default_exposure_class": {
+                "enum": [
+                  "TARGET_CLEAN_PROSPECTIVE_HOLDOUT",
+                  "TARGET_ISOLATED_BLIND_POSTDICTION",
+                  "EXPOSED_RETROSPECTIVE_COMPARISON",
+                  "EXPLORATORY_DISCOVERY_DATA_CATALOG_ONLY"
+                ]
+              },
+              "quarantine_evidence": {
+                "type": "null"
+              },
+              "future_release_holdout_possible": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "historical_search_note": {
+          "type": "string"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "repoPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "path",
+        "kind",
+        "role"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/repoPath"
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "pin": {
+      "type": "object",
+      "required": [
+        "path",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/repoPath"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

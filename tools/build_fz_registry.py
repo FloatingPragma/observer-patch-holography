@@ -8,19 +8,23 @@ page differs from the render, and the mandatory suite runs that check.
 Fail-closed rules: frozen rows carry a parseable, non-future UTC freeze time,
 custody, a typed attestation state, content hash, kill band, and comparison
 protocol; pending rows carry an owning issue that is open in the committed
-snapshot and a milestone. Committed custody contracts bind the source-side
+snapshot and a milestone. Retrospective results occupy a separate collection;
+their former reservations cannot also occur as ladder rows. The issue-506
+record is checked against a fresh replay of its canonical producer as well as
+its recomputed payload digest. Committed custody contracts bind the source-side
 FZ-02 receipt and Lean module even in an isolated clone. When the sibling
 oph-meta custody checkout is present, the tool additionally verifies every
 manifest artifact, detached OpenTimestamps digest, attestation class, and the
-append-only FZ-02 erratum. When it is absent, the tool reports
-``external_custody_not_present`` explicitly rather than claiming that the
-external artifact set was verified.
+append-only FZ-02 custody and scientific errata. When it is absent, the tool
+reports ``external_custody_not_present`` explicitly rather than claiming that
+the external artifact set was verified.
 """
 
 from __future__ import annotations
 
 import argparse
 import hashlib
+import importlib.util
 import json
 import re
 import sys
@@ -39,15 +43,27 @@ FZ02_RECEIPT_PATH = (
     / "receipts"
     / "a5_angular_multiplet_reference.receipt.json"
 )
+FZ04_VERDICT_REL = (
+    "code/particles/alpha_hvp_audit/outputs/alpha_hvp_class_verdict.json"
+)
+FZ04_VERDICT_PATH = ROOT / FZ04_VERDICT_REL
+FZ04_BUILDER_PATH = (
+    ROOT
+    / "code"
+    / "particles"
+    / "alpha_hvp_audit"
+    / "build_alpha_hvp_verdict.py"
+)
 DEFAULT_CUSTODY_ROOT = ROOT.parent
 
-SCHEMA = "oph.frozen_prediction_register.v2"
+SCHEMA = "oph.frozen_prediction_register.v3"
 STATUSES = {
     "frozen_attested",
     "frozen_stamped_upgrade_pending",
     "standing_frozen",
     "registered_pending_freeze",
     "resource_deferred",
+    "superseded_void",
 }
 FROZEN_STATUSES = {
     "frozen_attested",
@@ -74,7 +90,20 @@ REGISTER_KEYS = {
     "generated_surface",
     "policy",
     "external_custody_contracts",
+    "retrospective_results",
     "rows",
+}
+RETROSPECTIVE_RESULT_KEYS = {
+    "id",
+    "former_ladder_reservation",
+    "content",
+    "status",
+    "payload_path",
+    "payload_sha256",
+    "comparison_protocol",
+    "evidential_boundary",
+    "owning_issue",
+    "milestone",
 }
 COMMON_CONTRACT_KEYS = {
     "rows",
@@ -91,6 +120,8 @@ FZ02_CONTRACT_EXTRA_KEYS = {
     "source_commit",
     "custody_erratum",
     "custody_erratum_sha256",
+    "scientific_erratum",
+    "scientific_erratum_sha256",
     "target_file",
     "target_block_sha256",
     "target_payload_sha256",
@@ -98,6 +129,21 @@ FZ02_CONTRACT_EXTRA_KEYS = {
 ATTESTATION_STATES = {"calendar_pending", "bitcoin_attested"}
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 GIT_COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
+
+FZ04_SCOPE = {
+    "comparison_timing": "retrospective",
+    "prospective_freeze": False,
+    "independent_hvp_implementation_supplied": False,
+    "empirical_input_promoted_to_source_output": False,
+    "physical_alpha_prediction_emitted": False,
+}
+FZ04_CLAIM_BOUNDARY = (
+    "The multi-class independent alpha/HVP test is not evaluable. One "
+    "byte-pinned KNT19 accounting row is compatible under a secondary "
+    "arithmetic replay. Raw-dispersive, independent-code, and lattice-HVP "
+    "classes lack frozen repository ingests. The result is retrospective and "
+    "supplies neither a prospective freeze nor a physical OPH alpha prediction."
+)
 
 # DetachedTimestampFile header followed by the SHA-256 operation tag and the
 # 32-byte digest of the paired file. Reading this prefix does not require the
@@ -130,6 +176,31 @@ def sha256_bytes(payload: bytes) -> str:
 
 def sha256_file(path: Path) -> str:
     return sha256_bytes(path.read_bytes())
+
+
+def canonical_json_bytes(value: Any) -> bytes:
+    return (
+        json.dumps(value, sort_keys=True, separators=(",", ":")) + "\n"
+    ).encode("utf-8")
+
+
+def rebuild_issue506_verdict() -> dict[str, Any]:
+    """Replay the canonical producer instead of trusting its stored digest."""
+
+    spec = importlib.util.spec_from_file_location(
+        "_oph_alpha_hvp_verdict_builder", FZ04_BUILDER_PATH
+    )
+    if spec is None or spec.loader is None:
+        fail("cannot import the issue-506 canonical verdict producer")
+    module = importlib.util.module_from_spec(spec)
+    try:
+        spec.loader.exec_module(module)
+        rebuilt = module.build_verdict()
+    except Exception as error:
+        fail(f"issue-506 canonical verdict replay failed: {error}")
+    if not isinstance(rebuilt, dict):
+        fail("issue-506 canonical verdict producer did not return an object")
+    return rebuilt
 
 
 def require_sha256(value: Any, where: str) -> str:
@@ -243,6 +314,11 @@ def validate_custody_contracts(
                     or "bitcoin-attested" in attestation
                 ):
                     fail(f"{row_id} must not claim a completed Bitcoin attestation")
+            elif row["status"] == "superseded_void":
+                if row["frozen_utc"] is not None:
+                    fail(f"{row_id} superseded-void custody cannot retain a freeze time")
+                if "bitcoin" not in attestation:
+                    fail(f"{row_id} must name the attestation on its historical bytes")
             elif row["status"] not in {"frozen_attested", "standing_frozen"}:
                 fail(f"{row_id} Bitcoin custody requires an attested frozen status")
             elif "bitcoin" not in attestation:
@@ -252,6 +328,7 @@ def validate_custody_contracts(
             for key in (
                 "registration_manifest_sha256",
                 "custody_erratum_sha256",
+                "scientific_erratum_sha256",
                 "target_block_sha256",
                 "target_payload_sha256",
             ):
@@ -282,12 +359,105 @@ def validate_custody_contracts(
                 )
             if contract["target_file"] not in artifacts:
                 fail("FZ-02 target_file must be present in its artifact hash contract")
-            for key in ("custody_erratum", "target_file"):
+            for key in ("custody_erratum", "scientific_erratum", "target_file"):
                 value = contract[key]
                 if not isinstance(value, str) or Path(value).name != value:
                     fail(f"external_custody_contracts[FZ-02].{key} must be a file name")
 
     return contracts
+
+
+def validate_retrospective_results(register: dict) -> set[str]:
+    results = register.get("retrospective_results")
+    if not isinstance(results, list) or not results:
+        fail("retrospective_results must be a nonempty list")
+
+    seen_ids: set[str] = set()
+    former_reservations: set[str] = set()
+    for index, result in enumerate(results):
+        where = f"retrospective_results[{index}] ({result.get('id')})"
+        if not isinstance(result, dict) or set(result) != RETROSPECTIVE_RESULT_KEYS:
+            fail(f"{where}: keys mismatch")
+        result_id = result["id"]
+        if (
+            not isinstance(result_id, str)
+            or not result_id
+            or result_id in seen_ids
+        ):
+            fail(f"{where}: id must be a unique nonempty string")
+        seen_ids.add(result_id)
+        former = result["former_ladder_reservation"]
+        if (
+            not isinstance(former, str)
+            or re.fullmatch(r"FZ-\d{2}", former) is None
+            or former in former_reservations
+        ):
+            fail(f"{where}: former_ladder_reservation must be a unique FZ id")
+        former_reservations.add(former)
+        if result["status"] != "retrospective_not_evaluable":
+            fail(f"{where}: unsupported retrospective status")
+        for key in (
+            "content",
+            "payload_path",
+            "comparison_protocol",
+            "evidential_boundary",
+            "milestone",
+        ):
+            if not isinstance(result[key], str) or not result[key].strip():
+                fail(f"{where}: {key} must be nonempty")
+        payload_path = Path(result["payload_path"])
+        if payload_path.is_absolute() or ".." in payload_path.parts:
+            fail(f"{where}: payload_path must be a repository-relative path")
+        require_sha256(result["payload_sha256"], f"{where}.payload_sha256")
+        if not isinstance(result["owning_issue"], int):
+            fail(f"{where}: owning_issue must identify the closed source issue")
+
+    fz04 = results[0]
+    if (
+        len(results) != 1
+        or fz04["id"] != "RR-506-ALPHA-HVP"
+        or fz04["former_ladder_reservation"] != "FZ-04"
+        or fz04["owning_issue"] != 506
+        or fz04["payload_path"] != FZ04_VERDICT_REL
+    ):
+        fail("the issue-506 retrospective result binding is malformed")
+
+    verdict = load_json(FZ04_VERDICT_PATH)
+    if (
+        verdict.get("schema") != "oph.alpha_hvp_class_verdict.v2"
+        or verdict.get("issue") != 506
+        or verdict.get("row_class")
+        != "retrospective_empirical_same_scheme_accounting_audit"
+        or verdict.get("verdict")
+        != "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE"
+    ):
+        fail("the issue-506 payload has the wrong retrospective verdict identity")
+    if verdict.get("scope") != FZ04_SCOPE:
+        fail("the issue-506 payload scope differs from the bounded retrospective scope")
+    if verdict.get("claim_boundary") != FZ04_CLAIM_BOUNDARY:
+        fail("the issue-506 payload claim boundary differs from the bounded statement")
+
+    payload_without_digest = {
+        key: value for key, value in verdict.items() if key != "verdict_sha256"
+    }
+    computed_hash = sha256_bytes(canonical_json_bytes(payload_without_digest))
+    reported_hash = verdict.get("verdict_sha256")
+    if reported_hash != f"sha256:{computed_hash}":
+        fail(
+            "the issue-506 payload self-digest does not equal its canonical "
+            f"content hash {computed_hash}"
+        )
+    if fz04["payload_sha256"] != computed_hash:
+        fail(
+            "the issue-506 retrospective payload hash does not equal the "
+            f"canonical content hash {computed_hash}"
+        )
+    rebuilt_verdict = rebuild_issue506_verdict()
+    if verdict != rebuilt_verdict:
+        fail(
+            "the issue-506 stored payload does not equal the canonical producer replay"
+        )
+    return former_reservations
 
 
 def validate(register: dict) -> list[dict]:
@@ -304,10 +474,29 @@ def validate(register: dict) -> list[dict]:
     snapshot = load_json(SNAPSHOT_PATH)
     open_issues = {row["number"] for row in snapshot["rows"]}
 
-    expected_ids = [f"FZ-{index:02d}" for index in range(1, len(rows) + 1)]
     seen_ids = [row.get("id") for row in rows]
-    if seen_ids != expected_ids:
-        fail(f"rows must be the contiguous ladder {expected_ids}, got {seen_ids}")
+    if (
+        any(not isinstance(row_id, str) for row_id in seen_ids)
+        or len(set(seen_ids)) != len(seen_ids)
+        or any(re.fullmatch(r"FZ-\d{2}", row_id) is None for row_id in seen_ids)
+        or seen_ids != sorted(seen_ids)
+    ):
+        fail("rows must carry unique ascending FZ identifiers")
+
+    former_reservations = validate_retrospective_results(register)
+    overlap = set(seen_ids) & former_reservations
+    if overlap:
+        fail(
+            "retrospective reservations must not appear as prospective ladder "
+            f"rows: {sorted(overlap)}"
+        )
+    allocated = sorted(set(seen_ids) | former_reservations)
+    expected_allocated = [f"FZ-{index:02d}" for index in range(1, 11)]
+    if allocated != expected_allocated:
+        fail(
+            "ladder rows and explicitly retired reservations must account for "
+            f"{expected_allocated}, got {allocated}"
+        )
 
     rows_by_id: dict[str, dict] = {}
     for index, row in enumerate(rows):
@@ -332,16 +521,70 @@ def validate(register: dict) -> list[dict]:
                 fail(f"{where}: owning issue #{owning} is not open in the snapshot")
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a pending row requires a milestone")
-        else:
+        elif row["status"] == "resource_deferred":
             if row["owning_issue"] is not None:
                 fail(f"{where}: a resource-deferred row cannot retain an open owner")
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a resource-deferred row requires a disposition")
+        else:
+            if row["status"] != "superseded_void":
+                raise AssertionError("unreachable status branch")
+            if row["frozen_utc"] is not None:
+                fail(f"{where}: a superseded-void row cannot retain a freeze time")
+            if row["owning_issue"] is not None:
+                fail(f"{where}: a superseded-void row cannot retain an open owner")
+            if row["milestone"] != "superseded":
+                fail(f"{where}: a superseded-void row requires milestone superseded")
+            if row["comparison_protocol"].lower().startswith("none;") is False:
+                fail(f"{where}: a superseded-void row must refuse comparison")
+            if row["kill_band"].lower().startswith("none;") is False:
+                fail(f"{where}: a superseded-void row must carry no kill band")
         rows_by_id[row["id"]] = row
+
+    fz01 = rows_by_id.get("FZ-01", {})
+    if (
+        "four retained frozen targets" not in str(fz01.get("content", ""))
+        or "ringdown row is excluded from scoring"
+        not in str(fz01.get("comparison_protocol", ""))
+    ):
+        fail("FZ-01 must exclude the superseded ringdown row from its retained targets")
+    fz06 = rows_by_id.get("FZ-06", {})
+    if (
+        fz06.get("status") != "superseded_void"
+        or fz06.get("frozen_utc") is not None
+        or "VOID/MISATTRIBUTED" not in str(fz06.get("content", ""))
+        or "no frozen numeric prediction" not in str(fz06.get("content", ""))
+    ):
+        fail("FZ-06 must retain the alpha=4 record only as superseded void history")
 
     validate_custody_contracts(register, rows_by_id)
 
-    fz02 = rows[1]
+    fz02 = rows_by_id.get("FZ-02", {})
+    if (
+        "frame-lock clause is not established" not in fz02.get("content", "")
+        or "ineligible pending issue #643" not in fz02.get("content", "")
+        or "no frame-lock verdict may be issued" not in fz02.get(
+            "comparison_protocol", ""
+        )
+        or "FZ02-R03a" not in fz02.get("kill_band", "")
+        or "FZ02-R03b (INELIGIBLE; #643)" not in fz02.get("kill_band", "")
+    ):
+        fail(
+            "FZ-02 must keep the unsupported frame-lock clause ineligible "
+            "pending issue #643"
+        )
+
+    fz05 = rows_by_id.get("FZ-05", {})
+    if (
+        "#503 and #589" not in fz05.get("content", "")
+        or "retrospective" not in fz05.get("comparison_protocol", "").lower()
+        or "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT"
+        not in fz05.get("kill_band", "")
+    ):
+        fail(
+            "FZ-05 must keep the Einstein/de Sitter and horizon-record "
+            "physicalization gates and retrospective exposure boundary"
+        )
     receipt = load_json(FZ02_RECEIPT_PATH)
     live_hash = receipt.get("receipt_sha256")
     if fz02["content_sha256"] != live_hash:
@@ -460,6 +703,14 @@ def verify_external_custody(
                 fail("FZ-02 append-only custody erratum is missing")
             if sha256_file(erratum_path) != contract["custody_erratum_sha256"]:
                 fail("FZ-02 custody erratum hash mismatch")
+            scientific_erratum_path = directory / contract["scientific_erratum"]
+            if not scientific_erratum_path.is_file():
+                fail("FZ-02 append-only scientific erratum is missing")
+            if (
+                sha256_file(scientific_erratum_path)
+                != contract["scientific_erratum_sha256"]
+            ):
+                fail("FZ-02 scientific erratum hash mismatch")
             target_path = directory / contract["target_file"]
             block_hash, payload_hash = fenced_target_hashes(target_path)
             if block_hash != contract["target_block_sha256"]:
@@ -492,18 +743,77 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append("| Freeze | Content | Status | Frozen (UTC) | Owner | Kill band |")
     lines.append("| --- | --- | --- | --- | --- | --- |")
-    for row in rows:
+    active_rows = [row for row in rows if row["status"] != "superseded_void"]
+    superseded_rows = [row for row in rows if row["status"] == "superseded_void"]
+    for row in active_rows:
         owner = (
             f"[#{row['owning_issue']}](https://github.com/FloatingPragma/observer-patch-holography/issues/{row['owning_issue']})"
             f" ({row['milestone']})"
             if row["owning_issue"] is not None
             else row["milestone"]
         )
-        frozen = row["frozen_utc"] if row["frozen_utc"] else "to freeze"
+        if row["frozen_utc"]:
+            frozen = row["frozen_utc"]
+        elif row["status"] == "resource_deferred":
+            frozen = "not registered"
+        elif row["status"] == "superseded_void":
+            frozen = "not a valid freeze"
+        else:
+            frozen = "to freeze"
         lines.append(
             f"| {row['id']} | {row['content']} | {row['status']} | {frozen} |"
             f" {owner} | {row['kill_band']} |"
         )
+    lines.append("")
+    lines.append("## Superseded records outside the ladder")
+    lines.append("")
+    lines.append(
+        "These identifiers preserve attested historical bytes and their current"
+        " scientific disposition. They are not predictions, freezes, or scoring"
+        " surfaces."
+    )
+    lines.append("")
+    lines.append("| Record | Content | Status | Comparison authority |")
+    lines.append("| --- | --- | --- | --- |")
+    for row in superseded_rows:
+        lines.append(
+            f"| {row['id']} | {row['content']} | {row['status']} |"
+            f" {row['comparison_protocol']} |"
+        )
+    lines.append("")
+    lines.append("## Retrospective results outside the ladder")
+    lines.append("")
+    lines.append(
+        "These records were evaluated after their comparison inputs were known."
+        " They are not freezes, ladder rungs, predictions, or evidence from a"
+        " prospective test. A former reservation remains visible only to make"
+        " the bookkeeping transition traceable."
+    )
+    lines.append("")
+    lines.append(
+        "| Record | Former reservation | Result | Status | Source | Payload hash |"
+    )
+    lines.append("| --- | --- | --- | --- | --- | --- |")
+    for result in register["retrospective_results"]:
+        owner = (
+            f"[#{result['owning_issue']}](https://github.com/FloatingPragma/"
+            "observer-patch-holography/issues/"
+            f"{result['owning_issue']}) ({result['milestone']})"
+        )
+        lines.append(
+            f"| {result['id']} | {result['former_ladder_reservation']} |"
+            f" {result['content']} | {result['status']} | {owner} |"
+            f" `{result['payload_sha256']}` |"
+        )
+    lines.append("")
+    for result in register["retrospective_results"]:
+        lines.append(
+            f"- **{result['id']} protocol**: {result['comparison_protocol']}"
+        )
+        lines.append(
+            f"  Evidential boundary: {result['evidential_boundary']}"
+        )
+        lines.append(f"  Payload: `{result['payload_path']}`.")
     lines.append("")
     lines.append("## Custody and attestation")
     lines.append("")
@@ -535,9 +845,12 @@ def render(register: dict, rows: list[dict]) -> str:
         "FZ-02 is bound to oph-meta custody commit"
         f" `{fz02_contract['custody_commit']}` at"
         f" `{fz02_contract['custody_commit_utc']}` and source commit"
-        f" `{fz02_contract['source_commit']}`. Its append-only erratum corrects"
+        f" `{fz02_contract['source_commit']}`. Its append-only custody erratum"
+        " corrects"
         " the original timestamp, source-commit, and whole-file-versus-fenced-"
-        "block hash metadata without modifying any stamped artifact."
+        "block hash metadata. Its append-only scientific erratum marks the"
+        " unsupported level-six/level-three frame-lock clause ineligible"
+        " pending issue #643. Neither erratum modifies any stamped artifact."
     )
     lines.append("")
     lines.append(
@@ -559,6 +872,10 @@ def render(register: dict, rows: list[dict]) -> str:
         "is examined; the register validation requires each pending row to name"
     )
     lines.append("a live owning issue and fails closed otherwise.")
+    lines.append(
+        "Retrospective results are validated and rendered in their separate"
+        " section. Their former reservations do not occur in the ladder table."
+    )
     return "\n".join(lines) + "\n"
 
 

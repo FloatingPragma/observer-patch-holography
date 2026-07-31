@@ -914,9 +914,11 @@ end OPHInner
       is the Lie algebra of a torus with an automorphism-preserved integral
       cocharacter lattice) — this needs the Galois structure of the A₅ character
       field ℚ(√5) and is a separate project;
-    * that the constructed bracket is the physical current bracket, that the
-      A₅-action on it is inner, or that the six-axis lattice is a physical
-      cocharacter lattice.  Those are the paper's own open receipts.
+    * the source binding of the current bracket, its inner A₅ action, or the
+      finite physical interpretation of the six-axis lattice.  Companion
+      executable receipts establish those statements on the named certified
+      source carrier.  Laboratory-current attachment and continuum
+      cocharacter interpretation remain separate.
 
   Note on Part III: Smith invariants (1,1,1,1,1,6) for the presentation matrix
   are equivalent to the statement that the quotient is cyclic of order 6, which

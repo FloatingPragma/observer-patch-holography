@@ -19,6 +19,9 @@ OUTPUT_RELATIVE = Path("paper/paper_release_manifest.json")
 BOOK_PDF_RELATIVE = Path("book/reverse-engineering-reality-book.pdf")
 RELEASED_COSMOLOGY_TEX = ()
 RELEASE_TRACKED_PDFS = {
+    "from_observer_consensus_to_standard_physics": Path(
+        "flagship/from_observer_consensus_to_standard_physics.pdf"
+    ),
     "deriving_the_particle_zoo_from_observer_consistency": Path(
         "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
     ),
@@ -100,9 +103,8 @@ def verify_lean_theorem_count(repo_root: Path) -> None:
 
 
 def discover_extra_pdfs(repo_root: Path) -> dict[str, Path]:
-    extra_dir = repo_root / "extra"
     discovered: dict[str, Path] = {}
-    for tex_path in sorted(extra_dir.glob("*.tex")):
+    for tex_path in paper_sources.RELEASED_ADJUNCT_PAPERS.values():
         pdf_path = tex_path.with_suffix(".pdf")
         if not pdf_path.is_file():
             raise SystemExit(
@@ -117,9 +119,9 @@ def verify_no_stray_pdfs(repo_root: Path, manifest: dict) -> None:
     """Reject release-surface PDFs that no source implies.
 
     Membership is derived from the sources: the curated release set for
-    ``paper/`` and the ``extra/*.tex`` glob for ``extra/``. Any other PDF in
-    those directories would ship unhashed and unaudited, so its presence
-    fails the manifest build (issue #514).
+    ``paper/`` and the explicitly registered challenge adjuncts in ``extra/``.
+    Other ``extra/`` and ``cosmology/`` PDFs are repository-maintained build
+    products and are intentionally outside the public release manifest.
     """
     expected = {
         str(Path(payload["pdf_path"]))
@@ -139,9 +141,13 @@ def verify_no_stray_pdfs(repo_root: Path, manifest: dict) -> None:
         expected.add(str(pdf))
     actual = {
         str(pdf.relative_to(repo_root))
-        for directory in ("paper", "extra")
-        for pdf in (repo_root / directory).glob("*.pdf")
+        for pdf in (repo_root / "paper").glob("*.pdf")
     }
+    actual.update(
+        str(pdf.relative_to(repo_root))
+        for tex_path in paper_sources.RELEASED_ADJUNCT_PAPERS.values()
+        if (pdf := repo_root / "extra" / tex_path.with_suffix(".pdf").name).is_file()
+    )
     strays = sorted(actual - expected)
     if strays:
         raise SystemExit(

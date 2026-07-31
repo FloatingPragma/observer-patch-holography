@@ -144,6 +144,17 @@ def load_upstreams() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         "CURRENT_CENTER",
         "the #566 current center is not the one-dimensional constant port line",
     )
+    current_conditional = current_receipt.get("conditional_algebraic_gate", {})
+    current_physical = current_receipt.get("physical_source_gate", {})
+    require(
+        current_conditional.get("passed") is True
+        and current_physical.get("passed") is False
+        and current_physical.get("response_model_source_bound") is False
+        and current_physical.get("same_current_internal_implementers_source_bound")
+        is False,
+        "CURRENT_SCOPE",
+        "the #566 center must remain conditional on the declared current fixture",
+    )
 
     require(
         matter_manifest.get("schema") == "oph.super_tannakian_matter_manifest.v5",
@@ -166,12 +177,16 @@ def load_upstreams() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         "the #314 matter packet is not bound to the #566 current packet",
     )
     matter_gate = matter_receipt.get("physical_source_gate", {})
+    matter_conditional = matter_receipt.get("conditional_algebraic_gate", {})
     require(
-        matter_gate.get("upstream_response_representation_source_bound") is True
+        matter_conditional.get("passed") is True
+        and matter_gate.get("passed") is False
+        and matter_gate.get("upstream_current_representation_source_bound") is False
+        and matter_gate.get("matter_lift_source_bound") is False
         and matter_gate.get("declared_scalar_content_source_bound") is False
         and matter_gate.get("scalar_economy_source_bound") is False,
         "MATTER_SCOPE",
-        "the #314 matter packet lost its scalar non-promotion boundary",
+        "the #314 matter packet lost its conditional current/matter or scalar boundary",
     )
 
     require(
@@ -193,6 +208,19 @@ def load_upstreams() -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
         == 6,
         "GLOBAL_FORM_MATTER_PIN",
         "the #567 global form is not bound to the #314 matter packet",
+    )
+    global_conditional = global_receipt.get("conditional_algebraic_gate", {})
+    global_physical = global_receipt.get("physical_global_form_gate", {})
+    require(
+        global_conditional.get("passed") is True
+        and global_physical.get("passed") is False
+        and global_physical.get("upstream_response_physically_source_bound") is False
+        and global_physical.get("upstream_matter_physically_source_bound") is False
+        and global_physical.get("axis_relation_lattice_source_selected") is False
+        and global_physical.get("same_source_loop_to_tensor_kernel_identification")
+        is False,
+        "GLOBAL_FORM_SCOPE",
+        "the #567 packet must retain its open physical-global-form boundary",
     )
 
     require(
@@ -378,7 +406,7 @@ def screen_order_unit(
         "rotation_checks": len(rotations),
         "orbit_of_p00": orbit,
         "current_center_binding": (
-            "the #566 current center is the same constant even-port line"
+            "the #566 declared-current fixture has the same constant even-port line"
         ),
         "refinement": {
             **refinement,
@@ -432,7 +460,8 @@ def electroweak_order_unit(
     scalar_verdict = scalar_boundary["scalar_response_multiplicity"]["verdict"]
     return {
         "restriction": (
-            "the one-generation matter module restricted to the weak factor"
+            "the declared conditional one-generation matter fixture restricted "
+            "to the weak factor"
         ),
         "copy_derivation": {
             "Q_dimension": fields["Q"]["dimension"],
@@ -452,7 +481,7 @@ def electroweak_order_unit(
         "positive_ray": "c * I_4 with c >= 0",
         "normalized_trace": "tau_EW(c * I_4) = Tr_4(c * I_4) / 4 = c",
         "refinement_natural": True,
-        "global_form_compatible": True,
+        "conditional_declared_kernel_compatible": True,
         "scalar_boundary": {
             "scalar_existence": scalar_verdict["scalar_existence"],
             "scalar_multiplicity": scalar_verdict["scalar_multiplicity"],
@@ -584,7 +613,8 @@ def build_payload() -> dict[str, Any]:
         "claim_boundary": {
             "proves": (
                 "the pinned finite screen has one invariant normalized order-unit "
-                "line, the four-copy weak restriction has one central normalized "
+                "line, the four-copy weak restriction of the declared conditional "
+                "matter fixture has one central normalized "
                 "order-unit line, and the unique positive unital trace-preserving "
                 "linear isomorphism between those lines is refinement-natural"
             ),
@@ -598,11 +628,19 @@ def build_payload() -> dict[str, Any]:
             ],
         },
         "upstream_pins": pins,
+        "conditional_scope": {
+            "declared_current_fixture": True,
+            "declared_matter_fixture": True,
+            "declared_global_form_coefficient_system": True,
+            "physical_current_source_bound": False,
+            "physical_matter_lift_source_bound": False,
+            "physical_global_form_selected": False,
+        },
         "dependency_chain": [
             "issue 565: finite twelve-port carrier and refinement",
-            "issue 566: source-bound current center and natural unit line",
-            "issue 314: finite matter module and four weak-doublet copies",
-            "issue 567: finite global-form compatibility",
+            "issue 566: conditional current-fixture center and natural unit line",
+            "issue 314: conditional matter fixture and four weak-doublet copies",
+            "issue 567: conditional declared-kernel compatibility",
             "issue 616: scalar existence and multiplicity nonselection boundary",
         ],
         "screen_order_unit_line": screen,
@@ -617,6 +655,9 @@ def build_payload() -> dict[str, Any]:
             "target_residual_consumed": False,
             "physical_scalar_assumed": False,
             "physical_common_carrier_assumed": False,
+            "physical_current_source_bound": False,
+            "physical_matter_lift_source_bound": False,
+            "physical_global_form_selected": False,
         },
         "promotion": {
             "promotion_allowed": False,
@@ -632,7 +673,7 @@ def build_payload() -> dict[str, Any]:
             {
                 "gate": "source_selected_scalar_carrier",
                 "status": "open",
-                "owners": [630],
+                "owners": [636],
             },
             {
                 "gate": "physical_common_load_semantics",

@@ -64,7 +64,9 @@
         "artifact": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "json_pointer": "",
         "open_gates": [
-          "laboratory attachment of the source-bound current to measured gauge currents (#569)"
+          "ordered source-current reconstruction (#566)",
+          "source selection of the physical matter and Spin action (#314)",
+          "laboratory attachment to measured gauge currents (#569)"
         ],
         "promoted": false,
         "receipt_class": "producer",
@@ -73,7 +75,7 @@
     },
     "receipt_id": "A5-LAYER-SEPARATION-1",
     "registry": "code/audit/receipt_promotion_registry.json",
-    "registry_sha256": "0aad20cf828a4e079c63f963952e81dcafeef4f7ab60385be344bce027d9216a",
+    "registry_sha256": "33f8d3cf39f6e2f109e2f95cb0b1baaa2e463df6d311073c304431091b824d10",
     "separate_downstream_gates": {
       "conditional_subreceipt_enforced_but_physical_source_open": [
         "spin lift",
@@ -2843,7 +2845,7 @@
     },
     "receipt_id": "BFT-LOCK-1"
   },
-  "receipt_sha256": "ca839e0c0ee82419eb6e3e082f5efd7fb58e6fdeb7fc2f102584bce077f1c5bf",
+  "receipt_sha256": "afe2d71749f63532838d2fb979088cc9b956e0d6e2de5941a176704abd45081a",
   "refinement_moduli": {
     "checks": {
       "arbitrary_depth_telescope_is_exact_on_reference_instances": true,

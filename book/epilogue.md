@@ -105,12 +105,13 @@ changes break continuity, and which ones do not?
 
 Before the last word, the ledger.
 
-The global capacity branch requires a finite public-checkpoint package: which
-records can be written from inside the system, which count as public, every
-allowed joint continuation, how the carrier is read, and how refinement
-preserves those records. On an exact reversible branch, that capacity reduces
-to a count of reachable public checkpoints, obtainable by exact constraint
-solving. The rest of the branch is work in progress.
+The global capacity branch has one exact screen packet with twenty-four public
+records. Extending that count requires a public-checkpoint package at every
+carrier size: which records can be written from inside the system, which count
+as public, every allowed joint continuation, how the carrier is read, and how
+refinement preserves those records. Simple finite extensions disagree about
+the fixed point. The complete observer construction and its universe
+attachment are work in progress.
 
 Other constructions must show that the horizon really is the record ledger,
 that the particle counting was earned rather than assumed, and that each

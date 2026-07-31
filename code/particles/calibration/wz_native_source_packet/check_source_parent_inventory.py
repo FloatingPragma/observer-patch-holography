@@ -30,7 +30,7 @@ POLICY_REL = (
     "data/source_parent_policy_v1.json"
 )
 EXPECTED_POLICY_CANONICAL_SHA256 = (
-    "d1a824a7fba641b2ff3116e566c2ea120023495f2f34ca4340420e8867b547f5"
+    "4729fdc68168f31482e24dcf94f4db5e61a4702d053bb88cfc937eae40f4d12f"
 )
 
 EXPECTED_POSITIVE = {
@@ -91,6 +91,11 @@ EXPECTED_CONDITIONAL = {
                 ("candidate_certificate", "oph.family_band_attachment_certificate.v6"),
             "code/a5_closure/manifests/charged_response_pole_residue_artifact.json":
                 ("candidate_artifact", "oph.charged_response_pole_residue.v2"),
+            "code/a5_closure/manifests/matter_attachment_receipt.json":
+                (
+                    "finite_domain_attachment_receipt",
+                    "oph.local-domain-matter-attachment.v1",
+                ),
         },
     },
     "matter_completeness_boundary": {
@@ -99,6 +104,19 @@ EXPECTED_CONDITIONAL = {
         "files": {
             "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json":
                 ("boundary_certificate", "oph.matter_menu_spectral_ledger_certificate.v1"),
+        },
+    },
+    "finite_flux_and_local_domain_classical_context": {
+        "issue": 311,
+        "verifier_id": "issue_311_finite_spectral_classical_control",
+        "files": {
+            "code/a5_closure/manifests/flux_defect_criterion_reference.json":
+                (
+                    "boundary_certificate",
+                    "oph.flux_defect_criterion_certificate.v3",
+                ),
+            "code/a5_closure/receipts/flux_defect_criterion_reference.receipt.json":
+                ("receipt", "oph.flux_defect_criterion_receipt.v3"),
         },
     },
     "rg_representation_frontier": {
@@ -140,6 +158,33 @@ EXPECTED_CONDITIONAL = {
     },
 }
 
+EXPECTED_RESOLVED_BOUNDARIES = {
+    "finite_local_domain_boundary": {
+        "issue": 634,
+        "outcome": "closed_bounded",
+        "verdict": "ATTAINED",
+        "sentinel": "LOCAL_DOMAIN_INHABITATION_RECEIPT",
+        "path": "code/a5_closure/manifests/stage4_receipt.json",
+        "schema": "oph.local-domain-stage4.v1",
+    },
+    "finite_spectral_quantum_discrimination_boundary": {
+        "issue": 311,
+        "outcome": "closed_no_go",
+        "verdict": "CLASSICAL_REALIZATION_MATCHES_DECLARED_FINITE_SPECTRAL_INTERFACE",
+        "sentinel": "CLASSICAL_REALIZATION_RECEIPT",
+        "path": "code/a5_closure/manifests/classical_realization_receipt.json",
+        "schema": "oph.local-domain-classical-realization.v1",
+    },
+    "physical_unit_boundary": {
+        "issue": 633,
+        "outcome": "closed_not_evaluable",
+        "verdict": "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE",
+        "sentinel": "CLOCK_UNIT_BOUNDED_INTERFACE_AUDIT",
+        "path": "code/a5_closure/manifests/clock_unit_verdict.json",
+        "schema": "oph.local-domain-clock-unit-verdict.v1",
+    },
+}
+
 EXPECTED_CONSUMER_SCHEMAS = {
     "canonical_action":
         "code/particles/calibration/wz_upstream_completion/schemas/"
@@ -156,6 +201,14 @@ EXPECTED_CONSUMER_SCHEMAS = {
     "operational_clock":
         "code/particles/calibration/wz_upstream_completion/schemas/"
         "operational_clock_packet_v1.schema.json",
+}
+
+EXPECTED_CONSUMER_SCHEMA_STATUS = {
+    "canonical_action": "provisional_external_validation_schema",
+    "full_yukawa": "provisional_external_validation_schema",
+    "eft_matching": "provisional_external_validation_schema",
+    "source_law_covariance": "nonpromoting_specification_schema",
+    "operational_clock": "nonpromoting_specification_schema",
 }
 
 NATIVE_VERIFIER_COMMANDS = {
@@ -200,6 +253,14 @@ NATIVE_VERIFIER_COMMANDS = {
         "verify",
         "--manifest",
         "code/a5_closure/manifests/matter_menu_spectral_ledger_reference.json",
+    ],
+    "issue_311_finite_spectral_classical_control": [
+        "code/a5_closure/flux_defect_criterion_certificate.py",
+        "verify",
+        "--manifest",
+        "code/a5_closure/manifests/flux_defect_criterion_reference.json",
+        "--receipt",
+        "code/a5_closure/receipts/flux_defect_criterion_reference.receipt.json",
     ],
     "issue_32_rg_frontier": [
         "code/P_derivation/source_rg_frontier/check_rg_representation_frontier.py",
@@ -366,6 +427,123 @@ def _verify_bindings(
     return loaded
 
 
+def _verify_resolved_boundaries(
+    repo_root: Path,
+    boundaries: list[dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    require(
+        [item["boundary_id"] for item in boundaries]
+        == list(EXPECTED_RESOLVED_BOUNDARIES),
+        "resolved boundary order or identifier set drifted",
+    )
+    loaded: dict[str, dict[str, Any]] = {}
+    for boundary in boundaries:
+        boundary_id = boundary["boundary_id"]
+        expected = EXPECTED_RESOLVED_BOUNDARIES[boundary_id]
+        require(
+            boundary["owner_issue"] == expected["issue"],
+            f"wrong issue owner for resolved boundary {boundary_id}",
+        )
+        require(
+            boundary["outcome"] == expected["outcome"],
+            f"outcome drift for resolved boundary {boundary_id}",
+        )
+        require(
+            boundary["verdict"] == expected["verdict"],
+            f"verdict drift for resolved boundary {boundary_id}",
+        )
+        require(
+            boundary["resolution_authority"]
+            == "pinned_receipt_plus_live_github_issue_tracking",
+            f"resolved boundary {boundary_id} lost its receipt authority",
+        )
+        require(
+            len(boundary["files"]) == 1
+            and boundary["files"][0]["path"] == expected["path"],
+            f"receipt path drift for resolved boundary {boundary_id}",
+        )
+        payload = _verify_file_pin(
+            repo_root,
+            boundary["files"][0],
+            "boundary_receipt",
+            expected["schema"],
+        )
+        require(
+            payload.get("issue") == expected["issue"],
+            f"receipt issue drift for resolved boundary {boundary_id}",
+        )
+        require(
+            payload.get("verdict") == expected["verdict"],
+            f"receipt verdict drift for resolved boundary {boundary_id}",
+        )
+        require(
+            payload.get("physical_promotion_allowed") is False,
+            f"resolved boundary {boundary_id} was physically promoted",
+        )
+        require(
+            payload.get(expected["sentinel"]) is True
+            and payload.get("controls_fail_closed") is True
+            and payload.get("blockers") == [],
+            f"resolved boundary {boundary_id} lacks its attained control receipt",
+        )
+        loaded[boundary_id] = payload
+
+    stage4_boundary = loaded["finite_local_domain_boundary"].get(
+        "claim_boundary", ""
+    ).lower()
+    require(
+        "finite causal and local-operator object" in stage4_boundary
+        and "no continuum lorentzian spacetime" in stage4_boundary,
+        "#634 boundary lost its finite-only continuum exclusion",
+    )
+    clock_boundary = loaded["physical_unit_boundary"].get(
+        "claim_boundary", ""
+    ).lower()
+    require(
+        "declared serialized interface" in clock_boundary
+        and "not a transitive source-closure proof" in clock_boundary
+        and "no-go theorem for every extended" in clock_boundary,
+        "#633 receipt overstates the bounded serialized-interface verdict",
+    )
+    classical_boundary = loaded[
+        "finite_spectral_quantum_discrimination_boundary"
+    ].get("claim_boundary", "").lower()
+    require(
+        "two-component" in classical_boundary
+        and "harmonic" in classical_boundary
+        and "local-domain spectral interface" in classical_boundary
+        and "no identity bridge" in classical_boundary
+        and "does not close a criterion over an extended domain"
+        in classical_boundary,
+        "#311 receipt lost the bounded vector-spring spectral match",
+    )
+    classical_identity = loaded[
+        "finite_spectral_quantum_discrimination_boundary"
+    ].get("spectral_interface_identity", {})
+    require(
+        classical_identity.get("producer_schema")
+        == "oph.local-domain-defect-sector-spectra.v1"
+        and classical_identity.get(
+            "rer_exact_flux_12_42_vertex_identity_bridge"
+        )
+        is False
+        and classical_identity.get(
+            "separate_from_rer_exact_flux_certificate"
+        )
+        is True
+        and classical_identity.get("main_domain", {}).get(
+            "visible_node_count"
+        )
+        == 8662
+        and classical_identity.get("ladder_domain", {}).get(
+            "visible_node_count"
+        )
+        == 1052,
+        "#311 local-domain receipt was conflated with the exact flux support",
+    )
+    return loaded
+
+
 def _verify_transitive_pins(loaded: Mapping[str, Mapping[str, Any]]) -> None:
     carrier_manifest_path = (
         "code/a5_closure/manifests/echosahedral_federation_reference.json"
@@ -513,8 +691,10 @@ def _verify_conditional_family(
     artifact_path = (
         "code/a5_closure/manifests/charged_response_pole_residue_artifact.json"
     )
+    attachment_path = "code/a5_closure/manifests/matter_attachment_receipt.json"
     certificate = loaded["family_band_candidate"][certificate_path]
     artifact = loaded["family_band_candidate"][artifact_path]
+    attachment = loaded["family_band_candidate"][attachment_path]
     require(certificate.get("issue") == 569, "#569 certificate issue tag drifted")
     require(
         certificate.get("named_interface", {}).get("class")
@@ -525,7 +705,7 @@ def _verify_conditional_family(
     require(
         {
             "matter-pole identification",
-            "continuum Spin/locality receipt",
+            "physical Spin/locality bridge",
             "physical seam action selection",
             "laboratory current identification",
         }.issubset(open_receipts),
@@ -563,6 +743,111 @@ def _verify_conditional_family(
         and "matter-pole identification" in artifact_boundary,
         "#569 pole-residue artifact was overpromoted",
     )
+    require(
+        attachment.get("issue") == 569
+        and attachment.get("verdict") == "ATTAINED"
+        and attachment.get("MATTER_ATTACHMENT_RECEIPT") is True
+        and attachment.get("controls_fail_closed") is True
+        and attachment.get("blockers") == []
+        and attachment.get("physical_promotion_allowed") is False,
+        "#569 finite-domain attachment status drifted",
+    )
+    require(
+        attachment.get("attachment", {}).get("complex_rank") == 45
+        and attachment.get("attachment", {}).get("band_rank_measured") == 3,
+        "#569 finite rank-forty-five attachment drifted",
+    )
+    structure = attachment.get("gap_inheritance_certificate", {}).get("structure", "")
+    matter_operator = attachment.get("matter_operator_certificate", {})
+    gap_inheritance = attachment.get("gap_inheritance_certificate", {})
+    require(
+        "scalar operator tensor identity" in structure
+        and "multiplicity forty-five" in structure,
+        "#569 matter operator lost its tensor-identity limitation",
+    )
+    require(
+        attachment.get("declared_matter_packet", {}).get("source_selected")
+        is False
+        and matter_operator.get("status") == "declared_tensor_extension"
+        and matter_operator.get("source_selected") is False
+        and gap_inheritance.get("status")
+        == (
+            "conditional_algebraic_inheritance_under_declared_"
+            "tensor_extension"
+        )
+        and gap_inheritance.get("matter_action_source_selected") is False,
+        "#569 declared tensor extension was relabeled as source-selected",
+    )
+    spin_layer = attachment.get("spin_layer", {})
+    require(
+        spin_layer.get("packet_status")
+        == "separate_pinned_issue_314_packet"
+        and spin_layer.get("spin_to_local_domain_bridge_certified") is False
+        and spin_layer.get("same_source_domain_certified") is False
+        and spin_layer.get("open_interface")
+        == "physical Spin/locality bridge",
+        "#569 issue-314 spin packet was silently attached to the issue-634 "
+        "local domain",
+    )
+    attachment_clauses = attachment.get("clause_verdicts", {})
+    require(
+        attachment_clauses.get(
+            "separate_issue_314_spin_packet_resolved"
+        )
+        is True
+        and attachment_clauses.get(
+            "local_domain_stage2_context_recorded"
+        )
+        is True
+        and attachment_clauses.get(
+            "local_stage2_same_source_domain_binding"
+        )
+        is True
+        and attachment_clauses.get(
+            "conditional_gap_inheritance_exact"
+        )
+        is True
+        and "same_source_domain_binding" not in attachment_clauses
+        and "spin_gates_consumed" not in attachment_clauses
+        and "gap_inherited_exact" not in attachment_clauses,
+        "#569 attained clauses conflate the spin and local-domain packets",
+    )
+    attachment_boundary = attachment.get("claim_boundary", "").lower()
+    bounded_scan = attachment.get("bounded_declared_key_scan", {})
+    local_parent_pins = attachment.get("upstream_pins", {}).get(
+        "local_domain_parent_sha256",
+        {},
+    )
+    require(
+        "source does not select a matter action" in attachment_boundary
+        and "no source, domain, or transport bridge" in attachment_boundary
+        and "physical seam-action selection" in attachment_boundary
+        and "matter-pole identification" in attachment_boundary
+        and "bounded declared-key scan" in attachment_boundary
+        and "not semantic input closure" in attachment_boundary
+        and bounded_scan.get("fragments")
+        == ["yukawa", "pole_mass", "mass_gev", "mev"]
+        and bounded_scan.get("hits") == []
+        and "declared mapping keys only"
+        in str(bounded_scan.get("scope", "")).lower()
+        and "no transitive input-closure claim"
+        in str(bounded_scan.get("scope", "")).lower()
+        and set(local_parent_pins)
+        == {
+            "source_gap_receipt.json",
+            "stage1_arrays.npz.gz",
+            "stage1_receipt.json",
+            "stage2_receipt.json",
+            "stage3_receipt.json",
+        }
+        and all(
+            isinstance(value, str)
+            and value.startswith("sha256:")
+            and len(value) == 71
+            for value in local_parent_pins.values()
+        ),
+        "#569 finite attachment was overpromoted to a physical matter action",
+    )
 
 
 def _verify_matter_completeness_boundary(
@@ -594,6 +879,102 @@ def _verify_matter_completeness_boundary(
         .get("status")
         == "separate_open_physical_interface",
         "#609 declared threshold was relabeled as physical decoupling",
+    )
+
+
+def _verify_finite_spectral_classical_control(
+    loaded: Mapping[str, Mapping[str, Any]],
+) -> None:
+    path = "code/a5_closure/receipts/flux_defect_criterion_reference.receipt.json"
+    receipt = loaded["finite_flux_and_local_domain_classical_context"][path]
+    require(receipt.get("issue") == 311, "#311 receipt issue tag drifted")
+    exact = receipt.get("exact_support_classical_realification", {})
+    require(
+        exact.get("domain")
+        == {
+            "name": "certified_icosahedral_support",
+            "vertex_count": 12,
+            "seam_count": 30,
+            "regular_degree": 5,
+            "separate_from_local_domain_seam_complex": True,
+        }
+        and exact.get("stiffness_rule") == "K_k = 5 I - A_k"
+        and exact.get("declared_adjacency_spectral_family_recoverable") is True
+        and exact.get("scalar_operator_or_gap_matched") is False
+        and exact.get("phase_metric_isometry_checks") == 180
+        and exact.get("edge_hessian_identity_entry_checks") == 3456
+        and len(exact.get("per_class", [])) == 6,
+        "#311 exact-support vector-spring realification is missing",
+    )
+    require(
+        all(
+            row.get("classical_hessian_certificate", {}).get(
+                "coordinate_metric"
+            )
+            == [[2, 1], [1, 2]]
+            and row.get("classical_hessian_certificate", {}).get(
+                "metric_leading_principal_minors"
+            )
+            == [2, 3]
+            and row.get("classical_hessian_certificate", {}).get(
+                "energy_hessian_equals_metric_times_stiffness"
+            )
+            is True
+            and row.get("classical_hessian_certificate", {}).get(
+                "positive_semidefinite_by_edge_sum_of_squares"
+            )
+            is True
+            for row in exact.get("per_class", [])
+        ),
+        "#311 classical completion lacks the exact positive-metric "
+        "edge-Hessian proof",
+    )
+    require(
+        exact.get("complete_interface_ontology_no_go") is False
+        and exact.get("extended_domain_non_identifiability") is False,
+        "#311 exact-support realification was expanded into a complete no-go",
+    )
+    local = receipt.get("local_domain_classical_spectral_context", {})
+    require(
+        local.get("verdict")
+        == "CLASSICAL_REALIZATION_MATCHES_DECLARED_FINITE_SPECTRAL_INTERFACE"
+        and "two-component classical harmonic network"
+        in str(local.get("classical_model", "")).lower()
+        and local.get("sector_payload_identity") is True
+        and local.get("scalar_gap_payload_identity") is True
+        and local.get("ladder_payload_identity") is True
+        and local.get("separate_from_exact_flux_support") is True
+        and local.get("exact_flux_identity_bridge") is False,
+        "#311 separate local-domain vector-spring context is missing",
+    )
+    require(
+        local.get("complete_interface_ontology_no_go") is False
+        and local.get("extended_domain_non_identifiability") is False
+        and local.get("bounded_lexical_census", {}).get("completeness_theorem")
+        is False,
+        "#311 local-domain spectral context was expanded into a complete no-go",
+    )
+    criteria = receipt.get("acceptance_criteria_status", {})
+    require(
+        criteria.get("quantum_pole_or_equivalent_physical_spectral_criterion_proved")
+        is False
+        and criteria.get("mass_invariant_and_target_independent") is False,
+        "#311 finite receipt fabricated a pole or mass",
+    )
+    boundary = receipt.get("claim_boundary", {})
+    require(
+        "complete-interface" in " ".join(boundary.get("does_not_close", []))
+        and "extended source domain"
+        in " ".join(boundary.get("does_not_close", []))
+        and "continuum quantum pole" in " ".join(boundary.get("does_not_close", [])),
+        "#311 bounded spectral control lost its physical exclusions",
+    )
+    require(
+        receipt.get("local_domain_spectral_context_boundary", {}).get(
+            "identity_bridge_to_exact_flux_support"
+        )
+        is False,
+        "#311 local-domain and exact-support spectra were silently identified",
     )
 
 
@@ -763,6 +1144,11 @@ def _verify_policy(repo_root: Path, inventory: Mapping[str, Any]) -> dict[str, A
         == list(EXPECTED_CONDITIONAL),
         "policy conditional-context roles drifted",
     )
+    require(
+        [item["boundary_id"] for item in policy["resolved_boundaries"]]
+        == list(EXPECTED_RESOLVED_BOUNDARIES),
+        "policy resolved-boundary identifiers drifted",
+    )
     return policy
 
 
@@ -777,6 +1163,10 @@ def _verify_consumer_schemas(
     for item in schemas:
         expected_path = EXPECTED_CONSUMER_SCHEMAS[item["slot"]]
         require(item["path"] == expected_path, f"consumer schema path drift: {item['slot']}")
+        require(
+            item["status"] == EXPECTED_CONSUMER_SCHEMA_STATUS[item["slot"]],
+            f"consumer schema status drift: {item['slot']}",
+        )
         path = safe_repo_file(repo_root, expected_path)
         raw = path.read_bytes()
         payload = load_json(path)
@@ -789,6 +1179,168 @@ def _verify_consumer_schemas(
             item["byte_sha256"] == byte_sha256(raw),
             f"consumer schema hash drift: {expected_path}",
         )
+
+
+def _verify_dependency_state(
+    inventory: Mapping[str, Any],
+    policy: Mapping[str, Any],
+) -> None:
+    for inventory_key, policy_key in (
+        ("positive_parent_bindings", "positive_parents"),
+        ("conditional_context", "conditional_context"),
+    ):
+        for binding, source in zip(
+            inventory[inventory_key],
+            policy[policy_key],
+            strict=True,
+        ):
+            require(
+                binding["role"] == source["role"]
+                and binding["usable_exports"] == source["usable_exports"]
+                and binding["excluded_promotions"] == source["excluded_promotions"],
+                f"declared export scope drifted for {source['role']}",
+            )
+    require(
+        [item.get("context_status") for item in inventory["conditional_context"]]
+        == [item["status"] for item in policy["conditional_context"]],
+        "conditional-context issue outcomes drifted",
+    )
+    expected_boundaries = inventory["resolved_boundaries"]
+    require(
+        len(expected_boundaries) == len(policy["resolved_boundaries"]),
+        "resolved Phase-2 boundary count drifted",
+    )
+    for boundary, item in zip(
+        expected_boundaries,
+        policy["resolved_boundaries"],
+        strict=True,
+    ):
+        require(
+            {
+                "boundary_id": boundary["boundary_id"],
+                "owner_issue": boundary["owner_issue"],
+                "outcome": boundary["outcome"],
+                "scope": boundary["scope"],
+                "effect": boundary["effect"],
+                "scientific_parent_status": boundary["scientific_parent_status"],
+                "resolution_authority": boundary["resolution_authority"],
+                "verdict": boundary["verdict"],
+            }
+            == {
+                "boundary_id": item["boundary_id"],
+                "owner_issue": item["owner_issue"],
+                "outcome": item["outcome"],
+                "scope": item["scope"],
+                "effect": item["effect"],
+                "scientific_parent_status": item["scientific_parent_status"],
+                "resolution_authority": item["resolution_authority"],
+                "verdict": item["expected_verdict"],
+            },
+            "resolved Phase-2 boundary state drifted",
+        )
+    expected_interfaces = [
+        {
+            "gate_id": item["gate_id"],
+            "owner_issues": item["owner_issues"],
+            "required_output": item["required_output"],
+            "prerequisites": item["prerequisites"],
+            "terminal_for_dimensionless_output":
+                item["terminal_for_dimensionless_output"],
+            "status": "open",
+            "evidence": [],
+        }
+        for item in policy["open_interfaces"]
+    ]
+    require(
+        inventory["open_interfaces"] == expected_interfaces,
+        "open source-interface dependency state drifted",
+    )
+
+    dag = inventory["source_dag"]
+    expected_nodes = [
+        {
+            "id": binding["role"],
+            "class": "verified_finite_parent",
+            "issue": binding["issue"],
+            "status": "verified_finite_parent",
+        }
+        for binding in inventory["positive_parent_bindings"]
+    ]
+    expected_nodes.extend(
+        {
+            "id": binding["role"],
+            "class": "conditional_context",
+            "issue": binding["issue"],
+            "status": binding["context_status"],
+        }
+        for binding in inventory["conditional_context"]
+    )
+    expected_nodes.extend(
+        {
+            "id": item["boundary_id"],
+            "class": "resolved_boundary",
+            "issue": item["owner_issue"],
+            "status": item["outcome"],
+        }
+        for item in expected_boundaries
+    )
+    expected_nodes.extend(
+        {
+            "id": item["gate_id"],
+            "class": "open_interface",
+            "issue": item["owner_issues"][0],
+            "status": "open",
+        }
+        for item in expected_interfaces
+    )
+    expected_nodes.append(
+        {
+            "id": "oph_native_dimensionless_packet",
+            "class": "candidate_output",
+            "issue": 594,
+            "status": "blocked",
+        }
+    )
+    require(dag["nodes"] == expected_nodes, "source DAG node state drifted")
+
+    expected_edges = [
+        {"from": "screen_carrier", "to": "finite_port_current_algebra"},
+        {"from": "finite_port_current_algebra", "to": "finite_matter_module"},
+        {"from": "finite_matter_module", "to": "finite_global_form"},
+        {"from": "screen_carrier", "to": "family_band_candidate"},
+        {"from": "finite_matter_module", "to": "family_band_candidate"},
+    ]
+    expected_edges.extend(
+        {
+            "from": binding["role"],
+            "to": "oph_native_dimensionless_packet",
+        }
+        for binding in inventory["positive_parent_bindings"]
+    )
+    for interface in expected_interfaces:
+        expected_edges.extend(
+            {
+                "from": prerequisite,
+                "to": interface["gate_id"],
+            }
+            for prerequisite in interface["prerequisites"]
+        )
+        if interface["terminal_for_dimensionless_output"]:
+            expected_edges.append(
+                {
+                    "from": interface["gate_id"],
+                    "to": "oph_native_dimensionless_packet",
+                }
+            )
+    require(dag["edges"] == expected_edges, "source DAG dependency edges drifted")
+    require(
+        {
+            "from": "common_screen_electroweak_carrier",
+            "to": "source_complete_field_census",
+        }
+        not in dag["edges"],
+        "#632 incorrectly depends on #631",
+    )
 
 
 def _acyclic_and_forbidden_paths(dag: Mapping[str, Any]) -> tuple[bool, list[list[str]]]:
@@ -875,6 +1427,7 @@ def _verify_firewall(
     policy: Mapping[str, Any],
     loaded_positive: Mapping[str, Mapping[str, Any]],
     loaded_conditional: Mapping[str, Mapping[str, Any]],
+    loaded_boundaries: Mapping[str, Mapping[str, Any]],
 ) -> None:
     firewall = inventory["target_firewall"]
     expected = policy["firewall_policy"]
@@ -908,6 +1461,10 @@ def _verify_firewall(
             for spec in group.values()
             for path in spec["files"]
         ]
+        + [
+            spec["path"]
+            for spec in EXPECTED_RESOLVED_BOUNDARIES.values()
+        ]
         + list(EXPECTED_CONSUMER_SCHEMAS.values())
     )
     require(resolved == expected_resolved, "resolved source-input closure drifted")
@@ -921,7 +1478,12 @@ def _verify_firewall(
                     f"{role}:{path}:{hit}"
                     for hit in _structured_token_hits(payload, tokens)
                 )
-    require(not hits, f"structured target content found in source parents: {hits}")
+    for boundary_id, payload in loaded_boundaries.items():
+        hits.extend(
+            f"{boundary_id}:{hit}"
+            for hit in _structured_token_hits(payload, tokens)
+        )
+    require(not hits, f"structured target content found in source inputs: {hits}")
     require(firewall["comparison_channel_present"] is False, "comparison channel mounted")
     require(firewall["network_required"] is False, "source producer requires network")
     require(
@@ -999,12 +1561,24 @@ def verify_inventory(
     _verify_transitive_pins(positive)
     _verify_conditional_family(conditional)
     _verify_matter_completeness_boundary(conditional)
+    _verify_finite_spectral_classical_control(conditional)
     _verify_rg_representation_frontier(conditional)
     _verify_scalar_yukawa_source_frontier(conditional)
     _verify_local_ew_order_unit_frontier(conditional)
     _verify_source_clock_frontier(conditional)
+    resolved_boundaries = _verify_resolved_boundaries(
+        repo_root,
+        inventory["resolved_boundaries"],
+    )
     _verify_consumer_schemas(repo_root, inventory["consumer_contract"]["schemas"])
-    _verify_firewall(inventory, policy, positive, conditional)
+    _verify_firewall(
+        inventory,
+        policy,
+        positive,
+        conditional,
+        resolved_boundaries,
+    )
+    _verify_dependency_state(inventory, policy)
 
     bridge = inventory["coordinate_bridge"]
     require(
@@ -1017,7 +1591,18 @@ def verify_inventory(
         },
         "v_chart to v_F bridge was relabeled without a proof receipt",
     )
-    require(inventory["unit_scope"]["emitted_observables"] == [], "frontier emitted poles")
+    require(
+        inventory["unit_scope"]
+        == {
+            "native_coordinates": "E_star_normalized_dimensionless",
+            "physical_clock_required": True,
+            "physical_unit_verdict":
+                "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE",
+            "dimensionful_values_present": False,
+            "emitted_observables": [],
+        },
+        "physical-unit row drifted or the frontier emitted a dimensionful pole",
+    )
     require(inventory["promotion_allowed"] is False, "frontier promoted itself")
     require(
         inventory["consumer_contract"]["frozen_algorithm_substitution_ready"] is False,
@@ -1030,31 +1615,74 @@ def verify_inventory(
 
     indices = [row["acceptance_index"] for row in inventory["acceptance_map"]]
     require(indices == list(range(1, 10)), "acceptance map must cover rows 1 through 9")
-    require(
-        all(row["status"] in {"open", "partial"} for row in inventory["acceptance_map"]),
-        "an issue-#594 acceptance row was overpromoted",
-    )
-    require(
-        all(row["blocking_gates"] for row in inventory["acceptance_map"]),
-        "acceptance row lost its blockers",
-    )
-    acceptance_nine = next(
-        row
-        for row in inventory["acceptance_map"]
-        if row["acceptance_index"] == 9
-    )
-    require(
-        acceptance_nine["blocking_gates"]
-        == [
-            "event_and_spacetime_action_parent",
-            "physical_family_and_matter_pole_attachment",
-            "scalar_higgs_and_fj_coordinate",
-            "full_yukawa_operator_and_coefficients",
-            "common_screen_electroweak_carrier",
-            "source_complete_field_census",
-        ],
-        "acceptance row 9 lost a live native-action attachment",
-    )
+    expected_acceptance = {
+        1: (
+            "closed_bounded",
+            [],
+            "issue 634 supplies a finite causal and local-operator domain; no continuum Lorentzian or quantum-EFT promotion follows",
+        ),
+        2: (
+            "closed_not_evaluable",
+            [],
+            "issue 633 closes the physical-unit row as PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE under a bounded schema/source scan and named channel-nonuse experiment; no complete-domain clock non-identifiability theorem follows",
+        ),
+        3: (
+            "open",
+            [
+                "physical_family_and_matter_pole_attachment",
+                "scalar_yukawa_fj_integration",
+                "common_screen_electroweak_carrier",
+                "source_complete_field_census",
+            ],
+            "the finite rank-forty-five candidate is bound, but no source-selected scalar action, complete Yukawa matrices, physical family action, or coupled-sector census is emitted",
+        ),
+        4: (
+            "open",
+            [
+                "source_to_fj_coordinate_map",
+                "scalar_yukawa_fj_integration",
+            ],
+            "v_chart and v_F remain distinct typed coordinates; the source-to-FJ map is owned by issue 638 and its integration by issue 630",
+        ),
+        5: (
+            "partial",
+            ["target_clean_rg_threshold_matching"],
+            "the issue-32 frontier supplies exact per-copy representation indices and a parametric one-loop gauge law under an imported QFT functional; ordered intervals, thresholds, finite maps, Jacobians, masks, and remainders are absent",
+        ),
+        6: (
+            "open",
+            ["finite_to_lorentzian_quantum_eft_transfer"],
+            "the finite domain has no certified transfer to a Lorentzian Spin quantum EFT accepted by the pole consumer",
+        ),
+        7: (
+            "open",
+            ["unique_source_root_and_joint_law", "validated_qft_consumer"],
+            "substitution into unchanged validated QFT algorithms waits for the source packet and the production consumer",
+        ),
+        8: (
+            "partial",
+            ["runtime_and_human_target_firewall"],
+            "source paths and structured ancestry are allowlisted and target-free; hermetic runtime and human-selection receipts remain open",
+        ),
+        9: (
+            "open",
+            [
+                "unique_source_root_and_joint_law",
+                "validated_qft_consumer",
+                "runtime_and_human_target_firewall",
+            ],
+            "independent replay of the complete native source-to-consumer conjunction requires every open producer and firewall gate",
+        ),
+    }
+    for row in inventory["acceptance_map"]:
+        require(
+            (row["status"], row["blocking_gates"], row["summary"])
+            == expected_acceptance[row["acceptance_index"]],
+            (
+                f"acceptance row {row['acceptance_index']} status, blockers, "
+                "or claim scope drifted"
+            ),
+        )
 
     dag_acyclic, forbidden_paths = _acyclic_and_forbidden_paths(inventory["source_dag"])
     require(dag_acyclic is True, "source DAG is cyclic")

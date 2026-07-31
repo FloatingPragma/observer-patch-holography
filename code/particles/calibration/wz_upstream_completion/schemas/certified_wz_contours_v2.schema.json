@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Certified principal-sheet W/Z zero-exclusion receipt v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "type",
+    "pins",
+    "fixture",
+    "dimensional_prefactor_finite_correction",
+    "serialized_gates",
+    "sheet_statement",
+    "results",
+    "precision_nesting",
+    "promotion",
+    "artifact_finding",
+    "status",
+    "receipt_sha256"
+  ],
+  "properties": {
+    "schema": {"const": "oph.certified_wz_contours.v2"},
+    "type": {"const": "EXTERNAL_SM_EFT_VALIDATION"},
+    "pins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vector_blocks_sha256",
+        "diagnostic_module_sha256",
+        "interval_module_sha256",
+        "verifier_module_sha256"
+      ],
+      "properties": {
+        "vector_blocks_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "diagnostic_module_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "interval_module_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "verifier_module_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "dimensional_prefactor_finite_correction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["W", "Z"],
+      "properties": {
+        "W": {"type": "string"},
+        "Z": {"type": "string"}
+      }
+    },
+    "serialized_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "precisions_bits",
+        "initial_segments_per_edge",
+        "max_subdivision_depth",
+        "holomorphy_method",
+        "boundary_method",
+        "arg_width_gate",
+        "winding_tolerance"
+      ],
+      "properties": {
+        "precisions_bits": {
+          "type": "array",
+          "items": {"type": "integer"},
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "initial_segments_per_edge": {"type": "integer"},
+        "max_subdivision_depth": {"type": "integer"},
+        "holomorphy_method": {"const": "exact_rational_cut_exclusion"},
+        "boundary_method": {"const": "centered_form_segment_enclosure"},
+        "arg_width_gate": {"type": "string"},
+        "winding_tolerance": {"type": "string"}
+      }
+    },
+    "sheet_statement": {"type": "string"},
+    "results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["W", "Z"],
+      "properties": {
+        "W": {"$ref": "#/$defs/particle_rows"},
+        "Z": {"$ref": "#/$defs/particle_rows"}
+      }
+    },
+    "precision_nesting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["W", "Z"],
+      "properties": {
+        "W": {"$ref": "#/$defs/nesting_row"},
+        "Z": {"$ref": "#/$defs/nesting_row"}
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "complex_ball_certified",
+        "sheet_certified_on_declared_boxes",
+        "principal_sheet_zero_exclusion_certified",
+        "root_count_certified_on_declared_boxes",
+        "pole_enclosure_certified",
+        "second_sheet_certified",
+        "laurent_residue_certified",
+        "bmhv_restoration_certified",
+        "physical_current_claim",
+        "oph_native",
+        "unit_claim"
+      ],
+      "properties": {
+        "complex_ball_certified": {"type": "boolean"},
+        "sheet_certified_on_declared_boxes": {"type": "boolean"},
+        "principal_sheet_zero_exclusion_certified": {"type": "boolean"},
+        "root_count_certified_on_declared_boxes": {"type": "boolean"},
+        "pole_enclosure_certified": {"const": false},
+        "second_sheet_certified": {"const": false},
+        "laurent_residue_certified": {"const": false},
+        "bmhv_restoration_certified": {"const": false},
+        "physical_current_claim": {"const": false},
+        "oph_native": {"const": false},
+        "unit_claim": {"const": false}
+      }
+    },
+    "artifact_finding": {"type": "string"},
+    "status": {
+      "enum": [
+        "PRINCIPAL_SHEET_ZERO_EXCLUSION_CERTIFIED",
+        "CERTIFICATION_INCOMPLETE"
+      ]
+    },
+    "receipt_sha256": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+  },
+  "$defs": {
+    "particle_rows": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["128", "192", "256"],
+      "properties": {
+        "128": {"$ref": "#/$defs/particle_row"},
+        "192": {"$ref": "#/$defs/particle_row"},
+        "256": {"$ref": "#/$defs/particle_row"}
+      }
+    },
+    "particle_row": {
+      "type": "object",
+      "required": [
+        "particle",
+        "precision_bits",
+        "box",
+        "tree_mass_sq",
+        "interior_holomorphy",
+        "boundary_winding",
+        "zero_exclusion_certified",
+        "reading"
+      ],
+      "properties": {
+        "particle": {"enum": ["W", "Z"]},
+        "precision_bits": {"enum": [128, 192, 256]},
+        "box": {"type": "object"},
+        "tree_mass_sq": {"type": "string"},
+        "interior_holomorphy": {
+          "type": "object",
+          "required": ["method", "base_facts", "loop_charts", "holomorphic_on_box"],
+          "properties": {
+            "method": {"const": "exact_rational_cut_exclusion"},
+            "holomorphic_on_box": {"type": "boolean"}
+          }
+        },
+        "boundary_winding": {
+          "type": "object",
+          "required": ["certified", "method", "partition"],
+          "properties": {
+            "certified": {"type": "boolean"},
+            "method": {"const": "centered_form_segment_enclosure"},
+            "partition": {"enum": ["adaptive", "replayed_base_partition"]},
+            "winding": {"type": "integer"},
+            "segments": {"type": "integer"}
+          }
+        },
+        "zero_exclusion_certified": {"type": "boolean"},
+        "reading": {"type": "string"}
+      }
+    },
+    "nesting_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enclosures_nested_with_precision",
+        "comparison",
+        "probe_point",
+        "per_quantity_probe_nesting",
+        "per_segment_enclosure_nesting"
+      ],
+      "properties": {
+        "enclosures_nested_with_precision": {"type": "boolean"},
+        "comparison": {"type": "string"},
+        "probe_point": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "per_quantity_probe_nesting": {
+          "type": "object",
+          "additionalProperties": {"type": "boolean"}
+        },
+        "per_segment_enclosure_nesting": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["segments", "ladders_compared", "all_nested"],
+          "properties": {
+            "segments": {"type": "integer"},
+            "ladders_compared": {"type": "integer"},
+            "all_nested": {"type": "boolean"}
+          }
+        }
+      }
+    }
+  }
+}

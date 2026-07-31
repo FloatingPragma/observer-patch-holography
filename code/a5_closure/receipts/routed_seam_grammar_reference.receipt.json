@@ -60,7 +60,7 @@
       1,
       1
     ],
-    "completeness_statement": "the Smith normal form of the axis relation lattice has unit invariants except the final six, so the central class group is cyclic of order six; the face-boundary matrix has nineteen unit Smith invariants and zero column sums, so the routed-seam holonomy map surjects onto the sum-zero central 2-cochain lattice; every central 2-cochain class on the nerve is realized by exactly one of the six measured sectors, and every seam-routable central flux mechanism lies in the measured order-six menu",
+    "completeness_statement": "the Smith normal form of the axis relation lattice has unit invariants except the final six, so the central class group is cyclic of order six; the face-boundary matrix has nineteen unit Smith invariants and zero column sums, so the routed-seam holonomy map surjects onto the sum-zero central 2-cochain lattice; every central 2-cochain class on the nerve is realized by exactly one of the six declared-system sectors, and every seam-routable central flux mechanism lies in the declared order-six menu",
     "face_holonomy_sum_identically_zero": true,
     "generator_tubes_constructed": 19,
     "pair_realization_checks": 1710,
@@ -104,14 +104,16 @@
   },
   "claim_boundary": {
     "bounded_exit": "conditional_open_interface",
-    "bounded_exit_scope": "the central column exits exact_named_realization inside the measured order-six menu; the general grammar exits conditional_open_interface on the nonabelian witness",
+    "bounded_exit_scope": "the central column exits exact_named_realization inside the declared-system order-six menu; the general grammar exits conditional_open_interface on the nonabelian witness",
     "does_not_close": [
       "grammar exhaustiveness for routed mechanisms with values outside the central column",
+      "source selection of the axis relation lattice or a physical global form",
+      "same-source identification of the routed-seam class group with the matter-action kernel",
       "four-dimensional instanton normalization and theta periodicity (separate gates)",
       "laboratory current lines (issue 569)",
       "continuum quantum field theory"
     ],
-    "proves": "exact completeness of the routed-seam grammar with seam data valued in the central order-six class group, closure of the pairwise, triple-overlap, and routed-loop composition laws on the finite nerve, and the existence of a measured routed-seam mechanism with noncentral nonabelian values on the same federation"
+    "proves": "exact completeness of the routed-seam grammar with seam data valued in the order-six class group of the declared axis coefficient system, closure of the pairwise, triple-overlap, and routed-loop composition laws on the finite nerve, and the existence of a measured routed-seam mechanism with noncentral nonabelian values on the same federation"
   },
   "composition_laws": {
     "coboundary_lands_in_class_group": true,
@@ -125,8 +127,8 @@
   },
   "consumed_upstream": {
     "carrier_manifest_sha256": "cee9f912d2a2b9a66ac9866e3b04666a7acf74355771389bec73d7a04fbb8280",
-    "descent_manifest_sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d",
-    "global_form_artifact_sha256": "sha256:5dd190af934aafd5a594b7d045cdf0e12ec3fc583998d89e90f1326f9092147c",
+    "descent_manifest_sha256": "c619511b04243964db7c5cfe0f1bf7a2045f054d7298fd0b87b2ec9e799d3881",
+    "global_form_artifact_sha256": "sha256:0bfdacce8a4714d0d0a518fdf96fbb47b2aea5a0f508d97f51f97dd2e97fb30d",
     "global_form_fields": [
       "six_axis_class_measurement",
       "federation_deck_action",
@@ -135,6 +137,12 @@
       "refined_sector_menu.refinement_natural_sector_menu",
       "carrier_binding"
     ],
+    "physical_scope": {
+      "axis_relation_lattice_source_selected": false,
+      "declared_axis_coefficient_system_exact": true,
+      "physical_global_form_selected": false,
+      "same_source_loop_to_tensor_kernel_identification": false
+    },
     "shared_federation": "both consumed artifacts bind the same certified carrier, so the central column and the nonabelian countermodel live on one A1 federation of twelve charts, thirty seams, and twenty triple overlaps",
     "spin_statistics_artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a",
     "spin_statistics_fields": [
@@ -164,7 +172,7 @@
     "seams_from_squared_distance_four": 30
   },
   "issue": 613,
-  "manifest_sha256": "6e3d4714ddb1666484e7ea7d0f74c133d9811a63163a1017f28c4af16db395db",
+  "manifest_sha256": "46ae48d1c9a978f6e12de08a88af481fb11bc1540dcbb4a83ceabf1a9183ebef",
   "nonabelian_scope_boundary": {
     "artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a",
     "centre_order": 2,

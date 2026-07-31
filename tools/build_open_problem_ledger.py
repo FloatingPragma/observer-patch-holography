@@ -258,20 +258,31 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     311: {
         "phase": "particle-ontology",
-        "claim_level": "physical particle criterion open after finite-interface no-go",
+        "claim_level": (
+            "bounded classical spectral match; physical particle criterion open"
+        ),
         "blocker": (
-            "The exact finite flux chains, twisted spectra, fusion rows, and one-step "
-            "refinement data have hash-identical classical-lattice and quantum-Hilbert "
-            "interpretations. No asymptotic dynamics, pole, or all-depth intertwiner is emitted."
+            "On the exact twelve-vertex support, K_k = 5 I - A_k gives an "
+            "explicit classical vector-spring realization in the positive "
+            "hex-lattice metric, with an exact edge-Hessian proof, from which "
+            "the twisted adjacency spectral family is recoverable. A separate "
+            "issue-634 local-domain receipt matches its own six-sector and "
+            "scalar spectra. No identity bridge joins those finite domains. "
+            "Neither result covers a complete interface or extended source "
+            "domain, and no measurement semantics, asymptotic dynamics, pole, "
+            "or cofinal refinement family is emitted."
         ),
         "closure": (
-            "A source-defined quantum dynamics or equivalent physical spectral criterion "
-            "excludes the same-flux classical model and controls composition, asymptotic "
-            "states, and refinement."
+            "An extended source-defined quantum measurement, state-update, dynamics, "
+            "or equivalent physical spectral criterion excludes the relevant "
+            "same-domain vector-spring completion and controls composition, "
+            "asymptotic states, and refinement."
         ),
         "falsification": (
-            "The proposed particle discriminator remains a function only of the finite "
-            "interface shared by the classical and quantum countermodels."
+            "The proposed particle discriminator remains a function only of "
+            "the exact-support spectral family or of the separate matched "
+            "local-domain sector/scalar projection, without an extended "
+            "measurement or state-update interface."
         ),
         "chrome_policy": "Use only to audit a concrete dynamics, pole, or quantization packet.",
     },
@@ -279,11 +290,13 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "gravity-scale-composition",
         "claim_level": "source clock plus gravity readout composition gap",
         "blocker": (
-            "Issue #633 proves PHYSICAL_UNITS_NOT_EVALUABLE on the complete declared "
-            "finite domain. The extended matter and scalar/Yukawa domains in #569 "
-            "and #630 must select a physical transition. A source-derived gravity "
-            "length or radius, Einstein attachment, common provenance graph, and "
-            "outward interval composition into G_SI remain open."
+            "Issue #633 proves "
+            "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE. This "
+            "bounded verdict is not a complete-domain theorem. The extended matter "
+            "and scalar/Yukawa domains in #569 and #630 must select a physical "
+            "transition. A source-derived gravity length or radius, Einstein "
+            "attachment, common provenance graph, and outward interval composition "
+            "into G_SI remain open."
         ),
         "closure": (
             "A target-clean physical transition from the extended source domain and "
@@ -314,6 +327,52 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "capacity, or the equation is imposed rather than derived."
         ),
         "chrome_policy": "Use only after #505 and #631 emit their positive packets.",
+    },
+    505: {
+        "phase": "direct-n-capacity-closure",
+        "claim_level": "direct source-only record-capacity integration target",
+        "blocker": (
+            "The fixed-D=24 source checkpoint packet is complete, but #551 has "
+            "not emitted one capacity-indexed source family with a regulator-stable "
+            "unique slack zero or a complete stated-domain non-identifiability theorem."
+        ),
+        "closure": (
+            "Consume the #551 verdict and certify robust direct closure "
+            "F_set,r,0(D_star)={D_star}, with capacity extension, refinement, "
+            "whole-fiber, ambiguity, and target-exclusion controls kept distinct."
+        ),
+        "falsification": (
+            "The constructor reads an expected answer, a second admissible closure "
+            "survives, capacity extension creates confusability, or the claimed "
+            "cosmic value is imported from cosmology or the electroweak bridge."
+        ),
+        "chrome_policy": (
+            "Use only to audit the composed #551 packet and fixed-D primitives; "
+            "do not substitute target-guided equation search."
+        ),
+    },
+    551: {
+        "phase": "direct-n-capacity-closure",
+        "claim_level": "capacity-indexed selector theorem-or-no-go",
+        "blocker": (
+            "The source corpus supplies a fixed-D checkpoint construction, not one "
+            "target-clean rule D -> packet_r(D) -> M_0,r(D) with the exact "
+            "subleading slack and regulator control."
+        ),
+        "closure": (
+            "Prove existence, nontriviality, uniqueness, and cutoff independence "
+            "of one slack zero, or give a complete same-antecedent counterfamily "
+            "proving non-identifiability over the declared source class."
+        ),
+        "falsification": (
+            "A second zero, regulator-dependent zero, separately authored per-D "
+            "fixture, target input, or admissible same-source counterfamily survives "
+            "a claimed positive selector theorem."
+        ),
+        "chrome_policy": (
+            "Use for independent theorem or countermodel audit after a local "
+            "capacity-indexed packet exists; local exact construction comes first."
+        ),
     },
     522: {
         "phase": "cosmology-source-clock",
@@ -539,8 +598,8 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     569: {
         "phase": "physical-family-attachment",
         "claim_level": (
-            "exact finite rank-45 chirality, Spin-data, locality, and gap "
-            "attachment; physical and continuum attachment open"
+            "exact finite rank-45 tensor candidate with separate spin and "
+            "local-operator packets; physical attachment open"
         ),
         "blocker": (
             "The family_band_attachment certificate proves the exact selection: among "
@@ -556,11 +615,15 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "(faithful, equivariant, Galois partner at the maximal pole), and the "
             "unitary channel conserves mode norms. The finite screen assembly has "
             "complex rank forty-five with the exact rank-15 generation factor "
-            "imported. The finite issue-634 matter attachment recomputes the fifteen "
-            "states and anomaly cancellation, fixes the diagonal Z6 action, gives a "
-            "nondegenerate chirality grading, acts on the full rank-45 fiber with "
-            "support-radius-one signed operators, inherits the exact positive "
-            "dimensionless gap, and records the finite Spin data and lift ambiguity. "
+            "imported. A conditional finite tensor construction recomputes the "
+            "fifteen states and anomaly cancellation, fixes the diagonal Z6 action, "
+            "and gives a nondegenerate chirality grading on the separate issue-314 "
+            "twelve-port packet. The issue-634 local signed operator tensors with "
+            "the rank-45 identity by a declared algebraic extension, which "
+            "conditionally copies its exact positive dimensionless gap. This "
+            "tensor extension is not source-selected. No source, domain, or "
+            "transport bridge attaches the issue-314 "
+            "spin packet to that local operator domain. "
             "This is not a physical matter-spectrum measurement. The "
             "#617 copy-count invisibility for external completions is unchanged. "
             "The bounded #627 classification also leaves the physical seam "
@@ -568,7 +631,7 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "unselected."
         ),
         "closure": (
-            "The matter-pole identification, continuum Spin/locality limit, third "
+            "The matter-pole identification, physical Spin/locality bridge, third "
             "physical persistence leg, laboratory current attachment, exclusion of "
             "extra light sectors, and source-derived seam mechanism with its "
             "character or 2-representation identify the finite rank-45 "
@@ -589,17 +652,21 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "physical-wz-source-to-pole",
         "claim_level": "OPH-native source-to-pole packet open",
         "blocker": (
-            "The finite parents and bounded frontiers do not emit one target-clean "
-            "action, complete W/Z-coupled census and Yukawa packet, FJ map, full "
-            "RG/matching law, source point or law, operational clock, and hermetic "
-            "common-digest production replay."
+            "Issue #646 has not emitted the minimal scale-free source contract, "
+            "and the finite parents do not emit one target-clean action, complete "
+            "W/Z-coupled census and Yukawa packet, FJ map, full RG/matching law, "
+            "Lorentzian/Spin quantum-EFT transfer, or hermetic common-digest "
+            "production replay. The physical-unit row is not evaluable on the "
+            "declared clock interface."
         ),
         "closure": (
-            "The positive packets from #634, #569, #630, #631, #632, and #32, "
-            "including the physical transition selected on the extended matter "
-            "domain, are substituted into the validated #593 consumer without "
-            "algorithm changes and independently replayed under one recomputed "
-            "subject digest."
+            "Issue #646 first emits the minimal scale-free source-input or "
+            "non-identifiability verdict. Issues #569, #630, #631, #632, #32, "
+            "and #635 then emit final positive or negative source verdicts. Any "
+            "positive native row is substituted into the validated #593 consumer "
+            "without algorithm changes and replays one recomputed subject digest; "
+            "both output rows must end in final positive, rigorous negative, or "
+            "NOT_EVALUABLE verdicts."
         ),
         "falsification": (
             "Any source choice, branch, tolerance, error budget, or producer depends "
@@ -645,6 +712,259 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": "Use only after the #630 positive action and local carrier receipt exist.",
     },
+    503: {
+        "phase": "direct-n-physical-carrier",
+        "claim_level": "conditional Einstein theorem complete; inhabited source carrier open",
+        "blocker": (
+            "No single target-clean source-derived tower instantiates every "
+            "geometry, modular, event, stress, entropy, vacuum, scale, and "
+            "refinement premise. A finite direct N cannot supply that tower."
+        ),
+        "closure": (
+            "Emit one inhabited common-domain Einstein/de Sitter tower with "
+            "independent source provenance and certified tails, or the final "
+            "bounded negative or not-evaluable verdict."
+        ),
+        "falsification": (
+            "The tower reads N, Lambda, a cosmological target, or a conclusion "
+            "coordinate while constructing any source premise."
+        ),
+        "chrome_policy": (
+            "Use only to audit a complete local source tower; #589, not #503, "
+            "owns any downstream cosmological comparison."
+        ),
+    },
+    589: {
+        "phase": "direct-n-horizon-attachment",
+        "claim_level": "finite N and horizon-area identity open",
+        "blocker": (
+            "Issue #505 has not emitted a positive finite N together with an "
+            "inhabited compatible #503 Einstein/de Sitter carrier, and no "
+            "refinement-natural horizon-record order-unit identity is proved."
+        ),
+        "closure": (
+            "Prove the target-clean horizon-record identity and emit the physical "
+            "Lambda-times-Planck-area relation, or close bounded no-go or "
+            "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT."
+        ),
+        "falsification": (
+            "A finite N is compared with Lambda before the #503 carrier and "
+            "#589 identity exist, or the public cosmological value is described "
+            "as an unexposed prospective target."
+        ),
+        "chrome_policy": (
+            "Use for attachment audit only after positive #505 and #503 packets; "
+            "any present-day Lambda comparison is retrospective."
+        ),
+    },
+    639: {
+        "phase": "exposure-typed-dimensionless-forecast",
+        "claim_level": (
+            "C1 static draft controls complete; C3 invariant registry, "
+            "exposure typing, custody, and scoring open"
+        ),
+        "blocker": (
+            "The first-ranked direct N candidate is ineligible: #551 and #505 "
+            "closed with the locked non-identifiability and #589 closed not "
+            "evaluable, so the pointer advances on the complete frozen #647 "
+            "registry. No physically typed registry row has passed exposure "
+            "classification, durable custody, minimum-power review, and "
+            "single-use unsealing, and the scoring surface awaits its "
+            "separately reviewed unsealing change with custody and exposure "
+            "typing."
+        ),
+        "closure": (
+            "Score at most one eligible attached dimensionless candidate under "
+            "its prospective, blind-postdiction, or exposed-retrospective class, "
+            "or close with the complete bounded no-go or not-evaluable ledger. "
+            "Exploratory rows are catalog-only."
+        ),
+        "falsification": (
+            "An exposed target is called blind, producer strata become sequential "
+            "second chances, a finite N bypasses #503/#589, minimum power or "
+            "multiplicity is omitted, a post-unseal defect is repaired in place, "
+            "or a composite failure is attributed to one auxiliary branch without "
+            "an independent premise-isolation test."
+        ),
+        "chrome_policy": (
+            "Use workers for adversarial ancestry and checker audits on the "
+            "#647 inventory. Do not launch comparison evaluation until one "
+            "attached packet passes the exposure, ranking, power, and freeze gates."
+        ),
+    },
+    641: {
+        "phase": "baryon-violation-boundary",
+        "claim_level": "dimension-six operator census open; minimal X/Y channel absence closed",
+        "blocker": (
+            "The selected product adjoint excludes the ordinary minimal simple-GUT "
+            "X/Y gauge-exchange generator, but no complete gauge-invariant baryon-"
+            "violating operator basis through dimension six is classified on the "
+            "selected matter and scalar boundary."
+        ),
+        "closure": (
+            "Enumerate every gauge-invariant baryon-violating operator through "
+            "dimension six, classify its OPH source status and mediators, and "
+            "separate exact absences from open coefficients and ultraviolet channels."
+        ),
+        "falsification": (
+            "A gauge-invariant operator or admitted mediator is omitted, an open "
+            "coefficient is treated as zero, or the minimal X/Y channel result is "
+            "promoted to general proton stability or a lifetime bound."
+        ),
+        "chrome_policy": (
+            "Use only to audit a local symbolic operator basis and its completeness "
+            "proof; no hadron or proton-lifetime computation is required."
+        ),
+    },
+    642: {
+        "phase": "global-form-discriminator",
+        "claim_level": "finite Z6 packet closed; laboratory discriminator open",
+        "blocker": (
+            "The exact finite character, cocharacter, and line-class arithmetic "
+            "has no completed continuum or laboratory attachment, particle mass, "
+            "production rate, or discovery-level comparison rule."
+        ),
+        "closure": (
+            "Emit the exact charge and line-operator incompatibility packet, "
+            "physicalization verdict, frozen decision rule, independent replay, "
+            "and explicit nondetection boundary."
+        ),
+        "falsification": (
+            "A representation or line class is omitted, conventions are mixed, "
+            "a source rate is invented, or experimental nondetection is counted "
+            "as positive evidence without a predicted tested region."
+        ),
+        "chrome_policy": (
+            "Use only to audit the exact finite discriminator and a read-only "
+            "experimental crosswalk."
+        ),
+    },
+    643: {
+        "phase": "a5-angular-discriminator",
+        "claim_level": (
+            "finite branching and first invariant exact; frame lock and "
+            "screen-to-sky observable open"
+        ),
+        "blocker": (
+            "The pinned FZ-02 theorem packet does not separately prove the "
+            "registered level-three/level-six frame lock. The A5 action may be "
+            "internal, and no source-forced nonzero sky statistic or physical "
+            "screen-to-sky map exists."
+        ),
+        "closure": (
+            "Derive or remove the frame-lock clause, decide internal versus "
+            "spatial action, and emit one nonzero rotation-controlled statistic "
+            "with frozen foreground, covariance, trials, data manifest, and "
+            "comparison contract for #639, or close with the exact no-go."
+        ),
+        "falsification": (
+            "Known low-multipole anomalies select the statistic or frame, a free "
+            "amplitude is promoted, or A5 invariance shared by isotropy is treated "
+            "as a differentiating prediction."
+        ),
+        "chrome_policy": (
+            "Use only to audit the frozen statistic and comparison contract. "
+            "Issue #639 alone may access and score the comparison payload."
+        ),
+    },
+    644: {
+        "phase": "structural-specificity-audit",
+        "claim_level": "bounded alternative-carrier specificity score open",
+        "blocker": (
+            "No carrier and response-law null ensemble is frozen, so the rarity "
+            "of the finite gauge, quotient, matter, and family hit tuple is not "
+            "computable."
+        ),
+        "closure": (
+            "Freeze an exhaustive bounded grammar and equal algorithm budget, "
+            "run every model, independently replay the full hit table, and emit "
+            "the finite specificity or exact non-computability verdict."
+        ),
+        "falsification": (
+            "Models are added or removed after scoring, isomorphic duplicates "
+            "remain, target-aware pruning occurs, or the OPH carrier receives a "
+            "larger selector or repair budget."
+        ),
+        "chrome_policy": (
+            "Use only to audit a frozen local ensemble and independently "
+            "recomputed full result table."
+        ),
+    },
+    645: {
+        "phase": "observer-overlap-interferometer",
+        "claim_level": "source-to-readout and normalized cross-spectrum open",
+        "blocker": (
+            "No source map identifies a finite overlap observable with optical "
+            "path or phase. Auto-spectrum detector noise also prevents the "
+            "normalized measured cross-spectrum from being amplitude-free."
+        ),
+        "closure": (
+            "Derive one nonconstant geometry-dependent source cross-spectrum, "
+            "the source-to-readout coupling, signal/background decomposition, "
+            "calibrated likelihood, and frozen comparison contract for #639, or "
+            "close immediately with the declared no-map verdict."
+        ),
+        "falsification": (
+            "An excluded holographic-noise template is relabelled as OPH, "
+            "instrument noise is omitted, or a free amplitude or shape absorbs "
+            "the comparison."
+        ),
+        "chrome_policy": (
+            "Use only to audit a local source-to-readout packet and frozen "
+            "comparison contract. Issue #639 alone may score public Holometer data."
+        ),
+    },
+    646: {
+        "phase": "electroweak-invariant-search",
+        "claim_level": "scale-free W/Z invariant or no-go open",
+        "blocker": (
+            "The dependence of pole, width, residue, and asymmetry combinations "
+            "on clock, vacuum scale, normalization, scheme, threshold, scalar, "
+            "Yukawa, family, and continuum directions is not classified."
+        ),
+        "closure": (
+            "Emit an exact or interval-certified invariant multi-output vector "
+            "with its minimal source-input contract, or prove every frozen "
+            "candidate remains non-identifiable."
+        ),
+        "falsification": (
+            "A cancellation holds only at one point, measured W/Z values select "
+            "the combination, weak-angle schemes are mixed, or a surviving open "
+            "direction is omitted."
+        ),
+        "chrome_policy": (
+            "Use only to audit the local dependency/Jacobian packet and "
+            "target-free invariant proof."
+        ),
+    },
+    647: {
+        "phase": "oph-invariant-mining",
+        "claim_level": "systematic OPH-only observable mine open",
+        "blocker": (
+            "The source-feature, typed nuisance, source-admissible completion, "
+            "candidate-specific baseline, end-to-end physicalization, and exposed-"
+            "data registries are not complete, and no candidate has entered #639."
+        ),
+        "closure": (
+            "Freeze deterministic ranking and the bounded grammar before "
+            "candidate generation, certify each OPH model-image inclusion "
+            "globally and each baseline non-inclusion by counterexample, repeat "
+            "the nuisance audit after physicalization, then emit exposure-typed "
+            "candidates or the complete negative verdict."
+        ),
+        "falsification": (
+            "A discrete branch is removed by a Jacobian, an exposed value "
+            "influences mining, ranking remains discretionary, historical "
+            "multiplicity or minimum power is omitted, direct N re-enters the "
+            "fallback registry, or retrospective agreement is promoted to "
+            "prospective survival. A composite failure cannot identify one "
+            "auxiliary branch without an independent premise-isolation test."
+        ),
+        "chrome_policy": (
+            "Use only for proof and ancestry audits against the frozen local "
+            "grammar; #639 owns all comparison access and one-shot scoring."
+        ),
+    },
     632: {
         "phase": "electroweak-field-census",
         "claim_level": "complete W/Z-coupled census gap",
@@ -666,40 +986,116 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     },
     633: {
         "phase": "operational-source-clock",
-        "claim_level": "positive dimensionless gap closed; physical SI clock non-identifiable on the declared domain",
+        "claim_level": (
+            "positive dimensionless gap retained; physical units not evaluable "
+            "on the declared serialized interface"
+        ),
         "blocker": (
-            "The declared source domain emits an exact positive dimensionless gap "
-            "and admits source-indistinguishable SI attachments. It therefore cannot "
-            "select a physical reference transition or SI chart."
+            "The bounded serialized-interface audit finds no emitted physical-unit "
+            "field, and two attained producer runs ignore the named SI attachment "
+            "channel. This is not a transitive source-closure or complete-domain "
+            "non-identifiability theorem."
         ),
         "closure": (
-            "The source classification and same-domain countermodels certify "
-            "PHYSICAL_UNITS_NOT_EVALUABLE while retaining the positive dimensionless "
-            "gap. Any matter-anchored extension is owned separately by #569 and #630."
+            "The receipt certifies "
+            "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE "
+            "while retaining the positive dimensionless gap. Any physical "
+            "transition on an extended matter domain is owned separately by "
+            "#569 and #630."
         ),
         "falsification": (
-            "The declared source domain uniquely selects an SI attachment, or the "
-            "same-domain alternatives cease to be source-indistinguishable."
+            "A field in the declared serialized interface carries a physical-unit "
+            "attachment, or the attained producer demonstrably consumes the named "
+            "SI channel."
         ),
-        "chrome_policy": "Closed on the complete negative exit; use successor issues for extended source domains.",
+        "chrome_policy": (
+            "Treat the closure as a bounded interface verdict; never cite it as "
+            "a complete-domain clock no-go."
+        ),
+    },
+    314: {
+        "phase": "standard-model-source-realization",
+        "claim_level": "conditional finite matter fixture exact; physical source selection open",
+        "blocker": (
+            "The exterior, anomaly, and finite Spin calculations consume a "
+            "declared matrix-current fixture. No same-source producer selects "
+            "the physical current action or matter representation."
+        ),
+        "closure": (
+            "A source-passed current from #566 acts on a source-selected matter "
+            "carrier and the same finite Spin implementers, with refinement "
+            "commuting squares and adversarial controls."
+        ),
+        "falsification": (
+            "The declared exterior/Spin theorem fails internally, or every "
+            "target-free source matter producer selects an incompatible action."
+        ),
+        "chrome_policy": "Use only to audit a concrete same-source current/matter packet.",
+    },
+    566: {
+        "phase": "standard-model-source-realization",
+        "claim_level": "abstract A1/A2 Lie type forced; executable source current open",
+        "blocker": (
+            "The source artifact derives R=-J and response signs but contains no "
+            "ordered current tomography, exact bracket reconstruction, or "
+            "same-current closed overlap holonomy."
+        ),
+        "closure": (
+            "One target-free source packet reconstructs twelve generators, their "
+            "closed bracket, all proper-carrier projective implementers, "
+            "response-component membership, and refinement intertwiners."
+        ),
+        "falsification": (
+            "A model satisfying the explicit A1/A2 response premises has another "
+            "compact Lie type, or the source producer cannot realize the forced "
+            "type without importing a named current model."
+        ),
+        "chrome_policy": "Use only to audit raw ordered histories and an executable verifier.",
+    },
+    567: {
+        "phase": "standard-model-source-realization",
+        "claim_level": "declared-table Z6 kernel exact; physical global form open",
+        "blocker": (
+            "The order-six axis class uses declared diagonal and zero-sum "
+            "relations. Character completeness and a same-source "
+            "loop-to-kernel identity are absent."
+        ),
+        "closure": (
+            "A source-derived complete character/relation lattice and genuine "
+            "line category identify the carrier loop with the common physical "
+            "current and matter kernel, with alternative global forms rejected."
+        ),
+        "falsification": (
+            "Another source-admissible relation or transparent central action "
+            "survives, or the loop map fails on an admitted character."
+        ),
+        "chrome_policy": "Use only to audit a concrete source character and loop packet.",
     },
     634: {
         "phase": "lorentzian-spin-local-source",
-        "claim_level": "inhabited local action domain open",
+        "claim_level": (
+            "finite causal and local-operator domain attained; continuum "
+            "Lorentzian/Spin quantum-EFT promotion open"
+        ),
         "blocker": (
-            "Conditional event, frame, cone, and spin interfaces do not yet construct "
-            "one inhabited refinement-compatible Lorentzian/Spin local action domain."
+            "The finite event complex, typed sections, seam topology, and local "
+            "operators are inhabited. Negative cone margins, one Euclidean "
+            "neighborhood fit, and the missing cofinal refinement limit block "
+            "continuum promotion."
         ),
         "closure": (
-            "One source-derived local domain binds events, Lorentzian frames, Spin "
-            "lifts, locality, Hamiltonian typing, refinement, and public receipts "
-            "with independent replay."
+            "The bounded finite-domain receipt remains closed. A separate "
+            "regulator-controlled transfer must establish the continuum "
+            "Lorentzian/Spin quantum-EFT domain."
         ),
         "falsification": (
-            "The proposed domain is uninhabited, loses locality or Spin/Lorentzian "
-            "compatibility under refinement, or requires a physical target."
+            "The finite receipt fails replay or silently promotes its fitted "
+            "finite coordinates to a continuum manifold."
         ),
-        "chrome_policy": "Use only to audit a concrete inhabited local-action construction.",
+        "chrome_policy": (
+            "Use only to audit the bounded local-domain construction and exact "
+            "bundle replay; #635 owns continuum transfer."
+        ),
     },
 }
 

@@ -579,8 +579,11 @@ $W$, $Z$, and $H$ to the electroweak and Higgs sectors, and hadrons to QCD
 composites. The ladder explains how OPH moves from seed, to loop, to screen, to
 observer-frame geometry. Event spacetime, physical gauge currents, and particle
 fields enter through their separate later constructions. Incidence and a
-target-blind impulse/readback protocol derive the exact finite current.
-Laboratory identification requires a separate construction.
+target-blind impulse/readback protocol derive the inverse-port response
+$R=-J$. The complete port response and internal overlap transport required by
+the axioms force the abstract Standard Model Lie type. Reconstructing that
+complete response from source histories and identifying a laboratory current
+require separate constructions.
 
 ## 3.12 The Reverse Engineering
 

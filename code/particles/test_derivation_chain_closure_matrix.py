@@ -66,6 +66,7 @@ def test_derivation_chain_closure_matrix_keeps_stage_gates_explicit() -> None:
     assert rows["charged_leptons"]["closed_issue_refs"] == [201]
     assert rows["higgs_top_declared_surface"]["status"] == "conditional_declared_surface_higgs_top_candidate"
     assert rows["higgs_top_declared_surface"]["promotable"] is False
+    assert rows["higgs_top_declared_surface"]["outputs"]["higgs"] == 125.1995304097179
     assert rows["higgs_top_declared_surface"]["open_gates"] == [
         "closed_promotable_EWTargetFreeRepairValueLaw_D10"
     ]

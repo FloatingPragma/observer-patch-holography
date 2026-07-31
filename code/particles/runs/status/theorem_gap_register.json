@@ -93,18 +93,25 @@
       "statement": "a unique invariant MaxEnt state has zero non-singlet expectation and the homogeneous twelve-port branch has the uniform minimizer: family shape requires a selected W5 orbit"
     },
     {
-      "artifact": "runs/status/theorem_gap_register.json",
+      "artifact": "runs/status/carrier_mode_acceptance.json",
       "class": "closed",
-      "family": "massless carriers",
-      "id": "PHOTON_EXACT_MASSLESSNESS_RECEIPT",
-      "statement": "unbroken electromagnetic gauge invariance of the recovered quotient forces a transverse self-energy with vanishing zero-momentum part; the photon mass is exactly zero, conditional on the recovered-core gauge structure"
+      "family": "conditional classical carrier modes",
+      "id": "MAXWELL_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT",
+      "statement": "on the separately declared unbroken, deconfined Maxwell branch with positive kinetic coefficient, the transverse classical modes have zero hard quadratic mass parameter; the OPH quantum-particle and positive-pole receipts are open"
     },
     {
-      "artifact": "runs/status/theorem_gap_register.json",
+      "artifact": "runs/status/carrier_mode_acceptance.json",
       "class": "closed",
-      "family": "massless carriers",
-      "id": "GLUON_CARRIER_MASSLESSNESS_RECEIPT",
-      "statement": "unbroken color forces carrier-level gluon masslessness; confinement removes asymptotic gluon states, so the statement concerns the gauge field, never a physical pole"
+      "family": "conditional classical carrier modes",
+      "id": "YANG_MILLS_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT",
+      "statement": "on the separately declared perturbative Yang--Mills branch with positive kinetic coefficient, the free transverse classical modes have zero hard quadratic mass parameter; confinement blocks promotion to an asymptotic gluon particle"
+    },
+    {
+      "artifact": "runs/status/carrier_mode_acceptance.json",
+      "class": "closed",
+      "family": "conditional classical carrier modes",
+      "id": "EINSTEIN_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT",
+      "statement": "on the separately declared pure-Einstein branch about a suitable Ricci-flat background with positive kinetic coefficient, the transverse-traceless classical modes have zero hard quadratic mass parameter; no OPH graviton Hilbert space or positive-pole receipt is supplied"
     },
     {
       "artifact": "calibration/q1_q4_wz_theorem_oracle/",
@@ -117,11 +124,11 @@
   "counts": {
     "awaiting_discriminating_test": 1,
     "closable_by_standard_computation": 1,
-    "closed": 16,
+    "closed": 17,
     "computationally_blocked": 2,
     "research_open": 9
   },
-  "generated_utc": "2026-07-25T09:04:14Z",
+  "generated_utc": "2026-07-29T16:29:39Z",
   "open_register": [
     {
       "class": "research_open",
@@ -170,7 +177,7 @@
       "class": "research_open",
       "family": "quarks",
       "id": "QF1_QF9_FLAVOR_CARRIER",
-      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination. The direct register-Clebsch route and the direct real-axis Cabibbo identification are removed; channel compatibility and the conditional F1/F2 unordered multiset survive but do not equate Yukawa coefficients or select a generation order. A new source-derived mass and mixing mechanism, including charm/up selectors, is required"
+      "statement": "the physical flavor carrier certificate and per-sector spread-fiber elimination. The complete declared register-Clebsch common-transport assignment family is retrospectively rejected inside its tested class. Direct Cabibbo identification with the canonical real-axis menu is excluded inside that separate finite class. channel compatibility and the conditional F1/F2 unordered multiset do not equate Yukawa coefficients or select a generation order. A source-derived mass and mixing mechanism, including charm/up selectors, is required"
     },
     {
       "class": "research_open",

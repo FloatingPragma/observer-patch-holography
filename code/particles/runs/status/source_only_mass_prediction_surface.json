@@ -335,19 +335,24 @@
       ]
     },
     {
-      "family": "massless carriers (photon, gluon)",
+      "family": "conditional classical carrier modes",
       "rows": [
         {
+          "artifact": "runs/status/carrier_mode_acceptance.json",
           "blocking_objects": [
-            "exact masslessness theorem receipts on the carrier lane"
+            "OPH quantum construction",
+            "positive physical Hilbert space",
+            "positive-residue massless pole",
+            "asymptotic or deconfined particle-state receipt"
           ],
-          "explanation": "Exact masslessness follows from unbroken gauge invariance in the recovered core; the receipt is bookkeeping, never a numerical program.",
-          "lane": "structural masslessness",
+          "explanation": "Separately supplied Maxwell, perturbative Yang--Mills, and pure-Einstein actions have classical transverse modes with zero hard quadratic mass parameter on their declared phase and background branches. The recovered group does not supply those premises. No OPH quantum-particle or positive-pole receipt is available.",
+          "lane": "declared action-branch mode receipts",
           "statuses": {
             "g (8 color states)": "conditional_carrier_mode",
-            "gamma": "conditional_carrier_mode"
+            "gamma": "conditional_carrier_mode",
+            "graviton": "conditional_carrier_mode"
           },
-          "tier": "structural (receipt pending)"
+          "tier": "conditional classical mode theorem"
         }
       ]
     },
@@ -499,7 +504,7 @@
       ]
     }
   ],
-  "generated_utc": "2026-07-28T07:47:55Z",
+  "generated_utc": "2026-07-29T16:29:39Z",
   "global_blocking_objects": {
     "X1_strict_no_target_P_alpha_root": "source-audit branch witness; full endpoint proof requires the hadronic spectral transport, the scheme bridge, and the interval fixed-point proof",
     "X2_operational_clock_chain": [

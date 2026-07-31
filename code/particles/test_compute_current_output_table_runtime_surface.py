@@ -58,7 +58,7 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     assert "## Companion Claim Boundaries" in markdown
     assert "## Neutrino Oscillation Comparison" in markdown
     assert exact_nonhadron["status"] == (
-        "public_mass_outputs_with_classical_carriers_separated_and_target_anchored_witnesses_withheld"
+        "conditional_nonhadron_candidates_with_classical_carriers_separated_and_target_anchored_witnesses_withheld"
     )
     carriers = {row["carrier_id"]: row for row in exact_nonhadron["classical_carrier_modes"]}
     assert set(carriers) == {"photon", "gluon", "graviton"}

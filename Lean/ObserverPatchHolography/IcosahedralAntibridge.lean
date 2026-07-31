@@ -38,10 +38,13 @@ Contents:
 * **The receipt** : `oph_defect_generator_not_A5_equivariant`: no
   `A5`-invariant partition of `DefectSpace` into blocks 8+3+1.
 
-Claim discipline: this proves the naive defect–generator map cannot be
-`A5`-equivariant.  It does NOT refute OPH; it names the
-defect–generator correspondence as an explicit physical postulate rather
-than a consequence of icosahedral symmetry.
+Claim discipline: this proves only that the naive pointwise
+defect-to-generator partition cannot be `A5`-equivariant.  The target-blind
+impulse/readback producer instead derives the non-monomial operator `R = -J`
+on the full port module.  The A1/A2 response theorem fixes the abstract
+compact Lie-algebra type when its complete-response and endogenous-holonomy
+premises hold.  Ordered source-current tomography, the concrete matrix
+realization, and laboratory gauge-current attachment remain separate.
 -/
 
 namespace OPH
@@ -146,9 +149,10 @@ theorem card_defectSpace : Nat.card DefectSpace = 12 := by
     would-be gluon block of size 8 contradicts
     `no_proper_invariant_set`.
 
-    This does not refute the OPH framework; it certifies that its
-    defect–generator correspondence is a physical postulate, not a
-    consequence of icosahedral symmetry. -/
+    This theorem rules out the naive pointwise partition.  It does not
+    address the distinct source-bound construction that first applies the
+    impulse/readback operator to the full port module and then builds the
+    compact current algebra. -/
 theorem oph_defect_generator_not_A5_equivariant
     (A B C : Set DefectSpace)
     (hA : ∀ g : A5, g • A = A)

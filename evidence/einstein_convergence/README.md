@@ -1,7 +1,9 @@
 # Evidence E1: Einstein-Cone Convergence Ladder
 
-Compressed primary evidence for the Lorentzian-signature emergence
-measurements cited by the papers as [E1]. Each rung is one deterministic run
+Compressed primary evidence for the Lorentzian-signature tests cited by the
+papers as [E1]. The instrument fixes one ancestry coordinate and three
+spectral coordinates. It tests the fitted form on that declared chart and
+does not select the number of spacetime dimensions. Each rung is one deterministic run
 of the fixed federated source capture; the stored artifact carries the event
 chart, the causal and spacelike pair samples, the fitted quadratic form, and
 the flux and normalization vectors needed to recheck every printed number
@@ -10,13 +12,21 @@ without rerunning the simulation. `manifest.json` binds every file by sha256.
 ## Provenance
 
 - Simulator: [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim),
-  commits `07e2faca` (three-rung ladder) and `4f0169c` (density-corrected top rung).
+  commit `4f0169c0e319468112d076afe6ce5aa14fbfe0d5`. The three smaller
+  configurations first occur at `07e2faca7a31e456dcf8133ba4c2b0fde92708fa`;
+  every archived file in this directory matches the tree at `4f0169c`.
 - Producer: `scripts/einstein_convergence_ladder.py` (deterministic; seed
   20260751; canonical capture path with `observer_cross_reads`,
   `snapshot_coverage=spanning`, `geometry_transport=held_out_flow`).
 - Full per-rung configuration is embedded in each `rung_*.json` summary.
-- Reproduction: `.venv/bin/python scripts/einstein_convergence_ladder.py`
-  in the simulator repository regenerates every artifact bit for bit.
+- Reproduction: use a detached clean checkout of
+  `4f0169c0e319468112d076afe6ce5aa14fbfe0d5`, install the dependencies
+  declared by that commit's `pyproject.toml`, and run
+  `.venv/bin/python scripts/einstein_convergence_ladder.py`. Compare the
+  reported scientific fields against the archived summaries and the generated
+  arrays against the hash-bound archive. The producer records elapsed runtime,
+  and that commit supplies bounded dependency versions instead of a lock file,
+  so byte identity of a fresh cross-environment replay is not claimed.
 
 ## Measured ladder
 
@@ -42,7 +52,7 @@ invariant-density convergence law, or determine an infinite-scale limit.
 ## Claim boundary
 
 These are finite measurements of the declared repair dynamics under frozen
-instruments with a same-size support-width control (see the simulator's
+four-coordinate instruments with a same-size support-width control (see the simulator's
 Einstein-branch guide). They license statements about the measured event
 forms on the four archived configurations. They do not by themselves
 construct the continuum Einstein equation, whose named receipts are tracked

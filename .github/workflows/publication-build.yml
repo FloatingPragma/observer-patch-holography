@@ -14,6 +14,7 @@ on:
       - "README.md"
       - "README_FR.md"
       - "paper/**"
+      - "flagship/**"
       - "extra/**"
       - "book/**"
       - "assets/**"
@@ -37,6 +38,7 @@ on:
       - "README.md"
       - "README_FR.md"
       - "paper/**"
+      - "flagship/**"
       - "extra/**"
       - "book/**"
       - "assets/**"
@@ -95,15 +97,15 @@ jobs:
 
       - name: Require committed preview artifacts to match the source rebuild
         run: |
-          if ! git diff --quiet -- paper extra book/reverse-engineering-reality-book.pdf; then
+          if ! git diff --quiet -- paper flagship extra book/reverse-engineering-reality-book.pdf; then
             echo "::error::The committed PDFs or manifest do not match the source rebuild. No release bump is required. Run 'python3 tools/refresh_paper_release.py --preview' and 'python3 tools/build_book_pdf.py', inspect the PDFs, then commit the rebuilt artifacts."
-            git diff --stat -- paper extra book/reverse-engineering-reality-book.pdf
+            git diff --stat -- paper flagship extra book/reverse-engineering-reality-book.pdf
             exit 1
           fi
 
       - name: Record first-pass preview hashes
         run: |
-          find paper extra -maxdepth 1 -type f -name '*.pdf' -print0 \
+          find paper flagship extra -maxdepth 1 -type f -name '*.pdf' -print0 \
             | sort -z \
             | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-first.sha256"
           sha256sum paper/paper_release_manifest.json \
@@ -118,7 +120,7 @@ jobs:
 
       - name: Require byte-identical second pass
         run: |
-          find paper extra -maxdepth 1 -type f -name '*.pdf' -print0 \
+          find paper flagship extra -maxdepth 1 -type f -name '*.pdf' -print0 \
             | sort -z \
             | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-second.sha256"
           sha256sum paper/paper_release_manifest.json \

@@ -1,6 +1,6 @@
 # Particle Pipeline Closure Status
 
-Generated: `2026-07-28T16:41:54Z`
+Generated: `2026-07-29T17:21:23Z`
 
 Single closure gate for source-only rows and empirical hadron closure rows.
 
@@ -56,11 +56,15 @@ promotable: the OPH-native producer stack listed in
 | --- | --- | --- | --- |
 | Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. First emit a source-only quark mass matrix at one declared scale with physical determinant-line phase data. Then fix the topological-angle contribution and prove that the anomaly-invariant strong-CP phase vanishes. |
 
-## Latest Non-Hadron Predictions
+## Promotable Non-Hadron Predictions
 
-| Particle ID | Mass |
-| --- | ---: |
-| `higgs` | `125.1995304097179 GeV` |
+No promotable numerical particle prediction is emitted on the current corpus.
+
+## Conditional Non-Promotable Candidates
+
+| Particle ID | Candidate | Claim label | Scope |
+| --- | ---: | --- | --- |
+| `higgs` | `125.1995304097179 GeV` | `conditional_declared_surface_higgs_top_candidate` | `declared_d10_d11_running_matching_threshold_surface_only` |
 
 ## Conditional Classical Carrier Modes
 
@@ -92,7 +96,7 @@ promotable: the OPH-native producer stack listed in
 - `nonhadron_prediction_surface_buildable`: `True`
 - `source_only_hadrons_suppressed_by_default`: `True`
 - `empirical_hadron_closure_policy_documented`: `True`
-- `empirical_hadron_spectral_dataset_integrated`: `True`
+- `empirical_hadron_spectral_endpoint_packet_available`: `True`
 - `p_trunk_candidate_only`: `True`
 - `obstruction_only_worker_result_allowed`: `True`
 - `paper_material_sync_complete_without_live_publish`: `True`

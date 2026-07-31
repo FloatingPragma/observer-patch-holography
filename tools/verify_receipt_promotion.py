@@ -495,8 +495,18 @@ def _check_a5_current(payload: Mapping[str, Any], row: Mapping[str, Any]) -> lis
         failures.append("a5_conditional_current_algebra_gate_failed")
     gate = payload.get("physical_source_gate", {})
     binding = payload.get("semantic_response_binding")
-    if gate.get("passed") is not True:
-        failures.append("a5_physical_current_source_gate_not_passed")
+    if gate.get("passed") is not False:
+        failures.append("a5_open_physical_current_gate_not_fail_closed")
+    for key in (
+        "response_model_source_bound",
+        "ordered_response_commutator_reconstructed",
+        "same_current_internal_implementers_source_bound",
+        "a2_overlap_holonomy_fullness_source_bound",
+    ):
+        if gate.get(key) is not False:
+            failures.append(f"a5_open_physical_current_gate_misstates:{key}")
+    if gate.get("target_blind_impulse_readback_recomputed") is not True:
+        failures.append("a5_target_blind_response_not_recomputed")
     if gate.get("passed") is True and not isinstance(binding, Mapping):
         failures.append("a5_physical_current_gate_passed_without_semantic_binding")
     if isinstance(binding, Mapping) and binding.get("sector_structure_recomputed") is not True:

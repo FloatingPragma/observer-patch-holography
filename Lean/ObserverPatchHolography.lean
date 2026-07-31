@@ -5,6 +5,7 @@ import ObserverPatchHolography.Rule90
 import ObserverPatchHolography.BoundaryFiber
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
+import ObserverPatchHolography.CapacityNonidentifiability
 import ObserverPatchHolography.SeedPi
 import ObserverPatchHolography.ClebschRatio
 import ObserverPatchHolography.KoideCirculant
@@ -30,6 +31,9 @@ import ObserverPatchHolography.YangMillsGap
 import ObserverPatchHolography.YangMillsGapWitness
 import ObserverPatchHolography.RepairGapChain
 import ObserverPatchHolography.QuotientLumpability
+import ObserverPatchHolography.ScalarSeamRepair
+import ObserverPatchHolography.DirectedSeamRepair
+import ObserverPatchHolography.DirectedSeamRepairProgress
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root

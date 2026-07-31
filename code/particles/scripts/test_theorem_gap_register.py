@@ -20,7 +20,30 @@ def test_closures_carry_artifacts():
     ids = {e["id"] for e in register["closed_this_program"]}
     assert "FLOW_INTERNAL_SELECTION_NO_GO" in ids
     assert "ANCHOR_RECONCILIATION_MIDPOINT_IMPLICATION" in ids
-    assert "PHOTON_EXACT_MASSLESSNESS_RECEIPT" in ids
+    assert "MAXWELL_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT" in ids
+    assert "YANG_MILLS_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT" in ids
+    assert "EINSTEIN_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT" in ids
+    assert "PHOTON_EXACT_MASSLESSNESS_RECEIPT" not in ids
+    carrier_rows = [
+        entry
+        for entry in register["closed_this_program"]
+        if entry["family"] == "conditional classical carrier modes"
+    ]
+    assert len(carrier_rows) == 3
+    assert all(
+        entry["artifact"] == "runs/status/carrier_mode_acceptance.json"
+        for entry in carrier_rows
+    )
+    carrier_by_id = {entry["id"]: entry for entry in carrier_rows}
+    assert "quantum-particle" in carrier_by_id[
+        "MAXWELL_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT"
+    ]["statement"]
+    assert "asymptotic gluon" in carrier_by_id[
+        "YANG_MILLS_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT"
+    ]["statement"]
+    assert "graviton Hilbert space" in carrier_by_id[
+        "EINSTEIN_CLASSICAL_ZERO_HARD_MASS_MODE_RECEIPT"
+    ]["statement"]
 
 
 def test_open_register_names_the_faithfulness_gate_and_the_test():

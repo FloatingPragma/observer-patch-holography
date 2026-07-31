@@ -9,9 +9,17 @@
       "the N-dependent bridge equation or a source-only cosmic capacity",
       "a Higgs, W, Z, coupling, vacuum, or mass prediction"
     ],
-    "proves": "the pinned finite screen has one invariant normalized order-unit line, the four-copy weak restriction has one central normalized order-unit line, and the unique positive unital trace-preserving linear isomorphism between those lines is refinement-natural"
+    "proves": "the pinned finite screen has one invariant normalized order-unit line, the four-copy weak restriction of the declared conditional matter fixture has one central normalized order-unit line, and the unique positive unital trace-preserving linear isomorphism between those lines is refinement-natural"
   },
   "claim_class": "conditional_open_interface",
+  "conditional_scope": {
+    "declared_current_fixture": true,
+    "declared_global_form_coefficient_system": true,
+    "declared_matter_fixture": true,
+    "physical_current_source_bound": false,
+    "physical_global_form_selected": false,
+    "physical_matter_lift_source_bound": false
+  },
   "controls": {
     "capacity_injection": {
       "code": "CAPACITY_INPUT_FORBIDDEN",
@@ -52,9 +60,9 @@
   },
   "dependency_chain": [
     "issue 565: finite twelve-port carrier and refinement",
-    "issue 566: source-bound current center and natural unit line",
-    "issue 314: finite matter module and four weak-doublet copies",
-    "issue 567: finite global-form compatibility",
+    "issue 566: conditional current-fixture center and natural unit line",
+    "issue 314: conditional matter fixture and four weak-doublet copies",
+    "issue 567: conditional declared-kernel compatibility",
     "issue 616: scalar existence and multiplicity nonselection boundary"
   ],
   "electroweak_order_unit_line": {
@@ -86,6 +94,7 @@
     ],
     "center_dimension": 1,
     "central_constraint_rank": 15,
+    "conditional_declared_kernel_compatible": true,
     "copy_derivation": {
       "L_dimension": 2,
       "L_weak_doublet_copies": 1,
@@ -93,13 +102,12 @@
       "Q_weak_doublet_copies": 3,
       "total_weak_doublet_copies": 4
     },
-    "global_form_compatible": true,
     "multiplicity_algebra": "End(C^4)",
     "multiplicity_algebra_dimension": 16,
     "normalized_trace": "tau_EW(c * I_4) = Tr_4(c * I_4) / 4 = c",
     "positive_ray": "c * I_4 with c >= 0",
     "refinement_natural": true,
-    "restriction": "the one-generation matter module restricted to the weak factor",
+    "restriction": "the declared conditional one-generation matter fixture restricted to the weak factor",
     "scalar_boundary": {
       "one_doublet_completion": "declared_only",
       "physical_scalar_selected": false,
@@ -122,12 +130,12 @@
     "unique_among_unital_linear_maps_between_the_two_lines": true,
     "unital": true
   },
-  "manifest_sha256": "sha256:0a2d935c06eab9c77b12335d4077825b2018763ddf7933cceb7c99b598049035",
+  "manifest_sha256": "sha256:b10d7d145eccb6af62d89a0c4382c5f75eabf5c847a47ea88003482c527757fb",
   "open_gates": [
     {
       "gate": "source_selected_scalar_carrier",
       "owners": [
-        630
+        636
       ],
       "status": "open"
     },
@@ -181,7 +189,7 @@
       1
     ],
     "carrier": "twelve primitive port units on the pinned oriented screen",
-    "current_center_binding": "the #566 current center is the same constant even-port line",
+    "current_center_binding": "the #566 declared-current fixture has the same constant even-port line",
     "fixed_space_dimension": 1,
     "fixed_space_reason": "the listed order-sixty action is transitive, so every invariant port function is constant",
     "normalized_trace": "tau_screen(c * 1_12) = c",
@@ -302,6 +310,9 @@
     "measured_cosmology_consumed": false,
     "measured_particle_targets_consumed": false,
     "physical_common_carrier_assumed": false,
+    "physical_current_source_bound": false,
+    "physical_global_form_selected": false,
+    "physical_matter_lift_source_bound": false,
     "physical_scalar_assumed": false,
     "target_residual_consumed": false
   },
@@ -323,43 +334,43 @@
       "issue": 566,
       "path": "manifests/port_current_response_reference.json",
       "role": "port_current_manifest",
-      "sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c"
+      "sha256": "1aa53f62c7137e1f63233723deedaaae14f82090cc2d7fa9875984b85b32816e"
     },
     "current_receipt": {
       "issue": 566,
       "path": "receipts/port_current_inner_reference.receipt.json",
       "role": "port_current_receipt",
-      "sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb"
+      "sha256": "1ebd59e5d07109aeef0752964e887d5e3e517270447b0a451802e71f37c7e36c"
     },
     "global_form_manifest": {
       "issue": 567,
       "path": "manifests/axis_center_descent_reference.json",
       "role": "global_form_manifest",
-      "sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d"
+      "sha256": "c619511b04243964db7c5cfe0f1bf7a2045f054d7298fd0b87b2ec9e799d3881"
     },
     "global_form_receipt": {
       "issue": 567,
       "path": "receipts/axis_center_descent_reference.receipt.json",
       "role": "global_form_receipt",
-      "sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39"
+      "sha256": "7c854d56af7bdadbae699871542080a740e8fa0856695b0dc453c9e1baee04de"
     },
     "matter_manifest": {
       "issue": 314,
       "path": "manifests/super_tannakian_matter_reference.json",
       "role": "matter_manifest",
-      "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+      "sha256": "16a3746cab2f96f7457ee40c2b5ad00df7c37b09f4ab650b31d642086399c470"
     },
     "matter_receipt": {
       "issue": 314,
       "path": "receipts/super_tannakian_matter_reference.receipt.json",
       "role": "matter_receipt",
-      "sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+      "sha256": "ac2be496ee7a1d4434bdff5c7c07f208c3e85b5564b0a179f71e1a54c141e462"
     },
     "scalar_boundary": {
       "issue": 616,
       "path": "manifests/multiplicity_window_reference.json",
       "role": "scalar_nonselection_boundary",
-      "sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97"
+      "sha256": "8536b7019176a4ebc6abe4f89ffd490e73b7b6bee4418f589ed411047f7ab5bf"
     }
   }
 }

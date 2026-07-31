@@ -60,6 +60,13 @@ def build_payload() -> dict[str, Any]:
     hierarchy_capacity = _load_json(HIERARCHY_EW_CAPACITY)
     hierarchy_naturality = _load_json(HIERARCHY_NATURALITY)
     predictions = _prediction_map(final_predictions)
+    conditional_candidates = {
+        entry["particle_id"]: entry
+        for entry in final_predictions.get("conditional_nonpromotable_rows", [])
+    }
+    higgs_output = predictions.get("higgs") or conditional_candidates.get("higgs")
+    if higgs_output is None:
+        raise ValueError("missing Higgs prediction or conditional candidate row")
     gates = _issue_map(pipeline)
     hierarchy_capacity_root = hierarchy_capacity["exact_capacity_fixed_point"]
     withheld_by_id = {
@@ -144,16 +151,16 @@ def build_payload() -> dict[str, Any]:
             "chain": "higgs_top_declared_surface",
             "status": (
                 "closed_on_declared_d10_d11_surface_direct_top_no_go"
-                if predictions["higgs"]["promotable"]
+                if higgs_output["promotable"]
                 else "conditional_declared_surface_higgs_top_candidate"
             ),
-            "claim_level": predictions["higgs"]["exact_kind"],
+            "claim_level": higgs_output["exact_kind"],
             "outputs": {
-                "higgs": predictions["higgs"]["value"],
+                "higgs": higgs_output["value"],
             },
-            "promotable": predictions["higgs"]["promotable"],
+            "promotable": higgs_output["promotable"],
             "open_gates": []
-            if predictions["higgs"]["promotable"]
+            if higgs_output["promotable"]
             else ["closed_promotable_EWTargetFreeRepairValueLaw_D10"],
             "closed_issue_refs": [207],
             "next_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",

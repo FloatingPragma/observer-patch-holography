@@ -31,6 +31,22 @@ surface for the OPH consensus layer. Contents:
   `localRepair`, `Repair`, and `repair_respects_gauge`, with descent,
   termination, reachability, and normal-form receipts. Confluence and
   completeness remain explicit carrier properties and are not universal.
+- A sorry-free scalar completed-repair theorem in
+  `ObserverPatchHolography/ScalarSeamRepair.lean`. Seam support, endpoint
+  agreement, and endpoint-sum preservation force pair averaging. Uniform
+  averaging over a finite seam family is $I-L/(2|E|)$, hence $I-L/60$ for
+  thirty seams. This proves the finite linear branch and does not identify it
+  with the universal or physical repair law.
+- A sorry-free integer completion bridge in
+  `ObserverPatchHolography/DirectedSeamRepair.lean`. It proves total-sector
+  preservation, the exact parity residual, equality of the two-direction
+  rational mean with pair averaging, and strict quadratic descent for a
+  nontrivial incoming mismatch. Its companion
+  `ObserverPatchHolography/DirectedSeamRepairProgress.lean` proves the
+  concrete carrier path bound, the exact minimum-shell characterization for
+  arbitrary signed fixed-total loads, local nonincrease, neutral transport,
+  and strict descent along one-, two-, and three-seam progress words.
+  Schedule selection and the probabilistic hitting statement remain separate.
 - A sorry-free **#304 boundary-fiber carrier witness** in
   `ObserverPatchHolography/Rule90.lean` (PR #385): the linear Rule 90 carrier
   discharges the `Hfib` binder of `boundary_fiber_observer_unique` on a proper
@@ -86,6 +102,24 @@ surface for the OPH consensus layer. Contents:
   a sterile matter completion. These are finite no-go theorems about the
   exposed reduct, not a claim that a richer operational producer packet cannot
   select the physical completion.
+- A sorry-free abstract **A2 holonomy bridge** in
+  `Screen/A2HolonomyBridge.lean`: the projective implementer group, the
+  supplied port-response flow, and its algebraically generated subgroup are
+  separate objects. `CarrierHolonomyFullEndogenous` supplies one closed path
+  for every proper carrier action and factors that path's projective
+  implementer through the response-generated subgroup and the kernel of its
+  response action. Response naturality is evaluated on the same path. Other
+  closed paths need not be endogenous. The kernel is the formal
+  centralizer/spectator factor and is definitionally silent on the response
+  codomain. A nontrivial carrier response therefore requires a nontrivial
+  response-generated action. An injective linear response on the twelve-port
+  space has a kernel-checked twelve-dimensional image.
+  The assembled theorem reaches centre dimension one and factor dimensions
+  `{3,8}` only through explicit adapter premises for the centre bound and the
+  centreless four-factor fixed-space description. Construction of the actual
+  projective unitary group and response flow, source extraction, the two
+  Lie-theory adapters, reductive decomposition, and compact-simple
+  classification remain explicit inputs.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

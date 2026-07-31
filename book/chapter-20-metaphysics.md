@@ -227,11 +227,14 @@ consistency is the sheaf-style gluing condition. Quantum structure is the
 algebraic language of consistency. Spacetime dimensionality is a selected
 output under the geometric source premises. Dynamics is synchronization
 pressure. The local proposal uses pixel area as a ruler, and its two defining
-maps have unique roots on the physical interval. The global proposal has an
-exact finite capacity definition and a worked example at one fixed
-resolution. Its capacity-indexed physical
-family, unique selector, horizon identification, and scale bridge are work in
-progress. These are the pressure points where metaphysics and physics meet.
+maps have unique roots on the physical interval. The global proposal has one
+exact twenty-four-record packet. A bounded capacity family shares its base
+value, remains positive, respects the carrier bound, and produces several
+fixed-point sets. The formal proof covers this arithmetic disagreement. A
+complete three-axiom observer construction across carrier sizes is open. That
+construction, a universe-level carrier attachment, the horizon
+identification, and the scale bridge are required for a physical cosmic value.
+These are the pressure points where metaphysics and physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local
 descriptions that agree on their overlaps should glue into one consistent

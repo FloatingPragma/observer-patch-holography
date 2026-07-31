@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Exact certificate for GitHub issue #314: the source-bound super-Tannakian matter lift.
+"""Exact certificate for GitHub issue #314: a conditional super-Tannakian matter lift.
 
 The input is a matter-lift manifest.  It declares only:
 
 * the port-current response manifest of issue #566 (by path and hash)
-  together with its stored receipt hash - the exact carrier-dynamics
-  response source of issue #599 is strictly upstream;
+  together with its stored receipt hash. The exact carrier-dynamics
+  response constraints of issue #599 are strictly upstream, while the
+  charged-double-triplet current representation remains a declared fixture;
 * the measured spin statistics artifact of the simulator (by path and
   hash) - the target-blind transport measurement of the deck lift group,
   its centre, its section obstruction, and the unique spin structure;
@@ -46,13 +47,13 @@ From that packet the verifier derives, rather than assumes:
   global quotient is formed;
 * descent along the declared algebraic carrier tower maps.
 
-Beyond the conditional algebra, the verifier derives the physical typing
-at finite source-model scope: the exhaustive 1024-subset anomaly scan
+Within that conditional algebra, the verifier derives a finite typing:
+the exhaustive 1024-subset anomaly scan
 selects the unordered conjugate rank-fifteen pair with the fermionic-
 parity grading as an output; the measured lift centre {+1, -1} and the
 measured section obstruction over every Klein four-subgroup make the
 central -1 of the non-split double cover the unique source
-implementation of that grading, with the gauge-centre branch excluded by
+implementation of that grading inside the declared current fixture, with the gauge-centre branch excluded by
 the Lean fermion-parity no-go; and the Spin/odd-Weyl super typing is
 thereby forced rather than declared.  Scalar existence and economy stay
 typed branch premises owned by issue #609, listed as deferred rows that
@@ -518,19 +519,23 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
     physical_gate = current_receipt.get("physical_source_gate")
     require(
         isinstance(physical_gate, Mapping)
-        and physical_gate.get("passed") is True
-        and physical_gate.get("target_blind_impulse_readback_recomputed") is True,
+        and physical_gate.get("passed") is False
+        and physical_gate.get("response_model_source_bound") is False
+        and physical_gate.get("target_blind_impulse_readback_recomputed") is True
+        and physical_gate.get("response_coefficients_source_bound") is True,
         "UPSTREAM_RECEIPT",
-        "the upstream receipt must pass the target-blind impulse/readback "
-        "source gate",
+        "the upstream receipt must expose source-bound response constraints "
+        "while failing closed on selection of the current representation",
     )
     binding = current_receipt.get("semantic_response_binding")
     require(
         isinstance(binding, Mapping)
-        and binding.get("sector_structure_recomputed") is True,
+        and binding.get("sector_structure_recomputed") is True
+        and binding.get("current_lift_source_selected") is False
+        and binding.get("commutator_reconstructed_from_ordered_response") is False,
         "UPSTREAM_RECEIPT",
-        "the upstream physical gate must be justified by a recomputed semantic "
-        "response binding",
+        "the upstream response binding must recompute its constraints and fail "
+        "closed at the unconstructed current lift",
     )
     return {
         "current_manifest": current_manifest,
@@ -538,7 +543,14 @@ def load_upstream(manifest: Mapping[str, Any], base_dir: Path) -> dict[str, Any]
         "current_receipt_sha256": sha256_json(current_receipt),
         "carrier_manifest_sha256": current_receipt.get("carrier_manifest_sha256"),
         "semantic_response_artifact_sha256": binding.get("artifact_sha256"),
-        "upstream_physical_source_gate_passed": physical_gate.get("passed") is True,
+        "upstream_current_source_gate_passed": physical_gate.get("passed") is True,
+        "upstream_response_constraints_source_bound": (
+            physical_gate.get("response_coefficients_source_bound") is True
+            and physical_gate.get("target_blind_impulse_readback_recomputed") is True
+        ),
+        "upstream_current_fixture_declared": (
+            current_manifest.get("construction_model") == "charged_double_triplet"
+        ),
     }
 
 
@@ -894,7 +906,7 @@ def statistics_forcing_certificate(
 
 
 # ---------------------------------------------------------------------------
-# The upstream current algebra, rebuilt from the pinned #566 source packet
+# The upstream current algebra, rebuilt from the declared fixture in the pinned #566 packet
 # ---------------------------------------------------------------------------
 
 
@@ -1536,7 +1548,7 @@ def block_determinant_balance_certificate(
             {"color_block": "-1/3", "weak_block": "1/2"},
             {"color_block": "1/3", "weak_block": "-1/2"},
         ],
-        "calculation_convention": "one charge table is printed with positive weak-block charge; the source-derived physical object is the unordered charge-conjugate pair",
+        "calculation_convention": "one charge table is printed with positive weak-block charge; the conditional algebraic object is the unordered charge-conjugate pair",
         "derived_pair": {"color_block": "-1/3", "weak_block": "1/2"},
         "declared_pair": {
             "color_block": frac_text(y_color),
@@ -2492,6 +2504,84 @@ def certificate_payload(
     weight_spectrum = {
         frac_text(value): count for value, count in sorted(weight_multiset.items())
     }
+    conditional_selection_holds = bool(
+        selection_scan["survivor_count"] == 2
+        and selection_scan["survivors_equal_parity_sectors"]
+    )
+    conditional_spin_typing_holds = bool(
+        forcing["forced_typing"] == "spin_odd_weyl_super"
+    )
+    upstream_current_source_bound = bool(
+        upstream["upstream_current_source_gate_passed"]
+    )
+    matter_physical_source_gate = {
+        "charge_pair_derived_within_declared_current_fixture": bool(
+            balance_certificate["declared_matches_derived_pair_up_to_conjugation"]
+        ),
+        "conjugate_projector_pair_derived_within_declared_current_fixture": True,
+        "unordered_pair_selected_by_exhaustive_anomaly_scan_within_declared_current_fixture": (
+            conditional_selection_holds
+        ),
+        "single_projector_representative_source_selected": False,
+        "fermionic_statistics_derived_within_declared_current_fixture": bool(
+            conditional_selection_holds and conditional_spin_typing_holds
+        ),
+        "spin_odd_weyl_category_derived_within_declared_current_fixture": (
+            conditional_spin_typing_holds
+        ),
+        "spin_statistics_artifact_source_bound": True,
+        "upstream_response_constraints_source_bound": bool(
+            upstream["upstream_response_constraints_source_bound"]
+        ),
+        "upstream_current_representation_source_bound": upstream_current_source_bound,
+        "current_action_on_matter_source_bound": upstream_current_source_bound,
+        "physical_refinement_intertwining_source_bound": bool(
+            upstream_current_source_bound and physical_refinement_rows
+        ),
+        "matter_lift_source_bound": False,
+        "declared_scalar_content_source_bound": False,
+        "scalar_economy_source_bound": False,
+        "passed": False,
+        "composition": {
+            "conditional_results": [
+                "charge_pair_derived_within_declared_current_fixture",
+                "conjugate_projector_pair_derived_within_declared_current_fixture",
+                "unordered_pair_selected_by_exhaustive_anomaly_scan_within_declared_current_fixture",
+                "fermionic_statistics_derived_within_declared_current_fixture",
+                "spin_odd_weyl_category_derived_within_declared_current_fixture",
+            ],
+            "source_bound_inputs": [
+                "spin_statistics_artifact_source_bound",
+                "upstream_response_constraints_source_bound",
+            ],
+            "blocking_false": {
+                "upstream_current_representation_source_bound": (
+                    "the #599 response artifact constrains the declared current "
+                    "fixture but does not select its representation or Lie bracket"
+                ),
+                "current_action_on_matter_source_bound": (
+                    "the matter action is induced from that unselected current fixture"
+                ),
+                "physical_refinement_intertwining_source_bound": (
+                    "the checked intertwining is conditional on the same fixture"
+                ),
+                "matter_lift_source_bound": (
+                    "a source-bound matter lift cannot be promoted from a "
+                    "conditional current representation"
+                ),
+            },
+            "false_by_design": {
+                "single_projector_representative_source_selected": (
+                    "charge conjugation exchanges the two representatives; the "
+                    "certificate retains their unordered pair"
+                )
+            },
+            "deferred": {
+                "declared_scalar_content_source_bound": "open scalar-source lane",
+                "scalar_economy_source_bound": "open scalar-source lane",
+            },
+        },
+    }
 
     return {
         "schema": RECEIPT_SCHEMA,
@@ -2504,21 +2594,21 @@ def certificate_payload(
             "semantic_response_artifact_sha256": upstream["semantic_response_artifact_sha256"],
             "dependencies": [
                 "#565 (carrier packet)",
-                "#566 (finite port-current algebra)",
-                "#599 (source-bound target-blind carrier impulse/readback response)",
+                "#566 (conditional finite port-current algebra)",
+                "#599 (source-bound target-blind carrier response constraints)",
             ],
             "inherited_scope": (
-                "the pinned #566 response representation passes its source gate by "
-                "an exact target-blind impulse/readback protocol on the carrier "
-                "recurrence; this is a finite carrier-dynamics result, not a "
-                "laboratory gauge-current attachment"
+                "the pinned #566 packet proves exact consequences of the declared "
+                "charged-double-triplet fixture. The #599 artifact source-binds "
+                "the carrier response constraints while leaving the current "
+                "representation and Lie bracket unselected"
             ),
         },
         "source_firewall": {
             "forbidden_dependency_hits": [],
             "uses_only": [
                 "hash-pinned #566 conditional finite current packet (manifest and receipt)",
-                "the bound semantic response artifact (finite response definition and physical refinement maps)",
+                "the bound semantic response artifact (finite response constraints and carrier persistence maps)",
                 "the trace-balanced charge pair up to overall charge conjugation, derived by BLOCK-DETERMINANT-BALANCE",
                 "scalar-charge and Yukawa-channel compatibility conditional on the declared weak-doublet scalar content",
             "typed statistics and Spin/odd-Weyl category contracts; the controls test consistency but do not source those physical inputs",
@@ -2531,8 +2621,8 @@ def certificate_payload(
             "double_cover_forced": "the derived lift group has a unique nontrivial involution and does not factor through the sixty rotations, so a split lift is impossible",
             "vec_control": "the Vec typing fails closed on the realized module (negative control vec_typing)",
             "svec_control": "the split-spin sVec control fails closed on the realized module",
-            "weyl_pair": "the even-minus-vacuum and odd-minus-top projectors form a source-derived unordered charge-conjugate pair; the source does not select either representative",
-            "conclusion": "the exact lift and projector-pair calculations are derived, but the manifest still types the physical matter object as fermionic Spin/odd-Weyl; failing alternative controls do not derive that premise",
+            "weyl_pair": "the even-minus-vacuum and odd-minus-top projectors form a conditionally derived unordered charge-conjugate pair; neither representative is selected",
+            "conclusion": "the exact lift and projector-pair calculations hold inside the declared current fixture; failing alternatives do not source-bind that fixture or the resulting matter object",
         },
         "port_spin_lift": {
             "witness_count": spin["witness_count"],
@@ -2547,7 +2637,7 @@ def certificate_payload(
             "carrier": "V = C (+) W = (even response sector C^3) (+) (spin-lifted weak doublet C^2)",
             "block_trace_charges": {"color_block": frac_text(y_color), "weak_block": frac_text(y_weak)},
             "trace_balance": "3 y_C + 2 y_W = 0, checked exactly; the top line is exactly invariant because of it",
-            "raw_source_central_charge": "i on the even response sector, 0 on the kernel sector (from the #566 packet)",
+            "fixture_central_charge": "i on the even response sector, 0 on the kernel sector of the declared #566 current fixture",
             "central_charge_provenance": (
                 "the trace-balanced charge pair is derived up to charge conjugation by "
                 "BLOCK-DETERMINANT-BALANCE: anomaly freedom of the realized package forces the balance "
@@ -2631,8 +2721,8 @@ def certificate_payload(
             "physical_maps": physical_refinement_rows,
             "scope": (
                 "naturality along the declared algebraic tower maps and the "
-                "artifact-bound physical defect-port persistence maps, each "
-                "intertwined on the matter carrier and the Fock realization"
+                "artifact-bound defect-port persistence maps, each conditionally "
+                "intertwined on the declared matter carrier and Fock realization"
             ),
         },
         "candidate_matter_class": {
@@ -2664,86 +2754,28 @@ def certificate_payload(
             "measured_spin_structure_count": spin_artifact["spin_structure_count"],
             "recomputed_lift_matches_measured": True,
             "conclusion": (
-                "the fermionic-parity grading is derived by the exhaustive "
-                "selection scan and its unique source implementation is the "
-                "measured central -1 of the non-split transport double cover; "
-                "the declared statistics and category contracts are validated "
-                "against, not substituted for, this derivation"
+                "within the declared current fixture, the fermionic-parity grading "
+                "is derived by the exhaustive selection scan and implemented by "
+                "the measured central -1 of the non-split transport double cover; "
+                "this does not source-bind the current or matter representation"
             ),
         },
         "conditional_algebraic_gate": {**gate, "passed": True},
-        "physical_source_gate": {
-            "charge_pair_derived_up_to_charge_conjugation": bool(
-                balance_certificate["declared_matches_derived_pair_up_to_conjugation"]
-            ),
-            "conjugate_projector_pair_source_derived": True,
-            "unordered_pair_selected_by_exhaustive_anomaly_scan": bool(
-                selection_scan["survivor_count"] == 2
-                and selection_scan["survivors_equal_parity_sectors"]
-            ),
-            "single_projector_representative_source_selected": False,
-            "fermionic_statistics_source_derived": bool(
-                selection_scan["survivors_equal_parity_sectors"]
-                and forcing["forced_typing"] == "spin_odd_weyl_super"
-            ),
-            "spin_odd_weyl_category_source_derived": bool(
-                forcing["forced_typing"] == "spin_odd_weyl_super"
-            ),
-            "spin_statistics_artifact_source_bound": True,
-            "declared_scalar_content_source_bound": False,
-            "scalar_economy_source_bound": False,
-            "upstream_response_representation_source_bound": bool(
-                upstream["upstream_physical_source_gate_passed"]
-            ),
-            "physical_refinement_intertwining_source_bound": bool(
-                physical_refinement_rows
-            ),
-            "passed": bool(
-                balance_certificate["declared_matches_derived_pair_up_to_conjugation"]
-                and selection_scan["survivor_count"] == 2
-                and selection_scan["survivors_equal_parity_sectors"]
-                and forcing["forced_typing"] == "spin_odd_weyl_super"
-                and upstream["upstream_physical_source_gate_passed"]
-                and physical_refinement_rows
-            ),
-            "composition": {
-                "passed_over": [
-                    "charge_pair_derived_up_to_charge_conjugation",
-                    "conjugate_projector_pair_source_derived",
-                    "unordered_pair_selected_by_exhaustive_anomaly_scan",
-                    "fermionic_statistics_source_derived",
-                    "spin_odd_weyl_category_source_derived",
-                    "spin_statistics_artifact_source_bound",
-                    "upstream_response_representation_source_bound",
-                    "physical_refinement_intertwining_source_bound",
-                ],
-                "false_by_design": {
-                    "single_projector_representative_source_selected": (
-                        "charge conjugation is a physical symmetry of the source; "
-                        "the unordered pair is the physical object and the SELECTION_RULE "
-                        "guard forbids preferring a member"
-                    )
-                },
-                "deferred": {
-                    "declared_scalar_content_source_bound": "issue 609",
-                    "scalar_economy_source_bound": "issue 609",
-                },
-            },
-        },
+        "physical_source_gate": matter_physical_source_gate,
         "derivation_chain": [
             {
                 "step": 1,
                 "premise": "matter-lift manifest with typed contracts",
                 "uses": ["schema check", "matter firewall", "typed contracts"],
                 "source_artifact": "validate_manifest",
-                "conclusion": "the source packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, candidate class declaration; the contract values are matched against the derivations of steps 2a and 2b",
+                "conclusion": "the conditional packet is admissible: trace-balanced exterior contract, fermionic statistics, spin typing, kernel emission, candidate class declaration; the contract values are matched against the derivations of steps 2a and 2b",
             },
             {
                 "step": 2,
-                "premise": "hash-pinned #566 manifest and receipt with the bound semantic response artifact",
-                "uses": ["sha256 pins", "gate check on the stored receipt", "recomputed semantic binding requirement"],
+                "premise": "hash-pinned #566 manifest and receipt with the bound response-constraint artifact",
+                "uses": ["sha256 pins", "conditional algebraic gate check", "fail-closed current-source gate check", "recomputed response binding requirement"],
                 "source_artifact": "load_upstream",
-                "conclusion": "the finite current algebra u(3) (+) so(3) is strictly upstream and its #599 exact carrier-dynamics source gate passes; laboratory gauge-current attachment is outside this packet",
+                "conclusion": "the finite current algebra u(3) (+) so(3) is available only as a declared algebraic fixture; the #599 carrier-response constraints are source-bound, while current selection and its Lie bracket remain open",
             },
             {
                 "step": "2a",
@@ -2761,10 +2793,10 @@ def certificate_payload(
             },
             {
                 "step": 3,
-                "premise": "the #566 source packet",
+                "premise": "the declared #566 charged-double-triplet current fixture",
                 "uses": ["frame realization", "generator rebuild", "66 structure-constant solves"],
                 "source_artifact": "CurrentAlgebra",
-                "conclusion": "the twelve current generators, sixty rotations, and exact structure constants are rebuilt from source",
+                "conclusion": "the twelve fixture generators, sixty rotations, and exact structure constants are rebuilt and checked conditionally",
             },
             {
                 "step": 4,
@@ -2775,7 +2807,7 @@ def certificate_payload(
             },
             {
                 "step": 5,
-                "premise": "source even block, spin lift, declared trace-balanced charges",
+                "premise": "declared current fixture, spin lift, and trace-balanced charges",
                 "uses": ["66 bracket checks", "720 conjugation transports", "rank 12"],
                 "source_artifact": "matter_transport",
                 "conclusion": "a faithful skew-adjoint Lie algebra homomorphism onto the matter carrier V = C (+) W",
@@ -2885,9 +2917,9 @@ def certificate_payload(
                 ],
                 "source_artifact": "statistics_forcing_certificate",
                 "conclusion": (
-                    "the unique source implementation of the derived grading is the measured "
-                    "central -1 of the non-split double cover, forcing the Spin/odd-Weyl super "
-                    "typing; Vec, split sVec, and lone opposite-Weyl relabelings fail for derived reasons"
+                    "inside the declared current fixture, the measured central -1 "
+                    "of the non-split double cover implements the derived grading; "
+                    "Vec, split sVec, and lone opposite-Weyl relabelings fail conditionally"
                 ),
             },
             {
@@ -2896,9 +2928,9 @@ def certificate_payload(
                 "uses": ["typed negative controls"],
                 "source_artifact": "negative_controls/issue_314_negative_controls.json",
                 "conclusion": (
-                    "the conditional algebraic gate and the physical source gate both pass on "
-                    "the reference packet and fail closed on every countermodel; scalar content "
-                    "stays deferred to #609"
+                    "the conditional algebraic gate passes and the physical "
+                    "matter-source gate fails closed because the upstream current "
+                    "representation is a fixture; the countermodels remain rejected"
                 ),
             },
         ],
@@ -2913,10 +2945,11 @@ def certificate_payload(
             "yukawa_lines_3": "exact joint-invariant dimensions of the three declared channels",
         },
         "branch_scope": {
-            "branch": "source-bound echosahedral response branch",
+            "branch": "conditional matter construction on the declared charged-double-triplet current fixture",
             "upstream_packets": (
-                "the certified #565 carrier, the source-bound #566/#599 current packet, and the "
-                "measured #314 spin statistics artifact, all hash-pinned"
+                "the certified #565 carrier, the conditional #566 current packet, "
+                "the source-bound #599 response constraints, and the hash-pinned "
+                "#314 spin statistics artifact"
             ),
             "declared_branch_premises": (
                 "one weak-block scalar (owned by #609), the kernel emission contract, and the candidate matter "
@@ -2924,6 +2957,7 @@ def certificate_payload(
                 "scan and forcing derivations rather than accepted as premises"
             ),
             "not_claimed": (
+                "no source selection of the current representation or matter lift, "
                 "no scalar existence/economy source binding, no preferred overall charge sign, "
                 "no physically attached global-form choice (the #567 packet carries that), no family "
                 "attachment, no class-uniqueness promotion, no scalar potential, no pole mass, no continuum "
@@ -2932,7 +2966,7 @@ def certificate_payload(
             ),
         },
         "acceptance_criteria_status": {
-            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_source_derived": True,
+            "fermionic_parity_spin_lift_chirality_conjugation_tensor_product_derived_within_declared_current_fixture": True,
             "current_algebra_acts_faithfully_on_matter_tensors": True,
             "exterior_package_realized_on_cover_with_anomalies_and_witten_checked": True,
             "common_action_kernel_emitted_not_assumed_as_z6_quotient": True,
@@ -2947,26 +2981,27 @@ def certificate_payload(
         },
         "issue_closure_condition": {
             "produced_locally": (
-                "the exact matter lift on the finite current packet at source scope: the non-split "
+                "the exact conditional matter lift on the declared finite current fixture: the non-split "
                 "PORT-SPIN-LIFT cross-checked against the measured transport artifact, the faithful "
                 "current action, the unordered conjugate rank-fifteen pair selected by the exhaustive "
                 "1024-subset anomaly scan with the parity grading as an output, the statistics/category "
                 "typing forced by the measured centre and section obstruction, realized anomaly and "
                 "Witten checks, chirality, conjugation, Yukawa invariant lines, the emitted action "
                 "kernel (infinite cyclic on the cover, residual order six), declared-tower descent, the "
-                "artifact-bound physical refinement descent, the derived BLOCK-DETERMINANT-BALANCE "
+                "fixture-conditional refinement identities, the derived BLOCK-DETERMINANT-BALANCE "
                 "charge pair up to conjugation, and scalar/channel compatibility"
             ),
             "branch_premises": (
-                "the hash-pinned #565/#566 packets with the source-bound #599 semantic response "
-                "artifact and the measured #314 spin statistics artifact; the matter charges, the "
+                "the hash-pinned #565 carrier, the declared #566 current fixture, the source-bound "
+                "#599 response constraints, and the measured #314 spin statistics artifact; the matter charges, the "
                 "unordered projector pair, the parity grading, and the Spin/odd-Weyl typing are "
-                "derived; declared scalar content remains a typed branch premise owned by #609"
+                "derived only within that fixture; declared scalar content remains a typed branch premise"
             ),
             "conditional_algebraic_gate_passed": True,
-            "physical_source_realization_gate_passed": True,
-            "met_locally": True,
+            "physical_source_realization_gate_passed": False,
+            "met_locally": False,
             "remaining_open_lanes": {
+                "current_representation_and_bracket_source": "ordered response and overlap-holonomy producer",
                 "scalar_content_and_economy": "issue 609 (no-extra-light-sector theorem)",
                 "family_and_laboratory_attachment": "issue 569",
                 "physical_global_form": "issue 567 (own packet)",
@@ -2990,14 +3025,14 @@ def certificate_payload(
         ),
         "claim_boundary": {
             "proves": (
-                "the source-bound super-Tannakian matter lift at finite source-model scope: "
+                "the conditional super-Tannakian matter lift for the declared finite current fixture: "
                 "PORT-SPIN-LIFT cross-checked against the measured transport artifact, the "
                 "unordered conjugate rank-fifteen pair selected by the exhaustive anomaly scan "
                 "with the parity grading as an output, the statistics/category typing forced by "
                 "the measured centre and section obstruction, anomaly balance up to charge "
-                "conjugation, compatible scalar charges/channels, and refinement intertwining"
+                "conjugation, compatible scalar charges/channels, and conditional refinement intertwining"
             ),
-            "status": "source_bound_at_finite_scope_conditional_on_declared_scalar_content",
+            "status": "proved_conditionally_on_declared_current_and_scalar_fixtures",
             "contract_provenance": (
                 "BLOCK-DETERMINANT-BALANCE derives the primitive charge-conjugate pair; the "
                 "exhaustive 1024-subset scan selects the unordered pair and outputs the parity "
@@ -3008,6 +3043,8 @@ def certificate_payload(
                 "are owned by #609"
             ),
             "does_not_close": [
+                "source selection of the charged-double-triplet current representation or its Lie bracket",
+                "a physical or source-bound matter lift",
                 "physical AXIS-CENTER-DESCENT/global-form attachment (the #567 packet carries that)",
                 "class uniqueness (only nonemptiness is discharged here)",
                 "A5-FAMILY-ATTACHMENT, family structure, and any three-family claim (#569)",

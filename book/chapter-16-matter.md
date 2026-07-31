@@ -69,19 +69,24 @@ a zoo.
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. On the
 certified twelve-port branch, incidence and target-blind port readback derive
-the signed response and exact current algebra. The exhaustive selection scan
-fixes the matter content with its fermionic grading as an output, the
-measured transport double cover forces the Spin typing, and the anomaly and
-central-descent calculations give the charge pattern, a three-color carrier,
-and the maximal faithful matter image
-$SU(3)\times SU(2)\times U(1)/\mathbb Z_6$. This finite implication uses
-no selection principle.
+the signed inverse-port response. The complete compact response and internal
+overlap transport required by the axioms force the Standard Model Lie type.
+Inside a declared exterior menu, the exhaustive scan leaves one conjugate
+pair of chiral anomaly-free fifteen-state modules. The separate finite Spin
+packet fixes its typing inside that declared construction. The anomaly and
+central-descent calculations then give the charge pattern, a three-color
+carrier, and the exact common $\mathbb Z_6$ kernel on the declared tensors.
+Reconstructing the physical matter action from source histories is work in
+progress.
 
 The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same
-local tensors. The finite result is therefore the maximal faithful matter
-image. A flux-sector menu can become a source-model input for global-form
-selection only when physical line and bundle data are supplied. The generation
-window is three to five. A separate exact screen theorem selects a rank-three
+local tensors. The six-axis calculation has order six only after its
+coefficient relations are declared. A complete source character category and
+a same-source identification between carrier loops and the matter kernel are
+required to select the physical $\mathbb Z_6$ quotient. Laboratory
+identification of the current and flux sectors and the continuum global form
+require separate physical attachments. The generation window is three to five. A separate
+exact screen theorem selects a rank-three
 band under its single-band and operational-cost premises, and a declared
 unitary simulator reconstructs its response residue. Attaching that finite
 band to three physical matter families and excluding extra light sectors
@@ -101,24 +106,31 @@ explained asymptotic freedom. The Higgs mechanism was built by several groups,
 and the LHC collaborations turned it into a discovery. OPH enters after that
 century of work. Its question is why the ladder has this shape.
 
-The force carriers enter first. The unbroken electromagnetic direction has two
-transverse photon modes. The eight color directions carry the gluons. The
-smooth gravitational branch has two transverse gravitational-wave modes. The
-Higgs field changes the weak sector by selecting a vacuum direction, which
-separates the charged $W$ carriers from the neutral $Z$ carrier and gives them
-mass. The electroweak calculation places their running coordinates at
+The force-carrier roles enter first. On the declared Maxwell action branch,
+the unbroken electromagnetic direction has two transverse classical modes.
+The eight color directions form the finite color-current algebra; confinement
+prevents a free-gluon interpretation. The smooth Einstein branch has two
+transverse-traceless classical waves. Physical photon and graviton particles
+need positive-energy quantum poles, which are work in progress.
+
+A scalar action and vacuum would separate the charged $W$ carriers from the
+neutral $Z$ carrier. The comparison calculation places their chart
+coordinates at
 
 $$
 (m_W^{\mathrm{chart}},m_Z^{\mathrm{chart}})
 =(80.330,\ 91.119)\,\mathrm{GeV}.
 $$
 
-$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name the charged and neutral
+$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name charged and neutral
 weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$. The calculation produces those two coordinates.
+through $E=mc^2$. No certified chart-to-pole map turns them into OPH
+predictions of the measured masses.
 
-The strength of electromagnetism turns out to be readable off the screen's
-geometry, for a reason the book holds until it can be stated properly.
+The local closure proposal asks whether electromagnetic strength can be read
+from the screen's geometry. Its declared map has a certified root. Physical
+identification with the laboratory coupling requires the missing source and
+transport steps.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
 Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction

@@ -292,22 +292,22 @@ This is a different target. The "unsolved problem" of dS holography is about fin
 
 ### The Lambda-Capacity Relation
 
-The cosmological constant belongs to global capacity rather than local patch
-data. Null modular probes reconstruct the stress tensor only up to a term
-proportional to the metric itself, so $\Lambda g_{ab}$ enters as the one
-global scale the local construction cannot erase.
+The numerical capacity proposal treats the cosmological constant as global
+data rather than local patch data. Null modular probes reconstruct the stress
+tensor only up to a term proportional to the metric itself, so $\Lambda g_{ab}$
+enters as the one global scale the local construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-It belongs to the global capacity branch.
+Its proposed numerical readout belongs to the global capacity branch.
 
-The horizon capacity of a static patch is a definite finite number, a count
-of the distinguishable records the screen can hold. The capacity relation
-belongs to global screen size: a larger self-consistent record capacity
-corresponds to a smaller positive cosmological constant once the selected
-scale bridge is used for the SI display. The small measured Lambda then reads
-as the size label of a very large but finite screen, a number every observer
-patch inherits from its horizon.
+The entropy of a de Sitter static patch is a definite finite number. Reading
+that entropy as the capacity of the same correctable record ledger is a
+separate physical identification. Under that identification, a larger
+self-consistent record capacity corresponds to a smaller positive
+cosmological constant once the selected scale bridge is used for the SI
+display. The small measured Lambda would then be the size label of a very
+large but finite screen inherited by every observer patch.
 
 Observers sit inside the universe and infer geometry, horizons, entropy,
 Lambda, history, and records from the information available inside it. A

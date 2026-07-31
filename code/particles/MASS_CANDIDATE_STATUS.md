@@ -148,13 +148,14 @@ Discrete two-law ambiguity width: 9.3 MeV on MW, 5.1 MeV on MZ.
   - statuses: `{"nu_e": "continuation", "nu_mu": "continuation", "nu_tau": "continuation"}`
   - Blocking objects: Majorana versus Dirac mechanism selection, absolute scale mechanism, neutral-lane family shape (W5 orbit program)
 
-## massless carriers (photon, gluon)
+## conditional classical carrier modes
 
-- Lane: structural masslessness
-  - Tier: structural (receipt pending)
-  - explanation: Exact masslessness follows from unbroken gauge invariance in the recovered core; the receipt is bookkeeping, never a numerical program.
-  - statuses: `{"gamma": "conditional_carrier_mode", "g (8 color states)": "conditional_carrier_mode"}`
-  - Blocking objects: exact masslessness theorem receipts on the carrier lane
+- Lane: declared action-branch mode receipts
+  - Tier: conditional classical mode theorem
+  - explanation: Separately supplied Maxwell, perturbative Yang--Mills, and pure-Einstein actions have classical transverse modes with zero hard quadratic mass parameter on their declared phase and background branches. The recovered group does not supply those premises. No OPH quantum-particle or positive-pole receipt is available.
+  - statuses: `{"gamma": "conditional_carrier_mode", "g (8 color states)": "conditional_carrier_mode", "graviton": "conditional_carrier_mode"}`
+  - Artifact: `runs/status/carrier_mode_acceptance.json`
+  - Blocking objects: OPH quantum construction, positive physical Hilbert space, positive-residue massless pole, asymptotic or deconfined particle-state receipt
 
 ## quarks, conditional lanes
 

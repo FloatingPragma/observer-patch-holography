@@ -13,6 +13,7 @@ from copy import deepcopy
 from fractions import Fraction
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -155,7 +156,14 @@ def check(payload: dict[str, Any]) -> None:
         token.casefold() for token in policy["target_firewall"]["forbidden_structured_tokens"]
     ]
     source_text = json.dumps(resolved, sort_keys=True).casefold()
-    hits = [token for token in forbidden_tokens if token in source_text]
+    hits = [
+        token
+        for token in forbidden_tokens
+        if re.search(
+            rf"(?<![a-z0-9_]){re.escape(token)}(?![a-z0-9_])",
+            source_text,
+        )
+    ]
     require(not hits, "TARGET_TOKEN", f"target token entered source inputs: {hits}")
     require(payload["source_inputs"]["target_paths_present"] is False, "TARGET_FLAG", "target flag must be false")
 
@@ -163,6 +171,31 @@ def check(payload: dict[str, Any]) -> None:
     require(global_form["hypercharge_convention"] == "q = 6Y", "HYPERCHARGE", "q=6Y convention drifted")
     matter = resolved["finite_matter_representation"]
     family = resolved["conditional_rank_three_screen_context"]
+    require(
+        matter["conditional_algebraic_gate"]["passed"] is True
+        and matter["physical_source_gate"]["passed"] is False
+        and matter["physical_source_gate"]["matter_lift_source_bound"] is False,
+        "MATTER_SCOPE",
+        "matter input lost its conditional scope",
+    )
+    require(
+        "do not select a physical global form"
+        in global_form["description"].lower(),
+        "GLOBAL_FORM_SCOPE",
+        "global-form input lost its conditional scope",
+    )
+    require(
+        family["conditional_structural_scope"]["physical_current_source_bound"]
+        is False
+        and family["conditional_structural_scope"][
+            "physical_matter_lift_source_bound"
+        ]
+        is False
+        and family["conditional_structural_scope"]["physical_global_form_selected"]
+        is False,
+        "FAMILY_SCOPE",
+        "family input lost its conditional scope",
+    )
     indices = rederive_indices(matter, family)
     require(indices == {"su3": Fraction(2), "su2": Fraction(2), "u1": Fraction(10, 3)}, "INDICES", "indices drifted")
     stated = payload["representation_indices"]["matter_copy"]
@@ -242,6 +275,35 @@ def check(payload: dict[str, Any]) -> None:
         row["status"] == "conditional_declared_completion_not_OPH_selected",
         "CONDITIONAL_STATUS",
         "declared completion must stay unselected",
+    )
+    require(
+        row.get("resolved_bounded_context")
+        == [
+            "#634 finite local action domain; continuum promotion and physical coefficients absent"
+        ],
+        "DEPENDENCY_CONTEXT",
+        "the bounded finite-domain context drifted",
+    )
+    require(
+        row.get("required_open_attachments")
+        == [
+            "#569 physical family attachment",
+            "#636 physical scalar action and kinetic normalization",
+            "#637 complete source Yukawa matrices",
+            "#631 local physical screen/electroweak carrier",
+            "#632 complete W/Z-coupled census modulo proved zero-vertex decoupling",
+        ],
+        "DEPENDENCY_ATTACHMENTS",
+        "the open RG attachment set drifted",
+    )
+    require(
+        row.get("explicit_non_dependencies")
+        == [
+            "#630 scalar/Yukawa/FJ integration",
+            "#638 source-to-FJ coordinate map",
+        ],
+        "DEPENDENCY_EXCLUSIONS",
+        "#630 or #638 was incorrectly restored as an RG prerequisite",
     )
 
     multiplicity = resolved["mandatory_multiplicity_countermodels"]

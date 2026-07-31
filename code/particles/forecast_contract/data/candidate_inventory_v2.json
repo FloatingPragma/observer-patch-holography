@@ -1,0 +1,294 @@
+{
+  "schema": "oph.forecast_candidate_inventory.v2",
+  "issue": 639,
+  "inventory_scope": {
+    "scope_id": "constraint_bounded_dimensionless_forecast_candidates",
+    "inclusion_rule": "This C1 static draft records a laptop-scale numerical or discrete output, a source-visible generator path, and an independently meaningful comparison that could distinguish the branch. It is a seed inventory rather than the complete C3 invariant-miner registry.",
+    "candidate_class_legend": {
+      "1": "global or source-derived dimensionless quantities",
+      "2": "discrete structural quantities",
+      "3": "finite cosmology and clock ratios",
+      "4": "other response quantities and excluded diagnostics"
+    },
+    "priority_policy": "Within this C1 static draft, the direct source-derived public-record N producer has first priority. The common-load algebraic coordinate remains in class one for coverage but is ineligible and non-blind. This ordering does not implement the frozen numerical weights, eligibility rule, tie breaker, skip policy, or complete fallback registry required from issue 647 before C3 scoring.",
+    "live_register_crosswalk": "Active FZ rows and retrospective results are projected from claims/frozen_prediction_register.json v3 during state generation rather than duplicated here. Active-register membership is not a target-exposure classification.",
+    "structural_known_value_policy": "Known structural matches are crosswalked as postdictions and are not relabeled as novel forecasts.",
+    "resource_policy": "QCD production, SI attachment, continuum pole construction, cluster-scale simulation, and target-driven sweeps are excluded.",
+    "governance_boundary": "C1_STATIC_DRAFT_ONLY__NO_C3_REGISTRY_PIN__NO_EXPOSURE_TYPED_SCORING__NO_CAMPAIGN_WIDE_ONE_COMPARISON_STOP"
+  },
+  "completeness": {
+    "status": "PROVISIONAL_NOT_EXHAUSTIVE",
+    "closure_criterion_frozen": false,
+    "closure_criterion_id": "issue-639-c1-static-draft-crosswalk-v2",
+    "closure_criterion": "Crosswalk every required C1 static candidate, every required static surface, and every active or retrospective row of the pinned frozen-prediction register. This criterion cannot close C3 or admit the complete issue-647 registry.",
+    "reason": "The registered rows and known-surface crosswalk cover the identified C1 seed candidates. The complete issue-647 source-feature grammar, target-free ranking, exposure registry, and physically typed survivor set are not pinned.",
+    "required_for_negative_exit": "Use a versioned C3 policy to pin the complete issue-647 registry, pre-generation ranking contract, exposure classes, and one-comparison stop; crosswalk every quantitative registry; and obtain an adversarial deletion and omission audit before claiming a complete negative ledger."
+  },
+  "forbidden_input_classes": {
+    "comparison_payloads_before_unsealing": {
+      "description": "any comparison payload before the recorded unsealing",
+      "match_fragments": [
+        "comparison payload",
+        "comparison value"
+      ]
+    },
+    "consumer_policy_p_packet": {
+      "description": "the consumer-policy P packet",
+      "match_fragments": [
+        "p packet",
+        "forbidden p packet"
+      ]
+    },
+    "measured_atomic_and_si_constants": {
+      "description": "measured atomic frequencies and SI constants",
+      "match_fragments": [
+        "si constant",
+        "atomic frequency",
+        "caesium",
+        "cesium"
+      ]
+    },
+    "measured_cosmology_and_horizon_scale": {
+      "description": "measured cosmological parameters, inferred horizon area, or a Planck posterior",
+      "match_fragments": [
+        "measured lambda",
+        "measured cosmological",
+        "cosmological constant",
+        "planck posterior",
+        "horizon area"
+      ]
+    },
+    "measured_mixing_angles_and_widths": {
+      "description": "measured mixing angles, CKM or PMNS entries, widths",
+      "match_fragments": [
+        "measured mixing",
+        "measured ckm",
+        "measured pmns",
+        "measured width"
+      ]
+    },
+    "measured_particle_masses": {
+      "description": "measured lepton, quark, boson, or hadron masses",
+      "match_fragments": [
+        "measured lepton",
+        "measured mass",
+        "measured triple",
+        "pole mass"
+      ]
+    },
+    "prescribed_target_matched_simulator_charts": {
+      "description": "simulator charts prescribed to match a target",
+      "match_fragments": [
+        "target-matched chart",
+        "prescribed simulator chart"
+      ]
+    },
+    "target_residuals_and_fitted_exactifiers": {
+      "description": "target residuals and target-fitted exactifiers",
+      "match_fragments": [
+        "target residual",
+        "fitted exactifier",
+        "target-fitted"
+      ]
+    }
+  },
+  "selection_rule": {
+    "status": "DRAFT_UNFROZEN",
+    "algorithm": "candidate_class_then_priority_then_candidate_id_first_eligible_v1",
+    "rule": "This C1 draft orders its static seed rows by candidate_class, integer selection_priority, and candidate_id. It is not the C3 ranking contract. Before any C3 candidate generation or evaluation, a successor policy must pin the complete issue-647 grammar, numerical weights, eligibility, tie breaker, skip policy, exposure class, direct-N non-reentry rule, and campaign-wide one-comparison stop."
+  },
+  "candidates": {
+    "c1_direct_public_record_capacity": {
+      "candidate_id": "c1_direct_public_record_capacity",
+      "candidate_class": 1,
+      "selection_priority": 10,
+      "description": "dimensionless finite correctable-record capacity from the direct fixed point N = log M_0(U_N)",
+      "allowed_ancestry": [
+        "the A1-A3 public checkpoint source family",
+        "the exact capacity-indexed correctable-record map",
+        "a regulator-stable unique finite-size slack zero",
+        "an inhabited source-derived Einstein/de Sitter carrier for physicalization",
+        "a refinement-natural horizon-record identity for physicalization"
+      ],
+      "blocking_condition": "Issues 551 and 505 do not emit a source-derived capacity-indexed family or a unique slack zero. Even a positive finite N remains unscored until issue 503 supplies an inhabited compatible Einstein/de Sitter carrier and issue 589 proves the horizon-record identity. The separate common-load closure candidate does not instantiate the correctable-record map. The public Lambda value predates this campaign, so a present-day attached comparison is retrospective.",
+      "eligibility": "BLOCKED_PENDING_DIRECT_FIXED_POINT_AND_PHYSICAL_ATTACHMENT",
+      "potential_upgrade_issues": [
+        551,
+        505,
+        503,
+        589
+      ],
+      "fallback_reentry": "FORBIDDEN_AFTER_DIRECT_N_PRECEDENCE_TEST",
+      "comparison_exposure": "EXPOSED_RETROSPECTIVE_IF_USING_PRESENT_PUBLIC_LAMBDA"
+    },
+    "c1_common_load_global_closure": {
+      "candidate_id": "c1_common_load_global_closure",
+      "candidate_class": 1,
+      "selection_priority": 20,
+      "description": "conditional dimensionless entropy coordinate from the shared screen/electroweak self-read equation N = pi exp(6 pi/(P alpha_U(P)))",
+      "allowed_ancestry": [
+        "the declared strange-loop self-read closure hypothesis",
+        "the incomplete source-audit P and alpha_U(P) branch witness",
+        "the exact screen-load and D10 electroweak-load formulas",
+        "a source-bound common-load semantic identification"
+      ],
+      "blocking_condition": "The displayed evaluation contains no measured Lambda and has a unique positive real root. Its cited source-audit P and alpha_U(P) witness is not a frozen transitive provenance receipt, does not select the repair law, and is explicitly not a full endpoint proof. Issue 631 has not identified the two finite order-unit lines as one physical accepted load. Any architectural-closure reading must remain separate from the direct-capacity blind forecast and requires an explicit governance rule. Horizon comparison remains separate in issue 589.",
+      "eligibility": "INELIGIBLE_NON_BLIND_TARGET_ANCESTRY_AND_OPEN_PHYSICAL_IDENTITY",
+      "potential_upgrade_issues": [
+        631,
+        547,
+        589
+      ]
+    },
+    "c1_koide_balanced_circulant_ratio": {
+      "candidate_id": "c1_koide_balanced_circulant_ratio",
+      "candidate_class": 1,
+      "selection_priority": 30,
+      "description": "charged-lepton ratio from the balanced positive-chamber circulant relation",
+      "allowed_ancestry": [
+        "exact positive-chamber circulant theorems",
+        "a source derivation of the balance and ordering premises, absent"
+      ],
+      "blocking_condition": "The balance and ordering premises were abstracted from the measured lepton triple. A source derivation through issue 569 would be required.",
+      "eligibility": "INELIGIBLE_TARGET_ANCESTRY",
+      "potential_upgrade_issues": [
+        569
+      ]
+    },
+    "c1_screen_band_response_ratio": {
+      "candidate_id": "c1_screen_band_response_ratio",
+      "candidate_class": 1,
+      "selection_priority": 40,
+      "description": "flavor-adjacent ratio read from the screen response bands",
+      "allowed_ancestry": [
+        "exact band spectral resolution",
+        "the declared unitary simulator realization"
+      ],
+      "blocking_condition": "The realization lives on a prescribed simulator chart. A source-visible discriminator from issue 569 is required.",
+      "eligibility": "BLOCKED_SOURCE_INVISIBLE",
+      "potential_upgrade_issues": [
+        569
+      ]
+    },
+    "c2_family_multiplicity_three": {
+      "candidate_id": "c2_family_multiplicity_three",
+      "candidate_class": 2,
+      "selection_priority": 10,
+      "description": "discrete family-multiplicity verdict from the conditional rank-three band selection",
+      "allowed_ancestry": [
+        "the exact complete-band decomposition",
+        "the operational cost order",
+        "the named single-complete-faithful-band interface"
+      ],
+      "blocking_condition": "The realization clause is simulator-realized. Source visibility through issue 569 is required.",
+      "eligibility": "CONDITIONAL_NAMED_INTERFACE",
+      "potential_upgrade_issues": [
+        569
+      ],
+      "public_knowledge_caveat": "The comparison value three is public knowledge, so this is a consistency postdiction unless the source selector predates and excludes that knowledge."
+    },
+    "c3_edge_center_clock_ratio": {
+      "candidate_id": "c3_edge_center_clock_ratio",
+      "candidate_class": 3,
+      "selection_priority": 10,
+      "description": "finite edge-center cosmology quantity with its dimensionless clock",
+      "allowed_ancestry": [
+        "the issue-522 generator and clock binding, only if emitted without the forbidden P packet"
+      ],
+      "blocking_condition": "The generator and clock binding are not emitted without the consumer-policy P packet.",
+      "eligibility": "BLOCKED_PENDING_GENERATOR",
+      "potential_upgrade_issues": [
+        522
+      ]
+    },
+    "c4_scalar_completion_response_ratio": {
+      "candidate_id": "c4_scalar_completion_response_ratio",
+      "candidate_class": 4,
+      "selection_priority": 10,
+      "description": "dimensionless response ratio emitted by a uniquely selected scalar completion",
+      "allowed_ancestry": [
+        "a source-visible scalar-sensitive response and unique completion"
+      ],
+      "blocking_condition": "Issue 636 has not emitted a unique source scalar completion or an independently meaningful comparison object.",
+      "eligibility": "BLOCKED_SOURCE_INVISIBLE",
+      "potential_upgrade_issues": [
+        636
+      ]
+    },
+    "c4_sector_gap_ratio": {
+      "candidate_id": "c4_sector_gap_ratio",
+      "candidate_class": 4,
+      "selection_priority": 20,
+      "description": "exact finite ratio of local-domain twist-sector gaps",
+      "allowed_ancestry": [
+        "the frozen sector-spectra receipt on the local domain"
+      ],
+      "blocking_condition": "No independently meaningful public comparison object exists for these finite-graph ratios.",
+      "eligibility": "NOT_EVALUABLE_NO_INDEPENDENT_COMPARISON",
+      "potential_upgrade_issues": []
+    },
+    "x_charged_lepton_anchor_gap": {
+      "candidate_id": "x_charged_lepton_anchor_gap",
+      "candidate_class": 4,
+      "selection_priority": 90,
+      "description": "the charged-lepton anchor-gap interval",
+      "allowed_ancestry": [],
+      "blocking_condition": "The interval is a target-anchored diagnostic built from the measured lepton triple.",
+      "eligibility": "INELIGIBLE_TARGET_ANCESTRY",
+      "potential_upgrade_issues": []
+    },
+    "x_p_certificate_alpha": {
+      "candidate_id": "x_p_certificate_alpha",
+      "candidate_class": 4,
+      "selection_priority": 100,
+      "description": "the current P fixed-point certificate",
+      "allowed_ancestry": [],
+      "blocking_condition": "The consumer-policy P packet is not eligible unless its source and physical-map boundary closes before a contract freeze.",
+      "eligibility": "INELIGIBLE_CONSUMER_POLICY_BOUNDARY",
+      "potential_upgrade_issues": []
+    }
+  },
+  "known_surface_crosswalk": [
+    {
+      "surface": "W/Z ratio and weak-angle coordinates",
+      "classification": "BLOCKED_PHYSICAL_CURRENT_AND_POLE_MAP",
+      "forecast_use": "Reassess only after an OPH-native source-to-pole producer exists."
+    },
+    {
+      "surface": "Higgs/top dimensionless ratio",
+      "classification": "CONDITIONAL_TARGET_EXPOSED",
+      "forecast_use": "Source-scale, scalar selection, and pole attachment remain open."
+    },
+    {
+      "surface": "direct correctable-record N fixed point",
+      "classification": "BLOCKED_DIRECT_CAPACITY_AND_HORIZON_RECORD_MAP",
+      "forecast_use": "The equation N = log M_0(U_N) has no capacity-indexed source family or selected finite solution. A positive finite solution remains non-cosmological without an inhabited issue-503 carrier and the issue-589 horizon-record identity; comparison with the present public Lambda value is retrospective."
+    },
+    {
+      "surface": "common-load N closure and Lambda comparison",
+      "classification": "INELIGIBLE_NON_BLIND_ALGEBRAIC_ROOT__TARGET_ANCESTRY_AND_PHYSICAL_COMMON_LOAD_OPEN",
+      "forecast_use": "The screen/electroweak load equation has the unique evaluated value 3.5321315434e122 without measured Lambda as a direct input. The cited source-audit P and alpha_U(P) witness lacks frozen transitive provenance and repair-law selection, and the theorem-level electroweak bridge is public, so the value is not a blind target-clean forecast. The source-bound same-load identification and closure-governance parity decision are also open; the value differs from the Lambda-inferred coordinate by 6.63 percent."
+    },
+    {
+      "surface": "archived CAP-L/P/K 190-row capacity-map lattice",
+      "classification": "ARCHIVED_EXCLUDED_AGGREGATE",
+      "forecast_use": "The deterministic declared-before-comparison run in code/capacity_readback/F_CONSTRUCTION_2026-07-14.md evaluated 180 CAP-L, six CAP-P, and four CAP-K rows. Its 102 certified positive fixed points all missed the cosmic reference basin by at least 119.36 decimal orders; the aggregate is excluded and cannot be selected as a forecast candidate."
+    },
+    {
+      "surface": "edge-sector Casimir ratios",
+      "classification": "INTERNAL_MECHANISM_TEST",
+      "forecast_use": "No independent physical comparison has been identified."
+    },
+    {
+      "surface": "finite Einstein signature",
+      "classification": "PRESCRIBED_CHART_MEASUREMENT",
+      "forecast_use": "The four-coordinate chart is not source-selected."
+    },
+    {
+      "surface": "gauge group, Z6, hypercharge, classical zero hard masses, and X/Y-channel absence",
+      "classification": "KNOWN_VALUE_STRUCTURAL_POSTDICTIONS",
+      "forecast_use": "Track visibly as structural consequences, not novel sealed forecasts."
+    }
+  ],
+  "statement": "Provisional C1 static candidate inventory and crosswalk. It does not establish C3 exhaustiveness, issue-647 registry custody, exposure typing, eligibility, a freeze, one-shot scoring, or a prediction."
+}

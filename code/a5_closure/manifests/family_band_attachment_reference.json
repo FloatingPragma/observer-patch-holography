@@ -1,12 +1,12 @@
 {
   "attachment": {
-    "common_kernel": "Z6, unchanged under family triplication",
     "common_kernel_recomputed": true,
     "complex_rank": 45,
+    "conditional_common_kernel": "Z6, unchanged under family triplication",
     "coordinate_projector": "P3 tensor I_M15 in a #314 refinement-transported basis",
+    "declared_generation_fixture_weyl_states": 15,
     "family_dimension": 3,
-    "family_object": "the 3 band of the screen coefficient space",
-    "generation_weyl_states": 15,
+    "family_object": "the selected finite 3 band of the screen coefficient space",
     "invariant_projector": "P3 tensor Q15",
     "one_conjugate_matter_projector_selected": false,
     "three_family_anomaly_forms": {
@@ -125,7 +125,7 @@
       }
     ]
   },
-  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing N_g = 3 with attachment rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is simulator-realized by the #599 response artifact; clause R is simulator-realized for the response resolvent of the declared Laplacian generator by the pole-residue artifact. Its rank-three frame residue sits at the lowest positive generator frequency with the generation factor imported. All three actual refinements preserve the finite projector and its rank-forty-five tensor transport. The #627 seam character menu transports conditionally without selecting an action. Matter-pole identification, continuum Spin/locality, physical seam selection, and laboratory-current attachment stay open.",
+  "claim_boundary": "Exact selection inside the source-visible screen: among single complete faithful in-window multiplicity objects the #625 operational comparison order has the 3 band as unique strict minimizer, fixing the finite candidate multiplicity rank at three. Tensoring with the declared conditional fifteen-state matter fixture gives an attachment candidate of rank forty-five. The #617 copy-count invisibility for external completions is preserved. Clause S is simulator-realized by the #599 response artifact; clause R is simulator-realized for the response resolvent of the declared Laplacian generator by the pole-residue artifact. Its rank-three frame residue sits at the lowest positive generator frequency with the generation factor imported. All three actual refinements preserve the finite projector and its conditional rank-forty-five tensor transport. The #627 seam character menu transports conditionally without selecting an action or physical global form. The pinned issue-314 twelve-port spin packet and issue-634 local operator packet have no certified identity or transport bridge. Physical current and matter-source binding, physical global-form selection, matter-pole identification, physical Spin/locality, physical seam selection, and laboratory-current attachment stay open.",
   "conditional_seam_menu_transport": {
     "characters_checked": 11,
     "classification": "uniform_conditional_tensor_transport",
@@ -257,6 +257,16 @@
     "selection_status": "open",
     "source_issue": 627
   },
+  "conditional_structural_scope": {
+    "current_algebra_exact_in_declared_fixture": true,
+    "global_kernel_exact_in_declared_tables": true,
+    "matter_lift_exact_in_declared_fixture": true,
+    "physical_current_source_bound": false,
+    "physical_global_form_selected": false,
+    "physical_matter_lift_source_bound": false,
+    "same_source_seam_to_matter_kernel_identified": false,
+    "seam_menu_exact_in_declared_tables": true
+  },
   "controls": {
     "block_swap_refinement": {
       "code": "BLOCK_SWAP_COST_DETECTED",
@@ -326,10 +336,34 @@
       "failed": true,
       "meaning": "the pin path reads the receipt rank; a doctored rank is refused by the same loader the certificate uses"
     },
+    "matter_bounded_scan_mutation": {
+      "code": "MATTER_ATTACHMENT_BOUNDED_SCAN",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the same loader rejects a configured-key scan with a declared target-bearing hit"
+    },
+    "matter_domain_bridge_promotion": {
+      "code": "MATTER_ATTACHMENT_DOMAIN_BRIDGE",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the same loader rejects promotion of the separate issue-314 spin packet onto the issue-634 local domain"
+    },
     "matter_factor_mutation": {
       "code": "LABEL_FACTOR_IDENTITY",
       "expected_failure": true,
       "failed": true
+    },
+    "matter_source_selection_promotion": {
+      "code": "MATTER_ATTACHMENT_SELECTION",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the same loader rejects promotion of the declared conditional tensor extension to a source-selected action"
+    },
+    "matter_transitive_parent_pin_mutation": {
+      "code": "MATTER_ATTACHMENT_TRANSITIVE_PINS",
+      "expected_failure": true,
+      "failed": true,
+      "meaning": "the same loader rejects a matter receipt that omits one local-domain parent consumed by bundle verification"
     },
     "measured_channel_swap": {
       "code": "MEASURED_SWAP_DETECTED",
@@ -434,26 +468,7 @@
     "Screen/A5Commutant.lean (four-dimensional commutant)",
     "Screen/A5FamilyBand.lean (spectral split, actual refinement cocycle, rank-45 tensor transport, anomaly and Z6 checks)"
   ],
-  "local_domain_boundary_packet": {
-    "chirality_nondegenerate": true,
-    "continuum_gate_unchanged": true,
-    "domain": "issue-634 typed local domain, bound by capture hash to the frozen stage receipts",
-    "gap_inherited_exact": true,
-    "generation_recomputed_states": 15,
-    "layer_clauses_all_true": true,
-    "lift_ambiguity_rank": 3117,
-    "receipt": {
-      "issue": 569,
-      "path": "manifests/matter_attachment_receipt.json",
-      "scope": "finite Spin/locality layer on the issue-634 local domain",
-      "sha256": "313e84a1924248d8d5ea60f2fa3e20d6fbf7e64db48450faae0c45b79d694053"
-    },
-    "scope_note": "the assembled boundary packet recomputes chirality, the Z6 fixing, and the rank-45 tensor on the local domain under its declared extension; the issue-314 spin packet stays a separate pinned packet on its twelve-vertex support with no certified transport bridge to the issue-634 operator domain, and the physical Spin/locality bridge, matter-pole identification, physical seam selection, and laboratory identification stay open",
-    "spin_packet_status": "separate_pinned_issue_314_packet",
-    "spin_to_local_domain_bridge_certified": false,
-    "z6_all_states_fixed": true
-  },
-  "manifest_sha256": "sha256:95fde914a548dd95d3aaf76cc164ce3a2cc64dbbd40a2384b6159d1a886c638b",
+  "manifest_sha256": "sha256:4b571fa064cb9f778922fa15116f67f4fdde83aecd3a41cad2f46b67f855637e",
   "measured_receipt": {
     "antipode_polynomial_bound": "10*antipode = A^3 - 4A^2 - 5A + 10I on the pinned carrier",
     "artifact_issue": 599,
@@ -513,18 +528,24 @@
       "S_selection": "simulator_realized_on_declared_channel"
     },
     "clauses": {
-      "R_realization": "the physical pole-residue multiplicity object is realized as a single complete subobject of the source-visible screen coefficient space",
+      "R_realization": "the finite response pole-residue multiplicity object is realized as a single complete subobject of the source-visible screen coefficient space; physical matter-pole identification remains open",
       "S_selection": "the attachment is compared by the #625 operational cost order (quadratic seam-mismatch readback per unit norm)"
     },
     "id": "screen_realized_multiplicity_object",
     "open_receipts": [
+      "physical current-source binding",
+      "physical matter-source binding",
+      "physical global-form selection",
       "matter-pole identification",
-      "continuum Spin/locality receipt",
+      "physical Spin/locality bridge",
       "physical seam action selection",
       "laboratory current identification"
     ]
   },
   "open_gates": [
+    "physical_current_source_binding",
+    "physical_matter_lift_source_binding",
+    "physical_global_form_selection",
     "matter_pole_identification",
     "continuum_Spin_locality",
     "physical_seam_action_selection",
@@ -553,6 +574,7 @@
     "ordered_pair_orbits": 4
   },
   "physical_persistence_transport": {
+    "declared_matter_gamma_intertwined_mapwise": true,
     "distinct_from_algebraic_r_tower": true,
     "laboratory_current_identified": false,
     "maps": [
@@ -597,8 +619,8 @@
         "target_level": 2
       }
     ],
-    "matter_gamma_intertwined_mapwise": true,
-    "namespace": "artifact_physical_persistence"
+    "namespace": "artifact_bound_persistence",
+    "physical_refinement_intertwining_source_bound": false
   },
   "physical_window": {
     "lower": 3,
@@ -645,6 +667,9 @@
     "continuum_spin_locality_derived": false,
     "laboratory_current_identified": false,
     "matter_pole_identified": false,
+    "physical_current_source_bound": false,
+    "physical_global_form_selected": false,
+    "physical_matter_lift_source_bound": false,
     "physical_seam_action_selected": false,
     "promotion_allowed": false
   },
@@ -653,6 +678,20 @@
     "actual_map_count": 3,
     "all_projectors_refinement_natural": true,
     "ambient_projector": "P3 tensor Q15",
+    "artifact_persistence_maps_conditionally_intertwined": [
+      {
+        "intertwined": true,
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "source_level": 0,
+        "target_level": 1
+      },
+      {
+        "intertwined": true,
+        "origin": "defect_port_persistence_in_geodesic_tower",
+        "source_level": 0,
+        "target_level": 2
+      }
+    ],
     "binary_lift_centre_cocycle_retained": true,
     "carrier_levels": [
       "r0",
@@ -1283,7 +1322,7 @@
         "tensor_permutation_sha256": "ea1032ee964b53bbd075ee37c9e8d18d6165623ea6531fb749acfd618fa4a167"
       }
     ],
-    "matter_intertwiner_source": "hash-pinned #314 gamma refinement on the unordered conjugate rank-fifteen projector pair",
+    "matter_intertwiner_source": "hash-pinned conditional #314 gamma refinement on the unordered conjugate rank-fifteen projector pair",
     "matter_maps_intertwined": [
       {
         "intertwined": true,
@@ -1303,20 +1342,6 @@
     ],
     "one_conjugate_projector_selected": false,
     "physical_identification_promoted": false,
-    "physical_persistence_maps_intertwined": [
-      {
-        "intertwined": true,
-        "origin": "defect_port_persistence_in_geodesic_tower",
-        "source_level": 0,
-        "target_level": 1
-      },
-      {
-        "intertwined": true,
-        "origin": "defect_port_persistence_in_geodesic_tower",
-        "source_level": 0,
-        "target_level": 2
-      }
-    ],
     "port_cocycle": "U_12 after U_01 = U_02",
     "port_cocycle_checked": true,
     "projectors_checked": [
@@ -1350,6 +1375,48 @@
     ],
     "strict": true
   },
+  "separate_spin_and_local_domain_context": {
+    "conditional_rank_forty_five_tensor_candidate": true,
+    "issue_314_spin_packet": {
+      "chirality_nondegenerate": true,
+      "generation_recomputed_states": 15,
+      "support_identity": {
+        "artifact_sha256": "sha256:ebf72ed5e4c3440c858b8a77c8bd8fca9c6c5d530aa7965fe53236b4b293253a",
+        "cell_counts": {
+          "edges": 30,
+          "faces": 20,
+          "vertices": 12
+        }
+      },
+      "z6_all_states_fixed": true
+    },
+    "issue_634_local_operator_packet": {
+      "conditional_gap_inheritance_exact": true,
+      "domain_identity": {
+        "source_projection_sha256": "sha256:4870ca843af22b0875f5207585b96608d3c026ba1107fc842aa2ee4c494418bd",
+        "topology_freeze_sha256": "sha256:a0be6fc64aecf9ca375fd91c57315e8af5e5cf161c99611f4844ba8f452ae7ff",
+        "visible_edge_count": 11816,
+        "visible_node_count": 8662
+      },
+      "local_stage2_same_source_domain_binding": true,
+      "matter_action_source_selected": false,
+      "stage2_context": {
+        "lift_ambiguity_rank": 3117,
+        "sign_transport": "matter sections are sign-twisted sections of the stage-3 layer under the declared reversing seam convention"
+      }
+    },
+    "open_interface": "physical Spin/locality bridge",
+    "packet_status": "separate_pinned_issue_314_packet",
+    "receipt": {
+      "issue": 569,
+      "path": "manifests/matter_attachment_receipt.json",
+      "scope": "conditional rank-forty-five local tensor candidate plus a separate issue-314 spin packet; physical Spin/locality bridge open",
+      "sha256": "2dda2156a9bd56cbb81e9e89b3b949c65696e550fa4fe91f2bc533d50d599623"
+    },
+    "same_source_domain_certified": false,
+    "scope_note": "the issue-314 twelve-port spin packet and issue-634 local operator packet are resolved independently; no transport or identity bridge joins them. Physical Spin/locality, physical current and matter-source binding, physical global-form selection, matter-pole identification, physical seam selection, and laboratory identification stay open",
+    "spin_to_local_domain_bridge_certified": false
+  },
   "spectral_resolution": {
     "band_dimensions": {
       "1": 1,
@@ -1371,7 +1438,7 @@
     "center_candidates_replayed": 36,
     "family_copies": 3,
     "fixed_subspace_dimension": 45,
-    "kernel_after_triplication": "same diagonal Z6",
+    "kernel_after_triplication": "same conditional diagonal Z6",
     "kernel_elements": [
       [
         0,
@@ -1474,63 +1541,57 @@
       "issue": 566,
       "path": "manifests/port_current_response_reference.json",
       "role": "current_manifest",
-      "sha256": "ed40dbeaa6faef427d9d4884ed104b3629bc56b8675f9cc885774e6b978dbf8c"
+      "sha256": "1aa53f62c7137e1f63233723deedaaae14f82090cc2d7fa9875984b85b32816e"
     },
     "current_receipt": {
       "issue": 566,
       "path": "receipts/port_current_inner_reference.receipt.json",
       "role": "current_refinement_receipt",
-      "sha256": "c471a55c1623ae135a3e5ee0edbf69552abfb11020e7cc2cf342aa6727568ccb"
+      "sha256": "1ebd59e5d07109aeef0752964e887d5e3e517270447b0a451802e71f37c7e36c"
     },
     "global_form_manifest": {
       "issue": 567,
       "path": "manifests/axis_center_descent_reference.json",
       "role": "global_form_manifest",
-      "sha256": "bcb7248416b39246a6a63f880c370780b1a3c5fb044a1a9ca893f22d5997324d"
+      "sha256": "c619511b04243964db7c5cfe0f1bf7a2045f054d7298fd0b87b2ec9e799d3881"
     },
     "global_form_receipt": {
       "issue": 567,
       "path": "receipts/axis_center_descent_reference.receipt.json",
       "role": "global_form_receipt",
-      "sha256": "7b134f2c6ff541329a07dc609813ae1aedd85603e53738a7b74a21b0d27ddd39"
-    },
-    "local_domain_boundary_receipt": {
-      "issue": 569,
-      "path": "manifests/matter_attachment_receipt.json",
-      "scope": "finite Spin/locality layer on the issue-634 local domain",
-      "sha256": "313e84a1924248d8d5ea60f2fa3e20d6fbf7e64db48450faae0c45b79d694053"
+      "sha256": "7c854d56af7bdadbae699871542080a740e8fa0856695b0dc453c9e1baee04de"
     },
     "matter_manifest": {
       "issue": 314,
       "path": "manifests/super_tannakian_matter_reference.json",
       "role": "matter_manifest",
-      "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+      "sha256": "16a3746cab2f96f7457ee40c2b5ad00df7c37b09f4ab650b31d642086399c470"
     },
     "matter_packet": {
       "issue": 314,
       "path": "manifests/super_tannakian_matter_reference.json",
-      "sha256": "011a50b7e03b8bc30597fad0404cdfc2e6c6927ad106e11b959e92423e0082b2"
+      "sha256": "16a3746cab2f96f7457ee40c2b5ad00df7c37b09f4ab650b31d642086399c470"
     },
     "matter_receipt": {
       "issue": 314,
       "path": "receipts/super_tannakian_matter_reference.receipt.json",
       "role": "matter_refinement_receipt",
-      "sha256": "d98781835d9416d20ee7816c6c879536b096496eb6a4ace44135788c8cf85b70"
+      "sha256": "ac2be496ee7a1d4434bdff5c7c07f208c3e85b5564b0a179f71e1a54c141e462"
     },
     "measured_pole_residue_artifact": {
       "issue": 569,
       "path": "manifests/charged_response_pole_residue_artifact.json",
-      "sha256": "fcbc573f373c02e4c0dd9a7527b6cced38bd9bb6c201f78914ae0aa838f007ea"
+      "sha256": "775169cc8e44288bb14a6f304da89303be22a10d010d8dfe55577295655733e1"
     },
     "measured_response_artifact": {
       "issue": 599,
       "path": "manifests/charged_response_semantic_artifact.json",
-      "sha256": "ad98632539c3ea26d8633e4f1380e6889d44c14b183eb64eda8e09970dc78e99"
+      "sha256": "1ff0fd17f74fe1add88c8d35b4882ae5c06e05c474a0fb1dbc95764c0554107b"
     },
     "multiplicity_window": {
       "issue": 617,
       "path": "manifests/multiplicity_window_reference.json",
-      "sha256": "ca20330874b5c6e9b4d0c061a2bd9bea55d5001c4a7adb311258ff8f5a75fe97"
+      "sha256": "8536b7019176a4ebc6abe4f89ffd490e73b7b6bee4418f589ed411047f7ab5bf"
     },
     "operational_cost_cone": {
       "issue": 625,
@@ -1541,7 +1602,13 @@
       "issue": 627,
       "path": "manifests/seam_grammar_matter_classification_reference.json",
       "role": "conditional_seam_menu",
-      "sha256": "138f01bd2e9b438d3fe9a7901af6eeb4a9f746881ea19b0628dbb2ee528af7a2"
+      "sha256": "a455adf7085adefa5829884065958a3554ec711f86b543b92638875579b19a4f"
+    },
+    "separate_matter_context_receipt": {
+      "issue": 569,
+      "path": "manifests/matter_attachment_receipt.json",
+      "scope": "conditional rank-forty-five local tensor candidate plus a separate issue-314 spin packet; physical Spin/locality bridge open",
+      "sha256": "2dda2156a9bd56cbb81e9e89b3b949c65696e550fa4fe91f2bc533d50d599623"
     }
   }
 }

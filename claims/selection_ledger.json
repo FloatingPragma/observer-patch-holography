@@ -129,13 +129,13 @@
     {
       "row": 4,
       "selector_id": "echosahedral_carrier_lineage",
-      "label": "Echosahedral carrier lineage (icosahedral geometry for the screen carrier)",
+      "label": "A1 icosahedral boundary packet and declared Echosahedral lineage",
       "class": "exposed_premise",
       "conditional_on": [],
       "canonical_claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "Declared quotient-visible carrier lineage of the #565 selector; the packet does not derive that every OPH carrier is echosahedral. Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyChargeReconstruction`) proves the bare total-charge reduct cannot force the choice, so a declared premise is the exact boundary.",
+      "where": "A1 declares that each finite local carrier has twelve primitive ports with the unlabeled 12-vertex, 30-edge, 20-face, degree-five, coherently oriented boundary complex of the icosahedron. This local boundary architecture is axiom content. The richer Echosahedral lineage, including its counting realization, response law, and physical carrier identification, is separately declared or source-gated and does not follow from the boundary combinatorics alone. Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyChargeReconstruction`) proves that the bare total-charge reduct cannot reconstruct even the boundary choice.",
       "menu": {
         "size": 3,
         "alternatives": "tetrahedral, octahedral, icosahedral antipodal port families",
@@ -342,7 +342,7 @@
     {
       "row": 12,
       "selector_id": "physical_port_current_realization",
-      "label": "Physical port-current realization",
+      "label": "A1/A2 compact port-current Lie type",
       "class": "forced",
       "conditional_on": [
         "echosahedral_carrier_lineage"
@@ -352,11 +352,11 @@
         "OPH-SCREEN-A5-SM-RECOGNITION"
       ],
       "owner_issues": [],
-      "where": "The semantic response artifact measured from the carrier dynamics determines the charged response representation, its four signed coefficients, the oriented frame, and the physical refinement maps; the port-current certificate recomputes every exact artifact claim in Q(sqrt5) and its physical source gate passes (issue #599 closure packet). Lean `Lean/Screen/PhysicalA5ForcingNoGo.lean` (`noSourceOnlyCurrentReconstruction`) records why the artifact is necessary: the bare source reduct admits two inequivalent completions. Conditional on row 4.",
+      "where": "A1 supplies a faithful complete compact twelve-dimensional port response and A2 makes every proper carrier recharting internal to that response. The carrier has one fixed line. Compact classification and the centreless four-factor fixed-space exclusion leave only u(1)+su(2)+su(3). Target-blind readback separately derives R=-J. The charged-double-triplet matrices are an exact declared witness; ordered source tomography and same-current holonomy are open. Conditional on row 4.",
       "menu": {
         "size": 2,
-        "alternatives": "two inequivalent current completions of the same source reduct; a bound semantic response artifact determines one",
-        "enumeration_source": "code/a5_closure/claim_boundary_certificates.py, source_completion_nonuniqueness_certificate"
+        "alternatives": "the centreless su(2)^4 branch or the one-centre u(1)+su(2)+su(3) branch after the A1/A2 centre bound",
+        "enumeration_source": "Lean/Screen/A2HolonomyBridge.lean and oph-physics-sim a2_holonomy_selector"
       },
       "compression_input": true,
       "receipts": [
@@ -365,13 +365,18 @@
       ],
       "lean": [
         {
+          "module": "Lean/Screen/A2HolonomyBridge.lean",
+          "declaration": "compact_product_dimensions_of_fixed_space"
+        },
+        {
           "module": "Lean/Screen/PhysicalA5ForcingNoGo.lean",
           "declaration": "noSourceOnlyCurrentReconstruction"
         }
       ],
       "negative_controls": [
-        "abelian-record and symmetric-record control models fail the production verifier",
-        "the register-relabeling no-go separates response data from register relabeling"
+        "an abelian diagonal response has the same port covariance but fails A2 endogeneity",
+        "the scalar seam equalizers close to so(11), not the twelve-dimensional current",
+        "a semantic current-model label cannot satisfy the source gate"
       ],
       "paper_anchors": [
         {
@@ -383,18 +388,18 @@
     {
       "row": 13,
       "selector_id": "z6_global_form_descent",
-      "label": "Source-bound global-form selection through the measured sector menu",
-      "class": "forced",
+      "label": "Declared-lattice Z6 descent and open physical global form",
+      "class": "exposed_premise",
       "conditional_on": [
         "physical_matter_spin_lift"
       ],
       "canonical_claim_id": "OPH-GAUGE-D7-D9",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "The descent certificate computes the common Z6 kernel on every realized matter tensor by exhaustive enumeration over 36 candidates and derives the character and dual cocharacter lattices with Smith invariants (1, 1, 6). Local tensors alone descend through the cover and the Z2, Z3, and Z6 quotients and cannot select; the selection is carried by the measured global-form artifact: the order-120 deck action, the measured six-axis class group of exactly the kernel order, and the measured flux-sector menu {0..5} through which every realized tensor transports single-valuedly, whose unique four-form match is the Z6 quotient. The Dirac-pairing commutant theorem selects the electric polarization uniquely. Four-dimensional instanton normalization, theta periodicity, and laboratory flux measurement stay open named gates. Conditional on rows 4, 12, and 14.",
+      "where": "The descent certificate computes the common Z6 kernel on every declared matter tensor by exhaustive enumeration over 36 candidates and derives the central descent congruence with Smith invariants (1, 1, 6). Local tensors descend through the cover and the Z2, Z3, and Z6 quotients and cannot select a physical form. The six-axis class has order six only after its diagonal and zero-sum coefficient relations are declared. The exact intertwiner and electric-polarization result hold inside that declared system. Source selection of the relation lattice, complete source characters, the same-source loop-to-kernel identity, and laboratory attachment are open. Conditional on rows 4, 12, and 14.",
       "menu": {
         "size": 4,
-        "alternatives": "the four admissible global forms (cover, Z2, Z3, Z6 quotients) with sector menus {0}, {0,3}, {0,2,4}, {0..5}; the measured source-admissible menu equals exactly the Z6-quotient menu",
+        "alternatives": "the four locally admissible forms: cover, Z2, Z3, and Z6 quotients; the declared order-six coefficient system matches the Z6 menu without selecting it physically",
         "enumeration_source": "code/a5_closure/axis_center_descent_certificate.py sector_transport_consistency; code/a5_closure/manifests/global_form_semantic_artifact.json"
       },
       "compression_input": true,
@@ -429,7 +434,8 @@
         "adjoint-only tensors leave all four global forms admissible (kernel order 36)",
         "a fractionally charged extra tensor shrinks the kernel to the identity and obstructs every nonzero measured sector",
         "no central candidate acts as fermion parity on all five matter multiplets",
-        "a single-puncture nonzero flux is exactly impossible on the closed support"
+        "a single-puncture nonzero flux is exactly impossible on the closed support",
+        "matching two order-six groups does not source-select the declared axis relations"
       ],
       "paper_anchors": [
         {
@@ -441,15 +447,15 @@
     {
       "row": 14,
       "selector_id": "physical_matter_spin_lift",
-      "label": "Source-bound fermionic matter selection and Spin/odd-Weyl typing",
-      "class": "forced",
+      "label": "Conditional exterior matter and finite Spin fixture",
+      "class": "exposed_premise",
       "conditional_on": [
         "physical_port_current_realization"
       ],
       "canonical_claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
       "secondary_claim_ids": [],
       "owner_issues": [],
-      "where": "The matter-lift certificate consumes the hash-pinned measured spin statistics artifact and selects the matter object by the exhaustive 1024-subset anomaly scan over the derived primitive charges: the unordered conjugate rank-15 pair is the unique nonempty chiral anomaly-free selection and the fermionic-parity grading is an output of the scan. The measured lift centre {+1,-1} and the measured section obstruction over every Klein four-subgroup make the central -1 of the non-split double cover the unique source implementation of that grading; the gauge-centre branch is excluded by the Lean fermion-parity no-go. Scalar existence and multiplicity are not source-determined and extra-light-sector completeness holds only inside the declared algebra, each receipt-documented (multiplicity_window_reference, matter_menu_spectral_ledger_reference); the one-doublet completion stays declared. Conditional on rows 4 and 12.",
+      "where": "Inside the declared charged-double-triplet and exterior CAR/Fock construction, the exhaustive 1024-subset anomaly scan leaves the unordered conjugate rank-15 pair as the unique nonempty chiral anomaly-free selection and outputs its fermionic-parity grading. The finite non-split transport double cover fixes the Spin/odd-Weyl typing inside that fixture. The upstream current representation, physical matter action, one conjugate representative, continuum Spin attachment, scalar existence, and extra-light-sector completeness are not source-selected. Conditional on rows 4 and 12.",
       "menu": {
         "size": 1024,
         "alternatives": "all 1024 subsets of the ten nontrivial isotypic components; exactly two survive chirality and the four anomaly constraints, and they form one unordered conjugate pair equal to the two fermionic-parity sectors",
@@ -490,7 +496,7 @@
     {
       "row": 15,
       "selector_id": "screen_to_family_attachment",
-      "label": "Screen-to-family attachment (rank-45 map to three rank-15 families)",
+      "label": "Rank-three screen response and conditional family candidate",
       "class": "open",
       "conditional_on": [
         "physical_matter_spin_lift"
@@ -500,7 +506,7 @@
       "owner_issues": [
         569
       ],
-      "where": "The exact band-cost order uniquely selects the rank-three screen band under the single-complete-band realization and operational cost premises. The declared unitary simulator recovers its residue at the lowest positive generator frequency and conserves mode norms. On the frozen finite local domain, tensoring the band with the exact fifteen-state generation witness gives a complex rank-45 carrier with nondegenerate chirality, exact diagonal Z6 action, local signed operators, and the inherited exact positive finite-domain gap of the signed seam operator. Its promotion to physical matter-pole residues still requires continuum Spin/locality, physical seam selection, the third persistence leg, and laboratory-current data under issue #569. The exact 31-axis spectrum excludes only direct real-3D residual-axis equality with the Cabibbo angle.",
+      "where": "The exact band-cost order uniquely selects the rank-three screen band under the single-complete-band realization and operational cost premises. The declared unitary simulator recovers its residue at the lowest positive generator frequency and conserves mode norms. Tensoring the band with the declared fifteen-state generation table gives a conditional complex rank-45 candidate. Chirality and the diagonal Z6 action are arithmetic properties of that table. A separate finite local-domain receipt checks the declared operator D_sigma tensor I_45 and conditional inheritance of the signed seam operator's positive gap. The source does not select that matter action. The twelve-port Spin packet and the 8662-node local domain have no certified source, domain, or transport bridge. Physical matter-pole identification, continuum Spin/locality, physical seam selection, the third persistence leg, and laboratory-current attachment remain open under issue #569. The exact 31-axis spectrum excludes only direct real-3D residual-axis equality with the Cabibbo angle.",
       "menu": {
         "size": null,
         "alternatives": "the attachment menu is not enumerated; spinorial, broken-symmetry, and general overlap routes are open",
@@ -524,13 +530,13 @@
       "conditional_on": [],
       "canonical_claim_id": "OPH-GR-D6-CAPACITY",
       "secondary_claim_ids": [
-        "OPH-Q-PN-CLOSURE"
+        "OPH-Q-PN-CLOSURE",
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
       "owner_issues": [
-        505,
-        551
+        503
       ],
-      "where": "Source-only correctable public-record closure and the unique slack zero are the targets of issues #505 and #551.",
+      "where": "The completed #505 and #551 packets lock non-identifiability for the declared capacity source class: the bounded base-agreement, positivity, and carrier-bound counterfamily has incompatible exact zero sets, and the complete A1-A3 packet lift emits no direct N. Issue #503 owns the remaining source-derived typed tower; any capacity selector would have to enter there as an additional named source law.",
       "menu": {
         "size": null,
         "alternatives": "the closure-selector menu is not enumerated before the slack law exists",
@@ -538,11 +544,22 @@
       },
       "compression_input": true,
       "receipts": [
-        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+        "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md",
+        "code/capacity_readback/ISSUE_551_RESULT.md",
+        "code/capacity_readback/capacity_indexed_source_family.py",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
+        "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
+        "code/capacity_readback/runtime/direct_n_closure_verdict.json"
       ],
-      "lean": [],
+      "lean": [
+        {
+          "module": "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
+          "declaration": "boundedCompletionClass_doesNotForceUniqueZero"
+        }
+      ],
       "negative_controls": [
-        "the readback no-go proves capacity is not determined by the terminal quotient normal form and local checkpoint marginals"
+        "the readback no-go proves capacity is not determined by the terminal quotient normal form and local checkpoint marginals",
+        "the all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique slack zero; it does not complete the A1-A3 packet lift"
       ],
       "paper_anchors": []
     },
@@ -555,11 +572,13 @@
         "capacity_closure_selector"
       ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
-      "secondary_claim_ids": [],
-      "owner_issues": [
-        551
+      "secondary_claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "owner_issues": [
+        503
+      ],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3. The completed #551 packet selects no branch in the declared class; issue #503 owns the source-derived typed tower that would have to decide whether this branch axis survives.",
       "menu": {
         "size": 3,
         "alternatives": "poisson survival e^(-P/24), presence survival 1 - P/24, or no exclusion",
@@ -584,11 +603,13 @@
         "capacity_closure_selector"
       ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
-      "secondary_claim_ids": [],
-      "owner_issues": [
-        551
+      "secondary_claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "owner_issues": [
+        503
+      ],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 3. The completed #551 packet selects no branch in the declared class; issue #503 owns the source-derived typed tower that would have to decide whether this branch axis survives.",
       "menu": {
         "size": 2,
         "alternatives": "one reserve unit per equal-area cell, or reserve priced on the 3K shared edges",
@@ -613,11 +634,13 @@
         "capacity_closure_selector"
       ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
-      "secondary_claim_ids": [],
-      "owner_issues": [
-        551
+      "secondary_claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 4; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "owner_issues": [
+        503
+      ],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 4. The completed #551 packet selects no branch in the declared class; issue #503 owns the source-derived typed tower that would have to decide whether this branch axis survives.",
       "menu": {
         "size": 4,
         "alternatives": "port multiplicity X+, delta constraint X0, record cost X-, write plus check cost X=",
@@ -642,11 +665,13 @@
         "capacity_closure_selector"
       ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
-      "secondary_claim_ids": [],
-      "owner_issues": [
-        551
+      "secondary_claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 5; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "owner_issues": [
+        503
+      ],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 5. The completed #551 packet selects no branch in the declared class; issue #503 owns the source-derived typed tower that would have to decide whether this branch axis survives.",
       "menu": {
         "size": 3,
         "alternatives": "unmarked K0, one marked chain K1, chain plus checkpoint K2",
@@ -671,11 +696,13 @@
         "capacity_closure_selector"
       ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
-      "secondary_claim_ids": [],
-      "owner_issues": [
-        551
+      "secondary_claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 6; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "owner_issues": [
+        503
+      ],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 6. The completed #551 packet selects no branch in the declared class; issue #503 owns the source-derived typed tower that would have to decide whether this branch axis survives.",
       "menu": {
         "size": 3,
         "alternatives": "A5 quotient S-, quotient representatives S0, flag multiplicity S+",
@@ -700,11 +727,13 @@
         "capacity_closure_selector"
       ],
       "canonical_claim_id": "OPH-Q-PN-CLOSURE",
-      "secondary_claim_ids": [],
-      "owner_issues": [
-        551
+      "secondary_claim_ids": [
+        "OPH-GR-D6-HORIZON-RECORD"
       ],
-      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 7; the branch axis is selected by the slack law of row 16. Owner: issue #551.",
+      "owner_issues": [
+        503
+      ],
+      "where": "Declared menu in `F_CONSTRUCTION_2026-07-14.md`, Step 7. The completed #551 packet selects no branch in the declared class; issue #503 owns the source-derived typed tower that would have to decide whether this branch axis survives.",
       "menu": {
         "size": 4,
         "alternatives": "CAP-L log-count readback and three declared alternative Cap_read families; CAP-B is barred before evaluation",

@@ -200,22 +200,86 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(cert.SCHEMA, "oph.family_band_attachment_certificate.v6")
         self.assertEqual(self.payload["schema"], cert.SCHEMA)
 
-    def test_local_domain_boundary_packet_bound(self) -> None:
-        section = self.payload["local_domain_boundary_packet"]
-        self.assertTrue(section["layer_clauses_all_true"])
-        self.assertEqual(section["generation_recomputed_states"], 15)
-        self.assertTrue(section["z6_all_states_fixed"])
-        self.assertTrue(section["chirality_nondegenerate"])
-        self.assertTrue(section["gap_inherited_exact"])
-        self.assertTrue(section["continuum_gate_unchanged"])
+    def test_spin_and_local_domain_packets_remain_separate(self) -> None:
+        section = self.payload["separate_spin_and_local_domain_context"]
+        self.assertEqual(
+            section["packet_status"],
+            "separate_pinned_issue_314_packet",
+        )
+        self.assertTrue(section["conditional_rank_forty_five_tensor_candidate"])
+        self.assertEqual(
+            section["issue_314_spin_packet"][
+                "generation_recomputed_states"
+            ],
+            15,
+        )
+        self.assertTrue(
+            section["issue_314_spin_packet"]["z6_all_states_fixed"]
+        )
+        self.assertTrue(
+            section["issue_314_spin_packet"]["chirality_nondegenerate"]
+        )
+        self.assertTrue(
+            section["issue_634_local_operator_packet"][
+                "local_stage2_same_source_domain_binding"
+            ]
+        )
+        self.assertTrue(
+            section["issue_634_local_operator_packet"][
+                "conditional_gap_inheritance_exact"
+            ]
+        )
+        self.assertFalse(
+            section["issue_634_local_operator_packet"][
+                "matter_action_source_selected"
+            ]
+        )
+        self.assertFalse(section["spin_to_local_domain_bridge_certified"])
+        self.assertFalse(section["same_source_domain_certified"])
+        self.assertEqual(
+            section["open_interface"],
+            "physical Spin/locality bridge",
+        )
         pins = self.payload["upstream_pins"]
         self.assertEqual(
-            pins["local_domain_boundary_receipt"]["path"],
+            pins["separate_matter_context_receipt"]["path"],
             "manifests/matter_attachment_receipt.json",
         )
         control = self.payload["controls"]["matter_attachment_mutation"]
         self.assertTrue(control["failed"])
         self.assertEqual(control["code"], "MATTER_ATTACHMENT_RANK")
+        bridge_control = self.payload["controls"][
+            "matter_domain_bridge_promotion"
+        ]
+        self.assertTrue(bridge_control["failed"])
+        self.assertEqual(
+            bridge_control["code"],
+            "MATTER_ATTACHMENT_DOMAIN_BRIDGE",
+        )
+        selection_control = self.payload["controls"][
+            "matter_source_selection_promotion"
+        ]
+        self.assertTrue(selection_control["failed"])
+        self.assertEqual(
+            selection_control["code"],
+            "MATTER_ATTACHMENT_SELECTION",
+        )
+        transitive_pin_control = self.payload["controls"][
+            "matter_transitive_parent_pin_mutation"
+        ]
+        self.assertTrue(transitive_pin_control["failed"])
+        self.assertEqual(
+            transitive_pin_control["code"],
+            "MATTER_ATTACHMENT_TRANSITIVE_PINS",
+        )
+        bounded_scan_control = self.payload["controls"][
+            "matter_bounded_scan_mutation"
+        ]
+        self.assertTrue(bounded_scan_control["failed"])
+        self.assertEqual(
+            bounded_scan_control["code"],
+            "MATTER_ATTACHMENT_BOUNDED_SCAN",
+        )
         promotion = self.payload["promotion"]
         self.assertFalse(promotion["continuum_spin_locality_derived"])
         self.assertFalse(promotion["promotion_allowed"])
@@ -238,7 +302,10 @@ class FamilyBandAttachmentTests(unittest.TestCase):
     def test_physical_persistence_maps_are_separate_and_hash_bound(self) -> None:
         physical = self.payload["physical_persistence_transport"]
         self.assertTrue(physical["distinct_from_algebraic_r_tower"])
-        self.assertTrue(physical["matter_gamma_intertwined_mapwise"])
+        self.assertTrue(physical["declared_matter_gamma_intertwined_mapwise"])
+        self.assertFalse(
+            physical["physical_refinement_intertwining_source_bound"]
+        )
         self.assertFalse(physical["laboratory_current_identified"])
         self.assertEqual(len(physical["maps"]), 2)
         for row in physical["maps"]:
@@ -273,6 +340,9 @@ class FamilyBandAttachmentTests(unittest.TestCase):
         self.assertEqual(
             self.payload["open_gates"],
             [
+                "physical_current_source_binding",
+                "physical_matter_lift_source_binding",
+                "physical_global_form_selection",
                 "matter_pole_identification",
                 "continuum_Spin_locality",
                 "physical_seam_action_selection",
@@ -283,6 +353,17 @@ class FamilyBandAttachmentTests(unittest.TestCase):
             self.payload["controls"]["strict_matter_cocycle_promotion"]["code"],
             "STRICT_MATTER_COCYCLE_NOT_DERIVED",
         )
+
+    def test_structural_chain_remains_conditional(self) -> None:
+        scope = self.payload["conditional_structural_scope"]
+        self.assertTrue(scope["current_algebra_exact_in_declared_fixture"])
+        self.assertTrue(scope["matter_lift_exact_in_declared_fixture"])
+        self.assertTrue(scope["global_kernel_exact_in_declared_tables"])
+        self.assertTrue(scope["seam_menu_exact_in_declared_tables"])
+        self.assertFalse(scope["physical_current_source_bound"])
+        self.assertFalse(scope["physical_matter_lift_source_bound"])
+        self.assertFalse(scope["physical_global_form_selected"])
+        self.assertFalse(scope["same_source_seam_to_matter_kernel_identified"])
 
     def test_pole_residue_receipt_realizes_clause_r(self) -> None:
         receipt = self.payload["pole_residue_receipt"]

@@ -89,6 +89,11 @@ class RoutedSeamGrammarTests(unittest.TestCase):
             upstream["spin_statistics_artifact_sha256"],
             self.manifest["spin_statistics_artifact_sha256"],
         )
+        scope = upstream["physical_scope"]
+        self.assertTrue(scope["declared_axis_coefficient_system_exact"])
+        self.assertFalse(scope["axis_relation_lattice_source_selected"])
+        self.assertFalse(scope["physical_global_form_selected"])
+        self.assertFalse(scope["same_source_loop_to_tensor_kernel_identification"])
 
     # -- central-column completeness -----------------------------------------
 
