@@ -17,20 +17,25 @@ producer emits the four verdicts:
   line-operator attachment open.
 * issue #643: the stratum verdict is superseded by the angular-sprint
   template receipt, which is pinned by bytes. The registered angular
-  candidates stay the retained source template; the
-  internal-versus-rotation-remnant question stays not decidable on the
-  declared source interface because no screen-to-sky map exists, and the
-  operative #643 record is the angular receipt's transfer decision.
+  candidates stay the retained source template. The operative #643 record
+  is the angular receipt's narrowed transfer decision: static base-port
+  underdetermination, with the canonical degree-three band exactly
+  identifiable from the level-one refinement vertex set per the pinned
+  refinement-transfer receipt, and the refinement/repair sky transfer
+  typed open rather than nonidentifiable.
 * issue #645: the normalized overlap cross-spectrum exists as registered
   source structure, and no map from the declared source interface to an
   interferometer readout exists, so the comparison contract is correctly
   not frozen.
 * issue #646: the no-go label is withdrawn and the combination table is
-  retained pending the C3-F kinetic lane. Every tested pole, width,
-  residue, and asymmetry combination stays blocked by a pinned receipt
-  (the no-pole-promotion boundary, plus the serialized unit verdict for
-  physical-unit rows), and the adjacent registered response identities
-  are recorded as distinct survivors.
+  retained. Every tested pole, width, residue, and asymmetry combination
+  stays blocked by a pinned receipt (the no-pole-promotion boundary, plus
+  the serialized unit verdict for physical-unit rows). The kinetic lane
+  records the exact form dichotomy from the pinned selection receipt: the
+  ad-invariant port-response pullback and the rank-fifteen matter trace
+  carry Killing-relative su(2):su(3) ratios six and three halves, the
+  matter-branch determinant statistic is frozen with exact cofactors, and
+  the selection between the two forms is a named open source premise.
 
 Every verdict pins its inputs by exact bytes, fails closed on drift, reads
 no public measurement, and permits no comparison.
@@ -70,8 +75,8 @@ VERDICTS = {
         "FINITE_TWIST_SECTOR_SPECTRUM_ONLY"
     ),
     646: (
-        "WITHDRAWN_NO_GO_LABEL__"
-        "COMBINATION_TABLE_RETAINED_PENDING_C3F_KINETIC_LANE"
+        "WITHDRAWN_NO_GO_LABEL__COMBINATION_TABLE_RETAINED__"
+        "KINETIC_DICHOTOMY_RECORDED__SELECTION_PREMISE_OPEN"
     ),
 }
 CLOCK_UNIT_VERDICT_PATH = (
@@ -91,6 +96,20 @@ ANGULAR_RECEIPT_PATH = (
     / "angular_sprint"
     / "runtime"
     / "angular_template_receipt.json"
+)
+REFINEMENT_RECEIPT_PATH = (
+    REPO_ROOT
+    / "code"
+    / "angular_sprint"
+    / "runtime"
+    / "refinement_transfer_receipt.json"
+)
+KINETIC_SELECTION_RECEIPT_PATH = (
+    REPO_ROOT
+    / "code"
+    / "angular_sprint"
+    / "runtime"
+    / "kinetic_form_selection_receipt.json"
 )
 
 
@@ -392,18 +411,43 @@ def build_643(registry: dict[str, Any]) -> dict[str, Any]:
             "that no registered source observable supplies, so the question "
             "is not decidable on the declared interface"
         ),
+        "transfer_typing": {
+            "static_result": (
+                "the twelve base-port values do not select the sky "
+                "completion: the canonical degree-three band carries a "
+                "four-dimensional evaluation kernel on the base ports, "
+                "entirely in the odd sector"
+            ),
+            "refinement_result": (
+                "the same band has a zero evaluation kernel on the "
+                "level-one refinement vertex set, so the static ambiguity "
+                "is a truncation property of the twelve-port readout, not "
+                "of the refinement tower"
+            ),
+            "open_direction": (
+                "the refinement/repair sky transfer: whether the physical "
+                "readout exposes refined-port values is an open source "
+                "premise owned by the repair and refinement law; any "
+                "future nonidentifiability verdict must exhibit two "
+                "source-admissible completions intertwining refinement, "
+                "coarse-graining, and the repair semigroup"
+            ),
+            "producer": "code/angular_sprint/refinement_transfer_certificate.py",
+        },
         "forced_sky_statistic": (
-            "not constructible: a forced nonzero sky statistic requires the "
-            "missing map, so no comparison contract is frozen"
+            "not constructible on the static base-port interface: a forced "
+            "nonzero sky statistic requires the open refinement/repair "
+            "transfer, so no comparison contract is frozen"
         ),
         "comparison_boundary": {
             "public_measurement_read": False,
             "comparison_permitted": False,
         },
         "reopen_condition": (
-            "a source-derived screen-to-sky template map; the registered "
-            "angular candidates are the retained source template for that "
-            "event"
+            "a source-derived screen-to-sky template map, for which the "
+            "level-one refinement identifiability of the canonical band is "
+            "the registered frontier; the registered angular candidates "
+            "are the retained source template for that event"
         ),
     }
 
@@ -524,10 +568,39 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
         ),
         "adjacent_registered_response_identities": _candidate_digest(rows),
         "adjacency_note": (
-            "the registered rows are band-cost and channel identities of "
-            "the response spectrum, adjacent to and distinct from the "
-            "tested pole vector"
+            "the registered rows are band-cost, channel, and kinetic-form "
+            "identities of the response spectrum, adjacent to and distinct "
+            "from the tested pole vector"
         ),
+        "kinetic_form_lane": {
+            "ad_invariance": (
+                "the port-current pairing is ad-invariant; the earlier "
+                "su(3) non-invariance wording is superseded by the pinned "
+                "selection receipt"
+            ),
+            "killing_relative_dichotomy": {
+                "port_response": ["1", "1/6"],
+                "matter_trace": ["1", "2/3"],
+                "ratios": ["6", "3/2"],
+            },
+            "frozen_matter_branch_statistic": {
+                "kinetic_column": ["10/3", "2", "2"],
+                "beta_column": ["41/6", "-19/6", "-7"],
+                "exact_cofactors": ["-23/3", "37", "-218/9"],
+                "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
+            },
+            "selection_premise": (
+                "which invariant form the repair dynamics selects as the "
+                "physical kinetic action is a named open source premise; "
+                "the frozen determinant scores only through the issue-639 "
+                "custody surface after a certified kinetic-action bridge "
+                "selects the matter trace"
+            ),
+            "producer": (
+                "code/angular_sprint/kinetic_form_selection_certificate.py"
+            ),
+            "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
+        },
         "surviving_direction_owners": {
             "physical common-load attachment": 631,
             "field and operator census": 632,
@@ -554,9 +627,19 @@ BUILDERS = {642: build_642, 643: build_643, 645: build_645, 646: build_646}
 
 PIN_PATHS = {
     642: (REGISTRY_PATH,),
-    643: (REGISTRY_PATH, FZ_REGISTER_PATH, ANGULAR_RECEIPT_PATH),
+    643: (
+        REGISTRY_PATH,
+        FZ_REGISTER_PATH,
+        ANGULAR_RECEIPT_PATH,
+        REFINEMENT_RECEIPT_PATH,
+    ),
     645: (REGISTRY_PATH, CLASSICAL_RECEIPT_PATH),
-    646: (REGISTRY_PATH, WZ_MANIFEST_PATH, CLOCK_UNIT_VERDICT_PATH),
+    646: (
+        REGISTRY_PATH,
+        WZ_MANIFEST_PATH,
+        CLOCK_UNIT_VERDICT_PATH,
+        KINETIC_SELECTION_RECEIPT_PATH,
+    ),
 }
 
 
