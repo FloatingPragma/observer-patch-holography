@@ -1159,6 +1159,67 @@ def verify(
             str(ray_row and ray_row["relation_certificate"]),
         )
 
+        for level in range(14, 40):
+            term = q5_smul(
+                Fraction(2 * level + 1), mul_inv_sqrt5(legendre[level])
+            )
+            term = q5_add2(term, q5_smul(-Fraction(level), legendre[level - 1]))
+            legendre.append(q5_smul(Fraction(1, level + 1), term))
+        comb_window = []
+        for level in range(41):
+            plus = legendre[level]
+            minus = q5_smul(Fraction((-1) ** level), plus)
+            require(
+                (plus[1] + minus[1]) == 0,
+                "FINGERPRINT_IRRATIONAL",
+                str(level),
+            )
+            comb_window.append(
+                (Fraction(1 + (-1) ** level) + 5 * (plus[0] + minus[0])) / 12
+            )
+
+        def even_invariant_dimension(level):
+            return sum(
+                1
+                for m in range(level // 6 + 1)
+                for n in range(level // 10 + 1)
+                if 6 * m + 10 * n == level
+            )
+
+        require(
+            all(comb_window[l] == 0 for l in range(1, 41, 2))
+            and all(
+                (comb_window[l] != 0) == (even_invariant_dimension(l) >= 1)
+                for l in range(0, 41, 2)
+            )
+            and [l for l in range(0, 41, 2) if comb_window[l] == 0]
+            == [2, 4, 8, 14]
+            and comb_window[16] == Fraction(9424, 46875)
+            and comb_window[30] == Fraction(3066051913, 18310546875),
+            "FINGERPRINT_SUPPORT_DRIFT",
+            "recomputed window support or weights differ",
+        )
+        fingerprint_row = by_id.get("a5-invariant-level-support-fingerprint")
+        require(
+            fingerprint_row is not None
+            and fingerprint_row["relation_certificate"]["even_zero_levels"]
+            == [2, 4, 8, 14]
+            and fingerprint_row["relation_certificate"]["window"] == 40,
+            "CANDIDATE_FINGERPRINT_DRIFT",
+            str(fingerprint_row and fingerprint_row["relation_certificate"]),
+        )
+        blindness_row = by_id.get("a5-odd-parity-blindness-kill")
+        require(
+            blindness_row is not None
+            and blindness_row["relation_certificate"][
+                "first_odd_invariant_level"
+            ]
+            == 15
+            and even_invariant_dimension(15 - 15) >= 1,
+            "CANDIDATE_BLINDNESS_DRIFT",
+            str(blindness_row and blindness_row["relation_certificate"]),
+        )
+
         registry_keys = all_keys(registry)
         leaked = sorted(
             registry_keys & set(policy.get("forbidden_document_keys", []))

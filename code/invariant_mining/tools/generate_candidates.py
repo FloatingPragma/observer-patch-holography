@@ -1038,6 +1038,98 @@ def produce_a5_angular_candidates(
             },
         }
     )
+    candidates.append(
+        {
+            "candidate_id": "a5-invariant-level-support-fingerprint",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "angular_selection_cross_level_correlation",
+            "statement": (
+                "on the certified window l <= 40 the equal-port comb is "
+                "nonzero at an even level exactly when the icosahedral "
+                "invariant dimension from (1+t^15)/((1-t^6)(1-t^10)) is "
+                "positive; the even zeros are exactly {2, 4, 8, 14} and "
+                "every nonzero weight is a pinned exact rational"
+            ),
+            "expression": _expression(
+                grammar,
+                "exact support alignment of the equal-port comb with the "
+                "icosahedral invariant levels on a bounded window",
+                ["registered_exact_algebraic", "registered_correlation"],
+                1 * 2 + 3,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "exact_certificate_bounded_window",
+                "window": 40,
+                "even_zero_levels": [2, 4, 8, 14],
+                "producer": (
+                    "code/angular_sprint/angular_fingerprint_extension.py"
+                ),
+            },
+            "kill_rule": (
+                "certified power at an even level in {2, 4, 8, 14} in the "
+                "declared channel falsifies the equal-port carrier-measure "
+                "branch; a symmetric carrier with free weights is separated "
+                "from the pinned comb by any certified weight ratio"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": True,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": True,
+                "open_physical_map": True,
+            },
+        }
+    )
+    candidates.append(
+        {
+            "candidate_id": "a5-odd-parity-blindness-kill",
+            "slot_id": slot["slot_id"],
+            "grammar_class": "exact_zero_forbidden_transition",
+            "statement": (
+                "every odd-level equal-port comb value is exactly zero on "
+                "the certified window while the odd icosahedral invariant "
+                "tower is nonempty from level fifteen, so the equal-weight "
+                "twelve-port readback is exactly blind to the parity-odd "
+                "invariant tower"
+            ),
+            "expression": _expression(
+                grammar,
+                "exact_zero of every parity-odd equal-port response",
+                ["registered_character", "registered_index"],
+                1 * 2 + 3 + 4,
+                3,
+                4,
+            ),
+            "relation_certificate": {
+                "kind": "exact_certificate_bounded_window",
+                "window": 40,
+                "first_odd_invariant_level": 15,
+                "producer": (
+                    "code/angular_sprint/angular_fingerprint_extension.py"
+                ),
+            },
+            "kill_rule": (
+                "certified parity-odd response through the port readback "
+                "falsifies the readback branch; the rule is one-sided and "
+                "parameter-free"
+            ),
+            "weight_claims": {
+                "exact_global_certificate": True,
+                "independent_recomputation": True,
+                "physicalization_complete": False,
+                "baseline_freedom_counterexample": True,
+                "all_registered_completions_covered": False,
+                "all_continuous_parameters_covered": False,
+                "conditional_branch": True,
+                "open_physical_map": True,
+            },
+        }
+    )
     for candidate in candidates:
         require(
             candidate["grammar_class"] in set(slot["allowed_grammar_class_ids"]),

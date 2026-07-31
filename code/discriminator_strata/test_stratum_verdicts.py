@@ -107,7 +107,7 @@ def test_dyonic_pairing_rejects_a_tilted_lattice() -> None:
 def test_registry_slot_extraction_counts() -> None:
     registry = sv._load_registry()
     assert len(sv._slot_candidates(registry, "z6_charge_line_congruences")) == 5
-    assert len(sv._slot_candidates(registry, "a5_angular_rules")) == 6
+    assert len(sv._slot_candidates(registry, "a5_angular_rules")) == 8
     assert len(sv._slot_candidates(registry, "wz_scale_free_response")) == 4
     assert len(sv._slot_candidates(registry, "observer_overlap_cross_spectra")) == 3
 

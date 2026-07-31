@@ -1,5 +1,5 @@
 {
-  "candidate_count": 18,
+  "candidate_count": 20,
   "candidates": [
     {
       "baseline_contract": {
@@ -492,6 +492,87 @@
         "field_content": "established matter, statistically isotropic angular response",
         "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
       },
+      "candidate_id": "a5-invariant-level-support-fingerprint",
+      "exposure_surfaces": [
+        "cmb_angular_products"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 5,
+        "form": "exact support alignment of the equal-port comb with the icosahedral invariant levels on a bounded window",
+        "registered_terminals": [
+          "registered_exact_algebraic",
+          "registered_correlation"
+        ]
+      },
+      "grammar_class": "angular_selection_cross_level_correlation",
+      "hard_eligibility": "INELIGIBLE_OPEN_PHYSICAL_MAP",
+      "kill_rule": "certified power at an even level in {2, 4, 8, 14} in the declared channel falsifies the equal-port carrier-measure branch; a symmetric carrier with free weights is separated from the pinned comb by any certified weight ratio",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-carrier-sector-selection",
+          "note": "the angular structure lives on the declared twelve-port carrier; its physical rotation-remnant reading is the open issue 643 question, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT",
+      "rank": 7,
+      "relation_certificate": {
+        "even_zero_levels": [
+          2,
+          4,
+          8,
+          14
+        ],
+        "kind": "exact_certificate_bounded_window",
+        "producer": "code/angular_sprint/angular_fingerprint_extension.py",
+        "window": 40
+      },
+      "score": 130,
+      "slot_id": "a5_angular_rules",
+      "source_ancestry": {
+        "feature_ids": [
+          "oriented_twelve_port_carrier",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "on the certified window l <= 40 the equal-port comb is nonzero at an even level exactly when the icosahedral invariant dimension from (1+t^15)/((1-t^6)(1-t^10)) is positive; the even zeros are exactly {2, 4, 8, 14} and every nonzero weight is a pinned exact rational",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a generic angular response with a nonzero invariant coupling between the two three-dimensional bands is baseline-consistent and violates the pairing rule",
+        "field_content": "established matter, statistically isotropic angular response",
+        "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
+      },
       "candidate_id": "a5-band-multiplicity-pattern",
       "exposure_surfaces": [
         "cmb_angular_products"
@@ -532,7 +613,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT",
-      "rank": 7,
+      "rank": 8,
       "relation_certificate": {
         "band_multiplicities": {
           "-1": 5,
@@ -614,7 +695,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 8,
+      "rank": 9,
       "relation_certificate": {
         "descending_rows": 6,
         "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -691,7 +772,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 9,
+      "rank": 10,
       "relation_certificate": {
         "descending_duality_six_y": [
           [
@@ -777,7 +858,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 10,
+      "rank": 11,
       "relation_certificate": {
         "descending_six_y_classes": [
           0
@@ -796,6 +877,82 @@
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
       "statement": "color-singlet weak-singlet states carry integer electric charge; fractionally charged color singlets are forbidden",
+      "weight_claims": {
+        "all_continuous_parameters_covered": false,
+        "all_registered_completions_covered": false,
+        "baseline_freedom_counterexample": true,
+        "conditional_branch": true,
+        "exact_global_certificate": true,
+        "independent_recomputation": true,
+        "open_physical_map": true,
+        "physicalization_complete": false
+      }
+    },
+    {
+      "baseline_contract": {
+        "baseline_class": "minimal Standard Model plus general relativity",
+        "baseline_freedom_class": "UNCONSTRAINED_BY_BASELINE",
+        "counterexample": "a generic angular response with a nonzero invariant coupling between the two three-dimensional bands is baseline-consistent and violates the pairing rule",
+        "field_content": "established matter, statistically isotropic angular response",
+        "global_form_policy": "the baseline carries no twelve-port screen and no icosahedral band structure, so these relations are unconstrained baseline directions"
+      },
+      "candidate_id": "a5-odd-parity-blindness-kill",
+      "exposure_surfaces": [
+        "cmb_angular_products"
+      ],
+      "expression": {
+        "accounting": "generator-declared against the frozen operator costs; the independent verifier recomputes every score from the declared units",
+        "ast_depth": 3,
+        "ast_nodes": 4,
+        "complexity_units": 9,
+        "form": "exact_zero of every parity-odd equal-port response",
+        "registered_terminals": [
+          "registered_character",
+          "registered_index"
+        ]
+      },
+      "grammar_class": "exact_zero_forbidden_transition",
+      "hard_eligibility": "INELIGIBLE_OPEN_PHYSICAL_MAP",
+      "kill_rule": "certified parity-odd response through the port readback falsifies the readback branch; the rule is one-sided and parameter-free",
+      "nuisance_matrix": {
+        "basis_and_coordinate_choice": {
+          "certificate": "band multiplicities, characters, and invariant multiplicities are basis-independent spectral data",
+          "status": "QUOTIENTED"
+        },
+        "common_dimensionful_scale": {
+          "status": "NOT_APPLICABLE_DIMENSIONLESS_DISCRETE"
+        },
+        "detector_transfer_calibration": {
+          "status": "DEFERRED_UNTIL_PHYSICALIZATION"
+        },
+        "physical_sector_choice": {
+          "branch": "declared-carrier-sector-selection",
+          "note": "the angular structure lives on the declared twelve-port carrier; its physical rotation-remnant reading is the open issue 643 question, so every candidate carries the named branch label",
+          "status": "NAMED_CONDITIONAL_BRANCH"
+        },
+        "source_admissible_completion": {
+          "premise": "completions preserving the icosahedral port module",
+          "status": "NAMED_COMPLETION_PREMISE"
+        }
+      },
+      "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT",
+      "rank": 12,
+      "relation_certificate": {
+        "first_odd_invariant_level": 15,
+        "kind": "exact_certificate_bounded_window",
+        "producer": "code/angular_sprint/angular_fingerprint_extension.py",
+        "window": 40
+      },
+      "score": 118,
+      "slot_id": "a5_angular_rules",
+      "source_ancestry": {
+        "feature_ids": [
+          "oriented_twelve_port_carrier",
+          "finite_port_action"
+        ],
+        "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
+      },
+      "statement": "every odd-level equal-port comb value is exactly zero on the certified window while the odd icosahedral invariant tower is nonempty from level fifteen, so the equal-weight twelve-port readback is exactly blind to the parity-odd invariant tower",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -856,7 +1013,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__CONTINUUM_GAUGE_AND_LABORATORY_ATTACHMENT_REQUIRED",
-      "rank": 11,
+      "rank": 13,
       "relation_certificate": {
         "forbidden_rows": 30,
         "kind": "finite_exhaustion_over_kernel_residue_classes",
@@ -931,7 +1088,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT",
-      "rank": 12,
+      "rank": 14,
       "relation_certificate": {
         "kind": "exact_certificate_with_lean_layer",
         "lean": "Lean/Screen/A5AngularBands.lean",
@@ -1012,7 +1169,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT",
-      "rank": 13,
+      "rank": 15,
       "relation_certificate": {
         "invariant_multiplicity": "0+0*sqrt5",
         "kind": "exact_class_weighted_character_sum",
@@ -1092,7 +1249,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__KINETIC_ACTION_BRIDGE_OR_POLE_ATTACHMENT_REQUIRED",
-      "rank": 14,
+      "rank": 16,
       "relation_certificate": {
         "kind": "frozen_statistic_definition",
         "producer": "code/angular_sprint/kinetic_ray_certificate.py",
@@ -1166,7 +1323,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__SCREEN_TO_SKY_TEMPLATE_REQUIRED__TRANSFER_NONIDENTIFIABLE_PER_SPRINT_RECEIPT",
-      "rank": 15,
+      "rank": 17,
       "relation_certificate": {
         "kind": "pinned_certificate_value",
         "multiplicity_of_kernel_band_in_even_block": 0,
@@ -1241,7 +1398,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
-      "rank": 16,
+      "rank": 18,
       "relation_certificate": {
         "kind": "operator_conjugation_symmetry",
         "operator_identity_source": "the sector Laplacian construction recorded in the pinned classical realization receipt: the stiffness matrix is the exact realification of the sector operator, and conjugate twist classes have conjugate operators",
@@ -1317,7 +1474,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
-      "rank": 17,
+      "rank": 19,
       "relation_certificate": {
         "classical_doubled_pattern": [
           0,
@@ -1408,7 +1565,7 @@
         }
       },
       "physicalization_status": "OPEN_MAP__INTERFEROMETER_READOUT_ATTACHMENT_REQUIRED",
-      "rank": 18,
+      "rank": 20,
       "relation_certificate": {
         "kind": "pinned_receipt_value",
         "ladder_rungs": 2,
@@ -1705,7 +1862,7 @@
     "rule": "a candidate ranks into the issue-639 comparison surface only when its physical map is closed; open-map rows are ineligible rather than score-penalized"
   },
   "issue": 647,
-  "registry_sha256": "sha256:25f263650bbff042d6623492ceef2c54f07b1dc20034a9be11a4a48dfbcfda76",
+  "registry_sha256": "sha256:ddbcfadecee41e332c8929408ff21b989a17f22a5cf9ad958f2fb53008cad7b6",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,
