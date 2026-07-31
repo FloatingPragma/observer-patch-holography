@@ -298,10 +298,18 @@ capacity side it is the logarithm of the carrier dimension. From inside the
 world it is the correctable public record reconstructed by observers. Proving
 that these are readings of one universe-level carrier is work in progress. A
 separate comparison asks whether the screen's record load and the weak
-sector's load are one and the same carrier; the two readings differ by about
-$6.6$ percent, and the candidate reserve correction reads that gap as the
-withheld closure reserve, a reading that remains retrospective until its
-premises are discharged.
+sector's load are one and the same carrier. The uncorrected readings differ
+by about $6.6$ percent. The candidate reserve correction reads almost all
+of that gap as the withheld closure reserve: subtracting $P/24$ from the
+budget moves the capacity to a residual near four parts in a thousand
+against the value located from the observed cosmological constant, a small
+fraction of a measurement band that is itself about $2.6$ percent wide. The
+two numbers carry different types. The $6.6$ percent is the fixed
+discrepancy of the uncorrected identification. The near-landing of the
+corrected candidate is a look-back agreement whose target was known first;
+it becomes evidence only when the premises behind the reserve are
+discharged, and it is destroyed outright if the measured capacity ever
+comes in above the uncorrected budget.
 
 If both equations land on source-derived maps, the two constants come back
 from the architecture rather than from measurement. That would remove the
