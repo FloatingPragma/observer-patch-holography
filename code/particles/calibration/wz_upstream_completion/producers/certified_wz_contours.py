@@ -15,26 +15,29 @@ open upper half plane, every branch-carrying subexpression of the
 compiled evaluation formula is classified once and for all:
 
 * ``log(s/mu2)``: the argument stays in the open upper half plane;
-* massless-partner charts (one vanishing mass): both logarithm
-  arguments have strictly negative imaginary part on the box, so they
-  exclude the closed negative real axis;
+* massless-partner charts (one vanishing mass): mass-exchange symmetry
+  is made explicit by using the same root ``x = m/s`` in either mass
+  ordering; both logarithm arguments have strictly negative imaginary
+  part, so they exclude the closed negative real axis;
 * two-massive charts: the discriminant ``(s - s_plus)(s - s_minus)``
   has nonvanishing imaginary part on the box whenever the
-  threshold-sum line ``Re s = m1 + m2`` misses the box real range,
-  an exact Fraction comparison; the Feynman roots are never real
-  because a real root of the quadratic with ``Im s > 0`` is forced
-  into ``{0, 1}`` while the quadratic takes the nonzero values ``m1``
-  and ``m2`` there, so every root-chart logarithm argument excludes
-  its cut and every divisor excludes zero.
+  discriminant-symmetry line ``Re s = m1 + m2`` misses the box real
+  range, an exact Fraction comparison; this is not the physical
+  threshold ``(sqrt(m1) + sqrt(m2))^2``.  The Feynman roots are never
+  real because a real root of the quadratic with ``Im s > 0`` is
+  forced into ``{0, 1}`` while the quadratic takes the nonzero values
+  ``m1`` and ``m2`` there, so every root-chart logarithm argument
+  excludes its cut and every divisor excludes zero.
 
 The boundary winding chain replaces segment hull evaluation by a
 centered form: a segment image is enclosed by the point value at the
 exact rational midpoint plus the interval derivative over the segment
-hull times the segment offset rectangle.  Point enclosures carry
-rounding widths only, so the centered enclosure width scales
-quadratically with segment length and the adaptive subdivision
-terminates at moderate depth.  The derivative of the compiled block
-is evaluated from the closed forms ``d/dx root_term(x) =
+hull times the segment offset rectangle.  The image width itself is
+linear in the segment length; the excess caused by the variation of
+the derivative over the hull is quadratic in that length.  Point
+enclosures carry rounding widths only, and adaptive subdivision
+therefore terminates at moderate depth.  The derivative of the
+compiled block is evaluated from the closed forms ``d/dx root_term(x) =
 log((x-1)/x)`` and ``2 s x + b = +/- sqrt(disc)`` for the two Feynman
 roots, sheet gated through the same interval layer.
 
@@ -62,13 +65,16 @@ What is certified, exactly:
 
 What is not certified and stays false in the receipt: the second-sheet
 continuation through the physical cut, any pole enclosure, Laurent and
-residue data, BMHV restoration, and any physical-current or unit
-claim.  The certified theorem is negative and structural: the masked
+residue data, a sign bridge from the pinned engine convention
+``G = s - m_tree^2 - Pi_engine`` to the separately written theorem
+convention, BMHV restoration, and any physical-current or unit claim.
+The certified theorem is negative and structural: the masked
 one-loop inverse propagator has no principal-sheet zero in the
-declared upper-half boxes, consistent with first-sheet analyticity,
-and the resonance zero is a second-sheet object.  The winding-one
-value of the earlier axis-crossing sampled diagnostic is recorded as a
-branch-gluing artifact superseded by this certificate.
+declared upper-half boxes, consistent with first-sheet analyticity.
+It does not locate a resonance pole or certify its continuation; those
+require a separate second-sheet receipt.  The winding-one value of the
+earlier axis-crossing sampled diagnostic is recorded as a branch-gluing
+artifact superseded by this certificate.
 """
 
 from __future__ import annotations
@@ -83,6 +89,7 @@ from pathlib import Path
 from typing import Any
 
 from mpmath import iv
+from mpmath.libmp import to_rational
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "producers"))
@@ -94,7 +101,7 @@ VECTOR_PATH = ROOT / "outputs" / "fj_direct_vector_blocks.json"
 OUT_PATH = ROOT / "outputs" / "certified_wz_contours.json"
 CHECKPOINT_PATH = ROOT / "outputs" / "certified_wz_contours_checkpoint.json"
 
-SCHEMA = "oph.certified_wz_contours.v2"
+SCHEMA = "oph.certified_wz_contours.v3"
 STATUS_CERTIFIED = "PRINCIPAL_SHEET_ZERO_EXCLUSION_CERTIFIED"
 STATUS_FAILED = "CERTIFICATION_INCOMPLETE"
 
@@ -125,6 +132,101 @@ def sha256_bytes(data: bytes) -> str:
 
 def canonical_json(value: Any) -> str:
     return json.dumps(value, sort_keys=True, separators=(",", ":")) + "\n"
+
+
+def _fraction_text(value: Fraction | int) -> str:
+    return str(Fraction(value))
+
+
+def _endpoint_fraction(endpoint: tuple) -> Fraction:
+    """Return one finite mpmath binary endpoint as an exact rational."""
+
+    numerator, denominator = to_rational(endpoint)
+    return Fraction(numerator, denominator)
+
+
+def _real_interval_fractions(value: Any) -> tuple[Fraction, Fraction]:
+    lower, upper = value._mpi_
+    return _endpoint_fraction(lower), _endpoint_fraction(upper)
+
+
+def serialize_real_interval(value: Any) -> dict[str, str]:
+    """Serialize directed endpoints without a decimal round-trip."""
+
+    lower, upper = _real_interval_fractions(value)
+    return {"lo": str(lower), "hi": str(upper)}
+
+
+def serialize_cinterval(value: CInterval) -> dict[str, dict[str, str]]:
+    return {
+        "re": serialize_real_interval(value.re),
+        "im": serialize_real_interval(value.im),
+    }
+
+
+def _zero_exclusion_abs2_lower(value: CInterval) -> Fraction:
+    """Exact squared distance from the serialized rectangle to zero."""
+
+    def coordinate_distance(interval: Any) -> Fraction:
+        lower, upper = _real_interval_fractions(interval)
+        if lower <= 0 <= upper:
+            return Fraction(0)
+        return min(abs(lower), abs(upper))
+
+    re_distance = coordinate_distance(value.re)
+    im_distance = coordinate_distance(value.im)
+    return re_distance * re_distance + im_distance * im_distance
+
+
+def _real_interval_width(value: Any) -> Fraction:
+    lower, upper = _real_interval_fractions(value)
+    return upper - lower
+
+
+def _real_interval_max_abs(value: Any) -> Fraction:
+    lower, upper = _real_interval_fractions(value)
+    return max(abs(lower), abs(upper))
+
+
+def _point_descriptor(point: tuple[Fraction, Fraction]) -> list[str]:
+    return [_fraction_text(point[0]), _fraction_text(point[1])]
+
+
+def _segment_descriptor(start: tuple, end: tuple) -> dict[str, list[str]]:
+    return {"start": _point_descriptor(start), "end": _point_descriptor(end)}
+
+
+def _segment_id(start: tuple, end: tuple) -> str:
+    return sha256_bytes(
+        canonical_json(_segment_descriptor(start, end)).encode("utf-8")
+    )
+
+
+def _partition_sha256(segments: list[tuple]) -> str:
+    rows = [
+        {
+            "segment_id": _segment_id(start, end),
+            **_segment_descriptor(start, end),
+        }
+        for start, end in segments
+    ]
+    return sha256_bytes(canonical_json(rows).encode("utf-8"))
+
+
+def _loop_quantity_label(
+    head: str,
+    args: tuple,
+    *,
+    segment_id: str | None = None,
+    probe: bool = False,
+) -> str:
+    rendered = ",".join(str(arg) for arg in args)
+    if segment_id is not None:
+        role = "derivative" if head == "B0p" else "integral"
+        return f"segment:{segment_id}:{role}:{head}({rendered})"
+    prefix = "probe:center:" if probe or head == "A0" else ""
+    role = "derivative" if head == "B0p" else "integral"
+    return f"{prefix}{role}:{head}({rendered})"
 
 
 def progress(message: str) -> None:
@@ -211,24 +313,21 @@ def b0_interval(
     SheetError as a subdivision signal.  The box lies strictly in the
     upper half plane, so no infinitesimal prescription is needed and
     the principal branch is the declared continuation.  Massless
-    arguments are the exact algebraic limits of the root form on that
-    half plane: a Feynman root at zero contributes i pi, because the
-    vanishing root approaches zero with negative imaginary part there,
-    and a root at one contributes zero, because its paired logarithms
-    cancel in the limit."""
+    arguments are exact algebraic limits of the root form on that half
+    plane.  With exactly one vanishing mass, both mass orderings use
+    the same ``x = m/s`` chart.  This makes the scalar identity
+    ``B0(s,m1,m2) = B0(s,m2,m1)`` explicit instead of relying on a
+    half-plane-specific root-at-one representation."""
 
-    one = CInterval.from_fraction(1)
     two = CInterval.from_fraction(2)
     mu = CInterval.from_fraction(mu2)
     total = two - (s / mu).log(gate)
     i_pi = CInterval(iv.mpf(0), iv.pi)
     if m1 == 0 and m2 == 0:
         return total + i_pi
-    if m1 == 0:
-        x = one - CInterval.from_fraction(m2) / s
-        return total + i_pi + _root_term(x, gate)
-    if m2 == 0:
-        x = CInterval.from_fraction(m1) / s
+    if m1 == 0 or m2 == 0:
+        mass = m2 if m1 == 0 else m1
+        x = CInterval.from_fraction(mass) / s
         return total + _root_term(x, gate)
     x1, x2, _, x1m1 = _feynman_roots(s, m1, m2, gate)
     return total + _root_term(x1, gate, xm1=x1m1) + _root_term(x2, gate)
@@ -250,13 +349,10 @@ def b0p_interval(
     minus_inv_s = -(one / s)
     if m1 == 0 and m2 == 0:
         return minus_inv_s
-    if m1 == 0:
-        x = one - CInterval.from_fraction(m2) / s
-        x_slope = CInterval.from_fraction(m2) / (s * s)
-        return minus_inv_s + _root_term_slope(x, gate) * x_slope
-    if m2 == 0:
-        x = CInterval.from_fraction(m1) / s
-        x_slope = -(CInterval.from_fraction(m1) / (s * s))
+    if m1 == 0 or m2 == 0:
+        mass = m2 if m1 == 0 else m1
+        x = CInterval.from_fraction(mass) / s
+        x_slope = -(CInterval.from_fraction(mass) / (s * s))
         return minus_inv_s + _root_term_slope(x, gate) * x_slope
     x1, x2, sq, x1m1 = _feynman_roots(s, m1, m2, gate)
     x1_slope = x1 * (-x1m1) / sq
@@ -433,12 +529,14 @@ def certify_interior_holomorphy(
     subdivision enters.  Each branch-carrying subexpression is
     classified by chart, and the recorded facts are the ones the
     docstring derivation consumes: the box sits in the open upper half
-    plane and to the right of zero, massless-partner logarithm
-    arguments have strictly negative imaginary part there, and each
-    two-massive discriminant misses the closed negative real axis
-    because the threshold-sum line misses the box real range while the
-    Feynman roots stay off the real axis.  Denominator polynomials are
-    checked to exclude zero on the box hull."""
+    plane and to the right of zero; massless-partner root-chart
+    logarithm arguments use the same mass-symmetric ``x = m/s`` chart
+    and have strictly negative imaginary part; and each two-massive
+    discriminant misses the closed negative real
+    axis because its symmetry line misses the box real range while the
+    Feynman roots stay off the real axis.  Rational coefficient
+    denominators are checked to exclude zero on the box hull.  These
+    coefficient witnesses are not Laurent-denominator witnesses."""
 
     re_lo, re_hi = box["re"]
     im_lo, im_hi = box["im"]
@@ -447,24 +545,40 @@ def certify_interior_holomorphy(
         "box_real_part_positive": re_lo > 0,
     }
     rows: list[dict[str, Any]] = []
-    denominators_ok = True
     hull = CInterval.box(re_lo, re_hi, im_lo, im_hi)
-    seen_dens: set = set()
+    denominator_specs: dict[str, list] = {}
     for term in compiled:
-        den_key = tuple(term["den"])
-        if den_key not in seen_dens:
-            seen_dens.add(den_key)
-            probe = IntervalEvaluator([], None)
-            den_value = probe._poly(term["den"], hull)
-            if den_value.contains_zero():
-                denominators_ok = False
-                rows.append(
-                    {
-                        "kind": "denominator",
-                        "den": [[p, str(f)] for p, f in term["den"]],
-                        "excludes_zero_on_box": False,
-                    }
-                )
+        coefficients = [[int(power), str(fraction)] for power, fraction in term["den"]]
+        denominator_id = sha256_bytes(
+            canonical_json(coefficients).encode("utf-8")
+        )
+        denominator_specs.setdefault(denominator_id, term["den"])
+    denominator_probe = IntervalEvaluator([], None)
+    denominator_witnesses = []
+    denominator_enclosures: dict[str, CInterval] = {}
+    for denominator_id in sorted(denominator_specs):
+        coefficients_raw = denominator_specs[denominator_id]
+        coefficients = [
+            [int(power), str(fraction)]
+            for power, fraction in coefficients_raw
+        ]
+        enclosure = denominator_probe._poly(coefficients_raw, hull)
+        denominator_enclosures[denominator_id] = enclosure
+        excludes_zero = not enclosure.contains_zero()
+        denominator_witnesses.append(
+            {
+                "denominator_id": denominator_id,
+                "coefficients": coefficients,
+                "enclosure": serialize_cinterval(enclosure),
+                "excludes_zero": bool(excludes_zero),
+                "zero_exclusion_abs2_lower": str(
+                    _zero_exclusion_abs2_lower(enclosure)
+                ),
+            }
+        )
+    denominators_ok = all(
+        witness["excludes_zero"] for witness in denominator_witnesses
+    )
     seen_pairs: set = set()
     pairs_ok = True
     for term in compiled:
@@ -481,29 +595,35 @@ def certify_interior_holomorphy(
                 "holomorphic": bool(im_lo > 0),
             }
         elif m1 == 0 or m2 == 0:
+            sign = "negative"
             row = {
                 "m1": str(m1),
                 "m2": str(m2),
                 "chart": "one_mass_zero",
+                "root_chart_log_argument_imaginary_sign": sign,
                 "certificate": (
-                    "explicit root chart; both logarithm arguments have "
-                    "strictly negative imaginary part on the box"
+                    "explicit root chart; both root-chart logarithm "
+                    f"arguments have strictly {sign} imaginary part "
+                    "on the box"
                 ),
                 "holomorphic": bool(im_lo > 0 and re_lo > 0),
             }
         else:
-            threshold_sum = m1 + m2
-            outside = threshold_sum < re_lo or threshold_sum > re_hi
+            symmetry_line = m1 + m2
+            outside = symmetry_line < re_lo or symmetry_line > re_hi
             row = {
                 "m1": str(m1),
                 "m2": str(m2),
                 "chart": "two_massive",
-                "threshold_sum": str(threshold_sum),
-                "threshold_sum_outside_box_re_range": bool(outside),
+                "discriminant_symmetry_line": str(symmetry_line),
+                "discriminant_symmetry_line_outside_box_re_range": bool(
+                    outside
+                ),
                 "certificate": (
                     "discriminant imaginary part nonvanishing off the "
-                    "threshold-sum line; Feynman roots never real because "
-                    "the quadratic equals m1 at x=0 and m2 at x=1"
+                    "discriminant-symmetry line Re(s)=m1+m2 (not the "
+                    "physical threshold); Feynman roots never real "
+                    "because the quadratic equals m1 at x=0 and m2 at x=1"
                 ),
                 "holomorphic": bool(outside and im_lo > 0 and re_lo > 0),
             }
@@ -518,9 +638,11 @@ def certify_interior_holomorphy(
     return {
         "method": HOLOMORPHY_METHOD,
         "base_facts": base_facts,
-        "denominators_exclude_zero_on_box": denominators_ok,
+        "coefficient_denominators_exclude_zero_on_box": denominators_ok,
+        "coefficient_denominator_witnesses": denominator_witnesses,
         "loop_charts": rows,
         "holomorphic_on_box": holomorphic,
+        "_coefficient_denominator_enclosures": denominator_enclosures,
     }
 
 
@@ -530,6 +652,7 @@ def certify_winding(
     tree_mass: Fraction,
     gate: Any,
     fixed_segments: list | None = None,
+    collect_evidence: bool = False,
 ) -> dict[str, Any]:
     """Rigorous argument-principle winding with endpoint-ratio chaining.
 
@@ -560,6 +683,8 @@ def certify_winding(
     enclosure nesting is a well-defined comparison."""
 
     point_values: dict[tuple, CInterval] = {}
+    semantic_quantities: dict[str, CInterval] = {}
+    segment_records: list[dict[str, Any]] = []
 
     def point_value(point: tuple) -> CInterval:
         cached = point_values.get(point)
@@ -574,7 +699,9 @@ def certify_winding(
     def conjugate(value: CInterval) -> CInterval:
         return CInterval(value.re, -value.im)
 
-    def segment_enclosure(start: tuple, end: tuple) -> CInterval | None:
+    def segment_enclosure(
+        start: tuple, end: tuple
+    ) -> tuple[CInterval, dict[str, Any] | None, dict[str, CInterval]] | None:
         mid = ((start[0] + end[0]) / 2, (start[1] + end[1]) / 2)
         hull = _segment_hull(start, end)
         try:
@@ -591,14 +718,60 @@ def certify_winding(
             )
             image = center + slope * offset
             rotated = image * conjugate(center)
+            rotated_argument = rotated.arg()
             ok = (
                 (not image.contains_zero())
                 and (not rotated.contains_zero())
-                and rotated.arg().delta <= gate
+                and rotated_argument.delta <= gate
             )
         except SheetError:
             return None
-        return image if ok else None
+        if not ok:
+            return None
+        if not collect_evidence:
+            return image, None, {}
+        identifier = _segment_id(start, end)
+        quantities: dict[str, CInterval] = {}
+        for key, value in evaluator.loop_cache.items():
+            head, args = key[0], key[1]
+            if head not in ("A0", "B0", "B0p"):
+                continue
+            label = _loop_quantity_label(
+                head,
+                args,
+                segment_id=None if head == "A0" else identifier,
+            )
+            quantities.setdefault(label, value)
+        argument_width = _real_interval_width(rotated_argument)
+        record = {
+            "segment_id": identifier,
+            "start": _point_descriptor(start),
+            "end": _point_descriptor(end),
+            "midpoint": _point_descriptor(mid),
+            "center_value": serialize_cinterval(center),
+            "derivative_hull": serialize_cinterval(slope),
+            "offset": serialize_cinterval(offset),
+            "image": serialize_cinterval(image),
+            "rotated_image": serialize_cinterval(rotated),
+            "image_zero_exclusion_abs2_lower": str(
+                _zero_exclusion_abs2_lower(image)
+            ),
+            "rotated_zero_exclusion_abs2_lower": str(
+                _zero_exclusion_abs2_lower(rotated)
+            ),
+            "rotated_argument": serialize_real_interval(rotated_argument),
+            "rotated_argument_width": str(argument_width),
+            "argument_width_slack": str(
+                ARG_WIDTH_GATE_NUM - argument_width
+            ),
+            "_center_value": center,
+            "_derivative_hull": slope,
+            "_offset": offset,
+            "_image": image,
+            "_rotated_image": rotated,
+            "_rotated_argument": rotated_argument,
+        }
+        return image, record, quantities
 
     certified: list[tuple] = []
     enclosures: list[CInterval] = []
@@ -611,8 +784,8 @@ def certify_winding(
                 progress(
                     f"  winding replay: {processed}/{len(fixed_segments)}"
                 )
-            image = segment_enclosure(start, end)
-            if image is None:
+            outcome = segment_enclosure(start, end)
+            if outcome is None:
                 return {
                     "certified": False,
                     "method": BOUNDARY_METHOD,
@@ -620,8 +793,14 @@ def certify_winding(
                     "reason": f"fixed segment {index} fails the gates",
                     "segments": len(certified),
                 }
+            image, record, quantities = outcome
             certified.append((start, end))
             enclosures.append(image)
+            if collect_evidence:
+                assert record is not None
+                segment_records.append(record)
+                for label, value in quantities.items():
+                    semantic_quantities.setdefault(label, value)
     else:
         worklist = deque(
             (segment, 0)
@@ -635,10 +814,16 @@ def certify_winding(
                     f"  winding: {processed} segment evaluations, "
                     f"{len(certified)} certified, depth<= {max_depth_used}"
                 )
-            image = segment_enclosure(start, end)
-            if image is not None:
+            outcome = segment_enclosure(start, end)
+            if outcome is not None:
+                image, record, quantities = outcome
                 certified.append((start, end))
                 enclosures.append(image)
+                if collect_evidence:
+                    assert record is not None
+                    segment_records.append(record)
+                    for label, value in quantities.items():
+                        semantic_quantities.setdefault(label, value)
                 continue
             if depth >= MAX_SUBDIVISION_DEPTH:
                 return {
@@ -655,9 +840,11 @@ def certify_winding(
 
     two_pi = iv.pi * iv.mpf(2)
     total = iv.mpf(0)
-    for start, end in certified:
+    for index, (start, end) in enumerate(certified):
         try:
-            ratio = point_value(end) * conjugate(point_value(start))
+            start_value = point_value(start)
+            end_value = point_value(end)
+            ratio = end_value * conjugate(start_value)
             increment = ratio.arg()
         except SheetError:
             return {
@@ -674,13 +861,30 @@ def certify_winding(
                 "segments": len(certified),
             }
         total = total + increment
+        if collect_evidence:
+            increment_slack = (
+                ARG_WIDTH_GATE_NUM - _real_interval_max_abs(increment)
+            )
+            segment_records[index].update(
+                {
+                    "start_value": serialize_cinterval(start_value),
+                    "end_value": serialize_cinterval(end_value),
+                    "endpoint_ratio": serialize_cinterval(ratio),
+                    "endpoint_increment": serialize_real_interval(increment),
+                    "endpoint_increment_slack": str(increment_slack),
+                    "_start_value": start_value,
+                    "_end_value": end_value,
+                    "_endpoint_ratio": ratio,
+                    "_endpoint_increment": increment,
+                }
+            )
     winding = int(
         round((float(total.a) + float(total.b)) / 2 / float(two_pi.b))
     )
     tolerance = _iv_fraction(WINDING_TOLERANCE_NUM)
     residual = total - two_pi * iv.mpf(winding)
     within = bool(residual.a > -tolerance.a and residual.b < tolerance.a)
-    return {
+    result = {
         "certified": within,
         "method": BOUNDARY_METHOD,
         "partition": (
@@ -689,12 +893,38 @@ def certify_winding(
         "winding": winding,
         "segments": len(certified),
         "max_depth_used": max_depth_used,
-        "total_variation_interval": [str(total.a), str(total.b)],
+        "total_variation_interval": (
+            serialize_real_interval(total)
+            if collect_evidence
+            else [str(total.a), str(total.b)]
+        ),
         "reason": None if within else "total variation outside tolerance",
         "_raw_total": total,
         "_segments": certified,
         "_segment_enclosures": enclosures,
     }
+    if collect_evidence:
+        result.update(
+            {
+                "partition_sha256": _partition_sha256(certified),
+                "segment_evidence": [
+                    {
+                        key: value
+                        for key, value in record.items()
+                        if not key.startswith("_")
+                    }
+                    for record in segment_records
+                ],
+                "winding_residual": serialize_real_interval(residual),
+                "winding_tolerance_slack": str(
+                    WINDING_TOLERANCE_NUM
+                    - _real_interval_max_abs(residual)
+                ),
+                "_segment_records": segment_records,
+                "_quantity_enclosures": semantic_quantities,
+            }
+        )
+    return result
 
 
 def probe_quantities(
@@ -716,16 +946,18 @@ def probe_quantities(
     rect = CInterval.box(center[0], center[0], center[1], center[1])
     evaluator.loop_cache.clear()
     quantities = {
-        "inverse_propagator": evaluator.inverse_propagator(
+        "probe:center:inverse_propagator": evaluator.inverse_propagator(
             rect, ("probe",), tree_mass
         ),
-        "inverse_propagator_derivative": evaluator.inverse_propagator_derivative(
-            rect, ("probe",), tree_mass
+        "probe:center:inverse_propagator_derivative": (
+            evaluator.inverse_propagator_derivative(
+                rect, ("probe",), tree_mass
+            )
         ),
     }
     for key, value in evaluator.loop_cache.items():
         head, args = key[0], key[1]
-        label = f"{head}({','.join(str(a) for a in args)})"
+        label = _loop_quantity_label(head, args, probe=True)
         quantities[label] = value
     return quantities
 
@@ -742,6 +974,9 @@ def certify_particle(
     box = BOXES[name]
     progress(f"{name} @ {precision} bits: interior certificate")
     holomorphy = certify_interior_holomorphy(compiled, box)
+    denominator_enclosures = holomorphy.pop(
+        "_coefficient_denominator_enclosures", {}
+    )
     progress(
         f"{name} @ {precision} bits: interior "
         f"holomorphic_on_box={holomorphy['holomorphic_on_box']}; "
@@ -749,14 +984,20 @@ def certify_particle(
     )
     evaluator = IntervalEvaluator(compiled, tight_gate)
     winding = certify_winding(
-        evaluator, box, tree_mass, tight_gate, fixed_segments=fixed_segments
+        evaluator,
+        box,
+        tree_mass,
+        tight_gate,
+        fixed_segments=fixed_segments,
+        collect_evidence=True,
     )
     progress(
         f"{name} @ {precision} bits: winding certified="
         f"{winding['certified']} winding={winding.get('winding')} "
         f"segments={winding.get('segments')}"
     )
-    probes = probe_quantities(evaluator, box, tree_mass)
+    quantities = winding.pop("_quantity_enclosures", {})
+    quantities.update(probe_quantities(evaluator, box, tree_mass))
     certified = bool(
         holomorphy["holomorphic_on_box"]
         and winding["certified"]
@@ -773,13 +1014,18 @@ def certify_particle(
         "tree_mass_sq": str(tree_mass),
         "interior_holomorphy": holomorphy,
         "boundary_winding": winding,
-        "_probes": probes,
+        "quantity_enclosures": {
+            label: serialize_cinterval(value)
+            for label, value in sorted(quantities.items())
+        },
+        "_quantity_enclosures": quantities,
+        "_coefficient_denominator_enclosures": denominator_enclosures,
         "zero_exclusion_certified": certified,
         "reading": (
             "the masked one-loop inverse propagator has no zero in the "
             "declared upper-half box on the principal sheet, consistent "
-            "with first-sheet analyticity; the resonance zero belongs to "
-            "the second sheet"
+            "with first-sheet analyticity; this result does not locate a "
+            "resonance pole or certify a second-sheet continuation"
             if certified
             else "not certified"
         ),
@@ -788,7 +1034,7 @@ def certify_particle(
 
 def _write_checkpoint(rows: dict[str, Any]) -> None:
     serializable = {
-        key: {k: v for k, v in row.items() if k != "_raw_total"}
+        key: {k: v for k, v in row.items() if not k.startswith("_")}
         for key, row in rows.items()
     }
     CHECKPOINT_PATH.write_text(
@@ -837,9 +1083,12 @@ def build_receipt() -> dict[str, Any]:
     all_nested = True
     for name in ("W", "Z"):
         rows = {}
-        raw_totals = []
-        probe_ladder: list[dict[str, CInterval]] = []
+        raw_totals: list[Any] = []
+        quantity_ladder: list[dict[str, CInterval]] = []
+        denominator_ladder: list[dict[str, CInterval]] = []
         enclosure_ladder: list[list[CInterval]] = []
+        segment_record_ladder: list[list[dict[str, Any]]] = []
+        partition_id_ladder: list[list[str]] = []
         base_segments: list | None = None
         for precision in PRECISIONS:
             row = certify_particle(
@@ -852,27 +1101,119 @@ def build_receipt() -> dict[str, Any]:
             winding_row = row["boundary_winding"]
             segments = winding_row.pop("_segments", None)
             enclosures = winding_row.pop("_segment_enclosures", None)
+            segment_records = winding_row.pop("_segment_records", None)
+            raw = winding_row.pop("_raw_total", None)
+            quantities = row.pop("_quantity_enclosures", {})
+            denominator_enclosures = row.pop(
+                "_coefficient_denominator_enclosures", {}
+            )
             if base_segments is None and segments is not None:
                 base_segments = segments
             if enclosures is not None:
                 enclosure_ladder.append(enclosures)
+            if segment_records is not None:
+                segment_record_ladder.append(segment_records)
+            partition_id_ladder.append(
+                [
+                    evidence["segment_id"]
+                    for evidence in winding_row.get("segment_evidence", [])
+                ]
+            )
+            quantity_ladder.append(quantities)
+            denominator_ladder.append(denominator_enclosures)
             checkpoint_rows[f"{name}:{precision}"] = {
                 k: v
                 for k, v in winding_row.items()
                 if not k.startswith("_")
             } | {"zero_exclusion_certified": row["zero_exclusion_certified"]}
             _write_checkpoint(checkpoint_rows)
-            raw = winding_row.pop("_raw_total", None)
-            probe_ladder.append(row.pop("_probes"))
             rows[str(precision)] = row
             all_certified = all_certified and row["zero_exclusion_certified"]
             if raw is not None:
                 raw_totals.append(raw)
+        partition_ids_match = bool(
+            len(partition_id_ladder) == len(PRECISIONS)
+            and bool(partition_id_ladder[0])
+            and all(
+                partition_id_ladder[index] == partition_id_ladder[0]
+                for index in range(1, len(partition_id_ladder))
+            )
+        )
+        segment_counts_match = bool(
+            len(segment_record_ladder) == len(PRECISIONS)
+            and all(
+                len(segment_record_ladder[index])
+                == len(segment_record_ladder[0])
+                for index in range(len(segment_record_ladder))
+            )
+        )
+
+        def segment_cinterval_field_nested(field: str) -> bool:
+            return bool(
+                segment_counts_match
+                and all(
+                    cinterval_nested(
+                        segment_record_ladder[index][segment][field],
+                        segment_record_ladder[index + 1][segment][field],
+                    )
+                    for index in range(len(segment_record_ladder) - 1)
+                    for segment in range(len(segment_record_ladder[0]))
+                )
+            )
+
+        def segment_real_interval_field_nested(field: str) -> bool:
+            return bool(
+                segment_counts_match
+                and all(
+                    interval_nested(
+                        segment_record_ladder[index][segment][field],
+                        segment_record_ladder[index + 1][segment][field],
+                    )
+                    for index in range(len(segment_record_ladder) - 1)
+                    for segment in range(len(segment_record_ladder[0]))
+                )
+            )
+
+        center_values_nested = segment_cinterval_field_nested("_center_value")
+        derivative_hulls_nested = segment_cinterval_field_nested(
+            "_derivative_hull"
+        )
+        offsets_nested = segment_cinterval_field_nested("_offset")
+        images_nested = segment_cinterval_field_nested("_image")
+        rotated_images_nested = segment_cinterval_field_nested(
+            "_rotated_image"
+        )
+        rotated_arguments_nested = segment_real_interval_field_nested(
+            "_rotated_argument"
+        )
+        start_values_nested = segment_cinterval_field_nested("_start_value")
+        end_values_nested = segment_cinterval_field_nested("_end_value")
+        endpoint_values_nested = bool(
+            start_values_nested and end_values_nested
+        )
+        endpoint_ratios_nested = segment_cinterval_field_nested(
+            "_endpoint_ratio"
+        )
+        endpoint_increments_nested = segment_real_interval_field_nested(
+            "_endpoint_increment"
+        )
         segment_nesting = {
             "segments": len(enclosure_ladder[0]) if enclosure_ladder else 0,
             "ladders_compared": max(len(enclosure_ladder) - 1, 0),
+            "partition_ids_match": partition_ids_match,
+            "center_values_nested": center_values_nested,
+            "derivative_hulls_nested": derivative_hulls_nested,
+            "offsets_nested": offsets_nested,
+            "images_nested": images_nested,
+            "rotated_images_nested": rotated_images_nested,
+            "rotated_arguments_nested": rotated_arguments_nested,
+            "endpoint_values_nested": endpoint_values_nested,
+            "endpoint_ratios_nested": endpoint_ratios_nested,
+            "endpoint_increments_nested": endpoint_increments_nested,
             "all_nested": bool(
-                len(enclosure_ladder) == len(PRECISIONS)
+                partition_ids_match
+                and len(enclosure_ladder) == len(PRECISIONS)
+                and segment_counts_match
                 and all(
                     len(enclosure_ladder[k]) == len(enclosure_ladder[0])
                     for k in range(len(enclosure_ladder))
@@ -884,6 +1225,15 @@ def build_receipt() -> dict[str, Any]:
                     for k in range(len(enclosure_ladder) - 1)
                     for j in range(len(enclosure_ladder[0]))
                 )
+                and center_values_nested
+                and derivative_hulls_nested
+                and offsets_nested
+                and images_nested
+                and rotated_images_nested
+                and rotated_arguments_nested
+                and endpoint_values_nested
+                and endpoint_ratios_nested
+                and endpoint_increments_nested
             ),
         }
         total_nested = (
@@ -894,32 +1244,80 @@ def build_receipt() -> dict[str, Any]:
             if len(raw_totals) == len(PRECISIONS)
             else False
         )
-        probe_names = sorted(probe_ladder[0].keys())
+        quantity_key_sets_match = bool(
+            len(quantity_ladder) == len(PRECISIONS)
+            and bool(quantity_ladder[0])
+            and all(
+                set(quantity_ladder[index]) == set(quantity_ladder[0])
+                for index in range(1, len(quantity_ladder))
+            )
+        )
+        probe_names = sorted(quantity_ladder[0].keys())
         per_quantity = {
-            label: all(
-                label in probe_ladder[k + 1]
-                and cinterval_nested(
-                    probe_ladder[k][label], probe_ladder[k + 1][label]
+            label: bool(
+                quantity_key_sets_match
+                and all(
+                    cinterval_nested(
+                        quantity_ladder[k][label],
+                        quantity_ladder[k + 1][label],
+                    )
+                    for k in range(len(quantity_ladder) - 1)
                 )
-                for k in range(len(probe_ladder) - 1)
             )
             for label in probe_names
         }
+        denominator_key_sets_match = bool(
+            len(denominator_ladder) == len(PRECISIONS)
+            and bool(denominator_ladder[0])
+            and all(
+                set(denominator_ladder[index]) == set(denominator_ladder[0])
+                for index in range(1, len(denominator_ladder))
+            )
+        )
+        denominator_nested = bool(
+            denominator_key_sets_match
+            and all(
+                cinterval_nested(
+                    denominator_ladder[k][identifier],
+                    denominator_ladder[k + 1][identifier],
+                )
+                for identifier in denominator_ladder[0]
+                for k in range(len(denominator_ladder) - 1)
+            )
+        )
         box = BOXES[name]
         nesting[name] = {
             "enclosures_nested_with_precision": bool(total_nested),
-            "comparison": "exact endpoint comparison of the raw enclosures",
+            "comparison": (
+                "exact rational comparison of serialized binary endpoints"
+            ),
             "probe_point": [
                 str((box["re"][0] + box["re"][1]) / 2),
                 str((box["im"][0] + box["im"][1]) / 2),
             ],
+            "partition_ids_match": partition_ids_match,
             "per_quantity_probe_nesting": per_quantity,
+            "quantity_key_sets_match": quantity_key_sets_match,
+            "quantity_enclosures_all_nested": bool(
+                quantity_key_sets_match and all(per_quantity.values())
+            ),
+            "coefficient_denominator_nesting": {
+                "records": (
+                    len(denominator_ladder[0])
+                    if denominator_ladder
+                    else 0
+                ),
+                "key_sets_match": denominator_key_sets_match,
+                "all_nested": denominator_nested,
+            },
             "per_segment_enclosure_nesting": segment_nesting,
         }
         all_nested = (
             all_nested
             and total_nested
+            and quantity_key_sets_match
             and all(per_quantity.values())
+            and denominator_nested
             and segment_nesting["all_nested"]
         )
         results[name] = rows
@@ -936,9 +1334,23 @@ def build_receipt() -> dict[str, Any]:
             "interval_module_sha256": sha256_bytes(
                 (ROOT / "producers" / "complex_interval.py").read_bytes()
             ),
-            "verifier_module_sha256": sha256_bytes(Path(__file__).read_bytes()),
+            "producer_module_sha256": sha256_bytes(Path(__file__).read_bytes()),
+        },
+        "source_subject": {
+            "artifact_role": "direct_FJ_vector_blocks_input",
+            "relative_path": str(VECTOR_PATH.relative_to(ROOT)),
+            "schema": vector.get("schema"),
+            "target": vector.get("target"),
+            "units": vector.get("units"),
+            "bytes": len(vector_raw),
+            "sha256": sha256_bytes(vector_raw),
         },
         "fixture": {k: str(f) for k, f in wzp.FIXTURE.items()},
+        "ckm_fixture": {
+            f"V{i}{j}": str(wzp.CKM_FIXTURE[(i, j)])
+            for i in (1, 2, 3)
+            for j in (1, 2, 3)
+        },
         "dimensional_prefactor_finite_correction": {
             name: str(corrections[name]) for name in corrections
         },
@@ -959,6 +1371,21 @@ def build_receipt() -> dict[str, Any]:
         ),
         "results": results,
         "precision_nesting": nesting,
+        "acceptance_scope": {
+            "auxiliary_principal_sheet_zero_exclusion_only": True,
+            "independent_numerical_replay_certified": False,
+            "engine_inverse_propagator_convention": (
+                "G(s)=s-m_tree^2-Pi_engine(s)"
+            ),
+            "theorem_self_energy_sign_bridge_certified": False,
+            "coefficient_denominator_witness_is_laurent_denominator": False,
+            "root_enclosure_certified": False,
+            "laurent_denominator_certified": False,
+            "issue_593_precision_ladder_row_satisfied": False,
+            "issue_593_independent_third_verifier_row_satisfied": False,
+            "issue_593_root_laurent_row_satisfied": False,
+            "issue_593_full_acceptance_satisfied": False,
+        },
         "promotion": {
             "complex_ball_certified": all_certified,
             "sheet_certified_on_declared_boxes": all_certified,
@@ -978,8 +1405,8 @@ def build_receipt() -> dict[str, Any]:
             "artifact of the discontinuous epsilon evaluation across the "
             "physical cut and is superseded by this certificate: the "
             "principal-sheet function has no zero in the declared "
-            "off-axis boxes, and the resonance zero is a second-sheet "
-            "object whose chart is not constructed here"
+            "off-axis boxes; pole location and continuation require a "
+            "separate second-sheet receipt"
         ),
         "status": STATUS_CERTIFIED if all_certified else STATUS_FAILED,
     }
@@ -995,21 +1422,23 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--verify", action="store_true")
     args = parser.parse_args(argv)
-    payload = build_receipt()
-    if args.verify:
-        stored = json.loads(OUT_PATH.read_text(encoding="utf-8"))
-        if stored != payload:
-            print("CERTIFIED_CONTOUR_DRIFT", file=sys.stderr)
-            return 1
-        print("CERTIFIED_CONTOUR_VERIFIED")
-        return 0
-    OUT_PATH.write_text(
-        json.dumps(payload, sort_keys=True, indent=1) + "\n", encoding="utf-8"
-    )
-    if CHECKPOINT_PATH.exists():
-        CHECKPOINT_PATH.unlink()
-    print(json.dumps({"status": payload["status"]}))
-    return 0 if payload["status"] == STATUS_CERTIFIED else 1
+    try:
+        payload = build_receipt()
+        if args.verify:
+            stored = json.loads(OUT_PATH.read_text(encoding="utf-8"))
+            if stored != payload:
+                print("CERTIFIED_CONTOUR_DRIFT", file=sys.stderr)
+                return 1
+            print("CERTIFIED_CONTOUR_VERIFIED")
+            return 0
+        OUT_PATH.write_text(
+            json.dumps(payload, sort_keys=True, indent=1) + "\n",
+            encoding="utf-8",
+        )
+        print(json.dumps({"status": payload["status"]}))
+        return 0 if payload["status"] == STATUS_CERTIFIED else 1
+    finally:
+        CHECKPOINT_PATH.unlink(missing_ok=True)
 
 
 if __name__ == "__main__":

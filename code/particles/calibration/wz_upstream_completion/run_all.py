@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
-import subprocess, sys, json
+import subprocess
+import sys
 ROOT=Path(__file__).resolve().parent
 LOG=ROOT/'outputs'/'latest_validation.log'
 cmds=[
@@ -23,7 +24,9 @@ cmds=[
  [sys.executable,str(ROOT/'producers'/'counterterm_pole_solution.py')],
  [sys.executable,str(ROOT/'producers'/'wz_pole_receipts.py'),'--check-byte-exact'],
  [sys.executable,str(ROOT/'checkers'/'check_wz_pole_diagnostic.py')],
+ [sys.executable,str(ROOT/'producers'/'certified_wz_contours.py'),'--verify'],
  [sys.executable,str(ROOT/'checkers'/'check_certified_wz_contours.py')],
+ [sys.executable,str(ROOT/'producers'/'certified_second_sheet_poles.py'),'--verify'],
  [sys.executable,str(ROOT/'checkers'/'check_certified_second_sheet_poles.py')],
  [sys.executable,'-m','pytest','-q',str(ROOT/'tests')],
 ]

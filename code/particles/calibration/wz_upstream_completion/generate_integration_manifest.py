@@ -8,9 +8,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 MANIFEST = ROOT / "INTEGRATION_MANIFEST.json"
-EXCLUDED_PARTS = {".pytest_cache", "__pycache__"}
+EXCLUDED_PARTS = {".pytest_cache", ".ruff_cache", "__pycache__"}
 EXCLUDED_RELATIVE = {
     "INTEGRATION_MANIFEST.json",
+    "outputs/certified_second_sheet_poles_checkpoint.json",
+    "outputs/certified_wz_contours_checkpoint.json",
     "outputs/latest_validation.log",
 }
 
@@ -46,7 +48,7 @@ def build() -> dict:
     ]
     return {
         "schema_version": "physical_wz_upstream_integration_manifest_v1",
-        "date": "2026-07-20",
+        "date": "2026-07-31",
         "upstream_archive_sha256": "e6184ec1a535244c0f805c14e275b085a64c7ed078d780828c038d4f21c86a0d",
         "scientific_status": "DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION",
         "promotion_allowed": False,

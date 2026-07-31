@@ -1,0 +1,1075 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oph.local/schemas/certified_wz_contours_v3.schema.json",
+  "title": "Principal-sheet W/Z zero-exclusion evidence receipt v3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "type",
+    "pins",
+    "source_subject",
+    "fixture",
+    "ckm_fixture",
+    "dimensional_prefactor_finite_correction",
+    "serialized_gates",
+    "sheet_statement",
+    "acceptance_scope",
+    "results",
+    "precision_nesting",
+    "promotion",
+    "artifact_finding",
+    "status",
+    "receipt_sha256"
+  ],
+  "properties": {
+    "schema": {
+      "const": "oph.certified_wz_contours.v3"
+    },
+    "type": {
+      "const": "EXTERNAL_SM_EFT_VALIDATION"
+    },
+    "pins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vector_blocks_sha256",
+        "diagnostic_module_sha256",
+        "interval_module_sha256",
+        "producer_module_sha256"
+      ],
+      "properties": {
+        "vector_blocks_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "diagnostic_module_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "interval_module_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "producer_module_sha256": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "source_subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_role",
+        "relative_path",
+        "schema",
+        "target",
+        "units",
+        "bytes",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_role": {
+          "const": "direct_FJ_vector_blocks_input"
+        },
+        "relative_path": {
+          "const": "outputs/fj_direct_vector_blocks.json"
+        },
+        "schema": {
+          "const": "fj_direct_vector_blocks.v1"
+        },
+        "target": {
+          "const": "FJ_DIRECT_1"
+        },
+        "units": {
+          "const": "loop measure i/(16 pi^2) stripped; Delta is the single 1/eps pole unit"
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "g1",
+        "g2",
+        "v",
+        "lam",
+        "xi",
+        "mu2",
+        "mfu1",
+        "mfu2",
+        "mfu3",
+        "mfd1",
+        "mfd2",
+        "mfd3",
+        "mfe1",
+        "mfe2",
+        "mfe3",
+        "mu_ren2"
+      ],
+      "properties": {
+        "g1": {
+          "const": "1/4"
+        },
+        "g2": {
+          "const": "1/3"
+        },
+        "v": {
+          "const": "2"
+        },
+        "lam": {
+          "const": "1/8"
+        },
+        "xi": {
+          "const": "1"
+        },
+        "mu2": {
+          "const": "1/2"
+        },
+        "mfu1": {
+          "const": "1/50"
+        },
+        "mfu2": {
+          "const": "1/20"
+        },
+        "mfu3": {
+          "const": "1/5"
+        },
+        "mfd1": {
+          "const": "1/60"
+        },
+        "mfd2": {
+          "const": "1/25"
+        },
+        "mfd3": {
+          "const": "1/10"
+        },
+        "mfe1": {
+          "const": "1/80"
+        },
+        "mfe2": {
+          "const": "1/30"
+        },
+        "mfe3": {
+          "const": "1/15"
+        },
+        "mu_ren2": {
+          "const": "1"
+        }
+      }
+    },
+    "ckm_fixture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "V11",
+        "V12",
+        "V13",
+        "V21",
+        "V22",
+        "V23",
+        "V31",
+        "V32",
+        "V33"
+      ],
+      "properties": {
+        "V11": {
+          "const": "1"
+        },
+        "V12": {
+          "const": "0"
+        },
+        "V13": {
+          "const": "0"
+        },
+        "V21": {
+          "const": "0"
+        },
+        "V22": {
+          "const": "1"
+        },
+        "V23": {
+          "const": "0"
+        },
+        "V31": {
+          "const": "0"
+        },
+        "V32": {
+          "const": "0"
+        },
+        "V33": {
+          "const": "1"
+        }
+      }
+    },
+    "dimensional_prefactor_finite_correction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "W",
+        "Z"
+      ],
+      "properties": {
+        "W": {
+          "const": "(312000*p2 + 90163)/1944000"
+        },
+        "Z": {
+          "const": "(292020000*p2 + 79268959)/1944000000"
+        }
+      }
+    },
+    "serialized_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "precisions_bits",
+        "initial_segments_per_edge",
+        "max_subdivision_depth",
+        "holomorphy_method",
+        "boundary_method",
+        "arg_width_gate",
+        "winding_tolerance"
+      ],
+      "properties": {
+        "precisions_bits": {
+          "type": "array",
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            {
+              "const": 128
+            },
+            {
+              "const": 192
+            },
+            {
+              "const": 256
+            }
+          ]
+        },
+        "initial_segments_per_edge": {
+          "const": 8
+        },
+        "max_subdivision_depth": {
+          "const": 12
+        },
+        "holomorphy_method": {
+          "const": "exact_rational_cut_exclusion"
+        },
+        "boundary_method": {
+          "const": "centered_form_segment_enclosure"
+        },
+        "arg_width_gate": {
+          "const": "157/100"
+        },
+        "winding_tolerance": {
+          "const": "157/100"
+        }
+      }
+    },
+    "sheet_statement": {
+      "const": "the boxes lie strictly in the upper half plane; the principal branch is the declared continuation and every logarithm and square root is cut-gated per evaluation; the second-sheet continuation through the physical cut is not constructed"
+    },
+    "acceptance_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "auxiliary_principal_sheet_zero_exclusion_only",
+        "independent_numerical_replay_certified",
+        "engine_inverse_propagator_convention",
+        "theorem_self_energy_sign_bridge_certified",
+        "coefficient_denominator_witness_is_laurent_denominator",
+        "root_enclosure_certified",
+        "laurent_denominator_certified",
+        "issue_593_precision_ladder_row_satisfied",
+        "issue_593_independent_third_verifier_row_satisfied",
+        "issue_593_root_laurent_row_satisfied",
+        "issue_593_full_acceptance_satisfied"
+      ],
+      "properties": {
+        "auxiliary_principal_sheet_zero_exclusion_only": {
+          "const": true
+        },
+        "independent_numerical_replay_certified": {
+          "const": false
+        },
+        "engine_inverse_propagator_convention": {
+          "const": "G(s)=s-m_tree^2-Pi_engine(s)"
+        },
+        "theorem_self_energy_sign_bridge_certified": {
+          "const": false
+        },
+        "coefficient_denominator_witness_is_laurent_denominator": {
+          "const": false
+        },
+        "root_enclosure_certified": {
+          "const": false
+        },
+        "laurent_denominator_certified": {
+          "const": false
+        },
+        "issue_593_precision_ladder_row_satisfied": {
+          "const": false
+        },
+        "issue_593_independent_third_verifier_row_satisfied": {
+          "const": false
+        },
+        "issue_593_root_laurent_row_satisfied": {
+          "const": false
+        },
+        "issue_593_full_acceptance_satisfied": {
+          "const": false
+        }
+      }
+    },
+    "results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "W",
+        "Z"
+      ],
+      "properties": {
+        "W": {
+          "$ref": "#/$defs/particle_rows"
+        },
+        "Z": {
+          "$ref": "#/$defs/particle_rows"
+        }
+      }
+    },
+    "precision_nesting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "W",
+        "Z"
+      ],
+      "properties": {
+        "W": {
+          "$ref": "#/$defs/nesting_row"
+        },
+        "Z": {
+          "$ref": "#/$defs/nesting_row"
+        }
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "complex_ball_certified",
+        "sheet_certified_on_declared_boxes",
+        "principal_sheet_zero_exclusion_certified",
+        "root_count_certified_on_declared_boxes",
+        "pole_enclosure_certified",
+        "second_sheet_certified",
+        "laurent_residue_certified",
+        "bmhv_restoration_certified",
+        "physical_current_claim",
+        "oph_native",
+        "unit_claim"
+      ],
+      "properties": {
+        "complex_ball_certified": {
+          "type": "boolean"
+        },
+        "sheet_certified_on_declared_boxes": {
+          "type": "boolean"
+        },
+        "principal_sheet_zero_exclusion_certified": {
+          "type": "boolean"
+        },
+        "root_count_certified_on_declared_boxes": {
+          "type": "boolean"
+        },
+        "pole_enclosure_certified": {
+          "const": false
+        },
+        "second_sheet_certified": {
+          "const": false
+        },
+        "laurent_residue_certified": {
+          "const": false
+        },
+        "bmhv_restoration_certified": {
+          "const": false
+        },
+        "physical_current_claim": {
+          "const": false
+        },
+        "oph_native": {
+          "const": false
+        },
+        "unit_claim": {
+          "const": false
+        }
+      }
+    },
+    "artifact_finding": {
+      "const": "the earlier sampled diagnostic reported winding one on boxes crossing the real axis; that value is a branch-gluing artifact of the discontinuous epsilon evaluation across the physical cut and is superseded by this certificate: the principal-sheet function has no zero in the declared off-axis boxes; pole location and continuation require a separate second-sheet receipt"
+    },
+    "status": {
+      "enum": [
+        "PRINCIPAL_SHEET_ZERO_EXCLUSION_CERTIFIED",
+        "CERTIFICATION_INCOMPLETE"
+      ]
+    },
+    "receipt_sha256": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "rational": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)(/[1-9][0-9]*)?$"
+    },
+    "rational_pair": {
+      "type": "array",
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/rational"
+        },
+        {
+          "$ref": "#/$defs/rational"
+        }
+      ]
+    },
+    "real_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lo",
+        "hi"
+      ],
+      "properties": {
+        "lo": {
+          "$ref": "#/$defs/rational"
+        },
+        "hi": {
+          "$ref": "#/$defs/rational"
+        }
+      }
+    },
+    "complex_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "re",
+        "im"
+      ],
+      "properties": {
+        "re": {
+          "$ref": "#/$defs/real_interval"
+        },
+        "im": {
+          "$ref": "#/$defs/real_interval"
+        }
+      }
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "re",
+        "im",
+        "half_plane"
+      ],
+      "properties": {
+        "re": {
+          "$ref": "#/$defs/rational_pair"
+        },
+        "im": {
+          "$ref": "#/$defs/rational_pair"
+        },
+        "half_plane": {
+          "const": "upper"
+        }
+      }
+    },
+    "base_facts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "box_in_open_upper_half_plane",
+        "box_real_part_positive"
+      ],
+      "properties": {
+        "box_in_open_upper_half_plane": {
+          "type": "boolean"
+        },
+        "box_real_part_positive": {
+          "type": "boolean"
+        }
+      }
+    },
+    "polynomial_term": {
+      "type": "array",
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "$ref": "#/$defs/rational"
+        }
+      ]
+    },
+    "coefficient_denominator_witness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "denominator_id",
+        "coefficients",
+        "enclosure",
+        "excludes_zero",
+        "zero_exclusion_abs2_lower"
+      ],
+      "properties": {
+        "denominator_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "coefficients": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/polynomial_term"
+          },
+          "minItems": 1
+        },
+        "enclosure": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "excludes_zero": {
+          "type": "boolean"
+        },
+        "zero_exclusion_abs2_lower": {
+          "$ref": "#/$defs/rational"
+        }
+      }
+    },
+    "loop_chart": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/both_masses_zero_chart"
+        },
+        {
+          "$ref": "#/$defs/one_mass_zero_chart"
+        },
+        {
+          "$ref": "#/$defs/two_massive_chart"
+        }
+      ]
+    },
+    "both_masses_zero_chart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "m1",
+        "m2",
+        "chart",
+        "certificate",
+        "holomorphic"
+      ],
+      "properties": {
+        "m1": {
+          "const": "0"
+        },
+        "m2": {
+          "const": "0"
+        },
+        "chart": {
+          "const": "both_masses_zero"
+        },
+        "certificate": {
+          "const": "log(s/mu2) only; box in open upper half plane"
+        },
+        "holomorphic": {
+          "type": "boolean"
+        }
+      }
+    },
+    "one_mass_zero_chart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "m1",
+        "m2",
+        "chart",
+        "root_chart_log_argument_imaginary_sign",
+        "certificate",
+        "holomorphic"
+      ],
+      "properties": {
+        "m1": {
+          "$ref": "#/$defs/rational"
+        },
+        "m2": {
+          "$ref": "#/$defs/rational"
+        },
+        "chart": {
+          "const": "one_mass_zero"
+        },
+        "root_chart_log_argument_imaginary_sign": {
+          "const": "negative"
+        },
+        "certificate": {
+          "const": "explicit root chart; both root-chart logarithm arguments have strictly negative imaginary part on the box"
+        },
+        "holomorphic": {
+          "type": "boolean"
+        }
+      }
+    },
+    "two_massive_chart": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "m1",
+        "m2",
+        "chart",
+        "discriminant_symmetry_line",
+        "discriminant_symmetry_line_outside_box_re_range",
+        "certificate",
+        "holomorphic"
+      ],
+      "properties": {
+        "m1": {
+          "$ref": "#/$defs/rational"
+        },
+        "m2": {
+          "$ref": "#/$defs/rational"
+        },
+        "chart": {
+          "const": "two_massive"
+        },
+        "discriminant_symmetry_line": {
+          "$ref": "#/$defs/rational"
+        },
+        "discriminant_symmetry_line_outside_box_re_range": {
+          "type": "boolean"
+        },
+        "certificate": {
+          "const": "discriminant imaginary part nonvanishing off the discriminant-symmetry line Re(s)=m1+m2 (not the physical threshold); Feynman roots never real because the quadratic equals m1 at x=0 and m2 at x=1"
+        },
+        "holomorphic": {
+          "type": "boolean"
+        }
+      }
+    },
+    "interior_holomorphy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "base_facts",
+        "coefficient_denominators_exclude_zero_on_box",
+        "coefficient_denominator_witnesses",
+        "loop_charts",
+        "holomorphic_on_box"
+      ],
+      "properties": {
+        "method": {
+          "const": "exact_rational_cut_exclusion"
+        },
+        "base_facts": {
+          "$ref": "#/$defs/base_facts"
+        },
+        "coefficient_denominators_exclude_zero_on_box": {
+          "type": "boolean"
+        },
+        "coefficient_denominator_witnesses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coefficient_denominator_witness"
+          },
+          "minItems": 1
+        },
+        "loop_charts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/loop_chart"
+          },
+          "minItems": 1
+        },
+        "holomorphic_on_box": {
+          "type": "boolean"
+        }
+      }
+    },
+    "segment_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "segment_id",
+        "start",
+        "end",
+        "midpoint",
+        "center_value",
+        "derivative_hull",
+        "offset",
+        "image",
+        "rotated_image",
+        "image_zero_exclusion_abs2_lower",
+        "rotated_zero_exclusion_abs2_lower",
+        "rotated_argument",
+        "rotated_argument_width",
+        "argument_width_slack",
+        "start_value",
+        "end_value",
+        "endpoint_ratio",
+        "endpoint_increment",
+        "endpoint_increment_slack"
+      ],
+      "properties": {
+        "segment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "start": {
+          "$ref": "#/$defs/rational_pair"
+        },
+        "end": {
+          "$ref": "#/$defs/rational_pair"
+        },
+        "midpoint": {
+          "$ref": "#/$defs/rational_pair"
+        },
+        "center_value": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "derivative_hull": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "offset": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "image": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "rotated_image": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "image_zero_exclusion_abs2_lower": {
+          "$ref": "#/$defs/rational"
+        },
+        "rotated_zero_exclusion_abs2_lower": {
+          "$ref": "#/$defs/rational"
+        },
+        "rotated_argument": {
+          "$ref": "#/$defs/real_interval"
+        },
+        "rotated_argument_width": {
+          "$ref": "#/$defs/rational"
+        },
+        "argument_width_slack": {
+          "$ref": "#/$defs/rational"
+        },
+        "start_value": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "end_value": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "endpoint_ratio": {
+          "$ref": "#/$defs/complex_interval"
+        },
+        "endpoint_increment": {
+          "$ref": "#/$defs/real_interval"
+        },
+        "endpoint_increment_slack": {
+          "$ref": "#/$defs/rational"
+        }
+      }
+    },
+    "boundary_winding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "certified",
+        "method",
+        "partition",
+        "partition_sha256",
+        "winding",
+        "segments",
+        "max_depth_used",
+        "segment_evidence",
+        "total_variation_interval",
+        "winding_residual",
+        "winding_tolerance_slack",
+        "reason"
+      ],
+      "properties": {
+        "certified": {
+          "type": "boolean"
+        },
+        "method": {
+          "const": "centered_form_segment_enclosure"
+        },
+        "partition": {
+          "enum": [
+            "adaptive",
+            "replayed_base_partition"
+          ]
+        },
+        "partition_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "winding": {
+          "type": "integer"
+        },
+        "segments": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "max_depth_used": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "segment_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/segment_evidence"
+          },
+          "minItems": 1
+        },
+        "total_variation_interval": {
+          "$ref": "#/$defs/real_interval"
+        },
+        "winding_residual": {
+          "$ref": "#/$defs/real_interval"
+        },
+        "winding_tolerance_slack": {
+          "$ref": "#/$defs/rational"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "particle_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "particle",
+        "precision_bits",
+        "box",
+        "tree_mass_sq",
+        "interior_holomorphy",
+        "boundary_winding",
+        "quantity_enclosures",
+        "zero_exclusion_certified",
+        "reading"
+      ],
+      "properties": {
+        "particle": {
+          "enum": [
+            "W",
+            "Z"
+          ]
+        },
+        "precision_bits": {
+          "enum": [
+            128,
+            192,
+            256
+          ]
+        },
+        "box": {
+          "$ref": "#/$defs/box"
+        },
+        "tree_mass_sq": {
+          "$ref": "#/$defs/rational"
+        },
+        "interior_holomorphy": {
+          "$ref": "#/$defs/interior_holomorphy"
+        },
+        "boundary_winding": {
+          "$ref": "#/$defs/boundary_winding"
+        },
+        "quantity_enclosures": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/complex_interval"
+          }
+        },
+        "zero_exclusion_certified": {
+          "type": "boolean"
+        },
+        "reading": {
+          "enum": [
+            "the masked one-loop inverse propagator has no zero in the declared upper-half box on the principal sheet, consistent with first-sheet analyticity; this result does not locate a resonance pole or certify a second-sheet continuation",
+            "not certified"
+          ]
+        }
+      }
+    },
+    "particle_rows": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "128",
+        "192",
+        "256"
+      ],
+      "properties": {
+        "128": {
+          "$ref": "#/$defs/particle_row"
+        },
+        "192": {
+          "$ref": "#/$defs/particle_row"
+        },
+        "256": {
+          "$ref": "#/$defs/particle_row"
+        }
+      }
+    },
+    "segment_nesting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "segments",
+        "ladders_compared",
+        "partition_ids_match",
+        "images_nested",
+        "center_values_nested",
+        "derivative_hulls_nested",
+        "offsets_nested",
+        "rotated_images_nested",
+        "rotated_arguments_nested",
+        "endpoint_values_nested",
+        "endpoint_ratios_nested",
+        "endpoint_increments_nested",
+        "all_nested"
+      ],
+      "properties": {
+        "segments": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "ladders_compared": {
+          "const": 2
+        },
+        "partition_ids_match": {
+          "type": "boolean"
+        },
+        "images_nested": {
+          "type": "boolean"
+        },
+        "center_values_nested": {
+          "type": "boolean"
+        },
+        "derivative_hulls_nested": {
+          "type": "boolean"
+        },
+        "offsets_nested": {
+          "type": "boolean"
+        },
+        "rotated_images_nested": {
+          "type": "boolean"
+        },
+        "rotated_arguments_nested": {
+          "type": "boolean"
+        },
+        "endpoint_values_nested": {
+          "type": "boolean"
+        },
+        "endpoint_ratios_nested": {
+          "type": "boolean"
+        },
+        "endpoint_increments_nested": {
+          "type": "boolean"
+        },
+        "all_nested": {
+          "type": "boolean"
+        }
+      }
+    },
+    "nesting_row": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enclosures_nested_with_precision",
+        "comparison",
+        "probe_point",
+        "partition_ids_match",
+        "per_quantity_probe_nesting",
+        "quantity_key_sets_match",
+        "quantity_enclosures_all_nested",
+        "coefficient_denominator_nesting",
+        "per_segment_enclosure_nesting"
+      ],
+      "properties": {
+        "enclosures_nested_with_precision": {
+          "type": "boolean"
+        },
+        "comparison": {
+          "const": "exact rational comparison of serialized binary endpoints"
+        },
+        "probe_point": {
+          "$ref": "#/$defs/rational_pair"
+        },
+        "partition_ids_match": {
+          "type": "boolean"
+        },
+        "per_quantity_probe_nesting": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "quantity_key_sets_match": {
+          "type": "boolean"
+        },
+        "quantity_enclosures_all_nested": {
+          "type": "boolean"
+        },
+        "coefficient_denominator_nesting": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "records",
+            "key_sets_match",
+            "all_nested"
+          ],
+          "properties": {
+            "records": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "key_sets_match": {
+              "type": "boolean"
+            },
+            "all_nested": {
+              "type": "boolean"
+            }
+          }
+        },
+        "per_segment_enclosure_nesting": {
+          "$ref": "#/$defs/segment_nesting"
+        }
+      }
+    }
+  }
+}
