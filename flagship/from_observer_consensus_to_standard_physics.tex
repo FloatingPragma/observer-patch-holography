@@ -13,7 +13,7 @@
 
 \hypersetup{
   pdftitle={Finite Observer Consensus as a Reconstruction Principle: Normal Forms, the Standard Model Lie Type, and a Route to the Einstein Field Equation},
-  pdfauthor={Bernhard Mueller; Alexander Osika; Mario Poneder; Kai Xue; Ben Cassie; Peter Nguyen; Maarten Antonie Visser; Kale Arnav Anirudha; David Matscheko; Jonathan Hill; William T. Glynn},
+  pdfauthor={Bernhard Mueller; Alexander Osika; Mario Poneder; Kai Xue; Ben Cassie; Peter Nguyen; Maarten Antoine Visser; Kale Arnav Anirudha; David Matscheko; Jonathan Hill; William T. Glynn},
   pdfsubject={Finite observer-patch reconstruction in foundations of physics},
   pdfkeywords={foundations of physics, Observer Patch Holography, finite reconstruction, quantum records, Einstein field equation, gauge structure},
   pdflang={en-US}
@@ -39,7 +39,7 @@ Mario Poneder\quad
 Kai Xue\\
 Ben Cassie\quad
 Peter Nguyen\quad
-Maarten Antonie Visser\quad
+Maarten Antoine Visser\quad
 Kale Arnav Anirudha\\
 David Matscheko\quad
 Jonathan Hill\quad
@@ -81,7 +81,14 @@ interpretation requires a realization map. Given one refinement tower with a
 Lorentzian event manifold, conserved stress tensor, null balance,
 entropy--area relation, continuum control, and coupling scale, null tomography
 and the Bianchi identity yield the Einstein field equation up to a
-cosmological constant. The physical tower and continuum limit are open.
+cosmological constant. Exact quantitative closures sharpen the case: a
+positive-chamber circulant identity forces the Koide relation at balance, a
+finite capacity identity fixes the sign of a conditional de Sitter
+transfer, and an
+interval-certified screen-grain fixed point lands within parts per million
+of the measured inverse coupling, each typed as theorem, diagnostic, or
+registered conditional test. The physical tower and continuum limit are
+open.
 \end{abstract}
 
 \vspace{0.5em}
@@ -114,6 +121,15 @@ completion from an explicit null-balance, Ward, Bianchi, and scale contract.
 The modular, stress, entropy, continuum, and area maps are the proposed route
 to that contract. No physical conclusion follows until one carrier realizes
 them jointly.
+
+OPH is developed through a linked paper and artifact stack. This paper gives
+its synthesis and claim boundary; companion work supplies the finite
+formalization, exact-computation certificates, consensus construction, screen
+architecture, and simulation evidence
+\cite{ophrepo,ophnormalforms,opheventalgebra,ophconsensus,ophMicrophysics,ophGauge,ophEinstein,ophsim}.
+Together these sources specify a proposed observer-patch architecture and its
+conditional physical consequences. Each conclusion retains its own premises
+and verification artifacts, which readers can inspect directly.
 
 Table~\ref{tab:claim-status} gives the four status descriptions used
 throughout.
@@ -199,6 +215,16 @@ continuum, and scale requirement listed as part of the open realization
 contract. Reproducible finite simulations test a source construction against
 parts of that contract without promoting the finite sample to a continuum
 spacetime.
+
+The quantitative layer is collected in one place with one discipline.
+Section~\ref{sec:closures} proves the positive-chamber Koide identity and
+the capacity-transfer sign, states the registered conditional tau test with
+its custody-bound kill band, records the charged-lepton interval
+diagnostic, and exhibits a candidate excluded by its own exact theorem.
+Section~\ref{sec:explanatory-scope} then tabulates the conditional
+explanatory scope: which standing questions the completed realization would
+answer, through which proved implication, and on which open map each
+answer waits.
 
 Operational quantum reconstructions \cite{hardy2001,chiribella2011,
 masanes2011}, relational and modular accounts of physical facts and time
@@ -332,6 +358,7 @@ structures follow from these axioms, which require added premises, and which
 realization maps remain open.
 
 \subsection{Closure conditions from self-reference}
+\label{sec:closure-principle}
 
 \input{../paper/tex_fragments/CLOSURE_PRINCIPLE.tex}
 
@@ -393,7 +420,10 @@ fourth consumes the declared spherical support. The fifth is a reconstruction
 implication. A common
 modular--stress--entropy tower is the proposed route to its null-balance
 antecedent and remains an open physical realization.
-Sections \ref{sec:architecture} through \ref{sec:gauge} develop these branches.
+Sections \ref{sec:architecture} through \ref{sec:closures} develop these
+branches, with the exact quantitative closures and their diagnostics
+collected in Section~\ref{sec:closures} and the conditional explanatory
+scope tabulated in Section~\ref{sec:explanatory-scope}.
 Section~\ref{sec:verification} describes the verification stack.
 Section~\ref{sec:empirical} states the falsification architecture and the
 open obligations. Section~\ref{sec:discussion} compares the program with
@@ -446,6 +476,93 @@ terminates by a finite theorem. Divisibility of total load by twelve is a
 necessary consensus condition and is not sufficient by itself. For the
 certificate's source-generated full-pile packet, an explicit eighteen-move
 schedule reaches consensus.
+
+\subsection{Hardware and protocol: one substrate, one dynamics, several
+readouts}
+\label{sec:hardware-protocol}
+
+The model separates cleanly into a hardware layer and a protocol layer, and
+every physical structure claimed in this paper is a readout of the protocol
+running on the hardware.
+
+The \emph{hardware} is the content of A1: a federation of finite carriers,
+each with the oriented twelve-port icosahedral boundary packet, joined
+through typed seam algebras with coherent triple overlaps into a nerve that
+bridges to the oriented spherical support, together with the complete
+reversible response space of each carrier. The companion microphysics paper
+specifies this substrate at the level of patch hardware, records, and
+synchronization interfaces \cite{ophMicrophysics}. The hardware fixes what
+exists at each finite regulator: ports, seams, records, and response
+directions. It performs nothing by itself.
+
+The \emph{protocol} is the dynamics the axioms impose on that substrate:
+patches write and retract integer record events, read back port sums,
+compare induced records on shared boundaries, repair oriented mismatches
+under quadratic descent, interpret accepted data through the natural
+functor of A2, transport recharting along overlap paths, and select the
+residual state by the constrained information projection of A3. The
+companion consensus paper develops this layer as an asynchronous agreement
+protocol with explicit safety and liveness assumptions \cite{ophconsensus}.
+The protocol fixes what happens: which configurations count as repaired,
+which records become public, and which transports implement recharting.
+
+The claim structure of the paper is that distinct readouts of this one
+protocol-on-hardware system yield the distinct pillars of observed physics.
+Table~\ref{tab:pipeline} states the correspondence and names the section
+that proves each step.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{The reconstruction pipeline: protocol operation, hardware
+substrate, resulting structure, and its location in this paper.}
+\label{tab:pipeline}
+\begin{tabular}{@{}L{0.26\linewidth}L{0.22\linewidth}L{0.30\linewidth}L{0.12\linewidth}@{}}
+\toprule
+\textbf{Protocol operation} & \textbf{Hardware substrate} &
+\textbf{Resulting structure} & \textbf{Where}\\
+\midrule
+Repair to a fixed point under quadratic descent and the transactional
+diamond & carrier records and seams & schedule-independent public record;
+measurement as completed consensus &
+\S\ref{sec:consensus}\\
+Algebra-state reading of the completed record surface & protected record
+projectors & Born weights, L\"uders conditioning, Tsirelson bound &
+\S\ref{sec:quantum}\\
+Overlap transport around closed paths & seam groupoid and triple-overlap
+cocycles & central defects, edge sectors, edge-center entropy &
+\S\ref{sec:edge-center}\\
+Record-germ separation along refinement & federation nerve and spherical
+bridge & Lorentz kinematics; conditional Lorentzian event manifold &
+\S\ref{sec:spacetime}\\
+Modular flow, entropy stationarity, null tomography on one tower & the same
+record tower & conditional Einstein field equation &
+\S\ref{sec:einstein}\\
+Endogenous recharting of the complete port response & twelve-port incidence
+and response space & forced gauge Lie type
+$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$; conditional
+matter image &
+\S\ref{sec:gauge}\\
+Capacity accounting and closure readback & screen capacity and grain &
+exact quantitative closures and their diagnostics &
+\S\ref{sec:closures}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two features of this pipeline carry the unification claim. First, the
+branches consume one substrate and one dynamics: the same completed records
+that define measurement feed the event geometry, and the same overlap
+transport that defines agreement feeds the gauge forcing. Second, every
+arrow in the table is typed. Where the arrow is a finite theorem, the paper
+proves it; where it is a certified computation, the paper cites its
+receipt; where it requires a physical realization map, the paper names the
+map and leaves it open. The universe claim of the program is exactly the
+conjunction: a physical carrier that realizes the hardware and runs the
+protocol produces public records whose readouts include quantum
+probability, Lorentzian causal structure, Einstein dynamics, and the
+Standard Model gauge and matter skeleton, with the listed maps as the
+remaining obligations.
 
 %=====================================================================
 \section{Observable normal forms and finite consensus}
@@ -1515,7 +1632,7 @@ Jacobi and gives \eqref{eq:liealgebra}. The derived algebra is
 $\mathfrak{su}(3)\oplus\mathfrak{so}(3)$, of dimension $8+3=11$; the remaining
 line is the center of $\mathfrak u(3)$. Direct evaluation identifies it with
 the uniform port vector and exhibits a nonzero commutator involving the
-five-dimensional band. Equivariance, positivity of
+five-dimensional band. Equivariance and positive definiteness of the pairing
 $-\operatorname{Re}\operatorname{tr}(K(f)K(f'))$ are exact calculations in
 $\mathbb Q(\sqrt5)$ reproduced by the released certificate. It also verifies,
 for all sixty elements, that $\Pi(g)$ is the exponential of an element of
@@ -1676,6 +1793,212 @@ quantum-field realization are open realization maps. The theorem classifies a
 finite source-model representation and its
 maximal faithful image. The exclusion of $\Lambda^0V$, $\Lambda^5V$, direct
 sums, vectorlike additions, and neutral singlets is not derived by this scan.
+\end{boundary}
+
+\subsection{Massless carriers, conditionally}
+\label{sec:massless}
+
+The forced algebra and the conditional global form
+\eqref{eq:globalform} support three carrier-mass statements, each exact at
+its own level and each bounded by a named constraint.
+
+\emph{The photon.} On the finite one-loop electroweak stack built over the
+declared canonical action, two facts are certified finite computations
+rather than assumptions: the longitudinal part of the photon self-energy
+vanishes identically on the minimum-restored surface, including finite
+parts, and the photon direction annihilates every generator of the rotated
+neutral mass matrix, so the photon mass term is exactly zero in the finite
+calculation. Charge universality holds in the same stack through the
+certified combination
+$\delta Z_{e}=-\tfrac12\delta Z_{AA}-\tfrac{s_w}{2c_w}\delta Z_{ZA}$, which
+is gauge independent and reproduces the census beta coefficients. The
+constraint: these are statements of a validated calculation on a declared
+synthetic fixture; a physical photon pole verdict additionally requires the
+laboratory current attachment named above.
+
+\emph{The gluon.} The color factor in \eqref{eq:liealgebra} lies in the
+unbroken subalgebra of the conditional global form: no declared scalar
+direction in the realized matter and descent structure carries color, so
+color symmetry is exact and the finite gluon mass term is zero. This is a finite theorem
+at the algebra level. Confinement, the physical gluon spectrum, and any
+statement about hadrons belong to strong-coupling dynamics outside the
+declared resource boundary; the corresponding physical row closes as not
+evaluable rather than being claimed.
+
+\emph{The graviton.} The Einstein branch of Theorem~\ref{thm:einstein}
+carries a massless spin-two carrier exactly as far as the composition
+carries the field equation: linearizing the composed relation about a
+vacuum yields the standard massless graviton kinematics, as a
+reconstruction implication conditional on the same premise vector and
+inheriting its openness. No independent graviton claim is made beyond the
+composition.
+
+These three statements exhibit the division of labor of the program: exact
+finite masslessness where the algebra forces it, machine-checked
+cancellation where a calculation certifies it, and explicit refusal where
+dynamics outruns the declared resources.
+
+%=====================================================================
+\section{Exact quantitative closures and their diagnostics}
+\label{sec:closures}
+
+The finite architecture supports a small set of quantitative surfaces sharp
+enough to be tested numerically. Each surface below is stated with its type
+from Table~\ref{tab:claim-status}: the theorems are finite theorems, the
+numerical enclosures are certified finite computations, and every
+comparison against measurement is a diagnostic or a registered conditional
+test rather than a source-only prediction. The interval-certified
+screen-grain fixed point, whose gauge-width root lies at relative
+separation $2.5\times10^{-6}$ from the 2022 CODATA inverse coupling
+\cite{codata2022}, is stated with the closure principle in
+Section~\ref{sec:closure-principle} and is consumed here only by
+cross-reference.
+
+\subsection{The positive-chamber Koide identity}
+
+The icosahedral carrier's face structure supplies order-three cyclic
+response operators. The following exact identity governs every Hermitian
+three-cycle response \cite{ophkoide}.
+
+\begin{theorem}[Positive-chamber Koide identity]
+\label{thm:koide}
+Let $R^3=I$ generate a cyclic action and let
+\[
+C=aI+bR+\overline bR^2,
+\qquad a>0,\quad b=\rho e^{i\delta}\in\mathbb C,
+\]
+be the associated Hermitian circulant, with eigenvalues
+\[
+\lambda_k=a+2\rho\cos\!\left(\delta+\frac{2\pi k}{3}\right),
+\qquad k=0,1,2 .
+\]
+Suppose all three eigenvalues are nonnegative and, for one scale $s>0$,
+$\sqrt{m_k}=\sqrt s\,\lambda_k$. Then
+\begin{equation}
+Q:=\frac{\sum_k m_k}{\bigl(\sum_k\sqrt{m_k}\bigr)^2}
+=\frac13+\frac23\left(\frac\rho a\right)^2 ,
+\qquad\text{so}\qquad
+Q=\frac23
+\;\Longleftrightarrow\;
+\frac\rho a=\frac1{\sqrt2}.
+\label{eq:koide}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The three cosines at angles separated by $2\pi/3$ sum to zero, and their
+squares sum to $3/2$. Hence
+$\sum_k\lambda_k=3a$ and
+$\sum_k\lambda_k^2=3a^2+6\rho^2$. With
+$m_k=s\lambda_k^2$ and $\sqrt{m_k}=\sqrt s\,\lambda_k$, the ratio is
+\[
+Q=\frac{s(3a^2+6\rho^2)}{s(3a)^2}
+=\frac13+\frac23\left(\frac\rho a\right)^2 .
+\]
+The equivalence follows by solving $Q=2/3$ for $\rho/a$ on $a>0$,
+$\rho\ge0$.
+\end{proof}
+
+The phase $\delta$ cancels from $Q$ and jointly controls the two mass
+ratios, so the identity constrains one combination of the spectrum exactly
+while leaving two ratios free. Equal rank-two event blocks in the finite
+tracial Gelfand--Naimark--Segal packet supply the balance $\rho/a=1/\sqrt2$
+exactly under the declared tracial premises; the Lean development checks
+the circulant identity and the equivalence \cite{ophkoide}.
+
+Under the balance and mass-ordering premises, the measured electron and
+muon masses determine the tau mass through one quadratic. The
+outward-rounded enclosure is
+$[1776.968991,\allowbreak\,1776.969063]$~MeV, a $72$-eV window whose
+center sits $0.43\sigma$ from the measured $1776.93\pm0.09$~MeV. The premise ancestry is declared: the balance premise
+was first abstracted from the measured triple, so this is a
+target-informed conditional postdiction whose evidential weight lies in the
+kill direction. The registered test fixes the target definition, a
+precision floor of $0.045$ MeV, and the decision rule before any future
+comparison: a world-average or dedicated-measurement central value more
+than three standard uncertainties from $1776.969027$ MeV refutes the
+balanced-circulant premise \cite{ophregister}. The physical family attachment and phase
+selection are open realization maps, so this surface is logically
+independent of the diagnostic below.
+
+\subsection{The charged-lepton interval diagnostic}
+
+A finite eight-path carrier combined with an empirical electromagnetic
+transport packet yields outward-rounded enclosures for the three charged
+leptons with logarithmic half-width $1.732\%$, one-sided multiplicative
+widths $-1.72\%$ and $+1.75\%$. The measured triple lies inside all three
+enclosures \cite{ophzoo}. Measured mass ratios and transport anchors enter
+this branch, so the result is a diagnostic of internal closure: it gives a
+sharp surface that a source-emitted transport bridge must hit, without
+claiming a source-only mass prediction. A physical charged determinant
+line, an absolute clock, and a source-emitted transport bridge are the maps
+an endpoint prediction requires.
+
+\subsection{Finite capacity and the de Sitter transfer sign}
+
+The screen's finite capacity supports an exact entropy accounting with one
+conditional gravitational reading \cite{ophdesitter}.
+
+\begin{proposition}[Capacity transfer sign]
+\label{prop:capacity}
+For finite sector dimensions $d_i$ with total $M=\sum_id_i$ and sector
+probabilities $p_i$, the generalized entropy obeys the exact identity
+\[
+S_{\mathrm{gen}}(p,d)
+=-\sum_ip_i\log p_i+\sum_ip_i\log d_i
+=\log M-D\!\left(p\,\Big\Vert\,\frac dM\right),
+\]
+where $D$ is relative entropy; its exact maximum is
+$S_{\mathrm{gen}}^{\max}=\log M$ at $p_i=d_i/M$. If an observer receives a
+fraction $f\in(0,1)$ of a fixed total capacity and the sectors deplete
+uniformly, every admissible transfer changes the maximum by
+\[
+\Delta S_{\mathrm{gen}}^{\max}=\log(1-f)<0 ,
+\]
+and the positive-real interpolation in $f$ is strictly decreasing and
+concave, so the zero-transfer point is a one-sided boundary maximum.
+\end{proposition}
+
+\begin{proof}
+Expanding $D(p\Vert d/M)=\sum_ip_i\log p_i-\sum_ip_i\log d_i+\log M$ gives
+the identity, and nonnegativity of relative entropy with equality at
+$p=d/M$ gives the maximum. Uniform depletion replaces $M$ by $(1-f)M$, so
+the maximum changes by $\log(1-f)$. Monotonicity and concavity of
+$f\mapsto\log(1-f)$ are elementary.
+\end{proof}
+
+Identifying capacity with horizon area, the transfer coordinate with
+observer mass, and the associated finite port operator with the
+gravitational shock supplies a conditional de Sitter time-advance mechanism
+with a definite sign. The finite identities make none of those physical
+identifications; the horizon and observer dictionaries are the open maps,
+and the finite calculation supplies no positive cyclic static-patch trace.
+
+\subsection{A candidate excluded by its own theorem}
+
+The falsification architecture has acted on the program's own candidates.
+The first coefficient-free proposal for the charged-lepton shape, the
+quartic truncation of the relative-entropy expansion restricted to the
+five-dimensional carrier band at fixed amplitude, has exactly two extremal
+orbit branches; the simple-spectrum branch has sorted-gap ratio exactly the
+golden ratio $\varphi$, and the observed centered log-mass gap ratio
+$1.889$ differs from $\varphi$ by $16.7\%$ in the closest orientation. The
+exclusion is itself an exact theorem, and the candidate is retired in the
+negative ledger \cite{ophzoo,ophregister}. The example fixes the intended
+reading of this section: quantitative surfaces exist to be eliminated, and
+a surviving surface earns its standing from the eliminations the same
+architecture permits.
+
+\begin{boundary}
+No statement in this section is a source-only determination of a physical
+constant or mass. The Koide identity and capacity identities are finite
+theorems; the tau window is a registered conditional postdiction; the
+lepton enclosures and the screen-grain separation are diagnostics that
+consume measured inputs; the de Sitter reading is conditional on
+unconstructed dictionaries. The registered comparison contracts fix
+targets, kill bands, precision floors, and decision rules before
+comparison, and failed candidates are retained in the negative ledger
+\cite{ophregister}.
 \end{boundary}
 
 %=====================================================================
@@ -1882,6 +2205,110 @@ target-space map, scale separation, and controlled continuum limit exist.
 Under those premises, the sheet is a candidate coarse-grained degree of
 freedom; its vibrations, splitting, and joining can be organized with
 effective-string variables.
+
+\subsection{What a completed realization would explain}
+\label{sec:explanatory-scope}
+
+A reconstruction program should state its explanatory payoff with the same
+discipline as its proofs. Table~\ref{tab:explanatory} lists standing
+questions of foundational physics, the structure this framework supplies
+for each, and the specific open map on which the explanation waits. Every
+row is conditional: the middle column is proved or certified at the finite
+level in this paper or its companions, and the right column names the
+realization obligation that would convert it into a statement about
+nature. Rows are hypotheses about explanatory reach, and each fails
+exactly where its named map fails.
+
+{
+\small
+\begin{longtable}{@{}L{0.30\linewidth}L{0.38\linewidth}L{0.24\linewidth}@{}}
+\caption{Standing questions, the finite structure supplied, and the open
+map each explanation requires.}
+\label{tab:explanatory}\\
+\toprule
+\textbf{Standing question} & \textbf{What the framework supplies} &
+\textbf{Waiting on}\\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\small Table~\thetable\ continued}\\
+\toprule
+\textbf{Standing question} & \textbf{What the framework supplies} &
+\textbf{Waiting on}\\
+\midrule
+\endhead
+Why measurements have definite public outcomes & measurement as a
+schedule-independent consensus normal form
+(Theorem~\ref{thm:confluence}); no observer-external collapse postulate &
+physical record and readback identification\\
+Why quantum probability takes the Born form, with L\"uders update and the
+Tsirelson bound & finite theorems on the completed record surface
+(Theorem~\ref{thm:born}) & the algebra-state map for laboratory records\\
+Why spacetime is Lorentzian with three spatial dimensions of observer
+freedom & $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ with
+$H^3$ velocity fibers \eqref{eq:lorentz}; measured held-out inertia
+$(1,3)$ on the declared path & event population and the continuum tower
+(E1)--(E7)\\
+Why gravity couples universally and takes the Einstein form & null balance
+plus Ward and Bianchi force the full field equation
+(Theorem~\ref{thm:einstein}) & the joint tower premises (G1)--(G6),
+including universal coupling\\
+Why a cosmological-constant term exists & the metric-line ambiguity of
+null tomography (Theorem~\ref{thm:null-tomography}) is exactly one scalar
+$\Lambda$; the term is forced freedom rather than an added field & the
+same tower and a vacuum reference\\
+Why horizon entropy scales with area & the edge-center dimension term
+$\sum_\alpha p_\alpha\log d_\alpha$ of Theorem~\ref{thm:edge-center} &
+the physical area normalization $\delta\langle Z_L\rangle=\delta A/(4G_N)$\\
+Why the gauge group has the Standard Model Lie type & the A1--A2 forcing
+theorem (Theorem~\ref{thm:inner-action-closure}) with no ambient group
+premise & laboratory current attachment\\
+Why one family contains exactly fifteen chiral states with the observed
+hypercharges, and why anomalies cancel & the exterior module
+\eqref{eq:generation} with exact anomaly arithmetic and the two-mask
+exhaustive selection (Theorem~\ref{thm:matter-image}) & physical matter
+identification\\
+Why electric charge is quantized with the observed relative units & the
+common $\mathbb Z_6$ kernel and the conditional global form
+\eqref{eq:globalform} & physical global-form selection\\
+Why an exactly massless photon exists & the photon direction in the
+unbroken residual subalgebra plus the certified one-loop cancellation of
+Section~\ref{sec:massless} & the physical photon-pole attachment\\
+Why gluons stay exactly massless & color lies in the unbroken subalgebra
+and no realized scalar direction carries color
+(Section~\ref{sec:massless}) & closed as not evaluable at strong coupling
+under the declared resource boundary\\
+Why the fine-structure constant has a value near $137^{-1}$ & the
+interval-certified screen-grain fixed point of
+Section~\ref{sec:closure-principle}, at $2.5\times10^{-6}$ relative
+separation & the same-scheme hadronic spectral transport\\
+Why the charged leptons satisfy the Koide relation & the positive-chamber
+circulant identity (Theorem~\ref{thm:koide}) with the exact tracial
+balance & physical family attachment and phase selection\\
+Why the universe carries finite information at fixed resolution & finite
+screen capacity as an architectural primitive, with the capacity-transfer
+sign of Proposition~\ref{prop:capacity} & horizon and observer
+dictionaries, global capacity attachment\\
+Why macroscopic records accumulate irreversibly & completed public records
+are protected: accepted repair preserves protected readout and strictly
+decreases the descent functional
+(Section~\ref{sec:architecture}, Theorem~\ref{thm:confluence}), so
+completion is absorbing on the public quotient & physical identification
+of protected records and clocks\\
+\bottomrule
+\end{longtable}
+}
+
+The table is deliberately conservative in three respects. It contains no
+row for particle masses, mixing angles, family multiplicity, cosmological
+history, or dark sectors: the corresponding surfaces in the wider program
+are diagnostics, conditional selections, or open producers, and none of
+them reaches even the conditional standard of the rows above. Second, the
+rows are not independent evidence: several consume the same tower, and a
+failure of one shared map removes several rows together. Third, the table
+asserts explanatory shape rather than truth: it records that one finite
+architecture, if physically realized, would answer these questions through
+proved implications, which is the precise sense in which the program is a
+unification candidate.
 
 %=====================================================================
 \section{Machine verification and reproducibility}
@@ -2102,6 +2529,15 @@ rank-fifteen representation; the exhaustive scan isolates its
 charge-conjugate pair within the stated class. The physical global quotient
 is not selected by this result.
 
+The quantitative closures add a testable layer with its own discipline. The
+positive-chamber circulant identity forces the Koide relation exactly at
+tracial balance and yields a registered conditional tau test with a
+custody-bound kill band; the capacity identity fixes the de Sitter transfer
+sign; the interval-certified screen-grain root and the charged-lepton
+enclosures are diagnostics awaiting their transport maps; and one candidate
+is excluded by its own exact theorem, which is the falsification
+architecture operating as designed.
+
 The geometry and dynamics results have a different status. A Lorentz-group
 action and its hyperbolic homogeneous space follow from the oriented spherical
 support; their physical interpretation requires event, clock, and frame maps.
@@ -2166,7 +2602,7 @@ Xue contributed consistency checks, simulator review, visualization review,
 and prototype-engineering review. Ben Cassie contributed implementation-claim
 and physical-evidence review. Peter Nguyen contributed proof auditing,
 branch-boundary analysis, compact-gauge and global-quotient analysis, and
-manuscript consistency review. Maarten Antonie Visser contributed
+manuscript consistency review. Maarten Antoine Visser contributed
 consensus-protocol review and physics feedback on the foundations and
 emergent-spacetime framing. Kale Arnav Anirudha contributed consensus-paper
 material, asynchronous-agreement analysis, repair-map definitions, and formal
@@ -2267,6 +2703,13 @@ Mueller, B., Xue, K., Anirudha, K.\,A., Matscheko, D., and Hill, J. (2026).
 Implements Physics}. Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/paper/reality_as_consensus_protocol.pdf}
 
+\bibitem{ophMicrophysics}
+Mueller, B., Osika, A., Xue, K., Cassie, B., Visser, M.\,A., and Matscheko,
+D. (2026). \emph{Federated Echosahedral Screen Microphysics: Patch Hardware,
+Records, and Observer Synchronization in Observer-Patch Holography}. Public
+manuscript.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
+
 \bibitem{ophEinstein}
 Mueller, B., Osika, A., Poneder, M., Xue, K., Nguyen, P., Visser, M.\,A.,
 and Matscheko, D. (2026). \emph{Recovering Observer Spacetime and Einstein
@@ -2278,6 +2721,22 @@ Mueller, B., Osika, A., Poneder, M., Xue, K., Nguyen, P., Visser, M.\,A.,
 and Matscheko, D. (2026). \emph{Deriving Standard Model Gauge Structure from
 Observer Overlap Consistency}. Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}
+
+\bibitem{ophzoo}
+Mueller, B., Osika, A., Poneder, M., Xue, K., Visser, M.\,A., and
+Matscheko, D. (2026). \emph{Deriving the Particle Zoo from Observer
+Consistency}. Public manuscript.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}
+
+\bibitem{ophkoide}
+Mueller, B. (2026). \emph{The Positive-Chamber Koide Identity for
+Icosahedral Face Circulants}. Public manuscript and formal artifact.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/koide_identity_from_positive_c3_face_circulants.pdf}
+
+\bibitem{ophdesitter}
+Mueller, B. (2026). \emph{The de Sitter Time-Advance Sign from a Finite
+Screen with Fixed Capacity}. Public manuscript.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf}
 
 \bibitem{hardy2001}
 Hardy, L. (2001). ``Quantum theory from five reasonable axioms.''
@@ -2458,6 +2917,12 @@ Tong, D. (2017). ``Line operators in the Standard Model.''
 Witten, E. (1982). ``An SU(2) anomaly.'' \emph{Physics Letters B}
 \textbf{117}, 324--328.
 \url{https://doi.org/10.1016/0370-2693(82)90728-6}
+
+\bibitem{codata2022}
+Mohr, P.\,J., Newell, D.\,B., Taylor, B.\,N., and Tiesinga, E. (2025).
+``CODATA recommended values of the fundamental physical constants: 2022.''
+\emph{Reviews of Modern Physics} \textbf{97}, 025002.
+\url{https://doi.org/10.1103/RevModPhys.97.025002}
 
 \end{thebibliography}
 
