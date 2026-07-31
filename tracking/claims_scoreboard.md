@@ -25,7 +25,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2006`. 64 claims, 15 distinct live gates across 13 gated claims.
+Release: `r2007`. 64 claims, 15 distinct live gates across 13 gated claims.
 
 | Class | Claims |
 |---|---|
