@@ -1054,20 +1054,51 @@ def verify(
             "HARD_GATE_COUNT_DRIFT",
             str(gate.get("eligible_candidate_count")),
         )
+        claim_gates = (
+            "physicalization_complete",
+            "exact_global_certificate",
+            "independent_recomputation",
+            "all_registered_completions_covered",
+            "all_continuous_parameters_covered",
+            "baseline_freedom_counterexample",
+        )
         for candidate in candidates:
             claims_row = candidate.get("weight_claims", {})
-            expected_eligibility = (
-                "ELIGIBLE"
-                if claims_row.get("physicalization_complete")
-                else "INELIGIBLE_OPEN_PHYSICAL_MAP"
-            )
+            failed_gates = []
+            for gate_name in claim_gates:
+                if claims_row.get(gate_name) is not True:
+                    failed_gates.append(f"weight_claims.{gate_name}")
+            if claims_row.get("open_physical_map") is not False:
+                failed_gates.append("weight_claims.open_physical_map_must_be_false")
+            if (
+                candidate.get("baseline_contract", {}).get("counterexample_scope")
+                != "CANDIDATE_SPECIFIC"
+            ):
+                failed_gates.append("baseline_contract.counterexample_scope")
+            if not candidate.get("exposure_surfaces"):
+                failed_gates.append("exposure_surfaces")
+            if candidate.get("uncertainty_budget", {}).get("frozen") is not True:
+                failed_gates.append("uncertainty_budget.frozen")
+            if candidate.get("power_contract", {}).get("frozen") is not True:
+                failed_gates.append("power_contract.frozen")
+            if not failed_gates:
+                expected_eligibility = "ELIGIBLE"
+            elif "weight_claims.physicalization_complete" in failed_gates:
+                expected_eligibility = "INELIGIBLE_OPEN_PHYSICAL_MAP"
+            else:
+                expected_eligibility = "INELIGIBLE_MISSING_FROZEN_CONTRACTS"
             require(
                 candidate.get("hard_eligibility") == expected_eligibility,
                 "HARD_GATE_ELIGIBILITY_DRIFT",
                 str(candidate.get("candidate_id")),
             )
+            require(
+                candidate.get("hard_eligibility_failed_gates") == sorted(failed_gates),
+                "HARD_GATE_FAILED_LIST_DRIFT",
+                str(candidate.get("candidate_id")),
+            )
         expected_state = (
-            "COMPLETE_BOUNDED_NEGATIVE_INVENTORY__ZERO_ELIGIBLE_CANDIDATES"
+            "ZERO_ELIGIBLE_CANDIDATES__PROVISIONAL_INVENTORY"
             if recomputed_eligible == 0
             else "ELIGIBLE_CANDIDATES_PRESENT"
         )
@@ -1075,6 +1106,14 @@ def verify(
             gate.get("inventory_state") == expected_state,
             "HARD_GATE_STATE_DRIFT",
             str(gate.get("inventory_state")),
+        )
+        require(
+            "complete bounded negative inventory" not in str(gate.get("inventory_state", "")).lower()
+            and isinstance(gate.get("completeness_boundary"), str)
+            and "not a complete bounded negative inventory"
+            in gate["completeness_boundary"],
+            "HARD_GATE_COMPLETENESS_OVERCLAIM",
+            str(gate.get("completeness_boundary")),
         )
         search = registry.get("whole_stack_antecedent_search", {})
         require(
@@ -1141,22 +1180,62 @@ def verify(
         )
         frame_pair_su3 = (Fraction(5), Fraction(1))
         quintet_pair_su3 = (Fraction(3), Fraction(1))
-        invariant = (
+        weighted_average = (
             (3 * frame_pair_su3[0] + 5 * quintet_pair_su3[0]) / 8,
             (3 * frame_pair_su3[1] + 5 * quintet_pair_su3[1]) / 8,
         )
         require(
-            invariant == (Fraction(15, 4), Fraction(1)),
-            "KINETIC_PROJECTION_DRIFT",
-            str(invariant),
+            weighted_average == (Fraction(15, 4), Fraction(1)),
+            "KINETIC_AVERAGE_DRIFT",
+            str(weighted_average),
         )
-        ray_row = by_id.get("wz-kinetic-invariant-projection-ray")
+        dichotomy_row = by_id.get("wz-kinetic-form-dichotomy")
         require(
-            ray_row is not None
-            and ray_row["relation_certificate"]["invariant_ray"]
-            == ["1/4", "5+-1*sqrt5", "15/4+1*sqrt5"],
-            "CANDIDATE_RAY_DRIFT",
-            str(ray_row and ray_row["relation_certificate"]),
+            dichotomy_row is not None
+            and dichotomy_row["relation_certificate"]["port_response_killing_relative"]
+            == ["1", "1/6"]
+            and dichotomy_row["relation_certificate"]["matter_trace_killing_relative"]
+            == ["1", "2/3"]
+            and dichotomy_row["relation_certificate"]["ratio_dichotomy"]
+            == ["6", "3/2"]
+            and Fraction(1) / Fraction(1, 6) == Fraction(6)
+            and Fraction(1) / Fraction(2, 3) == Fraction(3, 2)
+            and Fraction(6) != Fraction(3, 2),
+            "CANDIDATE_DICHOTOMY_DRIFT",
+            str(dichotomy_row and dichotomy_row["relation_certificate"]),
+        )
+        matter_ray_row = by_id.get("wz-matter-trace-kinetic-ray")
+        matter_indices = (Fraction(10, 3), Fraction(2), Fraction(2))
+        matter_ray = tuple(index / 2 for index in matter_indices)
+        require(
+            matter_ray_row is not None
+            and matter_ray == (Fraction(5, 3), Fraction(1), Fraction(1))
+            and matter_ray_row["relation_certificate"]["per_copy_weyl_indices"]
+            == ["10/3", "2", "2"]
+            and matter_ray_row["relation_certificate"]["normalized_ray"]
+            == ["5/3", "1", "1"],
+            "CANDIDATE_MATTER_RAY_DRIFT",
+            str(matter_ray_row and matter_ray_row["relation_certificate"]),
+        )
+        determinant_row = by_id.get("wz-frozen-rg-determinant")
+        beta = (Fraction(41, 6), Fraction(-19, 6), Fraction(-7))
+        cofactors = (
+            matter_indices[1] * beta[2] - matter_indices[2] * beta[1],
+            -(matter_indices[0] * beta[2] - matter_indices[2] * beta[0]),
+            matter_indices[0] * beta[1] - matter_indices[1] * beta[0],
+        )
+        require(
+            determinant_row is not None
+            and cofactors
+            == (Fraction(-23, 3), Fraction(37), Fraction(-218, 9))
+            and determinant_row["relation_certificate"]["exact_cofactors"]
+            == ["-23/3", "37", "-218/9"]
+            and determinant_row["relation_certificate"]["integer_zero_locus"]
+            == "69 x1 - 333 x2 + 218 x3 = 0"
+            and tuple(value * Fraction(-9) for value in cofactors)
+            == (Fraction(69), Fraction(-333), Fraction(218)),
+            "CANDIDATE_DETERMINANT_DRIFT",
+            str(determinant_row and determinant_row["relation_certificate"]),
         )
 
         for level in range(14, 40):
