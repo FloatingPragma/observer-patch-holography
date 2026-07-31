@@ -64,6 +64,51 @@
       "rows": [
         "FZ-10"
       ]
+    },
+    "FZ-11": {
+      "artifact_sha256": {
+        "frozen_target_spin_six_primitive_port_prediction_2026-07-31.md": "1e6dfe17cb917a66f729ae21061704137da65e5269cf925ac3ab2f6ae754d737",
+        "spin_six_primitive_port_prediction_frozen_2026-07-31.json": "2c02c74be715539aa83bffc84fb09e0899e659fe6551c8bb12dffc0baa4a0d64"
+      },
+      "attestation_state": "calendar_pending",
+      "custody_commit": "97202365784ad5bfc96c482b95b429c396afb5bf",
+      "custody_path": "falsification/frozen_targets/fz11_2026-07-31",
+      "decision_rule_artifact_sha256": {
+        "FZ11_DECISION_RULE_ERRATUM_2026-07-31.md": "d04741b01825db75bef57f6d7887acfa54d6abd5a087aa202da862c43c3a13f7",
+        "fz11_decision_rule_v2_2026-07-31.json": "4c4fb022d5f226d3c42ffb902aaacb653594ebe28729f67413a3535f2ebeacfa"
+      },
+      "decision_rule_attestation_state": "calendar_pending",
+      "decision_rule_custody_commit": "8cc5261653e37cbca0e6017fcc95a9fe7f649963",
+      "decision_rule_manifest": "decision_rule_erratum_manifest_2026-07-31.json",
+      "decision_rule_manifest_sha256": "724ef8d0d2f024152e72e2189d41149b329ab3f6bea0235be5a2183fd57e2786",
+      "decision_rule_utc": "2026-07-31T19:02:42Z",
+      "frozen_utc": "2026-07-31T18:13:34Z",
+      "in_repo_artifact_sha256": {
+        "Lean/Screen/A5PrimitivePortPrediction.lean": "cb2e81d0555fa90ee1db6502c7af2d540a785b8567d3310fdd776a21fb5aad4e",
+        "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8"
+      },
+      "lean_repair_artifact_sha256": {
+        "A5PrimitivePortPrediction_repaired.lean": "cb2e81d0555fa90ee1db6502c7af2d540a785b8567d3310fdd776a21fb5aad4e",
+        "LEAN_PROOF_ERRATUM_2026-07-31.md": "26b6f676081980b5eac79be2d4723815417bfdaf915febaf629a5a358b32f448"
+      },
+      "lean_repair_attestation_state": "calendar_pending",
+      "lean_repair_custody_commit": "c35679ab93e4c121fd2d0d51d6e253f9c5bc6257",
+      "lean_repair_manifest": "lean_repair_manifest_2026-07-31.json",
+      "lean_repair_manifest_sha256": "52b919222f5ced78fcc80e4a29e761980b609c7b05b6ab080cd741aefaa5301c",
+      "lean_repair_source_commit": "05771b773ffaef4be10ae67a72e51cc17e3a38fb",
+      "lean_repair_utc": "2026-07-31T18:40:42Z",
+      "original_in_repo_artifact_sha256": {
+        "Lean/Screen/A5PrimitivePortPrediction.lean": "6fbcba24c38aa8c07c6373a577066f74454cc7d580a5ecb69cecaac1f7705f72",
+        "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8"
+      },
+      "registration_manifest": "registration_manifest_2026-07-31.json",
+      "registration_manifest_sha256": "e1533759bd9af051db23163d378bd259c4c76cb88fd79720c67b641e5da4b9c3",
+      "prediction_file": "spin_six_primitive_port_prediction_frozen_2026-07-31.json",
+      "rows": [
+        "FZ-11"
+      ],
+      "source_commit": "66176656dc1143f9ec50ba1a6e409c403545857f",
+      "target_file": "frozen_target_spin_six_primitive_port_prediction_2026-07-31.md"
     }
   },
   "generated_surface": "docs/FROZEN_PREDICTION_LADDER.md",
@@ -202,17 +247,17 @@
       "status": "frozen_stamped_upgrade_pending"
     },
     {
-      "attestation": null,
-      "comparison_protocol": "Template registration only. No dataset is declared, no measurement is read, and no comparison is opened at this status. A future freeze must declare the dataset class (resonant-cavity, clock-comparison, astrophysical dispersion or birefringence, or another rotational-invariance search), the frame convention for the carrier orientation, the estimator, the anisotropy budget, and the decision rule, before any exposure; the one-comparison campaign rule applies through issue #639.",
-      "content": "Spin-six carrier signature: for every finite-range kinetic operator with direction multiset and weights invariant under the proper icosahedral rotation group, realized as a finite-difference operator on the emergent continuum, the dispersion is exactly isotropic through spin five at every order in the carrier scale; every directional artifact below spin ten is one multiple of the unique normalized invariant I6 with the exact 62-direction stationary census (12 and 20 extrema of opposite index, 30 saddles), generically first at order a^4 k^6; and one binary refinement step suppresses the leading residue by exactly 1/16 at that order. Premise ancestry declared: invariance and finite range are the load-bearing premises; the physical carrier realization and the residue amplitude are open and owned by issue #655 and the kinetic-form dichotomy lane. The Standard Model with General Relativity carries exact intrinsic vacuum rotational invariance in this sector and produces no such intrinsic residue at any order.",
-      "content_sha256": null,
-      "custody": null,
-      "frozen_utc": null,
+      "attestation": "The frozen_utc field is the author-declared payload-generation time, not an external timestamp. Source commit 66176656 was created at 2026-07-31T18:17:29Z and custody commit 972023657 at 2026-07-31T18:20:01Z. OpenTimestamps calendar proofs bind both frozen target artifacts and the registration manifest; append-only calendar proofs bind the corrected Lean proof and scientific erratum. Bitcoin upgrades are pending.",
+      "comparison_protocol": "The prospective primitive-port coefficient manifold and append-only corrected decision rule are frozen. Physical comparison is unarmed. An eligible comparison must test the full real, reciprocal, finite-range cosine branch with the complete primitive port orbit as sole hop support and no independent isotropic k^4 or k^6 term through the displayed order. Its dataset-specific contract must fix one post-freeze data release, the joint likelihood or full covariance, physical sector and carrier frame, one shared orientation class in the three-dimensional quotient SO(3)/A5, the boost law, source, medium, gravitational and instrumental nuisance models, trials accounting, sensitivity floor, calibrated joint coverage, and isolation of the carrier contribution before exposure. A photon test also requires equal action on both transverse polarizations. The 2026-07-17 WMAP/CMB template campaign and every data product it inspected are explicitly excluded.",
+      "content": "Primitive twelve-port propagation prediction: under the named real, reciprocal, finite-range cosine kinetic branch, the complete primitive port orbit is the sole hop support and no independent isotropic k^4 or k^6 term is present through the displayed order. Proper-carrier covariance forces equal weights and continuum normalization gives omega^2=(1/(2a^2)) sum_i[1-cos(a k u_i.n)]. Writing its expansion as k^2+C4 k^4+B0 k^6+B6 k^6 I6+O(k^8), the branch predicts C4=-a^2/20, B0=a^4/840, B6=2a^4/7875 and therefore B6/C4^2=32/315, B0/C4^2=10/21 and B6/B0=16/75. Intrinsic anisotropic ranks j=1 through 5 vanish, while j=6 has the unique rotated I6 shape. After C4 fixes the scale, the only angular nuisance is one shared global orientation class valued in the three-dimensional quotient SO(3)/A5. It is not one scalar parameter and does not permit a deformation of I6. Spin six denotes angular rank, not particle spin. The scalar or polarization-independent sector bridge, coherent frame transport and exclusivity are declared physical premises; issue #655 owns their derivation or rejection.",
+      "content_sha256": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8",
+      "custody": "RER source commit 66176656dc1143f9ec50ba1a6e409c403545857f at 2026-07-31T18:17:29Z fixes the prediction receipt. oph-meta custody commit 97202365784ad5bfc96c482b95b429c396afb5bf at 2026-07-31T18:20:01Z fixes the target statement and exact coefficient snapshot. Append-only custody commit c35679ab93e4c121fd2d0d51d6e253f9c5bc6257 pins the corrected sorry-free Lean proof from RER commit 05771b773ffaef4be10ae67a72e51cc17e3a38fb. Append-only custody commit 8cc5261653e37cbca0e6017fcc95a9fe7f649963 records the complete decision rule without changing prediction bytes or reading comparison data. Public repository custody requires these commits on origin/main.",
+      "frozen_utc": "2026-07-31T18:13:34Z",
       "id": "FZ-11",
-      "kill_band": "FZ11-R01: a certified carrier-correlated leading rotational residue at any spin from one through five refutes the icosahedral carrier class outright. FZ11-R02: a certified spin-six leading residue whose angular dependence deviates from the rigid I6 template, or whose stationary census deviates from 12 and 20 extrema of opposite index with 30 saddles refutes the class equally. FZ11-R03 (POSITIVE DIRECTION, GATED): a certified residue matching the template is an effect with no intrinsic vacuum Standard Model or General Relativity source; it may be scored as OPH-positive only after the carrier realization and a source-derived amplitude exist and only through the sealed issue #639 comparison custody. Shape kills are parameter-free; no tolerance may be tuned after exposure.",
+      "kill_band": "Scope premise: the real, reciprocal, finite-range cosine kinetic branch uses the complete primitive port orbit as its sole hop support and has no independent isotropic k^4 or k^6 term through the displayed order. FZ11-R01 (FAIL): an isolated intrinsic C4 is positive at five or more standard deviations. FZ11-R02 (FAIL): an isolated intrinsic anisotropic coefficient at angular rank one through five is nonzero at five or more standard deviations. FZ11-R03 (FAIL): for resolved negative C4 with adequate sixth-order sensitivity, the linked B0, B6, or rigid rotated I6 vector is excluded after fitting one shared global orientation class in the three-dimensional quotient SO(3)/A5 at five or more standard deviations. FZ11-R04 (FAIL): the calibrated joint likelihood excludes the complete C4<0, B0/C4^2=10/21, B6/C4^2=32/315, rotated-I6 branch manifold at five or more standard deviations. FZ11-R05 (SUPPORT): the zero-coefficient minimal locally Lorentz-invariant Standard Model plus General Relativity baseline is excluded at five or more standard deviations, the complete linked branch manifold agrees within two standard deviations, named systematic alternatives are rejected, and an independent eligible release replicates it. Every null, underpowered, incomplete-covariance, unresolved-frame, polarization-split, or non-isolated outcome is INCONCLUSIVE. FAIL rejects the primitive twelve-port physical propagation branch; it is OPH-wide only if issue #655 proves that branch forced and exclusive.",
       "milestone": "C3-V",
       "owning_issue": 655,
-      "status": "registered_pending_freeze"
+      "status": "frozen_stamped_upgrade_pending"
     }
   ],
   "schema": "oph.frozen_prediction_register.v3"

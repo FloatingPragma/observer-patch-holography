@@ -30,6 +30,7 @@
     "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
     "OPH-COSMO-SCREEN-SPECTRUM",
     "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+    "OPH-A5-PRIMITIVE-PORT-SPIN6",
     "OPH-SCREEN-PORT-CURRENT-INNER",
     "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
     "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
@@ -192,6 +193,11 @@
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-SCREEN-PORT-CURRENT-INNER",
       "role": "supplies the certified twelve-port module, proper A5 action, and one fixed line used by the A1/A2 compact Lie-type theorem; target-blind readback separately supplies R=-J"
+    },
+    {
+      "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
+      "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale remain the frozen branch premises owned by issue 655"
     },
     {
       "from": "OPH-SCREEN-PORT-CURRENT-INNER",

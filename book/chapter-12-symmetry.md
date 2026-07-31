@@ -319,6 +319,65 @@ from low-order angular probes unusually well. A realized state can be
 aligned or anisotropic. The symmetry constrains the allowed block structure,
 not the state chosen inside it.
 
+### A Frozen Propagation Test
+
+One physical branch turns this finite rigidity into a prospective test. It
+uses a real, reciprocal, finite-range cosine kinetic operator with the
+complete primitive twelve-port orbit as its only hop support through the
+displayed order. It has no independent kinetic correction at that order and
+carries one carrier frame
+coherently to an instrument. Proper-carrier covariance fixes the equal
+weights. The long-wavelength dispersion is isotropic through angular ranks
+one to five. At rank six it has the unique rotated icosahedral pattern. Spin
+six means angular rank here. It has no connection to the spin of a particle.
+
+Let $C_4$ denote the isotropic fourth-order coefficient, $B_0$ the isotropic
+sixth-order coefficient, and $B_6$ the degree-six directional coefficient.
+For carrier spacing $a$, the branch predicts
+
+$$
+C_4=-\frac{a^2}{20},\qquad
+B_0=\frac{a^4}{840},\qquad
+B_6=\frac{2a^4}{7875}.
+$$
+
+Eliminating $a$ fixes
+$B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$, and
+$B_6/B_0=16/75$. Halving the carrier spacing divides both sixth-order
+coefficients by sixteen. Once a negative $C_4$ is resolved on this branch, the
+only directional freedom is a three-parameter orientation class of the carrier
+modulo its sixty proper rotations.
+
+The branch fixes its forecast before any qualifying comparison. The registered
+comparison excludes the cosmic-microwave-background template search and every
+data product examined there. The comparison protocol is unarmed: an eligible
+experiment must fix the frame, covariance,
+nuisance model, sensitivity, and decision thresholds. Deriving
+the scalar or polarization-independent propagation bridge from the repair
+dynamics, requiring equal action on both transverse polarizations in a photon
+test, transporting its frame coherently, and proving it exclusive are
+work in progress.
+
+Minimal locally Lorentz-invariant Standard Model physics
+with General Relativity gives no intrinsic vacuum term of this form.
+Nonminimal Lorentz-violating physics and environmental anisotropy can imitate
+one. At five or more standard deviations under calibrated joint coverage, a
+positive intrinsic fourth-order coefficient, a lower-rank intrinsic
+anisotropy, or exclusion of the linked sixth-order relation rejects the named
+propagation branch. A calibrated joint likelihood that excludes the complete
+branch manifold at the same threshold rejects it as well. A null or
+underpowered result is inconclusive. The same applies to incomplete covariance,
+an unresolved frame, polarization splitting, or a carrier contribution that
+cannot be isolated.
+
+Support requires the zero-coefficient baseline to be
+excluded at five or more standard deviations, the complete linked branch to
+agree within two, the named systematic alternatives to fail, and an independent
+eligible experiment to reproduce the result. It reaches the
+full
+framework only if the open bridge derivation proves that branch forced and
+exclusive.
+
 The golden ratio appears here as geometry. Icosahedral coordinates contain
 $\sqrt5$ and $\varphi=(1+\sqrt5)/2$, and the adjacency spectrum contains
 $\pm\sqrt5$. This is the shape arithmetic of the port frame. The later

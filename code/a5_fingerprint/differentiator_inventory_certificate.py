@@ -87,11 +87,12 @@ def fact_odd_moments_vanish() -> dict[str, Any]:
             f"odd moment {k} nonzero",
         )
     return {
-        "vanishing_odd_moments": [1, 3, 5, 7],
-        "consequence": (
-            "no odd-power vacuum dispersion at any order; the linear "
-            "(n = 1) sector is exactly empty"
+        "mechanism": (
+            "the class symbol is an even analytic function of k (a "
+            "cosine sum), so every odd-power dispersion term vanishes at "
+            "every order for every member"
         ),
+        "antipodality_cross_check_vanishing_odd_moments": [1, 3, 5, 7],
     }
 
 
@@ -116,44 +117,38 @@ def fact_five_fold_sector() -> dict[str, Any]:
 
 
 def fact_angular_comb() -> dict[str, Any]:
-    # equal-port comb I_l for l <= 14 by the exact Legendre recurrence
-    def legendre_pair(max_level: int):
-        t = (Fraction(0), Fraction(1, 5))
-        vals = [(Fraction(1), Fraction(0)), t]
-        for level in range(1, max_level):
-            term = (
-                Fraction(2 * level + 1)
-                * Fraction(1)
-                ,
-            )
+    """Equal-port comb I_l for l <= 14 by two exact Legendre recurrences.
+
+    The comb is I_l = [P_l(1) + P_l(-1) + 5(P_l(t) + P_l(-t))]/12 with
+    t = 1/sqrt5; both signed recurrences run in Q(sqrt5) pairs, every
+    level's value is required rational, and the odd nulls are computed
+    rather than asserted.
+    """
+
+    def legendre_at(t0):
+        vals = [(Fraction(1), Fraction(0)), t0]
+        for level in range(1, 15):
             a, b = vals[level]
-            # multiply by t = (0, 1/5): (a,b)*(0,1/5) with (x+y sqrt5):
-            prod = (5 * b * Fraction(1, 5), a * Fraction(1, 5))
+            prod = (5 * b * t0[1] + a * t0[0], a * t0[1] + b * t0[0])
             prod = (prod[0] * (2 * level + 1), prod[1] * (2 * level + 1))
             prev = vals[level - 1]
-            nxt = (
+            vals.append((
                 (prod[0] - level * prev[0]) / (level + 1),
                 (prod[1] - level * prev[1]) / (level + 1),
-            )
-            vals.append(nxt)
+            ))
         return vals
 
-    vals = legendre_pair(15)
+    plus = legendre_at((Fraction(0), Fraction(1, 5)))
+    minus = legendre_at((Fraction(0), Fraction(-1, 5)))
     comb = {}
     for level in range(15):
-        a, b = vals[level]
-        plus_minus_sum = (2 * a, Fraction(0)) if level % 2 == 0 else (
-            Fraction(0),
-            2 * b,
-        )
-        value = (
-            Fraction(1 + (-1) ** level) + 5 * plus_minus_sum[0]
+        rational = (
+            Fraction(1 + (-1) ** level)
+            + 5 * (plus[level][0] + minus[level][0])
         ) / 12
-        require(
-            level % 2 == 1 or plus_minus_sum[1] == 0,
-            "comb irrationality drift",
-        )
-        comb[level] = value if level % 2 == 0 else Fraction(0)
+        irrational = plus[level][1] + minus[level][1]
+        require(irrational == 0, f"comb irrational at level {level}")
+        comb[level] = rational
     require(comb[6] == Fraction(11, 25), "comb level six drift")
     require(comb[10] == Fraction(247, 1875), "comb level ten drift")
     require(comb[12] == Fraction(1071, 3125), "comb level twelve drift")
@@ -169,11 +164,12 @@ def fact_angular_comb() -> dict[str, Any]:
         "weights": {"6": "11/25", "10": "247/1875", "12": "1071/3125"},
         "even_zeros": [2, 4, 8, 14],
         "all_odd_zero": True,
+        "odd_nulls_computed": True,
     }
 
 
 def fact_z6_kernel() -> dict[str, Any]:
-    # the diagonal element (e^{2 pi i/3} I3, -I2, e^{i pi/6}?) acts
+    # the diagonal element (e^{2 pi i/3} I3, -I2, e^{i pi/3}) acts
     # trivially on the fifteen-state table; recompute with sixth roots
     # of unity as exponents mod 6: charge of each row under
     # (g3, g2, z) = (w^2 I3, w^3 I2, w) with w = e^{i pi/3}:
@@ -202,15 +198,16 @@ def fact_z6_kernel() -> dict[str, Any]:
 
 
 def fact_kinetic_dichotomy() -> dict[str, Any]:
-    # Killing-relative su(2):su(3) coefficient ratios of the two branches
-    # port branch: trace form with Dynkin pair (T2, T3) = (1/2, 1/2) per
-    # doublet/triplet content of the response space H = C3 + C3:
-    # ratio recomputation follows the committed Lean module's arithmetic:
-    # killingRelativeSU2(T2) = T2/4, killingRelativeSU3(T3) = T3/6.
+    # Killing-relative su(2):su(3) coefficient ratios of the two
+    # branches, in the convention of Lean/Screen/KineticFormDichotomy:
+    # killingRelativeSU2(T2) = T2/2 (dual Coxeter number 2) and
+    # killingRelativeSU3(T3) = T3/3 (dual Coxeter number 3), with the
+    # pinned Dynkin pairs (T2, T3) = (2, 1/2) on the port branch and
+    # (2, 2) on the matter branch.
     def ratio(t2: Fraction, t3: Fraction) -> Fraction:
-        return (t2 / 4) / (t3 / 6)
+        return (t2 / 2) / (t3 / 3)
 
-    port = ratio(Fraction(4), Fraction(1))
+    port = ratio(Fraction(2), Fraction(1, 2))
     matter = ratio(Fraction(2), Fraction(2))
     require(port == 6, "port branch ratio drift")
     require(matter == Fraction(3, 2), "matter branch ratio drift")
@@ -221,8 +218,8 @@ def fact_kinetic_dichotomy() -> dict[str, Any]:
             "det(alpha^-1, k, b) = 0: the inverse couplings lie on the "
             "plane spanned by the kinetic ray and the census beta vector; "
             "a scale-free relation among measured couplings that legacy "
-            "models do not force; the branch selector is the open half of "
-            "issue #655"
+            "models do not force; the physical kinetic-action selector "
+            "remains open in the kinetic-form selection receipt"
         ),
     }
 
@@ -267,23 +264,31 @@ def build_rows() -> list[dict[str, Any]]:
             "row": 1,
             "differentiator": "spin-six rotational fingerprint",
             "oph_statement": (
-                "spins one through five exactly empty at every order; "
-                "every residue below spin ten one multiple of the rigid "
-                "I6 with the sign-symmetric 62-direction census; generic "
-                "first artifact at a^4 k^6 with the exact 1/16 step"
+                "angular ranks one through five exactly empty at every order; "
+                "every residue below rank ten one multiple of the rigid I6 "
+                "with the sign-symmetric 62-direction census; on the frozen "
+                "primitive equal-weight branch the first directional artifact "
+                "is a^4 k^6 with the exact 1/16 refinement step"
             ),
             "recomputed_facts": nulls,
             "legacy_status": (
-                "the Standard Model with General Relativity produces no "
-                "intrinsic vacuum rotational residue of any shape"
+                "the minimal, locally Lorentz-invariant Standard Model "
+                "with General Relativity produces no intrinsic vacuum "
+                "rotational residue of any shape; nonminimal operators, "
+                "media, and sources are separately modeled"
             ),
             "data_contact": (
                 "published subluminal quadratic dispersion limits bound "
-                "the carrier scale below 1.3e-27 m (exposed retrospective "
-                "diagnostic)"
+                "the carrier scale below 8.9e-29 m (exposed retrospective "
+                "diagnostic; primary Xi and Shu, Chinese Physics C 49, "
+                "125101 (2025), cross-check LHAASO, Physical Review "
+                "Letters 133, 071501 (2024); see the carrier-scale "
+                "receipt in this package)"
             ),
-            "falsification": "ladder row FZ-11 kill bands",
-            "type": "finite theorem + frozen conditional prediction",
+            "falsification": "ladder row FZ-11 full-manifold decision rule",
+            "type": (
+                "finite theorem + frozen prospective physical-branch prediction"
+            ),
         },
         {
             "row": 2,
@@ -296,12 +301,15 @@ def build_rows() -> list[dict[str, Any]]:
             ),
             "recomputed_facts": odd,
             "legacy_status": (
-                "linear-dispersion quantum-gravity rivals are excluded by "
-                "published linear bounds above the Planck scale; those "
-                "bounds impose no constraint on the carrier class"
+                "linear-dispersion quantum-gravity models with "
+                "Planckian-coefficient terms are excluded by published "
+                "linear bounds above the Planck scale; those bounds "
+                "impose no constraint on the carrier class"
             ),
             "data_contact": (
-                "published linear limits (exposed literature pointer): "
+                "published linear limits (exposed literature pointers: "
+                "Vasileiou et al., Physical Review D 87, 122001 (2013); "
+                "LHAASO, Physical Review Letters 133, 071501 (2024)): "
                 "the strongest sit above the Planck energy"
             ),
             "falsification": (
@@ -386,13 +394,16 @@ def build_rows() -> list[dict[str, Any]]:
             ),
             "recomputed_facts": z6,
             "legacy_status": (
-                "legacy physics leaves the global form unmeasured and "
-                "does not force charge commensuration from the gauge "
-                "sector alone"
+                "legacy physics leaves the global form unmeasured; "
+                "anomaly cancellation constrains hypercharges in the "
+                "minimal spectrum while a continuous dequantization "
+                "direction survives with Dirac neutrinos, and the gauge "
+                "sector alone forces no commensuration"
             ),
             "data_contact": (
                 "matter-neutrality experiments bound residual charges at "
-                "the 1e-21 level (exposed literature pointer); exact "
+                "the 1e-21 level (exposed literature pointer: Bressi et "
+                "al., Physical Review A 83, 052101 (2011)); exact "
                 "commensuration is the carrier-side statement"
             ),
             "falsification": (
@@ -460,7 +471,14 @@ def build_rows() -> list[dict[str, Any]]:
                 "capacity coordinate lands within one percent of the "
                 "Lambda-derived comparison coordinate"
             ),
-            "recomputed_facts": {"typed": "diagnostics; see closure receipts"},
+            "recomputed_facts": {
+                "typed": "diagnostics",
+                "custody_paths": [
+                    "code/P_derivation/interval_contraction_certificate.py",
+                    "code/capacity_readback/manifests/"
+                    "n_closure_branch_certificate.json",
+                ],
+            },
             "legacy_status": (
                 "legacy physics carries the fine-structure constant and "
                 "the cosmological constant as free parameters"
@@ -487,11 +505,11 @@ def build_receipt() -> dict[str, Any]:
         "issue": 647,
         "reading": (
             "nine typed separations between the carrier class and legacy "
-            "models: two frozen or registered kill surfaces, five finite "
-            "theorems with exact recomputed facts, one frozen statistic "
-            "with an open selector, and one diagnostic pair; every row "
-            "names its falsification direction and no row opens a "
-            "comparison"
+            "models: two frozen or registered kill surfaces, four finite "
+            "theorems with exact recomputed facts, one conditional exact "
+            "packet, one frozen statistic with an open selector, and one "
+            "diagnostic pair; every row names its falsification "
+            "direction and no row opens a comparison"
         ),
         "rows": rows,
         "comparison_boundary": {

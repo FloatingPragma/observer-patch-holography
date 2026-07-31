@@ -388,11 +388,11 @@
    "surface": "FZ-10"
   },
   {
-   "classification": "ACTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
-   "forecast_use": "Use only under the live registered comparison protocol: Template registration only. No dataset is declared, no measurement is read, and no comparison is opened at this status. A future freeze must declare the dataset class (resonant-cavity, clock-comparison, astrophysical dispersion or birefringence, or another rotational-invariance search), the frame convention for the carrier orientation, the estimator, the anisotropy budget, and the decision rule, before any exposure; the one-comparison campaign rule applies through issue #639.",
+   "classification": "ACTIVE_REGISTER_ROW__FROZEN_STAMPED_UPGRADE_PENDING",
+   "forecast_use": "Use only under the live registered comparison protocol: The prospective primitive-port coefficient manifold and append-only corrected decision rule are frozen. Physical comparison is unarmed. An eligible comparison must test the full real, reciprocal, finite-range cosine branch with the complete primitive port orbit as sole hop support and no independent isotropic k^4 or k^6 term through the displayed order. Its dataset-specific contract must fix one post-freeze data release, the joint likelihood or full covariance, physical sector and carrier frame, one shared orientation class in the three-dimensional quotient SO(3)/A5, the boost law, source, medium, gravitational and instrumental nuisance models, trials accounting, sensitivity floor, calibrated joint coverage, and isolation of the carrier contribution before exposure. A photon test also requires equal action on both transverse polarizations. The 2026-07-17 WMAP/CMB template campaign and every data product it inspected are explicitly excluded.",
    "owning_issue": 655,
    "registry_kind": "active_register",
-   "registry_status": "registered_pending_freeze",
+   "registry_status": "frozen_stamped_upgrade_pending",
    "surface": "FZ-11"
   },
   {
@@ -449,7 +449,7 @@
   "candidate_inventory_sha256": "sha256:12c8a569a92f265f0b033a9df4b20fa59adce6c05b8d63d918e81ce553731752",
   "contract_schema_sha256": "sha256:518ca92a84a073f25f0e967e8b4cedf92f7243d56d6c9e10c958cbe9a460ae62",
   "forecast_freeze_policy_sha256": "sha256:ae9508d362de40dec25c2935d96606ce3cb4d9d7d40f255b6c00576abeb9b2c5",
-  "frozen_prediction_register_sha256": "sha256:8bd80b820497002299c71ac4bb6f07cc8bfab5365018a290631f2a7a88c0a400",
+  "frozen_prediction_register_sha256": "sha256:2d41465c22dfb108c1c82ebad02e88397e87a2bb3f9be1c5b5531807e064b45e",
   "module_sha256": "sha256:27cf76a626733e58c5246d13d87cb8ce0904b954f63887fd03d7c73399441a35"
  },
  "potential_upgrade_routes": {
@@ -473,5 +473,5 @@
   "rule": "This C1 draft orders its static seed rows by candidate_class, integer selection_priority, and candidate_id. It is not the C3 ranking contract. Before any C3 candidate generation or evaluation, a successor policy must pin the complete issue-647 grammar, numerical weights, eligibility, tie breaker, skip policy, exposure class, direct-N non-reentry rule, and campaign-wide one-comparison stop.",
   "status": "DRAFT_UNFROZEN"
  },
- "state_sha256": "sha256:1bc62bdb1d0f608d718430307a7d9c8572319a33cc5484ded832222a71c9a817"
+ "state_sha256": "sha256:185b72089f4db54ff8081d890d96689529ed3668703863a14df8d5c5d3fc0eb7"
 }

@@ -164,16 +164,58 @@ certificates:
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-7. **An exact finite de Sitter capacity law and shock normalization.**
-   Maximizing finite generalized entropy over sector probabilities gives
-   $\log M$ exactly. Uniform transfer of a fraction $f$ of the screen capacity
-   changes the extremal entropy by $\log(1-f)$. In pure de Sitter space,
-   $\mu^2=d-2$ equals the $\ell=1$ spherical Laplacian eigenvalue independently
-   of the horizon radius. The physical time-advance reading requires the
-   stated horizon, observer-mass, gravitational, gauge-mode, and kinetic
-   dictionaries. See the
-   [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-   and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
+7. **A frozen degree-six propagation prediction from twelve ports.** On the
+   named real reciprocal finite-range cosine branch where the complete
+   primitive port orbit is the sole hop support, with no independent kinetic
+   term through the displayed order, proper-carrier covariance fixes equal
+   weights. Continuum normalization gives
+   $\omega^2=k^2+C_4k^4+B_0k^6+B_6k^6\mathcal I_6(R^{-1}\hat k)+O(k^8)$,
+   with
+   $C_4=-a^2/20$, $B_0=a^4/840$, and $B_6=2a^4/7875$. Thus
+   $B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$, and $B_6/B_0=16/75$.
+   Intrinsic anisotropic ranks $j=1$ through $5$ vanish, while $j=6$ has one
+   rigid icosahedral shape up to a three-parameter orientation class in
+   $SO(3)/A_5$. Spin six means
+   angular rank, unrelated to particle spin. Minimal locally Lorentz-invariant
+   Standard Model physics with General Relativity gives zero intrinsic vacuum
+   coefficients on this surface. Nonminimal Lorentz-violating physics and
+   environmental anisotropy can imitate a signal. The prediction and its
+   branch-level decision rule are fixed in a source snapshot with public commit
+   custody. Detached timestamp proofs await Bitcoin upgrade. The
+   registered comparison excludes the dated cosmic-microwave-background
+   template search and every data product examined there. The
+   physical comparison is unarmed until an eligible dataset contract fixes
+   the frame, covariance, nuisance model, sensitivity, and thresholds. The
+   scalar or polarization-independent sector bridge, equal action on both
+   transverse polarizations for a photon test, coherent frame
+   transport, and exclusivity are work in progress. A null or underpowered
+   result is inconclusive. Incomplete covariance, an unresolved frame,
+   polarization splitting, or failure to isolate the carrier contribution is
+   likewise inconclusive. If $C_4$ is negative at five or more standard
+   deviations with enough sensitivity, exclusion of the linked sixth-order
+   ratios or rotated shape at five or more standard deviations, after the
+   fixed $SO(3)/A_5$ orientation profile and with calibrated joint coverage,
+   rejects this primitive-port branch. An isolated positive $C_4$ or nonzero
+   intrinsic anisotropy at ranks $1$ through $5$ rejects the branch at the same
+   threshold and under the same calibrated coverage.
+   A calibrated joint likelihood that excludes the complete linked branch
+   manifold at five or more standard deviations also rejects it.
+   Support requires exclusion of the zero-coefficient baseline at five or
+   more standard deviations, agreement with the complete linked manifold
+   within two, rejection of the named systematic alternatives, and an
+   independent eligible replication. It reaches the full framework only if the open
+   bridge derivation proves the branch forced and exclusive. See the
+   [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
+   [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),
+   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md), and
+   [physical-bridge issue](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
+
+A separate finite theorem maximizes generalized entropy at $\log M$, gives
+the exact shock shift $\log(1-f)$, and fixes the pure de Sitter relation
+$\mu^2=d-2$. Its physical time-advance reading requires the stated horizon,
+observer-mass, gravitational, gauge-mode, and kinetic dictionaries. See the
+[focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
+and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
 
 The structural ledger records three further action-level consequences. On
 separately declared unbroken Maxwell, perturbative Yang--Mills, and pure

@@ -227,6 +227,53 @@ filter and derives \(R=-J\). The declared matrix construction realizes the
 finite algebra. Reconstructing it from source histories and identifying it
 with measured laboratory gauge currents are work in progress.
 
+The same carrier supplies a frozen prospective prediction on one named
+physical propagation branch. The branch uses a real, reciprocal, finite-range
+cosine operator on the complete primitive twelve-port orbit, with no
+independent kinetic term through the displayed order. Its
+long-wavelength dispersion has no intrinsic anisotropic term at angular ranks
+one through five. Rank six carries one rigid icosahedral shape, up to a
+three-parameter orientation class in $SO(3)/A_5$. Spin six is the angular rank
+of this pattern. It
+does not describe the spin of a particle.
+
+If $C_4$ is the isotropic fourth-order coefficient, $B_0$ the isotropic
+sixth-order coefficient, and $B_6$ the directional degree-six coefficient,
+the prediction fixes
+
+$$
+\frac{B_6}{C_4^2}=\frac{32}{315},\qquad
+\frac{B_0}{C_4^2}=\frac{10}{21},\qquad
+\frac{B_6}{B_0}=\frac{16}{75}.
+$$
+
+The registered comparison excludes the cosmic-microwave-background template
+search and every data product examined there. The comparison protocol is
+unarmed: an eligible data contract must fix the frame, joint covariance,
+nuisance model, sensitivity, and decision thresholds.
+The scalar or polarization-independent sector bridge, coherent frame
+transport, equal action on both transverse polarizations for a photon test,
+and proof of exclusivity are work in progress. Minimal locally
+Lorentz-invariant Standard Model physics with General Relativity predicts
+zero intrinsic vacuum coefficients on this surface.
+
+Nonminimal
+Lorentz-violating physics and environmental effects can imitate a signal.
+At five or more standard deviations under calibrated joint coverage, positive
+intrinsic $C_4$, lower-rank intrinsic anisotropy, or exclusion of the linked
+sixth-order relation rejects the primitive-port propagation branch. A
+calibrated joint likelihood that excludes the complete branch manifold at the
+same threshold rejects it as well. Null and underpowered results are
+inconclusive. Incomplete covariance, an unresolved frame, polarization
+splitting, or failure to isolate the carrier contribution is inconclusive too.
+Support requires rejection of the zero-coefficient baseline at five or more
+standard deviations, agreement with the complete linked branch within two,
+rejection of the named systematic alternatives, and independent eligible
+replication. The result becomes a test
+of
+the full framework only if the open bridge derivation proves the branch forced
+and exclusive.
+
 The six antipodal axes also leave a sixfold residue in the declared
 coefficient lattice. The computed central maps connect it conditionally to
 the $\mathbb Z_6$ action on every declared matter tensor. The

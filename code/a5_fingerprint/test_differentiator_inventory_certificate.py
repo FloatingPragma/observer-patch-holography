@@ -24,10 +24,15 @@ def test_recomputed_facts_are_present_and_exact() -> None:
     receipt = di.build_receipt()
     rows = {row["row"]: row for row in receipt["rows"]}
     assert rows[1]["recomputed_facts"]["m_6"] == 1
-    assert rows[2]["recomputed_facts"]["vanishing_odd_moments"] == [1, 3, 5, 7]
+    assert rows[1]["type"] == (
+        "finite theorem + frozen prospective physical-branch prediction"
+    )
+    assert rows[2]["recomputed_facts"]["antipodality_cross_check_vanishing_odd_moments"] == [1, 3, 5, 7]
+    assert rows[4]["recomputed_facts"]["odd_nulls_computed"] is True
     assert rows[4]["recomputed_facts"]["weights"]["6"] == "11/25"
     assert rows[6]["recomputed_facts"]["order"] == 6
     assert rows[7]["recomputed_facts"]["port_branch_su2_su3_ratio"] == "6"
+    assert "issue #655" not in rows[7]["recomputed_facts"]["frozen_statistic"]
     assert rows[8]["recomputed_facts"]["recomputed_center_in_window"] is True
 
 

@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 191,
+  "surface_count": 197,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -76,6 +76,11 @@
     },
     {
       "path": "paper/tex_fragments/A5_WZ_PHYSICAL_STATUS_PORT.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -530,6 +535,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/A5AngularKernels.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/A5AngularMultiplets.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -575,6 +585,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/A5PrimitivePortPrediction.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/A5SixAxes.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -596,6 +611,11 @@
     },
     {
       "path": "Lean/Screen/ExteriorSelection.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/KineticFormDichotomy.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -676,6 +696,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/Bridges/ObservableNormalForms.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
@@ -811,6 +836,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/QuotientLumpability.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/QuotientLumpabilityRuntimeHarness.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

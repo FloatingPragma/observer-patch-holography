@@ -181,17 +181,66 @@ données et certificats :
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-7. **Une loi exacte de capacité finie et une normalisation exacte du choc en
-   espace de Sitter.** La maximisation de l’entropie généralisée finie donne
-   exactement $\log M$. Le transfert uniforme d’une fraction $f$ de la
-   capacité modifie l’entropie extrémale de $\log(1-f)$. Dans l’espace de
-   Sitter pur, $\mu^2=d-2$ est la valeur propre sphérique $\ell=1$,
-   indépendamment du rayon de l’horizon. La lecture physique comme avance
-   temporelle exige les dictionnaires déclarés de l’horizon, de la masse de
-   l’observateur, de la gravitation, des modes de jauge et de l’opérateur
-   cinétique. Voir l’
-   [article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-   et sa [preuve Lean](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
+7. **Une prédiction gelée de propagation de degré six issue des douze
+   ports.** Sur la branche cinétique réelle, réciproque et de portée finie où
+   l’orbite complète des ports primitifs est le seul support de saut, sans
+   terme cinétique indépendant à l’ordre affiché, la covariance du porteur
+   impose des poids égaux. La normalisation continue donne
+   $\omega^2=k^2+C_4k^4+B_0k^6+B_6k^6\mathcal I_6(R^{-1}\hat k)+O(k^8)$,
+   avec
+   $C_4=-a^2/20$, $B_0=a^4/840$ et $B_6=2a^4/7875$. Il en résulte
+   $B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$ et $B_6/B_0=16/75$.
+   Les rangs anisotropes intrinsèques $j=1$ à $5$ s’annulent, tandis que le
+   rang $j=6$ possède une forme icosaédrique rigide, à une classe d’orientation
+   à trois paramètres dans $SO(3)/A_5$ près. Le spin six désigne ici un rang
+   angulaire, sans rapport
+   avec le spin d’une particule. Le Modèle standard minimal localement
+   invariant de Lorentz avec la relativité générale donne des coefficients
+   intrinsèques du vide nuls sur cette surface. Une physique non minimale avec
+   violation de l’invariance de Lorentz et une anisotropie environnementale
+   peuvent imiter ce signal. La prédiction et sa règle de décision au niveau
+   de la branche sont fixées dans un instantané source sous garde par commit
+   public. Les preuves horodatées détachées attendent leur ancrage Bitcoin. La
+   comparaison enregistrée exclut la recherche
+   datée du gabarit du fond diffus cosmologique et toutes les données qui y ont
+   été examinées. La comparaison physique est désarmée jusqu’à
+   ce qu’un contrat de données admissible fixe
+   le repère, la covariance, les paramètres de nuisance, la sensibilité et
+   les seuils. Le pont vers un secteur scalaire ou indépendant de la
+   polarisation, l’action identique sur les deux polarisations transverses
+   pour un test photonique, le transport cohérent du repère et l’exclusivité
+   sont en cours. Un résultat nul ou insuffisamment sensible ne permet aucune
+   conclusion. Une covariance incomplète, un repère non résolu, une séparation
+   entre polarisations ou l’absence d’isolation de la contribution du porteur
+   ne permettent pas davantage de conclure. Si $C_4$ est
+   négatif à cinq écarts-types ou davantage, avec une sensibilité suffisante,
+   l’exclusion des rapports liés du sixième ordre ou de la forme tournée à
+   cinq écarts-types ou davantage, après le profil d’orientation fixé dans
+   $SO(3)/A_5$ et avec une couverture jointe calibrée, rejette cette branche de
+   ports primitifs. Un $C_4$ intrinsèque positif ou une anisotropie intrinsèque
+   non nulle aux rangs $1$ à $5$ la rejette au même seuil et sous la même
+   couverture calibrée.
+   Une vraisemblance jointe calibrée qui exclut la variété complète de la
+   branche liée à cinq écarts-types ou davantage la rejette également.
+   Un résultat favorable exige que la référence à coefficients nuls soit
+   exclue à cinq écarts-types ou davantage, que la variété liée complète
+   concorde à moins de deux écarts-types, que les alternatives systématiques
+   déclarées soient rejetées et qu’une expérience admissible indépendante
+   reproduise le résultat.
+   Elle atteint l’ensemble du cadre seulement si la dérivation ouverte du pont
+   prouve que cette branche est forcée et exclusive. Voir le
+   [reçu exact de la prédiction](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
+   la [preuve Lean des coefficients](Lean/Screen/A5PrimitivePortPrediction.lean),
+   l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) et le
+   [problème du pont physique](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
+
+Un théorème fini distinct maximise l’entropie généralisée à $\log M$,
+donne le décalage exact du choc $\log(1-f)$ et fixe la relation de Sitter pure
+$\mu^2=d-2$. Sa lecture physique comme avance temporelle exige les
+dictionnaires déclarés de l’horizon, de la masse de l’observateur, de la
+gravitation, des modes de jauge et de l’opérateur cinétique. Voir l’
+[article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
+et sa [preuve Lean](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
 
 Le registre structurel consigne trois autres conséquences au niveau des
 actions. Sur les branches déclarées séparément de Maxwell non brisée, de

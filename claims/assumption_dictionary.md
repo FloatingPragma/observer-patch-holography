@@ -304,3 +304,9 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `uniqueness_certificate` | The Newton closure assumes the interval uniqueness certificate for the declared map. | Observers synthesis |
 | `visible_interface_statistics` | The observer-patch definition assumes statistics collected only on visible interfaces. | Screen microphysics |
 | `zero_cycle_affinity` | Modular gearing assumes zero cycle affinity in the gearing graph. | Screen microphysics |
+| `primitive_twelve_port_orbit_is_complete_directional_support` | Through the displayed derivative order, the physical branch uses the complete primitive twelve-port orbit and no additional intrinsic directional hops. | Flagship spin-six prediction, issue #655 |
+| `proper_carrier_covariance_and_transitivity` | The physical scalar coefficient field is invariant under the proper carrier action, which is transitive on the twelve primitive ports and therefore forces equal weights. | A5 port action and FZ-11 prediction |
+| `normalized_scalar_or_polarization_independent_propagation_symbol` | The physical branch identifies the normalized scalar cosine generator with its propagation symbol; a photon reading requires the same symbol on both transverse polarizations. | Flagship spin-six prediction, issue #655 |
+| `finite_nonzero_carrier_scale` | The primitive-port propagation scale (a) is finite and strictly positive. | FZ-11 prediction |
+| `coherent_carrier_frame_transport` | One carrier rest-frame orientation is transported coherently over the comparison domain and mapped into the declared observer frame. | FZ-11 prediction, issue #655 |
+| `exclusive_intrinsic_coefficient_isolation` | The comparison model isolates the intrinsic carrier coefficient vector from source, medium, gravitational, instrumental, and other physical contributions. | FZ-11 comparison contract |
