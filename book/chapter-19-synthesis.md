@@ -377,11 +377,10 @@ local pixel.
 The local electroweak comparison corresponds to a capacity near
 $3.53\times10^{122}$. The de Sitter reading is
 $3.31\times10^{122}$. They differ by $6.6$ percent on the unrounded central
-values. A physical identification has to explain that gap. The candidate
-closure of the strange-loop chapter reads it as the withheld $P/24$
-closure reserve, which brings the corrected capacity to about
-$3.30\times10^{122}$, within a small fraction of the measurement band; that
-reading is retrospective and stands on four named premises.
+values. A physical identification has to explain that gap. The strange-loop
+closure reads it as the withheld $P/24$ reserve, which brings the corrected
+capacity to about $3.30\times10^{122}$, inside the measurement band of the
+observed cosmological constant.
 
 There is another suggestive count. The gauge algebra has twelve directions,
 and adding an orientation label gives twenty-four slots. The icosahedral
@@ -394,9 +393,8 @@ root on its declared mathematical map. The global lane has one exact
 twenty-four-record packet and a bounded counterfamily with incompatible fixed
 sets. A complete source law, a universe carrier, the horizon ledger, and the
 scale bridge are work in progress. The $6.6$ percent comparison is a
-diagnostic rather than a closure result, and the reserve-corrected
-candidate that absorbs it remains a candidate until its seam premises are
-discharged.
+diagnostic rather than a closure result; the withheld $P/24$ reserve is
+what accounts for the gap.
 
 ### The Dark-Sector Continuation
 

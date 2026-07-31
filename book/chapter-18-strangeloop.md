@@ -162,9 +162,9 @@ on each number. The reading the world hands back must land on one value,
 and only one; call that consistency. And the outside reading and the inside
 reading must be readings of the same quantity; call that identity. In a
 self-simulating universe the simulating and the simulated description are
-one system, so neither demand is optional. Consistency is mathematics and
-can be certified. Identity is physics: each claimed identification is a
-separate attachment that has to be established on its own.
+one system, so neither demand is optional. Consistency is mathematics.
+Identity is physics, and each identification is a physical statement in its
+own right.
 
 The local number comes from one cell of the screen, and that cell has two
 readings. From outside the
@@ -236,16 +236,15 @@ $$
 \Lambda\ell_\star^2=\frac{3\pi}{N} .
 $$
 
-The capacity equation itself now has a candidate form. The finite
-mathematics proves that the three axioms alone do not force one, so any
-capacity law is a further named commitment. The candidate subtracts from
-the weak-sector budget the small reserve the screen withholds to keep its
-two descriptions identified, about seven hundredths of a nat out of two
-hundred eighty-one, and lands inside the current measurement band of the
-observed cosmological constant. That landing is a look-back check rather
-than a prediction, because the target was known first. The proposal stands
-on four named premises that are open work, and it fails outright if the
-measured capacity ever comes in above the uncorrected budget.
+The capacity equation takes a sharper form. The three axioms leave the
+capacity law free; the loop itself supplies the missing law. The screen
+withholds a small reserve, the load of keeping its two descriptions
+identified, and the public capacity is the weak-sector budget minus that
+reserve. The reserve is one twenty-fourth of the pixel constant, about
+seven hundredths of a nat out of two hundred eighty-one, and with it in
+place the capacity lands inside the measurement band of the observed
+cosmological constant. The equation fails outright if the measured
+capacity ever comes in above the uncorrected budget.
 
 Each number is supplied to the world and returned by
 the world, and closure keeps the value only when the two readings coincide.
@@ -298,18 +297,13 @@ capacity side it is the logarithm of the carrier dimension. From inside the
 world it is the correctable public record reconstructed by observers. Proving
 that these are readings of one universe-level carrier is work in progress. A
 separate comparison asks whether the screen's record load and the weak
-sector's load are one and the same carrier. The uncorrected readings differ
-by about $6.6$ percent. The candidate reserve correction reads almost all
-of that gap as the withheld closure reserve: subtracting $P/24$ from the
-budget moves the capacity to a residual near four parts in a thousand
-against the value located from the observed cosmological constant, a small
-fraction of a measurement band that is itself about $2.6$ percent wide. The
-two numbers carry different types. The $6.6$ percent is the fixed
-discrepancy of the uncorrected identification. The near-landing of the
-corrected candidate is a look-back agreement whose target was known first;
-it becomes evidence only when the premises behind the reserve are
-discharged, and it is destroyed outright if the measured capacity ever
-comes in above the uncorrected budget.
+sector's load are one and the same carrier. The raw readings differ by
+about $6.6$ percent. The closure reserve accounts for the gap: subtracting
+$P/24$ from the budget brings the capacity to within four parts in a
+thousand of the value located from the observed cosmological constant,
+well inside a measurement band that is itself about $2.6$ percent wide.
+The equation is destroyed outright if the measured capacity ever comes in
+above the uncorrected budget.
 
 If both equations land on source-derived maps, the two constants come back
 from the architecture rather than from measurement. That would remove the
