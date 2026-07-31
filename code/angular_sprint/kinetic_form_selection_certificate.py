@@ -420,6 +420,15 @@ def matter_branch() -> dict[str, Any]:
                 "the vanishing determinant is a genuine frozen discriminator "
                 "of the matter-trace branch"
             ),
+            "exposure_note": (
+                "the sealed inverse-coupling column is public precision "
+                "data, so this candidate's comparison can never receive "
+                "prospective or blind-postdiction status; it is typed "
+                "exposed-retrospective at best, and under the "
+                "one-comparison campaign rule it is not a candidate for "
+                "the single campaign comparison while any "
+                "prospective-capable row remains open"
+            ),
         },
     }
 
@@ -509,13 +518,34 @@ def build_receipt() -> dict[str, Any]:
         "dichotomy": {
             "port_response_ratio_su2_over_su3": f5_str(rho_port),
             "matter_trace_ratio_su2_over_su3": str(matter_ratio_fraction),
-            "branches_exactly_distinct": not port_is_matter,
+            "branches_distinct_at_declared_fixture": not port_is_matter,
+            "port_branch_lift_dependence": (
+                "the port-branch ratio is rigid within the declared "
+                "charged-double-triplet fixture but depends on the "
+                "representation types of the open compact faithful "
+                "equivariant lift family: c = T/h_dual per block, so a "
+                "doublet realization of the kernel block gives (1/2, 1/2) "
+                "and ratio 3/2, equal to the matter-trace value; the "
+                "dichotomy is fixture-conditional, with one census-pinned "
+                "branch and one lift-family branch whose declared point is "
+                "six"
+            ),
             "selection_premise": (
                 "which invariant form the repair dynamics selects as the "
-                "physical kinetic action -- the port-response pullback, the "
-                "rank-fifteen matter trace, a derived combination, or a "
-                "nonunique family -- is a named open source premise; no "
-                "selection theorem is claimed"
+                "physical kinetic action -- the port-response pullback at a "
+                "source-selected lift, the rank-fifteen matter trace, a "
+                "derived combination, or a nonunique family -- is a named "
+                "open source premise; no selection theorem is claimed"
+            ),
+            "selection_mechanism_candidate": (
+                "the A2 holonomy bridge (oph-physics-sim "
+                "oph_fpe/gauge/a2_holonomy_selector.py) is the registered "
+                "candidate mechanism: reconstructing the current "
+                "representation from ordered response histories would both "
+                "source-select the lift and decide the branch; its raw "
+                "source objects are currently absent, and the seam-repair "
+                "equalizer control excludes the repair dynamics itself as "
+                "the current carrier"
             ),
         },
         "consumers": {

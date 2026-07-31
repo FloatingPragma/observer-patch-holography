@@ -43,11 +43,16 @@ class KineticFormSelectionTests(unittest.TestCase):
         self.assertEqual(row["su3"], "1/6")
         self.assertEqual(row["ratio_su2_over_su3"], "6")
 
-    def test_dichotomy_is_exact(self) -> None:
+    def test_dichotomy_is_exact_at_declared_fixture(self) -> None:
         row = self.receipt["dichotomy"]
         self.assertEqual(row["port_response_ratio_su2_over_su3"], "6")
         self.assertEqual(row["matter_trace_ratio_su2_over_su3"], "3/2")
-        self.assertTrue(row["branches_exactly_distinct"])
+        self.assertTrue(row["branches_distinct_at_declared_fixture"])
+        self.assertIn("fixture-conditional", row["port_branch_lift_dependence"])
+        self.assertIn("doublet", row["port_branch_lift_dependence"])
+        self.assertIn(
+            "a2_holonomy_selector", row["selection_mechanism_candidate"]
+        )
 
     def test_port_metric_band_data_retained_at_corrected_typing(self) -> None:
         row = self.receipt["port_metric_band_data"]

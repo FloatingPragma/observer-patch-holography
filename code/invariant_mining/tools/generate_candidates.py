@@ -1408,10 +1408,13 @@ def produce_wz_scale_free_candidates(
             "statement": (
                 "the port-current pairing is ad-invariant, and its "
                 "Killing-relative coefficients on the simple ideals are "
-                "(c2, c3) = (1, 1/6), ratio six; the rank-fifteen matter "
-                "trace form carries (1, 2/3), ratio three halves; the two "
-                "candidate kinetic forms are exactly distinct, and the "
-                "selection between them is a named open source premise"
+                "(c2, c3) = (1, 1/6), ratio six, at the declared "
+                "charged-double-triplet lift; the rank-fifteen matter "
+                "trace form carries (1, 2/3), ratio three halves; the "
+                "port-branch value is lift-dependent across the open "
+                "equivariant lift family (a doublet kernel realization "
+                "gives 3/2), so the dichotomy is fixture-conditional and "
+                "the selection premise covers both the form and the lift"
             ),
             "expression": _expression(
                 grammar,
@@ -1431,6 +1434,12 @@ def produce_wz_scale_free_candidates(
                     "dimension-weighted su(3) average (15+4 sqrt5)/4, typed "
                     "as embedding non-isometry data, not invariant "
                     "coefficients"
+                ),
+                "lift_dependence": (
+                    "the port-branch ratio is fixture-conditional: the "
+                    "declared lift gives six, a doublet kernel realization "
+                    "gives 3/2, and no registered producer source-selects "
+                    "the lift"
                 ),
                 "producer": (
                     "code/angular_sprint/kinetic_form_selection_certificate.py"
@@ -1547,6 +1556,13 @@ def produce_wz_scale_free_candidates(
                     "one-loop imported QFT law, (nG, nH) = (3, 1), census "
                     "hypercharge normalization, single threshold, no extra "
                     "fields"
+                ),
+                "exposure_note": (
+                    "the sealed inverse-coupling column is public precision "
+                    "data, so this candidate is exposed-retrospective at "
+                    "best and is not a candidate for the single campaign "
+                    "comparison while any prospective-capable row remains "
+                    "open"
                 ),
                 "producer": (
                     "code/angular_sprint/kinetic_form_selection_certificate.py"
