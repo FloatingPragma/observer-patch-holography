@@ -30,3 +30,13 @@ rejecting verdicts and their checker witnesses; pass it via `--certificate`
 to see the gates go `False` and the claim drop to `DIAGNOSTIC_ONLY`. The
 remaining sandbox gates are declared scaffold, labelled
 `DECLARED_SANDBOX_SCAFFOLD` in `receipts.json`.
+
+`runtime_kernel_capture.json` records the exact schema object the simulator's
+fractional surface passes to its `quotient_lumpability` check at runtime
+(captured by call-site interception in a live `demo_fractional_report()`
+run); `generate_runtime_kernel_harness.py` renders it into the Lean
+regression harness
+`Lean/ObserverPatchHolography/QuotientLumpabilityRuntimeHarness.lean`, which
+runs all four certified checkers on the captured data and pins its pointwise
+equality with the transcribed instance. `--check` (wrapped by the pytest
+suite) fails if either file drifts from the other.

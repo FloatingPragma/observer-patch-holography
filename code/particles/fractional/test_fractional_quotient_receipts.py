@@ -161,3 +161,44 @@ def test_certificate_not_matching_lean_pin_fails_closed(tmp_path: pathlib.Path) 
 
     binding = json.loads((out_dir / "lean_certificate.json").read_text(encoding="utf-8"))
     assert binding["certificate_status"] == "CERTIFICATE_NOT_PINNED"
+
+
+def test_runtime_kernel_harness_in_sync() -> None:
+    """The checked-in Lean harness must be the exact render of the capture."""
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(ROOT / "particles" / "fractional" / "generate_runtime_kernel_harness.py"),
+            "--check",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+def test_runtime_kernel_harness_check_detects_drift(tmp_path: pathlib.Path) -> None:
+    harness = (
+        ROOT.parent
+        / "Lean"
+        / "ObserverPatchHolography"
+        / "QuotientLumpabilityRuntimeHarness.lean"
+    )
+    original = harness.read_text(encoding="utf-8")
+    try:
+        harness.write_text(original.replace("1 / 2", "1 / 3", 1), encoding="utf-8")
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(ROOT / "particles" / "fractional" / "generate_runtime_kernel_harness.py"),
+                "--check",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+        )
+        assert result.returncode == 1
+        assert "STALE" in result.stdout
+    finally:
+        harness.write_text(original, encoding="utf-8")
