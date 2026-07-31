@@ -28,7 +28,8 @@ theorem invariant_port_weights_are_equal (w : Fin 12 → ℚ)
     ∃ c : ℚ, w = c • OPH.A5PortModule.ones := by
   have hw : w ∈ OPH.A5PortModule.Fixed := h
   rw [OPH.A5PortModule.fixed_eq_span, Submodule.mem_span_singleton] at hw
-  exact hw
+  rcases hw with ⟨c, hc⟩
+  exact ⟨c, hc.symm⟩
 
 /-- Coefficient of `a^2 k^4` in the normalized primitive-port symbol. -/
 def C4 : ℚ := -1 / 20
