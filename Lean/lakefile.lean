@@ -30,7 +30,8 @@ lean_lib «OPHScreen» where
     `PortFrameGram, `A5PortAction, `A5CouplingSymmetry, `A5OPH,
     `A2HolonomyBridge, `A5CharacterField, `A5SixAxes, `A5PortModule, `A5Commutant,
     `A5IncidenceResponse, `TraceBalancedKernel, `TrichotomyCases, `Z6Descent,
-    `A5AngularMultiplets, `A5AngularBands, `ExteriorSelection, `EqualStateWeights,
+    `A5AngularMultiplets, `A5AngularBands, `A5AngularKernels,
+    `ExteriorSelection, `EqualStateWeights,
     `A5FamilyBand, `RGRepresentationFrontier, `CommonEWOrderUnit]
 
 lean_exe «oph» where

@@ -139,8 +139,8 @@
         "commutant_relation_excluded": true,
         "invariant_ray": [
           "1/4",
-          "5+1*sqrt5",
-          "15/4+1/4*sqrt5"
+          "5+-1*sqrt5",
+          "15/4+1*sqrt5"
         ],
         "kind": "exact_certificate",
         "producer": "code/angular_sprint/kinetic_ray_certificate.py",
@@ -155,7 +155,7 @@
         ],
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
-      "statement": "the ad-invariant restriction of the source-current pairing to the three ideals is the ray (1/4, 5+sqrt5, (15+sqrt5)/4); the raw pairing is not invariant on the su(3) ideal, and the representation-index reference ray and the quadratic-commutant relation are excluded exactly",
+      "statement": "the ad-invariant restriction of the source-current pairing to the three ideals is the ray (1/4, 5-sqrt5, (15+4 sqrt5)/4); the raw pairing is not invariant on the su(3) ideal, and the representation-index reference ray and the quadratic-commutant relation are excluded exactly",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -1705,7 +1705,7 @@
     "rule": "a candidate ranks into the issue-639 comparison surface only when its physical map is closed; open-map rows are ineligible rather than score-penalized"
   },
   "issue": 647,
-  "registry_sha256": "sha256:ae4b71f6ec7a1ce0dba535dabfa71de3e6111b3de0257889f2dbd3eac06f9c5c",
+  "registry_sha256": "sha256:25f263650bbff042d6623492ceef2c54f07b1dc20034a9be11a4a48dfbcfda76",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,

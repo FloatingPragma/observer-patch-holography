@@ -1222,8 +1222,8 @@ def produce_wz_scale_free_candidates(
             "grammar_class": "homogeneous_scale_free_combination",
             "statement": (
                 "the ad-invariant restriction of the source-current pairing "
-                "to the three ideals is the ray (1/4, 5+sqrt5, "
-                "(15+sqrt5)/4); the raw pairing is not invariant on the "
+                "to the three ideals is the ray (1/4, 5-sqrt5, "
+                "(15+4 sqrt5)/4); the raw pairing is not invariant on the "
                 "su(3) ideal, and the representation-index reference ray "
                 "and the quadratic-commutant relation are excluded exactly"
             ),
@@ -1237,7 +1237,7 @@ def produce_wz_scale_free_candidates(
             ),
             "relation_certificate": {
                 "kind": "exact_certificate",
-                "invariant_ray": ["1/4", "5+1*sqrt5", "15/4+1/4*sqrt5"],
+                "invariant_ray": ["1/4", "5+-1*sqrt5", "15/4+1*sqrt5"],
                 "reference_ray_excluded": True,
                 "commutant_relation_excluded": True,
                 "producer": "code/angular_sprint/kinetic_ray_certificate.py",

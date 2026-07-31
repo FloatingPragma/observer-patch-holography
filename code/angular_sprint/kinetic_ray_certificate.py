@@ -3,19 +3,21 @@
 
 The registered port-current pairing carries the exact Hilbert--Schmidt band
 coefficients of the pinned port receipt: unit ``1/4``, frame ``5+sqrt5``,
-kernel ``5-sqrt5``, quintet ``3+sqrt5``. The realized current algebra
-splits as ``u(1) + su(2) + su(3)`` with the unit band carrying ``u(1)``,
-the frame band carrying ``su(2)``, and the kernel and quintet bands jointly
-carrying the eight-dimensional ``su(3)``. This producer restricts the
-pairing to the three ideals in exact quadratic-field arithmetic and
-enumerates every source-canonical kinetic ray:
+kernel ``5-sqrt5``, quintet ``3+sqrt5``. Per the pinned block realization,
+the even block is ``u(3)`` carrying the unit, frame, and quintet bands, and
+the kernel block is ``so(3)``: the current algebra splits as
+``u(1) + su(2) + su(3)`` with the unit band on ``u(1)``, the kernel band on
+``su(2)``, and the frame and quintet bands jointly on the eight-dimensional
+``su(3)``. This producer restricts the pairing to the three ideals in exact
+quadratic-field arithmetic and enumerates every source-canonical kinetic
+ray:
 
 * the raw block ray reads the band coefficients directly; on ``su(3)`` the
-  two blocks disagree, so the raw pairing is not an invariant kinetic form
-  on the simple ideal, and that non-invariance is itself an exact source
-  fact recorded with both block values;
+  frame and quintet blocks disagree, so the raw pairing is not an invariant
+  kinetic form on the simple ideal, and that non-invariance is itself an
+  exact source fact recorded with both block values;
 * the invariant-projection ray replaces the ``su(3)`` blocks by the unique
-  ad-invariant average ``(3 k_kernel + 5 k_quintet)/8 = (15+sqrt5)/4``;
+  ad-invariant average ``(3 k_frame + 5 k_quintet)/8 = (15+4 sqrt5)/4``;
 * the tested reference ray is the representation-index ray ``(5/3, 1, 1)``.
 
 The exact tests run without any measured value: whether any single overall
@@ -144,24 +146,29 @@ def load_pinned_bands() -> dict[str, Q5]:
 
 
 def ideal_decomposition(bands: dict[str, Q5]) -> dict[str, Any]:
-    kernel = bands["kernel_band"]
+    frame = bands["frame_band"]
     quintet = bands["quintet_band"]
     invariant_su3 = q5_scale(
-        q5_add(q5_scale(kernel, Fraction(3)), q5_scale(quintet, Fraction(5))),
+        q5_add(q5_scale(frame, Fraction(3)), q5_scale(quintet, Fraction(5))),
         Fraction(1, 8),
     )
-    require(invariant_su3 == q5(Fraction(15, 4), Fraction(1, 4)), "su3 average drift")
-    non_invariant = kernel != quintet
+    require(invariant_su3 == q5(Fraction(15, 4), Fraction(1)), "su3 average drift")
+    non_invariant = frame != quintet
     return {
         "ideal_dimensions": {"u1": 1, "su2": 3, "su3": 8},
         "band_to_ideal": {
-            "unit_band": "u1",
-            "frame_band": "su2",
-            "kernel_band": "su3 (three-dimensional block)",
-            "quintet_band": "su3 (five-dimensional block)",
+            "unit_band": "u1 (even block center)",
+            "kernel_band": "su2 (the so(3) kernel block)",
+            "frame_band": "su3 (three-dimensional even-block component)",
+            "quintet_band": "su3 (five-dimensional even-block component)",
         },
+        "block_source": (
+            "port_to_generator_map.band_realization in the pinned port "
+            "receipt: the even block is u(3) on the unit, frame, and "
+            "quintet bands, and the kernel block is so(3)"
+        ),
         "su3_blocks_disagree": non_invariant,
-        "su3_block_values": [q5_str(kernel), q5_str(quintet)],
+        "su3_block_values": [q5_str(frame), q5_str(quintet)],
         "su3_invariant_projection": q5_str(invariant_su3),
         "invariance_statement": (
             "the raw pairing restricted to the simple su(3) ideal carries "
@@ -176,11 +183,11 @@ def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[
     invariant_su3 = parse_q5(decomposition["su3_invariant_projection"])
     return [
         {
-            "ray_id": "raw-block-ray-kernel-branch",
+            "ray_id": "raw-block-ray-frame-branch",
             "components": [
                 q5_str(bands["unit_band"]),
-                q5_str(bands["frame_band"]),
                 q5_str(bands["kernel_band"]),
+                q5_str(bands["frame_band"]),
             ],
             "note": (
                 "reads the three-dimensional su(3) block; declared as one "
@@ -191,7 +198,7 @@ def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[
             "ray_id": "raw-block-ray-quintet-branch",
             "components": [
                 q5_str(bands["unit_band"]),
-                q5_str(bands["frame_band"]),
+                q5_str(bands["kernel_band"]),
                 q5_str(bands["quintet_band"]),
             ],
             "note": (
@@ -203,12 +210,13 @@ def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[
             "ray_id": "invariant-projection-ray",
             "components": [
                 q5_str(bands["unit_band"]),
-                q5_str(bands["frame_band"]),
+                q5_str(bands["kernel_band"]),
                 q5_str(invariant_su3),
             ],
             "note": (
                 "the unique ad-invariant restriction of the pairing to the "
-                "three ideals"
+                "three ideals: u(1) unit, su(2) kernel block, su(3) "
+                "invariant projection"
             ),
         },
     ]

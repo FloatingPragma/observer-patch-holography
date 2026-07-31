@@ -10,7 +10,7 @@ import stratum_verdicts as sv
 def test_all_four_verdicts_build_with_expected_statuses() -> None:
     verdicts = sv.build_all()
     assert sorted(verdicts) == [642, 643, 645, 646]
-    expected_pin_counts = {642: 1, 643: 2, 645: 2, 646: 3}
+    expected_pin_counts = {642: 1, 643: 3, 645: 2, 646: 3}
     for issue, verdict in verdicts.items():
         assert verdict["status"] == sv.VERDICTS[issue]
         boundary = verdict["comparison_boundary"]

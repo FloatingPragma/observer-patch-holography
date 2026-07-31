@@ -380,7 +380,27 @@ def automorphism_generators() -> list[dict[int, int]]:
         antipode[f"u{i}"] = f"l{(i + 3) % 5}"
         antipode[f"l{(i + 3) % 5}"] = f"u{i}"
 
-    return [as_map(rotation), as_map(reflection), as_map(antipode)]
+    pole_swap = {
+        "n": "u0",
+        "u0": "n",
+        "u2": "l1",
+        "l1": "u2",
+        "u3": "l0",
+        "l0": "u3",
+        "l3": "s",
+        "s": "l3",
+        "u1": "u1",
+        "u4": "u4",
+        "l2": "l2",
+        "l4": "l4",
+    }
+
+    return [
+        as_map(rotation),
+        as_map(reflection),
+        as_map(antipode),
+        as_map(pole_swap),
+    ]
 
 
 def equivariance_certificate(data: dict[str, Any]) -> dict[str, Any]:
@@ -402,6 +422,21 @@ def equivariance_certificate(data: dict[str, Any]) -> dict[str, Any]:
         results.append(
             {"is_automorphism": is_automorphism, "kernels_equivariant": commutes}
         )
+    generators = automorphism_generators()
+    frontier = [tuple(generator[i] for i in range(12)) for generator in generators]
+    closure = set(frontier)
+    while frontier:
+        left = frontier.pop()
+        for generator in generators:
+            composed = tuple(generator[left[i]] for i in range(12))
+            if composed not in closure:
+                closure.add(composed)
+                frontier.append(composed)
+    identity_perm = tuple(range(12))
+    if identity_perm not in closure:
+        closure.add(identity_perm)
+    closure_order = len(closure)
+
     antipode = data["components"]["antipode"]
     parity = all(
         mat_is_zero(
@@ -415,6 +450,8 @@ def equivariance_certificate(data: dict[str, Any]) -> dict[str, Any]:
     return {
         "generators_checked": len(results),
         "generator_results": results,
+        "generated_group_order": closure_order,
+        "generating_set_complete": closure_order == 120,
         "all_equivariant": all(
             row["is_automorphism"] and row["kernels_equivariant"]
             for row in results
@@ -448,11 +485,22 @@ def band_binding_certificate(data: dict[str, Any]) -> dict[str, Any]:
         },
         "bindings_exact": bindings,
         "all_bound": all(bindings),
-        "refinement_naturality": (
-            "the interpolant bands equal the registered incidence-response "
-            "bands, so refinement naturality is carried by the pinned band "
-            "structure of the port module"
-        ),
+        "refinement_naturality": {
+            "type": "PREMISE_TYPED_CONDITIONAL",
+            "premise": (
+                "the registered incidence-response band structure is what a "
+                "screen refinement acts through on the port coefficient "
+                "module; this is a declared contract term of the port "
+                "module registration, not proved in this producer"
+            ),
+            "conclusion": (
+                "under that premise the interpolant bands are natural in "
+                "refinement, because the binding identities prove they "
+                "equal the pinned response bands exactly"
+            ),
+            "carried_by": "bindings_exact",
+            "premise_discharged_here": False,
+        },
     }
 
 
@@ -536,13 +584,111 @@ def equal_port_certificate(data: dict[str, Any]) -> dict[str, Any]:
         },
         "even_vector_exact": even_ok,
         "all_odd_levels_zero": odd_ok,
-        "unit_level_zero": sequence[0] == 1,
+        "common_frame_template": {
+            "levels": [6, 10, 12],
+            "ratio_I10_over_I6": str(
+                Fraction(247, 1875) / Fraction(11, 25)
+            ),
+            "ratio_I12_over_I6": str(
+                Fraction(1071, 3125) / Fraction(11, 25)
+            ),
+        },
+        "unit_normalization": sequence[0] == 1,
     }
 
 
 # ---------------------------------------------------------------------------
 # Transfer decision without comparison data
 # ---------------------------------------------------------------------------
+
+
+PROJECTION_PATH = (
+    REPO_ROOT / "code" / "invariant_mining" / "outputs" / "source_projection.json"
+)
+
+SKY_EMISSION_KEYS = (
+    "sky_map",
+    "sky_field",
+    "healpix",
+    "alm",
+    "a_lm",
+    "angular_power_spectrum",
+    "cl_spectrum",
+    "screen_to_sky_map",
+)
+
+SECOND_CHANNEL_KEYS = (
+    "second_channel",
+    "cross_channel",
+    "independent_channel",
+    "second_observed_channel",
+)
+
+
+def _walk_keys(value: Any):
+    if isinstance(value, dict):
+        for key, item in value.items():
+            yield key
+            yield from _walk_keys(item)
+    elif isinstance(value, list):
+        for item in value:
+            yield from _walk_keys(item)
+
+
+def ancestry_sweep(searched_surfaces: list[str]) -> dict[str, Any]:
+    """Registered-surface sweep for a sky-field or second-channel emission.
+
+    The sweep walks every JSON key of every registered surface and matches
+    the keys against the typed emission signatures; the verdict booleans
+    are derived from the matches. Surfaces outside the registered set are
+    inadmissible as premises under the pregeneration freeze, so the sweep
+    over the registered set is the complete admissible search.
+    """
+
+    projection = json.loads(PROJECTION_PATH.read_text(encoding="utf-8"))
+    registered = [row["path"] for row in projection["source_artifacts"]]
+    inventory = sorted(set(searched_surfaces) | set(registered))
+    surface_reports = []
+    sky_matches = []
+    channel_matches = []
+    for relative in inventory:
+        path = REPO_ROOT / relative
+        require(path.is_file(), f"searched surface is absent: {relative}")
+        if path.suffix == ".json":
+            keys = list(_walk_keys(json.loads(path.read_text(encoding="utf-8"))))
+        else:
+            keys = []
+        sky_hits = sorted(
+            {key for key in keys if key.lower() in SKY_EMISSION_KEYS}
+        )
+        channel_hits = sorted(
+            {key for key in keys if key.lower() in SECOND_CHANNEL_KEYS}
+        )
+        sky_matches.extend(sky_hits)
+        channel_matches.extend(channel_hits)
+        surface_reports.append(
+            {
+                "path": relative,
+                "keys_scanned": len(keys),
+                "sky_emission_keys_found": sky_hits,
+                "second_channel_keys_found": channel_hits,
+            }
+        )
+    return {
+        "searched_inventory": inventory,
+        "surface_reports": surface_reports,
+        "emission_key_signatures": {
+            "sky_field": list(SKY_EMISSION_KEYS),
+            "second_channel": list(SECOND_CHANNEL_KEYS),
+        },
+        "sky_field_emission_found": bool(sky_matches),
+        "second_independent_channel_found": bool(channel_matches),
+        "admissibility_boundary": (
+            "unregistered surfaces are inadmissible as premises under the "
+            "pregeneration freeze, so this registered-surface sweep is the "
+            "complete admissible ancestry search"
+        ),
+    }
 
 
 def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[str, Any]:
@@ -568,11 +714,15 @@ def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[
         "code/capacity_readback/runtime/source_derived_public_checkpoint_packet.json",
         "claims/frozen_prediction_register.json",
     ]
-    for relative in searched_surfaces:
-        require(
-            (REPO_ROOT / relative).is_file(),
-            f"searched surface is absent: {relative}",
-        )
+    sweep = ancestry_sweep(searched_surfaces)
+    require(
+        not sweep["sky_field_emission_found"],
+        "a registered surface emits a sky-valued field",
+    )
+    require(
+        not sweep["second_independent_channel_found"],
+        "a registered surface emits a second observed channel",
+    )
     return {
         "stop_rule": (
             "two source-admissible transfer completions giving different "
@@ -591,9 +741,7 @@ def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[
         },
         "normalized_statistics_disagree_exactly": disagreement,
         "geometry_imprint_search": {
-            "searched_surfaces": searched_surfaces,
-            "sky_field_emission_found": False,
-            "second_independent_channel_found": False,
+            **sweep,
             "note": (
                 "the registered producers emit finite port, seam, sector, "
                 "capacity, and response data; none emits a sky-valued "
@@ -626,6 +774,31 @@ def transfer_decision(data: dict[str, Any], equal_port: dict[str, Any]) -> dict[
 # ---------------------------------------------------------------------------
 
 
+PIN_RELATIVES = [
+    "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+    "code/invariant_mining/data/source_feature_registry.json",
+    "code/invariant_mining/outputs/candidate_registry.json",
+    "code/a5_closure/manifests/classical_realization_receipt.json",
+    "code/a5_closure/manifests/family_band_attachment_reference.json",
+    "code/capacity_readback/runtime/source_derived_public_checkpoint_packet.json",
+    "claims/frozen_prediction_register.json",
+]
+
+
+def parent_pins() -> list[dict[str, Any]]:
+    pins = []
+    for relative in PIN_RELATIVES:
+        payload = (REPO_ROOT / relative).read_bytes()
+        pins.append(
+            {
+                "path": relative,
+                "bytes": len(payload),
+                "sha256": tagged_sha256(payload),
+            }
+        )
+    return pins
+
+
 def build_receipt() -> dict[str, Any]:
     data = build_kernels()
     projectors = projector_certificate(data)
@@ -640,6 +813,10 @@ def build_receipt() -> dict[str, Any]:
         "projector certificate failed",
     )
     require(equivariance["all_equivariant"], "equivariance failed")
+    require(
+        equivariance["generating_set_complete"],
+        "generator closure is not the full automorphism group",
+    )
     require(equivariance["antipodal_parity"], "antipodal parity failed")
     require(binding["all_bound"], "band binding failed")
     require(parity["all_exact"], "parity response failed")
@@ -667,12 +844,14 @@ def build_receipt() -> dict[str, Any]:
             "OPH.AngularBands.equalPort_oddZero",
             "OPH.AngularBands.parity_signs",
         ],
+        "parent_pins": parent_pins(),
         "lean_binding_scope": (
-            "the Lean layer proves the exact equal-port arithmetic and the "
-            "parity sign table; the matrix projector, equivariance, "
-            "binding, and response identities are code-certified in exact "
-            "quadratic-field arithmetic in this producer and its "
-            "independent verifier"
+            "the Lean layers prove the exact equal-port arithmetic, the "
+            "parity sign table, and the four-kernel projector identities; "
+            "the equivariance, binding, and response identities are "
+            "code-certified in exact quadratic-field arithmetic in this "
+            "producer, with the Lagrange spectral reconstruction in the "
+            "package tests as the independent route"
         ),
         "comparison_boundary": {
             "public_measurement_read": False,

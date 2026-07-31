@@ -2,10 +2,11 @@
 """Typed closure verdicts for the discriminator producer strata.
 
 Issues #642, #643, #645, and #646 are producer strata inside the issue #647
-invariant-mining registry. Their generation contributions are complete, the
-registry is sealed, and each stratum's remaining outcome is a typed verdict
-that consumes the registry and the pinned source receipts without opening
-any comparison surface. This producer emits the four verdicts:
+invariant-mining registry. The registry carries the provisional
+source-identity inventory type with physical scoring sealed, and each
+stratum's outcome is a typed verdict that consumes the registry and the
+pinned source receipts without opening any comparison surface. This
+producer emits the four verdicts:
 
 * issue #642: the diagonal Z6 packet converts to an exact conditional kill
   packet. The registry carries the descent congruence, the charge
@@ -14,19 +15,22 @@ any comparison surface. This producer emits the four verdicts:
   global forms on the Z6 charge torus, the magnetic-sector statement, and
   the per-form distinguishing observations, and types the physical
   line-operator attachment open.
-* issue #643: the angular selection rules are registered as the source
-  template, and the internal-versus-rotation-remnant question is not
-  decidable on the declared source interface because no screen-to-sky map
-  exists; the forced nonzero sky statistic is not constructible without it.
+* issue #643: the stratum verdict is superseded by the angular-sprint
+  template receipt, which is pinned by bytes. The registered angular
+  candidates stay the retained source template; the
+  internal-versus-rotation-remnant question stays not decidable on the
+  declared source interface because no screen-to-sky map exists, and the
+  operative #643 record is the angular receipt's transfer decision.
 * issue #645: the normalized overlap cross-spectrum exists as registered
   source structure, and no map from the declared source interface to an
   interferometer readout exists, so the comparison contract is correctly
   not frozen.
-* issue #646: every tested pole, width, residue, and asymmetry
-  combination is blocked by a pinned receipt (the no-pole-promotion
-  boundary, plus the serialized unit verdict for physical-unit rows), and
-  the adjacent registered response identities are recorded as distinct
-  survivors.
+* issue #646: the no-go label is withdrawn and the combination table is
+  retained pending the C3-F kinetic lane. Every tested pole, width,
+  residue, and asymmetry combination stays blocked by a pinned receipt
+  (the no-pole-promotion boundary, plus the serialized unit verdict for
+  physical-unit rows), and the adjacent registered response identities
+  are recorded as distinct survivors.
 
 Every verdict pins its inputs by exact bytes, fails closed on drift, reads
 no public measurement, and permits no comparison.
@@ -81,6 +85,13 @@ CLASSICAL_RECEIPT_PATH = (
     / "classical_realization_receipt.json"
 )
 FZ_REGISTER_PATH = REPO_ROOT / "claims" / "frozen_prediction_register.json"
+ANGULAR_RECEIPT_PATH = (
+    REPO_ROOT
+    / "code"
+    / "angular_sprint"
+    / "runtime"
+    / "angular_template_receipt.json"
+)
 
 
 class VerdictError(ValueError):
@@ -543,7 +554,7 @@ BUILDERS = {642: build_642, 643: build_643, 645: build_645, 646: build_646}
 
 PIN_PATHS = {
     642: (REGISTRY_PATH,),
-    643: (REGISTRY_PATH, FZ_REGISTER_PATH),
+    643: (REGISTRY_PATH, FZ_REGISTER_PATH, ANGULAR_RECEIPT_PATH),
     645: (REGISTRY_PATH, CLASSICAL_RECEIPT_PATH),
     646: (REGISTRY_PATH, WZ_MANIFEST_PATH, CLOCK_UNIT_VERDICT_PATH),
 }

@@ -1139,14 +1139,14 @@ def verify(
             "CANDIDATE_COMB_DRIFT",
             str(comb_row and comb_row["relation_certificate"]),
         )
-        kernel_pair = (Fraction(5), Fraction(-1))
-        quintet_pair = (Fraction(3), Fraction(1))
+        frame_pair_su3 = (Fraction(5), Fraction(1))
+        quintet_pair_su3 = (Fraction(3), Fraction(1))
         invariant = (
-            (3 * kernel_pair[0] + 5 * quintet_pair[0]) / 8,
-            (3 * kernel_pair[1] + 5 * quintet_pair[1]) / 8,
+            (3 * frame_pair_su3[0] + 5 * quintet_pair_su3[0]) / 8,
+            (3 * frame_pair_su3[1] + 5 * quintet_pair_su3[1]) / 8,
         )
         require(
-            invariant == (Fraction(15, 4), Fraction(1, 4)),
+            invariant == (Fraction(15, 4), Fraction(1)),
             "KINETIC_PROJECTION_DRIFT",
             str(invariant),
         )
@@ -1154,7 +1154,7 @@ def verify(
         require(
             ray_row is not None
             and ray_row["relation_certificate"]["invariant_ray"]
-            == ["1/4", "5+1*sqrt5", "15/4+1/4*sqrt5"],
+            == ["1/4", "5+-1*sqrt5", "15/4+1*sqrt5"],
             "CANDIDATE_RAY_DRIFT",
             str(ray_row and ray_row["relation_certificate"]),
         )

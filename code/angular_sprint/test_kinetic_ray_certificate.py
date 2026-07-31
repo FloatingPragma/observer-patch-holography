@@ -21,11 +21,11 @@ def test_su3_invariant_projection_is_exact() -> None:
     bands = kc.load_pinned_bands()
     decomposition = kc.ideal_decomposition(bands)
     assert decomposition["su3_blocks_disagree"] is True
-    assert decomposition["su3_invariant_projection"] == "15/4+1/4*sqrt5"
-    kernel = kc.parse_q5(decomposition["su3_block_values"][0])
+    assert decomposition["su3_invariant_projection"] == "15/4+1*sqrt5"
+    frame = kc.parse_q5(decomposition["su3_block_values"][0])
     quintet = kc.parse_q5(decomposition["su3_block_values"][1])
     average = kc.q5_scale(
-        kc.q5_add(kc.q5_scale(kernel, Fraction(3)), kc.q5_scale(quintet, Fraction(5))),
+        kc.q5_add(kc.q5_scale(frame, Fraction(3)), kc.q5_scale(quintet, Fraction(5))),
         Fraction(1, 8),
     )
     assert kc.q5_str(average) == decomposition["su3_invariant_projection"]
