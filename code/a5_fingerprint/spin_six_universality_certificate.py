@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Issue #655, universality half: the spin-six residue is carrier-universal.
+"""Issue #655, universality half: spin six is the least populatable spin.
 
-The certificate proves, in exact arithmetic, that the leading directional
-artifact of icosahedral carrier kinetics is universal in shape and order,
-with no stencil selection premise:
+The certificate certifies the invariant table and the orbit moment sums
+in exact arithmetic; the universality statement follows by the recorded
+decomposition argument. The unconditional content, with no stencil
+selection premise:
 
 * **Invariant-theory core.** For the sixty-element proper icosahedral
   rotation group, the dimension of the invariant subspace of the
@@ -17,12 +18,18 @@ with no stencil selection premise:
   ``lambda_a(k) = sum_d w(d) [1 - cos(a k . d)]`` with an invariant
   direction multiset and invariant weights has, at order
   ``a^{2m-2} k^{2m}``, an angular part that is an invariant polynomial of
-  degree ``2m``. For ``2m = 2, 4`` the invariant table forces isotropy;
-  for ``2m = 6`` the single invariant line forces every carrier's first
-  directional artifact to be one multiple of the same normalized ``I6``.
-  The first anisotropy therefore sits at ``a^4 k^6`` for every member of
-  the class, and one binary refinement step suppresses it by exactly
-  ``1/16`` at that order.
+  degree ``2m``. The invariant table forces exact isotropy through spin
+  five at every order; every directional term below spin ten is one
+  multiple of the same normalized ``I6``; and the possible artifact
+  spins are exactly the even invariant levels ``{6, 10, 12, 16, ...}``,
+  so spin six is the least spin any member can populate. Whenever the
+  weighted sixth-moment ``I6`` coefficient is nonzero, a condition
+  certified here for the equal-weight stencil and each fundamental
+  orbit, the first artifact sits at ``a^4 k^6`` and one binary
+  refinement step suppresses it by exactly ``1/16`` at that order. A
+  tuned vanishing coefficient moves the first artifact to a higher even
+  invariant spin; the exact tuned-cancellation control below exhibits
+  one such positive-weight member.
 * **Constructive verification.** The three fundamental orbits (twelve
   vertex, twenty face, thirty edge directions) are certified explicitly:
   second and fourth moment sums isotropic, sixth moment sums equal to an
@@ -30,13 +37,16 @@ with no stencil selection premise:
   pinned by the issue #654 certificate.
 
 Boundary. The theorem concerns the registered finite carrier class under
-an invariance and finite-range premise; the physical carrier realization,
-lattice scale, and residue amplitude are open, and no comparison is
-opened here. The Standard Model with General Relativity carries exact
-rotational invariance in this sector: it produces no rotational residue
-of any shape at any order, so a certified detection of an
-``l = 6``-shaped, ``l <= 5``-clean, ``a^4``-scaling residue is outside
-that baseline, while a null result bounds the carrier scale.
+an invariance and finite-range premise; the operator is a
+finite-difference generator on continuum fields, so no periodic lattice
+is invoked (no three-dimensional periodic lattice carries this point
+group), and the physical carrier realization, scale, sector assignment,
+and residue amplitude are open, with no comparison opened here. The
+Standard Model with General Relativity carries exact intrinsic vacuum
+rotational invariance in this sector: the fundamental couplings produce
+no intrinsic vacuum rotational residue of any shape at any order, so a
+certified intrinsic residue with this signature is outside that
+baseline, while a null result bounds the carrier scale.
 """
 
 from __future__ import annotations
@@ -54,7 +64,10 @@ RUNTIME = HERE / "runtime"
 RECEIPT_PATH = RUNTIME / "spin_six_universality_receipt.json"
 
 SCHEMA = "oph.spin_six_universality_receipt.v1"
-STATUS = "SPIN_SIX_RESIDUE_UNIVERSAL_ON_INVARIANT_CARRIER_CLASS__AMPLITUDE_OPEN"
+STATUS = (
+    "SPIN_SIX_LEAST_POPULATABLE_SPIN__I6_RIGID_BELOW_SPIN_TEN__"
+    "GENERIC_LEADING_ORDER__AMPLITUDE_OPEN"
+)
 
 q5 = base.q5
 Q5 = base.Q5
@@ -265,6 +278,58 @@ def orbit_moment_certificate(i6_reduced) -> dict[str, Any]:
     }
 
 
+def tuned_cancellation_control(i6_reduced) -> dict[str, Any]:
+    """A positive-weight member with zero spin-six content at order k^6.
+
+    Unit-direction weights 1 on the twelve vertex directions and 27/25 on
+    the twenty face directions cancel the weighted sixth-moment I6
+    coefficient exactly: 64/175 - (27/25)(64/189) = 0. The member
+    certifies that the a^4 k^6 leading-order clause needs the
+    nonvanishing-coefficient qualifier; its first artifact sits at a
+    higher even invariant spin, while the forbidden spins one through
+    five and the below-spin-ten I6 rigidity stay untouched.
+    """
+
+    vertex_multiple = q5(Fraction(64, 175))
+    face_multiple = q5(Fraction(-64, 189))
+    weight = q5(Fraction(27, 25))
+    cancelled = q5_add(vertex_multiple, q5_mul(weight, face_multiple))
+    require(cancelled == ZERO, "tuned cancellation drift")
+
+    # independent recomputation from the orbit sums
+    orbits = orbit_directions()
+    probe = next(m for m in i6_reduced if sum(m) > 0)
+    total = p_zero()
+    for name, w in (("vertex_12", Fraction(1)), ("face_20", Fraction(27, 25))):
+        data = orbits[name]
+        inv2 = q5_div(ONE, data["norm_sq"])
+        m6 = p_scale_q5(
+            moment_sum(data["dirs"], 6), q5_mul(inv2, q5_mul(inv2, inv2))
+        )
+        total = p_add(total, p_scale(m6, w))
+    reduced = p_reduce_sphere(total)
+    beta = q5_div(reduced.get(probe, ZERO), i6_reduced[probe])
+    require(beta == ZERO, "tuned member retains spin-six content at k^6")
+    residue = p_add(reduced, p_scale_q5(i6_reduced, q5_neg(beta)))
+    residue.pop((0, 0, 0), None)
+    require(p_is_zero(residue), "tuned member leaks below spin ten at k^6")
+
+    return {
+        "member": (
+            "unit directions, weight 1 on the twelve vertex directions and "
+            "27/25 on the twenty face directions"
+        ),
+        "weights_positive": True,
+        "k6_i6_coefficient": "0 (exact cancellation 64/175 - (27/25)(64/189))",
+        "reading": (
+            "the leading-order and 1/16 clauses hold under the certified "
+            "nonvanishing-coefficient condition and fail on tuned members "
+            "such as this one; the forbidden spins and the below-spin-ten "
+            "I6 rigidity hold for every member"
+        ),
+    }
+
+
 # ---------------------------------------------------------------------------
 # The universality theorem and its boundary
 # ---------------------------------------------------------------------------
@@ -281,45 +346,58 @@ def universality_statement() -> dict[str, Any]:
             "the order a^{2m-2} k^{2m} angular content is an invariant "
             "polynomial of degree 2m; its harmonic components sit at even "
             "levels l <= 2m; the exact invariant table forces zero at "
-            "l = 2, 4 (orders k^4 and the l <= 4 part of k^6) and a "
-            "one-dimensional space at l = 6, so every member's first "
-            "directional artifact is one multiple of the same normalized "
-            "I6 at order a^4 k^6"
+            "l = 2, 4 and a one-dimensional space at l = 6, so the class "
+            "is exactly isotropic through spin five at every order, every "
+            "directional term below spin ten is one multiple of the same "
+            "normalized I6, and the possible artifact spins are exactly "
+            "the even invariant levels {6, 10, 12, 16, ...}"
         ),
         "consequences": {
-            "shape_universality": (
-                "the leading rotational residue of every carrier in the "
-                "class has the exact I6 angular dependence with the "
-                "62-point census of the issue #654 certificate"
+            "least_populatable_spin": (
+                "spin six is the least spin any member of the class can "
+                "populate, and every directional term below spin ten "
+                "carries the exact I6 angular dependence with the "
+                "sign-symmetric 62-point census of the issue #654 "
+                "certificate: 12 and 20 extrema of opposite index and 30 "
+                "saddles"
             ),
             "clean_low_levels": (
-                "zero anisotropic content at l = 1..5 at every order in a"
+                "zero anisotropic content at l = 1..5 at every order in a, "
+                "for every member"
             ),
-            "refinement_law": (
-                "the leading residue scales as a^4, so one binary "
-                "refinement step suppresses it by exactly 1/16 at that "
-                "order, for every member of the class"
+            "generic_leading_order": (
+                "whenever the weighted sixth-moment I6 coefficient is "
+                "nonzero, certified here for the equal-weight stencil and "
+                "each fundamental orbit, the first artifact sits at "
+                "a^4 k^6 and one binary refinement step suppresses it by "
+                "exactly 1/16 at that order; a tuned vanishing coefficient "
+                "moves the first artifact to a higher even invariant spin"
             ),
             "selection_premise_weakened": (
                 "the issue #654 stencil receipt's declared equal-weight "
                 "premise weakens to invariance plus finite range; stencil "
-                "selection affects only the residue amplitude, never the "
-                "shape, the forbidden levels, or the refinement exponent"
+                "selection affects the residue amplitude and, on tuned "
+                "members, the leading order, never the forbidden levels or "
+                "the below-spin-ten I6 rigidity"
             ),
         },
         "baseline_contrast": (
-            "the Standard Model with General Relativity is exactly "
-            "rotationally invariant in this sector and produces no "
-            "rotational residue of any shape at any order; a certified "
-            "detection of an l = 6-shaped, l <= 5-clean, a^4-scaling "
-            "residue therefore lies outside that baseline, and a null "
-            "result bounds the carrier scale"
+            "the fundamental couplings of the Standard Model with General "
+            "Relativity are exactly rotationally invariant in vacuum and "
+            "produce no intrinsic rotational residue of any shape at any "
+            "order; environmental and frame anisotropies are separately "
+            "modeled and subtracted by the search pipelines; a certified "
+            "intrinsic residue with this signature therefore lies outside "
+            "that baseline, and a null result bounds the carrier scale"
         ),
         "open_premises": {
             "physical_carrier_realization": (
-                "a physical lattice-type carrier at finite scale a with "
-                "invariant finite-range kinetics; owned by the source "
-                "realization lanes"
+                "a physical carrier with icosahedrally invariant "
+                "finite-range kinetics at finite scale a, in a "
+                "quasiperiodic or graph realization; no periodic "
+                "three-dimensional lattice carries this point group, and "
+                "the realization with its propagation-sector assignment is "
+                "owned by the source lanes"
             ),
             "amplitude_and_scale": (
                 "no residue amplitude or carrier scale is derived; the "
@@ -342,6 +420,7 @@ def build_receipt() -> dict[str, Any]:
     i6_reduced = p_reduce_sphere(i6)
     invariants = invariant_table_certificate()
     orbits = orbit_moment_certificate(i6_reduced)
+    tuned = tuned_cancellation_control(i6_reduced)
     statement = universality_statement()
     parent = base.RECEIPT_PATH.read_bytes()
     receipt = {
@@ -360,6 +439,7 @@ def build_receipt() -> dict[str, Any]:
         ],
         "invariant_table": invariants,
         "orbit_verification": orbits,
+        "tuned_cancellation_control": tuned,
         "universality": statement,
     }
     receipt["receipt_sha256"] = base.tagged_sha256(

@@ -10,7 +10,8 @@ import spin_six_universality_certificate as su
 def test_receipt_builds_with_expected_status() -> None:
     receipt = su.build_receipt()
     assert receipt["status"] == (
-        "SPIN_SIX_RESIDUE_UNIVERSAL_ON_INVARIANT_CARRIER_CLASS__AMPLITUDE_OPEN"
+        "SPIN_SIX_LEAST_POPULATABLE_SPIN__I6_RIGID_BELOW_SPIN_TEN__"
+        "GENERIC_LEADING_ORDER__AMPLITUDE_OPEN"
     )
     table = receipt["invariant_table"]["table"]
     assert [int(table[str(level)]) for level in range(7)] == [1, 0, 0, 0, 0, 0, 1]
@@ -25,6 +26,14 @@ def test_orbit_rows_all_land_on_the_same_i6() -> None:
     assert set(rows) == {"vertex_12", "face_20", "edge_30"}
     assert all(row["i6_multiple_nonzero"] for row in rows.values())
     assert rows["vertex_12"]["m6_i6_multiple"] == "64/175+0*sqrt5"
+
+
+def test_tuned_cancellation_is_exact_and_positive_weight() -> None:
+    receipt = su.build_receipt()
+    control = receipt["tuned_cancellation_control"]
+    assert control["weights_positive"] is True
+    assert control["k6_i6_coefficient"].startswith("0 ")
+    assert Fraction(64, 175) - Fraction(27, 25) * Fraction(64, 189) == 0
 
 
 def test_independent_sympy_invariant_dimensions() -> None:
