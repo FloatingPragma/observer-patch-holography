@@ -130,4 +130,4 @@ Release: `r2009`. 66 claims, 21 distinct live gates across 15 gated claims.
 | [#648](https://github.com/FloatingPragma/observer-patch-holography/issues/648) | [N closure named-law lane] Decide finite-presence versus Poisson reserve attachment | `OPH-Q-N-RESERVE-CANDIDATES` |
 | [#649](https://github.com/FloatingPragma/observer-patch-holography/issues/649) | [N reserve attachment] Decide finite connected-cut survival on global capacity | `OPH-Q-N-RESERVE-CANDIDATES` |
 | [#650](https://github.com/FloatingPragma/observer-patch-holography/issues/650) | [N horizon bridge] Attach the named-law capacity to the de Sitter horizon record | `OPH-Q-N-RESERVE-CANDIDATES` |
-| [#655](https://github.com/FloatingPragma/observer-patch-holography/issues/655) | [A5 fingerprint] Derive the physical kinetic stencil from the repair law or type its premise | `OPH-A5-PRIMITIVE-PORT-SPIN6` |
+| [#655](https://github.com/FloatingPragma/observer-patch-holography/issues/655) | [FZ-11 physical bridge] Decide whether the frozen primitive twelve-port propagation prediction is forced and exclusive | `OPH-A5-PRIMITIVE-PORT-SPIN6` |
