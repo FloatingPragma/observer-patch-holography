@@ -14,18 +14,15 @@ observer overlap repair on a holographic screen. From this architecture OPH
 reconstructs an exact finite structural core: quantum event rules, Lorentz
 kinematics on the stated global-support branch, the Standard Model gauge
 Lie type, and a conditional one-generation exterior matter pair with an exact
-common central kernel. The corresponding matrix current, physical global
-form, Einstein dynamics, and numerical closures for $P$ and $N$ retain their
-stated source or physical interfaces. The three axioms supply the observer
-system; they do not silently select every action, representation, continuum
-limit, or laboratory attachment.
+common central kernel.
 
-Beside the axioms sit two closures. One gives the pixel constant $P$, tied to
-the fine-structure constant. The other gives the computational capacity $N$,
-tied to the cosmological constant. Since the universe being simulated and the
-universe doing the simulating are the same universe, the simulated
-fine-structure and cosmological constants must equal the simulating ones. This
-self-reference locks in the possible values.
+Three axioms govern the simulator architecture and how observers reach
+consensus. Beside them sit two closures. One gives the pixel constant $P$,
+tied to the fine-structure constant. The other gives the computational
+capacity $N$, tied to the cosmological constant. Since the universe being
+simulated and the universe doing the simulating are the same universe, the
+simulated fine-structure and cosmological constants must equal the simulating
+ones. This self-reference locks in the possible values.
 
 ## Start Here
 

@@ -17,19 +17,16 @@ architecture, OPH reconstruit un noyau structurel fini exact : les règles des
 événements quantiques, la cinématique de Lorentz sur la branche de support
 global déclarée, le type de Lie du Modèle standard, ainsi qu’une paire
 extérieure conditionnelle pour une génération de matière avec un noyau
-central commun exact. Le courant matriciel correspondant, la forme globale
-physique, la dynamique d’Einstein et les clôtures numériques de $P$ et $N$
-conservent leurs interfaces de source ou d’identification physique. Les trois
-axiomes fournissent le système d’observateurs ; ils ne sélectionnent pas
-implicitement chaque action, représentation, limite continue ou attachement
-au laboratoire.
+central commun exact.
 
-À côté des axiomes se trouvent deux clôtures. L’une donne la constante de
-pixel $P$, liée à la constante de structure fine. L’autre donne la capacité de
-calcul $N$, liée à la constante cosmologique. Puisque l’univers simulé et
-l’univers simulateur sont le même univers, les constantes de structure fine et
-cosmologique simulées doivent être égales à celles de l’univers simulateur.
-Cette autoréférence verrouille les valeurs possibles.
+Trois axiomes régissent l’architecture du simulateur et la manière dont les
+observateurs parviennent à un consensus. À côté d’eux se trouvent deux
+clôtures. L’une donne la constante de pixel $P$, liée à la constante de
+structure fine. L’autre donne la capacité de calcul $N$, liée à la constante
+cosmologique. Puisque l’univers simulé et l’univers simulateur sont le même
+univers, les constantes de structure fine et cosmologique simulées doivent
+être égales à celles de l’univers simulateur. Cette autoréférence verrouille
+les valeurs possibles.
 
 ## Commencer ici
 
