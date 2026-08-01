@@ -60,10 +60,14 @@ Thus \(Q=2/3\) is exactly equivalent to the single balance condition
 \(|b|/a=1/\sqrt2\). The phase of \(b\) drops out of \(Q\) and continues to
 control the two mass ratios jointly. A finite tracial
 Gelfand--Naimark--Segal construction with equal rank-two event blocks gives
-the balanced modulus as a conditional theorem. The local face fiber has no
-constructed physical chiral-family attachment, so the result is a
-representation-theoretic identity and a finite conditional implication,
-without a charged-lepton mass prediction. The numerical response model
+the balanced modulus as a conditional theorem. Under the balance and
+mass-ordering premises the measured electron and muon masses fix the tau
+mass inside a 72-eV enclosure, 0.43 standard uncertainties from
+measurement, governed by a registered decision rule with a 0.045 MeV
+precision floor. The local face fiber has no constructed physical
+chiral-family attachment, so the result is a representation-theoretic
+identity, a finite conditional implication, and a conditional tau-mass
+window; no source-only mass prediction is claimed. The numerical response model
 associated with this construction uses target-informed inputs. Its
 near-equality with the Particle Data Group central Koide coordinate is a
 comparison-only diagnostic.
@@ -239,6 +243,38 @@ the local face bundle to one chiral three-family response, preservation of
 the relevant block powers, and a mass readout. Those objects are absent from
 the theorem.
 
+\section{The conditional tau-mass window}
+\label{sec:tauwindow}
+
+Fixing \(Q=2/3\) in Eq.~\eqref{eq:koideformula} and inserting the measured
+electron and muon masses turns the Koide coordinate into one quadratic in
+\(\sqrt{m_\tau}\). The mass-ordering premise \(m_\tau>m_\mu\) selects the
+physical root; the excluded second root sits at \(3.317\)~MeV, below the
+muon mass. Propagating the one-sigma corners of the measured
+\((m_e,m_\mu)\) inputs \cite{pdg2026} with outward rounding encloses the
+selected root in
+\begin{equation}
+m_\tau\in[1776.968991,\ 1776.969063]\ \mathrm{MeV},
+\label{eq:tauwindow}
+\end{equation}
+a 72-eV window with center \(1776.969027\)~MeV. The center sits
+\(0.43\) standard uncertainties from the measured
+\(1776.93\pm0.09\)~MeV, and the window is three orders of magnitude
+narrower than that measurement uncertainty.
+
+The comparison is governed by a registered conditional test whose target
+definition and decision rule were fixed in a frozen prediction record
+\cite{ophregister}: a world-average or dedicated-measurement central value
+more than three standard uncertainties from \(1776.969027\)~MeV refutes
+the balanced-circulant premise; compatibility requires agreement within
+two standard uncertainties at a measurement uncertainty of at most
+\(0.045\)~MeV; every other outcome carries no verdict. The premise
+ancestry is declared: the balance condition was first abstracted from the
+measured charged-lepton triple, so the window is a target-informed
+conditional postdiction whose evidential weight lies in the kill
+direction. Improving tau-mass averages test the balanced-circulant premise
+directly.
+
 \section{Numerical diagnostic and provenance}
 
 Using the Particle Data Group 2026 central masses
@@ -273,8 +309,9 @@ Statement & Scope \\
 Eq.~\eqref{eq:koideformula} & exact algebra in the nonnegative-eigenvalue chamber \\
 Theorem~\ref{thm:gns} & exact implication conditional on the declared finite event packet \\
 Icosahedral face fiber & exact local \(A_5/C_3\) bundle and unordered spectrum \\
-Physical family attachment & work in progress \\
-Phase and numerical ratios & work in progress \\
+Tau window, Eq.~\eqref{eq:tauwindow} & exact quadratic consequence of the balance and ordering premises; registered decision rule \\
+Physical family attachment & absent from the theorems; a premise of any physical reading \\
+Phase and numerical ratios & undetermined by the balance condition; two free chamber coordinates \\
 MCPR numerical proximity & target-informed comparison-only diagnostic \\
 \bottomrule
 \end{tabular}
@@ -282,7 +319,7 @@ MCPR numerical proximity & target-informed comparison-only diagnostic \\
 
 \section{Why residual symmetry does not finish the ratios}
 
-The remaining family-shape problem can be stated in the real
+The family-shape problem can be stated in the real
 five-dimensional representation
 \[
 W_5\simeq\operatorname{Sym}^2_0(\R^3),
@@ -337,7 +374,7 @@ r=\frac1{\sqrt2}.
 \]
 The formal module deliberately does not identify signed eigenvalues with
 physical square roots. Positivity of all three eigenvalues, the phase
-selection, and the source-to-charged-family attachment remain outside its
+selection, and the source-to-charged-family attachment are outside its
 statement. This division matches Theorem~\ref{thm:koide}: the checked algebra
 is exact, and the physical reading is a separate premise.
 
@@ -351,11 +388,16 @@ Q=\frac23
 \rho/a=\frac1{\sqrt2}.
 \]
 The finite tracial event packet supplies this balance conditionally through
-equal block weights and the canonical square-root representation. The result
-does not determine the phase or mass ratios and does not attach the local
-face fiber to physical charged leptons. Its durable content is an exact
-circulant identity, an exact finite conditional balance theorem, and a sharp
-statement of the remaining physical work.
+equal block weights and the canonical square-root representation. Under the
+balance and mass-ordering premises the measured electron and muon masses
+fix the tau mass inside the 72-eV window of Eq.~\eqref{eq:tauwindow}, and
+a registered decision rule fixes what refutes the balanced-circulant
+premise. The result does not determine the phase or mass ratios and does
+not attach the local face fiber to physical charged leptons. Its durable
+content is an exact circulant identity, an exact finite conditional
+balance theorem, a conditional tau-mass window with a registered decision
+rule, and a sharp boundary between the checked algebra and the physical
+attachment premises.
 
 \begin{thebibliography}{9}
 
@@ -370,6 +412,13 @@ Particle Data Group,
 \emph{Review of Particle Physics: 2026 particle listings},
 2026.
 \url{https://pdg.lbl.gov/2026/listings/particle_properties.html}
+
+\bibitem{ophregister}
+FloatingPragma,
+\emph{Frozen prediction register and precommitted comparison
+certificates},
+2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/claims/frozen_prediction_register.json}
 
 \end{thebibliography}
 

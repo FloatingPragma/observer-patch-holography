@@ -357,13 +357,13 @@ codomain.  Its injectivity says exactly that $B(c)=B(d)$ implies
 $[c]=[d]$, equivalently $c\approx d$.
 \end{proof}
 
-\begin{remark}[Three separate obligations]
+\begin{remark}[Three separate hypotheses]
 Same-source confluence compares arms of a peak from one state;
 \cref{thm:cross-source-modulo} compares endpoints from all sources in one
 observation fiber.  Weak normalization is a separate existence hypothesis
 ensuring that every source has at least one endpoint.  Strong normalization,
 fairness, or another liveness argument is needed to conclude that every
-allowed schedule settles.  None of these three obligations may be substituted
+allowed schedule settles.  None of these three hypotheses may be substituted
 for either of the others.
 \end{remark}
 
@@ -844,7 +844,7 @@ corresponding normalizer image; every coarse map is assumed to preserve the
 chosen admissible subspaces.  To avoid carrying restriction notation through
 every formula, we relabel those subspaces and restricted consistent sets as
 $Q_s,Q_r,Q_n$ and $C_s,C_r,C_n$.  Thus $B_n|_{C_n}$ is injective on the
-declared domain.  Obstructed and ambiguous fibers remain governed by
+declared domain.  Obstructed and ambiguous fibers are governed by
 \cref{sec:exact}; they are not silently assigned a finite normalizer value in
 the metric estimates below.
 
@@ -1282,7 +1282,7 @@ $\delta_m^{(i)},\beta_m^{(i)}\to0$, the observation maps have a common
 Lipschitz bound, and $H(t),\Omega(t)\to0$ at zero.  Uniform summability of
 $\sum_j a_j$ implies the pathwise summability condition.  Thus raw receipt
 parameters alone are not enough: uniform conditioning and the amplified
-restriction factors remain load-bearing.
+restriction factors are load-bearing.
 
 \subsection{Exact inverse limits}
 
@@ -1329,7 +1329,7 @@ Naturality makes $(N_nq_n)$ a compatible family.  Because each coordinate lies i
 The theorem supplies a normalizer on a declared inverse system.  It
 does not prove compactness, nonemptiness, a continuum dynamics, or adequacy of
 the chosen refinement maps.  Those are separate mathematical or
-model-specific obligations.
+model-specific premises.
 \end{remark}
 
 \section{Repairability and selection obstructions}\label{sec:repair}

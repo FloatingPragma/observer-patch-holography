@@ -118,7 +118,7 @@ settings. Full SHA-256 preimage search is a practical enumeration problem
 \cite{MendelNadSchlaeffer2013,KhovratovichRechbergerSavelieva2011,AlamgirNejatiBright2024}.
 Quantum computers change the query count by Grover amplification: quadratically
 in the number of candidates. Published resource estimates for
-cryptographic SHA-256 preimage search remain far beyond fault-tolerant
+cryptographic SHA-256 preimage search are far beyond fault-tolerant
 hardware \cite{Grover1997,Zalka1999,AmyEtAl2016,NeremGaur2023}.
 
 Observer Patch Holography suggests a different representation of the problem.
@@ -1248,7 +1248,7 @@ S_{\mathrm{G}}(k)\approx \frac{2^k}{Q_{\mathrm{G}}(k)}
 The gain is quadratic in query count. The wave-overlap zero-energy endpoint has
 a different scaling: a physical fixed point can represent a valid nonce in one
 settling event. Resource estimates for generic SHA-256
-preimage search remain enormous. Amy et al. estimate a SHA-256 preimage attack
+preimage search are enormous. Amy et al. estimate a SHA-256 preimage attack
 requiring approximately \(2^{153.8}\) surface-code cycles and \(2^{12.6}\)
 logical qubits, or \(2^{166.4}\) logical-qubit-cycles \cite{AmyEtAl2016}.
 The Omega/Karma hardware described here sits outside this Grover resource set.
@@ -1364,7 +1364,7 @@ between board-local leading-zero reports and host recomputation.
 The prototype closes a proof-of-work loop: optical candidate generation, exact
 hash verification, and pool submission. Its boundary conditions are part of the
 claim. The accepted-share log supports a real external-verifier path for
-kHeavyHash/Kaspa, while the solo audit keeps the stronger enrichment claim open.
+kHeavyHash/Kaspa; the solo audit does not establish the stronger enrichment claim.
 The SHA-256d construction sets the Bitcoin operator map for the same physical
 search cascade. SHA-256d claims pass only through the operator-alignment and
 per-distinct-enrichment gates above.

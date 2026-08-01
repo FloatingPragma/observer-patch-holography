@@ -87,7 +87,8 @@ The source map has the interval-certified unique root
 inside the same loop gives the certified root
 \(137.035660136946577\ldots\). The recommended experimental value is used only to test these
 source calculations. A physical low-energy prediction requires the same-scheme
-hadronic spectral transport, which is work in progress.
+hadronic spectral transport; this construction consumes that transport as a
+premise and does not compute it.
 \end{abstract}
 
 \noindent\textbf{Keywords:} fine-structure constant, Observer-Patch Holography, pixel fixed
@@ -108,8 +109,8 @@ gives each declared map a unique fixed point: the source map contracts to
 \(136.994835177413\ldots\) (\(3.0\times10^{-4}\) relative from the measured
 endpoint) and the self-consistent gauge-width map to
 \(137.035660136947\) (\(2.5\times10^{-6}\) relative; the declared map is
-certified, the physical transport step is open). The remaining
-gap has an explicit address: the hadronic transport needed in the same
+certified, and the physical transport step is a separate premise). The
+residual gap has an explicit address: the hadronic transport needed in the same
 electromagnetic convention as the source map. This split is the contribution: a fixed-point
 equation for the pixel branch with no adjustable form, a visible address for the missing low-energy
 QCD step, and a clear boundary between a source theorem, empirical endpoint
@@ -187,7 +188,7 @@ measured endpoint rather than computed from source data. It is near one
 because \(\alpha_U(\Ppub)\)
 supplies the large part of the correction. Its excess
 \(\alpha_U(\Ppub)(C_{24,Q}-1)\) is a comparison residual with the numerical size required of the
-remaining same-scheme low-energy hadronic endpoint transport. It does not compute that transport. A zero-momentum laboratory photon does
+residual same-scheme low-energy hadronic endpoint transport. It does not compute that transport. A zero-momentum laboratory photon does
 not probe an empty charged vacuum; it sees the Ward-projected \(\mathrm U(1)_Q\)
 current after charged-lepton vacuum polarization, confined-quark/hadron
 spectral transport, and finite endpoint matching. In short, the observer
@@ -222,7 +223,7 @@ the same \(g_Q(q^2;P)\) with the Ward-projected running electromagnetic coupling
 \(q^2\to0\) gives the endpoint quantity \(\ATh(P)\) used in the pixel fixed-point equation.
 \end{proof}
 
-The hadronic step uses the standard dispersion logic behind hadronic vacuum-polarization work. The relevant comparison data are electromagnetic spectral functions measured through \(e^+e^-\to\mathrm{hadrons}\), as used in data-driven running-\(\alpha\) and \(g-2\) analyses \cite{dhmz,knt19,pdg-xsect}. In this paper, the decimal correction shown above is reported as the difference between the CODATA/NIST comparison value and the OPH pure source calculation. A direct OPH production calculation of the hadronic spectral function is work in progress.
+The hadronic step uses the standard dispersion logic behind hadronic vacuum-polarization work. The relevant comparison data are electromagnetic spectral functions measured through \(e^+e^-\to\mathrm{hadrons}\), as used in data-driven running-\(\alpha\) and \(g-2\) analyses \cite{dhmz,knt19,pdg-xsect}. In this paper, the decimal correction shown above is reported as the difference between the CODATA/NIST comparison value and the OPH pure source calculation. The source data in this paper emit no direct production calculation of the hadronic spectral function; a pure source endpoint theorem consumes that calculation as a premise.
 
 \clearpage
 \section{Symbols}
@@ -260,7 +261,7 @@ Symbol & Definition & Informal meaning \\
 \(\Dcalc(P)\) & Calculated charged-fermion transport contribution & The exact kernel on the supplied lepton continuation plus the screened quark continuation; not a pure source prediction. \\
 \(\Dcalib^{\mathrm{fp}}\) & Root-to-CODATA bookkeeping difference & The inverse-alpha amount between the naked root value and the CODATA/NIST central endpoint; it includes the comparison-pixel \(\alpha_U(\Ppub)\) contribution and is not the post-\(\alpha_U\) hadronic gap. \\
 \(\Dhadreq^{\mathrm{fp}}\) & Required hadronic endpoint correction after \(A_{\alpha_U}^{\mathrm{fp}}\) & The inverse-alpha amount by which the displayed OPH output misses the CODATA/NIST central endpoint. \\
-\(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The remaining same-scheme hadronic endpoint contribution. \\
+\(\Rq(P)\) & \(\ATh(P)-[\AZ(P)+\Dcalc(P)]\) & The residual same-scheme hadronic endpoint contribution. \\
 \(A_{\alpha_U}^{\mathrm{fp}}\) & \(\alpha_{\mathrm{root}}^{-1}+\alpha_U(\Ppub)\) & Mixed-provenance no-hadron comparison diagnostic; the root is source-side and \(\Ppub\) is CODATA-derived. \\
 \(J_{24,Q}(P)\), \(\omega_Q(P)\), \(\Xi_Q(P)\) & Source-side hadronic spectral objects required for a final endpoint theorem & The Jacobi/Stieltjes spectral payload, normalization, and finite same-scheme remainder that must be emitted without looking at the Thomson target. \\
 \(\Ppub\) & CODATA/NIST comparison pixel & The pixel obtained from the CODATA/NIST Thomson endpoint under the OPH outer equation. \\
@@ -584,8 +585,8 @@ additional assumptions
 =\frac{2}{9}.
 \label{eq:epsdelta}
 \end{equation}
-The physical charged-spectrum derivation is work in progress. It requires
-a source-to-mass attachment, a phase-transport law fixing \(\delta=2/9\),
+No physical charged-spectrum derivation is claimed here; such a derivation
+requires a source-to-mass attachment, a phase-transport law fixing \(\delta=2/9\),
 and an attachment of the ordered roots to physical charged-family lines. For a
 positive-semidefinite square-root-mass carrier
 \[
@@ -860,7 +861,7 @@ The calculated transport contribution is
 \label{eq:Dcalcroot}
 \end{equation}
 
-Informally: the fixed-point algebra lands at a stable value near \(137\), with no measured alpha inserted into the solve. The remaining gap has a precise address: low-energy hadronic transport in the same endpoint convention.
+Informally: the fixed-point algebra lands at a stable value near \(137\), with no measured alpha inserted into the solve. The residual gap has a precise address: low-energy hadronic transport in the same endpoint convention.
 
 Why this step is needed: this is the non-circular check. It shows what the OPH source chain produces before the calibrated hadronic endpoint correction is added.
 
@@ -1053,8 +1054,8 @@ Here \(A_{\mathrm C}\) is the CODATA/NIST 2022 inverse fine-structure constant \
 Informally: the mixed comparison diagnostic is \(137.035959513609\ldots\); the
 certified self-consistent gauge-width fixed point is \(137.035660136946577\ldots\)
 (\(2.5\times10^{-6}\) relative); and the CODATA/NIST measured value is \(137.035999177(21)\). The
-remaining difference is the size required of the missing same-scheme endpoint contribution; its
-source derivation from a same-scheme hadronic spectral backend is work in progress.
+residual difference is the size required of the absent same-scheme endpoint contribution; its
+source derivation from a same-scheme hadronic spectral backend is a premise this paper does not supply.
 
 This marks the calculation boundary: additional digits require a source-derived hadronic spectral calculation.
 
@@ -1065,7 +1066,7 @@ The endpoint decomposition is
 \AZ(P)+\Dlep(P)+\Dhad(P)+\DEW(P).
 \label{eq:ATsplit}
 \end{equation}
-The calculated transport contains the exact one-loop charged-lepton contribution and a structured quark-screening continuation. The remaining pure source object can be written compactly as
+The calculated transport contains the exact one-loop charged-lepton contribution and a structured quark-screening continuation. The residual pure source object can be written compactly as
 \begin{equation}
 \Rq(P)
 =
@@ -1407,7 +1408,7 @@ Eq.~\eqref{eq:G} gives the corresponding comparison pixel:
 }
 \end{align}
 
-Informally: the endpoint number is the same number NIST/CODATA reports. The derivation exposes every OPH-side step and identifies where the low-energy hadronic calculation enters. The missing hadronic spectral calculation is work in progress.
+Informally: the endpoint number is the same number NIST/CODATA reports. The derivation exposes every OPH-side step and identifies where the low-energy hadronic calculation enters. That hadronic spectral calculation is the named premise separating this endpoint display from a source theorem.
 
 \section{Reproducibility}
 
@@ -1469,7 +1470,7 @@ Interval theorem & Banach/contraction certificate for full \(G\) & Discharged fo
 
 \section{Conclusion}
 
-The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected electromagnetic transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree. The construction carries zero continuous dials and each declared incomplete map has a machine-certified unique fixed point on its declared domain. The hadronic source payload and detached no-target-leak certificate are work in progress, so the residuals are diagnostics rather than a derivation of \(\alpha\).
+The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected electromagnetic transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree. The construction carries zero continuous dials and each declared incomplete map has a machine-certified unique fixed point on its declared domain. The hadronic source payload and detached no-target-leak certificate are premises this construction does not supply, so the residuals are diagnostics rather than a derivation of \(\alpha\).
 
 The pure source calculation computes the root witness
 \[
@@ -1497,7 +1498,7 @@ CODATA-derived comparison pixel and is not a fixed point of a single declared ma
 certified self-consistent gauge-width fixed point is
 \(\alpha^{-1}=137.035660136946577\ldots\), \(2.5\times10^{-6}\) below the measured value, about
 \(1.6\times10^{4}\) measurement sigma.
-The remaining gap is CODATA-minus-diagnostic bookkeeping, not an emitted low-energy hadronic
+The residual gap is CODATA-minus-diagnostic bookkeeping, not an emitted low-energy hadronic
 calculation. The pure source theorem requires the Ward-projected hadronic spectral measure, the
 same-scheme bridge, and the interval-certificate step.
 
