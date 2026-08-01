@@ -174,75 +174,18 @@ données et certificats :
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-7. **Une prédiction gelée de propagation de degré six issue des douze
-   ports.** Sur la branche cinétique réelle, réciproque et de portée finie où
-   l’orbite complète des ports primitifs est le seul support de saut, sans
-   terme cinétique indépendant à l’ordre affiché, la covariance du porteur
-   impose des poids égaux. La normalisation continue donne
-   $\omega^2=k^2+C_4k^4+B_0k^6+B_6k^6\mathcal I_6(R^{-1}\hat k)+O(k^8)$,
-   avec
-   $C_4=-a^2/20$, $B_0=a^4/840$ et $B_6=2a^4/7875$. Il en résulte
-   $B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$ et $B_6/B_0=16/75$.
-   Les rangs anisotropes intrinsèques $j=1$ à $5$ s’annulent, tandis que le
-   rang $j=6$ possède une forme icosaédrique rigide, à une classe d’orientation
-   à trois paramètres dans $SO(3)/A_5$ près. Le spin six désigne ici un rang
-   angulaire, sans rapport
-   avec le spin d’une particule. Pour le noyau cosinus à poids égaux déclaré et
-   $0<|ak|\le1$, l’amplitude anisotrope jusqu’à l’ordre huit vaut exactement
-   $2|ak|^6(30-|ak|^2)/118125>0$. La queue normalisée d’ordre supérieur vérifie
-   $\|\nabla E\|<7/100$ et $\|\operatorname{Hess}_{S^2}E\|<7/10$.
-   Un recouvrement exact par trois cartes et des bornes locales sur les valeurs
-   singulières prouvent que le noyau complet possède exactement 62 directions
-   stationnaires sur cet intervalle : 12 maxima, 20 minima et 30 points-selles
-   sur les axes des sommets, des faces et des arêtes. Le Modèle standard minimal localement
-   invariant de Lorentz avec la relativité générale donne des coefficients
-   intrinsèques du vide nuls sur cette surface. Une physique non minimale avec
-   violation de l’invariance de Lorentz et une anisotropie environnementale
-   peuvent imiter ce signal. La prédiction et sa règle de décision au niveau
-   de la branche sont fixées dans un instantané source sous garde par commit
-   public. Les preuves horodatées détachées attendent leur ancrage Bitcoin. La
-   comparaison enregistrée exclut la recherche
-   datée du gabarit du fond diffus cosmologique et toutes les données qui y ont
-   été examinées. La comparaison physique est désarmée jusqu’à
-   ce qu’un contrat de données admissible fixe
-   le repère, la covariance, les paramètres de nuisance, la sensibilité et
-   les seuils. Le pont vers un secteur scalaire ou indépendant de la
-   polarisation, l’action identique sur les deux polarisations transverses
-   pour un test photonique, le transport cohérent du repère et l’exclusivité
-   sont des prémisses de cette branche. L’opérateur de réparation certifié
-   agit sur trente coutures internes, et non sur des translations spatiales.
-   Un recensement à schémas fermés des artefacts sources sérialisés et suivis
-   du simulateur trouve séparément des
-   opérateurs spatiaux et cinétiques locaux ainsi que la réponse à douze ports.
-   Aucun paquet de pont enregistré et accepté sur cette surface ne relie un
-   opérateur complet de translation sur les douze directions à une lecture
-   physique du même opérateur, liée par son empreinte. Les orbites exactes des
-   sommets, faces et arêtes ont des
-   rayons de rang six distincts. La symétrie égalise les poids à l’intérieur
-   d’une orbite sans sélectionner celle des sommets. Un résultat nul ou insuffisamment sensible ne permet aucune
-   conclusion. Une covariance incomplète, un repère non résolu, une séparation
-   entre polarisations ou l’absence d’isolation de la contribution du porteur
-   ne permettent pas davantage de conclure. Si $C_4$ est
-   négatif à cinq écarts-types ou davantage, avec une sensibilité suffisante,
-   l’exclusion des rapports liés du sixième ordre ou de la forme tournée à
-   cinq écarts-types ou davantage, après le profil d’orientation fixé dans
-   $SO(3)/A_5$ et avec une couverture jointe calibrée, rejette cette branche de
-   ports primitifs. Un $C_4$ intrinsèque positif ou une anisotropie intrinsèque
-   non nulle aux rangs $1$ à $5$ la rejette au même seuil et sous la même
-   couverture calibrée.
-   Une vraisemblance jointe calibrée qui exclut la variété complète de la
-   branche liée à cinq écarts-types ou davantage la rejette également.
-   Un résultat favorable exige que la référence à coefficients nuls soit
-   exclue à cinq écarts-types ou davantage, que la variété liée complète
-   concorde à moins de deux écarts-types, que les alternatives systématiques
-   déclarées soient rejetées et qu’une expérience admissible indépendante
-   reproduise le résultat.
-   Elle atteint l’ensemble du cadre seulement si une loi de source plus forte
-   prouve que cette branche est forcée et exclusive. Voir le
+7. **Une signature de propagation gelée issue des douze ports.** La branche
+   cosinus à douze ports déclarée produit un motif directionnel précis de
+   sixième ordre : les anisotropies inférieures s’annulent et le premier motif
+   non nul possède la symétrie icosaédrique. Cela donne un test bien défini
+   pour une petite correction directionnelle de la propagation, avec comme
+   référence conventionnelle zéro une théorie localement invariante de Lorentz.
+   Les directions attendues des sommets, des faces et des arêtes, les rapports
+   liés des coefficients et les seuils de rejet sont fixés avant comparaison.
+   Il s’agit d’une prédiction conditionnelle de cette branche tant que le pont
+   physique et la sélection de l’orbite ne sont pas dérivés. Voir le
    [reçu exact de la prédiction](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
-   le [reçu de persistance du noyau cosinus](code/a5_fingerprint/runtime/a5_multipole_persistence_receipt_v4.json),
    la [preuve Lean des coefficients](Lean/Screen/A5PrimitivePortPrediction.lean),
-   la [séparation exacte des orbites](Lean/Screen/A5OrbitRaySeparation.lean),
    l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) et le
    [problème du pont physique](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
 
