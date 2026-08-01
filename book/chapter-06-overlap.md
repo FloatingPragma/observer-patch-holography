@@ -44,9 +44,11 @@ For nearly thirty years, everyone assumed it couldn't be settled by experiment. 
 
 John Stewart Bell was an Irish physicist working at CERN in the 1960s. He was quiet, precise, and privately dissatisfied with the foundations of quantum mechanics. In his spare time, between designing particle accelerators, he worked on a problem everyone else had abandoned.
 
-In 1964, Bell published a short paper that changed everything. He proved that
-the question was empirical and designed an experiment that could distinguish
-quantum mechanics from the relevant class of local hidden-variable theories.
+In 1964, Bell published a six-page paper in Physics Physique Fizika, a
+short-lived journal that paid its authors and folded within a few years. The
+paper proved that Einstein's question was empirical after all: there was an
+experiment that could distinguish quantum mechanics from the relevant class of
+local hidden-variable theories.
 
 The key was correlation. When two observers measure entangled particles, their results are correlated. Bell showed that local hidden-variable theories set a ceiling on how correlated the results can be. This ceiling is called the Bell inequality:
 
@@ -102,8 +104,7 @@ The reverse-engineering question is why nature behaves this way. What principle 
 ### Objectivity Is Agreement
 
 Stand on a street corner in New York City and look across the road. A bright
-red Ferrari is parked there, gleaming and
-expensive, the kind of car that makes people stop and stare. A second
+red Ferrari is parked there. A second
 observer, Bob, is standing fifty feet down the block. He sees the side profile
 and the license plate. A third observer, Charlie, is looking out of a
 second-story window and sees the roof of the car.
@@ -178,18 +179,15 @@ Apply the overlap consistency condition. Any assignment where patches disagree g
 
 The hardness of the Quantum Marginal Problem tells us the filter is doing real
 work. The constraints are genuinely restrictive, and the state-space that
-survives them is highly structured. Bell-violating correlations can then be
-read as part of the bookkeeping that keeps many local perspectives compatible
-without a large hidden-variable overhead. That reading is a framework choice;
-the experiments allow it without forcing it.
+survives them is highly structured. Bell-violating correlations are part of
+the bookkeeping that keeps many local perspectives compatible without a large
+hidden-variable overhead.
 
 In a universe built on observer agreement, the nonlocal correlations that so troubled Einstein are not inexplicable. They become part of the consistency structure, with no unexplained add-on.
 
 ## 6.4 Defining the Overlap
 
-What does Bell's theorem have to do with observer patches?
-
-Everything.
+What does Bell's theorem have to do with observer patches? Everything.
 
 Bell showed that when two observers access the same entangled system, their
 correlations can exceed classical bounds. They can't *communicate* faster than
@@ -224,16 +222,11 @@ reduced density matrices match, their descriptions agree on the shared region.
 
 Here is the same equation in ordinary language.
 
-A density matrix is quantum mechanics' way of describing partial knowledge. If you know a system is definitely in state |psi>, you use a pure state. If you only know the system is in state |psi_1> with probability p_1 or state |psi_2> with probability p_2, you use a density matrix:
+A density matrix, remember, is quantum mechanics' way of describing partial knowledge: a weighted mixture of possible pure states,
 
 $$\rho = p_1|\psi_1\rangle\langle\psi_1| + p_2|\psi_2\rangle\langle\psi_2|$$
 
-The "trace" operation (Tr) is how you marginalize, the way you focus on one part of a system while ignoring the rest. If Alice has access to particles A and B but Bob only has access to B, then "Tr_A" traces out particle A, leaving just the description of B.
-
-In this density matrix, $p_1$ and $p_2$ are probabilities. The kets
-$|\psi_1\rangle$ and $|\psi_2\rangle$ are possible pure states. The paired bra
-and ket $|\psi\rangle\langle\psi|$ is the projector onto that state. A density
-matrix is therefore a weighted quantum mixture of possible state assignments.
+with $p_1$ and $p_2$ the probabilities and the paired bra and ket $|\psi\rangle\langle\psi|$ the projector onto a state. The trace operation is how you marginalize, the way you focus on one part of a system while ignoring the rest. If Alice has access to particles A and B but Bob only has access to B, then $\text{Tr}_A$ traces out particle A, leaving just the description of B.
 
 The consistency condition says: when Alice traces out everything Bob can't see, and Bob traces out everything Alice can't see, they'd better end up with the same description of the overlap.
 
@@ -336,8 +329,8 @@ In the W state, every pair has some entanglement, but none is maximal. The entan
 The GHZ state is named after Greenberger, Horne, and Zeilinger. The W state is
 named for the shape of its entanglement pattern, not for a person. The
 normalizing factors $1/\sqrt{2}$ and $1/\sqrt{3}$ make total probability 1.
-The three slots in each ket are the three qubits. These two states show that
-"three-party entanglement" is not one thing. It has distinct species.
+The three slots in each ket are the three qubits. Three-party entanglement,
+these two states show, comes in genuinely different species.
 
 Quantum agreement is a budget. Spend it on one overlap and you have less for another.
 
@@ -392,7 +385,7 @@ In 1961, Eugene Wigner proposed a thought experiment that puts the observer insi
 
 Wigner's friend is in a sealed laboratory, measuring a quantum system. From the friend's perspective, the measurement has produced a definite outcome record, say spin-up. In standard textbook language, the friend would update the system to the corresponding outcome state.
 
-But Wigner is outside the lab. He describes the entire lab-including his friend-using quantum mechanics. From Wigner's perspective, the lab is in a superposition: (friend sees spin-up and atom is spin-up) + (friend sees spin-down and atom is spin-down).
+But Wigner is outside the lab. He describes the entire lab, including his friend, using quantum mechanics. From Wigner's perspective, the lab is in a superposition: (friend sees spin-up and atom is spin-up) + (friend sees spin-down and atom is spin-down).
 
 Who's right?
 
@@ -420,7 +413,7 @@ Frauchiger and Renner's 2018 no-go theorem, and the Wigner's-friend experiments 
 
 If quantum mechanics is so resistant to consistency, how does the classical world emerge? How do we get the stable, objective facts that everyone agrees on?
 
-The answer involves a concept called **quantum Darwinism**, developed by Wojciech Zurek.
+The answer involves a concept called **quantum Darwinism**, worked out by Wojciech Zurek and his collaborators at Los Alamos in the early 2000s.
 
 The mechanism is environmental copying. A quantum system interacts with air molecules, photons, and everything around it. Some information about the system gets copied into the environment. Quantum mechanics forbids perfect copying of arbitrary unknown states, so the useful information is redundantly encoded in stable records.
 
@@ -520,12 +513,10 @@ symbol equality, carries their shared meaning.
 
 A complete carrier has another kind of dictionary change: a proper
 recharting of all twelve ports. Axiom 2 requires each such recharting to be
-realized by a closed route through accepted overlaps. Its projective unitary
-implementer must act on the carrier's own reversible response and must come
-from the group generated by that response, apart from a factor that acts
-trivially on it. An independent spectator with the same finite symmetry does
-not qualify. This requirement is what turns agreement under recharting into
-an internal symmetry statement.
+realized by a closed route through accepted overlaps and implemented by the
+carrier's own reversible response. An independent spectator with the same
+finite symmetry does not qualify. This requirement is what turns agreement
+under recharting into an internal symmetry statement.
 
 Equality of restricted states is an important finite special case. When the
 two interfaces use the same overlap algebra and the shared meanings are
@@ -583,10 +574,11 @@ to remain compatible without an impossible burden of pre-coordination.
 
 ---
 
-We have the Screen. We have the Algebra. We have the Consistency Rules.
+The Screen, the Algebra, and now the Consistency Rules: the kit is assembling.
 
-But what if the web gets torn? What if I measure something here, and you measure something there, and we lose the connection? What if information seems to disappear into a black hole or leak out through quantum noise?
-
-That tension is sharper here. Overlap is contextual, entanglement is limited,
-and global compatibility can be brutally hard to check. A world built from such
-ingredients should feel fragile. The next chapter explains why it does not.
+But what happens when the web gets torn? I measure something here, you measure
+something there, and we lose the connection. Information seems to vanish into
+a black hole or leak away as quantum noise. Overlap is contextual,
+entanglement is rationed, and global compatibility can be brutally hard to
+check. A world built from such ingredients should feel fragile. The next
+chapter explains why it does not.

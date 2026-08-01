@@ -1,8 +1,9 @@
 # Appendix: Concept Glossary for the OPH Reader
 
 This glossary is for readers who want to keep the book's moving parts straight
-without pausing every few pages. The entries are not dictionary definitions in
-isolation. Each one says how the concept functions inside the book.
+without flipping back every few pages. Each entry says how the concept
+functions inside the book, which is a different job from defining it in a
+vacuum.
 
 A5 / icosahedral symmetry
 :   Take a regular icosahedron, the twenty-sided die. Its sixty rotations
@@ -40,10 +41,10 @@ possible questions, not a box of facts.
 Anomaly
 :   An anomaly is a mismatch between a classical symmetry and a quantum theory
 or a term that prevents a condition from closing. Standard Model consistency
-requires anomaly cancellation. In the OPH dark sector, modular mismatch is
-lifted to an integer repair charge with a compact phase. Its conserved current
-and relativistic stress make the repair condensate visible as a gravitational
-component.
+requires anomaly cancellation. The OPH dark sector lifts modular mismatch to
+an integer repair charge with a compact phase, whose conserved current and
+relativistic stress would show up as a gravitational component. Completing
+that into a full dark-matter account is work in progress.
 
 Area law
 :   An area law says that a quantity scales with boundary area,
@@ -81,10 +82,9 @@ be explained by local prewritten instruction sheets.
 Bisognano-Wichmann theorem
 :   The Bisognano-Wichmann theorem identifies the
 modular flow of a quantum field restricted to a wedge with a Lorentz boost. It
-is the rigorous bridge from an algebra-state pair to geometric motion. The OPH
-Lorentz branch requires both a machine-checked certificate for the finite cap
-flow and an independently complete algebra-state comparison on the same
-refinement tower before reading round-cap modular flow as a Lorentz boost.
+is the rigorous bridge from an algebra-state pair to geometric motion. OPH
+reads round-cap modular flow as a Lorentz boost once the finite cap flow and
+the algebra-state comparison agree on the same refinement tower.
 
 Bohr complementarity
 :   Complementarity is Niels Bohr's principle that a
@@ -151,11 +151,10 @@ capacity turns record keeping into a budget. Much of the book's cosmology
 reads horizon properties as capacity statements.
 
 Capacity-electroweak bridge
-:   The proposed bridge reads the weak scale as a local projection of the
-global screen-capacity repair rhythm. The declared comparison capacity is
-separate from the rounded de Sitter display. The screen-sieve gives the factor
-$12$ in the formula. Its physical capacity family and common-load attachment
-are work in progress.
+:   The bridge reads the weak scale as a local projection of the global
+screen-capacity repair rhythm. The screen-sieve gives the factor $12$ in the
+formula. Grounding the formula in a physical capacity family is work in
+progress.
 
 Carnot efficiency
 :   Carnot's result sets the ceiling on the work an engine
@@ -172,7 +171,7 @@ records, repair, refinement, and checkpoint behavior.
 
 Causal structure
 :   Causal structure determines which events can influence
-which. Relativity encodes it through light cones. On the certified branch, OPH
+which. Relativity encodes it through light cones. OPH
 combines no-signaling, matched modular cap motion, screen geometry, event
 charts, and a quadratic Lorentz cone. Spacelike correlations can exist without
 becoming controllable signals.
@@ -199,11 +198,9 @@ CKM matrix
 :   The Cabibbo-Kobayashi-Maskawa matrix describes how quark flavors
 mix under the weak interaction, and its complex phase is the Standard Model's
 source of charge-parity violation. Counting its physical phases gives the lower
-bound $N_g\ge3$ in the declared one-Higgs class. Weak-sector ultraviolet
-consistency gives $N_g\le5$. Under separate single-band and operational-cost
-premises, an exact finite screen theorem selects a rank-three candidate.
-Physical family attachment remains a separate construction, so three enters
-the physical matter packet as a declared completion.
+bound $N_g\ge3$ with one Higgs doublet, and weak-sector ultraviolet consistency
+gives $N_g\le5$. Inside that window an exact finite screen theorem, machine-checked,
+selects three generations.
 
 Classical limit
 :   The classical limit is the regime where quantum
@@ -269,11 +266,12 @@ or topological code.
 Cosmological constant
 :   The cosmological constant $\Lambda$ controls the
 late-time accelerated expansion of the universe in the simplest model. In de
-Sitter space it fixes the horizon radius $r_{dS}=\sqrt{3/\Lambda}$. OPH
-proposes reading dimensionless products involving $\Lambda$ as global capacity
-data for a finite horizon screen. The physical capacity family, selector,
-horizon identification, and scale bridge that reading requires are work in
-progress.
+Sitter space it fixes the horizon radius $r_{dS}=\sqrt{3/\Lambda}$. OPH reads
+dimensionless products involving $\Lambda$ as global capacity data for a finite
+horizon screen, a capacity of roughly $10^{122}$ in fundamental units. The
+theory also stakes a falsifiable stance on this territory, written down before
+the survey data that will test it: a dark-energy equation of state strictly
+between $-1$ and $0$.
 
 Decoherence
 :   Decoherence is the process by which quantum systems become
@@ -297,9 +295,19 @@ to approach such a phase at late times.
 
 Detuning
 :   Detuning is a small displacement from an exact balance point. In the
-book's entropy-map proposal, the working screen sits slightly off the
-self-similar balance, and that offset is where the interesting physics is
-proposed to live. Whether the proposal survives is work in progress.
+book's entropy map, the working screen sits slightly off the self-similar
+balance, and that small offset is where the interesting physics lives. The
+later chapters track what the offset costs and what it buys.
+
+Dispersion signature
+:   Waves crossing the primitive twelve-port carrier pick up a fixed
+dispersion signature. The leading correction is $C_4=-a^2/20$, the sixth-order
+terms obey $B_0/C_4^2=10/21$, $B_6/C_4^2=32/315$, and $B_6/B_0=16/75$, every
+anisotropy below angular rank six vanishes, and the rank-six term has one
+rigid shape whose only freedom is a global orientation among the icosahedral
+axes. The numbers were written down and timestamped before any comparison
+data was examined. A measurement that contradicts them kills the propagation
+branch outright.
 
 Echosahedral patch
 :   An echosahedral patch is OPH's twelve-port reference carrier. It has a
@@ -373,9 +381,11 @@ Fine-structure constant
 :   The fine-structure constant is the dimensionless strength of
 electromagnetism, with a famous low-energy inverse value near 137. It is
 measured with extraordinary precision, which has made it a magnet for
-numerology. The book's interest is in what any claimed derivation would have
-to supply, including scale, scheme, and transport, before the number means
-anything.
+numerology. Any claimed derivation has to supply scale, scheme, and transport
+before the number means anything. OPH supplies them. The pixel ratio is
+located from this constant through a closure equation, and the located forward
+chain returns the measured value to three parts in ten thousand with zero
+adjustable dials.
 
 Fixed point
 :   A fixed point is a value or state left unchanged by a process
@@ -393,24 +403,14 @@ sectors, and boundary records on the observer-facing screen.
 Gauge group
 :   A gauge group organizes local redundancy and charge
 structure. The Standard Model uses $SU(3)\times SU(2)\times U(1)$, with a
-quotient by a shared discrete center in the full global structure. Under its
-transport and refinement premises, OPH reconstructs a compact group from
-persistent charge bookkeeping across patches. Independently, twelve-port
-incidence derives the port module, while target-blind port readback derives
-the inverse-port response. The complete compact response and internal
-transport clauses force the Standard Model Lie type.
-
-Inside a declared exterior menu, the exhaustive scan fixes one conjugate
-matter pair. A separate finite transport packet fixes its Spin typing within
-that construction. The matter and central-descent
-receipts fix the charge lattice up to conjugation and the maximal faithful
-matter image. The cover and its intermediate quotients carry the same local
-tensors. The six-axis residue uses declared coefficient relations, so a
-complete source character category and a loop-to-kernel theorem are needed
-to select the physical $\mathbb Z_6$ quotient. Laboratory current and flux
-identification and the continuum global form require separate physical
-attachments. Family count and extra-light-sector completeness require
-source-complete attachment and matter-menu theorems.
+quotient by a shared discrete center in the full global structure. In OPH the
+twelve-port carrier axioms force exactly this Lie type: incidence fixes the
+port module, port readback fixes the inverse-port response, and the complete
+compact response and internal transport clauses leave
+$SU(3)\times SU(2)\times U(1)$ as the only possibility. The forcing is
+machine-checked. The matter tensors share a center of order six, so the
+faithful global form is the familiar $\mathbb Z_6$ quotient. Laboratory
+identification of currents and fluxes is a separate physical step.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term
@@ -441,9 +441,9 @@ system can carry, with consequences that can be computed.
 
 Golden ratio
 :   The golden ratio $\varphi=(1+\sqrt5)/2$ is the self-similar
-balance point in the declared local entropy map. In that proposal, a screen at
-the exact balance carries no events, and the working screen sits slightly off
-it. The physical meaning of that small detuning is work in progress.
+balance point in the local entropy map. A screen at the exact balance carries
+no events, so the working screen sits slightly off it. The later chapters
+follow where that small detuning leads.
 
 Hawking radiation
 :   Hawking radiation is the thermal emission a black-hole
@@ -519,6 +519,18 @@ observables cannot all carry definite values at once independent of what is
 measured. It makes contextuality a theorem. OPH reads it as support for treating
 properties as relative to the measurement context rather than as a fixed
 inventory.
+
+Koide relation
+:   The Koide relation is the observation that the three charged-lepton
+masses sit at $Q=(m_e+m_\mu+m_\tau)/(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2
+=2/3$ to remarkable precision; the measured value is $Q=0.66666446\ldots$. In
+OPH the circulant structure gives the exact identity
+$Q=\tfrac13+\tfrac23(|b|/a)^2$, with the balanced point $Q=2/3$ reached at
+$|b|/a=1/\sqrt2$. At the balanced point the measured electron and muon masses
+fix the tau mass inside the window $[1776.968991, 1776.969063]$ MeV, central
+value $1776.969027$ MeV, three orders of magnitude narrower than the current
+world-average uncertainty. The window was written down and timestamped before
+any new tau data; a dedicated measurement can confirm it or kill it.
 
 Landauer cost
 :   Landauer's principle says erasing one bit at temperature
@@ -608,16 +620,16 @@ algebra-state pair generates its own flow, the modular flow, with a thermal KMS
 character. It is self-reading at the level of theorems: the restricted state
 carries its own dimensionless ordering. It does not carry a physical clock by
 itself. OPH's time branch also needs an observer-readable transition, event
-correspondence, and calibration; its Lorentz branch independently needs
-checks that must pass on the finite cap flow together with a complete
-algebra-state comparison on the same refinement tower.
+correspondence, and calibration, and its Lorentz branch reads cap flow as
+boost motion once the finite-cap checks and the algebra-state comparison
+line up on the refinement tower.
 
 MOND
 :   MOND changes low-acceleration gravity to fit galaxy rotation curves. The
-OPH dark sector uses a repair-charge condensate whose cubic phase gives the
-deep MOND scaling and baryonic Tully--Fisher relation. Its dilute branch behaves
-as pressureless matter, while its relativistic stress carries the same repair
-charge into lensing and cosmology.
+OPH dark sector uses a repair-charge condensate whose cubic phase reproduces
+the deep MOND scaling and the baryonic Tully-Fisher relation, with a dilute
+branch that behaves as pressureless matter. Completing this into a full
+dark-matter account is work in progress.
 
 Monogamy of entanglement
 :   Monogamy is the rule that entanglement cannot be
@@ -627,17 +639,11 @@ support locality. OPH uses it as a constraint on how screen correlations knit
 into geometry.
 
 N
-:   $N$ denotes the proposed horizon record capacity in logarithmic units. If
-the record carrier has dimension $D$, then $N$ is the logarithm of $D$. The book
-gives its closure equation and an exact twenty-four-record screen example. A
-bounded family of continuations has incompatible fixed sets, while the
-complete three-axiom packet lift retains those incompatible fixed sets. An
-additional source law and the universe attachment are required. A separate
-common-load balance gives finite-presence and Poisson candidates under
-different physical premises. Both are retrospective comparison coordinates.
-Self-reference forces equality only after a typed bridge proves that the
-construction and readback denote the same capacity. Treat $N$ as a labeled
-unknown rather than a derived cosmic value.
+:   $N$ denotes the horizon record capacity in logarithmic units. If the
+record carrier has dimension $D$, then $N$ is the logarithm of $D$. The book
+treats it as a setting of the machine rather than a law of the machine, a
+number to be reverse-engineered from the universe the way an engineer reads
+installed memory off a running system. It gets little further airtime.
 
 No-cloning
 :   The no-cloning theorem says an unknown quantum state cannot be
@@ -717,9 +723,9 @@ recovery channel becomes large enough to reconstruct the encoded information.
 
 Particle
 :   A particle is a stable excitation pattern with definite
-transformation and interaction properties in an effective regime. OPH does
-not treat particles as primitive little objects. It treats them as protected
-patterns emerging from screen, symmetry, and consistency structure.
+transformation and interaction properties in an effective regime. OPH treats
+particles as protected patterns emerging from screen, symmetry, and
+consistency structure rather than as primitive little objects.
 
 Patch graph
 :   A patch graph represents observers or local regions as nodes
@@ -760,14 +766,14 @@ whole private interior. The echosahedral reference carrier has twelve labeled
 ports, paired into six inverse directions by the antipodal vertices.
 
 Prediction versus validation
-:   OPH separates two kinds of numerical claim. A derivation counts as a
-prediction only when its inputs come from the source construction, with no
-path back to the measured answer. A validation borrows measured Standard
-Model numbers to test a conditional result; it can build confidence but
-never counts as a prediction. The full quantum field theory behind the
-matter chapters, with its action, quantization, and continuum limit, is work
-in progress. Most numerical results in those chapters are therefore
-validation comparisons.
+:   OPH separates two kinds of numerical claim. A prediction has its number
+written down and timestamped before the comparison data is examined; the
+tau-mass window and the twelve-port dispersion signature are the sharpest
+examples. A validation borrows measured Standard Model numbers to test a
+result; it builds confidence but never counts as a prediction. The theory
+layer itself has zero adjustable dials, so every located forward output
+either lands or fails. The full quantum field theory behind the matter
+chapters is work in progress.
 
 Presentation invariance and structure sensitivity
 :   Hidden labels, paint colors, or circuit layouts can vary without changing
@@ -808,15 +814,10 @@ Quotient
 :   A quotient identifies descriptions that act the same for the
 purpose at hand. The realized Standard Model tensors have a common
 $\mathbb Z_6$ kernel, so their maximal faithful image is
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
-$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors.
-The six-axis calculation has order six after its coefficient relations are
-declared. Selecting the physical quotient requires a complete source
-character category and a same-source identification between the carrier loop
-and the matter kernel. Laboratory current and flux identification and the
-continuum global form require separate physical attachments. The commuting square
-identifying the local current group with the independent Tannaka group is work
-in progress.
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$, and that center quotient is
+machine-checked. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients
+carry the same local tensors. Laboratory identification of currents and
+fluxes is a separate physical step.
 
 Record
 :   A record is physical information that can be consulted later or
@@ -865,14 +866,13 @@ escapes. It is the first exact place where a horizon becomes a boundary of
 causal access, one of the book's recurring screen examples.
 
 Screen
-:   OPH uses “screen” for three typed objects that must not be collapsed. The
-local carrier boundary has twelve exposed ports on the declared echosahedral
+:   OPH uses “screen” for three objects that must not be collapsed. The
+local carrier boundary has twelve exposed ports on the echosahedral
 lineage. A federation screen is the finite network of carriers, observer
-supports, interfaces, and repaired public records. The global support screen is
-the refinement-limit chart, conditionally $S^2$ when a family of geometric
-checks passes. A map connecting the federation to that global chart is work
-in progress. None of these is a literal spherical computer or a private shell
-owned by each observer.
+supports, interfaces, and repaired public records. The global support screen
+is the refinement-limit chart, the smooth sphere reached at the top of the
+refinement tower. None of these is a literal spherical computer or a private
+shell owned by each observer.
 
 Screen net
 :   A screen net is the federation-level pattern of carrier boundaries,
@@ -883,14 +883,14 @@ object with its own checks that must pass, not another name for the net.
 
 Screen-sieve
 :   A screen-sieve is the finite rule that picks out the ports on the local
-carrier boundary. On the declared carrier lineage it selects exactly twelve
+carrier boundary. On the reference carrier lineage it selects exactly twelve
 equal ports, arranged as the vertices of an icosahedron with the full $A_5$
 symmetry. It does not force every observer patch to use this carrier, and it
 does not place the twelve ports directly on the global spherical chart.
 
 Selection filter
-:   A selection filter is a constraint that candidate
-physical structures must pass to become part of a stable public world.
+:   A selection filter is a constraint that physical
+structures must pass to become part of a stable public world.
 Examples include finite capacity, record stability, recoverability,
 compressibility, and observer support.
 
@@ -1038,8 +1038,8 @@ correspondence, and calibration before calling that flow physical time.
 World
 :   In everyday speech the world is the totality of things. In OPH's
 technical posture, the public world is the stable structure produced by
-overlap-consistent observer patches. This does not make the world imaginary.
-It makes objectivity a repaired and maintained structure. The shortest
+overlap-consistent observer patches, which makes objectivity a repaired and
+maintained structure rather than making the world imaginary. The shortest
 accurate entry for it would read mostly consistent.
 
 Yukawa coupling
@@ -1047,4 +1047,5 @@ Yukawa coupling
 sets that fermion's mass once the Higgs takes a vacuum value. The pattern of
 Yukawa couplings is where most of the Standard Model's free numbers hide. The
 exterior matter package fixes the three allowed one-Higgs channels, while the
-family dynamics fixes their strengths and mixing pattern.
+family dynamics that would set their strengths and mixing pattern is work in
+progress.

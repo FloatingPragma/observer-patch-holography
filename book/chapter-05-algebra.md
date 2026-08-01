@@ -2,17 +2,13 @@
 
 ## 5.1 The Commutativity Puzzle
 
-The ordinary intuition says the order of measurements should not matter.
+Point a radar gun at a baseball, then photograph it. Or photograph first and
+radar second. Nobody expects the ball to care. It has a position AND a
+velocity at every moment, your measurements reveal pre-existing values, and
+the order of the bookkeeping is your business, not nature's. In classical
+physics this is exactly right: the measurements commute.
 
-If you want to know an object's position and momentum, you measure one, then
-the other. It shouldn't matter which you measure first. The object has a
-position AND a momentum, and your measurements reveal pre-existing values.
-
-Classical physics works this way. A baseball has a definite position and
-velocity at every moment. Whether you measure position first or velocity first,
-you get the same values. The measurements commute.
-
-And then Heisenberg discovered something shocking.
+In 1925 that assumption failed, on a rocky island in the North Sea.
 
 For quantum systems, the order of measurement matters. Measuring position then
 momentum gives different results than measuring momentum then position.
@@ -138,12 +134,10 @@ The more precisely you know position, the less precisely you can know momentum, 
 
 $\Delta X$ and $\Delta P$ mean the spreads, or standard deviations, of repeated
 position and momentum measurements prepared in the same state. The inequality
-does not refer to one bad measurement. It refers to the shape of the state
-itself. A quantum state cannot make both spreads vanish.
-
-The limit comes from the state space itself rather than clumsy measurement
-devices. There is no state that has both precise position and
-precise momentum. Such a state does not exist.
+describes the shape of the state itself, not the quality of anyone's
+apparatus.
+A state with both a precise position and a precise momentum does not exist;
+the theory contains no such object.
 
 For a baseball, the uncertainty is negligible, about 10⁻³⁴ meters. For an electron confined to an atom-sized region, the momentum uncertainty corresponds to 0.3% of the speed of light. At atomic scales, quantum mechanics is unavoidable.
 
@@ -328,7 +322,7 @@ their operating tolerance.
 
 This separation is the algebraic version of a familiar laboratory fact. A
 detector can contain complicated quantum electronics while exposing one stable
-line in a data file. Neighboring patches receive the boundary packet and the
+line in a data file. Neighboring patches receive the boundary data and the
 record, not a copy of the whole private interior. They compare the shared
 interface algebra, repair a mismatch if the protocol allows it, and preserve
 the result for another read.
@@ -358,7 +352,7 @@ Smaller patches have less room to keep the world in view.
 
 ## 5.9 Type Classification
 
-John von Neumann classified operator algebras into types. This classification reveals deep structure.
+In a series of papers beginning in 1936, John von Neumann and his collaborator Francis Murray sorted the algebras of quantum observables into types. For decades the classification looked like abstract housekeeping. It turned out to be a map of how quantum systems can hold information.
 
 The type labels are a warning label for intuition. Type I behaves like finite
 or countable matrices, the kind of quantum system one can write on a blackboard.
@@ -386,7 +380,7 @@ picture.
 
 ## 5.10 Modular Flow: Time from Algebra
 
-Von Neumann algebras have beautiful modular structure discovered by Tomita and Takesaki in the 1970s. Type III examples are especially important in the local QFT setting discussed here.
+Von Neumann algebras carry a hidden clockwork called modular structure, uncovered by Minoru Tomita and worked into usable form by Masamichi Takesaki; Chapter 11 tells that story. Type III examples are especially important in the local QFT setting discussed here.
 
 The formal hypotheses have intimidating names. The useful picture is simpler:
 give an observer a rich enough menu of questions and a state that does not hide
@@ -443,7 +437,7 @@ $$[A, B] = 0$$
 
 This seems to conflict with entanglement. Entangled particles show correlations: Alice's measurement outcome is correlated with Bob's. How can this be consistent with commuting algebras?
 
-The key distinction: **correlations** are not **influence**.
+The key distinction is that **correlations** are not **influence**.
 
 Alice and Bob share an entangled pair. Alice measures and gets "up." She can then infer that Bob will measure "up." She has learned about their shared state. She has not sent a signal to Bob.
 

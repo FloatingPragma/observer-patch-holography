@@ -6,12 +6,12 @@ Start with the ordinary intuition about storage.
 
 Information fills space. The more volume you have, the more stuff you can pack
 into it. Double the size of a box, and you can store twice as much
-information. Triple it, triple the storage. This feels obvious because it is
-how ordinary containers work.
-
-If you want to describe a region of the universe completely, you need to specify what's happening at every point in the volume. A cubic meter has more information capacity than a square meter, which has more than a linear meter. The three-dimensional interior is where the action is; surfaces are just boundaries, interfaces, the thin walls separating volumes from each other.
-
-This intuition is embedded in how we think about containers, databases, and physical space itself. The library holds books in its volume, not on its walls. The hard drive stores data throughout its platters, not on the outer casing. The universe is a three-dimensional stage, and everything happens on that stage.
+information. Triple it, triple the storage. The library holds books in its
+volume, not on its walls; the hard drive stores data throughout its platters,
+not on the outer casing. To describe a region of the universe completely, you
+specify what is happening at every point of the interior. Surfaces are just
+the thin walls between volumes. The universe is a three-dimensional stage, and
+everything happens on that stage.
 
 Black holes broke that picture.
 
@@ -19,17 +19,12 @@ Black holes broke that picture.
 
 ### The Black Hole Entropy Puzzle
 
-In 1971, John Wheeler put a mischievous question to his Princeton graduate
-student Jacob Bekenstein. Set a cup of hot tea beside a black hole, Wheeler
-suggested, and pour it in. The tea's entropy vanishes behind the horizon, and
-the universe's ledger of disorder looks lighter than it did a moment before.
-Have we committed the perfect crime against the second law? Bekenstein came
-back months later with an answer Wheeler had not expected: the black hole
+Chapter 3 opened with Wheeler's cup of tea and the perfect crime it seemed to
+commit against the second law. Bekenstein's answer was that the black hole
 itself must carry entropy, proportional to the area of its horizon. Hawking's
 1974 analysis of black-hole radiation fixed the coefficient. A black hole with
 twice the horizon area has twice the entropy, hence twice the information
-capacity. This was strange. Normal systems scale with volume; a box twice as
-big holds twice as much stuff.
+capacity. This was strange; every normal system scales with volume.
 
 Black holes are different. Their information lives on the surface:
 
@@ -78,7 +73,7 @@ gravitational boundary.
 
 If the holographic principle is true, then the 3D world we experience is somehow encoded on 2D surfaces. The third dimension is an illusion, a convenient description of correlations on a boundary.
 
-Leonard Susskind developed these ideas further, connecting them to string theory. The holographic principle remained vague: a principle, without a calculation.
+Leonard Susskind gave the idea a string-theory formulation the following year, in a paper titled "The World as a Hologram." The holographic principle remained vague even so: a principle, without a calculation.
 
 Information capacity scales with area. The bulk seems three-dimensional, while its information fits on a two-dimensional surface.
 
@@ -94,9 +89,9 @@ In 1947, Dennis Gabor was trying to improve electron microscopes. He devised a t
 
 Split a light beam into two parts. One beam hits the target and scatters. The other goes straight to the film. When they meet on the film, they interfere, creating patterns of bright and dark fringes. The interference pattern encodes phase.
 
-When you shine light back through that pattern, something magical happens: a three-dimensional image appears, floating in space.
+Shine light back through that pattern and the object reappears, three-dimensional, floating in space.
 
-Gabor called this a "hologram" from the Greek *holos* (whole) and *gramma* (message). He won the Nobel Prize in 1971.
+Gabor called this a "hologram" from the Greek *holos* (whole) and *gramma* (message). He won the Nobel Prize in 1971, after the laser, invented thirteen years later, had turned his trick into a spectacle.
 
 ### The Strange Property of Holograms
 
@@ -116,8 +111,8 @@ Reality emerges from the agreement of observer patches. But where do observers
 compare notes? They need a shared record, a common reference where their
 descriptions must match.
 
-The boundary is that place. A patch exposes a boundary packet and an
-observer-readable record there. Another patch can translate, compare, and, when
+The boundary is that place. A patch exposes an observer-readable record
+there. Another patch can translate, compare, and, when
 the protocol permits it, repair a mismatch. When patches overlap, their shared
 visible values must agree. The bulk emerges as the most consistent account that
 fits all the boundary data.
@@ -141,7 +136,7 @@ gravity and quantum physics meet in calculable ways.
 
 Take the label on the can to be a living quantum field theory with particles, forces, and fluctuations. It has no gravity of its own. It just lives on the surface.
 
-The bold claim is exact in that duality: **everything happening inside the can
+Inside that duality the claim is exact: **everything happening inside the can
 is exactly the same as what happens on the label**. A falling particle in the
 bulk corresponds to ripples on the boundary. A black hole forming inside
 corresponds to hot plasma on the surface. AdS/CFT gives a perfect translation
@@ -200,15 +195,14 @@ observations.
 
 ### Key Properties
 
-**Scaling dimensions**: Under rescaling, $x$ goes to $\lambda x$. Here
-$\mathcal O(x)$ is an operator inserted at position $x$, the number $\lambda$
-rescales distances, and $\Delta$ is the scaling dimension, which tells how
-strongly the operator changes under zooming. A field with dimension $\Delta$
-transforms as:
+**Scaling dimensions**: A field with dimension $\Delta$ transforms under rescaling as:
 
 $$\mathcal{O}(x) \to \lambda^{-\Delta} \mathcal{O}(\lambda x)$$
 
-This line says how an operator changes when the ruler changes. The same number
+Here $\mathcal O(x)$ is an operator inserted at position $x$, the number
+$\lambda$ rescales distances, and $\Delta$, the scaling dimension, says how
+strongly the operator responds to zooming. In short, the line says how an
+operator changes when the ruler changes. The same number
 $\Delta$ controls the two-point correlation:
 
 $$\langle \mathcal{O}(x) \mathcal{O}(y) \rangle = \frac{C}{|x-y|^{2\Delta}}$$
@@ -217,7 +211,7 @@ Here $C$ is a normalization constant and $|x-y|$ is the distance between
 insertions. No characteristic scale means power-law decay with the same form
 at all distances.
 
-**Central charge**: Every CFT has a number c that counts degrees of freedom.
+**Central charge**: Every CFT also carries a number $c$ that counts its degrees of freedom. Chapter 9 puts it to work.
 
 ## 8.7 Inside the Soup Can: AdS Geometry
 
@@ -322,15 +316,12 @@ A bulk region can be reconstructed from **many different** boundary subsets. Thi
 
 If you erase part of the boundary, bulk information survives and can be
 recovered from the remaining boundary. This is the holographic implementation
-of the recovery rule.
-
-HKLL matters because it shows how a world that looks local inside can be stored
-nonlocally on the boundary without contradiction. The boundary keeps the
-record. HKLL explains how to read a local bulk description out of that record.
+of the recovery rule: the boundary keeps the record, and HKLL explains how to
+read a local bulk description out of it.
 
 ## 8.11 Black Holes and Thermodynamics
 
-Holography elegantly explains black hole thermodynamics.
+Black hole thermodynamics, the puzzle that opened this chapter, becomes an entry in the dictionary.
 
 A CFT at finite temperature corresponds to a black hole in the bulk. The Hawking temperature of the black hole equals the CFT temperature.
 
@@ -353,8 +344,8 @@ Black holes saturate the quantum **chaos bound**, a speed limit on how fast info
 
 ## 8.12 How Gravity Emerges from Entanglement
 
-One of holography's deepest insights is that gravity may be emergent from
-entanglement structure on the boundary.
+Push the dictionary one step further and gravity itself starts to look
+derived, an output of entanglement structure on the boundary.
 
 ### Entanglement Builds Geometry
 
@@ -378,12 +369,8 @@ thermodynamic requirements on horizons.
 The argument is spare. Every point in spacetime comes with local Rindler
 horizons. Those horizons have temperature through the Unruh effect. Their
 entropy scales with area through Bekenstein-Hawking. Demand that the first law
-$\delta Q=T\delta S$ hold for them, and the relation between matter and
-geometry follows.
-
-Requiring thermodynamic consistency for every local horizon recovers the
-relationship between matter and geometry. That relationship is Einstein's
-equation.
+$\delta Q=T\delta S$ hold for every one of them, and the relation between
+matter and geometry follows. That relation is Einstein's equation.
 
 **On Jacobson's thermodynamic reading, gravity behaves like an equation-of-state output. The geometry reads as a thermodynamic response.**
 
@@ -442,12 +429,10 @@ overlap is where two such cuts can be compared.
 OPH is therefore observer-horizon holography rather than dS/CFT at future
 infinity:
 
-**Given a construction that supplies all the required ingredients, the
-geometry, the thermodynamic state, the entropy accounting, a vacuum
-reference, the coupling, and a uniform notion of scale, observer-patch
-consistency plus the Jacobson construction yields the semiclassical Einstein
-relation in the bulk.** Exhibiting a construction that satisfies that full
-list is work in progress.
+**Observer-patch consistency plus the Jacobson construction yields the
+semiclassical Einstein relation in the bulk.** Building the full construction
+that feeds that argument, with its geometry, thermodynamic state, and
+coupling in place, is work in progress.
 
 The bulk emerges from the boundary through consistency and compression, as the
 readout of boundary data under overlap constraints.
@@ -455,23 +440,19 @@ readout of boundary data under overlap constraints.
 ### Why This Matters
 
 The distinction has practical consequences. AdS/CFT is a duality between two
-complete descriptions, with one global boundary at infinity, a specific CFT,
-and a negative cosmological constant. OPH takes a different lesson from it.
-The observer-visible boundary quotient is microscopic, the spherical screen is
-its chart, and the bulk is emergent. The horizons are observer-dependent and
-overlapping, and the cosmological setting is positive Lambda rather than AdS.
+complete descriptions: one global boundary at infinity, a specific CFT, a
+negative cosmological constant. None of that transfers directly to our sky.
 Think of AdS/CFT as a proof of concept that boundaries can encode bulks with
 gravity. OPH takes that encoding lesson and rebuilds it in an observer-first
-setting.
+setting, with overlapping observer horizons in place of the single boundary
+and positive Lambda in place of negative.
 
 The finite horizon in de Sitter provides a natural cutoff, a finite Hilbert
-space of about $\exp(3.31\times10^{122})$ dimensions, and observer-dependence
-built in from the start. These finite features make the observer-centric
-approach natural. For orientation, the measured de Sitter horizon ratio is
-about $1.05\times10^{122}$, and the associated screen-entropy coordinate is
-about $3.31\times10^{122}$ natural units, or $4.77\times10^{122}$ bits. These
-are comparison coordinates rather than a completed measurement of the size of
-reality.
+space, and observer-dependence built in from the start. These finite features
+make the observer-centric approach natural. For orientation, the horizon's
+entropy sits near $3.31\times10^{122}$ natural units, a comparison coordinate
+rather than a completed measurement of the size of reality. Chapter 13 does
+the counting properly.
 
 ### Observer-Horizon Holography in de Sitter
 
@@ -489,20 +470,11 @@ The observer's physics lives in the local algebra, records, interfaces, and
 repair process exposed through that chart. Different observers have different
 horizons, but nearby access domains overlap enormously.
 
-This is a fundamental fork in the road:
-
-The usual dS/CFT program looks for a boundary at future infinity and a global
-CFT dual to the bulk. Our approach begins from the observer's horizon, uses
-local algebras and overlap consistency, and treats observer-dependence as the
-feature that makes the physics readable in the first place.
-
-De Sitter horizons make observer-patch holography natural. Each observer has a
-horizon-bounded access domain, a local screen cut, and overlap conditions tying
-that cut to neighboring ones.
-
-This avoids the boundary-at-infinity problem by changing the primitive object.
-OPH builds local patch descriptions that must agree on overlaps, and the bulk
-emerges from that agreement.
+The fork changes the primitive object, and that is what dissolves the
+boundary-at-infinity problem. OPH builds local patch descriptions that must
+agree on overlaps, treats observer-dependence as the feature that makes the
+physics readable in the first place, and lets the bulk emerge from the
+agreement.
 
 This chapter treats the horizon's capacity as a brute fact about our universe.
 Whether anything obliges it to have the value it has is a different kind of

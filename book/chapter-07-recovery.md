@@ -2,14 +2,12 @@
 
 ## 7.1 The Intuitive Picture: Information Can Be Copied Freely or Lost Forever
 
-Start with the ordinary picture of information loss.
+A letter can be photocopied a thousand times. A burned book is gone forever.
+Between those two images sits the ordinary picture of information: it can be
+freely copied or irreversibly destroyed, duplication or annihilation, nothing
+in between.
 
-Information can be freely copied or irreversibly destroyed. When you write a
-letter, you can make as many copies as you like. When you burn a book, the
-information is gone forever. These are two distinct fates: duplication or
-annihilation.
-
-This is the commonsense view embedded in our everyday experience. You can photocopy a document infinitely. You can record a conversation and play it back endlessly. Information is cheap to replicate. When the Library of Alexandria burned, the information vanished into the void; a crashed hard drive and a fading memory go the same way. Destruction is final.
+This is the commonsense view embedded in our everyday experience. You can photocopy a document infinitely. You can record a conversation and play it back endlessly. Information is cheap to replicate. And when the Library of Alexandria burned, the scrolls were gone; a crashed hard drive and a fading memory go the same way. Destruction is final.
 
 Classical physics supported this intuition. The state of a system is a point in phase space. You can, in principle, measure it exactly and write down as many copies as you wish. And entropy increases, meaning organized information degrades into random noise. The past becomes inaccessible as the universe forgets.
 
@@ -19,7 +17,7 @@ Physics broke that picture from both directions.
 
 ### The No-Cloning Theorem
 
-The first shock came from quantum mechanics. In 1982, William Wootters and Wojciech Zurek proved the **no-cloning theorem**: there is no quantum operation that can copy an unknown quantum state.
+The first shock came from quantum mechanics, provoked by a would-be faster-than-light telegraph. In 1981, the physicist Nick Herbert circulated a design he called FLASH, which used entanglement plus a quantum copying machine to signal instantaneously across any distance. Asher Peres, asked to referee the paper, recommended publication even though he was sure it was wrong, on the grounds that finding the flaw would teach everyone something. The flaw turned out to be a theorem. In 1982, William Wootters and Wojciech Zurek, with Dennis Dieks independently, proved the **no-cloning theorem**: there is no quantum operation that can copy an unknown quantum state. The copying machine at the heart of FLASH cannot be built.
 
 If you have a qubit in state |psi> and want to create |psi>|psi>, you cannot. The linearity of quantum mechanics forbids it.
 
@@ -53,11 +51,9 @@ If this is true, information is destroyed. A pure quantum state (the book) becom
 
 Hawking was willing to accept this. Most other physicists were not.
 
-### A Holographic Resolution Perspective
+### The Holographic Resolution
 
-After decades of debate, the broad holographic lesson is that black-hole evaporation need not destroy information. In semiclassical holographic models, the Hawking radiation is not truly random: it carries subtle correlations, so information that looked lost can instead be encoded in the radiation.
-
-This lesson was sharpened by the Page-curve and island calculations developed in the 2010s. In semiclassical holographic models, they support encoded-information viewpoints and show how information that seemed lost to the black hole interior can instead be carried by correlations among the outgoing radiation particles.
+After decades of debate, the holographic lesson is that black-hole evaporation does not destroy information. The radiation only looks random. It carries subtle correlations, and the Page-curve and island calculations of the 2010s showed how everything that seemed lost to the interior is encoded in what comes out.
 
 Information cannot be copied (no-cloning), yet information cannot be destroyed (unitarity). These twin constraints require a specific structure: **quantum error correction**.
 
@@ -85,7 +81,7 @@ knew the exact position and momentum of every molecule of smoke and ash,
 including every atom that had been paper and ink, you could in principle
 reverse their trajectories and reconstruct the scrolls.
 
-The information isn't destroyed. It's scrambled. Hidden in correlations among billions of particles, diluted into the environment until no practical measurement could extract it. But mathematically, physically, it remains there.
+The information has been scrambled rather than destroyed: hidden in correlations among billions of particles, diluted into the environment until no practical measurement could extract it. But mathematically, physically, it remains there.
 
 ### The Universe's Error Correction
 
@@ -103,9 +99,9 @@ But how can information be preserved if it cannot be copied? Perfect copies were
 
 ## 7.4 Claude Shannon's Discovery
 
-The recovery thread begins in 1948, in an office at Bell Telephone Laboratories, at the desk of Claude Shannon.
+The recovery thread begins in 1948, in an office at Bell Telephone Laboratories, at the desk of Claude Shannon. Colleagues remembered him riding a unicycle down the Labs' long corridors at night, sometimes juggling as he went.
 
-His colleagues worried about static on phone lines and how to squeeze more calls onto a cable. Shannon was asking what information *is*: whether it can be measured, and how a message can survive a channel that tries to destroy it.
+They worried about static on phone lines and how to squeeze more calls onto a cable. Shannon was asking what information *is*: whether it can be measured, and how a message can survive a channel that tries to destroy it.
 
 Shannon had spent World War II working on cryptography, trying to make messages secure from eavesdroppers. He then attacked the opposite problem: how to make messages survive noise that corrupts them randomly.
 
@@ -139,8 +135,8 @@ The universe has finite resources. Recovery must be efficient, local, bounded. Y
 
 This constraint shapes reality. The area law says a boundary can only carry so many bits. If information capacity is bounded by area, then recovery must respect geometry. Distant regions can't share unlimited redundancy.
 
-**Spacetime can be read through a Shannon-code analogy.** Gravity then acts
-like an error corrector, keeping the global account consistent even when local
+**Spacetime is built like a Shannon code.** Gravity acts as an error
+corrector, keeping the global account consistent even when local
 observations are noisy.
 
 ## 7.5 The Mathematics of Redundancy
@@ -359,13 +355,10 @@ is the allowed leakage past it. Exact Markov screening sets it to zero. In the
 finite thermal screen model, $\varepsilon(B)$ is a boundary-size prefactor
 times a factor that decays exponentially with the collar's thickness.
 
-The status of this statement matters. The gravity chapters consume it as a
-stated interface: wherever a result needs recovery, it says so. Finite
-pieces are proved, among them the thermal screen bound and the constructive
-tree-cover gluing below. Explicit countermodels show that the three axioms
-do not force it: there are federations satisfying every axiom in which a
-collar fails to screen its cap from the exterior. Whether the physically
-realized screen satisfies the property at every scale is an open obligation.
+Finite pieces are proved, among them the thermal screen bound and the
+constructive tree-cover gluing below. The three axioms alone do not force
+the property; it is a further structural fact about the screen, and pinning
+it down at every scale is work in progress.
 
 The framework's repair tool is the Fawzi-Renner recovery map from earlier in
 this chapter. As the collar thickens, the repair error shrinks toward zero,
@@ -500,7 +493,7 @@ encoding belong to the basic architecture.
 
 ## 7.11 Spacetime as Error Correction
 
-The black hole resolution points to a deeper truth: spacetime may have the structure of a quantum error-correcting code.
+The black hole resolution points to a deeper truth: spacetime has the structure of a quantum error-correcting code.
 
 ### Quantum Error Correction
 
@@ -537,18 +530,19 @@ The "gravity" in the HaPPY code emerges from the code structure. Regions of the 
 
 ## 7.12 The Indestructible Past
 
-The recovery rule has a startling implication: in this recoverability picture,
-nothing is simply deleted from the full quantum description.
+The recovery rule has a startling implication: nothing is simply deleted from
+the full quantum description.
 
-If the universe is unitary and holographic encoding is stable, information is
-redistributed into increasingly nonlocal correlations of the full quantum state.
+The universe is unitary and the holographic encoding is stable, so information
+is redistributed into increasingly nonlocal correlations of the full quantum
+state.
 
-The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation spread across the cosmos at light speed. It is diluted across an unimaginably vast region of space. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles. You would have to wait a while for the answer, assuming the question survived the wait.
+The Library of Alexandria? The scrolls burned, and the information scrambled into smoke, heat, and light. That radiation has been spreading outward at light speed for two thousand years, diluted beyond any practical reach. In principle, with a computer the size of the observable universe, you could run the Petz map and watch the smoke reconstitute into Sophocles. You would have to wait a while for the answer, assuming the question survived the wait.
 
 Paleontology and astronomy use weak versions of this. Fossils preserve information about creatures from millions of years ago. Astronomy records light that has traveled for billions of years before reaching our telescopes. The cosmic microwave background is one vivid example of very old information preserved in radiation.
 
-The recovery rule says this is not accident or luck. In a unitary encoding
-picture, the past is carried forward in increasingly scrambled form.
+The recovery rule says this is not accident or luck. The past is carried
+forward in increasingly scrambled form.
 
 ### The Structural Constraint
 
@@ -587,9 +581,9 @@ analogies for spacetime and holographic encoding.
 
 ---
 
-We have the Screen. We have the Algebra. We have the Consistency Rules. We have Recovery.
-
-Where does space come from? Where does time come from? How does the abstract
-structure of quantum information become the geometry we inhabit?
+The Screen, the Algebra, the Consistency Rules, and now Recovery: the kit is
+nearly complete. What it still lacks is the one thing everyone else starts
+with. Where do space and time come from? How does the abstract structure of
+quantum information become the geometry we inhabit?
 
 The next chapters turn recovery into geometry. We'll see how boundaries encode interiors, how entanglement draws the map, and how the consistency conditions we've developed start to look suspiciously like gravity.

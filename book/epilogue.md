@@ -7,11 +7,11 @@ epilogue follows those rules to where they go.
 
 ## The Observer as Pattern
 
-An observer is a pattern, not a soul-substance dropped into a body. It includes
-a bounded local algebra and state, internal readback, exposed interfaces,
-rereadable records, record-conditioned repair moves, and checkpoint
-continuation. A support region on the screen chart displays where those
-operations are visible.
+An observer is a pattern with a parts list: a bounded local algebra and
+state, internal readback, exposed interfaces, rereadable records,
+record-conditioned repair moves, and checkpoint continuation. No
+soul-substance appears anywhere on the list. A support region on the screen
+chart displays where those operations are visible.
 
 Part of that pattern can be read, compared, and checked by others. Part of it
 lives on the inside.
@@ -31,8 +31,8 @@ outside become independent once the relevant boundary data is fixed.
 
 In plain language, if you know the right boundary data, you can cut an
 observer-pattern away from its environment without destroying the structure
-that makes it the observer it is. The environment matters. The interface
-matters. But the observer is not dissolved into an undifferentiated whole.
+that makes it the observer it is. The environment matters, and so does the
+interface, but the observer does not dissolve into an undifferentiated whole.
 
 Given-data independence means that, once the boundary information is fixed,
 the inside and outside do not need extra direct knowledge of each other to
@@ -43,13 +43,10 @@ make compatible predictions.
 This gives continuation an explicit architecture.
 
 What would need to be stored? First, the public outcome data carried by the
-observer's record layer. Second, the boundary-sector label that tells the
-environment how to glue to the observer. Third, the interface-relative interior
-state, the computational pattern that carries the observer's point of view.
-
-The boundary-sector label is the interface tag. It tells the outside world how
-the observer-pattern connects back to its surroundings. The interior
-interface-relative state is the inside pattern, specified relative to that interface.
+observer's record layer. Second, the boundary-sector label, the interface tag
+that tells the environment how to glue back onto the observer. Third, the
+interface-relative interior state, the computational pattern that carries the
+observer's point of view.
 
 The framework supports a precise statement at fixed resolution: restore a
 checkpoint with the same readable records, the same accessible state, the
@@ -67,9 +64,8 @@ and one redesigned world is where the two questions meet.
 ## Restoring an Earlier Checkpoint
 
 A checkpoint can preserve an earlier condition of an observer. Imagine that a
-person develops Parkinson's disease after a checkpoint was made. The relevant
-idea is to reinstate the earlier observer state, from before the disease had
-produced the condition one wants to escape.
+person develops Parkinson's disease after a checkpoint was made. The idea is
+to reinstate the earlier observer state, from before the disease.
 
 Think of a saved game in which the player is part of the save file. Restore
 everything the observer could read, the saved state, the connections to the
@@ -89,12 +85,11 @@ The philosophical weight of this is easy to miss if one hears only the word
 "backup." Digital storage matters here because it serves the deeper question
 of continuity.
 
-On the modular-time branch, the observer's accessible algebra-state pair
-supplies an intrinsic ordering. A physical clock needs a readable
-transition, an event correspondence, and calibration. Only then can a
-"following moment" be named operationally. If a checkpoint is restored with
-the same visible state and future law, the question is whether that
-restored pattern carries the same personal continuation.
+The observer's accessible algebra-state pair supplies an intrinsic ordering,
+and a calibrated clock turns that ordering into an operational "following
+moment." If a checkpoint is restored with the same visible state and the same
+future law, the question is whether the restored pattern carries the same
+personal continuation.
 
 That question is an engineering problem with explicit mathematical boundaries,
 alongside its literary and religious readings. Which parts of the
@@ -103,22 +98,21 @@ changes break continuity, and which ones do not?
 
 ## What Would Break This
 
-Before the last word, the ledger.
+Before the last word, this book owes the reader the conditions under which
+its picture fails.
 
-The global capacity branch has one exact screen packet with twenty-four public
-records. Extending that count requires a public-checkpoint package at every
-carrier size: which records can be written from inside the system, which count
-as public, every allowed joint continuation, how the carrier is read, and how
-refinement preserves those records. Simple finite extensions disagree about
-the fixed point. The complete observer construction and its universe
-attachment are work in progress.
+The restoration theorem holds at fixed resolution. Extending it to a whole
+observer means accounting for every record the observer can write from
+inside, every record that counts as public, every allowed continuation, and
+the refinement that preserves them all. That extension is work in progress,
+and a proof that it cannot be completed would break the continuation claim.
 
 Other constructions must show that the horizon really is the record ledger,
 that the particle counting was earned rather than assumed, and that each
 remaining bridge from finite algebra to physical field can be built. Any one
 of them can fail, and a failure breaks the claim it supports.
 
-Each condition is a falsifier. The conditions are finite and inspectable.
+Each condition is a falsifier, and the list is finite and inspectable.
 
 ## The Choice
 

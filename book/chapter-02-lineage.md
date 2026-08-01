@@ -2,18 +2,17 @@
 
 ## 2.1 Hints Before the Hints
 
-Before physicists discovered that reality behaves strangely, philosophers had found the pressure points that later physics would probe with instruments.
+Long before anyone owned a particle accelerator or an interferometer,
+philosophers had found the pressure points that physics would later probe
+with instruments. Their equipment was pure logical reasoning applied to
+careful observation, and their question was the right one: what *must* be
+true if experience is to make any sense at all?
 
-The resemblance has teeth. The ancients did not have particle
-accelerators or interferometers. They had something close in spirit: pure
-logical reasoning applied to careful observation. They asked what *must* be
-true if experience is to make any sense at all.
-
-And they found problems: paradoxes and contradictions showing that the intuitive picture of an objective reality independent of observers leads to logical difficulties.
-
-These philosophical puzzles are the original hints. They're the first cracks in the naive picture. When modern physics confirmed that reality is stranger than it appears, it was validating insights that thinkers had glimpsed millennia ago.
-
-The early hints run through Plato's holographic themes, Zeno's discrete-structure puzzles, the Skeptics' contextuality-like questions, and Kant's emergent-space arguments. The philosophers were asking questions that later physics could formulate more sharply.
+What they found were paradoxes, places where the intuitive picture of an
+objective reality independent of observers quietly contradicts itself. These
+are the original hints, the first cracks in the naive picture, glimpsed
+millennia before the laboratory could confirm that reality is stranger than
+it appears.
 
 ### Through-line: Primacy of Perspective
 
@@ -251,8 +250,8 @@ OPH makes the same distinction. Hidden coordinates, labels, and construction
 details can change without changing the physics when the complete operational
 structure survives. The number of ports, their incidence, the accessible
 algebra, readback, records, repair law, clock, and refinement lineage are part
-of that structure. Information here is not a shapeless abstraction. It is
-information with a physical interface.
+of that structure. Information here means information with a physical
+interface, never a shapeless abstraction.
 
 ### The Physics
 
@@ -298,7 +297,7 @@ The pragmatists were reverse-engineering the evolutionary nature of physical law
 
 ## 2.9 Strange Loops: The Self-Reference Hint
 
-In 1931, Kurt Gödel proved something that shook mathematics to its core: any sufficiently powerful formal system contains statements that refer to themselves in ways that create fundamental limitations.
+In 1931, Kurt Gödel proved something mathematics has never fully digested: any sufficiently powerful formal system contains statements that refer to themselves in ways that create fundamental limitations.
 
 ### Gödel's Incompleteness
 
@@ -354,7 +353,8 @@ consistency leaves it far fewer dials than anyone had any right to expect.
 
 The philosophical hints became physics in the 20th century.
 
-**Claude Shannon** founded information theory in 1948. He defined the **bit**:
+Information theory was founded in 1948 by **Claude Shannon**, an engineer at
+Bell Labs. His paper "A Mathematical Theory of Communication" defined the **bit**:
 the fundamental unit of information, a single yes-or-no answer. He showed how
 to quantify information, how to compress it, and how to transmit it reliably.
 
@@ -369,13 +369,14 @@ thermodynamic weight. Processing information costs energy and produces entropy.
 
 ### The Synthesis
 
-Once you accept that information is physical, all the philosophical hints
-crystallize into physics. Plato's projections turn into holographic encoding.
-Zeno's paradoxes reappear as the Planck-scale cutoff. Skeptical contextualism
-returns in quantum measurement. Cartesian observer-centrism becomes
-patch-based physics. Kant's emergent space becomes RT-formula geometry.
-Aristotelian form becomes information-theoretic ontology. Pragmatic truth
-becomes consistency-based law selection.
+Once you accept that information is physical, the philosophical hints stop
+being metaphors. Plato's projections turn into holographic encoding, and
+Zeno's paradoxes reappear as the Planck-scale cutoff. The Skeptics'
+contextualism returns, with full mathematical teeth, in quantum measurement.
+Descartes' observer-first starting point becomes patch-based physics, Kant's
+constructed space becomes geometry read from entanglement, Aristotle's
+form-over-matter becomes an information-theoretic ontology, and the
+pragmatists' truth-as-what-works becomes consistency-based selection of law.
 
 The philosophers were reverse-engineering reality with logic. Physics gave us the math to make their insights precise.
 
@@ -397,11 +398,11 @@ different categories.
 
 ### The Right Question
 
-OPH supports a different perspective. Computation becomes a serious candidate
+OPH supports a different perspective. Computation becomes a serious
 organizing picture for reality. A conventional simulation evolves a surrogate
 history. OPH points to a constrained fixed-point computation: observer patches,
 records, overlaps, repair rules, branch elimination, and clock closure settle
-into a settled form whose internal readout is history. At fixed cutoff, the
+into a fixed form whose internal readout is history. At fixed cutoff, the
 finite patch federation is the self-reading quantum system. The screen is the
 observer-facing chart of its repaired visible data. Observers are operational
 patterns with local state, readback, records, boundary behavior, repair moves,
@@ -418,13 +419,12 @@ trade places. Keep Escher's hands in a pocket. They will be needed again.
 
 One concrete regulator chart uses quantum link models. Imagine a triangulated
 screen where each edge carries a small quantum system. Rules at each vertex
-constrain which configurations are allowed. A3 selects the least informative
-compatible local state family relative to its exact reference, cover, and
-weights. The implementation surface is a federation of finite patches, with the
-screen acting as an observer-facing geometry chart. At fixed cutoff, the
-construction gives exact finite bookkeeping. Separate source-bound refinement
-and optimizer-pushforward receipts carry the same read, compare, repair, and
-record structure across scales. Spacetime, particles, and observers therefore appear as outputs
+constrain which configurations are allowed. The third axiom selects the least
+informative state compatible with those constraints. The implementation
+surface is a federation of finite patches, with the screen acting as an
+observer-facing geometry chart. At fixed cutoff, the construction gives exact
+finite bookkeeping, and the same read, compare, repair, and record structure
+carries across scales. Spacetime, particles, and observers therefore appear as outputs
 of the shared visible quotient rather than contents stored on a literal
 spherical shell.
 
@@ -434,9 +434,7 @@ world as its internal readout?
 
 ## 2.12 The Meter: A Case Study in Agreement
 
-Let me illustrate how deep the consistency problem goes with something seemingly simple: the meter.
-
-In 1791, the French Academy of Sciences decided the meter would be one ten-millionth of the distance from the equator to the North Pole along a meridian. They sent two astronomers to survey the arc from Dunkirk to Barcelona. It took seven years.
+In 1791, the French Academy of Sciences decided the meter would be one ten-millionth of the distance from the equator to the North Pole along a meridian. They sent two astronomers, Jean-Baptiste Delambre and Pierre Méchain, to survey the arc from Dunkirk to Barcelona. The job took seven years, a war with Spain included.
 
 When they finished, they built a platinum bar and declared it the meter. This bar was kept in a vault in Paris. If you wanted to calibrate your meter stick, you had to compare it to this bar.
 
@@ -456,22 +454,17 @@ Even something as basic as "how long is a meter" requires solving the consistenc
 
 ## 2.13 The Map We've Built
 
-The pattern is clear.
-
-Plato points toward projection and holography. Zeno points toward the trouble
-inside naive continuity and therefore toward a cutoff. The skeptics point
-toward contextuality and quantum measurement. Descartes points toward the
-observer as the right place to begin. Kant points toward space as a
-reconstruction, not a stage. Aristotle points toward form as more basic than
-stuff. The pragmatists point toward truth as what survives. Gödel and
-Hofstadter point toward self-reference and strange loops.
-
-Each philosopher identified a crack in the intuitive picture. Each crack pointed toward a feature of physics that later became clear.
+Set the hints side by side and the pattern is hard to miss. Eight lines of
+thought, spread across more than two millennia and armed with nothing but
+argument, kept striking the same weak joints: projection, discreteness,
+context, the observer, constructed space, form, survival, self-reference.
+Every one of those joints later gave way under experiment exactly where the
+philosophers had been pressing.
 
 The convergence matters. The intuitive picture of an objective 3D reality
 independent of observers really is problematic. The philosophers found the
-problems through pure reason. The physicists confirmed them through
-experiment.
+problems through pure reason; the physicists confirmed them with
+instruments.
 
 ### The Original Hackers Were a Network
 

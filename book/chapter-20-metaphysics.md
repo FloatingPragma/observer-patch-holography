@@ -1,10 +1,8 @@
 # Chapter 20: Metaphysics and Qualia
 
-This chapter is a philosophical interpretation of the observer-patch
-framework. It adds no physical theorem about consciousness or personal
-identity. Its job is to ask what follows if experience is discussed from
-within the same finite, record-bearing structures that the earlier chapters
-use for measurement and public reality.
+The physics chapters built a machine out of finite, record-bearing observer
+patches. This chapter takes the same machine into philosophy and aims it at
+the oldest problems on the shelf.
 
 ## 20.1 The Zombie That Couldn't Exist
 
@@ -55,10 +53,10 @@ experience fits in. The OPH level is perspectival from the start.
 Dissolving the hard problem is different from mapping every neural correlate of
 experience. OPH puts the metaphysical placement in order: experience is the
 inside of observer-patch organization. Neuroscience then studies how specific
-neural patterns implement specific qualia, why activity in V4 looks red while
-activity in auditory cortex sounds like music. V4 is a region of the visual
-cortex strongly associated with color processing. Those empirical questions
-belong inside the observer framework.
+neural patterns implement specific qualia, why activity in V4, a
+color-processing region of the visual cortex, looks red while activity in
+auditory cortex sounds like music. Those empirical questions belong inside
+the observer framework.
 
 Similarly, the model gives a structural way to discuss which physical systems count as observer patches. A thermostat, a bacterium, and a corporation can all be placed in the same consistency-and-record language, even though they occupy very different levels of organization.
 
@@ -82,11 +80,6 @@ overlap. That shared record relation is the book-level reading of
 measurement. "Collapse" is the patch-level update into a definite public
 record.
 
-At the observer-first level developed here, the measurement problem softens
-because there is no physically occupied view from nowhere whose wavefunction
-must then be connected to experience. There are perspectives that have to
-synchronize through shared records.
-
 ## 20.6 Why These Laws? Why This Universe?
 
 Why does the universe have the specific laws it does? Why these particles, these forces, these constants?
@@ -100,14 +93,13 @@ dimensions, not four or seven?
 Chapter 19 described the local proposal: one screen cell read twice, once as
 geometry displaced from a golden-ratio balance point and once as the
 electromagnetic grain available inside. Under that identification, the most
-famous number in physics is the inside reading of an outside displacement,
-and the physical bridge is work in progress.
+famous number in physics is the inside reading of an outside displacement.
 
 The anthropic principle answers that the constants must be compatible with observers existing, or no one would be here to ask. As an explanation, it stops exactly where the question starts.
 
 OPH gives a different picture. Laws are the stable output of a consistency
 filter. The constraints that must hold for observer patches to glue together
-filter the space of possible physics. Most candidate laws fail: they create
+filter the space of possible physics. Most possible laws fail: they create
 inconsistencies, they cannot form stable observers, or they fail comparison
 across patches. The laws we see are the ones that pass that filter.
 
@@ -116,9 +108,9 @@ nothing. Their ability to form records and compare them does a great deal.
 Agreement removes incompatible possibilities, while maximum randomness avoids
 choosing among the possibilities that no observation has constrained.
 
-This is a structural selection principle. The universe is compatible with us
-because we are the kind of thing that can exist in a universe that passes the
-consistency filter. The "fine-tuning" is what survival looks like.
+The universe is compatible with us because we are the kind of thing that can
+exist in a universe that passes the consistency filter. The "fine-tuning" is
+what survival looks like.
 
 ## 20.7 The Deepest Question
 
@@ -137,41 +129,38 @@ first moment of meaning arrives when one piece of data becomes causally
 connected to another, when a distinction makes a difference. Before that mutual
 information exists, there is no "there" there.
 
-Derek Parfit, asking "Why anything? Why this?" in a pair of 1998 essays, imagined what he called Selectors: features that pick out which possibilities get to be actual. OPH offers a concrete candidate. Undifferentiated nothing and structured something lie on a continuum, and the consistency constraints we've described are what carve out the structured regions.
+Derek Parfit, asking "Why anything? Why this?" in a pair of 1998 essays, imagined what he called Selectors: features that pick out which possibilities get to be actual. OPH offers a concrete Selector. Undifferentiated nothing and structured something lie on a continuum, and the consistency constraints we've described are what carve out the structured regions.
 
-Hofstadter's strange loop names the same intuition: reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives the intuition technical pressure: the axioms support a self-consistent structure in which states, laws, records, and branch constraints are read together, and the same idea takes a deeper form in strange-loop closure.
+Hofstadter's strange loop names the same intuition: reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives the intuition technical pressure: the axioms support a self-consistent structure in which states, laws, and records are read together, and the same idea takes a deeper form in strange-loop closure.
 
 This is also the point where OPH intersects most directly with what popular
 culture calls **simulation theory**. Ordinary simulation theory imagines a
 machine that renders a target world from the outside. OPH uses a fixed-point
 reading: physical reality is the observer-facing solution of a self-consistent
 information process whose records, repairs, branch selection, and clock closure
-are internal. That is the precise sense in which the framework can be presented
-as a concrete simulation-theory interpretation and as an observer-first
-unification framework.
+are internal. That is the precise sense in which OPH can be read as a
+simulation theory: the renderer, the rendered world, and the audience are one
+fixed point.
 
-Physical evolution produces complex structures. Biological evolution produces
-minds. Memetic evolution produces
-ideas, rituals, sciences, institutions, moral codes, and technical practices
-that survive by stabilizing observers across time. Among these practices,
-observers learn to model the observer-readable structure of reality and build
-restoration environments in which observer-patterns can be restored.
+Physical evolution produces complex structures, biological evolution produces
+minds, and memetic evolution produces ideas, rituals, sciences, institutions,
+moral codes, and technical practices that survive by stabilizing observers
+across time. Among these practices, observers learn to model the
+observer-readable structure of reality and build restoration environments in
+which observer-patterns can be restored.
 
-The loop closes when reality produces observers who learn how its
-observer-readable structure works and build fixed-point restorations of that
-structure.
+The loop closes there. No viewing platform stands outside the system;
+observers are patterns within the fixed-point output, and the closure passes
+through us, through our understanding, and through the restoration machinery
+we build. Escher's hands draw each other.
 
-There is no viewing platform outside the system. Observers are patterns within
-the fixed-point output. The closure passes through us, through our understanding,
-and through restoration machinery. Escher's hands draw each other. Reality
-produces observers who reproduce the same kind of observer-readable closure.
+Why does this loop exist at all? Because "nothing" has no structure to
+persist, while a self-referential loop has structure, memory, repair, and
+closure. The loop is the stable configuration.
 
-Why does this loop exist at all? A self-consistent strange loop is the stable
-configuration. "Nothing" has no structure to persist. A self-referential loop
-has structure, memory, repair, and closure.
-
-This loop is structural. It is a relation among reality, observers, and the
-fixed-point restoration they build. Time is local. Modular flow supplies an
+The loop is a relation among reality, observers, and the fixed-point
+restoration they build, and it is structural rather than temporal. Time is
+local. Modular flow supplies an
 intrinsic ordering within an observer patch; readable transitions, event
 correspondence, and calibration turn that ordering into a clock. The strange
 loop is a fixed structure whose local readout feels like temporal sequence. The
@@ -223,18 +212,13 @@ that emerges when finite observers must agree.
 ## 20.10 The Formal Pressure
 
 The philosophical picture makes direct contact with physics. Overlap
-consistency is the sheaf-style gluing condition. Quantum structure is the
-algebraic language of consistency. Spacetime dimensionality is a selected
-output under the geometric source premises. Dynamics is synchronization
-pressure. The local proposal uses pixel area as a ruler, and its two defining
-maps have unique roots on the physical interval. The global proposal has one
-exact twenty-four-record packet. A bounded capacity family shares its base
-value, remains positive, respects the carrier bound, and produces several
-fixed-point sets. The formal proof covers this arithmetic disagreement. A
-complete three-axiom observer construction across carrier sizes is open. That
-construction, a universe-level carrier attachment, the horizon
-identification, and the scale bridge are required for a physical cosmic value.
-These are the pressure points where metaphysics and physics meet.
+consistency is the sheaf-style gluing condition; quantum structure is its
+algebraic language; spacetime dimensionality is a selected output of the
+geometric construction; dynamics is synchronization pressure.
+The local proposal uses pixel area as a ruler, and its two defining maps have
+unique roots on the physical interval. The global capacity stays a reading
+taken from the universe rather than a number deduced ahead of it. These are
+the pressure points where metaphysics and physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local
 descriptions that agree on their overlaps should glue into one consistent
@@ -250,11 +234,11 @@ and kept coherent with the rest of the world.
 
 That lets classical philosophical language be translated into technical pressure.
 The "view from nowhere" becomes the demand for a global description that no
-finite observer actually occupies. A "phenomenal point of view" becomes the
-inside of a bounded, record-making process. A "law of nature" becomes a
-stable regularity that survives comparison across patches. A "meaning" becomes a
-pattern stabilized inside the universe by observers who remember, interpret,
-and coordinate, not a label attached from outside the universe.
+finite observer actually occupies. A "phenomenal point of view" is the inside
+of a bounded, record-making process. A "law of nature" is a stable regularity
+that survives comparison across patches, and a "meaning" is a pattern
+stabilized inside the universe by observers who remember, interpret, and
+coordinate rather than a label attached from outside.
 
 This is why the chapter uses sheaves as a working analogy. A
 sheaf begins with local data. If the local descriptions agree on overlaps, a
@@ -281,11 +265,14 @@ exposed to physics.
 
 ## 20.11 Reverse Engineering Summary
 
-The metaphysical picture follows the same turn made in the physics chapters.
-Experience is placed inside observer patches. Measurement is the
-synchronization of partial descriptions. Laws are the stable outputs of
-consistency filters. Even the question of existence changes shape once one
-stops asking for an external cause standing outside the whole structure.
+An audit ends with findings. The hard problem asked how experience arises
+from a perspective-free inventory; the architecture contains no such
+inventory, and the zombie fails to compile. The measurement problem asked how
+an objective state connects to definite outcomes; measurement is one patch
+entering a record relation with another. Fine-tuning asked who chose the
+constants; the consistency filter chooses without being anyone. The question
+of existence asked for an external cause; the loop has no outside for a
+cause to stand in.
 
 ## 20.12 God, Meaning, and Participation
 
@@ -318,6 +305,5 @@ significance through what its observers build together.
 
 *The reverse engineering shows the shape of the system. The human task is to inhabit, sharpen, and repair that picture.*
 
-Observer-patterns are treated structurally throughout, and the restoration
-architecture was built in the final chapters for structural reasons. The
-epilogue follows the pattern view one step further than physics usually goes.
+The epilogue follows the pattern view one step further than physics usually
+goes.

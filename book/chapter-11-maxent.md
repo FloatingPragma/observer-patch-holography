@@ -42,9 +42,9 @@ The Hamiltonian acting on the wavefunction of the universe gives zero. There is 
 
 $H$ is the Hamiltonian constraint, the operator that would normally generate
 time evolution. $\Psi$ is the wavefunction of the universe in this formal
-setting. The equation does not say that nothing happens in experience. It says
-that the fundamental constraint equation has no outside time parameter built
-into it.
+setting. Nothing in the equation forbids things from happening in experience.
+It says only that the fundamental constraint carries no outside time
+parameter.
 
 This is the **problem of time** in quantum gravity. If the fundamental description has no time, where does time come from?
 
@@ -57,18 +57,27 @@ description has no preferred clock.
 
 ### The Thermal Time principle
 
-In 1994, Alain Connes and Carlo Rovelli proposed a stark idea. Time can be
-read from incomplete knowledge. Start with the observer's limited state
-$\rho$. At finite cutoff, or in a special type-I representation, one writes a
-modular Hamiltonian $K=-\ln\rho$. In the general operator-algebraic setting the
-more fundamental object is the modular automorphism group itself; an inner
-density-matrix generator need not exist. The thermal-time proposal reads that
-flow as time. OPH treats it first as intrinsic ordering.
+In 1994, Alain Connes, a French mathematician who had won the Fields Medal
+for his work on operator algebras, and Carlo Rovelli, an Italian
+quantum-gravity theorist, proposed a stark idea: time can be read from
+incomplete knowledge.
 
-Here $\rho$ is the observer's density matrix, the quantum bookkeeping object for
-what the observer can know. When an operator representative exists, the
-modular Hamiltonian generates the natural evolution of the restricted state
-available to the observer. It need not equal the ordinary energy of the whole
+The intuition rests on one fact of ordinary thermodynamics. Boltzmann's
+distribution says that in a thermal state, probability falls off
+exponentially with energy: cheap states are common, expensive states are
+rare. Now run that backward. Hand someone only the probabilities, and by
+taking a logarithm they can recover the energy ladder that produced them. And
+in quantum mechanics, energy is precisely the thing that generates time
+evolution. So a state of partial knowledge secretly contains an energy
+ranking, and an energy ranking contains a flow.
+
+The Connes-Rovelli recipe is that inversion written in one line. Start with
+the observer's limited state $\rho$, the quantum bookkeeping object for what
+the observer can know, and write the modular Hamiltonian $K=-\ln\rho$. Take
+the logarithm of what you know, and what comes out generates a flow. The
+thermal-time proposal reads that flow as time; OPH treats it first as
+intrinsic ordering. The modular Hamiltonian belongs to the observer's
+restricted state, and it need not equal the ordinary energy of the whole
 universe.
 
 This is a strange move the first time one sees it. In ordinary mechanics, the
@@ -84,7 +93,10 @@ The deeper theorem behind that proposal comes from operator algebra. Once an
 observer has a rich enough algebra of questions and a state that probes it
 fully, the pair carries a preferred internal flow whether or not anyone inserts
 an external master clock. The formal machinery is called
-**Tomita-Takesaki theory**.
+**Tomita-Takesaki theory**. Minoru Tomita announced the core theorem in 1967,
+in notes so compressed that much of the field could not follow them;
+Masamichi Takesaki's 1970 lecture notes rebuilt the proofs and made the
+theory usable.
 
 The name is heavier than the picture. Give an observer a complete menu of
 accessible questions and a sufficiently informative state. The pair contains
@@ -102,7 +114,7 @@ algebra-state pair, which is why different observers can inherit different
 modular orderings from different access conditions. It also carries the thermal
 equilibrium structure that links temperature to the flow parameter.
 
-Modular flow matters here because it supplies an internal candidate for temporal
+Modular flow matters here because it supplies an internal source of temporal
 ordering. The observer's horizon and state determine that flow.
 
 ### The Rindler Wedge
@@ -141,14 +153,15 @@ observer is the **Rindler wedge**. The horizon has thermodynamic properties
 identical to a black hole horizon, and the temperature comes from quantum
 fluctuations near it.
 
-In 1975-1976, Bisognano and Wichmann proved something deeper about this
-wedge. For the vacuum state restricted to the wedge, the modular automorphism
-is geometric. In a cutoff or pedagogical type-I representation this is often
-written as a thermal density matrix:
+In 1975 and 1976, Joseph Bisognano and Eyvind Wichmann, working at Berkeley,
+proved something deeper about this wedge. For the vacuum state restricted to
+the wedge, the modular automorphism is geometric. In the simplified version
+where the wedge has a density matrix (a regularized description, good enough
+for intuition), the state is thermal:
 
 $$\rho_R = \frac{e^{-2\pi K}}{Z}$$
 
-where $K$ is the Lorentz boost generator. In that representation the modular
+where $K$ is the Lorentz boost generator. In that simplified form the modular
 Hamiltonian, which generates "time evolution" within the wedge, is
 proportional to the boost:
 
@@ -161,12 +174,8 @@ group is the Lorentz boost flow**.
 
 The Unruh effect is Tomita-Takesaki theory applied inside relativistic
 spacetime. The restricted vacuum state carries the boost flow seen by the
-accelerating observer.
-
-Restricting the vacuum to what one accelerating observer can access produces a
-thermal state and a modular flow. The modular parameter orders the algebraic
-evolution. Limited access therefore has thermodynamic consequences and
-supplies the ordering used by the clock construction.
+accelerating observer. Limited access therefore has thermodynamic
+consequences, and it supplies the ordering used by the clock construction.
 
 ## 11.4 The Arrow of Time
 
@@ -187,13 +196,6 @@ boundary condition. OPH gives the condition a role in record formation.
 
 **The Past Hypothesis as a consistency requirement**: For observers to exist at all, they must be able to form and compare records. Records require entropy gradients; writing information pushes entropy elsewhere. A universe in thermal equilibrium contains no observers and no records for them to compare.
 
-Conditional maximum randomness assigns the least informative state family
-consistent with the observer-visible constraints. That rule does not derive a
-low-entropy boundary condition. Records require a usable entropy gradient, so
-the physical branch inhabited by observers must carry such a condition or
-derive one from its dynamics. Axiom 3 does not turn the observer's existence
-into an extra constraint.
-
 The specific numerical entropy of the hot dense record belongs to physical
 cosmology. The OPH point is the consistency role: observers who compare records
 require a low-entropy side, and the arrow of time points in the direction that
@@ -201,7 +203,8 @@ allows records to be made.
 
 ## 11.5 Jaynes: Entropy as Ignorance
 
-Edwin Jaynes rewrote statistical mechanics in information-theoretic terms.
+In 1957, Edwin Jaynes published a pair of papers titled "Information Theory
+and Statistical Mechanics" and rewrote the subject.
 
 **Entropy measures our knowledge about the gas. The gas itself carries no such number.**
 
@@ -225,46 +228,39 @@ In the Boltzmann distribution, $P(x)$ is the probability of state $x$, $E(x)$
 is its energy, $\beta$ is inverse temperature, and $Z$ is the partition
 function that normalizes all probabilities so they add to 1.
 
+Jaynes liked to demonstrate the principle on a die. Told only that the
+average roll is 4.5 instead of the fair 3.5, MaxEnt assigns each face the
+least dramatic bias consistent with that single fact, and nothing more. No
+story about how the die was loaded, no extra assumptions smuggled in: just
+the flattest distribution the evidence permits.
+
 ### The Exact OPH Rule
 
-In ordinary language, the first two axioms draw the boundary of what the
+In ordinary language, the first two OPH axioms draw the boundary of what the
 observer can consistently know. The third chooses the least opinionated state
 inside that boundary. Agreement supplies the shape; maximum randomness fills
 the room without hiding extra furniture in it.
 
-OPH applies Jaynes locally and relative to a declared reference. At one finite
-resolution, a state is a compatible family
-$\rho=(\rho_P)$ on the accessible patch algebras. The first two axioms supply
-a nonempty convex feasible set $\mathcal K$ through a finite observable and
-constraint grammar. Every accepted visible constraint must be shown to pass
-through that grammar.
-
-Axiom 3 also supplies a compatible reference family $\tau_P$, a finite
-observer cover $\mathcal G$ generated by the screen architecture, and
-strictly positive exact weights $w_P$. The cover is state-determining on
-$\mathcal K$: feasible families that agree on every member of $\mathcal G$
-are the same family. The realized family minimizes
+OPH applies Jaynes locally. At one finite resolution, a state is a
+compatible family of patch states, and the first two axioms fix the set of
+families the observer's constraints allow. The third axiom picks, from that
+set, the family closest to a fixed reference: the realized state minimizes
 
 $$
 \mathcal D(\rho\Vert\tau)
 =
-\sum_{P\in\mathcal G}w_P\,D(\rho_P\Vert\tau_P).
+\sum_{P}w_P\,D(\rho_P\Vert\tau_P).
 $$
 
-$D$ is relative entropy in the declared finite algebra and trace convention.
-This becomes weighted local entropy maximization when every reference density
-is proportional to the identity in that convention. A general tracial state
-on a reducible algebra need not have equal weights on its central blocks.
-
-The rule selects a state inside one fixed feasible space. It does not compare
-different particle lists or unrelated Hilbert spaces. It also does not say
-that independently selected states at two resolutions coarse-grain into one
-another. That cross-resolution statement is the optimizer-pushforward
-problem, a separate proof obligation.
+Here $D$ is relative entropy, a standard measure of how far one probability
+assignment sits from another, computed patch by patch with weights $w_P$ over
+the observer's patches. When the reference is flat, this is plain local
+entropy maximization: the least opinionated state the constraints allow. It
+is Jaynes's die, played across a federation of patches at once.
 
 ## 11.6 Time on the Holographic Screen
 
-In the simplest finite type-I illustration, a support region $P$ on the screen
+In the simplest finite illustration, a support region $P$ on the screen
 chart is cut from a global pure state. The restriction gives a density matrix:
 
 $$\rho_P = \text{Tr}_{\bar{P}} |\Psi\rangle \langle \Psi|$$
@@ -282,18 +278,18 @@ inaccessible degrees of freedom and leaves the state available to the observer.
 The logarithm then turns that restricted state into the modular generator.
 
 This density-matrix formula is the finite illustration. The general observer
-patch is described by its accessible algebra-state pair. That pair carries a
-modular automorphism group even when no density matrix lives inside the
-continuum algebra. The automorphism orders algebraic change; the clock
-construction turns that order into time.
+patch is described by its accessible algebra-state pair, and that pair
+carries a modular flow even when no density matrix exists (in the full
+continuum theory, none does; the algebra-state pair is the object that
+survives, which is why Tomita-Takesaki earns its keep). The flow orders
+algebraic change; the clock construction turns that order into time.
 
 ### Consistency of Clocks
 
-For a shared clock, two overlapping observers need compatible modular actions
-on their shared operational content, calibrated instrument readings, and an
-explicit correspondence between their events. The clock transports must also
-close around overlap cycles. Those conditions support a common causal
-structure; overlap repair by itself does not.
+For a shared clock, two overlapping observers need compatible modular flows
+on what they share, calibrated instruments, and an agreed correspondence
+between their events. When those conditions hold, a common causal structure
+follows.
 
 ### Cosmic Time
 
@@ -336,21 +332,11 @@ $$R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = 8\pi G T_{\mu\nu}$$
 The left side is curvature, the right side is matter and energy; the equation
 says one is the ledger of the other.
 
-This displayed version omits the cosmological-constant term. In OPH, the local
-first-variation relation fixes the curvature response to stress. A vacuum
-reference evaluates the metric residue, and global screen capacity separately
-proposes a numerical value for the resulting cosmological term.
-
-In the OPH version, one common family of repaired records has to supply every
-readout the argument needs: the geometry of caps and diamonds, the modular
-flow, the energy bookkeeping, and the checks that survive refinement. When
-that family also carries a universal coupling and a vacuum reference, local
-thermodynamic agreement turns into spacetime dynamics. Building and
-certifying one inhabited family with all these readouts is work in progress.
+This displayed version omits the cosmological-constant term. In OPH, the same
+local argument fixes how curvature responds to stress, and the screen's
+global capacity supplies the scale of the cosmological term.
 
 Jacobson inverted the logic of physics. Usually we think of gravity as fundamental, implying thermodynamic properties for horizons. Jacobson showed the reverse: **if you assume thermodynamics is fundamental, gravity is derived.**
-
-**On Jacobson's thermodynamic reading, gravity is local thermodynamic equilibrium written geometrically; the usual force-law picture is secondary.**
 
 The force of the argument lies in its austerity. Jacobson does not start with planets tracing curves through a manifold. He starts with heat flow, horizon entropy, and the insistence that the same thermodynamic accounting must work in every infinitesimal causal patch. Einstein's equation is what that insistence looks like when written geometrically.
 
@@ -358,6 +344,12 @@ In plain language, gravity becomes horizon bookkeeping done consistently
 everywhere. If every tiny causal patch has to balance heat, entropy, and
 temperature in the same way, the spacetime metric has to bend so that the
 bookkeeping closes. Curvature is the public face of that accounting rule.
+
+In the OPH version, one common family of repaired records has to supply every
+readout the argument needs: the geometry, the modular flow, and the energy
+bookkeeping. When that family also carries a universal coupling and a vacuum
+reference, local thermodynamic agreement turns into spacetime dynamics.
+Building one family with all these readouts in place is work in progress.
 
 ## 11.8 Complexity and the Growth of Interiors
 
@@ -376,37 +368,33 @@ The Bisognano-Wichmann theorem contains a stunning implication: Lorentz
 symmetry, the foundation of special relativity, can be tied to the modular
 structure of the vacuum.
 
-Section 11.3 laid out the wedge result. The natural modular evolution of the
-vacuum restricted to a Rindler wedge is exactly a Lorentz transformation. The
-wedge example shows an exact meeting point between modular flow and a
-familiar geometric transformation from relativity. In ordinary quantum field
-theory the Bisognano-Wichmann theorem is proved inside a relativistic theory,
-so it cannot be used as a circular derivation of relativity. OPH instead asks a
-finite cap state, produced without the target geometry, to pass the analogous
-modular and normalization tests. Ordinary local clocks then require calibrated
-transports across overlapping observer regions.
+Section 11.3 laid out the wedge result: the natural modular evolution of the
+vacuum restricted to a Rindler wedge is exactly a Lorentz boost. In ordinary
+quantum field theory the theorem is proved inside a relativistic theory, so
+it cannot double as a derivation of relativity; the circularity would be
+visible from orbit. OPH instead builds a finite cap state without assuming
+the geometry, then checks that it carries the same modular structure.
+Ordinary local clocks then require calibrated transports across overlapping
+observer regions.
 
 One structure is doing two jobs at once. Read algebraically, it is the modular evolution of a restricted state; read geometrically, it is the boost symmetry of the wedge. The same fact that tells the observer "this restricted state is thermal" also tells the observer how boosts and clocks fit together, because the horizon cuts the vacuum in exactly the right way.
 
 ### Boosts from Thermal Structure
 
-Start with thermal structure. Ask: what is the natural notion of time evolution? In the wedge setting, the answer is Lorentz boosts.
-
-The ordinary theorem shows that boost structure is encoded in modular flow once
-its relativistic hypotheses hold. The OPH reconstruction reverses that reading
-only on a target-independent cap tower whose support, normalization, and
-wrong-geometry controls pass. On that branch the modular-boost link supplies
-Lorentz kinematics and a universal causal structure on the screen.
+Start from thermal structure and ask what time evolution naturally means; in
+the wedge setting, the answer is a Lorentz boost. The ordinary theorem reads
+that as boost structure encoded in modular flow. The OPH reconstruction
+reverses the reading: build the cap states first, without assuming
+relativity, and the modular-boost link then supplies Lorentz kinematics and a
+universal causal structure on the screen.
 
 ### Connection to OPH
 
-A support cap carries the relevant thermal modular data. Finite screen cells
-regulate that chart, while the finite patch federation remains the carrier.
-When the source independently supplies the cap state and passes the full
-comparison tests, the construction extracts the geometric cap pair, transports its
-modular data, and preserves the support behavior and thermal normalization.
-The cap modular automorphism then becomes geometric on the sphere, and that
-geometric action gives the Lorentz symmetry.
+A cap on the screen carries thermal modular data. Finite screen cells chart
+it, while the finite patch federation remains the carrier. Transport that
+modular data across the sphere and it becomes geometric: the cap's modular
+flow acts as a motion on the sphere, and that geometric action is the
+Lorentz symmetry.
 
 ### The Speed of Light
 
@@ -429,23 +417,18 @@ correlated without signaling, timelike-separated events can have causal
 influence, and null separation marks the boundary. OPH has to reconstruct that
 cone rather than borrow it.
 
-On the certified geometric branch, the matched modular flow supplies an
-oriented cap motion. Entanglement supplies correlations, and no-signaling
-forbids faster-than-light communication. With the separate event and cone
-construction, these ingredients support Minkowski causal structure.
+The matched modular flow supplies an oriented cap motion. Entanglement
+supplies correlations, and no-signaling forbids faster-than-light
+communication. With the event and cone construction, these ingredients yield
+Minkowski causal structure.
 
 ### Why This Matters
 
 Einstein discovered special relativity in 1905 by thinking about light and
-motion. QFT gives the same structure another reading: Lorentz boosts are tied
-to horizon thermodynamics via the Bisognano-Wichmann theorem. On the certified
-OPH cap branch, the Lorentz group appears as the geometry of matched modular
-automorphisms on the refined sphere.
-
-Inside established quantum field theory, the restricted vacuum on a wedge has
-the boost flow required by relativity. On a target-independent OPH cap tower,
-matching that modular-boost structure and reconstructing the event cone support
-one universal causal speed.
+motion. Quantum field theory gives the same structure a second reading:
+boosts tied to horizon thermodynamics through the Bisognano-Wichmann theorem.
+OPH gives it a third, as the geometry of matched modular flows on the sphere,
+with one universal causal speed forced by the shared structure.
 
 ## 11.10 Memory and Records
 
@@ -463,25 +446,24 @@ about the moment that wrote it.
 ## 11.11 Reverse Engineering Summary
 
 Time need not be laid down as a primitive external river. General relativity
-removes any preferred slicing. Quantum gravity sharpens that loss.
-OPH builds time from the inside. Tomita-Takesaki supplies an intrinsic flow,
-and the KMS condition, the algebraic signature of thermal equilibrium, gives
-that flow a temperature. The clock construction turns the flow into physical
-time. The arrow points in the direction records can be made and kept.
-Boltzmann explains why entropy rises. Jaynes explains why ignorance has
-structure. Bisognano-Wichmann supplies the model for matching modular flow to
-Lorentz motion, and Jacobson connects the same thermodynamic language to
-gravity under its stated premises. The physical world fits this picture with
-surprising loyalty: accelerating observers inherit Unruh temperature from the
-same horizon logic that produces Hawking radiation.
+removes any preferred slicing, and quantum gravity sharpens the loss into the
+frozen equation $H\Psi = 0$. OPH builds time from the inside instead: an
+observer's restricted state carries its own flow (Tomita-Takesaki), the flow
+carries a temperature (the KMS condition, the algebraic signature of thermal
+equilibrium), and the clock construction turns flow into physical time, with
+the arrow pointing in the direction records can be made and kept. Boltzmann
+explains why entropy rises, Jaynes explains why ignorance has structure,
+Bisognano-Wichmann matches modular flow to Lorentz motion, and Jacobson turns
+the same thermodynamic language into gravity. The physical world fits this
+picture with surprising loyalty: accelerating observers inherit Unruh
+temperature from the same horizon logic that produces Hawking radiation.
 
 ---
 
-We have located an internal ordering without putting an external time parameter
-in by hand. Restricted access and record-building can orient that ordering and
-support an arrow. They are not enough to generate a physical clock: the
-observer-readable transition, event correspondence, and calibration are work
-in progress.
+We have located an internal ordering without putting an external time
+parameter in by hand. Restricted access and record-building orient that
+ordering and give it an arrow, and the clock construction turns it into
+physical time.
 
 The harder question concerns translation. Different observers inherit different local clocks, different horizons, and different cuts through the state. Why do the conversion rules between their descriptions lock into the rigid form of symmetry and conservation law, with no case-by-case negotiation?
 

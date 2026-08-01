@@ -2,23 +2,15 @@
 
 ## 4.1 The Irreversibility Puzzle
 
-The ordinary intuition says perfect knowledge of the rules should let you run them backward.
+Film two billiard balls colliding, then play the film backward. Nothing looks wrong. The reversed collision obeys Newton's equations exactly as well as the original, and a physicist shown only the film could not tell you which direction was real. As far as the laws are concerned, past and future are symmetric.
 
-The laws of physics are deterministic and time-reversible. Newton's equations
-work just as well backward as forward. If you film billiard balls colliding and
-play the film in reverse, you see a perfectly valid physical process. Past and
-future should be symmetric.
+Now film a wine glass sliding off a table.
 
-Ordinary life says otherwise.
+Played backward, that film is instantly, obviously false. Glasses break and stay broken. Eggs scramble but never unscramble, coffee and milk mix and refuse to unmix, and a warm room will melt an ice cube without ever once freezing one back. We remember yesterday but not tomorrow.
 
-Glasses break and stay broken. Eggs scramble but never unscramble, coffee and milk mix and refuse to unmix, and a warm room will melt an ice cube without ever once freezing one back. We remember yesterday but not tomorrow.
+This everyday difference between past and future is the **arrow of time**, and it has no right to exist. The glass is made of the same matter as the billiard balls, governed by the same reversible laws. Every shard of the breaking glass follows a trajectory that could legally run the other way. Somehow a world built entirely from reversible collisions refuses, at our scale, to reverse.
 
-This everyday difference between past and future is the **arrow of time**. Its
-origin is the puzzle.
-
-If the fundamental laws are time-symmetric, how does irreversibility emerge? If every microscopic collision can be run backward, why can't we run macroscopic processes backward?
-
-This puzzle tormented physicists for decades. The answer they found is one of the deepest hints about the structure of reality.
+The puzzle took most of a century to crack, and the crack opened in an unexpected place: the engine rooms of the industrial revolution.
 
 ## 4.2 Hint: The Second Law is Statistical, Not Fundamental
 
@@ -26,7 +18,7 @@ This puzzle tormented physicists for decades. The answer they found is one of th
 
 Entropy entered physics through a practical problem: how to build a better steam engine.
 
-In 1824, a French engineer named Sadi Carnot asked: what is the maximum efficiency an engine can achieve? His answer was startling: the maximum efficiency depends only on the temperatures of the heat source and sink:
+In 1824, Sadi Carnot, a twenty-eight-year-old French military engineer and son of Napoleon's minister of war, self-published a slim book called *Reflections on the Motive Power of Fire*. Barely anyone read it. In it he asked the question every engine builder wanted answered: what is the maximum efficiency an engine can achieve? His answer was startling: the maximum efficiency depends only on the temperatures of the heat source and sink:
 
 $$\eta_{max} = 1 - \frac{T_{cold}}{T_{hot}}$$
 
@@ -39,13 +31,15 @@ reservoir. Both temperatures must be absolute temperatures, measured from
 absolute zero. Carnot's result says that an engine works only because heat can
 fall from hot to cold. No clever gears can beat that temperature ratio.
 
+Carnot died of cholera in 1832, at thirty-six; fear of contagion meant most of his papers were burned with his belongings. The idea survived.
+
 Rudolf Clausius gave this limit a name: **entropy**. He stated the Second Law of Thermodynamics: in an isolated system, entropy never decreases.
 
 Clausius's entropy was phenomenological. It described what happens without explaining why. Ludwig Boltzmann supplied the explanation.
 
 ### Boltzmann's Counting
 
-Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against opponents who thought atoms were mere fictions. In 1906, he took his own life. Three years later, experiments confirmed atoms beyond doubt, and the counting formula he fought for is carved above his grave in Vienna's Zentralfriedhof.
+Boltzmann was born in Vienna in 1844. He spent his career defending the atomic principle against colleagues who considered atoms a convenient fiction; Ernst Mach, the most formidable of them, said plainly that he did not believe atoms existed. In 1906, Boltzmann took his own life. Three years later, Perrin's experiments on Brownian motion confirmed atoms beyond doubt, and the counting formula Boltzmann fought for is carved above his grave in Vienna's Zentralfriedhof.
 
 Boltzmann looked at heat and saw a counting problem.
 
@@ -64,13 +58,6 @@ microscopic counting and ordinary thermodynamic units. The logarithm appears
 because independent choices multiply their microstate counts, while entropy is
 additive. If one box has $W_1$ possibilities and another has $W_2$, the pair
 has $W_1W_2$ possibilities, and $\ln(W_1W_2)=\ln W_1+\ln W_2$.
-
-Boltzmann did not win this argument by rhetoric. He was working in a period
-when many leading physicists doubted that atoms were real. The entropy
-formula became part of a larger historical turn: chemistry, kinetic theory,
-Brownian motion, and later Perrin's experiments all converged on the same
-conclusion. The statistical view of heat was not one person's guess. It was a
-collective reconstruction of matter from many clues.
 
 ### Why Entropy Increases
 
@@ -152,7 +139,7 @@ record.
 
 **The reframing**: OPH gives the Past Hypothesis a consistency role. Standard
 physics usually treats the low-entropy side of the cosmological record as a
-brute fact, an unexplained boundary condition. This picture suggests why that
+brute fact, an unexplained boundary condition. This picture explains why that
 boundary is structurally important.
 
 For observers to exist at all, they must be able to form consistent records.
@@ -170,7 +157,7 @@ consistency-building present.
 
 ## 4.4 Information is Physical
 
-In 1948, Claude Shannon created information theory. He needed a measure of uncertainty before a message arrives:
+In 1948, Claude Shannon of Bell Labs created information theory (chapter 7 visits his office properly). He needed a measure of uncertainty before a message arrives:
 
 $$H = -\sum_i p_i \log p_i$$
 
@@ -188,16 +175,15 @@ In thermodynamics, you're missing information about the microstate. In communica
 
 ### Landauer's Principle
 
-In 1961, Rolf Landauer showed that erasing information costs energy.
+In 1961, Rolf Landauer, an IBM physicist who spent his career insisting that computation happens in the physical world and nowhere else, showed that erasing information costs energy.
 
 Erasing one bit at temperature $T$ requires dissipating at least $k_B T \ln 2$ of energy as heat.
 
-Landauer's result changed physics: **information is physical**. Bits are
-thermodynamic objects with energy costs.
+Landauer compressed the lesson into a slogan he repeated for decades: **information is physical**. Bits are thermodynamic objects with energy costs.
 
 ### Maxwell's Demon
 
-In 1867, Maxwell imagined a demon operating a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the demon could create a temperature difference without work, seemingly violating the Second Law.
+In 1867, in a letter to his friend Peter Guthrie Tait, James Clerk Maxwell invented thermodynamics' most durable troublemaker: a tiny being stationed at a door between two gas chambers. By selectively letting fast molecules through one way and slow molecules the other, the being could create a temperature difference without work, seemingly violating the Second Law. It was William Thomson who promoted the doorkeeper to "demon." Maxwell protested that his creature was really more of a valve. The name stuck anyway.
 
 The modern resolution is subtler than one sentence, but Landauer-style memory erasure is a central part of it: the demon must observe and remember each molecule's velocity, and resetting that memory carries a thermodynamic cost that preserves the Second Law.
 
@@ -380,10 +366,9 @@ counted twice, fixes the basic logic of quantum entropy.
 The physical world keeps pushing in the same direction. The Second Law holds
 with overwhelming reliability in isolated systems. Black-hole entropy follows
 the semiclassical area law. Controlled holographic models produce the Page
-curve when information is preserved. In the low-energy regimes relevant to the
-book, entanglement commonly tracks boundary area more closely than bulk
-volume. None of this looks accidental. All of it points toward a world in
-which information has a budget, storage has a geometry, and no one remembers
+curve when information is preserved, and in the low-energy regimes relevant to
+this book, entanglement tracks boundary area more closely than bulk volume.
+None of it looks accidental: information has a budget, and no one remembers
 anything for free.
 
 ### A Short History of the Arrow
@@ -393,16 +378,11 @@ different face of the same constraint. Carnot was trying to understand
 engines, and the philosophy of time came along uninvited. Clausius named
 entropy because heat engines forced him to distinguish usable energy from
 unavailable energy. Boltzmann had atoms, probabilities, and the courage to
-say that thermodynamics was counting. Gibbs turned that counting into a
-general statistical language.
+say that thermodynamics was counting. Shannon rediscovered the same
+mathematics in telephone static, Landauer found it in the cost of forgetting,
+and Bekenstein and Hawking found it written on the horizons of black holes.
 
-Planck used entropy in the route to quantum theory. Shannon rediscovered an
-information-theoretic cousin while studying communication. Landauer then showed
-that information processing itself pays a thermodynamic price. Bekenstein and
-Hawking put entropy on horizons. Page, Penington, and a small crowd of others
-then turned black-hole entropy into a sharp quantum-information problem.
-
-That chain is important because entropy is easy to misread as a single
+The chain matters because entropy is easy to misread as a single
 metaphor. In this book the same accounting idea appears in different physical
 costumes. An engine loses useful work because
 heat spreads. A gas equilibrates because most microscopic arrangements look
@@ -412,18 +392,11 @@ microscopic distinctions behind a finite area. A public record exists because
 some physical system has been driven into a durable low-entropy correlation
 with what happened.
 
-The formulas are modest. Carnot's $\eta_{max}=1-T_{cold}/T_{hot}$ says what
-no engine can beat. Boltzmann's $S=k_B\ln W$ counts how many microscopic
-possibilities fit the same macroscopic description. Shannon's
-$H=-\sum_i p_i\log_2 p_i$ measures uncertainty in a probability distribution,
-and the horizon bound $S(P)\leq \mathrm{Area}(P)/(4\ell_P^2)$ says only that
-the storage budget scales like area.
-
-Together those equations explain why observers cannot be free-floating
+All of it explains why observers cannot be free-floating
 witnesses. To observe, an observer must couple to something. To remember, it
 must build a physical record, and comparing records costs energy of its own.
-All of that happens under an entropy budget. If OPH treats public reality as a
-consensus process, entropy is the cost accounting for that process. Agreement
+All of that happens under an entropy budget. OPH treats public reality as a
+consensus process, and entropy is the cost accounting for that process. Agreement
 requires records, and records require an arrow.
 
 ---
@@ -446,17 +419,15 @@ for records, comparison, and public reality.
 
 ## 4.11 Summary: The Entropy Budget
 
-Entropy decides what can be remembered, what can be shared, and what has to
-dissolve into noise.
-The Second Law gives the direction. Landauer gives the price. Entanglement
-gives the geometry. Black holes reveal the area budget in its starkest form.
-Observers live inside that budget. Their memory, records, and shared facts are
-possible only because the accessible history contains a low-entropy side far
-enough from equilibrium to make those things worth tracking.
+Entropy decides what can be remembered and shared, and what has to dissolve
+into noise. Observers live inside that budget: their memories, records, and
+shared facts exist only because the accessible history has a low-entropy side
+far enough from equilibrium to make record-keeping worth the energy. Carnot's
+engines, Maxwell's doorkeeper, Boltzmann's counting, and the black holes at
+the bottom of the accounting all say the same thing about observers, which is
+that they pay for everything.
 
 Chapter 5 builds the algebra of observables, the mathematical structure
 describing what observers can measure and how their measurements must relate
-across patches.
-
-Once entropy limits what can be stored, the theory has to say what can be
-asked and compared.
+across patches. Once entropy limits what can be stored, the theory has to say
+what can be asked and compared.

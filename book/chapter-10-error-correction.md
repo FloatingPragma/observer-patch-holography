@@ -9,7 +9,7 @@ tide erases it. Carve it in stone and it lasts for millennia. Information
 exists in specific physical arrangements. Disturb those arrangements and the
 information is gone.
 
-This is the commonsense view of data. A hard drive crash destroys your files, and noise chews at every signal ever sent through a real channel. The only way to protect information is to shield it from disturbance or make multiple copies that can substitute for each other.
+A hard drive crash destroys your files, and noise chews at every signal ever sent through a real channel. The only way to protect information is to shield it from disturbance or make multiple copies that can substitute for each other.
 
 Classical physics supports this intuition. Information lives in definite states. Errors flip states to wrong values. Protection requires either isolation (keep the noise away) or redundancy (make backup copies).
 
@@ -19,7 +19,7 @@ Quantum information theory broke that picture from both sides. Information can b
 
 ### The Three Obstacles
 
-Translating classical error correction to quantum computing seemed impossible due to three obstacles:
+Translating classical error correction into quantum computing looked impossible, for three separate reasons:
 
 **No-Cloning**: In 1982, Wootters and Zurek proved that quantum states cannot be copied. If you have |psi> and want to create |psi>|psi>, you cannot. Classical codes work by making redundant copies. Quantum mechanics forbids this.
 
@@ -42,7 +42,7 @@ The subscript $L$ means "logical." $|\psi_L\rangle$ is the protected qubit as
 seen by the code, while the three slots inside $|000\rangle$ and
 $|111\rangle$ are the physical qubits that carry it. The amplitudes $\alpha$
 and $\beta$ are the same amplitudes that would describe one unencoded qubit.
-The code has not made three independent copies. It has hidden one logical
+Rather than making three independent copies, the code has hidden one logical
 state in a three-body pattern.
 
 To detect errors without measuring the data, you measure **parity**, which says
@@ -60,9 +60,9 @@ Steane found a different route using classical coding ideas. Calderbank,
 Shor, and Steane connected quantum codes to a broad algebraic family. Gottesman
 showed how stabilizer codes could be handled with a practical symbolic
 calculus. Knill and Laflamme then gave the clean condition for when a code can
-correct a set of errors. The modern surface-code program adds engineers,
-experimentalists, and many thousands of calibration decisions. The phrase
-"quantum error correction" names a field built by a community across decades.
+correct a set of errors, and the modern surface-code program turned all of it
+into engineering: cryostats, control electronics, and many thousands of
+calibration decisions.
 
 ## 10.3 The First-Principles Reframing: Reality Is Error-Corrected
 
@@ -79,7 +79,7 @@ two observers want to agree on a shared world, they need redundancy, overlap,
 and a correction protocol. That is exactly what error-correcting codes
 provide.
 
-**Reality can be read as error-corrected.** The consistency we observe requires
+**Reality is error-corrected.** The consistency we observe requires
 durable encoding of shared information.
 
 For OPH, the first object is a finite constraint code. Its valid codewords are
@@ -114,9 +114,9 @@ bulk information.
 
 ## 10.4 Classical Error Correction: Shannon's Foundation
 
-The thread begins at Bell Telephone Laboratories in 1948, with a thin,
-playful Michigan engineer named Claude Shannon, later famous for riding a
-unicycle down the Labs' corridors while juggling. That year he published "A
+The thread begins at Bell Telephone Laboratories in 1948, with Claude
+Shannon again, the same engineer whose unicycle rolled through Chapter 7.
+That year he published "A
 Mathematical Theory of Communication" and put the bit into print for the
 first time, crediting the coinage to his colleague John Tukey.
 
@@ -262,20 +262,14 @@ For a code with projector P onto the code space and error operators {E_a}, the c
 
 $$P E_a^\dagger E_b P = \alpha_{ab} P$$
 
-Here the code space is the protected subspace that stores the logical
-information. The error operators are the possible ways noise can disturb the
-physical carrier. The equation is a compact test for whether the protected
-information can survive those disturbances.
-
-The projector $P$ keeps only the code space. $E_a$ and $E_b$ are possible
-error operators, and the dagger means the adjoint operation, the quantum
-version of reversing an operator in an inner product. The numbers
+The projector $P$ keeps only the code space, the protected subspace that
+stores the logical information. $E_a$ and $E_b$ are the possible ways noise
+can disturb the physical carrier, and the dagger means the adjoint operation,
+the quantum version of reversing an operator in an inner product. The numbers
 $\alpha_{ab}$ form a small matrix of syndrome data. The condition says that
 inside the protected subspace, errors can change the syndrome, but they cannot
-learn or scramble the logical message itself.
-
-That is the heart of the theorem. The physical carrier may be damaged, but the
-logical information stays hidden from the noise. That hiddenness is what makes
+learn or scramble the logical message itself. The carrier may be damaged; the
+message stays hidden from the noise, and that hiddenness is what makes
 recovery possible.
 
 In quantum gravity, we only have approximate codes. The Knill-Laflamme
@@ -326,11 +320,8 @@ $\alpha|0\rangle+\beta|1\rangle$, so the protected information must be
 stored in correlations. The syndrome measurement asks only which error
 happened, never which logical state was present. That distinction is the
 miracle. The code learns enough to repair the carrier while refusing to
-learn the protected message.
-
-The Knill-Laflamme condition from earlier is the compact version of that
-miracle: the environment learns which error happened while learning nothing
-about the message.
+learn the protected message; the Knill-Laflamme condition is that refusal
+written as an equation.
 
 Holographic reconstruction has the same flavor. A bulk degree of freedom is
 encoded across an extended boundary
@@ -340,14 +331,12 @@ it. The formula is not identical to a lab surface code, and gravity only
 gives approximate codes at finite $N$. But the logic is close enough to be
 one of the central clues of modern quantum gravity.
 
-This is also the right place to remember the engineering community. A
-threshold theorem is a theorem, but a working protected qubit is a long
-industrial and experimental campaign. It requires materials, fabrication,
-cryogenics, microwave control, lasers or traps, calibration, decoding
-algorithms, and patient accounting of every error source. Physics becomes
-public through that labor. The same is true in the book's cosmological
-language: a public world is a message continually protected by redundancy,
-repair, and thermodynamic work.
+A threshold theorem is a theorem, but a working protected qubit is a long
+industrial and experimental campaign: materials, fabrication, cryogenics,
+microwave control, lasers or traps, calibration, decoding algorithms, and
+patient accounting of every error source. Physics becomes public through that
+labor. The same is true in the book's cosmological language: a public world is
+a message continually protected by redundancy, repair, and thermodynamic work.
 
 ## 10.11 Reverse Engineering Summary
 
@@ -360,14 +349,12 @@ Shared facts survive because the world is coded deeply enough to repair its
 local damage.
 
 Quantum error correction is also one of the cleanest places where deep
-mathematics and hard engineering meet. Shannon shows that noisy channels have
-a capacity. Knill-Laflamme tells us exactly when a quantum code works. The
-threshold theorem says reliability grows once the error rate is low enough.
-The lab confirms the picture: below threshold, encoded qubits outperform bare
-ones. Holographic codes reproduce the RT-like area relation, and bulk
-information survives boundary erasure when the remaining boundary retains the
-right entanglement wedge. Stability does not require isolation. It requires
-the right redundancy.
+mathematics and hard engineering meet, and the lab keeps confirming the
+mathematics: below threshold, encoded qubits outperform bare ones, exactly as
+the theorem promised. Holographic codes reproduce the RT-like area relation,
+and bulk information survives boundary erasure when the remaining boundary
+retains the right entanglement wedge. Stability does not require isolation.
+It requires the right redundancy.
 
 ---
 

@@ -11,10 +11,10 @@ sunlight crosses the room, and the kitchen clock advances with reassuring
 confidence. This impression survives until someone measures the world
 carefully.
 
-At that point, time depends on motion. Empty space acquires structure.
-Particles behave like spread-out possibilities until an experiment leaves a
-definite record. Two distant detectors can produce correlations that no local
-classical story can explain. A collapsing star can turn information into a
+Then time turns out to depend on motion, and empty space acquires structure.
+A particle behaves like a spread-out possibility until an experiment leaves a
+definite record, two distant detectors produce correlations that no local
+classical story can explain, and a collapsing star turns information into a
 problem for the foundations of physics.
 
 The theories behind these discoveries are among the best ideas humans have
@@ -31,19 +31,25 @@ inside black holes, near the beginning of cosmic history, and wherever the
 quantum act of producing a fact meets the geometry in which that fact is
 supposed to occur. The Standard Model contains a striking collection of
 particles and constants without explaining why this collection was chosen.
-Cosmology describes most of the universe with the names dark matter and dark
-energy, which are useful names for things whose underlying nature remains
-unclear.
+Cosmology files most of the universe under dark matter and dark energy, two
+names that measure the size of our ignorance rather than the contents.
 
 There is another complication. We are trying to understand the universe while
 living inside it. Every telescope, clock, equation, and memory is part of the
 system under investigation. Physics has no external operator with access to
 the source code.
 
-Observer Patch Holography explores one possible response. Suppose public
+Observer Patch Holography starts from that predicament instead of working
+around it. Suppose public
 reality is built from the agreement of limited observers, each with access to
 only part of the world. Space, time, matter, and law would then have to survive
 comparison between perspectives before they could count as shared facts.
+
+Each such observer, together with the bounded window of the world it can read
+and the records that back it, is an **observer patch**. The theory's reference
+patch is called **echosahedral**, echo crossed with icosahedral: it reads the
+world through twelve ports arranged like the corners of an icosahedron and
+echoes those reads back to its neighbors.
 
 This is a simple idea with an unreasonable amount of work hidden inside it.
 It has to recover the physics we know, explain something that the older
@@ -55,13 +61,13 @@ incidence has started debugging before anyone cares why the program is broken.
 
 Reverse engineering a program without source code is an exercise in inference.
 
-You run it. You feed it inputs and watch what comes out. You monitor its
-behavior, API calls, network traffic, memory access patterns, timing. You poke
+You run it. You feed it inputs and watch what comes out; you monitor its
+behavior, API calls, network traffic, memory access patterns, timing; you poke
 it, stress it, run it in different environments. Gradually, from thousands of
 observations, you build a mental model of what it's doing and why.
 
-You never see the code. You only see behavior. Your job is to work backward,
-from symptoms to structure.
+You never see the code. You only see behavior, and your job is to work
+backward, from symptoms to structure.
 
 Physics is the same discipline, applied to reality itself.
 
@@ -126,17 +132,16 @@ our intuition, not to nature.
 ## The Question We Rarely Ask
 
 For centuries, physicists have catalogued these anomalies and built
-mathematical models to predict them. Quantum mechanics works. Relativity
-works. The standard model works. The predictions match observations to
-absurd precision.
-
-One question gets skipped:
+mathematical models to predict them, and the models perform to absurd
+precision: quantum mechanics, relativity, the Standard Model. In a code
+review, though, the working functions are not where you linger. The question
+worth asking hides in an assumption so old it no longer looks like one.
 
 **Why do we assume an objective reality exists at all?**
 
-What do we actually have access to? Subjective experiences.
-Sensations, perceptions, measurements, memories. We see, hear, feel, detect.
-We compare notes with other observers and find that we generally
+What do we actually have access to? Subjective experiences: sensations,
+perceptions, measurements, memories. We compare notes with other observers
+and find that we generally
 agree. The apple is red. The electron went left. The clock shows 3 PM.
 
 This agreement demands explanation. Does it require
@@ -174,9 +179,9 @@ correlations. The shared spacetime of physics is what appears when those local
 descriptions can be made compatible. It is real as a public structure, but it
 is not the starting point.
 
-Illusion is the tempting word. It earns its keep if it means that the
+Illusion is the tempting word, and it earns its keep if it means that the
 container we seem to inhabit is an appearance produced by a deeper agreement
-process, and it misleads if it suggests that ordinary spacetime is arbitrary
+process. It misleads if it suggests that ordinary spacetime is arbitrary
 or unreal.
 
 Consistency across perspectives creates objectivity, which is the opposite of
@@ -185,14 +190,14 @@ physical world" is the overlap-consistent backbone that all observers must
 agree on.
 
 From this angle, the strange features of reality become questions about
-agreement. The absence of a preferred frame concerns how local clocks compare.
-Measurement concerns the production of a record that different observers can
-use. Entanglement concerns correlations that belong to a joint experiment
-rather than to two independent classical objects.
+agreement. The absence of a preferred frame is a statement about how local
+clocks compare. Measurement is the production of a record that different
+observers can use, and entanglement lives in correlations that belong to a
+joint experiment rather than to two independent classical objects.
 
-This viewpoint does not make the old mathematics disappear. It asks why that
-mathematics has the shape it does. Relativity and quantum theory become clues
-about the conditions under which observers can share a world.
+This viewpoint keeps the old mathematics and asks a new question of it: why
+does that mathematics have the shape it does? Relativity and quantum theory
+become clues about the conditions under which observers can share a world.
 
 The idea reaches beyond physics as well. Questions about experience, time, and
 free choice often assume a universe described from somewhere outside the
@@ -209,10 +214,9 @@ The early chapters build the idea in plain language. The mathematical tools
 enter when the story needs them.
 
 The route passes through quantum records, spacetime, gravity, symmetries, and
-matter. Some parts end in exact theorems. Some end in computer experiments that
-can be repeated. Some reach a clearly marked open question. These distinctions
-matter because an unfinished theory should be interesting for what it has
-actually found, not for what its author hopes it will find.
+matter. Some parts end in machine-checked theorems, others in computer
+experiments that anyone can rerun, and the book says which is which as it
+goes.
 
 The details can become demanding. The underlying question remains simple
 enough to carry through the book: how much of physics is required by a universe
@@ -238,8 +242,6 @@ The epilogue turns the picture outward one final time.
 Reality is the strangest program ever written. It also shipped without
 documentation, which is broadly what the rest of this book is about. We meet
 it from the inside, through experiments and the facts we manage to share.
-Thousands of brilliant minds have contributed to the reverse-engineering
-effort.
 
 The naive model, a 3D world of independent objects moving through absolute
 time and existing whether or not anyone observes it, turns out to be the
@@ -254,5 +256,5 @@ Start there.
 
 ---
 
-*The book begins with Chapter 1: Consistency: why agreement between observers
-is the deepest principle we've found.*
+*The book begins with Chapter 1, The Consistent Universe: why agreement
+between observers is the deepest principle we've found.*

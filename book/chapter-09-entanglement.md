@@ -79,7 +79,7 @@ Distance emerges from the entanglement structure of the vacuum state; nothing ab
 
 We introduced the RT formula in Chapter 8: entanglement entropy of a boundary region equals the area of the minimal bulk surface anchored on that region's boundary, divided by 4G. This looks exactly like the Bekenstein-Hawking formula for black hole entropy, except the same structure applies to any region.
 
-The implication runs deep. **Geometry encodes entanglement.**
+**Geometry encodes entanglement.**
 
 That sentence is easy to repeat and easy to misunderstand. The precise claim is stronger: the amount of quantum correlation across a cut determines the size of the bulk surface associated with that cut. Entropy is doing geometric work. If the boundary state ties two regions together strongly, the bulk description between them is correspondingly thick and connected.
 
@@ -291,19 +291,18 @@ This is error correction as a law of physics. Reality stabilizes itself through 
 
 ## 9.11 What Entanglement Predicts
 
-If geometry is built from entanglement, several things have to happen. In the
-holographic regime, boundary entropy has to track extremal surfaces, the
+If geometry is built from entanglement, the claim can be put on trial. In the
+holographic regime, boundary entropy should track extremal surfaces, the
 time-dependent generalization of Chapter 8's minimal surfaces. Low-energy
-states have to care about boundary area more than bulk volume. Entropy
-inequalities have to act like geometric constraints. Bulk regions have to be
-reconstructible from the right boundary data. Black-hole evaporation has to
+states should care about boundary area more than bulk volume, entropy
+inequalities should behave like geometric constraints, and bulk regions should
+be reconstructible from the right boundary data. Black-hole evaporation should
 respect unitarity through encoded interior information.
 
-That is the direction the evidence points. Ryu-Takayanagi works. Area-law
-scaling is widespread. Entanglement wedge reconstruction works. Black-hole
-information is read through encoded radiation rather than simple deletion in
-the semiclassical holographic models where the island picture is under
-control.
+Every item on that docket has been checked in the regimes where the tools
+exist. Ryu-Takayanagi works, area-law scaling is everywhere, wedge
+reconstruction works, and black-hole information comes out encoded in
+radiation rather than deleted.
 
 ### Entanglement as a Discovery Chain
 
@@ -312,10 +311,11 @@ as a complaint. Einstein, Podolsky, and Rosen used it in 1935 to argue that
 quantum mechanics could not be complete. Schrödinger answered by naming the
 phenomenon and rating it, in his 1935 reply, as "the characteristic trait of
 quantum mechanics, the one that enforces its entire departure from classical
-lines of thought." For decades the issue looked philosophical. Then John Bell
-found the inequality that moved the argument from taste to experiment, and
-Clauser, Freedman, Aspect, Zeilinger, and others turned the test into a
-laboratory program. Modern loophole-free Bell experiments make the point hard
+lines of thought." For decades the issue looked philosophical. Then John Bell,
+whose 1964 paper Chapter 6 followed,
+found the inequality that moved the argument from taste to experiment, and Clauser,
+Freedman, Aspect, Zeilinger, and others turned the test into a laboratory
+program. Modern loophole-free Bell experiments make the point hard
 to evade: the world does not carry local classical instruction sheets that
 determine all possible measurement results.
 

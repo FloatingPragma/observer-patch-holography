@@ -5,10 +5,14 @@
 
 ## 1.1 The Intuitive Picture
 
-Start with what seems obvious: the picture humans believed for millennia and
-that matches our everyday intuition.
+On a walk in Princeton, Einstein once stopped, turned to the physicist
+Abraham Pais, and asked whether he really believed that the moon exists only
+when he looks at it. He was not fishing for a yes. He was defending the
+picture humans have trusted for millennia, the one that matches all everyday
+intuition.
 
-There exists an objective, three-dimensional reality that is completely
+The picture goes like this. There exists an objective, three-dimensional
+reality that is completely
 independent of observers. Objects have definite positions and definite
 properties at every moment. The universe is like a vast stage, and we
 observers are audience members watching a play that would proceed exactly the
@@ -16,7 +20,7 @@ same whether we were watching or not.
 
 Space is a container. It exists "out there," infinite and absolute, like a cosmic graph paper on which events are plotted. Time flows uniformly, the same for everyone, like a universal clock ticking away in the background.
 
-This picture is so natural that it's hard to imagine alternatives. It's implicit in how we talk ("The moon is there whether or not I look at it"), how we think, how we build machines. Isaac Newton formalized it into mathematical physics that worked spectacularly well for two centuries.
+This picture is so natural that it's hard to imagine alternatives. It is implicit in how we talk, how we think, how we build machines; Einstein could ask his question on that walk only because the answer seemed too obvious to state. Isaac Newton formalized the picture into mathematical physics that worked spectacularly well for two centuries.
 
 ### The View From Nowhere
 
@@ -38,7 +42,7 @@ We take a narrower, operational step: **treat reality as a structure that has to
 
 Why abandon the intuitive picture at all? Because the universe gave us hints, strange and reproducible hints, that it cannot be correct.
 
-Imagine a cosmic record that contains *all* facts at one global instant. You might expect physics to supply the rules for such a record. But relativity says there is no unique global present. Quantum mechanics says not all properties can be simultaneously definite. Horizons say no observer can access everything. The record is not even well-defined.
+Imagine a cosmic record that contains *all* facts at one global instant. You might expect physics to supply the rules for such a record. Relativity refuses to define a unique global present, quantum mechanics will not let every property be definite at once, and horizons guarantee that no observer could check the whole entry anyway. The record is not even well-defined.
 
 The intuitive picture fails where physics became interesting. It gives the
 right engineering answers at ordinary scales, then misdescribes the nature of
@@ -68,7 +72,7 @@ They found nothing.
 
 The interference pattern didn't shift within the sensitivity of the experiment. No directional difference in the speed of light was detected as Earth moved.
 
-This was one of the most important null results in the history of science. It killed the aether principle. But it did something more: it revealed that the intuitive picture was missing something fundamental.
+It remains one of the most important null results in the history of science. It killed the aether, and it opened a crack that ran all the way down to the intuitive picture underneath.
 
 ### Einstein's Revolution
 
@@ -149,9 +153,9 @@ measurement context and the interpretation.
 
 ### The Measurement Problem Reframed
 
-OPH reframes that puzzle around observer patches and record consistency. The usual puzzle assumes a God's-eye view where the wave function is "really" in superposition, followed by something magical called "collapse." OPH starts from observer patches instead.
+The usual formulation assumes a God's-eye view in which the wave function is "really" in superposition until something magical called "collapse" intervenes. OPH drops the God's-eye view and starts from observer patches.
 
-From within a patch, measurement is registered through definite records on the operational readout surface. The "superposition" describes how different observers' potential records relate to each other before they compare notes.
+From within a patch, measurement leaves definite records on the operational readout surface. The "superposition" describes how different observers' potential records relate to each other before they compare notes.
 
 When Alice measures an electron's spin, her instrument writes one definite record on that readout surface. The wave function describes the consistency relations between Alice's possible records and Bob's possible records. When they meet and compare, those records must agree on the shared event surface. That agreement is the operational content behind textbook collapse language.
 
@@ -172,15 +176,15 @@ This is the turnaround: **the "objective world" is the fixed point of consistenc
 OPH adds one demand to this picture: a proposed correction only counts as a
 physical step once the overlap checks pass. Different repair schedules,
 started from the same shared state, provably settle to the same public
-result, granted separately that a settled endpoint exists and the schedule
-keeps making moves. The proof is machine-checked; the moral is that the
+result, provided the process can settle at all and the schedule keeps
+making moves. The proof is machine-checked; the moral is that the
 shared world does not depend on who repairs first.
 
 This is the **overlap test**: If two observers share a region of experience, their accounts must agree in that overlap.
 
 ### A Simple Example
 
-Picture two friends, Mira and Sam, walking through a city. Mira turns down a side street and spots a food truck. Sam stays at the corner and doesn't see the truck because a bus blocks his view. Later, they meet up and compare notes.
+Two friends, Mira and Sam, are walking through a city. Mira turns down a side street and spots a food truck. Sam stays at the corner and doesn't see the truck because a bus blocks his view. Later, they meet up and compare notes.
 
 "There was a taco truck on Fifth Street at 3:10," says Mira.
 
@@ -236,16 +240,18 @@ A symmetry says "this thing looks the same from different perspectives."
 
 **Rotation symmetry**: Turn your lab bench 90 degrees, the laws don't change. If physics depended on which way you're facing, no two lab benches would give the same physics.
 
-**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. If physics depended on your velocity, observers in relative motion would inhabit different worlds.
+**Lorentz symmetry**: You're standing at rest, I'm flying past at half light-speed. We measure different times and distances, but we agree on the laws. Otherwise observers in relative motion would inhabit different worlds.
 
 **Gauge symmetry**: You use one mathematical description, I use another. As long as they're related by a gauge transformation, we make the same physical predictions. A gauge choice is like choosing coordinates for an internal bookkeeping system. Different choices can describe the same physical situation. This lets different mathematical formalisms agree on reality.
 
-Broad observer agreement strongly favors these symmetries. If the laws changed arbitrarily depending on location, orientation, or frame, consistency would become much harder to maintain.
+Observer agreement demands these symmetries. If the laws changed arbitrarily depending on location, orientation, or frame, no stable shared physics could survive.
 
 ### Noether's Theorem: The Consistency-Conservation Link
 
-In 1918, Emmy Noether proved one of the most beautiful theorems in physics:
-**every continuous symmetry corresponds to a conservation law**. If the laws do
+Emmy Noether proved one of the most beautiful theorems in physics in 1918, at
+a Göttingen that would not give her a paid position; Chapter 12 tells the
+story of how she got there. What she proved is that **every continuous symmetry
+corresponds to a conservation law**. If the laws do
 not change over time, energy is conserved. If they do not change across space,
 momentum is conserved. If they do not change under rotations, angular momentum
 is conserved.
@@ -278,12 +284,11 @@ Even without black holes, if you keep accelerating, signals from behind you can 
 
 ## 1.8 The Central Thesis
 
-The major hints line up. The speed of light is invariant, so space and time are
-observer-dependent. Measurement affects outcomes, so observers are part of the
-physics, not spectators outside it. The laws are uniform and fine-tuned,
-which means consistency is expensive. Symmetries enforce conservation, so
-physics is structured to enable agreement. Horizons limit access, so every
-observer lives on a finite patch.
+The hints line up. An invariant light speed makes space and time
+observer-dependent; measurement drags the observer into the physics;
+uniformity and fine-tuning show that consistency is expensive; symmetries do
+the bookkeeping of agreement, and horizons confine every observer to a finite
+patch.
 
 What picture explains all these hints?
 
@@ -296,9 +301,7 @@ the red car is "real."
 
 But notice what just happened. We did not verify that there's a car "out there" independent of all observers. We verified that observers agree. What we call "objective" is actually *intersubjective*: the consistent overlap of many viewpoints. There is no view from nowhere, no God's-eye perspective that sees reality as it "really is." There are only views from somewhere, and the requirement that they cohere.
 
-Every piece of evidence you have for an "objective world" is itself a subjective experience. You've never stepped outside your perspective to verify that reality exists independently. The "objective" is always accessed through the subjective.
-
-Call it reverse engineering. The hints from reality, invariant light speed, measurement effects, fine-tuning, symmetries, horizons, all point to the same conclusion: **reality is the process of making observations between observers consistent**. Agreement is part of the structure of the universe itself.
+Call it reverse engineering: the symptoms all trace back to one architecture. **Reality is the process of making observations between observers consistent.** Agreement is part of the structure of the universe itself.
 
 ## 1.9 The Laws as Survivors
 
@@ -392,10 +395,8 @@ In this precise sense, observers co-shape the world they can inhabit.
 That is the complete list. The axioms contain no gauge group, no particle
 list, no recovery law, and no rule that picks field content or multiplicity;
 the third axiom selects one state inside one fixed space of possibilities
-and nothing more. Every further structure a
-result uses, a recovery property, a matter contract, a declared completion,
-is named at that result, so the reader can always see where an extra
-assumption enters the chain.
+and nothing more. There are no adjustable dials hiding in them. Whenever a
+later result needs an extra assumption, the book says so on the spot.
 
 ## 1.11 Reality as Computation
 
@@ -413,11 +414,8 @@ the universe runs. The finite-resolution carrier is a federation of finite patch
 whose exposed overlaps, records, and repair moves are read through
 observer-facing screen charts. On the reference branch, each elementary
 carrier has twelve ports arranged by icosahedral incidence. Conditional
-maximum randomness selects the fixed-resolution compatible local state family
-relative to its exact reference and visible constraints. Compatibility of
-those optimizers across refinement is a separate theorem obligation.
-Where several low-energy completions remain admissible, the realized one
-enters as a declared completion rather than as an output of the axioms.
+maximum randomness then selects the least informative state family
+compatible with the visible constraints.
 
 A qudit is the multi-level cousin of a qubit. A triangulated screen is a finite
 network approximation to an observer-facing cut, not a declaration that the
@@ -427,17 +425,14 @@ refinement belong to its operational structure. Two materials may instantiate
 one structure. Two interface geometries need not.
 
 On the geometric branch, controlled refinement of the shared records supports
-the spherical chart, Lorentz kinematics, and the conditional gravity
-construction. On the gauge branch, the twelve-port incidence determines the
-finite symmetry blocks and its unique central graph involution. A target-blind
-impulse and port readback derive the inverse-port response. The complete
-response and internal recharting clauses force the Standard Model compact Lie
-type, while the published matrix current is a conditional witness of that
-type. Source reconstruction of the matrix current, laboratory attachment, and
-particles require later constructions. Observers
-are bounded self-reading patterns that maintain records, compare interfaces,
-and condition later behavior on what they read. These outputs share an
-architecture without sharing a shortcut.
+the spherical chart, Lorentz kinematics, and the gravity construction. On the
+gauge branch, the twelve-port incidence determines the finite symmetry
+blocks, and the axioms force the gauge symmetry of the Standard Model, the
+compact Lie type SU(3)$\times$SU(2)$\times$U(1). That derivation is
+machine-checked. Attaching laboratory currents and particles comes later in
+the chain. Observers are bounded self-reading patterns that maintain records,
+compare interfaces, and condition later behavior on what they read. These
+outputs share an architecture without sharing a shortcut.
 
 An ordinary simulation has an easy answer to the question of time: the counter
 outside the program says step one, step two, step three. Physics cannot use
@@ -479,26 +474,17 @@ be discarded, because those are the parts with downstream physical work to do.
 
 We've laid out the method: collect surprising hints from reality, and reverse engineer the principles that would produce them.
 
-In the chapters ahead, we'll apply this method systematically:
-
-**Chapter 2-4**: The holographic hint: why does information scale with area,
-not volume? What does this tell us about the deep structure?
-
-**Chapter 5-7**: The quantum-consistency hint: how do non-commuting
-questions, Bell correlations, and recovery constrain shared reality?
-
-**Chapter 8-10**: The holography-and-reconstruction hint: how do boundaries,
-entanglement, and error correction build bulk space?
-
-**Chapter 11-13**: The time-symmetry-cosmology hint: how do clocks,
-conservation laws, and de Sitter horizons emerge from consistency?
-
-**Chapter 14-16**: The emergence hint: how do spacetime, particles, and
-classical physics emerge from the screen?
-
-**Chapter 17-20**: The selection and self-reference hint: why these laws and not
-others, whether laws are evolutionary survivors, and what a universe that must
-account for itself does to the last numbers on the board.
+The chapters ahead run it on one hint after another. Chapters 2 through 4
+take the holographic hint, the strange fact that information scales with area
+rather than volume. Chapters 5 through 7 take the quantum one: non-commuting
+questions, Bell correlations, recovery. Chapters 8 through 10 watch
+boundaries, entanglement, and error correction build bulk space, and chapters
+11 through 13 do the same for clocks, conservation laws, and de Sitter
+horizons. Chapters 14 through 16 show spacetime, particles, and classical
+physics emerging from the screen. Chapters 17 through 20 ask the last
+questions: why these laws and not others, whether laws are evolutionary
+survivors, and what a universe that must account for itself does to the final
+numbers on the board.
 
 The 3D world you see around you, the chairs, the stars, the empty space, is
 secondary to the boundary bookkeeping. The real data is organized on

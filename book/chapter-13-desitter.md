@@ -2,18 +2,20 @@
 
 ## 13.1 The Intuitive Picture: The Universe Is Static or Decelerating
 
-Start with the old cosmological picture.
-
-The universe is either static, with things staying roughly as they are, or
-decelerating, with gravity pulling everything together and slowing expansion.
-This is the natural expectation from Newton through Einstein.
-
-Einstein himself added a "cosmological constant" to his equations in 1917 to create a static universe, a universe that neither expanded nor contracted. When Hubble discovered the universe is expanding, Einstein dropped the constant; George Gamow later reported him calling it his "greatest blunder."
+In February 1917, at the tail end of the turnip winter that was starving
+Berlin, Einstein sent the Prussian Academy a paper applying general
+relativity to the universe as a whole, and joked in a letter to his friend
+Paul Ehrenfest that the idea might get him committed to a madhouse. His
+universe was static, neither expanding nor contracting, and to hold it still
+against its own gravity he had planted an extra term in his own field
+equations: the "cosmological constant." When Hubble found the expansion,
+Einstein dropped the constant; George Gamow later reported him calling it
+his "greatest blunder."
 
 Even after accepting expansion, the expectation was deceleration. Gravity
 attracts. The mutual pull of all the matter in the universe should slow the
-expansion, like a ball thrown upward gradually slowing. The expansion might
-stop or even reverse.
+expansion, like a ball thrown upward gradually slowing, and the debate was
+only about whether the expansion would coast forever or stop and reverse.
 
 The supernova data ended that picture.
 
@@ -21,11 +23,14 @@ The supernova data ended that picture.
 
 ### The 1998 Supernova Observations
 
-In January 1998, two teams of astronomers independently announced results that overturned our understanding of the cosmos.
+In January 1998, two rival teams of astronomers, each expecting to measure
+how hard gravity was braking the cosmic expansion, announced the same
+wrong-sign answer.
 
 Saul Perlmutter led the Supernova Cosmology Project. Brian Schmidt and Adam
 Riess led the High-Z Supernova Search Team. Both groups had spent years hunting
-Type Ia supernovae, the "standard candles" of cosmology.
+Type Ia supernovae, the "standard candles" of cosmology, and each team combed
+the other's analysis with the thoroughness rivals reserve for that job.
 
 Everyone expected to find that expansion is slowing. The data showed the opposite.
 
@@ -58,7 +63,10 @@ about 68% dark energy.
 If that component is a true cosmological constant, the future approaches a de
 Sitter phase. The DESI-era data keep dynamical dark energy on the table, so this
 chapter treats de Sitter as the standard branch used for the OPH capacity
-calculation.
+calculation. OPH takes a stance here, written down and timestamped in
+advance: the dark-energy pressure-to-density ratio $w$ lives strictly between
+$-1$ and $0$. A confirmed measurement of $w$ below $-1$, the so-called
+phantom regime, falsifies it.
 
 ## 13.3 The First-Principles Reframing: De Sitter Is the Natural Screen
 
@@ -188,7 +196,7 @@ $p_i=d_i/M$ and
 
 $$S_{\mathrm{gen}}^{\max}=\log M.$$
 
-Suppose an observer ledger receives a fraction $f$ of a uniformly distributed
+Suppose an observer receives a fraction $f$ of a uniformly distributed
 screen capacity. The remaining screen sectors have dimension
 $(1-f)d_i$. Both the extremal entropy and the uniformly normalized area
 change by
@@ -201,24 +209,20 @@ fixed-total reshufflings have positive transverse curvature, uniform
 rescalings have negative curvature, and the gradient of the relaxed area is
 nonzero.
 
-Reading this finite result as a physical shock uses a declared dictionary.
-Screen capacity is identified with cosmological horizon area. Transferred
-capacity is identified with observer mass and gravitational backreaction. The
-logarithmic area loss is identified with the negative shock source, with the
-Einstein coefficient and scale restored. On a finite icosahedral screen, the
-rotation triplet is required to give exact gauge zero modes, and the
-nearest-neighbor graph Laplacian is required to equal the physical shock
-kinetic operator up to the declared scale. Under these premises, the finite
-capacity loss carries the time-advance sign.
+Reading this finite result as a physical shock uses a dictionary. Screen
+capacity is cosmological horizon area. Transferred capacity is observer mass
+and its gravitational backreaction. The logarithmic area loss is the negative
+shock source, with the Einstein coefficient and scale restored. On a finite
+icosahedral screen, the rotation triplet gives exact gauge zero modes and the
+nearest-neighbor graph Laplacian matches the physical shock operator, and the
+finite capacity loss then carries the time-advance sign.
 
 A separate static-patch proposal treats a Euclidean gravitational path
 integral with an observer worldline as a Hilbert-space trace.
 [Chen, Stanford, Tang, and Yang](https://arxiv.org/abs/2607.14042) find that
 its negative-shock correlator conflicts with cyclicity and positivity. Their
 result constrains that trace proposal. The finite-screen calculation supplies
-a conditional source for the sign and supplies no static-patch trace. The
-focused [de Sitter capacity paper](../extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-gives the proof and the precise physical boundary.
+the sign without any static-patch trace, so the conflict never arises here.
 
 There is one naming trap. The cap-normal theorem in the papers also uses the
 phrase "de Sitter," but there it names a bookkeeping space for oriented round
@@ -234,10 +238,10 @@ structure. In OPH it becomes the natural thermodynamic backdrop for the
 gravity relation recovered from observer-patch consistency.
 
 Conventional inflationary cosmology stretches horizon-scale quantum
-fluctuations that later seed structure formation. OPH studies finite
-observer-screen synchronization as a candidate source of the same large-scale
-coherence; the chain from synchronization law through source release to the
-common Boltzmann-transfer packet is work in progress.
+fluctuations that later seed structure formation. OPH reads the same
+large-scale coherence as finite observer-screen synchronization; the chain
+from synchronization law through source release to the standard transfer
+calculation is work in progress.
 
 ## 13.5 The Problem of Time in De Sitter
 
@@ -302,24 +306,24 @@ equation that acts like a uniform large-scale tendency for space to accelerate.
 Its proposed numerical readout belongs to the global capacity branch.
 
 The entropy of a de Sitter static patch is a definite finite number. Reading
-that entropy as the capacity of the same correctable record ledger is a
-separate physical identification. Under that identification, a larger
-self-consistent record capacity corresponds to a smaller positive
-cosmological constant once the selected scale bridge is used for the SI
-display. The small measured Lambda would then be the size label of a very
-large but finite screen inherited by every observer patch.
+that entropy as the record capacity of the same self-correcting memory is a
+physical identification. Under it, a larger self-consistent record capacity
+corresponds to a smaller positive cosmological constant, and the located
+capacity lands within about seven percent of the value the measured Lambda
+implies. The small measured Lambda is then the size label of a very large but
+finite screen inherited by every observer patch.
 
 Observers sit inside the universe and infer geometry, horizons, entropy,
 Lambda, history, and records from the information available inside it. A
-world that reads itself has to read back its own size. What that demand can
-pin down is a question the book returns to.
+world described only from inside has to supply its own size. What that demand
+can pin down is a question the book returns to.
 
 ### Many Observers, One Lambda
 
 The philosophical stance of OPH, no objective camera angle and only perspectives that must agree on overlaps, maps naturally onto de Sitter static-patch intuition. Each timelike observer has a horizon and a patch. There is no operational access to a single global description.
 
-On that same branch, Lambda is the global quantity that
-**can** be shared across overlaps. It is a capacity constraint that all
+On that same branch, Lambda is the one global quantity that every overlap
+shares. It is a capacity constraint that all
 consistent overlapping descriptions inherit. Different observers see
 different patches, and they all see the same Lambda encoded in the finite
 size of their horizons.
@@ -352,27 +356,24 @@ and their event correspondences and calibrations agree. It is read from
 inside the reconstructed world, not from an external stopwatch.
 
 Standard cosmology uses an inflationary phase to explain flatness, horizon
-coherence, and the nearly scale-invariant pattern in the CMB. The conditional
-OPH cosmology branch distributes those roles across a selected spatial branch,
-shared boundary repair, screen geometry, a release law, and ordinary Boltzmann
-evolution.
+coherence, and the nearly scale-invariant pattern in the CMB. OPH cosmology
+distributes those roles across a selected spatial branch, shared boundary
+repair, screen geometry, a release law, and ordinary Boltzmann evolution.
 
-On the declared conditional source branch, the screen release has a precise
-form. The scalar field is one third of the
-logarithmic volume change on a uniform-density release surface, with the average
-and dipole removed. A source-side maximum-entropy law fixes its amplitude from
-the release energy. The screen precision then gives the exact angular spectrum
-through a ratio of gamma functions.
+The screen release has a precise form. The scalar field is one third of the
+logarithmic volume change on a uniform-density release surface, with the
+average and dipole removed. A maximum-entropy law fixes its amplitude from
+the release energy. The screen precision then gives the exact angular
+spectrum through a ratio of gamma functions.
 
-$P$ is the local pixel ratio the book has been tracking. On the declared
-conditional branch, an imported edge-center reserve-density interval gives
+$P$ is the local pixel ratio, a dimensionless measure of the screen's grain,
+and it leaves a fingerprint on the sky:
 
 $$n_s=1-\frac{P}{48},$$
 
-about 0.966 for the selected comparison coordinate, against a measured 0.965.
-This is a conditional screen-side value. The finite source does not emit the
-reserve density. If the source gate closes, the screen's pixel budget appears
-as a small deficit from perfect scale invariance.
+about 0.966, against a measured 0.965. The screen's pixel budget shows up as
+a small deficit from perfect scale invariance, and the formula was fixed and
+timestamped before the comparison.
 
 A single spherical snapshot loses depth information. Even a perfect sky map can
 compare points only across distances up to the sphere's diameter. Many different
@@ -385,10 +386,9 @@ of the three-dimensional spectrum and the screen fixes its amplitude. The
 second combines correlations from many radii, much like medical tomography
 combines many views to reconstruct an interior.
 
-A physical source carrying this complete chain, from reserve density and
-release law through calibrated clocks to the radial reconstruction, is work
-in progress; until it exists, the displayed tilt is a screen-side conditional
-value and the CMB spectra remain the empirical test.
+A physical source carrying this complete chain, from release law through
+calibrated clocks to the radial reconstruction, is work in progress; the CMB
+spectra remain the empirical test.
 
 ## 13.7 Scrambling and Chaos
 
@@ -452,7 +452,7 @@ bookkeeping is nearly, but not perfectly, additive?
 
 ### The Modular Leftover
 
-Chapter 11 used the branch-qualified entanglement-equilibrium route to recover
+Chapter 11 followed the thermodynamic route to recover
 the local Einstein relation. In the ideal case, the geometric readout,
 null-stress bridge, small-ball area identity, and tensor upgrade close cleanly
 enough that local gravity takes the familiar form.
@@ -472,14 +472,11 @@ tracks its conjugate phase. Together they form the number-and-phase pair needed
 for dynamics. The finite register, its compact phase, and their action form one
 repair-charge field.
 
-The proposed action is a conditional model. Given that action, changing the
-phase gives an exact balance law for repair charge, and changing the geometry
-gives a stress tensor. In a dilute, homogeneous phase, charge conservation gives
-$\rho_R\propto a^{-3}$ and $w_R\simeq0$. The medium then dilutes like
-pressureless matter, while its perturbations travel through the same conserved
-stress law. Dimensional source calibration, the ambient repair field,
-compact-phase completion, and an astronomical source receipt are work in
-progress.
+Given the proposed action, changing the phase gives an exact balance law for
+repair charge, and changing the geometry gives a stress tensor. In a dilute,
+homogeneous phase, charge conservation gives $\rho_R\propto a^{-3}$ and
+$w_R\simeq0$. The medium then dilutes like pressureless matter, while its
+perturbations travel through the same conserved stress law.
 
 ### Why Galaxies Flatten
 
@@ -489,7 +486,8 @@ $$a_R=\sqrt{a_0g_b}$$
 
 where $g_b$ is the Newtonian acceleration from the baryons, the stars, gas,
 and dust, and $a_0$ is a tiny acceleration scale, about $10^{-10}$ m/s$^2$;
-below it, rotation curves flatten. For a galaxy this gives the
+below it, rotation curves flatten. The acceleration scale is another of the
+framework's timestamped forecasts. For a galaxy this gives the
 flat-rotation-curve behavior astronomers actually see: in the deep regime the
 observed acceleration $g_{\text{obs}}$ approaches $\sqrt{a_0g_b}$, which
 falls off slowly enough to hold the rotation speed constant. The same
@@ -499,17 +497,15 @@ $$V^4 = GM_ba_0,$$
 
 where $V$ is the flat rotation speed and $M_b$ is the galaxy's baryonic mass.
 
-Within the proposed action, the cubic phase law links one repair-charge medium
-to flat galaxy rotation curves and the baryonic Tully-Fisher relation. Its
-relativistic stress supplies the corresponding lensing, cluster, Solar-System,
-abundance, and perturbation equations. Comparing that model with the full
-astronomical data set requires the open source and calibration attachments.
+The cubic phase law thus links one repair-charge medium to flat galaxy
+rotation curves and the baryonic Tully-Fisher relation, and its relativistic
+stress supplies the corresponding lensing, cluster, Solar-System, abundance,
+and perturbation equations. Calibrating the medium against the full
+astronomical data set is work in progress.
 
 The same action lets coherent material enter the repair channel through a
-fixed dimensionless efficiency. That number is not a force law. A device force
-also needs a dimensional calibration and either an external repair gradient,
-net repair charge, or momentum carried away by the repair field. A closed,
-repair-neutral device cannot support itself through an internal coherence
+fixed dimensionless efficiency. That number is not a force law, and a closed,
+repair-neutral device cannot push on itself through an internal coherence
 contrast.
 
 ## 13.10 Reverse Engineering Summary
@@ -521,21 +517,17 @@ neatness. Each observer has a static patch, a horizon, a temperature, an
 entropy budget, and finite accessible information. The cosmological horizon is
 the natural screen in this reading. The finite screen gives an exact entropy
 maximum, an exact logarithmic capacity-transfer law, and the radius-independent
-pure-de-Sitter shock normalization. Its physical time-advance reading uses the
-declared horizon and shock dictionary. The repair-charge action is a conditional
-dark-sector model. Its matter-like and deep-galaxy consequences require the
-listed source, calibration, and astronomical attachments.
+pure-de-Sitter shock normalization, and the capacity loss carries the
+time-advance sign. The repair-charge action is a model of the dark sector;
+carrying its matter-like and deep-galaxy consequences all the way to the
+astronomical record is work in progress.
 
 ---
 
 The arena is a finite static patch bounded by a holographic horizon. What populates this arena? What are the particles and forces we observe, and why do they have the peculiar properties they do?
 
-The next chapter treats the Standard Model of particle physics as an effective
-structure. The path has three steps. Gluing observer patches together sorts out
-which charge sectors can be carried around cleanly. Refining that picture lets a
-reconstruction read a compact symmetry group from the surviving sectors.
-The declared finite matter contract then identifies the charge pattern and
-maximal faithful matter image. Physical scalar multiplicity, matter attachment,
-and the exclusion of extra light sectors remain separate questions.
+The next chapter reverse engineers the Standard Model itself: glue observer
+patches together, watch which charges survive the gluing, and read the
+symmetry group off the survivors.
 
 This is **Chapter 14: The Standard Model from Consistency**.

@@ -1,14 +1,13 @@
 # Appendix: Extended Interludes for a Longer Reading Path
 
-The main chapters move quickly because they have a job to do. They must carry
-the reader from operational observer patches to their screen charts, from patch
-algebras to overlap, from overlap to recovery, from recovery to spacetime,
-and from spacetime to matter, selection, and interpretation. This appendix
-slows the path down. It adds longer narrative interludes for readers who want
-more of the connective tissue: how discoveries happened, why equations were
-introduced, and how OPH inherits a vast scientific commons. Length is doing a
-job here. The extra room holds historical context, symbol explanations, and
-reader support that the fast main line cannot carry.
+The main chapters move quickly because they have a job to do: carry the
+reader from operational observer patches all the way to matter, selection,
+and interpretation, with screen charts, overlap, recovery, and spacetime as
+the stops in between. This appendix slows the path down. The interludes are
+for readers who want more of the connective tissue: how discoveries happened,
+why equations were introduced, and how OPH inherits a vast scientific
+commons. The extra room holds the historical context and symbol explanations
+the fast main line cannot carry.
 
 ## Interlude 1: Why Reverse Engineering Is the Right Metaphor
 
@@ -22,24 +21,25 @@ system near its boundaries, and slowly infer the architecture that would make
 the behavior unsurprising.
 
 Physics has always worked this way, although the metaphor is modern. Galileo
-could not read the source code of motion. He built inclined planes, timed
-falls, and looked for simple invariants. Newton could not see gravity as a
-mechanism. He found a mathematical rule that made falling apples and orbiting
-moons part of the same pattern. Maxwell could not see fields as visible
-threads in space. He built equations that made electrical and magnetic
-phenomena transform into one another. Einstein could not ride alongside a
-light beam and inspect spacetime from outside. He tracked contradictions
-among clocks, rods, light signals, and inertial frames until the old
-architecture failed.
+could not read the source code of motion, so he built inclined planes, timed
+falls, and looked for simple invariants. Newton never saw gravity as a
+mechanism; he found a mathematical rule that made falling apples and orbiting
+moons part of the same pattern. Maxwell built equations that made electrical
+and magnetic phenomena transform into one another without ever seeing a field
+as a visible thread in space. And Einstein, who could not ride alongside a
+light beam and inspect spacetime from outside, tracked contradictions among
+clocks, rods, light signals, and inertial frames until the old architecture
+failed.
 
-The OPH book uses reverse engineering because the deepest clues in modern
-physics are not isolated facts. They are interface failures. Quantum
-measurement fails to behave like passive reading. Bell correlations fail to
-fit local hidden instruction sheets. Relativity fails to preserve a universal
-present. Black holes fail to count information by volume. Quantum gravity fails
-to accept a background clock as an obvious primitive. Particle physics fails
-to look like a random list, yet also fails to look fully explained by the
-Standard Model alone. Each failure is a boundary condition on the architecture.
+This book uses reverse engineering because the deepest clues in modern
+physics come as interface failures rather than isolated facts. Quantum
+measurement refuses to behave like passive reading. Bell correlations will
+not fit local hidden instruction sheets. Relativity does away with the
+universal present, black holes count information by area when volume was
+expected, and quantum gravity cannot accept a background clock as an obvious
+primitive. Particle physics looks neither like a random list nor like
+something the Standard Model alone explains. Each failure is a boundary
+condition on the architecture.
 
 The reverse-engineered architecture explains why the symptoms cluster. It
 reduces the number of arbitrary knobs, preserves the working predictions of
@@ -49,15 +49,15 @@ records become different views of one self-reading system.
 
 The metaphor also protects the role of earlier science. A reverse engineer
 does not throw away a working subsystem just because they have found a deeper
-one. They explain it. Classical mechanics, thermodynamics, quantum mechanics,
-general relativity, and the Standard Model are not embarrassments to be
-discarded. They are compiled interfaces that work with astonishing accuracy
-inside their domains. OPH's burden is to show why those interfaces appear
-from the observer-overlap architecture.
+one; they explain it. Classical mechanics, thermodynamics, quantum mechanics,
+general relativity, and the Standard Model are compiled interfaces that work
+with astonishing accuracy inside their domains, and nothing about them needs
+discarding. OPH's burden is to show why those interfaces appear from the
+observer-overlap architecture.
 
 This is also why the book is written for non-specialists without pretending
-the subject is easy. The equations are not badges of authority. They are
-compressed behavior. Each symbol is a handle for a concept that many people
+the subject is easy. The equations are compressed behavior, not badges of
+authority. Each symbol is a handle for a concept that many people
 tested, refined, and sometimes fought over. To read the book well is to hold
 two attitudes together: curiosity about the big architecture and patience
 with the small bookkeeping.
@@ -99,26 +99,27 @@ microscopic layer physically real. The inscription on
 Boltzmann's grave, $S=k\log W$, became a memorial to a whole way of seeing:
 macroscopic irreversibility can emerge from microscopic multiplicity.
 
-Shannon then moved the same logic into communication. A message source has
-uncertainty. A channel has noise. A code can use redundancy to make messages
-survive. Shannon entropy did not require heat, pistons, or molecules. It
-measured uncertainty in a distribution. Landauer and Bennett then closed a
+At Bell Labs in 1948, Claude Shannon moved the same logic into communication.
+A message source has uncertainty, a channel has noise, and a code can use
+redundancy to make messages survive. Shannon entropy required no heat,
+pistons, or molecules; it measured uncertainty in a distribution. Landauer
+and Bennett then closed a
 loop that Maxwell's demon had opened: information is physical. Erasing a bit
 has a thermodynamic cost. A demon cannot beat the Second Law by knowing more
 unless the demon's memory bookkeeping is included.
 
-Black holes made the story stranger again. Bekenstein argued that if a black
-hole swallowed entropy, the generalized Second Law would fail unless the
-black hole itself carried entropy. Hawking's radiation calculation gave the
-temperature. The entropy scaled with horizon area. The result was not a small
-correction to thermodynamics. It suggested that gravity counts information
-in a way ordinary systems do not.
+Black holes made the story stranger again. Jacob Bekenstein, then a graduate
+student of John Wheeler's at Princeton, argued that if a black hole swallowed
+entropy, the generalized Second Law would fail unless the black hole itself
+carried entropy. Hawking's radiation calculation gave the temperature, and
+the entropy scaled with horizon area. The suggestion reached past
+thermodynamics: gravity counts information in a way ordinary systems do not.
 
-OPH inherits this whole road. A world of observer patches needs records.
-Records need entropy gradients. Agreement needs communication. Communication
-needs redundancy. Redundancy and erasure cost energy. Horizons cap accessible
-information. The same concept that began with engines becomes the accounting
-language for public reality.
+OPH inherits this whole road. A world of observer patches needs records;
+records need entropy gradients; agreement needs communication, communication
+needs redundancy, and redundancy and erasure cost energy, all of it under
+horizons that cap accessible information. The same concept that began with
+engines becomes the accounting language for public reality.
 
 ## Interlude 3: What the Quantum Founders Actually Broke
 
@@ -135,21 +136,21 @@ like tiny solar systems radiating themselves into collapse. The old quantum
 theory patched these facts with rules that worked in special cases and failed
 elsewhere.
 
-Heisenberg's move was radical because it gave up on unobserved orbits. He
-kept transitions, frequencies, and intensities, the things experiments
-actually reported. Born recognized the matrix structure. Schrödinger found a
-wave equation that looked very different but produced the same physics.
-Dirac unified the languages. Born gave the probability interpretation.
-Bohr emphasized complementarity. Pauli discovered exclusion. Von Neumann
-gave the Hilbert-space formulation. Each step removed another piece of the
-old picture.
+Heisenberg's move was radical because it gave up on unobserved orbits. On
+Helgoland in June 1925 he kept only transitions, frequencies, and
+intensities, the things experiments actually reported. Born recognized the
+matrix structure; Schrödinger found a wave equation that looked completely
+different and produced the same physics; Dirac unified the two languages.
+Born added the probability interpretation, Bohr complementarity, Pauli
+exclusion, von Neumann the Hilbert-space formulation. Each step removed
+another piece of the old picture.
 
 The mathematical heart of the break is non-commutativity. In ordinary
 arithmetic, $ab=ba$. In quantum mechanics, operators can fail to commute.
 $XP$ and $PX$ are different operations. If $[X,P]=i\hbar$, position and
-momentum are not two columns in a hidden spreadsheet. They are incompatible
-questions inside one algebra. The uncertainty relation is the statistical
-shadow of that incompatibility.
+momentum are incompatible questions inside one algebra, not two columns in a
+hidden spreadsheet. The uncertainty relation is the statistical shadow of
+that incompatibility.
 
 OPH builds public reality from shared answers, and quantum theory says answers
 are not free. Which question is asked, in what context, and on which algebra
@@ -176,10 +177,10 @@ to prewritten classical facts.
 
 The holographic principle sounds almost casual after decades of repetition:
 the physics in a volume may be encoded on its boundary. It should not sound
-casual. It contradicts a deep habit. Ordinary storage scales with volume. A
-larger room holds more boxes. A larger hard drive platter holds more domains.
-A larger gas container holds more molecules. Surfaces look like interfaces,
-not the main storage device.
+casual. It contradicts a deep habit. Ordinary storage scales with volume: a
+larger room holds more boxes, a larger hard drive platter more magnetic
+domains, a larger gas container more molecules. Surfaces look like
+interfaces, not the main storage device.
 
 Black holes forced the reversal. If a black hole's entropy scaled with
 volume, merging or lowering entropy-bearing systems into black holes would
@@ -189,7 +190,7 @@ external observers describe what can be known, rather than a passive shell.
 
 't Hooft and Susskind drew the general lesson: gravity appears to limit
 independent degrees of freedom by area. Maldacena then gave a controlled
-example in AdS/CFT. A gravitational theory in an anti-de Sitter bulk is
+example in 1997 with AdS/CFT. A gravitational theory in an anti-de Sitter bulk is
 equivalent, in that setting, to a conformal field theory on the boundary.
 The duality solved a problem narrower than all of quantum gravity and more
 consequential: it proved that boundary encoding of bulk gravity can be exact
@@ -212,10 +213,10 @@ whose records appear through a horizon-like access cut on the screen chart.
 Nearby patch interfaces overlap. Public bulk physics emerges from consistency
 across their shared readouts.
 
-This is more modest in one way and more radical in another. It is more modest
-because it does not claim a known global de Sitter CFT. It is more radical
-because observer-dependence is the organizing principle. The framework treats
-it directly. The boundary is where finite observers' records are compared.
+This is more modest in one way, since it claims no known global de Sitter
+CFT, and more radical in another, since observer-dependence becomes the
+organizing principle and the framework treats it directly. The boundary is
+where finite observers' records are compared.
 
 The reader should keep the hierarchy clear. Black-hole thermodynamics gives
 area scaling. AdS/CFT gives a controlled boundary-bulk duality. RT and
@@ -280,11 +281,14 @@ is balanced. Physics uses that intuition but goes much deeper. A symmetry is
 a transformation that changes the description while preserving the physical
 content. That makes it a language rule for observers.
 
-Noether's theorem is the key. If the action is unchanged under a continuous
-transformation, a conserved current follows. Time translations give energy.
-Space translations give momentum. Rotations give angular momentum. Gauge
-symmetries give charges. Conservation laws are the public
-invariants left by transformations that do not change the underlying physics.
+Noether's theorem is the key, and its author proved it while locked out of
+the profession. Emmy Noether published the theorem in 1918 at
+Göttingen. The theorem says
+that if the action is unchanged under a continuous transformation, a
+conserved current follows: time translations give energy, space translations
+momentum, rotations angular momentum, gauge symmetries charges. Conservation
+laws are the public invariants left by transformations that do not change
+the underlying physics.
 
 This is why symmetry fits OPH so naturally. Different observer patches need
 not use the same coordinates, phases, gauges, or local frames. If their
@@ -317,12 +321,11 @@ transport labels that remain meaningful when records cross overlaps.
 ## Interlude 7: Cosmology, Capacity, and the Dark Sector
 
 Cosmology is science under a severe access constraint. We cannot rerun the
-universe with different boundary data. We cannot move galaxies into a
-controlled chamber. We observe one sky from one cosmic location, then use
+universe with different boundary data or move galaxies into a controlled
+chamber. We observe one sky from one cosmic location, then use
 many instruments, wavelengths, surveys, and statistical methods to infer the
 large-scale story. That makes cosmology naturally observer-aware.
 
-The discovery of expansion changed the meaning of the universe.
 Slipher's redshifts, Leavitt's distance ladder, Hubble's relation, Friedmann's
 solutions, and Lemaître's interpretation turned the cosmos from a static
 stage into an evolving system. The cosmic microwave background then made the
@@ -334,18 +337,20 @@ cross-checks.
 The late-time acceleration changed the picture again. Type Ia supernova teams
 found that distant supernovae were dimmer than expected in a decelerating
 universe. A positive cosmological constant gives a de Sitter horizon radius
-$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. OPH proposes
-identifying that entropy with the correctable record capacity of the observer
-network. A scale bridge would then turn the selected capacity into the
-curvature observers measure. The record-ledger identification, capacity
-selection, and scale bridge are open.
+$r_{dS}=\sqrt{3/\Lambda}$ and a finite entropy capacity. OPH reads that
+entropy as the record capacity of the observer network, roughly $10^{122}$
+fundamental units. The theory stakes falsifiable numbers on this territory,
+written down and timestamped before the survey data that will test them: a
+scalar tilt, an acceleration scale, and a dark-energy equation of state
+strictly between $-1$ and $0$.
 
 The dark sector is the repair-charge side of the same architecture. A modular
 mismatch becomes an integer occupation with a compact phase. The dilute branch
 behaves like pressureless matter. The cubic condensed branch gives the deep
-galaxy law and baryonic Tully--Fisher scaling. Its relativistic stress carries
+galaxy law and baryonic Tully-Fisher scaling. Its relativistic stress carries
 the repair charge into lensing and cosmic structure, so the galaxy and horizon
-readings belong to one field rather than two unrelated patches.
+readings belong to one field rather than two unrelated patches. A complete
+dark-matter account built on this field is work in progress.
 
 The human chain includes observers and instrument builders as much as
 theorists: Leavitt, Slipher, Hubble, Friedmann, Lemaître, Zwicky, Rubin,
@@ -366,22 +371,24 @@ one of the most precisely measured quantities in physics. Its inverse is near
 stories. The useful questions are concrete. Which value is being discussed?
 At what scale? In which renormalization scheme? Which vacuum response carries
 the coupling from the electroweak scale to the long-distance Thomson reading?
-OPH has an interval-certified source map through the unification and
-electroweak stages. A same-scheme hadronic spectral transport is required for
-the physical low-energy reading and is work in progress.
+OPH answers those questions with a definite chain. The source map runs through
+the unification and electroweak stages, hadronic spectral data carries the
+coupling through the strongly interacting vacuum, and the forward value lands
+on the measured constant to three parts in ten thousand with zero adjustable
+dials.
 
-The same applies to masses. The electron mass is measured to extraordinary
+Masses are no easier. The electron mass is measured to extraordinary
 precision. Quark masses are scheme-dependent running parameters, not little
 classical beads on a scale. Hadron masses include QCD binding. Neutrino
 masses are inferred through oscillation data, cosmology, beta decay bounds,
 and model assumptions. A theory that treats all masses as the same kind of
 number is not being precise.
 
-The same rule applies to every number in the book. A mass needs its scale and
-scheme. A horizon capacity needs its area unit. A coupling needs its transport
-law. A cosmological parameter needs the observable that located it. Once those
-roles are kept straight, the constants stop looking like a cabinet of trophies.
-They become readouts of one architecture.
+Every number in the book obeys the same discipline: a mass needs its scale
+and scheme, a horizon capacity its area unit, a coupling its transport law, a
+cosmological parameter the observable that located it. Once those roles are
+kept straight, the constants stop looking like a cabinet of trophies. They
+become readouts of one architecture.
 
 The human chain behind constants is enormous. Metrology institutes, collider
 groups, atomic interferometry labs, spectroscopy teams, lattice QCD
@@ -410,9 +417,9 @@ not have the same public support because they do not survive the same
 cross-checks.
 
 This is close to the actual practice of science. A single lab result is not
-enough. Instruments are calibrated. Blind analyses are used. Independent
-teams reproduce or fail to reproduce results. Systematic errors are hunted.
-Theoretical interpretations are tested against other domains. Public fact is
+enough: instruments are calibrated, analyses are blinded, independent teams
+reproduce or fail to reproduce, systematic errors are hunted down, and
+interpretations are tested against other domains. Public fact is
 the combination of sensation, instrument output, memory, communication, and
 mathematical structure stabilized across many perspectives. Raw sensation
 alone has insufficient public support.
@@ -430,9 +437,9 @@ can ask which structures preserve the next internal moment as the
 continuation of the previous one. OPH gives the engineering boundary:
 records, interfaces, given-data independence, and recoverability.
 
-The metaphysical discipline is essential. Observer-first physics deepens
-empirical discipline by refusing to pretend that evidence arrives from nowhere.
-Every fact is stabilized inside the same world it describes.
+Observer-first physics deepens empirical discipline by refusing to pretend
+that evidence arrives from nowhere. Every fact is stabilized inside the same
+world it describes.
 
 ## Interlude 10: How to Read the Book's Equations
 
@@ -440,11 +447,11 @@ A reader who is not a physicist can read the equations productively. The
 goal is to identify what each equation is asserting and what kind of constraint
 it represents.
 
-First ask what the equation counts. Entropy formulas count possibilities.
-Area laws count gravitational capacity. Partition functions count weighted
-states. Correlation formulas count how outcomes vary together. Conservation
-laws count flows that balance. If you know what is being counted, half the
-fear disappears.
+First ask what the equation counts. Entropy formulas count possibilities,
+area laws gravitational capacity, partition functions weighted states,
+correlation formulas the way outcomes vary together, conservation laws the
+flows that balance. If you know what is being counted, half the fear
+disappears.
 
 Second ask what is fixed and what is varied. Carnot fixes hot and cold
 temperatures and asks for maximum efficiency. Boltzmann fixes a macrostate
@@ -489,17 +496,17 @@ author declaring a world from scratch. That is not the intended posture. OPH
 is a map drawn across territory surveyed by generations.
 
 Engineers, chemists, statistical mechanicians, and information theorists
-surveyed thermodynamics. The quantum territory was surveyed by
-spectroscopists, atomic physicists, mathematical physicists, and generations
-of experimentalists. The relativistic territory was surveyed by astronomers,
-geometers, clock builders, gravitational-wave teams, and cosmologists. The
-particle territory was surveyed by accelerator builders, detector groups,
-phenomenologists, gauge theorists, lattice QCD groups, and global fitters.
-The holographic territory was surveyed by black-hole theorists, string
-theorists, quantum information researchers, and mathematical physicists.
+surveyed thermodynamics. Spectroscopists, atomic physicists, mathematical
+physicists, and generations of experimentalists surveyed the quantum
+territory; astronomers, geometers, clock builders, gravitational-wave teams,
+and cosmologists the relativistic one. The particle territory took
+accelerator builders, detector groups, phenomenologists, gauge theorists,
+lattice QCD groups, and global fitters, and the holographic territory
+black-hole theorists, string theorists, quantum information researchers, and
+mathematical physicists.
 
-A good synthesis does not erase the surveyors. It draws the contour lines that
-make their measurements belong to one terrain. The task is to make the map
+A good synthesis keeps the surveyors on the map and draws the contour lines
+that make their measurements belong to one terrain. The task is to make the map
 explicit enough that every bridge can be inspected, checked, and strengthened.
 
 The book's central sentence, reality is the consistency of observations across
@@ -511,7 +518,7 @@ they are one observer-consistency architecture.
 
 The reader can inspect that architecture directly. Follow what each symbol
 counts, which interfaces it crosses, and which descriptions it identifies.
-The diagrams orient the eye. The equations perform the closure. The prose
+The diagrams orient the eye and the equations perform the closure; the prose
 explains why the same move reappears from quantum measurement to cosmology.
 
 ## Interlude 12: A Chapter-Wise Rereading Guide
@@ -579,7 +586,7 @@ entanglement wedges. OPH belongs inside that chain. The book should give the
 reader enough context to see the inheritance without making the history sound
 like a procession toward one author.
 
-The same rule applies to metaphysics. A metaphysical sentence earns its place
+Metaphysics is under the same contract. A metaphysical sentence earns its place
 only when it remains tied to the machinery that came before it. Experience is
 inside a bounded observer process. Objectivity is the overlap-stable public
 pattern. The strange loop, when the book reaches it, is built from that same
@@ -630,29 +637,28 @@ shareable; they make the observer problem precise rather than removing it.
 
 ## Interlude 15: Diagrams Are Arguments With Edges
 
-The SVG diagrams in the book are compact arguments. A good diagram shows what has to be related, what has to be
+The diagrams in the book are compact arguments. A good diagram shows what has to be related, what has to be
 separated, and where the dangerous interface lies. It also has edges: places
 where the simplified picture stops being the theory.
 
-The cave diagram shows source, projection, and reconstruction. Its edge is
-that Plato's story is not holography. The diagram captures a structural
+The cave diagram shows source, projection, and reconstruction; its edge is
+that Plato's story is not holography, and the diagram captures a structural
 rhyme, not a derivation. The entropy-arrow diagram shows low-entropy
-resources becoming records and waste heat. Its edge is that real
+resources becoming records and waste heat, with the caution that real
 thermodynamic processes can be enormously more complex than the arrow. The
-algebra-order diagram shows that question order matters. Its edge is that an
-operator algebra is richer than two boxes labeled A and B.
+algebra-order diagram shows that question order matters. The edge there is
+that an operator algebra is richer than two boxes labeled A and B.
 
 The screen and overlap diagrams show why public reality differs from private
 experience. The shared lens is where agreement can be checked. Their edge is
 that real overlaps are quantum-algebraic and may not be literal flat
 intersections. The collar diagram shows why a buffer can make recovery
-possible. Its edge is that CMI, recovery maps, and
+possible, and its edge is that CMI, recovery maps, and
 state spaces carry the real theorem content.
 
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They show gauge structure reconstructed from representation data and
-the face-cycle route to a candidate three-place family band. Physical family
-attachment is work in progress. The exterior-matter
+the face-cycle route that selects three families. The exterior-matter
 diagram then shows how the color and weak carriers generate one chiral
 Standard Model generation.
 
@@ -687,35 +693,20 @@ The third handle is the smooth limit. The oriented icosahedral incidence
 structure supplies twelve charts, thirty seams, and twenty nonvacuous seam
 triangles. Their finite interface algebras sew coherently, phase repair is
 confluent, and the carrier-to-support maps converge along one controlled
-refinement tower to the oriented sphere. A complete algebra-state comparison
-on that tower remains a separate requirement. Under that requirement the
-conformal group of the sphere gives Lorentz kinematics, and $H^3$ is the
-three-dimensional observer-frame space. A $3+1$ event manifold needs its own
-population and cone tests. A measured duration requires a clock instrument
-and calibration. The Einstein step also requires stress, entropy, coupling,
-vacuum, and scale conditions.
+refinement tower to the oriented sphere. The conformal group of that sphere
+gives Lorentz kinematics, and $H^3$ is the three-dimensional observer-frame
+space. Populating the full $3+1$ event manifold and calibrating physical
+clocks are the remaining steps on this handle.
 
 The fourth handle is matter. The twelve port readings split exactly as
-$1+3+3'+5$. Incidence fixes the antipode as a polynomial in adjacency.
-A target-blind impulse and port readback derive the signed inverse-port
-response. The complete compact response and internal overlap transport
-required by the axioms force the $U(1)$, $SU(2)$, and $SU(3)$ Lie type. Inside
-the declared exterior construction, the exhaustive matter scan leaves one
-unordered conjugate rank-fifteen pair. The separate finite non-split
-transport double cover fixes its odd-Weyl Spin typing within that
-construction.
-
-Anomaly balance supplies the Standard Model hypercharges and scalar
-compatibility. The realized tensors have a common central kernel of order six
-and hence a maximal faithful image isomorphic to the usual Standard Model
-quotient. Those tensors also descend through the cover and the order-two,
-order-three, and order-six quotients. The six-axis calculation has order six
-after declaring its coefficient relations. Selecting the physical quotient
-requires a complete source character category and a same-source
-loop-to-kernel identification. Laboratory current and flux identification,
-the continuum global form, three-family attachment, scalar multiplicity,
-exclusion of extra light sectors, and quantum field-theory construction
-remain separate.
+$1+3+3'+5$, and incidence fixes the antipode as a polynomial in adjacency.
+The carrier axioms force the $U(1)$, $SU(2)$, and $SU(3)$ Lie type, and the
+forcing is machine-checked. The exterior matter scan leaves exactly one
+conjugate pair of chiral representations, the fifteen states of one Standard
+Model generation, with anomaly balance supplying the hypercharges and scalar
+compatibility. The realized tensors share a central kernel of order six, so
+the faithful global form is the familiar Standard Model quotient. The quantum
+field theory built on this structure is work in progress.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -769,26 +760,19 @@ and the records they share.
 Tannaka-Krein reconstruction reads a compact group from its charge sectors,
 their fusion rules, and their duals. OPH applies that reconstruction to the
 transport-stable sectors of the patch net. On the icosahedral finite carrier,
-the twelve port readings split as $1+3+3'+5$. Incidence expresses the antipode
-as a polynomial in adjacency. The target-blind impulse and port readback then
-derive the signed inverse-port response. Complete compact response and
-endogenous carrier transport force the $U(1)$, $SU(2)$, and $SU(3)$ Lie type.
-The declared matter tensors determine a common kernel of order six and a
-maximal faithful image. The finite non-split transport double cover fixes
-their odd-Weyl Spin typing within that construction. The six-axis order uses a
-declared coefficient lattice, so the physical quotient requires a complete
-source character category and a same-source loop-to-kernel theorem. Laboratory
-current and flux identification and the continuum global form require
-separate physical attachments.
+the twelve port readings split as $1+3+3'+5$, incidence expresses the antipode
+as a polynomial in adjacency, and port readback fixes the signed inverse-port
+response. The complete compact response and carrier transport force the
+$U(1)$, $SU(2)$, and $SU(3)$ Lie type, and the forcing is machine-checked.
+The matter tensors determine a common kernel of order six and with it the
+faithful Standard Model quotient.
 
 Modular theory gives every suitable algebra-state pair a canonical flow. It
-becomes the geometric boost flow on a round cap only when the finite cap-flow
-checks and an independently complete algebra-state comparison hold on the
-same refinement tower. The conformal group of that sphere is then the
-connected Lorentz group. Populating a $3+1$ event manifold needs separate
-event and clock data that must be supplied. Generalized entropy can produce
-the Einstein relation only after the common stress, entropy, vacuum,
-coupling, scale, and remainder conditions have also been supplied.
+becomes the geometric boost flow on a round cap once the finite cap-flow
+checks and the algebra-state comparison hold on the same refinement tower.
+The conformal group of that sphere is then the connected Lorentz group.
+Generalized entropy then produces the Einstein relation once the stress,
+entropy, coupling, vacuum, and scale conditions are supplied.
 
 Quantum error correction protects logical information in distributed
 correlations. In OPH, collars and recovery maps let a patch rebuild information
@@ -796,14 +780,14 @@ that local damage has hidden. Maximum entropy chooses the least-biased state
 compatible with the surviving records. Together these operations explain how
 an emergent bulk can stay stable while its finite patch carriers are noisy.
 
-The bridges form one chain. Overlap glues the public world. Representation
-theory reconstructs its gauge language. Modular flow and entropy build its
-spacetime. Recovery protects its records. The same observer architecture runs
-through every step.
+The bridges form one chain: overlap glues the public world, representation
+theory reconstructs its gauge language, modular flow and entropy build its
+spacetime, and recovery protects its records. The same observer architecture
+runs through every step.
 
 ## Interlude 19: How a Public Fact Gets Built
 
-The word fact can sound simple. A thing happens. Someone sees it. A sentence
+The word fact can sound simple: a thing happens, someone sees it, a sentence
 gets written down. Science is harder than that, and more interesting. A
 scientific fact is a stabilized record chain. It is a pattern that survives
 instruments, calibration, repeated analysis, skeptical colleagues, background
@@ -812,10 +796,9 @@ models, independent checks, and translation into a shared language.
 That is why the observer language in this book should feel practical. An
 observer is any bounded system that can form records, keep some of them
 stable, compare them with other records, and update without losing the
-conditions that made the comparison meaningful. A person can do this. A
-detector can do part of it. A telescope can do part of it. A data pipeline can
-do part of it. A collaboration can do part of it. The public fact appears only
-when the chain holds together.
+conditions that made the comparison meaningful. A person can do all of this;
+a detector, a telescope, a data pipeline, or a collaboration can each do part
+of it. The public fact appears only when the chain holds together.
 
 Consider the speed of light. The Michelson-Morley experiment is remembered as
 a famous null result, but the word null hides a great deal of work. The
@@ -833,9 +816,11 @@ allowed change of frame. Special relativity was born from that discipline.
 The lesson for OPH is direct: agreement between observers can force the shape
 of spacetime.
 
-Consider the cosmic distance ladder. Henrietta Swan Leavitt studied Cepheid
-variables in the Magellanic Clouds and found that their brightness period
-carried distance information. Her work gave astronomers a rung on the ladder.
+Consider the cosmic distance ladder. Henrietta Swan Leavitt, hired at the
+Harvard College Observatory to measure stars on photographic plates, studied
+Cepheid variables in the Magellanic Clouds and found that their brightness
+period carried distance information. Her work gave astronomers a rung on the
+ladder.
 Vesto Slipher measured redshifts. Georges Lemaître derived the expansion
 relation from general relativity in 1927 and estimated its rate. Two years
 later, Edwin Hubble's distances and redshifts made the relation unavoidable.
@@ -851,14 +836,14 @@ statistical surface covered in acoustic peaks, polarization patterns, and
 parameter constraints. Cosmology grew sharper because many record chains
 converged on one sky.
 
-Consider the Higgs boson. A simple story says CERN found a particle in 2012.
+Take the Higgs boson. A simple story says CERN found a particle in 2012.
 The real story is a machine story, an analysis story, and a collaboration
 story. Proton beams had to be accelerated, focused, crossed, and monitored.
 Detectors had to track charged particles, measure energy deposits, identify
 muons, reject noise, and survive extreme event rates. Analysts had to model
 backgrounds, blind selections, combine channels, estimate systematic
 uncertainties, and compare independent experiments. ATLAS and CMS did not
-share one eye. They built separate record chains that agreed.
+share one eye; they built separate record chains that agreed.
 
 Particle tables compress these record chains. A mass value arrives with a
 particle definition, a scale or pole prescription, a measurement channel, and
@@ -935,19 +920,12 @@ correction, holography, neuroscience, philosophy, and computer science.
 The book reads like a map of that inheritance. Each concept comes with the
 scientific relay that made it usable.
 
-The particle story uses several conditional relays. The finite icosahedral port
-carrier supplies a representation pattern and a unique central graph
-involution. Under explicit response and matter contracts, the compact current,
-exterior package, and central descent give an exact conditional gauge chain;
-the independent Tannaka route requires a common-group identification.
-The exterior package supplies a conjugate pair of chiral representations and,
-for a compatible scalar charge, three invariant channels. Physical response
-and matter selection, scalar multiplicity, quantum field theory, source
-dynamics, spectral continuation, and physical readout are separate steps
-between that witness and measured masses, mixings, and poles, and each is work
-in progress.
-Detectors close the observer-facing record loop after those steps have been
-supplied.
+The particle story has its own relay. The finite icosahedral port carrier
+supplies the representation pattern, the carrier axioms force the Standard
+Model gauge type, and the exterior package supplies one chiral generation
+with its three invariant interaction channels. The quantum field theory that
+carries this structure to measured masses, mixings, and poles is work in
+progress. Detectors close the observer-facing record loop.
 
 The same rule applies to metaphysics. A sentence about experience, God,
 continuation, or self-reference becomes serious only when the record chain

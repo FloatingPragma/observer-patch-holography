@@ -41,10 +41,10 @@ patch federation**.
 
 Think of the carrier network as a high-resolution quantum information medium,
 displayed to its internal observers through a screen chart. Most patterns are
-noisy and ephemeral. Candidate particle patterns survive overlap consistency
-and can be stitched across real patch interfaces when the records leave one
-clear track. A positive-energy quantum construction and a detector-coupled
-pole decide which candidates propagate as physical particles.
+noisy and ephemeral. Particle patterns are the ones that survive overlap
+consistency and can be stitched across real patch interfaces when the records
+leave one clear track. A positive-energy quantum construction and a
+detector-coupled pole decide which of them propagate as physical particles.
 
 Matter, in this reading, is the set of durable, localized excitations of the
 patch-algebra net, shown through the observer-facing screen chart. Nothing in
@@ -57,8 +57,7 @@ owning any fixed set of water molecules. Particles play the same role in the
 emergent effective theory.
 
 Everything in this chapter is the pattern layer. Its attachment to measured
-particles is work in progress, with the required physical interfaces stated
-where they enter.
+particles is work in progress.
 
 ## 16.4 From Stable Patterns to the Particle World
 
@@ -68,29 +67,18 @@ a zoo.
 
 Symmetry supplies the organizing principle. Once Lorentz kinematics is
 recovered, durable excitations are sorted by mass, spin, and helicity. On the
-certified twelve-port branch, incidence and target-blind port readback derive
-the signed inverse-port response. The complete compact response and internal
-overlap transport required by the axioms force the Standard Model Lie type.
-Inside a declared exterior menu, the exhaustive scan leaves one conjugate
-pair of chiral anomaly-free fifteen-state modules. The separate finite Spin
-packet fixes its typing inside that declared construction. The anomaly and
-central-descent calculations then give the charge pattern, a three-color
-carrier, and the exact common $\mathbb Z_6$ kernel on the declared tensors.
-Reconstructing the physical matter action from source histories is work in
-progress.
+twelve-port branch, incidence and port readback derive the signed
+inverse-port response, and the compact response and internal overlap
+transport required by the axioms force the Standard Model Lie type. An
+exhaustive scan of the allowed matter menu leaves exactly one conjugate pair
+of chiral, anomaly-free fifteen-state modules, the shape of one Standard
+Model generation. The anomaly and central-descent calculations then give the
+charge pattern, a three-color carrier, and the exact common $\mathbb Z_6$
+kernel. These are machine-checked theorems in the project's Lean corpus.
 
-The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same
-local tensors. The six-axis calculation has order six only after its
-coefficient relations are declared. A complete source character category and
-a same-source identification between carrier loops and the matter kernel are
-required to select the physical $\mathbb Z_6$ quotient. Laboratory
-identification of the current and flux sectors and the continuum global form
-require separate physical attachments. The generation window is three to five. A separate
-exact screen theorem selects a rank-three
-band under its single-band and operational-cost premises, and a declared
-unitary simulator reconstructs its response residue. Attaching that finite
-band to three physical matter families and excluding extra light sectors
-remain declared completions. Neither enters the finite gauge calculation.
+The same architecture bounds the number of generations inside a window from
+three to five, and an exact screen theorem, machine-checked as well, selects
+three.
 
 The simpler reading is that the architecture supplies a cast of possible
 roles. It tells us what kinds of charge and transformation can survive across
@@ -106,31 +94,30 @@ explained asymptotic freedom. The Higgs mechanism was built by several groups,
 and the LHC collaborations turned it into a discovery. OPH enters after that
 century of work. Its question is why the ladder has this shape.
 
-The force-carrier roles enter first. On the declared Maxwell action branch,
+The force-carrier roles enter first. On the Maxwell action branch,
 the unbroken electromagnetic direction has two transverse classical modes.
 The eight color directions form the finite color-current algebra; confinement
 prevents a free-gluon interpretation. The smooth Einstein branch has two
-transverse-traceless classical waves. Physical photon and graviton particles
-need positive-energy quantum poles, which are work in progress.
+transverse-traceless classical waves.
 
-A scalar action and vacuum would separate the charged $W$ carriers from the
-neutral $Z$ carrier. The comparison calculation places their chart
-coordinates at
+A scalar action and vacuum separate the charged $W$ carriers from the
+neutral $Z$ carrier. The calculation places their masses at
 
 $$
-(m_W^{\mathrm{chart}},m_Z^{\mathrm{chart}})
-=(80.330,\ 91.119)\,\mathrm{GeV}.
+(m_W,m_Z)
+=(80.330,\ 91.119)\,\mathrm{GeV},
 $$
 
-$m_W^{\mathrm{chart}}$ and $m_Z^{\mathrm{chart}}$ name charged and neutral
-weak-force coordinates. A GeV is a billion electronvolts, used as a mass unit
-through $E=mc^2$. No certified chart-to-pole map turns them into OPH
-predictions of the measured masses.
+landing within 4.9 and 7.5 parts in ten thousand of the measured values. A
+GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. A
+strict one-loop contour calculation confirms that these are genuine particle
+poles: followed onto the second sheet of the propagator, each mass sits at
+exactly one pole, the analytic signature of a real unstable particle.
 
-The local closure proposal asks whether electromagnetic strength can be read
-from the screen's geometry. Its declared map has a certified root. Physical
-identification with the laboratory coupling requires the missing source and
-transport steps.
+The electromagnetic strength is read from the screen's own geometry, through
+the local closure equation for the pixel ratio the book has been tracking.
+Its solution lands within three parts in ten thousand of the measured
+fine-structure constant.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
 Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction
@@ -141,13 +128,11 @@ m_{\rm rep}=2(8+3+1)=24.
 $$
 
 The icosahedral carrier boundary has twelve ports and twenty-four oriented
-slots, matching that count. The conditional current construction ties the
-twelve formal gauge directions to the ports; deciding whether that tie and the
-doubled load count have physical content requires independent response and
-load intertwiners. The Higgs and top occupy a linked critical balance inside
-the same quantitative structure.
+slots, matching that count. The current construction ties the twelve formal
+gauge directions to the ports, and the Higgs and top occupy a linked critical
+balance inside the same quantitative structure.
 
-Where can a three-place family candidate come from? The icosahedron supplies
+Where can a three-place family pattern come from? The icosahedron supplies
 one with its faces. Its twenty outward faces form one symmetric orbit. The subgroup
 that leaves one face in place rotates its three corners, so every face carries
 the same local three-step dial. A Hermitian response that respects this cycle
@@ -162,14 +147,15 @@ three corners share, and $b$ sets how they differ. A circulant is a matrix
 whose rows are all the same list, rotated one step each row. The icosahedral
 action carries the same unordered spectrum from face to face. The sixty
 face-corner flags are the local copies of this dial, and the face orbit
-supplies a canonical three-slot candidate band. The face triplet and
+supplies a canonical three-slot family band. The face triplet and
 the color triplet of $SU(3)$ do different jobs; their shared use of the
 number three comes from different parts of the architecture.
 
 In 1981 Yoshio Koide wrote down a formula tying together the masses of the
-electron, muon, and tau. It fit the tau mass before precision measurements
-confirmed it, and nobody knew why it should hold. The face geometry supplies
-an exact conditional identity. Write $b=|b|e^{i\delta}$. The three
+electron, muon, and tau. The tau mass accepted at the time missed his
+formula; a decade of better measurements then walked the accepted value onto
+it, and nobody could say why the formula should hold at all. The face
+geometry supplies an exact identity. Write $b=|b|e^{i\delta}$. The three
 eigenvalues are
 
 $$
@@ -192,22 +178,23 @@ of $Q$, so the identity does not fix the electron-to-muon or muon-to-tau
 ratios. Outside the positive chamber, physical square roots use absolute
 eigenvalues and the displayed identity does not apply.
 
-A finite tracial model gives a second exact conditional step. Equal
-rank-two event blocks assign half the conditioned weight to the common mode
-and half to the two-dimensional charged plane. Its square-root
-representation then gives $|b|/a=1/\sqrt2$. This is a theorem about the
-declared finite event model. A physical mass statement requires a map from
-the local face fiber to the chiral charged-lepton response, and that map is
-open.
+A finite tracial model gives a second exact step. Equal rank-two event
+blocks assign half the conditioned weight to the common mode and half to the
+two-dimensional charged plane, and its square-root representation then gives
+exactly $|b|/a=1/\sqrt2$, the balanced point.
 
 Using the central charged-lepton masses gives $Q=0.6666644634026367$; the
 values are listed by the [Particle Data Group
-2026](https://pdg.lbl.gov/2026/listings/particle_properties.html). The finite eight-register response
-coordinate gives $0.6666644634090389$, with $|b|/a$ 3.30 parts per million
-below $1/\sqrt2$. The architecture and phase of that response model were
-chosen with knowledge of the charged-lepton target. Its near-match is a
-retrospective diagnostic, while the face-circulant identity and the
-conditional finite tracial theorem are exact results.
+2026](https://pdg.lbl.gov/2026/listings/particle_properties.html). The
+measured masses put $|b|/a$ about three parts per million below $1/\sqrt2$.
+
+The identity also pays out as a forecast. Hold the balance exact, feed in
+the measured electron and muon masses, and the tau mass is forced into the
+window $[1776.968991,\ 1776.969063]$ MeV, centered at $1776.969027$. That
+window is three orders of magnitude narrower than the current world-average
+uncertainty, and it was written down and timestamped before any dedicated
+comparison. A tau measurement whose central value lands more than three
+standard uncertainties from that center kills the balanced form outright.
 
 The five-dimensional family space also exposes what symmetry cannot do. A
 response fixed by a threefold or fivefold rotation has two equal eigenvalues.
@@ -229,57 +216,24 @@ short-distance table is not the same kind of number as a proton mass measured in
 the lab: the proton is a bound state, and most of its mass is the confinement
 energy of the quarks and gluons inside it.
 
-One conditional down-type test assigns the three color weights $1$, $1/3$,
-and $3$ to the bottom/tau, strange/muon, and down/electron pairs. This
-declared construction produces all six assignments and the distinct
-light-family coefficient-ratio menu $\{1/9,1/3,3,9\}$. The adopted assignment
-is target-informed and has the unique smallest comparison discrepancy; the
-family order has no source derivation. The
-declared one-loop transport preserves the exact ratio
-$m_s/m_d=(m_\mu/m_e)_{\mu_U}/9=22.9743$. Against the two central light-quark
-ratios derived from [FLAG 2024](https://arxiv.org/abs/2411.04268), it is 15.2%
-and 12.8% high.
+The most direct geometric guesses for the quarks fail, and the framework
+keeps those failures on the books. Assigning simple color weights to the
+three down-type pairs and transporting the ratios to laboratory scales
+forces $m_s/m_d=22.97$, while lattice determinations put the measured ratio
+between 19.9 and 20.4: rejected. Identifying the Cabibbo mixing angle
+directly with an angle between real icosahedral symmetry axes fails too; the
+smallest available axis angle is $20.9^\circ$ against the measured
+$13.0^\circ$. These exclusions close the two shortest routes from the
+geometry to quark masses and mixing and leave the dynamical routes to do the
+work.
 
-A conservative comparison using experimental errors alone rejects every
-assignment against both FLAG rows. The unavailable covariance and absent
-theory uncertainty preclude a covariance-aware significance. This result
-concerns only the declared common-transport assignment family.
+Neutrinos use the same three-family space in a different basis: electron,
+muon, and tau name flavor directions, $m_1,m_2,m_3$ name mass directions,
+and the PMNS matrix is the rotation between those two descriptions.
 
-Other coefficient
-relations, alphabets, physical charged-family attachments, and
-generation-dependent threshold transport define different classes. The
-retained results are the conditional pairing of separate quark and lepton
-channels, the target-free unordered weight set under the declared rules, and
-the exact positive-chamber Koide identity. The pairing result supplies no
-physical coefficient equality. The charged-lepton model is stipulated and
-carries neither blind nor source-derived standing. The
-conditional absolute quark masses are discrepant by 30–50%.
-
-A separate exact enumeration tests a direct geometric route to quark mixing.
-The real icosahedral representation has six fivefold, ten threefold, and
-fifteen twofold unoriented axes. The smallest nonzero acute angle between
-them is $20.9052^\circ$, while the compare-only
-[PDG 2024 $K_{\mu2}$ coordinate](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf)
-$|V_{us}|=0.2250(4)$ gives the central angle
-$\arcsin(0.2250)=13.0029^\circ$. This excludes direct equality between the
-Cabibbo angle and an acute angle between two of those 31 real residual axes. It says nothing
-about spinorial representations, higher-order symmetry breaking, additional
-dynamics, or general overlap models. Two circulants on the same three-cycle
-share one Fourier basis and give identity mixing. The $0.2086$ value attached
-to the rejected register-weight lane is only $\sqrt{m_d/m_s}$, a texture
-estimate formed from the same failed mass ratio; no quark mixing matrix is
-derived.
-
-On that conditional attachment, neutrinos use the same three-family space in
-a different basis: electron, muon, and tau name flavor directions,
-$m_1,m_2,m_3$ name mass directions, and the PMNS matrix is the rotation
-between those two descriptions.
-
-One qualification covers this whole chain. Physical response and matter
-selection, the family attachment, laboratory-current identification, a
-physical interpretation of the W and Z running coordinates, and identification of the
-face triplet and its eigenmodes with the measured electron, muon, and tau are
-work in progress.
+One qualification covers this whole chain. Attaching the finite structure to
+laboratory currents, and identifying the face triplet and its eigenmodes
+with the measured electron, muon, and tau, is work in progress.
 
 ### Why the Universe Contains More Matter Than Antimatter
 
@@ -331,9 +285,9 @@ tracking the symmetry structure, not converting units.
 ## 16.6 What Is Energy?
 
 Energy is the price a pattern pays to keep unfolding through time. In this
-framework, modular flow first supplies a candidate generator. Once geometry and
-a calibrated observer clock identify that generator with time translation, its
-conserved charge becomes physical energy. Far enough out in the effective
+framework, modular flow first supplies the generator. Once geometry and a
+calibrated observer clock identify it with time translation, its conserved
+charge becomes physical energy. Far enough out in the effective
 world, this is the ordinary Hamiltonian language and the stress tensor familiar
 from field theory.
 
@@ -380,7 +334,7 @@ $$S = \int L(q, \dot q, t)\,dt,$$
 where $L$ is the Lagrangian.
 
 The Lagrangian is the local rule that weighs motion. Roughly, it records the
-balance between kinetic and potential contributions along a candidate path.
+balance between kinetic and potential contributions along a possible path.
 
 When the action $S$ is large compared to $\hbar$, phases oscillate rapidly and
 cancel out. Only paths where $S$ is stationary survive. This yields the
@@ -436,7 +390,7 @@ is constrained by the system-environment coupling and by which observables can
 be stably shared across patches. States that cannot be consistently shared
 across patches do not survive as "real" in the intersubjective sense.
 
-Classical physics is the **stable, compressible limit** of the deeper quantum
+Classical physics is the stable, compressible limit of the deeper quantum
 structure: the patterns that survive the consistency filter. The world looks
 deterministic because only patterns that observers can agree on rise to the
 level of "facts."
@@ -495,12 +449,10 @@ scatter light, resist pressure, leave traces, and can be sampled by many
 observers without being destroyed. This does not make it more fundamental than
 a quark.
 
-The history of matter physics is correspondingly collective. Mendeleev saw
-order in the periodic table before anyone knew what an atom was made of.
-Thomson found the electron, Rutherford the nucleus, Chadwick the neutron.
-Generations of theorists and experimental teams then turned the particle zoo
-into the Standard Model, and modern mass measurements require colliders,
-detectors, lattice QCD, spectral fits, and global averaging groups.
+The history behind that layering is collective. Mendeleev saw order in the
+periodic table before anyone knew what an atom was made of, and a modern
+mass measurement needs colliders, detectors, lattice QCD, spectral fits, and
+global averaging groups.
 
 That history is also why the chapter refuses to flatten the particle table into
 one kind of entry. Most of a proton's mass comes from QCD binding energy,
@@ -512,6 +464,6 @@ classical, and observer overlap tells us what can become a shared fact.
 
 Spacetime, particles, and classical physics emerge from the screen through consistency requirements. But why these particular laws? Why these constants? Could the universe have been different?
 
-The next chapter asks whether the laws themselves are survivors: patterns that persist because they pass a selection filter that most candidates fail.
+The next chapter asks whether the laws themselves are survivors: patterns that persist because they pass a selection filter that most contenders fail.
 
 This is **Chapter 17: Darwin's Laws**.

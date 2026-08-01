@@ -2,19 +2,13 @@
 
 ## 15.1 The Intuitive Picture: Absolute Time and Newtonian Gravity
 
-The intuitive picture is the Newtonian one. Time is universal and flows the
-same everywhere. Space is a three-dimensional stage. Gravity is a force acting
-at a distance.
+Newton wrote the intuitive picture into law in the *Principia* of 1687: "Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external." Space got the same treatment, an absolute container that exists whether or not anything is in it, fixed while objects move through it. Gravity was a force acting at a distance.
 
-This picture is simple and matches everyday experience. Synchronize watches with a friend and they stay synchronized. A room does not change shape as you walk across it. A falling apple is being pulled by the Earth.
+Everyday experience endorses every clause. Synchronize watches with a friend and they stay synchronized. A room does not change shape as you walk across it. A falling apple is being pulled by the Earth.
 
-Newton made this precise. In his *Principia* of 1687, he wrote: "Absolute, true, and mathematical time, of itself, and from its own nature, flows equably without relation to anything external."
+The picture worked spectacularly for two centuries. It predicted planetary orbits, tides, the motion of comets. It launched the Industrial Revolution and put humans on the Moon.
 
-Space was similarly absolute. A container that exists whether or not anything is in it. Objects move through space; space itself is fixed and unchanging.
-
-This worldview worked spectacularly well for two centuries. It predicted planetary orbits, tides, the motion of comets. It launched the Industrial Revolution and put humans on the Moon.
-
-Physics says otherwise.
+It is also wrong, clause by clause, and the first clause to fail was the one about light.
 
 ## 15.2 The Surprising Hint: Light Refuses to Behave
 
@@ -31,7 +25,7 @@ of free space, and $\mu_0$ is the magnetic permeability of free space. Maxwell
 did not put light into the theory by hand. The wave speed fell out of the
 electric and magnetic constants and matched the measured speed of light.
 
-But there was a puzzle. Speed relative to what?
+The number came with a question attached. Speed relative to what?
 
 ### The Aether Hypothesis
 
@@ -41,7 +35,7 @@ If the aether exists, the Earth should be moving through it. As the Earth orbits
 
 ### The Michelson-Morley Experiment
 
-In 1887, Albert Michelson and Edward Morley built the most sensitive optical instrument of its time; chapter 1 described the sandstone slab floating in mercury in their Cleveland basement. They split a light beam in two, sent the halves in perpendicular directions, reflected them back, and recombined them.
+In 1887, Albert Michelson and Edward Morley went looking for that wind with the interferometer chapter 1 described, the sandstone slab floating in mercury in a Cleveland basement. They split a light beam in two, sent the halves in perpendicular directions, reflected them back, and recombined them.
 
 If the aether existed, light traveling parallel to Earth's motion would take a different time than light traveling perpendicular. The recombined beams would be out of phase. Interference fringes would shift as the apparatus rotated.
 
@@ -78,7 +72,7 @@ But light doesn't work that way. If you're on the train and shine a flashlight f
 
 Einstein realized that if the speed of light is constant for all observers, something else must change. That something is time itself.
 
-Consider two events: a flash of light is emitted, and it hits a detector. The time between these events depends on the observer.
+Take two events: a flash of light is emitted, and it hits a detector. The time between these events depends on the observer.
 
 For an observer at rest relative to the apparatus, light travels a short distance. The time interval is t.
 
@@ -92,7 +86,7 @@ The arithmetic runs through one factor. Define:
 
 $$\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$$
 
-This is the Lorentz factor. For everyday speeds, gamma is indistinguishable from 1 at ordinary precision. For v = 0.9c, gamma = 2.3. As v approaches c, gamma goes to infinity.
+This is the Lorentz factor. For everyday speeds, gamma is indistinguishable from 1 at ordinary precision. For v = 0.9c, gamma = 2.3.
 
 Here $v$ is the relative speed between inertial observers. The ratio $v/c$
 measures that speed as a fraction of light speed. The square root in the
@@ -127,7 +121,7 @@ In 1908, Hermann Minkowski, Einstein's former mathematics professor, recast spec
 
 "Henceforth space by itself, and time by itself, are doomed to fade away into mere shadows, and only a kind of union of the two will preserve an independent reality."
 
-Space and time are not separate. They are aspects of a single entity: spacetime.
+Minkowski meant it literally. Space and time are two shadows of a single four-dimensional entity, spacetime, and which shadow you see depends on how you move.
 
 ### The Spacetime Interval
 
@@ -170,15 +164,15 @@ Muons are unstable particles created when cosmic rays hit the atmosphere. Their 
 
 But they don't. Time dilation stretches their lifetime. From our perspective, the muons' clocks run slow, so they live long enough to reach detectors at sea level.
 
-From the muons' perspective, length contraction shrinks the atmosphere. They don't live longer; they just have less distance to travel.
+From the muons' perspective, length contraction shrinks the atmosphere: same lifetime, less distance to cover.
 
-Both perspectives are consistent. Both give the same answer. Muons reach the ground.
+The two perspectives disagree about why and agree that the muons reach the ground.
 
 ### Particle Accelerators
 
 At the Large Hadron Collider, protons are accelerated to 0.999999991c. Their Lorentz factor is about 7,500. Their total energy is increased by the same factor relative to their rest energy.
 
-If special relativity were wrong, the accelerator wouldn't work. The particles would behave differently than predicted. They don't. Special relativity is confirmed every second the LHC operates.
+If special relativity were wrong, the accelerator would simply not work. It does, and so special relativity is confirmed every second the LHC operates.
 
 ### GPS Satellites
 
@@ -192,23 +186,13 @@ Special relativity describes uniform motion. But what about acceleration? What a
 
 ### The Equivalence Principle
 
-Einstein's breakthrough came from a simple observation. In a falling elevator,
-you float weightless. You cannot tell the difference between falling in a
-gravitational field and floating in empty space.
-
-Conversely, standing on Earth feels exactly like accelerating upward at 9.8 m/s^2. You can't tell the difference.
+The breakthrough arrived at the patent office in 1907, while Einstein was supposed to be writing a review article. A person falling freely does not feel their own weight. He later called it "the happiest thought of my life." In a falling elevator you float, and no experiment done inside can distinguish that fall from floating in empty space. Standing on Earth, likewise, feels exactly like accelerating upward at 9.8 m/s^2.
 
 This is the **Equivalence Principle**: gravity and acceleration are locally indistinguishable.
 
-Einstein called this "the happiest thought of my life."
-
 ### The Elevator Thought Experiment
 
-You are in a windowless elevator. Either it is sitting on Earth or it is accelerating upward through empty space. How would you tell the difference?
-
-You drop a ball. It falls. Is it being pulled by gravity, or is the floor accelerating up to meet it?
-
-You can't tell. The two situations are physically equivalent.
+You are in a windowless elevator. Either it is sitting on Earth or it is accelerating upward through empty space. You drop a ball and it falls, and nothing about its fall tells you whether gravity pulled it down or the floor came up to meet it.
 
 Send a beam of light across the elevator horizontally. If the elevator is accelerating upward, the light's path curves downward relative to the floor. The light "falls."
 
@@ -222,7 +206,7 @@ Einstein's radical proposal was that massive objects curve spacetime itself. Lig
 
 A geodesic is the straightest path in a curved geometry. On a sphere, geodesics are great circles. On Earth, the shortest flight from New York to London curves north over the Atlantic.
 
-In curved spacetime, planets don't orbit the Sun because of a force. They're following geodesics in the curved geometry created by the Sun's mass. They're going as straight as they can, but the space around them is bent. A planet is falling toward the Sun at every moment and, on account of its sideways speed, perpetually missing.
+In curved spacetime, no force holds a planet in orbit. The planet follows a geodesic in the geometry created by the Sun's mass, going as straight as it can through a bent region. It is falling toward the Sun at every moment and, on account of its sideways speed, perpetually missing.
 
 ### The Einstein Field Equations
 
@@ -288,20 +272,16 @@ for this book is different: sit a federation of finite observers on the
 screen and ask what comparisons they can consistently make. Relativity should
 fall out as the answer, or the framework is in trouble.
 
-The chapter changes gears here. The familiar experiments are behind us and the
-reconstruction begins. Keep one route in mind: local records acquire an
+Keep one route in mind through what follows: local records acquire an
 internal ordering, clocks turn that ordering into measured time, and compatible
 clock comparisons recover the geometry of relativity.
 
-The route begins with a finite object and has to clear several checks along
-the way, each one a change in the kind of mathematical object being handled.
-The twelve-port icosahedron is the local instrument panel. A repaired
-federation supplies the candidate spherical support only under a
-source-bound, refinement-natural federation-to-support map, and that map is
-work in progress. On the supported branch, the conformal symmetry of the
-smooth sphere supplies Lorentz kinematics. Hyperbolic three-space then labels
-possible rest frames. Events, positions, and a four-dimensional spacetime
-require a further construction.
+The route begins with a finite object and climbs. The twelve-port icosahedron
+is the local instrument panel. A repaired federation supplies the spherical
+support, the conformal symmetry of the smooth sphere supplies Lorentz
+kinematics, and hyperbolic three-space labels the possible rest frames.
+Events, positions, and a four-dimensional spacetime require a further
+construction.
 
 ### From Modular Ordering to an Observer Clock
 
@@ -325,32 +305,24 @@ state into its modular Hamiltonian $K_P$. The map $\sigma_t$ is the modular
 evolution, and $t$ is its dimensionless parameter. The exponentials are the
 operator version of changing a question by flowing it forward and then back.
 
-In the continuum limit this operator formula is not always the right target.
-Continuum algebras can stop admitting density matrices altogether, so there
-may be no operator $K=-\log\rho$ inside the cap algebra. The more general OPH
-statement is about the modular automorphism group itself: the whole flow of the
-cap's observable algebra, read on the geometric cap pair.
+In the strict continuum limit the density matrix can stop existing
+altogether, and with it the operator $K=-\log\rho$. The flow survives. The
+general OPH statement is about the modular automorphism group itself, the
+whole motion of the cap's observable algebra read on the geometric cap pair.
 
 ### Geometric Modular Flow on Caps
 
 Consider a cap $C$ on the sphere $S^2$. In the smooth regime, the cap's
-modular ordering can become identifiable with a motion on the sphere. This is
+modular ordering becomes identifiable with a motion on the sphere. This is
 where the construction turns toward relativity. The flow becomes the same
 kind of geometric transformation that later appears as a boost. It does not
 measure a duration by itself.
 
-When the geometry is under enough control, the cap's modular flow can match a
-smooth dilation of the sphere. Matching the two means fixing which side of the
-cap you mean, which orientation, and which independently normalized geometric
-parameter you are comparing against, while the same refinement tower
-independently carries the complete algebra-state comparison package.
-
-When the cap is extracted cleanly, its flow is carried through refinement
-without distortion, the round caps are rigid, the geometric normalization is
-fixed, and the independent algebra-state package holds on the same tower, the modular
-automorphism and geometric dilation are the same operation on the support
-algebra. Finite cells supply the regulator; their controlled smooth limit
-supplies the continuous boost.
+When the cap is extracted cleanly, with side, orientation, and normalization
+pinned down, and its flow survives refinement without distortion, the modular
+automorphism and a smooth dilation of the sphere are the same operation on the
+support algebra. Finite cells supply the regulator; their controlled smooth
+limit supplies the continuous boost.
 
 The icosahedral $A_5$ frame belongs on that finite side. It organizes twelve
 ports and gives a highly isotropic regulator, but its sixty rotations are not
@@ -359,7 +331,7 @@ of the smooth observer-facing sphere after the modular and refinement checks
 pass. The polyhedron is the finite instrument panel. The round sphere is the
 continuum kinematic chart.
 
-On the certified branch, a closed spherical support, a well-behaved mesh,
+Concretely, a closed spherical support, a well-behaved mesh,
 matching cross-ratios (a distance-free way to compare four points), and the
 modular temperature scale produce the round sphere and its full conformal
 structure. The observer-facing map then localizes records and turns that
@@ -368,14 +340,11 @@ has to produce those inputs independently; a mesh drawn by the analyst cannot
 stand in for them.
 
 The state supplies modular flow, and the recovered metric supplies proper
-time along a worldline. Before the flow parameter counts as a physical clock
-reading, an observer-readable transition, an event correspondence, and a
-stated calibration have to be supplied. Comparing two different worldlines
-needs one more piece: a rule saying which event on one clock corresponds to
-which event on the other. A local Lorentz factor compares velocities at one
-event; it is not a global clock-conversion formula. Consistent overlap
-calibrations then let the local clocks assemble into one spacetime
-description.
+time along a worldline. A calibrated observer instrument turns the flow
+parameter into a physical clock reading, and comparing two worldlines takes
+one more rule: which event on one clock corresponds to which event on the
+other. Consistent overlap calibrations then let the local clocks assemble
+into one spacetime description.
 
 ![Modular ordering on a cap can match geometric motion on the screen after the physical calibration is supplied.](../assets/book_diagrams/modular-flow-cap.svg){width=78%}
 
@@ -405,18 +374,16 @@ group, the part of the Lorentz group connected to ordinary rotations and
 boosts. The symbol $\cong$ means "is isomorphic to": the groups have the same
 structure even though they are written in different languages.
 
-Moebius transformations of the complex plane (which is the Riemann sphere S^2) are exactly Lorentz transformations of the celestial sphere that a relativistic observer sees.
+A conformal transformation preserves angles while letting local scale change,
+and Moebius transformations of the complex plane (which is the Riemann sphere
+$S^2$) are exactly the Lorentz transformations of the celestial sphere that a
+relativistic observer sees. Accelerate hard and the constellations crowd
+toward the point you are heading for, but every circle on the sky stays a
+circle.
 
-A conformal transformation preserves angles while allowing local scale to
-change. The Lorentz group preserves the light-cone structure of spacetime. The
-isomorphism says these are the same symmetry written in two languages: angle
-preservation on the celestial sphere and relativistic frame changes in
-spacetime.
-
-Lorentz kinematics is recovered when the observer-facing cap net reaches the
-controlled geometric scaling branch, the cap modular automorphism acts as
-a real geometric motion, and the rigidity hypotheses identify that motion with
-the conformal action.
+Lorentz kinematics is recovered once the cap net reaches its smooth scaling
+regime, the cap modular flow acts as a real geometric motion, and rigidity
+identifies that motion with the conformal action.
 
 The same step fixes the dimension of the observer-frame space. A rest observer
 is represented by a future timelike direction. The
@@ -431,8 +398,8 @@ Its points are future unit timelike frames. They are not positions in space.
 
 A cap is not an observer point. Observer data, such as a clock, a carried set
 of reference axes, or a stable record frame, select a frame value in this
-fiber. The fiber's overall physical scale is a separate gravity-branch
-question.
+fiber. The fiber's overall physical scale is a separate question settled by
+gravity.
 
 Reading a frame out of records is a separate step. A record picks out a frame
 only when its measured cap responses fit the frame model with every source of
@@ -443,22 +410,19 @@ event coordinates, coincidence, causal ancestry, a quadratic cone with one
 timelike direction, and compatible charts. The celestial sphere checks the
 boundary of that cone; it does not determine the cone by itself.
 
-There is a useful finite dress rehearsal. A target-free source run with about
-sixteen thousand carriers produces 2,304 exact event records and their causal
+There is a useful finite dress rehearsal. A simulation with about sixteen
+thousand carriers produces 2,304 exact event records and their causal
 order. Six closed observer neighborhoods cover the event set, their overlap
 maps preserve orientation and time orientation, and the same finite object
 carries a signed seam layer and local matter operators. Every count and
 operator identity can be replayed from the source data.
 
-The rehearsal also explains why the continuum claim has more conditions. Five
-neighborhoods fit one time direction and three space directions, while one
-fits four Euclidean directions. The instrument was given four coordinates to
-test: one from causal ancestry and three extracted from the visible graph. It
-therefore measures the fitted signature without choosing the number of
-dimensions. The fitted light cones have negative safety margins. Closed
-finite neighborhoods are not open coordinate charts. The result is a real
-finite causal and operator domain, with the failed geometry checks left
-visible. A smooth four-dimensional spacetime requires the
+The rehearsal also shows why the continuum claim carries conditions. Five of
+the six neighborhoods fit one time direction and three of space; one fits
+four Euclidean directions; the fitted light cones come out with negative
+safety margins. The result is a real finite causal and operator domain with
+its failed geometry checks left visible, which is exactly what a small
+instrument should report. A smooth four-dimensional spacetime needs the
 population, cone, chart, overlap, and refinement conditions stated above.
 
 ### Why There Is No Privileged Reference Frame
@@ -469,7 +433,7 @@ If reality is encoded with a screen chart carrying finite local degrees of
 freedom, why isn't there a "God's eye view" of the whole chart? Wouldn't that be
 a privileged reference frame?
 
-**There is no observer outside the screen net.** The sphere
+There is no observer outside the screen net. The sphere
 is the symmetric chart for observer-facing support data, with no
 external inspection platform above it. OPH does not include any
 external vantage point. Observers have no user seat outside the computation.
@@ -490,13 +454,13 @@ Consider two observers with overlapping patches. Each has a modular flow, a
 local clock. When their descriptions are compared, the admissible
 transformations have to map patches to patches, preserve the overlap
 structure, and avoid turning any one patch into the privileged center of the
-world. A natural symmetry group that does that is the conformal group of
-$S^2$, and $\text{Conf}(S^2)\cong \mathrm{SO}(3,1)$ is the Lorentz group.
+world. The natural symmetry group that does all of that is the conformal
+group of the sphere, which is once again the Lorentz group.
 
-On the spherical branch, Lorentz invariance is the symmetry class
-relating observer perspectives without privileging any one of them.
+Lorentz invariance is the symmetry class relating observer perspectives
+without privileging any one of them.
 
-**Carrier coordinates do not need to move through a pre-given bulk.** What we
+Carrier coordinates do not need to move through a pre-given bulk. What we
 call motion in emergent 4D spacetime is a stable change in the relations
 visible in the shared public description, together with the localized
 records. Its quantum representation, dynamics, and
@@ -514,32 +478,25 @@ realized is a physical question.
 
 ### Why the Speed of Light Is Universal
 
-Why is there a maximum speed, and why is it the same for everyone?
+Why is there a maximum speed, and why is it the same for everyone? Because
+there is only one causal structure to read. The shared records on the screen
+fix a common light cone, and the speed of light $c$ is the conversion factor
+between calibrated clock readings and geometric distance in the emergent
+bulk. Observers differ in their modular flows, and the relations between them
+are conformal transformations of $S^2$; nothing in that group can move the
+light cone.
 
-On the recovered geometric branch, the common causal structure on the screen
-determines the effective light cone.
-
-The speed of light $c$ is then the conversion factor between calibrated clock
-readings and geometric distance in the emergent bulk description. It is
-universal because all observers read the same conformal light-cone structure.
-
-Different observers have different modular flows. On the geometric branch, the
-inter-observer relations are carried by conformal transformations of $S^2$.
-The Lorentz group is the corresponding symmetry of the shared causal structure.
-
-On the event branch, repaired records can supply causal order, time separation,
-and a common light-cone structure. Events are equivalence classes of record
-germs under common refinement, rather than points borrowed from the frame
-space. A dense population of separated events, open local charts, full-rank
-frames, a quadratic cone with one negative direction, and consistent overlaps
-reconstruct a four-dimensional spacetime with one time direction and three
-spatial directions. The possible rest frames form a separate hyperbolic fiber
-over each event.
+Repaired records supply causal order and time separation. Events are
+equivalence classes of record germs under common refinement, and a dense
+enough population of them, with open charts and consistent overlaps,
+reconstructs a four-dimensional spacetime with one time direction and three
+of space. The possible rest frames form a separate hyperbolic fiber over each
+event.
 
 ## 15.9 Recovering General Relativity
 
-On the certified geometry branch, special-relativistic kinematics emerges from
-the conformal structure of the screen. What about gravity?
+Special-relativistic kinematics emerges from the conformal structure of the
+screen. What about gravity?
 
 The central idea is less frightening than Einstein's equation. Every small
 horizon keeps an entropy account. Energy crossing the horizon changes that
@@ -557,7 +514,7 @@ entropy balance across small regions together feed the tensor first-variation
 relation. A common refinement domain, vacuum reference, coupling, and scale
 described below supply the absolute equation.
 
-The branches divide their work. Consensus supplies clean, agreed-upon records.
+The layers divide their work. Consensus supplies clean, agreed-upon records.
 Geometric readout turns those records into caps, small causal diamonds, local
 energy, frame information, and scale. Modular flow supplies an ordering
 parameter; an independent observer instrument and calibration supply the clock.
@@ -578,24 +535,19 @@ and Einstein's equation appears as the geometry required by that bookkeeping.
 
 ### What OPH Adds
 
-OPH supplies a finite A3 information projection relative to an exact
-reference and the complete visible constraints. The gravity branch adds an
-edge-center decomposition, state alignment, an edge-reference factorization,
-a finite generalized-entropy identity, and a separate fixed-cap stationarity
-interface. On that declared branch, admissible fixed-cap variations satisfy
+OPH makes the bookkeeping finite. The maximum-randomness axiom supplies an
+exact information projection, and the gravity construction splits each cap's
+entropy into an edge part and a center part with a finite generalized-entropy
+identity. Admissible fixed-cap variations then satisfy
 
 $$\delta S_{\text{gen}}(C) = 0$$
 
-Stationarity is a named premise until it is derived for the identified finite
-functional and transported through the continuum limit. It is not a direct
-consequence of observer agreement or of A3 alone.
-
 The word admissible carries the load. The cap, boundary sector, charges, and
-declared constraint values are held fixed, apart from the stress-energy
+constraint values are held fixed, apart from the stress-energy
 perturbation channel. Hidden carriers, port labels, gauge presentations, and
 repair schedules are not extra variation knobs in this theorem.
 
-**The first law:** For a small cap C with generalized entropy:
+For a small cap $C$, the generalized entropy is
 
 $$S_{\text{gen}}(C) = \frac{\langle A \rangle}{4G} + S_{\text{bulk}}(C)$$
 
@@ -650,7 +602,7 @@ framework.
 Combining the entropy variation with the geometric identity for area variation
 at fixed volume, one obtains the first-variation Einstein relation in the same
 local $d=4$ scaling regime. In four dimensions the small-ball area variation
-used by The spacetime and Einstein paper is
+is
 
 $$\delta A|_{V,\Lambda} = -\frac{4\pi \ell^4}{15}\,
 \delta\!\left[(G_{ab}+\Lambda g_{ab})u^a u^b\right]+o(\ell^4)$$
@@ -675,46 +627,33 @@ $$\delta\!\left(G_{00} + \Lambda g_{00}\right) = 8\pi G\,\delta\langle T_{00} \r
 
 This holds in the rest frame of each small cap for admissible first variations.
 $T_{00}$ is the local energy density, the angle brackets mean expectation
-value, and the factor $8\pi G$ is the Newton normalization on the selected
-gravity branch.
+value, and the factor $8\pi G$ is the Newton normalization.
 
 ### Where Patch Consistency Actually Enters
 
 Here the distinctive OPH move enters. Different observers through the same
 bulk point carry different rest frames. The equilibrium argument gives the
-first-variation relation in each of those frames. The branch must cover all
-local timelike directions and reference states. Under that condition, the
-scalar relations fit one common tensor first-variation law. If observer A and
+first-variation relation in each of those frames. Covering all local timelike
+directions and reference states, the scalar relations fit one common tensor
+first-variation law. If observer A and
 observer B agree on the overlap physics, their frame-dependent equations have
 to be shadows of
 
 $$\delta\!\left(G_{ab} + \Lambda g_{ab}
 - 8\pi G \langle T_{ab} \rangle\right)=0$$
 
-This equation fixes the tensor relative to a reference value. It does not set
-the integration tensor to zero. On an independently constructed refinement
-family that keeps every quantity on the same domain, the
-Ward identity, contracted Bianchi identity, metric compatibility, and
+This equation fixes the tensor relative to a reference value. The Ward
+identity, the contracted Bianchi identity, metric compatibility, and
 connectedness reduce the remaining local freedom to one constant metric term
-per component. A declared vacuum reference evaluates that term. The absolute
-semiclassical equation is then
+per component, and the vacuum evaluates that term. The absolute semiclassical
+equation is then
 
 $$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle.$$
 
-The global capacity branch is a separate proposal for the numerical value of
-\(\Lambda\); it does not replace the vacuum-reference premise.
-
-The word "branch" names the division of labor. Finite consensus supplies the
-repaired records. One refinement-compatible family then carries their geometry,
-modular flow, events, stress, entropy, vacuum reference, and scale readouts on a
-common domain. Every timelike rest-frame relation becomes the same tensor
-equation. The contracted Bianchi identity, local stress conservation, metric
-compatibility, and connectedness turn the local metric residue into one global
-constant Lambda.
-
-This is a conditional composition theorem. Finite consensus does not supply
-the tower. Construction of an inhabited refinement family with all of these
-readouts on a common domain is work in progress.
+The global capacity proposal of Chapter 13 then offers a value for that
+constant. Building the single refinement family that carries geometry, modular
+flow, events, stress, entropy, vacuum reference, and scale on one common
+domain is work in progress.
 
 The lower-case indices $a,b$ again label spacetime directions. The angle
 brackets around $T_{ab}$ mean expectation value: matter remains quantum, so
@@ -724,12 +663,12 @@ approximation, while matter retains quantum expectation values.
 
 ### The Derivation Chain
 
-The chain begins with the finite A3 information projection. The explicit
-edge-reference, entropy-split, and stationarity interfaces give the
-thermodynamic relation in each local rest frame. Geometric modular flow turns
-modular energy into physical energy. The stress-tensor bridge identifies the
-energy content. Each observer reads the Einstein relation in their own frame,
-and patch consistency forces those local readings into one tensor equation.
+The chain assembles like this: maximum randomness supplies the projection,
+the entropy split gives the thermodynamic relation in each local rest frame,
+geometric modular flow turns modular energy into physical energy, and the
+stress-tensor bridge identifies that energy with the local stress tensor.
+Each observer then reads the Einstein relation in their own frame, and patch
+consistency forces those readings into one tensor equation.
 
 ### Classical Mechanics from Emergent GR
 
@@ -775,20 +714,15 @@ For any macroscopic process, this ratio is absurdly tiny. General relativity is 
 Emergent geometry is the most economical description of how calibrated
 observer clocks and their supporting modular flows fit together.
 
-Imagine collecting all the data about how every patch's modular flow and clock
-readout relate to every neighboring patch. This is an enormous amount of
-information.
-
-But there's a compression. In the effective geometric regime, specifying a
-metric $g_{ab}$ organizes the leading overlap relations between nearby modular
-flows. The metric is the compressed description that captures that common
-structure.
+Collect all the data about how every patch's modular flow and clock readout
+relate to every neighboring patch and you get a table too large for anyone to
+use. In the effective geometric regime one object organizes the leading
+overlap relations between nearby modular flows: the metric $g_{ab}$, ten
+numbers per point doing the work of the whole table.
 
 This compression comes after neutral reconstruction, which first gives
-distances between features after redundant labels have been
-identified. The geometry readout, modular bridge, fixed-cap stationarity,
-small-ball area variation, and tensor-upgrade steps then upgrade the relevant
-geometric data to spacetime dynamics.
+distances between features after redundant labels have been identified. The
+steps of this chapter then upgrade that geometric data to spacetime dynamics.
 
 General relativity is the natural effective dynamics associated with this compression. It is the simplest theory that respects the recovered structure.
 
@@ -824,7 +758,7 @@ proposal relates the effective cosmological constant to the reference
 curvature and global screen capacity discussed in Chapter 13 through
 dimensionless products such as $\Lambda\ell_\star^2$. In natural units, the
 Gibbons-Hawking entropy is $S = A/(4G)$. For the late-time de Sitter horizon,
-the measured curvature and declared comparison scale give a bare radius-squared ratio
+the measured curvature and comparison scale give a bare radius-squared ratio
 near $1.05\times10^{122}$ and an entropy capacity near
 $3.31\times10^{122}$. These are comparison values, not a derived $N$.
 
@@ -833,18 +767,12 @@ discrepancy. OPH proposes a dimensionless global-capacity relation instead of
 defining Lambda by a local vacuum-energy sum. The numerical SI value also
 needs the scale that connects screen units to laboratory units. This reframes
 the question. It does not determine the observed value until the capacity
-closure and physical attachments are supplied.
+closure is supplied.
 
-In OPH the small value of Lambda belongs to a conditional global
-capacity-closure branch rather than to a cancellation between enormous local
-vacuum-energy terms. One finite screen packet has an exact capacity of
-twenty-four records. A bounded capacity family shares that base count, remains
-positive, and respects the carrier size while producing incompatible
-fixed-point sets.
-The complete observer construction across carrier sizes, its universe
-attachment, the horizon ledger, and the scale bridge are work in progress.
-Under those premises a selected de Sitter capacity and scale would display
-Lambda in laboratory units.
+In OPH the small value of Lambda is a capacity question rather than a
+cancellation between enormous local vacuum-energy terms. One finite screen
+realizes the pattern with an exact capacity of twenty-four records.
+Turning the full cosmic capacity into laboratory units is work in progress.
 
 ### Black Hole Information: Screen Encoding and Recoverability
 
@@ -878,7 +806,7 @@ cluster stress, or cosmological perturbations.
 
 ### The Repair-Charge Medium
 
-OPH's candidate is a medium of repair charge. Its local state is a number and
+OPH's answer is a medium of repair charge. Its local state is a number and
 an angle, the occupation count and the phase of a rotor that can spin up in
 whole units. The medium has two phases. In the normal phase it behaves like
 dust, pressureless matter that clumps and gravitates, which is what cosmology
@@ -892,13 +820,12 @@ where $a_b$ is the ordinary baryonic pull and $a_0$ is a tiny acceleration
 scale, about one ten-billionth of Earth gravity, below which rotation curves
 misbehave.
 
-This is a conditional action proposal. Given its dimensional source
-calibration, ambient repair field, compact-phase completion, and source
-receipt, the count and angle carry one conserved relativistic stress. The
-dust-like phase then supplies abundance and structure-growth equations. The
-condensed phase supplies equations for lensing, gravitational slip, cluster
-interiors, the quiet Solar System, and the deep-galaxy acceleration law. Those
-physical attachments and the corresponding astronomical tests are work in
+The count and the angle together carry one conserved relativistic stress. The
+dust-like phase supplies abundance and structure growth. The condensed phase
+supplies lensing, cluster interiors, the quiet Solar System, and the
+deep-galaxy acceleration law. The acceleration scale itself was written down
+and timestamped before any comparison, so the theory has a number here it can
+no longer move. Running the astronomical tests against it is work in
 progress.
 
 ## 15.13 Reverse Engineering Summary
@@ -906,26 +833,22 @@ progress.
 The old picture treated time as universal, gravity as a force, and geometry as
 a fixed stage. Relativity overturns each part. The speed of light forces time
 and distance into one four-dimensional structure. Free fall reveals gravity as
-geometry. OPH pushes the logic one step deeper. On the controlled scaling
-branch, Lorentz symmetry becomes the geometry of how calibrated clock records
-and modular cap motions mesh across patches, the separate event construction
-gives one time and three spatial directions, and gravity
-becomes the fixed-cap equilibrium condition after the geometry readout,
-null bridge, bounded-interval kernel, small-ball area identity, and tensor
-upgrade have all been supplied.
+geometry. OPH pushes the logic one step deeper. Lorentz symmetry becomes the
+geometry of how calibrated clock records and modular cap motions mesh across
+patches, the event construction gives one time and three spatial directions,
+and gravity becomes the equilibrium condition on the entropy of small caps.
 
 On this reading, the speed of light is the conversion factor between
-information flow on the screen and emergent geometry in the bulk. On the
-Einstein branch, Einstein's equation is
-the public face of entanglement equilibrium written in the language of
-curvature.
+information flow on the screen and emergent geometry in the bulk. Einstein's
+equation is the public face of entanglement equilibrium written in the
+language of curvature.
 
 Newton's absolute time and space were beautiful ideas, and they served for
 two centuries. They turned out to be approximations, the large-scale reading
 of something deeper.
 
-This yields emergent spacetime with Lorentz kinematics and
-the Einstein relation on the stated scaling branch. Spacetime and particles
+The result is emergent spacetime with Lorentz kinematics and the Einstein
+relation. Spacetime and particles
 both emerge from the screen. What is matter inside that picture, and how do
 classical notions of particle, energy, and motion grow out of the deeper
 quantum structure?

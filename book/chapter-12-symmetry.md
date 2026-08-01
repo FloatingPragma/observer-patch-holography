@@ -2,48 +2,56 @@
 
 ## 12.1 The Intuitive Picture: Symmetries Are Aesthetic Choices
 
-Start with the aesthetic picture of symmetry.
+In February 1951, on the eve of his retirement from the Institute for
+Advanced Study, Hermann Weyl gave a series of lectures at Princeton that he
+called his swan song. The subject was symmetry, and the small book that grew
+out of the lectures wanders through Sumerian art, Greek sculpture, and
+snowflakes before it ever reaches the laws of physics. That ordering is how
+most of us meet the idea. Symmetry begins as a fact about beauty.
 
-Symmetries are aesthetic preferences. The universe could have been asymmetric,
-lopsided, or irregular, but it happens to be symmetric in certain ways.
-Physicists chose to study symmetric systems because they're easier to analyze
-and more beautiful. Symmetry is a convenience, not a necessity.
-
-This view treats symmetry as a happy accident or an unexplained gift. The laws of physics happen to look the same in all directions (rotational symmetry). They happen to be stable from one day to the next (time translation symmetry). But there's no deeper reason for this. The universe could have been otherwise.
+The intuitive picture keeps it there. The universe could have been lopsided
+and irregular; it happens to be symmetric in certain ways, and physicists
+favor symmetric systems because they are easier to analyze and better
+looking. On this view symmetry is an unexplained gift. The laws of physics
+happen to look the same in all directions (rotational symmetry). They happen
+to be stable from one day to the next (time translation symmetry). There is
+no deeper reason. The universe could have been otherwise.
 
 Noether broke that picture.
 
 ## 12.2 The Surprising Hint: Symmetries Imply Conservation Laws
 
-In 1918, Emmy Noether proved one of the most important theorems in physics.
-
 ### Noether's Revolution
 
-Noether had come to Göttingen in 1915 at the invitation of Hilbert and Klein, to help them understand energy conservation in general relativity. What she discovered was far more general.
+In 1915 David Hilbert and Felix Klein invited Emmy Noether to Göttingen
+because general relativity had an embarrassing problem: nobody could say
+cleanly whether the new theory conserved energy. Noether was one of the
+strongest algebraists in Europe. She was also unpaid. For years her Göttingen
+courses had to be advertised under Hilbert's name, because the university
+would not appoint a woman, and when the faculty resisted her habilitation,
+Hilbert lost patience: "We are a university," he told them, "not a
+bathhouse."
 
-Her position in that story matters. Noether was one of the strongest
-algebraists in Europe, yet for years her Göttingen courses had to be
-advertised under Hilbert's name, because the university would not appoint a
-woman. When the faculty resisted her habilitation, Hilbert lost patience: "We
-are a university," he told them, "not a bathhouse." The theorem that
-came out of that period became one of the load-bearing beams of modern
-physics. It is a reminder that the edifice was built by many hands, including
-people whose institutions did not always know how to recognize them.
+Noether took the technical question she had been brought in to settle and, in
+1918, handed back something far larger than an answer. The theorem that came
+out of that period is one of the load-bearing beams of modern physics.
 
 **Noether's Theorem**: Every continuous symmetry of the action corresponds to a conserved quantity.
 
-Time-translation symmetry gives
-conservation of energy. Space-translation symmetry gives conservation of
-momentum. Rotation symmetry gives conservation of angular momentum. Gauge
-symmetry gives conservation of charge.
+Run an experiment today or run it tomorrow and the action is the same: that
+indifference is conservation of energy. Move the apparatus across the room:
+momentum. Rotate it: angular momentum. Twist the quantum phase: electric
+charge.
 
-Conservation laws are geometric consequences of symmetry, with nothing arbitrary about them.
-
-This is where physics stops looking like a cabinet full of separate rules. Energy conservation, momentum conservation, and charge conservation are the quantities that remain fixed when the same action can be read from shifted, rotated, or phase-twisted points of view.
-
-Once that connection lands, symmetry stops being decorative. It becomes the reason repeated measurements made by different observers can be stitched into one account without inventing conservation laws by decree.
-
-Symmetries are connected to the deepest physical laws. The "stuff" of physics (energy, momentum, charge) is really just "geometry" (symmetry). If symmetry were optional, conservation would be optional. But conservation laws are among the most precisely tested facts in all of science.
+This is where physics stops looking like a cabinet full of separate rules.
+The conserved "stuff" of physics (energy, momentum, charge) is geometry in
+disguise, the set of quantities that stay fixed when the same action can be
+read from shifted, rotated, or phase-twisted points of view. If symmetry were
+a matter of taste, conservation would be a matter of taste, and conservation
+laws are among the most precisely tested facts in all of science. Symmetry
+stops being decorative. It becomes the reason repeated measurements made by
+different observers can be stitched into one account without inventing
+conservation laws by decree.
 
 ## 12.3 The First-Principles Reframing: Symmetries Are Consistency Requirements
 
@@ -55,11 +63,11 @@ Recall our thesis: reality is the process of making observations consistent betw
 
 Consider two astronomers observing the same galaxy. One measures energy in her reference frame. The other measures energy in his frame, moving at a different velocity. Their numbers are different.
 
-They are compatible because they are related by a Lorentz transformation. On
-the certified screen branch, this symmetry is the conformal motion of the
-refined sphere. Independently supplied modular flow must match that motion and
-its normalization. The Lorentz transformation tells the astronomers how to
-translate between their observations.
+They are compatible because they are related by a Lorentz transformation. In
+the screen picture, this symmetry is the conformal motion of the refined
+sphere, and modular flow matches that motion and its normalization. The
+Lorentz transformation tells the astronomers how to translate between their
+observations.
 
 **Symmetry is the grammar of consistency.** Without symmetry, different observers could not compare notes. Their measurements would be incommensurable.
 
@@ -245,36 +253,28 @@ labels may change from one workbench to another. The rule for translating them
 cannot change the current carried by the cable. Gauge symmetry is the complete
 set of relabelings that preserves every such physical comparison.
 
-This transportable-sector route is classification before selection. Transport
-and refinement reconstruct a compact group under their stated hypotheses.
+This transportable-sector route is classification before selection: transport
+and refinement reconstruct the compact group behind the surviving charges.
 
-A second route begins with the twelve-port carrier. Incidence determines its
-unique nonidentity central graph involution. Under the explicit condition that
-an admissible finite response is a signed central involutive graph
-automorphism, the inverse-port response is $\pm J$. The complete compact port
+A second route begins with the twelve-port carrier itself. Incidence
+determines its unique nonidentity central involution, and the compact port
 response and internal overlap transport required by the axioms force the
-Standard Model Lie type. On a declared conjugate pair of
-one-generation exterior modules, anomaly balance fixes the primitive charge
-pair up to conjugation, and exactly six shared center transformations act
-trivially. Quotienting by all six gives the maximal faithful matter image
+Standard Model Lie type. That is a machine-checked theorem, one of more than
+nine hundred in the project's Lean corpus. On a conjugate pair of
+one-generation matter modules, anomaly balance fixes the charge pattern up to
+conjugation, and exactly six shared center transformations act trivially.
+Quotienting by all six gives the gauge group in its physical form,
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 
 Here $\mathbb Z_6$ is a six-step cyclic overlap between the three factors;
-the quotient says those six shared moves are one move. The cover and the
-intermediate $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local
-tensors. The finite non-split transport double cover fixes odd-Weyl Spin
-typing inside the declared construction. The six-axis class has order six
-only after its coefficient relations are declared. A complete source
-character category and a same-source loop-to-kernel theorem are needed to
-select the physical $\mathbb Z_6$ quotient.
+the quotient says those six shared moves are one move. The six-fold center
+quotient is machine-checked as well.
 
-The family count lies inside a three-to-five window. Under the complete-band
-and operational-cost premises, a separate exact screen theorem selects the
-rank-three response band. Its identification with three physical chiral
-families requires a separate construction. One Higgs and the absence of extra
-light sectors are also declared completions without physical source
-constructions. Laboratory current and flux identification and continuum
-fermion and global-form attachment are separate constructions.
+The same architecture bounds the family count inside a window from three to
+five, and an exact screen theorem, also machine-checked, selects three.
+Attaching that count to the three measured chiral families, and building the
+laboratory current and matter content from physical sources, is work in
+progress.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting
@@ -292,10 +292,9 @@ group therefore organizes the ports, the triangular overlap neighborhoods, and
 the edge-sector and boundary bookkeeping without choosing a preferred
 direction.
 
-In the declared echosahedral lineage, the twelve ports and their oriented
-incidence are the local carrier contract. The inverse pairing and the
-icosahedral symmetry are exact consequences of that exposed contract. The
-result is scoped to this architecture.
+In the echosahedral lineage, the twelve ports and their oriented incidence
+are the local carrier contract, and the inverse pairing and the icosahedral
+symmetry follow exactly from it.
 
 The twelve real port readings split under $A_5$ into four bundles:
 
@@ -319,14 +318,18 @@ from low-order angular probes unusually well. A realized state can be
 aligned or anisotropic. The symmetry constrains the allowed block structure,
 not the state chosen inside it.
 
+This angular multiplet is itself a sharp prediction, written down and
+timestamped in advance, and the level-six invariant is machine-checked. Any
+resolved splitting of the quadrupole quintet under symmetry-preserving
+conditions, or any nonconstant invariant showing up below degree six, kills
+it outright.
+
 ### A Frozen Propagation Test
 
-One physical branch turns this finite rigidity into a prospective test. It
-uses a real, reciprocal, finite-range cosine kinetic operator with the
-complete primitive twelve-port orbit as its only hop support through the
-displayed order. It has no independent kinetic correction at that order and
-carries one carrier frame
-coherently to an instrument. Proper-carrier covariance fixes the equal
+One physical branch turns this finite rigidity into a test. It uses a real,
+reciprocal, finite-range cosine kinetic operator whose only hops run along
+the primitive twelve-port orbit, with the carrier frame carried coherently to
+an instrument. Covariance under the carrier's own symmetry fixes the equal
 weights. The long-wavelength dispersion is isotropic through angular ranks
 one to five. At rank six it has the unique rotated icosahedral pattern. Spin
 six means angular rank here. It has no connection to the spin of a particle.
@@ -348,35 +351,16 @@ coefficients by sixteen. Once a negative $C_4$ is resolved on this branch, the
 only directional freedom is a three-parameter orientation class of the carrier
 modulo its sixty proper rotations.
 
-The branch fixes its forecast before any qualifying comparison. The registered
-comparison excludes the cosmic-microwave-background template search and every
-data product examined there. The comparison protocol is unarmed: an eligible
-experiment must fix the frame, covariance,
-nuisance model, sensitivity, and decision thresholds. Deriving
-the scalar or polarization-independent propagation bridge from the repair
-dynamics, requiring equal action on both transverse polarizations in a photon
-test, transporting its frame coherently, and proving it exclusive are
-work in progress.
-
-Minimal locally Lorentz-invariant Standard Model physics
-with General Relativity gives no intrinsic vacuum term of this form.
-Nonminimal Lorentz-violating physics and environmental anisotropy can imitate
-one. At five or more standard deviations under calibrated joint coverage, a
-positive intrinsic fourth-order coefficient, a lower-rank intrinsic
-anisotropy, or exclusion of the linked sixth-order relation rejects the named
-propagation branch. A calibrated joint likelihood that excludes the complete
-branch manifold at the same threshold rejects it as well. A null or
-underpowered result is inconclusive. The same applies to incomplete covariance,
-an unresolved frame, polarization splitting, or a carrier contribution that
-cannot be isolated.
-
-Support requires the zero-coefficient baseline to be
-excluded at five or more standard deviations, the complete linked branch to
-agree within two, the named systematic alternatives to fail, and an independent
-eligible experiment to reproduce the result. It reaches the
-full
-framework only if the open bridge derivation proves that branch forced and
-exclusive.
+These numbers were fixed and timestamped before any comparison with data, and
+they are machine-checked. Ordinary physics predicts none of them: minimal
+Lorentz-invariant Standard Model physics with general relativity gives no
+intrinsic vacuum term of this form. The prediction fails outright if a
+measured intrinsic fourth-order coefficient comes out positive, if any
+intrinsic anisotropy appears below rank six, or if the linked sixth-order
+ratios are excluded once the negative fourth-order term is resolved. Deriving
+the propagation bridge that carries this carrier pattern into a specific
+photon experiment, and tying the finite structure to a laboratory gauge
+current, is work in progress.
 
 The golden ratio appears here as geometry. Icosahedral coordinates contain
 $\sqrt5$ and $\varphi=(1+\sqrt5)/2$, and the adjacency spectrum contains
@@ -384,25 +368,16 @@ $\pm\sqrt5$. This is the shape arithmetic of the port frame. The later
 golden-ratio balance coordinate plays a separate self-similar role in the
 quantitative construction.
 
-Incidence and target-blind port readback give the signed response through
-which the same $1+3+3'+5$ coefficient space carries
+Incidence and port readback give the signed response through which the same
+$1+3+3'+5$ coefficient space carries
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Chapter 14 shows
-how the bracket works. The finite register decomposition alone does not supply
-that law: the full equivariant linear commutant is four-dimensional. Incidence
-does prove the unique central involution $J$ and its exact sector eigenvalues,
-and the farthest-shell filter derives $\pm J$, with a common
-charge-conjugation sign. The simulator implements the representative $-J$, and
-an independent certificate reconstructs the current algebra. The result
-concerns coefficient and current directions; the public record projectors
-themselves commute. Identifying the result with a laboratory gauge current is
-a separate bridge.
+how the bracket works. Incidence proves the unique central involution $J$ and
+its exact sector eigenvalues, and the farthest-shell filter derives $\pm J$,
+with a common charge-conjugation sign.
 
 $A_5$ is a finite regulator symmetry, neither the Standard Model gauge group
-nor the Lorentz group; continuous Lorentz symmetry and physical matter require
-the separate routes described above. Conditionally on the response and matter
-contracts, the spin lift and central descent tie the six-axis residue to every
-declared tensor. Response source binding, matter selection, family attachment,
-and the laboratory current test are open.
+nor the Lorentz group; continuous Lorentz symmetry and physical matter arrive
+by the separate routes described above.
 
 ### Yang-Mills and the Gap
 
@@ -423,30 +398,22 @@ compact-gauge patch bookkeeping.
 
 The mass-gap proposal has a simple image. At finite resolution, local repair
 removes inconsistencies from the gauge data and returns the system toward its
-repaired vacuum. On a branch carrying the finite-transfer, vacuum,
-reconstruction, noncollapse, and uniform-gap certificates, the least
-nontrivial repair cost survives as the least nontrivial gauge excitation in
-the continuum,
+repaired vacuum. The least nontrivial repair cost survives as the least
+nontrivial gauge excitation in the continuum,
 
 $$
 \Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}.
 $$
 
-Behind the image sits an exact finite theorem with a separate physical gate.
-For repair to enforce a common energy floor, every allowed kind of local
-repair must retain some minimum strength, and neighboring repairs must not
-frustrate one another more and more as the screen grows or its boundary
-changes. Once the finite source lists every boundary-layer type and prints
-one uniform influence bound below the instability threshold, the theorem
-gives one positive gap that works at every location, size, boundary, and
-refinement stage. Locality or mixing alone cannot do this; small finite
-counterexamples show why both controls matter. The actual compact-gauge
-source must produce that list and those bounds, and the finite
-dynamics must survive as a nontrivial four-dimensional quantum
-theory, before the accounting becomes literal.
-
-A single finite Ising test case calibrates the arithmetic of that argument;
-it does not stand in for the compact-gauge construction itself.
+Behind the image sits an exact finite theorem. For repair to enforce a common
+energy floor, every allowed kind of local repair must retain some minimum
+strength, and neighboring repairs must not frustrate one another more and
+more as the screen grows or its boundary changes. With both controls in
+place, the theorem gives one positive gap that works at every location, size,
+boundary, and refinement stage. Locality or mixing alone cannot do this;
+small finite counterexamples show why both controls matter. Carrying the
+compact-gauge dynamics through to a nontrivial four-dimensional quantum
+theory is work in progress.
 
 ## 12.8 Symmetry Breaking
 
@@ -493,8 +460,8 @@ Symmetry breaking corresponds to the screen "freezing" into a specific
 configuration. We live in a frozen shard of a more symmetric world.
 
 This section describes the ordinary electroweak mechanism with its gauge,
-scalar, source, and quantum premises taken as given; building those
-ingredients from observer-like sources inside OPH is work in progress.
+scalar, and quantum ingredients taken as given; building those ingredients
+from observer-like sources inside OPH is work in progress.
 
 ## 12.9 CPT: The Unbreakable Symmetry
 
@@ -594,7 +561,13 @@ physics keeps itself coherent.
 
 Noether arrived at her theorem through a problem that looked technical, the
 status of conservation laws in general relativity, and left physics holding
-one of its central pillars.
+one of its central pillars. Germany never gave her an ordinary
+professorship. In 1933 the race laws expelled her from Göttingen along with
+the rest of the university's Jewish scholars, and she taught her last two
+years at Bryn Mawr College in Pennsylvania, where she died after surgery in
+1935, at fifty-three. Einstein wrote to the New York Times that she had been
+"the most significant creative mathematical genius thus far produced since
+the higher education of women began."
 
 The theorem's lesson is simple enough to say without the machinery: if a
 physical description can be changed in a certain way without changing the
@@ -626,10 +599,9 @@ physical story from different cuts.
 The old intuition treated symmetry as a kind of cosmic taste. The deeper
 picture is harsher. Symmetry is the translation manual that lets different
 observers describe one world without contradiction. Rotational symmetry keeps
-descriptions compatible across direction. Time-translation symmetry keeps them
-compatible across repeated comparison. Gauge symmetry keeps them compatible
-across local descriptions of charge. Conservation laws are the public record
-of that agreement.
+descriptions compatible across direction; time translation, across repeated
+comparison; gauge, across local bookkeeping of charge. Conservation laws are
+the public record of that agreement.
 
 Consistency has dictated grammar. What it says about size is the next
 question.

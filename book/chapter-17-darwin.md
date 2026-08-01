@@ -1,10 +1,24 @@
 # Chapter 17: Darwin's Laws
 
+In June 1858 a package from the Malay Archipelago reached Down House, in
+Kent. Charles Darwin had been sitting on his theory of natural selection for
+close to twenty years, grinding through barnacles and pigeon-breeding records
+instead of publishing, and the package contained a short essay by Alfred
+Russel Wallace, a specimen collector who had drafted it between fits of
+malarial fever, setting out the same theory. Ten days later Darwin's infant
+son died of scarlet fever. On the first of July, while Darwin stayed home,
+the two accounts were read jointly at the Linnean Society in London, with
+neither author in the room and Wallace not yet aware the meeting was taking
+place. The society's president would sum up 1858 as a year not marked by any
+striking discovery.
+
+This chapter takes the idea in that package and asks it to do the least
+biological work imaginable: to explain why the laws of physics are the ones
+we find.
+
 ## 17.1 The Intuitive Picture: Laws Are Eternal Mathematical Truths
 
-Start with the Platonic picture of law.
-
-The laws of physics are eternal, unchanging mathematical truths. They stand
+The picture most physicists carry is Platonic. The laws of physics are eternal, unchanging mathematical truths. They stand
 outside cosmic history. They will exist after the heat death. Newton's laws,
 Maxwell's equations, and Einstein's field equations are discovered, not
 invented. They describe timeless constraints on reality.
@@ -35,9 +49,10 @@ high-energy scale by quantum corrections.
 OPH addresses the dimensionless part of this puzzle. It produces the large gap
 between the Higgs scale and the deep short-distance scale from the way the
 forces run with energy, rather than treating that gap as an accident that has
-to be tuned away. The scale bridge turns that ratio into the Higgs scale in GeV
-and sets the matching gravitational unit. The weak hierarchy and the strength
-of gravity are two readings of the same selected screen scale.
+to be tuned away; the exponent that sets the gap matches measurement to 2.3
+parts in ten thousand. The scale bridge turns that ratio into the Higgs scale
+in GeV and sets the matching gravitational unit. The weak hierarchy and the
+strength of gravity are two faces of the same selected screen scale.
 
 **The strong force**: Small percent-level shifts in nuclear parameters are often argued to strongly disrupt stellar nucleosynthesis and the chemistry needed for long-lived structure.
 
@@ -89,7 +104,7 @@ This is Darwin on a cosmic scale. In Smolin's proposal, after countless
 generations we should find ourselves in a universe near a fitness peak, one
 optimized for black-hole production.
 
-OPH borrows the selection instinct, not Smolin's whole mechanism. Candidate
+OPH borrows the selection instinct, not Smolin's whole mechanism. Would-be
 laws and records must pass the finite observer-overlap filter before they can
 belong to a public world.
 
@@ -107,14 +122,14 @@ If you could, our universe wouldn't be at a fitness peak.
 records agree. The same shape appears at several scales: cosmic selection in
 Smolin's picture, quantum selection in Zurek's Darwinism, and informational
 selection when compression schemes survive because they actually match the
-data. OPH uses only the last kind as part of its own machinery here: candidate
-laws must survive observer overlap.
+data. OPH uses only the last kind as part of its own machinery here: laws
+must survive observer overlap.
 
 ## 17.4 Quantum Darwinism: Selection at the Quantum Scale
 
 You don't need to invoke the multiverse to see Darwinian selection in physics.
 
-Wojciech Zurek's **quantum Darwinism** explains how the classical world emerges from quantum mechanics.
+**Quantum Darwinism**, Zurek's idea from Chapter 6, explains how the classical world emerges from quantum mechanics.
 
 ### The Environment as Selector
 
@@ -184,8 +199,7 @@ The electron is a vibration pattern that persists. The muon is a pattern that pe
 The "particle zoo" is a census of vibrational survivors.
 
 The gauge chapters give the finite structure behind this census. Attaching
-its patterns to measured particle families is work in progress, with the
-required physical interfaces stated explicitly.
+its patterns to measured particle families is work in progress.
 
 The survival ladder continues into composite matter. QCD binds quarks and
 gluons into protons, neutrons, and mesons, with confinement supplying most of
@@ -209,7 +223,7 @@ require a literal spacetime-defect realization of the electron.
 
 ## 17.7 Memes: The Evolution of Ideas
 
-In 1976, Richard Dawkins coined a term that would escape biology and colonize culture: the **meme**.
+In the last chapter of *The Selfish Gene* (1976), Richard Dawkins coined a term that would escape biology and colonize culture: the **meme**.
 
 ### What Is a Meme?
 
@@ -240,18 +254,18 @@ can stress them from different sides.
 
 ### The Self-Reading Computation Meme
 
-Among all the memes that have evolved in human culture, one stands out as unique.
+One meme deserves its own entry in this census.
 
 The **self-reading computation meme**, the idea that reality can be read as an
 observer-readable closure, is the meme that lets reality become explicit to
 some of its own observers.
 
-The path is easy to picture. Language lets memes replicate. Mathematics
-appears as a precise compression scheme. Physics appears as a family of memes
-that model the rules. Computation theory appears as a meme about information
-processing itself. The simulation principle condenses those threads into one
-idea, then OPH sharpens it: reality may be a computation whose output is the
-world read from inside.
+The lineage is short to state. Language lets memes replicate at all.
+Mathematics sharpens them into exact compression schemes, physics aims them
+at the rules of the world, and computation theory makes information
+processing itself a subject. The simulation principle condenses those threads
+into one idea, and OPH sharpens it: reality is a computation whose output is
+the world read from inside.
 
 ### The Meme That Reads Its Maker
 
@@ -278,15 +292,15 @@ Physics has laws because the consistency requirement forces reality into structu
 
 **The laws of physics are what allow observers to agree on what the data means.**
 
-This statement cuts to the heart of OPH. Lorentz invariance exists because different observers moving through the same region must arrive at consistent descriptions. Gauge symmetry exists because overlapping patches must identify shared observables without ambiguity. Conservation laws hold because the same quantities must be conserved across all perspectives.
+Lorentz invariance exists because different observers moving through the same region must arrive at consistent descriptions. Gauge symmetry exists because overlapping patches must identify shared observables without ambiguity. And conservation laws mark the quantities durable enough to survive every change of perspective.
 
-The selection filter is severe. A candidate law must support stable records,
-local repair, transport across overlaps, and enough redundancy for many
-observers to check the same fact. A beautiful equation that cannot survive
-those tests is like a mutation that cannot reproduce. It can be imagined. It
-does not become part of a public world.
+The selection filter is severe. A law survives it only by supporting stable
+records, local repair, transport across overlaps, and enough redundancy for
+many observers to check the same fact. A beautiful equation that cannot
+survive those tests is like a mutation that cannot reproduce. It can be
+imagined. It does not become part of a public world.
 
-![Candidate patterns become public physics only after passing consistency, record, compression, and observer-support filters.](../assets/book_diagrams/selection-filters.svg){width=80%}
+![Patterns become public physics only after passing consistency, record, compression, and observer-support filters.](../assets/book_diagrams/selection-filters.svg){width=80%}
 
 The laws are the conditions that make agreement possible.
 
@@ -316,16 +330,13 @@ Similarly, physical laws are conventions that enable consistent communication be
 
 ### Darwin, Wallace, and the Discipline of Selection
 
-Darwin did not discover evolution by imagining change in the abstract. He
-spent years gathering small stubborn facts: island species, barnacles, fossils,
-domesticated breeding records, geographical ranges, and the selective power of breeders.
-Alfred Russel Wallace independently found the same principle through field
-experience in the Amazon and Malay Archipelago, and when his essay reached
-Down House in June 1858, the two accounts were read jointly at the Linnean
-Society within weeks: Darwin at home mourning a dead child, Wallace on the
-far side of the world, unaware the meeting was taking place. Natural
-selection became persuasive because it organized a huge mess of observations
-with one filter: variants that reproduce better become more common.
+The twenty years Darwin spent not publishing were not hesitation for its own
+sake. He was gathering small stubborn facts: island species, barnacles,
+fossils, domesticated breeding records, geographical ranges, the selective
+power of breeders. Wallace had a decade of collecting in the Amazon and the
+Malay Archipelago behind the essay that forced the issue. Natural selection
+became persuasive because it organized that huge mess of observations with
+one filter: variants that reproduce better become more common.
 
 The analogy needs the same discipline. OPH
 does not say that equations literally have children, or that constants wander
@@ -362,7 +373,7 @@ compression schemes that actually fit the data. Cosmic natural selection
 is a separate analogy, with no concrete cosmological mechanism specified.
 Stable particles survive because they carry the right protections.
 Ideas survive because they spread, predict, and organize thought. The
-self-reading computation meme matters because it is one way reality may become
+self-reading computation meme matters because it is how reality becomes
 explicit to itself through the observers it produces.
 
 ---
