@@ -61,7 +61,17 @@
         {
           "number": 503,
           "disposition": "open_work_item",
-          "role": "inhabited de Sitter carrier required by the recorded issue-589 reopen condition; the identification closed not evaluable because the completed capacity class entails no unique carrier"
+          "role": "inhabited de Sitter carrier required by the recorded issue-589 reopen condition"
+        },
+        {
+          "number": 505,
+          "disposition": "open_work_item",
+          "role": "source-complete direct-capacity antecedent and physical fixed-point verdict"
+        },
+        {
+          "number": 551,
+          "disposition": "open_work_item",
+          "role": "universal source-membership and executable-to-Lean bridge for the bounded counterfamily"
         }
       ]
     },
@@ -230,14 +240,10 @@
         "conditional one-class quotient expectation P/24 from declared total P/4 and class equidistribution",
         "open physical blocked-event and scalar-weighted presence receipts",
         "typed construction/readback same-invariant bridge",
-        "optional mean-count or projective-limit carrier"
+        "optional mean-count or projective-limit carrier",
+        "bounded countermodels show that the declared finite datum plus composition and cut-count regrouping selects no global action; a positive branch requires a stronger source-derived action"
       ],
       "blocking_issues": [
-        {
-          "number": 503,
-          "disposition": "open_work_item",
-          "role": "construct an inhabited source-derived Einstein/de Sitter carrier required before a horizon interpretation"
-        },
         {
           "number": 547,
           "disposition": "open_work_item",
@@ -257,21 +263,6 @@
           "number": 631,
           "disposition": "open_work_item",
           "role": "decide the physical screen-to-electroweak load attachment and its normalization"
-        },
-        {
-          "number": 648,
-          "disposition": "open_work_item",
-          "role": "complete the two-branch closure packet, including branch selection or a typed not-evaluable exit"
-        },
-        {
-          "number": 649,
-          "disposition": "open_work_item",
-          "role": "prove or reject one normalized connected-cut survival factor acting once on global capacity"
-        },
-        {
-          "number": 650,
-          "disposition": "open_work_item",
-          "role": "after positive producer exits, identify the named-law capacity with the de Sitter horizon record"
         }
       ]
     }
@@ -345,12 +336,14 @@
     },
     {
       "selector_id": "capacity_closure_selector",
-      "label": "capacity-closure selector for the slack law; the completed class entails none, so any selector is an additional named source law",
+      "label": "capacity-closure selector for the slack law; bounded nonidentifiability is proved and complete-source membership is open",
       "source": "claims/selection_ledger.json",
       "status": "undeclared",
       "menu_size": null,
       "blocking_issues": [
-        503
+        503,
+        505,
+        551
       ]
     },
     {
@@ -423,6 +416,8 @@
     "reason": "menu_sizes_undeclared",
     "blocking_issues": [
       503,
+      505,
+      551,
       569
     ],
     "p_acc_upper_bound": null

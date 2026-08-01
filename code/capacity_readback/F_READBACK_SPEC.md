@@ -199,14 +199,17 @@ A target-clean all-rung generator proves the bounded non-entailment result.
 Reversible identity, copy-collapse, two-class, and hidden-spectator
 completions share base agreement, positivity, the carrier bound, finite
 incidence and action controls, and an oriented-record fiber product. Their
-exact zero sets differ. The complete A1--A3 capacity source antecedent is
-lifted across the generation-register family by the complete-lift receipt:
-terminal fibers, atom maps, public sections, histories, joint kernels,
-meaning maps, A3 feasible-set data, and extension and refinement controls
-are transported per rung. Under the source-closed continuation reading the
-slack vanishes at every rung; under the widened reading the surviving
-completions carry inequivalent zero sets. In both readings the completed
-declared class does not entail a unique slack zero.
+exact zero sets differ.
+
+The generation-register audit constructs terminal fibers, atom maps, public
+sections, histories, joint kernels, meaning maps, A3 feasible-set data, and
+extension and refinement controls on rungs one through six. The corresponding
+capacity formulas hold at every positive rung and their arithmetic is proved
+in Lean. The receipt does not prove that the executable packet satisfies the
+complete A1--A3 source contract at every rung, and it does not bind the
+executable family to the Lean completion used by the arithmetic theorem.
+These universal membership obligations are required before the bounded
+countermodel can become a complete-source nonidentifiability result.
 
 ## 9. Independent downstream bridges
 
@@ -310,13 +313,13 @@ Issue #548 supplies the first source-only fixed-`D` packet at `D=24` over
 its complete declared one-fault terminal fiber, together with separate
 no-new-confusability capacity-extension and fixed-`D` refinement receipts.
 
-The complete-lift receipt transports the fixed packet across the
-capacity-indexed generation-register family, including terminal-fiber
-completeness, observer/interface maps, global joint kernels, A2 meaning
-maps, A3 feasible-set projections, and exact continuation and refinement
-controls. The resulting verdict is non-identifiability of a unique slack
-zero on the completed declared class, under both the source-closed and the
-widened continuation readings. A unique-zero selection would require an
-additional named source law. Horizon and common-EW identifications remain
-downstream of a positive selection that does not exist on this class. No
+The generation-register receipt evaluates terminal-fiber completeness,
+observer/interface maps, global joint kernels, A2 meaning maps, A3
+feasible-set projections, and continuation and refinement controls on the
+finite audit rungs. Its verdict is
+`BOUNDED_GENERATION_REGISTER_COUNTERMODEL__UNIVERSAL_MEMBERSHIP_OPEN`.
+Universal source-contract membership, the executable-to-Lean binding, and an
+independent universal replay remain required. Direct N is
+`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`. Horizon and common-EW
+identifications remain downstream of a positive source-selected capacity. No
 cosmic prediction is promoted.

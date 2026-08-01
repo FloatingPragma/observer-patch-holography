@@ -177,11 +177,22 @@ $1+3+3'+5$. Pairing antipodal ports separates even and odd modes, and the
 outward face orientation supplies the handedness needed for the second
 triplet. The same fixed line forces the exact abstract Lie algebra
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$,
-and an explicit matrix construction realizes it.
+and an explicit matrix construction realizes it on the declared finite current
+space. The geometric carrier, the complete reversible response premise, and
+the internal overlap-recharting premise are all needed. The finite source
+artifacts do not supply the twelve source-current generators or their bracket
+closure, so the physical current attachment remains work in progress.
 
-The same carrier supplies a sharp prediction, written down and
-cryptographically timestamped before any comparison data is examined. Waves
-propagating through the twelve-port carrier have a long-wavelength dispersion
+The same finite matter table excludes the usual heavy $X/Y$ gauge-boson
+channel. That exclusion does not imply proton stability. An exact census of
+the dimension-six operators admitted by the declared gauge and matter data
+contains the four familiar classes $QQQL$, $QQUE$, $DUQL$, and $DUUE$. The
+screen source supplies no coefficient, amplitude, hadronic matrix element, or
+lifetime for them.
+
+The same carrier supplies a sharp conditional prediction, written down and
+cryptographically timestamped before any comparison data is examined. On the
+named vertex-orbit propagation branch, waves have a long-wavelength dispersion
 with no intrinsic anisotropic term at angular ranks one through five. Rank six
 carries one rigid icosahedral shape, up to a three-parameter orientation class
 in $SO(3)/A_5$. Spin six is the angular rank of this pattern. It does not
@@ -204,6 +215,14 @@ fourth-order coefficient with the wrong sign, finds intrinsic anisotropy at
 any rank below six, or breaks the linked sixth-order ratios kills the
 prediction outright. The rules for that comparison were fixed in advance,
 before any data is examined.
+
+The finite repair operator does not select this physical branch. It acts on
+thirty internal seams rather than translated field sites. The vertex, face,
+and edge direction orbits give distinct exact rank-six rays, and the source
+contains no spatial-hop or physical-readout bridge that chooses among them.
+The frozen test therefore rejects the named branch if it fails. Applying that
+failure to the whole framework requires a stronger source law that makes the
+branch unavoidable.
 
 The six antipodal axes also leave a sixfold residue in the coefficient
 lattice, matching the $\mathbb Z_6$ action on the matter tensors, and the
@@ -303,11 +322,12 @@ screen geometry. This is the memorable idea behind the local equation. A
 perfectly silent universe would at least have kept the paperwork down.
 
 The closure equation has exactly one solution, near $P=1.63$, and the
-uniqueness proof is machine-checked interval arithmetic. Read back as an
-electromagnetic strength, that root lands at an inverse coupling of
+uniqueness proof is machine-checked interval arithmetic. Its gauge-width
+readback is $137.035660\ldots$. The measured inverse coupling is
 $137.035999177(21)$, where the digits in parentheses give the stated
-uncertainty. That is the measured fine-structure constant, and it is the
-headline landing of the whole construction.
+uncertainty. The two numbers differ by a few parts per million, on the scale
+of the hadronic endpoint correction. Their physical identification requires
+the endpoint transport described earlier.
 
 ### The Bridge to Familiar Units
 
@@ -332,11 +352,15 @@ one local pixel.
 
 ### Where the Readings Stand
 
-The forward reading of the capacity comes out near
+The conditional common-load coordinate is near
 $3.53\times10^{122}$. The cosmological chain places the comparison value near
-$3.31\times10^{122}$, a gap of about seven percent. A finite correction from
-the collar gate, a survival factor of $1-P/24$, closes most of that gap and
-brings the forward reading within a percent of the observed value.
+$3.31\times10^{122}$, a gap of about seven percent. Multiplying by the finite
+collar survival factor $1-P/24$ would bring the coordinate within one percent
+of the comparison value. A Poisson reading gives a second nearby number.
+Both are retrospective arithmetic. The finite source admits exact neutral and
+multiplicative actions on global capacity, so it selects neither correction.
+A stronger source law must decide what the local survival event does to the
+global ledger before either number can count as physics.
 
 There is another suggestive count. The gauge algebra has twelve directions,
 and adding an orientation label gives twenty-four slots. The icosahedral
@@ -494,7 +518,7 @@ predicted a strange-to-down mass ratio near 23; lattice measurements put it
 near 20, and the rule is dead. A direct identification of the Cabibbo mixing
 angle with a real icosahedral axis angle is excluded as well, 20.9 degrees
 against the measured 13.0. What those failures leave standing is exactly what
-the framework still claims: the Koide identity, the tau window, and the paired
+the framework claims: the Koide identity, the tau window, and the paired
 quark-lepton channel structure.
 
 The finite calculations behind all of this are reproducible. Exact enumeration

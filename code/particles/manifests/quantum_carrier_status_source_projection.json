@@ -1,0 +1,179 @@
+{
+  "classical_carriers": [
+    {
+      "branch": "unbroken_deconfined_Maxwell_branch_with_Z_A_positive",
+      "branch_is_additional_input_not_group_output": true,
+      "carrier_id": "photon",
+      "classical_gate_passed": true,
+      "classical_gate_status": "conditional_pass_on_declared_action_phase_branch",
+      "continuum_spacetime_dimension": 4,
+      "hard_quadratic_mass_parameter_squared": 0,
+      "label": "Electromagnetic carrier",
+      "modes_per_carrier_component": 2,
+      "multiplicity_factor": 1,
+      "multiplicity_role": "u1_lie_algebra_generator",
+      "quantum_gate_passed": false,
+      "quantum_missing_receipts": [
+        "quantization_constructed_from_oph",
+        "positive_physical_hilbert_space",
+        "physical_two_point_or_hamiltonian_spectrum_constructed",
+        "positive_residue_massless_pole",
+        "asymptotic_or_deconfined_particle_state"
+      ],
+      "total_classical_modes": 2
+    },
+    {
+      "branch": "pure_Yang-Mills_quadratic_expansion_before_nonperturbative_confinement",
+      "branch_is_additional_input_not_group_output": true,
+      "carrier_id": "gluon",
+      "classical_gate_passed": true,
+      "classical_gate_status": "conditional_pass_on_declared_action_phase_branch",
+      "continuum_spacetime_dimension": 4,
+      "hard_quadratic_mass_parameter_squared": 0,
+      "label": "Color gauge carrier",
+      "modes_per_carrier_component": 2,
+      "multiplicity_factor": 8,
+      "multiplicity_role": "su3_adjoint_generator",
+      "quantum_gate_passed": false,
+      "quantum_missing_receipts": [
+        "quantization_constructed_from_oph",
+        "positive_physical_hilbert_space",
+        "physical_two_point_or_hamiltonian_spectrum_constructed",
+        "positive_residue_massless_pole",
+        "asymptotic_or_deconfined_particle_state"
+      ],
+      "total_classical_modes": 16
+    },
+    {
+      "branch": "pure_Einstein-Hilbert_linearization_about_a_suitable_Ricci-flat_background",
+      "branch_is_additional_input_not_group_output": true,
+      "carrier_id": "graviton",
+      "classical_gate_passed": true,
+      "classical_gate_status": "conditional_pass_on_declared_action_phase_branch",
+      "continuum_spacetime_dimension": 4,
+      "hard_quadratic_mass_parameter_squared": 0,
+      "label": "Einstein tensor carrier",
+      "modes_per_carrier_component": 2,
+      "multiplicity_factor": 1,
+      "multiplicity_role": "symmetric_metric_tensor_field",
+      "quantum_gate_passed": false,
+      "quantum_missing_receipts": [
+        "quantization_constructed_from_oph",
+        "positive_physical_hilbert_space",
+        "physical_two_point_or_hamiltonian_spectrum_constructed",
+        "positive_residue_massless_pole",
+        "asymptotic_or_deconfined_particle_state"
+      ],
+      "total_classical_modes": 2
+    }
+  ],
+  "classical_mode_vector": [
+    2,
+    16,
+    2
+  ],
+  "classical_mode_vector_order": [
+    "photon",
+    "gluon",
+    "graviton"
+  ],
+  "comparison_policy": {
+    "blind_prediction_eligible": false,
+    "comparison_data_present": false,
+    "comparison_values_consumed": false,
+    "laboratory_values_present": false,
+    "status_packet_only": true,
+    "target_named_rows_present": true
+  },
+  "continuum_spacetime_dimension": 4,
+  "declared_boundary_evidence": [
+    {
+      "boundary_id": "finite_local_domain",
+      "evidence_class": "bounded_local_receipt",
+      "issue_context": [
+        634,
+        635
+      ],
+      "pin": {
+        "bytes": 7121,
+        "path": "code/a5_closure/manifests/stage4_receipt.json",
+        "role": "finite domain with continuum promotion blocked",
+        "sha256": "sha256:f491e70b0ce2706f5cf27bc515af71705fbddc2731a6883ccb3743259fc9659b"
+      },
+      "status": "FINITE_DOMAIN_ATTAINED__CONTINUUM_PROMOTION_BLOCKED"
+    },
+    {
+      "boundary_id": "electroweak_source_action",
+      "evidence_class": "bounded_local_frontier",
+      "issue_context": [
+        630
+      ],
+      "pin": {
+        "bytes": 13252,
+        "path": "code/particles/hierarchy/higgs_yukawa_source_frontier/outputs/higgs_yukawa_source_frontier.json",
+        "role": "nonpromoting scalar and Yukawa source frontier",
+        "sha256": "sha256:eda5cf5846f632d82f69cbb3222f1c0fdf67d22d02416df09e82375f6ace1e54"
+      },
+      "status": "POSITIVE_SOURCE_ACTION_OPEN"
+    },
+    {
+      "boundary_id": "inhabited_einstein_tower",
+      "evidence_class": "bounded_local_frontier",
+      "issue_context": [
+        503
+      ],
+      "pin": {
+        "bytes": 8839,
+        "path": "code/geometry/runs/realized_branch_receipt_report.json",
+        "role": "partial Einstein branch receipts without full inhabited antecedent",
+        "sha256": "sha256:88e787bd656692bc7cbb4cabf7db7f80f6979b362ee7d2424be9f577b7bf0ea3"
+      },
+      "status": "FULL_INHABITED_ANTECEDENT_NOT_CERTIFIED"
+    },
+    {
+      "boundary_id": "lorentzian_quantum_eft_transfer",
+      "evidence_class": "declared_open_interface",
+      "issue_context": [
+        635
+      ],
+      "pin": {
+        "bytes": 48724,
+        "path": "code/particles/calibration/wz_native_source_packet/outputs/source_parent_inventory.json",
+        "role": "source inventory with the quantum-EFT transfer typed open",
+        "sha256": "sha256:8c921d4b970283e0bcf62aebf2e63d4803ef7a6bb45ef45b3bc95d4f24dc28f2"
+      },
+      "status": "OPEN_ON_DECLARED_SOURCE_INVENTORY"
+    },
+    {
+      "boundary_id": "qcd_spectral_resource",
+      "evidence_class": "bounded_local_resource_receipt",
+      "issue_context": [
+        425,
+        294
+      ],
+      "pin": {
+        "bytes": 2581,
+        "path": "code/particles/runs/qcd/hadron_source_backend/qcd_ensemble/solver_on_standby.json",
+        "role": "standby solver with no source spectral output",
+        "sha256": "sha256:c34d637a2b2afe638c5f182eb02edc2e31e994977ae7a2426ec4586351828597"
+      },
+      "status": "NO_PROMOTED_QCD_SPECTRAL_OUTPUT_ON_DECLARED_LOCAL_PATH"
+    }
+  ],
+  "schema": "oph.quantum_carrier_status_source_projection.v2",
+  "scope": "Comparison-value-free projection of three target-named conditional classical carrier rows and the exact color-adjoint dimension. The mode vector contains differently typed four-dimensional propagating-mode counts. It is neither a particle-count vector nor a uniform gauge-algebra-dimension vector. The boundary evidence is limited to the pinned declared corpus.",
+  "source_pins": [
+    {
+      "bytes": 11538,
+      "path": "code/particles/runs/status/carrier_mode_acceptance.json",
+      "role": "conditional classical carrier modes and unpassed quantum evidence",
+      "sha256": "sha256:2ce5c8b19eaa31448331452600bddb98e982aadcf63bdded9b693c21ea1f6f0b"
+    },
+    {
+      "bytes": 78165,
+      "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+      "role": "exact color-adjoint dimension used only to total the perturbative gluon modes",
+      "sha256": "sha256:efa206d21f59af5a96006ff283a191418c7f4a8c5f3125fcb42d1e03b1f5289b"
+    }
+  ]
+}

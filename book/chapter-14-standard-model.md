@@ -1218,7 +1218,7 @@ Traditional Grand Unified Theories achieve unification by embedding the Standard
 
 Super-Kamiokande has spent nearly thirty years watching fifty thousand tons
 of exceptionally pure water, waiting for a single proton to do something
-interesting. The protons have so far declined to cooperate. The experimental limit is
+interesting. The protons decline to cooperate. The experimental limit is
 $\tau_p > 10^{34}$ years, a thousand times longer than predicted. The
 simplest GUTs are dead.
 
@@ -1230,7 +1230,12 @@ Its adjoint contains no connected $(3,2,\pm5/6)$ X/Y generator, so the standard
 simple-GUT gauge-mediated proton-decay channel is absent. Baryon-number change,
 when present, belongs to the matter and repair dynamics rather than to a hidden
 connected X/Y gauge direction. The result supplies no proton lifetime and
-does not exclude scalar, higher-dimensional, or other ultraviolet mechanisms.
+does not exclude scalar or other ultraviolet mechanisms. The exact
+one-generation dimension-six census makes the higher-dimensional boundary
+concrete: four independent baryon-violating operator classes survive the
+gauge, Lorentz, and six-fold quotient checks. Their coefficients and physical
+emission are not supplied, so this result predicts neither decay nor a proton
+lifetime.
 
 ## 14.20 The Big Picture
 

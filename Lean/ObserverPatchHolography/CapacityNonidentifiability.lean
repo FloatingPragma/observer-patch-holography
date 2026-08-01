@@ -190,16 +190,14 @@ theorem boundedCompletionClass_doesNotForceUniqueZero :
   intro h
   exact identity_has_no_unique_positive_fixed_rung (h identityCompletion)
 
-/-! ## Complete-lift layer
+/-! ## Bounded completion-class layer
 
-The executable complete-lift receipt transports terminal fibers, atom maps,
-public sections, histories, joint kernels, meaning maps, feasible sets, and
-extension and refinement controls across the generation-register family. The
-statements below are its arithmetic skeleton. The oscillatory direction is
-exhibited and excluded by the executable A2 extension-square control; the
-saturation theorem covers the source-closed reading, and the class theorem
-covers any admissibility reading that retains the reversible identity
-completion. -/
+The statements below extend the arithmetic counterfamily with an oscillatory
+completion and generic predicates on `DeclaredCapacityCompletion`. They do not
+prove that these completions belong to a universal all-rung A1--A3 source
+contract. In particular, no theorem here transports terminal fibers, atom
+maps, joint checkpoint kernels, meaning maps, feasible sets, or regulator
+controls from an executable receipt into Lean across every rung. -/
 
 /-- Parity-oscillation continuation: copy collapse at even rungs only. -/
 def oscillationM (k : ℕ) : ℕ := if k % 2 = 1 then 24 * k else 24
@@ -244,11 +242,11 @@ theorem sourceClosed_no_unique_positive_fixed_rung
 theorem identity_saturates (k : ℕ) (_hk : 0 < k) :
     identityCompletion.M0 k = publicDimension k := rfl
 
-/-- Complete-class theorem: any admissibility reading of the complete lift
-    that retains the reversible identity completion does not entail a unique
-    slack zero. The source-closed and widened executable readings both retain
-    it, so neither selects a capacity; a rung selector is an additional
-    source law. -/
+/-- Generic bounded-class theorem: any declared admissibility predicate that
+    retains the reversible identity completion does not entail a unique slack
+    zero. The hypothesis `hid` must be established separately for any proposed
+    all-rung source contract. This theorem supplies neither that membership nor
+    an executable-to-Lean bridge for it. -/
 theorem completeClass_doesNotEntailUniqueZero
     (Admissible : DeclaredCapacityCompletion → Prop)
     (hid : Admissible identityCompletion) :

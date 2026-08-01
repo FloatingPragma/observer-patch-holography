@@ -249,12 +249,19 @@ differ would amount to describing two universes.
 
 The finite collar refines the budget. Its total reserve expectation is $P/4$,
 shared equally among six classes, so each class carries presence probability
-$P/24$. One class acts as the blocked event, and its survival multiplies the
-capacity by $1-P/24$. The corrected budget lands within about $0.6$ percent
-of the capacity inferred from the observed cosmic acceleration. The factor is not attached to the
-horizon ledger by any derivation, so the proximity is a clue rather than a
-verdict. Self-reference will enforce exact equality the moment both
-sides are shown to describe one capacity.
+$P/24$. A tempting completion declares one class to be the blocked event and
+multiplies the capacity by $1-P/24$. It lands within about $0.6$ percent of
+the capacity inferred from cosmic acceleration. A Poisson reading lands a
+little closer.
+
+The local probability does not decide what happens to the global ledger.
+There is an exact completion in which the cut leaves global capacity alone,
+and another in which every cut multiplies it by the survival factor. Both are
+positive. Both compose cleanly when cuts are grouped. They disagree after one
+cut. The same finite data do not choose whether one class, all six classes,
+or no class counts as the blocked event. The nearby numbers remain clues with
+no predictive weight. Self-reference enforces equality only after a stronger
+law proves that both sides describe one capacity.
 
 ## 18.6 One Universe, No Place to Hide
 
@@ -269,9 +276,10 @@ hard to kill and hard to trust.
 
 A self-reading loop leaves nowhere to relocate. The local map has one fixed
 point, so one cell cannot support several competing electromagnetic readings.
-A global capacity law with one solution leaves the horizon no choice among
-saturated record budgets. The two closures select one self-consistent
-universe.
+A source law with one global-capacity solution would leave the horizon no
+choice among saturated record budgets. The finite screen data do not supply
+that law. This distinction is sharp: the strange loop demands one answer,
+while the physical construction must earn it.
 
 A no-dial, one-universe theory turns the usual relationship between theory and
 data inside out. Constants are readings of the architecture rather than settings
@@ -303,15 +311,16 @@ the carrier dimension. Once the internal record and the assigned budget are
 shown to be one universe-level capacity, their equality is unavoidable, and
 the de Sitter horizon turns that capacity into curvature.
 
-When both equations close, the two constants come back from the architecture
+If both equations close, the two constants come back from the architecture
 rather than from measurement. No continuous dial survives.
 
 Measurement can tell us where to look, but it cannot do the work of a closure
-proof. The local map has its unique root. The global side needs one more law. The three axioms by themselves do not pin down which records
-count against the cosmic ledger; a machine-checked construction shows that
-different bookkeeping rules, all equally consistent with the axioms, return
-different capacities. The missing piece is the law that selects the
-universe's own bookkeeping, and finding it is work in progress.
+proof. The local map has its unique root. The global side needs a stronger
+source law. The three axioms and the finite survival datum do not pin down
+which records count against the cosmic ledger; a machine-checked construction
+shows that different compositional bookkeeping rules return different
+capacities. The missing piece is the law that selects the universe's own
+bookkeeping, and finding it is work in progress.
 
 The two numbers have different jobs. $P_\star$ is the local grain of
 observation. $N$ is the global capacity for records. The first sets the

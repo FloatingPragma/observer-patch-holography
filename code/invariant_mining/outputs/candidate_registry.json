@@ -2161,7 +2161,7 @@
     "nuisance_registry_sha256": "sha256:d215bc74110c7f6f22ef1beeeeca8555a1f26a35912c24a355bc1081031ca426",
     "observable_grammar_sha256": "sha256:5646fe6bbab0fe1cf19be96529d49d314876c558bdf0334d7ef00078ee8f5383",
     "policy_sha256": "sha256:52f96e9de762355066b999418cea4a3cb04670c43a5bb8b8d5e272309a71661c",
-    "producer_slots_sha256": "sha256:d1f73fffed11da5cb11b1077486188b1c2d82dfbd98da4e07031ded57163a498",
+    "producer_slots_sha256": "sha256:b87df0b8926a889e7866c53fd7565943aae70aaba2cf65b92ed82215c2113ef9",
     "ranking_policy_sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
   },
   "hard_physicalization_gate": {
@@ -2184,7 +2184,7 @@
     "rule": "a candidate ranks into the issue-639 comparison surface only when every eligibility gate passes: closed physical map, exact global certificate, independent recomputation, registered-completion and continuous-parameter coverage, candidate-specific baseline counterexample, registered exposure class, and frozen uncertainty and power contracts; open-map or open-contract rows are ineligible rather than score-penalized"
   },
   "issue": 647,
-  "registry_sha256": "sha256:33bff52ad292821a2ebb67679a91842dfa8f07b489f7de5d1bbee94bbf5b8278",
+  "registry_sha256": "sha256:1b70c6ddacf04dca38ec23ad4be18fea190e9115f9c908e20b9959ba11b4b122",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,

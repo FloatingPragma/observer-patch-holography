@@ -581,9 +581,8 @@ analogies for spacetime and holographic encoding.
 
 ---
 
-The Screen, the Algebra, the Consistency Rules, and now Recovery: the kit is
-nearly complete. What it still lacks is the one thing everyone else starts
-with. Where do space and time come from? How does the abstract structure of
+The Screen, the Algebra, the Consistency Rules, and Recovery make a kit with
+one conspicuous hole. Where do space and time come from? How does the abstract structure of
 quantum information become the geometry we inhabit?
 
 The next chapters turn recovery into geometry. We'll see how boundaries encode interiors, how entanglement draws the map, and how the consistency conditions we've developed start to look suspiciously like gravity.

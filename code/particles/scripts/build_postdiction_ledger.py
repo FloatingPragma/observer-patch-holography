@@ -28,6 +28,7 @@ writes runs/status/postdiction_ledger.json and docs/POSTDICTION_LEDGER.md.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -58,6 +59,7 @@ PARENTS = {
     "port_current": CODE / "a5_closure" / "receipts" / "port_current_inner_reference.receipt.json",
     "axis_center_descent": CODE / "a5_closure" / "receipts" / "axis_center_descent_reference.receipt.json",
     "carrier_modes": RUNS / "status" / "carrier_mode_acceptance.json",
+    "quantum_carrier_status": RUNS / "status" / "quantum_carrier_status.json",
     "alpha_hvp_verdict": PARTICLES / "alpha_hvp_audit" / "outputs" / "alpha_hvp_class_verdict.json",
     "hadron_payload": RUNS / "hadron" / "empirical_ee_hadronic_spectral_measure.json",
     "solver_standby": RUNS / "qcd" / "hadron_source_backend" / "qcd_ensemble" / "solver_on_standby.json",
@@ -122,6 +124,106 @@ def _lean_receipt(
 
 def _rel(key: str) -> str:
     return PARENTS[key].relative_to(REPO).as_posix()
+
+
+def _quantum_carrier_status_row(packet: dict[str, Any]) -> dict[str, Any]:
+    core = {
+        key: value for key, value in packet.items() if key != "receipt_sha256"
+    }
+    digest = "sha256:" + hashlib.sha256(
+        json.dumps(
+            core,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+    ).hexdigest()
+    expected_verdicts = {
+        "photon": "NOT_EVALUABLE_NO_SOURCE_SELECTED_MAXWELL_QUANTUM_SECTOR",
+        "gluon": "NOT_EVALUABLE_NO_QCD",
+        "graviton": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER",
+    }
+    rows = packet.get("rows")
+    if not isinstance(rows, list):
+        raise SystemExit("quantum-carrier status rows are absent")
+    by_id = {
+        row.get("carrier_id"): row for row in rows if isinstance(row, dict)
+    }
+    if (
+        packet.get("schema") != "oph.quantum_carrier_status.v2"
+        or packet.get("github_issue") != 552
+        or packet.get("status") != "THREE_ROW_EXPLICIT_NOT_EVALUABLE"
+        or packet.get("receipt_sha256") != digest
+        or packet.get("comparison_values_consumed") is not False
+        or packet.get("blind_prediction_eligible") is not False
+        or packet.get("target_named_status_rows") is not True
+        or packet.get("all_rows_at_allowed_exit") is not True
+        or packet.get("continuum_spacetime_dimension") != 4
+        or packet.get("classical_mode_vector_order")
+        != ["photon", "gluon", "graviton"]
+        or packet.get("classical_mode_vector") != [2, 16, 2]
+        or set(by_id) != set(expected_verdicts)
+    ):
+        raise SystemExit("quantum-carrier status packet left its typed boundary")
+    expected_multiplicities = {
+        "photon": (1, "u1_lie_algebra_generator", 2),
+        "gluon": (8, "su3_adjoint_generator", 16),
+        "graviton": (1, "symmetric_metric_tensor_field", 2),
+    }
+    for carrier_id, verdict in expected_verdicts.items():
+        row = by_id[carrier_id]
+        capabilities = row.get("capabilities", {})
+        baseline = row.get("classical_baseline", {})
+        factor, role, total = expected_multiplicities[carrier_id]
+        if (
+            row.get("verdict") != verdict
+            or row.get("verdict_class") != "EXPLICIT_NOT_EVALUABLE"
+            or row.get("particle_promotion_allowed") is not False
+            or not isinstance(row.get("blocking_frontier"), list)
+            or not row["blocking_frontier"]
+            or baseline.get("particle_claim") is not False
+            or baseline.get("continuum_spacetime_dimension") != 4
+            or baseline.get("multiplicity_factor") != factor
+            or baseline.get("multiplicity_role") != role
+            or baseline.get("exact_total_mode_count") != total
+            or "gauge_algebra_dimension" in baseline
+            or capabilities.get("state_space", {}).get(
+                "physical_quantum_object_available"
+            )
+            is not False
+            or capabilities.get("spectral_object", {}).get(
+                "positive_physical_quantum_object_available"
+            )
+            is not False
+            or capabilities.get("physical_current_residue", {}).get(
+                "nonzero_positive_residue_available"
+            )
+            is not False
+        ):
+            raise SystemExit(
+                f"quantum-carrier row {carrier_id} left its typed boundary"
+            )
+    return {
+        "artifact_ref": _rel("quantum_carrier_status"),
+        "classical_mode_vector": packet["classical_mode_vector"],
+        "classical_mode_vector_order": packet["classical_mode_vector_order"],
+        "receipt_sha256": packet["receipt_sha256"],
+        "rows": [
+            {
+                "blocking_frontier": by_id[carrier_id]["blocking_frontier"],
+                "carrier_id": carrier_id,
+                "verdict": by_id[carrier_id]["verdict"],
+            }
+            for carrier_id in ("photon", "gluon", "graviton")
+        ],
+        "scope": (
+            "The exact (2,16,2) vector contains differently typed conditional "
+            "four-dimensional propagating-mode totals. Every quantum-particle "
+            "row is explicitly not evaluable on the pinned declared corpus. "
+            "The packet is target-named, comparison-value-free, and ineligible "
+            "as a blind prediction."
+        ),
+    }
 
 
 def _forced_structure(
@@ -568,6 +670,10 @@ def _forced_structure(
                 ),
                 "match": "conditional algebraic channel exclusion",
                 "artifact_ref": _rel("port_current"),
+                "operator_census_ref": (
+                    "code/a5_closure/receipts/"
+                    "baryon_dimension_six_census.receipt.json"
+                ),
                 "derivation_kind": "direct_executable_algebraic_corollary",
                 "adjoint_branching": adjoint_branching,
                 "hypothesis_boundary": (
@@ -575,9 +681,13 @@ def _forced_structure(
                     "direct-sum matrix-current fixture. Its physical current "
                     "source gate is false, so the result is not a physical "
                     "current or proton-stability claim. General proton "
-                    "stability does not follow; "
-                    "higher-dimensional baryon violation, scalar mediators, "
-                    "and other ultraviolet gauge mechanisms are not excluded"
+                    "stability does not follow. Conditional on the "
+                    "declared one-generation matter table and baryon and "
+                    "lepton labels, an exact dimension-six census admits "
+                    "QQQL, QQUE, DUQL, and DUUE; the representatives remain "
+                    "nonzero after the exterior-algebra relations. No "
+                    "coefficient, physical decay amplitude, QCD matrix "
+                    "element, or lifetime is supplied"
                 ),
                 "paper_ref": "Observers paper, gauge-channel boundary",
             },
@@ -1023,6 +1133,7 @@ def build(
     port_current = _load("port_current")
     axis_center_descent = _load("axis_center_descent")
     carrier_modes = _load("carrier_modes")
+    quantum_carrier_status = _load("quantum_carrier_status")
     alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
@@ -1034,6 +1145,9 @@ def build(
             port_current,
             axis_center_descent,
             carrier_modes,
+        ),
+        "quantum_carrier_status": _quantum_carrier_status_row(
+            quantum_carrier_status
         ),
         "alpha": _alpha_rows(endpoint, bridge, alpha_hvp_verdict),
         "charged_leptons": _lepton_rows(surface, rectangle, coherent, koide),
@@ -1144,6 +1258,33 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("")
     for row in s["forced_structure"]:
         add(f"- `{row['id']}`: {row['hypothesis_boundary']}")
+    add("")
+    add("## Quantum carrier gate")
+    add("")
+    carrier_status = s["quantum_carrier_status"]
+    add(
+        "The exact conditional four-dimensional propagating-mode vector is "
+        "`(2, 16, 2)`: two Maxwell modes from one U(1) generator, sixteen "
+        "perturbative color modes from eight SU(3) adjoint generators, and two "
+        "Einstein transverse-traceless modes from one metric tensor field. "
+        "The entries are neither particle counts nor one uniform gauge-algebra "
+        "dimension vector."
+    )
+    add("")
+    add("| Carrier | Quantum verdict | Blocking frontier |")
+    add("| --- | --- | --- |")
+    for row in carrier_status["rows"]:
+        blockers = ", ".join(f"`{item}`" for item in row["blocking_frontier"])
+        add(
+            f"| `{row['carrier_id']}` | `{row['verdict']}` | {blockers} |"
+        )
+    add("")
+    add(
+        "The target-named status packet consumes no laboratory comparison value, "
+        "permits no particle promotion, and is ineligible as a blind prediction. "
+        "Its receipt is "
+        f"`{carrier_status['artifact_ref']}`."
+    )
     add("")
     add("## Fine-structure lane")
     add("")

@@ -259,16 +259,22 @@ and refinement reconstruct the compact group behind the surviving charges.
 A second route begins with the twelve-port carrier itself. Incidence
 determines its unique nonidentity central involution, and the compact port
 response and internal overlap transport required by the axioms force the
-Standard Model Lie type. That is a machine-checked theorem, one of more than
-nine hundred in the project's Lean corpus. On a conjugate pair of
+Standard Model Lie type. That statement is machine-checked. On a conjugate pair of
 one-generation matter modules, anomaly balance fixes the charge pattern up to
 conjugation, and exactly six shared center transformations act trivially.
-Quotienting by all six gives the gauge group in its physical form,
+Quotienting by all six gives the maximal faithful image of that declared table,
 $S(U(3)\times U(2))\cong(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
 
 Here $\mathbb Z_6$ is a six-step cyclic overlap between the three factors;
 the quotient says those six shared moves are one move. The six-fold center
 quotient is machine-checked as well.
+
+The product adjoint contains no ordinary simple-unification $X/Y$ generator.
+That removes one familiar proton-decay channel, not proton decay in general.
+On the declared one-generation matter table, an exact dimension-six census
+leaves four baryon-violating operator classes. Their coefficients and physical
+emission are separate dynamical questions, so the calculation predicts no
+decay rate or proton lifetime.
 
 The same architecture bounds the family count inside a window from three to
 five, and an exact screen theorem, also machine-checked, selects three.
@@ -318,11 +324,12 @@ from low-order angular probes unusually well. A realized state can be
 aligned or anisotropic. The symmetry constrains the allowed block structure,
 not the state chosen inside it.
 
-This angular multiplet is itself a sharp prediction, written down and
-timestamped in advance, and the level-six invariant is machine-checked. Any
-resolved splitting of the quadrupole quintet under symmetry-preserving
-conditions, or any nonconstant invariant showing up below degree six, kills
-it outright.
+This angular multiplet is an exact finite template, and the level-six invariant
+is machine-checked. A physical measurement needs a source-derived map from the
+refined support and repair dynamics to an instrument readout. Within such a
+map, any resolved splitting of the quadrupole quintet under
+symmetry-preserving conditions, or any nonconstant invariant below degree six,
+would reject the corresponding branch.
 
 ### A Frozen Propagation Test
 
@@ -351,16 +358,25 @@ coefficients by sixteen. Once a negative $C_4$ is resolved on this branch, the
 only directional freedom is a three-parameter orientation class of the carrier
 modulo its sixty proper rotations.
 
+This is a branch prediction rather than a consequence of the repair operator
+alone. The repair operator certified by the finite machine acts on thirty
+internal seams. A spatial hop along a carrier direction is a different
+object, and the source provides no map between them. Equal-weight hops along
+the twelve vertices, twenty face directions, or thirty edge directions give
+three different rank-six coefficients. Symmetry makes the weights equal
+inside any one orbit. It does not choose the orbit or turn an internal repair
+into propagation.
+
 These numbers were fixed and timestamped before any comparison with data, and
 they are machine-checked. Ordinary physics predicts none of them: minimal
 Lorentz-invariant Standard Model physics with general relativity gives no
 intrinsic vacuum term of this form. The prediction fails outright if a
 measured intrinsic fourth-order coefficient comes out positive, if any
 intrinsic anisotropy appears below rank six, or if the linked sixth-order
-ratios are excluded once the negative fourth-order term is resolved. Deriving
-the propagation bridge that carries this carrier pattern into a specific
-photon experiment, and tying the finite structure to a laboratory gauge
-current, is work in progress.
+ratios are excluded once the negative fourth-order term is resolved. Such a
+failure rejects the named vertex-orbit propagation branch. A source law that
+selects its spatial operator, physical sector, frame transport, and readout is
+required before the verdict can apply to OPH as a whole.
 
 The golden ratio appears here as geometry. Icosahedral coordinates contain
 $\sqrt5$ and $\varphi=(1+\sqrt5)/2$, and the adjacency spectrum contains

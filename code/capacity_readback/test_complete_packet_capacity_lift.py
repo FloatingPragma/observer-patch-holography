@@ -28,12 +28,36 @@ from complete_packet_capacity_lift import (
     public_sections_receipt,
     reachability_receipt,
     sewing_receipt,
+    tagged_sha256,
     terminal_fiber_receipt,
     is_terminal_world_at_rung,
     lifted_world,
 )
 
 HERE = Path(__file__).resolve().parent
+
+
+def _copy_independent_verifier_sandbox(tmp_path: Path) -> tuple[Path, Path]:
+    sandbox = tmp_path / "code" / "capacity_readback"
+    runtime = sandbox / "runtime"
+    runtime.mkdir(parents=True)
+    (sandbox / "verify_complete_packet_lift_independent.py").write_bytes(
+        (HERE / "verify_complete_packet_lift_independent.py").read_bytes()
+    )
+    for name in (
+        "complete_packet_capacity_lift_receipt.json",
+        "complete_packet_capacity_lift_certificate.json",
+        "source_derived_public_checkpoint_packet.json",
+    ):
+        (runtime / name).write_bytes((HERE / "runtime" / name).read_bytes())
+    for name in ("capacity_indexed_source_family.py", "F_READBACK_SPEC.md"):
+        (sandbox / name).write_bytes((HERE / name).read_bytes())
+    return sandbox, runtime
+
+
+def _rehash_receipt(receipt: dict) -> None:
+    receipt.pop("receipt_sha256", None)
+    receipt["receipt_sha256"] = tagged_sha256(canonical_json_bytes(receipt))
 
 
 def test_terminal_fiber_unique_world_and_no_self_read() -> None:
@@ -65,9 +89,9 @@ def test_sections_histories_and_sewing_track_the_register() -> None:
         assert sewing["glued_section_count"] == 24 * k
         assert sewing["fiber_product_count"] == 24 * k
         assert sewing["fiber_product_matches"] is True
-    assert sewing_receipt(2, corrupt_seam_readout=True)[
-        "fiber_product_matches"
-    ] is False
+    assert (
+        sewing_receipt(2, corrupt_seam_readout=True)["fiber_product_matches"] is False
+    )
 
 
 def test_publicness_refinement_and_pinned_reconciliation() -> None:
@@ -157,21 +181,33 @@ def test_capacities_match_bounded_family_formulas() -> None:
 
 def test_receipt_verdict_structure() -> None:
     receipt = build_receipt()
-    assert receipt["scientific_verdict"] == "COMPLETE_SOURCE_CLASS_NO_UNIQUE_SLACK_ZERO"
-    wide = receipt["wide_reading"]
-    assert wide["survivors"] == [
+    assert receipt["scientific_verdict"] == (
+        "BOUNDED_GENERATION_REGISTER_COUNTERMODEL__UNIVERSAL_MEMBERSHIP_OPEN"
+    )
+    sampled = receipt["sampled_control_assessment"]
+    assert sampled["branches_passing_all_sampled_transported_controls"] == [
         "reversible_identity",
         "copy_collapse_erasure",
         "capped_two_class",
     ]
-    assert wide["zero_sets_inequivalent"] is True
-    assert set(wide["excluded_with_named_control"]) == {
+    assert set(sampled["branches_failing_sampled_transported_controls"]) == {
         "hidden_spectator",
         "parity_oscillation",
     }
-    closed = receipt["source_closed_reading"]
-    assert closed["slack_identically_zero"] is True
-    assert closed["unique_zero_exists"] is False
+    assert sampled["does_not_certify_universal_membership"] is True
+    arithmetic = receipt["all_rung_capacity_arithmetic"]
+    assert arithmetic["identity_slack_zero_set"] == "every positive rung"
+    assert arithmetic["identity_has_unique_positive_slack_zero"] is False
+    assert arithmetic["inequivalent_formula_zero_sets"] is True
+    source_status = receipt["source_contract_status"]
+    assert source_status["universal_all_rung_membership_proved"] is False
+    assert source_status["executable_lean_membership_bridge_proved"] is False
+    assert (
+        source_status["complete_a1_a3_source_class_nonidentifiability_proved"] is False
+    )
+    assert source_status["direct_n_status"] == (
+        "NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT"
+    )
     assert receipt["mutation_controls"]["all_mutations_detected"] is True
     assert receipt["bounded_family_cross_check"]["consistent"] is True
 
@@ -190,31 +226,20 @@ def test_independent_verifier_passes() -> None:
         check=False,
     )
     assert result.returncode == 0, result.stdout + result.stderr
-    assert "COMPLETE_PACKET_LIFT_INDEPENDENT_VALID" in result.stdout
+    assert "BOUNDED_PACKET_LIFT_INDEPENDENT_VALID" in result.stdout
 
 
 def test_independent_verifier_rejects_tampered_receipt(tmp_path: Path) -> None:
-    verifier = (HERE / "verify_complete_packet_lift_independent.py").read_text(
-        encoding="utf-8"
-    )
-    sandbox = tmp_path / "capacity_readback"
-    runtime = sandbox / "runtime"
-    runtime.mkdir(parents=True)
-    (sandbox / "verify_complete_packet_lift_independent.py").write_text(
-        verifier, encoding="utf-8"
-    )
-    for name in (
-        "complete_packet_capacity_lift_receipt.json",
-        "complete_packet_capacity_lift_certificate.json",
-        "source_derived_public_checkpoint_packet.json",
-    ):
-        (runtime / name).write_bytes((HERE / "runtime" / name).read_bytes())
+    sandbox, runtime = _copy_independent_verifier_sandbox(tmp_path)
     receipt = json.loads(
         (runtime / "complete_packet_capacity_lift_receipt.json").read_text(
             encoding="utf-8"
         )
     )
-    receipt["wide_reading"]["survivor_zero_sets"][1]["sampled_zero_rungs"] = [1, 2]
+    receipt["all_rung_capacity_arithmetic"]["branch_zero_sets"][1][
+        "sampled_zero_rungs"
+    ] = [1, 2]
+    _rehash_receipt(receipt)
     (runtime / "complete_packet_capacity_lift_receipt.json").write_text(
         json.dumps(receipt), encoding="utf-8"
     )
@@ -226,6 +251,58 @@ def test_independent_verifier_rejects_tampered_receipt(tmp_path: Path) -> None:
     )
     assert result.returncode != 0
     assert "ZERO_SET_DRIFT" in result.stdout + result.stderr
+
+
+def test_independent_verifier_rejects_membership_promotion(tmp_path: Path) -> None:
+    sandbox, runtime = _copy_independent_verifier_sandbox(tmp_path)
+    receipt_path = runtime / "complete_packet_capacity_lift_receipt.json"
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    receipt["source_contract_status"]["universal_all_rung_membership_proved"] = True
+    _rehash_receipt(receipt)
+    receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, str(sandbox / "verify_complete_packet_lift_independent.py")],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode != 0
+    assert "UNIVERSAL_MEMBERSHIP_PROMOTED" in result.stdout + result.stderr
+
+
+def test_independent_verifier_rejects_control_table_promotion(tmp_path: Path) -> None:
+    sandbox, runtime = _copy_independent_verifier_sandbox(tmp_path)
+    receipt_path = runtime / "complete_packet_capacity_lift_receipt.json"
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    parity = receipt["sampled_control_assessment"]["control_table"][-1]
+    parity["per_rung_controls"]["3"]["a2_natural"] = True
+    _rehash_receipt(receipt)
+    receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, str(sandbox / "verify_complete_packet_lift_independent.py")],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode != 0
+    assert "CONTROL_VALUE" in result.stdout + result.stderr
+
+
+def test_independent_verifier_rejects_upstream_pin_drift(tmp_path: Path) -> None:
+    sandbox, runtime = _copy_independent_verifier_sandbox(tmp_path)
+    receipt_path = runtime / "complete_packet_capacity_lift_receipt.json"
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    receipt["upstream_pins"]["readback_spec_sha256"] = "sha256:" + "0" * 64
+    _rehash_receipt(receipt)
+    receipt_path.write_text(json.dumps(receipt), encoding="utf-8")
+    result = subprocess.run(
+        [sys.executable, str(sandbox / "verify_complete_packet_lift_independent.py")],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert result.returncode != 0
+    assert "UPSTREAM_PIN" in result.stdout + result.stderr
 
 
 def test_mutation_controls_all_detected() -> None:

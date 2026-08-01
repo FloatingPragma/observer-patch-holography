@@ -650,8 +650,9 @@ equation is then
 
 $$G_{ab} + \Lambda g_{ab} = 8\pi G \langle T_{ab} \rangle.$$
 
-The global capacity proposal of Chapter 13 then offers a value for that
-constant. Building the single refinement family that carries geometry, modular
+The global capacity proposal of Chapter 13 would supply a value for that
+constant after a source law selects the global action and a horizon map joins
+the two readings. Building the single refinement family that carries geometry, modular
 flow, events, stress, entropy, vacuum reference, and scale on one common
 domain is work in progress.
 
@@ -823,10 +824,9 @@ misbehave.
 The count and the angle together carry one conserved relativistic stress. The
 dust-like phase supplies abundance and structure growth. The condensed phase
 supplies lensing, cluster interiors, the quiet Solar System, and the
-deep-galaxy acceleration law. The acceleration scale itself was written down
-and timestamped before any comparison, so the theory has a number here it can
-no longer move. Running the astronomical tests against it is work in
-progress.
+deep-galaxy acceleration law. The acceleration scale is fixed independently
+of the astronomical comparison and exposes the theory to a direct test. That
+test is work in progress.
 
 ## 15.13 Reverse Engineering Summary
 

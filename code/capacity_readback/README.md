@@ -15,9 +15,11 @@ finite implementation.
 The operational resolution, electroweak/Higgs bridge, and measured
 cosmological constant are independent downstream comparisons. They never
 define the direct map. The bounded counterfamily has verdict
-`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`. The complete packet
-lift decides the complete declared class: the locked verdict emits no
-universe-level physical `N`.
+`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`. The
+generation-register packet supplies exact all-rung capacity arithmetic and
+finite source-contract checks on rungs one through six. Universal all-rung
+membership in the complete A1--A3 source contract and the executable-to-Lean
+membership bridge are open. No universe-level physical `N` is emitted.
 
 The independent finite (A_5) control is summarized in
 [`A5_FINITE_CONTROL_STATUS_2026-07-20.md`](A5_FINITE_CONTROL_STATUS_2026-07-20.md).
@@ -98,16 +100,17 @@ second physical packet or a cosmic selector.
 
 The `D=24` artifact is a source-derived fixed-cutoff packet in the declared
 simulator category. The all-rung counterfamily proves nonidentifiability for
-the base-agreement, positivity, and carrier-bound completion class, and the
-complete A1--A3 packet lift transports the full structure across the
-generation-register family with a locked negative verdict: the complete
-declared class entails no unique slack zero under either continuation
-reading. The lift receipts live in
+the base-agreement, positivity, and carrier-bound completion class. The
+generation-register audit transports terminal-fiber, A2, A3, sewing,
+extension, and refinement controls across six finite rungs. Its exact
+capacity formulas extend to every positive rung, while membership of the
+executable family in the complete source contract has no all-rung theorem.
+The bounded receipt lives in
 [`complete_packet_capacity_lift.py`](complete_packet_capacity_lift.py) with
 the no-producer-import replay in
 [`verify_complete_packet_lift_independent.py`](verify_complete_packet_lift_independent.py),
 the consuming issue #505 verdict is
-`LOCKED_NONIDENTIFIABILITY_COMPLETED_CAPACITY_SOURCE_CLASS`, and the issue
+`NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT`, and the issue
 #589 horizon exit `NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT` is recorded by
 [`horizon_record_attachment_verdict.py`](horizon_record_attachment_verdict.py).
 The screen value 24 is not a cosmic result.
@@ -142,9 +145,9 @@ invalidates the comparison.
 
 ## Downstream bridges
 
-These bridges consume a unique-zero direct closure that the complete declared
-class does not supply; they stand as contracts for an additional named source
-law:
+These bridges consume a unique-zero direct closure. The bounded
+generation-register packet does not supply one, so they remain contracts with
+no evaluable capacity-side carrier:
 
 - identifying the correctable record carrier with the de Sitter horizon may
   identify `log D_star` with
@@ -164,13 +167,17 @@ count, affine, and Banach candidates. They have diagnostic value only. The
 `CP*` and `G2_GAP_1` notes likewise do not supply the exact finite-size
 selector.
 
-## Positive route beyond the locked verdict
+## Required completion work
 
-- state and justify an additional named source law that selects one
-  continuation completion, the step the locked non-identifiability verdict
-  proves necessary;
+- prove every transported source-contract control for every positive rung;
+- bind the executable generation-register packet and capacity evaluator to
+  the Lean completion used by the all-rung arithmetic theorem;
+- independently replay that universal membership theorem;
+- if the complete source class retains the identity completion, record the
+  resulting complete-class nonidentifiability theorem; otherwise construct a
+  target-clean source selector and prove its admissibility;
 - prove an exact finite-size slack law with one regulator-stable physical zero
-  for that stronger law;
+  for any proposed selector;
 - independently certify the horizon-record, EW/Higgs load-carrier, and
   operational-resolution bridges;
 - supply public hardware-realization evidence if a carrier implementation is
@@ -184,7 +191,9 @@ python3 -m pytest test_public_record_csp.py -q
 python3 -m pytest test_reversible_public_checkpoint_packet.py -q
 python3 -m pytest test_source_derived_public_checkpoint_packet.py -q
 python3 -m pytest test_capacity_indexed_source_family.py -q
+python3 -m pytest test_complete_packet_capacity_lift.py -q
 python3 -m pytest test_direct_n_closure_verdict.py -q
+python3 -m pytest test_horizon_record_attachment_verdict.py -q
 python3 -m pytest test_operational_readback_contract.py -q
 python3 -m pytest test_public_record_capacity.py -q
 ```

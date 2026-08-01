@@ -574,7 +574,7 @@ to remain compatible without an impossible burden of pre-coordination.
 
 ---
 
-The Screen, the Algebra, and now the Consistency Rules: the kit is assembling.
+The Screen, the Algebra, and the Consistency Rules make a peculiar kit.
 
 But what happens when the web gets torn? I measure something here, you measure
 something there, and we lose the connection. Information seems to vanish into

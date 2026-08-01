@@ -576,10 +576,11 @@
         },
         "artifact_ref": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
         "derivation_kind": "direct_executable_algebraic_corollary",
-        "hypothesis_boundary": "the executable corollary applies to the declared direct-sum matrix-current fixture. Its physical current source gate is false, so the result is not a physical current or proton-stability claim. General proton stability does not follow; higher-dimensional baryon violation, scalar mediators, and other ultraviolet gauge mechanisms are not excluded",
+        "hypothesis_boundary": "the executable corollary applies to the declared direct-sum matrix-current fixture. Its physical current source gate is false, so the result is not a physical current or proton-stability claim. General proton stability does not follow. Conditional on the declared one-generation matter table and baryon and lepton labels, an exact dimension-six census admits QQQL, QQUE, DUQL, and DUUE; the representatives remain nonzero after the exterior-algebra relations. No coefficient, physical decay amplitude, QCD matrix element, or lifetime is supplied",
         "id": "simple_gut_xy_channel_absent",
         "match": "conditional algebraic channel exclusion",
         "observed_counterpart": "the Standard Model product adjoint contains no connected simple-GUT X/Y generator",
+        "operator_census_ref": "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json",
         "paper_ref": "Observers paper, gauge-channel boundary",
         "statement": "The declared charged-double-triplet current fixture has a direct-sum algebra with adjoint branch dimensions 8, 3, and 1. Its adjoint therefore contains no mixed (3,2,-5/6) (+) (bar3,2,+5/6) X/Y generator, so the ordinary minimal simple-GUT X/Y exchange channel is absent"
       }
@@ -612,6 +613,47 @@
         "statement": "dimensionless PMNS and mass-splitting-ratio comparisons live on the results status surface; the absolute attachment stays compare-only"
       }
     ],
+    "quantum_carrier_status": {
+      "artifact_ref": "code/particles/runs/status/quantum_carrier_status.json",
+      "classical_mode_vector": [
+        2,
+        16,
+        2
+      ],
+      "classical_mode_vector_order": [
+        "photon",
+        "gluon",
+        "graviton"
+      ],
+      "receipt_sha256": "sha256:7eb5b52ffefe565f2f54d1d49da64118e1bbde0a173cf7bb20999cf1238d27ea",
+      "rows": [
+        {
+          "blocking_frontier": [
+            "source_selected_unbroken_u1_quantum_maxwell_sector",
+            "finite_source_to_lorentzian_quantum_eft_construction"
+          ],
+          "carrier_id": "photon",
+          "verdict": "NOT_EVALUABLE_NO_SOURCE_SELECTED_MAXWELL_QUANTUM_SECTOR"
+        },
+        {
+          "blocking_frontier": [
+            "finite_source_to_lorentzian_quantum_eft_construction",
+            "source_derived_qcd_physical_spectral_sector"
+          ],
+          "carrier_id": "gluon",
+          "verdict": "NOT_EVALUABLE_NO_QCD"
+        },
+        {
+          "blocking_frontier": [
+            "inhabited_source_derived_einstein_tower",
+            "finite_source_to_lorentzian_linearized_quantum_carrier"
+          ],
+          "carrier_id": "graviton",
+          "verdict": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER"
+        }
+      ],
+      "scope": "The exact (2,16,2) vector contains differently typed conditional four-dimensional propagating-mode totals. Every quantum-particle row is explicitly not evaluable on the pinned declared corpus. The packet is target-named, comparison-value-free, and ineligible as a blind prediction."
+    },
     "quarks": [
       {
         "artifact_ref": "code/particles/runs/flavor/quark_spread_fiber_structure_transport_obstruction.json",

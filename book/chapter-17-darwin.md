@@ -8,7 +8,7 @@ Russel Wallace, a specimen collector who had drafted it between fits of
 malarial fever, setting out the same theory. Ten days later Darwin's infant
 son died of scarlet fever. On the first of July, while Darwin stayed home,
 the two accounts were read jointly at the Linnean Society in London, with
-neither author in the room and Wallace not yet aware the meeting was taking
+neither author in the room and Wallace unaware the meeting was taking
 place. The society's president would sum up 1858 as a year not marked by any
 striking discovery.
 

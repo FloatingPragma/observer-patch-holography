@@ -608,7 +608,7 @@ repaired patch data is displayed.
 
 The screen is in hand: a boundary where each observer's accessible data
 lives, bounded by area, its entanglement pattern carrying the depth of the
-emergent bulk. What the screen does not yet have is a direction. Records
+emergent bulk. The screen itself supplies no direction. Records
 accumulate, mismatches get repaired, and the Second Law says entropy
 increases while declining to say why.
 

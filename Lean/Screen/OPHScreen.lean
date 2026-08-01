@@ -5,6 +5,9 @@ import UnitSplit12
 import Z6Exact
 import A2HolonomyBridge
 import A5PrimitivePortPrediction
+import A5OrbitRaySeparation
+import DiscreteRefinement
+import BaryonDimensionSix
 
 /-!
 # OPH screen arithmetic umbrella

@@ -135,7 +135,7 @@ For centuries, physicists have catalogued these anomalies and built
 mathematical models to predict them, and the models perform to absurd
 precision: quantum mechanics, relativity, the Standard Model. In a code
 review, though, the working functions are not where you linger. The question
-worth asking hides in an assumption so old it no longer looks like one.
+worth asking hides in an assumption old enough to look natural.
 
 **Why do we assume an objective reality exists at all?**
 

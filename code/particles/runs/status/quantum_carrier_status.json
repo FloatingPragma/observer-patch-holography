@@ -1,0 +1,316 @@
+{
+  "all_rows_at_allowed_exit": true,
+  "allowed_exit_policy": "Each carrier row exits only through a source-positive pole receipt, a rigorous negative theorem, or an explicit NOT_EVALUABLE verdict. No classical zero or conditional propagator can promote a quantum particle.",
+  "artifact": "oph_quantum_carrier_status",
+  "blind_prediction_eligible": false,
+  "classical_mode_vector": [
+    2,
+    16,
+    2
+  ],
+  "classical_mode_vector_order": [
+    "photon",
+    "gluon",
+    "graviton"
+  ],
+  "classical_mode_vector_scope": "Exact conditional four-dimensional propagating-mode totals on three differently typed declared branches: two Maxwell modes from one U(1) generator, sixteen perturbative color modes from eight SU(3) adjoint generators, and two Einstein transverse-traceless modes from one metric tensor field. This is neither a particle-count vector nor a uniform gauge-algebra-dimension vector.",
+  "comparison_values_consumed": false,
+  "continuum_spacetime_dimension": 4,
+  "github_issue": 552,
+  "parent_dependency_context": [
+    {
+      "issue": 634,
+      "role": "finite local source domain; it does not supply a Lorentzian physical quantum state space or pole"
+    },
+    {
+      "issue": 635,
+      "role": "finite-source to Lorentzian quantum-EFT bridge"
+    },
+    {
+      "issue": 630,
+      "role": "electroweak source integration and physical action selection"
+    },
+    {
+      "issue": 503,
+      "role": "inhabited source-derived typed Einstein tower"
+    }
+  ],
+  "producer_scope": "Bounded classification of the pinned declared corpus. It proves no exhaustive absence claim outside that projection.",
+  "receipt_sha256": "sha256:7eb5b52ffefe565f2f54d1d49da64118e1bbde0a173cf7bb20999cf1238d27ea",
+  "rows": [
+    {
+      "blocking_frontier": [
+        "source_selected_unbroken_u1_quantum_maxwell_sector",
+        "finite_source_to_lorentzian_quantum_eft_construction"
+      ],
+      "capabilities": {
+        "gauge_quotient": {
+          "available_classical_object": "conditional classical gauge fixing and reduced mode quotient",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a quantum BRST or equivalent physical quotient with positivity",
+          "status": "CLASSICAL_ONLY"
+        },
+        "observable_algebra": {
+          "available_classical_object": "gauge-invariant classical Maxwell field-strength observables",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a source-derived gauge-invariant electromagnetic observable algebra",
+          "status": "CLASSICAL_ONLY"
+        },
+        "phase_or_asymptotic_sector": {
+          "declared_classical_branch_available": true,
+          "physical_quantum_sector_available": false,
+          "status": "DECLARED_CLASSICAL_BRANCH_ONLY"
+        },
+        "physical_current_residue": {
+          "nonzero_positive_residue_available": false,
+          "required_quantum_object": "a nonzero positive residue against a physical electromagnetic current",
+          "status": "MISSING_SOURCE_CONSTRUCTION"
+        },
+        "refinement_control": {
+          "available": false,
+          "required_object": "a source-derived refinement family preserving the physical pole classification",
+          "status": "MISSING_SOURCE_CONSTRUCTION"
+        },
+        "spectral_object": {
+          "available_classical_object": "conditional classical characteristic or reduced Hamiltonian spectrum",
+          "classical_object_available": true,
+          "positive_physical_quantum_object_available": false,
+          "required_quantum_object": "a gauge-invariant physical two-point or Hamiltonian spectral object",
+          "status": "CLASSICAL_ONLY"
+        },
+        "state_space": {
+          "available_classical_object": "conditional reduced classical transverse phase space",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a positive physical photon state space after the gauge quotient",
+          "status": "CLASSICAL_ONLY"
+        },
+        "vacuum": {
+          "available_declared_object": "the conditional action, phase, or background branch named by the classical parent",
+          "branch_declared": true,
+          "required_quantum_object": "a source-selected unbroken U(1) quantum vacuum with a deconfined photon sector",
+          "source_selected_quantum_object_available": false,
+          "status": "DECLARED_BRANCH_ONLY"
+        }
+      },
+      "carrier_id": "photon",
+      "classical_baseline": {
+        "branch": "unbroken_deconfined_Maxwell_branch_with_Z_A_positive",
+        "branch_is_additional_input_not_group_output": true,
+        "classical_gate_status": "conditional_pass_on_declared_action_phase_branch",
+        "continuum_spacetime_dimension": 4,
+        "exact_total_mode_count": 2,
+        "hard_quadratic_mass_parameter_squared": 0,
+        "modes_per_carrier_component": 2,
+        "multiplicity_factor": 1,
+        "multiplicity_role": "u1_lie_algebra_generator",
+        "particle_claim": false
+      },
+      "label": "Electromagnetic carrier",
+      "open_interfaces": [
+        {
+          "issue": 630,
+          "requirement": "source selection of the electroweak action, unbroken electromagnetic phase, and physical current"
+        },
+        {
+          "issue": 635,
+          "requirement": "finite-source to Lorentzian quantum-EFT construction"
+        }
+      ],
+      "particle_promotion_allowed": false,
+      "resource_boundaries": [],
+      "strongest_supported_statement": "On the declared unbroken deconfined Maxwell branch, the hard quadratic mass parameter is zero and the classical reduced system has two transverse modes. This is not a photon pole or rest-mass prediction.",
+      "verdict": "NOT_EVALUABLE_NO_SOURCE_SELECTED_MAXWELL_QUANTUM_SECTOR",
+      "verdict_class": "EXPLICIT_NOT_EVALUABLE"
+    },
+    {
+      "blocking_frontier": [
+        "finite_source_to_lorentzian_quantum_eft_construction",
+        "source_derived_qcd_physical_spectral_sector"
+      ],
+      "capabilities": {
+        "gauge_quotient": {
+          "available_classical_object": "conditional classical gauge fixing and reduced mode quotient",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a nonperturbative physical gauge quotient with positivity",
+          "status": "CLASSICAL_ONLY"
+        },
+        "observable_algebra": {
+          "available_classical_object": "classical gauge-invariant Yang-Mills polynomial observables",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a source-derived gauge-invariant QCD observable algebra",
+          "status": "CLASSICAL_ONLY"
+        },
+        "phase_or_asymptotic_sector": {
+          "declared_classical_branch_available": true,
+          "physical_quantum_sector_available": false,
+          "status": "NONPERTURBATIVE_QCD_SECTOR_ABSENT_FROM_DECLARED_CORPUS"
+        },
+        "physical_current_residue": {
+          "nonzero_positive_residue_available": false,
+          "required_quantum_object": "a nonzero physical residue in an admitted deconfined carrier channel",
+          "status": "MISSING_SOURCE_CONSTRUCTION"
+        },
+        "refinement_control": {
+          "available": false,
+          "required_object": "a source-derived refinement family preserving the physical pole classification",
+          "status": "MISSING_SOURCE_CONSTRUCTION"
+        },
+        "spectral_object": {
+          "available_classical_object": "conditional classical characteristic or reduced Hamiltonian spectrum",
+          "classical_object_available": true,
+          "positive_physical_quantum_object_available": false,
+          "required_quantum_object": "a gauge-invariant QCD Hamiltonian or two-point spectral object",
+          "status": "CLASSICAL_ONLY"
+        },
+        "state_space": {
+          "available_classical_object": "conditional reduced classical transverse phase space",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a positive gauge-invariant QCD physical state space in the selected phase",
+          "status": "CLASSICAL_ONLY"
+        },
+        "vacuum": {
+          "available_declared_object": "the conditional action, phase, or background branch named by the classical parent",
+          "branch_declared": true,
+          "required_quantum_object": "a source-selected QCD vacuum and phase",
+          "source_selected_quantum_object_available": false,
+          "status": "DECLARED_BRANCH_ONLY"
+        }
+      },
+      "carrier_id": "gluon",
+      "classical_baseline": {
+        "branch": "pure_Yang-Mills_quadratic_expansion_before_nonperturbative_confinement",
+        "branch_is_additional_input_not_group_output": true,
+        "classical_gate_status": "conditional_pass_on_declared_action_phase_branch",
+        "continuum_spacetime_dimension": 4,
+        "exact_total_mode_count": 16,
+        "hard_quadratic_mass_parameter_squared": 0,
+        "modes_per_carrier_component": 2,
+        "multiplicity_factor": 8,
+        "multiplicity_role": "su3_adjoint_generator",
+        "particle_claim": false
+      },
+      "label": "Color gauge carrier",
+      "open_interfaces": [
+        {
+          "issue": 635,
+          "requirement": "finite-source to Lorentzian quantum-EFT construction"
+        }
+      ],
+      "particle_promotion_allowed": false,
+      "resource_boundaries": [
+        {
+          "issue": 425,
+          "requirement": "source-only QCD physical spectral production beyond the recorded resource boundary"
+        },
+        {
+          "issue": 294,
+          "requirement": "continuum reconstruction and nontriviality beyond the recorded bounded exit"
+        }
+      ],
+      "strongest_supported_statement": "On the declared perturbative Yang-Mills quadratic branch, each of the eight color generators has two transverse modes and zero hard quadratic mass parameter, giving sixteen conditional classical modes. This supplies neither an asymptotic colored gluon nor a QCD spectral prediction.",
+      "verdict": "NOT_EVALUABLE_NO_QCD",
+      "verdict_class": "EXPLICIT_NOT_EVALUABLE"
+    },
+    {
+      "blocking_frontier": [
+        "inhabited_source_derived_einstein_tower",
+        "finite_source_to_lorentzian_linearized_quantum_carrier"
+      ],
+      "capabilities": {
+        "gauge_quotient": {
+          "available_classical_object": "conditional classical gauge fixing and reduced mode quotient",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a quantum quotient of linearized diffeomorphisms with a positive physical sector",
+          "status": "CLASSICAL_ONLY"
+        },
+        "observable_algebra": {
+          "available_classical_object": "linearized curvature observables on the declared background",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a source-derived linearized diffeomorphism-invariant observable algebra",
+          "status": "CLASSICAL_ONLY"
+        },
+        "phase_or_asymptotic_sector": {
+          "declared_classical_branch_available": true,
+          "physical_quantum_sector_available": false,
+          "status": "DECLARED_CLASSICAL_BACKGROUND_ONLY"
+        },
+        "physical_current_residue": {
+          "nonzero_positive_residue_available": false,
+          "required_quantum_object": "a nonzero positive spin-two residue against a physical conserved stress tensor",
+          "status": "MISSING_SOURCE_CONSTRUCTION"
+        },
+        "refinement_control": {
+          "available": false,
+          "required_object": "a source-derived refinement family preserving the physical pole classification",
+          "status": "MISSING_SOURCE_CONSTRUCTION"
+        },
+        "spectral_object": {
+          "available_classical_object": "conditional classical characteristic or reduced Hamiltonian spectrum",
+          "classical_object_available": true,
+          "positive_physical_quantum_object_available": false,
+          "required_quantum_object": "a physical linearized spin-two Hamiltonian or two-point spectral object",
+          "status": "CLASSICAL_ONLY"
+        },
+        "state_space": {
+          "available_classical_object": "conditional reduced classical transverse phase space",
+          "classical_object_available": true,
+          "physical_quantum_object_available": false,
+          "required_quantum_object": "a positive physical state space for linearized Einstein perturbations",
+          "status": "CLASSICAL_ONLY"
+        },
+        "vacuum": {
+          "available_declared_object": "the conditional action, phase, or background branch named by the classical parent",
+          "branch_declared": true,
+          "required_quantum_object": "an inhabited source-derived Einstein tower with a selected quantum background or vacuum",
+          "source_selected_quantum_object_available": false,
+          "status": "DECLARED_BRANCH_ONLY"
+        }
+      },
+      "carrier_id": "graviton",
+      "classical_baseline": {
+        "branch": "pure_Einstein-Hilbert_linearization_about_a_suitable_Ricci-flat_background",
+        "branch_is_additional_input_not_group_output": true,
+        "classical_gate_status": "conditional_pass_on_declared_action_phase_branch",
+        "continuum_spacetime_dimension": 4,
+        "exact_total_mode_count": 2,
+        "hard_quadratic_mass_parameter_squared": 0,
+        "modes_per_carrier_component": 2,
+        "multiplicity_factor": 1,
+        "multiplicity_role": "symmetric_metric_tensor_field",
+        "particle_claim": false
+      },
+      "label": "Einstein tensor carrier",
+      "open_interfaces": [
+        {
+          "issue": 503,
+          "requirement": "one inhabited source-derived typed Einstein tower"
+        },
+        {
+          "issue": 635,
+          "requirement": "finite-source to Lorentzian quantum-EFT construction"
+        }
+      ],
+      "particle_promotion_allowed": false,
+      "resource_boundaries": [],
+      "strongest_supported_statement": "On the declared pure Einstein-Hilbert linearization about a suitable Ricci-flat background, the hard quadratic mass parameter is zero and the transverse-traceless classical system has two modes. This is not a graviton Hilbert-space, pole, or rest-mass prediction.",
+      "verdict": "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER",
+      "verdict_class": "EXPLICIT_NOT_EVALUABLE"
+    }
+  ],
+  "schema": "oph.quantum_carrier_status.v2",
+  "source_projection_pin": {
+    "bytes": 6979,
+    "path": "code/particles/manifests/quantum_carrier_status_source_projection.json",
+    "sha256": "sha256:f831620b149a77bc69fc6bb00b6de4dc87e717b2f11bfd3affee88603181e0cb"
+  },
+  "status": "THREE_ROW_EXPLICIT_NOT_EVALUABLE",
+  "target_named_status_rows": true
+}

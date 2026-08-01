@@ -27,6 +27,7 @@ def test_guards_are_compare_only(result):
 def test_all_sections_present(result):
     expected = {
         "forced_structure",
+        "quantum_carrier_status",
         "alpha",
         "charged_leptons",
         "electroweak",
@@ -37,6 +38,39 @@ def test_all_sections_present(result):
     assert set(result["sections"]) == expected
     for rows in result["sections"].values():
         assert rows
+
+
+def test_quantum_carrier_status_preserves_classical_count_without_promotion(result):
+    status = result["sections"]["quantum_carrier_status"]
+    assert status["classical_mode_vector_order"] == [
+        "photon",
+        "gluon",
+        "graviton",
+    ]
+    assert status["classical_mode_vector"] == [2, 16, 2]
+    assert status["artifact_ref"] == (
+        "code/particles/runs/status/quantum_carrier_status.json"
+    )
+    rows = {row["carrier_id"]: row for row in status["rows"]}
+    assert rows["photon"]["verdict"] == (
+        "NOT_EVALUABLE_NO_SOURCE_SELECTED_MAXWELL_QUANTUM_SECTOR"
+    )
+    assert rows["gluon"]["verdict"] == "NOT_EVALUABLE_NO_QCD"
+    assert rows["graviton"]["verdict"] == (
+        "NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER"
+    )
+    assert rows["photon"]["blocking_frontier"] == [
+        "source_selected_unbroken_u1_quantum_maxwell_sector",
+        "finite_source_to_lorentzian_quantum_eft_construction",
+    ]
+    assert rows["gluon"]["blocking_frontier"] == [
+        "finite_source_to_lorentzian_quantum_eft_construction",
+        "source_derived_qcd_physical_spectral_sector",
+    ]
+    assert rows["graviton"]["blocking_frontier"] == [
+        "inhabited_source_derived_einstein_tower",
+        "finite_source_to_lorentzian_linearized_quantum_carrier",
+    ]
 
 
 def test_forced_structure_receipts_exist(result):
@@ -88,6 +122,9 @@ def test_classical_carriers_and_xy_boundary_are_visible(result):
     assert xy["derivation_kind"] == "direct_executable_algebraic_corollary"
     assert xy["artifact_ref"] == (
         "code/a5_closure/receipts/port_current_inner_reference.receipt.json"
+    )
+    assert xy["operator_census_ref"] == (
+        "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json"
     )
     assert xy["adjoint_branching"]["mixed_xy_bifundamental_dimension"] == 0
     assert "lean_receipts" not in xy
@@ -214,6 +251,7 @@ def test_markdown_rendered(tmp_path):
     text = md.read_text(encoding="utf-8")
     assert "# Postdiction Ledger" in text
     assert "## Forced structure" in text
+    assert "## Quantum carrier gate" in text
     assert "NOT_EVALUABLE" in text
     assert "Recorded retrospective same-scheme accounting interval" in text
     assert "Certified same-scheme anchor gap" not in text

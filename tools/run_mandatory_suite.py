@@ -41,6 +41,31 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/build_fz_registry.py", "--check"],
     ),
     (
+        "Validate the comparison-value-free quantum-carrier status packet",
+        [
+            sys.executable,
+            "code/particles/scripts/build_quantum_carrier_status.py",
+            "--validate-only",
+        ],
+    ),
+    (
+        "Replay the quantum-carrier status independently",
+        [
+            sys.executable,
+            "code/particles/verify_quantum_carrier_status_independent.py",
+        ],
+    ),
+    (
+        "Execute the quantum-carrier status mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/particles/test_quantum_carrier_status.py",
+        ],
+    ),
+    (
         "Validate the deterministic postdiction ledger",
         [
             sys.executable,
@@ -120,7 +145,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the locked direct N source verdict",
+        "Validate the bounded direct N source verdict",
         [
             sys.executable,
             "code/capacity_readback/direct_n_closure_verdict.py",
@@ -143,6 +168,81 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/capacity_readback/test_n_closure_branch_certificate.py",
+        ],
+    ),
+    (
+        "Validate the finite-cut to global-capacity attachment verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/global_capacity_attachment.py",
+            "--validate-only",
+        ],
+    ),
+    (
+        "Replay the global-capacity attachment verdict independently",
+        [
+            sys.executable,
+            "code/capacity_readback/verify_global_capacity_attachment_independent.py",
+        ],
+    ),
+    (
+        "Execute the global-capacity attachment mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_global_capacity_attachment.py",
+        ],
+    ),
+    (
+        "Validate the named-law N closure verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/named_law_n_closure_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Replay the named-law N closure verdict independently",
+        [
+            sys.executable,
+            "code/capacity_readback/verify_named_law_n_closure_verdict_independent.py",
+        ],
+    ),
+    (
+        "Execute the named-law N closure verdict mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_named_law_n_closure_verdict.py",
+        ],
+    ),
+    (
+        "Validate the named-law horizon bridge short-circuit verdict",
+        [
+            sys.executable,
+            "code/capacity_readback/named_law_horizon_bridge_verdict.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Execute the named-law horizon bridge mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/capacity_readback/test_named_law_horizon_bridge_verdict.py",
+        ],
+    ),
+    (
+        "Replay the named-law horizon bridge verdict independently",
+        [
+            sys.executable,
+            "code/capacity_readback/verify_named_law_horizon_bridge_verdict_independent.py",
         ],
     ),
     (
@@ -356,6 +456,89 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the exact discrete-refinement theorem packet",
+        [
+            sys.executable,
+            "code/refinement/discrete_refinement_certificate.py",
+            "--check",
+        ],
+    ),
+    (
+        "Replay the discrete-refinement packet independently",
+        [
+            sys.executable,
+            "code/refinement/verify_discrete_refinement_independent.py",
+        ],
+    ),
+    (
+        "Execute the discrete-refinement mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/refinement/test_discrete_refinement_certificate.py",
+        ],
+    ),
+    (
+        "Validate the conditional dimension-six baryon-operator census",
+        [
+            sys.executable,
+            "code/a5_closure/baryon_dimension_six_census.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Replay the dimension-six baryon census independently",
+        [
+            sys.executable,
+            "code/a5_closure/verify_baryon_dimension_six_census_independent.py",
+        ],
+    ),
+    (
+        "Execute the dimension-six baryon census mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/tests/test_baryon_dimension_six_census.py",
+        ],
+    ),
+    (
+        "Replay the bounded source-current capability certificate",
+        [
+            sys.executable,
+            "code/a5_closure/source_current_capability_certificate.py",
+            "verify",
+            "--projection",
+            "code/a5_closure/manifests/source_current_capability_projection.json",
+            "--receipt",
+            "code/a5_closure/receipts/source_current_capability.receipt.json",
+        ],
+    ),
+    (
+        "Verify the bounded source-current capability packet independently",
+        [
+            sys.executable,
+            "code/a5_closure/verify_source_current_capability_independent.py",
+            "--projection",
+            "code/a5_closure/manifests/source_current_capability_projection.json",
+            "--receipt",
+            "code/a5_closure/receipts/source_current_capability.receipt.json",
+        ],
+    ),
+    (
+        "Execute the bounded source-current capability mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/tests/test_source_current_capability_certificate.py",
+        ],
+    ),
+    (
         "Execute the A5 fingerprint and frozen primitive-port prediction suites",
         [
             sys.executable,
@@ -363,6 +546,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/a5_fingerprint/test_a5_multipole_fixed_point_certificate.py",
+            "code/a5_fingerprint/test_a5_multipole_fixed_point_hardening_certificate.py",
             "code/a5_fingerprint/test_spin_six_universality_certificate.py",
             "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py",
             "code/a5_fingerprint/test_carrier_scale_bound_diagnostic.py",

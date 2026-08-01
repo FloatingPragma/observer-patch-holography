@@ -4,7 +4,7 @@
 
 Film two billiard balls colliding, then play the film backward. Nothing looks wrong. The reversed collision obeys Newton's equations exactly as well as the original, and a physicist shown only the film could not tell you which direction was real. As far as the laws are concerned, past and future are symmetric.
 
-Now film a wine glass sliding off a table.
+Film a wine glass sliding off a table.
 
 Played backward, that film is instantly, obviously false. Glasses break and stay broken. Eggs scramble but never unscramble, coffee and milk mix and refuse to unmix, and a warm room will melt an ice cube without ever once freezing one back. We remember yesterday but not tomorrow.
 

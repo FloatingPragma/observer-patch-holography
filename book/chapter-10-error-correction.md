@@ -234,10 +234,10 @@ who read what before writing.
 
 That public description is the fixed point: a shared state produced by the
 allowed repairs, with no vote and no view from nowhere. The measurement layer
-then singles out the records that observers can actually compare, with the
-usual Born probabilities and measurement updates on that accessible record
-structure. Stable public facts appear when many local correction steps settle
-on one common answer.
+then singles out the records that observers can actually compare. On a
+quantum record structure, the usual Born probabilities and measurement
+updates apply. Stable public facts appear when many local correction steps
+settle on one common answer.
 
 One caution applies. The settling process is not an equilibrium. Accepted
 repairs move toward a final form and need not have accepted reverse moves, so

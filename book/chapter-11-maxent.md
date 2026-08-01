@@ -65,7 +65,7 @@ incomplete knowledge.
 The intuition rests on one fact of ordinary thermodynamics. Boltzmann's
 distribution says that in a thermal state, probability falls off
 exponentially with energy: cheap states are common, expensive states are
-rare. Now run that backward. Hand someone only the probabilities, and by
+rare. Run that backward. Hand someone only the probabilities, and by
 taking a logarithm they can recover the energy ladder that produced them. And
 in quantum mechanics, energy is precisely the thing that generates time
 evolution. So a state of partial knowledge secretly contains an energy

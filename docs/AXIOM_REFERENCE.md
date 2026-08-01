@@ -558,9 +558,12 @@ constructed outer and inner readings, it imposes:
 The screen-grain proposal
 \(P=\varphi+\sqrt{\pi}/A_T(P)\) has an interval-certified fixed
 point; its laboratory attachment awaits the same-scheme hadronic transport.
-The direct capacity proposal \(N=\log M_0(\mathfrak U_N)\) is
-nonidentifiable on the complete declared finite source class. A capacity selector
-therefore requires an additional named source law.
+The direct capacity proposal \(N=\log M_0(\mathfrak U_N)\) is not evaluable
+on the incomplete source antecedent. An exact all-rung generation-register
+counterfamily is nonidentifying under its bounded premises, with transported
+controls checked on six finite rungs. Universal membership in the complete
+A1--A3 source class and the executable-to-Lean membership bridge are
+unproved.
 
 A separate common-load branch defines
 \[
@@ -576,11 +579,14 @@ would give
 N_{\mathrm{pres}}=N_0\left(1-\frac{P}{24}\right).
 \]
 The alternative \(N_{\mathrm{Pois}}=N_0e^{-P/24}\) requires a separate
-mean-count or continuum carrier. Neither branch has the required global
-attachment. The common-load identity, physical \(\mathbb Z_6\) seam action,
-one-class reserve selection, scalar-weighted receipt, reserve-to-capacity
-map, and horizon-record identity are open, alongside the inherited
-electroweak bridge premises. The comparisons with a Planck
+mean-count or continuum carrier. The finite source does not select either
+global action. Exact neutral and multiplicative completions of the same local
+survival datum are positive, compose on disconnected cuts and finite
+cut-count regroupings, and disagree after one cut. It also selects neither a
+one-class blocked event, a six-class-total event, nor no capacity action. The
+named-law branch is not evaluable on this declared source class and supplies
+no capacity object for the horizon identity. A stronger target-independent
+source action is required for a positive branch. The comparisons with a Planck
 base-\(\Lambda\)CDM coordinate are retrospective and do not select between
 the branches.
 

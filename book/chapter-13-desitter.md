@@ -6,7 +6,7 @@ In February 1917, at the tail end of the turnip winter that was starving
 Berlin, Einstein sent the Prussian Academy a paper applying general
 relativity to the universe as a whole, and joked in a letter to his friend
 Paul Ehrenfest that the idea might get him committed to a madhouse. His
-universe was static, neither expanding nor contracting, and to hold it still
+universe was static, neither expanding nor contracting, and to hold it in place
 against its own gravity he had planted an extra term in his own field
 equations: the "cosmological constant." When Hubble found the expansion,
 Einstein dropped the constant; George Gamow later reported him calling it
@@ -303,7 +303,9 @@ enters as the one global scale the local construction cannot erase.
 
 The symbol $\Lambda$ is the cosmological constant, the part of Einstein's
 equation that acts like a uniform large-scale tendency for space to accelerate.
-Its proposed numerical readout belongs to the global capacity branch.
+Its conditional numerical readout belongs to the global capacity branch. The
+finite collar data do not select an action on that capacity, so the branch
+emits no cosmological value without a stronger source law.
 
 The entropy of a de Sitter static patch is a definite finite number. Reading
 that entropy as the record capacity of the same self-correcting memory is a

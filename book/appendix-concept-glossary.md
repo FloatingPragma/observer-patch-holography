@@ -300,14 +300,16 @@ balance, and that small offset is where the interesting physics lives. The
 later chapters track what the offset costs and what it buys.
 
 Dispersion signature
-:   Waves crossing the primitive twelve-port carrier pick up a fixed
-dispersion signature. The leading correction is $C_4=-a^2/20$, the sixth-order
+:   On the named primitive twelve-port propagation branch, waves pick up a
+fixed dispersion signature. The leading correction is $C_4=-a^2/20$, the sixth-order
 terms obey $B_0/C_4^2=10/21$, $B_6/C_4^2=32/315$, and $B_6/B_0=16/75$, every
 anisotropy below angular rank six vanishes, and the rank-six term has one
 rigid shape whose only freedom is a global orientation among the icosahedral
 axes. The numbers were written down and timestamped before any comparison
 data was examined. A measurement that contradicts them kills the propagation
-branch outright.
+branch outright. The finite repair operator acts on internal seams and does
+not select this spatial branch, so a stronger source law is required before
+such a failure can be applied to the whole framework.
 
 Echosahedral patch
 :   An echosahedral patch is OPH's twelve-port reference carrier. It has a
@@ -428,9 +430,9 @@ observer-dependent boundaries.
 Gleason's theorem
 :   Gleason's theorem shows that the only consistent
 probability rule on the projections of a quantum system of dimension three or
-more is the Born trace rule. It removes the freedom to invent a different
-probability assignment. OPH uses it to treat trace and Born readings as forced
-rather than postulated.
+more is the Born trace rule, under its measure assumptions. Within that
+quantum setting, it removes the freedom to invent a different probability
+assignment.
 
 Gödel incompleteness
 :   Gödel's theorems show that any sufficiently rich

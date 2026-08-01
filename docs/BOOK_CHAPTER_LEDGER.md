@@ -998,9 +998,10 @@ domain is a certified result for the declared incomplete map. The missing
 hadronic transport prevents promotion to a physical Thomson prediction. The
 fixed $D=24$ capacity packet is exact. Its executable bounded counterfamily
 rules out uniqueness under base agreement, positivity, and the carrier bound.
-The complete capacity-indexed A1--A3 packet lift carries a locked negative
-verdict and the universe carrier attachment is not evaluable, so no direct
-cosmic $N$ follows without an additional named source law. The first hadronic bracket exercise is exploratory rather than
+The capacity-indexed packet gives an exact bounded counterfamily and checks
+transported controls on six finite rungs. Universal membership in the
+complete A1--A3 source class is unproved, so direct $N$ is not evaluable and
+no cosmic value follows. The first hadronic bracket exercise is exploratory rather than
 blind because its target numerics were exposed, its registered and verdict
 coordinates differ, and its comparison pixel moved. The no-landscape corollary
 therefore remains conditional on completing both maps and proving unique

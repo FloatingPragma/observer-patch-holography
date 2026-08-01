@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import copy
 import json
 
 import pytest
@@ -15,19 +14,19 @@ def _write_payload(tmp_path, name: str, payload: dict):
     return path
 
 
-def test_direct_n_verdict_consumes_the_exact_negative_source_result():
+def test_direct_n_verdict_retains_incomplete_source_antecedent():
     verdict = verdict_module.build_verdict()
 
-    assert verdict["status"] == (
-        "LOCKED_NONIDENTIFIABILITY_COMPLETED_CAPACITY_SOURCE_CLASS"
-    )
-    lift_result = verdict["complete_lift_result"]
-    assert lift_result["wide_survivors"] == [
+    assert verdict["status"] == ("NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT")
+    lift_result = verdict["bounded_generation_register_result"]
+    assert lift_result["sampled_control_passers"] == [
         "reversible_identity",
         "copy_collapse_erasure",
         "capped_two_class",
     ]
-    assert lift_result["source_closed_slack_identically_zero"] is True
+    assert lift_result["universal_all_rung_membership_proved"] is False
+    assert lift_result["executable_lean_membership_bridge_proved"] is False
+    assert lift_result["complete_a1_a3_source_class_nonidentifiability_proved"] is False
     assert lift_result["unique_source_zero_entailed"] is False
     assert verdict["comparison_boundary"]["direct_numeric_N_emitted"] is False
     assert verdict["issues"] == [505, 551]
@@ -38,12 +37,8 @@ def test_direct_n_verdict_consumes_the_exact_negative_source_result():
         "cosmic_value_selected": False,
     }
     assert verdict["capacity_indexed_result"]["zero_sets_differ"] is True
-    assert verdict["capacity_indexed_result"][
-        "unique_source_zero_entailed"
-    ] is False
-    assert verdict["capacity_indexed_result"][
-        "strange_loop_identity_rejected"
-    ] is False
+    assert verdict["capacity_indexed_result"]["unique_source_zero_entailed"] is False
+    assert verdict["capacity_indexed_result"]["strange_loop_identity_rejected"] is False
     assert verdict["source_controls"]["all_rung_lean_theorem"].endswith(
         "boundedCompletionClass_doesNotForceUniqueZero"
     )
@@ -57,24 +52,16 @@ def test_every_required_control_and_fiber_status_is_explicit():
         "incomplete": "INCOMPLETE",
         "singleton": "SINGLETON",
     }
-    assert verdict["fiber_closure_branches"]["empty"][
-        "existentially_closed"
-    ] is False
-    assert verdict["fiber_closure_branches"]["empty"][
-        "robustly_closed"
-    ] is False
-    assert verdict["fiber_closure_branches"]["ambiguous"][
-        "existentially_closed"
-    ] is True
-    assert verdict["fiber_closure_branches"]["ambiguous"][
-        "robustly_closed"
-    ] is False
-    assert verdict["fiber_closure_branches"]["singleton"][
-        "existentially_closed"
-    ] is True
-    assert verdict["fiber_closure_branches"]["singleton"][
-        "robustly_closed"
-    ] is True
+    assert verdict["fiber_closure_branches"]["empty"]["existentially_closed"] is False
+    assert verdict["fiber_closure_branches"]["empty"]["robustly_closed"] is False
+    assert (
+        verdict["fiber_closure_branches"]["ambiguous"]["existentially_closed"] is True
+    )
+    assert verdict["fiber_closure_branches"]["ambiguous"]["robustly_closed"] is False
+    assert (
+        verdict["fiber_closure_branches"]["singleton"]["existentially_closed"] is True
+    )
+    assert verdict["fiber_closure_branches"]["singleton"]["robustly_closed"] is True
     controls = verdict["source_controls"]
     assert controls["constructor_reads_desired_capacity"] is False
     assert all(
@@ -84,23 +71,23 @@ def test_every_required_control_and_fiber_status_is_explicit():
         not in {
             "constructor_reads_desired_capacity",
             "all_rung_lean_theorem",
-            "complete_lift_lean_theorems",
-            "complete_lift_independent_verifier",
+            "bounded_lift_arithmetic_lean_theorems",
+            "bounded_lift_independent_verifier",
         }
     )
-    assert controls["complete_lift_lean_theorems"] == [
-        "OPH.CapacityNonidentifiability."
-        "sourceClosed_no_unique_positive_fixed_rung",
+    assert controls["bounded_lift_arithmetic_lean_theorems"] == [
+        "OPH.CapacityNonidentifiability.identity_fixed",
+        "OPH.CapacityNonidentifiability.erasure_fixed_iff",
+        "OPH.CapacityNonidentifiability.capped_fixed_iff",
+        "OPH.CapacityNonidentifiability.sourceClosed_no_unique_positive_fixed_rung",
         "OPH.CapacityNonidentifiability.oscillation_fixed_iff_odd",
         "OPH.CapacityNonidentifiability.completeClass_doesNotEntailUniqueZero",
     ]
     assert verdict["comparison_boundary"]["direct_numeric_N_emitted"] is False
-    assert verdict["comparison_boundary"][
-        "cosmological_comparison_permitted"
-    ] is False
-    assert verdict["comparison_boundary"][
-        "horizon_record_attachment_evaluable"
-    ] is False
+    assert verdict["comparison_boundary"]["cosmological_comparison_permitted"] is False
+    assert (
+        verdict["comparison_boundary"]["horizon_record_attachment_evaluable"] is False
+    )
 
 
 def test_parent_pin_or_verdict_mutation_fails_closed(
@@ -117,9 +104,7 @@ def test_parent_pin_or_verdict_mutation_fails_closed(
 def test_independent_projection_mismatch_fails_closed(
     tmp_path, monkeypatch: pytest.MonkeyPatch
 ):
-    receipt = json.loads(
-        verdict_module.INDEPENDENT_RECEIPT_PATH.read_text()
-    )
+    receipt = json.loads(verdict_module.INDEPENDENT_RECEIPT_PATH.read_text())
     receipt["projection_sha256"] = "sha256:" + "0" * 64
     mutated = _write_payload(tmp_path, "independent.json", receipt)
     monkeypatch.setattr(verdict_module, "INDEPENDENT_RECEIPT_PATH", mutated)
@@ -135,15 +120,15 @@ def test_independent_projection_mismatch_fails_closed(
             "zero_sets_differ drift",
         ),
         (
-            lambda family: family["branch_receipts"][
-                "reversible_identity"
-            ].__setitem__("extension", []),
+            lambda family: family["branch_receipts"]["reversible_identity"].__setitem__(
+                "extension", []
+            ),
             "extension receipts are empty",
         ),
         (
-            lambda family: family["branch_receipts"][
-                "copy_collapse_erasure"
-            ]["sewing"][0].__setitem__("status", "FAIL"),
+            lambda family: family["branch_receipts"]["copy_collapse_erasure"]["sewing"][
+                0
+            ].__setitem__("status", "FAIL"),
             "sewing receipt did not pass",
         ),
     ],
@@ -157,9 +142,7 @@ def test_family_scientific_mutations_fail_closed(
     family = json.loads(verdict_module.CERTIFICATE_PATH.read_text())
     mutation(family)
     family.pop("certificate_sha256", None)
-    family["certificate_sha256"] = tagged_sha256(
-        canonical_json_bytes(family)
-    )
+    family["certificate_sha256"] = tagged_sha256(canonical_json_bytes(family))
     mutated = _write_payload(tmp_path, "family-mutation.json", family)
     monkeypatch.setattr(verdict_module, "CERTIFICATE_PATH", mutated)
     with pytest.raises(ValueError, match=message):
@@ -191,9 +174,7 @@ def test_independent_replay_mutations_fail_closed(
     mutation,
     message,
 ):
-    receipt = json.loads(
-        verdict_module.INDEPENDENT_RECEIPT_PATH.read_text()
-    )
+    receipt = json.loads(verdict_module.INDEPENDENT_RECEIPT_PATH.read_text())
     mutation(receipt)
     mutated = _write_payload(tmp_path, "independent-mutation.json", receipt)
     monkeypatch.setattr(verdict_module, "INDEPENDENT_RECEIPT_PATH", mutated)
@@ -213,9 +194,7 @@ def test_independent_replay_mutations_fail_closed(
             "custody artifacts are empty",
         ),
         (
-            lambda custody: custody["artifacts"][0].__setitem__(
-                "sha256", "1" * 64
-            ),
+            lambda custody: custody["artifacts"][0].__setitem__("sha256", "1" * 64),
             "custody projection hash mismatch",
         ),
     ],
@@ -238,12 +217,36 @@ def test_fixed_fiber_classification_mutation_fails_closed(
     tmp_path, monkeypatch: pytest.MonkeyPatch
 ):
     fixed = json.loads(verdict_module.FIXED_CERTIFICATE_PATH.read_text())
-    fixed["controls"]["terminal_fibers"]["ambiguous"][
-        "terminal_fiber_capacity_set"
-    ] = [24]
+    fixed["controls"]["terminal_fibers"]["ambiguous"]["terminal_fiber_capacity_set"] = [
+        24
+    ]
     mutated = _write_payload(tmp_path, "fixed-mutation.json", fixed)
     monkeypatch.setattr(verdict_module, "FIXED_CERTIFICATE_PATH", mutated)
     with pytest.raises(ValueError, match="ambiguous fiber classifier drift"):
+        verdict_module.build_verdict()
+
+
+def test_bounded_lift_membership_promotion_fails_closed(
+    tmp_path, monkeypatch: pytest.MonkeyPatch
+):
+    lift = json.loads(verdict_module.COMPLETE_LIFT_RECEIPT_PATH.read_text())
+    lift["source_contract_status"]["universal_all_rung_membership_proved"] = True
+    lift.pop("receipt_sha256", None)
+    lift["receipt_sha256"] = tagged_sha256(canonical_json_bytes(lift))
+    mutated = _write_payload(tmp_path, "promoted-lift.json", lift)
+    monkeypatch.setattr(verdict_module, "COMPLETE_LIFT_RECEIPT_PATH", mutated)
+    with pytest.raises(ValueError, match="universal_all_rung_membership_proved"):
+        verdict_module.build_verdict()
+
+
+def test_bounded_lift_self_hash_mutation_fails_closed(
+    tmp_path, monkeypatch: pytest.MonkeyPatch
+):
+    lift = json.loads(verdict_module.COMPLETE_LIFT_RECEIPT_PATH.read_text())
+    lift["receipt_sha256"] = "sha256:" + "0" * 64
+    mutated = _write_payload(tmp_path, "bad-lift-pin.json", lift)
+    monkeypatch.setattr(verdict_module, "COMPLETE_LIFT_RECEIPT_PATH", mutated)
+    with pytest.raises(ValueError, match="self-pin mismatch"):
         verdict_module.build_verdict()
 
 

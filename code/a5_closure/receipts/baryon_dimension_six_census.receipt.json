@@ -1,0 +1,869 @@
+{
+  "census": {
+    "cumulative_filter_counts": {
+      "all_multisets": 715,
+      "color_triality_zero": 12,
+      "hypercharge_neutral": 12,
+      "lorentz_chirality_parity_even": 8,
+      "nonzero_baryon_number": 554,
+      "weak_doublet_parity_even": 12
+    },
+    "four_fermion_multisets_checked": 715,
+    "hermitian_conjugacy_class_count": 4,
+    "hermitian_conjugacy_classes": [
+      "DUQL",
+      "DUUE",
+      "QQQL",
+      "QQUE"
+    ],
+    "oriented_monomial_count": 8,
+    "oriented_monomials": [
+      {
+        "b3": 3,
+        "class": "QQQL",
+        "fields": [
+          "Q",
+          "Q",
+          "Q",
+          "L"
+        ],
+        "lepton_number": 1,
+        "orientation": "delta_B_plus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": 3,
+        "class": "QQUE",
+        "fields": [
+          "Q",
+          "Q",
+          "u_R",
+          "e_R"
+        ],
+        "lepton_number": 1,
+        "orientation": "delta_B_plus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": 3,
+        "class": "DUQL",
+        "fields": [
+          "Q",
+          "L",
+          "u_R",
+          "d_R"
+        ],
+        "lepton_number": 1,
+        "orientation": "delta_B_plus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": 3,
+        "class": "DUUE",
+        "fields": [
+          "u_R",
+          "u_R",
+          "d_R",
+          "e_R"
+        ],
+        "lepton_number": 1,
+        "orientation": "delta_B_plus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": -3,
+        "class": "QQQL",
+        "fields": [
+          "Q_bar",
+          "Q_bar",
+          "Q_bar",
+          "L_bar"
+        ],
+        "lepton_number": -1,
+        "orientation": "delta_B_minus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": -3,
+        "class": "QQUE",
+        "fields": [
+          "Q_bar",
+          "Q_bar",
+          "u_R_bar",
+          "e_R_bar"
+        ],
+        "lepton_number": -1,
+        "orientation": "delta_B_minus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": -3,
+        "class": "DUQL",
+        "fields": [
+          "Q_bar",
+          "L_bar",
+          "u_R_bar",
+          "d_R_bar"
+        ],
+        "lepton_number": -1,
+        "orientation": "delta_B_minus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      },
+      {
+        "b3": -3,
+        "class": "DUUE",
+        "fields": [
+          "u_R_bar",
+          "u_R_bar",
+          "d_R_bar",
+          "e_R_bar"
+        ],
+        "lepton_number": -1,
+        "orientation": "delta_B_minus_one",
+        "q6": 0,
+        "three_times_delta_B_minus_L": 0
+      }
+    ],
+    "two_fermion_baryon_violating_gauge_lorentz_survivors": 0,
+    "two_fermion_multisets_checked": 55
+  },
+  "claim_boundary": "Conditional on the pinned one-generation rank-fifteen matter table, its conjugate Weyl fields, the declared baryon/lepton labels, and the stated local dimension-six grammar, the complete nonzero-baryon basis contains four independent Hermitian-conjugacy classes. An exact exterior-algebra rank calculation enumerates every epsilon pairing and includes the Schouten/Fierz and identical-field Pauli relations; the QQQL and DUUE one-generation representatives remain nonzero. Gauge invariance and the diagonal Z6 quotient therefore do not protect the proton. No source coefficient, physical decay amplitude, QCD matrix element, lifetime, or assertion that proton decay occurs is supplied.",
+  "controls": {
+    "baryon_charged_scalar_rejected_by_scope": true,
+    "charge_mutation_changes_census": true,
+    "missing_contraction_would_be_detected": true,
+    "omitted_field_changes_grammar": true,
+    "right_handed_neutrino_is_outside_frozen_grammar": true
+  },
+  "diagonal_z6": {
+    "conclusion": "every admitted field descends individually, so the diagonal Z6 quotient cannot remove any gauge-singlet four-field class",
+    "diagonal_generator_convention": "2*triality + 3*weak_duality + q6 mod 6",
+    "field_phases_sixths": {
+      "L": 0,
+      "L_bar": 0,
+      "Q": 0,
+      "Q_bar": 0,
+      "d_R": 0,
+      "d_R_bar": 0,
+      "e_R": 0,
+      "e_R_bar": 0,
+      "u_R": 0,
+      "u_R_bar": 0
+    }
+  },
+  "dimension_argument": {
+    "four_fermions_have_canonical_dimension": 6,
+    "four_fermions_leave_no_dimension_for_scalar_derivative_or_field_strength_insertions": true,
+    "lorentz_scalar_requires_even_fermion_number": true,
+    "two_fermions_have_no_nonzero_baryon_gauge_lorentz_survivor": true,
+    "zero_fermions_have_zero_baryon_number": true
+  },
+  "explicit_nonzero_contractions": [
+    {
+      "class": "DUQL",
+      "coefficient_gcd": 1,
+      "contraction": "eps_abc eps_ij (d_Ra C u_Rb)(Q_ci C L_j)",
+      "displayed_direct_contraction_lies_in_span": true,
+      "epsilon_pairing_patterns_enumerated": 1,
+      "first_nonzero_witness": {
+        "coefficient": 1,
+        "generators": [
+          [
+            "L",
+            0,
+            0
+          ],
+          [
+            "Q",
+            0,
+            1,
+            1
+          ],
+          [
+            "d_R",
+            1,
+            0
+          ],
+          [
+            "u_R",
+            2,
+            1
+          ]
+        ]
+      },
+      "grassmann_span_rank_after_schouten_fierz_and_pauli_relations": 1,
+      "maximum_absolute_coefficient": 1,
+      "nonzero_grassmann_monomials": 48,
+      "nonzero_pairing_patterns": 1,
+      "one_generation_representative_survives": true,
+      "ordered_field_slots": [
+        "Q",
+        "L",
+        "u_R",
+        "d_R"
+      ],
+      "pairing_patterns": [
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              1
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [
+            [
+              2,
+              3
+            ]
+          ],
+          "weak_pairs": [
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ],
+      "polynomial_sha256": "sha256:cb35f0eb27d1e68ca491932e27c3d721ddc6eaf12eb99de579b2c01628cf7ff4"
+    },
+    {
+      "class": "DUUE",
+      "coefficient_gcd": 1,
+      "contraction": "eps_abc (d_Ra C u_Rb)(u_Rc C e_R)",
+      "displayed_direct_contraction_lies_in_span": true,
+      "epsilon_pairing_patterns_enumerated": 3,
+      "first_nonzero_witness": {
+        "coefficient": 2,
+        "generators": [
+          [
+            "d_R",
+            0,
+            0
+          ],
+          [
+            "e_R",
+            0
+          ],
+          [
+            "u_R",
+            1,
+            1
+          ],
+          [
+            "u_R",
+            2,
+            1
+          ]
+        ]
+      },
+      "grassmann_span_rank_after_schouten_fierz_and_pauli_relations": 1,
+      "maximum_absolute_coefficient": 2,
+      "nonzero_grassmann_monomials": 18,
+      "nonzero_pairing_patterns": 2,
+      "one_generation_representative_survives": true,
+      "ordered_field_slots": [
+        "u_R",
+        "u_R",
+        "d_R",
+        "e_R"
+      ],
+      "pairing_patterns": [
+        {
+          "left_spinor_pairs": [],
+          "nonzero": false,
+          "right_spinor_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "weak_pairs": []
+        },
+        {
+          "left_spinor_pairs": [],
+          "nonzero": true,
+          "right_spinor_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "weak_pairs": []
+        },
+        {
+          "left_spinor_pairs": [],
+          "nonzero": true,
+          "right_spinor_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "weak_pairs": []
+        }
+      ],
+      "polynomial_sha256": "sha256:3b242f38814b52a0b37cd01907aa1e1d53911f979ca1b9fa2f4b21805b71d11e"
+    },
+    {
+      "class": "QQQL",
+      "coefficient_gcd": 2,
+      "contraction": "eps_abc eps_ij eps_kl (Q_ai C Q_bj)(Q_ck C L_l)",
+      "displayed_direct_contraction_lies_in_span": true,
+      "epsilon_pairing_patterns_enumerated": 9,
+      "first_nonzero_witness": {
+        "coefficient": -4,
+        "generators": [
+          [
+            "L",
+            0,
+            0
+          ],
+          [
+            "Q",
+            0,
+            0,
+            0
+          ],
+          [
+            "Q",
+            1,
+            1,
+            1
+          ],
+          [
+            "Q",
+            2,
+            1,
+            1
+          ]
+        ]
+      },
+      "grassmann_span_rank_after_schouten_fierz_and_pauli_relations": 1,
+      "maximum_absolute_coefficient": 4,
+      "nonzero_grassmann_monomials": 36,
+      "nonzero_pairing_patterns": 9,
+      "one_generation_representative_survives": true,
+      "ordered_field_slots": [
+        "Q",
+        "Q",
+        "Q",
+        "L"
+      ],
+      "pairing_patterns": [
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [],
+          "weak_pairs": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ],
+      "polynomial_sha256": "sha256:d7e42acb8793bb8848261f756d8789a0a8f01ac438f7e41049e1ddda35ec4783"
+    },
+    {
+      "class": "QQUE",
+      "coefficient_gcd": 2,
+      "contraction": "eps_abc eps_ij (Q_ai C Q_bj)(u_Rc C e_R)",
+      "displayed_direct_contraction_lies_in_span": true,
+      "epsilon_pairing_patterns_enumerated": 1,
+      "first_nonzero_witness": {
+        "coefficient": 2,
+        "generators": [
+          [
+            "Q",
+            0,
+            0,
+            0
+          ],
+          [
+            "Q",
+            1,
+            1,
+            1
+          ],
+          [
+            "e_R",
+            0
+          ],
+          [
+            "u_R",
+            2,
+            1
+          ]
+        ]
+      },
+      "grassmann_span_rank_after_schouten_fierz_and_pauli_relations": 1,
+      "maximum_absolute_coefficient": 2,
+      "nonzero_grassmann_monomials": 24,
+      "nonzero_pairing_patterns": 1,
+      "one_generation_representative_survives": true,
+      "ordered_field_slots": [
+        "Q",
+        "Q",
+        "u_R",
+        "e_R"
+      ],
+      "pairing_patterns": [
+        {
+          "left_spinor_pairs": [
+            [
+              0,
+              1
+            ]
+          ],
+          "nonzero": true,
+          "right_spinor_pairs": [
+            [
+              2,
+              3
+            ]
+          ],
+          "weak_pairs": [
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ],
+      "polynomial_sha256": "sha256:8cbbd4a81723ba372b2e215e402a9b0401769f3c0cab7fc2d0957fa5ea8c1632"
+    }
+  ],
+  "fields": {
+    "L": {
+      "b3": 0,
+      "canonical_dimension_twice": 3,
+      "chirality": "left",
+      "color_triality": 0,
+      "lepton_number": 1,
+      "q6": -3,
+      "upstream_relation": "source L",
+      "weak_doublet": 1
+    },
+    "L_bar": {
+      "b3": 0,
+      "canonical_dimension_twice": 3,
+      "chirality": "right",
+      "color_triality": 0,
+      "lepton_number": -1,
+      "q6": 3,
+      "upstream_relation": "Hermitian conjugate of L",
+      "weak_doublet": 1
+    },
+    "Q": {
+      "b3": 1,
+      "canonical_dimension_twice": 3,
+      "chirality": "left",
+      "color_triality": 1,
+      "lepton_number": 0,
+      "q6": 1,
+      "upstream_relation": "source Q",
+      "weak_doublet": 1
+    },
+    "Q_bar": {
+      "b3": -1,
+      "canonical_dimension_twice": 3,
+      "chirality": "right",
+      "color_triality": -1,
+      "lepton_number": 0,
+      "q6": -1,
+      "upstream_relation": "Hermitian conjugate of Q",
+      "weak_doublet": 1
+    },
+    "d_R": {
+      "b3": 1,
+      "canonical_dimension_twice": 3,
+      "chirality": "right",
+      "color_triality": 1,
+      "lepton_number": 0,
+      "q6": -2,
+      "upstream_relation": "conjugate of source d_c",
+      "weak_doublet": 0
+    },
+    "d_R_bar": {
+      "b3": -1,
+      "canonical_dimension_twice": 3,
+      "chirality": "left",
+      "color_triality": -1,
+      "lepton_number": 0,
+      "q6": 2,
+      "upstream_relation": "source d_c",
+      "weak_doublet": 0
+    },
+    "e_R": {
+      "b3": 0,
+      "canonical_dimension_twice": 3,
+      "chirality": "right",
+      "color_triality": 0,
+      "lepton_number": 1,
+      "q6": -6,
+      "upstream_relation": "conjugate of source e_c",
+      "weak_doublet": 0
+    },
+    "e_R_bar": {
+      "b3": 0,
+      "canonical_dimension_twice": 3,
+      "chirality": "left",
+      "color_triality": 0,
+      "lepton_number": -1,
+      "q6": 6,
+      "upstream_relation": "source e_c",
+      "weak_doublet": 0
+    },
+    "u_R": {
+      "b3": 1,
+      "canonical_dimension_twice": 3,
+      "chirality": "right",
+      "color_triality": 1,
+      "lepton_number": 0,
+      "q6": 4,
+      "upstream_relation": "conjugate of source u_c",
+      "weak_doublet": 0
+    },
+    "u_R_bar": {
+      "b3": -1,
+      "canonical_dimension_twice": 3,
+      "chirality": "left",
+      "color_triality": -1,
+      "lepton_number": 0,
+      "q6": -4,
+      "upstream_relation": "source u_c",
+      "weak_doublet": 0
+    }
+  },
+  "global_contraction_basis": {
+    "exact_grassmann_span_rank": 4,
+    "independence_reason": "the four representatives occupy disjoint field-content sectors; the exact coefficient-matrix calculation has rank four",
+    "representative_classes": [
+      "DUQL",
+      "DUUE",
+      "QQQL",
+      "QQUE"
+    ],
+    "representative_polynomial_support_sizes": {
+      "DUQL": 48,
+      "DUUE": 18,
+      "QQQL": 36,
+      "QQUE": 24
+    }
+  },
+  "grammar": {
+    "baryon_and_lepton_number_status": "declared accidental-charge labels, not upstream OPH outputs",
+    "canonical_dimension_twice_per_weyl_field": 3,
+    "declared_scalar": {
+      "b3": 0,
+      "lepton_number": 0,
+      "representation": "color singlet weak doublet with q6 = 3, plus conjugate",
+      "status": "conditional branch premise; existence and economy are not derived"
+    },
+    "equivalences": [
+      "Hermitian conjugates are one class",
+      "color, weak, and two-component spinor epsilon identities are imposed",
+      "integration by parts and equations of motion are vacuous because no derivative survives the dimension bound",
+      "flavor permutations are absent in the frozen one-generation grammar"
+    ],
+    "excluded_extensions": [
+      "right-handed neutrino",
+      "additional light scalars",
+      "multiple families and their flavor multiplicities",
+      "nonlocal operators"
+    ],
+    "family_scope": "one_generation",
+    "field_convention": "Q and L are the source left-Weyl fields; u_R, d_R, and e_R are the Hermitian conjugates of source u_c, d_c, and e_c",
+    "included_fields": [
+      "Q",
+      "L",
+      "u_R",
+      "d_R",
+      "e_R",
+      "Q_bar",
+      "L_bar",
+      "u_R_bar",
+      "d_R_bar",
+      "e_R_bar"
+    ],
+    "matter_status": "conditional declared current fixture",
+    "other_insertions": "derivatives and gauge field strengths carry zero baryon/lepton number; four fermions saturate dimension six"
+  },
+  "issue": 641,
+  "physical_boundary": {
+    "baryon_number_source_derived": false,
+    "baryon_violating_source_emission_established": false,
+    "continuum_lorentz_attachment_source_bound": false,
+    "lepton_number_source_derived": false,
+    "physical_matter_lift_source_bound": false,
+    "proton_decay_predicted": false,
+    "proton_lifetime_computed": false,
+    "proton_stability_proved": false,
+    "qcd_matrix_elements_computed": false,
+    "wilson_coefficients_source_derived": false
+  },
+  "receipt_sha256": "sha256:9a378418415b339e8bd858068b8d3a3713d5764e2d8bca9e08c98b3d18a38a2f",
+  "schema": "oph.baryon_dimension_six_census.v1",
+  "source_pins": [
+    {
+      "path": "code/a5_closure/baryon_dimension_six_census.py",
+      "sha256": "sha256:9dcf355d6db0e82c854a609addfa44266170c1348b8895f9d9a1cec054537110"
+    },
+    {
+      "path": "code/a5_closure/verify_baryon_dimension_six_census_independent.py",
+      "sha256": "sha256:abb83f17ef1f309ffee0599e63108f01dddeb46ac601b4d5798f978940714910"
+    },
+    {
+      "path": "code/a5_closure/tests/test_baryon_dimension_six_census.py",
+      "sha256": "sha256:c06436e18ec528cc5b0d36e1bf81d43c072de7dbb52e47215cc427eaa509ec83"
+    },
+    {
+      "path": "Lean/Screen/BaryonDimensionSix.lean",
+      "sha256": "sha256:ed19263d88017312363dd04fc46be56372986052ac9940354c9ccf52e2d5da05"
+    }
+  ],
+  "upstream_pins": {
+    "axis_center_manifest": {
+      "path": "code/a5_closure/manifests/axis_center_descent_reference.json",
+      "sha256": "sha256:269f92b088c4cde42a9017d220bcdc8b70d1fc5e6635521827a31428def18dab"
+    },
+    "axis_center_receipt": {
+      "path": "code/a5_closure/receipts/axis_center_descent_reference.receipt.json",
+      "sha256": "sha256:c12251507f8843c664854da0682717b3a6b437fdc5632679c7fe1d4918c5d2fb"
+    },
+    "matter_manifest": {
+      "path": "code/a5_closure/manifests/super_tannakian_matter_reference.json",
+      "sha256": "sha256:cb627653c332996adcec8f9d501299e0fcb272958b346316946b613253040c59"
+    },
+    "matter_receipt": {
+      "path": "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
+      "sha256": "sha256:528090fb708fb398ec1d385486757c483e2d0b5ad84500592aa61f3b17748ef3"
+    }
+  },
+  "verdict": "EXHAUSTIVE_ADMITTED_BASIS__GAUGE_ALONE_DOES_NOT_PROTECT_PROTON"
+}

@@ -43,7 +43,19 @@ Hypothesis boundaries:
 - `maxwell_classical_massless_kernel`: the Maxwell action, positive kinetic coefficient, field content, and phase are supplied branch data; no photon Hilbert space, positive-residue pole, or universal zero-mass particle theorem is emitted
 - `yang_mills_classical_massless_kernel`: this is not a free asymptotic-gluon claim and supplies neither a continuum Yang-Mills gap nor a hadron mass
 - `einstein_classical_massless_kernel`: the action and background are supplied branch data; no graviton Hilbert space, quantum pole, or exclusion of additional massive modes is emitted
-- `simple_gut_xy_channel_absent`: the executable corollary applies to the declared direct-sum matrix-current fixture. Its physical current source gate is false, so the result is not a physical current or proton-stability claim. General proton stability does not follow; higher-dimensional baryon violation, scalar mediators, and other ultraviolet gauge mechanisms are not excluded
+- `simple_gut_xy_channel_absent`: the executable corollary applies to the declared direct-sum matrix-current fixture. Its physical current source gate is false, so the result is not a physical current or proton-stability claim. General proton stability does not follow. Conditional on the declared one-generation matter table and baryon and lepton labels, an exact dimension-six census admits QQQL, QQUE, DUQL, and DUUE; the representatives remain nonzero after the exterior-algebra relations. No coefficient, physical decay amplitude, QCD matrix element, or lifetime is supplied
+
+## Quantum carrier gate
+
+The exact conditional four-dimensional propagating-mode vector is `(2, 16, 2)`: two Maxwell modes from one U(1) generator, sixteen perturbative color modes from eight SU(3) adjoint generators, and two Einstein transverse-traceless modes from one metric tensor field. The entries are neither particle counts nor one uniform gauge-algebra dimension vector.
+
+| Carrier | Quantum verdict | Blocking frontier |
+| --- | --- | --- |
+| `photon` | `NOT_EVALUABLE_NO_SOURCE_SELECTED_MAXWELL_QUANTUM_SECTOR` | `source_selected_unbroken_u1_quantum_maxwell_sector`, `finite_source_to_lorentzian_quantum_eft_construction` |
+| `gluon` | `NOT_EVALUABLE_NO_QCD` | `finite_source_to_lorentzian_quantum_eft_construction`, `source_derived_qcd_physical_spectral_sector` |
+| `graviton` | `NOT_EVALUABLE_NO_INHABITED_EINSTEIN_QUANTUM_CARRIER` | `inhabited_source_derived_einstein_tower`, `finite_source_to_lorentzian_linearized_quantum_carrier` |
+
+The target-named status packet consumes no laboratory comparison value, permits no particle promotion, and is ineligible as a blind prediction. Its receipt is `code/particles/runs/status/quantum_carrier_status.json`.
 
 ## Fine-structure lane
 

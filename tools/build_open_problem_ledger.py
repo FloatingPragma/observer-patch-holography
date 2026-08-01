@@ -797,8 +797,9 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "blocker": (
             "The first-ranked direct N candidate is ineligible: #551 and #505 "
-            "closed with the locked non-identifiability and #589 closed not "
-            "evaluable, so the pointer advances on the complete frozen #647 "
+            "remain open at the universal source-membership and direct-capacity "
+            "antecedent, while #589 closed not evaluable. The pointer advances "
+            "on the complete frozen #647 "
             "registry. No physically typed registry row has passed exposure "
             "classification, durable custody, minimum-power review, and "
             "single-use unsealing, and the scoring surface awaits its "

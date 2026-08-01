@@ -7,6 +7,7 @@ import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
 import ObserverPatchHolography.CapacityClosurePrinciple
 import ObserverPatchHolography.CapacityNonidentifiability
+import ObserverPatchHolography.GlobalCapacityAttachment
 import ObserverPatchHolography.SeedPi
 import ObserverPatchHolography.ClebschRatio
 import ObserverPatchHolography.KoideCirculant

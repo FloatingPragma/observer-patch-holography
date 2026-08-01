@@ -139,23 +139,23 @@
         {
           "kind": "verdict",
           "path": "code/capacity_readback/runtime/direct_n_closure_verdict.json",
-          "role": "direct_n_locked_nonidentifiability_verdict"
+          "role": "direct_n_incomplete_source_antecedent_verdict"
         },
         {
           "kind": "receipt",
           "path": "code/capacity_readback/runtime/complete_packet_capacity_lift_receipt.json",
-          "role": "complete_packet_lift_result"
+          "role": "bounded_generation_register_membership_open"
         }
       ],
       "candidate_generation_eligible": false,
       "feature_class": "countermodel_or_nogo",
       "feature_id": "direct_n_bounded_counterfamily_nonidentifiability",
-      "physical_attachment_status": "EXACT_COMPLETE_CLASS_NEGATIVE__LOCKED_NONIDENTIFIABILITY__NO_COSMOLOGICAL_COMPARISON",
+      "physical_attachment_status": "BOUNDED_COUNTERMODEL__UNIVERSAL_SOURCE_MEMBERSHIP_OPEN__NO_COSMOLOGICAL_COMPARISON",
       "premises": [
         "declared finite capacity source antecedent",
         "target-clean all-rung continuation grammar"
       ],
-      "statement": "The target-clean capacity completion class admits continuations with different exact slack-zero sets, and the complete A1-A3 packet lift across the generation-register family proves that the completed declared class does not entail a unique slack zero under either continuation reading.",
+      "statement": "The target-clean bounded capacity completion class admits continuations with different exact all-rung slack-zero sets. The generation-register packet checks the transported source controls on six finite rungs. Universal A1-A3 source membership and the executable-to-Lean bridge remain open, so direct N is not evaluable.",
       "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
     },
     {

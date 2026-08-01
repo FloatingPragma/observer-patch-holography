@@ -87,13 +87,21 @@ données et certificats :
    conclusion d’espace-temps continu sous conditions. Voir l’
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
    et les [données liées par empreinte avec leurs scripts](evidence/einstein_convergence/).
-2. **Les règles des événements quantiques issues des registres publics.** Sur
-   la surface centrale finie des registres, la mise à jour des observateurs
-   donne les probabilités de Born, le conditionnement de Lüders et la borne de
-   Tsirelson. Ces énoncés sont exacts sur l’algèbre d’événements déclarée. Voir
+2. **Les règles des événements quantiques sur les registres publics.** Le
+   consensus sélectionne l’algèbre commutative finie des indicateurs publics.
+   Sur une représentation algèbre-état finie déclarée séparément, ses
+   projecteurs obéissent aux probabilités de Born, au conditionnement de
+   Lüders et à la borne de Tsirelson. Ces identités ne dérivent pas la
+   représentation quantique à partir des réparations. Sur la branche spinorielle
+   binaire icosaédrique déclarée, un candidat fini exact donne
+   $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$ pour une famille de réglages définie par
+   l’incidence. La source ne sélectionne pas cette famille et ne fournit pas
+   d’instrument à deux ailes avec registres achevés. Cette valeur ne constitue
+   donc pas une prédiction physique de Bell. Voir
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), l’
    [article sur le consensus](paper/reality_as_consensus_protocol.pdf) et la
-   [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean).
+   [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
+   ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
 3. **Le type de Lie du Modèle standard issu de douze ports.** La réponse
    réversible complète de l’axiome 1 et le transport endogène des recouvrements
    de l’axiome 2 forcent
@@ -194,7 +202,12 @@ données et certificats :
    les seuils. Le pont vers un secteur scalaire ou indépendant de la
    polarisation, l’action identique sur les deux polarisations transverses
    pour un test photonique, le transport cohérent du repère et l’exclusivité
-   sont en cours. Un résultat nul ou insuffisamment sensible ne permet aucune
+   sont des prémisses de cette branche. L’opérateur de réparation certifié
+   agit sur trente coutures internes, et non sur des translations spatiales.
+   Il ne fournit aucun pont issu de la source vers un opérateur de saut ou une
+   lecture physique. Les orbites exactes des sommets, faces et arêtes ont des
+   rayons de rang six distincts. La symétrie égalise les poids à l’intérieur
+   d’une orbite sans sélectionner celle des sommets. Un résultat nul ou insuffisamment sensible ne permet aucune
    conclusion. Une covariance incomplète, un repère non résolu, une séparation
    entre polarisations ou l’absence d’isolation de la contribution du porteur
    ne permettent pas davantage de conclure. Si $C_4$ est
@@ -212,10 +225,11 @@ données et certificats :
    concorde à moins de deux écarts-types, que les alternatives systématiques
    déclarées soient rejetées et qu’une expérience admissible indépendante
    reproduise le résultat.
-   Elle atteint l’ensemble du cadre seulement si la dérivation ouverte du pont
+   Elle atteint l’ensemble du cadre seulement si une loi de source plus forte
    prouve que cette branche est forcée et exclusive. Voir le
    [reçu exact de la prédiction](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
    la [preuve Lean des coefficients](Lean/Screen/A5PrimitivePortPrediction.lean),
+   la [séparation exacte des orbites](Lean/Screen/A5OrbitRaySeparation.lean),
    l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) et le
    [problème du pont physique](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
 
@@ -379,8 +393,14 @@ universel, l’autoréférence impose leur égalité. La mesure fournit une
 coordonnée de comparaison ; elle ne construit ni ce pont ni l’application de
 retour. Aucun résultat de la reconstruction centrale ne dépend d’une valeur de
 $N$ issue des premiers principes. Les théorèmes de comptage fini sont exacts.
-Leur classe de source déclarée complète possède des ensembles de points fixes
-incompatibles et n’émet donc aucune valeur cosmique. Une autre balance de
+Une contre-famille exacte à tous les échelons établit
+**BOUNDED_COMPLETION_CLASS_NONIDENTIFIABLE** sous l’accord de base, la
+positivité et la borne du porteur. Elle ne prouve pas l’appartenance
+universelle à tous les échelons dans un contrat de source de capacité A1--A3
+complet, et aucun pont de l’exécutable vers Lean ne fournit cette étape. Le
+statut de $N$ direct est
+**NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT** ; le verdict sur la
+classe de source plus forte reste ouvert. Une autre balance de
 charge commune identifie les lectures de l’écran et du secteur électrofaible
 après l’établissement d’un pont physique. À la coordonnée issue de la source
 $P_{\rm fwd}$, sa valeur non corrigée est
@@ -389,14 +409,22 @@ finie déclarée, l’espérance totale de réserve et l’équidistribution des
 classes donnent la probabilité de présence $P_{\rm fwd}/24$ pour chaque classe. La sélection
 physique d’une classe, la validation de son reçu scalaire pondéré et
 l’attachement de son facteur de survie normalisé à la capacité globale
-donnent provisoirement
+donneraient la valeur conditionnelle
 $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3{,}2920979\times10^{122}$, soit environ $0{,}63$ pour
 cent sous la coordonnée pondérée
 $3{,}3129271\times10^{122}$ issue du modèle $\Lambda$CDM de base de Planck.
-Une lecture de $P_{\rm fwd}/24$ comme moyenne de Poisson donne plutôt
+Une lecture de $P_{\rm fwd}/24$ comme moyenne de Poisson donnerait plutôt
 $N_0e^{-P_{\rm fwd}/24}=3{,}3000722\times10^{122}$, soit environ $0{,}39$ pour cent sous
 cette coordonnée, mais exige un porteur distinct de comptage moyen ou de
-limite continue. Aucun de ces attachements n’est dérivé et aucune de ces
+limite continue. La source finie ne sélectionne aucune de ces actions
+globales. Deux complétions exactes, l’une neutre et l’autre multiplicative,
+partagent la même donnée locale de survie, restent positives, se composent sur
+les coupures disjointes et les regroupements finis, puis divergent après une
+coupure. La source ne sélectionne pas davantage l’événement bloqué parmi une
+classe, le total des six classes ou l’absence d’action. La branche de charge
+commune n’est donc pas évaluable dans cette classe de sources, et sa branche
+d’horizon ne possède aucun objet de capacité à attacher. Une loi issue de la
+source et indépendante de la cible peut rouvrir la question. Aucune de ces
 comparaisons rétrospectives ne constitue une prédiction.
 
 ## Un univers complet imposé par la cohérence
@@ -480,7 +508,9 @@ classification des algèbres compactes simples forcent le type abstrait
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Les matrices
 déclarées du doublet chargé et des triplets réalisent exactement ce type. La
 tomographie ordonnée issue de la source et l’holonomie du même courant restent
-ouvertes.
+ouvertes. La récurrence enregistrée engendre une algèbre commutative de mots
+de dimension quatre ; elle ne fournit ni les douze générateurs du courant, ni
+leur crochet, ni les reparamétrages propres non triviaux.
 
 Dans l’algèbre extérieure de réponse déclarée, le balayage exhaustif des
 1 024 sous-ensembles laisse une seule paire conjuguée non ordonnée de rang 15
@@ -689,19 +719,19 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Résultat | Contribution d’OPH | Source principale |
 | --- | --- | --- |
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
-| Surface d’événements quantiques | Probabilités de Born, conditionnement de Lüders et borne de Tsirelson sur la surface finie des registres | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
+| Surface conditionnelle d’événements quantiques | Le consensus sélectionne l’algèbre commutative finie des registres publics. Dans une représentation algèbre-état et à deux ailes déclarée, ses projecteurs obéissent aux probabilités de Born, au conditionnement de Lüders et à la borne de Tsirelson. Une branche spinorielle binaire icosaédrique déclarée possède un candidat fini exact avec $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Sa famille de réglages et son instrument achevé à deux ailes ne proviennent pas de la source. Il ne s’agit donc pas d’une prédiction physique de Bell | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) et le [reçu exact du candidat](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
 | Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur fini de coutures signées muni du comptage unitaire déclaré possède un écart spectral strictement positif ; son raffinement numérique vaut 0,1175367. Cet opérateur est distinct du générateur de réparation de jauge compacte de la branche conditionnelle de Yang–Mills. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Théorème du type de Lie du Modèle standard issu de douze ports | L’incidence orientée donne l’action propre de $A_5$ et le module de ports $1+3+3'+5$. La réponse réversible complète et le transport endogène des recouvrements en font un courant compact de dimension douze avec action intérieure de $A_5$. Sa ligne fixe unique et la classification compacte forcent $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Une impulsion et une relecture sans cible dérivent séparément $R=-J$. Le courant matriciel publié est une réalisation conditionnelle exacte ; la tomographie ordonnée issue de la source et l’holonomie du même courant sont en cours | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Théorème du type de Lie du Modèle standard issu de douze ports | L’incidence orientée donne l’action propre de $A_5$ et le module de ports $1+3+3'+5$. La réponse réversible complète et le transport endogène des recouvrements en font un courant compact de dimension douze avec action intérieure de $A_5$. Sa ligne fixe unique et la classification compacte forcent $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Une impulsion et une relecture sans cible dérivent séparément $R=-J$. La récurrence enregistrée n’engendre qu’une algèbre commutative de dimension quatre et ne fournit pas les douze générateurs ni leur crochet. Le courant matriciel publié est une réalisation conditionnelle exacte ; la tomographie ordonnée sensible à l’ordre et l’holonomie du même courant sont en cours | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact sur les tenseurs déclarés est $\mathbb Z_6$, donc leur image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Le menu des six axes correspond à $\mathbb Z_6$ seulement après déclaration de ses relations de coefficients ; la sélection par la source de la forme globale physique reste ouverte | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. Le produit tensoriel de cette bande avec la table déclarée à quinze états donne un candidat conditionnel de rang complexe 45. La table porte la graduation chirale non dégénérée et l’action diagonale exacte de $\mathbb Z_6$. Un reçu distinct sur le domaine local de 8 662 nœuds vérifie l’extension déclarée $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de l’écart spectral positif. Cette action n’est pas sélectionnée par la source. Le paquet de Spin sur douze ports et le domaine local ne disposent d’aucun pont certifié de source, de domaine ou de transport. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Pôles physiques W/Z | L’application stricte à une boucle qui transforme un paquet renormalisé complet en pôles complexes chargé et neutre est démontrée et vérifiée par machine ; les conventions de signe, de feuillet, d’ordre, de mélange neutre et la séparation entre coefficients stricts et racine carrée sont figées. Le jeu numérique est une régression de backend post-exposition. Deux moteurs bruts de boucles véritablement indépendants, un troisième vérificateur de production, des contours complexes et données de Laurent certifiés, la covariance, les amplitudes de courant physique, l’appariement à la source et l’horloge sont absents. Aucun pôle natif d’OPH n’est donc promu | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
-| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact. Une famille de contre-modèles sans donnée cible prouve que l’accord à la base, la positivité et la borne du porteur ne sélectionnent pas un zéro unique. Le relèvement complet du paquet A1--A3 prouve la même non-implication pour la classe déclarée complète, avec un verdict négatif verrouillé ; aucune valeur cosmique n’est émise et un sélecteur de capacité serait une loi de source nommée supplémentaire | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| Candidats conditionnels de clôture de $N$ par charge commune | L’autoréférence impose l’égalité des lectures de l’écran et du secteur électrofaible lorsqu’un pont physique démontre qu’elles portent le même invariant. À la coordonnée issue de la source $P_{\rm fwd}$, la balance non corrigée donne $N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3{,}5321315\times10^{122}$. Sur la branche finie déclarée, l’espérance totale $P_{\rm fwd}/4$ et l’équidistribution des six classes donnent une présence de classe $P_{\rm fwd}/24$. Si une classe est sélectionnée physiquement, son reçu scalaire pondéré est validé et son facteur de survie agit sur la capacité globale, $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3{,}2920979\times10^{122}$. La valeur exponentielle $N_0e^{-P_{\rm fwd}/24}=3{,}3000722\times10^{122}$ exige un porteur distinct de comptage moyen ou de limite continue. Les prémisses héritées du pont et les attachements de charge commune, de couture physique, de classe, de pondération scalaire, de capacité globale et d’horizon sont ouverts. Face à la coordonnée pondérée $3{,}3129271\times10^{122}$ issue du modèle $\Lambda$CDM de base de Planck, les résidus valent $-0{,}63$ et $-0{,}39$ pour cent. Les deux comparaisons sont rétrospectives ; aucune n’est une prédiction d’OPH | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact. Une famille de contre-modèles sans donnée cible prouve **BOUNDED_COMPLETION_CLASS_NONIDENTIFIABLE** à partir de l’accord de base, de la positivité et de la borne du porteur. L’appartenance universelle à tous les échelons dans un contrat de source de capacité A1--A3 complet et le pont de l’exécutable vers Lean sont absents. Le statut de $N$ direct est **NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT**, et le verdict sur la classe de source plus forte reste ouvert | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
+| Candidats conditionnels de clôture de $N$ par charge commune | L’autoréférence impose l’égalité des lectures de l’écran et du secteur électrofaible lorsqu’un pont physique démontre qu’elles portent le même invariant. Les formules conditionnelles exactes $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)$ et $N_{\rm Pois}=N_0e^{-P_{\rm fwd}/24}$ valent approximativement $3{,}2920979\times10^{122}$ et $3{,}3000722\times10^{122}$ aux entrées ponctuelles déclarées, face à la coordonnée pondérée $3{,}3129271\times10^{122}$ du modèle $\Lambda$CDM de base de Planck. Leurs résidus de $-0{,}63$ et $-0{,}39$ pour cent restent rétrospectifs. Des contre-modèles exacts montrent que la donnée finie de survie, même avec composition positive et regroupement des coupures, ne sélectionne ni action globale ni événement bloqué. Cette branche n’est pas évaluable dans la classe déclarée, sa branche d’horizon ne possède aucun objet de capacité, et aucune ligne n’est une prédiction d’OPH. Une loi issue de la source et indépendante de la cible constitue la condition de réouverture | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
 
 ## Choisir un parcours de lecture
@@ -788,10 +818,13 @@ continu, les deux valeurs étant rendues par l’architecture. Cet attachement
 physique est ouvert. Les théorèmes de point fixe certifient les racines des
 applications déclarées ; ils ne transforment pas un bassin observé ou une
 coordonnée définie par la cible en dérivation physique. Le paquet corrigible à
-coupure fixe est exact ; le relèvement complet A1--A3 indexé par la capacité
-porte un verdict négatif verrouillé : la classe déclarée complète n’implique
-aucun zéro unique de l’écart, et une clôture directe de $N$ exigerait une loi
-de source nommée supplémentaire. La clôture déclarée
+coupure fixe est exact. L’arithmétique exacte à tous les échelons exclut un
+zéro unique dans sa classe bornée de complétions. Elle n’établit pas
+l’appartenance à la source de capacité A1--A3 complète pour chaque échelon.
+La clôture directe de $N$ n’est donc pas évaluable avec cet antécédent
+incomplet, et le verdict sur la classe de source plus forte reste ouvert. Un
+résultat positif doit compléter cet antécédent et démontrer un zéro physique.
+La clôture déclarée
 de charge commune possède une racine conditionnelle unique ; son
 identification physique à une même charge reste ouverte et l’attachement à
 l’horizon reste ouvert. La

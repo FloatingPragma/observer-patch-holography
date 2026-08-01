@@ -76,13 +76,20 @@ certificates:
    conditional. See the
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
    and the [hash-bound data and regeneration scripts](evidence/einstein_convergence/).
-2. **Quantum event rules from public observer records.** On the finite central
-   record surface, the observer update law gives Born probabilities, Lüders
-   conditioning, and the Tsirelson bound. These are exact statements about
-   the declared event algebra. See
+2. **Quantum event rules on public observer records.** Consensus selects the
+   finite commuting algebra of public record indicators. On a separately
+   declared finite algebra-state representation, its projectors obey Born
+   probabilities, Lüders conditioning, and the Tsirelson bound. These exact
+   identities do not derive the quantum representation from repair records.
+   On the declared binary-icosahedral spinor branch, an exact finite candidate
+   gives $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$ for an incidence-defined setting
+   family. The source does not select that family or supply a completed
+   two-wing record instrument, so the value is not a physical Bell prediction.
+   See
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), the
    [consensus paper](paper/reality_as_consensus_protocol.pdf), and the
-   [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean).
+   [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
+   [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
 3. **The Standard Model Lie type from twelve ports.** Complete reversible
    port response and endogenous overlap transport force
    $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, with
@@ -108,7 +115,7 @@ certificates:
    selects rank three; tensoring yields a conditional complex rank-45
    candidate with chirality and diagonal $\mathbb Z_6$ action. Completeness,
    matter attachment, continuum Spin/locality, transport, seam selection, and
-   laboratory attachment remain open. See the
+   laboratory attachment require separate source constructions. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
    the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
@@ -148,17 +155,23 @@ certificates:
    frozen with public commit custody. An eligible comparison must fix its frame,
    covariance, nuisance model, sensitivity, and thresholds. The scalar or
    polarization-independent bridge, coherent transport, and exclusivity are
-   work in progress.
+   branch premises. The certified repair operator acts on thirty internal
+   seams, not on translated field sites, and supplies no source-native spatial
+   hop or physical-readout bridge. Exact equal-weight vertex, face, and edge
+   orbit symbols have different rank-six rays. Carrier symmetry fixes weights
+   within an orbit but does not select the vertex orbit.
    A negative $C_4$, inconsistent linked ratios or rotated rank-six shape,
    nonzero intrinsic ranks $1$ through $5$, or a joint exclusion of the linked
    manifold at five or more standard deviations rejects this branch. Support
    requires a five-standard-deviation exclusion of the zero baseline,
    two-standard-deviation agreement with the linked manifold, rejection of
    named systematics, and independent replication. A result affects the full
-   framework only if the open bridge proves this branch forced and exclusive.
+   framework only after a stronger source law proves this branch forced and
+   exclusive.
    See the
    [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
    [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),
+   [exact orbit-ray separation](Lean/Screen/A5OrbitRaySeparation.lean),
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md), and
    [physical-bridge issue](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
 
@@ -399,7 +412,10 @@ current algebra with inner $A_5$ action. Its one-dimensional fixed space and
 compact-simple classification force the abstract type
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. The released
 charged-double-triplet matrices realize that type exactly, while ordered
-source tomography and same-current holonomy are work in progress.
+source tomography and same-current holonomy are work in progress. The
+registered recurrence generates a four-dimensional commutative word algebra;
+it does not supply twelve current generators, their bracket, or nonidentity
+proper rechartings.
 
 Inside the declared exterior-response algebra, the exhaustive 1024-subset
 scan leaves one unordered conjugate rank-15 pair as the unique nonempty chiral
@@ -498,9 +514,13 @@ If a typed bridge proves that these are two readings of one universe-level
 invariant, self-reference forces equality. Measurement supplies a comparison
 coordinate; it cannot supply that bridge or return map. No result in the core
 reconstruction depends on a first-principles value of $N$. The finite counting
-theorems are exact. Their
-complete declared source class has incompatible fixed sets, so it emits no cosmic
-value. A separate common-load balance equates screen and electroweak readings
+theorems are exact. An exact all-rung counterfamily establishes
+**BOUNDED_COMPLETION_CLASS_NONIDENTIFIABLE** under base agreement, positivity,
+and the carrier bound. It does not prove universal all-rung membership in a
+complete A1--A3 capacity-source contract, and no executable-to-Lean bridge
+supplies that step. Direct $N$ has status
+**NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT**; the stronger
+source-class verdict is open. A separate common-load balance equates screen and electroweak readings
 after a physical same-load identification. On the independently evaluated
 source-forward coordinate $P_{\rm fwd}$, its uncorrected value is
 $N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3.5321315\times10^{122}$.
@@ -508,33 +528,40 @@ On the declared finite collar branch, the total reserve expectation and
 six-class equidistribution give presence probability $P_{\rm fwd}/24$ for
 each class. Physically selecting one class, discharging its scalar-weighted
 receipt, and attaching that normalized survival factor to global capacity
-gives the provisional value
+would give the conditional value
 $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3.2920979\times10^{122}$. This is about $0.63$
 percent below the weighted Planck base-$\Lambda$CDM comparison coordinate
 $3.3129271\times10^{122}$. Reading $P_{\rm fwd}/24$ as a Poisson mean instead
 gives $N_0e^{-P_{\rm fwd}/24}=3.3000722\times10^{122}$, about $0.39$ percent below it, but
 requires a separate mean-count or continuum carrier.
-Neither attachment is derived, neither result belongs to the blind direct-$N$
-protocol, and both comparisons are retrospective.
+The finite source does not select either global action. Exact neutral and
+multiplicative completions share the same local survival datum, remain
+positive, compose over disconnected cuts and finite cut-count regrouping,
+and disagree after one cut. It also selects neither the one-class nor the
+six-class-total blocked event. The named-law lane is therefore not evaluable
+on this declared source class, and its horizon branch has no capacity object
+to attach. A positive branch requires a stronger target-independent source law.
+Neither numerical result belongs to the blind direct-$N$ protocol, and both
+comparisons are retrospective.
 
 ## Results At A Glance
 
 | Result | What OPH contributes | Main source |
 | --- | --- | --- |
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
-| Quantum event surface | Born probabilities, Lüders conditioning, and the Tsirelson bound on the finite central record surface | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
+| Conditional quantum event surface | Consensus selects the finite commuting public-record algebra. Given a declared finite algebra-state and two-wing representation, its projectors obey Born probabilities, Lüders conditioning, and the Tsirelson bound. A declared binary-icosahedral spinor branch has an exact finite candidate with $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Its setting family and completed two-wing instrument are not source-selected, so this is not a physical Bell prediction | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) and the [exact candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
 | Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting signed seam operator has a rigorously positive finite-domain gap; the numerical refinement is 0.1175367. This operator is distinct from the compact-gauge repair generator used in the conditional Yang–Mills branch. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Twelve-port Standard Model Lie-type theorem | Oriented incidence gives the proper $A_5$ action and the port module $1+3+3'+5$. Complete reversible port response and endogenous overlap transport make this a compact twelve-dimensional current with inner $A_5$ action. Its one fixed line and compact classification force $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Target-blind readback separately derives $R=-J$. The released matrix current is an exact conditional realization; ordered source tomography and same-current holonomy are work in progress | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Twelve-port Standard Model Lie-type theorem | Oriented incidence gives the proper $A_5$ action and the port module $1+3+3'+5$. Complete reversible port response and endogenous overlap transport make this a compact twelve-dimensional current with inner $A_5$ action. Its one fixed line and compact classification force $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Target-blind readback separately derives $R=-J$. The registered recurrence has a four-dimensional commutative word algebra and cannot supply the twelve current generators or their bracket. The released matrix current is an exact conditional realization; order-sensitive source tomography and same-current holonomy are work in progress | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the declared tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. The six-axis menu matches $\mathbb Z_6$ only after its coefficient relations are declared. The source does not select the physical global form | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. Tensoring that band with the declared fifteen-state table gives a conditional complex rank-45 candidate. The table carries the nondegenerate chirality grading and exact diagonal $\mathbb Z_6$ action. A separate 8,662-node local-domain receipt checks the declared extension $D_\sigma\otimes I_{45}$ and its conditional inheritance of the positive finite-domain gap. This action is not source-selected. The twelve-port Spin packet and local operator domain have no certified source, domain, or transport bridge. Physical matter-pole identification, continuum Spin/locality, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Physical W/Z poles | The strict-one-loop map from a complete renormalized packet to charged and neutral complex poles is proved and machine checked, with sign, sheet, order, neutral mixing, and strict-vs-square-root rules fixed. Its numerical fixture is a post-exposure backend regression. Two genuinely independent raw loop engines, a production third verifier, certified complex contours and Laurent data, covariance, physical-current amplitudes, source matching, and the clock are absent, so no OPH-native pole is promoted | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
-| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves that base agreement, positivity, and the carrier bound do not select a unique zero, and the complete A1--A3 packet lift proves the same non-entailment for the complete declared class, so no cosmic value is emitted and a capacity selector is an additional named source law | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| Conditional common-load $N$ candidates | Self-identity forces the screen and electroweak readings to agree once a physical same-load bridge proves that they denote one invariant. On the source-forward coordinate $P_{\rm fwd}$, the uncorrected balance gives $N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3.5321315\times10^{122}$. On the declared finite collar branch, total reserve expectation $P_{\rm fwd}/4$ and six-class equidistribution give one-class presence $P_{\rm fwd}/24$. If one class is physically selected, its scalar-weighted receipt is discharged, and its survival factor acts on global capacity, $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3.2920979\times10^{122}$. The exponential value $N_0e^{-P_{\rm fwd}/24}=3.3000722\times10^{122}$ needs a separate mean-count or continuum carrier. The inherited bridge, same-load, physical seam, one-class, scalar-weighted, global-capacity, and horizon attachments are open. Against the weighted Planck base-$\Lambda$CDM coordinate $3.3129271\times10^{122}$, the residuals are $-0.63$ and $-0.39$ percent. Both comparisons are retrospective, so neither is an OPH prediction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves **BOUNDED_COMPLETION_CLASS_NONIDENTIFIABLE** from base agreement, positivity, and the carrier bound. Universal all-rung membership in a complete A1--A3 capacity-source contract and an executable-to-Lean bridge are absent. Direct $N$ is **NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT**, and the stronger source-class verdict is open | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
+| Conditional common-load $N$ candidates | Self-identity forces the screen and electroweak readings to agree once a physical same-load bridge proves that they denote one invariant. The exact conditional formulas $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)$ and $N_{\rm Pois}=N_0e^{-P_{\rm fwd}/24}$ evaluate at the declared point inputs to approximately $3.2920979\times10^{122}$ and $3.3000722\times10^{122}$, against the weighted Planck base-$\Lambda$CDM coordinate $3.3129271\times10^{122}$. Their residuals are $-0.63$ and $-0.39$ percent and remain retrospective. Exact countermodels show that the declared finite survival datum plus positive composition and cut-count regrouping selects neither global action nor a blocked-event semantics. The named-law lane is not evaluable on this source class, its horizon branch has no capacity object, and neither row is an OPH prediction. A positive branch requires a stronger target-independent source law | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Why Take The Claim Seriously?
@@ -626,9 +653,12 @@ branch with both values returned by the architecture. That physical
 attachment is open. The fixed-point theorems certify roots of declared maps;
 they do not turn an observed basin or target-defined coordinate into a
 physical derivation. The source-derived fixed-cutoff correctable-record
-realization is exact. The complete capacity-indexed A1--A3 packet lift
-carries a locked negative verdict: the complete declared class entails no
-unique slack zero, so a direct $N$ requires an additional named source law. The named common-load closure has a unique
+realization is exact. The exact all-rung arithmetic rules out a unique slack
+zero on its bounded completion class. It does not establish membership in the
+complete A1--A3 capacity source at every rung. Direct $N$ is therefore not
+evaluable on the incomplete source antecedent, and the stronger source-class
+verdict is open. A positive result must complete that antecedent and prove one
+physical zero. The named common-load closure has a unique
 conditional root, with its physical same-load and horizon identifications
 open.
 Reading $N$ from the universe leaves every consequence of the three axioms
@@ -651,21 +681,21 @@ and refinement maps. Injective checkpoint generators reduce its capacity
 theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or model counting.
 The target-clean all-rung counterfamily has an exact bounded verdict: base
 agreement, positivity, and the carrier bound admit completions with different
-slack-zero sets. The complete A1--A3 packet lift transports terminal fibers,
-atom maps, sections, histories, joint kernels, meaning maps, feasible sets,
-and extension controls across the generation-register family, and the
-complete declared class does not entail a unique slack zero: source-closed
-continuations saturate every rung, and the widened survivors carry
-inequivalent zero sets. Selecting one capacity would require an additional
-named source law, so no cosmic value is emitted. A physical \(N\) theorem
-would require that additional selector, proof that both sides read the same
-universe-level quantity, and the physical carrier attachment. The independent finite $A_5$ control has $M_0=60$ and
+slack-zero sets. Executable certificates check additional finite controls at
+declared rungs. Universal all-rung membership of those countermodels in the
+complete A1--A3 terminal fibers, atom maps, joint kernels, meaning maps,
+feasible sets, and regulator controls has not been proved, and no
+executable-to-Lean bridge supplies it. A physical \(N\) theorem requires a
+complete source antecedent, one physical zero, proof that both sides read the
+same universe-level quantity, and the physical carrier attachment. A
+separately named stronger source law is one possible route. The independent finite $A_5$ control has $M_0=60$ and
 $D_{\rm raw}=60k$; its publicly inert multiplicity proves that raw equality at
 $k=1$ is not physical $N$-closure.
 
 The other named obligations are:
 
-- supply an additional named capacity source law, without which the horizon-record saturation obligation closed not evaluable;
+- complete the capacity source antecedent and select one positive physical
+  carrier; the horizon-record identification is not evaluable without it;
 - construct the common screen/EW load carrier without feeding the Higgs target
   into N;
 - discharge the physical current, determinant, spin-lift, deck-descent,

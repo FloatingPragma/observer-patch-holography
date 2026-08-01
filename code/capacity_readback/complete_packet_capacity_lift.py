@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Complete fixed-packet lift across the capacity-indexed rung family.
+"""Bounded fixed-packet lift audit across a capacity-indexed rung family.
 
 The issue #548 packet fixes one twenty-four-record screen packet with a
 complete declared structure: terminal one-fault fiber, observer and interface
@@ -9,11 +9,12 @@ joint kernels with local-marginal consistency, carrier projections, and
 extension and refinement embeddings. The bounded issue #551 counterfamily
 transported only base agreement, positivity, and the carrier bound.
 
-This module transports the complete structure across positive integer rungs
-``k`` from one source rule: the record register extends by generation copies,
+This module constructs a generation-register extension at positive integer
+rungs ``k`` from one source rule: the record register extends by generation copies,
 ``records(k) = oriented_slots x {0..k-1}``, with the forty reversible slot
-actions lifted to fix the generation coordinate. Every structural component
-of the fixed packet is rebuilt per rung and checked exactly:
+actions lifted to fix the generation coordinate. Every listed structural
+component of the fixed packet is rebuilt and checked exactly on the committed
+finite audit rungs:
 
 * terminal-fiber completeness with the structural one-fault gate and rung
   faults, and a behavioral no-self-read control;
@@ -36,16 +37,22 @@ of the fixed packet is rebuilt per rung and checked exactly:
 
 Two admissibility readings of the continuation manifest are evaluated:
 
-* ``source_closed``: manifest elements must be compositions of the declared
-  reversible generators. Every admissible completion then has
-  ``M0(k) = 24k`` at every rung, the slack vanishes identically, and no
-  unique slack zero exists.
+* ``source_closed``: at the arithmetic level, manifest elements composed from
+  the declared reversible generators have ``M0(k) = 24k``. The universal
+  source-contract membership bridge for that family is not proved here.
 * ``widened``: completion kernels outside the generator vocabulary are
-  admitted when every transported control passes. The survivors carry
-  inequivalent slack zero sets.
+  assessed on the finite audit rungs when every transported control passes
+  there. The sampled passers carry inequivalent exact arithmetic zero sets.
 
-Under both readings the complete declared source class does not entail a
-unique slack zero. Selecting one capacity requires an additional source law.
+The exact capacity formulas extend to every positive rung, and their
+arithmetic non-uniqueness is proved in Lean. The executable checks of
+terminal-fiber, A2, A3, sewing, and refinement membership cover only the
+declared finite audit rungs. No theorem binds those sampled checks to
+universal all-rung membership in the complete A1--A3 source class.
+Consequently this packet is a bounded generation-register countermodel, not
+a complete-source non-identifiability theorem. Direct N closure remains not
+evaluable until the universal membership and executable-to-Lean bridges are
+supplied.
 The hidden-spectator direction fails the A3 state-determinacy control for
 multiplicity above one, and the parity-oscillation direction fails the A2
 extension square; both exclusions are recorded with exact witnesses.
@@ -62,7 +69,7 @@ import json
 from collections import deque
 from itertools import product
 from pathlib import Path
-from typing import Any, Callable, Mapping, Sequence
+from typing import Any, Mapping, Sequence
 
 from capacity_indexed_source_family import (
     build_capacity_packet,
@@ -79,14 +86,15 @@ from source_derived_public_checkpoint_packet import (
 )
 
 
-SCHEMA = "oph.complete_packet_capacity_lift.v1"
-CERTIFICATE_SCHEMA = "oph.complete_packet_capacity_lift_certificate.v1"
-SCIENTIFIC_VERDICT = "COMPLETE_SOURCE_CLASS_NO_UNIQUE_SLACK_ZERO"
+SCHEMA = "oph.complete_packet_capacity_lift.v2"
+CERTIFICATE_SCHEMA = "oph.complete_packet_capacity_lift_certificate.v2"
+SCIENTIFIC_VERDICT = (
+    "BOUNDED_GENERATION_REGISTER_COUNTERMODEL__UNIVERSAL_MEMBERSHIP_OPEN"
+)
+DIRECT_N_STATUS = "NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT"
 SOURCE_RULE_ID = "oph.public-record-capacity.generation-register-lift.v1"
 FROZEN_CARRIER_TYPE = "echosahedral-edge-center-oriented-register/v1"
-LIFT_RECORD_RECIPE = (
-    "edge-center-port x reversible-orientation x generation-register"
-)
+LIFT_RECORD_RECIPE = "edge-center-port x reversible-orientation x generation-register"
 BASE_RECORD_RECIPE = "edge-center-port x reversible-orientation"
 BASE_PUBLIC_ATOMS = 24
 SAMPLE_RUNGS = (1, 2, 3, 4, 5, 6)
@@ -142,11 +150,7 @@ def tagged_sha256(data: bytes) -> str:
 
 
 def lifted_records(k: int) -> list[str]:
-    return [
-        f"{slot}|copy={copy}"
-        for slot in oriented_slots()
-        for copy in range(k)
-    ]
+    return [f"{slot}|copy={copy}" for slot in oriented_slots() for copy in range(k)]
 
 
 def _split_record(record: str) -> tuple[str, int]:
@@ -164,16 +168,13 @@ def lift_slot_action(action: Mapping[str, str], k: int) -> dict[str, str]:
 
 def erasure_kernel(k: int) -> dict[str, str]:
     return {
-        record: f"{_split_record(record)[0]}|copy=0"
-        for record in lifted_records(k)
+        record: f"{_split_record(record)[0]}|copy=0" for record in lifted_records(k)
     }
 
 
 def capped_kernel(k: int) -> dict[str, str]:
     return {
-        record: (
-            f"{_split_record(record)[0]}|copy={min(_split_record(record)[1], 1)}"
-        )
+        record: (f"{_split_record(record)[0]}|copy={min(_split_record(record)[1], 1)}")
         for record in lifted_records(k)
     }
 
@@ -223,7 +224,9 @@ def generated_lifted_group(k: int) -> dict[str, dict[str, str]]:
     return elements
 
 
-def has_source_ancestry(mapping: Mapping[str, str], group: Mapping[str, dict[str, str]]) -> bool:
+def has_source_ancestry(
+    mapping: Mapping[str, str], group: Mapping[str, dict[str, str]]
+) -> bool:
     return json.dumps(dict(mapping), sort_keys=True) in group
 
 
@@ -280,7 +283,11 @@ def is_terminal_world_at_rung(candidate: Mapping[str, Any], k: int) -> bool:
 
 def _rung_trial_specs(k: int) -> list[dict[str, Any]]:
     specs: list[dict[str, Any]] = [
-        {"trial_id": f"q_true_rung_{k}", "mutation_kind": "none", "mutation_payload": None}
+        {
+            "trial_id": f"q_true_rung_{k}",
+            "mutation_kind": "none",
+            "mutation_payload": None,
+        }
     ]
     specs.extend(
         {
@@ -436,7 +443,7 @@ def equalizer_section_count(
     """
 
     components = _observer_components(observers, interface_pairs)
-    return record_count ** components
+    return record_count**components
 
 
 def public_sections_receipt(k: int) -> dict[str, Any]:
@@ -446,9 +453,7 @@ def public_sections_receipt(k: int) -> dict[str, Any]:
     diagram = atom_diagram(k)
     interface_pairs = [tuple(pair) for pair in icosahedral_edges()]
     components = _observer_components(list(PORTS), interface_pairs)
-    section_count = equalizer_section_count(
-        list(PORTS), interface_pairs, len(records)
-    )
+    section_count = equalizer_section_count(list(PORTS), interface_pairs, len(records))
 
     readout_images: set[str] = set()
     readout_collisions = 0
@@ -461,8 +466,7 @@ def public_sections_receipt(k: int) -> dict[str, Any]:
         "rung": k,
         "connected_components": components,
         "equalizer_section_count": section_count,
-        "one_section_per_record": components == 1
-        and section_count == len(records),
+        "one_section_per_record": components == 1 and section_count == len(records),
         "readout_collisions": readout_collisions,
         "readout_injective": readout_collisions == 0,
         "interface_count": len(diagram["interfaces"]),
@@ -479,7 +483,9 @@ def reachability_receipt(k: int) -> dict[str, Any]:
             f"birth:edge-center:{slot}",
             f"seed:{slot}",
         ]
-        events.extend(f"generation-commit:{generation}" for generation in range(copy + 1))
+        events.extend(
+            f"generation-commit:{generation}" for generation in range(copy + 1)
+        )
         events.extend(
             [
                 f"repair-propagate:breadth-first:{source_port}",
@@ -541,13 +547,14 @@ def manifest_closure_receipt(branch_id: str, k: int) -> dict[str, Any]:
     }
 
 
-def _local_checkpoint_packet(mapping: Mapping[str, str]) -> dict[str, dict[str, dict[str, float]]]:
+def _local_checkpoint_packet(
+    mapping: Mapping[str, str],
+) -> dict[str, dict[str, dict[str, float]]]:
     """Per-observer checkpoint marginals built directly from the slot action."""
 
     return {
         observer: {
-            record: {_local_atom(observer, mapping[record]): 1.0}
-            for record in mapping
+            record: {_local_atom(observer, mapping[record]): 1.0} for record in mapping
         }
         for observer in PORTS
     }
@@ -585,7 +592,6 @@ def _parity_channel_control() -> dict[str, Any]:
     while their zero-error capacities differ.
     """
 
-    inputs = ("bit0", "bit1")
     outputs = ("00", "01", "10", "11")
     parity_joint = {
         "bit0": {"00": 0.5, "11": 0.5},
@@ -596,7 +602,9 @@ def _parity_channel_control() -> dict[str, Any]:
         "bit1": {out: 0.25 for out in outputs},
     }
 
-    def observer_marginal(joint: Mapping[str, Mapping[str, float]], position: int) -> dict[str, dict[str, float]]:
+    def observer_marginal(
+        joint: Mapping[str, Mapping[str, float]], position: int
+    ) -> dict[str, dict[str, float]]:
         marginal: dict[str, dict[str, float]] = {}
         for record, row in joint.items():
             collapsed: dict[str, float] = {}
@@ -722,7 +730,10 @@ def a2_naturality_receipt(branch_id: str, k: int) -> dict[str, Any]:
     for continuation_id, base_action in base_actions.items():
         lifted = manifest[f"lifted::{continuation_id}"]
         for record in lifted_records(k):
-            if semantic_projection(lifted[record]) != base_action[semantic_projection(record)]:
+            if (
+                semantic_projection(lifted[record])
+                != base_action[semantic_projection(record)]
+            ):
                 lifted_failures += 1
     completion_failures = 0
     kernel = branch_completion_kernel(branch_id, k)
@@ -790,9 +801,7 @@ def _spectator_class_enumeration(record: str, multiplicity: int) -> dict[str, An
     )
     mixed_assignment = {
         observer: (
-            f"{other_record}|spectator=0"
-            if index == 0
-            else f"{record}|spectator=0"
+            f"{other_record}|spectator=0" if index == 0 else f"{record}|spectator=0"
         )
         for index, observer in enumerate(PORTS)
     }
@@ -808,7 +817,9 @@ def _spectator_class_enumeration(record: str, multiplicity: int) -> dict[str, An
     }
 
 
-def a3_feasible_receipt(branch_id: str, k: int, spectator_multiplicity: int = 1) -> dict[str, Any]:
+def a3_feasible_receipt(
+    branch_id: str, k: int, spectator_multiplicity: int = 1
+) -> dict[str, Any]:
     section_count = BASE_PUBLIC_ATOMS * k
     if branch_id == "hidden_spectator" and spectator_multiplicity > 1:
         first_record = lifted_records(k)[0]
@@ -855,7 +866,9 @@ def a3_feasible_receipt(branch_id: str, k: int, spectator_multiplicity: int = 1)
 # ---------------------------------------------------------------------------
 
 
-def _confusability_edges(kernel: Mapping[str, str] | None, records: Sequence[str]) -> set[tuple[str, str]]:
+def _confusability_edges(
+    kernel: Mapping[str, str] | None, records: Sequence[str]
+) -> set[tuple[str, str]]:
     if kernel is None:
         return set()
     fibers: dict[str, list[str]] = {}
@@ -914,15 +927,9 @@ def refinement_receipt(
         refine[record]: refine[record if kernel is None else kernel[record]]
         for record in records
     }
-    base_fibers = {
-        frozenset(fiber) for fiber in _fibers(kernel, records).values()
-    }
+    base_fibers = {frozenset(fiber) for fiber in _fibers(kernel, records).values()}
     refined_fibers = {
-        frozenset(
-            record
-            for record in records
-            if refine[record] in fiber
-        )
+        frozenset(record for record in records if refine[record] in fiber)
         for fiber in _fibers(
             {value: refined_kernel[value] for value in set(refine.values())},
             sorted(set(refine.values())),
@@ -983,7 +990,9 @@ def publicness_receipt(branch_id: str, k: int) -> dict[str, Any]:
     }
 
 
-def _fibers(kernel: Mapping[str, str] | None, records: Sequence[str]) -> dict[str, list[str]]:
+def _fibers(
+    kernel: Mapping[str, str] | None, records: Sequence[str]
+) -> dict[str, list[str]]:
     fibers: dict[str, list[str]] = {}
     for record in records:
         image = record if kernel is None else kernel[record]
@@ -991,9 +1000,7 @@ def _fibers(kernel: Mapping[str, str] | None, records: Sequence[str]) -> dict[st
     return fibers
 
 
-def sewing_receipt(
-    k: int, corrupt_seam_readout: bool = False
-) -> dict[str, Any]:
+def sewing_receipt(k: int, corrupt_seam_readout: bool = False) -> dict[str, Any]:
     """Exact fiber-product sewing over the connected two-cap split.
 
     Region A is the north cap, region B the south cap; the seam is the ten
@@ -1009,26 +1016,18 @@ def sewing_receipt(
     region_a = ["north", "upper_0", "upper_1", "upper_2", "upper_3", "upper_4"]
     region_b = ["south", "lower_0", "lower_1", "lower_2", "lower_3", "lower_4"]
     edges = [tuple(pair) for pair in icosahedral_edges()]
-    internal_a = [
-        pair for pair in edges if pair[0] in region_a and pair[1] in region_a
-    ]
-    internal_b = [
-        pair for pair in edges if pair[0] in region_b and pair[1] in region_b
-    ]
-    seam = [
-        pair
-        for pair in edges
-        if (pair[0] in region_a) != (pair[1] in region_a)
-    ]
+    internal_a = [pair for pair in edges if pair[0] in region_a and pair[1] in region_a]
+    internal_b = [pair for pair in edges if pair[0] in region_b and pair[1] in region_b]
+    seam = [pair for pair in edges if (pair[0] in region_a) != (pair[1] in region_a)]
 
     components_a = _observer_components(region_a, internal_a)
     components_b = _observer_components(region_b, internal_b)
-    sections_a = [
-        {"record": record} for record in records
-    ] if components_a == 1 else None
-    sections_b = [
-        {"record": record} for record in records
-    ] if components_b == 1 else None
+    sections_a = (
+        [{"record": record} for record in records] if components_a == 1 else None
+    )
+    sections_b = (
+        [{"record": record} for record in records] if components_b == 1 else None
+    )
     if sections_a is None or sections_b is None:
         return {
             "rung": k,
@@ -1099,7 +1098,11 @@ def capacity_row(branch_id: str, k: int) -> dict[str, Any]:
 def bounded_family_cross_check() -> dict[str, Any]:
     rows = []
     mismatches = 0
-    for branch_id in ("reversible_identity", "copy_collapse_erasure", "capped_two_class"):
+    for branch_id in (
+        "reversible_identity",
+        "copy_collapse_erasure",
+        "capped_two_class",
+    ):
         for k in SAMPLE_RUNGS[:4]:
             packet = build_capacity_packet(branch_id, k)
             evaluation = evaluate_capacity_packet(packet)
@@ -1170,8 +1173,7 @@ def mutation_controls() -> dict[str, Any]:
     )
 
     controls["sewing_tamper_detected"] = (
-        sewing_receipt(2, corrupt_seam_readout=True)["fiber_product_matches"]
-        is False
+        sewing_receipt(2, corrupt_seam_readout=True)["fiber_product_matches"] is False
         and sewing_receipt(2)["fiber_product_matches"] is True
     )
 
@@ -1192,9 +1194,7 @@ def mutation_controls() -> dict[str, Any]:
         and public_sections_receipt(2)["one_section_per_record"] is True
     )
 
-    controls["all_mutations_detected"] = all(
-        bool(value) for value in controls.values()
-    )
+    controls["all_mutations_detected"] = all(bool(value) for value in controls.values())
     return controls
 
 
@@ -1204,9 +1204,7 @@ def mutation_controls() -> dict[str, Any]:
 
 
 def _branch_zero_set(branch_id: str) -> dict[str, Any]:
-    sampled = [
-        k for k in SAMPLE_RUNGS if capacity_row(branch_id, k)["slack_zero"]
-    ]
+    sampled = [k for k in SAMPLE_RUNGS if capacity_row(branch_id, k)["slack_zero"]]
     formulas = {
         "reversible_identity": "every positive rung",
         "copy_collapse_erasure": "rung 1 only",
@@ -1234,7 +1232,9 @@ def _control_table() -> list[dict[str, Any]]:
                 "publicness_frozen": publicness_receipt(branch_id, k)[
                     "publicness_frozen"
                 ],
-                "manifest_closed": manifest_closure_receipt(branch_id, k)["closure_size"]
+                "manifest_closed": manifest_closure_receipt(branch_id, k)[
+                    "closure_size"
+                ]
                 in (40, 80),
                 "source_ancestry_complete": manifest_closure_receipt(branch_id, k)[
                     "all_elements_source_derived"
@@ -1255,18 +1255,18 @@ def _control_table() -> list[dict[str, Any]]:
                 "sewing_exact": sewing_receipt(k)["fiber_product_matches"],
             }
         transported = all(
-            all(value for key, value in row.items() if key != "source_ancestry_complete")
+            all(
+                value for key, value in row.items() if key != "source_ancestry_complete"
+            )
             for row in rows.values()
         )
         table.append(
             {
                 "branch_id": branch_id,
                 "per_rung_controls": rows,
-                "passes_all_transported_controls": transported,
-                "source_closed_admissible": transported
-                and all(
-                    row["source_ancestry_complete"] for row in rows.values()
-                ),
+                "passes_all_sampled_transported_controls": transported,
+                "passes_source_ancestry_on_all_sampled_rungs": transported
+                and all(row["source_ancestry_complete"] for row in rows.values()),
             }
         )
     return table
@@ -1275,9 +1275,7 @@ def _control_table() -> list[dict[str, Any]]:
 def exclusion_witnesses() -> dict[str, Any]:
     """Exact witnesses for the two excluded directions."""
 
-    spectator = a3_feasible_receipt(
-        "hidden_spectator", 1, spectator_multiplicity=2
-    )
+    spectator = a3_feasible_receipt("hidden_spectator", 1, spectator_multiplicity=2)
     oscillation_square_k2 = a2_naturality_receipt("parity_oscillation", 2)
     oscillation_square_k3 = a2_naturality_receipt("parity_oscillation", 3)
     oscillation_extension = extension_receipt("parity_oscillation", 3)
@@ -1300,9 +1298,7 @@ def exclusion_witnesses() -> dict[str, Any]:
             },
             "no_new_confusability": {
                 "failing_step": "rung 3 to rung 4",
-                "new_edge_count": oscillation_extension[
-                    "new_confusability_edge_count"
-                ],
+                "new_edge_count": oscillation_extension["new_confusability_edge_count"],
                 "witnesses": oscillation_extension["new_confusability_witness"],
                 "note": "fails exactly at the odd-to-even steps from rung three",
             },
@@ -1312,10 +1308,10 @@ def exclusion_witnesses() -> dict[str, Any]:
 
 def build_receipt() -> dict[str, Any]:
     control_table = _control_table()
-    survivors = [
+    sampled_passers = [
         row["branch_id"]
         for row in control_table
-        if row["passes_all_transported_controls"]
+        if row["passes_all_sampled_transported_controls"]
     ]
     excluded = {
         row["branch_id"]: [
@@ -1325,9 +1321,9 @@ def build_receipt() -> dict[str, Any]:
             if not passed and control != "source_ancestry_complete"
         ]
         for row in control_table
-        if not row["passes_all_transported_controls"]
+        if not row["passes_all_sampled_transported_controls"]
     }
-    source_closed_rows = [
+    sampled_identity_rows = [
         capacity_row("reversible_identity", k) for k in SAMPLE_RUNGS
     ]
     receipt = {
@@ -1335,7 +1331,7 @@ def build_receipt() -> dict[str, Any]:
         "issue": 551,
         "source_rule_id": SOURCE_RULE_ID,
         "scientific_verdict": SCIENTIFIC_VERDICT,
-        "lifted_structures": [
+        "lifted_structures_sampled": [
             "terminal_fiber_completeness",
             "observer_interface_atom_maps",
             "public_global_sections",
@@ -1349,88 +1345,87 @@ def build_receipt() -> dict[str, Any]:
             "fixed_rung_refinement_stability",
             "exact_fiber_product_sewing",
         ],
-        "sample_rungs": list(SAMPLE_RUNGS),
-        "control_table": control_table,
-        "wide_reading": {
+        "sample_scope": {
+            "kind": "finite_audit_only",
+            "rungs": list(SAMPLE_RUNGS),
+            "universal_all_rung_membership_inferred": False,
+        },
+        "sampled_control_assessment": {
+            "control_table": control_table,
             "admissibility": (
                 "completion kernels beyond the generator vocabulary are admitted "
-                "when every transported control passes"
+                "on a sampled rung when every transported control passes there"
             ),
-            "survivors": survivors,
-            "excluded_with_named_control": {
-                branch: sorted(set(controls))
-                for branch, controls in excluded.items()
+            "branches_passing_all_sampled_transported_controls": sampled_passers,
+            "branches_failing_sampled_transported_controls": {
+                branch: sorted(set(controls)) for branch, controls in excluded.items()
             },
-            "survivor_zero_sets": [
-                _branch_zero_set(branch_id) for branch_id in survivors
-            ],
-            "zero_sets_inequivalent": len(
-                {
-                    tuple(_branch_zero_set(branch_id)["sampled_zero_rungs"])
-                    for branch_id in survivors
-                }
-            )
-            > 1,
+            "does_not_certify_universal_membership": True,
         },
-        "source_closed_reading": {
-            "admissibility": (
-                "manifest elements must be compositions of the declared "
-                "reversible generators, and every transported control must "
-                "pass"
+        "all_rung_capacity_arithmetic": {
+            "scope": (
+                "exact capacity formulas and fixed-rung arithmetic only; "
+                "membership in the complete source contract is a separate "
+                "open bridge"
             ),
-            "admissible_branches": [
-                row["branch_id"]
-                for row in control_table
-                if row["source_closed_admissible"]
+            "branch_zero_sets": [
+                _branch_zero_set(branch_id) for branch_id in SURVIVOR_BRANCH_IDS
             ],
-            "coincidence_note": (
-                "the hidden-spectator branch coincides with the reversible "
-                "identity at multiplicity one and fails A3 state determinacy "
-                "above it"
-            ),
-            "forced_capacity_rows": source_closed_rows,
-            "slack_identically_zero": all(
-                row["slack_zero"] for row in source_closed_rows
-            ),
-            "unique_zero_exists": False,
-            "reason": (
-                "every rung is a slack zero, so no unique zero exists; a rung "
-                "selector would be an additional source law"
-            ),
+            "sampled_identity_rows": sampled_identity_rows,
+            "identity_capacity_formula": "M0(k)=24*k for every positive k",
+            "identity_slack_zero_set": "every positive rung",
+            "identity_has_unique_positive_slack_zero": False,
+            "inequivalent_formula_zero_sets": True,
+            "all_positive_rung_arithmetic_proved_in_lean": True,
         },
         "exclusion_witnesses": exclusion_witnesses(),
-        "nonidentifiability_mechanisms": {
-            "source_closed": "SLACK_IDENTICALLY_ZERO_DEGENERATE_ZERO_SET",
-            "widened": "INEQUIVALENT_ZERO_SETS_SAME_ANTECEDENT",
-        },
-        "family_scope": {
+        "bounded_family_scope": {
             "frozen_family": "generation-register extension of the issue #548 packet",
-            "monotonicity": (
-                "non-entailment within one admissible declared family implies "
-                "non-entailment for every wider same-antecedent class"
+            "attained_statement": (
+                "the capacity formulas form an exact target-clean bounded "
+                "countermodel, and the transported source-contract controls "
+                "pass on the committed finite audit rungs"
             ),
+        },
+        "source_contract_status": {
+            "universal_all_rung_membership_proved": False,
+            "executable_lean_membership_bridge_proved": False,
+            "complete_a1_a3_source_class_nonidentifiability_proved": False,
+            "positive_unique_zero_proved": False,
+            "direct_n_status": DIRECT_N_STATUS,
+            "missing_obligations": [
+                "prove every transported terminal-fiber, A2, A3, sewing, extension, and refinement control for every positive rung",
+                "bind the executable generation-register packet and capacity evaluator to the Lean completion used by the all-rung arithmetic theorem",
+                "independently replay the universal membership theorem rather than a finite rung sample",
+            ],
+        },
+        "bounded_conclusion": {
+            "status": SCIENTIFIC_VERDICT,
+            "unique_direct_n_selected": False,
+            "cosmic_value_emitted": False,
+            "complete_source_exit_attained": False,
         },
         "bounded_family_cross_check": bounded_family_cross_check(),
         "mutation_controls": mutation_controls(),
         "target_cleanliness": dict(TARGET_CLEANLINESS),
         "upstream_pins": {
             "fixed_packet_sha256": tagged_sha256(FIXED_PACKET_PATH.read_bytes()),
-            "family_producer_sha256": tagged_sha256(
-                FAMILY_PRODUCER_PATH.read_bytes()
-            ),
+            "family_producer_sha256": tagged_sha256(FAMILY_PRODUCER_PATH.read_bytes()),
             "readback_spec_sha256": tagged_sha256(SPEC_PATH.read_bytes()),
         },
-        "lean_bindings": [
+        "arithmetic_lean_bindings": [
+            "OPH.CapacityNonidentifiability.identity_fixed",
+            "OPH.CapacityNonidentifiability.erasure_fixed_iff",
+            "OPH.CapacityNonidentifiability.capped_fixed_iff",
             "OPH.CapacityNonidentifiability.sourceClosed_no_unique_positive_fixed_rung",
             "OPH.CapacityNonidentifiability.oscillation_fixed_iff_odd",
             "OPH.CapacityNonidentifiability.completeClass_doesNotEntailUniqueZero",
         ],
         "lean_binding_scope": (
-            "the class theorem is parameterized over any admissibility "
-            "predicate that retains the reversible identity completion; the "
-            "bridge facts, identity admissibility under both executable "
-            "readings and source-closed saturation from generator "
-            "bijectivity, are checked by this producer rather than in Lean"
+            "Lean proves the all-rung arithmetic once a completion is admitted. "
+            "It does not prove that the executable packet satisfies the full "
+            "source contract at every rung, nor that the executable identity "
+            "completion is the Lean completion. Those bridges remain open."
         ),
     }
     receipt["receipt_sha256"] = tagged_sha256(canonical_json_bytes(receipt))
@@ -1443,28 +1438,27 @@ def build_certificate(receipt: Mapping[str, Any]) -> dict[str, Any]:
         "issue": 551,
         "scientific_verdict": receipt["scientific_verdict"],
         "statement": (
-            "The complete declared fixed-packet structure lifts across the "
-            "capacity-indexed generation-register family from one source rule. "
-            "Under the source-closed continuation reading every admissible "
-            "completion saturates every rung and the slack zero set is all "
-            "rungs; under the widened reading the surviving completions carry "
-            "inequivalent zero sets. In both readings the complete declared "
-            "source class does not entail a unique slack zero, so the direct "
-            "capacity selector requires an additional source law."
+            "The generation-register construction has exact all-rung capacity "
+            "formulas with inequivalent slack-zero sets, and the listed "
+            "source-contract controls pass on the finite audit rungs. Universal "
+            "all-rung membership in the complete A1--A3 source contract and the "
+            "executable-to-Lean membership bridge are unproved. The packet is a "
+            "bounded countermodel and cannot close direct N."
         ),
         "receipt_sha256": receipt["receipt_sha256"],
-        "wide_survivors": receipt["wide_reading"]["survivors"],
-        "excluded_directions": receipt["wide_reading"]["excluded_with_named_control"],
-        "mechanisms": receipt["nonidentifiability_mechanisms"],
+        "sampled_control_passers": receipt["sampled_control_assessment"][
+            "branches_passing_all_sampled_transported_controls"
+        ],
+        "open_bridges": receipt["source_contract_status"]["missing_obligations"],
+        "direct_n_status": receipt["source_contract_status"]["direct_n_status"],
         "claim_boundary": (
-            "finite exact result on the declared family; no cosmic value, "
-            "horizon identification, or physical carrier attachment is "
-            "selected or excluded"
+            "exact arithmetic on the declared generation-register family plus "
+            "finite sampled source-contract checks; no complete-source theorem, "
+            "cosmic value, horizon identification, or physical carrier "
+            "attachment is selected or excluded"
         ),
     }
-    certificate["certificate_sha256"] = tagged_sha256(
-        canonical_json_bytes(certificate)
-    )
+    certificate["certificate_sha256"] = tagged_sha256(canonical_json_bytes(certificate))
     return certificate
 
 
@@ -1482,8 +1476,9 @@ def verify_runtime() -> None:
     if canonical_json_bytes(receipt) != canonical_json_bytes(rebuilt):
         raise SystemExit("complete-lift receipt drifted from the producer")
     certificate = json.loads(CERTIFICATE_PATH.read_text(encoding="utf-8"))
-    if certificate["receipt_sha256"] != rebuilt["receipt_sha256"]:
-        raise SystemExit("certificate does not pin the receipt")
+    rebuilt_certificate = build_certificate(rebuilt)
+    if canonical_json_bytes(certificate) != canonical_json_bytes(rebuilt_certificate):
+        raise SystemExit("complete-lift certificate drifted from the producer")
 
 
 def main() -> int:

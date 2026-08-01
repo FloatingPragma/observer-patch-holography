@@ -21,9 +21,9 @@
       "sha256": "sha256:5646fe6bbab0fe1cf19be96529d49d314876c558bdf0334d7ef00078ee8f5383"
     },
     {
-      "bytes": 4656,
+      "bytes": 4719,
       "path": "code/invariant_mining/data/producer_slots.json",
-      "sha256": "sha256:d1f73fffed11da5cb11b1077486188b1c2d82dfbd98da4e07031ded57163a498"
+      "sha256": "sha256:b87df0b8926a889e7866c53fd7565943aae70aaba2cf65b92ed82215c2113ef9"
     },
     {
       "bytes": 1696,
@@ -31,9 +31,9 @@
       "sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
     },
     {
-      "bytes": 9531,
+      "bytes": 9582,
       "path": "code/invariant_mining/data/source_feature_registry.json",
-      "sha256": "sha256:69d357eb6cf2cb693f4a619a0df941c816796b47610230ac23bcadddd04c644b"
+      "sha256": "sha256:380855531e9cd2dfd2a3fcb022369348069753d7f582c47352bee5da57cff19f"
     },
     {
       "bytes": 4275,
@@ -60,14 +60,14 @@
     "registry_finalization_complete": true,
     "target_payloads_registered": false
   },
-  "freeze_id": "sha256:162f26f72b5969d2a1572109dd69134dc822abd0e6aede3be08126519aefafed",
+  "freeze_id": "sha256:d21ac4153a7358da6219da8933d43966d63e419bd3792ddb5aaa52302ee018e6",
   "issue": 647,
   "promotion_rule": "Public-data access, target registration, and scoring stay sealed; issue 639 owns the single physical comparison and the campaign terminates after it. Grammar, ranking, nuisance, exposure, completeness, and direct-N content cannot change while generation is enabled.",
   "schema": "oph.invariant_mining.pregeneration_freeze.v1",
   "source_projection": {
     "bytes": 7505,
     "path": "code/invariant_mining/outputs/source_projection.json",
-    "sha256": "sha256:8b7836e0b0c403062c8fc78fc92fcac77ef8e39b70f03910978be61edf7f8b82"
+    "sha256": "sha256:84b83b04ba5be9e3d1c9cd629a0ac470a4260f61e772e153d9aa54ec1c1988d5"
   },
   "status": "GENERATION_ENABLED__COMPARISON_SEALED"
 }

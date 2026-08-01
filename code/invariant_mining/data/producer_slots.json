@@ -9,7 +9,7 @@
         "discrete_congruence_parity_ordering_multiplicity",
         "refinement_scaling_exponent"
       ],
-      "exclusion_reason": "The completed capacity source class carries a locked non-identifiability verdict: no unique slack zero is entailed under either continuation reading. The externally ordered direct N lane cannot re-enter fallback invariant ranking.",
+      "exclusion_reason": "The direct N lane is externally ordered ahead of fallback invariant ranking. Its bounded counterfamily is exact, while universal complete-source membership and the executable-to-Lean bridge are open. Exclusion prevents same-campaign fallback re-entry and does not classify direct N as refuted.",
       "execution_status": "REGISTERED_DISABLED",
       "fallback_eligibility": "EXCLUDED_NO_FALLBACK_REENTRY",
       "owner_issues": [

@@ -1,0 +1,18 @@
+{
+  "P_certified_enclosure": {
+    "hi": "1.6309720958588973769645139038446714349507911573627096569324070023",
+    "lo": "1.6309720958588973769645139031692398220074613523151957129273490076"
+  },
+  "finite_source_schema": "oph.edge_center_clock_certificate.v3",
+  "finite_source_status": "conditional_edge_center_arithmetic_with_open_source_and_clock_gates",
+  "operational_clock_bound": false,
+  "parent_path": "code/cosmology/manifests/edge_center_clock_certificate.json",
+  "presence_statement": "the finite one-step survival is the presence value 1 - P/24; e^(-P/24) is the depth limit, unreachable at any finite regulator",
+  "reserve_trace_branch": {
+    "binding_theorem_present": false,
+    "derived_from_collar_counts": false,
+    "statement": "tau_q(Z6) = P/24 on the shared-edge protected-reserve branch"
+  },
+  "schema": "oph.global_capacity_attachment_source_projection.v1",
+  "scope": "Target-free projection of the conditional local survival datum. The full parent receipt and its negative controls are checked only by independent replay."
+}
