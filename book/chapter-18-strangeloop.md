@@ -324,7 +324,10 @@ Poisson mean gives $N\approx3.3000722\times10^{122}$. The Planck
 base-$\Lambda$CDM chain places the comparison coordinate near
 $3.3129271\times10^{122}$. The first
 offset is about $0.63$ percent and the second about $0.39$ percent. Neither
-factor is attached to the global ledger by the present theorem.
+factor is attached to the global ledger by the present theorem. The
+comparison coordinate was known before both readings were considered, so
+these are exposed retrospective comparisons and their proximity carries no
+predictive weight and does not choose between the branches.
 
 If both equations land on source-derived maps, the two constants come back
 from the architecture rather than from measurement. That would remove the

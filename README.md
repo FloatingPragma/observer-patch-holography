@@ -203,7 +203,7 @@ certificates:
    Support requires exclusion of the zero-coefficient baseline at five or
    more standard deviations, agreement with the complete linked manifold
    within two, rejection of the named systematic alternatives, and an
-   independent eligible replication. It reaches the full framework only if the open
+   independent eligible replication. A failed verdict reaches the full framework only if the open
    bridge derivation proves the branch forced and exclusive. See the
    [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
    [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),

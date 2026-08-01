@@ -648,6 +648,38 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
     },
+    655: {
+        "phase": "physical-branch-bridge",
+        "claim_level": (
+            "frozen prospective branch prediction FZ-11; bridge "
+            "exclusivity open"
+        ),
+        "blocker": (
+            "A1 through A3 do not yet derive the propagation-sector "
+            "bridge, coherent carrier-frame transport, or exclusivity of "
+            "the primitive twelve-port cosine operator, so FZ-11 failure "
+            "scores the named branch and not the framework."
+        ),
+        "closure": (
+            "Prove that the axioms force the real, reciprocal, "
+            "finite-range primitive-port cosine branch uniquely for one "
+            "physical propagation sector, or record a bounded "
+            "non-forcing/no-go verdict; a positive proof escalates the "
+            "FZ-11 failure scope to the framework."
+        ),
+        "falsification": (
+            "Under the frozen FZ-11 rule at five standard deviations: an "
+            "isolated intrinsic positive C4; an isolated intrinsic "
+            "anisotropic coefficient at ranks one through five; linked "
+            "B0, B6, or the rigid rotated I6 vector excluded after "
+            "resolved negative C4; or exclusion of the complete branch "
+            "manifold with B0/C4^2 = 10/21 and B6/C4^2 = 32/315."
+        ),
+        "chrome_policy": (
+            "Use only for the bridge/exclusivity theorem or its bounded "
+            "no-go; the frozen prediction content may not change."
+        ),
+    },
     594: {
         "phase": "physical-wz-source-to-pole",
         "claim_level": "OPH-native source-to-pole packet open",
