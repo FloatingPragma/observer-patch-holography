@@ -1,0 +1,21 @@
+{
+  "schema": "oph.fz11.decision_rule_erratum.v1",
+  "created_utc": "2026-07-31T19:02:42Z",
+  "original_target": "frozen_target_spin_six_primitive_port_prediction_2026-07-31.md",
+  "original_target_sha256": "1e6dfe17cb917a66f729ae21061704137da65e5269cf925ac3ab2f6ae754d737",
+  "prediction_receipt_sha256": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8",
+  "prediction_bytes_changed": false,
+  "comparison_data_read": false,
+  "operator_scope_clarification": "real reciprocal finite-range cosine kinetic branch; complete primitive twelve-port orbit is the sole hop support and no independent isotropic fourth- or sixth-order term is present through the displayed order",
+  "admissibility": "dataset-specific post-freeze contract with joint likelihood or full covariance, physical sector and carrier frame, SO(3)/A5 orientation profile, boost law, source/medium/gravity/instrument nuisance model, trials accounting, sensitivity floor, calibrated joint coverage, isolated carrier contribution, and equal transverse-polarization action for a photon test",
+  "fail_at_five_sigma": [
+    "isolated intrinsic C4 is positive",
+    "an isolated intrinsic anisotropic coefficient at j=1,2,3,4,5 is nonzero",
+    "for resolved negative C4 with adequate sixth-order sensitivity, linked B0, B6, or the rigid rotated I6 vector is excluded after the fixed orientation profile",
+    "the calibrated joint likelihood excludes the complete C4<0, B0/C4^2=10/21, B6/C4^2=32/315, rotated-I6 branch manifold"
+  ],
+  "support": "zero-coefficient minimal locally Lorentz-invariant Standard Model plus General Relativity baseline excluded at five sigma; complete linked branch manifold within two sigma; named systematic alternatives rejected; independent eligible release replicates",
+  "inconclusive": "null or underpowered result, insufficient sixth-order sensitivity after negative C4, incomplete covariance, unresolved frame, polarization splitting, or unisolated carrier contribution",
+  "scope_of_failure": "primitive twelve-port physical propagation branch; OPH-wide only after issue #655 proves the branch forced and exclusive",
+  "excluded_exposure": "17 July 2026 WMAP ILC template campaign, its CMB likelihood class, and every inspected data product"
+}
