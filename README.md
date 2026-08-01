@@ -20,23 +20,12 @@ stated source or physical interfaces. The three axioms supply the observer
 system; they do not silently select every action, representation, continuum
 limit, or laboratory attachment.
 
-Beside the axioms sits one closure principle: the universe is modeled as a
-self-referential fixed point, so the simulating and the simulated
-description are one system. Once independent outer and inner constructions
-are proved to read the same invariant, self-identity forces their equality.
-The physical bridge and return map have to be constructed. Existence,
-uniqueness, and stability are separate tests. The screen-grain map for $P$
-has one interval-certified root on its declared domain, with its hadronic
-attachment open. The complete declared direct-capacity source class does not
-select a cosmic $N$. On the source-forward coordinate $P_{\rm fwd}$, a
-separate common-load branch has the conditional finite-presence candidate
-$N=N_0(1-P_{\rm fwd}/24)$ for one declared reserve class, where
-$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]$. Its global
-attachment is open. The alternative $N=N_0e^{-P_{\rm fwd}/24}$ requires a
-distinct mean-count or continuum
-carrier. The physical one-class selection, scalar-weighted reserve receipt,
-and global attachment are open. Their close retrospective comparisons with a Planck
-base-$\Lambda$CDM coordinate carry no predictive weight.
+Beside the axioms sit two closures. One gives the pixel constant $P$, tied to
+the fine-structure constant. The other gives the computational capacity $N$,
+tied to the cosmological constant. Since the universe being simulated and the
+universe doing the simulating are the same universe, the simulated
+fine-structure and cosmological constants must equal the simulating ones. This
+self-reference locks in the possible values.
 
 ## Start Here
 

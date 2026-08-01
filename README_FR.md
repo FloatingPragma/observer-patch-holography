@@ -24,24 +24,12 @@ axiomes fournissent le système d’observateurs ; ils ne sélectionnent pas
 implicitement chaque action, représentation, limite continue ou attachement
 au laboratoire.
 
-À côté des axiomes se trouve un principe de clôture. L’univers est modélisé
-comme un point fixe autoréférentiel : les descriptions simulante et simulée
-sont un seul système. Lorsque deux constructions indépendantes sont
-démontrées comme lectures d’un même invariant, l’identité du système impose
-leur égalité. Le pont physique et l’application de retour doivent néanmoins
-être construits. L’existence, l’unicité et la stabilité sont des tests
-distincts. L’application locale de $P$ possède une racine certifiée sur son
-domaine déclaré, avec son attachement hadronique ouvert. La classe de source
-directe déclarée complète ne sélectionne aucune valeur cosmique de $N$. Une branche
-distincte de charge commune, évaluée à la coordonnée issue de la source
-$P_{\rm fwd}$, donne le candidat fini
-$N=N_0(1-P_{\rm fwd}/24)$ pour une classe de réserve déclarée, avec
-$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]$. La sélection physique de cette classe, son
-reçu scalaire pondéré et l’attachement du facteur de survie à la capacité
-globale restent ouverts. La variante
-$N=N_0e^{-P_{\rm fwd}/24}$ exige un porteur distinct de comptage moyen ou de limite
-continue. Leurs comparaisons rétrospectives avec une coordonnée issue du
-modèle $\Lambda$CDM de base de Planck n’ont aucun poids prédictif.
+À côté des axiomes se trouvent deux clôtures. L’une donne la constante de
+pixel $P$, liée à la constante de structure fine. L’autre donne la capacité de
+calcul $N$, liée à la constante cosmologique. Puisque l’univers simulé et
+l’univers simulateur sont le même univers, les constantes de structure fine et
+cosmologique simulées doivent être égales à celles de l’univers simulateur.
+Cette autoréférence verrouille les valeurs possibles.
 
 ## Commencer ici
 
