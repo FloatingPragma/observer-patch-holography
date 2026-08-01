@@ -150,14 +150,26 @@ certificates:
    $B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$, and $B_6/B_0=16/75$.
    Anisotropic ranks $j=1$ through $5$ vanish; rank $6$ has one icosahedral
    shape up to orientation in $SO(3)/A_5$. "Spin six" denotes angular rank,
-   unrelated to particle spin. The conventional locally Lorentz-invariant
+   unrelated to particle spin. For the declared equal-weight cosine kernel
+   and $0<|ak|\le1$, the through-eighth-order anisotropic amplitude is exactly
+   $2|ak|^6(30-|ak|^2)/118125>0$. The normalized higher-order tail obeys
+   $\|\nabla E\|<7/100$ and $\|\operatorname{Hess}_{S^2}E\|<7/10$.
+   An exact three-chart interval cover and local singular-value certificate
+   prove that the full kernel has exactly 62 stationary directions throughout
+   this range: 12 maxima, 20 minima, and 30 saddles on the vertex, face, and
+   edge axes.
+   The conventional locally Lorentz-invariant
    baseline has zero intrinsic coefficients on this surface. The prediction is
    frozen with public commit custody. An eligible comparison must fix its frame,
    covariance, nuisance model, sensitivity, and thresholds. The scalar or
    polarization-independent bridge, coherent transport, and exclusivity are
    branch premises. The certified repair operator acts on thirty internal
-   seams, not on translated field sites, and supplies no source-native spatial
-   hop or physical-readout bridge. Exact equal-weight vertex, face, and edge
+   seams, not on translated field sites. A closed-schema census of the
+   simulator’s tracked serialized source artifacts finds local
+   spatial and kinetic operators and the twelve-port response as separate
+   objects, with no registered accepted packet binding a complete
+   twelve-port translation operator to a digest-identical physical readout.
+   Exact equal-weight vertex, face, and edge
    orbit symbols have different rank-six rays. Carrier symmetry fixes weights
    within an orbit but does not select the vertex orbit.
    A negative $C_4$, inconsistent linked ratios or rotated rank-six shape,
@@ -170,6 +182,7 @@ certificates:
    exclusive.
    See the
    [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
+   [full-cosine persistence receipt](code/a5_fingerprint/runtime/a5_multipole_persistence_receipt_v4.json),
    [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),
    [exact orbit-ray separation](Lean/Screen/A5OrbitRaySeparation.lean),
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md), and
@@ -415,7 +428,20 @@ charged-double-triplet matrices realize that type exactly, while ordered
 source tomography and same-current holonomy are work in progress. The
 registered recurrence generates a four-dimensional commutative word algebra;
 it does not supply twelve current generators, their bracket, or nonidentity
-proper rechartings.
+proper rechartings. Twelve target-free diagonal port phases have rank twelve
+and commute. Adding the connected adjacency tangent generates
+$\mathfrak u(12)$ with derived rank 143, so the source current requires a
+non-diagonal response law with derived rank eleven. Conditional on the
+canonical oriented carrier, the complete target-free
+$A_5$-equivariant alternating-bracket space over $\mathbb Q$ has dimension
+fourteen and an exact rational Reynolds basis. The complete Jacobi condition
+has 38 independent quadratic coefficient rows, with an exact 11+27 rowspace
+decomposition. The residual solution variety, compactness, source
+reconstruction, and same-current holonomy are undischarged.
+See the
+[exact alternating-bracket search packet](code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json)
+and the
+[Jacobi reduction receipt](code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_stage2.receipt.json).
 
 Inside the declared exterior-response algebra, the exhaustive 1024-subset
 scan leaves one unordered conjugate rank-15 pair as the unique nonempty chiral
@@ -553,7 +579,7 @@ comparisons are retrospective.
 | Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting signed seam operator has a rigorously positive finite-domain gap; the numerical refinement is 0.1175367. This operator is distinct from the compact-gauge repair generator used in the conditional Yang–Mills branch. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Twelve-port Standard Model Lie-type theorem | Oriented incidence gives the proper $A_5$ action and the port module $1+3+3'+5$. Complete reversible port response and endogenous overlap transport make this a compact twelve-dimensional current with inner $A_5$ action. Its one fixed line and compact classification force $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Target-blind readback separately derives $R=-J$. The registered recurrence has a four-dimensional commutative word algebra and cannot supply the twelve current generators or their bracket. The released matrix current is an exact conditional realization; order-sensitive source tomography and same-current holonomy are work in progress | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Twelve-port Standard Model Lie-type theorem | Oriented incidence gives the proper $A_5$ action and the port module $1+3+3'+5$. Complete reversible port response and endogenous overlap transport make this a compact twelve-dimensional current with inner $A_5$ action. Its one fixed line and compact classification force $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Target-blind readback separately derives $R=-J$. The registered recurrence has a four-dimensional commutative word algebra. Twelve diagonal port phases commute, while adjoining the connected adjacency tangent generates $\mathfrak u(12)$ with derived rank 143. Neither source lift supplies the required derived-rank-11 current. The released matrix current is an exact conditional realization; non-diagonal source tomography and same-current holonomy are work in progress | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the declared tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. The six-axis menu matches $\mathbb Z_6$ only after its coefficient relations are declared. The source does not select the physical global form | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. Tensoring that band with the declared fifteen-state table gives a conditional complex rank-45 candidate. The table carries the nondegenerate chirality grading and exact diagonal $\mathbb Z_6$ action. A separate 8,662-node local-domain receipt checks the declared extension $D_\sigma\otimes I_{45}$ and its conditional inheritance of the positive finite-domain gap. This action is not source-selected. The twelve-port Spin packet and local operator domain have no certified source, domain, or transport bridge. Physical matter-pole identification, continuum Spin/locality, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |

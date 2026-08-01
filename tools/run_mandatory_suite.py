@@ -539,6 +539,17 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Execute the target-free current bracket search-space gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/a5_closure/issue_566_bracket_space_stage1/test_stage1.py",
+            "code/a5_closure/issue_566_bracket_space_stage2/test_stage2.py",
+        ],
+    ),
+    (
         "Execute the A5 fingerprint and frozen primitive-port prediction suites",
         [
             sys.executable,
@@ -547,6 +558,10 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-q",
             "code/a5_fingerprint/test_a5_multipole_fixed_point_certificate.py",
             "code/a5_fingerprint/test_a5_multipole_fixed_point_hardening_certificate.py",
+            "code/a5_fingerprint/test_a5_multipole_persistence_certificate.py",
+            "code/a5_fingerprint/test_a5_multipole_persistence_independent_verifier.py",
+            "code/a5_fingerprint/test_a5_multipole_persistence_stage4_certificate.py",
+            "code/a5_fingerprint/test_a5_multipole_persistence_stage4_independent_verifier.py",
             "code/a5_fingerprint/test_spin_six_universality_certificate.py",
             "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py",
             "code/a5_fingerprint/test_carrier_scale_bound_diagnostic.py",

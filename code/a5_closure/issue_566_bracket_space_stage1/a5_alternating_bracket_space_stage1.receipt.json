@@ -1,0 +1,1296 @@
+{
+  "claim_boundary": "Conditional on the pinned canonical oriented twelve-port carrier, this receipt certifies only the complete equivariant alternating-bracket search space on its permutation module. Target-free means that no desired gauge algebra, measurement, or coefficient target enters this stage; it does not mean that this packet derives the carrier choice. The receipt does not select a bracket, solve Jacobi, establish compactness, identify a physical current, or close issue #566.",
+  "dimension_certificate": {
+    "class_rows": [
+      {
+        "chi_V": 12,
+        "chi_V_of_square": 12,
+        "chi_exterior_square_V": 66,
+        "count": 1,
+        "element_order": 1,
+        "projector_trace_contribution_each": 792,
+        "projector_trace_contribution_total": 792
+      },
+      {
+        "chi_V": 0,
+        "chi_V_of_square": 12,
+        "chi_exterior_square_V": -6,
+        "count": 15,
+        "element_order": 2,
+        "projector_trace_contribution_each": 0,
+        "projector_trace_contribution_total": 0
+      },
+      {
+        "chi_V": 0,
+        "chi_V_of_square": 0,
+        "chi_exterior_square_V": 0,
+        "count": 20,
+        "element_order": 3,
+        "projector_trace_contribution_each": 0,
+        "projector_trace_contribution_total": 0
+      },
+      {
+        "chi_V": 2,
+        "chi_V_of_square": 2,
+        "chi_exterior_square_V": 1,
+        "count": 24,
+        "element_order": 5,
+        "projector_trace_contribution_each": 2,
+        "projector_trace_contribution_total": 48
+      }
+    ],
+    "dimension": 14,
+    "formula": "sum_g chi_V(g)*(chi_V(g)^2-chi_V(g^2))/2 divided by group_order",
+    "projector_trace_denominator": 60,
+    "projector_trace_numerator": 840
+  },
+  "implementation_pins": {
+    "independent_verifier_sha256": "sha256:6af98a67b0b336b26552628f3b81e938b81dfd6338694ece80dc61d31f9d2ed5",
+    "producer_sha256": "sha256:d4ed0cc9d53955e1968b32ab19a46b91f01b8587bf1b7b4536fb06498b8bcd75",
+    "test_sha256": "sha256:7e20cb947f015b508031553b623c0d35c9a678ce29b1d17fe13bf39284185a63"
+  },
+  "issue": 566,
+  "later_gates": {
+    "bracket_selected": false,
+    "carrier_choice_derived_by_this_packet": false,
+    "compactness_established": false,
+    "issue_566_closed": false,
+    "jacobi_solution_classification_complete": false,
+    "jacobi_solution_found": false,
+    "physical_current_identified": false,
+    "source_selection": false
+  },
+  "mutation_tests": [
+    {
+      "actual_error": "EDGE_COUNT",
+      "expected_error": "EDGE_COUNT",
+      "name": "remove_carrier_edge",
+      "passed": true
+    },
+    {
+      "actual_error": "FACE_ORIENTATION",
+      "expected_error": "FACE_ORIENTATION",
+      "name": "reverse_one_oriented_face",
+      "passed": true
+    },
+    {
+      "actual_error": "FIREWALL_CARRIER_KEYS",
+      "expected_error": "FIREWALL_CARRIER_KEYS",
+      "name": "inject_unregistered_semantic_target",
+      "passed": true
+    },
+    {
+      "actual_error": "PERMUTATION_BIJECTION",
+      "expected_error": "PERMUTATION_BIJECTION",
+      "name": "break_permutation_bijection",
+      "passed": true
+    },
+    {
+      "actual_error": "COVARIANCE",
+      "expected_error": "COVARIANCE",
+      "name": "flip_one_basis_coefficient",
+      "passed": true
+    },
+    {
+      "actual_error": "BASIS_RANK",
+      "expected_error": "BASIS_RANK",
+      "name": "drop_one_basis_vector",
+      "passed": true
+    },
+    {
+      "actual_error": "COVARIANCE",
+      "expected_error": "COVARIANCE",
+      "name": "alter_reynolds_normalization",
+      "passed": true
+    }
+  ],
+  "proper_port_action": {
+    "a5_isomorphism": {
+      "bijection_size": 60,
+      "generator_orders": [
+        2,
+        3,
+        5
+      ],
+      "homomorphism_checked_pairs": 3600,
+      "isomorphic": true,
+      "mapping_sha256": "sha256:bdb6a084dd14f4d689115530a8416c556d74f3aa8b43bdc2a6edbdc5d987f170",
+      "model": "even permutations on five unlabeled symbols",
+      "model_generators": [
+        [
+          0,
+          2,
+          1,
+          4,
+          3
+        ],
+        [
+          1,
+          3,
+          2,
+          0,
+          4
+        ]
+      ],
+      "model_order": 60,
+      "port_generators": [
+        [
+          1,
+          0,
+          3,
+          2,
+          6,
+          7,
+          4,
+          5,
+          11,
+          10,
+          9,
+          8
+        ],
+        [
+          1,
+          5,
+          6,
+          2,
+          9,
+          0,
+          3,
+          10,
+          4,
+          8,
+          11,
+          7
+        ]
+      ]
+    },
+    "all_rows_bijective": true,
+    "closure_checked_pairs": 3600,
+    "identity_present": true,
+    "incidence_automorphism_count": 120,
+    "incidence_preserved": true,
+    "inverses_present": true,
+    "orientation_preserving_count": 60,
+    "orientation_reversing_count": 60,
+    "oriented_faces_preserved": true,
+    "permutation_rows": [
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      [
+        0,
+        5,
+        6,
+        3,
+        2,
+        11,
+        8,
+        1,
+        10,
+        7,
+        4,
+        9
+      ],
+      [
+        0,
+        7,
+        4,
+        3,
+        10,
+        1,
+        2,
+        9,
+        6,
+        11,
+        8,
+        5
+      ],
+      [
+        0,
+        9,
+        10,
+        3,
+        8,
+        7,
+        4,
+        11,
+        2,
+        5,
+        6,
+        1
+      ],
+      [
+        0,
+        11,
+        8,
+        3,
+        6,
+        9,
+        10,
+        5,
+        4,
+        1,
+        2,
+        7
+      ],
+      [
+        1,
+        0,
+        3,
+        2,
+        6,
+        7,
+        4,
+        5,
+        11,
+        10,
+        9,
+        8
+      ],
+      [
+        1,
+        5,
+        6,
+        2,
+        9,
+        0,
+        3,
+        10,
+        4,
+        8,
+        11,
+        7
+      ],
+      [
+        1,
+        7,
+        4,
+        2,
+        3,
+        8,
+        11,
+        0,
+        9,
+        5,
+        6,
+        10
+      ],
+      [
+        1,
+        8,
+        11,
+        2,
+        4,
+        10,
+        9,
+        7,
+        6,
+        0,
+        3,
+        5
+      ],
+      [
+        1,
+        10,
+        9,
+        2,
+        11,
+        5,
+        6,
+        8,
+        3,
+        7,
+        4,
+        0
+      ],
+      [
+        2,
+        3,
+        0,
+        1,
+        7,
+        6,
+        5,
+        4,
+        10,
+        11,
+        8,
+        9
+      ],
+      [
+        2,
+        4,
+        7,
+        1,
+        8,
+        3,
+        0,
+        11,
+        5,
+        9,
+        10,
+        6
+      ],
+      [
+        2,
+        6,
+        5,
+        1,
+        0,
+        9,
+        10,
+        3,
+        8,
+        4,
+        7,
+        11
+      ],
+      [
+        2,
+        9,
+        10,
+        1,
+        5,
+        11,
+        8,
+        6,
+        7,
+        3,
+        0,
+        4
+      ],
+      [
+        2,
+        11,
+        8,
+        1,
+        10,
+        4,
+        7,
+        9,
+        0,
+        6,
+        5,
+        3
+      ],
+      [
+        3,
+        2,
+        1,
+        0,
+        5,
+        4,
+        7,
+        6,
+        9,
+        8,
+        11,
+        10
+      ],
+      [
+        3,
+        4,
+        7,
+        0,
+        1,
+        10,
+        9,
+        2,
+        11,
+        6,
+        5,
+        8
+      ],
+      [
+        3,
+        6,
+        5,
+        0,
+        11,
+        2,
+        1,
+        8,
+        7,
+        10,
+        9,
+        4
+      ],
+      [
+        3,
+        8,
+        11,
+        0,
+        9,
+        6,
+        5,
+        10,
+        1,
+        4,
+        7,
+        2
+      ],
+      [
+        3,
+        10,
+        9,
+        0,
+        7,
+        8,
+        11,
+        4,
+        5,
+        2,
+        1,
+        6
+      ],
+      [
+        4,
+        2,
+        1,
+        7,
+        0,
+        11,
+        8,
+        3,
+        6,
+        10,
+        9,
+        5
+      ],
+      [
+        4,
+        3,
+        0,
+        7,
+        9,
+        2,
+        1,
+        10,
+        8,
+        5,
+        6,
+        11
+      ],
+      [
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        9,
+        11,
+        0,
+        2,
+        1,
+        3
+      ],
+      [
+        4,
+        10,
+        9,
+        7,
+        6,
+        3,
+        0,
+        5,
+        1,
+        11,
+        8,
+        2
+      ],
+      [
+        4,
+        11,
+        8,
+        7,
+        1,
+        5,
+        6,
+        2,
+        9,
+        3,
+        0,
+        10
+      ],
+      [
+        5,
+        0,
+        3,
+        6,
+        8,
+        1,
+        2,
+        11,
+        9,
+        4,
+        7,
+        10
+      ],
+      [
+        5,
+        1,
+        2,
+        6,
+        3,
+        10,
+        9,
+        0,
+        7,
+        11,
+        8,
+        4
+      ],
+      [
+        5,
+        4,
+        7,
+        6,
+        9,
+        11,
+        8,
+        10,
+        3,
+        1,
+        2,
+        0
+      ],
+      [
+        5,
+        10,
+        9,
+        6,
+        2,
+        4,
+        7,
+        1,
+        8,
+        0,
+        3,
+        11
+      ],
+      [
+        5,
+        11,
+        8,
+        6,
+        7,
+        0,
+        3,
+        4,
+        2,
+        10,
+        9,
+        1
+      ],
+      [
+        6,
+        2,
+        1,
+        5,
+        10,
+        3,
+        0,
+        9,
+        11,
+        7,
+        4,
+        8
+      ],
+      [
+        6,
+        3,
+        0,
+        5,
+        1,
+        8,
+        11,
+        2,
+        4,
+        9,
+        10,
+        7
+      ],
+      [
+        6,
+        7,
+        4,
+        5,
+        11,
+        9,
+        10,
+        8,
+        1,
+        3,
+        0,
+        2
+      ],
+      [
+        6,
+        8,
+        11,
+        5,
+        0,
+        7,
+        4,
+        3,
+        10,
+        2,
+        1,
+        9
+      ],
+      [
+        6,
+        9,
+        10,
+        5,
+        4,
+        2,
+        1,
+        7,
+        0,
+        8,
+        11,
+        3
+      ],
+      [
+        7,
+        0,
+        3,
+        4,
+        2,
+        9,
+        10,
+        1,
+        5,
+        8,
+        11,
+        6
+      ],
+      [
+        7,
+        1,
+        2,
+        4,
+        11,
+        0,
+        3,
+        8,
+        10,
+        6,
+        5,
+        9
+      ],
+      [
+        7,
+        6,
+        5,
+        4,
+        10,
+        8,
+        11,
+        9,
+        2,
+        0,
+        3,
+        1
+      ],
+      [
+        7,
+        8,
+        11,
+        4,
+        5,
+        1,
+        2,
+        6,
+        3,
+        9,
+        10,
+        0
+      ],
+      [
+        7,
+        9,
+        10,
+        4,
+        3,
+        6,
+        5,
+        0,
+        11,
+        1,
+        2,
+        8
+      ],
+      [
+        8,
+        1,
+        2,
+        11,
+        9,
+        7,
+        4,
+        10,
+        5,
+        3,
+        0,
+        6
+      ],
+      [
+        8,
+        3,
+        0,
+        11,
+        5,
+        10,
+        9,
+        6,
+        2,
+        7,
+        4,
+        1
+      ],
+      [
+        8,
+        6,
+        5,
+        11,
+        4,
+        3,
+        0,
+        7,
+        9,
+        1,
+        2,
+        10
+      ],
+      [
+        8,
+        7,
+        4,
+        11,
+        2,
+        6,
+        5,
+        1,
+        0,
+        10,
+        9,
+        3
+      ],
+      [
+        8,
+        10,
+        9,
+        11,
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        5,
+        7
+      ],
+      [
+        9,
+        0,
+        3,
+        10,
+        4,
+        11,
+        8,
+        7,
+        1,
+        6,
+        5,
+        2
+      ],
+      [
+        9,
+        2,
+        1,
+        10,
+        8,
+        6,
+        5,
+        11,
+        4,
+        0,
+        3,
+        7
+      ],
+      [
+        9,
+        6,
+        5,
+        10,
+        1,
+        7,
+        4,
+        2,
+        3,
+        11,
+        8,
+        0
+      ],
+      [
+        9,
+        7,
+        4,
+        10,
+        5,
+        0,
+        3,
+        6,
+        8,
+        2,
+        1,
+        11
+      ],
+      [
+        9,
+        11,
+        8,
+        10,
+        3,
+        2,
+        1,
+        0,
+        5,
+        7,
+        4,
+        6
+      ],
+      [
+        10,
+        1,
+        2,
+        9,
+        6,
+        8,
+        11,
+        5,
+        0,
+        4,
+        7,
+        3
+      ],
+      [
+        10,
+        3,
+        0,
+        9,
+        11,
+        4,
+        7,
+        8,
+        6,
+        1,
+        2,
+        5
+      ],
+      [
+        10,
+        4,
+        7,
+        9,
+        0,
+        5,
+        6,
+        3,
+        2,
+        8,
+        11,
+        1
+      ],
+      [
+        10,
+        5,
+        6,
+        9,
+        7,
+        1,
+        2,
+        4,
+        11,
+        3,
+        0,
+        8
+      ],
+      [
+        10,
+        8,
+        11,
+        9,
+        2,
+        3,
+        0,
+        1,
+        7,
+        5,
+        6,
+        4
+      ],
+      [
+        11,
+        0,
+        3,
+        8,
+        10,
+        5,
+        6,
+        9,
+        7,
+        2,
+        1,
+        4
+      ],
+      [
+        11,
+        2,
+        1,
+        8,
+        7,
+        9,
+        10,
+        4,
+        3,
+        5,
+        6,
+        0
+      ],
+      [
+        11,
+        4,
+        7,
+        8,
+        6,
+        2,
+        1,
+        5,
+        10,
+        0,
+        3,
+        9
+      ],
+      [
+        11,
+        5,
+        6,
+        8,
+        3,
+        4,
+        7,
+        0,
+        1,
+        9,
+        10,
+        2
+      ],
+      [
+        11,
+        9,
+        10,
+        8,
+        1,
+        0,
+        3,
+        2,
+        6,
+        4,
+        7,
+        5
+      ]
+    ],
+    "permutation_rows_sha256": "sha256:d1ab7e4be9d7f8296fc5b6f55057388a0c7dbe7d2675c9e2f9ff549597ffbf88",
+    "port_count": 12,
+    "transitive_on_ports": true
+  },
+  "receipt_sha256": "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f",
+  "representation": {
+    "V_dimension": 12,
+    "action": "simultaneous output and signed unordered-input permutation",
+    "exterior_square_V_dimension": 66,
+    "field": "Q",
+    "hom_ambient_dimension": 792
+  },
+  "reynolds_basis": {
+    "all_signed_orbits_orientable": true,
+    "alternation_checks": 24192,
+    "basis_count": 14,
+    "canonical_json_sha256": "sha256:1a4f4bc15c9b4bfe60a9ac9453fd6e327cb6a72d591c0512838df8c0e61884e6",
+    "covariance_checks": 665280,
+    "exact_alternation_passed": true,
+    "exact_covariance_passed": true,
+    "normalization": "R(seed)=(1/60)*sum_g g(seed); nonzero entries are signed reciprocals of orbit size",
+    "orbit_sizes": [
+      12,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60,
+      60
+    ],
+    "path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_reynolds_basis.json",
+    "rank_certificate": {
+      "ambient_coordinate_count": 792,
+      "gram_determinant": {
+        "denominator": 1567283281920000000000000,
+        "numerator": 1
+      },
+      "gram_diagonal": [
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 12,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        },
+        {
+          "denominator": 60,
+          "numerator": 1
+        }
+      ],
+      "matrix_shape": [
+        792,
+        14
+      ],
+      "pivot_coordinates": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          0,
+          1,
+          6
+        ],
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          0,
+          1,
+          9
+        ],
+        [
+          0,
+          1,
+          10
+        ],
+        [
+          0,
+          2,
+          3
+        ],
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          0,
+          2,
+          8
+        ]
+      ],
+      "pivot_minor_determinant": {
+        "denominator": 1567283281920000000000000,
+        "numerator": 1
+      },
+      "rank_over_Q": 14
+    },
+    "support_union_size": 792,
+    "supports_pairwise_disjoint": true
+  },
+  "schema": "oph.a5_alternating_bracket_space_stage1.receipt.v1",
+  "semantic_input": {
+    "accessed_value_paths": [
+      "/schema",
+      "/carrier/ports",
+      "/carrier/edges",
+      "/carrier/oriented_faces"
+    ],
+    "carrier_projection_sha256": "sha256:ff4bc06bef0bb184d97b2640baacfbdfef27ed1ec14af6633b40893798ff3a1c",
+    "file_sha256": "sha256:12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+    "ignored_value_sections": [
+      "/architecture",
+      "/carrier/atoms_pairwise_orthogonal",
+      "/carrier/atoms_sum_to_one",
+      "/carrier/central_port_atoms",
+      "/refinement_tower",
+      "/source_readback"
+    ],
+    "path": "code/a5_closure/manifests/echosahedral_federation_reference.json"
+  },
+  "status": "EXACT_TARGET_FREE_SEARCH_SPACE_STAGE1_ONLY",
+  "target_firewall": {
+    "arbitrary_input_path_allowed": false,
+    "audited_import_roots": [
+      "__future__",
+      "argparse",
+      "ast",
+      "copy",
+      "dataclasses",
+      "fractions",
+      "hashlib",
+      "itertools",
+      "json",
+      "pathlib",
+      "shutil",
+      "subprocess",
+      "sys",
+      "tempfile",
+      "typing",
+      "unittest"
+    ],
+    "audited_import_roots_by_file": {
+      "certify.py": [
+        "__future__",
+        "argparse",
+        "ast",
+        "copy",
+        "dataclasses",
+        "fractions",
+        "hashlib",
+        "itertools",
+        "json",
+        "pathlib",
+        "sys",
+        "typing"
+      ],
+      "test_stage1.py": [
+        "__future__",
+        "hashlib",
+        "json",
+        "pathlib",
+        "shutil",
+        "subprocess",
+        "sys",
+        "tempfile",
+        "unittest"
+      ],
+      "verify.py": [
+        "__future__",
+        "ast",
+        "fractions",
+        "hashlib",
+        "itertools",
+        "json",
+        "pathlib",
+        "sys",
+        "typing"
+      ]
+    },
+    "basis_seed_rule": "lexicographically first unassigned tensor coordinate",
+    "command_line_target_parameters_allowed": false,
+    "desired_coefficient_input_allowed": false,
+    "enabled": true,
+    "environment_target_read": false,
+    "exact_manifest_keysets_enforced": true,
+    "measurement_input_allowed": false,
+    "network_target_read": false,
+    "nonstdlib_imports": [],
+    "semantic_input_count": 1,
+    "target_free_scope": "conditional_on_pinned_canonical_oriented_twelve_port_carrier"
+  }
+}

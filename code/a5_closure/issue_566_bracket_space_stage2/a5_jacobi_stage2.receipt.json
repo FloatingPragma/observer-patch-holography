@@ -1,0 +1,306 @@
+{
+  "attained": {
+    "derivation_only_three_parameter_family_certified": true,
+    "derivation_weight_relative_open_flat_count": 28,
+    "equivariant_target_orbit_count": 44,
+    "exact_channel_coordinate_change": true,
+    "fixed_line_product_quadrics": 11,
+    "general_parameter_count": 14,
+    "generic_weight_stratum_forces_all_non_derivation_channels_zero": true,
+    "independent_jacobi_quadrics": 38,
+    "raw_jacobi_coordinate_count": 2640,
+    "residual_independent_quadrics": 27
+  },
+  "claim_boundary": "This packet constructs the complete Jacobi polynomial system for the stage-one fourteen-parameter equivariant alternating bracket and certifies an exact coefficient-row rank 38 system with an 11+27 rowspace decomposition. The rank-27 residual equation system remains applicable on every derivation-weight flat. The three-dimensional derivation-only family is a Jacobi statement only and is neutral about compactness and source selection. It does not select coefficients, classify the residual solution variety, establish compactness, identify a preferred Lie algebra or source, or close issue #566.",
+  "implementation_pins": {
+    "independent_verifier_sha256": "sha256:29ddd520f70656e74f503bee5401d229e184a3617d02b3bdf7e87825394e7b89",
+    "producer_sha256": "sha256:7e1784f56393584984738b55fa0f76b5bd3e8ede2671c52edaebcf5bedc0c4e2",
+    "test_sha256": "sha256:a57f1cc635225902455e0e84e13ddffa0bdfd40c596ef26a1c8ae13263bcc62b"
+  },
+  "issue": 566,
+  "mutation_tests": [
+    {
+      "actual_error": "FIREWALL_BASIS_KEYS",
+      "expected_error": "FIREWALL_BASIS_KEYS",
+      "name": "inject_unregistered_upstream_target",
+      "passed": true
+    },
+    {
+      "actual_error": "JACOBI_COVARIANCE",
+      "expected_error": "JACOBI_COVARIANCE",
+      "name": "tamper_raw_jacobi_coordinate",
+      "passed": true
+    },
+    {
+      "actual_error": "CHANNEL_TRANSFORM_SINGULAR",
+      "expected_error": "CHANNEL_TRANSFORM_SINGULAR",
+      "name": "duplicate_channel_coordinate",
+      "passed": true
+    },
+    {
+      "actual_error": "PRODUCT_ROWSPACE",
+      "expected_error": "PRODUCT_ROWSPACE",
+      "name": "alter_derivation_product",
+      "passed": true
+    },
+    {
+      "actual_error": "RESIDUAL_COUNT",
+      "expected_error": "RESIDUAL_COUNT",
+      "name": "drop_residual_equation",
+      "passed": true
+    },
+    {
+      "actual_error": "RESIDUAL_SPAN",
+      "expected_error": "RESIDUAL_SPAN",
+      "name": "duplicate_residual_equation",
+      "passed": true
+    },
+    {
+      "actual_error": "FIREWALL_RUNTIME_IMPORT",
+      "expected_error": "FIREWALL_RUNTIME_IMPORT",
+      "name": "promote_verifier_runtime_import_boundary",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_BOUNDARY",
+      "expected_error": "RECEIPT_BOUNDARY",
+      "name": "rehashed_false_full_classification_claim",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_ATTAINED_KEYS",
+      "expected_error": "RECEIPT_ATTAINED_KEYS",
+      "name": "rehashed_false_preferred_algebra_claim",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_BOUNDARY",
+      "expected_error": "RECEIPT_BOUNDARY",
+      "name": "rehashed_false_source_selection_claim",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_BOUNDARY",
+      "expected_error": "RECEIPT_BOUNDARY",
+      "name": "rehashed_false_compactness_claim",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_ISSUE",
+      "expected_error": "RECEIPT_ISSUE",
+      "name": "rehashed_receipt_issue_change",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_COUNTS",
+      "expected_error": "RECEIPT_COUNTS",
+      "name": "rehashed_receipt_count_change",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_SEMANTIC_INPUTS",
+      "expected_error": "RECEIPT_SEMANTIC_INPUTS",
+      "name": "rehashed_semantic_path_change",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_FIREWALL",
+      "expected_error": "RECEIPT_FIREWALL",
+      "name": "rehashed_firewall_change",
+      "passed": true
+    },
+    {
+      "actual_error": "RECEIPT_KEYS",
+      "expected_error": "RECEIPT_KEYS",
+      "name": "rehashed_receipt_extra_key",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_ISSUE",
+      "expected_error": "SYSTEM_ISSUE",
+      "name": "rehashed_system_issue_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_JACOBI_CLAIMS",
+      "expected_error": "SYSTEM_JACOBI_CLAIMS",
+      "name": "rehashed_system_count_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_RANKS",
+      "expected_error": "SYSTEM_RANKS",
+      "name": "rehashed_system_rank_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_SPLIT",
+      "expected_error": "SYSTEM_SPLIT",
+      "name": "rehashed_system_split_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_FIELD",
+      "expected_error": "SYSTEM_FIELD",
+      "name": "rehashed_system_field_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_MINIMAL_POLYNOMIAL",
+      "expected_error": "SYSTEM_MINIMAL_POLYNOMIAL",
+      "name": "rehashed_minimal_polynomial_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_DETERMINANT",
+      "expected_error": "SYSTEM_DETERMINANT",
+      "name": "rehashed_transform_determinant_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_SECTOR_DIMENSIONS",
+      "expected_error": "SYSTEM_SECTOR_DIMENSIONS",
+      "name": "rehashed_sector_dimension_change",
+      "passed": true
+    },
+    {
+      "actual_error": "SYSTEM_KEYS",
+      "expected_error": "SYSTEM_KEYS",
+      "name": "rehashed_system_extra_key",
+      "passed": true
+    }
+  ],
+  "not_attained": {
+    "compactness_established": false,
+    "full_jacobi_solution_variety_classified": false,
+    "issue_566_closed": false,
+    "preferred_bracket_selected": false,
+    "rational_descent_components_classified": false,
+    "source_selection": false,
+    "special_weight_flat_residual_solutions_classified": false
+  },
+  "receipt_sha256": "sha256:b01ca33d254b65ec0a1a07a0e6327ed836209052b57ba48f87d4c389656319e8",
+  "schema": "oph.a5_jacobi_stage2.receipt.v1",
+  "semantic_inputs": {
+    "count": 2,
+    "paths": {
+      "basis_canonical_json_sha256": "sha256:1a4f4bc15c9b4bfe60a9ac9453fd6e327cb6a72d591c0512838df8c0e61884e6",
+      "basis_file_sha256": "sha256:bee15ce78b3dcb2d7ce9da2a817fe27435cad5054765b10f86f29a5a1203c16b",
+      "basis_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_reynolds_basis.json",
+      "proper_group_sha256": "sha256:d1ab7e4be9d7f8296fc5b6f55057388a0c7dbe7d2675c9e2f9ff549597ffbf88",
+      "receipt_file_sha256": "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd",
+      "receipt_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json",
+      "receipt_self_sha256": "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f"
+    },
+    "stage1_later_gates_all_false": true
+  },
+  "status": "EXACT_JACOBI_SYSTEM_AND_FIXED_LINE_REDUCTION__FULL_CLASSIFICATION_OPEN",
+  "system_artifact": {
+    "canonical_json_sha256": "sha256:37d3858a1b6988bd05730cf6a934518fb52b987c6ee3de70715916679a471c19",
+    "path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json"
+  },
+  "target_firewall": {
+    "accepted_input_schemas": [
+      "oph.a5_alternating_bracket_reynolds_basis.v1",
+      "oph.a5_alternating_bracket_space_stage1.receipt.v1"
+    ],
+    "arbitrary_input_path_allowed": false,
+    "audited_import_roots_by_file": {
+      "certify.py": [
+        "__future__",
+        "argparse",
+        "ast",
+        "copy",
+        "dataclasses",
+        "fractions",
+        "hashlib",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "runpy",
+        "sys",
+        "typing"
+      ],
+      "test_stage2.py": [
+        "__future__",
+        "json",
+        "pathlib",
+        "subprocess",
+        "sys",
+        "unittest"
+      ],
+      "verify.py": [
+        "__future__",
+        "ast",
+        "copy",
+        "dataclasses",
+        "fractions",
+        "hashlib",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "runpy",
+        "sys",
+        "typing"
+      ]
+    },
+    "coefficient_target_input_allowed": false,
+    "enabled": true,
+    "environment_target_read": false,
+    "exact_import_allowlists_by_file": {
+      "certify.py": [
+        "__future__",
+        "argparse",
+        "ast",
+        "copy",
+        "dataclasses",
+        "fractions",
+        "hashlib",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "runpy",
+        "sys",
+        "typing"
+      ],
+      "test_stage2.py": [
+        "__future__",
+        "json",
+        "pathlib",
+        "subprocess",
+        "sys",
+        "unittest"
+      ],
+      "verify.py": [
+        "__future__",
+        "ast",
+        "copy",
+        "dataclasses",
+        "fractions",
+        "hashlib",
+        "itertools",
+        "json",
+        "math",
+        "pathlib",
+        "runpy",
+        "sys",
+        "typing"
+      ]
+    },
+    "exact_input_keysets_enforced": true,
+    "measurement_input_allowed": false,
+    "network_target_read": false,
+    "nonstdlib_imports": [],
+    "runtime_forbidden_import_roots_by_file": {
+      "certify.py": [
+        "subprocess"
+      ],
+      "verify.py": [
+        "subprocess"
+      ]
+    }
+  }
+}

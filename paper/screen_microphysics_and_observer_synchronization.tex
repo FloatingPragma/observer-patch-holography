@@ -2733,6 +2733,83 @@ the band signs are certified in exact arithmetic by the machine-readable
 certificate \cite{ophrepo}.
 \end{proof}
 
+\begin{proposition}[Quantitative stability bounds for the equal-weight cosine member]
+Let \(Q_x(n)=\sum_{i=1}^{12}[1-\cos(xu_i\cdot n)]\), where
+\(n,u_i\in S^2\), and let \(0<x\le1\). After removal of the isotropic part,
+the terms through eighth order are
+\[
+A(x)\mathcal I_6(n),\qquad
+A(x)=\frac{2x^6(30-x^2)}{118125}>0.
+\]
+Writing the complete \(x^{10}\)-and-higher angular tail after division by
+\(A(x)\) as \(E_x\), exact bounds are
+\[
+\|\nabla E_x\|\le\frac{6875}{101152}<\frac7{100},\qquad
+\|\operatorname{Hess}_{S^2}E_x\|
+\le\frac{383125}{562658}<\frac7{10}.
+\]
+The 62 critical directions of \(\mathcal I_6\) form 31 projective axes, with
+minimum squared-sine separation \(1/2-\sqrt5/6\).
+\end{proposition}
+
+\begin{proof}
+Exact reduction on the unit sphere gives
+\[
+ \sum_i(u_i\cdot n)^6=\frac{12}{7}+\frac{64}{175}\mathcal I_6(n),
+ \qquad
+ \sum_i(u_i\cdot n)^8=\frac43+\frac{256}{375}\mathcal I_6(n).
+\]
+The sixth- and eighth-order terms of the cosine series therefore have
+anisotropic coefficients \(4x^6/7875\) and \(-2x^8/118125\), which combine
+to the stated positive amplitude. For every term of order \(2m\ge10\), the
+spherical gradient is bounded by \(12x^{2m}/(2m-1)!\). The Euclidean Hessian
+is bounded by \(12x^{2m}/(2m-2)!\), and the intrinsic Hessian adds at most the
+gradient bound through the radial correction. On \(x\le1\), the successive
+ratios are at most \(1/110\) and \(1/90\), while
+\(A(x)\ge58x^6/118125\). Summing the two geometric majorants and reducing the
+rational numbers gives the displayed bounds. Exact enumeration of the three
+carrier orbits gives the axis count and separation. The machine receipt
+replays these reductions independently \cite{ophrepo}.
+\end{proof}
+
+\begin{theorem}[Exact persistence of the equal-weight cosine fingerprint]
+\label{thm:full-cosine-persistence}
+Under the assumptions of the preceding proposition, the full kernel
+\(Q_x\) has exactly sixty-two stationary directions for every
+\(0<x\le1\). They are the twelve port maxima, twenty face-center minima,
+and thirty edge-center saddles of \(\mathcal I_6\). Every stationary point is
+Morse with the same index as the corresponding rank-six critical point.
+\end{theorem}
+
+\begin{proof}
+Equal port weights make \(Q_x\) invariant under the proper carrier rotations.
+The order-five, order-three, and order-two stabilizers of the vertex, face,
+and edge axes have no fixed tangent vector. Every one of the sixty-two axis
+directions is therefore stationary for the full cosine kernel.
+
+After division by the positive amplitude \(A(x)\), three exact projective
+charts cover the sphere modulo antipodes. A deterministic dyadic subdivision
+into 2,624 leaves proves that the tangent-gradient norm of \(\mathcal I_6\)
+exceeds the complete tail bound away from the disjoint neighborhoods
+\(\sin^2\theta\le1/4096\) of the 31 axes. No further stationary direction
+occurs there.
+
+For one representative of each axis orbit, normalized local coordinates
+give the exact factorization \(G(y)=C(y)y\), with \(G(0)=0\). Exact interval
+bounds on \(C(y)-C(0)\), using
+\(\lVert E\rVert_2\le
+\sqrt{\lVert E\rVert_1\lVert E\rVert_\infty}\), leave a strictly positive
+smallest-singular-value margin after the tail Hessian is included. The local
+chart obeys \(\lVert J_y\rVert\le1\) and
+\(\operatorname{dist}(0,y)=\arctan\lVert y\rVert\le\lVert y\rVert\), so the
+intrinsic \(C_2\) tail bound is the required coordinate-gradient bound. Each
+neighborhood contains its axis center as its unique stationary direction.
+Separate exact Hessian margins preserve the two definite signatures and the
+indefinite edge signature. Carrier symmetry transports the three local
+certificates to all 31 axes. The interval arithmetic and an independent
+implementation are recorded in the machine receipt \cite{ophrepo}.
+\end{proof}
+
 \begin{theorem}[Spin-six residue universality on the invariant carrier class]
 \label{thm:spin-six-residue-universality}
 Let the carrier kinetics be any operator
@@ -2775,8 +2852,11 @@ branch. Here spin six denotes spherical-harmonic angular rank, not particle
 spin.
 
 The finite repair operator acts on thirty internal seams rather than spatial
-translations. The source packet contains no operator-domain map or physical
-readout that selects the twelve-vertex stencil. Equal-weight stencils on the
+translations. An exhaustive classification of the simulator's declared
+serialized finite artifacts finds the local-domain kinetic operators and the
+twelve-port response on separate domains, with no registered accepted packet
+joining a complete twelve-port translation operator to a physical readout of
+that same operator. Equal-weight stencils on the
 twelve vertex, twenty face, and thirty edge direction orbits have distinct
 rank-six coefficient rays. Proper-carrier transitivity fixes weights within a
 chosen orbit and does not choose among these spatial alternatives.
@@ -3381,7 +3461,9 @@ matrix current and matter action are conditional. Their common
 orbit carries an exact multipole fixed point: ranks one through five
 annihilate, and the unique rank-six invariant survives with a certified
 sixty-two-point Morse census and a universal least-rank residue on the
-invariant carrier class. Physical global-form selection, laboratory current
+invariant carrier class. On the declared equal-weight cosine branch, the full
+kernel has exactly the same sixty-two stationary directions for
+\(0<|ak|\le1\). Physical global-form selection, laboratory current
 and flux identification, equality
 with the distinct Tannaka current, four-dimensional topological normalization,
 scalar multiplicity, physical matter-pole attachment of the exact finite

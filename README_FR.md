@@ -187,7 +187,14 @@ données et certificats :
    rang $j=6$ possède une forme icosaédrique rigide, à une classe d’orientation
    à trois paramètres dans $SO(3)/A_5$ près. Le spin six désigne ici un rang
    angulaire, sans rapport
-   avec le spin d’une particule. Le Modèle standard minimal localement
+   avec le spin d’une particule. Pour le noyau cosinus à poids égaux déclaré et
+   $0<|ak|\le1$, l’amplitude anisotrope jusqu’à l’ordre huit vaut exactement
+   $2|ak|^6(30-|ak|^2)/118125>0$. La queue normalisée d’ordre supérieur vérifie
+   $\|\nabla E\|<7/100$ et $\|\operatorname{Hess}_{S^2}E\|<7/10$.
+   Un recouvrement exact par trois cartes et des bornes locales sur les valeurs
+   singulières prouvent que le noyau complet possède exactement 62 directions
+   stationnaires sur cet intervalle : 12 maxima, 20 minima et 30 points-selles
+   sur les axes des sommets, des faces et des arêtes. Le Modèle standard minimal localement
    invariant de Lorentz avec la relativité générale donne des coefficients
    intrinsèques du vide nuls sur cette surface. Une physique non minimale avec
    violation de l’invariance de Lorentz et une anisotropie environnementale
@@ -204,8 +211,13 @@ données et certificats :
    pour un test photonique, le transport cohérent du repère et l’exclusivité
    sont des prémisses de cette branche. L’opérateur de réparation certifié
    agit sur trente coutures internes, et non sur des translations spatiales.
-   Il ne fournit aucun pont issu de la source vers un opérateur de saut ou une
-   lecture physique. Les orbites exactes des sommets, faces et arêtes ont des
+   Un recensement à schémas fermés des artefacts sources sérialisés et suivis
+   du simulateur trouve séparément des
+   opérateurs spatiaux et cinétiques locaux ainsi que la réponse à douze ports.
+   Aucun paquet de pont enregistré et accepté sur cette surface ne relie un
+   opérateur complet de translation sur les douze directions à une lecture
+   physique du même opérateur, liée par son empreinte. Les orbites exactes des
+   sommets, faces et arêtes ont des
    rayons de rang six distincts. La symétrie égalise les poids à l’intérieur
    d’une orbite sans sélectionner celle des sommets. Un résultat nul ou insuffisamment sensible ne permet aucune
    conclusion. Une covariance incomplète, un repère non résolu, une séparation
@@ -228,6 +240,7 @@ données et certificats :
    Elle atteint l’ensemble du cadre seulement si une loi de source plus forte
    prouve que cette branche est forcée et exclusive. Voir le
    [reçu exact de la prédiction](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
+   le [reçu de persistance du noyau cosinus](code/a5_fingerprint/runtime/a5_multipole_persistence_receipt_v4.json),
    la [preuve Lean des coefficients](Lean/Screen/A5PrimitivePortPrediction.lean),
    la [séparation exacte des orbites](Lean/Screen/A5OrbitRaySeparation.lean),
    l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) et le
@@ -510,7 +523,21 @@ déclarées du doublet chargé et des triplets réalisent exactement ce type. La
 tomographie ordonnée issue de la source et l’holonomie du même courant restent
 ouvertes. La récurrence enregistrée engendre une algèbre commutative de mots
 de dimension quatre ; elle ne fournit ni les douze générateurs du courant, ni
-leur crochet, ni les reparamétrages propres non triviaux.
+leur crochet, ni les reparamétrages propres non triviaux. Douze phases
+diagonales sans cible ont le rang douze et commutent. L’ajout du tangent
+d’adjacence connexe engendre $\mathfrak u(12)$, de rang dérivé 143. Le courant
+issu de la source exige donc une loi de réponse non diagonale de rang dérivé
+onze. Conditionnellement au porteur canonique orienté, l’espace complet et
+sans cible des crochets alternés $A_5$-équivariants sur $\mathbb Q$ est de
+dimension quatorze et possède une base rationnelle exacte de Reynolds. Les
+conditions de Jacobi forment 38 lignes quadratiques indépendantes, avec une
+décomposition exacte de l’espace des lignes en 11+27. La variété résiduelle
+des solutions, la compacité, la reconstruction issue de la source et
+l’holonomie du même courant restent ouvertes.
+Voir le
+[paquet exact de recherche des crochets alternés](code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json)
+et le
+[reçu de réduction de Jacobi](code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_stage2.receipt.json).
 
 Dans l’algèbre extérieure de réponse déclarée, le balayage exhaustif des
 1 024 sous-ensembles laisse une seule paire conjuguée non ordonnée de rang 15
@@ -723,7 +750,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur fini de coutures signées muni du comptage unitaire déclaré possède un écart spectral strictement positif ; son raffinement numérique vaut 0,1175367. Cet opérateur est distinct du générateur de réparation de jauge compacte de la branche conditionnelle de Yang–Mills. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Théorème du type de Lie du Modèle standard issu de douze ports | L’incidence orientée donne l’action propre de $A_5$ et le module de ports $1+3+3'+5$. La réponse réversible complète et le transport endogène des recouvrements en font un courant compact de dimension douze avec action intérieure de $A_5$. Sa ligne fixe unique et la classification compacte forcent $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Une impulsion et une relecture sans cible dérivent séparément $R=-J$. La récurrence enregistrée n’engendre qu’une algèbre commutative de dimension quatre et ne fournit pas les douze générateurs ni leur crochet. Le courant matriciel publié est une réalisation conditionnelle exacte ; la tomographie ordonnée sensible à l’ordre et l’holonomie du même courant sont en cours | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
+| Théorème du type de Lie du Modèle standard issu de douze ports | L’incidence orientée donne l’action propre de $A_5$ et le module de ports $1+3+3'+5$. La réponse réversible complète et le transport endogène des recouvrements en font un courant compact de dimension douze avec action intérieure de $A_5$. Sa ligne fixe unique et la classification compacte forcent $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Une impulsion et une relecture sans cible dérivent séparément $R=-J$. La récurrence enregistrée n’engendre qu’une algèbre commutative de dimension quatre. Douze phases diagonales commutent, tandis que le tangent d’adjacence connexe engendre $\mathfrak u(12)$, de rang dérivé 143. Aucune de ces réponses ne fournit le courant requis de rang dérivé onze. Le courant matriciel publié est une réalisation conditionnelle exacte ; la tomographie non diagonale issue de la source et l’holonomie du même courant sont en cours | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact sur les tenseurs déclarés est $\mathbb Z_6$, donc leur image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Le menu des six axes correspond à $\mathbb Z_6$ seulement après déclaration de ses relations de coefficients ; la sélection par la source de la forme globale physique reste ouverte | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. Le produit tensoriel de cette bande avec la table déclarée à quinze états donne un candidat conditionnel de rang complexe 45. La table porte la graduation chirale non dégénérée et l’action diagonale exacte de $\mathbb Z_6$. Un reçu distinct sur le domaine local de 8 662 nœuds vérifie l’extension déclarée $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de l’écart spectral positif. Cette action n’est pas sélectionnée par la source. Le paquet de Spin sur douze ports et le domaine local ne disposent d’aucun pont certifié de source, de domaine ou de transport. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |

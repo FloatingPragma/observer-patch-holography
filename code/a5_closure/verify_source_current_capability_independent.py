@@ -209,6 +209,19 @@ def verify(projection_path: Path, receipt_path: Path) -> dict[str, Any]:
         "bounded audit scope",
     )
     check(receipt.get("projection_sha256") == projection["projection_sha256"], "receipt projection pin")
+    next_source = receipt.get("next_source_object")
+    check(isinstance(next_source, Mapping), "next source object")
+    check(
+        next_source.get("first_exact_gate")
+        == (
+            "the twelve first-order port derivatives have real rank twelve; "
+            "their exact mixed-order commutators close in that span, their "
+            "commutator span has real rank eleven, and the constant linear "
+            "combination of the twelve port generators spans the one-dimensional "
+            "center"
+        ),
+        "correct first-order, derived-rank, and center gates",
+    )
 
     sources = projection.get("source_files")
     check(isinstance(sources, Mapping), "source pins")

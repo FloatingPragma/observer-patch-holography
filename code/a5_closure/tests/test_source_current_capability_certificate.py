@@ -27,6 +27,14 @@ def source_packet() -> tuple[dict, dict]:
 
 def test_committed_packet_replays_exactly_and_independently() -> None:
     projection, receipt = source_packet()
+    assert projection["source_files"]["carrier"] == (
+        "manifests/echosahedral_federation_reference.json"
+    )
+    assert projection["source_files"]["response"] == (
+        "manifests/charged_response_semantic_artifact.json"
+    )
+    assert "\\" not in projection["source_files"]["carrier"]
+    assert "\\" not in projection["source_files"]["response"]
     assert projection == producer.load_json(producer.PROJECTION_PATH)
     assert receipt == producer.load_json(producer.RECEIPT_PATH)
     producer.verify_receipt(projection, receipt)
@@ -63,6 +71,12 @@ def test_bounded_obstruction_preserves_the_abstract_theorem() -> None:
         "single_generator_functional_calculus_dimension_upper_bound": 4,
         "order_sensitive_port_indexed_tangent_available": False,
     }
+    gate = receipt["next_source_object"]["first_exact_gate"]
+    assert "first-order port derivatives have real rank twelve" in gate
+    assert "commutator span has real rank eleven" in gate
+    assert "constant linear combination of the twelve port generators" in gate
+    assert "spans the one-dimensional center" in gate
+    assert "antisymmetric second-order response has real rank twelve" not in gate
 
 
 def test_static_rechartings_are_not_forged_into_response_words() -> None:

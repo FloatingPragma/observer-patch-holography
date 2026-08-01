@@ -382,8 +382,8 @@ def build_projection(
         "schema": PROJECTION_SCHEMA,
         "issue": ISSUE,
         "source_files": {
-            "carrier": str(CARRIER_PATH.relative_to(MODULE_DIR)),
-            "response": str(RESPONSE_PATH.relative_to(MODULE_DIR)),
+            "carrier": CARRIER_PATH.relative_to(MODULE_DIR).as_posix(),
+            "response": RESPONSE_PATH.relative_to(MODULE_DIR).as_posix(),
             "carrier_file_sha256": file_sha256(CARRIER_PATH),
             "response_file_sha256": file_sha256(RESPONSE_PATH),
             "carrier_payload_sha256": canonical_sha256(carrier_manifest),
@@ -675,8 +675,11 @@ def certificate_payload(projection: Mapping[str, Any]) -> dict[str, Any]:
                 "recorded on one carrier source"
             ),
             "first_exact_gate": (
-                "the antisymmetric second-order response has real rank twelve and "
-                "its exact commutators close on that same span"
+                "the twelve first-order port derivatives have real rank twelve; "
+                "their exact mixed-order commutators close in that span, their "
+                "commutator span has real rank eleven, and the constant linear "
+                "combination of the twelve port generators spans the one-dimensional "
+                "center"
             ),
             "holonomy_gate": (
                 "closed overlap words from those perturbations cover all sixty proper "

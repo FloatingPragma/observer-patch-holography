@@ -122,22 +122,49 @@ The theorem and its finite source realization have different receipts.
 | Response constraints | target-free impulse readback, \(R=-J\), four response signs, refinement persistence | derived |
 | Lie-type classifier | compact inner action on a faithful closed twelve-dimensional current forces \(1+3+8\) | proved under the stated response premises |
 | Matrix fixture | charged double triplet with algebra \(\mathfrak u(3)\oplus\mathfrak{so}(3)\) | exact conditional realization |
-| Source current | ordered reversible response histories reconstruct the twelve generators and their bracket | open |
+| Source current | ordered reversible response histories reconstruct the twelve generators and their bracket | open; recurrence and diagonal-phase lifts excluded |
 | Same-current holonomy | closed overlap words implement all proper carrier actions inside the response-generated group | open |
 | Physical current | source current, same-current holonomy, refinement, and laboratory attachment | open |
 
 A source receipt must reconstruct twelve skew-adjoint infinitesimal
 generators from ordered two-sided response histories. It must verify exact
-rank twelve, all commutators closing in their span, and the absence of a
-hidden tangent direction. Closed overlap words from the same histories must
+rank twelve, all commutators closing in their span with derived rank eleven,
+the constant linear combination of the twelve port generators spanning the
+one-dimensional center, and the absence of a hidden tangent direction. Closed
+overlap words from the same histories must
 cover all sixty proper carrier rotations, reconstruct their implementers,
 verify the port-current commuting square, and prove membership in the
 response-generated identity component modulo the pointwise centralizer.
 
-The released simulator has no such ordered-response packet. A semantic label
+The simulator supplies no source-passing ordered-response packet. A semantic label
 such as `charged_double_triplet` cannot discharge the gate. The certificate
 therefore treats that construction as a declared algebraic fixture and
 refuses physical source promotion.
+
+The target-free diagonal phase lift supplies twelve independent first
+derivatives with an abelian bracket. Adjoining the registered connected
+adjacency tangent generates the full \(\mathfrak u(12)\) algebra, whose
+derived algebra has rank 143. This exact negative control shows that the
+source current needs a non-diagonal port law. Other reversible port actions
+are outside the control.
+
+Conditional on the canonical oriented twelve-port carrier, an exact Reynolds
+calculation gives
+\[
+\dim_{\mathbb Q}\operatorname{Hom}_{A_5}
+  (\Lambda^2\mathbb Q^{12},\mathbb Q^{12})=14.
+\]
+The serialized rational basis spans the complete target-free alternating
+search space. The packet derives neither the carrier choice nor a bracket.
+Substitution into Jacobi produces 2,640 coordinate equations in 44
+equivariant target orbits. Their quadratic coefficient rows have exact rank
+38. A channel change over \(\mathbb Q(\sqrt5)\) gives an 11+27 rowspace
+decomposition: eleven fixed-line derivation-weight products and a rank-27
+residual system that remains present on every weight flat. The exact
+three-parameter derivation-only family is Jacobi-admissible and supplies no
+compactness or source selection. The residual variety, rational descent,
+special-flat solutions, compactness, ordered-source reconstruction,
+physical-current selection, and same-current holonomy remain open.
 
 ## Repair dynamics do not supply the current
 
