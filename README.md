@@ -140,51 +140,17 @@ certificates:
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-7. **A frozen degree-six propagation prediction from twelve ports.** On a
-   declared real reciprocal cosine branch with the primitive port orbit as the
-   sole hop support and no independent kinetic term through this order,
-   proper-carrier covariance fixes equal weights. Continuum normalization gives
-   $\omega^2=k^2+C_4k^4+B_0k^6+B_6k^6\mathcal I_6(R^{-1}\hat k)+O(k^8)$,
-   with
-   $C_4=-a^2/20$, $B_0=a^4/840$, and $B_6=2a^4/7875$. Thus
-   $B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$, and $B_6/B_0=16/75$.
-   Anisotropic ranks $j=1$ through $5$ vanish; rank $6$ has one icosahedral
-   shape up to orientation in $SO(3)/A_5$. "Spin six" denotes angular rank,
-   unrelated to particle spin. For the declared equal-weight cosine kernel
-   and $0<|ak|\le1$, the through-eighth-order anisotropic amplitude is exactly
-   $2|ak|^6(30-|ak|^2)/118125>0$. The normalized higher-order tail obeys
-   $\|\nabla E\|<7/100$ and $\|\operatorname{Hess}_{S^2}E\|<7/10$.
-   An exact three-chart interval cover and local singular-value certificate
-   prove that the full kernel has exactly 62 stationary directions throughout
-   this range: 12 maxima, 20 minima, and 30 saddles on the vertex, face, and
-   edge axes.
-   The conventional locally Lorentz-invariant
-   baseline has zero intrinsic coefficients on this surface. The prediction is
-   frozen with public commit custody. An eligible comparison must fix its frame,
-   covariance, nuisance model, sensitivity, and thresholds. The scalar or
-   polarization-independent bridge, coherent transport, and exclusivity are
-   branch premises. The certified repair operator acts on thirty internal
-   seams, not on translated field sites. A closed-schema census of the
-   simulator’s tracked serialized source artifacts finds local
-   spatial and kinetic operators and the twelve-port response as separate
-   objects, with no registered accepted packet binding a complete
-   twelve-port translation operator to a digest-identical physical readout.
-   Exact equal-weight vertex, face, and edge
-   orbit symbols have different rank-six rays. Carrier symmetry fixes weights
-   within an orbit but does not select the vertex orbit.
-   A negative $C_4$, inconsistent linked ratios or rotated rank-six shape,
-   nonzero intrinsic ranks $1$ through $5$, or a joint exclusion of the linked
-   manifold at five or more standard deviations rejects this branch. Support
-   requires a five-standard-deviation exclusion of the zero baseline,
-   two-standard-deviation agreement with the linked manifold, rejection of
-   named systematics, and independent replication. A result affects the full
-   framework only after a stronger source law proves this branch forced and
-   exclusive.
-   See the
-   [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
-   [full-cosine persistence receipt](code/a5_fingerprint/runtime/a5_multipole_persistence_receipt_v4.json),
+7. **A frozen propagation signature from twelve ports.** The declared
+   twelve-port cosine branch produces a specific sixth-order directional
+   pattern: lower anisotropies vanish, while the first surviving pattern has
+   icosahedral symmetry. In practical terms, this gives a sharply defined way
+   to look for a tiny direction-dependent correction to propagation, with a
+   conventional locally Lorentz-invariant baseline at zero. The expected
+   vertex, face, and edge directions, linked coefficient ratios, and rejection
+   thresholds are fixed before comparison. This remains a conditional branch
+   prediction until its physical bridge and orbit selection are derived.
+   See the [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
    [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),
-   [exact orbit-ray separation](Lean/Screen/A5OrbitRaySeparation.lean),
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md), and
    [physical-bridge issue](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
 
