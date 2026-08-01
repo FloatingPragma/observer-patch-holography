@@ -81,16 +81,13 @@ refutation by qualifying measurements.
 These public results link directly to their papers, proofs, data, and
 certificates:
 
-1. **A Lorentzian signature test on a finite event instrument.** The
-   instrument fixes one ancestry coordinate and three spectral coordinates.
-   On that declared chart, a support-adjusted path at 16k, 65k, and 262k
-   carriers gives held-out event-form inertia $(1,3)$, with cone margins
-   $-5.62$, $-3.22$, and $-1.41$. At 262k carriers, reducing the support width
-   from 384 to 96 changes the cross-observer edge count from 1,062 to 312 and
-   the inertia from $(1,3)$ to $(2,2)$. The run measures signature and
-   support sensitivity on the four-coordinate instrument; it does not select
-   the number of spacetime dimensions. The negative margins keep the
-   continuum spacetime claim conditional. See the
+1. **A Lorentzian signature test on a finite event instrument.** A declared
+   four-coordinate chart gives held-out inertia $(1,3)$ at 16k, 65k, and 262k
+   carriers, with cone margins $-5.62$, $-3.22$, and $-1.41$. At 262k,
+   reducing support width from 384 to 96 changes the inertia to $(2,2)$.
+   This measures signature and support sensitivity on that instrument; it
+   does not select spacetime dimension, and the continuum claim remains
+   conditional. See the
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
    and the [hash-bound data and regeneration scripts](evidence/einstein_convergence/).
 2. **Quantum event rules from public observer records.** On the finite central
@@ -101,17 +98,14 @@ certificates:
    [consensus paper](paper/reality_as_consensus_protocol.pdf), and the
    [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean).
 3. **The Standard Model Lie type from twelve ports.** Complete reversible
-   port response in A1 and endogenous overlap transport in A2 force
-   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. Exact
-   central descent gives a common $\mathbb Z_6$ kernel and the maximal
-   faithful image
+   port response and endogenous overlap transport force
+   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, with
+   maximal faithful image
    $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ for the declared matter
-   table. Source selection of the matrix current, matter action, and physical
-   global quotient is work in progress. As a direct algebraic corollary, the
-   conditional product current algebra has no connected
-   $(3,2,-5/6)\oplus(\bar 3,2,+5/6)$ simple-GUT $X/Y$ generator, so the
-   ordinary minimal $X/Y$ proton-decay channel is absent.
-   This does not establish general proton stability. See the
+   table. Matrix-current, matter-action, and physical-quotient selection are
+   work in progress. The conditional current algebra excludes the ordinary
+   minimal $X/Y$ proton-decay channel; it does not establish general proton
+   stability. See the
    [conditional current receipt](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
@@ -120,36 +114,26 @@ certificates:
    [gauge trichotomy](Lean/Screen/A5OPH.lean), and
    [finite Z₆ descent](Lean/Screen/Z6Descent.lean).
 4. **An exact one-generation exterior selection and a rank-three family
-   candidate.** Inside the declared ten-component exterior-response algebra,
-   an exhaustive scan of all 1,024 subsets leaves exactly one unordered
-   charge-conjugate pair of nonempty chiral anomaly-free rank-15 projectors.
-   Primitive determinant balance fixes the block charges up to conjugation,
-   giving the fifteen-state Standard Model hypercharge multiset and its exact
-   anomaly cancellations. Completeness beyond the declared algebra and
-   physical light-matter attachment are separate. Under the complete-band and
-   operational-cost premises, the screen-band theorem selects rank three
-   uniquely, and the declared unitary response places its residue at the
-   lowest positive generator frequency. Tensoring that band with the selected
-   rank-15 table gives a conditional complex rank-45 candidate with a
-   nondegenerate chirality grading and the exact diagonal $\mathbb Z_6$
-   action. A separate local-domain receipt checks the declared operator
-   $D_\sigma\otimes I_{45}$ and conditional gap inheritance. The source does
-   not select that matter action. Matter-pole identification, continuum
-   Spin/locality, the cross-domain transport bridge, physical seam selection,
-   and laboratory attachment are open. See the
+   candidate.** An exhaustive scan of the declared ten-component
+   exterior-response algebra leaves one charge-conjugate pair of chiral,
+   anomaly-free rank-15 projectors. Its charges give the fifteen-state Standard
+   Model hypercharge multiset with exact anomaly cancellation. Under the
+   complete-band and operational-cost premises, the screen-band theorem
+   selects rank three; tensoring yields a conditional complex rank-45
+   candidate with chirality and diagonal $\mathbb Z_6$ action. Completeness,
+   matter attachment, continuum Spin/locality, transport, seam selection, and
+   laboratory attachment remain open. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
    the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
-5. **An exact positive finite-domain gap for the signed seam operator.**
-   One target-clean source capture supplies an exact causal order,
-   observer-visible seam topology, typed finite sections, 38 frustrated
-   triangles, and a zero twisted kernel. For the declared unit-counting signed
-   operator, the graph theorem gives
-   $\lambda_{\min}\geq24^{-8661}>0$. A sparse numerical run gives
-   $0.1175367$ as an uncertified refinement. This signed-graph spectrum is
-   distinct from the compact-gauge repair spectrum and from the continuum
-   Yang–Mills mass gap. It supplies no physical clock or particle mass. See the
+5. **An exact positive finite-domain gap for the signed seam operator.** A
+   target-clean source capture fixes the causal order, seam topology, typed
+   sections, 38 frustrated triangles, and a zero twisted kernel. The declared
+   signed operator obeys $\lambda_{\min}\geq24^{-8661}>0$; a sparse numerical
+   refinement gives $0.1175367$. This is a signed-graph result, distinct from
+   the compact-gauge repair spectrum and continuum Yang--Mills mass gap. It
+   supplies no physical clock or particle mass. See the
    [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
    and the pinned
    [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
@@ -157,54 +141,36 @@ certificates:
    Hermitian $C_3$ response obeys
    $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
    $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Under the declared
-   balance and ordering premises, the measured electron and muon masses fix
-   the tau mass inside a 72-eV interval, 0.43 standard deviations from the
-   comparison value. The premise ancestry and prospective rejection rule are
-   frozen. See the
+   balance and ordering premises, the electron and muon masses fix the tau
+   mass within 72 eV, 0.43 standard deviations from the comparison value. The
+   premise ancestry and rejection rule are frozen. See the
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-7. **A frozen degree-six propagation prediction from twelve ports.** On the
-   named real reciprocal finite-range cosine branch where the complete
-   primitive port orbit is the sole hop support, with no independent kinetic
-   term through the displayed order, proper-carrier covariance fixes equal
-   weights. Continuum normalization gives
+7. **A frozen degree-six propagation prediction from twelve ports.** On a
+   declared real reciprocal cosine branch with the primitive port orbit as the
+   sole hop support and no independent kinetic term through this order,
+   proper-carrier covariance fixes equal weights. Continuum normalization gives
    $\omega^2=k^2+C_4k^4+B_0k^6+B_6k^6\mathcal I_6(R^{-1}\hat k)+O(k^8)$,
    with
    $C_4=-a^2/20$, $B_0=a^4/840$, and $B_6=2a^4/7875$. Thus
    $B_6/C_4^2=32/315$, $B_0/C_4^2=10/21$, and $B_6/B_0=16/75$.
-   Intrinsic anisotropic ranks $j=1$ through $5$ vanish, while $j=6$ has one
-   rigid icosahedral shape up to a three-parameter orientation class in
-   $SO(3)/A_5$. Spin six means
-   angular rank, unrelated to particle spin. Minimal locally Lorentz-invariant
-   Standard Model physics with General Relativity gives zero intrinsic vacuum
-   coefficients on this surface. Nonminimal Lorentz-violating physics and
-   environmental anisotropy can imitate a signal. The prediction and its
-   branch-level decision rule are fixed in a source snapshot with public commit
-   custody. Detached timestamp proofs await Bitcoin upgrade. The
-   registered comparison excludes the dated cosmic-microwave-background
-   template search and every data product examined there. The
-   physical comparison is unarmed until an eligible dataset contract fixes
-   the frame, covariance, nuisance model, sensitivity, and thresholds. The
-   scalar or polarization-independent sector bridge, equal action on both
-   transverse polarizations for a photon test, coherent frame
-   transport, and exclusivity are work in progress. A null or underpowered
-   result is inconclusive. Incomplete covariance, an unresolved frame,
-   polarization splitting, or failure to isolate the carrier contribution is
-   likewise inconclusive. If $C_4$ is negative at five or more standard
-   deviations with enough sensitivity, exclusion of the linked sixth-order
-   ratios or rotated shape at five or more standard deviations, after the
-   fixed $SO(3)/A_5$ orientation profile and with calibrated joint coverage,
-   rejects this primitive-port branch. An isolated positive $C_4$ or nonzero
-   intrinsic anisotropy at ranks $1$ through $5$ rejects the branch at the same
-   threshold and under the same calibrated coverage.
-   A calibrated joint likelihood that excludes the complete linked branch
-   manifold at five or more standard deviations also rejects it.
-   Support requires exclusion of the zero-coefficient baseline at five or
-   more standard deviations, agreement with the complete linked manifold
-   within two, rejection of the named systematic alternatives, and an
-   independent eligible replication. A failed verdict reaches the full framework only if the open
-   bridge derivation proves the branch forced and exclusive. See the
+   Anisotropic ranks $j=1$ through $5$ vanish; rank $6$ has one icosahedral
+   shape up to orientation in $SO(3)/A_5$. "Spin six" denotes angular rank,
+   unrelated to particle spin. The conventional locally Lorentz-invariant
+   baseline has zero intrinsic coefficients on this surface. The prediction is
+   frozen with public commit custody. An eligible comparison must fix its frame,
+   covariance, nuisance model, sensitivity, and thresholds. The scalar or
+   polarization-independent bridge, coherent transport, and exclusivity are
+   work in progress.
+   A negative $C_4$, inconsistent linked ratios or rotated rank-six shape,
+   nonzero intrinsic ranks $1$ through $5$, or a joint exclusion of the linked
+   manifold at five or more standard deviations rejects this branch. Support
+   requires a five-standard-deviation exclusion of the zero baseline,
+   two-standard-deviation agreement with the linked manifold, rejection of
+   named systematics, and independent replication. A result affects the full
+   framework only if the open bridge proves this branch forced and exclusive.
+   See the
    [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
    [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md), and
