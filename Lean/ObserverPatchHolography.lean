@@ -34,6 +34,8 @@ import ObserverPatchHolography.YangMillsGapWitness
 import ObserverPatchHolography.RepairGapChain
 import ObserverPatchHolography.QuotientLumpability
 import ObserverPatchHolography.ScalarSeamRepair
+import ObserverPatchHolography.EqualSeamSelection
+import ObserverPatchHolography.A2EndpointCommutator
 import ObserverPatchHolography.DirectedSeamRepair
 import ObserverPatchHolography.DirectedSeamRepairProgress
 
