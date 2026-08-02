@@ -84,16 +84,66 @@ Mapping between Lean 4 theorems in this project and statements in
   rechart law, conserved source, adiabaticity, or transfer surface.
 - Conditional primitive-port translation bridge
   (`Screen/PrimitivePortTranslationBridge.lean`): sorry-free exact analysis on
-  a declared continuous three-dimensional scalar field. It diagonalizes a
-  paired twelve-port shift operator on plane waves and proves nonnegative,
+  a declared three-dimensional scalar field. It diagonalizes a paired
+  twelve-port shift operator on plane waves and proves nonnegative,
   port-relabeling-covariant, and passive-frame-covariant cosine symbols. A
   supplied exact directional moment packet implies the frozen quadratic,
   quartic, and anisotropic sixth-order coefficient polynomial. The module does
-  not derive that moment packet or spatial frame, select the operator from
-  repair dynamics, fix its positive scale, supply physical time evolution,
-  identify a photon or other sector, establish physical frame or boost laws,
-  isolate experimental nuisance directions, or prove exclusivity. Its shifts
-  are not promoted to a locally finite spatial lattice.
+  not derive that moment packet, select the operator from repair dynamics, fix
+  its positive scale, supply physical time evolution, identify a photon or
+  other sector, establish physical frame or boost laws, isolate experimental
+  nuisance directions, or prove exclusivity. Its shifts are not promoted to a
+  locally finite spatial lattice.
+- Primitive-port frame quotient and completion
+  (`Screen/PrimitivePortFrameQuotient.lean`): sorry-free exact real algebra,
+  integer arithmetic, and topology. The exact source-to-RER relabel identifies
+  the normalized six-axis coordinate Gram with the pinned finite Gram table.
+  The source bilinear form has a three-dimensional radical, its radical equals
+  the coordinate kernel, and quotienting six real controls by it gives a
+  three-dimensional positive-definite Gram space. Irrationality of the golden
+  ratio proves the integer map injective and dense. The signed cumulative
+  port-record/control module with its normalized source-Gram metric completes
+  to one abstract three-dimensional Euclidean carrier. This is a source-frame
+  construction, canonical only up to port-label-preserving isometry. It does
+  not select the unbounded signed controls, Gram topology, or adapter from
+  A1--A3. The dense image is not a locally finite lattice, and long cumulative
+  controls can have arbitrarily small Gram displacement despite large
+  record-count distance. Record order and repair cost remain separate data.
+  Faithful isometric action extension, overlap/refinement gluing, physical
+  space, scale, rest frame, Lorentzian structure, and field-sector attachment
+  remain open.
+- Port Gram repair-band identification
+  (`Screen/PortGramRepairBand.lean`): sorry-free exact table arithmetic. The
+  pinned normalized port Gram form is exactly four times the rank-three
+  adjacency projector. Under the declared repair operator `5I-A`, this is the
+  unique lowest positive band at cost `5-sqrt(5)`. The quintet has cost six,
+  while the Galois-conjugate rank-three projector is the maximal-cost faithful
+  control at `5+sqrt(5)`. This removes an independent choice between the port
+  Gram form and the low-cost family band once those source tables and repair
+  operator are declared. It does not derive a physical kinetic action, family
+  attachment, scale, or laboratory observable.
+- Port Gram repair diffusion and asymptotic selection
+  (`Screen/PortGramRepairCovariance.lean`): sorry-free exact quadratic-field
+  matrix algebra plus a real finite-dimensional limit. For the declared
+  conditional-mean repair `T = I-(5I-A)/60`, the centered deterministic
+  kernel `Q*T^(2n)*Q` has an exact finite-step decomposition into the low
+  rank-three, quintet, and Galois rank-three bands. Their responses obey
+  `0 < r_high < 9/10 < r_low < 1`; dividing the source kernel by its exact
+  low-band response and fixing the unit-diagonal normalization gives
+  entrywise convergence to `4*P3 = G`. The full twelve-port Gram table also
+  descends through the signed antipodal relation
+  `e_(antipode i) = -e_i`. Intrinsically, the local carrier is the range of
+  `P3` in twelve-port counting space; its generators `v_p=2*P3*e_p` have
+  exact Gram matrix `G`, without choosing Cartesian axes. The separate
+  `finrank` of that range is not restated in this module. The finite table
+  equalities use native evaluation;
+  the spectral induction, strict order, ratio decay, and real limit are
+  theorem proofs. The result does not select `T` as the physical repair law,
+  identify the readback topology with physical space, choose a clock or field
+  sector, or produce an observable. The quotient completion gives one
+  abstract local carrier only. A faithful isometric action on the completion,
+  overlap/refinement gluing, a global carrier, and a physical attachment
+  remain open.
 - Primitive-port scale boundary
   (`Screen/PrimitivePortScaleBoundary.lean`): sorry-free real algebra. It
   proves the exact quadratic and quartic rescaling weights of the frozen
@@ -149,6 +199,17 @@ Mapping between Lean 4 theorems in this project and statements in
   support measure. It does not identify a sector with a physical pixel or
   continuum area, prove refinement convergence, select a physical scale, or
   identify the support radius with the primitive translation hop.
+- Conditional primitive-hop selection
+  (`Screen/PrimitiveHopSelection.lean`): sorry-free exact composition. A
+  complete quotient-deduplicated move type is explicitly identified with the
+  twelve ports. Natural unique A3 move selection fixes weight `1/12` on each
+  identity. If the candidate contains exactly one atomic direct hop per port,
+  no additional range or operator term, the port frame realizes antipodes as
+  inverse translations, and the overall coefficient has the supplied unit
+  quadratic normalization, the candidate equals the frozen equal-weight
+  primitive cosine operator and is unique within that grammar. A1-R and A2-R
+  are proposed premises rather than adopted axioms; the source-to-translation
+  identification and quadratic normalization remain separate attachments.
 - Directed integer seam completion
   (`ObserverPatchHolography/DirectedSeamRepair.lean`): sorry-free integer and
   rational arithmetic. The two nearest-balanced directed outcomes preserve a

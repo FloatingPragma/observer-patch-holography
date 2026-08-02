@@ -9,17 +9,20 @@ namespace OPH.PrimitivePortTranslationBridge
 /-!
 # Conditional primitive-port translation bridge
 
-This module places a declared twelve-port finite-range translation law on an
-already continuous three-dimensional scalar field.  It proves inverse pairing,
-plane-wave diagonalization, nonnegativity, port-relabeling covariance, and
-passive orthogonal-frame covariance.  An explicit moment-packet premise then
-gives the frozen fourth- and sixth-order coefficient polynomial.
+This module analyzes a declared twelve-port finite-range translation law on a
+three-dimensional scalar field.  It proves inverse pairing, plane-wave
+diagonalization, nonnegativity, port-relabeling covariance, and passive
+orthogonal-frame covariance.  An explicit moment-packet premise then gives the
+frozen fourth- and sixth-order coefficient polynomial.  The companion module
+`PrimitivePortFrameQuotient` constructs the underlying real frame as the exact
+Gram quotient of the pinned six-axis adapter and proves that the dense integer
+image completes to that frame in its pulled-back metric.
 
-The theorem does not select the translation law from repair dynamics, construct
-the spatial frame from the source, fix the positive scale `a`, identify a photon
-or another physical sector, supply a physical time equation, or prove a frame,
-boost, nuisance, or exclusivity statement.  The abstract shifts are not a site
-orbit or a locally finite lattice.
+The theorems do not select the translation law from repair dynamics, identify
+the completed frame with physical space, fix the positive scale `a`, identify a
+photon or another physical sector, supply a physical time equation, or prove a
+rest-frame, boost, nuisance, or exclusivity statement.  The dense abstract
+shifts are not a site orbit or a locally finite lattice.
 -/
 
 /-- Cartesian three-space represented by three real coordinates. -/

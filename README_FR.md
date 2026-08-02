@@ -74,19 +74,29 @@ mesures admissibles.
 Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
 
-1. **Un test de signature lorentzienne sur un instrument événementiel
-   fini.** L’instrument fixe une coordonnée d’ascendance et trois coordonnées
-   spectrales. Sur cette carte déclarée, un parcours ajusté à 16k, 65k et
-   262k porteurs donne à la forme d’événement tenue à l’écart l’inertie
-   $(1,3)$, avec des marges de cône de $-5{,}62$, $-3{,}22$ et $-1{,}41$.
-   À 262k porteurs, réduire la largeur du support de 384 à 96 fait passer le
-   nombre d’arêtes inter-observateurs de 1 062 à 312 et l’inertie de $(1,3)$
-   à $(2,2)$. Le calcul mesure la signature et sa sensibilité au support sur
-   l’instrument à quatre coordonnées ; il ne sélectionne pas le nombre de
-   dimensions de l’espace-temps. Les marges négatives maintiennent la
-   conclusion d’espace-temps continu sous conditions. Voir l’
-   [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
-   et les [données liées par empreinte avec leurs scripts](evidence/einstein_convergence/).
+1. **Un porteur continu tridimensionnel issu de registres de réparation
+   finis.** Pour la moyenne de réparation déclarée sur douze ports, la
+   réponse normalisée de toutes les sondes équipondérées sélectionne un
+   projecteur spectral intrinsèque de rang trois et sa forme de Gram
+   normalisée à la limite des réponses longues. L’extension réelle à six
+   contrôles possède un radical de
+   dimension trois. Le module entier des registres signés n’a pas de noyau
+   métrique non nul, s’injecte densément dans le quotient et se complète en
+   un groupe vectoriel euclidien abstrait, continu et tridimensionnel.
+   L’espace cartésien n’intervient pas comme donnée de cette construction.
+   La sélection physique du registre de position et de la topologie de Gram,
+   l’action isométrique, le recollement des porteurs, l’échelle physique et
+   l’identification à l’espace physique restent ouverts. Un instrument
+   événementiel fini distinct mesure une inertie tenue à l’écart $(1,3)$ à
+   16k, 65k et 262k porteurs, avec des contrôles du support et de la marge de
+   cône ; il ne sélectionne pas le nombre de dimensions de l’espace-temps.
+   Voir l’
+   [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
+   les preuves Lean de la
+   [complétion intrinsèque](Lean/Screen/PrimitivePortFrameQuotient.lean) et de
+   la [limite de réponse](Lean/Screen/PortGramRepairCovariance.lean), le
+   [reçu vérifié indépendamment](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_completion_bridge_receipt.json)
+   et les [données de signature avec leurs scripts](evidence/einstein_convergence/).
 2. **Les règles des événements quantiques sur les registres publics.** Le
    consensus sélectionne l’algèbre commutative finie des indicateurs publics.
    Sur une représentation algèbre-état finie déclarée séparément, ses
@@ -206,7 +216,7 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 1300 théorèmes et lemmes, avec
+La bibliothèque Lean associée contient plus de 1400 théorèmes et lemmes, avec
 un rapport d’axiomes par théorème et aucune preuve admise. Voir [Lean/](Lean/).
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.

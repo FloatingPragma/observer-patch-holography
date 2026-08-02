@@ -431,6 +431,156 @@ signed-state progress construction is exact, while its almost-sure hitting
 statement remains conditional on the path-law premise. The full-algebra
 grammar remains a separate proof obligation.
 
+## Port-record metric completion candidate
+
+The twelve-port scalar branch exposes a possible construction of the carrier
+space itself. This construction is conditional on two additional clauses
+inside the proposed A1-R/A2-R amendment. It is not part of the adopted basis.
+
+Let \(P\) be the twelve-port set with its source antipode. The cumulative
+signed port-record module is
+
+\[
+M_{\mathbb Z}
+=\mathbb Z[P]/\langle e_{-p}+e_p\rangle
+\cong\mathbb Z^6,
+\]
+
+with no additional history relation. The finite
+\((\mathbb Z/3\mathbb Z)^6\) endpoint control does not prove that this is the
+canonical source module. The module records net signed loads. It does not
+record the order of repair events. A1-RG must prove that the ordered repair
+grammar has a carrier-position readout through this module, with the required
+commuting diamonds and no additional load relation. It must also bind the
+module to the same source port labels, the complete equal-port probe census,
+and the exact mean repair
+
+\[
+T=I-\frac1{60}L_{\rm ico}.
+\]
+
+Write \(P_0,P_-,P_5,P_+\) for the exact projectors of ranks
+\(1,3,5,3\). The discrete repair factors are
+
+\[
+r_-=1-\frac{5-\sqrt5}{60},\qquad
+r_5=\frac9{10},\qquad
+r_+=1-\frac{5+\sqrt5}{60},\qquad
+0<r_+<r_5<r_-<1.
+\]
+
+Let \(Q=I-P_0\) remove the constant agreement mode. Apply every primitive
+one-port probe, repair it \(n\) times, and compare the complete centered
+readbacks with the source counting inner product. The resulting deterministic
+diffusion kernel is
+
+\[
+C_n=QT^{2n}Q
+=r_-^{2n}P_-+r_5^{2n}P_5+r_+^{2n}P_+.
+\]
+
+This is an all-probe response calculation, not a sampled initial ensemble.
+The trace is
+\(3r_-^{2n}+5r_5^{2n}+3r_+^{2n}\). Trace-twelve normalization gives
+
+\[
+\widehat C_n
+=\frac{12C_n}{\operatorname{tr}C_n}
+\longrightarrow 4P_-.
+\]
+
+Vertex transitivity makes every diagonal equal, so unit-diagonal
+normalization gives the same limit. Restriction to the antipodal odd sector
+removes \(P_0\) and \(P_5\) and yields the compatible two-band formula
+\(r_-^{2n}P_-+r_+^{2n}P_+\).
+
+The exact finite port Gram is \(G=4P_-\). This route derives the entire Gram
+projector from discrete repair asymptotics. A1-RG must prove that the complete
+equal-port probe census and the mean repair belong to the same source record
+module. Formal powers of the one-step conditional mean are not yet a theorem
+about an ordered physical repair history.
+A2-RC must identify the scale-normalized completed-readback kernel with
+operational distinguishability and must justify the asymptotic completion.
+Slow-mode dominance by itself does not supply those semantic premises.
+
+The order of operations is load-bearing. For every finite \(n\), \(C_n\) has
+rank eleven on the centered twelve-port space and rank six on the antipodally
+odd sector. Its induced metric leaves \(\mathbb Z^6\) discrete and complete.
+The response ray must first converge to the rank-three form \(G\). The real
+radical is then quotiented and the cumulative record module is completed in
+that limiting metric. Completion at finite \(n\) followed by \(n\to\infty\)
+does not establish the same space.
+
+Equal source-counting weights fix the exact isotropic Gram. Strictly positive
+unequal probe weights leave a leading form \(P_-WP_-\) of rank three, so the
+dimension is more robust than the exact port angles. The unit-diagonal
+icosahedral metric still requires the equal-weight source theorem.
+
+The carrier has an intrinsic coordinate-free presentation inside the
+twelve-port counting space:
+
+\[
+H=\operatorname{Ran}P_-,\qquad
+v_p=2P_-e_p.
+\]
+
+Projector symmetry and idempotence give
+
+\[
+\langle v_p,v_q\rangle
+=4(P_-)_{pq}=G_{pq}.
+\]
+
+Thus the repair response constructs the rank-three carrier and its labeled
+unit vectors before any Cartesian chart is introduced. The familiar
+icosahedral coordinates provide an isometric chart and an arithmetic witness
+for density; they are not an input to the carrier definition.
+
+Using \(G\), define
+
+\[
+d_G(m,n)^2=(m-n)^{\mathsf T}G_6(m-n)
+\]
+
+on the six positive antipodal generators. In the raw, unnormalized coordinate
+chart, the exact integer map has no nonzero kernel and has finite index eight
+in \(\mathbb Z[\varphi]^3\). Since \(\mathbb Z[\varphi]\) is dense in
+\(\mathbb R\), the metric completion of \((M_{\mathbb Z},d_G)\) is a
+three-dimensional Euclidean vector group, uniquely up to a
+port-label-preserving isometry. No preferred Cartesian frame is selected.
+Record addition extends to translations of this position-readout completion.
+The Lean source-Gram quotient proves the normalized Gram identity, integer
+injection and density, the three-dimensional radical and quotient, and the
+Euclidean completion.
+
+The finite carrier proofs show that every listed proper port automorphism
+preserves the selected band and that its action on that band is faithful. A
+complete local carrier packet must still construct the induced isometric
+action on the signed record module, extend it to the completion, and identify
+the resulting translation-and-rotation action. Overlap and refinement maps
+must then glue these local completions. Until those steps are formalized,
+\(H_0\) is an abstract local Euclidean translation-carrier candidate rather
+than global physical space.
+
+This completion does not supply a discrete lattice cutoff. Composite integer
+loads have arbitrarily small nonzero Gram displacement. Their record-count
+cost can grow while their Gram distance tends to zero. A word metric on the
+ordered history is discrete, and the standard discrete metric on
+\(\mathbb Z^6\) completes to \(\mathbb Z^6\). A2-RC must therefore type the
+Gram completion as carrier-position readback. Exact event order, records, and
+record cost remain in a separate fiber because they are not continuous in the
+Gram topology. The current source does not select this position topology, an
+unbounded readback, a scalar field space, a physical clock, a Lorentzian
+structure, or a particle sector.
+
+If the support seed and primitive-hop readback factor through this same A2-RC
+completion, their normalized labeled generators are related by a unique
+spanning isometry. This does not identify their independent dimensionful
+scales. A source semantic identity between the two readbacks is required
+before one may conclude \(R_A/a=1\). Even under that identity, \(a\) is the
+norm of one atomic generator rather than a shortest lattice spacing, physical
+pixel, or areal radius.
+
 ## Refinement gate
 
 Finite uniqueness does not imply cross-refinement naturality. For a coarse

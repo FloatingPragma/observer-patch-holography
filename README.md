@@ -67,15 +67,26 @@ refutation by qualifying measurements.
 These public results link directly to their papers, proofs, data, and
 certificates:
 
-1. **A Lorentzian signature test on a finite event instrument.** A declared
-   four-coordinate chart gives held-out inertia $(1,3)$ at 16k, 65k, and 262k
-   carriers, with cone margins $-5.62$, $-3.22$, and $-1.41$. At 262k,
-   reducing support width from 384 to 96 changes the inertia to $(2,2)$.
-   This measures signature and support sensitivity on that instrument; it
-   does not select spacetime dimension, and the continuum claim remains
-   conditional. See the
-   [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
-   and the [hash-bound data and regeneration scripts](evidence/einstein_convergence/).
+1. **A continuous three-dimensional carrier from finite repair records.**
+   For the declared twelve-port repair mean, the normalized complete
+   equal-port response selects an intrinsic rank-three spectral projector and
+   its normalized Gram form in the infinite-response limit. The real
+   six-control extension has a
+   three-dimensional radical. The integer signed-record module has no
+   nonzero metric kernel, embeds densely in the quotient, and completes to an
+   abstract continuous three-dimensional Euclidean vector group. Cartesian
+   space is not an input to this construction. Source selection of the signed
+   position readout and Gram topology, isometric carrier action, overlap
+   gluing, physical scale, and identification with physical space are open.
+   A distinct finite event instrument measures held-out inertia $(1,3)$ at
+   16k, 65k, and 262k carriers, with support and cone-margin controls; it does
+   not select spacetime dimension. See the
+   [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
+   the Lean proofs of the
+   [intrinsic completion](Lean/Screen/PrimitivePortFrameQuotient.lean) and
+   [repair-response limit](Lean/Screen/PortGramRepairCovariance.lean), the
+   [independently verified receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_completion_bridge_receipt.json),
+   and the [signature data and regeneration scripts](evidence/einstein_convergence/).
 2. **Quantum event rules on public observer records.** Consensus selects the
    finite commuting algebra of public record indicators. On a separately
    declared finite algebra-state representation, its projectors obey Born
@@ -169,7 +180,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 1300 theorems and lemmas, with
+The supporting Lean library contains more than 1400 theorems and lemmas, with
 per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.

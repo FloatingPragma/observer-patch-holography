@@ -17,6 +17,10 @@ import PrimitivePortMetricAttachment
 import PrimitivePortOperatorSelectionBoundary
 import KineticFamilyCancellation
 import PrimitivePortDualMeasure
+import PrimitiveHopSelection
+import PrimitivePortFrameQuotient
+import PortGramRepairBand
+import PortGramRepairCovariance
 
 /-!
 # OPH screen arithmetic umbrella

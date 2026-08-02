@@ -30,6 +30,7 @@
     "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
     "OPH-COSMO-SCREEN-SPECTRUM",
     "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+    "OPH-GR-PORT-RESPONSE-COMPLETION",
     "OPH-A5-PRIMITIVE-PORT-SPIN6",
     "OPH-SCREEN-PORT-CURRENT-INNER",
     "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
@@ -608,6 +609,11 @@
       "from": "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
       "to": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT",
       "role": "prevents the fixed-sector repair generator from supplying a dimension-changing physical shock source without a typed extension"
+    },
+    {
+      "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "to": "OPH-GR-PORT-RESPONSE-COMPLETION",
+      "role": "supplies the declared twelve-port incidence and exact normalized Gram reference; the repair mean, cumulative signed position module, response topology, action, and gluing remain separate premises"
     }
   ]
 }

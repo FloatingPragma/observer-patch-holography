@@ -61,10 +61,8 @@ William T. Glynn}
 \end{center}
 
 \begin{abstract}
-The program seeks a description of reality as a timeless, closed,
-self-referential structure whose physical content is fixed by internal
-consistency and requires no external cause. We ask whether consensus among
-finite self-reading observer patches can constrain that content. Five layers
+Observer Patch Holography asks whether a timeless, self-referential universe
+can be reconstructed from consistency among finite self-reading patches. Five layers
 are distinct: a self-referential closure hypothesis, three finite axioms,
 named repair and response laws,
 exact finite consequences, and physical realization maps. The patches carry
@@ -76,7 +74,10 @@ Lie-algebra type
 $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$ without an
 ambient gauge group. A matter premise gives an anomaly-free
 fifteen-state exterior module with a $\mathbb Z_6$ kernel. The spherical
-support carries Lorentz kinematics. Given one physical refinement
+support carries Lorentz kinematics. On a distinct signed-record branch, the
+normalized repair response has an exact rank-three quotient and an abstract
+continuous Euclidean completion. Physical position and overlap gluing remain
+premises. Given one physical refinement
 tower with the displayed stress, entropy, continuum, and scale properties,
 null tomography and the Bianchi identity yield the Einstein field equation
 up to a cosmological constant. An icosahedral theorem fixes the first
@@ -233,6 +234,18 @@ accumulated refinement bound, and complexity barriers for succinct boundary
 problems. On the declared transactional repair branch, semantic dependency
 closure and revalidation yield the local diamond and hence a
 schedule-independent public record.
+
+The declared twelve-port repair mean also gives a conditional local carrier
+theorem. Its centered equal-port response kernel selects a rank-three
+projector after slow-response normalization and the infinite-step limit. The
+projector range is intrinsic to the twelve labeled ports. The signed
+cumulative port-record/load module completes in its limiting Gram metric to
+an abstract continuous three-dimensional Euclidean translation carrier. This is a local
+carrier-position readback, canonical up to port-label-preserving isometry.
+Selection of the repair law, the commutative record module, and the Gram
+readback topology are premises. Faithful isometric carrier action,
+overlap/refinement gluing, physical scale, and physical-space identification
+are open.
 
 Complete reversible response gives a faithful compact twelve-dimensional
 unitary current algebra. Endogenous overlap transport makes every proper
@@ -495,6 +508,15 @@ must separately verify that its response and transport data realize those
 axiomatic interfaces. This is an implementation-level realization check and
 adds no premise to the A1--A2 gauge implication.
 
+The response metric uses a further conditional interface. A complete equally
+weighted census of centered port probes determines the finite kernels
+\(Q T^{2n}Q\). Slow-response normalization and the infinite-step limit select
+the low rank-three Gram ray. Quotient and metric completion apply after that
+limit. Completing at finite \(n\) gives a different object because the kernel
+has rank eleven on the centered space and rank six on the signed antipodal
+sector. The resulting completion reads carrier position only. Record order,
+repair cost, and exact load data remain a separate fiber.
+
 The same rule applies to measures: carrier counting and algebraic traces
 supply finite candidate measures, agreement and repair determine whether
 they descend to the public quotient, and a physical realization map must
@@ -509,6 +531,11 @@ The results form branches with different premises:
 \text{finite carrier and convergent repair}
 &\longrightarrow&
 \text{consensus normal form},\\[1.5mm]
+\substack{\text{signed port records}\\
+\text{normalized repair response}}
+&\longrightarrow&
+\substack{\text{abstract continuous local}\\
+\text{three-dimensional Euclidean carrier}},\\[1.5mm]
 \text{algebra-state reading of the completed record}
 &\longrightarrow&
 \text{finite quantum record identities},\\[1.5mm]
@@ -526,9 +553,9 @@ The results form branches with different premises:
 G_{ab}+\Lambda g_{ab}=8\pi G_NT_{ab}.
 \end{array}
 \]
-The first four rows are finite results with the displayed premises. The
-fifth consumes the declared spherical support. The sixth is a reconstruction
-implication. A common
+The first five rows are finite or exact-limit results with the displayed
+premises. The sixth consumes the declared spherical support. The seventh is a
+reconstruction implication. A common
 modular--stress--entropy tower is the proposed route to its null-balance
 antecedent; its physical realization is an open realization map.
 Sections \ref{sec:architecture} through \ref{sec:closures} develop these
@@ -2699,6 +2726,14 @@ Central defects and edge-center entropy
    for scalar entropy bookkeeping after the split;
    \path{Lean/ObserverPatchHolography/CollarStates.lean}
    for the identity-channel model and its no-go boundary\\
+Port-record metric completion
+ & \path{Lean/Screen/PortGramRepairBand.lean},
+   \path{Lean/Screen/PortGramRepairCovariance.lean}, and
+   \path{Lean/Screen/PrimitivePortFrameQuotient.lean} for the exact repair
+   spectrum, normalized response limit, intrinsic rank-three range, real
+   quotient, dense integer image, and Euclidean completion; the
+   source-pinned receipt and independent verifier under
+   \path{data/repair_closure/port_gram_completion_bridge_receipt.json}\\
 Port action, A1--A2 Lie type, and conditional matrix algebra
  & files under \texttt{Lean/Screen/}: \texttt{A5PortAction.lean},
    \texttt{A5Commutant.lean}, \texttt{A5IncidenceResponse.lean},

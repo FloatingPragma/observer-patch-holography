@@ -26,7 +26,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2013`. 66 claims, 19 distinct live gates across 17 gated claims.
+Release: `r2013`. 67 claims, 19 distinct live gates across 17 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -34,7 +34,7 @@ Release: `r2013`. 66 claims, 19 distinct live gates across 17 gated claims.
 | `empirical_implementation` | 3 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 46 |
+| `conditional_implication` | 47 |
 | `declared_structure` | 11 |
 
 | Claim | Class | Status | Live gates |
@@ -46,6 +46,7 @@ Release: `r2013`. 66 claims, 19 distinct live gates across 17 gated claims.
 | `OPH-CONS-D1` | `conditional_implication` | `paper_proved_on_declared_branch__finite_reference_engine_exhausted__general_theorem_not_Lean_or_TLA_formalized` | none |
 | `OPH-CONS-BFT-PREPARED-LOCK` | `conditional_implication` | `paper_proved_for_declared_protocol__finite_reference_traces_executable__not_Lean_or_TLA_formalized` | none |
 | `OPH-CONS-REFINEMENT-MODULI` | `conditional_implication` | `telescope_Lean_proved__uniform_family_and_cofinal_theorems_paper_proved__parametric_counterfamily_schemas_executable` | none |
+| `OPH-GR-PORT-RESPONSE-COMPLETION` | `conditional_implication` | `exact_source_frame_completion__physical_position_action_gluing_and_scale_open` | none |
 | `OPH-GR-D2-COLLAR-RECOVERY` | `conditional_implication` | `proved_on_conditional_mixing_branch_with_exact_central_specialization` | none |
 | `OPH-FINITE-AUDIT-MATSCHEKO` | `emitted_artifact` | `finite_audit_imported_with_physics_residues` | none |
 | `OPH-GR-D5` | `conditional_implication` | `proved_on_branch` | none |
