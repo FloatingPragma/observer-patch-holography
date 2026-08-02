@@ -29,6 +29,8 @@ import SeamCurrentEdge30Remainder
 import SeamCurrentHomogeneousAction
 import SeamCurrentDirichletGenerator
 import SeamCurrentAuxiliaryOscillatorLift
+import SeamCurrentFreePhotonLift
+import SeamCurrentPhysicalMetricAttachment
 
 /-!
 # OPH screen arithmetic umbrella

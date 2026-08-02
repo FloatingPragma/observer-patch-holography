@@ -354,6 +354,36 @@ Mapping between Lean 4 theorems in this project and statements in
   support measure. It does not identify a sector with a physical pixel or
   continuum area, prove refinement convergence, select a physical scale, or
   identify the support radius with the primitive translation hop.
+- Conditional shared-metric scale attachment
+  (`Screen/SeamCurrentPhysicalMetricAttachment.lean`): sorry-free exact real
+  algebra combining the port-dual area partition with the proved
+  response-Gram seam norm. If an explicit joint physical attachment
+  identifies a UV cut-area element with one of the twelve port-dual sectors
+  and carries both propagation actions in the same metric, then the vertex
+  squared length is `(3/pi) aCell`, the seam squared length is
+  `(3/pi)(2-2/sqrt(5)) aCell`, and their ratio is exactly
+  `2-2/sqrt(5)`. A positive source interval for `P` and for the independent
+  length `ell` then gives an explicit positive same-action squared-length
+  interval. On the separately declared nonnegative outer-detuning
+  parametrization, `P >= goldenRatio` gives the conditional bound
+  `a_seam^2 >= (3/pi)(2-2/sqrt(5)) goldenRatio ell^2`. The joint attachment
+  and the identification of the detuning coordinate with the inner coupling
+  through the full closure are theorem premises. Normalized `1/12` weights do
+  not identify the UV cut-area density with a spherical cell, and the current
+  source packet does not construct the joint physical attachment or an SI
+  interval.
+- Conditional transverse seam oscillator
+  (`Screen/SeamCurrentFreePhotonLift.lean`): sorry-free finite-dimensional real
+  linear algebra on the exact seam-current spatial symbol. For every nonzero
+  momentum the momentum-orthogonal fiber has rank two, the basis-free
+  projector is idempotent, and the scalar spatial action preserves the
+  complete fiber. The declared canonical oscillator generator gives
+  `A_T'' + Lambda A_T = 0`, `omega^2 = Lambda`, an exact zero mode, and zero
+  algebraic first variation of its quadratic energy. This theorem declares
+  the spatial symbol to be an oscillator stiffness. It does not derive
+  longitudinal gauge redundancy, a Gauss law, Maxwell dynamics, physical
+  `U(1)_Q`, a clock, a real spacetime field, a photon Hilbert
+  space, quantization, or a physical massless pole.
 - Conditional primitive-hop selection
   (`Screen/PrimitiveHopSelection.lean`): sorry-free exact composition. A
   complete quotient-deduplicated move type is explicitly identified with the

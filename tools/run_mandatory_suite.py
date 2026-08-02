@@ -567,6 +567,8 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/a5_fingerprint/test_seam_current_edge_prediction.py",
             "code/a5_fingerprint/test_fz12_observation_map_certificate.py",
             "code/a5_fingerprint/test_fz12_full_symbol_remainder_certificate.py",
+            "code/a5_fingerprint/test_fz12_synthetic_recovery_coverage.py",
+            "code/a5_fingerprint/test_fz12_free_photon_hamiltonian.py",
             "code/a5_fingerprint/test_fz12_auger_threshold_diagnostic.py",
             "code/a5_fingerprint/test_carrier_scale_bound_diagnostic.py",
         ],

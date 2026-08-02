@@ -45,7 +45,8 @@ lean_lib «OPHScreen» where
     `RepairWordCarrierReadout, `SeamCurrentCarrierQuotient,
     `SeamCurrentEdge30Moment, `SeamCurrentEdge30Remainder,
     `SeamCurrentHomogeneousAction,
-    `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift]
+    `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift,
+    `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment]
 
 lean_exe «oph» where
   root := `Main

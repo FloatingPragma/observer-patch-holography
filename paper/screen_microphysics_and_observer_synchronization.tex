@@ -2861,6 +2861,254 @@ twelve vertex, twenty face, and thirty edge direction orbits have distinct
 rank-six coefficient rays. Proper-carrier transitivity fixes weights within a
 chosen orbit and does not choose among these spatial alternatives.
 
+\subsection{The source-seam record carrier and its homogeneous action}
+
+The complete seam packet admits a second exact reading that keeps the finite
+record mechanism separate from physical spacetime. Give each of the thirty
+undirected seams a bookkeeping orientation and let an integer current carry
+the corresponding signed incidence boundary on the twelve ports. Pair each
+port with its graph-distance-three inverse and take the antipodal-odd part of
+that boundary. The result is a six-coordinate integer record.
+
+\begin{theorem}[Exact seam-current image and response completion]
+\label{thm:seam-current-response-completion}
+The image of the complete integer seam-current map is exactly
+\[
+D_6=\left\{z\in\mathbb Z^6:
+  \sum_{i=1}^{6}z_i\equiv0\pmod 2\right\}.
+\]
+The six-by-thirty integer map has Smith invariants
+\((1,1,1,1,1,2)\). Its residual cokernel is one parity bit, and an explicit
+six-seam section reaches every element of \(D_6\). Pull back the
+response-selected Gram metric of Theorem~\ref{thm:echosahedral-source-selector-microphysics}
+to \(D_6\). The resulting metric image is injective and dense in the same
+three-dimensional Euclidean response carrier, so its abstract metric
+completion is canonically isometric to that carrier. Cumulative
+\(D_6\)-records act simply transitively by isometries on the integer record
+carrier, and this action extends to translations of the completion.
+\end{theorem}
+
+\begin{proof}
+Exact integer incidence has rank eleven on the twelve-port boundary space and
+cycle rank nineteen. Composing it with the antipodal-odd readout gives an
+even coordinate sum. Conversely, the explicit six-seam section reconstructs
+an arbitrary even-sum vector, which proves the image statement. The parity
+map supplies the two cokernel cosets and the Smith form. The response Gram
+map is injective on the integer controls. The golden-ratio coordinate lines
+are dense, and doubled control vectors belong to \(D_6\), so the restricted
+image remains dense in the rank-three response carrier. Record addition and
+the pullback metric give the stated homogeneous isometric action. All finite
+incidence, section, parity, density, and action identities are checked in
+Lean~\cite{ophrepo}.
+\end{proof}
+
+The metric in Theorem~\ref{thm:seam-current-response-completion} is the
+response Gram metric. It is not the inherited Euclidean metric of the integer
+tuple \(z\in\mathbb Z^6\). The theorem constructs an abstract
+three-dimensional completion of records. It supplies no identification with
+physical position, no ruler, and no global observer gluing.
+
+\begin{theorem}[Conditional homogeneous Dirichlet generator]
+\label{thm:seam-current-dirichlet-generator}
+Suppose the admissible directed-seam move laws and their objective are natural
+under the proper carrier action, and suppose the normalized admissible
+minimizer is strictly positive and unique. The weight on each of the sixty
+directed seams is then \(1/60\). Let
+\[
+(Pf)(x)=\frac1{60}\sum_e f(x+v_e),\qquad L=I-P,
+\]
+where \(v_e\) is the exact response-coordinate translation of a directed seam.
+Then \(P\) preserves constants and positivity, \(L\) is translation
+invariant, and
+\[
+2f(x)(Lf)(x)-L(f^2)(x)
+=\frac1{60}\sum_e\bigl(f(x+v_e)-f(x)\bigr)^2\ge0.
+\]
+Plane waves diagonalize \(L\). If \(a_{\rm edge}^2=2-2/\sqrt5\) denotes the
+exact squared response-Gram norm of a seam translation, then
+\[
+\frac6{a_{\rm edge}^2}\lambda_L(k)
+\]
+is exactly the normalized thirty-edge cosine character in the response
+coordinates. A supplied nonzero coordinate dilation \(a\) gives
+\begin{equation}
+\Lambda_a(k,n)=\frac1{5a^2}\sum_{j=1}^{30}
+ \left[1-\cos\!\left(ak\,w_j\mathbin{\cdot}n\right)\right],
+\label{eq:screen-seam-current-symbol}
+\end{equation}
+where the \(w_j\) are the unit edge directions. The dilation is a coordinate
+choice until a physical position map fixes its meaning.
+\end{theorem}
+
+\begin{proof}
+Transitivity and uniqueness make the selected weight constant on the directed
+seam orbit, and normalization fixes it to \(1/60\). Reindexing the directed
+orbit gives one positive and one negative translation for each of the thirty
+seams. The square identity follows by expanding \(L=I-P\). The plane-wave
+identity is the exact character calculation for those translation pairs.
+The response Gram theorem gives the displayed seam norm. Exact source
+incidence, selection, translation, and Fourier identities are machine-checked
+in the finite proof chain~\cite{ophrepo}.
+\end{proof}
+
+The naturality and unique-minimizer clauses in
+Theorem~\ref{thm:seam-current-dirichlet-generator} are explicit premises.
+The finite source fixes the orbit and its response metric; it does not prove
+that this homogeneous internal action is a physical field action.
+
+\begin{proposition}[Exact unit-domain remainder]
+\label{prop:seam-current-unit-remainder}
+Put \(q=ak\), let \(-5/9\le\mathcal I_6(n)\le1\), and write
+\[
+\widehat\Lambda(q,n)=\frac15\sum_{j=1}^{30}
+  [1-\cos(qw_j\mathbin{\cdot}n)].
+\]
+The exact eighth moment is
+\[
+M_8(n)=\frac{10}{3}-\frac{8}{15}\mathcal I_6(n).
+\]
+Define
+\begin{align*}
+P_6(q,n)={}&q^2-\frac{q^4}{20}
+ +\left(\frac1{840}-\frac{\mathcal I_6(n)}{12600}\right)q^6,\\
+P_8(q,n)={}&P_6(q,n)+\left(-\frac1{60480}
+ +\frac{\mathcal I_6(n)}{378000}\right)q^8.
+\end{align*}
+Uniformly for \(0\le q\le1\),
+\[
+|\widehat\Lambda-P_6|\le\frac7{388800}q^8,
+\qquad
+0\le\widehat\Lambda-P_8\le\frac7{34992000}q^{10},
+\qquad
+\frac{19}{20}q^2\le\widehat\Lambda\le q^2.
+\]
+In the convention
+\[
+\Lambda_a(k,n)=k^2+C_4k^4+
+  [B_0+B_6\mathcal I_6(n)]k^6+O(a^6k^8),
+\]
+the low-momentum coefficients obey
+\[
+C_4=-\frac{a^2}{20},\qquad
+B_0=\frac{a^4}{840},\qquad
+B_6=-\frac{a^4}{12600}.
+\]
+\end{proposition}
+
+\begin{proof}
+The exact edge-orbit moments through order eight reduce to the isotropic line
+and the unique rank-six invariant. The alternating Taylor bounds for cosine,
+together with the exact range of \(\mathcal I_6\), give the two remainder
+inequalities and the positive quadratic bounds. The moment identity and the
+remainder arithmetic are independently replayable in exact arithmetic and
+checked by the Lean theorem chain~\cite{ophrepo}.
+\end{proof}
+
+\begin{proposition}[Conditional basis-free transverse oscillator]
+\label{prop:seam-current-transverse-oscillator}
+For the nonzero coordinate dilation of
+Theorem~\ref{thm:seam-current-dirichlet-generator} and nonzero
+\(k\in\mathbb R^3\), let
+\[
+T_k=\{v\in\mathbb R^3:k\mathbin{\cdot}v=0\}.
+\]
+Then \(\dim_{\mathbb R}T_k=2\), and the basis-free orthogonal projector onto
+\(T_k\),
+\[
+\Pi_T(k)v=v-\frac{k\mathbin{\cdot}v}{k\mathbin{\cdot}k}k,
+\]
+is idempotent. The scalar symbol
+\(\Lambda_a(k)\) preserves \(T_k\) and acts equally on its two dimensions. If
+one declares the canonical oscillator generator
+\[
+(A_T,V_T)'=(V_T,-\Lambda_a(k)A_T),
+\]
+then
+\[
+A_T''+\Lambda_a(k)A_T=0,
+\qquad \omega_a(k)^2=\Lambda_a(k).
+\]
+The spatial symbol vanishes at \(k=0\), hence its nonnegative square-root
+branch satisfies \(\omega_a(0)=0\).
+The algebraic first variation of
+
+\[
+E_k=\frac12\left(|V_T|^2+\Lambda_a(k)|A_T|^2\right)
+\]
+
+vanishes on that generator.
+\end{proposition}
+
+The proposition chooses the spatial symbol as an oscillator stiffness. It
+does not construct a physical flow, a gauge redundancy, Gauss law, Maxwell
+dynamics, Lorentz covariance, a physical clock, a photon Hilbert space, or a
+massless particle. The zero mode is an exact property of the declared
+mathematical oscillator. A physical photon statement requires the missing
+sector, action, clock, position, frame, quantization, and pole attachments.
+
+\begin{proposition}[Exhaustive fixed-design recovery calibration]
+\label{prop:seam-current-synthetic-recovery}
+Consider the twelve design rows formed by
+
+\[
+q\in\left\{\frac14,\frac12,\frac34,1\right\},
+\qquad
+\mathcal I_6\in\left\{1,-\frac59,-\frac5{16}\right\},
+\]
+
+and the three-column model for \(C_4/a^2\), \(B_0/a^4\), and \(B_6/a^4\).
+Enumerate all \(2^{12}=4096\) independent sign-error vectors with amplitude
+\(1/200\). Exact ordinary least squares and exhaustive \(19/20\) interval
+calibration give coordinate coverage counts \(3904/4096\), \(3892/4096\),
+and \(3892/4096\). The corresponding nonzero-signal detection counts are
+\(4096/4096\), \(234/4096\), and \(195/4096\). The joint higher-order pair has
+coverage \(3892/4096\) and detection count \(209/4096\). The exact remainder
+of Proposition~\ref{prop:seam-current-unit-remainder} cannot erase the
+leading-coefficient detection margin in this design.
+\end{proposition}
+
+This is a finite synthetic calibration with no sampling error. The sign-error
+law is a declared dimensionless stress model. The result gives no
+continuous-direction coverage, detector response, nuisance model, tail
+calibration at discovery significance, or experimental sensitivity claim.
+It rejects zero for the leading coefficient throughout this design and leaves
+the linked higher-order pair unresolved.
+
+One conditional metric theorem records the exact relation available if a
+single physical similarity metric is attached to the normalized port frame,
+the primitive vertex action, and the seam-current action. Let \(a_{\rm cell}\)
+be one physical cut-area element, let \(s^2>0\) be the squared physical length
+represented by one response-metric unit, and suppose a port-dual sector obeys
+\(12a_{\rm cell}=4\pi s^2\). If the vertex action has squared step \(a_v^2=s^2\)
+and the seam action uses the same metric, then
+\[
+a_v^2=\frac3\pi a_{\rm cell},\qquad
+a_e^2=\frac3\pi\left(2-\frac2{\sqrt5}\right)a_{\rm cell},\qquad
+\frac{a_e^2}{a_v^2}=2-\frac2{\sqrt5}.
+\]
+With the additional definition \(a_{\rm cell}=P\ell^2\), where \(\ell>0\),
+\[
+\frac{a_v^2}{\ell^2}=\frac3\pi P,\qquad
+\frac{a_e^2}{\ell^2}
+=\frac3\pi\left(2-\frac2{\sqrt5}\right)P.
+\]
+No source theorem constructs this joint attachment or identifies \(\ell\)
+with a physical length. Equal normalized port weights and seam weights do not
+imply it.
+
+The physical comparison routes have different dependency surfaces. A direct
+arrival-time comparison uses one-particle propagation. Electron and positron
+actions play no role in that calculation. It requires a physical position
+map, a physical clock, a field-sector and propagation equation, a controlled
+frequency remainder, a frame and boost law, cosmological transport, an
+emission-time model, detector timing, nuisance treatment, and an exclusive
+readout. A pair-production threshold or opacity comparison additionally
+requires physical electron and positron dispersion, energy-momentum
+conservation for the shared action, pair-production kinematics and
+interactions, a cross section, background-radiation transport, and source
+composition. The finite seam-current theorems supply none of these physical
+attachments.
+
 \begin{theorem}[Icosahedral face-corner bundle]
 \label{thm:icosahedral-face-corner-bundle}
 On the icosahedral screen-sieve branch, the twenty outward-oriented triangular

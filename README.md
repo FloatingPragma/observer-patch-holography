@@ -159,19 +159,38 @@ certificates:
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-7. **A frozen propagation signature from twelve ports.** The declared
-   twelve-port cosine branch produces a specific sixth-order directional
-   pattern: lower anisotropies vanish, while the first surviving pattern has
-   icosahedral symmetry. In practical terms, this gives a sharply defined way
-   to look for a tiny direction-dependent correction to propagation, with a
-   conventional locally Lorentz-invariant baseline at zero. The expected
-   vertex, face, and edge directions, linked coefficient ratios, and rejection
-   thresholds are fixed before comparison. This remains a conditional branch
-   prediction until its physical bridge and orbit selection are derived.
-   See the [exact prediction receipt](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
-   [Lean coefficient proof](Lean/Screen/A5PrimitivePortPrediction.lean),
-   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md), and
-   [physical-bridge issue](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
+7. **A frozen propagation signature from source seam currents.** The signed
+   source readout maps the complete thirty-seam incidence system onto $D_6$,
+   and its pullback response metric completes to the same three-dimensional
+   carrier as the source loads. Under the stated naturality, objective, and
+   unique-minimizer premises, carrier symmetry fixes the homogeneous internal
+   Dirichlet action. Its normalized symbol has
+   $C_4=-a^2/20$, $B_0=a^4/840$, and $B_6=-a^4/12600$, with no intrinsic
+   anisotropy below rank six. Let
+   $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, where $I_6$ is the normalized
+   icosahedral rank-six harmonic. For $q=ak$ and $0\leq q\leq1$, exact arithmetic
+   proves
+   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ and
+   $(19/20)q^2\leq\widehat\Lambda\leq q^2$. A separately declared
+   basis-free oscillator has a rank-two transverse fiber at nonzero momentum,
+   equal scalar action on both directions, and an exact zero mode at $k=0$.
+   It does not derive Maxwell theory, a gauge quotient, a physical clock, or a
+   massless physical photon. The coefficient ray and decision rule are frozen
+   before an eligible comparison. Physical position, sector, frequency,
+   frame, readout, and nuisance attachments are open; a branch-falsifying null
+   also needs a same-action positive scale bound and registered exclusion
+   power. See the
+   [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
+   Lean proofs of the
+   [Dirichlet action](Lean/Screen/SeamCurrentDirichletGenerator.lean) and
+   [conditional transverse oscillator](Lean/Screen/SeamCurrentFreePhotonLift.lean),
+   the exact [coefficient-ray receipt](code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json),
+   [unit-domain remainder receipt](code/a5_fingerprint/runtime/fz12_full_symbol_remainder_receipt.json),
+   [synthetic recovery receipt](code/a5_fingerprint/runtime/fz12_synthetic_recovery_coverage_receipt.json),
+   [frozen custody packet](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
+   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md),
+   and the [physical propagation](https://github.com/FloatingPragma/observer-patch-holography/issues/666)
+   and [comparison](https://github.com/FloatingPragma/observer-patch-holography/issues/667) contracts.
 
 A separate finite theorem maximizes generalized entropy at $\log M$, gives
 the exact shock shift $\log(1-f)$, and fixes the pure de Sitter relation
@@ -188,7 +207,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 1500 theorems and lemmas, with
+The supporting Lean library contains more than 1600 theorems and lemmas, with
 per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.

@@ -193,20 +193,41 @@ données et certificats :
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-7. **Une signature de propagation gelée issue des douze ports.** La branche
-   cosinus à douze ports déclarée produit un motif directionnel précis de
-   sixième ordre : les anisotropies inférieures s’annulent et le premier motif
-   non nul possède la symétrie icosaédrique. Cela donne un test bien défini
-   pour une petite correction directionnelle de la propagation, avec comme
-   référence conventionnelle zéro une théorie localement invariante de Lorentz.
-   Les directions attendues des sommets, des faces et des arêtes, les rapports
-   liés des coefficients et les seuils de rejet sont fixés avant comparaison.
-   Il s’agit d’une prédiction conditionnelle de cette branche tant que le pont
-   physique et la sélection de l’orbite ne sont pas dérivés. Voir le
-   [reçu exact de la prédiction](code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json),
-   la [preuve Lean des coefficients](Lean/Screen/A5PrimitivePortPrediction.lean),
-   l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) et le
-   [problème du pont physique](https://github.com/FloatingPragma/observer-patch-holography/issues/655).
+7. **Une signature de propagation gelée issue des courants de couture de la
+   source.** La lecture signée de la source envoie le système d’incidence
+   complet des trente coutures sur $D_6$, et sa métrique de réponse induite
+   se complète dans le même porteur tridimensionnel que les charges de source.
+   Sous les prémisses déclarées de naturalité, d’objectif et de minimiseur
+   unique, la symétrie du porteur fixe l’action de Dirichlet interne homogène.
+   Son symbole normalisé a
+   $C_4=-a^2/20$, $B_0=a^4/840$ et $B_6=-a^4/12600$, sans anisotropie
+   intrinsèque sous le rang six. Posons
+   $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, où $I_6$ est l’harmonique
+   icosaédrique normalisée de rang six. Pour $q=ak$ et $0\leq q\leq1$,
+   l’arithmétique exacte donne
+   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ et
+   $(19/20)q^2\leq\widehat\Lambda\leq q^2$. Une complétion oscillatrice
+   déclarée séparément possède une fibre transverse de rang deux à impulsion
+   non nulle, la même action scalaire dans ses deux directions et un mode zéro
+   exact à $k=0$. Elle ne dérive ni la théorie de Maxwell, ni un quotient de
+   jauge, ni une horloge physique, ni un photon physique sans masse. Le rayon
+   des coefficients et la règle de décision sont gelés avant toute comparaison
+   admissible. Les attachements de position, secteur, fréquence, repère,
+   lecture et nuisances sont ouverts ; un résultat nul qui réfuterait la
+   branche exige aussi une borne positive de l’échelle pour la même action et
+   une puissance d’exclusion enregistrée. Voir l’
+   [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
+   les preuves Lean de l’
+   [action de Dirichlet](Lean/Screen/SeamCurrentDirichletGenerator.lean) et de l’
+   [oscillateur transverse conditionnel](Lean/Screen/SeamCurrentFreePhotonLift.lean),
+   le [reçu exact du rayon de coefficients](code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json),
+   le [reçu du reste sur le domaine unité](code/a5_fingerprint/runtime/fz12_full_symbol_remainder_receipt.json),
+   le [reçu de récupération synthétique](code/a5_fingerprint/runtime/fz12_synthetic_recovery_coverage_receipt.json),
+   le [paquet de garde gelé](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
+   l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md),
+   ainsi que les contrats de
+   [propagation physique](https://github.com/FloatingPragma/observer-patch-holography/issues/666)
+   et de [comparaison](https://github.com/FloatingPragma/observer-patch-holography/issues/667).
 
 Un théorème fini distinct maximise l’entropie généralisée à $\log M$,
 donne le décalage exact du choc $\log(1-f)$ et fixe la relation de Sitter pure
@@ -225,7 +246,7 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 1500 théorèmes et lemmes, avec
+La bibliothèque Lean associée contient plus de 1600 théorèmes et lemmes, avec
 un rapport d’axiomes par théorème et aucune preuve admise. Voir [Lean/](Lean/).
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
