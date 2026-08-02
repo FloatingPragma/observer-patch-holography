@@ -109,9 +109,11 @@ Mapping between Lean 4 theorems in this project and statements in
   A1--A3. The dense image is not a locally finite lattice, and long cumulative
   controls can have arbitrarily small Gram displacement despite large
   record-count distance. Record order and repair cost remain separate data.
-  Faithful isometric action extension, overlap/refinement gluing, physical
-  space, scale, rest frame, Lorentzian structure, and field-sector attachment
-  remain open.
+  The faithful proper-port action on the intrinsic real carrier is formalized
+  separately. A separately replayed exact receipt checks the induced signed
+  integral action and its unique extension to the conditional metric
+  completion. Overlap/refinement gluing, physical space, scale, rest frame,
+  Lorentzian structure, and field-sector attachment remain open.
 - Port Gram repair-band identification
   (`Screen/PortGramRepairBand.lean`): sorry-free exact table arithmetic. The
   pinned normalized port Gram form is exactly four times the rank-three
@@ -141,9 +143,68 @@ Mapping between Lean 4 theorems in this project and statements in
   theorem proofs. The result does not select `T` as the physical repair law,
   identify the readback topology with physical space, choose a clock or field
   sector, or produce an observable. The quotient completion gives one
-  abstract local carrier only. A faithful isometric action on the completion,
-  overlap/refinement gluing, a global carrier, and a physical attachment
+  abstract local carrier only. The proper port rotations act faithfully and
+  isometrically on its intrinsic real range by a separate exact theorem. A
+  separately replayed exact receipt constructs their faithful signed integral
+  action and unique isometric extension to the conditional completion.
+  Overlap/refinement gluing, a global carrier, and a physical attachment
   remain open.
+- Proper port action on the repair-selected carrier
+  (`Screen/PortGramA5Isometry.lean`): sorry-free exact matrix algebra and real
+  linear reasoning. The sixty registered proper port permutations are
+  non-wrapping bijections. Their exact matrices are orthogonal, commute with
+  the declared repair mean and lowest rank-three projector, and preserve the
+  normalized port Gram by conjugation. The restricted action on the
+  intrinsic rank-three range preserves its scalar product and squared
+  distance and is faithful. The finite table closures use native evaluation;
+  the real range, equivariance, isometry, and injectivity statements are
+  theorem proofs. The formal object is the explicit order-sixty proper
+  rotation list. A separate independent executable receipt checks the signed
+  integral action and its completion extension. Abstract-group identification
+  in Lean, overlap/refinement gluing, and physical position, scale, or field
+  attachment remain open.
+- Universal repair-word and source-load carrier readout
+  (`Screen/RepairWordCarrierReadout.lean`): sorry-free exact additive algebra
+  and metric completion. The free abelian group forced by the conditional A2
+  six-axis endpoint theorem is exactly equivalent to the integer control
+  wrapper used by the Gram completion. With the pulled-back response metric,
+  its image is isometric and dense and its completion is the same abstract
+  three-dimensional Euclidean carrier. On the actual twelve-port integer
+  working-load module, the antipodal-odd readback is surjective and two loads
+  define the same carrier record exactly when their difference is
+  antipodally even. No additional integral load relation is inserted. The
+  thirty seam-attempt alphabet is not identified with the twelve translation
+  directions. Ordered history, protected-total restrictions, and repair cost
+  remain separate. Equality of observer word actions is equivalent to
+  equality of carrier records only under an explicit faithful-action premise;
+  A2-RC selection of the response topology and every physical attachment
+  remain open.
+- Thirty-seam current quotient and completion
+  (`Screen/SeamCurrentCarrierQuotient.lean`): sorry-free exact incidence and
+  integer algebra. The canonical boundary of the thirty undirected seams,
+  followed by the antipodal-odd load readback, has image exactly
+  \(D_6=\{z\in\mathbb Z^6:\sum_i z_i\text{ is even}\}\). An explicit
+  six-seam section proves surjectivity onto this sublattice, and the remaining
+  cokernel is one parity bit. The \(D_6\) image is dense in the same
+  repair-selected rank-three carrier, so its Gram-metric completion is the
+  same abstract Euclidean three-space. The theorem does not identify a seam
+  with a primitive \(\mathbb Z^6\) translation, promote the finite repair
+  kernel to a homogeneous field action, or select physical position, time,
+  scale, and global gluing.
+- Source-seam edge-orbit moments
+  (`Screen/SeamCurrentEdge30Moment.lean`): sorry-free exact real polynomial
+  and finite multiset reasoning. Each canonical seam current maps to the
+  corresponding carrier endpoint difference with squared norm four. The
+  complete thirty-row projective multiset is exactly the edge orbit, including
+  multiplicity. Its normalized moments are
+  \(M_2=10r^2\), \(M_4=6r^4\), and
+  \(M_6=(30/7)r^6-(2/7)I_6\). Taylor arithmetic therefore fixes the
+  source-native edge control ray
+  \(C_4=-1/20\), \(B_0=1/840\), and \(B_6=-1/12600\), with ratios
+  \(10/21\), \(-2/63\), and \(-1/15\). These are carrier-moment facts.
+  Treating the seams as the sole homogeneous physical kinetic support still
+  requires the named position-action, field, scale, frame, and readout
+  premises.
 - Primitive-port scale boundary
   (`Screen/PrimitivePortScaleBoundary.lean`): sorry-free real algebra. It
   proves the exact quadratic and quartic rescaling weights of the frozen

@@ -446,14 +446,49 @@ M_{\mathbb Z}
 \cong\mathbb Z^6,
 \]
 
-with no additional history relation. The finite
-\((\mathbb Z/3\mathbb Z)^6\) endpoint control does not prove that this is the
-canonical source module. The module records net signed loads. It does not
-record the order of repair events. A1-RG must prove that the ordered repair
-grammar has a carrier-position readout through this module, with the required
-commuting diamonds and no additional load relation. It must also bind the
-module to the same source port labels, the complete equal-port probe census,
-and the exact mean repair
+with no additional load relation. This module is not an independent algebraic
+input. The twelve source load registers have the canonical antipodal-odd
+readback
+
+\[
+q(x)_i=x_{p_i}-x_{-p_i}.
+\]
+
+The exact source-load theorem proves that \(q:\mathbb Z^{12}\to\mathbb Z^6\)
+is surjective and that its kernel consists precisely of loads equal on each
+antipodal pair. This statement uses the group completion of the nonnegative
+load monoid. At a protected nonnegative total \(S\), the realized image is the
+finite set
+
+\[
+\left\{z\in\mathbb Z^6:
+  \sum_i|z_i|\leq S,
+  \quad \sum_i z_i\equiv S\pmod 2
+\right\}.
+\]
+
+Conservative seam currents generate the even-sum sublattice
+
+\[
+D_6=\left\{z\in\mathbb Z^6:\sum_i z_i\equiv0\pmod2\right\},
+\]
+
+of index two. An explicit six-seam section proves that this is the exact
+thirty-seam current image. Reaching the missing odd coset requires a one-port
+write, which is not one of the thirty seam attempts. The \(D_6\) image remains
+dense in the same response-selected carrier and has the same metric
+completion as the full module. A fixed-total state set is finite and is not
+dense. None of these statements renames a seam as one of six primitive
+translations.
+
+The module records cumulative signed loads. It does not record the order of
+repair events. The exact conditional mean descends through \(q\), while the
+full nonlinear repair kernel does not: two total-two source states with the
+same quotient record have different one-step quotient distributions. A1-RG
+must therefore retain the hidden working-state and ordered-history fiber while
+proving that the quotient is the carrier-position readback. It must also bind
+that readback to the same source port labels, the complete equal-port probe
+census, and the exact mean repair
 
 \[
 T=I-\frac1{60}L_{\rm ico}.
@@ -553,14 +588,16 @@ The Lean source-Gram quotient proves the normalized Gram identity, integer
 injection and density, the three-dimensional radical and quotient, and the
 Euclidean completion.
 
-The finite carrier proofs show that every listed proper port automorphism
-preserves the selected band and that its action on that band is faithful. A
-complete local carrier packet must still construct the induced isometric
-action on the signed record module, extend it to the completion, and identify
-the resulting translation-and-rotation action. Overlap and refinement maps
-must then glue these local completions. Until those steps are formalized,
-\(H_0\) is an abstract local Euclidean translation-carrier candidate rather
-than global physical space.
+The sixty listed proper port automorphisms act faithfully and isometrically on
+the selected band. Exact signed integral matrices preserve the antipodal load
+relations and the Gram form, so their dense-module isometries extend uniquely
+and faithfully to the metric completion. The three maps in the declared
+finite carrier tower belong to this same action and obey their direct versus
+composite cocycle exactly. They are permutations of one finite carrier. This
+proves finite recharting naturality, not scale refinement, cofinal overlap
+gluing, or a global atlas. Those remaining maps must glue the local
+completions before \(H_0\) can be promoted from an abstract local Euclidean
+translation-carrier candidate to global physical space.
 
 This completion does not supply a discrete lattice cutoff. Composite integer
 loads have arbitrarily small nonzero Gram displacement. Their record-count

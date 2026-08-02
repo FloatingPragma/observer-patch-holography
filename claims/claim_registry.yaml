@@ -234,11 +234,12 @@
     },
     {
       "claim_id": "OPH-GR-PORT-RESPONSE-COMPLETION",
-      "statement": "For the declared twelve-port incidence, uniform scalar repair mean T = I - (5I-A)/60, complete equally weighted centered probe census, and cumulative signed antipodal record module, the normalized infinite-response kernel converges to the intrinsic rank-three Gram G = 4 P_slow. The limiting form has a three-dimensional radical on the real six-control extension. The integer module has no nonzero metric kernel, embeds densely in the real quotient, and completes to an abstract continuous three-dimensional Euclidean vector group, unique up to port-label-preserving isometry. Interpreting this completion as carrier position requires the source record and distinguishability premises. Faithful carrier action, overlap and refinement gluing, global physical space, scale, time, and field attachment are open problems.",
+      "statement": "For the declared twelve-port incidence, uniform scalar repair mean T = I - (5I-A)/60, and complete equally weighted centered probe census, the normalized infinite-response kernel converges to the intrinsic rank-three Gram G = 4 P_slow. The twelve integer source loads have the exact antipodal-odd quotient Z^12/{x:x_p=x_-p}=Z^6. The thirty-seam boundary has image exactly the even-sum D6 sublattice, with one residual parity coset. Both integer modules embed densely and have the same abstract continuous three-dimensional Euclidean Gram completion. The sixty proper carrier maps act faithfully and isometrically on the selected rank-three range, preserve the signed module, and extend to its completion. The three declared finite recharting maps obey their exact cocycle. The nonlinear repair kernel does not descend through the signed quotient even though its conditional mean does, so hidden working state and ordered history remain a separate fiber. Interpreting the completion as physical carrier position still requires the source readback and distinguishability premises. Scale refinement, cofinal overlap gluing, global physical space, scale, time, and field attachment remain open.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-      "tier": "exact_source_frame_completion_with_conditional_position_readout",
+      "tier": "exact_source_load_quotient_frame_completion_and_proper_action_with_conditional_position_readout",
       "assumptions": [
         "certified_echosahedral_carrier_lineage",
+        "declared_signed_event_and_conservative_repair_machine",
         "complete_equal_port_scalar_repair_response",
         "cumulative_signed_antipodal_position_module",
         "response_gram_operational_position_topology"
@@ -248,19 +249,22 @@
         "metric_completion_of_a_dense_subgroup",
         "irrationality_of_the_golden_ratio"
       ],
-      "oph_specific_delta": "The local Euclidean carrier is constructed intrinsically inside the twelve-port counting space from the slow repair-response projector. Cartesian icosahedral coordinates serve only as an isometric chart and arithmetic density witness.",
-      "novelty_type": "exact_repair_response_quotient_and_completion",
+      "oph_specific_delta": "The source load algebra supplies the signed module and its exact D6 seam-current sublattice, while the slow repair-response projector constructs the local Euclidean carrier intrinsically inside twelve-port counting space. Cartesian icosahedral coordinates serve only as an isometric chart and arithmetic density witness. The proper finite carrier symmetry acts faithfully on the selected range and its completion.",
+      "novelty_type": "exact_source_load_and_seam_quotient_repair_response_completion_and_action",
       "evidence": [
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
         "Lean/Screen/PortGramRepairBand.lean",
         "Lean/Screen/PortGramRepairCovariance.lean",
         "Lean/Screen/PrimitivePortFrameQuotient.lean",
+        "Lean/Screen/PortGramA5Isometry.lean",
+        "Lean/Screen/RepairWordCarrierReadout.lean",
+        "Lean/Screen/SeamCurrentCarrierQuotient.lean",
         "docs/CANONICAL_REPAIR_LAW_RFC.md",
         "https://github.com/muellerberndt/oph-physics-sim/blob/bb92febe38fe0254ab581706300179b005cae929/data/repair_closure/port_gram_completion_bridge_receipt.json"
       ],
-      "falsifier": "The exact response decomposition, strict band order, normalized Gram limit, rank-three radical quotient, integer injection, density, or completion theorem fails under the declared inputs, or the physical position conclusion is asserted without the source record and distinguishability premises.",
+      "falsifier": "The exact source-load quotient, D6 seam-current image, response decomposition, strict band order, normalized Gram limit, rank-three radical quotient, integer injection, density, proper-action isometry, or completion theorem fails under the declared inputs, or the physical position conclusion is asserted without the source record and distinguishability premises.",
       "scope_if_false": "The repair-derived local carrier claim falls. The separately conditional spherical-support Lorentz branch and finite consensus theorems remain subject to their own premises.",
-      "status": "exact_source_frame_completion__physical_position_action_gluing_and_scale_open",
+      "status": "exact_source_load_quotient_frame_completion_and_proper_action__pathwise_position_gluing_and_scale_open",
       "claim_class": "conditional_implication",
       "gates": []
     },

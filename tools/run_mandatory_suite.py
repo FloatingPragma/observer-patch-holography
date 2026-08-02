@@ -564,6 +564,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/a5_fingerprint/test_a5_multipole_persistence_stage4_independent_verifier.py",
             "code/a5_fingerprint/test_spin_six_universality_certificate.py",
             "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py",
+            "code/a5_fingerprint/test_seam_current_edge_prediction.py",
             "code/a5_fingerprint/test_carrier_scale_bound_diagnostic.py",
         ],
     ),
