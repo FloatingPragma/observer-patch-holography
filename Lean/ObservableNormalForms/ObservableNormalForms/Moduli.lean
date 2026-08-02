@@ -349,7 +349,7 @@ lemma settledModulus_nonneg (Φ : Q → ℝ) (B : Q → 𝓑) (δ r : ℝ) :
       (Finset.le_sup' (fun q : Q × Q => dist q.1 q.2) hp)
   · rw [settledModulus_of_empty h]
 
-/-! ### The master estimate from the definitions -/
+/-! ### Intrinsic corollaries of the master estimate -/
 
 /-- `thm:master-bound` with the intrinsic moduli.  The previously assumed
 certificates are here *instantiated by theorems*, so the estimate holds for
