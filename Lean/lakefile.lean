@@ -43,7 +43,9 @@ lean_lib «OPHScreen» where
     `PrimitivePortFrameQuotient, `PortGramRepairBand,
     `PortGramRepairCovariance, `PortGramA5Isometry,
     `RepairWordCarrierReadout, `SeamCurrentCarrierQuotient,
-    `SeamCurrentEdge30Moment, `SeamCurrentHomogeneousAction]
+    `SeamCurrentEdge30Moment, `SeamCurrentEdge30Remainder,
+    `SeamCurrentHomogeneousAction,
+    `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift]
 
 lean_exe «oph» where
   root := `Main

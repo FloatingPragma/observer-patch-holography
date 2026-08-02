@@ -1,0 +1,170 @@
+#!/usr/bin/env python3
+"""Build the canonical, data-free FZ-12 custody projection.
+
+This narrow artifact replaces runtime parsing of the multi-campaign frozen
+prediction register.  It contains only the FZ-12 source pin, custody hashes,
+commit identifiers, and freeze metadata needed by the formal observation-map
+certificate.  It contains no measurement, comparison, or likelihood values.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+from typing import Any
+
+import a5_multipole_fixed_point_certificate as base
+
+
+HERE = Path(__file__).resolve().parent
+PROJECTION_PATH = HERE / "runtime" / "fz12_custody_projection.json"
+SCHEMA = "oph.fz12.custody_projection.v1"
+STATUS = "FROZEN_FZ12_SOURCE_AND_CUSTODY_PINNED__NO_COMPARISON_DATA"
+
+
+def build_projection() -> dict[str, Any]:
+    projection: dict[str, Any] = {
+        "schema": SCHEMA,
+        "status": STATUS,
+        "projection_scope": {
+            "register_row": "FZ-12",
+            "source_class": "frozen source theory and custody metadata only",
+            "includes_measurement_values": False,
+            "includes_comparison_values": False,
+            "includes_likelihood_values": False,
+            "includes_other_campaign_rows": False,
+        },
+        "source_receipt": {
+            "path": "code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json",
+            "bytes": 9296,
+            "sha256": "0b8f0f7573f556ef0f47158fe07eca002c5b35790231d1ef2b75518057d12915",
+            "schema": "oph.seam_current_edge_prediction_candidate.v1",
+            "status": (
+                "EXACT_SOURCE_NATIVE_EDGE_RAY__PROSPECTIVE_PHYSICAL_BRANCH_UNARMED__"
+                "PHYSICAL_PRODUCER_OPEN"
+            ),
+            "receipt_sha256": (
+                "sha256:3b1344dbce713545deba54b48e027a88faedac9b3a8776795b9abe33cafde7c3"
+            ),
+        },
+        "frozen_row_projection": {
+            "id": "FZ-12",
+            "status": "frozen_stamped_upgrade_pending",
+            "milestone": "C3-V",
+            "owning_issue": 666,
+            "frozen_utc": "2026-08-02T11:52:27Z",
+            "content_sha256": (
+                "0b8f0f7573f556ef0f47158fe07eca002c5b35790231d1ef2b75518057d12915"
+            ),
+            "canonical_full_row_sha256": (
+                "4b83abb7c65c1a5f87d0839952a1e62bd88c8cd49f4694013cebe683637fc9c7"
+            ),
+            "text_field_sha256": {
+                "attestation": (
+                    "66eb5cdf0e0b0e1672ee41271755bbeb84ea4d1083db66c63a69c89513d5c592"
+                ),
+                "comparison_protocol": (
+                    "5b69103676a618ebadb1879c23c4368f5a531047ce94d0b86f2d98fecf00a1ff"
+                ),
+                "content": (
+                    "83b9858490d8da1a49ab87f7dde481ed39d34d600aeec3b63e1f2de4f2773298"
+                ),
+                "custody": (
+                    "cbc7f878c8b64f07ed1bbb43928bc413741795990f82cf6a630e0150f0f662e1"
+                ),
+                "kill_band": (
+                    "f85523b957d617fa14add593ff37ea7704107119b33a14f93dc0fb19daa00fe7"
+                ),
+            },
+        },
+        "external_custody_contract": {
+            "rows": ["FZ-12"],
+            "source_commit": "bc5595f8dbb2d2886e2a64ddf447f69fbb00eb3f",
+            "custody_commit": "54b450af0bb5bd0fee4842f5c5f654d08d6baa2d",
+            "decision_rule_custody_commit": (
+                "25da61a800226e0232336ccc86de8dec7d6b51c6"
+            ),
+            "frozen_utc": "2026-08-02T11:52:27Z",
+            "decision_rule_utc": "2026-08-02T12:37:49Z",
+            "attestation_state": "calendar_pending",
+            "decision_rule_attestation_state": "calendar_pending",
+            "custody_path": "falsification/frozen_targets/fz12_2026-08-02",
+            "prediction_file": "seam_current_edge_prediction_frozen_2026-08-02.json",
+            "target_file": "frozen_target_seam_current_edge_prediction_2026-08-02.md",
+            "registration_manifest": "registration_manifest_2026-08-02.json",
+            "registration_manifest_sha256": (
+                "8ac3c4ac2de3ab3af474ccb494d73d47c3670044c0d112c468d1f9f7f8841f25"
+            ),
+            "decision_rule_manifest": "fz12_decision_rule_manifest_2026-08-02.json",
+            "decision_rule_manifest_sha256": (
+                "61ba3e3e1e47b0e59f3777e0ec502b01de103d6636e205811e88372c900ebb1f"
+            ),
+            "artifact_sha256": {
+                "frozen_target_seam_current_edge_prediction_2026-08-02.md": (
+                    "afaf634dbfce6b5ed99e362d5ba0dec21389cda38c57e2936c3bf298a8c33fb4"
+                ),
+                "seam_current_edge_prediction_frozen_2026-08-02.json": (
+                    "d6d8f7e299dc8b38efd88c3e27135c5e4ca8eddc7bc11425f0b6844908ef76df"
+                ),
+            },
+            "decision_rule_artifact_sha256": {
+                "FZ12_DECISION_RULE_CLARIFICATION_2026-08-02.md": (
+                    "b2dab17bb2de9c1a34978748bbd8e9657c2f6f5931315863fbe7004ab2bacc0e"
+                ),
+                "fz12_decision_rule_v2_2026-08-02.json": (
+                    "217252c62878576a97f983db109bb18512a29f26b1d17ad086c78ce11f78afa9"
+                ),
+            },
+            "in_repo_artifact_sha256": {
+                "Lean/Screen/A5OrbitRaySeparation.lean": (
+                    "681f214fd1c8b908b12b69c24b4e9805f56c75617dddf1ef193d956554fd1ce2"
+                ),
+                "Lean/Screen/SeamCurrentCarrierQuotient.lean": (
+                    "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f"
+                ),
+                "Lean/Screen/SeamCurrentEdge30Moment.lean": (
+                    "dca0b721180b8b6a2363105ec9cb35bb9c5f5dca2da4352a9caef3b00129cd01"
+                ),
+                "code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json": (
+                    "0b8f0f7573f556ef0f47158fe07eca002c5b35790231d1ef2b75518057d12915"
+                ),
+            },
+        },
+    }
+    projection["projection_sha256"] = base.tagged_sha256(
+        base.canonical_json_bytes(projection)
+    )
+    return projection
+
+
+def verify_projection() -> dict[str, Any]:
+    raw = PROJECTION_PATH.read_bytes()
+    projection = json.loads(raw)
+    base.require(
+        raw == base.canonical_json_bytes(projection), "noncanonical FZ-12 projection"
+    )
+    rebuilt = build_projection()
+    base.require(raw == base.canonical_json_bytes(rebuilt), "FZ-12 projection drift")
+    return projection
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--write", action="store_true")
+    parser.add_argument("--verify", action="store_true")
+    args = parser.parse_args(argv)
+    if args.write and args.verify:
+        parser.error("choose --write or --verify")
+    projection = verify_projection() if args.verify else build_projection()
+    if args.write:
+        PROJECTION_PATH.parent.mkdir(exist_ok=True)
+        PROJECTION_PATH.write_bytes(base.canonical_json_bytes(projection))
+        print(PROJECTION_PATH)
+    else:
+        print(json.dumps(projection, indent=1))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

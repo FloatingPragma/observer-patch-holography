@@ -43,6 +43,8 @@ REQUIRED_DATASET_ARTIFACTS = {
         "code/particles/calibration/wz_pdg_2026_target_fixture.json",
     "bouchard-donagi-threshold-spectrum-literature-packet":
         "code/particles/data/oph_bd_threshold_spectrum_inputs.json",
+    "auger-2022-fz12-photon-threshold-diagnostic":
+        "code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json",
 }
 
 TOP_LEVEL_FIELDS = {"schema", "issue", "status", "policy", "entries"}

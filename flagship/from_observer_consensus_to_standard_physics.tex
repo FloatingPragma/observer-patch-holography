@@ -2450,9 +2450,11 @@ vanish, and the rank-six vector lies on the rotated \(\mathcal I_6\) orbit.
 \begin{proof}
 Exact integer incidence gives the displayed image and Smith invariants. The
 response-selected Gram pullback gives the dense three-dimensional completion.
-Every unit-current seam difference has squared norm four, and the sixty directed
-labels map two-to-one onto the thirty signed edge directions. The normalized
-edge moments are
+Every seam difference has squared norm four in the raw moment chart. The same
+full seam event has squared norm \(2-2/\sqrt5\) in the unit-diagonal
+response-Gram completion. This common metric normalization does not supply a
+physical length. The sixty directed labels map two-to-one onto the thirty
+signed edge directions. The unit-normalized edge moments are
 \[
 \sum_j(w_j\!\cdot n)^2=10,\qquad
 \sum_j(w_j\!\cdot n)^4=6,\qquad
@@ -2467,11 +2469,84 @@ and moment identities are machine-checked in exact arithmetic
 
 The proposition contains an exact finite source theorem and a conditional
 physical branch. The conditional naturality and minimizer theorem supplies a
-homogeneous internal action. It does not identify that record completion with physical position or a seam
-event with field propagation. It also supplies no clock, cofinal gluing,
-physical scale, frame transport, laboratory readout, or nuisance model.
-Equation~\eqref{eq:seam-edge-symbol} is a spatial kinetic eigenvalue; a time
-law is required before it can be called \(\omega^2\). The edge branch and the
+homogeneous internal action. Its equal source-counting average \(P\) preserves
+constants and positivity. The generator \(L=I-P\) satisfies the positive
+maximum principle and the exact local identity
+
+\begin{equation}
+2fLf-L(f^2)=\frac1{60}\sum_e
+  \bigl(f(x+v_e)-f(x)\bigr)^2\geq0.
+\label{eq:seam-dirichlet-identity}
+\end{equation}
+
+Plane waves diagonalize \(L\). If \(a_{\rm edge}\) is the exact internal step
+norm, the exact response-coordinate character is
+\[
+\Lambda_{\rm int}(\mathbf k):=
+\frac{6}{a_{\rm edge}^2}\lambda_L(\mathbf k).
+\]
+It equals the edge-current character evaluated at the internal response step.
+An auxiliary
+algebraic phase lift \((q,p)\mapsto(p,-Lq)\) gives
+\(q''+Lq=0\) and \(\omega_{\rm aux}^2=\lambda_L(k)\) on each plane wave. The
+primes and \(\omega_{\rm aux}\) name algebraic phase coordinates and a
+spectral root. This theorem
+does not construct trajectories, a physical clock, a conserved energy, or a
+physical field equation. A physical dilation that maps the internal step to a
+length \(a\) would give
+\[
+\Lambda_a(k,\widehat k)=\frac6{a^2}\lambda_L\!\left(
+\frac{a}{a_{\rm edge}}k\widehat k\right),
+\]
+where \(\mathbf k=k\widehat k\), \(k=|\mathbf k|\), and
+\(|\widehat k|=1\).
+The declared finite spatial symbol can be controlled without the physical
+frequency premise. Write \(q=ak\) and
+\[
+\widehat\Lambda(q,n)=\frac15\sum_{e=1}^{30}
+ [1-\cos(q\,w_e\mathbin{\cdot}n)].
+\]
+The separately kernel-checked eighth moment is
+\(M_8=10/3-(8/15)\mathcal I_6(n)\). With
+\begin{align*}
+P_6={}&q^2-\frac{q^4}{20}
+ +\left(\frac1{840}-\frac{\mathcal I_6}{12600}\right)q^6,\\
+P_8={}&P_6+\left(-\frac1{60480}
+ +\frac{\mathcal I_6}{378000}\right)q^8,
+\end{align*}
+the exact range \(-5/9\le\mathcal I_6\le1\) and alternating cosine
+bounds give, uniformly for \(0\le q\le1\),
+\[
+|\widehat\Lambda-P_6|\le\frac7{388800}q^8,
+\qquad
+0\le\widehat\Lambda-P_8\le\frac7{34992000}q^{10},
+\qquad
+\frac{19}{20}q^2\le\widehat\Lambda\le q^2.
+\]
+This target-free certificate concerns the mathematical spatial operator. It
+does not turn \(a\) into an SI length or select a physical field or clock.
+This dilation is not a physical clock calibration. If \(\Lambda_a\) is
+separately identified with physical \(\omega_{\rm phys}^2\), the positive
+leading formal branch gives
+
+\begin{align}
+\omega={}&k-\frac{a^2}{40}k^3
+ +a^4\left(\frac{19}{67200}-\frac{\mathcal I_6}{25200}\right)k^5
+ +O(a^6k^7),\label{eq:seam-formal-frequency}\\
+\frac{\partial\omega}{\partial k}={}&1-\frac{3a^2}{40}k^2
+ +a^4\left(\frac{19}{13440}-\frac{\mathcal I_6}{5040}\right)k^4
+ +O(a^6k^6),\label{eq:seam-formal-radial-velocity}\\
+\frac1k\nabla_{S^2}\omega={}&
+ -\frac{a^4}{25200}k^4\nabla_{S^2}\mathcal I_6+O(a^6k^6).
+\label{eq:seam-formal-transverse-velocity}
+\end{align}
+
+These are exact formal-series coefficients derived without comparison data.
+The spatial-symbol bound does not provide an analytic remainder for the
+physical-frequency branch, physical position, photon or other field sector,
+clock, cofinal gluing, physical scale, preferred frame and boost law,
+wave-packet dynamics, laboratory readout, or nuisance model needed for a
+time-of-flight or other physical comparison. The edge branch and the
 primitive-port branch have opposite rank-six signs. Their coefficient rays,
 custody packages, exposure exclusions, and comparison budgets remain
 separate.
@@ -2516,7 +2591,26 @@ $a<8.825\times10^{-29}\,\mathrm m$ at $95\%$ confidence; the LHAASO bound
 $E_{\mathrm{QG},2}>6.9\times10^{11}\,\mathrm{GeV}$ is a cross-check with a
 different source-lag treatment \cite{xishu2025,lhaaso2024}. These exposed
 retrospective limits cannot score the prospective linked-coefficient
-prediction. The target statement, exact coefficient snapshot, registration
+prediction. A stronger but source-model-dependent threshold diagnostic comes
+from Pierre Auger \cite{auger2022}. Under the unresolved photon-sector and
+frequency-squared identifications, conversion to its energy-basis convention
+gives \(\delta_{\gamma,2}=-a^2/20\) at leading order. In the alternative source
+scenario with a subdominant proton component extending to \(10^{20}\,\mathrm{eV}\),
+the reported bound \(\delta_{\gamma,2}>-10^{-58}\,\mathrm{eV}^{-2}\) gives
+\[
+a<\sqrt{20}\,10^{-29}\,\mathrm{eV}^{-1}
+ =8.825\times10^{-36}\,\mathrm m
+ =0.546\,\ell_P .
+\]
+The reference source scenarios give no electromagnetic constraint, and the
+direct electromagnetic bound has no stated confidence level. The threshold
+calculation also needs a common photon, electron, positron,
+interaction-kinematics, source-nuisance, frame, and boost attachment that the
+finite source theorem does not supply. The exact \(0\le ak\le1\) spatial-
+symbol remainder applies only after those physical identifications are made.
+It is a conditional diagnostic of an open scale and carries no OPH verdict or
+evidence weight. The target statement,
+exact coefficient snapshot, registration
 manifest, public commit custody, and detached OpenTimestamps calendar
 attestations fix the prospective content and its decision rule
 \cite{ophregister}.
@@ -3486,6 +3580,13 @@ Kosteleck\'y, V.\,A., and Russell, N. (2026). ``Data tables for Lorentz
 and CPT violation.'' 2026 edition, arXiv:0801.0287.
 \url{https://arxiv.org/abs/0801.0287}. Original journal article:
 \url{https://doi.org/10.1103/RevModPhys.83.11}
+
+\bibitem{auger2022}
+Pierre Auger Collaboration (2022). ``Testing effects of Lorentz invariance
+violation in the propagation of astroparticles with the Pierre Auger
+Observatory.'' \emph{Journal of Cosmology and Astroparticle Physics}
+\textbf{01}, 023.
+\url{https://doi.org/10.1088/1475-7516/2022/01/023}
 
 \bibitem{xishu2025}
 Xi, Y., and Shu, F.-W. (2025). ``Constraints on Lorentz invariance violation

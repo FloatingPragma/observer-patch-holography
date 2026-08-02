@@ -75,11 +75,11 @@ def _load_module(path: Path, name: str):
 def test_registry_pins_every_local_artifact_loader_and_license(registry: dict) -> None:
     summary = provenance.validate_registry(registry)
     assert summary["pass"] is True
-    assert summary["entries"] == 11
-    assert summary["artifact_pins_checked"] == 11
-    assert summary["loader_pins_checked"] == 11
+    assert summary["entries"] == 12
+    assert summary["artifact_pins_checked"] == 12
+    assert summary["loader_pins_checked"] == 12
     assert summary["upstream_file_pins_checked"] == 10
-    assert summary["license_noassertion_entries"] == 10
+    assert summary["license_noassertion_entries"] == 11
 
 
 def test_mandatory_external_dataset_cannot_disappear(registry: dict) -> None:
@@ -94,6 +94,22 @@ def test_mandatory_external_dataset_cannot_disappear(registry: dict) -> None:
         match="does not exactly match the mandatory artifact set",
     ):
         provenance.validate_registry(mutant)
+
+
+def test_auger_diagnostic_is_registered_as_transcribed_and_exposed(
+    registry: dict,
+) -> None:
+    entry = _entry(registry, "auger-2022-fz12-photon-threshold-diagnostic")
+    assert entry["artifact_role"] == (
+        "exposed_retrospective_conditional_photon_threshold_diagnostic"
+    )
+    assert entry["raw_inputs"]["classification"] == (
+        "hand_transcribed_published_constants_no_raw_payload"
+    )
+    assert entry["raw_inputs"]["upstream_files"] == []
+    assert entry["loader"]["network_required"] is False
+    assert entry["loader"]["deterministic_from_declared_inputs"] is True
+    assert "https://arxiv.org/abs/2112.06773" in entry["source"]["urls"]
 
 
 def test_bd_upstream_pins_are_bound_to_the_source_packet(registry: dict) -> None:

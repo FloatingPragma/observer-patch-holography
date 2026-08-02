@@ -527,6 +527,46 @@
           "jsonschema from the pinned root requirements"
         ]
       }
+    },
+    {
+      "dataset_id": "auger-2022-fz12-photon-threshold-diagnostic",
+      "artifact_path": "code/a5_fingerprint/runtime/fz12_auger_threshold_diagnostic_receipt.json",
+      "artifact_sha256": "1cfcd876c122edf7406c54b3caeda7d457500d8137f90b0142110913fad262dd",
+      "artifact_bytes": 5659,
+      "artifact_role": "exposed_retrospective_conditional_photon_threshold_diagnostic",
+      "provenance_status": "local_artifact_hash_pinned_transcription_gap_declared",
+      "source": {
+        "publisher": "Pierre Auger Collaboration and NIST CODATA",
+        "version": "JCAP 01 (2022) 023 and 2022 CODATA recommended constants",
+        "citation": "Pierre Auger Collaboration, Testing effects of Lorentz invariance violation in the propagation of astroparticles with the Pierre Auger Observatory, JCAP 01 (2022) 023, arXiv:2112.06773; CODATA 2022 recommended constants",
+        "urls": [
+          "https://arxiv.org/abs/2112.06773",
+          "https://doi.org/10.1088/1475-7516/2022/01/023",
+          "https://physics.nist.gov/cuu/pdf/JPCRD2022CODATA.pdf"
+        ]
+      },
+      "license": {
+        "expression": "NOASSERTION",
+        "note": "The artifact transcribes one published scenario bound and two CODATA conversion constants. It does not redistribute the Auger analysis inputs, likelihood, or collaboration data, and no data-redistribution license is asserted."
+      },
+      "raw_inputs": {
+        "classification": "hand_transcribed_published_constants_no_raw_payload",
+        "raw_payloads_vendored": false,
+        "upstream_files": [],
+        "provenance_gap": "The scenario bound and CODATA nominal constants are embedded with paper and table citations. No Auger simulation, likelihood, source-composition fit, or raw data payload is present or assigned an invented hash."
+      },
+      "loader": {
+        "path": "code/a5_fingerprint/fz12_auger_threshold_diagnostic.py",
+        "sha256": "2cbda2a8081cf4354dca98b756ee617d94b7992e78f7086b81d26cb44e28bb7f",
+        "bytes": 15425,
+        "classification": "deterministic_transcribed_constants_generator",
+        "network_required": false,
+        "deterministic_from_declared_inputs": true,
+        "declared_variable_metadata_json_pointers": [],
+        "requirements": [
+          "Python standard library"
+        ]
+      }
     }
   ]
 }

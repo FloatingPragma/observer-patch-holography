@@ -205,6 +205,17 @@ Mapping between Lean 4 theorems in this project and statements in
   Treating the seams as the sole homogeneous physical kinetic support still
   requires the named position-action, field, scale, frame, and readout
   premises.
+- Source-seam full-symbol remainder
+  (`Screen/SeamCurrentEdge30Remainder.lean`): sorry-free exact real
+  polynomial arithmetic. The normalized eighth moment of the same complete
+  edge support is
+  (M_8=(10/3)r^8-(8/15)r^2 I_6). The theorem is kept in a separate
+  extension so the byte-pinned frozen FZ-12 source ancestry remains
+  unchanged. Together with elementary alternating-series inequalities, this
+  identity supplies explicit target-free error bars for the finite spatial
+  symbol on (0\leq |ak|\leq1). It does not identify that symbol with a
+  physical frequency or select a field, clock, dimensionful scale, frame, or
+  comparison.
 - Homogeneous source seam-current action
   (`Screen/SeamCurrentHomogeneousAction.lean`): sorry-free finite and additive
   algebra. The sixty directed seams form one simply transitive orbit under the
@@ -217,7 +228,6 @@ Mapping between Lean 4 theorems in this project and statements in
   translation on that induced metric's Euclidean completion.
   Given explicit A2-natural feasibility and objective data plus an A3 unique
   normalized minimizer, the directional weights are exactly \(1/60\), and the
-  selected operator is the source-counting translation-covariant convolution.
   The exact Fourier bridge normalizes each raw norm-two seam displacement to
   a unit direction, pairs the sixty labels into thirty positive/negative
   translations, and proves
@@ -228,6 +238,67 @@ Mapping between Lean 4 theorems in this project and statements in
   physical scale require one declared attachment. Feasibility,
   naturality, unique minimality, physical position readout, temporal
   completeness, field propagation, and laboratory attachment remain open.
+- Source-selected carrier Markov and Dirichlet generator
+  (`Screen/SeamCurrentDirichletGenerator.lean`): sorry-free finite-sum and
+  completion algebra. The exact directed-seam translations act on the dense
+  \(D_6\) carrier and its response-Gram rank-three completion. Every raw
+  integer-chart seam displacement has squared norm four, while its exact
+  response-normalized completion step has squared norm
+  \(2-(2/5)\sqrt5=2-2/\sqrt5\), strictly between \(1\) and \(6/5\).
+  A2-natural
+  feasibility and objective data together with an A3-unique normalized
+  minimizer select their equal average. This average preserves constants and
+  nonnegativity, is order preserving, translation covariant, continuous on
+  continuous functions, local to the sixty declared translates, and exactly
+  invariant under reversal of the jump support. Directed transition
+  multiplicities on the dense exact carrier obey detailed balance for
+  counting measure. Its dimensionless generator \(L=I-P\) annihilates
+  constants, satisfies the positive maximum principle, and obeys the exact
+  local identity \(2fLf-L(f^2)=2\Gamma(f)\), where
+
+  \[
+  \Gamma(f)(x)=\frac1{120}\sum_e
+    \bigl(f(x+v_e)-f(x)\bigr)^2\geq 0.
+  \]
+
+  Restriction to the dense exact carrier agrees with the independently
+  defined source-counting \(D_6\) convolution. Plane waves diagonalize this
+  completion generator itself. Its nonnegative Fourier eigenvalue, after the
+  exact quadratic normalization, is the edge-current character. Separate
+  exact finite-moment arithmetic gives the frozen FZ-12 coefficient ray. A
+  Taylor-derivative bridge from the character to that coefficient expansion
+  is not formalized in Lean. No auxiliary field operator is needed for the
+  exact symbol statement. This closes a
+  finite-range Markov/Dirichlet action on the mathematical carrier
+  completion. It does not identify the carrier with physical position,
+  choose a field sector, supply a clock or dimensionful length, prove a
+  continuum action, or attach the operator to laboratory readout.
+- Auxiliary seam-current oscillator lift
+  (`Screen/SeamCurrentAuxiliaryOscillatorLift.lean`): sorry-free
+  complex-valued function algebra with a real nonnegative symbol.
+  The canonical completion generator has the explicitly auxiliary
+  first-order lift `q' = p`, `p' = -L q`. The algebraically defined
+  second `q` component therefore satisfies `q'' + L q = 0`, without assuming
+  a formal derivative or a physical time parameter. On every plane wave, the
+  nonnegative auxiliary branch obeys
+  \(\omega_{\rm aux}^2=\texttt{completionFourierSymbol}(k)\), and the corresponding
+  phase state is an exact eigenstate of the first-order generator. Reversal of
+  the second phase coordinate conjugates the generator to its negative. This
+  supplies a time-reversal-covariant algebraic presentation of the
+  mathematical carrier operator. It does not construct trajectories or a
+  well-posed flow, and it proves no inner product, self-adjointness statement,
+  or conserved energy. Physical position, a physical clock, photon or other
+  field-sector attachment, preferred-frame and boost transport, energy and SI
+  units, continuum limit, global gluing, and laboratory readout remain open.
+  The exact internal edge character is
+  \(\Lambda_{\rm int}(\mathbf k)=(6/a_{\rm edge}^2)
+  \texttt{completionFourierSymbol}(\mathbf k)\). Writing
+  \(\mathbf k=kn\), a physical dilation mapping the internal step to a length
+  \(a\) would instead give
+  \(\Lambda_a(k,n)=(6/a^2)\texttt{completionFourierSymbol}
+  ((a/a_{\rm edge})kn)\). The dilation and the identification
+  \(\Lambda_a=\omega_{\rm phys}^2\) both require separate physical premises;
+  neither follows from the auxiliary root.
 - Primitive-port scale boundary
   (`Screen/PrimitivePortScaleBoundary.lean`): sorry-free real algebra. It
   proves the exact quadratic and quartic rescaling weights of the frozen

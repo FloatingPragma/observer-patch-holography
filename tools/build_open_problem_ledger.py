@@ -699,9 +699,10 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "branch-specific-carrier-scale",
         "claim_level": (
             "exact algebraic carrier-rescaling theorem, conditional port-shell metric "
-            "candidate, normalized support-to-response-frame isometry, and "
-            "three-orbit ambiguity theorem; same-action source-selected metric and "
-            "physical lower bound open for both frozen propagation branches"
+            "candidate, normalized support-to-response-frame isometry, "
+            "three-orbit ambiguity theorem, and exact source-native seam-current "
+            "step scale; dimensionful same-action metric and physical lower bound "
+            "open for both branches, with the primitive-port internal scale also open"
         ),
         "blocker": (
             "Each frozen coefficient ray leaves its branch action length free. The "
@@ -709,8 +710,10 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "varying that length, and neither A1 through A3, the capacity root P, nor "
             "the N closure selects the same-action geometric factor in "
             "a_b^2 = kappa_b P ell_*^2. The normalized support and response frames "
-            "are isometric, and a unit seam current has response-Gram norm two, but "
-            "neither fact assigns a dimensionful physical length. Port, face, and "
+            "are isometric. The full unit seam current has exact squared "
+            "response-Gram norm 2-2/sqrt(5), which fixes its dimensionless length "
+            "inside that same internal action. Neither result assigns a common "
+            "conversion to dimensionful physical length. Port, face, and "
             "edge equal-area conventions give distinct coefficients. A scale or "
             "lower bound for one action does not transfer to the other. Without a "
             "source-certified same-action lower bound, a null result cannot exclude "
@@ -741,9 +744,11 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     666: {
         "phase": "source-seam-edge-discriminator",
         "claim_level": (
-            "exact source-current D6 image, internal homogeneous action, and "
-            "edge-orbit coefficient ray plus frozen FZ-12 conditional prediction; "
-            "physical action, sector, scale, and comparison eligibility open"
+            "exact source-current D6 image, canonical internal Markov/Dirichlet "
+            "action, auxiliary algebraic spectral lift, source-native step scale, "
+            "edge-orbit coefficient ray, data-free formal frequency/velocity map, and "
+            "frozen FZ-12 conditional prediction; physical position action, sector, "
+            "clock, frame, scale, remainder, readout, and comparison eligibility open"
         ),
         "blocker": (
             "The complete thirty-seam source current has exact D6 image. Under the "
@@ -752,30 +757,85 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "The proper-carrier action is faithful. Cumulative records act by "
             "internal isometries, and A2-natural feasible/objective data plus an "
             "A3 unique minimizer force the source-counting convolution with weight "
-            "1/60. The frozen edge relations are B0/C4^2 = 10/21 and "
+            "1/60. Its local generator satisfies the positive maximum principle, "
+            "the exact carré-du-champ identity, and plane-wave diagonalization. An "
+            "auxiliary algebraic lift gives omega_aux^2 = lambda_L without "
+            "constructing physical time. The exact internal edge character is "
+            "Lambda_int(k) = (6/a_edge^2) lambda_L(k). A separately assumed "
+            "physical dilation gives Lambda_a(k) = (6/a^2) "
+            "lambda_L((a/a_edge)k), and identifying Lambda_a with physical "
+            "omega_phys^2 is another premise. Exact data-free series arithmetic "
+            "maps the frozen ray into formal radial and transverse velocity "
+            "coefficients. The frozen edge relations are B0/C4^2 = 10/21 and "
             "B6/C4^2 = -2/63. The finite nonlinear "
             "repair kernel is state dependent and does not descend through the "
             "signed quotient. The internal convolution is not identified with a "
-            "homogeneous physical field action, same-operator sector, clock, "
-            "cofinal refinement, scale, frame, or readout."
+            "homogeneous physical position or field action, same-operator sector, "
+            "clock, cofinal refinement, dimensionful scale, frame, analytic "
+            "remainder, wave packet, or readout."
         ),
         "closure": (
-            "Derive one source-selected homogeneous action whose complete direct "
-            "support is the edge-current orbit, attach it to a scalar or "
-            "polarization-independent physical sector with the same clock, scale, "
-            "frame, refinement, and readout, or record the precise bounded "
-            "nonattachment. FZ-12 remains immutable in either case."
+            "Identify the exact internal homogeneous action with physical position "
+            "and attach it to a scalar or polarization-independent physical sector "
+            "with a physical clock, coherent frame and boost law, cofinal refinement, "
+            "analytic remainder, wave-packet/readout map, and nuisance contract, or "
+            "record the precise bounded nonattachment. A nonzero-signal comparison "
+            "may fit the amplitude after that bridge closes. A branch-falsifying null "
+            "also requires the same-action lower bound owned by #664. FZ-12 remains "
+            "immutable in either case."
         ),
         "falsification": (
-            "After every physical and power gate is frozen, exclusion of the "
-            "complete FZ-12 edge manifold at five standard deviations rejects the "
-            "attached edge branch. A null has no verdict without the #664 "
-            "source-derived positive scale lower bound, and a branch failure is "
-            "OPH-wide only after forcedness and exclusivity are proved."
+            "After the physical observable and covariance gates are frozen, a "
+            "nonzero signal can test the scale-free linked FZ-12 manifold while "
+            "fitting its amplitude. Exclusion by a null rejects the attached branch "
+            "only if #664 supplies a same-action physical positive lower bound and "
+            "the registered test has power over the complete admitted manifold. A "
+            "branch failure is OPH-wide only after forcedness and exclusivity are "
+            "proved."
         ),
         "chrome_policy": (
             "Do not access comparison data. Use workers only for the source action, "
             "physical attachment, scale, and independent proof audit."
+        ),
+    },
+    667: {
+        "phase": "fz12-physical-comparison",
+        "claim_level": (
+            "frozen source-native edge ray with an exact data-free formal "
+            "frequency/velocity map; "
+            "an exposed Auger threshold projection is diagnostic only, and no "
+            "physical FZ-12 comparison is armed"
+        ),
+        "blocker": (
+            "Issue #666 has not identified the internal edge-current action with "
+            "physical position, a photon or other field sector, physical clock, "
+            "coherent frame and boost transport, cofinal gluing, an analytic "
+            "validity domain, wave-packet readout, or a nuisance model. A photon "
+            "threshold use also needs electron and positron dispersion plus "
+            "interaction kinematics. The exposed Pierre Auger limit is conditional "
+            "on its proton-rich source scenario and supplies no OPH verdict."
+        ),
+        "closure": (
+            "Retain the attained data-free EFT convention map. Emit the exact-symbol "
+            "or certified "
+            "remainder contract, physical sector attachment, and synthetic power "
+            "study. Then freeze and execute one separately versioned comparison. "
+            "Signal mode may fit the amplitude after the physical bridge closes. "
+            "Powered-null mode additionally requires the same-action lower bound "
+            "owned by #664."
+        ),
+        "falsification": (
+            "A positive resolved leading coefficient rejects the attached negative-"
+            "C4 branch. A nonzero negative signal tests the linked ratios and angular "
+            "profile while fitting its amplitude. A null rejects the branch only "
+            "with a same-action positive lower bound and registered power over the "
+            "complete exact-symbol manifold. An outcome becomes OPH-wide only after "
+            "forcedness and exclusivity are proved."
+        ),
+        "chrome_policy": (
+            "The declared Auger projection may be audited as exposed retrospective "
+            "data with no score. Do not inspect a prospective comparison payload "
+            "until the physical bridge, freeze, nuisance, and power contracts pass."
         ),
     },
     659: {
@@ -878,22 +938,23 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     662: {
         "phase": "fz11-sealed-comparison",
         "claim_level": (
-            "dormant one-shot physical comparison; no eligible candidate until "
-            "the #655 physical bridge and #664 scale/lower-bound gate close positively"
+            "dormant one-shot physical comparison; signal mode requires the #655 "
+            "physical bridge, while powered-null mode also requires #664"
         ),
         "blocker": (
             "Issue #655 has not proved that the frozen primitive twelve-port "
-            "propagation branch is forced and physically attached, and #664 has not "
-            "supplied the physical scale or lower bound needed to make a null "
-            "decisive. No target payload may be selected, opened, or scored before "
-            "both dependencies and this issue's freeze and power gates pass."
+            "propagation branch is physically attached. A nonzero signal could fit "
+            "the amplitude after that bridge closes. Issue #664 has not supplied "
+            "the same-action lower bound needed to make a null decisive. No target "
+            "payload may be selected, opened, or scored before the applicable "
+            "mode-specific dependencies and this issue's freeze and power gates pass."
         ),
         "closure": (
-            "After positive #655 and #664 bridges, freeze one release, likelihood "
-            "and covariance, nuisance treatment, exposure class, kill threshold, "
-            "and minimum power; publish the commitment and score the unchanged "
-            "FZ-11 branch exactly once. If either bridge has no positive exit, close "
-            "this issue as not activated."
+            "After a positive #655 bridge, freeze one release, likelihood and "
+            "covariance, nuisance treatment, exposure class, thresholds, and power; "
+            "publish the commitment and score the unchanged FZ-11 branch exactly "
+            "once. Require #664 only for powered-null activation. If the physical "
+            "bridge has no positive exit, close this issue as not activated."
         ),
         "falsification": (
             "At the frozen power threshold, an isolated intrinsic positive C4, "
@@ -903,7 +964,8 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": (
             "Do not launch a comparison worker or inspect the target payload "
-            "before #655 and #664 close positively and the sealed protocol hash is public."
+            "before #655 closes positively, the mode-specific #664 gate is resolved, "
+            "and the sealed protocol hash is public."
         ),
     },
     594: {
