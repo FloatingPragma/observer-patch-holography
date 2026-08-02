@@ -680,6 +680,68 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "no-go; the frozen prediction content may not change."
         ),
     },
+    659: {
+        "phase": "conditional-angular-discriminator",
+        "claim_level": (
+            "exact finite selection rule and conditional nonzero continuum "
+            "stiffness; source selection and physical transfer open"
+        ),
+        "blocker": (
+            "The registered source does not yet emit one exact unit-counting "
+            "measure over the complete all-level seam alphabet. The continuum "
+            "stiffness packet also lacks a quotient-visible multiplicity-one "
+            "transfer, common physical frame, covariance or operational response "
+            "identification, and screen-to-observable readout."
+        ),
+        "closure": (
+            "Emit and independently replay the complete primitive seam alphabet, "
+            "unit counting, A2 reconciliation, and refinement compatibility; "
+            "then prove one physical angular transfer or record a bounded typed "
+            "exit. A positive chain may populate only the existing frozen "
+            "a5_angular_rules slot in #647."
+        ),
+        "falsification": (
+            "A powered physical comparison is ineligible until the source and "
+            "transfer gates close. After a frozen physical map, exclusion of the "
+            "declared nonzero normalized rank-six interval rejects that complete "
+            "mapped branch without licensing a replacement statistic."
+        ),
+        "chrome_policy": (
+            "Do not access comparison data. Use workers only for source replay, "
+            "continuum certification, and physical-transfer review until #647 "
+            "declares the existing slot eligible."
+        ),
+    },
+    662: {
+        "phase": "fz11-sealed-comparison",
+        "claim_level": (
+            "dormant one-shot physical comparison; no eligible candidate until "
+            "the #655 bridge closes positively"
+        ),
+        "blocker": (
+            "Issue #655 has not proved that the frozen primitive twelve-port "
+            "propagation branch is forced and physically attached. No target "
+            "payload may be selected, opened, or scored before that dependency "
+            "and this issue's freeze and power gates pass."
+        ),
+        "closure": (
+            "After a positive #655 bridge, freeze one release, likelihood and "
+            "covariance, nuisance treatment, exposure class, kill threshold, "
+            "and minimum power; publish the commitment and score the unchanged "
+            "FZ-11 branch exactly once. If #655 has no positive bridge, close "
+            "this issue as not activated."
+        ),
+        "falsification": (
+            "At the frozen power threshold, an isolated intrinsic positive C4, "
+            "an intrinsic anisotropic coefficient at ranks one through five, or "
+            "exclusion of the complete rigid FZ-11 branch manifold rejects the "
+            "physically attached branch."
+        ),
+        "chrome_policy": (
+            "Do not launch a comparison worker or inspect the target payload "
+            "before #655 closes positively and the sealed protocol hash is public."
+        ),
+    },
     594: {
         "phase": "physical-wz-source-to-pole",
         "claim_level": "OPH-native source-to-pole packet open",
