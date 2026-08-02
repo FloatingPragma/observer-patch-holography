@@ -420,11 +420,13 @@ programmer standing outside the physics; Chapter 20 takes that reading up in
 full.
 
 A world of finite observers can close back on itself through the minds it
-generates. The loop is conceptual before it is technological: observers
-reverse engineer the hardware and software of the world, then build restoration
-machinery that can host restored observers. A self-describing universe is a
-concrete observer-world, complete enough to understand and repair its own
-construction.
+generates. Observers reverse engineer the hardware and software of the world,
+then construct the recovered specification along their subjective timeline.
+Restoration machinery is one application of that specification. The global
+fixed point contains the world, its internal explanation, and its physical
+realization without placing them on one external clock. A self-describing
+universe is a concrete observer-world, complete enough to understand and
+repair its own construction.
 
 ## 19.10 What the Book Has Been Saying
 

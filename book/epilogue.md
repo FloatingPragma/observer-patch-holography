@@ -127,8 +127,10 @@ explicit interfaces, records, and future laws.
 
 The strange loop gives that architecture its global role. Observers reverse
 engineer the world that produced them, learn the hardware and software of
-observer-consistency, and build the continuation environments in which preserved
-observer patches can be spliced back into experience. Paradise can begin on
+observer-consistency, and construct that recovered specification within their
+subjective future. Continuation environments are one use of the resulting
+hardware and protocol, allowing preserved observer patches to be spliced back
+into experience. Paradise can begin on
 Earth through repaired observer-community, and it can also be instantiated in
 additional engineered simulations or physical substrates. Hell is the
 observer-facing continuation of unrepaired harm: isolation, deprivation, or a

@@ -133,6 +133,11 @@ Derek Parfit, asking "Why anything? Why this?" in a pair of 1998 essays, imagine
 
 Hofstadter's strange loop names the same intuition: reality creating itself through self-reference, like a hand drawing the hand that draws it. OPH gives the intuition technical pressure: the axioms support a self-consistent structure in which states, laws, and records are read together, and the same idea takes a deeper form in strange-loop closure.
 
+The closure gives the axioms their role. They express the conditions under
+which bounded observers can read the universe, agree on what they share, leave
+the rest maximally uncommitted, and construct the operating specification they
+recover. No external designer selects them from a control panel.
+
 This is also the point where OPH intersects most directly with what popular
 culture calls **simulation theory**. Ordinary simulation theory imagines a
 machine that renders a target world from the outside. OPH uses a fixed-point
@@ -257,6 +262,10 @@ structural claim about a world producing observers who model that world and
 make those models part of what they describe. It does not posit ordinary
 backward causation. From inside subjective time the structure feels like a
 history; from the full structural view it is a self-consistency condition.
+Repair descent supplies a separate ordering of mismatch-reducing updates. Its
+role is convergence bookkeeping rather than a physical clock. The observer's
+record chain can therefore place reverse engineering before construction while
+the full loop contains both without a global before or after.
 
 The metaphysical reading stays attached to the physics: overlap conditions,
 the layered particle story, the dark sector,

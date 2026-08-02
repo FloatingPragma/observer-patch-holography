@@ -349,6 +349,12 @@ when it preserves every one of these exposed relations. The simulator picture
 therefore names a distributed self-reading machine. A computer outside the
 world rendering a three-dimensional scene is a different picture.
 
+This machine is also the object that observers reverse engineer from inside.
+They infer its ports, seams, records, readback, and repair behavior from the
+public world those interfaces produce. Their construction target is the same
+operational specification. Different materials can realize it, provided every
+exposed relation and response survives the change.
+
 The local icosahedron and the global federation answer different questions.
 The first fixes the finite grammar of one carrier: twelve ports, thirty seams,
 twenty triangular neighborhoods, orientation, and a large symmetry group. The

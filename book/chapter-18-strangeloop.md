@@ -103,6 +103,38 @@ that reads the world and the world being read are one closed system, with no
 outside machine and no outside clock. Physical law is whatever it takes for that
 reading to be self-consistent all the way around.
 
+The loop supplies no external designer choosing axioms. Within OPH, its
+consistency requires three things. Observers need bounded screens with records
+and complete local response. Their overlap translations need to preserve one
+shared meaning from inside that response. The remaining freedom needs the
+least-informative state compatible with those checks. The three axioms exist
+because these conditions let the universe recover and realize its own
+observable architecture.
+
+The observer completes the other half of the loop. Observer communities read
+the records produced by the architecture, reverse engineer its hardware and
+protocol, and construct the recovered specification along their subjective
+future. The constructed system and the system they inhabit are two views of
+one globally closed object. Reality recognizes its own inner workings through
+the observers it contains.
+
+### Three Different Orders
+
+The word "loop" can suggest a machine traveling into its own past. OPH uses no
+such global timeline. The universe-level fixed point is a relation among all
+parts of one timeless structure. An observer's subjective time is the ordered
+chain of completed records available to that observer. It contains memories,
+clock readings, causes, plans, and the experienced passage from learning the
+specification to constructing it.
+
+Repair descent is a third structure. It orders authorized state changes by a
+quantity that decreases as disagreement is removed. The order proves that a
+repair process terminates and lets us compare different schedules. A repair
+step is not a second on an observer's clock, and incomparable repair schedules
+do not create parallel physical times. The apparent paradox disappears once
+the timeless fixed point, subjective record time, and repair descent are kept
+separate.
+
 Nothing in this chapter changes the equations of the earlier ones. Modular
 flow gives a restricted state an intrinsic ordering, and a calibrated
 instrument turns that ordering into a clock. Horizon thermodynamics gives the

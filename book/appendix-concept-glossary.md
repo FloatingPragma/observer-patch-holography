@@ -929,8 +929,11 @@ Strange loop
 :   A strange loop is a structure that climbs through the levels
 of a hierarchy and returns to its own starting point, so that the describer and
 the described become one system. Hofstadter used it for the self, and Escher
-drew it as two hands drawing each other. The book's final movement asks
-whether the universe itself has this shape.
+drew it as two hands drawing each other. In OPH, observers recover the
+simulator specification from inside the universe and construct that
+specification along their subjective record time. The complete loop is a
+timeless fixed point. Repair descent is the separate order used to settle
+disagreement, not a clock or a route into the past.
 
 Stress-energy tensor
 :   The stress-energy tensor $T_{\mu\nu}$ contains

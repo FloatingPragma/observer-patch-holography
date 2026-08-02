@@ -340,8 +340,11 @@ Physicists call this **universality**. At large scales, different microscopic th
 
 ## 1.10 Three Core Axioms
 
-From these hints, OPH distills **three core axioms** that guide the rest of this
-book:
+From these hints, OPH isolates **three core axioms** that guide the rest of this
+book. They are the conditions that let a self-explaining universe close through
+the observers inside it. Such observers need bounded access and durable
+records. Their shared records need one operational meaning. Whatever those
+checks leave open needs a state rule that adds no hidden preference.
 
 **Axiom 1: The Observer Screen**
 No observer reads the whole world; every view comes through a bounded window
@@ -453,6 +456,14 @@ causes, memories, and a future that keeps arriving. From the structural view,
 the same world is a self-consistent pattern whose calibrated clocks agree where
 their events meet. The irreversible repair order and the reversible clock law
 do different jobs inside that pattern.
+
+This separation removes the apparent time-travel puzzle. Observers can study
+the world, recover its operating specification, and construct that
+specification later according to their own clocks. The complete strange loop
+has no global before or after. It contains both stages as parts of one fixed
+structure. Repair descent only orders the authorized updates that reduce
+disagreement; its step count is not anyone's age, duration, or journey into the
+past.
 
 You might ask what such a computation is computing. It is computing one
 closed structure whose geometry, particles, observers, records, and hardware

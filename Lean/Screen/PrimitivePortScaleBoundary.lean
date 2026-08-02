@@ -18,8 +18,8 @@ derive the metric coefficient `kappa`.  In particular, the relation
 -/
 
 /-- The normalized coefficient of the leading `k^2` term.  It is kept
-separate from the scale-dependent corrections. -/
-def normalizedLeadingCoefficient : ℝ := 1
+separate from the scale-dependent corrections and is constant as `a` varies. -/
+def normalizedLeadingCoefficient (_a : ℝ) : ℝ := 1
 
 /-- Scale-dependent coefficient of the isotropic `k^4` correction. -/
 noncomputable def scaleC4 (a : ℝ) : ℝ := -(a ^ 2) / 20
@@ -67,8 +67,14 @@ theorem scaleB6_rescale (s a : ℝ) :
 
 /-- The normalized leading coefficient is independent of every rescaling of
 `a`; no scale variable enters its definition. -/
-theorem normalizedLeadingCoefficient_rescale (_s _a : ℝ) :
-    normalizedLeadingCoefficient = 1 := by
+theorem normalizedLeadingCoefficient_rescale (s a : ℝ) :
+    normalizedLeadingCoefficient (s * a) = normalizedLeadingCoefficient a := by
+  rfl
+
+/-- Every member of the normalized leading-coefficient family is exactly
+one. -/
+theorem normalizedLeadingCoefficient_eq_one (a : ℝ) :
+    normalizedLeadingCoefficient a = 1 := by
   rfl
 
 /-- The isotropic sixth-order to squared-quartic ratio is scale free. -/
@@ -131,6 +137,7 @@ theorem metric_coefficient_counterfamily
 #print axioms scaleB0_rescale
 #print axioms scaleB6_rescale
 #print axioms normalizedLeadingCoefficient_rescale
+#print axioms normalizedLeadingCoefficient_eq_one
 #print axioms scaleB0_over_scaleC4_sq
 #print axioms scaleB6_over_scaleC4_sq
 #print axioms scaleB6_over_scaleB0

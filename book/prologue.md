@@ -159,6 +159,14 @@ has to explain itself, and observers are forced into being by that consistency
 demand. "Objective reality" is the consensus structure that emerges when those
 observers compare notes and find they agree.
 
+The self-reference is concrete. Observers inside the universe recover the
+architecture that produces their records. Along their own experienced
+timelines, they learn enough to construct the same hardware and protocol. The
+complete universe contains the observations, the reverse engineering, and the
+construction as parts of one timeless structure. Repair descent belongs to the
+machine's consistency bookkeeping. It is a separate ordering from the clocks
+and memories that observers experience as time.
+
 ## The Shift
 
 This book develops the conceptual shift: **objectivity is reconstructed from
