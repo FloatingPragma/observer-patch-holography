@@ -2,11 +2,36 @@ import Mathlib
 import ObserverPatchHolography.AbstractRewriting
 
 /-!
-# Rate non-identifiability for finite locking systems
+# Rate non-identifiability for finite locking systems (abstract; **not** repository-facing)
 
-This file machine-checks a boundary the OPH corpus already states in prose: patch consistency
-data does not determine how *fast* a locking transition happens. It endorses no physical claim.
-A no-go is the result.
+This file proves an *abstract* non-identifiability result about deterministic maps on an
+arbitrary type. It endorses no physical claim. A no-go is the result.
+
+## SCOPE WARNING — read before quoting anything below
+
+**This result does not apply to the repository's own repair dynamics, and the companion module
+`ObserverPatchHolography.RateBridgeObstruction` proves that it cannot.**
+
+An earlier framing of this file described it as machine-checking a *corpus* boundary — that
+patch consistency data does not determine how fast a locking transition happens. That framing
+was wrong and has been withdrawn. The theorems below are about `T : S → S` for an opaque `S`
+and the generic rewriting relation `OPH.AbstractRewriting.stepRel`, which the abstract-rewriting
+module itself calls a skeleton that "does not commit to OPH-specific structure". They are *not*
+about `OPH.Records`, `OPH.obsMap`, or `OPH.acceptedStep`.
+
+The bridge to those definitions was attempted and **fails at a located hypothesis**. The
+construction below needs an accepted step that moves the state while leaving the declared
+observable fixed — `stutter_has_projection_fixing_step` supplies exactly such steps. The
+repository's `OPH.acceptedStep` has none: every accepted repair step strictly lowers
+`OPH.mismatchCount`, which is a function of `OPH.obsMap` alone, so every accepted step strictly
+changes the declared observable (`RateBridgeObstruction.acceptedStep_changes_obs`, and for every
+local move obeying the declared laws H1–H3, `acceptedStepLR_changes_obs`).
+
+The concrete layer in fact satisfies the **opposite** of the conclusion below: the declared
+observable *bounds* the relaxation time (`RateBridgeObstruction.firstLock_le_mismatchCount`) and
+indeed *determines* it (`RateBridgeObstruction.firstLock_obs_determined`). Read this file as a
+theorem about abstract transition systems and about the weaker `DeclaredReading` defined here,
+never as a statement about the OPH repair layer.
 
 ## Which sense of "speed"
 
@@ -15,8 +40,9 @@ The word "speed" names four separable quantities. **This file addresses exactly 
 1. *Sharpness in a control parameter* — a critical exponent, a critical-window width. **Static.**
    **Not addressed here.** The systems below carry no control parameter, so no statement here
    can be read as one about a critical exponent or window.
-2. *Relaxation time of the repair operator* — the number of accepted repair steps taken before
-   the state first locks. **This is the quantity addressed here**, as `FirstLock`.
+2. *Relaxation time of the operator* — the number of `stepRel T` steps taken before the state
+   first locks. **This is the quantity addressed here**, as `FirstLock`. It is a count of
+   abstract steps, not of `OPH.acceptedStep` steps.
 3. *Finite-size width of the ambiguous band*, and its scaling in a system size `L`.
    **Not addressed here.** No size parameter appears.
 4. *Contraction factor of the repair map* — a per-step gap. **Not addressed here**, and for a
@@ -28,13 +54,14 @@ in this file may be quoted across them.
 
 ## What is proved
 
-For a finite deterministic repair operator `T`, locking is `IsFixedPt T`, so locked states are
-exactly the normal forms of the in-tree accepted repair relation
-`OPH.AbstractRewriting.stepRel T`. Given any positive stutter factor `s + 1`, the stutter
-extension `stutterStep T s` on the finite carrier `S × Fin (s + 1)`:
+For a finite deterministic operator `T`, locking is `IsFixedPt T`, so locked states are exactly
+the normal forms of the in-tree **generic** rewriting relation `OPH.AbstractRewriting.stepRel T`.
+`stepRel` is defined over an opaque type and is not the repository's accepted repair relation
+`OPH.acceptedStep`; see the scope warning above. Given any positive stutter factor `s + 1`, the
+stutter extension `stutterStep T s` on the finite carrier `S × Fin (s + 1)`:
 
 * has exactly the same locked set, fibrewise, in both directions (`locked_stutter_iff`);
-* has the same projected accepted-repair reachability (`proj_reachable`, `lift_reachable`);
+* has the same projected `stepRel`-reachability (`proj_reachable`, `lift_reachable`);
 * has the same projected basin (`basin_stutter_iff`);
 * multiplies the first-locking step count by `s + 1` (`firstLock_stutter`).
 
@@ -44,19 +71,21 @@ Hence no function of the declared reading returns the first-locking count
 
 ## The projection, stated
 
-The declared observable projection is `Prod.fst`: forget the counter. This is the honest
-projection because the corpus declines to declare the forgotten coordinate observable.
-`README.md` lines 292--295 (sentence at 294): "No theorem identifies phase locking with
-consensus confluence, modular flow, or an observer clock"; and lines 299--300: "Record order
-supplies a candidate history, not a clock".
-`physics-problems/compact_record_transients.md` line 73: "a repair eigenvalue is not a physical
-duration without a clock map". The theorem is exactly as strong as that claim and no stronger.
+The projection used here is `Prod.fst`: forget the counter. It is *stipulated by this file*, not
+taken from the repository. The corpus prose that an earlier framing cited in its defence
+(`README.md` lines 292--295 and 299--300; `physics-problems/compact_record_transients.md` line
+73, "a repair eigenvalue is not a physical duration without a clock map") says only that no
+*physical clock* has been supplied. It does not say that an adjoined counter is invisible to the
+repository's declared observable, and `RateBridgeObstruction` shows it is not: `OPH.obsMap`
+strictly changes on every accepted repair step. Whatever `Prod.fst` is, it is not `OPH.obsMap`.
 
-## Why stuttering is admissible rather than smuggled in
+## Why stuttering is admissible for *this* file's reading
 
-`extra/observable_normal_forms.tex` lines 633--665 requires that a kernel sampling rewrite
-schedules have support consisting of permitted rewrite steps *or stuttering moves*. The
-admissible class therefore already permits the moves used here.
+`extra/observable_normal_forms.tex` lines 633--665 lets a kernel sampling rewrite schedules whose
+support consists of permitted rewrite steps *or stuttering moves*. That is a statement about a
+stochastic kernel in the TeX corpus; it has no Lean counterpart in this repository, and it does
+not license stuttering in `OPH.acceptedStep`, which provably admits none. The moves used below
+are admissible for the `DeclaredReading` defined in this file and for nothing else in tree.
 
 ## Conditionality
 
@@ -75,8 +104,8 @@ variable {S : Type*}
 /-! ## Locking, basins, and first-locking time -/
 
 /-- A state is locked when the repair operator no longer moves it. Locking is defined as
-fixed-point-ness so that it coincides with normal-form-ness of the in-tree accepted repair
-relation; see `locked_iff_normalForm`. -/
+fixed-point-ness so that it coincides with normal-form-ness of the in-tree *generic* rewriting
+relation `stepRel`; see `locked_iff_normalForm`. -/
 def Locked (T : S → S) (x : S) : Prop := IsFixedPt T x
 
 theorem locked_iff (T : S → S) (x : S) : Locked T x ↔ T x = x := Iff.rfl
@@ -95,8 +124,8 @@ theorem locked_iff_normalForm (T : S → S) (x : S) :
 def Basin (T : S → S) (x : S) : Prop := ∃ n, Locked T (T^[n] x)
 
 /-- **Sense (2) of "speed".** `FirstLock T n x` says the state `x` first locks after exactly `n`
-steps of the repair operator. It counts accepted repair steps. It is not a critical exponent,
-not a window width, and not a per-step contraction factor. -/
+steps of the operator. It counts `stepRel T` steps, not `OPH.acceptedStep` steps. It is not a
+critical exponent, not a window width, and not a per-step contraction factor. -/
 def FirstLock (T : S → S) (n : ℕ) (x : S) : Prop :=
   Locked T (T^[n] x) ∧ ∀ m < n, ¬ Locked T (T^[m] x)
 
@@ -154,7 +183,7 @@ theorem stutterStep_locked (T : S → S) (s : ℕ) (p : S × Fin (s + 1)) (h : L
   simp only [stutterStep]
   rw [if_pos h']
 
-/-- With the counter exhausted, one accepted repair step fires and the counter reloads. -/
+/-- With the counter exhausted, one base step fires and the counter reloads. -/
 theorem stutterStep_reload (T : S → S) (s : ℕ) {x : S} (hx : ¬ Locked T x)
     (c : Fin (s + 1)) (hc : c.val = 0) :
     stutterStep T s (x, c) = (T x, Fin.last s) := by
@@ -170,9 +199,11 @@ theorem stutterStep_idle (T : S → S) (s : ℕ) {x : S} (hx : ¬ Locked T x)
   simp only [stutterStep]
   rw [if_neg hx', if_neg hc]
 
-/-- **Failure mode 1, defeated.** The full fixed-point set of the extended system is pinned
-fibrewise and in both directions: the extension adds no locked state, removes none, and a fibre
-is locked exactly when its base state is. -/
+/-- **Failure mode 1, defeated.** The full fixed-point set of the extended system is pinned in
+both directions: an extended state is locked exactly when its base state is, so
+`Fix (stutterStep T s) = Fix T ×ˢ univ`, the full preimage of `Fix T` under `Prod.fst`. Stated
+precisely, because as a bare set claim "the fixed-point set is preserved" would be false — each
+locked base state has `s + 1` distinct locked lifts. What is exact is the projected predicate. -/
 theorem locked_stutter_iff (T : S → S) (s : ℕ) (p : S × Fin (s + 1)) :
     Locked (stutterStep T s) p ↔ Locked T p.1 := by
   obtain ⟨x, c⟩ := p
@@ -279,7 +310,7 @@ theorem firstLock_stutter (T : S → S) (s n : ℕ) (x : S) (h : FirstLock T n x
 
 /-! ## Preservation of the projected reading -/
 
-/-- Every extended run projects to a run of the base accepted repair relation. -/
+/-- Every extended run projects to a run of the base `stepRel`. -/
 theorem proj_reachable (T : S → S) (s : ℕ) {p q : S × Fin (s + 1)}
     (h : ReflTransGen (stepRel (stutterStep T s)) p q) :
     ReflTransGen (stepRel T) p.1 q.1 := by
@@ -359,8 +390,11 @@ theorem basin_stutter_iff (T : S → S) (s : ℕ) (p : S × Fin (s + 1)) :
 
 /-! ## The declared reading and the no-go -/
 
-/-- The three pieces of declared data: the locked set, the accepted repair relation, and the
-basin. Nothing here is a clock and nothing here is a per-step contraction factor. -/
+/-- The three pieces of data this file declares readable: the locked set, `stepRel`-reachability,
+and the basin. This is *this file's* stipulated reading, not the repository's observable
+`OPH.obsMap`, which is strictly finer and — unlike this reading — determines the rate
+(`RateBridgeObstruction.firstLock_obs_determined`). Nothing here is a clock and nothing here is
+a per-step contraction factor. -/
 structure DeclaredReading (S : Type*) where
   LockedSet : S → Prop
   Reach : S → S → Prop
@@ -425,13 +459,19 @@ theorem sameReading_differentFirstLock (T : S → S) (x : S) (n : ℕ)
   have hsucc : s₁ + 1 = s₂ + 1 := Nat.eq_of_mul_eq_mul_right hpos hcon
   exact hne (by omega)
 
-/-- **The no-go, sense (2).** No function whatsoever from the declared reading — locked set,
-accepted repair relation, basin — returns the first-locking step count. The reading is constant
-across the stutter family while the count is not.
+/-- **The no-go, sense (2), for `DeclaredReading` only.** No function from the reading declared
+in this file — locked set, `stepRel`-reachability, basin — returns the first-locking step count.
+The reading is constant across the stutter family while the count is not.
 
-In plain English: patch consistency together with endpoint and basin data forbids nothing about
-how many repair steps locking takes. Any number of steps is consistent with the same declared
-data. This is a statement about identifiability, not about physics. -/
+**This is not a statement about the OPH repair layer.** For the repository's own observable
+`OPH.obsMap` the corresponding functional *does* exist: see
+`RateBridgeObstruction.firstLock_obs_determined`, and `firstLock_le_mismatchCount` for the
+bound. The gap between the two is that `DeclaredReading` is a triple of relations on the state
+space while `obsMap` is a per-state observable that separates strictly more records.
+
+In plain English: locked-set, reachability and basin data alone forbid nothing about how many
+abstract steps locking takes. This is a statement about identifiability under one stipulated
+reading, not about physics and not about OPH. -/
 theorem no_rate_functional (T : S → S) (x : S) (n : ℕ)
     (hlock : FirstLock T n x) (hpos : 0 < n)
     (rate : DeclaredReading S → ℕ)
@@ -444,9 +484,12 @@ theorem no_rate_functional (T : S → S) (x : S) (n : ℕ)
   rw [projReading_eq] at e0 e1
   omega
 
-/-- **The positive half.** Supply the stutter factor separately — a clock, or equivalently a
-transition law fixing the cost of a repair step — and the rate becomes determinate: it is
-exactly `(s + 1) * n`. The datum missing from the no-go is precisely this one. -/
+/-- **A uniqueness corollary, not a construction.** Given that `m` already *is* a first-locking
+count for the extension, it equals `(s + 1) * n`. This is `firstLock_unique` against
+`firstLock_stutter` and nothing more: it does not take a clock map as input, does not build a
+rate functional, and does not show that the stutter factor plus the declared reading suffices to
+recover `n`. An earlier gloss called this "the positive half" proving clock-sufficiency; that
+was too strong and is withdrawn. -/
 theorem rate_determined_by_clock (T : S → S) (x : S) (n s m : ℕ)
     (hlock : FirstLock T n x)
     (hm : FirstLock (stutterStep T s) m (x, Fin.last s)) :
@@ -460,8 +503,12 @@ fixed while the base state is unlocked. A declared per-step contraction factor o
 would therefore distinguish the stutter family, and the no-go above would not apply to it.
 
 This is why nothing in this file may be read as a statement about sense (4). It is also why the
-no-go is conditional on no per-step gap being declared — a condition the corpus itself asserts
-at `extra/observable_normal_forms.tex` lines 1486--1495. -/
+no-go is conditional on no per-step gap being declared.
+
+**This lemma is the precise point at which the bridge to OPH fails.** It exhibits the
+observably-idle step the construction depends on. `RateBridgeObstruction.acceptedStep_changes_obs`
+proves the repository's `OPH.acceptedStep` admits no such step, so no stutter extension of the
+OPH repair dynamics exists. -/
 theorem stutter_has_projection_fixing_step (T : S → S) (s : ℕ) (x : S)
     (hx : ¬ Locked T x) (hs : 0 < s) :
     ∃ p : S × Fin (s + 1),

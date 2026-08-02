@@ -40,6 +40,7 @@ import ObserverPatchHolography.A2EndpointCommutator
 import ObserverPatchHolography.DirectedSeamRepair
 import ObserverPatchHolography.DirectedSeamRepairProgress
 import ObserverPatchHolography.RateNonidentifiability
+import ObserverPatchHolography.RateBridgeObstruction
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root
