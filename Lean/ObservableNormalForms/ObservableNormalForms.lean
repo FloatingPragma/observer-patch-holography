@@ -1,6 +1,7 @@
 import ObservableNormalForms.Exact
 import ObservableNormalForms.ObserverConfluence
 import ObservableNormalForms.Stability
+import ObservableNormalForms.Moduli
 import ObservableNormalForms.Refinement
 import ObservableNormalForms.Repair
 import ObservableNormalForms.Functional
