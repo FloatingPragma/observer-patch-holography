@@ -683,21 +683,24 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     659: {
         "phase": "conditional-angular-discriminator",
         "claim_level": (
-            "exact finite selection rule and conditional nonzero continuum "
-            "stiffness; source selection and physical transfer open"
+            "exact finite selection rule, registered levels-zero-through-five "
+            "source declaration, and conditional nonzero continuum stiffness; "
+            "complete source selection and physical transfer open"
         ),
         "blocker": (
-            "The registered source does not yet emit one exact unit-counting "
-            "measure over the complete all-level seam alphabet. The continuum "
-            "stiffness packet also lacks a quotient-visible multiplicity-one "
-            "transfer, common physical frame, covariance or operational response "
+            "The finite registered ladder emits unit-counting events only through "
+            "level five and does not derive their identity from canonical A1-A3 "
+            "or provide a complete-tower repair semigroup. The continuum packet "
+            "also lacks a physical equivariant/isometric multiplicity-one "
+            "transfer, radial-copy exclusion, covariance or operational-response "
             "identification, and screen-to-observable readout."
         ),
         "closure": (
-            "Emit and independently replay the complete primitive seam alphabet, "
-            "unit counting, A2 reconciliation, and refinement compatibility; "
-            "then prove one physical angular transfer or record a bounded typed "
-            "exit. A positive chain may populate only the existing frozen "
+            "Extend the registered ladder to a complete source law or freeze the "
+            "equal-seam law as an explicit auxiliary premise; construct an "
+            "operational stiffness response or a uniformly coercive inverse; then "
+            "prove one physical angular transfer or record a bounded typed exit. "
+            "A positive chain may populate only the existing frozen "
             "a5_angular_rules slot in #647."
         ),
         "falsification": (
@@ -710,6 +713,63 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
             "Do not access comparison data. Use workers only for source replay, "
             "continuum certification, and physical-transfer review until #647 "
             "declares the existing slot eligible."
+        ),
+    },
+    658: {
+        "phase": "native-volume-readout-bridge",
+        "claim_level": (
+            "exact conditional determinant and positive-volume-ratio kernel; "
+            "native physical curvature attachment open"
+        ),
+        "blocker": (
+            "The source does not emit a quotient-visible uniform-density cut or "
+            "identify its positive collar readout with the physical spatial-volume "
+            "ratio. Physical rechart covariance, conserved stress, adiabaticity, "
+            "shear and gradient control, freeze-out transfer, isocurvature, and "
+            "phase coherence remain open."
+        ),
+        "closure": (
+            "Construct and replay the native positive-volume readout and the "
+            "uniform-density, stress, adiabatic, and transfer premises needed to "
+            "invoke the Lean q=zeta implication, or emit a bounded counterexample "
+            "or exact not-evaluable boundary."
+        ),
+        "falsification": (
+            "A source-attached positive readout whose volume ratio disagrees with "
+            "the curvature scalar on the declared uniform-density class rejects "
+            "the bridge; determinant algebra alone is not a physical test."
+        ),
+        "chrome_policy": (
+            "Use only for source and transfer audits. Do not access cosmological "
+            "comparison data before the complete bridge enters the frozen registry."
+        ),
+    },
+    663: {
+        "phase": "repair-law-adoption",
+        "claim_level": (
+            "conditional finite-word KL schedule theorem attained; A1-R/A2-R "
+            "source and adoption obligations open"
+        ),
+        "blocker": (
+            "The current basis does not derive a complete quotient-deduplicated "
+            "primitive grammar, source counting as the A3 reference, full temporal "
+            "PMF-simplex feasibility, the transition action, a common refinement "
+            "semigroup, or the coupled state-generator fixed point."
+        ),
+        "closure": (
+            "Prove every A1-R/A2-R source, temporal, transition, refinement, and "
+            "countermodel obligation before adopting the strengthening, or retain "
+            "the surviving choice as an explicit branch premise or candidate extra "
+            "axiom."
+        ),
+        "falsification": (
+            "Two inequivalent source-admissible grammars, schedules, transition "
+            "laws, or refinement completions satisfying the same proposed clauses "
+            "refute uniqueness on that declared class."
+        ),
+        "chrome_policy": (
+            "No physical target data. Use only for theorem, certificate, source, "
+            "and basis-wide countermodel audits."
         ),
     },
     662: {

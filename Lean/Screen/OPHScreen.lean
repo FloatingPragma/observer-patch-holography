@@ -8,6 +8,9 @@ import A5PrimitivePortPrediction
 import A5OrbitRaySeparation
 import DiscreteRefinement
 import BaryonDimensionSix
+import BipoSHInverseBoundary
+import BipoSHFrameInvariant
+import VolumeReadoutBridge
 
 /-!
 # OPH screen arithmetic umbrella

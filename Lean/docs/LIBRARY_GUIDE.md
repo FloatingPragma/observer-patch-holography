@@ -37,6 +37,16 @@ surface for the OPH consensus layer. Contents:
   averaging over a finite seam family is $I-L/(2|E|)$, hence $I-L/60$ for
   thirty seams. This proves the finite linear branch and does not identify it
   with the universal or physical repair law.
+- A sorry-free finite repair-word information-projection theorem in
+  `ObserverPatchHolography/RepairWordSchedule.lean`. On a complete,
+  quotient-deduplicated finite event alphabet, KL minimization against source
+  counting measure over the full word simplex forces the uniform product law
+  at every length. The module proves exact declared-subset masses, and hence
+  the masses of any externally supplied orbit partition, plus prefix
+  consistency without a geometric transitivity premise. Completeness of the
+  alphabet, its orbit classification, source counting, and temporal freedom
+  remain proposed A1-R/A2-R inputs rather than conclusions of the current
+  basis.
 - A sorry-free integer completion bridge in
   `ObserverPatchHolography/DirectedSeamRepair.lean`. It proves total-sector
   preservation, the exact parity residual, equality of the two-direction
@@ -120,6 +130,26 @@ surface for the OPH consensus layer. Contents:
   projective unitary group and response flow, source extraction, the two
   Lie-theory adapters, reductive decomposition, and compact-simple
   classification remain explicit inputs.
+- A sorry-free inverse-continuum boundary in
+  `Screen/BipoSHInverseBoundary.lean`. Uniform finite repair obeys the exact
+  operational identity $L=2|E|(I-R)$. Explicit two-coordinate and copy-space
+  counterexamples show why finite positivity and scalar transfer cancellation
+  do not supply a continuum inverse or remove radial multiplicity. Uniform
+  coercivity, quotient control, and a physical intervention/readout remain
+  separate premises.
+- A sorry-free frame-quotient theorem in
+  `Screen/BipoSHFrameInvariant.lean`. A coherent orthogonal or unitary frame
+  isometry preserves the frozen unsquared rank-six norm statistic and its
+  squared form. Nonzero multiplicity-one band amplitudes cancel in the
+  squared statistic. The module does not construct or physicalize that
+  isometric transfer, and it does not exclude copy-space mixing.
+- A sorry-free conditional determinant kernel in
+  `Screen/VolumeReadoutBridge.lean`. It proves collar shift cancellation,
+  conformal determinant scaling, the positive volume-ratio implication
+  $q=\zeta$, common positive-density-factor cancellation, calibrated
+  low-mode projection, and a bare-collar counterexample. The quotient-visible
+  uniform-density cut, positive spatial-metric attachment, physical rechart
+  law, stress/adiabaticity, and cosmological transfer remain open.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

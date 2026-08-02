@@ -21,6 +21,17 @@ physical attachment remain outside that result. Lean proves the signed-sector
 minimum-shell formula and the one-, two-, and three-seam progress arithmetic;
 almost-sure shell hitting still consumes the proposed free path law.
 
+Lean also proves the finite-word selection implication for an arbitrary
+nonempty finite primitive alphabet. If A1-R has supplied the complete,
+quotient-deduplicated event identities, A2-R has proved that every finite word
+law is feasible, and A3 minimizes Kullback-Leibler divergence to source
+counting measure, the selected law is the uniform product law. The proof uses
+Gibbs' equality case, covers every word length, proves prefix consistency, and
+fixes the mass of every declared subset by its number of actual event
+identities. This determines orbit masses after a separate orbit classification.
+It does not prove the completeness, orbit-classification, or temporal-freedom
+premises.
+
 The proposal is designed to derive a unique dimensionless repair generator at
 each certified finite regulator after a common repair algebra, a faithful
 selected state, and a fair schedule have been certified. It does not introduce
@@ -39,8 +50,11 @@ move grammar and types the data carried through repair. A2 fixes the
 operational meaning of a completed repair. The A3-selected faithful state
 then determines the state-preserving conditional expectations. On a single
 transitive move orbit, presentation invariance and normalization fix the
-schedule. Several primitive orbits would retain relative weights unless
-source data or additional agreement constraints fixed them.
+schedule. Several primitive orbits retain relative weights unless the source
+reference counts the complete quotient-visible event identities. With that
+counting reference, their relative masses are fixed by their actual
+cardinalities. A grammar that exposes only orbit names or leaves incidence
+multiplicity unresolved still retains a weighting choice.
 
 ## Proposed A1-R clause: complete primitive repair grammar
 
@@ -266,9 +280,11 @@ twelve-port scalar grammar gives \(1/30\) on the thirty seam constraints.
 For the integer lift, the unresolved odd-total tie has two
 presentation-related nearest completions. A3 assigns \(1/2\) to that tie,
 equivalently \(1/60\) to each directed seam completion. If the move grammar
-contains several atomic orbits, symmetry gives uniformity within each orbit.
-Relative orbit weights still require quotient-visible A1 data or additional
-A2 constraints.
+contains several atomic orbits, the complete quotient-visible event set and
+its source counting reference give each actual primitive event one unit.
+Orbit mass is therefore its event count divided by the total event count.
+This conclusion does not apply when the grammar has classified only orbit
+types or has not settled which incidence copies are distinct events.
 
 The same conclusion can hold on event strings under the proposed history
 clauses. If A1-R proves that the length-\(k\) attempt space is the full word
@@ -279,6 +295,12 @@ prefix-consistent and define the IID process. Canonical A3 alone does not
 imply Markovity. Uniform one-event marginals are insufficient because a
 repeat-the-first-event schedule has the same marginal and a different
 two-event kernel.
+
+`Lean/ObserverPatchHolography/RepairWordSchedule.lean` proves this implication
+with the Kullback-Leibler divergence. It derives the uniform law from global
+minimality on the full PMF simplex, its product factorization, exact subset
+and orbit masses, invariance under event relabeling, and consecutive-length
+prefix consistency. No geometric transitivity hypothesis is used.
 
 Each primitive expectation is GNS self-adjoint. Therefore
 
@@ -599,6 +621,16 @@ certificate establishes none of them.
 
 ## Proof obligations before adoption
 
+One conditional finite lemma needed by obligations 7 and 8 is discharged by
+`RepairWordSchedule.lean`: full-simplex KL minimization against source counting
+forces the uniform product family, full support, event-count subset weights,
+and prefix consistency. The source-side statements needed to invoke that
+theorem remain open: the event alphabet must be complete and correctly
+deduplicated, source counting must be the declared A3 reference, and the full
+temporal grammar must prove that every finite word law is feasible. The module
+does not classify admissible word constraints, geometric orbits, or the
+transition action of those words on the repair workspace.
+
 1. one common compatible-section repair algebra or module;
 2. complete primitive move grammar on that common workspace;
 3. separate typing of repairable working data, protected records, conserved
@@ -645,9 +677,11 @@ The strongest supported statement is:
 > faithful A3-selected state, source-derived move incidence, and fair full
 > support, the three clauses determine a dimensionless agreement-repair
 > generator at each certified finite regulator whenever the primitive moves
-> form one transitive orbit. Several primitive orbits retain relative weights
-> until source data or agreement constraints fix them. This does not select a
-> unique physical universe.
+> form one transitive orbit. More generally, on a complete quotient-visible
+> event alphabet, source counting plus full temporal freedom fixes the
+> schedule without a transitivity premise and assigns each orbit the mass
+> determined by its number of event identities. This does not select a unique
+> physical universe.
 
 If inequivalent repair laws survive after every proof obligation above is
 closed, their remaining choice is a genuine additional physical premise. That

@@ -495,8 +495,14 @@ equivalently \(1/30\) per seam and \(1/2\) for an unresolved odd-total tie.
 An IID event-string extension additionally requires proposed A1-R free
 composition of reconciliation attempts and an A2-R theorem that the temporal
 constraint grammar is complete and imposes no coupling. A3 then selects the
-uniform law on every finite word space. Canonical A3 alone does not imply
-Markovity.
+uniform law on every finite word space. The arbitrary-length KL theorem in
+`Lean/ObserverPatchHolography/RepairWordSchedule.lean` proves exact product
+factorization and prefix consistency. For any separately supplied orbit
+partition, it fixes each orbit mass from the number of actual event identities
+in that orbit, provided the A1-R alphabet is complete,
+quotient-deduplicated, and carries source counting measure. The theorem does
+not classify the orbits. Canonical A3 alone does not imply Markovity, and the
+current basis does not supply those A1-R/A2-R premises.
 
 The scalar twelve-port specialization is machine checked and gives the
 icosahedral graph-Laplacian repair ray up to one clock scale. Exact

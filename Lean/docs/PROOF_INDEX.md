@@ -53,6 +53,35 @@ Mapping between Lean 4 theorems in this project and statements in
   $R=I-L/60$ for thirty seams. The theorem does not assert that A1--A3
   select this grammar, that the refinement semigroup commutes, or that the
   finite generator is a physical repair law.
+- Finite repair-word schedule selection
+  (`ObserverPatchHolography/RepairWordSchedule.lean`): sorry-free
+  information-theoretic algebra. If the primitive event type is complete and
+  quotient-deduplicated, every finite word law is feasible, and A3 minimizes
+  KL divergence to source counting measure, Gibbs' equality case forces the
+  uniform product law. The module proves exact declared-subset masses, which
+  determine masses for an externally supplied orbit partition, presentation
+  invariance, and prefix consistency. The current basis does not classify the
+  grammar or its orbits and does not discharge the source-reference or
+  temporal-freedom premises.
+- BipoSH inverse and response boundary
+  (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and
+  counterexamples. It proves $L=2|E|(I-R)$ for the uniform repair response,
+  demonstrates inverse discontinuity without a uniform spectral gap, and
+  demonstrates statistic-changing copy-space mixing compatible with spatial
+  equivariance. It does not prove a continuum inverse or physical response.
+- BipoSH frame quotient
+  (`Screen/BipoSHFrameInvariant.lean`): sorry-free norm algebra. Coherent
+  orthogonal or unitary frame changes preserve the frozen unsquared
+  rank-six norm statistic and its squared form. Multiplicity-one band gains
+  cancel in the squared form. Physical equivariance, isometry, multiplicity
+  one, and radial-copy exclusion remain premises.
+- Conditional volume readout
+  (`Screen/VolumeReadoutBridge.lean`): sorry-free determinant and logarithm
+  algebra. It proves the collar determinant, conformal square-root determinant
+  ratio, the positive native-volume implication $q=\zeta$, common positive
+  density-factor cancellation, and calibrated low-mode identities. It does
+  not construct the uniform-density quotient, physical metric/readout,
+  rechart law, conserved source, adiabaticity, or transfer surface.
 - Directed integer seam completion
   (`ObserverPatchHolography/DirectedSeamRepair.lean`): sorry-free integer and
   rational arithmetic. The two nearest-balanced directed outcomes preserve a
