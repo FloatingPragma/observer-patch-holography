@@ -1,23 +1,78 @@
 {
   "artifact": "compact_transient_receipt_manifest",
-  "file_hashes": {
-    "bh_recycling.json": "sha256:05862a2fb42d1edf39692672cb6431f6704098cb07058644499f23f9533bf91c",
-    "censoring.json": "sha256:f6ae54a232d81e3b02611d9508214b528f02d1add29fbb5c976070258b8757e4",
-    "claim.md": "sha256:2c9526d08e825f9c6692d50ae69852c29294383c23137192141da43a63c5f3cc",
-    "compact_history.json": "sha256:4e09c43702b16b0d1f540467e94d83f64e653f1616f54e57d3136ca3885331f9",
-    "compact_quotient.json": "sha256:c4959052d4e83bf44642c576723043d6926395e30cababa96cce62e362281913",
-    "detector_thinning.json": "sha256:a36992f23649fb4f55f7d6bc0a8aa9ccc9829cdabd0ccb3a594f828bfe7cc610",
-    "frb_controls.json": "sha256:b105624f5cac8d86d7a2122e582334bae93d1f09893c2b664ec77ad636bd50cd",
-    "manifest.json": "sha256:1a0e5e29d7a79cd523e9c6f96d284c3fee64e1389193e4b81b5085568ab53526",
-    "packet_parent.json": "sha256:b2b5aae32afbfc92c1b71bf3db4722bdeb588d0ac4549b72d66c661bbeed8c68",
-    "point_process_likelihood.json": "sha256:8e5336f27eead876b24c2ff7472d8aacc9c5f10f8658bdb33badf2ee78a5b25c",
-    "promotion_audit.json": "sha256:35f0cafa07f8e924b07b19fd2e6a48643db838a1ba1659a94e77fefc8dbd0133",
-    "refinement_accuracy.json": "sha256:0bf66b9a77d20fcdfa27fe470df54e8d09d6d3a0ea4cdd7626a290e4f8090611",
-    "repair_emission_kernel.json": "sha256:85726f46e1f94311e8a8dd7c244b624b975e434cb3ee429df394aef44b83cb02",
-    "source_law.json": "sha256:cae718f290492265f514f67cd3846bbd4ba213d5b47f030f08ce8a15515739bd"
+  "evidence_checks": {
+    "CENSORING_AND_UPPER_LIMIT_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "COMPACT_QUOTIENT_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "COMPACT_SOURCE_LAW_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "CONTROL_MODEL_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "DETECTION_THINNING_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "FINITE_PACKET_PARENT_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "FROZEN_HASHES_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "HELDOUT_LIKELIHOOD_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "PACKETIZED_KERNEL_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "PHYSICAL_CLOCK_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "POINT_PROCESS_LIKELIHOOD_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "PROPAGATION_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    },
+    "REFINEMENT_STABILITY_RECEIPT": {
+      "reason": "no evidence artifact supplied",
+      "status": "MISSING"
+    }
   },
-  "first_blocked_gate": "CONTROLS",
-  "generated_utc": "2026-07-08T13:19:00Z",
+  "file_hashes": {
+    "bh_recycling.json": "sha256:2e8cb236794064e2c95da1114b2ed7db144199f52c31ad1f1eec197f103d33aa",
+    "censoring.json": "sha256:ab51e3cd7dd6f3726cfde5c1340eddae288898b7eb2b9e311e2b766057c8c526",
+    "claim.md": "sha256:17ed27085b3ec891ad29fc8beda06424c6b29fdf5761c09991a0e1faaf53f6f0",
+    "compact_history.json": "sha256:92fbbd0f24b49e1177753aad90a3b0257dfe0e99a62047acc6003d75da4e961c",
+    "compact_quotient.json": "sha256:3501669244897b792bb642afa518ac8b319ef4628c8cb3aac79ad48198ead51a",
+    "detector_thinning.json": "sha256:c72bf65489fafc8b67aa2d5b5d2bcbbe5da9966c6ecd9ef2543628d51ddc045a",
+    "frb_controls.json": "sha256:77bdf870b27a520680cf1dee10a1026d8c88b7156c76c0ad1077dac5dcbf01dc",
+    "manifest.json": "sha256:c2b711454193a728f0550435e5787105d0048f927e3396de079555b9d2f7b9a6",
+    "packet_parent.json": "sha256:d68f4158c51957452259cc8cc64f54fae3a42f8df36230b235be450220c12f0e",
+    "point_process_likelihood.json": "sha256:389ddc01a9e957351b42c57b4c141847b2bbe9afd41e73138804223c2c3fdf5b",
+    "promotion_audit.json": "sha256:91cddab7754a965ebf55a8191781c3bac8ccea86f8362e6f2b70b4429097c0f7",
+    "refinement_accuracy.json": "sha256:cec6d11ae492e4c5b082ed5d880d3ce3ae51c226b92d98a6773035363c0c46e6",
+    "repair_emission_kernel.json": "sha256:46ad9548d521cc244616355094f4913cfc9655fa512de81111c69ae88b94beb3",
+    "source_law.json": "sha256:d2a7176e59701cd9032fe29e4fea07505aa95485d9e79efbd75b7aae6fe2ab91"
+  },
+  "first_blocked_gate": "COMPACT_QUOTIENT_RECEIPT",
+  "generated_by": "compact-transient-receipt-builder/v1",
+  "generated_utc": "2026-08-01T23:20:00Z",
   "milestone": "COMPACT_TRANSIENT_RECEIPT_SCAFFOLD",
   "missing_files": [],
   "physical_claim": false,
@@ -38,6 +93,6 @@
     "promotion_audit.json",
     "claim.md"
   ],
-  "strongest_allowed_claim": "CR2_CONDITIONAL_PHENOMENOLOGY",
+  "strongest_allowed_claim": "CR1_QUOTIENT_DIAGNOSTIC",
   "target_leak_hits": []
 }
