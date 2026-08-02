@@ -24,6 +24,8 @@ the same strict history checks for its append-only proof and decision-rule
 repairs. The explicit
 ``--verify-fz11-lean`` gate re-elaborates the repaired proof and accepts exactly
 five standard-axiom reports with no ``sorryAx``; it never skips when requested.
+FZ-12 is bound independently to its exact source commit, root custody commit,
+canonical source receipt, open physical-promotion gates, and frozen snapshot.
 """
 
 from __future__ import annotations
@@ -136,6 +138,42 @@ FZ11_ROW_KILL_BAND = (
     "twelve-port physical propagation branch; it is OPH-wide only if issue #655 "
     "proves that branch forced and exclusive."
 )
+FZ12_RECEIPT_REL = (
+    "code/a5_fingerprint/runtime/"
+    "seam_current_edge_prediction_receipt.json"
+)
+FZ12_RECEIPT_PATH = ROOT / FZ12_RECEIPT_REL
+FZ12_CARRIER_LEAN_REL = "Lean/Screen/SeamCurrentCarrierQuotient.lean"
+FZ12_MOMENT_LEAN_REL = "Lean/Screen/SeamCurrentEdge30Moment.lean"
+FZ12_RAY_LEAN_REL = "Lean/Screen/A5OrbitRaySeparation.lean"
+FZ12_SOURCE_COMMIT = "bc5595f8dbb2d2886e2a64ddf447f69fbb00eb3f"
+FZ12_CUSTODY_COMMIT = "54b450af0bb5bd0fee4842f5c5f654d08d6baa2d"
+FZ12_FROZEN_UTC = "2026-08-02T11:52:27Z"
+FZ12_DECISION_RULE_CUSTODY_COMMIT = "25da61a800226e0232336ccc86de8dec7d6b51c6"
+FZ12_DECISION_RULE_UTC = "2026-08-02T12:37:49Z"
+FZ12_DECISION_RULE_MANIFEST = "fz12_decision_rule_manifest_2026-08-02.json"
+FZ12_DECISION_RULE_JSON = "fz12_decision_rule_v2_2026-08-02.json"
+FZ12_DECISION_RULE_NOTE = "FZ12_DECISION_RULE_CLARIFICATION_2026-08-02.md"
+FZ12_SCHEMA = "oph.seam_current_edge_prediction_candidate.v1"
+FZ12_STATUS = (
+    "EXACT_SOURCE_NATIVE_EDGE_RAY__PROSPECTIVE_PHYSICAL_BRANCH_UNARMED__"
+    "PHYSICAL_PRODUCER_OPEN"
+)
+FZ12_FREEZE_SCHEMA = "oph.fz12.seam_current_edge_prediction.freeze.v1"
+FZ12_FREEZE_STATUS = (
+    "FROZEN_CONDITIONAL_SOURCE_SEAM_EDGE_BRANCH__PHYSICAL_PRODUCER_OPEN__"
+    "COMPARISON_INELIGIBLE"
+)
+FZ12_CUSTODY_PATH = "falsification/frozen_targets/fz12_2026-08-02"
+FZ12_TARGET_FILE = "frozen_target_seam_current_edge_prediction_2026-08-02.md"
+FZ12_PREDICTION_FILE = "seam_current_edge_prediction_frozen_2026-08-02.json"
+FZ12_MANIFEST_FILE = "registration_manifest_2026-08-02.json"
+FZ12_IN_REPO_ARTIFACTS = {
+    FZ12_RECEIPT_REL,
+    FZ12_CARRIER_LEAN_REL,
+    FZ12_MOMENT_LEAN_REL,
+    FZ12_RAY_LEAN_REL,
+}
 FZ04_VERDICT_REL = (
     "code/particles/alpha_hvp_audit/outputs/alpha_hvp_class_verdict.json"
 )
@@ -233,6 +271,19 @@ FZ11_CONTRACT_EXTRA_KEYS = {
     "lean_repair_manifest_sha256",
     "lean_repair_artifact_sha256",
     "lean_repair_attestation_state",
+    "decision_rule_custody_commit",
+    "decision_rule_utc",
+    "decision_rule_manifest",
+    "decision_rule_manifest_sha256",
+    "decision_rule_artifact_sha256",
+    "decision_rule_attestation_state",
+}
+FZ12_CONTRACT_EXTRA_KEYS = {
+    "source_commit",
+    "custody_commit",
+    "frozen_utc",
+    "target_file",
+    "prediction_file",
     "decision_rule_custody_commit",
     "decision_rule_utc",
     "decision_rule_manifest",
@@ -476,6 +527,149 @@ def verify_fz11_source_history(
     }
 
 
+def verify_fz12_source_history(
+    contract: dict[str, Any], repo_root: Path = ROOT
+) -> dict[str, Any]:
+    """Bind the FZ-12 receipt and its complete input closure to one commit."""
+
+    checkout = git_checkout_root(repo_root)
+    if checkout is None:
+        return {
+            "state": "git_history_not_present",
+            "repo_root": str(repo_root),
+        }
+    verified = verify_commit_blobs(
+        checkout,
+        contract["source_commit"],
+        contract["in_repo_artifact_sha256"],
+        "FZ-12 source commit",
+    )
+    receipt_raw = read_commit_blob(
+        checkout,
+        contract["source_commit"],
+        FZ12_RECEIPT_REL,
+        "FZ-12 historical receipt",
+    )
+    try:
+        receipt = json.loads(receipt_raw)
+    except json.JSONDecodeError as error:
+        fail(f"FZ-12 historical receipt is invalid JSON: {error}")
+    if receipt_raw != canonical_json_bytes(receipt):
+        fail("FZ-12 historical receipt must use canonical JSON bytes")
+    pins = receipt.get("parent_pins")
+    if not isinstance(pins, list) or len(pins) != 4:
+        fail("FZ-12 historical receipt must retain exactly four parent pins")
+    historical_parent_blobs: dict[str, str] = {}
+    for index, pin in enumerate(pins):
+        if not isinstance(pin, dict) or set(pin) != {"bytes", "path", "role", "sha256"}:
+            fail(f"FZ-12 historical parent pin {index} has invalid structure")
+        relative_path = pin.get("path")
+        digest = pin.get("sha256")
+        byte_count = pin.get("bytes")
+        if not isinstance(relative_path, str) or not isinstance(digest, str):
+            fail(f"FZ-12 historical parent pin {index} lacks a typed path or hash")
+        require_sha256(
+            digest.removeprefix("sha256:"),
+            f"FZ-12 historical parent pin {relative_path!r}",
+        )
+        blob = read_commit_blob(
+            checkout,
+            contract["source_commit"],
+            relative_path,
+            "FZ-12 historical parent closure",
+        )
+        actual_digest = "sha256:" + sha256_bytes(blob)
+        if actual_digest != digest or len(blob) != byte_count:
+            fail(
+                "FZ-12 historical parent pin mismatch at source commit: "
+                f"{relative_path}"
+            )
+        historical_parent_blobs[relative_path] = actual_digest.removeprefix("sha256:")
+    return {
+        "state": "verified",
+        "repo_root": str(checkout),
+        "source_commit": contract["source_commit"],
+        "blobs": verified,
+        "historical_parent_blobs": historical_parent_blobs,
+    }
+
+
+def verify_fz12_custody_history(
+    contract: dict[str, Any], custody_root: Path
+) -> dict[str, Any]:
+    """Bind the original FZ-12 package and append-only rule clarification."""
+
+    checkout = git_checkout_root(custody_root)
+    if checkout is None:
+        return {
+            "state": "git_history_not_present",
+            "repo_root": str(custody_root),
+        }
+    custody_rel = Path(contract["custody_path"])
+    original_expected: dict[str, str] = {
+        (custody_rel / contract["registration_manifest"]).as_posix(): contract[
+            "registration_manifest_sha256"
+        ]
+    }
+    for filename, digest in contract["artifact_sha256"].items():
+        original_expected[(custody_rel / filename).as_posix()] = digest
+    decision_expected = dict(original_expected)
+    decision_expected[
+        (custody_rel / contract["decision_rule_manifest"]).as_posix()
+    ] = contract["decision_rule_manifest_sha256"]
+    for filename, digest in contract["decision_rule_artifact_sha256"].items():
+        decision_expected[(custody_rel / filename).as_posix()] = digest
+    original = verify_commit_blobs(
+        checkout,
+        contract["custody_commit"],
+        original_expected,
+        "FZ-12 root custody commit",
+    )
+    clarified = verify_commit_blobs(
+        checkout,
+        contract["decision_rule_custody_commit"],
+        decision_expected,
+        "FZ-12 decision-rule root custody commit",
+    )
+    original_proof_count = verify_commit_ots_bindings(
+        checkout,
+        contract["custody_commit"],
+        original_expected,
+        contract["attestation_state"],
+        "FZ-12 root custody proofs",
+    )
+    decision_rule_proof_count = verify_commit_ots_bindings(
+        checkout,
+        contract["decision_rule_custody_commit"],
+        decision_expected,
+        contract["decision_rule_attestation_state"],
+        "FZ-12 decision-rule root custody proofs",
+    )
+    verify_direct_parent(
+        checkout,
+        contract["decision_rule_custody_commit"],
+        contract["custody_commit"],
+        "FZ-12 decision-rule custody ancestry",
+    )
+    for path, digest in original.items():
+        if clarified.get(path) != digest:
+            fail(
+                "FZ-12 decision-rule clarification changed original custody blob "
+                f"{path}"
+            )
+    return {
+        "state": "verified",
+        "repo_root": str(checkout),
+        "custody_commit": contract["custody_commit"],
+        "decision_rule_commit": contract["decision_rule_custody_commit"],
+        "original_blob_count": len(original),
+        "decision_rule_blob_count": len(clarified),
+        "original_proof_count": original_proof_count,
+        "decision_rule_proof_count": decision_rule_proof_count,
+        "decision_rule_is_direct_child": True,
+    }
+
+
 def verify_fz11_custody_history(
     contract: dict[str, Any], custody_root: Path, directory: Path
 ) -> dict[str, Any]:
@@ -710,11 +904,11 @@ def validate_custody_contracts(
     register: dict, rows_by_id: dict[str, dict]
 ) -> dict[str, dict]:
     contracts = register.get("external_custody_contracts")
-    expected_contracts = {"FZ-01", "FZ-02", "FZ-10", "FZ-11"}
+    expected_contracts = {"FZ-01", "FZ-02", "FZ-10", "FZ-11", "FZ-12"}
     if not isinstance(contracts, dict) or set(contracts) != expected_contracts:
         fail(
             "external_custody_contracts must contain exactly FZ-01, FZ-02, "
-            "FZ-10, and FZ-11"
+            "FZ-10, FZ-11, and FZ-12"
         )
 
     claimed_rows: set[str] = set()
@@ -723,6 +917,8 @@ def validate_custody_contracts(
             expected_keys = COMMON_CONTRACT_KEYS | FZ02_CONTRACT_EXTRA_KEYS
         elif contract_id == "FZ-11":
             expected_keys = COMMON_CONTRACT_KEYS | FZ11_CONTRACT_EXTRA_KEYS
+        elif contract_id == "FZ-12":
+            expected_keys = COMMON_CONTRACT_KEYS | FZ12_CONTRACT_EXTRA_KEYS
         else:
             expected_keys = COMMON_CONTRACT_KEYS
         if not isinstance(contract, dict) or set(contract) != expected_keys:
@@ -952,6 +1148,96 @@ def validate_custody_contracts(
             if contract["decision_rule_attestation_state"] not in ATTESTATION_STATES:
                 fail("FZ-11 decision-rule correction has an unknown attestation state")
 
+        if contract_id == "FZ-12":
+            for key in (
+                "source_commit",
+                "custody_commit",
+                "decision_rule_custody_commit",
+            ):
+                if not isinstance(contract[key], str) or not GIT_COMMIT_RE.fullmatch(
+                    contract[key]
+                ):
+                    fail(
+                        f"external_custody_contracts[FZ-12].{key} must be a full commit"
+                    )
+            if contract["source_commit"] != FZ12_SOURCE_COMMIT:
+                fail("FZ-12 source commit must contain the frozen producer bytes")
+            if contract["custody_commit"] != FZ12_CUSTODY_COMMIT:
+                fail("FZ-12 custody commit must contain the stamped freeze package")
+            if (
+                contract["decision_rule_custody_commit"]
+                != FZ12_DECISION_RULE_CUSTODY_COMMIT
+            ):
+                fail(
+                    "FZ-12 decision-rule custody commit must contain the "
+                    "append-only clarification"
+                )
+            contract_time = parse_utc(
+                contract["frozen_utc"],
+                "external_custody_contracts[FZ-12].frozen_utc",
+            )
+            row_time = parse_utc(rows_by_id["FZ-12"]["frozen_utc"], "FZ-12.frozen_utc")
+            if (
+                contract["frozen_utc"] != FZ12_FROZEN_UTC
+                or rows_by_id["FZ-12"]["frozen_utc"] != FZ12_FROZEN_UTC
+                or row_time != contract_time
+            ):
+                fail("FZ-12 row and custody contract must carry the fixed freeze time")
+            decision_rule_time = parse_utc(
+                contract["decision_rule_utc"],
+                "external_custody_contracts[FZ-12].decision_rule_utc",
+            )
+            if (
+                decision_rule_time <= contract_time
+                or contract["decision_rule_utc"] != FZ12_DECISION_RULE_UTC
+            ):
+                fail("FZ-12 decision-rule clarification must follow the original freeze")
+            if contract["rows"] != ["FZ-12"]:
+                fail("FZ-12 custody contract must bind exactly row FZ-12")
+            if contract["custody_path"] != FZ12_CUSTODY_PATH:
+                fail("FZ-12 custody path drifted from its stamped package")
+            if contract["registration_manifest"] != FZ12_MANIFEST_FILE:
+                fail("FZ-12 registration manifest file name drifted")
+            if contract["target_file"] != FZ12_TARGET_FILE:
+                fail("FZ-12 target file name drifted")
+            if contract["prediction_file"] != FZ12_PREDICTION_FILE:
+                fail("FZ-12 prediction file name drifted")
+            if set(artifacts) != {FZ12_TARGET_FILE, FZ12_PREDICTION_FILE}:
+                fail("FZ-12 custody contract must pin exactly its target and snapshot")
+            if set(in_repo) != FZ12_IN_REPO_ARTIFACTS:
+                fail(
+                    "FZ-12 must pin exactly its prediction receipt and three Lean proofs"
+                )
+            require_sha256(
+                contract["decision_rule_manifest_sha256"],
+                "external_custody_contracts[FZ-12].decision_rule_manifest_sha256",
+            )
+            decision_artifacts = validate_hash_mapping(
+                contract["decision_rule_artifact_sha256"],
+                "external_custody_contracts[FZ-12].decision_rule_artifact_sha256",
+            )
+            if set(decision_artifacts) != {
+                FZ12_DECISION_RULE_NOTE,
+                FZ12_DECISION_RULE_JSON,
+            }:
+                fail("FZ-12 decision-rule artifact contract is incomplete")
+            if contract["decision_rule_manifest"] != FZ12_DECISION_RULE_MANIFEST:
+                fail("FZ-12 decision_rule_manifest file name drifted")
+            if contract["decision_rule_attestation_state"] not in ATTESTATION_STATES:
+                fail("FZ-12 decision-rule clarification has an unknown attestation state")
+            row = rows_by_id["FZ-12"]
+            if (
+                row.get("status") != "frozen_stamped_upgrade_pending"
+                or row.get("owning_issue") != 666
+                or row.get("milestone") != "C3-V"
+                or FZ12_SOURCE_COMMIT not in str(row.get("custody", ""))
+                or FZ12_CUSTODY_COMMIT not in str(row.get("custody", ""))
+                or FZ12_DECISION_RULE_CUSTODY_COMMIT
+                not in str(row.get("custody", ""))
+                or FZ12_CUSTODY_PATH not in str(row.get("custody", ""))
+            ):
+                fail("FZ-12 row ownership, status, or custody binding drifted")
+
     return contracts
 
 
@@ -1072,6 +1358,318 @@ def validate_fz11_prediction(
         or "imitate" not in str(baseline.get("nonuniqueness", ""))
     ):
         fail("FZ-11 baseline contrast drifted")
+
+
+def validate_fz12_prediction(
+    rows_by_id: dict[str, dict], contract: dict[str, Any]
+) -> None:
+    """Bind FZ-12 to its exact source ray and keep comparison fail-closed."""
+
+    raw = FZ12_RECEIPT_PATH.read_bytes()
+    try:
+        receipt = json.loads(raw)
+    except json.JSONDecodeError as error:
+        fail(f"FZ-12 prediction receipt is invalid JSON: {error}")
+    if raw != canonical_json_bytes(receipt):
+        fail("FZ-12 prediction receipt must use canonical JSON bytes")
+    expected_keys = {
+        "baseline_contrast",
+        "conditional_physical_candidate",
+        "exact_source_result",
+        "exposure_and_custody_boundary",
+        "fz11_separation",
+        "issue",
+        "parent_pins",
+        "physical_premises",
+        "producer_scope",
+        "promotion_gates",
+        "prospective_decision_rule",
+        "receipt_sha256",
+        "schema",
+        "status",
+    }
+    if set(receipt) != expected_keys:
+        fail("FZ-12 prediction receipt keys drifted")
+    if receipt.get("schema") != FZ12_SCHEMA or receipt.get("status") != FZ12_STATUS:
+        fail("FZ-12 prediction receipt schema or status drifted")
+    body = {key: value for key, value in receipt.items() if key != "receipt_sha256"}
+    expected_self_digest = "sha256:" + sha256_bytes(canonical_json_bytes(body))
+    if receipt.get("receipt_sha256") != expected_self_digest:
+        fail("FZ-12 prediction receipt self-digest mismatch")
+
+    row = rows_by_id["FZ-12"]
+    raw_digest = sha256_bytes(raw)
+    if row.get("content_sha256") != raw_digest:
+        fail("FZ-12 content hash must equal the canonical prediction receipt bytes")
+    if contract["in_repo_artifact_sha256"].get(FZ12_RECEIPT_REL) != raw_digest:
+        fail("FZ-12 custody contract does not bind the canonical prediction receipt")
+    if receipt.get("issue") != 666 or row.get("owning_issue") != 666:
+        fail("FZ-12 must remain owned by physical-producer issue #666")
+    if (
+        "exact D6 image" not in row.get("content", "")
+        or "B0/C4^2=10/21" not in row.get("content", "")
+        or "B6/C4^2=-2/63" not in row.get("content", "")
+        or "B6/B0=-1/15" not in row.get("content", "")
+        or "without proving the physical field action" not in row.get("content", "")
+        or "opposite rank-six sign" not in row.get("content", "")
+    ):
+        fail("FZ-12 registry content drifted from its bounded edge-ray claim")
+    if (
+        "Physical comparison is ineligible and unarmed"
+        not in row.get("comparison_protocol", "")
+        or "source-derived homogeneous position action"
+        not in row.get("comparison_protocol", "")
+        or "post-custody dataset-specific contract"
+        not in row.get("comparison_protocol", "")
+        or "#664" not in row.get("comparison_protocol", "")
+        or "FZ-11" not in row.get("comparison_protocol", "")
+    ):
+        fail("FZ-12 registry comparison protocol is no longer fail-closed")
+    if (
+        any(f"FZ12-R0{index}" not in row.get("kill_band", "") for index in range(1, 6))
+        or "append-only clarification" not in row.get("kill_band", "")
+        or "including every a >= a_min" not in row.get("kill_band", "")
+        or "Without that lower bound and power calculation" not in row.get(
+            "kill_band", ""
+        )
+        or "OPH-wide only after a forced and exclusive physical bridge theorem"
+        not in row.get("kill_band", "")
+    ):
+        fail("FZ-12 registry decision rule or scope of failure drifted")
+
+    source = receipt.get("exact_source_result", {})
+    geometry = source.get("finite_geometry_replay", {})
+    if set(source) != {
+        "finite_geometry_replay",
+        "metric_completion",
+        "scope_boundary",
+        "seam_current_image",
+    }:
+        fail("FZ-12 exact source-result keys drifted")
+    if (
+        source.get("seam_current_image")
+        != "D6 = {z in Z^6 : the coordinate sum is even}; the residual cokernel is one parity bit"
+        or "same response-selected Euclidean three-carrier"
+        not in str(source.get("metric_completion", ""))
+        or "do not identify seam currents with physical motion"
+        not in str(source.get("scope_boundary", ""))
+        or geometry.get("source_ports") != 12
+        or geometry.get("source_seams") != 30
+        or geometry.get("signed_edge_directions") != 30
+        or geometry.get("unoriented_axes") != 15
+        or geometry.get("directed_seam_labels") != 60
+        or geometry.get("port_degree") != 5
+        or geometry.get("seam_difference_norm_squared") != "4+0*sqrt5"
+        or geometry.get("edge_midpoint_norm_squared") != "6+2*sqrt5"
+        or geometry.get("even_moments_on_unit_sphere")
+        != {
+            "sum_w_dot_n_squared": "10",
+            "sum_w_dot_n_fourth": "6",
+            "sum_w_dot_n_sixth": "30/7 - (2/7) I6(n)",
+        }
+    ):
+        fail("FZ-12 exact finite source geometry or moments drifted")
+
+    candidate = receipt.get("conditional_physical_candidate", {})
+    if candidate.get("coefficients") != {
+        "C4_over_a2": "-1/20",
+        "B0_over_a4": "1/840",
+        "B6_over_a4": "-1/12600",
+    }:
+        fail("FZ-12 edge coefficients drifted")
+    if candidate.get("scale_free_relations") != {
+        "B0_over_C4_squared": "10/21",
+        "B6_over_C4_squared": "-2/63",
+        "B6_over_B0": "-1/15",
+    }:
+        fail("FZ-12 scale-free coefficient manifold drifted")
+    if candidate.get("signs") != {
+        "B0": "positive",
+        "B6": "negative",
+        "C4": "negative",
+    }:
+        fail("FZ-12 coefficient signs drifted")
+    if (
+        candidate.get("operator")
+        != "Λ_a(k,n) = (1/(5 a^2)) sum_{j=1}^{30} [1 - cos(a k w_j.n)]"
+        or "spatial kinetic eigenvalue" not in str(candidate.get("symbol_name", ""))
+        or "not automatically a frequency squared"
+        not in str(candidate.get("symbol_name", ""))
+        or "ranks one through five vanish"
+        not in str(candidate.get("harmonic_nulls", ""))
+        or "SO(3)/A5" not in str(candidate.get("fit_freedom_after_C4", ""))
+    ):
+        fail("FZ-12 operator, angular nulls, or orientation nuisance drifted")
+
+    expected_premises = {
+        "cofinal_gluing",
+        "complete_support",
+        "continuum_normalization",
+        "equal_weights",
+        "exclusivity",
+        "finite_scale",
+        "frame_and_boost",
+        "homogeneous_translation_action",
+        "physical_sector",
+        "positive_scale_lower_bound",
+        "readout_and_nuisance",
+        "seam_as_displacement",
+    }
+    premises = receipt.get("physical_premises", {})
+    if set(premises) != expected_premises:
+        fail("FZ-12 must retain every named physical premise")
+    if (
+        "a >= a_min > 0" not in str(premises.get("positive_scale_lower_bound", ""))
+        or "no experimental power against a null"
+        not in str(premises.get("positive_scale_lower_bound", ""))
+    ):
+        fail("FZ-12 must retain its source-derived lower-bound gate")
+
+    exposure = receipt.get("exposure_and_custody_boundary", {})
+    if set(exposure) != {
+        "candidate_registration",
+        "comparison_data_read",
+        "comparison_inputs",
+        "comparison_permitted",
+        "comparison_state",
+        "excluded_data_class",
+        "public_measurement_read",
+        "source_inputs_only",
+        "target_values_read",
+    }:
+        fail("FZ-12 exposure-boundary keys drifted")
+    if (
+        exposure.get("comparison_data_read") is not False
+        or exposure.get("comparison_inputs") != []
+        or exposure.get("comparison_permitted") is not False
+        or exposure.get("public_measurement_read") is not False
+        or exposure.get("target_values_read") is not False
+        or exposure.get("comparison_state")
+        != "INELIGIBLE_UNARMED_PHYSICAL_PRODUCER_OPEN"
+        or "not the frozen prediction register"
+        not in str(exposure.get("candidate_registration", ""))
+        or "WMAP" not in str(exposure.get("excluded_data_class", ""))
+        or "FZ-11" not in str(exposure.get("excluded_data_class", ""))
+    ):
+        fail("FZ-12 target exposure or comparison boundary drifted")
+
+    producer = receipt.get("producer_scope", {})
+    if (
+        producer.get("frozen_prediction_registered") is not False
+        or producer.get("physical_producer_closed") is not False
+        or producer.get("type")
+        != "target-clean prospective conditional physical-branch candidate"
+        or "only if every physical promotion gate"
+        not in str(producer.get("statement", ""))
+    ):
+        fail("FZ-12 source receipt must remain a pre-freeze physical candidate")
+
+    promotion = receipt.get("promotion_gates", {})
+    expected_gates = [
+        ("seam-as-displacement identification", "#666"),
+        ("homogeneous translation action", "#663/#666"),
+        ("sole complete edge support and equal weights", "#655/#666"),
+        ("physical scalar or polarization-independent sector", "#655/#666"),
+        ("cofinal scale and observer gluing", "#663"),
+        ("finite physical carrier scale", "#664"),
+        ("source-derived positive physical scale lower bound", "#664"),
+        ("frame, boost, readout, nuisance, and exclusivity contract", "#666"),
+        ("dataset-specific post-custody preregistration", "#639"),
+    ]
+    actual_gates = promotion.get("gates")
+    if (
+        set(promotion) != {
+            "all_discharged",
+            "comparison_eligible",
+            "fail_closed_rule",
+            "gates",
+            "physical_producer_closed",
+        }
+        or promotion.get("all_discharged") is not False
+        or promotion.get("comparison_eligible") is not False
+        or promotion.get("physical_producer_closed") is not False
+        or not isinstance(actual_gates, list)
+        or [
+            (gate.get("gate"), gate.get("owner"), gate.get("status"))
+            for gate in actual_gates
+            if isinstance(gate, dict)
+        ]
+        != [(name, owner, "OPEN") for name, owner in expected_gates]
+        or any(set(gate) != {"gate", "owner", "status"} for gate in actual_gates)
+        or "no comparison may be armed"
+        not in str(promotion.get("fail_closed_rule", ""))
+    ):
+        fail("FZ-12 physical promotion gates drifted or were promoted without proof")
+
+    decision = receipt.get("prospective_decision_rule", {})
+    if (
+        set(decision) != {
+            "eligibility",
+            "fail",
+            "inconclusive",
+            "no_null_verdict",
+            "scope_of_failure",
+            "support",
+            "trigger",
+        }
+        or "all physical promotion gates" not in str(decision.get("eligibility", ""))
+        or "negative-B6 edge relation" not in str(decision.get("fail", ""))
+        or "source-derived lower bound"
+        not in str(decision.get("no_null_verdict", ""))
+        or "forced and exclusive" not in str(decision.get("scope_of_failure", ""))
+    ):
+        fail("FZ-12 prospective decision rule drifted")
+
+    separation = receipt.get("fz11_separation", {})
+    if separation != {
+        "edge_B6_over_C4_squared": "-2/63",
+        "fz11_bytes_modified": False,
+        "fz11_prediction_receipt_read": False,
+        "fz11_register_id": "FZ-11",
+        "opposite_rank_six_sign": True,
+        "relationship": (
+            "FZ-11 freezes the conditional primitive-vertex ray; this packet "
+            "records the distinct source-native edge ray and cannot amend, "
+            "reinterpret, or score FZ-11"
+        ),
+        "supersedes_fz11": False,
+        "vertex_B6_over_C4_squared": "32/315",
+    }:
+        fail("FZ-12 must remain distinct from and must not supersede FZ-11")
+    fz11 = rows_by_id.get("FZ-11", {})
+    if (
+        fz11.get("status") not in FROZEN_STATUSES
+        or "B6/C4^2=32/315" not in str(fz11.get("content", ""))
+        or fz11.get("content_sha256") == row.get("content_sha256")
+    ):
+        fail("FZ-11 and FZ-12 must remain separately frozen coefficient rays")
+
+    pins = receipt.get("parent_pins")
+    if not isinstance(pins, list) or len(pins) != 4:
+        fail("FZ-12 must retain exactly four source parent pins")
+    pins_by_path = {
+        pin.get("path"): pin for pin in pins if isinstance(pin, dict)
+    }
+    expected_pin_paths = {
+        "code/a5_fingerprint/runtime/a5_multipole_fixed_point_receipt.json",
+        FZ12_CARRIER_LEAN_REL,
+        FZ12_MOMENT_LEAN_REL,
+        FZ12_RAY_LEAN_REL,
+    }
+    if set(pins_by_path) != expected_pin_paths:
+        fail("FZ-12 source parent-pin set drifted")
+    for relative_path, pin in pins_by_path.items():
+        if set(pin) != {"bytes", "path", "role", "sha256"}:
+            fail(f"FZ-12 parent pin {relative_path} has unexpected keys")
+        source_path = ROOT / relative_path
+        expected_hash = "sha256:" + sha256_file(source_path)
+        if pin.get("sha256") != expected_hash or pin.get("bytes") != source_path.stat().st_size:
+            fail(f"FZ-12 parent pin differs from live source bytes: {relative_path}")
+        if relative_path in FZ12_IN_REPO_ARTIFACTS and (
+            contract["in_repo_artifact_sha256"].get(relative_path)
+            != expected_hash.removeprefix("sha256:")
+        ):
+            fail(f"FZ-12 custody contract does not bind parent pin {relative_path}")
 
 
 def validate_retrospective_results(register: dict) -> set[str]:
@@ -1198,7 +1796,7 @@ def validate(register: dict) -> list[dict]:
             f"rows: {sorted(overlap)}"
         )
     allocated = sorted(set(seen_ids) | former_reservations)
-    expected_allocated = [f"FZ-{index:02d}" for index in range(1, 12)]
+    expected_allocated = [f"FZ-{index:02d}" for index in range(1, 13)]
     if allocated != expected_allocated:
         fail(
             "ladder rows and explicitly retired reservations must account for "
@@ -1267,6 +1865,8 @@ def validate(register: dict) -> list[dict]:
     contracts = validate_custody_contracts(register, rows_by_id)
     verify_fz11_source_history(contracts["FZ-11"])
     validate_fz11_prediction(rows_by_id, contracts["FZ-11"])
+    verify_fz12_source_history(contracts["FZ-12"])
+    validate_fz12_prediction(rows_by_id, contracts["FZ-12"])
 
     fz02 = rows_by_id.get("FZ-02", {})
     if (
@@ -1502,6 +2102,9 @@ def verify_external_custody(
             "fz11_custody_git_history": {
                 "state": "external_custody_not_present"
             },
+            "fz12_custody_git_history": {
+                "state": "external_custody_not_present"
+            },
             "contracts": {
                 contract_id: {
                     "verification": "external_custody_not_present",
@@ -1513,6 +2116,9 @@ def verify_external_custody(
 
     results: dict[str, dict[str, str]] = {}
     fz11_custody_git_history: dict[str, Any] = {
+        "state": "external_custody_not_present"
+    }
+    fz12_custody_git_history: dict[str, Any] = {
         "state": "external_custody_not_present"
     }
     for contract_id, contract in contracts.items():
@@ -1550,6 +2156,30 @@ def verify_external_custody(
                 or "prediction frozen before" not in str(manifest.get("policy", ""))
             ):
                 fail("FZ-11 registration manifest bindings drifted")
+        if contract_id == "FZ-12":
+            if set(manifest) != {
+                "registration",
+                "frozen_utc",
+                "source_commit",
+                "policy",
+                "artifacts",
+                "in_repo_artifacts",
+            }:
+                fail("FZ-12 registration manifest keys drifted")
+            if (
+                manifest.get("registration")
+                != "FZ-12 source-seam edge propagation branch"
+                or manifest.get("source_commit") != contract["source_commit"]
+                or manifest.get("frozen_utc") != contract["frozen_utc"]
+                or manifest.get("in_repo_artifacts")
+                != contract["in_repo_artifact_sha256"]
+                or "before any new target or comparison data are examined"
+                not in str(manifest.get("policy", ""))
+                or "FZ-11" not in str(manifest.get("policy", ""))
+                or "physical producer" not in str(manifest.get("policy", ""))
+                or "unarmed" not in str(manifest.get("policy", ""))
+            ):
+                fail("FZ-12 registration manifest bindings drifted")
 
         state = contract["attestation_state"]
         for filename, expected_hash in contract["artifact_sha256"].items():
@@ -1874,6 +2504,258 @@ def verify_external_custody(
                 contract, custody_root, directory
             )
 
+        if contract_id == "FZ-12":
+            prediction_path = directory / contract["prediction_file"]
+            try:
+                prediction = json.loads(prediction_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as error:
+                fail(f"FZ-12 frozen prediction snapshot is invalid JSON: {error}")
+            if set(prediction) != {
+                "schema",
+                "frozen_utc",
+                "source_commit",
+                "source_receipt",
+                "source_receipt_sha256",
+                "status",
+                "operator",
+                "coefficients",
+                "scale_free_relations",
+                "harmonic_nulls",
+                "shape",
+                "comparison_state",
+                "new_target_or_comparison_data_read",
+                "positive_scale_lower_bound_required_for_null",
+                "excluded_prior_data",
+                "fz11_superseded",
+                "scope_of_failure",
+            }:
+                fail("FZ-12 frozen prediction snapshot keys drifted")
+            if (
+                prediction.get("schema") != FZ12_FREEZE_SCHEMA
+                or prediction.get("frozen_utc") != contract["frozen_utc"]
+                or prediction.get("source_commit") != contract["source_commit"]
+                or prediction.get("source_receipt") != FZ12_RECEIPT_REL
+                or prediction.get("source_receipt_sha256")
+                != contract["in_repo_artifact_sha256"][FZ12_RECEIPT_REL]
+                or prediction.get("status") != FZ12_FREEZE_STATUS
+                or prediction.get("operator")
+                != "Lambda_a(k,n) = (1/(5 a^2)) sum_{j=1}^{30} [1 - cos(a k w_j.n)]"
+                or prediction.get("coefficients")
+                != {
+                    "C4_over_a2": "-1/20",
+                    "B0_over_a4": "1/840",
+                    "B6_over_a4": "-1/12600",
+                }
+                or prediction.get("scale_free_relations")
+                != {
+                    "B0_over_C4_squared": "10/21",
+                    "B6_over_C4_squared": "-2/63",
+                    "B6_over_B0": "-1/15",
+                }
+                or prediction.get("harmonic_nulls") != [1, 2, 3, 4, 5]
+                or "SO(3)/A5" not in str(prediction.get("shape", ""))
+                or prediction.get("comparison_state")
+                != "INELIGIBLE_UNARMED_PHYSICAL_PRODUCER_OPEN"
+                or prediction.get("new_target_or_comparison_data_read") is not False
+                or prediction.get("positive_scale_lower_bound_required_for_null")
+                is not True
+                or "WMAP" not in str(prediction.get("excluded_prior_data", ""))
+                or "FZ-11" not in str(prediction.get("excluded_prior_data", ""))
+                or prediction.get("fz11_superseded") is not False
+                or prediction.get("scope_of_failure")
+                != (
+                    "seam-current edge physical propagation branch; OPH-wide "
+                    "only after a forced and exclusive physical bridge theorem"
+                )
+            ):
+                fail("FZ-12 frozen prediction snapshot content drifted")
+
+            target_path = directory / contract["target_file"]
+            try:
+                target_text = target_path.read_text(encoding="utf-8")
+            except UnicodeDecodeError as error:
+                fail(f"FZ-12 frozen target is not UTF-8: {error}")
+            required_target_fragments = (
+                "# FZ-12 frozen target: source-seam edge propagation branch",
+                f"Freeze time: {contract['frozen_utc']}",
+                f"Source commit: `{contract['source_commit']}`",
+                (
+                    "Canonical receipt SHA-256: `"
+                    f"{contract['in_repo_artifact_sha256'][FZ12_RECEIPT_REL]}`"
+                ),
+                "M6 = (30/7) r^6 - (2/7) I6",
+                "Lambda_a(k,n) = (1/(5 a^2))",
+                "B0/C4^2 = 10/21",
+                "B6/C4^2 = -2/63",
+                "B6/B0 = -1/15",
+                "FZ12-R01 FAIL",
+                "FZ12-R02 FAIL",
+                "FZ12-R03 FAIL",
+                "FZ12-R04 FAIL",
+                "FZ12-R05 SUPPORT",
+                "A null cannot",
+                "source-derived lower bound on `a`",
+                "FZ-11 remains the immutable primitive-vertex branch",
+                "No new target or comparison data were read",
+            )
+            if any(
+                fragment not in target_text for fragment in required_target_fragments
+            ):
+                fail("FZ-12 frozen target statement or decision rule drifted")
+
+            decision_manifest_path = directory / contract["decision_rule_manifest"]
+            if not decision_manifest_path.is_file():
+                fail("FZ-12 decision-rule clarification manifest is missing")
+            if (
+                sha256_file(decision_manifest_path)
+                != contract["decision_rule_manifest_sha256"]
+            ):
+                fail("FZ-12 decision-rule clarification manifest hash mismatch")
+            try:
+                decision_manifest = json.loads(
+                    decision_manifest_path.read_text(encoding="utf-8")
+                )
+            except json.JSONDecodeError as error:
+                fail(f"FZ-12 decision-rule clarification manifest is invalid: {error}")
+            expected_original_bindings = {
+                contract["target_file"]: contract["artifact_sha256"][
+                    contract["target_file"]
+                ],
+                contract["prediction_file"]: contract["artifact_sha256"][
+                    contract["prediction_file"]
+                ],
+                contract["registration_manifest"]: contract[
+                    "registration_manifest_sha256"
+                ],
+                "source_prediction_receipt": contract["in_repo_artifact_sha256"][
+                    FZ12_RECEIPT_REL
+                ],
+            }
+            if (
+                set(decision_manifest)
+                != {
+                    "schema",
+                    "created_utc",
+                    "original_prediction_frozen_utc",
+                    "original_source_commit",
+                    "original_custody_commit",
+                    "prediction_bytes_changed",
+                    "source_receipt_bytes_changed",
+                    "comparison_data_read",
+                    "reason",
+                    "original_bindings",
+                    "append_only_artifacts",
+                }
+                or decision_manifest.get("schema")
+                != "oph.fz12.decision_rule_clarification_manifest.v1"
+                or decision_manifest.get("created_utc")
+                != contract["decision_rule_utc"]
+                or decision_manifest.get("original_prediction_frozen_utc")
+                != contract["frozen_utc"]
+                or decision_manifest.get("original_source_commit")
+                != contract["source_commit"]
+                or decision_manifest.get("original_custody_commit")
+                != contract["custody_commit"]
+                or decision_manifest.get("prediction_bytes_changed") is not False
+                or decision_manifest.get("source_receipt_bytes_changed") is not False
+                or decision_manifest.get("comparison_data_read") is not False
+                or "null is inconclusive" not in str(decision_manifest.get("reason", ""))
+                or decision_manifest.get("original_bindings")
+                != expected_original_bindings
+                or decision_manifest.get("append_only_artifacts")
+                != contract["decision_rule_artifact_sha256"]
+            ):
+                fail("FZ-12 decision-rule clarification manifest bindings drifted")
+
+            decision_state = contract["decision_rule_attestation_state"]
+            for filename, expected_hash in contract[
+                "decision_rule_artifact_sha256"
+            ].items():
+                artifact_path = directory / filename
+                if not artifact_path.is_file():
+                    fail(f"FZ-12 decision-rule artifact is missing: {filename}")
+                if sha256_file(artifact_path) != expected_hash:
+                    fail(f"FZ-12 decision-rule artifact hash mismatch: {filename}")
+                verify_ots_binding(
+                    Path(str(artifact_path) + ".ots"), expected_hash, decision_state
+                )
+            verify_ots_binding(
+                Path(str(decision_manifest_path) + ".ots"),
+                contract["decision_rule_manifest_sha256"],
+                decision_state,
+            )
+
+            decision_path = directory / FZ12_DECISION_RULE_JSON
+            try:
+                decision_rule = json.loads(decision_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError as error:
+                fail(f"FZ-12 clarified decision rule is invalid JSON: {error}")
+            expected_rule_keys = {
+                "schema",
+                "created_utc",
+                "original_target",
+                "original_target_sha256",
+                "original_snapshot",
+                "original_snapshot_sha256",
+                "source_receipt",
+                "source_receipt_sha256",
+                "prediction_bytes_changed",
+                "comparison_data_read",
+                "prediction_manifold_changed",
+                "admissibility",
+                "fail_at_five_sigma",
+                "support",
+                "inconclusive",
+                "null_rule",
+                "scope_of_failure",
+                "excluded_exposure",
+            }
+            failures = decision_rule.get("fail_at_five_sigma")
+            if (
+                set(decision_rule) != expected_rule_keys
+                or decision_rule.get("schema")
+                != "oph.fz12.decision_rule_clarification.v1"
+                or decision_rule.get("created_utc") != contract["decision_rule_utc"]
+                or decision_rule.get("original_target") != contract["target_file"]
+                or decision_rule.get("original_target_sha256")
+                != contract["artifact_sha256"][contract["target_file"]]
+                or decision_rule.get("original_snapshot")
+                != contract["prediction_file"]
+                or decision_rule.get("original_snapshot_sha256")
+                != contract["artifact_sha256"][contract["prediction_file"]]
+                or decision_rule.get("source_receipt") != FZ12_RECEIPT_REL
+                or decision_rule.get("source_receipt_sha256")
+                != contract["in_repo_artifact_sha256"][FZ12_RECEIPT_REL]
+                or decision_rule.get("prediction_bytes_changed") is not False
+                or decision_rule.get("comparison_data_read") is not False
+                or decision_rule.get("prediction_manifold_changed") is not False
+                or not isinstance(failures, list)
+                or len(failures) != 4
+                or not str(failures[0]).startswith("FZ12-R01")
+                or "no negative-C4 trigger" not in str(failures[0])
+                or not str(failures[1]).startswith("FZ12-R02")
+                or "no negative-C4 trigger" not in str(failures[1])
+                or not str(failures[2]).startswith("FZ12-R03")
+                or "resolved negative C4" not in str(failures[2])
+                or not str(failures[3]).startswith("FZ12-R04")
+                or "same-action, same-sector source theorem"
+                not in str(decision_rule.get("null_rule", ""))
+                or "including all a >= a_min"
+                not in str(decision_rule.get("null_rule", ""))
+                or "five standard deviations or more"
+                not in str(decision_rule.get("null_rule", ""))
+                or "Without that lower bound and power calculation"
+                not in str(decision_rule.get("null_rule", ""))
+                or "OPH-wide only after a separate theorem"
+                not in str(decision_rule.get("scope_of_failure", ""))
+                or "WMAP" not in str(decision_rule.get("excluded_exposure", ""))
+            ):
+                fail("FZ-12 clarified decision-rule bindings drifted")
+
+            fz12_custody_git_history = verify_fz12_custody_history(
+                contract, custody_root
+            )
+
         results[contract_id] = {
             "verification": "verified",
             "attestation_state": state,
@@ -1882,6 +2764,7 @@ def verify_external_custody(
         "state": "verified",
         "custody_root": str(custody_root),
         "fz11_custody_git_history": fz11_custody_git_history,
+        "fz12_custody_git_history": fz12_custody_git_history,
         "contracts": results,
     }
 
@@ -2054,6 +2937,9 @@ def main() -> int:
     source_history = verify_fz11_source_history(
         register["external_custody_contracts"]["FZ-11"]
     )
+    fz12_source_history = verify_fz12_source_history(
+        register["external_custody_contracts"]["FZ-12"]
+    )
     lean_replay = verify_fz11_lean_replay() if args.verify_fz11_lean else None
     custody = verify_external_custody(register)
     surface = render(register, rows)
@@ -2076,6 +2962,10 @@ def main() -> int:
             "frozen-prediction register: FZ-11 source history "
             f"{source_history['state']}"
         )
+        print(
+            "frozen-prediction register: FZ-12 source history "
+            f"{fz12_source_history['state']}"
+        )
         if lean_replay is not None:
             print(
                 "frozen-prediction register: FZ-11 Lean replay verified "
@@ -2091,6 +2981,10 @@ def main() -> int:
     print(
         "frozen-prediction register: FZ-11 source history "
         f"{source_history['state']}"
+    )
+    print(
+        "frozen-prediction register: FZ-12 source history "
+        f"{fz12_source_history['state']}"
     )
     if lean_replay is not None:
         print(

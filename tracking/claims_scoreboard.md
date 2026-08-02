@@ -26,7 +26,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2014`. 67 claims, 19 distinct live gates across 17 gated claims.
+Release: `r2014`. 68 claims, 23 distinct live gates across 18 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -34,7 +34,7 @@ Release: `r2014`. 67 claims, 19 distinct live gates across 17 gated claims.
 | `empirical_implementation` | 3 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 47 |
+| `conditional_implication` | 48 |
 | `declared_structure` | 11 |
 
 | Claim | Class | Status | Live gates |
@@ -79,6 +79,7 @@ Release: `r2014`. 67 claims, 19 distinct live gates across 17 gated claims.
 | `OPH-SM-Q4-RESONANCE-CONTINUATION` | `conditional_implication` | `conditional_implication_defined__analytic_sheet_and_current_amplitude_open` | none |
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `operational_counting_and_dynamic_cost_exact_in_named_realization__unit_split_and_incidence_outputs_exact_on_declared_carrier` | none |
 | `OPH-A5-PRIMITIVE-PORT-SPIN6` | `conditional_implication` | `frozen_prospective_primitive_port_branch__current_source_nonselecting__physical_comparison_unarmed__stronger_bridge_open` | [#655](https://github.com/FloatingPragma/observer-patch-holography/issues/655) |
+| `OPH-A5-SEAM-CURRENT-EDGE30` | `conditional_implication` | `exact_source_native_edge_ray_and_homogeneous_internal_action__fz12_frozen__physical_position_sector_gluing_scale_frame_readout_open__comparison_unarmed` | [#639](https://github.com/FloatingPragma/observer-patch-holography/issues/639), [#663](https://github.com/FloatingPragma/observer-patch-holography/issues/663), [#664](https://github.com/FloatingPragma/observer-patch-holography/issues/664), [#666](https://github.com/FloatingPragma/observer-patch-holography/issues/666) |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `axiom_forced_abstract_lie_type__conditional_matrix_witness__source_realization_open` | [#566](https://github.com/FloatingPragma/observer-patch-holography/issues/566) |
 | `OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE` | `conditional_implication` | `exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed` | none |
 | `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT` | `conditional_implication` | `conditional_exact_matter_and_spin_fixture__physical_source_selection_open` | [#314](https://github.com/FloatingPragma/observer-patch-holography/issues/314) |
@@ -129,4 +130,8 @@ Release: `r2014`. 67 claims, 19 distinct live gates across 17 gated claims.
 | [#595](https://github.com/FloatingPragma/observer-patch-holography/issues/595) | [Source law] Attain the five measured Einstein-branch clause targets | `OPH-GR-E2E-BRANCH-ENTRY`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT` |
 | [#608](https://github.com/FloatingPragma/observer-patch-holography/issues/608) | [de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments | `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM` |
 | [#630](https://github.com/FloatingPragma/observer-patch-holography/issues/630) | [EW source integration] Compose the scalar, Yukawa, and FJ source packets | `OPH-SCREEN-24-CLOCK-DETERMINANT` |
+| [#639](https://github.com/FloatingPragma/observer-patch-holography/issues/639) | [Forecast custody] Freeze and score one exposure-typed dimensionless candidate | `OPH-A5-SEAM-CURRENT-EDGE30` |
 | [#655](https://github.com/FloatingPragma/observer-patch-holography/issues/655) | [FZ-11 physical bridge] Decide whether the frozen primitive twelve-port propagation prediction is forced and exclusive | `OPH-A5-PRIMITIVE-PORT-SPIN6` |
+| [#663](https://github.com/FloatingPragma/observer-patch-holography/issues/663) | [Repair-law adoption] Close the A1-R/A2-R source-selection gate | `OPH-A5-SEAM-CURRENT-EDGE30` |
+| [#664](https://github.com/FloatingPragma/observer-patch-holography/issues/664) | [Carrier scale] Derive the primitive-cell metric attachment and positive lower bound | `OPH-A5-SEAM-CURRENT-EDGE30` |
+| [#666](https://github.com/FloatingPragma/observer-patch-holography/issues/666) | [Seam-current discriminator] Decide the source-native edge-current propagation branch | `OPH-A5-SEAM-CURRENT-EDGE30` |

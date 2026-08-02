@@ -79,14 +79,19 @@ données et certificats :
    réponse normalisée de toutes les sondes équipondérées sélectionne un
    projecteur spectral intrinsèque de rang trois et sa forme de Gram
    normalisée à la limite des réponses longues. L’extension réelle à six
-   contrôles possède un radical de
-   dimension trois. Le module entier des registres signés n’a pas de noyau
-   métrique non nul, s’injecte densément dans le quotient et se complète en
-   un groupe vectoriel euclidien abstrait, continu et tridimensionnel.
+   contrôles possède un radical de dimension trois. La lecture des charges de
+   source est surjective sur $\mathbb Z^6$, et les courants conservatifs des
+   coutures engendrent son sous-module $D_6$ de somme paire. Dans la métrique
+   de réponse induite, les deux modules entiers n’ont pas de noyau métrique non
+   nul, s’injectent densément dans le quotient et se complètent en un même
+   groupe vectoriel euclidien abstrait, continu et tridimensionnel. L’addition
+   cumulative des registres donne des translations internes exactes. Les
+   soixante transformations propres du porteur agissent fidèlement par
+   isométries, et les trois rechartages finis déclarés satisfont leur cocycle.
    L’espace cartésien n’intervient pas comme donnée de cette construction.
-   La sélection physique du registre de position et de la topologie de Gram,
-   l’action isométrique, le recollement des porteurs, l’échelle physique et
-   l’identification à l’espace physique restent ouverts. Un instrument
+   La sélection du quotient comme position physique, le recollement cofinal,
+   l’échelle physique et l’identification à l’espace physique restent ouverts.
+   Un instrument
    événementiel fini distinct mesure une inertie tenue à l’écart $(1,3)$ à
    16k, 65k et 262k porteurs, avec des contrôles du support et de la marge de
    cône ; il ne sélectionne pas le nombre de dimensions de l’espace-temps.
@@ -94,8 +99,12 @@ données et certificats :
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    les preuves Lean de la
    [complétion intrinsèque](Lean/Screen/PrimitivePortFrameQuotient.lean) et de
-   la [limite de réponse](Lean/Screen/PortGramRepairCovariance.lean), le
-   [reçu vérifié indépendamment](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_completion_bridge_receipt.json)
+   la [limite de réponse](Lean/Screen/PortGramRepairCovariance.lean), du
+   [quotient des courants de couture](Lean/Screen/SeamCurrentCarrierQuotient.lean)
+   et de l’[action interne homogène](Lean/Screen/SeamCurrentHomogeneousAction.lean),
+   ainsi que les reçus vérifiés indépendamment du
+   [quotient métrique](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_load_metric_quotient_receipt.json) et de
+   l’[action propre du porteur](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_equivariant_action_receipt.json)
    et les [données de signature avec leurs scripts](evidence/einstein_convergence/).
 2. **Les règles des événements quantiques sur les registres publics.** Le
    consensus sélectionne l’algèbre commutative finie des indicateurs publics.
@@ -216,7 +225,7 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 1400 théorèmes et lemmes, avec
+La bibliothèque Lean associée contient plus de 1500 théorèmes et lemmes, avec
 un rapport d’axiomes par théorème et aucune preuve admise. Voir [Lean/](Lean/).
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.

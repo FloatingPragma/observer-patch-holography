@@ -44,6 +44,7 @@ def test_ladder_excludes_the_retrospective_fz04_reservation():
         "FZ-09",
         "FZ-10",
         "FZ-11",
+        "FZ-12",
     ]
     result = live_register()["retrospective_results"][0]
     assert result["id"] == "RR-506-ALPHA-HVP"
@@ -160,6 +161,121 @@ def test_fz11_hash_and_custody_commits_are_bound():
     ] = "0" * 40
     with pytest.raises(SystemExit, match="decision-rule custody commit"):
         fz_tool.validate(register)
+
+
+def test_fz12_is_a_frozen_source_native_unarmed_branch_prediction():
+    register = live_register()
+    fz12 = next(row for row in register["rows"] if row["id"] == "FZ-12")
+    assert fz12["status"] == "frozen_stamped_upgrade_pending"
+    assert fz12["owning_issue"] == 666
+    assert "exact D6 image" in fz12["content"]
+    assert "B6/C4^2=-2/63" in fz12["content"]
+    assert "without proving the physical field action" in fz12["content"]
+    assert "Physical comparison is ineligible and unarmed" in fz12[
+        "comparison_protocol"
+    ]
+    assert "same-action, same-sector source theorem" in fz12["kill_band"]
+    assert "including every a >= a_min" in fz12["kill_band"]
+    assert "forced and exclusive physical bridge theorem" in fz12["kill_band"]
+    fz_tool.validate(register)
+
+
+def test_fz12_hash_source_custody_time_and_ownership_are_bound():
+    register = live_register()
+    fz12 = next(row for row in register["rows"] if row["id"] == "FZ-12")
+    fz12["content_sha256"] = "0" * 64
+    with pytest.raises(SystemExit, match="content hash must equal"):
+        fz_tool.validate(register)
+
+    register = live_register()
+    register["external_custody_contracts"]["FZ-12"]["source_commit"] = "0" * 40
+    with pytest.raises(SystemExit, match="source commit must contain"):
+        fz_tool.validate(register)
+
+    register = live_register()
+    register["external_custody_contracts"]["FZ-12"]["custody_commit"] = "0" * 40
+    with pytest.raises(SystemExit, match="custody commit must contain"):
+        fz_tool.validate(register)
+
+    register = live_register()
+    register["external_custody_contracts"]["FZ-12"]["frozen_utc"] = (
+        "2026-08-02T11:52:28Z"
+    )
+    with pytest.raises(SystemExit, match="fixed freeze time"):
+        fz_tool.validate(register)
+
+    register = live_register()
+    fz12 = next(row for row in register["rows"] if row["id"] == "FZ-12")
+    fz12["owning_issue"] = 655
+    with pytest.raises(SystemExit, match="ownership, status, or custody"):
+        fz_tool.validate(register)
+
+
+def test_fz12_source_commit_resolves_all_exact_historical_blobs():
+    contract = live_register()["external_custody_contracts"]["FZ-12"]
+    result = fz_tool.verify_fz12_source_history(contract)
+    assert result["state"] == "verified"
+    assert result["source_commit"] == fz_tool.FZ12_SOURCE_COMMIT
+    assert set(result["blobs"]) == fz_tool.FZ12_IN_REPO_ARTIFACTS
+    assert set(result["historical_parent_blobs"]) == {
+        "code/a5_fingerprint/runtime/a5_multipole_fixed_point_receipt.json",
+        fz_tool.FZ12_CARRIER_LEAN_REL,
+        fz_tool.FZ12_MOMENT_LEAN_REL,
+        fz_tool.FZ12_RAY_LEAN_REL,
+    }
+    assert result["historical_parent_blobs"][
+        "code/a5_fingerprint/runtime/a5_multipole_fixed_point_receipt.json"
+    ] == "d96b80c71a64f48bb7a2a7b2592bad5e122ce9c5f3ca3b4636af29693c426ecd"
+
+
+def write_fz12_receipt(path: Path, receipt: dict) -> str:
+    body = {key: value for key, value in receipt.items() if key != "receipt_sha256"}
+    receipt["receipt_sha256"] = "sha256:" + fz_tool.sha256_bytes(
+        fz_tool.canonical_json_bytes(body)
+    )
+    payload = fz_tool.canonical_json_bytes(receipt)
+    path.write_bytes(payload)
+    return fz_tool.sha256_bytes(payload)
+
+
+@pytest.mark.parametrize(
+    ("mutation", "message"),
+    [
+        ("comparison_permitted", "target exposure or comparison boundary"),
+        ("gate_promoted", "promotion gates drifted"),
+        ("supersedes_fz11", "must remain distinct"),
+        ("lower_bound_removed", "lower-bound gate"),
+    ],
+)
+def test_fz12_receipt_boundary_mutations_fail_with_refreshed_digests(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    mutation: str,
+    message: str,
+):
+    receipt = json.loads(fz_tool.FZ12_RECEIPT_PATH.read_text(encoding="utf-8"))
+    if mutation == "comparison_permitted":
+        receipt["exposure_and_custody_boundary"]["comparison_permitted"] = True
+    elif mutation == "gate_promoted":
+        receipt["promotion_gates"]["gates"][0]["status"] = "ATTAINED"
+    elif mutation == "supersedes_fz11":
+        receipt["fz11_separation"]["supersedes_fz11"] = True
+    elif mutation == "lower_bound_removed":
+        receipt["physical_premises"]["positive_scale_lower_bound"] = (
+            "mathematical a > 0"
+        )
+    else:
+        raise AssertionError("unhandled mutation")
+    receipt_path = tmp_path / "fz12.json"
+    raw_digest = write_fz12_receipt(receipt_path, receipt)
+    monkeypatch.setattr(fz_tool, "FZ12_RECEIPT_PATH", receipt_path)
+    register = live_register()
+    rows_by_id = {row["id"]: row for row in register["rows"]}
+    rows_by_id["FZ-12"]["content_sha256"] = raw_digest
+    contract = register["external_custody_contracts"]["FZ-12"]
+    contract["in_repo_artifact_sha256"][fz_tool.FZ12_RECEIPT_REL] = raw_digest
+    with pytest.raises(SystemExit, match=message):
+        fz_tool.validate_fz12_prediction(rows_by_id, contract)
 
 
 def test_fz11_source_commits_resolve_exact_historical_blobs_and_parentage():
@@ -634,6 +750,10 @@ def test_external_custody_is_verified_when_present_or_explicitly_classified():
             "verified",
             "git_history_not_present",
         }
+        assert result["fz12_custody_git_history"]["state"] in {
+            "verified",
+            "git_history_not_present",
+        }
         assert result["contracts"]["FZ-01"] == {
             "verification": "verified",
             "attestation_state": "bitcoin_attested",
@@ -646,8 +766,15 @@ def test_external_custody_is_verified_when_present_or_explicitly_classified():
             "verification": "verified",
             "attestation_state": "calendar_pending",
         }
+        assert result["contracts"]["FZ-12"] == {
+            "verification": "verified",
+            "attestation_state": "calendar_pending",
+        }
     else:
         assert result["fz11_custody_git_history"]["state"] == (
+            "external_custody_not_present"
+        )
+        assert result["fz12_custody_git_history"]["state"] == (
             "external_custody_not_present"
         )
         assert {row["verification"] for row in result["contracts"].values()} == {
@@ -671,6 +798,52 @@ def copy_external_custody(tmp_path: Path) -> Path:
         pytest.skip("sibling oph-meta custody checkout is not present")
     shutil.copytree(source, custody_root / "falsification")
     return custody_root
+
+
+@pytest.mark.parametrize(
+    "field",
+    ["prediction_bytes_changed", "source_receipt_bytes_changed", "comparison_data_read"],
+)
+def test_external_custody_rejects_fz12_clarification_boundary_drift(
+    tmp_path: Path, field: str
+):
+    register = live_register()
+    custody_root = copy_external_custody(tmp_path)
+    contract = register["external_custody_contracts"]["FZ-12"]
+    manifest = (
+        custody_root
+        / contract["custody_path"]
+        / contract["decision_rule_manifest"]
+    )
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    payload[field] = True
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+    contract["decision_rule_manifest_sha256"] = fz_tool.sha256_file(manifest)
+    with pytest.raises(SystemExit, match="clarification manifest bindings drifted"):
+        fz_tool.verify_external_custody(register, custody_root)
+
+
+def test_external_custody_rejects_weakened_fz12_null_quantifier(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    register = live_register()
+    custody_root = copy_external_custody(tmp_path)
+    contract = register["external_custody_contracts"]["FZ-12"]
+    directory = custody_root / contract["custody_path"]
+    rule = directory / fz_tool.FZ12_DECISION_RULE_JSON
+    payload = json.loads(rule.read_text(encoding="utf-8"))
+    payload["null_rule"] = "Every null is inconclusive."
+    rule.write_text(json.dumps(payload), encoding="utf-8")
+    rule_hash = fz_tool.sha256_file(rule)
+    contract["decision_rule_artifact_sha256"][rule.name] = rule_hash
+    manifest = directory / contract["decision_rule_manifest"]
+    manifest_payload = json.loads(manifest.read_text(encoding="utf-8"))
+    manifest_payload["append_only_artifacts"][rule.name] = rule_hash
+    manifest.write_text(json.dumps(manifest_payload), encoding="utf-8")
+    contract["decision_rule_manifest_sha256"] = fz_tool.sha256_file(manifest)
+    monkeypatch.setattr(fz_tool, "verify_ots_binding", lambda *args: {})
+    with pytest.raises(SystemExit, match="clarified decision-rule bindings drifted"):
+        fz_tool.verify_external_custody(register, custody_root)
 
 
 def test_coordinated_fz11_root_custody_history_is_strict_when_available():
@@ -709,6 +882,36 @@ def test_coordinated_fz11_root_custody_history_is_strict_when_available():
             )
 
 
+def test_coordinated_fz12_root_custody_history_is_strict_when_available():
+    contract = live_register()["external_custody_contracts"]["FZ-12"]
+    directory = fz_tool.DEFAULT_CUSTODY_ROOT / contract["custody_path"]
+    if not directory.is_dir():
+        pytest.skip("coordinated oph-meta custody checkout is not present")
+    result = fz_tool.verify_fz12_custody_history(
+        contract, fz_tool.DEFAULT_CUSTODY_ROOT
+    )
+    if fz_tool.git_checkout_root(fz_tool.DEFAULT_CUSTODY_ROOT) is None:
+        assert result["state"] == "git_history_not_present"
+    else:
+        assert result["state"] == "verified"
+        assert result["custody_commit"] == fz_tool.FZ12_CUSTODY_COMMIT
+        assert result["decision_rule_commit"] == (
+            fz_tool.FZ12_DECISION_RULE_CUSTODY_COMMIT
+        )
+        assert result["original_blob_count"] == 3
+        assert result["decision_rule_blob_count"] == 6
+        assert result["original_proof_count"] == 3
+        assert result["decision_rule_proof_count"] == 6
+        assert result["decision_rule_is_direct_child"] is True
+        with pytest.raises(SystemExit, match="direct single-parent child"):
+            fz_tool.verify_direct_parent(
+                fz_tool.DEFAULT_CUSTODY_ROOT,
+                fz_tool.FZ12_DECISION_RULE_CUSTODY_COMMIT,
+                "0" * 40,
+                "mutated FZ-12 decision-rule ancestry",
+            )
+
+
 def test_historical_custody_does_not_pin_future_live_ots_bytes(tmp_path: Path):
     contract = live_register()["external_custody_contracts"]["FZ-11"]
     if fz_tool.git_checkout_root(fz_tool.DEFAULT_CUSTODY_ROOT) is None:
@@ -729,6 +932,9 @@ def test_copied_fz11_custody_has_no_false_git_history_claim(tmp_path: Path):
     result = fz_tool.verify_external_custody(register, custody_root)
     assert result["state"] == "verified"
     assert result["fz11_custody_git_history"]["state"] == (
+        "git_history_not_present"
+    )
+    assert result["fz12_custody_git_history"]["state"] == (
         "git_history_not_present"
     )
 
@@ -795,6 +1001,47 @@ def test_external_custody_rejects_fz11_snapshot_tampering(tmp_path: Path):
     )
     snapshot.write_bytes(snapshot.read_bytes() + b"\n")
     with pytest.raises(SystemExit, match="custody artifact hash mismatch"):
+        fz_tool.verify_external_custody(register, custody_root)
+
+
+def test_external_custody_rejects_fz12_snapshot_boundary_drift(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    register = live_register()
+    custody_root = copy_external_custody(tmp_path)
+    contract = register["external_custody_contracts"]["FZ-12"]
+    directory = custody_root / contract["custody_path"]
+    snapshot = directory / contract["prediction_file"]
+    payload = json.loads(snapshot.read_text(encoding="utf-8"))
+    payload["new_target_or_comparison_data_read"] = True
+    snapshot.write_text(json.dumps(payload), encoding="utf-8")
+    digest = fz_tool.sha256_file(snapshot)
+    contract["artifact_sha256"][snapshot.name] = digest
+    manifest = directory / contract["registration_manifest"]
+    manifest_payload = json.loads(manifest.read_text(encoding="utf-8"))
+    manifest_payload["artifacts"][snapshot.name] = digest
+    manifest.write_text(json.dumps(manifest_payload), encoding="utf-8")
+    contract["registration_manifest_sha256"] = fz_tool.sha256_file(manifest)
+    monkeypatch.setattr(fz_tool, "verify_ots_binding", lambda *args: {})
+    with pytest.raises(SystemExit, match="snapshot content drifted"):
+        fz_tool.verify_external_custody(register, custody_root)
+
+
+def test_external_custody_rejects_fz12_manifest_binding_drift(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+):
+    register = live_register()
+    custody_root = copy_external_custody(tmp_path)
+    contract = register["external_custody_contracts"]["FZ-12"]
+    manifest = (
+        custody_root / contract["custody_path"] / contract["registration_manifest"]
+    )
+    payload = json.loads(manifest.read_text(encoding="utf-8"))
+    payload["source_commit"] = "0" * 40
+    manifest.write_text(json.dumps(payload), encoding="utf-8")
+    contract["registration_manifest_sha256"] = fz_tool.sha256_file(manifest)
+    monkeypatch.setattr(fz_tool, "verify_ots_binding", lambda *args: {})
+    with pytest.raises(SystemExit, match="registration manifest bindings drifted"):
         fz_tool.verify_external_custody(register, custody_root)
 
 

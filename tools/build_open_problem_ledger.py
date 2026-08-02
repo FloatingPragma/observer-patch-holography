@@ -652,16 +652,20 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "physical-branch-bridge",
         "claim_level": (
             "frozen prospective branch prediction FZ-11 and exact conditional "
-            "continuous-R3 scalar translation adapter; conditional A3-to-hop "
-            "composition and exact multi-range counterfamily attained; source "
-            "selection, physical attachment, time evolution, sector identification, "
-            "and exclusivity open"
+            "continuous-R3 scalar translation adapter; faithful proper-carrier "
+            "isometric action and finite recharting cocycle attained; source "
+            "selection of the vertex operator, physical attachment, time evolution, "
+            "sector identification, and exclusivity open"
         ),
         "blocker": (
-            "The finite source packet has an exact relabelling into the primitive "
-            "twelve-port frame and the declared paired-difference operator has the "
-            "frozen cosine symbol on an auxiliary continuous R3 field. A1 through "
-            "A3 do not yet source-select that operator, derive a physical propagation "
+            "The response-selected record completion carries a faithful isometric "
+            "action of all sixty proper carrier maps, and the declared finite "
+            "recharting maps obey their exact cocycle. These maps act on one local "
+            "completion and do not prove cofinal scale gluing. The finite source "
+            "packet has an exact relabelling into the primitive twelve-port frame, "
+            "and the declared paired-difference operator has the frozen cosine symbol "
+            "on an auxiliary continuous R3 field. A1 through A3 do not source-select "
+            "that vertex operator, derive a physical propagation "
             "sector or time equation, attach the auxiliary field to laboratory "
             "readout, or prove exclusivity. A3 fixes the normalized port-state weights, "
             "and complete directed support on an admitted antipodal frame derives "
@@ -692,43 +696,86 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
     },
     664: {
-        "phase": "fz11-carrier-scale",
+        "phase": "branch-specific-carrier-scale",
         "claim_level": (
             "exact algebraic carrier-rescaling theorem, conditional port-shell metric "
-            "candidate, and three-orbit ambiguity theorem; source-selected "
-            "primitive-cell metric and physical lower bound open"
+            "candidate, normalized support-to-response-frame isometry, and "
+            "three-orbit ambiguity theorem; same-action source-selected metric and "
+            "physical lower bound open for both frozen propagation branches"
         ),
         "blocker": (
-            "The frozen coefficients determine scale-free ratios but leave the "
-            "carrier hop a free. The exact rescaling counterfamily preserves the "
-            "dimensionless branch while varying a, and neither A1 through A3, the "
-            "capacity root P, nor the N closure selects the geometric factor in "
-            "a^2 = kappa_geom P ell_*^2. Setting kappa_geom = 1 is therefore not a "
-            "derivation. A declared twelve-port equal-area shell would give "
-            "kappa_geom = 3/pi, but the equally symmetric face and edge attachments "
-            "give 5/pi and 15/(2pi). The source selects none of these measure/radius "
-            "identifications. Without a source-certified lower bound on a, a null "
-            "result cannot exclude the branch because its signal can shrink with a."
+            "Each frozen coefficient ray leaves its branch action length free. The "
+            "exact rescaling counterfamily preserves the dimensionless ray while "
+            "varying that length, and neither A1 through A3, the capacity root P, nor "
+            "the N closure selects the same-action geometric factor in "
+            "a_b^2 = kappa_b P ell_*^2. The normalized support and response frames "
+            "are isometric, and a unit seam current has response-Gram norm two, but "
+            "neither fact assigns a dimensionful physical length. Port, face, and "
+            "edge equal-area conventions give distinct coefficients. A scale or "
+            "lower bound for one action does not transfer to the other. Without a "
+            "source-certified same-action lower bound, a null result cannot exclude "
+            "that branch because its signal can shrink with its action length."
         ),
         "closure": (
             "Derive and replay a quotient-visible carrier-to-cell metric map that "
-            "selects kappa_geom, starting with a decisive test of the port-sector "
-            "equal-area shell candidate against the mandatory face and edge controls; "
-            "bind the same operator admitted by #655 and emit "
-            "a physical interval or lower bound for a by a source-native theorem or "
-            "an independently calibrated attachment. Otherwise prove the bounded "
-            "non-identifiability result and keep FZ-11 null tests non-decisive."
+            "selects kappa_b, starting with a decisive test of the port, face, and "
+            "edge conventions; bind it separately to the exact action admitted by "
+            "#655 or #666 and emit a physical interval or lower bound for that same "
+            "action by a source-native theorem or independently calibrated attachment. "
+            "Otherwise prove bounded nonidentifiability for each branch. Close only "
+            "after both frozen branches receive a typed outcome."
         ),
         "falsification": (
             "Two source-admissible physical metric attachments with different "
-            "kappa_geom, or an exact source rescaling that changes a while preserving "
-            "every declared observable premise, refute unique scale selection on the "
-            "declared class. After a certified lower bound, a sufficiently powered "
-            "null can reject the attached branch under #662."
+            "kappa_b, or an exact source rescaling that changes one action length while "
+            "preserving every declared observable premise, refute unique scale "
+            "selection on that class. After a same-action certified lower bound, a "
+            "preregistered sufficiently powered null can reject only the attached "
+            "branch."
         ),
         "chrome_policy": (
             "No target comparison data. Use only for the source metric, dimensional "
             "attachment, lower-bound theorem, and independent calibration audit."
+        ),
+    },
+    666: {
+        "phase": "source-seam-edge-discriminator",
+        "claim_level": (
+            "exact source-current D6 image, internal homogeneous action, and "
+            "edge-orbit coefficient ray plus frozen FZ-12 conditional prediction; "
+            "physical action, sector, scale, and comparison eligibility open"
+        ),
+        "blocker": (
+            "The complete thirty-seam source current has exact D6 image. Under the "
+            "pullback of the response-selected Gram metric, rather than the usual "
+            "six-dimensional lattice metric, it has dense rank-three completion. "
+            "The proper-carrier action is faithful. Cumulative records act by "
+            "internal isometries, and A2-natural feasible/objective data plus an "
+            "A3 unique minimizer force the source-counting convolution with weight "
+            "1/60. The frozen edge relations are B0/C4^2 = 10/21 and "
+            "B6/C4^2 = -2/63. The finite nonlinear "
+            "repair kernel is state dependent and does not descend through the "
+            "signed quotient. The internal convolution is not identified with a "
+            "homogeneous physical field action, same-operator sector, clock, "
+            "cofinal refinement, scale, frame, or readout."
+        ),
+        "closure": (
+            "Derive one source-selected homogeneous action whose complete direct "
+            "support is the edge-current orbit, attach it to a scalar or "
+            "polarization-independent physical sector with the same clock, scale, "
+            "frame, refinement, and readout, or record the precise bounded "
+            "nonattachment. FZ-12 remains immutable in either case."
+        ),
+        "falsification": (
+            "After every physical and power gate is frozen, exclusion of the "
+            "complete FZ-12 edge manifold at five standard deviations rejects the "
+            "attached edge branch. A null has no verdict without the #664 "
+            "source-derived positive scale lower bound, and a branch failure is "
+            "OPH-wide only after forcedness and exclusivity are proved."
+        ),
+        "chrome_policy": (
+            "Do not access comparison data. Use workers only for the source action, "
+            "physical attachment, scale, and independent proof audit."
         ),
     },
     659: {
@@ -798,14 +845,19 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     663: {
         "phase": "repair-law-adoption",
         "claim_level": (
-            "conditional finite-word KL schedule theorem attained; A1-R/A2-R "
-            "source and adoption obligations open"
+            "conditional finite-word KL schedule theorem, exact signed source-load "
+            "quotient, D6 seam image, and response-metric completion attained; "
+            "A1-R/A2-R source and adoption obligations open"
         ),
         "blocker": (
-            "The current basis does not derive a complete quotient-deduplicated "
+            "The source loads map exactly onto the signed Z6 module, and conservative "
+            "seam boundaries have the even-sum D6 image. Equipped with the pullback "
+            "response-Gram metric, these modules share the rank-three completion. "
+            "The conditional mean descends, while the nonlinear pathwise repair kernel "
+            "does not. The basis does not derive a complete quotient-deduplicated "
             "primitive grammar, source counting as the A3 reference, full temporal "
-            "PMF-simplex feasibility, the transition action, a common refinement "
-            "semigroup, or the coupled state-generator fixed point."
+            "PMF-simplex feasibility, adoption of the completion as physical position, "
+            "a common refinement semigroup, or the coupled state-generator fixed point."
         ),
         "closure": (
             "Prove every A1-R/A2-R source, temporal, transition, refinement, and "

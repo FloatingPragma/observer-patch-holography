@@ -32,6 +32,7 @@
     "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
     "OPH-GR-PORT-RESPONSE-COMPLETION",
     "OPH-A5-PRIMITIVE-PORT-SPIN6",
+    "OPH-A5-SEAM-CURRENT-EDGE30",
     "OPH-SCREEN-PORT-CURRENT-INNER",
     "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
     "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
@@ -199,6 +200,16 @@
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
       "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale remain the frozen branch premises owned by issue 655"
+    },
+    {
+      "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "to": "OPH-A5-SEAM-CURRENT-EDGE30",
+      "role": "supplies the canonical thirty-seam incidence and exact A5 carrier geometry used to identify the complete projective edge orbit"
+    },
+    {
+      "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
+      "to": "OPH-A5-SEAM-CURRENT-EDGE30",
+      "role": "supplies the antipodal six-axis load quotient and response-selected metric carrier; the position action, physical sector, cofinal gluing, scale, frame and readout remain the frozen FZ-12 branch premises"
     },
     {
       "from": "OPH-SCREEN-PORT-CURRENT-INNER",

@@ -205,6 +205,29 @@ Mapping between Lean 4 theorems in this project and statements in
   Treating the seams as the sole homogeneous physical kinetic support still
   requires the named position-action, field, scale, frame, and readout
   premises.
+- Homogeneous source seam-current action
+  (`Screen/SeamCurrentHomogeneousAction.lean`): sorry-free finite and additive
+  algebra. The sixty directed seams form one simply transitive orbit under the
+  sixty registered proper carrier rotations. Seam currents generate the exact
+  \(D_6\) cumulative-record group, and all cumulative \(D_6\) records act
+  simply transitively on its record points. Each seam supplies one such
+  translation. The action is isometric for the response-Gram metric induced
+  through `d6Position`; this is not the usual discrete, word, or
+  six-dimensional lattice metric on \(D_6\). Each record shift extends to
+  translation on that induced metric's Euclidean completion.
+  Given explicit A2-natural feasibility and objective data plus an A3 unique
+  normalized minimizer, the directional weights are exactly \(1/60\), and the
+  selected operator is the source-counting translation-covariant convolution.
+  The exact Fourier bridge normalizes each raw norm-two seam displacement to
+  a unit direction, pairs the sixty labels into thirty positive/negative
+  translations, and proves
+  \(P(k)=30^{-1}\sum_e\cos(a k\mathbin{\cdot}w_e)\) and
+  \((6/a^2)(I-P)=(5a^2)^{-1}\sum_e[1-\cos(a k\mathbin{\cdot}w_e)]\).
+  This is the frozen edge-current symbol and its coefficient normalization.
+  The raw-record-to-unit-direction factor, the response-chart factor, and the
+  physical scale require one declared attachment. Feasibility,
+  naturality, unique minimality, physical position readout, temporal
+  completeness, field propagation, and laboratory attachment remain open.
 - Primitive-port scale boundary
   (`Screen/PrimitivePortScaleBoundary.lean`): sorry-free real algebra. It
   proves the exact quadratic and quartic rescaling weights of the frozen

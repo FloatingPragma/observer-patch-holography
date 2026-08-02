@@ -71,13 +71,17 @@ certificates:
    For the declared twelve-port repair mean, the normalized complete
    equal-port response selects an intrinsic rank-three spectral projector and
    its normalized Gram form in the infinite-response limit. The real
-   six-control extension has a
-   three-dimensional radical. The integer signed-record module has no
-   nonzero metric kernel, embeds densely in the quotient, and completes to an
-   abstract continuous three-dimensional Euclidean vector group. Cartesian
-   space is not an input to this construction. Source selection of the signed
-   position readout and Gram topology, isometric carrier action, overlap
-   gluing, physical scale, and identification with physical space are open.
+   six-control extension has a three-dimensional radical. The source load
+   readout is onto $\mathbb Z^6$; conservative seam currents span its
+   even-sum submodule $D_6$. In the pullback response metric, both integer
+   modules have no nonzero metric kernel, embed densely in the quotient, and
+   complete to the same abstract continuous three-dimensional Euclidean
+   vector group. Cumulative record addition gives exact internal translations.
+   The sixty proper carrier maps act faithfully by isometries, and the three
+   declared finite recharting maps satisfy their cocycle. Cartesian space is
+   not an input to this construction. Selection of the quotient as physical
+   position, cofinal overlap gluing, physical scale, and identification with
+   physical space are open.
    A distinct finite event instrument measures held-out inertia $(1,3)$ at
    16k, 65k, and 262k carriers, with support and cone-margin controls; it does
    not select spacetime dimension. See the
@@ -85,7 +89,11 @@ certificates:
    the Lean proofs of the
    [intrinsic completion](Lean/Screen/PrimitivePortFrameQuotient.lean) and
    [repair-response limit](Lean/Screen/PortGramRepairCovariance.lean), the
-   [independently verified receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_completion_bridge_receipt.json),
+   [seam-current quotient](Lean/Screen/SeamCurrentCarrierQuotient.lean), and
+   [homogeneous internal action](Lean/Screen/SeamCurrentHomogeneousAction.lean),
+   the independently verified receipts for the
+   [metric quotient](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_load_metric_quotient_receipt.json) and
+   [proper carrier action](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_equivariant_action_receipt.json),
    and the [signature data and regeneration scripts](evidence/einstein_convergence/).
 2. **Quantum event rules on public observer records.** Consensus selects the
    finite commuting algebra of public record indicators. On a separately
@@ -180,7 +188,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 1400 theorems and lemmas, with
+The supporting Lean library contains more than 1500 theorems and lemmas, with
 per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.
