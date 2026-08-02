@@ -197,6 +197,27 @@ surface for the OPH consensus layer. Contents:
   scalar-count plane and its `nH = 1` integer specialization. It does not
   select the physical kinetic form or particle census, and it does not supply
   thresholds, higher loops, or a measured coupling attachment.
+- A sorry-free strict W/Z pole-consumer scale quotient in
+  `Screen/ElectroweakPoleScaleQuotient.lean`. It proves that the explicit
+  common pole scale cancels from the ratio of the two factored strict complex
+  poles at fixed normalized corrections. This covers passive unit rescaling;
+  active vacuum-scale changes can move threshold ratios inside the normalized
+  corrections. Its exact unconstrained factored-coordinate counterfamily
+  displays the algebraic freedom; it is not an accepted consumer packet.
+  Source-selected coupling and self-energy inputs remain necessary for a
+  numerical ratio.
+- A sorry-free conditional photon-lepton threshold packet in
+  `Screen/SeamCurrentPhotonLeptonThreshold.lean`. It proves the exact global
+  cosine-symbol upper bound in the explicit Euclidean carrier metric, the
+  leading fixed-share photon-lepton coefficient combination, and the rank-one
+  equal-share map with its two-dimensional fiber. Under separately stated
+  physical-photon, additive-conservation, and Lorentz-invariant charged-lepton
+  premises, photon decay into an electron-positron pair is kinematically excluded and the FZ incoming-energy
+  domain is contained in the Lorentz-invariant photon domain. On the
+  Lorentz-invariant charged-lepton branch, equal sharing uniquely maximizes
+  the leading head-on, collinear residual. General independent-lepton and
+  full anisotropic optimization remain open. No interaction,
+  opacity, source, shower, or detector statement follows.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

@@ -2162,26 +2162,35 @@ claiming a source-only mass prediction. A physical charged determinant
 line, an absolute clock, and a source-emitted transport bridge are the maps
 an endpoint prediction requires.
 
-\subsection{The electroweak chart and the certified pole stack}
+\subsection{The electroweak chart and strict pole-consumer checks}
 \label{sec:wz-pole-stack}
 
-On the strict source-audit branch, the source chain emits the electroweak
+On the source-side branch, the source chain emits the electroweak
 chart coordinates $80.330$ and $91.119$~GeV for the $W$ and $Z$ carriers;
-no measured mass enters that emission \cite{ophzoo}. A certified strict
-one-loop contour stack closes the chart-to-pole step on its declared
-chart. A directed complex-interval receipt proves zero exclusion of the
-transverse inverse propagator on the declared principal-sheet boxes, and a
-companion receipt proves exactly one second-sheet pole of winding number
-one on the declared channel-by-channel continuation, with interval-Newton
-pole and residue enclosures on one fixed rational boundary partition
-replayed at three working precisions; fail-closed checkers recompute both
-verdicts from the payloads \cite{ophrepo}. The chart coordinates sit at
-relative separations of $4.9\times10^{-4}$ and $7.6\times10^{-4}$ from the
-measured Breit--Wigner coordinates $80.3692(133)$ and $91.1880(20)$~GeV
-\cite{pdg2026}. That comparison is a diagnostic under
-Table~\ref{tab:claim-status}: the one-loop transport consumes imported
-Standard Model self-energy inputs, and an OPH-native source-to-pole packet
-is a premise of any stronger reading.
+no measured mass enters that emission \cite{ophzoo}. Writing \(S=gv_F/2\),
+\(t=g'/g\), \(w=S^2\), and \(z=S^2(1+t^2)\), on the declared domain
+\(S\ne0\), \(1+t^2\ne0\), and \(1+d_Z\ne0\), the strict one-loop consumer
+factorizes as
+\[
+ \frac{s_W}{s_Z}
+ =\frac{1+d_W}{(1+t^2)(1+d_Z)},
+\]
+where $d_W=\Delta_{WW}(w)/w$ and $d_Z=\Delta_{ZZ}(z)/z$ are normalized
+self-energy factors. This is the exact quotient of the one-loop-truncated
+pole coordinates. Its strict one-loop expansion is
+\(\frac{1}{1+t^2}(1+d_W-d_Z)+O(\text{loop}^2)\). The explicit common scale cancels under passive
+common-unit rescaling at fixed $t,d_W,d_Z$, while those three inputs remain
+unselected; an active change of \(v_F\) can move \(d_W\) and \(d_Z\) through
+thresholds. Directed complex-interval receipts exclude zeros of a scalar
+inverse-propagator entry on declared principal-sheet boxes. Separate receipts
+isolate, for each of \(W\) and \(Z\), one simple scalar zero with derivative
+and scalar-residue balls in its declared lower-half pole box on a
+channel-specific algebraic chart \cite{ophrepo}. The receipts identify
+neither chart with the physical resonance sheet and prove no unique
+continuation identity or sign bridge, full-matrix Laurent residue, physical
+current amplitude, or independent numerical replay. Their external Standard Model fixture is
+not composed with the source-emitted OPH chart coordinates. No chart-to-pole
+map, physical W/Z pole, or mass comparison follows from this stack.
 
 \subsection{Finite capacity and the de Sitter transfer sign}
 
@@ -2574,16 +2583,83 @@ custody packages, exposure exclusions, and comparison budgets remain
 separate.
 
 The edge ray and its complete decision rule are frozen under public commit
-custody without reading a new eligible edge-branch comparison payload
+custody before any eligible edge-branch comparison payload
 \cite{ophregister}. The WMAP template class, every primitive-port comparison
 input, and every comparison datum inspected before the edge freeze are
 excluded. Physical comparison is ineligible while a promotion premise is
 open. A null has no verdict unless a pre-exposure source theorem for the same
 action and sector supplies \(a_{\min}>0\), and a preregistered power and
 remainder contract makes the entire admitted \(a\ge a_{\min}\) manifold
-excludable by the joint-likelihood rule. The append-only clarification changes
-no coefficient, manifold, premise, exposure exclusion, or threshold.
+excludable by the joint-likelihood rule.
 
+\paragraph{Conditional photon and pair-production kinematics.}
+If the seam symbol is identified with physical photon frequency squared in
+the Euclidean carrier metric, its complete cosine form satisfies
+\[
+0\leq\Omega_\gamma(k,\widehat k)^2=\Lambda_a(k,\widehat k)\leq k^2
+\]
+for every nonzero \(a\). With ordinary additive energy-momentum conservation
+in the declared frame and positive-mass electrons and positrons with
+Lorentz-invariant positive-energy dispersion, this bound excludes photon
+decay into an electron-positron pair. At fixed incoming momenta, the
+seam-current incoming-energy budget is contained in the Lorentz-invariant
+photon budget. These kinematic statements supply no interaction vertex, cross
+section, opacity, event rate, source
+population, shower development, or detector response.
+
+Use the leading dispersion convention
+\(E_i^2=p_i^2+m_i^2+\delta_{i,2}E_i^4\), with
+\(i\in\{\gamma,+,-\}\), \(m_\gamma=0\), \(m_+=m_-=m_e\), \(E\) the
+hard-photon energy, and \(\epsilon\) the soft-photon energy. With the soft background photon
+Lorentz invariant at leading order, independent leading dimension-six
+coefficients for the hard photon, positron, and electron, together with a
+fixed positron energy share \(0<x<1\), give the head-on, collinear equation
+\[
+\left[\delta_{\gamma,2}-x^3\delta_{+,2}
+ -(1-x)^3\delta_{-,2}\right]E^4
+ +4\epsilon E-\frac{m_e^2}{x(1-x)}=0.
+\]
+At equal sharing, the observable coefficient is
+\(\delta_{\gamma,2}-(\delta_{+,2}+\delta_{-,2})/8\). The corresponding
+linear map has rank one and a two-dimensional coefficient fiber. A
+photon-only threshold bound therefore requires the stated
+Lorentz-invariant-lepton premise or a source derivation of the charged-lepton
+actions. On the Lorentz-invariant-lepton branch, exact algebra proves that
+equal sharing uniquely minimizes the mass penalty and globally maximizes this
+leading head-on, collinear residual. General independent-lepton share
+optimization and the full anisotropic minimization over outgoing momentum
+remain separate problems \cite{ophrepo}.
+
+\paragraph{Exposed source-seam diagnostics.}
+The external subluminal quadratic-dispersion convention identifies
+\(a=\sqrt{20}/E_{\mathrm{QG},2}\) on the conditional edge branch, where
+\(E_{\mathrm{QG},2}\) denotes the external quadratic dispersion scale. A published
+time-of-flight bound \(E_{\mathrm{QG},2}>10^{13}\,\mathrm{GeV}\) gives
+\(a<8.825\times10^{-29}\,\mathrm m\) at 95 percent confidence; the Large High
+Altitude Air Shower Observatory (LHAASO)
+bound \(E_{\mathrm{QG},2}>6.9\times10^{11}\,\mathrm{GeV}\) is a cross-check
+with a different source-lag treatment \cite{xishu2025,lhaaso2024}. A more
+sensitive but source-model-dependent Pierre Auger diagnostic uses
+\(\delta_{\gamma,2}=-a^2/20\) \cite{auger2022}. Its alternative source
+scenario with a subdominant proton component extending to
+\(10^{20}\,\mathrm{eV}\) reports
+\(\delta_{\gamma,2}>-10^{-58}\,\mathrm{eV}^{-2}\), which gives
+\[
+a<\sqrt{20}\,10^{-29}\,\mathrm{eV}^{-1}
+ =8.825\times10^{-36}\,\mathrm m
+ =0.546\,\ell_P .
+\]
+This translation assumes Lorentz-invariant electrons and positrons, additive
+conservation in the preferred cosmic-background frame, photon-only Lorentz
+violation, a threshold-shifted Breit--Wheeler treatment, and the named source
+scenario. The reference scenarios give no electromagnetic constraint, the
+direct bound has no stated confidence level, and the shower response was not
+recomputed under the modified dynamics. The exact \(0\le ak\le1\) spatial
+remainder applies only after the physical identifications are made. These
+exposed limits are conditional diagnostics of an open scale. They carry no
+OPH verdict or evidence weight.
+
+\paragraph{Primitive-port prediction and decision rule.}
 Proposition~\ref{prop:spin-six-prediction} is a frozen prospective conditional
 physical-branch prediction \cite{ophregister}. The minimal locally Lorentz-invariant Standard
 Model plus General Relativity in local vacuum supplies the baseline
@@ -2605,33 +2681,7 @@ cosmic-microwave-background likelihood class, and every data product examined
 in the dated template search are ineligible for this prediction. That search
 included the icosahedral rank-six and higher templates and returned a
 family-wide $p$-value of $0.64$. The linked $C_4$, $B_0$, and $B_6$ relations
-have no eligible physical comparison. A separate exposed photon diagnostic
-identifies $a=\sqrt{20}/E_{\mathrm{QG},2}$ in the standard subluminal
-quadratic-dispersion convention. The published bound
-$E_{\mathrm{QG},2}>10^{13}\,\mathrm{GeV}$ gives
-$a<8.825\times10^{-29}\,\mathrm m$ at $95\%$ confidence; the LHAASO bound
-$E_{\mathrm{QG},2}>6.9\times10^{11}\,\mathrm{GeV}$ is a cross-check with a
-different source-lag treatment \cite{xishu2025,lhaaso2024}. These exposed
-retrospective limits cannot score the prospective linked-coefficient
-prediction. A stronger but source-model-dependent threshold diagnostic comes
-from Pierre Auger \cite{auger2022}. Under the unresolved photon-sector and
-frequency-squared identifications, conversion to its energy-basis convention
-gives \(\delta_{\gamma,2}=-a^2/20\) at leading order. In the alternative source
-scenario with a subdominant proton component extending to \(10^{20}\,\mathrm{eV}\),
-the reported bound \(\delta_{\gamma,2}>-10^{-58}\,\mathrm{eV}^{-2}\) gives
-\[
-a<\sqrt{20}\,10^{-29}\,\mathrm{eV}^{-1}
- =8.825\times10^{-36}\,\mathrm m
- =0.546\,\ell_P .
-\]
-The reference source scenarios give no electromagnetic constraint, and the
-direct electromagnetic bound has no stated confidence level. The threshold
-calculation also needs a common photon, electron, positron,
-interaction-kinematics, source-nuisance, frame, and boost attachment that the
-finite source theorem does not supply. The exact \(0\le ak\le1\) spatial-
-symbol remainder applies only after those physical identifications are made.
-It is a conditional diagnostic of an open scale and carries no OPH verdict or
-evidence weight. The target statement,
+have no eligible physical comparison. The target statement,
 exact coefficient snapshot, registration
 manifest, public commit custody, and detached OpenTimestamps calendar
 attestations fix the prospective content and its decision rule
@@ -2642,8 +2692,8 @@ fixes one post-freeze release, a joint likelihood or full covariance for the
 same-sector $C_4$, $B_0$, and rank-six coefficient vector, the carrier and
 observer frames, the $\mathrm{SO}(3)/A_5$ orientation profile, the boost law,
 the environmental and instrumental nuisance model, trials accounting,
-sensitivity floor, and calibrated joint threshold. The append-only corrected
-rule scores the complete branch manifold
+sensitivity floor, and calibrated joint threshold. The decision rule scores
+the complete branch manifold
 \[
 C_4<0,\qquad B_0=\frac{10}{21}C_4^2,\qquad
 B_6=\frac{32}{315}C_4^2,
@@ -2672,8 +2722,8 @@ constant or mass. The Koide identity and capacity identities are finite
 theorems; the tau window is a registered conditional test, postdictive
 in premise ancestry; the
 lepton enclosures and the screen-grain separation are diagnostics that
-consume measured inputs; the electroweak chart comparison is a diagnostic
-whose pole transport imports Standard Model self-energies; the de Sitter
+consume measured inputs; the electroweak chart and external scalar-pole
+fixture are uncomposed diagnostics and define no W/Z pole comparison; the de Sitter
 reading is conditional on unconstructed dictionaries. The angular-rank theorem is a finite theorem. The
 primitive-port and source-seam coefficient relations form separate
 prospective predictions on their named physical branches, with empirical
@@ -2957,11 +3007,15 @@ Global form, $\mathbb Z_{6}$ kernel, and exterior selection
  & \texttt{Lean/Screen/Z6Exact.lean} for the abstract lattice quotient,
    \texttt{TraceBalancedKernel.lean} for central-parameter arithmetic, and
    \texttt{ExteriorSelection.lean} for the declared finite scan\\
-Electroweak chart and certified $W/Z$ pole stack
+Electroweak chart and strict $W/Z$ analytic checks
  & \path{code/particles/calibration/wz_upstream_completion/outputs/certified_wz_contours.json}
    and
    \path{code/particles/calibration/wz_upstream_completion/outputs/certified_second_sheet_poles.json},
-   their schemas, fail-closed checkers, and byte-exact producer replays\\
+   their schemas and fail-closed producer checks; the files certify
+   principal-sheet zero exclusion and, for each of \(W\) and \(Z\), one
+   simple scalar zero with derivative and scalar-residue balls in its declared
+   lower-half pole box on a channel-specific algebraic chart. They do not
+   certify a physical sheet identity or independent numerical replay\\
 Icosahedral angular-rank theorem and primitive-port prediction
  & \path{Lean/Screen/A5PrimitivePortPrediction.lean} for equal weights,
    rational coefficient ratios, and refinement arithmetic, excluding the
@@ -3118,11 +3172,13 @@ custody-bound kill band; the capacity identity fixes the de Sitter transfer
 sign; the interval-certified screen-grain root and the charged-lepton
 enclosures are diagnostics whose transport maps are typed as open
 realization maps.
-The source-emitted electroweak chart coordinates carry a certified strict
-one-loop pole stack, a principal-sheet zero-exclusion certificate together
-with exactly one second-sheet pole of winding number one on the declared
-continuation, with the imported Standard Model self-energy inputs displayed
-as its premise. On the primitive
+The source-emitted electroweak chart coordinates are not composed with the
+external strict one-loop fixture. The analytic receipts exclude zeros on
+declared principal-sheet boxes and isolate, for each of \(W\) and \(Z\), one
+simple scalar zero with derivative and scalar-residue balls in its declared
+lower-half pole box on a channel-specific algebraic chart. They do not
+identify either chart with the physical resonance sheet or prove a unique
+continuation, full-matrix Laurent residue, or current amplitude. On the primitive
 twelve-port propagation branch, $C_4$ fixes $B_0$, $B_6$, and the complete
 rotated angular-rank-six template through the scale-free ratios
 \eqref{eq:primitive-port-ratios}. The minimal locally Lorentz-invariant

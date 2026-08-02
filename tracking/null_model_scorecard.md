@@ -277,8 +277,8 @@ it can enter a claim. A short-expression near hit is not a derivation.
 | `code/particles/flavor/quark_rscc_completion_candidate.py` | `c2703016b69a5617e2f057254fa655f141eeb596d3f1f178071d417dee2106d2` |
 | `code/particles/leptons/derive_charged_koide_orientation_isometry.py` | `6e4ca54fdd22009066b4d34e36aa030777d6d4c5676a1914a85cff0ebdd4a690` |
 | `code/particles/leptons/derive_charged_mcpr_completion_conditional.py` | `67ab613d44f86c32b24463c578d350e5760da72256db2881f66b52748c0e482e` |
-| `code/particles/runs/flavor/clebsch_register_pairing_selection.json` | `e2bb4052eb5936aee1d62ec51261ea6fc9aa000691f80b631905bfe526bddbcd` |
-| `code/particles/runs/flavor/down_type_register_clebsch_lane.json` | `2eb8dd26e41feb310dfeb2b81c8a5c37758dba5bea0f8937d5245f7016ee9d43` |
+| `code/particles/runs/flavor/clebsch_register_pairing_selection.json` | `6fc8515ead2a80701e2bbcfefd8b5fd983b7915c97dd8230a5527a3a0727058e` |
+| `code/particles/runs/flavor/down_type_register_clebsch_lane.json` | `7271ddbe98bc5ff3abbf06e9a84791eec3ee8078b45bbf89a3604dd8436a7ddb` |
 | `code/particles/runs/flavor/quark_rscc_completion_candidate_audit.json` | `49746ade49d84a759957784ecaae24bb50e54ed5ec9d849cf49914c40844849a` |
 | `code/particles/runs/leptons/charged_koide_orientation_isometry.json` | `613924c39d9d8269e6511474626bb55f131d3ddf4190c7180ad7ed23654f910d` |
 | `code/particles/runs/leptons/charged_mcpr_completion_conditional.json` | `b0408203ad135c912a73abfd2b55697b6efc1cf28228cc9649076105724fa4ee` |

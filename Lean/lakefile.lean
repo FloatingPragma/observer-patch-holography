@@ -39,6 +39,7 @@ lean_lib «OPHScreen» where
     `VolumeReadoutBridge, `PrimitivePortTranslationBridge,
     `PrimitivePortScaleBoundary, `PrimitivePortMetricAttachment,
     `PrimitivePortOperatorSelectionBoundary, `KineticFamilyCancellation,
+    `ElectroweakPoleScaleQuotient,
     `PrimitivePortDualMeasure, `PrimitiveHopSelection,
     `PrimitivePortFrameQuotient, `PortGramRepairBand,
     `PortGramRepairCovariance, `PortGramA5Isometry,
@@ -46,7 +47,8 @@ lean_lib «OPHScreen» where
     `SeamCurrentEdge30Moment, `SeamCurrentEdge30Remainder,
     `SeamCurrentHomogeneousAction,
     `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift,
-    `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment]
+    `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment,
+    `SeamCurrentPhotonLeptonThreshold]
 
 lean_exe «oph» where
   root := `Main

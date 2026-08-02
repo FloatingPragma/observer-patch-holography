@@ -491,7 +491,7 @@ number measured in nature.
 The gauge theorem gives the clearest example: icosahedral incidence fixes the
 twelve-dimensional symmetry module, while the complete-response clause of
 Axiom 1 and the internal-transport clause of Axiom 2 force the local Standard
-Model algebra. That proof sits inside a corpus of more than nine hundred
+Model algebra. That proof sits inside a corpus of more than sixteen hundred
 machine-checked theorems, each one verified line by line by a proof assistant
 that cannot be argued with. Symmetry determines the available roles. The
 interacting dynamics within those roles determines masses, mixing, binding,
@@ -507,12 +507,10 @@ $1776.969027$, a window three orders of magnitude narrower than the current
 world-average uncertainty. A tau measurement that lands outside that window
 kills the balanced structure outright.
 
-The W and Z masses come from a strict one-loop contour calculation that pins
-each pole, with the pole's existence confirmed by a winding-number count on
-the second sheet of the amplitude. The forward outputs land within
-$4.9\times10^{-4}$ and $7.5\times10^{-4}$ of the measured values, with the
-hierarchy exponent landing at $2.3\times10^{-4}$, and the theory layer has no
-adjustable dial anywhere in the chain.
+The finite electroweak construction identifies the W and Z carrier roles and
+supplies an internal coordinate chart. A physical mass prediction needs a
+source-to-pole bridge that connects this chart to the unstable resonances
+measured in a detector. That bridge is work in progress.
 
 Not every route survived contact with data, and the book owes the reader the
 failures too. A proposed common-transport rule for down-type quark masses

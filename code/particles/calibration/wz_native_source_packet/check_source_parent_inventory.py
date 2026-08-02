@@ -714,6 +714,9 @@ def _verify_conditional_family(
     require(
         certificate.get("open_gates")
         == [
+            "physical_current_source_binding",
+            "physical_matter_lift_source_binding",
+            "physical_global_form_selection",
             "matter_pole_identification",
             "continuum_Spin_locality",
             "physical_seam_action_selection",
@@ -724,6 +727,9 @@ def _verify_conditional_family(
     require(
         certificate.get("promotion")
         == {
+            "physical_current_source_bound": False,
+            "physical_matter_lift_source_bound": False,
+            "physical_global_form_selected": False,
             "matter_pole_identified": False,
             "continuum_spin_locality_derived": False,
             "physical_seam_action_selected": False,

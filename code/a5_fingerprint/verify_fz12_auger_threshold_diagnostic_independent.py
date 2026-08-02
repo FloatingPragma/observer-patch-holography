@@ -26,8 +26,8 @@ CUSTODY_BYTES = 3624
 CUSTODY_SHA256 = "dfc6574a5bde9b576df6aeef2e03aba8602ec2723a0a4606e7942c405a57c643"
 OBSERVATION_BYTES = 5276
 OBSERVATION_SHA256 = "0b34218b075a3d51fe0badb00e3bb889743ae19b6dcf161f7877683e25121d17"
-RECEIPT_BYTES = 5659
-RECEIPT_SHA256 = "1cfcd876c122edf7406c54b3caeda7d457500d8137f90b0142110913fad262dd"
+RECEIPT_BYTES = 6279
+RECEIPT_SHA256 = "245dc74b96e150f456b3453be0f4b7ee99e626aeae255714226a25c3462c3c20"
 
 SCHEMA = "oph.fz12.auger_threshold_diagnostic.v1"
 STATUS = "EXPOSED_RETROSPECTIVE_FZ12_AUGER_THRESHOLD_BOUND__CONDITIONAL_DIAGNOSTIC_ONLY"
@@ -251,6 +251,18 @@ def verify_receipt(
             "doi": "10.1088/1475-7516/2022/01/023",
             "arxiv": "2112.06773",
             "paper_parameterization": ("E_i^2 = m_i^2 + p_i^2 + delta_i,n E_i^(2+n)"),
+            "published_model_premises": {
+                "preferred_frame": "cosmic-background rest frame",
+                "energy_momentum_composition": "ordinary additive conservation",
+                "electron_dispersion": "Lorentz invariant",
+                "positron_dispersion": "Lorentz invariant",
+                "LIV_sector": "photon only for the electromagnetic calculation",
+                "interaction_treatment": (
+                    "Breit-Wheeler mean free path changes through the shifted "
+                    "threshold; direct LIV changes of the cross section are neglected"
+                ),
+                "atmospheric_shower_LIV_response_recomputed": False,
+            },
             "selected_scenario": (
                 "alternative source scenario with a subdominant proton component "
                 "extending to 1e20 eV"
@@ -295,6 +307,10 @@ def verify_receipt(
                 ),
             },
             "conditional_on_all_open_attachments": True,
+            "coefficient_scope": (
+                "photon-only special branch with zero electron and positron LIV "
+                "coefficients and ordinary additive conservation"
+            ),
         },
         "conditional bound drift",
     )

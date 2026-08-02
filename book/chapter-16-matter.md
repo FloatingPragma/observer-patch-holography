@@ -101,18 +101,10 @@ prevents a free-gluon interpretation. The smooth Einstein branch has two
 transverse-traceless classical waves.
 
 A scalar action and vacuum separate the charged $W$ carriers from the
-neutral $Z$ carrier. The calculation places their masses at
-
-$$
-(m_W,m_Z)
-=(80.330,\ 91.119)\,\mathrm{GeV},
-$$
-
-landing within 4.9 and 7.5 parts in ten thousand of the measured values. A
-GeV is a billion electronvolts, used as a mass unit through $E=mc^2$. A
-strict one-loop contour calculation confirms that these are genuine particle
-poles: followed onto the second sheet of the propagator, each mass sits at
-exactly one pole, the analytic signature of a real unstable particle.
+neutral $Z$ carrier. The finite construction supplies an internal chart for
+the two roles. It is not yet a physical mass prediction. Connecting that
+chart to the unstable-particle poles measured in a detector requires a
+source-to-pole bridge, which is work in progress.
 
 The electromagnetic strength is read from the screen's own geometry, through
 the local closure equation for the pixel ratio the book has been tracking.

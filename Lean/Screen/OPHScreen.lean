@@ -16,6 +16,7 @@ import PrimitivePortScaleBoundary
 import PrimitivePortMetricAttachment
 import PrimitivePortOperatorSelectionBoundary
 import KineticFamilyCancellation
+import ElectroweakPoleScaleQuotient
 import PrimitivePortDualMeasure
 import PrimitiveHopSelection
 import PrimitivePortFrameQuotient
@@ -31,6 +32,7 @@ import SeamCurrentDirichletGenerator
 import SeamCurrentAuxiliaryOscillatorLift
 import SeamCurrentFreePhotonLift
 import SeamCurrentPhysicalMetricAttachment
+import SeamCurrentPhotonLeptonThreshold
 
 /-!
 # OPH screen arithmetic umbrella

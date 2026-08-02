@@ -3109,6 +3109,79 @@ interactions, a cross section, background-radiation transport, and source
 composition. The finite seam-current theorems supply none of these physical
 attachments.
 
+\begin{proposition}[Conditional photon-decay exclusion and electron-positron threshold]
+\label{prop:seam-current-photon-lepton-threshold}
+Let the nonnegative square root of
+\eqref{eq:screen-seam-current-symbol} be attached to a physical photon
+frequency in the Euclidean carrier metric, with nonzero \(a\). For
+\(\mathbf k=kn\), \(k\geq0\), and \(|n|=1\), the exact finite symbol satisfies
+\[
+0\leq\Omega_\gamma(k,n)^2=\Lambda_a(k,n)\leq k^2 .
+\]
+Suppose energy and momentum compose additively in the declared frame and the
+electron and positron have positive mass and Lorentz-invariant positive-energy
+dispersion. A photon cannot decay into an electron-positron pair. For two incoming photons,
+any declared final-state energy within the seam-current incoming-energy budget
+does not exceed the Lorentz-invariant incoming-energy budget at the same
+momenta. The exact upper bound is global for nonzero \(a\); the separately
+certified Taylor-remainder interval uses \(0\leq |a|k\leq1\).
+
+For a separate leading ultrarelativistic calculation, use
+\(E_i^2=p_i^2+m_i^2+\delta_{i,2}E_i^4\) through the retained order, with
+\(i\in\{\gamma,+,-\}\), \(m_\gamma=0\), \(m_+=m_-=m_e\), \(E\) the
+hard-photon energy, and \(\epsilon\) the soft-photon energy. Treat the
+soft background photon as Lorentz invariant at leading order and allow
+independent dimension-six coefficients
+\(\delta_{\gamma,2},\delta_{+,2},\delta_{-,2}\). Head-on incoming momenta,
+collinear outgoing momenta, additive conservation, and a fixed positron
+energy share \(0<x<1\) give
+\[
+\left[\delta_{\gamma,2}-x^3\delta_{+,2}
+ -(1-x)^3\delta_{-,2}\right]E^4
+ +4\epsilon E-\frac{m_e^2}{x(1-x)}=0.
+\]
+At \(x=1/2\), the visible coefficient is
+\[
+\delta_{\gamma,2}
+-\frac{\delta_{+,2}+\delta_{-,2}}8 .
+\]
+This map has rank one and a two-dimensional coefficient fiber. On the
+Lorentz-invariant charged-lepton branch,
+\(\delta_{+,2}=\delta_{-,2}=0\), and for \(m_e>0\), \(0<x<1\),
+\[
+\frac{m_e^2}{x(1-x)}-4m_e^2
+=\frac{m_e^2(2x-1)^2}{x(1-x)}.
+\]
+Hence equal sharing is the unique global maximizer of the leading head-on,
+collinear threshold residual on this branch.
+\end{proposition}
+
+\begin{proof}
+The elementary inequality \(1-\cos y\leq y^2/2\), together with the exact
+second moment of the thirty normalized seam directions, gives
+\(\Lambda_a(k,n)\leq k^2\) in the same Euclidean metric used by the carrier
+completion. A positive-mass lepton pair with Lorentz-invariant positive-energy
+dispersion has energy
+strictly greater than the magnitude of its total momentum. The triangle
+inequality gives the decay exclusion and the incoming-energy-domain
+inclusion. Expanding the three dispersion relations through first order in
+the dimension-six coefficients and enforcing the declared head-on momentum
+balance gives the displayed threshold equation. Its equal-share row is
+\((1,-1/8,-1/8)\), which has rank one and a two-dimensional kernel. The
+displayed square identity proves the Lorentz-invariant-lepton optimizer. The
+complete identities and the metric typing are checked in Lean, with an
+independent exact receipt for the coefficient algebra~\cite{ophrepo}.
+\end{proof}
+
+The conditional kinematic theorem supplies no physical photon or charged-lepton
+action, interaction vertex, cross section, opacity, event rate, source
+population, shower development, or detector response. The fixed-share leading
+expansion retains independent charged-lepton
+coefficients. The Lorentz-invariant-lepton specialization has an exact global
+share optimizer. The general share optimization and full anisotropic
+minimization over outgoing three-momentum remain open, and the calculation
+does not identify the three dispersion coefficients separately.
+
 \begin{theorem}[Icosahedral face-corner bundle]
 \label{thm:icosahedral-face-corner-bundle}
 On the icosahedral screen-sieve branch, the twenty outward-oriented triangular

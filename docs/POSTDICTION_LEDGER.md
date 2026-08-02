@@ -83,7 +83,7 @@ The target-named status packet consumes no laboratory comparison value, permits 
 | `MW_chart_gev` | `80.373315` | `[80.369217, 80.377413]` | chart coordinate | n/a | NOT_EVALUABLE |
 | `MZ_chart_gev` | `91.193124` | `[91.187978, 91.198269]` | chart coordinate | n/a | NOT_EVALUABLE |
 
-W/Z rows are running/tree chart coordinates; no physical comparison is defined until the chart-to-pole map is complete. The Higgs and top rows are conditional on the declared selection axioms.
+W/Z rows are running/tree chart coordinates. The strict one-loop consumer has a separate external fixture: interval receipts exclude scalar zeros in the declared principal-sheet boxes and isolate, for each of W and Z, one simple scalar zero with derivative and scalar-residue balls in its declared lower-half pole box on a channel-specific algebraic chart. They identify neither chart with the physical resonance sheet and prove no unique continuation, sign bridge, full-matrix Laurent residue, physical-current amplitude, or independent numerical replay. The fixture is not composed with the OPH chart, so no physical W/Z pole or mass comparison is defined. The Higgs and top rows are conditional on the declared selection axioms.
 
 ## Quarks
 

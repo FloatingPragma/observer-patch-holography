@@ -262,6 +262,18 @@ def build_receipt() -> dict[str, Any]:
             "doi": "10.1088/1475-7516/2022/01/023",
             "arxiv": "2112.06773",
             "paper_parameterization": ("E_i^2 = m_i^2 + p_i^2 + delta_i,n E_i^(2+n)"),
+            "published_model_premises": {
+                "preferred_frame": "cosmic-background rest frame",
+                "energy_momentum_composition": "ordinary additive conservation",
+                "electron_dispersion": "Lorentz invariant",
+                "positron_dispersion": "Lorentz invariant",
+                "LIV_sector": "photon only for the electromagnetic calculation",
+                "interaction_treatment": (
+                    "Breit-Wheeler mean free path changes through the shifted "
+                    "threshold; direct LIV changes of the cross section are neglected"
+                ),
+                "atmospheric_shower_LIV_response_recomputed": False,
+            },
             "selected_scenario": (
                 "alternative source scenario with a subdominant proton component "
                 "extending to 1e20 eV"
@@ -298,6 +310,10 @@ def build_receipt() -> dict[str, Any]:
                 ),
             },
             "conditional_on_all_open_attachments": True,
+            "coefficient_scope": (
+                "photon-only special branch with zero electron and positron LIV "
+                "coefficients and ordinary additive conservation"
+            ),
         },
         "open_physical_attachments": {
             "spatial_symbol_to_frequency_squared_proved": False,

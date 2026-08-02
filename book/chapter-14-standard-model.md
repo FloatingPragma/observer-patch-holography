@@ -236,12 +236,11 @@ of the measured value.
 
 That low-energy number lives in the same electroweak theory as the W and Z
 bosons. Once the electroweak structure is fixed, electromagnetism is the
-unbroken piece left after the weak and hypercharge parts mix together. The
-same structure pins the W and Z masses. A strict one-loop contour calculation
-follows each propagator onto the second Riemann sheet and finds exactly one
-pole there, winding number one, so there is no ambiguity about which root is
-the particle. Both masses land within a tenth of a percent of the measured
-values. Sharpening the hadronic leg of the transport is work in progress.
+unbroken piece left after the weak and hypercharge parts mix together. OPH
+identifies the W and Z carrier roles and supplies an internal electroweak
+chart. Turning that chart into physical pole masses requires a source-to-pole
+bridge, which is work in progress. Sharpening the hadronic leg of the
+electromagnetic transport is work in progress as well.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 

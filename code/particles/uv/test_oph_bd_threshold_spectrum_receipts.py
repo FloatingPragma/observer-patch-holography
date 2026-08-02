@@ -541,6 +541,9 @@ def test_paper_tracks_the_frozen_proxy_and_open_gate() -> None:
     assert r"m_{h,\rm tree}^{\rm max}=91.652460286" in paper
     assert r"3046.266\,\mathrm{GeV}" in paper
     assert "The OPH low-energy target used here has no supersymmetric partner sector." in paper
-    assert "The threshold/spectrum certificate is not emitted here" in paper
+    assert (
+        "branch-derived string scale, full heavy spectrum, threshold determinant, "
+        "or low-energy spectrum"
+    ) in paper
     assert "0.521754255407" not in paper
     assert "0.118400" not in paper

@@ -59,6 +59,32 @@ is \(z[\sigma_Z-\delta_{ZZ}^{(1)}(z)]\); both off-diagonal entries start at
 order \(\epsilon\), so their product starts at order \(\epsilon^2\).
 \end{proof}
 
+Put \(S=gv_F/2\), \(t=g'/g\),
+\(d_W=\Delta_{WW}^{(1)}(w)/w\), and
+\(d_Z=\Delta_{ZZ}^{(1)}(z)/z\). The strict scalar consumer then obeys
+\[
+s_W=S^2(1+d_W),\qquad
+s_Z=S^2(1+t^2)(1+d_Z).
+\]
+Consequently, whenever the denominator is nonzero,
+\[
+\frac{s_W}{s_Z}
+=\frac{1+d_W}{(1+t^2)(1+d_Z)}.
+\]
+This is the exact quotient of the two one-loop-truncated pole coordinates.
+Re-expansion to strict one-loop order gives
+\[
+\frac{s_W}{s_Z}
+=\frac{1}{1+t^2}\bigl(1+d_W-d_Z\bigr)+O(\epsilon^2).
+\]
+The explicit common scale cancels under a passive rescaling at fixed
+normalized corrections. An active change of \(v_F\) can move thresholds and
+therefore \(d_W,d_Z\). The identity leaves \(t,d_W,d_Z\) unselected and gives
+no numerical pole ratio by itself. Exact counterfamilies in the factored
+consumer coordinates show that these normalized inputs can change the
+dimensionless mass and width readouts while the common scale remains
+irrelevant.
+
 For \(s_V=m_{V,0}^2+\Delta_V^{(1)}\), the strict energy-pole coefficients are
 \[
 \delta M_V^{(1)}=\frac{\operatorname{Re}\Delta_V^{(1)}}{2m_{V,0}},
@@ -93,10 +119,11 @@ verifier.  If the verifier resolves no independent witness, it follows the
 same accepting path.  Hence acceptance would admit a false instance.
 \end{proof}
 
-The released fail-closed receipt implements these rules and rejects
+The fail-closed consumer receipt implements these rules and rejects
 self-attested physical flags, unrelated-but-self-consistent poles, substituted empty
 fixtures, inflated tolerances, corrupted redundant fields, and altered
-neutral diagnostics.  Its archived SMDR order-one fixture at \(Q=160\) GeV
+neutral diagnostics. Its archived Standard Model dimensional-regularization
+order-one fixture at \(Q=160\) GeV
 evaluates to
 \[
 \begin{aligned}
@@ -122,11 +149,19 @@ action and active census to a frozen effective-field-theory interval. It
 contains two independent rule tables, direct and converted
 Fleischer--Jegerlehner blocks, and payload-replayed Ward and
 Slavnov--Taylor controls. The rule tables are coordinate variants inside one
-harness rather than two independently implemented raw loop engines. A
-proof-bearing external validation additionally requires the second engine,
+harness rather than two independently implemented raw loop engines. Separate
+interval receipts exclude scalar zeros on declared principal-sheet boxes and
+isolate, for each of \(W\) and \(Z\), one simple scalar zero with derivative
+and scalar-residue balls in its declared lower-half pole box on a
+channel-specific algebraic chart. They identify neither chart with the
+physical resonance sheet, prove no unique continuation from the principal
+chart, and do not supply the sign bridge, full-matrix
+Laurent data, dressed-current amplitude, or independent numerical replay.
+Proof-bearing physical validation also requires the second engine,
 counterterms generated from the complete action, BRST-generated ghost
 vertices, finite symmetry restoration, symbolic Nielsen identities, an
-artifact-resolving third verifier, rigorously nested complex balls, certified
-\(W/Z\) contours and Laurent data, dressed-current residues, and complete
-mutation replay. These inputs are work in progress. The harness therefore
-establishes no physical \(W/Z\) pole and supplies no OPH-native source packet.
+artifact-resolving third verifier, a certified continuation identity,
+full-matrix contour and Laurent data, dressed-current residues, and complete
+independent replay. The external fixture is not composed with the OPH
+electroweak chart. The harness therefore establishes no physical \(W/Z\) pole
+and supplies no OPH-native source packet.

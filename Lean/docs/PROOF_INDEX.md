@@ -345,6 +345,20 @@ Mapping between Lean 4 theorems in this project and statements in
   QFT functional and the declared kinetic ray. It does not select a physical
   kinetic action, family count, scalar count, thresholds, higher-loop law, or
   measured coupling attachment.
+- Strict W/Z pole-consumer scale quotient
+  (`Screen/ElectroweakPoleScaleQuotient.lean`): sorry-free exact complex
+  algebra. Writing the strict poles as `sW=S^2*pW` and
+  `sZ=S^2*(1+t^2)*pZ` proves that the explicit common pole scale cancels from
+  `sW/sZ` globally at fixed normalized corrections. This covers passive unit
+  rescaling, not an active vacuum-scale variation that can move threshold
+  ratios. An exact algebraic factored-coordinate counterfamily varies the
+  normalized W coordinate to attain every complex ratio before physical
+  sheet and perturbative-domain guards. Separate unconstrained
+  factored-coordinate examples show the algebraic dependence of the bounded
+  mass-width output vector. They are not accepted strict-consumer packets. A numerical
+  dimensionless prediction therefore requires source-selected `t`, `pW`, and
+  `pZ`; the counterfamily is not claimed to be an accepted consumer packet or
+  a physical EFT completion.
 - Finite primitive-port dual measure
   (`Screen/PrimitivePortDualMeasure.lean`): sorry-free finite incidence and
   rational arithmetic. Reconstructing triangular faces from the source-pinned
@@ -384,6 +398,29 @@ Mapping between Lean 4 theorems in this project and statements in
   longitudinal gauge redundancy, a Gauss law, Maxwell dynamics, physical
   `U(1)_Q`, a clock, a real spacetime field, a photon Hilbert
   space, quantization, or a physical massless pole.
+- Conditional photon-lepton threshold algebra
+  (`Screen/SeamCurrentPhotonLeptonThreshold.lean`): sorry-free exact real
+  algebra for the leading ultrarelativistic, additive-conservation,
+  preferred-frame threshold expansion. At fixed outgoing share `x`, the
+  head-on process sees only
+  `delta_gamma - delta_plus x^3 - delta_minus (1-x)^3`. At equal sharing this
+  becomes `delta_gamma - (delta_plus + delta_minus)/8`; the charge-odd
+  lepton direction and a second common-shift direction remain invisible. The
+  FZ-12 photon-only branch gives `-a^2/20`, while an additionally assumed
+  universal photon/lepton principal symbol gives `-3a^2/80`. The leading
+  collinear residual on the Lorentz-invariant-lepton branch has its
+  unique global maximum at equal sharing. General independent-lepton share
+  optimization and full anisotropic minimization remain open. The exact full
+  cosine symbol is bounded by the Euclidean momentum quadratic form. On that
+  separate symbol attachment and Lorentz-invariant charged-lepton premises,
+  photon decay into an electron-positron pair is impossible. At fixed incoming momenta the
+  Lorentz-invariant incoming energy is no smaller than the FZ incoming energy,
+  so the FZ energy-budget domain is contained in the Lorentz-invariant one.
+  Those two consequences use no
+  effective-field-theory truncation or rank-six direction restriction. This
+  proves no electron or positron action, physical
+  conservation law, interaction vertex, cross section, source population,
+  shower response, or photon attachment.
 - Conditional primitive-hop selection
   (`Screen/PrimitiveHopSelection.lean`): sorry-free exact composition. A
   complete quotient-deduplicated move type is explicitly identified with the
