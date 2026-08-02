@@ -587,17 +587,18 @@
           "status": "DEFERRED_UNTIL_PHYSICALIZATION"
         },
         "physical_sector_choice": {
-          "content_reason": "both relations consume only selection-independent spectral data: the cost pair and channel eigenvalues exist regardless of the open rank-three selection, which is not an input to either relation",
-          "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
+          "premise": "a source-derived current lift, kinetic form, matter/scalar content, and physical gauge sector must be selected before the conditional ray or determinant is a physical observable",
+          "status": "OPEN_NAMED_SELECTION_PREMISE"
         },
         "source_admissible_completion": {
-          "premise": "completions preserving the icosahedral port module",
+          "premise": "the charged-double-triplet fixture and matter-trace branch, with the declared one-loop field content, threshold, and scheme",
           "status": "NAMED_COMPLETION_PREMISE"
         }
       },
       "physicalization_status": "OPEN_MAP__KINETIC_ACTION_BRIDGE_OR_POLE_ATTACHMENT_REQUIRED",
       "rank": 7,
       "relation_certificate": {
+        "independent_verifier": "python3 code/angular_sprint/verify_kinetic_form_selection_independent.py --receipt code/angular_sprint/runtime/kinetic_form_selection_receipt.json",
         "index_pin": "Lean/Screen/RGRepresentationFrontier.lean, theorem representation_indices",
         "kind": "exact_certificate",
         "normalized_ray": [
@@ -682,11 +683,11 @@
           "status": "DEFERRED_UNTIL_PHYSICALIZATION"
         },
         "physical_sector_choice": {
-          "content_reason": "both relations consume only selection-independent spectral data: the cost pair and channel eigenvalues exist regardless of the open rank-three selection, which is not an input to either relation",
-          "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
+          "premise": "a source-derived current lift, kinetic form, matter/scalar content, and physical gauge sector must be selected before the conditional ray or determinant is a physical observable",
+          "status": "OPEN_NAMED_SELECTION_PREMISE"
         },
         "source_admissible_completion": {
-          "premise": "completions preserving the icosahedral port module",
+          "premise": "the charged-double-triplet fixture and matter-trace branch, with the declared one-loop field content, threshold, and scheme",
           "status": "NAMED_COMPLETION_PREMISE"
         }
       },
@@ -705,6 +706,26 @@
           "-218/9"
         ],
         "exposure_note": "the sealed inverse-coupling column is public precision data, so this candidate is exposed-retrospective at best and is not a candidate for the single campaign comparison while any prospective-capable row remains open",
+        "general_cancellation_lean_check": "Lean/Screen/KineticFamilyCancellation.lean",
+        "general_integer_zero_locus": "3*(22+nH) x1 - 3*(110+nH) x2 + 2*(110-nH) x3 = 0",
+        "general_nG_nH_cofactors_constant_nG_nH": [
+          [
+            "-22/3",
+            "0",
+            "-1/3"
+          ],
+          [
+            "110/3",
+            "0",
+            "1/3"
+          ],
+          [
+            "-220/9",
+            "0",
+            "2/9"
+          ]
+        ],
+        "independent_verifier": "python3 code/angular_sprint/verify_kinetic_form_selection_independent.py --receipt code/angular_sprint/runtime/kinetic_form_selection_receipt.json",
         "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
         "kind": "frozen_statistic_definition",
         "kinetic_column": [
@@ -713,7 +734,9 @@
           "2"
         ],
         "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
+        "nG_coefficients_cancel_exactly": true,
         "producer": "code/angular_sprint/kinetic_form_selection_certificate.py",
+        "remaining_content_dependence": "nH remains explicit; scalar content, thresholds, scheme, and extra fields are not quotiented by this cancellation",
         "sealed_column": "alpha_inverse"
       },
       "score": 130,
@@ -725,7 +748,7 @@
         ],
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
-      "statement": "the scale-free renormalization-line statistic det(alpha_inverse, k, b) = 0 is frozen on the matter-trace branch with kinetic column (10/3, 2, 2), one-loop beta column (41/6, -19/6, -7) at the declared (nG, nH) = (3, 1) completion, exact cofactors (-23/3, 37, -218/9), and integer zero locus 69 x1 - 333 x2 + 218 x3 = 0; the coupling column stays sealed with the comparison surface",
+      "statement": "the scale-free renormalization-line statistic det(alpha_inverse, k, b) = 0 is frozen on the matter-trace branch with kinetic column (10/3, 2, 2), one-loop beta column (41/6, -19/6, -7) at the declared (nG, nH) = (3, 1) completion, exact cofactors (-23/3, 37, -218/9), and integer zero locus 69 x1 - 333 x2 + 218 x3 = 0; the complete-family contribution cancels from the determinant for every nG, while nH and the declared sector/threshold budget remain explicit; the coupling column stays sealed with the comparison surface",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -875,20 +898,21 @@
           "status": "DEFERRED_UNTIL_PHYSICALIZATION"
         },
         "physical_sector_choice": {
-          "content_reason": "both relations consume only selection-independent spectral data: the cost pair and channel eigenvalues exist regardless of the open rank-three selection, which is not an input to either relation",
-          "status": "NOT_APPLICABLE_PER_FROZEN_NUISANCE_REGISTRY"
+          "premise": "a source-derived current lift, kinetic form, matter/scalar content, and physical gauge sector must be selected before the conditional ray or determinant is a physical observable",
+          "status": "OPEN_NAMED_SELECTION_PREMISE"
         },
         "source_admissible_completion": {
-          "premise": "completions preserving the icosahedral port module",
+          "premise": "the charged-double-triplet fixture and matter-trace branch, with the declared one-loop field content, threshold, and scheme",
           "status": "NAMED_COMPLETION_PREMISE"
         }
       },
       "physicalization_status": "OPEN_MAP__KINETIC_ACTION_BRIDGE_OR_POLE_ATTACHMENT_REQUIRED",
       "rank": 10,
       "relation_certificate": {
+        "independent_verifier": "python3 code/angular_sprint/verify_kinetic_form_selection_independent.py --receipt code/angular_sprint/runtime/kinetic_form_selection_receipt.json",
         "kind": "exact_certificate",
         "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
-        "lift_dependence": "the port-branch ratio is fixture-conditional: the declared lift gives six, a doublet kernel realization gives 3/2, and no registered producer source-selects the lift",
+        "lift_dependence": "the port-branch ratio is fixture-conditional: the declared lift gives six; a formal doublet-kernel index substitution gives 3/2 but has not been constructed as an admissible compact faithful equivariant source lift, and no registered producer source-selects the lift",
         "matter_trace_killing_relative": [
           "1",
           "2/3"
@@ -913,7 +937,7 @@
         ],
         "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT"
       },
-      "statement": "the port-current pairing is ad-invariant, and its Killing-relative coefficients on the simple ideals are (c2, c3) = (1, 1/6), ratio six, at the declared charged-double-triplet lift; the rank-fifteen matter trace form carries (1, 2/3), ratio three halves; the port-branch value is lift-dependent across the open equivariant lift family (a doublet kernel realization gives 3/2), so the dichotomy is fixture-conditional and the selection premise covers both the form and the lift",
+      "statement": "the port-current pairing is ad-invariant, and its Killing-relative coefficients on the simple ideals are (c2, c3) = (1, 1/6), ratio six, at the declared charged-double-triplet lift; the rank-fifteen matter trace form carries (1, 2/3), ratio three halves; the port-branch value is lift-dependent across the open equivariant lift family; a formal doublet-kernel index substitution gives 3/2 but is not a constructed admissible source lift, so the selection premise covers both the form and the lift",
       "weight_claims": {
         "all_continuous_parameters_covered": false,
         "all_registered_completions_covered": false,
@@ -2184,7 +2208,7 @@
     "rule": "a candidate ranks into the issue-639 comparison surface only when every eligibility gate passes: closed physical map, exact global certificate, independent recomputation, registered-completion and continuous-parameter coverage, candidate-specific baseline counterexample, registered exposure class, and frozen uncertainty and power contracts; open-map or open-contract rows are ineligible rather than score-penalized"
   },
   "issue": 647,
-  "registry_sha256": "sha256:1b70c6ddacf04dca38ec23ad4be18fea190e9115f9c908e20b9959ba11b4b122",
+  "registry_sha256": "sha256:7952c93de3fba0d5454e716d4a65c8d432234f9fe4e4125af6086d2654530453",
   "schema": "oph.invariant_mining.candidate_registry.v1",
   "scoring_boundary": {
     "comparison_access_permitted": false,
@@ -2241,14 +2265,19 @@
       "Lean/Screen/A5PortAction.lean",
       "Lean/Screen/A5PortModule.lean",
       "Lean/Screen/EqualStateWeights.lean",
+      "Lean/Screen/KineticFamilyCancellation.lean",
       "Lean/Screen/Z6Exact.lean",
       "code/a5_closure/manifests/classical_realization_receipt.json",
       "code/a5_closure/manifests/equal_state_weights_reference.json",
       "code/a5_closure/manifests/family_band_attachment_reference.json",
+      "code/a5_closure/manifests/matter_attachment_receipt.json",
       "code/a5_closure/noncentral_seam_reduction_certificate.py",
       "code/a5_closure/port_current_inner_certificate.py",
       "code/a5_closure/receipts/noncentral_seam_reduction_reference.receipt.json",
       "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
+      "code/angular_sprint/kinetic_form_selection_certificate.py",
+      "code/angular_sprint/runtime/kinetic_form_selection_receipt.json",
+      "code/angular_sprint/verify_kinetic_form_selection_independent.py",
       "code/capacity_readback/F_READBACK_SPEC.md",
       "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
       "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",

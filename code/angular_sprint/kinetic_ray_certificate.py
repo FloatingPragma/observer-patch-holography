@@ -62,6 +62,7 @@ PORT_RECEIPT_PATH = (
     / "receipts"
     / "port_current_inner_reference.receipt.json"
 )
+SELECTION_RECEIPT_PATH = RUNTIME / "kinetic_form_selection_receipt.json"
 
 SCHEMA = "oph.kinetic_ray_receipt.v2"
 STATUS = (
@@ -205,8 +206,9 @@ def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[
                 q5_str(bands["frame_band"]),
             ],
             "note": (
-                "reads the three-dimensional su(3) block; declared as one "
-                "branch of the non-invariant raw pairing"
+                "reads the three-dimensional su(3) isotypic block in port "
+                "Euclidean coordinates; this is embedding-coordinate data, "
+                "not a separate invariant form on the simple ideal"
             ),
         },
         {
@@ -217,8 +219,9 @@ def candidate_rays(bands: dict[str, Q5], decomposition: dict[str, Any]) -> list[
                 q5_str(bands["quintet_band"]),
             ],
             "note": (
-                "reads the five-dimensional su(3) block; the second branch "
-                "of the non-invariant raw pairing"
+                "reads the five-dimensional su(3) isotypic block in port "
+                "Euclidean coordinates; the block value is not an "
+                "independent physical kinetic coefficient"
             ),
         },
         {
@@ -286,7 +289,22 @@ def ray_tests(rays: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
-def frozen_rg_statistic(decomposition: dict[str, Any]) -> dict[str, Any]:
+def frozen_rg_statistic(
+    decomposition: dict[str, Any],
+    selection_receipt: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    if selection_receipt is None:
+        selection_receipt = json.loads(
+            SELECTION_RECEIPT_PATH.read_text(encoding="ascii")
+        )
+    owner = selection_receipt["matter_trace_branch"]["frozen_rg_statistic"]
+    require(
+        owner["kinetic_column_k"] == ["10/3", "2", "2"]
+        and owner["beta_column_b"] == ["41/6", "-19/6", "-7"]
+        and owner["exact_cofactors"] == ["-23/3", "37", "-218/9"]
+        and owner["integer_zero_locus"] == "69 x1 - 333 x2 + 218 x3 = 0",
+        "selection-receipt determinant drift",
+    )
     return {
         "statistic": "det(alpha_inverse, k, b) = 0",
         "definition": (
@@ -300,19 +318,22 @@ def frozen_rg_statistic(decomposition: dict[str, Any]) -> dict[str, Any]:
             "branch of this statistic with exact columns and cofactors; "
             "this receipt records the same frozen values"
         ),
-        "kinetic_column": ["10/3", "2", "2"],
+        "kinetic_column": owner["kinetic_column_k"],
         "kinetic_column_premise": (
             "the rank-fifteen matter-trace branch of the open kinetic-form "
             "selection premise; the port-coordinate rays of this receipt "
             "are not kinetic columns"
         ),
-        "beta_column": ["41/6", "-19/6", "-7"],
+        "beta_column": owner["beta_column_b"],
         "beta_column_premise": (
             "one-loop imported QFT law at the declared (nG, nH) = (3, 1) "
             "completion in the census hypercharge normalization"
         ),
-        "exact_cofactors": ["-23/3", "37", "-218/9"],
-        "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
+        "exact_cofactors": owner["exact_cofactors"],
+        "integer_zero_locus": owner["integer_zero_locus"],
+        "general_family_higgs_cancellation": owner[
+            "general_family_higgs_cancellation"
+        ],
         "alpha_column": (
             "sealed: measured inverse couplings enter only through the "
             "issue-639 custody surface at its single comparison"
@@ -334,8 +355,17 @@ def build_receipt() -> dict[str, Any]:
         tests["reference_ray_hit"] is False,
         "reference ray unexpectedly hit; recheck normalization",
     )
-    statistic = frozen_rg_statistic(decomposition)
+    selection_receipt = json.loads(
+        SELECTION_RECEIPT_PATH.read_text(encoding="ascii")
+    )
+    require(
+        selection_receipt.get("schema")
+        == "oph.kinetic_form_selection_receipt.v1",
+        "kinetic-form selection receipt schema drift",
+    )
+    statistic = frozen_rg_statistic(decomposition, selection_receipt)
     payload = PORT_RECEIPT_PATH.read_bytes()
+    selection_payload = SELECTION_RECEIPT_PATH.read_bytes()
     receipt = {
         "schema": SCHEMA,
         "issue": 646,
@@ -352,7 +382,12 @@ def build_receipt() -> dict[str, Any]:
                 "path": PORT_RECEIPT_PATH.relative_to(REPO_ROOT).as_posix(),
                 "bytes": len(payload),
                 "sha256": tagged_sha256(payload),
-            }
+            },
+            {
+                "path": SELECTION_RECEIPT_PATH.relative_to(REPO_ROOT).as_posix(),
+                "bytes": len(selection_payload),
+                "sha256": tagged_sha256(selection_payload),
+            },
         ],
         "kinetic_action_bridge": (
             "OPEN: the identity of any finite invariant form with the "

@@ -31,9 +31,9 @@
       "sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
     },
     {
-      "bytes": 9582,
+      "bytes": 10922,
       "path": "code/invariant_mining/data/source_feature_registry.json",
-      "sha256": "sha256:380855531e9cd2dfd2a3fcb022369348069753d7f582c47352bee5da57cff19f"
+      "sha256": "sha256:1896d17ff125ca688873983783c0a1d4632f8e5898a50cd669e3d5ae1856bed2"
     },
     {
       "bytes": 4275,
@@ -60,14 +60,14 @@
     "registry_finalization_complete": true,
     "target_payloads_registered": false
   },
-  "freeze_id": "sha256:c532da3db969b2fc04c7f47d5b86354eb70bd4085ab171d41660b45fdd2e1a1f",
+  "freeze_id": "sha256:3fab06baa4b93e57ab1fda1faaff8ca785cee0c4b900b096a49e5cdb7808ad03",
   "issue": 647,
   "promotion_rule": "Public-data access, target registration, and scoring stay sealed; issue 639 owns the single physical comparison and the campaign terminates after it. Grammar, ranking, nuisance, exposure, completeness, and direct-N content cannot change while generation is enabled.",
   "schema": "oph.invariant_mining.pregeneration_freeze.v1",
   "source_projection": {
-    "bytes": 7505,
+    "bytes": 8500,
     "path": "code/invariant_mining/outputs/source_projection.json",
-    "sha256": "sha256:5c1b16a6021834d26f3aa06da701fddc2530243e87d27ccf308f766b99cd5e45"
+    "sha256": "sha256:c7cbf1a66090915e9ff191c27aeda1a20f86d6821c5cc05403a630bbd8a1f3ba"
   },
   "status": "GENERATION_ENABLED__COMPARISON_SEALED"
 }

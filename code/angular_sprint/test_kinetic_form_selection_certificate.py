@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 import unittest
 from fractions import Fraction
@@ -48,10 +49,14 @@ class KineticFormSelectionTests(unittest.TestCase):
         self.assertEqual(row["port_response_ratio_su2_over_su3"], "6")
         self.assertEqual(row["matter_trace_ratio_su2_over_su3"], "3/2")
         self.assertTrue(row["branches_distinct_at_declared_fixture"])
-        self.assertIn("fixture-conditional", row["port_branch_lift_dependence"])
-        self.assertIn("doublet", row["port_branch_lift_dependence"])
+        self.assertIn("formal doublet-kernel", row["port_branch_lift_dependence"])
+        self.assertIn("rather than an admitted countermodel", row["port_branch_lift_dependence"])
         self.assertIn(
             "a2_holonomy_selector", row["selection_mechanism_candidate"]
+        )
+        self.assertIn(
+            "separate kinetic-form selector remains necessary",
+            row["selection_mechanism_candidate"],
         )
 
     def test_port_metric_band_data_retained_at_corrected_typing(self) -> None:
@@ -70,10 +75,45 @@ class KineticFormSelectionTests(unittest.TestCase):
         self.assertEqual(row["kinetic_column_k"], ["10/3", "2", "2"])
         self.assertEqual(row["beta_column_b"], ["41/6", "-19/6", "-7"])
 
+    def test_general_family_terms_cancel_but_scalar_count_does_not(self) -> None:
+        row = self.receipt["matter_trace_branch"]["frozen_rg_statistic"][
+            "general_family_higgs_cancellation"
+        ]
+        self.assertEqual(
+            row["determinant_cofactors_constant_nG_nH"],
+            [
+                ["-22/3", "0", "-1/3"],
+                ["110/3", "0", "1/3"],
+                ["-220/9", "0", "2/9"],
+            ],
+        )
+        self.assertTrue(row["family_beta_equals_two_thirds_kinetic_column"])
+        self.assertTrue(row["nG_coefficients_cancel_exactly"])
+        self.assertIn("nH remains explicit", row["remaining_content_dependence"])
+        self.assertIn("neither selects the branch", row["physical_typing"])
+
     def test_comparison_boundary_sealed(self) -> None:
         row = self.receipt["comparison_boundary"]
         self.assertFalse(row["public_measurement_read"])
         self.assertFalse(row["comparison_permitted"])
+
+    def test_physical_selection_boundary_stays_closed(self) -> None:
+        row = self.receipt["physical_selection_boundary"]
+        self.assertFalse(row["current_lift_source_selected"])
+        self.assertFalse(row["kinetic_form_source_selected"])
+        self.assertFalse(row["physical_sector_selected"])
+        self.assertFalse(row["physical_continuum_gauge_action_identified"])
+
+    def test_default_cli_summary_does_not_use_a_stale_key(self) -> None:
+        completed = subprocess.run(
+            [sys.executable, str(MODULE_DIR / "kinetic_form_selection_certificate.py")],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        summary = json.loads(completed.stdout)
+        self.assertTrue(summary["distinct"])
+        self.assertEqual(summary["port_ratio"], "6")
 
     def test_superseded_typing_names_the_withdrawn_claim(self) -> None:
         row = self.receipt["superseded_typing"]

@@ -34,9 +34,9 @@
       "sha256": "sha256:69fabf364293a9e71114996e2052378e466c71bfd1c07a5375cd8472172c4100"
     },
     {
-      "bytes": 9582,
+      "bytes": 10922,
       "path": "code/invariant_mining/data/source_feature_registry.json",
-      "sha256": "sha256:380855531e9cd2dfd2a3fcb022369348069753d7f582c47352bee5da57cff19f"
+      "sha256": "sha256:1896d17ff125ca688873983783c0a1d4632f8e5898a50cd669e3d5ae1856bed2"
     },
     {
       "bytes": 4275,
@@ -69,14 +69,14 @@
       "sha256": "sha256:30ee7a9c48d654a509d917964511839628f32deb9e77fd617f1ee163cf86e960"
     },
     {
-      "bytes": 92789,
+      "bytes": 96986,
       "path": "code/invariant_mining/tools/generate_candidates.py",
-      "sha256": "sha256:6dc99b2d3a1b0e5a7add7c7b093deb322ae331c9680d29180e3de27331723110"
+      "sha256": "sha256:6dc757222ffe85accc9aa6a69770a98366f39f10531b825e01996168f547124c"
     },
     {
-      "bytes": 51300,
+      "bytes": 54368,
       "path": "code/invariant_mining/tools/verify_pregeneration_freeze_independent.py",
-      "sha256": "sha256:3c9a525a73b3867923c711db4c84a324856f95828e158c522eac742f8a27341a"
+      "sha256": "sha256:8a52c2df5b6b2dc3366c96cf9004267b5d4c12239a698f7914abe2203e7e3bd1"
     },
     {
       "bytes": 23376,
@@ -86,7 +86,7 @@
   ],
   "issue": 647,
   "projection_id": "oph-invariant-source-projection-v1",
-  "registered_source_paths_sha256": "sha256:7a09b5349de8b26b8920f5d3bcbb541b96bf7814cfe0dfc9c4f924df87aa8e54",
+  "registered_source_paths_sha256": "sha256:e9d24aed0050815b2a90f6de5754419b3a4ee070b6ff76b6f4bbac5bec126ef7",
   "registry_finalization_complete": true,
   "schema": "oph.invariant_mining.source_projection.v1",
   "source_artifacts": [
@@ -126,6 +126,11 @@
       "sha256": "sha256:2709dd13eeb13679dba5aee682035ae02ea124aec1ea8124619889e2e3fbb356"
     },
     {
+      "bytes": 5611,
+      "path": "Lean/Screen/KineticFamilyCancellation.lean",
+      "sha256": "sha256:c4d55fc22b3cd542f3aae5d499642b305b2b135898520d8c92c4b35f9fb286c5"
+    },
+    {
       "bytes": 2584,
       "path": "Lean/Screen/Z6Exact.lean",
       "sha256": "sha256:574663731d964d1454ad59e058a853b2a61bc4cd501d69b3f22d8eb954373eaf"
@@ -146,6 +151,11 @@
       "sha256": "sha256:3a02d02fd3bcd318535348186aad7008c861c7ff3b8c9558f64d36b7ee0eb64b"
     },
     {
+      "bytes": 8616,
+      "path": "code/a5_closure/manifests/matter_attachment_receipt.json",
+      "sha256": "sha256:f58c6c283cfff1d4c2bb10c0db050fce256bcd5ce17bb4d5bc1fda545c2e799e"
+    },
+    {
       "bytes": 106720,
       "path": "code/a5_closure/noncentral_seam_reduction_certificate.py",
       "sha256": "sha256:64b227fb7f5ccf5e95ba2faf8faefa28f457b9cd19f822f3a1611ef915de529f"
@@ -164,6 +174,21 @@
       "bytes": 78165,
       "path": "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
       "sha256": "sha256:efa206d21f59af5a96006ff283a191418c7f4a8c5f3125fcb42d1e03b1f5289b"
+    },
+    {
+      "bytes": 32254,
+      "path": "code/angular_sprint/kinetic_form_selection_certificate.py",
+      "sha256": "sha256:36db6dbd44a2f1d6013965aa2ed0ea9b4939d9ba47c6962352606c1406ae5df9"
+    },
+    {
+      "bytes": 8006,
+      "path": "code/angular_sprint/runtime/kinetic_form_selection_receipt.json",
+      "sha256": "sha256:bb086d9b792d87667904f5ab9c5b948bce3c92163a68780af09f1b7c98cf3a9a"
+    },
+    {
+      "bytes": 27687,
+      "path": "code/angular_sprint/verify_kinetic_form_selection_independent.py",
+      "sha256": "sha256:8507221cee47ceb81dfb9befa63832599648bf90a91d29059b8f625896c0217e"
     },
     {
       "bytes": 10916,

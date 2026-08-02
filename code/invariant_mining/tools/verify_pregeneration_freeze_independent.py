@@ -1204,6 +1204,20 @@ def verify(
             "CANDIDATE_DICHOTOMY_DRIFT",
             str(dichotomy_row and dichotomy_row["relation_certificate"]),
         )
+        require(
+            dichotomy_row["relation_certificate"]["independent_verifier"]
+            == (
+                "python3 code/angular_sprint/"
+                "verify_kinetic_form_selection_independent.py --receipt "
+                "code/angular_sprint/runtime/kinetic_form_selection_receipt.json"
+            )
+            and dichotomy_row["nuisance_matrix"]["physical_sector_choice"][
+                "status"
+            ]
+            == "OPEN_NAMED_SELECTION_PREMISE",
+            "CANDIDATE_DICHOTOMY_CUSTODY_DRIFT",
+            str(dichotomy_row.get("nuisance_matrix")),
+        )
         matter_ray_row = by_id.get("wz-matter-trace-kinetic-ray")
         matter_indices = (Fraction(10, 3), Fraction(2), Fraction(2))
         matter_ray = tuple(index / 2 for index in matter_indices)
@@ -1216,6 +1230,14 @@ def verify(
             == ["5/3", "1", "1"],
             "CANDIDATE_MATTER_RAY_DRIFT",
             str(matter_ray_row and matter_ray_row["relation_certificate"]),
+        )
+        require(
+            matter_ray_row["nuisance_matrix"]["physical_sector_choice"][
+                "status"
+            ]
+            == "OPEN_NAMED_SELECTION_PREMISE",
+            "CANDIDATE_MATTER_SECTOR_TYPING_DRIFT",
+            str(matter_ray_row.get("nuisance_matrix")),
         )
         determinant_row = by_id.get("wz-frozen-rg-determinant")
         beta = (Fraction(41, 6), Fraction(-19, 6), Fraction(-7))
@@ -1235,6 +1257,62 @@ def verify(
             and tuple(value * Fraction(-9) for value in cofactors)
             == (Fraction(69), Fraction(-333), Fraction(218)),
             "CANDIDATE_DETERMINANT_DRIFT",
+            str(determinant_row and determinant_row["relation_certificate"]),
+        )
+        general_beta = (
+            (Fraction(0), Fraction(20, 9), Fraction(1, 6)),
+            (Fraction(-22, 3), Fraction(4, 3), Fraction(1, 6)),
+            (Fraction(-11), Fraction(4, 3), Fraction(0)),
+        )
+
+        def affine_scaled(factor, row):
+            return tuple(factor * value for value in row)
+
+        def affine_minus(left, right):
+            return tuple(a - b for a, b in zip(left, right, strict=True))
+
+        general_cofactors = (
+            affine_minus(
+                affine_scaled(matter_indices[1], general_beta[2]),
+                affine_scaled(matter_indices[2], general_beta[1]),
+            ),
+            affine_minus(
+                affine_scaled(matter_indices[2], general_beta[0]),
+                affine_scaled(matter_indices[0], general_beta[2]),
+            ),
+            affine_minus(
+                affine_scaled(matter_indices[0], general_beta[1]),
+                affine_scaled(matter_indices[1], general_beta[0]),
+            ),
+        )
+        require(
+            general_cofactors
+            == (
+                (Fraction(-22, 3), Fraction(0), Fraction(-1, 3)),
+                (Fraction(110, 3), Fraction(0), Fraction(1, 3)),
+                (Fraction(-220, 9), Fraction(0), Fraction(2, 9)),
+            )
+            and determinant_row["relation_certificate"][
+                "general_nG_nH_cofactors_constant_nG_nH"
+            ]
+            == [
+                ["-22/3", "0", "-1/3"],
+                ["110/3", "0", "1/3"],
+                ["-220/9", "0", "2/9"],
+            ]
+            and determinant_row["relation_certificate"][
+                "nG_coefficients_cancel_exactly"
+            ]
+            is True
+            and determinant_row["relation_certificate"][
+                "general_cancellation_lean_check"
+            ]
+            == "Lean/Screen/KineticFamilyCancellation.lean"
+            and determinant_row["nuisance_matrix"]["physical_sector_choice"][
+                "status"
+            ]
+            == "OPEN_NAMED_SELECTION_PREMISE",
+            "CANDIDATE_GENERAL_DETERMINANT_DRIFT",
             str(determinant_row and determinant_row["relation_certificate"]),
         )
 

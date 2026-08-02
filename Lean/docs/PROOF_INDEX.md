@@ -129,6 +129,26 @@ Mapping between Lean 4 theorems in this project and statements in
   coefficient while changing the quartic coefficient at every nonzero scale.
   A1--A3 therefore do not remove the state-to-action,
   direct-first-hop-completeness, or source-selection premises.
+- Complete-family cancellation in the conditional kinetic-ray statistic
+  (`Screen/KineticFamilyCancellation.lean`): sorry-free exact rational
+  algebra. For the declared complete-family matter-trace ray
+  `(10/3, 2, 2)`, the imported one-loop beta contribution of each complete
+  family is exactly `2/3` times that ray. Its multiplicity therefore cancels
+  from `det(x,k,b(nG,nH))`. The remaining scalar-count plane is
+  `3(nH+22)x1 - 3(nH+110)x2 - 2(nH-110)x3 = 0`; at `nH = 1` this is
+  `69x1 - 333x2 + 218x3 = 0` for every `nG`. The theorem imports the one-loop
+  QFT functional and the declared kinetic ray. It does not select a physical
+  kinetic action, family count, scalar count, thresholds, higher-loop law, or
+  measured coupling attachment.
+- Finite primitive-port dual measure
+  (`Screen/PrimitivePortDualMeasure.lean`): sorry-free finite incidence and
+  rational arithmetic. Reconstructing triangular faces from the source-pinned
+  twelve-port adjacency gives exactly twenty faces, with five incident at each
+  port. Equal normalized face weights and the barycentric one-third share
+  therefore give exact port-dual weight `1/12`. This is a normalized finite
+  support measure. It does not identify a sector with a physical pixel or
+  continuum area, prove refinement convergence, select a physical scale, or
+  identify the support radius with the primitive translation hop.
 - Directed integer seam completion
   (`ObserverPatchHolography/DirectedSeamRepair.lean`): sorry-free integer and
   rational arithmetic. The two nearest-balanced directed outcomes preserve a

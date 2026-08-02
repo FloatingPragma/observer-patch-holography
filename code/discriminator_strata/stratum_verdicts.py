@@ -499,6 +499,27 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
         and "PHYSICAL_UNITS_NOT_EVALUABLE" in units_status,
         "clock-unit verdict drift",
     )
+    kinetic = json.loads(
+        KINETIC_SELECTION_RECEIPT_PATH.read_text(encoding="ascii")
+    )
+    require(
+        kinetic.get("schema") == "oph.kinetic_form_selection_receipt.v1"
+        and kinetic.get("ad_invariance", {}).get("verified_basis_triples")
+        == 1728,
+        "kinetic-form selection receipt drift",
+    )
+    coefficients = kinetic["killing_relative_coefficients"]
+    matter = kinetic["matter_trace_branch"]
+    statistic = matter["frozen_rg_statistic"]
+    general = statistic["general_family_higgs_cancellation"]
+    require(
+        general["nG_coefficients_cancel_exactly"] is True
+        and kinetic["physical_selection_boundary"][
+            "physical_sector_selected"
+        ]
+        is False,
+        "kinetic-form physical boundary drift",
+    )
     tested_combinations = [
         {
             "combination": "M_W / M_Z",
@@ -562,9 +583,10 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
             "the frozen mining registry carries basis_and_coordinate_choice, "
             "common_dimensionful_scale, physical_sector_choice, "
             "source_admissible_completion, and "
-            "detector_transfer_calibration; the clock, scheme, and "
-            "threshold directions live in the upstream W/Z stack vocabulary "
-            "and stay outside the source cone until a pole producer exists"
+            "detector_transfer_calibration; common-load and clock attachment "
+            "apply only to dimensionful W/Z members, while the scale-free "
+            "determinant retains kinetic-form, matter/scalar-content, scheme, "
+            "threshold, and physical-sector premises"
         ),
         "adjacent_registered_response_identities": _candidate_digest(rows),
         "adjacency_note": (
@@ -579,19 +601,38 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
                 "selection receipt"
             ),
             "killing_relative_dichotomy": {
-                "port_response": ["1", "1/6"],
-                "matter_trace": ["1", "2/3"],
-                "ratios": ["6", "3/2"],
+                "port_response": [coefficients["su2"], coefficients["su3"]],
+                "matter_trace": [
+                    matter["killing_relative"]["su2"],
+                    matter["killing_relative"]["su3"],
+                ],
+                "ratios": [
+                    coefficients["ratio_su2_over_su3"],
+                    matter["ratio_su2_over_su3"],
+                ],
             },
             "frozen_matter_branch_statistic": {
-                "kinetic_column": ["10/3", "2", "2"],
-                "beta_column": ["41/6", "-19/6", "-7"],
-                "exact_cofactors": ["-23/3", "37", "-218/9"],
-                "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
+                "kinetic_column": statistic["kinetic_column_k"],
+                "beta_column": statistic["beta_column_b"],
+                "exact_cofactors": statistic["exact_cofactors"],
+                "integer_zero_locus": statistic["integer_zero_locus"],
+                "general_nG_nH_cofactors_constant_nG_nH": general[
+                    "determinant_cofactors_constant_nG_nH"
+                ],
+                "general_integer_zero_locus": general[
+                    "general_integer_zero_locus"
+                ],
+                "nG_coefficients_cancel_exactly": general[
+                    "nG_coefficients_cancel_exactly"
+                ],
+                "remaining_content_dependence": general[
+                    "remaining_content_dependence"
+                ],
             },
             "selection_premise": (
-                "which invariant form the repair dynamics selects as the "
-                "physical kinetic action is a named open source premise; "
+                "which current lift, invariant form, matter/scalar content, "
+                "and physical gauge sector the repair dynamics selects is a "
+                "named open source premise; "
                 "the frozen determinant scores only through the issue-639 "
                 "custody surface after a certified kinetic-action bridge "
                 "selects the matter trace"
@@ -599,14 +640,18 @@ def build_646(registry: dict[str, Any]) -> dict[str, Any]:
             "producer": (
                 "code/angular_sprint/kinetic_form_selection_certificate.py"
             ),
+            "independent_verifier": kinetic["verification"]["command"],
             "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
+            "general_cancellation_lean_check": (
+                "Lean/Screen/KineticFamilyCancellation.lean"
+            ),
         },
         "surviving_direction_owners": {
-            "physical common-load attachment": 631,
+            "physical common-load attachment for dimensionful W/Z members only": 631,
             "field and operator census": 632,
             "matching and schemes": 32,
             "finite-source EFT bridge": 635,
-            "family attachment": 569,
+            "rank-fifteen matter/current attachment": 569,
             "integrated action": 630,
         },
         "wz_manifest_status": manifest.get("scientific_status"),

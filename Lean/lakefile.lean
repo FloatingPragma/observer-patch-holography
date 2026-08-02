@@ -38,7 +38,8 @@ lean_lib «OPHScreen» where
     `BipoSHTransferInvariant, `BipoSHInverseBoundary, `BipoSHFrameInvariant,
     `VolumeReadoutBridge, `PrimitivePortTranslationBridge,
     `PrimitivePortScaleBoundary, `PrimitivePortMetricAttachment,
-    `PrimitivePortOperatorSelectionBoundary]
+    `PrimitivePortOperatorSelectionBoundary, `KineticFamilyCancellation,
+    `PrimitivePortDualMeasure]
 
 lean_exe «oph» where
   root := `Main

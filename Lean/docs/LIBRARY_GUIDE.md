@@ -189,6 +189,14 @@ surface for the OPH consensus layer. Contents:
   port covariance and quadratic coefficient but a variable quartic
   coefficient. Port-state symmetry does not by itself select kinetic
   coefficients or first-hop exclusivity.
+- A sorry-free complete-family cancellation theorem in
+  `Screen/KineticFamilyCancellation.lean`. For the conditionally declared
+  matter-trace kinetic ray `(10/3, 2, 2)`, each complete family's imported
+  one-loop beta contribution is collinear with that ray, so `nG` cancels
+  exactly from `det(x,k,b(nG,nH))`. The theorem derives the general
+  scalar-count plane and its `nH = 1` integer specialization. It does not
+  select the physical kinetic form or particle census, and it does not supply
+  thresholds, higher loops, or a measured coupling attachment.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

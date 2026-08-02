@@ -1267,6 +1267,34 @@ def produce_wz_scale_free_candidates(
         and bands["band_multiplicities"] == {"5": 1, "sqrt5": 3, "-sqrt5": 3, "-1": 5},
         "pinned channel eigenvalue drift",
     )
+    kinetic_receipt = load_pinned_receipt(
+        "code/angular_sprint/runtime/kinetic_form_selection_receipt.json"
+    )
+    require(
+        kinetic_receipt.get("schema")
+        == "oph.kinetic_form_selection_receipt.v1"
+        and kinetic_receipt.get("ad_invariance", {}).get(
+            "verified_basis_triples"
+        )
+        == 1728,
+        "pinned kinetic-form receipt drift",
+    )
+    kinetic_coefficients = kinetic_receipt["killing_relative_coefficients"]
+    matter_branch = kinetic_receipt["matter_trace_branch"]
+    frozen_statistic = matter_branch["frozen_rg_statistic"]
+    general_cancellation = frozen_statistic[
+        "general_family_higgs_cancellation"
+    ]
+    require(
+        kinetic_coefficients["su2"] == "1"
+        and kinetic_coefficients["su3"] == "1/6"
+        and kinetic_coefficients["ratio_su2_over_su3"] == "6"
+        and matter_branch["killing_relative"] == {"su2": "1", "su3": "2/3"}
+        and matter_branch["ratio_su2_over_su3"] == "3/2"
+        and general_cancellation["nG_coefficients_cancel_exactly"] is True,
+        "pinned kinetic-form arithmetic drift",
+    )
+    independent_verifier = kinetic_receipt["verification"]["command"]
 
     nuisance_matrix = {
         "basis_and_coordinate_choice": {
@@ -1299,6 +1327,24 @@ def produce_wz_scale_free_candidates(
                 "an input to either relation"
             ),
         },
+    }
+    kinetic_nuisance_matrix = {
+        key: dict(value) for key, value in nuisance_matrix.items()
+    }
+    kinetic_nuisance_matrix["physical_sector_choice"] = {
+        "status": "OPEN_NAMED_SELECTION_PREMISE",
+        "premise": (
+            "a source-derived current lift, kinetic form, matter/scalar "
+            "content, and physical gauge sector must be selected before the "
+            "conditional ray or determinant is a physical observable"
+        ),
+    }
+    kinetic_nuisance_matrix["source_admissible_completion"] = {
+        "status": "NAMED_COMPLETION_PREMISE",
+        "premise": (
+            "the charged-double-triplet fixture and matter-trace branch, with "
+            "the declared one-loop field content, threshold, and scheme"
+        ),
     }
     baseline_contract = {
         "baseline_class": "minimal Standard Model plus general relativity",
@@ -1412,9 +1458,10 @@ def produce_wz_scale_free_candidates(
                 "charged-double-triplet lift; the rank-fifteen matter "
                 "trace form carries (1, 2/3), ratio three halves; the "
                 "port-branch value is lift-dependent across the open "
-                "equivariant lift family (a doublet kernel realization "
-                "gives 3/2), so the dichotomy is fixture-conditional and "
-                "the selection premise covers both the form and the lift"
+                "equivariant lift family; a formal doublet-kernel index "
+                "substitution gives 3/2 but is not a constructed admissible "
+                "source lift, so the selection premise covers both the form "
+                "and the lift"
             ),
             "expression": _expression(
                 grammar,
@@ -1426,9 +1473,18 @@ def produce_wz_scale_free_candidates(
             ),
             "relation_certificate": {
                 "kind": "exact_certificate",
-                "port_response_killing_relative": ["1", "1/6"],
-                "matter_trace_killing_relative": ["1", "2/3"],
-                "ratio_dichotomy": ["6", "3/2"],
+                "port_response_killing_relative": [
+                    kinetic_coefficients["su2"],
+                    kinetic_coefficients["su3"],
+                ],
+                "matter_trace_killing_relative": [
+                    matter_branch["killing_relative"]["su2"],
+                    matter_branch["killing_relative"]["su3"],
+                ],
+                "ratio_dichotomy": [
+                    kinetic_coefficients["ratio_su2_over_su3"],
+                    matter_branch["ratio_su2_over_su3"],
+                ],
                 "port_metric_band_data_retained": (
                     "(1/4, 5+sqrt5, 5-sqrt5, 3+sqrt5) with the "
                     "dimension-weighted su(3) average (15+4 sqrt5)/4, typed "
@@ -1437,13 +1493,15 @@ def produce_wz_scale_free_candidates(
                 ),
                 "lift_dependence": (
                     "the port-branch ratio is fixture-conditional: the "
-                    "declared lift gives six, a doublet kernel realization "
-                    "gives 3/2, and no registered producer source-selects "
-                    "the lift"
+                    "declared lift gives six; a formal doublet-kernel index "
+                    "substitution gives 3/2 but has not been constructed as "
+                    "an admissible compact faithful equivariant source lift, "
+                    "and no registered producer source-selects the lift"
                 ),
                 "producer": (
                     "code/angular_sprint/kinetic_form_selection_certificate.py"
                 ),
+                "independent_verifier": independent_verifier,
                 "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
             },
             "kill_rule": (
@@ -1490,7 +1548,11 @@ def produce_wz_scale_free_candidates(
             ),
             "relation_certificate": {
                 "kind": "exact_certificate",
-                "per_copy_weyl_indices": ["10/3", "2", "2"],
+                "per_copy_weyl_indices": [
+                    matter_branch["per_copy_weyl_indices"]["u1"],
+                    matter_branch["per_copy_weyl_indices"]["su2"],
+                    matter_branch["per_copy_weyl_indices"]["su3"],
+                ],
                 "normalized_ray": ["5/3", "1", "1"],
                 "index_pin": (
                     "Lean/Screen/RGRepresentationFrontier.lean, theorem "
@@ -1499,6 +1561,7 @@ def produce_wz_scale_free_candidates(
                 "producer": (
                     "code/angular_sprint/kinetic_form_selection_certificate.py"
                 ),
+                "independent_verifier": independent_verifier,
             },
             "kill_rule": (
                 "a certified kinetic-action bridge selecting the matter "
@@ -1535,7 +1598,10 @@ def produce_wz_scale_free_candidates(
                 "column (41/6, -19/6, -7) at the declared (nG, nH) = (3, 1) "
                 "completion, exact cofactors (-23/3, 37, -218/9), and "
                 "integer zero locus 69 x1 - 333 x2 + 218 x3 = 0; the "
-                "coupling column stays sealed with the comparison surface"
+                "complete-family contribution cancels from the determinant "
+                "for every nG, while nH and the declared sector/threshold "
+                "budget remain explicit; the coupling column stays sealed "
+                "with the comparison surface"
             ),
             "expression": _expression(
                 grammar,
@@ -1548,10 +1614,26 @@ def produce_wz_scale_free_candidates(
             "relation_certificate": {
                 "kind": "frozen_statistic_definition",
                 "sealed_column": "alpha_inverse",
-                "kinetic_column": ["10/3", "2", "2"],
-                "beta_column": ["41/6", "-19/6", "-7"],
-                "exact_cofactors": ["-23/3", "37", "-218/9"],
-                "integer_zero_locus": "69 x1 - 333 x2 + 218 x3 = 0",
+                "kinetic_column": frozen_statistic["kinetic_column_k"],
+                "beta_column": frozen_statistic["beta_column_b"],
+                "exact_cofactors": frozen_statistic["exact_cofactors"],
+                "integer_zero_locus": frozen_statistic[
+                    "integer_zero_locus"
+                ],
+                "general_nG_nH_cofactors_constant_nG_nH": (
+                    general_cancellation[
+                        "determinant_cofactors_constant_nG_nH"
+                    ]
+                ),
+                "general_integer_zero_locus": general_cancellation[
+                    "general_integer_zero_locus"
+                ],
+                "nG_coefficients_cancel_exactly": general_cancellation[
+                    "nG_coefficients_cancel_exactly"
+                ],
+                "remaining_content_dependence": general_cancellation[
+                    "remaining_content_dependence"
+                ],
                 "beta_premises": (
                     "one-loop imported QFT law, (nG, nH) = (3, 1), census "
                     "hypercharge normalization, single threshold, no extra "
@@ -1567,7 +1649,11 @@ def produce_wz_scale_free_candidates(
                 "producer": (
                     "code/angular_sprint/kinetic_form_selection_certificate.py"
                 ),
+                "independent_verifier": independent_verifier,
                 "lean_check": "Lean/Screen/KineticFormDichotomy.lean",
+                "general_cancellation_lean_check": (
+                    "Lean/Screen/KineticFamilyCancellation.lean"
+                ),
             },
             "kill_rule": (
                 "under a certified kinetic-action bridge selecting the "
@@ -1614,7 +1700,16 @@ def produce_wz_scale_free_candidates(
             "feature_ids": list(slot["required_feature_ids"]),
             "target_ancestry": "SOURCE_ONLY_NO_PUBLIC_COMPARISON_INPUT",
         }
-        candidate["nuisance_matrix"] = nuisance_matrix
+        candidate["nuisance_matrix"] = (
+            kinetic_nuisance_matrix
+            if candidate["candidate_id"]
+            in {
+                "wz-kinetic-form-dichotomy",
+                "wz-matter-trace-kinetic-ray",
+                "wz-frozen-rg-determinant",
+            }
+            else nuisance_matrix
+        )
         counterexample = candidate.pop(
             "baseline_counterexample",
             per_candidate_counterexamples.get(candidate["candidate_id"]),

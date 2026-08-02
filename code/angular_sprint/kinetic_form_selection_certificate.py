@@ -62,6 +62,13 @@ RECEIPT_PATH = RUNTIME / "kinetic_form_selection_receipt.json"
 A5_CLOSURE = REPO_ROOT / "code" / "a5_closure"
 PORT_RECEIPT_PATH = A5_CLOSURE / "receipts" / "port_current_inner_reference.receipt.json"
 MATTER_INDEX_PIN_PATH = REPO_ROOT / "Lean" / "Screen" / "RGRepresentationFrontier.lean"
+MATTER_ATTACHMENT_PATH = (
+    REPO_ROOT
+    / "code"
+    / "a5_closure"
+    / "manifests"
+    / "matter_attachment_receipt.json"
+)
 
 sys.path.insert(0, str(A5_CLOSURE))
 
@@ -69,6 +76,11 @@ import port_current_inner_certificate as pcc  # noqa: E402
 
 SCHEMA = "oph.kinetic_form_selection_receipt.v1"
 STATUS = "EXACT_KINETIC_FORM_DICHOTOMY__AD_INVARIANCE_RESTORED__SELECTION_PREMISE_OPEN"
+INDEPENDENT_VERIFIER = (
+    "python3 code/angular_sprint/"
+    "verify_kinetic_form_selection_independent.py --receipt "
+    "code/angular_sprint/runtime/kinetic_form_selection_receipt.json"
+)
 
 
 class KineticSelectionError(ValueError):
@@ -365,10 +377,150 @@ def port_metric_band_data(gram12: list[list[Any]], frame: Any) -> dict[str, Any]
     }
 
 
+def registered_matter_indices() -> tuple[Fraction, Fraction, Fraction]:
+    """Recompute one-copy indices from the registered fifteen-state table."""
+
+    receipt = json.loads(MATTER_ATTACHMENT_PATH.read_text(encoding="utf-8"))
+    require(
+        receipt.get("schema") == "oph.local-domain-matter-attachment.v1",
+        "matter attachment receipt schema drift",
+    )
+    certificate = receipt.get("generation_certificate", {})
+    rows = certificate.get("rows")
+    require(isinstance(rows, list) and len(rows) == 5, "matter table row drift")
+    u1 = Fraction(0)
+    su2 = Fraction(0)
+    su3 = Fraction(0)
+    state_count = 0
+    for row in rows:
+        color = int(row["color_dimension"])
+        weak = int(row["weak_dimension"])
+        hypercharge = Fraction(row["hypercharge"])
+        states = int(row["weyl_states"])
+        require(states == color * weak, "matter-row state multiplicity drift")
+        state_count += states
+        u1 += Fraction(states) * hypercharge * hypercharge
+        if weak == 2:
+            su2 += Fraction(color, 2)
+        else:
+            require(weak == 1, "unsupported weak representation in matter table")
+        if color == 3:
+            su3 += Fraction(weak, 2)
+        else:
+            require(color == 1, "unsupported color representation in matter table")
+    require(
+        state_count == 15
+        and certificate.get("weyl_state_count") == 15
+        and (u1, su2, su3)
+        == (Fraction(10, 3), Fraction(2), Fraction(2)),
+        "registered matter indices drift",
+    )
+    return u1, su2, su3
+
+
+def general_one_loop_cancellation(
+    k: tuple[Fraction, Fraction, Fraction] | None = None,
+) -> dict[str, Any]:
+    """Exact family cancellation for the frozen matter-trace ray.
+
+    In the declared hypercharge convention, the one-loop beta column for
+    ``nG`` complete rank-fifteen Weyl families and ``nH`` scalar doublets is
+
+      (20 nG/9 + nH/6,
+       -22/3 + 4 nG/3 + nH/6,
+       -11 + 4 nG/3).
+
+    The coefficient of ``nG`` is exactly two thirds of the per-family trace
+    column ``(10/3, 2, 2)``.  Its determinant contribution therefore
+    vanishes for every ``nG``.  The scalar count remains in the cofactor
+    plane and is not discarded.
+    """
+
+    if k is None:
+        k = registered_matter_indices()
+    family_beta = (Fraction(20, 9), Fraction(4, 3), Fraction(4, 3))
+    require(
+        family_beta == tuple(Fraction(2, 3) * value for value in k),
+        "family beta contribution is not proportional to matter trace",
+    )
+
+    # Affine coefficients are ordered as constant, nG, nH.  Compute k cross
+    # b coefficientwise so the cancellation is exact symbolic arithmetic,
+    # rather than a check at the physical specialization alone.
+    beta_affine = (
+        (Fraction(0), Fraction(20, 9), Fraction(1, 6)),
+        (Fraction(-22, 3), Fraction(4, 3), Fraction(1, 6)),
+        (Fraction(-11), Fraction(4, 3), Fraction(0)),
+    )
+
+    def affine_sub(
+        left: tuple[Fraction, Fraction, Fraction],
+        right: tuple[Fraction, Fraction, Fraction],
+    ) -> tuple[Fraction, Fraction, Fraction]:
+        return tuple(a - b for a, b in zip(left, right, strict=True))
+
+    def affine_scale(
+        factor: Fraction,
+        value: tuple[Fraction, Fraction, Fraction],
+    ) -> tuple[Fraction, Fraction, Fraction]:
+        return tuple(factor * entry for entry in value)
+
+    cofactors = (
+        affine_sub(
+            affine_scale(k[1], beta_affine[2]),
+            affine_scale(k[2], beta_affine[1]),
+        ),
+        affine_sub(
+            affine_scale(k[2], beta_affine[0]),
+            affine_scale(k[0], beta_affine[2]),
+        ),
+        affine_sub(
+            affine_scale(k[0], beta_affine[1]),
+            affine_scale(k[1], beta_affine[0]),
+        ),
+    )
+    expected = (
+        (Fraction(-22, 3), Fraction(0), Fraction(-1, 3)),
+        (Fraction(110, 3), Fraction(0), Fraction(1, 3)),
+        (Fraction(-220, 9), Fraction(0), Fraction(2, 9)),
+    )
+    require(cofactors == expected, "general family/Higgs cofactor drift")
+    require(
+        all(row[1] == 0 for row in cofactors),
+        "generation count failed to cancel from determinant cofactors",
+    )
+    return {
+        "domain": "positive integer nG and nonnegative integer nH",
+        "per_family_kinetic_column": [str(value) for value in k],
+        "one_loop_beta_column": [
+            "20*nG/9 + nH/6",
+            "-22/3 + 4*nG/3 + nH/6",
+            "-11 + 4*nG/3",
+        ],
+        "family_beta_contribution": [str(value) for value in family_beta],
+        "family_beta_equals_two_thirds_kinetic_column": True,
+        "determinant_cofactors_constant_nG_nH": [
+            [str(value) for value in row] for row in cofactors
+        ],
+        "nG_coefficients_cancel_exactly": True,
+        "general_integer_zero_locus": (
+            "3*(22+nH) x1 - 3*(110+nH) x2 + "
+            "2*(110-nH) x3 = 0"
+        ),
+        "remaining_content_dependence": (
+            "nH remains explicit; scalar content, thresholds, scheme, and "
+            "extra fields are not quotiented by this cancellation"
+        ),
+        "physical_typing": (
+            "conditional one-loop Standard Model family arithmetic on the "
+            "matter-trace branch; it neither selects the branch nor proves "
+            "that this matter/scalar content is the physical sector"
+        ),
+    }
+
+
 def matter_branch() -> dict[str, Any]:
-    t1 = Fraction(10, 3)
-    t2 = Fraction(2)
-    t3 = Fraction(2)
+    t1, t2, t3 = registered_matter_indices()
     c2 = t2 / 2
     c3 = t3 / 3
     rho = c2 / c3
@@ -429,6 +581,9 @@ def matter_branch() -> dict[str, Any]:
                 "the single campaign comparison while any "
                 "prospective-capable row remains open"
             ),
+            "general_family_higgs_cancellation": general_one_loop_cancellation(
+                (t1, t2, t3)
+            ),
         },
     }
 
@@ -464,6 +619,7 @@ def build_receipt() -> dict[str, Any]:
 
     payload = PORT_RECEIPT_PATH.read_bytes()
     matter_pin = MATTER_INDEX_PIN_PATH.read_bytes()
+    matter_attachment_pin = MATTER_ATTACHMENT_PATH.read_bytes()
     receipt = {
         "schema": SCHEMA,
         "issue": 646,
@@ -524,11 +680,12 @@ def build_receipt() -> dict[str, Any]:
                 "charged-double-triplet fixture but depends on the "
                 "representation types of the open compact faithful "
                 "equivariant lift family: c = T/h_dual per block, so a "
-                "doublet realization of the kernel block gives (1/2, 1/2) "
-                "and ratio 3/2, equal to the matter-trace value; the "
-                "dichotomy is fixture-conditional, with one census-pinned "
-                "branch and one lift-family branch whose declared point is "
-                "six"
+                "formal doublet-kernel index substitution gives (1/2, 1/2) "
+                "and ratio 3/2, equal to the matter-trace value; no such "
+                "substitution has been realized as an admissible compact "
+                "faithful equivariant source lift, so it demonstrates "
+                "parameter sensitivity rather than an admitted "
+                "countermodel; the declared fixture gives ratio six"
             ),
             "selection_premise": (
                 "which invariant form the repair dynamics selects as the "
@@ -541,11 +698,13 @@ def build_receipt() -> dict[str, Any]:
                 "the A2 holonomy bridge (oph-physics-sim "
                 "oph_fpe/gauge/a2_holonomy_selector.py) is the registered "
                 "candidate mechanism: reconstructing the current "
-                "representation from ordered response histories would both "
-                "source-select the lift and decide the branch; its raw "
-                "source objects are currently absent, and the seam-repair "
-                "equalizer control excludes the repair dynamics itself as "
-                "the current carrier"
+                "representation from ordered response histories could "
+                "source-select the lift; it does not choose between the "
+                "port-response pullback, rank-fifteen matter trace, a "
+                "combination, or a nonunique form family, so a separate "
+                "kinetic-form selector remains necessary; its raw source "
+                "objects are absent, and the seam-repair equalizer control "
+                "excludes the repair dynamics itself as the current carrier"
             ),
         },
         "consumers": {
@@ -560,6 +719,31 @@ def build_receipt() -> dict[str, Any]:
             "public_measurement_read": False,
             "comparison_permitted": False,
         },
+        "physical_selection_boundary": {
+            "current_lift_source_selected": False,
+            "kinetic_form_source_selected": False,
+            "physical_sector_selected": False,
+            "physical_continuum_gauge_action_identified": False,
+            "reason": (
+                "the exact finite algebra and determinant cancellation do not "
+                "remove the open lift, kinetic-form, matter/scalar-content, "
+                "threshold, or physical-sector selections"
+            ),
+        },
+        "verification": {
+            "command": INDEPENDENT_VERIFIER,
+            "classification": (
+                "independent exact reconstruction from the pinned serialized "
+                "carrier incidence, structure constants, band form, and "
+                "rank-fifteen matter table; the verifier imports no producer "
+                "or a5-closure algebra helper"
+            ),
+            "reconstructs_all_1728_ad_invariance_equations": True,
+            "reconstructs_killing_relative_coefficients": True,
+            "reconstructs_registered_matter_indices": True,
+            "reconstructs_general_nG_nH_cancellation": True,
+            "comparison_data_read": False,
+        },
         "parent_pins": [
             {
                 "path": PORT_RECEIPT_PATH.relative_to(REPO_ROOT).as_posix(),
@@ -570,6 +754,11 @@ def build_receipt() -> dict[str, Any]:
                 "path": MATTER_INDEX_PIN_PATH.relative_to(REPO_ROOT).as_posix(),
                 "bytes": len(matter_pin),
                 "sha256": tagged_sha256(matter_pin),
+            },
+            {
+                "path": MATTER_ATTACHMENT_PATH.relative_to(REPO_ROOT).as_posix(),
+                "bytes": len(matter_attachment_pin),
+                "sha256": tagged_sha256(matter_attachment_pin),
             },
         ],
     }
@@ -612,7 +801,9 @@ def main() -> int:
                     "matter_ratio": receipt["dichotomy"][
                         "matter_trace_ratio_su2_over_su3"
                     ],
-                    "distinct": receipt["dichotomy"]["branches_exactly_distinct"],
+                    "distinct": receipt["dichotomy"][
+                        "branches_distinct_at_declared_fixture"
+                    ],
                 },
                 indent=2,
                 sort_keys=True,
