@@ -82,6 +82,27 @@ Mapping between Lean 4 theorems in this project and statements in
   density-factor cancellation, and calibrated low-mode identities. It does
   not construct the uniform-density quotient, physical metric/readout,
   rechart law, conserved source, adiabaticity, or transfer surface.
+- Conditional primitive-port translation bridge
+  (`Screen/PrimitivePortTranslationBridge.lean`): sorry-free exact analysis on
+  a declared continuous three-dimensional scalar field. It diagonalizes a
+  paired twelve-port shift operator on plane waves and proves nonnegative,
+  port-relabeling-covariant, and passive-frame-covariant cosine symbols. A
+  supplied exact directional moment packet implies the frozen quadratic,
+  quartic, and anisotropic sixth-order coefficient polynomial. The module does
+  not derive that moment packet or spatial frame, select the operator from
+  repair dynamics, fix its positive scale, supply physical time evolution,
+  identify a photon or other sector, establish physical frame or boost laws,
+  isolate experimental nuisance directions, or prove exclusivity. Its shifts
+  are not promoted to a locally finite spatial lattice.
+- Primitive-port scale boundary
+  (`Screen/PrimitivePortScaleBoundary.lean`): sorry-free real algebra. It
+  proves the exact quadratic and quartic rescaling weights of the frozen
+  correction coefficients, their three scale-free ratios, and the conditional
+  implication from `a^2 = kappa * P * ell^2` to
+  `(a / ell)^2 = kappa * P`. With positive signs it also proves the matching
+  square-root form. An explicit algebraic counterfamily leaves `kappa` free.
+  This does not construct source models at every scale, fix `a`, or select
+  `kappa = 1`.
 - Directed integer seam completion
   (`ObserverPatchHolography/DirectedSeamRepair.lean`): sorry-free integer and
   rational arithmetic. The two nearest-balanced directed outcomes preserve a

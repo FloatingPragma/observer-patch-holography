@@ -11,6 +11,8 @@ import BaryonDimensionSix
 import BipoSHInverseBoundary
 import BipoSHFrameInvariant
 import VolumeReadoutBridge
+import PrimitivePortTranslationBridge
+import PrimitivePortScaleBoundary
 
 /-!
 # OPH screen arithmetic umbrella

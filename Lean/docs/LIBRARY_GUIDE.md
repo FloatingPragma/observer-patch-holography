@@ -150,6 +150,23 @@ surface for the OPH consensus layer. Contents:
   low-mode projection, and a bare-collar counterexample. The quotient-visible
   uniform-density cut, positive spatial-metric attachment, physical rechart
   law, stress/adiabaticity, and cosmological transfer remain open.
+- A sorry-free conditional primitive-port translation bridge in
+  `Screen/PrimitivePortTranslationBridge.lean`. On a declared continuous
+  three-dimensional scalar field, it diagonalizes a paired twelve-port shift
+  operator on plane waves and proves positivity, port-relabeling covariance,
+  and exact passive-frame covariance. A supplied exact directional moment
+  packet yields the frozen fourth- and sixth-order coefficients. Derivation of
+  the frame and moment packet, canonical source selection, the positive length
+  scale, physical time evolution, sector identification, frame and boost
+  physics, nuisance isolation, and exclusivity remain outside the theorem.
+  The abstract shifts do not define a locally finite spatial lattice.
+- A sorry-free primitive-port scale boundary in
+  `Screen/PrimitivePortScaleBoundary.lean`. It proves exact rescaling laws for
+  the frozen correction coefficients, the fixed scale-free ratios, the
+  conditional dimensionless metric relation, its positive-square-root form,
+  and an algebraic counterfamily for the metric coefficient. The result does
+  not construct source dynamics at arbitrary scale, determine the physical
+  length, or select `kappa = 1`.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

@@ -36,7 +36,8 @@ lean_lib «OPHScreen» where
     `KineticFormDichotomy, `A5PrimitivePortPrediction,
     `A5OrbitRaySeparation, `DiscreteRefinement, `BaryonDimensionSix,
     `BipoSHTransferInvariant, `BipoSHInverseBoundary, `BipoSHFrameInvariant,
-    `VolumeReadoutBridge]
+    `VolumeReadoutBridge, `PrimitivePortTranslationBridge,
+    `PrimitivePortScaleBoundary]
 
 lean_exe «oph» where
   root := `Main
