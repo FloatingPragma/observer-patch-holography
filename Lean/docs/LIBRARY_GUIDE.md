@@ -149,7 +149,7 @@ surface for the OPH consensus layer. Contents:
   $q=\zeta$, common positive-density-factor cancellation, calibrated
   low-mode projection, and a bare-collar counterexample. The quotient-visible
   uniform-density cut, positive spatial-metric attachment, physical rechart
-  law, stress/adiabaticity, and cosmological transfer remain open.
+  law, stress/adiabaticity, and cosmological transfer are open problems.
 - A sorry-free conditional primitive-port translation bridge in
   `Screen/PrimitivePortTranslationBridge.lean`. On a declared continuous
   three-dimensional scalar field, it diagonalizes a paired twelve-port shift
@@ -167,6 +167,28 @@ surface for the OPH consensus layer. Contents:
   and an algebraic counterfamily for the metric coefficient. The result does
   not construct source dynamics at arbitrary scale, determine the physical
   length, or select `kappa = 1`.
+- A sorry-free primitive-port metric attachment boundary in
+  `Screen/PrimitivePortMetricAttachment.lean`. A declared equal-area shell
+  attachment gives the exact metric coefficient `orbitCard/(4*pi)`. The
+  twelve-port, twenty-face, and thirty-edge orbit readings therefore give
+  `3/pi`, `5/pi`, and `15/(2*pi)`, which are pairwise distinct. On the port
+  attachment the module proves `a/ell = sqrt(3*P/pi)`, propagates any certified
+  `P` interval to an exact squared-hop interval, and substitutes the metric
+  relation into the frozen packet to give
+  `C4 = -3*P*ell^2/(20*pi)`,
+  `B0 = 3*P^2*ell^4/(280*pi^2)`, and
+  `B6 = 2*P^2*ell^4/(875*pi^2)`. It does not identify a screen cell with any
+  incidence orbit, identify the shell radius with the translation hop, or
+  construct the required quotient-natural metric readout.
+- A sorry-free primitive-port operator selection boundary in
+  `Screen/PrimitivePortOperatorSelectionBoundary.lean`. It proves that A3's
+  uniform state weights close the equal-weight operator only after an explicit
+  state-to-first-hop attachment. On a complete direct-port action, the
+  A1-derived antipodal frame implies reciprocal pairing exactly. The module
+  also constructs a normalized nonnegative two-range family with the same
+  port covariance and quadratic coefficient but a variable quartic
+  coefficient. Port-state symmetry does not by itself select kinetic
+  coefficients or first-hop exclusivity.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one

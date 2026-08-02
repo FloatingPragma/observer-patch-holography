@@ -13,6 +13,8 @@ import BipoSHFrameInvariant
 import VolumeReadoutBridge
 import PrimitivePortTranslationBridge
 import PrimitivePortScaleBoundary
+import PrimitivePortMetricAttachment
+import PrimitivePortOperatorSelectionBoundary
 
 /-!
 # OPH screen arithmetic umbrella

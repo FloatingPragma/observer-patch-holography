@@ -651,19 +651,30 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
     655: {
         "phase": "physical-branch-bridge",
         "claim_level": (
-            "frozen prospective branch prediction FZ-11; bridge "
-            "exclusivity open"
+            "frozen prospective branch prediction FZ-11 and exact conditional "
+            "continuous-R3 scalar translation adapter; conditional A3-to-hop "
+            "composition and exact multi-range counterfamily attained; source "
+            "selection, physical attachment, time evolution, sector identification, "
+            "and exclusivity open"
         ),
         "blocker": (
-            "A1 through A3 do not yet derive the propagation-sector "
-            "bridge, coherent carrier-frame transport, or exclusivity of "
-            "the primitive twelve-port cosine operator, so FZ-11 failure "
-            "scores the named branch and not the framework."
+            "The finite source packet has an exact relabelling into the primitive "
+            "twelve-port frame and the declared paired-difference operator has the "
+            "frozen cosine symbol on an auxiliary continuous R3 field. A1 through "
+            "A3 do not yet source-select that operator, derive a physical propagation "
+            "sector or time equation, attach the auxiliary field to laboratory "
+            "readout, or prove exclusivity. A3 fixes the normalized port-state weights, "
+            "and complete directed support on an admitted antipodal frame derives "
+            "reciprocity, but no theorem identifies state weights with kinetic hop "
+            "rates or excludes generated multi-range terms. The exact normalized "
+            "one-range/two-range family changes C4 while preserving the other declared "
+            "kinematic symmetries. The physical carrier scale is the separate #664 "
+            "gate. FZ-11 failure therefore scores the named branch and not the framework."
         ),
         "closure": (
             "Prove that the axioms force the real, reciprocal, "
-            "finite-range primitive-port cosine branch uniquely for one "
-            "physical propagation sector, or record a bounded "
+            "direct-first-hop primitive-port cosine branch uniquely, including the "
+            "state-to-hop action map, for one physical propagation sector, or record a bounded "
             "non-forcing/no-go verdict; a positive proof escalates the "
             "FZ-11 failure scope to the framework."
         ),
@@ -678,6 +689,46 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "chrome_policy": (
             "Use only for the bridge/exclusivity theorem or its bounded "
             "no-go; the frozen prediction content may not change."
+        ),
+    },
+    664: {
+        "phase": "fz11-carrier-scale",
+        "claim_level": (
+            "exact algebraic carrier-rescaling theorem, conditional port-shell metric "
+            "candidate, and three-orbit ambiguity theorem; source-selected "
+            "primitive-cell metric and physical lower bound open"
+        ),
+        "blocker": (
+            "The frozen coefficients determine scale-free ratios but leave the "
+            "carrier hop a free. The exact rescaling counterfamily preserves the "
+            "dimensionless branch while varying a, and neither A1 through A3, the "
+            "capacity root P, nor the N closure selects the geometric factor in "
+            "a^2 = kappa_geom P ell_*^2. Setting kappa_geom = 1 is therefore not a "
+            "derivation. A declared twelve-port equal-area shell would give "
+            "kappa_geom = 3/pi, but the equally symmetric face and edge attachments "
+            "give 5/pi and 15/(2pi). The source selects none of these measure/radius "
+            "identifications. Without a source-certified lower bound on a, a null "
+            "result cannot exclude the branch because its signal can shrink with a."
+        ),
+        "closure": (
+            "Derive and replay a quotient-visible carrier-to-cell metric map that "
+            "selects kappa_geom, starting with a decisive test of the port-sector "
+            "equal-area shell candidate against the mandatory face and edge controls; "
+            "bind the same operator admitted by #655 and emit "
+            "a physical interval or lower bound for a by a source-native theorem or "
+            "an independently calibrated attachment. Otherwise prove the bounded "
+            "non-identifiability result and keep FZ-11 null tests non-decisive."
+        ),
+        "falsification": (
+            "Two source-admissible physical metric attachments with different "
+            "kappa_geom, or an exact source rescaling that changes a while preserving "
+            "every declared observable premise, refute unique scale selection on the "
+            "declared class. After a certified lower bound, a sufficiently powered "
+            "null can reject the attached branch under #662."
+        ),
+        "chrome_policy": (
+            "No target comparison data. Use only for the source metric, dimensional "
+            "attachment, lower-bound theorem, and independent calibration audit."
         ),
     },
     659: {
@@ -776,19 +827,20 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         "phase": "fz11-sealed-comparison",
         "claim_level": (
             "dormant one-shot physical comparison; no eligible candidate until "
-            "the #655 bridge closes positively"
+            "the #655 physical bridge and #664 scale/lower-bound gate close positively"
         ),
         "blocker": (
             "Issue #655 has not proved that the frozen primitive twelve-port "
-            "propagation branch is forced and physically attached. No target "
-            "payload may be selected, opened, or scored before that dependency "
-            "and this issue's freeze and power gates pass."
+            "propagation branch is forced and physically attached, and #664 has not "
+            "supplied the physical scale or lower bound needed to make a null "
+            "decisive. No target payload may be selected, opened, or scored before "
+            "both dependencies and this issue's freeze and power gates pass."
         ),
         "closure": (
-            "After a positive #655 bridge, freeze one release, likelihood and "
-            "covariance, nuisance treatment, exposure class, kill threshold, "
+            "After positive #655 and #664 bridges, freeze one release, likelihood "
+            "and covariance, nuisance treatment, exposure class, kill threshold, "
             "and minimum power; publish the commitment and score the unchanged "
-            "FZ-11 branch exactly once. If #655 has no positive bridge, close "
+            "FZ-11 branch exactly once. If either bridge has no positive exit, close "
             "this issue as not activated."
         ),
         "falsification": (
@@ -799,7 +851,7 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": (
             "Do not launch a comparison worker or inspect the target payload "
-            "before #655 closes positively and the sealed protocol hash is public."
+            "before #655 and #664 close positively and the sealed protocol hash is public."
         ),
     },
     594: {

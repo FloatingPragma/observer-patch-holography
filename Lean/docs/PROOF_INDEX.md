@@ -103,6 +103,32 @@ Mapping between Lean 4 theorems in this project and statements in
   square-root form. An explicit algebraic counterfamily leaves `kappa` free.
   This does not construct source models at every scale, fix `a`, or select
   `kappa = 1`.
+- Primitive-port metric attachment boundary
+  (`Screen/PrimitivePortMetricAttachment.lean`): sorry-free exact real
+  algebra. If `n` equal-area orbit cells cover a round shell whose areal radius
+  is the same primitive translation hop `a`, then
+  `a^2 = n*cellArea/(4*pi)`. The twelve-port, twenty-face, and thirty-edge
+  readings give the pairwise-distinct metric coefficients `3/pi`, `5/pi`, and
+  `15/(2*pi)`. On the port reading and `cellArea = P*ell^2`, the module proves
+  `a/ell = sqrt(3*P/pi)`, an exact propagation theorem for a supplied `P`
+  interval, and the conditional coefficient packet
+  `C4 = -3*P*ell^2/(20*pi)`,
+  `B0 = 3*P^2*ell^4/(280*pi^2)`, and
+  `B6 = 2*P^2*ell^4/(875*pi^2)`. The orbit-to-cell measure map,
+  areal-radius-to-hop identity, quotient-natural metric readout, physical
+  scale, and refinement attachment remain premises.
+- Primitive-port operator selection boundary
+  (`Screen/PrimitivePortOperatorSelectionBoundary.lean`): sorry-free exact
+  composition and counterfamily. If a scalar reciprocal first-hop action is
+  separately attached by using the A3 port-state probabilities as its hop
+  weights, the equal-state-weight theorem fixes the equal-weight primitive
+  operator. For a direct complete-port first-hop action, the A1-derived
+  antipodal frame makes reciprocity a theorem rather than a separate premise.
+  A normalized convex mixture of the one-hop and two-hop ranges retains
+  nonnegative reciprocal carrier covariance and the unit quadratic Taylor
+  coefficient while changing the quartic coefficient at every nonzero scale.
+  A1--A3 therefore do not remove the state-to-action,
+  direct-first-hop-completeness, or source-selection premises.
 - Directed integer seam completion
   (`ObserverPatchHolography/DirectedSeamRepair.lean`): sorry-free integer and
   rational arithmetic. The two nearest-balanced directed outcomes preserve a
