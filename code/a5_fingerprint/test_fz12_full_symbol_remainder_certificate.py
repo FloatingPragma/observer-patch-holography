@@ -229,7 +229,9 @@ def test_lean_parent_text_mutation_fails_fixed_raw_pin(tmp_path: Path) -> None:
     source = independent.DEFAULT_REMAINDER_LEAN.read_text(encoding="utf-8")
     source = source.replace("(8 / 15 : ℝ)", "(7 / 15 : ℝ)", 1)
     path = tmp_path / "SeamCurrentEdge30Remainder.lean"
-    path.write_text(source, encoding="utf-8")
+    # Preserve LF bytes on Windows so this mutation reaches the hash gate rather
+    # than failing earlier because pathlib translated newlines to CRLF.
+    path.write_bytes(source.encode("utf-8"))
     result = independent_run(remainder_lean=path)
     assert result.returncode == 1
     assert "remainder Lean raw hash drift" in result.stderr

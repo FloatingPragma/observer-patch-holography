@@ -222,7 +222,7 @@ def parent_pin(
     role: str,
 ) -> dict[str, Any]:
     return {
-        "path": str(contract["path"].relative_to(REPO_ROOT)),
+        "path": contract["path"].relative_to(REPO_ROOT).as_posix(),
         "role": role,
         "bytes": len(raw),
         "sha256": base.tagged_sha256(raw),
@@ -285,7 +285,7 @@ def build_receipt() -> dict[str, Any]:
                 "data-free FZ-12 freeze and custody projection",
             ),
             {
-                "path": str(MOMENT8_PROOF_PATH.relative_to(REPO_ROOT)),
+                "path": MOMENT8_PROOF_PATH.relative_to(REPO_ROOT).as_posix(),
                 "role": "kernel-checked exact eighth seam moment",
                 "bytes": len(proof_raw),
                 "sha256": base.tagged_sha256(proof_raw),
