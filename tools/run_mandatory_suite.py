@@ -603,6 +603,14 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/a5_closure/tests/test_flux_defect_criterion_certificate.py",
             "code/cosmology/test_edge_center_clock_certificate.py",
             "code/consensus/test_compiled_lattice_settling_certificate.py",
+            "code/thermodynamics/test_conditional_repair_certificate.py",
+        ],
+    ),
+    (
+        "Validate the conditional-repair thermodynamics certificate",
+        [
+            sys.executable,
+            "code/thermodynamics/conditional_repair_certificate.py",
         ],
     ),
 ]

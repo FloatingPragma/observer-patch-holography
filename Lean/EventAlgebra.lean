@@ -1,6 +1,7 @@
 import EventAlgebra.Basic
 import EventAlgebra.Lueders
 import EventAlgebra.PartitionPinching
+import EventAlgebra.PartitionPinchingCP
 import EventAlgebra.PartitionAverage
 import EventAlgebra.StateExpectation
 import EventAlgebra.Tsirelson

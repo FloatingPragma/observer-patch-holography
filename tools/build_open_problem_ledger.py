@@ -648,6 +648,59 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
         ),
         "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
     },
+    671: {
+        "phase": "thermodynamic-completion",
+        "claim_level": (
+            "finite four-law package attained: state-side Axiom-3 projection is "
+            "the Gibbs exponential family by the information-projection "
+            "Pythagorean identity, transition-side projection onto the "
+            "repaired-visible fibre is weighted conditional resampling, the "
+            "kernel is stochastic, idempotent, reversible, stationary, and "
+            "fixes fibre-measurable charges, relative entropy to the common "
+            "reference contracts under repair, the exact first-law split "
+            "carries its bilinear cross term, and the fixed-regulator third "
+            "law gives the excited-mass bound with the ground-degeneracy "
+            "entropy limit; Lean modules and the exact-rational certificate "
+            "carry every statement"
+        ),
+        "blocker": (
+            "Five typed receipts stay open. The weighted local objective needs "
+            "its declared global representation for both optimizer objects. "
+            "The state and transition optimizers need one common "
+            "source-derived quotient weight, and the transition matrix may "
+            "not be manufactured from a desired equilibrium output. The "
+            "source-derived collar transition matrix must pass the "
+            "equal-fibre-row matrix receipt or equal the conditional "
+            "resampling kernel. One modular charge must be identified with "
+            "physical energy and a calibrated clock beyond the attained "
+            "finite central-interface split. A continuum third law needs "
+            "refinement-uniform gap and multiplicity control. The "
+            "strict-descent settlement normalizer carries no entropy "
+            "inequality and may not be substituted for the repair kernel."
+        ),
+        "closure": (
+            "Certify each of the five receipts, reject one with a bounded "
+            "countermodel, or type it not evaluable at its first missing "
+            "producer. A positive THERMO-REALIZATION verdict consumes the "
+            "equal-fibre-row matrix receipt of the consensus construction "
+            "and may not construct the transition matrix from the target "
+            "formula."
+        ),
+        "falsification": (
+            "A certified source collar matrix that fails the "
+            "equal-fibre-row receipt while the physical reading is "
+            "claimed, or distinct source references for the state and "
+            "transition optimizers, voids the physical reading of the "
+            "package; the finite theorems fall only with a failed exact "
+            "statement on a finite instance."
+        ),
+        "chrome_policy": (
+            "No comparison data enters this issue. Workers handle Lean "
+            "extension, certificate replay, and source-matrix receipt "
+            "review only; no laboratory temperature or calorimetric "
+            "value is consumed."
+        ),
+    },
     655: {
         "phase": "physical-branch-bridge",
         "claim_level": (

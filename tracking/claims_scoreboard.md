@@ -26,7 +26,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2014`. 69 claims, 22 distinct live gates across 18 gated claims.
+Release: `r2014`. 70 claims, 23 distinct live gates across 19 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -34,7 +34,7 @@ Release: `r2014`. 69 claims, 22 distinct live gates across 18 gated claims.
 | `empirical_implementation` | 3 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 49 |
+| `conditional_implication` | 50 |
 | `declared_structure` | 11 |
 
 | Claim | Class | Status | Live gates |
@@ -80,6 +80,7 @@ Release: `r2014`. 69 claims, 22 distinct live gates across 18 gated claims.
 | `OPH-SCREEN-ECHOSAHEDRAL-SELECTOR` | `conditional_implication` | `operational_counting_and_dynamic_cost_exact_in_named_realization__unit_split_and_incidence_outputs_exact_on_declared_carrier` | none |
 | `OPH-A5-PRIMITIVE-PORT-SPIN6` | `conditional_implication` | `frozen_prospective_primitive_port_branch__current_source_nonselecting__physical_comparison_unarmed__stronger_bridge_open` | [#655](https://github.com/FloatingPragma/observer-patch-holography/issues/655) |
 | `OPH-A5-CARRIER-CLASS-DISPERSION-BAND` | `conditional_implication` | `exact_class_band_certified__physical_branch_premises_open` | none |
+| `OPH-THERMO-FOUR-LAW-PACKAGE` | `conditional_implication` | `finite_four_law_package_theorems_attained__five_physical_receipts_open` | [#671](https://github.com/FloatingPragma/observer-patch-holography/issues/671) |
 | `OPH-A5-SEAM-CURRENT-EDGE30` | `conditional_implication` | `exact_source_native_edge_ray_dirichlet_action_conditional_rank_two_transverse_oscillator_formal_observation_map_q_le_one_spatial_remainder_and_exact_synthetic_leading_recovery__higher_order_synthetic_pair_unresolved__fz12_frozen__physical_position_field_clock_frequency_gluing_scale_frame_readout_and_comparison_open` | [#663](https://github.com/FloatingPragma/observer-patch-holography/issues/663), [#666](https://github.com/FloatingPragma/observer-patch-holography/issues/666), [#667](https://github.com/FloatingPragma/observer-patch-holography/issues/667) |
 | `OPH-SCREEN-PORT-CURRENT-INNER` | `conditional_implication` | `axiom_forced_abstract_lie_type__conditional_matrix_witness__source_realization_open` | [#566](https://github.com/FloatingPragma/observer-patch-holography/issues/566) |
 | `OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE` | `conditional_implication` | `exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed` | none |
@@ -135,3 +136,4 @@ Release: `r2014`. 69 claims, 22 distinct live gates across 18 gated claims.
 | [#663](https://github.com/FloatingPragma/observer-patch-holography/issues/663) | [Repair-law adoption] Close the A1-R/A2-R source-selection gate | `OPH-A5-SEAM-CURRENT-EDGE30` |
 | [#666](https://github.com/FloatingPragma/observer-patch-holography/issues/666) | [Seam-current discriminator] Decide the source-native edge-current propagation branch | `OPH-A5-SEAM-CURRENT-EDGE30` |
 | [#667](https://github.com/FloatingPragma/observer-patch-holography/issues/667) | [FZ-12 comparison] Bind and score the seam-current propagation signature | `OPH-A5-SEAM-CURRENT-EDGE30` |
+| [#671](https://github.com/FloatingPragma/observer-patch-holography/issues/671) | [Thermodynamic completion] Certify the common-reference realization and energy-clock receipts for the finite four-law package | `OPH-THERMO-FOUR-LAW-PACKAGE` |

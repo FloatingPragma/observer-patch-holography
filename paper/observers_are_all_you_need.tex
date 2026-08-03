@@ -1427,6 +1427,87 @@ Only on that certified branch is
 Clay-facing axiomatic construction.
 \end{enumerate}
 
+\subsection{Thermodynamics from conditional repair in observer modular time}
+\label{sec:thermodynamics}
+
+The framework derives the four laws of thermodynamics on the finite
+regulator stage from one repaired distinction and two instantiations of
+Axiom~3, with every remaining physical attachment named as an open
+receipt. Three maps stay distinct. The strict-descent normalizer settles
+public facts; it is terminating and idempotent and carries no entropy
+inequality, and the two-point normalizer \(a\mapsto b\), \(b\mapsto b\)
+sends the uniform law to a deterministic law, dropping Shannon entropy
+from \(\log 2\) to zero. The equilibrium repair operator resamples
+unresolved degrees inside the fibre of the complete repaired visible
+datum. The modular flow of a faithful reference supplies the reversible
+observer ordering and preserves relative entropy. Only the middle map
+carries the arrow.
+
+Axiom~3 applies separately to states and to transition distributions,
+and both instantiations are solved exactly. On the state side, with
+faithful global reference \(\sigma_0\) and observer-visible conserved
+quantities \(Q_a\), the information-projection Pythagorean identity
+\(D(\rho\Vert\sigma_0)=D(\rho\Vert\tau_\lambda)
++D(\tau_\lambda\Vert\sigma_0)\) holds on the constrained moment
+surface, so the unique optimizer is the exponential family
+\(\tau_\lambda=Z^{-1}\exp(\log\sigma_0-\sum_a\lambda_aQ_a)\); on the
+tracial branch this is the Gibbs family, and equality of intensive
+multipliers under weak contact is the zeroth law. On the transition
+side, the feasible set at \(x\) is the fibre
+\(F_C(x)=\{y:b_C(y)=b_C(x)\}\) of the complete repaired visible datum
+\(b_C\), and the unique minimizer of \(D(q\Vert\pi)\) over the fibre is
+weighted conditional resampling,
+\[
+P_C(x,y)=\mathbf 1_{\{b_C(y)=b_C(x)\}}\,
+\frac{\pi(y)}{\pi(F_C(x))},
+\]
+which is the weighted observation-fiber resampling projector of the
+positive-transfer receipt stated above. The kernel is stochastic, idempotent,
+reversible, and stationary for \(\pi\), and fixes every
+fibre-measurable observable, which is dynamical conservation of every
+protected charge and the content side of the first law; the exact
+bookkeeping identity \(dU=\delta Q+\delta W\) with its explicit
+bilinear cross term is the algebraic side. Data processing then gives
+the transition-side second law
+\(D(pP_C\Vert\pi)\le D(p\Vert\pi)\), and for any
+\(\tau\)-preserving repair channel the modular form
+\(\Delta S\ge\Delta\langle K\rangle\) with \(K=-\log\tau\), which
+specializes to \(\Delta S\ge\beta Q\) on the identified energy branch.
+At every finite regulator the excited Gibbs mass obeys
+\(q_\beta\le\frac{d-g_0}{g_0}e^{-\beta\Delta}\), the entropy limit is
+\(k_B\log g_0\), and finitely many faithful repair or pinching steps
+cannot reach the rank-deficient zero-temperature state, which is the
+fixed-regulator third law. Public quantum records commit through a
+completely positive channel: the partition projectors are their own
+Kraus family, and the record tower
+\(S(\rho)\le S(\mathcal E_\pi\rho)\le S(\mathcal A_\pi\rho)\)
+separates conditioned learning from the nonselective commit, so
+observers convert uncertainty into correlations and durable records
+without violating the second law.
+
+The Lean development carries the exact finite statements: relative
+entropy nonnegativity, the log-sum inequality, data processing, the
+conditional-resampling optimizer and its kernel package, the Gibbs
+Pythagorean identity and minimizer, the first-law split, the
+low-temperature bound, and the Kraus completeness of partition
+pinching; the modules are \texttt{FiniteConditionalRepair},
+\texttt{FirstLawIdentity}, and \texttt{PartitionPinchingCP} in the
+Lean thermodynamics and event-algebra libraries, and the exact-rational
+certificate replays the kernel algebra and records the entropy checks
+\cite{ophrepo}. Five receipts stay open and typed: the global
+representation of the weighted local objective for both optimizer
+instantiations; the common source-derived reference shared by state and
+transition optimizers, which forbids manufacturing the transition
+matrix from a desired equilibrium output; the identification of the
+actual source-derived collar transition matrix with the
+conditional-resampling kernel through the existing matrix receipt; the
+identification of one modular charge with physical energy and a
+calibrated clock, of which the finite central-interface split
+\(K_C=2\pi B_C+Z_C\) is the attained cap-branch part; and
+refinement-uniform gap control for a continuum third law. Under those
+receipts and no further assumption, ordinary thermodynamics is a
+theorem of the observer axioms rather than an import.
+
 \section{Physical Implementation and \(A_5\)/\(E_8\) Significance}
 
 The implementation question is what must exist below the observer-level axioms so they have a

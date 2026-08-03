@@ -23,6 +23,11 @@ lean_lib «EventAlgebra» where
   srcDir := "."
 
 @[default_target]
+lean_lib «OPHThermodynamics» where
+  srcDir := "Thermodynamics"
+  roots := #[`FiniteConditionalRepair, `FirstLawIdentity]
+
+@[default_target]
 lean_lib «OPHScreen» where
   srcDir := "Screen"
   roots := #[`OPHScreen, `Compact12, `S2DesignSignature,

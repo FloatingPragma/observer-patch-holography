@@ -76,6 +76,12 @@ LEAN_RECEIPTS = {
     "A5PortAction": LEAN_SCREEN / "A5PortAction.lean",
     "PortFrameGram": LEAN_SCREEN / "PortFrameGram.lean",
     "ExteriorSelection": LEAN_SCREEN / "ExteriorSelection.lean",
+    "FiniteConditionalRepair": REPO / "Lean" / "Thermodynamics"
+    / "FiniteConditionalRepair.lean",
+    "FirstLawIdentity": REPO / "Lean" / "Thermodynamics"
+    / "FirstLawIdentity.lean",
+    "PartitionPinchingCP": REPO / "Lean" / "EventAlgebra"
+    / "PartitionPinchingCP.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -589,6 +595,80 @@ def _forced_structure(
                 "implemented source law; no coupling value is implied"
             ),
             "paper_ref": "Standard Model gauge paper, coupling symmetry section",
+        },
+        {
+            "id": "thermodynamic_four_law_package",
+            "statement": (
+                "Axiom 3 instantiated on states selects the Gibbs "
+                "exponential family by the exact information-projection "
+                "Pythagorean identity, and instantiated on transition "
+                "distributions over the repaired-visible fibre selects "
+                "weighted conditional resampling from the same reference. "
+                "The kernel is stochastic, idempotent, reversible, "
+                "stationary, and fixes fibre-measurable charges; relative "
+                "entropy to the reference contracts under it; the exact "
+                "first-law split carries its bilinear cross term; the "
+                "excited Gibbs mass obeys the finite gap bound with "
+                "entropy limit log g0; partition pinching is a "
+                "completely positive channel with the projectors as their "
+                "own Kraus family"
+            ),
+            "observed_counterpart": (
+                "the zeroth, first, second, and third laws of "
+                "thermodynamics"
+            ),
+            "match": "finite theorem package under named receipts",
+            "lean_declarations": {
+                "FiniteConditionalRepair": [
+                    "gibbs_pythagorean",
+                    "gibbs_minimizer",
+                    "heatBath_row_optimal",
+                    "heatBath_secondLaw",
+                    "heatBath_detailedBalance",
+                    "heatBath_fixes_fiberObservable",
+                    "kl_push_le",
+                    "excitedMass_le",
+                ],
+                "FirstLawIdentity": ["firstLaw_split"],
+                "PartitionPinchingCP": [
+                    "ProjectivePartition.kraus_complete",
+                    "partitionPinching_kraus_form",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "FiniteConditionalRepair",
+                "FirstLawIdentity",
+                "PartitionPinchingCP",
+                declarations={
+                    "FiniteConditionalRepair": (
+                        "gibbs_pythagorean",
+                        "gibbs_minimizer",
+                        "heatBath_row_optimal",
+                        "heatBath_secondLaw",
+                        "heatBath_detailedBalance",
+                        "heatBath_fixes_fiberObservable",
+                        "kl_push_le",
+                        "excitedMass_le",
+                    ),
+                    "FirstLawIdentity": ("firstLaw_split",),
+                    "PartitionPinchingCP": (
+                        "ProjectivePartition.kraus_complete",
+                        "partitionPinching_kraus_form",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "five receipts stay open under issue #671: the global "
+                "objective representation, the common source-derived "
+                "reference for both optimizers, identification of the "
+                "source collar matrix with the resampling kernel through "
+                "the equal-fibre-row receipt, physical energy and clock "
+                "calibration beyond the attained central-interface "
+                "modular split, and refinement-uniform low-temperature "
+                "control; the strict-descent normalizer carries no "
+                "entropy inequality"
+            ),
+            "paper_ref": "observers paper, thermodynamics section",
         },
     ]
     rows.extend(

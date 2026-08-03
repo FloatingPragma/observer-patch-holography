@@ -69,7 +69,8 @@
     "OPH-THINKING-PATCH",
     "OPH-PARADISE",
     "OPH-UNIFIED-TYPED-SPINE",
-    "OPH-GR-D6-A5-FINITE-CONTROL"
+    "OPH-GR-D6-A5-FINITE-CONTROL",
+    "OPH-THERMO-FOUR-LAW-PACKAGE"
   ],
   "edges": [
     {
@@ -636,6 +637,11 @@
       "from": "OPH-A5-SEAM-CURRENT-EDGE30",
       "to": "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
       "role": "supplies the edge-branch coefficient ray reproduced as the interior band point at -1/15; the physical branch premises stay with the edge claim and its owning issues"
+    },
+    {
+      "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
+      "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
+      "role": "independent finite packages on the same axioms; the thermodynamic kernel and the propagation branches share the source reference question but neither gates the other"
     }
   ]
 }
