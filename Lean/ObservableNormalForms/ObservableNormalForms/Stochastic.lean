@@ -545,7 +545,7 @@ the `n`-step endpoint distribution satisfies, for `p := (κ^n V(x) +
 ξ(1-κ^n)/(1-κ))/δ`:
 
 1. tail bound `P_x[V(X_n) > δ] ≤ p`;
-2. settling mass `P_x[V(X_n) ≤ δ] ≥ 1 - p` — the `(δ,0)`-settling receipt
+2. settling mass `P_x[V(X_n) ≤ δ] ≥ 1 - p`, the `(δ,0)`-settling receipt
    consumed by `cor:probabilistic`;
 3. observation preservation on the endpoint support:
    `P_x[X_n = y] > 0 → B(y) = B(x)`.
@@ -804,8 +804,8 @@ end FiniteMarkovKernel
 /-! ## Persistent-noise negative control
 
 A kernel satisfying the drift condition with `ξ > 0` for which every
-one-time endpoint bound holds — the excursion probability at each single
-time `n ≥ 1` is exactly `1/2` — while the probability of an excursion-free
+one-time endpoint bound holds, with excursion probability exactly `1/2` at
+each single time `n ≥ 1`, while the probability of an excursion-free
 window of length `N` is `(1/2)^N → 0`.  Machine-checked witness that the
 endpoint receipt does NOT imply pathwise confinement, exactly as the
 manuscript's limitation clause states. -/
@@ -861,8 +861,8 @@ theorem noisy_endpoint_uniform :
         norm_num
 
 /-- **Nonvanishing one-time excursion probability.**  At every single time
-`n ≥ 1`, `P_x[V(X_n) > 1/2] = 1/2` exactly: the one-time endpoint bound is
-honest but never improves with `n`. -/
+`n ≥ 1`, `P_x[V(X_n) > 1/2] = 1/2` exactly, so the one-time endpoint bound
+holds at a value that is constant in `n`. -/
 theorem noisy_endpoint_tail_const (n : ℕ) (hn : n ≠ 0) (x : Bool) :
     finiteEventMass (noisyKernel.endpointDistribution n x)
         (fun y => (1 : ℝ) / 2 < escapeIndicator y) = 1 / 2 := by
@@ -962,8 +962,8 @@ theorem empty_support_declaration_fails :
   · exact Bool.noConfusion hEq
 
 /-- **Rejection test (disconnected declaration).**  A nonempty rewrite
-relation touching only a self-loop at `true` — disconnected from the swap
-kernel's actual support — does NOT pass the support check. -/
+relation touching only a self-loop at `true`, disconnected from the swap
+kernel's actual support, does NOT pass the support check. -/
 theorem disconnected_support_declaration_fails :
     ¬ ∀ ⦃a b : Bool⦄, 0 < swapKernel.probability a b →
         (fun a b => a = true ∧ b = true) a b ∨ b = a := by
@@ -990,7 +990,7 @@ theorem stutter_support_declaration_holds :
   exact lt_irrefl 0 h
 
 /-- End-to-end: on the stutter kernel, the receipt's observation clause
-holds for the IDENTITY observation — every state with positive endpoint mass
+holds for the IDENTITY observation: every state with positive endpoint mass
 is literally the initial state's observation class. -/
 example (n : ℕ) (x y : Bool)
     (hy : 0 < stutterKernel.endpointDistribution n x y) :
