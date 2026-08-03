@@ -532,6 +532,20 @@
         "hypothesis_boundary": "five receipts stay open under issue #671: the global objective representation, the common source-derived reference for both optimizers, identification of the source collar matrix with the resampling kernel through the equal-fibre-row receipt, physical energy and clock calibration beyond the attained central-interface modular split, and refinement-uniform low-temperature control; the strict-descent normalizer carries no entropy inequality",
         "id": "thermodynamic_four_law_package",
         "lean_declarations": {
+          "CapFirstLaw": [
+            "cap_firstLaw_exact",
+            "cap_firstLaw_split",
+            "cap_clausius_of_central_conserved",
+            "push_heatBath_fixes_mean",
+            "heatBath_cap_clausius"
+          ],
+          "EinsteinPremiseLink": [
+            "shannon_diff_eq_pairing_sub_kl",
+            "thermoFirstLawData_passes",
+            "thermo_first_law_on_simplex_tangent",
+            "repair_variation_mem_massZero",
+            "repair_variation_central_pairing_zero"
+          ],
           "FiniteConditionalRepair": [
             "gibbs_pythagorean",
             "gibbs_minimizer",
@@ -551,6 +565,16 @@
           "FirstLawIdentity": [
             "firstLaw_split"
           ],
+          "FluctuationTheorems": [
+            "integral_fluctuation",
+            "crooks_pointwise",
+            "crooks_level_set",
+            "sigma_mean_eq_kl_descent",
+            "correlation_symm",
+            "heatBath_integral_fluctuation",
+            "heatBath_crooks",
+            "heatBath_correlation_symm"
+          ],
           "PartitionPinchingCP": [
             "ProjectivePartition.kraus_complete",
             "partitionPinching_kraus_form"
@@ -559,6 +583,9 @@
         "lean_receipts": [
           "Lean/Thermodynamics/FiniteConditionalRepair.lean",
           "Lean/Thermodynamics/FirstLawIdentity.lean",
+          "Lean/Thermodynamics/FluctuationTheorems.lean",
+          "Lean/Thermodynamics/CapFirstLaw.lean",
+          "Lean/Thermodynamics/EinsteinPremiseLink.lean",
           "Lean/EventAlgebra/PartitionPinchingCP.lean"
         ],
         "match": "finite theorem package under named receipts",

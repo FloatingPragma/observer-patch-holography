@@ -1,0 +1,451 @@
+{
+  "mode": "oph_finite_repair_transition_clock_v1",
+  "source_run_dir": "data/earned_runs/oph_universe_64k_3p1d_reearned",
+  "observer_views_path": "data/earned_runs/oph_universe_64k_3p1d_reearned/observer_views.jsonl",
+  "packet_fields": [
+    "record_family",
+    "checkpoint_class",
+    "s3_sector_class",
+    "repair_load_bucket"
+  ],
+  "primary_matrix": "raw_empirical",
+  "repair_step_time": 1.0,
+  "clock_normalization_source": "declared_cli_value",
+  "clock_normalization_source_status": {
+    "source": "declared_cli_value",
+    "theorem_grade": false,
+    "hypothesis_side": false,
+    "posthoc_or_cli_declared": true,
+    "sufficient_for_clock_binding_receipt": false,
+    "claim_boundary": "A source label alone never closes the physical clock-binding receipt. Even a theorem-grade label requires a hash-bound evidence bundle and a clean source DAG; hypothesis-side and CLI-declared sources remain diagnostics."
+  },
+  "weight_field": "transition_history_mean_modal_mass",
+  "observer_count": 1028,
+  "transition_count": 31744,
+  "skipped_observer_count": 4,
+  "state_count": 20,
+  "state_labels": [
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 1]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 4]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 2]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 5]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 3]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 3]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 4]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 2]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 6]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 7]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 3], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 2], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 5]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 6]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 1]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 7]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 3], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 7]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+    "[[\"record_family\", 0], [\"checkpoint_class\", 3], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 6]]"
+  ],
+  "target": {
+    "selected_branch": "edge_center_orientation_half",
+    "formula": "rho_full=P/24; theta=rho_full/2=P/48; kappa_rep=theta/(P-phi)",
+    "required_kappa_rep": 2.6270237126274267,
+    "required_eta_R": 0.033978504362582485,
+    "required_n_s": 0.9660214956374176,
+    "full_collar_derivative_target": 0.06795700872516497,
+    "orientation_halves": 2,
+    "P": 1.6309682094039593,
+    "phi": 1.618033988749895,
+    "delta_P": 0.012934220654064355,
+    "e_diagnostic_control": {
+      "kappa_rep": 2.718281828459045,
+      "eta_R": 0.0351588569692228,
+      "n_s": 0.9648411430307772,
+      "role": "named_nonpromoting_diagnostic_control",
+      "selected": false,
+      "required": false,
+      "canonical": false,
+      "promoting": false
+    }
+  },
+  "matrices": {
+    "raw_empirical": {
+      "finite": true,
+      "irreducible": false,
+      "aperiodic": false,
+      "row_sum_max_abs_error": 2.220446049250313e-16,
+      "lambda_2": 0.9506069939081225,
+      "gamma_continuous": 0.05065455746749803,
+      "finite_step_survival_factor": 0.9506069939081225,
+      "finite_step_survival_exponent": 0.05065455746749803,
+      "finite_step_survival_exponent_is_full_collar_derivative": false,
+      "finite_step_survival_exponent_is_promoting": false,
+      "gamma_discrete_one_minus_lambda2": 0.04939300609187747,
+      "kappa_rep_estimate": 3.9163208068188253,
+      "eta_R_estimate": 0.05065455746749803,
+      "n_s_estimate": 0.949345442532502,
+      "required_repair_step_time_for_selected_edge_center": 1.4907824348878465,
+      "repair_step_time_for_e_diagnostic_control": 1.4407339098606016,
+      "stationary_min": 0.0,
+      "stationary_max": 1.0,
+      "detailed_balance_max_abs_error": null,
+      "top_abs_eigenvalues": [
+        1.0,
+        0.9506069939081225,
+        0.9356723656715861,
+        0.8058152591523435,
+        0.501168829607677,
+        0.5000304256558712,
+        0.3863377651174324,
+        0.3863377651174324
+      ]
+    },
+    "reversible_empirical": {
+      "finite": true,
+      "irreducible": true,
+      "aperiodic": true,
+      "row_sum_max_abs_error": 2.220446049250313e-16,
+      "lambda_2": 0.9601887190974294,
+      "gamma_continuous": 0.04062543144688622,
+      "finite_step_survival_factor": 0.9601887190974294,
+      "finite_step_survival_exponent": 0.04062543144688622,
+      "finite_step_survival_exponent_is_full_collar_derivative": false,
+      "finite_step_survival_exponent_is_promoting": false,
+      "gamma_discrete_one_minus_lambda2": 0.03981128090257058,
+      "kappa_rep_estimate": 3.140926116342416,
+      "eta_R_estimate": 0.04062543144688622,
+      "n_s_estimate": 0.9593745685531138,
+      "required_repair_step_time_for_selected_edge_center": 1.195621532171481,
+      "repair_step_time_for_e_diagnostic_control": 1.1554821444408367,
+      "stationary_min": 6.499214328222867e-05,
+      "stationary_max": 0.16525164026332156,
+      "detailed_balance_max_abs_error": 7.28583859910259e-17,
+      "top_abs_eigenvalues": [
+        1.0000000000000016,
+        0.9601887190974294,
+        0.7804902286225166,
+        0.5892747400641557,
+        0.5731471095434947,
+        0.5093570325695342,
+        0.40088850582664187,
+        0.34933669883489704
+      ]
+    }
+  },
+  "primary": {
+    "finite": true,
+    "irreducible": false,
+    "aperiodic": false,
+    "row_sum_max_abs_error": 2.220446049250313e-16,
+    "lambda_2": 0.9506069939081225,
+    "gamma_continuous": 0.05065455746749803,
+    "finite_step_survival_factor": 0.9506069939081225,
+    "finite_step_survival_exponent": 0.05065455746749803,
+    "finite_step_survival_exponent_is_full_collar_derivative": false,
+    "finite_step_survival_exponent_is_promoting": false,
+    "gamma_discrete_one_minus_lambda2": 0.04939300609187747,
+    "kappa_rep_estimate": 3.9163208068188253,
+    "eta_R_estimate": 0.05065455746749803,
+    "n_s_estimate": 0.949345442532502,
+    "required_repair_step_time_for_selected_edge_center": 1.4907824348878465,
+    "repair_step_time_for_e_diagnostic_control": 1.4407339098606016,
+    "stationary_min": 0.0,
+    "stationary_max": 1.0,
+    "detailed_balance_max_abs_error": null,
+    "top_abs_eigenvalues": [
+      1.0,
+      0.9506069939081225,
+      0.9356723656715861,
+      0.8058152591523435,
+      0.501168829607677,
+      0.5000304256558712,
+      0.3863377651174324,
+      0.3863377651174324
+    ]
+  },
+  "transition_clock_eligibility": {
+    "schema": "oph_transition_clock_eligibility_v1",
+    "eligible": false,
+    "state_count": 20,
+    "transition_count": 31744,
+    "lambda_2": 0.9506069939081225,
+    "detailed_balance_max_abs_error": null,
+    "checks": {
+      "state_count_at_least_two": true,
+      "transition_count_positive": true,
+      "primary_finite": true,
+      "primary_irreducible": false,
+      "primary_aperiodic": false,
+      "primary_spectral_gap": true,
+      "primary_detailed_balance": false
+    },
+    "blockers": [
+      "primary_irreducible",
+      "primary_aperiodic",
+      "primary_detailed_balance"
+    ],
+    "legacy_ready_flags_ignored": {
+      "finite_transition_matrix_ready": null,
+      "finite_lattice_derived": null,
+      "physical_cmb_eligible_eta_R_empirical": null
+    }
+  },
+  "clock_normalization_candidates": [
+    {
+      "name": "unit_step",
+      "value": 1.0,
+      "relative_error_to_required": 0.3292113077014948,
+      "description": "one simulator transition-history step"
+    },
+    {
+      "name": "record_commit_cycles",
+      "value": 12.0,
+      "relative_error_to_required": 7.049464307582062,
+      "description": "record commit horizon in cycles"
+    },
+    {
+      "name": "history_window",
+      "value": 32.0,
+      "relative_error_to_required": 20.465238153552164,
+      "description": "observer transition-history window"
+    },
+    {
+      "name": "cycles_times_bw_modular_time",
+      "value": 50.26548245743669,
+      "relative_error_to_required": 32.71751724537741,
+      "description": "simulation cycles times BW modular parameter s=2pi*t"
+    },
+    {
+      "name": "record_commit_cycles_times_2pi",
+      "value": 75.39822368615503,
+      "relative_error_to_required": 49.57627586806611,
+      "description": "KMS 2pi times record commit horizon"
+    },
+    {
+      "name": "commit_times_history_times_bw_modular_time",
+      "value": 150.79644737231007,
+      "relative_error_to_required": 100.15255173613224,
+      "description": "record commit horizon times history window times BW modular parameter"
+    },
+    {
+      "name": "history_window_times_2pi",
+      "value": 201.06192982974676,
+      "relative_error_to_required": 133.87006898150963,
+      "description": "KMS 2pi times observer history window"
+    }
+  ],
+  "relative_error_to_selected_edge_center_kappa": null,
+  "relative_error_to_e_diagnostic_control": null,
+  "clock_normalization_numeric_match": false,
+  "edge_center_target_numeric_match": false,
+  "e_diagnostic_numeric_match": false,
+  "finite_transition_matrix_ready": false,
+  "finite_transition_matrix_derived": false,
+  "finite_step_survival_exponent_derived": false,
+  "finite_lattice_derived": false,
+  "edge_center_clock_evidence": {
+    "schema": "oph-edge-center-clock-v1",
+    "selected_target": {
+      "selected_branch": "edge_center_orientation_half",
+      "formula": "rho_full=P/24; theta=rho_full/2=P/48; n_s=1-theta",
+      "P": 1.6309682094039593,
+      "phi": 1.618033988749895,
+      "delta_P": 0.012934220654064355,
+      "full_collar_derivative_target": 0.06795700872516497,
+      "orientation_halves": 2,
+      "theta": 0.033978504362582485,
+      "eta_R": 0.033978504362582485,
+      "n_s": 0.9660214956374176,
+      "kappa_rep": 2.6270237126274267,
+      "kappa_rep_formula": "(P/48)/(P-phi)",
+      "selected_theorem_target": true,
+      "finite_lattice_derived": false,
+      "diagnostic_controls": {
+        "e": {
+          "kappa_rep": 2.718281828459045,
+          "eta_R": 0.0351588569692228,
+          "n_s": 0.9648411430307772,
+          "role": "named_nonpromoting_diagnostic_control",
+          "selected": false,
+          "required": false,
+          "canonical": false,
+          "promoting": false
+        }
+      }
+    },
+    "evidence_present": false,
+    "tolerance": 1e-12,
+    "tolerance_profile": {
+      "profile": "oph-edge-center-clock-defect-profile-v1",
+      "default": 1e-12,
+      "maximum": 1e-06
+    },
+    "observed": {
+      "full_collar_derivative": null,
+      "orientation_halves": null,
+      "orientation_half_identity_defect": null,
+      "semigroup_defect": null,
+      "refinement_defect": null,
+      "clock_binding_source": null,
+      "clock_binding_sha256": null,
+      "computed_clock_binding_sha256": null,
+      "clock_binding_hash_matches": false,
+      "source_dag_sha256": null,
+      "computed_source_dag_sha256": null,
+      "source_dag_hash_matches": false,
+      "source_dag_audit": {
+        "clean": false,
+        "node_count": 0,
+        "edge_count": 0,
+        "source_kinds": [],
+        "binding_node_present": false,
+        "binding_node_kind_valid": false,
+        "binding_node_hash_matches": false,
+        "binding_node_is_leaf": false,
+        "root_source_reaches_binding": false,
+        "all_nodes_ancestral_to_binding": false,
+        "blockers": [
+          "clock_binding_source_node_missing",
+          "source_dag_edges_invalid",
+          "source_dag_fields_invalid",
+          "source_dag_nodes_missing"
+        ]
+      },
+      "pixel_provenance": {
+        "P": 1.6309682094039593,
+        "declared_profile": null,
+        "profile_known": false,
+        "canonical_P": null,
+        "value_matches_profile": false,
+        "generative_receipt_allowed": false,
+        "GENERATIVE_PIXEL_PROFILE_RECEIPT": false,
+        "blockers": [
+          "pixel_profile_not_declared"
+        ]
+      }
+    },
+    "checks": {
+      "full_collar_derivative_equals_P_over_24": false,
+      "orientation_half_identity": false,
+      "semigroup_defect_bounded": false,
+      "refinement_defect_bounded": false,
+      "clock_binding_packet_consistency": false,
+      "source_dag_clean_hash_bound": false,
+      "generative_pixel_profile_bound": false,
+      "independent_finite_run_replay": false
+    },
+    "receipts": {
+      "FULL_COLLAR_DERIVATIVE_P_OVER_24_RECEIPT": false,
+      "ORIENTATION_HALF_IDENTITY_RECEIPT": false,
+      "SEMIGROUP_DEFECT_RECEIPT": false,
+      "REFINEMENT_DEFECT_RECEIPT": false,
+      "PHYSICAL_CLOCK_BINDING_RECEIPT": false,
+      "SOURCE_DAG_CLEAN_RECEIPT": false,
+      "GENERATIVE_PIXEL_PROFILE_RECEIPT": false,
+      "INDEPENDENT_FINITE_RUN_REPLAY_RECEIPT": false
+    },
+    "FULL_COLLAR_DERIVATIVE_P_OVER_24_RECEIPT": false,
+    "ORIENTATION_HALF_IDENTITY_RECEIPT": false,
+    "SEMIGROUP_DEFECT_RECEIPT": false,
+    "REFINEMENT_DEFECT_RECEIPT": false,
+    "PHYSICAL_CLOCK_BINDING_RECEIPT": false,
+    "SOURCE_DAG_CLEAN_RECEIPT": false,
+    "GENERATIVE_PIXEL_PROFILE_RECEIPT": false,
+    "INDEPENDENT_FINITE_RUN_REPLAY_RECEIPT": false,
+    "CLOCK_BINDING_PACKET_CONSISTENCY_RECEIPT": false,
+    "EDGE_CENTER_CLOCK_PACKET_CONSISTENCY_RECEIPT": false,
+    "legacy_receipt_declarations_promoted": false,
+    "EDGE_CENTER_CLOCK_RECEIPT": false,
+    "edge_center_clock_evidence_complete": false,
+    "missing_receipts": [
+      "FULL_COLLAR_DERIVATIVE_P_OVER_24_RECEIPT",
+      "ORIENTATION_HALF_IDENTITY_RECEIPT",
+      "SEMIGROUP_DEFECT_RECEIPT",
+      "REFINEMENT_DEFECT_RECEIPT",
+      "PHYSICAL_CLOCK_BINDING_RECEIPT",
+      "SOURCE_DAG_CLEAN_RECEIPT",
+      "GENERATIVE_PIXEL_PROFILE_RECEIPT",
+      "INDEPENDENT_FINITE_RUN_REPLAY_RECEIPT"
+    ],
+    "finite_step_survival_exponent_is_distinct": true,
+    "claim_boundary": "The selected P/48 theorem target is conditional on a source-derived full-collar derivative and its orientation-half identity. Finite-step survival exponents, fitted decay slopes, and numerical proximity to the target remain diagnostic until all semigroup, refinement, clock-binding, source-DAG, and generative P-profile receipts pass. Hash equality establishes packet-internal content binding only. The physical clock receipt remains false until raw finite-run artifacts independently reproduce the derivative and defect bounds; caller receipt booleans are ignored."
+  },
+  "FULL_COLLAR_DERIVATIVE_P_OVER_24_RECEIPT": false,
+  "ORIENTATION_HALF_IDENTITY_RECEIPT": false,
+  "SEMIGROUP_DEFECT_RECEIPT": false,
+  "REFINEMENT_DEFECT_RECEIPT": false,
+  "PHYSICAL_CLOCK_BINDING_RECEIPT": false,
+  "SOURCE_DAG_CLEAN_RECEIPT": false,
+  "GENERATIVE_PIXEL_PROFILE_RECEIPT": false,
+  "INDEPENDENT_FINITE_RUN_REPLAY_RECEIPT": false,
+  "EDGE_CENTER_CLOCK_RECEIPT": false,
+  "clock_normalization_certified": false,
+  "repair_clock_certificate": false,
+  "eta_R_finite_lattice_derived": false,
+  "clock_modes": {
+    "empirical": {
+      "clock_mode": "empirical",
+      "clock_normalization_certified": false,
+      "eta_R_finite_lattice_derived": false,
+      "finite_step_survival_exponent_derived": false,
+      "eta_R_hypothesis": false,
+      "kappa_rep_value": 3.9163208068188253,
+      "eta_R_value": 0.05065455746749803,
+      "promoting": false,
+      "claim_boundary": "Finite-derived survival-exponent diagnostic. It is not the source full-collar derivative and cannot promote eta_R without the edge-center evidence bundle."
+    },
+    "edge_center_selected": {
+      "clock_mode": "edge_center_selected",
+      "clock_normalization_certified": false,
+      "eta_R_finite_lattice_derived": false,
+      "eta_R_hypothesis": false,
+      "numeric_match": false,
+      "kappa_rep_value": 2.6270237126274267,
+      "eta_R_value": 0.033978504362582485,
+      "n_s_value": 0.9660214956374176,
+      "selected_theorem_target": true,
+      "claim_boundary": "Selected theorem target theta=P/48. Numerical proximity is insufficient; all full-collar, orientation-half, semigroup/refinement, clock-binding, and source-DAG receipts must pass."
+    },
+    "e_diagnostic": {
+      "clock_mode": "e_diagnostic",
+      "clock_normalization_certified": false,
+      "eta_R_finite_lattice_derived": false,
+      "eta_R_hypothesis": false,
+      "kappa_rep_value": 2.718281828459045,
+      "eta_R_value": 0.0351588569692228,
+      "selected": false,
+      "required": false,
+      "canonical": false,
+      "promoting": false,
+      "claim_boundary": "Euler's number is retained only as a named nonpromoting diagnostic control."
+    }
+  },
+  "repair_clock_edge_center_certificate": false,
+  "repair_clock_empirical_certificate": false,
+  "repair_clock_e_diagnostic_certificate": false,
+  "eta_R_empirical_finite_lattice_derived": false,
+  "physical_cmb_eligible_eta_R_empirical": false,
+  "finite_step_survival": {
+    "lambda_2": 0.9506069939081225,
+    "exponent_per_declared_step": 0.05065455746749803,
+    "declared_step_time": 1.0,
+    "distinct_from_full_collar_derivative": true,
+    "satisfies_full_collar_derivative_receipt": false,
+    "promoting": false
+  },
+  "physical_cmb_prediction": false,
+  "blockers": [
+    "finite transition matrix is not certificate-ready (missing, degenerate, nonergodic, or numerically invalid)",
+    "primary transition matrix is reducible, so it is not a finite repair-matrix certificate",
+    "primary transition matrix is not certified aperiodic",
+    "missing edge-center clock evidence: FULL_COLLAR_DERIVATIVE_P_OVER_24_RECEIPT",
+    "missing edge-center clock evidence: ORIENTATION_HALF_IDENTITY_RECEIPT",
+    "missing edge-center clock evidence: SEMIGROUP_DEFECT_RECEIPT",
+    "missing edge-center clock evidence: REFINEMENT_DEFECT_RECEIPT",
+    "missing edge-center clock evidence: PHYSICAL_CLOCK_BINDING_RECEIPT",
+    "missing edge-center clock evidence: SOURCE_DAG_CLEAN_RECEIPT",
+    "missing edge-center clock evidence: GENERATIVE_PIXEL_PROFILE_RECEIPT",
+    "missing edge-center clock evidence: INDEPENDENT_FINITE_RUN_REPLAY_RECEIPT"
+  ],
+  "claim_boundary": "Finite observer-visible transition-matrix clock diagnostic. Packet paths are read from observer_views.jsonl and projected to a declared support-visible quotient alphabet. The report derives a finite-step survival exponent, which remains distinct from the full-collar derivative. The selected clock is theta=P/48 with kappa_rep=(P/48)/(P-phi), and it can certify only when all explicit edge-center evidence receipts pass. Euler's number is a named nonpromoting diagnostic control only."
+}

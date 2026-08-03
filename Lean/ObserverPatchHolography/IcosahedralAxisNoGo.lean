@@ -185,3 +185,10 @@ theorem cabibbo_sine_sq_not_in_axis_menu (i : Fin 16) :
   ne_of_gt (every_axis_sine_sq_exceeds_cabibbo i)
 
 end OPH.IcosahedralAxisNoGo
+
+#print axioms OPH.IcosahedralAxisNoGo.axis_menu_count
+#print axioms OPH.IcosahedralAxisNoGo.spectrum_multiplicities
+#print axioms OPH.IcosahedralAxisNoGo.spectrum_total_multiplicity
+#print axioms OPH.IcosahedralAxisNoGo.spectrum_coordinates_in_unit_interval
+#print axioms OPH.IcosahedralAxisNoGo.every_axis_sine_sq_exceeds_cabibbo
+#print axioms OPH.IcosahedralAxisNoGo.cabibbo_sine_sq_not_in_axis_menu

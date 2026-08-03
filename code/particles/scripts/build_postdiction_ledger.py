@@ -80,6 +80,12 @@ LEAN_RECEIPTS = {
     / "FiniteConditionalRepair.lean",
     "FirstLawIdentity": REPO / "Lean" / "Thermodynamics"
     / "FirstLawIdentity.lean",
+    "FluctuationTheorems": REPO / "Lean" / "Thermodynamics"
+    / "FluctuationTheorems.lean",
+    "CapFirstLaw": REPO / "Lean" / "Thermodynamics"
+    / "CapFirstLaw.lean",
+    "EinsteinPremiseLink": REPO / "Lean" / "Thermodynamics"
+    / "EinsteinPremiseLink.lean",
     "PartitionPinchingCP": REPO / "Lean" / "EventAlgebra"
     / "PartitionPinchingCP.lean",
 }
@@ -636,6 +642,30 @@ def _forced_structure(
                     "block_entropy_le",
                 ],
                 "FirstLawIdentity": ["firstLaw_split"],
+                "FluctuationTheorems": [
+                    "integral_fluctuation",
+                    "crooks_pointwise",
+                    "crooks_level_set",
+                    "sigma_mean_eq_kl_descent",
+                    "correlation_symm",
+                    "heatBath_integral_fluctuation",
+                    "heatBath_crooks",
+                    "heatBath_correlation_symm",
+                ],
+                "CapFirstLaw": [
+                    "cap_firstLaw_exact",
+                    "cap_firstLaw_split",
+                    "cap_clausius_of_central_conserved",
+                    "push_heatBath_fixes_mean",
+                    "heatBath_cap_clausius",
+                ],
+                "EinsteinPremiseLink": [
+                    "shannon_diff_eq_pairing_sub_kl",
+                    "thermoFirstLawData_passes",
+                    "thermo_first_law_on_simplex_tangent",
+                    "repair_variation_mem_massZero",
+                    "repair_variation_central_pairing_zero",
+                ],
                 "PartitionPinchingCP": [
                     "ProjectivePartition.kraus_complete",
                     "partitionPinching_kraus_form",
@@ -644,6 +674,9 @@ def _forced_structure(
             "lean_receipts": _lean_receipt(
                 "FiniteConditionalRepair",
                 "FirstLawIdentity",
+                "FluctuationTheorems",
+                "CapFirstLaw",
+                "EinsteinPremiseLink",
                 "PartitionPinchingCP",
                 declarations={
                     "FiniteConditionalRepair": (
@@ -663,6 +696,30 @@ def _forced_structure(
                         "block_entropy_le",
                     ),
                     "FirstLawIdentity": ("firstLaw_split",),
+                    "FluctuationTheorems": (
+                        "integral_fluctuation",
+                        "crooks_pointwise",
+                        "crooks_level_set",
+                        "sigma_mean_eq_kl_descent",
+                        "correlation_symm",
+                        "heatBath_integral_fluctuation",
+                        "heatBath_crooks",
+                        "heatBath_correlation_symm",
+                    ),
+                    "CapFirstLaw": (
+                        "cap_firstLaw_exact",
+                        "cap_firstLaw_split",
+                        "cap_clausius_of_central_conserved",
+                        "push_heatBath_fixes_mean",
+                        "heatBath_cap_clausius",
+                    ),
+                    "EinsteinPremiseLink": (
+                        "shannon_diff_eq_pairing_sub_kl",
+                        "thermoFirstLawData_passes",
+                        "thermo_first_law_on_simplex_tangent",
+                        "repair_variation_mem_massZero",
+                        "repair_variation_central_pairing_zero",
+                    ),
                     "PartitionPinchingCP": (
                         "ProjectivePartition.kraus_complete",
                         "partitionPinching_kraus_form",

@@ -126,6 +126,9 @@ def test_lean_binding_paths_exist(receipt):
     for path in (
         "Lean/Thermodynamics/FiniteConditionalRepair.lean",
         "Lean/Thermodynamics/FirstLawIdentity.lean",
+        "Lean/Thermodynamics/FluctuationTheorems.lean",
+        "Lean/Thermodynamics/CapFirstLaw.lean",
+        "Lean/Thermodynamics/EinsteinPremiseLink.lean",
         "Lean/EventAlgebra/PartitionPinchingCP.lean",
     ):
         assert (root / path).exists()
@@ -133,6 +136,116 @@ def test_lean_binding_paths_exist(receipt):
     assert "heatBath_secondLaw" in bindings["conditional_repair"]
     assert "firstLaw_split" in bindings["first_law"]
     assert "kraus_complete" in bindings["record_channel"]
+    assert "integral_fluctuation" in bindings["fluctuation"]
+    assert "heatBath_cap_clausius" in bindings["cap_first_law"]
+    assert "thermoFirstLawData_passes" in bindings["einstein_premise_link"]
+
+
+def test_bound_lean_declarations_exist_in_sources(receipt):
+    """Every declaration named in lean_bindings exists in its file."""
+    root = HERE.parent.parent
+    for binding in receipt["lean_bindings"].values():
+        path_part, names = binding.split(":", 1)
+        source = (root / "Lean" / path_part.strip()).read_text()
+        for name in names.split(","):
+            token = name.strip()
+            assert token, "empty declaration token"
+            assert token in source, f"{token} missing from {path_part}"
+
+
+def test_integral_fluctuation_independent_route():
+    """The exact integral fluctuation identity, rebuilt with the sum
+    grouped by fibre rather than by pair."""
+
+    rng = random.Random(23)
+    for _ in range(8):
+        size = rng.randint(3, 7)
+        labels = [rng.randrange(2) for _ in range(size)]
+        pi_raw = [Fraction(rng.randint(1, 9)) for _ in range(size)]
+        total = sum(pi_raw)
+        pi = [w / total for w in pi_raw]
+        kernel, _ = cert.heat_bath(labels, pi)
+        raw = [Fraction(rng.randint(1, 9)) for _ in range(size)]
+        tot = sum(raw)
+        p = [r / tot for r in raw]
+        q = [
+            sum(p[x] * kernel[x][y] for x in range(size))
+            for y in range(size)
+        ]
+        # group by fibre: sum_x p x K x y exp(-sigma) collapses to
+        # sum over y of q y once the x-sum is carried out per fibre
+        acc = Fraction(0)
+        for lab in set(labels):
+            fibre = [i for i in range(size) if labels[i] == lab]
+            for y in fibre:
+                inner = sum(
+                    p[x] * kernel[x][y] * (pi[x] / p[x]) * (q[y] / pi[y])
+                    for x in fibre
+                )
+                acc += inner
+        assert acc == 1
+
+
+def test_realization_probe_receipt_matches_rebuild():
+    import collar_matrix_realization_probe as probe
+
+    committed = json.loads(probe.PROBE_PATH.read_text())
+    rebuilt = probe.build_probe()
+    assert committed == rebuilt
+
+
+def test_realization_probe_self_digest():
+    import collar_matrix_realization_probe as probe
+
+    committed = json.loads(probe.PROBE_PATH.read_text())
+    body = {
+        k: v for k, v in committed.items() if k != "receipt_sha256"
+    }
+    assert committed["receipt_sha256"] == cert.tagged_sha256(
+        cert.canonical_json_bytes(body)
+    )
+
+
+def test_realization_probe_states_receipt_open():
+    import collar_matrix_realization_probe as probe
+
+    committed = json.loads(probe.PROBE_PATH.read_text())
+    assert committed["receipt_target"] == "THERMO-REALIZATION"
+    assert "RECEIPT_OPEN" in committed["status"]
+    assert "RAW_CHAIN_REDUCIBLE" in committed["status"]
+    assert committed["measurements"]["off_fibre_mass_max"] == 0.0
+    assert any(
+        "reducible" in blocker
+        for blocker in committed["inherited_blockers"]
+    )
+
+
+def test_realization_probe_pins_enforced(monkeypatch, tmp_path):
+    import collar_matrix_realization_probe as probe
+
+    tampered = tmp_path / "finite_repair_transition_matrix.npz"
+    tampered.write_bytes(
+        probe.MATRIX_PATH.read_bytes() + b"\x00"
+    )
+    monkeypatch.setattr(probe, "MATRIX_PATH", tampered)
+    with pytest.raises(cert.ThermoError):
+        probe.build_probe()
+
+
+def test_tampered_kernel_rejected_by_fluctuation(monkeypatch):
+    """A perturbed kernel entry breaks the exact fluctuation
+    identities."""
+
+    original = cert.heat_bath
+
+    def tampered(labels, pi):
+        kernel, mass = original(labels, pi)
+        kernel[0][0] += Fraction(1, 997)
+        return kernel, mass
+
+    monkeypatch.setattr(cert, "heat_bath", tampered)
+    with pytest.raises(cert.ThermoError):
+        cert.fluctuation_certificate()
 
 
 def test_tampered_kernel_rejected(monkeypatch):

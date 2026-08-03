@@ -93,3 +93,10 @@ theorem assignment_count : assignments.length = 6 := by
   decide
 
 end OPH.ClebschRatio
+
+#print axioms OPH.ClebschRatio.boundary_light_ratio
+#print axioms OPH.ClebschRatio.common_transport_light_ratio
+#print axioms OPH.ClebschRatio.assignment_light_ratio_factors
+#print axioms OPH.ClebschRatio.every_assignment_is_weight_permutation
+#print axioms OPH.ClebschRatio.assignments_nodup
+#print axioms OPH.ClebschRatio.assignment_count

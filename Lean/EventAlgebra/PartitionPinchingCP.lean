@@ -9,13 +9,16 @@ open Matrix
 
 The pinching map `X ↦ ∑ i, Pᵢ X Pᵢ` of a projective partition is
 proven linear, unital, positive, trace preserving, and trace
-self-adjoint in the parent module. This module adds the Kraus normalization: the partition
-projectors themselves form a Kraus family whose completeness relation is
-the partition completeness, so the pinching map is completely positive
-and trace preserving with the manifest Kraus representation
-`{Pᵢ}`. Public quantum records therefore commit through a physical
-channel, closing the channel-form gap of the thermodynamic completion
-program.
+self-adjoint in the parent module. This module adds the Kraus data:
+the partition projectors themselves form a Kraus family whose
+completeness relation is the partition completeness, and the map acts
+by Kraus conjugation, the standard witness of complete positivity.
+The module formalizes the two Kraus identities; the complete-positivity
+statement itself follows from them by the standard Kraus argument and
+is not separately formalized. Public quantum records therefore commit
+through a channel in manifest Kraus form, closing the channel-form gap
+of the thermodynamic completion program at the level of the Kraus
+identities.
 -/
 
 variable {n k : ℕ}

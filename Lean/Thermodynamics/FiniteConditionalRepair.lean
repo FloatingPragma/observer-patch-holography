@@ -20,7 +20,8 @@ completion program on one regulator stage:
   is nonincreasing under the repair kernel;
 * the Gibbs information-projection Pythagorean identity and the unique
   constrained minimizer;
-* the finite low-temperature concentration bound and its limit.
+* the finite low-temperature concentration bound and its quantitative
+  threshold.
 
 Imported premises, not established here:
 
@@ -557,7 +558,7 @@ theorem gibbs_pythagorean {A : Type*} [Fintype A]
   rw [hmomsum] at h1
   linarith
 
-/-- The Gibbs state is the unique-in-value constrained minimizer of
+/-- The Gibbs state is a constrained minimizer of
 relative entropy to the prior. -/
 theorem gibbs_minimizer {A : Type*} [Fintype A]
     (ρ τ σ : Ω → ℝ) (Q : A → Ω → ℝ) (lam : A → ℝ) (logZ : ℝ)
@@ -915,6 +916,11 @@ end QuantitativeNernst
 end OPH.Thermodynamics
 
 #print axioms OPH.Thermodynamics.kl_push_le
+#print axioms OPH.Thermodynamics.heatBath_idempotent
+#print axioms OPH.Thermodynamics.heatBath_detailedBalance
+#print axioms OPH.Thermodynamics.heatBath_stationary
+#print axioms OPH.Thermodynamics.heatBath_fixes_fiberObservable
+#print axioms OPH.Thermodynamics.gibbs_pythagorean
 #print axioms OPH.Thermodynamics.heatBath_row_optimal
 #print axioms OPH.Thermodynamics.heatBath_secondLaw
 #print axioms OPH.Thermodynamics.gibbs_minimizer

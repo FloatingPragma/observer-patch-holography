@@ -107,7 +107,12 @@ certificates:
    construction. That kernel is stochastic, idempotent, reversible, and
    stationary, and it contracts relative entropy to the reference, so the
    second law is a data-processing theorem for repair, with Clausius
-   $\Delta S\geq\beta Q$ and the Landauer erasure bound as corollaries. Equal
+   $\Delta S\geq\beta Q$ and the Landauer erasure bound as corollaries; the
+   inequality is the mean of a fluctuating entropy production that obeys
+   exact integral and detailed fluctuation theorems, with Onsager
+   reciprocity from detailed balance, and the identity
+   $S(p)-S(\tau)=\langle K\rangle_p-\langle K\rangle_\tau-D(p\Vert\tau)$
+   carries the entanglement first law with its deficit explicit. Equal
    inverse temperatures at additive contact give the zeroth law, transitive
    through any two-level thermometer. The exact split $dU=\delta Q+\delta W$
    with its bilinear cross term gives the first law. The excited Gibbs mass
@@ -121,7 +126,10 @@ certificates:
    calibrated clock. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean proofs of
    [conditional repair](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   the [first-law split](Lean/Thermodynamics/FirstLawIdentity.lean), and
+   the [first-law split](Lean/Thermodynamics/FirstLawIdentity.lean),
+   the [fluctuation theorems](Lean/Thermodynamics/FluctuationTheorems.lean),
+   the [cap first law](Lean/Thermodynamics/CapFirstLaw.lean),
+   the [Einstein-branch premise link](Lean/Thermodynamics/EinsteinPremiseLink.lean), and
    [partition pinching](Lean/EventAlgebra/PartitionPinchingCP.lean), the
    [exact-rational certificate](code/thermodynamics/conditional_repair_certificate.py)
    and its [receipt](code/thermodynamics/runtime/conditional_repair_receipt.json),

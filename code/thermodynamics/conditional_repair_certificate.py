@@ -35,6 +35,7 @@ STATUS = (
     "FINITE_FOUR_LAW_PACKAGE_CERTIFIED__"
     "TRANSITION_MAXENT_IS_CONDITIONAL_RESAMPLING__"
     "SECOND_LAW_CONTRACTION_AND_GIBBS_PROJECTION_REPLAYED__"
+    "FLUCTUATION_AND_CAP_FIRST_LAW_IDENTITIES_ATTAINED__"
     "STRICT_DESCENT_ENTROPY_COUNTEREXAMPLE_RECORDED__"
     "COMMON_REFERENCE_REALIZATION_AND_ENERGY_CLOCK_OPEN"
 )
@@ -725,6 +726,271 @@ def first_law_and_support_certificate() -> dict[str, Any]:
     }
 
 
+def fluctuation_certificate() -> dict[str, Any]:
+    """Exact fluctuation identities over the rationals.
+
+    The exponential of the fluctuating entropy production
+    sigma(x, y) = log(p x / pi x) - log(q y / pi y) is the rational
+    ratio (p x / pi x) / (q y / pi y), so the integral fluctuation
+    identity, the pointwise and level-set detailed fluctuation
+    relations, and finite Onsager reciprocity all close exactly over
+    the rationals with no numerical logarithm. Level sets of sigma
+    coincide with level sets of the ratio because the logarithm is
+    injective on the positives.
+    """
+    rng = random.Random(20260810)
+    instances = 0
+    level_classes = 0
+    for _ in range(25):
+        size = rng.randint(3, 8)
+        blocks = rng.randint(1, 3)
+        labels, pi_raw = random_instance(rng, size, blocks)
+        total = sum(pi_raw)
+        pi = [w / total for w in pi_raw]
+        kernel, _ = heat_bath(labels, pi)
+        raw = [Fraction(rng.randint(1, 12)) for _ in range(size)]
+        tot = sum(raw)
+        p = [r / tot for r in raw]
+        q = [
+            sum(p[x] * kernel[x][y] for x in range(size))
+            for y in range(size)
+        ]
+        require(all(w > 0 for w in q), "pushforward lost support")
+        ratio = [
+            [(p[x] / pi[x]) / (q[y] / pi[y]) for y in range(size)]
+            for x in range(size)
+        ]
+        ift = sum(
+            p[x] * kernel[x][y] / ratio[x][y]
+            for x in range(size)
+            for y in range(size)
+        )
+        require(ift == 1, "integral fluctuation identity failed")
+        for x in range(size):
+            for y in range(size):
+                require(
+                    p[x] * kernel[x][y]
+                    == ratio[x][y] * q[y] * kernel[y][x],
+                    "pointwise detailed fluctuation relation failed",
+                )
+        groups: dict[Fraction, list[tuple[int, int]]] = {}
+        for x in range(size):
+            for y in range(size):
+                groups.setdefault(ratio[x][y], []).append((x, y))
+        for value, pairs in groups.items():
+            forward = sum(p[x] * kernel[x][y] for x, y in pairs)
+            reverse = sum(q[y] * kernel[y][x] for x, y in pairs)
+            require(
+                forward == value * reverse,
+                "level-set fluctuation identity failed",
+            )
+            level_classes += 1
+        f = [Fraction(rng.randint(-9, 9)) for _ in range(size)]
+        g = [Fraction(rng.randint(-9, 9)) for _ in range(size)]
+        lhs = sum(
+            pi[x] * kernel[x][y] * f[x] * g[y]
+            for x in range(size)
+            for y in range(size)
+        )
+        rhs = sum(
+            pi[x] * kernel[x][y] * g[x] * f[y]
+            for x in range(size)
+            for y in range(size)
+        )
+        require(lhs == rhs, "Onsager reciprocity failed")
+        instances += 1
+    # The mean entropy production equals the certified descent, checked
+    # at high precision alongside the exact identities.
+    import mpmath
+
+    mp = mpmath.mp
+    saved_dps = mp.dps
+    try:
+        mp.dps = 60
+
+        def klp(qv, pv):
+            out = mp.mpf(0)
+            for qi, pi_ in zip(qv, pv):
+                if qi > 0:
+                    out += qi * mp.log(qi / pi_)
+            return out
+
+        mean_gap = None
+        rng2 = random.Random(20260811)
+        for _ in range(10):
+            size = rng2.randint(3, 7)
+            labels = [rng2.randrange(2) for _ in range(size)]
+            pi_f = [Fraction(rng2.randint(1, 9)) for _ in range(size)]
+            tot_pi = sum(pi_f)
+            pi_n = [w / tot_pi for w in pi_f]
+            kernel, _ = heat_bath(labels, pi_f)
+            raw = [Fraction(rng2.randint(1, 9)) for _ in range(size)]
+            tot_p = sum(raw)
+            p = [r / tot_p for r in raw]
+            q = [
+                sum(p[x] * kernel[x][y] for x in range(size))
+                for y in range(size)
+            ]
+
+            def mpf_of(fr):
+                return mp.mpf(fr.numerator) / fr.denominator
+
+            mean_sigma = mp.mpf(0)
+            for x in range(size):
+                for y in range(size):
+                    if kernel[x][y] == 0:
+                        continue
+                    sigma = mp.log(mpf_of(p[x]) / mpf_of(pi_n[x])) \
+                        - mp.log(mpf_of(q[y]) / mpf_of(pi_n[y]))
+                    mean_sigma += mpf_of(p[x] * kernel[x][y]) * sigma
+            descent = klp(
+                [mpf_of(v) for v in p], [mpf_of(v) for v in pi_n]
+            ) - klp(
+                [mpf_of(v) for v in q], [mpf_of(v) for v in pi_n]
+            )
+            gap = abs(mean_sigma - descent)
+            require(
+                gap <= mp.mpf("1e-45"),
+                "mean entropy production drifts from the descent",
+            )
+            if mean_gap is None or gap > mean_gap:
+                mean_gap = gap
+        mean_gap_str = mpmath.nstr(mean_gap, 8)
+    finally:
+        mp.dps = saved_dps
+    return {
+        "statement": (
+            "the integral fluctuation identity, the pointwise and "
+            "level-set detailed fluctuation relations, and finite "
+            "Onsager reciprocity close exactly over the rationals for "
+            "the repair kernel, and the mean entropy production "
+            "reproduces the certified relative-entropy descent"
+        ),
+        "instances": instances,
+        "level_set_classes": level_classes,
+        "mean_descent_max_gap": mean_gap_str,
+    }
+
+
+def cap_first_law_certificate() -> dict[str, Any]:
+    """Cap first law with exact remainder and the cap Clausius bound.
+
+    With modular Hamiltonian K = -log pi split as K = 2 pi_circ B + Z
+    for a fibre-measurable central charge Z, the identity
+    S(p) - S(pi) = 2 pi_circ Delta<B> + Delta<Z> - D(p||pi) and the
+    repair-step inequality 2 pi_circ Delta<B> <= Delta S are replayed
+    at sixty digits; the central-charge mean is conserved by the
+    kernel exactly.
+    """
+    import mpmath
+
+    mp = mpmath.mp
+    saved_dps = mp.dps
+    try:
+        mp.dps = 60
+        rng = random.Random(20260812)
+        two_pi = 2 * mp.pi
+
+        def mpf_of(fr):
+            return mp.mpf(fr.numerator) / fr.denominator
+
+        def shannon_mp(vec):
+            out = mp.mpf(0)
+            for v in vec:
+                if v > 0:
+                    out -= v * mp.log(v)
+            return out
+
+        def klp(qv, pv):
+            out = mp.mpf(0)
+            for qi, pi_ in zip(qv, pv):
+                if qi > 0:
+                    out += qi * mp.log(qi / pi_)
+            return out
+
+        identity_max = mp.mpf(0)
+        clausius_min = None
+        conserved_checks = 0
+        for _ in range(12):
+            size = rng.randint(3, 7)
+            labels = [rng.randrange(3) for _ in range(size)]
+            pi_f = [Fraction(rng.randint(1, 9)) for _ in range(size)]
+            tot = sum(pi_f)
+            pi_n = [w / tot for w in pi_f]
+            kernel, _ = heat_bath(labels, pi_f)
+            # fibre-measurable central charge
+            zvals = {lab: Fraction(rng.randint(-6, 6), rng.randint(1, 3))
+                     for lab in set(labels)}
+            z = [zvals[lab] for lab in labels]
+            pi_mp = [mpf_of(v) for v in pi_n]
+            bc = [
+                (-mp.log(pi_mp[i]) - mpf_of(z[i])) / two_pi
+                for i in range(size)
+            ]
+            raw = [Fraction(rng.randint(1, 9)) for _ in range(size)]
+            tot_p = sum(raw)
+            p = [r / tot_p for r in raw]
+            q = [
+                sum(p[x] * kernel[x][y] for x in range(size))
+                for y in range(size)
+            ]
+            # exact conservation of the central-charge mean
+            require(
+                sum(q[i] * z[i] for i in range(size))
+                == sum(p[i] * z[i] for i in range(size)),
+                "central charge mean drifts under repair",
+            )
+            conserved_checks += 1
+            p_mp = [mpf_of(v) for v in p]
+            q_mp = [mpf_of(v) for v in q]
+            # exact-remainder identity against the split
+            for state in (p_mp, q_mp):
+                lhs = shannon_mp(state) - shannon_mp(pi_mp)
+                rhs = two_pi * (
+                    sum(state[i] * bc[i] for i in range(size))
+                    - sum(pi_mp[i] * bc[i] for i in range(size))
+                ) + (
+                    sum(state[i] * mpf_of(z[i]) for i in range(size))
+                    - sum(pi_mp[i] * mpf_of(z[i]) for i in range(size))
+                ) - klp(state, pi_mp)
+                gap = abs(lhs - rhs)
+                if gap > identity_max:
+                    identity_max = gap
+            require(
+                identity_max <= mp.mpf("1e-45"),
+                "cap first-law identity drifts",
+            )
+            # cap Clausius margin for the repair step
+            margin = (shannon_mp(q_mp) - shannon_mp(p_mp)) - two_pi * (
+                sum(q_mp[i] * bc[i] for i in range(size))
+                - sum(p_mp[i] * bc[i] for i in range(size))
+            )
+            require(
+                margin >= -mp.mpf("1e-45"),
+                "cap Clausius inequality fails",
+            )
+            if clausius_min is None or margin < clausius_min:
+                clausius_min = margin
+        identity_str = mpmath.nstr(identity_max, 8)
+        clausius_str = mpmath.nstr(clausius_min, 8)
+    finally:
+        mp.dps = saved_dps
+    return {
+        "statement": (
+            "with the modular Hamiltonian split K = 2 pi B + Z over a "
+            "fibre-measurable central charge, the exact-remainder cap "
+            "first law S(p) - S(pi) = 2 pi Delta B + Delta Z - D and "
+            "the repair-step cap Clausius bound 2 pi Delta B <= "
+            "Delta S replay at sixty digits, with the central-charge "
+            "mean conserved exactly by the kernel"
+        ),
+        "instances": 12,
+        "central_conservation_checks": conserved_checks,
+        "identity_max_gap": identity_str,
+        "clausius_min_margin": clausius_str,
+    }
+
+
 def open_receipts() -> dict[str, Any]:
     return {
         "THERMO-GLOBAL": (
@@ -742,7 +1008,12 @@ def open_receipts() -> dict[str, Any]:
             "the source-derived collar transition matrix must equal the "
             "conditional-resampling kernel or pass stochasticity, "
             "stationarity, and protected-charge preservation with "
-            "detailed balance where microscopic reversibility is claimed"
+            "detailed balance where microscopic reversibility is "
+            "claimed; the committed collar-matrix probe measures these "
+            "properties on the earned sixty-four-k quotient matrix, "
+            "with exact protected-datum conservation over every "
+            "counted transition and a raw chain that stays reducible "
+            "through freezeout"
         ),
         "THERMO-ENERGY-CLOCK": (
             "one modular charge must be identified with physical energy "
@@ -787,6 +1058,28 @@ def build_receipt() -> dict[str, Any]:
                 "EventAlgebra/PartitionPinchingCP.lean: kraus_complete, "
                 "partitionPinching_kraus_form"
             ),
+            "fluctuation": (
+                "Thermodynamics/FluctuationTheorems.lean: sigmaEP, "
+                "integral_fluctuation, crooks_pointwise, "
+                "crooks_level_set, sigma_mean_eq_kl_descent, "
+                "correlation_symm, heatBath_integral_fluctuation, "
+                "heatBath_crooks, heatBath_correlation_symm"
+            ),
+            "cap_first_law": (
+                "Thermodynamics/CapFirstLaw.lean: kl_self, "
+                "shannon_ref_eq_modular_energy, cap_firstLaw_exact, "
+                "modular_energy_split, cap_firstLaw_split, "
+                "cap_clausius_of_central_conserved, heatBath_nonneg, "
+                "push_heatBath_fixes_mean, heatBath_cap_clausius"
+            ),
+            "einstein_premise_link": (
+                "Thermodynamics/EinsteinPremiseLink.lean: "
+                "shannon_diff_eq_pairing_sub_kl, thermoFirstLawData, "
+                "thermoFirstLawData_passes, "
+                "thermo_first_law_on_simplex_tangent, "
+                "repair_variation_mem_massZero, "
+                "repair_variation_central_pairing_zero"
+            ),
         },
         "strict_descent_control": strict_descent_control(),
         "kernel_algebra": kernel_algebra_certificate(),
@@ -795,6 +1088,8 @@ def build_receipt() -> dict[str, Any]:
         "zeroth_law": zeroth_law_certificate(),
         "clausius": clausius_certificate(),
         "first_law_and_support": first_law_and_support_certificate(),
+        "fluctuation": fluctuation_certificate(),
+        "cap_first_law": cap_first_law_certificate(),
         "record_tower": pinching_tower_certificate(),
         "law_map": {
             "zeroth": (
@@ -811,7 +1106,10 @@ def build_receipt() -> dict[str, Any]:
                 "relative entropy to the common reference is "
                 "nonincreasing under conditional repair; the modular "
                 "form Delta S >= beta Q follows on the identified "
-                "energy branch"
+                "energy branch; the inequality is the mean of the "
+                "fluctuating entropy production, whose exponential "
+                "averages to one exactly and whose level sets obey "
+                "the detailed fluctuation relation"
             ),
             "third": (
                 "excited Gibbs mass below (d-g0)/g0 exp(-beta Delta) at "

@@ -118,7 +118,12 @@ données et certificats :
    stochastique, idempotent, réversible et stationnaire, et il contracte
    l’entropie relative à la référence : le second principe est un théorème de
    traitement de données pour la réparation, avec Clausius
-   $\Delta S\geq\beta Q$ et la borne d’effacement de Landauer en corollaires.
+   $\Delta S\geq\beta Q$ et la borne d’effacement de Landauer en corollaires ;
+   l’inégalité est la moyenne d’une production d’entropie fluctuante qui
+   obéit à des théorèmes de fluctuation intégral et détaillé exacts, avec la
+   réciprocité d’Onsager par bilan détaillé, et l’identité
+   $S(p)-S(\tau)=\langle K\rangle_p-\langle K\rangle_\tau-D(p\Vert\tau)$
+   porte le premier principe d’intrication avec son déficit explicite.
    L’égalité des températures inverses au contact additif donne le principe
    zéro, transitif par tout thermomètre à deux niveaux. La décomposition exacte
    $dU=\delta Q+\delta W$, terme croisé bilinéaire compris, donne le premier
@@ -135,7 +140,10 @@ données et certificats :
    [article sur les observateurs](paper/observers_are_all_you_need.pdf), les
    preuves Lean de la
    [réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean) et du
+   du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean), des
+   [théorèmes de fluctuation](Lean/Thermodynamics/FluctuationTheorems.lean),
+   du [premier principe de calotte](Lean/Thermodynamics/CapFirstLaw.lean),
+   du [lien vers la branche d'Einstein](Lean/Thermodynamics/EinsteinPremiseLink.lean) et du
    [pincement de partition](Lean/EventAlgebra/PartitionPinchingCP.lean), le
    [certificat rationnel exact](code/thermodynamics/conditional_repair_certificate.py)
    avec son [reçu](code/thermodynamics/runtime/conditional_repair_receipt.json),
