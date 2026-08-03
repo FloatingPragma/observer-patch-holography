@@ -628,6 +628,10 @@ def _forced_structure(
                     "heatBath_fixes_fiberObservable",
                     "kl_push_le",
                     "excitedMass_le",
+                    "excitedMass_lt_of_beta_large",
+                    "gibbs_beta_injective",
+                    "clausius",
+                    "heatBath_preserves_pos",
                 ],
                 "FirstLawIdentity": ["firstLaw_split"],
                 "PartitionPinchingCP": [
@@ -649,6 +653,10 @@ def _forced_structure(
                         "heatBath_fixes_fiberObservable",
                         "kl_push_le",
                         "excitedMass_le",
+                        "excitedMass_lt_of_beta_large",
+                        "gibbs_beta_injective",
+                        "clausius",
+                        "heatBath_preserves_pos",
                     ),
                     "FirstLawIdentity": ("firstLaw_split",),
                     "PartitionPinchingCP": (

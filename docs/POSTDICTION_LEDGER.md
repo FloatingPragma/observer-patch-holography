@@ -34,7 +34,7 @@ Lean declaration bindings:
 - `global_form_z6`: `Z6Exact`: `gauge_eq_kernel`, `residue_surjective`, `representative_formula`; `Z6Descent`: `kernel_on_realized_weights`, `four_admissible_global_forms`, `sixAxis_generator_maps_to_kernel_generator`, `sixAxisToKernel_intertwines_involutions`, `sixAxisToKernel_injective`, `sixAxisToKernel_range`
 - `hypercharge_spectrum`: `ExteriorSelection`: `selection_unique`, `parity_sectors_survive`, `conj_exchanges_survivors`, `witten_automatic`
 - `coupling_universality`: `A5CouplingSymmetry`: `groupAverage_port_independent`, `coupling_ratio_universal`; `A5PortAction`: `transitive_on_ports`; `PortFrameGram`: `degree_five`, `gram_sq`
-- `thermodynamic_four_law_package`: `FiniteConditionalRepair`: `gibbs_pythagorean`, `gibbs_minimizer`, `heatBath_row_optimal`, `heatBath_secondLaw`, `heatBath_detailedBalance`, `heatBath_fixes_fiberObservable`, `kl_push_le`, `excitedMass_le`; `FirstLawIdentity`: `firstLaw_split`; `PartitionPinchingCP`: `ProjectivePartition.kraus_complete`, `partitionPinching_kraus_form`
+- `thermodynamic_four_law_package`: `FiniteConditionalRepair`: `gibbs_pythagorean`, `gibbs_minimizer`, `heatBath_row_optimal`, `heatBath_secondLaw`, `heatBath_detailedBalance`, `heatBath_fixes_fiberObservable`, `kl_push_le`, `excitedMass_le`, `excitedMass_lt_of_beta_large`, `gibbs_beta_injective`, `clausius`, `heatBath_preserves_pos`; `FirstLawIdentity`: `firstLaw_split`; `PartitionPinchingCP`: `ProjectivePartition.kraus_complete`, `partitionPinching_kraus_form`
 
 Hypothesis boundaries:
 

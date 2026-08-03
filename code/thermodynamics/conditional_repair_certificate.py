@@ -463,6 +463,233 @@ def pinching_tower_certificate() -> dict[str, Any]:
     }
 
 
+def zeroth_law_certificate() -> dict[str, Any]:
+    import mpmath
+
+    mp = mpmath.mp
+    mp.dps = 50
+    rng = random.Random(20260807)
+
+    def gibbs(spectrum, beta):
+        weights = [mp.e ** (-beta * s) for s in spectrum]
+        z = sum(weights)
+        return [w / z for w in weights]
+
+    def entropy(p):
+        return -sum(x * mp.log(x) for x in p if x > 0)
+
+    # Thermometer identification: on a nondegenerate spectrum the Gibbs
+    # ratio between two levels pins beta; distinct betas give distinct
+    # states.
+    thermometer_checked = 0
+    for _ in range(10):
+        spectrum = sorted(
+            {Fraction(rng.randint(0, 9), rng.randint(1, 3))
+             for _ in range(4)}
+        )
+        if len(spectrum) < 2:
+            continue
+        spectrum = [mp.mpf(s.numerator) / s.denominator for s in spectrum]
+        b1 = mp.mpf(rng.randint(1, 9)) / 4
+        b2 = b1 + mp.mpf(rng.randint(1, 5)) / 4
+        g1, g2 = gibbs(spectrum, b1), gibbs(spectrum, b2)
+        gap = max(abs(a - c) for a, c in zip(g1, g2))
+        require(
+            gap > mp.mpf("1e-6"),
+            "distinct betas give the same thermometer state",
+        )
+        recovered = -mp.log(g1[1] / g1[0]) / (spectrum[1] - spectrum[0])
+        require(
+            abs(recovered - b1) < mp.mpf("1e-40"),
+            "two-level ratio does not recover beta",
+        )
+        thermometer_checked += 1
+
+    # Additive contact: at fixed total energy, the entropy of the product
+    # of two Gibbs branches is maximal at the equal-beta split.
+    contact_checked = 0
+    for _ in range(6):
+        spec_a = [mp.mpf(rng.randint(0, 6)) / 2 for _ in range(4)]
+        spec_b = [mp.mpf(rng.randint(0, 6)) / 2 for _ in range(4)]
+        if len(set(spec_a)) < 2 or len(set(spec_b)) < 2:
+            continue
+        spec_a = [s - min(spec_a) for s in spec_a]
+        spec_b = [s - min(spec_b) for s in spec_b]
+        beta = mp.mpf(rng.randint(2, 8)) / 4
+        pa, pb = gibbs(spec_a, beta), gibbs(spec_b, beta)
+        u_total = (
+            sum(p * s for p, s in zip(pa, spec_a))
+            + sum(p * s for p, s in zip(pb, spec_b))
+        )
+        s_equal = entropy(pa) + entropy(pb)
+
+        def split_entropy(beta_a, beta_b, target):
+            qa, qb = gibbs(spec_a, beta_a), gibbs(spec_b, beta_b)
+            u = (
+                sum(p * s for p, s in zip(qa, spec_a))
+                + sum(p * s for p, s in zip(qb, spec_b))
+            )
+            return entropy(qa) + entropy(qb), u
+
+        # perturbed unequal-beta splits matched to the same total energy
+        # by a one-dimensional search over the second branch
+        for delta in (mp.mpf("0.3"), mp.mpf("-0.2")):
+            beta_a = beta + delta
+            lo, hi = mp.mpf("0.01"), mp.mpf(60)
+            _, u_lo = split_entropy(beta_a, lo, u_total)
+            _, u_hi = split_entropy(beta_a, hi, u_total)
+            if not (u_hi <= u_total <= u_lo):
+                continue
+            for _ in range(220):
+                mid = (lo + hi) / 2
+                _, u = split_entropy(beta_a, mid, u_total)
+                if u > u_total:
+                    lo = mid
+                else:
+                    hi = mid
+            s_uneq, u_uneq = split_entropy(beta_a, (lo + hi) / 2, u_total)
+            require(
+                abs(u_uneq - u_total) < mp.mpf("1e-20"),
+                "contact energy match fails",
+            )
+            require(
+                s_uneq <= s_equal + mp.mpf("1e-25"),
+                "unequal-beta split beats the equal-beta split",
+            )
+            contact_checked += 1
+    return {
+        "statement": (
+            "a nondegenerate finite thermometer identifies beta through "
+            "its level ratios, and at fixed total energy the equal-beta "
+            "split maximizes the additive-contact entropy; the Lean "
+            "theorem gibbs_beta_injective carries the exact transitivity "
+            "core"
+        ),
+        "thermometer_instances": thermometer_checked,
+        "contact_instances": contact_checked,
+    }
+
+
+def clausius_certificate() -> dict[str, Any]:
+    import mpmath
+
+    mp = mpmath.mp
+    mp.dps = 50
+    rng = random.Random(20260808)
+
+    def entropy(p):
+        return -sum(x * mp.log(x) for x in p if x > 0)
+
+    worst = None
+    for _ in range(15):
+        size = rng.randint(4, 8)
+        energies = [mp.mpf(rng.randint(0, 8)) / 2 for _ in range(size)]
+        beta = mp.mpf(rng.randint(1, 8)) / 4
+        weights = [mp.e ** (-beta * e) for e in energies]
+        z = sum(weights)
+        tau = [w / z for w in weights]
+        # a fibre structure unrelated to the energy, so heat flows
+        labels = [rng.randrange(2) for _ in range(size)]
+        tau_frac_like = list(tau)
+        mass = {}
+        for lab, w in zip(labels, tau_frac_like):
+            mass[lab] = mass.get(lab, mp.mpf(0)) + w
+        kernel = [
+            [
+                (tau[y] / mass[labels[x]]) if labels[y] == labels[x]
+                else mp.mpf(0)
+                for y in range(size)
+            ]
+            for x in range(size)
+        ]
+        raw = [mp.mpf(rng.randint(1, 30)) for _ in range(size)]
+        p = [r / sum(raw) for r in raw]
+        pushed = [
+            sum(p[x] * kernel[x][y] for x in range(size))
+            for y in range(size)
+        ]
+        delta_s = entropy(pushed) - entropy(p)
+        heat = beta * (
+            sum(q * e for q, e in zip(pushed, energies))
+            - sum(q * e for q, e in zip(p, energies))
+        )
+        margin = delta_s - heat
+        require(
+            margin >= -mp.mpf("1e-40"),
+            "Clausius inequality fails on a tau-preserving repair",
+        )
+        if worst is None or margin < worst:
+            worst = margin
+    return {
+        "statement": (
+            "on tau-preserving repair kernels with fibres transverse to "
+            "the energy, the entropy change dominates beta times the "
+            "heat, matching the Lean clausius theorem"
+        ),
+        "instances": 15,
+        "worst_margin": mpf_str(worst),
+    }
+
+
+def first_law_and_support_certificate() -> dict[str, Any]:
+    # Exact first-law split on a rational matrix instance.
+    n = 3
+    rng = random.Random(20260809)
+
+    def rmat():
+        return [
+            [Fraction(rng.randint(-4, 4), rng.randint(1, 3))
+             for _ in range(n)]
+            for _ in range(n)
+        ]
+
+    def mul(a, bm):
+        return [
+            [sum(a[i][k] * bm[k][j] for k in range(n)) for j in range(n)]
+            for i in range(n)
+        ]
+
+    def tr(a):
+        return sum(a[i][i] for i in range(n))
+
+    for _ in range(10):
+        rho, drho, ham, dham = rmat(), rmat(), rmat(), rmat()
+        left = tr(mul(
+            [[rho[i][j] + drho[i][j] for j in range(n)] for i in range(n)],
+            [[ham[i][j] + dham[i][j] for j in range(n)] for i in range(n)],
+        )) - tr(mul(rho, ham))
+        right = tr(mul(drho, ham)) + tr(mul(rho, dham)) + tr(
+            mul(drho, dham)
+        )
+        require(left == right, "first-law split fails exactly")
+
+    # Full support is preserved by the repair kernel, exactly.
+    for _ in range(10):
+        size = rng.randint(3, 7)
+        labels = [rng.randrange(3) for _ in range(size)]
+        pi = [Fraction(rng.randint(1, 9)) for _ in range(size)]
+        kernel, _ = heat_bath(labels, pi)
+        raw = [Fraction(rng.randint(1, 9)) for _ in range(size)]
+        p = [r / sum(raw) for r in raw]
+        pushed = [
+            sum(p[x] * kernel[x][y] for x in range(size))
+            for y in range(size)
+        ]
+        require(
+            all(entry > 0 for entry in pushed),
+            "repair extinguishes an atom",
+        )
+    return {
+        "statement": (
+            "the exact first-law split holds on rational matrix "
+            "instances with its bilinear cross term, and the repair "
+            "kernel preserves full support exactly, the finite-step "
+            "unattainability mechanism"
+        ),
+        "instances": 20,
+    }
+
+
 def open_receipts() -> dict[str, Any]:
     return {
         "THERMO-GLOBAL": (
@@ -512,7 +739,10 @@ def build_receipt() -> dict[str, Any]:
                 "heatBath_idempotent, heatBath_detailedBalance, "
                 "heatBath_stationary, heatBath_fixes_fiberObservable, "
                 "heatBath_row_optimal, heatBath_secondLaw, "
-                "gibbs_pythagorean, gibbs_minimizer, excitedMass_le"
+                "gibbs_pythagorean, gibbs_minimizer, excitedMass_le, "
+                "excitedMass_lt_of_beta_large, gibbs_beta_injective, "
+                "clausius, kl_eq_energy_sub_shannon, "
+                "heatBath_preserves_pos"
             ),
             "first_law": (
                 "Thermodynamics/FirstLawIdentity.lean: firstLaw_split"
@@ -526,6 +756,9 @@ def build_receipt() -> dict[str, Any]:
         "kernel_algebra": kernel_algebra_certificate(),
         "entropy_checks": entropy_certificate(),
         "low_temperature": low_temperature_certificate(),
+        "zeroth_law": zeroth_law_certificate(),
+        "clausius": clausius_certificate(),
+        "first_law_and_support": first_law_and_support_certificate(),
         "record_tower": pinching_tower_certificate(),
         "law_map": {
             "zeroth": (

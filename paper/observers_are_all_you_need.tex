@@ -1452,7 +1452,10 @@ quantities \(Q_a\), the information-projection Pythagorean identity
 surface, so the unique optimizer is the exponential family
 \(\tau_\lambda=Z^{-1}\exp(\log\sigma_0-\sum_a\lambda_aQ_a)\); on the
 tracial branch this is the Gibbs family, and equality of intensive
-multipliers under weak contact is the zeroth law. On the transition
+multipliers under weak contact is the zeroth law, with transitivity
+carried by the thermometer theorem: a nondegenerate finite spectrum
+identifies its inverse temperature, so two Gibbs states that agree as
+distributions have equal \(\beta\). On the transition
 side, the feasible set at \(x\) is the fibre
 \(F_C(x)=\{y:b_C(y)=b_C(x)\}\) of the complete repaired visible datum
 \(b_C\), and the unique minimizer of \(D(q\Vert\pi)\) over the fibre is
@@ -1469,14 +1472,20 @@ protected charge and the content side of the first law; the exact
 bookkeeping identity \(dU=\delta Q+\delta W\) with its explicit
 bilinear cross term is the algebraic side. Data processing then gives
 the transition-side second law
-\(D(pP_C\Vert\pi)\le D(p\Vert\pi)\), and for any
-\(\tau\)-preserving repair channel the modular form
-\(\Delta S\ge\Delta\langle K\rangle\) with \(K=-\log\tau\), which
-specializes to \(\Delta S\ge\beta Q\) on the identified energy branch.
+\(D(pP_C\Vert\pi)\le D(p\Vert\pi)\), and the exact split
+\(D(p\Vert\tau)=\langle K\rangle_p-S(p)\) with \(K=-\log\tau\)
+turns it into the modular Clausius inequality
+\(\Delta S\ge\Delta\langle K\rangle\) for every
+\(\tau\)-preserving repair channel, which specializes to
+\(\Delta S\ge\beta Q\) on the identified energy branch.
 At every finite regulator the excited Gibbs mass obeys
-\(q_\beta\le\frac{d-g_0}{g_0}e^{-\beta\Delta}\), the entropy limit is
-\(k_B\log g_0\), and finitely many faithful repair or pinching steps
-cannot reach the rank-deficient zero-temperature state, which is the
+\(q_\beta\le\frac{d-g_0}{g_0}e^{-\beta\Delta}\), with the
+quantitative threshold that any target mass \(\varepsilon\) is reached
+once \(\beta\Delta\) exceeds \(\log\frac{d-g_0}{g_0\varepsilon}\),
+and the entropy limit is \(k_B\log g_0\). The repair kernel preserves
+full support, since every diagonal entry is positive, while the
+zero-temperature state is rank deficient for \(g_0<d\); finitely many
+repair or pinching steps therefore cannot reach it, which is the
 fixed-regulator third law. Public quantum records commit through a
 completely positive channel: the partition projectors are their own
 Kraus family, and the record tower

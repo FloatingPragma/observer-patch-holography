@@ -617,7 +617,154 @@ theorem excitedMass_le [Nonempty Ω] (beta E0 Δ : ℝ)
         apply mul_le_mul_of_nonneg_left hden
         positivity
 
+/-- Quantitative threshold: beyond `β₀ = log C / Δ` with
+`C = (d-g₀)/(g₀ ε)`, the excited mass is below `ε`. Stated through the
+bound, so no limit machinery enters. -/
+theorem excitedMass_lt_of_beta_large [Nonempty Ω] (beta E0 Δ eps : ℝ)
+    (hβ : 0 ≤ beta) (hΔ : 0 < Δ) (heps : 0 < eps)
+    (hground : ∀ x, E x = E0 ∨ E0 + Δ ≤ E x)
+    (hnonempty : (Finset.univ.filter (fun x => E x = E0)).Nonempty)
+    (hthreshold :
+      Real.log (((Finset.univ.filter (fun x => E x ≠ E0)).card : ℝ)
+        / ((Finset.univ.filter (fun x => E x = E0)).card : ℝ) / eps)
+        < beta * Δ) :
+    excitedMass E beta E0 < eps := by
+  have hbound := excitedMass_le E beta E0 Δ hβ hΔ hground hnonempty
+  set C := ((Finset.univ.filter (fun x => E x ≠ E0)).card : ℝ)
+    / ((Finset.univ.filter (fun x => E x = E0)).card : ℝ) with hC
+  have hCnn : 0 ≤ C := by
+    apply div_nonneg
+    · exact Nat.cast_nonneg _
+    · exact Nat.cast_nonneg _
+  have hkey : C * Real.exp (-beta * Δ) < eps := by
+    rcases eq_or_lt_of_le hCnn with hC0 | hCpos
+    · rw [← hC0, zero_mul]
+      exact heps
+    · have hlog : Real.log (C / eps) < beta * Δ := hthreshold
+      have : C / eps < Real.exp (beta * Δ) := by
+        calc C / eps = Real.exp (Real.log (C / eps)) := by
+              rw [Real.exp_log (div_pos hCpos heps)]
+          _ < Real.exp (beta * Δ) := Real.exp_lt_exp.mpr hlog
+      have hexp : 0 < Real.exp (beta * Δ) := Real.exp_pos _
+      rw [div_lt_iff₀ heps] at this
+      rw [neg_mul, Real.exp_neg]
+      rw [mul_inv_lt_iff₀ hexp]
+      linarith
+  linarith [hbound]
+
 end LowTemperature
+
+section ZerothLaw
+
+variable (E : Ω → ℝ)
+
+/-- Normalized Gibbs state at inverse temperature `beta`. -/
+noncomputable def gibbs (beta : ℝ) (x : Ω) : ℝ :=
+  gibbsWeight E beta x / partitionZ E beta
+
+/-- **Thermometer theorem (zeroth-law transitivity core).** A system
+with two distinct energy levels identifies the inverse temperature: two
+Gibbs states that agree as distributions have equal `beta`. Contact of
+`A` with `B` and of `B` with `C` therefore forces one common
+temperature through any nondegenerate thermometer `B`. -/
+theorem gibbs_beta_injective [Nonempty Ω] (beta1 beta2 : ℝ)
+    (i j : Ω) (hij : E i ≠ E j)
+    (h : gibbs E beta1 = gibbs E beta2) : beta1 = beta2 := by
+  have hZ1 := partitionZ_pos E beta1
+  have hZ2 := partitionZ_pos E beta2
+  have hi := congrFun h i
+  have hj := congrFun h j
+  unfold gibbs gibbsWeight at hi hj
+  have hA := (div_eq_div_iff (ne_of_gt hZ1) (ne_of_gt hZ2)).mp hi
+  have hB := (div_eq_div_iff (ne_of_gt hZ1) (ne_of_gt hZ2)).mp hj
+  have h3 : Real.exp (-beta1 * E i) * Real.exp (-beta2 * E j)
+      * partitionZ E beta2
+      = Real.exp (-beta1 * E j) * Real.exp (-beta2 * E i)
+      * partitionZ E beta2 := by
+    linear_combination Real.exp (-beta2 * E j) * hA
+      - Real.exp (-beta2 * E i) * hB
+  have key := mul_right_cancel₀ (ne_of_gt hZ2) h3
+  rw [← Real.exp_add, ← Real.exp_add] at key
+  have hlin := Real.exp_injective key
+  have hfac : (beta1 - beta2) * (E j - E i) = 0 := by
+    linear_combination hlin
+  rcases mul_eq_zero.mp hfac with h' | h'
+  · linarith [sub_eq_zero.mp h']
+  · exact absurd (sub_eq_zero.mp h').symm hij
+
+end ZerothLaw
+
+section Clausius
+
+/-- Shannon entropy with the `0 log 0 = 0` convention. -/
+noncomputable def shannon (p : Ω → ℝ) : ℝ :=
+  -∑ x, klTerm (p x) 1
+
+/-- Relative entropy to a faithful reference splits into modular energy
+minus entropy: `D(p ‖ τ) = ⟨K⟩_p - S(p)` with `K = -log τ`. -/
+theorem kl_eq_energy_sub_shannon (p tau : Ω → ℝ)
+    (hτ : ∀ x, 0 < tau x) :
+    kl p tau = (∑ x, p x * (-Real.log (tau x))) - shannon p := by
+  unfold kl shannon
+  rw [← Finset.sum_neg_distrib, ← Finset.sum_sub_distrib]
+  apply Finset.sum_congr rfl
+  intro x _
+  by_cases hp : p x = 0
+  · simp [hp]
+  rw [klTerm_of_pos hp, klTerm_of_pos hp]
+  rw [Real.log_div hp (ne_of_gt (hτ x))]
+  simp [Real.log_one]
+  ring
+
+/-- **Modular Clausius inequality.** Under any stochastic kernel that
+preserves the faithful reference `τ`, the entropy change dominates the
+modular-energy change: `ΔS ≥ Δ⟨K⟩` with `K = -log τ`. On the identified
+thermal branch `τ = Z⁻¹ e^{-βH}` this is `ΔS ≥ β Q`. -/
+theorem clausius (p tau : Ω → ℝ) (K : Ω → Ω → ℝ)
+    (hp : ∀ x, 0 ≤ p x) (hτ : ∀ x, 0 < tau x)
+    (hK0 : ∀ x y, 0 ≤ K x y) (hK1 : ∀ x, ∑ y, K x y = 1)
+    (hstat : ∀ y, push tau K y = tau y) :
+    (∑ x, push p K x * (-Real.log (tau x)))
+      - (∑ x, p x * (-Real.log (tau x)))
+      ≤ shannon (push p K) - shannon p := by
+  have h := kl_push_le p tau K hp (fun x => le_of_lt (hτ x))
+    (fun x hx => absurd hx (ne_of_gt (hτ x))) hK0 hK1
+  have hstat' : push tau K = tau := funext hstat
+  rw [hstat'] at h
+  rw [kl_eq_energy_sub_shannon p tau hτ,
+    kl_eq_energy_sub_shannon (push p K) tau hτ] at h
+  linarith
+
+end Clausius
+
+section Unattainability
+
+variable {π : Ω → ℝ} {b : Ω → B}
+
+/-- Full support is preserved by the repair kernel: the diagonal entry
+of every row is positive, so no atom is extinguished. Together with the
+rank deficiency of the ground-sector state for `g₀ < d`, finitely many
+repair steps cannot reach zero temperature. -/
+theorem heatBath_preserves_pos (hπ : ∀ x, 0 < π x)
+    (p : Ω → ℝ) (hp : ∀ x, 0 < p x) (y : Ω) :
+    0 < push p (heatBath π b) y := by
+  unfold push
+  have hterm : 0 < p y * heatBath π b y y := by
+    apply mul_pos (hp y)
+    unfold heatBath
+    rw [if_pos rfl]
+    exact div_pos (hπ y) (fiberMass_pos hπ y)
+  have hnonneg : ∀ x ∈ Finset.univ, 0 ≤ p x * heatBath π b x y := by
+    intro x _
+    apply mul_nonneg (le_of_lt (hp x))
+    unfold heatBath
+    by_cases h : b y = b x
+    · rw [if_pos h]
+      exact le_of_lt (div_pos (hπ y) (fiberMass_pos hπ x))
+    · rw [if_neg h]
+  exact Finset.sum_pos' hnonneg ⟨y, Finset.mem_univ y, hterm⟩
+
+end Unattainability
 
 end OPH.Thermodynamics
 
@@ -626,3 +773,7 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.heatBath_secondLaw
 #print axioms OPH.Thermodynamics.gibbs_minimizer
 #print axioms OPH.Thermodynamics.excitedMass_le
+#print axioms OPH.Thermodynamics.excitedMass_lt_of_beta_large
+#print axioms OPH.Thermodynamics.gibbs_beta_injective
+#print axioms OPH.Thermodynamics.clausius
+#print axioms OPH.Thermodynamics.heatBath_preserves_pos
