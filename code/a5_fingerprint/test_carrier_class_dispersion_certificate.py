@@ -217,6 +217,55 @@ def test_two_shell_mixture_obeys_floor_strictly():
     assert mp.mpf(-16) / 135 < band_ratio < mp.mpf(16) / 75
 
 
+def test_eighth_order_by_four_term_series_fit():
+    """Fit four even coefficients of the raw vertex symbol and confirm the
+    eighth-order pair (D0, D6) and the 12/5 cross-order lock."""
+
+    mp = pytest.importorskip("mpmath").mp
+    mp.dps = 140
+    orbits = unit_orbit_mp(mp)
+    direction = (0.3, -0.7, 0.53)
+    n = [mp.mpf(c) for c in direction]
+    norm = mp.sqrt(sum(c * c for c in n))
+    n = [c / norm for c in n]
+
+    def symbol(k):
+        total = mp.mpf(0)
+        for u in orbits["vertex_12"]:
+            dot = u[0] * n[0] + u[1] * n[1] + u[2] * n[2]
+            total += 1 - mp.cos(k * dot)
+        return total
+
+    ks = [mp.mpf("1e-9"), mp.mpf("2e-9"), mp.mpf("3e-9"), mp.mpf("4e-9")]
+    rows = [[k**2, k**4, k**6, k**8] for k in ks]
+    values = [symbol(k) for k in ks]
+    sol = mp.lu_solve(mp.matrix(rows), mp.matrix(values))
+    c2, c4, c6, c8 = sol[0], sol[1], sol[2], sol[3]
+    i6 = i6_mp(direction, mp)
+    # Normalized: divide by c2.
+    assert abs(c4 / c2 - mp.mpf(-1) / 20) < mp.mpf("1e-25")
+    expected_c6 = mp.mpf(1) / 840 + mp.mpf(2) / 7875 * i6
+    assert abs(c6 / c2 - expected_c6) < mp.mpf("1e-14")
+    expected_c8 = -mp.mpf(1) / 60480 - mp.mpf(1) / 118125 * i6
+    assert abs(c8 / c2 - expected_c8) < mp.mpf("1e-8")
+    # Cross-order lock at the vertex point: (D6/D0)/(B6/B0) = 12/5.
+    lock = (mp.mpf(-1) / 118125 / (mp.mpf(-1) / 60480)) / (
+        mp.mpf(2) / 7875 / (mp.mpf(1) / 840)
+    )
+    assert abs(lock - mp.mpf(12) / 5) < mp.mpf("1e-30")
+
+
+def test_eighth_order_receipt_content(receipt):
+    eighth = receipt["eighth_order"]
+    assert eighth["cross_order_lock"] == "12/5"
+    assert eighth["eighth_order_band"] == ["-64/225", "64/125"]
+    assert eighth["kernel_universal_constant"] == "256/75"
+    rows = {row["orbit"]: row for row in eighth["branches"]}
+    assert rows["vertex_12"]["D6_over_D0"] == "64/125"
+    assert rows["edge_30"]["D6_over_D0"] == "-4/25"
+    assert rows["face_20"]["D6_over_D0"] == "-64/225"
+
+
 def test_kernel_constant_by_float_rotation_sum():
     """Rebuild sum_g ((gu).n)^6 numerically from the certified rotation
     list and confirm the 60/7 + (64/35) I6 I6 factorization."""

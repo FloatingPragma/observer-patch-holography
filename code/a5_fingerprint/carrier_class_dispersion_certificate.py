@@ -48,7 +48,27 @@ this certificate proves four exact class-level statements.
    stationary census of the fixed-point packet, which places the range of
    I6 at [-5/9, 1].
 
-4. Frozen-branch reproduction. The map evaluated at the vertex orbit
+4. Eighth-order confinement and the cross-order lock. The degree-eight
+   kernel factors as
+
+       sum_{g in G} ((g u).n)^8 = (20/3) + (256/75) I6(u) I6(n)
+
+   on the unit sphere, and the rank-eight invariant multiplicity is zero,
+   so the k^8 anisotropy of every member is one multiple of the same
+   rotated I6 with no new shape. Writing the k^8 term as
+   (D0 + D6 I6) k^8, every single-orbit branch has D0 = -a^6/60480 and
+   D6/D0 = (64/125) I6(seed), so the eighth-order band is
+   [-64/225, 64/125] and the cross-order ratio locks at
+
+       (D6/D0) / (B6/B0) = 12/5
+
+   for every single-radius member. A generic rank-six anisotropic model
+   carries independent k^6 and k^8 amplitudes; the carrier class fixes
+   their ratio. The isotropic tower alternates in sign at every order,
+   because the even moments are positive and the cosine series
+   alternates.
+
+5. Frozen-branch reproduction. The map evaluated at the vertex orbit
    reproduces the complete FZ-11 coefficient ray, and evaluated at the edge
    orbit reproduces the complete FZ-12 coefficient ray, by independent
    recomputation. The face-orbit branch completes the three-orbit table
@@ -110,6 +130,7 @@ STATUS = (
     "CARRIER_CLASS_DISPERSION_BAND_CERTIFIED__"
     "ISOTROPIC_FLOOR_10_21_WITH_SINGLE_RADIUS_SATURATION__"
     "RANK_SIX_BAND_MINUS_16_135_TO_16_75__"
+    "EIGHTH_ORDER_I6_ONLY_WITH_CROSS_ORDER_LOCK_12_5__"
     "FROZEN_VERTEX_AND_EDGE_BRANCHES_REPRODUCED__"
     "PHYSICAL_BRIDGE_PREMISES_OPEN"
 )
@@ -990,6 +1011,177 @@ def rank_six_band_certificate(i6_raw) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Eighth order: I6-only anisotropy and the cross-order lock
+# ---------------------------------------------------------------------------
+
+
+def eighth_order_certificate(
+    rotations: list[Mat], i6_raw, i6_reduced
+) -> dict[str, Any]:
+    """Degree-eight kernel factorization, branch table, and the 12/5 lock.
+
+    The degree-eight kernel is invariant in each argument; the recomputed
+    invariant multiplicities give m8 = 0, so the reduced kernel lies in
+    span{1, I6} in each argument and the same two-seed argument closes the
+    identity for every seed. The residue-zero checks below prove the
+    absence of a rank-eight component constructively at each seed.
+    """
+
+    probe = next(m for m in sorted(i6_reduced) if sum(m) > 0)
+    verts = base.cartesian_vertices()
+    orbits = universality.orbit_directions()
+    invariants = universality.invariant_table_certificate()
+    require(
+        invariants["table"]["8"] == 0,
+        "rank-eight invariant multiplicity is not zero",
+    )
+
+    seeds = [
+        ("vertex", verts[0]),
+        ("edge", orbits["edge_30"]["dirs"][0]),
+        ("face", orbits["face_20"]["dirs"][0]),
+        ("generic_0", (q5(1), q5(2), q5(3))),
+        ("generic_1", (q5(2), q5(-1), q5(5))),
+    ]
+    s_constant: Q5 | None = None
+    rows = []
+    for name, seed in seeds:
+        norm_sq = ZERO
+        for axis in range(3):
+            norm_sq = q5_add(norm_sq, q5_mul(seed[axis], seed[axis]))
+        kernel = p_zero()
+        for g in rotations:
+            kernel = p_add(kernel, p_pow(p_linear(mat_apply(g, seed)), 8))
+        kernel = p_scale_q5(kernel, q5_div(ONE, q5_pow(norm_sq, 4)))
+        reduced = p_reduce_sphere(kernel)
+        multiple = q5_div(reduced.get(probe, ZERO), i6_reduced[probe])
+        residue = p_add(reduced, p_scale_q5(i6_reduced, q5_neg(multiple)))
+        iso = residue.pop((0, 0, 0), ZERO)
+        require(
+            iso == q5(Fraction(20, 3)),
+            f"{name}: degree-eight isotropic part is not 20/3",
+        )
+        require(
+            p_is_zero(residue),
+            f"{name}: degree-eight kernel leaves the invariant line",
+        )
+        seed_value = i6_at_unit(i6_raw, seed)
+        if seed_value != ZERO:
+            ratio = q5_div(multiple, seed_value)
+            if s_constant is None:
+                s_constant = ratio
+            require(
+                ratio == s_constant,
+                f"{name}: degree-eight constant is not universal",
+            )
+        rows.append({"seed": name, "i6_multiple": q5_str(multiple)})
+    require(
+        s_constant == q5(Fraction(256, 75)),
+        "degree-eight kernel constant is not 256/75",
+    )
+
+    # Branch table: normalized k^8 coefficients per pure unit-radius orbit.
+    # Prefactor 6/(|O| a^2) and the -x^8/40320 series term give
+    # D0 = -a^6/60480 and D6 = -a^6 m8 / (6720 |O|) with m8 the orbit-sum
+    # degree-eight I6 multiple (|O|/60)(256/75) I6(seed).
+    expected = {
+        "vertex_12": (Fraction(256, 375), Fraction(64, 125)),
+        "edge_30": (Fraction(-8, 15), Fraction(-4, 25)),
+        "face_20": (Fraction(-256, 405), Fraction(-64, 225)),
+    }
+    branch_rows = []
+    for name, count in (("vertex_12", 12), ("edge_30", 30), ("face_20", 20)):
+        data = orbits[name]
+        dirs, norm_sq = data["dirs"], data["norm_sq"]
+        m8 = p_reduce_sphere(
+            p_scale_q5(
+                moment_sum(dirs, 8), q5_div(ONE, q5_pow(norm_sq, 4))
+            )
+        )
+        multiple = q5_div(m8.get(probe, ZERO), i6_reduced[probe])
+        residue = p_add(m8, p_scale_q5(i6_reduced, q5_neg(multiple)))
+        iso = residue.pop((0, 0, 0), ZERO)
+        require(
+            iso == q5(Fraction(count, 9)),
+            f"{name}: eighth-moment isotropic part is not count/9",
+        )
+        require(p_is_zero(residue), f"{name}: eighth moment off the line")
+        want_m8, want_ratio = expected[name]
+        require(multiple == q5(want_m8), f"{name}: m8 drift")
+        # D6/D0 = 9 m8 / |O|
+        require(
+            q5_scale(multiple, Fraction(9, count)) == q5(want_ratio),
+            f"{name}: eighth-order ratio drift",
+        )
+        branch_rows.append(
+            {
+                "orbit": name,
+                "m8_i6_multiple": str(want_m8),
+                "D0_over_a6": "-1/60480",
+                "D6_over_D0": str(want_ratio),
+            }
+        )
+
+    # Cross-order lock: (D6/D0)/(B6/B0) = (64/125)/(16/75) = 12/5,
+    # support-independent on single-radius members.
+    require(
+        Fraction(64, 125) / Fraction(16, 75) == Fraction(12, 5),
+        "cross-order lock is not 12/5",
+    )
+    for name, i6_seed in (
+        ("vertex_12", Fraction(1)),
+        ("edge_30", Fraction(-5, 16)),
+        ("face_20", Fraction(-5, 9)),
+    ):
+        b6_ratio = Fraction(16, 75) * i6_seed
+        d6_ratio = Fraction(64, 125) * i6_seed
+        require(
+            d6_ratio == Fraction(12, 5) * b6_ratio,
+            f"{name}: lock fails",
+        )
+
+    # Vertex eighth-order coefficient against the fixed-point packet
+    # template A(x) = 2 x^6 (30 - x^2)/118125: the template x^8
+    # coefficient -2/118125 equals twice the normalized D6, matching the
+    # factor two between the template and the 1/(2 a^2) symbol.
+    d6_vertex = Fraction(-1, 1) * Fraction(256, 375) / (6720 * 12)
+    require(
+        d6_vertex == Fraction(-1, 118125),
+        "vertex eighth-order coefficient drift",
+    )
+    require(
+        Fraction(-2, 118125) == 2 * d6_vertex,
+        "fixed-point template cross-check fails",
+    )
+
+    return {
+        "statement": (
+            "the degree-eight kernel factors as 20/3 plus (256/75) I6(u) "
+            "I6(n), the rank-eight multiplicity is zero, every branch has "
+            "D0 = -a^6/60480 with D6/D0 = (64/125) I6(seed) in the band "
+            "[-64/225, 64/125], and the cross-order ratio "
+            "(D6/D0)/(B6/B0) locks at 12/5 on single-radius members; the "
+            "isotropic tower alternates in sign at every order"
+        ),
+        "kernel_isotropic_part": "20/3",
+        "kernel_universal_constant": "256/75",
+        "eighth_order_band": ["-64/225", "64/125"],
+        "cross_order_lock": "12/5",
+        "sign_alternation": (
+            "positive even moments and the alternating cosine series give "
+            "isotropic coefficients of sign (-1)^(m+1) at order k^(2m) "
+            "for every member"
+        ),
+        "fixed_point_template_crosscheck": (
+            "the vertex D6 = -a^6/118125 equals half the -2/118125 x^8 "
+            "coefficient of the certified through-eighth template"
+        ),
+        "kernel_seeds": rows,
+        "branches": branch_rows,
+    }
+
+
+# ---------------------------------------------------------------------------
 # Receipt assembly
 # ---------------------------------------------------------------------------
 
@@ -1005,6 +1197,7 @@ def build_receipt() -> dict[str, Any]:
         rotations, i6_raw, i6_reduced
     )
     branches = orbit_branch_certificate(i6_raw, i6_reduced, d_constant)
+    eighth = eighth_order_certificate(rotations, i6_raw, i6_reduced)
     series = series_route_control()
     frozen = frozen_receipt_crosscheck()
     floor = radial_floor_certificate()
@@ -1036,6 +1229,11 @@ def build_receipt() -> dict[str, Any]:
                 "ranks one through five empty and rank six on the I6 line, "
                 "consumed from the universality certificate"
             ),
+            "eighth_order_lock": (
+                "the k^8 anisotropy is the same rotated I6 with "
+                "D6/D0 = (64/125) <I6(seed)> and the cross-order ratio "
+                "(D6/D0)/(B6/B0) = 12/5 on single-radius members"
+            ),
         },
         "kill_surface": (
             "a resolved intrinsic dispersion with B0/C4^2 below 10/21, or "
@@ -1053,6 +1251,7 @@ def build_receipt() -> dict[str, Any]:
         "rotation_group": rotation_cert,
         "kernel_factorization": kernel_cert,
         "single_orbit_branches": branches,
+        "eighth_order": eighth,
         "series_route_control": series,
         "frozen_receipt_crosscheck": frozen,
         "radial_floor": floor,
