@@ -69,7 +69,7 @@ cryptographique et bandes d’élimination avant tout examen des données de
 comparaison, avec des règles fixes qui permettent leur réfutation par des
 mesures admissibles.
 
-## Sept reçus de physique reproductibles
+## Huit reçus de physique reproductibles
 
 Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
@@ -111,7 +111,36 @@ données et certificats :
    [article sur le consensus](paper/reality_as_consensus_protocol.pdf) et la
    [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
    ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **Le groupe de jauge du Modèle standard issu de douze ports.** La réponse
+3. **Les quatre principes de la thermodynamique deviennent des théorèmes.**
+   L’axiome 3 lu sur les états sélectionne la famille de Gibbs ; lu sur les
+   transitions au-dessus de la donnée visible réparée, il sélectionne le noyau
+   de réparation qu’emploie déjà la construction du consensus. Ce noyau est
+   stochastique, idempotent, réversible et stationnaire, et il contracte
+   l’entropie relative à la référence : le second principe est un théorème de
+   traitement de données pour la réparation, avec Clausius
+   $\Delta S\geq\beta Q$ et la borne d’effacement de Landauer en corollaires.
+   L’égalité des températures inverses au contact additif donne le principe
+   zéro, transitif par tout thermomètre à deux niveaux. La décomposition exacte
+   $dU=\delta Q+\delta W$, terme croisé bilinéaire compris, donne le premier
+   principe. La borne $\frac{d-g_0}{g_0}e^{-\beta\Delta}$ sur la masse de Gibbs
+   excitée donne la limite d’entropie $\log g_0$ et met l’état de température
+   nulle hors d’atteinte en un nombre fini d’étapes : le troisième principe.
+   Physiquement, cela voudrait dire que la thermodynamique n’est pas importée
+   dans la théorie ; elle est ce que la réparation fait aux registres. Le
+   normalisateur à descente stricte qui fixe les faits publics est une autre
+   application et ne porte aucune inégalité d’entropie ; un contre-exemple à
+   deux points est certifié. Cinq reçus physiques restent ouverts, dont
+   l’identification d’une charge modulaire avec l’énergie et un temps
+   d’horloge calibré. Voir l’
+   [article sur les observateurs](paper/observers_are_all_you_need.pdf), les
+   preuves Lean de la
+   [réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean),
+   du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean) et du
+   [pincement de partition](Lean/EventAlgebra/PartitionPinchingCP.lean), le
+   [certificat rationnel exact](code/thermodynamics/conditional_repair_certificate.py)
+   avec son [reçu](code/thermodynamics/runtime/conditional_repair_receipt.json),
+   ainsi que les [reçus physiques ouverts](https://github.com/FloatingPragma/observer-patch-holography/issues/671).
+4. **Le groupe de jauge du Modèle standard issu de douze ports.** La réponse
    réversible complète de l’axiome 1 et le transport endogène des recouvrements
    de l’axiome 2 forcent
    $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, avec l’image
@@ -131,7 +160,7 @@ données et certificats :
    [pont d’holonomie de l’axiome 2](Lean/Screen/A2HolonomyBridge.lean),
    de la [trichotomie de jauge](Lean/Screen/A5OPH.lean) et de la
    [descente finie Z₆](Lean/Screen/Z6Descent.lean).
-4. **Une génération de matière issue d’une recherche finie.** Dans l’algèbre
+5. **Une génération de matière issue d’une recherche finie.** Dans l’algèbre
    extérieure de réponse déclarée, un balayage exhaustif ne laisse qu’une paire
    de projecteurs chiraux, sans anomalie et de rang 15, reliés par conjugaison
    de charge, portant les quinze hypercharges du Modèle standard d’une
@@ -146,7 +175,7 @@ données et certificats :
    le [reçu fini d’attachement de matière](code/a5_closure/manifests/matter_attachment_receipt.json),
    la [preuve Lean de la sélection extérieure](Lean/Screen/ExteriorSelection.lean)
    et la [preuve Lean de la bande familiale](Lean/Screen/A5FamilyBand.lean).
-5. **Un écart spectral prouvé positif.** Une capture issue de la source et
+6. **Un écart spectral prouvé positif.** Une capture issue de la source et
    sans donnée cible fournit un ordre causal exact, une topologie de coutures,
    des sections typées, 38 triangles frustrés et un noyau tordu nul, et
    l’opérateur signé déclaré vérifie $\lambda_{\min}\geq24^{-8661}>0$, soit
@@ -158,7 +187,7 @@ données et certificats :
    [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
    et le
    [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-6. **La relation de Koide, avec un test gelé sur le tau.** Une réponse
+7. **La relation de Koide, avec un test gelé sur le tau.** Une réponse
    hermitienne $C_3$ obéit à $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut
    exactement à $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non
    négatives. Sous les prémisses déclarées d’équilibre et d’ordre, les masses
@@ -171,7 +200,7 @@ données et certificats :
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-7. **Une empreinte gelée dans la façon dont les ondes se propagent.** La
+8. **Une empreinte gelée dans la façon dont les ondes se propagent.** La
    symétrie du porteur fixe l’action des ondes sur le même porteur
    tridimensionnel, ce qui cloue la relation de dispersion à des nombres
    exacts, avec une seule longueur $a$ et rien à régler. Pour $q=ak$ et
@@ -693,6 +722,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | --- | --- | --- |
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Surface conditionnelle d’événements quantiques | Le consensus sélectionne l’algèbre commutative finie des registres publics. Dans une représentation algèbre-état et à deux ailes déclarée, ses projecteurs obéissent aux probabilités de Born, au conditionnement de Lüders et à la borne de Tsirelson. Une branche spinorielle binaire icosaédrique déclarée possède un candidat fini exact avec $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Sa famille de réglages et son instrument achevé à deux ailes ne proviennent pas de la source. Il ne s’agit donc pas d’une prédiction physique de Bell | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) et le [reçu exact du candidat](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
+| Quatre principes de la thermodynamique | L’axiome 3 sur les états donne la famille de Gibbs par l’identité pythagoricienne exacte de la projection d’information ; sur les transitions au-dessus de la fibre visible réparée, il donne le noyau de réparation du consensus, stochastique, idempotent, réversible, stationnaire, et qui fixe les charges mesurables sur la fibre. L’entropie relative à la référence y contracte, d’où le second principe, avec Clausius $\Delta S\geq\beta Q$ et Landauer en corollaires ; l’égalité des températures inverses au contact additif donne le principe zéro ; la décomposition exacte $dU=\delta Q+\delta W$ donne le premier ; la borne sur la masse de Gibbs excitée donne la limite d’entropie $\log g_0$ et l’inaccessibilité en un nombre fini d’étapes. Le normalisateur à descente stricte ne porte aucune inégalité d’entropie. Cinq reçus physiques restent ouverts, dont la calibration de l’énergie et de l’horloge | [Observers are all you need](paper/observers_are_all_you_need.pdf) et le [certificat de réparation conditionnelle](code/thermodynamics/conditional_repair_certificate.py) |
 | Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur fini de coutures signées muni du comptage unitaire déclaré possède un écart spectral strictement positif ; son raffinement numérique vaut 0,1175367. Cet opérateur est distinct du générateur de réparation de jauge compacte de la branche conditionnelle de Yang–Mills. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
