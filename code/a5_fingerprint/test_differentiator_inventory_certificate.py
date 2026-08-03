@@ -10,9 +10,9 @@ import differentiator_inventory_certificate as di
 def test_receipt_builds_with_nine_typed_rows() -> None:
     receipt = di.build_receipt()
     assert receipt["status"] == (
-        "DIFFERENTIATOR_INVENTORY_CERTIFIED__NINE_ROWS_TYPED"
+        "DIFFERENTIATOR_INVENTORY_CERTIFIED__TEN_ROWS_TYPED"
     )
-    assert len(receipt["rows"]) == 9
+    assert len(receipt["rows"]) == 10
     assert receipt["comparison_boundary"]["comparison_permitted"] is False
     names = [row["differentiator"] for row in receipt["rows"]]
     assert "no linear vacuum dispersion" in names

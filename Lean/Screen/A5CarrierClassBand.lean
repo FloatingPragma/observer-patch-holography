@@ -182,9 +182,59 @@ theorem weighted_mean_three_in_band (a b c x y z lo hi : ℚ)
       mul_le_mul_of_nonneg_left hy.2 hb,
       mul_le_mul_of_nonneg_left hz.2 hc]
 
+/-- Eighth-order ratio map: `9 m8 / |O|` with
+    `m8 = (|O|/60)(256/75) I6(seed)` the degree-eight orbit multiple. -/
+def d6OverD0 (size m8 : ℚ) : ℚ :=
+  9 * m8 / size
+
+/-- Degree-eight orbit multiple. -/
+def orbitMultiple8 (size i6seed : ℚ) : ℚ :=
+  size / 60 * (256 / 75) * i6seed
+
+/-- The eighth-order ratio map is `(64/125) I6(seed)` on every orbit. -/
+theorem d6OverD0_eq_scaled_seed (size i6seed : ℚ) (hsize : size ≠ 0) :
+    d6OverD0 size (orbitMultiple8 size i6seed) = 64 / 125 * i6seed := by
+  unfold d6OverD0 orbitMultiple8
+  field_simp
+  ring
+
+/-- Vertex eighth-order point `64/125`. -/
+theorem eighth_vertex : d6OverD0 12 (orbitMultiple8 12 1) = 64 / 125 := by
+  norm_num [d6OverD0, orbitMultiple8]
+
+/-- Edge eighth-order point `-4/25`. -/
+theorem eighth_edge :
+    d6OverD0 30 (orbitMultiple8 30 (-5 / 16)) = -4 / 25 := by
+  norm_num [d6OverD0, orbitMultiple8]
+
+/-- Face eighth-order point `-64/225`, the other endpoint. -/
+theorem eighth_face :
+    d6OverD0 20 (orbitMultiple8 20 (-5 / 9)) = -64 / 225 := by
+  norm_num [d6OverD0, orbitMultiple8]
+
+/-- The cross-order lock: the eighth-order and sixth-order ratio maps
+    differ by the universal factor `12/5` at every seed. -/
+theorem cross_order_lock (size i6seed : ℚ) (hsize : size ≠ 0) :
+    d6OverD0 size (orbitMultiple8 size i6seed)
+      = 12 / 5 * b6OverB0 size (orbitMultiple size i6seed) := by
+  rw [d6OverD0_eq_scaled_seed size i6seed hsize,
+    b6OverB0_eq_scaled_seed size i6seed hsize]
+  ring
+
+/-- Vertex eighth-order coefficient `-a^6/118125` in units of `a^6`,
+    matching the certified through-eighth fixed-point template whose
+    `x^8` coefficient is `-2/118125` at symbol normalization two. -/
+theorem eighth_vertex_coefficient :
+    -(orbitMultiple8 12 1) / (6720 * 12) = -1 / 118125
+      ∧ (-2 : ℚ) / 118125 = 2 * (-1 / 118125) := by
+  constructor
+  · norm_num [orbitMultiple8]
+  · norm_num
+
 end OPH.A5CarrierClassBand
 
 #print axioms OPH.A5CarrierClassBand.b6OverB0_eq_scaled_seed
 #print axioms OPH.A5CarrierClassBand.moment_gap_nonneg
 #print axioms OPH.A5CarrierClassBand.gap_zero_iff_single_radius
 #print axioms OPH.A5CarrierClassBand.weighted_mean_three_in_band
+#print axioms OPH.A5CarrierClassBand.cross_order_lock

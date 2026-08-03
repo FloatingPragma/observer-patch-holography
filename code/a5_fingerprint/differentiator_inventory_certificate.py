@@ -58,7 +58,7 @@ RUNTIME = HERE / "runtime"
 RECEIPT_PATH = RUNTIME / "differentiator_inventory_receipt.json"
 
 SCHEMA = "oph.differentiator_inventory_receipt.v1"
-STATUS = "DIFFERENTIATOR_INVENTORY_CERTIFIED__NINE_ROWS_TYPED"
+STATUS = "DIFFERENTIATOR_INVENTORY_CERTIFIED__TEN_ROWS_TYPED"
 
 require = base.require
 
@@ -493,12 +493,52 @@ def build_rows() -> list[dict[str, Any]]:
             ),
             "type": "diagnostics + open closure lanes",
         },
+        {
+            "row": 10,
+            "differentiator": "carrier-class dispersion band and cross-order lock",
+            "oph_statement": (
+                "every stable invariant finite-range carrier shares C4 < 0 "
+                "with the isotropic floor B0/C4^2 >= 10/21, saturated "
+                "exactly by single-radius supports; the rank-six ratio "
+                "B6/B0 = (16/75)<I6(seed)> is confined to "
+                "[-16/135, 16/75]; the k^8 anisotropy is the same rotated "
+                "I6 and the cross-order ratio (D6/D0)/(B6/B0) locks at "
+                "12/5 on single-radius members"
+            ),
+            "recomputed_facts": {
+                "floor": str(Fraction(400, 840)),
+                "band_low": str(Fraction(16, 75) * Fraction(-5, 9)),
+                "band_high": str(Fraction(16, 75)),
+                "lock": str(Fraction(64, 125) / Fraction(16, 75)),
+                "vertex_point": str(Fraction(16, 75)),
+                "edge_point": str(Fraction(16, 75) * Fraction(-5, 16)),
+                "face_point": str(Fraction(16, 75) * Fraction(-5, 9)),
+            },
+            "legacy_status": (
+                "a generic rank-six Lorentz-violating model carries "
+                "independent k^4, k^6, and k^8 amplitudes with free signs "
+                "and shapes; the carrier class fixes the sign, the floor, "
+                "one angular template, and the cross-order ratio"
+            ),
+            "data_contact": (
+                "class-level surface behind the frozen FZ-11 and FZ-12 "
+                "branch predictions; comparison premises unchanged and "
+                "owned by issues #655, #666, and #664"
+            ),
+            "falsification": (
+                "a resolved intrinsic dispersion with B0/C4^2 below "
+                "10/21, or B6/B0 outside the band, or a cross-order "
+                "ratio off 12/5 at resolved single-radius saturation, "
+                "excludes every member of the class at once"
+            ),
+            "type": "finite class theorem + Lean skeleton",
+        },
     ]
 
 
 def build_receipt() -> dict[str, Any]:
     rows = build_rows()
-    require(len(rows) == 9, "row count drift")
+    require(len(rows) == 10, "row count drift")
     receipt = {
         "schema": SCHEMA,
         "status": STATUS,
