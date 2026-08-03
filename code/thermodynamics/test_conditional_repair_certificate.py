@@ -146,7 +146,9 @@ def test_bound_lean_declarations_exist_in_sources(receipt):
     root = HERE.parent.parent
     for binding in receipt["lean_bindings"].values():
         path_part, names = binding.split(":", 1)
-        source = (root / "Lean" / path_part.strip()).read_text()
+        source = (root / "Lean" / path_part.strip()).read_text(
+            encoding="utf-8"
+        )
         for name in names.split(","):
             token = name.strip()
             assert token, "empty declaration token"
