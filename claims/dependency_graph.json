@@ -32,6 +32,7 @@
     "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
     "OPH-GR-PORT-RESPONSE-COMPLETION",
     "OPH-A5-PRIMITIVE-PORT-SPIN6",
+    "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
     "OPH-A5-SEAM-CURRENT-EDGE30",
     "OPH-SCREEN-PORT-CURRENT-INNER",
     "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
@@ -625,6 +626,16 @@
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-GR-PORT-RESPONSE-COMPLETION",
       "role": "supplies the declared twelve-port incidence and exact normalized Gram reference; the repair mean, cumulative signed position module, response topology, action, and gluing remain separate premises"
+    },
+    {
+      "from": "OPH-A5-PRIMITIVE-PORT-SPIN6",
+      "to": "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
+      "role": "supplies the vertex-branch coefficient ray reproduced as the band endpoint; the class theorem consumes the same exact orbit geometry and adds no physical premise"
+    },
+    {
+      "from": "OPH-A5-SEAM-CURRENT-EDGE30",
+      "to": "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
+      "role": "supplies the edge-branch coefficient ray reproduced as the interior band point at -1/15; the physical branch premises stay with the edge claim and its owning issues"
     }
   ]
 }

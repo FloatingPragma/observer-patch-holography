@@ -34,6 +34,7 @@ lean_lib «OPHScreen» where
     `ExteriorSelection, `EqualStateWeights,
     `A5FamilyBand, `RGRepresentationFrontier, `CommonEWOrderUnit,
     `KineticFormDichotomy, `A5PrimitivePortPrediction,
+    `A5CarrierClassBand,
     `A5OrbitRaySeparation, `DiscreteRefinement, `BaryonDimensionSix,
     `BipoSHTransferInvariant, `BipoSHInverseBoundary, `BipoSHFrameInvariant,
     `VolumeReadoutBridge, `PrimitivePortTranslationBridge,

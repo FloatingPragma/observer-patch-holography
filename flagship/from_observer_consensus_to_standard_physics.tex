@@ -2582,6 +2582,88 @@ primitive-port branch have opposite rank-six signs. Their coefficient rays,
 custody packages, exposure exclusions, and comparison budgets remain
 separate.
 
+One exact theorem binds the two frozen rays and every alternative hop
+support into a single two-parameter test surface.
+
+\begin{theorem}[Carrier-class dispersion band]
+\label{thm:carrier-class-band}
+Consider the stable invariant finite-range kinetic class: spatial symbols
+\[
+\Lambda(k,\widehat k)=\sum_s w_s\sum_{u\in O_s}
+ \bigl[1-\cos\bigl(ak\,r_s\,u\!\cdot\!\widehat k\bigr)\bigr],
+\]
+where each \(O_s\) is one orbit of the sixty proper carrier rotations on
+unit directions, the finitely many shells carry radii \(r_s>0\) and
+weights \(w_s>0\), no independent isotropic counterterm enters through the
+displayed order, and the continuum normalization fixes the \(k^2\)
+coefficient to one. Write the expansion as
+\(\omega^2=k^2+C_4k^4+(B_0+B_6\mathcal I_6(\widehat k))k^6+O(k^8)\)
+and set \(\mu_m=\sum_s w_s\lvert O_s\rvert r_s^m\). Then four exact
+statements hold.
+\begin{enumerate}
+\item Sign law: \(C_4=-(a^2/20)\,\mu_4/\mu_2<0\) for every member.
+\item Isotropic floor:
+\(B_0/C_4^2=(10/21)\,\mu_2\mu_6/\mu_4^2\ge 10/21\), with equality
+exactly on the single-radius members.
+\item Rank purity: the intrinsic anisotropic ranks one through five vanish
+and the rank-six residue is one multiple of the rotated
+\(\mathcal I_6\).
+\item Rank-six band: every member has
+\(B_6/B_0=(16/75)\,\langle\mathcal I_6(\widehat u_s)\rangle\), the
+mean taken with the positive weights \(w_s\lvert O_s\rvert r_s^6\), and
+this ratio lies in \([-16/135,\,16/75]\) for the complete class. The
+pure face and vertex orbits attain the endpoints, the pure edge orbit sits
+at \(-1/15\), and the vertex-face mixture at weight ratio \(27{:}25\)
+attains zero.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The group-summed sixth-power kernel factors on the invariant line: for
+every seed direction \(u\),
+\[
+\sum_{g}\bigl((gu)\!\cdot\!\widehat k\bigr)^6
+=\frac{60}{7}+\frac{64}{35}\,\mathcal I_6(\widehat u)\,
+ \mathcal I_6(\widehat k)
+\]
+on unit vectors, the sum over the sixty proper rotations. The kernel is
+invariant in the seed, the recomputed invariant multiplicities
+\((1,0,0,0,0,0,1)\) through rank six pin the degree-six invariant space to
+the span of the radial power and the \(\mathcal I_6\) form, and exact
+residue-zero verification at seeds with distinct \(\mathcal I_6\) values
+determines the identity on that two-dimensional space. The moment ratios
+then give the displayed \(C_4\) and \(B_0\), and the floor is the
+Lagrange identity
+\(\mu_2\mu_6-\mu_4^2=\sum_{i<j}w_iw_jr_i^2r_j^2(r_i^2-r_j^2)^2\ge0\),
+which vanishes exactly at one radius. The band follows from the kernel
+factorization: the rank-six numerator is the positive-weighted sum of
+seed \(\mathcal I_6\) values against the matching isotropic
+denominator, so every member averages inside the range of
+\(\mathcal I_6\), which the 62-direction stationary census places at
+\([-5/9,1]\) with the orbit values \(1\), \(-5/16\), and
+\(-5/9\). A second exact series route and an
+independent high-precision fit of the raw cosine symbols reproduce the
+same table, and the strict-positivity premise is load-bearing: a
+signed-weight control member violates the floor. All steps are
+machine-checked in exact arithmetic \cite{ophrepo}.
+\end{proof}
+
+The theorem converts the two frozen branches into two points of one exact
+map. The complete class shares the isotropic pair: a negative quartic
+coefficient and the floor \(B_0/C_4^2\ge10/21\), saturated exactly by
+single-radius carriers, so the isotropic sector is support-independent
+while one signed rank-six ratio selects the support. FZ-11 sits at the
+vertex endpoint \(16/75\) of the band and FZ-12 at the edge point
+\(-1/15\). The class-level kill surface is correspondingly wider than
+either branch band: under the same physical-sector premises, a resolved
+intrinsic dispersion with \(B_0/C_4^2\) below \(10/21\), or
+\(B_6/B_0\) outside \([-16/135,16/75]\), or a residue at ranks one
+through five, or a rank-six residue off the rotated \(\mathcal I_6\)
+template, excludes every stable invariant finite-range carrier at once. A
+measured saturation of the floor at \(10/21\) certifies a single-radius
+support. The certificate reads no comparison data and changes no frozen
+bytes \cite{ophrepo}.
+
 The edge ray and its complete decision rule are frozen under public commit
 custody before any eligible edge-branch comparison payload
 \cite{ophregister}. The WMAP template class, every primitive-port comparison
@@ -3023,7 +3105,10 @@ Icosahedral angular-rank theorem and primitive-port prediction
    \path{code/a5_fingerprint/runtime/a5_multipole_fixed_point_receipt.json},
    \path{code/a5_fingerprint/runtime/spin_six_universality_receipt.json},
    \path{code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json},
-   their mutation tests, and the custody-bound prediction register\\
+   \path{code/a5_fingerprint/runtime/carrier_class_dispersion_receipt.json},
+   \path{Lean/Screen/A5CarrierClassBand.lean} for the band's rational
+   skeleton, their mutation tests, and the custody-bound prediction
+   register\\
 Record-germ event-manifold gluing
  & analytic theorem proved in this manuscript; finite chart, transition, and
    signature receipts test only selected antecedents\\
@@ -3191,6 +3276,13 @@ beyond a measurement of $C_4$ alone. The source-seam branch fixes the distinct
 edge-orbit ratios in \eqref{eq:seam-edge-ratios}, with a negative rank-six
 coefficient and a source-derived internal translation action. Its promotion
 requires the physical position, field, clock, scale, frame, and readout maps.
+Theorem~\ref{thm:carrier-class-band} binds the two frozen rays and every
+alternative hop support into one surface: the complete stable invariant
+finite-range class shares \(C_4<0\) with the isotropic floor
+\(B_0/C_4^2\ge10/21\), saturated exactly by single-radius carriers, and
+confines the rank-six-to-isotropic ratio to the exact band
+\([-16/135,16/75]\), so a resolved dispersion measurement outside that
+surface excludes the complete carrier class rather than one branch.
 No comparison-ready dataset is asserted.
 
 The geometry and dynamics results have a different status. A Lorentz-group
