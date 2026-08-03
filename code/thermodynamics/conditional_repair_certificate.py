@@ -620,14 +620,49 @@ def clausius_certificate() -> dict[str, Any]:
         )
         if worst is None or margin < worst:
             worst = margin
+    # Landauer instance: a two-state record at inverse temperature beta
+    # relaxed by the full resampling kernel from the uniform record; the
+    # entropy drop times 1/beta lower-bounds the expelled energy.
+    landauer_rows = []
+    for beta_int in (1, 2, 5):
+        beta = mp.mpf(beta_int) / 2
+        energies = [mp.mpf(0), mp.mpf(1)]
+        weights = [mp.e ** (-beta * e) for e in energies]
+        z = sum(weights)
+        tau = [w / z for w in weights]
+        kernel = [[tau[0], tau[1]], [tau[0], tau[1]]]
+        p = [mp.mpf(1) / 2, mp.mpf(1) / 2]
+        pushed = [
+            sum(p[x] * kernel[x][y] for x in range(2)) for y in range(2)
+        ]
+        s_drop = entropy(p) - entropy(pushed)
+        expelled = (
+            sum(a * e for a, e in zip(p, energies))
+            - sum(a * e for a, e in zip(pushed, energies))
+        )
+        require(
+            expelled >= s_drop / beta - mp.mpf("1e-40"),
+            "Landauer bound fails",
+        )
+        landauer_rows.append(
+            {
+                "beta": mpf_str(beta),
+                "entropy_drop": mpf_str(s_drop),
+                "expelled_energy": mpf_str(expelled),
+                "landauer_floor": mpf_str(s_drop / beta),
+            }
+        )
     return {
         "statement": (
             "on tau-preserving repair kernels with fibres transverse to "
             "the energy, the entropy change dominates beta times the "
-            "heat, matching the Lean clausius theorem"
+            "heat, matching the Lean clausius theorem; the Landauer "
+            "instances confirm that an entropy drop of c expels at "
+            "least c/beta of energy"
         ),
         "instances": 15,
         "worst_margin": mpf_str(worst),
+        "landauer": landauer_rows,
     }
 
 
@@ -741,8 +776,9 @@ def build_receipt() -> dict[str, Any]:
                 "heatBath_row_optimal, heatBath_secondLaw, "
                 "gibbs_pythagorean, gibbs_minimizer, excitedMass_le, "
                 "excitedMass_lt_of_beta_large, gibbs_beta_injective, "
-                "clausius, kl_eq_energy_sub_shannon, "
-                "heatBath_preserves_pos"
+                "clausius, landauer, kl_eq_energy_sub_shannon, "
+                "heatBath_preserves_pos, push_total, mixture_row_sum, "
+                "mixture_stationary, block_entropy_le"
             ),
             "first_law": (
                 "Thermodynamics/FirstLawIdentity.lean: firstLaw_split"

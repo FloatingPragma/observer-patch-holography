@@ -530,44 +530,34 @@ Source-derived same-scheme hadronic transport is absent. The registered
 comparison has diagnostic status, with a physical
 fine-structure constant claim outside its scope.
 
-**$N$ is the public-record capacity** of the whole observer system, or in
-simulation language, how much correctable memory the substrate carries. The
-direct self-read condition,
-$N=\log M_0(\mathfrak U_N)$, compares the capacity supplied to a trial
-universe with the correctable public-record capacity reconstructed inside it.
-If a typed bridge proves that these are two readings of one universe-level
-invariant, self-reference forces equality. Measurement supplies a comparison
-coordinate; it cannot supply that bridge or return map. No result in the core
-reconstruction depends on a first-principles value of $N$. The finite counting
-theorems are exact. An exact all-rung counterfamily establishes
-**BOUNDED_COMPLETION_CLASS_NONIDENTIFIABLE** under base agreement, positivity,
-and the carrier bound. It does not prove universal all-rung membership in a
-complete A1--A3 capacity-source contract, and no executable-to-Lean bridge
-supplies that step. Direct $N$ has status
-**NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT**; the stronger
-source-class verdict is open. A separate common-load balance equates screen and electroweak readings
-after a physical same-load identification. On the independently evaluated
-source-forward coordinate $P_{\rm fwd}$, its uncorrected value is
-$N_0=\pi\exp[6\pi/(P_{\rm fwd}\alpha_U(P_{\rm fwd}))]=3.5321315\times10^{122}$.
-On the declared finite collar branch, the total reserve expectation and
-six-class equidistribution give presence probability $P_{\rm fwd}/24$ for
-each class. Physically selecting one class, discharging its scalar-weighted
-receipt, and attaching that normalized survival factor to global capacity
-would give the conditional value
-$N_{\rm pres}=N_0(1-P_{\rm fwd}/24)=3.2920979\times10^{122}$. This is about $0.63$
-percent below the weighted Planck base-$\Lambda$CDM comparison coordinate
-$3.3129271\times10^{122}$. Reading $P_{\rm fwd}/24$ as a Poisson mean instead
-gives $N_0e^{-P_{\rm fwd}/24}=3.3000722\times10^{122}$, about $0.39$ percent below it, but
-requires a separate mean-count or continuum carrier.
-The finite source does not select either global action. Exact neutral and
-multiplicative completions share the same local survival datum, remain
-positive, compose over disconnected cuts and finite cut-count regrouping,
-and disagree after one cut. It also selects neither the one-class nor the
-six-class-total blocked event. The named-law lane is therefore not evaluable
-on this declared source class, and its horizon branch has no capacity object
-to attach. A positive branch requires a stronger target-independent source law.
-Neither numerical result belongs to the blind direct-$N$ protocol, and both
-comparisons are retrospective.
+**$N$ is the public-record capacity** of the whole observer system: how much
+correctable memory the substrate carries. It sits opposite $P$, tied to the
+cosmological constant rather than to the fine-structure constant.
+
+The direct route reads $N$ off the universe itself. The self-read condition
+$N=\log M_0(\mathfrak U_N)$ asks the capacity handed to a trial universe to
+match the record capacity reconstructed inside it, and if both sides are
+readings of one quantity, self-reference forces them to agree. The proof that
+they are one quantity does not exist yet, so this route currently returns no
+number. Nothing else in the reconstruction waits on it.
+
+A second route goes through $P$. At the source-forward pixel value the
+uncorrected capacity is
+$N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3.5321315\times10^{122}$. Two ways of
+applying the finite survival correction to it give
+
+$$
+N_{\rm pres}=N_0\left(1-\frac{P}{24}\right)=3.2920979\times10^{122},
+\qquad
+N_{\rm Pois}=N_0e^{-P/24}=3.3000722\times10^{122},
+$$
+
+about $0.63$ and $0.39$ percent below the Planck base-$\Lambda$CDM comparison
+value $3.3129271\times10^{122}$. The theory does not yet pick between the two
+corrections, and both numbers were computed after the comparison value was
+known, so neither is a prediction. The
+[claim scoreboard](tracking/claims_scoreboard.md) states what each step
+assumes and what is still missing.
 
 ## Results At A Glance
 
@@ -585,8 +575,8 @@ comparisons are retrospective.
 | Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
 | Strict W/Z analytic checks | For a complete renormalized packet, the strict scalar consumer and its order and neutral-mixing rules are exact. The exact quotient of its one-loop-truncated pole coordinates has a passive common-unit scale cancellation at fixed normalized self-energy factors; its strict one-loop re-expansion is stated separately. The remaining coupling ratio and normalized self-energy factors are not source-selected, so no number follows. Interval receipts exclude scalar zeros in the declared principal-sheet boxes and isolate, for each of W and Z, one simple scalar zero with derivative and scalar-residue balls in its declared lower-half pole box on a channel-specific algebraic chart. They identify neither declared chart with the physical resonance sheet and prove no unique continuation, sign bridge, full-matrix Laurent residue, physical-current amplitude, or independent numerical replay. The external fixture is not composed with the OPH electroweak chart, so no physical W/Z pole or mass comparison follows | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
-| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact. A target-clean all-rung counterfamily proves **BOUNDED_COMPLETION_CLASS_NONIDENTIFIABLE** from base agreement, positivity, and the carrier bound. Universal all-rung membership in a complete A1--A3 capacity-source contract and an executable-to-Lean bridge are absent. Direct $N$ is **NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT**, and the stronger source-class verdict is open | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| Conditional common-load $N$ candidates | Self-identity forces the screen and electroweak readings to agree once a physical same-load bridge proves that they denote one invariant. The exact conditional formulas $N_{\rm pres}=N_0(1-P_{\rm fwd}/24)$ and $N_{\rm Pois}=N_0e^{-P_{\rm fwd}/24}$ evaluate at the declared point inputs to approximately $3.2920979\times10^{122}$ and $3.3000722\times10^{122}$, against the weighted Planck base-$\Lambda$CDM coordinate $3.3129271\times10^{122}$. Their residuals are $-0.63$ and $-0.39$ percent and remain retrospective. Exact countermodels show that the declared finite survival datum plus positive composition and cut-count regrouping selects neither global action nor a blocked-event semantics. The named-law lane is not evaluable on this source class, its horizon branch has no capacity object, and neither row is an OPH prediction. A positive branch requires a stronger target-independent source law | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
+| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact, but an exact counterfamily shows that base agreement, positivity, and the carrier bound admit completions with different solution sets, so the condition does not yet single out a value. The direct route returns no number until the capacity source is completed | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
+| Conditional common-load $N$ candidates | The screen and electroweak readings must agree once a physical bridge proves they denote one quantity. The exact conditional formulas $N_{\rm pres}=N_0(1-P/24)$ and $N_{\rm Pois}=N_0e^{-P/24}$ evaluate to approximately $3.2920979\times10^{122}$ and $3.3000722\times10^{122}$, against the weighted Planck base-$\Lambda$CDM value $3.3129271\times10^{122}$, residuals $-0.63$ and $-0.39$ percent. Exact countermodels show the finite survival datum selects neither correction, and both comparisons are retrospective, so neither row is an OPH prediction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
 
 ## Why Take The Claim Seriously?
@@ -677,17 +667,11 @@ A physical closure of both constants would give a zero-continuous-parameter
 branch with both values returned by the architecture. That physical
 attachment is open. The fixed-point theorems certify roots of declared maps;
 they do not turn an observed basin or target-defined coordinate into a
-physical derivation. The source-derived fixed-cutoff correctable-record
-realization is exact. The exact all-rung arithmetic rules out a unique slack
-zero on its bounded completion class. It does not establish membership in the
-complete A1--A3 capacity source at every rung. Direct $N$ is therefore not
-evaluable on the incomplete source antecedent, and the stronger source-class
-verdict is open. A positive result must complete that antecedent and prove one
-physical zero. The named common-load closure has a unique
-conditional root, with its physical same-load and horizon identifications
-open.
-Reading $N$ from the universe leaves every consequence of the three axioms
-intact.
+physical derivation. On the $N$ side the finite counting is exact, but the
+capacity source it would close over is incomplete, so the direct condition is
+not yet evaluable and the common-load route stays conditional on its physical
+identifications. Reading $N$ from the universe leaves every consequence of the
+three axioms intact.
 
 Under full closure, the loop answers the last question a theory of
 everything can be asked: why anything exists, and why it is the way it is.

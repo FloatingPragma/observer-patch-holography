@@ -230,6 +230,65 @@ theorem kl_push_le (p q : Ω → ℝ) (K : Ω → Ω → ℝ)
         Finset.sum_le_sum fun y _ => hstep y
     _ = kl p q := hsum
 
+/-- The pushforward preserves total mass. -/
+theorem push_total (p : Ω → ℝ) (K : Ω → Ω → ℝ)
+    (hK1 : ∀ x, ∑ y, K x y = 1) :
+    ∑ y, push p K y = ∑ x, p x := by
+  unfold push
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro x _
+  rw [← Finset.mul_sum, hK1 x, mul_one]
+
+section Mixture
+
+variable {C : Type*} [Fintype C]
+
+/-- A convex mixture of stochastic kernels is stochastic: random-scan
+repair over several collars is again a repair kernel. -/
+theorem mixture_row_sum (a : C → ℝ) (K : C → Ω → Ω → ℝ)
+    (ha1 : ∑ c, a c = 1) (hK1 : ∀ c x, ∑ y, K c x y = 1) (x : Ω) :
+    ∑ y, (∑ c, a c * K c x y) = 1 := by
+  rw [Finset.sum_comm]
+  calc ∑ c, ∑ y, a c * K c x y
+      = ∑ c, a c * ∑ y, K c x y := by
+        exact Finset.sum_congr rfl fun c _ => (Finset.mul_sum _ _ _).symm
+    _ = ∑ c, a c := by
+        exact Finset.sum_congr rfl fun c _ => by rw [hK1 c x, mul_one]
+    _ = 1 := ha1
+
+/-- A convex mixture of kernels sharing the stationary reference keeps
+it stationary. -/
+theorem mixture_stationary (π : Ω → ℝ) (a : C → ℝ) (K : C → Ω → Ω → ℝ)
+    (ha1 : ∑ c, a c = 1)
+    (hstat : ∀ c y, push π (K c) y = π y) (y : Ω) :
+    push π (fun x z => ∑ c, a c * K c x z) y = π y := by
+  unfold push
+  have hswap : ∑ x, π x * ∑ c, a c * K c x y
+      = ∑ c, a c * ∑ x, π x * K c x y := by
+    calc ∑ x, π x * ∑ c, a c * K c x y
+        = ∑ x, ∑ c, a c * (π x * K c x y) := by
+          apply Finset.sum_congr rfl
+          intro x _
+          rw [Finset.mul_sum]
+          apply Finset.sum_congr rfl
+          intro c _
+          ring
+      _ = ∑ c, ∑ x, a c * (π x * K c x y) := Finset.sum_comm
+      _ = ∑ c, a c * ∑ x, π x * K c x y := by
+          apply Finset.sum_congr rfl
+          intro c _
+          rw [Finset.mul_sum]
+  rw [hswap]
+  have : ∀ c ∈ Finset.univ, a c * ∑ x, π x * K c x y = a c * π y := by
+    intro c _
+    have := hstat c y
+    unfold push at this
+    rw [this]
+  rw [Finset.sum_congr rfl this, ← Finset.sum_mul, ha1, one_mul]
+
+end Mixture
+
 section ConditionalRepair
 
 variable (π : Ω → ℝ) (b : Ω → B)
@@ -735,6 +794,40 @@ theorem clausius (p tau : Ω → ℝ) (K : Ω → Ω → ℝ)
     kl_eq_energy_sub_shannon (push p K) tau hτ] at h
   linarith
 
+/-- **Landauer bound.** On the identified thermal branch
+`-log τ = β E + log Z`, any `τ`-preserving repair channel that lowers
+the entropy by at least `c` expels at least `c/β` of energy: erasing
+one bit costs at least `log 2 / β`, which is `k_B T log 2` in physical
+units. -/
+theorem landauer (p tau : Ω → ℝ) (K : Ω → Ω → ℝ) (E : Ω → ℝ)
+    (beta logZ c : ℝ)
+    (hp : ∀ x, 0 ≤ p x) (hτ : ∀ x, 0 < tau x)
+    (hK0 : ∀ x y, 0 ≤ K x y) (hK1 : ∀ x, ∑ y, K x y = 1)
+    (hstat : ∀ y, push tau K y = tau y)
+    (hβ : 0 < beta)
+    (hthermal : ∀ x, -Real.log (tau x) = beta * E x + logZ)
+    (herase : shannon (push p K) - shannon p ≤ -c) :
+    (∑ x, p x * E x) - (∑ x, push p K x * E x) ≥ c / beta := by
+  have hcl := clausius p tau K hp hτ hK0 hK1 hstat
+  have hmass := push_total p K hK1
+  have hself : ∀ s : Ω → ℝ, ∑ x, s x * (-Real.log (tau x))
+      = beta * (∑ x, s x * E x) + logZ * (∑ x, s x) := by
+    intro s
+    calc ∑ x, s x * (-Real.log (tau x))
+        = ∑ x, (beta * (s x * E x) + logZ * s x) := by
+          apply Finset.sum_congr rfl
+          intro x _
+          rw [hthermal x]
+          ring
+      _ = beta * (∑ x, s x * E x) + logZ * (∑ x, s x) := by
+          rw [Finset.sum_add_distrib, ← Finset.mul_sum, ← Finset.mul_sum]
+  rw [hself (push p K), hself p, hmass] at hcl
+  have hkey : beta * (∑ x, push p K x * E x)
+      - beta * (∑ x, p x * E x) ≤ -c := by
+    linarith [hcl, herase]
+  rw [ge_iff_le, div_le_iff₀ hβ]
+  nlinarith [hkey]
+
 end Clausius
 
 section Unattainability
@@ -766,6 +859,59 @@ theorem heatBath_preserves_pos (hπ : ∀ x, 0 < π x)
 
 end Unattainability
 
+section QuantitativeNernst
+
+/-- Block maximum-entropy bound from the log-sum inequality: the
+entropy contribution of any index set with total mass `m` and `n`
+members is at most `-klTerm m n = m log (n/m)`. Applied to the excited
+sector, this pins the Gibbs entropy to `log g₀` through the excited
+mass, the quantitative Nernst statement. -/
+theorem block_entropy_le (s : Finset Ω) (p : Ω → ℝ)
+    (hp : ∀ x, 0 ≤ p x) :
+    -∑ x ∈ s, klTerm (p x) 1
+      ≤ -klTerm (∑ x ∈ s, p x) (s.card : ℝ) := by
+  classical
+  have h := logSum (Ω := Ω)
+    (fun x => if x ∈ s then p x else 0)
+    (fun x => if x ∈ s then 1 else 0)
+    (fun x => by by_cases hx : x ∈ s <;> simp [hx, hp x])
+    (fun x => by by_cases hx : x ∈ s <;> simp [hx])
+    (fun x hx => by
+      by_cases hxs : x ∈ s
+      · simp [hxs] at hx
+      · simp [hxs])
+  have ha : ∑ x, (if x ∈ s then p x else 0) = ∑ x ∈ s, p x := by
+    rw [Finset.sum_ite_mem, Finset.univ_inter]
+  have hb : ∑ x, ((if x ∈ s then (1 : ℝ) else 0))
+      = (s.card : ℝ) := by
+    rw [Finset.sum_ite_mem, Finset.univ_inter, Finset.sum_const,
+      nsmul_eq_mul, mul_one]
+  have hc : ∑ x, klTerm (if x ∈ s then p x else 0)
+      (if x ∈ s then (1 : ℝ) else 0)
+      = ∑ x ∈ s, klTerm (p x) 1 := by
+    rw [← Finset.sum_filter_add_sum_filter_not Finset.univ (· ∈ s)]
+    have h1 : ∀ x ∈ Finset.univ.filter (· ∈ s),
+        klTerm (if x ∈ s then p x else 0)
+          (if x ∈ s then (1 : ℝ) else 0) = klTerm (p x) 1 := by
+      intro x hx
+      have := (Finset.mem_filter.mp hx).2
+      simp [this]
+    have h2 : ∀ x ∈ Finset.univ.filter (¬ · ∈ s),
+        klTerm (if x ∈ s then p x else 0)
+          (if x ∈ s then (1 : ℝ) else 0) = 0 := by
+      intro x hx
+      have := (Finset.mem_filter.mp hx).2
+      simp [this]
+    rw [Finset.sum_congr rfl h1, Finset.sum_congr rfl h2,
+      Finset.sum_const_zero, add_zero]
+    congr 1
+    ext x
+    simp
+  rw [ha, hb, hc] at h
+  linarith
+
+end QuantitativeNernst
+
 end OPH.Thermodynamics
 
 #print axioms OPH.Thermodynamics.kl_push_le
@@ -777,3 +923,6 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.gibbs_beta_injective
 #print axioms OPH.Thermodynamics.clausius
 #print axioms OPH.Thermodynamics.heatBath_preserves_pos
+#print axioms OPH.Thermodynamics.landauer
+#print axioms OPH.Thermodynamics.mixture_stationary
+#print axioms OPH.Thermodynamics.block_entropy_le

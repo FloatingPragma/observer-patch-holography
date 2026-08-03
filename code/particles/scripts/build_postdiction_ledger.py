@@ -631,7 +631,9 @@ def _forced_structure(
                     "excitedMass_lt_of_beta_large",
                     "gibbs_beta_injective",
                     "clausius",
+                    "landauer",
                     "heatBath_preserves_pos",
+                    "block_entropy_le",
                 ],
                 "FirstLawIdentity": ["firstLaw_split"],
                 "PartitionPinchingCP": [
@@ -656,7 +658,9 @@ def _forced_structure(
                         "excitedMass_lt_of_beta_large",
                         "gibbs_beta_injective",
                         "clausius",
+                        "landauer",
                         "heatBath_preserves_pos",
+                        "block_entropy_le",
                     ),
                     "FirstLawIdentity": ("firstLaw_split",),
                     "PartitionPinchingCP": (
