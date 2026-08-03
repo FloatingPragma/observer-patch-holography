@@ -67,24 +67,17 @@ refutation by qualifying measurements.
 These public results link directly to their papers, proofs, data, and
 certificates:
 
-1. **A continuous three-dimensional carrier from finite repair records.**
-   For the declared twelve-port repair mean, the normalized complete
-   equal-port response selects an intrinsic rank-three spectral projector and
-   its normalized Gram form in the infinite-response limit. The real
-   six-control extension has a three-dimensional radical. The source load
-   readout is onto $\mathbb Z^6$; conservative seam currents span its
-   even-sum submodule $D_6$. In the pullback response metric, both integer
-   modules have no nonzero metric kernel, embed densely in the quotient, and
-   complete to the same abstract continuous three-dimensional Euclidean
-   vector group. Cumulative record addition gives exact internal translations.
-   The sixty proper carrier maps act faithfully by isometries, and the three
-   declared finite recharting maps satisfy their cocycle. Cartesian space is
-   not an input to this construction. Selection of the quotient as physical
-   position, cofinal overlap gluing, physical scale, and identification with
-   physical space are open.
-   A distinct finite event instrument measures held-out inertia $(1,3)$ at
-   16k, 65k, and 262k carriers, with support and cone-margin controls; it does
-   not select spacetime dimension. See the
+1. **Three-dimensional space emerges from the algebra of repair records.**
+   Observers keep repair records and add them up. Under the declared
+   twelve-port repair mean, those sums complete to an ordinary continuous
+   three-dimensional Euclidean space, with the sixty proper carrier rotations
+   acting on it as isometries. No coordinate
+   grid goes in. Physically this would mean distance and direction are
+   bookkeeping over comparison records, and space has three dimensions because
+   the carrier has twelve ports. A separate finite event instrument measures
+   held-out inertia $(1,3)$ at 16k, 65k, and 262k carriers. Calling the
+   quotient physical position, gluing overlaps, and fixing physical scale are
+   work in progress. See the
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    the Lean proofs of the
    [intrinsic completion](Lean/Screen/PrimitivePortFrameQuotient.lean) and
@@ -95,29 +88,30 @@ certificates:
    [metric quotient](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_load_metric_quotient_receipt.json) and
    [proper carrier action](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_equivariant_action_receipt.json),
    and the [signature data and regeneration scripts](evidence/einstein_convergence/).
-2. **Quantum event rules on public observer records.** Consensus selects the
-   finite commuting algebra of public record indicators. On a separately
-   declared finite algebra-state representation, its projectors obey Born
-   probabilities, Lüders conditioning, and the Tsirelson bound. These exact
-   identities do not derive the quantum representation from repair records.
-   On the declared binary-icosahedral spinor branch, an exact finite candidate
-   gives $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$ for an incidence-defined setting
-   family. The source does not select that family or supply a completed
-   two-wing record instrument, so the value is not a physical Bell prediction.
-   See
+2. **Quantum rules on public records.** Consensus picks out the algebra of
+   records that survive comparison, and on a separately declared finite
+   algebra-state representation its projectors obey Born probabilities, Lüders
+   conditioning, and the Tsirelson bound. Physically this would mean quantum
+   probability is the arithmetic of what observers can jointly write down, with
+   no extra postulate needed. The declared spinor branch has an exact finite
+   candidate at $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$, past the classical limit,
+   for a setting family the source does not select, so it is not a physical
+   Bell prediction. See
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), the
    [consensus paper](paper/reality_as_consensus_protocol.pdf), and the
    [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
    [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **The Standard Model Lie type from twelve ports.** Complete reversible
+3. **The Standard Model gauge group from twelve ports.** Complete reversible
    port response and endogenous overlap transport force
-   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, with
-   maximal faithful image
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ for the declared matter
-   table. Matrix-current, matter-action, and physical-quotient selection are
-   work in progress. The conditional current algebra excludes the ordinary
-   minimal $X/Y$ proton-decay channel; it does not establish general proton
-   stability. See the
+   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, with maximal
+   faithful image $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ for the declared
+   matter table. Physically this would mean the symmetry group behind the
+   strong, weak, and electromagnetic forces is whatever a twelve-port carrier
+   can do reversibly, with nothing left to choose. The conditional current
+   algebra has no $X/Y$ generators, so the proton-decay channel of minimal
+   grand unification is absent, which is narrower than proton stability.
+   Matrix-current and
+   physical-quotient selection are work in progress. See the
    [conditional current receipt](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
@@ -125,70 +119,60 @@ certificates:
    [A2 holonomy bridge](Lean/Screen/A2HolonomyBridge.lean),
    [gauge trichotomy](Lean/Screen/A5OPH.lean), and
    [finite Z₆ descent](Lean/Screen/Z6Descent.lean).
-4. **An exact one-generation exterior selection and a rank-three family
-   candidate.** An exhaustive scan of the declared ten-component
-   exterior-response algebra leaves one charge-conjugate pair of chiral,
-   anomaly-free rank-15 projectors. Its charges give the fifteen-state Standard
-   Model hypercharge multiset with exact anomaly cancellation. Under the
-   complete-band and operational-cost premises, the screen-band theorem
-   selects rank three; tensoring yields a conditional complex rank-45
-   candidate with chirality and diagonal $\mathbb Z_6$ action. Completeness,
-   matter attachment, continuum Spin/locality, transport, seam selection, and
-   laboratory attachment require separate source constructions. See the
+4. **One generation of matter out of a finite search.** An exhaustive scan of
+   the declared exterior-response algebra leaves one charge-conjugate pair of
+   chiral, anomaly-free rank-15 projectors, carrying the fifteen Standard Model
+   hypercharges of one generation with exact anomaly cancellation. Physically
+   this would mean the quarks and leptons of one generation, with their exact
+   charges, come out of a finite search instead of a table read off from
+   experiment. Under the complete-band and cost premises a separate theorem
+   selects rank three, which is where three families would come from. Matter
+   attachment, continuum Spin/locality, and laboratory attachment require
+   separate source constructions. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
    the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
-5. **An exact positive finite-domain gap for the signed seam operator.** A
-   target-clean source capture fixes the causal order, seam topology, typed
-   sections, 38 frustrated triangles, and a zero twisted kernel. The declared
-   signed operator obeys $\lambda_{\min}\geq24^{-8661}>0$; a sparse numerical
-   refinement gives $0.1175367$. This is a signed-graph result, distinct from
-   the compact-gauge repair spectrum and continuum Yang--Mills mass gap. It
+5. **A gap that is provably positive.** A target-clean source capture fixes
+   the causal order, seam topology, typed sections, 38 frustrated triangles,
+   and a zero twisted kernel, and the declared signed operator obeys
+   $\lambda_{\min}\geq24^{-8661}>0$, with a numerical refinement of
+   $0.1175367$. Physically this would mean the screen has no free excitation at
+   zero cost, so disagreement always costs something. This is a signed-graph result, distinct from the
+   compact-gauge repair spectrum and the continuum Yang--Mills mass gap, and it
    supplies no physical clock or particle mass. See the
    [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
    and the pinned
    [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-6. **An exact positive-chamber Koide theorem with a frozen tau test.** A
-   Hermitian $C_3$ response obeys
-   $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
+6. **The Koide lepton relation, with a frozen tau test.** A Hermitian $C_3$
+   response obeys $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
    $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Under the declared
-   balance and ordering premises, the electron and muon masses fix the tau
-   mass within 72 eV, 0.43 standard deviations from the comparison value. The
-   premise ancestry and rejection rule are frozen. See the
+   balance and ordering premises, the electron and muon masses fix the tau mass
+   within 72 eV, 0.43 standard deviations from the comparison value. Physically
+   this would mean the old numerical coincidence among the charged lepton
+   masses is one condition on one response matrix, with two masses fixing the
+   third. The rejection rule is frozen, so a shifted tau measurement can kill
+   it. See the
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-7. **A frozen propagation signature from source seam currents.** The signed
-   source readout maps the complete thirty-seam incidence system onto $D_6$,
-   and its pullback response metric completes to the same three-dimensional
-   carrier as the source loads. Under the stated naturality, objective, and
-   unique-minimizer premises, carrier symmetry fixes the homogeneous internal
-   Dirichlet action. Its normalized symbol has
-   $C_4=-a^2/20$, $B_0=a^4/840$, and $B_6=-a^4/12600$, with no intrinsic
-   anisotropy below rank six. Let
-   $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, where $I_6$ is the normalized
-   icosahedral rank-six harmonic. For $q=ak$ and $0\leq q\leq1$, exact arithmetic
-   proves
-   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ and
-   $(19/20)q^2\leq\widehat\Lambda\leq q^2$. A separately declared
-   basis-free oscillator has a rank-two transverse fiber at nonzero momentum,
-   equal scalar action on both directions, and an exact zero mode at $k=0$.
-   It does not derive Maxwell theory, a gauge quotient, a physical clock, or a
-   massless physical photon. The coefficient ray and decision rule are frozen
-   before an eligible comparison. Physical position, sector, frequency,
-   frame, readout, and nuisance attachments are open; a branch-falsifying null
-   also needs a same-action positive scale bound and registered exclusion
-   power. If the symbol is separately attached to a physical photon with
-   massive electrons and positrons obeying Lorentz-invariant positive-energy
-   dispersion and additive conservation, its exact
-   upper bound kinematically excludes photon decay into an electron-positron
-   pair. With the soft background photon Lorentz invariant at leading order,
-   the leading head-on, collinear, fixed-share pair-production equation retains
-   independent electron and positron coefficients; its
-   equal-share readout has a two-dimensional coefficient fiber. On the
-   Lorentz-invariant-lepton branch, equal sharing uniquely maximizes the
-   leading head-on, collinear threshold residual. See the
+7. **A frozen fingerprint in how waves travel.** Carrier symmetry fixes the
+   wave action on the same three-dimensional carrier, which pins the dispersion
+   relation to exact numbers, with one length $a$ and nothing to tune. For
+   $q=ak$ on $0\leq q\leq1$, exact arithmetic proves
+   $(19/20)q^2\leq\widehat\Lambda\leq q^2$ and
+   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ for
+   $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, with $I_6$ the icosahedral rank-six
+   harmonic. Physically this would mean the vacuum carries a grain, so waves
+   run slightly slow at short wavelength and the first direction-dependent
+   effect shows up at sixth order in momentum, along icosahedral axes. The same
+   action carries a two-polarization massless oscillator, and its upper bound
+   forbids that photon from decaying into an electron-positron pair. The
+   coefficients and the decision rule are frozen under cryptographic custody
+   ahead of any eligible comparison, so a propagation
+   measurement with registered exclusion power can refute this branch. Maxwell
+   theory, a gauge quotient, and the attachment to a physical photon are work
+   in progress. See the
    [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
    Lean proofs of the
    [Dirichlet action](Lean/Screen/SeamCurrentDirichletGenerator.lean) and

@@ -74,27 +74,18 @@ mesures admissibles.
 Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
 
-1. **Un porteur continu tridimensionnel issu de registres de réparation
-   finis.** Pour la moyenne de réparation déclarée sur douze ports, la
-   réponse normalisée de toutes les sondes équipondérées sélectionne un
-   projecteur spectral intrinsèque de rang trois et sa forme de Gram
-   normalisée à la limite des réponses longues. L’extension réelle à six
-   contrôles possède un radical de dimension trois. La lecture des charges de
-   source est surjective sur $\mathbb Z^6$, et les courants conservatifs des
-   coutures engendrent son sous-module $D_6$ de somme paire. Dans la métrique
-   de réponse induite, les deux modules entiers n’ont pas de noyau métrique non
-   nul, s’injectent densément dans le quotient et se complètent en un même
-   groupe vectoriel euclidien abstrait, continu et tridimensionnel. L’addition
-   cumulative des registres donne des translations internes exactes. Les
-   soixante transformations propres du porteur agissent fidèlement par
-   isométries, et les trois rechartages finis déclarés satisfont leur cocycle.
-   L’espace cartésien n’intervient pas comme donnée de cette construction.
-   La sélection du quotient comme position physique, le recollement cofinal,
-   l’échelle physique et l’identification à l’espace physique restent ouverts.
-   Un instrument
+1. **L’espace tridimensionnel émerge de l’algèbre des registres de
+   réparation.** Les observateurs tiennent des registres de réparation et les
+   additionnent. Pour la moyenne de réparation déclarée sur douze ports, ces
+   sommes se complètent en un espace
+   euclidien continu ordinaire de dimension trois, où les soixante rotations
+   propres du porteur agissent par isométries. Aucune grille de coordonnées
+   n’entre nulle part. Physiquement, cela voudrait dire que la distance et la
+   direction sont la comptabilité des registres de comparaison, et que l’espace
+   a trois dimensions parce que le porteur a douze ports. Un instrument
    événementiel fini distinct mesure une inertie tenue à l’écart $(1,3)$ à
-   16k, 65k et 262k porteurs, avec des contrôles du support et de la marge de
-   cône ; il ne sélectionne pas le nombre de dimensions de l’espace-temps.
+   16k, 65k et 262k porteurs. Prendre le quotient pour la position physique,
+   recoller les recouvrements et fixer l’échelle physique sont en cours.
    Voir l’
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    les preuves Lean de la
@@ -106,35 +97,32 @@ données et certificats :
    [quotient métrique](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_load_metric_quotient_receipt.json) et de
    l’[action propre du porteur](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_equivariant_action_receipt.json)
    et les [données de signature avec leurs scripts](evidence/einstein_convergence/).
-2. **Les règles des événements quantiques sur les registres publics.** Le
-   consensus sélectionne l’algèbre commutative finie des indicateurs publics.
-   Sur une représentation algèbre-état finie déclarée séparément, ses
-   projecteurs obéissent aux probabilités de Born, au conditionnement de
-   Lüders et à la borne de Tsirelson. Ces identités ne dérivent pas la
-   représentation quantique à partir des réparations. Sur la branche spinorielle
-   binaire icosaédrique déclarée, un candidat fini exact donne
-   $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$ pour une famille de réglages définie par
-   l’incidence. La source ne sélectionne pas cette famille et ne fournit pas
-   d’instrument à deux ailes avec registres achevés. Cette valeur ne constitue
-   donc pas une prédiction physique de Bell. Voir
+2. **Les règles quantiques sur les registres publics.** Le consensus
+   sélectionne l’algèbre des registres qui survivent à la comparaison, et sur
+   une représentation algèbre-état finie déclarée séparément ses projecteurs
+   obéissent aux probabilités de Born, au conditionnement de Lüders et à la
+   borne de Tsirelson. Physiquement, cela voudrait dire que la probabilité
+   quantique est l’arithmétique de ce que les observateurs peuvent écrire
+   ensemble, sans postulat supplémentaire. La branche spinorielle déclarée
+   possède un candidat fini exact à $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$, au-delà
+   de la limite classique, pour une famille de réglages que la source ne
+   sélectionne pas ; ce n’est donc pas une prédiction physique de Bell. Voir
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), l’
    [article sur le consensus](paper/reality_as_consensus_protocol.pdf) et la
    [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
    ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **Le type de Lie du Modèle standard issu de douze ports.** La réponse
+3. **Le groupe de jauge du Modèle standard issu de douze ports.** La réponse
    réversible complète de l’axiome 1 et le transport endogène des recouvrements
    de l’axiome 2 forcent
-   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$. La descente
-   centrale exacte donne un noyau commun $\mathbb Z_6$ et l’image fidèle
-   maximale $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ pour la table de
-   matière déclarée. La sélection par la source du courant matriciel, de
-   l’action de matière et du quotient global physique est en cours. Comme
-   corollaire algébrique direct, l’algèbre conditionnelle de courants produit
-   ne contient aucun générateur $X/Y$ de GUT simple
-   connexe de type
-   $(3,2,-5/6)\oplus(\bar 3,2,+5/6)$ ; le canal ordinaire de désintégration
-   du proton par échange minimal de $X/Y$ est donc absent. Cela n’établit pas la
-   stabilité générale du proton. Voir le
+   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, avec l’image
+   fidèle maximale $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ pour la table
+   de matière déclarée. Physiquement, cela voudrait dire que le groupe de
+   symétrie derrière les forces forte, faible et électromagnétique est
+   simplement ce qu’un porteur à douze ports sait faire de façon réversible,
+   sans rien à choisir. Cette algèbre ne contient aucun générateur $X/Y$, donc
+   le canal de désintégration du proton de la grande unification minimale est
+   absent, ce qui est plus étroit que la stabilité du proton. La sélection du
+   courant matriciel et du quotient global physique est en cours. Voir le
    [reçu conditionnel du courant](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
    l’
    [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
@@ -143,89 +131,65 @@ données et certificats :
    [pont d’holonomie de l’axiome 2](Lean/Screen/A2HolonomyBridge.lean),
    de la [trichotomie de jauge](Lean/Screen/A5OPH.lean) et de la
    [descente finie Z₆](Lean/Screen/Z6Descent.lean).
-4. **Une sélection extérieure exacte d’une génération et un candidat de rang
-   trois pour les familles.** Dans l’algèbre extérieure de réponse déclarée à
-   dix composantes, un balayage exhaustif des 1 024 sous-ensembles ne laisse
-   qu’une paire non ordonnée de projecteurs chiraux, non vides, sans anomalie
-   et de rang 15, reliés par conjugaison de charge. L’équilibre primitif du
-   déterminant fixe les charges des blocs à conjugaison près et donne le
-   multiensemble exact des hypercharges du Modèle standard pour une
-   génération, avec l’annulation de ses anomalies. La complétude au-delà de
-   l’algèbre déclarée et l’attachement à la matière légère physique sont
-   distincts. Sous les prémisses de bande complète et de coût opérationnel,
-   le théorème de bande sélectionne uniquement le rang trois, et la réponse
-   unitaire déclarée place son résidu à la plus basse fréquence positive du
-   générateur. Le produit tensoriel avec la table de rang 15 sélectionnée
-   donne un candidat conditionnel de rang complexe 45, muni d’une graduation
-   chirale non dégénérée et de l’action diagonale exacte de $\mathbb Z_6$.
-   Un reçu distinct sur le domaine local vérifie l’opérateur déclaré
-   $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de son écart spectral.
-   La source ne sélectionne pas cette action de matière. L’identification aux
-   pôles de matière, la limite continue de Spin et de localité, le pont de
-   transport entre domaines, la sélection physique de l’action de couture et
-   l’attachement au laboratoire sont ouverts. Voir l’
+4. **Une génération de matière issue d’une recherche finie.** Dans l’algèbre
+   extérieure de réponse déclarée, un balayage exhaustif ne laisse qu’une paire
+   de projecteurs chiraux, sans anomalie et de rang 15, reliés par conjugaison
+   de charge, portant les quinze hypercharges du Modèle standard d’une
+   génération, anomalies annulées. Physiquement, cela voudrait dire que les
+   quarks et les leptons d’une génération, avec leurs charges exactes, sortent
+   d’une recherche finie au lieu d’une table relevée par l’expérience. Sous les
+   prémisses de bande complète et de coût, un théorème séparé sélectionne le
+   rang trois, d’où viendraient les trois familles. L’attachement de la
+   matière, la limite continue de Spin et de localité et l’attachement au
+   laboratoire demandent des constructions de source séparées. Voir l’
    [article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    le [reçu fini d’attachement de matière](code/a5_closure/manifests/matter_attachment_receipt.json),
    la [preuve Lean de la sélection extérieure](Lean/Screen/ExteriorSelection.lean)
    et la [preuve Lean de la bande familiale](Lean/Screen/A5FamilyBand.lean).
-5. **Un écart spectral exactement positif pour l’opérateur fini de coutures
-   signées.** Une capture issue de la source et sans donnée cible
-   fournit un ordre causal exact, une topologie de coutures visible aux
-   observateurs, des sections finies typées, 38 triangles frustrés et un noyau
-   tordu nul. Pour l’opérateur signé muni du comptage unitaire déclaré, le
-   théorème de graphe donne
-   $\lambda_{\min}\geq24^{-8661}>0$. Un calcul creux donne $0{,}1175367$
-   comme raffinement numérique non certifié. Ce spectre de graphe signé est
-   distinct du spectre de réparation de jauge compacte et de l’écart de masse
-   continu de Yang–Mills. Il ne fournit ni horloge physique, ni masse de
-   particule. Voir l’
+5. **Un écart spectral prouvé positif.** Une capture issue de la source et
+   sans donnée cible fournit un ordre causal exact, une topologie de coutures,
+   des sections typées, 38 triangles frustrés et un noyau tordu nul, et
+   l’opérateur signé déclaré vérifie $\lambda_{\min}\geq24^{-8661}>0$, soit
+   $0{,}1175367$ numériquement. Physiquement, cela voudrait dire que l’écran
+   n’a aucune excitation libre à coût nul, donc que le désaccord coûte toujours
+   quelque chose. Ce spectre de graphe signé est distinct du spectre de
+   réparation de jauge compacte et de l’écart de masse continu de Yang–Mills,
+   et il ne fournit ni horloge physique, ni masse de particule. Voir l’
    [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
    et le
    [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-6. **Un théorème exact de Koide dans la chambre positive avec un test gelé de
-   la masse du tau.** Une réponse hermitienne $C_3$ obéit à
-   $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut exactement à
-   $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non négatives. Sous
-   les prémisses déclarées d’équilibre et d’ordre, les masses mesurées de
-   l’électron et du muon fixent celle du tau dans un intervalle de 72 eV, à
-   0,43 écart-type de la valeur comparée. L’ascendance des prémisses et la
-   règle prospective de rejet sont gelées. Voir l’
+6. **La relation de Koide, avec un test gelé sur le tau.** Une réponse
+   hermitienne $C_3$ obéit à $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut
+   exactement à $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non
+   négatives. Sous les prémisses déclarées d’équilibre et d’ordre, les masses
+   mesurées de l’électron et du muon fixent celle du tau dans un intervalle de
+   72 eV, à 0,43 écart-type de la valeur comparée. Physiquement, cela voudrait
+   dire que la vieille coïncidence entre les masses des leptons chargés est une
+   condition sur une seule matrice de réponse, deux masses fixant la troisième.
+   La règle de rejet est gelée, donc un déplacement de la mesure du tau peut
+   l’éliminer. Voir l’
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-7. **Une signature de propagation gelée issue des courants de couture de la
-   source.** La lecture signée de la source envoie le système d’incidence
-   complet des trente coutures sur $D_6$, et sa métrique de réponse induite
-   se complète dans le même porteur tridimensionnel que les charges de source.
-   Sous les prémisses déclarées de naturalité, d’objectif et de minimiseur
-   unique, la symétrie du porteur fixe l’action de Dirichlet interne homogène.
-   Son symbole normalisé a
-   $C_4=-a^2/20$, $B_0=a^4/840$ et $B_6=-a^4/12600$, sans anisotropie
-   intrinsèque sous le rang six. Posons
+7. **Une empreinte gelée dans la façon dont les ondes se propagent.** La
+   symétrie du porteur fixe l’action des ondes sur le même porteur
+   tridimensionnel, ce qui cloue la relation de dispersion à des nombres
+   exacts, avec une seule longueur $a$ et rien à régler. Pour $q=ak$ et
+   $0\leq q\leq1$, l’arithmétique exacte donne
+   $(19/20)q^2\leq\widehat\Lambda\leq q^2$ et
+   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ pour
    $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, où $I_6$ est l’harmonique
-   icosaédrique normalisée de rang six. Pour $q=ak$ et $0\leq q\leq1$,
-   l’arithmétique exacte donne
-   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ et
-   $(19/20)q^2\leq\widehat\Lambda\leq q^2$. Une complétion oscillatrice
-   déclarée séparément possède une fibre transverse de rang deux à impulsion
-   non nulle, la même action scalaire dans ses deux directions et un mode zéro
-   exact à $k=0$. Elle ne dérive ni la théorie de Maxwell, ni un quotient de
-   jauge, ni une horloge physique, ni un photon physique sans masse. Le rayon
-   des coefficients et la règle de décision sont gelés avant toute comparaison
-   admissible. Les attachements de position, secteur, fréquence, repère,
-   lecture et nuisances sont ouverts ; un résultat nul qui réfuterait la
-   branche exige aussi une borne positive de l’échelle pour la même action et
-   une puissance d’exclusion enregistrée. Si le symbole est en outre attaché
-   à un photon physique, avec des électrons et positrons massifs dont la
-   dispersion lorentz-invariante est à énergie positive, et une conservation
-   additive, sa borne exacte exclut cinématiquement la
-   désintégration du photon en une paire électron-positron. Lorsque le photon
-   mou du fond est invariant de Lorentz au premier ordre, l’équation de seuil
-   frontale, colinéaire et à partage fixé conserve des
-   coefficients indépendants pour l’électron et le positron ; sa lecture à
-   partage égal possède une fibre bidimensionnelle. Sur la branche où les
-   leptons sont invariants de Lorentz, le partage égal maximise de façon
-   unique le résidu de seuil frontal et colinéaire au premier ordre. Voir l’
+   icosaédrique de rang six. Physiquement, cela voudrait dire que
+   le vide porte un grain, donc que les ondes y avancent un peu moins vite à
+   courte longueur d’onde et que le premier effet dépendant de la direction
+   n’apparaît qu’au sixième ordre en impulsion, le long des axes icosaédriques.
+   La même action porte un oscillateur sans masse à deux polarisations, et sa
+   borne supérieure interdit à ce photon de se désintégrer en paire
+   électron-positron. Les coefficients et la règle de décision sont gelés sous
+   garde cryptographique avant toute comparaison admissible, donc une mesure de
+   propagation dotée d’une puissance d’exclusion enregistrée peut réfuter cette
+   branche. La théorie de Maxwell, un quotient de jauge et l’attachement à un
+   photon physique sont en cours. Voir l’
    [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
    les preuves Lean de l’
    [action de Dirichlet](Lean/Screen/SeamCurrentDirichletGenerator.lean) et de l’
