@@ -14,10 +14,11 @@ d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH reconstruit un noyau structurel fini exact : les règles des
-événements quantiques, la cinématique de Lorentz sur la branche de support
-global déclarée, le type de Lie du Modèle standard, ainsi qu’une paire
-extérieure conditionnelle pour une génération de matière avec un noyau
-central commun exact.
+événements quantiques, les quatre principes de la thermodynamique, un espace
+tridimensionnel et un temps local d’observateur bâtis sur les registres de
+réparation, la cinématique de Lorentz sur la branche de support global
+déclarée, le type de Lie du Modèle standard, ainsi qu’une paire extérieure
+conditionnelle pour une génération de matière.
 
 Trois axiomes régissent l’architecture du simulateur et la manière dont les
 observateurs parviennent à un consensus. À côté d’eux se trouvent deux

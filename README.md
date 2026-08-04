@@ -11,10 +11,11 @@ fields, a gauge group, and a table of measured constants. OPH begins with
 observers: bounded systems that carry local state, read part of themselves and
 their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
-reconstructs an exact finite structural core: quantum event rules, Lorentz
-kinematics on the stated global-support branch, the Standard Model gauge
-Lie type, and a conditional one-generation exterior matter pair with an exact
-common central kernel.
+reconstructs an exact finite structural core: quantum event rules, the four
+laws of thermodynamics, three-dimensional space and observer-local time built
+out of repair records, Lorentz kinematics on the stated global-support branch,
+the Standard Model gauge Lie type, and a conditional one-generation exterior
+matter pair.
 
 Three axioms govern the simulator architecture and how observers reach
 consensus. Beside them sit two closures. One gives the pixel constant $P$,
