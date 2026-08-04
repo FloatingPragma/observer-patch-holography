@@ -258,6 +258,35 @@ the observer's patches. When the reference is flat, this is plain local
 entropy maximization: the least opinionated state the constraints allow. It
 is Jaynes's die, played across a federation of patches at once.
 
+### Where the Four Laws Come From
+
+Chapter 4 treated thermodynamics as a hint, a set of laws discovered from
+engines and gases and then found to be about information. The third axiom
+turns those laws into theorems.
+
+Read the axiom on states and it selects the Gibbs family, the exponential
+weighting by energy that a thermodynamics course normally writes down as an
+assumption. Read the same axiom on transitions, on the repair step that
+carries one round of consensus into the next, and it selects a single repair
+kernel: a map that leaves the reference alone, changes nothing when applied
+twice, and preserves the quantities the patches agree on.
+
+The laws follow from those two readings. Distance from the reference, measured
+as relative entropy, shrinks under repair and never grows. That contraction is
+the Second Law, and the Clausius inequality relating entropy change to heat
+falls out of it, as does Landauer's price for erasing a bit. Two systems
+placed in contact settle at a common inverse temperature, which is the Zeroth
+Law. The energy bookkeeping splits exactly into a heat term and a work term,
+which is the First Law. The weight the construction can place on excited
+states is bounded, so entropy has a floor set by the number of ground states,
+and no finite sequence of repair steps reaches it. That is the Third Law.
+
+If this holds up, thermodynamics is not something the theory imports. It is
+what repair does to records, watched from far enough away. The qualification
+that belongs beside the result is calibration. The energy scale, the clock
+rate, and three other physical receipts have to be fixed by measurement
+before any of this becomes a thermometer reading.
+
 ## 11.6 Time on the Holographic Screen
 
 In the simplest finite illustration, a support region $P$ on the screen

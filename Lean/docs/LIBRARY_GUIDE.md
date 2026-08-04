@@ -216,7 +216,7 @@ surface for the OPH consensus layer. Contents:
   domain is contained in the Lorentz-invariant photon domain. On the
   Lorentz-invariant charged-lepton branch, equal sharing uniquely maximizes
   the leading head-on, collinear residual. General independent-lepton and
-  full anisotropic optimization remain open. No interaction,
+  full anisotropic optimization are open. No interaction,
   opacity, source, shower, or detector statement follows.
 - A sorry-free **finite event algebras** library (`EventAlgebra/`,
   lake target `EventAlgebra`, 64 audited declarations, standard axioms

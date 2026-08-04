@@ -102,7 +102,7 @@ transverse-traceless classical waves.
 
 A scalar action and vacuum separate the charged $W$ carriers from the
 neutral $Z$ carrier. The finite construction supplies an internal chart for
-the two roles. It is not yet a physical mass prediction. Connecting that
+the two roles. It is not a physical mass prediction. Connecting that
 chart to the unstable-particle poles measured in a detector requires a
 source-to-pole bridge, which is work in progress.
 
