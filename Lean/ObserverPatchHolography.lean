@@ -42,6 +42,8 @@ import ObserverPatchHolography.DirectedSeamRepair
 import ObserverPatchHolography.DirectedSeamRepairProgress
 import ObserverPatchHolography.RateNonidentifiability
 import ObserverPatchHolography.RateBridgeObstruction
+import ObserverPatchHolography.Locality.DependencyCone
+import ObserverPatchHolography.Locality.NoSignalling
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root

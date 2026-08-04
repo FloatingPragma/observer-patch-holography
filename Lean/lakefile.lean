@@ -61,7 +61,7 @@ lean_lib «OPHScreen» where
 @[default_target]
 lean_lib «OPHConstruction» where
   srcDir := "."
-  roots := #[`Dynamics]
+  roots := #[`Dynamics, `InformationProjection, `Variational]
 
 lean_exe «oph» where
   root := `Main
