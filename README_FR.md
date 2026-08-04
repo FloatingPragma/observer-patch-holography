@@ -113,38 +113,21 @@ données et certificats :
    ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
 3. **Les quatre principes de la thermodynamique deviennent des théorèmes.**
    L’axiome 3 lu sur les états sélectionne la famille de Gibbs ; lu sur les
-   transitions au-dessus de la donnée visible réparée, il sélectionne le noyau
-   de réparation qu’emploie déjà la construction du consensus. Ce noyau est
-   stochastique, idempotent, réversible et stationnaire, et il contracte
-   l’entropie relative à la référence : le second principe est un théorème de
-   traitement de données pour la réparation, avec Clausius
-   $\Delta S\geq\beta Q$ et la borne d’effacement de Landauer en corollaires ;
-   l’inégalité est la moyenne d’une production d’entropie fluctuante qui
-   obéit à des théorèmes de fluctuation intégral et détaillé exacts, avec la
-   réciprocité d’Onsager par bilan détaillé, et l’identité
-   $S(p)-S(\tau)=\langle K\rangle_p-\langle K\rangle_\tau-D(p\Vert\tau)$
-   porte le premier principe d’intrication avec son déficit explicite.
-   L’égalité des températures inverses au contact additif donne le principe
-   zéro, transitif par tout thermomètre à deux niveaux. La décomposition exacte
-   $dU=\delta Q+\delta W$, terme croisé bilinéaire compris, donne le premier
-   principe. La borne $\frac{d-g_0}{g_0}e^{-\beta\Delta}$ sur la masse de Gibbs
-   excitée donne la limite d’entropie $\log g_0$ et met l’état de température
-   nulle hors d’atteinte en un nombre fini d’étapes : le troisième principe.
-   Physiquement, cela voudrait dire que la thermodynamique n’est pas importée
-   dans la théorie ; elle est ce que la réparation fait aux registres. Le
-   normalisateur à descente stricte qui fixe les faits publics est une autre
-   application et ne porte aucune inégalité d’entropie ; un contre-exemple à
-   deux points est certifié. Cinq reçus physiques restent ouverts, dont
-   l’identification d’une charge modulaire avec l’énergie et un temps
-   d’horloge calibré. Voir l’
+   transitions, il sélectionne le noyau de réparation du consensus, qui
+   contracte l’entropie relative à la référence. Cette seule contraction est
+   le second principe, avec Clausius $\Delta S\geq\beta Q$ et la borne
+   d’effacement de Landauer en corollaires. L’égalité des températures
+   inverses au contact donne le principe zéro, la décomposition exacte
+   $dU=\delta Q+\delta W$ donne le premier, et une borne finie sur la masse
+   de Gibbs excitée donne le troisième. Physiquement, cela voudrait dire que
+   la thermodynamique n’est pas importée dans la théorie ; elle est ce que la
+   réparation fait aux registres. La calibration de l’énergie et de l’horloge
+   est l’un des cinq reçus physiques ouverts. Voir l’
    [article sur les observateurs](paper/observers_are_all_you_need.pdf), les
    preuves Lean de la
    [réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean), des
-   [théorèmes de fluctuation](Lean/Thermodynamics/FluctuationTheorems.lean),
-   du [premier principe de calotte](Lean/Thermodynamics/CapFirstLaw.lean),
-   du [lien vers la branche d'Einstein](Lean/Thermodynamics/EinsteinPremiseLink.lean) et du
-   [pincement de partition](Lean/EventAlgebra/PartitionPinchingCP.lean), le
+   du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean) et des
+   [théorèmes de fluctuation](Lean/Thermodynamics/FluctuationTheorems.lean), le
    [certificat rationnel exact](code/thermodynamics/conditional_repair_certificate.py)
    avec son [reçu](code/thermodynamics/runtime/conditional_repair_receipt.json),
    ainsi que les [reçus physiques ouverts](https://github.com/FloatingPragma/observer-patch-holography/issues/671).

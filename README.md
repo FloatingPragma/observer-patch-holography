@@ -102,37 +102,22 @@ certificates:
    [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
    [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
 3. **The four laws of thermodynamics come out as theorems.** Axiom 3 read on
-   states selects the Gibbs family; read on transitions over the repaired
-   visible datum it selects the repair kernel of the consensus
-   construction. That kernel is stochastic, idempotent, reversible, and
-   stationary, and it contracts relative entropy to the reference, so the
-   second law is a data-processing theorem for repair, with Clausius
-   $\Delta S\geq\beta Q$ and the Landauer erasure bound as corollaries; the
-   inequality is the mean of a fluctuating entropy production that obeys
-   exact integral and detailed fluctuation theorems, with Onsager
-   reciprocity from detailed balance, and the identity
-   $S(p)-S(\tau)=\langle K\rangle_p-\langle K\rangle_\tau-D(p\Vert\tau)$
-   carries the entanglement first law with its deficit explicit. Equal
-   inverse temperatures at additive contact give the zeroth law, transitive
-   through any two-level thermometer. The exact split $dU=\delta Q+\delta W$
-   with its bilinear cross term gives the first law. The excited Gibbs mass
-   bound $\frac{d-g_0}{g_0}e^{-\beta\Delta}$ gives entropy limit $\log g_0$ and
-   puts the zero-temperature state out of reach in finitely many steps, the
-   third law. Physically this would mean thermodynamics is not imported into
-   the theory; it is what repair does to records. The separate strict-descent
-   normalizer that settles public facts carries no entropy inequality, and a
-   two-point counterexample is certified. Five physical receipts stay open,
-   among them the identification of one modular charge with energy and a
-   calibrated clock. See the
+   states selects the Gibbs family; read on transitions it selects the repair
+   kernel of the consensus construction, which contracts relative entropy to
+   the reference. That one contraction is the second law, with Clausius
+   $\Delta S\geq\beta Q$ and the Landauer erasure bound as corollaries. Equal
+   inverse temperatures at contact give the zeroth law, the exact split
+   $dU=\delta Q+\delta W$ gives the first, and a finite gap bound on the
+   excited Gibbs mass gives the third. Physically this would mean
+   thermodynamics is not imported into the theory; it is what repair does to
+   records. Energy and clock calibration is one of five open physical
+   receipts. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean proofs of
    [conditional repair](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   the [first-law split](Lean/Thermodynamics/FirstLawIdentity.lean),
-   the [fluctuation theorems](Lean/Thermodynamics/FluctuationTheorems.lean),
-   the [cap first law](Lean/Thermodynamics/CapFirstLaw.lean),
-   the [Einstein-branch premise link](Lean/Thermodynamics/EinsteinPremiseLink.lean), and
-   [partition pinching](Lean/EventAlgebra/PartitionPinchingCP.lean), the
+   the [first-law split](Lean/Thermodynamics/FirstLawIdentity.lean), and the
+   [fluctuation theorems](Lean/Thermodynamics/FluctuationTheorems.lean), the
    [exact-rational certificate](code/thermodynamics/conditional_repair_certificate.py)
-   and its [receipt](code/thermodynamics/runtime/conditional_repair_receipt.json),
+   with its [receipt](code/thermodynamics/runtime/conditional_repair_receipt.json),
    and the [open physical receipts](https://github.com/FloatingPragma/observer-patch-holography/issues/671).
 4. **The Standard Model gauge group from twelve ports.** Complete reversible
    port response and endogenous overlap transport force
