@@ -29,7 +29,7 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-08-04T22:25:26Z",
+  "generated_utc": "2026-08-04T22:30:42Z",
   "open_issue_count": 24,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
@@ -89,10 +89,10 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/677"
     },
     {
-      "blocker": "No hard issue prerequisite. Open scope: Averaging is CPTP with explicit Kraus data; the two-scale public relaxation family publicRelax with composition, average-invariance, and decomposition laws; Poissonized repair semigroup exp(tL) = E + exp(-gamma t)(I - E) for idempotent E; the conditional-expectation generator gamma(E - I) in explicit GKSL form with jump operators sqrt(gamma) P_i; pointer algebra = fixed algebra; multi-collar sum generator and its stable intersection algebra.",
+      "blocker": "No hard issue prerequisite. Open scope: Target finite publicization packet.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: EventAlgebra/PartitionAverageCP.lean, EventAlgebra/TwoScalePublicRepair.lean, Thermodynamics/PoissonizedRepair.lean, Dynamics/ConditionalExpectationGenerator.lean; exact-rational certificate rows where entries are rational.",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: - EventAlgebra/PartitionAverageCP.lean - EventAlgebra/TwoScalePublicRepair.lean - Thermodynamics/PoissonizedRepair.lean - Dynamics/ConditionalExpectationGenerator.lean - exact-rational certificate rows where entries are rational - assumption and claim wording that distinguishes explicit Kraus/trace results from a proved CP or CPTP interface",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -102,8 +102,8 @@
       ],
       "number": 678,
       "phase": "v2-w1-observer-laws",
-      "title": "[B2] Publicization dynamics: averaging CP, two-scale semigroup, GKSL repair",
-      "updated_at": "2026-08-04T22:09:06Z",
+      "title": "[B2] Publicization dynamics: explicit Kraus averaging and repair semigroups",
+      "updated_at": "2026-08-04T22:30:33Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/678"
     },
     {
