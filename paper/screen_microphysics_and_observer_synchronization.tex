@@ -2902,6 +2902,59 @@ incidence, section, parity, density, and action identities are checked in
 Lean~\cite{ophrepo}.
 \end{proof}
 
+\begin{theorem}[Finite seam continuity and Ward-promotion boundary]
+\label{thm:finite-seam-continuity-ward-boundary}
+Let \(q,q',s\in\mathbb Z^{12}\) be stored load, updated load, and source,
+and let \(J\in\mathbb Z^{30}\) be a current on the bookkeeping-oriented
+seams. The repository boundary uses net inflow. If
+\[
+q'-q=s+\partial J,
+\]
+then for every port region \(R\),
+\[
+\sum_{p\in R}(q'_p-q_p)
+=\sum_{p\in R}s_p-\Phi_{\partial R}(J),
+\]
+where \(\Phi_{\partial R}\) is signed outward flux. Internal seams cancel.
+For the complete port set, a zero-total source preserves total load.
+
+After scalar extension to \(\mathbb Q\), a port load \(z\) has a solution of
+\(\partial J=z\) exactly when \(\sum_p z_p=0\). A declared port-zero
+spanning-tree section constructs one solution; the full solution fibre is its
+translate by \(\ker\partial\), which has dimension nineteen. This choice is
+explicit and carries no naturality claim.
+
+Separately, let \(\Phi\) and \(\Phi^\dagger\) be real linear maps on a finite
+state space that are dual for the expectation pairing. A charge expectation
+is preserved for every signed state exactly when
+\(\Phi^\dagger Q=Q\). Channel covariance is insufficient: uniform averaging
+on two states commutes with their swap and erases the nonzero swap-odd
+charge. Antisymmetric transfer, action symmetry, channel covariance, and
+charge conservation are therefore distinct statements.
+\end{theorem}
+
+\begin{proof}
+Regional summation of the oriented incidence map pairs every internal seam
+with opposite endpoint signs. Rank-nullity for the connected twelve-vertex,
+thirty-edge graph gives incidence rank eleven and cycle rank nineteen, and
+the declared tree section proves surjectivity onto the neutral hyperplane.
+Finite expectation-pairing nondegeneracy proves the dual fixed-point
+criterion by testing signed point masses. The two-state averaging computation
+is an exact negative control. The regional, Gauss-fibre, duality, and control
+statements are checked in Lean~\cite{ophrepo}.
+\end{proof}
+
+The theorem assumes the pointwise finite update and assigns no physical
+meaning to load, current, update order, or charge. A continuum Ward identity
+requires a source-derived family of these finite witnesses, directed cofinal
+refinement, realization as components of one stress tensor, weak convergence
+on a nonempty test-field class, chart covariance, and one inhabited common
+tower. The Lean \texttt{WardLimitManifest} fixes a nonzero finite witness, an
+injective monotone cofinal sequence, real test-pairing convergence, and a
+nontrivial real Ward residual that vanishes at the proposed limit. Its source,
+transport, chart, and tower relations remain F1 evidence obligations; the
+structure alone makes no physical identification.
+
 The metric in Theorem~\ref{thm:seam-current-response-completion} is the
 response Gram metric. It is not the inherited Euclidean metric of the integer
 tuple \(z\in\mathbb Z^6\). The theorem constructs an abstract

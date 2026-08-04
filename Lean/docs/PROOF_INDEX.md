@@ -18,17 +18,19 @@ Mapping between Lean 4 theorems in this project and statements in
 
 ## Completion summary
 
-- **Proposition 4.2 (theorem-grade): 0 / 9 obligation families formalised → 0%**
-  (2 Prop-4.2 statements + Lyapunov termination/descent +
-  OPH confluence + repair completeness + `repair_respects_gauge`
-  quotient descent + `gaugeEquiv_equivalence` + `Φ`-formula match +
-  quotient/NF construction)
-- **Definition 4.1 (Public world): 0 / 11 Lean items built → 0%**
-  (3 carrier types + repair-site/local-step package + 1 global repair +
-  1 potential + 1 gauge relation + equivalence proof + congruence proof +
-  2 quotient/NF construction items)
+- **Definition 4.1 infrastructure: 9 / 11 item families built.** The carrier
+  patch field, records, observable overlap data, repair sites, local and global
+  repair, mismatch potential, gauge relation, equivalence proof, and repair
+  congruence are admission-free. The paper-level terminal-normal-form quotient
+  and `World` construction remain open.
+- **Proposition 4.2 endpoint: open.** Strict descent, reachability,
+  normal-form production, and termination are proved for the constructed
+  repair. Confluence and completeness are explicit properties rather than
+  universal conclusions. The public-world fixed-point and schedule-independence
+  composition on the physical quotient remain open.
 - Abstract-rewriting skeleton (preliminary): 5 / 5 proofs → 100%
-- OPH primitives (declared, sorry-bearing): 0 / 10 discharged → 0%
+- OPH primitive and constructed-repair layer: admission-free. This status does
+  not assert universal confluence or completeness.
 - Part-A coupling algebra (`BridgeEquivalence.lean`, `CapacityFixedPoint.lean`,
   `SeedPi.lean`): 13 / 13 lemmas, sorry-free → 100%
   (algebraic layer of the coupling theorem only; no physical-derivation
@@ -191,6 +193,18 @@ Mapping between Lean 4 theorems in this project and statements in
   with a primitive \(\mathbb Z^6\) translation, promote the finite repair
   kernel to a homogeneous field action, or select physical position, time,
   scale, and global gluing.
+- B5 finite continuity, Gauss solvability, and protected charges
+  (`Screen/RegionalContinuity.lean`, `Screen/DiscreteGauss.lean`,
+  `Dynamics/ProtectedCharge.lean`): admission-free finite incidence and
+  linear algebra. Regional load change equals the regional source minus
+  signed outward flux; the complete graph changes only by its total source.
+  A rational port load has a seam-flux solution exactly when it is neutral,
+  and its full solution fibre is one translate of the nineteen-dimensional
+  cycle kernel. For a declared dual pair of finite linear channels, all-state
+  conservation of one charge expectation is equivalent to the dual map fixing
+  that charge. These results do not identify seam data with physical
+  stress-energy and do not discharge the continuum Ward premise. See
+  `B5_WARD_BRIDGE.md`.
 - Source-seam edge-orbit moments
   (`Screen/SeamCurrentEdge30Moment.lean`): sorry-free exact real polynomial
   and finite multiset reasoning. Each canonical seam current maps to the
@@ -768,7 +782,7 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 - ✅  proven, sorry-free, matches paper statement
 - 🟡  generic proof without OPH-specific structure
 - 🔸  motivational only (no formal anchor in paper)
-- ⬜  declared as `sorry` or thin placeholder / unformalised
+- ⬜  unformalised or a thin placeholder
 - ❌  stated, contains unintended `sorry` or `admit`
 
 ## Definition 4.1: Public world
@@ -781,15 +795,15 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 305–313.
 
 | Lean name | Module | Status | Notes |
 |---|---|---|---|
-| `OPH.Records` | `Primitives` | ⬜ | TeX macro line 28; structural content per OPHConsensus. |
-| `OPH.Patch` | `Primitives` | ⬜ | TeX macro line 31; structural content per OPHConsensus. |
-| `OPH.Obs` | `Primitives` | ⬜ | TeX macro line 30; structural content per OPHConsensus. |
-| `OPH.Site` | `Primitives` | ⬜ | Repair-site carrier for local accepted repair steps; structural content per OPHConsensus. |
-| `OPH.Repair`, `OPH.localRepair`, `OPH.acceptedStep` | `Primitives` | ⬜ | "Built from local recovery moves" (line 297), composed under asynchronous schedules in OPHConsensus. |
-| `OPH.Φ` | `Primitives` | ⬜ | Concrete formula `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))` (line 300). |
-| `OPH.gaugeEquiv` (`∼_gauge`) | `Primitives` | ⬜ | Predicate on declared observable overlap data (line 311). |
-| `OPH.gaugeEquiv_equivalence` | `Primitives` | ⬜ | `∼_gauge` is an equivalence relation. |
-| `OPH.repair_respects_gauge` | `Primitives` | ⬜ | `∼_gauge` is a `Repair`-congruence. Load-bearing for Prop 4.2 sentence 2. |
+| `OPH.Records` | `Primitives` | ✅ | Dependent product of local patch states. |
+| `OPHCarrier.Patch` | `Primitives` | ✅ | Typed finite patch index carried by `OPHCarrier`. |
+| `OPH.Obs` | `Primitives` | ✅ | Declared observable overlap-data type. |
+| `OPH.Site` | `Primitives` | ✅ | Repair-site carrier for local accepted repair steps. |
+| `OPH.Repair`, `OPH.localRepair`, `OPH.acceptedStep` | `Primitives` | ✅ | Constructed local moves and terminating choice-canonical global repair. Schedule independence is separate. |
+| `OPH.Φ` | `Primitives` | ✅ | Exact weighted edge-mismatch formula. |
+| `OPH.gaugeEquiv` (`∼_gauge`) | `Primitives` | ✅ | Kernel of the declared overlap readout. |
+| `OPH.gaugeEquiv_equivalence` | `Primitives` | ✅ | `∼_gauge` is an equivalence relation. |
+| `OPH.repair_respects_gauge` | `Primitives` | ✅ | `∼_gauge` is a `Repair` congruence. |
 | `OPH.NF` | (TODO) | ⬜ | Terminal state of accepted repair (local recovery moves). |
 | `OPH.World` | (TODO) | ⬜ | Quotient `Records / ∼_gauge` restricted to `NF` representatives. |
 
@@ -803,10 +817,10 @@ Paper: `paper/paradise_as_fixed_point_consensus.tex` §4, lines 321–328.
 
 | Lean name | Module | Status | Notes |
 |---|---|---|---|
-| `OPH.Confluence` | `Primitives` | ⬜ | OPH-specific confluence hypothesis (line 326); per OPHConsensus. |
-| `OPH.LyapunovDescent` | `Primitives` | ⬜ | Strict descent of accepted repairs; OPHConsensus uses this plus finite state/value range for termination. |
-| `OPH.Termination` | `Primitives` | ⬜ | Termination of the accepted-step relation; not implied by repair completeness. |
-| `OPH.Completeness` | `Primitives` | ⬜ | Normal forms are exactly consistent states; per OPHConsensus Assumption `ass:complete`. |
+| `OPH.Confluence` | `Primitives` | 🟡 | Typed OPH-specific property. No universal confluence theorem is asserted. |
+| `OPH.LyapunovDescent`, `OPH.lyapunovDescent_holds` | `Primitives` | ✅ | Every accepted step strictly lowers the exact mismatch potential. |
+| `OPH.Termination`, `OPH.termination_holds` | `Primitives` | ✅ | The accepted-step relation is well founded for the constructed repair. |
+| `OPH.Completeness` | `Primitives` | 🟡 | Typed property equating normal forms with consistent states. No universal proof is asserted. |
 | `OPH.world_is_fixedPt` | (TODO) | ⬜ | `Repair(World) = World` on the physical quotient. |
 | `OPH.schedule_independence` | (TODO) | ⬜ | Under `Confluence ∧ Completeness`, terminal public state is independent of update schedule on the physical quotient. |
 
@@ -1045,27 +1059,24 @@ bound is shipped as an inequality only. Mathlib's
 `Mathlib/Algebra/Star/CHSH.lean` provides the complementary *order-form*
 `tsirelson_inequality`; the norm form here reuses its `IsCHSHTuple`.
 
-## Gap analysis: skeleton → theorem-grade Prop 4.2
+## Gap analysis: constructed repair to theorem-grade Proposition 4.2
 
 (Revised per math-seat audit 2026-05-19.)
 
-| Skeleton has | Prop 4.2 needs | Paper anchor |
+| Lean layer | Status and remaining endpoint | Paper anchor |
 |---|---|---|
-| `r : X → X → Prop` (opaque) | `Repair` operating on `Records`, inducing rewriting on `World` representatives | lines 30, 297 |
-| `X` (opaque) | `Records` carrier type (TeX macro, structural content per OPHConsensus) | lines 28, 1615 |
-| `IsNormalForm` (opaque) | `NF` as terminal state of accepted repair built from local recovery moves, with local steps executed under asynchronous schedules in OPHConsensus | line 297; OPHConsensus §3 |
-| `Φ : X → NNReal` (opaque) | Concrete `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))` on patch-overlap data | line 300 |
-| (none) | `∼_gauge` is an equivalence relation | line 311 |
-| (none) | **`∼_gauge` is a `Repair`-congruence**; descent to the physical quotient depends on this | line 327 ("on the physical quotient") |
-| (none) | Quotient construction `World = NF(x) / ∼_gauge` | lines 305–313 |
-| `Terminating r` (assumption) | OPH Lyapunov descent plus finite patch-net/value-set control gives termination of `acceptedStep`; repair completeness is a separate normal-form/consistency condition | OPHConsensus Prop. `lyapunov-termination`, Assumption `complete` |
-| `LocallyConfluent r` (assumption) | OPH `Confluence` predicate (structurally defined per OPHConsensus) implies local confluence on patch repairs | line 326 |
-| Confluence on `r` | Confluence stated **directly on the physical quotient**, not lifted from below. Prop 4.2 sentence 2 imposes conditions on the quotient. | lines 326–327 |
+| `Records`, `Site`, `localRepair`, `acceptedStep`, `Repair` | Constructed and admission-free. The public quotient of terminal records remains open. | lines 28–31, 297 |
+| `NormalForm`, `Repair_normalForm`, `Repair_reachable` | One choice-canonical repair reaches a normal form. A schedule-independent `NF` on the physical quotient remains open. | line 297; OPHConsensus §3 |
+| `Φ`, `lyapunovDescent_holds`, `termination_holds` | Exact mismatch formula, strict descent, and termination are proved. | line 300; OPHConsensus Lyapunov proposition |
+| `gaugeEquiv`, `gaugeEquiv_equivalence` | The declared gauge relation and its equivalence proof are built. | line 311 |
+| `repair_respects_gauge` | Repair congruence is proved on declared overlap data. | line 327 ("on the physical quotient") |
+| `Confluence`, `Completeness` | Both are typed OPH properties. Their truth is premise-specific; no universal proof is asserted. | line 326; OPHConsensus completeness assumption |
+| No `World` declaration | Construct `World = NF(x) / ∼_gauge` with a well-defined descended repair. | lines 305–313 |
+| Abstract confluence and normal-form theorems | Transfer them to the structured accepted-step relation and prove schedule independence directly on the physical quotient. | lines 326–327 |
+| No public-world fixed-point theorem | Prove `World ∈ Fix(Repair)` and `Repair(World) = World` for the constructed quotient. | lines 321–328 |
 
-Closing each row of this table is the work that takes the skeleton to a
-theorem-grade Prop 4.2 statement. Several rows depend on the companion
-paper *Reality as a Consensus Protocol* (OPHConsensus); the target is
-paper-incomplete as well as Lean-incomplete.
+The last three rows form the open public-world endpoint. The preceding rows
+are implemented substrate and are not counted again as missing work.
 
 ## Update protocol
 

@@ -88,6 +88,10 @@ LEAN_RECEIPTS = {
     / "EinsteinPremiseLink.lean",
     "PartitionPinchingCP": REPO / "Lean" / "EventAlgebra"
     / "PartitionPinchingCP.lean",
+    "RegionalContinuity": LEAN_SCREEN / "RegionalContinuity.lean",
+    "DiscreteGauss": LEAN_SCREEN / "DiscreteGauss.lean",
+    "ProtectedCharge": REPO / "Lean" / "Dynamics" / "ProtectedCharge.lean",
+    "WardLimitManifest": REPO / "Lean" / "Dynamics" / "WardLimitManifest.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -727,7 +731,7 @@ def _forced_structure(
                 },
             ),
             "hypothesis_boundary": (
-                "five receipts stay open under issue #671: the global "
+                "five receipts stay open under issue #688: the global "
                 "objective representation, the common source-derived "
                 "reference for both optimizers, identification of the "
                 "source collar matrix with the resampling kernel through "
@@ -738,6 +742,79 @@ def _forced_structure(
                 "entropy inequality"
             ),
             "paper_ref": "observers paper, thermodynamics section",
+        },
+        {
+            "id": "finite_conservation_ward_precursor",
+            "statement": (
+                "On the exact twelve-port, thirty-seam incidence graph, a "
+                "declared pointwise continuity update gives regional source "
+                "minus outward flux, internal cancellation, and closed-graph "
+                "conservation for zero-total source. Rational Gauss solutions "
+                "exist exactly for neutral loads and form one translate of a "
+                "nineteen-dimensional cycle kernel. For finite real linear "
+                "state maps, all-state charge conservation is equivalent to "
+                "the dual fixed-observable equation; an exact two-state "
+                "counterexample shows that channel covariance alone does not "
+                "imply conservation"
+            ),
+            "observed_counterpart": (
+                "continuity, Gauss constraint, and protected-charge structure"
+            ),
+            "match": "exact finite precursor; physical Ward bridge open",
+            "lean_declarations": {
+                "RegionalContinuity": [
+                    "regional_continuity",
+                    "global_continuity",
+                    "global_conservation_of_zero_total_source",
+                    "FiniteContinuityWitness.regionalBalance",
+                ],
+                "DiscreteGauss": [
+                    "gauss_solution_exists_iff_total_zero",
+                    "rationalBoundarySection_is_gauss_solution",
+                    "gauss_solution_iff_difference_is_cycle",
+                    "gauss_cycle_space_finrank",
+                ],
+                "ProtectedCharge": [
+                    "chargeExpectation_preserved_iff_dual_fixed",
+                    "kernel_chargeExpectation_preserved_iff_pull_fixed",
+                    "twoStateOddCharge_ne_zero",
+                    "channel_covariance_does_not_imply_charge_conservation",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "RegionalContinuity",
+                "DiscreteGauss",
+                "ProtectedCharge",
+                "WardLimitManifest",
+                declarations={
+                    "RegionalContinuity": (
+                        "regional_continuity",
+                        "global_continuity",
+                        "global_conservation_of_zero_total_source",
+                        "FiniteContinuityWitness.regionalBalance",
+                    ),
+                    "DiscreteGauss": (
+                        "gauss_solution_exists_iff_total_zero",
+                        "rationalBoundarySection_is_gauss_solution",
+                        "gauss_solution_iff_difference_is_cycle",
+                        "gauss_cycle_space_finrank",
+                    ),
+                    "ProtectedCharge": (
+                        "chargeExpectation_preserved_iff_dual_fixed",
+                        "kernel_chargeExpectation_preserved_iff_pull_fixed",
+                        "twoStateOddCharge_ne_zero",
+                        "channel_covariance_does_not_imply_charge_conservation",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the pointwise update is a declared finite premise; the load, "
+                "current, update order, and charge have no physical identity. "
+                "Issue #694 must construct every field of WardLimitManifest "
+                "before the finite result can be consumed as a continuum Ward "
+                "identity"
+            ),
+            "paper_ref": "screen-microphysics paper, finite conservation bridge",
         },
     ]
     rows.extend(

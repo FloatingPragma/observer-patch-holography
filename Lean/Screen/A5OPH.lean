@@ -1172,9 +1172,10 @@ end OPHTrichotomy
 
 /- ==================================================================== -/
 /- AXIOM AUDIT                                                          -/
-/- Expected output for every line: 'propext, Classical.choice, Quot.sound'
-   or a subset.  Any other axiom — in particular Lean.ofReduceBool from
-   native_decide — means the build is not trustworthy.                   -/
+/- Expected output for every line in this module: `propext`,
+   `Classical.choice`, `Quot.sound`, or a subset. Any generated
+   `...native_decide.ax_1_1` dependency places this module outside the
+   kernel-only trust profile.                                            -/
 /- ==================================================================== -/
 
 #print axioms A5Order6.exists_subgroup_card_six

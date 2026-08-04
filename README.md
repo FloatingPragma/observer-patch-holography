@@ -63,7 +63,7 @@ instrument: stances registered with cryptographic custody and kill bands
 before their comparison data is examined, with fixed rules that permit
 refutation by qualifying measurements.
 
-## Eight Reproducible Physics Receipts
+## Seven Reproducible Physics Receipts
 
 These public results link directly to their papers, proofs, data, and
 certificates:
@@ -152,18 +152,7 @@ certificates:
    the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
    the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
-6. **A gap that is provably positive.** A target-clean source capture fixes
-   the causal order, seam topology, typed sections, 38 frustrated triangles,
-   and a zero twisted kernel, and the declared signed operator obeys
-   $\lambda_{\min}\geq24^{-8661}>0$, with a numerical refinement of
-   $0.1175367$. Physically this would mean the screen has no free excitation at
-   zero cost, so disagreement always costs something. This is a signed-graph result, distinct from the
-   compact-gauge repair spectrum and the continuum Yang--Mills mass gap, and it
-   supplies no physical clock or particle mass. See the
-   [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
-   and the pinned
-   [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-7. **The Koide lepton relation, with a frozen tau test.** A Hermitian $C_3$
+6. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
    response obeys $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
    $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Under the declared
    balance and ordering premises, the electron and muon masses fix the tau mass
@@ -175,36 +164,41 @@ certificates:
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-8. **A frozen fingerprint in how waves travel.** Carrier symmetry fixes the
+7. **A frozen fingerprint in how waves travel.** Carrier symmetry fixes the
    wave action on the same three-dimensional carrier, which pins the dispersion
-   relation to exact numbers, with one length $a$ and nothing to tune. For
-   $q=ak$ on $0\leq q\leq1$, exact arithmetic proves
-   $(19/20)q^2\leq\widehat\Lambda\leq q^2$ and
-   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ for
-   $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, with $I_6$ the icosahedral rank-six
-   harmonic. Physically this would mean the vacuum carries a grain, so waves
-   run slightly slow at short wavelength and the first direction-dependent
-   effect shows up at sixth order in momentum, along icosahedral axes. The same
-   action carries a two-polarization massless oscillator, and its upper bound
-   forbids that photon from decaying into an electron-positron pair. The
-   coefficients and the decision rule are frozen under cryptographic custody
-   ahead of any eligible comparison, so a propagation
-   measurement with registered exclusion power can refute this branch. Maxwell
-   theory, a gauge quotient, and the attachment to a physical photon are work
-   in progress. See the
+   relation to exact numbers, with one length $a$ and nothing to tune. Exact
+   arithmetic brackets the symbol between $(19/20)q^2$ and $q^2$ on the unit
+   domain and bounds its first direction-dependent term, at sixth order in
+   momentum, by the icosahedral rank-six harmonic. Physically this would mean
+   the vacuum carries a grain: waves run slightly slow at short wavelength,
+   and the first direction-dependent effect appears at sixth order, along
+   icosahedral axes. The same action carries a two-polarization massless
+   oscillator, and its upper bound forbids that photon from decaying into an
+   electron-positron pair. The coefficients and the decision rule are frozen
+   under cryptographic custody ahead of any eligible comparison, so a
+   propagation measurement with registered exclusion power can refute this
+   branch. Maxwell theory, a gauge quotient, and the attachment to a physical
+   photon are work in progress. See the
    [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
-   Lean proofs of the
+   the Lean proofs of the
    [Dirichlet action](Lean/Screen/SeamCurrentDirichletGenerator.lean) and
    [conditional transverse oscillator](Lean/Screen/SeamCurrentFreePhotonLift.lean),
-   [conditional photon-lepton kinematics](Lean/Screen/SeamCurrentPhotonLeptonThreshold.lean),
-   the exact [coefficient-ray receipt](code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json),
-   [unit-domain remainder receipt](code/a5_fingerprint/runtime/fz12_full_symbol_remainder_receipt.json),
-   [joint-threshold receipt](code/a5_fingerprint/runtime/fz12_joint_threshold_receipt.json),
-   [synthetic recovery receipt](code/a5_fingerprint/runtime/fz12_synthetic_recovery_coverage_receipt.json),
-   [frozen custody packet](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
-   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md),
+   the exact [coefficient and remainder receipts](code/a5_fingerprint/runtime/),
+   the [frozen custody packet](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
+   the [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md),
    and the [physical propagation](https://github.com/FloatingPragma/observer-patch-holography/issues/666)
    and [comparison](https://github.com/FloatingPragma/observer-patch-holography/issues/667) contracts.
+
+A separate signed-graph theorem proves the screen has no free excitation at
+zero cost: a target-clean source capture fixes the causal order, seam
+topology, typed sections, and 38 frustrated triangles, and the declared
+signed operator obeys $\lambda_{\min}\geq24^{-8661}>0$, with a numerical
+refinement of $0.1175367$. The result is distinct from the compact-gauge
+repair spectrum and the continuum Yang--Mills mass gap and supplies no
+physical clock or particle mass. See the
+[screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
+and the pinned
+[source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
 
 A separate finite theorem maximizes generalized entropy at $\log M$, gives
 the exact shock shift $\log(1-f)$, and fixes the pure de Sitter relation
@@ -221,8 +215,11 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 1800 theorems and lemmas, with
-per-theorem axiom reports and no admitted proofs. See [Lean/](Lean/).
+The supporting Lean library contains more than 1900 theorems and lemmas and no
+admitted proofs. Explicit axiom reports cover the audited theorem subset.
+Twenty-three finite proofs use `native_decide`; their generated native-code
+evaluation axioms extend the trust base beyond kernel-only checking. See
+[Lean/](Lean/).
 
 The rest of this README is the architecture those receipts come from.
 

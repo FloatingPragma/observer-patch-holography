@@ -6,14 +6,17 @@ normal forms, coupling algebra, the screen/trichotomy arithmetic, and the
 exact algebraic/compositional kernel of the typed Einstein branch. It also
 checks the finite de Sitter capacity-transfer identities, the eigenvalue signs
 of the declared analytic Hessian action, and the pure-de-Sitter shock
-normalization. Lean checks those formal statements exactly. Continuum geometry,
-asymptotic tails, physical identification, and existence of an
+normalization. The source contains no admitted proofs. Twenty-three finite
+proofs use `native_decide`, whose generated native-code evaluation axioms are
+tracked by `tools/check_lean_native_decide_inventory.py`; the other audited
+proofs state their axiom dependencies in their module reports. Continuum
+geometry, asymptotic tails, physical identification, and existence of an
 Einstein-admissible source tower are explicit premises rather than proved
 facts.
 
 ## Layout
 
-One Lake workspace, four libraries, one directory each:
+One Lake workspace, six Lean libraries across their source directories:
 
 ```text
 Lean/
@@ -24,8 +27,13 @@ Lean/
 ├── EventAlgebra.lean
 ├── EventAlgebra/                       neutral finite event algebras
 │                                       (journal artifact, Mathlib-only)
+├── Thermodynamics/                     finite repair thermodynamics and
+│                                       Einstein first-law premise links
 ├── Screen/                             OPHScreen library: icosahedral screen
 │                                       arithmetic, A5 corpus, trichotomy
+├── Dynamics.lean
+├── Dynamics/                           OPHConstruction reusable dynamics
+│                                       interfaces
 ├── ObservableNormalForms/              standalone neutral submission package
 │                                       (own lakefile; also built here)
 ├── docs/                               proof indices and application notes
@@ -73,6 +81,7 @@ continuous integration recreates it as a real directory.
 - `docs/PROOF_INDEX.md`: proof-to-paper mapping and formalisation status
 - `docs/LIBRARY_GUIDE.md`: scope and module guide for the main library
 - `docs/EINSTEIN_BRANCH_INDEX.md`: Einstein-branch statement audit
+- `docs/B5_WARD_BRIDGE.md`: finite continuity and Ward-premise boundary
 - `docs/BRIDGE_BOUNDARY_INDEX.md`: cross-paper boundary map
 - `docs/BOUNDARY_FIBER_APPLICATION.md`: #304 application note
 - `ObservableNormalForms/README.md` and its `PROOF_INDEX.md`: manuscript

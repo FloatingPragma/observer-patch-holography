@@ -236,8 +236,18 @@ surface for the OPH consensus layer. Contents:
   tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
   ("Finite event algebras"); Mathlib friction log in
   `EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
+- An admission-free **B5 finite conservation package**:
+  `Screen/RegionalContinuity.lean` proves the exact regional and global
+  balance laws with the seam boundary treated as net inflow;
+  `Screen/DiscreteGauss.lean` proves neutral-load solvability and identifies
+  the full solution fibre with an affine translate of the
+  nineteen-dimensional cycle kernel; `Dynamics/ProtectedCharge.lean` gives
+  the reusable dual-channel fixed-observable criterion. These are finite
+  incidence and linear statements. Physical stress-energy realization and
+  the continuum Ward identity remain explicit inputs. See
+  `B5_WARD_BRIDGE.md`.
 
-What is **not** yet present and is the target:
+The open foundational endpoint is:
 
 > **Proposition 4.2 (Fixed-point reading of reality).** Define the public
 > world as the quotient-normal form `World = NF(x) / ∼_gauge`, where `NF(x)`
@@ -247,28 +257,19 @@ What is **not** yet present and is the target:
 > When OPH confluence and completeness conditions hold, this terminal public
 > state is independent of update schedule on the physical quotient.
 
-A theorem-grade Lean statement matching Prop 4.2 requires:
+`Primitives.lean` supplies `OPHCarrier.Patch`, `Records`, `Obs`, `Site`, the
+local accepted-step relation, a choice-canonical terminating `Repair`, the
+exact mismatch potential `Φ`, gauge equivalence, its equivalence proof, and
+repair congruence. It also proves strict descent, reachability, normal-form
+production, and termination. `Confluence` and `Completeness` are typed
+properties rather than universal conclusions.
 
-- `World`, `Records`, `Repair`, `Patch`, `Obs`, and the local accepted
-  repair-step relation as concrete Lean structures matching paper
-  Definition 4.1 and the OPH preliminaries. Note: several names are TeX
-  macros in *Paradise* (lines 28–31) whose structural content lives in the
-  companion paper *Reality as a Consensus Protocol*; i.e. the target is
-  **paper-incomplete** as well as Lean-incomplete.
-- The mismatch potential `Φ : Records → NNReal` with the paper's concrete
-  formula `Φ(x) = Σ_e w_e · d_e(π_{i,e}(x_i), π_{j,e}(x_j))`
-  (*Paradise* line 300).
-- The gauge equivalence `∼_gauge` on declared observable overlap data,
-  proved an equivalence relation AND a `Repair`-congruence (required by
-  Prop 4.2 sentence 2's "on the physical quotient" clause).
-- `NF` defined as the terminal state of accepted repair built from local
-  recovery moves (line 297), with those local repairs composed under the
-  asynchronous update schedules used by the consensus companion.
-- OPH-specific Lyapunov descent/termination, `Confluence`, and
-  `Completeness` obligations as Lean definitions (Prop 4.2 hypothesis,
-  line 326, with details supplied by the consensus companion).
-- Schedule independence on the physical quotient, transferring the
-  abstract-rewriting confluence result to the structured OPH setting.
+A theorem-grade statement matching Proposition 4.2 requires the
+paper-level public `World` quotient of terminal normal forms by gauge, its
+fixed-point theorem, and schedule independence on the physical quotient under
+the explicit confluence and completeness premises. The abstract-rewriting
+result must be transferred to the structured OPH relation without replacing
+those premises by a deterministic schedule.
 
 The full quotient-normal-form theorem is work in progress as a single
 `World` statement. The abstract-rewriting module is the generic skeleton, while
@@ -283,15 +284,17 @@ tracker.
     lake exe cache get        # fetch pre-built Mathlib oleans
     lake build                # build the proof libraries and Screen modules
                               # (ObservableNormalForms, ObserverPatchHolography,
-                              #  EventAlgebra, OPHScreen)
+                              #  EventAlgebra, OPHThermodynamics, OPHScreen,
+                              #  OPHConstruction)
 
 The `Main` console entry point is optional and not part of the proof receipt;
 build it separately with `lake build oph:exe` if needed.
 
 Lean CI runs on pull requests and pushes that touch `Lean/**`, and can also be
 started manually. It builds from a cleaned project target, rejects admissions,
-global axioms, and `native_decide` in the Einstein-branch sources, and checks
-the per-theorem axiom audit.
+global axioms, and `native_decide` in the Einstein-branch sources. It checks
+the audited Einstein theorem subset and locks the repository-wide inventory
+of 23 compiler-trusted `native_decide` proofs.
 
 ## Provenance
 

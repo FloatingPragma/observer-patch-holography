@@ -6,8 +6,10 @@ disagreement.
 
 This repository contains:
 
-- a sorry-free Lean 4 library of more than 1800 checked theorems and lemmas, each public
-  theorem carrying a per-theorem axiom report;
+- a Lean 4 library of more than 1900 checked theorems and lemmas with no
+  admitted proofs; the audited theorem subset carries explicit axiom reports,
+  and 23 finite proofs extend trust to `native_decide`'s native-code evaluation
+  axiom;
 - reproducible finite simulations with an adversarial negative control;
 - machine-certified interval and uniqueness certificates for the declared
   numerical maps;
@@ -94,7 +96,7 @@ repository.
 
 | Status | Contents |
 | --- | --- |
-| Proved, machine-checked | More than 1800 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
+| Proved, machine-checked | More than 1900 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
 | Proved, certified numerics | Fixed-point existence and uniqueness for each declared $P$ map on the declared domain, via interval contraction and adaptive subdivision certificates |
 | Measured | The Einstein-cone convergence ladder above, with its adversarial density control |
 | Conditional | The strict one-loop W/Z pole map (proved and machine checked, fixture is a post-exposure regression), the $N$ extension, the $N$–Higgs bridge, and the $N_g=3$ selection; each conditional branch names its open producer |
@@ -116,9 +118,10 @@ exactly what is left.
    Find a declared map and a subdomain where the Lipschitz verdict or a
    majorant is wrong. One verified counterexample is a publishable result
    against the program.
-3. **Shrink a Lean premise.** Pick any public theorem, read its axiom report,
-   and remove or weaken a premise; or formalize one of the named open lemmas
-   in the [proof index](../Lean/docs/PROOF_INDEX.md).
+3. **Shrink a Lean premise.** Pick a theorem from the audited subset, read its
+   axiom report, and remove or weaken a premise. Another route is to add an
+   axiom report for an unaudited declaration or formalize one of the named
+   open lemmas in the [proof index](../Lean/docs/PROOF_INDEX.md).
 4. **Extend the convergence ladder.** Reproduce the $(2,2)$ density control,
    or run a rung above 262k carriers in
    [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim). The

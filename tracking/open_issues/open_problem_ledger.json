@@ -29,29 +29,25 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-08-03T22:04:13Z",
-  "open_issue_count": 49,
+  "generated_utc": "2026-08-04T19:05:57Z",
+  "open_issue_count": 28,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
     {
-      "blocker": "The finite matter packet fixes per-copy representation indices and the imported one-loop QFT functional gives a parametric beta law. Physical family and scalar multiplicities, the complete field census, ordered EFT intervals, thresholds, decoupling, scheme maps, Jacobians, term masks, deterministic remainders, and interval effects remain open.",
-      "chrome_policy": "Use only to audit a concrete same-branch RG and matching packet.",
-      "claim_level": "exact finite representation-index frontier; physical RG packet open",
-      "closure": "One target-clean source packet emits the complete same-branch RG, threshold, finite matching, scheme, Jacobian, mask, remainder, and interval data with independent replay and explicit imported-QFT provenance.",
-      "falsification": "A hidden threshold, scalar or family choice, scheme freedom, target-fitted remainder, or unbounded truncation is needed to recover a quantitative row.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:foundations",
+        "size:S"
       ],
-      "number": 32,
-      "phase": "particle-rg",
-      "title": "[RG source] Derive matching, thresholds, schemes, and remainders",
-      "updated_at": "2026-07-29T09:02:52Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/32"
+      "number": 674,
+      "phase": "unclassified",
+      "title": "[A0] Retarget RER tracking surfaces to the V2 plan",
+      "updated_at": "2026-08-04T16:04:08Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/674"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -60,39 +56,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:foundations",
+        "size:S"
       ],
-      "number": 34,
+      "number": 675,
       "phase": "unclassified",
-      "title": "[Higgs/top] Compose source-native pole verdicts",
-      "updated_at": "2026-07-29T09:02:54Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/34"
-    },
-    {
-      "blocker": "The exterior, anomaly, and finite Spin calculations consume a declared matrix-current fixture. No same-source producer selects the physical current action or matter representation.",
-      "chrome_policy": "Use only to audit a concrete same-source current/matter packet.",
-      "claim_level": "conditional finite matter fixture exact; physical source selection open",
-      "closure": "A source-passed current from #566 acts on a source-selected matter carrier and the same finite Spin implementers, with refinement commuting squares and adversarial controls.",
-      "falsification": "The declared exterior/Spin theorem fails internally, or every target-free source matter producer selects an incompatible action.",
-      "labels": [
-        "documentation",
-        "surface: particles",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "closeout:p1"
-      ],
-      "number": 314,
-      "phase": "standard-model-source-realization",
-      "title": "Proof packet: source-select the physical matter and Spin action",
-      "updated_at": "2026-07-30T17:47:30Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/314"
+      "title": "[A1] Time-and-order type ledger",
+      "updated_at": "2026-08-04T16:04:10Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/675"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -101,85 +72,15 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "documentation",
-        "surface: particles",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:foundations",
+        "size:M",
+        "optional"
       ],
-      "number": 315,
+      "number": 676,
       "phase": "unclassified",
-      "title": "[Strong CP] Derive or delimit the source topological phase",
-      "updated_at": "2026-07-29T09:12:46Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/315"
-    },
-    {
-      "blocker": "Issue #633 proves PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE. This bounded verdict is not a complete-domain theorem. The extended matter and scalar/Yukawa domains in #569 and #630 must select a physical transition. A source-derived gravity length or radius, Einstein attachment, common provenance graph, and outward interval composition into G_SI remain open.",
-      "chrome_policy": "Use only after #569 and #630 supply a physical transition and a concrete gravity-scale packet exists.",
-      "claim_level": "source clock plus gravity readout composition gap",
-      "closure": "A target-clean physical transition from the extended source domain and a source gravity readout compose on one branch into an independently replayed G_SI interval.",
-      "falsification": "The composition imports measured G, Planck units, a cosmological target, or incompatible clock and gravity provenance.",
-      "labels": [
-        "enhancement",
-        "surface: particles",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 334,
-      "phase": "gravity-scale-composition",
-      "title": "[Gravity scale] Compose the source clock and gravity readout into Newton constant",
-      "updated_at": "2026-07-29T09:02:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/334"
-    },
-    {
-      "blocker": "No single target-clean source-derived tower instantiates every geometry, modular, event, stress, entropy, vacuum, scale, and refinement premise. A finite direct N cannot supply that tower.",
-      "chrome_policy": "Use only to audit a complete local source tower; #589, not #503, owns any downstream cosmological comparison.",
-      "claim_level": "conditional Einstein theorem complete; inhabited source carrier open",
-      "closure": "Emit one inhabited common-domain Einstein/de Sitter tower with independent source provenance and certified tails, or the final bounded negative or not-evaluable verdict.",
-      "falsification": "The tower reads N, Lambda, a cosmological target, or a conclusion coordinate while constructing any source premise.",
-      "labels": [
-        "surface: compact",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p1"
-      ],
-      "number": 503,
-      "phase": "direct-n-physical-carrier",
-      "title": "[Einstein branch] Construct and certify one source-derived typed tower",
-      "updated_at": "2026-07-29T19:18:00Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/503"
-    },
-    {
-      "blocker": "The fixed-D=24 source checkpoint packet is complete, but #551 has not emitted one capacity-indexed source family with a regulator-stable unique slack zero or a complete stated-domain non-identifiability theorem.",
-      "chrome_policy": "Use only to audit the composed #551 packet and fixed-D primitives; do not substitute target-guided equation search.",
-      "claim_level": "direct source-only record-capacity integration target",
-      "closure": "Consume the #551 verdict and certify robust direct closure F_set,r,0(D_star)={D_star}, with capacity extension, refinement, whole-fiber, ambiguity, and target-exclusion controls kept distinct.",
-      "falsification": "The constructor reads an expected answer, a second admissible closure survives, capacity extension creates confusability, or the claimed cosmic value is imported from cosmology or the electroweak bridge.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p0"
-      ],
-      "number": 505,
-      "phase": "direct-n-capacity-closure",
-      "title": "[N closure] Prove robust source-only correctable public-record closure",
-      "updated_at": "2026-08-01T14:06:29Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/505"
+      "title": "[A2] Echosahedral carrier characterization (optional)",
+      "updated_at": "2026-08-04T16:04:13Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/676"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -188,42 +89,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles",
-        "program:core",
-        "resource:laptop",
-        "resource:external-data",
-        "exit:fixed-verdict",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 508,
+      "number": 677,
       "phase": "unclassified",
-      "title": "[Scientific audit] Replace the template flavor kernel and run a frozen neutrino likelihood",
-      "updated_at": "2026-07-29T09:02:59Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/508"
-    },
-    {
-      "blocker": "Exact collar counts do not select reserve weights, P/24, a weighted half, a generator coefficient, or an event-to-log-thickness clock scale.",
-      "chrome_policy": "Use only after a source generator and clock packet exists locally.",
-      "claim_level": "source generator and operational clock gap",
-      "closure": "One target-free source DAG emits the reserve weights, full-collar derivative, weighted orientation identity, and operational clock map consumed by the simulator.",
-      "falsification": "A second source-compatible weighting, generator, or clock scale survives every declared finite record and acceptance check.",
-      "labels": [
-        "enhancement",
-        "surface: continuation",
-        "dag:ready-now",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2"
-      ],
-      "number": 522,
-      "phase": "cosmology-source-clock",
-      "title": "[Cosmology] Emit the finite edge-center generator and clock certificate",
-      "updated_at": "2026-07-29T09:02:41Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/522"
+      "title": "[B1] Public record algebra and objectivity interface",
+      "updated_at": "2026-08-04T16:25:05Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/677"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -232,157 +105,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 528,
+      "number": 678,
       "phase": "unclassified",
-      "title": "[Einstein branch] Identify the vacuum reference and physical scale",
-      "updated_at": "2026-07-29T09:02:48Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/528"
-    },
-    {
-      "blocker": "The charged ratios and higher-order remainder in the interval lane have measured-target ancestry. The 100-decimal-digit certificate proves outward arithmetic enclosure conditional on those inputs; it does not emit a source-only Yukawa operator, determinant character, physical scale, or scheme.",
-      "chrome_policy": "Use the interval artifacts only as empirical-closure diagnostics; do not present them as prospective charged-lepton predictions.",
-      "claim_level": "target-anchored empirical closure with source landing open",
-      "closure": "A source-only physical charged Yukawa landing emits the centered operator, determinant line, labels, scale, and scheme with a no-target-leak dependency receipt.",
-      "falsification": "A claimed source-only landing depends on measured charged masses, current-family checksums, a target-calibrated remainder, or an unfixed determinant normalization.",
-      "labels": [
-        "enhancement",
-        "surface: particles",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 546,
-      "phase": "charged-lepton-physical-landing",
-      "title": "[Charged leptons] Derive the physical Yukawa landing and determinant attachment",
-      "updated_at": "2026-07-29T09:03:01Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/546"
-    },
-    {
-      "blocker": "The local carrier belongs to #631 and direct record capacity belongs to #505. Their source-branch composition does not yet derive the N-dependent electroweak balance law.",
-      "chrome_policy": "Use only after #505 and #631 emit their positive packets.",
-      "claim_level": "physical N-balance law open",
-      "closure": "Completed #505 and #631 packets are bound on one target-clean branch and derive the balance equation with refinement, ancestry, stability, and deletion controls.",
-      "falsification": "A nonzero balance residual is absorbed by redefining the carrier or capacity, or the equation is imposed rather than derived.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "priority: secondary-extension",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 547,
-      "phase": "n-dependent-electroweak-balance",
-      "title": "[N-Higgs bridge] Derive the N-dependent screen/electroweak balance law",
-      "updated_at": "2026-07-31T04:55:53Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/547"
-    },
-    {
-      "blocker": "The source corpus supplies a fixed-D checkpoint construction, not one target-clean rule D -> packet_r(D) -> M_0,r(D) with the exact subleading slack and regulator control.",
-      "chrome_policy": "Use for independent theorem or countermodel audit after a local capacity-indexed packet exists; local exact construction comes first.",
-      "claim_level": "capacity-indexed selector theorem-or-no-go",
-      "closure": "Prove existence, nontriviality, uniqueness, and cutoff independence of one slack zero, or give a complete same-antecedent counterfamily proving non-identifiability over the declared source class.",
-      "falsification": "A second zero, regulator-dependent zero, separately authored per-D fixture, target input, or admissible same-source counterfamily survives a claimed positive selector theorem.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p0"
-      ],
-      "number": 551,
-      "phase": "direct-n-capacity-closure",
-      "title": "[N closure selector] Derive the exact finite-size slack law and unique zero",
-      "updated_at": "2026-08-01T14:23:28Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/551"
-    },
-    {
-      "blocker": "The source artifact derives R=-J and response signs but contains no ordered current tomography, exact bracket reconstruction, or same-current closed overlap holonomy.",
-      "chrome_policy": "Use only to audit raw ordered histories and an executable verifier.",
-      "claim_level": "abstract A1/A2 Lie type forced; executable source current open",
-      "closure": "One target-free source packet reconstructs twelve generators, their closed bracket, all proper-carrier projective implementers, response-component membership, and refinement intertwiners.",
-      "falsification": "A model satisfying the explicit A1/A2 response premises has another compact Lie type, or the source producer cannot realize the forced type without importing a named current model.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "physics-problems",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "closeout:p0"
-      ],
-      "number": 566,
-      "phase": "standard-model-source-realization",
-      "title": "[12-port currents] Reconstruct the A1/A2 current from source tomography",
-      "updated_at": "2026-08-01T20:00:26Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/566"
-    },
-    {
-      "blocker": "The order-six axis class uses declared diagonal and zero-sum relations. Character completeness and a same-source loop-to-kernel identity are absent.",
-      "chrome_policy": "Use only to audit a concrete source character and loop packet.",
-      "claim_level": "declared-table Z6 kernel exact; physical global form open",
-      "closure": "A source-derived complete character/relation lattice and genuine line category identify the carrier loop with the common physical current and matter kernel, with alternative global forms rejected.",
-      "falsification": "Another source-admissible relation or transparent central action survives, or the loop map fails on an admitted character.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "physics-problems",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "closeout:p1"
-      ],
-      "number": 567,
-      "phase": "standard-model-source-realization",
-      "title": "[12-port global form] Derive the source character lattice and loop-to-kernel map",
-      "updated_at": "2026-07-31T04:55:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/567"
-    },
-    {
-      "blocker": "The family_band_attachment certificate proves the exact selection: among single complete faithful in-window multiplicity objects inside the screen coefficient space, the #625 operational cost order has the rank-three band as unique strict minimizer, selecting a finite rank-three candidate (Lean Screen/A5FamilyBand.lean, kernel-decided). The #599 simulator response artifact realizes the comparison clause, and the simulator pole-residue artifact realizes the realization clause for the response resolvent: the propagated dynamics has four pole clusters at the band costs, the rank-three frame residue sits at the lowest positive generator frequency (faithful, equivariant, Galois partner at the maximal pole), and the unitary channel conserves mode norms. The finite screen assembly has complex rank forty-five with the exact rank-15 generation factor imported. A conditional finite tensor construction recomputes the fifteen states and anomaly cancellation, fixes the diagonal Z6 action, and gives a nondegenerate chirality grading on the separate issue-314 twelve-port packet. The issue-634 local signed operator tensors with the rank-45 identity by a declared algebraic extension, which conditionally copies its exact positive dimensionless gap. This tensor extension is not source-selected. No source, domain, or transport bridge attaches the issue-314 spin packet to that local operator domain. This is not a physical matter-spectrum measurement. The #617 copy-count invisibility for external completions is unchanged. The bounded #627 classification also leaves the physical seam mechanism, character or 2-representation, and its line/flux action unselected.",
-      "chrome_policy": "Use the certificate for the exact selection only; never cite it as an unconditional three-family derivation.",
-      "claim_level": "exact finite rank-45 tensor candidate with separate spin and local-operator packets; physical attachment open",
-      "closure": "The matter-pole identification, physical Spin/locality bridge, third physical persistence leg, laboratory current attachment, exclusion of extra light sectors, and source-derived seam mechanism with its character or 2-representation identify the finite rank-45 response-resolvent realization with the physical matter-pole residue object and synchronize its line/flux action, or a countermodel separates them.",
-      "falsification": "A physical pole-residue object realized in the screen with a faithful in-window multiplicity object that is not the rank-three band, or a physical comparison order that violates the #625 operational cone, or a selected seam action conflicts with the canonical diagonal kernel or measured line/flux transport.",
-      "labels": [
-        "enhancement",
-        "physics-problems",
-        "surface: axiom-revision",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2"
-      ],
-      "number": 569,
-      "phase": "physical-family-attachment",
-      "title": "[Family attachment] Decide the physical pre-Yukawa family carrier and multiplicity",
-      "updated_at": "2026-08-01T14:31:32Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/569"
+      "title": "[B2] Publicization dynamics: averaging CP, two-scale semigroup, GKSL repair",
+      "updated_at": "2026-08-04T16:04:17Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/678"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -391,18 +121,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: continuation",
-        "program:continuation",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p2"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 579,
+      "number": 679,
       "phase": "unclassified",
-      "title": "[Cosmology] Instantiate the source-screen spectrum receipts on one finite DAG",
-      "updated_at": "2026-07-29T09:02:43Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/579"
+      "title": "[B3] Public/private dynamical dichotomy",
+      "updated_at": "2026-08-04T16:05:42Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/679"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -411,20 +137,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles",
-        "physics-problems",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 591,
+      "number": 680,
       "phase": "unclassified",
-      "title": "[Quark flavor] Construct the source-derived flavor carrier and orbit selector",
-      "updated_at": "2026-07-29T09:03:08Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/591"
+      "title": "[B4] Finite causality: dependency cone and no-signalling",
+      "updated_at": "2026-08-04T16:04:21Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/680"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -433,45 +153,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: particles",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:external-data",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p2",
-        "closeout:parallel"
+        "track:observer-laws",
+        "size:S"
       ],
-      "number": 593,
+      "number": 681,
       "phase": "unclassified",
-      "title": "[W/Z validator] Certify the strict one-loop external-SM pole receipt stack",
-      "updated_at": "2026-08-02T21:20:20Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/593"
-    },
-    {
-      "blocker": "Issue #646 has not emitted the minimal scale-free source contract, and the finite parents do not emit one target-clean action, complete W/Z-coupled census and Yukawa packet, FJ map, full RG/matching law, Lorentzian/Spin quantum-EFT transfer, or hermetic common-digest production replay. The physical-unit row is not evaluable on the declared clock interface.",
-      "chrome_policy": "Use only to audit a complete local source packet and replay bundle.",
-      "claim_level": "OPH-native source-to-pole packet open",
-      "closure": "Issue #646 first emits the minimal scale-free source-input or non-identifiability verdict. Issues #569, #630, #631, #632, #32, and #635 then emit final positive or negative source verdicts. Any positive native row is substituted into the validated #593 consumer without algorithm changes and replays one recomputed subject digest; both output rows must end in final positive, rigorous negative, or NOT_EVALUABLE verdicts.",
-      "falsification": "Any source choice, branch, tolerance, error budget, or producer depends on measured W, Z, Higgs, top, G_F, weak mixing, or a calibrated proxy.",
-      "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p3",
-        "closeout:parallel"
-      ],
-      "number": 594,
-      "phase": "physical-wz-source-to-pole",
-      "title": "[Physical W/Z] Replace imported validation inputs with an OPH-native source-to-pole packet",
-      "updated_at": "2026-08-02T21:19:57Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/594"
+      "title": "[B5] Conservation: continuity, discrete Gauss, protected charges",
+      "updated_at": "2026-08-04T16:04:23Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/681"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -480,110 +169,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p1",
-        "closeout:parallel"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 595,
+      "number": 682,
       "phase": "unclassified",
-      "title": "[Source law] Attain the five measured Einstein-branch clause targets",
-      "updated_at": "2026-07-29T16:25:01Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/595"
-    },
-    {
-      "blocker": "The finite capacity, shock operator, and exact graph spectrum lack source-derived gauge, kinetic, response-coefficient, and physical-scale attachments.",
-      "chrome_policy": "Use for independent audit only after a local attachment packet exists.",
-      "claim_level": "physical identification gap",
-      "closure": "One source-derived packet fixes the de Sitter gauge mode, Laplacian normalization, ledger-to-source dictionary, response coefficient, and physical length scale.",
-      "falsification": "The required source-derived attachments give the wrong shock sign or fail to reproduce the physical de Sitter mode spectrum.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "priority: secondary-extension",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 608,
-      "phase": "de-sitter-physical-attachment",
-      "title": "[de Sitter shock] Derive gauge, kinetic, and response-coefficient attachments",
-      "updated_at": "2026-07-29T09:03:11Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/608"
-    },
-    {
-      "blocker": "Finite current, matter, global-form, family, and negative-control receipts classify conditional operator spaces but select no physical scalar, normalized potential, vacuum, complete Yukawa matrices, or FJ map.",
-      "chrome_policy": "Use only to audit a positive source-action packet; retain all negative controls.",
-      "claim_level": "bounded non-promoting frontier; positive scalar/Yukawa action open",
-      "closure": "One target-clean local source action emits the scalar carrier, kinetic normalization, stable potential and vacuum, complete Yu/Yd/Ye, and a symbolic v_chart-to-v_F map with scheme and uncertainty.",
-      "falsification": "The positive action cannot distinguish the registered scalar and Higgs/top countermodels or imports a measured particle target.",
-      "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:integration",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 630,
-      "phase": "electroweak-source-action",
-      "title": "[EW source integration] Compose the scalar, Yukawa, and FJ source packets",
-      "updated_at": "2026-07-29T09:03:13Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/630"
-    },
-    {
-      "blocker": "The finite screen and weak order-unit lines admit a unique positive unital map, but no source receipt identifies them as one physical load or derives its normalization.",
-      "chrome_policy": "Use only after the #630 positive action and local carrier receipt exist.",
-      "claim_level": "finite line theorem closed; physical common-load attachment open",
-      "closure": "The positive #630 action supplies the weak/scalar line and one refinement-natural target-clean receipt identifies and normalizes the physical local screen/electroweak carrier.",
-      "falsification": "A second admissible physical carrier, broken refinement map, wrong normalization, or target/cosmological input survives the controls.",
-      "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 631,
-      "phase": "local-electroweak-carrier",
-      "title": "[EW carrier] Decide the physical screen-to-electroweak load attachment",
-      "updated_at": "2026-07-31T04:55:54Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/631"
-    },
-    {
-      "blocker": "The finite representation inventory does not prove that every omitted field or operator has an identically zero W/Z vertex across the selected source action and EFT intervals.",
-      "chrome_policy": "Use only to audit a complete census and zero-vertex packet.",
-      "claim_level": "complete W/Z-coupled census gap",
-      "closure": "A source-complete field and operator census is emitted with exact zero-vertex decoupling certificates for every excluded object and mutation tests for sterile or source-invisible direct sums.",
-      "falsification": "An omitted sector contributes to a W/Z self-energy, counterterm, threshold, mixing, or Yukawa vertex on an admissible completion.",
-      "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "closure",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
-      ],
-      "number": 632,
-      "phase": "electroweak-field-census",
-      "title": "[EW census] Prove the W/Z-coupled field and operator census modulo zero-vertex decoupling",
-      "updated_at": "2026-07-29T09:03:16Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/632"
+      "title": "[B6] Holonomy: finite Aharonov-Bohm, sectors, flux quantization",
+      "updated_at": "2026-08-04T16:05:44Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/682"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -592,20 +185,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: particles",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 635,
+      "number": 683,
       "phase": "unclassified",
-      "title": "[EW continuum] Certify the finite-source to Lorentzian quantum-EFT bridge",
-      "updated_at": "2026-07-29T09:03:18Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/635"
+      "title": "[B7] Histories: path Gibbs, least action, discrete Noether",
+      "updated_at": "2026-08-04T16:04:27Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/683"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -614,20 +201,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: particles",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 636,
+      "number": 684,
       "phase": "unclassified",
-      "title": "[EW scalar] Derive the source scalar action and vacuum branch",
-      "updated_at": "2026-08-02T18:25:43Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/636"
+      "title": "[B8] Transport: Green-Kubo, fluctuation-dissipation, diffusion",
+      "updated_at": "2026-08-04T16:04:29Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/684"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -636,19 +217,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:observer-laws",
+        "size:L"
       ],
-      "number": 637,
+      "number": 685,
       "phase": "unclassified",
-      "title": "[EW Yukawa] Emit the complete target-clean Yukawa matrices",
-      "updated_at": "2026-07-29T09:03:20Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/637"
+      "title": "[B9] Spectral information theory",
+      "updated_at": "2026-08-04T16:04:31Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/685"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -657,165 +233,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p3"
+        "track:observer-laws",
+        "size:S"
       ],
-      "number": 638,
+      "number": 686,
       "phase": "unclassified",
-      "title": "[EW FJ map] Derive the source-vacuum to FJ coordinate map",
-      "updated_at": "2026-07-29T09:03:22Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/638"
-    },
-    {
-      "blocker": "The first-ranked direct N candidate is ineligible: #551 and #505 remain open at the universal source-membership and direct-capacity antecedent, while #589 closed not evaluable. The pointer advances on the complete frozen #647 registry. No physically typed registry row has passed exposure classification, durable custody, minimum-power review, and single-use unsealing, and the scoring surface awaits its separately reviewed unsealing change with custody and exposure typing.",
-      "chrome_policy": "Use workers for adversarial ancestry and checker audits on the #647 inventory. Do not launch comparison evaluation until one attached packet passes the exposure, ranking, power, and freeze gates.",
-      "claim_level": "C1 static draft controls complete; C3 invariant registry, exposure typing, custody, and scoring open",
-      "closure": "Score at most one eligible attached dimensionless candidate under its prospective, blind-postdiction, or exposed-retrospective class, or close with the complete bounded no-go or not-evaluable ledger. Exploratory rows are catalog-only.",
-      "falsification": "An exposed target is called blind, producer strata become sequential second chances, a finite N bypasses #503/#589, minimum power or multiplicity is omitted, a post-unseal defect is repaired in place, or a composite failure is attributed to one auxiliary branch without an independent premise-isolation test.",
-      "labels": [
-        "surface: particles",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:fixed-verdict",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
-      ],
-      "number": 639,
-      "phase": "exposure-typed-dimensionless-forecast",
-      "title": "[Forecast custody] Freeze and score one exposure-typed dimensionless candidate",
-      "updated_at": "2026-08-02T21:19:58Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/639"
-    },
-    {
-      "blocker": "The exact finite character, cocharacter, and line-class arithmetic has no completed continuum or laboratory attachment, particle mass, production rate, or discovery-level comparison rule.",
-      "chrome_policy": "Use only to audit the exact finite discriminator and a read-only experimental crosswalk.",
-      "claim_level": "finite Z6 packet closed; laboratory discriminator open",
-      "closure": "Emit the exact charge and line-operator incompatibility packet, physicalization verdict, frozen decision rule, independent replay, and explicit nondetection boundary.",
-      "falsification": "A representation or line class is omitted, conventions are mixed, a source rate is invented, or experimental nondetection is counted as positive evidence without a predicted tested region.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:external-data",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p1",
-        "closeout:parallel"
-      ],
-      "number": 642,
-      "phase": "global-form-discriminator",
-      "title": "[Global-form test] Reconcile primitive Z6 provenance and line conventions; retain the exact conditional packet",
-      "updated_at": "2026-07-31T19:53:41Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/642"
-    },
-    {
-      "blocker": "The pinned FZ-02 theorem packet does not separately prove the registered level-three/level-six frame lock. The A5 action may be internal, and no source-forced nonzero sky statistic or physical screen-to-sky map exists.",
-      "chrome_policy": "Use only to audit the frozen statistic and comparison contract. Issue #639 alone may access and score the comparison payload.",
-      "claim_level": "finite branching and first invariant exact; frame lock and screen-to-sky observable open",
-      "closure": "Derive or remove the frame-lock clause, decide internal versus spatial action, and emit one nonzero rotation-controlled statistic with frozen foreground, covariance, trials, data manifest, and comparison contract for #639, or close with the exact no-go.",
-      "falsification": "Known low-multipole anomalies select the statistic or frame, a free amplitude is promoted, or A5 invariance shared by isotropy is treated as a differentiating prediction.",
-      "labels": [
-        "enhancement",
-        "surface: continuation",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "resource:external-data",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2"
-      ],
-      "number": 643,
-      "phase": "a5-angular-discriminator",
-      "title": "[A5 angular test] Promote the exact S2 support invariant into one observable statistic or prove transfer nonidentifiability",
-      "updated_at": "2026-08-01T14:06:39Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/643"
-    },
-    {
-      "blocker": "No carrier and response-law null ensemble is frozen, so the rarity of the finite gauge, quotient, matter, and family hit tuple is not computable.",
-      "chrome_policy": "Use only to audit a frozen local ensemble and independently recomputed full result table.",
-      "claim_level": "bounded alternative-carrier specificity score open",
-      "closure": "Freeze an exhaustive bounded grammar and equal algorithm budget, run every model, independently replay the full hit table, and emit the finite specificity or exact non-computability verdict.",
-      "falsification": "Models are added or removed after scoring, isomorphic duplicates remain, target-aware pruning occurs, or the OPH carrier receives a larger selector or repair budget.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p1",
-        "closeout:parallel"
-      ],
-      "number": 644,
-      "phase": "structural-specificity-audit",
-      "title": "[Compression audit] Exhaustively calibrate the twelve-port carrier fingerprint",
-      "updated_at": "2026-07-30T17:49:47Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/644"
-    },
-    {
-      "blocker": "The dependence of pole, width, residue, and asymmetry combinations on clock, vacuum scale, normalization, scheme, threshold, scalar, Yukawa, family, and continuum directions is not classified.",
-      "chrome_policy": "Use only to audit the local dependency/Jacobian packet and target-free invariant proof.",
-      "claim_level": "scale-free W/Z invariant or no-go open",
-      "closure": "Emit an exact or interval-certified invariant multi-output vector with its minimal source-input contract, or prove every frozen candidate remains non-identifiable.",
-      "falsification": "A cancellation holds only at one point, measured W/Z values select the combination, weak-angle schemes are mixed, or a surviving open direction is omitted.",
-      "labels": [
-        "enhancement",
-        "surface: particles",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
-      ],
-      "number": 646,
-      "phase": "electroweak-invariant-search",
-      "title": "[EW invariant] Decide scale-free W/Z pole and residue combinations",
-      "updated_at": "2026-08-02T21:20:21Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/646"
-    },
-    {
-      "blocker": "The source-feature, typed nuisance, source-admissible completion, candidate-specific baseline, end-to-end physicalization, and exposed-data registries are not complete, and no candidate has entered #639.",
-      "chrome_policy": "Use only for proof and ancestry audits against the frozen local grammar; #639 owns all comparison access and one-shot scoring.",
-      "claim_level": "systematic OPH-only observable mine open",
-      "closure": "Freeze deterministic ranking and the bounded grammar before candidate generation, certify each OPH model-image inclusion globally and each baseline non-inclusion by counterexample, repeat the nuisance audit after physicalization, then emit exposure-typed candidates or the complete negative verdict.",
-      "falsification": "A discrete branch is removed by a Jacobian, an exposed value influences mining, ranking remains discretionary, historical multiplicity or minimum power is omitted, direct N re-enters the fallback registry, or retrospective agreement is promoted to prospective survival. A composite failure cannot identify one auxiliary branch without an independent premise-isolation test.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "resource:external-data",
-        "exit:fixed-verdict",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
-      ],
-      "number": 647,
-      "phase": "oph-invariant-mining",
-      "title": "[Invariant mining] Derive OPH-only observable constraints before public-data comparison",
-      "updated_at": "2026-08-02T02:02:55Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/647"
+      "title": "[B10] Quantum limitation suite and finite matter corollaries",
+      "updated_at": "2026-08-04T16:05:45Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/686"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -824,22 +249,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2",
-        "closeout:parallel"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 652,
+      "number": 687,
       "phase": "unclassified",
-      "title": "[OPH-QM] Derive or bound the algebra-state representation of completed records",
-      "updated_at": "2026-08-01T14:06:46Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/652"
+      "title": "[B11] Finite Born frame on the twelve-port event set",
+      "updated_at": "2026-08-04T16:04:35Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/687"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -848,95 +265,14 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles",
-        "dag:ready-now",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2",
-        "closeout:parallel"
+        "track:observer-laws",
+        "size:M"
       ],
-      "number": 653,
+      "number": 688,
       "phase": "unclassified",
-      "title": "[Gauge identification] Realize a bosonic sector category and decide the packet-sector commuting square",
-      "updated_at": "2026-07-31T20:22:14Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/653"
-    },
-    {
-      "blocker": "The response-selected record completion carries a faithful isometric action of all sixty proper carrier maps, and the declared finite recharting maps obey their exact cocycle. These maps act on one local completion and do not prove cofinal scale gluing. The finite source packet has an exact relabelling into the primitive twelve-port frame, and the declared paired-difference operator has the frozen cosine symbol on an auxiliary continuous R3 field. A1 through A3 do not source-select that vertex operator, derive a physical propagation sector or time equation, attach the auxiliary field to laboratory readout, or prove exclusivity. A3 fixes the normalized port-state weights, and complete directed support on an admitted antipodal frame derives reciprocity, but no theorem identifies state weights with kinetic hop rates or excludes generated multi-range terms. The exact normalized one-range/two-range family changes C4 while preserving the other declared kinematic symmetries. The physical carrier scale is the separate #664 gate. FZ-11 failure therefore scores the named branch and not the framework.",
-      "chrome_policy": "Use only for the bridge/exclusivity theorem or its bounded no-go; the frozen prediction content may not change.",
-      "claim_level": "frozen prospective branch prediction FZ-11 and exact conditional continuous-R3 scalar translation adapter; faithful proper-carrier isometric action and finite recharting cocycle attained; source selection of the vertex operator, physical attachment, time evolution, sector identification, and exclusivity open",
-      "closure": "Prove that the axioms force the real, reciprocal, direct-first-hop primitive-port cosine branch uniquely, including the state-to-hop action map, for one physical propagation sector, or record a bounded non-forcing/no-go verdict; a positive proof escalates the FZ-11 failure scope to the framework.",
-      "falsification": "Under the frozen FZ-11 rule at five standard deviations: an isolated intrinsic positive C4; an isolated intrinsic anisotropic coefficient at ranks one through five; linked B0, B6, or the rigid rotated I6 vector excluded after resolved negative C4; or exclusion of the complete branch manifold with B0/C4^2 = 10/21 and B6/C4^2 = 32/315.",
-      "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
-      ],
-      "number": 655,
-      "phase": "physical-branch-bridge",
-      "title": "[FZ-11 physical bridge] Decide whether the frozen primitive twelve-port propagation prediction is forced and exclusive",
-      "updated_at": "2026-08-03T15:43:28Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/655"
-    },
-    {
-      "blocker": "The source does not emit a quotient-visible uniform-density cut or identify its positive collar readout with the physical spatial-volume ratio. Physical rechart covariance, conserved stress, adiabaticity, shear and gradient control, freeze-out transfer, isocurvature, and phase coherence remain open.",
-      "chrome_policy": "Use only for source and transfer audits. Do not access cosmological comparison data before the complete bridge enters the frozen registry.",
-      "claim_level": "exact conditional determinant and positive-volume-ratio kernel; native physical curvature attachment open",
-      "closure": "Construct and replay the native positive-volume readout and the uniform-density, stress, adiabatic, and transfer premises needed to invoke the Lean q=zeta implication, or emit a bounded counterexample or exact not-evaluable boundary.",
-      "falsification": "A source-attached positive readout whose volume ratio disagrees with the curvature scalar on the declared uniform-density class rejects the bridge; determinant algebra alone is not a physical test.",
-      "labels": [
-        "enhancement",
-        "surface: continuation",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "exit:theorem-or-no-go",
-        "campaign:constraint-closeout",
-        "closeout:p2",
-        "closeout:parallel"
-      ],
-      "number": 658,
-      "phase": "native-volume-readout-bridge",
-      "title": "[Cosmology] Construct the native volume-readout bridge from screen scalar to curvature perturbation",
-      "updated_at": "2026-08-02T02:30:14Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/658"
-    },
-    {
-      "blocker": "The finite registered ladder emits unit-counting events only through level five and does not derive their identity from canonical A1-A3 or provide a complete-tower repair semigroup. The continuum packet also lacks a physical equivariant/isometric multiplicity-one transfer, radial-copy exclusion, covariance or operational-response identification, and screen-to-observable readout.",
-      "chrome_policy": "Do not access comparison data. Use workers only for source replay, continuum certification, and physical-transfer review until #647 declares the existing slot eligible.",
-      "claim_level": "exact finite selection rule, registered levels-zero-through-five source declaration, and conditional nonzero continuum stiffness; complete source selection and physical transfer open",
-      "closure": "Extend the registered ladder to a complete source law or freeze the equal-seam law as an explicit auxiliary premise; construct an operational stiffness response or a uniformly coercive inverse; then prove one physical angular transfer or record a bounded typed exit. A positive chain may populate only the existing frozen a5_angular_rules slot in #647.",
-      "falsification": "A powered physical comparison is ineligible until the source and transfer gates close. After a frozen physical map, exclusion of the declared nonzero normalized rank-six interval rejects that complete mapped branch without licensing a replacement statistic.",
-      "labels": [
-        "enhancement",
-        "surface: continuation",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
-      ],
-      "number": 659,
-      "phase": "conditional-angular-discriminator",
-      "title": "[A5 residual] Certify the bipolar L=6 selection rule and decide the continuum residual blindly",
-      "updated_at": "2026-08-03T16:17:24Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/659"
+      "title": "[B12] Thermodynamic physical receipts continuation",
+      "updated_at": "2026-08-04T16:04:37Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/688"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -945,23 +281,15 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: continuation",
-        "dag:ready-now",
-        "priority: secondary-extension",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p2",
-        "closeout:parallel"
+        "track:geometry",
+        "size:M",
+        "parked"
       ],
-      "number": 660,
+      "number": 689,
       "phase": "unclassified",
-      "title": "[Common reserve] Run the staged capability, semantics, and operator audit in the simulator",
-      "updated_at": "2026-08-01T14:06:53Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/660"
+      "title": "[C1] Canonical Lorentz module",
+      "updated_at": "2026-08-04T16:25:06Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/689"
     },
     {
       "blocker": "Classify blocker from the live issue body.",
@@ -970,185 +298,199 @@
       "closure": "Add exact closure criterion to this ledger.",
       "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: particles",
-        "dag:ready-now",
-        "physics-problems",
-        "program:continuation",
-        "resource:small-sim",
-        "exit:theorem-or-no-go",
-        "closeout:parallel"
+        "track:geometry",
+        "size:L",
+        "parked"
       ],
-      "number": 661,
+      "number": 690,
       "phase": "unclassified",
-      "title": "[Charged-lepton candidate] Test a source-derived toroidal recurrent-field realization",
-      "updated_at": "2026-08-01T14:23:24Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/661"
+      "title": "[C2] Event-frame soldering contract",
+      "updated_at": "2026-08-04T16:04:42Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/690"
     },
     {
-      "blocker": "Issue #655 has not proved that the frozen primitive twelve-port propagation branch is physically attached. A nonzero signal could fit the amplitude after that bridge closes. Issue #664 has not supplied the same-action lower bound needed to make a null decisive. No target payload may be selected, opened, or scored before the applicable mode-specific dependencies and this issue's freeze and power gates pass.",
-      "chrome_policy": "Do not launch a comparison worker or inspect the target payload before #655 closes positively, the mode-specific #664 gate is resolved, and the sealed protocol hash is public.",
-      "claim_level": "dormant one-shot physical comparison; signal mode requires the #655 physical bridge, while powered-null mode also requires #664",
-      "closure": "After a positive #655 bridge, freeze one release, likelihood and covariance, nuisance treatment, exposure class, thresholds, and power; publish the commitment and score the unchanged FZ-11 branch exactly once. Require #664 only for powered-null activation. If the physical bridge has no positive exit, close this issue as not activated.",
-      "falsification": "At the frozen power threshold, an isolated intrinsic positive C4, an intrinsic anisotropic coefficient at ranks one through five, or exclusion of the complete rigid FZ-11 branch manifold rejects the physically attached branch.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:external-data",
-        "exit:fixed-verdict",
-        "campaign:constraint-closeout",
-        "closeout:p0"
+        "track:time",
+        "size:M",
+        "parked"
       ],
-      "number": 662,
-      "phase": "fz11-sealed-comparison",
-      "title": "[FZ-11 comparison] Run one sealed physical test after the primitive-port bridge closes",
-      "updated_at": "2026-08-02T16:00:07Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/662"
+      "number": 691,
+      "phase": "unclassified",
+      "title": "[D1] Observer histories, worldlines, and clock networks",
+      "updated_at": "2026-08-04T16:04:45Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/691"
     },
     {
-      "blocker": "The source loads map exactly onto the signed Z6 module, and conservative seam boundaries have the even-sum D6 image. Equipped with the pullback response-Gram metric, these modules share the rank-three completion. The conditional mean descends, while the nonlinear pathwise repair kernel does not. The basis does not derive a complete quotient-deduplicated primitive grammar, source counting as the A3 reference, full temporal PMF-simplex feasibility, adoption of the completion as physical position, a common refinement semigroup, or the coupled state-generator fixed point.",
-      "chrome_policy": "No physical target data. Use only for theorem, certificate, source, and basis-wide countermodel audits.",
-      "claim_level": "conditional finite-word KL schedule theorem, exact signed source-load quotient, D6 seam image, and response-metric completion attained; A1-R/A2-R source and adoption obligations open",
-      "closure": "Prove every A1-R/A2-R source, temporal, transition, refinement, and countermodel obligation before adopting the strengthening, or retain the surviving choice as an explicit branch premise or candidate extra axiom.",
-      "falsification": "Two inequivalent source-admissible grammars, schedules, transition laws, or refinement completions satisfying the same proposed clauses refute uniqueness on that declared class.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "surface: axiom-revision",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
+        "track:covariant-net",
+        "size:M",
+        "parked"
       ],
-      "number": 663,
-      "phase": "repair-law-adoption",
-      "title": "[Repair-law adoption] Close the A1-R/A2-R source-selection gate",
-      "updated_at": "2026-08-02T09:52:20Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/663"
+      "number": 692,
+      "phase": "unclassified",
+      "title": "[E1] Finite causal observer net",
+      "updated_at": "2026-08-04T16:04:47Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/692"
     },
     {
-      "blocker": "Each frozen coefficient ray leaves its branch action length free. The exact rescaling counterfamily preserves the dimensionless ray while varying that length, and neither A1 through A3, the capacity root P, nor the N closure selects the same-action geometric factor in a_b^2 = kappa_b P ell_*^2. The D6 seam translation has exact squared response-pullback norm 2-2/sqrt(5) after the pinned labeled source identification. Its conditional physical formula additionally assumes 12 a_cell = 4 pi s^2, a_vertex^2 = s^2, and a_seam(e)^2 = s^2 ||u_e||_G^2. No source theorem inhabits or uniquely selects those three premises. Port, face, and edge equal-area conventions give distinct coefficients. A scale or lower bound for one action does not transfer to the other. Without a source-certified same-action lower bound, a null result cannot exclude that branch because its signal can shrink with its action length.",
-      "chrome_policy": "No target comparison data. Use only for the source metric, dimensional attachment, lower-bound theorem, and independent calibration audit.",
-      "claim_level": "exact algebraic carrier-rescaling theorem, conditional port-shell metric candidate, normalized support-to-response-frame isometry, three-orbit ambiguity theorem, exact dimensionless seam-current norm, and an exact joint physical-metric attachment theorem under three named premises; source selection, dimensionful scale, and a same-action positive lower bound remain open for both frozen branches",
-      "closure": "Derive and replay a quotient-visible carrier-to-cell metric map that selects or rejects the named port-dual attachment against the face and edge alternatives; bind the surviving map separately to the exact action admitted by #655 or #666 and emit a physical interval or lower bound for that same action by a source-native theorem or independently calibrated attachment. Otherwise prove bounded nonidentifiability for each branch. Close only after both frozen branches receive a typed outcome.",
-      "falsification": "Two source-admissible physical metric attachments with different kappa_b, or an exact source rescaling that changes one action length while preserving every declared observable premise, refute unique scale selection on that class. After a same-action certified lower bound, a preregistered sufficiently powered null can reject only the attached branch.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
+        "track:covariant-net",
+        "size:L",
+        "parked"
       ],
-      "number": 664,
-      "phase": "branch-specific-carrier-scale",
-      "title": "[Carrier scale] Derive the primitive-cell metric attachment and positive lower bound",
-      "updated_at": "2026-08-02T18:35:20Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/664"
+      "number": 693,
+      "phase": "unclassified",
+      "title": "[E2] Joint refinement toward the locally covariant limit",
+      "updated_at": "2026-08-04T18:59:04Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/693"
     },
     {
-      "blocker": "The complete thirty-seam source current has exact D6 image. Under the pullback of the response-selected Gram metric, rather than the usual six-dimensional lattice metric, it has dense rank-three completion. The proper-carrier action is faithful. Record translations are exact isometries on the embedded D6 lattice and extend uniquely to its metric completion. A2-natural feasible/objective data plus an A3 unique minimizer force the source-counting convolution only under the separately declared complete-edge counting premise, which supplies weight 1/60. Its local generator satisfies the positive maximum principle, the exact carre-du-champ identity, and plane-wave diagonalization. A conditional rank-two oscillator gives omega_aux^2 = lambda_L and an exact zero mode without constructing Maxwell gauge structure, physical time, or a photon. The exact internal edge character is Lambda_int(k) = (6/a_edge^2) lambda_L(k). A separately assumed physical dilation gives Lambda_a(k) = (6/a^2) lambda_L((a/a_edge)k), and identifying Lambda_a with physical omega_phys^2 is another premise. The physical metric candidate in #664 also remains premise-typed. Exact data-free series arithmetic and a certified q <= 1 remainder map the frozen ray into formal radial and transverse velocity coefficients. The frozen edge relations are B0/C4^2 = 10/21 and B6/C4^2 = -2/63. The finite nonlinear repair kernel is state dependent and does not descend through the signed quotient. The internal convolution is not identified with a homogeneous physical position or field action, same-operator sector, clock, cofinal refinement, dimensionful scale, frame, analytic wave packet, or readout. A source-selected electroweak neutral channel would additionally require a certified (1,2)_(1/2) scalar and a nonzero neutral lower-component vacuum.",
-      "chrome_policy": "Do not access comparison data. Use workers only for the source action, physical attachment, scale, and independent proof audit.",
-      "claim_level": "exact source-current D6 image, canonical internal Markov/Dirichlet action, exact q <= 1 symbol remainder, conditional rank-two transverse oscillator with an exact zero mode, edge-orbit coefficient ray, data-free frequency/velocity map, exhaustive synthetic finite-sample stress test, and frozen FZ-12 conditional prediction; a physical Maxwell sector, clock, frame, scale, readout, and comparison eligibility remain open",
-      "closure": "Identify the exact internal homogeneous action with physical position and attach it to one source-selected physical sector with a physical clock, coherent frame and boost law, cofinal refinement, wave-packet readout, and nuisance contract, or record the precise bounded nonattachment. Direct time-of-flight uses do not require an electron or positron sector. Pair-production or decay-threshold uses require independent electron and positron dispersion and interaction kinematics. A nonzero-signal comparison may fit the amplitude after the applicable bridge closes. A branch-falsifying null also requires the same-action lower bound owned by #664. FZ-12 remains immutable in either case.",
-      "falsification": "After the physical observable and covariance gates are frozen, a nonzero signal can test the scale-free linked FZ-12 manifold while fitting its amplitude. The leading quadratic term alone is generic and does not distinguish FZ-12; the full ray requires linked higher-order or angular sensitivity. Exclusion by a null rejects the attached branch only if #664 supplies a same-action physical positive lower bound and the registered test has power over the complete admitted manifold. A branch failure is OPH-wide only after forcedness and exclusivity are proved.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "exit:bounded-campaign",
-        "campaign:constraint-closeout",
-        "closeout:p0"
+        "track:gravity",
+        "size:L",
+        "parked"
       ],
-      "number": 666,
-      "phase": "source-seam-edge-discriminator",
-      "title": "[Seam-current discriminator] Decide the source-native edge-current propagation branch",
-      "updated_at": "2026-08-03T15:43:30Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/666"
+      "number": 694,
+      "phase": "unclassified",
+      "title": "[F1] Einstein-branch continuation",
+      "updated_at": "2026-08-04T18:59:06Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/694"
     },
     {
-      "blocker": "Issue #666 has not identified the internal edge-current action with physical position, a photon or other field sector, physical clock, coherent frame and boost transport, cofinal gluing, an analytic validity domain, wave-packet readout, or a nuisance model. Published Fermi-LAT quadratic timing reach corresponds to roughly 4.2e8 Planck lengths and cannot test a Planck-scale FZ-12 amplitude. Its leading quadratic statistic is also generic. A photon threshold use needs electron and positron dispersion plus interaction and composition kinematics; #670 owns that near-Planck preflight. The exposed Pierre Auger limit is conditional on its proton-rich source scenario and supplies no OPH verdict.",
-      "chrome_policy": "The declared Auger projection may be audited as exposed retrospective data with no score. Do not inspect a prospective comparison payload until the physical bridge, freeze, nuisance, and power contracts pass.",
-      "claim_level": "frozen source-native edge ray with an exact data-free frequency and velocity map, certified q <= 1 remainder, and exhaustive synthetic coverage/power packet; the Fermi direct-timing contract is unarmed, the exposed Auger threshold projection is diagnostic only, and no physical FZ-12 comparison is eligible",
-      "closure": "Run the cheapest target-free power envelope before activating any data comparison. Continue only on a channel whose published or prospective exposure can distinguish a linked higher-order or angular FZ-12 feature after the applicable physical bridge closes. Otherwise close this issue as not activated and retain its exact source packet. Signal mode may fit the amplitude after the bridge closes. Powered-null mode additionally requires the same-action lower bound owned by #664.",
-      "falsification": "A resolved leading coefficient with the wrong sign rejects the attached negative-C4 branch, while agreement in that coefficient alone is generic. A full FZ-12 signal requires at least one linked higher-order coefficient or angular feature while fitting its amplitude. A null rejects the branch only with a same-action positive lower bound and registered power over the complete exact-symbol manifold. An outcome becomes OPH-wide only after forcedness and exclusivity are proved.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "resource:external-data",
-        "exit:fixed-verdict",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
+        "track:custody",
+        "standing"
       ],
-      "number": 667,
-      "phase": "fz12-physical-comparison",
-      "title": "[FZ-12 comparison] Bind and score the seam-current propagation signature",
-      "updated_at": "2026-08-02T21:21:37Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/667"
+      "number": 695,
+      "phase": "unclassified",
+      "title": "[G1] Custody and comparisons (standing)",
+      "updated_at": "2026-08-04T16:04:53Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/695"
     },
     {
-      "blocker": "The exposed Pierre Auger analysis constrains one alternative proton-rich Lorentz-violation scenario near the Planck scale, but its reference source scenarios do not supply the same bound and its shower response was not recomputed for the OPH ray. It is an exposed method fixture, not an OPH score. A valid threshold map requires independently sourced electron and positron dispersion, the conservation and composition law, pair-production and photon-decay interactions, source composition and backgrounds, atmospheric-shower propagation, detector classification, and a controlled exact-symbol remainder.",
-      "chrome_policy": "Do not inspect future event rows. The published Auger methods and exposed aggregate limits may be used only to construct and audit the target-free power and nuisance contract.",
-      "claim_level": "target-free near-Planck sensitivity work order; the exact photon-seam ray is frozen, while the electron/positron sector, interaction law, source and shower nuisances, and prospective power envelope are open",
-      "closure": "Before opening any future data rows, derive and independently replay the joint photon-lepton threshold equations, record every source, interaction, composition, shower, detector, and nuisance premise, and compute a target-free AugerPrime power envelope over the complete attached branch. Arm a separately frozen prospective comparison only if that envelope has registered near-Planck sensitivity to a linked FZ-12 feature; otherwise close as not activated with the exact source packet retained.",
-      "falsification": "Only a prospectively frozen, sufficiently powered outcome may reject the physically attached threshold branch. The result becomes OPH-wide only if source selection and exclusivity are proved. The existing exposed Auger rows cannot retrospectively falsify or confirm OPH.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "surface: compact",
-        "dag:ready-now",
-        "priority: quantitative-core",
-        "program:core",
-        "resource:laptop",
-        "resource:small-sim",
-        "resource:external-data",
-        "exit:fixed-verdict",
-        "campaign:constraint-closeout",
-        "closeout:p0",
-        "closeout:parallel"
+        "track:quantitative",
+        "size:L",
+        "parked"
       ],
-      "number": 670,
-      "phase": "fz12-uhe-threshold-preflight",
-      "title": "[FZ-12 UHE preflight] Derive the joint photon-lepton threshold and public-response exposure envelope",
-      "updated_at": "2026-08-02T21:20:22Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/670"
+      "number": 696,
+      "phase": "unclassified",
+      "title": "[H1] Constants closure program (final wave)",
+      "updated_at": "2026-08-04T18:59:07Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/696"
     },
     {
-      "blocker": "Five typed receipts stay open. The weighted local objective needs its declared global representation for both optimizer objects. The state and transition optimizers need one common source-derived quotient weight, and the transition matrix may not be manufactured from a desired equilibrium output. The source-derived collar transition matrix must pass the equal-fibre-row matrix receipt or equal the conditional resampling kernel. One modular charge must be identified with physical energy and a calibrated clock beyond the attained finite central-interface split. A continuum third law needs refinement-uniform gap and multiplicity control. The strict-descent settlement normalizer carries no entropy inequality and may not be substituted for the repair kernel.",
-      "chrome_policy": "No comparison data enters this issue. Workers handle Lean extension, certificate replay, and source-matrix receipt review only; no laboratory temperature or calorimetric value is consumed.",
-      "claim_level": "finite four-law package attained: state-side Axiom-3 projection is the Gibbs exponential family by the information-projection Pythagorean identity, transition-side projection onto the repaired-visible fibre is weighted conditional resampling, the kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges, relative entropy to the common reference contracts under repair, the exact first-law split carries its bilinear cross term, and the fixed-regulator third law gives the excited-mass bound with the ground-degeneracy entropy limit; Lean modules and the exact-rational certificate carry every statement",
-      "closure": "Certify each of the five receipts, reject one with a bounded countermodel, or type it not evaluable at its first missing producer. A positive THERMO-REALIZATION verdict consumes the equal-fibre-row matrix receipt of the consensus construction and may not construct the transition matrix from the target formula.",
-      "falsification": "A certified source collar matrix that fails the equal-fibre-row receipt while the physical reading is claimed, or distinct source references for the state and transition optimizers, voids the physical reading of the package; the finite theorems fall only with a failed exact statement on a finite instance.",
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
       "labels": [
-        "enhancement",
-        "surface: continuation",
-        "dag:ready-now",
-        "program:core",
-        "resource:laptop",
-        "campaign:constraint-closeout",
-        "closeout:parallel"
+        "track:quantitative",
+        "size:L",
+        "parked"
       ],
-      "number": 671,
-      "phase": "thermodynamic-completion",
-      "title": "[Thermodynamic completion] Certify the common-reference realization and energy-clock receipts for the finite four-law package",
-      "updated_at": "2026-08-03T22:04:12Z",
-      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/671"
+      "number": 697,
+      "phase": "unclassified",
+      "title": "[H2] Particle masses and mixings (final wave)",
+      "updated_at": "2026-08-04T16:04:57Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/697"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "track:foundations",
+        "size:M"
+      ],
+      "number": 698,
+      "phase": "unclassified",
+      "title": "[A3] Consensus-tower interface: the root object of the final construction",
+      "updated_at": "2026-08-04T16:25:04Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/698"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "track:foundations",
+        "size:M"
+      ],
+      "number": 699,
+      "phase": "unclassified",
+      "title": "[A4] Public-world quotient and fixed-point endpoint",
+      "updated_at": "2026-08-04T18:58:39Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/699"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "track:covariant-net",
+        "size:L",
+        "parked"
+      ],
+      "number": 700,
+      "phase": "unclassified",
+      "title": "[E3] Construct the locally covariant limit and time-slice property",
+      "updated_at": "2026-08-04T18:59:09Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/700"
+    },
+    {
+      "blocker": "Classify blocker from the live issue body.",
+      "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+      "claim_level": "open",
+      "closure": "Add exact closure criterion to this ledger.",
+      "falsification": "Add exact falsification criterion to this ledger.",
+      "labels": [
+        "track:covariant-net",
+        "size:L",
+        "parked"
+      ],
+      "number": 701,
+      "phase": "unclassified",
+      "title": "[E4] Structural QFT inheritance on the constructed observer net",
+      "updated_at": "2026-08-04T18:58:43Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/701"
     }
   ],
   "worker_policy": {

@@ -70,7 +70,7 @@ cryptographique et bandes d’élimination avant tout examen des données de
 comparaison, avec des règles fixes qui permettent leur réfutation par des
 mesures admissibles.
 
-## Huit reçus de physique reproductibles
+## Sept reçus de physique reproductibles
 
 Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
@@ -167,19 +167,7 @@ données et certificats :
    le [reçu fini d’attachement de matière](code/a5_closure/manifests/matter_attachment_receipt.json),
    la [preuve Lean de la sélection extérieure](Lean/Screen/ExteriorSelection.lean)
    et la [preuve Lean de la bande familiale](Lean/Screen/A5FamilyBand.lean).
-6. **Un écart spectral prouvé positif.** Une capture issue de la source et
-   sans donnée cible fournit un ordre causal exact, une topologie de coutures,
-   des sections typées, 38 triangles frustrés et un noyau tordu nul, et
-   l’opérateur signé déclaré vérifie $\lambda_{\min}\geq24^{-8661}>0$, soit
-   $0{,}1175367$ numériquement. Physiquement, cela voudrait dire que l’écran
-   n’a aucune excitation libre à coût nul, donc que le désaccord coûte toujours
-   quelque chose. Ce spectre de graphe signé est distinct du spectre de
-   réparation de jauge compacte et de l’écart de masse continu de Yang–Mills,
-   et il ne fournit ni horloge physique, ni masse de particule. Voir l’
-   [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
-   et le
-   [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-7. **La relation de Koide, avec un test gelé sur le tau.** Une réponse
+6. **La relation de Koide devient un théorème.** Une réponse
    hermitienne $C_3$ obéit à $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut
    exactement à $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non
    négatives. Sous les prémisses déclarées d’équilibre et d’ordre, les masses
@@ -192,19 +180,17 @@ données et certificats :
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-8. **Une empreinte gelée dans la façon dont les ondes se propagent.** La
+7. **Une empreinte gelée dans la façon dont les ondes se propagent.** La
    symétrie du porteur fixe l’action des ondes sur le même porteur
    tridimensionnel, ce qui cloue la relation de dispersion à des nombres
-   exacts, avec une seule longueur $a$ et rien à régler. Pour $q=ak$ et
-   $0\leq q\leq1$, l’arithmétique exacte donne
-   $(19/20)q^2\leq\widehat\Lambda\leq q^2$ et
-   $\lvert\widehat\Lambda-P_6\rvert\leq(7/388800)q^8$ pour
-   $P_6=q^2-q^4/20+(1/840-I_6/12600)q^6$, où $I_6$ est l’harmonique
-   icosaédrique de rang six. Physiquement, cela voudrait dire que
-   le vide porte un grain, donc que les ondes y avancent un peu moins vite à
-   courte longueur d’onde et que le premier effet dépendant de la direction
-   n’apparaît qu’au sixième ordre en impulsion, le long des axes icosaédriques.
-   La même action porte un oscillateur sans masse à deux polarisations, et sa
+   exacts, avec une seule longueur $a$ et rien à régler. L’arithmétique exacte
+   encadre le symbole entre $(19/20)q^2$ et $q^2$ sur le domaine unité et
+   borne son premier terme dépendant de la direction, au sixième ordre en
+   impulsion, par l’harmonique icosaédrique de rang six. Physiquement, cela
+   voudrait dire que le vide porte un grain : les ondes y avancent un peu
+   moins vite à courte longueur d’onde, et le premier effet dépendant de la
+   direction apparaît au sixième ordre, le long des axes icosaédriques. La
+   même action porte un oscillateur sans masse à deux polarisations, et sa
    borne supérieure interdit à ce photon de se désintégrer en paire
    électron-positron. Les coefficients et la règle de décision sont gelés sous
    garde cryptographique avant toute comparaison admissible, donc une mesure de
@@ -215,16 +201,24 @@ données et certificats :
    les preuves Lean de l’
    [action de Dirichlet](Lean/Screen/SeamCurrentDirichletGenerator.lean) et de l’
    [oscillateur transverse conditionnel](Lean/Screen/SeamCurrentFreePhotonLift.lean),
-   la [cinématique conditionnelle photon-leptons](Lean/Screen/SeamCurrentPhotonLeptonThreshold.lean),
-   le [reçu exact du rayon de coefficients](code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json),
-   le [reçu du reste sur le domaine unité](code/a5_fingerprint/runtime/fz12_full_symbol_remainder_receipt.json),
-   le [reçu du seuil conjoint](code/a5_fingerprint/runtime/fz12_joint_threshold_receipt.json),
-   le [reçu de récupération synthétique](code/a5_fingerprint/runtime/fz12_synthetic_recovery_coverage_receipt.json),
+   les [reçus exacts de coefficients et de restes](code/a5_fingerprint/runtime/),
    le [paquet de garde gelé](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
    l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md),
    ainsi que les contrats de
    [propagation physique](https://github.com/FloatingPragma/observer-patch-holography/issues/666)
    et de [comparaison](https://github.com/FloatingPragma/observer-patch-holography/issues/667).
+
+Un théorème distinct de graphe signé prouve que l’écran n’a aucune
+excitation libre à coût nul : une capture issue de la source et sans donnée
+cible fixe l’ordre causal, la topologie de coutures, les sections typées et
+38 triangles frustrés, et l’opérateur signé déclaré vérifie
+$\lambda_{\min}\geq24^{-8661}>0$, soit $0{,}1175367$ numériquement. Ce
+résultat est distinct du spectre de réparation de jauge compacte et de
+l’écart de masse continu de Yang–Mills, et il ne fournit ni horloge
+physique, ni masse de particule. Voir l’
+[article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
+et le
+[reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
 
 Un théorème fini distinct maximise l’entropie généralisée à $\log M$,
 donne le décalage exact du choc $\log(1-f)$ et fixe la relation de Sitter pure
@@ -243,8 +237,11 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 1800 théorèmes et lemmes, avec
-un rapport d’axiomes par théorème et aucune preuve admise. Voir [Lean/](Lean/).
+La bibliothèque Lean associée contient plus de 1900 théorèmes et lemmes et
+aucune preuve admise. Des rapports d’axiomes explicites couvrent le
+sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
+leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
+du noyau de Lean. Voir [Lean/](Lean/).
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 

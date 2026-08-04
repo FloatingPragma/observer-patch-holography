@@ -51,11 +51,17 @@ lean_lib «OPHScreen» where
     `PrimitivePortFrameQuotient, `PortGramRepairBand,
     `PortGramRepairCovariance, `PortGramA5Isometry,
     `RepairWordCarrierReadout, `SeamCurrentCarrierQuotient,
+    `RegionalContinuity, `DiscreteGauss,
     `SeamCurrentEdge30Moment, `SeamCurrentEdge30Remainder,
     `SeamCurrentHomogeneousAction,
     `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift,
     `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment,
     `SeamCurrentPhotonLeptonThreshold]
+
+@[default_target]
+lean_lib «OPHConstruction» where
+  srcDir := "."
+  roots := #[`Dynamics]
 
 lean_exe «oph» where
   root := `Main

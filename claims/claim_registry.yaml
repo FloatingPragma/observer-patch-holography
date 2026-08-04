@@ -688,7 +688,7 @@
       "status": "conditional_composed_theorem_nonemptiness_open",
       "claim_class": "branch_entry",
       "gates": [
-        595
+        694
       ]
     },
     {
@@ -737,8 +737,7 @@
       "status": "finite_theorems_closed__bounded_counterfamily_nonidentifiable__complete_source_membership_open",
       "claim_class": "conditional_implication",
       "gates": [
-        505,
-        551
+        696
       ]
     },
     {
@@ -836,9 +835,8 @@
       "status": "conditional_theorem__horizon_record_attachment_not_evaluable__source_capacity_open",
       "claim_class": "conditional_implication",
       "gates": [
-        503,
-        505,
-        551
+        694,
+        696
       ]
     },
     {
@@ -925,9 +923,7 @@
       "status": "conditional_time_advance_sign__capacity_horizon_Einstein_scale_and_coefficient_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        334,
-        595,
-        608
+        694
       ]
     },
     {
@@ -956,7 +952,7 @@
       "status": "exact_graph_spectrum__normalized_discrete_spectrum_conditional_on_DS_GAUGE_and_DS_LAPLACIAN__physical_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        608
+        694
       ]
     },
     {
@@ -1024,7 +1020,7 @@
       "status": "conditional_theorem_complete_finite_source_instantiation_work_in_progress",
       "claim_class": "conditional_implication",
       "gates": [
-        579
+        696
       ]
     },
     {
@@ -1063,8 +1059,8 @@
       "status": "SM_QFT_Q3_WZ_STRICT_FIXED_PARAMETER__COMMON_SCALE_QUOTIENT_EXACT__NORMALIZED_CORRECTIONS_NOT_SOURCE_SELECTED__NOT_OPH_NATIVE_PHYSICAL",
       "claim_class": "conditional_implication",
       "gates": [
-        593,
-        594
+        695,
+        697
       ]
     },
     {
@@ -1289,7 +1285,7 @@
       "status": "frozen_prospective_primitive_port_branch__current_source_nonselecting__physical_comparison_unarmed__stronger_bridge_open",
       "claim_class": "conditional_implication",
       "gates": [
-        655
+        696
       ]
     },
     {
@@ -1329,7 +1325,7 @@
     },
     {
       "claim_id": "OPH-THERMO-FOUR-LAW-PACKAGE",
-      "statement": "On one finite regulator stage the four laws of thermodynamics are theorems of the three axioms with typed physical attachments. Axiom 3 applies separately to states and transition distributions. The state-side information projection with a faithful reference and observer-visible conserved constraints is the exponential family, by the exact Pythagorean identity D(rho||sigma0)=D(rho||tau)+D(tau||sigma0) on the constrained moment surface; on the tracial branch this is the Gibbs family, and equality of intensive multipliers at additive contact is the zeroth law, transitive through any thermometer with two distinct levels. The transition-side information projection onto the fibre of the complete repaired visible datum is weighted conditional resampling from the same reference, P_C(x,y)=1[b(y)=b(x)] pi(y)/pi(F_C(x)), the weighted observation-fiber projector of the consensus construction. The kernel is stochastic, idempotent, satisfies detailed balance, leaves the reference stationary, and fixes every fibre-measurable observable, which is dynamical conservation of protected charges. Relative entropy to the reference is nonincreasing under every finite stochastic kernel with that stationary law, so D(p P_C || pi) <= D(p || pi) is the transition-side second law, with the modular Clausius theorem Delta S >= Delta<K>, K = -log tau, on tau-preserving channels through the exact split D(p||tau) = <K>_p - S(p), specializing to Delta S >= beta Q on the identified energy branch. The zeroth-law transitivity core is the thermometer theorem: a nondegenerate finite spectrum identifies its inverse temperature. The repair kernel preserves full support while the zero-temperature state is rank deficient, the finite-step unattainability mechanism, and the excited-mass bound carries the quantitative threshold beta Delta > log((d-g0)/(g0 eps)), with the block maximum-entropy bound pinning the Gibbs entropy to log g0 through the excited mass. The Landauer erasure bound is a corollary of the Clausius theorem: an entropy drop of c under a tau-preserving repair channel expels at least c/beta of energy. Convex mixtures of collar kernels stay stochastic and stationary, so random-scan repair inherits the package. The exact first-law split dU = deltaQ + deltaW carries its explicit bilinear cross term. At every finite regulator the excited Gibbs mass obeys q_beta <= ((d-g0)/g0) exp(-beta Delta), the entropy limit is log g0, and finitely many faithful repair or pinching steps cannot reach the rank-deficient zero-temperature state. Partition pinching is a completely positive trace-preserving channel with the partition projectors as their own Kraus family, and the record tower S(rho) <= S(pinched) <= S(averaged) separates conditioned learning from the nonselective commit. The deterministic strict-descent normalizer is a distinct map with no entropy inequality; the two-point counterexample is certified. The second-law inequality is the mean of a fluctuating entropy production sigma(x,y)=log(p(x)/pi(x))-log((pP_C)(y)/pi(y)) that satisfies the exact integral fluctuation identity <exp(-sigma)>=1 for every reference-preserving kernel, the pointwise detailed relation p(x)P_C(x,y)=exp(sigma)(pP_C)(y)P_C(y,x) under detailed balance, and its level-set form, with finite Onsager reciprocity of equilibrium time-lagged correlations; every one of these closes exactly over the rationals. The exact identity S(p)-S(tau)=<K>_p-<K>_tau-D(p||tau) makes the entanglement first law delta S=delta<K> a first-order corollary, and through the central split K=2 pi B+Z one repair step with a fibre-measurable central charge obeys the cap Clausius inequality 2 pi Delta<B> <= Delta S. The Einstein branch's finite first-law premise package is discharged on this model: on the simplex tangent space the entropy differential at the reference equals the modular pairing as a theorem, the modular pairing splits through K=2 pi B+Z, and the central pairing is the edge differential, so finite_bulk_edge_central_first_law applies with no assumed premise beyond the split of the reference; repair displacements are mass preserving with vanishing central pairing, so the first-order entropy change of repair is purely bulk-modular. The committed collar-matrix probe measures the realization receipt on the simulator's earned sixty-four-k quotient matrix: the source-produced kernel is row stochastic, conserves the record family exactly over every counted transition, and its reversibilized chain descends in relative entropy to its stationary law, while the raw chain stays reducible through freezeout. Five receipts stay open and owned by issue #671: the global objective representation, the common source-derived reference for both optimizers, the identification of the source collar matrix with the resampling kernel, the physical energy and clock calibration beyond the attained finite central-interface modular split, and refinement-uniform low-temperature control.",
+      "statement": "On one finite regulator stage the four laws of thermodynamics are theorems of the three axioms with typed physical attachments. Axiom 3 applies separately to states and transition distributions. The state-side information projection with a faithful reference and observer-visible conserved constraints is the exponential family, by the exact Pythagorean identity D(rho||sigma0)=D(rho||tau)+D(tau||sigma0) on the constrained moment surface; on the tracial branch this is the Gibbs family, and equality of intensive multipliers at additive contact is the zeroth law, transitive through any thermometer with two distinct levels. The transition-side information projection onto the fibre of the complete repaired visible datum is weighted conditional resampling from the same reference, P_C(x,y)=1[b(y)=b(x)] pi(y)/pi(F_C(x)), the weighted observation-fiber projector of the consensus construction. The kernel is stochastic, idempotent, satisfies detailed balance, leaves the reference stationary, and fixes every fibre-measurable observable, which is dynamical conservation of protected charges. Relative entropy to the reference is nonincreasing under every finite stochastic kernel with that stationary law, so D(p P_C || pi) <= D(p || pi) is the transition-side second law, with the modular Clausius theorem Delta S >= Delta<K>, K = -log tau, on tau-preserving channels through the exact split D(p||tau) = <K>_p - S(p), specializing to Delta S >= beta Q on the identified energy branch. The zeroth-law transitivity core is the thermometer theorem: a nondegenerate finite spectrum identifies its inverse temperature. The repair kernel preserves full support while the zero-temperature state is rank deficient, the finite-step unattainability mechanism, and the excited-mass bound carries the quantitative threshold beta Delta > log((d-g0)/(g0 eps)), with the block maximum-entropy bound pinning the Gibbs entropy to log g0 through the excited mass. The Landauer erasure bound is a corollary of the Clausius theorem: an entropy drop of c under a tau-preserving repair channel expels at least c/beta of energy. Convex mixtures of collar kernels stay stochastic and stationary, so random-scan repair inherits the package. The exact first-law split dU = deltaQ + deltaW carries its explicit bilinear cross term. At every finite regulator the excited Gibbs mass obeys q_beta <= ((d-g0)/g0) exp(-beta Delta), the entropy limit is log g0, and finitely many faithful repair or pinching steps cannot reach the rank-deficient zero-temperature state. Partition pinching is a completely positive trace-preserving channel with the partition projectors as their own Kraus family, and the record tower S(rho) <= S(pinched) <= S(averaged) separates conditioned learning from the nonselective commit. The deterministic strict-descent normalizer is a distinct map with no entropy inequality; the two-point counterexample is certified. The second-law inequality is the mean of a fluctuating entropy production sigma(x,y)=log(p(x)/pi(x))-log((pP_C)(y)/pi(y)) that satisfies the exact integral fluctuation identity <exp(-sigma)>=1 for every reference-preserving kernel, the pointwise detailed relation p(x)P_C(x,y)=exp(sigma)(pP_C)(y)P_C(y,x) under detailed balance, and its level-set form, with finite Onsager reciprocity of equilibrium time-lagged correlations; every one of these closes exactly over the rationals. The exact identity S(p)-S(tau)=<K>_p-<K>_tau-D(p||tau) makes the entanglement first law delta S=delta<K> a first-order corollary, and through the central split K=2 pi B+Z one repair step with a fibre-measurable central charge obeys the cap Clausius inequality 2 pi Delta<B> <= Delta S. The Einstein branch's finite first-law premise package is discharged on this model: on the simplex tangent space the entropy differential at the reference equals the modular pairing as a theorem, the modular pairing splits through K=2 pi B+Z, and the central pairing is the edge differential, so finite_bulk_edge_central_first_law applies with no assumed premise beyond the split of the reference; repair displacements are mass preserving with vanishing central pairing, so the first-order entropy change of repair is purely bulk-modular. The committed collar-matrix probe measures the realization receipt on the simulator's earned sixty-four-k quotient matrix: the source-produced kernel is row stochastic, conserves the record family exactly over every counted transition, and its reversibilized chain descends in relative entropy to its stationary law, while the raw chain stays reducible through freezeout. Five receipts stay open and owned by issue #688: the global objective representation, the common source-derived reference for both optimizers, the identification of the source collar matrix with the resampling kernel, the physical energy and clock calibration beyond the attained finite central-interface modular split, and refinement-uniform low-temperature control.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "finite_theorem_package_with_typed_physical_receipts",
       "assumptions": [
@@ -1367,7 +1363,7 @@
       "status": "finite_four_law_package_theorems_attained__five_physical_receipts_open",
       "claim_class": "conditional_implication",
       "gates": [
-        671
+        688
       ]
     },
     {
@@ -1450,9 +1446,8 @@
       "status": "exact_source_native_edge_ray_dirichlet_action_conditional_rank_two_transverse_oscillator_formal_observation_map_q_le_one_spatial_remainder_and_exact_synthetic_leading_recovery__higher_order_synthetic_pair_unresolved__fz12_frozen__physical_position_field_clock_frequency_gluing_scale_frame_readout_and_comparison_open",
       "claim_class": "conditional_implication",
       "gates": [
-        663,
-        666,
-        667
+        695,
+        696
       ]
     },
     {
@@ -1496,7 +1491,8 @@
       "status": "axiom_forced_abstract_lie_type__conditional_matrix_witness__source_realization_open",
       "claim_class": "conditional_implication",
       "gates": [
-        566
+        701,
+        697
       ]
     },
     {
@@ -1564,7 +1560,8 @@
       "status": "conditional_exact_matter_and_spin_fixture__physical_source_selection_open",
       "claim_class": "conditional_implication",
       "gates": [
-        314
+        701,
+        697
       ]
     },
     {
@@ -1598,6 +1595,39 @@
       "status": "proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower",
       "claim_class": "conditional_implication",
       "gates": []
+    },
+    {
+      "claim_id": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
+      "statement": "On the exact twelve-port, thirty-seam incidence graph, any declared pointwise update qNext-q=source+boundary(current) obeys regional load change = regional source - signed outward flux; internal seams cancel, and a zero-total source preserves total load on the closed graph. Over the rationals, a port load has a seam-flux solution exactly when its total is zero, one declared port-zero spanning-tree section constructs a solution, every two solutions differ by a cycle current, and the cycle kernel has dimension nineteen. For a finite real linear state map paired with an expectation-dual observable map, preservation of a charge expectation on every signed state is equivalent to the dual fixed-point equation. A nonzero two-state control proves that channel covariance under a nontrivial swap does not imply conservation. These statements are finite algebraic precursors. They neither construct the continuity update nor identify load, current, update order, charge, or stress-energy physically. Continuum Ward use requires a mathematically nondegenerate WardLimitManifest together with concrete source, transport, chart, and common-tower evidence on one directed cofinal tower.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "exact_finite_conservation_precursor_with_typed_continuum_manifest",
+      "assumptions": [
+        "declared_finite_continuity_update",
+        "finite_expectation_duality",
+        "finite_continuity_to_ward_manifest"
+      ],
+      "imported_results": [
+        "finite_oriented_graph_incidence",
+        "finite_dimensional_rank_nullity",
+        "finite_pairing_nondegeneracy"
+      ],
+      "oph_specific_delta": "The source-selected seam incidence is connected to exact regional continuity and Gauss fibres, while the reusable dual-channel theorem states the precise conservation criterion and an explicit covariance counterexample blocks symmetry slogans from being promoted to Ward conservation. The continuum handoff has fixed nonzero, cofinal, real-convergence, and nontrivial-residual guards; its source and physical realization evidence remain F1 obligations.",
+      "novelty_type": "source_incidence_conservation_with_typed_ward_promotion_boundary",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "Lean/Screen/RegionalContinuity.lean",
+        "Lean/Screen/DiscreteGauss.lean",
+        "Lean/Dynamics/ProtectedCharge.lean",
+        "Lean/Dynamics/WardLimitManifest.lean",
+        "Lean/docs/B5_WARD_BRIDGE.md"
+      ],
+      "falsifier": "The finite claim fails if the regional sign identity, closed-graph conservation, neutral-load solvability equivalence, nineteen-dimensional cycle ambiguity, push-pull duality, fixed-charge equivalence, or two-state covariance counterexample fails. The physical promotion fails if a Ward claim bypasses the nondegenerate WardLimitManifest conditions or lacks concretely defined and evidenced source, transport, chart, and common-tower relations.",
+      "scope_if_false": "The B5 finite conservation bridge or its promotion boundary falls. The underlying seam-image theorem, thermodynamic data-processing package, and conditional Einstein tensor-completion implication remain separately assessable.",
+      "status": "finite_incidence_gauss_and_dual_charge_criteria_proved__physical_ward_bridge_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        694
+      ]
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
@@ -1635,8 +1665,8 @@
       "status": "conditional_D7_D9_tannaka_chain__declared_table_z6_kernel_exact__physical_global_form_open",
       "claim_class": "conditional_implication",
       "gates": [
-        567,
-        569
+        701,
+        697
       ]
     },
     {
@@ -1708,7 +1738,7 @@
       "status": "exact_positive_chamber_circulant_identity_and_conditional_finite_GNS_balance_closed__physical_chiral_attachment_phase_and_ratios_open__MCPR_near_hit_diagnostic",
       "claim_class": "conditional_implication",
       "gates": [
-        546
+        697
       ]
     },
     {
@@ -1772,7 +1802,7 @@
       "status": "exact_C3_C5_double_degeneracy_and_C2_projective_two_parameter_boundary_closed__screen_derived_A5_invariant_potential_open",
       "claim_class": "conditional_implication",
       "gates": [
-        591
+        697
       ]
     },
     {
@@ -1826,10 +1856,8 @@
       "status": "axiom_forced_standard_model_lie_type__conditional_matrix_matter_z6_and_rank45_witnesses__source_and_physical_attachments_open",
       "claim_class": "conditional_implication",
       "gates": [
-        566,
-        314,
-        567,
-        569
+        701,
+        697
       ]
     },
     {
@@ -1924,8 +1952,7 @@
       "status": "local_P_physical_map_open__direct_N_not_evaluable_incomplete_source_antecedent",
       "claim_class": "declared_structure",
       "gates": [
-        505,
-        551
+        696
       ]
     },
     {
@@ -2015,7 +2042,7 @@
       "status": "weak_multiplicity_and_abstract_order_unit_map_closed__physical_common_load_and_direct_capacity_open",
       "claim_class": "conditional_implication",
       "gates": [
-        547
+        696
       ]
     },
     {
@@ -2043,9 +2070,8 @@
       "status": "rate_no_go_and_declared_domain_nonidentifiability_proved__extended_physical_clock_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        569,
-        630,
-        522
+        691,
+        697
       ]
     },
     {

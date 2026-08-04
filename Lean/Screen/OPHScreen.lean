@@ -25,6 +25,8 @@ import PortGramRepairCovariance
 import PortGramA5Isometry
 import RepairWordCarrierReadout
 import SeamCurrentCarrierQuotient
+import RegionalContinuity
+import DiscreteGauss
 import SeamCurrentEdge30Moment
 import SeamCurrentEdge30Remainder
 import SeamCurrentHomogeneousAction

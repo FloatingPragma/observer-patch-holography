@@ -36,8 +36,13 @@ CLAIM_FILES = [
     REPO_ROOT / "extra" / "compact_proof_of_oph.tex",
 ]
 
-# Public declarations only: a leading `private` keeps the line from matching.
-DECL_RE = re.compile(r"^\s*(?:theorem|lemma)\s", re.MULTILINE)
+# Public declarations only: same-line attributes and public modifiers are
+# accepted, while a leading `private` keeps the declaration from matching.
+DECL_RE = re.compile(
+    r"^\s*(?:@\[[^\]\n]*\]\s*)*(?:(?:protected|noncomputable)\s+)*"
+    r"(?:theorem|lemma)\s",
+    re.MULTILINE,
+)
 
 # "more than 700 ... theorems" / "plus de 700 ... théorèmes"; the noun must
 # follow within a few words so unrelated numbers never match.

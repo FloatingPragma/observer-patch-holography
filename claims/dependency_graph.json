@@ -70,7 +70,8 @@
     "OPH-PARADISE",
     "OPH-UNIFIED-TYPED-SPINE",
     "OPH-GR-D6-A5-FINITE-CONTROL",
-    "OPH-THERMO-FOUR-LAW-PACKAGE"
+    "OPH-THERMO-FOUR-LAW-PACKAGE",
+    "OPH-FINITE-CONSERVATION-WARD-PRECURSOR"
   ],
   "edges": [
     {
@@ -642,6 +643,16 @@
       "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
       "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
       "role": "independent finite packages on the same axioms; the thermodynamic kernel and the propagation branches share the source reference question but neither gates the other"
+    },
+    {
+      "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "to": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
+      "role": "supplies the exact twelve-port, thirty-seam incidence carrier; the pointwise continuity update and every physical identification remain explicit premises"
+    },
+    {
+      "from": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
+      "to": "OPH-GR-D4C-LOCAL-STRESS",
+      "role": "supplies only the finite Ward precursor and typed promotion manifest; stress realization, weak convergence, covariance, and the continuum Ward identity remain F1 receipts"
     }
   ]
 }

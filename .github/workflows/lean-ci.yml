@@ -12,6 +12,7 @@ on:
       - "code/audit/test_fz_registry_gates.py"
       - "docs/FROZEN_PREDICTION_LADDER.md"
       - "tools/build_fz_registry.py"
+      - "tools/check_lean_native_decide_inventory.py"
       - ".github/workflows/lean-ci.yml"
   pull_request:
     paths:
@@ -23,6 +24,7 @@ on:
       - "code/audit/test_fz_registry_gates.py"
       - "docs/FROZEN_PREDICTION_LADDER.md"
       - "tools/build_fz_registry.py"
+      - "tools/check_lean_native_decide_inventory.py"
       - ".github/workflows/lean-ci.yml"
 
 jobs:
@@ -200,6 +202,9 @@ jobs:
             echo "Unexpected sorryAx in the Einstein-branch audit." >&2
             exit 1
           fi
+
+      - name: Check native_decide trust inventory
+        run: python3 tools/check_lean_native_decide_inventory.py
 
       - name: Replay FZ-11 primitive-port axiom audit
         run: python3 tools/build_fz_registry.py --check --verify-fz11-lean
