@@ -7,6 +7,7 @@ import ObservableNormalForms.Functional
 import ObservableNormalForms.Stochastic
 import ObservableNormalForms.ConditionalResampling
 import ObservableNormalForms.Examples.Rule90
+import ObservableNormalForms.Moduli
 
 /-!
 # Axiom audit
@@ -74,3 +75,19 @@ open ObservableNormalForms
 #print axioms Rule90.read01_injective_on_image
 #print axioms Rule90.read02_not_injective_on_image
 #print axioms Rule90.no_total_reverse_repair
+#print axioms residualModulus_mono
+#print axioms residualModulus_zero
+#print axioms residualModulus_le_of_errorBoundWitness
+#print axioms errorBoundWitness_residualModulus
+#print axioms inverseModulus_mono
+#print axioms inverseModulus_le_of_inverseObservationBound
+#print axioms inverseObservationBound_inverseModulus
+#print axioms inverseModulus_zero_iff_injOn
+#print axioms exists_separation_radius
+#print axioms intrinsic_two_output_estimate
+#print axioms settledModulus_le_symmetric_bound
+#print axioms rate_transfer
+#print axioms settledModulus_zero_residual
+#print axioms SharpnessWitness.symmetric_bound_attained
+#print axioms SharpnessWitness.coefficient_two_sharp
+#print axioms NegativeControl.bound_not_attained
