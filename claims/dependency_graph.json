@@ -71,7 +71,10 @@
     "OPH-UNIFIED-TYPED-SPINE",
     "OPH-GR-D6-A5-FINITE-CONTROL",
     "OPH-THERMO-FOUR-LAW-PACKAGE",
-    "OPH-FINITE-CONSERVATION-WARD-PRECURSOR"
+    "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
+    "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
+    "OPH-FINITE-LOCALITY-NOSIGNALLING",
+    "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS"
   ],
   "edges": [
     {
@@ -202,7 +205,7 @@
     {
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
-      "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale remain the frozen branch premises owned by issue 655"
+      "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale were specified historically in issue #655, remain under frozen custody in #695, and have active V2 physical closure owner #696"
     },
     {
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -422,7 +425,7 @@
     {
       "from": "OPH-GR-D3H-GEOMETRY-PRODUCER",
       "to": "OPH-GR-D3-CAP-H3",
-      "role": "produces FiniteCapBWCertificate from computable support/flow receipts; BW also consumes an independent complete MGNS-1 certificate on the same tower, and issue #574 owns physical MGNS construction"
+      "role": "produces FiniteCapBWCertificate from computable support/flow receipts; BW also consumes an independent complete MGNS-1 certificate on the same tower, whose physical construction remains a live F1 premise under issue #694 and whose structural net inheritance is gated by issue #701"
     },
     {
       "from": "OPH-GR-D3H-GEOMETRY-PRODUCER",
@@ -645,6 +648,11 @@
       "role": "independent finite packages on the same axioms; the thermodynamic kernel and the propagation branches share the source reference question but neither gates the other"
     },
     {
+      "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
+      "to": "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
+      "role": "supplies the conditional-resampling heat bath used by the projector-memory obstruction; the generic reversible resolvent and graph theorems are finite conditional mathematics, while all physical transport attachments remain separate"
+    },
+    {
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
       "role": "supplies the exact twelve-port, thirty-seam incidence carrier; the pointwise continuity update and every physical identification remain explicit premises"
@@ -652,7 +660,17 @@
     {
       "from": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
       "to": "OPH-GR-D4C-LOCAL-STRESS",
-      "role": "supplies only the finite Ward precursor and typed promotion manifest; stress realization, weak convergence, covariance, and the continuum Ward identity remain F1 receipts"
+      "role": "supplies the finite Ward precursor and a guarded residual-limit implication; F1 must define the residual from continuity, identify it with distributional divergence, and supply the source, stress, chart, and common-tower evidence"
+    },
+    {
+      "from": "OPH-OBS-PATCH-DEF",
+      "to": "OPH-FINITE-LOCALITY-NOSIGNALLING",
+      "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; E1 separately owns scheduler locality and the OPH region-factor attachment"
+    },
+    {
+      "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
+      "to": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+      "role": "supplies the finite information-projection identity reused on a finite path type; the exponential history law, uniqueness, real-variation bridge, and physical action remain B7 obligations"
     }
   ]
 }

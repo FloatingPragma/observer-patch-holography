@@ -116,7 +116,14 @@
       "scope_if_false": "The unified composition fails at that interface. Branch-local finite theorems retain their own statuses.",
       "status": "typed_composition_defined_physical_common_tower_open",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [
+        698,
+        699,
+        693,
+        700,
+        701,
+        694
+      ]
     },
     {
       "claim_id": "OPH-CONS-D1",
@@ -154,7 +161,9 @@
       "scope_if_false": "The consensus implementation theorem falls; Lorentz, gauge, and quantitative branches that import only weaker finite-cutoff ingredients must be audited separately.",
       "status": "paper_proved_on_declared_branch__finite_reference_engine_exhausted__general_theorem_not_Lean_or_TLA_formalized",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        699
+      ]
     },
     {
       "claim_id": "OPH-CONS-BFT-PREPARED-LOCK",
@@ -443,7 +452,7 @@
         "Rado_uniqueness_of_surface_PL_structure",
         "Mobius_cross_ratio_rigidity_on_S2"
       ],
-      "oph_specific_delta": "FiniteCapBWCertificate is produced from normal-form, support, flow, cross-ratio, and normalization data under decidable finite-stage receipts. MGNS-1 is an independently typed algebra-state producer and must land on the same tower before BW can be consumed; GitHub issue #574 owns physical MGNS construction.",
+      "oph_specific_delta": "FiniteCapBWCertificate is produced from normal-form, support, flow, cross-ratio, and normalization data under decidable finite-stage receipts. MGNS-1 is an independently typed algebra-state producer and must land on the same tower before BW can be consumed; physical same-tower MGNS construction remains a live F1 premise under issue #694, with structural net inheritance separately gated by issue #701.",
       "novelty_type": "producer_theorem_with_countermodels",
       "evidence": [
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
@@ -1085,7 +1094,9 @@
       "scope_if_false": "The QFT-Q1 implication falls; the finite Q0 representation witness and other QFT criteria remain separate.",
       "status": "conditional_implication_defined__oph_source_action_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701
+      ]
     },
     {
       "claim_id": "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION",
@@ -1109,7 +1120,9 @@
       "scope_if_false": "The QFT-Q2-E equivalence falls; QFT-Q2-H and perturbative QFT-Q3 remain separate.",
       "status": "conditional_criterion_defined__full_G6_measure_construction_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701
+      ]
     },
     {
       "claim_id": "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS",
@@ -1133,7 +1146,9 @@
       "scope_if_false": "The QFT-Q2-H soundness route falls; QFT-Q2-E and QFT-Q3 remain separate.",
       "status": "conditional_soundness_defined__full_G6_hamiltonian_construction_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701
+      ]
     },
     {
       "claim_id": "OPH-SM-Q3-BV-RESTORATION",
@@ -1157,7 +1172,9 @@
       "scope_if_false": "The formal QFT-Q3 restoration theorem falls; no conclusion follows for QFT-Q2 or QFT-Q4.",
       "status": "conditional_formal_theorem_defined__oph_restoration_and_validation_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701
+      ]
     },
     {
       "claim_id": "OPH-SM-Q4-OS-OBSERVABLE-SECTOR",
@@ -1181,7 +1198,9 @@
       "scope_if_false": "The QFT-Q4 OS implication falls; the bosonic compact-gauge theorem and QFT-Q3 remain separately scoped.",
       "status": "conditional_implication_defined__nonperturbative_G6_tower_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701
+      ]
     },
     {
       "claim_id": "OPH-SM-Q4-RESONANCE-CONTINUATION",
@@ -1206,7 +1225,10 @@
       "scope_if_false": "The QFT-Q4 resonance implication falls; OS reconstruction and the strict QFT-Q3 coefficient algebra remain separate.",
       "status": "conditional_implication_defined__analytic_sheet_and_current_amplitude_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701,
+        697
+      ]
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -1364,6 +1386,109 @@
       "claim_class": "conditional_implication",
       "gates": [
         688
+      ]
+    },
+    {
+      "claim_id": "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
+      "statement": "For a finite stochastic kernel with a strictly positive reversible equilibrium weight, L=I-K has an exact nonnegative Dirichlet form. A linear Poisson solver on centered currents yields a symmetric positive-semidefinite finite Green--Kubo coefficient matrix. At every cutoff N, the resolvent pairing equals the lag-zero-through-N correlation sum plus the explicit propagated remainder <j,K^(N+1)Rk>; equality to the finite sum requires literal remainder extinction, not generic decay. The full-fibre conditional-resampling kernel is a projector, so every positive-lag correlation is constant: fibre-centered currents have zero positive-lag memory, while a nonzero lag-one correlation makes the partial sums fail to stabilize. On a finite closed oriented graph, typed positive cell volumes and heat capacities connect concentration to amount and temperature to energy; Fick and Fourier fluxes define canonical one-step updates with exact source balance and source-free conservation, and nonnegative conductance gives nonpositive flux-gradient pairing. These are finite conditional transport theorems. They do not identify the Green--Kubo coefficient with the graph conductance or supply a physical generator, equilibrium reference, conserved current or quantity, distance, clock, boundary law, stability theorem, hydrodynamic limit, or measured coefficient.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_finite_transport_kernel_with_physical_attachment_open",
+      "assumptions": [
+        "finite_reversible_markov_transport_kernel",
+        "linear_poisson_solver_on_centered_currents",
+        "typed_finite_graph_transport_geometry",
+        "nonnegative_transport_conductance",
+        "physical_transport_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_reversible_markov_chain_theory",
+        "finite_dimensional_poisson_resolvent",
+        "finite_graph_summation_by_parts"
+      ],
+      "oph_specific_delta": "The exact finite theorem separates three layers that are often conflated: reversible resolvent transport, graph constitutive updates, and physical calibration. For the OPH repair kernel itself it proves a sharp model-selection obstruction: one idempotent full-fibre publicization step cannot generate a nonzero decaying correlation tail with stabilizing Green--Kubo sums, so this long-memory physical role requires a separately justified nonidempotent source evolution.",
+      "novelty_type": "finite_transport_kernel_with_projector_memory_obstruction",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "Lean/Thermodynamics/GreenKubo.lean",
+        "Lean/Thermodynamics/GraphDiffusion.lean",
+        "Lean/docs/B8_TRANSPORT_KERNEL.md"
+      ],
+      "falsifier": "The finite theorem fails if the reversible Dirichlet identity, Poisson symmetry, full finite-matrix quadratic-form nonnegativity, cutoff remainder identity, projector correlation dichotomy, graph summation-by-parts sign, typed bridge, canonical source balance, or negative-conductance control fails. The physical reading fails if a generator, equilibrium reference, conserved current or quantity, geometry, distance, clock, conductance, boundary condition, or readout is promoted without its named source receipt, or if the Green--Kubo and graph coefficients are identified without a bridge theorem.",
+      "scope_if_false": "Only the B8 finite transport kernel or its later physical attachment falls. The four-law thermodynamic package, B5 conservation kernel, and frozen prediction rows remain separately assessable.",
+      "status": "finite_green_kubo_matrix_remainder_projector_obstruction_and_graph_updates_proved__physical_transport_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        688,
+        690,
+        691
+      ]
+    },
+    {
+      "claim_id": "OPH-FINITE-LOCALITY-NOSIGNALLING",
+      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_finite_fixed_schedule_locality_helpers_with_physical_attachment_open",
+      "assumptions": [
+        "fixed_exogenous_local_repair_word",
+        "named_finite_bipartite_split",
+        "row_normalized_or_kraus_complete_local_map",
+        "physical_locality_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_local_update_dependency_induction",
+        "finite_classical_marginal_algebra",
+        "finite_kraus_partial_trace_identity"
+      ],
+      "oph_specific_delta": "The dependency induction is checked against the repository's actual single-site localRepair rather than an abstract cellular update. The generic marginal identities are retained as reusable helpers, while the missing scheduler-locality and OPH region-factor attachments are explicitly routed to E1 instead of being hidden inside a causality slogan.",
+      "novelty_type": "standard_helper_formalization_with_concrete_repair_instantiation",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "Lean/Locality.lean",
+        "Lean/ObserverPatchHolography/Locality/DependencyCone.lean",
+        "Lean/ObserverPatchHolography/Locality/NoSignalling.lean"
+      ],
+      "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. A physical causality promotion fails if the scheduler is nonlocal, the region-factor adapter is absent, or distance, clock, positivity, state normalization, and operational locality are asserted without receipts.",
+      "scope_if_false": "Only the B4 finite helper package or its later physical attachment falls. Consensus termination, the event-manifold branch, and the E1 local-net construction retain their separate premises.",
+      "status": "fixed_word_dependency_upper_bound_and_generic_marginal_identities_proved__physical_region_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        692
+      ]
+    },
+    {
+      "claim_id": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+      "statement": "On a finite history type, if a positive normalized projected path law is supplied with the displayed exponential log relation to a positive reference weight and matches the declared moments, the finite information-projection Pythagorean identity and relative-entropy minimizer inequality hold; a supplied modal history minimizes the effective action. For the normalized inverse-noise family, every fixed positive-gap tail and the total mass of all histories strictly above a declared minimum tend to zero as inverse noise tends to infinity. Separately, a real two-point local action that is minimal under every real single-site variation at a supplied junction satisfies the scalar discrete Euler--Lagrange equation, and differentiable invariance transports the scalar segment momentum. If the premises hold at every interior record of a finite chain, one scalar current is constant on every segment; a free affine path supplies a nonzero witness. No finite family of real paths is closed under all real single-site variations, so the finite Gibbs and real differential packages do not compose under their present interfaces. The source-derived exponential law, multiplier existence or uniqueness, a finite-to-real transfer theorem, saddle histories, a physical action, clock, complex amplitude, interference, field-valued paths, continuum limit, and laboratory current are open obligations.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_conditional_finite_history_helpers_with_formal_bridge_obstruction",
+      "assumptions": [
+        "finite_history_exponential_tilt_packet",
+        "declared_modal_history_or_minimum",
+        "real_local_action_variation_packet",
+        "finite_to_real_history_bridge_deferred",
+        "physical_history_action_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_information_projection",
+        "finite_Gibbs_concentration",
+        "discrete_Euler_Lagrange_calculus",
+        "discrete_Noether_calculus"
+      ],
+      "oph_specific_delta": "The attained package is deliberately classified as conditional helper mathematics. Its strongest project-specific contribution is the machine-checked interface no-go: finite-state Gibbs support cannot silently supply the universal real variations assumed by the differential Euler--Lagrange theorem. B7 is open pending a source-derived history object and a proved enrichment or transfer bridge.",
+      "novelty_type": "standard_helpers_with_machine_checked_interface_obstruction",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/InformationProjection/PathGibbs.lean",
+        "Lean/Variational/DiscreteEulerLagrange.lean",
+        "Lean/Variational/DiscreteNoether.lean",
+        "Lean/Variational/FiniteHistoryBridge.lean"
+      ],
+      "falsifier": "The attained helper claim fails if a stated finite Pythagorean, minimizer, ordering, gap-tail, full nonminimal-mass limit, Euler--Lagrange, local Noether, nonzero witness, or finite-variation obstruction theorem fails under its premises. A recovered physical least-action claim fails if it bypasses the source-law, uniqueness, finite-to-real, saddle, action, clock, amplitude, field, continuum, or observable-current obligations.",
+      "scope_if_false": "Only the conditional B7 helper packet or a later bridge falls. The finite thermodynamic package, consensus theorems, and any independently constructed physical action branch remain separately assessable.",
+      "status": "conditional_finite_gibbs_and_scalar_variational_helpers_proved__finite_real_composition_obstructed__b7_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        683
       ]
     },
     {
@@ -1598,7 +1723,7 @@
     },
     {
       "claim_id": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
-      "statement": "On the exact twelve-port, thirty-seam incidence graph, any declared pointwise update qNext-q=source+boundary(current) obeys regional load change = regional source - signed outward flux; internal seams cancel, and a zero-total source preserves total load on the closed graph. Over the rationals, a port load has a seam-flux solution exactly when its total is zero, one declared port-zero spanning-tree section constructs a solution, every two solutions differ by a cycle current, and the cycle kernel has dimension nineteen. For a finite real linear state map paired with an expectation-dual observable map, preservation of a charge expectation on every signed state is equivalent to the dual fixed-point equation. A nonzero two-state control proves that channel covariance under a nontrivial swap does not imply conservation. These statements are finite algebraic precursors. They neither construct the continuity update nor identify load, current, update order, charge, or stress-energy physically. Continuum Ward use requires a mathematically nondegenerate WardLimitManifest together with concrete source, transport, chart, and common-tower evidence on one directed cofinal tower.",
+      "statement": "On the exact twelve-port, thirty-seam incidence graph, any declared pointwise update qNext-q=source+boundary(current) obeys regional load change = regional source - signed outward flux; internal seams cancel, and a zero-total source preserves total load on the closed graph. Over the rationals, a port load has a seam-flux solution exactly when its total is zero, one declared port-zero spanning-tree section constructs a solution, every two solutions differ by a cycle current, and the cycle kernel has dimension nineteen. For a finite real linear state map paired with an expectation-dual observable map, preservation of a charge expectation on every signed state is equivalent to the dual fixed-point equation. A nonzero two-state control proves that channel covariance under a nontrivial swap does not imply conservation. These statements are finite algebraic precursors. They neither construct the continuity update nor identify load, current, update order, charge, or stress-energy physically. Continuum Ward use requires a guarded WardLimitManifest with a shrinking scale, separating tests, a finite residual whose zero limit is derived, and concrete F1 evidence identifying that residual and the source, transport, chart, and common tower physically.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "exact_finite_conservation_precursor_with_typed_continuum_manifest",
       "assumptions": [
@@ -1611,7 +1736,7 @@
         "finite_dimensional_rank_nullity",
         "finite_pairing_nondegeneracy"
       ],
-      "oph_specific_delta": "The source-selected seam incidence is connected to exact regional continuity and Gauss fibres, while the reusable dual-channel theorem states the precise conservation criterion and an explicit covariance counterexample blocks symmetry slogans from being promoted to Ward conservation. The continuum handoff has fixed nonzero, cofinal, real-convergence, and nontrivial-residual guards; its source and physical realization evidence remain F1 obligations.",
+      "oph_specific_delta": "The source-selected seam incidence is connected to exact regional continuity and Gauss fibres, while the reusable dual-channel theorem states the precise conservation criterion and an explicit covariance counterexample blocks symmetry slogans from being promoted to Ward conservation. The continuum handoff requires a not-all-zero finite datum, a scale tending to zero, separating admissible tests, and finite-residual convergence; zero continuum residual is derived by uniqueness of limits. The residual definition and every source and physical realization remain F1 obligations.",
       "novelty_type": "source_incidence_conservation_with_typed_ward_promotion_boundary",
       "evidence": [
         "paper/screen_microphysics_and_observer_synchronization.tex",
@@ -1621,7 +1746,7 @@
         "Lean/Dynamics/WardLimitManifest.lean",
         "Lean/docs/B5_WARD_BRIDGE.md"
       ],
-      "falsifier": "The finite claim fails if the regional sign identity, closed-graph conservation, neutral-load solvability equivalence, nineteen-dimensional cycle ambiguity, push-pull duality, fixed-charge equivalence, or two-state covariance counterexample fails. The physical promotion fails if a Ward claim bypasses the nondegenerate WardLimitManifest conditions or lacks concretely defined and evidenced source, transport, chart, and common-tower relations.",
+      "falsifier": "The finite claim fails if the regional sign identity, closed-graph conservation, neutral-load solvability equivalence, nineteen-dimensional cycle ambiguity, push-pull duality, fixed-charge equivalence, or two-state covariance counterexample fails. The promotion theorem fails if finite-residual vanishing and convergence do not imply zero limiting residual. The physical promotion fails if the residual is not derived from finite continuity and identified with distributional divergence on separating tests, or if concrete source, transport, chart, and common-tower evidence is absent.",
       "scope_if_false": "The B5 finite conservation bridge or its promotion boundary falls. The underlying seam-image theorem, thermodynamic data-processing package, and conditional Einstein tensor-completion implication remain separately assessable.",
       "status": "finite_incidence_gauss_and_dual_charge_criteria_proved__physical_ward_bridge_open",
       "claim_class": "conditional_implication",
@@ -1887,7 +2012,10 @@
       "scope_if_false": "No unified physical identity follows. The abstract A1/A2 Lie-type theorem and the conditional D7-D9 reconstruction keep their separate branch-local statuses.",
       "status": "open_no_source_bound_commuting_square",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [
+        701,
+        697
+      ]
     },
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",

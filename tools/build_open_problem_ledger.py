@@ -8,6 +8,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 import json
 from pathlib import Path
+import re
 import subprocess
 from typing import Any
 
@@ -16,6 +17,37 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = "FloatingPragma/observer-patch-holography"
 DEFAULT_JSON_OUT = ROOT / "tracking" / "open_issues" / "open_problem_ledger.json"
 DEFAULT_MD_OUT = ROOT / "OPEN_PROBLEMS.md"
+
+
+V2_TITLE_RE = re.compile(r"^\[([A-H]\d+)\]\s+")
+V2_FIELD_NAMES = (
+    "Deliverables",
+    "Boundary",
+    "Depends on",
+    "Wave",
+    "Suggested dependency",
+    "Absorbs",
+    "Plan",
+)
+V2_FIELD_MARKER = "|".join(re.escape(name) for name in V2_FIELD_NAMES)
+V2_TRACKS: dict[str, dict[str, Any]] = {
+    "track:foundations": {"code": "A", "slug": "foundations", "wave": 1},
+    "track:observer-laws": {"code": "B", "slug": "observer-laws", "wave": 1},
+    "track:geometry": {"code": "C", "slug": "geometry", "wave": 2},
+    "track:time": {"code": "D", "slug": "time", "wave": 2},
+    "track:covariant-net": {"code": "E", "slug": "covariant-net", "wave": 3},
+    "track:gravity": {"code": "F", "slug": "gravity", "wave": 3},
+    "track:custody": {"code": "G", "slug": "custody", "wave": "standing"},
+    "track:quantitative": {"code": "H", "slug": "quantitative", "wave": 4},
+}
+V2_SIZE_LABELS = {"size:S", "size:M", "size:L"}
+V2_STATE_LABELS = {"optional", "parked", "standing", "blocked"}
+V2_WAVE_TITLES = {
+    1: "Observer laws",
+    2: "Geometry and time",
+    3: "Covariant net and gravity",
+    4: "Quantitative outputs",
+}
 
 
 ISSUE_POLICY: dict[int, dict[str, str]] = {
@@ -1575,13 +1607,241 @@ def _run_gh() -> list[dict[str, Any]]:
             "--limit",
             "500",
             "--json",
-            "number,title,labels,updatedAt,url",
+            "number,title,labels,updatedAt,url,body,milestone",
         ],
         check=True,
         text=True,
         capture_output=True,
     )
     return json.loads(completed.stdout)
+
+
+def _normalise_contract_text(text: str) -> str:
+    return " ".join(text.split()).strip()
+
+
+def _contract_field(body: str, name: str) -> str | None:
+    """Read one compact V2 field even when several fields share a paragraph."""
+
+    pattern = re.compile(
+        rf"(?is)(?:^|\s){re.escape(name)}:\s*(.*?)"
+        rf"(?=(?:\s+(?:{V2_FIELD_MARKER}):)|\Z)"
+    )
+    matches = [_normalise_contract_text(match) for match in pattern.findall(body)]
+    matches = [match for match in matches if match]
+    if not matches:
+        return None
+    if len(matches) != 1:
+        raise ValueError(f"V2 contract has {len(matches)} {name!r} fields")
+    return matches[0]
+
+
+def _v2_scope(body: str) -> str:
+    """Return the first issue-scope paragraph, excluding administrative fields."""
+
+    for paragraph in re.split(r"\n\s*\n", body):
+        text = _normalise_contract_text(paragraph)
+        if not text:
+            continue
+        marker_match = re.search(
+            rf"(?is)(?:^|\s)(?:{V2_FIELD_MARKER}):",
+            text,
+        )
+        if marker_match is not None:
+            text = text[: marker_match.start()].strip()
+        if text:
+            return text
+    raise ValueError("V2 contract has no issue-scope paragraph")
+
+
+def _v2_policy(issue: dict[str, Any]) -> dict[str, str] | None:
+    """Derive administrative ledger metadata from one live V2 issue contract.
+
+    The derivation deliberately does not synthesize a scientific falsifier or
+    infer that a dependency is discharged. It exposes the issue's own scope,
+    deliverables, boundary, and dependency text and supplies only status-hygiene
+    rules around them.
+    """
+
+    title = str(issue.get("title") or "")
+    title_match = V2_TITLE_RE.match(title)
+    labels = sorted(
+        {
+            str(label.get("name") or "").strip()
+            for label in issue.get("labels") or []
+            if str(label.get("name") or "").strip()
+        }
+    )
+    track_labels = [label for label in labels if label.startswith("track:")]
+    is_v2 = title_match is not None or bool(track_labels)
+    if not is_v2:
+        return None
+
+    number = int(issue.get("number") or 0)
+    where = f"V2 issue #{number}"
+    if title_match is None:
+        raise ValueError(f"{where} title lacks a task code such as [A1]")
+    if len(track_labels) != 1:
+        raise ValueError(
+            f"{where} must carry exactly one track:* label; got {track_labels}"
+        )
+    track_label = track_labels[0]
+    track = V2_TRACKS.get(track_label)
+    if track is None:
+        raise ValueError(f"{where} carries unknown track label {track_label!r}")
+    task_code = title_match.group(1)
+    if task_code[0] != track["code"]:
+        raise ValueError(
+            f"{where} task code {task_code} conflicts with {track_label}"
+        )
+
+    size_labels = [label for label in labels if label.startswith("size:")]
+    if any(label not in V2_SIZE_LABELS for label in size_labels):
+        raise ValueError(f"{where} carries an unknown size label: {size_labels}")
+    state_labels = [label for label in labels if label in V2_STATE_LABELS]
+    if len(state_labels) > 1:
+        raise ValueError(f"{where} carries conflicting state labels: {state_labels}")
+    standing = state_labels == ["standing"]
+    if standing:
+        if size_labels:
+            raise ValueError(f"{where} standing lane must not carry a size label")
+    elif len(size_labels) != 1:
+        raise ValueError(f"{where} must carry exactly one V2 size label")
+
+    body = str(issue.get("body") or "").strip()
+    if not body:
+        raise ValueError(f"{where} has no live issue-body contract")
+    depends = _contract_field(body, "Depends on")
+    wave = _contract_field(body, "Wave")
+    if depends is None:
+        raise ValueError(f"{where} has no Depends on: contract")
+    if wave is None:
+        raise ValueError(f"{where} has no Wave: contract")
+
+    normalized_wave = wave.removesuffix(".").strip()
+    if normalized_wave.casefold() == "standing":
+        declared_wave: int | str = "standing"
+    else:
+        wave_match = re.match(r"^V2-W([1-9]\d*)\b", normalized_wave)
+        if wave_match is None:
+            raise ValueError(f"{where} has malformed Wave: contract {wave!r}")
+        declared_wave = int(wave_match.group(1))
+        suffix = normalized_wave[wave_match.end() :].strip()
+        if suffix not in {"", V2_WAVE_TITLES.get(declared_wave)}:
+            raise ValueError(f"{where} has malformed Wave: contract {wave!r}")
+    if declared_wave != track["wave"]:
+        raise ValueError(
+            f"{where} declares wave {declared_wave!r}, expected {track['wave']!r}"
+        )
+    if standing != (declared_wave == "standing"):
+        raise ValueError(f"{where} standing label and Wave: contract disagree")
+    milestone = issue.get("milestone") or {}
+    milestone_title = str(milestone.get("title") or "")
+    if isinstance(declared_wave, int):
+        milestone_match = re.match(r"^V2-W([1-9]\d*)\b", milestone_title)
+        if milestone_match is None:
+            raise ValueError(f"{where} has no V2 wave milestone")
+        if int(milestone_match.group(1)) != declared_wave:
+            raise ValueError(
+                f"{where} Wave: contract conflicts with milestone {milestone_title!r}"
+            )
+
+    scope = _v2_scope(body)
+    deliverables = _contract_field(body, "Deliverables")
+    boundary = _contract_field(body, "Boundary")
+    depends_none = bool(re.match(r"(?i)^none\b", depends))
+    if standing:
+        phase = f"v2-standing-{track['slug']}"
+        claim_level = "standing custody/comparison control"
+        blocker = f"Standing scope with no issue prerequisite: {scope}"
+        closure = (
+            "Keep the live custody, ledger, and validator scope current under "
+            "its frozen eligibility rules; issue state alone is not a scientific "
+            "verdict."
+        )
+        chrome_policy = (
+            "Use only to audit a concrete sealed custody or validator packet; "
+            "never use a worker to manufacture comparison evidence."
+        )
+    else:
+        phase = f"v2-w{declared_wave}-{track['slug']}"
+        if state_labels == ["optional"]:
+            claim_level = "optional non-blocking investigation"
+        elif state_labels == ["parked"]:
+            claim_level = "parked stage-gated construction"
+        elif state_labels == ["blocked"]:
+            claim_level = "blocked construction"
+        else:
+            claim_level = "active issue-scoped construction"
+
+        if state_labels == ["parked"] and depends_none:
+            dependency_text = "Parked by V2 staging; no hard issue prerequisite."
+        elif state_labels == ["parked"]:
+            dependency_text = f"Parked; live prerequisite contract: {depends}"
+        elif state_labels == ["blocked"] and depends_none:
+            dependency_text = "Blocked by its live status; no issue prerequisite is named."
+        elif state_labels == ["blocked"]:
+            dependency_text = f"Blocked; live prerequisite contract: {depends}"
+        elif depends_none:
+            dependency_text = "No hard issue prerequisite."
+        else:
+            dependency_text = f"Live prerequisite contract: {depends}"
+        blocker = f"{dependency_text} Open scope: {scope}"
+
+        if deliverables is not None:
+            closure = (
+                "Verify the live deliverables at their declared status without "
+                f"scientific promotion from issue state: {deliverables}"
+            )
+        else:
+            closure = (
+                "Complete the declared scope with theorem/certificate evidence "
+                "or record an explicit scoped countermodel, no-go, or typed "
+                f"not-evaluable exit. Declared scope: {scope}"
+            )
+
+        if state_labels == ["parked"]:
+            chrome_policy = (
+                "Do not launch workers while parked or while a listed prerequisite "
+                "is open; begin from a concrete local issue packet."
+            )
+        elif state_labels == ["optional"]:
+            chrome_policy = (
+                "Use only to audit a concrete optional criteria/theorem packet; "
+                "this lane blocks no other issue."
+            )
+        elif state_labels == ["blocked"]:
+            chrome_policy = (
+                "Do not launch workers until the recorded blocker changes and a "
+                "concrete local issue packet exists."
+            )
+        else:
+            chrome_policy = (
+                "Local theorem or certificate work first; use an independent "
+                "worker only to audit a concrete issue-scoped packet."
+            )
+
+    if boundary is not None:
+        falsification = (
+            "Scope-control failure if a result is promoted past this live boundary: "
+            f"{boundary}"
+        )
+    else:
+        falsification = (
+            "Closure is invalid if the delivered artifact does not cover the live "
+            "scope, a hard prerequisite remains unresolved, or theorem status "
+            "exceeds its evidence. Scientific falsifiers remain in the canonical "
+            "claim-local ledgers."
+        )
+
+    return {
+        "phase": phase,
+        "claim_level": claim_level,
+        "blocker": blocker,
+        "closure": closure,
+        "falsification": falsification,
+        "chrome_policy": chrome_policy,
+    }
 
 
 def _fallback_policy(issue: dict[str, Any]) -> dict[str, str]:
@@ -1599,11 +1859,14 @@ def build_ledger(issues: list[dict[str, Any]]) -> dict[str, Any]:
     rows = []
     open_numbers = {int(issue["number"]) for issue in issues}
     for issue in sorted(issues, key=lambda item: item["number"]):
-        policy = ISSUE_POLICY.get(int(issue["number"]), _fallback_policy(issue))
+        number = int(issue["number"])
+        policy = _v2_policy(issue)
+        if policy is None:
+            policy = ISSUE_POLICY.get(number, _fallback_policy(issue))
         labels = [label["name"] for label in issue.get("labels", [])]
         rows.append(
             {
-                "number": int(issue["number"]),
+                "number": number,
                 "title": _ascii(issue["title"]),
                 "url": issue["url"],
                 "labels": labels,
@@ -1740,6 +2003,41 @@ def validate_committed_ledger(json_path: Path, markdown_path: Path) -> list[str]
             problems.append(f"row {index} has a non-integer issue number")
         else:
             numbers.append(number)
+        labels = row.get("labels")
+        if isinstance(labels, list):
+            track_labels = [
+                label
+                for label in labels
+                if isinstance(label, str) and label.startswith("track:")
+            ]
+        else:
+            track_labels = []
+        if track_labels:
+            phase = str(row.get("phase") or "")
+            if not phase.startswith("v2-"):
+                problems.append(f"row {index} has an unclassified V2 phase")
+            if len(track_labels) == 1 and track_labels[0] in V2_TRACKS:
+                track = V2_TRACKS[track_labels[0]]
+                if track["wave"] == "standing":
+                    expected_phase = f"v2-standing-{track['slug']}"
+                else:
+                    expected_phase = f"v2-w{track['wave']}-{track['slug']}"
+                if phase != expected_phase:
+                    problems.append(
+                        f"row {index} V2 phase {phase!r} does not match "
+                        f"{track_labels[0]}"
+                    )
+            placeholder_values = {
+                "blocker": "Classify blocker from the live issue body.",
+                "closure": "Add exact closure criterion to this ledger.",
+                "falsification": "Add exact falsification criterion to this ledger.",
+            }
+            for field, placeholder in placeholder_values.items():
+                value = row.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    problems.append(f"row {index} has an empty V2 {field}")
+                elif value == placeholder:
+                    problems.append(f"row {index} retains placeholder V2 {field}")
     if len(numbers) != len(set(numbers)):
         problems.append("ledger has duplicate issue numbers")
     if numbers != sorted(numbers):

@@ -23,6 +23,14 @@ def live_register() -> dict:
     return json.loads(fz_tool.REGISTER_PATH.read_text(encoding="utf-8"))
 
 
+def live_owner_successors() -> dict:
+    return json.loads(fz_tool.OWNER_SUCCESSOR_PATH.read_text(encoding="utf-8"))
+
+
+def write_owner_successors(path: Path, payload: dict) -> None:
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+
 def test_live_register_validates_and_surface_is_current():
     register = live_register()
     rows = fz_tool.validate(register)
@@ -434,8 +442,79 @@ def test_in_repo_custody_artifact_hashes_are_verified():
 def test_pending_row_requires_a_live_owning_issue():
     register = live_register()
     register["rows"][2]["owning_issue"] = 599
-    with pytest.raises(SystemExit, match="not open in the snapshot"):
+    with pytest.raises(SystemExit, match="does not match FZ-03 owning_issue"):
         fz_tool.validate(register)
+
+
+def test_historical_owners_are_preserved_and_v2_successors_are_live():
+    register = live_register()
+    rows = register["rows"]
+    open_issues = {
+        row["number"]
+        for row in json.loads(fz_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))[
+            "rows"
+        ]
+    }
+    mapping = fz_tool.validate_owner_successors(rows, open_issues)
+    assert mapping == {
+        "FZ-03": (697,),
+        "FZ-05": (695,),
+        "FZ-10": (697,),
+        "FZ-11": (696,),
+        "FZ-12": (696,),
+    }
+    assert {
+        row["id"]: row["owning_issue"]
+        for row in rows
+        if row["id"] in mapping
+    } == {
+        "FZ-03": 508,
+        "FZ-05": 639,
+        "FZ-10": 546,
+        "FZ-11": 655,
+        "FZ-12": 666,
+    }
+    rendered = fz_tool.render(register, fz_tool.validate(register))
+    assert "historical [#508]" in rendered
+    assert "active V2 [#697]" in rendered
+    assert "historical [#639]" in rendered
+    assert "active V2 [#695]" in rendered
+
+
+def test_owner_successor_map_fails_closed_when_a_historical_row_is_missing(
+    tmp_path: Path,
+):
+    payload = live_owner_successors()
+    payload["mappings"] = [
+        mapping for mapping in payload["mappings"] if mapping["row_id"] != "FZ-03"
+    ]
+    path = tmp_path / "successors.json"
+    write_owner_successors(path, payload)
+    rows = live_register()["rows"]
+    open_issues = {
+        row["number"]
+        for row in json.loads(fz_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))[
+            "rows"
+        ]
+    }
+    with pytest.raises(SystemExit, match=r"missing=\['FZ-03'\]"):
+        fz_tool.validate_owner_successors(rows, open_issues, path)
+
+
+def test_owner_successor_map_fails_closed_on_unknown_active_issue(tmp_path: Path):
+    payload = live_owner_successors()
+    payload["mappings"][0]["active_successor_issues"] = [999999]
+    path = tmp_path / "successors.json"
+    write_owner_successors(path, payload)
+    rows = live_register()["rows"]
+    open_issues = {
+        row["number"]
+        for row in json.loads(fz_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))[
+            "rows"
+        ]
+    }
+    with pytest.raises(SystemExit, match=r"snapshot: \[999999\]"):
+        fz_tool.validate_owner_successors(rows, open_issues, path)
 
 
 def test_pending_row_requires_a_kill_band():

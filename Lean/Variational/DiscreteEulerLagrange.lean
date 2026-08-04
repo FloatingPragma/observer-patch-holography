@@ -7,18 +7,19 @@ namespace OPH.Variational
 
 A local path action sums a two-point Lagrangian over consecutive
 record pairs. This module proves the discrete Euler-Lagrange equation:
-a history that minimizes the local action among single-site interior
-variations satisfies, at every interior site, the vanishing of the sum
-of the two adjacent partial derivatives. Together with the
-history-level information projection, this makes the least-action
-selection of the modal path a stationarity equation.
+a history that minimizes the local action among all real single-site
+interior variations satisfies, at each supplied interior junction, the
+vanishing of the sum of the two adjacent partial derivatives.
 
 The interior site is presented as the shared endpoint of two
 consecutive segments `k` and `m`, through the index identity
 `k.succ = m.castSucc`; such a site is automatically neither the first
-nor the last record. The Lagrangian, the path, and the derivative data
-are named inputs; no physical action, time, or continuum statement
-enters.
+nor the last record. The Lagrangian, the path, and the derivative data are
+named inputs.  The theorem does not compose with the
+finite-state history-projection package, whose path space cannot contain all
+real single-site variations; that interface obstruction is recorded in
+`Variational.FiniteHistoryBridge`.  No physical action, saddle-point
+principle, time, or continuum statement enters.
 -/
 
 variable {N : ℕ}

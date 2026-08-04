@@ -7,8 +7,11 @@ page differs from the render, and the mandatory suite runs that check.
 
 Fail-closed rules: frozen rows carry a parseable, non-future UTC freeze time,
 custody, a typed attestation state, content hash, kill band, and comparison
-protocol; pending rows carry an owning issue that is open in the committed
-snapshot and a milestone. Retrospective results occupy a separate collection;
+protocol. Historical owner numbers remain unchanged in the custody register;
+``claims/frozen_prediction_owner_successors.json`` separately maps every
+archived row owner to at least one open V2 successor. Pending rows carry either
+an open owner or one of those validated historical-to-V2 mappings and a
+milestone. Retrospective results occupy a separate collection;
 their former reservations cannot also occur as ladder rows. The issue-506
 record is checked against a fresh replay of its canonical producer as well as
 its recomputed payload digest. Committed custody contracts bind the source-side
@@ -46,6 +49,9 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "claims" / "frozen_prediction_register.json"
+OWNER_SUCCESSOR_PATH = (
+    ROOT / "claims" / "frozen_prediction_owner_successors.json"
+)
 SURFACE_PATH = ROOT / "docs" / "FROZEN_PREDICTION_LADDER.md"
 SNAPSHOT_PATH = ROOT / "tracking" / "open_issues" / "open_problem_ledger.json"
 FZ02_RECEIPT_PATH = (
@@ -188,6 +194,7 @@ FZ04_BUILDER_PATH = (
 DEFAULT_CUSTODY_ROOT = ROOT.parent
 
 SCHEMA = "oph.frozen_prediction_register.v3"
+OWNER_SUCCESSOR_SCHEMA = "oph.frozen_prediction_owner_successors.v1"
 STATUSES = {
     "frozen_attested",
     "frozen_stamped_upgrade_pending",
@@ -235,6 +242,12 @@ RETROSPECTIVE_RESULT_KEYS = {
     "evidential_boundary",
     "owning_issue",
     "milestone",
+}
+OWNER_SUCCESSOR_KEYS = {"schema", "source_register", "mappings"}
+OWNER_SUCCESSOR_MAPPING_KEYS = {
+    "row_id",
+    "historical_issue",
+    "active_successor_issues",
 }
 COMMON_CONTRACT_KEYS = {
     "rows",
@@ -1765,6 +1778,103 @@ def validate_retrospective_results(register: dict) -> set[str]:
     return former_reservations
 
 
+def validate_owner_successors(
+    rows: list[dict],
+    open_issues: set[int],
+    path: Path | None = None,
+) -> dict[str, tuple[int, ...]]:
+    """Validate the non-custody bridge from historical owners to V2 owners.
+
+    The frozen register is append-only scientific custody, so its historical
+    ``owning_issue`` fields are not rewritten when execution moves to a new
+    issue plan. This separate map is deliberately exhaustive for row owners
+    that are absent from the canonical open-issue snapshot. A missing map,
+    a stale row binding, or any successor absent from that snapshot fails
+    closed.
+    """
+
+    successor_path = OWNER_SUCCESSOR_PATH if path is None else path
+    payload = load_json(successor_path)
+    if set(payload) != OWNER_SUCCESSOR_KEYS:
+        fail("frozen owner-successor map: top-level keys mismatch")
+    if payload.get("schema") != OWNER_SUCCESSOR_SCHEMA:
+        fail(
+            "frozen owner-successor map: schema must equal "
+            f"{OWNER_SUCCESSOR_SCHEMA}"
+        )
+    if payload.get("source_register") != "claims/frozen_prediction_register.json":
+        fail("frozen owner-successor map: source_register binding drifted")
+    mappings = payload.get("mappings")
+    if not isinstance(mappings, list):
+        fail("frozen owner-successor map: mappings must be a list")
+
+    rows_by_id = {row.get("id"): row for row in rows}
+    lookup: dict[str, tuple[int, ...]] = {}
+    historical_issues: set[int] = set()
+    for index, mapping in enumerate(mappings):
+        where = f"frozen owner-successor map mappings[{index}]"
+        if not isinstance(mapping, dict) or set(mapping) != OWNER_SUCCESSOR_MAPPING_KEYS:
+            fail(f"{where}: keys mismatch")
+        row_id = mapping["row_id"]
+        historical_issue = mapping["historical_issue"]
+        successors = mapping["active_successor_issues"]
+        if row_id not in rows_by_id:
+            fail(f"{where}: unknown frozen row {row_id!r}")
+        if row_id in lookup:
+            fail(f"{where}: duplicate mapping for {row_id}")
+        if not isinstance(historical_issue, int) or historical_issue <= 0:
+            fail(f"{where}: historical_issue must be a positive integer")
+        if historical_issue in historical_issues:
+            fail(f"{where}: historical issue #{historical_issue} is duplicated")
+        historical_issues.add(historical_issue)
+        row_owner = rows_by_id[row_id].get("owning_issue")
+        if row_owner != historical_issue:
+            fail(
+                f"{where}: historical issue #{historical_issue} does not match "
+                f"{row_id} owning_issue #{row_owner}"
+            )
+        if historical_issue in open_issues:
+            fail(
+                f"{where}: historical issue #{historical_issue} is open; "
+                "a successor bridge is therefore ambiguous"
+            )
+        if (
+            not isinstance(successors, list)
+            or not successors
+            or any(
+                not isinstance(successor, int) or successor <= 0
+                for successor in successors
+            )
+            or len(set(successors)) != len(successors)
+        ):
+            fail(
+                f"{where}: active_successor_issues must be unique positive "
+                "integers"
+            )
+        missing = sorted(set(successors) - open_issues)
+        if missing:
+            fail(
+                f"{where}: successor issues are not open in the canonical "
+                f"snapshot: {missing}"
+            )
+        lookup[row_id] = tuple(successors)
+
+    required_rows = {
+        row["id"]
+        for row in rows
+        if row.get("owning_issue") is not None
+        and row.get("owning_issue") not in open_issues
+    }
+    if set(lookup) != required_rows:
+        missing_rows = sorted(required_rows - set(lookup))
+        extra_rows = sorted(set(lookup) - required_rows)
+        fail(
+            "frozen owner-successor map must cover exactly the archived row "
+            f"owners; missing={missing_rows}, extra={extra_rows}"
+        )
+    return lookup
+
+
 def validate(register: dict) -> list[dict]:
     if set(register) != REGISTER_KEYS:
         fail("top-level keys mismatch")
@@ -1822,8 +1932,6 @@ def validate(register: dict) -> list[dict]:
             owning = row["owning_issue"]
             if not isinstance(owning, int):
                 fail(f"{where}: a pending row requires an owning issue")
-            if owning not in open_issues:
-                fail(f"{where}: owning issue #{owning} is not open in the snapshot")
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a pending row requires a milestone")
         elif row["status"] == "resource_deferred":
@@ -1901,6 +2009,7 @@ def validate(register: dict) -> list[dict]:
             "the FZ-02 content hash does not equal the live angular-multiplet "
             f"receipt hash {live_hash}"
         )
+    validate_owner_successors(rows, open_issues)
     return rows
 
 
@@ -2770,6 +2879,9 @@ def verify_external_custody(
 
 
 def render(register: dict, rows: list[dict]) -> str:
+    snapshot = load_json(SNAPSHOT_PATH)
+    open_issues = {row["number"] for row in snapshot["rows"]}
+    owner_successors = validate_owner_successors(rows, open_issues)
     lines: list[str] = []
     lines.append("# The frozen-prediction ladder")
     lines.append("")
@@ -2781,17 +2893,46 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append(register["policy"])
     lines.append("")
+    lines.append(
+        "Finite completion-lane theorem packages are not automatically"
+        " prediction rungs. B4, B5, B7, and B8 emit no row here: each lacks"
+        " a prospectively registered physical observable, attachment, and"
+        " decision rule, so their exact finite results remain in the claim"
+        " and postdiction ledgers only."
+    )
+    lines.append("")
+    lines.append(
+        "Historical owner numbers remain unchanged in the frozen register."
+        " Active V2 execution ownership is supplied by the fail-closed"
+        " non-custody map"
+        " `claims/frozen_prediction_owner_successors.json`; every listed"
+        " successor must be open in the canonical issue snapshot."
+    )
+    lines.append("")
     lines.append("| Freeze | Content | Status | Frozen (UTC) | Owner | Kill band |")
     lines.append("| --- | --- | --- | --- | --- | --- |")
     active_rows = [row for row in rows if row["status"] != "superseded_void"]
     superseded_rows = [row for row in rows if row["status"] == "superseded_void"]
     for row in active_rows:
-        owner = (
-            f"[#{row['owning_issue']}](https://github.com/FloatingPragma/observer-patch-holography/issues/{row['owning_issue']})"
-            f" ({row['milestone']})"
-            if row["owning_issue"] is not None
-            else row["milestone"]
-        )
+        if row["owning_issue"] is None:
+            owner = row["milestone"]
+        else:
+            historical = (
+                f"historical [#{row['owning_issue']}]"
+                "(https://github.com/FloatingPragma/"
+                "observer-patch-holography/issues/"
+                f"{row['owning_issue']})"
+            )
+            successors = owner_successors.get(row["id"], ())
+            if successors:
+                active = ", ".join(
+                    f"[#{issue}](https://github.com/FloatingPragma/"
+                    f"observer-patch-holography/issues/{issue})"
+                    for issue in successors
+                )
+                owner = f"{historical}; active V2 {active} ({row['milestone']})"
+            else:
+                owner = f"{historical} ({row['milestone']})"
         if row["frozen_utc"]:
             frozen = row["frozen_utc"]
         elif row["status"] == "resource_deferred":
@@ -2910,9 +3051,12 @@ def render(register: dict, rows: list[dict]) -> str:
         "Pending rows freeze at their milestones, before their comparison data"
     )
     lines.append(
-        "is examined; the register validation requires each pending row to name"
+        "is examined; validation requires each pending row to name an open owner"
     )
-    lines.append("a live owning issue and fails closed otherwise.")
+    lines.append(
+        "or retain its historical owner with an explicit open V2 successor, and"
+        " fails closed otherwise."
+    )
     lines.append(
         "Retrospective results are validated and rendered in their separate"
         " section. Their former reservations do not occur in the ladder table."

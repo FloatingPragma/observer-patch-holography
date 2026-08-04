@@ -3,7 +3,7 @@ import FluctuationTheorems
 namespace OPH.Thermodynamics
 
 /-!
-# Finite Green--Kubo transport from reversible repair dynamics
+# Finite Green--Kubo identities for reversible kernels
 
 This module isolates a finite theorem package for equilibrium transport.
 For a finite reversible stochastic kernel `K`, the positive generator is
@@ -27,8 +27,9 @@ conditional-resampling kernel.  A full-fibre heat bath is a projector.  A
 current whose conditional weighted sum vanishes on every repaired-visible
 fibre is killed after one step, so every positive-lag correlation vanishes.
 This is a transport no-go for using one idempotent full-fibre resampling as a
-long-memory dynamics; nontrivial transport requires a nonprojective local or
-random-scan evolution, or another source-derived time generator.
+long-memory dynamics. Nontrivial decaying-memory transport requires a
+nonidempotent local or random-scan evolution, or another source-derived time
+generator.
 -/
 
 variable {Omega : Type*} [Fintype Omega] [DecidableEq Omega]
@@ -431,9 +432,10 @@ theorem greenKuboPair_symm_of_poisson (pi : Omega -> Real)
     _ = equilibriumPair pi k.1 (R j.1) := equilibriumPair_comm pi _ _
 
 omit [DecidableEq Omega] in
-/-- Positive semidefiniteness of the Green--Kubo coefficient.  It is a
+/-- Diagonal nonnegativity of the Green--Kubo coefficient.  It is a
 consequence of the reversible Markov Dirichlet form and the Poisson equation,
-not an independent positivity assumption on the solver. -/
+not an independent positivity assumption on the solver.  A genuine finite
+quadratic-form statement with a linear solver appears below. -/
 theorem greenKuboPair_nonneg_of_poisson (pi : Omega -> Real)
     (K : Omega -> Omega -> Real)
     (hpi0 : forall x, 0 <= pi x)
@@ -452,6 +454,106 @@ theorem greenKuboPair_nonneg_of_poisson (pi : Omega -> Real)
     _ = equilibriumPair pi (R j.1) j.1 := by rw [hj]
     _ = equilibriumPair pi j.1 (R j.1) := equilibriumPair_comm pi _ _
 
+/-- Finite linear combination of centered currents, retained as a centered
+current by exact linearity of the equilibrium mean. -/
+noncomputable def centeredCurrentCombination {I : Type*} [Fintype I]
+    (pi : Omega -> Real) (a : I -> Real) (J : I -> CenteredCurrent pi) :
+    CenteredCurrent pi := by
+  refine ⟨Finset.sum Finset.univ fun i => a i • (J i).1, ?_⟩
+  unfold equilibriumMean
+  simp only [Finset.sum_apply, Pi.smul_apply, smul_eq_mul]
+  calc
+    (Finset.sum Finset.univ fun x =>
+      pi x * (Finset.sum Finset.univ fun i => a i * (J i).1 x)) =
+        Finset.sum Finset.univ (fun x =>
+          Finset.sum Finset.univ fun i => a i * (pi x * (J i).1 x)) := by
+            apply Finset.sum_congr rfl
+            intro x _
+            rw [Finset.mul_sum]
+            apply Finset.sum_congr rfl
+            intro i _
+            ring
+    _ = Finset.sum Finset.univ (fun i =>
+        Finset.sum Finset.univ fun x => a i * (pi x * (J i).1 x)) :=
+          Finset.sum_comm
+    _ = Finset.sum Finset.univ (fun i =>
+        a i * Finset.sum Finset.univ (fun x => pi x * (J i).1 x)) := by
+          apply Finset.sum_congr rfl
+          intro i _
+          rw [Finset.mul_sum]
+    _ = 0 := by
+          apply Finset.sum_eq_zero
+          intro i _
+          have hmean :
+              Finset.sum Finset.univ (fun x => pi x * (J i).1 x) = 0 := by
+            simpa [equilibriumMean] using (J i).2
+          rw [hmean]
+          simp
+
+omit [DecidableEq Omega] in
+/-- Bilinear expansion of the Green--Kubo coefficient for a linear Poisson
+solver.  This identity supplies the bilinearity needed by the finite PSD
+theorem rather than inferring PSD from diagonal inequalities alone. -/
+theorem greenKuboPair_linear_combination_expansion {I : Type*} [Fintype I]
+    (pi : Omega -> Real)
+    (R : (Omega -> Real) →ₗ[Real] (Omega -> Real))
+    (a : I -> Real) (J : I -> CenteredCurrent pi) :
+    greenKuboPair pi R (centeredCurrentCombination pi a J)
+        (centeredCurrentCombination pi a J) =
+      Finset.sum Finset.univ fun i =>
+        Finset.sum Finset.univ fun l =>
+          a i * a l * greenKuboPair pi R (J i) (J l) := by
+  have hR :
+      R (centeredCurrentCombination pi a J).1 =
+        Finset.sum Finset.univ fun l => a l • R (J l).1 := by
+    change R (Finset.sum Finset.univ fun i => a i • (J i).1) = _
+    rw [map_sum]
+    apply Finset.sum_congr rfl
+    intro i _
+    rw [map_smul]
+  unfold greenKuboPair
+  rw [hR]
+  change equilibriumPair pi
+      (Finset.sum Finset.univ fun i => a i • (J i).1)
+      (Finset.sum Finset.univ fun l => a l • R (J l).1) = _
+  rw [equilibriumPair_sum_left]
+  apply Finset.sum_congr rfl
+  intro i _
+  rw [equilibriumPair_sum_right]
+  apply Finset.sum_congr rfl
+  intro l _
+  rw [equilibriumPair_smul_left, equilibriumPair_smul_right]
+  ring
+
+omit [DecidableEq Omega] in
+/-- Genuine finite multi-current PSD theorem.  For a linear solver satisfying
+the Poisson equation on every centered current, every finite coefficient
+matrix `B_ij = <J_i, R J_j>_pi` is symmetric and has nonnegative quadratic
+form. -/
+theorem greenKuboPair_finite_matrix_psd {I : Type*} [Fintype I]
+    (pi : Omega -> Real) (K : Omega -> Omega -> Real)
+    (hpi0 : forall x, 0 <= pi x)
+    (hK0 : forall x y, 0 <= K x y)
+    (hK1 : forall x, Finset.sum Finset.univ (K x) = 1)
+    (hdb : forall x y, pi x * K x y = pi y * K y x)
+    (R : (Omega -> Real) →ₗ[Real] (Omega -> Real))
+    (hsolve : forall j : CenteredCurrent pi,
+      dissipationOperator K (R j.1) = j.1)
+    (a : I -> Real) (J : I -> CenteredCurrent pi) :
+    (forall i l, greenKuboPair pi R (J i) (J l) =
+      greenKuboPair pi R (J l) (J i)) ∧
+      0 <= Finset.sum Finset.univ (fun i =>
+        Finset.sum Finset.univ fun l =>
+          a i * a l * greenKuboPair pi R (J i) (J l)) := by
+  constructor
+  · intro i l
+    exact greenKuboPair_symm_of_poisson pi K hdb R (J i) (J l)
+      (hsolve (J i)) (hsolve (J l))
+  · rw [← greenKuboPair_linear_combination_expansion]
+    exact greenKuboPair_nonneg_of_poisson pi K hpi0 hK0 hK1 hdb R
+      (centeredCurrentCombination pi a J)
+      (hsolve (centeredCurrentCombination pi a J))
+
 /-! ## Exact finite correlation representation -/
 
 omit [DecidableEq Omega] in
@@ -462,6 +564,18 @@ theorem kernelAct_add (K : Omega -> Omega -> Real)
   funext x
   unfold kernelAct
   rw [← Finset.sum_add_distrib]
+  apply Finset.sum_congr rfl
+  intro y _
+  ring
+
+omit [DecidableEq Omega] in
+theorem kernelAct_sub (K : Omega -> Omega -> Real)
+    (f g : Omega -> Real) :
+    kernelAct K (fun x => f x - g x) =
+      fun x => kernelAct K f x - kernelAct K g x := by
+  funext x
+  unfold kernelAct
+  rw [← Finset.sum_sub_distrib]
   apply Finset.sum_congr rfl
   intro y _
   ring
@@ -496,6 +610,33 @@ theorem finiteResolvent_poisson (K : Omega -> Omega -> Real)
       ring
 
 omit [DecidableEq Omega] in
+/-- Propagation commutes with the discrete Poisson difference, with the
+explicit consecutive-iterate form on the right. -/
+theorem kernelIterate_dissipation (K : Omega -> Omega -> Real)
+    (N : Nat) (f : Omega -> Real) :
+    kernelIterate K N (dissipationOperator K f) =
+      fun x => kernelIterate K N f x - kernelIterate K (N + 1) f x := by
+  induction N with
+  | zero => rfl
+  | succ N ih =>
+      rw [kernelIterate, ih, kernelAct_sub]
+      rfl
+
+omit [DecidableEq Omega] in
+/-- Opposite-order geometric telescoping:
+`(I+...+K^N)(I-K)f = f-K^(N+1)f`. -/
+theorem finiteResolvent_dissipation (K : Omega -> Omega -> Real)
+    (N : Nat) (f : Omega -> Real) :
+    finiteResolvent K N (dissipationOperator K f) =
+      fun x => f x - kernelIterate K (N + 1) f x := by
+  induction N with
+  | zero => rfl
+  | succ N ih =>
+      rw [finiteResolvent, ih, kernelIterate_dissipation]
+      funext x
+      ring
+
+omit [DecidableEq Omega] in
 /-- The resolvent pairing is exactly the recursively displayed finite sum of
 lagged equilibrium correlations. -/
 theorem greenKuboPair_finiteResolvent_eq_integratedCorrelation
@@ -512,6 +653,56 @@ theorem greenKuboPair_finiteResolvent_eq_integratedCorrelation
       rfl
 
 omit [DecidableEq Omega] in
+/-- Exact finite-cutoff Green--Kubo identity with its propagated-resolvent
+remainder.  No decay or convergence premise is used:
+`<j,Rk> = sum_{n=0}^N <j,K^n k> + <j,K^(N+1)Rk>`. -/
+theorem greenKuboPair_eq_integratedCorrelation_add_remainder
+    (pi : Omega -> Real) (K : Omega -> Omega -> Real)
+    (R : (Omega -> Real) -> (Omega -> Real))
+    (N : Nat) (j k : CenteredCurrent pi)
+    (hk : dissipationOperator K (R k.1) = k.1) :
+    greenKuboPair pi R j k =
+      integratedCorrelation pi K j.1 k.1 N +
+        equilibriumPair pi j.1 (kernelIterate K (N + 1) (R k.1)) := by
+  have hgeom := finiteResolvent_dissipation K N (R k.1)
+  rw [hk] at hgeom
+  have hreconstruct :
+      R k.1 = fun x => finiteResolvent K N k.1 x +
+        kernelIterate K (N + 1) (R k.1) x := by
+    funext x
+    have hx := congrFun hgeom x
+    linarith
+  have hfinite :=
+    greenKuboPair_finiteResolvent_eq_integratedCorrelation pi K N j k
+  unfold greenKuboPair at hfinite ⊢
+  calc
+    equilibriumPair pi j.1 (R k.1) =
+        equilibriumPair pi j.1 (fun x => finiteResolvent K N k.1 x +
+          kernelIterate K (N + 1) (R k.1) x) :=
+            congrArg (fun u => equilibriumPair pi j.1 u) hreconstruct
+    _ = equilibriumPair pi j.1 (finiteResolvent K N k.1) +
+        equilibriumPair pi j.1 (kernelIterate K (N + 1) (R k.1)) :=
+          equilibriumPair_add_right pi _ _ _
+    _ = integratedCorrelation pi K j.1 k.1 N +
+        equilibriumPair pi j.1 (kernelIterate K (N + 1) (R k.1)) := by
+          rw [hfinite]
+
+omit [DecidableEq Omega] in
+/-- Exact-extinction corollary of the remainder identity.  The premise is
+literal equality to zero after `N+1` steps, not asymptotic decay. -/
+theorem greenKuboPair_eq_integratedCorrelation_of_remainder_zero
+    (pi : Omega -> Real) (K : Omega -> Omega -> Real)
+    (R : (Omega -> Real) -> (Omega -> Real))
+    (N : Nat) (j k : CenteredCurrent pi)
+    (hk : dissipationOperator K (R k.1) = k.1)
+    (hrem : kernelIterate K (N + 1) (R k.1) = 0) :
+    greenKuboPair pi R j k = integratedCorrelation pi K j.1 k.1 N := by
+  rw [greenKuboPair_eq_integratedCorrelation_add_remainder pi K R N j k hk,
+    hrem]
+  unfold equilibriumPair
+  simp
+
+omit [DecidableEq Omega] in
 theorem finiteResolvent_solves_of_tail_zero
     (K : Omega -> Omega -> Real) (N : Nat) (f : Omega -> Real)
     (htail : kernelIterate K (N + 1) f = 0) :
@@ -522,7 +713,8 @@ theorem finiteResolvent_solves_of_tail_zero
 
 omit [DecidableEq Omega] in
 /-- Exact symmetry of a finite time-integrated correlation when both
-propagated currents vanish after the declared cutoff. -/
+propagated currents become literally zero after the declared cutoff.  This
+finite extinction premise is stronger than decay. -/
 theorem integratedCorrelation_symm_of_tail_zero
     (pi : Omega -> Real) (K : Omega -> Omega -> Real)
     (hdb : forall x y, pi x * K x y = pi y * K y x)
@@ -538,8 +730,8 @@ theorem integratedCorrelation_symm_of_tail_zero
     (finiteResolvent_solves_of_tail_zero K N k.1 hk)
 
 omit [DecidableEq Omega] in
-/-- Exact positive semidefiniteness of a finite Green--Kubo sum under the
-same explicit tail condition. -/
+/-- Diagonal nonnegativity of a finite Green--Kubo sum under the same literal
+finite-extinction condition. -/
 theorem integratedCorrelation_nonneg_of_tail_zero
     (pi : Omega -> Real) (K : Omega -> Omega -> Real)
     (hpi0 : forall x, 0 <= pi x)
@@ -782,7 +974,7 @@ theorem identityKernel_dissipation (f : Omega -> Real) :
   simp
 
 /-- Negative control: a nonzero centered current has no Poisson solution for
-the nondissipating identity dynamics.  Thus the inverse/tail premise in the
+the nondissipating identity dynamics.  Thus the Poisson premise in the
 Green--Kubo theorem cannot be erased. -/
 theorem identityKernel_no_poisson_of_ne_zero (j : CenteredCurrent pi)
     (hj : j.1 ≠ 0) :
@@ -797,6 +989,9 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.dissipation_eq_dirichlet
 #print axioms OPH.Thermodynamics.greenKuboPair_symm_of_poisson
 #print axioms OPH.Thermodynamics.greenKuboPair_nonneg_of_poisson
+#print axioms OPH.Thermodynamics.greenKuboPair_finite_matrix_psd
+#print axioms OPH.Thermodynamics.greenKuboPair_eq_integratedCorrelation_add_remainder
+#print axioms OPH.Thermodynamics.greenKuboPair_eq_integratedCorrelation_of_remainder_zero
 #print axioms OPH.Thermodynamics.integratedCorrelation_symm_of_tail_zero
 #print axioms OPH.Thermodynamics.integratedCorrelation_nonneg_of_tail_zero
 #print axioms OPH.Thermodynamics.heatBath_integratedCorrelation_formula

@@ -9,10 +9,12 @@ open Matrix
 
 A local operation on one factor of a bipartite system cannot change
 the marginal seen by the other factor. This module proves the exact
-finite statement in both descriptions used by the corpus. In the
-classical description, pushing a joint law through a kernel that acts
-on the first factor and fixes the second leaves the second marginal
-unchanged, with row normalization as the only hypothesis. In the
+finite algebraic statement in both descriptions used by the corpus. In the
+classical description, pushing a signed joint array through a real kernel that
+acts on the first factor and fixes the second leaves the second marginal
+unchanged, with row normalization as the algebraic hypothesis. Positivity and
+unit normalization are additional premises for reading those arrays as
+probabilities. In the
 finite quantum description, conjugating a joint matrix by a local
 Kraus family lifted with the identity leaves the partial trace over
 the acted factor unchanged, with Kraus completeness as the only
@@ -20,15 +22,16 @@ hypothesis. A computable negative control shows the normalization
 hypothesis carries the content: a non-normalized local kernel rescales
 the remote marginal.
 
-No physical spacelike separation, tensor-factor identification, or
-laboratory operation enters; the bipartite split is a named input.
+No physical spacelike separation, tensor-factor identification, density-state
+realization, or laboratory operation enters; the bipartite split is a named
+input.
 -/
 
 section Classical
 
 variable {α β : Type*} [Fintype α] [Fintype β]
 
-/-- The second marginal of a joint law. -/
+/-- The second marginal of a joint real array. -/
 noncomputable def sndMarginal (p : α × β → ℝ) (b : β) : ℝ :=
   ∑ a, p (a, b)
 
@@ -38,7 +41,7 @@ noncomputable def liftFst [DecidableEq β] (K : α → α → ℝ)
     (z z' : α × β) : ℝ :=
   if z'.2 = z.2 then K z.1 z'.1 else 0
 
-/-- Pushforward of a joint law through a joint kernel. -/
+/-- Pushforward of a joint real array through a joint kernel. -/
 noncomputable def pushJoint (p : α × β → ℝ)
     (K : α × β → α × β → ℝ) (z' : α × β) : ℝ :=
   ∑ z, p z * K z z'
@@ -76,9 +79,9 @@ theorem sndMarginal_pushJoint_liftFst [DecidableEq β]
 
 /-- **Negative control.** Without row normalization the remote
 marginal moves: the doubling kernel on a one-point first factor
-doubles the second marginal. The normalization hypothesis carries the
-entire content of the no-signalling theorem. -/
-theorem signalling_without_row_normalization :
+doubles the second marginal. Thus row normalization cannot be omitted from the
+general algebraic theorem. -/
+theorem remote_mass_changes_without_row_normalization :
     ∃ (K : Fin 1 → Fin 1 → ℝ) (p : Fin 1 × Fin 1 → ℝ) (b : Fin 1),
       sndMarginal (pushJoint p (liftFst K)) b ≠ sndMarginal p b := by
   refine ⟨fun _ _ => 2, fun _ => 1, 0, ?_⟩
@@ -114,6 +117,7 @@ theorem liftLeft_conjTranspose (A : Matrix α α ℂ) :
   · have h' : ¬ z.2 = z'.2 := fun hc => h hc.symm
     simp [h, h']
 
+omit [DecidableEq α] in
 /-- The lifted-conjugation summand in explicit entry form. -/
 theorem liftLeft_conj_apply (Kk : Matrix α α ℂ)
     (M : Matrix (α × β) (α × β) ℂ) (z z' : α × β) :
@@ -237,5 +241,5 @@ end Quantum
 end OPH.Locality
 
 #print axioms OPH.Locality.sndMarginal_pushJoint_liftFst
-#print axioms OPH.Locality.signalling_without_row_normalization
+#print axioms OPH.Locality.remote_mass_changes_without_row_normalization
 #print axioms OPH.Locality.ptraceFst_local_kraus

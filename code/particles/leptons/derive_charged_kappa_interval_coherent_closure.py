@@ -159,7 +159,8 @@ def _width_floor_audit(rectangle: dict[str, Any]) -> dict[str, Any]:
     per-order structure of the leptonic Delta_alpha (the two-loop piece
     dominates), and its kappa-sensitivity across the certified interval is
     two orders below the band. The band therefore functions as a level
-    convention, and the level is pinned by the open anchor scheme bridge:
+    convention, and the level is pinned by the resource-deferred historical
+    anchor scheme boundary #545:
     at the current premise set the certified width floor is the
     scheme-bridge ambiguity, and shrinking the band without the source
     bridge would relabel that convention as a witness exclusion. The
@@ -355,8 +356,9 @@ def build(
             "coherence premise; the surviving width is the higher-order lepton "
             "remainder and the one-loop kernel truncation, both closable by "
             "standard perturbative computation; the premise itself reduces to "
-            "the source hadronic spectral measure (#425) and the a0 scheme "
-            "bridge (#545), unchanged"
+            "the resource-deferred source hadronic spectral measure (#425) "
+            "and a0 scheme boundary (#545), unchanged; live quantitative "
+            "successor #696 cannot discharge either missing source"
         ),
     }
 

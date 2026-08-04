@@ -11,10 +11,12 @@ The divergence convention is net outward flux, so a source-free continuity
 update is `qNext - q = -dt * divergence`.
 
 The quantity wrappers below keep concentration, temperature, particle amount,
-energy, particle flux, heat flux, distance, and clock increment distinct at the
-Lean type level.  The file does not derive any physical unit or identify a graph
-field with a laboratory observable.  Such an identification is an external
-realization receipt.
+energy, cell volume, heat capacity, particle flux, heat flux, distance, and
+clock increment distinct at the Lean type level.  The file does not derive any
+physical unit or identify a graph field with a laboratory observable.  Such an
+identification is an external realization receipt.  Its explicit one-step maps
+prove balance and constitutive identities; they do not assert state positivity,
+time-step stability, convergence, or an entropy-production theorem.
 -/
 
 variable {V E : Type*}

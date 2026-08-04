@@ -1427,6 +1427,146 @@ Only on that certified branch is
 Clay-facing axiomatic construction.
 \end{enumerate}
 
+\subsection{Conditional history weights and the variational bridge boundary}
+\label{sec:history-variational-boundary}
+
+Two standard finite-horizon constructions clarify what the observer axioms
+must supply before an action principle could be claimed.
+
+\begin{theorem}[Finite path projection and positive-gap tail]
+\label{thm:finite-path-projection}
+Let \(\Omega\) be finite, let
+\(\Gamma=\Omega^{\{0,\ldots,N\}}\), and let \(P,\tau\) be probability laws on
+\(\Gamma\), with \(\tau>0\).  Let \(R>0\) be a reference weight, let
+\(F_a:\Gamma\to\mathbb R\) be finitely many declared observables, and suppose
+\[
+ \log\tau(\gamma)
+ =\log R(\gamma)-\sum_a\lambda_aF_a(\gamma)-\log Z
+\]
+and \(P\) and \(\tau\) have the same \(F_a\)-moments.  Then
+\[
+ D(P\Vert R)=D(P\Vert\tau)+D(\tau\Vert R),
+ \qquad
+ D(\tau\Vert R)\le D(P\Vert R).
+\]
+With
+\[
+ A_{\mathrm{eff}}(\gamma)
+ =-\log R(\gamma)+\sum_a\lambda_aF_a(\gamma),
+\]
+one has \(\tau(\gamma)=\exp[-A_{\mathrm{eff}}(\gamma)-\log Z]\), so every
+supplied modal history minimizes \(A_{\mathrm{eff}}\) over \(\Gamma\).
+
+Separately, for any nonempty finite set \(\Gamma\), function
+\(S:\Gamma\to\mathbb R\), global minimizer \(\gamma_0\), and
+\[
+ q_\beta(\gamma)=
+ \frac{e^{-\beta S(\gamma)}}{\sum_\delta e^{-\beta S(\delta)}},
+\]
+the mass at least \(\Delta>0\) above that minimum obeys
+\[
+ \sum_{S(\gamma)\ge S(\gamma_0)+\Delta}q_\beta(\gamma)
+ \le |\Gamma|e^{-\beta\Delta}
+\]
+for \(\beta\ge0\), and this displayed mass tends to zero as
+\(\beta\to\infty\).  Finiteness also gives the stronger concentration
+statement
+\[
+ \lim_{\beta\to\infty}
+ \sum_{S(\gamma)>S(\gamma_0)}q_\beta(\gamma)=0,
+\]
+so the total mass outside the full minimizer set vanishes.
+\end{theorem}
+
+\begin{proof}
+Expand \(D(P\Vert R)-D(P\Vert\tau)\).  The displayed logarithmic form,
+normalization, and moment matching make the result independent of \(P\) on
+the constraint surface; evaluating it at \(P=\tau\) gives the Pythagorean
+identity.  Nonnegativity of \(D(P\Vert\tau)\) gives minimality.  Exponentiating
+the logarithmic form reverses probability and effective-action order.  For
+the tail bound, the partition sum is at least
+\(e^{-\beta S(\gamma_0)}\), while each displayed numerator is at most that
+quantity times \(e^{-\beta\Delta}\); summing and taking the elementary
+exponential limit proves the fixed-gap statement.  Apply that argument to
+each strictly nonminimal history and sum over the finite set for the final
+limit.  The statements are checked in Lean~\cite{ophrepo}; they are instances
+of standard information-projection mathematics~\cite{csiszar1975} and
+elementary finite exponential estimates.
+\end{proof}
+
+The theorem assumes the exponential form and matching moments.  It neither
+constructs \(R\) from the OPH source nor proves that an Axiom~3 history
+optimizer exists, has that form, or is unique.  Calling \(R\) a probability
+law additionally requires its normalization.
+
+\begin{theorem}[Real finite-horizon variational helpers]
+\label{thm:real-discrete-variational-helpers}
+Let \(L:\mathbb R^2\to\mathbb R\) be differentiable and define
+\[
+ \mathcal S_L(\gamma)=\sum_{n=0}^{N-1}L(\gamma_n,\gamma_{n+1})
+ \qquad
+ (\gamma:\{0,\ldots,N\}\to\mathbb R).
+\]
+At an interior junction \(k+1\), suppose \(\gamma\) minimizes
+\(\mathcal S_L\) under every replacement of \(\gamma_{k+1}\).  Then
+\[
+ \partial_2L(\gamma_k,\gamma_{k+1})
+ +\partial_1L(\gamma_{k+1},\gamma_{k+2})=0.
+\]
+If a differentiable one-parameter family \(T_s\) satisfies \(T_0x=x\), has
+generator \(\xi(x)=\left.\partial_sT_sx\right|_{s=0}\), and obeys
+\(L(T_sx,T_sy)=L(x,y)\), then the segment momentum
+\[
+ p_n=\partial_2L(\gamma_n,\gamma_{n+1})\,\xi(\gamma_{n+1})
+\]
+is equal on the two segments adjacent to that junction.  More generally, for
+a path with \(M+2\) records, if the same single-site minimization premise
+holds at all \(M\) interior records, then there is a scalar \(J\) such that
+\(p_n=J\) on every one of its \(M+1\) segments.
+\end{theorem}
+
+\begin{proof}
+Changing one interior record changes exactly the two adjacent summands.
+Differentiating their sum at its declared minimum gives the first identity.
+Differentiating the invariance relation at \(s=0\) and combining it with that
+identity gives \(p_k=p_{k+1}\).  Applying this identity at every interior
+junction and inducting along the finite chain gives the scalar \(J\).  These
+are standard discrete variational and Noether calculations~\cite{marsdenWest};
+their precise premises are checked in Lean~\cite{ophrepo}.
+\end{proof}
+
+\begin{proposition}[Finite/real variation obstruction]
+\label{prop:finite-real-variation-obstruction}
+Fix a real path \(\gamma:\{0,\ldots,N\}\to\mathbb R\), a site \(i\), and
+any finite family \(G\) of real paths.  There is an \(x\in\mathbb R\) for
+which the path obtained by replacing \(\gamma_i\) with \(x\) does not belong
+to \(G\).  Hence no finite real-path family contains every single-site real
+variation of even one supplied path.
+\end{proposition}
+
+\begin{proof}
+The map from \(x\) to the updated path is injective because evaluation at
+\(i\) recovers \(x\).  Its image is infinite and therefore cannot be contained
+in finite \(G\).  This elementary cardinality obstruction is machine checked
+in Lean~\cite{ophrepo}.
+\end{proof}
+
+The two theorem domains do not compose as stated.  The first uses paths in a
+finite state set; the second uses arbitrary real single-site variations.  A
+minimum among finite paths does not imply a minimum under those real
+variations; Proposition~\ref{prop:finite-real-variation-obstruction} rules out
+closure under all such variations inside any finite real-path family.  No
+theorem supplies a common-domain embedding or relaxation,
+identifies \(A_{\mathrm{eff}}\) with the local action \(\mathcal S_L\), or
+identifies the finite scalar chain constant with a vector-valued or physical
+current.  The package also supplies no source-derived reference and constraints, local
+additivity theorem, complex amplitude, interference rule, physical clock,
+\(\hbar\), continuum path measure, or laboratory action.  It therefore does
+not derive physical stationary action from the observer axioms.  Both
+mathematical ingredients and the cardinality obstruction are elementary or
+standard; an OPH-specific result begins only after one source object
+discharges these bridge and realization premises.
+
 \subsection{Thermodynamics from conditional repair in observer modular time}
 \label{sec:thermodynamics}
 
@@ -1512,12 +1652,67 @@ weight at entropy production \(s\) as \(e^{s}\) times the reversed
 weight. The mean of \(\sigma\) is exactly the certified descent
 \(D(p\Vert\pi)-D(pP_C\Vert\pi)\), so the second law is the Jensen
 shadow of an identity rather than a primitive inequality. Detailed
-balance also gives finite Onsager reciprocity: equilibrium time-lagged
-correlations are symmetric under exchange of the two observables, and
-linear-response transport coefficients inherit the symmetry. Because
-\(e^{-\sigma}\) is a ratio of rationals, the certificate closes every
-one of these identities exactly over the rationals, with no numerical
-logarithm.
+balance also gives finite Onsager reciprocity. Because \(e^{-\sigma}\)
+is a ratio of rationals, the fluctuation certificate closes exactly over
+the rationals, with no numerical logarithm.
+
+The reversible symmetry and correlation representation below are finite
+relatives of standard Onsager and Green--Kubo theory
+\cite{onsager1931,greenKubo}. The OPH-specific statement is the resulting
+model-selection obstruction for the full-fibre publicization projector.
+
+\begin{theorem}[Finite transport kernel and repair-projector obstruction]
+\label{thm:finite-transport-kernel}
+Let \(K\) be a finite stochastic kernel reversible under a strictly positive
+weight \(\pi\), let \(L=I-K\), and let \(R\) be a linear solver of
+\(LRj=j\) on the \(\pi\)-centered currents. For any finite current family
+\(\{j_a\}\),
+\[
+  \Gamma_{ab}=\langle j_a,Rj_b\rangle_\pi
+\]
+is symmetric and positive semidefinite. At every finite cutoff \(N\),
+\[
+  \langle j,Rk\rangle_\pi
+  =\sum_{n=0}^{N}\langle j,K^n k\rangle_\pi
+   +\langle j,K^{N+1}Rk\rangle_\pi .
+\]
+Thus a Green--Kubo coefficient is a correlation sum plus an exact displayed
+remainder, rather than a silently assumed infinite series.
+
+For the full-fibre conditional-resampling kernel \(P_C\), idempotence gives
+\(P_C^n=P_C\) for every \(n\geq1\). Positive-lag correlations are therefore
+constant. A fibre-centered current with \(P_Cj=0\) has no positive-lag
+memory, while a nonzero one-step correlation makes consecutive partial sums
+differ by the same nonzero amount. One full-fibre repair projector cannot be
+a decaying, nonzero-memory transport dynamics.
+
+On a finite closed oriented graph, typed positive cell volumes and heat
+capacities convert concentration to particle amount and temperature to
+energy. Fick and Fourier fluxes then define canonical one-step updates whose
+total changes equal the clock increment times the total source and hence
+vanish when the source sums vanish.
+Nonnegative conductance makes the flux--gradient pairing nonpositive; explicit
+negative-conductance controls reverse that sign.
+\end{theorem}
+
+\begin{proof}
+Detailed balance makes \(L\) self-adjoint, and the exact Dirichlet identity
+expresses \(\langle f,Lf\rangle_\pi\) as a nonnegative weighted sum of squared
+differences. Applying this to linear combinations of the Poisson solutions
+proves symmetry and the full finite quadratic-form inequality. The cutoff
+formula telescopes the Poisson equation. Projector idempotence gives the
+positive-lag dichotomy. Graph summation by parts and cancellation of internal
+oriented edges give the constitutive and global-balance statements. Every
+step, including two-state and two-vertex witnesses and negative controls, is
+checked in Lean~\cite{ophrepo}.
+\end{proof}
+
+The theorem does not select a physical transition generator, distance,
+clock, boundary condition, conductance, or readout. It proves no stability,
+hydrodynamic limit, or measured transport coefficient. In particular, the
+projector obstruction requires a source-derived nonidempotent local or
+random-scan effective evolution before OPH can make a long-memory transport
+claim.
 
 The same package carries the entropy-balance shape used by the
 gravitational branch. For any state and faithful reference the exact
@@ -1548,11 +1743,14 @@ entropy nonnegativity, the log-sum inequality, data processing, the
 conditional-resampling optimizer and its kernel package, the Gibbs
 Pythagorean identity and minimizer, the first-law split, the
 low-temperature bound, the fluctuation identities with reciprocity,
+the finite Green--Kubo matrix and exact cutoff remainder, the repair-projector
+memory obstruction, the typed Fick and Fourier updates,
 the exact-remainder cap first law, the discharged Einstein-branch
 first-law premises, and the Kraus completeness of
 partition pinching; the modules are \texttt{FiniteConditionalRepair},
 \texttt{FirstLawIdentity}, \texttt{FluctuationTheorems},
-\texttt{CapFirstLaw}, \texttt{EinsteinPremiseLink}, and
+\texttt{GreenKubo}, \texttt{GraphDiffusion}, \texttt{CapFirstLaw},
+\texttt{EinsteinPremiseLink}, and
 \texttt{PartitionPinchingCP} in the
 Lean thermodynamics and event-algebra libraries, and the exact-rational
 certificate replays the kernel algebra and fluctuation identities and

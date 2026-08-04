@@ -26,7 +26,8 @@ lean_lib «EventAlgebra» where
 lean_lib «OPHThermodynamics» where
   srcDir := "Thermodynamics"
   roots := #[`FiniteConditionalRepair, `FirstLawIdentity,
-    `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink]
+    `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink,
+    `GreenKubo, `GraphDiffusion]
 
 @[default_target]
 lean_lib «OPHScreen» where
@@ -61,7 +62,7 @@ lean_lib «OPHScreen» where
 @[default_target]
 lean_lib «OPHConstruction» where
   srcDir := "."
-  roots := #[`Dynamics, `InformationProjection, `Variational]
+  roots := #[`Dynamics, `InformationProjection, `Locality, `Variational]
 
 lean_exe «oph» where
   root := `Main

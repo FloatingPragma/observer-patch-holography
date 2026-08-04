@@ -2906,7 +2906,7 @@ Lean~\cite{ophrepo}.
 \label{thm:finite-seam-continuity-ward-boundary}
 Let \(q,q',s\in\mathbb Z^{12}\) be stored load, updated load, and source,
 and let \(J\in\mathbb Z^{30}\) be a current on the bookkeeping-oriented
-seams. The repository boundary uses net inflow. If
+seams. Adopt the net-inflow incidence convention. If
 \[
 q'-q=s+\partial J,
 \]
@@ -2947,13 +2947,22 @@ statements are checked in Lean~\cite{ophrepo}.
 The theorem assumes the pointwise finite update and assigns no physical
 meaning to load, current, update order, or charge. A continuum Ward identity
 requires a source-derived family of these finite witnesses, directed cofinal
-refinement, realization as components of one stress tensor, weak convergence
-on a nonempty test-field class, chart covariance, and one inhabited common
-tower. The Lean \texttt{WardLimitManifest} fixes a nonzero finite witness, an
-injective monotone cofinal sequence, real test-pairing convergence, and a
-nontrivial real Ward residual that vanishes at the proposed limit. Its source,
-transport, chart, and tower relations remain F1 evidence obligations; the
-structure alone makes no physical identification.
+refinement with a positive scale tending to zero, realization as components of
+one stress tensor, weak convergence on an admissible separating test-field
+class, a finite residual declared on the continuity witness and independently
+shown by the downstream continuum construction to be derived from it,
+convergence of that residual, chart
+covariance, and one inhabited common tower. The generic Lean function may
+otherwise ignore its witness. The Lean
+\texttt{WardLimitManifest} requires a not-all-zero finite datum and a
+nontrivial residual; it derives residual vanishing at the candidate limit by
+uniqueness of limits. The candidate limit may be zero. That construction must
+identify the declared residual with physical distributional divergence and
+supply the
+source, transport, chart, and tower evidence; the structure alone makes no
+physical identification. In particular, residual convergence must follow from
+an independent compatibility estimate and cannot be justified by assuming the
+target Ward equality.
 
 The metric in Theorem~\ref{thm:seam-current-response-completion} is the
 response Gram metric. It is not the inherited Euclidean metric of the integer

@@ -6,7 +6,7 @@ disagreement.
 
 This repository contains:
 
-- a Lean 4 library of more than 1900 checked theorems and lemmas with no
+- a Lean 4 library of more than 2000 checked theorems and lemmas with no
   admitted proofs; the audited theorem subset carries explicit axiom reports,
   and 23 finite proofs extend trust to `native_decide`'s native-code evaluation
   axiom;
@@ -96,7 +96,7 @@ repository.
 
 | Status | Contents |
 | --- | --- |
-| Proved, machine-checked | More than 1900 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
+| Proved, machine-checked | More than 2000 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
 | Proved, certified numerics | Fixed-point existence and uniqueness for each declared $P$ map on the declared domain, via interval contraction and adaptive subdivision certificates |
 | Measured | The Einstein-cone convergence ladder above, with its adversarial density control |
 | Conditional | The strict one-loop W/Z pole map (proved and machine checked, fixture is a post-exposure regression), the $N$ extension, the $N$–Higgs bridge, and the $N_g=3$ selection; each conditional branch names its open producer |

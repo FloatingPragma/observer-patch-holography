@@ -92,6 +92,19 @@ LEAN_RECEIPTS = {
     "DiscreteGauss": LEAN_SCREEN / "DiscreteGauss.lean",
     "ProtectedCharge": REPO / "Lean" / "Dynamics" / "ProtectedCharge.lean",
     "WardLimitManifest": REPO / "Lean" / "Dynamics" / "WardLimitManifest.lean",
+    "GreenKubo": REPO / "Lean" / "Thermodynamics" / "GreenKubo.lean",
+    "GraphDiffusion": REPO / "Lean" / "Thermodynamics" / "GraphDiffusion.lean",
+    "DependencyCone": REPO / "Lean" / "ObserverPatchHolography"
+    / "Locality" / "DependencyCone.lean",
+    "NoSignalling": REPO / "Lean" / "ObserverPatchHolography"
+    / "Locality" / "NoSignalling.lean",
+    "PathGibbs": REPO / "Lean" / "InformationProjection" / "PathGibbs.lean",
+    "DiscreteEulerLagrange": REPO / "Lean" / "Variational"
+    / "DiscreteEulerLagrange.lean",
+    "DiscreteNoether": REPO / "Lean" / "Variational"
+    / "DiscreteNoether.lean",
+    "FiniteHistoryBridge": REPO / "Lean" / "Variational"
+    / "FiniteHistoryBridge.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -744,6 +757,92 @@ def _forced_structure(
             "paper_ref": "observers paper, thermodynamics section",
         },
         {
+            "id": "finite_green_kubo_graph_transport",
+            "statement": (
+                "A finite reversible Markov kernel with a linear Poisson "
+                "solver has a symmetric positive-semidefinite Green--Kubo "
+                "matrix and an exact finite correlation sum with propagated "
+                "remainder. One full-fibre repair projector has constant "
+                "positive-lag correlation and cannot supply a nonzero decaying "
+                "memory tail with stabilizing sums. Typed finite-graph Fick "
+                "and Fourier updates obey exact source balance and source-free "
+                "conservation"
+            ),
+            "observed_counterpart": (
+                "Onsager symmetry, Green--Kubo response, Fick diffusion, and "
+                "Fourier heat transport"
+            ),
+            "match": (
+                "exact finite conditional transport structure; physical "
+                "generator and coefficients open"
+            ),
+            "lean_declarations": {
+                "GreenKubo": [
+                    "dissipation_eq_dirichlet",
+                    "greenKuboPair_symm_of_poisson",
+                    "greenKuboPair_finite_matrix_psd",
+                    "greenKuboPair_eq_integratedCorrelation_add_remainder",
+                    "heatBath_integratedCorrelation_not_stable",
+                    "heatBath_integratedCorrelation_eq_equalTime",
+                    "binary_heatBath_integratedCorrelation_eq_one",
+                    "identityKernel_no_poisson_of_ne_zero",
+                ],
+                "GraphDiffusion": [
+                    "summation_by_parts",
+                    "fickParticleAmountStep_bridge",
+                    "fickParticleAmountStep_total_conservation",
+                    "fourierEnergyStep_bridge",
+                    "fourierEnergyStep_total_conservation",
+                    "fick_flux_gradient_power_nonpositive",
+                    "fourier_flux_gradient_power_nonpositive",
+                    "negative_conductance_counterexample",
+                    "negative_thermal_conductance_counterexample",
+                    "twoVertex_fick_closed_step",
+                    "twoVertex_fourier_closed_step",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "GreenKubo",
+                "GraphDiffusion",
+                declarations={
+                    "GreenKubo": (
+                        "dissipation_eq_dirichlet",
+                        "greenKuboPair_symm_of_poisson",
+                        "greenKuboPair_finite_matrix_psd",
+                        "greenKuboPair_eq_integratedCorrelation_add_remainder",
+                        "heatBath_integratedCorrelation_not_stable",
+                        "heatBath_integratedCorrelation_eq_equalTime",
+                        "binary_heatBath_integratedCorrelation_eq_one",
+                        "identityKernel_no_poisson_of_ne_zero",
+                    ),
+                    "GraphDiffusion": (
+                        "summation_by_parts",
+                        "fickParticleAmountStep_bridge",
+                        "fickParticleAmountStep_total_conservation",
+                        "fourierEnergyStep_bridge",
+                        "fourierEnergyStep_total_conservation",
+                        "fick_flux_gradient_power_nonpositive",
+                        "fourier_flux_gradient_power_nonpositive",
+                        "negative_conductance_counterexample",
+                        "negative_thermal_conductance_counterexample",
+                        "twoVertex_fick_closed_step",
+                        "twoVertex_fourier_closed_step",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the reversible kernel, linear Poisson solver, graph, distance, "
+                "clock increment, volumes, heat capacities, and conductances "
+                "are declared finite inputs. No theorem identifies the "
+                "Green--Kubo coefficient with graph conductance. Issues #688, "
+                "#690, and #691 own the source evolution, physical equilibrium "
+                "reference and conserved quantity, geometry, clock, and "
+                "calibration; this row emits no prediction-ladder "
+                "entry"
+            ),
+            "paper_ref": "observers paper, finite transport theorem",
+        },
+        {
             "id": "finite_conservation_ward_precursor",
             "statement": (
                 "On the exact twelve-port, thirty-seam incidence graph, a "
@@ -780,6 +879,9 @@ def _forced_structure(
                     "twoStateOddCharge_ne_zero",
                     "channel_covariance_does_not_imply_charge_conservation",
                 ],
+                "WardLimitManifest": [
+                    "WardLimitManifest.wardIdentity",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "RegionalContinuity",
@@ -805,16 +907,161 @@ def _forced_structure(
                         "twoStateOddCharge_ne_zero",
                         "channel_covariance_does_not_imply_charge_conservation",
                     ),
+                    "WardLimitManifest": (
+                        "WardLimitManifest.wardIdentity",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
                 "the pointwise update is a declared finite premise; the load, "
                 "current, update order, and charge have no physical identity. "
-                "Issue #694 must construct every field of WardLimitManifest "
-                "before the finite result can be consumed as a continuum Ward "
-                "identity"
+                "The guarded WardLimitManifest derives zero limiting residual "
+                "from exact finite-residual vanishing and convergence on a "
+                "shrinking scale with separating tests. Issue #694 must define "
+                "that residual from finite continuity, identify it with physical "
+                "distributional divergence, and supply the source, transport, "
+                "chart, and common-tower evidence before continuum Ward use"
             ),
             "paper_ref": "screen-microphysics paper, finite conservation bridge",
+        },
+        {
+            "id": "finite_fixed_word_locality_and_marginal_invariance",
+            "statement": (
+                "For the concrete single-site OPH localRepair, every fixed "
+                "exogenous word of n sequential moves has an n-fold "
+                "closed-neighborhood dependency upper bound. Separately, on "
+                "a supplied finite bipartite split, row-normalized real maps "
+                "preserve the remote algebraic marginal and Kraus-complete "
+                "local matrix families preserve the remote partial trace"
+            ),
+            "observed_counterpart": (
+                "finite propagation cones and classical or quantum "
+                "no-signalling"
+            ),
+            "match": (
+                "exact fixed-word and algebraic helpers; physical causality "
+                "attachment open"
+            ),
+            "lean_declarations": {
+                "DependencyCone": [
+                    "localRepair_agree",
+                    "applyWord_agree_on",
+                    "no_influence_outside_ball",
+                ],
+                "NoSignalling": [
+                    "sndMarginal_pushJoint_liftFst",
+                    "remote_mass_changes_without_row_normalization",
+                    "ptraceFst_local_kraus",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "DependencyCone",
+                "NoSignalling",
+                declarations={
+                    "DependencyCone": (
+                        "localRepair_agree",
+                        "applyWord_agree_on",
+                        "no_influence_outside_ball",
+                    ),
+                    "NoSignalling": (
+                        "sndMarginal_pushJoint_liftFst",
+                        "remote_mass_changes_without_row_normalization",
+                        "ptraceFst_local_kraus",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the repair word is fixed externally and shared by both "
+                "inputs; adaptive or globally state-dependent scheduling is "
+                "not covered. The cone is an upper bound, not a minimal cone "
+                "or graph-radius speed law. The bipartite split is supplied, "
+                "the classical theorem permits signed arrays, and no OPH "
+                "region-factor, spacelike, clock, stochastic-state, CPTP, or "
+                "laboratory attachment is proved. Issue #692 owns that "
+                "attachment; this row emits no prediction-ladder entry"
+            ),
+            "paper_ref": "consensus-protocol paper, finite locality boundary",
+        },
+        {
+            "id": "finite_history_variational_helpers_and_bridge_obstruction",
+            "statement": (
+                "A supplied positive normalized exponential tilt on a finite "
+                "history type obeys the finite information-projection "
+                "Pythagorean and minimizer identities; inverse-noise mass on "
+                "all strict nonminimizers tends to zero. Separately, a real "
+                "local-action minimum under every single-site variation gives "
+                "the scalar discrete Euler--Lagrange equation and local "
+                "Noether transport, with a nonzero free-path witness. No "
+                "finite real-path family contains every such variation"
+            ),
+            "observed_counterpart": (
+                "Gibbs path selection, least-action limits, discrete "
+                "Euler--Lagrange equations, and Noether currents"
+            ),
+            "match": (
+                "exact conditional helpers plus an interface obstruction; "
+                "the physical and source-derived composition is open"
+            ),
+            "lean_declarations": {
+                "PathGibbs": [
+                    "pathGibbs_pythagorean",
+                    "pathGibbs_minimizer",
+                    "modal_path_least_action",
+                    "noiseFamily_above_gap_mass_tendsto_zero",
+                    "noiseFamily_nonminimal_mass_tendsto_zero",
+                ],
+                "DiscreteEulerLagrange": [
+                    "stationary_localAction_discreteEulerLagrange",
+                ],
+                "DiscreteNoether": [
+                    "noether_conserved",
+                    "noether_current_constant_on_finite_chain",
+                    "free_translation_nonzero_noether_witness",
+                ],
+                "FiniteHistoryBridge": [
+                    "exists_real_site_variation_outside",
+                    "not_all_real_site_variations_mem",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "PathGibbs",
+                "DiscreteEulerLagrange",
+                "DiscreteNoether",
+                "FiniteHistoryBridge",
+                declarations={
+                    "PathGibbs": (
+                        "pathGibbs_pythagorean",
+                        "pathGibbs_minimizer",
+                        "modal_path_least_action",
+                        "noiseFamily_above_gap_mass_tendsto_zero",
+                        "noiseFamily_nonminimal_mass_tendsto_zero",
+                    ),
+                    "DiscreteEulerLagrange": (
+                        "stationary_localAction_discreteEulerLagrange",
+                    ),
+                    "DiscreteNoether": (
+                        "noether_conserved",
+                        "noether_current_constant_on_finite_chain",
+                        "free_translation_nonzero_noether_witness",
+                    ),
+                    "FiniteHistoryBridge": (
+                        "exists_real_site_variation_outside",
+                        "not_all_real_site_variations_mem",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the exponential log relation, moment packet, modal history, "
+                "real Lagrangian, derivatives, invariance, and universal "
+                "real-site minimality are supplied. The finite state type and "
+                "real differential path type do not compose: the formal "
+                "obstruction requires a new enrichment or transfer theorem. "
+                "Issue #683 remains open for source-law construction, "
+                "uniqueness, that bridge, saddle histories, physical action "
+                "and clock, amplitudes, fields, continuum, and observable "
+                "currents. This row emits no prediction-ladder entry"
+            ),
+            "paper_ref": "observers paper, conditional history boundary",
         },
     ]
     rows.extend(
@@ -1009,7 +1256,9 @@ def _lepton_rows(
                 "witness, that value lies inside the retrospective accounting "
                 "interval, and its "
                 "distance to the standard on-shell reference deficit is the "
-                "live scheme term of the open anchor bridge. The lepton "
+                "scheme term of the resource-deferred historical anchor "
+                "boundary #545. The live quantitative successor #696 does "
+                "not discharge that missing source. The lepton "
                 "scale is localized only under the recorded accounting "
                 "packet. A "
                 "source-emitted bridge value is a sharp falsification "
@@ -1270,8 +1519,10 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
                 f"[{glo:.4f}, {ghi:.4f}]; the "
                 f"distance {wp['scheme_term_difference_inv_alpha']:+.4f} to "
                 "the standard on-shell reference deficit "
-                f"{wp['reference_deficit_inv_alpha']:.4f} is the live scheme "
-                "term of the open anchor bridge (issue 545). The lepton "
+                f"{wp['reference_deficit_inv_alpha']:.4f} is the scheme "
+                "term of the resource-deferred historical anchor boundary "
+                "#545; live quantitative successor #696 does not discharge "
+                "that source requirement. The lepton "
                 "scale is localized only under that recorded accounting "
                 "packet. A "
                 "source-emitted bridge value is a falsification target: the "

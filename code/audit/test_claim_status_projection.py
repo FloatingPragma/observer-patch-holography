@@ -215,9 +215,8 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         ]
     }
     assert de_sitter_blockers == {
-        334: "open_work_item",
-        595: "open_work_item",
-        608: "open_work_item",
+        691: "open_work_item",
+        694: "open_work_item",
     }
     assert set(
         by_id["de_sitter_capacity_transfer_shock_sign"]["source_anchors"]
@@ -259,8 +258,32 @@ def test_de_sitter_claim_split_preserves_status_boundaries():
         in by_id["OPH-GR-DS-CAPACITY-TRANSFER"]["statement"]
     )
     discrete = by_id["OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM"]
-    assert discrete["gates"] == [608]
+    assert discrete["gates"] == [694]
     assert "draft_only_no_live_gate" not in discrete["status"]
+
+
+def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
+    registry, _, _ = scoreboard.source_documents()
+    by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
+    expected_gates = {
+        "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
+        "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
+        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
+        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [688, 690, 691],
+    }
+    for claim_id, gates in expected_gates.items():
+        claim = by_id[claim_id]
+        assert claim["claim_class"] == "conditional_implication"
+        assert claim["gates"] == gates
+        assert "physical_establishment" not in claim["status"]
+
+    flagship = (
+        REPO_ROOT / "flagship" / "from_observer_consensus_to_standard_physics.tex"
+    ).read_text(encoding="utf-8")
+    assert "thm:finite-repair-support-bound" not in flagship
+    assert "thm:finite-path-projection" not in flagship
+    assert "thm:real-discrete-variational-helpers" not in flagship
+    assert "idempotent full-fibre time-step" in flagship
 
 
 def test_numeric_p_acc_is_forbidden_while_any_menu_is_undeclared():

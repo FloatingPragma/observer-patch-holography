@@ -27,13 +27,21 @@ Lean/
 ├── EventAlgebra.lean
 ├── EventAlgebra/                       neutral finite event algebras
 │                                       (journal artifact, Mathlib-only)
-├── Thermodynamics/                     finite repair thermodynamics and
-│                                       Einstein first-law premise links
+├── Thermodynamics/                     finite repair thermodynamics,
+│                                       reversible transport, graph diffusion,
+│                                       and Einstein first-law premise links
 ├── Screen/                             OPHScreen library: icosahedral screen
 │                                       arithmetic, A5 corpus, trichotomy
 ├── Dynamics.lean
 ├── Dynamics/                           OPHConstruction reusable dynamics
 │                                       interfaces
+├── InformationProjection.lean
+├── InformationProjection/              conditional finite-history projection
+├── Locality.lean
+├── ObserverPatchHolography/Locality/    fixed-word locality helpers
+├── Variational.lean
+├── Variational/                         scalar variational helpers and bridge
+│                                       obstruction
 ├── ObservableNormalForms/              standalone neutral submission package
 │                                       (own lakefile; also built here)
 ├── docs/                               proof indices and application notes
@@ -81,7 +89,10 @@ continuous integration recreates it as a real directory.
 - `docs/PROOF_INDEX.md`: proof-to-paper mapping and formalisation status
 - `docs/LIBRARY_GUIDE.md`: scope and module guide for the main library
 - `docs/EINSTEIN_BRANCH_INDEX.md`: Einstein-branch statement audit
+- `docs/B4_LOCALITY_BOUNDARY.md`: fixed-word locality and physical boundary
 - `docs/B5_WARD_BRIDGE.md`: finite continuity and Ward-premise boundary
+- `docs/B7_HISTORY_BRIDGE.md`: conditional history helpers and interface no-go
+- `docs/B8_TRANSPORT_KERNEL.md`: finite Green--Kubo and graph-transport boundary
 - `docs/BRIDGE_BOUNDARY_INDEX.md`: cross-paper boundary map
 - `docs/BOUNDARY_FIBER_APPLICATION.md`: #304 application note
 - `ObservableNormalForms/README.md` and its `PROOF_INDEX.md`: manuscript

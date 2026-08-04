@@ -5,21 +5,24 @@ namespace OPH.Locality
 open OPH
 
 /-!
-# The exact dependency cone of local repair
+# A certified finite dependency-cone bound for local repair
 
 The constructed single-site repair move reads only the closed edge
 neighborhood of its firing site and writes only the site itself. This
-module turns that locality into an exact causal statement: after any
-schedule of `n` local repair moves, the records on a region depend
+module turns that locality into an exact finite upper-bound statement: after
+any schedule of `n` local repair moves, the records on a region depend
 only on the initial records inside the `n`-fold grown neighborhood of
 that region. Changing initial data outside that finite cone cannot
 change the readout, for every schedule of that length.
 
-The theorem quantifies over arbitrary repair words, so it bounds every
-scheduler at once. No probability, continuum limit, propagation speed,
-or physical distance enters; the cone is the exact combinatorial
-shadow of single-site transactional repair, and its physical reading
-requires the separate length and clock attachments.
+The theorem quantifies over every fixed exogenous repair word shared by the
+two compared inputs.  It therefore does not cover an adaptive scheduler whose
+next site is chosen from the current global state.  It also does not prove
+that this upper bound is minimal or that influence reaches its boundary.  No
+probability, continuum limit, propagation speed, or physical distance enters;
+the cone is the combinatorial shadow of single-site transactional repair, and
+its physical reading requires separate scheduler-locality, length, and clock
+attachments.
 -/
 
 variable {C : OPHCarrier}
@@ -50,10 +53,10 @@ theorem subset_grow (S : Set C.Patch) : S ⊆ grow S :=
 
 theorem closedNbhd_subset_grow {S : Set C.Patch} {k : C.Patch}
     (hk : k ∈ S) : closedNbhd (C := C) k ⊆ grow S :=
-  fun p hp => Or.inr (Set.mem_iUnion₂.mpr ⟨k, hk, hp⟩)
+  fun _p hp => Or.inr (Set.mem_iUnion₂.mpr ⟨k, hk, hp⟩)
 
-/-- The `n`-fold grown neighborhood of a region: the exact dependency
-cone of `n` repair layers. -/
+/-- The `n`-fold grown neighborhood of a region: a certified dependency-cone
+upper bound for `n` sequential repair moves. -/
 def ball (S : Set C.Patch) : ℕ → Set C.Patch
   | 0 => S
   | n + 1 => grow (ball S n)
@@ -106,7 +109,7 @@ theorem edgeConsistentAt_update_agree {x y : Records C} {i : C.Patch}
 theorem localTrigger_agree {x y : Records C} {i : C.Patch}
     (hagr : ∀ p ∈ closedNbhd (C := C) i, x p = y p) :
     LocalTrigger i x ↔ LocalTrigger i y :=
-  exists_congr fun e => and_congr_right fun hinc =>
+  exists_congr fun _e => and_congr_right fun hinc =>
     not_congr (edgeConsistentAt_agree hagr hinc)
 
 /-- Transactional solvability reads only the closed neighborhood,
@@ -114,7 +117,7 @@ pointwise in the candidate state. -/
 theorem solvesAt_agree {x y : Records C} {i : C.Patch}
     (hagr : ∀ p ∈ closedNbhd (C := C) i, x p = y p) (s : C.State i) :
     SolvesAt i x s ↔ SolvesAt i y s :=
-  forall_congr' fun e => imp_congr_right fun hinc =>
+  forall_congr' fun _e => imp_congr_right fun hinc =>
     edgeConsistentAt_update_agree hagr s hinc
 
 theorem locallySolvable_agree {x y : Records C} {i : C.Patch}
@@ -189,12 +192,13 @@ theorem localRepair_agree_on_grow {x y : Records C} (k : Site C)
       localRepair_apply_of_ne C k y j hjk]
     exact hagr j (subset_grow T hj)
 
-/-- **The exact dependency cone.** For every repair schedule `w` and
+/-- **Finite dependency-cone bound.** For every repair schedule `w` and
 region `S`, agreement of the initial records on the cone
 `ball S w.length` forces agreement of the final records on `S`. The
-readout of `n` repair layers on a region is a function of the initial
-data inside the `n`-fold grown neighborhood, for every schedule of
-length `n`. -/
+readout after `n` sequential repair moves on a region is a function of the initial
+data inside the `n`-fold grown neighborhood, for every fixed exogenous word of
+length `n`. State-dependent schedule selection, a converse, and minimality are
+not claimed. -/
 theorem applyWord_agree_on (w : List (Site C)) (S : Set C.Patch)
     {x y : Records C}
     (hagr : ∀ p ∈ ball (C := C) S w.length, x p = y p) :

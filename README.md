@@ -215,11 +215,22 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 1900 theorems and lemmas and no
+The supporting Lean library contains more than 2000 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
 [Lean/](Lean/).
+
+The V2 finite completion layer checks fixed-word repair locality,
+generic bipartite marginal invariance, finite conservation and transport, and
+conditional finite-history/real-variation helpers. These are not physical
+predictions. In particular, B4 requires E1's scheduler and OPH
+region-factor attachment, while B7 is an open lane because a finite Gibbs path
+space cannot supply every real single-site variation; the source history law,
+transfer theorem, physical action, and clock have no construction in the
+package. The
+[postdiction ledger](docs/POSTDICTION_LEDGER.md#forced-structure) and
+[Lean boundary notes](Lean/docs/) record the exact scopes.
 
 The rest of this README is the architecture those receipts come from.
 

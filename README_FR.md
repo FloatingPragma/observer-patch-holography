@@ -237,11 +237,23 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 1900 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 2000 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
 du noyau de Lean. Voir [Lean/](Lean/).
+
+La couche finie d’achèvement V2 vérifie aussi la localité pour un
+mot de réparation fixé, l’invariance marginale bipartite générique, la
+conservation et le transport finis, ainsi que des auxiliaires conditionnels
+pour les histoires finies et les variations réelles. Ce ne sont pas des
+prédictions physiques. En particulier, B4 exige l’attachement E1 du
+planificateur et des régions OPH aux facteurs. B7 est une voie ouverte :
+un espace de Gibbs fini ne peut pas fournir toutes les variations réelles en
+un site. La couche ne contient aucune construction de la loi d’histoire issue
+de la source, du théorème de transfert, de l’action physique ou de l’horloge. Le
+[registre des postdictions](docs/POSTDICTION_LEDGER.md#forced-structure) et
+les [notes de frontière Lean](Lean/docs/) donnent les portées exactes.
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 

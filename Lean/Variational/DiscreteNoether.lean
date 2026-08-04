@@ -6,26 +6,30 @@ namespace OPH.Variational
 # The discrete Noether theorem for invariant local actions
 
 A one-parameter family of transformations that leaves the two-point
-Lagrangian invariant yields an exactly conserved segment momentum
-along every history that satisfies the discrete Euler-Lagrange
-equation. The chain is finite and exact: differentiating the
+Lagrangian invariant yields equality of the two segment momenta adjacent to
+each supplied junction that satisfies the discrete Euler-Lagrange equation.
+The local chain is finite and exact: differentiating the
 invariance in the flow parameter gives the infinitesimal identity
 `∂₁L·ξ + ∂₂L·ξ = 0`, and combining it with the Euler-Lagrange
-equation at a junction transports the momentum
+equation at that junction transports the momentum
 `p(n) = ∂₂L(γ(n), γ(n+1)) · ξ(γ(n+1))` unchanged across the junction.
+When the same minimization hypothesis holds at every interior record, the
+chain-wide theorem below applies that local transport at every adjacent pair
+and proves that all segment momenta equal one scalar `J` on the whole finite
+chain.
 
 The flow, its generator, the Lagrangian derivative data, and the
 invariance are named inputs. No physical symmetry, charge, or
 continuum Noether current is constructed here; the physical
-identification of a conserved momentum with a laboratory quantity is
-a separate obligation.
+identification of the resulting scalar chain constant with a laboratory
+current is a separate obligation.
 -/
 
 variable {N : ℕ}
 
 /-- **Infinitesimal invariance.** Differentiating the exact invariance
 `L (T s x) (T s y) = L x y` in the flow parameter at `s = 0` gives
-`∂₁L(x,y) · ξ(x) + ∂₂L(x,y) · ξ(y) = 0`, with `ξ` the flow
+`∂₁L(x,y) · ξ(x) + ∂₂L(x,y) · ξ(y) = 0`, with `ξ` the family
 generator. -/
 theorem infinitesimal_invariance
     (L : ℝ → ℝ → ℝ) (T : ℝ → ℝ → ℝ) (ξ : ℝ → ℝ)
@@ -94,7 +98,7 @@ theorem noether_step (d₁ d₂ : ℝ → ℝ → ℝ) (ξ : ℝ → ℝ)
 
 /-- **Discrete Noether theorem, composed form.** A history that
 minimizes the local action among single-site variations at a junction,
-for a Lagrangian invariant under a differentiable one-parameter flow,
+for a Lagrangian invariant under a differentiable one-parameter family,
 transports the segment momentum unchanged across that junction. -/
 theorem noether_conserved
     (L : ℝ → ℝ → ℝ) (T : ℝ → ℝ → ℝ) (ξ : ℝ → ℝ)
@@ -138,11 +142,47 @@ theorem noether_conserved
     (γ m.castSucc) (γ m.succ)
   exact noether_step d₁ d₂ ξ γ hkm hEL hinf
 
-/-- Non-vacuity witness: the free Lagrangian `(y - x)^2` is invariant
-under translation `T s x = x + s`, whose generator is `1`; its exact
-partial-derivative package satisfies the joint differentiability
-hypothesis. The conserved segment momentum is the discrete velocity
-`2 (γ(n+1) - γ(n))`. -/
+/-- **Chain-wide finite Noether constancy (scalar and conditional).**
+Consider a path with `M + 2` records and hence `M + 1` consecutive segments.
+If the invariant differentiable two-point Lagrangian is minimized under every
+real single-site replacement at each of the `M` interior records, then there
+is one scalar `J` equal to the segment momentum on every segment.
+
+The proof does not assume pairwise momentum equality: it invokes
+`noether_conserved` at every adjacent junction and then inducts along the
+finite chain.  This remains a conditional scalar theorem; it supplies neither
+a vector-valued current nor a physical charge, clock, or continuum limit. -/
+theorem noether_current_constant_on_finite_chain
+    {M : ℕ}
+    (L : ℝ → ℝ → ℝ) (T : ℝ → ℝ → ℝ) (ξ : ℝ → ℝ)
+    (d₁ d₂ : ℝ → ℝ → ℝ)
+    (hT0 : ∀ x, T 0 x = x)
+    (hTd : ∀ x, HasDerivAt (fun s => T s x) (ξ x) 0)
+    (hL : ∀ p : ℝ × ℝ, HasFDerivAt (Function.uncurry L)
+      ((d₁ p.1 p.2) • (ContinuousLinearMap.fst ℝ ℝ ℝ)
+        + (d₂ p.1 p.2) • (ContinuousLinearMap.snd ℝ ℝ ℝ)) p)
+    (hinv : ∀ s x y, L (T s x) (T s y) = L x y)
+    (γ : Fin (M + 2) → ℝ)
+    (hmin : ∀ i : Fin M, ∀ x : ℝ, localAction L γ
+      ≤ localAction L (Function.update γ i.castSucc.succ x)) :
+    ∃ J : ℝ, ∀ n : Fin (M + 1),
+      segmentMomentum d₂ ξ γ n = J := by
+  have hadj : ∀ i : Fin M,
+      segmentMomentum d₂ ξ γ i.castSucc
+        = segmentMomentum d₂ ξ γ i.succ := by
+    intro i
+    exact noether_conserved L T ξ d₁ d₂ hT0 hTd hL hinv γ
+      (k := i.castSucc) (m := i.succ) rfl (hmin i)
+  refine ⟨segmentMomentum d₂ ξ γ 0, ?_⟩
+  intro n
+  induction n using Fin.induction with
+  | zero => rfl
+  | succ i ih =>
+      exact (hadj i).symm.trans ih
+
+/-- Algebraic translation package for the free two-point expression: the
+translation fixes every point at parameter zero and leaves `(y - x)^2`
+unchanged.  This declaration does not itself contain the derivative packet. -/
 theorem free_translation_invariance_package :
     (∀ x : ℝ, (fun s => x + s) 0 = x)
     ∧ (∀ s x y : ℝ, (y + s - (x + s))^2 = (y - x)^2) := by
@@ -152,8 +192,44 @@ theorem free_translation_invariance_package :
   · intro s x y
     ring
 
+/-- The exact first-slot derivative used by the free translation witness. -/
+def freeDOne (x y : ℝ) : ℝ := 2 * (x - y)
+
+/-- The exact second-slot derivative used by the free translation witness. -/
+def freeDTwo (x y : ℝ) : ℝ := 2 * (y - x)
+
+/-- The unit translation generator. -/
+def unitTranslationGenerator (_x : ℝ) : ℝ := 1
+
+/-- A three-record affine path `0,1,2`. -/
+def affineFreePath3 (i : Fin 3) : ℝ := i.val
+
+/-- **Nonzero local Noether witness.** On the affine free path `0,1,2`, the
+two adjacent free-particle segment momenta are equal by `noether_step`, and
+their common value is nonzero.  This certifies that the local conservation
+identity has nonzero instances.  It supplies no physical clock or
+whole-history attachment. -/
+theorem free_translation_nonzero_noether_witness :
+    segmentMomentum freeDTwo unitTranslationGenerator affineFreePath3
+        (0 : Fin 2)
+      = segmentMomentum freeDTwo unitTranslationGenerator affineFreePath3
+        (1 : Fin 2)
+    ∧ segmentMomentum freeDTwo unitTranslationGenerator affineFreePath3
+        (0 : Fin 2) ≠ 0 := by
+  constructor
+  · apply noether_step freeDOne freeDTwo unitTranslationGenerator
+      affineFreePath3 (k := (0 : Fin 2)) (m := (1 : Fin 2))
+    · decide
+    · norm_num [freeDOne, freeDTwo, affineFreePath3]
+    · norm_num [freeDOne, freeDTwo, unitTranslationGenerator,
+        affineFreePath3]
+  · norm_num [segmentMomentum, freeDTwo, unitTranslationGenerator,
+      affineFreePath3]
+
 end OPH.Variational
 
 #print axioms OPH.Variational.infinitesimal_invariance
 #print axioms OPH.Variational.noether_step
 #print axioms OPH.Variational.noether_conserved
+#print axioms OPH.Variational.noether_current_constant_on_finite_chain
+#print axioms OPH.Variational.free_translation_nonzero_noether_witness

@@ -57,7 +57,8 @@ owning any fixed set of water molecules. Particles play the same role in the
 emergent effective theory.
 
 Everything in this chapter is the pattern layer. Its attachment to measured
-particles is work in progress.
+particles requires the positive-energy, pole, detector, and scale-setting
+bridges named below.
 
 ## 16.4 From Stable Patterns to the Particle World
 
@@ -104,7 +105,7 @@ A scalar action and vacuum separate the charged $W$ carriers from the
 neutral $Z$ carrier. The finite construction supplies an internal chart for
 the two roles. It is not a physical mass prediction. Connecting that
 chart to the unstable-particle poles measured in a detector requires a
-source-to-pole bridge, which is work in progress.
+source-to-pole bridge. No such bridge is supplied here.
 
 The electromagnetic strength is read from the screen's own geometry, through
 the local closure equation for the pixel ratio the book has been tracking.
@@ -225,7 +226,8 @@ and the PMNS matrix is the rotation between those two descriptions.
 
 One qualification covers this whole chain. Attaching the finite structure to
 laboratory currents, and identifying the face triplet and its eigenmodes
-with the measured electron, muon, and tau, is work in progress.
+with the measured electron, muon, and tau, requires a physical realization
+theorem that is not supplied here.
 
 ### Why the Universe Contains More Matter Than Antimatter
 
@@ -301,18 +303,38 @@ patches. Forces describe how those patterns interact within the emergent effecti
 
 **Locality and consistency constrain motion.** Overlaps
 force observers to agree on what happened. The Markov structure enforces local
-relations between neighboring regions. These requirements leave very little
-freedom in the form of effective equations of motion.
+relations between neighboring regions. These requirements constrain an
+effective dynamics once its state space and local action have been supplied.
+They do not derive that action from overlap consistency alone.
 
-The broad shape of the low-energy laws is set by the same consistency
-structure that gives us gauge symmetry in Chapter 14. The exact
-coupling-by-coupling account is carried by the quantitative particle and
-gravity picture built in the surrounding chapters.
+The low-energy laws must remain compatible with the same public records and
+symmetries used elsewhere in the construction. The action, its physical
+variables, and its coupling-by-coupling realization remain additional
+requirements carried by the surrounding particle and gravity branches.
 
 ## 16.8 Why the Principle of Least Action Appears
 
-The principle of least action can sound mystical, but it is a direct
-consequence of quantum interference.
+The principle of least action can sound mystical. In ordinary quantum theory,
+stationary action appears in the semiclassical limit of quantum interference.
+
+The formal OPH package reaches two narrower statements. On a finite state
+space, a supplied exponential path weight makes every modal path minimize its
+defined statistical effective action, bounds fixed positive action gaps
+exponentially, and makes the total weight of all nonminimizing paths vanish in
+the zero-noise limit. Separately, for real-valued paths with a
+finite number of segments, a supplied differentiable local action gives the
+Euler--Lagrange equation at any junction where the path is minimal under all
+single-site variations; a supplied differentiable invariance then preserves
+the associated segment momentum across that junction and, when the premise
+holds at every interior record, makes one scalar momentum constant along the
+whole finite chain.
+
+The two statements use different state spaces; indeed, no finite family of
+real paths is closed under all single-site real variations. No theorem joins
+them, constructs the exponential path law from the observer axioms, identifies
+a physical action or clock, or
+produces the complex phase below. The path-integral account in this section is
+the target physical mechanism. It is not a completed OPH derivation.
 
 In quantum mechanics, the probability amplitude for a particle to go from
 A to B is a sum over all possible paths:
@@ -334,9 +356,10 @@ Euler-Lagrange equations:
 
 $$\frac{d}{dt}\left(\frac{\partial L}{\partial \dot q}\right) = \frac{\partial L}{\partial q}.$$
 
-The "least action" rule is the classical limit of quantum consistency. The
-effective action carries that consistency into the low-energy field theory, and
-the stationary-action description follows in the semiclassical limit.
+In ordinary quantum theory, the stationary-action rule is the semiclassical
+limit of this phase sum. An OPH derivation would additionally have to identify
+the statistical finite-history action with the physical local action on one
+common domain.
 
 The coordinate $q$ is the generalized position of the system, and $\dot q$ is
 its time derivative, the generalized velocity. The partial derivatives ask how
@@ -408,9 +431,12 @@ acquires a calibrated geometric clock interpretation, and overlap consistency
 enforces locality. Matter is a family of stable excitation patterns rather
 than primitive stuff. The particle catalogue comes with a constrained pattern
 of charges, carriers, couplings, and masses. Energy is the charge of time
-translations. Stationary action is the classical limit of quantum interference. The deterministic world
-of everyday life is the public face of a quantum reality that becomes
-shareable only after decoherence and redundancy have done their work.
+translations. In ordinary quantum theory, stationary action is the
+semiclassical limit of quantum interference; attaching the finite OPH history
+weights to that physical mechanism remains an explicit bridge requirement.
+The deterministic world of everyday life is the public face of a quantum
+reality that becomes shareable only after decoherence and redundancy have done
+their work.
 
 The particle map is layered. Weak bosons, charged leptons, running quarks,
 neutrinos, and hadrons do not enter the story in the same way, because nature

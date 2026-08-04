@@ -236,6 +236,15 @@ surface for the OPH consensus layer. Contents:
   tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
   ("Finite event algebras"); Mathlib friction log in
   `EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
+- An admission-free **B4 fixed-word locality package**:
+  `ObserverPatchHolography/Locality/DependencyCone.lean` checks an
+  `n`-move closed-neighborhood dependency upper bound against the concrete
+  `localRepair`; `ObserverPatchHolography/Locality/NoSignalling.lean` proves
+  generic finite marginal and partial-trace identities on a supplied
+  bipartite split. Adaptive schedulers, minimal cones, distance and clock,
+  positive normalized classical channels, OPH region factorization, and
+  physical spacelike separation are E1 attachments. See
+  `B4_LOCALITY_BOUNDARY.md`.
 - An admission-free **B5 finite conservation package**:
   `Screen/RegionalContinuity.lean` proves the exact regional and global
   balance laws with the seam boundary treated as net inflow;
@@ -244,8 +253,34 @@ surface for the OPH consensus layer. Contents:
   nineteen-dimensional cycle kernel; `Dynamics/ProtectedCharge.lean` gives
   the reusable dual-channel fixed-observable criterion. These are finite
   incidence and linear statements. Physical stress-energy realization and
-  the continuum Ward identity remain explicit inputs. See
+  the continuum Ward identity are explicit inputs. See
   `B5_WARD_BRIDGE.md`.
+- An admission-free but **incomplete B7 history/variation package**:
+  `InformationProjection/PathGibbs.lean` proves conditional finite path-space
+  information-projection, modal ordering, and full strict-nonminimal
+  inverse-noise concentration. `Variational/DiscreteEulerLagrange.lean` and
+  `Variational/DiscreteNoether.lean` prove separate scalar real-path local
+  identities and a chain-wide constant scalar current when the premises hold
+  at every interior record. `Variational/FiniteHistoryBridge.lean` proves that no finite
+  real-path family is closed under all real single-site variations, so those
+  interfaces do not compose without a new enrichment or transfer theorem.
+  The source history law, uniqueness, physical action, clock, amplitude,
+  fields, continuum, and observable current are open obligations under #683. See
+  `B7_HISTORY_BRIDGE.md`.
+- An admission-free **B8 finite transport package**:
+  `Thermodynamics/GreenKubo.lean` proves the reversible Dirichlet identity,
+  Onsager symmetry, finite-matrix positive semidefiniteness, and an exact
+  finite correlation sum with its Poisson remainder. It also proves that,
+  under a strictly positive reference weight, a full-fibre
+  conditional-resampling projector has either zero positive-lag
+  memory on fibre-centered currents or nonstabilizing partial sums.
+  `Thermodynamics/GraphDiffusion.lean` proves closed-graph summation by parts,
+  typed Fick and Fourier laws, canonical amount and energy updates, exact
+  source balance, and source-free conservation. These are finite conditional
+  transport identities; source dynamics, physical distance, clock,
+  constitutive calibration, stability, and a hydrodynamic limit are separate
+  outstanding attachments.
+  See `B8_TRANSPORT_KERNEL.md`.
 
 The open foundational endpoint is:
 

@@ -1107,6 +1107,87 @@ conditions, conserved charges, root packets, holonomy sectors, or external recor
 legitimately determine different normal forms.
 \end{remark}
 
+\subsection{Finite support propagation and algebraic no-signalling}
+
+The concrete single-site record repair has a finite support theorem that is
+independent of termination and confluence.  For a patch \(i\), let
+\(\mathcal N[i]\) be \(i\) together with every endpoint of an edge incident to
+\(i\), and define
+\[
+  \operatorname{Grow}(S)=S\cup\bigcup_{i\in S}\mathcal N[i],
+  \qquad
+  B_0(S)=S,
+  \qquad
+  B_{n+1}(S)=\operatorname{Grow}(B_n(S)).
+\]
+
+\begin{theorem}[Finite repair support bound]
+\label{thm:finite-repair-support-bound}
+Let \(L_i\) be the concrete \texttt{localRepair} map: it reads only
+\(\mathcal N[i]\) and writes only the record at \(i\).  For any schedule word
+\(w=(i_1,\ldots,i_n)\), region \(S\), and records \(x,y\),
+\[
+  x|_{B_n(S)}=y|_{B_n(S)}
+  \quad\Longrightarrow\quad
+  L_w(x)|_S=L_w(y)|_S,
+\]
+where \(L_w=L_{i_n}\circ\cdots\circ L_{i_1}\).  Consequently, changing one
+initial record at a site outside \(B_n(S)\) cannot change the final readout on
+\(S\) after any fixed exogenous schedule word of length \(n\).
+\end{theorem}
+
+\begin{proof}
+One repair move preserves agreement on \(T\) whenever its two inputs agree on
+\(\operatorname{Grow}(T)\): away from the firing site it writes nothing, and
+at the firing site its trigger, solvability predicate, and selected repair
+value depend only on the closed incident-edge neighborhood.  Induction on the
+schedule word gives the displayed implication.  A one-site update outside
+\(B_n(S)\) leaves the two initial records equal throughout that set.  The
+statement is machine checked for the repository repair map~\cite{ophrepo}.
+\end{proof}
+
+This support upper bound is uniform over fixed exogenous schedule words.  It
+does not cover an adaptive scheduler whose next site depends on the current
+global record.  It supplies no converse, minimal cone, graph metric,
+propagation speed, or claim that influence reaches the boundary of \(B_n(S)\).
+
+\begin{proposition}[Bipartite marginal invariance]
+\label{prop:bipartite-marginal-invariance}
+Let \(A,B\) be finite sets.
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item For an arbitrary real array \(p:A\times B\to\mathbb R\) and real matrix
+\(K:A\times A\to\mathbb R\) satisfying
+\(\sum_{a'}K(a,a')=1\), define
+\[
+  p'(a',b)=\sum_a p(a,b)K(a,a').
+\]
+Then \(\sum_{a'}p'(a',b)=\sum_a p(a,b)\) for every \(b\).
+\item For an arbitrary matrix \(M\) on
+\(\mathbb C^A\otimes\mathbb C^B\) and a finite family \(K_r\) on
+\(\mathbb C^A\) satisfying \(\sum_rK_r^\dagger K_r=I_A\), define
+\[
+  \Phi(M)=\sum_r(K_r\otimes I_B)M(K_r^\dagger\otimes I_B).
+\]
+Then \(\operatorname{Tr}_A\Phi(M)=\operatorname{Tr}_A M\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For the classical identity, interchange the two finite sums and use the row
+normalization of \(K\).  For the matrix identity, expand the partial trace in
+indices and contract the acted-factor indices with
+\(\sum_rK_r^\dagger K_r=I_A\).  The one-point choice \(K=2\) is a negative
+control: without row normalization the remote marginal is doubled.  Both
+identities are machine checked~\cite{ophrepo}.
+\end{proof}
+
+These marginal identities are standard finite algebra.  Their bipartite split
+and local lift are supplied inputs.  Positivity and unit mass are additional
+premises when the classical arrays are read as probabilities.  No physical
+spacelike separation, observer-region factorization, density-state
+realization, or laboratory operation follows.  A local observable-net
+construction must attach disjoint observer regions to the declared factors.
+
 The quotient normal-form theorems of this section state that the public world
 is the quotient normal form that survives agreement on overlaps. Two failure
 shapes would break the claim: an
@@ -3619,6 +3700,12 @@ B.~M\"uller,
 L\"uders Retractions, and CHSH Interoperability},
 2026.\\
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/machine_checked_finite_event_algebras.pdf}.
+
+\bibitem{ophrepo}
+Pragma Research,
+\emph{Observer-Patch Holography: machine-checked proofs and executable certificates},
+2026.\\
+Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
 
 \bibitem{ophsynthesis}
 B.~M\"uller, A.~Osika, M.~Poneder, K.~Xue, B.~Cassie, P.~Nguyen, M.~A.~Visser, K.~A.~Anirudha, D.~Matscheko, and J.~Hill,

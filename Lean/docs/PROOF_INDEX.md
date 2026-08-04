@@ -193,6 +193,16 @@ Mapping between Lean 4 theorems in this project and statements in
   with a primitive \(\mathbb Z^6\) translation, promote the finite repair
   kernel to a homogeneous field action, or select physical position, time,
   scale, and global gluing.
+- B4 fixed-word dependency and algebraic marginal invariance
+  (`ObserverPatchHolography/Locality/DependencyCone.lean`,
+  `ObserverPatchHolography/Locality/NoSignalling.lean`): admission-free finite
+  combinatorics and matrix algebra. For each fixed exogenous word, the
+  concrete single-site repair readout depends only on an iterated closed
+  neighborhood. Generic row-normalized and Kraus-complete first-factor maps
+  preserve the remote algebraic marginal or partial trace. No minimal cone,
+  adaptive scheduler, distance, clock, OPH region factorization, normalized
+  classical state, or physical spacelike channel follows. See
+  `B4_LOCALITY_BOUNDARY.md`.
 - B5 finite continuity, Gauss solvability, and protected charges
   (`Screen/RegionalContinuity.lean`, `Screen/DiscreteGauss.lean`,
   `Dynamics/ProtectedCharge.lean`): admission-free finite incidence and
@@ -205,6 +215,33 @@ Mapping between Lean 4 theorems in this project and statements in
   that charge. These results do not identify seam data with physical
   stress-energy and do not discharge the continuum Ward premise. See
   `B5_WARD_BRIDGE.md`.
+- B7 conditional finite histories, scalar variation, and the bridge no-go
+  (`InformationProjection/PathGibbs.lean`,
+  `Variational/DiscreteEulerLagrange.lean`,
+  `Variational/DiscreteNoether.lean`,
+  `Variational/FiniteHistoryBridge.lean`): admission-free finite information
+  projection and scalar real calculus. The finite inverse-noise family places
+  asymptotically zero total mass on all strict nonminimizers. The separate
+  real-path theorem gives local Euler--Lagrange and Noether equalities, plus a
+  constant scalar segment current across a finite chain when every interior
+  premise holds, with a nonzero witness. An injectivity/cardinality theorem proves that no finite
+  real-path family supplies every real site variation, so the two branches do
+  not compose under these interfaces. Source-law construction, uniqueness, physical action,
+  clock, amplitudes, fields, continuum, and observable-current attachments
+  are open obligations. See `B7_HISTORY_BRIDGE.md`.
+- B8 finite Green--Kubo and graph transport
+  (`Thermodynamics/GreenKubo.lean`,
+  `Thermodynamics/GraphDiffusion.lean`): admission-free finite Markov and
+  graph algebra. Detailed balance and a linear Poisson solver give a symmetric
+  positive-semidefinite finite coefficient matrix. At every cutoff, the finite
+  correlation sum equals the resolvent pairing minus its displayed propagated
+  remainder. Under a strictly positive reference, a full-fibre heat-bath
+  projector cannot generate a decaying nonzero memory tail. Typed
+  cell-volume and heat-capacity bridges close canonical Fick and Fourier
+  one-step updates with exact global balance. Negative-conductance controls
+  show where the dissipation sign fails. No physical generator, clock,
+  distance, unit calibration, stability theorem, continuum limit, or measured
+  transport value follows. See `B8_TRANSPORT_KERNEL.md`.
 - Source-seam edge-orbit moments
   (`Screen/SeamCurrentEdge30Moment.lean`): sorry-free exact real polynomial
   and finite multiset reasoning. Each canonical seam current maps to the

@@ -8,25 +8,26 @@ namespace OPH.Dynamics
 
 The B5 incidence and protected-charge theorems stop at a finite regulator.
 This structure bundles the additional receipts required before a gravity
-argument may consume them as a continuum Ward identity.  Its mathematical
-core rules out the constant-regulator, zero-field, and identically-true Ward
-shortcuts.  Source derivation, refinement transport, and tower carriage remain
-named downstream evidence relations: inhabiting the structure is not by
+argument may consume finite continuity as a continuum Ward identity.  It is a
+guarded premise manifest, not a source construction.  Source derivation,
+refinement transport, residual semantics, chart realization, and tower
+carriage remain downstream evidence: inhabiting the structure is not by
 itself a physical identification.
 -/
 
 /-- Exact interface between a family of finite conservation objects and one
-candidate continuum stress tensor.  Later realizations choose the meanings of
-source derivation, refinement transport, chart change, and tower carriage, but
-weak convergence and the Ward identity have fixed real-valued semantics. -/
+candidate continuum stress tensor.  Later realizations must define the
+source, transport, scale, test, residual, chart, and tower semantics.  Once
+the finite residual is proved zero and converges to the continuum residual,
+the Ward equality is derived rather than stored as an assumption. -/
 structure WardLimitManifest
     (Regulator Chart StressTensor TestField Tower : Type*) where
   /-- Nonvacuity: the regulator family has a named member. -/
   regulatorWitness : Regulator
   /-- The actual finite B5 continuity object at each regulator. -/
   finiteContinuity : Regulator → OPH.RegionalContinuity.FiniteContinuityWitness
-  /-- At least one finite regulator carries nonzero load, source, or current.
-  Thus the zero continuity witness cannot discharge the handoff. -/
+  /-- At least one regulator has a datum that is not completely all-zero.
+  This does not require a nonzero current or a nonzero candidate limit. -/
   finiteWitnessNonzero : ∃ r,
     (finiteContinuity r).q ≠ 0 ∨
     (finiteContinuity r).qNext ≠ 0 ∨
@@ -45,6 +46,12 @@ structure WardLimitManifest
   sequenceInjective : Function.Injective cofinalSequence
   sequenceMonotone : ∀ n, Refines (cofinalSequence n) (cofinalSequence (n + 1))
   sequenceCofinal : ∀ r, ∃ n, Refines r (cofinalSequence n)
+  /-- A concrete positive regulator scale shrinks along the cofinal sequence.
+  Distinct regulator labels alone are therefore insufficient. -/
+  scale : Regulator → ℝ
+  scalePositive : ∀ r, 0 < scale r
+  scaleTendsToZero : Filter.Tendsto
+    (fun n => scale (cofinalSequence n)) Filter.atTop (nhds 0)
   TransportCompatible : Regulator → Regulator →
     OPH.RegionalContinuity.FiniteContinuityWitness →
     OPH.RegionalContinuity.FiniteContinuityWitness → Prop
@@ -58,23 +65,43 @@ structure WardLimitManifest
   stressComponentsRealized : ∀ r,
     realizedStress r = realize (chart r) (finiteContinuity r)
   /-- Receipt 4: the realized tensors converge weakly through an explicit
-  real-valued pairing against a nonempty declared test-field class. -/
+  real-valued pairing against an admissible separating test-field class. -/
+  AdmissibleTest : TestField → Prop
   testFieldWitness : TestField
+  testFieldWitnessAdmissible : AdmissibleTest testFieldWitness
   limitStress : StressTensor
   stressPairing : StressTensor → TestField → ℝ
+  testFieldsSeparate : ∀ {s t},
+    (∀ test, AdmissibleTest test →
+      stressPairing s test = stressPairing t test) → s = t
   stressResponseNonzero : ∃ r test,
-    stressPairing (realizedStress r) test ≠ 0
-  weakConverges : ∀ test,
+    AdmissibleTest test ∧ stressPairing (realizedStress r) test ≠ 0
+  weakConverges : ∀ test, AdmissibleTest test →
     Filter.Tendsto
       (fun n => stressPairing (realizedStress (cofinalSequence n)) test)
       Filter.atTop
       (nhds (stressPairing limitStress test))
-  /-- The Ward residual has fixed equality-to-zero semantics, and is required
-  to distinguish at least one stress/test pair so that the identity is not an
-  identically true predicate. -/
+  /-- F1 must define this as the smeared finite divergence produced from the
+  actual continuity witness.  Its vanishing proof is the finite input to the
+  limiting Ward theorem. -/
+  finiteWardResidual :
+    OPH.RegionalContinuity.FiniteContinuityWitness → TestField → ℝ
+  finiteResidualVanishes : ∀ r test, AdmissibleTest test →
+    finiteWardResidual (finiteContinuity r) test = 0
+  /-- The continuum residual is not allowed to be the globally zero function.
+  This guard is necessary but does not by itself identify the residual with a
+  physical distributional divergence. -/
   wardResidual : StressTensor → TestField → ℝ
-  wardResidualNontrivial : ∃ stress test, wardResidual stress test ≠ 0
-  wardIdentity : ∀ test, wardResidual limitStress test = 0
+  wardResidualNontrivial : ∃ stress test,
+    AdmissibleTest test ∧ wardResidual stress test ≠ 0
+  /-- The finite residuals converge to the continuum residual on every
+  admissible test.  Together with `finiteResidualVanishes`, this derives the
+  Ward equality by uniqueness of real limits. -/
+  residualConverges : ∀ test, AdmissibleTest test →
+    Filter.Tendsto
+      (fun n => finiteWardResidual (finiteContinuity (cofinalSequence n)) test)
+      Filter.atTop
+      (nhds (wardResidual limitStress test))
   /-- Receipt 5: the finite stress realization commutes with chart changes. -/
   Recharts : Chart → Chart → Prop
   RechartStress : Chart → Chart → StressTensor → StressTensor
@@ -95,5 +122,34 @@ structure WardLimitManifest
     OPH.RegionalContinuity.FiniteContinuityWitness → StressTensor → Prop
   commonTowerCarries : ∀ r,
     Carries commonTower r (finiteContinuity r) (realizedStress r)
+
+/-- The continuum Ward equality follows from exact finite residual vanishing
+and convergence to the declared continuum residual.  Its physical reading
+depends on the concrete F1 definitions used to inhabit the manifest. -/
+theorem WardLimitManifest.wardIdentity
+    {Regulator Chart StressTensor TestField Tower : Type*}
+    (manifest : WardLimitManifest Regulator Chart StressTensor TestField Tower)
+    (test : TestField) (htest : manifest.AdmissibleTest test) :
+    manifest.wardResidual manifest.limitStress test = 0 := by
+  have hzero : Filter.Tendsto
+      (fun _ : ℕ => (0 : ℝ)) Filter.atTop (nhds 0) :=
+    tendsto_const_nhds
+  have hfun :
+      (fun n => manifest.finiteWardResidual
+        (manifest.finiteContinuity (manifest.cofinalSequence n)) test) =
+      (fun _ : ℕ => (0 : ℝ)) := by
+    funext n
+    exact manifest.finiteResidualVanishes
+      (manifest.cofinalSequence n) test htest
+  have hresidualZero : Filter.Tendsto
+      (fun n => manifest.finiteWardResidual
+        (manifest.finiteContinuity (manifest.cofinalSequence n)) test)
+      Filter.atTop (nhds 0) := by
+    rw [hfun]
+    exact hzero
+  exact tendsto_nhds_unique
+    (manifest.residualConverges test htest) hresidualZero
+
+#print axioms WardLimitManifest.wardIdentity
 
 end OPH.Dynamics

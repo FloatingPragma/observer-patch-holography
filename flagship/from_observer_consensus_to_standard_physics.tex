@@ -2972,8 +2972,15 @@ $\Delta S\ge\Delta\langle K\rangle$, $K=-\log\tau$, on
 $\tau$-preserving channels, and the Landauer erasure bound as a
 corollary; the inequality is the mean of a fluctuating entropy
 production that obeys exact integral, pointwise, and level-set
-fluctuation identities, with finite Onsager reciprocity from detailed
-balance. The exact bookkeeping split
+fluctuation identities. Detailed balance plus a linear Poisson solver on
+centered currents gives a symmetric positive-semidefinite finite Green--Kubo
+matrix with an exact cutoff remainder~\cite{onsager1931,greenKubo}.
+Separately, for each current pair,
+iterating the
+idempotent full-fibre time-step gives either zero positive-lag correlation or
+nonstabilizing partial sums, so a nonzero decaying memory tail with a
+stabilizing Green--Kubo sum requires a separately sourced nonidempotent
+evolution. The exact bookkeeping split
 $dU=\delta Q+\delta W$ carries its bilinear cross term explicitly, and
 at every finite regulator the excited Gibbs mass is bounded by
 $\tfrac{d-g_0}{g_0}e^{-\beta\Delta}$, giving the entropy limit
@@ -3644,6 +3651,20 @@ Umegaki, H. (1954). ``Conditional expectation in an operator algebra, I.''
 Takesaki, M. (1972). ``Conditional expectations in von Neumann algebras.''
 \emph{Journal of Functional Analysis} \textbf{9}(3), 306--321.
 \url{https://doi.org/10.1016/0022-1236(72)90004-3}
+
+\bibitem{onsager1931}
+Onsager, L. (1931). ``Reciprocal relations in irreversible processes. I.''
+\emph{Physical Review} \textbf{37}, 405--426.
+\url{https://doi.org/10.1103/PhysRev.37.405}
+
+\bibitem{greenKubo}
+Green, M.\,S. (1954). ``Markoff random processes and the statistical
+mechanics of time-dependent phenomena. II.'' \emph{Journal of Chemical
+Physics} \textbf{22}, 398--413.
+\url{https://doi.org/10.1063/1.1740082}
+Kubo, R. (1957). ``Statistical-mechanical theory of irreversible processes.
+I.'' \emph{Journal of the Physical Society of Japan} \textbf{12}, 570--586.
+\url{https://doi.org/10.1143/JPSJ.12.570}
 
 \bibitem{lamport1982}
 Lamport, L., Shostak, R., and Pease, M. (1982). ``The Byzantine generals
