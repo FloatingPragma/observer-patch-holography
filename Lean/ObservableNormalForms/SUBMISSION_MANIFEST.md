@@ -13,6 +13,7 @@ ObservableNormalForms/ConditionalResampling.lean
 ObservableNormalForms/Exact.lean
 ObservableNormalForms/Examples/Rule90.lean
 ObservableNormalForms/Functional.lean
+ObservableNormalForms/Moduli.lean
 ObservableNormalForms/ObserverConfluence.lean
 ObservableNormalForms/Refinement.lean
 ObservableNormalForms/Repair.lean

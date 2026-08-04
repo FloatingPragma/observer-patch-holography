@@ -9,8 +9,8 @@ import ObserverPatchHolography.RateNonidentifiability
 result: for a deterministic map `T : S → S`, a stutter extension leaves the declared
 reading (locked set, accepted-repair reachability, basin) fixed while multiplying the
 first-locking count by an arbitrary factor. This file asks the only question that makes
-that result repository-facing — **does it instantiate at the repository's own observable
-map and accepted-repair relation?** — and answers **no**, with the failure located at a
+that result repository-facing, **does it instantiate at the repository's own observable
+map and accepted-repair relation?**, and answers **no**, with the failure located at a
 single hypothesis.
 
 ## The attempted bridge
@@ -35,29 +35,29 @@ declared observable fixed**. The stutter extension has exactly such steps, and
 `RateNonidentifiability.stutter_has_projection_fixing_step` says so openly. The
 repository's `acceptedStep C` provably has **none**: `acceptedStep_changes_obs`.
 
-The reason is a chain of in-tree facts, none of them new:
+The reason is a chain of facts, all of them in tree:
 
 1. `brokenSet` is defined from `C.dist e (C.projSrc e (x (C.src e))) (C.projTgt e (x (C.tgt e)))`
    (`Primitives.lean:194`), which is exactly the pair `obsMap C x e`. So the broken-edge
    count is a function of the declared observable alone (`mismatchCount_congr`).
-2. Every accepted step strictly lowers that count — the in-tree Lyapunov descent
+2. Every accepted step strictly lowers that count, by the in-tree Lyapunov descent
    `mismatchCount_localRepair_lt` (`Primitives.lean:397`).
 3. Hence every accepted step strictly changes the declared observable.
 
 So the extension the abstract theorem builds cannot be an OPH repair dynamics: an
-observably-idle accepted step is not merely absent from the construction, it is
-impossible in the repository's model.
+observably-idle accepted step is absent from the construction and impossible in the
+repository's model.
 
 ## What holds instead: the observable *bounds* the rate, and in fact fixes it
 
 The obstruction is not a gap that better plumbing would close. The concrete layer
 satisfies the **opposite** of what the abstract no-go concludes:
 
-* `firstLock_le_mismatchCount` — the number of accepted repair steps to first locking is
+* `firstLock_le_mismatchCount`: the number of accepted repair steps to first locking is
   at most `mismatchCount x`, a quantity determined by `obsMap C x` alone. The declared
   observable therefore *bounds* the relaxation time. The abstract theorem's family of
   arbitrarily slow systems with one reading has no counterpart here.
-* `firstLock_obs_determined` — two records with equal declared observable data have equal
+* `firstLock_obs_determined`: two records with equal declared observable data have equal
   first-locking counts. The count is a *function of the declared observable*, which is
   precisely the functional the abstract `no_rate_functional` refutes for its own weaker
   reading.
@@ -67,18 +67,18 @@ satisfies the **opposite** of what the abstract no-go concludes:
 The abstract `DeclaredReading` (`RateNonidentifiability.lean:364`) is a triple of
 relations on the state space. The repository's `obsMap` is a *per-state* observable and is
 strictly finer: `obsMap` distinguishes records that the abstract reading cannot separate.
-The abstract theorem is true of its own reading, and remains so. What is established here
-is that it does **not** transfer to `obsMap`, and that transferring it is not merely
-unproved but impossible, because `obsMap` already determines the rate.
+The abstract theorem is true of its own reading. What is established here
+is that it does **not** transfer to `obsMap`: transferring it is impossible,
+because `obsMap` determines the rate under the `stepOnce` schedule.
 
 ## Scope
 
-Everything below concerns sense (2) of "speed" in `RateNonidentifiability`'s header —
+Everything below concerns sense (2) of "speed" in `RateNonidentifiability`'s header:
 relaxation time as a count of accepted repair steps. Nothing here is a physical duration,
 a clock map, a spectral gap, or a control-parameter law, and no OPH physics claim is
 endorsed.
 
-The one-step scheduler `stepOnce` introduced below is *not* a new dynamics: it is the body
+The one-step scheduler `stepOnce` defined below is the body
 of the in-tree `Repair` recursion (`Primitives.lean:423`–`426`) stopped after a single
 firing. `stepOnce_acceptedStep` proves every move it makes is an `acceptedStep C`, and
 `locked_stepOnce_iff_normalForm` proves its fixed points are exactly the in-tree
@@ -162,7 +162,7 @@ anywhere and carries no rate.
 
 `stepOnce` is the in-tree `Repair` recursion body (`Primitives.lean:423`–`426`) stopped
 after a single firing: it fires the same choice-canonical site `Repair` would fire, once.
-Its faithfulness is discharged, not assumed — `stepOnce_acceptedStep` (every move is an
+Its faithfulness is discharged rather than assumed: `stepOnce_acceptedStep` (every move is an
 `acceptedStep C`) and `locked_stepOnce_iff_normalForm` (its fixed points are exactly the
 in-tree `NormalForm C`). -/
 
@@ -202,7 +202,7 @@ theorem stepOnce_acceptedStep (C : OPHCarrier) (x : Records C) (hx : stepOnce C 
   exact ⟨Classical.choose h, stepOnce_of_fire C x h, Classical.choose_spec h⟩
 
 /-- **Faithfulness, half two.** The locked states of `stepOnce` are exactly the in-tree
-`NormalForm C` — the states from which no accepted repair step applies. -/
+`NormalForm C`, the states from which no accepted repair step applies. -/
 theorem locked_stepOnce_iff_normalForm (C : OPHCarrier) (x : Records C) :
     Locked (stepOnce C) x ↔ NormalForm C x := by
   constructor
@@ -248,7 +248,7 @@ theorem mismatchCount_iterate_add_le (C : OPHCarrier) (x : Records C) :
 /-- **The declared observable bounds the rate.** The number of accepted repair steps to
 first locking is at most `mismatchCount x`, and `mismatchCount` is a function of
 `obsMap C x` alone (`mismatchCount_congr`). There is therefore no family of
-observably-identical OPH repair systems with unboundedly different relaxation times —
+observably-identical OPH repair systems with unboundedly different relaxation times,
 which is exactly what the abstract stutter construction produces for its own reading. -/
 theorem firstLock_le_mismatchCount (C : OPHCarrier) {n : ℕ} {x : Records C}
     (h : FirstLock (stepOnce C) n x) : n ≤ mismatchCount x := by
@@ -259,7 +259,7 @@ theorem firstLock_le_mismatchCount (C : OPHCarrier) {n : ℕ} {x : Records C}
 
 /-- `Classical.choose` picks the same witness from pointwise-equivalent predicates. This
 restates `Primitives.choose_eq_of_pred_iff`, which is `private` to that file and so cannot
-be referenced here; the proof is the same three lines and introduces no new content. -/
+be referenced here; the proof is the same three lines and introduces no additional content. -/
 private theorem choose_eq_of_pred_iff {α : Sort*} {p q : α → Prop}
     (hpq : ∀ a, p a ↔ q a) (hp : ∃ a, p a) (hq : ∃ a, q a) :
     Classical.choose hp = Classical.choose hq := by
@@ -313,9 +313,10 @@ theorem obsMap_iterate_congr {x y : Records C} (h : obsMap C x = obsMap C y) :
 
 /-- **The exact negation of the abstract no-go, at the repository's own observable.** The
 first-locking count is a function of the declared observable data: records exposing the
-same overlap data lock after the same number of accepted repair steps. A rate functional on
-`obsMap` therefore exists — the abstract `no_rate_functional` refutes one for the abstract
-`DeclaredReading`, and that refutation does not transfer here. -/
+same overlap data lock after the same number of accepted repair steps under the `stepOnce`
+schedule. A rate functional on
+`obsMap` therefore exists for that schedule; the abstract `no_rate_functional` refutes one
+for the abstract `DeclaredReading`, and that refutation does not transfer here. -/
 theorem firstLock_obs_determined {x y : Records C} (h : obsMap C x = obsMap C y) {n : ℕ}
     (hx : FirstLock (stepOnce C) n x) : FirstLock (stepOnce C) n y := by
   refine ⟨(locked_stepOnce_congr (obsMap_iterate_congr h n)).1 hx.1, ?_⟩

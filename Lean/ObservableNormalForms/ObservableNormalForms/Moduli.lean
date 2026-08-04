@@ -24,8 +24,10 @@ nonemptiness is *proved* at each use site, never assumed: the sublevel set
 at `t ≥ 0` contains every consistent state, the inverse and settled sets at
 nonnegative radii contain the diagonal pair on a consistent state, and the
 nearest-point infimum carries the nonemptiness of `C` as an explicit
-argument.  The `dite` fallback value `0` is unreachable in every theorem
-below; each proof routes through an explicit `*_of_nonempty` rewrite.
+argument.  Every zero-value, minimality, and equality theorem below routes
+through an explicit `*_of_nonempty` rewrite, so the `dite` fallback value `0`
+carries none of them; the monotonicity and nonnegativity lemmas handle the
+empty branch separately, where the inequality holds at the fallback value.
 
 The sharpness witness (three points of ℝ) and the negative control (two
 points of ℝ) compute their moduli exactly rather than assuming them.
@@ -162,8 +164,8 @@ theorem residualModulus_zero {C : Finset Q} (hC : C.Nonempty) {Φ : Q → ℝ}
     exact (distToFinset_nonneg C hC c).trans (Finset.le_sup' _ hmem)
 
 /-- The intrinsic residual modulus satisfies the reusable certificate of
-`Stability.lean`.  This turns the previously *assumed* `ErrorBoundWitness`
-into a theorem about a defined object. -/
+`Stability.lean`.  The `ErrorBoundWitness` certificate holds as a theorem
+about a defined object. -/
 theorem errorBoundWitness_residualModulus (C : Finset Q) (hC : C.Nonempty)
     (Φ : Q → ℝ) :
     ErrorBoundWitness (↑C : Set Q) Φ (residualModulus C hC Φ) := by
@@ -274,8 +276,8 @@ theorem inverseModulus_mono (C : Finset Q) (B : Q → 𝓑) :
 
 omit [Fintype Q] in
 /-- The intrinsic inverse modulus satisfies the reusable certificate of
-`Stability.lean`.  This turns the previously *assumed*
-`InverseObservationBound` into a theorem about a defined object. -/
+`Stability.lean`.  The `InverseObservationBound` certificate holds as a
+theorem about a defined object. -/
 theorem inverseObservationBound_inverseModulus (C : Finset Q) (B : Q → 𝓑) :
     InverseObservationBound (↑C : Set Q) B (inverseModulus C B) :=
   fun _ _ hc hd =>
@@ -351,8 +353,8 @@ lemma settledModulus_nonneg (Φ : Q → ℝ) (B : Q → 𝓑) (δ r : ℝ) :
 
 /-! ### Intrinsic corollaries of the master estimate -/
 
-/-- `thm:master-bound` with the intrinsic moduli.  The previously assumed
-certificates are here *instantiated by theorems*, so the estimate holds for
+/-- `thm:master-bound` with the intrinsic moduli.  The assumed
+certificates of `Stability.lean` are here *instantiated by theorems*, so the estimate holds for
 the defined finite maxima with no residual hypotheses about them. -/
 theorem intrinsic_two_output_estimate {C : Finset Q} (hC : C.Nonempty)
     {Φ : Q → ℝ} {B : Q → 𝓑} {L δx δy ε : ℝ} {x y : Q}
@@ -505,7 +507,7 @@ omit [Fintype Q] in
 the finite consistent set, then ωB vanishes on a whole nonempty interval
 `[0, r₀)`.  When distinct consistent points exist, `r₀` is the attained
 minimum of their observation separations; otherwise any positive radius
-works — an explicit case split, not a default value. -/
+works, by an explicit case split rather than a default value. -/
 theorem exists_separation_radius {C : Finset Q} (hC : C.Nonempty)
     {B : Q → 𝓑} (hinj : Set.InjOn B (↑C : Set Q)) :
     ∃ r₀ : ℝ, 0 < r₀ ∧
@@ -730,7 +732,7 @@ theorem inverse_at_zero : inverseModulus Cn Bn 0 = 0 := by
     simpa [Cn] using this
   rw [hu', hv']
 
-/-- Computed: `Θ(1, 0) = 1` — strictly below the certificate bound `2`. -/
+/-- Computed: `Θ(1, 0) = 1`, strictly below the certificate bound `2`. -/
 theorem settled_at_one_zero : settledModulus Φn Bn 1 0 = 1 := by
   have hmem : (pOne, pZero) ∈ settledSet Φn Bn 1 0 := by
     rw [mem_settledSet]
