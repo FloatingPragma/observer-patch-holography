@@ -6,6 +6,7 @@ import ObserverPatchHolography.BoundaryFiber
 import ObserverPatchHolography.BridgeEquivalence
 import ObserverPatchHolography.CapacityFixedPoint
 import ObserverPatchHolography.CapacityClosurePrinciple
+import ObserverPatchHolography.ClosurePreflight
 import ObserverPatchHolography.CapacityNonidentifiability
 import ObserverPatchHolography.GlobalCapacityAttachment
 import ObserverPatchHolography.SeedPi
@@ -76,11 +77,13 @@ state-side no-gos: the stated state-side axioms do not force the clause
 coupling without excluding it (T1), and the naive modular recast is
 vacuous while the corrected recast buys only the diagonal clause (T2).
 
-The `BridgeEquivalence`, `CapacityFixedPoint`, and `SeedPi` modules carry
+The `BridgeEquivalence`, `CapacityFixedPoint`, `CapacityClosurePrinciple`,
+`ClosurePreflight`, and `SeedPi` modules carry
 the Part-A coupling-algebra layer: the bridge count/tick equivalence, the
-capacity fixed-point uniqueness schema, and the CAP-P seed statement. They
-formalise the algebraic layer only; the physical identities I1/I2 are
-outside the formalised set.
+capacity fixed-point uniqueness schema, the typed closure principle, the
+arbitrary-seed normalization control, and the CAP-P seed statement. They
+formalise the algebraic layer only; the source selector, same-quantity
+identity, and physical identities I1/I2 are outside the formalised set.
 
 The `BridgeBoundaries` module carries the finite anti-bridges used by the
 consensus correction: disjoint writes can fail to compose when a nonlinear

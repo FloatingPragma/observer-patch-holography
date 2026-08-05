@@ -227,20 +227,21 @@ Renormalization works for some theories (called "renormalizable") but not others
 A strange consequence of renormalization: coupling constants change with energy.
 
 The fine-structure constant measures the strength of electromagnetism, and it
-too drifts with energy. OPH reads it from the screen. The balance-point
-equation fixes a local screen coordinate, and a forward map carries that
-coordinate through electroweak running and the vacuum response of quarks and
-hadrons down to the Thomson coupling, the electromagnetic strength read off
-at zero energy. The located output lands within three parts in ten thousand
-of the measured value.
+too drifts with energy. OPH has a proposed way to read it from the screen. A
+declared balance-point map gives one exact fixed-point candidate, and its
+return coordinate can be compared with the Thomson coupling measured at zero
+energy. The numerical comparison is close. It is not a physical prediction:
+the architecture must select the map without consulting the measured answer,
+show that both sides read the same quantity, and carry that quantity through
+the hadronic vacuum in one scheme.
 
 That low-energy number lives in the same electroweak theory as the W and Z
 bosons. Once the electroweak structure is fixed, electromagnetism is the
 unbroken piece left after the weak and hypercharge parts mix together. OPH
 identifies the W and Z carrier roles and supplies an internal electroweak
 chart. Turning that chart into physical pole masses requires a source-to-pole
-bridge, which is work in progress. Sharpening the hadronic leg of the
-electromagnetic transport is work in progress as well.
+bridge, which is work in progress. The physical electromagnetic reading
+requires the map-selection, same-quantity, and endpoint-transport steps above.
 
 The strong force coupling runs the opposite way. At low energies, it's strong (hence the name). At high energies, it weakens. This is "asymptotic freedom," discovered by Gross, Wilczek, and Politzer in 1973.
 
@@ -1082,20 +1083,22 @@ the hypercharge lattice, and the generation-color counting supply the
 particle-side structure. Together they decide which charged excitations can
 exist and how they transform.
 
-Then comes the local detuning, the fine-structure landing from section 14.4:
-the screen sits a tiny distance off perfect golden-ratio balance, the width
-of the boundary sets the size of that departure, and carrying the coordinate
-through the electroweak bookkeeping lands on the measured constant. The same
-local coordinate feeds the weak, Higgs, top, quark, and neutrino comparisons.
+Then comes the local detuning candidate from section 14.4. Each of the two declared maps
+has one exact root on its stated interval, and its return coordinate lies near
+the measured fine-structure constant. The comparison does not identify that
+coordinate with electromagnetism. Such an identification needs an
+independently selected map, proof that the inside and outside readings are one
+physical quantity, and complete endpoint transport. The declared coordinate
+also feeds the weak, Higgs, top, quark, and neutrino comparisons.
 Hadrons come later because protons and mesons are bound states, dressed by
 confined quarks.
 
-The deeper point is the record-existence test. A perfectly balanced screen
-carries no events. The maps read electromagnetic strength from the small
-displacement that lets records and lasting measurement traces exist, and each
-map has exactly one root on the physical interval. Electromagnetism has the
-strength it does because the universe sits at the balance point that can
-carry a history.
+The deeper idea is the record-existence test. In the proposed construction, a
+perfectly balanced screen carries no events. The declared maps read a return
+coordinate from the small displacement that lets records and lasting traces
+exist. Their exact roots make the proposal testable. The physical statement
+about electromagnetic strength follows only when the required identifications
+are established.
 
 ## 14.15 What the Electromagnetic Branch Supplies
 
@@ -1307,11 +1310,11 @@ mixing, it lives in the spinorial or dynamical layers rather than in the bare
 axis geometry.
 
 The reason these numbers belong in one chapter is that the framework organizes
-them with one local fixed-point structure. The same pixel ratio feeds the
-dimensionless electroweak hierarchy, the low-energy electromagnetic endpoint,
-and the effective gravitational coupling. OPH ties electroweak relations, the
-Higgs and top masses, electromagnetism at low energy, and Newton's constant
-into one common structure.
+them with one local fixed-point structure. On the declared quantitative
+branch, one candidate pixel ratio feeds the electroweak hierarchy, an
+electromagnetic comparison coordinate, and the effective gravitational
+coupling. Whether one physical quantity passes through all three readings is
+the attachment problem described above.
 
 The hierarchy map turns the unified coupling into an exponentially small
 electroweak ratio, with the screen load setting the exponent, and the

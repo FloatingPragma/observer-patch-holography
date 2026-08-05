@@ -39,6 +39,7 @@ import SeamCurrentPhotonLeptonThreshold
 import CarrierFrequencySpeed
 import ExteriorComponentBridge
 import QuantumMatterIntegration
+import B10EdgeCenterAction
 import B10QuantumLimitations
 
 /-!

@@ -33,7 +33,7 @@ def test_direct_n_verdict_retains_incomplete_source_antecedent():
     assert verdict["fixed_cutoff_result"] == {
         "D": 24,
         "M0": 24,
-        "status": "SOURCE_DERIVED_FIXED_CUTOFF_PHYSICAL_PACKET",
+        "status": "SOURCE_DERIVED_FIXED_CUTOFF_PACKET",
         "cosmic_value_selected": False,
     }
     assert verdict["capacity_indexed_result"]["zero_sets_differ"] is True

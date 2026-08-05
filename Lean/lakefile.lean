@@ -68,6 +68,7 @@ lean_lib «OPHScreen» where
     `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment,
     `SeamCurrentPhotonLeptonThreshold, `CarrierFrequencySpeed,
     `ExteriorComponentBridge, `QuantumMatterIntegration,
+    `B10EdgeCenterAction,
     `B10QuantumLimitations]
 
 @[default_target]

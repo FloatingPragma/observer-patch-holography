@@ -41,8 +41,8 @@ scale, or instrument.
 - the corresponding partition-average and projector-span corollaries.
 
 This is superselection relative to a supplied projective partition and its
-declared readout. It does not construct an edge center or identify a physical
-charge sector.
+declared readout. It does not construct an edge object, an edge-to-partition
+map, or a physical charge sector.
 
 ## Exterior basis and algebraic exclusion
 
@@ -89,10 +89,25 @@ The transported conclusions are:
 The block readout lands in the generally noncommutative partition commutant.
 It is not the commutative public-record readout. Partition averaging supplies
 the latter on the projector span, and `Superselection.lean` proves that both
-readouts erase cross-sector corners. The weight-kernel theorem is arithmetic
-on supplied labels; it does not define a group action on the projectors. The
-selection mask is constrained on the component rows but is not attached to a
-source-selected physical sector action.
+readouts erase cross-sector corners.
+
+`Screen/B10EdgeCenterAction.lean` defines the bounded algebraic composition.
+Its `partitionCenterAdaptor` is the partition average bundled into the
+commutative public subalgebra. It factors through block pinching, is
+surjective, and commutes with the whole partition commutant. A rank-two
+control proves that pinching can retain a within-block coherence which the
+public average erases.
+
+The same module places the supplied sixth-root characters on the dependent
+product of the ten nonzero mapped projector ranges. The action has identity,
+composition, and inverse laws. The kernel of this central-parameter action is exactly the declared
+six-element tensor-character kernel. The supplied anomaly-free mask defines
+a nontrivial invariant support submodule, either parity row detects the same
+kernel, and no central parameter acts as a universal minus sign on that
+support. The minus-sign result is a nonconflation control. It does not
+construct or identify physical fermion parity. The action uses the supplied
+sector weights. It does not arise from source dynamics or ambient-projector
+conjugation, and it does not bind projector ranks to exterior multiplicities.
 
 `coordinateBridgeControl` is an exact synthetic witness that the interface is
 inhabited. `coordinate_nonzero_offDiagonal_control` supplies an explicit
@@ -113,4 +128,5 @@ evaluation and no `native_decide`.
 The bounded package supports a conditional finite structural claim. It does
 not supply a source-selected state, observable, sector partition, matter
 action, parity representative, global gauge-group form, continuum Spin
-attachment, laboratory charge, numerical prediction, or postdiction.
+attachment, laboratory charge, numerical prediction, or numerical
+postdiction.

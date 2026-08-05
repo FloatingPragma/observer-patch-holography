@@ -171,6 +171,31 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the source-only closure preflight inventory",
+        [
+            sys.executable,
+            "code/closure_preflight/source_only_closure_preflight.py",
+            "--verify",
+        ],
+    ),
+    (
+        "Replay the source-only closure preflight independently",
+        [
+            sys.executable,
+            "code/closure_preflight/verify_source_only_closure_preflight_independent.py",
+        ],
+    ),
+    (
+        "Execute the source-only closure preflight mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/closure_preflight/test_source_only_closure_preflight.py",
+        ],
+    ),
+    (
         "Validate the finite-cut to global-capacity attachment verdict",
         [
             sys.executable,

@@ -50,6 +50,15 @@ Mapping between Lean 4 theorems in this project and statements in
   `ZMod 6` classes is uniform. It does not select either reserve branch,
   construct the physical source return map, identify a global capacity, or
   supply a horizon attachment.
+- Source-only closure boundaries
+  (`ObserverPatchHolography/ClosurePreflight.lean`): sorry-free. The theorem
+  `seededReadback_fixedPt_iff` proves that an arbitrary positive
+  multiplicative normalization seed is exactly the fixed point it supplies,
+  so the fixed-point equation does not select that seed. The theorem
+  `sameCodomain_noncommuting_witness` proves that two readings with a shared
+  codomain need not form a commuting same-quantity square. These are algebraic
+  controls; they construct no source selector, return map, physical
+  attachment, prediction, or postdiction.
 - Scalar completed seam repair
   (`ObserverPatchHolography/ScalarSeamRepair.lean`): sorry-free finite
   linear algebra. A seam-supported map whose output endpoints agree and whose

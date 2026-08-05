@@ -107,10 +107,13 @@ the two roles. It is not a physical mass prediction. Connecting that
 chart to the unstable-particle poles measured in a detector requires a
 source-to-pole bridge. No such bridge is supplied here.
 
-The electromagnetic strength is read from the screen's own geometry, through
-the local closure equation for the pixel ratio the book has been tracking.
-Its solution lands within three parts in ten thousand of the measured
-fine-structure constant.
+The local closure equation for the pixel ratio gives an exact fixed-point
+candidate for each of the two declared maps. One return coordinate lies within three
+parts in ten thousand of the measured fine-structure constant. This is a
+comparison rather than a physical prediction. A prediction requires the map
+to be selected independently, the screen and electromagnetic readings to be
+shown to measure one quantity, and the endpoint transport to be completed in
+one scheme.
 
 The counting underneath the weak hierarchy has a simple shape. The Standard
 Model gauge algebra has $8+3+1=12$ directions. Pairing each formal direction

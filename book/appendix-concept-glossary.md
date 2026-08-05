@@ -384,16 +384,17 @@ Fine-structure constant
 electromagnetism, with a famous low-energy inverse value near 137. It is
 measured with extraordinary precision, which has made it a magnet for
 numerology. Any claimed derivation has to supply scale, scheme, and transport
-before the number means anything. OPH supplies them. The pixel ratio is
-located from this constant through a closure equation, and the located forward
-chain returns the measured value to three parts in ten thousand with zero
-adjustable dials.
+before the number means anything. OPH has exact fixed points for declared
+pixel maps and a close numerical comparison. A physical prediction also needs
+a map selected without using the measured answer, proof that the two sides of
+the closure equation read one quantity, and complete endpoint transport in one
+scheme.
 
 Fixed point
 :   A fixed point is a value or state left unchanged by a process
 or map. In OPH, fixed points appear in consensus repair, pixel-ratio
-selection, and self-consistency conditions. A fixed point is stable because
-applying the relevant consistency operation again does not move it.
+candidates, and self-consistency conditions. Being fixed does not by itself
+mean that nearby values return to it; that stronger property is stability.
 
 Folded screen
 :   A folded screen is the spherical chart presentation of a
@@ -715,8 +716,9 @@ observables.
 P
 :   P is the local pixel ratio, a dimensionless coordinate for the grain of
 the screen an observer reads. It carries no units and no chosen scale. The
-book's later chapters pin it down with a closure equation. Until that
-equation arrives, treat it as a labeled unknown.
+book's later chapters give exact candidate values from declared closure maps.
+Choosing the physical map and attaching its return to electromagnetism are
+separate steps.
 
 Page curve
 :   The Page curve is the shape black-hole radiation entropy takes

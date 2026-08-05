@@ -220,10 +220,13 @@ The philosophical picture makes direct contact with physics. Overlap
 consistency is the sheaf-style gluing condition; quantum structure is its
 algebraic language; spacetime dimensionality is a selected output of the
 geometric construction; dynamics is synchronization pressure.
-The local proposal uses pixel area as a ruler, and its two defining maps have
-unique roots on the physical interval. The global capacity stays a reading
-taken from the universe rather than a number deduced ahead of it. These are
-the pressure points where metaphysics and physics meet.
+The local proposal uses pixel area as a ruler, and each of its two declared
+maps has a unique root on its stated analytic interval. Selecting one root as
+the physical ruler also requires a target-independent map choice, proof that
+both readings describe one quantity, and transport to the measured endpoint
+in one scheme. The global capacity stays a reading taken from the universe
+rather than a number deduced ahead of it. These are the pressure points where
+metaphysics and physics meet.
 
 A sheaf condition is the mathematical version of a simple demand: local
 descriptions that agree on their overlaps should glue into one consistent

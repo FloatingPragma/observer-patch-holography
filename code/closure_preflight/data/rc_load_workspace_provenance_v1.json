@@ -1,0 +1,27 @@
+{
+  "schema": "oph.rc_load_workspace_provenance.v1",
+  "origin": "workspace-root n_closure_campaign snapshot audited on 2026-08-05",
+  "source": {
+    "path": "n_closure_campaign/closure_certificate.py",
+    "sha256": "sha256:10b0e50ebdf951b8bdf883d5810eefe972a29c86f2c0617a925be47046e637fe"
+  },
+  "certificate": {
+    "path": "n_closure_campaign/closure_certificate.json",
+    "sha256": "sha256:9509c62d84444c538145968c078730e875180038dac6bff25099db85048f87f8",
+    "schema": "oph.n_closure.rc_load_candidate.v2",
+    "status": "runner_up_conditional_on_RC_LOAD",
+    "equation": "ln(N/pi) * (6*pi/(P*alpha_U) - ln(N/pi)) = 6*pi",
+    "verdict": "PASS",
+    "typed_identity_proved_here": false,
+    "pricing_law_proved_here": false
+  },
+  "campaign": {
+    "path": "n_closure_campaign/results.json",
+    "sha256": "sha256:0827a66c0472680d020990481d56aad2d305210bf8187d67c7a34fcbd6ea2205",
+    "schema": "oph.n_closure.exposed_candidate_campaign.v2",
+    "exposure_class": "exposed_retrospective",
+    "promotion_from_landing": false
+  },
+  "external_files_required_for_replay": false,
+  "vendor_boundary": "The RER source-only replay recomputes the RC-LOAD interval theorem from the pinned P certificate. Public comparison centers, z scores, survivor tables, and landing language are not vendored into the replay."
+}

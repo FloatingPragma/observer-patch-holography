@@ -865,7 +865,8 @@ have traps. A successful physical solver either avoids those traps, escapes
 them, or provides a measurable success probability large enough to beat
 enumeration after exact verification.
 
-\section{The Role of the OPH Pixel Constant \texorpdfstring{\(P\)}{P}}
+\section{The Pixel Coordinate \texorpdfstring{\(P\)}{P} and Comparison Input
+\texorpdfstring{\(P_C\)}{PC}}
 
 The OPH papers use a dimensionless local pixel ratio
 \[
@@ -873,24 +874,33 @@ P=\frac{a_{\mathrm{cell}}}{\ell_\star^2},
 \]
 where \(a_{\mathrm{cell}}\) is the microscopic screen-cell area and \(\ell_\star\)
 is the OPH scale-readout length, displayed as the Planck length after the gravity row emits
-\(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\) \cite{OPHEinsteinCurrent,OPHScreenCurrent}. In the public OPH
-release, \(P\) is selected by the fixed-point equation
-\[
-P=\varphi+\sqrt{\pi}\,\alpha_{\mathrm{em}}(0;P)
-=\varphi+\frac{\sqrt{\pi}}{A_T(P)},
-\qquad
-\varphi=\frac{1+\sqrt5}{2},
-\]
-with reported solution
-\[
-P_\ast=1.630968209403959324879279847782648941\ldots.
-\]
+\(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\) \cite{OPHEinsteinCurrent,OPHScreenCurrent}.
+The cited OPH calculation gives exact roots for its declared pixel readout
+maps. Promoting one of those roots to a physical value requires same-scheme
+transport, target-independent selection of the applicable map, and a typed
+bridge showing that the two coordinates read the same quantity. This hardware
+paper supplies none of those premises.
 
-For the SHA-256d hardware instantiation, \(P\) is a dimensionless OPH design
+For engineering comparisons, define
+\[
+P_C:=\varphi+\sqrt{\pi}\,\alpha_C,
+\qquad
+\alpha_C^{-1}=137.035999177,
+\qquad
+\varphi=\frac{1+\sqrt5}{2}.
+\]
+Using the CODATA/NIST measured endpoint gives
+\[
+P_C=1.630968209403959324879279847782648941\ldots.
+\]
+Thus \(P_C\) is a measured-endpoint comparison and engineering input. It is
+not an OPH-selected pixel value.
+
+For the SHA-256d hardware instantiation, \(P_C\) is a dimensionless design
 target for geometry and coupling. It leaves the SHA-256 equations unchanged.
-A \(P\)-calibrated
+A \(P_C\)-calibrated
 wave body is one whose normalized collar couplings, path-length ratios, and
-extraction windows are tuned to the OPH fixed-point scale. In a toroidal or
+extraction windows are tuned to that comparison scale. In a toroidal or
 microwave implementation, this means that the
 dimensionless ratios
 \[
@@ -899,21 +909,21 @@ dimensionless ratios
 \frac{L_j}{\lambda},\qquad
 \frac{\kappa_{ij}}{\kappa_0}
 \]
-are selected from a small \(P_\ast\)-centered design family. In a photonic mesh,
+are selected from a small \(P_C\)-centered design family. In a photonic mesh,
 it means that phase shifters, couplers, and nonlinear thresholds are tuned so
-the realized coupling matrix \(\widehat K(P_\ast)\) approximates the intended
+the realized coupling matrix \(\widehat K(P_C)\) approximates the intended
 constraint matrix \(K_C\):
 \[
-\|\widehat K(P_\ast)-K_C\|\le \varepsilon_{\mathrm{geom}}.
+\|\widehat K(P_C)-K_C\|\le \varepsilon_{\mathrm{geom}}.
 \]
 
 \begin{remark}[Geometry target]
 All correctness theorems below depend on exact implementation of the
-constraint Hamiltonian or exact return of a zero-energy state. The constant
-\(P_\ast\) is part of the OPH interpretation and hardware calibration rule.
-It fixes the geometry target. It is not, by itself, a mining receipt or an
-operator-alignment proof. The proof comes from the implemented constraint
-map, the measured operator bundle, and the exact verifier.
+constraint Hamiltonian or exact return of a zero-energy state. The comparison
+pixel \(P_C\) is an optional hardware calibration rule. It fixes an engineering
+geometry target. It is neither an OPH selection nor, by itself, a mining
+receipt or an operator-alignment proof. The proof comes from the implemented
+constraint map, the measured operator bundle, and the exact verifier.
 \end{remark}
 
 \section{Wave and Hardware Encodings}
@@ -1687,8 +1697,9 @@ route
 \]
 Waves supply parallel propagation, interference, routing, and delay.
 SHA-256 also needs nonlinear carries, thresholding, memory, and exact
-verification. The OPH pixel constant \(P\) guides the geometry. The
-LED/detector modules provide measurable candidate beams and operator evidence.
+verification. The measured-endpoint comparison pixel \(P_C\) guides the
+optional geometry calibration. The LED/detector modules provide measurable
+candidate beams and operator evidence.
 Diode, HAPTIC, laser, or photonic-feedback layers are stronger versions of the
 nonlinear boundary law. The Kaspa prototype shows this division of labor
 reaching real pool acceptance for kHeavyHash. The SHA-256d construction fixes
@@ -1794,8 +1805,8 @@ concentration, alive emitters, and alive sensors.
 
 Performance claims use post-acceptance runs only. Build readiness proves that
 the instrument is alive and measurable. Enrichment,
-P-resonance, same-electrode H2, and cryptographic-break claims require
-post-acceptance evidence.
+comparison-pixel resonance, same-electrode H2, and cryptographic-break claims
+require post-acceptance evidence.
 
 \subsection{Optimized SHA-256d route}
 

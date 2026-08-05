@@ -749,6 +749,7 @@
       "status": "finite_theorems_closed__bounded_counterfamily_nonidentifiable__complete_source_membership_open",
       "claim_class": "conditional_implication",
       "gates": [
+        708,
         696
       ]
     },
@@ -847,6 +848,7 @@
       "status": "conditional_theorem__horizon_record_attachment_not_evaluable__source_capacity_open",
       "claim_class": "conditional_implication",
       "gates": [
+        708,
         694,
         696
       ]
@@ -1032,6 +1034,7 @@
       "status": "conditional_theorem_complete_finite_source_instantiation_work_in_progress",
       "claim_class": "conditional_implication",
       "gates": [
+        708,
         696
       ]
     },
@@ -1576,7 +1579,7 @@
     },
     {
       "claim_id": "OPH-FINITE-QUANTUM-LIMITATION-SUITE",
-      "statement": "For every supplied finite density matrix and pair of supplied Hermitian observables, the state pairing proves the conventional Robertson inequality normSq(Tr(rho(AB-BA)))/4 <= Var_rho(A) Var_rho(B). The complex identity -i Tr(rho(AB-BA)) = c_rho(A,B) and nonnegativity of each variance are exact. Pauli X and Y give an explicit noncommuting saturation control. Pauli Z and X are explicitly noncommuting in a separate theorem, while the state control gives zero Z variance and zero commutator readout. For every supplied finite projective partition, two matrices have equal trace statistics against every matrix in the sector-preserving commutant exactly when their partition pinchings agree. Partition averaging is the distinct commutative projector-span readout, and both readouts erase every cross-sector corner. The package selects no physical state, observable, edge center, partition, detector algebra, or laboratory instrument.",
+      "statement": "For every supplied finite density matrix and pair of supplied Hermitian observables, the state pairing proves the conventional Robertson inequality normSq(Tr(rho(AB-BA)))/4 <= Var_rho(A) Var_rho(B). The complex identity -i Tr(rho(AB-BA)) = c_rho(A,B) and nonnegativity of each variance are exact. Pauli X and Y give an explicit noncommuting saturation control. Pauli Z and X are explicitly noncommuting in a separate theorem, while the state control gives zero Z variance and zero commutator readout. For every supplied finite projective partition, two matrices have equal trace statistics against every matrix in the sector-preserving commutant exactly when their partition pinchings agree. Partition averaging is the distinct commutative projector-span readout, factors through the supplied block pinching, is surjective onto the partition public subalgebra, and commutes with the full partition commutant. An exact one-block rank-two control proves that pinching and averaging differ. The package selects no physical state, observable, partition, detector algebra, or laboratory instrument.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
       "tier": "exact_bounded_finite_robertson_and_partition_readout_quotients",
       "assumptions": [
@@ -1588,26 +1591,25 @@
         "positive_semidefinite_matrix_seminorm",
         "finite_projective_partition_pinching_and_averaging"
       ],
-      "oph_specific_delta": "The supplied-state uncertainty bound and the two distinct partition readouts are placed on one exact finite surface. The commutant-valued block readout is separated from the commutative public-record average, with explicit saturation, degeneracy, retained-diagonal, and erased-corner controls.",
+      "oph_specific_delta": "The supplied-state uncertainty bound and the two distinct partition readouts are placed on one exact finite surface. The supplied-partition public-record adaptor factors the public average through the commutant-valued block readout while a nonzero within-block control proves that the maps remain distinct.",
       "novelty_type": "typed_finite_robertson_and_partition_readout_boundary",
       "evidence": [
         "extra/machine_checked_finite_event_algebras.tex",
         "Lean/EventAlgebra/Robertson.lean",
         "Lean/EventAlgebra/Superselection.lean",
+        "Lean/Screen/B10EdgeCenterAction.lean",
         "Lean/Screen/B10QuantumLimitations.lean",
         "Lean/docs/B10_QUANTUM_LIMITATIONS.md"
       ],
-      "falsifier": "The bounded package fails if the supplied-state Robertson inequality or complex commutator identity fails, either Pauli control changes, partition operational equivalence differs from equality after pinching, a cross-sector corner survives either declared readout, or a retained partition diagonal is erased.",
+      "falsifier": "The bounded package fails if the supplied-state Robertson inequality or complex commutator identity fails, either Pauli control changes, partition operational equivalence differs from equality after pinching, a cross-sector corner survives either declared readout, the public average does not factor through pinching or surject onto the partition span, or the rank-two control fails to distinguish the two maps.",
       "scope_if_false": "Only the bounded finite uncertainty or partition-readout packet falls. A future source-selected quantum instrument, continuum quantum field theory, finite matter algebra, and every frozen prediction remain separately assessed.",
-      "status": "exact_bounded_finite_robertson_and_partition_quotients_attained__edge_center_and_physical_instrument_open",
+      "status": "exact_bounded_finite_robertson_partition_quotients_and_partition_public_record_adaptor_attained__source_and_physical_instrument_open",
       "claim_class": "conditional_implication",
-      "gates": [
-        686
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE",
-      "statement": "The actual Mathlib exterior basis on a supplied five-mode carrier has 32 subset labels and the exact twelve color/weak bidegree multiplicities. Removing the vacuum and top line yields the ten declared component rows, with their dimensions, integer charges, parity, conjugation, square-zero creation, and anticommutation identities. A typed bridge maps those rows to nonzero sectors of a supplied projective partition and to supplied central-weight labels. Substitution of those labels preserves the common Z6 tensor-character kernel. A separate supplied nonempty chiral anomaly-free mask is forced to one of the two conjugate parity rows. An inhabited coordinate bridge, a retained sector diagonal, a nonzero erased cross-sector coherence, and a fractional-singlet kernel-collapse mutation guard against vacuous arithmetic. The bridge defines no group action on the partition projectors and does not attach its selection mask to a physical sector action. It selects no physical carrier, partition, matter action, parity representative, global form, continuum Spin structure, or laboratory charge.",
+      "statement": "The actual Mathlib exterior basis on a supplied five-mode carrier has 32 subset labels and the exact twelve color/weak bidegree multiplicities. Removing the vacuum and top line yields the ten declared component rows, with their dimensions, integer charges, parity, conjugation, square-zero creation, and anticommutation identities. A typed bridge maps those rows to nonzero sectors of a supplied projective partition and to supplied central-weight labels. The corresponding sixth-root character action on the component-labelled dependent product of mapped projector ranges has identity, composition, and inverse laws; the kernel of this central-parameter action is exactly the declared six-element tensor-character kernel. A separate supplied nonempty chiral anomaly-free mask is forced to one of the two conjugate exterior-degree parity rows. Its mapped support is nontrivial, invariant under the same action, and has the same exact kernel. No central parameter realizes a universal minus sign on that support. This is a nonconflation control, not a construction or identification of physical fermion parity. The partition, sector map, weights, and mask remain supplied. The package selects no physical carrier, matter action, parity representative, global form, continuum Spin structure, or laboratory charge.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "exact_bounded_five_mode_exterior_and_supplied_weight_bridge",
       "assumptions": [
@@ -1620,21 +1622,21 @@
         "Mathlib_exterior_algebra_basis",
         "finite_Z6_character_enumeration"
       ],
-      "oph_specific_delta": "The exact five-mode exterior component table and its central-weight arithmetic are connected through one supplied typed bridge without promoting label arithmetic to an action on public projectors. The control family checks inhabitation, readout sensitivity, and kernel sensitivity while retaining the physical attachment boundary.",
+      "oph_specific_delta": "The exact five-mode exterior table, supplied partition sectors, and supplied central weights are connected by one explicit finite character action. Its central-parameter kernel, selected-support kernel, and six-element cardinality agree with the independent tensor-character arithmetic, while source and physical selection remain separate.",
       "novelty_type": "typed_finite_exterior_component_and_weight_bridge",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
         "Lean/Screen/ExteriorComponentBridge.lean",
         "Lean/Screen/QuantumMatterIntegration.lean",
+        "Lean/Screen/B10EdgeCenterAction.lean",
         "Lean/Screen/B10QuantumLimitations.lean",
         "Lean/docs/B10_QUANTUM_LIMITATIONS.md"
       ],
-      "falsifier": "The bounded package fails if the five-mode exterior census or any component binding changes, the common supplied-weight kernel differs from Z6, the synthetic bridge is uninhabited, a sector diagonal is erased, the explicit cross-sector coherence survives, the parity-mask classification fails, or the fractional-singlet mutation leaves a nontrivial kernel.",
+      "falsifier": "The bounded package fails if the five-mode exterior census or any component binding changes, the supplied-weight action violates its group laws, its central-parameter kernel differs from the six-element tensor-character kernel, the mapped selected support is empty or noninvariant, its restricted kernel differs, a central element satisfies the excluded universal minus-one condition, or a nonvacuity or mutation control fails.",
       "scope_if_false": "Only the bounded exterior-component or supplied-weight integration packet falls. The abstract Standard Model Lie-type theorem, future source-selected matter, continuum quantum field theory, and every frozen prediction remain separately assessed.",
-      "status": "exact_bounded_five_mode_exterior_and_weight_bridge_attained__projector_action_and_physical_selection_open",
+      "status": "exact_bounded_five_mode_exterior_and_supplied_weight_character_action_attained__source_and_physical_selection_open",
       "claim_class": "conditional_implication",
       "gates": [
-        686,
         706
       ]
     },
@@ -2424,7 +2426,7 @@
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
-      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). Each existing P map has an arithmetic fixed-point certificate but lacks the complete physical Thomson map. At finite cutoff the selector-free set-valued form of N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). Exact code and an independent finite replay check the bounded counterfamily, and Lean proves all-rung nonuniqueness for the typed base-agreement, positivity, and carrier-bound structure. Transported source-contract controls are checked on six finite rungs. Universal membership in the complete A1-A3 source class and the executable-to-Lean membership bridge are unproved. Direct N has status NOT_EVALUABLE_INCOMPLETE_CAPACITY_SOURCE_ANTECEDENT and emits no cosmic value. Greatest-fixed-point order theory does not supply singleton uniqueness.",
+      "statement": "The quantitative surface declares local P closure and the official direct public-record equation N=log M_0(U_N). A pinned source-only audit derives thirty entries from the declared seventeen-row menu for the executed capacity families, two declared P maps, one direct fixed-cutoff control, the common-load baseline, reserve maps, RC-LOAD, the archived construction aggregate, and five hierarchy packets. It applies seven source-only gates: a declared dimensionless coordinate, target-independent selection, construction of the same quantity on both sides, completion of the source return map, existence, uniqueness, and stability. Fifteen entries carry exact fixed-point progress, but no eligible candidate row attains every gate. Four of the five preflight-completion gates are undischarged: the input catalogue, nuisance quotient, units-and-schemes catalogue, and candidate grammar are not frozen; only the fail-closed decision rule is frozen. Both declared P maps have certified interval fixed points but lack target-independent selection, the same-quantity construction, and a complete source return map. The four multiplicative CAP-P maps fix whichever positive normalization seed is supplied and therefore do not select that seed; the two additive CAP-P rows have no positive fixed point. RC-LOAD has a conditional interval proof of positive discriminant, invariant domain, contraction, one macroscopic fixed point, and exclusion of the microscopic root; its pricing law, same-quantity identity, and target-independent selection are unproved. At finite cutoff the selector-free set-valued form of direct N closure is F_set,r,0(D_star)={D_star}; the exact finite code size is M_0(q)=alpha(G_q). Exact code and an independent finite replay check the bounded counterfamily, and Lean proves all-rung nonuniqueness for the typed base-agreement, positivity, and carrier-bound structure. Transported source-contract controls are checked on six finite rungs. Universal membership in the complete A1-A3 source class and the executable-to-Lean membership bridge are unproved. The inventory does not exhaust future source laws, opens no observational comparison, and emits no physical P or cosmic N.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "conditional_quantitative_closure_program",
       "assumptions": [
@@ -2440,7 +2442,7 @@
         "finite_fixed_point_order_theory",
         "standard_display_units"
       ],
-      "oph_specific_delta": "Measured values may locate comparison coordinates, while source-only closure endpoints must come from the physical Thomson map and a complete direct correctable public-record law. The bounded counterfamily decides only its declared completion structure. A complete-source verdict requires the universal transported-membership and executable-to-Lean bridges. Electroweak/Higgs, geometric-resolution, and count-density expressions remain downstream comparison surfaces and cannot select the missing capacity law.",
+      "oph_specific_delta": "The source-only qualification firewall separates mathematical fixed-point existence from selection of the map and from proof that both sides read one invariant. It also separates those gates from downstream laboratory, cosmological, and absolute-scale attachment. The bounded inventory decides only its registered maps and the bounded counterfamily decides only its declared completion structure. A complete-source verdict requires the universal transported-membership and executable-to-Lean bridges. Electroweak/Higgs, geometric-resolution, and count-density expressions remain downstream comparison surfaces and cannot select the missing capacity law.",
       "novelty_type": "quantitative_prediction_protocol",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -2449,13 +2451,19 @@
         "code/capacity_readback/runtime/capacity_indexed_source_family_certificate.json",
         "code/capacity_readback/runtime/capacity_indexed_source_family_independent_receipt.json",
         "code/capacity_readback/runtime/complete_packet_capacity_lift_receipt.json",
-        "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean"
+        "code/closure_preflight/data/source_only_closure_contract_v3.json",
+        "code/closure_preflight/outputs/source_only_closure_preflight.json",
+        "code/closure_preflight/outputs/rc_load_source_only_certificate.json",
+        "code/closure_preflight/verify_source_only_closure_preflight_independent.py",
+        "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
+        "Lean/ObserverPatchHolography/ClosurePreflight.lean"
       ],
-      "falsifier": "A completed P or direct public-record map is target-leaking or branch-switched after result exposure, a claimed scalar N map lacks complete whole-fiber agreement, a claimed greatest fixed point is not maximal, or singleton uniqueness is asserted while a second fixed point remains.",
+      "falsifier": "The preflight fails if a gate state disagrees with its pinned evidence, a qualifying row is omitted, RC-LOAD violates its interval checks, a completed P or direct public-record map is target-leaking or branch-switched after result exposure, a claimed scalar N map lacks complete whole-fiber agreement, a claimed greatest fixed point is not maximal, or singleton uniqueness is asserted while a second fixed point remains.",
       "scope_if_false": "The quantitative prediction lane falls; structural recovered-core claims survive only if they do not import the failed quantitative coordinate.",
-      "status": "local_P_physical_map_open__direct_N_not_evaluable_incomplete_source_antecedent",
+      "status": "registered_source_only_inventory_has_no_qualifying_candidate__future_source_laws_and_physical_integration_open",
       "claim_class": "declared_structure",
       "gates": [
+        708,
         696
       ]
     },
@@ -2484,7 +2492,7 @@
         "standard_exponential_limit",
         "Planck_base_LambdaCDM_posterior"
       ],
-      "oph_specific_delta": "The candidate pair keeps the conditional finite probability type visible. The exact countermodels separate the local survival theorem from any action on global capacity: no-action, one-class, and six-class-total completions share the same local datum and composition rules but have pairwise different one-cut effects. The blocked-event menu remains unselected. Self-reference forces equality only after a stronger source law constructs the same-invariant bridge. It does not select either reserve semantics or identify either expression with cosmic N.",
+      "oph_specific_delta": "The candidate pair keeps the conditional finite probability type visible. The exact countermodels separate the local survival theorem from any action on global capacity: no-action, one-class, and six-class-total completions share the same local datum and composition rules but have pairwise different one-cut effects. The registered finite-presence and Poisson rows are exact conditional arithmetic but do not attain target-independent selection, same-quantity construction, or a complete source return map in the source-only preflight. The blocked-event menu remains unselected. Self-reference forces equality only after a stronger source law constructs the same-invariant bridge. It does not select either reserve semantics or identify either expression with cosmic N.",
       "novelty_type": "target_exposed_two_branch_capacity_diagnostic",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -2502,8 +2510,11 @@
         "code/capacity_readback/verify_named_law_n_closure_verdict_independent.py",
         "code/capacity_readback/runtime/named_law_horizon_bridge_verdict.json",
         "code/capacity_readback/verify_named_law_horizon_bridge_verdict_independent.py",
+        "code/closure_preflight/outputs/source_only_closure_preflight.json",
+        "code/closure_preflight/verify_source_only_closure_preflight_independent.py",
         "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
         "Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean",
+        "Lean/ObserverPatchHolography/ClosurePreflight.lean",
         "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean"
       ],
       "falsifier": "The declared total reserve expectation or class equidistribution fails, the displayed branch arithmetic fails, either exact completion violates its stated composition or regrouping law, the two completions do not disagree, the local source selects one blocked-event semantics after all, or the retrospective Planck comparison is presented as a prospective prediction.",
@@ -2546,6 +2557,7 @@
       "status": "weak_multiplicity_and_abstract_order_unit_map_closed__physical_common_load_and_direct_capacity_open",
       "claim_class": "conditional_implication",
       "gates": [
+        708,
         696
       ]
     },
@@ -2639,11 +2651,13 @@
     },
     {
       "claim_id": "OPH-ALPHA-PIXEL",
-      "statement": "The fine-structure branch is organized by a local screen-cell fixed point whose source calculation is separated from the same-scheme hadronic endpoint transport.",
+      "statement": "The fine-structure branch has exact fixed points for two declared local screen-cell maps. A physical fine-structure endpoint additionally requires target-independent map selection, a typed same-quantity bridge, and same-scheme hadronic transport.",
       "owner_paper": "extra/fine_structure_constant_derivation.tex",
       "tier": "quantitative_closure_with_empirical_endpoint_boundary",
       "assumptions": [
         "declared_pixel_map",
+        "target_independent_pixel_map_selection",
+        "closure_same_invariant_bridge",
         "Maxwell_endpoint_lane",
         "same_scheme_hadronic_transport_boundary"
       ],
@@ -2651,16 +2665,22 @@
         "Maxwell_electromagnetic_endpoint",
         "standard_running_alpha_spectral_logic"
       ],
-      "oph_specific_delta": "OPH ties the outside cell-area coordinate to the inside electromagnetic observation scale and isolates the low-energy QCD endpoint gap.",
+      "oph_specific_delta": "Conditional on a typed same-invariant bridge, OPH equates the outside cell-area coordinate with the inside electromagnetic observation scale and isolates the low-energy QCD endpoint gap. The exact fixed-point arithmetic does not construct that bridge or select between the two certified maps.",
       "novelty_type": "quantitative_branch_accounting",
       "evidence": [
-        "extra/fine_structure_constant_derivation.tex"
+        "extra/fine_structure_constant_derivation.tex",
+        "code/closure_preflight/outputs/source_only_closure_preflight.json",
+        "code/closure_preflight/verify_source_only_closure_preflight_independent.py",
+        "Lean/ObserverPatchHolography/ClosurePreflight.lean"
       ],
-      "falsifier": "The source map imports the Thomson target, the fixed point is nonunique, or the hadronic endpoint gap cannot be represented in the stated scheme.",
+      "falsifier": "The selected source map imports the Thomson target, its fixed point is nonunique, the two sides cannot be constructed as one typed quantity, or the endpoint gap cannot be transported in the stated scheme.",
       "scope_if_false": "The fine-structure endpoint claim is downgraded; the structural OPH core and separate hierarchy branch are not automatically affected.",
-      "status": "source_branch_with_deferred_endpoint_boundary",
-      "claim_class": "empirical_implementation",
-      "gates": []
+      "status": "exact_declared_map_fixed_points__source_selection_same_invariant_bridge_and_physical_endpoint_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        708,
+        696
+      ]
     },
     {
       "claim_id": "OPH-DM-CONT",

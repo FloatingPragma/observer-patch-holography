@@ -69,23 +69,23 @@ An **observer patch** is the finite portion of the world to which an observer
 has operational access. A **record** is physical information that can be
 checked later or by someone else. An **overlap** is a shared region, shared
 interface, or shared algebra on which two descriptions can be compared. A
-**fixed point** is a stable result of an update or repair process: apply the
-consistency rule again and nothing relevant changes. A **consensus process**
+**fixed point** is a result left unchanged by an update or repair process:
+apply the consistency rule again and nothing relevant changes. Stability
+under nearby changes is a separate property. A **consensus process**
 is a repair dynamic rather than a vote about taste: incompatible descriptions
 are rejected or adjusted until the overlap-visible records agree.
 
 The prologue also introduces the local pixel ratio $P$. In the detailed OPH
 program, $P$ is the small dimensionless ratio that sets the effective local
-grain of the screen description. It is the local fixed point at which the
-outside screen geometry and the inside electromagnetic readout are required to
-match. The theory defines $P$ by that
-matching equation and feeds it no measured number. The working value used by
-the chains is located from the measured fine-structure constant under the
-constant-identification axiom, and the requirement that the two readings match
-exactly through a complete physical map is the open closure test. Later chapters ask how far
-that same fixed point can travel through the weak sector, the electromagnetic
-coupling, the Higgs-top surface, quark structure, neutrinos, and the
-gravity-facing side of the framework.
+grain of the screen description. Each of the two declared closure maps has an exact
+candidate fixed point. The working comparison coordinate has the measured
+fine-structure constant in its ancestry, so it is not a physical prediction.
+That promotion requires a map selected independently of the measured answer,
+proof that the outside screen reading and inside electromagnetic reading are
+one quantity, and complete endpoint transport in one scheme. Later chapters
+ask how far the same candidate coordinate can travel through the weak sector,
+the electromagnetic coupling, the Higgs-top surface, quark structure,
+neutrinos, and the gravity-facing side of the framework.
 
 The human lineage behind the prologue is broader than any one field. Reverse
 engineering belongs to computing and security culture, but physics has always
@@ -993,9 +993,10 @@ Self-reading motivates both targets. It does not select the missing
 continuation law. Chapter 18 tells that subtraction as a story, and Chapter 19
 folds the same chain into the synthesis.
 
-The chapter is careful about status. The uniqueness of $P$ on the declared
-domain is a certified result for the declared incomplete map. The missing
-hadronic transport prevents promotion to a physical Thomson prediction. The
+The chapter is careful about status. The uniqueness of $P$ on each declared
+domain is a certified result for that declared map. Promotion to a physical
+Thomson prediction requires independent map selection, a same-quantity
+identification, and same-scheme endpoint transport. The
 fixed $D=24$ capacity packet is exact. Its executable bounded counterfamily
 rules out uniqueness under base agreement, positivity, and the carrier bound.
 The capacity-indexed packet gives an exact bounded counterfamily and checks
@@ -1038,8 +1039,9 @@ universe.
 
 The symbol guide is mostly referential. The Standard Model
 quotient by $\mathbb Z_6$ says that a shared discrete center is identified
-across the gauge factors. The pixel ratio $P$ is the root of the declared local
-map; physical endpoint status requires the missing hadronic transport. The
+across the gauge factors. The pixel ratio $P$ is a root of a declared local
+map. Physical status requires independent map selection, identification of the
+two sides as one quantity, and complete endpoint transport. The
 fine-structure constant $\alpha$ measures electromagnetic coupling, and
 $\alpha^{-1}$ is its inverse. The process $e^+e^-\to\mathrm{hadrons}$ is an
 electron-positron annihilation channel whose data constrain hadronic
@@ -1082,8 +1084,10 @@ self-reference and pixel-fixed-point discussion. $\varphi$ is the golden
 ratio when it appears. $P$ is the local pixel ratio. $\sqrt\pi$ appears as a
 geometric normalization in the screen-side story. $\alpha^{-1}$ is the
 inverse fine-structure constant. Each symbol belongs to the fixed-point
-bookkeeping, not numerology. The claim stands or falls by the
-declared equations and numerical checks.
+bookkeeping. The exact candidate roots stand or fall by the declared equations
+and numerical checks. A physical fine-structure claim additionally stands or
+falls by independent map selection, same-quantity identification, and
+same-scheme endpoint transport.
 
 The observer-loop diagram shows the metaphysical closure: world, observers,
 records, and models feed back into one self-description. The loop is
@@ -1160,9 +1164,10 @@ $\mathfrak F_{r,0}(D_\star)=\{D_\star\}$, with
 $N_{\mathrm{CRC}}=\log D_\star$, is the closure target for deriving that capacity
 rather than borrowing it from measurement.
 
-**$P$** is the OPH local pixel ratio. It is a dimensionless root of the declared
-fixed-point map linking the local screen grain to the electromagnetic readout
-side of the program. The physical Thomson endpoint is open.
+**$P$** is the OPH local pixel ratio. The declared fixed-point maps give exact
+candidate roots linking a screen-grain coordinate to an electromagnetic return
+coordinate. A physical value needs independent map selection, same-quantity
+identification, and complete Thomson-endpoint transport in one scheme.
 
 **$\alpha$** is the fine-structure constant, the dimensionless strength of
 electromagnetism at a specified scale. Its inverse $\alpha^{-1}$ is commonly

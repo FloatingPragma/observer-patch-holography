@@ -421,7 +421,7 @@ def build_verdict() -> dict[str, Any]:
         "fixed_cutoff_result": {
             "D": 24,
             "M0": 24,
-            "status": "SOURCE_DERIVED_FIXED_CUTOFF_PHYSICAL_PACKET",
+            "status": "SOURCE_DERIVED_FIXED_CUTOFF_PACKET",
             "cosmic_value_selected": False,
         },
         "capacity_indexed_result": {

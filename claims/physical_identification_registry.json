@@ -13,9 +13,14 @@
       ],
       "blocking_issues": [
         {
+          "number": 708,
+          "disposition": "open_work_item",
+          "role": "source-select the complete electromagnetic return map and prove the same-quantity closure packet"
+        },
+        {
           "number": 696,
           "disposition": "open_work_item",
-          "role": "active V2 owner for the source-complete fine-structure closure, physical Thomson map, and quantitative verdict"
+          "role": "attach the source-only closure to the physical Thomson scheme and issue the final quantitative verdict"
         },
         {
           "number": 318,
@@ -35,6 +40,32 @@
       ]
     },
     {
+      "identification_id": "p_detuning_same_quantity_readback",
+      "label": "screen detuning coordinate / electromagnetic return reading of P",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-ALPHA-PIXEL",
+        "OPH-Q-PN-CLOSURE"
+      ],
+      "source_anchors": [
+        "source-selected detuning law",
+        "source-constructed electromagnetic return map",
+        "commuting same-quantity readback certificate"
+      ],
+      "blocking_issues": [
+        {
+          "number": 708,
+          "disposition": "open_work_item",
+          "role": "construct both source readings, select one return map without target input, and prove their same-invariant factorization"
+        },
+        {
+          "number": 696,
+          "disposition": "open_work_item",
+          "role": "attach the source-only closure packet to the physical Thomson scheme and final quantitative interpretation"
+        }
+      ]
+    },
+    {
       "identification_id": "beta_ew_common_load_carrier",
       "label": "beta_EW = 4 / common screen-electroweak load carrier",
       "status": "undischarged",
@@ -45,6 +76,11 @@
         "common electroweak load-carrier contract"
       ],
       "blocking_issues": [
+        {
+          "number": 708,
+          "disposition": "open_work_item",
+          "role": "construct a target-independent source-only common-load return law"
+        },
         {
           "number": 696,
           "disposition": "open_work_item",
@@ -69,9 +105,14 @@
           "role": "inhabited common tower, Einstein-branch capacity transfer, and horizon attachment"
         },
         {
+          "number": 708,
+          "disposition": "open_work_item",
+          "role": "construct the source-complete direct-capacity selector and same-quantity return map"
+        },
+        {
           "number": 696,
           "disposition": "open_work_item",
-          "role": "source-complete capacity selector, universal source-membership bridge, and quantitative fixed-point verdict"
+          "role": "integrate the source-only capacity result with the physical horizon attachment and quantitative verdict"
         }
       ]
     },
@@ -159,14 +200,11 @@
       "source_anchors": [
         "Lean/EventAlgebra/Robertson.lean",
         "Lean/EventAlgebra/Superselection.lean",
-        "source-selected state, observables, edge center, and detector readout"
+        "Lean/Screen/B10EdgeCenterAction.lean",
+        "source-selected state, observables, projective partition, and public detector instrument",
+        "edge-to-partition identification if an edge interpretation is claimed"
       ],
       "blocking_issues": [
-        {
-          "number": 686,
-          "disposition": "open_work_item",
-          "role": "attach the block and commutative partition readouts to one declared edge-center interface without conflating their ranges"
-        },
         {
           "number": 702,
           "disposition": "open_work_item",
@@ -314,6 +352,11 @@
       ],
       "blocking_issues": [
         {
+          "number": 708,
+          "disposition": "open_work_item",
+          "role": "source-select the finite or limiting reserve action and construct its same-quantity global-capacity return map"
+        },
+        {
           "number": 696,
           "disposition": "open_work_item",
           "role": "supply the physical screen/electroweak load carrier for the quantitative capacity closure"
@@ -405,6 +448,7 @@
       "status": "undeclared",
       "menu_size": null,
       "blocking_issues": [
+        708,
         694,
         696
       ]
@@ -480,7 +524,8 @@
     "blocking_issues": [
       694,
       696,
-      697
+      697,
+      708
     ],
     "p_acc_upper_bound": null
   }

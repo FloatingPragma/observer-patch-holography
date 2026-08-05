@@ -252,7 +252,7 @@ def test_alpha_row_values_match_endpoint(result):
     assert row["audit_verdict"] == verdict["verdict"]
     assert row["cross_class_agreement"]["independently_evaluated_class_count"] == 0
     assert "does not identify the physical source" in row["reading"]
-    assert row["blocking_issues"] == [696]
+    assert row["blocking_issues"] == [708, 696]
     assert row["historical_blocking_issues"] == [425, 545]
 
 
@@ -337,7 +337,7 @@ def test_markdown_rendered(tmp_path):
     assert "`code/particles/runs/status/postdiction_ledger.json`" in text
     assert "Each row is checked in Lean, by a structured executable artifact" in text
     assert "Every step is machine checked in the Lean workspace" not in text
-    assert "Live blocking issues: #696" in text
+    assert "Live blocking issues: #708, #696" in text
     assert "Historical resource-deferred boundaries: #425, #545" in text
 
 

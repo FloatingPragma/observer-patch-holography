@@ -73,22 +73,24 @@ Alexander Osika\\SNRGY Studios}
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography (OPH) assigns one screen cell two readings: an
-outside dimensionless area \(P\) and the electromagnetic observation scale
-seen from within. Their self-read equation is
+Conditional on a declared same-cell identification, Observer Patch
+Holography (OPH) assigns one screen cell two readings: an outside
+dimensionless area \(P\) and the electromagnetic observation scale seen from
+within. Their self-read equation is
 \[
 P=\varphi+\frac{\sqrt\pi}{\ATh(P)},
 \]
-where \(\ATh(P)\) is the Thomson-limit inverse coupling emitted by a trial
-pixel. The contraction theorem gives existence and uniqueness,
+where \(\ATh(P)\) is the Thomson-limit inverse coupling returned by a declared
+trial map. The contraction theorem gives existence and uniqueness,
 and outward-rounded interval certificates discharge its concrete hypotheses.
 The source map has the interval-certified unique root
 \(\alpha^{-1}=136.994835177413\ldots\). Adding the finite-screen gauge width
 inside the same loop gives the certified root
 \(137.035660136946577\ldots\). The recommended experimental value is used only to test these
-source calculations. A physical low-energy prediction requires the same-scheme
-hadronic spectral transport; this construction consumes that transport as a
-premise and does not compute it.
+source calculations. A physical low-energy prediction also requires the same-scheme
+hadronic spectral transport, target-independent selection of the applicable
+map, and a typed bridge proving that the two fixed-point coordinates read the
+same physical quantity. This construction supplies none of those premises.
 \end{abstract}
 
 \noindent\textbf{Keywords:} fine-structure constant, Observer-Patch Holography, pixel fixed
@@ -97,11 +99,11 @@ point, electromagnetic coupling, Standard Model constants, hadronic vacuum polar
 \section*{What This Paper Contributes}
 
 The fine-structure constant is usually treated as an empirical constant. This paper
-turns it into a branch readout of one OPH screen cell. The known physics is the
+studies it as a conditional branch readout of one OPH screen cell. The known physics is the
 low-energy Maxwell coupling, charged-lepton running, and low-energy hadronic
-spectral transport. OPH adds the pixel self-reference: the outside area coordinate
-\(P\) must agree with the inside electromagnetic observation scale read by
-observers on the same branch.
+spectral transport. OPH adds a declared pixel self-reference: conditional on a
+typed bridge proving that both expressions read one cell, the outside area
+coordinate \(P\) must agree with the inside electromagnetic observation scale.
 
 The pixel map carries zero continuous dials. The fixed-point existence and
 uniqueness theorem used by the calculation, together with interval certificates,
@@ -113,8 +115,8 @@ certified, and the physical transport step is a separate premise). The
 residual gap has an explicit address: the hadronic transport needed in the same
 electromagnetic convention as the source map. This split is the contribution: a fixed-point
 equation for the pixel branch with no adjustable form, a visible address for the missing low-energy
-QCD step, and a clear boundary between a source theorem, empirical endpoint
-input, and measured comparison.
+QCD step, and a clear boundary between a source theorem, the open map-selection
+and same-quantity premises, empirical endpoint input, and measured comparison.
 
 \section{Introduction}
 
@@ -128,13 +130,17 @@ electromagnetic resolution of one such cell.
 Two declared principles carry the construction. The detuning law places the
 pixel ratio off the golden-ratio balance point by the Gaussian-normalized width
 of one electromagnetic observation,
-\(P=\varphi+\sqrt\pi\,\alpha\). The constant-identification law says that the
-fine-structure constant read inside the trial world and the substrate pixel
-readout are one quantity. Together they leave one local variable and one
-self-read equation. The measured fine-structure constant enters only after the
-source calculation, as an endpoint test.
+\(P=\varphi+\sqrt\pi\,\alpha\). The constant-identification law is a declared
+closure premise: a typed bridge must prove that the fine-structure constant
+read inside the trial world and the substrate pixel readout are one quantity.
+Conditional on that bridge, the two principles leave one local variable and
+one self-read equation. Neither the exact fixed-point mathematics nor the
+source certificates construct the bridge or select between the two certified
+maps. The measured
+fine-structure constant enters only after the source calculation, as an
+endpoint test.
 
-There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. ArXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure, with one added requirement: the number must arise from a fixed-point map whose input and output are the same local screen cell.
+There is a long history of attempts to understand \(\alpha\) from deeper structure. Jentschura and Nandori give a useful survey of first-principles attempts, including beta-function, symmetry, cutoff, and string-inspired ideas \cite{jentschura-nandori}. Golden-ratio constructions appear in historical geometric proposals \cite{heyrovska-narayan} and in semi-empirical work on electroweak and flavor mixing \cite{ciborowski}. Octonionic and exceptional-algebra approaches also produce values near \(1/137\) \cite{singh}. ArXiv papers use symbolic regression and quantum-information criteria to look for structure in Standard Model constants and electroweak parameters \cite{chekanov-kjellerstrand,liu-low-yin}. The OPH calculation belongs to this broad search for structure. Its physical interpretation requires a target-independent choice of the map, a typed bridge proving that its input and output read the same local screen cell, and same-scheme transport to the laboratory endpoint.
 
 \begin{quote}\small
 \textbf{Certified source roots.} The executable source map contracts to the undressed source/root inverse coupling \(\alphainv_{\mathrm{root}}=136.994835177413\ldots\), the interval-certified unique fixed point of the declared map (public interval certificate \cite{oph-code}; enclosure width \(7.2\times10^{-24}\), \(L\le0.0724\)). The self-consistent map that adds the finite-screen unified gauge width \(\alpha_U(P)\) inside the loop has the certified fixed point \(137.035660136946577\ldots\), with relative residual \(2.5\times10^{-6}\), about \(1.6\times10^{4}\) measurement sigma. The combination \(A_{\alpha_U}^{\mathrm{fp}}=137.035959513609\ldots\) mixes the certified source root with \(\alpha_U(\Ppub)\) evaluated at the CODATA-derived comparison pixel; it is not a fixed point of a single declared map. The measured value is a downstream endpoint test and does not fix either source root.
@@ -142,9 +148,9 @@ There is a long history of attempts to understand \(\alpha\) from deeper structu
 \textbf{CODATA\slash NIST measured endpoint.} CODATA\slash NIST reports the value \(137.035999177(21)\) for \(\alphainv(0)\). The difference from \(A_{\alpha_U}^{\mathrm{fp}}\) is CODATA-minus-diagnostic bookkeeping; it is not the output of a same-scheme hadronic spectral calculation.
 \end{quote}
 
-\paragraph*{Intuitive picture: three readings of one pixel.}
-The three fine-structure numbers are not three unrelated corrections. They are
-three increasingly observer-facing readings of the same local pixel branch:
+\paragraph*{Intuitive picture: two source maps and one endpoint test.}
+The three fine-structure numbers have different provenance. The first two are
+fixed points of declared source maps, while the third is the measured endpoint:
 \[
 \text{source pixel}
 \longrightarrow
@@ -163,13 +169,14 @@ or numerically,
 The first two values are the interval-certified fixed points of the declared
 source map and of the declared self-consistent gauge-width map
 (public interval contraction certificate \cite{oph-code}).
-The root value \(\alpha_{\mathrm{root}}^{-1}\) is the naked source/root inverse
-coupling: the electromagnetic width emitted when one screen cell closes as a
-geometric self-consistency object before the low-energy charged vacuum is
-attached. The outside reading is the pixel detuning
-\((P-\varphi)/\sqrt\pi\); the inside reading is the electromagnetic observation
-strength on the same branch. The fixed point says those two readings must name
-one cell.
+The root value \(\alpha_{\mathrm{root}}^{-1}\) is the inverse coupling returned
+by the incomplete source map before the low-energy charged vacuum is attached.
+The declared outside coordinate is the detuning \((P-\varphi)/\sqrt\pi\), and
+the declared inside coordinate is the electromagnetic observation strength at
+the same trial input. A typed same-quantity bridge and target-independent map
+selection are required before their fixed point can be interpreted as one
+cell quantity. Same-scheme endpoint transport is additionally required before
+that quantity can be compared as the laboratory fine-structure constant.
 
 The contribution \(\alpha_U(\Ppub)\) is the finite-screen unified gauge-width evaluated at the
 CODATA-derived comparison pixel. It is the main high-scale gauge-sector width carried by that
@@ -197,7 +204,7 @@ measures the fully dressed low-energy coupling, while
 
 The OPH background used here is spread across three papers. The observer-overlap starting point is the synthesis paper \cite{oph-synthesis}. The source map and fixed-point branch are recorded in the compact overlap-consistency paper \cite{oph-smgr}. The charged-spectrum and particle-structure continuation is recorded in the particle paper \cite{oph-particle}. The references give direct GitHub links to those source files.
 
-Why this split matters: the fixed-point equation and the hadronic transport calculation answer different questions. The fixed-point equation says how a local screen cell must close on itself. The hadronic calculation says how the electromagnetic current is transported through low-energy QCD. These are different layers of the calculation. A non-arbitrary endpoint calculation must either evaluate the same-scheme hadronic spectral functional directly, or derive the scheme bridge from OPH source data.
+Why this split matters: the fixed-point equation and the hadronic transport calculation answer different questions. The fixed-point equation tests closure for a declared local map. The hadronic calculation transports the electromagnetic current through low-energy QCD. A physical endpoint calculation must select the map without consulting the target, construct the same-cell bridge, and evaluate the same-scheme hadronic spectral functional from OPH source data.
 
 \begin{proposition}[Maxwell normalization of the endpoint branch]
 On the ordinary electromagnetic branch used by the fixed-point equation, the Ward-projected
@@ -242,11 +249,11 @@ Symbol & Definition & Informal meaning \\
 \(\ell_P\) & Planck length & The SI display of \(\ell_\star\) after \(G_{\mathrm{SI}}=c^3\ell_\star^2/\hbar\). \\
 \(\varphi\) & \((1+\sqrt5)/2\) & The self-similar entropy-balance point. \\
 \(\sqrt\pi\) & Boundary Gaussian normalization width & The conversion factor from pixel displacement to observation width. \\
-\(\alpha_{\mathrm{ext}}(P)\) & \((P-\varphi)/\sqrt\pi\) & The outside, geometric reading of the electromagnetic coupling. \\
-\(\ATh(P)\) & \(\alpha_{\mathrm{em}}^{-1}(0;P)\) & The inverse electromagnetic coupling at the Thomson limit emitted by the trial pixel. \\
-\(\alpha_{\mathrm{in}}(P)\) & \(1/\ATh(P)\) & The inside, electromagnetic reading of the same cell. \\
+\(\alpha_{\mathrm{ext}}(P)\) & \((P-\varphi)/\sqrt\pi\) & The declared outer detuning coordinate. \\
+\(\ATh(P)\) & \(\alpha_{\mathrm{em}}^{-1}(0;P)\) & The inverse electromagnetic endpoint returned by the declared trial map. \\
+\(\alpha_{\mathrm{in}}(P)\) & \(1/\ATh(P)\) & The declared inner coordinate; its same-cell interpretation requires a typed bridge. \\
 \(E_P\) & Planck energy & The energy unit associated with the selected scale certificate. The numerical equations use Planck units unless GeV labels are attached. \\
-\(M_U(P)\) & \(E_P\e^{-2\pi}P^{1/6}\) & The OPH unification-scale readout emitted by a trial pixel. \\
+\(M_U(P)\) & \(E_P\e^{-2\pi}P^{1/6}\) & The OPH unification-scale readout returned at the declared trial coordinate. \\
 \(E_{\mathrm{cell}}(P)\) & \(E_P/\sqrt P\) & The local cell energy readout. \\
 \(\alpha_U(P)\) & Unified coupling solved from the heat-kernel closure equation & The coupling at \(M_U(P)\) that makes the gauge representation entropy match the pixel. \\
 \(\alpha_i(\mu;P)\) & Gauge coupling \(i=1,2,3\) at scale \(\mu\) & The hypercharge, weak, and color couplings emitted by the same trial \(P\). \\
@@ -298,7 +305,11 @@ OPH starts from a finite screen covered by observer patches. If \(P_1\) and \(P_
 
 Informally: no observer sees the whole world. Physics is what survives when neighboring local descriptions can be checked against each other and made consistent on the parts they share.
 
-The quantitative fine-structure branch applies this rule to a single local screen cell. The cell has one outside description and one inside description. The outside description is geometric. The inside description is electromagnetic. Closure means both descriptions identify the same cell.
+The quantitative fine-structure branch applies this rule to a single local
+screen cell. The cell has one outside description and one inside description.
+The outside description is geometric. The inside description is
+electromagnetic. A declared typed bridge identifies both as readings of one
+cell; the fixed-point theorem is conditional on that premise.
 
 Why this step is needed: OPH does not start by assigning constants to nature. It starts by asking what finite observers can compare. A dimensionless constant can be derived only if it is the fixed value of such a comparison.
 
@@ -350,7 +361,7 @@ The boundary normalization converts \(\Delta_P\) into the outside coupling reado
 
 Informally: the boundary Gaussian width normalizes the screen displacement. Dividing by \(\sqrt\pi\) turns the geometric displacement into a dimensionless observation strength. The Gaussian choice belongs to the declared detuning principle.
 
-Why this step is needed: the outside screen variable is an area displacement. The inside electromagnetic variable is a coupling. The boundary normalization is the conversion factor between those two readings.
+Why this step is needed: the outside screen variable is an area displacement. The inside electromagnetic variable is a coupling. The declared boundary normalization supplies the proposed conversion between those two readings.
 
 \section{Step 5: The Inside Electromagnetic Readout}
 
@@ -359,7 +370,8 @@ Let
 \ATh(P):=\alpha_{\mathrm{em}}^{-1}(0;P)
 \label{eq:ATdef}
 \end{equation}
-be the inverse electromagnetic coupling at zero momentum, emitted from the same trial pixel \(P\). The inside coupling is
+be the inverse electromagnetic coupling at zero momentum returned by the
+declared map at trial pixel \(P\). The inside coupling is
 \begin{equation}
 \alpha_{\mathrm{in}}(P):=\frac{1}{\ATh(P)}.
 \label{eq:alphain}
@@ -371,7 +383,7 @@ Why this step is needed: the measured fine-structure constant is the Thomson-lim
 
 \section{Step 6: The Fixed-Point Equation}
 
-Closure requires the outside and inside couplings to agree:
+Conditional on the same-invariant bridge, closure requires the outside and inside couplings to agree:
 \begin{equation}
 \alpha_{\mathrm{ext}}(P)=\alpha_{\mathrm{in}}(P).
 \label{eq:couplingmatch}
@@ -397,9 +409,14 @@ P=G(P):=\varphi+\frac{\sqrt\pi}{\ATh(P)}.
 \label{eq:G}
 \end{equation}
 
-Informally: feed a trial pixel into the source chain. It emits a Thomson endpoint. That endpoint tells the pixel what size it should have. The physical pixel is the value that comes back unchanged.
+Informally: feed a trial pixel into the declared source chain. It returns a
+Thomson endpoint. If the bridge proves that endpoint and the detuning are two
+readings of one cell, closure selects a value that comes back unchanged.
 
-Why this step is needed: a trial value is not enough. The same cell must agree with itself when read from the outside and from the inside. That is why the answer is a fixed point, not a one-way evaluation.
+Why this step is needed: a trial value is not enough. Once the bridge proves
+that both readings belong to one cell, self-consistency requires them to
+agree. That is why the conditional answer is a fixed point rather than a
+one-way evaluation.
 
 \section{Step 7: The Source Map}
 
@@ -411,7 +428,7 @@ E_{\mathrm{cell}}(P)&=\frac{E_P}{\sqrt P}.
 \label{eq:Ecell}
 \end{align}
 
-Informally: \(M_U(P)\) is the high-scale source readout, and \(E_{\mathrm{cell}}(P)\) is the local cell energy. Both come from the same screen cell. The unification scale is therefore read from the pixel.
+Informally: \(M_U(P)\) is the high-scale source readout, and \(E_{\mathrm{cell}}(P)\) is the declared local-energy coordinate. Both are functions of the same trial input \(P\). Interpreting that input as one physical screen cell requires the same-cell bridge.
 
 Why this step is needed: the inside electromagnetic coupling has to be generated from the same \(P\) used in the outside equation. These two formulas begin that inside calculation without adding a separate high-scale fit parameter.
 
@@ -895,7 +912,7 @@ The CODATA/NIST central coupling is
 
 Informally: once the measured Thomson endpoint is supplied, the outer OPH equation fixes the corresponding comparison pixel immediately. It is the direct readout of one equation.
 
-Why this step is needed: the measured endpoint and the comparison pixel are two forms of the same fixed-point statement. Reporting both makes it clear how the measured inverse coupling maps back to the screen cell.
+Why this step is needed: the measured endpoint and the comparison pixel are two algebraic forms of the same comparison definition. Reporting both makes the measured provenance of the pixel explicit; it does not identify that coordinate with a source-selected screen cell.
 
 \paragraph{Two-\(P\) provenance audit.}
 There are two distinct pixel numerals in this paper.  The source-only
@@ -1313,7 +1330,9 @@ Assume:
 \[
 \ATh(P)=\AZ(P)+\Dlep(P)+\Dhad(P)+\DEW(P);
 \]
-\item \(G(P)=\varphi+\sqrt\pi/\ATh(P)\) is a self-map and a contraction on the physical pixel interval \(I\);
+\item a target-independent source law selects this source and transport map from the admitted map family;
+\item a typed same-quantity bridge identifies \((P-\varphi)/\sqrt\pi\) and \(1/\ATh(P)\) as readings of one physical screen cell, with \(1/\ATh(P)\) identified as its Thomson-limit electromagnetic coupling;
+\item \(G(P)=\varphi+\sqrt\pi/\ATh(P)\) is a self-map and a contraction on the selected branch interval \(I\);
 \item the interval image contains the root and the residual bound is certified.
 \end{enumerate}
 Then there is a unique \(P_\star\in I\) satisfying \(G(P_\star)=P_\star\), and the fine-structure constant on that branch is
@@ -1323,7 +1342,7 @@ Then there is a unique \(P_\star\in I\) satisfying \(G(P_\star)=P_\star\), and t
 \end{theorem}
 
 \begin{proof}
-By assumption (iii), \(G:I\to I\) is a contraction. Banach's fixed-point theorem gives a unique \(P_\star\in I\) such that \(G(P_\star)=P_\star\). Equation~\eqref{eq:G} gives
+By assumption (v), \(G:I\to I\) is a contraction. Banach's fixed-point theorem gives a unique \(P_\star\in I\) such that \(G(P_\star)=P_\star\). Equation~\eqref{eq:G} gives
 \[
 P_\star-\varphi=\frac{\sqrt\pi}{\ATh(P_\star)}.
 \]
@@ -1331,12 +1350,12 @@ Dividing by \(\sqrt\pi\) gives
 \[
 \frac{P_\star-\varphi}{\sqrt\pi}=\frac{1}{\ATh(P_\star)}.
 \]
-The left side is \(\alpha_{\mathrm{ext}}(P_\star)\), and the right side is \(\alpha_{\mathrm{in}}(P_\star)\). Their common value is the Thomson-limit electromagnetic coupling \(\alpha(0)\).
+The left side is \(\alpha_{\mathrm{ext}}(P_\star)\), and the right side is \(\alpha_{\mathrm{in}}(P_\star)\). Assumptions (iii)--(iv) select this map and identify their common value with the Thomson-limit electromagnetic coupling \(\alpha(0)\).
 \end{proof}
 
-Informally: a source-derived hadronic spectral endpoint map would close the last open transport step. With the interval proof included, the fine-structure constant is the unique fixed point of the full source map.
+Informally: a source-derived hadronic spectral endpoint map would supply the open transport step. A physical fine-structure conclusion also requires target-independent map selection and the same-quantity bridge. With those premises and the interval proof, the selected full source map has one fixed point and the bridge identifies its value with the fine-structure constant.
 
-The interval form of assumptions (iii)--(iv) is direct: on any interval \(I\)
+The interval form of assumptions (v)--(vi) is direct: on any interval \(I\)
 where interval-arithmetic evaluation
 certifies \(G(I)\subseteq I\) together with a derivative bound
 \(|G'|\le L<1\), the Banach fixed-point theorem gives both existence and
@@ -1352,7 +1371,7 @@ are \(\alpha^{-1}=136.994835177413\ldots\) for the source map (enclosure width
 gauge-width map. The certificate certifies the declared numerical map; it does
 not relate either fixed point to the measured constant. Both roots lie outside
 the measured comparison basin. The global at-most-one statement is
-discharged on the declared physical domain (\(\alpha^{-1}\in[100,200]\)):
+discharged on the declared analytic domain (\(\alpha^{-1}\in[100,200]\)):
 \(\sup|g'|<1\) on all 256 certified pieces, both readout maps, zero
 exceptional set
 (domain-global uniqueness certificate in the same artifact bundle), so
@@ -1364,7 +1383,7 @@ lemma built from the declared solver windows (the pixel scan window
 certifies \(1/\alpha_3(m_Z)\ge 4\) and a positive inverse-alpha readout
 floor on the whole analytic domain, and an interval sweep of the full pixel
 window certifies that every window-consistent fixed-point candidate of
-either readout map lies inside the declared physical interval
+either readout map lies inside the declared solver interval
 (global uniqueness extension certificate).
 Each declared map therefore has exactly one fixed point on its maximal
 analytic domain, and the set of fixed points outside the declared interval
@@ -1372,9 +1391,10 @@ is empty; the headline enclosures above are unchanged.
 
 A source-only theorem requires a source-derived Ward-current spectral measure, the source Jacobi
 kernel, electromagnetic normalization, a same-scheme finite remainder, a
-dependency graph excluding Thomson-target leakage, a full contraction interval
-for the pixel map, and a prediction interval narrower than the adopted direct
-measurement. For the comparison standard used here, the direct rubidium recoil
+target-independent rule selecting one physical map, a typed construction that
+identifies its two sides as the same quantity, a dependency graph excluding
+Thomson-target leakage, a full contraction interval for the selected map, and
+a prediction interval narrower than the adopted direct measurement. For the comparison standard used here, the direct rubidium recoil
 result of Morel, Yao, Cladé, and Guellati-Khélifa reports
 \(\alpha^{-1}=137.035999206(11)\) with 81 parts-per-trillion relative precision
 \cite{morel2020}. The operational receipt is therefore
@@ -1408,7 +1428,7 @@ Eq.~\eqref{eq:G} gives the corresponding comparison pixel:
 }
 \end{align}
 
-Informally: the endpoint number is the same number NIST/CODATA reports. The derivation exposes every OPH-side step and identifies where the low-energy hadronic calculation enters. That hadronic spectral calculation is the named premise separating this endpoint display from a source theorem.
+Informally: the endpoint number is the same number NIST/CODATA reports. The display exposes the OPH-side bookkeeping around that measured value. A source theorem would additionally need a target-independent map choice, the same-quantity bridge, and the low-energy same-scheme hadronic calculation.
 
 \section{Reproducibility}
 
@@ -1470,7 +1490,20 @@ Interval theorem & Banach/contraction certificate for full \(G\) & Discharged fo
 
 \section{Conclusion}
 
-The fine-structure constant is the coupling that makes one OPH screen cell internally consistent. The outside reading says that the cell is displaced from the golden-ratio balance by \((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the source map, gauge closure, electroweak anchor, and Ward-projected electromagnetic transport, producing \(1/\ATh(P)\). The physical cell is the fixed point where those two readings agree. The construction carries zero continuous dials and each declared incomplete map has a machine-certified unique fixed point on its declared domain. The hadronic source payload and detached no-target-leak certificate are premises this construction does not supply, so the residuals are diagnostics rather than a derivation of \(\alpha\).
+Conditional on target-independent map selection, the declared same-cell
+bridge, and same-scheme endpoint transport, the fine-structure constant is
+the coupling that makes one OPH screen cell internally consistent. The outside
+reading says that the cell is displaced from the golden-ratio balance by
+\((P-\varphi)/\sqrt\pi\). The inside reading sends the same \(P\) through the
+declared source map, gauge closure, electroweak anchor, and Ward-projected
+electromagnetic transport, producing \(1/\ATh(P)\). Neither the exact
+fixed-point mathematics nor the source certificates construct that bridge or
+select either certified map. The
+construction carries zero continuous dials and each declared incomplete map
+has a machine-certified unique fixed point on its declared domain. The
+map selector, same-cell construction, hadronic source payload, and detached
+no-target-leak certificate are premises this construction does not supply, so
+the residuals are diagnostics rather than a derivation of \(\alpha\).
 
 The pure source calculation computes the root witness
 \[
@@ -1499,8 +1532,9 @@ certified self-consistent gauge-width fixed point is
 \(\alpha^{-1}=137.035660136946577\ldots\), \(2.5\times10^{-6}\) below the measured value, about
 \(1.6\times10^{4}\) measurement sigma.
 The residual gap is CODATA-minus-diagnostic bookkeeping, not an emitted low-energy hadronic
-calculation. The pure source theorem requires the Ward-projected hadronic spectral measure, the
-same-scheme bridge, and the interval-certificate step.
+calculation. The physical pure-source theorem requires the Ward-projected
+hadronic spectral measure, same-scheme transport, target-independent map
+selection, the typed same-quantity bridge, and the interval-certificate step.
 
 \section*{Declarations}
 

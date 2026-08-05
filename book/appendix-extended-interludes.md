@@ -371,11 +371,12 @@ one of the most precisely measured quantities in physics. Its inverse is near
 stories. The useful questions are concrete. Which value is being discussed?
 At what scale? In which renormalization scheme? Which vacuum response carries
 the coupling from the electroweak scale to the long-distance Thomson reading?
-OPH answers those questions with a definite chain. The source map runs through
-the unification and electroweak stages, hadronic spectral data carries the
-coupling through the strongly interacting vacuum, and the forward value lands
-on the measured constant to three parts in ten thousand with zero adjustable
-dials.
+OPH has a definite candidate chain. Each of the two declared maps runs through the
+unification and electroweak stages and has one exact fixed point on its stated
+interval. One return coordinate lies close to the measured constant. Calling
+it a physical prediction requires the map to be selected independently of the
+answer, both sides to be identified as one quantity, and the hadronic endpoint
+transport to be completed in one scheme.
 
 Masses are no easier. The electron mass is measured to extraordinary
 precision. Quark masses are scheme-dependent running parameters, not little

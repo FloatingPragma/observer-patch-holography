@@ -200,6 +200,7 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         for row in by_id["alpha_in_thomson"]["blocking_issues"]
     }
     assert alpha_blockers == {
+        708: "open_work_item",
         696: "open_work_item",
         318: "resource_deferred_blocker",
         545: "resource_deferred_blocker",

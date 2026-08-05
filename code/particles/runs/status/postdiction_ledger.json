@@ -47,6 +47,7 @@
         ],
         "audit_verdict": "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE",
         "blocking_issues": [
+          708,
           696
         ],
         "cross_class_agreement": {
@@ -63,7 +64,7 @@
         "measured": 137.035999177,
         "measured_source": "CODATA 2022 via the endpoint artifact, compare-only",
         "payload_release": "knt19_pinned_v1",
-        "reading": "one retrospective KNT19 accounting row is arithmetically compatible with the recorded same-scheme interval. The multi-class HVP test is not evaluable because no independent frozen class is present. Containment does not identify the physical source of the gap or close source-only transport",
+        "reading": "one retrospective KNT19 accounting row is arithmetically compatible with the recorded same-scheme interval. The multi-class HVP test is not evaluable because no independent frozen class is present. Containment does not identify the physical source of the gap, select one closure map, construct the same-quantity bridge, or close source-only transport",
         "reference_deficit_inside_recorded_accounting_interval": true,
         "row_class": "oph_plus_empirical_hadron_closure",
         "tier": "retrospective_empirical_same_scheme_accounting_audit",
@@ -518,9 +519,15 @@
         "survivor_dimension": 15
       },
       {
-        "hypothesis_boundary": "the state, observables, and projective partition are supplied finite inputs. Pinching lands in the generally noncommutative commutant, while averaging lands in the commutative projector span. No source rule selects a physical edge center, state, observable, detector algebra, or instrument",
+        "hypothesis_boundary": "the state, observables, and projective partition are supplied finite inputs. Pinching lands in the generally noncommutative commutant, while averaging lands in the commutative projector span. The adaptor is relative to that supplied partition. No source rule selects that partition, a state, an observable, a detector algebra, or a public instrument, and no edge-to-partition identification is constructed",
         "id": "finite_quantum_limitation_suite",
         "lean_declarations": {
+          "B10EdgeCenterAction": [
+            "partitionCenterAdaptor_after_blockReadout",
+            "partitionCenterAdaptor_surjective",
+            "partitionCenterAdaptor_commutes_with_block",
+            "rankTwo_pinching_ne_average"
+          ],
           "Robertson": [
             "finite_state_robertson_commutator",
             "neg_I_mul_commutator_expectation_eq_readout",
@@ -539,17 +546,32 @@
         },
         "lean_receipts": [
           "Lean/EventAlgebra/Robertson.lean",
-          "Lean/EventAlgebra/Superselection.lean"
+          "Lean/EventAlgebra/Superselection.lean",
+          "Lean/Screen/B10EdgeCenterAction.lean"
         ],
-        "match": "exact bounded finite package; edge-center, source, and physical-instrument attachments remain open",
+        "match": "exact bounded finite package; source and physical-instrument attachments remain open",
         "observed_counterpart": "finite uncertainty and partition-relative superselection",
         "paper_ref": "finite-event-algebra paper",
-        "statement": "A supplied finite density state and two Hermitian observables obey the ordinary-commutator Robertson inequality, with exact noncommuting saturation and zero-variance controls. For a supplied projective partition, equality after block pinching is exactly equality of every trace statistic against the full sector-preserving commutant. Partition averaging is the distinct commutative projector-span readout, and both readouts erase every cross-sector corner"
+        "statement": "A supplied finite density state and two Hermitian observables obey the ordinary-commutator Robertson inequality, with exact noncommuting saturation and zero-variance controls. For a supplied projective partition, equality after block pinching is exactly equality of every trace statistic against the full sector-preserving commutant. Partition averaging is the distinct commutative projector-span readout, factors through pinching, is surjective onto the supplied partition's public projector-span algebra, and commutes with the partition commutant. An exact rank-two control keeps the maps distinct"
       },
       {
-        "hypothesis_boundary": "the exterior carrier, component-to-sector map, central-weight labels, and separate selection mask are supplied finite inputs. No group action on the projectors is constructed, no source rule selects a physical matter action, and the package proves no continuum spin-statistics, particle spectrum, physical global form, or laboratory charge",
+        "hypothesis_boundary": "the exterior carrier, component-to-sector map, central-weight labels, and separate selection mask are supplied finite inputs. The character action is imposed through those weights rather than derived from ambient-projector conjugation, and projector ranks are not bound to exterior multiplicities. The universal minus-one result is only a nonconflation control and constructs no physical fermion parity. No source rule selects a physical matter action, and the package proves no continuum spin-statistics, particle spectrum, physical global form, or laboratory charge",
         "id": "finite_exterior_component_bridge",
         "lean_declarations": {
+          "B10EdgeCenterAction": [
+            "mappedCentralAction_zero",
+            "mappedCentralAction_add",
+            "mappedCentralAction_neg_comp",
+            "mappedCentralAction_eq_id_iff_component_phases_zero",
+            "mappedCentralAction_eq_id_iff",
+            "mappedCentralAction_kernel_card",
+            "selectedMappedMatter_support_is_parity",
+            "selectedMappedMatter_nontrivial",
+            "mappedCentralAction_preserves_selected",
+            "kernel_on_selected_mapped_components",
+            "selectedMappedCentralAction_eq_id_iff",
+            "no_selected_central_parameter_realizes_parity_sign"
+          ],
           "ExteriorComponentBridge": [
             "exterior_basis_label_count",
             "bidegree_count_table",
@@ -574,12 +596,13 @@
         },
         "lean_receipts": [
           "Lean/Screen/ExteriorComponentBridge.lean",
-          "Lean/Screen/QuantumMatterIntegration.lean"
+          "Lean/Screen/QuantumMatterIntegration.lean",
+          "Lean/Screen/B10EdgeCenterAction.lean"
         ],
-        "match": "exact bounded finite package; no projector action, source selection, or physical matter attachment",
+        "match": "exact bounded finite action; source selection and physical matter attachment open",
         "observed_counterpart": "finite exclusion and one-generation central-weight structure",
         "paper_ref": "zoo paper, finite exterior component bridge",
-        "statement": "The Mathlib exterior basis on the declared five-mode carrier has 32 labels and binds the ten non-vacuum, non-top component rows to their dimensions, charges, parity, conjugation, square-zero creation, and anticommutation. One explicit typed map assigns those rows to supplied partition sectors and weight labels; substitution preserves the common Z6 weight kernel. A separate supplied selection mask is forced to one of the two parity rows"
+        "statement": "The Mathlib exterior basis on the declared five-mode carrier has 32 labels and binds the ten non-vacuum, non-top component rows to their dimensions, charges, parity, conjugation, square-zero creation, and anticommutation. One explicit typed map assigns those rows to supplied partition sectors and central weights. The supplied weights define a sixth-root character action on the component-labelled finite product of mapped projector ranges with the exact six-element tensor kernel. The supplied anomaly-free exterior-degree parity support is nontrivial, invariant, and detects the same kernel"
       },
       {
         "hypothesis_boundary": "reduces the universality clause to A5-equivariance of the implemented source law; no coupling value is implied",

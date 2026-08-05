@@ -187,8 +187,9 @@ On its stated finite first-law and causal-horizon premises, horizon
 bookkeeping yields an Einstein-form implication and leaves one global term
 unassigned; the physical attachment of those premises is an open obligation.
 
-Durable records need the screen slightly detuned from perfect balance, and
-the map that carries that detuning through the world has one fixed point.
+Durable records need the screen slightly detuned from perfect balance. Each of
+the two declared maps that carry this detuning through the construction has one exact
+fixed-point candidate on its stated interval.
 
 What survives those cuts is a short list. The two closure demands act on one
 local number, the grain of a screen cell, and one global number, the total
@@ -209,47 +210,47 @@ decides whether the equation it writes has a solution, one solution, and a
 stable one. Physics supplies the bridge proving that the two readings really
 refer to the same thing.
 
-The local number comes from one cell of the screen, and that cell has two
-readings. From outside the
-encoded world it is a small geometric area, sitting slightly off a balance point
-set by the golden ratio $\varphi$. Perfect balance would be too quiet to carry
-anything. A world with records needs a small departure from silence, enough
-asymmetry for light and detectors and durable differences, small enough for the
-screen geometry to hold together. The size of that departure, measured in the
-natural width $\sqrt{\pi}$ that the boundary supplies, is the detuning,
-written with $\alpha$, the interaction strength a physicist inside would
-measure:
+The proposed local number comes from one cell of the screen, with one outside
+reading and one inside reading. From outside the encoded world it is a small
+geometric area, sitting slightly off a balance point set by the golden ratio
+$\varphi$. Perfect balance would be too quiet to carry anything. A world with
+records needs a small departure from silence, enough asymmetry for light,
+detectors, and durable differences while the screen geometry holds together.
+The proposal measures that departure in the natural width $\sqrt{\pi}$ and
+asks whether it is the electromagnetic interaction strength $\alpha$ seen
+from inside:
 
 $$
 P = \varphi + \sqrt{\pi}\,\alpha .
 $$
 
-From inside the encoded world, the very same cell has a second reading. It is the
-weakest electromagnetic interaction strength available to the observers who live
-on that screen, the number a simulated physicist would measure and call the
-fine-structure constant. Strange-loop closure says these two readings are
-one quantity. The outside grain of the pixel and the inside strength of
-electromagnetism are the loop looking at one cell from its two sides.
+The inside construction supplies a second return coordinate, intended to
+describe the long-distance electromagnetic interaction strength. Strange-loop
+closure forces equality if the outside grain and inside return have first been
+shown to be readings of one physical quantity. That identification is part of
+the physics, rather than a consequence of writing both readings in one
+equation.
 
-Set the two readings equal and the pixel is fixed.
-Feed a trial value of $P$ through its unification scale, running gauge
-couplings, electroweak anchor, and electromagnetic end-point readback. The map
-hands back an inside reading. Closure is the demand that the value you get back
-is the value you put in:
+Choose a declared return map and impose the proposed equality. Feed a trial
+value of $P$ through the declared unification bookkeeping, running-coupling
+model, electroweak anchor, and candidate endpoint machinery. The map hands back
+a return coordinate. Closure is the demand that the value you get back is the
+value you put in:
 
 $$
 P = \varphi + \frac{\sqrt{\pi}}{A_T(P)} .
 $$
 
-$A_T(P)$ is what the machinery hands back: the inverse of that interaction
-strength, the famous 137-ish number, so dividing the width by it is the same
-detuning written in terms of the answer.
+$A_T(P)$ is the return coordinate handed back by the declared map. It is
+designed to become the famous 137-ish inverse coupling once the physical
+identification is established.
 
-This map has exactly one fixed point on the physical interval, pinned by
-interval arithmetic, and it lands within a few parts per million of the
-measured fine-structure constant. The residual is the size of the known
-hadronic correction; computing that correction from the source side in the
-same scheme is work in progress.
+Each of the two declared maps has exactly one fixed point on its stated interval, pinned
+by interval arithmetic. One return coordinate lies close to the measured
+fine-structure constant. The comparison is diagnostic. A physical prediction
+requires the architecture to select the map without consulting the measured
+answer, proof that its two sides read the same quantity, and endpoint transport
+through the hadronic vacuum in one scheme.
 
 The proposed global number works the same way one scale up. Its finite
 variable is the carrier dimension $D$, with $N=\log D$. Supply a carrier,
@@ -311,12 +312,14 @@ ours out. When data disagrees, a landscape theory can relocate. There is always
 another vacuum to move to. That flexibility is exactly what makes a landscape
 hard to kill and hard to trust.
 
-A self-reading loop leaves nowhere to relocate. The local map has one fixed
-point, so one cell cannot support several competing electromagnetic readings.
-A source law with one global-capacity solution would leave the horizon no
-choice among saturated record budgets. The finite screen data do not supply
-that law. This distinction is sharp: the strange loop demands one answer,
-while the physical construction must earn it.
+A self-reading loop leaves nowhere to relocate once it selects its own return
+law. Each of the two declared local maps has one fixed point, which does not
+choose between them or identify either return as electromagnetic. A
+source-selected local map with a same-quantity bridge would leave the cell one
+reading. A source law with one global-capacity solution would likewise leave
+the horizon no choice among saturated record budgets. The finite screen data
+do not supply either selection. The strange loop demands one answer, while the
+physical construction must earn it.
 
 A no-dial, one-universe theory turns the usual relationship between theory and
 data inside out. Constants are readings of the architecture rather than settings
@@ -325,22 +328,25 @@ is no neighboring vacuum or parameter adjustment available to absorb the move.
 
 ## 18.7 Two Numbers, Two Jobs
 
-The local equation identifies two descriptions of one cell. Geometrically, the
-cell sits a small distance above the golden-ratio balance point. Physically, the
-same distance is the electromagnetic interaction strength seen by observers
-inside the encoded world. The fixed point gives
+The local equation proposes an identification between two descriptions of one
+cell. Geometrically, the cell sits a small distance above the golden-ratio
+balance point. The inside map returns a coordinate intended to represent the
+electromagnetic interaction strength. For one declared map, the calculation
+gives
 
 $$
 P_\star\approx1.63,
 \qquad
-\alpha^{-1}_{\mathrm{gauge}}=137.035660\ldots,
+A_T(P_\star)=137.035660\ldots,
 \qquad
 \alpha^{-1}_{\mathrm{meas}}=137.035999177(21).
 $$
 
-The first coupling value is the fixed point of the closure map; the second is
-the measured value. They differ by a few parts per million, the size of the
-known hadronic correction.
+The first 137-ish number is the return coordinate of the declared map; the
+second is the measured inverse coupling. Their proximity is a comparison, not
+a physical derivation. Map selection, same-quantity identification, and
+same-scheme endpoint transport decide whether that candidate becomes a
+prediction.
 
 The global equation compares an assigned capacity with the record budget
 reconstructed from inside. On the construction side it is the logarithm of
@@ -352,17 +358,17 @@ If both equations close, the two constants come back from the architecture
 rather than from measurement. No continuous dial survives.
 
 Measurement can tell us where to look, but it cannot do the work of a closure
-proof. The local map has its unique root. The global side needs a stronger
+proof. Each of the two declared local maps has its unique root. The global side needs a stronger
 source law. The three axioms and the finite survival datum do not pin down
 which records count against the cosmic ledger; a machine-checked construction
 shows that different compositional bookkeeping rules return different
 capacities. The missing piece is the law that selects the universe's own
 bookkeeping, and finding it is work in progress.
 
-The two numbers have different jobs. $P_\star$ is the local grain of
-observation. $N$ is the global capacity for records. The first sets the
-electromagnetic readout of a screen cell. Once its own law is in hand, the
-second sets cosmic
+The two numbers have different jobs. $P_\star$ is the candidate local grain
+returned by a declared map. $N$ is the global capacity for records. The first
+can set the electromagnetic readout of a screen cell once its physical bridge
+is established. Once its own law is in hand, the second sets cosmic
 curvature through $\Lambda=3\pi/(GN)$, with $G$ Newton's constant.
 The strange loop makes the same demand of both: outside construction and
 inside readback must describe one invariant. Proving that they do is the
@@ -371,12 +377,15 @@ physical work.
 ## 18.8 Where the Loop Leads
 
 The strange loop converts the structure of the argument into the argument.
-The local closure reads back the measured electromagnetic constant to a few
-parts per million. The global closure waits on the one law that says
-which continuation the universe uses. Self-reference demands the equality; it
-does not choose the measuring instrument. Observers work out the architecture
-of the world from inside it, making the self-description explicit. Escher's
-hands are holding instruments.
+The declared local maps have exact candidate fixed points, and one return
+coordinate lies close to the measured electromagnetic constant. Map selection,
+same-quantity identification, and endpoint transport determine whether that
+comparison becomes a physical prediction. The global closure needs the law
+that says which continuation the universe uses. Self-reference demands an
+equality after both sides are shown to read one invariant; it does not choose
+the measuring instrument. Observers work out the architecture of the world
+from inside it, making the self-description explicit. Escher's hands are
+holding instruments.
 
 The next chapter gathers the whole construction into one synthesis, from the
 finite port carrier and its screen chart to the shared public world, and reads

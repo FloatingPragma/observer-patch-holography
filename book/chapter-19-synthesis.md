@@ -321,13 +321,15 @@ asymmetry for light, detectors, and durable differences, while preserving the
 screen geometry. This is the memorable idea behind the local equation. A
 perfectly silent universe would at least have kept the paperwork down.
 
-The closure equation has exactly one solution, near $P=1.63$, and the
-uniqueness proof is machine-checked interval arithmetic. Its gauge-width
-readback is $137.035660\ldots$. The measured inverse coupling is
+Each of the two declared closure maps has exactly one certified solution on
+its stated interval, near $P=1.63$. The gauge-width map reads back
+$137.035660\ldots$. The measured inverse coupling is
 $137.035999177(21)$, where the digits in parentheses give the stated
 uncertainty. The two numbers differ by a few parts per million, on the scale
-of the hadronic endpoint correction. Their physical identification requires
-the endpoint transport described earlier.
+of the hadronic endpoint correction. This is a diagnostic comparison. A
+physical identification requires the architecture to choose the map without
+consulting that measurement, prove that its two sides read one quantity, and
+carry the result to the endpoint in one scheme.
 
 ### The Bridge to Familiar Units
 

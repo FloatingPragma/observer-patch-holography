@@ -620,7 +620,7 @@ def build_source_derived_packet(
     composition_table = _continuation_composition_table(actions)
     packet: dict[str, Any] = {
         "schema": SCHEMA,
-        "status": "SOURCE_DERIVED_FIXED_CUTOFF_PHYSICAL_PACKET",
+        "status": "SOURCE_DERIVED_FIXED_CUTOFF_PACKET",
         "claim_boundary": (
             "finite source-derived reversible screen packet; no cosmic selector, horizon bridge, "
             "screen/electroweak load bridge, or hardware realization is claimed"

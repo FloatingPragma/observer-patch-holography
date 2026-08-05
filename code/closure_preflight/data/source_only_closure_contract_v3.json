@@ -1,0 +1,66 @@
+{
+  "schema": "oph.source_only_closure_preflight_contract.v3",
+  "issue": 708,
+  "scope": "registered dimensionless P/N closure packets at the pinned repository revision",
+  "scope_boundary": {
+    "future_source_laws_exhausted": false,
+    "issue_closure_authorized": false,
+    "physical_or_laboratory_attachment_required": false
+  },
+  "source_only_required_gates": [
+    "declared_dimensionless_coordinate",
+    "target_independent_candidate_selection",
+    "same_quantity_constructed",
+    "source_return_map_complete",
+    "existence_certified",
+    "uniqueness_certified",
+    "stability_certified"
+  ],
+  "preflight_completion_gates": [
+    "input_catalogue_frozen",
+    "nuisance_directions_frozen",
+    "units_and_schemes_frozen",
+    "candidate_grammar_frozen",
+    "decision_rule_frozen"
+  ],
+  "preflight_completion_state": {
+    "input_catalogue_frozen": {
+      "attained": false,
+      "reason": "the registered candidate inventory is provisional and explicitly non-exhaustive"
+    },
+    "nuisance_directions_frozen": {
+      "attained": false,
+      "reason": "no exhaustive nuisance-direction quotient is registered for the P/N source maps"
+    },
+    "units_and_schemes_frozen": {
+      "attained": false,
+      "reason": "dimensionless coordinates are declared, while a complete coordinate and scheme catalogue is not frozen"
+    },
+    "candidate_grammar_frozen": {
+      "attained": false,
+      "reason": "the seventeen-row capacity menu covers declared executed families and does not exhaust future source laws"
+    },
+    "decision_rule_frozen": {
+      "attained": true,
+      "reason": "the fail-closed qualification rule in this contract is frozen"
+    }
+  },
+  "explicitly_downstream_gates": [
+    "laboratory_attachment",
+    "cosmological_attachment",
+    "absolute_scale_binding"
+  ],
+  "decision_rule": {
+    "frozen": true,
+    "candidate_present_requires_every_row_gate": true,
+    "candidate_present_requires_every_preflight_completion_gate": true,
+    "archive_enumeration_is_not_a_source_return_map": true,
+    "fixed_cutoff_controls_are_not_cosmic_fixed_points": true
+  },
+  "progress_status_rule": {
+    "SOURCE_ONLY_CANDIDATE_PRESENT": "at least one eligible candidate row attains every source-only gate and every preflight completion gate is frozen",
+    "OPEN_GATE_COMPLETE_CANDIDATE_BLOCKED_BY_PREFLIGHT_COMPLETENESS": "at least one eligible candidate row attains every source-only gate but one or more preflight completion gates remain open",
+    "OPEN_REGISTERED_CANDIDATES_FAIL_SOURCE_ONLY_GATES": "at least one registered row has exact fixed-point progress, but no eligible candidate row attains every source-only gate",
+    "OPEN_NO_FIXED_POINT_EVIDENCE": "the registered rows contain no exact fixed-point progress"
+  }
+}

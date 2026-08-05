@@ -143,6 +143,7 @@ LEAN_RECEIPTS = {
     / "Superselection.lean",
     "ExteriorComponentBridge": LEAN_SCREEN / "ExteriorComponentBridge.lean",
     "QuantumMatterIntegration": LEAN_SCREEN / "QuantumMatterIntegration.lean",
+    "B10EdgeCenterAction": LEAN_SCREEN / "B10EdgeCenterAction.lean",
     "HolonomyInterference": LEAN_SCREEN / "HolonomyInterference.lean",
     "FiniteConditionalRepair": REPO / "Lean" / "Thermodynamics"
     / "FiniteConditionalRepair.lean",
@@ -746,14 +747,16 @@ def _forced_structure(
                 "supplied projective partition, equality after block pinching "
                 "is exactly equality of every trace statistic against the full "
                 "sector-preserving commutant. Partition averaging is the "
-                "distinct commutative projector-span readout, and both "
-                "readouts erase every cross-sector corner"
+                "distinct commutative projector-span readout, factors through "
+                "pinching, is surjective onto the supplied partition's public "
+                "projector-span algebra, and commutes with the partition "
+                "commutant. An exact rank-two control keeps the maps distinct"
             ),
             "observed_counterpart": (
                 "finite uncertainty and partition-relative superselection"
             ),
             "match": (
-                "exact bounded finite package; edge-center, source, and "
+                "exact bounded finite package; source and "
                 "physical-instrument attachments remain open"
             ),
             "lean_declarations": {
@@ -772,10 +775,17 @@ def _forced_structure(
                     "partitionAverage_partitionCorner_eq_zero",
                     "trace_partitionCorner_mul_eq_zero_of_mem_span",
                 ],
+                "B10EdgeCenterAction": [
+                    "partitionCenterAdaptor_after_blockReadout",
+                    "partitionCenterAdaptor_surjective",
+                    "partitionCenterAdaptor_commutes_with_block",
+                    "rankTwo_pinching_ne_average",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "Robertson",
                 "Superselection",
+                "B10EdgeCenterAction",
                 declarations={
                     "Robertson": (
                         "finite_state_robertson_commutator",
@@ -792,14 +802,22 @@ def _forced_structure(
                         "partitionAverage_partitionCorner_eq_zero",
                         "trace_partitionCorner_mul_eq_zero_of_mem_span",
                     ),
+                    "B10EdgeCenterAction": (
+                        "partitionCenterAdaptor_after_blockReadout",
+                        "partitionCenterAdaptor_surjective",
+                        "partitionCenterAdaptor_commutes_with_block",
+                        "rankTwo_pinching_ne_average",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
                 "the state, observables, and projective partition are supplied "
                 "finite inputs. Pinching lands in the generally noncommutative "
                 "commutant, while averaging lands in the commutative projector "
-                "span. No source rule selects a physical edge center, state, "
-                "observable, detector algebra, or instrument"
+                "span. The adaptor is relative to that supplied partition. "
+                "No source rule selects that partition, a state, an observable, "
+                "a detector algebra, or a public instrument, and no "
+                "edge-to-partition identification is constructed"
             ),
             "paper_ref": "finite-event-algebra paper",
         },
@@ -811,16 +829,19 @@ def _forced_structure(
                 "rows to their dimensions, charges, parity, conjugation, "
                 "square-zero creation, and anticommutation. One explicit typed "
                 "map assigns those rows to supplied partition sectors and "
-                "weight labels; substitution preserves the common Z6 weight "
-                "kernel. A separate supplied selection mask is forced to one "
-                "of the two parity rows"
+                "central weights. The supplied weights define a sixth-root "
+                "character action on the component-labelled finite product of "
+                "mapped projector ranges with the exact six-element tensor "
+                "kernel. The supplied "
+                "anomaly-free exterior-degree parity support is nontrivial, "
+                "invariant, and detects the same kernel"
             ),
             "observed_counterpart": (
                 "finite exclusion and one-generation central-weight structure"
             ),
             "match": (
-                "exact bounded finite package; no projector action, source "
-                "selection, or physical matter attachment"
+                "exact bounded finite action; source selection and physical "
+                "matter attachment open"
             ),
             "lean_declarations": {
                 "ExteriorComponentBridge": [
@@ -844,10 +865,25 @@ def _forced_structure(
                     "kernel_on_mapped_component_weights",
                     "bridge_selection_is_parity_sector",
                 ],
+                "B10EdgeCenterAction": [
+                    "mappedCentralAction_zero",
+                    "mappedCentralAction_add",
+                    "mappedCentralAction_neg_comp",
+                    "mappedCentralAction_eq_id_iff_component_phases_zero",
+                    "mappedCentralAction_eq_id_iff",
+                    "mappedCentralAction_kernel_card",
+                    "selectedMappedMatter_support_is_parity",
+                    "selectedMappedMatter_nontrivial",
+                    "mappedCentralAction_preserves_selected",
+                    "kernel_on_selected_mapped_components",
+                    "selectedMappedCentralAction_eq_id_iff",
+                    "no_selected_central_parameter_realizes_parity_sign",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "ExteriorComponentBridge",
                 "QuantumMatterIntegration",
+                "B10EdgeCenterAction",
                 declarations={
                     "ExteriorComponentBridge": (
                         "exterior_basis_label_count",
@@ -870,15 +906,33 @@ def _forced_structure(
                         "kernel_on_mapped_component_weights",
                         "bridge_selection_is_parity_sector",
                     ),
+                    "B10EdgeCenterAction": (
+                        "mappedCentralAction_zero",
+                        "mappedCentralAction_add",
+                        "mappedCentralAction_neg_comp",
+                        "mappedCentralAction_eq_id_iff_component_phases_zero",
+                        "mappedCentralAction_eq_id_iff",
+                        "mappedCentralAction_kernel_card",
+                        "selectedMappedMatter_support_is_parity",
+                        "selectedMappedMatter_nontrivial",
+                        "mappedCentralAction_preserves_selected",
+                        "kernel_on_selected_mapped_components",
+                        "selectedMappedCentralAction_eq_id_iff",
+                        "no_selected_central_parameter_realizes_parity_sign",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
                 "the exterior carrier, component-to-sector map, central-weight "
                 "labels, and separate selection mask are supplied finite inputs. "
-                "No group action on the projectors is constructed, no source "
-                "rule selects a physical matter action, and the package proves "
-                "no continuum spin-statistics, particle spectrum, physical "
-                "global form, or laboratory charge"
+                "The character action is imposed through those weights rather "
+                "than derived from ambient-projector conjugation, and projector "
+                "ranks are not bound to exterior multiplicities. The universal "
+                "minus-one result is only a nonconflation control and constructs "
+                "no physical fermion parity. No source rule selects a physical "
+                "matter action, and the package proves no continuum "
+                "spin-statistics, particle spectrum, physical global form, or "
+                "laboratory charge"
             ),
             "paper_ref": "zoo paper, finite exterior component bridge",
         },
@@ -2622,14 +2676,15 @@ def _alpha_rows(
                 "compatible with the recorded same-scheme interval. The "
                 "multi-class HVP test is not evaluable because no independent "
                 "frozen class is present. Containment does not identify the "
-                "physical source of the gap or close source-only transport"
+                "physical source of the gap, select one closure map, construct "
+                "the same-quantity bridge, or close source-only transport"
             ),
             "artifact_refs": [
                 _rel("endpoint"),
                 _rel("anchor_bridge"),
                 _rel("alpha_hvp_verdict"),
             ],
-            "blocking_issues": [696],
+            "blocking_issues": [708, 696],
             "historical_blocking_issues": [425, 545],
         }
     ]

@@ -515,32 +515,19 @@ strongest exact and measured receipts.
 
 ## The Two Constants: P and N
 
-**$P$ is the local pixel ratio**: the size of the elementary observation cell
-in natural geometric units, informally the universe's **resolution**. OPH
-does not choose this grain by fitting the fine-structure constant. It asks a
-cell to agree with the observation process that the cell itself supports. The
-local inside/outside readback closes at
+**$P$ is the local pixel ratio**: the observation cell's size in natural
+units, informally the universe's **resolution**. Two declared trial maps ask
+the cell to agree with the observation process it supports:
 
 $$
 \boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}}.
 $$
 
-Here $A_T(P)$ is the Thomson-limit inverse electromagnetic coupling emitted
-by a trial cell. If $P$ were changed by hand, the cell geometry, repair
-spectrum, gauge widths, and particle-side hierarchy would cease to describe
-the same observer system. The closure equation makes $P$ an output of the
-declared self-read map. The detuning and inside/outside identification laws
-are architectural closure premises rather than theorems of the three axioms.
-The fixed-point theorem states that a self-map of the physical interval with
-contraction constant below one has exactly one fixed point. Outward-rounded
-interval certificates verify those hypotheses for each declared $P$ map and
-exclude a second root across its full analytic domain. The
-[claim scoreboard](tracking/claims_scoreboard.md)
-states the root, external comparison, residual, and claim class. The
-comparison uses $P_C$, which is defined from the measured endpoint.
-Source-derived same-scheme hadronic transport is absent. The registered
-comparison has diagnostic status, with a physical
-fine-structure constant claim outside its scope.
+Each map has one exact interval-certified candidate root. A physical
+fine-structure prediction needs a map selected without using the measured
+constant, proof that its two sides read one quantity, and same-scheme transport
+to the Thomson limit. The numerical match has diagnostic status. See the
+[claim scoreboard](tracking/claims_scoreboard.md) for the exact values.
 
 **$N$ is the public-record capacity** of the whole observer system: how much
 correctable memory the substrate carries. It sits opposite $P$, tied to the
@@ -550,11 +537,11 @@ The direct route reads $N$ off the universe itself. The self-read condition
 $N=\log M_0(\mathfrak U_N)$ asks the capacity handed to a trial universe to
 match the record capacity reconstructed inside it, and if both sides are
 readings of one quantity, self-reference forces them to agree. The proof that
-they are one quantity does not exist yet, so this route returns no
+they are one quantity does not exist, so this route returns no
 number. Nothing else in the reconstruction waits on it.
 
-A second route goes through $P$. At the source-forward pixel value the
-uncorrected capacity is
+A second route goes through $P$. At the pixel value supplied to that declared
+branch the uncorrected capacity is
 $N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3.5321315\times10^{122}$. Two ways of
 applying the finite survival correction to it give
 
@@ -660,9 +647,9 @@ The bonus is quantitative: if the loop closes, $P$ and $N$ cannot be
 arbitrary. They must satisfy self-referential closure conditions: the cell
 must agree with the observation process it supports, and the record capacity
 must agree with the records the system keeps about itself. Part of that
-closure is machine-checked in Lean. The declared $P$ map has a certified fixed
-point, while its comparison with the physical fine-structure constant has
-diagnostic status. The evaluation boundaries of the closure conditions and
+closure is machine-checked in Lean. The two declared $P$ maps have certified
+fixed points, while their comparison with the physical fine-structure
+constant has diagnostic status. The evaluation boundaries of the closure conditions and
 their missing physical inputs are stated in the
 [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
 

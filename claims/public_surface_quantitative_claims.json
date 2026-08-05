@@ -27,7 +27,7 @@
     {
       "row_id": "alpha_gauge_width_diagnostic",
       "claim_id": "OPH-ALPHA-PIXEL",
-      "claim_class": "empirical_implementation",
+      "claim_class": "conditional_implication",
       "role": "diagnostic",
       "producer": {
         "script": "code/P_derivation/interval_contraction_certificate.py",
@@ -77,8 +77,8 @@
         "fr": "$\\alpha^{-1}$, application de largeur de jauge"
       },
       "status": {
-        "en": "Certified root of the declared map. $P_C$ is defined from the measured endpoint. The relative gap is {relative_gap_scientific}, about {sigma_scientific} measurement standard uncertainties. Same-scheme hadronic transport is blocked under #425, which permanently caps this row at diagnostic status.",
-        "fr": "Racine certifiée de l’application déclarée. $P_C$ est défini à partir de la limite mesurée. L’écart relatif vaut {relative_gap_scientific}, soit environ {sigma_scientific} écarts-types de mesure. Le transport hadronique dans le même schéma est bloqué par le ticket #425, ce qui plafonne définitivement cette ligne au statut de diagnostic."
+        "en": "Certified root of the declared map. $P_C$ is defined from the measured endpoint. The relative gap is {relative_gap_scientific}, about {sigma_scientific} measurement standard uncertainties. Same-scheme transport, target-independent map selection, and the typed same-quantity bridge remain open, so this row is diagnostic.",
+        "fr": "Racine certifiée de l’application déclarée. $P_C$ est défini à partir de la limite mesurée. L’écart relatif vaut {relative_gap_scientific}, soit environ {sigma_scientific} écarts-types de mesure. Le transport dans le même schéma, la sélection de l’application indépendante de la cible et le pont typé établissant qu’il s’agit de la même grandeur restent ouverts ; cette ligne est donc diagnostique."
       }
     },
     {

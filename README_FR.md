@@ -16,7 +16,7 @@ recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH reconstruit un noyau structurel fini exact : des identités
 conditionnelles pour les registres quantiques, un paquet fini conditionnel
 des quatre principes, un porteur tridimensionnel de repères d’observateur et
-des interfaces explicites d’ordre et d’horloge qui ne constituent pas encore
+des interfaces explicites d’ordre et d’horloge qui ne constituent pas
 un temps physique local d’observateur. OPH dérive aussi la cinématique de Lorentz sur la branche de support global
 déclarée, le type de Lie du Modèle standard, ainsi qu’une paire extérieure
 conditionnelle pour une génération de matière.
@@ -198,7 +198,7 @@ $(1,3)$, les rayons nuls futurs positifs sont équivalents comme ensembles à
 $S^2$, les repères unitaires de genre temps futurs ont des espaces de repos
 euclidiens de dimension trois, et une carte linéaire exacte rejoint les
 coordonnées du tenseur d’Einstein avec la convention de signe opposée. Cette
-géométrie possède désormais un contrat algébrique borné de soudure : descente
+géométrie possède un contrat algébrique borné de soudure : descente
 unique des lectures invariantes sur les classes de coïncidence. Séparément, à
 partir d’un cocycle de recouvrement affine lorentzien orienté dans le temps et
 d’une famille fournie de coordonnées de carte qui satisfait sa loi de
@@ -335,39 +335,21 @@ concentre sur les reçus exacts et mesurés les plus forts.
 
 ## Les deux constantes : P et N
 
-$P$ est le rapport de pixel local : la taille de la cellule élémentaire
-d’observation en unités géométriques naturelles. OPH ne choisit pas ce grain
-en ajustant la constante de structure fine. La cellule doit être cohérente avec
-le processus d’observation qu’elle rend elle-même possible :
+**$P$ est le rapport de pixel local** : la taille de la cellule d’observation
+en unités naturelles, ou la **résolution** de l’univers. Deux applications
+d’essai déclarées demandent à la cellule de s’accorder avec le processus
+d’observation qu’elle porte :
 
 $$
 \boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}}.
 $$
 
-Intuitivement, $P$ est la **résolution** de l’univers. Le modifier à la main
-changerait simultanément la géométrie cellulaire, le spectre de réparation, les
-largeurs de jauge et la hiérarchie des particules. La clôture en fait une sortie
-de l’application d’auto-lecture déclarée. La loi de désaccord et
-l’identification intérieur/extérieur sont des prémisses architecturales de
-clôture, pas des théorèmes des trois axiomes. Ici, $A_T(P)$ est l’inverse du couplage
-électromagnétique dans la limite de Thomson produit par une cellule d’essai.
-
-C’est le plus fort des deux résultats quantitatifs de clôture. Le théorème de
-point fixe utilisé par le calcul établit qu’une application de
-l’intervalle physique dans lui-même, dont la constante de contraction est
-strictement inférieure à un, possède exactement un point fixe. Des certificats
-d’intervalles à arrondi extérieur vérifient ces hypothèses pour chaque
-application déclarée de $P$ et excluent une seconde racine sur son domaine
-analytique complet. L’identification avec la limite physique de Thomson exige
-le transport hadronique issu de la source dans le même schéma. Sa construction
-est en cours.
-
-Le [registre des affirmations](tracking/claims_scoreboard.md) donne la
-racine, la comparaison externe, le résidu et la classe de l’énoncé. La
-comparaison emploie $P_C$, défini à partir de la limite mesurée. Le transport
-hadronique issu de la source dans le même schéma est absent. La comparaison
-enregistrée a un statut de diagnostic, hors du
-champ d’un énoncé sur la constante de structure fine physique.
+Chaque application possède une racine candidate exacte et certifiée. Une
+prédiction physique de la constante de structure fine exige une application
+choisie sans consulter la mesure, la preuve que ses deux côtés lisent une seule
+grandeur et le transport jusqu’à la limite de Thomson dans un même schéma.
+La proximité numérique a un statut diagnostique. Voir le
+[registre des affirmations](tracking/claims_scoreboard.md).
 
 **$N$ est la capacité de registres publics** de l’ensemble du système
 d’observateurs : la mémoire corrigible que porte le substrat. Il fait face à
@@ -378,12 +360,12 @@ La voie directe lit $N$ sur l’univers lui-même. La condition d’auto-lecture
 $N=\log M_0(\mathfrak U_N)$ demande que la capacité fournie à un univers
 d’essai égale la capacité de registres reconstruite en son sein ; si les deux
 côtés sont deux lectures d’une même grandeur, l’autoréférence impose leur
-égalité. La preuve qu’il s’agit d’une seule grandeur n’existe pas encore, donc
-cette voie ne rend aujourd’hui aucun nombre. Rien d’autre dans la
+égalité. La preuve qu’il s’agit d’une seule grandeur n’existe pas, donc
+cette voie ne rend aucun nombre. Rien d’autre dans la
 reconstruction ne l’attend.
 
-Une seconde voie passe par $P$. À la valeur du pixel issue de la source, la
-capacité non corrigée vaut
+Une seconde voie passe par $P$. À la valeur du pixel fournie à cette branche
+déclarée, la capacité non corrigée vaut
 $N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3{,}5321315\times10^{122}$. Deux façons de
 lui appliquer la correction finie de survie donnent
 
@@ -395,10 +377,10 @@ $$
 
 soit environ $0{,}63$ et $0{,}39$ pour cent sous la valeur de comparaison
 $3{,}3129271\times10^{122}$ du modèle $\Lambda$CDM de base de Planck. La
-théorie ne tranche pas encore entre les deux corrections, et les deux nombres
+théorie ne tranche pas entre les deux corrections, et les deux nombres
 ont été calculés après coup : aucun n’est une prédiction. Le
-[registre des affirmations](tracking/claims_scoreboard.md) indique ce que
-chaque étape suppose et ce qui manque encore.
+[registre des affirmations](tracking/claims_scoreboard.md) indique les
+hypothèses et les données absentes de chaque étape.
 
 ## Un univers complet imposé par la cohérence
 
@@ -786,9 +768,10 @@ réparation accessible aux observateurs.
 
 Le bonus est quantitatif : si la boucle se ferme, $P$ et $N$ ne peuvent pas
 être arbitraires. Ils doivent satisfaire des clôtures autoréférentielles. Une
-partie de cette clôture est vérifiée machine en Lean. L’application déclarée
-de $P$ possède un point fixe certifié, tandis que sa comparaison à la
-constante de structure fine physique conserve un statut de diagnostic. Les
+partie de cette clôture est vérifiée machine en Lean. Les deux applications
+déclarées de $P$ possèdent chacune un point fixe certifié, tandis que leur
+comparaison à la constante de structure fine physique conserve un statut de
+diagnostic. Les
 conditions de clôture et leurs données physiques absentes sont précisées dans
 le [programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md).
 Une clôture physique des deux constantes donnerait une branche sans paramètre
@@ -797,7 +780,7 @@ physique est ouvert. Les théorèmes de point fixe certifient les racines des
 applications déclarées ; ils ne transforment pas un bassin observé ou une
 coordonnée définie par la cible en dérivation physique. Du côté de $N$, le
 comptage fini est exact, mais la source de capacité sur laquelle la clôture
-porterait reste incomplète : la condition directe n’est donc pas encore
+porterait reste incomplète : la condition directe n’est donc pas
 évaluable, et la voie de la charge commune reste conditionnée à ses
 identifications physiques. La lecture de $N$ dans l’univers laisse intactes
 les conséquences des trois axiomes.
