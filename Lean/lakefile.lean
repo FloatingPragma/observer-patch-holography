@@ -23,11 +23,17 @@ lean_lib «EventAlgebra» where
   srcDir := "."
 
 @[default_target]
+lean_lib «OPHTime» where
+  srcDir := "."
+  roots := #[`Time.TimeOrderLedger]
+
+@[default_target]
 lean_lib «OPHThermodynamics» where
   srcDir := "Thermodynamics"
   roots := #[`FiniteConditionalRepair, `FirstLawIdentity,
     `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink,
-    `GreenKubo, `GraphDiffusion]
+    `GreenKubo, `GraphDiffusion, `StationaryRealization,
+    `PoissonizedRepair, `PoissonizedRepairOperatorExp]
 
 @[default_target]
 lean_lib «OPHScreen» where
@@ -62,7 +68,7 @@ lean_lib «OPHScreen» where
 @[default_target]
 lean_lib «OPHConstruction» where
   srcDir := "."
-  roots := #[`Dynamics, `InformationProjection, `Locality, `Variational]
+  roots := #[`Tower, `Dynamics, `InformationProjection, `Locality, `Variational]
 
 lean_exe «oph» where
   root := `Main

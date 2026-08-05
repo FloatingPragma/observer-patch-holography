@@ -13,10 +13,11 @@ OPH commence par des observateurs : des systèmes bornés dotés d’un état lo
 d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
-architecture, OPH reconstruit un noyau structurel fini exact : les règles des
-événements quantiques, les quatre principes de la thermodynamique, un espace
-tridimensionnel et un temps local d’observateur bâtis sur les registres de
-réparation, la cinématique de Lorentz sur la branche de support global
+architecture, OPH reconstruit un noyau structurel fini exact : des identités
+conditionnelles pour les registres quantiques, un paquet fini conditionnel
+des quatre principes, un porteur tridimensionnel de repères d’observateur et
+des interfaces explicites d’ordre et d’horloge qui ne constituent pas encore
+un temps physique local d’observateur. OPH dérive aussi la cinématique de Lorentz sur la branche de support global
 déclarée, le type de Lie du Modèle standard, ainsi qu’une paire extérieure
 conditionnelle pour une génération de matière.
 
@@ -101,37 +102,63 @@ données et certificats :
 2. **Les règles quantiques sur les registres publics.** Le consensus
    sélectionne l’algèbre des registres qui survivent à la comparaison, et sur
    une représentation algèbre-état finie déclarée séparément ses projecteurs
-   obéissent aux probabilités de Born, au conditionnement de Lüders et à la
-   borne de Tsirelson. Physiquement, cela voudrait dire que la probabilité
-   quantique est l’arithmétique de ce que les observateurs peuvent écrire
-   ensemble, sans postulat supplémentaire. La branche spinorielle déclarée
+   engendrent exactement l’algèbre des fonctions sur les étiquettes non nulles
+   des registres. Ils obéissent aux probabilités de Born, au conditionnement de
+   Lüders et à la borne de Tsirelson ; un même copieur isométrique d’états purs
+   ne peut copier deux alternatives distinctes que si elles sont orthogonales.
+   L’implication générale de non-diffusion des états mixtes reste une prémisse
+   d’adaptation explicite. La publicisation finie possède des identités de
+   Kraus normalisées, préserve la trace, forme un semi-groupe exact et satisfait
+   une formule littérale d’exponentielle d’opérateur borné, sans que cela
+   constitue une preuve formelle de canal CP/CPTP, de taux issu de la
+   source ou d’horloge physique. Les applications positives préservant l’unité de
+   l’algèbre finie des registres sont exactement des noyaux stochastiques par
+   lignes. Un flot continu de permutations des étiquettes est trivial, tandis
+   que les automorphismes d’un bloc matriciel privé plein sont intérieurs et
+   unitaires ; un Hamiltonien auto-adjoint fourni engendre le flot de von
+   Neumann à paramètre réel. La classification de tout automorphisme public
+   comme permutation d’étiquettes, la décomposition générale en blocs centraux
+   et la réciproque qui reconstruit un Hamiltonien restent ouvertes.
+   Conditionnellement, ce résultat identifie la probabilité quantique à
+   l’arithmétique de ce que les observateurs peuvent écrire ensemble sur la
+   surface algèbre-état déclarée. La branche spinorielle déclarée
    possède un candidat fini exact à $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$, au-delà
    de la limite classique, pour une famille de réglages que la source ne
    sélectionne pas ; ce n’est donc pas une prédiction physique de Bell. Voir
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), l’
-   [article sur le consensus](paper/reality_as_consensus_protocol.pdf) et la
-   [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
+   [article sur le consensus](paper/reality_as_consensus_protocol.pdf), la
+   [preuve de l’algèbre des registres](Lean/EventAlgebra/PublicRecordAlgebra.lean),
+   la [frontière de copie des états purs](Lean/EventAlgebra/NoBroadcastingAdapter.lean)
+   et la [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
    ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **Les quatre principes de la thermodynamique deviennent des théorèmes.**
-   L’axiome 3 lu sur les états sélectionne la famille de Gibbs ; lu sur les
-   transitions, il sélectionne le noyau de réparation du consensus, qui
-   contracte l’entropie relative à la référence. Cette seule contraction est
+3. **Les quatre principes forment un paquet conditionnel de théorèmes finis.**
+   Une fois fournies une référence de source fidèle commune et la fibre visible
+   réparée, les instanciations de l’axiome 3 sur les états et les transitions
+   donnent la famille de Gibbs et le noyau de rééchantillonnage conditionnel.
+   Ce noyau contracte l’entropie relative à la référence. Cette contraction est
    le second principe, avec Clausius $\Delta S\geq\beta Q$ et la borne
    d’effacement de Landauer en corollaires. L’égalité des températures
    inverses au contact donne le principe zéro, la décomposition exacte
    $dU=\delta Q+\delta W$ donne le premier, et une borne finie sur la masse
-   de Gibbs excitée donne le troisième. Physiquement, cela voudrait dire que
-   la thermodynamique n’est pas importée dans la théorie ; elle est ce que la
-   réparation fait aux registres. La calibration de l’énergie et de l’horloge
-   est l’un des cinq reçus physiques ouverts. Voir l’
+   de Gibbs excitée donne le troisième. Si les cinq reçus de source et physiques
+   sont fermés, les identités thermodynamiques finies découlent du modèle
+   d’observateur instancié plutôt que d’un postulat thermodynamique distinct.
+   La calibration de l’énergie et de l’horloge reste ouverte. Une référence fidèle
+   stationnaire suffit à la contraction, même sans équilibre détaillé.
+   L’audit borné de la matrice source isole une sonde stationnaire
+   non réversible du théorème H à huit états ; l’étiquette constante de famille de registres
+   et l’absence d’une référence commune identifiée laissent la réalisation
+   physique ouverte. Cette sonde n’émet aucune prédiction. Voir l’
    [article sur les observateurs](paper/observers_are_all_you_need.pdf), les
    preuves Lean de la
    [réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean),
+   de la [réalisation stationnaire](Lean/Thermodynamics/StationaryRealization.lean),
    du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean) et des
    [théorèmes de fluctuation](Lean/Thermodynamics/FluctuationTheorems.lean), le
    [certificat rationnel exact](code/thermodynamics/conditional_repair_certificate.py)
    avec son [reçu](code/thermodynamics/runtime/conditional_repair_receipt.json),
-   ainsi que les [reçus physiques ouverts](https://github.com/FloatingPragma/observer-patch-holography/issues/671).
+   le [reçu borné de la matrice source](code/thermodynamics/runtime/collar_matrix_realization_probe.json),
+   ainsi que les [reçus physiques ouverts](https://github.com/FloatingPragma/observer-patch-holography/issues/688).
 4. **Le groupe de jauge du Modèle standard issu de douze ports.** La réponse
    réversible complète de l’axiome 1 et le transport endogène des recouvrements
    de l’axiome 2 forcent
@@ -237,7 +264,7 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 2000 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 2100 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
@@ -723,7 +750,7 @@ Les hypothèses détaillées et les types de reçus sont énoncés dans les arti
 | --- | --- | --- |
 | Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Surface conditionnelle d’événements quantiques | Le consensus sélectionne l’algèbre commutative finie des registres publics. Dans une représentation algèbre-état et à deux ailes déclarée, ses projecteurs obéissent aux probabilités de Born, au conditionnement de Lüders et à la borne de Tsirelson. Une branche spinorielle binaire icosaédrique déclarée possède un candidat fini exact avec $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Sa famille de réglages et son instrument achevé à deux ailes ne proviennent pas de la source. Il ne s’agit donc pas d’une prédiction physique de Bell | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) et le [reçu exact du candidat](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
-| Quatre principes de la thermodynamique | L’axiome 3 sur les états donne la famille de Gibbs par l’identité pythagoricienne exacte de la projection d’information ; sur les transitions au-dessus de la fibre visible réparée, il donne le noyau de réparation du consensus, stochastique, idempotent, réversible, stationnaire, et qui fixe les charges mesurables sur la fibre. L’entropie relative à la référence y contracte, d’où le second principe, avec Clausius $\Delta S\geq\beta Q$ et Landauer en corollaires ; l’égalité des températures inverses au contact additif donne le principe zéro ; la décomposition exacte $dU=\delta Q+\delta W$ donne le premier ; la borne sur la masse de Gibbs excitée donne la limite d’entropie $\log g_0$ et l’inaccessibilité en un nombre fini d’étapes. Le normalisateur à descente stricte ne porte aucune inégalité d’entropie. Cinq reçus physiques restent ouverts, dont la calibration de l’énergie et de l’horloge | [Observers are all you need](paper/observers_are_all_you_need.pdf) et le [certificat de réparation conditionnelle](code/thermodynamics/conditional_repair_certificate.py) |
+| Paquet fini conditionnel des quatre principes | Avec une référence fidèle et la fibre visible réparée fournies, les deux instanciations de l’axiome 3 donnent la famille de Gibbs et le noyau de réparation du consensus. Le noyau est stochastique, idempotent, réversible, stationnaire et fixe les charges mesurables sur la fibre. L’entropie relative à la référence y contracte, d’où le second principe, avec Clausius $\Delta S\geq\beta Q$ et Landauer en corollaires ; l’égalité des températures inverses au contact additif donne le principe zéro ; la décomposition exacte $dU=\delta Q+\delta W$ donne le premier ; la borne sur la masse de Gibbs excitée donne la limite d’entropie $\log g_0$ et l’inaccessibilité en un nombre fini d’étapes. Le normalisateur à descente stricte ne porte aucune inégalité d’entropie. Cinq reçus de source et physiques restent ouverts, dont la calibration de l’énergie et de l’horloge | [Observers are all you need](paper/observers_are_all_you_need.pdf) et le [certificat de réparation conditionnelle](code/thermodynamics/conditional_repair_certificate.py) |
 | Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur fini de coutures signées muni du comptage unitaire déclaré possède un écart spectral strictement positif ; son raffinement numérique vaut 0,1175367. Cet opérateur est distinct du générateur de réparation de jauge compacte de la branche conditionnelle de Yang–Mills. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |

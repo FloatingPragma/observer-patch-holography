@@ -65,6 +65,65 @@ Mapping between Lean 4 theorems in this project and statements in
   invariance, and prefix consistency. The current basis does not classify the
   grammar or its orbits and does not discharge the source-reference or
   temporal-freedom premises.
+- Time-and-order type ledger
+  (`Time/TimeOrderLedger.lean`): sorry-free type infrastructure for V2 A1.
+  Universe closure, repair schedule, observer record order, modular parameter,
+  worldline realization, clock readout, proper-time interval, and the optional
+  global-time branch are distinct structures. Compile-time negative checks
+  reject all 56 ordered transitive coercions between distinct layers, while
+  `NamedRealizationMap` is the
+  explicit bridge API. Positive affine regraduation preserves a clock
+  readout's strict record monotonicity, and a nonzero offset gives a distinct
+  readout whenever a record exists. The module constructs no OPH endpoint,
+  worldline, clock calibration, proper-time limit, global time function, or
+  physical modular-time identification; those remain downstream premises.
+- B1 public-record algebra and sharp copying boundary
+  (`EventAlgebra/PublicRecordAlgebra.lean`,
+  `EventAlgebra/NoBroadcastingAdapter.lean`): sorry-free finite matrix and
+  Hilbert-space algebra. The public span is a commutative star subalgebra in
+  the partition commutant and is exactly star-algebra equivalent to complex
+  functions on the active, nonzero projector labels. One isometric copier
+  using one normalized blank can sharply copy two distinct alternatives only
+  when they are orthogonal. The general mixed-state no-broadcasting
+  implication remains an explicit adapter premise, and no physical record
+  partition or readout is selected. See `B1_PUBLIC_RECORD_ALGEBRA.md`.
+- A3 timeless consensus-tower interface
+  (`Tower/ConsensusTower.lean`): sorry-free structural packaging. A nonempty
+  directed regulator preorder carries finite observer and record fibers, A1
+  record orders, finite private matrix algebras, commutative public
+  star-subalgebras, record representatives, certified states, generators, and
+  explicit identity, composition, order, public, state-restriction, and
+  generator compatibility. The constant adaptor reuses one existing
+  projective partition and state with discrete order and zero generator. No
+  nonconstant source tower, repair endpoint, causal net, channel, geometry,
+  clock, or continuum limit follows. See `A3_CONSENSUS_TOWER.md`.
+- B2 finite publicization dynamics
+  (`EventAlgebra/PartitionAverageCP.lean`,
+  `EventAlgebra/TwoScalePublicRepair.lean`,
+  `Thermodynamics/PoissonizedRepair.lean`,
+  `Thermodynamics/PoissonizedRepairOperatorExp.lean`,
+  `Dynamics/ConditionalExpectationGenerator.lean`): sorry-free finite linear
+  and matrix algebra. Partition averaging has an explicit normalized Kraus
+  family and preserves trace. An idempotent publicization map has exact
+  public/residual decomposition, multiplicative relaxation composition,
+  exponential semigroup, generator-flow identities, and the literal
+  `NormedSpace.exp` formula for bounded idempotent endomorphisms on real Banach
+  spaces. Partition pinching has the displayed projector-rate dissipator form and a stable algebra equal
+  to the commutant at nonzero rate; the multi-collar intersection requires an
+  explicit no-cancellation premise. No formal CP/CPTP predicate, physical rate,
+  clock, or source channel follows. See `B2_PUBLICIZATION_DYNAMICS.md`.
+- B3 finite public/private dynamics (`Dynamics/PublicMarkov.lean`,
+  `Dynamics/PrivateInner.lean`): sorry-free finite algebra and analysis. Under
+  an explicit coordinatewise cone, positive unital complex-linear maps of the
+  active-record function algebra are exactly real row-stochastic kernels.
+  Continuous real one-parameter permutation flows of discrete record labels
+  are trivial. Every star-algebra automorphism of one finite-dimensional full
+  endomorphism block is unitarily inner; a fixed self-adjoint Hamiltonian gives
+  a unitary exponential and the real-parameter von Neumann equation. This does
+  not classify arbitrary public star automorphisms as label permutations,
+  classify arbitrary finite central-block algebras, or derive one coherent
+  Hamiltonian from an arbitrary continuous automorphism group. See
+  `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and
   counterexamples. It proves $L=2|E|(I-R)$ for the uniform repair response,
@@ -242,6 +301,17 @@ Mapping between Lean 4 theorems in this project and statements in
   show where the dissipation sign fails. No physical generator, clock,
   distance, unit calibration, stability theorem, continuum limit, or measured
   transport value follows. See `B8_TRANSPORT_KERNEL.md`.
+- B12 stationary source-realization interface
+  (`Thermodynamics/StationaryRealization.lean`): admission-free finite
+  information theory. Every stochastic kernel preserving a faithful
+  stationary reference contracts relative entropy to that reference; detailed
+  balance is not required. The exact lazy directed three-cycle is stationary,
+  violates detailed balance on a displayed edge, and satisfies the
+  second-law inequality. Constant observables are fixed by every stochastic
+  kernel, with an explicit warning that this is not a nontrivial protected
+  charge. The theorem does not identify a simulator stationary law with the
+  state optimizer's source reference and proves no energy, clock, refinement,
+  or physical realization receipt.
 - Source-seam edge-orbit moments
   (`Screen/SeamCurrentEdge30Moment.lean`): sorry-free exact real polynomial
   and finite multiset reasoning. Each canonical seam current maps to the

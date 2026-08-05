@@ -1010,10 +1010,14 @@ def open_receipts() -> dict[str, Any]:
             "stationarity, and protected-charge preservation with "
             "detailed balance where microscopic reversibility is "
             "claimed; the committed collar-matrix probe measures these "
-            "properties on the earned sixty-four-k quotient matrix, "
-            "with exact protected-datum conservation over every "
-            "counted transition and a raw chain that stays reducible "
-            "through freezeout"
+            "properties on the earned sixty-four-k quotient matrix and "
+            "exhausts all fifteen nonempty field-subset projections of its "
+            "four committed fields. The repair-load quotient gives an eight-state "
+            "raw ergodic nonreversible H-theorem probe, but its declared "
+            "record charge is constant, its stationary law is not "
+            "identified with the state optimizer's source reference, "
+            "and the fine chain's only recurrent restriction is a "
+            "singleton freezeout state"
         ),
         "THERMO-ENERGY-CLOCK": (
             "one modular charge must be identified with physical energy "
@@ -1050,6 +1054,13 @@ def build_receipt() -> dict[str, Any]:
                 "clausius, landauer, kl_eq_energy_sub_shannon, "
                 "heatBath_preserves_pos, push_total, mixture_row_sum, "
                 "mixture_stationary, block_entropy_le"
+            ),
+            "stationary_realization": (
+                "Thermodynamics/StationaryRealization.lean: "
+                "stationary_secondLaw, constantObservable_fixed, "
+                "directedLazy3_stationary, "
+                "directedLazy3_not_detailedBalance, "
+                "directedLazy3_secondLaw"
             ),
             "first_law": (
                 "Thermodynamics/FirstLawIdentity.lean: firstLaw_split"

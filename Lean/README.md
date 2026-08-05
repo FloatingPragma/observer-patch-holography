@@ -16,7 +16,7 @@ facts.
 
 ## Layout
 
-One Lake workspace, six Lean libraries across their source directories:
+One Lake workspace, seven Lean libraries across their source directories:
 
 ```text
 Lean/
@@ -28,7 +28,8 @@ Lean/
 ├── EventAlgebra/                       neutral finite event algebras
 │                                       (journal artifact, Mathlib-only)
 ├── Thermodynamics/                     finite repair thermodynamics,
-│                                       reversible transport, graph diffusion,
+│                                       stationary/nonreversible H-theorem
+│                                       interfaces, reversible transport, graph diffusion,
 │                                       and Einstein first-law premise links
 ├── Screen/                             OPHScreen library: icosahedral screen
 │                                       arithmetic, A5 corpus, trichotomy
@@ -37,6 +38,10 @@ Lean/
 │                                       interfaces
 ├── InformationProjection.lean
 ├── InformationProjection/              conditional finite-history projection
+├── Time/                               time/order type ledger and explicit
+│                                       realization-map boundary
+├── Tower/                              timeless consensus-tower interface and
+│                                       constant finite-fiber adaptor
 ├── Locality.lean
 ├── ObserverPatchHolography/Locality/    fixed-word locality helpers
 ├── Variational.lean
@@ -93,6 +98,19 @@ continuous integration recreates it as a real directory.
 - `docs/B5_WARD_BRIDGE.md`: finite continuity and Ward-premise boundary
 - `docs/B7_HISTORY_BRIDGE.md`: conditional history helpers and interface no-go
 - `docs/B8_TRANSPORT_KERNEL.md`: finite Green--Kubo and graph-transport boundary
+- `docs/A1_TIME_ORDER_LEDGER.md`: distinct time/order types, explicit bridge API,
+  and affine clock-gauge boundary
+- `docs/A3_CONSENSUS_TOWER.md`: directed finite tower interface, constant
+  projective-partition adaptor, and E1/E2 wiring boundary
+- `docs/B1_PUBLIC_RECORD_ALGEBRA.md`: exact active-label record algebra,
+  sharp no-cloning theorem, and mixed-state adapter boundary
+- `docs/B2_PUBLICIZATION_DYNAMICS.md`: normalized Kraus data, solvable
+  publicization semigroup, literal bounded-operator exponential, fixed algebra,
+  and physical-channel boundary
+- `docs/B3_PUBLIC_PRIVATE_DYNAMICS.md`: stochastic public maps, the continuous
+  permutation-flow obstruction, full-private-block innerness, and the open
+  public-automorphism classification, central-block, and converse-generator
+  boundaries
 - `docs/BRIDGE_BOUNDARY_INDEX.md`: cross-paper boundary map
 - `docs/BOUNDARY_FIBER_APPLICATION.md`: #304 application note
 - `ObservableNormalForms/README.md` and its `PROOF_INDEX.md`: manuscript

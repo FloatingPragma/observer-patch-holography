@@ -37,6 +37,8 @@ import ObserverPatchHolography.QuotientLumpabilityRuntimeHarness
 import ObserverPatchHolography.ScalarSeamRepair
 import ObserverPatchHolography.EqualSeamSelection
 import ObserverPatchHolography.RepairWordSchedule
+import Time.TimeOrderLedger
+import Tower
 import ObserverPatchHolography.A2EndpointCommutator
 import ObserverPatchHolography.DirectedSeamRepair
 import ObserverPatchHolography.DirectedSeamRepairProgress
@@ -95,6 +97,23 @@ quantum event algebras: events, states, Born weights, Lüders
 conditioning, the conditional expectation onto a commutative center, the
 expectation functional, and the Tsirelson bound. It deliberately imports
 only Mathlib and carries no vocabulary from the rest of this repository.
+
+The `Time.TimeOrderLedger` module carries the completion-plan A1 ontology
+boundary.  Closure witnesses, repair schedules, observer record orders,
+modular parameters, worldline realizations, clock readouts, proper-time
+intervals, and optional global-time functions are distinct types. The
+committed source environment rejects the audited implicit coercions, and
+cross-layer interpretations require explicit named realization maps. This is
+type infrastructure only: the module constructs no physical clock, worldline,
+global time function, or modular-time identity.
+
+The `Tower.ConsensusTower` module carries the completion-plan A3 root
+interface. It packages finite observer and record fibers, private matrix
+algebras, commutative public subalgebras, selected states and generators, and
+functorial refinement compatibility in one directed tower. Its constant
+projective-partition adaptor proves only that an existing finite fiber can be
+packaged. No nonconstant source tower, repair endpoint, causal net, geometry,
+clock, continuum limit, or physical evolution is constructed.
 
 See `../README.md` and `../PROOF_INDEX.md` for scope and proof coverage.
 -/

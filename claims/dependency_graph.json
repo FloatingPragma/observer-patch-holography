@@ -70,7 +70,13 @@
     "OPH-PARADISE",
     "OPH-UNIFIED-TYPED-SPINE",
     "OPH-GR-D6-A5-FINITE-CONTROL",
+    "OPH-TIME-ORDER-TYPE-LEDGER",
+    "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
+    "OPH-CONSENSUS-TOWER-INTERFACE",
+    "OPH-PUBLICIZATION-DYNAMICS-FINITE",
+    "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
     "OPH-THERMO-FOUR-LAW-PACKAGE",
+    "OPH-THERMO-SOURCE-REALIZATION-AUDIT",
     "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
     "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
     "OPH-FINITE-LOCALITY-NOSIGNALLING",
@@ -641,6 +647,51 @@
       "from": "OPH-A5-SEAM-CURRENT-EDGE30",
       "to": "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
       "role": "supplies the edge-branch coefficient ray reproduced as the interior band point at -1/15; the physical branch premises stay with the edge claim and its owning issues"
+    },
+    {
+      "from": "OPH-OBS-PATCH-DEF",
+      "to": "OPH-TIME-ORDER-TYPE-LEDGER",
+      "role": "supplies the observer record, repair, and interface vocabulary whose order structures are separated from modular, worldline, clock, proper-time, and optional global-time layers; all physical realization maps remain explicit"
+    },
+    {
+      "from": "OPH-OBS-PATCH-DEF",
+      "to": "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
+      "role": "supplies the observer-facing public-record interpretation; the exact star-algebra representation and sharp copying obstruction are finite mathematics, while mixed-state broadcasting and physical record selection remain explicit attachments"
+    },
+    {
+      "from": "OPH-TIME-ORDER-TYPE-LEDGER",
+      "to": "OPH-CONSENSUS-TOWER-INTERFACE",
+      "role": "supplies the observer-record order type used at every finite tower fibre; the tower adds only explicit refinement naturality and no physical clock identification"
+    },
+    {
+      "from": "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
+      "to": "OPH-CONSENSUS-TOWER-INTERFACE",
+      "role": "supplies the finite public star-algebra and active-record ingredients used by the constant adaptor; a nonconstant source-derived refinement tower is not supplied"
+    },
+    {
+      "from": "OPH-CONSENSUS-TOWER-INTERFACE",
+      "to": "OPH-UNIFIED-TYPED-SPINE",
+      "role": "supplies the common finite refinement root object and variance-correct compatibility targets; no nonconstant source tower or causal, geometric, dynamical, continuum, or physical attachment is supplied"
+    },
+    {
+      "from": "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
+      "to": "OPH-PUBLICIZATION-DYNAMICS-FINITE",
+      "role": "supplies the finite projective public-record algebra on which pinching and averaging act; the solvable relaxation packet adds no physical channel, clock, or source-derived rate"
+    },
+    {
+      "from": "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
+      "to": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
+      "role": "supplies the active-label function algebra for the exact public stochastic classification; the private full-block theorem is independent, and central-block, converse-generator, source, and clock interfaces are separate"
+    },
+    {
+      "from": "OPH-PUBLICIZATION-DYNAMICS-FINITE",
+      "to": "OPH-THERMO-FOUR-LAW-PACKAGE",
+      "role": "supplies explicit finite pinching and averaging Kraus and trace identities plus a declared projector-rate generator; the thermodynamic arrow separately requires its common-reference transition kernel and five physical receipts"
+    },
+    {
+      "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
+      "to": "OPH-THERMO-SOURCE-REALIZATION-AUDIT",
+      "role": "supplies the stationary-kernel data-processing interface tested against the pinned source-counted matrix; the bounded audit does not discharge the common-reference, nontrivial protected-charge, energy-clock, or refinement receipts"
     },
     {
       "from": "OPH-THERMO-FOUR-LAW-PACKAGE",

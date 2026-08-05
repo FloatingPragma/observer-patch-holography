@@ -315,10 +315,11 @@ not own a private physical sphere.
 
 The full patch algebra can be noncommutative. Internal questions and update
 operations can depend on order. The rereadable public record layer is smaller.
-In the finite carrier it sits in the center of the patch algebra, which means
-that consulting a finished record is compatible with every other allowed
-operation. Physical implementations approach this central record layer within
-their operating tolerance.
+For a finite projective record partition, its span is a commutative star
+subalgebra and is exactly the function algebra on the nonzero record labels.
+It lies in the commutant of that partition. Identifying it with the center of
+the full physical patch algebra needs an additional attachment; the finite
+theorem does not make that stronger claim.
 
 This separation is the algebraic version of a familiar laboratory fact. A
 detector can contain complicated quantum electronics while exposing one stable
@@ -329,8 +330,19 @@ the result for another read.
 
 It also prevents a later confusion. Later chapters build currents on the
 twelve-port carrier, and those currents do not commute. Accepted public
-records do: a finished record can be consulted without disturbing anything
-else.
+records do: finished alternatives in the same public partition can be
+consulted without disturbing one another.
+
+The finite dynamics makes this split precise. A positive unital linear map on
+the active-record function algebra is exactly a real row-stochastic kernel.
+A continuous flow that only permutes the discrete record labels is necessarily
+trivial. By contrast, every star automorphism of one finite full private matrix
+block is implemented by a unitary, and a supplied self-adjoint Hamiltonian
+generates a unitary real-parameter flow satisfying the von Neumann equation.
+These are finite structural theorems. They do not classify arbitrary public
+star automorphisms as label permutations, classify arbitrary direct sums of
+matrix blocks, derive a Hamiltonian from every continuous automorphism group,
+or identify the parameter with a physical clock.
 
 ### Net Axioms (Algebraic)
 

@@ -261,10 +261,12 @@ is Jaynes's die, played across a federation of patches at once.
 ### Where the Four Laws Come From
 
 Chapter 4 treated thermodynamics as a hint, a set of laws discovered from
-engines and gases and then found to be about information. The third axiom
-turns those laws into theorems.
+engines and gases and then found to be about information. With a common
+source reference, a repaired-visible fibre, and explicit energy and clock
+attachments, the third axiom yields a conditional finite theorem package.
 
-Read the axiom on states and it selects the Gibbs family, the exponential
+Read the axiom on states with its supplied faithful reference and it selects
+the Gibbs family, the exponential
 weighting by energy that a thermodynamics course normally writes down as an
 assumption. Read the same axiom on transitions, on the repair step that
 carries one round of consensus into the next, and it selects a single repair
@@ -281,11 +283,29 @@ which is the First Law. The weight the construction can place on excited
 states is bounded, so entropy has a floor set by the number of ground states,
 and no finite sequence of repair steps reaches it. That is the Third Law.
 
-If this holds up, thermodynamics is not something the theory imports. It is
-what repair does to records, watched from far enough away. The qualification
-that belongs beside the result is calibration. The energy scale, the clock
-rate, and three other physical receipts have to be fixed by measurement
-before any of this becomes a thermometer reading.
+The contraction needs stationarity rather than microscopic reversibility. A
+lazy walk around a three-stop one-way loop gives an exact counterexample: its
+uniform distribution stays fixed and relative entropy cannot increase, even
+though the forward and reverse equilibrium fluxes differ. Entropy descent
+therefore carries less information than detailed fluctuation symmetry or
+Onsager reciprocity. Those stronger symmetries need their own physical
+evidence.
+
+The source-counted repair table was checked across all fifteen nonempty
+field-subset projections of its four recorded fields. One eight-state
+repair-load description forms an irreducible
+stationary chain and moves toward its stationary distribution, while retaining
+a measurable directional imbalance. The finer description has only one closed
+class, a single freezeout state. Its record-family label takes one value, so
+the apparent conservation test is empty. This table supports the finite
+stationary-kernel calculation. It supplies neither a common state-and-transition
+reference nor a physical energy or clock calibration.
+
+The finite theorem package therefore does not import thermodynamics as an
+extra axiom, but its physical interpretation is conditional. The energy scale
+and clock rate require calibration. The global objective, common source
+reference, and collar realization require independent source receipts. Until
+all five are supplied, this is not a thermometer reading.
 
 ## 11.6 Time on the Holographic Screen
 

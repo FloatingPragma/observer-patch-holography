@@ -7,12 +7,12 @@ derived from validated structured parents, with any direct algebraic
 corollary identified as such.  A missing or inconsistent parent is a hard
 failure, not a silently absent row.
 
-Section one records the forced-structure layer: the machine-checked
-icosahedral results that pin the gauge sector before any numeric lane runs.
-The finite steps live in the Lean workspace under `Lean/Screen/`; the
-receipt entries record the module paths and exact declaration names.  The
-builder rejects a missing declaration and records the declared hypothesis
-boundaries exactly as The Standard Model gauge paper states them.
+Section one records the forced-structure layer: machine-checked finite
+theorems that precede or constrain numeric lanes, including the icosahedral
+gauge packet and generic observer-law boundaries.  The finite steps live in
+the Lean workspace; the receipt entries record the module paths and exact
+declaration names.  The builder rejects a missing declaration and records
+the declared hypothesis boundaries of each owning paper.
 
 The numeric sections carry the per-lane claim discipline of their parents:
 interval rows report containment of the compare-only witness, conditional
@@ -76,8 +76,28 @@ LEAN_RECEIPTS = {
     "A5PortAction": LEAN_SCREEN / "A5PortAction.lean",
     "PortFrameGram": LEAN_SCREEN / "PortFrameGram.lean",
     "ExteriorSelection": LEAN_SCREEN / "ExteriorSelection.lean",
+    "TimeOrderLedger": REPO / "Lean" / "Time" / "TimeOrderLedger.lean",
+    "ConsensusTower": REPO / "Lean" / "Tower" / "ConsensusTower.lean",
+    "PublicRecordAlgebra": REPO / "Lean" / "EventAlgebra"
+    / "PublicRecordAlgebra.lean",
+    "NoBroadcastingAdapter": REPO / "Lean" / "EventAlgebra"
+    / "NoBroadcastingAdapter.lean",
+    "PartitionAverageCP": REPO / "Lean" / "EventAlgebra"
+    / "PartitionAverageCP.lean",
+    "TwoScalePublicRepair": REPO / "Lean" / "EventAlgebra"
+    / "TwoScalePublicRepair.lean",
+    "PoissonizedRepair": REPO / "Lean" / "Thermodynamics"
+    / "PoissonizedRepair.lean",
+    "PoissonizedRepairOperatorExp": REPO / "Lean" / "Thermodynamics"
+    / "PoissonizedRepairOperatorExp.lean",
+    "ConditionalExpectationGenerator": REPO / "Lean" / "Dynamics"
+    / "ConditionalExpectationGenerator.lean",
+    "PublicMarkov": REPO / "Lean" / "Dynamics" / "PublicMarkov.lean",
+    "PrivateInner": REPO / "Lean" / "Dynamics" / "PrivateInner.lean",
     "FiniteConditionalRepair": REPO / "Lean" / "Thermodynamics"
     / "FiniteConditionalRepair.lean",
+    "StationaryRealization": REPO / "Lean" / "Thermodynamics"
+    / "StationaryRealization.lean",
     "FirstLawIdentity": REPO / "Lean" / "Thermodynamics"
     / "FirstLawIdentity.lean",
     "FluctuationTheorems": REPO / "Lean" / "Thermodynamics"
@@ -620,9 +640,296 @@ def _forced_structure(
             "paper_ref": "Standard Model gauge paper, coupling symmetry section",
         },
         {
+            "id": "time_order_type_ledger",
+            "statement": (
+                "Universe closure, repair execution order, observer record "
+                "order, modular parameter, worldline realization, clock "
+                "readout, proper time, and optional global time are distinct "
+                "formal types. In the committed source environment, a "
+                "canonical witness matrix rejects all 56 ordered transitive "
+                "coercions between distinct layers, and explicit named maps are required. "
+                "Positive affine clock regraduation preserves strict "
+                "record monotonicity, and an inhabited record with nonzero "
+                "offset proves clock-origin nonuniqueness"
+            ),
+            "observed_counterpart": (
+                "typed separation between operational ordering and physical time"
+            ),
+            "match": "exact formal boundary; physical time realization open",
+            "lean_declarations": {
+                "TimeOrderLedger": [
+                    "canonicalLedgerKinds_pairwise",
+                    "offsetGauge_ne",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "TimeOrderLedger",
+                declarations={
+                    "TimeOrderLedger": (
+                        "canonicalLedgerKinds_pairwise",
+                        "offsetGauge_ne",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the ledger constructs no public-world endpoint, worldline, "
+                "physical clock, proper-time calibration, global time "
+                "function, or modular-to-time identity and emits no prediction"
+            ),
+            "paper_ref": "observers paper, time and order interface",
+        },
+        {
+            "id": "finite_public_record_algebra_and_sharp_no_cloning",
+            "statement": (
+                "The span of a finite projective partition is a commutative "
+                "matrix star subalgebra contained in its commutant and is "
+                "star-algebra equivalent to complex functions on the nonzero "
+                "projector labels. A common linear isometry can sharply copy "
+                "two distinct states from one normalized blank only when "
+                "they are orthogonal"
+            ),
+            "observed_counterpart": (
+                "classical public records and the sharp-state copying boundary"
+            ),
+            "match": "exact finite theorem package",
+            "lean_declarations": {
+                "PublicRecordAlgebra": [
+                    "publicSubalgebra_mul_comm",
+                    "publicSubalgebra_le_commutant",
+                    "recordSynthesisStarAlgHom_bijective",
+                    "publicRecordFunctionEquiv_apply",
+                ],
+                "NoBroadcastingAdapter": [
+                    "SharpCloneWitness.overlap_zero_or_one",
+                    "SharpCloneWitness.eq_of_overlap_one",
+                    "SharpCloneWitness.orthogonal_of_ne",
+                    "NoBroadcastingAdapter.objective_pair_compatible",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "PublicRecordAlgebra",
+                "NoBroadcastingAdapter",
+                declarations={
+                    "PublicRecordAlgebra": (
+                        "publicSubalgebra_mul_comm",
+                        "publicSubalgebra_le_commutant",
+                        "recordSynthesisStarAlgHom_bijective",
+                        "publicRecordFunctionEquiv_apply",
+                    ),
+                    "NoBroadcastingAdapter": (
+                        "SharpCloneWitness.overlap_zero_or_one",
+                        "SharpCloneWitness.eq_of_overlap_one",
+                        "SharpCloneWitness.orthogonal_of_ne",
+                        "NoBroadcastingAdapter.objective_pair_compatible",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "zero projectors are removed before coordinate equivalence; "
+                "the mixed-state no-broadcasting implication remains an "
+                "explicit adapter premise, and no physical record-selection "
+                "or measurement theorem follows"
+            ),
+            "paper_ref": "observers paper, public event algebra",
+        },
+        {
+            "id": "finite_consensus_tower_interface",
+            "statement": (
+                "One typed directed refinement object carries finite observer "
+                "and record fibres, observer record orders, private matrix "
+                "algebras, commutative public star subalgebras, record "
+                "representatives, certified states, and linear generators. "
+                "Its refinement laws preserve every layer, with states "
+                "restricting contravariantly by exact trace pairing. A "
+                "constant adaptor reuses an existing projective partition "
+                "and density state with discrete order and zero generator"
+            ),
+            "observed_counterpart": (
+                "one common finite refinement substrate for observer theories"
+            ),
+            "match": "exact structural interface; source realization open",
+            "lean_declarations": {
+                "ConsensusTower": [
+                    "public_mem_refine",
+                    "refine_recordElement",
+                    "refine_precedes",
+                    "refine_generator",
+                    "refine_state_pairing",
+                    "constantConsensusTower_public",
+                    "constantConsensusTower_recordElement",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "ConsensusTower",
+                declarations={
+                    "ConsensusTower": (
+                        "public_mem_refine",
+                        "refine_recordElement",
+                        "refine_precedes",
+                        "refine_generator",
+                        "refine_state_pairing",
+                        "constantConsensusTower_public",
+                        "constantConsensusTower_recordElement",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the constant adaptor proves packaging only. No nonconstant "
+                "source tower, repair endpoint, causal net, geometry, clock, "
+                "continuum limit, physical evolution, or prediction follows"
+            ),
+            "paper_ref": "observers paper, consensus-tower root interface",
+        },
+        {
+            "id": "finite_publicization_dynamics",
+            "statement": (
+                "An idempotent linear publicization map has an exactly "
+                "solvable public-residual relaxation with multiplicative "
+                "composition and exponential semigroup law. Its Poissonized "
+                "closed form satisfies the initial-value and generator-flow "
+                "identities and equals the literal Banach-algebra operator "
+                "exponential for bounded idempotent endomorphisms. Partition "
+                "averaging has an explicit normalized "
+                "Kraus family and trace identity, and the partition-pinching "
+                "generator equals the displayed projector-rate matrix "
+                "dissipator with fixed algebra equal to the commutant at "
+                "nonzero rate"
+            ),
+            "observed_counterpart": (
+                "finite public/private relaxation and stable pointer algebra"
+            ),
+            "match": "exact finite linear and matrix identities",
+            "lean_declarations": {
+                "PartitionAverageCP": [
+                    "ProjectivePartition.partitionAverageKraus_complete",
+                    "partitionAverage_kraus_form",
+                ],
+                "TwoScalePublicRepair": [
+                    "publicRelax_compose",
+                    "publicRelaxTime_add",
+                    "publicRelaxTime_residual",
+                ],
+                "PoissonizedRepair": [
+                    "poissonizedRepair_add",
+                    "repairGenerator_eq_zero_iff",
+                    "hasDerivAt_poissonizedRepair_eq_generator",
+                ],
+                "PoissonizedRepairOperatorExp": [
+                    "normedSpace_exp_smul_idempotent",
+                    "normedSpace_exp_continuousRepairGenerator",
+                    "normedSpace_exp_continuousRepairGenerator_apply",
+                ],
+                "ConditionalExpectationGenerator": [
+                    "conditionalExpectationGenerator_eq_projectorGKSL",
+                    "conditionalExpectationGenerator_eq_zero_iff_mem_commutant",
+                    "multiCollarGenerator_eq_zero_iff_stableIntersection",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "PartitionAverageCP",
+                "TwoScalePublicRepair",
+                "PoissonizedRepair",
+                "PoissonizedRepairOperatorExp",
+                "ConditionalExpectationGenerator",
+                declarations={
+                    "PartitionAverageCP": (
+                        "ProjectivePartition.partitionAverageKraus_complete",
+                        "partitionAverage_kraus_form",
+                    ),
+                    "TwoScalePublicRepair": (
+                        "publicRelax_compose",
+                        "publicRelaxTime_add",
+                        "publicRelaxTime_residual",
+                    ),
+                    "PoissonizedRepair": (
+                        "poissonizedRepair_add",
+                        "repairGenerator_eq_zero_iff",
+                        "hasDerivAt_poissonizedRepair_eq_generator",
+                    ),
+                    "PoissonizedRepairOperatorExp": (
+                        "normedSpace_exp_smul_idempotent",
+                        "normedSpace_exp_continuousRepairGenerator",
+                        "normedSpace_exp_continuousRepairGenerator_apply",
+                    ),
+                    "ConditionalExpectationGenerator": (
+                        "conditionalExpectationGenerator_eq_projectorGKSL",
+                        "conditionalExpectationGenerator_eq_zero_iff_mem_commutant",
+                        "multiCollarGenerator_eq_zero_iff_stableIntersection",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the Lean interface defines no complete-positivity predicate "
+                "or bundled CP/CPTP channel. The operator-exponential theorem "
+                "uses bounded endomorphisms of a complete real normed space. Poisson rate and "
+                "forward-time interpretations require nonnegative parameters. "
+                "No source-derived rate, physical clock, or prediction is supplied"
+            ),
+            "paper_ref": "observers paper, finite publicization dynamics",
+        },
+        {
+            "id": "finite_public_private_dynamics",
+            "statement": (
+                "Positive unital complex-linear maps of the finite active-"
+                "record function algebra are exactly real row-stochastic "
+                "kernels under the declared coordinatewise cone. Continuous "
+                "real permutation flows of discrete record labels are "
+                "trivial. Every star automorphism of one finite full private "
+                "endomorphism block is unitarily inner, and a supplied "
+                "self-adjoint Hamiltonian generates a unitary real-parameter "
+                "von Neumann flow"
+            ),
+            "observed_counterpart": (
+                "classical-stochastic public and quantum-unitary private dynamics"
+            ),
+            "match": "substantial exact finite packet; global converse open",
+            "lean_declarations": {
+                "PublicMarkov": [
+                    "recordMapOfKernel_injective",
+                    "positive_unital_iff_stochastic",
+                    "activeRecord_positive_unital_iff_stochastic",
+                    "toPerm_eq_refl",
+                    "function_action_eq",
+                ],
+                "PrivateInner": [
+                    "finitePrivateStarAutomorphism_inner",
+                    "hasDerivAt_realVonNeumannFlow",
+                    "hamiltonianPropagator_mem_unitary",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "PublicMarkov",
+                "PrivateInner",
+                declarations={
+                    "PublicMarkov": (
+                        "recordMapOfKernel_injective",
+                        "positive_unital_iff_stochastic",
+                        "activeRecord_positive_unital_iff_stochastic",
+                        "toPerm_eq_refl",
+                        "function_action_eq",
+                    ),
+                    "PrivateInner": (
+                        "finitePrivateStarAutomorphism_inner",
+                        "hasDerivAt_realVonNeumannFlow",
+                        "hamiltonianPropagator_mem_unitary",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the public obstruction starts from a label-permutation flow, "
+                "and the private innerness theorem covers one full matrix "
+                "block. Classification of arbitrary public star automorphisms "
+                "as label permutations, arbitrary finite central sums, a coherent continuous "
+                "unitary lift and single generator for every automorphism "
+                "group, source dynamics, physical time, and predictions remain open"
+            ),
+            "paper_ref": "observers paper, finite public/private dynamics",
+        },
+        {
             "id": "thermodynamic_four_law_package",
             "statement": (
-                "Axiom 3 instantiated on states selects the Gibbs "
+                "With a faithful common reference and repaired-visible fibre "
+                "supplied, Axiom 3 instantiated on states selects the Gibbs "
                 "exponential family by the exact information-projection "
                 "Pythagorean identity, and instantiated on transition "
                 "distributions over the repaired-visible fibre selects "
@@ -632,9 +939,14 @@ def _forced_structure(
                 "entropy to the reference contracts under it; the exact "
                 "first-law split carries its bilinear cross term; the "
                 "excited Gibbs mass obeys the finite gap bound with "
-                "entropy limit log g0; partition pinching is a "
-                "completely positive channel with the projectors as their "
-                "own Kraus family"
+                "entropy limit log g0; partition pinching has an explicit "
+                "normalized projector Kraus family and preserves trace, while "
+                "the formal interface defines no complete-positivity predicate "
+                "or bundled CP/CPTP channel"
+                "; more generally, every stochastic kernel preserving a "
+                "faithful stationary reference contracts relative entropy "
+                "even without detailed balance, with an exact lazy directed "
+                "three-cycle as the nonreversible separation witness"
             ),
             "observed_counterpart": (
                 "the zeroth, first, second, and third laws of "
@@ -657,6 +969,13 @@ def _forced_structure(
                     "landauer",
                     "heatBath_preserves_pos",
                     "block_entropy_le",
+                ],
+                "StationaryRealization": [
+                    "stationary_secondLaw",
+                    "constantObservable_fixed",
+                    "directedLazy3_stationary",
+                    "directedLazy3_not_detailedBalance",
+                    "directedLazy3_secondLaw",
                 ],
                 "FirstLawIdentity": ["firstLaw_split"],
                 "FluctuationTheorems": [
@@ -690,6 +1009,7 @@ def _forced_structure(
             },
             "lean_receipts": _lean_receipt(
                 "FiniteConditionalRepair",
+                "StationaryRealization",
                 "FirstLawIdentity",
                 "FluctuationTheorems",
                 "CapFirstLaw",
@@ -711,6 +1031,13 @@ def _forced_structure(
                         "landauer",
                         "heatBath_preserves_pos",
                         "block_entropy_le",
+                    ),
+                    "StationaryRealization": (
+                        "stationary_secondLaw",
+                        "constantObservable_fixed",
+                        "directedLazy3_stationary",
+                        "directedLazy3_not_detailedBalance",
+                        "directedLazy3_secondLaw",
                     ),
                     "FirstLawIdentity": ("firstLaw_split",),
                     "FluctuationTheorems": (
@@ -746,13 +1073,17 @@ def _forced_structure(
             "hypothesis_boundary": (
                 "five receipts stay open under issue #688: the global "
                 "objective representation, the common source-derived "
-                "reference for both optimizers, identification of the "
-                "source collar matrix with the resampling kernel through "
-                "the equal-fibre-row receipt, physical energy and clock "
+                "reference for both optimizers, completion of the source "
+                "collar realization, physical energy and clock "
                 "calibration beyond the attained central-interface "
                 "modular split, and refinement-uniform low-temperature "
-                "control; the strict-descent normalizer carries no "
-                "entropy inequality"
+                "control. The pinned 20-state collar table has an audit of all "
+                "15 nonempty field-subset projections: its repair-load quotient "
+                "is an eight-state raw ergodic nonreversible H-theorem "
+                "probe, but the declared record charge is constant and "
+                "the common reference is unidentified; its only fine-chain "
+                "recurrent restriction is singleton freezeout. The "
+                "strict-descent normalizer carries no entropy inequality"
             ),
             "paper_ref": "observers paper, thermodynamics section",
         },
@@ -1703,10 +2034,10 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("")
     add("## Forced structure")
     add("")
-    add("The icosahedral screen results pin the gauge sector before any numeric "
-        "lane runs. The finite steps are machine checked in the Lean workspace; "
-        "the recorded hypothesis boundaries are the exact classical inputs and "
-        "open premises of The Standard Model gauge paper.")
+    add("These finite structural results precede or constrain numeric lanes. "
+        "They include the icosahedral gauge packet and generic observer-law "
+        "boundaries. Every step is machine checked in the Lean workspace, and "
+        "each row records its own classical inputs and open physical premises.")
     add("")
     add("| Result | Observed counterpart | Match | Receipts |")
     add("| --- | --- | --- | --- |")

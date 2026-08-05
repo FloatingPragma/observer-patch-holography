@@ -2895,10 +2895,15 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append(
         "Finite completion-lane theorem packages are not automatically"
-        " prediction rungs. B4, B5, B7, and B8 emit no row here: each lacks"
+        " prediction rungs. A1, A3, B1, B2, B3, B4, B5, B7, and B8 emit no row here:"
+        " each lacks"
         " a prospectively registered physical observable, attachment, and"
         " decision rule, so their exact finite results remain in the claim"
-        " and postdiction ledgers only."
+        " and postdiction ledgers only. The B12 collar-matrix audit likewise"
+        " emits no row: its eight-state stationary H-theorem probe is"
+        " nonreversible, its declared protected record is constant, and no"
+        " common physical reference, energy-clock attachment, observable,"
+        " or prospective decision rule is fixed."
     )
     lines.append("")
     lines.append(

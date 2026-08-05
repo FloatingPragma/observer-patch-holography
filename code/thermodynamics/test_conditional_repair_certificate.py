@@ -125,6 +125,7 @@ def test_lean_binding_paths_exist(receipt):
     root = HERE.parent.parent
     for path in (
         "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+        "Lean/Thermodynamics/StationaryRealization.lean",
         "Lean/Thermodynamics/FirstLawIdentity.lean",
         "Lean/Thermodynamics/FluctuationTheorems.lean",
         "Lean/Thermodynamics/CapFirstLaw.lean",
@@ -134,6 +135,7 @@ def test_lean_binding_paths_exist(receipt):
         assert (root / path).exists()
     bindings = receipt["lean_bindings"]
     assert "heatBath_secondLaw" in bindings["conditional_repair"]
+    assert "stationary_secondLaw" in bindings["stationary_realization"]
     assert "firstLaw_split" in bindings["first_law"]
     assert "kraus_complete" in bindings["record_channel"]
     assert "integral_fluctuation" in bindings["fluctuation"]
@@ -216,10 +218,58 @@ def test_realization_probe_states_receipt_open():
     assert "RECEIPT_OPEN" in committed["status"]
     assert "RAW_CHAIN_REDUCIBLE" in committed["status"]
     assert committed["measurements"]["off_fibre_mass_max"] == 0.0
+    assert committed["measurements"]["protected_datum_cardinality"] == 1
     assert any(
         "reducible" in blocker
         for blocker in committed["inherited_blockers"]
     )
+
+
+def test_realization_probe_exhausts_committed_field_subset_projections():
+    import collar_matrix_realization_probe as probe
+
+    committed = json.loads(probe.PROBE_PATH.read_text())
+    audit = committed["raw_coarsening_audit"]
+    assert audit["quotient_count"] == 15
+    assert len(audit["rows"]) == 15
+    assert audit["nontrivial_irreducible_syntactic_quotient_count"] == 4
+    assert audit["nontrivial_irreducible_reversible_count"] == 0
+
+    selected = audit["selected_raw_equilibrium_probe"]
+    assert selected["packet_fields"] == ["repair_load_bucket"]
+    assert selected["state_count"] == 8
+    assert selected["irreducible"] is True
+    assert selected["aperiodic"] is True
+    assert selected["stationary_min"] > 0.0
+    assert selected["detailed_balance_max_err"] > probe.DB_TOL
+    assert selected["microscopic_reversibility_claimed"] is False
+    assert selected["protected_charge_test_nontrivial"] is False
+    assert (
+        selected["common_reference_with_state_optimizer_identified"]
+        is False
+    )
+
+
+def test_realization_probe_recurrent_route_is_singleton_freezeout():
+    import collar_matrix_realization_probe as probe
+
+    committed = json.loads(probe.PROBE_PATH.read_text())
+    recurrent = committed["recurrent_class_audit"]
+    assert recurrent["fine_quotient_closed_class_count"] == 1
+    assert recurrent["closed_class_sizes"] == [1]
+    assert recurrent["closed_class_state_indices"] == [[12]]
+    assert recurrent["nontrivial_recurrent_restriction_available"] is False
+
+
+def test_support_graph_audit_detects_closed_classes():
+    import collar_matrix_realization_probe as probe
+
+    matrix = [
+        [0.5, 0.5, 0.0],
+        [0.5, 0.5, 0.0],
+        [0.0, 1.0, 0.0],
+    ]
+    assert probe.closed_communicating_classes(matrix) == [[0, 1]]
 
 
 def test_realization_probe_pins_enforced(monkeypatch, tmp_path):

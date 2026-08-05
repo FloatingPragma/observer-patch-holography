@@ -47,6 +47,54 @@ surface for the OPH consensus layer. Contents:
   alphabet, its orbit classification, source counting, and temporal freedom
   remain proposed A1-R/A2-R inputs rather than conclusions of the current
   basis.
+- A sorry-free V2 A1 ontology ledger in `Time/TimeOrderLedger.lean`.
+  Universe closure, repair execution order, observer record order, modular
+  parameter, worldline realization, clock readout, proper-time interval, and
+  the optional global-time branch have separate types, and all 56 ordered
+  transitive coercions between distinct layers fail. Explicit interpretations
+  use `NamedRealizationMap` without an implicit function coercion.
+  The module also proves positive affine regraduation preserves strict clock
+  monotonicity and that record order does not fix a clock origin. It supplies
+  no worldline, physical calibration, global time function, or modular-time
+  identification. See `A1_TIME_ORDER_LEDGER.md`.
+- A sorry-free B1 public-record package in
+  `EventAlgebra/PublicRecordAlgebra.lean` and
+  `EventAlgebra/NoBroadcastingAdapter.lean`. The span of a projective
+  partition is a commutative star subalgebra exactly equivalent to complex
+  functions on its nonzero labels. A common linear isometry that sharply
+  copies two distinct states from one normalized blank forces them to be
+  orthogonal. The mixed-state no-broadcasting implication is an explicit adapter
+  premise, not a theorem of the package. See `B1_PUBLIC_RECORD_ALGEBRA.md`.
+- A sorry-free A3 root interface in `Tower/ConsensusTower.lean`. One directed
+  tower packages finite observer and record fibers, A1 record orders, private
+  matrix algebras, commutative public subalgebras, selected states and
+  generators, and explicit functorial refinement laws. State compatibility is
+  the contravariant trace-pairing restriction equation. A constant adaptor
+  packages an existing projective partition and certified state with discrete
+  order and zero generator. It constructs no nonconstant source tower,
+  public-world endpoint, causal net, geometry, clock, or continuum limit. See
+  `A3_CONSENSUS_TOWER.md`.
+- A sorry-free B2 finite publicization package in
+  `EventAlgebra/PartitionAverageCP.lean`,
+  `EventAlgebra/TwoScalePublicRepair.lean`,
+  `Thermodynamics/PoissonizedRepair.lean`,
+  `Thermodynamics/PoissonizedRepairOperatorExp.lean`, and
+  `Dynamics/ConditionalExpectationGenerator.lean`. It proves normalized
+  averaging Kraus data, trace preservation, exact residual relaxation and
+  semigroup laws, a generator flow equation, the literal bounded-operator
+  exponential formula, the projector-rate matrix dissipator identity, and the
+  stable commutant. The formal CP/CPTP predicate, multi-collar no-cancellation
+  proof, source-derived rate, clock, and physical channel are not supplied. See
+  `B2_PUBLICIZATION_DYNAMICS.md`.
+- A sorry-free bounded B3 public/private dynamics package in
+  `Dynamics/PublicMarkov.lean` and `Dynamics/PrivateInner.lean`. Positive
+  unital active-record maps are exactly row-stochastic kernels, continuous
+  label-permutation flows are trivial, every automorphism of one finite full
+  private matrix block is unitarily inner, and a fixed self-adjoint Hamiltonian
+  gives a unitary real-parameter von Neumann flow. Classification of arbitrary
+  public star automorphisms as label permutations, arbitrary central-block
+  decomposition, and the converse continuous-group-to-Hamiltonian theorem are
+  open in issue #679. See `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
 - A sorry-free integer completion bridge in
   `ObserverPatchHolography/DirectedSeamRepair.lean`. It proves total-sector
   preservation, the exact parity residual, equality of the two-direction

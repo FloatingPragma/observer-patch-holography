@@ -11,9 +11,11 @@ fields, a gauge group, and a table of measured constants. OPH begins with
 observers: bounded systems that carry local state, read part of themselves and
 their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
-reconstructs an exact finite structural core: quantum event rules, the four
-laws of thermodynamics, three-dimensional space and observer-local time built
-out of repair records, Lorentz kinematics on the stated global-support branch,
+reconstructs an exact finite structural core: conditional quantum-record
+identities, a conditional finite four-law package, a three-dimensional
+observer-frame carrier, and explicit order/clock interfaces that do not
+instantiate a physical observer-local time. It also derives Lorentz kinematics
+on the stated global-support branch,
 the Standard Model gauge Lie type, and a conditional one-generation exterior
 matter pair.
 
@@ -91,35 +93,57 @@ certificates:
    and the [signature data and regeneration scripts](evidence/einstein_convergence/).
 2. **Quantum rules on public records.** Consensus picks out the algebra of
    records that survive comparison, and on a separately declared finite
-   algebra-state representation its projectors obey Born probabilities, Lüders
-   conditioning, and the Tsirelson bound. Physically this would mean quantum
-   probability is the arithmetic of what observers can jointly write down, with
-   no extra postulate needed. The declared spinor branch has an exact finite
+   algebra-state representation the public span is exactly the function
+   algebra on its nonzero record labels. Its projectors obey Born probabilities,
+   Lüders conditioning, and the Tsirelson bound; one isometric sharp copier can
+   copy distinct alternatives only when they are orthogonal. The mixed-state
+   no-broadcasting implication remains an explicit adapter premise. Finite
+   publicization has normalized Kraus and trace identities plus an exact
+   relaxation semigroup and literal bounded-operator exponential formula, but
+   no formal CP/CPTP channel, source-derived rate, or physical clock is claimed.
+   Positive unital active-record maps are exactly row-stochastic kernels. A
+   continuous label-permutation flow is trivial, whereas automorphisms of one
+   finite full private matrix block are unitarily inner and a supplied
+   self-adjoint Hamiltonian gives the real-parameter von Neumann flow. The
+   classification of arbitrary public star automorphisms as label permutations,
+   central-block algebras, and the converse generator theorem are not supplied.
+   Conditionally, this identifies quantum probability with the arithmetic of
+   what observers can jointly write down on the declared algebra-state surface.
+   The declared spinor branch has an exact finite
    candidate at $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$, past the classical limit,
    for a setting family the source does not select, so it is not a physical
    Bell prediction. See
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), the
-   [consensus paper](paper/reality_as_consensus_protocol.pdf), and the
-   [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
+   [consensus paper](paper/reality_as_consensus_protocol.pdf), the
+   [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), the
+   [sharp copying boundary](Lean/EventAlgebra/NoBroadcastingAdapter.lean), and
+   the [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
    [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **The four laws of thermodynamics come out as theorems.** Axiom 3 read on
-   states selects the Gibbs family; read on transitions it selects the repair
-   kernel of the consensus construction, which contracts relative entropy to
-   the reference. That one contraction is the second law, with Clausius
+3. **The four laws form a conditional finite theorem package.** Once a common
+   faithful source reference and the repaired-visible fibre are supplied, the
+   state and transition instantiations of Axiom 3 give the Gibbs family and the
+   conditional-resampling kernel. That kernel contracts relative entropy to
+   the reference. The contraction is the second law, with Clausius
    $\Delta S\geq\beta Q$ and the Landauer erasure bound as corollaries. Equal
    inverse temperatures at contact give the zeroth law, the exact split
    $dU=\delta Q+\delta W$ gives the first, and a finite gap bound on the
-   excited Gibbs mass gives the third. Physically this would mean
-   thermodynamics is not imported into the theory; it is what repair does to
-   records. Energy and clock calibration is one of five open physical
-   receipts. See the
+   excited Gibbs mass gives the third. If all five source and physical receipts
+   close, the finite thermodynamic identities follow from the instantiated
+   observer model rather than a separate thermodynamic postulate. No energy or
+   clock calibration is supplied. Faithful stationarity suffices for the contraction even without
+   detailed balance. The bounded source-matrix audit isolates an eight-state
+   nonreversible stationary H-theorem probe, while its constant record-family label and
+   unidentified common reference leave the physical realization open. It
+   emits no prediction. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean proofs of
    [conditional repair](Lean/Thermodynamics/FiniteConditionalRepair.lean),
+   [stationary realization](Lean/Thermodynamics/StationaryRealization.lean),
    the [first-law split](Lean/Thermodynamics/FirstLawIdentity.lean), and the
    [fluctuation theorems](Lean/Thermodynamics/FluctuationTheorems.lean), the
    [exact-rational certificate](code/thermodynamics/conditional_repair_certificate.py)
    with its [receipt](code/thermodynamics/runtime/conditional_repair_receipt.json),
-   and the [open physical receipts](https://github.com/FloatingPragma/observer-patch-holography/issues/671).
+   the [bounded source-matrix receipt](code/thermodynamics/runtime/collar_matrix_realization_probe.json),
+   and the [open physical receipts](https://github.com/FloatingPragma/observer-patch-holography/issues/688).
 4. **The Standard Model gauge group from twelve ports.** Complete reversible
    port response and endogenous overlap transport force
    $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, with maximal
@@ -215,7 +239,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 2000 theorems and lemmas and no
+The supporting Lean library contains more than 2100 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
@@ -592,7 +616,7 @@ assumes and what is missing.
 | --- | --- | --- |
 | Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | Conditional quantum event surface | Consensus selects the finite commuting public-record algebra. Given a declared finite algebra-state and two-wing representation, its projectors obey Born probabilities, Lüders conditioning, and the Tsirelson bound. A declared binary-icosahedral spinor branch has an exact finite candidate with $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Its setting family and completed two-wing instrument are not source-selected, so this is not a physical Bell prediction | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) and the [exact candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
-| Four laws of thermodynamics | Axiom 3 on states gives the Gibbs family by the exact information-projection Pythagorean identity; on transitions over the repaired-visible fibre it gives the consensus repair kernel, which is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges. Relative entropy to the reference contracts under it, giving the second law with Clausius $\Delta S\geq\beta Q$ and Landauer as corollaries; equal inverse temperatures at additive contact give the zeroth law; the exact $dU=\delta Q+\delta W$ split gives the first law; the excited Gibbs mass bound gives entropy limit $\log g_0$ and finite-step unattainability. The strict-descent normalizer carries no entropy inequality. Five physical receipts stay open, including energy and clock calibration | [Observers are all you need](paper/observers_are_all_you_need.pdf) and the [conditional-repair certificate](code/thermodynamics/conditional_repair_certificate.py) |
+| Conditional finite four-law package | With a faithful reference and repaired-visible fibre supplied, the two Axiom 3 instantiations give the Gibbs family and the consensus repair kernel. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges. Relative entropy to the reference contracts under it, giving the second law with Clausius $\Delta S\geq\beta Q$ and Landauer as corollaries; equal inverse temperatures at additive contact give the zeroth law; the exact $dU=\delta Q+\delta W$ split gives the first law; the excited Gibbs mass bound gives entropy limit $\log g_0$ and finite-step unattainability. The strict-descent normalizer carries no entropy inequality. Five source and physical receipts stay open, including energy and clock calibration | [Observers are all you need](paper/observers_are_all_you_need.pdf) and the [conditional-repair certificate](code/thermodynamics/conditional_repair_certificate.py) |
 | Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting signed seam operator has a rigorously positive finite-domain gap; the numerical refinement is 0.1175367. This operator is distinct from the compact-gauge repair generator used in the conditional Yang–Mills branch. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
 | Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |

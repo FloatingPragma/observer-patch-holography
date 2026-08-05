@@ -414,6 +414,27 @@ cocycles, non-isomorphic semantic history DAGs across executors, or clock residu
 declared bound. Implementation field names alone are not the proof.
 \end{remark}
 
+The formal time-and-order ledger enforces this boundary at the type level.
+Universe closure, repair execution order, observer record order, modular
+parameter, worldline realization, clock readout, proper time, and an optional
+global time function are eight separate structures. In the committed source
+environment, the complete matrix of 56 ordered transitive coercions between
+distinct ledger layers fails to elaborate. Interpretations pass through an
+explicitly named realization map without a function coercion. Positive affine regraduation preserves strict clock
+monotonicity, while a nonzero offset produces a distinct readout whenever the
+record type is inhabited. Record order therefore fixes neither a clock origin
+nor a physical unit. The ledger constructs no worldline, calibrated clock,
+proper-time limit, global time function, or modular-to-clock identification.
+
+The companion formal tower interface packages the next structural layer in
+one object: finite observer and record fibres, observer-indexed record orders,
+private matrix algebras, commutative public subalgebras, selected states and
+generators, and functorial refinement maps with explicit compatibility laws.
+An exact constant adaptor packages one existing projective partition and
+certified state using a discrete order and zero generator. This is an
+inhabited packaging witness, not a nonconstant source-derived tower, repair
+endpoint, causal net, physical evolution, geometry, clock, or continuum limit.
+
 This definition does not fix the primitive observer size. The axioms require finite or regulated
 access at fixed cutoff and permit connected support regions with different finite or regulated
 algebras. A primitive observer may therefore be a variable finite federation of screen cells. The
@@ -1208,12 +1229,32 @@ Physical phase locking is a candidate implementation bridge to overlap repair; n
 it with transactional confluence, modular flow, or an observer clock. \\
 \addlinespace
 Finite event algebra &
-For nonselective projective pinching,
-\(S(\mathcal E\rho)-S(\rho)=D(\rho\Vert\mathcal E\rho)\ge0\).  This identity is separate from a
-normalized selective L\"uders branch. &
-The projective partition and input state are finite source data.  The entropy identity is an
-analytic matrix proof outside the current Lean export; the pinching and trace identities it uses
-belong to the machine-checked core. \\
+The span of a projective record partition is a commutative star subalgebra
+exactly star-isomorphic to complex functions on its nonzero projector labels.
+A common linear isometry can copy two distinct sharp states from one
+normalized blank only when they are orthogonal. Partition pinching and partition
+averaging have explicit normalized Kraus families and preserve trace. The
+two-scale public relaxation and Poissonized repair families obey exact
+semigroup laws, and on bounded endomorphisms of a real Banach space the latter
+is exactly \(\exp[t\gamma(E-I)]=E+e^{-\gamma t}(I-E)\). Positive unital maps
+of the active-record function algebra are exactly real row-stochastic kernels,
+and a continuous permutation flow of the finite record labels is trivial. On
+one finite full private matrix block, every star automorphism is unitarily
+inner, while a fixed self-adjoint Hamiltonian gives a unitary real-parameter flow
+obeying the von Neumann equation. For nonselective projective pinching,
+\(S(\mathcal E\rho)-S(\rho)=D(\rho\Vert\mathcal E\rho)\ge0\); this identity is
+separate from a normalized selective L\"uders branch. &
+The projective partition and input state are finite source data. The full
+mixed-state no-broadcasting implication enters through an explicit adapter.
+The Lean interface defines no complete-positivity predicate or bundled
+channel, so its formal claims are Kraus normalization, Kraus form, and trace
+preservation rather than CP or CPTP. The operator-exponential theorem supplies
+no source rate or physical clock. The public-flow obstruction assumes a label
+permutation flow and does not classify arbitrary public star automorphisms as
+such. The private theorem covers one simple full block and does not
+derive a coherent Hamiltonian from an arbitrary continuous automorphism group.
+The entropy identity is an analytic matrix proof outside the Lean export. No
+physical rate or clock is attached. \\
 \addlinespace
 Boltzmann transport &
 Convergence of the discrete generators to the null Hamiltonian vector field, vanishing carré du
@@ -1567,13 +1608,13 @@ mathematical ingredients and the cardinality obstruction are elementary or
 standard; an OPH-specific result begins only after one source object
 discharges these bridge and realization premises.
 
-\subsection{Thermodynamics from conditional repair in observer modular time}
+\subsection{Thermodynamics from conditional repair in an observer modular parameter}
 \label{sec:thermodynamics}
 
-The framework derives the four laws of thermodynamics on the finite
-regulator stage from one repaired distinction and two instantiations of
-Axiom~3, with every remaining physical attachment named as an open
-receipt. Three maps stay distinct. The strict-descent normalizer settles
+On one finite regulator stage, the four laws form a conditional theorem
+package once one repaired distinction and two compatible instantiations of
+Axiom~3 are supplied. Five named source and physical receipts are unsupplied.
+Three maps stay distinct. The strict-descent normalizer settles
 public facts; it is terminating and idempotent and carries no entropy
 inequality, and the two-point normalizer \(a\mapsto b\), \(b\mapsto b\)
 sends the uniform law to a deterministic law, dropping Shannon entropy
@@ -1632,9 +1673,10 @@ and the entropy limit is \(k_B\log g_0\). The repair kernel preserves
 full support, since every diagonal entry is positive, while the
 zero-temperature state is rank deficient for \(g_0<d\); finitely many
 repair or pinching steps therefore cannot reach it, which is the
-fixed-regulator third law. Public quantum records commit through a
-completely positive channel: the partition projectors are their own
-Kraus family, and the record tower
+fixed-regulator third law. Public quantum-record pinching and averaging have
+explicit normalized Kraus families and preserve trace. The formal library
+defines no complete-positivity predicate or bundled channel, so this result is
+reported as Kraus and trace identities. The record tower
 \(S(\rho)\le S(\mathcal E_\pi\rho)\le S(\mathcal A_\pi\rho)\)
 separates conditioned learning from the nonselective commit, so
 observers convert uncertainty into correlations and durable records
@@ -1750,12 +1792,40 @@ first-law premises, and the Kraus completeness of
 partition pinching; the modules are \texttt{FiniteConditionalRepair},
 \texttt{FirstLawIdentity}, \texttt{FluctuationTheorems},
 \texttt{GreenKubo}, \texttt{GraphDiffusion}, \texttt{CapFirstLaw},
-\texttt{EinsteinPremiseLink}, and
+\texttt{EinsteinPremiseLink}, \texttt{StationaryRealization}, and
 \texttt{PartitionPinchingCP} in the
 Lean thermodynamics and event-algebra libraries, and the exact-rational
 certificate replays the kernel algebra and fluctuation identities and
 records the entropy checks
-\cite{ophrepo}. Five receipts stay open and typed: the global
+\cite{ophrepo}. The source-realization interface needs less than
+reversibility: every stochastic kernel that preserves a faithful
+reference contracts relative entropy to that reference. Detailed balance is
+not a premise. The exact lazy directed three-cycle is stationary and violates
+detailed balance, yet satisfies this second law; the Lean module
+\texttt{StationaryRealization} proves the separation. Detailed fluctuation
+relations and Onsager reciprocity therefore remain additional receipts rather
+than consequences of entropy descent.
+
+The pinned source-counted collar table has also been exhausted at its committed
+resolution. All \(2^4-1=15\) nonempty field-subset projections of its four
+committed packet fields were audited on \(1028\) observers and \(31744\) counted
+transitions, without an additional observer-patch run. The repair-load
+quotient is an eight-state raw chain that is irreducible and aperiodic and has
+a full-support stationary law. On the committed floating-point table its detailed-balance
+defect is \(2.009924089\times10^{-4}\); from the uniform initial law the sampled
+relative entropy falls from \(5.00947\) to \(1.84009\) over sixteen steps. This
+is a nonreversible finite H-theorem probe, not a microscopic-reversibility
+receipt. It does not close the realization: the only observed record-family
+value makes protected-charge preservation vacuous, and the stationary law is
+not identified with the state optimizer's source reference. On the fine
+twenty-state quotient the only closed communicating class is the singleton
+freezeout state, so the alternative recurrent-class restriction is a trivial
+equilibrium rather than a nontrivial relaxation model. This exhaustive no-go
+removes further quotient hunting on the same artifact from the critical path;
+a nontrivial realization requires changed source dynamics or a bounded
+run with a nonconstant protected record.
+
+Five receipts stay open and typed: the global
 representation of the weighted local objective for both optimizer
 instantiations; the common source-derived reference shared by state and
 transition optimizers, which forbids manufacturing the transition
@@ -1772,12 +1842,12 @@ refinement-uniform gap control for a continuum third law. The
 derivation carries a structural point worth stating plainly: every
 proof in the package is short and elementary once the framework
 supplies its two inputs, the repair fibre as the transition feasible
-set and the reference shared with the state optimizer. The four laws
-cost the framework no additional axiom and no deep theorem; the work
-lies in the decomposition, which the certified strict-descent
-counterexample shows is forced. Under the named receipts and no further
-assumption, ordinary thermodynamics is a theorem of the observer axioms
-rather than an import.
+set and the reference shared with the state optimizer. The four-law
+identities then require no additional thermodynamic axiom or deep theorem;
+the work lies in the decomposition, which the certified strict-descent
+counterexample shows is necessary. Once the named receipts are discharged,
+ordinary finite thermodynamic identities follow from the instantiated
+observer model rather than being postulated separately.
 
 \section{Physical Implementation and \(A_5\)/\(E_8\) Significance}
 

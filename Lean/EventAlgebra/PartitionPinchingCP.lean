@@ -5,28 +5,27 @@ namespace EventAlgebra
 open Matrix
 
 /-!
-# Complete positivity of partition pinching
+# Explicit Kraus data for partition pinching
 
 The pinching map `X ↦ ∑ i, Pᵢ X Pᵢ` of a projective partition is
 proven linear, unital, positive, trace preserving, and trace
 self-adjoint in the parent module. This module adds the Kraus data:
 the partition projectors themselves form a Kraus family whose
 completeness relation is the partition completeness, and the map acts
-by Kraus conjugation, the standard witness of complete positivity.
-The module formalizes the two Kraus identities; the complete-positivity
-statement itself follows from them by the standard Kraus argument and
-is not separately formalized. Public quantum records therefore commit
-through a channel in manifest Kraus form, closing the channel-form gap
-of the thermodynamic completion program at the level of the Kraus
-identities.
+by Kraus conjugation.  The module formalizes these two Kraus identities
+but does not define or prove a finite complete-positivity predicate and does
+not bundle the map as a CPTP channel.  The result is therefore reported as
+explicit Kraus syntax plus the independently proved trace-preservation
+identity, not as a formal CP or CPTP theorem.
 -/
 
 variable {n k : ℕ}
 
 /-- The partition projectors are a complete Kraus family:
 `∑ i, Pᵢᴴ Pᵢ = 1`. Together with the manifest Kraus form
-`partitionPinching part X = ∑ i, Pᵢ X Pᵢᴴᴴ`, this exhibits pinching as
-a completely positive trace-preserving channel. -/
+`partitionPinching part X = ∑ i, Pᵢ X Pᵢᴴ`, this is the exact normalization
+identity used by the standard Kraus argument.  No CP predicate is asserted
+by this theorem. -/
 theorem ProjectivePartition.kraus_complete
     (part : ProjectivePartition n k) :
     ∑ i, (part.proj i)ᴴ * part.proj i = 1 := by
