@@ -22,11 +22,19 @@ map. This is the Heisenberg observable convention. It does not assert that
 the kernel is doubly stochastic or that a Schrödinger-picture state map uses
 the same row convention.
 
-`ContinuousPermutationFlow.toPerm_eq_refl` proves that every coordinatewise
-continuous real one-parameter permutation flow on a discrete record set is
-the identity. The proof uses connectedness of the real line and discreteness
-of the label set. The group law is part of the interface, although the
-continuity obstruction does not need it.
+`Dynamics/PublicAutomorphism.lean` strengthens the original supplied-flow
+obstruction in two steps. `publicStarAutomorphism_is_labelPermutation` proves
+that every star-algebra automorphism of the finite public function algebra is
+uniquely pullback by a permutation of the active labels. The proof classifies
+the images of the orthogonal record-basis idempotents pointwise and does not
+assume positivity as extra data. `ContinuousPublicStarFlow.toAut_eq_refl`
+then proves that every pointwise-continuous real-parameter group of arbitrary
+public star automorphisms is the identity. Operator continuity makes the
+classified label locally constant, and connectedness of the real line fixes
+it at its value at zero.
+
+`ContinuousPermutationFlow.toPerm_eq_refl` is the smaller supplied-label
+interface and follows the same connectedness/discreteness principle.
 
 `Dynamics/PrivateInner.lean` proves three private-block results:
 
@@ -54,12 +62,11 @@ projective-partition public subalgebra. A bundled ordered or positive map on
 the matrix subalgebra is not constructed here. Complete positivity is not
 part of the theorem interface.
 
-The continuity obstruction is proved for label permutations. A theorem that
-classifies every star-algebra automorphism of a finite function algebra as a
-label permutation is not included. Consequently the receipt supports
-continuous reversible dynamics once the reversible public action is supplied
-as a label-permutation flow; it does not silently replace an arbitrary
-automorphism flow by such data.
+The public classification is complete for the exact finite function
+algebra, and the continuous obstruction starts from arbitrary pointwise-
+continuous public star automorphisms rather than a supplied permutation flow.
+Transport to the ordered matrix subalgebra uses the B1 star-algebra
+equivalence; no source law or physical clock is introduced.
 
 The private innerness theorem covers one full endomorphism algebra, hence one
 simple matrix block. It does not classify an arbitrary finite-dimensional
@@ -76,7 +83,7 @@ ambiguity, or derive one time-independent self-adjoint generator. The pinned
 Mathlib tree exposes no packaged finite-dimensional Stone theorem for this
 lift. The explicit fixed-Hamiltonian flow has the unitary and von
 Neumann receipts, but the converse from an arbitrary continuous automorphism
-group remains open.
+group is an open obligation.
 
 No source rule selects a stochastic kernel, Hamiltonian, time scale, or
 physical clock. These results establish the finite algebraic dichotomy under
@@ -84,9 +91,9 @@ declared dynamical data and do not constitute a physical prediction.
 
 ## Closure classification
 
-The public stochastic classification, public continuity obstruction, simple
-private-block innerness theorem, fixed-Hamiltonian unitary flow, and von
-Neumann differential equation are attained without admissions. Issue 679 is
-open for classification of arbitrary public star automorphisms as label
-permutations, the arbitrary finite central-block decomposition, and the
-converse continuous-group-to-Hamiltonian theorem.
+The public stochastic classification, arbitrary-public-automorphism
+classification and continuity obstruction, simple private-block innerness
+theorem, fixed-Hamiltonian unitary flow, and von Neumann differential equation
+are attained without admissions. Issue 679 is open only for the
+arbitrary finite central-block decomposition and the converse continuous-
+group-to-Hamiltonian theorem.

@@ -261,9 +261,13 @@ is Jaynes's die, played across a federation of patches at once.
 ### Where the Four Laws Come From
 
 Chapter 4 treated thermodynamics as a hint, a set of laws discovered from
-engines and gases and then found to be about information. With a common
-source reference, a repaired-visible fibre, and explicit energy and clock
-attachments, the third axiom yields a conditional finite theorem package.
+engines and gases and then found to be about information. At one finite
+regulator stage, the third axiom yields a conditional theorem package only
+after the weighted local objective has a global representation, one faithful
+source reference is shared by the state and transition problems, and the
+active source collar realizes the complete repaired-visible fibre. Physical
+energy and clock calibration and refinement-uniform low-temperature control
+are separate receipts, not consequences of that finite package.
 
 Read the axiom on states with its supplied faithful reference and it selects
 the Gibbs family, the exponential
@@ -301,10 +305,15 @@ the apparent conservation test is empty. This table supports the finite
 stationary-kernel calculation. It supplies neither a common state-and-transition
 reference nor a physical energy or clock calibration.
 
-The finite theorem package therefore does not import thermodynamics as an
-extra axiom, but its physical interpretation is conditional. The energy scale
-and clock rate require calibration. The global objective, common source
-reference, and collar realization require independent source receipts. Until
+The finite theorem package therefore does not import thermodynamic identities
+as an extra axiom, but its physical interpretation is conditional. Five
+receipts remain explicit: a global representation of the weighted objective;
+one source-derived reference shared by both optimizers; realization of the
+conditional-resampling kernel on the complete repaired-visible fibre by the
+source-collar transition matrix; physical energy and clock calibration; and
+refinement-uniform low-temperature control for a continuum third law.
+Stochasticity, stationarity, and charge preservation alone establish only the
+weaker stationary H-theorem branch and do not close the third receipt. Until
 all five are supplied, this is not a thermometer reading.
 
 ## 11.6 Time on the Holographic Screen

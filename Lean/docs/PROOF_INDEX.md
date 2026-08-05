@@ -18,16 +18,20 @@ Mapping between Lean 4 theorems in this project and statements in
 
 ## Completion summary
 
-- **Definition 4.1 infrastructure: 9 / 11 item families built.** The carrier
+- **Definition 4.1 infrastructure: 11 / 11 formal item families built.** The carrier
   patch field, records, observable overlap data, repair sites, local and global
   repair, mismatch potential, gauge relation, equivalence proof, and repair
-  congruence are admission-free. The paper-level terminal-normal-form quotient
-  and `World` construction remain open.
-- **Proposition 4.2 endpoint: open.** Strict descent, reachability,
-  normal-form production, and termination are proved for the constructed
-  repair. Confluence and completeness are explicit properties rather than
-  universal conclusions. The public-world fixed-point and schedule-independence
-  composition on the physical quotient remain open.
+  congruence are admission-free. A4 adds the literal kernel quotient,
+  descended repair map, fixed-point object, and typed tower/primitive adaptors.
+- **Proposition 4.2 endpoint: bounded conditional theorem attained.** Strict
+  descent and termination construct a completed finite schedule; confluence,
+  semantic completeness, and output/enabledness quotient congruence imply one
+  consistent public endpoint across completed schedules and gauge-equivalent
+  representatives. The actual constructed `OPH.Repair` descends to an
+  idempotent representative-independent quotient map. No exhibited source
+  instance satisfies the full schedule-independence packet, and `demoLR` is
+  nonconfluent, so no source-realized physical world or global uniqueness is
+  claimed.
 - Abstract-rewriting skeleton (preliminary): 5 / 5 proofs → 100%
 - OPH primitive and constructed-repair layer: admission-free. This status does
   not assert universal confluence or completeness.
@@ -97,6 +101,18 @@ Mapping between Lean 4 theorems in this project and statements in
   projective partition and state with discrete order and zero generator. No
   nonconstant source tower, repair endpoint, causal net, channel, geometry,
   clock, or continuum limit follows. See `A3_CONSENSUS_TOWER.md`.
+- A4 finite public-world quotient and endpoint
+  (`Tower/PublicWorldQuotient.lean`, `Tower/FixedPointEndpoint.lean`):
+  admission-free finite quotient and rewriting theory. The public world is the
+  kernel quotient of an explicit readback and is equivalent to its realized
+  signature range. Existing `OPH.Records`, `obsMap`, `localRepair`,
+  `acceptedStep`, `Repair`, termination, and gauge congruence are adapted
+  directly. The canonical repair descends and is idempotent. Full semantic,
+  schedule, and representative independence requires explicit H1--H3,
+  confluence, quotient output/enabledness congruence, and a completed finite
+  schedule. Countermodels show that confluence, completion, and quotient
+  congruence cannot be dropped. `CompletedSchedule` is not infinite scheduler
+  fairness. See `A4_PUBLIC_WORLD_ENDPOINT.md`.
 - B2 finite publicization dynamics
   (`EventAlgebra/PartitionAverageCP.lean`,
   `EventAlgebra/TwoScalePublicRepair.lean`,
@@ -113,17 +129,53 @@ Mapping between Lean 4 theorems in this project and statements in
   explicit no-cancellation premise. No formal CP/CPTP predicate, physical rate,
   clock, or source channel follows. See `B2_PUBLICIZATION_DYNAMICS.md`.
 - B3 finite public/private dynamics (`Dynamics/PublicMarkov.lean`,
-  `Dynamics/PrivateInner.lean`): sorry-free finite algebra and analysis. Under
+  `Dynamics/PublicAutomorphism.lean`, `Dynamics/PrivateInner.lean`): sorry-free
+  finite algebra and analysis. Under
   an explicit coordinatewise cone, positive unital complex-linear maps of the
   active-record function algebra are exactly real row-stochastic kernels.
-  Continuous real one-parameter permutation flows of discrete record labels
-  are trivial. Every star-algebra automorphism of one finite-dimensional full
+  Every public star-algebra automorphism is uniquely pullback by a permutation
+  of the active labels, so every pointwise-continuous real-parameter group of
+  arbitrary public star automorphisms is trivial. Every star-algebra
+  automorphism of one finite-dimensional full
   endomorphism block is unitarily inner; a fixed self-adjoint Hamiltonian gives
   a unitary exponential and the real-parameter von Neumann equation. This does
-  not classify arbitrary public star automorphisms as label permutations,
-  classify arbitrary finite central-block algebras, or derive one coherent
+  not classify arbitrary finite central-block algebras or derive one coherent
   Hamiltonian from an arbitrary continuous automorphism group. See
   `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
+- B11 finite Born-frame audit (`EventAlgebra/FiniteBornFrame.lean`): the
+  declared six antipodal binary contexts have an exact six-parameter additive
+  weight space. Lean proves the three-parameter coordinate image cut out by
+  three golden-ratio relations, uniqueness within that image, and an exact
+  admissible nonrepresentation control. The separate exact producer and
+  independent verifier certify the actual icosahedral projector/Bloch matrix
+  interpretation and the represented nonpositive-matrix control. The source
+  supplies no completed public quantum-effect producer, so this is a bounded
+  no-go rather than a Born-rule derivation. See
+  `../code/born_frame/README.md`.
+- C1 canonical Lorentz module (`Geometry/CanonicalLorentzModule.lean`,
+  `Geometry/CelestialNullCone.lean`, `Geometry/ObserverFrameHyperboloid.lean`,
+  `Geometry/ObserverRestSpace.lean`, `Geometry/EinsteinTensorBridge.lean`):
+  admission-free finite-dimensional real algebra. Hermitian two-by-two matrices
+  have unique Pauli coordinates; determinant has the explicit `(+---)` form;
+  future null rays modulo positive scale are set-equivalent to the unit
+  two-sphere; the algebraic future-unit hyperboloid has three-dimensional
+  positive-definite orthogonal rest spaces. An explicit real-linear chart into
+  `OPH.EinsteinBranch.V 3` proves exact sign conversion to `quadOf (eta 3)` and
+  identical null cones. No source selection, event soldering, topology/smooth
+  structure, physical spacetime, clock, rod, or continuum limit follows. See
+  `C1_CANONICAL_LORENTZ_MODULE.md`.
+- E1 finite observer-net advance (`QFT/FiniteCausalObserverNet.lean`,
+  `QFT/ObserverNetDescent.lean`): admission-free proof-carrying interfaces for
+  finite region posets, isotony, declared locality, local repair, compatible
+  tower states, nonempty finite subregion families, and unique restriction
+  gluing. `FiniteCover` contains no joint-coverage law. B2 relaxation is wired
+  through explicit premises; the generic B4 basis-split identity has no proved
+  regional-factor attachment. The parameterized consistency model assigns the
+  same commutative public algebra to every region, and the star-homomorphic
+  restrictions are strong extra data rather than ordinary AQFT-net structure.
+  A closed noncommutative or source-attached regional net, genuine coverage,
+  and factor localization are open obligations. See
+  `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and
   counterexamples. It proves $L=2|E|(I-R)$ for the uniform repair response,
@@ -1166,24 +1218,25 @@ bound is shipped as an inequality only. Mathlib's
 `Mathlib/Algebra/Star/CHSH.lean` provides the complementary *order-form*
 `tsirelson_inequality`; the norm form here reuses its `IsCHSHTuple`.
 
-## Gap analysis: constructed repair to theorem-grade Proposition 4.2
+## Endpoint audit: constructed repair to theorem-grade Proposition 4.2
 
 (Revised per math-seat audit 2026-05-19.)
 
 | Lean layer | Status and remaining endpoint | Paper anchor |
 |---|---|---|
-| `Records`, `Site`, `localRepair`, `acceptedStep`, `Repair` | Constructed and admission-free. The public quotient of terminal records remains open. | lines 28–31, 297 |
-| `NormalForm`, `Repair_normalForm`, `Repair_reachable` | One choice-canonical repair reaches a normal form. A schedule-independent `NF` on the physical quotient remains open. | line 297; OPHConsensus §3 |
+| `Records`, `Site`, `localRepair`, `acceptedStep`, `Repair` | Constructed and admission-free. A4 uses these literal primitives in its raw presentation and labelled repair system. | lines 28–31, 297 |
+| `NormalForm`, `Repair_normalForm`, `Repair_reachable` | One choice-canonical repair reaches a normal form; A4 proves that its quotient map is well defined, idempotent, and gauge-representative-independent. | line 297; OPHConsensus §3 |
 | `Φ`, `lyapunovDescent_holds`, `termination_holds` | Exact mismatch formula, strict descent, and termination are proved. | line 300; OPHConsensus Lyapunov proposition |
 | `gaugeEquiv`, `gaugeEquiv_equivalence` | The declared gauge relation and its equivalence proof are built. | line 311 |
 | `repair_respects_gauge` | Repair congruence is proved on declared overlap data. | line 327 ("on the physical quotient") |
-| `Confluence`, `Completeness` | Both are typed OPH properties. Their truth is premise-specific; no universal proof is asserted. | line 326; OPHConsensus completeness assumption |
-| No `World` declaration | Construct `World = NF(x) / ∼_gauge` with a well-defined descended repair. | lines 305–313 |
-| Abstract confluence and normal-form theorems | Transfer them to the structured accepted-step relation and prove schedule independence directly on the physical quotient. | lines 326–327 |
-| No public-world fixed-point theorem | Prove `World ∈ Fix(Repair)` and `Repair(World) = World` for the constructed quotient. | lines 321–328 |
+| `Confluence`, `Completeness` | Both remain premise-specific. A4 composes them with H1--H3 termination/completeness and explicit quotient congruence; no universal truth is asserted. | line 326; OPHConsensus completeness assumption |
+| `PublicWorld`, `FixedPointObject`, descended `publicRepair` | Constructed as the literal readback-kernel quotient; the endpoint map is well defined and idempotent. | lines 305–313 |
+| Conditional schedule independence | Completed schedules agree under confluence; completed schedules from gauge-equivalent representatives have the same public endpoint under output and enabledness congruence. | lines 326–327 |
+| Source-realized global endpoint | Open. No exhibited instance combines the A3 readback adaptor, H1--H3, confluence, both congruences, and cross-regulator naturality; `demoLR` is nonconfluent. | lines 321–328 |
 
-The last three rows form the open public-world endpoint. The preceding rows
-are implemented substrate and are not counted again as missing work.
+The finite endpoint theorem is therefore complete as a conditional
+composition. Its source realization and cross-regulator physical use remain
+open downstream obligations.
 
 ## Update protocol
 

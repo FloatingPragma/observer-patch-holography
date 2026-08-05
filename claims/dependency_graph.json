@@ -75,12 +75,16 @@
     "OPH-CONSENSUS-TOWER-INTERFACE",
     "OPH-PUBLICIZATION-DYNAMICS-FINITE",
     "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
+    "OPH-FINITE-BORN-FRAME-RANK-GAP",
     "OPH-THERMO-FOUR-LAW-PACKAGE",
     "OPH-THERMO-SOURCE-REALIZATION-AUDIT",
     "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
     "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
     "OPH-FINITE-LOCALITY-NOSIGNALLING",
-    "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS"
+    "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+    "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+    "OPH-CANONICAL-LORENTZ-MODULE",
+    "OPH-FINITE-CAUSAL-OBSERVER-NET"
   ],
   "edges": [
     {
@@ -705,6 +709,11 @@
     },
     {
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
+      "to": "OPH-FINITE-BORN-FRAME-RANK-GAP",
+      "role": "supplies the declared twelve-port incidence and central-atom manifest audited against the separate nonphysical spinor projector adapter; no public quantum-effect producer or Born-rule derivation follows"
+    },
+    {
+      "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
       "role": "supplies the exact twelve-port, thirty-seam incidence carrier; the pointwise continuity update and every physical identification remain explicit premises"
     },
@@ -722,6 +731,36 @@
       "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
       "to": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
       "role": "supplies the finite information-projection identity reused on a finite path type; the exponential history law, uniqueness, real-variation bridge, and physical action remain B7 obligations"
+    },
+    {
+      "from": "OPH-CONS-D1",
+      "to": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+      "role": "supplies the implemented Records, obsMap, gauge equivalence, local repair, accepted-step, recursive Repair, termination, and gauge-congruence primitives; A4 adds the literal quotient, fixed-point object, conditional schedule/representative theorem, and realization firewall"
+    },
+    {
+      "from": "OPH-CONSENSUS-TOWER-INTERFACE",
+      "to": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+      "role": "supplies the A3 regulator observer/record signature type; the seed and injective OPH readback encoding are additional caller receipts, and no source or cross-regulator endpoint is inferred"
+    },
+    {
+      "from": "OPH-CONSENSUS-TOWER-INTERFACE",
+      "to": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+      "role": "supplies the common finite regulator, private algebra, observer state pairing, and refinement maps decorated by E1; finite region locality and noncommutative source realization remain additional receipts"
+    },
+    {
+      "from": "OPH-PUBLICIZATION-DYNAMICS-FINITE",
+      "to": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+      "role": "supplies the exact multiplicative-amplitude relaxation formula reused for each declared local idempotent repair; CP/CPTP and physical-time meanings remain unclaimed"
+    },
+    {
+      "from": "OPH-FINITE-LOCALITY-NOSIGNALLING",
+      "to": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+      "role": "supplies the finite tensor-split Kraus no-signalling helper and its normalization boundary; E1 keeps the split as an explicit receipt and separately requires regional algebraic locality and descent"
+    },
+    {
+      "from": "OPH-CANONICAL-LORENTZ-MODULE",
+      "to": "OPH-GR-D3-CAP-H3",
+      "role": "supplies an exact intrinsic Herm2 Lorentz coordinate module, celestial future-null-ray quotient, frame hyperboloid, rest spaces, and sign-correct Einstein-coordinate bridge; the support-visible BW limit, cap realization, topology, soldering, clocks, and physical spacetime remain separate premises"
     }
   ]
 }

@@ -283,6 +283,20 @@ kinematics, and hyperbolic three-space labels the possible rest frames.
 Events, positions, and a four-dimensional spacetime require a further
 construction.
 
+There is also an exact finite-dimensional geometry underneath this picture.
+Every complex Hermitian $2\times2$ matrix has four real Pauli coordinates
+$(t,x,y,z)$, and its determinant is
+$t^2-x^2-y^2-z^2$. Positive future-directed null rays, with positive rescaling
+ignored, correspond one-to-one as sets with the unit two-sphere. Future
+unit-timelike vectors form the algebraic hyperboloid model, and the vectors
+orthogonal to any one of them form a three-dimensional Euclidean rest space
+after the sign is reversed. The coordinates match the Einstein-tensor
+convention exactly, with one overall sign change.
+
+This internal model supplies no topology, smooth structure, soldering of
+frames to events, physical frame selection, clock, or spacetime. Those
+attachments belong to the construction that follows.
+
 ### From Modular Ordering to an Observer Clock
 
 The modular-time construction begins with the ordering carried by modular flow.

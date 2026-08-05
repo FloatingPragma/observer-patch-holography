@@ -85,7 +85,7 @@
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
-      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction. The complete A1 port response and endogenous A2 carrier transport force the abstract Standard Model Lie-algebra type, while executable source-current reconstruction, matter selection, the global quotient, and the QFT-Q1--QFT-Q4 physical attachments retain separate gates. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the abstract Lie-type output with the independently reconstructed Tannaka group.",
+      "statement": "The consensus, geometry/gravity, and gauge/QFT papers share one typed observer-to-physics spine. A twelve-port local carrier boundary, a sewn federation screen of observer supports and public records, and a global support screen with an S2 refinement limit are three distinct objects. Finite federation, quotient, and public normal form are the common hinge. A source-derived noncommutative state and support tower feeds BW, event, and Einstein reconstruction. The complete A1 port response and endogenous A2 carrier transport force the abstract Standard Model Lie-algebra type, while executable source-current reconstruction, matter selection, the global quotient, and the QFT-Q1--QFT-Q4 physical attachments retain separate gates. B11's finite rank-gap no-go does not supply the source-produced positive public-effect/Born bridge; issue #702 separately gates that continuation. A common source manifest permits composition but does not identify carrier with observer, phase lock with repair consensus, local A5 incidence with global S2 support, repair with modular flow, or the abstract Lie-type output with the independently reconstructed Tannaka group.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "cross_paper_typed_composition_contract",
       "assumptions": [
@@ -94,7 +94,8 @@
         "source_bound_refinement_natural_tower",
         "separate_geometry_and_physical_current_readouts",
         "typed_local_federation_and_global_support_screens",
-        "common_manifest_without_ledger_retyping"
+        "common_manifest_without_ledger_retyping",
+        "source_produced_public_effect_algebra_deferred"
       ],
       "imported_results": [
         "finite_quotient_confluence",
@@ -117,16 +118,16 @@
       "status": "typed_composition_defined_physical_common_tower_open",
       "claim_class": "declared_structure",
       "gates": [
-        699,
         693,
         700,
         701,
-        694
+        694,
+        702
       ]
     },
     {
       "claim_id": "OPH-CONS-D1",
-      "statement": "On the declared finite patch-net hypotheses, overlap repair has a unique schedule-independent normal form from each fixed initial physical quotient state, with same-boundary uniqueness requiring the stated unique-extension condition.",
+      "statement": "On the declared finite patch-net hypotheses, overlap repair has a unique schedule-independent normal form from each fixed initial declared public quotient class, with same-boundary uniqueness requiring the stated unique-extension condition. Separately, the A4 Lean packet proves unique completed public endpoints for an explicit finite repair presentation under termination, confluence, semantic completeness, and output-plus-enabledness quotient congruence. Neither theorem identifies the declared quotient with a physical state or constructs the source-selected full premise packet.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "fixed_cutoff_structural_theorem",
       "assumptions": [
@@ -154,14 +155,17 @@
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/consensus/verify_issue_517_proof_obligations.py",
         "code/consensus/runs/issue_517_proof_obligations.json",
-        "code/consensus/test_issue_517_proof_obligations.py"
+        "code/consensus/test_issue_517_proof_obligations.py",
+        "Lean/Tower/PublicWorldQuotient.lean",
+        "Lean/Tower/FixedPointEndpoint.lean",
+        "Lean/docs/A4_PUBLIC_WORLD_ENDPOINT.md"
       ],
       "falsifier": "A nonconfluent terminal pair exists under the declared local-diamond and repair-completeness clauses.",
       "scope_if_false": "The consensus implementation theorem falls; Lorentz, gauge, and quantitative branches that import only weaker finite-cutoff ingredients must be audited separately.",
-      "status": "paper_proved_on_declared_branch__finite_reference_engine_exhausted__general_theorem_not_Lean_or_TLA_formalized",
+      "status": "paper_proved_on_declared_branch__A4_Lean_endpoint_attained__source_physical_realization_open",
       "claim_class": "conditional_implication",
       "gates": [
-        699
+        693
       ]
     },
     {
@@ -1469,38 +1473,72 @@
     },
     {
       "claim_id": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
-      "statement": "On a finite active-record function algebra, using the explicit cone of coordinatewise real nonnegative functions, complex-linear positive unital maps are exactly maps induced by real row-stochastic kernels in the Heisenberg observable convention; kernel extraction and reconstruction are inverse. Every coordinatewise continuous real one-parameter permutation flow of the discrete record labels is the identity. On one finite-dimensional full private endomorphism block, every complex star-algebra automorphism is conjugation by a unitary linear isometry. For a supplied self-adjoint Hamiltonian, exp(-itH) is unitary and its conjugation flow satisfies the exact real-parameter von Neumann equation. The public obstruction assumes the reversible action is given as a label-permutation flow and does not classify arbitrary public star automorphisms as permutations. The private results neither decompose an arbitrary finite C-star algebra into central matrix blocks nor derive a coherent continuous unitary lift and one time-independent Hamiltonian from an arbitrary continuous automorphism group.",
+      "statement": "On a finite active-record function algebra, using the explicit cone of coordinatewise real nonnegative functions, complex-linear positive unital maps are exactly maps induced by real row-stochastic kernels in the Heisenberg observable convention; kernel extraction and reconstruction are inverse. Every complex star-algebra automorphism of that function algebra is uniquely pullback by a permutation of the active labels. Consequently every pointwise-continuous real-parameter group of arbitrary public star automorphisms is the identity; no supplied permutation flow is assumed. On one finite-dimensional full private endomorphism block, every complex star-algebra automorphism is conjugation by a unitary linear isometry. For a supplied self-adjoint Hamiltonian, exp(-itH) is unitary and its conjugation flow satisfies the exact real-parameter von Neumann equation. The private results neither decompose an arbitrary finite C-star algebra into central matrix blocks nor derive a coherent continuous unitary lift and one time-independent Hamiltonian from an arbitrary continuous automorphism group.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "substantial_exact_finite_public_private_dynamics_with_global_converse_open",
       "assumptions": [
         "finite_active_record_function_algebra",
         "pointwise_positive_unital_record_map",
-        "continuous_public_label_permutation_flow",
+        "pointwise_continuous_public_star_automorphism_group",
         "finite_full_private_matrix_block",
         "supplied_selfadjoint_private_hamiltonian"
       ],
       "imported_results": [
         "finite_function_algebra_basis",
-        "connected_to_discrete_maps_are_constant",
+        "finite_orthogonal_idempotent_classification",
+        "locally_constant_maps_on_connected_domains_are_constant",
         "finite_full_matrix_star_automorphism_innerness",
         "Banach_algebra_exponential_derivative"
       ],
-      "oph_specific_delta": "The exact B1 active-record algebra is given its classical stochastic dynamics while the private full matrix block receives its unitary inner dynamics, with the public permutation and private central-block/converse boundaries kept explicit instead of being folded into one unjustified quantum-to-classical slogan.",
+      "oph_specific_delta": "The exact B1 active-record algebra is given its classical stochastic dynamics and a complete classification of reversible public dynamics, while the private full matrix block receives its unitary inner dynamics. The private central-block and converse-generator boundaries remain explicit instead of being folded into one unjustified quantum-to-classical slogan.",
       "novelty_type": "typed_finite_public_private_dynamics_boundary",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "book/chapter-05-algebra.md",
         "Lean/Dynamics/PublicMarkov.lean",
+        "Lean/Dynamics/PublicAutomorphism.lean",
         "Lean/Dynamics/PrivateInner.lean",
         "Lean/docs/B3_PUBLIC_PRIVATE_DYNAMICS.md"
       ],
-      "falsifier": "The attained packet fails if positive unital record maps are not exactly row-stochastic under the stated cone and convention, a continuous discrete-label permutation flow is nontrivial, a star automorphism of a finite full private block is not unitarily inner, or the fixed-Hamiltonian unitary or real-parameter von Neumann identity fails.",
-      "scope_if_false": "Only the attained finite B3 packet falls. Public-star-automorphism classification, arbitrary central-block algebras, converse Stone-type reconstruction, source dynamics, physical time, and every frozen prediction remain separately assessed.",
-      "status": "substantial_finite_dichotomy_attained__public_automorphism_classification_central_blocks_and_converse_generator_open",
+      "falsifier": "The attained packet fails if positive unital record maps are not exactly row-stochastic under the stated cone and convention, a public star automorphism is not uniquely induced by a label permutation, a pointwise-continuous public star-automorphism group is nontrivial, a star automorphism of a finite full private block is not unitarily inner, or the fixed-Hamiltonian unitary or real-parameter von Neumann identity fails.",
+      "scope_if_false": "Only the attained finite B3 packet falls. Arbitrary central-block algebras, converse Stone-type reconstruction, source dynamics, physical time, and every frozen prediction remain separately assessed.",
+      "status": "substantial_finite_dichotomy_attained__central_blocks_and_converse_generator_open",
       "claim_class": "conditional_implication",
       "gates": [
         679
       ]
+    },
+    {
+      "claim_id": "OPH-FINITE-BORN-FRAME-RANK-GAP",
+      "statement": "The two available twelve-port objects have exact but different finite probability content. The twelve declared central port atoms form one classical context: normalized nonnegative weights form an eleven-simplex and determine a unique state on the commutative algebra C^12, but the same diagonal weights do not determine a density matrix in a separately supplied ambient M12 algebra. The declared binary-icosahedral qubit adapter instead has six disjoint antipodal binary contexts. Context-independent finite additivity on those contexts has affine dimension six. Its trace-one Hermitian/Born slice has affine dimension three and is characterized exactly over Q(sqrt(5)) by three independent golden-ratio relations. The Hermitian and density representation is unique whenever it exists, but an exact unit-interval additive weight has no Hermitian representation, and a second represented unit-interval weight has a nonpositive unique matrix. Hence positivity and additivity on only these twelve projectors do not force a density representation. The projector adapter is not a source-produced public quantum instrument, so this bounded result is a rank-gap no-go and not a derivation of the Born rule. Live issue #702 owns the missing source-produced effect system and nonpolyhedral cone or operational extension theorem.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_bounded_finite_frame_rank_gap_and_attachment_no_go",
+      "assumptions": [
+        "declared_twelve_central_port_atom_context",
+        "declared_binary_icosahedral_projector_adapter",
+        "six_disjoint_antipodal_binary_contexts"
+      ],
+      "imported_results": [
+        "exact_linear_algebra_over_Q_sqrt_5",
+        "finite_affine_constraint_rank",
+        "qubit_Bloch_density_criterion"
+      ],
+      "oph_specific_delta": "The audit separates the source manifest's central classical atoms from the nonphysical spinor projector adapter, exhausts the exact additive and Born-affine ranks of the strongest available twelve-port frame, and supplies two independent controls showing respectively nonrepresentation and failure of full-cone positivity. It converts an underdefined positive Born-rule goal into a precise bounded no-go and hands the typed positive antecedent to live issue #702.",
+      "novelty_type": "source_audited_finite_frame_rank_gap_no_go",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/EventAlgebra/FiniteBornFrame.lean",
+        "code/born_frame/README.md",
+        "code/born_frame/finite_born_frame_certificate.py",
+        "code/born_frame/verify_finite_born_frame_independent.py",
+        "code/born_frame/runtime/finite_born_frame_certificate.json",
+        "code/born_frame/test_finite_born_frame_certificate.py"
+      ],
+      "falsifier": "The bounded result fails if the declared context matrix does not have rank six, the frame or effect-system ranks differ from three or four, the three displayed relations do not exactly characterize the Hermitian slice, tomography is nonunique on that slice, either exact control loses context additivity or unit-interval positivity, the non-Born control gains a Hermitian representation, or the represented nonpositive control satisfies the density criterion.",
+      "scope_if_false": "Only the bounded twelve-port frame audit falls. The general finite event-algebra theorems, a future richer source-produced effect family, and every frozen physical prediction remain separately assessed.",
+      "status": "exact_bounded_rank_gap__conditional_uniqueness__public_effect_source_missing",
+      "claim_class": "conditional_implication",
+      "gates": []
     },
     {
       "claim_id": "OPH-THERMO-FOUR-LAW-PACKAGE",
@@ -1509,10 +1547,13 @@
       "tier": "finite_theorem_package_with_typed_physical_receipts",
       "assumptions": [
         "finite_regulator_stage",
+        "global_weighted_objective_representation_deferred",
         "faithful_common_reference_law",
         "complete_repaired_visible_datum_fibre",
         "transition_side_axiom_three_instantiation",
-        "physical_energy_clock_identification_deferred"
+        "source_collar_transition_realization_deferred",
+        "physical_energy_clock_identification_deferred",
+        "refinement_uniform_low_temperature_control_deferred"
       ],
       "imported_results": [
         "finite_information_projection",
@@ -1521,7 +1562,7 @@
         "finite_matrix_trace_algebra"
       ],
       "oph_specific_delta": "The second law is not assumed and not derived from strict-descent settlement, which the certified counterexample rules out as an entropy mechanism. The arrow comes from the transition-side instantiation of the same information-projection axiom that fixes the state, with the feasible set supplied by the repair construction's own repaired-visible fibre and the reference shared with the state optimizer. The four laws then follow as theorems on the finite stage, and every physical attachment is one of five named receipts rather than a hidden premise.",
-      "novelty_type": "native_thermodynamic_completion_from_observer_axioms",
+      "novelty_type": "conditional_finite_thermodynamic_package_with_five_typed_receipts",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "flagship/from_observer_consensus_to_standard_physics.tex",
@@ -1538,7 +1579,7 @@
         "code/thermodynamics/runtime/collar_matrix_realization_probe.json",
         "code/thermodynamics/test_conditional_repair_certificate.py"
       ],
-      "falsifier": "The package fails if any exact statement fails: a feasible state beating the exponential family in the constrained projection, a fibre-supported law beating the conditional row, a stochastic kernel with stationary reference increasing relative entropy, a fibre-measurable charge moved by the kernel, a reference-preserving step violating the integral or detailed fluctuation identities, an asymmetric equilibrium time-lagged correlation under detailed balance, a state pair violating the exact-remainder cap first law, an excited Gibbs mass above the gap bound, or a partition whose pinching lacks the Kraus completeness. The physical reading fails at any receipt: a source collar matrix that fails the equal-fibre-row receipt, distinct source references for state and transition optimizers, or an energy-clock identification contradicting the finite modular split.",
+      "falsifier": "The package fails if any exact statement fails: a feasible state beating the exponential family in the constrained projection, a fibre-supported law beating the conditional row, a stochastic kernel with stationary reference increasing relative entropy, a fibre-measurable charge moved by the kernel, a reference-preserving step violating the integral or detailed fluctuation identities, an asymmetric equilibrium time-lagged correlation under detailed balance, a state pair violating the exact-remainder cap first law, an excited Gibbs mass above the gap bound, or a partition whose pinching lacks the Kraus completeness. The physical reading fails at any of the five receipts: the weighted local objectives have no global representation; the two optimizers require distinct source references; the source collar fails to equal the conditional-resampling kernel on the complete repaired-visible fibre (property-only validation certifies only the weaker stationary H-theorem branch); physical energy-clock calibration contradicts the finite modular split; or no refinement-uniform low-temperature control exists for the claimed continuum third law.",
       "scope_if_false": "The thermodynamic completion package falls. The consensus normal-form theorems, the event-algebra library, and the modular cap identities are assessed by their own claims. No frozen prediction row depends on this package.",
       "status": "finite_four_law_package_theorems_attained__five_physical_receipts_open",
       "claim_class": "conditional_implication",
@@ -2716,6 +2757,104 @@
       "status": "speculative_interpretation",
       "claim_class": "declared_structure",
       "gates": []
+    },
+    {
+      "claim_id": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
+      "statement": "For any finite inhabited raw configuration presentation, equality in the literal kernel quotient PublicWorld is exactly equality of the declared public readback, and the quotient is equivalent to the realized signature range. For a finite labelled repair family, termination constructs a finite schedule ending at a simultaneous fixed point; confluence makes completed endpoints from one start equal even before quotienting; and explicit output and enabledness congruence, together with fixed-point completeness for a declared consistency predicate, makes the consistent public endpoint independent of both completed schedule and raw representative throughout one public class. The actual OPH Records, obsMap, gaugeEquiv, localRepair, acceptedStep, recursive Repair, termination, and repair-respects-gauge theorems are adapted directly: Repair descends to an idempotent public map whose canonical endpoints inhabit the fixed-point object. The A3 regulator adaptor additionally requires a seed and an injective encoding of OPH overlap observations into tower record labels. Three finite controls show failure without confluence, terminal completion, or quotient congruence. This is a bounded conditional endpoint theorem, not a source-realized physical world, genuine infinite scheduler-fairness theorem, cross-regulator limit, or prediction.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_bounded_finite_public_world_endpoint_with_realization_open",
+      "assumptions": [
+        "finite_inhabited_public_world_presentation",
+        "terminating_confluent_semantically_complete_labelled_repair",
+        "repair_output_and_enabledness_quotient_congruence",
+        "injective_OPH_to_tower_public_readback_adapter",
+        "source_and_cross_regulator_endpoint_realization_deferred"
+      ],
+      "imported_results": [
+        "finite_kernel_quotients",
+        "well_founded_confluent_rewriting",
+        "existing_OPH_repair_and_gauge_theorems"
+      ],
+      "oph_specific_delta": "The abstract normal-form endpoint is made literal on the OPH public-record quotient and connected to both the existing primitive repair implementation and one A3 regulator through typed adaptors. The premise firewall and three negative controls prevent terminal completion, representative independence, and physical realization from being conflated.",
+      "novelty_type": "bounded_public_quotient_endpoint_with_typed_realization_firewall",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Tower/PublicWorldQuotient.lean",
+        "Lean/Tower/FixedPointEndpoint.lean",
+        "Lean/docs/A4_PUBLIC_WORLD_ENDPOINT.md"
+      ],
+      "falsifier": "The bounded packet fails if quotient equality differs from readback equality, the realized-signature equivalence fails, termination does not produce a completed finite schedule, confluence does not force same-start completed endpoints to agree, the stated congruence packet does not make completion and endpoints representative-independent, the OPH Repair fails to descend or be idempotent, or any of the three countermodels fails.",
+      "scope_if_false": "Only the bounded finite A4 quotient and endpoint packet falls. Source realization, cross-regulator naturality, continuum limits, physical spacetime, and every frozen prediction remain separate and are not asserted by this claim.",
+      "status": "bounded_finite_conditional_endpoint_attained__source_physical_and_cross_regulator_realization_open",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-CANONICAL-LORENTZ-MODULE",
+      "statement": "The real Pauli-coordinate module Herm2 = R x R^3 maps injectively and real-linearly to the two-by-two complex Hermitian matrices, every such Hermitian matrix has a unique representation, and matrix determinant is exactly the Lorentz quadratic form with constructive inertia (+---), one positive scalar line, and a negative-definite three-space. Nonzero future null vectors modulo positive scaling are set-equivalent to the unit two-sphere. Future unit-timelike vectors form the algebraic frame hyperboloid, and every Lorentz-orthogonal rest space has real dimension three with a positive-definite sign-reversed metric. An explicit linear equivalence to the existing Einstein-branch coordinate space changes the quadratic-form convention by exactly one minus sign and preserves the null cone and future orientation. This is intrinsic finite-dimensional Lorentz geometry only: no observer-patch selection, event-frame soldering, physical spacetime, clock, affine translation sector, overlap cocycle, or continuum attachment is derived.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_intrinsic_Herm2_Lorentz_module_and_Einstein_coordinate_bridge",
+      "assumptions": [
+        "canonical_Herm2_pauli_coordinate_model",
+        "positive_scaling_future_null_ray_quotient",
+        "algebraic_frame_hyperboloid_and_rest_space",
+        "physical_lorentz_soldering_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "Pauli_matrix_determinant_calculus",
+        "set_quotients_by_positive_scaling",
+        "Lorentz_quadratic_form_algebra"
+      ],
+      "oph_specific_delta": "C1 supplies one exact intrinsic Lorentz module, celestial-ray quotient, observer-frame/rest-space packet, and a sign-correct coordinate bridge into the existing Einstein tensor stack while keeping the missing physical soldering map explicit.",
+      "novelty_type": "intrinsic_Herm2_Lorentz_module_with_typed_Einstein_coordinate_handoff",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Geometry/CanonicalLorentzModule.lean",
+        "Lean/Geometry/CelestialNullCone.lean",
+        "Lean/Geometry/ObserverFrameHyperboloid.lean",
+        "Lean/Geometry/ObserverRestSpace.lean",
+        "Lean/Geometry/EinsteinTensorBridge.lean",
+        "Lean/docs/C1_CANONICAL_LORENTZ_MODULE.md"
+      ],
+      "falsifier": "The intrinsic packet fails if the Pauli map is not injective or does not represent every Hermitian matrix uniquely, its determinant differs from the displayed Lorentz form, the constructive one-plus-three inertia statements fail, the positive-ray quotient is not inverse to the celestial-sphere construction, a rest space has the wrong dimension or loses positivity, or the Einstein coordinate bridge fails its exact sign, null-cone, or future-orientation identities.",
+      "scope_if_false": "Only the intrinsic C1 Lorentz module or its coordinate bridge falls. No physical soldering, clock, spacetime, Einstein dynamics, continuum statement, or frozen prediction is supplied by this claim.",
+      "status": "exact_intrinsic_Lorentz_module_and_Einstein_coordinate_bridge_attained__physical_soldering_open",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, exact algebraic locality on declared-disjoint regions, compatible regional expectations, covariant refinement, and complex-linear idempotent local repairs that explicitly fix their local algebra and every declared-disjoint observable. The B2 relaxation of each repair composes by multiplication of amplitudes and exactly preserves remote observables and their expectations. Supplied star-homomorphic overlap restrictions define compatible local families, and a supplied unique restriction-gluing receipt gives a glue with exact restriction and uniqueness laws and forces joint injectivity. The API type FiniteCover is only a nonempty finite subregion family and contains no joint-coverage axiom. A generic B4 basis-reindexed marginal identity is carried alongside a declared-disjoint region pair, but the theorem does not use disjointness or identify either regional algebra with a matrix factor. Negative controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. A partition-and-state-parameterized constant commutative model and a two-region subregion family prove conditional consistency of the interface. The packet does not construct a closed noncommutative region-separating source model, genuine coverage, regional factor localization, CP or CPTP repair, scheduler locality, spacetime causality, time-slice property, continuum QFT, fields, sectors, physical clocks, or prediction; issue #692 is the live gate for that realization.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "substantial_conditional_finite_causal_observer_net_with_noncommutative_realization_open",
+      "assumptions": [
+        "proof_carrying_finite_causal_net_data",
+        "idempotent_local_repair_fixed_region_and_remote_receipts",
+        "star_homomorphic_overlap_restrictions_and_unique_descent",
+        "noncommutative_source_realization_deferred"
+      ],
+      "imported_results": [
+        "finite_matrix_star_subalgebras",
+        "presheaf_descent_interfaces",
+        "idempotent_linear_relaxation",
+        "finite_tensor_split_Kraus_no_signalling"
+      ],
+      "oph_specific_delta": "E1 places finite causal-region, repair-locality, expectation, refinement, and restriction-gluing receipts on one common consensus tower, includes a partition-and-state-parameterized commutative consistency construction, and pins the exact coverage, regional-factor, noncommutative, and source-realization boundaries instead of promoting the interface to AQFT.",
+      "novelty_type": "proof_carrying_finite_observer_net_with_noncommutative_source_gate",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/QFT/FiniteCausalObserverNet.lean",
+        "Lean/QFT/ObserverNetDescent.lean",
+        "Lean/docs/E1_FINITE_CAUSAL_OBSERVER_NET.md"
+      ],
+      "falsifier": "The attained interface fails if a declared locality, isotony, refinement, expectation, repair-composition, local or remote fixed-observable identity fails, the generic basis-split helper violates its exact partial-trace conclusion, supplied unique restriction gluing does not provide exact restriction and uniqueness or imply joint injectivity, the parameterized commutative model fails its declared disjointness/gluing receipts, or any negative control fails.",
+      "scope_if_false": "Only the substantial conditional finite E1 interface or its consistency controls fall. A noncommutative source net, physical causality, continuum AQFT, and every frozen prediction are separate obligations with independent assessments.",
+      "status": "substantial_conditional_finite_net_interface_attained__noncommutative_source_realization_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        692
+      ]
     }
   ]
 }

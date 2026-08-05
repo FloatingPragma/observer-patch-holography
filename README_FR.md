@@ -23,12 +23,14 @@ conditionnelle pour une génération de matière.
 
 Trois axiomes régissent l’architecture du simulateur et la manière dont les
 observateurs parviennent à un consensus. À côté d’eux se trouvent deux
-clôtures. L’une donne la constante de pixel $P$, liée à la constante de
-structure fine. L’autre donne la capacité de calcul $N$, liée à la constante
-cosmologique. Puisque l’univers simulé et l’univers simulateur sont le même
-univers, les constantes de structure fine et cosmologique simulées doivent
-être égales à celles de l’univers simulateur. Cette autoréférence verrouille
-les valeurs possibles.
+programmes de clôture proposés. Le premier cherche un point fixe pour la
+constante de pixel $P$, dont l’identification physique à la constante de
+structure fine est une question ouverte. Le second cherche un point fixe pour
+la capacité $N$, dont le pont entre capacité de la source et constante
+cosmologique est une question ouverte. Identifier l’univers simulé à l’univers
+simulateur motive ces équations d’autocohérence ; cela ne prouve pas, à soi
+seul, qu’une solution existe, qu’elle est unique, ni qu’elle prend la valeur
+observée.
 
 ## Commencer ici
 
@@ -113,12 +115,22 @@ données et certificats :
    constitue une preuve formelle de canal CP/CPTP, de taux issu de la
    source ou d’horloge physique. Les applications positives préservant l’unité de
    l’algèbre finie des registres sont exactement des noyaux stochastiques par
-   lignes. Un flot continu de permutations des étiquettes est trivial, tandis
-   que les automorphismes d’un bloc matriciel privé plein sont intérieurs et
-   unitaires ; un Hamiltonien auto-adjoint fourni engendre le flot de von
-   Neumann à paramètre réel. La classification de tout automorphisme public
-   comme permutation d’étiquettes, la décomposition générale en blocs centraux
-   et la réciproque qui reconstruit un Hamiltonien restent ouvertes.
+   lignes. Tout automorphisme étoilé public est induit de manière unique par
+   une permutation des étiquettes ; tout groupe à paramètre réel de tels
+   automorphismes, continu après évaluation ponctuelle, est donc trivial. Les
+   automorphismes d’un bloc matriciel privé plein sont intérieurs et unitaires ;
+   un Hamiltonien auto-adjoint fourni engendre le flot de von Neumann à
+   paramètre réel. La décomposition générale en blocs centraux et la réciproque
+   qui reconstruit un Hamiltonien sont des questions ouvertes.
+   Les objets disponibles à douze ports ne dérivent pas la règle de Born. Les
+   atomes centraux forment un seul contexte classique ; l’adaptateur de qubit
+   distinct forme six contextes binaires disjoints. Son espace de poids
+   additifs est de dimension six, contre trois pour sa tranche
+   hermitienne/de Born. Des contre-exemples exacts admissibles échouent soit à
+   être représentés, soit à définir une matrice positive, bien que la
+   représentation soit unique lorsqu’elle existe. Aucun instrument quantique
+   public produit par la source n’est disponible ; l’issue #702 porte cette
+   continuation positive.
    Conditionnellement, ce résultat identifie la probabilité quantique à
    l’arithmétique de ce que les observateurs peuvent écrire ensemble sur la
    surface algèbre-état déclarée. La branche spinorielle déclarée
@@ -128,7 +140,9 @@ données et certificats :
    [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), l’
    [article sur le consensus](paper/reality_as_consensus_protocol.pdf), la
    [preuve de l’algèbre des registres](Lean/EventAlgebra/PublicRecordAlgebra.lean),
-   la [frontière de copie des états purs](Lean/EventAlgebra/NoBroadcastingAdapter.lean)
+   la [frontière de copie des états purs](Lean/EventAlgebra/NoBroadcastingAdapter.lean),
+   le [no-go fini du repère de Born](Lean/EventAlgebra/FiniteBornFrame.lean),
+   le [certificat exact de rang](code/born_frame/runtime/finite_born_frame_certificate.json)
    et la [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
    ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
 3. **Les quatre principes forment un paquet conditionnel de théorèmes finis.**
@@ -264,23 +278,56 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 2100 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 2300 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
 du noyau de Lean. Voir [Lean/](Lean/).
 
-La couche finie d’achèvement V2 vérifie aussi la localité pour un
-mot de réparation fixé, l’invariance marginale bipartite générique, la
-conservation et le transport finis, ainsi que des auxiliaires conditionnels
-pour les histoires finies et les variations réelles. Ce ne sont pas des
-prédictions physiques. En particulier, B4 exige l’attachement E1 du
-planificateur et des régions OPH aux facteurs. B7 est une voie ouverte :
-un espace de Gibbs fini ne peut pas fournir toutes les variations réelles en
-un site. La couche ne contient aucune construction de la loi d’histoire issue
-de la source, du théorème de transfert, de l’action physique ou de l’horloge. Le
+La couche finie d’achèvement V2 rend le quotient public littéral à un
+régulateur : deux configurations brutes sont équivalentes lorsque leurs
+signatures de relecture complètes sont égales. La terminaison finie,
+l’achèvement terminal, la confluence, la complétude sémantique et la
+congruence au quotient impliquent alors un unique point terminal public pour
+tous les parcours achevés et tous les représentants. Ces prémisses sont
+conditionnelles. L’achèvement terminal n’est pas une loi d’équité du
+planificateur, et aucun monde physique choisi par la source ou cohérent entre
+régulateurs n’en découle. Voir les
+[preuves du point terminal public](Lean/Tower/FixedPointEndpoint.lean).
+
+La même couche donne un modèle de Lorentz interne dans les coordonnées de
+Pauli réelles des matrices hermitiennes $2\times2$. Le déterminant a l’inertie
+$(1,3)$, les rayons nuls futurs positifs sont équivalents comme ensembles à
+$S^2$, les repères unitaires de genre temps futurs ont des espaces de repos
+euclidiens de dimension trois, et une carte linéaire exacte rejoint les
+coordonnées du tenseur d’Einstein avec la convention de signe opposée. Cette
+géométrie algébrique ne fournit ni topologie, ni structure différentielle, ni
+soudure entre événements et repères, ni horloge, ni attachement à l’espace-temps
+physique. Voir le [module de Lorentz canonique](Lean/Geometry.lean).
+
+Une interface finie de réseau régional muni de ses preuves regroupe
+l’isotonie, la commutation des régions déclarées disjointes, le raffinement,
+la réparation locale idempotente, le recollement conditionnel des restrictions
+sur des familles déclarées de sous-régions et la non-perturbation exacte des
+observables distantes. Le type formel de famille n’impose aucune couverture
+conjointe. Ses restrictions contravariantes et ses lois de recollement sont des
+données fortes déclarées. Sa construction de cohérence paramétrée par une
+partition et un état affecte la même algèbre commutative de registres à chaque
+région ; elle ne constitue pas un témoin fermé issu de la source. Un réseau non
+commutatif attaché à la source, une couverture véritable, une factorisation
+régionale, des canaux
+quantiques positifs, la localité d’un planificateur adaptatif, la causalité de
+l’espace-temps et une théorie continue avec loi de tranche temporelle sont des
+obligations ouvertes. La couche vérifie aussi la localité pour un mot de réparation fixé,
+l’invariance marginale bipartite générique, la conservation et le transport
+finis, ainsi que des auxiliaires conditionnels pour les histoires finies et
+les variations réelles. Un espace de Gibbs fini ne peut pas fournir toutes
+les variations réelles en un site. La loi d’histoire issue de la source, le
+théorème de transfert, l’action physique et l’horloge n’ont aucune
+construction. Il s’agit de résultats structurels, pas de prédictions physiques.
+Voir l’[interface finie du réseau régional](Lean/QFT.lean), le
 [registre des postdictions](docs/POSTDICTION_LEDGER.md#forced-structure) et
-les [notes de frontière Lean](Lean/docs/) donnent les portées exactes.
+les [notes de frontière Lean](Lean/docs/) pour les portées exactes.
 
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 

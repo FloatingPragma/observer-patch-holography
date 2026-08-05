@@ -20,12 +20,13 @@ the Standard Model gauge Lie type, and a conditional one-generation exterior
 matter pair.
 
 Three axioms govern the simulator architecture and how observers reach
-consensus. Beside them sit two closures. One gives the pixel constant $P$,
-tied to the fine-structure constant. The other gives the computational
-capacity $N$, tied to the cosmological constant. Since the universe being
-simulated and the universe doing the simulating are the same universe, the
-simulated fine-structure and cosmological constants must equal the simulating
-ones. This self-reference locks in the possible values.
+consensus. Beside them sit two proposed closure programs. The first seeks a
+fixed point for the pixel constant $P$, with an open physical attachment
+to the fine-structure constant. The second seeks a fixed point for the
+capacity $N$, with an open source-capacity bridge to the cosmological
+constant. Identifying the simulated and simulating universe motivates those
+self-consistency equations; it does not by itself prove that a solution
+exists, is unique, or has the observed numerical value.
 
 ## Start Here
 
@@ -101,12 +102,20 @@ certificates:
    publicization has normalized Kraus and trace identities plus an exact
    relaxation semigroup and literal bounded-operator exponential formula, but
    no formal CP/CPTP channel, source-derived rate, or physical clock is claimed.
-   Positive unital active-record maps are exactly row-stochastic kernels. A
-   continuous label-permutation flow is trivial, whereas automorphisms of one
-   finite full private matrix block are unitarily inner and a supplied
-   self-adjoint Hamiltonian gives the real-parameter von Neumann flow. The
-   classification of arbitrary public star automorphisms as label permutations,
-   central-block algebras, and the converse generator theorem are not supplied.
+   Positive unital active-record maps are exactly row-stochastic kernels.
+   Every public star automorphism is uniquely a label permutation, so every
+   pointwise-continuous real-parameter group of arbitrary public star
+   automorphisms is trivial. Automorphisms of one finite full private matrix
+   block are unitarily inner, and a supplied self-adjoint Hamiltonian gives the
+   real-parameter von Neumann flow. General central-block algebras and the
+   converse generator theorem are not supplied.
+   The available twelve-port objects do not derive the Born rule. The central
+   atoms form one classical context; the separate qubit adapter forms six
+   disjoint binary contexts whose additive weight space has dimension six,
+   while its Hermitian/Born slice has dimension three. Exact admissible
+   counterexamples fail representation or density positivity, although a
+   representation is unique when it exists. No source-produced public quantum
+   instrument is present; issue #702 owns that positive continuation.
    Conditionally, this identifies quantum probability with the arithmetic of
    what observers can jointly write down on the declared algebra-state surface.
    The declared spinor branch has an exact finite
@@ -117,7 +126,9 @@ certificates:
    [consensus paper](paper/reality_as_consensus_protocol.pdf), the
    [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), the
    [sharp copying boundary](Lean/EventAlgebra/NoBroadcastingAdapter.lean), and
-   the [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
+   the [finite Born-frame no-go](Lean/EventAlgebra/FiniteBornFrame.lean), the
+   [exact rank certificate](code/born_frame/runtime/finite_born_frame_certificate.json),
+   and the [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
    [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
 3. **The four laws form a conditional finite theorem package.** Once a common
    faithful source reference and the repaired-visible fibre are supplied, the
@@ -239,22 +250,49 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 2100 theorems and lemmas and no
+The supporting Lean library contains more than 2300 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
 [Lean/](Lean/).
 
-The V2 finite completion layer checks fixed-word repair locality,
-generic bipartite marginal invariance, finite conservation and transport, and
-conditional finite-history/real-variation helpers. These are not physical
-predictions. In particular, B4 requires E1's scheduler and OPH
-region-factor attachment, while B7 is an open lane because a finite Gibbs path
+The V2 finite completion layer makes the public quotient literal at one
+regulator: raw configurations are equivalent exactly when their complete
+readback signatures agree. Finite termination, terminal completion,
+confluence, semantic completeness, and quotient congruence then imply one
+public endpoint across completed schedules and representatives. The premises
+are conditional, terminal completion is not scheduler fairness, and no
+source-selected repair family or cross-regulator physical world follows. See
+the [public-world endpoint proofs](Lean/Tower/FixedPointEndpoint.lean).
+
+The same layer gives an internal Lorentz model in the real Pauli coordinates
+of Hermitian $2\times2$ matrices. The determinant has inertia $(1,3)$,
+positive future-null rays are set-equivalent to $S^2$, future unit-timelike
+frames have three-dimensional Euclidean rest spaces, and an exact linear
+chart matches the Einstein tensor coordinates with the opposite sign
+convention. This is algebraic geometry without topology, differential
+structure, event-frame soldering, a clock, or physical spacetime attachment.
+See the [canonical Lorentz module](Lean/Geometry.lean).
+
+A proof-carrying finite regional-net interface packages isotony,
+declared-disjoint commutation, refinement, idempotent local repair,
+conditional restriction gluing on declared subregion families, and exact
+remote-observable nondisturbance. The formal family type has no joint-coverage
+axiom. Its contravariant restrictions and gluing laws are strong declared
+receipts, and its partition-and-state-parameterized consistency construction
+assigns the same commutative record algebra to every region; it is not a closed
+source witness. A noncommutative source-attached net, genuine coverage,
+regional factorization, positive quantum channels,
+adaptive scheduler locality, spacetime causality, and a continuum time-slice
+theory are open. The layer also checks fixed-word repair locality, generic
+bipartite marginal invariance, finite conservation and transport, and
+conditional finite-history and real-variation helpers. A finite Gibbs path
 space cannot supply every real single-site variation; the source history law,
 transfer theorem, physical action, and clock have no construction in the
-package. The
-[postdiction ledger](docs/POSTDICTION_LEDGER.md#forced-structure) and
-[Lean boundary notes](Lean/docs/) record the exact scopes.
+package. These are structural results, not physical predictions. See the
+[finite regional-net interface](Lean/QFT.lean),
+[postdiction ledger](docs/POSTDICTION_LEDGER.md#forced-structure), and
+[Lean boundary notes](Lean/docs/) for the exact scopes.
 
 The rest of this README is the architecture those receipts come from.
 

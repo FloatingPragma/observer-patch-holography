@@ -29,8 +29,8 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-08-05T00:35:11Z",
-  "open_issue_count": 20,
+  "generated_utc": "2026-08-05T02:11:05Z",
+  "open_issue_count": 21,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
     {
@@ -107,7 +107,7 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/683"
     },
     {
-      "blocker": "No hard issue prerequisite. Open scope: Quantum entropy and support-aware relative entropy for finite matrices with 0 log 0 = 0; the pinching Pythagorean identity D(rho, sigma) = D(rho, E rho) + D(E rho, sigma) for sigma in the commutant; complete averaging as the unique maximum-entropy state under record constraints with S = H(p) + sum p_i log d_i; the two-level information chain and the publicization H-theorem. This is the single heavy technical dependency of the track (matrix logarithm and spectral calculus); everything else in track B proceeds without it.",
+      "blocker": "No hard issue prerequisite. Open scope: Quantum entropy and support-aware relative entropy for finite matrices with 0 log 0 = 0; the pinching Pythagorean identity D(rho, sigma) = D(rho, E rho) + D(E rho, sigma) for sigma in the commutant; complete averaging as the unique maximum-entropy state under record constraints with S = H(p) + sum p_i log d_i; the two-level information chain and the publicization H-theorem. This is the single heavy technical dependency of the track (matrix logarithm and spectral calculus); every other track-B lane proceeds without it.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
       "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: EventAlgebra/SpectralEntropy.lean, EventAlgebra/RecordInformationProjection.lean, EventAlgebra/RecordMajorization.lean (sign-average representation first).",
@@ -121,7 +121,7 @@
       "number": 685,
       "phase": "v2-w1-observer-laws",
       "title": "[B9] Spectral information theory",
-      "updated_at": "2026-08-04T22:08:59Z",
+      "updated_at": "2026-08-05T01:08:16Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/685"
     },
     {
@@ -179,21 +179,21 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/688"
     },
     {
-      "blocker": "Parked by V2 staging; no hard issue prerequisite. Open scope: Herm2(C) with the determinant form is a real four-dimensional Lorentzian module of inertia (1,3); the celestial sphere is the projectivized future null cone; H3 is the hyperboloid of future unit timelike frames; for every frame u the rest space u-perp is three-dimensional and Euclidean. No clock and no physical attachment appears in this issue.",
-      "chrome_policy": "Do not launch workers while parked or while a listed prerequisite is open; begin from a concrete local issue packet.",
-      "claim_level": "parked stage-gated construction",
+      "blocker": "No hard issue prerequisite. Open scope: Herm2(C) with the determinant form is a real four-dimensional Lorentzian module of inertia (1,3); the celestial sphere is the projectivized future null cone; H3 is the hyperboloid of future unit timelike frames; for every frame u the rest space u-perp is three-dimensional and Euclidean. No clock and no physical attachment appears in this issue.",
+      "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
+      "claim_level": "active issue-scoped construction",
       "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Geometry/CanonicalLorentzModule.lean, Geometry/CelestialNullCone.lean, Geometry/ObserverFrameHyperboloid.lean, Geometry/ObserverRestSpace.lean.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
+        "dag:ready-now",
         "track:geometry",
         "size:M",
-        "parked",
         "surface:v2"
       ],
       "number": 689,
       "phase": "v2-w2-geometry",
       "title": "[C1] Canonical Lorentz module",
-      "updated_at": "2026-08-04T22:08:55Z",
+      "updated_at": "2026-08-05T01:08:20Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/689"
     },
     {
@@ -215,7 +215,7 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/690"
     },
     {
-      "blocker": "Parked; live prerequisite contract: A1 (#675), B12 (#688; energy-clock receipt state), and C2 (#690; event-frame realization). Open scope: Order-preserving realization of observer record chains as causally ordered events; future-timelike worldline realization; clock readout as a monotone record observable up to affine gauge; proper-time calibration along realized worldlines; public clock comparison across shared events. No global time function; the stable-causality branch is a separate optional statement.",
+      "blocker": "Parked; live prerequisite contract: A1 (#675, closed bounded) and C2 (#690; event-frame realization). Open scope: Order-preserving realization of observer record chains as causally ordered events; future-timelike worldline realization; clock readout as a monotone record observable up to affine gauge; proper-time calibration along realized worldlines; public clock comparison across shared events. No global time function; the stable-causality branch is a separate optional statement.",
       "chrome_policy": "Do not launch workers while parked or while a listed prerequisite is open; begin from a concrete local issue packet.",
       "claim_level": "parked stage-gated construction",
       "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Time/ObserverHistory.lean, Time/WorldlineRealization.lean, Time/ClockReadout.lean, Time/ProperTimeCalibration.lean, Time/ClockComparison.lean.",
@@ -229,25 +229,25 @@
       "number": 691,
       "phase": "v2-w2-time",
       "title": "[D1] Observer histories, worldlines, and clock networks",
-      "updated_at": "2026-08-04T22:08:53Z",
+      "updated_at": "2026-08-05T01:08:17Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/691"
     },
     {
-      "blocker": "Parked; live prerequisite contract: A3 (#698), B2 (#678), and B4 (#680). Open scope: Assignment of finite private algebras to observer-accessible causal record regions with isotony, locality or no-signalling for disjoint regions, overlap descent, local conditional repair, and compatible observer states. The target is a finite local quantum system indexed by record regions. It is not a spacetime QFT.",
-      "chrome_policy": "Do not launch workers while parked or while a listed prerequisite is open; begin from a concrete local issue packet.",
-      "claim_level": "parked stage-gated construction",
+      "blocker": "Live prerequisite contract: A3 (#698), B2 (#678), and B4 (#680). Open scope: Assignment of finite private algebras to observer-accessible causal record regions with isotony, locality or no-signalling for disjoint regions, overlap descent, local conditional repair, and compatible observer states. The target is a finite local quantum system indexed by record regions. It is not a spacetime QFT.",
+      "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
+      "claim_level": "active issue-scoped construction",
       "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: QFT/FiniteCausalObserverNet.lean, QFT/ObserverNetDescent.lean.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
+        "dag:ready-now",
         "track:covariant-net",
         "size:M",
-        "parked",
         "surface:v2"
       ],
       "number": 692,
       "phase": "v2-w3-covariant-net",
       "title": "[E1] Finite causal observer net",
-      "updated_at": "2026-08-04T22:08:52Z",
+      "updated_at": "2026-08-05T01:08:21Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/692"
     },
     {
@@ -340,10 +340,10 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/697"
     },
     {
-      "blocker": "Live prerequisite contract: A3 (#698). Open scope: Construct the public-world endpoint selected by the consensus tower: quotient repaired configurations by public-record equivalence, identify the fixed-point object, and prove its inhabitedness and schedule independence under explicit termination, confluence, and fairness hypotheses. Repair order and repair history remain witnesses rather than physical time or world identity. Include countermodels showing which endpoint conclusions fail when confluence or fairness is removed.",
+      "blocker": "Live prerequisite contract: A3 (#698, closed bounded). Open scope: Construct the public-world endpoint selected by the consensus tower using the existing OPH repair primitives. Form the terminal-normal-form quotient by gauge/public-record equivalence; define the descended repair or endpoint map on quotient classes; prove it is well defined under gauge-equivalent representatives; identify the fixed-point object; and prove inhabitedness and schedule independence under explicit termination, confluence, completeness (normal iff overlap-consistent), gauge congruence, and an honestly named completion or scheduler-fairness hypothesis. Repair order and repair history remain witnesses rather than physical time or world identity.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Tower/PublicWorldQuotient.lean, Tower/FixedPointEndpoint.lean, one typed handoff note to E2.",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Tower/PublicWorldQuotient.lean, Tower/FixedPointEndpoint.lean, an OPH-specific primitive/tower adaptor, and one typed handoff note to E2.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -354,7 +354,7 @@
       "number": 699,
       "phase": "v2-w1-foundations",
       "title": "[A4] Public-world quotient and fixed-point endpoint",
-      "updated_at": "2026-08-05T00:28:42Z",
+      "updated_at": "2026-08-05T01:08:18Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/699"
     },
     {
@@ -392,6 +392,24 @@
       "title": "[E4] Structural QFT inheritance on the constructed observer net",
       "updated_at": "2026-08-04T22:08:44Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/701"
+    },
+    {
+      "blocker": "Live prerequisite contract: A3 (#698, closed bounded), B1 (#677, closed bounded), B2 (#678, closed bounded), and B11 (#687, bounded no-go pending closure). Open scope: B11 (#687) closes only the bounded twelve-port enumeration. It proves that the source-manifest central atoms form one classical context and that the separate nonphysical spinor adapter has six disjoint binary contexts whose six-dimensional additive-weight cube is larger than its three-dimensional Hermitian/Born slice. That result is a no-go, not the positive Born antecedent needed by the reconstruction gate.",
+      "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
+      "claim_level": "active issue-scoped construction",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: - a source-effect manifest and exact certificate with an independent verifier; - Lean interfaces/theorems for the attained representation or obstruction; - claim, prediction, and postdiction ledger updates with explicit scope; - a typed handoff to CORE/H1.",
+      "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
+      "labels": [
+        "dag:ready-now",
+        "track:observer-laws",
+        "size:L",
+        "surface:v2"
+      ],
+      "number": 702,
+      "phase": "v2-w1-observer-laws",
+      "title": "[B13] Source-realized interlocking public effect family",
+      "updated_at": "2026-08-05T02:10:37Z",
+      "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/702"
     }
   ],
   "worker_policy": {

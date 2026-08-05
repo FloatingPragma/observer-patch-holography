@@ -137,11 +137,15 @@ separate.
 
 Nothing in this chapter changes the equations of the earlier ones. Modular
 flow gives a restricted state an intrinsic ordering, and a calibrated
-instrument turns that ordering into a clock. Horizon thermodynamics gives the
-Einstein relation. Complete reversible response and internal transport force
-the Standard Model Lie type, and the icosahedral incidence forces its Z6
-center, all machine-checked. What this chapter adds is the architecture those
-results share.
+instrument turns that ordering into a clock. On the declared finite
+first-law, horizon, and equilibrium-geometric premises, the gravity branch
+implies the Einstein-form relation; its physical source realization is an
+open obligation. Complete reversible response and endogenous transport
+select the Standard Model Lie type on their stated branch. The finite \(Z_6\) descent
+calculation is machine-checked only after its axis, charges, and global-form
+premises are supplied; icosahedral incidence alone does not select that
+center. What this chapter adds is the architecture those conditional results
+share.
 
 ## 18.4 Self-Reference as Subtraction
 
@@ -179,8 +183,9 @@ Charges that survive transport from patch to patch form a menu, and with the
 smallest matter content admitted, the menu reads as the strong, weak, and
 hypercharge forces.
 
-Horizon bookkeeping gives the Einstein form of the gravity law and leaves one
-global term unassigned.
+On its stated finite first-law and causal-horizon premises, horizon
+bookkeeping yields an Einstein-form implication and leaves one global term
+unassigned; the physical attachment of those premises is an open obligation.
 
 Durable records need the screen slightly detuned from perfect balance, and
 the map that carries that detuning through the world has one fixed point.

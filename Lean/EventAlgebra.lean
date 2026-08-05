@@ -10,6 +10,7 @@ import EventAlgebra.NoBroadcastingAdapter
 import EventAlgebra.StateExpectation
 import EventAlgebra.Tsirelson
 import EventAlgebra.ExpectationBound
+import EventAlgebra.FiniteBornFrame
 
 /-!
 # Finite projection-event calculus — umbrella root
@@ -55,7 +56,13 @@ with projection events over `Matrix (Fin n) (Fin n) ℂ`:
   finite matrix algebras;
 * `EventAlgebra.ExpectationBound` — the state-expectation bound
   `‖Tr(ρ M)‖ ≤ ‖M‖` for the L2 operator norm and the state-level CHSH
-  corollary for projection events.
+  corollary for projection events;
+* `EventAlgebra.FiniteBornFrame`: the exact rank gap for the declared
+  twelve-port qubit adapter: six context-additive parameters, a
+  three-parameter coordinate slice, conditional uniqueness, and an explicit
+  nonrepresentation control.  The separate exact producer and independent
+  verifier certify the actual projector/Bloch matrix interpretation and the
+  represented nonpositive-matrix control.
 
 Every lemma carries a doc-comment tag, **algebra-only** or
 **trace-dependent**, separating the pure `*`-algebra layer from the

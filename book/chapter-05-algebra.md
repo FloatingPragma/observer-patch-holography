@@ -335,19 +335,60 @@ consulted without disturbing one another.
 
 The finite dynamics makes this split precise. A positive unital linear map on
 the active-record function algebra is exactly a real row-stochastic kernel.
-A continuous flow that only permutes the discrete record labels is necessarily
-trivial. By contrast, every star automorphism of one finite full private matrix
-block is implemented by a unitary, and a supplied self-adjoint Hamiltonian
-generates a unitary real-parameter flow satisfying the von Neumann equation.
-These are finite structural theorems. They do not classify arbitrary public
-star automorphisms as label permutations, classify arbitrary direct sums of
-matrix blocks, derive a Hamiltonian from every continuous automorphism group,
-or identify the parameter with a physical clock.
+Every star automorphism of that public function algebra is uniquely pullback
+by a permutation of the labels. A pointwise-continuous real-parameter group of
+arbitrary public star automorphisms is therefore trivial. By contrast, every
+star automorphism of one finite full private matrix block is implemented by a
+unitary, and a supplied self-adjoint Hamiltonian generates a unitary
+real-parameter flow satisfying the von Neumann equation. These are finite
+structural theorems. They do not classify arbitrary direct sums of matrix
+blocks, derive a Hamiltonian from every continuous automorphism group, or
+identify the parameter with a physical clock.
+
+The twelve-port carrier also exposes a useful limit on how much quantum
+probability follows from a small event menu. Its twelve declared central atoms
+form one classical context: their weights determine a state on the
+commutative algebra, but not a density matrix on an otherwise supplied full
+matrix algebra. A separate spinor construction supplies twelve qubit
+projectors in six antipodal binary contexts. Additivity leaves six free
+weights, while trace-one Hermitian Born weights occupy only a
+three-dimensional slice. Exact counterexamples lie inside the unit interval
+but either miss that slice or yield a nonpositive matrix. The representation
+is unique when it exists; existence does not follow. Since the projector
+construction is not a source-produced public measurement instrument, this is
+an exact finite obstruction, not a derivation of the Born rule.
+
+Lean checks the coordinate-image theorem and the nonrepresentation witness. A separate exact
+producer and independent verifier check the projector/Bloch matrix bridge and
+the represented nonpositive-matrix witness. The missing source-produced effect
+system and cone or operational extension theorem remain a separate live task.
 
 ### Net Axioms (Algebraic)
 
 The pattern stays the same. A smaller patch sees less. Disjoint patches do not
 interfere. Every genuine patch carries some nontrivial record of the world.
+
+At a finite stage these expectations can be packaged as a proof-carrying
+regional net. Regions are ordered by inclusion, declared-disjoint regions have
+commuting algebras, refinements preserve the regional assignment, and a local
+repair can be required to fix remote observables. Under that last requirement,
+every matrix state gives a remote observable the same expectation before and
+after the repair. Compatible local sections glue uniquely only for declared
+nonempty finite subregion families that carry explicit restriction and
+uniqueness data. The formal type is named `FiniteCover`, but it contains no
+joint-coverage condition. Ordinary inclusion of smaller algebras into larger
+ones does not supply those reverse restriction maps.
+
+A parameterized consistency model assigns the same commutative record algebra
+to every region and makes every restriction the identity once a partition and
+state are supplied. It proves that the interface is coherent on those inputs,
+but it is not a closed source witness and does not construct a noncommutative
+regional quantum model. The separately carried B4 identity is only a generic
+basis-reindexed marginal theorem; no formal receipt identifies its matrix
+factors with the two regional algebras. Genuine coverage, source-derived
+regional factorization, positive quantum channels, locality for adaptive
+repair schedules, spacetime causality, a time-slice law, and the continuum
+field theory are open.
 
 ### The Overlap Algebra
 

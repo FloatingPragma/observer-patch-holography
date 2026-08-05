@@ -2,6 +2,7 @@ import Dynamics.ProtectedCharge
 import Dynamics.WardLimitManifest
 import Dynamics.ConditionalExpectationGenerator
 import Dynamics.PublicMarkov
+import Dynamics.PublicAutomorphism
 import Dynamics.PrivateInner
 
 /-!
@@ -17,11 +18,13 @@ the single-collar fixed algebra, and the multi-collar intersection under an
 explicit no-cancellation premise. It supplies no formal channel object or
 physical rate attachment.
 
-`PublicMarkov.lean` and `PrivateInner.lean` carry the bounded B3 dichotomy:
+`PublicMarkov.lean`, `PublicAutomorphism.lean`, and `PrivateInner.lean` carry
+the bounded B3 dichotomy:
 positive unital maps of finite record functions are row-stochastic, continuous
-label-permutation flows are trivial, full private matrix-block automorphisms
-are unitarily inner, and a fixed self-adjoint Hamiltonian generates a unitary
-real-parameter von Neumann flow. Classification of arbitrary public star
-automorphisms as label permutations, arbitrary central-block algebras, and the
-converse continuous-group-to-Hamiltonian theorem remain outside this result.
+public star-automorphism groups are trivial because every finite public star
+automorphism is uniquely a label permutation, full private matrix-block
+automorphisms are unitarily inner, and a fixed self-adjoint Hamiltonian
+generates a unitary real-parameter von Neumann flow. Arbitrary central-block
+algebras and the converse continuous-group-to-Hamiltonian theorem remain
+outside this result.
 -/

@@ -40,8 +40,16 @@ Lean/
 ├── InformationProjection/              conditional finite-history projection
 ├── Time/                               time/order type ledger and explicit
 │                                       realization-map boundary
-├── Tower/                              timeless consensus-tower interface and
-│                                       constant finite-fiber adaptor
+├── Tower.lean
+├── Tower/                              timeless consensus tower, literal
+│                                       public quotient, and conditional endpoint
+├── Geometry.lean
+├── Geometry/                           C1 Hermitian Lorentz module, celestial
+│                                       quotient, frames, rest spaces, tensor bridge
+├── QFT.lean
+├── QFT/                                conditional finite regional-net and
+│                                       restriction-gluing interfaces on declared
+│                                       subregion families without a coverage law
 ├── Locality.lean
 ├── ObserverPatchHolography/Locality/    fixed-word locality helpers
 ├── Variational.lean
@@ -102,15 +110,27 @@ continuous integration recreates it as a real directory.
   and affine clock-gauge boundary
 - `docs/A3_CONSENSUS_TOWER.md`: directed finite tower interface, constant
   projective-partition adaptor, and E1/E2 wiring boundary
+- `docs/A4_PUBLIC_WORLD_ENDPOINT.md`: literal public quotient, descended OPH
+  endpoint, conditional schedule/representative independence, and E2 handoff
 - `docs/B1_PUBLIC_RECORD_ALGEBRA.md`: exact active-label record algebra,
   sharp no-cloning theorem, and mixed-state adapter boundary
 - `docs/B2_PUBLICIZATION_DYNAMICS.md`: normalized Kraus data, solvable
   publicization semigroup, literal bounded-operator exponential, fixed algebra,
   and physical-channel boundary
-- `docs/B3_PUBLIC_PRIVATE_DYNAMICS.md`: stochastic public maps, the continuous
-  permutation-flow obstruction, full-private-block innerness, and the open
-  public-automorphism classification, central-block, and converse-generator
-  boundaries
+- `docs/B3_PUBLIC_PRIVATE_DYNAMICS.md`: stochastic public maps, exact public
+  star-automorphism classification, the continuous public-flow obstruction,
+  full-private-block innerness, and the open central-block and
+  converse-generator boundaries
+- `EventAlgebra/FiniteBornFrame.lean` and `../code/born_frame/README.md`:
+  exact twelve-port context/Born rank gap, conditional tomography uniqueness,
+  and the source-produced public-effect boundary
+- `docs/C1_CANONICAL_LORENTZ_MODULE.md`: intrinsic Hermitian Lorentz module,
+  set-level celestial quotient, frame/rest-space geometry, and exact Einstein
+  coordinate bridge
+- `docs/E1_FINITE_CAUSAL_OBSERVER_NET.md`: conditional finite regional-net and
+  restriction-gluing interface, its parameterized commutative consistency
+  model, and the open coverage, factor-localization, and noncommutative/source
+  realization receipts
 - `docs/BRIDGE_BOUNDARY_INDEX.md`: cross-paper boundary map
 - `docs/BOUNDARY_FIBER_APPLICATION.md`: #304 application note
 - `ObservableNormalForms/README.md` and its `PROOF_INDEX.md`: manuscript

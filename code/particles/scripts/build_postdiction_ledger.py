@@ -78,6 +78,24 @@ LEAN_RECEIPTS = {
     "ExteriorSelection": LEAN_SCREEN / "ExteriorSelection.lean",
     "TimeOrderLedger": REPO / "Lean" / "Time" / "TimeOrderLedger.lean",
     "ConsensusTower": REPO / "Lean" / "Tower" / "ConsensusTower.lean",
+    "PublicWorldQuotient": REPO / "Lean" / "Tower"
+    / "PublicWorldQuotient.lean",
+    "FixedPointEndpoint": REPO / "Lean" / "Tower"
+    / "FixedPointEndpoint.lean",
+    "CanonicalLorentzModule": REPO / "Lean" / "Geometry"
+    / "CanonicalLorentzModule.lean",
+    "CelestialNullCone": REPO / "Lean" / "Geometry"
+    / "CelestialNullCone.lean",
+    "ObserverFrameHyperboloid": REPO / "Lean" / "Geometry"
+    / "ObserverFrameHyperboloid.lean",
+    "ObserverRestSpace": REPO / "Lean" / "Geometry"
+    / "ObserverRestSpace.lean",
+    "EinsteinTensorBridge": REPO / "Lean" / "Geometry"
+    / "EinsteinTensorBridge.lean",
+    "FiniteCausalObserverNet": REPO / "Lean" / "QFT"
+    / "FiniteCausalObserverNet.lean",
+    "ObserverNetDescent": REPO / "Lean" / "QFT"
+    / "ObserverNetDescent.lean",
     "PublicRecordAlgebra": REPO / "Lean" / "EventAlgebra"
     / "PublicRecordAlgebra.lean",
     "NoBroadcastingAdapter": REPO / "Lean" / "EventAlgebra"
@@ -93,7 +111,11 @@ LEAN_RECEIPTS = {
     "ConditionalExpectationGenerator": REPO / "Lean" / "Dynamics"
     / "ConditionalExpectationGenerator.lean",
     "PublicMarkov": REPO / "Lean" / "Dynamics" / "PublicMarkov.lean",
+    "PublicAutomorphism": REPO / "Lean" / "Dynamics"
+    / "PublicAutomorphism.lean",
     "PrivateInner": REPO / "Lean" / "Dynamics" / "PrivateInner.lean",
+    "FiniteBornFrame": REPO / "Lean" / "EventAlgebra"
+    / "FiniteBornFrame.lean",
     "FiniteConditionalRepair": REPO / "Lean" / "Thermodynamics"
     / "FiniteConditionalRepair.lean",
     "StationaryRealization": REPO / "Lean" / "Thermodynamics"
@@ -781,6 +803,232 @@ def _forced_structure(
             "paper_ref": "observers paper, consensus-tower root interface",
         },
         {
+            "id": "finite_public_world_endpoint",
+            "statement": (
+                "A finite inhabited raw presentation has a literal kernel "
+                "quotient whose equality is exactly public-readback equality "
+                "and whose points are the realized signatures. Termination "
+                "constructs a finite completed schedule; confluence, semantic "
+                "fixed-point completeness, and explicit repair-output plus "
+                "enabledness congruence make the consistent public endpoint "
+                "independent of completed schedule and raw representative. "
+                "The existing OPH Repair descends to an idempotent public map, "
+                "and typed OPH and A3-regulator adaptors retain every premise"
+            ),
+            "observed_counterpart": (
+                "an observer-independent public normal-form endpoint"
+            ),
+            "match": (
+                "exact bounded conditional endpoint; source and limit open"
+            ),
+            "lean_declarations": {
+                "PublicWorldQuotient": [
+                    "toPublicWorld_eq_iff",
+                    "publicSignature_injective",
+                    "hiddenBit_distinct_but_publicly_equal",
+                ],
+                "FixedPointEndpoint": [
+                    "public_endpoint_exists_unique_on_public_class",
+                    "publicRepair_idempotent",
+                    "lr_public_endpoint_exists_unique_on_gauge_class",
+                    "representative_no_descended_repair",
+                    "primitiveLR_endpoint_exists_unique_on_gauge_class",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "PublicWorldQuotient",
+                "FixedPointEndpoint",
+                declarations={
+                    "PublicWorldQuotient": (
+                        "toPublicWorld_eq_iff",
+                        "publicSignature_injective",
+                        "hiddenBit_distinct_but_publicly_equal",
+                    ),
+                    "FixedPointEndpoint": (
+                        "public_endpoint_exists_unique_on_public_class",
+                        "publicRepair_idempotent",
+                        "lr_public_endpoint_exists_unique_on_gauge_class",
+                        "representative_no_descended_repair",
+                        "primitiveLR_endpoint_exists_unique_on_gauge_class",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "CompletedSchedule is terminal finite completion, not infinite "
+                "scheduler fairness. The A3 adaptor requires a caller-supplied "
+                "seed and injective readback encoding. No source-selected "
+                "physical world, cross-regulator naturality, continuum limit, "
+                "clock, observable, decision rule, or prediction follows"
+            ),
+            "paper_ref": "observers paper, finite public-world endpoint",
+        },
+        {
+            "id": "canonical_intrinsic_lorentz_module",
+            "statement": (
+                "The real Pauli-coordinate module Herm2 is exactly the "
+                "four-dimensional space of two-by-two complex Hermitian "
+                "matrices, with determinant equal to the Lorentz quadratic "
+                "form of constructive inertia (+---). Positive future-null "
+                "rays are set-equivalent to the unit two-sphere, the algebraic "
+                "future-unit hyperboloid has three-dimensional positive rest "
+                "spaces, and an explicit linear chart matches the existing "
+                "Einstein coordinates with exactly the required sign flip"
+            ),
+            "observed_counterpart": (
+                "four-dimensional Lorentzian event and observer-frame geometry"
+            ),
+            "match": (
+                "exact intrinsic geometry and coordinate bridge; soldering open"
+            ),
+            "lean_declarations": {
+                "CanonicalLorentzModule": [
+                    "det_toMatrix",
+                    "isHermitian_iff_existsUnique_toMatrix",
+                    "finrank_Herm2",
+                    "time_axis_positive",
+                    "spatial_axis_negative",
+                ],
+                "CelestialNullCone": [
+                    "rayToCelestial_celestialToRay",
+                    "celestialToRay_rayToCelestial",
+                ],
+                "ObserverFrameHyperboloid": [
+                    "frame_time_sq_eq_one_add_spatial",
+                    "frame_time_ge_one",
+                ],
+                "ObserverRestSpace": [
+                    "finrank_restSpace",
+                    "restMetric_pos",
+                    "restMetric_self_eq_zero_iff",
+                ],
+                "EinsteinTensorBridge": [
+                    "lorentzQ_eq_neg_einsteinQuad",
+                    "lorentzQ_eq_zero_iff_einsteinQuad_eq_zero",
+                    "isFutureNull_iff_einstein",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "CanonicalLorentzModule",
+                "CelestialNullCone",
+                "ObserverFrameHyperboloid",
+                "ObserverRestSpace",
+                "EinsteinTensorBridge",
+                declarations={
+                    "CanonicalLorentzModule": (
+                        "det_toMatrix",
+                        "isHermitian_iff_existsUnique_toMatrix",
+                        "finrank_Herm2",
+                        "time_axis_positive",
+                        "spatial_axis_negative",
+                    ),
+                    "CelestialNullCone": (
+                        "rayToCelestial_celestialToRay",
+                        "celestialToRay_rayToCelestial",
+                    ),
+                    "ObserverFrameHyperboloid": (
+                        "frame_time_sq_eq_one_add_spatial",
+                        "frame_time_ge_one",
+                    ),
+                    "ObserverRestSpace": (
+                        "finrank_restSpace",
+                        "restMetric_pos",
+                        "restMetric_self_eq_zero_iff",
+                    ),
+                    "EinsteinTensorBridge": (
+                        "lorentzQ_eq_neg_einsteinQuad",
+                        "lorentzQ_eq_zero_iff_einsteinQuad_eq_zero",
+                        "isFutureNull_iff_einstein",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the celestial equivalence is set-level and the frames and "
+                "rest spaces are algebraic. No observer-patch selection, "
+                "event soldering, overlap cocycle, affine translation sector, "
+                "rod, clock, physical spacetime, continuum attachment, "
+                "observable, decision rule, or prediction is supplied"
+            ),
+            "paper_ref": "observers paper, canonical Lorentz module",
+        },
+        {
+            "id": "finite_causal_observer_net_interface",
+            "statement": (
+                "A proof-carrying finite enrichment of one consensus tower "
+                "has declared region posets, overlaps, disjointness, local star "
+                "subalgebras, isotony, algebraic locality, covariant refinement, "
+                "compatible expectations, and idempotent regional repairs that "
+                "explicitly fix local and declared-disjoint observables. Its "
+                "relaxations compose exactly and preserve remote expectations. "
+                "Supplied overlap restrictions support a unique restriction-gluing "
+                "interface on declared nonempty subregion families, controls "
+                "isolate missing premises, and a partition-and-state-parameterized "
+                "commutative constant-partition model proves conditional consistency"
+            ),
+            "observed_counterpart": (
+                "a causal local quantum-observable net with overlap descent"
+            ),
+            "match": (
+                "substantial conditional finite interface; noncommutative source open"
+            ),
+            "lean_declarations": {
+                "FiniteCausalObserverNet": [
+                    "commute_of_disjoint",
+                    "regionalExpectation_refine",
+                    "relaxedRepair_compose",
+                    "relaxedRepair_fixes_disjoint",
+                    "relaxedRepair_remote_expectation",
+                    "kraus_remote_marginal_invariant",
+                    "fullM2_distinct_regions_not_local",
+                    "idempotence_does_not_force_remote_fix",
+                    "partitionPublicCausalNet_has_disjoint_pair",
+                ],
+                "ObserverNetDescent": [
+                    "jointly_injective_of_unique_descent",
+                    "no_descent_of_indistinguishable_global_sections",
+                    "glue_restrict",
+                    "glue_unique",
+                    "partitionPublicTwoRegionCover_hasUniqueDescent",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "FiniteCausalObserverNet",
+                "ObserverNetDescent",
+                declarations={
+                    "FiniteCausalObserverNet": (
+                        "commute_of_disjoint",
+                        "regionalExpectation_refine",
+                        "relaxedRepair_compose",
+                        "relaxedRepair_fixes_disjoint",
+                        "relaxedRepair_remote_expectation",
+                        "kraus_remote_marginal_invariant",
+                        "fullM2_distinct_regions_not_local",
+                        "idempotence_does_not_force_remote_fix",
+                        "partitionPublicCausalNet_has_disjoint_pair",
+                    ),
+                    "ObserverNetDescent": (
+                        "jointly_injective_of_unique_descent",
+                        "no_descent_of_indistinguishable_global_sections",
+                        "glue_restrict",
+                        "glue_unique",
+                        "partitionPublicTwoRegionCover_hasUniqueDescent",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "ordinary isotony does not supply the star-homomorphic "
+                "restriction retractions or unique gluing. `FiniteCover` has no "
+                "joint-coverage axiom, the B4 helper has no regional-factor "
+                "attachment, and the parameterized consistency model is "
+                "commutative and degenerate. Issue #692 gates a noncommutative "
+                "region-separating source realization with genuine coverage and "
+                "factor-localization receipts; "
+                "no CP/CPTP channel, scheduler locality, spacetime causality, "
+                "time-slice property, continuum QFT, observable, decision rule, "
+                "or prediction is supplied"
+            ),
+            "paper_ref": "observers paper, finite causal observer-net interface",
+        },
+        {
             "id": "finite_publicization_dynamics",
             "statement": (
                 "An idempotent linear publicization map has an exactly "
@@ -872,9 +1120,11 @@ def _forced_structure(
             "statement": (
                 "Positive unital complex-linear maps of the finite active-"
                 "record function algebra are exactly real row-stochastic "
-                "kernels under the declared coordinatewise cone. Continuous "
-                "real permutation flows of discrete record labels are "
-                "trivial. Every star automorphism of one finite full private "
+                "kernels under the declared coordinatewise cone. Every public "
+                "star automorphism is uniquely pullback by a label permutation, "
+                "so every pointwise-continuous real-parameter group of arbitrary "
+                "public star automorphisms is trivial. Every star automorphism "
+                "of one finite full private "
                 "endomorphism block is unitarily inner, and a supplied "
                 "self-adjoint Hamiltonian generates a unitary real-parameter "
                 "von Neumann flow"
@@ -891,6 +1141,11 @@ def _forced_structure(
                     "toPerm_eq_refl",
                     "function_action_eq",
                 ],
+                "PublicAutomorphism": [
+                    "publicStarAutomorphism_is_labelPermutation",
+                    "publicStarAutomorphism_labelPermutation_unique",
+                    "toAut_eq_refl",
+                ],
                 "PrivateInner": [
                     "finitePrivateStarAutomorphism_inner",
                     "hasDerivAt_realVonNeumannFlow",
@@ -899,6 +1154,7 @@ def _forced_structure(
             },
             "lean_receipts": _lean_receipt(
                 "PublicMarkov",
+                "PublicAutomorphism",
                 "PrivateInner",
                 declarations={
                     "PublicMarkov": (
@@ -908,6 +1164,11 @@ def _forced_structure(
                         "toPerm_eq_refl",
                         "function_action_eq",
                     ),
+                    "PublicAutomorphism": (
+                        "publicStarAutomorphism_is_labelPermutation",
+                        "publicStarAutomorphism_labelPermutation_unique",
+                        "toAut_eq_refl",
+                    ),
                     "PrivateInner": (
                         "finitePrivateStarAutomorphism_inner",
                         "hasDerivAt_realVonNeumannFlow",
@@ -916,14 +1177,70 @@ def _forced_structure(
                 },
             ),
             "hypothesis_boundary": (
-                "the public obstruction starts from a label-permutation flow, "
-                "and the private innerness theorem covers one full matrix "
-                "block. Classification of arbitrary public star automorphisms "
-                "as label permutations, arbitrary finite central sums, a coherent continuous "
-                "unitary lift and single generator for every automorphism "
-                "group, source dynamics, physical time, and predictions remain open"
+                "public star automorphisms are classified exactly as unique "
+                "label permutations, so arbitrary pointwise-continuous public "
+                "automorphism groups are trivial. Private innerness covers "
+                "only one full matrix block. Arbitrary finite central sums, a "
+                "coherent continuous unitary lift and single generator for every "
+                "private automorphism group, source dynamics, physical time, and "
+                "predictions are outside the attained packet"
             ),
             "paper_ref": "observers paper, finite public/private dynamics",
+        },
+        {
+            "id": "finite_born_frame_rank_gap",
+            "statement": (
+                "The twelve declared central port atoms form one classical "
+                "context with an eleven-dimensional normalized weight simplex. "
+                "The separate declared qubit adapter has six disjoint antipodal "
+                "binary contexts: additive weights have affine dimension six, "
+                "while the trace-one Hermitian/Born slice has dimension three "
+                "and is characterized by three exact golden-ratio relations. "
+                "Tomography is unique when a representation exists, but exact "
+                "unit-interval controls show both nonrepresentation and a unique "
+                "Hermitian representation whose matrix is nonpositive"
+            ),
+            "observed_counterpart": (
+                "finite noncontextual weight representation and the Born rule"
+            ),
+            "match": (
+                "exact bounded rank-gap no-go; public quantum-effect source missing"
+            ),
+            "lean_declarations": {
+                "FiniteBornFrame": [
+                    "contextAdditive_unique_parameterization",
+                    "exists_frameCentered_iff_frameRelations",
+                    "hermitianRepresentation_unique",
+                    "densityRepresentation_unique",
+                    "exists_admissible_not_densityRepresentable",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "FiniteBornFrame",
+                declarations={
+                    "FiniteBornFrame": (
+                        "contextAdditive_unique_parameterization",
+                        "exists_frameCentered_iff_frameRelations",
+                        "hermitianRepresentation_unique",
+                        "densityRepresentation_unique",
+                        "exists_admissible_not_densityRepresentable",
+                    ),
+                },
+            ),
+            "artifact_refs": [
+                "code/born_frame/runtime/finite_born_frame_certificate.json",
+                "code/born_frame/verify_finite_born_frame_independent.py",
+            ],
+            "hypothesis_boundary": (
+                "the central atoms and spinor projectors are different objects. "
+                "The projector family is a declared mathematical adapter from "
+                "source-derived geometry, not a source-produced public quantum "
+                "instrument. No general Gleason or Busch theorem, physical Born "
+                "derivation, observable, or prediction is emitted. Issue #702 "
+                "owns the positive source-effect and cone or operational "
+                "continuation"
+            ),
+            "paper_ref": "observers paper, finite Born-frame rank audit",
         },
         {
             "id": "thermodynamic_four_law_package",

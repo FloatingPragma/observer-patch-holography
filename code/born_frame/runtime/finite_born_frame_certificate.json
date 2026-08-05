@@ -1,0 +1,274 @@
+{
+  "claim_boundary": "The declared twelve-axis qubit adapter is informationally complete, so a Born/Hermitian representation is unique whenever it exists. But its six disjoint binary contexts leave a six-dimensional cube of normalized additive weights, whereas the Born/Hermitian slice is only three-dimensional. Some additive unit-interval weights have no Hermitian trace representation, and some represented unit-interval weights correspond to a nonpositive matrix. Therefore this finite family does not derive the Born rule. The source-manifest central atoms instead form one classical context and do not determine an ambient M12 density matrix. Neither branch supplies a source-produced physical quantum measurement instrument.",
+  "closure_assessment": {
+    "bounded_negative_exit": true,
+    "closure_mode": "scoped exact no-go plus typed physical-attachment boundary",
+    "declared_projector_adapter_enumeration_complete": true,
+    "finite_enumeration_complete": true,
+    "first_missing_positive_antecedent": "a source-produced interlocking public effect family rich enough that context additivity and positivity constrain the full positive cone",
+    "general_gleason_or_busch_theorem_attempted": false,
+    "issue_687_closure_ready": true,
+    "literal_source_produced_public_effect_set_available": false,
+    "positive_born_derivation_obtained": false
+  },
+  "declared_central_atom_branch": {
+    "ambient_M12_density_representation": {
+      "uniform_weight_counterexample": {
+        "common_atom_weights": [
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "distinct_density_matrices": true,
+        "rho_0": "I_12/12",
+        "rho_0_spectrum": [
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "rho_1": "I_12/12 + (E_01+E_10)/24",
+        "rho_1_spectrum": [
+          "1/8",
+          "1/24",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12",
+          "1/12"
+        ],
+        "same_declared_atom_weights": true
+      },
+      "unique": false
+    },
+    "atom_count": 12,
+    "boundary": "This is a classical central-record context. It is not the noncommuting qubit projector adapter.",
+    "context_count": 1,
+    "nonnegative_weight_region": "the eleven-simplex",
+    "normalization_constraint_rank": 1,
+    "normalized_weight_affine_dimension": 11,
+    "object_status": "declared_source_manifest_central_port_atoms",
+    "state_on_commutative_algebra": {
+      "representation": "rho_commutative = diag(w_0,...,w_11)",
+      "unique": true
+    }
+  },
+  "declared_spinor_projective_branch": {
+    "born_hermitian_slice": {
+      "affine_dimension_inside_normalized_weights": 3,
+      "centered_coordinates": "c_i=2w_i-1",
+      "codimension_inside_context_additive_weights": 3,
+      "density_positivity_criterion": "(phi+2)*(x^2+y^2+z^2)<=1",
+      "exact_relations": [
+        "c0+c1=phi*(c2+c3)",
+        "c2-c3=phi*(c4+c5)",
+        "c4-c5=phi*(c0-c1)"
+      ],
+      "relation_rank": 3,
+      "representative_ports": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "tomographic_coordinates": {
+        "x": "(c4+c5)/2",
+        "y": "(c0-c1)/2",
+        "z": "(c2+c3)/2"
+      },
+      "unique_trace_one_hermitian_representation_when_it_exists": true,
+      "weight_formula": "w_i=(1+v_i dot s)/2"
+    },
+    "decision": {
+      "density_representation_is_unique_when_it_exists": true,
+      "every_context_admissible_weight_has_a_density_representation": false,
+      "every_context_admissible_weight_has_a_hermitian_trace_representation": false,
+      "reason": "the context-additive affine space has dimension six, while the informationally complete Born/Hermitian slice has dimension three; finite positivity on the twelve listed projectors does not imply positivity on the full qubit effect cone"
+    },
+    "exact_controls": {
+      "born_affine_but_nonpositive_weight": {
+        "all_weights_in_unit_interval": true,
+        "density_norm_squared": "9/10 + 9/50*sqrt(5)",
+        "has_density_representation": false,
+        "has_unique_trace_one_hermitian_representation": true,
+        "s": [
+          "3/5",
+          "0",
+          "0"
+        ],
+        "weights": [
+          "1/2",
+          "1/2",
+          "13/20 + 3/20*sqrt(5)",
+          "7/20 + -3/20*sqrt(5)",
+          "4/5",
+          "4/5",
+          "1/5",
+          "1/5",
+          "13/20 + 3/20*sqrt(5)",
+          "7/20 + -3/20*sqrt(5)",
+          "1/2",
+          "1/2"
+        ]
+      },
+      "context_additive_nonborn_weight": {
+        "all_weights_in_unit_interval": true,
+        "frame_relation_residuals": [
+          "1",
+          "0",
+          "-1/2 + -1/2*sqrt(5)"
+        ],
+        "has_trace_one_hermitian_representation": false,
+        "weights": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "1/2",
+          "0"
+        ]
+      },
+      "valid_density_weight": {
+        "density_norm_squared": "1/10 + 1/50*sqrt(5)",
+        "exact_tomography_recovers_s": true,
+        "has_unique_density_representation": true,
+        "s": [
+          "1/5",
+          "0",
+          "0"
+        ],
+        "weights": [
+          "1/2",
+          "1/2",
+          "11/20 + 1/20*sqrt(5)",
+          "9/20 + -1/20*sqrt(5)",
+          "3/5",
+          "3/5",
+          "2/5",
+          "2/5",
+          "11/20 + 1/20*sqrt(5)",
+          "9/20 + -1/20*sqrt(5)",
+          "1/2",
+          "1/2"
+        ]
+      }
+    },
+    "field": "Q(sqrt(5)) with exact rational coefficient pairs",
+    "frame": {
+      "axis_rank": 3,
+      "common_unnormalized_axis_norm_squared": "5/2 + 1/2*sqrt(5)",
+      "context_count": 6,
+      "contexts_interlock": false,
+      "effect_operator_system_rank": 4,
+      "gram_rank": 3,
+      "normalized_gram_values": [
+        "1",
+        "1/5*sqrt(5)",
+        "-1/5*sqrt(5)",
+        "-1"
+      ],
+      "orthogonal_contexts": [
+        [
+          0,
+          11
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "projectors_per_context": 2
+    },
+    "normalization_and_additivity": {
+      "affine_dimension": 6,
+      "constraint_matrix_rank": 6,
+      "noncontextuality_content": "label consistency only; every rank-one projector occurs in exactly one binary context",
+      "nonnegative_region": "the six-cube [0,1]^6 via one probability per antipodal context",
+      "parameterization": "w_i=a_i and w_(11-i)=1-a_i for i=0,...,5",
+      "weight_coordinate_count": 12
+    },
+    "object_status": "declared_qubit_projector_adapter_from_source_derived_spin_geometry",
+    "physical_public_effect_attachment": false,
+    "registered_effect_inventory": "zero, identity, and the twelve rank-one projector labels only; no rational effect closure or full positive cone is source-registered"
+  },
+  "issue": 687,
+  "receipt_sha256": "8498f0ae7bf8d39f4a40fb83c9ce7d895cf9d4930c98ba20e9e07d8957f0ecd2",
+  "schema": "oph.finite_born_frame.v1",
+  "source_lineage": {
+    "external_central_atom_manifest": {
+      "atoms_pairwise_orthogonal": true,
+      "atoms_sum_to_one": true,
+      "declared_port_atom_count": 12,
+      "file_sha256_at_projection": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+      "path": "tests/fixtures/echosahedral_federation_reference.json",
+      "repository": "FloatingPragma/oph-physics-sim",
+      "repository_commit_at_projection": "4aa2ce703b5cd172f687c7c9bc3d2d4aa04ed11e",
+      "schema": "oph.echosahedral_selector_manifest.v1",
+      "status": "declared source-carrier manifest, not a generated public quantum instrument"
+    },
+    "external_projective_adapter": {
+      "adapter_status": "mathematical construction from the source-derived spin lift",
+      "file_sha256_at_projection": "9c3ccbe47ec9939647a4f5ba5d18c2f5a37e96b6910702cba174e11ca336c214",
+      "internal_receipt_sha256": "f6e8b4e7fbaf5c3539afc17643d125d2691c028dd46cd25564f5af90761bb3b7",
+      "path": "data/quantum/icosahedral_chsh_candidate_receipt.json",
+      "physical_promotion_allowed": false,
+      "repository": "FloatingPragma/oph-physics-sim",
+      "repository_commit_at_projection": "4aa2ce703b5cd172f687c7c9bc3d2d4aa04ed11e",
+      "schema": "oph.icosahedral_chsh_candidate.v1",
+      "verdict": "EXACT_PROJECTIVE_BRANCH_CANDIDATE__TWO_WING_COMPLETED_RECORD_SOURCE_PRODUCER_MISSING"
+    },
+    "lineage_decision": "No registered producer emits these qubit projectors as completed public effects. The exact calculation is conditional on the declared spinor adapter; the central port atoms remain a separate classical family.",
+    "local_exact_port_frame": {
+      "path": "Lean/Screen/PortFrameGram.lean",
+      "sha256": "d1cebe56450e7586eed730b52068753ebca3a6563da1453679e87fa7c7b653e3",
+      "status": "declared exact icosahedral Gram/incidence packet"
+    }
+  },
+  "verdict": "EXACT_FINITE_FRAME_RANK_GAP__CONTEXT_ADDITIVITY_NOT_DENSITY_FORCING__PUBLIC_QUANTUM_EFFECT_PRODUCER_MISSING"
+}

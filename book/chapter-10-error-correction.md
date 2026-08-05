@@ -239,6 +239,20 @@ quantum record structure, the usual Born probabilities and measurement
 updates apply. Stable public facts appear when many local correction steps
 settle on one common answer.
 
+At one finite stage, the public description can be defined literally. Two raw
+configurations belong to the same public class exactly when their complete
+readbacks agree. A repair family has one public endpoint across schedules and
+hidden representatives only when termination, completion, confluence, and
+compatibility with that quotient are all supplied. Finite counterexamples
+show that each distinction matters: a fork can settle two ways, a truncated
+run need not be complete, and a repair that reads a hidden bit need not
+descend to the quotient.
+
+This theorem supplies a conditional finite endpoint. It does not construct a
+source-selected physical world, and completion of a finite run is not a
+fairness theorem about an indefinitely running scheduler. Connecting the
+endpoint across resolutions requires further compatibility data.
+
 One caution applies. The settling process is not an equilibrium. Accepted
 repairs move toward a final form and need not have accepted reverse moves, so
 a repair counter must never be mistaken for a physical clock.
