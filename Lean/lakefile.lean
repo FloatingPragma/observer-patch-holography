@@ -66,7 +66,9 @@ lean_lib «OPHScreen» where
     `SeamCurrentHomogeneousAction,
     `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift,
     `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment,
-    `SeamCurrentPhotonLeptonThreshold]
+    `SeamCurrentPhotonLeptonThreshold, `CarrierFrequencySpeed,
+    `ExteriorComponentBridge, `QuantumMatterIntegration,
+    `B10QuantumLimitations]
 
 @[default_target]
 lean_lib «OPHConstruction» where

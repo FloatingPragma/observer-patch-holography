@@ -8,6 +8,8 @@ import EventAlgebra.TwoScalePublicRepair
 import EventAlgebra.PublicRecordAlgebra
 import EventAlgebra.NoBroadcastingAdapter
 import EventAlgebra.StateExpectation
+import EventAlgebra.Robertson
+import EventAlgebra.Superselection
 import EventAlgebra.Tsirelson
 import EventAlgebra.ExpectationBound
 import EventAlgebra.FiniteBornFrame
@@ -52,6 +54,12 @@ with projection events over `Matrix (Fin n) (Fin n) ℂ`:
 * `EventAlgebra.StateExpectation` — the bundled expectation functional
   `M ↦ Tr(ρ M)`: positivity, normalisation, and its
   restriction to events (the Born weight);
+* `EventAlgebra.Robertson` — the supplied-state finite Robertson inequality,
+  its ordinary-commutator form, and exact noncommuting saturation and
+  zero-variance controls;
+* `EventAlgebra.Superselection` — the exact operational quotient induced by
+  a supplied partition pinching, including invisibility of every
+  cross-sector corner to the complete partition commutant;
 * `EventAlgebra.Tsirelson` — the Tsirelson bound `‖S‖ ≤ 2√2` for CHSH
   tuples, proved abstractly in unital C*-rings and instantiated for the
   finite matrix algebras;

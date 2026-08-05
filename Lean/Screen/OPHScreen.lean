@@ -36,6 +36,10 @@ import SeamCurrentAuxiliaryOscillatorLift
 import SeamCurrentFreePhotonLift
 import SeamCurrentPhysicalMetricAttachment
 import SeamCurrentPhotonLeptonThreshold
+import CarrierFrequencySpeed
+import ExteriorComponentBridge
+import QuantumMatterIntegration
+import B10QuantumLimitations
 
 /-!
 # OPH screen arithmetic umbrella

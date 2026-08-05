@@ -162,7 +162,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 2400 theorems and lemmas and no
+The supporting Lean library contains more than 2500 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See

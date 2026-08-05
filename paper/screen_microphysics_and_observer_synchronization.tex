@@ -3024,6 +3024,63 @@ Theorem~\ref{thm:seam-current-dirichlet-generator} are explicit premises.
 The finite source fixes the orbit and its response metric; it does not prove
 that this homogeneous internal action is a physical field action.
 
+\begin{theorem}[Global contraction of a complete positive cosine auxiliary frequency]
+\label{thm:positive-cosine-frequency-contraction}
+Let \(\{(\rho_i,v_i)\}_{i\in I}\) be a finite weighted family in the
+Euclidean carrier chart with \(\rho_i>0\), and suppose that
+\[
+\sum_{i\in I}\rho_i(v_i\mathbin{\cdot}x)^2=t|x|^2
+\qquad\text{for every }x,
+\]
+where \(t>0\). For \(a\ne0\), set
+\[
+\Lambda_a(k)=\frac{2}{ta^2}\sum_{i\in I}\rho_i
+ [1-\cos(av_i\mathbin{\cdot}k)]
+\]
+and define the sine-feature coordinates
+\[
+\Phi_{a,i}(k)=
+ \sqrt{\frac{4\rho_i}{a^2t}}
+ \sin\!\left(\frac{av_i\mathbin{\cdot}k}{2}\right).
+\]
+Then
+\[
+\Lambda_a(k)=\|\Phi_a(k)\|^2,
+\qquad
+\|\Phi_a(k)-\Phi_a(p)\|\le |k-p|.
+\]
+Consequently the nonnegative auxiliary frequency
+\(\Omega_a(k)=\|\Phi_a(k)\|\) satisfies
+\[
+|\Omega_a(k)-\Omega_a(p)|\le |k-p|
+\qquad\text{for all }k,p.
+\]
+The complete primitive-port support has \(t=4\) and prefactor
+\(1/(2a^2)\). The complete seam support has \(t=10\) and prefactor
+\(1/(5a^2)\), reproducing
+Equation~\eqref{eq:screen-seam-current-symbol}.
+\end{theorem}
+
+\begin{proof}
+The half-angle identity gives
+\(\Lambda_a(k)=\|\Phi_a(k)\|^2\). The global sine-difference bound controls
+each coordinate difference by
+\(\sqrt{\rho_i/t}\,|v_i\mathbin{\cdot}(k-p)|\). Summing the squared bounds
+and applying the tight-frame identity gives the contraction. The reverse
+triangle inequality for norms gives the frequency bound. The two support
+constants follow from their exact second-moment identities. The feature
+identity, contraction, support constants, and symbol bindings are
+machine-checked, and an independent exact verifier reconstructs the two
+finite supports~\cite{ophrepo}.
+\end{proof}
+
+The unit constant is a certified upper bound. No optimality theorem is used.
+The variables in Theorem~\ref{thm:positive-cosine-frequency-contraction}
+belong to the selected Euclidean carrier chart. A physical reading requires
+position and frequency maps, a clock, a field sector, wave-packet or signal-
+front dynamics, a frame and boost law, a finite physical scale, source-lag
+and detector models, and a frozen comparison contract.
+
 \begin{proposition}[Exact unit-domain remainder]
 \label{prop:seam-current-unit-remainder}
 Put \(q=ak\), let \(-5/9\le\mathcal I_6(n)\le1\), and write

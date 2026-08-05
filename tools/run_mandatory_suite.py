@@ -571,6 +571,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/a5_fingerprint/test_fz12_free_photon_hamiltonian.py",
             "code/a5_fingerprint/test_fz12_auger_threshold_diagnostic.py",
             "code/a5_fingerprint/test_carrier_scale_bound_diagnostic.py",
+            "code/a5_fingerprint/test_carrier_frequency_speed_certificate.py",
         ],
     ),
     ("Check the claims scoreboard is regenerated", [sys.executable, "tools/build_scoreboard.py", "--check"]),

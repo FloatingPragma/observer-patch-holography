@@ -153,6 +153,27 @@ def test_v2_policy_comes_from_live_contract_without_scientific_promotion() -> No
     assert "Do not launch workers while parked" in row["chrome_policy"]
 
 
+def test_v2_contract_fields_do_not_match_longer_prose_headings() -> None:
+    issue = _v2_issue(
+        number=686,
+        title="[B10] Quantum limitation suite",
+        labels=("track:observer-laws", "size:S"),
+        body=(
+            "Complete the bounded packet.\n\n"
+            "Audit boundary:\n- supplied finite inputs only.\n\n"
+            "Remaining issue-local deliverables:\n1. construct the adaptor.\n\n"
+            "Depends on: none.\nWave: V2-W1 Observer laws."
+        ),
+    )
+    issue["milestone"] = {"title": "V2-W1 Observer laws"}
+
+    row = ledger_tool.build_ledger([issue])["rows"][0]
+
+    assert "Remaining issue-local" not in row["falsification"]
+    assert "scientific falsifiers" in row["falsification"].casefold()
+    assert "Declared scope: Complete the bounded packet." in row["closure"]
+
+
 def test_v2_standing_policy_preserves_custody_semantics() -> None:
     issue = _v2_issue(
         number=695,

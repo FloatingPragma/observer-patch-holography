@@ -1351,6 +1351,36 @@
       "gates": []
     },
     {
+      "claim_id": "OPH-POSITIVE-COSINE-FREQUENCY-CONTRACTION",
+      "statement": "Let a finite strictly positive weighted direction family satisfy the exact Euclidean tight-frame identity sum_i rho_i (v_i dot x)^2 = t |x|^2 with t>0. For a nonzero finite scale a, define the complete normalized auxiliary cosine symbol Lambda_a(k) = 2/(t a^2) sum_i rho_i [1-cos(a v_i dot k)]. The exact sine-feature map Phi_i(k)=sqrt(4 rho_i/(a^2 t)) sin(a v_i dot k/2) obeys Lambda_a(k)=||Phi_a(k)||^2 and ||Phi_a(k)-Phi_a(p)||<=|k-p|. Its nonnegative auxiliary frequency Omega_a=||Phi_a|| therefore satisfies the global all-momentum bound |Omega_a(k)-Omega_a(p)|<=|k-p|. The complete FZ-11 vertex support instantiates t=4 and prefactor 1/(2a^2); the complete FZ-12 edge support instantiates t=10 and prefactor 1/(5a^2). The constant one is a certified upper bound, not a formal optimality result. The theorem supplies no physical position, frequency, clock, field sector, wave packet, signal front, frame, boost, physical scale, positive scale lower bound, detector readout, branch exclusivity, or comparison permission.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "exact_positive_tight_frame_auxiliary_frequency_contraction__physical_propagation_open",
+      "assumptions": [
+        "finite_strictly_positive_euclidean_tight_frame",
+        "normalized_complete_positive_cosine_symbol"
+      ],
+      "imported_results": [
+        "global_sine_difference_bound",
+        "reverse_triangle_inequality_for_norms",
+        "finite_Euclidean_tight_frame_identity"
+      ],
+      "oph_specific_delta": "The exact FZ-11 and FZ-12 carrier supports are placed inside one nonperturbative sine-feature theorem. Their complete normalized auxiliary symbols have a global unit Lipschitz upper bound without a Taylor truncation or an angular-axis choice, while every physical propagation and comparison interface remains separately typed.",
+      "novelty_type": "exact_global_auxiliary_frequency_contraction_with_frozen_branch_bindings",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "Lean/Screen/CarrierFrequencySpeed.lean",
+        "code/a5_fingerprint/carrier_frequency_speed_certificate.py",
+        "code/a5_fingerprint/verify_carrier_frequency_speed_independent.py",
+        "code/a5_fingerprint/test_carrier_frequency_speed_certificate.py",
+        "code/a5_fingerprint/runtime/carrier_frequency_speed_receipt.json"
+      ],
+      "falsifier": "The bounded mathematical claim fails if the feature norm squared differs from the complete normalized cosine symbol, the feature map violates its unit contraction bound, the frequency norm violates the resulting global Lipschitz bound, either exact FZ-11/FZ-12 tight-frame constant or symbol binding changes, or a mutation or independent replay control passes incorrectly. A physical propagation claim additionally fails its contract if the auxiliary chart norm is promoted without the named physical position, frequency, clock, field, signal-front, frame, scale, source-lag, detector, exclusivity, and custody receipts.",
+      "scope_if_false": "Failure retracts the global auxiliary-frequency contraction or the affected frozen-support binding. The carrier-class Taylor coefficient theorem, immutable FZ payloads, and wider OPH framework remain separately assessable. An open physical attachment blocks phenomenological use and is not a mathematical counterexample.",
+      "status": "exact_global_auxiliary_frequency_contraction_attained__physical_propagation_and_comparison_open",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
       "claim_id": "OPH-TIME-ORDER-TYPE-LEDGER",
       "statement": "The formal ontology ledger represents universe closure, repair execution order, observer record order, modular parameter, worldline realization, clock readout, proper time, and an optional global time function by eight distinct Lean types. In the committed source environment, a canonical witness matrix checks and rejects all 56 ordered transitive coercions between distinct ledger layers, and NamedRealizationMap is the explicit bridge API without an implicit function coercion. Positive affine regraduation preserves strict clock monotonicity. Given one record and a nonzero offset, it produces a distinct clock readout, so record order alone fixes no clock origin. The ledger constructs no public-world endpoint, worldline, physical clock, proper-time calibration, global time function, or modular-to-time identity.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
@@ -1542,6 +1572,70 @@
       "claim_class": "conditional_implication",
       "gates": [
         679
+      ]
+    },
+    {
+      "claim_id": "OPH-FINITE-QUANTUM-LIMITATION-SUITE",
+      "statement": "For every supplied finite density matrix and pair of supplied Hermitian observables, the state pairing proves the conventional Robertson inequality normSq(Tr(rho(AB-BA)))/4 <= Var_rho(A) Var_rho(B). The complex identity -i Tr(rho(AB-BA)) = c_rho(A,B) and nonnegativity of each variance are exact. Pauli X and Y give an explicit noncommuting saturation control. Pauli Z and X are explicitly noncommuting in a separate theorem, while the state control gives zero Z variance and zero commutator readout. For every supplied finite projective partition, two matrices have equal trace statistics against every matrix in the sector-preserving commutant exactly when their partition pinchings agree. Partition averaging is the distinct commutative projector-span readout, and both readouts erase every cross-sector corner. The package selects no physical state, observable, edge center, partition, detector algebra, or laboratory instrument.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "exact_bounded_finite_robertson_and_partition_readout_quotients",
+      "assumptions": [
+        "supplied_finite_density_state_and_hermitian_observables",
+        "supplied_projective_partition_and_pinching_readout"
+      ],
+      "imported_results": [
+        "finite_dimensional_Cauchy_Schwarz",
+        "positive_semidefinite_matrix_seminorm",
+        "finite_projective_partition_pinching_and_averaging"
+      ],
+      "oph_specific_delta": "The supplied-state uncertainty bound and the two distinct partition readouts are placed on one exact finite surface. The commutant-valued block readout is separated from the commutative public-record average, with explicit saturation, degeneracy, retained-diagonal, and erased-corner controls.",
+      "novelty_type": "typed_finite_robertson_and_partition_readout_boundary",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/Robertson.lean",
+        "Lean/EventAlgebra/Superselection.lean",
+        "Lean/Screen/B10QuantumLimitations.lean",
+        "Lean/docs/B10_QUANTUM_LIMITATIONS.md"
+      ],
+      "falsifier": "The bounded package fails if the supplied-state Robertson inequality or complex commutator identity fails, either Pauli control changes, partition operational equivalence differs from equality after pinching, a cross-sector corner survives either declared readout, or a retained partition diagonal is erased.",
+      "scope_if_false": "Only the bounded finite uncertainty or partition-readout packet falls. A future source-selected quantum instrument, continuum quantum field theory, finite matter algebra, and every frozen prediction remain separately assessed.",
+      "status": "exact_bounded_finite_robertson_and_partition_quotients_attained__edge_center_and_physical_instrument_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        686
+      ]
+    },
+    {
+      "claim_id": "OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE",
+      "statement": "The actual Mathlib exterior basis on a supplied five-mode carrier has 32 subset labels and the exact twelve color/weak bidegree multiplicities. Removing the vacuum and top line yields the ten declared component rows, with their dimensions, integer charges, parity, conjugation, square-zero creation, and anticommutation identities. A typed bridge maps those rows to nonzero sectors of a supplied projective partition and to supplied central-weight labels. Substitution of those labels preserves the common Z6 tensor-character kernel. A separate supplied nonempty chiral anomaly-free mask is forced to one of the two conjugate parity rows. An inhabited coordinate bridge, a retained sector diagonal, a nonzero erased cross-sector coherence, and a fractional-singlet kernel-collapse mutation guard against vacuous arithmetic. The bridge defines no group action on the partition projectors and does not attach its selection mask to a physical sector action. It selects no physical carrier, partition, matter action, parity representative, global form, continuum Spin structure, or laboratory charge.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_bounded_five_mode_exterior_and_supplied_weight_bridge",
+      "assumptions": [
+        "declared_five_mode_exterior_component_carrier",
+        "declared_component_sector_weight_bridge",
+        "rank15_exterior_matter_pair",
+        "hypercharge_color_z6_kernel"
+      ],
+      "imported_results": [
+        "Mathlib_exterior_algebra_basis",
+        "finite_Z6_character_enumeration"
+      ],
+      "oph_specific_delta": "The exact five-mode exterior component table and its central-weight arithmetic are connected through one supplied typed bridge without promoting label arithmetic to an action on public projectors. The control family checks inhabitation, readout sensitivity, and kernel sensitivity while retaining the physical attachment boundary.",
+      "novelty_type": "typed_finite_exterior_component_and_weight_bridge",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/Screen/ExteriorComponentBridge.lean",
+        "Lean/Screen/QuantumMatterIntegration.lean",
+        "Lean/Screen/B10QuantumLimitations.lean",
+        "Lean/docs/B10_QUANTUM_LIMITATIONS.md"
+      ],
+      "falsifier": "The bounded package fails if the five-mode exterior census or any component binding changes, the common supplied-weight kernel differs from Z6, the synthetic bridge is uninhabited, a sector diagonal is erased, the explicit cross-sector coherence survives, the parity-mask classification fails, or the fractional-singlet mutation leaves a nontrivial kernel.",
+      "scope_if_false": "Only the bounded exterior-component or supplied-weight integration packet falls. The abstract Standard Model Lie-type theorem, future source-selected matter, continuum quantum field theory, and every frozen prediction remain separately assessed.",
+      "status": "exact_bounded_five_mode_exterior_and_weight_bridge_attained__projector_action_and_physical_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        686,
+        706
       ]
     },
     {

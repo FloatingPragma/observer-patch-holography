@@ -914,6 +914,34 @@ Mapping between Lean 4 theorems in this project and statements in
   `native_decide`. Executable counterparts:
   `code/a5_closure/super_tannakian_matter_lift_certificate.py`,
   `code/a5_closure/axis_center_descent_certificate.py`.
+- B10 exterior and sector integration
+  (`Screen/ExteriorComponentBridge.lean`,
+  `Screen/QuantumMatterIntegration.lean`): the Mathlib exterior basis on a
+  supplied five-mode carrier has 32 subset labels, with the exact twelve
+  color/weak bidegree multiplicities. Removing the vacuum and top line gives
+  exactly the ten component rows used by `ExteriorSelection.lean`; charge,
+  parity, conjugation, square-zero creation, and anticommutation are bound to
+  that basis. A typed bridge then maps those rows to a supplied projective
+  partition and central-weight labels. Substitution preserves the diagonal
+  `Z6` weight-kernel arithmetic. A separate supplied mask is classified as
+  one of the two parity rows; no theorem ties it to an action on the partition
+  projectors. The coordinate bridge is an inhabited synthetic control. A
+  nonzero cross-sector corner is erased, a sector diagonal is retained, and a
+  fractional-singlet mutation collapses the common weight kernel. No theorem
+  selects the partition, exterior carrier, matter action, parity
+  representative, physical global form, or laboratory charge. The complete
+  index and trust boundary are in
+  `docs/B10_QUANTUM_LIMITATIONS.md`.
+- Positive-cosine auxiliary frequency contraction
+  (`Screen/CarrierFrequencySpeed.lean`): for every supplied finite strictly
+  positive Euclidean tight frame, the complete quadratically normalized
+  cosine symbol is exactly the squared norm of a sine-feature map. The feature
+  map is a contraction, so its nonnegative norm is globally 1-Lipschitz at all
+  momenta. The complete vertex12 and edge30 supports instantiate the theorem
+  with exact tight constants four and ten and reproduce the frozen FZ-11 and
+  FZ-12 symbol normalizations. The constant one is a certified upper bound.
+  No physical position, frequency, clock, field, signal front, frame, scale,
+  readout, exclusivity, or comparison follows.
 - FZ-02 angular multiplet signature (`Screen/A5AngularMultiplets.lean`):
   the exact branching of rotation levels `l = 0..6` under `A5` in integer
   `Z[sqrt 5]` arithmetic (`branching_table`, with the doubled character
@@ -1217,43 +1245,62 @@ Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
 | `luedersUpdate_eq_self_of_mem_certainStates` | States certain of `P` are fixed points of conditioning. |
 | `luedersUpdate_eq_self_iff` | Fixed points of conditioning = states certain of `P` (given nonzero weight). |
 
-`CenterExpectation.lean` : conditional expectation onto a commutative
-center (16 lemmas). This is the quantum-native counterpart of the
-classical contractive conditional-resampling projector package in
-`ObservableNormalForms/ObservableNormalForms/ConditionalResampling.lean`
-(fixes-the-fiber-constants / idempotent / selfadjoint-for-the-weighted-inner-product /
-Pythagoras / squared-`L²` contraction); the statements were re-proved from
-scratch in the matrix event-algebra setting rather than wrapped, so the
-neutral bundle stays self-contained with no imports from that package:
+`PartitionPinching.lean` : conditional expectation onto the partition
+commutant. This is the matrix counterpart of the classical contractive
+conditional-resampling projector package. The matrix identities are proved
+directly:
 
 | Lean name | One-line statement |
 |---|---|
-| `CenterPartition.proj_mul_proj` | `Pᵢ Pⱼ = δᵢⱼ Pᵢ` for a partition of unity. |
-| `CenterPartition.proj_commute` | Partition members commute (the center is commutative). |
-| `centerExpectation_mul_proj` | Right absorption: `𝔼(X) Pᵢ = Pᵢ X Pᵢ`. |
-| `proj_mul_centerExpectation` | Left absorption: `Pᵢ 𝔼(X) = Pᵢ X Pᵢ`. |
-| `proj_commute_centerExpectation` | `𝔼(X)` lies in the commutant of the partition. |
-| `centerExpectation_fixes` | `𝔼` fixes the commutant pointwise. |
-| `centerExpectation_idem` | `𝔼 ∘ 𝔼 = 𝔼` (a projector). |
-| `conjTranspose_centerExpectation` | `𝔼` commutes with conjugate transposition. |
-| `centerExpectation_isState` | `𝔼` maps states to states. |
-| `trace_conjTranspose_centerExpectation_mul` | `𝔼` is selfadjoint for the trace inner product. |
-| `trace_centerExpectation_pythagoras` | Pythagoras: `‖X‖² = ‖𝔼X‖² + ‖X − 𝔼X‖²` (trace norms). |
-| `trace_centerExpectation_contraction` | Squared-`L²` contractivity of `𝔼`. |
-| `trace_centerExpectation_mul_central` | Trace compatibility against every central `C`. |
-| `centerExpectation_unique` | `𝔼X` is the unique commutant-valued, trace-compatible element. |
-| `bornWeight_centerExpectation` | Born weights of central events are `𝔼`-invariant. |
-| `centerExpectation_luedersUpdate` | For central `P`: `𝔼 ∘ L_P = L_P ∘ 𝔼` (classical conditioning). |
+| `ProjectivePartition.proj_mul_proj` | `Pᵢ Pⱼ = δᵢⱼ Pᵢ` for a partition of unity. |
+| `ProjectivePartition.proj_commute` | Partition members commute. |
+| `partitionPinching_mul_proj` | Right absorption: `𝔼(X) Pᵢ = Pᵢ X Pᵢ`. |
+| `proj_mul_partitionPinching` | Left absorption: `Pᵢ 𝔼(X) = Pᵢ X Pᵢ`. |
+| `partitionPinching_mem_commutant` | `𝔼(X)` lies in the partition commutant. |
+| `partitionPinching_fixes` | `𝔼` fixes the commutant pointwise. |
+| `partitionPinching_idem` | `𝔼 ∘ 𝔼 = 𝔼`. |
+| `conjTranspose_partitionPinching` | `𝔼` commutes with conjugate transposition. |
+| `partitionPinching_isState` | `𝔼` maps states to states. |
+| `trace_conjTranspose_partitionPinching_mul` | `𝔼` is selfadjoint for the trace inner product. |
+| `trace_partitionPinching_pythagoras` | Pythagoras for the trace norm. |
+| `trace_partitionPinching_contraction` | Squared-`L²` contractivity of `𝔼`. |
+| `trace_partitionPinching_mul_commutant` | Trace compatibility against every commutant element. |
+| `partitionPinching_unique` | `𝔼X` is the unique commutant-valued, trace-compatible element. |
+| `bornWeight_partitionPinching` | Born weights of commutant events are `𝔼`-invariant. |
+| `partitionPinching_luedersUpdate` | For commutant `P`, pinching commutes with the Lüders formula. |
 
-`StateFromTrace.lean` : the expectation functional (5 lemmas):
+`StateExpectation.lean` : the bundled expectation functional (4 audited
+lemmas):
 
 | Lean name | One-line statement |
 |---|---|
 | `bornWeight_eq_expectation` | The Born weight is the expectation functional at an event. |
-| `expectation_add` | Additivity in the observable. |
-| `expectation_smul` | Homogeneity in the observable. |
+| `stateExpectationLinearMap_apply` | The bundled linear functional evaluates to the trace pairing. |
 | `expectation_one` | Normalisation: `Tr(ρ·1) = 1` for a state. |
 | `expectation_nonneg` | Positivity on all PSD observables (spectral-theorem proof). |
+
+`Robertson.lean` : supplied-state finite uncertainty with exact controls:
+
+| Lean name | One-line statement |
+|---|---|
+| `finite_state_pairing_robertson` | The Robertson bound from the positive-semidefinite state pairing. |
+| `neg_I_mul_commutator_expectation_eq_readout` | Full complex equality between `-i` times the ordinary commutator expectation and the real readout. |
+| `finite_state_robertson_commutator` | Conventional norm-squared ordinary-commutator inequality. |
+| `stateVariance_nonnegative` | Every supplied Hermitian observable has nonnegative state variance. |
+| `pauliX_pauliY_ne_pauliY_pauliX` | The saturating Pauli pair is explicitly noncommuting. |
+| `pauli_xy_noncommuting_control` | Exact unit-variance saturation control. |
+| `pauliZ_pauliX_ne_pauliX_pauliZ` | The zero-variance control pair is explicitly noncommuting. |
+| `pauli_z_zero_variance_control` | Exact zero-variance and zero-readout values. |
+
+`Superselection.lean` : complete operational quotient for a supplied
+projective partition:
+
+| Lean name | One-line statement |
+|---|---|
+| `partitionOperationallyEquivalent_iff_pinching_eq` | Equality against every partition-commutant trace test is equivalent to equality after pinching. |
+| `trace_mul_eq_zero_of_partitionOffDiagonal` | The pinching kernel is invisible to every matrix in the sector-preserving commutant. |
+| `partitionPinching_partitionCorner_eq_zero` | Every cross-sector corner lies in the pinching kernel. |
+| `partitionAverage_partitionCorner_eq_zero` | The declared commutative public average erases every cross-sector corner. |
 
 `Tsirelson.lean` : the Tsirelson bound, norm form (6 lemmas; abstract
 C*-route shipped, matrix corollary included):

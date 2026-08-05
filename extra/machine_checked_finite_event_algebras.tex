@@ -38,10 +38,6 @@
 \newcommand{\avg}{\mathcal A}
 \newcommand{\lued}{\mathcal L}
 \newcommand{\norm}[1]{\lVert #1\rVert}
-\newcommand{\sourcecommit}{%
-  \href{https://github.com/FloatingPragma/observer-patch-holography/commit/49ee36e01eb245d4d508e82c9b08fd47f7a85243}%
-  {\texttt{49ee36e0}}}
-
 \title{\textbf{Verified Projection-Event Calculus in Lean~4:\\
 Bundled Arbitrary-Partition Pinching, L\"uders Retractions,\\
 and CHSH Interoperability}}
@@ -146,12 +142,11 @@ example \texttt{partitionPinching\_idem}; the underscore is part of the
 identifier. To locate a declaration, search for the exact printed identifier,
 after removing only TeX's protective backslash before each underscore, in the
 \texttt{EventAlgebra/*.lean} files. In the public repository these files are
-under \texttt{Lean/EventAlgebra/}; in the
-standalone artifact they are under \texttt{event-algebra-lean/EventAlgebra/}.
-Table~\ref{tab:modules} maps each module name to its subject matter, and the
-top-level \texttt{EventAlgebra.lean} file imports all seven modules.
+under \texttt{Lean/EventAlgebra/}. Table~\ref{tab:modules} maps each module
+name to its subject matter. The top-level \texttt{EventAlgebra.lean} file
+imports these nine modules alongside the wider OPH event-algebra library.
 
-The submitted code adds seven pieces:
+The checked development contributes nine pieces:
 
 \begin{enumerate}[(i)]
 \item an arbitrary supplied projective partition, independent of a selected
@@ -173,7 +168,14 @@ partition pinching for commutant events;
 selfadjointness, involutivity, and cross-commutation hypotheses before
 applying a complementary norm-form bound;
 \item a checked state-expectation bound that converts the norm-form theorem
-into a state-level CHSH bound; and
+into a state-level CHSH bound;
+\item a finite-state Robertson theorem for supplied density matrices and
+Hermitian observables, with the ordinary-commutator form, a noncommuting
+saturation control, and a separate zero-variance control;
+\item the exact quotient induced by a supplied projective partition: equality
+after block pinching is equivalent to equality under every commutant trace
+test, while block pinching and commutative partition averaging both erase
+cross-sector corners; and
 \item a reproducible, version-pinned artifact with per-declaration axiom
 output, no proof placeholders, and a documented catalog of the Mathlib gaps,
 scoped-instance hazards, and workarounds met during construction
@@ -190,8 +192,10 @@ Section~\ref{sec:setting} fixes the mathematical and Lean interfaces.
 Sections~\ref{sec:events} and \ref{sec:lueders} treat projection events and
 selective update. Section~\ref{sec:pinching} gives the bundled partition
 pinching and its geometry, and Section~\ref{sec:average} the averaging
-expectation and the two-level structure. Sections~\ref{sec:functional} and
-\ref{sec:chsh} describe the state functional and the CHSH clients.
+expectation, the two-level structure, and the partition-relative operational
+quotient. Sections~\ref{sec:functional}, \ref{sec:robertson}, and
+\ref{sec:chsh} describe the state functional, finite-state uncertainty, and
+the CHSH clients.
 Section~\ref{sec:mathlib} records the Mathlib engagement.
 Section~\ref{sec:evaluation} reports the audit methodology, and
 Section~\ref{sec:comparison} positions the development feature by feature.
@@ -214,7 +218,7 @@ functions that return states, the library defines the subtypes
 practical. Algebraic lemmas use raw matrices. A function advertised as a state
 update returns a value whose type carries the state conditions.
 
-Table~\ref{tab:modules} lists the seven source modules. The comparison in
+Table~\ref{tab:modules} lists the nine source modules. The comparison in
 this work concerns their compiled interfaces and uses, not the number of
 declarations in each file.
 
@@ -236,6 +240,10 @@ centrality; bundled averaging expectation with exact range, uniqueness, tower
 laws, statistics preservation, and classical conditioning \\
 \texttt{StateExpectation} & trace pairing bundled as a complex-linear
 functional, normalization and positivity \\
+\texttt{Robertson} & supplied-state Robertson inequality, ordinary-commutator
+identity, variance nonnegativity, and exact Pauli controls \\
+\texttt{Superselection} & complete operational quotient for partition
+pinching and cross-sector invisibility for both declared readouts \\
 \texttt{Tsirelson} & CHSH ring identity, norm theorem, Mathlib interoperability,
 and event-level matrix client \\
 \texttt{ExpectationBound} & state-expectation operator-norm bound and the
@@ -471,9 +479,9 @@ every element of $N_\pi$
 center of the commutant.
 \end{proposition}
 
-Only the inclusion into the center is proved; the library does not claim the
-reverse inclusion, which fails in the presence of zero projectors. The
-averaging map is
+Only the inclusion into the center is used here. The reverse inclusion is not
+part of this module's API; zero projectors are removed in the separate active-label
+coordinate equivalence. The averaging map is
 \[
  \avg_\pi(X)=\sum_i\frac{\Tr(XP_i)}{\Tr(P_i)}\,P_i,
 \]
@@ -539,6 +547,39 @@ replaces the averaged state by the indicator of that member, normalized. The
 identity is stated for raw matrices; the only hypothesis is the nonzero
 outcome weight.
 
+The same partition also gives an exact operational quotient. Two matrices
+$X$ and $Y$ are declared equivalent when
+
+\[
+ \Tr(XC)=\Tr(YC)
+ \qquad\text{for every }C\text{ commuting with all }P_i.
+\]
+
+\begin{theorem}[Complete partition quotient]
+\label{thm:partition-operational-quotient}
+For every finite projective partition,
+\[
+ \bigl(\forall C\in N_\pi:\Tr(XC)=\Tr(YC)\bigr)
+ \quad\Longleftrightarrow\quad
+ \pinch_\pi(X)=\pinch_\pi(Y).
+\]
+Consequently, every matrix $D$ with $\pinch_\pi(D)=0$ is invisible to all
+trace tests from the sector-preserving commutant. In particular, each cross-sector corner
+$P_iDP_j$ with $i\ne j$ lies in that kernel.
+\end{theorem}
+
+\begin{proof}
+Trace duality gives the forward statistics of the pinched matrices. For the
+converse, apply the uniqueness theorem for the commutant-valued trace-dual
+projection. The cross-sector statement follows from orthogonality of the
+partition projectors. The complete equivalence, kernel, and corner statements
+are machine-checked in \texttt{Superselection.lean}.
+\end{proof}
+
+The theorem is relative to a supplied partition. It neither constructs a
+physical sector decomposition nor identifies the commutant with a laboratory
+readout algebra.
+
 \section{The bundled state expectation}
 \label{sec:functional}
 
@@ -551,6 +592,68 @@ cycles the trace, and reduces the result to a sum of products of nonnegative
 diagonal entries; Section~\ref{sec:mathlib} explains why this elementary
 route was chosen. Additivity and homogeneity come from the bundled
 \texttt{LinearMap} interface and are not repeated as pointwise lemmas.
+
+\section{Finite-state Robertson uncertainty}
+\label{sec:robertson}
+
+Let $\rho$ be a supplied density matrix and let $A$ and $B$ be supplied
+Hermitian matrices. Write
+\[
+ A_0=A-\Tr(\rho A)\one,
+ \qquad
+ B_0=B-\Tr(\rho B)\one,
+\]
+and define
+\[
+ (\Delta_\rho A)^2=\Re\Tr(\rho A_0^2),
+ \qquad
+ c_\rho(A,B)=2\Im\Tr(\rho A_0B_0).
+\]
+Hermiticity makes both subtracted expectations real. The positive matrix
+$\rho$ induces the seminormed pairing
+\[
+ \langle X,Y\rangle_\rho=\Tr(Y\rho X^*).
+\]
+It may be degenerate when $\rho$ is not faithful, which is why the formal
+proof uses Mathlib's positive-semidefinite matrix seminorm rather than
+silently assuming a positive-definite state.
+
+\begin{theorem}[Supplied-state Robertson inequality]
+\label{thm:finite-robertson}
+For every supplied finite state and pair of Hermitian observables,
+\[
+ \frac{c_\rho(A,B)^2}{4}
+ \le (\Delta_\rho A)^2(\Delta_\rho B)^2.
+\]
+The same finite pairing also gives
+\[
+ \bigl(c_\rho(A,B):\mathbb C\bigr)=
+ -i\Tr\bigl(\rho(AB-BA)\bigr).
+\]
+In particular, the ordinary-commutator form is
+\[
+ \frac{\left|\Tr\bigl(\rho(AB-BA)\bigr)\right|^2}{4}
+ \le (\Delta_\rho A)^2(\Delta_\rho B)^2.
+\]
+A zero variance on either side therefore forces the commutator readout to
+vanish.
+\end{theorem}
+
+\begin{proof}
+Cauchy--Schwarz bounds the squared modulus of
+$\langle A_0,B_0\rangle_\rho$. Its imaginary part is no larger. Trace
+cyclicity identifies the pairing with $\Tr(\rho A_0B_0)$, and scalar centring
+does not change the commutator. The complex identity, the centered reduction,
+and the ordinary-commutator inequality are machine-checked in
+\texttt{Robertson.lean}.
+\end{proof}
+
+The exact two-level control uses $\rho=|{+z}\rangle\langle{+z}|$.
+Pauli $X$ and $Y$ do not commute, have unit variance, and saturate the bound
+with $c_\rho(X,Y)=2$. Pauli $Z$ and $X$ also do not commute, while $Z$ has
+zero variance and the state commutator readout vanishes. The theorem is an
+uncertainty statement for supplied finite inputs. It selects no state,
+observable, Hamiltonian, or physical instrument.
 
 \section{CHSH interoperability as a client}
 \label{sec:chsh}
@@ -715,13 +818,13 @@ The source is a Lake project. Its toolchain pins
 \texttt{lake build EventAlgebra}.
 \end{center}
 The canonical Lean modules are publicly available in the Observer Patch
-Holography repository \cite{observerPatchHolographyRepo} at commit
-\sourcecommit. The manuscript
-source accompanies the submission. It includes a standalone archive
-\cite{eventalgebra} with a byte-identical copy of those modules.
+Holography repository \cite{observerPatchHolographyRepo}. The exact source
+snapshot is the repository revision containing this manuscript and its built
+PDF; the manuscript source accompanies the submission.
 
-Table~\ref{tab:scale} describes the scale of the development. The counts are
-descriptive; the comparison in Section~\ref{sec:comparison} concerns
+Table~\ref{tab:scale} describes the nine modules discussed here and the
+umbrella root. Other modules imported by the broader root are outside this
+paper's count. The comparison in Section~\ref{sec:comparison} concerns
 interfaces, not counts.
 
 \begin{table}[ht]
@@ -736,11 +839,13 @@ Module & Lines & Audited declarations \\
 \texttt{PartitionPinching} & 474 & 27 \\
 \texttt{PartitionAverage} & 513 & 30 \\
 \texttt{StateExpectation} & 105 & 4 \\
+\texttt{Robertson} & 416 & 20 \\
+\texttt{Superselection} & 197 & 9 \\
 \texttt{Tsirelson} & 275 & 8 \\
 \texttt{ExpectationBound} & 174 & 4 \\
-\texttt{EventAlgebra} (root) & 41 & 0 \\
+\texttt{EventAlgebra} (root) & 87 & 0 \\
 \midrule
-Total & 2178 & 112 \\
+Total & 2837 & 141 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the
@@ -750,14 +855,11 @@ generated axiom audit.}
 
 Every public result discussed in the paper appears under its Lean name. The
 modules end with \texttt{\#print axioms} commands for the principal
-declarations, and the artifact stores the generated output. Of the 112
-audited declarations, 110 report exactly propositional extensionality,
-classical choice, and quotient soundness, the standard Lean/Mathlib base.
-The CHSH ring identity and the event-commutation adapter report
-propositional extensionality and quotient soundness alone; the bare ring
-algebra needs no classical choice. No declaration reports \texttt{sorryAx},
-and a source scan finds no \texttt{sorry} placeholder in the submitted
-modules.
+declarations, and a clean build emits the generated output. The 141 audited
+declarations report only subsets of propositional extensionality, classical
+choice, and quotient soundness, the standard Lean/Mathlib base. No declaration
+reports \texttt{sorryAx}, and a source scan finds no \texttt{sorry}
+placeholder in these modules.
 
 The submitted API uses every orthogonality hypothesis in its orthogonal-sum
 theorem. The sequential-update theorem has no unused event premise. State
@@ -766,10 +868,9 @@ no nonzero-weight guard, and the averaging module carries no nonzero-block
 hypotheses. The commutant, span, and both expectations are bundled, and the
 CHSH adapters are clients of the event definitions.
 
-The release archive contains the toolchain, Lake manifest, source modules,
-build command, checksums, captured axiom output, and a Creative Commons
-BY-NC-SA 4.0 license. It has no public release tag or persistent archive
-identifier.
+The repository contains the toolchain, Lake manifest, source modules, build
+command, in-source axiom queries, and a Creative Commons BY-NC-SA 4.0 license.
+No persistent archive identifier is claimed.
 
 \section{Feature-level comparison}
 \label{sec:comparison}
@@ -806,8 +907,8 @@ CHSH/\allowbreak Tsirelson & Mathlib order theorem; Isabelle upper bound; Lean C
 rigidity & complementary norm theorem, event-level client, and
 state-expectation corollary; no tightness claim \\
 Reproducibility & public CI and archived releases are common best practice &
-pinned Lean/Mathlib, clean artifact build instructions, checksums and static
-axiom audit; no DOI claim \\
+pinned Lean/Mathlib, an exact repository snapshot, clean build instructions,
+and declaration-level axiom queries; no DOI claim \\
 \bottomrule
 \end{tabular}
 \caption{Direct comparison with the closest formal infrastructure.}
@@ -833,8 +934,9 @@ and event-level CHSH bounds in norm and state form. The pinching has the
 bundled commutant as its exact range and the average has the bundled span;
 each map is the unique trace-dual projection onto its range, the two compose
 as a tower, and both interact with L\"uders conditioning by checked
-theorems. Each statement in the paper points to a declaration in the
-submitted source.
+theorems. The supplied-state Robertson bound and the partition-relative
+operational quotient use the same finite matrix API. Each formal statement in
+the paper points to a declaration in the repository source.
 
 The construction follows one pattern: state algebraic content as predicates
 over raw matrices, move to subtypes exactly where an API promises a state,
@@ -852,10 +954,12 @@ infinite-dimensional von Neumann algebras.
 
 The proved surface contains the arbitrary-partition pinching with its exact
 range and bimodule law, the averaging expectation with its tower and
-classical-conditioning laws, typed L\"uders naturality, and the state-level
-CHSH corollary. It contains no complete-positivity theorem, completely
-positive trace-preserving channel bundle, Physlib spectral-partition
-correspondence, or two-qubit sharpness witness for the CHSH bounds.
+classical-conditioning laws, typed L\"uders naturality, the complete
+partition-relative quotient, the supplied-state Robertson inequality, and the
+state-level CHSH corollary. It contains no complete-positivity theorem,
+completely positive trace-preserving channel bundle, Physlib
+spectral-partition correspondence, source-selected quantum instrument, or
+two-qubit sharpness witness for the CHSH bounds.
 
 \section*{Declarations}
 
@@ -869,12 +973,10 @@ manuscript and artifact.
 
 \textbf{Data and code availability.} No empirical data were generated. The
 canonical Lean source is available in the Observer Patch Holography
-repository \cite{observerPatchHolographyRepo} at commit
-\sourcecommit. The Lean source, pinned
-dependency files, build instructions, axiom report, and
-checksums also accompany the submission \cite{eventalgebra}, under a Creative
-Commons BY-NC-SA 4.0 license. No persistent archive identifier is
-claimed.
+repository \cite{observerPatchHolographyRepo}. The repository revision
+containing this manuscript provides the Lean source, pinned dependency files,
+build instructions, and declaration-level axiom queries under a Creative
+Commons BY-NC-SA 4.0 license. No persistent archive identifier is claimed.
 
 \bibliographystyle{plainnat}
 \bibliography{machine_checked_finite_event_algebras}

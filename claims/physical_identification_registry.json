@@ -130,7 +130,8 @@
       "label": "conditional exterior/Spin fixture / physical matter action",
       "status": "undischarged",
       "claim_ids": [
-        "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT"
+        "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
+        "OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE"
       ],
       "source_anchors": [
         "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json"
@@ -145,6 +146,31 @@
           "number": 697,
           "disposition": "open_work_item",
           "role": "matter-pole, family, and laboratory attachment"
+        }
+      ]
+    },
+    {
+      "identification_id": "finite_quantum_inputs_to_physical_instrument",
+      "label": "finite supplied state and partition readouts / physical quantum instrument",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-FINITE-QUANTUM-LIMITATION-SUITE"
+      ],
+      "source_anchors": [
+        "Lean/EventAlgebra/Robertson.lean",
+        "Lean/EventAlgebra/Superselection.lean",
+        "source-selected state, observables, edge center, and detector readout"
+      ],
+      "blocking_issues": [
+        {
+          "number": 686,
+          "disposition": "open_work_item",
+          "role": "attach the block and commutative partition readouts to one declared edge-center interface without conflating their ranges"
+        },
+        {
+          "number": 702,
+          "disposition": "open_work_item",
+          "role": "construct the source-produced positive effect system and public quantum instrument"
         }
       ]
     },
@@ -247,6 +273,28 @@
           "number": 703,
           "disposition": "open_work_item",
           "role": "supply the source-realized operational clock and physical calibration consumed by the SI readout"
+        }
+      ]
+    },
+    {
+      "identification_id": "auxiliary_cosine_frequency_to_physical_propagation",
+      "label": "positive-cosine auxiliary frequency / physical signal propagation",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-POSITIVE-COSINE-FREQUENCY-CONTRACTION"
+      ],
+      "source_anchors": [
+        "code/a5_fingerprint/runtime/carrier_frequency_speed_receipt.json",
+        "physical position and frequency map",
+        "source-realized clock and field-sector action",
+        "wave-packet or signal-front theorem",
+        "carrier frame, finite scale, source lag, and detector readout"
+      ],
+      "blocking_issues": [
+        {
+          "number": 704,
+          "disposition": "open_work_item",
+          "role": "attach the auxiliary carrier symbol to physical position, frequency, clock, field, signal front, frame, scale, source lag, readout, exclusivity, and frozen comparison governance"
         }
       ]
     },

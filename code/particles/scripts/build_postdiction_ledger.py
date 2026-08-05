@@ -66,6 +66,8 @@ PARENTS = {
     "solver_standby": RUNS / "qcd" / "hadron_source_backend" / "qcd_ensemble" / "solver_on_standby.json",
     "carrier_class_dispersion": CODE / "a5_fingerprint" / "runtime"
     / "carrier_class_dispersion_receipt.json",
+    "carrier_frequency_speed": CODE / "a5_fingerprint" / "runtime"
+    / "carrier_frequency_speed_receipt.json",
 }
 
 LEAN_RECEIPTS = {
@@ -136,6 +138,11 @@ LEAN_RECEIPTS = {
     / "FiniteBornFrame.lean",
     "FiniteEffectClosureBoundary": REPO / "Lean" / "EventAlgebra"
     / "FiniteEffectClosureBoundary.lean",
+    "Robertson": REPO / "Lean" / "EventAlgebra" / "Robertson.lean",
+    "Superselection": REPO / "Lean" / "EventAlgebra"
+    / "Superselection.lean",
+    "ExteriorComponentBridge": LEAN_SCREEN / "ExteriorComponentBridge.lean",
+    "QuantumMatterIntegration": LEAN_SCREEN / "QuantumMatterIntegration.lean",
     "HolonomyInterference": LEAN_SCREEN / "HolonomyInterference.lean",
     "FiniteConditionalRepair": REPO / "Lean" / "Thermodynamics"
     / "FiniteConditionalRepair.lean",
@@ -175,6 +182,7 @@ LEAN_RECEIPTS = {
     "RepairWordCarrierReadout": LEAN_SCREEN / "RepairWordCarrierReadout.lean",
     "SeamCurrentCarrierQuotient": LEAN_SCREEN / "SeamCurrentCarrierQuotient.lean",
     "A5CarrierClassBand": LEAN_SCREEN / "A5CarrierClassBand.lean",
+    "CarrierFrequencySpeed": LEAN_SCREEN / "CarrierFrequencySpeed.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -223,6 +231,21 @@ def _lean_receipt(
 
 def _rel(key: str) -> str:
     return PARENTS[key].relative_to(REPO).as_posix()
+
+
+def _canonical_self_digest(payload: dict[str, Any]) -> str:
+    body = {key: value for key, value in payload.items() if key != "receipt_sha256"}
+    raw = (
+        json.dumps(
+            body,
+            allow_nan=False,
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        )
+        + "\n"
+    ).encode("ascii")
+    return "sha256:" + hashlib.sha256(raw).hexdigest()
 
 
 def _quantum_carrier_status_row(packet: dict[str, Any]) -> dict[str, Any]:
@@ -332,6 +355,7 @@ def _forced_structure(
     axis_center_descent: dict[str, Any],
     carrier_modes: dict[str, Any],
     carrier_class: dict[str, Any],
+    carrier_frequency: dict[str, Any],
 ) -> list[dict[str, Any]]:
     spectrum = matter["realized_package"]["charge_spectrum"]
     sm_spectrum = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 6}
@@ -361,6 +385,43 @@ def _forced_structure(
     ):
         raise SystemExit(
             "matter-menu, matter-lift, and Lean cross-reference parents disagree"
+        )
+
+    frequency_theorem = carrier_frequency.get("generic_exact_theorem", {})
+    frequency_physical = carrier_frequency.get("physical_boundary", {})
+    frequency_exposure = carrier_frequency.get("exposure_boundary", {})
+    frequency_supports = carrier_frequency.get("exact_support_instantiations", {})
+    if (
+        carrier_frequency.get("schema") != "oph.carrier_frequency_speed.v1"
+        or carrier_frequency.get("status")
+        != "EXACT_POSITIVE_TIGHT_FRAME_FREQUENCY_CONTRACTION__FZ11_FZ12_INSTANTIATED__PHYSICAL_BRIDGES_OPEN"
+        or carrier_frequency.get("receipt_sha256")
+        != _canonical_self_digest(carrier_frequency)
+        or frequency_theorem.get("certified_upper_constant") != "1"
+        or frequency_theorem.get("feature_identity")
+        != "Lambda_a(k)=||Phi_a(k)||^2"
+        or frequency_theorem.get("frequency_bound")
+        != "|Omega_a(k)-Omega_a(p)| <= |k-p|"
+        or frequency_supports.get("vertex12", {}).get("tight_constant") != "4"
+        or frequency_supports.get("edge30", {}).get("tight_constant") != "10"
+        or any(value is not False for value in frequency_physical.values())
+        or frequency_exposure.get("comparison_inputs") != []
+        or any(
+            frequency_exposure.get(key) is not False
+            for key in (
+                "comparison_data_read",
+                "public_measurement_read",
+                "score_emitted",
+                "verdict_emitted",
+            )
+        )
+        or carrier_frequency.get("branch_bindings", {}).get(
+            "new_prediction_payload"
+        )
+        is not False
+    ):
+        raise SystemExit(
+            "carrier-frequency parent has left its exact auxiliary boundary"
         )
     exterior_declarations = tuple(lean_cross_reference["theorems"])
     exterior_path = LEAN_RECEIPTS["ExteriorSelection"].relative_to(REPO).as_posix()
@@ -677,6 +738,151 @@ def _forced_structure(
             "paper_ref": "zoo paper, matter lift section",
         },
         {
+            "id": "finite_quantum_limitation_suite",
+            "statement": (
+                "A supplied finite density state and two Hermitian observables "
+                "obey the ordinary-commutator Robertson inequality, with exact "
+                "noncommuting saturation and zero-variance controls. For a "
+                "supplied projective partition, equality after block pinching "
+                "is exactly equality of every trace statistic against the full "
+                "sector-preserving commutant. Partition averaging is the "
+                "distinct commutative projector-span readout, and both "
+                "readouts erase every cross-sector corner"
+            ),
+            "observed_counterpart": (
+                "finite uncertainty and partition-relative superselection"
+            ),
+            "match": (
+                "exact bounded finite package; edge-center, source, and "
+                "physical-instrument attachments remain open"
+            ),
+            "lean_declarations": {
+                "Robertson": [
+                    "finite_state_robertson_commutator",
+                    "neg_I_mul_commutator_expectation_eq_readout",
+                    "pauliX_pauliY_ne_pauliY_pauliX",
+                    "pauli_xy_noncommuting_control",
+                    "pauliZ_pauliX_ne_pauliX_pauliZ",
+                    "pauli_z_zero_variance_control",
+                ],
+                "Superselection": [
+                    "partitionOperationallyEquivalent_iff_pinching_eq",
+                    "trace_mul_eq_zero_of_partitionOffDiagonal",
+                    "partitionPinching_partitionCorner_eq_zero",
+                    "partitionAverage_partitionCorner_eq_zero",
+                    "trace_partitionCorner_mul_eq_zero_of_mem_span",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "Robertson",
+                "Superselection",
+                declarations={
+                    "Robertson": (
+                        "finite_state_robertson_commutator",
+                        "neg_I_mul_commutator_expectation_eq_readout",
+                        "pauliX_pauliY_ne_pauliY_pauliX",
+                        "pauli_xy_noncommuting_control",
+                        "pauliZ_pauliX_ne_pauliX_pauliZ",
+                        "pauli_z_zero_variance_control",
+                    ),
+                    "Superselection": (
+                        "partitionOperationallyEquivalent_iff_pinching_eq",
+                        "trace_mul_eq_zero_of_partitionOffDiagonal",
+                        "partitionPinching_partitionCorner_eq_zero",
+                        "partitionAverage_partitionCorner_eq_zero",
+                        "trace_partitionCorner_mul_eq_zero_of_mem_span",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the state, observables, and projective partition are supplied "
+                "finite inputs. Pinching lands in the generally noncommutative "
+                "commutant, while averaging lands in the commutative projector "
+                "span. No source rule selects a physical edge center, state, "
+                "observable, detector algebra, or instrument"
+            ),
+            "paper_ref": "finite-event-algebra paper",
+        },
+        {
+            "id": "finite_exterior_component_bridge",
+            "statement": (
+                "The Mathlib exterior basis on the declared five-mode carrier "
+                "has 32 labels and binds the ten non-vacuum, non-top component "
+                "rows to their dimensions, charges, parity, conjugation, "
+                "square-zero creation, and anticommutation. One explicit typed "
+                "map assigns those rows to supplied partition sectors and "
+                "weight labels; substitution preserves the common Z6 weight "
+                "kernel. A separate supplied selection mask is forced to one "
+                "of the two parity rows"
+            ),
+            "observed_counterpart": (
+                "finite exclusion and one-generation central-weight structure"
+            ),
+            "match": (
+                "exact bounded finite package; no projector action, source "
+                "selection, or physical matter attachment"
+            ),
+            "lean_declarations": {
+                "ExteriorComponentBridge": [
+                    "exterior_basis_label_count",
+                    "bidegree_count_table",
+                    "componentDegree_exact_nontrivial_menu",
+                    "component_dimension_binding",
+                    "component_charge_binding",
+                    "component_parity_binding",
+                    "component_conjugation_binding",
+                    "creation_square_zero",
+                    "creation_actions_anticommute",
+                ],
+                "QuantumMatterIntegration": [
+                    "even_component_weights_eq_matterWeights",
+                    "kernel_on_exterior_component_weights",
+                    "fractional_singlet_mutation_collapses_component_kernel",
+                    "coordinate_diagonal_not_partitionOffDiagonal",
+                    "coordinate_nonzero_offDiagonal_control",
+                    "declaredBlockReadout_eq_iff_operationallyEquivalent",
+                    "kernel_on_mapped_component_weights",
+                    "bridge_selection_is_parity_sector",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "ExteriorComponentBridge",
+                "QuantumMatterIntegration",
+                declarations={
+                    "ExteriorComponentBridge": (
+                        "exterior_basis_label_count",
+                        "bidegree_count_table",
+                        "componentDegree_exact_nontrivial_menu",
+                        "component_dimension_binding",
+                        "component_charge_binding",
+                        "component_parity_binding",
+                        "component_conjugation_binding",
+                        "creation_square_zero",
+                        "creation_actions_anticommute",
+                    ),
+                    "QuantumMatterIntegration": (
+                        "even_component_weights_eq_matterWeights",
+                        "kernel_on_exterior_component_weights",
+                        "fractional_singlet_mutation_collapses_component_kernel",
+                        "coordinate_diagonal_not_partitionOffDiagonal",
+                        "coordinate_nonzero_offDiagonal_control",
+                        "declaredBlockReadout_eq_iff_operationallyEquivalent",
+                        "kernel_on_mapped_component_weights",
+                        "bridge_selection_is_parity_sector",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the exterior carrier, component-to-sector map, central-weight "
+                "labels, and separate selection mask are supplied finite inputs. "
+                "No group action on the projectors is constructed, no source "
+                "rule selects a physical matter action, and the package proves "
+                "no continuum spin-statistics, particle spectrum, physical "
+                "global form, or laboratory charge"
+            ),
+            "paper_ref": "zoo paper, finite exterior component bridge",
+        },
+        {
             "id": "coupling_universality",
             "statement": (
                 "A5-invariant readouts have port-independent group-averaged cap "
@@ -867,6 +1073,47 @@ def _forced_structure(
                 "exclusivity"
             ),
             "paper_ref": "flagship paper, carrier-class dispersion theorem",
+        },
+        {
+            "id": "positive_cosine_frequency_contraction",
+            "statement": (
+                "Every normalized complete positive tight-frame cosine symbol "
+                "has an exact sine-feature realization. The feature map is a "
+                "Euclidean contraction, so its nonnegative auxiliary frequency "
+                "is globally 1-Lipschitz at all momenta. Exact support bindings "
+                "give t=4 and prefactor 1/(2a^2) for the FZ-11 vertex support, "
+                "and t=10 and prefactor 1/(5a^2) for the FZ-12 edge support"
+            ),
+            "observed_counterpart": (
+                "an all-momentum upper bound on an auxiliary carrier dispersion"
+            ),
+            "match": (
+                "exact bounded finite theorem; physical position, frequency, "
+                "clock, field, signal front, frame, scale, readout, and "
+                "comparison remain open"
+            ),
+            "artifact_ref": _rel("carrier_frequency_speed"),
+            "receipt_sha256": carrier_frequency["receipt_sha256"],
+            "lean_declarations": {
+                "CarrierFrequencySpeed": carrier_frequency["lean"]["theorems"]
+            },
+            "lean_receipts": _lean_receipt(
+                "CarrierFrequencySpeed",
+                declarations={
+                    "CarrierFrequencySpeed": tuple(
+                        carrier_frequency["lean"]["theorems"]
+                    )
+                },
+            ),
+            "hypothesis_boundary": (
+                "the unit constant is a certified upper bound for the auxiliary "
+                "norm in the selected Euclidean carrier chart, not an "
+                "optimality theorem or a physical signal-speed claim. The "
+                "receipt reads no comparison data and changes no frozen bytes"
+            ),
+            "paper_ref": (
+                "screen-microphysics paper, positive-cosine frequency contraction"
+            ),
         },
         {
             "id": "time_order_type_ledger",
@@ -2763,6 +3010,7 @@ def build(
     carrier_modes = _load("carrier_modes")
     quantum_carrier_status = _load("quantum_carrier_status")
     carrier_class = _load("carrier_class_dispersion")
+    carrier_frequency = _load("carrier_frequency_speed")
     alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
@@ -2775,6 +3023,7 @@ def build(
             axis_center_descent,
             carrier_modes,
             carrier_class,
+            carrier_frequency,
         ),
         "quantum_carrier_status": _quantum_carrier_status_row(
             quantum_carrier_status
@@ -3034,7 +3283,6 @@ def _render_md(ledger: dict[str, Any]) -> str:
                 f"(issues {', '.join(f'#{i}' for i in row['blocking_issues'])}).")
         else:
             vals = row["values"]
-            refs = row["measured_references"]
             flag = row["flag_2024_compare_only"]
             flag_refs = ", ".join(
                 f"Nf={entry['nf']}: {_fmt(entry['reference_ms_over_md'], 4)}"

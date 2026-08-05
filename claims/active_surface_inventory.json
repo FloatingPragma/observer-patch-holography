@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 204,
+  "surface_count": 243,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -500,6 +500,11 @@
       "allowlisted": false
     },
     {
+      "path": "claims/frozen_prediction_owner_successors.json",
+      "glob": "claims/*.json",
+      "allowlisted": false
+    },
+    {
       "path": "claims/frozen_prediction_register.json",
       "glob": "claims/*.json",
       "allowlisted": true
@@ -541,6 +546,11 @@
     },
     {
       "path": "Lean/Screen/A5AngularMultiplets.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/A5CarrierClassBand.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -600,12 +610,32 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/B10QuantumLimitations.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/BaryonDimensionSix.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/BipoSHFrameInvariant.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/BipoSHInverseBoundary.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/BipoSHTransferInvariant.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/CarrierFrequencySpeed.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -620,7 +650,17 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/DiscreteGauss.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/DiscreteRefinement.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/ElectroweakPoleScaleQuotient.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -630,7 +670,22 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/ExteriorComponentBridge.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/ExteriorSelection.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/HolonomyInterference.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/KineticFamilyCancellation.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -655,12 +710,122 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/PortGramA5Isometry.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PortGramRepairBand.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PortGramRepairCovariance.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitiveHopSelection.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitivePortDualMeasure.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitivePortFrameQuotient.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitivePortMetricAttachment.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitivePortOperatorSelectionBoundary.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitivePortScaleBoundary.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/PrimitivePortTranslationBridge.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/QuantumMatterIntegration.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/RGRepresentationFrontier.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/RegionalContinuity.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/RepairWordCarrierReadout.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/S2DesignSignature.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentAuxiliaryOscillatorLift.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentCarrierQuotient.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentDirichletGenerator.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentEdge30Moment.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentEdge30Remainder.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentFreePhotonLift.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentHomogeneousAction.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentPhotonLeptonThreshold.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/SeamCurrentPhysicalMetricAttachment.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -681,6 +846,11 @@
     },
     {
       "path": "Lean/Screen/UnitSplit12.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/VolumeReadoutBridge.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -865,6 +1035,16 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/Locality/DependencyCone.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Locality/NoSignalling.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/Primitives.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -880,7 +1060,22 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/RateBridgeObstruction.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/RateNonidentifiability.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/RepairGapChain.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/RepairWordSchedule.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

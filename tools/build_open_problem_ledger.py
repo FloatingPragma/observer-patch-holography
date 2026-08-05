@@ -30,6 +30,11 @@ V2_FIELD_NAMES = (
     "Plan",
 )
 V2_FIELD_MARKER = "|".join(re.escape(name) for name in V2_FIELD_NAMES)
+# Contract fields may begin a paragraph or follow a sentence terminator when
+# several compact fields share one paragraph.  Requiring that boundary keeps
+# prose headings such as ``Audit boundary:`` and ``Remaining deliverables:``
+# from being parsed as the exact ``Boundary:`` or ``Deliverables:`` fields.
+V2_FIELD_PREFIX = r"(?:\A|(?<=[.;!?])[ \t]+|(?<=[\r\n])[ \t]*)"
 V2_TRACKS: dict[str, dict[str, Any]] = {
     "track:foundations": {"code": "A", "slug": "foundations", "wave": 1},
     "track:observer-laws": {"code": "B", "slug": "observer-laws", "wave": 1},
@@ -1624,8 +1629,8 @@ def _contract_field(body: str, name: str) -> str | None:
     """Read one compact V2 field even when several fields share a paragraph."""
 
     pattern = re.compile(
-        rf"(?is)(?:^|\s){re.escape(name)}:\s*(.*?)"
-        rf"(?=(?:\s+(?:{V2_FIELD_MARKER}):)|\Z)"
+        rf"(?is){V2_FIELD_PREFIX}{re.escape(name)}:\s*(.*?)"
+        rf"(?=(?:{V2_FIELD_PREFIX}(?:{V2_FIELD_MARKER}):)|\Z)"
     )
     matches = [_normalise_contract_text(match) for match in pattern.findall(body)]
     matches = [match for match in matches if match]
@@ -1644,7 +1649,7 @@ def _v2_scope(body: str) -> str:
         if not text:
             continue
         marker_match = re.search(
-            rf"(?is)(?:^|\s)(?:{V2_FIELD_MARKER}):",
+            rf"(?is){V2_FIELD_PREFIX}(?:{V2_FIELD_MARKER}):",
             text,
         )
         if marker_match is not None:

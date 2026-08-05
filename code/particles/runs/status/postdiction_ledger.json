@@ -518,6 +518,70 @@
         "survivor_dimension": 15
       },
       {
+        "hypothesis_boundary": "the state, observables, and projective partition are supplied finite inputs. Pinching lands in the generally noncommutative commutant, while averaging lands in the commutative projector span. No source rule selects a physical edge center, state, observable, detector algebra, or instrument",
+        "id": "finite_quantum_limitation_suite",
+        "lean_declarations": {
+          "Robertson": [
+            "finite_state_robertson_commutator",
+            "neg_I_mul_commutator_expectation_eq_readout",
+            "pauliX_pauliY_ne_pauliY_pauliX",
+            "pauli_xy_noncommuting_control",
+            "pauliZ_pauliX_ne_pauliX_pauliZ",
+            "pauli_z_zero_variance_control"
+          ],
+          "Superselection": [
+            "partitionOperationallyEquivalent_iff_pinching_eq",
+            "trace_mul_eq_zero_of_partitionOffDiagonal",
+            "partitionPinching_partitionCorner_eq_zero",
+            "partitionAverage_partitionCorner_eq_zero",
+            "trace_partitionCorner_mul_eq_zero_of_mem_span"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/EventAlgebra/Robertson.lean",
+          "Lean/EventAlgebra/Superselection.lean"
+        ],
+        "match": "exact bounded finite package; edge-center, source, and physical-instrument attachments remain open",
+        "observed_counterpart": "finite uncertainty and partition-relative superselection",
+        "paper_ref": "finite-event-algebra paper",
+        "statement": "A supplied finite density state and two Hermitian observables obey the ordinary-commutator Robertson inequality, with exact noncommuting saturation and zero-variance controls. For a supplied projective partition, equality after block pinching is exactly equality of every trace statistic against the full sector-preserving commutant. Partition averaging is the distinct commutative projector-span readout, and both readouts erase every cross-sector corner"
+      },
+      {
+        "hypothesis_boundary": "the exterior carrier, component-to-sector map, central-weight labels, and separate selection mask are supplied finite inputs. No group action on the projectors is constructed, no source rule selects a physical matter action, and the package proves no continuum spin-statistics, particle spectrum, physical global form, or laboratory charge",
+        "id": "finite_exterior_component_bridge",
+        "lean_declarations": {
+          "ExteriorComponentBridge": [
+            "exterior_basis_label_count",
+            "bidegree_count_table",
+            "componentDegree_exact_nontrivial_menu",
+            "component_dimension_binding",
+            "component_charge_binding",
+            "component_parity_binding",
+            "component_conjugation_binding",
+            "creation_square_zero",
+            "creation_actions_anticommute"
+          ],
+          "QuantumMatterIntegration": [
+            "even_component_weights_eq_matterWeights",
+            "kernel_on_exterior_component_weights",
+            "fractional_singlet_mutation_collapses_component_kernel",
+            "coordinate_diagonal_not_partitionOffDiagonal",
+            "coordinate_nonzero_offDiagonal_control",
+            "declaredBlockReadout_eq_iff_operationallyEquivalent",
+            "kernel_on_mapped_component_weights",
+            "bridge_selection_is_parity_sector"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/ExteriorComponentBridge.lean",
+          "Lean/Screen/QuantumMatterIntegration.lean"
+        ],
+        "match": "exact bounded finite package; no projector action, source selection, or physical matter attachment",
+        "observed_counterpart": "finite exclusion and one-generation central-weight structure",
+        "paper_ref": "zoo paper, finite exterior component bridge",
+        "statement": "The Mathlib exterior basis on the declared five-mode carrier has 32 labels and binds the ten non-vacuum, non-top component rows to their dimensions, charges, parity, conjugation, square-zero creation, and anticommutation. One explicit typed map assigns those rows to supplied partition sectors and weight labels; substitution preserves the common Z6 weight kernel. A separate supplied selection mask is forced to one of the two parity rows"
+      },
+      {
         "hypothesis_boundary": "reduces the universality clause to A5-equivariance of the implemented source law; no coupling value is implied",
         "id": "coupling_universality",
         "lean_declarations": {
@@ -609,6 +673,31 @@
         "observed_counterpart": "a linked isotropic and rank-six vacuum-dispersion surface not fixed by the Standard Model with General Relativity",
         "paper_ref": "flagship paper, carrier-class dispersion theorem",
         "statement": "Every member of the declared positive-weight scalar cosine class, whose full spatial symbol is the orbit sum, has C4 < 0 and B0/C4^2 at least 10/21, with equality exactly on one-radius support. Its anisotropic ranks one through five vanish and B6/B0 lies in [-16/135, 16/75] on the unique rotated I6 line. At eighth order no new angular shape appears, and every one-radius member obeys 5 D6 B0 = 12 B6 D0, equivalently D6/D0 = (12/5)(B6/B0). The polynomial form includes the exact zero-anisotropy mixture; multi-radius members retain radial-moment dependence"
+      },
+      {
+        "artifact_ref": "code/a5_fingerprint/runtime/carrier_frequency_speed_receipt.json",
+        "hypothesis_boundary": "the unit constant is a certified upper bound for the auxiliary norm in the selected Euclidean carrier chart, not an optimality theorem or a physical signal-speed claim. The receipt reads no comparison data and changes no frozen bytes",
+        "id": "positive_cosine_frequency_contraction",
+        "lean_declarations": {
+          "CarrierFrequencySpeed": [
+            "feature_norm_sq_eq_cosineSymbol",
+            "feature_dist_le",
+            "frequency_global_one_lipschitz",
+            "edge30_cosineSymbol_eq_fz12",
+            "fz12_frequency_global_one_lipschitz",
+            "unit_port_second_moment_eq",
+            "vertex12_cosineSymbol_eq_fz11",
+            "fz11_frequency_global_one_lipschitz"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/CarrierFrequencySpeed.lean"
+        ],
+        "match": "exact bounded finite theorem; physical position, frequency, clock, field, signal front, frame, scale, readout, and comparison remain open",
+        "observed_counterpart": "an all-momentum upper bound on an auxiliary carrier dispersion",
+        "paper_ref": "screen-microphysics paper, positive-cosine frequency contraction",
+        "receipt_sha256": "sha256:08241126ccf6ec513bd3ebe005fecdd5d0dbc21a6522f1739dc77199cf28e1e4",
+        "statement": "Every normalized complete positive tight-frame cosine symbol has an exact sine-feature realization. The feature map is a Euclidean contraction, so its nonnegative auxiliary frequency is globally 1-Lipschitz at all momenta. Exact support bindings give t=4 and prefactor 1/(2a^2) for the FZ-11 vertex support, and t=10 and prefactor 1/(5a^2) for the FZ-12 edge support"
       },
       {
         "hypothesis_boundary": "the ledger constructs no public-world endpoint, worldline, physical clock, proper-time calibration, global time function, or modular-to-time identity and emits no prediction",
