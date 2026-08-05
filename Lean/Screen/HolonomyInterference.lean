@@ -183,7 +183,7 @@ theorem relativeCharacterPhase_eq_closedLoopPhase
 
 end Character
 
-/-! ## Recharting and the finite Cech-sector invariant -/
+/-! ## Vertex recharting and finite character-phase invariance -/
 
 section Rechart
 
@@ -294,9 +294,10 @@ def referencePath : Path FourVertex FourVertex.v0 FourVertex.v3 :=
 theorem closeRatio_long_reference :
     Path.closeRatio longPath referencePath = globalLoop := rfl
 
-/-- Explicit finite Aharonov--Bohm algebra: two arms have relative character
-phase `z`, although every declared local triangular face is flat.  This is an
-algebraic interference phase, not yet a laboratory-fringe attachment. -/
+/-- Explicit finite two-path character algebra: two arms have relative phase
+`z`, although each of the two declared local triangular faces is flat. This is
+only an algebraic Aharonov--Bohm analogy; it proves no puncture topology and
+has no laboratory-fringe attachment. -/
 theorem long_reference_relativeCharacterPhase (z : Circle) :
     characterPhase (MonoidHom.id Circle) (connection z) longPath *
         (characterPhase (MonoidHom.id Circle)

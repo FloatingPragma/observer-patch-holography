@@ -128,8 +128,8 @@ données et certificats :
    additifs est de dimension six, contre trois pour sa tranche
    hermitienne/de Born. Des contre-exemples exacts admissibles échouent soit à
    être représentés, soit à définir une matrice positive, bien que la
-   représentation soit unique lorsqu’elle existe. Aucun instrument quantique
-   Même sur toute la sphère céleste, la continuité et la normalisation des
+   représentation soit unique lorsqu’elle existe. Même sur toute la sphère
+   céleste, la continuité et la normalisation des
    poids binaires antipodaux n’imposent pas l’affinité de Born : le poids exact
    non linéaire `(1+n_z^3)/2` fournit un contre-exemple. La positivité sur un
    ensemble dense n’impose la boule de Bloch qu’après avoir fourni l’affinité.
@@ -309,13 +309,18 @@ $S^2$, les repères unitaires de genre temps futurs ont des espaces de repos
 euclidiens de dimension trois, et une carte linéaire exacte rejoint les
 coordonnées du tenseur d’Einstein avec la convention de signe opposée. Cette
 géométrie possède désormais un contrat algébrique borné de soudure : descente
-unique des lectures invariantes sur les classes de coïncidence, lois affine et
-lorentzienne d’identité, d’inverse et de cocycle, et covariance des
+unique des lectures invariantes sur les classes de coïncidence. Séparément, à
+partir d’un cocycle de recouvrement affine lorentzien orienté dans le temps et
+d’une famille fournie de coordonnées de carte qui satisfait sa loi de
+recouvrement, il prouve les lois d’identité, d’inverse et de cocycle, ainsi que la covariance des
 déplacements, intervalles, directions célestes, repères et lectures dans
-l’espace de repos local. Le quotient de Gram de rang trois est isométrique à
+l’espace de repos local. La pile formelle n’identifie pas la lecture descendue
+au quotient à cette famille de coordonnées. Le quotient de Gram de rang trois
+est isométrique à
 une fibre de repos interne standard comme lecture candidate, jamais comme
-espace absolu. L’atlas de coïncidence issu de la source, la population des
-événements, les cartes ouvertes, le cône physique, le raffinement, la
+espace absolu. La famille de coordonnées et sa loi de recouvrement, l’atlas de
+coïncidence issu de la source, la population des événements, la séparation
+certifiée, les cartes ouvertes, le cône physique, le raffinement, la
 causalité, la sélection du repère, l’horloge et l’attachement à l’espace-temps
 physique restent des reçus explicites en aval. Voir la [pile de théorèmes
 géométriques](Lean/Geometry.lean).

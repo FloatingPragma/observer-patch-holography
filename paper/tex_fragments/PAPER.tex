@@ -1616,7 +1616,10 @@ At finite regulator scale, the fixed-cutoff gauge-as-gluing package identifies t
 H(\gamma) = g_{i_1 i_2} g_{i_2 i_3} \cdots g_{i_n i_1}
 \]
 
-is invariant under local frame changes. Nontrivial holonomy is the obstruction to global trivialization. QED.
+transforms by conjugation at the chosen basepoint under local frame changes.
+Its conjugacy class, and therefore every class-function value (including every
+one-dimensional character value), is invariant. In particular, nontriviality
+is invariant and obstructs global trivialization. QED.
 
 \textbf{Proposition 3.2ba (Finite path ratio, character phase, and cyclic
 quantization).} For reversal-compatible group-valued edge labels on a typed
@@ -1626,16 +1629,18 @@ and reversing the second. Every one-dimensional unitary character sends this
 identity to an exact relative phase. A vertex rechart conjugates based
 holonomy, so holonomy itself is invariant for an abelian structure group and
 the character phase is invariant for an arbitrary group. There is an explicit
-four-vertex punctured complex whose two declared triangular faces have trivial
-holonomy while an unfilled loop and its two-arm relative character phase are
-nontrivial. Finally, if the loop holonomy factors through a supplied
-\(\mathbb Z_n\) sector, every character phase is an \(n\)th root of unity.
+four-vertex path/face control whose two declared triangular faces have trivial
+holonomy while a separate undeclared, unfilled loop and its two-arm relative
+character phase are nontrivial. Finally, if the loop holonomy factors through
+a supplied \(\mathbb Z_n\) sector, every character phase is an \(n\)th root of unity.
 
 \textbf{Scope.} The result is machine checked for supplied finite paths, edge
-labels, character, faces, and cyclic-sector factorization. The punctured
-control does not claim flatness on undeclared triangles. No theorem here
-constructs the connection from observer records or identifies the phase with
-a physical gauge flux, spacetime loop, charge, laboratory arm, detector, or
+labels, character, faces, and cyclic-sector factorization. The path/face
+control declares exactly two triangular faces; it neither claims flatness on
+undeclared triangles nor proves a puncture or noncontractibility statement.
+No theorem here constructs the connection from observer records or identifies
+the phase with a physical gauge flux, spacetime loop, charge, laboratory arm,
+detector, or
 interference fringe.
 
 \textbf{Corollary 3.2c (Collar consequence on the ordinary or central-defect branch).} Let \(B_\delta = B_L \cup B_R\) be a collar around a cap boundary \(\Sigma\), and set \(\widehat K_\Sigma = K_\Sigma\) on the ordinary branch. Then the EC theorem of Section 2.3 has the derived interpretation
@@ -2173,19 +2178,23 @@ Exact continuous data have a unique minimizer. Finite noisy data produce the dis
 Let raw record germs carry an actual coincidence setoid and a readback into
 the intrinsic Hermitian Lorentz module that is constant on coincidence
 classes. The readback descends uniquely. Given one time-oriented affine
-Lorentz overlap cocycle, coordinate displacements transform through its
-linear part, their Lorentz intervals are chart independent, and the reverse
-transition and triple-overlap laws follow from the same cocycle. Future-null
+Lorentz overlap cocycle and, separately, a supplied chart-coordinate family
+satisfying its affine overlap law, coordinate displacements transform through
+the cocycle's linear part, their Lorentz intervals are chart independent, and
+the reverse transition and triple-overlap laws follow from the same cocycle. Future-null
 displacements descend to covariant celestial directions. One base-chart
 future-unit frame selection induces compatible frames in every chart, and
 Lorentz-orthogonal rest projections transport by exact rest-metric
 isometries. The rank-three source Gram quotient is linearly and isometrically
 equivalent to the standard internal rest fiber, as a candidate local readout.
+The standalone quotient-descent theorem does not construct this atlas
+coordinate family or identify the descended readback with it.
 A finite two-event/two-chart control has nonzero affine translation and a
 nonzero future-null displacement. A separate three-germ control proves that a
 reflexive symmetric pairwise-overlap relation need not be transitive, so it
 cannot replace the coincidence setoid. The machine-checked premise reduction
-retains source realization of the atlas, population, certified separation,
+retains the supplied chart-coordinate overlap law, source realization of the
+atlas, population, certified separation,
 open rank-four charts, physical cone attachment, refinement naturality,
 semantic causal reachability, and the operational clock. Thus this bounded
 contract discharges the algebraic soldering part of \(\mathsf{E4}\), but not

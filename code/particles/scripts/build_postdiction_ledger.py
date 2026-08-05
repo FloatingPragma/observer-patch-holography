@@ -970,13 +970,16 @@ def _forced_structure(
             "id": "algebraic_event_frame_soldering",
             "statement": (
                 "Coincidence-invariant Herm2 readback descends uniquely through "
-                "an actual event setoid. One supplied time-oriented affine "
-                "Lorentz overlap cocycle then induces translation-free "
+                "an actual event setoid. Separately, one supplied time-oriented "
+                "affine Lorentz overlap cocycle and a chart-coordinate family "
+                "satisfying its overlap law induce translation-free "
                 "displacement covariance, invariant intervals, future-null "
                 "celestial transport, compatible event frames, and isometric "
                 "transport of their positive rest spaces. The rank-three source "
                 "FrameQuotient is linearly and isometrically identified with "
                 "the standard internal rest fiber as a candidate local readback. "
+                "The formal stack does not identify the quotient-descended "
+                "readback with the supplied atlas coordinates. "
                 "Exact controls exhibit a nontrivial translated future-null "
                 "atlas and show that reflexive symmetric pairwise overlap need "
                 "not be transitive"
@@ -1070,7 +1073,9 @@ def _forced_structure(
             ),
             "hypothesis_boundary": (
                 "the coincidence setoid, invariant readback, affine Lorentz "
-                "cocycle, and base frame are supplied. The exact handoff retains "
+                "cocycle, overlap-compatible chart-coordinate family, and base "
+                "frame are supplied. Quotient descent does not construct or "
+                "identify that atlas family. The exact handoff retains "
                 "source atlas realization, event population, certified "
                 "separation, open rank-four charts, physical cone attachment, "
                 "refinement naturality, semantic causal reachability, and an "
@@ -1325,13 +1330,14 @@ def _forced_structure(
                 "paths equals the holonomy of their closed ratio loop, and "
                 "every unitary character maps it to the exact relative phase. "
                 "Recharting conjugates based holonomy and leaves character "
-                "phase invariant. An explicit four-vertex punctured complex "
-                "has flat declared triangular faces but nontrivial global "
-                "holonomy and two-arm phase. A supplied cyclic ZMod n sector "
+                "phase invariant. An explicit four-vertex path/face control "
+                "has two flat declared triangular faces and a separate "
+                "undeclared, unfilled loop with nontrivial holonomy and "
+                "two-arm phase. A supplied cyclic ZMod n sector "
                 "forces the character phase to be an nth root of unity"
             ),
             "observed_counterpart": (
-                "finite Aharonov--Bohm holonomy and cyclic flux-phase structure"
+                "finite algebraic two-path character phase and cyclic-root structure"
             ),
             "match": (
                 "exact bounded algebraic packet; physical attachment open"
@@ -1372,10 +1378,13 @@ def _forced_structure(
                 },
             ),
             "hypothesis_boundary": (
-                "the edge labels, reversal law, declared face complex, unitary "
+                "the edge labels, reversal law, declared four-vertex path/face "
+                "control, unitary "
                 "character, cyclic sector map, and factorization are supplied. "
                 "Local flatness quantifies only over the two declared faces of "
-                "the punctured control. No observer-source connection, physical "
+                "the four-vertex control; no puncture or noncontractibility is "
+                "proved. The Aharonov--Bohm terminology is only an algebraic "
+                "two-path analogy. No observer-source connection, physical "
                 "gauge field, spacetime loop, charge, clock, flux, detector, "
                 "laboratory fringe, or prediction is constructed"
             ),
@@ -1841,8 +1850,12 @@ def _forced_structure(
                 "or graph-radius speed law. The bipartite split is supplied, "
                 "the classical theorem permits signed arrays, and no OPH "
                 "region-factor, spacelike, clock, stochastic-state, CPTP, or "
-                "laboratory attachment is proved. Issue #692 owns that "
-                "attachment; this row emits no prediction-ladder entry"
+                "laboratory attachment is proved. The row's sole live gate, "
+                "#692, owns finite coverage and the OPH region-factor adapter. "
+                "Source channel/adaptive-scheduler semantics (#693), clocks "
+                "(#691), and continuum causal/time-slice structure (#700) are "
+                "downstream promotions outside this claim's gate. This row "
+                "emits no prediction-ladder entry"
             ),
             "paper_ref": "consensus-protocol paper, finite locality boundary",
         },

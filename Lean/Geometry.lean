@@ -17,10 +17,13 @@ module, its future-null-ray celestial sphere, the future-unit-timelike frame
 hyperboloid, three-dimensional positive-definite rest spaces, and the exact
 sign-convention bridge into the existing Einstein tensor coordinates.  The C2
 modules add the bounded algebraic soldering contract: coincidence-invariant
-readbacks descend to event classes; one affine Lorentz cocycle induces
+readbacks descend to event classes; separately, one affine Lorentz cocycle and
+a supplied chart-coordinate family satisfying its overlap law induce
 displacement, interval, celestial, frame, and local-rest-space covariance; and
 the source Gram quotient is linearly and isometrically identified with the
-standard internal rest fiber as a candidate readback.  The contract does not
-construct its source event atlas, population, open charts, physical cone,
+standard internal rest fiber as a candidate readback. The quotient-descent
+result does not construct or identify the atlas coordinate family. The
+contract does not construct its source event atlas, population, open charts,
+physical cone,
 causal reachability, refinement tower, rods, clocks, or physical spacetime.
 -/

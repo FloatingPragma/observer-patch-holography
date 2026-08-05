@@ -277,12 +277,17 @@ positive future-null rays are set-equivalent to $S^2$, future unit-timelike
 frames have three-dimensional Euclidean rest spaces, and an exact linear
 chart matches the Einstein tensor coordinates with the opposite sign
 convention. A bounded algebraic soldering contract now proves unique descent
-of coincidence-invariant readbacks, affine/Lorentz identity, inverse and
-cocycle laws, and covariant displacement, interval, celestial, frame and
-local-rest-space readbacks. It also identifies the rank-three source Gram
-quotient isometrically with one standard internal rest fiber as a candidate
-readout, never as absolute space. The source coincidence atlas, event
-population, open charts, physical cone, refinement, causality, frame
+of coincidence-invariant readbacks. Separately, from a supplied time-oriented
+affine Lorentz overlap cocycle and a chart-coordinate family satisfying its
+overlap law, it proves identity, inverse and cocycle laws and covariant
+displacement, interval, celestial, frame and local-rest-space readbacks. The
+formal stack does not identify the
+quotient-descended readback with that chart-coordinate family. It also
+identifies the rank-three source Gram quotient isometrically with one standard
+internal rest fiber as a candidate
+readout, never as absolute space. The chart-coordinate family and overlap law,
+source coincidence atlas, event population, certified separation, open charts,
+physical cone, refinement, causality, frame
 selection, clock and physical spacetime attachment remain explicit
 downstream receipts. See the [geometry theorem stack](Lean/Geometry.lean).
 

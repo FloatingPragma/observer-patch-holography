@@ -1516,7 +1516,8 @@
       "assumptions": [
         "declared_twelve_central_port_atom_context",
         "declared_binary_icosahedral_projector_adapter",
-        "six_disjoint_antipodal_binary_contexts"
+        "six_disjoint_antipodal_binary_contexts",
+        "supplied_affine_celestial_binary_response"
       ],
       "imported_results": [
         "exact_linear_algebra_over_Q_sqrt_5",
@@ -1662,21 +1663,21 @@
     },
     {
       "claim_id": "OPH-FINITE-LOCALITY-NOSIGNALLING",
-      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel.",
+      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel. This claim's sole live gate, #692, concerns finite coverage and the OPH region-factor attachment. Source-produced channel semantics and adaptive scheduling belong to #693, clocks to #691, and continuum causal/time-slice structure to #700; those are downstream promotion requirements, not additional gates of this bounded B4 claim.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "exact_finite_fixed_schedule_locality_helpers_with_physical_attachment_open",
       "assumptions": [
         "fixed_exogenous_local_repair_word",
         "named_finite_bipartite_split",
         "row_normalized_or_kraus_complete_local_map",
-        "physical_locality_attachment_deferred"
+        "finite_region_factor_attachment_deferred"
       ],
       "imported_results": [
         "finite_local_update_dependency_induction",
         "finite_classical_marginal_algebra",
         "finite_kraus_partial_trace_identity"
       ],
-      "oph_specific_delta": "The dependency induction is checked against the repository's actual single-site localRepair rather than an abstract cellular update. The generic marginal identities are retained as reusable helpers, while the missing scheduler-locality and OPH region-factor attachments are explicitly routed to E1 instead of being hidden inside a causality slogan.",
+      "oph_specific_delta": "The dependency induction is checked against the repository's actual single-site localRepair rather than an abstract cellular update. The generic marginal identities are retained as reusable helpers, while the sole B4 live gate is narrowed to E1's finite coverage and OPH region-factor attachment. Source channel and adaptive-scheduler semantics, clocks, and continuum causality remain explicit downstream promotions owned by #693, #691, and #700.",
       "novelty_type": "standard_helper_formalization_with_concrete_repair_instantiation",
       "evidence": [
         "paper/reality_as_consensus_protocol.tex",
@@ -1684,8 +1685,8 @@
         "Lean/ObserverPatchHolography/Locality/DependencyCone.lean",
         "Lean/ObserverPatchHolography/Locality/NoSignalling.lean"
       ],
-      "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. A physical causality promotion fails if the scheduler is nonlocal, the region-factor adapter is absent, or distance, clock, positivity, state normalization, and operational locality are asserted without receipts.",
-      "scope_if_false": "Only the B4 finite helper package or its later physical attachment falls. Consensus termination, the event-manifold branch, and the E1 local-net construction retain their separate premises.",
+      "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. Its #692 attachment fails if no genuine finite coverage/region-factor realization is supplied. A later physical-causality promotion separately fails without the #693 source channel and scheduler receipts, the #691 clock, or the #700 continuum causal/time-slice receipts.",
+      "scope_if_false": "Only the B4 finite helper package or its #692 finite coverage/region-factor attachment falls. Consensus termination and the independently gated channel, clock, event-manifold, and continuum-causality branches retain their separate premises.",
       "status": "fixed_word_dependency_upper_bound_and_generic_marginal_identities_proved__physical_region_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -2862,20 +2863,20 @@
     },
     {
       "claim_id": "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
-      "statement": "For reversal-compatible group-valued labels on endpoint-typed finite paths, the ordered transport ratio of two paths with common endpoints is exactly the holonomy of the closed ratio loop. Every one-dimensional unitary character sends this identity to an exact relative phase. Vertex recharting conjugates based holonomy; raw holonomy is therefore invariant for abelian structure groups, and character phase is invariant for arbitrary groups. An explicit four-vertex punctured complex has trivial holonomy on both declared triangular faces and nontrivial holonomy and two-arm relative phase on an unfilled loop. If a loop holonomy factors through a supplied Multiplicative (ZMod n) sector, every character phase is an nth root of unity. The edge labels, faces, character, sector map, and factorization are inputs. No observer-source connection, physical gauge field, spacetime loop, flux, charge, laboratory path, detector, or fringe is constructed.",
+      "statement": "For reversal-compatible group-valued labels on endpoint-typed finite paths, the ordered transport ratio of two paths with common endpoints is exactly the holonomy of the closed ratio loop. Every one-dimensional unitary character sends this identity to an exact relative phase. Vertex recharting conjugates based holonomy, so its conjugacy class, every class-function value, and nontriviality are invariant; raw holonomy is guaranteed invariant when the structure group is abelian, while character phase is invariant for arbitrary groups. An explicit four-vertex path/face control has trivial holonomy on its two declared triangular faces and nontrivial holonomy and two-arm relative phase on a separate undeclared, unfilled loop. This does not establish a simplicial or Cech complex, puncture, or noncontractibility. If a loop holonomy factors through a supplied Multiplicative (ZMod n) sector, every character phase is an nth root of unity. The edge labels, faces, character, sector map, and factorization are inputs. The Aharonov--Bohm terminology is only an algebraic two-path analogy. No observer-source connection, physical gauge field, spacetime loop, flux, charge, laboratory path, detector, or fringe is constructed.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "exact_bounded_finite_holonomy_character_phase_and_cyclic_quantization",
       "assumptions": [
         "supplied_reversal_compatible_finite_edge_transport",
         "supplied_unitary_character",
-        "supplied_declared_face_complex",
+        "supplied_declared_path_face_control",
         "supplied_cyclic_sector_factorization",
         "physical_interference_attachment_deferred"
       ],
       "imported_results": [
         "finite_group_valued_path_transport",
         "one_dimensional_group_characters",
-        "finite_Cech_recharting",
+        "finite_vertex_recharting",
         "cyclic_group_exponent"
       ],
       "oph_specific_delta": "B6 packages the loop obstruction as one executable finite theorem stack: path-ratio holonomy, rechart-invariant character phase, a premise-separating local-flat/global-nontrivial control, and cyclic phase quantization, while keeping the source and laboratory attachment outside the theorem.",
@@ -2893,12 +2894,13 @@
     },
     {
       "claim_id": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
-      "statement": "A raw Herm2 readback descends uniquely through an actual coincidence setoid exactly when it is invariant on coincidence classes. Given one time-oriented affine Lorentz overlap cocycle, coordinate displacements transform through its Lorentz part, translations cancel, Lorentz intervals are chart independent, and identity, reverse-transition, and triple-overlap laws hold. Future-null displacements give overlap-covariant celestial directions. One base-chart future-unit frame selection constructs compatible chart frames; canonical Lorentz-orthogonal rest projections split every displacement and transport through exact rest-space linear isometries. The rank-three source FrameQuotient is linearly and isometrically equivalent to the standard internal rest fiber as a candidate local readback, not absolute space. A two-event/two-chart control has nonzero affine translation and a nonzero future-null displacement, while a three-germ control proves that reflexive symmetric pairwise overlap need not be transitive. The premise-reduction theorem retains source realization of the coincidence atlas, population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock.",
+      "statement": "A raw Herm2 readback descends uniquely through an actual coincidence setoid exactly when it is invariant on coincidence classes. Separately, given one time-oriented affine Lorentz overlap cocycle and a supplied chart-coordinate/readback family satisfying its overlap law, coordinate displacements transform through the cocycle's Lorentz part, translations cancel, Lorentz intervals are chart independent, and identity, reverse-transition, and triple-overlap laws hold. The formal stack does not identify the standalone quotient-descended readback with the supplied EventGermAtlas coordinate family. Future-null displacements give overlap-covariant celestial directions. One base-chart future-unit frame selection constructs compatible chart frames; canonical Lorentz-orthogonal rest projections split every displacement and transport through exact rest-space linear isometries. The rank-three source FrameQuotient is linearly and isometrically equivalent to the standard internal rest fiber as a candidate local readback, not absolute space. A two-event/two-chart control has nonzero affine translation and a nonzero future-null displacement, while a three-germ control proves that reflexive symmetric pairwise overlap need not be transitive. The premise-reduction theorem retains source realization of the coincidence atlas, population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "exact_bounded_algebraic_event_frame_soldering_contract",
       "assumptions": [
         "actual_event_coincidence_setoid_and_invariant_readback",
         "supplied_time_oriented_affine_Lorentz_overlap_cocycle",
+        "supplied_chart_coordinate_overlap_family",
         "supplied_base_chart_frame_selection",
         "physical_event_atlas_and_clock_receipts_deferred"
       ],
@@ -2908,7 +2910,7 @@
         "affine_cocycle_algebra",
         "source_FrameQuotient_Gram_theorem"
       ],
-      "oph_specific_delta": "C2 turns the intrinsic C1 module into one proof-carrying algebraic soldering contract, derives all four displacement/celestial/frame/rest readbacks from one overlap cocycle, proves the exact source-frame/rest-fiber candidate bridge, and makes every source and physical event-manifold receipt survive the premise reduction by name.",
+      "oph_specific_delta": "C2 turns the intrinsic C1 module into one proof-carrying algebraic soldering contract, derives displacement/celestial/frame/rest covariance from one cocycle together with a supplied coordinate family obeying its overlap law, proves the exact source-frame/rest-fiber candidate bridge, and makes every source and physical event-manifold receipt survive the premise reduction by name. Quotient descent is proved independently and is not silently identified with the atlas coordinate family.",
       "novelty_type": "single_cocycle_four_soldering_theorem_with_exact_premise_firewall",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -2920,8 +2922,8 @@
         "Lean/Geometry/SpatialReadbackSoldering.lean",
         "Lean/docs/C2_EVENT_FRAME_SOLDERING.md"
       ],
-      "falsifier": "The bounded contract fails if coincidence invariance is not equivalent to unique descent, affine translations do not cancel from displacements, an overlap changes the Lorentz interval, reverse or triple transitions fail, future-null-ray or celestial transport is ill-defined, base-frame transport violates the cocycle, rest projection leaves the orthogonal fiber or fails metric covariance, the source quotient/rest-fiber metric identity fails, or either finite control fails.",
-      "scope_if_false": "Only the bounded algebraic C2 contract or its candidate source-frame bridge falls. Source event population, topology, physical cone and causal attachment, refinement, rods, clocks, physical spacetime, Einstein dynamics, and every frozen prediction remain separate.",
+      "falsifier": "The bounded contract fails if coincidence invariance is not equivalent to unique descent, the supplied atlas coordinate family violates its declared overlap law, affine translations do not cancel from displacements, an overlap changes the Lorentz interval, reverse or triple transitions fail, future-null-ray or celestial transport is ill-defined, base-frame transport violates the cocycle, rest projection leaves the orthogonal fiber or fails metric covariance, the source quotient/rest-fiber metric identity fails, or either finite control fails.",
+      "scope_if_false": "Only the bounded algebraic C2 contract or its candidate source-frame bridge falls. Source event population, certified separation, topology, physical cone and causal attachment, refinement, rods, clocks, physical spacetime, Einstein dynamics, and every frozen prediction remain separate.",
       "status": "bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open",
       "claim_class": "conditional_implication",
       "gates": []

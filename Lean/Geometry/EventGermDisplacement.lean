@@ -28,7 +28,7 @@ def CoincidenceInvariant {Raw : Type*} (s : Setoid Raw)
     (readback : Raw → Herm2) : Prop :=
   ∀ a b, s.r a b → readback a = readback b
 
-/-- Coordinate readback on coincidence classes. -/
+/-- Quotient readback on coincidence classes. -/
 def descendedReadback {Raw : Type*} (s : Setoid Raw)
     (readback : Raw → Herm2) (h : CoincidenceInvariant s readback) :
     Quotient s → Herm2 :=
@@ -39,7 +39,7 @@ def descendedReadback {Raw : Type*} (s : Setoid Raw)
     (x : Raw) :
     descendedReadback s readback h (Quotient.mk s x) = readback x := rfl
 
-/-- Exact descent criterion, including uniqueness of the chart readback on
+/-- Exact descent criterion, including uniqueness of the descended readback on
 the quotient.  The theorem requires an actual setoid; a merely reflexive and
 symmetric pairwise-overlap test is not silently closed transitively. -/
 theorem coincidenceInvariant_iff_existsUnique_descendedReadback

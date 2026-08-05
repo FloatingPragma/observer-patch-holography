@@ -662,7 +662,7 @@
         "statement": "The real Pauli-coordinate module Herm2 is exactly the four-dimensional space of two-by-two complex Hermitian matrices, with determinant equal to the Lorentz quadratic form of constructive inertia (+---). Positive future-null rays are set-equivalent to the unit two-sphere, the algebraic future-unit hyperboloid has three-dimensional positive rest spaces, and an explicit linear chart matches the existing Einstein coordinates with exactly the required sign flip"
       },
       {
-        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, and base frame are supplied. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Issues #693, #694, and #691 own those residuals; no physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
+        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Issues #693, #694, and #691 own those residuals; no physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
         "id": "algebraic_event_frame_soldering",
         "lean_declarations": {
           "CelestialSoldering": [
@@ -711,7 +711,7 @@
         "match": "exact bounded algebraic contract; source and physical receipts open",
         "observed_counterpart": "event-frame and local rest-space Lorentz covariance",
         "paper_ref": "spacetime paper, bounded algebraic event-frame soldering",
-        "statement": "Coincidence-invariant Herm2 readback descends uniquely through an actual event setoid. One supplied time-oriented affine Lorentz overlap cocycle then induces translation-free displacement covariance, invariant intervals, future-null celestial transport, compatible event frames, and isometric transport of their positive rest spaces. The rank-three source FrameQuotient is linearly and isometrically identified with the standard internal rest fiber as a candidate local readback. Exact controls exhibit a nontrivial translated future-null atlas and show that reflexive symmetric pairwise overlap need not be transitive"
+        "statement": "Coincidence-invariant Herm2 readback descends uniquely through an actual event setoid. Separately, one supplied time-oriented affine Lorentz overlap cocycle and a chart-coordinate family satisfying its overlap law induce translation-free displacement covariance, invariant intervals, future-null celestial transport, compatible event frames, and isometric transport of their positive rest spaces. The rank-three source FrameQuotient is linearly and isometrically identified with the standard internal rest fiber as a candidate local readback. The formal stack does not identify the quotient-descended readback with the supplied atlas coordinates. Exact controls exhibit a nontrivial translated future-null atlas and show that reflexive symmetric pairwise overlap need not be transitive"
       },
       {
         "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom, the B4 helper has no regional-factor attachment, and the parameterized consistency model is commutative and degenerate. Issue #692 gates a noncommutative region-separating source realization with genuine coverage and factor-localization receipts; no CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
@@ -819,7 +819,7 @@
         "statement": "Positive unital complex-linear maps of the finite active-record function algebra are exactly real row-stochastic kernels under the declared coordinatewise cone. Every public star automorphism is uniquely pullback by a label permutation, so every pointwise-continuous real-parameter group of arbitrary public star automorphisms is trivial. Every star automorphism of one finite full private endomorphism block is unitarily inner, and a supplied self-adjoint Hamiltonian generates a unitary real-parameter von Neumann flow"
       },
       {
-        "hypothesis_boundary": "the edge labels, reversal law, declared face complex, unitary character, cyclic sector map, and factorization are supplied. Local flatness quantifies only over the two declared faces of the punctured control. No observer-source connection, physical gauge field, spacetime loop, charge, clock, flux, detector, laboratory fringe, or prediction is constructed",
+        "hypothesis_boundary": "the edge labels, reversal law, declared four-vertex path/face control, unitary character, cyclic sector map, and factorization are supplied. Local flatness quantifies only over the two declared faces of the four-vertex control; no puncture or noncontractibility is proved. The Aharonov--Bohm terminology is only an algebraic two-path analogy. No observer-source connection, physical gauge field, spacetime loop, charge, clock, flux, detector, laboratory fringe, or prediction is constructed",
         "id": "finite_holonomy_character_phase",
         "lean_declarations": {
           "HolonomyInterference": [
@@ -841,9 +841,9 @@
           "Lean/Screen/HolonomyInterference.lean"
         ],
         "match": "exact bounded algebraic packet; physical attachment open",
-        "observed_counterpart": "finite Aharonov--Bohm holonomy and cyclic flux-phase structure",
+        "observed_counterpart": "finite algebraic two-path character phase and cyclic-root structure",
         "paper_ref": "gauge paper, finite holonomy/interference packet",
-        "statement": "For reversal-compatible group labels on endpoint-typed finite paths, the ordered transport ratio of two common-endpoint paths equals the holonomy of their closed ratio loop, and every unitary character maps it to the exact relative phase. Recharting conjugates based holonomy and leaves character phase invariant. An explicit four-vertex punctured complex has flat declared triangular faces but nontrivial global holonomy and two-arm phase. A supplied cyclic ZMod n sector forces the character phase to be an nth root of unity"
+        "statement": "For reversal-compatible group labels on endpoint-typed finite paths, the ordered transport ratio of two common-endpoint paths equals the holonomy of their closed ratio loop, and every unitary character maps it to the exact relative phase. Recharting conjugates based holonomy and leaves character phase invariant. An explicit four-vertex path/face control has two flat declared triangular faces and a separate undeclared, unfilled loop with nontrivial holonomy and two-arm phase. A supplied cyclic ZMod n sector forces the character phase to be an nth root of unity"
       },
       {
         "artifact_refs": [
@@ -1025,7 +1025,7 @@
         "statement": "On the exact twelve-port, thirty-seam incidence graph, a declared pointwise continuity update gives regional source minus outward flux, internal cancellation, and closed-graph conservation for zero-total source. Rational Gauss solutions exist exactly for neutral loads and form one translate of a nineteen-dimensional cycle kernel. For finite real linear state maps, all-state charge conservation is equivalent to the dual fixed-observable equation; an exact two-state counterexample shows that channel covariance alone does not imply conservation"
       },
       {
-        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. Issue #692 owns that attachment; this row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. The row's sole live gate, #692, owns finite coverage and the OPH region-factor adapter. Source channel/adaptive-scheduler semantics (#693), clocks (#691), and continuum causal/time-slice structure (#700) are downstream promotions outside this claim's gate. This row emits no prediction-ladder entry",
         "id": "finite_fixed_word_locality_and_marginal_invariance",
         "lean_declarations": {
           "DependencyCone": [

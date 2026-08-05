@@ -144,10 +144,13 @@ Mapping between Lean 4 theorems in this project and statements in
   `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
 - B6 finite holonomy/interference (`Screen/HolonomyInterference.lean`): typed
   finite paths, ordered group transport, exact path-ratio/closed-holonomy and
-  character-relative-phase identities, rechart conjugacy, abelian holonomy
-  invariance, and general character-phase invariance. A four-vertex punctured
-  control separates local triangular flatness from nontrivial global
-  holonomy and realizes the finite two-arm identity. Supplied cyclic
+  character-relative-phase identities, rechart conjugacy, conjugacy-class and
+  class-function invariance, abelian raw-holonomy invariance, and general
+  character-phase invariance. A four-vertex path/face control has two
+  declared flat triangular faces and a separate undeclared, unfilled loop
+  with nontrivial holonomy, and realizes the finite two-arm identity. It
+  proves no puncture or noncontractibility claim; the Aharonov--Bohm label is
+  only an algebraic analogy. Supplied cyclic
   `ZMod n` sectors quantize character phases to `n`th roots. No source gauge
   connection, physical flux, or laboratory interference attachment follows.
   See `B6_HOLONOMY_INTERFERENCE.md`.
@@ -188,9 +191,11 @@ Mapping between Lean 4 theorems in this project and statements in
   `Geometry/CelestialSoldering.lean`,
   `Geometry/EventFrameSoldering.lean`, and
   `Geometry/SpatialReadbackSoldering.lean`): coincidence-invariant raw
-  readbacks descend uniquely through an actual setoid; one affine
-  time-oriented Lorentz cocycle gives identity, reverse, triple-overlap,
+  readbacks descend uniquely through an actual setoid. Separately, one affine
+  time-oriented Lorentz cocycle and a supplied `EventGermAtlas.coordinate`
+  family satisfying `coordinate_overlap` give identity, reverse, triple-overlap,
   displacement, interval, celestial, frame, and local-rest-space covariance.
+  Quotient descent does not construct or identify that atlas coordinate family.
   Rest transport preserves the positive metric, and the source rank-three
   `FrameQuotient` is linearly and isometrically identified with the standard
   internal rest fiber as a candidate readback. A reflexive symmetric

@@ -484,14 +484,18 @@ The finite algebra is exact. If every directed edge carries a reversible group
 element, the transport ratio between two routes with the same endpoints is
 the holonomy of the closed loop formed by taking one route out and the other
 back. A one-dimensional character turns that group identity into a relative
-phase. Local changes of dictionary only conjugate the loop holonomy, so an
-abelian holonomy and every character phase are invariant. A small punctured
-four-vertex example has two flat declared triangles but a nontrivial unfilled
-loop: local flatness does not erase global topology. If that holonomy lies in
-a supplied cyclic group of order $n$, its character phase is an $n$th root of
-unity.
+phase. Local changes of dictionary only conjugate the based loop holonomy, so
+its conjugacy class, nontriviality, and every class-function value are
+invariant; the raw holonomy itself is invariant when the group is abelian. A
+four-vertex path/face control has two declared flat triangles and a separate
+undeclared, unfilled loop with nontrivial holonomy. This shows only that
+flatness on those two supplied faces does not determine the separate loop; it
+does not prove a puncture, noncontractibility, or other topological claim. If
+that holonomy lies in a supplied cyclic group of order $n$, its character
+phase is an $n$th root of unity.
 
-This is the finite Aharonov--Bohm principle, not yet a laboratory prediction.
+This is an algebraic finite two-path analogy to the Aharonov--Bohm effect, not
+a topological identification or a laboratory prediction.
 The edge labels, loop, character, cyclic sector, physical gauge field, flux,
 experimental arms, and detector would still need a source and measurement
 attachment.

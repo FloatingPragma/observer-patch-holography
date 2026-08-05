@@ -296,20 +296,24 @@ convention exactly, with one overall sign change.
 The next finite step is now exact but conditional. If raw record germs carry
 an actual coincidence equivalence and their Lorentz readback is constant on
 each class, the readback descends uniquely. One supplied affine,
-time-oriented Lorentz overlap cocycle then makes coordinate differences,
-Lorentz intervals, celestial directions, observer frames, and local rest
-readbacks agree across charts. Reverse transitions and triple overlaps come
-from that same cocycle. The rank-three source Gram quotient also matches the
+time-oriented Lorentz overlap cocycle and, separately, a supplied
+chart-coordinate family satisfying its overlap law then make coordinate
+differences, Lorentz intervals, celestial directions, observer frames, and
+local rest readbacks agree across charts. Reverse transitions and triple
+overlaps come from that same cocycle. The formal theorem does not construct
+the coordinate family from quotient descent or identify the two readbacks.
+The rank-three source Gram quotient also matches the
 rest space of one standard internal frame exactly as a candidate local
 readback.
 
 This is an algebraic soldering contract, not physical spacetime. It does not
-produce the coincidence relation or source atlas, populate four-dimensional
-events, prove open charts, attach the measured cone to the intrinsic form,
+produce the coincidence relation, chart-coordinate family and overlap law, or
+source atlas, populate four-dimensional
+events, certify separation, prove open charts, attach the measured cone to the intrinsic form,
 transport the construction through refinement, supply causal reachability,
 select a physical frame, or build a clock. A small formal control also shows
 why pairwise overlap is inadequate: a relation can be reflexive and symmetric
-without being transitive. The source, population, topology, cone, causal, and
+without being transitive. The source, population, separation, topology, cone, causal, and
 clock attachments belong to the construction that follows.
 
 ### From Modular Ordering to an Observer Clock
