@@ -1,6 +1,7 @@
 import Tower.ConsensusTower
 import Tower.PublicWorldQuotient
 import Tower.FixedPointEndpoint
+import Tower.EventGeometryReadout
 import Tower.OperationalObserver
 
 /-!
@@ -17,5 +18,9 @@ observerhood receipt over an arbitrary tower, with a nontrivial finite
 witness and three negative controls; the receipt selects no unique observer
 and attaches no instrument, consciousness claim, or source realization. This
 umbrella supplies no source realization, physical world, clock, causal net,
-geometry, or continuum limit.
+geometry, or continuum limit. `Tower.EventGeometryReadout` adds the selected
+settled branch, the all-quotient event and geometry readout fragment with
+its fine-to-coarse naturality squares, and the boundary-fibre theorem from
+an independently constructed complete event signature, with the
+boundary-as-signature circularity made definitional.
 -/

@@ -16,13 +16,21 @@ nothing is inferred from a limit, a dynamics, or a physical interpretation.
 tower `witnessTower`: the private algebra is `M₂(ℂ)`, the public algebra is
 the span of the two diagonal coordinate projectors, three records carry the
 strict chain order, the readback is the partition average, and the
-prediction map advances records.  `witnessObserver_nontrivial` collects the
-facts separating this witness from the constant adaptor: two-dimensional
-private algebra, strictly ordered records, a nonconstant non-identity
-prediction map, and a record element distinct from the zero and identity
-matrices.  Three negative controls show that an erasing readback, an
-identity generator, and a resetting prediction each violate exactly one
-clause on the same concrete data.
+prediction map advances records.  The tower generator is the `i`-scaled
+commutator with the diagonal Hamiltonian `diag(1, 2)`, which annihilates
+every diagonal record element and moves the raising matrix unit, so record
+durability is a computed fixed-point fact rather than a vanishing-generator
+triviality.  Every record-conditioned intervention is conjugation by the
+diagonal involution `diag(1, -1)`, which fixes every diagonal record
+element and negates the raising matrix unit, so evidence invariance under
+control is likewise computed against a map distinct from the identity.
+`witnessObserver_nontrivial` collects the facts separating this witness
+from the constant adaptor: two-dimensional private algebra, strictly
+ordered records, a nonconstant non-identity prediction map, a record
+element distinct from the zero and identity matrices, a nonzero generator,
+and a control distinct from the identity map.  Three negative controls show
+that an erasing readback, an identity generator, and a resetting prediction
+each violate exactly one clause on the same concrete data.
 
 ## Claim boundary
 
@@ -153,8 +161,10 @@ end OperationalObserver
 
 The witness data are exact and small: private algebra `M₂(ℂ)`, the diagonal
 two-projector partition as public algebra, three chain-ordered records, the
-first coordinate projector as state, the zero generator, the partition
-average as readback, and a record-advancing prediction map. -/
+first coordinate projector as state, the scaled Hamiltonian commutator as
+generator, the partition average as readback, conjugation by a diagonal
+involution as record-conditioned control, and a record-advancing prediction
+map. -/
 
 /-- The diagonal two-projector partition of `M₂(ℂ)`: the coordinate
 projectors `diag(1,0)` and `diag(0,1)`. -/
@@ -226,9 +236,107 @@ def witnessPredict : Fin 3 → Fin 3 := fun x => if x = 2 then 2 else x + 1
 weight on the later records. -/
 def witnessReadout : Fin 3 → ℂ := fun x => if x = 0 then 1 else 0
 
+/-- The witness Hamiltonian `diag(1, 2)`.  Its distinct diagonal entries
+make the commutator generator vanish exactly on the diagonal matrices. -/
+noncomputable def witnessHamiltonian : Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.diagonal ![1, 2]
+
+/-- The witness generator: the `i`-scaled commutator with the witness
+Hamiltonian.  It annihilates every diagonal matrix and moves the raising
+matrix unit. -/
+noncomputable def witnessGenerator :
+    Matrix (Fin 2) (Fin 2) ℂ →ₗ[ℂ] Matrix (Fin 2) (Fin 2) ℂ where
+  toFun X := Complex.I • (witnessHamiltonian * X - X * witnessHamiltonian)
+  map_add' X Y := by
+    rw [mul_add, add_mul, add_sub_add_comm, smul_add]
+  map_smul' c X := by
+    rw [RingHom.id_apply, mul_smul_comm, smul_mul_assoc, ← smul_sub,
+      smul_comm]
+
+@[simp] theorem witnessGenerator_apply (X : Matrix (Fin 2) (Fin 2) ℂ) :
+    witnessGenerator X =
+      Complex.I • (witnessHamiltonian * X - X * witnessHamiltonian) :=
+  rfl
+
+/-- The witness generator annihilates every diagonal matrix: diagonal
+matrices commute with the diagonal witness Hamiltonian. -/
+theorem witnessGenerator_diagonal (d : Fin 2 → ℂ) :
+    witnessGenerator (Matrix.diagonal d) = 0 := by
+  rw [witnessGenerator_apply, witnessHamiltonian,
+    Matrix.diagonal_mul_diagonal, Matrix.diagonal_mul_diagonal]
+  have hcomm : (fun i => (![1, 2] : Fin 2 → ℂ) i * d i) =
+      fun i => d i * (![1, 2] : Fin 2 → ℂ) i := by
+    funext i
+    exact mul_comm _ _
+  rw [hcomm, sub_self, smul_zero]
+
+/-- The witness intervention conjugator `diag(1, -1)`: a diagonal
+involution. -/
+noncomputable def witnessConjugator : Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.diagonal ![1, -1]
+
+/-- The witness conjugator squares to the identity, so conjugation by it is
+conjugation by a self-inverse element. -/
+theorem witnessConjugator_involution :
+    witnessConjugator * witnessConjugator = 1 := by
+  rw [witnessConjugator, Matrix.diagonal_mul_diagonal, ← Matrix.diagonal_one]
+  congr 1
+  funext i
+  fin_cases i <;> norm_num
+
+/-- The witness record-conditioned control: conjugation by the diagonal
+involution.  With the conjugator self-inverse, `X ↦ U * X * U` is exactly
+`X ↦ U * X * U⁻¹`.  It fixes every diagonal matrix and negates the raising
+matrix unit. -/
+noncomputable def witnessControl :
+    Matrix (Fin 2) (Fin 2) ℂ →ₗ[ℂ] Matrix (Fin 2) (Fin 2) ℂ where
+  toFun X := witnessConjugator * X * witnessConjugator
+  map_add' X Y := by
+    rw [mul_add, add_mul]
+  map_smul' c X := by
+    rw [RingHom.id_apply, mul_smul_comm, smul_mul_assoc]
+
+@[simp] theorem witnessControl_apply (X : Matrix (Fin 2) (Fin 2) ℂ) :
+    witnessControl X = witnessConjugator * X * witnessConjugator :=
+  rfl
+
+/-- The witness control fixes every diagonal matrix: diagonal matrices
+commute with the conjugator and the conjugator squares to the identity. -/
+theorem witnessControl_diagonal (d : Fin 2 → ℂ) :
+    witnessControl (Matrix.diagonal d) = Matrix.diagonal d := by
+  rw [witnessControl_apply, witnessConjugator,
+    Matrix.diagonal_mul_diagonal, Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext i
+  fin_cases i <;> simp
+
+/-- The raising matrix unit `|0><1|`, restated over the witness algebra as
+the off-diagonal probe for the generator and control facts. -/
+def witnessRaise : Matrix (Fin 2) (Fin 2) ℂ :=
+  fun i j => if i = 0 ∧ j = 1 then 1 else 0
+
+/-- The witness generator negates and `i`-scales the raising matrix unit. -/
+theorem witnessGenerator_raise :
+    witnessGenerator witnessRaise = -(Complex.I • witnessRaise) := by
+  rw [witnessGenerator_apply]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    norm_num [witnessHamiltonian, witnessRaise, Matrix.mul_apply,
+      Matrix.diagonal_apply]
+
+/-- The witness control negates the raising matrix unit. -/
+theorem witnessControl_raise :
+    witnessControl witnessRaise = -witnessRaise := by
+  rw [witnessControl_apply]
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [witnessConjugator, witnessRaise, Matrix.mul_apply,
+      Fin.sum_univ_two, Matrix.diagonal_apply]
+
 /-- An explicit one-regulator consensus tower over `M₂(ℂ)` with three
 chain-ordered records represented on the diagonal partition, the first
-coordinate projector as state, and the zero generator. -/
+coordinate projector as state, and the scaled Hamiltonian commutator as
+generator. -/
 noncomputable def witnessTower : ConsensusTower Unit where
   indexNonempty := ⟨()⟩
   commonRefinement := fun _ _ => ⟨(), by trivial, by trivial⟩
@@ -246,7 +354,7 @@ noncomputable def witnessTower : ConsensusTower Unit where
       witnessPartition.proj_mem_span (witnessRecordIndex x)⟩
   state := fun _ _ => witnessPartition.proj 0
   state_isState := fun _ _ => witnessState_isState
-  generator := fun _ _ => 0
+  generator := fun _ _ => witnessGenerator
   observerRefine := fun _ o => o
   recordRefine := fun _ x => x
   algebraRefine := fun _ => StarAlgHom.id ℂ _
@@ -264,11 +372,12 @@ noncomputable def witnessTower : ConsensusTower Unit where
     exact hX
   record_element_natural := by intros; rfl
   state_natural := by intros; rfl
-  generator_natural := by intros; simp
+  generator_natural := by intros; rfl
 
 /-- The operational witness observer over `witnessTower`: full accessible
-interface, partition-average readback, identity interventions, advancing
-prediction, and explicit declared readouts. -/
+interface, partition-average readback, conjugation interventions by the
+diagonal involution, advancing prediction, and explicit declared
+readouts. -/
 noncomputable def witnessObserver : OperationalObserver witnessTower where
   label := fun _ => ()
   label_refine := by intros; rfl
@@ -281,8 +390,8 @@ noncomputable def witnessObserver : OperationalObserver witnessTower where
     partitionAverage_fixes witnessPartition hX
   record_durable := by
     intro r x
-    rfl
-  control := fun _ _ => LinearMap.id
+    exact witnessGenerator_diagonal (Pi.single (witnessRecordIndex x) 1)
+  control := fun _ _ => witnessControl
   control_preserves_accessible := fun _ _ _ _ => StarSubalgebra.mem_top
   predict := fun _ => witnessPredict
   predict_no_regress := by
@@ -310,7 +419,7 @@ noncomputable def witnessObserver : OperationalObserver witnessTower where
       rw [witnessPartition.orthogonal 0 1 (by decide), Matrix.trace_zero]
   record_fixed_by_control := by
     intro r x y
-    rfl
+    exact witnessControl_diagonal (Pi.single (witnessRecordIndex x) 1)
 
 /-- Two witness records are strictly ordered. -/
 theorem witnessTower_strict_precedence :
@@ -337,10 +446,44 @@ theorem witnessObserver_predict_ne_id :
   have h0 : (1 : Fin 3) = 0 := congrFun h (0 : Fin 3)
   exact absurd h0 (by decide)
 
+/-- The witness generator is nonzero on the raising matrix unit, so record
+durability is a fixed-point property of the diagonal records rather than a
+property of a vanishing generator. -/
+theorem witnessGenerator_raise_ne_zero :
+    witnessGenerator witnessRaise ≠ 0 := by
+  rw [witnessGenerator_raise]
+  intro h
+  have h01 := congrFun (congrFun h 0) 1
+  simp [witnessRaise] at h01
+
+/-- The witness generator is nonzero as a linear map. -/
+theorem witnessGenerator_ne_zero :
+    witnessGenerator ≠
+      (0 : Matrix (Fin 2) (Fin 2) ℂ →ₗ[ℂ] Matrix (Fin 2) (Fin 2) ℂ) := by
+  intro h
+  exact witnessGenerator_raise_ne_zero
+    ((congrArg (fun F => F witnessRaise) h).trans
+      (LinearMap.zero_apply witnessRaise))
+
+/-- The witness control differs from the identity map: it negates the
+raising matrix unit while fixing every diagonal record element. -/
+theorem witnessControl_ne_id :
+    witnessControl ≠
+      (LinearMap.id :
+        Matrix (Fin 2) (Fin 2) ℂ →ₗ[ℂ] Matrix (Fin 2) (Fin 2) ℂ) := by
+  intro h
+  have hr : witnessControl witnessRaise = witnessRaise :=
+    (LinearMap.congr_fun h witnessRaise).trans
+      (LinearMap.id_apply witnessRaise)
+  rw [witnessControl_raise] at hr
+  have h01 := congrFun (congrFun hr 0) 1
+  norm_num [witnessRaise] at h01
+
 /-- Nontriviality receipt for the witness observer: two-dimensional
 private algebra, strictly ordered records, a nonconstant non-identity
-prediction map, and a record element distinct from the zero and identity
-matrices. -/
+prediction map, a record element distinct from the zero and identity
+matrices, a nonzero record-durability generator, and a record-conditioned
+control distinct from the identity map. -/
 theorem witnessObserver_nontrivial :
     witnessTower.dim () = 2 ∧
       (witnessTower.recordOrder () ()).precedes (0 : Fin 3) (1 : Fin 3) ∧
@@ -348,10 +491,13 @@ theorem witnessObserver_nontrivial :
         witnessObserver.predict () (1 : Fin 3) ∧
       witnessObserver.predict () ≠ (id : Fin 3 → Fin 3) ∧
       (witnessTower.recordElement () () (0 : Fin 3)).1 ≠ 0 ∧
-      (witnessTower.recordElement () () (0 : Fin 3)).1 ≠ 1 :=
+      (witnessTower.recordElement () () (0 : Fin 3)).1 ≠ 1 ∧
+      witnessTower.generator () () ≠ 0 ∧
+      witnessObserver.control () (0 : Fin 3) ≠ LinearMap.id :=
   ⟨rfl, witnessTower_strict_precedence, witnessObserver_predict_nonconstant,
     witnessObserver_predict_ne_id, witnessPartition_proj_zero_ne_zero,
-    witnessPartition_proj_zero_ne_one⟩
+    witnessPartition_proj_zero_ne_one, witnessGenerator_ne_zero,
+    witnessControl_ne_id⟩
 
 /-! ## Negative controls
 
@@ -403,6 +549,14 @@ theorem resettingPredict_not_predictive :
 #print axioms OPH.Tower.OperationalObserver.readback_recordElement
 #print axioms OPH.Tower.OperationalObserver.readback_idem
 #print axioms OPH.Tower.OperationalObserver.readout_refine
+#print axioms OPH.Tower.witnessGenerator_diagonal
+#print axioms OPH.Tower.witnessConjugator_involution
+#print axioms OPH.Tower.witnessControl_diagonal
+#print axioms OPH.Tower.witnessGenerator_raise
+#print axioms OPH.Tower.witnessControl_raise
+#print axioms OPH.Tower.witnessGenerator_raise_ne_zero
+#print axioms OPH.Tower.witnessGenerator_ne_zero
+#print axioms OPH.Tower.witnessControl_ne_id
 #print axioms OPH.Tower.witnessObserver_nontrivial
 #print axioms OPH.Tower.erasingReadback_not_self_readback
 #print axioms OPH.Tower.idGenerator_not_durable

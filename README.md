@@ -204,10 +204,13 @@ remote-observable nondisturbance. The formal family type has no joint-coverage
 axiom. Its contravariant restrictions and gluing laws are strong declared
 receipts, and its partition-and-state-parameterized consistency construction
 assigns the same commutative record algebra to every region; it is not a closed
-source witness. A noncommutative source-attached net, genuine coverage,
-regional factorization, positive quantum channels,
-adaptive scheduler locality, spacetime causality, and a continuum time-slice
-theory are open. The layer also checks fixed-word repair locality, generic
+source witness. An explicit finite witness inhabits the interface with two
+noncommutative, mutually commuting regional algebras over a scalar
+overlap, and an exact obstruction theorem shows the declared restriction
+maps exclude full matrix factors above commutative regions. A
+source-attached net, genuine coverage, regional factorization, positive
+quantum channels, adaptive scheduler locality, spacetime causality, and a
+continuum time-slice theory are open. The layer also checks fixed-word repair locality, generic
 bipartite marginal invariance, finite conservation and transport, and
 conditional finite-history and real-variation helpers. A finite Gibbs path
 space cannot supply every real single-site variation; the source history law,
@@ -216,6 +219,15 @@ package. These are structural results, not physical predictions. See the
 [finite regional-net interface](Lean/QFT.lean),
 [postdiction ledger](docs/POSTDICTION_LEDGER.md#forced-structure), and
 [Lean boundary notes](Lean/docs/) for the exact scopes.
+
+The library defines what counts as an observer: a system with a
+bounded window on the world that can read its own records back, keep them
+stable under its own dynamics, act on them, predict forward rather than
+backward, and survive refinement. A worked example passes all seven tests
+and three deliberately broken systems fail exactly one test each. A
+companion theorem ties an observed event's record, its location, its
+owner's access, and its coordinates to one underlying packet of data, and
+that binding survives refinement.
 
 The rest of this README is the architecture those receipts come from.
 

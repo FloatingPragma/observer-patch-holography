@@ -2,6 +2,8 @@ import QFT.FiniteCausalObserverNet
 import QFT.ObserverNetDescent
 import QFT.ObserverAccessCut
 import QFT.ObserverEventWorld
+import QFT.ObserverEventTower
+import QFT.NoncommutativeWitness
 
 /-!
 # OPH construction QFT umbrella
@@ -20,5 +22,12 @@ conditional. The E6 event-world module binds one finite event packet to
 support region, public record, owner accessibility, and C2 chart coordinate
 through a common-origin theorem; dimension-two witnesses make both access
 interpositions strict and evaluate the packet laws on the C2 control
-soldering.
+soldering. The E6 event-tower module adds the event precedence adapter,
+the selected coarse-to-fine refinement transporting the common-origin
+conclusion, and raw event candidates with quotient descent of every packet
+field. The noncommutative-witness module proves that the committed
+restriction receipts exclude anticommuting unit pairs above
+commutative-algebra regions and inhabits the interface with a
+region-separating pair of noncommutative character-block algebras whose
+declared overlap algebra is the scalar span.
 -/

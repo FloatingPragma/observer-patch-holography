@@ -239,6 +239,16 @@ Voir l’[interface finie du réseau régional](Lean/QFT.lean), le
 [registre des postdictions](docs/POSTDICTION_LEDGER.md#forced-structure) et
 les [notes de frontière Lean](Lean/docs/) pour les portées exactes.
 
+La bibliothèque définit ce qui compte comme un observateur : un système
+doté d'une fenêtre bornée sur le monde, capable de relire ses propres
+enregistrements, de les garder stables sous sa propre dynamique, d'agir
+sur eux, de prédire vers l'avant plutôt que vers l'arrière, et de survivre
+au raffinement. Un exemple concret passe les sept tests et trois systèmes
+volontairement défectueux échouent chacun à exactement un test. Un
+théorème compagnon relie l'enregistrement d'un événement observé, sa
+localisation, l'accès de son propriétaire et ses coordonnées à un seul
+paquet de données sous-jacent, et ce lien survit au raffinement.
+
 Le reste de ce README est l’architecture d’où viennent ces reçus.
 
 ## Les trois axiomes
