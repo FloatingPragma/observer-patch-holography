@@ -292,7 +292,7 @@ surface for the OPH consensus layer. Contents:
   bipartite split. B4's sole live gate is #692 (E1), which owns only finite
   coverage and OPH region factorization. Source state/channel production and
   adaptive scheduling continue under #693 (E2), the operational clock under
-  #691 (D1), and continuum causal/time-slice and physical spacelike
+  #691, and continuum causal/time-slice and physical spacelike
   attachment under #700 (E3); these are downstream rather than B4 claim
   gates. See
   `B4_LOCALITY_BOUNDARY.md`.

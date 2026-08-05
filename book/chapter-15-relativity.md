@@ -293,7 +293,7 @@ orthogonal to any one of them form a three-dimensional Euclidean rest space
 after the sign is reversed. The coordinates match the Einstein-tensor
 convention exactly, with one overall sign change.
 
-The next finite step is now exact but conditional. If raw record germs carry
+The next finite step is exact but conditional. If raw record germs carry
 an actual coincidence equivalence and their Lorentz readback is constant on
 each class, the readback descends uniquely. One supplied affine,
 time-oriented Lorentz overlap cocycle and, separately, a supplied

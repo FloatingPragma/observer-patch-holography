@@ -497,7 +497,7 @@ phase is an $n$th root of unity.
 This is an algebraic finite two-path analogy to the Aharonov--Bohm effect, not
 a topological identification or a laboratory prediction.
 The edge labels, loop, character, cyclic sector, physical gauge field, flux,
-experimental arms, and detector would still need a source and measurement
+experimental arms, and detector would need a source and measurement
 attachment.
 
 A structure that has to close on itself is a demanding thing. It leaves

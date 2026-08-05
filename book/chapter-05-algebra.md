@@ -371,8 +371,8 @@ affine Born form $(1+q\cdot n)/2$ for any vector $q$. Continuity and binary
 normalization therefore remain insufficient even with all directions
 available. If affinity is supplied independently, dense positivity tests do
 extend to the whole sphere and force $q$ into the closed unit ball. The open
-work is now sharper: it must source an effect-rich noncontextuality or
-instrument/readback principle that produces affinity, not merely add a
+work is sharper: it must source an effect-rich noncontextuality or
+instrument/readback principle that produces affinity, instead of adding a
 continuity assumption.
 
 ### Net Axioms (Algebraic)

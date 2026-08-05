@@ -276,7 +276,7 @@ of Hermitian $2\times2$ matrices. The determinant has inertia $(1,3)$,
 positive future-null rays are set-equivalent to $S^2$, future unit-timelike
 frames have three-dimensional Euclidean rest spaces, and an exact linear
 chart matches the Einstein tensor coordinates with the opposite sign
-convention. A bounded algebraic soldering contract now proves unique descent
+convention. A bounded algebraic soldering contract proves unique descent
 of coincidence-invariant readbacks. Separately, from a supplied time-oriented
 affine Lorentz overlap cocycle and a chart-coordinate family satisfying its
 overlap law, it proves identity, inverse and cocycle laws and covariant
