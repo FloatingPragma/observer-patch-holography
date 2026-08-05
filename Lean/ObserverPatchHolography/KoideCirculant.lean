@@ -96,62 +96,49 @@ theorem koide_eq_two_thirds_iff
 /-! ## Phase cancellation: the cosine hypotheses hold for every δ
 
 `root_sum` and `root_square_sum` take the two cosine identities as HYPOTHESES on abstract
-coordinates `c₀ c₁ c₂`. Theorem 9.1 of the paper derives them for the actual cosines at angles
-separated by `2π/3`, which is what makes "the phase δ cancels from Q" a theorem rather than an
-assumption. The three results below discharge those hypotheses for EVERY `δ`, so the Koide
+coordinates `c₀ c₁ c₂`. Theorem 9.1 of *Finite Observer Consensus as a Reconstruction Principle*
+(`flagship/from_observer_consensus_to_standard_physics.tex`) derives them for the actual cosines
+at angles separated by `2π/3`, which is what makes "the phase δ cancels from Q" a theorem rather
+than an assumption. The results below discharge those hypotheses for EVERY `δ`, so the Koide
 quotient is phase-independent unconditionally.
 
 Scope unchanged: this adds no physical-mass claim, does not select the phase, and does not
 supply the source-to-charged-family attachment. It closes exactly the trigonometric step. -/
 
+/-- The `2π/3`-shifted coordinate, expanded in the unshifted pair. -/
+private lemma cos_shift_two_thirds (δ : ℝ) :
+    Real.cos (δ + 2 * Real.pi / 3)
+      = -(1 / 2) * Real.cos δ - (Real.sqrt 3 / 2) * Real.sin δ := by
+  have hangle : (2 : ℝ) * Real.pi / 3 = Real.pi - Real.pi / 3 := by ring
+  have hcos : Real.cos (2 * Real.pi / 3) = -(1 / 2) := by
+    rw [hangle, Real.cos_pi_sub, Real.cos_pi_div_three]
+  have hsin : Real.sin (2 * Real.pi / 3) = Real.sqrt 3 / 2 := by
+    rw [hangle, Real.sin_pi_sub, Real.sin_pi_div_three]
+  rw [Real.cos_add, hcos, hsin]; ring
+
+/-- The `4π/3`-shifted coordinate, expanded in the unshifted pair. -/
+private lemma cos_shift_four_thirds (δ : ℝ) :
+    Real.cos (δ + 4 * Real.pi / 3)
+      = -(1 / 2) * Real.cos δ + (Real.sqrt 3 / 2) * Real.sin δ := by
+  have hangle : (4 : ℝ) * Real.pi / 3 = Real.pi / 3 + Real.pi := by ring
+  have hcos : Real.cos (4 * Real.pi / 3) = -(1 / 2) := by
+    rw [hangle, Real.cos_add_pi, Real.cos_pi_div_three]
+  have hsin : Real.sin (4 * Real.pi / 3) = -(Real.sqrt 3 / 2) := by
+    rw [hangle, Real.sin_add_pi, Real.sin_pi_div_three]
+  rw [Real.cos_add, hcos, hsin]; ring
+
 /-- The three cosine coordinates at `2π/3` spacing sum to zero, for every phase `δ`. -/
 theorem cos_coords_sum_zero (δ : ℝ) :
     Real.cos δ + Real.cos (δ + 2 * Real.pi / 3) + Real.cos (δ + 4 * Real.pi / 3) = 0 := by
-  have h2 : Real.cos (δ + 2 * Real.pi / 3)
-      = Real.cos δ * Real.cos (2 * Real.pi / 3) - Real.sin δ * Real.sin (2 * Real.pi / 3) :=
-    Real.cos_add _ _
-  have h4 : Real.cos (δ + 4 * Real.pi / 3)
-      = Real.cos δ * Real.cos (4 * Real.pi / 3) - Real.sin δ * Real.sin (4 * Real.pi / 3) :=
-    Real.cos_add _ _
-  have c2 : Real.cos (2 * Real.pi / 3) = -(1 / 2) := by
-    have h : (2 : ℝ) * Real.pi / 3 = Real.pi - Real.pi / 3 := by ring
-    rw [h, Real.cos_pi_sub, Real.cos_pi_div_three]
-  have c4 : Real.cos (4 * Real.pi / 3) = -(1 / 2) := by
-    have h : (4 : ℝ) * Real.pi / 3 = Real.pi / 3 + Real.pi := by ring
-    rw [h, Real.cos_add_pi, Real.cos_pi_div_three]
-  have s2 : Real.sin (2 * Real.pi / 3) = Real.sqrt 3 / 2 := by
-    have h : (2 : ℝ) * Real.pi / 3 = Real.pi - Real.pi / 3 := by ring
-    rw [h, Real.sin_pi_sub, Real.sin_pi_div_three]
-  have s4 : Real.sin (4 * Real.pi / 3) = -(Real.sqrt 3 / 2) := by
-    have h : (4 : ℝ) * Real.pi / 3 = Real.pi / 3 + Real.pi := by ring
-    rw [h, Real.sin_add_pi, Real.sin_pi_div_three]
-  rw [h2, h4, c2, c4, s2, s4]; ring
+  rw [cos_shift_two_thirds, cos_shift_four_thirds]; ring
 
 /-- Their squares sum to `3/2`, for every phase `δ`. -/
 theorem cos_coords_sq_sum (δ : ℝ) :
     Real.cos δ ^ 2 + Real.cos (δ + 2 * Real.pi / 3) ^ 2
       + Real.cos (δ + 4 * Real.pi / 3) ^ 2 = 3 / 2 := by
-  have h2 : Real.cos (δ + 2 * Real.pi / 3)
-      = Real.cos δ * Real.cos (2 * Real.pi / 3) - Real.sin δ * Real.sin (2 * Real.pi / 3) :=
-    Real.cos_add _ _
-  have h4 : Real.cos (δ + 4 * Real.pi / 3)
-      = Real.cos δ * Real.cos (4 * Real.pi / 3) - Real.sin δ * Real.sin (4 * Real.pi / 3) :=
-    Real.cos_add _ _
-  have c2 : Real.cos (2 * Real.pi / 3) = -(1 / 2) := by
-    have h : (2 : ℝ) * Real.pi / 3 = Real.pi - Real.pi / 3 := by ring
-    rw [h, Real.cos_pi_sub, Real.cos_pi_div_three]
-  have c4 : Real.cos (4 * Real.pi / 3) = -(1 / 2) := by
-    have h : (4 : ℝ) * Real.pi / 3 = Real.pi / 3 + Real.pi := by ring
-    rw [h, Real.cos_add_pi, Real.cos_pi_div_three]
-  have s2 : Real.sin (2 * Real.pi / 3) = Real.sqrt 3 / 2 := by
-    have h : (2 : ℝ) * Real.pi / 3 = Real.pi - Real.pi / 3 := by ring
-    rw [h, Real.sin_pi_sub, Real.sin_pi_div_three]
-  have s4 : Real.sin (4 * Real.pi / 3) = -(Real.sqrt 3 / 2) := by
-    have h : (4 : ℝ) * Real.pi / 3 = Real.pi / 3 + Real.pi := by ring
-    rw [h, Real.sin_add_pi, Real.sin_pi_div_three]
   have hsq3 : Real.sqrt 3 ^ 2 = 3 := Real.sq_sqrt (by norm_num)
   have pyth : Real.sin δ ^ 2 + Real.cos δ ^ 2 = 1 := Real.sin_sq_add_cos_sq δ
-  rw [h2, h4, c2, c4, s2, s4]
+  rw [cos_shift_two_thirds, cos_shift_four_thirds]
   nlinarith [hsq3, pyth]
 
 /-- **The phase cancels.** For every `δ`, the signed Koide quotient of the circulant roots built

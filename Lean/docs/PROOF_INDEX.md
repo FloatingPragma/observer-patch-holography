@@ -696,11 +696,14 @@ Mapping between Lean 4 theorems in this project and statements in
   comparison or derive the declared weight alphabet and constraints.
   Flavor-dependent matching would define a modified lane outside the theorem.
 - Positive-chamber C3-circulant Koide identity
-  (`ObserverPatchHolography/KoideCirculant.lean`): 5 / 5 declarations,
-  sorry-free. From the two cosine-sum identities it proves the signed-root
-  sum and square-sum formulas, derives
+  (`ObserverPatchHolography/KoideCirculant.lean`): 8 / 8 public declarations
+  plus two private trigonometric helpers, sorry-free. From the two cosine-sum
+  identities it proves the signed-root sum and square-sum formulas, derives
   `Q = 1/3 + (2/3)(|b|/a)^2`, and proves on the nonnegative modulus branch
-  that `Q = 2/3` exactly when `|b|/a = 1/sqrt(2)`. The physical reading also
+  that `Q = 2/3` exactly when `|b|/a = 1/sqrt(2)`. It also discharges the two
+  cosine-sum identities at the actual cosines at `2pi/3` spacing for every
+  phase, so the signed quotient is phase-independent with no cosine hypothesis
+  assumed. The physical reading also
   requires all three circulant eigenvalues to be nonnegative. The module does
   not select the phase, derive the physical charged-family attachment, or
   promote the historically target-informed MCPR coordinate.
