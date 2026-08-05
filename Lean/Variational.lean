@@ -1,6 +1,7 @@
 import Variational.DiscreteEulerLagrange
 import Variational.DiscreteNoether
 import Variational.FiniteHistoryBridge
+import Variational.FiniteRealTransfer
 
 /-!
 # Variational umbrella root

@@ -95,5 +95,4 @@ The public stochastic classification, arbitrary-public-automorphism
 classification and continuity obstruction, simple private-block innerness
 theorem, fixed-Hamiltonian unitary flow, and von Neumann differential equation
 are attained without admissions. Issue 679 is open only for the
-arbitrary finite central-block decomposition and the converse continuous-
-group-to-Hamiltonian theorem.
+arbitrary finite central-block decomposition.

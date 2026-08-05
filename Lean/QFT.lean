@@ -5,6 +5,7 @@ import QFT.ObserverEventWorld
 import QFT.ObserverEventTower
 import QFT.NoncommutativeWitness
 import QFT.SourceLinkSquare
+import QFT.JointInstance
 
 /-!
 # OPH construction QFT umbrella
@@ -35,5 +36,9 @@ all-quotient readout fragment to one selected event world: a
 normal-form-invariant observer readout reproduces the selected slice on
 the settled branch, and declared packet encodings make the matching
 square commute with the fragment's coarse maps over the whole settling
-basin.
+basin. The joint-instance module packages one tower carrying the
+access cut, the event world, an operational observer with a matching
+accessible interface, and the source-link square, with the common-origin
+conclusion restated through the observer's own interface and an
+inhabitant gluing the committed witnesses.
 -/
