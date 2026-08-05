@@ -72,127 +72,49 @@ These public results link directly to their papers, proofs, data, and
 certificates:
 
 1. **Three-dimensional space emerges from the algebra of repair records.**
-   Observers keep repair records and add them up. Under the declared
-   twelve-port repair mean, those sums complete to an ordinary continuous
-   three-dimensional Euclidean space, with the sixty proper carrier rotations
-   acting on it as isometries. No coordinate
-   grid goes in. Physically this would mean distance and direction are
-   bookkeeping over comparison records, and space has three dimensions because
-   the carrier has twelve ports. A separate finite event instrument measures
-   held-out inertia $(1,3)$ at 16k, 65k, and 262k carriers. Calling the
-   quotient physical position, gluing overlaps, and fixing physical scale are
-   work in progress. See the
+   Under the declared twelve-port repair rule, adding comparison records and
+   completing their distance gives ordinary continuous three-space. No
+   coordinate grid is assumed. The remaining work identifies these abstract
+   points with physical positions and fixes the physical scale. See the
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
-   the Lean proofs of the
-   [intrinsic completion](Lean/Screen/PrimitivePortFrameQuotient.lean) and
-   [repair-response limit](Lean/Screen/PortGramRepairCovariance.lean), the
-   [seam-current quotient](Lean/Screen/SeamCurrentCarrierQuotient.lean), and
-   [homogeneous internal action](Lean/Screen/SeamCurrentHomogeneousAction.lean),
-   the independently verified receipts for the
-   [metric quotient](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_load_metric_quotient_receipt.json) and
-   [proper carrier action](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_equivariant_action_receipt.json),
-   and the [signature data and regeneration scripts](evidence/einstein_convergence/).
-2. **Quantum rules on public records.** Consensus picks out the algebra of
-   records that survive comparison, and on a separately declared finite
-   algebra-state representation the public span is exactly the function
-   algebra on its nonzero record labels. Its projectors obey Born probabilities,
-   Lüders conditioning, and the Tsirelson bound; one isometric sharp copier can
-   copy distinct alternatives only when they are orthogonal. The mixed-state
-   no-broadcasting implication remains an explicit adapter premise. Finite
-   publicization has normalized Kraus and trace identities plus an exact
-   relaxation semigroup and literal bounded-operator exponential formula, but
-   no formal CP/CPTP channel, source-derived rate, or physical clock is claimed.
-   Positive unital active-record maps are exactly row-stochastic kernels.
-   Every public star automorphism is uniquely a label permutation, so every
-   pointwise-continuous real-parameter group of arbitrary public star
-   automorphisms is trivial. Automorphisms of one finite full private matrix
-   block are unitarily inner, and a supplied self-adjoint Hamiltonian gives the
-   real-parameter von Neumann flow. General central-block algebras and the
-   converse generator theorem are not supplied.
-   The available twelve-port objects do not derive the Born rule. The central
-   atoms form one classical context; the separate qubit adapter forms six
-   disjoint binary contexts whose additive weight space has dimension six,
-   while its Hermitian/Born slice has dimension three. Exact admissible
-   counterexamples fail representation or density positivity, although a
-   representation is unique when it exists. Even on the full celestial sphere,
-   continuity and normalized antipodal binary weights do not force Born
-   affinity: the exact nonlinear weight `(1+n_z^3)/2` is a counterexample.
-   Dense positivity forces the Bloch ball only after affinity is supplied. No
-   source-produced public quantum instrument is present; issue #702 owns the
-   effect-rich affinity and instrument/readback continuation.
-   Conditionally, this identifies quantum probability with the arithmetic of
-   what observers can jointly write down on the declared algebra-state surface.
-   The declared spinor branch has an exact finite
-   candidate at $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$, past the classical limit,
-   for a setting family the source does not select, so it is not a physical
-   Bell prediction. See
-   [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), the
-   [consensus paper](paper/reality_as_consensus_protocol.pdf), the
-   [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), the
-   [sharp copying boundary](Lean/EventAlgebra/NoBroadcastingAdapter.lean), and
-   the [finite Born-frame no-go](Lean/EventAlgebra/FiniteBornFrame.lean), the
-   [continuous binary-context boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean),
-   [exact rank certificate](code/born_frame/runtime/finite_born_frame_certificate.json),
-   and the [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
-   [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **The four laws form a conditional finite theorem package.** Once a common
-   faithful source reference and the repaired-visible fibre are supplied, the
-   state and transition instantiations of Axiom 3 give the Gibbs family and the
-   conditional-resampling kernel. That kernel contracts relative entropy to
-   the reference. The contraction is the second law, with Clausius
-   $\Delta S\geq\beta Q$ and the Landauer erasure bound as corollaries. Equal
-   inverse temperatures at contact give the zeroth law, the exact split
-   $dU=\delta Q+\delta W$ gives the first, and a finite gap bound on the
-   excited Gibbs mass gives the third. If all five source and physical receipts
-   close, the finite thermodynamic identities follow from the instantiated
-   observer model rather than a separate thermodynamic postulate. No energy or
-   clock calibration is supplied. Faithful stationarity suffices for the contraction even without
-   detailed balance. The bounded source-matrix audit isolates an eight-state
-   nonreversible stationary H-theorem probe, while its constant record-family label and
-   unidentified common reference leave the physical realization open. It
-   emits no prediction. See the
-   [observers paper](paper/observers_are_all_you_need.pdf), the Lean proofs of
-   [conditional repair](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   [stationary realization](Lean/Thermodynamics/StationaryRealization.lean),
-   the [first-law split](Lean/Thermodynamics/FirstLawIdentity.lean), and the
-   [fluctuation theorems](Lean/Thermodynamics/FluctuationTheorems.lean), the
-   [exact-rational certificate](code/thermodynamics/conditional_repair_certificate.py)
-   with its [receipt](code/thermodynamics/runtime/conditional_repair_receipt.json),
-   the [bounded source-matrix receipt](code/thermodynamics/runtime/collar_matrix_realization_probe.json),
-   and the [open physical receipts](https://github.com/FloatingPragma/observer-patch-holography/issues/688).
+   the Lean [completion proof](Lean/Screen/PrimitivePortFrameQuotient.lean),
+   and the [finite signature evidence](evidence/einstein_convergence/).
+2. **Quantum rules arise on shared records.** Consensus separates records that
+   every observer can read from private information. On the declared finite
+   quantum representation, this gives Born probabilities, quantum state
+   updates, the Tsirelson bound, and the obstruction to copying distinct
+   nonorthogonal states. The remaining work derives the physical measurement
+   instrument and Born affinity from the source architecture. See the
+   [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf),
+   the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
+   the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
+3. **The four laws of thermodynamics follow in the finite observer model.**
+   Given a common reference state and the repaired information visible to all
+   observers, the same finite repair rule gives equilibrium, entropy increase,
+   heat and work accounting, and the low-temperature limit. The remaining work
+   connects energy and clock units to a source-produced physical system. See the
+   [observers paper](paper/observers_are_all_you_need.pdf), the Lean
+   [conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
+   and the [exact certificate](code/thermodynamics/conditional_repair_certificate.py).
 4. **The Standard Model gauge group from twelve ports.** Complete reversible
-   port response and endogenous overlap transport force
-   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, with maximal
-   faithful image $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ for the declared
-   matter table. Physically this would mean the symmetry group behind the
-   strong, weak, and electromagnetic forces is whatever a twelve-port carrier
-   can do reversibly, with nothing left to choose. The conditional current
-   algebra has no $X/Y$ generators, so the proton-decay channel of minimal
-   grand unification is absent, which is narrower than proton stability.
-   Matrix-current and
-   physical-quotient selection are work in progress. See the
-   [conditional current receipt](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
+   response and overlap consistency select the symmetry behind the strong,
+   weak, and electromagnetic forces:
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The finite theorem also lacks
+   the extra generators responsible for proton decay in minimal grand
+   unification. Connecting the selected current to physical gauge fields is
+   work in progress. See the
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-   the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
-   and the Lean proofs of the
-   [A2 holonomy bridge](Lean/Screen/A2HolonomyBridge.lean),
-   [finite holonomy and character-phase theorem](Lean/Screen/HolonomyInterference.lean),
-   [gauge trichotomy](Lean/Screen/A5OPH.lean), and
-   [finite Z₆ descent](Lean/Screen/Z6Descent.lean).
+   the Lean [gauge proof](Lean/Screen/A5OPH.lean), and the
+   [global-form proof](Lean/Screen/Z6Descent.lean).
 5. **One generation of matter out of a finite search.** An exhaustive scan of
-   the declared exterior-response algebra leaves one charge-conjugate pair of
-   chiral, anomaly-free rank-15 projectors, carrying the fifteen Standard Model
-   hypercharges of one generation with exact anomaly cancellation. Physically
-   this would mean the quarks and leptons of one generation, with their exact
-   charges, come out of a finite search instead of a table read off from
-   experiment. Under the complete-band and cost premises a separate theorem
-   selects rank three, which is where three families would come from. Matter
-   attachment, continuum Spin/locality, and laboratory attachment require
-   separate source constructions. See the
+   the declared possibilities leaves the fifteen particle states and exact
+   charges of one Standard Model generation, with all anomalies cancelled.
+   A separate finite selection gives a rank-three family candidate. The
+   remaining work attaches these structures to physical particles and excludes
+   extra light sectors. See the
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
-   the [finite matter-attachment receipt](code/a5_closure/manifests/matter_attachment_receipt.json),
-   the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
-   and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
+   the Lean [matter-selection proof](Lean/Screen/ExteriorSelection.lean), and
+   the [family-band proof](Lean/Screen/A5FamilyBand.lean).
 6. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
    response gives the exact positive-chamber relation among the electron,
    muon, and tau masses. With two masses supplied, the conditional formula
@@ -201,32 +123,17 @@ certificates:
    known lepton pattern; deriving that premise from the source is the remaining
    step. See the
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
-   [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
+   the [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and the
+   [comparison ledger](docs/POSTDICTION_LEDGER.md).
+7. **A frozen fingerprint in how waves travel.** The twelve-port carrier fixes
+   a distinctive directional pattern whose first anisotropy appears at sixth
+   order. Its ratios and rejection rule sit in pre-comparison cryptographic
+   custody. A sufficiently sensitive propagation measurement can therefore
+   rule out this branch. The remaining work connects the finite wave action to
+   a physical field and supplies a comparison with enough exclusion power. See
+   the [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
+   the [exact receipts](code/a5_fingerprint/runtime/), and the
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-7. **A frozen fingerprint in how waves travel.** Carrier symmetry fixes the
-   wave action on the same three-dimensional carrier, which pins the dispersion
-   relation to exact numbers, with one length $a$ and nothing to tune. Exact
-   arithmetic brackets the symbol between $(19/20)q^2$ and $q^2$ on the unit
-   domain and bounds its first direction-dependent term, at sixth order in
-   momentum, by the icosahedral rank-six harmonic. Physically this would mean
-   the vacuum carries a grain: waves run slightly slow at short wavelength,
-   and the first direction-dependent effect appears at sixth order, along
-   icosahedral axes. The same action carries a two-polarization massless
-   oscillator, and its upper bound forbids that photon from decaying into an
-   electron-positron pair. The coefficients and the decision rule are frozen
-   under cryptographic custody ahead of any eligible comparison, so a
-   propagation measurement with registered exclusion power can refute this
-   branch. Maxwell theory, a gauge quotient, and the attachment to a physical
-   photon are work in progress. See the
-   [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
-   the Lean proofs of the
-   [Dirichlet action](Lean/Screen/SeamCurrentDirichletGenerator.lean) and
-   [conditional transverse oscillator](Lean/Screen/SeamCurrentFreePhotonLift.lean),
-   the exact [coefficient and remainder receipts](code/a5_fingerprint/runtime/),
-   the [frozen custody packet](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
-   the [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md),
-   and the [physical propagation](https://github.com/FloatingPragma/observer-patch-holography/issues/666)
-   and [comparison](https://github.com/FloatingPragma/observer-patch-holography/issues/667) contracts.
 
 A separate signed-graph theorem proves the screen has no free excitation at
 zero cost: a target-clean source capture fixes the causal order, seam
@@ -663,26 +570,16 @@ known, so neither is a prediction. The
 [claim scoreboard](tracking/claims_scoreboard.md) states what each step
 assumes and what is missing.
 
-## Results At A Glance
+## Technical status
 
-| Result | What OPH contributes | Main source |
-| --- | --- | --- |
-| Finite observer consensus | Terminating repair, protected readout, schedule-independent quotient normal forms, and central records | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
-| Conditional quantum event surface | Consensus selects the finite commuting public-record algebra. Given a declared finite algebra-state and two-wing representation, its projectors obey Born probabilities, Lüders conditioning, and the Tsirelson bound. A declared binary-icosahedral spinor branch has an exact finite candidate with $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Its setting family and completed two-wing instrument are not source-selected, so this is not a physical Bell prediction | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) and the [exact candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
-| Conditional finite four-law package | With a faithful reference and repaired-visible fibre supplied, the two Axiom 3 instantiations give the Gibbs family and the consensus repair kernel. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges. Relative entropy to the reference contracts under it, giving the second law with Clausius $\Delta S\geq\beta Q$ and Landauer as corollaries; equal inverse temperatures at additive contact give the zeroth law; the exact $dU=\delta Q+\delta W$ split gives the first law; the excited Gibbs mass bound gives entropy limit $\log g_0$ and finite-step unattainability. The strict-descent normalizer carries no entropy inequality. Five source and physical receipts stay open, including energy and clock calibration | [Observers are all you need](paper/observers_are_all_you_need.pdf) and the [conditional-repair certificate](code/thermodynamics/conditional_repair_certificate.py) |
-| Finite local action domain | One target-clean source capture carries an exact causal order on 2,304 events, six closed observer neighborhoods, a sign-frustrated seam complex, typed scalar, chiral, and gauge sections, deterministic integer operator checks, and an exact zero-kernel theorem. An isolated rerun reproduces canonical receipt content. Its declared unit-counting signed seam operator has a rigorously positive finite-domain gap; the numerical refinement is 0.1175367. This operator is distinct from the compact-gauge repair generator used in the conditional Yang–Mills branch. One neighborhood has Euclidean fitted inertia and every cone margin is negative, so the receipt does not establish a continuum spacetime, physical clock, or mass scale | [Screen microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Relativity | On the certified global support branch with an independently complete algebra-state comparison on the same tower, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ and $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Einstein dynamics | Typed composition from modular flow, null stress, entropy stationarity, and small-ball geometry; construction of one source-derived common-domain tower is work in progress | [Spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Twelve-port Standard Model Lie-type theorem | Oriented incidence gives the proper $A_5$ action and the port module $1+3+3'+5$. Complete reversible port response and endogenous overlap transport make this a compact twelve-dimensional current with inner $A_5$ action. Its one fixed line and compact classification force $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Target-blind readback separately derives $R=-J$. The registered recurrence has a four-dimensional commutative word algebra. Twelve diagonal port phases commute, while adjoining the connected adjacency tangent generates $\mathfrak u(12)$ with derived rank 143. Neither source lift supplies the required derived-rank-11 current. The released matrix current is an exact conditional realization; non-diagonal source tomography and same-current holonomy are work in progress | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Conditional Standard Model faithful matter image | On the scan-selected conjugate pair of fifteen-state exterior modules, anomaly balance fixes the primitive charge pair up to conjugation. The exact common kernel on the declared tensors is $\mathbb Z_6$, so their maximal faithful image is $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. The six-axis menu matches $\mathbb Z_6$ only after its coefficient relations are declared. The source does not select the physical global form | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Matter structure | Exact conditional one-generation exterior modules, hypercharge/anomaly balance, three-color carrier, and the compatible scalar-charge pair and three interaction channels. The CP and weak-sector clauses give $3\le N_g\le5$. Under separate single-band and cost-order premises, an exact finite theorem selects the rank-three screen band and a declared unitary simulator recovers its residue at the lowest positive generator frequency. Tensoring that band with the declared fifteen-state table gives a conditional complex rank-45 candidate. The table carries the nondegenerate chirality grading and exact diagonal $\mathbb Z_6$ action. A separate 8,662-node local-domain receipt checks the declared extension $D_\sigma\otimes I_{45}$ and its conditional inheritance of the positive finite-domain gap. This action is not source-selected. The twelve-port Spin packet and local operator domain have no certified source, domain, or transport bridge. Physical matter-pole identification, continuum Spin/locality, physical seam selection, scalar multiplicity, and exclusion of extra light sectors are open | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Quantum field-theory landing | Finite-action invariance; exact finite determinant-line and Hamiltonian criteria; formal perturbative restoration and strict finite-order W/Z algebra; separate nonperturbative reconstruction and resonance implications. The exact finite and perturbative routes are parallel descendants of the local action, with source-native constructions as explicit physical gates | [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Finite de Sitter screen | Exact pure-de-Sitter shock normalization, finite entropy maximum, uniform capacity-transfer law for the logarithmic sector coordinate, and analytic curvature; the physical time-advance reading is conditional on the horizon and shock dictionaries stated in the focused paper | [Finite de Sitter capacity paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
-| Strict W/Z analytic checks | For a complete renormalized packet, the strict scalar consumer and its order and neutral-mixing rules are exact. The exact quotient of its one-loop-truncated pole coordinates has a passive common-unit scale cancellation at fixed normalized self-energy factors; its strict one-loop re-expansion is stated separately. The remaining coupling ratio and normalized self-energy factors are not source-selected, so no number follows. Interval receipts exclude scalar zeros in the declared principal-sheet boxes and isolate, for each of W and Z, one simple scalar zero with derivative and scalar-residue balls in its declared lower-half pole box on a channel-specific algebraic chart. They identify neither declared chart with the physical resonance sheet and prove no unique continuation, sign bridge, full-matrix Laurent residue, physical-current amplitude, or independent numerical replay. The external fixture is not composed with the OPH electroweak chart, so no physical W/Z pole or mass comparison follows | [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| Local $P$ closure | $P=\varphi+\sqrt\pi/A_T(P)$; the fixed-point uniqueness schema and interval certificates give one root for each declared map; physical Thomson transport is work in progress | [Fine-structure constant paper](extra/fine_structure_constant_derivation.pdf) |
-| Direct global $N$ readback | $N=\log M_0(\mathfrak U_N)$, with $M_0(q)=\alpha(G_q)$ and $M_0=\lvert X_{\rm reach}\rvert$ on the reversible branch. The fixed $D=24$ packet is exact, but an exact counterfamily shows that base agreement, positivity, and the carrier bound admit completions with different solution sets, so the condition does not single out a value. The direct route returns no number until the capacity source is completed | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| Conditional common-load $N$ candidates | The screen and electroweak readings must agree once a physical bridge proves they denote one quantity. The exact conditional formulas $N_{\rm pres}=N_0(1-P/24)$ and $N_{\rm Pois}=N_0e^{-P/24}$ evaluate to approximately $3.2920979\times10^{122}$ and $3.3000722\times10^{122}$, against the weighted Planck base-$\Lambda$CDM value $3.3129271\times10^{122}$, residuals $-0.63$ and $-0.39$ percent. Exact countermodels show the finite survival datum selects neither correction, and both comparisons are retrospective, so neither row is an OPH prediction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| Exact verification | Interval certificates, finite receipts, and reproducible simulations | [`code/`](code) |
+The seven receipts above are the reader-facing summary. Exact premises,
+comparison ancestry, and falsification rules live in the
+[claim scoreboard](tracking/claims_scoreboard.md), the
+[postdiction ledger](docs/POSTDICTION_LEDGER.md), and the
+[frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md). The exact finite
+and structural results are the strongest part of the stack. Source-to-physical
+attachments, physical scales, and prospective data comparisons form the main
+research route.
 
 ## Why Take The Claim Seriously?
 

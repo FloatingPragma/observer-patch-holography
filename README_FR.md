@@ -79,138 +79,49 @@ Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
 
 1. **L’espace tridimensionnel émerge de l’algèbre des registres de
-   réparation.** Les observateurs tiennent des registres de réparation et les
-   additionnent. Pour la moyenne de réparation déclarée sur douze ports, ces
-   sommes se complètent en un espace
-   euclidien continu ordinaire de dimension trois, où les soixante rotations
-   propres du porteur agissent par isométries. Aucune grille de coordonnées
-   n’entre nulle part. Physiquement, cela voudrait dire que la distance et la
-   direction sont la comptabilité des registres de comparaison, et que l’espace
-   a trois dimensions parce que le porteur a douze ports. Un instrument
-   événementiel fini distinct mesure une inertie tenue à l’écart $(1,3)$ à
-   16k, 65k et 262k porteurs. Prendre le quotient pour la position physique,
-   recoller les recouvrements et fixer l’échelle physique sont en cours.
-   Voir l’
+   réparation.** Sous la règle de réparation déclarée sur douze ports, additionner
+   les registres de comparaison et compléter leur distance donne l’espace
+   continu ordinaire à trois dimensions. Aucune grille de coordonnées n’est
+   supposée. Le travail restant identifie ces points abstraits aux positions
+   physiques et fixe l’échelle. Voir l’
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
-   les preuves Lean de la
-   [complétion intrinsèque](Lean/Screen/PrimitivePortFrameQuotient.lean) et de
-   la [limite de réponse](Lean/Screen/PortGramRepairCovariance.lean), du
-   [quotient des courants de couture](Lean/Screen/SeamCurrentCarrierQuotient.lean)
-   et de l’[action interne homogène](Lean/Screen/SeamCurrentHomogeneousAction.lean),
-   ainsi que les reçus vérifiés indépendamment du
-   [quotient métrique](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_load_metric_quotient_receipt.json) et de
-   l’[action propre du porteur](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/repair_closure/port_gram_equivariant_action_receipt.json)
-   et les [données de signature avec leurs scripts](evidence/einstein_convergence/).
-2. **Les règles quantiques sur les registres publics.** Le consensus
-   sélectionne l’algèbre des registres qui survivent à la comparaison, et sur
-   une représentation algèbre-état finie déclarée séparément ses projecteurs
-   engendrent exactement l’algèbre des fonctions sur les étiquettes non nulles
-   des registres. Ils obéissent aux probabilités de Born, au conditionnement de
-   Lüders et à la borne de Tsirelson ; un même copieur isométrique d’états purs
-   ne peut copier deux alternatives distinctes que si elles sont orthogonales.
-   L’implication générale de non-diffusion des états mixtes reste une prémisse
-   d’adaptation explicite. La publicisation finie possède des identités de
-   Kraus normalisées, préserve la trace, forme un semi-groupe exact et satisfait
-   une formule littérale d’exponentielle d’opérateur borné, sans que cela
-   constitue une preuve formelle de canal CP/CPTP, de taux issu de la
-   source ou d’horloge physique. Les applications positives préservant l’unité de
-   l’algèbre finie des registres sont exactement des noyaux stochastiques par
-   lignes. Tout automorphisme étoilé public est induit de manière unique par
-   une permutation des étiquettes ; tout groupe à paramètre réel de tels
-   automorphismes, continu après évaluation ponctuelle, est donc trivial. Les
-   automorphismes d’un bloc matriciel privé plein sont intérieurs et unitaires ;
-   un Hamiltonien auto-adjoint fourni engendre le flot de von Neumann à
-   paramètre réel. La décomposition générale en blocs centraux et la réciproque
-   qui reconstruit un Hamiltonien sont des questions ouvertes.
-   Les objets disponibles à douze ports ne dérivent pas la règle de Born. Les
-   atomes centraux forment un seul contexte classique ; l’adaptateur de qubit
-   distinct forme six contextes binaires disjoints. Son espace de poids
-   additifs est de dimension six, contre trois pour sa tranche
-   hermitienne/de Born. Des contre-exemples exacts admissibles échouent soit à
-   être représentés, soit à définir une matrice positive, bien que la
-   représentation soit unique lorsqu’elle existe. Même sur toute la sphère
-   céleste, la continuité et la normalisation des
-   poids binaires antipodaux n’imposent pas l’affinité de Born : le poids exact
-   non linéaire `(1+n_z^3)/2` fournit un contre-exemple. La positivité sur un
-   ensemble dense n’impose la boule de Bloch qu’après avoir fourni l’affinité.
-   Aucun instrument quantique public produit par la source n’est disponible ;
-   l’issue #702 porte la continuation par une famille d’effets assez riche,
-   l’affinité et le pont instrument/lecture publique.
-   Conditionnellement, ce résultat identifie la probabilité quantique à
-   l’arithmétique de ce que les observateurs peuvent écrire ensemble sur la
-   surface algèbre-état déclarée. La branche spinorielle déclarée
-   possède un candidat fini exact à $|S_{\mathrm{CHSH}}|=1+3/\sqrt5>2$, au-delà
-   de la limite classique, pour une famille de réglages que la source ne
-   sélectionne pas ; ce n’est donc pas une prédiction physique de Bell. Voir
-   [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf), l’
-   [article sur le consensus](paper/reality_as_consensus_protocol.pdf), la
-   [preuve de l’algèbre des registres](Lean/EventAlgebra/PublicRecordAlgebra.lean),
-   la [frontière de copie des états purs](Lean/EventAlgebra/NoBroadcastingAdapter.lean),
-   le [no-go fini du repère de Born](Lean/EventAlgebra/FiniteBornFrame.lean),
-   la [frontière continue des contextes binaires](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean),
-   le [certificat exact de rang](code/born_frame/runtime/finite_born_frame_certificate.json)
-   et la [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
-   ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
-3. **Les quatre principes forment un paquet conditionnel de théorèmes finis.**
-   Une fois fournies une référence de source fidèle commune et la fibre visible
-   réparée, les instanciations de l’axiome 3 sur les états et les transitions
-   donnent la famille de Gibbs et le noyau de rééchantillonnage conditionnel.
-   Ce noyau contracte l’entropie relative à la référence. Cette contraction est
-   le second principe, avec Clausius $\Delta S\geq\beta Q$ et la borne
-   d’effacement de Landauer en corollaires. L’égalité des températures
-   inverses au contact donne le principe zéro, la décomposition exacte
-   $dU=\delta Q+\delta W$ donne le premier, et une borne finie sur la masse
-   de Gibbs excitée donne le troisième. Si les cinq reçus de source et physiques
-   sont fermés, les identités thermodynamiques finies découlent du modèle
-   d’observateur instancié plutôt que d’un postulat thermodynamique distinct.
-   La calibration de l’énergie et de l’horloge reste ouverte. Une référence fidèle
-   stationnaire suffit à la contraction, même sans équilibre détaillé.
-   L’audit borné de la matrice source isole une sonde stationnaire
-   non réversible du théorème H à huit états ; l’étiquette constante de famille de registres
-   et l’absence d’une référence commune identifiée laissent la réalisation
-   physique ouverte. Cette sonde n’émet aucune prédiction. Voir l’
-   [article sur les observateurs](paper/observers_are_all_you_need.pdf), les
-   preuves Lean de la
-   [réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   de la [réalisation stationnaire](Lean/Thermodynamics/StationaryRealization.lean),
-   du [premier principe](Lean/Thermodynamics/FirstLawIdentity.lean) et des
-   [théorèmes de fluctuation](Lean/Thermodynamics/FluctuationTheorems.lean), le
-   [certificat rationnel exact](code/thermodynamics/conditional_repair_certificate.py)
-   avec son [reçu](code/thermodynamics/runtime/conditional_repair_receipt.json),
-   le [reçu borné de la matrice source](code/thermodynamics/runtime/collar_matrix_realization_probe.json),
-   ainsi que les [reçus physiques ouverts](https://github.com/FloatingPragma/observer-patch-holography/issues/688).
+   la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean)
+   et les [données finies de signature](evidence/einstein_convergence/).
+2. **Les règles quantiques apparaissent sur les registres partagés.** Le
+   consensus sépare les registres lisibles par tous les observateurs de
+   l’information privée. Dans la représentation quantique finie déclarée, on
+   retrouve les probabilités de Born, la mise à jour des états, la borne de
+   Tsirelson et l’impossibilité de copier deux états non orthogonaux distincts.
+   Le travail restant dérive l’instrument de mesure physique et l’affinité de
+   Born depuis l’architecture source. Voir l’
+   [article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
+   la [preuve des registres publics](Lean/EventAlgebra/PublicRecordAlgebra.lean)
+   et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
+3. **Les quatre lois de la thermodynamique découlent du modèle fini des
+   observateurs.** Avec un état de référence commun et l’information réparée
+   visible par tous, la même règle finie donne l’équilibre, la croissance de
+   l’entropie, le bilan entre chaleur et travail et la limite de basse
+   température. Le travail restant relie les unités d’énergie et de temps à un
+   système physique produit par la source. Voir l’
+   [article sur les observateurs](paper/observers_are_all_you_need.pdf), la
+   [preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
+   et le [certificat exact](code/thermodynamics/conditional_repair_certificate.py).
 4. **Le groupe de jauge du Modèle standard issu de douze ports.** La réponse
-   réversible complète de l’axiome 1 et le transport endogène des recouvrements
-   de l’axiome 2 forcent
-   $\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak u(1)$, avec l’image
-   fidèle maximale $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$ pour la table
-   de matière déclarée. Physiquement, cela voudrait dire que le groupe de
-   symétrie derrière les forces forte, faible et électromagnétique est
-   simplement ce qu’un porteur à douze ports sait faire de façon réversible,
-   sans rien à choisir. Cette algèbre ne contient aucun générateur $X/Y$, donc
-   le canal de désintégration du proton de la grande unification minimale est
-   absent, ce qui est plus étroit que la stabilité du proton. La sélection du
-   courant matriciel et du quotient global physique est en cours. Voir le
-   [reçu conditionnel du courant](code/a5_closure/receipts/port_current_inner_reference.receipt.json),
-   l’
+   réversible complète et la cohérence des recouvrements sélectionnent la
+   symétrie des forces forte, faible et électromagnétique :
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le théorème fini ne contient
+   pas non plus les générateurs supplémentaires responsables de la
+   désintégration du proton dans la grande unification minimale. Le lien avec
+   les champs de jauge physiques est en cours. Voir l’
    [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-   le [tableau de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure)
-   et les preuves Lean de la
-   [pont d’holonomie de l’axiome 2](Lean/Screen/A2HolonomyBridge.lean),
-   du [théorème fini d’holonomie et de phase de caractère](Lean/Screen/HolonomyInterference.lean),
-   de la [trichotomie de jauge](Lean/Screen/A5OPH.lean) et de la
-   [descente finie Z₆](Lean/Screen/Z6Descent.lean).
-5. **Une génération de matière issue d’une recherche finie.** Dans l’algèbre
-   extérieure de réponse déclarée, un balayage exhaustif ne laisse qu’une paire
-   de projecteurs chiraux, sans anomalie et de rang 15, reliés par conjugaison
-   de charge, portant les quinze hypercharges du Modèle standard d’une
-   génération, anomalies annulées. Physiquement, cela voudrait dire que les
-   quarks et les leptons d’une génération, avec leurs charges exactes, sortent
-   d’une recherche finie au lieu d’une table relevée par l’expérience. Sous les
-   prémisses de bande complète et de coût, un théorème séparé sélectionne le
-   rang trois, d’où viendraient les trois familles. L’attachement de la
-   matière, la limite continue de Spin et de localité et l’attachement au
-   laboratoire demandent des constructions de source séparées. Voir l’
+   la [preuve Lean de jauge](Lean/Screen/A5OPH.lean) et la
+   [preuve de la forme globale](Lean/Screen/Z6Descent.lean).
+5. **Une génération de matière issue d’une recherche finie.** Dans l’ensemble
+   des possibilités déclarées, le balayage exhaustif laisse les quinze états et
+   les charges exactes d’une génération du Modèle standard, avec annulation de
+   toutes les anomalies. Une sélection finie distincte donne un candidat de
+   rang trois pour les familles. Le travail restant relie ces structures aux
+   particules physiques et exclut les secteurs légers supplémentaires. Voir l’
    [article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    la [preuve Lean de sélection](Lean/Screen/ExteriorSelection.lean) et la
    [preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
@@ -223,35 +134,18 @@ données et certificats :
    source reste à faire.
    Voir l’
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
-   la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
-   [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-7. **Une empreinte gelée dans la façon dont les ondes se propagent.** La
-   symétrie du porteur fixe l’action des ondes sur le même porteur
-   tridimensionnel, ce qui cloue la relation de dispersion à des nombres
-   exacts, avec une seule longueur $a$ et rien à régler. L’arithmétique exacte
-   encadre le symbole entre $(19/20)q^2$ et $q^2$ sur le domaine unité et
-   borne son premier terme dépendant de la direction, au sixième ordre en
-   impulsion, par l’harmonique icosaédrique de rang six. Physiquement, cela
-   voudrait dire que le vide porte un grain : les ondes y avancent un peu
-   moins vite à courte longueur d’onde, et le premier effet dépendant de la
-   direction apparaît au sixième ordre, le long des axes icosaédriques. La
-   même action porte un oscillateur sans masse à deux polarisations, et sa
-   borne supérieure interdit à ce photon de se désintégrer en paire
-   électron-positron. Les coefficients et la règle de décision sont gelés sous
-   garde cryptographique avant toute comparaison admissible, donc une mesure de
-   propagation dotée d’une puissance d’exclusion enregistrée peut réfuter cette
-   branche. La théorie de Maxwell, un quotient de jauge et l’attachement à un
-   photon physique sont en cours. Voir l’
+   la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et le
+   [registre des comparaisons](docs/POSTDICTION_LEDGER.md).
+7. **Une empreinte gelée dans la façon dont les ondes se propagent.** Le
+   porteur à douze ports fixe un motif directionnel distinctif dont la première
+   anisotropie apparaît au sixième ordre. Ses rapports et sa règle de rejet sont
+   sous garde cryptographique préalable à la comparaison. Une mesure de propagation
+   assez sensible peut donc éliminer cette branche. Le travail restant relie
+   l’action ondulatoire finie à un champ physique et fournit une comparaison
+   assez puissante. Voir l’
    [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
-   les preuves Lean de l’
-   [action de Dirichlet](Lean/Screen/SeamCurrentDirichletGenerator.lean) et de l’
-   [oscillateur transverse conditionnel](Lean/Screen/SeamCurrentFreePhotonLift.lean),
-   les [reçus exacts de coefficients et de restes](code/a5_fingerprint/runtime/),
-   le [paquet de garde gelé](https://github.com/FloatingPragma/oph-meta/tree/25da61a800226e0232336ccc86de8dec7d6b51c6/falsification/frozen_targets/fz12_2026-08-02),
-   l’[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md),
-   ainsi que les contrats de
-   [propagation physique](https://github.com/FloatingPragma/observer-patch-holography/issues/666)
-   et de [comparaison](https://github.com/FloatingPragma/observer-patch-holography/issues/667).
+   les [reçus exacts](code/a5_fingerprint/runtime/) et l’
+   [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
 
 Un théorème distinct de graphe signé prouve que l’écran n’a aucune
 excitation libre à coût nul : une capture issue de la source et sans donnée
@@ -808,26 +702,16 @@ tests quantitatifs de clôture et de lecture physique
 
 Les hypothèses détaillées et les types de reçus sont énoncés dans les articles. La page d’accueil du dépôt est volontairement une carte du résultat positif, et non un substitut à ces énoncés de théorèmes.
 
-## Résultats en un coup d’œil
+## État technique
 
-| Résultat | Contribution d’OPH | Source principale |
-| --- | --- | --- |
-| Consensus fini | Réparation terminante, lecture protégée, formes normales quotientées indépendantes de l’ordonnancement et registres centraux | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
-| Surface conditionnelle d’événements quantiques | Le consensus sélectionne l’algèbre commutative finie des registres publics. Dans une représentation algèbre-état et à deux ailes déclarée, ses projecteurs obéissent aux probabilités de Born, au conditionnement de Lüders et à la borne de Tsirelson. Une branche spinorielle binaire icosaédrique déclarée possède un candidat fini exact avec $\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5>2$. Sa famille de réglages et son instrument achevé à deux ailes ne proviennent pas de la source. Il ne s’agit donc pas d’une prédiction physique de Bell | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) et le [reçu exact du candidat](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json) |
-| Paquet fini conditionnel des quatre principes | Avec une référence fidèle et la fibre visible réparée fournies, les deux instanciations de l’axiome 3 donnent la famille de Gibbs et le noyau de réparation du consensus. Le noyau est stochastique, idempotent, réversible, stationnaire et fixe les charges mesurables sur la fibre. L’entropie relative à la référence y contracte, d’où le second principe, avec Clausius $\Delta S\geq\beta Q$ et Landauer en corollaires ; l’égalité des températures inverses au contact additif donne le principe zéro ; la décomposition exacte $dU=\delta Q+\delta W$ donne le premier ; la borne sur la masse de Gibbs excitée donne la limite d’entropie $\log g_0$ et l’inaccessibilité en un nombre fini d’étapes. Le normalisateur à descente stricte ne porte aucune inégalité d’entropie. Cinq reçus de source et physiques restent ouverts, dont la calibration de l’énergie et de l’horloge | [Observers are all you need](paper/observers_are_all_you_need.pdf) et le [certificat de réparation conditionnelle](code/thermodynamics/conditional_repair_certificate.py) |
-| Domaine fini d’action locale | Une capture issue de la source et sans donnée cible porte un ordre causal exact sur 2 304 événements, six voisinages fermés d’observateurs, un complexe de coutures frustrées par les signes, des sections scalaires, chirales et de jauge typées, des contrôles entiers déterministes des opérateurs et un théorème exact de noyau nul. Une exécution isolée reproduit le contenu canonique des reçus. L’opérateur fini de coutures signées muni du comptage unitaire déclaré possède un écart spectral strictement positif ; son raffinement numérique vaut 0,1175367. Cet opérateur est distinct du générateur de réparation de jauge compacte de la branche conditionnelle de Yang–Mills. Un voisinage présente une inertie ajustée euclidienne et toutes les marges de cône sont négatives. Le reçu n’établit donc ni espace-temps continu, ni horloge physique, ni échelle de masse | [Microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf) |
-| Relativité | Sur la branche globale certifiée avec une comparaison complète et indépendante des algèbres et états sur la même tour, $\mathrm{Conf}^+(S^2)\cong\mathrm{SO}^+(3,1)$ et $H^3\cong\mathrm{SO}^+(3,1)/\mathrm{SO}(3)$ | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Dynamique d’Einstein | Chaîne typée conditionnelle du transport modulaire et nul à $G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle$ sur une tour issue de la source et de domaine commun ; sa construction et sa certification sont en cours | [Article espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
-| Théorème du type de Lie du Modèle standard issu de douze ports | L’incidence orientée donne l’action propre de $A_5$ et le module de ports $1+3+3'+5$. La réponse réversible complète et le transport endogène des recouvrements en font un courant compact de dimension douze avec action intérieure de $A_5$. Sa ligne fixe unique et la classification compacte forcent $\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. Une impulsion et une relecture sans cible dérivent séparément $R=-J$. La récurrence enregistrée n’engendre qu’une algèbre commutative de dimension quatre. Douze phases diagonales commutent, tandis que le tangent d’adjacence connexe engendre $\mathfrak u(12)$, de rang dérivé 143. Aucune de ces réponses ne fournit le courant requis de rang dérivé onze. Le courant matriciel publié est une réalisation conditionnelle exacte ; la tomographie non diagonale issue de la source et l’holonomie du même courant sont en cours | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Image fidèle maximale conditionnelle du Modèle standard | Sur la paire de modules extérieurs conjugués à quinze états sélectionnée par le balayage exhaustif, l’équilibre des anomalies fixe les charges primitives à conjugaison près. Le noyau commun exact sur les tenseurs déclarés est $\mathbb Z_6$, donc leur image fidèle maximale est $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le revêtement et ses quotients par $\mathbb Z_2$ et $\mathbb Z_3$ portent les mêmes tenseurs locaux. Le menu des six axes correspond à $\mathbb Z_6$ seulement après déclaration de ses relations de coefficients ; la sélection par la source de la forme globale physique reste ouverte | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Structure de la matière | Modules extérieurs conditionnels exacts d’une génération, équilibre des hypercharges et des anomalies, porteur à trois couleurs, paire de charges scalaires compatibles et trois canaux d’interaction. Les clauses CP et du secteur faible donnent $3\le N_g\le5$. Sous des prémisses distinctes de bande complète unique et d’ordre des coûts, un théorème fini sélectionne exactement la bande de rang trois, et un simulateur unitaire déclaré retrouve son résidu à la plus basse fréquence positive du générateur. Le produit tensoriel de cette bande avec la table déclarée à quinze états donne un candidat conditionnel de rang complexe 45. La table porte la graduation chirale non dégénérée et l’action diagonale exacte de $\mathbb Z_6$. Un reçu distinct sur le domaine local de 8 662 nœuds vérifie l’extension déclarée $D_\sigma\otimes I_{45}$ et l’héritage conditionnel de l’écart spectral positif. Cette action n’est pas sélectionnée par la source. Le paquet de Spin sur douze ports et le domaine local ne disposent d’aucun pont certifié de source, de domaine ou de transport. L’identification aux pôles physiques de matière, la limite continue de Spin et de localité, la sélection physique de l’action de couture, la multiplicité scalaire et l’exclusion des secteurs légers supplémentaires sont ouvertes | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Atterrissage en théorie quantique des champs | Invariance de l’action finie ; critères quantiques exacts de ligne déterminante et de hamiltonien ; restauration perturbative formelle et algèbre W/Z stricte à ordre fini ; reconstruction non perturbative et implications de résonance séparées. Les routes quantique finie et perturbative descendent en parallèle de l’action locale, avec leurs constructions issues de la source comme portes physiques explicites | [Article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| Écran fini en espace de Sitter | Normalisation exacte du choc dans l’espace de Sitter pur, maximum d’entropie fini, loi uniforme de transfert de capacité pour la coordonnée logarithmique des secteurs et courbure analytique ; la lecture physique de l’avance temporelle est conditionnelle aux dictionnaires d’horizon et de choc énoncés dans l’article ciblé | [Article sur la capacité d’un écran fini en espace de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf) |
-| Contrôles analytiques stricts W/Z | Pour un paquet renormalisé complet, le consommateur scalaire strict, l’ordre perturbatif et les règles de mélange neutre sont exacts. Le rapport exact de ses coordonnées de pôles tronquées à une boucle annule un changement passif d’unité commune lorsque les facteurs d’auto-énergie normalisés sont fixés ; son redéveloppement strict à une boucle est indiqué séparément. Le rapport des couplages et les facteurs d’auto-énergie restants ne sont pas sélectionnés par la source ; aucun nombre n’en découle. Des reçus d’intervalles excluent les zéros scalaires dans les boîtes déclarées du feuillet principal et isolent, pour W et pour Z, un zéro scalaire simple avec des boules pour sa dérivée et son résidu scalaire dans la boîte déclarée du demi-plan inférieur, sur une carte algébrique propre à chaque canal. Aucune de ces cartes n’est identifiée au feuillet physique de résonance ; les reçus ne prouvent ni continuation unique, ni pont de signe, ni résidu de Laurent matriciel complet, ni amplitude de courant physique, ni relecture numérique indépendante. Le jeu externe n’est pas composé avec la carte électrofaible d’OPH. Aucun pôle physique W/Z ni aucune comparaison de masse n’en découle | [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| Clôture locale $P$ | $P=\varphi+\sqrt\pi/A_T(P)$ ; le schéma d’unicité du point fixe et les certificats d’intervalles donnent une racine par application déclarée ; le transport physique de Thomson est en cours | [Article sur la constante de structure fine](extra/fine_structure_constant_derivation.pdf) |
-| Relecture globale directe de $N$ | $N=\log M_0(\mathfrak U_N)$, avec $M_0(q)=\alpha(G_q)$ et $M_0=\lvert X_{\rm reach}\rvert$ sur la branche réversible. Le paquet fixe $D=24$ est exact, mais une famille exacte de contre-modèles montre que l’accord de base, la positivité et la borne du porteur admettent des complétions aux ensembles de solutions distincts : la condition ne sélectionne donc pas encore de valeur. La voie directe ne rend aucun nombre tant que la source de capacité n’est pas complétée | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| Candidats conditionnels de clôture de $N$ par charge commune | Les lectures de l’écran et du secteur électrofaible doivent coïncider dès qu’un pont physique démontre qu’elles portent la même grandeur. Les formules conditionnelles exactes $N_{\rm pres}=N_0(1-P/24)$ et $N_{\rm Pois}=N_0e^{-P/24}$ valent approximativement $3{,}2920979\times10^{122}$ et $3{,}3000722\times10^{122}$, face à la valeur pondérée $3{,}3129271\times10^{122}$ du modèle $\Lambda$CDM de base de Planck, avec des résidus de $-0{,}63$ et $-0{,}39$ pour cent. Des contre-modèles exacts montrent que la donnée finie de survie ne sélectionne aucune des deux corrections, et les deux comparaisons sont rétrospectives : aucune ligne n’est une prédiction d’OPH | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
-| Vérification exacte | Certificats d’intervalles, reçus finis et simulations reproductibles | [`code/`](code) |
+Les sept reçus ci-dessus donnent le résumé destiné au lecteur. Les prémisses,
+l’origine des comparaisons et les règles de falsification se trouvent dans le
+[tableau des affirmations](tracking/claims_scoreboard.md), le
+[registre des postdictions](docs/POSTDICTION_LEDGER.md) et l’
+[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md). Les résultats
+finis et structurels exacts constituent la partie la plus solide. Les liens
+entre la source et la physique, les échelles physiques et les comparaisons
+prospectives avec les données forment la principale voie de recherche.
 
 ## Choisir un parcours de lecture
 

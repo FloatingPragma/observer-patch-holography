@@ -79,6 +79,29 @@ the repository, the ledgers, or the other papers.
 - An abstract reads on its own. A reader who has seen none of the other papers
   follows every sentence in it.
 
+## Repository READMEs
+
+- A README is an informal front door for interested non-specialists. It gives
+  the physical idea, the supported result, and the main remaining step in
+  plain language. Proof inventories and complete premise lists belong in the
+  linked papers and ledgers.
+- A highlighted result uses a short heading and one compact paragraph. As a
+  working ceiling, keep it below 100 words and link at most three primary
+  destinations. Several code files or theorem modules are grouped behind one
+  paper, proof, receipt, or ledger link.
+- Headings name familiar physics directly: "the four laws of thermodynamics",
+  "the Standard Model gauge group", and "three-dimensional space". They do
+  not use internal status classes such as "conditional finite theorem
+  package".
+- Technical boundaries are summarized in one sentence about the main
+  remaining work. The README does not reproduce a referee report, issue
+  checklist, theorem dependency chain, mutation inventory, or every caveat.
+- Accuracy remains binding. A conditional result is called conditional, a
+  postdiction is not called a prediction, and an abstract mathematical object
+  is not called physical before its attachment is established. The wording
+  presents the open work as the research route rather than as a pile of
+  negative status labels.
+
 ## Acronyms
 
 - ALL-CAPS acronyms are used as sparingly as the sentence allows. Where the
