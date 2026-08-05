@@ -16,7 +16,7 @@ Recovery, generalized entropy, stationarity, focusing, vacuum choice, and metrol
 | 8 | Repair conservation and Ward/Bianchi transport | conditional_open_interface | einstein_equation_with_constant_symm; strictManifest_erase_required_fails | `test_einstein_closure_receipts.py` | ladder |
 | 9 | Composed small-ball tensor theorem | conditional_open_interface | restFrameEinsteinRelation; constantRadiusData_fails; composedEinsteinBranch | `test_einstein_closure_receipts.py` | ladder |
 | 10 | Vacuum and physical tower construction | physical_identification | bare_consensus_not_einstein_complete; baseline_countermodel_receipt | `test_einstein_closure_receipts.py`; `test_einstein_closure_receipts.py` | [#694](https://github.com/FloatingPragma/observer-patch-holography/issues/694) |
-| 11 | Metrological and source-clock scale attachment | physical_identification | extra_scale_stabilizer_fails; prop:scale-bridge-rescaling-nogo | `test_clock_source_energy_closure_audit.py` | [#691](https://github.com/FloatingPragma/observer-patch-holography/issues/691), [#694](https://github.com/FloatingPragma/observer-patch-holography/issues/694), [#697](https://github.com/FloatingPragma/observer-patch-holography/issues/697) |
+| 11 | Metrological and source-clock scale attachment | physical_identification | extra_scale_stabilizer_fails; prop:scale-bridge-rescaling-nogo | `test_clock_source_energy_closure_audit.py` | [#703](https://github.com/FloatingPragma/observer-patch-holography/issues/703), [#694](https://github.com/FloatingPragma/observer-patch-holography/issues/694), [#697](https://github.com/FloatingPragma/observer-patch-holography/issues/697) |
 
 ## Premise interfaces and assumption tokens per rung
 

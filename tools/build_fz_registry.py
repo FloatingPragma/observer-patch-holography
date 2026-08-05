@@ -1993,14 +1993,18 @@ def validate(register: dict) -> list[dict]:
 
     fz05 = rows_by_id.get("FZ-05", {})
     if (
-        "#503 and #589" not in fz05.get("content", "")
+        "#696" not in fz05.get("content", "")
+        or "#694" not in fz05.get("content", "")
+        or "#695" not in fz05.get("content", "")
         or "retrospective" not in fz05.get("comparison_protocol", "").lower()
-        or "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT"
-        not in fz05.get("kill_band", "")
+        or not all(
+            issue in fz05.get("kill_band", "")
+            for issue in ("#694", "#695", "#696")
+        )
     ):
         fail(
-            "FZ-05 must keep the Einstein/de Sitter and horizon-record "
-            "physicalization gates and retrospective exposure boundary"
+            "FZ-05 must keep the V2 capacity, common-tower, custody, and "
+            "retrospective exposure boundaries"
         )
     receipt = load_json(FZ02_RECEIPT_PATH)
     live_hash = receipt.get("receipt_sha256")
@@ -2895,7 +2899,7 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append(
         "Finite completion-lane theorem packages are not automatically"
-        " prediction rungs. A1, A3, A4, B1, B2, B3, B4, B5, B6, B7, B8, B11/B13, C1, C2, and E1 emit no row here:"
+        " prediction rungs. A1, A3, A4, B1, B2, B3, B4, B5, B6, B7, B8, B11/B13, C1, C2, D1, and E1 emit no row here:"
         " each lacks"
         " a prospectively registered physical observable, attachment, and"
         " decision rule, so their exact finite results remain in the claim"
@@ -2906,7 +2910,12 @@ def render(register: dict, rows: list[dict]) -> str:
         "intrinsic Herm2 Lorentz module and Einstein-coordinate bridge with no "
         "physical soldering. C2 is a bounded algebraic event-frame soldering "
         "contract whose source atlas, physical cone, causal, and clock receipts "
-        "remain open. E1 has live gate #692 because its substantial "
+        "remain open. D1 proves that record order supplies only order data, "
+        "together with a non-affine regrading no-go and "
+        "conditional affine clock/proper-time comparison only after supplied "
+        "event and calibration data; it has no source physical clock, "
+        "observable, or prospective decision rule. E1 has live gate #692 "
+        "because its substantial "
         "finite interface has no noncommutative region-separating source model. "
         "B11/B13's exact frame-rank and continuous-binary no-go has no "
         "source-produced public quantum instrument or prospective observable; "
@@ -2947,9 +2956,12 @@ def render(register: dict, rows: list[dict]) -> str:
                     f"observer-patch-holography/issues/{issue})"
                     for issue in successors
                 )
-                owner = f"{historical}; active V2 {active} ({row['milestone']})"
+                owner = (
+                    f"{historical}; active V2 {active}; historical milestone "
+                    f"{row['milestone']}"
+                )
             else:
-                owner = f"{historical} ({row['milestone']})"
+                owner = f"{historical}; historical milestone {row['milestone']}"
         if row["frozen_utc"]:
             frozen = row["frozen_utc"]
         elif row["status"] == "resource_deferred":

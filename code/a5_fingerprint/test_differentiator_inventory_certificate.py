@@ -7,7 +7,7 @@ import pytest
 import differentiator_inventory_certificate as di
 
 
-def test_receipt_builds_with_nine_typed_rows() -> None:
+def test_receipt_builds_with_ten_typed_rows() -> None:
     receipt = di.build_receipt()
     assert receipt["status"] == (
         "DIFFERENTIATOR_INVENTORY_CERTIFIED__TEN_ROWS_TYPED"
@@ -34,6 +34,16 @@ def test_recomputed_facts_are_present_and_exact() -> None:
     assert rows[7]["recomputed_facts"]["port_branch_su2_su3_ratio"] == "6"
     assert "issue #655" not in rows[7]["recomputed_facts"]["frozen_statistic"]
     assert rows[8]["recomputed_facts"]["recomputed_center_in_window"] is True
+    assert rows[10]["recomputed_facts"]["lock_identity"] == (
+        "5 D6 B0 = 12 B6 D0"
+    )
+    assert rows[10]["recomputed_facts"]["lock_ratio_identity"] == (
+        "D6/D0 = (12/5)(B6/B0)"
+    )
+    assert rows[10]["recomputed_facts"]["zero_mixture"] == (
+        "B6/B0 = D6/D0 = 0 at vertex:face weights 25:27"
+    )
+    assert "(D6/D0)/(B6/B0)" not in rows[10]["oph_statement"]
 
 
 def test_z6_congruence_detects_a_wrong_row(monkeypatch: pytest.MonkeyPatch) -> None:

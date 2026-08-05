@@ -57,6 +57,21 @@ surface for the OPH consensus layer. Contents:
   monotonicity and that record order does not fix a clock origin. It supplies
   no worldline, physical calibration, global time function, or modular-time
   identification. See `A1_TIME_ORDER_LEDGER.md`.
+- A sorry-free bounded observer-time package in
+  `Time/ObserverHistory.lean`, `Time/ClockReadout.lean`,
+  `Time/WorldlineRealization.lean`, `Time/ProperTimeCalibration.lean`, and
+  `Time/ClockComparison.lean`. Bare order-compatible scalar readouts admit arbitrary strictly
+  increasing regradings, and a cubic three-tick control is provably
+  non-affine. Under a supplied affine unit-timelike event law the clock
+  increment along that same history is additive and squares to the
+  chart-invariant Lorentz quadratic interval. Two events determine a unique
+  positive-affine interpolation of four supplied readings; a distinct third
+  point gives a nondegenerate no-new-fit-parameter check. A held-out reading
+  needs separate predesignation and custody. A nontrivial affine algebraic
+  control passes the check and the cubic control fails it. A separate
+  three-record, two-chart witness inhabits the geometric interface.
+  No source history, physical instrument, three-clock network, refinement
+  limit, or SI unit is constructed. See `D1_OBSERVER_TIME_CALIBRATION.md`.
 - A sorry-free B1 public-record package in
   `EventAlgebra/PublicRecordAlgebra.lean` and
   `EventAlgebra/NoBroadcastingAdapter.lean`. The span of a projective

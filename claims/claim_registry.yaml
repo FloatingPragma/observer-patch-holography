@@ -1310,16 +1310,18 @@
       "status": "frozen_prospective_primitive_port_branch__current_source_nonselecting__physical_comparison_unarmed__stronger_bridge_open",
       "claim_class": "conditional_implication",
       "gates": [
-        696
+        696,
+        704
       ]
     },
     {
       "claim_id": "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
-      "statement": "Over the stable invariant finite-range kinetic class, meaning positive-weight finite mixtures of proper-carrier direction orbits at finitely many positive radii with hop symbol sum w [1-cos(a k r u.n)], continuum k^2 normalization, and no independent isotropic counterterm through the displayed order, four exact statements hold. First, C4=-(a^2/20) mu4/mu2 is strictly negative for every member, with mu_m the weighted radial moment. Second, B0/C4^2=(10/21) mu2 mu6/mu4^2 is at least 10/21 by the Lagrange identity mu2 mu6-mu4^2 = sum_{i<j} w_i w_j r_i^2 r_j^2 (r_i^2-r_j^2)^2, with equality exactly on single-radius members; a signed-weight control member violates the floor, so strict positivity is load-bearing. Third, intrinsic anisotropic ranks one through five vanish and the rank-six residue is one multiple of the rotated I6. Fourth, every member has B6/B0=(16/75) times the mean seed I6 value with positive weights w |O| r^6, confined to the band [-16/135, 16/75] for the complete class; single-radius members reduce the weights to w |O|, the pure face and vertex orbits attain the endpoints, the pure edge orbit sits at -1/15, and the 25:27 vertex-face mixture attains zero. The proof spine is the kernel factorization sum_g((g u).n)^6 = 60/7 + (64/35) I6(u) I6(n) over the sixty exact proper rotations, closed for every seed direction by the recomputed invariant multiplicities (1,0,0,0,0,0,1) through rank six. The frozen FZ-11 and FZ-12 rays are reproduced as the vertex and edge points by two exact routes and one independent high-precision series fit. Under the same physical-sector premises as the branch predictions, a resolved intrinsic dispersion with B0/C4^2 below 10/21, or B6/B0 outside the band, or a residue at ranks one through five, or a rank-six residue off the rotated I6 template excludes every member of the class at once, and floor saturation at 10/21 certifies a single-radius support. The k^8 anisotropy of every member is the same rotated I6 with no new shape: the degree-eight kernel constant is 256/75, every single-orbit branch has D0=-a^6/60480 with D6/D0=(64/125) I6(seed), and the cross-order ratio (D6/D0)/(B6/B0) locks at 12/5 on single-radius members, so a generic rank-six anisotropic model with independent k^6 and k^8 amplitudes is separated from the carrier class by one dimensionless ratio; the isotropic tower alternates in sign at every order. The certificate reads no comparison data and changes no frozen bytes.",
+      "statement": "Over the declared positive-weight scalar cosine class, meaning finite mixtures of proper-carrier direction orbits at finitely many positive radii with finite scale a>0, hop symbol sum w [1-cos(a k r u.n)] as the full spatial symbol, continuum k^2 normalization, and hence completeness through k^8, five exact statements hold. First, C4=-(a^2/20) mu4/mu2 is strictly negative for every member, with mu_m the weighted radial moment and effective shell weight W_i=w_i|O_i|. Second, B0/C4^2=(10/21) mu2 mu6/mu4^2 is at least 10/21 by the Lagrange identity mu2 mu6-mu4^2 = sum_{i<j} W_i W_j r_i^2 r_j^2 (r_i^2-r_j^2)^2, with equality exactly on single-radius members. A signed-weight control violates the floor, so one-sign nonnegativity is load-bearing and retained shells are strictly positive. Third, intrinsic anisotropic ranks one through five vanish and the rank-six residue is one multiple of the rotated I6. Fourth, every member has B6/B0=(16/75) times the mean seed I6 value with positive weights w |O| r^6, confined to [-16/135, 16/75]; the pure face and vertex orbits attain the endpoints, the pure edge orbit sits at -1/15, and the 25:27 vertex-face mixture attains zero. Fifth, D0=-(a^6/60480)(mu8/mu2), D6/D0=(64/125) times the mean seed I6 value with positive weights w |O| r^8, and no independent angular shape occurs at k^8. Every common-radius member obeys the division-free identity 5 D6 B0=12 B6 D0, including the 25:27 zero-anisotropy mixture. The proof spine uses the exact degree-six and degree-eight kernel factorizations, invariant multiplicities (1,0,0,0,0,0,1) through rank six and (1,0,0,1,0) at even ranks through eight, and the radial Lagrange identity. The frozen FZ-11 and FZ-12 rays are reproduced as the vertex and edge points by two exact routes and an independent high-precision series fit. Under the same physical-sector premises as the branch predictions, a resolved intrinsic dispersion with B0/C4^2 below 10/21, B6/B0 outside the band, a residue at ranks one through five, or a rank-six residue off the rotated I6 template excludes every member of this declared class. Exact floor saturation certifies common-radius support. Multi-radius members retain correlated sixth- and eighth-order radial moments and need not obey the common-radius lock. The isotropic tower alternates in sign at every order. The certificate reads no comparison data and changes no frozen bytes.",
       "owner_paper": "flagship/from_observer_consensus_to_standard_physics.tex",
       "tier": "exact_class_theorem_over_declared_kinetic_class",
       "assumptions": [
         "invariant_finite_range_hop_support",
+        "finite_positive_carrier_class_scale",
         "strictly_positive_shell_weights",
         "continuum_quadratic_normalization",
         "no_independent_isotropic_counterterm",
@@ -1331,7 +1333,7 @@
         "lagrange_identity_for_radial_moments",
         "long_wavelength_cosine_expansion"
       ],
-      "oph_specific_delta": "The two frozen propagation branches become two points of one exact map: the isotropic pair C4<0 and B0/C4^2=10/21 at saturation is support-independent across the complete icosahedral carrier class, and the single signed rank-six ratio selects the support. The class kill surface is wider than either branch band, and the floor saturation criterion turns a precision isotropic measurement into a primitivity certificate for the carrier.",
+      "oph_specific_delta": "The two frozen propagation branches become two points of one exact map. The declared positive-weight scalar cosine class shares a support-independent negative quartic sign and the floor B0/C4^2>=10/21. Exact floor saturation certifies common-radius support, while finite uncertainty bounds the normalized weighted radial-moment gap. The signed rank-six ratio constrains the weighted angular moment and distinguishes the three pure fundamental orbit rays without selecting a unique mixture. Degree eight introduces no new angular shape, and the common-radius stratum obeys one exact cross-order polynomial lock. The class kill surface is wider than either branch band.",
       "novelty_type": "class_level_dispersion_band_theorem",
       "evidence": [
         "flagship/from_observer_consensus_to_standard_physics.tex",
@@ -1342,7 +1344,7 @@
         "code/a5_fingerprint/runtime/a5_multipole_fixed_point_receipt.json",
         "Lean/Screen/A5CarrierClassBand.lean"
       ],
-      "falsifier": "The theorem fails if any positive-weight member of the declared class violates one of the four statements: an exhibited member with nonnegative C4, a member with B0/C4^2 below 10/21, a multi-radius member attaining the floor, any member with B6/B0 outside [-16/135, 16/75], a kernel-factorization residue at any seed direction, or an intrinsic residue at ranks one through five. The class-level exclusion reading fails if a stable invariant finite-range carrier outside the declared class premises reproduces the branch phenomenology without obeying the band.",
+      "falsifier": "The theorem fails if any positive-weight member of the declared class violates one of the five statements: an exhibited member with nonnegative C4, a member with B0/C4^2 below 10/21, a multi-radius member attaining the floor, any member with B6/B0 outside [-16/135, 16/75], a rank-six kernel-factorization residue at any seed direction, an intrinsic residue at ranks one through five, a new rank-eight shape, failure of the degree-eight kernel constant or either displayed D0/D6 formula, or a single-radius member violating 5 D6 B0=12 B6 D0. The class-level exclusion reading fails if a stable invariant finite-range carrier outside the declared class premises reproduces the branch phenomenology without obeying the band.",
       "scope_if_false": "The class-band theorem and its widened kill surface fall. The FZ-11 and FZ-12 branch predictions are assessed by their own claims and custody rules. The universality and fixed-point packets are assessed by their own exact identities.",
       "status": "exact_class_band_certified__physical_branch_premises_open",
       "claim_class": "conditional_implication",
@@ -1372,6 +1374,40 @@
       "falsifier": "The finite claim fails if any forbidden implicit coercion elaborates, the eight ledger tags are not pairwise distinct, positive affine regraduation violates strict record monotonicity, or a nonzero offset leaves every inhabited clock readout unchanged.",
       "scope_if_false": "Only the type-safety or affine-gauge boundary falls. No spacetime, modular, thermodynamic, or physical-clock theorem is inferred from this ledger.",
       "status": "exact_time_order_type_ledger_attained__physical_time_realization_open",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-BOUNDED-OBSERVER-TIME-CALIBRATION",
+      "statement": "A record history equipped with a supplied strictly increasing natural-number rank produces a monotone real readout, but the bare clock interface is preserved by every strictly increasing real regrading. The canonical three-tick readout and its cubic regrading are not related by any positive affine map, so record order alone supplies order data and, after a rank is supplied, an order-compatible scalar readout. If an event atlas, event map, future-unit timelike direction, visibility, monotone clock, and affine unit-speed coordinate law are supplied, every record precedence has future-timelike displacement in every overlapping chart. Along the same supplied affine history, its positive clock increment is additive and its square equals the chart-invariant Lorentz quadratic interval. One shared event cannot determine affine rate and origin; two ordered shared events determine the unique positive-affine interpolation of the four supplied readings. At a third shared event, affine consistency is equivalent to an exact cross-multiplication equation and gives a nondegenerate check with no new fit parameter when the public event and both clock readings differ from both anchors. Calling that event held out additionally requires a predesignation and custody protocol. A literal three-record, two-chart geometry witness inhabits the bounded conditional interface; separate affine and cubic controls test the comparison algebra on their own supplied atlases. No source history, physical clock, refinement limit, SI unit, preferred foliation, global time, or modular-time identity is constructed.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_bounded_conditional_observer_time_and_clock_comparison",
+      "assumptions": [
+        "explicitly_ranked_strict_record_history",
+        "supplied_affine_unit_timelike_history",
+        "supplied_shared_event_correspondence",
+        "positive_affine_clock_comparison_branch"
+      ],
+      "imported_results": [
+        "strict_monotonicity_and_ordered_field_arithmetic",
+        "finite_dimensional_Lorentz_quadratic_form",
+        "affine_map_two_point_uniqueness"
+      ],
+      "oph_specific_delta": "The packet turns the observer-record/time boundary into an exact fail-closed chain: a machine-checked nonlinear clock counterexample blocks the common order-to-affine shortcut, while a separately supplied unit-timelike event realization yields additive dimensionless proper intervals and a two-point affine interpolation with a nondegenerate third-point algebraic check.",
+      "novelty_type": "record_order_regrading_no_go_with_conditional_affine_clock_test",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "Lean/Time/ObserverHistory.lean",
+        "Lean/Time/ClockReadout.lean",
+        "Lean/Time/WorldlineRealization.lean",
+        "Lean/Time/ProperTimeCalibration.lean",
+        "Lean/Time/ClockComparison.lean",
+        "Lean/docs/D1_OBSERVER_TIME_CALIBRATION.md"
+      ],
+      "falsifier": "The bounded claim fails if a strictly increasing regrading violates the clock interface, the cubic three-tick readout is positive-affine-equivalent to the rank readout, a supplied affine unit-timelike history has a non-future-timelike precedence displacement, its calibrated interval along that history fails additivity or chart invariance, one event uniquely fixes an affine comparison, two ordered event pairs fail to determine the positive-affine interpolation of their four supplied readings, or the nondegenerate third-point cross-multiplication equivalence fails.",
+      "scope_if_false": "Only the bounded observer-time gauge, conditional affine realization, or public comparison theorem falls. C1/C2 algebraic Lorentz geometry, the A1 type ledger, Einstein dynamics, physical clocks, and every frozen prediction remain separately assessed.",
+      "status": "exact_bounded_conditional_time_packet_attained__source_physical_clock_open",
       "claim_class": "conditional_implication",
       "gates": []
     },
@@ -1547,7 +1583,7 @@
     },
     {
       "claim_id": "OPH-THERMO-FOUR-LAW-PACKAGE",
-      "statement": "On one finite regulator stage the four laws of thermodynamics form an exact conditional theorem package with five typed source and physical receipts. They are not a source-realized theorem of the three axioms. Axiom 3 applies separately to states and transition distributions. The state-side information projection with a faithful reference and observer-visible conserved constraints is the exponential family, by the exact Pythagorean identity D(rho||sigma0)=D(rho||tau)+D(tau||sigma0) on the constrained moment surface; on the tracial branch this is the Gibbs family, and equality of intensive multipliers at additive contact is the zeroth law, transitive through any thermometer with two distinct levels. The transition-side information projection onto the fibre of the complete repaired visible datum is weighted conditional resampling from the same reference, P_C(x,y)=1[b(y)=b(x)] pi(y)/pi(F_C(x)), the weighted observation-fiber projector of the consensus construction. The kernel is stochastic, idempotent, satisfies detailed balance, leaves the reference stationary, and fixes every fibre-measurable observable, which is dynamical conservation of protected charges. Relative entropy to the reference is nonincreasing under every finite stochastic kernel with that stationary law, so D(p P_C || pi) <= D(p || pi) is the transition-side second law, with the modular Clausius theorem Delta S >= Delta<K>, K = -log tau, on tau-preserving channels through the exact split D(p||tau) = <K>_p - S(p), specializing to Delta S >= beta Q on the identified energy branch. The zeroth-law transitivity core is the thermometer theorem: a nondegenerate finite spectrum identifies its inverse temperature. The repair kernel preserves full support while the zero-temperature state is rank deficient, the finite-step unattainability mechanism, and the excited-mass bound carries the quantitative threshold beta Delta > log((d-g0)/(g0 eps)), with the block maximum-entropy bound pinning the Gibbs entropy to log g0 through the excited mass. The Landauer erasure bound is a corollary of the Clausius theorem: an entropy drop of c under a tau-preserving repair channel expels at least c/beta of energy. Convex mixtures of collar kernels stay stochastic and stationary, so random-scan repair inherits the package. The exact first-law split dU = deltaQ + deltaW carries its explicit bilinear cross term. At every finite regulator the excited Gibbs mass obeys q_beta <= ((d-g0)/g0) exp(-beta Delta), the entropy limit is log g0, and finitely many faithful repair or pinching steps cannot reach the rank-deficient zero-temperature state. Partition pinching and partition averaging have explicit normalized Kraus families and preserve trace; the Lean interface defines no complete-positivity predicate or bundled CP/CPTP channel. The record tower S(rho) <= S(pinched) <= S(averaged) separates conditioned learning from the nonselective commit. The deterministic strict-descent normalizer is a distinct map with no entropy inequality; the two-point counterexample is certified. The second-law inequality is the mean of a fluctuating entropy production sigma(x,y)=log(p(x)/pi(x))-log((pP_C)(y)/pi(y)) that satisfies the exact integral fluctuation identity <exp(-sigma)>=1 for every reference-preserving kernel, the pointwise detailed relation p(x)P_C(x,y)=exp(sigma)(pP_C)(y)P_C(y,x) under detailed balance, and its level-set form, with finite Onsager reciprocity of equilibrium time-lagged correlations; every one of these closes exactly over the rationals. The exact identity S(p)-S(tau)=<K>_p-<K>_tau-D(p||tau) makes the entanglement first law delta S=delta<K> a first-order corollary, and through the central split K=2 pi B+Z one repair step with a fibre-measurable central charge obeys the cap Clausius inequality 2 pi Delta<B> <= Delta S. The Einstein branch's finite first-law premise package is discharged on this model: on the simplex tangent space the entropy differential at the reference equals the modular pairing as a theorem, the modular pairing splits through K=2 pi B+Z, and the central pairing is the edge differential, so finite_bulk_edge_central_first_law applies with no assumed premise beyond the split of the reference; repair displacements are mass preserving with vanishing central pairing, so the first-order entropy change of repair is purely bulk-modular. On the pinned source-counted transition table, all fifteen nonempty field-subset projections of the four recorded fields have been audited. The repair-load quotient is an eight-state irreducible, aperiodic, nonreversible stationary H-theorem probe whose sampled relative entropy descends, while the fine chain's only closed recurrent class is singleton freezeout. The observed record-family value is constant and the stationary law is not identified with the state optimizer's source reference. Five receipts stay open and owned by issue #688: the global objective representation, the common source-derived reference for both optimizers, completion of the source collar realization, the physical energy and clock calibration beyond the attained finite central-interface modular split, and refinement-uniform low-temperature control.",
+      "statement": "On one finite regulator stage the four laws of thermodynamics form an exact conditional theorem package with five typed source and physical receipts. They are not a source-realized theorem of the three axioms. Axiom 3 applies separately to states and transition distributions. The state-side information projection with a faithful reference and observer-visible conserved constraints is the exponential family, by the exact Pythagorean identity D(rho||sigma0)=D(rho||tau)+D(tau||sigma0) on the constrained moment surface; on the tracial branch this is the Gibbs family, and equality of intensive multipliers at additive contact is the zeroth law, transitive through any thermometer with two distinct levels. The transition-side information projection onto the fibre of the complete repaired visible datum is weighted conditional resampling from the same reference, P_C(x,y)=1[b(y)=b(x)] pi(y)/pi(F_C(x)), the weighted observation-fiber projector of the consensus construction. The kernel is stochastic, idempotent, satisfies detailed balance, leaves the reference stationary, and fixes every fibre-measurable observable, which is dynamical conservation of protected charges. Relative entropy to the reference is nonincreasing under every finite stochastic kernel with that stationary law, so D(p P_C || pi) <= D(p || pi) is the transition-side second law, with the modular Clausius theorem Delta S >= Delta<K>, K = -log tau, on tau-preserving channels through the exact split D(p||tau) = <K>_p - S(p), specializing to Delta S >= beta Q on the identified energy branch. The zeroth-law transitivity core is the thermometer theorem: a nondegenerate finite spectrum identifies its inverse temperature. The repair kernel preserves full support while the zero-temperature state is rank deficient, the finite-step unattainability mechanism, and the excited-mass bound carries the quantitative threshold beta Delta > log((d-g0)/(g0 eps)), with the block maximum-entropy bound pinning the Gibbs entropy to log g0 through the excited mass. The Landauer erasure bound is a corollary of the Clausius theorem: an entropy drop of c under a tau-preserving repair channel expels at least c/beta of energy. Convex mixtures of collar kernels stay stochastic and stationary, so random-scan repair inherits the package. The exact first-law split dU = deltaQ + deltaW carries its explicit bilinear cross term. At every finite regulator the excited Gibbs mass obeys q_beta <= ((d-g0)/g0) exp(-beta Delta), the entropy limit is log g0, and finitely many faithful repair or pinching steps cannot reach the rank-deficient zero-temperature state. Partition pinching and partition averaging have explicit normalized Kraus families and preserve trace; the Lean interface defines no complete-positivity predicate or bundled CP/CPTP channel. The record tower S(rho) <= S(pinched) <= S(averaged) separates conditioned learning from the nonselective commit. The deterministic strict-descent normalizer is a distinct map with no entropy inequality; the two-point counterexample is certified. The second-law inequality is the mean of a fluctuating entropy production sigma(x,y)=log(p(x)/pi(x))-log((pP_C)(y)/pi(y)) that satisfies the exact integral fluctuation identity <exp(-sigma)>=1 for every reference-preserving kernel, the pointwise detailed relation p(x)P_C(x,y)=exp(sigma)(pP_C)(y)P_C(y,x) under detailed balance, and its level-set form, with finite Onsager reciprocity of equilibrium time-lagged correlations; every one of these closes exactly over the rationals. The exact identity S(p)-S(tau)=<K>_p-<K>_tau-D(p||tau) makes the entanglement first law delta S=delta<K> a first-order corollary, and through the central split K=2 pi B+Z one repair step with a fibre-measurable central charge obeys the cap Clausius inequality 2 pi Delta<B> <= Delta S. The Einstein branch's finite first-law premise package is discharged on this model: on the simplex tangent space the entropy differential at the reference equals the modular pairing as a theorem, the modular pairing splits through K=2 pi B+Z, and the central pairing is the edge differential, so finite_bulk_edge_central_first_law applies with no assumed premise beyond the split of the reference; repair displacements are mass preserving with vanishing central pairing, so the first-order entropy change of repair is purely bulk-modular. On the pinned source-counted transition table, all fifteen nonempty field-subset projections of the four recorded fields have been audited. The repair-load quotient is an eight-state irreducible, aperiodic, nonreversible stationary H-theorem probe whose sampled relative entropy descends, while the fine chain's only closed recurrent class is singleton freezeout. The observed record-family value is constant and the stationary law is not identified with the state optimizer's source reference. Issue #688 owns four source-side receipts: the global objective representation, the common source-derived reference for both optimizers, completion of the source collar realization, and refinement-uniform low-temperature control. Issue #703 separately owns physical energy and clock calibration beyond the attained finite central-interface modular split. Complete thermodynamic integration consumes both packets; neither issue is a prerequisite of the other.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "finite_theorem_package_with_typed_physical_receipts",
       "assumptions": [
@@ -1589,7 +1625,8 @@
       "status": "finite_four_law_package_theorems_attained__five_physical_receipts_open",
       "claim_class": "conditional_implication",
       "gates": [
-        688
+        688,
+        703
       ]
     },
     {
@@ -1658,12 +1695,12 @@
       "gates": [
         688,
         693,
-        691
+        703
       ]
     },
     {
       "claim_id": "OPH-FINITE-LOCALITY-NOSIGNALLING",
-      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel. This claim's sole live gate, #692, concerns finite coverage and the OPH region-factor attachment. Source-produced channel semantics and adaptive scheduling belong to #693, clocks to #691, and continuum causal/time-slice structure to #700; those are downstream promotion requirements, not additional gates of this bounded B4 claim.",
+      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel. This claim's sole live gate, #692, concerns finite coverage and the OPH region-factor attachment. Source-produced channel semantics and adaptive scheduling belong to #693, physical clocks to #703, and continuum causal/time-slice structure to #700; those are downstream promotion requirements, not additional gates of this bounded B4 claim.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "exact_finite_fixed_schedule_locality_helpers_with_physical_attachment_open",
       "assumptions": [
@@ -1677,7 +1714,7 @@
         "finite_classical_marginal_algebra",
         "finite_kraus_partial_trace_identity"
       ],
-      "oph_specific_delta": "The dependency induction is checked against the repository's actual single-site localRepair rather than an abstract cellular update. The generic marginal identities are retained as reusable helpers, while the sole B4 live gate is narrowed to E1's finite coverage and OPH region-factor attachment. Source channel and adaptive-scheduler semantics, clocks, and continuum causality remain explicit downstream promotions owned by #693, #691, and #700.",
+      "oph_specific_delta": "The dependency induction is checked against the repository's actual single-site localRepair rather than an abstract cellular update. The generic marginal identities are retained as reusable helpers, while the sole B4 live gate is narrowed to E1's finite coverage and OPH region-factor attachment. Source channel and adaptive-scheduler semantics, physical clocks, and continuum causality remain explicit downstream promotions owned by #693, #703, and #700.",
       "novelty_type": "standard_helper_formalization_with_concrete_repair_instantiation",
       "evidence": [
         "paper/reality_as_consensus_protocol.tex",
@@ -1685,7 +1722,7 @@
         "Lean/ObserverPatchHolography/Locality/DependencyCone.lean",
         "Lean/ObserverPatchHolography/Locality/NoSignalling.lean"
       ],
-      "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. Its #692 attachment fails if no genuine finite coverage/region-factor realization is supplied. A later physical-causality promotion separately fails without the #693 source channel and scheduler receipts, the #691 clock, or the #700 continuum causal/time-slice receipts.",
+      "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. Its #692 attachment fails if no genuine finite coverage/region-factor realization is supplied. A later physical-causality promotion separately fails without the #693 source channel and scheduler receipts, the #703 physical clock, or the #700 continuum causal/time-slice receipts.",
       "scope_if_false": "Only the B4 finite helper package or its #692 finite coverage/region-factor attachment falls. Consensus termination and the independently gated channel, clock, event-manifold, and continuum-causality branches retain their separate premises.",
       "status": "fixed_word_dependency_upper_bound_and_generic_marginal_identities_proved__physical_region_attachment_open",
       "claim_class": "conditional_implication",
@@ -1809,7 +1846,8 @@
       "claim_class": "conditional_implication",
       "gates": [
         695,
-        696
+        696,
+        704
       ]
     },
     {
@@ -1853,7 +1891,7 @@
       "status": "axiom_forced_abstract_lie_type__conditional_matrix_witness__source_realization_open",
       "claim_class": "conditional_implication",
       "gates": [
-        701,
+        705,
         697
       ]
     },
@@ -1922,7 +1960,7 @@
       "status": "conditional_exact_matter_and_spin_fixture__physical_source_selection_open",
       "claim_class": "conditional_implication",
       "gates": [
-        701,
+        706,
         697
       ]
     },
@@ -2028,6 +2066,7 @@
       "claim_class": "conditional_implication",
       "gates": [
         701,
+        707,
         697
       ]
     },
@@ -2219,6 +2258,9 @@
       "claim_class": "conditional_implication",
       "gates": [
         701,
+        705,
+        706,
+        707,
         697
       ]
     },
@@ -2251,6 +2293,9 @@
       "claim_class": "declared_structure",
       "gates": [
         701,
+        705,
+        706,
+        707,
         697
       ]
     },
@@ -2435,7 +2480,7 @@
       "status": "rate_no_go_and_declared_domain_nonidentifiability_proved__extended_physical_clock_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        691,
+        703,
         697
       ]
     },
@@ -2830,7 +2875,7 @@
     },
     {
       "claim_id": "OPH-FINITE-CAUSAL-OBSERVER-NET",
-      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, exact algebraic locality on declared-disjoint regions, compatible regional expectations, covariant refinement, and complex-linear idempotent local repairs that explicitly fix their local algebra and every declared-disjoint observable. The B2 relaxation of each repair composes by multiplication of amplitudes and exactly preserves remote observables and their expectations. Supplied star-homomorphic overlap restrictions define compatible local families, and a supplied unique restriction-gluing receipt gives a glue with exact restriction and uniqueness laws and forces joint injectivity. The API type FiniteCover is only a nonempty finite subregion family and contains no joint-coverage axiom. A generic B4 basis-reindexed marginal identity is carried alongside a declared-disjoint region pair, but the theorem does not use disjointness or identify either regional algebra with a matrix factor. Negative controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. A partition-and-state-parameterized constant commutative model and a two-region subregion family prove conditional consistency of the interface. The packet does not construct a closed noncommutative region-separating source model, genuine coverage, regional factor localization, CP or CPTP repair, scheduler locality, spacetime causality, time-slice property, continuum QFT, fields, sectors, physical clocks, or prediction. Issue #692 gates only the finite noncommutative source, coverage, and regional-factor continuation; #693 owns source-produced channel/instrument and adaptive-scheduler provenance, #700 continuum causal/time-slice structure, and #691 clocks.",
+      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, exact algebraic locality on declared-disjoint regions, compatible regional expectations, covariant refinement, and complex-linear idempotent local repairs that explicitly fix their local algebra and every declared-disjoint observable. The B2 relaxation of each repair composes by multiplication of amplitudes and exactly preserves remote observables and their expectations. Supplied star-homomorphic overlap restrictions define compatible local families, and a supplied unique restriction-gluing receipt gives a glue with exact restriction and uniqueness laws and forces joint injectivity. The API type FiniteCover is only a nonempty finite subregion family and contains no joint-coverage axiom. A generic B4 basis-reindexed marginal identity is carried alongside a declared-disjoint region pair, but the theorem does not use disjointness or identify either regional algebra with a matrix factor. Negative controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. A partition-and-state-parameterized constant commutative model and a two-region subregion family prove conditional consistency of the interface. The packet does not construct a closed noncommutative region-separating source model, genuine coverage, regional factor localization, CP or CPTP repair, scheduler locality, spacetime causality, time-slice property, continuum QFT, fields, sectors, physical clocks, or prediction. Issue #692 gates only the finite noncommutative source, coverage, and regional-factor continuation; #693 owns source-produced channel/instrument and adaptive-scheduler provenance, #700 continuum causal/time-slice structure, and #703 physical clocks.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "substantial_conditional_finite_causal_observer_net_with_noncommutative_realization_open",
       "assumptions": [

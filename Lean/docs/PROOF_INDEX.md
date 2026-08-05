@@ -81,6 +81,21 @@ Mapping between Lean 4 theorems in this project and statements in
   readout whenever a record exists. The module constructs no OPH endpoint,
   worldline, clock calibration, proper-time limit, global time function, or
   physical modular-time identification; those remain downstream premises.
+- Bounded observer-time calibration
+  (`Time/ObserverHistory.lean`, `Time/ClockReadout.lean`,
+  `Time/WorldlineRealization.lean`, `Time/ProperTimeCalibration.lean`,
+  `Time/ClockComparison.lean`): sorry-free conditional D1 packet. It proves
+  the arbitrary-monotone gauge of a bare order-compatible scalar readout and a non-affine
+  three-tick control; future-timelike overlap transport, additive
+  dimensionless proper-time intervals along the same supplied history,
+  one-event underdetermination, unique two-event positive-affine readout
+  interpolation, and a nondegenerate third-point consistency equation under
+  the stated atlas, unit-speed, and shared-event premises. A prospective
+  held-out test needs separate predesignation and custody. Separate affine and
+  cubic algebraic controls pass and fail after the same two-anchor fit. The
+  source history, instrument, common physical atlas, refinement, network
+  coherence, and SI scale remain open. See
+  `D1_OBSERVER_TIME_CALIBRATION.md`.
 - B1 public-record algebra and sharp copying boundary
   (`EventAlgebra/PublicRecordAlgebra.lean`,
   `EventAlgebra/NoBroadcastingAdapter.lean`): sorry-free finite matrix and

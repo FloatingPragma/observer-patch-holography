@@ -169,6 +169,73 @@ def test_lie_type_and_conditional_z6_descent_are_current(result):
     assert "laboratory attachment" in global_form["hypothesis_boundary"]
 
 
+def test_rank_three_completion_and_carrier_class_are_visible(result):
+    rows = {r["id"]: r for r in result["sections"]["forced_structure"]}
+
+    completion = rows["intrinsic_rank_three_response_completion"]
+    assert "rank-three Gram quotient" in completion["statement"]
+    assert "same abstract three-dimensional Euclidean completion" in completion[
+        "statement"
+    ]
+    assert completion["match"].startswith("exact intrinsic metric completion")
+    assert "frameQuotient_finrank" in completion["lean_declarations"][
+        "PrimitivePortFrameQuotient"
+    ]
+    assert "d6Position_denseRange" in completion["lean_declarations"][
+        "SeamCurrentCarrierQuotient"
+    ]
+
+    carrier = rows["carrier_class_dispersion_band"]
+    assert "B0/C4^2 at least 10/21" in carrier["statement"]
+    assert "5 D6 B0 = 12 B6 D0" in carrier["statement"]
+    assert "D6/D0 = (12/5)(B6/B0)" in carrier["statement"]
+    assert "zero-anisotropy mixture" in carrier["statement"]
+    assert "multi-radius members retain radial-moment dependence" in carrier[
+        "statement"
+    ]
+    assert carrier["artifact_ref"] == (
+        "code/a5_fingerprint/runtime/carrier_class_dispersion_receipt.json"
+    )
+    assert "cross_order_lock" in carrier["lean_declarations"][
+        "A5CarrierClassBand"
+    ]
+    assert "cross_order_polynomial" in carrier["lean_declarations"][
+        "A5CarrierClassBand"
+    ]
+    assert "multi_radius_negative_control" in carrier["lean_declarations"][
+        "A5CarrierClassBand"
+    ]
+
+
+def test_bounded_time_row_does_not_promote_order_to_time(result):
+    row = next(
+        item
+        for item in result["sections"]["forced_structure"]
+        if item["id"] == "bounded_observer_time_calibration"
+    )
+    assert "supplied strictly increasing natural-number rank" in row["statement"]
+    assert "order-compatible scalar readout" in row["statement"]
+    assert "affine consistency is equivalent to a cross-product equation" in row["statement"]
+    assert "event and both readings differ from the anchors" in row["statement"]
+    assert "ordinal observer time" not in row["observed_counterpart"]
+    assert row["match"].startswith(
+        "exact bounded conditional algebra with finite controls"
+    )
+
+
+def test_thermodynamic_receipt_owners_are_separate(result):
+    row = next(
+        item
+        for item in result["sections"]["forced_structure"]
+        if item["id"] == "thermodynamic_four_law_package"
+    )
+    boundary = row["hypothesis_boundary"]
+    assert "#688 owns four source-side receipts" in boundary
+    assert "#703 separately owns physical energy and clock calibration" in boundary
+    assert "neither issue is a prerequisite of the other" in boundary
+    assert "five receipts stay open under issue #688" not in boundary
+
+
 def test_alpha_row_values_match_endpoint(result):
     row = result["sections"]["alpha"][0]
     endpoint = json.loads(ledger.PARENTS["endpoint"].read_text(encoding="utf-8"))
@@ -185,6 +252,8 @@ def test_alpha_row_values_match_endpoint(result):
     assert row["audit_verdict"] == verdict["verdict"]
     assert row["cross_class_agreement"]["independently_evaluated_class_count"] == 0
     assert "does not identify the physical source" in row["reading"]
+    assert row["blocking_issues"] == [696]
+    assert row["historical_blocking_issues"] == [425, 545]
 
 
 def test_lepton_rows_match_parents_and_contain_witness(result):
@@ -199,6 +268,13 @@ def test_lepton_rows_match_parents_and_contain_witness(result):
         "width_reduction_factor"
     ]
     assert rows["charged_leptons_kappa_rectangle"]["witness_inside_all_intervals"] is True
+    for row_id in (
+        "charged_leptons_closure_target",
+        "charged_leptons_kappa_rectangle",
+        "charged_leptons_kappa_coherent",
+    ):
+        assert rows[row_id]["blocking_issues"] == [696, 697]
+        assert rows[row_id]["historical_blocking_issues"] == [425, 545]
 
 
 def test_ew_rows_preserve_comparison_status(result):
@@ -227,6 +303,8 @@ def test_quark_section_is_obstruction_plus_conditional_texture(result):
         "target_informed"
     ] is True
     assert "cabibbo_gst_sqrt_md_over_ms" in texture["values"]
+    assert obstruction["blocking_issues"] == [697]
+    assert obstruction["historical_blocking_issues"] == [591]
 
 
 def test_hadron_row_carries_pinned_payload(result):
@@ -255,24 +333,31 @@ def test_markdown_rendered(tmp_path):
     assert "NOT_EVALUABLE" in text
     assert "Recorded retrospective same-scheme accounting interval" in text
     assert "Certified same-scheme anchor gap" not in text
+    assert "`code/particles/scripts/build_postdiction_ledger.py`" in text
+    assert "`code/particles/runs/status/postdiction_ledger.json`" in text
+    assert "Each row is checked in Lean, by a structured executable artifact" in text
+    assert "Every step is machine checked in the Lean workspace" not in text
+    assert "Live blocking issues: #696" in text
+    assert "Historical resource-deferred boundaries: #425, #545" in text
 
 
-def test_principal_results_lead_with_closure_target(result):
+def test_principal_results_prioritize_strong_structural_rows(result):
     principal = result["principal_results"]
-    assert principal[0]["id"] == "lepton_closure_target"
+    assert principal[0]["id"] == "intrinsic_rank_three_response_completion"
     assert {p["id"] for p in principal} == {
-        "lepton_closure_target",
-        "lepton_certified_intervals",
-        "koide_conditional_tau_window",
-        "higgs_top_envelopes",
+        "intrinsic_rank_three_response_completion",
         "forced_gauge_structure",
+        "carrier_class_dispersion_surface",
+        "koide_conditional_tau_window",
+        "lepton_closure_target",
     }
+    assert "target-informed conditional postdiction" in principal[3]["statement"]
     wp = next(
         r
         for r in result["sections"]["charged_leptons"]
         if r["id"] == "charged_leptons_closure_target"
     )["witness_point"]
-    assert f"{wp['required_anchor_gap_at_witness_inv_alpha']:.4f}" in principal[0]["statement"]
+    assert f"{wp['required_anchor_gap_at_witness_inv_alpha']:.4f}" in principal[4]["statement"]
 
 
 def test_closure_target_row_reads_lane_artifacts(result):

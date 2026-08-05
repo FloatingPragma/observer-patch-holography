@@ -497,19 +497,25 @@ def build_rows() -> list[dict[str, Any]]:
             "row": 10,
             "differentiator": "carrier-class dispersion band and cross-order lock",
             "oph_statement": (
-                "every stable invariant finite-range carrier shares C4 < 0 "
+                "every member of the declared positive-weight scalar cosine "
+                "class shares C4 < 0 "
                 "with the isotropic floor B0/C4^2 >= 10/21, saturated "
                 "exactly by single-radius supports; the rank-six ratio "
                 "B6/B0 = (16/75)<I6(seed)> is confined to "
                 "[-16/135, 16/75]; the k^8 anisotropy is the same rotated "
-                "I6 and the cross-order ratio (D6/D0)/(B6/B0) locks at "
-                "12/5 on single-radius members"
+                "I6 and every single-radius member obeys the division-free "
+                "identity 5 D6 B0 = 12 B6 D0, equivalently "
+                "D6/D0 = (12/5)(B6/B0), including the exact "
+                "zero-anisotropy vertex-face mixture"
             ),
             "recomputed_facts": {
                 "floor": str(Fraction(400, 840)),
                 "band_low": str(Fraction(16, 75) * Fraction(-5, 9)),
                 "band_high": str(Fraction(16, 75)),
                 "lock": str(Fraction(64, 125) / Fraction(16, 75)),
+                "lock_identity": "5 D6 B0 = 12 B6 D0",
+                "lock_ratio_identity": "D6/D0 = (12/5)(B6/B0)",
+                "zero_mixture": "B6/B0 = D6/D0 = 0 at vertex:face weights 25:27",
                 "vertex_point": str(Fraction(16, 75)),
                 "edge_point": str(Fraction(16, 75) * Fraction(-5, 16)),
                 "face_point": str(Fraction(16, 75) * Fraction(-5, 9)),
@@ -518,17 +524,20 @@ def build_rows() -> list[dict[str, Any]]:
                 "a generic rank-six Lorentz-violating model carries "
                 "independent k^4, k^6, and k^8 amplitudes with free signs "
                 "and shapes; the carrier class fixes the sign, the floor, "
-                "one angular template, and the cross-order ratio"
+                "one angular template, and a division-free cross-order identity "
+                "on the single-radius stratum"
             ),
             "data_contact": (
                 "class-level surface behind the frozen FZ-11 and FZ-12 "
-                "branch predictions; comparison premises unchanged and "
-                "owned by issues #655, #666, and #664"
+                "branch predictions; issue #704 owns target-clean producer "
+                "and physical-bridge work, issue #696 owns quantitative "
+                "physical output, and issue #695 owns immutable comparison "
+                "custody"
             ),
             "falsification": (
                 "a resolved intrinsic dispersion with B0/C4^2 below "
-                "10/21, or B6/B0 outside the band, or a cross-order "
-                "ratio off 12/5 at resolved single-radius saturation, "
+                "10/21, or B6/B0 outside the band, or violation of "
+                "5 D6 B0 = 12 B6 D0 at resolved single-radius saturation, "
                 "excludes every member of the class at once"
             ),
             "type": "finite class theorem + Lean skeleton",
@@ -544,7 +553,7 @@ def build_receipt() -> dict[str, Any]:
         "status": STATUS,
         "issue": 647,
         "reading": (
-            "nine typed separations between the carrier class and legacy "
+            "ten typed separations between the carrier class and legacy "
             "models: two frozen or registered kill surfaces, four finite "
             "theorems with exact recomputed facts, one conditional exact "
             "packet, one frozen statistic with an open selector, and one "

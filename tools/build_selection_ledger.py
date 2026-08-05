@@ -338,13 +338,19 @@ def render(rows: list[dict]) -> str:
         "is exact inside a separately declared integer counting and cost realization."
     )
     lines.append(
-        "These statements have machine-checked proofs, and every remaining"
+        "These statements have machine-checked proofs. Finite menus are enumerated"
     )
     lines.append(
-        "structural choice is finite: a declared premise with a stated menu, or an open"
+        "where they exist. Other exposed premises include continuous data or"
     )
     lines.append(
-        "item with a named owner. There is no tunable layer anywhere in the list. This"
+        "unenumerated maps and are excluded from finite compression accounting."
+    )
+    lines.append(
+        "No tuning is hidden: every premise is named, and every unresolved selection has"
+    )
+    lines.append(
+        "an owner. This"
     )
     lines.append(
         "ledger records every discrete structural selection in the framework exactly"

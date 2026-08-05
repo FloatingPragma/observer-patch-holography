@@ -1751,18 +1751,32 @@ def _v2_policy(issue: dict[str, Any]) -> dict[str, str] | None:
     boundary = _contract_field(body, "Boundary")
     depends_none = bool(re.match(r"(?i)^none\b", depends))
     if standing:
-        phase = f"v2-standing-{track['slug']}"
-        claim_level = "standing custody/comparison control"
-        blocker = f"Standing scope with no issue prerequisite: {scope}"
-        closure = (
-            "Keep the live custody, ledger, and validator scope current under "
-            "its frozen eligibility rules; issue state alone is not a scientific "
-            "verdict."
-        )
-        chrome_policy = (
-            "Use only to audit a concrete sealed custody or validator packet; "
-            "never use a worker to manufacture comparison evidence."
-        )
+        if task_code == "G2":
+            phase = "v2-standing-discriminator-production"
+            claim_level = "standing target-clean discriminator production"
+            blocker = f"Standing producer scope with no issue prerequisite: {scope}"
+            closure = (
+                "Complete a declared target-clean bridge, obstruction, power, or "
+                "exposure contract without rewriting frozen payloads or unsealing "
+                "a comparison; issue state alone is not a scientific verdict."
+            )
+            chrome_policy = (
+                "Use only to audit a concrete target-clean bridge or power packet; "
+                "never use a worker to manufacture comparison evidence."
+            )
+        else:
+            phase = f"v2-standing-{track['slug']}"
+            claim_level = "standing custody/comparison control"
+            blocker = f"Standing scope with no issue prerequisite: {scope}"
+            closure = (
+                "Keep the live custody, ledger, and validator scope current under "
+                "its frozen eligibility rules; issue state alone is not a scientific "
+                "verdict."
+            )
+            chrome_policy = (
+                "Use only to audit a concrete sealed custody or validator packet; "
+                "never use a worker to manufacture comparison evidence."
+            )
     else:
         phase = f"v2-w{declared_wave}-{track['slug']}"
         if state_labels == ["optional"]:
@@ -2019,7 +2033,10 @@ def validate_committed_ledger(json_path: Path, markdown_path: Path) -> list[str]
             if len(track_labels) == 1 and track_labels[0] in V2_TRACKS:
                 track = V2_TRACKS[track_labels[0]]
                 if track["wave"] == "standing":
-                    expected_phase = f"v2-standing-{track['slug']}"
+                    if int(row.get("number") or 0) == 704:
+                        expected_phase = "v2-standing-discriminator-production"
+                    else:
+                        expected_phase = f"v2-standing-{track['slug']}"
                 else:
                     expected_phase = f"v2-w{track['wave']}-{track['slug']}"
                 if phase != expected_phase:

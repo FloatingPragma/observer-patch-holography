@@ -38,6 +38,11 @@ import ObserverPatchHolography.ScalarSeamRepair
 import ObserverPatchHolography.EqualSeamSelection
 import ObserverPatchHolography.RepairWordSchedule
 import Time.TimeOrderLedger
+import Time.ObserverHistory
+import Time.ClockReadout
+import Time.WorldlineRealization
+import Time.ProperTimeCalibration
+import Time.ClockComparison
 import Tower
 import ObserverPatchHolography.A2EndpointCommutator
 import ObserverPatchHolography.DirectedSeamRepair
@@ -106,6 +111,15 @@ committed source environment rejects the audited implicit coercions, and
 cross-layer interpretations require explicit named realization maps. This is
 type infrastructure only: the module constructs no physical clock, worldline,
 global time function, or modular-time identity.
+
+The `Time.ObserverHistory` through `Time.ClockComparison` modules carry the
+bounded D1 continuation. Bare monotone clocks admit arbitrary strictly
+increasing, including non-affine, regrading. A supplied affine unit-timelike
+history yields chart-covariant timelike displacements and additive
+dimensionless proper intervals; two ordered shared events uniquely determine
+a positive affine comparison. A distinct third shared event supplies a
+consistency test with no additional fit parameter. The source history,
+physical instrument, refinement and SI scale remain unconstructed.
 
 The `Tower.ConsensusTower` module carries the completion-plan A3 root
 interface. It packages finite observer and record fibers, private matrix

@@ -200,6 +200,7 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         for row in by_id["alpha_in_thomson"]["blocking_issues"]
     }
     assert alpha_blockers == {
+        696: "open_work_item",
         318: "resource_deferred_blocker",
         545: "resource_deferred_blocker",
         425: "resource_deferred_blocker",
@@ -215,7 +216,7 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         ]
     }
     assert de_sitter_blockers == {
-        691: "open_work_item",
+        703: "open_work_item",
         694: "open_work_item",
     }
     assert set(
@@ -227,6 +228,15 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         "Einstein_branch_D5",
         "independent_physical_scale_receipt",
     }
+    assert {
+        row["number"]
+        for row in by_id["observer_record_clock_to_physical_proper_time"][
+            "blocking_issues"
+        ]
+    } == {693, 694, 703}
+    assert {
+        row["number"] for row in by_id["g_si_clock"]["blocking_issues"]
+    } == {697, 703}
 
 
 def test_de_sitter_claim_split_preserves_status_boundaries():
@@ -266,16 +276,33 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
     expected_gates = {
+        "OPH-THERMO-FOUR-LAW-PACKAGE": [688, 703],
         "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
-        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [688, 693, 691],
+        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [688, 693, 703],
     }
     for claim_id, gates in expected_gates.items():
         claim = by_id[claim_id]
         assert claim["claim_class"] == "conditional_implication"
         assert claim["gates"] == gates
         assert "physical_establishment" not in claim["status"]
+
+    time_claim = by_id["OPH-BOUNDED-OBSERVER-TIME-CALIBRATION"]
+    assert "supplied strictly increasing natural-number rank" in time_claim["statement"]
+    assert "order-compatible scalar readout" in time_claim["statement"]
+    assert "At a third shared event" in time_claim["statement"]
+    assert "nondegenerate check with no new fit parameter" in time_claim["statement"]
+    assert "held out additionally requires a predesignation and custody protocol" in time_claim["statement"]
+    assert "differ from both anchors" in time_claim["statement"]
+    assert "ordinal time" not in time_claim["statement"]
+
+    thermo = by_id["OPH-THERMO-FOUR-LAW-PACKAGE"]
+    assert "Issue #688 owns four source-side receipts" in thermo["statement"]
+    assert "Issue #703 separately owns physical energy and clock calibration" in thermo[
+        "statement"
+    ]
+    assert "neither issue is a prerequisite of the other" in thermo["statement"]
 
     flagship = (
         REPO_ROOT / "flagship" / "from_observer_consensus_to_standard_physics.tex"

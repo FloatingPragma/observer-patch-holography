@@ -25,7 +25,9 @@ lean_lib «EventAlgebra» where
 @[default_target]
 lean_lib «OPHTime» where
   srcDir := "."
-  roots := #[`Time.TimeOrderLedger]
+  roots := #[`Time.TimeOrderLedger, `Time.ObserverHistory,
+    `Time.ClockReadout, `Time.WorldlineRealization,
+    `Time.ProperTimeCalibration, `Time.ClockComparison]
 
 @[default_target]
 lean_lib «OPHThermodynamics» where

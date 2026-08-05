@@ -492,20 +492,21 @@ The gauge theorem gives the clearest example: icosahedral incidence fixes the
 twelve-dimensional symmetry module, while the complete-response clause of
 Axiom 1 and the internal-transport clause of Axiom 2 force the local Standard
 Model algebra. That proof sits inside a corpus of more than twenty-four hundred
-machine-checked theorems, each one verified line by line by a proof assistant
-that cannot be argued with. Symmetry determines the available roles. The
+machine-checked theorems, each checked under stated assumptions without settling
+physical identification. Symmetry determines the available roles. The
 interacting dynamics within those roles determines masses, mixing, binding,
 and decay.
 
 The local ruler carries the comparison into numbers. The charged-lepton
 carrier has an exact identity, $Q=1/3+(2/3)(|b|/a)^2$, with its balanced point
 at $Q=2/3$ when $|b|/a=1/\sqrt2$. The measured electron, muon, and tau sit at
-$Q=0.66666446$, a whisker from the balanced point. The same structure fixes a
-prediction, timestamped before any new measurement: the electron and muon
-masses pin the tau mass inside $[1776.968991, 1776.969063]$ MeV, centered on
-$1776.969027$, a window three orders of magnitude narrower than the current
-world-average uncertainty. A tau measurement that lands outside that window
-kills the balanced structure outright.
+$Q=0.66666446$, a whisker from the balanced point. Feeding the electron and
+muon masses back through the same pattern places the tau mass in a tiny
+$72$-eV interval around $1776.969027$ MeV. The balance condition came from
+studying the measured lepton family, so this is a sharp internal check with no
+claim of a fresh prediction. A new precision measurement can put the
+balanced pattern under pressure. Its uncertainty matters more than the edge
+of the tiny interval.
 
 The finite electroweak construction identifies the W and Z carrier roles and
 supplies an internal coordinate chart. A physical mass prediction needs a

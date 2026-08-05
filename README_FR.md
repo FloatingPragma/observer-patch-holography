@@ -212,19 +212,16 @@ données et certificats :
    matière, la limite continue de Spin et de localité et l’attachement au
    laboratoire demandent des constructions de source séparées. Voir l’
    [article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
-   le [reçu fini d’attachement de matière](code/a5_closure/manifests/matter_attachment_receipt.json),
-   la [preuve Lean de la sélection extérieure](Lean/Screen/ExteriorSelection.lean)
-   et la [preuve Lean de la bande familiale](Lean/Screen/A5FamilyBand.lean).
-6. **La relation de Koide devient un théorème.** Une réponse
-   hermitienne $C_3$ obéit à $Q=1/3+(2/3)(|b|/a)^2$ ; ainsi $Q=2/3$ équivaut
-   exactement à $|b|/a=1/\sqrt2$ dans la chambre aux valeurs propres non
-   négatives. Sous les prémisses déclarées d’équilibre et d’ordre, les masses
-   mesurées de l’électron et du muon fixent celle du tau dans un intervalle de
-   72 eV, à 0,43 écart-type de la valeur comparée. Physiquement, cela voudrait
-   dire que la vieille coïncidence entre les masses des leptons chargés est une
-   condition sur une seule matrice de réponse, deux masses fixant la troisième.
-   La règle de rejet est gelée, donc un déplacement de la mesure du tau peut
-   l’éliminer. Voir l’
+   la [preuve Lean de sélection](Lean/Screen/ExteriorSelection.lean) et la
+   [preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
+6. **La relation de Koide devient un théorème.** Une réponse hermitienne $C_3$
+   donne la relation exacte, dans la chambre positive, entre les masses de
+   l’électron, du muon et du tau. Avec deux masses fournies, la formule
+   conditionnelle tombe à 72 eV de la masse mesurée du tau. Il s’agit d’une
+   postdiction conditionnelle informée par la cible, car sa prémisse d’équilibre
+   est abstraite de la structure connue des leptons. La dériver depuis la
+   source reste à faire.
+   Voir l’
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).

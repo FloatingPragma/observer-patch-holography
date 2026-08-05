@@ -1,19 +1,22 @@
 """Carrier-class dispersion band certificate.
 
-Scope. The stable icosahedral finite-range kinetic class consists of the
+Scope. The declared positive-weight scalar cosine class consists of the
 symbols
 
     Lambda(k, n) = sum_s w_s sum_{u in O_s} [1 - cos(a k r_s (u . n))]
 
-where each O_s is one A5 orbit of unit directions, each shell radius r_s is
-positive, each shell weight w_s is strictly positive, and the continuum
+where a is finite and strictly positive, each O_s is one A5 orbit of unit
+directions, each shell radius r_s is positive, each active shell weight w_s
+is strictly positive, and the continuum
 normalization fixes the k^2 coefficient to one. Invariance forces equal
 weights inside each orbit, and the cosine form is even, so reciprocity is
-automatic. Writing the normalized expansion as
+automatic. Writing the normalized spatial-symbol expansion as
 
-    omega^2 = k^2 + C4 k^4 + (B0 + B6 I6(n)) k^6 + O(k^8),
+    Lambda_norm = k^2 + C4 k^4 + (B0 + B6 I6(n)) k^6
+                  + (D0 + D6 I6(n)) k^8 + O(k^10),
 
-this certificate proves four exact class-level statements.
+this certificate proves the class theorem and independently reproduces both
+frozen branch rays.
 
 1. Kernel factorization. The group-summed sixth-power kernel of the sixty
    proper rotations factors on the invariant line: for every direction u,
@@ -31,10 +34,12 @@ this certificate proves four exact class-level statements.
        B0 / C4^2 = (10/21) * (mu2 mu6 / mu4^2) >= 10/21,
 
    where mu_m is the weighted radial moment sum_s w_s |O_s| r_s^m. The
-   floor is the Lagrange identity: mu2 mu6 - mu4^2 is a positive
+   floor is the Lagrange identity: writing W_s = w_s |O_s|,
+   mu2 mu6 - mu4^2 is a positive
    combination of (r_i^2 - r_j^2)^2 terms, so equality holds exactly on
-   the single-radius members. A strictly positive weight premise is
-   load-bearing: a signed-weight control member violates the floor.
+   the single-radius members. One-sign nonnegativity is load-bearing: a
+   signed-weight control member violates the floor, while active shells are
+   taken strictly positive.
 
 3. Rank-six band. Every member has
 
@@ -44,7 +49,7 @@ this certificate proves four exact class-level statements.
    members the weights reduce to w |O|. The endpoints are attained exactly
    by the pure face orbit and the pure vertex orbit; the pure edge orbit
    sits at -1/15; the interior zero is attained by the vertex-face mixture
-   with weight ratio 27/25. The interval bound consumes the 62-direction
+   with per-direction vertex:face weight ratio 25:27. The interval bound consumes the 62-direction
    stationary census of the fixed-point packet, which places the range of
    I6 at [-5/9, 1].
 
@@ -53,18 +58,26 @@ this certificate proves four exact class-level statements.
 
        sum_{g in G} ((g u).n)^8 = (20/3) + (256/75) I6(u) I6(n)
 
-   on the unit sphere, and the rank-eight invariant multiplicity is zero,
+   on the unit sphere, and the harmonic angular-rank-eight multiplicity is zero,
    so the k^8 anisotropy of every member is one multiple of the same
    rotated I6 with no new shape. Writing the k^8 term as
-   (D0 + D6 I6) k^8, every single-orbit branch has D0 = -a^6/60480 and
-   D6/D0 = (64/125) I6(seed), so the eighth-order band is
-   [-64/225, 64/125] and the cross-order ratio locks at
+   (D0 + D6 I6) k^8, every pure unit-radius orbit has
+   D0 = -a^6/60480 and D6/D0 = (64/125) I6(seed), so the
+   eighth-order band is [-64/225, 64/125]. Every single-radius member,
+   including a member whose anisotropy vanishes, obeys the genuinely
+   division-free cross-order identity
 
-       (D6/D0) / (B6/B0) = 12/5
+       5 D6 B0 = 12 B6 D0,
 
-   for every single-radius member. A generic rank-six anisotropic model
-   carries independent k^6 and k^8 amplitudes; the carrier class fixes
-   their ratio. The isotropic tower alternates in sign at every order,
+   equivalently D6/D0 = (12/5) (B6/B0), since the positive-weight class
+   has nonzero B0 and D0. The quotient of the two anisotropy ratios is
+   undefined at the zero-anisotropy member, while the polynomial identity
+   remains meaningful there.
+
+   At common radius r, D0 = -(a r)^6/60480. A generic rank-six anisotropic model
+   carries independent k^6 and k^8 amplitudes; the single-radius stratum
+   fixes their relative amplitude. Multi-radius members retain correlated
+   radial-moment dependence. The isotropic tower alternates in sign at every order,
    because the even moments are positive and the cosine series
    alternates.
 
@@ -74,14 +87,16 @@ this certificate proves four exact class-level statements.
    recomputation. The face-orbit branch completes the three-orbit table
    with C4 = -a^2/20, B0 = a^4/840, B6 = -2 a^4/14175.
 
-The class statements sharpen the falsification surface: a resolved
-dispersion measurement with B0/C4^2 below 10/21, or a rank-six-to-isotropic
-ratio outside [-16/135, 16/75], or any intrinsic residue at ranks one
-through five, or a rank-six residue off the rotated I6 line, excludes every
-stable icosahedral finite-range carrier at once rather than one frozen
-branch. The physical sector, frame, scale, and exclusivity premises of the
-frozen branches are unchanged and remain owned by issues #655, #666, and
-#664.
+The class statements sharpen the falsification surface. Under the registered
+physical-symbol, sector, frame, scale, readout, and exclusivity premises, a
+resolved dispersion measurement with B0/C4^2 below 10/21, a rank-six-to-
+isotropic ratio outside [-16/135, 16/75], an intrinsic residue at ranks one
+through five, or a rank-six residue off the rotated I6 line excludes every
+member of the declared positive-weight scalar cosine class at once rather
+than one frozen branch.
+The physical premises are open. Issue #704 owns target-clean producer and
+physical-bridge work; issue #696 owns quantitative physical output; issue #695
+owns immutable comparison custody.
 
 Run with --write to refresh the committed receipt.
 """
@@ -89,6 +104,7 @@ Run with --write to refresh the committed receipt.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from fractions import Fraction
 from pathlib import Path
@@ -702,13 +718,9 @@ def series_route_control() -> dict[str, Any]:
     }
 
 
-def frozen_receipt_crosscheck() -> dict[str, Any]:
-    """Read-only value agreement with the two frozen branch receipts."""
+def _validate_frozen_branch_values(fz11: dict, fz12: dict) -> dict[str, Any]:
+    """Validate typed coefficient fields of the two frozen branch payloads."""
 
-    here = Path(__file__).resolve().parent / "runtime"
-    fz11 = json.loads(
-        (here / "spin_six_primitive_port_prediction_receipt.json").read_text()
-    )
     rel11 = fz11["exact_prediction"]["scale_free_relations"]
     require(
         rel11["B0_over_C4_squared"] == "10/21"
@@ -723,24 +735,71 @@ def frozen_receipt_crosscheck() -> dict[str, Any]:
         and coeffs11["B6_over_a4"] == "2/7875",
         "FZ-11 frozen coefficients disagree with the class map",
     )
-    fz12 = json.loads(
-        (here / "seam_current_edge_prediction_receipt.json").read_text()
+    rel12 = fz12["conditional_physical_candidate"]["scale_free_relations"]
+    require(
+        rel12["B0_over_C4_squared"] == "10/21"
+        and rel12["B6_over_B0"] == "-1/15"
+        and rel12["B6_over_C4_squared"] == "-2/63",
+        "FZ-12 frozen relations disagree with the class map",
     )
-    fz12_text = json.dumps(fz12)
-    for token in ("10/21", "-1/15", "-2/63"):
-        require(
-            token in fz12_text,
-            f"FZ-12 frozen receipt lacks the ratio {token}",
-        )
+    coeffs12 = fz12["conditional_physical_candidate"]["coefficients"]
+    require(
+        coeffs12["C4_over_a2"] == "-1/20"
+        and coeffs12["B0_over_a4"] == "1/840"
+        and coeffs12["B6_over_a4"] == "-1/12600",
+        "FZ-12 frozen coefficients disagree with the class map",
+    )
     return {
-        "statement": (
-            "the frozen FZ-11 and FZ-12 receipts carry exactly the vertex "
-            "and edge values of the class coefficient map; the comparison "
-            "is read-only and changes no frozen bytes"
-        ),
         "fz11_relations": dict(rel11),
-        "fz12_tokens_confirmed": ["10/21", "-1/15", "-2/63"],
+        "fz11_coefficients": dict(coeffs11),
+        "fz12_relations": dict(rel12),
+        "fz12_coefficients": dict(coeffs12),
     }
+
+
+def frozen_receipt_crosscheck() -> dict[str, Any]:
+    """Read-only typed agreement and custody pins for both frozen branches."""
+
+    here = Path(__file__).resolve().parent / "runtime"
+    paths = {
+        "FZ-11": here / "spin_six_primitive_port_prediction_receipt.json",
+        "FZ-12": here / "seam_current_edge_prediction_receipt.json",
+    }
+    raw = {row: path.read_bytes() for row, path in paths.items()}
+    payloads = {row: json.loads(data) for row, data in raw.items()}
+    values = _validate_frozen_branch_values(payloads["FZ-11"], payloads["FZ-12"])
+
+    register = json.loads(
+        (Path(__file__).resolve().parents[2] / "claims" /
+         "frozen_prediction_register.json").read_text()
+    )
+    register_by_id = {row["id"]: row for row in register["rows"]}
+    for row_id in ("FZ-11", "FZ-12"):
+        digest = hashlib.sha256(raw[row_id]).hexdigest()
+        require(
+            register_by_id[row_id]["content_sha256"] == digest,
+            f"{row_id} frozen file does not match its registered custody hash",
+        )
+
+    values.update(
+        {
+            "statement": (
+                "the frozen FZ-11 and FZ-12 receipts carry exactly the vertex "
+                "and edge values of the class coefficient map; typed fields and "
+                "registered byte hashes are checked without changing frozen bytes"
+            ),
+            "parent_pins": [
+                {
+                    "row": row_id,
+                    "path": str(paths[row_id].relative_to(Path(__file__).parents[2])),
+                    "bytes": len(raw[row_id]),
+                    "sha256": base.tagged_sha256(raw[row_id]),
+                }
+                for row_id in ("FZ-11", "FZ-12")
+            ],
+        }
+    )
+    return values
 
 
 # ---------------------------------------------------------------------------
@@ -749,7 +808,8 @@ def frozen_receipt_crosscheck() -> dict[str, Any]:
 
 
 def _mu(shells: list[tuple[Fraction, Fraction]], power: int) -> Fraction:
-    # shells: (weight, r_squared) pairs; mu_m uses r^m = (r^2)^(m/2).
+    # shells: (effective weight W = w |O|, r_squared) pairs;
+    # mu_m uses r^m = (r^2)^(m/2).
     total = Fraction(0)
     for weight, r_sq in shells:
         total += weight * r_sq ** (power // 2)
@@ -867,11 +927,13 @@ def radial_floor_certificate() -> dict[str, Any]:
             "mu2 mu6 - mu4^2 is the positive Lagrange combination of "
             "(r_i^2 - r_j^2)^2 terms, so B0/C4^2 >= 10/21 for every "
             "positive-weight member with equality exactly at one radius; "
-            "a signed-weight control violates the floor, so strict "
-            "positivity is load-bearing"
+            "a signed-weight control violates the floor, so one-sign "
+            "nonnegativity is load-bearing and active shells are taken "
+            "strictly positive"
         ),
         "floor": "10/21",
-        "identity": "mu2 mu6 - mu4^2 = sum_{i<j} w_i w_j r_i^2 r_j^2 (r_i^2 - r_j^2)^2",
+        "effective_shell_weight": "W_i = w_i |O_i|",
+        "identity": "mu2 mu6 - mu4^2 = sum_{i<j} W_i W_j r_i^2 r_j^2 (r_i^2 - r_j^2)^2",
         "two_shell_symbolic": "verified monomial by monomial",
         "random_instances": symbolic_checks,
         "signed_control": {
@@ -987,7 +1049,7 @@ def rank_six_band_certificate(i6_raw) -> dict[str, Any]:
         "statement": (
             "every member has B6/B0 = (16/75) times the mean seed I6 "
             "value with positive weights w |O| r^6, so the band is "
-            "[-16/135, 16/75] for the complete class, with the face and "
+            "[-16/135, 16/75] for the declared class, with the face and "
             "vertex branches at the endpoints, the edge branch at -1/15, "
             "and an exact zero at the 25:27 vertex-face mixture; the "
             "census completeness input is the 62-direction stationary "
@@ -1023,17 +1085,20 @@ def eighth_order_certificate(
     The degree-eight kernel is invariant in each argument; the recomputed
     invariant multiplicities give m8 = 0, so the reduced kernel lies in
     span{1, I6} in each argument and the same two-seed argument closes the
-    identity for every seed. The residue-zero checks below prove the
-    absence of a rank-eight component constructively at each seed.
+    identity for every seed. The residue-zero checks below verify the
+    absence of a rank-eight component at the sampled seeds.
     """
 
     probe = next(m for m in sorted(i6_reduced) if sum(m) > 0)
     verts = base.cartesian_vertices()
     orbits = universality.orbit_directions()
     invariants = universality.invariant_table_certificate()
+    even_multiplicities = [
+        invariants["table"][str(level)] for level in (0, 2, 4, 6, 8)
+    ]
     require(
-        invariants["table"]["8"] == 0,
-        "rank-eight invariant multiplicity is not zero",
+        even_multiplicities == [1, 0, 0, 1, 0],
+        "harmonic even-rank multiplicities through rank eight drift",
     )
 
     seeds = [
@@ -1119,11 +1184,14 @@ def eighth_order_certificate(
                 "m8_i6_multiple": str(want_m8),
                 "D0_over_a6": "-1/60480",
                 "D6_over_D0": str(want_ratio),
+                "radius_scope": "unit radius; at radius r, D0/a^6 = -r^6/60480",
             }
         )
 
-    # Cross-order lock: (D6/D0)/(B6/B0) = (64/125)/(16/75) = 12/5,
-    # support-independent on single-radius members.
+    # Cross-order lock, with its genuinely division-free polynomial form:
+    # D6/D0 = (12/5) (B6/B0), equivalently
+    # 5 D6 B0 = 12 B6 D0.  It is support-independent on single-radius
+    # members and remains meaningful when both anisotropies vanish.
     require(
         Fraction(64, 125) / Fraction(16, 75) == Fraction(12, 5),
         "cross-order lock is not 12/5",
@@ -1139,6 +1207,42 @@ def eighth_order_certificate(
             d6_ratio == Fraction(12, 5) * b6_ratio,
             f"{name}: lock fails",
         )
+
+    # Exact zero-anisotropy control.  At one common radius, vertex weight
+    # 25 and face weight 27 give orbit-weighted I6 numerator
+    # 25*12*1 + 27*20*(-5/9) = 0.  Both ratios vanish, while the
+    # division-free identity remains defined and true.
+    zero_numerator = (
+        Fraction(25 * 12) * Fraction(1)
+        + Fraction(27 * 20) * Fraction(-5, 9)
+    )
+    zero_denominator = Fraction(25 * 12 + 27 * 20)
+    require(zero_numerator == 0, "25:27 zero-mixture numerator drift")
+    zero_mean = zero_numerator / zero_denominator
+    zero_b6_ratio = Fraction(16, 75) * zero_mean
+    zero_d6_ratio = Fraction(64, 125) * zero_mean
+    require(
+        zero_d6_ratio == Fraction(12, 5) * zero_b6_ratio == 0,
+        "cross-order lock fails at the zero-anisotropy mixture",
+    )
+
+    # A two-radius member must not satisfy the single-radius lock in general.
+    # This guards against accidentally widening the theorem to the complete
+    # multi-radius class.  The effective weights include orbit sizes.
+    multi_b6_ratio = Fraction(16, 75) * (
+        Fraction(12) * 1 ** 3 * 1
+        + Fraction(20) * 4 ** 3 * Fraction(-5, 9)
+    ) / (Fraction(12) * 1 ** 3 + Fraction(20) * 4 ** 3)
+    multi_d6_ratio = Fraction(64, 125) * (
+        Fraction(12) * 1 ** 4 * 1
+        + Fraction(20) * 4 ** 4 * Fraction(-5, 9)
+    ) / (Fraction(12) * 1 ** 4 + Fraction(20) * 4 ** 4)
+    multi_lock_residual = multi_d6_ratio - Fraction(12, 5) * multi_b6_ratio
+    require(
+        multi_lock_residual == Fraction(-57344, 10360225),
+        "two-radius negative-control residual drift",
+    )
+    require(multi_lock_residual != 0, "multi-radius member incorrectly obeys lock")
 
     # Vertex eighth-order coefficient against the fixed-point packet
     # template A(x) = 2 x^6 (30 - x^2)/118125: the template x^8
@@ -1157,16 +1261,41 @@ def eighth_order_certificate(
     return {
         "statement": (
             "the degree-eight kernel factors as 20/3 plus (256/75) I6(u) "
-            "I6(n), the rank-eight multiplicity is zero, every branch has "
-            "D0 = -a^6/60480 with D6/D0 = (64/125) I6(seed) in the band "
-            "[-64/225, 64/125], and the cross-order ratio "
-            "(D6/D0)/(B6/B0) locks at 12/5 on single-radius members; the "
+            "I6(n), the harmonic angular-rank-eight multiplicity is zero, every pure "
+            "unit-radius orbit has D0 = -a^6/60480 with D6/D0 = "
+            "(64/125) I6(seed) in the band [-64/225, 64/125], and every "
+            "single-radius member obeys 5 D6 B0 = 12 B6 D0, "
+            "equivalently D6/D0 = (12/5)(B6/B0), including the 25:27 zero-anisotropy "
+            "vertex-face mixture; at common radius r the isotropic "
+            "coefficient is D0 = -(a r)^6/60480; the "
             "isotropic tower alternates in sign at every order"
+        ),
+        "general_isotropic_coefficient": "D0 = -(a^6/60480)(mu8/mu2)",
+        "general_anisotropic_ratio": (
+            "D6/D0 = (64/125) <I6(seed)> with positive weights w |O| r^8"
         ),
         "kernel_isotropic_part": "20/3",
         "kernel_universal_constant": "256/75",
+        "harmonic_invariant_multiplicities_l0_l2_l4_l6_l8": (
+            even_multiplicities
+        ),
         "eighth_order_band": ["-64/225", "64/125"],
         "cross_order_lock": "12/5",
+        "cross_order_ratio_identity": "D6/D0 = (12/5)(B6/B0)",
+        "cross_order_identity": "5 D6 B0 = 12 B6 D0",
+        "zero_mixture_control": {
+            "member": "vertex weight 25, face weight 27, one common radius",
+            "B6_over_B0": "0",
+            "D6_over_D0": "0",
+            "division_free_identity": "5 D6 B0 = 12 B6 D0 = 0",
+        },
+        "multi_radius_negative_control": {
+            "member": "vertex radius 1 plus face radius 2, equal per-direction weights",
+            "B6_over_B0": str(multi_b6_ratio),
+            "D6_over_D0": str(multi_d6_ratio),
+            "lock_residual": str(multi_lock_residual),
+            "verdict": "nonzero; the cross-order lock is single-radius only",
+        },
         "sign_alternation": (
             "positive even moments and the alternating cosine series give "
             "isotropic coefficients of sign (-1)^(m+1) at order k^(2m) "
@@ -1208,10 +1337,11 @@ def build_receipt() -> dict[str, Any]:
         "status": STATUS,
         "class_definition": (
             "positive-weight finite mixtures of A5 orbits at finitely many "
-            "positive radii, hop symbol sum w [1 - cos(a k r u.n)], "
-            "continuum k^2 normalization, no independent isotropic "
-            "counterterm; invariance forces equal weights inside each "
-            "orbit and the cosine form is even"
+            "positive radii with finite scale a > 0, hop symbol sum w "
+            "[1 - cos(a k r u.n)], "
+            "continuum k^2 normalization, with this cosine sum the full "
+            "spatial symbol and hence complete through k^8; invariance forces equal weights "
+            "inside each orbit and the cosine form is even"
         ),
         "class_statements": {
             "sign_law": "C4 < 0 for every member",
@@ -1230,23 +1360,33 @@ def build_receipt() -> dict[str, Any]:
                 "consumed from the universality certificate"
             ),
             "eighth_order_lock": (
-                "the k^8 anisotropy is the same rotated I6 with "
-                "D6/D0 = (64/125) <I6(seed)> and the cross-order ratio "
-                "(D6/D0)/(B6/B0) = 12/5 on single-radius members"
+                "D0 = -(a^6/60480)(mu8/mu2), and the k^8 anisotropy is the "
+                "same rotated I6 with "
+                "D6/D0 = (64/125) <I6(seed)> using positive weights "
+                "w |O| r^8, and every single-radius "
+                "member obeys 5 D6 B0 = 12 B6 D0, equivalently "
+                "D6/D0 = (12/5)(B6/B0), including the zero-anisotropy "
+                "member; multi-radius members need not obey this lock; "
+                "D0 = -(a r)^6/60480 at common radius r"
             ),
         },
         "kill_surface": (
-            "a resolved intrinsic dispersion with B0/C4^2 below 10/21, or "
+            "under the registered physical-symbol, sector, frame, scale, "
+            "readout, and exclusivity premises, a resolved intrinsic "
+            "dispersion with B0/C4^2 below 10/21, or "
             "B6/B0 outside [-16/135, 16/75], or a rank one-to-five "
             "residue, or a rank-six residue off the rotated I6 line, "
-            "excludes the complete stable icosahedral finite-range class; "
-            "saturation of the floor at 10/21 certifies a single-radius "
+            "excludes every member of the declared positive-weight scalar "
+            "cosine class; "
+            "exact saturation of the floor at 10/21 certifies a single-radius "
             "carrier"
         ),
         "physical_premises_unchanged": (
             "sector, frame, scale, and exclusivity premises of FZ-11 and "
-            "FZ-12 stay open and owned by issues #655, #666, and #664; "
-            "this certificate adds no comparison and reads no data"
+            "FZ-12 stay open; issue #704 owns target-clean producer and "
+            "physical-bridge work, issue #696 owns quantitative physical "
+            "output, and issue #695 owns immutable comparison custody; this "
+            "certificate adds no comparison and reads no data"
         ),
         "rotation_group": rotation_cert,
         "kernel_factorization": kernel_cert,

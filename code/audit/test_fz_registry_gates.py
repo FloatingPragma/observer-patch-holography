@@ -379,11 +379,9 @@ def test_fz02_frame_lock_is_ineligible_pending_issue_643():
 def test_fz05_requires_physical_attachment_and_retrospective_exposure():
     register = live_register()
     fz05 = next(row for row in register["rows"] if row["id"] == "FZ-05")
-    assert "#503 and #589" in fz05["content"]
+    assert all(issue in fz05["content"] for issue in ("#694", "#695", "#696"))
     assert "retrospective" in fz05["comparison_protocol"].lower()
-    assert (
-        "NOT_EVALUABLE_NO_HORIZON_RECORD_ATTACHMENT" in fz05["kill_band"]
-    )
+    assert all(issue in fz05["kill_band"] for issue in ("#694", "#695", "#696"))
 
     fz05["content"] = "A positive finite N is a cosmological prediction."
     with pytest.raises(SystemExit, match="FZ-05 must keep"):
@@ -460,8 +458,8 @@ def test_historical_owners_are_preserved_and_v2_successors_are_live():
         "FZ-03": (697,),
         "FZ-05": (695,),
         "FZ-10": (697,),
-        "FZ-11": (696,),
-        "FZ-12": (696,),
+        "FZ-11": (696, 704),
+        "FZ-12": (696, 704),
     }
     assert {
         row["id"]: row["owning_issue"]

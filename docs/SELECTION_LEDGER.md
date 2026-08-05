@@ -7,9 +7,11 @@ screen, compare overlaps, and repair disagreement until every observer agrees.
 On the declared carrier lineage (row 4, an exposed premise) that consensus
 requirement forces the pairing and frame of rows 2-3. The unit split in row 1
 is exact inside a separately declared integer counting and cost realization.
-These statements have machine-checked proofs, and every remaining
-structural choice is finite: a declared premise with a stated menu, or an open
-item with a named owner. There is no tunable layer anywhere in the list. This
+These statements have machine-checked proofs. Finite menus are enumerated
+where they exist. Other exposed premises include continuous data or
+unenumerated maps and are excluded from finite compression accounting.
+No tuning is hidden: every premise is named, and every unresolved selection has
+an owner. This
 ledger records every discrete structural selection in the framework exactly
 once, classified as FORCED (derived from the axioms and source objects), EXPOSED
 PREMISE (chosen and declared in theorem antecedents), or OPEN (neither, with the

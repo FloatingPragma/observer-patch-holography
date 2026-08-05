@@ -8,11 +8,11 @@ corollary identified as such.  A missing or inconsistent parent is a hard
 failure, not a silently absent row.
 
 Section one records the forced-structure layer: machine-checked finite
-theorems that precede or constrain numeric lanes, including the icosahedral
-gauge packet and generic observer-law boundaries.  The finite steps live in
-the Lean workspace; the receipt entries record the module paths and exact
-declaration names.  The builder rejects a missing declaration and records
-the declared hypothesis boundaries of each owning paper.
+theorems and executable certificates that precede or constrain numeric lanes,
+including the icosahedral gauge packet and generic observer-law boundaries.
+Lean-backed rows record module paths and exact declaration names; executable
+rows record their structured artifacts.  The builder rejects a missing
+receipt and records the declared hypothesis boundaries of each owning paper.
 
 The numeric sections carry the per-lane claim discipline of their parents:
 interval rows report containment of the compare-only witness, conditional
@@ -22,7 +22,8 @@ is an obstruction theorem rather than a number.
 
 Run:
     python3 code/particles/scripts/build_postdiction_ledger.py
-writes runs/status/postdiction_ledger.json and docs/POSTDICTION_LEDGER.md.
+writes code/particles/runs/status/postdiction_ledger.json and
+docs/POSTDICTION_LEDGER.md.
 """
 
 from __future__ import annotations
@@ -63,6 +64,8 @@ PARENTS = {
     "alpha_hvp_verdict": PARTICLES / "alpha_hvp_audit" / "outputs" / "alpha_hvp_class_verdict.json",
     "hadron_payload": RUNS / "hadron" / "empirical_ee_hadronic_spectral_measure.json",
     "solver_standby": RUNS / "qcd" / "hadron_source_backend" / "qcd_ensemble" / "solver_on_standby.json",
+    "carrier_class_dispersion": CODE / "a5_fingerprint" / "runtime"
+    / "carrier_class_dispersion_receipt.json",
 }
 
 LEAN_RECEIPTS = {
@@ -77,6 +80,11 @@ LEAN_RECEIPTS = {
     "PortFrameGram": LEAN_SCREEN / "PortFrameGram.lean",
     "ExteriorSelection": LEAN_SCREEN / "ExteriorSelection.lean",
     "TimeOrderLedger": REPO / "Lean" / "Time" / "TimeOrderLedger.lean",
+    "ObserverHistory": REPO / "Lean" / "Time" / "ObserverHistory.lean",
+    "ClockReadout": REPO / "Lean" / "Time" / "ClockReadout.lean",
+    "WorldlineRealization": REPO / "Lean" / "Time" / "WorldlineRealization.lean",
+    "ProperTimeCalibration": REPO / "Lean" / "Time" / "ProperTimeCalibration.lean",
+    "ClockComparison": REPO / "Lean" / "Time" / "ClockComparison.lean",
     "ConsensusTower": REPO / "Lean" / "Tower" / "ConsensusTower.lean",
     "PublicWorldQuotient": REPO / "Lean" / "Tower"
     / "PublicWorldQuotient.lean",
@@ -160,6 +168,13 @@ LEAN_RECEIPTS = {
     / "DiscreteNoether.lean",
     "FiniteHistoryBridge": REPO / "Lean" / "Variational"
     / "FiniteHistoryBridge.lean",
+    "PortGramRepairBand": LEAN_SCREEN / "PortGramRepairBand.lean",
+    "PortGramRepairCovariance": LEAN_SCREEN / "PortGramRepairCovariance.lean",
+    "PrimitivePortFrameQuotient": LEAN_SCREEN / "PrimitivePortFrameQuotient.lean",
+    "PortGramA5Isometry": LEAN_SCREEN / "PortGramA5Isometry.lean",
+    "RepairWordCarrierReadout": LEAN_SCREEN / "RepairWordCarrierReadout.lean",
+    "SeamCurrentCarrierQuotient": LEAN_SCREEN / "SeamCurrentCarrierQuotient.lean",
+    "A5CarrierClassBand": LEAN_SCREEN / "A5CarrierClassBand.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -316,6 +331,7 @@ def _forced_structure(
     port_current: dict[str, Any],
     axis_center_descent: dict[str, Any],
     carrier_modes: dict[str, Any],
+    carrier_class: dict[str, Any],
 ) -> list[dict[str, Any]]:
     spectrum = matter["realized_package"]["charge_spectrum"]
     sm_spectrum = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 6}
@@ -441,6 +457,30 @@ def _forced_structure(
         for row in carrier_by_id.values()
     ):
         raise SystemExit("carrier-mode packet has left its declared boundary")
+
+    class_statements = carrier_class.get("class_statements", {})
+    eighth_order = carrier_class.get("eighth_order", {})
+    if (
+        carrier_class.get("schema") != "oph.carrier_class_dispersion.v1"
+        or class_statements.get("sign_law") != "C4 < 0 for every member"
+        or "10/21" not in class_statements.get("isotropic_floor", "")
+        or "[-16/135, 16/75]" not in class_statements.get("rank_six_band", "")
+        or eighth_order.get("kernel_universal_constant") != "256/75"
+        or eighth_order.get("cross_order_identity")
+        != "5 D6 B0 = 12 B6 D0"
+        or eighth_order.get("cross_order_ratio_identity")
+        != "D6/D0 = (12/5)(B6/B0)"
+        or eighth_order.get("multi_radius_negative_control", {}).get(
+            "lock_residual"
+        )
+        != "-57344/10360225"
+        or eighth_order.get("zero_mixture_control", {}).get("B6_over_B0") != "0"
+        or eighth_order.get("zero_mixture_control", {}).get("D6_over_D0") != "0"
+    ):
+        raise SystemExit(
+            "carrier-class parent does not carry the exact sign, floor, band, "
+            "and division-free eighth-order lock"
+        )
 
     rows = [
         {
@@ -675,6 +715,159 @@ def _forced_structure(
             "paper_ref": "Standard Model gauge paper, coupling symmetry section",
         },
         {
+            "id": "intrinsic_rank_three_response_completion",
+            "statement": (
+                "The declared twelve-port repair mean selects an intrinsic "
+                "rank-three Gram quotient as its normalized infinite-response "
+                "limit. The antipodal-odd integer load quotient is Z^6, the "
+                "thirty-seam boundary image is the even-sum D6 sublattice, and "
+                "both signed modules embed densely into the same abstract "
+                "three-dimensional Euclidean completion. The sixty proper "
+                "carrier maps act faithfully and isometrically on that "
+                "completion"
+            ),
+            "observed_counterpart": (
+                "a three-dimensional local spatial carrier with proper "
+                "icosahedral frame changes"
+            ),
+            "match": (
+                "exact intrinsic metric completion; physical position, scale, "
+                "refinement, and gluing open"
+            ),
+            "lean_declarations": {
+                "PortGramRepairBand": [
+                    "portGram_unique_lowest_positive_galois_maximal",
+                    "selected_family_band_is_port_gram",
+                ],
+                "PortGramRepairCovariance": [
+                    "normalizedKernel_tendsto_portGram",
+                    "portGram_antipodal_quotient",
+                ],
+                "PrimitivePortFrameQuotient": [
+                    "frameQuotient_finrank",
+                    "quotientEquivVec3_preserves_gram",
+                    "pointEuclideanFrame_denseRange",
+                ],
+                "RepairWordCarrierReadout": [
+                    "loadPosition_denseRange",
+                    "universalPosition_isometry",
+                ],
+                "SeamCurrentCarrierQuotient": [
+                    "exists_seamCurrent_iff_even",
+                    "d6Position_denseRange",
+                    "d6Position_isometry",
+                ],
+                "PortGramA5Isometry": [
+                    "selected_band_action_faithful",
+                    "carrierRotation_isometry",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "PortGramRepairBand",
+                "PortGramRepairCovariance",
+                "PrimitivePortFrameQuotient",
+                "RepairWordCarrierReadout",
+                "SeamCurrentCarrierQuotient",
+                "PortGramA5Isometry",
+                declarations={
+                    "PortGramRepairBand": (
+                        "portGram_unique_lowest_positive_galois_maximal",
+                        "selected_family_band_is_port_gram",
+                    ),
+                    "PortGramRepairCovariance": (
+                        "normalizedKernel_tendsto_portGram",
+                        "portGram_antipodal_quotient",
+                    ),
+                    "PrimitivePortFrameQuotient": (
+                        "frameQuotient_finrank",
+                        "quotientEquivVec3_preserves_gram",
+                        "pointEuclideanFrame_denseRange",
+                    ),
+                    "RepairWordCarrierReadout": (
+                        "loadPosition_denseRange",
+                        "universalPosition_isometry",
+                    ),
+                    "SeamCurrentCarrierQuotient": (
+                        "exists_seamCurrent_iff_even",
+                        "d6Position_denseRange",
+                        "d6Position_isometry",
+                    ),
+                    "PortGramA5Isometry": (
+                        "selected_band_action_faithful",
+                        "carrierRotation_isometry",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the finite carrier, scalar repair mean, complete centered probe "
+                "census, cumulative signed-load readback, and response-Gram "
+                "topology are declared inputs. The result constructs no "
+                "pathwise physical position, operational scale, cofinal "
+                "refinement, overlap gluing, global space, clock, or field"
+            ),
+            "paper_ref": (
+                "spacetime-recovery paper, repair-response metric completion"
+            ),
+        },
+        {
+            "id": "carrier_class_dispersion_band",
+            "statement": (
+                "Every positive-weight stable invariant finite-range carrier in "
+                "the declared class has C4 < 0 and B0/C4^2 at least 10/21, "
+                "with equality exactly on one-radius support. Its anisotropic "
+                "ranks one through five vanish and B6/B0 lies in "
+                "[-16/135, 16/75] on the unique rotated I6 line. At eighth "
+                "order no new angular shape appears, and every one-radius "
+                "member obeys 5 D6 B0 = 12 B6 D0, equivalently "
+                "D6/D0 = (12/5)(B6/B0). The polynomial form includes the "
+                "exact zero-anisotropy mixture; multi-radius members retain "
+                "radial-moment dependence"
+            ),
+            "observed_counterpart": (
+                "a linked isotropic and rank-six vacuum-dispersion surface not "
+                "fixed by the Standard Model with General Relativity"
+            ),
+            "match": (
+                "exact class theorem; physical sector, frame, finite scale, "
+                "readout, and comparison remain open"
+            ),
+            "artifact_ref": _rel("carrier_class_dispersion"),
+            "lean_declarations": {
+                "A5CarrierClassBand": [
+                    "band_endpoints",
+                    "tuned_zero",
+                    "gap_zero_iff_single_radius",
+                    "general_member_in_band",
+                    "cross_order_lock",
+                    "cross_order_polynomial",
+                    "multi_radius_negative_control",
+                ]
+            },
+            "lean_receipts": _lean_receipt(
+                "A5CarrierClassBand",
+                declarations={
+                    "A5CarrierClassBand": (
+                        "band_endpoints",
+                        "tuned_zero",
+                        "gap_zero_iff_single_radius",
+                        "general_member_in_band",
+                        "cross_order_lock",
+                        "cross_order_polynomial",
+                        "multi_radius_negative_control",
+                    )
+                },
+            ),
+            "hypothesis_boundary": (
+                "the theorem applies to positive-weight finite mixtures of "
+                "proper-carrier direction orbits with the declared cosine hop "
+                "symbol, quadratic normalization, and no independent isotropic "
+                "counterterm. No theorem identifies this class with a physical "
+                "field or fixes its scale, frame, detector response, or "
+                "exclusivity"
+            ),
+            "paper_ref": "flagship paper, carrier-class dispersion theorem",
+        },
+        {
             "id": "time_order_type_ledger",
             "statement": (
                 "Universe closure, repair execution order, observer record "
@@ -712,6 +905,95 @@ def _forced_structure(
                 "function, or modular-to-time identity and emits no prediction"
             ),
             "paper_ref": "observers paper, time and order interface",
+        },
+        {
+            "id": "bounded_observer_time_calibration",
+            "statement": (
+                "A record history with a supplied strictly increasing natural-number "
+                "rank gives an order-compatible scalar readout, which admits every "
+                "strictly increasing regrading; an exact three-tick cubic control is "
+                "not affine. "
+                "After a unit-timelike affine event law is supplied, every "
+                "precedence is future timelike across overlapping charts and "
+                "along that same supplied history the positive clock increment "
+                "is additive with square equal to the invariant Lorentz "
+                "quadratic interval. One shared event leaves an affine "
+                "comparison nonunique; two ordered event pairs determine the "
+                "unique positive-affine interpolation of their four supplied "
+                "readings. At a third shared event, affine consistency is "
+                "equivalent to a cross-product equation and gives a "
+                "nondegenerate no-new-fit-parameter check when its event and "
+                "both readings differ from the anchors. A held-out reading "
+                "requires separate predesignation and custody"
+            ),
+            "observed_counterpart": (
+                "record-order data and conditional operational clock comparison"
+            ),
+            "match": (
+                "exact bounded conditional algebra with finite controls; source "
+                "physical clock open"
+            ),
+            "lean_declarations": {
+                "ObserverHistory": [
+                    "threeRecord_control",
+                    "discreteConstantClock_not_injective",
+                ],
+                "ClockReadout": [
+                    "cubicThreeTickClock_not_affine",
+                    "throughTwoPoints_unique",
+                ],
+                "WorldlineRealization": [
+                    "displacement_futureTimelike_in_chart",
+                    "threeRecord_twoChart_futureTimelike",
+                ],
+                "ProperTimeCalibration": [
+                    "properTimeBetween_sq_eq_interval_in_chart",
+                    "properTimeBetween_add",
+                ],
+                "ClockComparison": [
+                    "onePoint_not_unique",
+                    "calibration_unique",
+                    "affineConsistent_iff_crossMultiplication",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "ObserverHistory",
+                "ClockReadout",
+                "WorldlineRealization",
+                "ProperTimeCalibration",
+                "ClockComparison",
+                declarations={
+                    "ObserverHistory": (
+                        "threeRecord_control",
+                        "discreteConstantClock_not_injective",
+                    ),
+                    "ClockReadout": (
+                        "cubicThreeTickClock_not_affine",
+                        "throughTwoPoints_unique",
+                    ),
+                    "WorldlineRealization": (
+                        "displacement_futureTimelike_in_chart",
+                        "threeRecord_twoChart_futureTimelike",
+                    ),
+                    "ProperTimeCalibration": (
+                        "properTimeBetween_sq_eq_interval_in_chart",
+                        "properTimeBetween_add",
+                    ),
+                    "ClockComparison": (
+                        "onePoint_not_unique",
+                        "calibration_unique",
+                        "affineConsistent_iff_crossMultiplication",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the event atlas, visibility, event map, clock, future-unit "
+                "direction, affine unit-speed law, and shared-event equalities "
+                "are supplied. No source history, refinement transport, "
+                "physical instrument, SI unit, global time, modular-time "
+                "identity, observable, decision rule, or prediction follows"
+            ),
+            "paper_ref": "observers paper, bounded observer-time calibration",
         },
         {
             "id": "finite_public_record_algebra_and_sharp_no_cloning",
@@ -1079,7 +1361,7 @@ def _forced_structure(
                 "source atlas realization, event population, certified "
                 "separation, open rank-four charts, physical cone attachment, "
                 "refinement naturality, semantic causal reachability, and an "
-                "operational clock. Issues #693, #694, and #691 own those "
+                "operational clock. Issues #693, #694, and #703 own those "
                 "residuals; no physical spacetime, Einstein dynamics, "
                 "observable, decision rule, or prediction follows"
             ),
@@ -1612,13 +1894,15 @@ def _forced_structure(
                 },
             ),
             "hypothesis_boundary": (
-                "five receipts stay open under issue #688: the global "
+                "issue #688 owns four source-side receipts: the global "
                 "objective representation, the common source-derived "
                 "reference for both optimizers, completion of the source "
-                "collar realization, physical energy and clock "
-                "calibration beyond the attained central-interface "
-                "modular split, and refinement-uniform low-temperature "
-                "control. The pinned 20-state collar table has an audit of all "
+                "collar realization, and refinement-uniform low-temperature "
+                "control. Issue #703 separately owns physical energy and clock "
+                "calibration beyond the attained central-interface modular "
+                "split. Complete thermodynamic integration consumes both "
+                "packets; neither issue is a prerequisite of the other. The "
+                "pinned 20-state collar table has an audit of all "
                 "15 nonempty field-subset projections: its repair-load quotient "
                 "is an eight-state raw ergodic nonreversible H-theorem "
                 "probe, but the declared record charge is constant and "
@@ -1707,7 +1991,7 @@ def _forced_structure(
                 "clock increment, volumes, heat capacities, and conductances "
                 "are declared finite inputs. No theorem identifies the "
                 "Green--Kubo coefficient with graph conductance. Issues #688, "
-                "#691, and #693 own the source evolution, physical equilibrium "
+                "#693, #694, and #703 own the source evolution, physical equilibrium "
                 "reference and conserved quantity, source-realized geometry, "
                 "clock, and calibration; bounded algebraic C2 issue #690 is "
                 "closed and this row emits no prediction-ladder "
@@ -1852,8 +2136,9 @@ def _forced_structure(
                 "region-factor, spacelike, clock, stochastic-state, CPTP, or "
                 "laboratory attachment is proved. The row's sole live gate, "
                 "#692, owns finite coverage and the OPH region-factor adapter. "
-                "Source channel/adaptive-scheduler semantics (#693), clocks "
-                "(#691), and continuum causal/time-slice structure (#700) are "
+                "Source channel/adaptive-scheduler semantics (#693), physical "
+                "clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice "
+                "structure (#700) are "
                 "downstream promotions outside this claim's gate. This row "
                 "emits no prediction-ladder entry"
             ),
@@ -2096,7 +2381,8 @@ def _alpha_rows(
                 _rel("anchor_bridge"),
                 _rel("alpha_hvp_verdict"),
             ],
-            "blocking_issues": [425, 545],
+            "blocking_issues": [696],
+            "historical_blocking_issues": [425, 545],
         }
     ]
 
@@ -2148,7 +2434,8 @@ def _lepton_rows(
             "width_floor": width_floor["floor_attribution"],
             "tier": "T1_empirical_closure",
             "artifact_refs": [_rel("kappa_rectangle"), _rel("kappa_coherent")],
-            "blocking_issues": [545, 425],
+            "blocking_issues": [696, 697],
+            "historical_blocking_issues": [425, 545],
         }
     )
     mcpr_masses = [float(m) / 1000.0 for m in mcpr["masses_MeV_display"]]
@@ -2217,7 +2504,8 @@ def _lepton_rows(
             "epistemic_scope": lane["numerical_certificate"]["epistemic_scope"],
             "numerical_certificate": lane["numerical_certificate"],
             "artifact_ref": _rel(artifact),
-            "blocking_issues": [425, 545],
+            "blocking_issues": [696, 697],
+            "historical_blocking_issues": [425, 545],
         }
         if key.endswith("coherent"):
             entry["width_reduction_factor"] = lane["kappa_interval"]["width_reduction_factor"]
@@ -2307,7 +2595,8 @@ def _quark_rows(
             "fiber_cut_detected": obstruction["fiber_cut_detected"],
             "tier": obstruction["claim_tier"],
             "artifact_ref": _rel("fiber_obstruction"),
-            "blocking_issues": obstruction["github_issues"],
+            "blocking_issues": [697],
+            "historical_blocking_issues": obstruction["github_issues"],
         },
         {
             "id": "quark_down_type_clebsch_route_rejected",
@@ -2357,7 +2646,9 @@ def _hadron_rows(payload: dict[str, Any], standby: dict[str, Any]) -> list[dict[
             "policy": (
                 "The published-compilation payload is the correction engine of "
                 "the fine-structure lane; source-only hadron rows stay "
-                "suppressed pending the source spectral measure (issue 425)."
+                "suppressed. Historical issue #425 records the resource-deferred "
+                "QCD backend; live bounded particle-output ownership is #697, "
+                "and source-only QCD remains outside the available resources."
             ),
             "artifact_ref": _rel("hadron_payload"),
         },
@@ -2371,21 +2662,59 @@ def _hadron_rows(payload: dict[str, Any], standby: dict[str, Any]) -> list[dict[
 
 
 def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
-    """Digest the four strongest rows into the leading section, data-driven."""
+    """Digest the five strongest structural and quantitative rows."""
 
+    forced = {r["id"]: r for r in sections["forced_structure"]}
     leptons = {r["id"]: r for r in sections["charged_leptons"]}
     target = leptons["charged_leptons_closure_target"]
-    coherent = leptons["charged_leptons_kappa_coherent"]
-    mcpr = leptons["charged_leptons_mcpr_conditional"]
-    ew = {r["id"]: r for r in sections["electroweak"]}
     alpha = sections["alpha"][0]
     wp = target["witness_point"]
     glo, ghi = alpha["anchor_gap_interval"]
-    log_hw = coherent["logarithmic_half_width"]
-    one_sided = coherent["one_sided_multiplicative_widths"]
-    ppm = abs(mcpr["relative_deltas"][0]) * 1.0e6
-    mh, mt = ew["ew_mH_gev"], ew["ew_mt_pole_gev"]
     return [
+        {
+            "id": "intrinsic_rank_three_response_completion",
+            "statement": (
+                forced["intrinsic_rank_three_response_completion"]["statement"]
+                + ". This is an exact intrinsic metric completion; physical "
+                "position, scale, refinement, and gluing remain open."
+            ),
+        },
+        {
+            "id": "forced_gauge_structure",
+            "statement": (
+                "Complete compact port response from A1 and endogenous overlap "
+                "transport from A2 force the abstract Lie type "
+                "su(3)+su(2)+u(1) on the twelve-port carrier. Target-blind "
+                "readback independently derives R=-J. Inside the declared "
+                "exterior-response algebra, an exhaustive scan selects the "
+                "charge-conjugate rank-15 chiral anomaly-free pair and its "
+                "one-generation hypercharge multiset; its common central "
+                "kernel is Z6. Source reconstruction of the matrix current and "
+                "matter action, physical global-form selection, laboratory "
+                "attachment, and continuum quantum field theory remain separate."
+            ),
+        },
+        {
+            "id": "carrier_class_dispersion_surface",
+            "statement": (
+                forced["carrier_class_dispersion_band"]["statement"]
+                + ". The class theorem is exact; physical field attachment, "
+                "finite scale, coherent frame, readout, and comparison remain open."
+            ),
+        },
+        {
+            "id": "koide_conditional_tau_window",
+            "statement": (
+                "Under the balanced-circulant and mass-ordering premises the "
+                "measured electron and muon masses fix the tau mass inside "
+                f"[{leptons['charged_leptons_koide_conditional_tau']['tau_enclosure_mev_outward'][0]}, "
+                f"{leptons['charged_leptons_koide_conditional_tau']['tau_enclosure_mev_outward'][1]}] MeV, "
+                f"{leptons['charged_leptons_koide_conditional_tau']['distance_sigma']} sigma from "
+                "measurement. The balance premise was abstracted from the "
+                "measured lepton triple, so this is a target-informed "
+                "conditional postdiction with a frozen rejection rule."
+            ),
+        },
         {
             "id": "lepton_closure_target",
             "statement": (
@@ -2405,62 +2734,6 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
                 "source-emitted bridge value is a falsification target: the "
                 "closure value would satisfy the conditional lane, while a "
                 "value outside the interval refutes the declared decomposition."
-            ),
-        },
-        {
-            "id": "lepton_certified_intervals",
-            "statement": (
-                "The target-anchored measured charged-lepton triple lies "
-                "inside every outward-rounded diagnostic interval; the "
-                "payload-coherent logarithmic half-width is "
-                f"{log_hw * 100.0:.3f} percent, with one-sided multiplicative "
-                f"widths -{one_sided['lower'] * 100.0:.2f} and "
-                f"+{one_sided['upper'] * 100.0:.2f} percent. The conditional "
-                f"eight-register triple sits {ppm:.0f} ppm from measurement "
-                "with the architecture declared."
-            ),
-        },
-        {
-            "id": "koide_conditional_tau_window",
-            "statement": (
-                "Under the balanced-circulant and mass-ordering premises the "
-                "measured electron and muon masses fix the tau mass inside "
-                f"[{leptons['charged_leptons_koide_conditional_tau']['tau_enclosure_mev_outward'][0]}, "
-                f"{leptons['charged_leptons_koide_conditional_tau']['tau_enclosure_mev_outward'][1]}] MeV, "
-                f"{leptons['charged_leptons_koide_conditional_tau']['distance_sigma']} sigma from "
-                "measurement; the window is three orders of magnitude "
-                "narrower than the measurement uncertainty, so improving "
-                "tau-mass averages test the premise directly. The premise "
-                "ancestry is declared and the row stays conditional."
-            ),
-        },
-        {
-            "id": "higgs_top_envelopes",
-            "statement": (
-                f"The conditional Higgs envelope [{mh['value_envelope'][0]:.3f}, "
-                f"{mh['value_envelope'][1]:.3f}] GeV sits "
-                f"{mh['delta_over_sigma']:.2f} sigma from the measured "
-                f"{mh['measured']} +- {mh['measured_sigma']} GeV, and the top "
-                f"envelope [{mt['value_envelope'][0]:.2f}, "
-                f"{mt['value_envelope'][1]:.2f}] GeV sits "
-                f"{mt['delta_over_sigma']:.2f} sigma from "
-                f"{mt['measured']} +- {mt['measured_sigma']} GeV, "
-                "compare-only, conditional on the declared selection premises."
-            ),
-        },
-        {
-            "id": "forced_gauge_structure",
-            "statement": (
-                "Complete compact port response from A1 and endogenous overlap "
-                "transport from A2 force the abstract Lie type "
-                "su(3)+su(2)+u(1) on the twelve-port carrier. Target-blind "
-                "readback independently derives R=-J. Inside the declared "
-                "exterior-response algebra, an exhaustive scan selects the "
-                "charge-conjugate rank-15 chiral anomaly-free pair and its "
-                "one-generation hypercharge multiset; its common central "
-                "kernel is Z6. Source reconstruction of the matrix current and "
-                "matter action, physical global-form selection, laboratory "
-                "attachment, and continuum quantum field theory remain separate."
             ),
         },
     ]
@@ -2488,6 +2761,7 @@ def build(
     axis_center_descent = _load("axis_center_descent")
     carrier_modes = _load("carrier_modes")
     quantum_carrier_status = _load("quantum_carrier_status")
+    carrier_class = _load("carrier_class_dispersion")
     alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
@@ -2499,6 +2773,7 @@ def build(
             port_current,
             axis_center_descent,
             carrier_modes,
+            carrier_class,
         ),
         "quantum_carrier_status": _quantum_carrier_status_row(
             quantum_carrier_status
@@ -2534,9 +2809,10 @@ def build(
         },
         "aggregation_policy": (
             "numeric values and measured references are read live from cited "
-            "parents; structural rows are derived from validated structured "
-            "parents and identify direct algebraic corollaries explicitly; a "
-            "missing or inconsistent parent aborts the build"
+            "parents; structural rows are derived from validated Lean "
+            "declarations, structured parents, or both, and identify direct "
+            "algebraic corollaries explicitly; a missing or inconsistent "
+            "receipt aborts the build"
         ),
         "principal_results": _principal_results(sections),
         "sections": sections,
@@ -2562,12 +2838,16 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add = lines.append
     add("# Postdiction Ledger")
     add("")
-    add("Generated deterministically by `scripts/build_postdiction_ledger.py`; "
-        "the JSON artifact is `runs/status/postdiction_ledger.json`.")
+    add(
+        "Generated deterministically by "
+        "`code/particles/scripts/build_postdiction_ledger.py`; the JSON artifact "
+        "is `code/particles/runs/status/postdiction_ledger.json`."
+    )
     add("")
     add("Numeric values and measured references on this page are read live from "
         "the cited parent artifacts. Structural rows are derived from validated "
-        "structured parents, and direct algebraic corollaries are identified. "
+        "Lean declarations, structured parents, or both, and direct algebraic "
+        "corollaries are identified. "
         "The ledger promotes nothing and changes no solve path. Interval rows "
         "report containment of the compare-only witness; conditional rows carry "
         "their declared premises; chart coordinates keep their NOT_EVALUABLE "
@@ -2582,8 +2862,9 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("")
     add("These finite structural results precede or constrain numeric lanes. "
         "They include the icosahedral gauge packet and generic observer-law "
-        "boundaries. Every step is machine checked in the Lean workspace, and "
-        "each row records its own classical inputs and open physical premises.")
+        "boundaries. Each row is checked in Lean, by a structured executable "
+        "artifact, or by both, and records its own classical inputs and open "
+        "physical premises.")
     add("")
     add("| Result | Observed counterpart | Match | Receipts |")
     add("| --- | --- | --- | --- |")
@@ -2661,7 +2942,14 @@ def _render_md(ledger: dict[str, Any]) -> str:
             f"independent classes: "
             f"`{row['cross_class_agreement']['independently_evaluated_class_count']}`.")
         add(f"- Reading: {row['reading']}")
-        add(f"- Blocking issues: {', '.join(f'#{i}' for i in row['blocking_issues'])}")
+        add(
+            "- Live blocking issues: "
+            + ", ".join(f"#{i}" for i in row["blocking_issues"])
+        )
+        add(
+            "- Historical resource-deferred boundaries: "
+            + ", ".join(f"#{i}" for i in row["historical_blocking_issues"])
+        )
     add("")
     add("## Charged leptons")
     add("")

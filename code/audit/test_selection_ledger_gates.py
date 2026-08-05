@@ -28,6 +28,14 @@ def test_live_ledger_validates_and_surface_is_current():
     assert rendered == committed
 
 
+def test_intro_exposes_continuous_and_unenumerated_premises():
+    rendered = ledger_tool.render(ledger_tool.validate(live_ledger()))
+    assert "Other exposed premises include continuous data or" in rendered
+    assert "excluded from finite compression accounting" in rendered
+    assert "No tuning is hidden" in rendered
+    assert "There is no tunable layer anywhere" not in rendered
+
+
 def test_every_row_names_one_canonical_claim_and_class():
     rows = ledger_tool.validate(live_ledger())
     assert len(rows) >= 22

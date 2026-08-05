@@ -74,7 +74,9 @@ axioms.
 
 ## Downstream boundary
 
-A1 supplies names and type separation only. V2 issue D1 still owns existence
-and physical content: causal event realization, future-timelike worldlines,
-proper-time calibration under refinement, and public comparison of clock
-records. The stable-causality/global-time branch remains optional.
+A1 supplies names and type separation only. The bounded D1 packet in
+`D1_OBSERVER_TIME_CALIBRATION.md` adds conditional affine-timelike realization,
+dimensionless proper-time algebra, and shared-event comparison, while proving
+that bare record order retains arbitrary monotone gauge. Source production,
+refinement transport, a physical clock and SI unit remain open downstream.
+The stable-causality/global-time branch remains optional.

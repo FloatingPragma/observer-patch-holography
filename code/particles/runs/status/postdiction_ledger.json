@@ -1,5 +1,5 @@
 {
-  "aggregation_policy": "numeric values and measured references are read live from cited parents; structural rows are derived from validated structured parents and identify direct algebraic corollaries explicitly; a missing or inconsistent parent aborts the build",
+  "aggregation_policy": "numeric values and measured references are read live from cited parents; structural rows are derived from validated Lean declarations, structured parents, or both, and identify direct algebraic corollaries explicitly; a missing or inconsistent receipt aborts the build",
   "artifact": "oph_postdiction_ledger",
   "generator": "code/particles/scripts/build_postdiction_ledger.py",
   "guards": {
@@ -11,24 +11,24 @@
   },
   "principal_results": [
     {
-      "id": "lepton_closure_target",
-      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the retrospective accounting interval [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the scheme term of the resource-deferred historical anchor boundary #545; live quantitative successor #696 does not discharge that source requirement. The lepton scale is localized only under that recorded accounting packet. A source-emitted bridge value is a falsification target: the closure value would satisfy the conditional lane, while a value outside the interval refutes the declared decomposition."
-    },
-    {
-      "id": "lepton_certified_intervals",
-      "statement": "The target-anchored measured charged-lepton triple lies inside every outward-rounded diagnostic interval; the payload-coherent logarithmic half-width is 1.732 percent, with one-sided multiplicative widths -1.72 and +1.75 percent. The conditional eight-register triple sits 84 ppm from measurement with the architecture declared."
-    },
-    {
-      "id": "koide_conditional_tau_window",
-      "statement": "Under the balanced-circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV, 0.4336 sigma from measurement; the window is three orders of magnitude narrower than the measurement uncertainty, so improving tau-mass averages test the premise directly. The premise ancestry is declared and the row stays conditional."
-    },
-    {
-      "id": "higgs_top_envelopes",
-      "statement": "The conditional Higgs envelope [125.183, 125.232] GeV sits 0.70 sigma from the measured 125.13 +- 0.11 GeV, and the top envelope [172.28, 172.35] GeV sits 0.36 sigma from 172.1 +- 0.6 GeV, compare-only, conditional on the declared selection premises."
+      "id": "intrinsic_rank_three_response_completion",
+      "statement": "The declared twelve-port repair mean selects an intrinsic rank-three Gram quotient as its normalized infinite-response limit. The antipodal-odd integer load quotient is Z^6, the thirty-seam boundary image is the even-sum D6 sublattice, and both signed modules embed densely into the same abstract three-dimensional Euclidean completion. The sixty proper carrier maps act faithfully and isometrically on that completion. This is an exact intrinsic metric completion; physical position, scale, refinement, and gluing remain open."
     },
     {
       "id": "forced_gauge_structure",
       "statement": "Complete compact port response from A1 and endogenous overlap transport from A2 force the abstract Lie type su(3)+su(2)+u(1) on the twelve-port carrier. Target-blind readback independently derives R=-J. Inside the declared exterior-response algebra, an exhaustive scan selects the charge-conjugate rank-15 chiral anomaly-free pair and its one-generation hypercharge multiset; its common central kernel is Z6. Source reconstruction of the matrix current and matter action, physical global-form selection, laboratory attachment, and continuum quantum field theory remain separate."
+    },
+    {
+      "id": "carrier_class_dispersion_surface",
+      "statement": "Every positive-weight stable invariant finite-range carrier in the declared class has C4 < 0 and B0/C4^2 at least 10/21, with equality exactly on one-radius support. Its anisotropic ranks one through five vanish and B6/B0 lies in [-16/135, 16/75] on the unique rotated I6 line. At eighth order no new angular shape appears, and every one-radius member obeys 5 D6 B0 = 12 B6 D0, equivalently D6/D0 = (12/5)(B6/B0). The polynomial form includes the exact zero-anisotropy mixture; multi-radius members retain radial-moment dependence. The class theorem is exact; physical field attachment, finite scale, coherent frame, readout, and comparison remain open."
+    },
+    {
+      "id": "koide_conditional_tau_window",
+      "statement": "Under the balanced-circulant and mass-ordering premises the measured electron and muon masses fix the tau mass inside [1776.968991, 1776.969063] MeV, 0.4336 sigma from measurement. The balance premise was abstracted from the measured lepton triple, so this is a target-informed conditional postdiction with a frozen rejection rule."
+    },
+    {
+      "id": "lepton_closure_target",
+      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the retrospective accounting interval [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the scheme term of the resource-deferred historical anchor boundary #545; live quantitative successor #696 does not discharge that source requirement. The lepton scale is localized only under that recorded accounting packet. A source-emitted bridge value is a falsification target: the closure value would satisfy the conditional lane, while a value outside the interval refutes the declared decomposition."
     }
   ],
   "row_class": "compare_only_postdiction_ledger",
@@ -47,8 +47,7 @@
         ],
         "audit_verdict": "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE",
         "blocking_issues": [
-          425,
-          545
+          696
         ],
         "cross_class_agreement": {
           "independently_evaluated_class_count": 0,
@@ -56,6 +55,10 @@
           "recorded_accounting_replay_count": 1,
           "verdict": "NOT_EVALUABLE_NO_INDEPENDENT_CLASS"
         },
+        "historical_blocking_issues": [
+          425,
+          545
+        ],
         "id": "alpha_inv_thomson_endpoint",
         "measured": 137.035999177,
         "measured_source": "CODATA 2022 via the endpoint artifact, compare-only",
@@ -78,8 +81,12 @@
           "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json"
         ],
         "blocking_issues": [
-          545,
-          425
+          696,
+          697
+        ],
+        "historical_blocking_issues": [
+          425,
+          545
         ],
         "id": "charged_leptons_closure_target",
         "statement": "The certified solve inverts exactly at the measured triple: one anchor-gap value closes the charged-lepton lane on the witness, that value lies inside the retrospective accounting interval, and its distance to the standard on-shell reference deficit is the scheme term of the resource-deferred historical anchor boundary #545. The live quantitative successor #696 does not discharge that missing source. The lepton scale is localized only under the recorded accounting packet. A source-emitted bridge value is a sharp falsification target: landing on the closure value satisfies the conditional lane on the witness, while landing outside the recorded interval refutes the decomposition.",
@@ -132,8 +139,8 @@
       {
         "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
         "blocking_issues": [
-          425,
-          545
+          696,
+          697
         ],
         "centrals_gev": [
           0.0005088574871435145,
@@ -141,6 +148,10 @@
           1.76948334905381
         ],
         "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+        "historical_blocking_issues": [
+          425,
+          545
+        ],
         "id": "charged_leptons_kappa_rectangle",
         "intervals_gev": [
           [
@@ -218,8 +229,8 @@
       {
         "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
         "blocking_issues": [
-          425,
-          545
+          696,
+          697
         ],
         "centrals_gev": [
           0.0005088574871435262,
@@ -227,6 +238,10 @@
           1.7694833490538506
         ],
         "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
+        "historical_blocking_issues": [
+          425,
+          545
+        ],
         "id": "charged_leptons_kappa_coherent",
         "intervals_gev": [
           [
@@ -529,6 +544,73 @@
         "statement": "A5-invariant readouts have port-independent group-averaged cap sums, so the per-cap ratio of any two averaged readouts is universal with zero spread"
       },
       {
+        "hypothesis_boundary": "the finite carrier, scalar repair mean, complete centered probe census, cumulative signed-load readback, and response-Gram topology are declared inputs. The result constructs no pathwise physical position, operational scale, cofinal refinement, overlap gluing, global space, clock, or field",
+        "id": "intrinsic_rank_three_response_completion",
+        "lean_declarations": {
+          "PortGramA5Isometry": [
+            "selected_band_action_faithful",
+            "carrierRotation_isometry"
+          ],
+          "PortGramRepairBand": [
+            "portGram_unique_lowest_positive_galois_maximal",
+            "selected_family_band_is_port_gram"
+          ],
+          "PortGramRepairCovariance": [
+            "normalizedKernel_tendsto_portGram",
+            "portGram_antipodal_quotient"
+          ],
+          "PrimitivePortFrameQuotient": [
+            "frameQuotient_finrank",
+            "quotientEquivVec3_preserves_gram",
+            "pointEuclideanFrame_denseRange"
+          ],
+          "RepairWordCarrierReadout": [
+            "loadPosition_denseRange",
+            "universalPosition_isometry"
+          ],
+          "SeamCurrentCarrierQuotient": [
+            "exists_seamCurrent_iff_even",
+            "d6Position_denseRange",
+            "d6Position_isometry"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/PortGramRepairBand.lean",
+          "Lean/Screen/PortGramRepairCovariance.lean",
+          "Lean/Screen/PrimitivePortFrameQuotient.lean",
+          "Lean/Screen/RepairWordCarrierReadout.lean",
+          "Lean/Screen/SeamCurrentCarrierQuotient.lean",
+          "Lean/Screen/PortGramA5Isometry.lean"
+        ],
+        "match": "exact intrinsic metric completion; physical position, scale, refinement, and gluing open",
+        "observed_counterpart": "a three-dimensional local spatial carrier with proper icosahedral frame changes",
+        "paper_ref": "spacetime-recovery paper, repair-response metric completion",
+        "statement": "The declared twelve-port repair mean selects an intrinsic rank-three Gram quotient as its normalized infinite-response limit. The antipodal-odd integer load quotient is Z^6, the thirty-seam boundary image is the even-sum D6 sublattice, and both signed modules embed densely into the same abstract three-dimensional Euclidean completion. The sixty proper carrier maps act faithfully and isometrically on that completion"
+      },
+      {
+        "artifact_ref": "code/a5_fingerprint/runtime/carrier_class_dispersion_receipt.json",
+        "hypothesis_boundary": "the theorem applies to positive-weight finite mixtures of proper-carrier direction orbits with the declared cosine hop symbol, quadratic normalization, and no independent isotropic counterterm. No theorem identifies this class with a physical field or fixes its scale, frame, detector response, or exclusivity",
+        "id": "carrier_class_dispersion_band",
+        "lean_declarations": {
+          "A5CarrierClassBand": [
+            "band_endpoints",
+            "tuned_zero",
+            "gap_zero_iff_single_radius",
+            "general_member_in_band",
+            "cross_order_lock",
+            "cross_order_polynomial",
+            "multi_radius_negative_control"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/A5CarrierClassBand.lean"
+        ],
+        "match": "exact class theorem; physical sector, frame, finite scale, readout, and comparison remain open",
+        "observed_counterpart": "a linked isotropic and rank-six vacuum-dispersion surface not fixed by the Standard Model with General Relativity",
+        "paper_ref": "flagship paper, carrier-class dispersion theorem",
+        "statement": "Every positive-weight stable invariant finite-range carrier in the declared class has C4 < 0 and B0/C4^2 at least 10/21, with equality exactly on one-radius support. Its anisotropic ranks one through five vanish and B6/B0 lies in [-16/135, 16/75] on the unique rotated I6 line. At eighth order no new angular shape appears, and every one-radius member obeys 5 D6 B0 = 12 B6 D0, equivalently D6/D0 = (12/5)(B6/B0). The polynomial form includes the exact zero-anisotropy mixture; multi-radius members retain radial-moment dependence"
+      },
+      {
         "hypothesis_boundary": "the ledger constructs no public-world endpoint, worldline, physical clock, proper-time calibration, global time function, or modular-to-time identity and emits no prediction",
         "id": "time_order_type_ledger",
         "lean_declarations": {
@@ -544,6 +626,44 @@
         "observed_counterpart": "typed separation between operational ordering and physical time",
         "paper_ref": "observers paper, time and order interface",
         "statement": "Universe closure, repair execution order, observer record order, modular parameter, worldline realization, clock readout, proper time, and optional global time are distinct formal types. In the committed source environment, a canonical witness matrix rejects all 56 ordered transitive coercions between distinct layers, and explicit named maps are required. Positive affine clock regraduation preserves strict record monotonicity, and an inhabited record with nonzero offset proves clock-origin nonuniqueness"
+      },
+      {
+        "hypothesis_boundary": "the event atlas, visibility, event map, clock, future-unit direction, affine unit-speed law, and shared-event equalities are supplied. No source history, refinement transport, physical instrument, SI unit, global time, modular-time identity, observable, decision rule, or prediction follows",
+        "id": "bounded_observer_time_calibration",
+        "lean_declarations": {
+          "ClockComparison": [
+            "onePoint_not_unique",
+            "calibration_unique",
+            "affineConsistent_iff_crossMultiplication"
+          ],
+          "ClockReadout": [
+            "cubicThreeTickClock_not_affine",
+            "throughTwoPoints_unique"
+          ],
+          "ObserverHistory": [
+            "threeRecord_control",
+            "discreteConstantClock_not_injective"
+          ],
+          "ProperTimeCalibration": [
+            "properTimeBetween_sq_eq_interval_in_chart",
+            "properTimeBetween_add"
+          ],
+          "WorldlineRealization": [
+            "displacement_futureTimelike_in_chart",
+            "threeRecord_twoChart_futureTimelike"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Time/ObserverHistory.lean",
+          "Lean/Time/ClockReadout.lean",
+          "Lean/Time/WorldlineRealization.lean",
+          "Lean/Time/ProperTimeCalibration.lean",
+          "Lean/Time/ClockComparison.lean"
+        ],
+        "match": "exact bounded conditional algebra with finite controls; source physical clock open",
+        "observed_counterpart": "record-order data and conditional operational clock comparison",
+        "paper_ref": "observers paper, bounded observer-time calibration",
+        "statement": "A record history with a supplied strictly increasing natural-number rank gives an order-compatible scalar readout, which admits every strictly increasing regrading; an exact three-tick cubic control is not affine. After a unit-timelike affine event law is supplied, every precedence is future timelike across overlapping charts and along that same supplied history the positive clock increment is additive with square equal to the invariant Lorentz quadratic interval. One shared event leaves an affine comparison nonunique; two ordered event pairs determine the unique positive-affine interpolation of their four supplied readings. At a third shared event, affine consistency is equivalent to a cross-product equation and gives a nondegenerate no-new-fit-parameter check when its event and both readings differ from the anchors. A held-out reading requires separate predesignation and custody"
       },
       {
         "hypothesis_boundary": "zero projectors are removed before coordinate equivalence; the mixed-state no-broadcasting implication remains an explicit adapter premise, and no physical record-selection or measurement theorem follows",
@@ -662,7 +782,7 @@
         "statement": "The real Pauli-coordinate module Herm2 is exactly the four-dimensional space of two-by-two complex Hermitian matrices, with determinant equal to the Lorentz quadratic form of constructive inertia (+---). Positive future-null rays are set-equivalent to the unit two-sphere, the algebraic future-unit hyperboloid has three-dimensional positive rest spaces, and an explicit linear chart matches the existing Einstein coordinates with exactly the required sign flip"
       },
       {
-        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Issues #693, #694, and #691 own those residuals; no physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
+        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Issues #693, #694, and #703 own those residuals; no physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
         "id": "algebraic_event_frame_soldering",
         "lean_declarations": {
           "CelestialSoldering": [
@@ -878,7 +998,7 @@
         "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball"
       },
       {
-        "hypothesis_boundary": "five receipts stay open under issue #688: the global objective representation, the common source-derived reference for both optimizers, completion of the source collar realization, physical energy and clock calibration beyond the attained central-interface modular split, and refinement-uniform low-temperature control. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
+        "hypothesis_boundary": "issue #688 owns four source-side receipts: the global objective representation, the common source-derived reference for both optimizers, completion of the source collar realization, and refinement-uniform low-temperature control. Issue #703 separately owns physical energy and clock calibration beyond the attained central-interface modular split. Complete thermodynamic integration consumes both packets; neither issue is a prerequisite of the other. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
         "id": "thermodynamic_four_law_package",
         "lean_declarations": {
           "CapFirstLaw": [
@@ -951,7 +1071,7 @@
         "statement": "With a faithful common reference and repaired-visible fibre supplied, Axiom 3 instantiated on states selects the Gibbs exponential family by the exact information-projection Pythagorean identity, and instantiated on transition distributions over the repaired-visible fibre selects weighted conditional resampling from the same reference. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges; relative entropy to the reference contracts under it; the exact first-law split carries its bilinear cross term; the excited Gibbs mass obeys the finite gap bound with entropy limit log g0; partition pinching has an explicit normalized projector Kraus family and preserves trace, while the formal interface defines no complete-positivity predicate or bundled CP/CPTP channel; more generally, every stochastic kernel preserving a faithful stationary reference contracts relative entropy even without detailed balance, with an exact lazy directed three-cycle as the nonreversible separation witness"
       },
       {
-        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #688, #691, and #693 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #688, #693, #694, and #703 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",
         "id": "finite_green_kubo_graph_transport",
         "lean_declarations": {
           "GraphDiffusion": [
@@ -1025,7 +1145,7 @@
         "statement": "On the exact twelve-port, thirty-seam incidence graph, a declared pointwise continuity update gives regional source minus outward flux, internal cancellation, and closed-graph conservation for zero-total source. Rational Gauss solutions exist exactly for neutral loads and form one translate of a nineteen-dimensional cycle kernel. For finite real linear state maps, all-state charge conservation is equivalent to the dual fixed-observable equation; an exact two-state counterexample shows that channel covariance alone does not imply conservation"
       },
       {
-        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. The row's sole live gate, #692, owns finite coverage and the OPH region-factor adapter. Source channel/adaptive-scheduler semantics (#693), clocks (#691), and continuum causal/time-slice structure (#700) are downstream promotions outside this claim's gate. This row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. The row's sole live gate, #692, owns finite coverage and the OPH region-factor adapter. Source channel/adaptive-scheduler semantics (#693), physical clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice structure (#700) are downstream promotions outside this claim's gate. This row emits no prediction-ladder entry",
         "id": "finite_fixed_word_locality_and_marginal_invariance",
         "lean_declarations": {
           "DependencyCone": [
@@ -1146,7 +1266,7 @@
         "delta_alpha_had_5_MZ": 0.027609,
         "id": "hadronic_correction_engine",
         "pin_factor": 1.0317603861495885,
-        "policy": "The published-compilation payload is the correction engine of the fine-structure lane; source-only hadron rows stay suppressed pending the source spectral measure (issue 425).",
+        "policy": "The published-compilation payload is the correction engine of the fine-structure lane; source-only hadron rows stay suppressed. Historical issue #425 records the resource-deferred QCD backend; live bounded particle-output ownership is #697, and source-only QCD remains outside the available resources.",
         "source_compilation": "knt19_pinned_piecewise_v1",
         "uncertainty_total": 0.000112
       },
@@ -1213,10 +1333,13 @@
       {
         "artifact_ref": "code/particles/runs/flavor/quark_spread_fiber_structure_transport_obstruction.json",
         "blocking_issues": [
-          591
+          697
         ],
         "fiber_cut_detected": false,
         "fork": "ii_fiber_survives",
+        "historical_blocking_issues": [
+          591
+        ],
         "id": "quark_absolute_masses_obstruction",
         "statement": "No absolute quark mass is emitted: the two-modulus spread fiber survives every certified structure transport, so the six absolute masses are non-identifiable from the corpus, by theorem rather than by omission",
         "tier": "source_only_nonidentifiability_obstruction_transport"

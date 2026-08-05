@@ -9,6 +9,8 @@ on:
       - "claims/**"
       - "paper/**/*.tex"
       - "extra/**/*.tex"
+      - "flagship/**/*.tex"
+      - "book/**/*.md"
       - "README.md"
       - "README_FR.md"
       - "tools/check_claim_registry.py"
@@ -22,6 +24,8 @@ on:
       - "claims/**"
       - "paper/**/*.tex"
       - "extra/**/*.tex"
+      - "flagship/**/*.tex"
+      - "book/**/*.md"
       - "README.md"
       - "README_FR.md"
       - "tools/check_claim_registry.py"
@@ -46,7 +50,7 @@ jobs:
         run: |
           set -euo pipefail
           changed="$(git diff --name-only "origin/${{ github.base_ref }}...HEAD")"
-          claim_surface="$(printf '%s\n' "$changed" | grep -E '^(paper/.*\.tex|extra/.*\.tex|README\.md|README_FR\.md)$' || true)"
+          claim_surface="$(printf '%s\n' "$changed" | grep -E '^(paper/.*\.tex|extra/.*\.tex|flagship/.*\.tex|book/.*\.md|README\.md|README_FR\.md)$' || true)"
           registry_surface="$(printf '%s\n' "$changed" | grep -E '^(claims/|tools/check_claim_registry\.py|\.github/workflows/claim-registry\.yml)' || true)"
           if [ -n "$claim_surface" ] && [ -z "$registry_surface" ]; then
             echo "Public claim-surface files changed without touching the registry/check surface." >&2

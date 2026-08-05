@@ -531,8 +531,10 @@ $Q=\tfrac13+\tfrac23(|b|/a)^2$, with the balanced point $Q=2/3$ reached at
 $|b|/a=1/\sqrt2$. At the balanced point the measured electron and muon masses
 fix the tau mass inside the window $[1776.968991, 1776.969063]$ MeV, central
 value $1776.969027$ MeV, three orders of magnitude narrower than the current
-world-average uncertainty. The window was written down and timestamped before
-any new tau data; a dedicated measurement can confirm it or kill it.
+world-average uncertainty. The balance condition came from studying the same
+measured lepton family, which makes the interval a precise internal check. A
+future measurement tests the balanced pattern through its reported
+uncertainty; merely crossing the edge of the narrow interval is insufficient.
 
 Landauer cost
 :   Landauer's principle says erasing one bit at temperature

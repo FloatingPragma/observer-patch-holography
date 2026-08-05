@@ -71,6 +71,7 @@
     "OPH-UNIFIED-TYPED-SPINE",
     "OPH-GR-D6-A5-FINITE-CONTROL",
     "OPH-TIME-ORDER-TYPE-LEDGER",
+    "OPH-BOUNDED-OBSERVER-TIME-CALIBRATION",
     "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
     "OPH-CONSENSUS-TOWER-INTERFACE",
     "OPH-PUBLICIZATION-DYNAMICS-FINITE",
@@ -217,7 +218,7 @@
     {
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
       "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
-      "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale were specified historically in issue #655, remain under frozen custody in #695, and have active V2 physical closure owner #696"
+      "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale were specified historically in issue #655, remain under frozen custody in #695, have target-clean producer owner #704, and quantitative-output owner #696"
     },
     {
       "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -227,7 +228,7 @@
     {
       "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
       "to": "OPH-A5-SEAM-CURRENT-EDGE30",
-      "role": "supplies the antipodal six-axis load quotient and response-selected metric carrier; the position action, physical sector, cofinal gluing, scale, frame and readout remain the frozen FZ-12 branch premises"
+      "role": "supplies the antipodal six-axis load quotient and response-selected metric carrier; the position action, physical sector, cofinal gluing, scale, frame and readout remain the frozen FZ-12 branch premises with target-clean producer owner #704, quantitative-output owner #696, and custody owner #695"
     },
     {
       "from": "OPH-SCREEN-PORT-CURRENT-INNER",
@@ -666,6 +667,11 @@
     },
     {
       "from": "OPH-TIME-ORDER-TYPE-LEDGER",
+      "to": "OPH-BOUNDED-OBSERVER-TIME-CALIBRATION",
+      "role": "supplies the separated record-order, clock, worldline, proper-time, and named-map interfaces; D1 adds a monotone-gauge no-go and conditional metric calibration without identifying a physical clock"
+    },
+    {
+      "from": "OPH-TIME-ORDER-TYPE-LEDGER",
       "to": "OPH-CONSENSUS-TOWER-INTERFACE",
       "role": "supplies the observer-record order type used at every finite tower fibre; the tower adds only explicit refinement naturality and no physical clock identification"
     },
@@ -788,6 +794,11 @@
       "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
       "to": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
       "role": "supplies the rank-three FrameQuotient and Gram form used by the candidate standard-rest-fiber bridge; no theorem identifies that quotient with absolute space or produces the event atlas"
+    },
+    {
+      "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+      "to": "OPH-BOUNDED-OBSERVER-TIME-CALIBRATION",
+      "role": "supplies the conditional event atlas, affine Lorentz overlap, and invariant displacement interface consumed by the unit-timelike history theorem; source atlas and physical clock production are separate source obligations"
     },
     {
       "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",

@@ -194,14 +194,12 @@ certificates:
    the [Lean exterior-selection proof](Lean/Screen/ExteriorSelection.lean),
    and the [Lean family-band proof](Lean/Screen/A5FamilyBand.lean).
 6. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
-   response obeys $Q=1/3+(2/3)(|b|/a)^2$, so $Q=2/3$ exactly when
-   $|b|/a=1/\sqrt2$ in the nonnegative-eigenvalue chamber. Under the declared
-   balance and ordering premises, the electron and muon masses fix the tau mass
-   within 72 eV, 0.43 standard deviations from the comparison value. Physically
-   this would mean the old numerical coincidence among the charged lepton
-   masses is one condition on one response matrix, with two masses fixing the
-   third. The rejection rule is frozen, so a shifted tau measurement can kill
-   it. See the
+   response gives the exact positive-chamber relation among the electron,
+   muon, and tau masses. With two masses supplied, the conditional formula
+   lands within 72 eV of the measured tau mass. This is a target-informed
+   conditional postdiction because its balance premise is abstracted from the
+   known lepton pattern; deriving that premise from the source is the remaining
+   step. See the
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
