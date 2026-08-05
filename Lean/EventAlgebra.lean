@@ -8,6 +8,7 @@ import EventAlgebra.TwoScalePublicRepair
 import EventAlgebra.PublicRecordAlgebra
 import EventAlgebra.NoBroadcastingAdapter
 import EventAlgebra.StateExpectation
+import EventAlgebra.RobertsonUncertainty
 import EventAlgebra.Tsirelson
 import EventAlgebra.ExpectationBound
 import EventAlgebra.FiniteBornFrame
@@ -52,6 +53,11 @@ with projection events over `Matrix (Fin n) (Fin n) ℂ`:
 * `EventAlgebra.StateExpectation` — the bundled expectation functional
   `M ↦ Tr(ρ M)`: positivity, normalisation, and its
   restriction to events (the Born weight);
+* `EventAlgebra.RobertsonUncertainty` — the state pairing `Tr(ρ Xᴴ Y)`
+  as a positive-semidefinite pre-inner product, its Cauchy–Schwarz
+  inequality, and the finite Robertson uncertainty relation
+  `‖Tr(ρ [A,B])‖² ≤ 4·Var(A)·Var(B)` with zero-variance and sharp
+  noncommuting qubit controls;
 * `EventAlgebra.Tsirelson` — the Tsirelson bound `‖S‖ ≤ 2√2` for CHSH
   tuples, proved abstractly in unital C*-rings and instantiated for the
   finite matrix algebras;
