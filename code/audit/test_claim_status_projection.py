@@ -269,7 +269,7 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
         "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
-        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [688, 690, 691],
+        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [688, 693, 691],
     }
     for claim_id, gates in expected_gates.items():
         claim = by_id[claim_id]
