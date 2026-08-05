@@ -44,8 +44,9 @@ Lean/
 ├── Tower/                              timeless consensus tower, literal
 │                                       public quotient, and conditional endpoint
 ├── Geometry.lean
-├── Geometry/                           C1 Hermitian Lorentz module, celestial
-│                                       quotient, frames, rest spaces, tensor bridge
+├── Geometry/                           C1 Hermitian Lorentz module plus the C2
+│                                       algebraic event/frame/celestial/rest soldering
+│                                       contract and candidate source-frame bridge
 ├── QFT.lean
 ├── QFT/                                conditional finite regional-net and
 │                                       restriction-gluing interfaces on declared
@@ -124,9 +125,16 @@ continuous integration recreates it as a real directory.
 - `EventAlgebra/FiniteBornFrame.lean` and `../code/born_frame/README.md`:
   exact twelve-port context/Born rank gap, conditional tomography uniqueness,
   and the source-produced public-effect boundary
+- `EventAlgebra/FiniteEffectClosureBoundary.lean`: exact continuous nonlinear
+  antipodal binary-weight countermodel and the dense-positivity-after-affinity
+  closure theorem; continuity and binary normalization alone do not derive
+  Born affinity; see `docs/B13_EFFECT_CLOSURE_BOUNDARY.md`
 - `docs/C1_CANONICAL_LORENTZ_MODULE.md`: intrinsic Hermitian Lorentz module,
   set-level celestial quotient, frame/rest-space geometry, and exact Einstein
   coordinate bridge
+- `docs/C2_EVENT_FRAME_SOLDERING.md`: bounded affine/Lorentz overlap-cocycle
+  soldering, quotient descent, candidate source-frame/rest-fiber bridge, and
+  the retained source and physical event-manifold receipts
 - `docs/E1_FINITE_CAUSAL_OBSERVER_NET.md`: conditional finite regional-net and
   restriction-gluing interface, its parameterized commutative consistency
   model, and the open coverage, factor-localization, and noncommutative/source

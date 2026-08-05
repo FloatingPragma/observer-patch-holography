@@ -92,6 +92,16 @@ LEAN_RECEIPTS = {
     / "ObserverRestSpace.lean",
     "EinsteinTensorBridge": REPO / "Lean" / "Geometry"
     / "EinsteinTensorBridge.lean",
+    "LorentzOverlapCocycle": REPO / "Lean" / "Geometry"
+    / "LorentzOverlapCocycle.lean",
+    "EventGermDisplacement": REPO / "Lean" / "Geometry"
+    / "EventGermDisplacement.lean",
+    "CelestialSoldering": REPO / "Lean" / "Geometry"
+    / "CelestialSoldering.lean",
+    "EventFrameSoldering": REPO / "Lean" / "Geometry"
+    / "EventFrameSoldering.lean",
+    "SpatialReadbackSoldering": REPO / "Lean" / "Geometry"
+    / "SpatialReadbackSoldering.lean",
     "FiniteCausalObserverNet": REPO / "Lean" / "QFT"
     / "FiniteCausalObserverNet.lean",
     "ObserverNetDescent": REPO / "Lean" / "QFT"
@@ -116,6 +126,9 @@ LEAN_RECEIPTS = {
     "PrivateInner": REPO / "Lean" / "Dynamics" / "PrivateInner.lean",
     "FiniteBornFrame": REPO / "Lean" / "EventAlgebra"
     / "FiniteBornFrame.lean",
+    "FiniteEffectClosureBoundary": REPO / "Lean" / "EventAlgebra"
+    / "FiniteEffectClosureBoundary.lean",
+    "HolonomyInterference": LEAN_SCREEN / "HolonomyInterference.lean",
     "FiniteConditionalRepair": REPO / "Lean" / "Thermodynamics"
     / "FiniteConditionalRepair.lean",
     "StationaryRealization": REPO / "Lean" / "Thermodynamics"
@@ -878,7 +891,8 @@ def _forced_structure(
                 "four-dimensional Lorentzian event and observer-frame geometry"
             ),
             "match": (
-                "exact intrinsic geometry and coordinate bridge; soldering open"
+                "exact intrinsic geometry and coordinate bridge; physical "
+                "soldering remains outside C1"
             ),
             "lean_declarations": {
                 "CanonicalLorentzModule": [
@@ -943,12 +957,128 @@ def _forced_structure(
             ),
             "hypothesis_boundary": (
                 "the celestial equivalence is set-level and the frames and "
-                "rest spaces are algebraic. No observer-patch selection, "
-                "event soldering, overlap cocycle, affine translation sector, "
-                "rod, clock, physical spacetime, continuum attachment, "
-                "observable, decision rule, or prediction is supplied"
+                "rest spaces are algebraic. C1 alone supplies no observer-patch "
+                "selection or soldering. The separate bounded C2 contract "
+                "supplies algebraic overlap covariance only from declared "
+                "inputs; source event realization, rods, clocks, physical "
+                "spacetime, continuum attachment, observable, decision rule, "
+                "and prediction remain open"
             ),
             "paper_ref": "observers paper, canonical Lorentz module",
+        },
+        {
+            "id": "algebraic_event_frame_soldering",
+            "statement": (
+                "Coincidence-invariant Herm2 readback descends uniquely through "
+                "an actual event setoid. One supplied time-oriented affine "
+                "Lorentz overlap cocycle then induces translation-free "
+                "displacement covariance, invariant intervals, future-null "
+                "celestial transport, compatible event frames, and isometric "
+                "transport of their positive rest spaces. The rank-three source "
+                "FrameQuotient is linearly and isometrically identified with "
+                "the standard internal rest fiber as a candidate local readback. "
+                "Exact controls exhibit a nontrivial translated future-null "
+                "atlas and show that reflexive symmetric pairwise overlap need "
+                "not be transitive"
+            ),
+            "observed_counterpart": (
+                "event-frame and local rest-space Lorentz covariance"
+            ),
+            "match": (
+                "exact bounded algebraic contract; source and physical receipts open"
+            ),
+            "lean_declarations": {
+                "LorentzOverlapCocycle": [
+                    "LorentzOverlapCocycle.act_cocycle",
+                    "LorentzOverlapCocycle.act_reverse_left",
+                    "LorentzOverlapCocycle.act_reverse_right",
+                    "LorentzOverlapCocycle.act_sub_act",
+                ],
+                "EventGermDisplacement": [
+                    "coincidenceInvariant_iff_existsUnique_descendedReadback",
+                    "overlapControl_not_transitive",
+                    "EventGermAtlas.displacement_reverse",
+                    "EventGermAtlas.displacement_chain",
+                    "EventGermAtlas.displacement_overlap",
+                    "EventGermAtlas.interval_overlap",
+                ],
+                "CelestialSoldering": [
+                    "OrientedLorentzEquiv.mapFutureNullRay_trans",
+                    "OrientedLorentzEquiv.celestialAction_trans",
+                    "EventGermAtlas.futureNullDisplacementRay_overlap",
+                    "EventGermAtlas.celestialSolder_overlap",
+                ],
+                "EventFrameSoldering": [
+                    "EventFrameSoldering.algebraicConsequences",
+                    "EventFrameSoldering.expanded_handoff_iff_residual",
+                    "control_chart_translation_nonzero",
+                    "control_displacement_nonzero",
+                    "control_displacement_futureNull",
+                ],
+                "SpatialReadbackSoldering": [
+                    "restProjection_decomposition",
+                    "OrientedLorentzEquiv.restProjection_covariant",
+                    "OrientedLorentzEquiv.restEquiv_preserves_metric",
+                    "frameQuotientEquivStandardRest_preserves_metric",
+                    "EventFrameSoldering.displacement_time_add_spatial",
+                    "EventFrameSoldering.spatialReadback_overlap",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "LorentzOverlapCocycle",
+                "EventGermDisplacement",
+                "CelestialSoldering",
+                "EventFrameSoldering",
+                "SpatialReadbackSoldering",
+                declarations={
+                    "LorentzOverlapCocycle": (
+                        "LorentzOverlapCocycle.act_cocycle",
+                        "LorentzOverlapCocycle.act_reverse_left",
+                        "LorentzOverlapCocycle.act_reverse_right",
+                        "LorentzOverlapCocycle.act_sub_act",
+                    ),
+                    "EventGermDisplacement": (
+                        "coincidenceInvariant_iff_existsUnique_descendedReadback",
+                        "overlapControl_not_transitive",
+                        "EventGermAtlas.displacement_reverse",
+                        "EventGermAtlas.displacement_chain",
+                        "EventGermAtlas.displacement_overlap",
+                        "EventGermAtlas.interval_overlap",
+                    ),
+                    "CelestialSoldering": (
+                        "OrientedLorentzEquiv.mapFutureNullRay_trans",
+                        "OrientedLorentzEquiv.celestialAction_trans",
+                        "EventGermAtlas.futureNullDisplacementRay_overlap",
+                        "EventGermAtlas.celestialSolder_overlap",
+                    ),
+                    "EventFrameSoldering": (
+                        "EventFrameSoldering.algebraicConsequences",
+                        "EventFrameSoldering.expanded_handoff_iff_residual",
+                        "control_chart_translation_nonzero",
+                        "control_displacement_nonzero",
+                        "control_displacement_futureNull",
+                    ),
+                    "SpatialReadbackSoldering": (
+                        "restProjection_decomposition",
+                        "OrientedLorentzEquiv.restProjection_covariant",
+                        "OrientedLorentzEquiv.restEquiv_preserves_metric",
+                        "frameQuotientEquivStandardRest_preserves_metric",
+                        "EventFrameSoldering.displacement_time_add_spatial",
+                        "EventFrameSoldering.spatialReadback_overlap",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the coincidence setoid, invariant readback, affine Lorentz "
+                "cocycle, and base frame are supplied. The exact handoff retains "
+                "source atlas realization, event population, certified "
+                "separation, open rank-four charts, physical cone attachment, "
+                "refinement naturality, semantic causal reachability, and an "
+                "operational clock. Issues #693, #694, and #691 own those "
+                "residuals; no physical spacetime, Einstein dynamics, "
+                "observable, decision rule, or prediction follows"
+            ),
+            "paper_ref": "spacetime paper, bounded algebraic event-frame soldering",
         },
         {
             "id": "finite_causal_observer_net_interface",
@@ -1188,6 +1318,70 @@ def _forced_structure(
             "paper_ref": "observers paper, finite public/private dynamics",
         },
         {
+            "id": "finite_holonomy_character_phase",
+            "statement": (
+                "For reversal-compatible group labels on endpoint-typed finite "
+                "paths, the ordered transport ratio of two common-endpoint "
+                "paths equals the holonomy of their closed ratio loop, and "
+                "every unitary character maps it to the exact relative phase. "
+                "Recharting conjugates based holonomy and leaves character "
+                "phase invariant. An explicit four-vertex punctured complex "
+                "has flat declared triangular faces but nontrivial global "
+                "holonomy and two-arm phase. A supplied cyclic ZMod n sector "
+                "forces the character phase to be an nth root of unity"
+            ),
+            "observed_counterpart": (
+                "finite Aharonov--Bohm holonomy and cyclic flux-phase structure"
+            ),
+            "match": (
+                "exact bounded algebraic packet; physical attachment open"
+            ),
+            "lean_declarations": {
+                "HolonomyInterference": [
+                    "transportRatio_eq_closedLoopHolonomy",
+                    "relativeCharacterPhase_eq_closedLoopPhase",
+                    "holonomy_rechart_conjugate",
+                    "holonomy_rechart_invariant",
+                    "characterPhase_rechart_invariant",
+                    "exists_localTriangleFlat_globalHolonomy_nontrivial",
+                    "long_reference_relativeCharacterPhase",
+                    "exists_localTriangleFlat_relativeCharacterPhase_nontrivial",
+                    "zmodCharacter_phase_pow_order",
+                    "cyclicSectorCharacter_phase_pow_order",
+                    "loopCharacterPhase_pow_order_of_cyclicHolonomy",
+                    "cyclicLoopPhase_pow_order",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "HolonomyInterference",
+                declarations={
+                    "HolonomyInterference": (
+                        "transportRatio_eq_closedLoopHolonomy",
+                        "relativeCharacterPhase_eq_closedLoopPhase",
+                        "holonomy_rechart_conjugate",
+                        "holonomy_rechart_invariant",
+                        "characterPhase_rechart_invariant",
+                        "exists_localTriangleFlat_globalHolonomy_nontrivial",
+                        "long_reference_relativeCharacterPhase",
+                        "exists_localTriangleFlat_relativeCharacterPhase_nontrivial",
+                        "zmodCharacter_phase_pow_order",
+                        "cyclicSectorCharacter_phase_pow_order",
+                        "loopCharacterPhase_pow_order_of_cyclicHolonomy",
+                        "cyclicLoopPhase_pow_order",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the edge labels, reversal law, declared face complex, unitary "
+                "character, cyclic sector map, and factorization are supplied. "
+                "Local flatness quantifies only over the two declared faces of "
+                "the punctured control. No observer-source connection, physical "
+                "gauge field, spacetime loop, charge, clock, flux, detector, "
+                "laboratory fringe, or prediction is constructed"
+            ),
+            "paper_ref": "gauge paper, finite holonomy/interference packet",
+        },
+        {
             "id": "finite_born_frame_rank_gap",
             "statement": (
                 "The twelve declared central port atoms form one classical "
@@ -1198,7 +1392,11 @@ def _forced_structure(
                 "and is characterized by three exact golden-ratio relations. "
                 "Tomography is unique when a representation exists, but exact "
                 "unit-interval controls show both nonrepresentation and a unique "
-                "Hermitian representation whose matrix is nonpositive"
+                "Hermitian representation whose matrix is nonpositive. On the "
+                "full celestial sphere, the continuous normalized binary weight "
+                "F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is "
+                "supplied, dense probability tests force the coefficient into "
+                "the closed unit ball"
             ),
             "observed_counterpart": (
                 "finite noncontextual weight representation and the Born rule"
@@ -1214,9 +1412,17 @@ def _forced_structure(
                     "densityRepresentation_unique",
                     "exists_admissible_not_densityRepresentable",
                 ],
+                "FiniteEffectClosureBoundary": [
+                    "continuous_celestialBinaryWeight",
+                    "nonlinearBinaryWeight_mem_Icc",
+                    "nonlinearBinaryWeight_antipodal_sum",
+                    "nonlinearBinaryWeight_not_affine",
+                    "dense_affine_probability_tests_force_closed_unit_ball",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteBornFrame",
+                "FiniteEffectClosureBoundary",
                 declarations={
                     "FiniteBornFrame": (
                         "contextAdditive_unique_parameterization",
@@ -1224,6 +1430,13 @@ def _forced_structure(
                         "hermitianRepresentation_unique",
                         "densityRepresentation_unique",
                         "exists_admissible_not_densityRepresentable",
+                    ),
+                    "FiniteEffectClosureBoundary": (
+                        "continuous_celestialBinaryWeight",
+                        "nonlinearBinaryWeight_mem_Icc",
+                        "nonlinearBinaryWeight_antipodal_sum",
+                        "nonlinearBinaryWeight_not_affine",
+                        "dense_affine_probability_tests_force_closed_unit_ball",
                     ),
                 },
             ),
@@ -1235,10 +1448,12 @@ def _forced_structure(
                 "the central atoms and spinor projectors are different objects. "
                 "The projector family is a declared mathematical adapter from "
                 "source-derived geometry, not a source-produced public quantum "
-                "instrument. No general Gleason or Busch theorem, physical Born "
+                "instrument. The celestial countermodel proves that continuity "
+                "and normalized antipodal binary contexts still do not derive "
+                "affinity. No general Gleason or Busch theorem, physical Born "
                 "derivation, observable, or prediction is emitted. Issue #702 "
-                "owns the positive source-effect and cone or operational "
-                "continuation"
+                "owns the source-effect, affinity/noncontextuality, and public "
+                "instrument/readback continuation"
             ),
             "paper_ref": "observers paper, finite Born-frame rank audit",
         },
@@ -1483,9 +1698,10 @@ def _forced_structure(
                 "clock increment, volumes, heat capacities, and conductances "
                 "are declared finite inputs. No theorem identifies the "
                 "Green--Kubo coefficient with graph conductance. Issues #688, "
-                "#690, and #691 own the source evolution, physical equilibrium "
-                "reference and conserved quantity, geometry, clock, and "
-                "calibration; this row emits no prediction-ladder "
+                "#691, and #693 own the source evolution, physical equilibrium "
+                "reference and conserved quantity, source-realized geometry, "
+                "clock, and calibration; bounded algebraic C2 issue #690 is "
+                "closed and this row emits no prediction-ladder "
                 "entry"
             ),
             "paper_ref": "observers paper, finite transport theorem",

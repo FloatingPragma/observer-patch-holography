@@ -480,6 +480,22 @@ has **frustration**: the local assignments cannot all hold simultaneously.
 
 This is analogous to gauge theory and geometry. Move a vector around a loop; if it comes back rotated, there is nontrivial holonomy. Holonomy is the leftover mismatch that appears after a full circuit. Likewise, a loop that does not close cleanly signals an obstruction to global gluing, with no simple globally consistent assignment.
 
+The finite algebra is exact. If every directed edge carries a reversible group
+element, the transport ratio between two routes with the same endpoints is
+the holonomy of the closed loop formed by taking one route out and the other
+back. A one-dimensional character turns that group identity into a relative
+phase. Local changes of dictionary only conjugate the loop holonomy, so an
+abelian holonomy and every character phase are invariant. A small punctured
+four-vertex example has two flat declared triangles but a nontrivial unfilled
+loop: local flatness does not erase global topology. If that holonomy lies in
+a supplied cyclic group of order $n$, its character phase is an $n$th root of
+unity.
+
+This is the finite Aharonov--Bohm principle, not yet a laboratory prediction.
+The edge labels, loop, character, cyclic sector, physical gauge field, flux,
+experimental arms, and detector would still need a source and measurement
+attachment.
+
 A structure that has to close on itself is a demanding thing. It leaves
 surprisingly little freedom about what it can be made of.
 

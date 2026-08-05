@@ -54,5 +54,10 @@ not prove any of the following:
 - a physical clock, rods, causal dynamics, or operational calibration;
 - a continuum/refinement limit or Einstein dynamics.
 
-Those are downstream attachment and dynamics lanes.  They must not be
-imported into the epistemic status of C1.
+The finite algebraic portions of coincidence descent, affine/Lorentz overlap
+transport, induced celestial/frame/rest covariance, and the candidate
+rank-three source-frame bridge are now supplied by the separate bounded C2
+contract in `C2_EVENT_FRAME_SOLDERING.md`. Source realization, population,
+topology, physical cone attachment, causality, refinement, rods, clocks, and
+physical spacetime remain downstream. None is imported into the epistemic
+status of C1.

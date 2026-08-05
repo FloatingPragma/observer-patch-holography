@@ -1510,9 +1510,9 @@
     },
     {
       "claim_id": "OPH-FINITE-BORN-FRAME-RANK-GAP",
-      "statement": "The two available twelve-port objects have exact but different finite probability content. The twelve declared central port atoms form one classical context: normalized nonnegative weights form an eleven-simplex and determine a unique state on the commutative algebra C^12, but the same diagonal weights do not determine a density matrix in a separately supplied ambient M12 algebra. The declared binary-icosahedral qubit adapter instead has six disjoint antipodal binary contexts. Context-independent finite additivity on those contexts has affine dimension six. Its trace-one Hermitian/Born slice has affine dimension three and is characterized exactly over Q(sqrt(5)) by three independent golden-ratio relations. The Hermitian and density representation is unique whenever it exists, but an exact unit-interval additive weight has no Hermitian representation, and a second represented unit-interval weight has a nonpositive unique matrix. Hence positivity and additivity on only these twelve projectors do not force a density representation. The projector adapter is not a source-produced public quantum instrument, so this bounded result is a rank-gap no-go and not a derivation of the Born rule. Live issue #702 owns the missing source-produced effect system and nonpolyhedral cone or operational extension theorem.",
+      "statement": "The two available twelve-port objects have exact but different finite probability content. The twelve declared central port atoms form one classical context: normalized nonnegative weights form an eleven-simplex and determine a unique state on the commutative algebra C^12, but the same diagonal weights do not determine a density matrix in a separately supplied ambient M12 algebra. The declared binary-icosahedral qubit adapter instead has six disjoint antipodal binary contexts. Context-independent finite additivity on those contexts has affine dimension six. Its trace-one Hermitian/Born slice has affine dimension three and is characterized exactly over Q(sqrt(5)) by three independent golden-ratio relations. The Hermitian and density representation is unique whenever it exists, but an exact unit-interval additive weight has no Hermitian representation, and a second represented unit-interval weight has a nonpositive unique matrix. Hence positivity and additivity on only these twelve projectors do not force a density representation. A stronger exact countermodel on the full C1 celestial sphere shows that F(n)=(1+n_z^3)/2 is continuous, lies in [0,1], and obeys F(-n)=1-F(n), yet is not affine/Born. Conversely, once affinity is supplied, probability bounds on any dense set extend to the sphere and force the coefficient into the closed unit ball. The projector adapter is not a source-produced public quantum instrument, so this bounded result is a rank-gap and closure-boundary no-go, not a derivation of the Born rule. Live issue #702 owns the missing source-produced effect system, affinity or nonpolyhedral cone theorem, and public instrument/readback bridge.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "exact_bounded_finite_frame_rank_gap_and_attachment_no_go",
+      "tier": "exact_bounded_finite_frame_rank_gap_continuous_binary_no_go_and_attachment_boundary",
       "assumptions": [
         "declared_twelve_central_port_atom_context",
         "declared_binary_icosahedral_projector_adapter",
@@ -1521,22 +1521,26 @@
       "imported_results": [
         "exact_linear_algebra_over_Q_sqrt_5",
         "finite_affine_constraint_rank",
-        "qubit_Bloch_density_criterion"
+        "qubit_Bloch_density_criterion",
+        "C1_celestial_unit_sphere",
+        "continuity_and_dense_subset_closure"
       ],
-      "oph_specific_delta": "The audit separates the source manifest's central classical atoms from the nonphysical spinor projector adapter, exhausts the exact additive and Born-affine ranks of the strongest available twelve-port frame, and supplies two independent controls showing respectively nonrepresentation and failure of full-cone positivity. It converts an underdefined positive Born-rule goal into a precise bounded no-go and hands the typed positive antecedent to live issue #702.",
+      "oph_specific_delta": "The audit separates the source manifest's central classical atoms from the nonphysical spinor projector adapter, exhausts the exact additive and Born-affine ranks of the strongest available twelve-port frame, and supplies independent exact controls for nonrepresentation and failure of full-cone positivity. The celestial countermodel additionally proves that continuity plus normalized binary contexts cannot repair the gap, while the dense-test theorem isolates affinity as the sufficient missing premise before Bloch-ball positivity. This converts an underdefined positive Born-rule goal into a precise bounded no-go and a sharper handoff to live issue #702.",
       "novelty_type": "source_audited_finite_frame_rank_gap_no_go",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "Lean/EventAlgebra/FiniteBornFrame.lean",
+        "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean",
+        "Lean/docs/B13_EFFECT_CLOSURE_BOUNDARY.md",
         "code/born_frame/README.md",
         "code/born_frame/finite_born_frame_certificate.py",
         "code/born_frame/verify_finite_born_frame_independent.py",
         "code/born_frame/runtime/finite_born_frame_certificate.json",
         "code/born_frame/test_finite_born_frame_certificate.py"
       ],
-      "falsifier": "The bounded result fails if the declared context matrix does not have rank six, the frame or effect-system ranks differ from three or four, the three displayed relations do not exactly characterize the Hermitian slice, tomography is nonunique on that slice, either exact control loses context additivity or unit-interval positivity, the non-Born control gains a Hermitian representation, or the represented nonpositive control satisfies the density criterion.",
-      "scope_if_false": "Only the bounded twelve-port frame audit falls. The general finite event-algebra theorems, a future richer source-produced effect family, and every frozen physical prediction remain separately assessed.",
-      "status": "exact_bounded_rank_gap__conditional_uniqueness__public_effect_source_missing",
+      "falsifier": "The bounded result fails if the declared context matrix does not have rank six, the frame or effect-system ranks differ from three or four, the three displayed relations do not exactly characterize the Hermitian slice, tomography is nonunique, either finite exact control fails, the celestial nonlinear weight leaves [0,1], loses antipodal normalization or continuity, gains an affine representation, or dense affine probability tests fail to force the closed unit ball.",
+      "scope_if_false": "Only the bounded twelve-port frame audit or celestial closure-boundary theorem falls. The general finite event-algebra theorems, a future richer source-produced effect family, and every frozen physical prediction remain separately assessed.",
+      "status": "exact_bounded_rank_gap_and_continuous_binary_no_go__affinity_effect_source_and_public_instrument_missing",
       "claim_class": "conditional_implication",
       "gates": []
     },
@@ -2855,6 +2859,72 @@
       "gates": [
         692
       ]
+    },
+    {
+      "claim_id": "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
+      "statement": "For reversal-compatible group-valued labels on endpoint-typed finite paths, the ordered transport ratio of two paths with common endpoints is exactly the holonomy of the closed ratio loop. Every one-dimensional unitary character sends this identity to an exact relative phase. Vertex recharting conjugates based holonomy; raw holonomy is therefore invariant for abelian structure groups, and character phase is invariant for arbitrary groups. An explicit four-vertex punctured complex has trivial holonomy on both declared triangular faces and nontrivial holonomy and two-arm relative phase on an unfilled loop. If a loop holonomy factors through a supplied Multiplicative (ZMod n) sector, every character phase is an nth root of unity. The edge labels, faces, character, sector map, and factorization are inputs. No observer-source connection, physical gauge field, spacetime loop, flux, charge, laboratory path, detector, or fringe is constructed.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "exact_bounded_finite_holonomy_character_phase_and_cyclic_quantization",
+      "assumptions": [
+        "supplied_reversal_compatible_finite_edge_transport",
+        "supplied_unitary_character",
+        "supplied_declared_face_complex",
+        "supplied_cyclic_sector_factorization",
+        "physical_interference_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_group_valued_path_transport",
+        "one_dimensional_group_characters",
+        "finite_Cech_recharting",
+        "cyclic_group_exponent"
+      ],
+      "oph_specific_delta": "B6 packages the loop obstruction as one executable finite theorem stack: path-ratio holonomy, rechart-invariant character phase, a premise-separating local-flat/global-nontrivial control, and cyclic phase quantization, while keeping the source and laboratory attachment outside the theorem.",
+      "novelty_type": "typed_finite_holonomy_interference_packet_with_attachment_firewall",
+      "evidence": [
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+        "Lean/Screen/HolonomyInterference.lean",
+        "Lean/docs/B6_HOLONOMY_INTERFERENCE.md"
+      ],
+      "falsifier": "The finite packet fails if path reversal is not inverse transport, a common-endpoint transport ratio differs from the closed-loop holonomy, the character relative-phase identity or rechart invariance fails, either declared local face of the explicit control is nonflat, its global phase is trivial, or a supplied cyclic-sector character value is not an nth root of unity.",
+      "scope_if_false": "Only the bounded B6 path, phase, control, or cyclic-quantization packet falls. No physical gauge connection, flux, interference experiment, continuum gauge theory, or frozen prediction is asserted by this claim.",
+      "status": "bounded_finite_holonomy_and_character_phase_packet_attained__physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": []
+    },
+    {
+      "claim_id": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+      "statement": "A raw Herm2 readback descends uniquely through an actual coincidence setoid exactly when it is invariant on coincidence classes. Given one time-oriented affine Lorentz overlap cocycle, coordinate displacements transform through its Lorentz part, translations cancel, Lorentz intervals are chart independent, and identity, reverse-transition, and triple-overlap laws hold. Future-null displacements give overlap-covariant celestial directions. One base-chart future-unit frame selection constructs compatible chart frames; canonical Lorentz-orthogonal rest projections split every displacement and transport through exact rest-space linear isometries. The rank-three source FrameQuotient is linearly and isometrically equivalent to the standard internal rest fiber as a candidate local readback, not absolute space. A two-event/two-chart control has nonzero affine translation and a nonzero future-null displacement, while a three-germ control proves that reflexive symmetric pairwise overlap need not be transitive. The premise-reduction theorem retains source realization of the coincidence atlas, population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "exact_bounded_algebraic_event_frame_soldering_contract",
+      "assumptions": [
+        "actual_event_coincidence_setoid_and_invariant_readback",
+        "supplied_time_oriented_affine_Lorentz_overlap_cocycle",
+        "supplied_base_chart_frame_selection",
+        "physical_event_atlas_and_clock_receipts_deferred"
+      ],
+      "imported_results": [
+        "C1_intrinsic_Herm2_Lorentz_module",
+        "quotient_descent",
+        "affine_cocycle_algebra",
+        "source_FrameQuotient_Gram_theorem"
+      ],
+      "oph_specific_delta": "C2 turns the intrinsic C1 module into one proof-carrying algebraic soldering contract, derives all four displacement/celestial/frame/rest readbacks from one overlap cocycle, proves the exact source-frame/rest-fiber candidate bridge, and makes every source and physical event-manifold receipt survive the premise reduction by name.",
+      "novelty_type": "single_cocycle_four_soldering_theorem_with_exact_premise_firewall",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "Lean/Geometry/LorentzOverlapCocycle.lean",
+        "Lean/Geometry/EventGermDisplacement.lean",
+        "Lean/Geometry/CelestialSoldering.lean",
+        "Lean/Geometry/EventFrameSoldering.lean",
+        "Lean/Geometry/SpatialReadbackSoldering.lean",
+        "Lean/docs/C2_EVENT_FRAME_SOLDERING.md"
+      ],
+      "falsifier": "The bounded contract fails if coincidence invariance is not equivalent to unique descent, affine translations do not cancel from displacements, an overlap changes the Lorentz interval, reverse or triple transitions fail, future-null-ray or celestial transport is ill-defined, base-frame transport violates the cocycle, rest projection leaves the orthogonal fiber or fails metric covariance, the source quotient/rest-fiber metric identity fails, or either finite control fails.",
+      "scope_if_false": "Only the bounded algebraic C2 contract or its candidate source-frame bridge falls. Source event population, topology, physical cone and causal attachment, refinement, rods, clocks, physical spacetime, Einstein dynamics, and every frozen prediction remain separate.",
+      "status": "bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": []
     }
   ]
 }

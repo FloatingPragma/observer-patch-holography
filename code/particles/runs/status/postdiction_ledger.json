@@ -620,7 +620,7 @@
         "statement": "A finite inhabited raw presentation has a literal kernel quotient whose equality is exactly public-readback equality and whose points are the realized signatures. Termination constructs a finite completed schedule; confluence, semantic fixed-point completeness, and explicit repair-output plus enabledness congruence make the consistent public endpoint independent of completed schedule and raw representative. The existing OPH Repair descends to an idempotent public map, and typed OPH and A3-regulator adaptors retain every premise"
       },
       {
-        "hypothesis_boundary": "the celestial equivalence is set-level and the frames and rest spaces are algebraic. No observer-patch selection, event soldering, overlap cocycle, affine translation sector, rod, clock, physical spacetime, continuum attachment, observable, decision rule, or prediction is supplied",
+        "hypothesis_boundary": "the celestial equivalence is set-level and the frames and rest spaces are algebraic. C1 alone supplies no observer-patch selection or soldering. The separate bounded C2 contract supplies algebraic overlap covariance only from declared inputs; source event realization, rods, clocks, physical spacetime, continuum attachment, observable, decision rule, and prediction remain open",
         "id": "canonical_intrinsic_lorentz_module",
         "lean_declarations": {
           "CanonicalLorentzModule": [
@@ -656,10 +656,62 @@
           "Lean/Geometry/ObserverRestSpace.lean",
           "Lean/Geometry/EinsteinTensorBridge.lean"
         ],
-        "match": "exact intrinsic geometry and coordinate bridge; soldering open",
+        "match": "exact intrinsic geometry and coordinate bridge; physical soldering remains outside C1",
         "observed_counterpart": "four-dimensional Lorentzian event and observer-frame geometry",
         "paper_ref": "observers paper, canonical Lorentz module",
         "statement": "The real Pauli-coordinate module Herm2 is exactly the four-dimensional space of two-by-two complex Hermitian matrices, with determinant equal to the Lorentz quadratic form of constructive inertia (+---). Positive future-null rays are set-equivalent to the unit two-sphere, the algebraic future-unit hyperboloid has three-dimensional positive rest spaces, and an explicit linear chart matches the existing Einstein coordinates with exactly the required sign flip"
+      },
+      {
+        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, and base frame are supplied. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Issues #693, #694, and #691 own those residuals; no physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
+        "id": "algebraic_event_frame_soldering",
+        "lean_declarations": {
+          "CelestialSoldering": [
+            "OrientedLorentzEquiv.mapFutureNullRay_trans",
+            "OrientedLorentzEquiv.celestialAction_trans",
+            "EventGermAtlas.futureNullDisplacementRay_overlap",
+            "EventGermAtlas.celestialSolder_overlap"
+          ],
+          "EventFrameSoldering": [
+            "EventFrameSoldering.algebraicConsequences",
+            "EventFrameSoldering.expanded_handoff_iff_residual",
+            "control_chart_translation_nonzero",
+            "control_displacement_nonzero",
+            "control_displacement_futureNull"
+          ],
+          "EventGermDisplacement": [
+            "coincidenceInvariant_iff_existsUnique_descendedReadback",
+            "overlapControl_not_transitive",
+            "EventGermAtlas.displacement_reverse",
+            "EventGermAtlas.displacement_chain",
+            "EventGermAtlas.displacement_overlap",
+            "EventGermAtlas.interval_overlap"
+          ],
+          "LorentzOverlapCocycle": [
+            "LorentzOverlapCocycle.act_cocycle",
+            "LorentzOverlapCocycle.act_reverse_left",
+            "LorentzOverlapCocycle.act_reverse_right",
+            "LorentzOverlapCocycle.act_sub_act"
+          ],
+          "SpatialReadbackSoldering": [
+            "restProjection_decomposition",
+            "OrientedLorentzEquiv.restProjection_covariant",
+            "OrientedLorentzEquiv.restEquiv_preserves_metric",
+            "frameQuotientEquivStandardRest_preserves_metric",
+            "EventFrameSoldering.displacement_time_add_spatial",
+            "EventFrameSoldering.spatialReadback_overlap"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Geometry/LorentzOverlapCocycle.lean",
+          "Lean/Geometry/EventGermDisplacement.lean",
+          "Lean/Geometry/CelestialSoldering.lean",
+          "Lean/Geometry/EventFrameSoldering.lean",
+          "Lean/Geometry/SpatialReadbackSoldering.lean"
+        ],
+        "match": "exact bounded algebraic contract; source and physical receipts open",
+        "observed_counterpart": "event-frame and local rest-space Lorentz covariance",
+        "paper_ref": "spacetime paper, bounded algebraic event-frame soldering",
+        "statement": "Coincidence-invariant Herm2 readback descends uniquely through an actual event setoid. One supplied time-oriented affine Lorentz overlap cocycle then induces translation-free displacement covariance, invariant intervals, future-null celestial transport, compatible event frames, and isometric transport of their positive rest spaces. The rank-three source FrameQuotient is linearly and isometrically identified with the standard internal rest fiber as a candidate local readback. Exact controls exhibit a nontrivial translated future-null atlas and show that reflexive symmetric pairwise overlap need not be transitive"
       },
       {
         "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom, the B4 helper has no regional-factor attachment, and the parameterized consistency model is commutative and degenerate. Issue #692 gates a noncommutative region-separating source realization with genuine coverage and factor-localization receipts; no CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
@@ -767,11 +819,38 @@
         "statement": "Positive unital complex-linear maps of the finite active-record function algebra are exactly real row-stochastic kernels under the declared coordinatewise cone. Every public star automorphism is uniquely pullback by a label permutation, so every pointwise-continuous real-parameter group of arbitrary public star automorphisms is trivial. Every star automorphism of one finite full private endomorphism block is unitarily inner, and a supplied self-adjoint Hamiltonian generates a unitary real-parameter von Neumann flow"
       },
       {
+        "hypothesis_boundary": "the edge labels, reversal law, declared face complex, unitary character, cyclic sector map, and factorization are supplied. Local flatness quantifies only over the two declared faces of the punctured control. No observer-source connection, physical gauge field, spacetime loop, charge, clock, flux, detector, laboratory fringe, or prediction is constructed",
+        "id": "finite_holonomy_character_phase",
+        "lean_declarations": {
+          "HolonomyInterference": [
+            "transportRatio_eq_closedLoopHolonomy",
+            "relativeCharacterPhase_eq_closedLoopPhase",
+            "holonomy_rechart_conjugate",
+            "holonomy_rechart_invariant",
+            "characterPhase_rechart_invariant",
+            "exists_localTriangleFlat_globalHolonomy_nontrivial",
+            "long_reference_relativeCharacterPhase",
+            "exists_localTriangleFlat_relativeCharacterPhase_nontrivial",
+            "zmodCharacter_phase_pow_order",
+            "cyclicSectorCharacter_phase_pow_order",
+            "loopCharacterPhase_pow_order_of_cyclicHolonomy",
+            "cyclicLoopPhase_pow_order"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/HolonomyInterference.lean"
+        ],
+        "match": "exact bounded algebraic packet; physical attachment open",
+        "observed_counterpart": "finite Aharonov--Bohm holonomy and cyclic flux-phase structure",
+        "paper_ref": "gauge paper, finite holonomy/interference packet",
+        "statement": "For reversal-compatible group labels on endpoint-typed finite paths, the ordered transport ratio of two common-endpoint paths equals the holonomy of their closed ratio loop, and every unitary character maps it to the exact relative phase. Recharting conjugates based holonomy and leaves character phase invariant. An explicit four-vertex punctured complex has flat declared triangular faces but nontrivial global holonomy and two-arm phase. A supplied cyclic ZMod n sector forces the character phase to be an nth root of unity"
+      },
+      {
         "artifact_refs": [
           "code/born_frame/runtime/finite_born_frame_certificate.json",
           "code/born_frame/verify_finite_born_frame_independent.py"
         ],
-        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter from source-derived geometry, not a source-produced public quantum instrument. No general Gleason or Busch theorem, physical Born derivation, observable, or prediction is emitted. Issue #702 owns the positive source-effect and cone or operational continuation",
+        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter from source-derived geometry, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity. No general Gleason or Busch theorem, physical Born derivation, observable, or prediction is emitted. Issue #702 owns the source-effect, affinity/noncontextuality, and public instrument/readback continuation",
         "id": "finite_born_frame_rank_gap",
         "lean_declarations": {
           "FiniteBornFrame": [
@@ -780,15 +859,23 @@
             "hermitianRepresentation_unique",
             "densityRepresentation_unique",
             "exists_admissible_not_densityRepresentable"
+          ],
+          "FiniteEffectClosureBoundary": [
+            "continuous_celestialBinaryWeight",
+            "nonlinearBinaryWeight_mem_Icc",
+            "nonlinearBinaryWeight_antipodal_sum",
+            "nonlinearBinaryWeight_not_affine",
+            "dense_affine_probability_tests_force_closed_unit_ball"
           ]
         },
         "lean_receipts": [
-          "Lean/EventAlgebra/FiniteBornFrame.lean"
+          "Lean/EventAlgebra/FiniteBornFrame.lean",
+          "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean"
         ],
         "match": "exact bounded rank-gap no-go; public quantum-effect source missing",
         "observed_counterpart": "finite noncontextual weight representation and the Born rule",
         "paper_ref": "observers paper, finite Born-frame rank audit",
-        "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive"
+        "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball"
       },
       {
         "hypothesis_boundary": "five receipts stay open under issue #688: the global objective representation, the common source-derived reference for both optimizers, completion of the source collar realization, physical energy and clock calibration beyond the attained central-interface modular split, and refinement-uniform low-temperature control. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
@@ -864,7 +951,7 @@
         "statement": "With a faithful common reference and repaired-visible fibre supplied, Axiom 3 instantiated on states selects the Gibbs exponential family by the exact information-projection Pythagorean identity, and instantiated on transition distributions over the repaired-visible fibre selects weighted conditional resampling from the same reference. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges; relative entropy to the reference contracts under it; the exact first-law split carries its bilinear cross term; the excited Gibbs mass obeys the finite gap bound with entropy limit log g0; partition pinching has an explicit normalized projector Kraus family and preserves trace, while the formal interface defines no complete-positivity predicate or bundled CP/CPTP channel; more generally, every stochastic kernel preserving a faithful stationary reference contracts relative entropy even without detailed balance, with an exact lazy directed three-cycle as the nonreversible separation witness"
       },
       {
-        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #688, #690, and #691 own the source evolution, physical equilibrium reference and conserved quantity, geometry, clock, and calibration; this row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #688, #691, and #693 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",
         "id": "finite_green_kubo_graph_transport",
         "lean_declarations": {
           "GraphDiffusion": [

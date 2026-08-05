@@ -142,6 +142,15 @@ Mapping between Lean 4 theorems in this project and statements in
   not classify arbitrary finite central-block algebras or derive one coherent
   Hamiltonian from an arbitrary continuous automorphism group. See
   `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
+- B6 finite holonomy/interference (`Screen/HolonomyInterference.lean`): typed
+  finite paths, ordered group transport, exact path-ratio/closed-holonomy and
+  character-relative-phase identities, rechart conjugacy, abelian holonomy
+  invariance, and general character-phase invariance. A four-vertex punctured
+  control separates local triangular flatness from nontrivial global
+  holonomy and realizes the finite two-arm identity. Supplied cyclic
+  `ZMod n` sectors quantize character phases to `n`th roots. No source gauge
+  connection, physical flux, or laboratory interference attachment follows.
+  See `B6_HOLONOMY_INTERFERENCE.md`.
 - B11 finite Born-frame audit (`EventAlgebra/FiniteBornFrame.lean`): the
   declared six antipodal binary contexts have an exact six-parameter additive
   weight space. Lean proves the three-parameter coordinate image cut out by
@@ -152,6 +161,15 @@ Mapping between Lean 4 theorems in this project and statements in
   supplies no completed public quantum-effect producer, so this is a bounded
   no-go rather than a Born-rule derivation. See
   `../code/born_frame/README.md`.
+- B13 finite-effect closure boundary
+  (`EventAlgebra/FiniteEffectClosureBoundary.lean`): the continuous celestial
+  weight `F(n)=(1+n_z^3)/2` lies in `[0,1]` and obeys exact antipodal binary
+  normalization, but no affine/Born coefficient vector represents it. Once
+  affinity is supplied, probability bounds on any dense set of celestial
+  directions extend to the full sphere and force the coefficient into the
+  closed unit ball. Thus continuity and binary-context normalization do not
+  close the Born bridge; source effect semantics, noncontextuality on a rich
+  effect family, and the public instrument/readback attachment remain open.
 - C1 canonical Lorentz module (`Geometry/CanonicalLorentzModule.lean`,
   `Geometry/CelestialNullCone.lean`, `Geometry/ObserverFrameHyperboloid.lean`,
   `Geometry/ObserverRestSpace.lean`, `Geometry/EinsteinTensorBridge.lean`):
@@ -164,6 +182,22 @@ Mapping between Lean 4 theorems in this project and statements in
   identical null cones. No source selection, event soldering, topology/smooth
   structure, physical spacetime, clock, rod, or continuum limit follows. See
   `C1_CANONICAL_LORENTZ_MODULE.md`.
+- C2 algebraic event-frame soldering
+  (`Geometry/LorentzOverlapCocycle.lean`,
+  `Geometry/EventGermDisplacement.lean`,
+  `Geometry/CelestialSoldering.lean`,
+  `Geometry/EventFrameSoldering.lean`, and
+  `Geometry/SpatialReadbackSoldering.lean`): coincidence-invariant raw
+  readbacks descend uniquely through an actual setoid; one affine
+  time-oriented Lorentz cocycle gives identity, reverse, triple-overlap,
+  displacement, interval, celestial, frame, and local-rest-space covariance.
+  Rest transport preserves the positive metric, and the source rank-three
+  `FrameQuotient` is linearly and isometrically identified with the standard
+  internal rest fiber as a candidate readback. A reflexive symmetric
+  nontransitive overlap control blocks pairwise-overlap quotient shortcuts.
+  The exact premise-reduction theorem retains source-atlas, population,
+  separation, open-chart, physical-cone, refinement, causal, and clock
+  receipts. See `C2_EVENT_FRAME_SOLDERING.md`.
 - E1 finite observer-net advance (`QFT/FiniteCausalObserverNet.lean`,
   `QFT/ObserverNetDescent.lean`): admission-free proof-carrying interfaces for
   finite region posets, isotony, declared locality, local repair, compatible

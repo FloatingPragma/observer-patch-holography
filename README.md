@@ -114,8 +114,12 @@ certificates:
    disjoint binary contexts whose additive weight space has dimension six,
    while its Hermitian/Born slice has dimension three. Exact admissible
    counterexamples fail representation or density positivity, although a
-   representation is unique when it exists. No source-produced public quantum
-   instrument is present; issue #702 owns that positive continuation.
+   representation is unique when it exists. Even on the full celestial sphere,
+   continuity and normalized antipodal binary weights do not force Born
+   affinity: the exact nonlinear weight `(1+n_z^3)/2` is a counterexample.
+   Dense positivity forces the Bloch ball only after affinity is supplied. No
+   source-produced public quantum instrument is present; issue #702 owns the
+   effect-rich affinity and instrument/readback continuation.
    Conditionally, this identifies quantum probability with the arithmetic of
    what observers can jointly write down on the declared algebra-state surface.
    The declared spinor branch has an exact finite
@@ -127,6 +131,7 @@ certificates:
    [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), the
    [sharp copying boundary](Lean/EventAlgebra/NoBroadcastingAdapter.lean), and
    the [finite Born-frame no-go](Lean/EventAlgebra/FiniteBornFrame.lean), the
+   [continuous binary-context boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean),
    [exact rank certificate](code/born_frame/runtime/finite_born_frame_certificate.json),
    and the [Lean Tsirelson proof](Lean/EventAlgebra/Tsirelson.lean), together with the
    [exact finite candidate receipt](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
@@ -171,6 +176,7 @@ certificates:
    the [forced-structure scorecard](docs/POSTDICTION_LEDGER.md#forced-structure),
    and the Lean proofs of the
    [A2 holonomy bridge](Lean/Screen/A2HolonomyBridge.lean),
+   [finite holonomy and character-phase theorem](Lean/Screen/HolonomyInterference.lean),
    [gauge trichotomy](Lean/Screen/A5OPH.lean), and
    [finite Z₆ descent](Lean/Screen/Z6Descent.lean).
 5. **One generation of matter out of a finite search.** An exhaustive scan of
@@ -250,7 +256,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 2300 theorems and lemmas and no
+The supporting Lean library contains more than 2400 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
@@ -270,9 +276,15 @@ of Hermitian $2\times2$ matrices. The determinant has inertia $(1,3)$,
 positive future-null rays are set-equivalent to $S^2$, future unit-timelike
 frames have three-dimensional Euclidean rest spaces, and an exact linear
 chart matches the Einstein tensor coordinates with the opposite sign
-convention. This is algebraic geometry without topology, differential
-structure, event-frame soldering, a clock, or physical spacetime attachment.
-See the [canonical Lorentz module](Lean/Geometry.lean).
+convention. A bounded algebraic soldering contract now proves unique descent
+of coincidence-invariant readbacks, affine/Lorentz identity, inverse and
+cocycle laws, and covariant displacement, interval, celestial, frame and
+local-rest-space readbacks. It also identifies the rank-three source Gram
+quotient isometrically with one standard internal rest fiber as a candidate
+readout, never as absolute space. The source coincidence atlas, event
+population, open charts, physical cone, refinement, causality, frame
+selection, clock and physical spacetime attachment remain explicit
+downstream receipts. See the [geometry theorem stack](Lean/Geometry.lean).
 
 A proof-carrying finite regional-net interface packages isotony,
 declared-disjoint commutation, refinement, idempotent local repair,

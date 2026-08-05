@@ -3,6 +3,11 @@ import Geometry.CelestialNullCone
 import Geometry.ObserverFrameHyperboloid
 import Geometry.ObserverRestSpace
 import Geometry.EinsteinTensorBridge
+import Geometry.LorentzOverlapCocycle
+import Geometry.EventGermDisplacement
+import Geometry.CelestialSoldering
+import Geometry.EventFrameSoldering
+import Geometry.SpatialReadbackSoldering
 
 /-!
 # OPH construction geometry umbrella
@@ -10,7 +15,12 @@ import Geometry.EinsteinTensorBridge
 The C1 modules construct the intrinsic four-dimensional Hermitian Lorentz
 module, its future-null-ray celestial sphere, the future-unit-timelike frame
 hyperboloid, three-dimensional positive-definite rest spaces, and the exact
-sign-convention bridge into the existing Einstein tensor coordinates. They do not
-identify this internal module with observer-patch records, physical spacetime,
-clocks, rods, or a continuum limit; those are downstream attachment lanes.
+sign-convention bridge into the existing Einstein tensor coordinates.  The C2
+modules add the bounded algebraic soldering contract: coincidence-invariant
+readbacks descend to event classes; one affine Lorentz cocycle induces
+displacement, interval, celestial, frame, and local-rest-space covariance; and
+the source Gram quotient is linearly and isometrically identified with the
+standard internal rest fiber as a candidate readback.  The contract does not
+construct its source event atlas, population, open charts, physical cone,
+causal reachability, refinement tower, rods, clocks, or physical spacetime.
 -/

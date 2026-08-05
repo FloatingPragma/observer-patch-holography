@@ -129,8 +129,13 @@ données et certificats :
    hermitienne/de Born. Des contre-exemples exacts admissibles échouent soit à
    être représentés, soit à définir une matrice positive, bien que la
    représentation soit unique lorsqu’elle existe. Aucun instrument quantique
-   public produit par la source n’est disponible ; l’issue #702 porte cette
-   continuation positive.
+   Même sur toute la sphère céleste, la continuité et la normalisation des
+   poids binaires antipodaux n’imposent pas l’affinité de Born : le poids exact
+   non linéaire `(1+n_z^3)/2` fournit un contre-exemple. La positivité sur un
+   ensemble dense n’impose la boule de Bloch qu’après avoir fourni l’affinité.
+   Aucun instrument quantique public produit par la source n’est disponible ;
+   l’issue #702 porte la continuation par une famille d’effets assez riche,
+   l’affinité et le pont instrument/lecture publique.
    Conditionnellement, ce résultat identifie la probabilité quantique à
    l’arithmétique de ce que les observateurs peuvent écrire ensemble sur la
    surface algèbre-état déclarée. La branche spinorielle déclarée
@@ -142,6 +147,7 @@ données et certificats :
    [preuve de l’algèbre des registres](Lean/EventAlgebra/PublicRecordAlgebra.lean),
    la [frontière de copie des états purs](Lean/EventAlgebra/NoBroadcastingAdapter.lean),
    le [no-go fini du repère de Born](Lean/EventAlgebra/FiniteBornFrame.lean),
+   la [frontière continue des contextes binaires](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean),
    le [certificat exact de rang](code/born_frame/runtime/finite_born_frame_certificate.json)
    et la [preuve Lean de la borne de Tsirelson](Lean/EventAlgebra/Tsirelson.lean),
    ainsi que le [reçu exact du candidat fini](https://github.com/muellerberndt/oph-physics-sim/blob/main/data/quantum/icosahedral_chsh_candidate_receipt.json).
@@ -191,6 +197,7 @@ données et certificats :
    le [tableau de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure)
    et les preuves Lean de la
    [pont d’holonomie de l’axiome 2](Lean/Screen/A2HolonomyBridge.lean),
+   du [théorème fini d’holonomie et de phase de caractère](Lean/Screen/HolonomyInterference.lean),
    de la [trichotomie de jauge](Lean/Screen/A5OPH.lean) et de la
    [descente finie Z₆](Lean/Screen/Z6Descent.lean).
 5. **Une génération de matière issue d’une recherche finie.** Dans l’algèbre
@@ -278,7 +285,7 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 2300 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 2400 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
@@ -301,9 +308,17 @@ $(1,3)$, les rayons nuls futurs positifs sont équivalents comme ensembles à
 $S^2$, les repères unitaires de genre temps futurs ont des espaces de repos
 euclidiens de dimension trois, et une carte linéaire exacte rejoint les
 coordonnées du tenseur d’Einstein avec la convention de signe opposée. Cette
-géométrie algébrique ne fournit ni topologie, ni structure différentielle, ni
-soudure entre événements et repères, ni horloge, ni attachement à l’espace-temps
-physique. Voir le [module de Lorentz canonique](Lean/Geometry.lean).
+géométrie possède désormais un contrat algébrique borné de soudure : descente
+unique des lectures invariantes sur les classes de coïncidence, lois affine et
+lorentzienne d’identité, d’inverse et de cocycle, et covariance des
+déplacements, intervalles, directions célestes, repères et lectures dans
+l’espace de repos local. Le quotient de Gram de rang trois est isométrique à
+une fibre de repos interne standard comme lecture candidate, jamais comme
+espace absolu. L’atlas de coïncidence issu de la source, la population des
+événements, les cartes ouvertes, le cône physique, le raffinement, la
+causalité, la sélection du repère, l’horloge et l’attachement à l’espace-temps
+physique restent des reçus explicites en aval. Voir la [pile de théorèmes
+géométriques](Lean/Geometry.lean).
 
 Une interface finie de réseau régional muni de ses preuves regroupe
 l’isotonie, la commutation des régions déclarées disjointes, le raffinement,

@@ -75,6 +75,26 @@ This finite family does not derive the Born rule. A positive continuation
 would need a source-produced, physically attached, interlocking effect family
 rich enough to control the full positive cone.
 
+## Continuity does not repair the binary-context gap
+
+The follow-up Lean module
+`Lean/EventAlgebra/FiniteEffectClosureBoundary.lean` closes one tempting but
+invalid route.  On the full C1 celestial sphere,
+
+```text
+F(n) = (1 + n_z^3) / 2
+```
+
+is continuous, remains in `[0,1]`, and obeys `F(-n)=1-F(n)` for every
+antipodal binary context.  It nevertheless has no affine representation
+`(1+q·n)/2`.  Thus even an everywhere-defined continuous binary-projector
+weight is not enough.  Conversely, once affinity is supplied, probability
+bounds on a dense set extend to the full sphere and force `q` into the closed
+unit ball.  The unresolved theorem must therefore derive affinity from a
+richer source-produced effect/context structure or obtain an equivalent
+operational instrument bridge; it cannot rely on binary normalization plus
+continuity alone.
+
 ## Reproduction
 
 From the repository root:
@@ -84,6 +104,7 @@ python3 code/born_frame/finite_born_frame_certificate.py --check
 python3 code/born_frame/verify_finite_born_frame_independent.py
 python3 -m pytest -q code/born_frame/test_finite_born_frame_certificate.py
 cd Lean && lake env lean EventAlgebra/FiniteBornFrame.lean
+lake env lean EventAlgebra/FiniteEffectClosureBoundary.lean
 ```
 
 The producer and independent verifier use separate implementations of exact

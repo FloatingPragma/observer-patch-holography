@@ -84,7 +84,9 @@
     "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
     "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
     "OPH-CANONICAL-LORENTZ-MODULE",
-    "OPH-FINITE-CAUSAL-OBSERVER-NET"
+    "OPH-FINITE-CAUSAL-OBSERVER-NET",
+    "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
+    "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING"
   ],
   "edges": [
     {
@@ -761,6 +763,26 @@
       "from": "OPH-CANONICAL-LORENTZ-MODULE",
       "to": "OPH-GR-D3-CAP-H3",
       "role": "supplies an exact intrinsic Herm2 Lorentz coordinate module, celestial future-null-ray quotient, frame hyperboloid, rest spaces, and sign-correct Einstein-coordinate bridge; the support-visible BW limit, cap realization, topology, soldering, clocks, and physical spacetime remain separate premises"
+    },
+    {
+      "from": "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
+      "to": "OPH-GAUGE-D7-D9",
+      "role": "supplies exact finite path-ratio, character-phase, rechart, punctured-control, and cyclic-sector identities; source gauge transport, physical flux, laboratory interference, and continuum gauge theory remain separate"
+    },
+    {
+      "from": "OPH-CANONICAL-LORENTZ-MODULE",
+      "to": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+      "role": "supplies the intrinsic Herm2 Lorentz form, celestial quotient, frame hyperboloid, and positive rest fibers; C2 adds only conditional affine-overlap covariance and no source event atlas"
+    },
+    {
+      "from": "OPH-GR-D3H-GEOMETRY-PRODUCER",
+      "to": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+      "role": "supplies the rank-three FrameQuotient and Gram form used by the candidate standard-rest-fiber bridge; no theorem identifies that quotient with absolute space or produces the event atlas"
+    },
+    {
+      "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+      "to": "OPH-GR-D4B-EVENT-MANIFOLD",
+      "role": "supplies the bounded algebraic event-frame/celestial/rest covariance contract; source population, separation, open charts, cone and causal attachment, refinement, clocks, and physical manifold realization remain explicit event-manifold receipts"
     }
   ]
 }

@@ -26,7 +26,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2015`. 84 claims, 14 distinct live gates across 35 gated claims.
+Release: `r2015`. 86 claims, 14 distinct live gates across 35 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -34,7 +34,7 @@ Release: `r2015`. 84 claims, 14 distinct live gates across 35 gated claims.
 | `empirical_implementation` | 4 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 63 |
+| `conditional_implication` | 65 |
 | `declared_structure` | 11 |
 
 | Claim | Class | Status | Live gates |
@@ -85,7 +85,7 @@ Release: `r2015`. 84 claims, 14 distinct live gates across 35 gated claims.
 | `OPH-CONSENSUS-TOWER-INTERFACE` | `conditional_implication` | `exact_consensus_tower_interface_and_constant_adaptor_attained__nonconstant_source_realization_open` | none |
 | `OPH-PUBLICIZATION-DYNAMICS-FINITE` | `conditional_implication` | `exact_publicization_packet_attained__cp_label_and_physical_attachments_unclaimed` | none |
 | `OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE` | `conditional_implication` | `substantial_finite_dichotomy_attained__central_blocks_and_converse_generator_open` | [#679](https://github.com/FloatingPragma/observer-patch-holography/issues/679) |
-| `OPH-FINITE-BORN-FRAME-RANK-GAP` | `conditional_implication` | `exact_bounded_rank_gap__conditional_uniqueness__public_effect_source_missing` | none |
+| `OPH-FINITE-BORN-FRAME-RANK-GAP` | `conditional_implication` | `exact_bounded_rank_gap_and_continuous_binary_no_go__affinity_effect_source_and_public_instrument_missing` | none |
 | `OPH-THERMO-FOUR-LAW-PACKAGE` | `conditional_implication` | `finite_four_law_package_theorems_attained__five_physical_receipts_open` | [#688](https://github.com/FloatingPragma/observer-patch-holography/issues/688) |
 | `OPH-THERMO-SOURCE-REALIZATION-AUDIT` | `empirical_implementation` | `bounded_15_field_subset_projection_audit_attained__nonreversible_h_theorem_probe__physical_realization_open` | [#688](https://github.com/FloatingPragma/observer-patch-holography/issues/688) |
 | `OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION` | `conditional_implication` | `finite_green_kubo_matrix_remainder_projector_obstruction_and_graph_updates_proved__physical_transport_attachment_open` | [#688](https://github.com/FloatingPragma/observer-patch-holography/issues/688), [#690](https://github.com/FloatingPragma/observer-patch-holography/issues/690), [#691](https://github.com/FloatingPragma/observer-patch-holography/issues/691) |
@@ -123,6 +123,8 @@ Release: `r2015`. 84 claims, 14 distinct live gates across 35 gated claims.
 | `OPH-PUBLIC-WORLD-ENDPOINT-FINITE` | `conditional_implication` | `bounded_finite_conditional_endpoint_attained__source_physical_and_cross_regulator_realization_open` | none |
 | `OPH-CANONICAL-LORENTZ-MODULE` | `conditional_implication` | `exact_intrinsic_Lorentz_module_and_Einstein_coordinate_bridge_attained__physical_soldering_open` | none |
 | `OPH-FINITE-CAUSAL-OBSERVER-NET` | `conditional_implication` | `substantial_conditional_finite_net_interface_attained__noncommutative_source_realization_open` | [#692](https://github.com/FloatingPragma/observer-patch-holography/issues/692) |
+| `OPH-FINITE-HOLONOMY-CHARACTER-PHASE` | `conditional_implication` | `bounded_finite_holonomy_and_character_phase_packet_attained__physical_attachment_open` | none |
+| `OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING` | `conditional_implication` | `bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open` | none |
 
 ## Live gates
 

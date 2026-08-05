@@ -363,6 +363,18 @@ producer and independent verifier check the projector/Bloch matrix bridge and
 the represented nonpositive-matrix witness. The missing source-produced effect
 system and cone or operational extension theorem remain a separate live task.
 
+A further exact boundary rules out the simplest proposed repair. On the full
+unit celestial sphere, the continuous weight
+$F(n)=(1+n_z^3)/2$ lies in $[0,1]$ and satisfies
+$F(-n)=1-F(n)$ for every antipodal binary context, but it is not of the
+affine Born form $(1+q\cdot n)/2$ for any vector $q$. Continuity and binary
+normalization therefore remain insufficient even with all directions
+available. If affinity is supplied independently, dense positivity tests do
+extend to the whole sphere and force $q$ into the closed unit ball. The open
+work is now sharper: it must source an effect-rich noncontextuality or
+instrument/readback principle that produces affinity, not merely add a
+continuity assumption.
+
 ### Net Axioms (Algebraic)
 
 The pattern stays the same. A smaller patch sees less. Disjoint patches do not

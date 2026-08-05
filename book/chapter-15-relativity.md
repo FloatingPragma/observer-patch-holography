@@ -293,9 +293,24 @@ orthogonal to any one of them form a three-dimensional Euclidean rest space
 after the sign is reversed. The coordinates match the Einstein-tensor
 convention exactly, with one overall sign change.
 
-This internal model supplies no topology, smooth structure, soldering of
-frames to events, physical frame selection, clock, or spacetime. Those
-attachments belong to the construction that follows.
+The next finite step is now exact but conditional. If raw record germs carry
+an actual coincidence equivalence and their Lorentz readback is constant on
+each class, the readback descends uniquely. One supplied affine,
+time-oriented Lorentz overlap cocycle then makes coordinate differences,
+Lorentz intervals, celestial directions, observer frames, and local rest
+readbacks agree across charts. Reverse transitions and triple overlaps come
+from that same cocycle. The rank-three source Gram quotient also matches the
+rest space of one standard internal frame exactly as a candidate local
+readback.
+
+This is an algebraic soldering contract, not physical spacetime. It does not
+produce the coincidence relation or source atlas, populate four-dimensional
+events, prove open charts, attach the measured cone to the intrinsic form,
+transport the construction through refinement, supply causal reachability,
+select a physical frame, or build a clock. A small formal control also shows
+why pairwise overlap is inadequate: a relation can be reflexive and symmetric
+without being transitive. The source, population, topology, cone, causal, and
+clock attachments belong to the construction that follows.
 
 ### From Modular Ordering to an Observer Clock
 

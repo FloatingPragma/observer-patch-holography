@@ -12,13 +12,13 @@ source line-range is stable across rebuilds. Overfull boxes are never budgeted.
 
 Usage:
   1. Build all source-derived papers and the book with the canonical builders.
-  2. Pass the two paper directories plus the current book log:
+  2. Pass every registered paper directory plus the current book log:
        python3 paper/tools/gen_warning_allowlist.py \
-         paper extra temp/book_pdf_build/book_manuscript.log
+         paper extra cosmology temp/book_pdf_build/book_manuscript.log
 
-Every supplied log is used. The canonical warning budget therefore includes all
-six core paper logs, all nine ``extra/*.tex`` logs, and the book log; it never
-silently inherits the membership of an older allowlist.
+Every supplied log is used. The canonical warning budget therefore includes
+the core, supplemental, cosmology, and book logs; it never silently inherits
+the membership of an older allowlist.
 """
 from __future__ import annotations
 
