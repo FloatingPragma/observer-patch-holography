@@ -727,7 +727,7 @@
     {
       "from": "OPH-OBS-PATCH-DEF",
       "to": "OPH-FINITE-LOCALITY-NOSIGNALLING",
-      "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; E1 separately owns scheduler locality and the OPH region-factor attachment"
+      "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; E1 owns finite coverage and the OPH region-factor attachment, while E2 owns source-produced channel semantics and refinement-natural adaptive scheduling"
     },
     {
       "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
