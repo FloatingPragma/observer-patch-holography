@@ -26,7 +26,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2015`. 80 claims, 15 distinct live gates across 34 gated claims.
+Release: `r2015`. 80 claims, 14 distinct live gates across 34 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -42,7 +42,7 @@ Release: `r2015`. 80 claims, 15 distinct live gates across 34 gated claims.
 | `OPH-SYN-FORMAL-BASIS` | `declared_structure` | `declared_basis` | none |
 | `OPH-OBS-PATCH-DEF` | `declared_structure` | `typed_definition_with_operational_observer_gate` | none |
 | `OPH-CARRIER-PRESENTATION-INVARIANCE` | `declared_structure` | `declared_cross_paper_contract_with_branch_local_tests` | none |
-| `OPH-UNIFIED-TYPED-SPINE` | `declared_structure` | `typed_composition_defined_physical_common_tower_open` | [#698](https://github.com/FloatingPragma/observer-patch-holography/issues/698), [#699](https://github.com/FloatingPragma/observer-patch-holography/issues/699), [#693](https://github.com/FloatingPragma/observer-patch-holography/issues/693), [#700](https://github.com/FloatingPragma/observer-patch-holography/issues/700), [#701](https://github.com/FloatingPragma/observer-patch-holography/issues/701), [#694](https://github.com/FloatingPragma/observer-patch-holography/issues/694) |
+| `OPH-UNIFIED-TYPED-SPINE` | `declared_structure` | `typed_composition_defined_physical_common_tower_open` | [#699](https://github.com/FloatingPragma/observer-patch-holography/issues/699), [#693](https://github.com/FloatingPragma/observer-patch-holography/issues/693), [#700](https://github.com/FloatingPragma/observer-patch-holography/issues/700), [#701](https://github.com/FloatingPragma/observer-patch-holography/issues/701), [#694](https://github.com/FloatingPragma/observer-patch-holography/issues/694) |
 | `OPH-CONS-D1` | `conditional_implication` | `paper_proved_on_declared_branch__finite_reference_engine_exhausted__general_theorem_not_Lean_or_TLA_formalized` | [#699](https://github.com/FloatingPragma/observer-patch-holography/issues/699) |
 | `OPH-CONS-BFT-PREPARED-LOCK` | `conditional_implication` | `paper_proved_for_declared_protocol__finite_reference_traces_executable__not_Lean_or_TLA_formalized` | none |
 | `OPH-CONS-REFINEMENT-MODULI` | `conditional_implication` | `telescope_Lean_proved__uniform_family_and_cofinal_theorems_paper_proved__parametric_counterfamily_schemas_executable` | none |
@@ -135,7 +135,6 @@ Release: `r2015`. 80 claims, 15 distinct live gates across 34 gated claims.
 | [#695](https://github.com/FloatingPragma/observer-patch-holography/issues/695) | [G1] Custody and comparisons (standing) | `OPH-WZ-STRICT-1L-POLE-MAP`, `OPH-A5-SEAM-CURRENT-EDGE30` |
 | [#696](https://github.com/FloatingPragma/observer-patch-holography/issues/696) | [H1] Constants closure program (final wave) | `OPH-GR-D6-CAPACITY`, `OPH-GR-D6-HORIZON-RECORD`, `OPH-COSMO-SCREEN-SPECTRUM`, `OPH-A5-PRIMITIVE-PORT-SPIN6`, `OPH-A5-SEAM-CURRENT-EDGE30`, `OPH-Q-PN-CLOSURE`, `OPH-HIER-EW` |
 | [#697](https://github.com/FloatingPragma/observer-patch-holography/issues/697) | [H2] Particle masses and mixings (final wave) | `OPH-WZ-STRICT-1L-POLE-MAP`, `OPH-SM-Q4-RESONANCE-CONTINUATION`, `OPH-SCREEN-PORT-CURRENT-INNER`, `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT`, `OPH-GAUGE-D7-D9`, `OPH-KOIDE-CIRCULANT-IDENTITY`, `OPH-W5-STABILISER-POTENTIAL-BOUNDARY`, `OPH-SCREEN-A5-SM-RECOGNITION`, `OPH-SM-ROUTE-IDENTIFICATION`, `OPH-SCREEN-24-CLOCK-DETERMINANT` |
-| [#698](https://github.com/FloatingPragma/observer-patch-holography/issues/698) | [A3] Consensus-tower interface: the root object of the final construction | `OPH-UNIFIED-TYPED-SPINE` |
 | [#699](https://github.com/FloatingPragma/observer-patch-holography/issues/699) | [A4] Public-world quotient and fixed-point endpoint | `OPH-UNIFIED-TYPED-SPINE`, `OPH-CONS-D1` |
 | [#700](https://github.com/FloatingPragma/observer-patch-holography/issues/700) | [E3] Construct the locally covariant limit and time-slice property | `OPH-UNIFIED-TYPED-SPINE` |
 | [#701](https://github.com/FloatingPragma/observer-patch-holography/issues/701) | [E4] Structural QFT inheritance on the constructed observer net | `OPH-UNIFIED-TYPED-SPINE`, `OPH-SM-Q1-LOCAL-G6`, `OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION`, `OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS`, `OPH-SM-Q3-BV-RESTORATION`, `OPH-SM-Q4-OS-OBSERVABLE-SECTOR`, `OPH-SM-Q4-RESONANCE-CONTINUATION`, `OPH-SCREEN-PORT-CURRENT-INNER`, `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT`, `OPH-GAUGE-D7-D9`, `OPH-SCREEN-A5-SM-RECOGNITION`, `OPH-SM-ROUTE-IDENTIFICATION` |
