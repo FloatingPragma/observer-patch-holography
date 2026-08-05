@@ -4,6 +4,7 @@ import QFT.ObserverAccessCut
 import QFT.ObserverEventWorld
 import QFT.ObserverEventTower
 import QFT.NoncommutativeWitness
+import QFT.SourceLinkSquare
 
 /-!
 # OPH construction QFT umbrella
@@ -29,5 +30,10 @@ field. The noncommutative-witness module proves that the committed
 restriction receipts exclude anticommuting unit pairs above
 commutative-algebra regions and inhabits the interface with a
 region-separating pair of noncommutative character-block algebras whose
-declared overlap algebra is the scalar span.
+declared overlap algebra is the scalar span. The source-link module ties the
+all-quotient readout fragment to one selected event world: a
+normal-form-invariant observer readout reproduces the selected slice on
+the settled branch, and declared packet encodings make the matching
+square commute with the fragment's coarse maps over the whole settling
+basin.
 -/

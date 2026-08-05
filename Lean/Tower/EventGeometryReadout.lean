@@ -39,7 +39,8 @@ every Einstein premise (first law, MaxEnt envelope, small-ball, Ward,
 Bianchi, vacuum reference, universal coupling, scale) remain with issue
 `#694`.  The matching square between these readouts and the E6 selected
 observer event world of issue `#712` (deliverables 2 and 4 of issue `#713`)
-is a separate composition and is open.  No physical spacetime, no
+is a separate composition, carried by the
+source-link module of the QFT library.  No physical spacetime, no
 probability law, and no continuum claim follow.
 -/
 
