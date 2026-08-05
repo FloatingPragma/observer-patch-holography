@@ -231,6 +231,12 @@ declared recovery moves, and accept as public the normal form that survives
 those comparisons. The bounded observer patch is the primitive formal object.
 Its physical size and carrier realization are branch data. Spacetime,
 fields, and particles enter through additional physical readout maps.
+A machine-checked seven-clause receipt makes the operational observer itself
+a theorem-level object over the formal tower interface, with a nontrivial
+matrix witness and per-clause negative controls. A companion common-origin
+theorem traces each visible event's support region, public record
+observable, and Lorentz chart coordinate to one event packet
+(Section~\ref{sec:observerhood-common-origin}).
 
 The declared twelve-port repair mean supports a conditional carrier
 construction. The normalized long-response kernel selects an intrinsic
@@ -1572,9 +1578,6 @@ output of an incomplete declared map; no derivation relates it to the physical f
 endpoint.
 The comparison distinguishes the source-side diagnostic from the endpoint
 residual.
-\item \textbf{The framework has a regulated implementation surface.} The microphysics paper turns
-the observer language into explicit finite patch carriers, edge observables, records, and repair
-cycles.
 \item \textbf{Edge sectors also admit two-dimensional Yang--Mills and worldsheet-style effective descriptions.} The heat-kernel
 edge partition function reorganizes the same boundary data into the two-dimensional
 Yang--Mills form, and on the declared large-edge branch this yields a controlled worldsheet
@@ -1606,6 +1609,106 @@ Only on that certified branch is
 \(\Delta_{\mathrm{YM}}=\Delta_{\mathrm{rep}}\). Weak-* extraction alone is not the
 Clay-facing axiomatic construction.
 \end{enumerate}
+
+\subsection{The observerhood receipt and the common-origin bridge}
+\label{sec:observerhood-common-origin}
+
+The observer named in the title is itself a theorem-level object. Over any
+instance of the companion formal tower interface, the operational
+observerhood receipt packages seven clauses as typed data: a bounded
+accessible star subalgebra of the private algebra containing the observer's
+own public record algebra; a self-readback map sending accessible elements
+into that public algebra and fixing each of its elements; durability, with
+every record element annihilated by the observer's declared generator;
+record-conditioned control maps preserving the accessible interface; a
+prediction map whose output never strictly precedes its input in the
+observer's own record order; label and prediction families commuting with
+the declared refinement maps; and a declared readout equal to the trace
+pairing of each record element against the observer's own state, with every
+record element fixed by every declared control. Readback idempotence and
+refinement stability of the readout follow. An explicit witness inhabits
+the receipt away from the constant adaptor: private algebra
+\(M_2(\mathbb C)\), a nonzero generator given by the scaled commutator with
+\(\operatorname{diag}(1,2)\), which annihilates every diagonal record
+element while moving the raising matrix unit, control by conjugation with
+the involution \(\operatorname{diag}(1,-1)\), three chain-ordered records,
+and a nonconstant non-identity prediction map. Three negative controls (an
+erasing readback, an identity generator, a resetting prediction) each
+violate exactly one clause on the same data. The receipt is operational and
+finite: it selects no unique observer over a given tower, attaches no
+physical instrument, makes no consciousness claim, and supplies no source
+realization of the tower data. The cross-observer overlap half of the
+evidence clause composes with the access-cut layer below~\cite{ophrepo}.
+
+An access cut on the finite regional observer net above assigns each
+observer one declared support region and one accessible star subalgebra
+squeezed between the observer's public record algebra and the regional
+algebra of that region, stable under the declared restrictions below it;
+the observer-local algebra at a region is the meet of the regional algebra
+with the accessible algebra, and the net receipts transport to this meet.
+A finite event world over the supplied Lorentz soldering binds one packet
+\(\mathsf p_e\), with packet carrier fixed independently of the quotient
+state, to each event \(e\), with declared chart ownership. The
+common-origin theorem states that for every active visible chart/event
+pair \((i,e)\),
+\[
+\operatorname{supp}(\mathsf p_e)\preceq R_{O(i)},\qquad
+\operatorname{rec}(\mathsf p_e)\in
+\mathcal L_{O(i)}\!\bigl(\operatorname{supp}(\mathsf p_e)\bigr)\cap
+\mathcal P_{O(i)},\qquad
+x_i(e)=\operatorname{geo}_i(\mathsf p_e),
+\]
+where \(O(i)\) is the declared owner of chart \(i\), \(R_{O(i)}\) its
+observer region, \(\mathcal L_{O(i)}\) its observer-local algebra, and
+\(\mathcal P_{O(i)}\) its public record algebra: one event packet
+determines the event support region below the owner's region, the public
+record observable in the meet of the observer-local algebra at that
+support with the owner's public algebra, and the Lorentz chart coordinate
+as a readout of the same packet. A selected coarse-to-fine refinement
+transports all three conjuncts. The witness chain is strict, with the
+public algebra strictly inside the accessible algebra strictly inside the
+private algebra, and the witness records separate packets. Charts and
+observers are distinct types, ownership is declared data, and no physical
+region, coverage, instrument, spacetime, causal cone, event actualization,
+or continuum object is claimed~\cite{ophrepo}.
+
+Coexistence of regional operator algebras on this net interface has an
+exact boundary.
+
+\begin{theorem}[Scalar-character obstruction and character-block coexistence]
+\label{thm:character-block-coexistence}
+No unital complex-algebra homomorphism into the scalars accepts an
+anticommuting pair of units. On this net interface, a region lying above a
+region with commutative local algebra therefore carries no anticommuting
+pair of units: the declared star-homomorphic restriction retraction would
+send the pair to commuting units whose product equals its own negation.
+Every full matrix factor above a scalar overlap region is excluded, and
+the standard tensor-factor local-algebra picture with trivial overlap is
+impossible on this interface. The boundary is inhabited: over a
+dimension-four private algebra, the block algebras of matrices
+\(\operatorname{diag}(a,a,A)\) and \(\operatorname{diag}(B,b,b)\) with
+arbitrary two-by-two blocks \(A\) and \(B\) are each noncommutative,
+commute elementwise, neither contains the other, and each retracts onto
+the scalar overlap algebra through the character evaluating its
+one-dimensional corner block.
+\end{theorem}
+
+\begin{proof}
+A unital homomorphism into the scalars sends units to nonzero scalars, and
+applying it to the anticommutation relation forces the product of the two
+image scalars to vanish. The interface statement composes this argument
+with the declared restriction into the commutative region. The inhabitant
+is finite linear algebra over one declared regulator with identity repair
+maps; the interface laws, both noncommutativity witnesses, the mutual
+noncontainment, and the corner-character retractions are checked in
+Lean~\cite{ophrepo}.
+\end{proof}
+
+Noncommutative regional coexistence on this interface therefore passes
+exactly through character-block structure. The declared overlap algebra is
+a proper subalgebra of the set intersection of the two block algebras, and
+genuine coverage semantics and regional-factor receipts for a
+source-produced net are open.
 
 \subsection{Conditional history weights and the variational bridge boundary}
 \label{sec:history-variational-boundary}

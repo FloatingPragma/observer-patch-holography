@@ -2382,6 +2382,173 @@ to that central surface. The broader export problem asks whether richer branches
 relevant pointer surfaces close to one such central record algebra and whether the same control
 survives refinement and continuation.
 
+\subsection{Operational observers, event worlds, and coexisting regional algebras}
+\label{sec:operational-observer-layer}
+
+The record-algebra layer extends upward, in the repository Lean development
+\cite{ophrepo}, to a machine-checked interface family in which the observer
+itself is a typed object. The base object is a consensus tower: a
+regulator-indexed family of finite matrix models carrying observer and
+record fibres, observer-indexed record orders, commutative public record
+subalgebras of the private matrix algebra, selected states and generators,
+and functorial refinement maps with compatibility laws. Six Lean modules
+carry the layer:
+\begin{flushleft}
+\path{Lean/Tower/OperationalObserver.lean},\quad
+\path{Lean/QFT/ObserverAccessCut.lean},\\
+\path{Lean/QFT/ObserverEventWorld.lean},\quad
+\path{Lean/QFT/ObserverEventTower.lean},\\
+\path{Lean/QFT/NoncommutativeWitness.lean},\quad
+\path{Lean/Tower/EventGeometryReadout.lean}.
+\end{flushleft}
+
+\paragraph{The operational observerhood receipt.}
+An operational observer over a consensus tower is a structure with seven
+clause groups, each a finite statement about declared tower data:
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item a bounded accessible interface: a declared accessible star
+subalgebra of the private algebra at each regulator, containing the
+observer's own public record algebra;
+\item self-readback: a map on the private algebra sending each accessible
+element into the observer's public record algebra and fixing every element
+of that algebra;
+\item durable records: the observer's declared generator annihilates every
+record element;
+\item record-conditioned control: a record-indexed family of linear
+interventions preserving the accessible interface;
+\item no-regress prediction: a record-to-record map whose output never
+strictly precedes its input in the observer's own record order;
+\item continuation: the observer label family and the prediction map
+commute with the declared refinement maps;
+\item readable evidence: a declared readout equal to the trace pairing of
+each record element against the observer's state, with every record
+element fixed by every declared intervention.
+\end{enumerate}
+Readback idempotence on the interface and refinement stability of the
+readout are derived. The witness data are exact and small: over a
+one-regulator tower with private algebra \(M_2(\mathbb C)\), the public
+algebra is the span of the two diagonal coordinate projectors, three
+records carry the strict chain order, the state is the first coordinate
+projector, the readback is the partition average, the generator is the
+\(i\)-scaled commutator with the Hamiltonian \(\operatorname{diag}(1,2)\),
+each intervention is conjugation by the involution
+\(\operatorname{diag}(1,-1)\), and the prediction advances records while
+holding the final record fixed. The generator annihilates every diagonal
+record element and moves the raising matrix unit, so durability is a
+computed fixed-point fact for a nonzero generator; the control fixes every
+record element and negates the raising matrix unit, so evidence invariance
+is computed against a map distinct from the identity. A nontriviality
+conjunction separates the witness from the constant adaptor: strict record
+precedence, a nonconstant non-identity prediction, a record element
+distinct from the zero and identity matrices, a nonzero generator, and a
+non-identity control. Three negative controls violate exactly one clause
+each on the same data: an erasing readback breaks the self-readback law,
+the identity generator breaks durability, and a resetting prediction
+breaks no-regress. The receipt selects no unique observer, attaches no
+instrument, makes no consciousness claim, and supplies no source
+realization of the tower data.
+
+\paragraph{Access cuts and the common-origin theorem.}
+A finite regional observer net enriches one consensus tower with a finite
+region order, per-region local star subalgebras, declared contravariant
+restrictions, elementwise commutation on declared-disjoint regions,
+regional expectations, and idempotent local repair. An access cut over
+such a net assigns each observer
+one declared support region and one accessible star subalgebra squeezed
+between the observer's public record algebra and the regional algebra of
+the declared region, with the declared restrictions below that region
+preserving accessibility; stability under the local repair idempotents is
+a separate strengthening receipt. The observer-local algebra at a region
+is the meet of the regional local algebra with the accessible algebra, and
+the regional receipts (isotony, elementwise commutation on
+declared-disjoint regions, restriction stability, selected-state
+expectation compatibility, regional-repair fixed points, and remote
+nondisturbance) transport to this meet. Unique descent into the
+observer-local algebra is conditional on a separate accessible-glue
+receipt; ambient unique descent alone does not place a glued section in
+the accessible algebra, and the universal singleton-family packet keeps
+the receipt type inhabited without a nontrivial gluing claim.
+
+A finite event world binds one packet to each event, with fixed finite
+event, chart, and packet carriers, declared active masks, chart ownership
+tying chart supports to observer regions, packet-derived support, record,
+and coordinate readouts, and the visibility law that an active visible
+event has support inside the seeing chart's region. The common-origin
+theorem returns, for every active visible chart/event pair \((i,e)\),
+three conjuncts from one packet \(\mathsf p_e\):
+\[
+\operatorname{supp}(\mathsf p_e)\preceq R_{O(i)},\qquad
+\operatorname{rec}(\mathsf p_e)\in
+\mathcal L_{O(i)}\!\bigl(\operatorname{supp}(\mathsf p_e)\bigr)\cap
+\mathcal P_{O(i)},\qquad
+x_i(e)=\operatorname{geo}_i(\mathsf p_e),
+\]
+with \(O(i)\) the declared chart owner, \(R_{O(i)}\) its observer region,
+\(\mathcal L_{O(i)}\) its observer-local algebra, and
+\(\mathcal P_{O(i)}\) its public record algebra: event support below the
+owner's region, record observable in the meet of the observer-local
+algebra at that support with the owner's public algebra, and the
+soldering chart coordinate as a readout of the same packet. An event
+precedence adapter
+adds strict order data on event slots, tied to the owner's record order on
+labeled events and identified with no repair schedule, modular parameter,
+clock reading, proper time, or global time function. A selected
+coarse-to-fine refinement (slot maps for events, charts, and packets, with
+naturality for masks, ownership, regions, supports, packets, records, and
+visibility, plus a declared recharting map) transports the full
+common-origin conclusion, and raw event candidates with a declared
+semantic-coincidence setoid descend to the event quotient; a reflexive
+symmetric relation without transitivity admits no such setoid and is
+closed to the quotient constructor. The witness world reuses the
+dimension-two cut, whose interposition chain is strict (scalar public
+algebra inside the diagonal accessible algebra inside the private matrix
+algebra), and its record readout separates the two packets.
+
+\paragraph{Character-block coexistence of regional algebras.}
+No unital complex-algebra homomorphism into the scalars accepts an
+anticommuting pair of units, so a region above a commutative-algebra
+region carries no such pair, and full matrix factors above scalar overlaps
+are excluded on this interface: the tensor-factor local-algebra picture
+with trivial overlap is impossible. The inhabitant locating the boundary
+is a dimension-four net with three regions: a bottom overlap region
+carrying the scalar algebra and two declared-disjoint maximal regions
+carrying the block algebras \(\operatorname{diag}(a,a,A)\) and
+\(\operatorname{diag}(B,b,b)\) with arbitrary two-by-two blocks. Both
+regional algebras are noncommutative, neither contains the other, their
+elements commute pairwise, and each admits a character onto the scalars
+through its one-dimensional corner block, which supplies the
+star-homomorphic restriction retractions the interface demands. The block
+shape is forced: a noncommutative regional algebra compatible with a
+scalar drop must carry a one-dimensional block, and the witness realizes
+that minimal shape. The declared overlap algebra is a proper subalgebra of
+the set intersection of the two block algebras; the regional repair maps
+are identities, and genuine coverage semantics for a source-produced net
+are open.
+
+\paragraph{Boundary-fibre circularity control.}
+Over the bare consensus tower of the gravitational branch (finite
+presentation and
+quotient states, a mismatch functional, a strictly descending step
+relation, an idempotent normal form, a protected boundary map, and
+physical coarse maps), a signature family that factors through the
+protected boundary on consistent states and is complete on consistent
+states forces the boundary fibre: equal boundary values imply equal
+consistent states. Instantiating the signature as the protected boundary
+itself makes the factoring hypothesis trivial and makes the completeness
+hypothesis definitionally identical to the conclusion; the degeneration is
+recorded as a definitional equivalence, so the circularity is itself a
+theorem, and the result is substantive only for a signature constructed
+independently of the boundary and proved complete on its own grounds. A
+selected settled branch (one normal-form-fixed, coherent quotient point
+per regulator) is an explicit premise with a concrete inhabitant and an
+explicit failing candidate, and an event and geometry readout fragment
+carries normal-form-invariant, coarsely natural packet readouts that
+separate two consistent states on the same concrete tower. Every statement
+in this subsection is a finite conditional structure over declared data:
+no physical region, coverage, instrument, spacetime, causal cone, event
+actualization, probability law, or continuum object
+follows~\cite{ophrepo}.
+
 \section{OPH Simulation Criterion and Fixed-Point Firewall}
 \label{sec:oph-simulation}
 
