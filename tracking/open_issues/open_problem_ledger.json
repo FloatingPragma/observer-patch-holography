@@ -29,7 +29,7 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-08-05T00:26:11Z",
+  "generated_utc": "2026-08-05T00:35:11Z",
   "open_issue_count": 20,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
@@ -53,12 +53,13 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/676"
     },
     {
-      "blocker": "Live prerequisite contract: B1. Open scope: Continuous reversible finite private evolution is unitary and obeys the von Neumann equation (automorphism groups of finite algebras act innerly per central block); a finite commutative public algebra carries no nontrivial continuous reversible flow; positive unital maps on the record algebra are classical stochastic matrices. Together: the private layer is quantum-unitary, the public layer is classical-stochastic, at every regulator.",
+      "blocker": "Live prerequisite contract: B1 (#677, closed bounded). Open scope: Complete the finite public/private dynamical dichotomy without importing physical time or a source-selected Hamiltonian.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Dynamics/PublicMarkov.lean (stochastic restriction, trivial continuous record automorphisms), finite inner-automorphism theorem with the Mathlib route documented.",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Dynamics/PublicMarkov.lean, Dynamics/FinitePrivateDynamics.lean, Dynamics/PrivateUnitaryFlow.lean, exact assumption and countermodel rows.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
+        "dag:ready-now",
         "track:observer-laws",
         "size:M",
         "surface:v2"
@@ -66,7 +67,7 @@
       "number": 679,
       "phase": "v2-w1-observer-laws",
       "title": "[B3] Public/private dynamical dichotomy",
-      "updated_at": "2026-08-05T00:25:07Z",
+      "updated_at": "2026-08-05T00:28:59Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/679"
     },
     {
@@ -160,10 +161,10 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/687"
     },
     {
-      "blocker": "No hard issue prerequisite. Open scope: Continuation of the five open receipts of the four-law package: global objective representation, common source-derived reference, collar-matrix realization (irreducible-chain rerun of the compact 4k lane or an explicit recurrent-class restriction on the measured 64k probe), energy-clock calibration beyond the attained central-interface split, and refinement-uniform low-temperature control.",
+      "blocker": "No hard issue prerequisite. Open scope: Continue the five physical receipts of the conditional finite four-law package. The theorem packet is not a derivation of thermodynamics from the three OPH axioms until these receipts are supplied.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Complete the declared scope with theorem/certificate evidence or record an explicit scoped countermodel, no-go, or typed not-evaluable exit. Declared scope: Continuation of the five open receipts of the four-law package: global objective representation, common source-derived reference, collar-matrix realization (irreducible-chain rerun of the compact 4k lane or an explicit recurrent-class restriction on the measured 64k probe), energy-clock calibration beyond the attained central-interface split, and refinement-uniform low-temperature control.",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: source and reference receipt, bounded run manifest, exact stationary and recurrent-class checks, claim and postdiction updates. A failed bounded run is a valid negative result and does not justify adaptive quotient mining.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -174,7 +175,7 @@
       "number": 688,
       "phase": "v2-w1-observer-laws",
       "title": "[B12] Thermodynamic physical receipts continuation",
-      "updated_at": "2026-08-05T00:25:07Z",
+      "updated_at": "2026-08-05T00:29:29Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/688"
     },
     {
@@ -345,6 +346,7 @@
       "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: Tower/PublicWorldQuotient.lean, Tower/FixedPointEndpoint.lean, one typed handoff note to E2.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
+        "dag:ready-now",
         "track:foundations",
         "size:M",
         "surface:v2"
@@ -352,7 +354,7 @@
       "number": 699,
       "phase": "v2-w1-foundations",
       "title": "[A4] Public-world quotient and fixed-point endpoint",
-      "updated_at": "2026-08-04T22:08:46Z",
+      "updated_at": "2026-08-05T00:28:42Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/699"
     },
     {
