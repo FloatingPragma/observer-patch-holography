@@ -28,16 +28,20 @@ control is likewise computed against a map distinct from the identity.
 from the constant adaptor: two-dimensional private algebra, strictly
 ordered records, a nonconstant non-identity prediction map, a record
 element distinct from the zero and identity matrices, a nonzero generator,
-and a control distinct from the identity map.  Three negative controls show
-that an erasing readback, an identity generator, and a resetting prediction
-each violate exactly one clause on the same concrete data.
+and a control distinct from the identity map.  Four negative controls show
+that an erasing readback, an identity generator, a resetting prediction,
+and a constant readout each violate exactly one clause on the same
+concrete data.
 
 ## Claim boundary
 
 The receipt is operational and finite.  It selects no unique observer over
 a given tower, attaches no physical instrument or laboratory system, makes
 no claim about consciousness, and supplies no source realization of the
-tower data.  The E2 source-realized observer family quantifies over this
+tower data.  The overlap-readable clause is typed in its own-observer half
+only; restriction of records through typed overlap maps across observers
+is inexpressible over the tower interface and composes with the access-cut
+layer.  The E2 source-realized observer family quantifies over this
 receipt, and the E6 chart-owner typing may consume it; neither consumer is
 constructed here.
 -/
@@ -102,10 +106,12 @@ structure OperationalObserver (T : ConsensusTower ι) where
       (X : T.PrivateAlgebra r),
     X ∈ accessible r → control r x X ∈ accessible r
   /-- Clause 5 (predictive boundary use): a declared record-to-record
-  prediction map. -/
+  prediction map.  Its receipt content is the two clause-5 laws
+  `predict_no_regress` and `predict_readout_congruent`. -/
   predict : ∀ r : ι, T.Record r → T.Record r
-  /-- Clause 5 (predictive boundary use): the prediction output never
-  strictly precedes its input in the observer's own record order. -/
+  /-- Clause 5 (predictive boundary use), first law of two: the prediction
+  output never strictly precedes its input in the observer's own record
+  order.  The companion law is `predict_readout_congruent`. -/
   predict_no_regress : ∀ (r : ι) (x : T.Record r),
     ¬ (T.recordOrder r (label r)).precedes (predict r x) x
   /-- Clause 6 (checkpoint and refinement continuation): prediction
@@ -116,6 +122,14 @@ structure OperationalObserver (T : ConsensusTower ι) where
   each record.  The record element itself is typed into the observer's own
   public algebra by the tower field `recordElement`. -/
   readout : ∀ r : ι, T.Record r → ℂ
+  /-- Clause 5 (predictive boundary use), second law of two: prediction
+  constrains records only through their declared readable boundary values,
+  so records with equal readouts have predictions with equal readouts.
+  The companion law is `predict_no_regress`; the field is stated after
+  `readout` because its type consumes that field. -/
+  predict_readout_congruent : ∀ (r : ι) (x y : T.Record r),
+    readout r x = readout r y →
+      readout r (predict r x) = readout r (predict r y)
   /-- Clause 7 (overlap-readable evidence): the declared readable value is
   the trace pairing of the record element against the observer's own
   state. -/
@@ -400,6 +414,12 @@ noncomputable def witnessObserver : OperationalObserver witnessTower where
     decide
   predict_refine := by intros; rfl
   readout := fun _ => witnessReadout
+  predict_readout_congruent := by
+    intro r
+    show ∀ x y : Fin 3, witnessReadout x = witnessReadout y →
+      witnessReadout (witnessPredict x) = witnessReadout (witnessPredict y)
+    intro x y _
+    fin_cases x <;> fin_cases y <;> rfl
   readout_eq_pairing := by
     intro r
     show ∀ x : Fin 3,
@@ -536,14 +556,33 @@ theorem idGenerator_not_durable :
 the first record. -/
 def resettingPredict : Fin 3 → Fin 3 := fun _ => 0
 
-/-- Negative control (c): the resetting prediction sends the second record
-strictly backwards, so it cannot satisfy the no-regress law
-`predict_no_regress` over the witness tower. -/
+/-- Negative control (c), a clause-5 control: the resetting prediction
+sends the second record strictly backwards, so it cannot satisfy the
+clause-5 no-regress law `predict_no_regress` over the witness tower. -/
 theorem resettingPredict_not_predictive :
     ¬ ∀ x : Fin 3,
         ¬ (witnessTower.recordOrder () ()).precedes (resettingPredict x) x := by
   intro h
   exact h 1 (show (0 : Fin 3) < 1 by decide)
+
+/-- Negative-control candidate: a readout that assigns the constant value
+`2` to every record. -/
+def constantReadout : Fin 3 → ℂ := fun _ => 2
+
+/-- Negative control (d), a clause-7 control: the constant readout
+misreads the first record, whose trace pairing against the witness state
+is `1`, so it cannot satisfy the evidence law `readout_eq_pairing` over
+the witness tower. -/
+theorem constantReadout_not_evidence :
+    ¬ ∀ x : Fin 3,
+        constantReadout x =
+          (witnessTower.state () () *
+            (witnessTower.recordElement () () x).1).trace := by
+  intro h
+  have h0 : (2 : ℂ) =
+      (witnessPartition.proj 0 * witnessPartition.proj 0).trace := h 0
+  rw [(witnessPartition.isEvent 0).2, witnessPartition_proj_zero_trace] at h0
+  norm_num at h0
 
 -- Axiom audit: no project-specific axiom or admission is permitted here.
 #print axioms OPH.Tower.OperationalObserver.readback_recordElement
@@ -561,5 +600,7 @@ theorem resettingPredict_not_predictive :
 #print axioms OPH.Tower.erasingReadback_not_self_readback
 #print axioms OPH.Tower.idGenerator_not_durable
 #print axioms OPH.Tower.resettingPredict_not_predictive
+#print axioms OPH.Tower.constantReadout_not_evidence
+#print axioms OPH.Tower.witnessObserver
 
 end OPH.Tower

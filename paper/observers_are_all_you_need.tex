@@ -1677,12 +1677,19 @@ exact boundary.
 
 \begin{theorem}[Scalar-character obstruction and character-block coexistence]
 \label{thm:character-block-coexistence}
-No unital complex-algebra homomorphism into the scalars accepts an
-anticommuting pair of units. On this net interface, a region lying above a
-region with commutative local algebra therefore carries no anticommuting
-pair of units: the declared star-homomorphic restriction retraction would
-send the pair to commuting units whose product equals its own negation.
-Every full matrix factor above a scalar overlap region is excluded, and
+For every \(n\ge 2\) there is no unital complex-algebra homomorphism from
+the full matrix algebra \(M_n(\mathbb C)\) into the scalars, and no
+unital complex-algebra homomorphism into the scalars accepts an
+anticommuting pair of units. On this net interface, at any regulator of
+nonzero dimension, a region whose local algebra consists of scalars
+admits above it no region whose local algebra contains a unital copy of
+\(M_n(\mathbb C)\) with \(n\ge 2\): the declared star-homomorphic
+restriction retraction would compose with the copy to a scalar-valued
+unital homomorphism on a full matrix algebra. At any such regulator, a
+region lying above a region with commutative local algebra carries no
+anticommuting pair of units: the declared restriction would send the pair to
+commuting units whose product equals its own negation. No full matrix
+factor of dimension at least two sits above a scalar overlap region, and
 the standard tensor-factor local-algebra picture with trivial overlap is
 impossible on this interface. The boundary is inhabited: over a
 dimension-four private algebra, the block algebras of matrices
@@ -1694,14 +1701,20 @@ one-dimensional corner block.
 \end{theorem}
 
 \begin{proof}
-A unital homomorphism into the scalars sends units to nonzero scalars, and
-applying it to the anticommutation relation forces the product of the two
-image scalars to vanish. The interface statement composes this argument
-with the declared restriction into the commutative region. The inhabitant
-is finite linear algebra over one declared regulator with identity repair
-maps; the interface laws, both noncommutativity witnesses, the mutual
-noncontainment, and the corner-character retractions are checked in
-Lean~\cite{ophrepo}.
+The matrix ring \(M_n(\mathbb C)\) is simple, so the kernel of a unital
+homomorphism into the scalars is trivial and the homomorphism is
+injective, while the off-diagonal matrix unit is a nonzero element whose
+square is zero and whose scalar image would be a nonzero complex number
+whose square is zero. For the anticommuting form, a unital homomorphism
+into the scalars sends units to nonzero scalars, and applying it to the
+anticommutation relation forces the product of the two image scalars to
+vanish. The interface statements compose these arguments with the
+declared restriction into the scalar or commutative region. The
+inhabitant is finite linear algebra over one declared regulator with
+identity repair maps; the general matrix obstruction, the interface
+compositions, the interface laws, both noncommutativity witnesses, the
+mutual noncontainment, and the corner-character retractions are checked
+in Lean~\cite{ophrepo}.
 \end{proof}
 
 Noncommutative regional coexistence on this interface therefore passes

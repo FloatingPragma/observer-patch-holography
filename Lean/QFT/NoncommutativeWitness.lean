@@ -9,17 +9,27 @@ obstruction pair and a positive inhabitant, and the two together locate the
 exact boundary that the supplied star-homomorphic restriction retractions
 impose on noncommutative regional algebras.
 
-The obstruction: a unital algebra homomorphism into the scalars maps units
-to nonzero scalars, and the images of an anticommuting pair of units would
-be nonzero complex numbers whose product equals its own negation
+The obstruction: for `n ≥ 2` the full matrix algebra `Mₙ(ℂ)` admits no
+unital algebra homomorphism into the scalars (`no_scalar_hom_of_matrix`).
+The matrix ring over `ℂ` is simple, so such a homomorphism would be
+injective, and the off-diagonal matrix unit is a nonzero element whose
+square is zero, while the scalars carry no nonzero element with square
+zero.  The elementary special case: a unital algebra homomorphism into
+the scalars maps units to nonzero scalars, and the images of an
+anticommuting pair of units would be nonzero complex numbers whose
+product equals its own negation
 (`no_scalar_character_of_anticommuting_units`).  At the interface level,
+`FiniteCausalObserverNet.no_matrix_factor_over_scalar_restriction` shows
+that in every inhabitant at a regulator of nonzero dimension, a region
+whose local algebra contains a unital copy of `Mₙ(ℂ)` with `n ≥ 2`
+admits no region below it whose local algebra is the scalars, and
 `FiniteCausalObserverNet.no_commutative_restriction_of_anticommuting_units`
-shows that in every inhabitant, a region whose local algebra contains an
-anticommuting pair of units admits no region below it with commutative
-local algebra.  A full matrix factor above a scalar overlap region is
-therefore impossible on this interface: the standard tensor-factor picture
-with trivial overlap is excluded by the restriction field, and the
-committed extra receipts are strictly stronger than ordinary isotony.
+records the elementary anticommuting-unit form against commutative
+drops.  Every full matrix factor of dimension at least two above a
+scalar overlap region is therefore impossible on this interface: the
+standard tensor-factor picture with trivial overlap is excluded by the
+restriction field, and the committed extra receipts are strictly
+stronger than ordinary isotony.
 
 The witness: `characterCausalNet` inhabits the interface over a
 one-regulator dimension-four constant tower with scalar public algebra.  It
@@ -42,7 +52,8 @@ regulator with the zero tower generator.  The regional repair maps are the
 identity; the interface laws hold for it, and nontrivial channel or
 instrument semantics belong to E2.  The declared overlap algebra is a
 proper subalgebra of the set intersection of the two block algebras
-(`overlapAlgebra_lt_regional_intersection` exhibits the gap); the
+(`overlapAlgebra_lt_regional_intersection` records the inclusion and
+exhibits the gap); the
 interface requires only the isotony inclusions, and the declared bottom
 algebra is the scalar span characterized by `oneBlockPartition_mem_iff`.
 No coverage law beyond the declared three-element region poset, no
@@ -78,6 +89,33 @@ theorem no_scalar_character_of_anticommuting_units {A : Type*} [Ring A]
   rcases mul_eq_zero.mp hzero with h | h
   · exact (hu.map φ).ne_zero h
   · exact (hv.map φ).ne_zero h
+
+/-- No unital complex-algebra homomorphism carries a full matrix algebra
+of dimension at least two into the scalars.  The matrix ring over `ℂ` is
+simple, so the kernel of such a homomorphism is trivial and the
+homomorphism is injective; the off-diagonal matrix unit is a nonzero
+element whose square is zero, and its image would be a nonzero scalar
+whose square is zero. -/
+theorem no_scalar_hom_of_matrix (n : ℕ) (hn : 2 ≤ n)
+    (φ : Matrix (Fin n) (Fin n) ℂ →ₐ[ℂ] ℂ) : False := by
+  have h0 : 0 < n := by omega
+  have h1 : 1 < n := by omega
+  haveI : Nonempty (Fin n) := ⟨⟨0, h0⟩⟩
+  have hne : (⟨1, h1⟩ : Fin n) ≠ ⟨0, h0⟩ := by
+    simp [Fin.ext_iff]
+  have hEE : Matrix.single (⟨0, h0⟩ : Fin n) (⟨1, h1⟩ : Fin n) (1 : ℂ) *
+      Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1 = 0 := by
+    simp [hne]
+  have hφE : φ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1) = 0 := by
+    have h := map_mul φ (Matrix.single (⟨0, h0⟩ : Fin n) ⟨1, h1⟩ (1 : ℂ))
+      (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1)
+    rw [hEE, map_zero] at h
+    exact mul_self_eq_zero.mp h.symm
+  have hinj : Function.Injective φ := RingHom.injective φ.toRingHom
+  have hE0 : Matrix.single (⟨0, h0⟩ : Fin n) (⟨1, h1⟩ : Fin n) (1 : ℂ) = 0 :=
+    hinj (by rw [hφE, map_zero])
+  have h01 := congrFun (congrFun hE0 ⟨0, h0⟩) ⟨1, h1⟩
+  simp [Matrix.single_apply_same] at h01
 
 /-- Interface-level obstruction.  In any finite causal observer net, a
 declared region inclusion `V ≤ U` with commutative local algebra at `V`
@@ -123,6 +161,66 @@ theorem FiniteCausalObserverNet.no_commutative_restriction_of_anticommuting_unit
         ConsensusTower.PrivateAlgebra T r) i i := by
     rw [hunit]
   simp at h01
+
+/-- Interface-level matrix-factor obstruction.  In any finite causal
+observer net at a regulator of nonzero dimension, a declared region
+inclusion `V ≤ U` whose lower local algebra consists of scalar multiples
+of the identity excludes every unital copy of a full matrix algebra of
+dimension at least two from the local algebra at `U`.  The supplied
+restriction retraction composes with the copy to a unital algebra
+homomorphism from a simple matrix ring into a nontrivial target whose
+elements are scalars: the composite is injective by simplicity, while
+the off-diagonal matrix unit maps to a scalar multiple of the identity
+whose square vanishes, hence to zero.  In particular the strict drop of
+a full matrix factor onto a scalar overlap region is impossible, and a
+unital star-embedding of `M₂` above a scalar region is excluded through
+its underlying algebra homomorphism. -/
+theorem FiniteCausalObserverNet.no_matrix_factor_over_scalar_restriction
+    {T : ConsensusTower ι} (N : FiniteCausalObserverNet T) {r : ι}
+    {U V : N.Region r} (hVU : N.regionLE r V U) (i : Fin (T.dim r))
+    {n : ℕ} (hn : 2 ≤ n)
+    (ψ : Matrix (Fin n) (Fin n) ℂ →ₐ[ℂ] N.localAlgebra r U)
+    (hscalar : ∀ X : N.localAlgebra r V, ∃ c : ℂ,
+      (X : ConsensusTower.PrivateAlgebra T r) = c • 1) : False := by
+  have h0 : 0 < n := by omega
+  have h1 : 1 < n := by omega
+  haveI : Nonempty (Fin n) := ⟨⟨0, h0⟩⟩
+  haveI : Nontrivial (N.localAlgebra r V) := by
+    refine nontrivial_of_ne 0 1 fun h01 => ?_
+    have hval := congrArg Subtype.val h01
+    have hii := congrFun (congrFun hval i) i
+    simp at hii
+  set ρ : Matrix (Fin n) (Fin n) ℂ →ₐ[ℂ] N.localAlgebra r V :=
+    ((N.restrict r hVU).toAlgHom.comp ψ) with hρdef
+  have hne : (⟨1, h1⟩ : Fin n) ≠ ⟨0, h0⟩ := by
+    simp [Fin.ext_iff]
+  have hEE : Matrix.single (⟨0, h0⟩ : Fin n) (⟨1, h1⟩ : Fin n) (1 : ℂ) *
+      Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1 = 0 := by
+    simp [hne]
+  obtain ⟨c, hc⟩ := hscalar (ρ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1))
+  have hsq : ρ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1) *
+      ρ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1) = 0 := by
+    rw [← map_mul, hEE, map_zero]
+  have hval : (ρ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1) :
+      ConsensusTower.PrivateAlgebra T r) *
+      (ρ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1) :
+        ConsensusTower.PrivateAlgebra T r) = 0 := by
+    have h := congrArg Subtype.val hsq
+    simpa using h
+  rw [hc, smul_mul_smul_comm, one_mul] at hval
+  have hii := congrFun (congrFun hval i) i
+  rw [Matrix.smul_apply, Matrix.zero_apply, Matrix.one_apply_eq,
+    smul_eq_mul, mul_one] at hii
+  have hc0 : c = 0 := mul_self_eq_zero.mp hii
+  have hρE : ρ (Matrix.single ⟨0, h0⟩ ⟨1, h1⟩ 1) = 0 := by
+    apply Subtype.ext
+    rw [hc, hc0, zero_smul]
+    simp
+  have hinj : Function.Injective ρ := RingHom.injective ρ.toRingHom
+  have hE0 : Matrix.single (⟨0, h0⟩ : Fin n) (⟨1, h1⟩ : Fin n) (1 : ℂ) = 0 :=
+    hinj (by rw [hρE, map_zero])
+  have h01 := congrFun (congrFun hE0 ⟨0, h0⟩) ⟨1, h1⟩
+  simp [Matrix.single_apply_same] at h01
 
 /-! ## The two block algebras inside `M₄(ℂ)`
 
@@ -299,10 +397,26 @@ intersection of the two regional algebras. -/
 def upperPairProjector : Matrix (Fin 4) (Fin 4) ℂ :=
   blockUnit 0 0 + blockUnit 1 1
 
+/-- Every scalar public element lies in both regional block algebras: the
+declared overlap algebra is contained in the set intersection of the two
+regional algebras. -/
+theorem overlapAlgebra_le_regional_intersection :
+    ∀ X ∈ (oneBlockPartition 4).publicSubalgebra,
+      X ∈ leftBlockAlgebra ∧ X ∈ rightBlockAlgebra := fun _ hX =>
+  ⟨oneBlockPartition_publicSubalgebra_le _ hX,
+    oneBlockPartition_publicSubalgebra_le _ hX⟩
+
+/-- The declared overlap algebra sits strictly inside the set intersection
+of the two regional block algebras: the inclusion holds, and the projector
+onto the two upper coordinates is a joint member outside the scalar
+span. -/
 theorem overlapAlgebra_lt_regional_intersection :
-    ∃ X, X ∈ leftBlockAlgebra ∧ X ∈ rightBlockAlgebra ∧
-      X ∉ (oneBlockPartition 4).publicSubalgebra := by
-  refine ⟨upperPairProjector, ?_, ?_, ?_⟩
+    (∀ X ∈ (oneBlockPartition 4).publicSubalgebra,
+        X ∈ leftBlockAlgebra ∧ X ∈ rightBlockAlgebra) ∧
+      ∃ X, X ∈ leftBlockAlgebra ∧ X ∈ rightBlockAlgebra ∧
+        X ∉ (oneBlockPartition 4).publicSubalgebra := by
+  refine ⟨overlapAlgebra_le_regional_intersection,
+    upperPairProjector, ?_, ?_, ?_⟩
   · simp [mem_leftBlockAlgebra_iff, upperPairProjector, blockUnit,
       Matrix.add_apply]
   · simp [mem_rightBlockAlgebra_iff, upperPairProjector, blockUnit,
@@ -647,12 +761,24 @@ end OPH.QFT
 
 -- Axiom audit: no project-specific axiom or admission is permitted here.
 #print axioms OPH.QFT.no_scalar_character_of_anticommuting_units
+#print axioms OPH.QFT.no_scalar_hom_of_matrix
 #print axioms OPH.QFT.FiniteCausalObserverNet.no_commutative_restriction_of_anticommuting_units
+#print axioms OPH.QFT.FiniteCausalObserverNet.no_matrix_factor_over_scalar_restriction
+#print axioms OPH.QFT.mem_leftBlockAlgebra_iff
+#print axioms OPH.QFT.mem_rightBlockAlgebra_iff
+#print axioms OPH.QFT.blockUnit_two_three_mem_left
+#print axioms OPH.QFT.blockUnit_three_two_mem_left
+#print axioms OPH.QFT.blockUnit_zero_one_mem_right
+#print axioms OPH.QFT.blockUnit_one_zero_mem_right
+#print axioms OPH.QFT.smul_one_mem_oneBlock
+#print axioms OPH.QFT.scalar_corner_eval
+#print axioms OPH.QFT.characterCausalNet_overlap_left_right
 #print axioms OPH.QFT.leftBlock_commute_rightBlock
 #print axioms OPH.QFT.leftBlockAlgebra_noncommutative
 #print axioms OPH.QFT.rightBlockAlgebra_noncommutative
 #print axioms OPH.QFT.leftBlock_not_le_rightBlock
 #print axioms OPH.QFT.rightBlock_not_le_leftBlock
+#print axioms OPH.QFT.overlapAlgebra_le_regional_intersection
 #print axioms OPH.QFT.overlapAlgebra_lt_regional_intersection
 #print axioms OPH.QFT.characterCausalNet_disjoint_left_right
 #print axioms OPH.QFT.characterCausalNet_locality_receipt

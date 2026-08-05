@@ -36,14 +36,26 @@ packet is the coarse encoded selected packet.  The normal-form stability
 theorems reproduce the matched packets and the matched slice at the
 normal form of the branch point and on its whole settling basin.
 
+The square carries a two-tier hierarchy.  The plain square is declared
+bookkeeping: nothing constrains the encodings, and
+`SourceLinkSquare.ofConstantEncodings` inhabits the square for every
+branch, fragment, and readout triple.  `InjectiveSourceLinkSquare` is
+the determination tier: encoding injectivity is well typed and strictly
+stronger than the bare matching equations, and under it
+`InjectiveSourceLinkSquare.packetOf_determined` and
+`InjectiveSourceLinkSquare.geometryRead_determined` recover the world
+packet assignment and coordinate readout from the fragment values on
+the branch.
+
 Typing note.  A literal equation between a fragment packet and the world
 packet data is not well typed: `fragment.EventPacket r` is an arbitrary
 per-regulator codomain while the world data lives on the fixed signature
 carriers.  The declared encodings `eventEncode` and `geometryEncode`
-state the strongest well-typed form, equality after a declared encoding
-of the world data into each regulator codomain.  The two towers also
-carry opposite index variance: the consensus tower of the event world
-refines coarse to fine while the bare tower coarse-grains fine to
+state equality after a declared encoding of the world data into each
+regulator codomain; whether that equality carries content depends on the
+encodings, which is what the injective tier certifies.  The two towers
+also carry opposite index variance: the consensus tower of the event
+world refines coarse to fine while the bare tower coarse-grains fine to
 coarse, and the two index types are unrelated.  The selected world
 therefore enters at one fixed consensus-tower regulator through its
 slice and packet data alone; no equation relates the consensus
@@ -155,11 +167,16 @@ the componentwise matching equations tying the fragment packets at the
 branch to the packet data of the selected world.
 
 `eventEncode` and `geometryEncode` are declared encodings of the world
-packet data into the fragment codomains; the matching equations are the
-strongest well-typed form of packet equality, since a literal equation
-between `fragment.EventPacket r` values and functions on the signature
-carriers is not well typed.  The encodings are square data; nothing
-asserts that they are injective or canonical. -/
+packet data into the fragment codomains; a literal equation between
+`fragment.EventPacket r` values and functions on the signature carriers
+is not well typed, so the matching equations hold through the encodings.
+The plain square is the declared-bookkeeping tier: nothing constrains
+the encodings, `ofConstantEncodings` inhabits the square for every
+branch, fragment, and readout triple, and the matching equations alone
+determine nothing about the world.  The injective strengthening
+`InjectiveSourceLinkSquare` is well typed and strictly stronger; under
+it the matching determines the world packet data from the fragment
+values on the branch (`InjectiveSourceLinkSquare.packetOf_determined`). -/
 structure SourceLinkSquare (B : BareConsensusTower ι)
     (W : FiniteEventGeometryWorld A sig S) where
   /-- The selected settled branch of the bare tower. -/
@@ -264,16 +281,96 @@ theorem matches_of_settles_to (Q : SourceLinkSquare B W) (r : ι)
     Q.eventRead_matches_of_settles_to r h,
     Q.geometryRead_matches_of_settles_to r h⟩
 
+/-- Tier-1 saturation: constant encodings at the branch values close the
+matching equations for every branch, fragment, and readout triple.  The
+plain square therefore carries no constraint beyond its three components;
+determination lives in the injective tier below. -/
+noncomputable def ofConstantEncodings (br : SelectedSettledBranch B)
+    (frag : EventGeometryReadoutFragment B)
+    (Rd : SelectedObserverReadout B br W) : SourceLinkSquare B W where
+  branch := br
+  fragment := frag
+  readout := Rd
+  eventEncode := fun r _ => frag.eventRead r (br.point r)
+  geometryEncode := fun r _ => frag.geometryRead r (br.point r)
+  event_matches := fun _ => rfl
+  geometry_matches := fun _ => rfl
+
+/-- Every branch, fragment, and readout triple inhabits the plain
+square. -/
+theorem nonempty_of_readout (br : SelectedSettledBranch B)
+    (frag : EventGeometryReadoutFragment B)
+    (Rd : SelectedObserverReadout B br W) :
+    Nonempty (SourceLinkSquare B W) :=
+  ⟨ofConstantEncodings br frag Rd⟩
+
 end SourceLinkSquare
 
-/-! ## The demo square
+/-! ## The injective strengthening: the determination tier -/
 
-The witness glues the two committed demo stacks: the bare demo tower
-with its selected branch and readout fragment, and the dimension-two
+/-- A source-link square whose declared encodings are injective at every
+regulator.  Injectivity is the well-typed strengthening that the plain
+square omits: it turns the matching equations from declared bookkeeping
+into determination, because an injective encoding admits at most one
+preimage for the fragment value at the branch. -/
+structure InjectiveSourceLinkSquare (B : BareConsensusTower ι)
+    (W : FiniteEventGeometryWorld A sig S) extends SourceLinkSquare B W where
+  /-- The event encoding is injective at every regulator. -/
+  eventEncode_injective : ∀ r, Function.Injective (eventEncode r)
+  /-- The geometry encoding is injective at every regulator. -/
+  geometryEncode_injective : ∀ r, Function.Injective (geometryEncode r)
+
+namespace InjectiveSourceLinkSquare
+
+variable {B : BareConsensusTower ι} {W W' : FiniteEventGeometryWorld A sig S}
+
+/-- Determination, event side: through an injective encoding the fragment
+event packet at the branch pins the world packet assignment.  Every packet
+assignment whose encoding matches the branch value is `W.packetOf`. -/
+theorem packetOf_determined (Q : InjectiveSourceLinkSquare B W) (r : ι)
+    (p : sig.Event → sig.Packet)
+    (h : Q.fragment.eventRead r (Q.branch.point r) = Q.eventEncode r p) :
+    p = W.packetOf :=
+  Q.eventEncode_injective r (h.symm.trans (Q.event_matches r))
+
+/-- Determination, geometry side: through an injective encoding the
+fragment geometry packet at the branch pins the world coordinate
+readout. -/
+theorem geometryRead_determined (Q : InjectiveSourceLinkSquare B W) (r : ι)
+    (g : sig.Chart → sig.Packet → OPH.C1Lorentz.Herm2)
+    (h : Q.fragment.geometryRead r (Q.branch.point r) =
+      Q.geometryEncode r g) :
+    g = W.geometryRead :=
+  Q.geometryEncode_injective r (h.symm.trans (Q.geometry_matches r))
+
+/-- Two worlds matched through one injective square carry equal world
+data: if a second world's packet assignment and coordinate readout encode
+to the same branch values, they equal the selected world's packet
+assignment and coordinate readout on every event, chart, and packet. -/
+theorem world_data_determined (Q : InjectiveSourceLinkSquare B W) (r : ι)
+    (hev : Q.fragment.eventRead r (Q.branch.point r) =
+      Q.eventEncode r W'.packetOf)
+    (hgeo : Q.fragment.geometryRead r (Q.branch.point r) =
+      Q.geometryEncode r W'.geometryRead) :
+    W'.packetOf = W.packetOf ∧ W'.geometryRead = W.geometryRead :=
+  ⟨Q.packetOf_determined r W'.packetOf hev,
+    Q.geometryRead_determined r W'.geometryRead hgeo⟩
+
+end InjectiveSourceLinkSquare
+
+/-! ## The demo squares
+
+The witnesses glue the two committed demo stacks: the bare demo tower
+with its selected branch and readout fragments, and the dimension-two
 witness event world over the witness access cut.  The two stacks keep
 unrelated regulator index types, `ℕ` for the bare tower and `Unit` for
-the witness consensus tower; the square composes them without any shared
-index, as the interface requires. -/
+the witness consensus tower; the squares compose them without any shared
+index, as the interface requires.  Three squares mark the tiers: the
+constant-geometry square is the labeled degenerate control on its
+geometry side, `demoNonconstantGeometrySquare` matches the geometry
+through a nonconstant value encoding with a separation receipt, and
+`demoInjectiveSourceLinkSquare` inhabits the injective determination
+tier and exercises the uniqueness theorems on explicit data. -/
 
 section DemoSquare
 
@@ -326,8 +423,10 @@ observer readout, an event encoding probing the packet assignment at the
 second event, and the constant geometry adaptor at the matched value.
 The matching equations hold definitionally: the fragment reads the
 protected bit `true` and weight `1` at the branch point, the encoded
-selected event packet is `true`, and the encoded geometry value is
-`1`. -/
+selected event packet is `true`, and the encoded geometry value is `1`.
+The geometry side is the labeled degenerate control of the demo family;
+`demoNonconstantGeometrySquare` below matches the geometry through a
+nonconstant encoding. -/
 noncomputable def demoSourceLinkSquare :
     SourceLinkSquare demoTower witnessEventWorld where
   branch := demoSelectedBranch
@@ -372,6 +471,138 @@ theorem demoSourceLinkSquare_matches_of_settling_state :
           witnessEventWorld.geometryRead :=
   demoSourceLinkSquare.matches_of_settles_to 0 rfl
 
+/-! ### The nonconstant geometry encoding -/
+
+/-- The demo geometry value encoding: read the coordinate function at the
+designated chart/packet pair `(0, 1)` and inject the designated demo
+value pair into `ℕ`, `0` for the zero coordinate and `1` for every other
+coordinate.  On the demo's two-element value set at the designated pair,
+zero and the witness coordinate, this assignment is injective. -/
+noncomputable def demoGeometryValueEncode
+    (g : Fin 2 → Fin 2 → OPH.C1Lorentz.Herm2) : ℕ :=
+  letI := Classical.dec (g 0 1 = 0)
+  if g 0 1 = 0 then 0 else 1
+
+/-- The designated geometry value of the selected world is nonzero: at
+the chart/packet pair `(0, 1)` the witness coordinate has scalar part
+`1`. -/
+theorem witnessEventWorld_designated_geometry_ne_zero :
+    witnessEventWorld.geometryRead 0 1 ≠ 0 := by
+  intro h
+  have h1 := congrArg Prod.fst h
+  norm_num [witnessEventWorld, OPH.C2Soldering.controlSoldering,
+    OPH.C2Soldering.controlEventPoint, OPH.C2Soldering.controlChartOffset,
+    Prod.fst_add] at h1
+
+/-- The value encoding sends the selected world's coordinate readout to
+`1`. -/
+theorem demoGeometryValueEncode_world :
+    demoGeometryValueEncode witnessEventWorld.geometryRead = 1 := by
+  unfold demoGeometryValueEncode
+  exact if_neg witnessEventWorld_designated_geometry_ne_zero
+
+/-- The value encoding sends the constant zero readout to `0`. -/
+theorem demoGeometryValueEncode_zero :
+    demoGeometryValueEncode (fun _ _ => 0) = 0 := by
+  unfold demoGeometryValueEncode
+  exact if_pos rfl
+
+/-- The demo square with a nonconstant geometry encoding: demo branch,
+demo fragment, demo observer readout, the packet-probing event encoding,
+and the geometry value encoding at the designated pair.  The geometry
+matching carries coordinate content: the fragment weight `1` at the
+branch equals the encoded coordinate value of the selected world because
+the designated witness coordinate is nonzero. -/
+noncomputable def demoNonconstantGeometrySquare :
+    SourceLinkSquare demoTower witnessEventWorld where
+  branch := demoSelectedBranch
+  fragment := demoFragment
+  readout := demoObserverReadout
+  eventEncode := fun _ p => decide (p 1 = 1)
+  geometryEncode := fun _ g => demoGeometryValueEncode g
+  event_matches := fun _ => rfl
+  geometry_matches := fun _ => demoGeometryValueEncode_world.symm
+
+/-- Separation receipt for the geometry matching: the value encoding
+distinguishes the selected world's coordinate readout from the constant
+zero readout, so the matched geometry packet carries coordinate data of
+the world rather than one adaptor value. -/
+theorem demoNonconstantGeometrySquare_geometryEncode_separates :
+    demoNonconstantGeometrySquare.geometryEncode 0
+        witnessEventWorld.geometryRead ≠
+      demoNonconstantGeometrySquare.geometryEncode 0 (fun _ _ => 0) := by
+  intro h
+  have h1 : demoGeometryValueEncode witnessEventWorld.geometryRead =
+      demoGeometryValueEncode (fun _ _ => 0) := h
+  rw [demoGeometryValueEncode_world, demoGeometryValueEncode_zero] at h1
+  exact Nat.one_ne_zero h1
+
+/-! ### The injective demo square -/
+
+/-- An injective-codomain readout fragment on the demo tower: the event
+packet codomain is the packet-assignment function space and the geometry
+packet codomain is the coordinate-readout function space, so the identity
+encodings into them are injective.  States with protected bit `true`
+read the selected world data; states with protected bit `false` read the
+inert constants. -/
+noncomputable def demoInjectiveFragment :
+    EventGeometryReadoutFragment demoTower where
+  EventPacket := fun _ => Fin 2 → Fin 2
+  GeometryPacket := fun _ => Fin 2 → Fin 2 → OPH.C1Lorentz.Herm2
+  eventRead := fun _ q => cond q.1 id fun _ => 0
+  geometryRead := fun _ q =>
+    cond q.1 witnessEventWorld.geometryRead fun _ _ => 0
+  eventRead_normalForm := fun _ _ => rfl
+  geometryRead_normalForm := fun _ _ => rfl
+  eventCoarse := fun _ => id
+  geometryCoarse := fun _ => id
+  eventCoarse_refl := fun _ _ => rfl
+  eventCoarse_trans := fun _ _ _ => rfl
+  geometryCoarse_refl := fun _ _ => rfl
+  geometryCoarse_trans := fun _ _ _ => rfl
+  eventRead_natural := fun _ _ => rfl
+  geometryRead_natural := fun _ _ => rfl
+
+/-- The injective demo square: demo branch, injective-codomain fragment,
+demo observer readout, and identity encodings on both sides.  The
+matching equations hold definitionally and both encodings are injective,
+so the square inhabits the determination tier. -/
+noncomputable def demoInjectiveSourceLinkSquare :
+    InjectiveSourceLinkSquare demoTower witnessEventWorld where
+  branch := demoSelectedBranch
+  fragment := demoInjectiveFragment
+  readout := demoObserverReadout
+  eventEncode := fun _ p => p
+  geometryEncode := fun _ g => g
+  event_matches := fun _ => rfl
+  geometry_matches := fun _ => rfl
+  eventEncode_injective := fun _ => Function.injective_id
+  geometryEncode_injective := fun _ => Function.injective_id
+
+/-- Determination exercised on explicit data: every packet assignment
+whose encoding matches the injective fragment at the branch is the
+selected world's packet assignment. -/
+theorem demoInjectiveSourceLinkSquare_packetOf_determined
+    (p : Fin 2 → Fin 2)
+    (h : demoInjectiveSourceLinkSquare.fragment.eventRead 0
+        (demoInjectiveSourceLinkSquare.branch.point 0) =
+      demoInjectiveSourceLinkSquare.eventEncode 0 p) :
+    p = witnessEventWorld.packetOf :=
+  demoInjectiveSourceLinkSquare.packetOf_determined 0 p h
+
+/-- The injective matching rejects the constant packet assignment: its
+encoding differs from the fragment value at the branch, because
+determination would force it to equal the identity packet map. -/
+theorem demoInjectiveSourceLinkSquare_rejects_constant :
+    demoInjectiveSourceLinkSquare.fragment.eventRead 0
+        (demoInjectiveSourceLinkSquare.branch.point 0) ≠
+      demoInjectiveSourceLinkSquare.eventEncode 0 (fun _ => 0) := by
+  intro h
+  have h1 : (fun _ : Fin 2 => (0 : Fin 2)) = witnessEventWorld.packetOf :=
+    demoInjectiveSourceLinkSquare.packetOf_determined 0 _ h
+  have h2 : (0 : Fin 2) = 1 := congrFun h1 1
+  exact absurd h2 (by decide)
+
 end DemoSquare
 
 end OPH.QFT
@@ -388,8 +619,18 @@ end OPH.QFT
 #print axioms OPH.QFT.SourceLinkSquare.eventRead_matches_of_settles_to
 #print axioms OPH.QFT.SourceLinkSquare.geometryRead_matches_of_settles_to
 #print axioms OPH.QFT.SourceLinkSquare.matches_of_settles_to
+#print axioms OPH.QFT.SourceLinkSquare.nonempty_of_readout
+#print axioms OPH.QFT.InjectiveSourceLinkSquare.packetOf_determined
+#print axioms OPH.QFT.InjectiveSourceLinkSquare.geometryRead_determined
+#print axioms OPH.QFT.InjectiveSourceLinkSquare.world_data_determined
 #print axioms OPH.QFT.demoObserverReadout_separates
 #print axioms OPH.QFT.demoObserverReadout_read_settling_state
 #print axioms OPH.QFT.demoSourceLinkSquare_eventEncode_separates
 #print axioms OPH.QFT.demoSourceLinkSquare_eventRead_matches
 #print axioms OPH.QFT.demoSourceLinkSquare_matches_of_settling_state
+#print axioms OPH.QFT.witnessEventWorld_designated_geometry_ne_zero
+#print axioms OPH.QFT.demoGeometryValueEncode_world
+#print axioms OPH.QFT.demoGeometryValueEncode_zero
+#print axioms OPH.QFT.demoNonconstantGeometrySquare_geometryEncode_separates
+#print axioms OPH.QFT.demoInjectiveSourceLinkSquare_packetOf_determined
+#print axioms OPH.QFT.demoInjectiveSourceLinkSquare_rejects_constant

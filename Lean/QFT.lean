@@ -6,6 +6,7 @@ import QFT.ObserverEventTower
 import QFT.NoncommutativeWitness
 import QFT.SourceLinkSquare
 import QFT.JointInstance
+import QFT.CoverageReceipt
 
 /-!
 # OPH construction QFT umbrella
@@ -41,4 +42,8 @@ access cut, the event world, an operational observer with a matching
 accessible interface, and the source-link square, with the common-origin
 conclusion restated through the observer's own interface and an
 inhabitant gluing the committed witnesses.
+The coverage module adds the family join, the coverage
+receipt with its reconstruction theorem, and the exact computation that
+the character net's regional algebras join to the proper block-diagonal
+algebra, so that net does not cover its ambient algebra.
 -/

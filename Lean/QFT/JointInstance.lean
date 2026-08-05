@@ -196,6 +196,7 @@ noncomputable def jointWitnessObserver : OperationalObserver witnessTower where
   predict_refine := by intros; rfl
   readout := fun r x =>
     (witnessTower.state r () * (witnessTower.recordElement r () x).1).trace
+  predict_readout_congruent := fun _ _ _ h => h
   readout_eq_pairing := fun _ _ => rfl
   record_fixed_by_control := fun _ _ _ => rfl
 

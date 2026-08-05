@@ -23,7 +23,12 @@ support, the record, the accessibility, and the coordinate.
 The witness section instantiates the world on the C2 two-event control
 soldering over the dimension-two witness cut, with a packet-sensitive
 scalar record readout, and evaluates the common-origin theorem on every
-pair.
+pair.  A second witness section instantiates the world over the
+dimension-four proper-meet cut of `QFT/ObserverAccessCut.lean`: a
+three-element packet carrier distinct from the event carrier, projector
+records outside the scalar span, a diagonal owner region that the block
+region fails to lie below, and a coordinate law factoring through a
+packet-separating readout.
 
 Claim boundary: every structure is a finite conditional interface over
 the committed E1, C2, and access-cut packets.  Charts and observers stay
@@ -126,7 +131,10 @@ theorem record_mem_accessible (W : FiniteEventGeometryWorld A sig S)
 determines everything.  The event support lies below the owner's observer
 region, the record lies in the meet of the observer-local algebra at the
 event support with the owner's public algebra, and the chart coordinate
-is a readout of the same packet. -/
+is a readout of the same packet.  The proof composes the declared readout
+laws `visible_support`, `chartRegion_le_owner`, `record_local`,
+`record_public`, and `coordinate_from_packet`; no content beyond those
+declared laws is derived. -/
 theorem common_origin (W : FiniteEventGeometryWorld A sig S)
     {i : sig.Chart} {e : sig.Event} (hi : W.activeChart i)
     (he : W.activeEvent e) (hv : S.visible i e) :
@@ -220,6 +228,143 @@ theorem witnessEventWorld_common_origin (i e : Fin 2) :
 
 end EventWorldWitness
 
+/-! ## A dimension-four world with nondegenerate origin receipts
+
+The witness above discharges every common-origin conjunct through the
+top owner region, scalar records, and an identity packet assignment.
+The world in this section sits over the dimension-four proper-meet stack
+of `QFT/ObserverAccessCut.lean` and separates each conjunct from those
+degenerate discharges: the tower public algebra is the full diagonal
+span, so the record readout takes nonscalar public values; the owner
+region is the diagonal region, which the block region fails to lie
+below, so the support containment is falsifiable; the packet carrier is
+a three-element type distinct from the two-element event carrier and the
+packet assignment misses one packet label; the coordinate law factors
+through a packet readout that separates packet labels. -/
+
+section ProperMeetEventWorld
+
+open EventAlgebra
+
+/-- The dimension-four witness signature: two events, two charts, three
+packets, so the packet carrier is a type distinct from the event
+carrier. -/
+abbrev properMeetEventSignature : EventWorldSignature :=
+  { Event := Fin 2
+    Chart := Fin 2
+    Packet := Fin 3
+    eventFintype := inferInstance
+    chartFintype := inferInstance
+    packetFintype := inferInstance }
+
+/-- The event label read back from a packet label. -/
+def properMeetPacketEvent (p : Fin 3) : Fin 2 :=
+  if p = 0 then 0 else 1
+
+/-- The dimension-four witness world: an embedding packet assignment
+into the three-element packet carrier, the diagonal owner region,
+projector records in the diagonal public algebra, and a coordinate
+readout through `properMeetPacketEvent`. -/
+noncomputable def properMeetEventWorld :
+    FiniteEventGeometryWorld properMeetAccessCut properMeetEventSignature
+      OPH.C2Soldering.controlSoldering where
+  activeEvent := fun _ => True
+  activeChart := fun _ => True
+  packetOf := Fin.castSucc
+  chartRegion := fun _ => ProperMeetRegion.diag
+  chartOwner := fun _ => ()
+  chartRegion_le_owner := fun _ _ => Or.inl rfl
+  supportRead := fun _ => ProperMeetRegion.diag
+  geometryRead := fun i p =>
+    OPH.C2Soldering.controlSoldering.coordinate i (properMeetPacketEvent p)
+  visible_support := fun _ _ _ => Or.inl rfl
+  coordinate_from_packet := by
+    intro i e _ _ _
+    fin_cases e <;> rfl
+  recordRead := fun p => (diagonalPartition 4).proj p.castSucc
+  record_local := fun p => (diagonalPartition 4).proj_mem_span p.castSucc
+  record_public := fun {i e} _ _ _ =>
+    (diagonalPartition 4).proj_mem_span (Fin.castSucc e).castSucc
+
+/-- The record readout of the first event, unfolded to the first
+diagonal projector. -/
+theorem properMeetEventWorld_record_eq :
+    properMeetEventWorld.recordRead (properMeetEventWorld.packetOf 0) =
+      (diagonalPartition 4).proj 0 := rfl
+
+/-- Nondegeneracy receipt for the record conjunct: the record of the
+first event lies outside the scalar span, so the record readout takes
+nonscalar public values. -/
+theorem properMeetEventWorld_record_nonscalar :
+    properMeetEventWorld.recordRead (properMeetEventWorld.packetOf 0) ∉
+      (oneBlockPartition 4).publicSubalgebra := by
+  rw [properMeetEventWorld_record_eq]
+  intro hmem
+  obtain ⟨c, hc⟩ := (oneBlockPartition_mem_iff _).mp hmem
+  have h00 := congrFun (congrFun hc 0) 0
+  have h11 := congrFun (congrFun hc 1) 1
+  simp [diagonalPartition, Matrix.smul_apply] at h00 h11
+  rw [h00] at h11
+  exact one_ne_zero h11
+
+/-- The record readout separates the two events. -/
+theorem properMeetEventWorld_record_ne :
+    properMeetEventWorld.recordRead (properMeetEventWorld.packetOf 0) ≠
+      properMeetEventWorld.recordRead (properMeetEventWorld.packetOf 1) := by
+  intro h
+  have h' : (diagonalPartition 4).proj 0 = (diagonalPartition 4).proj 1 := h
+  have h00 := congrFun (congrFun h' 0) 0
+  simp [diagonalPartition] at h00
+
+/-- Nondegeneracy receipt for the support conjunct: the block region
+fails the containment below the owner region, so the containment law is
+falsifiable in this world. -/
+theorem properMeetEventWorld_support_falsifiable :
+    ¬ properMeetNet.regionLE () ProperMeetRegion.block
+      (properMeetAccessCut.observerRegion
+        (properMeetEventWorld.chartOwner 0)) :=
+  fun h => ProperMeetRegion.block_not_le_diag h
+
+/-- Nondegeneracy receipt for the coordinate conjunct: the packet
+readout separates packet labels, so the coordinate law composes through
+a readout with content. -/
+theorem properMeetEventWorld_geometryRead_ne :
+    properMeetEventWorld.geometryRead 0 0 ≠
+      properMeetEventWorld.geometryRead 0 1 := by
+  intro h
+  have ht := congrArg Prod.fst h
+  norm_num [properMeetEventWorld, properMeetPacketEvent,
+    OPH.C2Soldering.controlSoldering, OPH.C2Soldering.controlEventPoint,
+    OPH.C2Soldering.controlChartOffset] at ht
+
+/-- The packet assignment misses the third packet label, so the packet
+carrier is strictly larger than the event image and the assignment is no
+identity map. -/
+theorem properMeetEventWorld_packet_missed (e : Fin 2) :
+    properMeetEventWorld.packetOf e ≠ 2 := by
+  fin_cases e <;> decide
+
+/-- The common-origin theorem evaluated on every dimension-four witness
+pair. -/
+theorem properMeetEventWorld_common_origin (i e : Fin 2) :
+    properMeetNet.regionLE ()
+        (properMeetEventWorld.supportRead (properMeetEventWorld.packetOf e))
+        (properMeetAccessCut.observerRegion
+          (properMeetEventWorld.chartOwner i)) ∧
+      properMeetEventWorld.recordRead (properMeetEventWorld.packetOf e) ∈
+        properMeetAccessCut.observerLocalAlgebra
+            (properMeetEventWorld.chartOwner i)
+            (properMeetEventWorld.supportRead
+              (properMeetEventWorld.packetOf e)) ⊓
+          properMeetTower.publicAlgebra ()
+            (properMeetEventWorld.chartOwner i) ∧
+      OPH.C2Soldering.controlSoldering.coordinate i e =
+        properMeetEventWorld.geometryRead i
+          (properMeetEventWorld.packetOf e) :=
+  properMeetEventWorld.common_origin trivial trivial trivial
+
+end ProperMeetEventWorld
+
 end OPH.QFT
 
 -- Axiom audit: no project-specific axiom or admission is permitted here.
@@ -227,3 +372,9 @@ end OPH.QFT
 #print axioms OPH.QFT.FiniteEventGeometryWorld.common_origin
 #print axioms OPH.QFT.witnessEventWorld_record_ne
 #print axioms OPH.QFT.witnessEventWorld_common_origin
+#print axioms OPH.QFT.properMeetEventWorld_record_nonscalar
+#print axioms OPH.QFT.properMeetEventWorld_record_ne
+#print axioms OPH.QFT.properMeetEventWorld_support_falsifiable
+#print axioms OPH.QFT.properMeetEventWorld_geometryRead_ne
+#print axioms OPH.QFT.properMeetEventWorld_packet_missed
+#print axioms OPH.QFT.properMeetEventWorld_common_origin

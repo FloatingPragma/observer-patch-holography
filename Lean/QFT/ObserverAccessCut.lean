@@ -25,9 +25,10 @@ descent family under the observer region, any ambient globalization of a
 compatible family of accessible sections is accessible.  The theorem
 `observerLocal_hasUniqueDescent` consumes exactly this receipt together
 with an ambient `ObserverNetDescent` packet and returns unique descent
-into the observer-local algebra.  Ambient unique descent alone does not
-place the glue in the accessible algebra; the receipt is a separate
-premise, and no theorem in this module derives it from descent.  The
+into the observer-local algebra.  The receipt is a separate premise: no
+theorem in this module derives accessibility from descent, and whether
+descent could force accessibility stays open until a countermodel is on
+record.  The
 universal singleton-family packet satisfies the receipt for every cut,
 which keeps the receipt type inhabited without a nontrivial gluing claim.
 A countermodel in which a declared family glues to an inaccessible element
@@ -40,7 +41,14 @@ the scalar span of the identity; the full diagonal partition supplies
 every regional algebra; the accessible algebra is the diagonal algebra.
 Both interposition facts are strict: the public scalars sit strictly
 inside the accessible diagonal algebra, which sits strictly inside the
-private matrix algebra.
+private matrix algebra.  In that model the accessible algebra equals
+every regional algebra, so every observer-local meet collapses onto its
+regional component.  The proper-meet section supplies a dimension-four
+cut in the block-algebra shape of `QFT/NoncommutativeWitness.lean`: the
+accessible algebra is the full diagonal algebra while the block region
+carries the noncommutative algebra of matrices `diag(a, a, A)`, so the
+observer-local meet at the block region is the computed intersection of
+its two components, with separating elements on both sides.
 
 Claim boundary: every construction here is a finite conditional structure
 over the committed E1 interface.  The ambient private algebra is a
@@ -218,8 +226,8 @@ below the observer region, any ambient globalization of a compatible
 family of accessible sections is accessible.  Under a declared descent
 packet the globalization is unique, so this says exactly that the selected
 ambient glue lies in the accessible algebra.  The receipt is a premise:
-ambient unique descent alone does not place the glue in the accessible
-algebra, and the conditional theorem below only consumes the receipt. -/
+no theorem in this module derives accessibility from descent, and the
+conditional theorem below only consumes the receipt. -/
 structure AccessibleGlueClosure (o : T.Observer r)
     (D : N.ObserverNetDescent) : Prop where
   glue_accessible : ∀ {W : N.Region r},
@@ -564,6 +572,473 @@ theorem witnessAccessCut_accessibleGlueClosure
 
 end AccessWitness
 
+/-! ## A dimension-four witness with a proper observer-local meet
+
+The dimension-two cut above declares the accessible algebra equal to
+every regional algebra, so its observer-local meets collapse onto the
+regional algebras.  The witness in this section separates the two meet
+components on dimension four, in the block-algebra shape of the character
+net of `QFT/NoncommutativeWitness.lean`; that module imports this one, so
+the block data is declared here under its own names.  The tower is the
+constant tower of the full diagonal partition, so the public algebra is
+the diagonal span and nonscalar public records exist.  The net declares
+three regions: a scalar bottom region, the diagonal observer region, and
+a block region carrying the noncommutative algebra of matrices
+`diag(a, a, A)`.  The cut declares the diagonal algebra accessible.  The
+observer-local meet at the block region is computed exactly: it is the
+algebra of diagonal matrices with equal first two entries, strictly below
+the block regional algebra and strictly below the accessible diagonal
+algebra. -/
+
+section ProperMeetWitness
+
+open Matrix
+open EventAlgebra
+
+/-- The sum of coefficient-weighted diagonal projectors is the diagonal
+matrix of the coefficient vector. -/
+theorem sum_smul_diagonalPartition_proj {n : ℕ} (c : Fin n → ℂ) :
+    ∑ i, c i • (diagonalPartition n).proj i = Matrix.diagonal c := by
+  ext a b
+  by_cases hab : a = b
+  · subst hab
+    simp [diagonalPartition, Matrix.sum_apply, Matrix.smul_apply,
+      Pi.single_apply]
+  · simp [diagonalPartition, Matrix.sum_apply, Matrix.smul_apply,
+      Matrix.diagonal_apply_ne _ hab]
+
+/-- Membership in the diagonal-partition public algebra is exactly being
+a diagonal matrix. -/
+theorem diagonalPartition_mem_iff {n : ℕ} {X : Matrix (Fin n) (Fin n) ℂ} :
+    X ∈ (diagonalPartition n).publicSubalgebra ↔
+      ∃ c : Fin n → ℂ, Matrix.diagonal c = X := by
+  constructor
+  · intro hX
+    have hX' : X ∈ Submodule.span ℂ (Set.range (diagonalPartition n).proj) :=
+      hX
+    obtain ⟨c, hc⟩ := (Submodule.mem_span_range_iff_exists_fun ℂ).mp hX'
+    exact ⟨c, (sum_smul_diagonalPartition_proj c).symm.trans hc⟩
+  · rintro ⟨c, rfl⟩
+    rw [← sum_smul_diagonalPartition_proj c]
+    exact Submodule.sum_mem _ fun i _ =>
+      Submodule.smul_mem _ _ ((diagonalPartition n).proj_mem_span i)
+
+/-- Diagonal evaluation of a scalar public element reproduces the
+element. -/
+theorem oneBlockPartition_corner_eval {n : ℕ}
+    (X : (oneBlockPartition n).publicSubalgebra) (i : Fin n) :
+    (X : Matrix (Fin n) (Fin n) ℂ) i i • (1 : Matrix (Fin n) (Fin n) ℂ) =
+      (X : Matrix (Fin n) (Fin n) ℂ) := by
+  obtain ⟨c, hc⟩ := (oneBlockPartition_mem_iff _).mp X.2
+  rw [← hc]
+  simp [Matrix.smul_apply]
+
+/-- The block algebra of matrices `diag(a, a, A)` inside `M₄(ℂ)`: scalar
+upper block, free lower two-by-two block, vanishing mixed blocks.  The
+carrier repeats the left-block shape of `QFT/NoncommutativeWitness.lean`,
+which imports this module and therefore cannot be imported here. -/
+def properMeetBlockAlgebra : StarSubalgebra ℂ (Matrix (Fin 4) (Fin 4) ℂ) where
+  carrier := {X | X 0 1 = 0 ∧ X 1 0 = 0 ∧ X 1 1 = X 0 0 ∧
+    X 0 2 = 0 ∧ X 0 3 = 0 ∧ X 1 2 = 0 ∧ X 1 3 = 0 ∧
+    X 2 0 = 0 ∧ X 2 1 = 0 ∧ X 3 0 = 0 ∧ X 3 1 = 0}
+  zero_mem' := by simp [Set.mem_setOf_eq]
+  one_mem' := by simp [Set.mem_setOf_eq]
+  add_mem' := by
+    intro X Y hX hY
+    obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11⟩ := hX
+    obtain ⟨g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11⟩ := hY
+    refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;>
+      simp [Matrix.add_apply, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11,
+        g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11]
+  mul_mem' := by
+    intro X Y hX hY
+    obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11⟩ := hX
+    obtain ⟨g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11⟩ := hY
+    refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;>
+      simp [Matrix.mul_apply, Fin.sum_univ_four, h1, h2, h3, h4, h5, h6, h7,
+        h8, h9, h10, h11, g1, g2, g3, g4, g5, g6, g7, g8, g9, g10, g11]
+  algebraMap_mem' := by
+    intro c
+    simp [Set.mem_setOf_eq, Algebra.algebraMap_eq_smul_one,
+      Matrix.smul_apply]
+  star_mem' := by
+    intro X hX
+    obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11⟩ := hX
+    refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;>
+      simp [h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11]
+
+theorem mem_properMeetBlockAlgebra_iff {X : Matrix (Fin 4) (Fin 4) ℂ} :
+    X ∈ properMeetBlockAlgebra ↔
+      (X 0 1 = 0 ∧ X 1 0 = 0 ∧ X 1 1 = X 0 0 ∧
+        X 0 2 = 0 ∧ X 0 3 = 0 ∧ X 1 2 = 0 ∧ X 1 3 = 0 ∧
+        X 2 0 = 0 ∧ X 2 1 = 0 ∧ X 3 0 = 0 ∧ X 3 1 = 0) :=
+  Iff.rfl
+
+/-- The lower-block raising unit `|2><3|`. -/
+def properMeetRaise : Matrix (Fin 4) (Fin 4) ℂ :=
+  fun k l => if k = 2 ∧ l = 3 then 1 else 0
+
+/-- The lower-block lowering unit `|3><2|`. -/
+def properMeetLower : Matrix (Fin 4) (Fin 4) ℂ :=
+  fun k l => if k = 3 ∧ l = 2 then 1 else 0
+
+theorem properMeetRaise_mem_block :
+    properMeetRaise ∈ properMeetBlockAlgebra := by
+  simp [mem_properMeetBlockAlgebra_iff, properMeetRaise]
+
+theorem properMeetLower_mem_block :
+    properMeetLower ∈ properMeetBlockAlgebra := by
+  simp [mem_properMeetBlockAlgebra_iff, properMeetLower]
+
+/-- The block regional algebra is noncommutative: its two lower-block
+matrix units have distinct products. -/
+theorem properMeetBlockAlgebra_noncommutative :
+    ∃ X Y : properMeetBlockAlgebra,
+      ¬ Commute (X : Matrix (Fin 4) (Fin 4) ℂ)
+        (Y : Matrix (Fin 4) (Fin 4) ℂ) := by
+  refine ⟨⟨properMeetRaise, properMeetRaise_mem_block⟩,
+    ⟨properMeetLower, properMeetLower_mem_block⟩, fun h => ?_⟩
+  have h22 := congrFun (congrFun h.eq 2) 2
+  simp [properMeetRaise, properMeetLower, Matrix.mul_apply] at h22
+
+/-- The lower-block raising unit is outside the diagonal algebra. -/
+theorem properMeetRaise_not_mem_diagonal :
+    properMeetRaise ∉ (diagonalPartition 4).publicSubalgebra := by
+  intro hmem
+  obtain ⟨c, hc⟩ := diagonalPartition_mem_iff.mp hmem
+  have h23 := congrFun (congrFun hc 2) 3
+  simp [properMeetRaise] at h23
+
+/-- The second diagonal projector is outside the block algebra. -/
+theorem diagonalProj_not_mem_properMeetBlock :
+    (diagonalPartition 4).proj 1 ∉ properMeetBlockAlgebra := by
+  intro hmem
+  have h := (mem_properMeetBlockAlgebra_iff.mp hmem).2.2.1
+  simp [diagonalPartition] at h
+
+/-- The selected dimension-four witness state: the pure state on the
+first basis direction. -/
+noncomputable def properMeetState : StateMatrix 4 :=
+  ⟨Matrix.diagonal (Pi.single 0 1),
+    ((diagonalPartition 4).isEvent 0).posSemidef, by
+      rw [Matrix.trace_diagonal]
+      simp [Pi.single_apply]⟩
+
+/-- The dimension-four witness tower: the constant tower of the full
+diagonal partition, so the public algebra is the whole diagonal span and
+nonscalar public records exist. -/
+noncomputable def properMeetTower : ConsensusTower Unit :=
+  ConsensusTower.constantConsensusTower (diagonalPartition 4) properMeetState
+
+/-- Region labels for the proper-meet net: a scalar bottom region, the
+diagonal observer region, and the noncommutative block region. -/
+inductive ProperMeetRegion : Type
+  | bot
+  | diag
+  | block
+  deriving DecidableEq, Fintype
+
+namespace ProperMeetRegion
+
+/-- Region inclusion: reflexive, and the bottom region is below every
+region. -/
+def le (U V : ProperMeetRegion) : Prop := U = V ∨ U = bot
+
+instance : DecidableRel le := fun U V =>
+  decidable_of_iff (U = V ∨ U = bot) Iff.rfl
+
+/-- Declared overlap: the common region on the diagonal of the relation
+and the bottom region for distinct pairs. -/
+def meet (U V : ProperMeetRegion) : ProperMeetRegion :=
+  if U = V then U else bot
+
+theorem le_refl : ∀ U, le U U := by decide
+
+theorem le_trans : ∀ U V W, le U V → le V W → le U W := by decide
+
+theorem le_antisymm : ∀ U V, le U V → le V U → U = V := by decide
+
+theorem meet_le_left : ∀ U V, le (meet U V) U := by decide
+
+theorem meet_le_right : ∀ U V, le (meet U V) V := by decide
+
+theorem le_meet : ∀ W U V, le W U → le W V → le W (meet U V) := by decide
+
+/-- The block region is outside the cone below the diagonal region, so
+the containment laws stated at the diagonal region are falsifiable. -/
+theorem block_not_le_diag : ¬ le block diag := by decide
+
+end ProperMeetRegion
+
+/-- The regional algebra assignment of the proper-meet net: scalars at
+the bottom region, the diagonal algebra at the diagonal region, and the
+block algebra at the block region. -/
+noncomputable def properMeetRegionAlgebra :
+    ProperMeetRegion → StarSubalgebra ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+  | .bot => (oneBlockPartition 4).publicSubalgebra
+  | .diag => (diagonalPartition 4).publicSubalgebra
+  | .block => properMeetBlockAlgebra
+
+/-- Scalar multiples of the identity are one-block public elements. -/
+theorem properMeet_smul_one_mem (c : ℂ) :
+    c • (1 : Matrix (Fin 4) (Fin 4) ℂ) ∈
+      (oneBlockPartition 4).publicSubalgebra :=
+  (oneBlockPartition_mem_iff _).mpr ⟨c, rfl⟩
+
+/-- The character of the diagonal algebra: evaluation of the first
+diagonal entry, returned as a scalar public element. -/
+noncomputable def properMeetDiagCharacter :
+    (diagonalPartition 4).publicSubalgebra →⋆ₐ[ℂ]
+      (oneBlockPartition 4).publicSubalgebra where
+  toFun X := ⟨(X : Matrix (Fin 4) (Fin 4) ℂ) 0 0 • 1,
+    properMeet_smul_one_mem _⟩
+  map_zero' := by
+    apply Subtype.ext
+    simp
+  map_one' := by
+    apply Subtype.ext
+    simp
+  map_add' X Y := by
+    apply Subtype.ext
+    simp [Matrix.add_apply, add_smul]
+  map_mul' X Y := by
+    apply Subtype.ext
+    obtain ⟨c, hc⟩ := diagonalPartition_mem_iff.mp X.2
+    obtain ⟨d, hd⟩ := diagonalPartition_mem_iff.mp Y.2
+    simp only [MulMemClass.coe_mul]
+    rw [← hc, ← hd]
+    simp [smul_smul, Algebra.mul_smul_comm, mul_comm]
+  commutes' c := by
+    apply Subtype.ext
+    simp [Algebra.algebraMap_eq_smul_one, Matrix.smul_apply]
+  map_star' X := by
+    apply Subtype.ext
+    simp [star_smul]
+
+/-- The character of the block algebra: evaluation of the scalar block,
+returned as a scalar public element. -/
+noncomputable def properMeetBlockCharacter :
+    properMeetBlockAlgebra →⋆ₐ[ℂ] (oneBlockPartition 4).publicSubalgebra where
+  toFun X := ⟨(X : Matrix (Fin 4) (Fin 4) ℂ) 0 0 • 1,
+    properMeet_smul_one_mem _⟩
+  map_zero' := by
+    apply Subtype.ext
+    simp
+  map_one' := by
+    apply Subtype.ext
+    simp
+  map_add' X Y := by
+    apply Subtype.ext
+    simp [Matrix.add_apply, add_smul]
+  map_mul' X Y := by
+    apply Subtype.ext
+    obtain ⟨h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11⟩ :=
+      mem_properMeetBlockAlgebra_iff.mp X.2
+    simp [Matrix.mul_apply, Fin.sum_univ_four, h1, h4, h5, smul_smul,
+      mul_comm]
+  commutes' c := by
+    apply Subtype.ext
+    simp [Algebra.algebraMap_eq_smul_one, Matrix.smul_apply]
+  map_star' X := by
+    apply Subtype.ext
+    simp [star_smul]
+
+/-- The supplied restriction system of the proper-meet net: identities on
+equal regions and the two characters on the drops to the bottom region.
+The remaining constructor pairs are excluded by the region order. -/
+noncomputable def properMeetRestrict :
+    ∀ U V : ProperMeetRegion, ProperMeetRegion.le V U →
+      (properMeetRegionAlgebra U →⋆ₐ[ℂ] properMeetRegionAlgebra V)
+  | .bot, .bot, _ => StarAlgHom.id ℂ _
+  | .diag, .diag, _ => StarAlgHom.id ℂ _
+  | .block, .block, _ => StarAlgHom.id ℂ _
+  | .diag, .bot, _ => properMeetDiagCharacter
+  | .block, .bot, _ => properMeetBlockCharacter
+  | .bot, .diag, h => absurd h (by decide)
+  | .bot, .block, h => absurd h (by decide)
+  | .diag, .block, h => absurd h (by decide)
+  | .block, .diag, h => absurd h (by decide)
+
+/-- The proper-meet causal net over the dimension-four tower: scalar
+bottom region, diagonal region, and noncommutative block region, with
+character restrictions onto the bottom region.  The declared disjointness
+relation is empty and the repair maps are the identity; the interface
+laws hold for them, and nontrivial repair semantics belong to E2. -/
+noncomputable def properMeetNet : FiniteCausalObserverNet properMeetTower where
+  Region := fun _ => ProperMeetRegion
+  regionFintype := fun _ => inferInstance
+  regionNonempty := fun _ => ⟨ProperMeetRegion.bot⟩
+  regionLE := fun _ => ProperMeetRegion.le
+  regionLE_refl := fun _ U => ProperMeetRegion.le_refl U
+  regionLE_trans := fun _ {U V W} hUV hVW =>
+    ProperMeetRegion.le_trans U V W hUV hVW
+  regionLE_antisymm := fun _ {U V} hUV hVU =>
+    ProperMeetRegion.le_antisymm U V hUV hVU
+  overlap := fun _ => ProperMeetRegion.meet
+  overlap_le_left := fun _ U V => ProperMeetRegion.meet_le_left U V
+  overlap_le_right := fun _ U V => ProperMeetRegion.meet_le_right U V
+  le_overlap := fun _ {W U V} hWU hWV =>
+    ProperMeetRegion.le_meet W U V hWU hWV
+  disjoint := fun _ _ _ => False
+  disjoint_symm := by
+    intro r U V h
+    exact h.elim
+  disjoint_irrefl := fun _ _ h => h
+  localAlgebra := fun _ => properMeetRegionAlgebra
+  isotony := by
+    intro r U V hUV
+    rcases hUV with rfl | rfl
+    · exact le_rfl
+    · exact oneBlockPartition_publicSubalgebra_le _
+  locality := by
+    intro r U V h
+    exact h.elim
+  restrict := fun _ {U V} h => properMeetRestrict U V h
+  restrict_refl := by
+    intro r U X
+    cases U <;> rfl
+  restrict_trans := by
+    intro r U V W hVU hWV X
+    cases U <;> cases V <;> cases W <;>
+      first
+        | rfl
+        | exact absurd hVU (by decide)
+        | exact absurd hWV (by decide)
+  restrict_inclusion := by
+    intro r U V hUV X
+    cases U with
+    | bot =>
+        cases V with
+        | bot => rfl
+        | diag =>
+            apply Subtype.ext
+            exact oneBlockPartition_corner_eval X (0 : Fin 4)
+        | block =>
+            apply Subtype.ext
+            exact oneBlockPartition_corner_eval X (0 : Fin 4)
+    | diag =>
+        cases V with
+        | bot => exact absurd hUV (by decide)
+        | diag => rfl
+        | block => exact absurd hUV (by decide)
+    | block =>
+        cases V with
+        | bot => exact absurd hUV (by decide)
+        | diag => exact absurd hUV (by decide)
+        | block => rfl
+  regionRefine := fun _ U => U
+  region_refine_refl := by intros; rfl
+  region_refine_trans := by intros; rfl
+  region_refine_mono := by intros; assumption
+  overlap_natural := by intros; rfl
+  disjoint_natural := by intros; assumption
+  localAlgebra_natural := by intros; assumption
+  repair := fun _ _ => LinearMap.id
+  repair_idempotent := by intros; rfl
+  repair_fixes_region := by intros; rfl
+  repair_fixes_disjoint := by intros; rfl
+  repair_natural := by intros; rfl
+
+/-- The proper-meet access cut: the observer region is the diagonal
+region and the accessible algebra is the diagonal algebra.  At the block
+region both meet components differ from the meet; the two strictness
+receipts below certify this. -/
+noncomputable def properMeetAccessCut :
+    ObserverAccessCut properMeetTower properMeetNet () where
+  observerRegion := fun _ => ProperMeetRegion.diag
+  accessibleAlgebra := fun _ => (diagonalPartition 4).publicSubalgebra
+  accessible_le_region := fun _ => le_rfl
+  public_le_accessible := fun _ => le_rfl
+  restrict_preserves := by
+    intro o U V hU hVU X hX
+    cases U with
+    | bot =>
+        cases V with
+        | bot => exact hX
+        | diag =>
+            exact absurd
+              (show ProperMeetRegion.le ProperMeetRegion.diag
+                ProperMeetRegion.bot from hVU) (by decide)
+        | block =>
+            exact absurd
+              (show ProperMeetRegion.le ProperMeetRegion.block
+                ProperMeetRegion.bot from hVU) (by decide)
+    | diag =>
+        cases V with
+        | bot =>
+            exact ((diagonalPartition 4).publicSubalgebra).smul_mem
+              (one_mem _) _
+        | diag => exact hX
+        | block =>
+            exact absurd
+              (show ProperMeetRegion.le ProperMeetRegion.block
+                ProperMeetRegion.diag from hVU)
+              ProperMeetRegion.block_not_le_diag
+    | block =>
+        exact absurd
+          (show ProperMeetRegion.le ProperMeetRegion.block
+            ProperMeetRegion.diag from hU)
+          ProperMeetRegion.block_not_le_diag
+
+/-- The observer-local meet at the block region, computed exactly: a
+matrix lies in the meet precisely when it is diagonal with equal first
+two entries, the intersection `diag(a, a, d, e)` of the diagonal algebra
+with the block algebra. -/
+theorem properMeetAccessCut_mem_block_meet_iff
+    (o : properMeetTower.Observer ()) (X : Matrix (Fin 4) (Fin 4) ℂ) :
+    X ∈ properMeetAccessCut.observerLocalAlgebra o ProperMeetRegion.block ↔
+      ∃ a d e : ℂ, Matrix.diagonal ![a, a, d, e] = X := by
+  constructor
+  · intro hX
+    obtain ⟨hblock, hdiag⟩ :=
+      properMeetAccessCut.mem_observerLocalAlgebra.mp hX
+    obtain ⟨c, hc⟩ := diagonalPartition_mem_iff.mp hdiag
+    have h11 : X 1 1 = X 0 0 :=
+      (mem_properMeetBlockAlgebra_iff.mp hblock).2.2.1
+    have hc1 : c 1 = c 0 := by
+      rw [← hc] at h11
+      simpa using h11
+    refine ⟨c 0, c 2, c 3, ?_⟩
+    rw [← hc]
+    congr 1
+    funext i
+    fin_cases i <;> simp [hc1]
+  · rintro ⟨a, d, e, rfl⟩
+    refine properMeetAccessCut.mem_observerLocalAlgebra.mpr ⟨?_, ?_⟩
+    · refine mem_properMeetBlockAlgebra_iff.mpr ?_
+      refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩ <;> simp
+    · exact diagonalPartition_mem_iff.mpr ⟨![a, a, d, e], rfl⟩
+
+/-- Strictness, regional side: the observer-local meet at the block
+region is strictly below the block regional algebra; the lower-block
+raising unit separates them. -/
+theorem properMeetAccessCut_meet_lt_regional
+    (o : properMeetTower.Observer ()) :
+    properMeetAccessCut.observerLocalAlgebra o ProperMeetRegion.block <
+      properMeetNet.localAlgebra () ProperMeetRegion.block := by
+  rw [SetLike.lt_iff_le_and_exists]
+  refine ⟨properMeetAccessCut.observerLocal_le_local o ProperMeetRegion.block,
+    properMeetRaise, properMeetRaise_mem_block, fun hmem => ?_⟩
+  exact properMeetRaise_not_mem_diagonal
+    (properMeetAccessCut.mem_observerLocalAlgebra.mp hmem).2
+
+/-- Strictness, accessible side: the observer-local meet at the block
+region is strictly below the accessible diagonal algebra; the second
+diagonal projector separates them. -/
+theorem properMeetAccessCut_meet_lt_accessible
+    (o : properMeetTower.Observer ()) :
+    properMeetAccessCut.observerLocalAlgebra o ProperMeetRegion.block <
+      properMeetAccessCut.accessibleAlgebra o := by
+  rw [SetLike.lt_iff_le_and_exists]
+  refine
+    ⟨properMeetAccessCut.observerLocal_le_accessible o ProperMeetRegion.block,
+      (diagonalPartition 4).proj 1, (diagonalPartition 4).proj_mem_span 1,
+      fun hmem => ?_⟩
+  exact diagonalProj_not_mem_properMeetBlock
+    (properMeetAccessCut.mem_observerLocalAlgebra.mp hmem).1
+
+end ProperMeetWitness
+
 end OPH.QFT
 
 -- Axiom audit: no project-specific axiom or admission is permitted here.
@@ -572,6 +1047,7 @@ end OPH.QFT
 #print axioms OPH.QFT.ObserverAccessCut.observerLocal_commute
 #print axioms OPH.QFT.ObserverAccessCut.restrict_mem_observerLocal
 #print axioms OPH.QFT.ObserverAccessCut.regionalExpectation_observerLocal
+#print axioms OPH.QFT.ObserverAccessCut.observerExpectation_inclusion
 #print axioms OPH.QFT.ObserverAccessCut.repair_fixes_observerLocal
 #print axioms OPH.QFT.ObserverAccessCut.repair_fixes_observerLocal_of_disjoint
 #print axioms OPH.QFT.ObserverAccessCut.observerLocal_hasUniqueDescent
@@ -582,3 +1058,8 @@ end OPH.QFT
 #print axioms OPH.QFT.witnessAccessCut_accessible_lt_top
 #print axioms OPH.QFT.witnessAccessCut_repairStable
 #print axioms OPH.QFT.witnessAccessCut_accessibleGlueClosure
+#print axioms OPH.QFT.diagonalPartition_mem_iff
+#print axioms OPH.QFT.properMeetBlockAlgebra_noncommutative
+#print axioms OPH.QFT.properMeetAccessCut_mem_block_meet_iff
+#print axioms OPH.QFT.properMeetAccessCut_meet_lt_regional
+#print axioms OPH.QFT.properMeetAccessCut_meet_lt_accessible

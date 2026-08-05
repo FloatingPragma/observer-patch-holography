@@ -11,7 +11,11 @@ This module implements deliverables 9, 10, and 11 of completion-plan issue
 `ObserverRecordOrder` on event slots and a partial record-label adapter.
 The consistency law ties the two orders together: on active visible labeled
 pairs, event precedence implies the chart owner's record-order precedence
-of the corresponding record labels.
+of the corresponding record labels.  Two witnesses inhabit the adapter: the
+chain witness stack carries a two-record chain tower on which the
+consistency law is discharged at a strictly ordered labeled pair, and the
+constant-tower adapter is the labeled degenerate control whose single-label
+mask closes the antecedent.
 
 `SelectedEventTowerRefinement` packages one selected coarse-to-fine
 refinement between two event worlds over a regulator pair `r ≤ s` of one
@@ -21,7 +25,10 @@ regions, event supports, packets, record readouts, and visibility, and a
 declared recharting map for the geometry.  The composite theorem
 `refine_common_origin` transports the common-origin conclusion: at the
 refined image of coarse data, support containment, record membership, and
-the recharted coordinate law hold in the fine world.
+the recharted coordinate law hold in the fine world.  Two witnesses inhabit
+the interface: a chart-swap refinement whose rechart is a nonidentity
+affine translation with a `rechart ≠ id` receipt, and the identity
+refinement as the labeled degenerate control.
 
 `RawEventCandidates` supplies the pre-event layer: raw candidates with a
 declared semantic-coincidence setoid, the event quotient, and the descent
@@ -120,12 +127,14 @@ noncomputable def witnessRecordLabel : witnessTower.Record () :=
     have h00 := congrFun (congrFun h 0) 0
     simp [oneBlockPartition] at h00⟩
 
-/-- The witness precedence adapter on the dimension-two event world: the
-canonical strict chain on the two event slots, with the record label
-declared on the first event only.  The witness tower carries the discrete
-record order, whose precedence is empty, so a labeled strictly ordered pair
-would contradict the consistency law; the single-label mask keeps the
-adapter exact while the event precedence stays genuinely nonempty. -/
+/-- Degenerate control: the precedence adapter on the dimension-two event
+world over the constant witness tower, with the canonical strict chain on
+the two event slots and the record label declared on the first event only.
+The constant witness tower carries the discrete record order, whose
+precedence is empty, so a labeled strictly ordered pair would contradict
+the consistency law and the single-label mask closes the antecedent; this
+adapter therefore checks the law on no labeled ordered pair, and the chain
+witness stack below discharges the law on a true antecedent. -/
 noncomputable def witnessPrecedenceAdapter :
     EventPrecedenceAdapter witnessEventWorld where
   eventOrder := finRecordOrder 2
@@ -147,6 +156,147 @@ theorem witnessPrecedenceAdapter_strict :
   · show (0 : Fin 2) < 1
     decide
   · show ¬ (1 : Fin 2) < 0
+    decide
+
+/-! ### The chain witness stack: two labeled events on a chain tower
+
+The degenerate control above cannot check the consistency law on a labeled
+ordered pair, because the constant witness tower carries the discrete
+record order.  The chain stack replays the witness tower, net, cut, and
+world with the record layer replaced by the two-element chain
+`finRecordOrder 2`; the adapter labels both events, the event precedence
+holds at the pair `(0, 1)`, and the consistency law is discharged on that
+true antecedent with strictly ordered record labels. -/
+
+/-- The chain witness tower: the constant dimension-two witness tower with
+its record layer replaced by the two-element chain.  The record type is
+`Fin 2`, the record order is `finRecordOrder 2`, and both record labels
+share the identity as public representative; every other field is the
+witness-tower field. -/
+noncomputable def chainWitnessTower : ConsensusTower Unit :=
+  { witnessTower with
+    Record := fun _ => Fin 2
+    recordFinite := fun _ => inferInstance
+    recordOrder := fun _ _ => finRecordOrder 2
+    recordElement := fun _ _ _ => ⟨1, one_mem _⟩
+    recordRefine := fun _ x => x
+    record_refine_refl := fun _ _ => rfl
+    record_refine_trans := fun _ _ _ => rfl
+    record_order_natural := by
+      intro _ _ _ _ _ _ h
+      exact h
+    record_element_natural := fun _ _ _ => rfl }
+
+/-- The chain witness net: the witness net replayed over the chain tower.
+Every field is the corresponding witness-net field; the net reads only the
+dimension and algebra-refinement layers of the tower, which the chain
+tower leaves unchanged. -/
+noncomputable def chainWitnessNet : FiniteCausalObserverNet chainWitnessTower where
+  Region := witnessNet.Region
+  regionFintype := witnessNet.regionFintype
+  regionNonempty := witnessNet.regionNonempty
+  regionLE := witnessNet.regionLE
+  regionLE_refl := witnessNet.regionLE_refl
+  regionLE_trans := witnessNet.regionLE_trans
+  regionLE_antisymm := witnessNet.regionLE_antisymm
+  overlap := witnessNet.overlap
+  overlap_le_left := witnessNet.overlap_le_left
+  overlap_le_right := witnessNet.overlap_le_right
+  le_overlap := witnessNet.le_overlap
+  disjoint := witnessNet.disjoint
+  disjoint_symm := witnessNet.disjoint_symm
+  disjoint_irrefl := witnessNet.disjoint_irrefl
+  localAlgebra := witnessNet.localAlgebra
+  isotony := witnessNet.isotony
+  locality := witnessNet.locality
+  restrict := witnessNet.restrict
+  restrict_refl := witnessNet.restrict_refl
+  restrict_trans := witnessNet.restrict_trans
+  restrict_inclusion := witnessNet.restrict_inclusion
+  regionRefine := witnessNet.regionRefine
+  region_refine_refl := witnessNet.region_refine_refl
+  region_refine_trans := witnessNet.region_refine_trans
+  region_refine_mono := witnessNet.region_refine_mono
+  overlap_natural := witnessNet.overlap_natural
+  disjoint_natural := witnessNet.disjoint_natural
+  localAlgebra_natural := witnessNet.localAlgebra_natural
+  repair := witnessNet.repair
+  repair_idempotent := witnessNet.repair_idempotent
+  repair_fixes_region := witnessNet.repair_fixes_region
+  repair_fixes_disjoint := witnessNet.repair_fixes_disjoint
+  repair_natural := witnessNet.repair_natural
+
+/-- The chain witness access cut: the witness access cut replayed over the
+chain tower and net.  The observer region is the full two-label region and
+the accessible algebra is the diagonal algebra. -/
+noncomputable def chainWitnessAccessCut :
+    ObserverAccessCut chainWitnessTower chainWitnessNet () where
+  observerRegion := fun _ => ({0, 1} : Finset (Fin 2))
+  accessibleAlgebra := fun _ => (diagonalPartition 2).publicSubalgebra
+  accessible_le_region := fun _ => le_rfl
+  public_le_accessible := fun _ =>
+    oneBlockPartition_publicSubalgebra_le _
+  restrict_preserves := fun _ _ _ _ _ _ hX => hX
+
+/-- The chain witness event world: the witness event world replayed over
+the chain access cut, with identity packets on the C2 control soldering
+and a packet-sensitive scalar record readout. -/
+noncomputable def chainWitnessEventWorld :
+    FiniteEventGeometryWorld chainWitnessAccessCut witnessEventSignature
+      OPH.C2Soldering.controlSoldering where
+  activeEvent := fun _ => True
+  activeChart := fun _ => True
+  packetOf := id
+  chartRegion := fun _ => ({0, 1} : Finset (Fin 2))
+  chartOwner := fun _ => ()
+  chartRegion_le_owner := fun _ _ => Finset.Subset.rfl
+  supportRead := fun _ => ({0} : Finset (Fin 2))
+  geometryRead := fun i p => OPH.C2Soldering.controlSoldering.coordinate i p
+  visible_support := by
+    intro i e _ _ _
+    exact Finset.singleton_subset_iff.mpr (by simp)
+  coordinate_from_packet := fun _ _ _ => rfl
+  recordRead := fun p => ((p : ℕ) + 1 : ℂ) • 1
+  record_local := fun p =>
+    ((diagonalPartition 2).publicSubalgebra).smul_mem (one_mem _) _
+  record_public := fun _ _ _ => (oneBlockPartition_mem_iff _).mpr ⟨_, rfl⟩
+
+/-- The chain witness precedence adapter: both events labeled, the event
+slot itself as record label, and the canonical strict chain as event
+precedence.  The consistency law holds because the event precedence and
+the chain tower's record order are the same two-element chain. -/
+noncomputable def chainWitnessPrecedenceAdapter :
+    EventPrecedenceAdapter chainWitnessEventWorld where
+  eventOrder := finRecordOrder 2
+  labeled := fun _ => True
+  recordLabel := fun e _ => e
+  precedes_consistent := by
+    intro i e f _ _ _ _ _ _ _ hp
+    exact hp
+
+/-- Nonvacuity of the chain adapter: both events carry record labels, the
+event precedence holds at the pair `(0, 1)`, the consistency law applied
+to that true antecedent yields the chain tower's record-order precedence
+of the two labels, and the two labels are distinct. -/
+theorem chainWitnessPrecedenceAdapter_nonvacuous :
+    chainWitnessPrecedenceAdapter.labeled (0 : Fin 2) ∧
+      chainWitnessPrecedenceAdapter.labeled (1 : Fin 2) ∧
+      chainWitnessPrecedenceAdapter.eventOrder.precedes
+        (0 : Fin 2) (1 : Fin 2) ∧
+      (chainWitnessTower.recordOrder ()
+          (chainWitnessEventWorld.chartOwner 0)).precedes
+        (chainWitnessPrecedenceAdapter.recordLabel 0 trivial)
+        (chainWitnessPrecedenceAdapter.recordLabel 1 trivial) ∧
+      chainWitnessPrecedenceAdapter.recordLabel 0 trivial ≠
+        chainWitnessPrecedenceAdapter.recordLabel 1 trivial := by
+  have hp : chainWitnessPrecedenceAdapter.eventOrder.precedes
+      (0 : Fin 2) (1 : Fin 2) := by
+    show (0 : Fin 2) < 1
+    decide
+  refine ⟨trivial, trivial, hp, ?_, ?_⟩
+  · exact chainWitnessPrecedenceAdapter.precedes_consistent
+      trivial trivial trivial trivial trivial trivial trivial hp
+  · show (0 : Fin 2) ≠ 1
     decide
 
 end PrecedenceWitness
@@ -282,13 +432,15 @@ end SelectedEventTowerRefinement
 
 end Refinement
 
-/-! ### The identity refinement witness -/
+/-! ### Refinement witnesses: a chart-swap rechart and the identity control -/
 
 section RefinementWitness
 
-/-- The identity refinement of the dimension-two witness world over the
-single regulator: every slot map is the identity and the recharting is the
-identity re-expression. -/
+/-- Degenerate control: the identity refinement of the dimension-two
+witness world over the single regulator, with every slot map the identity
+and the identity re-expression as recharting.  Its rechart exercises none
+of the recharting freedom that the interface declares; the chart-swap
+witness below carries a nonidentity rechart. -/
 noncomputable def witnessIdentityRefinement :
     SelectedEventTowerRefinement (le_refl ()) witnessEventWorld
       witnessEventWorld where
@@ -312,6 +464,57 @@ theorem selectedEventTowerRefinement_inhabited :
     Nonempty (SelectedEventTowerRefinement (le_refl ()) witnessEventWorld
       witnessEventWorld) :=
   ⟨witnessIdentityRefinement⟩
+
+/-- The chart-swap refinement of the dimension-two witness world over the
+single regulator: events and packets map identically while the two charts
+exchange.  The recharting is the induced affine transition
+`x ↦ x + (controlChartOffset (1 - i) - controlChartOffset i)`, nonidentity
+on every chart because the second control chart offset is nonzero. -/
+noncomputable def witnessChartSwapRefinement :
+    SelectedEventTowerRefinement (le_refl ()) witnessEventWorld
+      witnessEventWorld where
+  eventMap := id
+  chartMap := fun i => 1 - i
+  packetMap := id
+  activeEvent_natural := fun _ h => h
+  activeChart_natural := fun _ h => h
+  visible_natural := fun h => h
+  chartOwner_natural := fun _ => rfl
+  observerRegion_natural := fun _ => rfl
+  chartRegion_natural := fun _ => rfl
+  packetOf_natural := fun _ => rfl
+  supportRead_natural := fun _ => rfl
+  recordRead_natural := fun _ => rfl
+  rechart := fun i x =>
+    x + (OPH.C2Soldering.controlChartOffset (1 - i) -
+      OPH.C2Soldering.controlChartOffset i)
+  coordinate_rechart := by
+    intro i e _ _ _
+    simp only [OPH.C2Soldering.controlSoldering, id_eq]
+    abel
+
+/-- Receipt `rechart ≠ id`: the chart-swap recharting moves every point of
+every chart, because the affine translation it applies has nonzero scalar
+part on both charts. -/
+theorem witnessChartSwapRefinement_rechart_ne_id :
+    ∀ (i : Fin 2) (x : OPH.C1Lorentz.Herm2),
+      witnessChartSwapRefinement.rechart i x ≠ x := by
+  intro i x h
+  have h1 := congrArg Prod.fst h
+  fin_cases i <;>
+    norm_num [witnessChartSwapRefinement, OPH.C2Soldering.controlChartOffset,
+      Prod.fst_add, Prod.fst_sub] at h1
+
+/-- The composite transport theorem evaluated on the chart-swap witness:
+at every pair, the recharted coarse coordinate is the swapped-chart
+geometry readout of the packet. -/
+theorem witnessChartSwapRefinement_common_origin (i e : Fin 2) :
+    witnessChartSwapRefinement.rechart i
+        (OPH.C2Soldering.controlSoldering.coordinate i e) =
+      witnessEventWorld.geometryRead (1 - i)
+        (witnessEventWorld.packetOf e) :=
+  (witnessChartSwapRefinement.refine_common_origin trivial trivial
+    trivial).2.2
 
 end RefinementWitness
 
@@ -483,9 +686,12 @@ end OPH.QFT
 -- Axiom audit: no project-specific axiom or admission is permitted here.
 #print axioms OPH.QFT.EventPrecedenceAdapter.precedes_asymm
 #print axioms OPH.QFT.witnessPrecedenceAdapter_strict
+#print axioms OPH.QFT.chainWitnessPrecedenceAdapter_nonvacuous
 #print axioms OPH.QFT.SelectedEventTowerRefinement.mapped_active_visible
 #print axioms OPH.QFT.SelectedEventTowerRefinement.refine_common_origin
 #print axioms OPH.QFT.selectedEventTowerRefinement_inhabited
+#print axioms OPH.QFT.witnessChartSwapRefinement_rechart_ne_id
+#print axioms OPH.QFT.witnessChartSwapRefinement_common_origin
 #print axioms OPH.QFT.RawEventCandidates.descend_well_defined
 #print axioms OPH.QFT.RawPacketAssignment.inducedPacket_well_defined
 #print axioms OPH.QFT.RawPacketAssignment.descend_packetField
