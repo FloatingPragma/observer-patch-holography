@@ -65,6 +65,7 @@ BOOK_GLOBS = [
 ]
 
 PAPER_GLOBS = [
+    "flagship/**/*.tex",
     "paper/**/*.tex",
     "extra/**/*.tex",
     "cosmology/**/*.tex",

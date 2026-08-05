@@ -72,19 +72,18 @@ These public results link directly to their papers, proofs, data, and
 certificates:
 
 1. **Three-dimensional space emerges from the algebra of repair records.**
-   Under the declared twelve-port repair rule, adding comparison records and
-   completing their distance gives ordinary continuous three-space. No
-   coordinate grid is assumed. The remaining work identifies these abstract
-   points with physical positions and fixes the physical scale. See the
+   The declared twelve-port response contains an exact abstract
+   three-dimensional Euclidean completion. Adding comparison records and
+   completing their distance gives ordinary continuous three-space without an
+   assumed coordinate grid. Physical identification of these points and their
+   scale is work in progress. See the
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    the Lean [completion proof](Lean/Screen/PrimitivePortFrameQuotient.lean),
    and the [finite signature evidence](evidence/einstein_convergence/).
-2. **Quantum rules arise on shared records.** Consensus separates records that
-   every observer can read from private information. On the declared finite
-   quantum representation, this gives Born probabilities, quantum state
-   updates, the Tsirelson bound, and the obstruction to copying distinct
-   nonorthogonal states. The remaining work derives the physical measurement
-   instrument and Born affinity from the source architecture. See the
+2. **Observer agreement reproduces the quantum rules.** On the declared finite
+   model, agreement gives the usual quantum probabilities and measurement
+   rules, together with exact limits on correlations and copying. Connecting
+   this mathematics to physical measuring devices is work in progress. See the
    [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf),
    the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
    the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
@@ -96,13 +95,15 @@ certificates:
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean
    [conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
    and the [exact certificate](code/thermodynamics/conditional_repair_certificate.py).
-4. **The Standard Model gauge group from twelve ports.** Complete reversible
-   response and overlap consistency select the symmetry behind the strong,
-   weak, and electromagnetic forces:
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The finite theorem also lacks
-   the extra generators responsible for proton decay in minimal grand
-   unification. Connecting the selected current to physical gauge fields is
-   work in progress. See the
+4. **The Standard Model gauge structure from twelve ports.** The twelve-port
+   geometry, complete reversible response, and observer agreement recover the
+   symmetries of the strong, weak, and electromagnetic forces. A separately
+   specified matter structure gives
+   their familiar global form
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The finite result also lacks
+   the extra symmetries responsible for proton decay in minimal grand
+   unification. Deriving the matter structure and physical gauge fields from
+   the source is work in progress. See the
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    the Lean [gauge proof](Lean/Screen/A5OPH.lean), and the
    [global-form proof](Lean/Screen/Z6Descent.lean).
@@ -117,21 +118,21 @@ certificates:
    the [family-band proof](Lean/Screen/A5FamilyBand.lean).
 6. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
    response gives the exact positive-chamber relation among the electron,
-   muon, and tau masses. With two masses supplied, the conditional formula
-   lands within 72 eV of the measured tau mass. This is a target-informed
-   conditional postdiction because its balance premise is abstracted from the
-   known lepton pattern; deriving that premise from the source is the remaining
-   step. See the
+   muon, and tau masses. With two masses supplied, the formula fixes a
+   72-eV-wide interval centered at $1776.969027$ MeV, compatible with the
+   measured tau mass. This is a target-informed conditional postdiction because
+   its balance premise comes from the known lepton pattern. Source derivation
+   of that premise is work in progress. See the
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    the [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and the
    [comparison ledger](docs/POSTDICTION_LEDGER.md).
-7. **A frozen fingerprint in how waves travel.** The twelve-port carrier fixes
-   a distinctive directional pattern whose first anisotropy appears at sixth
-   order. Its ratios and rejection rule sit in pre-comparison cryptographic
-   custody. A sufficiently sensitive propagation measurement can therefore
-   rule out this branch. The remaining work connects the finite wave action to
-   a physical field and supplies a comparison with enough exclusion power. See
-   the [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
+7. **A frozen fingerprint in how waves travel.** Two declared twelve-port wave
+   rules fix distinctive directional patterns whose first anisotropy appears
+   at sixth order. Their ratios and rejection rules sit in pre-comparison
+   cryptographic custody. Physical-field attachment of a source-selected rule
+   is work in progress. A sufficiently sensitive propagation measurement can
+   then rule out that branch. See the
+   [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
    the [exact receipts](code/a5_fingerprint/runtime/), and the
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
 

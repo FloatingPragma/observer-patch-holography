@@ -79,21 +79,18 @@ Ces résultats publics renvoient directement à leurs articles, preuves,
 données et certificats :
 
 1. **L’espace tridimensionnel émerge de l’algèbre des registres de
-   réparation.** Sous la règle de réparation déclarée sur douze ports, additionner
-   les registres de comparaison et compléter leur distance donne l’espace
-   continu ordinaire à trois dimensions. Aucune grille de coordonnées n’est
-   supposée. Le travail restant identifie ces points abstraits aux positions
-   physiques et fixe l’échelle. Voir l’
+   réparation.** La réponse déclarée sur douze ports contient une complétion
+   euclidienne abstraite exacte en trois dimensions. Additionner les registres
+   de comparaison et compléter leur distance donne l’espace continu ordinaire,
+   sans supposer de grille. L’identification physique de ces points et de leur
+   échelle est en cours. Voir l’
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean)
    et les [données finies de signature](evidence/einstein_convergence/).
-2. **Les règles quantiques apparaissent sur les registres partagés.** Le
-   consensus sépare les registres lisibles par tous les observateurs de
-   l’information privée. Dans la représentation quantique finie déclarée, on
-   retrouve les probabilités de Born, la mise à jour des états, la borne de
-   Tsirelson et l’impossibilité de copier deux états non orthogonaux distincts.
-   Le travail restant dérive l’instrument de mesure physique et l’affinité de
-   Born depuis l’architecture source. Voir l’
+2. **L’accord des observateurs reproduit les règles quantiques.** Dans le modèle
+   fini déclaré, l’accord donne les probabilités et règles de mesure quantiques,
+   ainsi que des limites exactes sur les corrélations et la copie. Le lien entre
+   ces mathématiques et les appareils de mesure physiques est en cours. Voir l’
    [article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
    la [preuve des registres publics](Lean/EventAlgebra/PublicRecordAlgebra.lean)
    et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
@@ -106,13 +103,15 @@ données et certificats :
    [article sur les observateurs](paper/observers_are_all_you_need.pdf), la
    [preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
    et le [certificat exact](code/thermodynamics/conditional_repair_certificate.py).
-4. **Le groupe de jauge du Modèle standard issu de douze ports.** La réponse
-   réversible complète et la cohérence des recouvrements sélectionnent la
-   symétrie des forces forte, faible et électromagnétique :
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Le théorème fini ne contient
-   pas non plus les générateurs supplémentaires responsables de la
-   désintégration du proton dans la grande unification minimale. Le lien avec
-   les champs de jauge physiques est en cours. Voir l’
+4. **La structure de jauge du Modèle standard issue de douze ports.** La
+   géométrie, la réponse réversible complète et l’accord des observateurs
+   retrouvent les symétries des forces forte, faible et électromagnétique. Une
+   structure de matière déclarée
+   séparément donne leur forme globale familière
+   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Les symétries supplémentaires
+   responsables de la désintégration du proton dans l’unification minimale
+   n’apparaissent pas. Dériver la matière et les champs physiques depuis la
+   source est en cours. Voir l’
    [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    la [preuve Lean de jauge](Lean/Screen/A5OPH.lean) et la
    [preuve de la forme globale](Lean/Screen/Z6Descent.lean).
@@ -127,22 +126,21 @@ données et certificats :
    [preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
 6. **La relation de Koide devient un théorème.** Une réponse hermitienne $C_3$
    donne la relation exacte, dans la chambre positive, entre les masses de
-   l’électron, du muon et du tau. Avec deux masses fournies, la formule
-   conditionnelle tombe à 72 eV de la masse mesurée du tau. Il s’agit d’une
-   postdiction conditionnelle informée par la cible, car sa prémisse d’équilibre
-   est abstraite de la structure connue des leptons. La dériver depuis la
-   source reste à faire.
-   Voir l’
+   l’électron, du muon et du tau. Avec deux masses fournies, la formule fixe un
+   intervalle large de 72 eV, centré à $1776{,}969027$ MeV et compatible avec
+   la masse mesurée du tau. Il s’agit d’une postdiction conditionnelle informée
+   par la cible, car sa prémisse d’équilibre vient de la structure connue des
+   leptons. Sa dérivation depuis la source est en cours. Voir l’
    [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et le
    [registre des comparaisons](docs/POSTDICTION_LEDGER.md).
-7. **Une empreinte gelée dans la façon dont les ondes se propagent.** Le
-   porteur à douze ports fixe un motif directionnel distinctif dont la première
-   anisotropie apparaît au sixième ordre. Ses rapports et sa règle de rejet sont
-   sous garde cryptographique préalable à la comparaison. Une mesure de propagation
-   assez sensible peut donc éliminer cette branche. Le travail restant relie
-   l’action ondulatoire finie à un champ physique et fournit une comparaison
-   assez puissante. Voir l’
+7. **Une empreinte gelée dans la façon dont les ondes se propagent.** Deux
+   règles ondulatoires déclarées sur douze ports fixent des motifs directionnels
+   distinctifs dont la première anisotropie apparaît au sixième ordre. Leurs
+   rapports et règles de rejet sont sous garde cryptographique préalable à la
+   comparaison. Le lien entre une règle sélectionnée par la source et un champ
+   physique est en cours. Une mesure assez sensible peut alors éliminer cette
+   branche. Voir l’
    [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
    les [reçus exacts](code/a5_fingerprint/runtime/) et l’
    [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
@@ -151,7 +149,8 @@ Un théorème distinct de graphe signé prouve que l’écran n’a aucune
 excitation libre à coût nul : une capture issue de la source et sans donnée
 cible fixe l’ordre causal, la topologie de coutures, les sections typées et
 38 triangles frustrés, et l’opérateur signé déclaré vérifie
-$\lambda_{\min}\geq24^{-8661}>0$, soit $0{,}1175367$ numériquement. Ce
+$\lambda_{\min}\geq24^{-8661}>0$; un calcul numérique distinct donne
+$0{,}1175367$ comme raffinement non certifié. Ce
 résultat est distinct du spectre de réparation de jauge compacte et de
 l’écart de masse continu de Yang–Mills, et il ne fournit ni horloge
 physique, ni masse de particule. Voir l’

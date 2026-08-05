@@ -91,8 +91,15 @@ def test_readme_highlights_remain_short_and_reader_facing() -> None:
             )
 
     english = (ROOT / "README.md").read_text(encoding="utf-8")
+    french = (ROOT / "README_FR.md").read_text(encoding="utf-8")
     assert "**The four laws of thermodynamics" in english
     assert "conditional finite theorem package" not in english.lower()
+    assert "72-eV-wide interval" in english
+    assert "lands within 72 eV" not in english
+    assert "intervalle large de 72 eV" in french
+    assert "tombe à 72 eV" not in french
+    assert re.search(r"separately\s+specified matter structure", english)
+    assert "Two declared twelve-port wave" in english
 
 
 def test_active_v2_owner_display_separates_historical_milestones() -> None:

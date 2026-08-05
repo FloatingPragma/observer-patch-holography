@@ -812,8 +812,9 @@ def _forced_structure(
         {
             "id": "carrier_class_dispersion_band",
             "statement": (
-                "Every positive-weight stable invariant finite-range carrier in "
-                "the declared class has C4 < 0 and B0/C4^2 at least 10/21, "
+                "Every member of the declared positive-weight scalar cosine "
+                "class, whose full spatial symbol is the orbit sum, has C4 < 0 "
+                "and B0/C4^2 at least 10/21, "
                 "with equality exactly on one-radius support. Its anisotropic "
                 "ranks one through five vanish and B6/B0 lies in "
                 "[-16/135, 16/75] on the unique rotated I6 line. At eighth "
