@@ -7,6 +7,7 @@ import QFT.NoncommutativeWitness
 import QFT.SourceLinkSquare
 import QFT.JointInstance
 import QFT.CoverageReceipt
+import QFT.GlueCountermodel
 
 /-!
 # OPH construction QFT umbrella
@@ -46,4 +47,8 @@ The coverage module adds the family join, the coverage
 receipt with its reconstruction theorem, and the exact computation that
 the character net's regional algebras join to the proper block-diagonal
 algebra, so that net does not cover its ambient algebra.
+The glue countermodel certifies that the accessible-glue
+receipt is independent of ambient descent: a diamond net with asymmetric
+entry-pick restrictions carries unique descent while the unique glue of
+an accessible family escapes the accessible algebra.
 -/

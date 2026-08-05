@@ -225,9 +225,11 @@ theorem repair_fixes_observerLocal_of_disjoint (o : T.Observer r)
 below the observer region, any ambient globalization of a compatible
 family of accessible sections is accessible.  Under a declared descent
 packet the globalization is unique, so this says exactly that the selected
-ambient glue lies in the accessible algebra.  The receipt is a premise:
-no theorem in this module derives accessibility from descent, and the
-conditional theorem below only consumes the receipt. -/
+ambient glue lies in the accessible algebra.  The receipt is a premise
+independent of ambient descent: `QFT.GlueCountermodel` exhibits a net
+and cut where unique descent holds while the unique glue of an
+accessible family escapes the accessible algebra, and the conditional
+theorem below only consumes the receipt. -/
 structure AccessibleGlueClosure (o : T.Observer r)
     (D : N.ObserverNetDescent) : Prop where
   glue_accessible : ∀ {W : N.Region r},
