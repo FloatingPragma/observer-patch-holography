@@ -66,7 +66,7 @@ instrument: stances registered with cryptographic custody and kill bands
 before their comparison data is examined, with fixed rules that permit
 refutation by qualifying measurements.
 
-## Seven Reproducible Physics Receipts
+## Eight Reproducible Physics Receipts
 
 These public results link directly to their papers, proofs, data, and
 certificates:
@@ -87,7 +87,19 @@ certificates:
    [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf),
    the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
    the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-3. **The four laws of thermodynamics follow in the finite observer model.**
+3. **Dynamics, quantum weights, and the action are forced, not chosen.** On
+   the finite observer algebra, continuous time evolution has no freedom
+   beyond a Hamiltonian, so the Schrödinger form is a theorem. The quantum
+   probability weight is the only additive assignment on measurement effects,
+   in every finite dimension including the qubit case. The realized repair
+   dynamics fixes its own action up to gauge, which makes least action and
+   most probable history two readouts of one functional, joined to Hamiltonian
+   flow by a finite Legendre bridge. Attaching laboratory units, clocks, and
+   outcome frequencies is work in progress. See the
+   [observers paper](paper/observers_are_all_you_need.pdf), the
+   [Born representation proof](Lean/EventAlgebra/FiniteBuschGleason.lean), and
+   the [derived-action proof](Lean/InformationProjection/LogTransitionAction.lean).
+4. **The four laws of thermodynamics follow in the finite observer model.**
    Given a common reference state and the repaired information visible to all
    observers, the same finite repair rule gives equilibrium, entropy increase,
    heat and work accounting, and the low-temperature limit. The remaining work
@@ -95,7 +107,7 @@ certificates:
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean
    [conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
    and the [exact certificate](code/thermodynamics/conditional_repair_certificate.py).
-4. **The Standard Model gauge structure from twelve ports.** The twelve-port
+5. **The Standard Model gauge structure from twelve ports.** The twelve-port
    geometry, complete reversible response, and observer agreement recover the
    symmetries of the strong, weak, and electromagnetic forces. A separately
    specified matter structure gives
@@ -107,7 +119,7 @@ certificates:
    [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
    the Lean [gauge proof](Lean/Screen/A5OPH.lean), and the
    [global-form proof](Lean/Screen/Z6Descent.lean).
-5. **One generation of matter out of a finite search.** An exhaustive scan of
+6. **One generation of matter out of a finite search.** An exhaustive scan of
    the declared possibilities leaves the fifteen particle states and exact
    charges of one Standard Model generation, with all anomalies cancelled.
    A separate finite selection gives a rank-three family candidate. The
@@ -116,7 +128,7 @@ certificates:
    [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
    the Lean [matter-selection proof](Lean/Screen/ExteriorSelection.lean), and
    the [family-band proof](Lean/Screen/A5FamilyBand.lean).
-6. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
+7. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
    response gives the exact positive-chamber relation among the electron,
    muon, and tau masses. With two masses supplied, the formula fixes a
    72-eV-wide interval centered at $1776.969027$ MeV, compatible with the
@@ -126,7 +138,7 @@ certificates:
    [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
    the [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and the
    [comparison ledger](docs/POSTDICTION_LEDGER.md).
-7. **A frozen fingerprint in how waves travel.** Two declared twelve-port wave
+8. **A frozen fingerprint in how waves travel.** Two declared twelve-port wave
    rules fix distinctive directional patterns whose first anisotropy appears
    at sixth order. Their ratios and rejection rules sit in pre-comparison
    cryptographic custody. Physical-field attachment of a source-selected rule
@@ -136,104 +148,47 @@ certificates:
    the [exact receipts](code/a5_fingerprint/runtime/), and the
    [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
 
-A separate signed-graph theorem proves the screen has no free excitation at
-zero cost: a target-clean source capture fixes the causal order, seam
-topology, typed sections, and 38 frustrated triangles, and the declared
-signed operator obeys $\lambda_{\min}\geq24^{-8661}>0$, with a numerical
-refinement of $0.1175367$. The result is distinct from the compact-gauge
-repair spectrum and the continuum Yang--Mills mass gap and supplies no
-physical clock or particle mass. See the
-[screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
-and the pinned
-[source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
+Beyond the eight receipts, the exact layer carries a set of further
+results, each stated with its boundary at the link:
 
-A separate finite theorem maximizes generalized entropy at $\log M$, gives
-the exact shock shift $\log(1-f)$, and fixes the pure de Sitter relation
-$\mu^2=d-2$. Its physical time-advance reading requires the stated horizon,
-observer-mass, gravitational, gauge-mode, and kinetic dictionaries. See the
-[focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
-
-The structural ledger records three further action-level consequences. On
-separately declared unbroken Maxwell, perturbative Yang--Mills, and pure
-Einstein branches, the quadratic kernels have zero hard mass parameters and
-the expected transverse or transverse-traceless classical modes. These are
-classical carrier statements, not quantum photon, gluon, or graviton pole
-predictions. See the
-[forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
+- A signed-graph theorem proves the screen has no free excitation at zero
+  cost: on a target-clean source capture the declared signed operator obeys
+  $\lambda_{\min}\geq24^{-8661}>0$. It supplies no physical clock or
+  particle mass. See the
+  [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
+  and the pinned
+  [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
+- A finite capacity theorem maximizes generalized entropy at $\log M$,
+  gives the exact shock shift $\log(1-f)$, and fixes the pure de Sitter
+  relation $\mu^2=d-2$; the physical time-advance reading waits on its
+  stated dictionaries. See the
+  [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
+  and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
+- On separately declared Maxwell, Yang--Mills, and Einstein branches, the
+  quadratic kernels have zero hard mass parameters and the expected
+  transverse or transverse-traceless classical modes. These are classical
+  carrier statements, not quantum pole predictions. See the
+  [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
+- The finite completion layer proves one public endpoint across completed
+  schedules and representatives, an internal Lorentz model with a bounded
+  soldering contract, and a proof-carrying regional-net interface with exact
+  witnesses and obstruction theorems; the source attachments stay open and
+  typed. See the
+  [public-world endpoint proofs](Lean/Tower/FixedPointEndpoint.lean), the
+  [geometry theorem stack](Lean/Geometry.lean), the
+  [finite regional-net interface](Lean/QFT.lean), and the
+  [Lean boundary notes](Lean/docs/) for the exact scopes.
+- The library defines what counts as an observer through seven tests:
+  bounded window, readback, stable records, action, forward prediction, and
+  survival under refinement. A worked example passes all seven and three
+  deliberately broken systems fail exactly one each. See the
+  [operational observer proof](Lean/Tower/OperationalObserver.lean).
 
 The supporting Lean library contains more than 4000 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
 [Lean/](Lean/).
-
-The V2 finite completion layer makes the public quotient literal at one
-regulator: raw configurations are equivalent exactly when their complete
-readback signatures agree. Finite termination, terminal completion,
-confluence, semantic completeness, and quotient congruence then imply one
-public endpoint across completed schedules and representatives. The premises
-are conditional, terminal completion is not scheduler fairness, and no
-source-selected repair family or cross-regulator physical world follows. See
-the [public-world endpoint proofs](Lean/Tower/FixedPointEndpoint.lean).
-
-The same layer gives an internal Lorentz model in the real Pauli coordinates
-of Hermitian $2\times2$ matrices. The determinant has inertia $(1,3)$,
-positive future-null rays are set-equivalent to $S^2$, future unit-timelike
-frames have three-dimensional Euclidean rest spaces, and an exact linear
-chart matches the Einstein tensor coordinates with the opposite sign
-convention. A bounded algebraic soldering contract proves unique descent
-of coincidence-invariant readbacks. Separately, from a supplied time-oriented
-affine Lorentz overlap cocycle and a chart-coordinate family satisfying its
-overlap law, it proves identity, inverse and cocycle laws and covariant
-displacement, interval, celestial, frame and local-rest-space readbacks. The
-formal stack does not identify the
-quotient-descended readback with that chart-coordinate family. It also
-identifies the rank-three source Gram quotient isometrically with one standard
-internal rest fiber as a candidate
-readout, never as absolute space. The chart-coordinate family and overlap law,
-source coincidence atlas, event population, certified separation, open charts,
-physical cone, refinement, causality, frame
-selection, clock and physical spacetime attachment remain explicit
-downstream receipts. See the [geometry theorem stack](Lean/Geometry.lean).
-
-A proof-carrying finite regional-net interface packages isotony,
-declared-disjoint commutation, refinement, idempotent local repair,
-conditional restriction gluing on declared subregion families, and exact
-remote-observable nondisturbance. The formal family type has no joint-coverage
-axiom. Its contravariant restrictions and gluing laws are strong declared
-receipts, and its partition-and-state-parameterized consistency construction
-assigns the same commutative record algebra to every region; it is not a closed
-source witness. An explicit finite witness inhabits the interface with two
-noncommutative, mutually commuting regional algebras over a scalar
-overlap, and an exact obstruction theorem shows the declared restriction maps exclude full matrix factors above scalar overlap regions and anticommuting unit pairs above commutative regions. A
-source-attached net, genuine coverage, regional factorization, positive
-quantum channels, adaptive scheduler locality, spacetime causality, and a
-continuum time-slice theory are open. The layer also checks fixed-word repair locality, generic
-bipartite marginal invariance, finite conservation and transport, and
-conditional finite-history and real-variation helpers. A finite Gibbs path
-space cannot supply every real single-site variation; the transfer that
-survives is receipt-gated, with a committed witness that carries the receipt
-and a control family that provably cannot. The path law of the realized
-source chain is the exponential tilt of its declared reference by the
-log-transition action, unique up to an additive constant and a multiplier
-rescaling, so the action of the realized dynamics is derived rather than
-chosen, and a finite Legendre bridge ties Euler-Lagrange transport to the
-discrete Hamilton step with the chain current conserved as momentum and
-energy. The reference measure, physical action, units, and clock have no
-construction in the package. These are structural results, not physical predictions. See the
-[finite regional-net interface](Lean/QFT.lean),
-[postdiction ledger](docs/POSTDICTION_LEDGER.md#forced-structure), and
-[Lean boundary notes](Lean/docs/) for the exact scopes.
-
-The library defines what counts as an observer: a system with a
-bounded window on the world that can read its own records back, keep them
-stable under its own dynamics, act on them, predict forward rather than
-backward, and survive refinement. A worked example passes all seven tests
-and three deliberately broken systems fail exactly one test each. A
-companion theorem ties an observed event's record, its location, its
-owner's access, and its coordinates to one underlying packet of data, and
-that binding survives refinement.
 
 The rest of this README is the architecture those receipts come from.
 
@@ -404,91 +359,25 @@ $S^2$ support gives the connected Lorentz group and exactly three
 observer-frame spatial dimensions, and modular flow with entropy stationarity
 gives the Einstein first-variation relation.
 
-The Einstein branch is instrumented end to end. Every clause of its
-antecedent (geometric modular normalization, GNS cyclicity and modular
-intersections, the Lorentzian event cone, same-source stress and coupling) has
-a machine-certified fail-closed instrument with adversarial negative controls
-and semantic countermodels, so each clause is either a proved theorem or a
-measured quantity, never an assumption. Two clauses are theorems: coupling
-universality holds with zero spread for every icosahedrally
-symmetric source law, and generator positivity holds by construction for the
-declared law family. Direct measurement supplies the strongest empirical result
-in this corpus: the Einstein-cone scale path. The selected configurations use
-$(16{,}384,128,96)$, $(65{,}536,256,96)$, and
-$(262{,}144,512,384)$ for carrier count, observer count, and support width.
-Their held-out event forms have Lorentzian signature $(1,3)$, with cone
-margins $-5.62$, $-3.22$, and $-1.41$ and decreasing coupling spread. A
-same-size control at 262,144 carriers uses support width 96. Its
-cross-observer edge count is 312 instead of 1,062, and its signature is
-$(2,2)$ instead of $(1,3)$. These measurements establish reproducible
-sensitivity to support and cross-read structure under the archived
-configurations. They do not establish a fixed-density convergence law or an
-infinite-scale limit. The primary data are stored in
-[evidence/einstein_convergence](evidence/einstein_convergence/) and every
-number reproducible bit for bit from the
+The Einstein branch is instrumented end to end: every clause of its
+antecedent is either a proved theorem or a measured quantity with a
+fail-closed instrument and adversarial controls, never an assumption. Direct
+measurement supplies the strongest empirical result in this corpus. Across
+runs with 16,384, 65,536, and 262,144 carriers, the held-out event forms
+carry Lorentzian signature $(1,3)$ with cone margins $-5.62$, $-3.22$, and
+$-1.41$ and decreasing coupling spread, while a same-size control with a
+narrow support drops to signature $(2,2)$. The measurements establish
+reproducible sensitivity to support structure; they do not establish a
+convergence law. Primary data sit in
+[evidence/einstein_convergence](evidence/einstein_convergence/), bit-for-bit
+reproducible from the
 [simulation repository](https://github.com/muellerberndt/oph-physics-sim).
-Two measured clauses are open: cap-state modular temperature and a
-preregistered larger-rung test of the event form. Both carry frozen verdicts.
 
-The evidence stack combines exact finite derivations, machine-checked proofs,
-and deterministic measurements with primary data. Mathematical statements,
-conditional physical readings, and measured properties carry separate claim
-classes in the [claim scoreboard](tracking/claims_scoreboard.md).
-
-The carrier geometry then does surprising exact work. On the certified
-echosahedral lineage, the declared integer atom-counting grammar and normalized
-Hilbert--Schmidt readback cost give the exact twelve-unit split and gap two.
-Deriving that counting grammar and physical cost from the full three-axiom
-schema is open. Oriented incidence independently derives the antipodal
-pairing, proper $A_5$ action, rank-three icosahedral frame, and the decomposition
-$\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5$. Incidence also fixes
-the unique nonidentity central graph involution $J$. A target-blind protocol
-injects an impulse at every port, reads the adjacency history through graph
-diameter, and solves the common farthest-shell filter. It derives
-$10J=A^3-4A^2-5A+10I$. The response $R=-J$ has exact relative sector signs;
-its common sign is charge conjugation.
-
-The complete reversible response clause in A1 and endogenous proper-carrier
-transport in A2 turn the twelve-dimensional port tangent into a compact
-current algebra with inner $A_5$ action. Its one-dimensional fixed space and
-compact-simple classification force the abstract type
-$\mathfrak u(1)\oplus\mathfrak{su}(2)\oplus\mathfrak{su}(3)$. The released
-charged-double-triplet matrices realize that type exactly, while ordered
-source tomography and same-current holonomy are work in progress. The
-registered recurrence generates a four-dimensional commutative word algebra;
-it does not supply twelve current generators, their bracket, or nonidentity
-proper rechartings. Twelve target-free diagonal port phases have rank twelve
-and commute. Adding the connected adjacency tangent generates
-$\mathfrak u(12)$ with derived rank 143, so the source current requires a
-non-diagonal response law with derived rank eleven. Conditional on the
-canonical oriented carrier, the complete target-free
-$A_5$-equivariant alternating-bracket space over $\mathbb Q$ has dimension
-fourteen and an exact rational Reynolds basis. The complete Jacobi condition
-has 38 independent quadratic coefficient rows, with an exact 11+27 rowspace
-decomposition. The residual solution variety, compactness, source
-reconstruction, and same-current holonomy are undischarged.
-See the
-[exact alternating-bracket search packet](code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json)
-and the
-[Jacobi reduction receipt](code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_stage2.receipt.json).
-
-Inside the declared exterior-response algebra, the exhaustive 1024-subset
-scan leaves one unordered conjugate rank-15 pair as the unique nonempty chiral
-anomaly-free selection. Anomaly freedom gives determinant balance and
-primitive charges up to charge conjugation. Exhaustive central-action
-calculation gives a common $\mathbb Z_6$ kernel on those declared tensors, so
-their maximal faithful image is
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The cover and its
-$\mathbb Z_2$ and $\mathbb Z_3$ quotients carry the same local tensors. The
-six-axis calculation has order six only after its diagonal and zero-sum
-coefficient relations are declared. A complete source character category and
-a same-source loop-to-kernel identification are required to select the
-physical quotient. Continuum fermion typing and laboratory-current
-identification are open. The transportable-sector/Tannaka construction is a
-separate compact-group route, and the source identification of the two routes
-is open.
-
-The carrier theorem and its declared matrix witness can be written as
+The carrier geometry then does surprising exact work. Oriented incidence
+alone derives the antipodal pairing, the proper $A_5$ action, the rank-three
+icosahedral frame, and a target-blind inverse-response law. The complete
+reversible response clause in A1 and endogenous transport in A2 then force
+the local Lie type of the Standard Model:
 
 $$
 P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
@@ -497,29 +386,28 @@ P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
 \cong\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
 $$
 
-This abstract Lie type follows from the A1 response and A2 endogenous
-transport clauses together with the finite carrier theorem. It does not
-follow from the module decomposition or target-blind inverse-port readback
-alone. The released matrices are a conditional witness. The matter and
-descent certificates prove the corresponding conditional representation and
-kernel arithmetic. Source realization, physical global-form selection, and
-laboratory identification are separate tests.
+No gauge group is assumed anywhere in the premises; a centreless alternative
+is excluded by the one-dimensional fixed space. The released matrices are an
+exact conditional witness, and the classified bracket families carry a
+forced kinetic sector: block-diagonal in the certified projectors, one
+coupling ray per simple factor, and equal to the derived action of its own
+source dynamics.
 
-The exact carrier results retain explicit physical boundaries. The matrix
-current, matter action, and global-form selection are not reconstructed from
-source histories. Laboratory current identification,
-physical family attachment, exclusion of extra light sectors, scalar
-multiplicity,
-the Einstein source tower, and the physical closure packets are not derived.
-The CP and weak-sector clauses give the exact
-conditional window $3\le N_g\le5$ without selecting within it. Under two
-additional named premises, the exact band-cost order
-$5-\sqrt5<6<5+\sqrt5$ uniquely selects the rank-three screen band. A finite
-unitary response receipt recovers the same band at the lowest positive
-generator frequency. The physical matter-family attachment, Spin/locality
-data, and exclusion of extra light sectors are open. Local
-icosahedral incidence constrains the carrier, while the federation nerve
-requires its own construction.
+Inside the declared exterior-response algebra, an exhaustive 1024-subset scan
+leaves exactly one chiral anomaly-free selection: fifteen states with the
+charges of one Standard Model generation and a common $\mathbb Z_6$ kernel,
+so the maximal faithful image is
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Under two further named
+premises the exact band-cost order $5-\sqrt5<6<5+\sqrt5$ selects the
+rank-three family band.
+
+The boundaries stay explicit throughout: the matrix current, matter action,
+and global-form selection are not reconstructed from source histories,
+and laboratory identification, family attachment, scalar multiplicity, and
+the closure packets are open. The
+[claim scoreboard](tracking/claims_scoreboard.md) carries every premise;
+the exact bracket-search and Jacobi receipts sit in
+[code/a5_closure/](code/a5_closure/).
 
 ## Claim Scope
 
@@ -578,7 +466,7 @@ assumes and what is missing.
 
 ## Technical status
 
-The seven receipts above are the reader-facing summary. Exact premises,
+The eight receipts above are the reader-facing summary. Exact premises,
 comparison ancestry, and falsification rules live in the
 [claim scoreboard](tracking/claims_scoreboard.md), the
 [postdiction ledger](docs/POSTDICTION_LEDGER.md), and the
@@ -691,23 +579,13 @@ the results above depend on it.
 ## Open Proof Obligations And Falsification Boundary
 
 The direct $N$ theorem contains a finite, source-derived simulator
-public-checkpoint packet. At fixed $D=24$, the packet has the reachable public
-records, the
-publicness rule, joint checkpoint kernels, carrier projections, and extension
-and refinement maps. Injective checkpoint generators reduce its capacity
-theorem to $M_0=|X_{\rm reach}|$, computable by exact CSP or model counting.
-The target-clean all-rung counterfamily has an exact bounded verdict: base
-agreement, positivity, and the carrier bound admit completions with different
-slack-zero sets. Executable certificates check additional finite controls at
-declared rungs. Universal all-rung membership of those countermodels in the
-complete A1--A3 terminal fibers, atom maps, joint kernels, meaning maps,
-feasible sets, and regulator controls has not been proved, and no
-executable-to-Lean bridge supplies it. A physical \(N\) theorem requires a
-complete source antecedent, one physical zero, proof that both sides read the
-same universe-level quantity, and the physical carrier attachment. A
-separately named stronger source law is one possible route. The independent finite $A_5$ control has $M_0=60$ and
-$D_{\rm raw}=60k$; its publicly inert multiplicity proves that raw equality at
-$k=1$ is not physical $N$-closure.
+public-checkpoint packet whose capacity theorem reduces to
+$M_0=|X_{\rm reach}|$, with exact bounded countermodels showing which
+completions the finite controls do not pin down. A physical $N$ theorem
+requires a complete source antecedent, one physical zero, proof that
+both sides read the same universe-level quantity, and the physical carrier
+attachment; an independent finite $A_5$ control proves that raw equality at
+one rung is not physical closure.
 
 The other named obligations are:
 
@@ -746,7 +624,6 @@ The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberate
 | The shortest persuasive overview | [A Compact Case for OPH](extra/compact_proof_of_oph.pdf) |
 | The spacetime and Einstein derivation | [Recovering Observer Spacetime and Einstein Dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Both Standard Model gauge routes | [Deriving Standard Model Gauge Structure](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
-| The full observer-first synthesis | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
 | The particle construction | [Deriving the Particle Zoo](paper/deriving_the_particle_zoo_from_observer_consistency.pdf) |
 | The twelve-port screen architecture and finite modular-gearing theorem | [Federated Echosahedral Screen Microphysics](paper/screen_microphysics_and_observer_synchronization.pdf) |
