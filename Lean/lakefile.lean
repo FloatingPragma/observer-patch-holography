@@ -35,7 +35,8 @@ lean_lib «OPHThermodynamics» where
   roots := #[`FiniteConditionalRepair, `FirstLawIdentity,
     `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink,
     `GreenKubo, `GraphDiffusion, `StationaryRealization,
-    `PoissonizedRepair, `PoissonizedRepairOperatorExp]
+    `PoissonizedRepair, `PoissonizedRepairOperatorExp,
+    `LowTemperatureControl]
 
 @[default_target]
 lean_lib «OPHScreen» where
