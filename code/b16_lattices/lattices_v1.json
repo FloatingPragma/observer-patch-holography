@@ -1,0 +1,1633 @@
+{
+ "claim_boundary": "This computation derives coroot lattices, integral carrier weights, simply connected centers as lattice quotients, and the carrier-selected global form for the three certified compact families, exactly over declared field towers. It does not select a matter module over the issue #706 frozen class, does not derive an abelian period, does not construct holonomy, line operators, or a continuum bundle, and does not close issue #707.",
+ "controls": {
+  "abelian_rescaling": {
+   "statement": "For every family the charge matrix of each central generator u and of the rescaled generator (7/3)u is the exact zero matrix, so no rescaling of the abelian generator produces a charge equation; the primitive-period question has no source-side constraint to solve",
+   "verified_in": "analyze_family via ABELIAN_TRIVIAL together with linearity of the adjoint action"
+  },
+  "synthetic_fundamental_weight_A2": {
+   "center_order": 3,
+   "conclusion": "adding one fundamental weight (1,0) shrinks the kernel to the identity; the pipeline selects the simply connected form when the carrier demands it",
+   "kernel_order": 1,
+   "weights": [
+    [
+     2,
+     -1
+    ],
+    [
+     -1,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     -2,
+     1
+    ],
+    [
+     1,
+     -2
+    ],
+    [
+     -1,
+     -1
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  },
+  "synthetic_spinor_weight_A1": {
+   "center_order": 2,
+   "conclusion": "adding weight 1 shrinks the kernel to the identity; the adjoint outcome on the carrier is computed, never assumed",
+   "kernel_order": 1,
+   "weights": [
+    [
+     2
+    ],
+    [
+     -2
+    ],
+    [
+     1
+    ],
+    [
+     -1
+    ]
+   ]
+  }
+ },
+ "conventions": {
+  "field_tower": "Q(sqrt(5)) < E = Q(sqrt(5))[mu], mu^2 read off tr(ad_h1^2)/2 on the leading sector; for rank-two summands F = E[nu], nu^2 the discriminant of the ad_h2 restriction to the mu eigenspace; all eigenspace dimensions carry completeness proofs (dimensions sum to twelve)",
+  "lattice_quotients": "Smith normal form of the integer root-coordinate matrix; the center of the simply connected form is the quotient of the weight lattice by the root lattice, and the carrier kernel is the annihilator of the carrier weight images in that quotient",
+  "weight_coordinates": "integer pairings with the computed simple coroots, obtained from sl(2) triples [e,f]=H' normalized by alpha(H)=2"
+ },
+ "families": {
+  "F": {
+   "abelian": {
+    "charge_lattice": "zero lattice {0}",
+    "charge_lattice_rank": 0,
+    "charge_matrix_rank_per_generator": [
+     0
+    ],
+    "dimension": 1,
+    "finding": "Every certified central generator acts by the exact zero matrix on the twelve-port carrier, so the carrier charge lattice is the zero lattice. A primitive abelian period is the minimal nonzero charge of a faithful character; the zero lattice has none, so the source pins no primitive abelian period and no compact-versus-noncompact abelian form at this level. This matches freeze constraint C3 of the issue #706 matter-class freeze.",
+    "primitive_period": "undetermined_by_source",
+    "sectors": [
+     "fixed"
+    ]
+   },
+   "central_relations": {
+    "finite_center_of_simply_connected_form": [
+     "Z/3",
+     "Z/2"
+    ],
+    "relations": [
+     "z1^3 = 1",
+     "z2^2 = 1",
+     "z1 z2 = z2 z1"
+    ],
+    "source": "invariant factors of the computed root-coordinate matrices; no order is imported"
+   },
+   "certificate_family": "SU3PF",
+   "channel_values": {
+    "t_ff_to_p": [
+     -1,
+     1,
+     0,
+     1
+    ],
+    "t_mm_to_m": [
+     1,
+     1,
+     0,
+     1
+    ],
+    "t_pf_to_f": [
+     0,
+     1,
+     -1,
+     1
+    ],
+    "t_pp_to_p": [
+     1,
+     1,
+     0,
+     1
+    ]
+   },
+   "loop_to_kernel": {
+    "abelian_factor_on_carrier": "acts by the identity; the carrier action factors through the semisimple adjoint form and determines no abelian period",
+    "faithful_semisimple_form_on_carrier": "PSU(3) = SU(3)/(Z/3) x SO(3) = SU(2)/(Z/2)",
+    "kernel_equals_full_finite_center": true,
+    "kernel_of_carrier_action_orders": [
+     3,
+     2
+    ]
+   },
+   "parameters": [
+    "1",
+    "-1",
+    "1"
+   ],
+   "summands": [
+    {
+     "carrier_eigenspace_dimensions_over_mu": {
+      "-1": 2,
+      "-2": 1,
+      "0": 6,
+      "1": 2,
+      "2": 1
+     },
+     "carrier_weights": [
+      {
+       "coordinates": [
+        -2,
+        1
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        -1,
+        -1
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        -1,
+        2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        0,
+        0
+       ],
+       "multiplicity": 6
+      },
+      {
+       "coordinates": [
+        1,
+        -2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        1,
+        1
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        2,
+        -1
+       ],
+       "multiplicity": 1
+      }
+     ],
+     "cartan_dimension": 2,
+     "cartan_matrix": [
+      [
+       2,
+       -1
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "center_action_on_carrier": {
+      "carrier_weight_images_in_center_dual": [
+       [
+        0,
+        0
+       ]
+      ],
+      "faithful_quotient_order": 1,
+      "kernel_equals_full_center": true,
+      "kernel_order": 3
+     },
+     "dimension": 8,
+     "h1": [
+      [
+       0,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       5,
+       -1,
+       2,
+       1,
+       2
+      ],
+      [
+       6,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       8,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       9,
+       -1,
+       2,
+       1,
+       2
+      ],
+      [
+       10,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       11,
+       1,
+       1,
+       0,
+       1
+      ]
+     ],
+     "h2": [
+      [
+       0,
+       -3,
+       2,
+       -1,
+       2
+      ],
+      [
+       1,
+       0,
+       1,
+       1,
+       2
+      ],
+      [
+       2,
+       0,
+       1,
+       1,
+       2
+      ],
+      [
+       4,
+       0,
+       1,
+       1,
+       2
+      ],
+      [
+       5,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       6,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       7,
+       0,
+       1,
+       1,
+       2
+      ],
+      [
+       9,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       10,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       11,
+       -3,
+       2,
+       -1,
+       2
+      ]
+     ],
+     "lattices": {
+      "carrier_weight_lattice_invariant_factors": [
+       1,
+       3
+      ],
+      "carrier_weights_contained_in_root_lattice": true,
+      "center_of_simply_connected_form_invariant_factors": [
+       3
+      ],
+      "center_of_simply_connected_form_order": 3,
+      "coroot_lattice": "Z^2 in the simple-coroot basis",
+      "coweight_lattice_index_over_coroot_lattice": 3,
+      "root_lattice_invariant_factors": [
+       1,
+       3
+      ],
+      "root_lattice_row_generators": [
+       [
+        -2,
+        1
+       ],
+       [
+        -1,
+        -1
+       ],
+       [
+        -1,
+        2
+       ],
+       [
+        1,
+        -2
+       ],
+       [
+        1,
+        1
+       ],
+       [
+        2,
+        -1
+       ]
+      ],
+      "weight_lattice": "Z^2 in simple-coroot pairing coordinates"
+     },
+     "m2_restriction_trace": [
+      [
+       0,
+       1,
+       0,
+       1
+      ],
+      [
+       -3,
+       2,
+       -1,
+       2
+      ]
+     ],
+     "mu_squared": [
+      -2400,
+      1,
+      800,
+      1
+     ],
+     "name": "su3",
+     "nu_squared": [
+      [
+       5760,
+       1,
+       -5760,
+       1
+      ],
+      [
+       0,
+       1,
+       0,
+       1
+      ]
+     ],
+     "positive_root_coroots_in_simple_coroot_basis": {
+      "positive_root_1": [
+       1,
+       0
+      ],
+      "positive_root_2": [
+       0,
+       1
+      ],
+      "positive_root_3": [
+       1,
+       1
+      ]
+     },
+     "roots_in_coroot_coordinates": [
+      [
+       -2,
+       1
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       -1,
+       2
+      ],
+      [
+       1,
+       -2
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       -1
+      ]
+     ],
+     "sectors": [
+      "three_plus",
+      "five"
+     ],
+     "selected_global_form_on_carrier": "PSU(3) = SU(3)/(Z/3)",
+     "simple_root_coordinates": [
+      [
+       2,
+       -1
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "trivial_isotypic_dimension": 4,
+     "type_computed": "A2"
+    },
+    {
+     "carrier_eigenspace_dimensions_over_mu": {
+      "-1": 1,
+      "0": 10,
+      "1": 1
+     },
+     "carrier_weights": [
+      {
+       "coordinates": [
+        -2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        0
+       ],
+       "multiplicity": 10
+      },
+      {
+       "coordinates": [
+        2
+       ],
+       "multiplicity": 1
+      }
+     ],
+     "cartan_dimension": 1,
+     "cartan_matrix": [
+      [
+       2
+      ]
+     ],
+     "center_action_on_carrier": {
+      "carrier_weight_images_in_center_dual": [
+       [
+        0
+       ]
+      ],
+      "faithful_quotient_order": 1,
+      "kernel_equals_full_center": true,
+      "kernel_order": 2
+     },
+     "dimension": 3,
+     "h1": [
+      [
+       0,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       5,
+       -1,
+       2,
+       -1,
+       2
+      ],
+      [
+       6,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       8,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       9,
+       -1,
+       2,
+       -1,
+       2
+      ],
+      [
+       10,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       11,
+       1,
+       1,
+       0,
+       1
+      ]
+     ],
+     "lattices": {
+      "carrier_weight_lattice_invariant_factors": [
+       2
+      ],
+      "carrier_weights_contained_in_root_lattice": true,
+      "center_of_simply_connected_form_invariant_factors": [
+       2
+      ],
+      "center_of_simply_connected_form_order": 2,
+      "coroot_lattice": "Z^1 in the simple-coroot basis",
+      "coweight_lattice_index_over_coroot_lattice": 2,
+      "root_lattice_invariant_factors": [
+       2
+      ],
+      "root_lattice_row_generators": [
+       [
+        -2
+       ],
+       [
+        2
+       ]
+      ],
+      "weight_lattice": "Z^1 in simple-coroot pairing coordinates"
+     },
+     "mu_squared": [
+      -2400,
+      1,
+      -800,
+      1
+     ],
+     "name": "so3",
+     "positive_root_coroots_in_simple_coroot_basis": {
+      "alpha_1": [
+       1
+      ]
+     },
+     "roots_in_coroot_coordinates": [
+      [
+       2
+      ],
+      [
+       -2
+      ]
+     ],
+     "sectors": [
+      "three_minus"
+     ],
+     "selected_global_form_on_carrier": "SO(3) = SU(2)/(Z/2)",
+     "simple_root_coordinates": [
+      [
+       2
+      ]
+     ],
+     "trivial_isotypic_dimension": 9,
+     "type_computed": "A1"
+    }
+   ]
+  },
+  "G": {
+   "abelian": {
+    "charge_lattice": "zero lattice {0}",
+    "charge_lattice_rank": 0,
+    "charge_matrix_rank_per_generator": [
+     0
+    ],
+    "dimension": 1,
+    "finding": "Every certified central generator acts by the exact zero matrix on the twelve-port carrier, so the carrier charge lattice is the zero lattice. A primitive abelian period is the minimal nonzero charge of a faithful character; the zero lattice has none, so the source pins no primitive abelian period and no compact-versus-noncompact abelian form at this level. This matches freeze constraint C3 of the issue #706 matter-class freeze.",
+    "primitive_period": "undetermined_by_source",
+    "sectors": [
+     "fixed"
+    ]
+   },
+   "central_relations": {
+    "finite_center_of_simply_connected_form": [
+     "Z/3",
+     "Z/2"
+    ],
+    "relations": [
+     "z1^3 = 1",
+     "z2^2 = 1",
+     "z1 z2 = z2 z1"
+    ],
+    "source": "invariant factors of the computed root-coordinate matrices; no order is imported"
+   },
+   "certificate_family": "SU3MF",
+   "channel_values": {
+    "t_ff_to_m": [
+     1,
+     1,
+     0,
+     1
+    ],
+    "t_mf_to_f": [
+     0,
+     1,
+     1,
+     1
+    ],
+    "t_mm_to_m": [
+     1,
+     1,
+     0,
+     1
+    ],
+    "t_pp_to_p": [
+     1,
+     1,
+     0,
+     1
+    ]
+   },
+   "loop_to_kernel": {
+    "abelian_factor_on_carrier": "acts by the identity; the carrier action factors through the semisimple adjoint form and determines no abelian period",
+    "faithful_semisimple_form_on_carrier": "PSU(3) = SU(3)/(Z/3) x SO(3) = SU(2)/(Z/2)",
+    "kernel_equals_full_finite_center": true,
+    "kernel_of_carrier_action_orders": [
+     3,
+     2
+    ]
+   },
+   "parameters": [
+    "1",
+    "1",
+    "1"
+   ],
+   "summands": [
+    {
+     "carrier_eigenspace_dimensions_over_mu": {
+      "-1": 2,
+      "-2": 1,
+      "0": 6,
+      "1": 2,
+      "2": 1
+     },
+     "carrier_weights": [
+      {
+       "coordinates": [
+        -2,
+        1
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        -1,
+        -1
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        -1,
+        2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        0,
+        0
+       ],
+       "multiplicity": 6
+      },
+      {
+       "coordinates": [
+        1,
+        -2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        1,
+        1
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        2,
+        -1
+       ],
+       "multiplicity": 1
+      }
+     ],
+     "cartan_dimension": 2,
+     "cartan_matrix": [
+      [
+       2,
+       -1
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "center_action_on_carrier": {
+      "carrier_weight_images_in_center_dual": [
+       [
+        0,
+        0
+       ]
+      ],
+      "faithful_quotient_order": 1,
+      "kernel_equals_full_center": true,
+      "kernel_order": 3
+     },
+     "dimension": 8,
+     "h1": [
+      [
+       0,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       5,
+       -1,
+       2,
+       -1,
+       2
+      ],
+      [
+       6,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       8,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       9,
+       -1,
+       2,
+       -1,
+       2
+      ],
+      [
+       10,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       11,
+       1,
+       1,
+       0,
+       1
+      ]
+     ],
+     "h2": [
+      [
+       0,
+       -3,
+       2,
+       1,
+       2
+      ],
+      [
+       1,
+       0,
+       1,
+       -1,
+       2
+      ],
+      [
+       2,
+       0,
+       1,
+       -1,
+       2
+      ],
+      [
+       4,
+       0,
+       1,
+       -1,
+       2
+      ],
+      [
+       5,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       6,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       7,
+       0,
+       1,
+       -1,
+       2
+      ],
+      [
+       9,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       10,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       11,
+       -3,
+       2,
+       1,
+       2
+      ]
+     ],
+     "lattices": {
+      "carrier_weight_lattice_invariant_factors": [
+       1,
+       3
+      ],
+      "carrier_weights_contained_in_root_lattice": true,
+      "center_of_simply_connected_form_invariant_factors": [
+       3
+      ],
+      "center_of_simply_connected_form_order": 3,
+      "coroot_lattice": "Z^2 in the simple-coroot basis",
+      "coweight_lattice_index_over_coroot_lattice": 3,
+      "root_lattice_invariant_factors": [
+       1,
+       3
+      ],
+      "root_lattice_row_generators": [
+       [
+        -2,
+        1
+       ],
+       [
+        -1,
+        -1
+       ],
+       [
+        -1,
+        2
+       ],
+       [
+        1,
+        -2
+       ],
+       [
+        1,
+        1
+       ],
+       [
+        2,
+        -1
+       ]
+      ],
+      "weight_lattice": "Z^2 in simple-coroot pairing coordinates"
+     },
+     "m2_restriction_trace": [
+      [
+       0,
+       1,
+       0,
+       1
+      ],
+      [
+       -3,
+       2,
+       1,
+       2
+      ]
+     ],
+     "mu_squared": [
+      -2400,
+      1,
+      -800,
+      1
+     ],
+     "name": "su3",
+     "nu_squared": [
+      [
+       -5760,
+       1,
+       -5760,
+       1
+      ],
+      [
+       0,
+       1,
+       0,
+       1
+      ]
+     ],
+     "positive_root_coroots_in_simple_coroot_basis": {
+      "positive_root_1": [
+       1,
+       0
+      ],
+      "positive_root_2": [
+       0,
+       1
+      ],
+      "positive_root_3": [
+       1,
+       1
+      ]
+     },
+     "roots_in_coroot_coordinates": [
+      [
+       -2,
+       1
+      ],
+      [
+       -1,
+       -1
+      ],
+      [
+       -1,
+       2
+      ],
+      [
+       1,
+       -2
+      ],
+      [
+       1,
+       1
+      ],
+      [
+       2,
+       -1
+      ]
+     ],
+     "sectors": [
+      "three_minus",
+      "five"
+     ],
+     "selected_global_form_on_carrier": "PSU(3) = SU(3)/(Z/3)",
+     "simple_root_coordinates": [
+      [
+       2,
+       -1
+      ],
+      [
+       -1,
+       2
+      ]
+     ],
+     "trivial_isotypic_dimension": 4,
+     "type_computed": "A2"
+    },
+    {
+     "carrier_eigenspace_dimensions_over_mu": {
+      "-1": 1,
+      "0": 10,
+      "1": 1
+     },
+     "carrier_weights": [
+      {
+       "coordinates": [
+        -2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        0
+       ],
+       "multiplicity": 10
+      },
+      {
+       "coordinates": [
+        2
+       ],
+       "multiplicity": 1
+      }
+     ],
+     "cartan_dimension": 1,
+     "cartan_matrix": [
+      [
+       2
+      ]
+     ],
+     "center_action_on_carrier": {
+      "carrier_weight_images_in_center_dual": [
+       [
+        0
+       ]
+      ],
+      "faithful_quotient_order": 1,
+      "kernel_equals_full_center": true,
+      "kernel_order": 2
+     },
+     "dimension": 3,
+     "h1": [
+      [
+       0,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       5,
+       -1,
+       2,
+       1,
+       2
+      ],
+      [
+       6,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       8,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       9,
+       -1,
+       2,
+       1,
+       2
+      ],
+      [
+       10,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       11,
+       1,
+       1,
+       0,
+       1
+      ]
+     ],
+     "lattices": {
+      "carrier_weight_lattice_invariant_factors": [
+       2
+      ],
+      "carrier_weights_contained_in_root_lattice": true,
+      "center_of_simply_connected_form_invariant_factors": [
+       2
+      ],
+      "center_of_simply_connected_form_order": 2,
+      "coroot_lattice": "Z^1 in the simple-coroot basis",
+      "coweight_lattice_index_over_coroot_lattice": 2,
+      "root_lattice_invariant_factors": [
+       2
+      ],
+      "root_lattice_row_generators": [
+       [
+        -2
+       ],
+       [
+        2
+       ]
+      ],
+      "weight_lattice": "Z^1 in simple-coroot pairing coordinates"
+     },
+     "mu_squared": [
+      -2400,
+      1,
+      800,
+      1
+     ],
+     "name": "so3",
+     "positive_root_coroots_in_simple_coroot_basis": {
+      "alpha_1": [
+       1
+      ]
+     },
+     "roots_in_coroot_coordinates": [
+      [
+       2
+      ],
+      [
+       -2
+      ]
+     ],
+     "sectors": [
+      "three_plus"
+     ],
+     "selected_global_form_on_carrier": "SO(3) = SU(2)/(Z/2)",
+     "simple_root_coordinates": [
+      [
+       2
+      ]
+     ],
+     "trivial_isotypic_dimension": 9,
+     "type_computed": "A1"
+    }
+   ]
+  },
+  "P": {
+   "abelian": {
+    "charge_lattice": "zero lattice {0}",
+    "charge_lattice_rank": 0,
+    "charge_matrix_rank_per_generator": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "dimension": 6,
+    "finding": "Every certified central generator acts by the exact zero matrix on the twelve-port carrier, so the carrier charge lattice is the zero lattice. A primitive abelian period is the minimal nonzero charge of a faithful character; the zero lattice has none, so the source pins no primitive abelian period and no compact-versus-noncompact abelian form at this level. This matches freeze constraint C3 of the issue #706 matter-class freeze.",
+    "primitive_period": "undetermined_by_source",
+    "sectors": [
+     "fixed",
+     "five"
+    ]
+   },
+   "central_relations": {
+    "finite_center_of_simply_connected_form": [
+     "Z/2",
+     "Z/2"
+    ],
+    "relations": [
+     "z1^2 = 1",
+     "z2^2 = 1",
+     "z1 z2 = z2 z1"
+    ],
+    "source": "invariant factors of the computed root-coordinate matrices; no order is imported"
+   },
+   "certificate_family": "PLANE",
+   "channel_values": {
+    "t_mm_to_m": [
+     1,
+     1,
+     0,
+     1
+    ],
+    "t_pp_to_p": [
+     1,
+     1,
+     0,
+     1
+    ]
+   },
+   "loop_to_kernel": {
+    "abelian_factor_on_carrier": "acts by the identity; the carrier action factors through the semisimple adjoint form and determines no abelian period",
+    "faithful_semisimple_form_on_carrier": "SO(3) = SU(2)/(Z/2) x SO(3) = SU(2)/(Z/2)",
+    "kernel_equals_full_finite_center": true,
+    "kernel_of_carrier_action_orders": [
+     2,
+     2
+    ]
+   },
+   "parameters": [
+    "1",
+    "1"
+   ],
+   "summands": [
+    {
+     "carrier_eigenspace_dimensions_over_mu": {
+      "-1": 1,
+      "0": 10,
+      "1": 1
+     },
+     "carrier_weights": [
+      {
+       "coordinates": [
+        -2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        0
+       ],
+       "multiplicity": 10
+      },
+      {
+       "coordinates": [
+        2
+       ],
+       "multiplicity": 1
+      }
+     ],
+     "cartan_dimension": 1,
+     "cartan_matrix": [
+      [
+       2
+      ]
+     ],
+     "center_action_on_carrier": {
+      "carrier_weight_images_in_center_dual": [
+       [
+        0
+       ]
+      ],
+      "faithful_quotient_order": 1,
+      "kernel_equals_full_center": true,
+      "kernel_order": 2
+     },
+     "dimension": 3,
+     "h1": [
+      [
+       0,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       5,
+       -1,
+       2,
+       1,
+       2
+      ],
+      [
+       6,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       8,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       9,
+       -1,
+       2,
+       1,
+       2
+      ],
+      [
+       10,
+       1,
+       2,
+       -1,
+       2
+      ],
+      [
+       11,
+       1,
+       1,
+       0,
+       1
+      ]
+     ],
+     "lattices": {
+      "carrier_weight_lattice_invariant_factors": [
+       2
+      ],
+      "carrier_weights_contained_in_root_lattice": true,
+      "center_of_simply_connected_form_invariant_factors": [
+       2
+      ],
+      "center_of_simply_connected_form_order": 2,
+      "coroot_lattice": "Z^1 in the simple-coroot basis",
+      "coweight_lattice_index_over_coroot_lattice": 2,
+      "root_lattice_invariant_factors": [
+       2
+      ],
+      "root_lattice_row_generators": [
+       [
+        -2
+       ],
+       [
+        2
+       ]
+      ],
+      "weight_lattice": "Z^1 in simple-coroot pairing coordinates"
+     },
+     "mu_squared": [
+      -2400,
+      1,
+      800,
+      1
+     ],
+     "name": "so3_plus",
+     "positive_root_coroots_in_simple_coroot_basis": {
+      "alpha_1": [
+       1
+      ]
+     },
+     "roots_in_coroot_coordinates": [
+      [
+       2
+      ],
+      [
+       -2
+      ]
+     ],
+     "sectors": [
+      "three_plus"
+     ],
+     "selected_global_form_on_carrier": "SO(3) = SU(2)/(Z/2)",
+     "simple_root_coordinates": [
+      [
+       2
+      ]
+     ],
+     "trivial_isotypic_dimension": 9,
+     "type_computed": "A1"
+    },
+    {
+     "carrier_eigenspace_dimensions_over_mu": {
+      "-1": 1,
+      "0": 10,
+      "1": 1
+     },
+     "carrier_weights": [
+      {
+       "coordinates": [
+        -2
+       ],
+       "multiplicity": 1
+      },
+      {
+       "coordinates": [
+        0
+       ],
+       "multiplicity": 10
+      },
+      {
+       "coordinates": [
+        2
+       ],
+       "multiplicity": 1
+      }
+     ],
+     "cartan_dimension": 1,
+     "cartan_matrix": [
+      [
+       2
+      ]
+     ],
+     "center_action_on_carrier": {
+      "carrier_weight_images_in_center_dual": [
+       [
+        0
+       ]
+      ],
+      "faithful_quotient_order": 1,
+      "kernel_equals_full_center": true,
+      "kernel_order": 2
+     },
+     "dimension": 3,
+     "h1": [
+      [
+       0,
+       1,
+       1,
+       0,
+       1
+      ],
+      [
+       3,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       5,
+       -1,
+       2,
+       -1,
+       2
+      ],
+      [
+       6,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       8,
+       -1,
+       1,
+       0,
+       1
+      ],
+      [
+       9,
+       -1,
+       2,
+       -1,
+       2
+      ],
+      [
+       10,
+       1,
+       2,
+       1,
+       2
+      ],
+      [
+       11,
+       1,
+       1,
+       0,
+       1
+      ]
+     ],
+     "lattices": {
+      "carrier_weight_lattice_invariant_factors": [
+       2
+      ],
+      "carrier_weights_contained_in_root_lattice": true,
+      "center_of_simply_connected_form_invariant_factors": [
+       2
+      ],
+      "center_of_simply_connected_form_order": 2,
+      "coroot_lattice": "Z^1 in the simple-coroot basis",
+      "coweight_lattice_index_over_coroot_lattice": 2,
+      "root_lattice_invariant_factors": [
+       2
+      ],
+      "root_lattice_row_generators": [
+       [
+        -2
+       ],
+       [
+        2
+       ]
+      ],
+      "weight_lattice": "Z^1 in simple-coroot pairing coordinates"
+     },
+     "mu_squared": [
+      -2400,
+      1,
+      -800,
+      1
+     ],
+     "name": "so3_minus",
+     "positive_root_coroots_in_simple_coroot_basis": {
+      "alpha_1": [
+       1
+      ]
+     },
+     "roots_in_coroot_coordinates": [
+      [
+       2
+      ],
+      [
+       -2
+      ]
+     ],
+     "sectors": [
+      "three_minus"
+     ],
+     "selected_global_form_on_carrier": "SO(3) = SU(2)/(Z/2)",
+     "simple_root_coordinates": [
+      [
+       2
+      ]
+     ],
+     "trivial_isotypic_dimension": 9,
+     "type_computed": "A1"
+    }
+   ]
+  }
+ },
+ "findings": {
+  "carrier_module_structure": "under every compact summand the twelve-port carrier is the adjoint module plus a trivial complement, so every carrier weight lies in the root lattice and the full finite center acts by the identity",
+  "global_form_selected_by_carrier": {
+   "F": "PSU(3) x SO(3), the adjoint form of both summands",
+   "G": "PSU(3) x SO(3), the adjoint form of both summands",
+   "P": "SO(3) x SO(3), the adjoint form of both rank-one summands"
+  },
+  "primitive_abelian_period": "undetermined by the source: the certified abelian sectors act by the exact zero matrix on the carrier, the charge lattice is {0}, and no primitive generator or period can be normalized against an empty charge set"
+ },
+ "implementation_pins": {
+  "producer_sha256": "sha256:59a7e884a45e23830a10b4d21d7495c821721e061e591f86ff5516d6ecbb4c52",
+  "validator_sha256": "sha256:f65bb1e72424fb7a40d2c934f93debac319d371d3492cbd8a90ce69ce9008b22"
+ },
+ "issue": 707,
+ "provenance": {
+  "certificate_file_sha256": "sha256:ddc1f27a7ac13081a47ecf7edc9573db5b193c31c41a70ac3ef0b0272db47400",
+  "certificate_path": "code/b14_jacobi/b14_compact_locus.certificate.json",
+  "certificate_self_sha256": "sha256:d784c4e3154b3c02a2813f2ce341958ec6f251d4e939c3000bd6c581b1c13f45",
+  "freeze_constraint_c3_status": "imposed",
+  "freeze_file_sha256": "sha256:4f35b863aa50dd5921e2cf49907dacb5bef6d7e97343f47d6acde603e1007ea5",
+  "freeze_path": "code/b15_matter_freeze/matter_class_freeze_v1.json",
+  "upstream": {
+   "stage1_basis_file_sha256": "sha256:bee15ce78b3dcb2d7ce9da2a817fe27435cad5054765b10f86f29a5a1203c16b",
+   "stage1_basis_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_reynolds_basis.json",
+   "stage1_receipt_file_sha256": "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd",
+   "stage1_receipt_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json",
+   "stage2_receipt_file_sha256": "sha256:1a87339b391e76d29abdbc71fed4f70b85ec12e4781c9e090f04537251716dc6",
+   "stage2_receipt_path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_stage2.receipt.json",
+   "stage2_system_file_sha256": "sha256:3ddf112adbd88439b1736427e32b634e4e8fb01866f19629eac8964666698f74",
+   "stage2_system_path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json"
+  }
+ },
+ "result_sha256": "sha256:6ac02ec2499da0b31eb42b54501f30b22d9d50e5f2acc1cb90dee8af47a78a32",
+ "schema": "oph.b16_lattices.v1"
+}
