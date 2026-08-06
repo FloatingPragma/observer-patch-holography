@@ -6,6 +6,7 @@ import Dynamics.PublicAutomorphism
 import Dynamics.PrivateInner
 import Dynamics.StoneConverse
 import Dynamics.CentralBlocks
+import Dynamics.CenterSpectral
 
 /-!
 # OPH construction dynamics umbrella
@@ -39,4 +40,8 @@ two-sided corner factorization, the center and central-idempotent
 classification of the two-block algebra, the automorphism block
 dichotomy with the swap countermodel, and the two-block Stone converse
 in which block fixing is derived from continuity through the identity.
+`Dynamics.CenterSpectral` proves the center of a star
+subalgebra of a matrix algebra is spanned by a finite orthogonal family
+of minimal central projections summing to one, by finite descent plus
+Lagrange functional calculus, with uniqueness up to permutation.
 -/

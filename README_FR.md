@@ -175,7 +175,7 @@ classiques, pas de prédictions de pôles quantiques du photon, du gluon ou du
 graviton. Voir le
 [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-La bibliothèque Lean associée contient plus de 2800 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 2900 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà

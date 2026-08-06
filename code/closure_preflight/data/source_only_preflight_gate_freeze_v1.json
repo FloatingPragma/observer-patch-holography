@@ -1,0 +1,445 @@
+{
+  "schema": "oph.source_only_closure_preflight_gate_freeze.v1",
+  "issue": 708,
+  "artifact": "oph_source_only_preflight_gate_freeze",
+  "scope": "declared freeze of the four open preflight-completion gates for the registered dimensionless P/N closure packets at the pinned repository revision",
+  "pinned_revision": "d7ddcf8cb60cd60715121aa64d015a435a29e24c",
+  "companion_contract": {
+    "path": "code/closure_preflight/data/source_only_closure_contract_v3.json",
+    "sha256": "sha256:0050ef3b932e3c14da1ab240eeb1065857688978610a3213cdd107d3f9bd7549",
+    "bytes": 2772,
+    "decision_rule_frozen": true
+  },
+  "freezes_gates": [
+    "input_catalogue_frozen",
+    "nuisance_directions_frozen",
+    "units_and_schemes_frozen",
+    "candidate_grammar_frozen"
+  ],
+  "derivation_rule": "every clause in this document is extracted from the pinned thirty-entry audit inventory; the freeze records what the audit executes and introduces no additional scope",
+  "scope_boundary": {
+    "future_source_laws_exhausted": false,
+    "issue_closure_authorized": false,
+    "physical_or_laboratory_attachment_required": false
+  },
+  "input_catalogue": {
+    "frozen": true,
+    "closure_rule_reads_only_enumerated_artifacts": true,
+    "reading_an_input_outside_this_catalogue_disqualifies": true,
+    "hash_drift_in_any_entry_invalidates_this_freeze": true,
+    "extension_requires_successor_freeze_version": true,
+    "artifact_inputs": [
+      {
+        "path": "code/closure_preflight/data/source_only_closure_contract_v3.json",
+        "sha256": "sha256:0050ef3b932e3c14da1ab240eeb1065857688978610a3213cdd107d3f9bd7549",
+        "bytes": 2772,
+        "definition": "registry contract carrying the frozen fail-closed decision rule and the gate inventories"
+      },
+      {
+        "path": "code/closure_preflight/data/rc_load_workspace_provenance_v1.json",
+        "sha256": "sha256:53fa79e37b2e0f3dda054dd78dc6679a4a35b1eeae54d42e1610060e718c3522",
+        "bytes": 1319,
+        "definition": "RC-LOAD upstream workspace provenance pin (equation, verdict, exposure class)"
+      },
+      {
+        "path": "code/closure_preflight/source_only_closure_preflight.py",
+        "sha256": "sha256:cb3cee310cec058c82247c817e2d20872a4df2a451fd2c79a4a79829920a2aad",
+        "bytes": 58969,
+        "definition": "deterministic audit producer, self-pinned"
+      },
+      {
+        "path": "code/closure_preflight/verify_source_only_closure_preflight_independent.py",
+        "sha256": "sha256:6743b80310ee75f7340d743ad4c1d45ea973a8bcf337551506d7245e31380495",
+        "bytes": 64564,
+        "definition": "independent verifier, self-pinned"
+      },
+      {
+        "path": "code/closure_preflight/rc_load_source_only.py",
+        "sha256": "sha256:03ffc78c9de9e23e7864b9158723e30ca63625e4fd36f2601b991394e4deda76",
+        "bytes": 8050,
+        "definition": "RC-LOAD source-only interval replay source (mpmath interval arithmetic at 80 decimal digits)"
+      },
+      {
+        "path": "code/closure_preflight/outputs/rc_load_source_only_certificate.json",
+        "sha256": "sha256:3e31594c5ce87414e82631924bc426bd1e3c95456bee9701eac68de5b070b940",
+        "bytes": 3203,
+        "definition": "RC-LOAD replay output, rebuilt and byte-compared on every audit run"
+      },
+      {
+        "path": "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+        "sha256": "sha256:20ab213f836fbe95149d4b40ba57aa144038580a0acb899322f4b72d963c2ad6",
+        "bytes": 24753,
+        "definition": "certified P and alpha_U interval enclosures for both declared scheme modes"
+      },
+      {
+        "path": "code/P_derivation/runtime/p_closure_trunk_current.json",
+        "sha256": "sha256:a2ba0b67f52cecc09f1f8df01627afa1d493b0a3dd6b1670aa36f95da631e523",
+        "bytes": 10535,
+        "definition": "P consumer policy and return-map completeness flags"
+      },
+      {
+        "path": "code/capacity_readback/runtime/F_candidate_capK_certificates.json",
+        "sha256": "sha256:b4be9516a64c4eaaa1e996c3b24b4411cd3f2d11a682a49c417dea536562337b",
+        "bytes": 3779,
+        "definition": "four CAP-K linear cell-count readback rows F(N) = s*N"
+      },
+      {
+        "path": "code/capacity_readback/runtime/F_candidate_capP_certificates.json",
+        "sha256": "sha256:84f7473b134992bba286c2597f9a54af9d5b495b86597d8d66199275176a92e6",
+        "bytes": 10405,
+        "definition": "six CAP-P port-inversion rows, four carrying the exact normalization fixed point N = pi"
+      },
+      {
+        "path": "code/capacity_readback/runtime/F_candidate_capL_certificates.json",
+        "sha256": "sha256:0976955b65a0b933053d2c106ab4526f9bf12d37f60d411b309694ae2d3e3932",
+        "bytes": 302499,
+        "definition": "180 CAP-L affine-log sublattice rows aggregated into five menu families"
+      },
+      {
+        "path": "code/capacity_readback/runtime/F_candidate_coupled_certificates.json",
+        "sha256": "sha256:33694f5385a08da442a3b1c432ab54b3960110564918a9c85943d4c05f9fa51f",
+        "bytes": 6472,
+        "definition": "coupled CP-1/CP-2/CP-3 load-coordinate fixed-point certificate"
+      },
+      {
+        "path": "code/capacity_readback/runtime/direct_n_closure_verdict.json",
+        "sha256": "sha256:40980926e11d7ffd2b09ca4691ce8d1d8c49b7ec2005ba9cbf28c53e1dedde11",
+        "bytes": 7097,
+        "definition": "direct fixed-cutoff control with typed coordinates N_in = log(D), N_out = log(M0)"
+      },
+      {
+        "path": "code/capacity_readback/manifests/n_closure_branch_certificate.json",
+        "sha256": "sha256:cca6834b80927d0045dcc7cbb3de8275ca78412b8aecdf3ffec87702af1e1586",
+        "bytes": 5120,
+        "definition": "common-load baseline N0 = pi * exp(6*pi/(P*alpha_U)) and the two reserve branches"
+      },
+      {
+        "path": "code/capacity_readback/runtime/named_law_n_closure_verdict.json",
+        "sha256": "sha256:1f62a86c85d0afeb8b1d9e2d8db5a9c1488e1403349d7922eec28f0bce8c95b4",
+        "bytes": 2514,
+        "definition": "named-law stability disposition for the common-load family"
+      },
+      {
+        "path": "code/capacity_readback/manifests/capacity_semantics_menu_reference.json",
+        "sha256": "sha256:20cdca476294f079470779a74814ac95e5e16fb743a6de47736b067e34e92bc4",
+        "bytes": 28152,
+        "definition": "authoritative seventeen-row capacity semantics menu, declared complete for the executed families"
+      },
+      {
+        "path": "code/capacity_readback/runtime/F_construction_comparison_2026-07-14.json",
+        "sha256": "sha256:e22b341f7d7f83e3c6b12c2ba9ebefddf57c17cea6eaa216e7df434883d0b3f8",
+        "bytes": 41504,
+        "definition": "190-run archive aggregate, typed as metadata under the frozen decision rule"
+      },
+      {
+        "path": "code/particles/forecast_contract/data/candidate_inventory_v2.json",
+        "sha256": "sha256:12c8a569a92f265f0b033a9df4b20fa59adce6c05b8d63d918e81ce553731752",
+        "bytes": 16167,
+        "definition": "exposure and freeze-evidence registry for candidate selection"
+      },
+      {
+        "path": "code/particles/forecast_contract/outputs/forecast_contract_state.json",
+        "sha256": "sha256:dcbfec50297b5f2b9f8b0fa9b7a0b11eb75f6bc7cdbf825cd1f58bb6a9ff0100",
+        "bytes": 27524,
+        "definition": "inventory-completeness and selection-rule status surface"
+      },
+      {
+        "path": "code/particles/hierarchy/certificates/R_P_public_pixel_certificate.json",
+        "sha256": "sha256:1d37c44e5d1f1777667eae443ef7af6c5c054fcc3683bb1edb6919b2e2ccee07",
+        "bytes": 1080,
+        "definition": "hierarchy packet: target-exposed public P endpoint control"
+      },
+      {
+        "path": "code/particles/hierarchy/certificates/R_P_source_audit_pixel_certificate.json",
+        "sha256": "sha256:5fd78433b7fe5832c931507694aa0c378301bec589b33656abdc64b0d746443c",
+        "bytes": 654,
+        "definition": "hierarchy packet: source-audit P witness"
+      },
+      {
+        "path": "code/particles/hierarchy/certificates/R_PN_joint_fixed_point_certificate_report.json",
+        "sha256": "sha256:e2609c80cf55998f2c54a997bd0511effb0763e3d76634a554bd58cdb460afc6",
+        "bytes": 2675,
+        "definition": "hierarchy packet: conditional P-N product contraction adapter"
+      },
+      {
+        "path": "code/particles/hierarchy/certificates/R_N_global_repair_tick_certificate.json",
+        "sha256": "sha256:e6ef7c850795f7014003d12d10798e2a467f5ba8d01acab83f3875e10bef29f7",
+        "bytes": 11226,
+        "definition": "hierarchy packet: conditional N-dependent repair-tick identity"
+      },
+      {
+        "path": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+        "sha256": "sha256:40b6890472cc5e685db2a70ac658d6ce69a58ef1f22db0c00e070024e5367af0",
+        "bytes": 25128,
+        "definition": "hierarchy packet: target-exposed EW bridge-defined capacity fixed point"
+      }
+    ],
+    "non_artifact_inputs": {
+      "mathematical_constants": [
+        "pi, consumed through interval enclosures at the evaluation precision",
+        "the rational constants of the candidate-grammar constant pool"
+      ],
+      "evaluation_precision": "80 decimal digits for the RC-LOAD interval replay",
+      "excluded_inputs": [
+        "laboratory measurements",
+        "cosmological measurements",
+        "observational comparison payloads",
+        "hidden external alpha values"
+      ]
+    }
+  },
+  "nuisance_quotient": {
+    "frozen": true,
+    "equivalence_rule": "two candidate presentations are equivalent when one arises from the other by a finite composition of the physically silent transformations below; every row-gate verdict of the audit is constant on each equivalence class",
+    "physically_silent_transformations": [
+      {
+        "id": "positive_multiplicative_normalization_seed",
+        "statement": "replacing the normalization seed pi by an arbitrary positive seed carries each seeded readback to the fixed point that seed supplies, so the fixed-point equation cannot select the seed",
+        "witnesses": [
+          "Lean/ObserverPatchHolography/ClosurePreflight.lean: OPH.ClosurePreflight.seededReadback_fixedPt_iff",
+          "F_candidate_capP_certificates.json fixed_point_exact: N = pi (the unique solution of (N/pi)^s = N/pi with s != 1)"
+        ]
+      },
+      {
+        "id": "monotone_log_coordinate_reparameterization",
+        "statement": "passing between N, X = ln(N/pi), y = log(N/pi), and the typed log coordinates N_in = log(D) and N_out = log(M0) preserves fixed-point existence, uniqueness, and stability verdicts; the audit crosswalks these presentations without any gate change",
+        "witnesses": [
+          "CAP-P channel: port-inversion readback of the twelve-port load X = log(N/pi)",
+          "rc_load_source_only.py: fixed point reported in the X coordinate",
+          "direct_n_closure_verdict.json typed_coordinates"
+        ]
+      },
+      {
+        "id": "interval_enclosure_refinement",
+        "statement": "replacing a certified enclosure by a sub-enclosure that contains the same certified quantity preserves every strict-inequality gate (s < 1, Lipschitz bound < 1, mode disjointness, residual zero containment)",
+        "witnesses": [
+          "source_only_closure_preflight.py decimal endpoint comparisons",
+          "rc_load_source_only.py interval Banach checks"
+        ]
+      },
+      {
+        "id": "canonical_serialization",
+        "statement": "canonical JSON re-serialization (sorted keys, ASCII, fixed separators) preserves every pinned payload identity; the audit compares canonical bytes",
+        "witnesses": [
+          "source_only_closure_preflight.py canonical_json_bytes"
+        ]
+      },
+      {
+        "id": "archive_enumeration_order_and_multiplicity",
+        "statement": "permuting or re-counting the rows of the 190-run archive changes no gate; the frozen decision rule types enumeration as aggregate metadata rather than a source return map",
+        "witnesses": [
+          "source_only_closure_contract_v3.json /decision_rule/archive_enumeration_is_not_a_source_return_map"
+        ]
+      }
+    ],
+    "physically_meaningful_directions_excluded_from_the_quotient": [
+      {
+        "id": "p_scheme_mode",
+        "statement": "the certified P enclosures of the two scheme modes are disjoint (the plus_gauge_width enclosure lies strictly below the structured_running enclosure and the producer enforces the disjointness), so mode choice is candidate data"
+      },
+      {
+        "id": "reserve_branch",
+        "statement": "the reserve factors 1 - P/24 and exp(-P/24) differ for nonzero P (0.93204... versus 0.93430...), so branch choice is candidate data"
+      },
+      {
+        "id": "exposure_class_and_freeze_evidence",
+        "statement": "moving a row between exposure classes or altering freeze evidence changes qualification"
+      },
+      {
+        "id": "target_payload_read",
+        "statement": "any read of a solver target payload flips solver_target_payload_read and disqualifies the row"
+      }
+    ]
+  },
+  "units_and_schemes_catalogue": {
+    "frozen": true,
+    "dimensionless_only": true,
+    "explicitly_downstream_attachments": [
+      "laboratory_attachment",
+      "cosmological_attachment",
+      "absolute_scale_binding"
+    ],
+    "admissible_coordinates": [
+      {
+        "id": "alpha",
+        "definition": "alpha (fine-structure coupling); P and alpha_inv enclosures are derived images",
+        "used_by": ["p.thomson_structured_running", "p.thomson_structured_running_plus_gauge_width"]
+      },
+      {
+        "id": "N",
+        "definition": "positive cell capacity in unit nat normalization",
+        "used_by": ["n.menu.capK.*", "n.menu.capL.*", "n.common_load_baseline", "n.reserve_*"]
+      },
+      {
+        "id": "X",
+        "definition": "X = ln(N/pi), the twelve-port load coordinate; y = log(N/pi) is the same coordinate in the coupled certificate",
+        "used_by": ["n.menu.capP.*", "n.menu.coupled.cp1_cp2_cp3", "n.rc_load"]
+      },
+      {
+        "id": "N_in_N_out",
+        "definition": "N_in = log(D) over the trial carrier dimension and N_out = log(M0) over the correctable record count",
+        "used_by": ["n.direct_correctable_record"]
+      }
+    ],
+    "admissible_schemes": [
+      {
+        "id": "P_mode",
+        "values": ["thomson_structured_running", "thomson_structured_running_plus_gauge_width"],
+        "carrier": "candidate identifiers and the RC-LOAD inputs carry the mode name as data"
+      },
+      {
+        "id": "unit_nat_normalization",
+        "values": ["nat"],
+        "carrier": "CAP-L channel declaration: unit nat normalization"
+      },
+      {
+        "id": "pi_port_orbit_normalization",
+        "values": ["e^X = N/pi"],
+        "carrier": "CAP-L readings: port-orbit multiplicity e^X = N/pi"
+      },
+      {
+        "id": "rc_load_macroscopic_domain",
+        "values": ["X >= 10"],
+        "carrier": "rc_load_source_only.py declared domain endpoint"
+      }
+    ],
+    "covariance_rule": "a candidate is admissible only if its gate verdicts are invariant under the declared coordinate reparameterizations, or the candidate carries its coordinate and scheme choices as explicit row data; every registered row satisfies the carried-data branch"
+  },
+  "candidate_grammar": {
+    "frozen": true,
+    "menu_correspondence": {
+      "authoritative_menu": "code/capacity_readback/manifests/capacity_semantics_menu_reference.json",
+      "menu_row_count": 17,
+      "family_counts": {"CAP-K": 4, "CAP-P": 6, "CAP-L": 5, "CAP-B": 1, "coupled": 1},
+      "menu_completeness": "declared_menu_complete_for_executed_families"
+    },
+    "atoms": {
+      "variables": ["N", "X (equivalently y)"],
+      "source_symbols": ["P", "alpha_U", "K_readable", "D", "M0", "lambda", "x_EW"],
+      "derived_slopes": ["s", "rho", "c", "d"]
+    },
+    "constant_pool": {
+      "production_constants": ["pi", "1", "4", "6", "24"],
+      "solver_and_domain_constants": ["2", "10"],
+      "reading_level_integers": ["12 (port count)", "60 (A5 quotient)"],
+      "constant_rule": "solver-and-domain constants enter interval solving and domain declarations only; reading-level integers enter derived slopes only"
+    },
+    "operations": [
+      "addition",
+      "subtraction",
+      "negation",
+      "multiplication",
+      "division",
+      "exp",
+      "log",
+      "real power with a source-derived exponent"
+    ],
+    "productions": [
+      {
+        "id": "cap_k_linear",
+        "expression": "F(N) = s*N",
+        "generates": ["capK.s_poisson", "capK.s_presence", "capK.s_nat_share", "capK.s_edge_share"],
+        "depth": 1
+      },
+      {
+        "id": "cap_p_power",
+        "expression": "F(N) = pi * (N/pi)^s",
+        "generates": ["capP.s_poisson_port", "capP.s_presence_port", "capP.s_poisson_pair", "capP.s_presence_pair"],
+        "depth": 3
+      },
+      {
+        "id": "cap_p_linear",
+        "expression": "F(N) = s*N (linear through the origin)",
+        "generates": ["capP.add_slot", "capP.add_port"],
+        "depth": 1
+      },
+      {
+        "id": "cap_l_affine_log",
+        "expression": "F(N) = rho*N + c*log N + d",
+        "generates": ["capL.R1", "capL.R2", "capL.R3", "capL.R4", "capL.R5 (36 sublattice rows each)"],
+        "depth": 3
+      },
+      {
+        "id": "coupled_load",
+        "expression": "C(y) = (1-lambda)*y + lambda*x_EW, y = log(N/pi)",
+        "generates": ["coupled.cp1_cp2_cp3"],
+        "depth": 3
+      },
+      {
+        "id": "common_load_baseline",
+        "expression": "N0 = pi * exp(6*pi/(P*alpha_U))",
+        "generates": ["n.common_load_baseline"],
+        "depth": 4
+      },
+      {
+        "id": "reserve_correction",
+        "expression": "N = N0 * (1 - P/24) and N = N0 * exp(-P/24)",
+        "generates": ["n.reserve_finite_presence", "n.reserve_poisson_projective_limit"],
+        "depth": 5
+      },
+      {
+        "id": "rc_load_budget",
+        "expression": "ln(N/pi) * (6*pi/(P*alpha_U) - ln(N/pi)) = 6*pi",
+        "generates": ["n.rc_load"],
+        "depth": 4
+      },
+      {
+        "id": "p_interval_map",
+        "expression": "alpha-space self-map per declared Thomson-endpoint scheme mode, certified through interval Banach data rather than a closed-form row expression",
+        "generates": ["p.thomson_structured_running", "p.thomson_structured_running_plus_gauge_width"],
+        "depth": null
+      }
+    ],
+    "barred_productions": [
+      {
+        "id": "cap_b_bridge_constant",
+        "reason": "per-port read equated to the inner electromagnetic observation step; BARRED_TARGET_BRIDGE_PRE_EVALUATION, never executed"
+      },
+      {
+        "id": "archive_enumeration",
+        "reason": "aggregate metadata; the frozen decision rule bars enumeration as a source return map"
+      },
+      {
+        "id": "fixed_cutoff_direct_control",
+        "reason": "registered control with typed coordinates; the frozen decision rule bars fixed-cutoff controls as cosmic fixed points"
+      }
+    ],
+    "derived_slope_subgrammar": {
+      "rule": "slopes are images of P under the declared rational and exponential readings and read no target payload",
+      "examples": [
+        "s = exp(-P/24) (readable cell fraction)",
+        "rho = 1 - (4/P)*(P/24) = 5/6 (poisson reserve per cell)"
+      ]
+    },
+    "depth_budget": {
+      "measure": "operator nesting depth over the primitive operation set, with atoms and pool constants at depth zero",
+      "budget": 5,
+      "maximum_attained_by": "the reserve corrections applied to the expanded common-load baseline"
+    },
+    "closure_rule": "an admissible closure-candidate expression is an instance of a listed production over the frozen atoms, constant pool, and operations within the depth budget; any expression outside the production list requires a successor freeze version"
+  },
+  "residual_decisions": [
+    {
+      "id": "attained_flag_promotion",
+      "statement": "the companion contract keeps preflight_completion_state attained flags [false, false, false, false, true]; the producer requirement 'completion gate evidence changed without an executable gate upgrade' and the independent-verifier check 'completion declaration promoted' both fail closed on any flip; promoting the four flags requires an executable gate upgrade in source_only_closure_preflight.py and verify_source_only_closure_preflight_independent.py that reads this freeze document as gate evidence, together with regeneration of the pinned outputs; the thirty-entry audit does not determine that upgrade, so this document freezes gate content only"
+    },
+    {
+      "id": "future_source_law_exhaustion",
+      "statement": "the menu verdict is declared_menu_complete_for_executed_families, the contract declares future_source_laws_exhausted false, and forecast controls report candidate_inventory_exhaustiveness NOT_ESTABLISHED; the grammar and input catalogue are frozen as closed for qualification at this version, and exhaustion over unexecuted source laws is a separate proof obligation"
+    },
+    {
+      "id": "selection_rule_promotion",
+      "statement": "forecast_contract_state selection_rule.status is DRAFT_UNFROZEN; constructing the target-independent selector is a row-gate obligation outside this completion freeze"
+    },
+    {
+      "id": "nuisance_quotient_extension",
+      "statement": "the quotient enumerates the transformation families the pinned audit exercises; admitting further silent directions for productions added later requires the same successor-version step as a grammar extension"
+    }
+  ],
+  "consistency": {
+    "derived_inventory_row_count": 30,
+    "expected_audit_status": "OPEN_REGISTERED_CANDIDATES_FAIL_SOURCE_ONLY_GATES",
+    "strongest_attained_gate_count": 4,
+    "additive_document": "no audit surface pins this document, so producer and independent-verifier replay is unchanged by its presence"
+  }
+}

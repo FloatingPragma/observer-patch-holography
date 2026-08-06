@@ -8,6 +8,7 @@ import QFT.SourceLinkSquare
 import QFT.JointInstance
 import QFT.CoverageReceipt
 import QFT.GlueCountermodel
+import QFT.SimEarnedWitness
 
 /-!
 # OPH construction QFT umbrella
@@ -51,4 +52,10 @@ The glue countermodel certifies that the accessible-glue
 receipt is independent of ambient descent: a diamond net with asymmetric
 entry-pick restrictions carries unique descent while the unique glue of
 an accessible family escapes the accessible algebra.
+The sim-earned witness mirrors the preregistered bounded
+run's extracted payload as kernel-decided literals: four observers with
+truncated supports, integer record classes, and the exact joint table
+inhabit an earned access cut whose strictness receipts hold exactly
+where the realized data separates and whose gaps are proved as collapse
+equalities.
 -/
