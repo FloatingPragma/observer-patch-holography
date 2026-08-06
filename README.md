@@ -456,7 +456,7 @@ N_{\rm pres}=N_0\left(1-\frac{P}{24}\right)=3.2920979\times10^{122},
 N_{\rm Pois}=N_0e^{-P/24}=3.3000722\times10^{122},
 $$
 
-about $0.63$ and $0.39$ percent below the Planck base-$\Lambda$CDM comparison
+about $0.63$ and $0.39$ percent below the Planck base-$\Lambda\mathrm{CDM}$ comparison
 value $3.3129271\times10^{122}$. The theory does not select between the two
 corrections, and both numbers were computed after the comparison value was
 known, so neither is a prediction. The

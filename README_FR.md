@@ -336,7 +336,7 @@ N_{\rm Pois}=N_0e^{-P/24}=3{,}3000722\times10^{122},
 $$
 
 soit environ $0{,}63$ et $0{,}39$ pour cent sous la valeur de comparaison
-$3{,}3129271\times10^{122}$ du modèle $\Lambda$CDM de base de Planck. La
+$3{,}3129271\times10^{122}$ du modèle $\Lambda\mathrm{CDM}$ de base de Planck. La
 théorie ne tranche pas entre les deux corrections, et les deux nombres
 ont été calculés après coup : aucun n’est une prédiction. Le
 [registre des affirmations](tracking/claims_scoreboard.md) indique les
