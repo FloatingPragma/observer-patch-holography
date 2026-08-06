@@ -1,0 +1,285 @@
+{
+  "schema": "oph.source_only_preflight_exit.v1",
+  "issue": 708,
+  "artifact": "oph_source_only_preflight_exit",
+  "scope": "H0 exit evaluation over the pinned thirty-entry audit inventory with all five preflight-completion gates frozen as content",
+  "derivation_rule": "every clause in this document is extracted from the pinned audit certificate, the frozen contract, and the gate-freeze document; the exit evaluation introduces no additional scope and reads no input outside the frozen catalogue",
+  "pinned_inputs": [
+    {
+      "path": "code/closure_preflight/data/source_only_closure_contract_v3.json",
+      "sha256": "sha256:0050ef3b932e3c14da1ab240eeb1065857688978610a3213cdd107d3f9bd7549",
+      "bytes": 2772
+    },
+    {
+      "path": "code/closure_preflight/data/source_only_preflight_gate_freeze_v1.json",
+      "sha256": "sha256:6e37a4fd30703ccc3e70406fc74488840bdfdef839c526aa2e7ca04faa25c5ba",
+      "bytes": 21924
+    },
+    {
+      "path": "code/closure_preflight/outputs/source_only_closure_preflight.json",
+      "sha256": "sha256:64207f7a01b4029a4556948e0d6d3429fb6685a94ec1387a2a04e06bc21b303a",
+      "bytes": 137830,
+      "embedded_certificate_sha256": "sha256:7683abca73e5d7156183198c2af6e8240a519969d9f0d610a3e0e3ab46075c7d",
+      "status": "OPEN_REGISTERED_CANDIDATES_FAIL_SOURCE_ONLY_GATES"
+    }
+  ],
+  "declared_exit_menu": [
+    "SOURCE_ONLY_CANDIDATE_FROZEN",
+    "BOUNDED_NO_GO",
+    "NOT_EVALUABLE_MINIMAL_PREMISE_LIST"
+  ],
+  "exit_classification": "NOT_EVALUABLE_MINIMAL_PREMISE_LIST",
+  "rejected_exits": {
+    "SOURCE_ONLY_CANDIDATE_FROZEN": {
+      "earned": false,
+      "reason": "zero of thirty registered rows attain all seven source-only row gates; the strongest nine rows attain four of seven",
+      "evidence": [
+        "source_only_closure_preflight.json /qualification/qualifying_candidate_count = 0",
+        "source_only_closure_preflight.json /progress/strongest_attained_gate_count = 4"
+      ],
+      "additional_block": "the contract keeps the four completion-gate attained flags false pending an executable gate upgrade, so even a seven-gate row would exit blocked by preflight completeness under the frozen decision rule"
+    },
+    "BOUNDED_NO_GO": {
+      "earned": false,
+      "reason": "the production space at the frozen grammar version is finite and every instance is audited, and the audit fails no instance structurally on all seven gates; the three universally open gates fail for want of absent constructions that the freeze names as pending obligations, and the grammar declares extension by successor version with exhaustion over unexecuted source laws an open proof obligation; the fail-closed rule bars the no-go when the qualification space is unexhausted",
+      "evidence": [
+        "source_only_closure_contract_v3.json /scope_boundary/future_source_laws_exhausted = false",
+        "source_only_preflight_gate_freeze_v1.json /residual_decisions/future_source_law_exhaustion",
+        "source_only_preflight_gate_freeze_v1.json /candidate_grammar/closure_rule (successor-version extension)",
+        "forecast_contract_state.json /controls/candidate_inventory_exhaustiveness = NOT_ESTABLISHED",
+        "capacity_semantics_menu_reference.json /campaign_verdict/semantics_enumeration = declared_menu_complete_for_executed_families"
+      ]
+    }
+  },
+  "production_space_enumeration": {
+    "finite_at_declared_depth_budget": true,
+    "depth_budget": 5,
+    "listed_productions": 9,
+    "closed_form_productions": 8,
+    "interval_certified_productions": 1,
+    "barred_productions": 3,
+    "expression_instances": {
+      "cap_k_linear": 4,
+      "cap_p_power": 4,
+      "cap_p_linear": 2,
+      "cap_l_affine_log": 180,
+      "coupled_load": 1,
+      "common_load_baseline": 1,
+      "reserve_correction": 2,
+      "rc_load_budget": 1,
+      "p_interval_map": 2,
+      "total": 197
+    },
+    "audited_registry_rows": {
+      "grammar_candidate_rows": 22,
+      "barred_or_control_rows": 3,
+      "hierarchy_packet_rows": 5,
+      "total": 30,
+      "cap_l_aggregation": "180 sublattice instances audited through the recorded_status_counts equality check and reported as 5 family rows"
+    },
+    "instance_audit_coverage": "complete at the frozen version: every listed-production instance appears in a pinned certificate and every registry row carries per-gate evidence",
+    "exhaustion_status": "exhausted for the frozen version only; the closure rule admits productions outside the list through a successor freeze version, and exhaustion over unexecuted source laws is a declared open proof obligation, so the audited space does not bound the H0 question"
+  },
+  "universally_open_gates": {
+    "gates": [
+      "target_independent_candidate_selection",
+      "same_quantity_constructed",
+      "source_return_map_complete"
+    ],
+    "statement": "these three gates are open on every one of the thirty registered rows; their failure mode is evidentiary absence under the fail-closed rule rather than certified impossibility",
+    "evidence": [
+      "forecast_contract_state.json /selection_rule/status = DRAFT_UNFROZEN",
+      "candidate_inventory_v2.json: same_quantity_constructed is null and freeze_evidence is null for every candidate",
+      "capacity_semantics_menu_reference.json /campaign_verdict/same_quantity_constructed = null",
+      "p_closure_trunk_current.json consumer policy flags false (promotion_allowed, may_feed_live_particle_predictions, default_thomson_endpoint_allowed)"
+    ]
+  },
+  "per_family_gate_failure_classification": [
+    {
+      "family": "P_INTERVAL_MAP",
+      "rows": 2,
+      "attained_gate_count": 4,
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "CONTINGENT",
+      "basis": "interval Banach existence, uniqueness, and stability are certified for both scheme modes; the three open gates await a frozen selector, a constructed bridge, and consumer-policy return completion, none proved impossible"
+    },
+    {
+      "family": "CAP-K",
+      "rows": 4,
+      "attained_gate_count": 2,
+      "failed_gates": ["existence_certified", "uniqueness_certified", "target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "STRUCTURAL_FAMILY_LOCAL",
+      "basis": "F(N) = s*N with certified s < 1 admits no positive fixed point for any instance; the family-local no-go is earned and exact"
+    },
+    {
+      "family": "CAP-P_power",
+      "rows": 4,
+      "attained_gate_count": 4,
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "CONTINGENT",
+      "basis": "the exact normalization fixed point N = pi is certified; Lean seededReadback_fixedPt_iff structurally bars the fixed-point equation from selecting its own seed, so selection requires an external source rule, which is absent rather than impossible"
+    },
+    {
+      "family": "CAP-P_linear",
+      "rows": 2,
+      "attained_gate_count": 2,
+      "failed_gates": ["existence_certified", "uniqueness_certified", "target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "STRUCTURAL_FAMILY_LOCAL",
+      "basis": "linear-through-origin instances with s != 1 admit no positive fixed point; the family-local no-go is earned and exact"
+    },
+    {
+      "family": "CAP-L",
+      "rows": 5,
+      "sublattice_instances": 180,
+      "attained_gate_count": 2,
+      "failed_gates": ["uniqueness_certified", "stability_certified", "target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "CONTINGENT",
+      "basis": "each family mixes certified, unstable-rejected, and no-fixed-point sublattice rows with no per-family uniqueness certificate and no source selector over the sublattice; certification over the archived data is absent rather than proved impossible"
+    },
+    {
+      "family": "CAP-B",
+      "rows": 1,
+      "attained_gate_count": 1,
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete", "existence_certified", "uniqueness_certified", "stability_certified"],
+      "classification": "STRUCTURAL_AS_REGISTERED",
+      "basis": "barred target bridge pre evaluation under the frozen decision rule; never executed; no admissible production exists at this version"
+    },
+    {
+      "family": "coupled",
+      "rows": 1,
+      "attained_gate_count": 4,
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "INELIGIBLE_AS_REGISTERED__CONTINGENT_UNDER_EXTENSION",
+      "basis": "the load-coordinate fixed point is certified, and the registered packet is target exposed (solver_target_payload_read true), which places it outside the qualifying exposure classes; a target-free re-derivation would be an input extension"
+    },
+    {
+      "family": "DIRECT_CORRECTABLE_RECORD",
+      "rows": 1,
+      "attained_gate_count": 1,
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete", "existence_certified", "uniqueness_certified", "stability_certified"],
+      "classification": "STRUCTURAL_AS_REGISTERED",
+      "basis": "the frozen decision rule types fixed-cutoff controls as non-candidates for cosmic fixed points; the row is a bounded control by declaration"
+    },
+    {
+      "family": "COMMON_LOAD",
+      "rows": 1,
+      "attained_gate_count": 1,
+      "failed_gates": ["existence_certified", "uniqueness_certified", "stability_certified", "target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "CONTINGENT",
+      "basis": "retrospective conditional arithmetic with the branch certificate open gates unresolved; Banach-grade certification is absent rather than proved impossible"
+    },
+    {
+      "family": "RESERVE_BRANCH",
+      "rows": 2,
+      "attained_gate_count": 1,
+      "failed_gates": ["existence_certified", "uniqueness_certified", "stability_certified", "target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "CONTINGENT",
+      "basis": "the branches 1 - P/24 and exp(-P/24) disagree numerically, so at most one can be selected, and no source rule selects either; the selection premise is absent rather than proved impossible"
+    },
+    {
+      "family": "RC_LOAD",
+      "rows": 1,
+      "attained_gate_count": 4,
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "CONTINGENT",
+      "basis": "the interval fixed point is certified with target-free replay; the budget-pricing derivation and the same-quantity identity remain open constructions"
+    },
+    {
+      "family": "CAP_L_P_K_ARCHIVE",
+      "rows": 1,
+      "attained_gate_count": 2,
+      "failed_gates": ["uniqueness_certified", "stability_certified", "target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete"],
+      "classification": "STRUCTURAL_AS_REGISTERED",
+      "basis": "the frozen decision rule types archive enumeration as aggregate metadata; the entry is barred as a source return map by declaration"
+    },
+    {
+      "family": "HIERARCHY_PACKET",
+      "rows": 5,
+      "attained_gate_count_range": [1, 4],
+      "failed_gates": ["target_independent_candidate_selection", "same_quantity_constructed", "source_return_map_complete", "and per-packet certification gates"],
+      "classification": "MIXED",
+      "basis": "p_public_endpoint, pn_product_contraction_adapter, n_global_repair_tick_adapter, and n_ew_bridge_defined_capacity are target exposed and ineligible as registered; p_source_audit_witness is contingent with its endpoint proof open and is typed as a witness rather than a distinct candidate"
+    }
+  ],
+  "earned_family_local_no_gos": [
+    {
+      "id": "linear_families_no_positive_fixed_point",
+      "statement": "every instance of cap_k_linear and cap_p_linear with certified slope s != 1 admits no positive fixed point; six rows carry the exact bounded verdict",
+      "witness": "disposition EXACT_ROW_NO_POSITIVE_FIXED_POINT__BOUNDED_FAMILY_ONLY on capK.s_poisson, capK.s_presence, capK.s_nat_share, capK.s_edge_share, capP.add_slot, capP.add_port"
+    },
+    {
+      "id": "seed_self_selection_barred",
+      "statement": "an arbitrary positive multiplicative normalization seed supplies its own unique fixed point, so the cap_p_power fixed-point equation cannot select the seed pi",
+      "witness": "Lean/ObserverPatchHolography/ClosurePreflight.lean: seededReadback_fixedPt_iff"
+    },
+    {
+      "id": "codomain_sharing_is_not_a_bridge",
+      "statement": "a shared codomain does not imply a same-quantity commuting square, so codomain agreement cannot discharge the same_quantity_constructed gate",
+      "witness": "Lean/ObserverPatchHolography/ClosurePreflight.lean: sameCodomain_noncommuting_witness, unitReadouts_fail_sameQuantity"
+    }
+  ],
+  "minimal_not_evaluable_premises": [
+    {
+      "id": "P1_frozen_target_independent_selector",
+      "missing_premise": "a frozen target-independent selection rule that selects one registered candidate",
+      "frozen_input_state": [
+        "forecast_contract_state.json /selection_rule/status = DRAFT_UNFROZEN",
+        "candidate_inventory_v2.json freeze_evidence = null for every candidate; x_p_certificate_alpha eligibility = INELIGIBLE_CONSUMER_POLICY_BOUNDARY"
+      ],
+      "required_extension": "freeze a successor selection policy in the forecast contract inputs; the selector must be external to the candidate fixed-point equation because seed self-selection is barred by the Lean lemma",
+      "unblocks_gate": "target_independent_candidate_selection"
+    },
+    {
+      "id": "P2_constructed_same_quantity_bridge",
+      "missing_premise": "a constructed same-quantity identification typing the inside and outside readings of one candidate as the same source quantity",
+      "frozen_input_state": [
+        "candidate_inventory_v2.json same_quantity_constructed = null for every candidate",
+        "capacity_semantics_menu_reference.json /campaign_verdict/same_quantity_constructed = null"
+      ],
+      "required_extension": "author the bridge as an artifact addition to the input catalogue through a successor freeze; codomain sharing is proved insufficient, so the bridge must exhibit the commuting square",
+      "unblocks_gate": "same_quantity_constructed"
+    },
+    {
+      "id": "P3_complete_source_return_map",
+      "missing_premise": "a complete source return map carrying the emitted value back into the source reading",
+      "frozen_input_state": [
+        "p_closure_trunk_current.json /promotion_allowed = false and consumer policy flags false for the P side",
+        "no registered N family carries a return leg; archive enumeration is barred as a return map by the frozen decision rule"
+      ],
+      "required_extension": "complete the P consumer-policy return upgrade or register an N return-map production through a successor grammar version",
+      "unblocks_gate": "source_return_map_complete"
+    },
+    {
+      "id": "P4_n_side_certification_and_branch_selection",
+      "missing_premise": "for an N candidate other than the CAP-P normalization fixed point: certified uniqueness and stability for a CAP-L family, or a source rule selecting one reserve branch",
+      "frozen_input_state": [
+        "CAP-L family rows mix certified, unstable-rejected, and no-fixed-point sublattice statuses with no per-family uniqueness certificate",
+        "n_closure_branch_certificate.json records both reserve branches unselected with seven open gates each"
+      ],
+      "required_extension": "produce the certification artifacts or the branch-selection source rule; either path is an input-catalogue extension through a successor freeze",
+      "unblocks_gate": "existence_certified, uniqueness_certified, stability_certified for the N side"
+    },
+    {
+      "id": "P5_exhaustion_premise_for_any_future_no_go",
+      "missing_premise": "a proof that the executed families exhaust the admissible source laws, required before any bounded no-go could be earned at a successor version",
+      "frozen_input_state": [
+        "source_only_closure_contract_v3.json /scope_boundary/future_source_laws_exhausted = false",
+        "forecast_contract_state.json /controls/candidate_inventory_exhaustiveness = NOT_ESTABLISHED",
+        "capacity_semantics_menu_reference.json menu completeness limited to executed families"
+      ],
+      "required_extension": "discharge the exhaustion proof obligation named in the gate-freeze residual decisions",
+      "unblocks_gate": "eligibility of the BOUNDED_NO_GO exit"
+    }
+  ],
+  "preflight_completion_note": "all five completion gates are frozen as content: the decision rule in the contract and the four remaining gates in the gate-freeze document; the contract attained flags stay [false, false, false, false, true] because flag promotion requires the executable gate upgrade named in the freeze residual decisions, and this exit document does not perform that upgrade",
+  "verifier_replay": {
+    "command": "python3 code/closure_preflight/verify_source_only_closure_preflight_independent.py",
+    "expected_output": "SOURCE_ONLY_CLOSURE_PREFLIGHT_INDEPENDENT_VALID",
+    "expected_exit_code": 0
+  },
+  "consistency": {
+    "additive_document": "no audit surface pins this document, so producer and independent-verifier replay is unchanged by its presence",
+    "expected_audit_status": "OPEN_REGISTERED_CANDIDATES_FAIL_SOURCE_ONLY_GATES",
+    "issue_closure_authorized": false
+  }
+}
