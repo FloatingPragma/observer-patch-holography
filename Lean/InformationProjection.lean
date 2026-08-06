@@ -1,6 +1,7 @@
 import InformationProjection.PathGibbs
 import InformationProjection.GlobalObjective
 import InformationProjection.HistoryLaw
+import InformationProjection.SourceHistoryPacket
 
 /-!
 # Information-projection umbrella root
@@ -20,4 +21,15 @@ mean action, the committed Gibbs packet's law is the tilt with its
 normalization forced, and the named corollary states the history law as
 the information projection of the reference onto the mean-action
 constraint.
+`InformationProjection.SourceHistoryPacket` mirrors the B7
+source-produced history-law packet as exact literals from one
+preregistered run: both produced path laws are strictly positive and
+normalized, the reference law is the Markov product of the committed
+mixing chain with the cleared-denominator identity kernel-decided, the
+tilt at multiplier zero is the reference exactly, the `HistoryLaw`
+interface is inhabited at the packet literals at every multiplier, and
+an intermediate-value receipt locates a multiplier matching the
+declared empirical mean action inside the payload's rational bracket.
+The multiplier selection principle from source data remains the open
+core of B7.
 -/
