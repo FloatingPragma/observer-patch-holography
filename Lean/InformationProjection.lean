@@ -2,6 +2,7 @@ import InformationProjection.PathGibbs
 import InformationProjection.GlobalObjective
 import InformationProjection.HistoryLaw
 import InformationProjection.SourceHistoryPacket
+import InformationProjection.LogTransitionAction
 
 /-!
 # Information-projection umbrella root
@@ -32,4 +33,11 @@ an intermediate-value receipt locates a multiplier matching the
 declared empirical mean action inside the payload's rational bracket.
 The multiplier selection principle from source data remains the open
 core of B7.
+`InformationProjection.LogTransitionAction` proves that every
+strictly positive Markov path law is the Gibbs tilt of the step-uniform
+reference by the log-transition action, that any action reproducing the
+law lies in the additive-constant and multiplier-rescale gauge orbit of
+that action, and instantiates both statements with kernel-decided
+receipts on the committed source chain, including the negative control
+that the repair-count action reproduces the chain law at no multiplier.
 -/
