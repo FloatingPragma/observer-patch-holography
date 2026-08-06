@@ -1829,34 +1829,39 @@
     },
     {
       "claim_id": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
-      "statement": "On a finite history type, if a positive normalized projected path law is supplied with the displayed exponential log relation to a positive reference weight and matches the declared moments, the finite information-projection Pythagorean identity and relative-entropy minimizer inequality hold; a supplied modal history minimizes the effective action. For the normalized inverse-noise family, every fixed positive-gap tail and the total mass of all histories strictly above a declared minimum tend to zero as inverse noise tends to infinity. Separately, a real two-point local action that is minimal under every real single-site variation at a supplied junction satisfies the scalar discrete Euler--Lagrange equation, and differentiable invariance transports the scalar segment momentum. If the premises hold at every interior record of a finite chain, one scalar current is constant on every segment; a free affine path supplies a nonzero witness. No finite family of real paths is closed under all real single-site variations, so the finite Gibbs and real differential packages do not compose under their present interfaces. The source-derived exponential law, multiplier existence or uniqueness, a finite-to-real transfer theorem, saddle histories, a physical action, clock, complex amplitude, interference, field-valued paths, continuum limit, and laboratory current are open obligations.",
+      "statement": "On a finite history type, if a positive normalized projected path law is supplied with the displayed exponential log relation to a positive reference weight and matches the declared moments, the finite information-projection Pythagorean identity and relative-entropy minimizer inequality hold; a supplied modal history minimizes the effective action. For the normalized inverse-noise family, every fixed positive-gap tail and the total mass of all histories strictly above a declared minimum tend to zero as inverse noise tends to infinity. Separately, a real two-point local action that is minimal under every real single-site variation at a supplied junction satisfies the scalar discrete Euler--Lagrange equation, and differentiable invariance transports the scalar segment momentum. If the premises hold at every interior record of a finite chain, one scalar current is constant on every segment; a free affine path supplies a nonzero witness. No finite family of real paths is closed under all real single-site variations; the packages compose only through a certified undercut receipt, under which finite minimality transfers to real local minimality and to the real Euler--Lagrange packet, with the committed quadratic witness carrying the receipt and a control family provably carrying none. For a strictly positive row-stochastic kernel with a normalized initial law, the Markov path law equals the exponential tilt of the step-uniform reference by the log-transition action at multiplier one, and an action-multiplier pair reproduces that law exactly when the multiplier-weighted action equals the log-transition action plus a constant; the committed source chain instantiates both statements with kernel-decided receipts, and the committed repair-count action reproduces the chain law at no multiplier. The finite Legendre transform joins the two faces of mechanics: discrete Euler--Lagrange transport at a junction is equivalent to one discrete Hamilton step for the quadratic and strictly convex classes, single-site minimizers of the log-transition local action coincide with most probable paths of the realized chain, and the constant chain current equals the quadratic Legendre momentum, conserved together with the energy along the free Hamilton orbit. The reference measure, production of the realized chain from a Hamiltonian flow, saddle histories, a physical action, clock, complex amplitude, interference, field-valued paths, continuum limit, and laboratory current remain open obligations.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "exact_conditional_finite_history_helpers_with_formal_bridge_obstruction",
       "assumptions": [
         "finite_history_exponential_tilt_packet",
         "declared_modal_history_or_minimum",
         "real_local_action_variation_packet",
-        "finite_to_real_history_bridge_deferred",
+        "undercut_receipt_for_finite_to_real_transfer",
+        "declared_reference_measure",
         "physical_history_action_attachment_deferred"
       ],
       "imported_results": [
         "finite_information_projection",
         "finite_Gibbs_concentration",
         "discrete_Euler_Lagrange_calculus",
-        "discrete_Noether_calculus"
+        "discrete_Noether_calculus",
+        "discrete_Legendre_calculus"
       ],
-      "oph_specific_delta": "The attained package is deliberately classified as conditional helper mathematics. Its strongest project-specific contribution is the machine-checked interface no-go: finite-state Gibbs support cannot silently supply the universal real variations assumed by the differential Euler--Lagrange theorem. B7 is open pending a source-derived history object and a proved enrichment or transfer bridge.",
-      "novelty_type": "standard_helpers_with_machine_checked_interface_obstruction",
+      "oph_specific_delta": "The which-action question is closed at the representation level: the log-transition action is derived from the source dynamics, unique up to the additive-constant and multiplier-rescale gauge, with the multiplier pinned by the normalization convention and the coupling-scale slot identified with that gauge. The machine-checked interface no-go stands, and the composition that survives it is the receipt-gated transfer with its witness and failing control. The Legendre bridge makes the Lagrangian and Hamiltonian faces two readouts of one finite mechanics on the committed packets. Remaining open on B7: the reference measure and the physical attachments.",
+      "novelty_type": "derived_action_with_machine_checked_interface_obstruction_and_receipt_gated_transfer",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "Lean/InformationProjection/PathGibbs.lean",
+        "Lean/InformationProjection/LogTransitionAction.lean",
         "Lean/Variational/DiscreteEulerLagrange.lean",
         "Lean/Variational/DiscreteNoether.lean",
-        "Lean/Variational/FiniteHistoryBridge.lean"
+        "Lean/Variational/FiniteHistoryBridge.lean",
+        "Lean/Variational/FiniteRealTransfer.lean",
+        "Lean/Variational/LegendreBridge.lean"
       ],
-      "falsifier": "The attained helper claim fails if a stated finite Pythagorean, minimizer, ordering, gap-tail, full nonminimal-mass limit, Euler--Lagrange, local Noether, nonzero witness, or finite-variation obstruction theorem fails under its premises. A recovered physical least-action claim fails if it bypasses the source-law, uniqueness, finite-to-real, saddle, action, clock, amplitude, field, continuum, or observable-current obligations.",
-      "scope_if_false": "Only the conditional B7 helper packet or a later bridge falls. The finite thermodynamic package, consensus theorems, and any independently constructed physical action branch remain separately assessable.",
-      "status": "conditional_finite_gibbs_and_scalar_variational_helpers_proved__finite_real_composition_obstructed__b7_open",
+      "falsifier": "The attained claim fails if a stated finite Pythagorean, minimizer, ordering, gap-tail, full nonminimal-mass limit, Euler--Lagrange, local Noether, nonzero witness, or finite-variation obstruction theorem fails under its premises, or if the Gibbs tilt identity, the gauge-uniqueness equivalence, a committed-chain receipt, the no-multiplier negative control, the receipt-gated transfer or its control, the Hamilton-step equivalence, the two-faces identity, or the Noether correspondence fails under its premises. A recovered physical least-action claim fails if it bypasses the reference-measure, saddle, action, clock, amplitude, field, continuum, or observable-current obligations.",
+      "scope_if_false": "Only the B7 representation packet or a later bridge falls. The finite thermodynamic package, consensus theorems, and any independently constructed physical action branch remain separately assessable.",
+      "status": "derived_action_and_legendre_bridge_proved__reference_measure_and_physical_attachments_open",
       "claim_class": "conditional_implication",
       "gates": [
         683
