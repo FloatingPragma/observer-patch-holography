@@ -14,11 +14,11 @@ def _highlight_blocks(text: str, heading: str, terminator: str) -> list[str]:
     start = text.index(heading)
     body = text[start : text.index(terminator, start)]
     blocks: list[str] = []
-    for number in range(1, 8):
+    for number in range(1, 9):
         block_start = body.index(f"{number}. **")
         block_end = (
             body.index(f"{number + 1}. **", block_start)
-            if number < 7
+            if number < 8
             else len(body)
         )
         blocks.append(body[block_start:block_end])
@@ -66,13 +66,13 @@ def test_readme_highlights_remain_short_and_reader_facing() -> None:
     surfaces = [
         (
             ROOT / "README.md",
-            "## Seven Reproducible Physics Receipts",
-            "A separate signed-graph theorem",
+            "## Eight Reproducible Physics Receipts",
+            "Beyond the eight receipts",
         ),
         (
             ROOT / "README_FR.md",
-            "## Sept reçus de physique reproductibles",
-            "Un théorème distinct de graphe signé",
+            "## Huit reçus de physique reproductibles",
+            "Au-delà des huit reçus",
         ),
     ]
     for path, heading, terminator in surfaces:

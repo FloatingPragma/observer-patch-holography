@@ -95,19 +95,16 @@ données et certificats :
    la [preuve des registres publics](Lean/EventAlgebra/PublicRecordAlgebra.lean)
    et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
 3. **La dynamique, les poids quantiques et l’action sont forcés, pas
-   choisis.** Sur l’algèbre finie des observateurs, l’évolution temporelle
-   continue n’a aucune liberté au-delà d’un hamiltonien : la forme de
-   Schrödinger est un théorème. Le poids de probabilité quantique est la
-   seule affectation additive sur les effets de mesure, en toute dimension
-   finie, y compris le cas du qubit. La dynamique de réparation réalisée
-   fixe sa propre action à une jauge près, ce qui fait de la moindre action
-   et de l’histoire la plus probable deux lectures d’une même fonctionnelle,
-   reliées au flot hamiltonien par un pont de Legendre fini. L’attachement
-   des unités de laboratoire, des horloges et des fréquences de résultats
-   est en cours. Voir l’
-   [article sur les observateurs](paper/observers_are_all_you_need.pdf), la
-   [preuve de représentation de Born](Lean/EventAlgebra/FiniteBuschGleason.lean)
-   et la [preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean).
+   choisis.** L’évolution temporelle continue n’a aucune liberté au-delà
+   d’un hamiltonien : la forme de Schrödinger est un théorème. Le poids
+   quantique est la seule affectation additive sur les effets de mesure,
+   jusqu’au cas du qubit. La dynamique réalisée fixe sa propre action à une
+   jauge près : moindre action et histoire la plus probable sont deux
+   lectures d’une même fonctionnelle, reliées au flot hamiltonien par un
+   pont de Legendre. L’attachement des unités est en cours. Voir
+   l’[article sur les observateurs](paper/observers_are_all_you_need.pdf),
+   la [preuve de Born](Lean/EventAlgebra/FiniteBuschGleason.lean) et la
+   [preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean).
 4. **Les quatre lois de la thermodynamique découlent du modèle fini des
    observateurs.** Avec un état de référence commun et l’information réparée
    visible par tous, la même règle finie donne l’équilibre, la croissance de

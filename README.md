@@ -90,12 +90,11 @@ certificates:
 3. **Dynamics, quantum weights, and the action are forced, not chosen.** On
    the finite observer algebra, continuous time evolution has no freedom
    beyond a Hamiltonian, so the Schrödinger form is a theorem. The quantum
-   probability weight is the only additive assignment on measurement effects,
-   in every finite dimension including the qubit case. The realized repair
-   dynamics fixes its own action up to gauge, which makes least action and
-   most probable history two readouts of one functional, joined to Hamiltonian
-   flow by a finite Legendre bridge. Attaching laboratory units, clocks, and
-   outcome frequencies is work in progress. See the
+   weight is the only additive assignment on measurement effects, down to
+   the qubit case. The realized dynamics fixes its own action up to gauge:
+   least action and most probable history are two readouts of one
+   functional, joined to Hamiltonian flow by a Legendre bridge. Attaching
+   units, clocks, and outcome frequencies is work in progress. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the
    [Born representation proof](Lean/EventAlgebra/FiniteBuschGleason.lean), and
    the [derived-action proof](Lean/InformationProjection/LogTransitionAction.lean).
