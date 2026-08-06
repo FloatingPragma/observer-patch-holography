@@ -212,9 +212,16 @@ quantum channels, adaptive scheduler locality, spacetime causality, and a
 continuum time-slice theory are open. The layer also checks fixed-word repair locality, generic
 bipartite marginal invariance, finite conservation and transport, and
 conditional finite-history and real-variation helpers. A finite Gibbs path
-space cannot supply every real single-site variation; the source history law,
-transfer theorem, physical action, and clock have no construction in the
-package. These are structural results, not physical predictions. See the
+space cannot supply every real single-site variation; the transfer that
+survives is receipt-gated, with a committed witness that carries the receipt
+and a control family that provably cannot. The path law of the realized
+source chain is the exponential tilt of its declared reference by the
+log-transition action, unique up to an additive constant and a multiplier
+rescaling, so the action of the realized dynamics is derived rather than
+chosen, and a finite Legendre bridge ties Euler-Lagrange transport to the
+discrete Hamilton step with the chain current conserved as momentum and
+energy. The reference measure, physical action, units, and clock have no
+construction in the package. These are structural results, not physical predictions. See the
 [finite regional-net interface](Lean/QFT.lean),
 [postdiction ledger](docs/POSTDICTION_LEDGER.md#forced-structure), and
 [Lean boundary notes](Lean/docs/) for the exact scopes.
