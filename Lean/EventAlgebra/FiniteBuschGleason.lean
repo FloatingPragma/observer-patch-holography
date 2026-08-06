@@ -1000,6 +1000,7 @@ theorem vecMulVec_mul_self (x : Fin d → ℂ) :
   rw [Finset.sum_mul]
   refine Finset.sum_congr rfl fun k _ => ?_
   rw [← Complex.mul_conj]
+  simp only [starRingEnd_apply]
   ring
 
 /-- **Algebra-only.** The outer product is Hermitian. -/
@@ -1205,5 +1206,9 @@ theorem sum_valuation_projective_decomposition (hv : IsEffectValuation v)
     _ = 1 := by
         rw [hsum, bornWeight_one hρ]
         simp
+
+#print axioms EventAlgebra.gleasonState_represents
+#print axioms EventAlgebra.isEffectValuation_born
+#print axioms EventAlgebra.isEffectValuation_iff_born
 
 end EventAlgebra

@@ -13,6 +13,8 @@ import QFT.SourceRegionalNet
 import QFT.PublicEndpointBridge
 import QFT.ConvexAffinityBridge
 import QFT.SourceConvexFamily
+import QFT.SourceContextWeb
+import QFT.GaugeIrreducibleBorn
 import QFT.InhabitedTowerRow
 
 /-!
@@ -78,4 +80,10 @@ into one constructed value inhabiting the structural Einstein premise
 row, with the four physical readout rows stated as one definitionally
 inseparable bare surface and the enriched negative receipt that no
 bare-language predicate decides Einstein truth.
+The source context web mirrors the realized gauge elements through the
+exact two-dimensional representation with noncommutation certificates
+and the machine-readable boundary that realized statistics inhabit only
+the diagonal context. The gauge-irreducibility module derives the Born
+weights of the unique invariant state from finite Schur and realized
+covariance, with negative controls separating every hypothesis.
 -/

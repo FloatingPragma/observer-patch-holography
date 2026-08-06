@@ -14,6 +14,9 @@ import EventAlgebra.Tsirelson
 import EventAlgebra.ExpectationBound
 import EventAlgebra.FiniteBornFrame
 import EventAlgebra.FiniteEffectClosureBoundary
+import EventAlgebra.FiniteBuschGleason
+import EventAlgebra.InterlockingContexts
+import EventAlgebra.FrequencyConcentration
 
 /-!
 # Finite projection-event calculus — umbrella root
@@ -84,4 +87,14 @@ results that consume the trace pairing.
 
 The modules distinguish algebraic assumptions from trace-dependent results
 while retaining the quantum-measurement interpretation in their API names.
+`EventAlgebra.FiniteBuschGleason` proves the finite effect-valuation
+representation: additive [0,1] assignments on effects are exactly the
+Born weights of a unique density matrix, with no continuity axiom.
+`EventAlgebra.InterlockingContexts` locates the decision point: the
+binary sharp web admits the cube countermodel while explicit unsharp
+trine and calibration contexts force additive extension and exclude the
+cube response at an exactly computed contradiction.
+`EventAlgebra.FrequencyConcentration` proves the exact frequency-operator
+moment and concentration theorems with the uniqueness of the stable
+frequency point and its circularity boundary stated as a theorem.
 -/
