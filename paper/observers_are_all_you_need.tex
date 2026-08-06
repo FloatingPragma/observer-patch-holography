@@ -1913,21 +1913,82 @@ in finite \(G\).  This elementary cardinality obstruction is machine checked
 in Lean~\cite{ophrepo}.
 \end{proof}
 
-The two theorem domains do not compose as stated.  The first uses paths in a
-finite state set; the second uses arbitrary real single-site variations.  A
-minimum among finite paths does not imply a minimum under those real
-variations; Proposition~\ref{prop:finite-real-variation-obstruction} rules out
-closure under all such variations inside any finite real-path family.  No
-theorem supplies a common-domain embedding or relaxation,
-identifies \(A_{\mathrm{eff}}\) with the local action \(\mathcal S_L\), or
-identifies the finite scalar chain constant with a vector-valued or physical
-current.  The package also supplies no source-derived reference and constraints, local
-additivity theorem, complex amplitude, interference rule, physical clock,
-\(\hbar\), continuum path measure, or laboratory action.  It therefore does
-not derive physical stationary action from the observer axioms.  Both
-mathematical ingredients and the cardinality obstruction are elementary or
-standard; an OPH-specific result begins only after one source object
-discharges these bridge and realization premises.
+The two theorem domains compose only through a certified receipt.  The first
+uses paths in a finite state set; the second uses arbitrary real single-site
+variations, and Proposition~\ref{prop:finite-real-variation-obstruction}
+rules out closure under all such variations inside any finite real-path
+family.  The composition that survives this obstruction is conditional: an
+undercut receipt asserts that every real single-site variation of an
+embedded path is undercut in action by some embedded finite path, and under
+that receipt finite minimality transfers to real local minimality and to the
+real Euler--Lagrange packet.  Membership receipts are impossible (that is the
+obstruction restated); undercut receipts are attainable, and the committed
+quadratic witness carries one, while a one-path control family provably
+carries none and the transferred conclusion fails there.  All three layers,
+transfer, witness, and control, are checked in Lean~\cite{ophrepo}.
+
+Which action the history law carries is itself a theorem rather than a
+choice.
+
+\begin{theorem}[Derived action of a source chain]
+\label{thm:derived-action}
+Let \(\Omega\) be a finite nonempty state set, \(P\) a strictly positive
+row-stochastic kernel, and \(\pi\) a normalized initial law.  On paths with
+\(n\) transitions define the log-transition action
+\(S_{\log}(\gamma)=-\sum_{i}\log P(\gamma_i,\gamma_{i+1})\) and the reference
+\(R(\gamma)=\pi(\gamma_0)\,|\Omega|^{-n}\).  Then the Markov path law equals
+the exponential tilt of \(R\) by \(S_{\log}\) at multiplier one, with
+partition constant \(|\Omega|^{-n}\); and a pair \((S',\lambda')\) reproduces
+the path law as its tilt of \(R\) if and only if there is a constant \(c\)
+with \(\lambda'S'=S_{\log}+c\) pointwise.
+\end{theorem}
+
+\begin{proof}
+Exponentiating the negated action recovers the transition product, and row
+normalization makes the partition sum telescope to \(|\Omega|^{-n}\), which
+cancels against the reference weight.  Uniqueness reduces to the statement
+that two tilts of one strictly positive reference agree exactly when the
+multiplier-weighted actions differ by an additive constant, proved by taking
+logarithms at a common path and cancelling the shared normalizer.  Both
+directions of the gauge are realized: per-step additive constants aggregate
+to a path constant, and the multiplier trades against the action scale, so
+the normalization convention pins \(\lambda=1\).  The statements are checked
+in Lean~\cite{ophrepo}.
+\end{proof}
+
+The committed source chain instantiates the theorem exactly: the tilt of its
+reference by its log-transition action reproduces its path law with partition
+constant \(1/4\), through kernel-decided integer identities, and the
+committed repair-count action reproduces that law at no multiplier, because
+it takes equal values on two paths that the reference weighs equally and the
+chain separates.  The action of the realized dynamics is therefore forced up
+to an additive constant and a multiplier rescaling, and the multiplier slot
+is the coupling-scale gauge.
+
+The two attained faces of mechanics are joined by a finite Legendre bridge,
+also checked in Lean~\cite{ophrepo}.  For discrete two-point Lagrangians the
+Legendre transform, its involutivity on the strictly convex class, the
+Fenchel--Young inequality with its equality case, and exact degenerate
+controls are proved; the discrete Euler--Lagrange condition at a junction
+holds exactly when one step of the discrete Hamilton flow carries the
+incoming junction state to the outgoing one, for the quadratic class and for
+strictly convex Lagrangians with a solver section; single-site minimizers of
+the log-transition local action coincide with most probable paths of the
+realized chain, through an exact corner identity; and the constant Noether
+current of the chain face equals the quadratic Legendre momentum, conserved
+together with the energy along the free Hamilton orbit that reproduces the
+committed witness path.  One remainder is named: no theorem produces the
+realized chain from a Hamiltonian flow, and the naive quadratic-Gibbs
+identification is refuted on the chain literals, so that direction runs
+through the derived action above or not at all.
+
+The reference measure remains a declared object, and the package supplies no
+identification of \(A_{\mathrm{eff}}\) with the local action, no
+identification of the finite scalar chain constant with a vector-valued or
+physical current, no complex amplitude, interference rule, physical clock,
+\(\hbar\), continuum path measure, or laboratory action.  It derives the
+form, the action, and the bridge at the representation level; the physical
+attachments remain open obligations under the attachment doctrine.
 
 \subsection{Thermodynamics from conditional repair in an observer modular parameter}
 \label{sec:thermodynamics}
