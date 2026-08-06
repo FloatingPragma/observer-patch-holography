@@ -320,24 +320,33 @@ requirements carried by the surrounding particle and gravity branches.
 The principle of least action can sound mystical. In ordinary quantum theory,
 stationary action appears in the semiclassical limit of quantum interference.
 
-The formal OPH package reaches two narrower statements. On a finite state
-space, a supplied exponential path weight makes every modal path minimize its
-defined statistical effective action, bounds fixed positive action gaps
-exponentially, and makes the total weight of all nonminimizing paths vanish in
-the zero-noise limit. Separately, for real-valued paths with a
-finite number of segments, a supplied differentiable local action gives the
-Euler--Lagrange equation at any junction where the path is minimal under all
-single-site variations; a supplied differentiable invariance then preserves
-the associated segment momentum across that junction and, when the premise
-holds at every interior record, makes one scalar momentum constant along the
-whole finite chain.
+The finite package reaches further than a restatement of that limit. Take the
+realized repair dynamics as a chain that steps from one recorded state to the
+next with fixed probabilities. The probability of a whole history is then an
+exponential weight, and the quantity sitting in the exponent is forced: it is
+the sum along the path of minus the logarithm of each step's probability.
+Nothing about that weight was supplied. Write down the dynamics and the action
+comes with it, fixed up to an additive constant and an overall rescaling.
+Those two freedoms are the choice of a zero point and the choice of units.
 
-The two statements use different state spaces; indeed, no finite family of
-real paths is closed under all single-site real variations. No theorem joins
-them, constructs the exponential path law from the observer axioms, identifies
-a physical action or clock, or
-produces the complex phase below. The path-integral account in this section is
-the target physical mechanism. It is not a completed OPH derivation.
+The derived action carries two familiar readings at once. Paths that minimize
+it step by step are the most probable histories of the chain, so least action
+and most likely turn out to be two ways of reading one function. A finite
+Legendre bridge connects it to the Hamiltonian picture: the discrete
+Euler--Lagrange condition at a junction holds exactly when one step of
+discrete Hamiltonian flow carries the incoming state to the outgoing one, and
+the conserved quantity on the chain side equals the momentum on the
+Hamiltonian side.
+
+The boundary is where physics enters. The reference against which the weight
+is measured is a declared object. Nothing identifies the finite scalar
+constant with a physical current, supplies a complex amplitude or an
+interference rule, or attaches units and a clock. One direction is closed off
+by an explicit refutation: no theorem produces the realized chain from a
+Hamiltonian flow, and the obvious quadratic guess fails on the chain's own
+numbers. The route runs through the derived action or it does not run. The
+path-integral account in this section is the target physical mechanism, and
+the attachment to measured dynamics is work in progress.
 
 In quantum mechanics, the probability amplitude for a particle to go from
 A to B is a sum over all possible paths:
