@@ -10,6 +10,8 @@ import QFT.CoverageReceipt
 import QFT.GlueCountermodel
 import QFT.SimEarnedWitness
 import QFT.PublicEndpointBridge
+import QFT.ConvexAffinityBridge
+import QFT.InhabitedTowerRow
 
 /-!
 # OPH construction QFT umbrella
@@ -65,4 +67,13 @@ quotient kernel, completed schedule endpoints agree with the bare normal
 form under the confluence premise, refinement naturality is stated as
 law and proved outright on the identity pair, and the hidden-bit pair
 carries a genuine noninjective adaptor with representative independence.
+The convex-affinity bridge derives response affinity from
+declared convex mixing of certified preparations, discharges the
+dense-test affinity hypothesis through an exact adaptor, and proves the
+cube response is induced by no scheme and state. The inhabited-tower
+module bundles the joint instance, readout fragment, and endpoint bridge
+into one constructed value inhabiting the structural Einstein premise
+row, with the four physical readout rows stated as one definitionally
+inseparable bare surface and the enriched negative receipt that no
+bare-language predicate decides Einstein truth.
 -/

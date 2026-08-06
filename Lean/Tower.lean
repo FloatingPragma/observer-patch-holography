@@ -2,6 +2,7 @@ import Tower.ConsensusTower
 import Tower.PublicWorldQuotient
 import Tower.FixedPointEndpoint
 import Tower.EventGeometryReadout
+import Tower.FullPremiseInhabitant
 import Tower.OperationalObserver
 
 /-!
@@ -23,4 +24,9 @@ settled branch, the all-quotient event and geometry readout fragment with
 its fine-to-coarse naturality squares, and the boundary-fibre theorem from
 an independently constructed complete event signature, with the
 boundary-as-signature circularity made definitional.
+`Tower.FullPremiseInhabitant` exhibits one explicit branch
+satisfying every premise of the conditional endpoint theorem
+simultaneously, with genuine choice points and Newman-lemma confluence,
+so schedule-independent representative-independent unique public
+endpoints hold on it unconditionally.
 -/
