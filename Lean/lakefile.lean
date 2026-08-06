@@ -36,7 +36,7 @@ lean_lib «OPHThermodynamics» where
     `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink,
     `GreenKubo, `GraphDiffusion, `StationaryRealization,
     `PoissonizedRepair, `PoissonizedRepairOperatorExp,
-    `LowTemperatureControl]
+    `LowTemperatureControl, `MixingChainRealization]
 
 @[default_target]
 lean_lib «OPHScreen» where
