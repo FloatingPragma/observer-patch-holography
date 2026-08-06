@@ -74,10 +74,12 @@ chain bound in its kernel slot computes it exactly
 
 `(7155/61511) log (1431/1324) + (54356/61511) log (508/503)`,
 
-the stationary-expected holding surprisal of the realized chain.  The
-run's transition chain sits at this exactly computed divergence from
-the resampling reference, a measured separation between the mixing
-dynamics and the degenerate resampling projection; the same objective
+the stationary-expected holding surprisal of the realized chain.  This
+is the divergence of the resampling reference from the realized chain
+(the chain-dominated orientation; the reverse orientation is undefined
+by the domination-failure theorem), a measured separation between the
+mixing dynamics and the degenerate resampling projection; the same
+objective
 vanishes at the realized pair itself (`binding_realized_pair_zero`).
 No synthetic data enters: every literal is the committed run literal.
 
@@ -313,9 +315,11 @@ theorem binding_objective_nonneg
 
 /-- **Joint-minimum receipt on the bound data.**  The global objective
 over the realized reference and its record-fibre resampling kernel
-vanishes exactly at the pinned pair: the state optimizer and the
-transition optimizer are forced simultaneously and consume the one
-common reference. -/
+vanishes exactly at the pinned pair.  On this bound object the kernel
+half of the equivalence is hypothesis-forced (the record labels separate
+the two states, so the support and row-sum hypotheses alone pin the
+kernel); the state half carries the optimization content, and both
+consume the one common reference. -/
 theorem binding_objective_eq_zero_iff
     (ρ : Fin 2 → ℝ) (P : Fin 2 → Fin 2 → ℝ)
     (hρ0 : ∀ x, 0 ≤ ρ x) (hρ1 : (∑ x, ρ x) = 1)
@@ -489,8 +493,9 @@ theorem bindingEnergy_gap_value :
 theorem binding_gap_pos : 0 < Real.log (54356 / 7155) :=
   Real.log_pos (by norm_num)
 
-/-- **Exact gap receipt.**  The spectral gap of the derived energy is
-the exact log ratio of the two stationary masses. -/
+/-- **Exact gap receipt.**  The energy gap of the derived energy is
+the exact log ratio of the two stationary masses (distinct from the
+chain's spectral gap recorded in the mixing-chain realization). -/
 theorem binding_energyGap (h : (offMin bindingEnergy).Nonempty) :
     energyGap bindingEnergy h = Real.log (54356 / 7155) := by
   apply le_antisymm

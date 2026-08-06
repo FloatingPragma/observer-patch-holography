@@ -162,7 +162,7 @@ classical carrier statements, not quantum photon, gluon, or graviton pole
 predictions. See the
 [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
 
-The supporting Lean library contains more than 3400 theorems and lemmas and no
+The supporting Lean library contains more than 3600 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
@@ -206,8 +206,7 @@ receipts, and its partition-and-state-parameterized consistency construction
 assigns the same commutative record algebra to every region; it is not a closed
 source witness. An explicit finite witness inhabits the interface with two
 noncommutative, mutually commuting regional algebras over a scalar
-overlap, and an exact obstruction theorem shows the declared restriction
-maps exclude full matrix factors above commutative regions. A
+overlap, and an exact obstruction theorem shows the declared restriction maps exclude full matrix factors above scalar overlap regions and anticommuting unit pairs above commutative regions. A
 source-attached net, genuine coverage, regional factorization, positive
 quantum channels, adaptive scheduler locality, spacetime causality, and a
 continuum time-slice theory are open. The layer also checks fixed-word repair locality, generic

@@ -788,5 +788,7 @@ end Stone
 #print axioms OPH.Dynamics.continuous_starAutomorphismGroup_exists_hasDerivAt
 #print axioms OPH.Dynamics.finiteStoneConverse_of_continuous
 #print axioms OPH.Dynamics.stoneFlow_generator_unique_up_to_real_scalar
+#print axioms OPH.Dynamics.stonePropagator_zero
+#print axioms OPH.Dynamics.hasDerivAt_stoneFlow_zero
 
 end OPH.Dynamics

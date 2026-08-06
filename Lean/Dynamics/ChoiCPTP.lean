@@ -505,3 +505,4 @@ end OPH.Dynamics
 #print axioms OPH.Dynamics.relaxationChannel_isCPTP
 #print axioms OPH.Dynamics.choiMatrix_posSemidef
 #print axioms OPH.Dynamics.transposeMap_not_completelyPositive
+#print axioms OPH.Dynamics.transposeMap_positive_tracePreserving_not_CP

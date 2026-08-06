@@ -1365,9 +1365,10 @@ obeying the von Neumann equation. For nonselective projective pinching,
 separate from a normalized selective L\"uders branch. &
 The projective partition and input state are finite source data. The full
 mixed-state no-broadcasting implication enters through an explicit adapter.
-The Lean interface defines no complete-positivity predicate or bundled
-channel, so its formal claims are Kraus normalization, Kraus form, and trace
-preservation rather than CP or CPTP. The operator-exponential theorem supplies
+The finite complete-positivity predicate is defined in a separate module
+that proves the averaging, pinching, and nonnegative-parameter relaxation
+channels completely positive and trace preserving; the packet's own formal
+claims are Kraus normalization, Kraus form, and trace preservation. The operator-exponential theorem supplies
 no source rate or physical clock. The public automorphism classification is
 complete only for the exact finite active-record function algebra and reaches
 the matrix public algebra through the B1 equivalence. The private theorem
@@ -1777,8 +1778,9 @@ checked in Lean~\cite{ophrepo}.
 On the finite private block, a pointwise-continuous symmetry flow of the
 observables therefore has no choice except Hamiltonian form; the additive
 energy offset is the only freedom. The theorem extends to the general
-finite private algebra: every star subalgebra of a finite complex matrix
-algebra is star-isomorphic to a finite direct sum of full matrix blocks,
+finite private algebra: every unital star subalgebra of a finite complex
+matrix algebra, containing the ambient identity, is star-isomorphic to a
+finite direct sum of full matrix blocks,
 and on that block model a pointwise-continuous star-automorphism group
 fixes every block projection and is blockwise conjugation by the unitary
 family of one time-independent self-adjoint Hamiltonian per block. Block
@@ -1993,9 +1995,9 @@ full support, since every diagonal entry is positive, while the
 zero-temperature state is rank deficient for \(g_0<d\); finitely many
 repair or pinching steps therefore cannot reach it, which is the
 fixed-regulator third law. Public quantum-record pinching and averaging have
-explicit normalized Kraus families and preserve trace. The formal library
-defines no complete-positivity predicate or bundled channel, so this result is
-reported as Kraus and trace identities. The record tower
+explicit normalized Kraus families and preserve trace. A separate module
+proves these channels completely positive and trace preserving through the
+Kraus criterion; this result's own packet reports Kraus and trace identities. The record tower
 \(S(\rho)\le S(\mathcal E_\pi\rho)\le S(\mathcal A_\pi\rho)\)
 separates conditioned learning from the nonselective commit, so
 observers convert uncertainty into correlations and durable records

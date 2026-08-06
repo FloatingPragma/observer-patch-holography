@@ -2075,4 +2075,24 @@ end Closure
 #print axioms OPH.Dynamics.starWedderburn_stone_closure
 #print axioms OPH.Dynamics.starSubalgebraStoneConverse_of_continuous
 
+
+/-- Per-block uniqueness for the pi-block Stone converse: two Hamiltonian
+families implementing one flow agree blockwise up to an additive real
+scalar per block. -/
+theorem piBlock_generator_unique_up_to_real_scalar
+    {J : Type*} [Fintype J] [DecidableEq J] {n : J → Type*}
+    [∀ j, Fintype (n j)] [∀ j, DecidableEq (n j)] [∀ j, Nonempty (n j)]
+    {Ham₁ Ham₂ : (j : J) → Matrix (n j) (n j) ℂ}
+    (h₁ : ∀ j, IsSelfAdjoint (Ham₁ j)) (h₂ : ∀ j, IsSelfAdjoint (Ham₂ j))
+    (hflow : ∀ (t : ℝ) (j : J) (x : Matrix (n j) (n j) ℂ),
+      OPH.Dynamics.stonePropagator (Ham₁ j) t * x *
+          OPH.Dynamics.stonePropagator (Ham₁ j) (-t) =
+        OPH.Dynamics.stonePropagator (Ham₂ j) t * x *
+          OPH.Dynamics.stonePropagator (Ham₂ j) (-t)) :
+    ∀ j, ∃ r : ℝ, Ham₁ j = Ham₂ j + (r : ℂ) • 1 := fun j =>
+  OPH.Dynamics.stoneFlow_generator_unique_up_to_real_scalar (h₁ j) (h₂ j)
+    (fun t x => hflow t j x)
+
+#print axioms OPH.Dynamics.piBlock_generator_unique_up_to_real_scalar
+
 end OPH.Dynamics

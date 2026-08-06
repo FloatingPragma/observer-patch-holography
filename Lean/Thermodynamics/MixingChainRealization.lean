@@ -200,5 +200,8 @@ theorem mixingChainRealization_receipt :
     mixingChainStationary_sum, protectedRecordLabel_nonconstant⟩
 
 #print axioms mixingChainRealization_receipt
+#print axioms OPH.Thermodynamics.mixingChainCounts_row_sums
+#print axioms OPH.Thermodynamics.mixingChainStationary_integer_identity
+#print axioms OPH.Thermodynamics.mixingChain_trace_integer_identity
 
 end OPH.Thermodynamics
