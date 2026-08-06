@@ -9,6 +9,7 @@ import QFT.JointInstance
 import QFT.CoverageReceipt
 import QFT.GlueCountermodel
 import QFT.SimEarnedWitness
+import QFT.PublicEndpointBridge
 
 /-!
 # OPH construction QFT umbrella
@@ -58,4 +59,10 @@ truncated supports, integer record classes, and the exact joint table
 inhabit an earned access cut whose strictness receipts hold exactly
 where the realized data separates and whose gaps are proved as collapse
 equalities.
+The public-endpoint bridge glues the A4 packet to the bare
+tower: the readback adaptor identifies the public setoid with the
+quotient kernel, completed schedule endpoints agree with the bare normal
+form under the confluence premise, refinement naturality is stated as
+law and proved outright on the identity pair, and the hidden-bit pair
+carries a genuine noninjective adaptor with representative independence.
 -/
