@@ -7,6 +7,7 @@ import Dynamics.PrivateInner
 import Dynamics.StoneConverse
 import Dynamics.CentralBlocks
 import Dynamics.CenterSpectral
+import Dynamics.StarWedderburn
 
 /-!
 # OPH construction dynamics umbrella
@@ -44,4 +45,10 @@ in which block fixing is derived from continuity through the identity.
 subalgebra of a matrix algebra is spanned by a finite orthogonal family
 of minimal central projections summing to one, by finite descent plus
 Lagrange functional calculus, with uniqueness up to permutation.
+`Dynamics.StarWedderburn` completes the ladder: every
+finite-dimensional star subalgebra of a matrix algebra is star-isomorphic
+to a finite product of full matrix blocks, and every pointwise-continuous
+one-parameter star-automorphism group is blockwise unitary conjugation
+with one time-independent self-adjoint Hamiltonian per block, with block
+fixing derived from continuity.
 -/

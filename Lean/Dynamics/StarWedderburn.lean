@@ -51,12 +51,24 @@ the Stone converse on an arbitrary finite direct sum of full matrix blocks.
    blockwise conjugation by the coherent unitary family of one
    time-independent self-adjoint Hamiltonian per block
    (`piBlockStoneConverse_of_continuous`).
-8. The composed closure statement of the gap
-   (`starWedderburn_stone_closure`): every star subalgebra of a finite
-   complex matrix algebra is star-isomorphic to a finite direct sum of
-   full matrix blocks, and on that block model every pointwise-continuous
-   real-parameter star-automorphism group is blockwise Hamiltonian
-   conjugation.
+8. Flow rigidity on the subalgebra: every minimal central projection of
+   `S` is a member of every minimal central resolution
+   (`IsMinimalCentralProjectionIn.mem_resolution`), star automorphisms of
+   `S` permute the minimal central projections
+   (`IsMinimalCentralProjectionIn.map_subtype`), and every
+   pointwise-continuous star-automorphism family of `S` through the
+   identity fixes each minimal central projection
+   (`continuousFlow_fixes_minimalCentralProjection`) and acts on every
+   minimal central corner (`continuousFlow_maps_relativeCorner`).
+9. The composed closure statement of the gap
+   (`starWedderburn_stone_closure`,
+   `starSubalgebraStoneConverse_of_continuous`): every star subalgebra of
+   a finite complex matrix algebra is star-isomorphic to a finite direct
+   sum of full matrix blocks, and every pointwise-continuous
+   real-parameter star-automorphism group, on the block model or on the
+   subalgebra itself, is blockwise conjugation by the coherent unitary
+   family of one time-independent self-adjoint Hamiltonian per Wedderburn
+   block.
 
 No physical clock, source-selected Hamiltonian, or physical time
 identification is claimed; the parameter is a real number.
@@ -64,7 +76,7 @@ identification is claimed; the parameter is a real number.
 
 namespace OPH.Dynamics
 
-universe u v
+universe u v w
 
 open Polynomial
 
@@ -1359,7 +1371,7 @@ end CornerCenter
 
 section PiCongr
 
-variable {ι : Type u} {A : ι → Type v} {B : ι → Type v}
+variable {ι : Type u} {A : ι → Type v} {B : ι → Type w}
   [∀ i, Add (A i)] [∀ i, Mul (A i)] [∀ i, SMul ℂ (A i)] [∀ i, Star (A i)]
   [∀ i, Add (B i)] [∀ i, Mul (B i)] [∀ i, SMul ℂ (B i)] [∀ i, Star (B i)]
 
@@ -1452,7 +1464,6 @@ theorem starSubalgebra_starEquiv_pi_matrix
           _ = E i * (((x : Matrix n n ℂ) * E i) * (y : Matrix n n ℂ)) := by
               rw [(hEmin i).centralIn.commutes x.2]
           _ = (E i * (x : Matrix n n ℂ)) * (E i * (y : Matrix n n ℂ)) := by
-              rw [← (hEmin i).centralIn.commutes x.2]
               noncomm_ring)
       map_add' := fun x y => funext fun i => Subtype.ext (by
         show E i * ((x : Matrix n n ℂ) + (y : Matrix n n ℂ)) =
@@ -1465,7 +1476,7 @@ theorem starSubalgebra_starEquiv_pi_matrix
         show E i * star (x : Matrix n n ℂ) =
           star (E i * (x : Matrix n n ℂ))
         rw [star_mul, (hEmin i).isSelfAdjoint.star_eq]
-        exact ((hEmin i).centralIn.commutes (star_mem x.2)).symm) }
+        exact (hEmin i).centralIn.commutes (star_mem x.2)) }
   -- classify each corner
   have hblocks := fun i => minimalCentralCorner_starEquiv_matrix S (hEmin i)
   choose d hd hEquiv using hblocks
@@ -1474,5 +1485,594 @@ theorem starSubalgebra_starEquiv_pi_matrix
       (fun i => Classical.choice (hEquiv i)))⟩⟩
 
 end IteratedCut
+
+/-! ## Central idempotents of a finite direct sum of full matrix blocks -/
+
+section PiBlockCenter
+
+variable {J : Type u} [Fintype J] [DecidableEq J]
+variable {n : J → Type v} [∀ j, Fintype (n j)] [∀ j, DecidableEq (n j)]
+
+/-- The finite direct sum of full matrix blocks indexed by `J`. -/
+abbrev PiBlockAlgebra (n : J → Type v) :=
+  (j : J) → Matrix (n j) (n j) ℂ
+
+/-- The indicator central idempotent of a set of blocks. -/
+def piBlockIndicator (T : Finset J) : PiBlockAlgebra n :=
+  fun j => if j ∈ T then 1 else 0
+
+omit [Fintype J] [∀ j, Fintype (n j)] in
+theorem piBlockIndicator_apply (T : Finset J) (i : J) :
+    piBlockIndicator (n := n) T i = if i ∈ T then 1 else 0 := rfl
+
+/-- The minimal central projection carried by one block. -/
+def piBlockProjection (j : J) : PiBlockAlgebra n :=
+  fun i => if i = j then 1 else 0
+
+omit [Fintype J] [∀ j, Fintype (n j)] in
+theorem piBlockProjection_apply (j i : J) :
+    piBlockProjection (n := n) j i = if i = j then 1 else 0 := rfl
+
+omit [Fintype J] in
+theorem piBlockProjection_mul_self (j : J) :
+    piBlockProjection (n := n) j * piBlockProjection (n := n) j =
+      piBlockProjection (n := n) j := by
+  funext i
+  show (if i = j then (1 : Matrix (n i) (n i) ℂ) else 0) *
+      (if i = j then 1 else 0) = if i = j then 1 else 0
+  by_cases h : i = j
+  · rw [if_pos h, one_mul]
+  · rw [if_neg h, zero_mul]
+
+omit [Fintype J] in
+theorem piBlockProjection_central (j : J) (x : PiBlockAlgebra n) :
+    piBlockProjection (n := n) j * x = x * piBlockProjection (n := n) j := by
+  funext i
+  show (if i = j then (1 : Matrix (n i) (n i) ℂ) else 0) * x i =
+    x i * (if i = j then 1 else 0)
+  by_cases h : i = j
+  · rw [if_pos h, one_mul, mul_one]
+  · rw [if_neg h, zero_mul, mul_zero]
+
+/-- Every central idempotent of the finite direct sum of full matrix
+blocks is the indicator of a set of blocks: each component is central in
+its own full block, hence scalar, and idempotency forces each scalar to
+be zero or one. -/
+theorem piBlock_central_idempotent_indicator [∀ j, Nonempty (n j)]
+    {z : PiBlockAlgebra n} (hcentral : ∀ x, z * x = x * z)
+    (hidem : z * z = z) :
+    ∃ T : Finset J, z = piBlockIndicator (n := n) T := by
+  classical
+  have hscalar : ∀ i, z i ∈ Set.range (Matrix.scalar (n i)) := by
+    intro i
+    refine Matrix.mem_range_scalar_of_commute_single (fun p q _ => ?_)
+    have h := congrArg (fun w : PiBlockAlgebra n => w i)
+      (hcentral (Pi.single i (Matrix.single p q 1)))
+    have h' : z i * Matrix.single p q 1 = Matrix.single p q 1 * z i := by
+      simpa using h
+    exact h'.symm
+  choose c hc using hscalar
+  have hidemc : ∀ i, c i * c i = c i := by
+    intro i
+    obtain ⟨p⟩ := (inferInstance : Nonempty (n i))
+    have h : z i * z i = z i :=
+      congrArg (fun w : PiBlockAlgebra n => w i) hidem
+    rw [← hc i, ← map_mul] at h
+    have h2 := congrArg (fun M : Matrix (n i) (n i) ℂ => M p p) h
+    simpa [Matrix.scalar_apply, Matrix.diagonal_apply_eq] using h2
+  have hcases : ∀ i, c i = 0 ∨ c i = 1 := by
+    intro i
+    have h : c i * (c i - 1) = 0 := by linear_combination hidemc i
+    rcases mul_eq_zero.mp h with h0 | h1
+    · exact Or.inl h0
+    · exact Or.inr (sub_eq_zero.mp h1)
+  refine ⟨Finset.univ.filter fun i => c i = 1, funext fun i => ?_⟩
+  rcases hcases i with h0 | h1
+  · have hnot : i ∉ Finset.univ.filter fun i' => c i' = 1 := by
+      simp [Finset.mem_filter, h0]
+    rw [piBlockIndicator_apply, if_neg hnot, ← hc i, h0, map_zero]
+  · have hmem : i ∈ Finset.univ.filter fun i' => c i' = 1 := by
+      simp [Finset.mem_filter, h1]
+    rw [piBlockIndicator_apply, if_pos hmem, ← hc i, h1, map_one]
+
+/-- A star automorphism of the finite direct sum carries each block
+projection to an indicator of blocks. -/
+theorem starAutomorphism_piBlockProjection_indicator [∀ j, Nonempty (n j)]
+    (F : PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n) (j : J) :
+    ∃ T : Finset J, F (piBlockProjection (n := n) j) =
+      piBlockIndicator (n := n) T := by
+  refine piBlock_central_idempotent_indicator (fun y => ?_) ?_
+  · conv_lhs => rw [← F.apply_symm_apply y]
+    conv_rhs => rw [← F.apply_symm_apply y]
+    rw [← map_mul, ← map_mul, piBlockProjection_central j (F.symm y)]
+  · rw [← map_mul, piBlockProjection_mul_self]
+
+end PiBlockCenter
+
+/-! ## Continuous block fixing and the finite-block Stone converse -/
+
+section PiBlockControl
+
+variable {J : Type u} [Fintype J] [DecidableEq J]
+variable {n : J → Type v} [∀ j, Fintype (n j)] [∀ j, DecidableEq (n j)]
+
+/-- A continuous path with values in a finite subset of a T1 space is
+constant: each fiber is closed, the complement of one fiber is the finite
+union of the others, and the real line is connected. -/
+private theorem continuous_finiteRange_apply_eq {X : Type w}
+    [TopologicalSpace X] [T1Space X] {f : ℝ → X} (hf : Continuous f)
+    {F : Set X} (hF : F.Finite) (hmem : ∀ s, f s ∈ F) (t : ℝ) :
+    f t = f 0 := by
+  have hclosed : IsClosed (f ⁻¹' {f 0}) := isClosed_singleton.preimage hf
+  have hcompl : (f ⁻¹' {f 0})ᶜ = f ⁻¹' (F \ {f 0}) := by
+    ext s
+    simp only [Set.mem_compl_iff, Set.mem_preimage, Set.mem_singleton_iff,
+      Set.mem_diff]
+    exact ⟨fun hne => ⟨hmem s, hne⟩, fun hs => hs.2⟩
+  have hopen : IsOpen (f ⁻¹' {f 0}) := by
+    have hcl : IsClosed (f ⁻¹' (F \ {f 0})) :=
+      ((hF.subset Set.diff_subset).isClosed).preimage hf
+    rw [← hcompl] at hcl
+    exact isClosed_compl_iff.mp hcl
+  obtain hempty | huniv := isClopen_iff.mp ⟨hclosed, hopen⟩
+  · exfalso
+    have h0 : (0 : ℝ) ∈ f ⁻¹' {f 0} := by
+      rw [Set.mem_preimage, Set.mem_singleton_iff]
+    rw [hempty] at h0
+    exact Set.notMem_empty 0 h0
+  · have ht : t ∈ f ⁻¹' {f 0} := huniv ▸ Set.mem_univ t
+    rwa [Set.mem_preimage, Set.mem_singleton_iff] at ht
+
+/-- A pointwise-continuous family of star automorphisms through the
+identity fixes every block projection of the finite direct sum: the orbit
+is a continuous path inside the finite set of block indicators, and the
+parameter line is connected. -/
+theorem continuousFlow_fixes_piBlockProjection [∀ j, Nonempty (n j)]
+    (α : ℝ → (PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n))
+    (hzero : ∀ x, α 0 x = x)
+    (hcont : ∀ x, Continuous fun t : ℝ => α t x) (j : J) :
+    ∀ t : ℝ, α t (piBlockProjection (n := n) j) =
+      piBlockProjection (n := n) j := by
+  intro t
+  have hmem : ∀ s : ℝ, α s (piBlockProjection (n := n) j) ∈
+      Set.range (piBlockIndicator (n := n)) := by
+    intro s
+    obtain ⟨T, hT⟩ := starAutomorphism_piBlockProjection_indicator (α s) j
+    exact ⟨T, hT.symm⟩
+  have hconst := continuous_finiteRange_apply_eq
+    (hcont (piBlockProjection (n := n) j))
+    (Set.finite_range (piBlockIndicator (n := n))) hmem t
+  rw [hconst, hzero]
+
+omit [Fintype J] in
+theorem mul_piBlockProjection_eq_single (y : PiBlockAlgebra n) (j : J) :
+    y * piBlockProjection (n := n) j = Pi.single j (y j) := by
+  funext i
+  rw [Pi.mul_apply, piBlockProjection_apply]
+  by_cases h : i = j
+  · subst h
+    rw [if_pos rfl, mul_one, Pi.single_eq_same]
+  · rw [if_neg h, mul_zero, Pi.single_eq_of_ne h]
+
+omit [Fintype J] in
+theorem single_mul_piBlockProjection (j : J) (x : Matrix (n j) (n j) ℂ) :
+    Pi.single j x * piBlockProjection (n := n) j = Pi.single j x := by
+  rw [mul_piBlockProjection_eq_single, Pi.single_eq_same]
+
+omit [Fintype J] in
+/-- A block-fixing star automorphism carries the block into itself. -/
+theorem apply_single_of_fixes
+    (F : PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n) (j : J)
+    (hF : F (piBlockProjection (n := n) j) = piBlockProjection (n := n) j)
+    (x : Matrix (n j) (n j) ℂ) :
+    F (Pi.single j x) = Pi.single j (F (Pi.single j x) j) := by
+  conv_lhs => rw [← single_mul_piBlockProjection j x, map_mul, hF,
+    mul_piBlockProjection_eq_single]
+
+omit [Fintype J] in
+/-- Fixing a block projection passes to the inverse automorphism. -/
+theorem symm_fixes_piBlockProjection
+    (F : PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n) (j : J)
+    (hF : F (piBlockProjection (n := n) j) = piBlockProjection (n := n) j) :
+    F.symm (piBlockProjection (n := n) j) = piBlockProjection (n := n) j := by
+  conv_lhs => rw [← hF]
+  rw [F.symm_apply_apply]
+
+/-- The one-block restriction of a block-fixing star automorphism of the
+finite direct sum. -/
+def piBlockRestriction
+    (F : PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n) (j : J)
+    (hF : F (piBlockProjection (n := n) j) = piBlockProjection (n := n) j) :
+    Matrix (n j) (n j) ℂ ≃⋆ₐ[ℂ] Matrix (n j) (n j) ℂ where
+  toFun x := F (Pi.single j x) j
+  invFun x := F.symm (Pi.single j x) j
+  left_inv x := by
+    show F.symm (Pi.single j (F (Pi.single j x) j)) j = x
+    rw [← apply_single_of_fixes F j hF x, F.symm_apply_apply,
+      Pi.single_eq_same]
+  right_inv x := by
+    show F (Pi.single j (F.symm (Pi.single j x) j)) j = x
+    rw [← apply_single_of_fixes F.symm j
+        (symm_fixes_piBlockProjection F j hF) x,
+      F.apply_symm_apply, Pi.single_eq_same]
+  map_mul' x y := by
+    show F (Pi.single j (x * y)) j = F (Pi.single j x) j * F (Pi.single j y) j
+    rw [Pi.single_mul, map_mul]
+    rfl
+  map_add' x y := by
+    show F (Pi.single j (x + y)) j = F (Pi.single j x) j + F (Pi.single j y) j
+    rw [Pi.single_add, map_add]
+    rfl
+  map_smul' c x := by
+    show F (Pi.single j (c • x)) j = c • F (Pi.single j x) j
+    rw [Pi.single_smul, map_smul]
+    rfl
+  map_star' x := by
+    show F (Pi.single j (star x)) j = star (F (Pi.single j x) j)
+    rw [Pi.single_star, map_star]
+    rfl
+
+omit [Fintype J] in
+theorem piBlockRestriction_apply
+    (F : PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n) (j : J)
+    (hF : F (piBlockProjection (n := n) j) = piBlockProjection (n := n) j)
+    (x : Matrix (n j) (n j) ℂ) :
+    piBlockRestriction F j hF x = F (Pi.single j x) j := rfl
+
+/-- Finite-block Stone converse from pointwise continuity alone.  Every
+pointwise-continuous real-parameter star-automorphism group of a finite
+direct sum of full matrix blocks fixes every block projection and is
+blockwise conjugation by the coherent unitary family of one
+time-independent self-adjoint Hamiltonian per block.  Block fixing is
+derived, so no block-preservation hypothesis is taken. -/
+theorem piBlockStoneConverse_of_continuous [∀ j, Nonempty (n j)]
+    (α : ℝ → (PiBlockAlgebra n ≃⋆ₐ[ℂ] PiBlockAlgebra n))
+    (hzero : ∀ x, α 0 x = x)
+    (hgroup : ∀ s t : ℝ, ∀ x, α (s + t) x = α s (α t x))
+    (hcont : ∀ x, Continuous fun t : ℝ => α t x) :
+    ∃ Ham : (j : J) → Matrix (n j) (n j) ℂ,
+      (∀ j, IsSelfAdjoint (Ham j)) ∧
+        ∀ (t : ℝ) (x : PiBlockAlgebra n) (j : J),
+          α t x j = stonePropagator (Ham j) t * x j *
+            stonePropagator (Ham j) (-t) := by
+  classical
+  have hfix : ∀ (j : J) (t : ℝ),
+      α t (piBlockProjection (n := n) j) = piBlockProjection (n := n) j :=
+    fun j => continuousFlow_fixes_piBlockProjection α hzero hcont j
+  have hblock : ∀ j : J, ∃ Ham : Matrix (n j) (n j) ℂ,
+      IsSelfAdjoint Ham ∧ ∀ (t : ℝ) (x : Matrix (n j) (n j) ℂ),
+        piBlockRestriction (α t) j (hfix j t) x =
+          stonePropagator Ham t * x * stonePropagator Ham (-t) := by
+    intro j
+    exact finiteStoneConverse_of_continuous
+      (fun t => piBlockRestriction (α t) j (hfix j t))
+      (fun x => by
+        show α 0 (Pi.single j x) j = x
+        rw [hzero, Pi.single_eq_same])
+      (fun s t x => by
+        show α (s + t) (Pi.single j x) j =
+          α s (Pi.single j (α t (Pi.single j x) j)) j
+        conv_lhs => rw [hgroup s t, apply_single_of_fixes (α t) j (hfix j t) x])
+      (fun x => (continuous_apply j).comp (hcont (Pi.single j x)))
+  choose Ham hsa hconj using hblock
+  refine ⟨Ham, hsa, ?_⟩
+  intro t x j
+  have hx : x = ∑ i, Pi.single i (x i) := (Finset.univ_sum_single x).symm
+  conv_lhs => rw [hx]
+  rw [map_sum, Finset.sum_apply]
+  have hterm : ∀ i, α t (Pi.single i (x i)) j =
+      if i = j then
+        stonePropagator (Ham j) t * x j * stonePropagator (Ham j) (-t)
+      else 0 := by
+    intro i
+    by_cases hij : i = j
+    · subst hij
+      rw [if_pos rfl]
+      have h := hconj i t (x i)
+      rw [piBlockRestriction_apply] at h
+      exact h
+    · rw [if_neg hij, apply_single_of_fixes (α t) i (hfix i t) (x i)]
+      exact Pi.single_eq_of_ne (fun h => hij h.symm) _
+  rw [Finset.sum_congr rfl fun i _ => hterm i,
+    Finset.sum_ite_eq' Finset.univ j
+      (fun _ => stonePropagator (Ham j) t * x j * stonePropagator (Ham j) (-t)),
+    if_pos (Finset.mem_univ j)]
+
+end PiBlockControl
+
+/-! ## Continuous flows on a star subalgebra fix its minimal center -/
+
+section SubalgebraFlow
+
+variable {n : Type u} [Fintype n] [DecidableEq n]
+  {S : StarSubalgebra ℂ (Matrix n n ℂ)}
+
+private theorem mul_list_sum' {M : Type u} [NonUnitalNonAssocSemiring M]
+    (a : M) (l : List M) : a * l.sum = (l.map (fun x => a * x)).sum := by
+  induction l with
+  | nil => simp
+  | cons b l ih => simp [List.sum_cons, mul_add, ih]
+
+/-- Rigidity of minimal central projections: every minimal central
+projection of the subalgebra is a member of every minimal orthogonal
+central resolution of the identity. -/
+theorem IsMinimalCentralProjectionIn.mem_resolution
+    {q : Matrix n n ℂ} (hq : IsMinimalCentralProjectionIn S q)
+    {l : List (Matrix n n ℂ)}
+    (hl : ∀ e ∈ l, IsMinimalCentralProjectionIn S e) (hsum : l.sum = 1) :
+    q ∈ l := by
+  have hqsum : q = (l.map (fun f => q * f)).sum := by
+    rw [← mul_list_sum', hsum, mul_one]
+  have hex : ∃ f ∈ l, q * f ≠ 0 := by
+    by_contra hall
+    push Not at hall
+    refine hq.ne_zero (hqsum.trans (List.sum_eq_zero ?_))
+    intro y hy
+    rw [List.mem_map] at hy
+    obtain ⟨f, hf, rfl⟩ := hy
+    exact hall f hf
+  obtain ⟨f, hfl, hqf⟩ := hex
+  have hff := hl f hfl
+  have hprod : IsCentralProjectionIn S (q * f) :=
+    hq.toIsCentralProjectionIn.mul hff.toIsCentralProjectionIn
+  have hcomm : q * f = f * q := hq.centralIn.commute hff.centralIn
+  have hle_q : (q * f) * q = q * f := by
+    rw [hcomm, mul_assoc, hq.isIdempotentElem.eq, ← hcomm]
+  have hle_f : (q * f) * f = q * f := by
+    rw [mul_assoc, hff.isIdempotentElem.eq]
+  have hq_eq : q * f = q := (hq.minimal _ hprod hle_q).resolve_left hqf
+  have hf_eq : q * f = f := (hff.minimal _ hprod hle_f).resolve_left hqf
+  rw [hq_eq.symm.trans hf_eq]
+  exact hfl
+
+/-- Star automorphisms of the subalgebra carry central star projections of
+the subalgebra to central star projections of the subalgebra. -/
+theorem IsCentralProjectionIn.map_subtype {p : Matrix n n ℂ}
+    (hp : IsCentralProjectionIn S p) (F : ↥S ≃⋆ₐ[ℂ] ↥S) :
+    IsCentralProjectionIn S
+      ((F ⟨p, hp.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) := by
+  have haidem : (⟨p, hp.centralIn.mem⟩ : ↥S) * ⟨p, hp.centralIn.mem⟩ =
+      ⟨p, hp.centralIn.mem⟩ := Subtype.ext hp.isIdempotentElem.eq
+  have hastar : star (⟨p, hp.centralIn.mem⟩ : ↥S) =
+      ⟨p, hp.centralIn.mem⟩ := Subtype.ext hp.isSelfAdjoint.star_eq
+  refine { isIdempotentElem := ?_, isSelfAdjoint := ?_,
+           centralIn := ⟨(F ⟨p, hp.centralIn.mem⟩).2, ?_⟩ }
+  · have h1 : F ⟨p, hp.centralIn.mem⟩ * F ⟨p, hp.centralIn.mem⟩ =
+        F ⟨p, hp.centralIn.mem⟩ := by rw [← map_mul, haidem]
+    exact congrArg Subtype.val h1
+  · have h1 : star (F ⟨p, hp.centralIn.mem⟩) = F ⟨p, hp.centralIn.mem⟩ := by
+      rw [← map_star, hastar]
+    exact congrArg Subtype.val h1
+  · intro x hx
+    have hx' : F (F.symm ⟨x, hx⟩) = ⟨x, hx⟩ := F.apply_symm_apply _
+    have hxa : (⟨p, hp.centralIn.mem⟩ : ↥S) * F.symm ⟨x, hx⟩ =
+        F.symm ⟨x, hx⟩ * ⟨p, hp.centralIn.mem⟩ :=
+      Subtype.ext (hp.centralIn.commutes (F.symm ⟨x, hx⟩).2)
+    have h1 : F ⟨p, hp.centralIn.mem⟩ * ⟨x, hx⟩ =
+        ⟨x, hx⟩ * F ⟨p, hp.centralIn.mem⟩ := by
+      rw [← hx', ← map_mul, ← map_mul, hxa]
+    exact congrArg Subtype.val h1
+
+/-- Star automorphisms of the subalgebra carry minimal central projections
+of the subalgebra to minimal central projections. -/
+theorem IsMinimalCentralProjectionIn.map_subtype {q : Matrix n n ℂ}
+    (hq : IsMinimalCentralProjectionIn S q) (F : ↥S ≃⋆ₐ[ℂ] ↥S) :
+    IsMinimalCentralProjectionIn S
+      ((F ⟨q, hq.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) := by
+  refine ⟨hq.toIsCentralProjectionIn.map_subtype F, ?_, ?_⟩
+  · intro h0
+    have h1 : F ⟨q, hq.centralIn.mem⟩ = 0 := Subtype.ext h0
+    have h2 : (⟨q, hq.centralIn.mem⟩ : ↥S) = 0 := by
+      have h3 := congrArg F.symm h1
+      rwa [F.symm_apply_apply, map_zero] at h3
+    exact hq.ne_zero (congrArg Subtype.val h2)
+  · intro r hr hle
+    have hcproj : IsCentralProjectionIn S
+        ((F.symm ⟨r, hr.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) :=
+      hr.map_subtype F.symm
+    have himg : F (F.symm ⟨r, hr.centralIn.mem⟩ * ⟨q, hq.centralIn.mem⟩) =
+        F (F.symm ⟨r, hr.centralIn.mem⟩) := by
+      rw [map_mul, F.apply_symm_apply]
+      exact Subtype.ext hle
+    have hle' : F.symm ⟨r, hr.centralIn.mem⟩ * ⟨q, hq.centralIn.mem⟩ =
+        F.symm ⟨r, hr.centralIn.mem⟩ := F.injective himg
+    have hleq : ((F.symm ⟨r, hr.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) * q =
+        ((F.symm ⟨r, hr.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) :=
+      congrArg Subtype.val hle'
+    rcases hq.minimal _ hcproj hleq with h0 | hqe
+    · left
+      have hc0 : (F.symm ⟨r, hr.centralIn.mem⟩ : ↥S) = 0 := Subtype.ext h0
+      have hr0 : (⟨r, hr.centralIn.mem⟩ : ↥S) = 0 := by
+        rw [← F.apply_symm_apply ⟨r, hr.centralIn.mem⟩, hc0, map_zero]
+      exact congrArg Subtype.val hr0
+    · right
+      have hca : (F.symm ⟨r, hr.centralIn.mem⟩ : ↥S) =
+          ⟨q, hq.centralIn.mem⟩ := Subtype.ext hqe
+      have hrF : (⟨r, hr.centralIn.mem⟩ : ↥S) = F ⟨q, hq.centralIn.mem⟩ := by
+        rw [← F.apply_symm_apply ⟨r, hr.centralIn.mem⟩, hca]
+      exact congrArg Subtype.val hrF
+
+/-- A pointwise-continuous family of star automorphisms of the subalgebra
+through the identity fixes every minimal central projection of the
+subalgebra at every parameter: the orbit is a continuous path inside the
+finite member set of one minimal central resolution. -/
+theorem continuousFlow_fixes_minimalCentralProjection
+    (α : ℝ → (↥S ≃⋆ₐ[ℂ] ↥S)) (hzero : ∀ x, α 0 x = x)
+    (hcont : ∀ x : ↥S, Continuous fun t : ℝ =>
+      ((α t x : ↥S) : Matrix n n ℂ))
+    {e : Matrix n n ℂ} (he : IsMinimalCentralProjectionIn S e) (t : ℝ) :
+    ((α t ⟨e, he.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) = e := by
+  obtain ⟨l, hlmin, _, hlsum⟩ := exists_minimal_central_resolution S
+  have hmem : ∀ s : ℝ,
+      ((α s ⟨e, he.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) ∈
+        {x : Matrix n n ℂ | x ∈ l} := fun s =>
+    (he.map_subtype (α s)).mem_resolution hlmin hlsum
+  have h1 := continuous_finiteRange_apply_eq (hcont _)
+    l.finite_toSet hmem t
+  rw [h1, hzero]
+
+/-- A pointwise-continuous identity-based family of star automorphisms of
+the subalgebra acts on every minimal central corner. -/
+theorem continuousFlow_maps_relativeCorner
+    (α : ℝ → (↥S ≃⋆ₐ[ℂ] ↥S)) (hzero : ∀ x, α 0 x = x)
+    (hcont : ∀ x : ↥S, Continuous fun t : ℝ =>
+      ((α t x : ↥S) : Matrix n n ℂ))
+    {e : Matrix n n ℂ} (he : IsMinimalCentralProjectionIn S e)
+    {x : ↥S} (hx : (x : Matrix n n ℂ) ∈
+      relativeCorner S he.toIsCentralProjectionIn) (t : ℝ) :
+    ((α t x : ↥S) : Matrix n n ℂ) ∈
+      relativeCorner S he.toIsCentralProjectionIn := by
+  refine ⟨(α t x).2, ?_⟩
+  have hfix := continuousFlow_fixes_minimalCentralProjection α hzero hcont
+    he t
+  have hex : (⟨e, he.centralIn.mem⟩ : ↥S) * x = x := Subtype.ext hx.2
+  have h1 : α t ⟨e, he.centralIn.mem⟩ * α t x = α t x := by
+    rw [← map_mul, hex]
+  calc e * ((α t x : ↥S) : Matrix n n ℂ)
+      = ((α t ⟨e, he.centralIn.mem⟩ : ↥S) : Matrix n n ℂ) *
+          ((α t x : ↥S) : Matrix n n ℂ) := by rw [hfix]
+    _ = ((α t x : ↥S) : Matrix n n ℂ) := congrArg Subtype.val h1
+
+end SubalgebraFlow
+
+/-! ## The composed closure statement -/
+
+section Closure
+
+variable {N : Type u} [Fintype N] [DecidableEq N]
+
+/-- Composed closure of the star Wedderburn classification and the
+finite-block Stone converse: every star subalgebra of a finite complex
+matrix algebra is star-isomorphic to a finite direct sum of full matrix
+blocks of positive dimensions, and on that block model every
+pointwise-continuous real-parameter star-automorphism group is blockwise
+conjugation by the coherent unitary family of one time-independent
+self-adjoint Hamiltonian per block. -/
+theorem starWedderburn_stone_closure (S : StarSubalgebra ℂ (Matrix N N ℂ)) :
+    ∃ (k : ℕ) (d : Fin k → ℕ), (∀ i, 0 < d i) ∧
+      Nonempty (↥S ≃⋆ₐ[ℂ]
+        ((i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ)) ∧
+      ∀ α : ℝ → (((i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ) ≃⋆ₐ[ℂ]
+          ((i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ)),
+        (∀ x, α 0 x = x) →
+        (∀ s t : ℝ, ∀ x, α (s + t) x = α s (α t x)) →
+        (∀ x, Continuous fun t : ℝ => α t x) →
+        ∃ Ham : (i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ,
+          (∀ i, IsSelfAdjoint (Ham i)) ∧
+            ∀ (t : ℝ) (x : (i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ)
+              (i : Fin k),
+              α t x i = stonePropagator (Ham i) t * x i *
+                stonePropagator (Ham i) (-t) := by
+  obtain ⟨k, d, hd, hequiv⟩ := starSubalgebra_starEquiv_pi_matrix S
+  refine ⟨k, d, hd, hequiv, ?_⟩
+  intro α hzero hgroup hcont
+  haveI : ∀ i, Nonempty (Fin (d i)) := fun i => Fin.pos_iff_nonempty.mp (hd i)
+  exact piBlockStoneConverse_of_continuous α hzero hgroup hcont
+
+/-- Full composed form of the closure: a pointwise-continuous
+real-parameter star-automorphism group of a star subalgebra of a finite
+complex matrix algebra is, through one star Wedderburn block model,
+blockwise conjugation by the coherent unitary families of one
+time-independent self-adjoint Hamiltonian per block.  Pointwise
+continuity is taken in the ambient matrix algebra; the transported flow
+on the block model is pointwise continuous because every linear map from
+the finite-dimensional carrier submodule is continuous. -/
+theorem starSubalgebraStoneConverse_of_continuous
+    (S : StarSubalgebra ℂ (Matrix N N ℂ))
+    (α : ℝ → (↥S ≃⋆ₐ[ℂ] ↥S))
+    (hzero : ∀ x, α 0 x = x)
+    (hgroup : ∀ s t : ℝ, ∀ x, α (s + t) x = α s (α t x))
+    (hcont : ∀ x : ↥S, Continuous fun t : ℝ =>
+      ((α t x : ↥S) : Matrix N N ℂ)) :
+    ∃ (k : ℕ) (d : Fin k → ℕ)
+      (Φ : ↥S ≃⋆ₐ[ℂ] ((i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ))
+      (Ham : (i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ),
+      (∀ i, 0 < d i) ∧ (∀ i, IsSelfAdjoint (Ham i)) ∧
+      ∀ (t : ℝ) (x : ↥S) (i : Fin k),
+        Φ (α t x) i =
+          stonePropagator (Ham i) t * Φ x i *
+            stonePropagator (Ham i) (-t) := by
+  classical
+  obtain ⟨k, d, hd, hΦne⟩ := starSubalgebra_starEquiv_pi_matrix S
+  obtain ⟨Φ⟩ := hΦne
+  haveI : ∀ i, Nonempty (Fin (d i)) := fun i =>
+    Fin.pos_iff_nonempty.mp (hd i)
+  set β : ℝ → (((i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ) ≃⋆ₐ[ℂ]
+      ((i : Fin k) → Matrix (Fin (d i)) (Fin (d i)) ℂ)) :=
+    fun t => (Φ.symm.trans (α t)).trans Φ with hβ
+  have hβapply : ∀ (t : ℝ) y, β t y = Φ (α t (Φ.symm y)) := fun t y => rfl
+  have hβzero : ∀ y, β 0 y = y := by
+    intro y
+    rw [hβapply, hzero, Φ.apply_symm_apply]
+  have hβgroup : ∀ s t : ℝ, ∀ y, β (s + t) y = β s (β t y) := by
+    intro s t y
+    rw [hβapply, hβapply, hβapply, hgroup, Φ.symm_apply_apply]
+  have hβcont : ∀ y, Continuous fun t : ℝ => β t y := by
+    intro y
+    show Continuous fun t : ℝ => Φ (α t (Φ.symm y))
+    apply continuous_pi
+    intro i
+    have hmemS : ∀ v : ↥(Subalgebra.toSubmodule S.toSubalgebra),
+        (v : Matrix N N ℂ) ∈ S := fun v => v.2
+    let L : ↥(Subalgebra.toSubmodule S.toSubalgebra) →ₗ[ℂ]
+        Matrix (Fin (d i)) (Fin (d i)) ℂ :=
+      { toFun := fun v => Φ ⟨(v : Matrix N N ℂ), hmemS v⟩ i
+        map_add' := fun v w => by
+          have h1 : (⟨((v + w : _) : Matrix N N ℂ), hmemS _⟩ : ↥S) =
+              ⟨(v : Matrix N N ℂ), hmemS v⟩ +
+                ⟨(w : Matrix N N ℂ), hmemS w⟩ :=
+            Subtype.ext rfl
+          show Φ ⟨((v + w : _) : Matrix N N ℂ), hmemS _⟩ i = _
+          rw [h1, map_add]
+          rfl
+        map_smul' := fun c v => by
+          have h1 : (⟨((c • v : _) : Matrix N N ℂ), hmemS _⟩ : ↥S) =
+              c • ⟨(v : Matrix N N ℂ), hmemS v⟩ :=
+            Subtype.ext rfl
+          show Φ ⟨((c • v : _) : Matrix N N ℂ), hmemS _⟩ i = _
+          rw [h1, map_smul]
+          rfl }
+    have hLcont : Continuous L := L.continuous_of_finiteDimensional
+    have hsub : Continuous fun t : ℝ =>
+        (⟨((α t (Φ.symm y) : ↥S) : Matrix N N ℂ),
+          (α t (Φ.symm y)).2⟩ :
+          ↥(Subalgebra.toSubmodule S.toSubalgebra)) :=
+      (hcont (Φ.symm y)).subtype_mk _
+    have hfun : (fun t : ℝ => Φ (α t (Φ.symm y)) i) =
+        fun t : ℝ => L ⟨((α t (Φ.symm y) : ↥S) : Matrix N N ℂ),
+          (α t (Φ.symm y)).2⟩ := by
+      funext t
+      show Φ (α t (Φ.symm y)) i =
+        Φ ⟨((α t (Φ.symm y) : ↥S) : Matrix N N ℂ), _⟩ i
+      rw [Subtype.coe_eta]
+    rw [hfun]
+    exact hLcont.comp hsub
+  obtain ⟨Ham, hsa, hconj⟩ :=
+    piBlockStoneConverse_of_continuous β hβzero hβgroup hβcont
+  refine ⟨k, d, Φ, Ham, hd, hsa, ?_⟩
+  intro t x i
+  have h1 : β t (Φ x) = Φ (α t x) := by
+    rw [hβapply, Φ.symm_apply_apply]
+  rw [← h1]
+  exact hconj t (Φ x) i
+
+end Closure
+
+#print axioms OPH.Dynamics.IsProjectionIn.exists_minimal_decomposition
+#print axioms OPH.Dynamics.IsMinimalProjectionIn.corner_smul
+#print axioms OPH.Dynamics.exists_partial_isometry
+#print axioms OPH.Dynamics.exists_connecting_element
+#print axioms OPH.Dynamics.minimalCentralCorner_starEquiv_matrix
+#print axioms OPH.Dynamics.IsMinimalCentralProjectionIn.corner_center_scalar
+#print axioms OPH.Dynamics.starSubalgebra_starEquiv_pi_matrix
+#print axioms OPH.Dynamics.piBlock_central_idempotent_indicator
+#print axioms OPH.Dynamics.continuousFlow_fixes_piBlockProjection
+#print axioms OPH.Dynamics.piBlockStoneConverse_of_continuous
+#print axioms OPH.Dynamics.IsMinimalCentralProjectionIn.mem_resolution
+#print axioms OPH.Dynamics.IsMinimalCentralProjectionIn.map_subtype
+#print axioms OPH.Dynamics.continuousFlow_fixes_minimalCentralProjection
+#print axioms OPH.Dynamics.continuousFlow_maps_relativeCorner
+#print axioms OPH.Dynamics.starWedderburn_stone_closure
+#print axioms OPH.Dynamics.starSubalgebraStoneConverse_of_continuous
 
 end OPH.Dynamics

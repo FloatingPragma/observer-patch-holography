@@ -1564,15 +1564,17 @@
         "Lean/Dynamics/PublicMarkov.lean",
         "Lean/Dynamics/PublicAutomorphism.lean",
         "Lean/Dynamics/PrivateInner.lean",
+        "Lean/Dynamics/StoneConverse.lean",
+        "Lean/Dynamics/CentralBlocks.lean",
+        "Lean/Dynamics/CenterSpectral.lean",
+        "Lean/Dynamics/StarWedderburn.lean",
         "Lean/docs/B3_PUBLIC_PRIVATE_DYNAMICS.md"
       ],
       "falsifier": "The attained packet fails if positive unital record maps are not exactly row-stochastic under the stated cone and convention, a public star automorphism is not uniquely induced by a label permutation, a pointwise-continuous public star-automorphism group is nontrivial, a star automorphism of a finite full private block is not unitarily inner, or the fixed-Hamiltonian unitary or real-parameter von Neumann identity fails.",
-      "scope_if_false": "Only the attained finite B3 packet falls. Arbitrary central-block algebras, converse Stone-type reconstruction, source dynamics, physical time, and every frozen prediction remain separately assessed.",
-      "status": "substantial_finite_dichotomy_attained__central_blocks_and_converse_generator_open",
+      "scope_if_false": "Only the attained finite B3 packet falls. Source dynamics, physical time, and every frozen prediction remain separately assessed.",
+      "status": "finite_dichotomy_attained__central_blocks_and_stone_converse_closed",
       "claim_class": "conditional_implication",
-      "gates": [
-        679
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-FINITE-QUANTUM-LIMITATION-SUITE",

@@ -30,7 +30,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2016`. 90 claims, 17 distinct live gates across 37 gated claims.
+Release: `r2016`. 90 claims, 16 distinct live gates across 36 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -90,7 +90,7 @@ Release: `r2016`. 90 claims, 17 distinct live gates across 37 gated claims.
 | `OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING` | `conditional_implication` | `exact_public_record_algebra_and_sharp_no_cloning_attained__mixed_broadcast_physics_open` | none |
 | `OPH-CONSENSUS-TOWER-INTERFACE` | `conditional_implication` | `exact_consensus_tower_interface_and_constant_adaptor_attained__nonconstant_source_realization_open` | none |
 | `OPH-PUBLICIZATION-DYNAMICS-FINITE` | `conditional_implication` | `exact_publicization_packet_attained__cp_label_and_physical_attachments_unclaimed` | none |
-| `OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE` | `conditional_implication` | `substantial_finite_dichotomy_attained__central_blocks_and_converse_generator_open` | [#679](https://github.com/FloatingPragma/observer-patch-holography/issues/679) |
+| `OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE` | `conditional_implication` | `finite_dichotomy_attained__central_blocks_and_stone_converse_closed` | none |
 | `OPH-FINITE-QUANTUM-LIMITATION-SUITE` | `conditional_implication` | `exact_bounded_finite_robertson_partition_quotients_and_partition_public_record_adaptor_attained__source_and_physical_instrument_open` | none |
 | `OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE` | `conditional_implication` | `exact_bounded_five_mode_exterior_and_supplied_weight_character_action_attained__source_and_physical_selection_open` | [#706](https://github.com/FloatingPragma/observer-patch-holography/issues/706) |
 | `OPH-FINITE-BORN-FRAME-RANK-GAP` | `conditional_implication` | `exact_bounded_rank_gap_and_continuous_binary_no_go__affinity_effect_source_and_public_instrument_missing` | none |
@@ -138,7 +138,6 @@ Release: `r2016`. 90 claims, 17 distinct live gates across 37 gated claims.
 
 | Issue | Title | Gated claims |
 |---|---|---|
-| [#679](https://github.com/FloatingPragma/observer-patch-holography/issues/679) | [B3] Public/private dynamical dichotomy | `OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE` |
 | [#683](https://github.com/FloatingPragma/observer-patch-holography/issues/683) | [B7] Conditional history weights and the finite/real variation bridge | `OPH-FINITE-HISTORY-VARIATIONAL-HELPERS` |
 | [#688](https://github.com/FloatingPragma/observer-patch-holography/issues/688) | [B12] Thermodynamic physical receipts continuation | `OPH-THERMO-FOUR-LAW-PACKAGE`, `OPH-THERMO-SOURCE-REALIZATION-AUDIT`, `OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION` |
 | [#692](https://github.com/FloatingPragma/observer-patch-holography/issues/692) | [E1] Finite causal observer net | `OPH-FINITE-LOCALITY-NOSIGNALLING`, `OPH-FINITE-CAUSAL-OBSERVER-NET` |
