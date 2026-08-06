@@ -861,6 +861,31 @@ Mapping between Lean 4 theorems in this project and statements in
   exponential flow of the A1 operators, extract either object from source
   logs, prove the two Lie-theory adapters, or formalize compact-simple
   classification. Those inputs remain explicit.
+- #705 response-word algebra boundary
+  (`Screen/A5ResponseWordAlgebra.lean`): the registered adjacency recurrence
+  and its polynomial antipode readback generate an exactly four-dimensional
+  commutative response-word algebra over `ℚ`, with the arithmetic carried
+  out on the explicit twelve-port matrices. The full orbital product table
+  is kernel-checked over `ℤ` and cast exactly to `ℚ`; the adjacency
+  satisfies the exact quartic `A⁴ = 4A³ + 10A² - 20A - 25I`, every
+  generator word reduces to a rational combination of `I, A, A², A³`
+  (`word_in_power_span`), those four matrices are independent
+  (`powers_independent`), all word commutators vanish
+  (`no_nonzero_word_commutator`), the word span is exactly the equivariant
+  commutant of `Screen/A5Commutant.lean` (`equivariant_iff_word_span`), and
+  no twelve span members are linearly independent
+  (`no_twelve_independent_words`) — the registered response supplies
+  neither twelve independent generators nor a nonzero commutator (issue
+  #705, boundary items one and two). Negative controls: deleting one edge
+  breaks the readback and the quartic at explicit entries
+  (`broken_readback_fails`, `broken_quartic_fails`); the elementary matrix
+  `E₀₁` has a nonzero adjacency commutator and sits outside the span
+  (`comparison_commutator_nonzero`, `comparison_not_in_span`); `A³` is
+  outside the span of `I, A, A²` and no quadratic reproduces the antipode
+  (`cube_not_in_three_span`, `antipode_not_quadratic`). Sorry-free,
+  standard axioms, no `native_decide`. Does **not** construct a compact
+  current bracket, the `u(12)` comparison rank, or the fourteen-dimensional
+  alternating equivariant space.
 - #568 icosahedral-lane completion (`Screen/A5Commutant.lean`,
   `Screen/A5IncidenceResponse.lean`, `Screen/TraceBalancedKernel.lean`,
   `Screen/TrichotomyCases.lean`, plus removability controls in
