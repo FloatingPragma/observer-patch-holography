@@ -2525,6 +2525,40 @@ the set intersection of the two block algebras; the regional repair maps
 are identities, and genuine coverage semantics for a source-produced net
 are open.
 
+\paragraph{Hamiltonian rigidity of the private block.}
+The private dynamics behind these interfaces is forced from continuity
+alone, in the machine-checked modules
+\path{Lean/Dynamics/StoneConverse.lean},
+\path{Lean/Dynamics/CentralBlocks.lean}, and
+\path{Lean/Dynamics/CenterSpectral.lean}. On one full finite matrix
+block, every complex-linear Leibniz endomorphism is an inner derivation,
+with an explicit matrix-unit witness proved from scratch, and every
+star-compatible Leibniz endomorphism is the von Neumann commutator
+action \(x\mapsto(-i)(Hx-xH)\) of one self-adjoint generator,
+unique up to one additive real scalar multiple of the identity. A
+real-parameter group of star automorphisms of the block whose orbit maps
+are pointwise continuous is conjugation by the coherent unitary family
+\(\exp(t(-i)H)\) of one time-independent self-adjoint
+Hamiltonian: continuity upgrades to differentiability at parameter zero
+because the group acts on the matrix-unit basis as a norm-continuous
+matrix family whose short-interval average is invertible, and the
+fundamental theorem of calculus recovers the family from its primitive.
+Time evolution on the finite private block therefore has no choice
+except Hamiltonian form. The two-block direct sum inherits the converse
+blockwise with block fixing derived: the center of the two-block algebra
+is exactly the span of its two minimal central projections, every star
+automorphism fixes or swaps those projections, the swap branch is
+realized by the block-swap equivalence on the square two-block algebra,
+and a pointwise-continuous group through the identity keeps each
+projection on a continuous path inside a two-point set, hence fixes both
+blocks at every parameter. Behind this sits a spectral decomposition:
+the center of any star subalgebra of a finite complex matrix algebra is
+the span of a minimal orthogonal central resolution of the identity,
+unique up to permutation. The parameter is a real number; no physical
+clock, source-selected Hamiltonian, or physical time identification is
+claimed, and central-block sums beyond two blocks are outside the proved
+statements \cite{ophrepo}.
+
 \paragraph{Boundary-fibre circularity control.}
 Over the bare consensus tower of the gravitational branch (finite
 presentation and
@@ -2725,6 +2759,27 @@ boundary/sector fiber. It does not extend the finite packet closure to an arbitr
 state-and-law space, and it does not remove the branch and record hypotheses stated in the
 theorem.
 \end{remark}
+
+\paragraph{An executed preregistered witness chain.}
+The certificate discipline above has one executed finite instance running
+from a source run to kernel-checked literals. A bounded run of the
+companion simulation engine was preregistered: its gate contract was
+committed before execution and pins five gates, a nonconstant protected
+record, one pinned common reference shared by the state and transition
+optimizers, an exact recognizer, stationarity, and contraction. The
+executed run passed all five gates. A declared extraction script froze
+the run's finite payload, and the payload integers are mirrored verbatim
+in \path{Lean/QFT/SimEarnedWitness.lean} as literals whose receipts are
+kernel-decided, inhabiting an earned instance of the observer access-cut
+interface of Section~\ref{sec:operational-observer-layer}. Where the
+truncated payload cannot support a receipt, the collapse is stated as a
+theorem instead of being repaired by synthetic data: on three of the four
+mirrored observer supports the public and accessible algebras coincide,
+and exactly one support separates a record class by its companion class.
+The literals are counts and class labels on that one run under a declared
+binning and a declared observer selection rule; no physical claim, no
+probability claim beyond realized frequencies, and no canonical status
+for the selection are asserted \cite{ophrepo}.
 
 \section{Distributed Presentations of One Finite Universe}
 \label{sec:distributed-one-universe}

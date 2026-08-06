@@ -308,8 +308,13 @@ For the canonical oriented carrier, the complete target-free
 fourteen and an exact rational basis. This is a search-space theorem. It does
 not select a Jacobi bracket, a compact current, source histories, or holonomy.
 The complete Jacobi condition has exact quadratic coefficient-row rank 38
-and an 11+27 rowspace decomposition; the rank-27 residual variety and the
-compact branches remain unclassified \cite{ophfpe,ophrepo}.
+and an 11+27 rowspace decomposition. The compact real locus of the
+resulting fourteen-parameter variety is exactly three families, two of
+them mirror \(\mathfrak{su}(3)\oplus\mathfrak{so}(3)\)-type cells,
+conditional on three named textbook lemmas
+(Section~\ref{sec:a5-e8-significance}); the noncompact components away
+from the analyzed channel supports remain unclassified
+\cite{ophfpe,ophrepo}.
 
 This paper supplies the shared interpretation and closure language. Its claims
 are typed: finite theorem, controlled scaling result, conditional physical
@@ -1224,6 +1229,18 @@ refinement tower.  A receipt records enough public data for an independent verif
 the produced object satisfies them.  A successful finite run does not replace an implication
 proof, and an implication proof does not construct its physical source object.
 
+The receipt discipline has one executed end-to-end instance. A bounded
+source run was preregistered by committing its gate contract before
+execution: a nonconstant protected record, one pinned common reference
+shared by the state and transition optimizers, an exact recognizer,
+stationarity, and contraction. The executed run passed all five gates, and
+its extracted finite payload is mirrored as kernel-decided Lean literals
+inhabiting an earned instance of the observer access-cut interface
+(Section~\ref{sec:observerhood-common-origin}), with each collapse of the
+truncated data stated as a theorem instead of repaired by synthetic data.
+The mirrored integers are counts and class labels on that one run and
+carry no physical claim \cite{ophrepo}.
+
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.18\linewidth}
 >{\raggedright\arraybackslash}p{0.38\linewidth}
 >{\raggedright\arraybackslash}p{0.36\linewidth}@{}}
@@ -1354,8 +1371,9 @@ preservation rather than CP or CPTP. The operator-exponential theorem supplies
 no source rate or physical clock. The public automorphism classification is
 complete only for the exact finite active-record function algebra and reaches
 the matrix public algebra through the B1 equivalence. The private theorem
-covers one simple full block and does not
-derive a coherent Hamiltonian from an arbitrary continuous automorphism group.
+covers one simple full block; the converse derivation of a coherent
+Hamiltonian from a pointwise-continuous automorphism group on that block is
+Theorem~\ref{thm:finite-stone-converse}.
 The entropy identity is an analytic matrix proof outside the Lean export.
 No physical rate or clock is attached. \\
 \addlinespace
@@ -1722,6 +1740,50 @@ exactly through character-block structure. The declared overlap algebra is
 a proper subalgebra of the set intersection of the two block algebras, and
 genuine coverage semantics and regional-factor receipts for a
 source-produced net are open.
+
+Dynamics on the private block carries a matching rigidity statement.
+
+\begin{theorem}[Finite Stone converse on one full private block]
+\label{thm:finite-stone-converse}
+Let \(\alpha_t\), \(t\in\mathbb R\), be star automorphisms of one full
+finite matrix block \(M_n(\mathbb C)\) with \(\alpha_0=\mathrm{id}\),
+\(\alpha_{s+t}=\alpha_s\circ\alpha_t\), and every orbit map
+\(t\mapsto\alpha_t(x)\) continuous. Then there is a self-adjoint
+\(H\in M_n(\mathbb C)\) with
+\[
+\alpha_t(x)=e^{-itH}\,x\,e^{itH}
+\qquad\text{for all real }t\text{ and all }x\in M_n(\mathbb C);
+\]
+the conjugating family \(U_t=e^{-itH}\) is unitary with
+\(U_0=1\) and \(U_{s+t}=U_sU_t\), and \(H\) is unique up to one additive
+real scalar multiple of the identity.
+\end{theorem}
+
+\begin{proof}
+Continuity upgrades to differentiability at parameter zero by interval
+averaging: the group acts on the matrix-unit basis as a norm-continuous
+matrix family whose short-interval average is invertible, and the
+fundamental theorem of calculus recovers the family from its primitive.
+The derivative at zero is a star-compatible Leibniz endomorphism. Every
+complex-linear Leibniz endomorphism of the block is an inner derivation,
+with an explicit matrix-unit witness proved from scratch; star
+compatibility symmetrizes the witness into one self-adjoint generator;
+two generators with one commutator action differ by a real scalar
+multiple of the identity; and the group differential equation identifies
+the flow with conjugation by the coherent unitary family. Every step is
+checked in Lean~\cite{ophrepo}.
+\end{proof}
+
+On the finite private block, a pointwise-continuous symmetry flow of the
+observables therefore has no choice except Hamiltonian form; the additive
+energy offset is the only freedom. The two-block direct sum inherits the
+converse blockwise with block fixing derived: every star automorphism
+fixes or swaps the two minimal central projections, and a
+pointwise-continuous group through the identity keeps each on a
+continuous path inside a two-point set. The parameter is a real number;
+no physical clock, source-selected Hamiltonian, or physical time
+identification is claimed, and central-block sums beyond two blocks are
+outside the proved statements.
 
 \subsection{Conditional history weights and the variational bridge boundary}
 \label{sec:history-variational-boundary}
@@ -2106,6 +2168,7 @@ ordinary finite thermodynamic identities follow from the instantiated
 observer model rather than being postulated separately.
 
 \section{Physical Implementation and \(A_5\)/\(E_8\) Significance}
+\label{sec:a5-e8-significance}
 
 The implementation question is what must exist below the observer-level axioms so they have a
 physical carrier. OPH's answer is a fixed-cutoff federation of finite patch carriers. Each carrier
@@ -2159,14 +2222,30 @@ faces, and overlap data with enough discrete symmetry to stabilize observer-faci
 the root-lattice and affine exceptional structure in which the icosahedral data can sit. The term
 is representation-closure language for the branches that call for it.
 
+The compact side of that closure language is classified at the bracket
+level. On the canonical oriented carrier, the compact real locus of the
+fourteen-parameter \(A_5\)-equivariant Jacobi variety is exactly three
+families, all inside the derivation-free slice: one closed two-parameter
+plane, generically \(\mathfrak{so}(3)\oplus\mathfrak{so}(3)\) plus an
+abelian complement, and two mirror three-parameter cells of
+\(\mathfrak{su}(3)\oplus\mathfrak{so}(3)\) type, each cut out by one
+strict sign condition. Every numerical step is exact over
+\(\mathbb Q(\sqrt5)\), fifteen certified sample points inhabit the
+strata, and an independent mutation-tested verifier replays the
+certificate. The classification is conditional on three named textbook
+lemmas, the compact-type Killing criterion, the compact semisimple
+dimension list, and \(A_5\) simplicity; it selects no source, preferred
+bracket, or holonomy \cite{ophrepo}. A compactly closing equivariant
+bracket therefore lands on the \(\mathfrak{su}(3)\oplus\mathfrak{so}(3)\)
+shape up to the mirror choice and the closed plane.
+
 This distinction matters for the synthesis paper. The physical claim lives at the observer-visible
 quotient: finite patches must expose the same records and shared observables after allowed
 implementation-hiding changes. The microphysics paper gives the concrete reference architecture for
 that quotient surface, including the federated patch-carrier model, fixed-cutoff edge
 heat-kernel/Casimir law, central records, the declared algebra-state measurement interface,
 the declared two-wing Bell/CHSH surface, and the checkpoint/restoration package. See
-Ref.~\cite{ophmicrophysics}, available as the
-numbered GitHub reference in the bibliography.
+Ref.~\cite{ophmicrophysics}.
 
 The A1--A2 finite theorem and the transportable-sector/Tannaka route are
 mathematically distinct. The first forces the abstract local Standard Model
