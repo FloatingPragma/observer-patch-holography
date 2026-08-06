@@ -70,7 +70,7 @@ lean_lib «OPHScreen» where
     `SeamCurrentPhotonLeptonThreshold, `CarrierFrequencySpeed,
     `ExteriorComponentBridge, `QuantumMatterIntegration,
     `B10EdgeCenterAction,
-    `B10QuantumLimitations]
+    `B10QuantumLimitations, `CarrierUniqueness]
 
 @[default_target]
 lean_lib «OPHConstruction» where
