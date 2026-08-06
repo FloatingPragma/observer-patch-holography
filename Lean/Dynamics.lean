@@ -8,6 +8,7 @@ import Dynamics.StoneConverse
 import Dynamics.CentralBlocks
 import Dynamics.CenterSpectral
 import Dynamics.StarWedderburn
+import Dynamics.ChoiCPTP
 
 /-!
 # OPH construction dynamics umbrella
@@ -51,4 +52,9 @@ to a finite product of full matrix blocks, and every pointwise-continuous
 one-parameter star-automorphism group is blockwise unitary conjugation
 with one time-independent self-adjoint Hamiltonian per block, with block
 fixing derived from continuity.
+`Dynamics.ChoiCPTP` defines finite complete positivity through
+amplified positivity with the Kraus criterion, proves the partition
+average, partition pinching, and every nonnegative-time relaxation
+channel CPTP, and refutes the transpose map through an exact Choi
+computation.
 -/

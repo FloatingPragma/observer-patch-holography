@@ -30,7 +30,8 @@ open scoped ComplexOrder
 
 variable {n k : ℕ}
 
-/-- Coordinate matrix unit `e_ab`. -/
+/-- Coordinate matrix unit `e_ab`.  `Dynamics.ChoiCPTP` consumes these
+identities and proves the map CPTP. -/
 def matrixUnit (a b : Fin n) : Matrix (Fin n) (Fin n) ℂ :=
   Matrix.single a b 1
 
