@@ -2559,78 +2559,7 @@ block, with block fixing derived rather than assumed and the block swap
 realized on the square two-block algebra. The parameter is a real
 number; no physical clock, source-selected Hamiltonian, or physical
 time identification is claimed \cite{ophrepo}.
-
-\paragraph{Structural QFT inheritance status of the covariant-net layer.}
-Above the regional-algebra interfaces, the Lean development promotes the
-finite observer net to a finite event-region and causal-embedding
-category with a covariant observable functor
-(\path{Lean/QFT/LocallyCovariantLimit.lean}); the causal embeddings are
-proof-only order data, so the category is thin, and no Lorentzian or
-spacetime reading is attached.  Against these carriers the development
-maintains a machine-checked status matrix
-(\path{Lean/QFT/InheritanceMatrix.lean}) for seven structural
-quantum-field-theoretic inheritance targets, with exactly three verdict
-shapes admitted per target: a theorem, a countermodel, or a typed
-non-evaluable exit naming the precise missing structure.  The matrix
-row counts behind the summary below are themselves kernel-checked
-against the matrix data.  Its current state:
-
-\begin{center}
-\small
-\begin{tabular}{@{}p{0.20\linewidth}p{0.22\linewidth}p{0.50\linewidth}@{}}
-\textbf{Target} & \textbf{Status} & \textbf{Carrier or missing structure} \\
-\hline
-CPT & not statable: typed exit & no antiunitary conjugation, region
-reflection, or distinguished vacuum on the order-theoretic event
-regions; the Tomita conjugation is an explicit TODO in the pinned
-Mathlib \\
-spin--statistics & not statable: typed exit & causal embeddings are
-proof-irrelevant, so the event-region category is thin and carries no
-symmetry-group action data; no spin structure in the development \\
-DHR sectors & finite triviality theorem; full DHR a typed exit & every
-bijective localized endomorphism of the finite net is inner, so the
-reconstructed gauge group is trivial
-(\path{Lean/QFT/SectorInheritance.lean}); no quasi-local algebra or
-vacuum representation exists for the full theory \\
-field/action reconstruction & gated by design & owned by the separate
-finite current/holonomy, matter and Spin action, and period/character
-lattice packets, none of which is in the development yet \\
-KMS/thermality & finite Gibbs core proved; net-level degenerate;
-public-level refuted; horizon a typed exit & the normalised Gibbs state
-satisfies the finite algebraic KMS identity on the private block, but
-on the constructed example net every functional is KMS for every
-grading-preserving flow at every complex time, and the public record
-algebra admits no nontrivial continuous star flow at all
-(\path{Lean/QFT/StructuralInheritance.lean}) \\
-relative-Cauchy stress response & not statable: typed exit & no
-Cauchy-embedding class, the time-slice module is a declared unstarted
-deliverable, and the pinned Mathlib contains no Lorentzian geometry \\
-particle/scattering & not statable: typed exit & no translation action
-on event regions and no spectrum condition; no Haag--Ruelle material in
-the pinned Mathlib \\
-\end{tabular}
-\end{center}
-
-The summary is deliberately negative: the constructed net does not
-inherit quantum-field-theoretic structure.  Of the seven targets, five
-are not statable against the committed carriers — four blocked on
-structure that exists neither in the development nor in the pinned
-Mathlib, one gated by design on separate finite-reconstruction packets
-— one is refutable (the finite sector structure is trivial), and one
-carries a finite provable core whose net-level reading is degenerate
-and whose public-level reading is refuted.  Two downstream gates
-follow.  The Einstein-branch readout completion may consume the finite
-Gibbs-KMS identity as finite-block algebra, but its modular readout
-cannot be carried by a public flow (no nontrivial one exists), its
-stress readout receives nothing (the stress row is a typed exit), and
-no statement here supports ``the net is thermal''.  Particle-sector
-promotion receives exactly two finite receipts — the Gibbs-KMS core
-and sector triviality — and one constraint: the finite net carries no
-nontrivial superselection charge, so no candidate may claim a charge or
-flavor quantum number inherited from it; the spin-statistics, pole, and
-continuum receipts that promotion additionally requires are typed exits
-or unstarted deliverables here, not available results.
-
+\input{tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex}
 \paragraph{Boundary-fibre circularity control.}
 Over the bare consensus tower of the gravitational branch (finite
 presentation and
