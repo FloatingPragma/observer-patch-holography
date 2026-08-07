@@ -110,7 +110,6 @@ open OPH.Tower
 
 /-! ## Part 1 — the transported inner-implementation engine -/
 
-set_option maxHeartbeats 800000 in
 /-- **The transported engine.**  Every star-algebra automorphism of a
 finite complex matrix algebra is conjugation by a unitary matrix.
 This is B3's `OPH.Dynamics.finitePrivateStarAutomorphism_inner`
@@ -121,10 +120,10 @@ automorphism is conjugated into an automorphism of
 unitary via B3, and the implementing unitary is carried back through
 the same star-algebra equivalence.
 
-The heartbeat bump is for the instance-level defeq work of the
-`EuclideanSpace` (`PiLp`) spelling; Mathlib's own bridge lemma
-`Unitary.conjStarAlgAut_symm_unitaryLinearIsometryEquiv` carries a
-`maxHeartbeats 400000` bump for the same reason. -/
+The instance-level defeq work of the `EuclideanSpace` (`PiLp`)
+spelling is heavy but fits comfortably within the default heartbeat
+budget (measured boundary ≈ 99,713 of the 200,000 default), so no
+local `maxHeartbeats` override is used. -/
 theorem matrixStarAlgAutomorphism_inner {n : Type*} [Fintype n] [DecidableEq n]
     (F : Matrix n n ℂ ≃⋆ₐ[ℂ] Matrix n n ℂ) :
     ∃ u ∈ unitary (Matrix n n ℂ), ∀ x, F x = u * x * star u := by
