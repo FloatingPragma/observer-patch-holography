@@ -20,6 +20,7 @@ import QFT.InhabitedTowerRow
 import QFT.LocallyCovariantLimit
 import QFT.StructuralInheritance
 import QFT.SectorInheritance
+import QFT.InheritanceMatrix
 
 /-!
 # OPH construction QFT umbrella
