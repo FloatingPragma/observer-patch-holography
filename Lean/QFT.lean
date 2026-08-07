@@ -18,6 +18,7 @@ import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.InhabitedTowerRow
 import QFT.LocallyCovariantLimit
+import QFT.StructuralInheritance
 
 /-!
 # OPH construction QFT umbrella
