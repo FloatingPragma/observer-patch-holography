@@ -90,7 +90,8 @@
     "OPH-CANONICAL-LORENTZ-MODULE",
     "OPH-FINITE-CAUSAL-OBSERVER-NET",
     "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
-    "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING"
+    "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
+    "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX"
   ],
   "edges": [
     {
@@ -827,6 +828,16 @@
       "from": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
       "to": "OPH-GR-D4B-EVENT-MANIFOLD",
       "role": "supplies the bounded algebraic event-frame/celestial/rest covariance contract; source population, separation, open charts, cone and causal attachment, refinement, clocks, and physical manifold realization remain explicit event-manifold receipts"
+    },
+    {
+      "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+      "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+      "role": "supplies the finite region-indexed net and expectation carriers tested by E4; it supplies no quasi-local algebra, vacuum representation, spacetime symmetry, Cauchy embedding, translation action, or spectrum condition"
+    },
+    {
+      "from": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
+      "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+      "role": "supplies finite full-block automorphism innerness and public-flow rigidity used by the two statable rows; neither result supplies physical thermality, a nontrivial sector category, or any of the five missing structural carriers"
     }
   ]
 }

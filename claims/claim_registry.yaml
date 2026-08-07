@@ -3089,6 +3089,37 @@
       "status": "bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open",
       "claim_class": "conditional_implication",
       "gates": []
+    },
+    {
+      "claim_id": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+      "statement": "Against the committed finite covariant-net carriers, exactly two of seven structural QFT targets carry theorem-shaped verdicts: row 3 proves that every bijective localized endomorphism of the constructed finite net is inner, so its finite DHR-type sector structure is trivial, while full DHR is a typed exit; row 5 proves a finite private-block Gibbs-KMS identity, but the constructed net-level KMS reading is degenerate and the finite public record algebra admits no nontrivial pointwise-continuous star flow, while horizon thermality is a typed exit. The other five targets are non-statable: CPT, spin-statistics, relative-Cauchy stress response, and particle/scattering are typed non-evaluable exits naming absent carrier structure, and field/action reconstruction is a typed design gate on separate absent producer packets. The matrix does not establish that the constructed net inherits QFT structure.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_bounded_structural_QFT_status_matrix_with_five_typed_exits",
+      "assumptions": [
+        "directed_finite_consensus_tower_data",
+        "proof_carrying_finite_causal_net_data",
+        "finite_full_private_matrix_block",
+        "pointwise_continuous_public_star_automorphism_group"
+      ],
+      "imported_results": [
+        "finite_matrix_Gibbs_KMS_identity",
+        "finite_matrix_star_automorphism_innerness",
+        "thin_poset_category"
+      ],
+      "oph_specific_delta": "E4 records all seven requested inheritance targets in one kernel-checked matrix, pins the only two statable rows to their carrying finite theorems and countermodels, and makes every other row name the exact missing carrier or separate producer instead of promoting a finite net to QFT.",
+      "novelty_type": "typed_structural_inheritance_status_matrix_with_negative_promotion_firewall",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
+        "Lean/QFT/StructuralInheritance.lean",
+        "Lean/QFT/SectorInheritance.lean",
+        "Lean/QFT/InheritanceMatrix.lean"
+      ],
+      "falsifier": "The kernel-checked matrix does not have exactly seven rows with theorem-shaped verdicts exactly at rows 3 and 5 and non-statable verdicts exactly at rows 1, 2, 4, 6, and 7; a row anchor fails; finite sector triviality or either finite KMS counter-reading fails on its declared carrier; or one of the five exit rows is statable against carrier structure already present in the committed tree.",
+      "scope_if_false": "Only the E4 status matrix, its finite row-3 or row-5 conclusion, or the affected typed exit falls. No blanket QFT inheritance claim is substituted, and unrelated finite consensus, dynamics, geometry, or gauge packets retain their own statuses.",
+      "status": "two_of_seven_structural_targets_statable__five_typed_exits__no_QFT_inheritance_promotion",
+      "claim_class": "conditional_implication",
+      "gates": []
     }
   ]
 }

@@ -30,7 +30,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2017`. 90 claims, 15 distinct live gates across 36 gated claims.
+Release: `r2017`. 91 claims, 15 distinct live gates across 36 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -38,7 +38,7 @@ Release: `r2017`. 90 claims, 15 distinct live gates across 36 gated claims.
 | `empirical_implementation` | 3 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 70 |
+| `conditional_implication` | 71 |
 | `declared_structure` | 11 |
 
 | Claim | Class | Status | Live gates |
@@ -133,6 +133,7 @@ Release: `r2017`. 90 claims, 15 distinct live gates across 36 gated claims.
 | `OPH-FINITE-CAUSAL-OBSERVER-NET` | `conditional_implication` | `substantial_conditional_finite_net_interface_attained__noncommutative_source_realization_open` | [#692](https://github.com/FloatingPragma/observer-patch-holography/issues/692) |
 | `OPH-FINITE-HOLONOMY-CHARACTER-PHASE` | `conditional_implication` | `bounded_finite_holonomy_and_character_phase_packet_attained__physical_attachment_open` | none |
 | `OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING` | `conditional_implication` | `bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open` | none |
+| `OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX` | `conditional_implication` | `two_of_seven_structural_targets_statable__five_typed_exits__no_QFT_inheritance_promotion` | none |
 
 ## Live gates
 
