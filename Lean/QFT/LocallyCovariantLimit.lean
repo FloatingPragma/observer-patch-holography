@@ -31,10 +31,12 @@ categorical form.
 The witness example `supportGradedNet` is a finite causal observer net
 over the E6 witness tower whose regional algebras genuinely vary with
 the region: the empty region carries the scalar algebra and every
-nonempty region carries the full diagonal algebra.  Every previously
-committed net inhabitant assigns one constant algebra to all regions, so
-this is the first inhabitant on which the observable functor is not
-constant.  The receipts `observableFunctor_obj_strict` and
+nonempty region carries the full diagonal algebra.  Several committed
+net inhabitants already assign region-dependent algebras — `glueNet`,
+`characterCausalNet`, `properMeetNet`, `simEarnedNet`, and
+`sourceRegionalNet` all do — so region dependence is not what is new
+here; what this example adds is the nonvacuity receipt phrased through
+the functor.  `observableFunctor_obj_strict` and
 `observableFunctor_map_not_surjective` certify that the functor image of
 the embedding `bottomToTop` is a proper inclusion, and
 `supportGradedNet_has_disjoint_pair` keeps a genuinely declared disjoint
@@ -158,9 +160,11 @@ theorem observableFunctor_map_eq {N : FiniteCausalObserverNet T}
 
 /-! ## A support-graded inhabitant with genuinely varying local algebras
 
-Every previously committed `FiniteCausalObserverNet` inhabitant assigns
-one constant algebra to all regions, so on those nets the observable
-functor is constant on objects.  The support-graded net below is the
+Region-dependent local algebras are already committed on other net
+inhabitants; what no committed net carries is a machine-checked proper
+inclusion between two of its regional algebras, which is what the
+observable functor needs to be certified nonconstant.  The
+support-graded net below is the
 finite nonvacuity model for E3: regions are subsets of a two-site label
 set, and the regional algebra is the diagonal algebra of matrices whose
 diagonal is constant outside the region.  The empty region carries

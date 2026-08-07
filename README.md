@@ -183,7 +183,7 @@ results, each stated with its boundary at the link:
   deliberately broken systems fail exactly one each. See the
   [operational observer proof](Lean/Tower/OperationalObserver.lean).
 
-The supporting Lean library contains more than 4000 theorems and lemmas and no
+The supporting Lean library contains more than 4100 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
