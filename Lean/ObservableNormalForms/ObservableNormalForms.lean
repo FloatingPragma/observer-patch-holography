@@ -4,6 +4,7 @@ import ObservableNormalForms.Stability
 import ObservableNormalForms.Moduli
 import ObservableNormalForms.Refinement
 import ObservableNormalForms.Repair
+import ObservableNormalForms.MechanismVariants
 import ObservableNormalForms.Functional
 import ObservableNormalForms.Stochastic
 import ObservableNormalForms.ConditionalResampling

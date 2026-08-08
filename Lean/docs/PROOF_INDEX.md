@@ -78,6 +78,33 @@ Mapping between Lean 4 theorems in this project and statements in
   invariance, and prefix consistency. The current basis does not classify the
   grammar or its orbits and does not discharge the source-reference or
   temporal-freedom premises.
+- Conditional mechanism-variant comparison
+  (`ObservableNormalForms/MechanismVariants.lean`,
+  `ObservableNormalForms/Examples/AmdA2A5Conditional.lean`): based on Will's
+  shared A2/A5 mechanism-design fixture and the OPH calculus, the generic
+  root exports variant-indexed dynamics, data-carrying traces, explicit
+  target/validity/core predicates, protected behavior cuts, raw and
+  quotiented authority, support-dependent relations with exact-range
+  encodings, two typed comparison-policy instances, and
+  pairwise-versus-family order boundaries. Its joined bridge composes an
+  actual admissible-trace exact range with encoded collar surjectivity and
+  fixed-relation `StrongRepair`. A designated target builds a finite
+  conditional A2/A5 example. It proves a
+  modeled A2 broad-target discharge, modeled A5 flash-target discharge and
+  broad-target failure, raw-capability failure and one authority-class
+  success branch, outcome/full/hybrid observation separation, strategy
+  separation, protected-outcome representatives equivalent to full-support
+  fixed-relation repair, and a static missing-support no-go. Separate
+  broad/outcome and flash/hybrid policies make target, observation,
+  authority, support, cost provenance, and family explicit without using
+  cost in the behavior order. The fixture-specific mappings remain explicit,
+  replaceable assumptions. One `FullControlActivation` value carries all
+  declared control outcomes simultaneously, while retaining the two policies
+  as distinct fields. A three-variant control refutes upgrading pairwise
+  strictness to a family minimum. It does not establish universal AMD semantics,
+  same-initial repair, all-path completeness, full `Repair` width, a complete
+  support family, a global or unique minimum, broad A5 safety, zero raw A2
+  capability growth, or strategy preservation from observation alone.
 - Time-and-order type ledger
   (`Time/TimeOrderLedger.lean`): sorry-free type infrastructure for V2 A1.
   Universe closure, repair schedule, observer record order, modular parameter,

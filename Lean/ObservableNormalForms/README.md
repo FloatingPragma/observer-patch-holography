@@ -38,6 +38,14 @@ content and build logs are intentionally excluded.
 - `Repair.lean`: strong-repair projection criterion, no-repair certificate,
   robust margin, and machine-checked counterexamples for two missing
   nonemptiness hypotheses found during the audit.
+- `MechanismVariants.lean`: domain-neutral variant-indexed trace, protected
+  behavior, authority-view, support relation, exact-range encoding, and
+  pairwise-versus-family comparison interfaces. `ComparisonPolicy` keeps the
+  target, observation, authority view, selected support, cost provenance, and
+  family typed together; cost does not enter the behavior order or repair
+  width. The exact-range bridge composes actual encoded-collar surjectivity
+  with fixed-relation `StrongRepair`. These declarations do not imply
+  mechanism reachability, strategy preservation, or full `Repair` width.
 - `Functional.lean`: synchronous ranked-dependency settling, fixed-point, and
   uniqueness theorems.
 - `Stochastic.lean`: finite Markov affine-drift iteration and a one-time
@@ -48,7 +56,19 @@ content and build logs are intentionally excluded.
   fiber-support/equal-row/detailed-balance matrix-recognition converse.
 - `Examples/Rule90.lean`: standalone width-three kernel, image, readout, and
   reverse-repair obstruction proofs.
-- `AxiomAudit.lean`: theorem-level `#print axioms` receipt.
+- `Examples/AmdA2A5Conditional.lean`: an explicitly conditional finite
+  mechanism example instantiating Will's shared A2/A5 mechanism-design fixture
+  with the OPH calculus. It keeps broad/flash target, raw/class authority,
+  outcome/full/hybrid observation, strategy, vacuity, and incomplete-family
+  controls as explicit adapters. It supplies separate broad/outcome and
+  flash/hybrid policies, an exact-range-to-protected-representative repair
+  equivalence, a static fixed-relation missing-support no-go, and one record
+  carrying all declared control outcomes simultaneously. `AxiomAudit.lean`
+  imports it to print every theorem's dependencies; it remains a separately
+  reproducible designated target:
+  `lake build ObservableNormalForms.Examples.AmdA2A5Conditional`.
+- `AxiomAudit.lean`: theorem-level `#print axioms` receipt for the public
+  results and the complete conditional-example theorem set.
 - `PROOF_INDEX.md`: paper-label-to-Lean mapping and explicit formalization gaps.
 - `SUBMISSION_MANIFEST.md`: exact archive contents and reproduction commands.
 - `BUILD_RECEIPT.md`: pinned local parent/standalone build and axiom-audit result.
@@ -56,6 +76,15 @@ content and build logs are intentionally excluded.
 All theorem-bearing source files in this directory are intended to be
 `sorry`-free. The build and `#print axioms` receipt should be regenerated for
 the final submission archive after the manuscript theorem numbering freezes.
+
+The conditional module does not claim same-initial executable repair,
+all-path or trace completeness, full `Repair` width, a complete support
+family, or a family-wide, global, or unique minimum. Its missing-support
+result is a static fixed-`R` no-go and has no fabricated exact-range witness.
+`FullControlActivation` says only that all declared control outcomes coexist
+as fields of one Lean value. Its two comparison-policy fields remain
+distinct and do not assert one common target, authority, observation,
+support, or family policy.
 
 ## Audited edge conditions encoded here
 
