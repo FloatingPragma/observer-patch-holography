@@ -13,11 +13,9 @@ their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
 reconstructs an exact finite structural core: conditional quantum-record
 identities, a conditional finite four-law package, a three-dimensional
-observer-frame carrier, and explicit order/clock interfaces that do not
-instantiate a physical observer-local time. It also derives Lorentz kinematics
-on the stated global-support branch,
-the Standard Model gauge Lie type, and a conditional one-generation exterior
-matter pair.
+observer-frame carrier, and explicit order/clock interfaces. It also derives
+Lorentz kinematics on the stated global-support branch, the Standard Model
+gauge Lie type, and a conditional one-generation exterior matter pair.
 
 Three axioms govern the simulator architecture and how observers reach
 consensus. Beside them sit two proposed closure programs. The first seeks a
@@ -48,8 +46,9 @@ apart. The material below takes you through that shift from a standing start.
   gives the primary technical account of the observer-first reconstruction.
 - **The textbooks.** The [OPH textbooks](https://learn.floatingpragma.io/)
   teach the theory the long way. Every basic derivation is worked in full,
-  with the required math built up as you go. Volumes cover gravity, the
-  Standard Model, and unification, each readable online or as a PDF.
+  with the required math built up as you go. Volume one covers the
+  computational substrate and the consensus machinery; volume two connects
+  that machinery to classical physics. Each is readable online or as a PDF.
 - **The simulation.** The [interactive visualizations](https://simulation.floatingpragma.io/)
   render real data from the repair dynamics. They expose finite settling,
   signature tests, and candidate carrier structure, with each finite receipt

@@ -16,10 +16,10 @@ recouvrements d’observateurs sur un écran holographique. À partir de cette
 architecture, OPH reconstruit un noyau structurel fini exact : des identités
 conditionnelles pour les registres quantiques, un paquet fini conditionnel
 des quatre principes, un porteur tridimensionnel de repères d’observateur et
-des interfaces explicites d’ordre et d’horloge qui ne constituent pas
-un temps physique local d’observateur. OPH dérive aussi la cinématique de Lorentz sur la branche de support global
-déclarée, le type de Lie du Modèle standard, ainsi qu’une paire extérieure
-conditionnelle pour une génération de matière.
+des interfaces explicites d’ordre et d’horloge. OPH dérive aussi la
+cinématique de Lorentz sur la branche de support global déclarée, le type de
+Lie du Modèle standard, ainsi qu’une paire extérieure conditionnelle pour une
+génération de matière.
 
 Trois axiomes régissent l’architecture du simulateur et la manière dont les
 observateurs parviennent à un consensus. À côté d’eux se trouvent deux
@@ -54,8 +54,9 @@ prérequis.
 - **Les manuels.** Les [manuels OPH](https://learn.floatingpragma.io/)
   enseignent la théorie par le chemin long. Chaque dérivation de base y est
   développée en entier, avec les mathématiques nécessaires construites au fur
-  et à mesure. Des volumes couvrent la gravité, le Modèle Standard et
-  l’unification, chacun lisible en ligne ou en PDF.
+  et à mesure. Le premier volume couvre le substrat computationnel et la
+  machinerie du consensus ; le second relie cette machinerie à la physique
+  classique. Chacun est lisible en ligne ou en PDF.
 - **La simulation.** Les [visualisations interactives](https://simulation.floatingpragma.io/)
   affichent des données réelles de la dynamique de réparation. Elles montrent
   le règlement fini, les tests de signature et les structures porteuses
