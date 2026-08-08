@@ -76,6 +76,28 @@ Status legend:
 | Empty-domain/empty-relation audits | `empty_write_space_counterexample`; `empty_relation_repairMargin_zero` | ✅ | Machine-checks why the nonemptiness qualifications are load-bearing. |
 | Equivariant section / stabilizer obstruction, `thm:equivariant-section`, `thm:stabilizer` | — | ⬜ | Not encoded. |
 
+## Conditional mechanism-variant comparison
+
+The generic declarations are part of the library root. The finite A2/A5
+module is a designated build target and a conditional reference model for
+Will's shared A2/A5 mechanism-design fixture using the OPH calculus. Its domain
+mappings are explicit, replaceable assumptions. It is imported by
+`AxiomAudit.lean` so that the complete theorem set receives dependency output.
+
+| Result | Lean declaration | Status | Scope |
+|---|---|---:|---|
+| Variant-indexed trace projection | `MechanismVariants.trace_to_reflTransGen`; `stateObservation_eq_of_trace` | ✅ | Data-carrying traces start in an initial state and project to the declared `ReflTransGen`; state-observation equality reuses the existing step-preservation lemma. Path-sensitive observation still needs its own trace adapter. |
+| Encoded collar and fixed-relation repair | `MechanismVariants.admissibleCollar_iff_encodedCollarSurjective`; `strongRepair_exists_iff_encodedCollarSurjective`; `strongRepair_exists_iff_full_admissibleCollar`; `no_strongRepair_of_missing_admissibleCollar` | ✅ | `RelationEncoding.exactRange` now composes the actual admissible-trace encoding with full collar coverage and `StrongRepair`. The negative theorem remains a static fixed-`R` hole. No same-initial executable repair, all-path completeness, or full `Repair` width follows. |
+| Typed comparison provenance and family boundary | `MechanismVariants.ComparisonPolicy`; `behaviorLT_of_subset_of_witness`; `IsBehaviorMinimum` | ✅ | A policy fixes target, observation, protected set, authority view, selected support, cost source, and family. Cost is provenance only and is absent from `cut` and `PairwiseLT`. A family minimum separately requires comparison with every declared member. |
+| Conditional A2 broad and A5 flash targets | `AmdA2A5Conditional.a2_broad_target_eliminated`; `a5_flash_target_eliminated`; `a5_broad_target_failure` | ✅ | Finite branch controls only. A5 blocks the modeled contract-origin flash target but the modeled EOA broad-target trace remains. |
+| Raw and quotiented authority | `AmdA2A5Conditional.a2_zero_new_raw_capability_fails`; `a2_zero_new_authority_class`; `a5_zero_new_authority_class` | ✅ | The A2 model adds raw `blockAcquisition`; one explicit quotient maps it to an existing owner-control class. Both policy candidates pass only under that declared quotient, which is a replaceable assumption rather than confirmed authority semantics. |
+| Outcome, full, and hybrid observation | `AmdA2A5Conditional.observation_profile_changes_behavior_judgment`; `a2_pairwise_lt_a5_hybrid_flash`; `hybrid_forgets_pending_but_retains_caller` | ✅ | Outcome forgets caller and delay; full observation retains both; hybrid forgets pending delay but retains caller kind. The pairwise result is profile- and target-relative. |
+| Strategy separation | `AmdA2A5Conditional.observation_preservation_does_not_supply_strategy`; `strategic_choice_changes_under_delay_cost` | ✅ | A synthetic two-strategy delay-cost control changes the preferred action while protected outcome behavior is preserved. No automatic observation-to-strategy bridge is claimed. |
+| Separate typed pairwise policies | `AmdA2A5Conditional.broadOutcomePolicy_a2_lt_a5`; `flashHybridPolicy_a2_lt_a5` | ✅ | Broad/outcome and flash/hybrid use distinct `ComparisonPolicy` values. Each theorem carries family membership, selected-support membership, and quotient-authority eligibility. Their cost field records provenance and is not a load-bearing order premise. |
+| Encoded repair and protected representatives | `AmdA2A5Conditional.a2FullRelationEncoding_exactRange`; `a2FullEncode_outcomeCollar`; `a2_full_repair_iff_protected_outcome_representatives` | ✅ | The full-support relation is the exact range of admissible A2 traces, the Bool collar is injectively tied to `ObsOutcome`, and fixed-relation `StrongRepair` exists iff every protected outcome has an admissible representative. |
+| Nonvacuity, missing support, and simultaneous controls | `AmdA2A5Conditional.full_control_activation_satisfiable`; `fixed_relation_positive_repairability`; `missing_collar_no_repair`; `support_relations_are_distinct` | ✅ | One `FullControlActivation` value carries all declared outcomes, including two separate policies. Missing support is an active, distinct static relation with a collar hole; no fake exact-range encoding or complete support-family claim is made. |
+| Pairwise is not minimum | `AmdA2A5Conditional.a2_pairwise_lt_a5_in_declared_family`; `pairwise_does_not_establish_family_minimum` | ✅ | A synthetic third variant has a smaller cut, so A2 is strictly below A5 pairwise but is not minimum of that declared family. No unique or global minimum is claimed. |
+
 ## Finite conditional resampling
 
 | Paper result | Lean declaration | Status | Scope |
