@@ -9,6 +9,33 @@ and externally-owned-account interpretations are explicit, replaceable
 adapters rather than claims about every Harberger implementation.  The model
 keeps broad and flash targets, raw and quotiented authority, outcome and
 trace-sensitive observations, and strategic predicates separate.
+
+## What the fixture labels denote
+
+`A2` and `A5` are labels carried over from the external fixture, kept so the
+model stays traceable to it.  Read off the transition systems below they are:
+
+* `baseline` — immediate acquisition by either caller kind.
+* `a2` — the grace-period variant.  `initiate` moves the active incumbent to a
+  `pending` state, from which `complete` transfers to the buyer and `block`
+  returns to the incumbent.  Both caller kinds may acquire, but not atomically.
+* `a5` — the externally-owned-account variant.  A single `acquireEoa` step; no
+  contract-originated acquisition trace exists.
+
+Both are mitigations of one threat: `BadFlash` selects exactly the atomic
+contract-originated acquisition of the baseline.  `a2` defends with delay,
+`a5` by excluding contract callers.
+
+These labels are unrelated to the alternating group `A₅` and to
+`Screen/A2HolonomyBridge.lean` in the ambient OPH development.  Nothing here
+concerns icosahedral symmetry.
+
+## Reading the order
+
+`BehaviorCut` is the protected behavior a variant fails to realize, so a
+smaller cut is the better one.  `BehaviorLT cut .a2 .a5` therefore says that
+`a2` loses strictly fewer protected behaviors than `a5`, relative to the
+declared target, observation, and protected set of the policy in question.
 -/
 
 namespace ObservableNormalForms.Examples.AmdA2A5Conditional
@@ -758,6 +785,12 @@ def finiteControlPremises : PremiseActivation where
 theorem finite_control_premises_satisfiable : Nonempty PremiseActivation :=
   ⟨finiteControlPremises⟩
 
+/-- Synthetic carrier for the family-boundary control.  Its constructors are
+stand-ins chosen to echo the pairwise comparison above; they are **not** the
+`Variant` values of this model, and `familyCut` below is hand-written rather
+than computed from any mechanism.  The control establishes that a pairwise
+strict order does not yield a family minimum, which is a fact about the order
+and not a finding about `a2` or `a5`. -/
 inductive FamilyVariant where
   | a2
   | a5
