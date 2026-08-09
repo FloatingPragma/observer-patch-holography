@@ -267,146 +267,6 @@ records, readback, and repair loop. OPH does not claim that human thoughts
 manufacture reality. It claims that a world with no possible local perspective,
 record, or self-consistent readback lacks public physics.
 
-## How The Reconstruction Works
-
-Take a finite patch with local state, a boundary, memory, and a repair rule. It
-sees only its piece of the world. When two patches overlap, each can inspect a
-shared interface. While the readings disagree, no public fact exists on that
-overlap. Repair continues until the same record can be recovered from either side.
-
-The patch net performs one repeated computation:
-
-```text
-read local state
-      ↓
-exchange boundary records
-      ↓
-compare overlapping descriptions
-      ↓
-repair disagreement
-      ↓
-write the stable result and repeat
-```
-
-The public universe is what remains stable. OPH calls this settled result a
-**normal form**. “Subjective” means locally accessible here, not arbitrary: two
-patches must agree about everything both can inspect.
-
-The formal observer patch is this bounded access, record, readback, and repair
-structure. An Echosahedron is a candidate primitive carrier on the homogeneous
-branch. Its twelve-port icosahedral boundary supplies local incidence and
-rotation group $A_5$. A carrier becomes an observer only when the required
-records and repair loop are physically realized.
-
-Three geometries must stay separate. The local carrier boundary is the
-icosahedral twelve-port object. The federation screen is a network of those
-objects together with its overlap nerve. The support screen is the
-observer-facing $S^2$ chart obtained on the separately certified spherical
-branch. Local icosahedral symmetry can coexist with a nonspherical federation
-nerve.
-
-Physical phase locking is a candidate mechanism for coherent overlap
-comparison. It has to produce the accepted repair relation, confluence,
-public records, and noise bounds. No theorem identifies phase
-locking with consensus confluence, modular flow, or an observer clock.
-
-On the certified spherical branch, spacetime kinematics comes out of the
-computation instead of being supplied beforehand. Stable relations among
-patches define public adjacency, angle, and distance. Record order supplies a
-candidate history, not a clock; observer-readable transitions, event
-correspondence, and affine calibration supply operational local time. Compatible
-calibrated clocks can then supply public time, and the conformal symmetry
-of the shared spherical screen gives Lorentz symmetry with a
-three-dimensional space of observer frames. Populating that kinematic chart
-with a physical event manifold requires the separate receipts stated in the
-spacetime and Einstein paper.
-
-Matter and forces are stable patterns in the same network. A particle is a
-reproducible pattern that can be transported through the public record
-structure. Gauge symmetry controls its internal labels across overlaps. Gravity
-is the smooth geometry required by the shared information and entropy laws.
-
-The reconstruction has a shared trunk and separately gated branches:
-
-```text
-source-selected carrier federation
-        ↓
-observer patches with records, overlap comparison, and repair
-        ↓
-public quotient normal forms
-        ├─ federation-to-support receipts → S2 cap geometry and geometric flow
-        ├─ independent algebra-state tower → modular flow
-        │       same-tower composition → Lorentz and conditional Einstein branches
-        ├─ transportable sectors → independent Tannaka compact-group route
-        └─ local 12-port carrier → exact inverse-port response theorem
-                → A1/A2 theorem forcing the abstract compact Lie type
-                → conditional matrix current and rank-15 matter construction
-                → exact Z6 kernel on declared tensors
-                source current, matter action, global form, scalar, spectrum,
-                  and family attachments open
-        ↓
-quantitative closure and physical-readout tests
-```
-
-## What Comes Out
-
-Finite readback and repair turn private states into stable public records,
-and the algebra of those records gives quantum probabilities and repeatable
-observation. On the certified geometric branch, the conformal geometry of the
-$S^2$ support gives the connected Lorentz group and exactly three
-observer-frame spatial dimensions, and modular flow with entropy stationarity
-gives the Einstein first-variation relation.
-
-The Einstein branch is instrumented end to end: every clause of its
-antecedent is either a proved theorem or a measured quantity with a
-fail-closed instrument and adversarial controls, never an assumption. Direct
-measurement supplies the strongest empirical result in this corpus. Across
-runs with 16,384, 65,536, and 262,144 carriers, the held-out event forms
-carry Lorentzian signature $(1,3)$ with cone margins $-5.62$, $-3.22$, and
-$-1.41$ and decreasing coupling spread, while a same-size control with a
-narrow support drops to signature $(2,2)$. The measurements establish
-reproducible sensitivity to support structure; they do not establish a
-convergence law. Primary data sit in
-[evidence/einstein_convergence](evidence/einstein_convergence/), bit-for-bit
-reproducible from the
-[simulation repository](https://github.com/muellerberndt/oph-physics-sim).
-
-The carrier geometry then does surprising exact work. Oriented incidence
-alone derives the antipodal pairing, the proper $A_5$ action, the rank-three
-icosahedral frame, and a target-blind inverse-response law. The complete
-reversible response clause in A1 and endogenous transport in A2 then force
-the local Lie type of the Standard Model:
-
-$$
-P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
-\qquad
-(P_{12},[\ ,\ ]_\Theta)
-\cong\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
-$$
-
-No gauge group is assumed anywhere in the premises; a centreless alternative
-is excluded by the one-dimensional fixed space. The released matrices are an
-exact conditional witness, and the classified bracket families carry a
-forced kinetic sector: block-diagonal in the certified projectors, one
-coupling ray per simple factor, and equal to the derived action of its own
-source dynamics.
-
-Inside the declared exterior-response algebra, an exhaustive 1024-subset scan
-leaves exactly one chiral anomaly-free selection: fifteen states with the
-charges of one Standard Model generation and a common $\mathbb Z_6$ kernel,
-so the maximal faithful image is
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Under two further named
-premises the exact band-cost order $5-\sqrt5<6<5+\sqrt5$ selects the
-rank-three family band.
-
-The boundaries stay explicit throughout: the matrix current, matter action,
-and global-form selection are not reconstructed from source histories,
-and laboratory identification, family attachment, scalar multiplicity, and
-the closure packets are open. The
-[claim scoreboard](tracking/claims_scoreboard.md) carries every premise;
-the exact bracket-search and Jacobi receipts sit in
-[code/a5_closure/](code/a5_closure/).
-
 ## Claim Scope
 
 The [claim scoreboard](tracking/claims_scoreboard.md) states the scope,
@@ -547,8 +407,8 @@ $$
 the universe as a fixed point of its own observer-accessible readback and
 repair process.
 
-The bonus is quantitative: if the loop closes, $P$ and $N$ cannot be
-arbitrary. They must satisfy self-referential closure conditions: the cell
+If the loop closes, $P$ and $N$ cannot be arbitrary. They must satisfy
+self-referential closure conditions: the cell
 must agree with the observation process it supports, and the record capacity
 must agree with the records the system keeps about itself. Part of that
 closure is machine-checked in Lean. The two declared $P$ maps have certified
@@ -570,49 +430,62 @@ three axioms intact.
 Under full closure, the loop answers the last question a theory of
 everything can be asked: why anything exists, and why it is the way it is.
 The universe is the unique structure consistent with reading itself into
-existence. That is the twist the book saves for late in the story, where it
-belongs, after the observers-first reconstruction stands on its own. None of
-the results above depend on it.
+existence.
 
 ## Open Proof Obligations And Falsification Boundary
 
-The direct $N$ theorem contains a finite, source-derived simulator
-public-checkpoint packet whose capacity theorem reduces to
-$M_0=|X_{\rm reach}|$, with exact bounded countermodels showing which
-completions the finite controls do not pin down. A physical $N$ theorem
-requires a complete source antecedent, one physical zero, proof that
-both sides read the same universe-level quantity, and the physical carrier
-attachment; an independent finite $A_5$ control proves that raw equality at
-one rung is not physical closure.
+The reconstruction runs from the three axioms to a public quantum theory,
+event geometry, and a macroscopic spacetime description. The main target is
+the Standard Model Lagrangian. Its gauge kinetic sector is forced: the
+kinetic form is block-diagonal in the certified sector projectors, one
+coupling ray per simple factor is the only possibility, and that form equals
+the derived action of its own source dynamics. The count gives two rays
+against the three of the Standard Model, and the absent abelian ray is the
+exposed falsification surface. The matter, scalar, and abelian sectors wait
+on a source-selected finite matter structure. The composed comparison against
+the Standard Model runs under a protocol in which a mismatch is a valid exit.
+See the [effective-action program](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
 
-The other named obligations are:
+The other major goals:
 
-- complete the capacity source antecedent and select one positive physical
-  carrier; the horizon-record identification is not evaluable without it;
-- construct the common screen/EW load carrier without feeding the Higgs target
-  into N;
-- discharge the physical current, determinant, spin-lift, deck-descent,
-  carrier-selection, no-extra-sector, and family-attachment gates that promote
-  the exact exterior witness to a forced physical Standard Model;
-- instantiate the complete common-domain gravity tower and the source-only
-  quantitative particle endpoints;
-- complete the quantitative particle readout and flavor transport;
-- test neutrino susceptibility and mixing geometry;
-- construct record-capacity cosmology;
-- construct a conditional source-screen spectrum with a source-functional amplitude and
-  edge-center tilt; the radial packet proves one-shell non-identifiability and
-  gives physical source dilation and cross-covariance tomography as separate
-  uniqueness routes. One finite source evidence bundle satisfying every receipt
-  is work in progress;
-- derive dark gravity as a repair-charge condensate with dust-like and deep-galaxy regimes;
-- complete the physical Yang–Mills transfer and repair-gap receipts; the repository includes a
-  244-type finite collar-gap calibration, but it is not a physical compact-gauge source receipt;
-- test observer-like hardware and software with local state, boundaries,
-  readback, records, repair, and public evidence bundles.
+- **A source-derived current and holonomy on the twelve-port carrier.** The
+  registered response generates an exactly four-dimensional commutative
+  algebra, so it supplies neither twelve independent generators nor a nonzero
+  commutator, and both easy completions are excluded. Constructing the finite
+  current object is open.
+  [Current and holonomy](https://github.com/FloatingPragma/observer-patch-holography/issues/705).
+- **Source-selected finite matter and a Spin action**, together with the
+  primitive abelian period, character lattice, and global gauge form that fix
+  the familiar quotient.
+  [Matter and Spin action](https://github.com/FloatingPragma/observer-patch-holography/issues/706),
+  [global gauge form](https://github.com/FloatingPragma/observer-patch-holography/issues/707).
+- **A locally covariant net over the constructed observer tower.** The finite
+  event-region category and its covariant observable functor are built. The
+  limit algebra and the time-slice property are open. Of the seven structural
+  inheritance targets, covering CPT, spin-statistics, superselection sectors,
+  and scattering, two are statable against the constructed net and five name
+  the exact structure that is absent.
+  [Covariant net](https://github.com/FloatingPragma/observer-patch-holography/issues/700),
+  [structural inheritance](https://github.com/FloatingPragma/observer-patch-holography/issues/701).
+- **The Einstein-branch premise matrix.** Every row is discharged on one
+  common tower before the branch counts as Einstein closure.
+  [Einstein continuation](https://github.com/FloatingPragma/observer-patch-holography/issues/694).
+- **Source-realized operational clocks** that supply physical time without
+  manufacturing the direction they later verify.
+  [Operational clocks](https://github.com/FloatingPragma/observer-patch-holography/issues/703).
+- **Constants, particle masses, and mixings.** These are outputs of the final
+  wave, gated on the reconstruction above rather than drivers of it.
+  [Constants](https://github.com/FloatingPragma/observer-patch-holography/issues/696),
+  [masses and mixings](https://github.com/FloatingPragma/observer-patch-holography/issues/697).
 
-These programs share the same design principle as the core theory: every proposed physical system must be represented as a bounded, self-reading patch with a public evidence bundle.
+The [scoped research questions](https://github.com/FloatingPragma/observer-patch-holography/issues)
+carry the full set with their dependencies. Every proposed physical system in
+these programs is represented as a bounded, self-reading patch with a public
+evidence bundle.
 
-The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is deliberately limited to mature mathematical and realized-branch claims. It is a verification index, not the organizing narrative of the repository.
+The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is limited
+to mature mathematical and realized-branch claims. It serves as a verification
+index rather than the organizing narrative of the repository.
 
 ## Choose A Reading Path
 

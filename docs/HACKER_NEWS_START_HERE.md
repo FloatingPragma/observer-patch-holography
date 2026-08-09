@@ -100,7 +100,7 @@ repository.
 | Proved, certified numerics | Fixed-point existence and uniqueness for each declared $P$ map on the declared domain, via interval contraction and adaptive subdivision certificates |
 | Measured | The Einstein-cone convergence ladder above, with its adversarial density control |
 | Conditional | The strict one-loop W/Z pole map (proved and machine checked, fixture is a post-exposure regression), the $N$ extension, the $N$–Higgs bridge, and the $N_g=3$ selection; each conditional branch names its open producer |
-| Open | Physical Thomson transport for $P$, the physical $N$ packet, physical family attachment, the common-domain gravity tower, and the full list in the [README](../README.md#open-proof-obligations-and-falsification-boundary) |
+| Open | The source-selected matter structure behind the Standard Model Lagrangian, the source-derived current and holonomy, the limit algebra of the covariant net, the common-domain gravity tower, physical Thomson transport for $P$, and the full list in the [README](../README.md#open-proof-obligations-and-falsification-boundary) |
 
 The [claim registry](../claims/claim_registry.yaml) links prose claims to
 artifacts and is checked by `tools/check_claim_registry.py`. The

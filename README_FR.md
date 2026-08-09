@@ -343,69 +343,6 @@ ont été calculés après coup : aucun n’est une prédiction. Le
 [registre des affirmations](tracking/claims_scoreboard.md) indique les
 hypothèses et les données absentes de chaque étape.
 
-## Ce qui en sort
-
-La relecture et la réparation finies transforment les états privés en
-registres publics stables, et l’algèbre de ces registres donne les
-probabilités quantiques et l’observation répétable. Sur la branche
-géométrique certifiée, la géométrie conforme du support $S^2$ donne le
-groupe de Lorentz connexe et exactement trois dimensions spatiales de
-référentiels, et le flot modulaire avec la stationnarité de l’entropie donne
-la relation de première variation d’Einstein.
-
-La branche d’Einstein est instrumentée de bout en bout : chaque clause de
-son antécédent est un théorème prouvé ou une quantité mesurée, munie d’un
-instrument à fermeture sur échec et de contrôles adverses, jamais une
-hypothèse. La mesure directe fournit le résultat empirique le plus fort du
-corpus. Sur des configurations à 16 384, 65 536 et 262 144 porteurs, les
-formes d’événements retenues portent la signature lorentzienne $(1,3)$ avec
-des marges de cône de $-5{,}62$, $-3{,}22$ et $-1{,}41$ et une dispersion du
-couplage décroissante, tandis qu’un contrôle de même taille à support étroit
-retombe sur la signature $(2,2)$. Ces mesures établissent une sensibilité
-reproductible à la structure du support ; elles n’établissent pas de loi de
-convergence. Les données primaires sont archivées dans
-[evidence/einstein_convergence](evidence/einstein_convergence/) et
-reproductibles bit à bit depuis le
-[dépôt de simulation](https://github.com/muellerberndt/oph-physics-sim).
-
-La géométrie du porteur accomplit ensuite un travail exact surprenant.
-L’incidence orientée seule dérive l’appariement antipodal, l’action propre
-de $A_5$, le repère icosaédrique de rang trois et une loi de réponse inverse
-sans donnée cible. La réponse réversible complète de l’axiome 1 et le
-transport endogène de l’axiome 2 forcent alors le type de Lie local du
-Modèle standard :
-
-$$
-P_{12}\cong_{A_5}\mathbf1\oplus\mathbf3\oplus\mathbf3'\oplus\mathbf5,
-\qquad
-(P_{12},[\ ,\ ]_\Theta)
-\cong\mathfrak u(1)\oplus\mathfrak{su}(3)\oplus\mathfrak{su}(2).
-$$
-
-Aucun groupe de jauge n’apparaît dans les prémisses ; l’alternative sans
-centre est exclue par l’espace fixe de dimension un. Les matrices publiées
-sont un témoin conditionnel exact, et les familles de crochets classifiées
-portent désormais un secteur cinétique forcé : diagonal par blocs dans les
-projecteurs certifiés, un rayon de couplage par facteur simple, et égal à
-l’action dérivée de sa propre dynamique de source.
-
-Dans l’algèbre extérieure de réponse déclarée, le balayage exhaustif des
-1 024 sous-ensembles laisse exactement une sélection chirale sans anomalies :
-quinze états portant les charges d’une génération du Modèle standard et un
-noyau commun $\mathbb Z_6$, donc l’image fidèle maximale est
-$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Sous deux prémisses
-supplémentaires nommées, l’ordre exact des coûts $5-\sqrt5<6<5+\sqrt5$
-sélectionne la bande familiale de rang trois.
-
-Les frontières restent explicites d’un bout à l’autre : le courant matriciel,
-l’action de matière et la sélection de la forme globale ne sont pas encore
-reconstruits depuis les histoires de la source, et l’identification aux
-courants de laboratoire, l’attachement des familles, la multiplicité scalaire
-et les paquets de clôture restent ouverts. Le
-[tableau des affirmations](tracking/claims_scoreboard.md) porte chaque
-prémisse ; les reçus exacts de recherche de crochets et de Jacobi se trouvent
-dans [code/a5_closure/](code/a5_closure/).
-
 ## Pourquoi prendre cette affirmation au sérieux ?
 
 Une théorie du tout doit expliquer pourquoi des faits apparemment
@@ -420,29 +357,6 @@ constitue l’argument principal en faveur d’un seul monde physique. Les
 preuves prennent plusieurs formes indépendantes : démonstrations, certificats
 exacts, reçus finis, simulations et falsificateurs explicites, et leur accord
 apporte davantage qu’une correspondance numérique isolée.
-
-## Une reconstruction avec tronc commun et branches
-
-```text
-fédération de porteurs sélectionnée par la source
-        ↓
-parcelles avec registres, comparaison et réparation
-        ↓
-formes normales quotientées publiques
-        ├─ reçus fédération-support → géométrie des calottes S2 et flot géométrique
-        ├─ tour indépendante d’algèbres et d’états → flot modulaire
-        │       composition sur la même tour → Lorentz et branche d’Einstein conditionnelle
-        ├─ secteurs transportables → route indépendante de Tannaka
-        └─ porteur local à douze ports → théorème exact de réponse inverse
-                → type de Lie forcé par la réponse complète et le transport endogène
-                → courant matriciel et matière conditionnels ; noyau tensoriel Z6 exact
-                → catégorie complète de caractères et quotient global physique ouverts
-                attachements du courant de laboratoire, du scalaire, du spectre et des familles ouverts
-        ↓
-tests quantitatifs de clôture et de lecture physique
-```
-
-Les hypothèses détaillées et les types de reçus sont énoncés dans les articles. La page d’accueil du dépôt est volontairement une carte du résultat positif, et non un substitut à ces énoncés de théorèmes.
 
 ## État technique
 
@@ -527,8 +441,8 @@ $$
 l’univers comme point fixe de son propre processus de relecture et de
 réparation accessible aux observateurs.
 
-Le bonus est quantitatif : si la boucle se ferme, $P$ et $N$ ne peuvent pas
-être arbitraires. Ils doivent satisfaire des clôtures autoréférentielles. Une
+Si la boucle se ferme, $P$ et $N$ ne peuvent pas être arbitraires. Ils
+doivent satisfaire des clôtures autoréférentielles. Une
 partie de cette clôture est vérifiée machine en Lean. Les deux applications
 déclarées de $P$ possèdent chacune un point fixe certifié, tandis que leur
 comparaison à la constante de structure fine physique conserve un statut de
@@ -548,45 +462,66 @@ les conséquences des trois axiomes.
 
 Sous clôture complète, la boucle répond à la dernière question qu’une théorie
 du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est
-ainsi. C’est le twist que le livre garde pour la fin de l’histoire, où
-est sa place. Aucun des résultats ci-dessus n’en dépend.
+ainsi.
 
 ## Obligations de preuve ouvertes et frontière de falsification
 
-Le récit principal ci-dessus expose le résultat positif. Les obligations
-ouvertes sont regroupées ici. L’objet fini central contient l’ensemble des
-états accessibles, la politique qui décide quels registres sont publics, les
-noyaux globaux de tous les points de contrôle, les projections du porteur et
-les applications de raffinement.
+La reconstruction va des trois axiomes à une théorie quantique publique, à une
+géométrie des événements et à une description macroscopique de l’espace-temps.
+La cible principale est le lagrangien du Modèle standard. Son secteur
+cinétique de jauge est forcé : la forme cinétique est diagonale par blocs dans
+les projecteurs certifiés, un seul rayon de couplage par facteur simple est
+possible, et cette forme égale l’action dérivée de sa propre dynamique de
+source. Le compte donne deux rayons contre les trois du Modèle standard, et le
+rayon abélien absent constitue la surface de falsification exposée. Les
+secteurs de matière, scalaire et abélien attendent une structure finie de
+matière sélectionnée par la source. La comparaison composée avec le Modèle
+standard suit un protocole où un désaccord est une sortie valable. Voir le
+[programme d’action effective](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
 
-Sur la branche réversible, ce paquet réduit la capacité à
-$M_0=|X_{\rm reach}|$. Le problème mathématique ouvert consiste à
-dériver la loi exacte du défaut fini $s(D)$ et à prouver qu’elle possède un
-unique zéro physique. Viennent ensuite la saturation horizon-registre, le
-porteur commun écran/faible-Higgs, les portes physiques qui forcent exactement
-le Modèle standard, la tour commune de gravité, et les lectures quantitatives
-des particules.
+Les autres objectifs majeurs :
 
-Le dépôt contient un
-[paquet réversible de référence à douze ports](code/capacity_readback/reversible_public_checkpoint_packet.py)
-et son [certificat lisible par machine](code/capacity_readback/runtime/reversible_public_checkpoint_packet_certificate.json).
-Il ferme le schéma fini de la branche rapide sans se substituer au paquet
-physique dérivé de la source ni à la loi d'unicité du défaut.
+- **Un courant et une holonomie dérivés de la source sur le porteur à douze
+  ports.** La réponse enregistrée engendre une algèbre commutative exactement
+  de dimension quatre : elle ne fournit ni douze générateurs indépendants ni
+  un commutateur non nul, et les deux complétions faciles sont exclues. La
+  construction de l’objet de courant fini est ouverte.
+  [Courant et holonomie](https://github.com/FloatingPragma/observer-patch-holography/issues/705).
+- **Matière finie et action de Spin sélectionnées par la source**, avec la
+  période abélienne primitive, le réseau de caractères et la forme globale de
+  jauge qui fixent le quotient familier.
+  [Matière et action de Spin](https://github.com/FloatingPragma/observer-patch-holography/issues/706),
+  [forme globale de jauge](https://github.com/FloatingPragma/observer-patch-holography/issues/707).
+- **Un réseau localement covariant sur la tour d’observateurs construite.** La
+  catégorie finie des régions d’événements et son foncteur observable
+  covariant sont construits. L’algèbre limite et la propriété de tranche
+  temporelle sont ouvertes. Sur les sept cibles d’héritage structurel, qui
+  couvrent CPT, la statistique de spin, les secteurs de supersélection et la
+  diffusion, deux sont énonçables contre le réseau construit et cinq nomment
+  la structure exacte qui manque.
+  [Réseau covariant](https://github.com/FloatingPragma/observer-patch-holography/issues/700),
+  [héritage structurel](https://github.com/FloatingPragma/observer-patch-holography/issues/701).
+- **La matrice de prémisses de la branche d’Einstein.** Chaque ligne est
+  déchargée sur une même tour commune avant que la branche compte comme
+  clôture d’Einstein.
+  [Continuation d’Einstein](https://github.com/FloatingPragma/observer-patch-holography/issues/694).
+- **Des horloges opérationnelles réalisées par la source**, qui fournissent un
+  temps physique sans fabriquer la direction qu’elles vérifient ensuite.
+  [Horloges opérationnelles](https://github.com/FloatingPragma/observer-patch-holography/issues/703).
+- **Constantes, masses des particules et mélanges.** Ce sont des sorties de la
+  dernière vague, conditionnées par la reconstruction ci-dessus plutôt que
+  moteurs de celle-ci.
+  [Constantes](https://github.com/FloatingPragma/observer-patch-holography/issues/696),
+  [masses et mélanges](https://github.com/FloatingPragma/observer-patch-holography/issues/697).
 
-Le noyau structurel soutient aussi plusieurs prolongements actifs : géométrie
-des neutrinos, cosmologie de capacité, spectre d’écran, gravité sombre,
-transfert de Yang–Mills et systèmes matériels ou logiciels auto-lecteurs. Le
-paquet radial démontre la non-identifiabilité à partir d’une seule coquille et
-donne deux voies d’unicité distinctes : la dilatation physique de la source et
-la tomographie par covariances radiales croisées.
+Les [questions de recherche cadrées](https://github.com/FloatingPragma/observer-patch-holography/issues) portent l’ensemble complet avec
+leurs dépendances. Tout système physique proposé dans ces programmes est
+représenté comme une parcelle bornée et auto-lectrice munie d’un dossier
+public de preuves.
 
-Le dépôt contient aussi une calibration finie à 244 types du certificat de
-colliers pour l’écart de Yang--Mills. Elle vérifie le modèle de données exact,
-mais ne remplace pas un reçu physique compact-jauge dérivé de la source.
-
-Tous partagent la même règle de conception : tout système physique proposé doit être représenté comme une parcelle bornée avec état local, frontières, relecture, registres, réparation et dossier public de preuves.
-
-Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) est volontairement limité aux affirmations mathématiques et aux branches réalisées suffisamment mûres. Il sert d’index de vérification, pas de récit principal du dépôt.
+Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) se limite
+aux affirmations mathématiques et aux branches réalisées suffisamment mûres.
+Il sert d’index de vérification plutôt que de récit principal du dépôt.
 
 ## Guide du dépôt
 
