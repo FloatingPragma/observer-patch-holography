@@ -450,6 +450,68 @@
         "statement": "The certified twelve-port carrier has module 1+3+3'+5 and one fixed line. Complete compact port response from A1 and endogenous proper-carrier transport from A2 force the abstract Lie type u(1)+su(2)+su(3). Target-blind impulse and readback separately determine R=-J. The charged-double-triplet matrices are an exact declared witness, while ordered source tomography and same-current holonomy remain open"
       },
       {
+        "artifact_ref": "code/b14_jacobi/oriented_face_bracket_selector.certificate.json",
+        "hypothesis_boundary": "the equal-weight oriented-face construction is a declared deterministic rule applied to the pinned incidence orientation, not a rule forced by the OPH axioms. The comparison adds a coefficient-space metric; neither minimum-distance repair nor any Jacobi-repair dynamics is source-derived. The result therefore distinguishes a compact family under an exposed premise and does not close B14 or select a physical gauge bracket",
+        "id": "oriented_face_nearest_compact_discriminator",
+        "lean_declarations": {
+          "OrientedFaceBracketSelector": [
+            "face_bracket_eq_sixty_r13",
+            "jacobi_failure_witness",
+            "unique_nearest_G"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/OrientedFaceBracketSelector.lean"
+        ],
+        "match": "exact conditional finite discriminator; no source repair law",
+        "observed_counterpart": "a finite source-incidence discriminator among the three compact bracket families",
+        "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
+        "receipt_sha256": "sha256:bfb46a89c065b233ef2e2d38984d99e76f5c904fd941981a44ce4cb9178d8597",
+        "statement": "The equal-weight cyclic bracket of the twenty pinned oriented faces is exactly 60 times Reynolds basis vector R13 and is A5-equivariant. It fails Jacobi in exactly 240 of the 2640 independent output/input-triple coordinates, split 120 at +1 and 120 at -1. Conditional on the displayed upper-triangular structure-constant Euclidean metric and the certified compact locus, its unique nearest compact family is G: squared distances are (615-123 sqrt(5))/22 to G, (615+123 sqrt(5))/22 to F, and 45 to P"
+      },
+      {
+        "artifact_ref": "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
+        "hypothesis_boundary": "the brackets and carrier projectors are supplied certified finite objects. The theorem selects neither bracket nor overall or relative coupling coefficients, and it constructs no source action, continuum field, or laboratory current. The one-ray intersection cannot be promoted without the additional simultaneous-invariance premise",
+        "id": "gauge_kinetic_invariant_form_drop",
+        "lean_declarations": {
+          "GaugeKineticInvariantForms": [
+            "f_exact_two_parameter",
+            "g_exact_two_parameter",
+            "p_exact_two_parameter",
+            "mirror_common_extra_premise_one_ray"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/GaugeKineticInvariantForms.lean"
+        ],
+        "match": "exact representation-level finite theorem",
+        "observed_counterpart": "the finite invariant quadratic-form shape of candidate gauge kinetic terms",
+        "paper_ref": "Standard Model gauge paper, kinetic-action boundary",
+        "receipt_sha256": "sha256:2ba0528c47165b0cec758dec58936c3bc1f5cf8b22dc515f9bae251f923fbea2",
+        "statement": "For each certified compact bracket, exact ad-invariance of a carrier-projector quadratic form leaves one coefficient per simple factor. The F and G families reduce the three carrier-invariant weights to two: F imposes w(3+)=sqrt(5) w(5), while G imposes w(3-)=sqrt(5) w(5). The P control remains two-to-two. Simultaneous F/G invariance leaves one ray but is an extra mirror-common premise"
+      },
+      {
+        "hypothesis_boundary": "both transition kernels are Gibbs kernels constructed from the displayed two-factor costs. The theorem symbolically handles the 729- and 177147-state groups without a large enumeration. It does not identify either kernel with an independently source-produced process, select either coefficient or their ratio, add the abelian sector, or supply physical units, a continuum field, laboratory current, or prediction",
+        "id": "two_factor_constructed_history_binding",
+        "lean_declarations": {
+          "TwoFactorHistoryBinding": [
+            "twoFactor_kernel_identifies_weighted_coefficients",
+            "twoFactor_kernel_only_common_multiplier_scaling",
+            "fullP_action_reproduces_law",
+            "fullP_kernel_relative_coefficients_identifiable",
+            "fFamily_action_reproduces_law",
+            "fFamily_kernel_relative_coefficients_identifiable"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/QFT/TwoFactorHistoryBinding.lean"
+        ],
+        "match": "exact constructed-kernel compatibility; no independent source law",
+        "observed_counterpart": "a finite multifactor gauge-history action with an identifiable relative kinetic coefficient",
+        "paper_ref": "Standard Model gauge paper, multifactor history binding",
+        "statement": "For two finite additive step groups, a Gibbs kernel constructed from the weighted sum a q1+b q2 factorizes exactly, and its history action is the corresponding sum of factor actions. If each factor cost has one nonconstant direction, equality of two such constructed transition kernels identifies both multiplier-weighted coefficients; with nonzero multipliers, only one common scaling remains. Exact instances bind both P factors on 3^6 steps and the complete 8+3 dimensional F family on 3^11 steps"
+      },
+      {
         "artifact_refs": [
           "code/a5_closure/receipts/super_tannakian_matter_reference.receipt.json",
           "code/a5_closure/receipts/axis_center_descent_reference.receipt.json"
@@ -978,9 +1040,15 @@
         "statement": "A proof-carrying finite enrichment of one consensus tower has declared region posets, overlaps, disjointness, local star subalgebras, isotony, algebraic locality, covariant refinement, compatible expectations, and idempotent regional repairs that explicitly fix local and declared-disjoint observables. Its relaxations compose exactly and preserve remote expectations. Supplied overlap restrictions support a unique restriction-gluing interface on declared nonempty subregion families, controls isolate missing premises, and a partition-and-state-parameterized commutative constant-partition model proves conditional consistency"
       },
       {
-        "hypothesis_boundary": "the Lean interface defines no complete-positivity predicate or bundled CP/CPTP channel. The operator-exponential theorem uses bounded endomorphisms of a complete real normed space. Poisson rate and forward-time interpretations require nonnegative parameters. No source-derived rate, physical clock, or prediction is supplied",
+        "hypothesis_boundary": "the formal CP/CPTP predicate covers partition averaging, partition pinching, and the nonnegative-time relaxation channel; a positive trace-preserving transpose control is not completely positive. The operator-exponential theorem uses bounded endomorphisms of a complete real normed space. Poisson rate and forward-time interpretations require nonnegative parameters. No source-derived rate, physical clock, or prediction is supplied",
         "id": "finite_publicization_dynamics",
         "lean_declarations": {
+          "ChoiCPTP": [
+            "partitionAverage_isCPTP",
+            "partitionPinching_isCPTP",
+            "relaxationChannel_isCPTP",
+            "transposeMap_positive_tracePreserving_not_CP"
+          ],
           "ConditionalExpectationGenerator": [
             "conditionalExpectationGenerator_eq_projectorGKSL",
             "conditionalExpectationGenerator_eq_zero_iff_mem_commutant",
@@ -1011,12 +1079,13 @@
           "Lean/EventAlgebra/TwoScalePublicRepair.lean",
           "Lean/Thermodynamics/PoissonizedRepair.lean",
           "Lean/Thermodynamics/PoissonizedRepairOperatorExp.lean",
-          "Lean/Dynamics/ConditionalExpectationGenerator.lean"
+          "Lean/Dynamics/ConditionalExpectationGenerator.lean",
+          "Lean/Dynamics/ChoiCPTP.lean"
         ],
         "match": "exact finite linear and matrix identities",
         "observed_counterpart": "finite public/private relaxation and stable pointer algebra",
         "paper_ref": "observers paper, finite publicization dynamics",
-        "statement": "An idempotent linear publicization map has an exactly solvable public-residual relaxation with multiplicative composition and exponential semigroup law. Its Poissonized closed form satisfies the initial-value and generator-flow identities and equals the literal Banach-algebra operator exponential for bounded idempotent endomorphisms. Partition averaging has an explicit normalized Kraus family and trace identity, and the partition-pinching generator equals the displayed projector-rate matrix dissipator with fixed algebra equal to the commutant at nonzero rate"
+        "statement": "An idempotent linear publicization map has an exactly solvable public-residual relaxation with multiplicative composition and exponential semigroup law. Its Poissonized closed form satisfies the initial-value and generator-flow identities and equals the literal Banach-algebra operator exponential for bounded idempotent endomorphisms. Partition averaging has an explicit normalized Kraus family and is formally CPTP. Partition pinching is also CPTP, and its generator equals the displayed projector-rate matrix dissipator with fixed algebra equal to the commutant at nonzero rate"
       },
       {
         "hypothesis_boundary": "public star automorphisms are classified exactly as unique label permutations, so arbitrary pointwise-continuous public automorphism groups are trivial. Private innerness covers only one full matrix block. Arbitrary finite central sums, a coherent continuous unitary lift and single generator for every private automorphism group, source dynamics, physical time, and predictions are outside the attained packet",
@@ -1078,11 +1147,30 @@
         "statement": "For reversal-compatible group labels on endpoint-typed finite paths, the ordered transport ratio of two common-endpoint paths equals the holonomy of their closed ratio loop, and every unitary character maps it to the exact relative phase. Recharting conjugates based holonomy and leaves character phase invariant. An explicit four-vertex path/face control has two flat declared triangular faces and a separate undeclared, unfilled loop with nontrivial holonomy and two-arm phase. A supplied cyclic ZMod n sector forces the character phase to be an nth root of unity"
       },
       {
+        "hypothesis_boundary": "the access cut, restrictions, observer values, and record packet are supplied finite data. The result is not a source-production theorem and proves no cross-regulator naturality, higher-overlap cocycle, continuum observer, laboratory attachment, or prediction",
+        "id": "fixed_regulator_operational_overlap_evidence",
+        "lean_declarations": {
+          "OperationalOverlapEvidence": [
+            "operationalObservers_share_visible_event_record",
+            "operationalOverlap_good_evidence",
+            "operationalOverlap_good_common_mem_both",
+            "operationalOverlap_bad_not_evidence"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/QFT/OperationalOverlapEvidence.lean"
+        ],
+        "match": "exact fixed-regulator witness and negative control",
+        "observed_counterpart": "the seven-clause bounded operational-observer and shared-record interface",
+        "paper_ref": "consensus paper, operational observer receipt",
+        "statement": "At one finite regulator, two distinct operational observers can be bound through the E6 access cut so that each owner algebra is the declared accessible algebra, every committed record and own readout agrees after typed restriction to a proper meet, and one common restriction is nonzero and accessible to both. In the exact witness, owner-region records differ before restriction and agree only at the shared corner; a one-corner mutation falsifies the receipt"
+      },
+      {
         "artifact_refs": [
           "code/born_frame/runtime/finite_born_frame_certificate.json",
           "code/born_frame/verify_finite_born_frame_independent.py"
         ],
-        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter from source-derived geometry, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity. No general Gleason or Busch theorem, physical Born derivation, observable, or prediction is emitted. Issue #702 owns the source-effect, affinity/noncontextuality, and public instrument/readback continuation",
+        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter from source-derived geometry, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity; the transverse cubic refutes the current finite Busch--Gleason interface, and the Pauli-Y pair identifies the missing complex tomography direction. The full-effect theorem still applies only after full coexistent-effect additivity is supplied. No physical Born derivation, observable, or prediction is emitted. Issue #702 owns a source-earned complex effect web, operational additivity, and public instrument/readback",
         "id": "finite_born_frame_rank_gap",
         "lean_declarations": {
           "FiniteBornFrame": [
@@ -1098,19 +1186,30 @@
             "nonlinearBinaryWeight_antipodal_sum",
             "nonlinearBinaryWeight_not_affine",
             "dense_affine_probability_tests_force_closed_unit_ball"
+          ],
+          "FiniteWebBornNoGo": [
+            "planarCubicAssignment_noncontextual",
+            "finiteBuschGleasonInterface_false",
+            "current_finite_web_born_no_go"
+          ],
+          "SourceContextTomographyNoGo": [
+            "current_source_context_web_not_tomographically_complete",
+            "pauliY_context_distinguishes_states"
           ]
         },
         "lean_receipts": [
           "Lean/EventAlgebra/FiniteBornFrame.lean",
-          "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean"
+          "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean",
+          "Lean/EventAlgebra/FiniteWebBornNoGo.lean",
+          "Lean/QFT/SourceContextTomographyNoGo.lean"
         ],
         "match": "exact bounded rank-gap no-go; public quantum-effect source missing",
         "observed_counterpart": "finite noncontextual weight representation and the Born rule",
         "paper_ref": "observers paper, finite Born-frame rank audit",
-        "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball"
+        "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball. The current finite unsharp battery also fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, noncontextual on the whole web, and non-affine. The realized real S3 source contexts are not complex tomographically complete: distinct pure Pauli-Y states agree on every declared outcome and a missing complex Y projector separates them"
       },
       {
-        "hypothesis_boundary": "issue #688 owns four source-side receipts: the global objective representation, the common source-derived reference for both optimizers, completion of the source collar realization, and refinement-uniform low-temperature control. Issue #703 separately owns physical energy and clock calibration beyond the attained central-interface modular split. Complete thermodynamic integration consumes both packets; neither issue is a prerequisite of the other. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
+        "hypothesis_boundary": "The exact obstruction closes issue #688 only as a bounded negative result for the current source artifact: it rules out a nondegenerate action-intertwining common object and a deterministic empirical pushforward. It does not supply a replacement source object, an independently justified stochastic coupling, source collar equality, or nonconstant refinement family. Issue #703 separately owns physical energy and clock calibration beyond the attained central-interface modular split. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
         "id": "thermodynamic_four_law_package",
         "lean_declarations": {
           "CapFirstLaw": [
@@ -1119,6 +1218,15 @@
             "cap_clausius_of_central_conserved",
             "push_heatBath_fixes_mean",
             "heatBath_cap_clausius"
+          ],
+          "ChoiCPTP": [
+            "partitionPinching_isCPTP"
+          ],
+          "CommonReferenceObstruction": [
+            "mixingMode_eigenpair",
+            "no_nondegenerate_current_common_object_intertwiner",
+            "no_empirical_deterministic_stationary_pushforward",
+            "current_common_reference_obstruction_summary"
           ],
           "EinsteinPremiseLink": [
             "shannon_diff_eq_pairing_sub_kl",
@@ -1175,12 +1283,14 @@
           "Lean/Thermodynamics/FluctuationTheorems.lean",
           "Lean/Thermodynamics/CapFirstLaw.lean",
           "Lean/Thermodynamics/EinsteinPremiseLink.lean",
-          "Lean/EventAlgebra/PartitionPinchingCP.lean"
+          "Lean/EventAlgebra/PartitionPinchingCP.lean",
+          "Lean/Dynamics/ChoiCPTP.lean",
+          "Lean/Thermodynamics/CommonReferenceObstruction.lean"
         ],
         "match": "finite theorem package under named receipts",
         "observed_counterpart": "the zeroth, first, second, and third laws of thermodynamics",
         "paper_ref": "observers paper, thermodynamics section",
-        "statement": "With a faithful common reference and repaired-visible fibre supplied, Axiom 3 instantiated on states selects the Gibbs exponential family by the exact information-projection Pythagorean identity, and instantiated on transition distributions over the repaired-visible fibre selects weighted conditional resampling from the same reference. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges; relative entropy to the reference contracts under it; the exact first-law split carries its bilinear cross term; the excited Gibbs mass obeys the finite gap bound with entropy limit log g0; partition pinching has an explicit normalized projector Kraus family and preserves trace, while the formal interface defines no complete-positivity predicate or bundled CP/CPTP channel; more generally, every stochastic kernel preserving a faithful stationary reference contracts relative entropy even without detailed balance, with an exact lazy directed three-cycle as the nonreversible separation witness"
+        "statement": "With a faithful common reference and repaired-visible fibre supplied, Axiom 3 instantiated on states selects the Gibbs exponential family by the exact information-projection Pythagorean identity, and instantiated on transition distributions over the repaired-visible fibre selects weighted conditional resampling from the same reference. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges; relative entropy to the reference contracts under it; the exact first-law split carries its bilinear cross term; the excited Gibbs mass obeys the finite gap bound with entropy limit log g0; partition pinching has an explicit normalized projector Kraus family and is formally CPTP; more generally, every stochastic kernel preserving a faithful stationary reference contracts relative entropy even without detailed balance, with an exact lazy directed three-cycle as the nonreversible separation witness. On the current source artifact, however, the transition action has a nonconstant eigenmode with eigenvalue 665437/726948, whereas the candidate state-side heat-bath action is idempotent; every intertwiner kills that mode. Its stationary mass 7155/61511 is also not a deterministic pushforward of the equally weighted 16384-state empirical table"
       },
       {
         "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #688, #693, #694, and #703 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",

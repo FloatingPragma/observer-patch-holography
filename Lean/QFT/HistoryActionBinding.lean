@@ -101,9 +101,12 @@ single steps.  No continuum limit, no physical units, and no
 laboratory gauge field are claimed.  The concrete kinetic witness
 covers only one three-dimensional P factor.  Its one multiplier gives
 only a common overall rescaling (or an isolated-factor rescaling).
-Binding the remaining P factor, the F and G families—including the
-color-bearing factors—and proving or selecting their relative
-multi-factor couplings remain open.
+The companion `QFT.TwoFactorHistoryBinding` binds both P factors and one
+complete color-bearing F family for kernels constructed from the displayed
+costs, and proves that only common scaling is multiplier gauge.  Identifying
+either constructed kernel with an independent OPH source law, selecting the
+relative coefficient, extending to the mirror G family, and supplying
+physical units or a continuum limit remain open.
 -/
 
 namespace OPH.QFT
@@ -485,8 +488,10 @@ theorem sector_most_probable_iff_least_kinetic (pi : SectorStep → ℝ)
 /-- The single factor's common scale is the multiplier gauge:
 rescaling this one certified three-dimensional P form by `g` produces
 the constructed path law read off by the unrescaled action at
-multiplier `g`.  This theorem does not fix relative couplings to the
-other P factor or to F/G factors. -/
+multiplier `g`. This one-factor theorem alone does not fix relative couplings.
+The companion `TwoFactorHistoryBinding` module binds full P and color-F inside
+the constructed Gibbs family and proves relative-coefficient identifiability
+without source-selecting its value. -/
 theorem sector_coupling_is_multiplier (pi : SectorStep → ℝ) (n : ℕ)
     (g : ℝ) (hpi : ∀ x, 0 < pi x) (hpi1 : ∑ x, pi x = 1) :
     tilt (stepUniformRef pi n) (incrementAction sectorIncrement n) g

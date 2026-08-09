@@ -663,6 +663,16 @@ which is what lets it join the color algebra rather than sit in an abelian
 center. The bracket acts on fluctuations of the coefficients and currents;
 the records that observers actually read stay in the commuting part.
 
+An exact audit tests a more source-shaped alternative. Give every
+one of the twenty oriented faces the same cyclic bracket weight. The resulting
+operation is exactly one certified symmetry channel, $60R_{13}$, but it fails
+the Jacobi identity in 240 independent coordinates. If one additionally
+chooses the displayed Euclidean metric on structure constants, the nearest
+consistent compact family is uniquely the color-bearing family called $G$.
+That metric and the instruction “repair by the nearest bracket” are not
+consequences of the observer axioms. The result is a conditional discriminator
+rather than a derivation of the physical bracket.
+
 The distinction between symmetry and multiplication matters. $A_5$ symmetry
 by itself permits fourteen different antisymmetric products on the twelve
 coefficients and refuses to pick one. What picks one is the carrier's own
@@ -791,6 +801,16 @@ representation of $A_5$ cannot sneak in as a hidden Higgs, because it has no
 complex structure compatible with the hypercharge action. Masses, mixing
 angles, coupling strengths, and poles belong to the dynamics carried by these
 symmetry sectors, downstream of everything in this section.
+
+The same exact audit narrows the kinetic shape without fixing its strengths.
+For each color-bearing compact bracket, three carrier-compatible quadratic
+weights collapse to two under invariance of the bracket, with conjugate
+$\sqrt5$ relations. The colorless control stays two-dimensional. One free
+coefficient per simple factor therefore remains. In the declared two-factor
+Gibbs construction, one common multiplier cannot erase their relative
+coefficient; its value remains unselected. This is proved for both colorless
+factors and one full color-bearing family, but the construction builds its
+transition kernel from chosen costs rather than selecting them from the source.
 
 ## 14.10 Hypercharge from Gluing Consistency
 

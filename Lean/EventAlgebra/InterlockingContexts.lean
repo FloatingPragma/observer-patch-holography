@@ -21,8 +21,9 @@ defines a probability-valued noncontextual assignment with no affine/Born
 coefficient vector.  Binary sharp interlocking alone underdetermines Born
 form; the web packaging here consumes the committed declarations.
 
-Positive threshold: adjoining finitely many explicit unsharp contexts is
-decisive.  The exhibited trine context has exact rational members
+Partial threshold: adjoining finitely many explicit unsharp contexts excludes
+the committed `z`-cubic response but is not decisive for Born form.  The
+exhibited trine context has exact rational members
 `(3/4) P(u1)`, `(5/8) P(u2)`, `(5/8) P(u3)` along the unit directions
 `u1 = (0,0,1)`, `u2 = (4/5,0,-3/5)`, `u3 = (-4/5,0,-3/5)`.  The members sum
 to the identity, are effects, are unsharp, and pairwise noncommute under the
@@ -31,22 +32,21 @@ Auxiliary calibration and splitting contexts force every noncontextual
 normalized assignment on the extended web to extend additively across the
 exhibited decompositions, with trine values `(3/4) v(P(u1))`,
 `(5/8) v(P(u2))`, `(5/8) v(P(u3))`; this is the additivity hypothesis of a
-finite Busch argument on the generated effect set.  Trine normalization then
-pins an exact affine relation on three binary values, and the cube response
-violates the pin exactly: its forced trine total is `31/25`.
+finite Busch argument on only those generated decompositions.  Trine
+normalization then pins one exact affine relation on three binary values, and
+the cube response violates that pin exactly: its forced trine total is
+`31/25`.  A transverse cubic response survives every current context.
 
-Boundary: no Busch or Gleason theorem is proved here, and no affinity
-derivation is claimed; the committed dense-test closure in
+Boundary: no affinity derivation is proved from this finite web.  The full
+effect-algebra theorem in `EventAlgebra.FiniteBuschGleason` represents an
+additive valuation on *all* matrix effects, but a normalized assignment on
+the contexts declared here does not supply that hypothesis or a bridge from
+these `Herm2` slots to a full matrix-effect valuation.  The proposed finite
+bridge is recorded as `FiniteBuschGleasonInterface`; the transverse planar
+counterexample in `EventAlgebra.FiniteWebBornNoGo` proves that this interface
+is false for the current web.  The committed dense-test closure in
 `FiniteEffectClosureBoundary` remains a positivity-after-affinity statement.
-The composition with a finite Busch-Gleason lane is recorded as the
-documented `Prop` `FiniteBuschGleasonInterface`.  The lane file
-`EventAlgebra/FiniteBuschGleason.lean` entered the working tree as untracked
-concurrent-session work while this module was under construction; at
-consumption time it reaches real homogeneity
-(`IsEffectValuation.smul_eq`), carries no Born representation endpoint, and
-carries no bridge identifying its `Matrix` effects with the Pauli
-coordinate effects used here, so that interface is stated and consumed
-nowhere in this module.  The rank-gap module
+The rank-gap module
 `EventAlgebra.FiniteBornFrame` (B11) treats six fixed axes; this module
 quantifies over all antipodal axes and adds unsharp contexts.
 -/
@@ -599,22 +599,18 @@ theorem cube_response_no_noncontextual_extension :
 
 /-! ## Bridge interface for the finite Busch-Gleason lane -/
 
-/-- Exact consumption interface for a finite Busch-Gleason lane.  A module
-proving this `Prop` would assert: every noncontextual assignment on the
+/-- Proposed consumption interface for a finite Busch-Gleason lane.  This
+`Prop` asserts that every noncontextual assignment on the
 extended web restricts on the binary subweb to an affine/Born functional
 with coefficient vector in the closed unit ball, in the committed
 `affineBinaryWeight` coordinates.  Together with
 `binary_sharp_web_underdetermines_born` and
-`cube_response_no_noncontextual_extension`, such a theorem would locate the
-Born decision point exactly at the unsharp interlocking added by
-`extendedWeb`.  At consumption time the lane file
-`EventAlgebra/FiniteBuschGleason.lean` exists as untracked
-concurrent-session work: it defines `EventAlgebra.IsEffectValuation` on
-`Matrix (Fin d) (Fin d) ℂ` and proves rational and real homogeneity through
-`IsEffectValuation.smul_eq`, without a Born representation theorem and
-without an order bridge from the `Herm2` coordinates used here to its
-matrix effects.  This definition records the exact consumption interface
-and is consumed nowhere in this module. -/
+`cube_response_no_noncontextual_extension`, it was intended to locate the
+Born decision point at the unsharp interlocking added by `extendedWeb`.
+However, `EventAlgebra.FiniteWebBornNoGo` constructs a probability-valued
+transverse cubic assignment and proves this `Prop` false.  The full
+representation theorem in `EventAlgebra.FiniteBuschGleason` therefore cannot
+be consumed without strengthening the web hypotheses. -/
 def FiniteBuschGleasonInterface : Prop :=
   ∀ v : Assignment extendedWeb, Noncontextual extendedWeb v →
     ∃ q : Spatial, spatialNormSq q ≤ 1 ∧

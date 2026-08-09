@@ -2,6 +2,7 @@ import QFT.FiniteCausalObserverNet
 import QFT.ObserverNetDescent
 import QFT.ObserverAccessCut
 import QFT.ObserverEventWorld
+import QFT.OperationalOverlapEvidence
 import QFT.ObserverEventTower
 import QFT.NoncommutativeWitness
 import QFT.SourceLinkSquare
@@ -14,8 +15,10 @@ import QFT.PublicEndpointBridge
 import QFT.ConvexAffinityBridge
 import QFT.SourceConvexFamily
 import QFT.SourceContextWeb
+import QFT.SourceContextTomographyNoGo
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
+import QFT.TwoFactorHistoryBinding
 import QFT.InhabitedTowerRow
 import QFT.LocallyCovariantLimit
 import QFT.StructuralInheritance
@@ -95,9 +98,12 @@ covariance, with negative controls separating every hypothesis.
 from a supplied increment cost and proves that the kernel's log-transition
 action returns that cost up to the additive-constant and common-rescaling
 gauge.  The concrete receipt covers one three-dimensional factor of the
-colorless P family, with exact positivity on its truncated step group; it
-does not source-select the kernel, bind the other P factor, cover the
-color-bearing F/G families, or determine relative couplings.  A
-state-dependent control kernel proves that translation invariance is
-load-bearing for this increment-only representation.
+colorless P family, with exact positivity on its truncated step group.  The
+companion `QFT.TwoFactorHistoryBinding` proves exact product-kernel
+factorization, binds both P factors and one full color-bearing F family, and
+shows that equality of constructed two-factor Gibbs kernels leaves only a
+common multiplier rescaling: the relative factor coefficient is identifiable,
+not gauge.  These kernels are built from the supplied costs; neither module
+identifies an OPH source kernel or selects the coefficients.  A state-dependent
+control proves that translation invariance is load-bearing.
 -/

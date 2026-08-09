@@ -111,7 +111,7 @@ class AuditTests(unittest.TestCase):
             claim["status"],
         )
         self.assertIn(
-            "source_realization_open",
+            "source_bracket_and_current_realization_open",
             claim["status"],
         )
 

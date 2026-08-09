@@ -1,0 +1,569 @@
+{
+  "certificate_sha256": "sha256:bfb46a89c065b233ef2e2d38984d99e76f5c904fd941981a44ce4cb9178d8597",
+  "channel_coordinates": {
+    "d_five": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "d_minus": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "d_plus": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "t_ff_to_m": [
+      0,
+      1,
+      -1,
+      20
+    ],
+    "t_ff_to_p": [
+      0,
+      1,
+      1,
+      20
+    ],
+    "t_mf_to_f": [
+      0,
+      1,
+      -1,
+      20
+    ],
+    "t_mf_to_m": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "t_mf_to_p": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "t_mm_to_m": [
+      0,
+      1,
+      -1,
+      20
+    ],
+    "t_pf_to_f": [
+      0,
+      1,
+      1,
+      20
+    ],
+    "t_pf_to_m": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "t_pf_to_p": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "t_pm_to_f": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "t_pp_to_p": [
+      0,
+      1,
+      1,
+      20
+    ]
+  },
+  "claim_boundary": "The equal-weight cyclic bracket is derived from the pinned oriented-face incidence and is exactly 60*R13. It fails Jacobi. The squared-distance comparison is conditional on adding the displayed coefficient-space Hilbert--Schmidt metric. Neither minimum-Hilbert--Schmidt repair nor any Jacobi-repair law is source-derived; therefore the unique nearest G result is a discriminator, not an OPH source-selection or B14 closure theorem.",
+  "field": "Q(sqrt(5)); [a_num,a_den,b_num,b_den] encodes a+b*sqrt(5)",
+  "implementation_pins": {
+    "producer_sha256": "sha256:a52a62ac6a0f268fa693f1a2d2620694a330e63f7854d0fc2c15eea015e3adf1",
+    "verifier_sha256": "sha256:87beb891df6ef2eacedf7603d6617666b2d9785a27115787647eed126d16d1e4"
+  },
+  "issue": 705,
+  "jacobi_failure": {
+    "coordinate_domain": "output o and strictly increasing input triple i<j<k",
+    "domain_size": 2640,
+    "first_witnesses": [
+      [
+        0,
+        1,
+        4,
+        10,
+        -1
+      ],
+      [
+        0,
+        1,
+        4,
+        11,
+        1
+      ],
+      [
+        0,
+        1,
+        6,
+        8,
+        -1
+      ],
+      [
+        0,
+        1,
+        6,
+        9,
+        1
+      ],
+      [
+        0,
+        1,
+        8,
+        9,
+        -1
+      ],
+      [
+        0,
+        1,
+        10,
+        11,
+        -1
+      ],
+      [
+        0,
+        2,
+        4,
+        5,
+        -1
+      ],
+      [
+        0,
+        2,
+        4,
+        9,
+        1
+      ],
+      [
+        0,
+        2,
+        5,
+        9,
+        -1
+      ],
+      [
+        0,
+        2,
+        6,
+        7,
+        -1
+      ],
+      [
+        0,
+        2,
+        6,
+        11,
+        1
+      ],
+      [
+        0,
+        2,
+        7,
+        11,
+        -1
+      ]
+    ],
+    "negative_count": 120,
+    "nonzero_count": 240,
+    "positive_count": 120,
+    "squared_norm": 240,
+    "value_histogram": {
+      "-1": 120,
+      "1": 120
+    }
+  },
+  "orthogonal_compact_locus_discriminator": {
+    "conclusion_status": "TARGET_CLEAN_CONDITIONAL_DISCRIMINATOR__NOT_SOURCE_SELECTION",
+    "exact_gaps": {
+      "distance_F_minus_distance_G": [
+        0,
+        1,
+        123,
+        11
+      ],
+      "distance_P_minus_distance_G": [
+        375,
+        22,
+        123,
+        22
+      ]
+    },
+    "families": {
+      "F": {
+        "compact_sign": "negative",
+        "compact_sign_product_a_times_b": [
+          1,
+          880,
+          -1,
+          440
+        ],
+        "gram": [
+          [
+            [
+              6600,
+              1,
+              -1320,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              600,
+              1,
+              -120,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              600,
+              1,
+              120,
+              1
+            ]
+          ]
+        ],
+        "orthogonal_projection_parameters": [
+          [
+            -1,
+            22,
+            1,
+            220
+          ],
+          [
+            0,
+            1,
+            1,
+            20
+          ],
+          [
+            0,
+            1,
+            -1,
+            20
+          ]
+        ],
+        "parameter_order": [
+          "a",
+          "b",
+          "e"
+        ],
+        "projection_lies_in_compact_open_stratum": true,
+        "rhs": [
+          [
+            -330,
+            1,
+            90,
+            1
+          ],
+          [
+            -30,
+            1,
+            30,
+            1
+          ],
+          [
+            -30,
+            1,
+            -30,
+            1
+          ]
+        ],
+        "squared_distance": [
+          615,
+          22,
+          123,
+          22
+        ]
+      },
+      "G": {
+        "compact_sign": "positive",
+        "compact_sign_product_a_times_b": [
+          1,
+          880,
+          1,
+          440
+        ],
+        "gram": [
+          [
+            [
+              6600,
+              1,
+              1320,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              600,
+              1,
+              120,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              600,
+              1,
+              -120,
+              1
+            ]
+          ]
+        ],
+        "orthogonal_projection_parameters": [
+          [
+            -1,
+            22,
+            -1,
+            220
+          ],
+          [
+            0,
+            1,
+            -1,
+            20
+          ],
+          [
+            0,
+            1,
+            1,
+            20
+          ]
+        ],
+        "parameter_order": [
+          "a",
+          "b",
+          "e"
+        ],
+        "projection_lies_in_compact_open_stratum": true,
+        "rhs": [
+          [
+            -330,
+            1,
+            -90,
+            1
+          ],
+          [
+            -30,
+            1,
+            -30,
+            1
+          ],
+          [
+            -30,
+            1,
+            30,
+            1
+          ]
+        ],
+        "squared_distance": [
+          615,
+          22,
+          -123,
+          22
+        ]
+      },
+      "P": {
+        "gram": [
+          [
+            [
+              600,
+              1,
+              -120,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              600,
+              1,
+              120,
+              1
+            ]
+          ]
+        ],
+        "orthogonal_projection_parameters": [
+          [
+            0,
+            1,
+            1,
+            20
+          ],
+          [
+            0,
+            1,
+            -1,
+            20
+          ]
+        ],
+        "parameter_order": [
+          "p",
+          "m"
+        ],
+        "rhs": [
+          [
+            -30,
+            1,
+            30,
+            1
+          ],
+          [
+            -30,
+            1,
+            -30,
+            1
+          ]
+        ],
+        "squared_distance": [
+          45,
+          1,
+          0,
+          1
+        ]
+      }
+    },
+    "metric_is_source_derived": false,
+    "metric_premise": "Euclidean/Hilbert--Schmidt inner product on upper-triangular structure-constant coordinates in the pinned port basis",
+    "minimum_hs_or_jacobi_repair_is_source_derived": false,
+    "unique_nearest_family": "G"
+  },
+  "schema": "oph.b14.oriented_face_bracket_selector.v1",
+  "source_face_bracket": {
+    "definition": "for every oriented face (a,b,c), add [e_a,e_b]=e_c, [e_b,e_c]=e_a, [e_c,e_a]=e_b and antisymmetry",
+    "identity": "B_face = 60 * R13 exactly in all 12*12*12 tensor coordinates",
+    "nonzero_upper_structure_constants": 60,
+    "oriented_face_count": 20,
+    "proper_action_order": 60,
+    "reynolds_coordinates": [
+      [
+        13,
+        60,
+        1,
+        0,
+        1
+      ]
+    ],
+    "upper_coordinate_squared_norm": [
+      60,
+      1,
+      0,
+      1
+    ]
+  },
+  "upstream": {
+    "compact_locus_file_sha256": "sha256:ddc1f27a7ac13081a47ecf7edc9573db5b193c31c41a70ac3ef0b0272db47400",
+    "compact_locus_path": "code/b14_jacobi/b14_compact_locus.certificate.json",
+    "compact_locus_self_sha256": "sha256:d784c4e3154b3c02a2813f2ce341958ec6f251d4e939c3000bd6c581b1c13f45",
+    "source_manifest_path": "code/a5_closure/manifests/echosahedral_federation_reference.json",
+    "source_manifest_sha256": "sha256:12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+    "stage1_basis_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_reynolds_basis.json",
+    "stage1_basis_sha256": "sha256:bee15ce78b3dcb2d7ce9da2a817fe27435cad5054765b10f86f29a5a1203c16b",
+    "stage1_receipt_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json",
+    "stage1_receipt_sha256": "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd",
+    "stage2_system_path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json",
+    "stage2_system_sha256": "sha256:3ddf112adbd88439b1736427e32b634e4e8fb01866f19629eac8964666698f74"
+  }
+}

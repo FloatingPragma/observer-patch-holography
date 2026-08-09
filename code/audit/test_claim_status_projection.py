@@ -276,7 +276,7 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
     expected_gates = {
-        "OPH-THERMO-FOUR-LAW-PACKAGE": [688, 703],
+        "OPH-THERMO-FOUR-LAW-PACKAGE": [703],
         "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
@@ -302,19 +302,21 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     assert "degenerate representation-level compatibility witness" in thermo[
         "statement"
     ]
-    assert "Issue #688 is open" in thermo["statement"]
-    assert "Issue #703 separately owns physical energy and clock calibration" in thermo[
+    assert "bounded-negative exit for issue #688" in thermo["statement"]
+    assert "does not exclude a different source object or an independently justified stochastic coupling" in thermo[
         "statement"
     ]
-    assert "complete thermodynamic integration consumes both open packets" in thermo[
+    assert "Issue #703 separately owns physical energy and clock calibration" in thermo[
         "statement"
     ]
 
     kinetic = by_id["OPH-GAUGE-KINETIC-HISTORY-BINDING"]
-    assert "only block [0,3)" in kinetic["statement"]
-    assert "does not cover P's second factor" in kinetic["statement"]
+    assert "bind both three-dimensional P factors" in kinetic["statement"]
+    assert "the full color-bearing F family" in kinetic["statement"]
+    assert "the relative coefficient is identifiable rather than multiplier gauge" in kinetic[
+        "statement"
+    ]
     assert "No independently source-produced kernel is identified" in kinetic["statement"]
-    assert "relative multifactor coupling" in kinetic["statement"]
 
     flagship = (
         REPO_ROOT / "flagship" / "from_observer_consensus_to_standard_physics.tex"

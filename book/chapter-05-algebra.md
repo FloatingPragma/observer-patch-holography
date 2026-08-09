@@ -375,6 +375,17 @@ work is sharper: it must source an effect-rich noncontextuality or
 instrument/readback principle that produces affinity, instead of adding a
 continuity assumption.
 
+Adding one finite unsharp context is not enough either. It rejects the
+particular cubic response above, but all axes in the current finite battery
+lie in one real plane. The different response
+$F_y(n)=(1+n_y^3)/2$ agrees with the ordinary half-weight on that whole
+battery and is nonlinear away from it. Likewise, the declared real
+$S_3$ source web cannot distinguish two complex qubit states that differ only
+in the Pauli-$Y$ direction. A physical Born bridge therefore needs a
+complex-tomographically-complete effect and instrument web plus an operational
+reason for noncontextual additivity; recording more frequencies on an
+incomplete web cannot supply that reason by itself.
+
 ### Net Axioms (Algebraic)
 
 The pattern stays the same. A smaller patch sees less. Disjoint patches do not

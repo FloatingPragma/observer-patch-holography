@@ -111,13 +111,14 @@ données et certificats :
 4. **Les quatre lois forment un paquet fini conditionnel exact.** Une référence
    fidèle commune et la fibre complète de l’information visible réparée donnent
    l’équilibre, la contraction de l’entropie, le bilan chaleur-travail et une
-   borne de basse température. La réalisation de l’objectif global, une même
-   référence pour les deux optimiseurs, l’égalité entre collier et noyau de
-   rééchantillonnage, le contrôle uniforme sous raffinement et l’étalonnage de
-   l’énergie et de l’horloge sont ouverts. Voir l’
+   borne de basse température. Pour la paire état-transition épinglée, les
+   obstructions exactes excluent un entrelacement dynamique non dégénéré et une
+   image directe empirique déterministe. Un couplage justifié séparément ou une
+   autre source, le contrôle sous raffinement et l’étalonnage physique sont
+   ouverts. Voir l’
    [article sur les observateurs](paper/observers_are_all_you_need.pdf), la
    [preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
-   et le [certificat exact](code/thermodynamics/conditional_repair_certificate.py).
+   et l’[obstruction source](Lean/Thermodynamics/CommonReferenceObstruction.lean).
 5. **La structure de jauge du Modèle standard issue de douze ports.** La
    géométrie, la réponse réversible complète et l’accord des observateurs
    retrouvent les symétries des forces forte, faible et électromagnétique. Une
@@ -190,17 +191,14 @@ supplémentaires, chacun énoncé avec sa frontière au bout du lien :
   [pile de théorèmes géométriques](Lean/Geometry.lean), l’
   [interface finie du réseau régional](Lean/QFT.lean) et les
   [notes de frontière Lean](Lean/docs/) pour les portées exactes.
-- La bibliothèque formalise six tests opérationnels complets et la moitié
-  propre à l’observateur d’un septième test de preuve lisible : accès borné,
-  relecture, registres stables, action conditionnée par les registres,
-  prédiction vers l’avant, raffinement et lecture de ses propres registres.
-  Un exemple concret habite ces champs et quatre systèmes volontairement
-  défectueux échouent chacun à un champ. La restriction des registres entre
-  observateurs distincts par des applications de recouvrement partagées reste
-  ouverte. Voir la
-  [preuve de l’observateur opérationnel](Lean/Tower/OperationalObserver.lean).
+- La bibliothèque formalise sept tests opérationnels finis : accès borné,
+  relecture, registres stables, action conditionnée, prédiction, continuation
+  et preuve commune non nulle à travers un recouvrement typé. Le dernier test
+  est prouvé à un régulateur ; sa naturalité par raffinement reste ouverte.
+  Voir la
+  [preuve de recouvrement](Lean/QFT/OperationalOverlapEvidence.lean).
 
-La bibliothèque Lean associée contient plus de 4200 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 4300 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
@@ -474,25 +472,14 @@ ainsi.
 
 La reconstruction va des trois axiomes à une théorie quantique publique, à une
 géométrie des événements et à une description macroscopique de l’espace-temps.
-La cible principale est le lagrangien du Modèle standard. Pour chaque crochet
-compact certifié, l’invariance adjointe force la forme cinétique de jauge à
-être diagonale par blocs, avec un coefficient positif libre par facteur
-simple. Une identité exacte distincte définit un noyau de Gibbs à partir du
-coût quadratique sur un seul facteur tridimensionnel de la famille P, qui
-ne porte pas la couleur, puis retrouve ce coût comme action logarithmique de
-transition, à une constante additive et une remise à l’échelle commune près.
-Cette identité ne dérive pas la dynamique de la source, ne lie pas le second
-facteur et ne couvre pas les familles F et G porteuses de couleur.
-Aucune normalisation de couplage fort ou faible n’est donc dérivée.
-L’hypercharge est abélienne, et le calcul au
-niveau du porteur renvoie un réseau de charges abéliennes nul, de sorte que sa
-normalisation reste indéterminée à ce niveau. Dériver le secteur abélien
-depuis un module de matière sélectionné par la source, ou sortir avec le
-constat que la source ne sélectionne aucune hypercharge, constitue une surface
-de falsification exposée. Les secteurs de matière et scalaire attendent la
-même structure finie de matière sélectionnée par la source, et la comparaison
-composée avec le Modèle standard suit un protocole où un désaccord est une
-sortie valable. Voir le
+La cible principale est le lagrangien du Modèle standard. Le calcul fini exact
+réduit maintenant de trois à deux les poids cinétiques de chaque famille
+porteuse de couleur, tandis qu’une comparaison déclarée à partir des faces
+favorise conditionnellement une famille compacte. Il ne dérive pas encore la
+règle de comparaison, les couplages relatifs, la normalisation de
+l’hypercharge ni une action issue de la source. L’attachement de la matière et
+du secteur scalaire reste ouvert, et un désaccord avec le Modèle standard est
+une sortie permise plutôt qu’un résultat que le protocole peut ajuster. Voir le
 [programme d’action effective](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
 
 Les autres objectifs majeurs :

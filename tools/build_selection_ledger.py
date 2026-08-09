@@ -67,6 +67,7 @@ REQUIRED_SELECTOR_IDS = {
     "scheduler_selection_fair_block",
     "quantitative_closure_map_declaration",
     "physical_port_current_realization",
+    "oriented_face_minimum_repair_rule",
     "z6_global_form_descent",
     "physical_matter_spin_lift",
     "screen_to_family_attachment",
@@ -413,7 +414,7 @@ def render(rows: list[dict]) -> str:
         f" {counts['exposed_premise']} EXPOSED PREMISE, {counts['open']} OPEN."
     )
     lines.append(
-        "Every open row belongs to the particle-realization and capacity programs;"
+        "Open rows belong to bracket, particle-realization, and capacity programs;"
     )
     lines.append(
         "the recovery of relativity and quantum structure from observer consensus"

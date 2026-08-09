@@ -68,6 +68,10 @@ PARENTS = {
     / "carrier_class_dispersion_receipt.json",
     "carrier_frequency_speed": CODE / "a5_fingerprint" / "runtime"
     / "carrier_frequency_speed_receipt.json",
+    "gauge_kinetic_invariant_forms": CODE / "e9_kinetic"
+    / "gauge_kinetic_invariant_forms.certificate.json",
+    "oriented_face_bracket_selector": CODE / "b14_jacobi"
+    / "oriented_face_bracket_selector.certificate.json",
 }
 
 LEAN_RECEIPTS = {
@@ -130,6 +134,7 @@ LEAN_RECEIPTS = {
     / "PoissonizedRepairOperatorExp.lean",
     "ConditionalExpectationGenerator": REPO / "Lean" / "Dynamics"
     / "ConditionalExpectationGenerator.lean",
+    "ChoiCPTP": REPO / "Lean" / "Dynamics" / "ChoiCPTP.lean",
     "PublicMarkov": REPO / "Lean" / "Dynamics" / "PublicMarkov.lean",
     "PublicAutomorphism": REPO / "Lean" / "Dynamics"
     / "PublicAutomorphism.lean",
@@ -184,6 +189,18 @@ LEAN_RECEIPTS = {
     "SeamCurrentCarrierQuotient": LEAN_SCREEN / "SeamCurrentCarrierQuotient.lean",
     "A5CarrierClassBand": LEAN_SCREEN / "A5CarrierClassBand.lean",
     "CarrierFrequencySpeed": LEAN_SCREEN / "CarrierFrequencySpeed.lean",
+    "GaugeKineticInvariantForms": LEAN_SCREEN / "GaugeKineticInvariantForms.lean",
+    "OrientedFaceBracketSelector": LEAN_SCREEN / "OrientedFaceBracketSelector.lean",
+    "OperationalOverlapEvidence": REPO / "Lean" / "QFT"
+    / "OperationalOverlapEvidence.lean",
+    "CommonReferenceObstruction": REPO / "Lean" / "Thermodynamics"
+    / "CommonReferenceObstruction.lean",
+    "FiniteWebBornNoGo": REPO / "Lean" / "EventAlgebra"
+    / "FiniteWebBornNoGo.lean",
+    "SourceContextTomographyNoGo": REPO / "Lean" / "QFT"
+    / "SourceContextTomographyNoGo.lean",
+    "TwoFactorHistoryBinding": REPO / "Lean" / "QFT"
+    / "TwoFactorHistoryBinding.lean",
 }
 
 DEFAULT_OUT = RUNS / "status" / "postdiction_ledger.json"
@@ -245,6 +262,22 @@ def _canonical_self_digest(payload: dict[str, Any]) -> str:
             sort_keys=True,
         )
         + "\n"
+    ).encode("ascii")
+    return "sha256:" + hashlib.sha256(raw).hexdigest()
+
+
+def _certificate_self_digest(payload: dict[str, Any]) -> str:
+    body = {
+        key: value
+        for key, value in payload.items()
+        if key != "certificate_sha256"
+    }
+    raw = json.dumps(
+        body,
+        allow_nan=False,
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
     ).encode("ascii")
     return "sha256:" + hashlib.sha256(raw).hexdigest()
 
@@ -357,6 +390,8 @@ def _forced_structure(
     carrier_modes: dict[str, Any],
     carrier_class: dict[str, Any],
     carrier_frequency: dict[str, Any],
+    gauge_kinetic: dict[str, Any],
+    oriented_face: dict[str, Any],
 ) -> list[dict[str, Any]]:
     spectrum = matter["realized_package"]["charge_spectrum"]
     sm_spectrum = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 6}
@@ -423,6 +458,56 @@ def _forced_structure(
     ):
         raise SystemExit(
             "carrier-frequency parent has left its exact auxiliary boundary"
+        )
+
+    kinetic_families = gauge_kinetic.get("families", {})
+    if (
+        gauge_kinetic.get("schema")
+        != "oph.e9.gauge_kinetic_invariant_forms.v1"
+        or gauge_kinetic.get("issue") != 716
+        or gauge_kinetic.get("certificate_sha256")
+        != _certificate_self_digest(gauge_kinetic)
+        or kinetic_families.get("F", {}).get("carrier_invariant_dimension") != 3
+        or kinetic_families.get("F", {}).get("ad_invariant_dimension") != 2
+        or kinetic_families.get("G", {}).get("carrier_invariant_dimension") != 3
+        or kinetic_families.get("G", {}).get("ad_invariant_dimension") != 2
+        or kinetic_families.get("P", {}).get("carrier_invariant_dimension") != 2
+        or kinetic_families.get("P", {}).get("ad_invariant_dimension") != 2
+        or gauge_kinetic.get("mirror_common_control", {}).get(
+            "not_source_selected"
+        )
+        is not True
+    ):
+        raise SystemExit(
+            "gauge-kinetic invariant-form parent left its exact bounded boundary"
+        )
+
+    face_source = oriented_face.get("source_face_bracket", {})
+    face_jacobi = oriented_face.get("jacobi_failure", {})
+    face_selector = oriented_face.get(
+        "orthogonal_compact_locus_discriminator", {}
+    )
+    if (
+        oriented_face.get("schema")
+        != "oph.b14.oriented_face_bracket_selector.v1"
+        or oriented_face.get("issue") != 705
+        or oriented_face.get("certificate_sha256")
+        != _certificate_self_digest(oriented_face)
+        or face_source.get("oriented_face_count") != 20
+        or face_source.get("identity")
+        != "B_face = 60 * R13 exactly in all 12*12*12 tensor coordinates"
+        or face_jacobi.get("nonzero_count") != 240
+        or face_jacobi.get("positive_count") != 120
+        or face_jacobi.get("negative_count") != 120
+        or face_selector.get("unique_nearest_family") != "G"
+        or face_selector.get("metric_is_source_derived") is not False
+        or face_selector.get(
+            "minimum_hs_or_jacobi_repair_is_source_derived"
+        )
+        is not False
+    ):
+        raise SystemExit(
+            "oriented-face bracket parent left its conditional discriminator boundary"
         )
     exterior_declarations = tuple(lean_cross_reference["theorems"])
     exterior_path = LEAN_RECEIPTS["ExteriorSelection"].relative_to(REPO).as_posix()
@@ -634,6 +719,159 @@ def _forced_structure(
                 "compact-simple classification are declared classical inputs"
             ),
             "paper_ref": "Standard Model gauge paper, Compact-Lie trichotomy section",
+        },
+        {
+            "id": "oriented_face_nearest_compact_discriminator",
+            "statement": (
+                "The equal-weight cyclic bracket of the twenty pinned oriented "
+                "faces is exactly 60 times Reynolds basis vector R13 and is "
+                "A5-equivariant. It fails Jacobi in exactly 240 of the 2640 "
+                "independent output/input-triple coordinates, split 120 at +1 "
+                "and 120 at -1. Conditional on the displayed upper-triangular "
+                "structure-constant Euclidean metric and the certified compact "
+                "locus, its unique nearest compact family is G: squared "
+                "distances are (615-123 sqrt(5))/22 to G, "
+                "(615+123 sqrt(5))/22 to F, and 45 to P"
+            ),
+            "observed_counterpart": (
+                "a finite source-incidence discriminator among the three compact "
+                "bracket families"
+            ),
+            "match": (
+                "exact conditional finite discriminator; no source repair law"
+            ),
+            "artifact_ref": _rel("oriented_face_bracket_selector"),
+            "receipt_sha256": oriented_face["certificate_sha256"],
+            "lean_declarations": {
+                "OrientedFaceBracketSelector": [
+                    "face_bracket_eq_sixty_r13",
+                    "jacobi_failure_witness",
+                    "unique_nearest_G",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "OrientedFaceBracketSelector",
+                declarations={
+                    "OrientedFaceBracketSelector": (
+                        "face_bracket_eq_sixty_r13",
+                        "jacobi_failure_witness",
+                        "unique_nearest_G",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the equal-weight oriented-face construction is a declared "
+                "deterministic rule applied to the pinned incidence orientation, "
+                "not a rule forced by the OPH axioms. The comparison "
+                "adds a coefficient-space metric; neither minimum-distance "
+                "repair nor any Jacobi-repair dynamics is source-derived. The "
+                "result therefore distinguishes a compact family under an "
+                "exposed premise and does not close B14 or select a physical "
+                "gauge bracket"
+            ),
+            "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
+        },
+        {
+            "id": "gauge_kinetic_invariant_form_drop",
+            "statement": (
+                "For each certified compact bracket, exact ad-invariance of a "
+                "carrier-projector quadratic form leaves one coefficient per "
+                "simple factor. The F and G families reduce the three "
+                "carrier-invariant weights to two: F imposes "
+                "w(3+)=sqrt(5) w(5), while G imposes "
+                "w(3-)=sqrt(5) w(5). The P control remains two-to-two. "
+                "Simultaneous F/G invariance leaves one ray but is an extra "
+                "mirror-common premise"
+            ),
+            "observed_counterpart": (
+                "the finite invariant quadratic-form shape of candidate gauge "
+                "kinetic terms"
+            ),
+            "match": "exact representation-level finite theorem",
+            "artifact_ref": _rel("gauge_kinetic_invariant_forms"),
+            "receipt_sha256": gauge_kinetic["certificate_sha256"],
+            "lean_declarations": {
+                "GaugeKineticInvariantForms": [
+                    "f_exact_two_parameter",
+                    "g_exact_two_parameter",
+                    "p_exact_two_parameter",
+                    "mirror_common_extra_premise_one_ray",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "GaugeKineticInvariantForms",
+                declarations={
+                    "GaugeKineticInvariantForms": (
+                        "f_exact_two_parameter",
+                        "g_exact_two_parameter",
+                        "p_exact_two_parameter",
+                        "mirror_common_extra_premise_one_ray",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the brackets and carrier projectors are supplied certified "
+                "finite objects. The theorem selects neither bracket nor "
+                "overall or relative coupling coefficients, and it constructs "
+                "no source action, continuum field, or laboratory current. "
+                "The one-ray intersection cannot be promoted without the "
+                "additional simultaneous-invariance premise"
+            ),
+            "paper_ref": "Standard Model gauge paper, kinetic-action boundary",
+        },
+        {
+            "id": "two_factor_constructed_history_binding",
+            "statement": (
+                "For two finite additive step groups, a Gibbs kernel constructed "
+                "from the weighted sum a q1+b q2 factorizes exactly, and its "
+                "history action is the corresponding sum of factor actions. "
+                "If each factor cost has one nonconstant direction, equality of "
+                "two such constructed transition kernels identifies both "
+                "multiplier-weighted coefficients; with nonzero multipliers, "
+                "only one common scaling remains. Exact instances bind both P "
+                "factors on 3^6 steps and the complete 8+3 dimensional F family "
+                "on 3^11 steps"
+            ),
+            "observed_counterpart": (
+                "a finite multifactor gauge-history action with an identifiable "
+                "relative kinetic coefficient"
+            ),
+            "match": (
+                "exact constructed-kernel compatibility; no independent source law"
+            ),
+            "lean_declarations": {
+                "TwoFactorHistoryBinding": [
+                    "twoFactor_kernel_identifies_weighted_coefficients",
+                    "twoFactor_kernel_only_common_multiplier_scaling",
+                    "fullP_action_reproduces_law",
+                    "fullP_kernel_relative_coefficients_identifiable",
+                    "fFamily_action_reproduces_law",
+                    "fFamily_kernel_relative_coefficients_identifiable",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "TwoFactorHistoryBinding",
+                declarations={
+                    "TwoFactorHistoryBinding": (
+                        "twoFactor_kernel_identifies_weighted_coefficients",
+                        "twoFactor_kernel_only_common_multiplier_scaling",
+                        "fullP_action_reproduces_law",
+                        "fullP_kernel_relative_coefficients_identifiable",
+                        "fFamily_action_reproduces_law",
+                        "fFamily_kernel_relative_coefficients_identifiable",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "both transition kernels are Gibbs kernels constructed from the "
+                "displayed two-factor costs. The theorem symbolically handles "
+                "the 729- and 177147-state groups without a large enumeration. "
+                "It does not identify either kernel with an independently "
+                "source-produced process, select either coefficient or their "
+                "ratio, add the abelian sector, or supply physical units, a "
+                "continuum field, laboratory current, or prediction"
+            ),
+            "paper_ref": "Standard Model gauge paper, multifactor history binding",
         },
         {
             "id": "global_form_z6",
@@ -1757,8 +1995,8 @@ def _forced_structure(
                 "identities and equals the literal Banach-algebra operator "
                 "exponential for bounded idempotent endomorphisms. Partition "
                 "averaging has an explicit normalized "
-                "Kraus family and trace identity, and the partition-pinching "
-                "generator equals the displayed projector-rate matrix "
+                "Kraus family and is formally CPTP. Partition pinching is "
+                "also CPTP, and its generator equals the displayed projector-rate matrix "
                 "dissipator with fixed algebra equal to the commutant at "
                 "nonzero rate"
             ),
@@ -1791,6 +2029,12 @@ def _forced_structure(
                     "conditionalExpectationGenerator_eq_zero_iff_mem_commutant",
                     "multiCollarGenerator_eq_zero_iff_stableIntersection",
                 ],
+                "ChoiCPTP": [
+                    "partitionAverage_isCPTP",
+                    "partitionPinching_isCPTP",
+                    "relaxationChannel_isCPTP",
+                    "transposeMap_positive_tracePreserving_not_CP",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "PartitionAverageCP",
@@ -1798,6 +2042,7 @@ def _forced_structure(
                 "PoissonizedRepair",
                 "PoissonizedRepairOperatorExp",
                 "ConditionalExpectationGenerator",
+                "ChoiCPTP",
                 declarations={
                     "PartitionAverageCP": (
                         "ProjectivePartition.partitionAverageKraus_complete",
@@ -1823,11 +2068,19 @@ def _forced_structure(
                         "conditionalExpectationGenerator_eq_zero_iff_mem_commutant",
                         "multiCollarGenerator_eq_zero_iff_stableIntersection",
                     ),
+                    "ChoiCPTP": (
+                        "partitionAverage_isCPTP",
+                        "partitionPinching_isCPTP",
+                        "relaxationChannel_isCPTP",
+                        "transposeMap_positive_tracePreserving_not_CP",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
-                "the Lean interface defines no complete-positivity predicate "
-                "or bundled CP/CPTP channel. The operator-exponential theorem "
+                "the formal CP/CPTP predicate covers partition averaging, "
+                "partition pinching, and the nonnegative-time relaxation "
+                "channel; a positive trace-preserving transpose control is "
+                "not completely positive. The operator-exponential theorem "
                 "uses bounded endomorphisms of a complete real normed space. Poisson rate and "
                 "forward-time interpretations require nonnegative parameters. "
                 "No source-derived rate, physical clock, or prediction is supplied"
@@ -1975,6 +2228,51 @@ def _forced_structure(
             "paper_ref": "gauge paper, finite holonomy/interference packet",
         },
         {
+            "id": "fixed_regulator_operational_overlap_evidence",
+            "statement": (
+                "At one finite regulator, two distinct operational observers "
+                "can be bound through the E6 access cut so that each owner "
+                "algebra is the declared accessible algebra, every committed "
+                "record and own readout agrees after typed restriction to a "
+                "proper meet, and one common restriction is nonzero and "
+                "accessible to both. In the exact witness, owner-region "
+                "records differ before restriction and agree only at the "
+                "shared corner; a one-corner mutation falsifies the receipt"
+            ),
+            "observed_counterpart": (
+                "the seven-clause bounded operational-observer and shared-record "
+                "interface"
+            ),
+            "match": "exact fixed-regulator witness and negative control",
+            "lean_declarations": {
+                "OperationalOverlapEvidence": [
+                    "operationalObservers_share_visible_event_record",
+                    "operationalOverlap_good_evidence",
+                    "operationalOverlap_good_common_mem_both",
+                    "operationalOverlap_bad_not_evidence",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "OperationalOverlapEvidence",
+                declarations={
+                    "OperationalOverlapEvidence": (
+                        "operationalObservers_share_visible_event_record",
+                        "operationalOverlap_good_evidence",
+                        "operationalOverlap_good_common_mem_both",
+                        "operationalOverlap_bad_not_evidence",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the access cut, restrictions, observer values, and record "
+                "packet are supplied finite data. The result is not a "
+                "source-production theorem and proves no cross-regulator "
+                "naturality, higher-overlap cocycle, continuum observer, "
+                "laboratory attachment, or prediction"
+            ),
+            "paper_ref": "consensus paper, operational observer receipt",
+        },
+        {
             "id": "finite_born_frame_rank_gap",
             "statement": (
                 "The twelve declared central port atoms form one classical "
@@ -1989,7 +2287,12 @@ def _forced_structure(
                 "full celestial sphere, the continuous normalized binary weight "
                 "F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is "
                 "supplied, dense probability tests force the coefficient into "
-                "the closed unit ball"
+                "the closed unit ball. The current finite unsharp battery also "
+                "fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, "
+                "noncontextual on the whole web, and non-affine. The realized "
+                "real S3 source contexts are not complex tomographically "
+                "complete: distinct pure Pauli-Y states agree on every declared "
+                "outcome and a missing complex Y projector separates them"
             ),
             "observed_counterpart": (
                 "finite noncontextual weight representation and the Born rule"
@@ -2012,10 +2315,21 @@ def _forced_structure(
                     "nonlinearBinaryWeight_not_affine",
                     "dense_affine_probability_tests_force_closed_unit_ball",
                 ],
+                "FiniteWebBornNoGo": [
+                    "planarCubicAssignment_noncontextual",
+                    "finiteBuschGleasonInterface_false",
+                    "current_finite_web_born_no_go",
+                ],
+                "SourceContextTomographyNoGo": [
+                    "current_source_context_web_not_tomographically_complete",
+                    "pauliY_context_distinguishes_states",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteBornFrame",
                 "FiniteEffectClosureBoundary",
+                "FiniteWebBornNoGo",
+                "SourceContextTomographyNoGo",
                 declarations={
                     "FiniteBornFrame": (
                         "contextAdditive_unique_parameterization",
@@ -2031,6 +2345,15 @@ def _forced_structure(
                         "nonlinearBinaryWeight_not_affine",
                         "dense_affine_probability_tests_force_closed_unit_ball",
                     ),
+                    "FiniteWebBornNoGo": (
+                        "planarCubicAssignment_noncontextual",
+                        "finiteBuschGleasonInterface_false",
+                        "current_finite_web_born_no_go",
+                    ),
+                    "SourceContextTomographyNoGo": (
+                        "current_source_context_web_not_tomographically_complete",
+                        "pauliY_context_distinguishes_states",
+                    ),
                 },
             ),
             "artifact_refs": [
@@ -2043,10 +2366,13 @@ def _forced_structure(
                 "source-derived geometry, not a source-produced public quantum "
                 "instrument. The celestial countermodel proves that continuity "
                 "and normalized antipodal binary contexts still do not derive "
-                "affinity. No general Gleason or Busch theorem, physical Born "
-                "derivation, observable, or prediction is emitted. Issue #702 "
-                "owns the source-effect, affinity/noncontextuality, and public "
-                "instrument/readback continuation"
+                "affinity; the transverse cubic refutes the current finite "
+                "Busch--Gleason interface, and the Pauli-Y pair identifies the "
+                "missing complex tomography direction. The full-effect theorem "
+                "still applies only after full coexistent-effect additivity is "
+                "supplied. No physical Born derivation, observable, or prediction "
+                "is emitted. Issue #702 owns a source-earned complex effect web, "
+                "operational additivity, and public instrument/readback"
             ),
             "paper_ref": "observers paper, finite Born-frame rank audit",
         },
@@ -2065,13 +2391,17 @@ def _forced_structure(
                 "first-law split carries its bilinear cross term; the "
                 "excited Gibbs mass obeys the finite gap bound with "
                 "entropy limit log g0; partition pinching has an explicit "
-                "normalized projector Kraus family and preserves trace, while "
-                "the formal interface defines no complete-positivity predicate "
-                "or bundled CP/CPTP channel"
+                "normalized projector Kraus family and is formally CPTP"
                 "; more generally, every stochastic kernel preserving a "
                 "faithful stationary reference contracts relative entropy "
                 "even without detailed balance, with an exact lazy directed "
-                "three-cycle as the nonreversible separation witness"
+                "three-cycle as the nonreversible separation witness. On the "
+                "current source artifact, however, the transition action has a "
+                "nonconstant eigenmode with eigenvalue 665437/726948, whereas "
+                "the candidate state-side heat-bath action is idempotent; every "
+                "intertwiner kills that mode. Its stationary mass 7155/61511 is "
+                "also not a deterministic pushforward of the equally weighted "
+                "16384-state empirical table"
             ),
             "observed_counterpart": (
                 "the zeroth, first, second, and third laws of "
@@ -2131,6 +2461,15 @@ def _forced_structure(
                     "ProjectivePartition.kraus_complete",
                     "partitionPinching_kraus_form",
                 ],
+                "ChoiCPTP": [
+                    "partitionPinching_isCPTP",
+                ],
+                "CommonReferenceObstruction": [
+                    "mixingMode_eigenpair",
+                    "no_nondegenerate_current_common_object_intertwiner",
+                    "no_empirical_deterministic_stationary_pushforward",
+                    "current_common_reference_obstruction_summary",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteConditionalRepair",
@@ -2140,6 +2479,8 @@ def _forced_structure(
                 "CapFirstLaw",
                 "EinsteinPremiseLink",
                 "PartitionPinchingCP",
+                "ChoiCPTP",
+                "CommonReferenceObstruction",
                 declarations={
                     "FiniteConditionalRepair": (
                         "gibbs_pythagorean",
@@ -2193,17 +2534,27 @@ def _forced_structure(
                         "ProjectivePartition.kraus_complete",
                         "partitionPinching_kraus_form",
                     ),
+                    "ChoiCPTP": (
+                        "partitionPinching_isCPTP",
+                    ),
+                    "CommonReferenceObstruction": (
+                        "mixingMode_eigenpair",
+                        "no_nondegenerate_current_common_object_intertwiner",
+                        "no_empirical_deterministic_stationary_pushforward",
+                        "current_common_reference_obstruction_summary",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
-                "issue #688 owns four source-side receipts: the global "
-                "objective representation, the common source-derived "
-                "reference for both optimizers, completion of the source "
-                "collar realization, and refinement-uniform low-temperature "
-                "control. Issue #703 separately owns physical energy and clock "
-                "calibration beyond the attained central-interface modular "
-                "split. Complete thermodynamic integration consumes both "
-                "packets; neither issue is a prerequisite of the other. The "
+                "The exact obstruction closes issue #688 only as a bounded "
+                "negative result for the current source artifact: it rules out "
+                "a nondegenerate action-intertwining common object and a "
+                "deterministic empirical pushforward. It does not supply a "
+                "replacement source object, an independently justified "
+                "stochastic coupling, source collar equality, or nonconstant "
+                "refinement family. Issue #703 separately owns physical energy "
+                "and clock calibration beyond the attained central-interface "
+                "modular split. The "
                 "pinned 20-state collar table has an audit of all "
                 "15 nonempty field-subset projections: its repair-load quotient "
                 "is an eight-state raw ergodic nonreversible H-theorem "
@@ -3066,6 +3417,8 @@ def build(
     quantum_carrier_status = _load("quantum_carrier_status")
     carrier_class = _load("carrier_class_dispersion")
     carrier_frequency = _load("carrier_frequency_speed")
+    gauge_kinetic = _load("gauge_kinetic_invariant_forms")
+    oriented_face = _load("oriented_face_bracket_selector")
     alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
@@ -3079,6 +3432,8 @@ def build(
             carrier_modes,
             carrier_class,
             carrier_frequency,
+            gauge_kinetic,
+            oriented_face,
         ),
         "quantum_carrier_status": _quantum_carrier_status_row(
             quantum_carrier_status

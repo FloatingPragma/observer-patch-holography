@@ -37,6 +37,8 @@ import SeamCurrentFreePhotonLift
 import SeamCurrentPhysicalMetricAttachment
 import SeamCurrentPhotonLeptonThreshold
 import CarrierFrequencySpeed
+import GaugeKineticInvariantForms
+import OrientedFaceBracketSelector
 import ExteriorComponentBridge
 import QuantumMatterIntegration
 import B10EdgeCenterAction

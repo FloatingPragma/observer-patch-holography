@@ -103,13 +103,14 @@ certificates:
 4. **The four laws form an exact conditional finite package.** Given a common
    faithful reference and the complete repaired-visible fibre, the finite
    identities give equilibrium, entropy contraction, heat and work accounting,
-   and a single-stage low-temperature bound. Source realization of the global
-   objective, one reference shared by both optimizers, equality of the source
-   collar and resampling kernel, nondegenerate refinement-uniform control, and
-   physical energy-clock calibration are open. See the
+   and a single-stage low-temperature bound. For the pinned state/transition
+   pair, exact obstructions exclude a nondegenerate action intertwiner and a
+   deterministic empirical pushforward. A separately justified coupling or
+   different source, refinement control, and physical energy-clock calibration
+   are open. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean
    [conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   and the [exact certificate](code/thermodynamics/conditional_repair_certificate.py).
+   and the [source obstruction](Lean/Thermodynamics/CommonReferenceObstruction.lean).
 5. **The Standard Model gauge structure from twelve ports.** The twelve-port
    geometry, complete reversible response, and observer agreement recover the
    symmetries of the strong, weak, and electromagnetic forces. A separately
@@ -181,15 +182,14 @@ results, each stated with its boundary at the link:
   [geometry theorem stack](Lean/Geometry.lean), the
   [finite regional-net interface](Lean/QFT.lean), and the
   [Lean boundary notes](Lean/docs/) for the exact scopes.
-- The library packages six complete operational observer tests and the
-  own-observer half of a seventh evidence test: bounded access, readback,
-  stable records, record-conditioned action, forward prediction, refinement,
-  and own-record readout. A worked example inhabits those fields and four
-  deliberately broken systems fail one field each. Restriction of records
-  between distinct observers through shared overlap maps is open. See the
-  [operational observer proof](Lean/Tower/OperationalObserver.lean).
+- The library packages seven finite operational observer tests: bounded
+  access, readback, stable records, record-conditioned action, forward
+  prediction, continuation, and nonzero shared-record evidence through a
+  typed overlap. The last test is proved at one regulator; refinement-natural
+  overlap evidence is open. See the
+  [overlap proof](Lean/QFT/OperationalOverlapEvidence.lean).
 
-The supporting Lean library contains more than 4200 theorems and lemmas and no
+The supporting Lean library contains more than 4300 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
@@ -443,22 +443,13 @@ existence.
 
 The reconstruction runs from the three axioms to a public quantum theory,
 event geometry, and a macroscopic spacetime description. The main target is
-the Standard Model Lagrangian. On each certified compact bracket, ad-invariance
-forces the gauge kinetic shape to be block-diagonal with one free positive
-coefficient per simple factor. A separate exact identity defines a Gibbs step
-kernel from the quadratic cost on one three-dimensional factor of the
-colorless P family and recovers that cost as the kernel's log-transition
-action, up to additive and common-rescaling gauge. This does not derive source
-dynamics, bind the second factor, or cover the color-bearing F and G
-families, so no strong or weak coupling normalization has been derived.
-Hypercharge is
-abelian, and the carrier computation returns a zero abelian charge lattice, so
-its normalization is undetermined at this level. Deriving the abelian sector
-from a source-selected matter module, or exiting with the finding that the
-source selects no hypercharge, is an exposed falsification surface. The matter
-and scalar sectors wait on the same source-selected finite matter structure,
-and the composed comparison against the Standard Model runs under a protocol
-in which a mismatch is a valid exit.
+the Standard Model Lagrangian. Exact finite work narrows each color-family
+kinetic form from three carrier weights to two, while a declared face-based
+comparison conditionally favors one compact family. It does not derive
+the comparison rule, relative couplings, hypercharge normalization, or a
+source action. Matter and scalar attachment are open, and a mismatch with
+the Standard Model is an allowed outcome rather than something the protocol
+may tune away.
 See the [effective-action program](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
 
 The other major goals:

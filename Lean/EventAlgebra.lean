@@ -16,6 +16,7 @@ import EventAlgebra.FiniteBornFrame
 import EventAlgebra.FiniteEffectClosureBoundary
 import EventAlgebra.FiniteBuschGleason
 import EventAlgebra.InterlockingContexts
+import EventAlgebra.FiniteWebBornNoGo
 import EventAlgebra.FrequencyConcentration
 
 /-!
@@ -92,8 +93,10 @@ representation: additive [0,1] assignments on effects are exactly the
 Born weights of a unique density matrix, with no continuity axiom.
 `EventAlgebra.InterlockingContexts` locates the decision point: the
 binary sharp web admits the cube countermodel while explicit unsharp
-trine and calibration contexts force additive extension and exclude the
-cube response at an exactly computed contradiction.
+trine and calibration contexts exclude that response.  The companion
+`EventAlgebra.FiniteWebBornNoGo` proves that the whole current finite battery
+still admits a transverse cubic non-Born valuation, so it does not supply the
+full-effect premise of `FiniteBuschGleason`.
 `EventAlgebra.FrequencyConcentration` proves the exact frequency-operator
 moment and concentration theorems with the uniqueness of the stable
 frequency point and its circularity boundary stated as a theorem.

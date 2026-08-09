@@ -63,9 +63,11 @@ variable {ι : Type u} [Preorder ι]
 
 An inhabitant certifies, for one refinement-compatible observer label family,
 clauses 1 through 6 and the own-observer half of clause 7 of completion-plan
-issue `#711`. The cross-observer shared-overlap half remains open. The receipt
-consumes only declared tower data. It asserts no uniqueness, no physical
-attachment, and no source realization. -/
+issue `#711`. The companion fixed-regulator cross-observer receipt is
+`QFT.OperationalOverlapEvidence`; refinement-natural, source-realized, and
+higher-overlap versions are downstream. This base receipt consumes only
+declared tower data. It asserts no uniqueness, no physical attachment, and no
+source realization. -/
 structure OperationalObserver (T : ConsensusTower ι) where
   /-- Clause 6 (checkpoint and refinement continuation), identity part: the
   observer is a regulator-indexed family of tower observer labels. -/

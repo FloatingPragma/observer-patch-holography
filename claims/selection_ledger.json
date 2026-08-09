@@ -768,6 +768,42 @@
         "CAP-B (electroweak bridge readback) is excluded pre-evaluation under V-08 and recorded, never executed"
       ],
       "paper_anchors": []
+    },
+    {
+      "row": 23,
+      "selector_id": "oriented_face_minimum_repair_rule",
+      "label": "B14 oriented-face Jacobi repair rule",
+      "class": "open",
+      "conditional_on": [
+        "physical_port_current_realization"
+      ],
+      "canonical_claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
+      "secondary_claim_ids": [],
+      "owner_issues": [
+        705
+      ],
+      "where": "The declared equal-weight cyclic rule on the twenty pinned oriented faces gives exactly 60 R13 and an exact 240-coordinate Jacobi failure. Under the separately declared upper-triangular structure-constant metric, orthogonal projection onto the certified compact locus uniquely favors family G. Neither the equal-weight rule nor minimum-distance Jacobi repair is derived from the OPH source, so the physical bracket selection remains open.",
+      "menu": {
+        "size": null,
+        "alternatives": "no source-derived finite menu of Jacobi-repair laws has been enumerated",
+        "enumeration_source": "code/b14_jacobi/oriented_face_bracket_selector.certificate.json"
+      },
+      "compression_input": false,
+      "receipts": [
+        "code/b14_jacobi/oriented_face_bracket_selector.certificate.json",
+        "code/b14_jacobi/verify_oriented_face_bracket_selector.py"
+      ],
+      "lean": [
+        {
+          "module": "Lean/Screen/OrientedFaceBracketSelector.lean",
+          "declaration": "unique_nearest_G"
+        }
+      ],
+      "negative_controls": [
+        "the equal-weight face bracket itself fails Jacobi, so equivariance and source incidence do not make it a Lie bracket",
+        "changing or removing the declared metric removes the nearest-family conclusion"
+      ],
+      "paper_anchors": []
     }
   ]
 }

@@ -2391,12 +2391,13 @@ itself is a typed object. The base object is a consensus tower: a
 regulator-indexed family of finite matrix models carrying observer and
 record fibres, observer-indexed record orders, commutative public record
 subalgebras of the private matrix algebra, selected states and generators,
-and functorial refinement maps with compatibility laws. Six Lean modules
+and functorial refinement maps with compatibility laws. Seven Lean modules
 carry the layer:
 \begin{flushleft}
 \path{Lean/Tower/OperationalObserver.lean},\quad
 \path{Lean/QFT/ObserverAccessCut.lean},\\
 \path{Lean/QFT/ObserverEventWorld.lean},\quad
+\path{Lean/QFT/OperationalOverlapEvidence.lean},\quad
 \path{Lean/QFT/ObserverEventTower.lean},\\
 \path{Lean/QFT/NoncommutativeWitness.lean},\quad
 \path{Lean/Tower/EventGeometryReadout.lean}.
@@ -2425,10 +2426,23 @@ commute with the declared refinement maps;
 each record element against the observer's state, with every record
 element fixed by every declared intervention.
 \end{enumerate}
-Restriction of records between distinct observers through typed shared-overlap
-maps is not a field of this structure and remains an open B17 composition
-receipt. Readback idempotence on the interface and refinement stability of the
-readout are derived. The witness data are exact and small: over a
+The missing cross-observer half is supplied by a separate fixed-regulator
+receipt over two such observers and one access cut. Their labels are distinct,
+their accessible algebras agree with the cut, every committed record restricts
+to the same element through the two typed maps to the owner-region meet, the
+two own readouts agree, and at least one common restriction is nonzero. The
+common section is then accessible to both observers. A proper-meet witness
+uses diagonal algebras on two distinct owner regions, a scalar algebra on
+their bottom meet, and corner-evaluation restriction maps: the two local
+record representatives differ before restriction but agree nontrivially
+after it. Mutating one shared corner proves failure of the full overlap
+receipt. An event-world consumer additionally shows that one packet record
+visible in two owned charts restricts identically from the two owner regions
+and is fixed by both self-readbacks. This completes the seven-clause
+operational contract at one regulator; refinement-natural cross-observer
+evidence and higher-overlap coherence remain downstream. Readback idempotence
+on the interface and refinement stability of the own readout are derived. The
+base witness data are exact and small: over a
 one-regulator tower with private algebra \(M_2(\mathbb C)\), the public
 algebra is the span of the two diagonal coordinate projectors, three
 records carry the strict chain order, the state is the first coordinate
@@ -2448,7 +2462,7 @@ non-identity control. Four negative controls violate one attained field each
 on the same data: an erasing readback breaks the self-readback law, the
 identity generator breaks durability, a resetting prediction breaks
 no-regress, and a constant readout breaks the own-evidence pairing. The
-partial receipt selects no unique observer, attaches no
+bounded receipt selects no unique observer, attaches no
 instrument, makes no consciousness claim, and supplies no source
 realization of the tower data.
 
@@ -2769,10 +2783,15 @@ theorem.
 The certificate discipline above has one executed finite instance running
 from a source run to kernel-checked literals. A bounded run of the
 companion simulation engine was preregistered: its gate contract was
-committed before execution and pins five gates, a nonconstant protected
-record, one pinned common reference shared by the state and transition
-optimizers, an exact recognizer, stationarity, and contraction. The
-executed run passed all five gates. A declared extraction script froze
+committed before execution and pins a nonconstant protected record, separate
+state and transition tables, an exact recognizer, stationarity, and
+contraction. The executed run passed those data-extraction checks. It did not
+earn the typed equality that its provisional ``common reference'' label
+suggested: the transition stationary law and the empirical state-side
+reference are distinct objects. In fact their exact denominator mismatch and
+the nonprojector transition eigenmode rule out deterministic pushforward and
+nondegenerate intertwining with the idempotent state-side resampling action on
+this artifact. A declared extraction script froze
 the run's finite payload, and the payload integers are mirrored verbatim
 in \path{Lean/QFT/SimEarnedWitness.lean} as literals whose receipts are
 kernel-decided, inhabiting an earned instance of the observer access-cut

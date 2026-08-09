@@ -230,9 +230,10 @@ def test_thermodynamic_receipt_owners_are_separate(result):
         if item["id"] == "thermodynamic_four_law_package"
     )
     boundary = row["hypothesis_boundary"]
-    assert "#688 owns four source-side receipts" in boundary
+    assert "closes issue #688 only as a bounded negative result" in boundary
+    assert "does not supply a replacement source object" in boundary
+    assert "independently justified stochastic coupling" in boundary
     assert "#703 separately owns physical energy and clock calibration" in boundary
-    assert "neither issue is a prerequisite of the other" in boundary
     assert "five receipts stay open under issue #688" not in boundary
 
 

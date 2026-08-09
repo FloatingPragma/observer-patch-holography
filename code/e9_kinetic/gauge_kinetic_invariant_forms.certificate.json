@@ -1,0 +1,162 @@
+{
+  "certificate_sha256": "sha256:2ba0528c47165b0cec758dec58936c3bc1f5cf8b22dc515f9bae251f923fbea2",
+  "claim_boundary": "On the supplied certified generic brackets, this exact finite record compares the A5-carrier-invariant projector form space with the ad-invariant subspace. It selects no bracket, coupling scale, relative factor coefficient, source action, continuum field, or laboratory current. Simultaneous F/G invariance is an extra mirror-common premise and is not inferred from the carrier or source.",
+  "derived_relations": {
+    "F": "w_three_plus = sqrt(5) * w_five; w_three_minus is free",
+    "G": "w_three_minus = sqrt(5) * w_five; w_three_plus is free",
+    "P": "two carrier weights remain two ad-invariant weights"
+  },
+  "families": {
+    "F": {
+      "ad_invariance_constraint_rank": 1,
+      "ad_invariance_equation_count_before_reduction": 96,
+      "ad_invariant_dimension": 2,
+      "carrier_invariant_dimension": 3,
+      "certified_family": "SU3PF",
+      "certified_parameters": [
+        "1",
+        "-1",
+        "1"
+      ],
+      "pivot_columns": [
+        0
+      ],
+      "rref_constraints": [
+        [
+          [
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            -1,
+            1
+          ]
+        ]
+      ],
+      "weight_order": [
+        "three_plus",
+        "three_minus",
+        "five"
+      ]
+    },
+    "G": {
+      "ad_invariance_constraint_rank": 1,
+      "ad_invariance_equation_count_before_reduction": 96,
+      "ad_invariant_dimension": 2,
+      "carrier_invariant_dimension": 3,
+      "certified_family": "SU3MF",
+      "certified_parameters": [
+        "1",
+        "1",
+        "1"
+      ],
+      "pivot_columns": [
+        1
+      ],
+      "rref_constraints": [
+        [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            -1,
+            1
+          ]
+        ]
+      ],
+      "weight_order": [
+        "three_plus",
+        "three_minus",
+        "five"
+      ]
+    },
+    "P": {
+      "ad_invariance_constraint_rank": 0,
+      "ad_invariance_equation_count_before_reduction": 0,
+      "ad_invariant_dimension": 2,
+      "carrier_invariant_dimension": 2,
+      "certified_family": "PLANE",
+      "certified_parameters": [
+        "1",
+        "1"
+      ],
+      "pivot_columns": [],
+      "rref_constraints": [],
+      "weight_order": [
+        "three_plus",
+        "three_minus"
+      ]
+    }
+  },
+  "field": "Q(sqrt(5)); [a_num,a_den,b_num,b_den] encodes a+b*sqrt(5)",
+  "implementation_pins": {
+    "producer_sha256": "sha256:b885fff8cb25d9dd0c1c45cc3a724331ed5145c72a7c8ecc30dcd2cb71caa06c",
+    "verifier_sha256": "sha256:e58d3624764738350c426f16dc6d6de08a5c372a68164379439dd807c6748a4f"
+  },
+  "issue": 716,
+  "mirror_common_control": {
+    "combined_constraint_rank": 2,
+    "extra_premise": "one and the same carrier-projector form is ad-invariant for both supplied mirror brackets F and G",
+    "generator": [
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        1
+      ]
+    ],
+    "not_source_selected": true,
+    "relation": "(w_three_plus,w_three_minus,w_five)=t*(sqrt(5),sqrt(5),1)",
+    "solution_dimension": 1,
+    "weight_order": [
+      "three_plus",
+      "three_minus",
+      "five"
+    ]
+  },
+  "schema": "oph.e9.gauge_kinetic_invariant_forms.v1",
+  "upstream": {
+    "compact_locus_file_sha256": "sha256:ddc1f27a7ac13081a47ecf7edc9573db5b193c31c41a70ac3ef0b0272db47400",
+    "compact_locus_path": "code/b14_jacobi/b14_compact_locus.certificate.json",
+    "compact_locus_self_sha256": "sha256:d784c4e3154b3c02a2813f2ce341958ec6f251d4e939c3000bd6c581b1c13f45",
+    "stage1_basis_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_reynolds_basis.json",
+    "stage1_basis_sha256": "sha256:bee15ce78b3dcb2d7ce9da2a817fe27435cad5054765b10f86f29a5a1203c16b",
+    "stage1_receipt_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json",
+    "stage1_receipt_sha256": "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd",
+    "stage2_system_path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json",
+    "stage2_system_sha256": "sha256:3ddf112adbd88439b1736427e32b634e4e8fb01866f19629eac8964666698f74"
+  }
+}

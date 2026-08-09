@@ -36,7 +36,8 @@ lean_lib «OPHThermodynamics» where
     `FluctuationTheorems, `CapFirstLaw, `EinsteinPremiseLink,
     `GreenKubo, `GraphDiffusion, `StationaryRealization,
     `PoissonizedRepair, `PoissonizedRepairOperatorExp,
-    `LowTemperatureControl, `MixingChainRealization, `CommonObjectBinding]
+    `LowTemperatureControl, `MixingChainRealization, `CommonObjectBinding,
+    `CommonReferenceObstruction]
 
 @[default_target]
 lean_lib «OPHScreen» where
@@ -68,6 +69,7 @@ lean_lib «OPHScreen» where
     `SeamCurrentDirichletGenerator, `SeamCurrentAuxiliaryOscillatorLift,
     `SeamCurrentFreePhotonLift, `SeamCurrentPhysicalMetricAttachment,
     `SeamCurrentPhotonLeptonThreshold, `CarrierFrequencySpeed,
+    `GaugeKineticInvariantForms, `OrientedFaceBracketSelector,
     `ExteriorComponentBridge, `QuantumMatterIntegration,
     `B10EdgeCenterAction,
     `B10QuantumLimitations, `CarrierUniqueness]
