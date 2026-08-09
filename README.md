@@ -162,7 +162,7 @@ results, each stated with its boundary at the link:
   stated dictionaries. See the
   [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
   and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
-- On separately declared Maxwell, Yang--Mills, and Einstein branches, the
+- On separately declared Maxwell, Yang-Mills, and Einstein branches, the
   quadratic kernels have zero hard mass parameters and the expected
   transverse or transverse-traceless classical modes. These are classical
   carrier statements, not quantum pole predictions. See the
@@ -437,13 +437,17 @@ existence.
 The reconstruction runs from the three axioms to a public quantum theory,
 event geometry, and a macroscopic spacetime description. The main target is
 the Standard Model Lagrangian. Its gauge kinetic sector is forced: the
-kinetic form is block-diagonal in the certified sector projectors, one
-coupling ray per simple factor is the only possibility, and that form equals
-the derived action of its own source dynamics. The count gives two rays
-against the three of the Standard Model, and the absent abelian ray is the
-exposed falsification surface. The matter, scalar, and abelian sectors wait
-on a source-selected finite matter structure. The composed comparison against
-the Standard Model runs under a protocol in which a mismatch is a valid exit.
+kinetic form is block-diagonal in the certified sector projectors with one
+normalization per simple factor, and that form equals the derived action of
+its own source dynamics. This gives one kinetic normalization for the strong
+sector and one for the weak sector, both of Yang-Mills shape. Hypercharge is
+abelian, and the carrier computation returns a zero abelian charge lattice, so
+its normalization is undetermined at this level. Deriving the abelian sector
+from a source-selected matter module, or exiting with the finding that the
+source selects no hypercharge, is an exposed falsification surface. The matter
+and scalar sectors wait on the same source-selected finite matter structure,
+and the composed comparison against the Standard Model runs under a protocol
+in which a mismatch is a valid exit.
 See the [effective-action program](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
 
 The other major goals:

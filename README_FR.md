@@ -173,7 +173,7 @@ supplémentaires, chacun énoncé avec sa frontière au bout du lien :
   dictionnaires déclarés. Voir l’
   [article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
   et sa [preuve Lean](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
-- Sur les branches déclarées séparément de Maxwell, de Yang--Mills et
+- Sur les branches déclarées séparément de Maxwell, de Yang-Mills et
   d’Einstein, les noyaux quadratiques ont un paramètre de masse dure nul et
   les modes classiques transverses attendus : des énoncés de porteurs
   classiques, pas des prédictions de pôles quantiques. Voir le
@@ -470,13 +470,18 @@ La reconstruction va des trois axiomes à une théorie quantique publique, à un
 géométrie des événements et à une description macroscopique de l’espace-temps.
 La cible principale est le lagrangien du Modèle standard. Son secteur
 cinétique de jauge est forcé : la forme cinétique est diagonale par blocs dans
-les projecteurs certifiés, un seul rayon de couplage par facteur simple est
-possible, et cette forme égale l’action dérivée de sa propre dynamique de
-source. Le compte donne deux rayons contre les trois du Modèle standard, et le
-rayon abélien absent constitue la surface de falsification exposée. Les
-secteurs de matière, scalaire et abélien attendent une structure finie de
-matière sélectionnée par la source. La comparaison composée avec le Modèle
-standard suit un protocole où un désaccord est une sortie valable. Voir le
+les projecteurs certifiés, avec une normalisation par facteur simple, et cette
+forme égale l’action dérivée de sa propre dynamique de source. Cela donne une
+normalisation cinétique pour le secteur fort et une pour le secteur faible,
+toutes deux de forme Yang-Mills. L’hypercharge est abélienne, et le calcul au
+niveau du porteur renvoie un réseau de charges abéliennes nul, de sorte que sa
+normalisation reste indéterminée à ce niveau. Dériver le secteur abélien
+depuis un module de matière sélectionné par la source, ou sortir avec le
+constat que la source ne sélectionne aucune hypercharge, constitue une surface
+de falsification exposée. Les secteurs de matière et scalaire attendent la
+même structure finie de matière sélectionnée par la source, et la comparaison
+composée avec le Modèle standard suit un protocole où un désaccord est une
+sortie valable. Voir le
 [programme d’action effective](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
 
 Les autres objectifs majeurs :
