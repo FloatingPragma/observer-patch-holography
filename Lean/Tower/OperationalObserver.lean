@@ -5,12 +5,15 @@ import Time.ObserverHistory
 # Operational observerhood receipts over consensus towers
 
 This module implements completion-plan issue `#711`.  An
-`OperationalObserver` over a `ConsensusTower` packages the seven operational
-observerhood clauses as typed fields: a bounded accessible interface, a
-self-readback map, durable records, record-conditioned control, predictive
-boundary use, checkpoint and refinement continuation, and overlap-readable
-evidence.  Every clause is a finite statement about declared tower data;
-nothing is inferred from a limit, a dynamics, or a physical interpretation.
+`OperationalObserver` over a `ConsensusTower` packages six complete
+operational-observerhood clauses and the own-observer half of the seventh as
+typed fields: a bounded accessible interface, a self-readback map, durable
+records, record-conditioned control, predictive boundary use, checkpoint and
+refinement continuation, and own-record readable evidence. Restriction of
+records between distinct observers through typed shared-overlap maps is not
+represented by this structure. Every attained field is a finite statement
+about declared tower data; nothing is inferred from a limit, a dynamics, or a
+physical interpretation.
 
 `witnessObserver` is an explicit inhabitant over the explicit one-regulator
 tower `witnessTower`: the private algebra is `M₂(ℂ)`, the public algebra is
@@ -58,10 +61,11 @@ variable {ι : Type u} [Preorder ι]
 
 /-- Operational observerhood receipt over a consensus tower.
 
-An inhabitant certifies, for one refinement-compatible observer label
-family, the seven operational clauses of completion-plan issue `#711`.  The
-receipt consumes only declared tower data.  It asserts no uniqueness, no
-physical attachment, and no source realization. -/
+An inhabitant certifies, for one refinement-compatible observer label family,
+clauses 1 through 6 and the own-observer half of clause 7 of completion-plan
+issue `#711`. The cross-observer shared-overlap half remains open. The receipt
+consumes only declared tower data. It asserts no uniqueness, no physical
+attachment, and no source realization. -/
 structure OperationalObserver (T : ConsensusTower ι) where
   /-- Clause 6 (checkpoint and refinement continuation), identity part: the
   observer is a regulator-indexed family of tower observer labels. -/
@@ -118,7 +122,7 @@ structure OperationalObserver (T : ConsensusTower ι) where
   commutes with the declared record refinement maps. -/
   predict_refine : ∀ {r s : ι} (hrs : r ≤ s) (x : T.Record r),
     T.recordRefine hrs (predict r x) = predict s (T.recordRefine hrs x)
-  /-- Clause 7 (overlap-readable evidence): a declared readable value for
+  /-- Own-observer half of clause 7 (overlap-readable evidence): a declared readable value for
   each record.  The record element itself is typed into the observer's own
   public algebra by the tower field `recordElement`. -/
   readout : ∀ r : ι, T.Record r → ℂ
@@ -130,13 +134,13 @@ structure OperationalObserver (T : ConsensusTower ι) where
   predict_readout_congruent : ∀ (r : ι) (x y : T.Record r),
     readout r x = readout r y →
       readout r (predict r x) = readout r (predict r y)
-  /-- Clause 7 (overlap-readable evidence): the declared readable value is
+  /-- Own-observer half of clause 7: the declared readable value is
   the trace pairing of the record element against the observer's own
   state. -/
   readout_eq_pairing : ∀ (r : ι) (x : T.Record r),
     readout r x =
       (T.state r (label r) * (T.recordElement r (label r) x).1).trace
-  /-- Clause 7 (overlap-readable evidence): every record element is fixed
+  /-- Own-observer half of clause 7: every record element is fixed
   by every declared intervention, so committed evidence survives the
   observer's own record-conditioned control. -/
   record_fixed_by_control : ∀ (r : ι) (x y : T.Record r),

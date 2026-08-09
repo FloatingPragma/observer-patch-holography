@@ -79,29 +79,34 @@ certificates:
    [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    the Lean [completion proof](Lean/Screen/PrimitivePortFrameQuotient.lean),
    and the [finite signature evidence](evidence/einstein_convergence/).
-2. **Observer agreement reproduces the quantum rules.** On the declared finite
-   model, agreement gives the usual quantum probabilities and measurement
-   rules, together with exact limits on correlations and copying. Connecting
-   this mathematics to physical measuring devices is work in progress. See the
+2. **A declared finite effect algebra has the Born representation.** Every
+   normalized nonnegative valuation that is additive on all coexisting-effect
+   sums is the trace against one density matrix, including in dimension two.
+   The source-produced effect system, operational additivity or frequency
+   bridge, and physical instrument are work in progress; observer agreement
+   alone does not supply those premises. See the
    [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf),
    the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
    the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-3. **Dynamics, quantum weights, and the action are forced, not chosen.** On
-   the finite observer algebra, continuous time evolution has no freedom
-   beyond a Hamiltonian, so the Schrödinger form is a theorem. The quantum
-   weight is the only additive assignment on measurement effects, down to
-   the qubit case. The realized dynamics fixes its own action up to gauge:
-   least action and most probable history are two readouts of one
-   functional, joined to Hamiltonian flow by a Legendre bridge. Attaching
-   units, clocks, and outcome frequencies is work in progress. See the
+3. **Finite symmetry flows and history laws have exact action
+   representations.** On a unital finite-dimensional star algebra, every
+   pointwise-continuous one-parameter automorphism group is generated
+   blockwise by a Hamiltonian. For a realized positive Markov chain, the
+   log-transition action represents its path law up to additive and
+   multiplier gauge. Separately, the finite Legendre theorem relates
+   Euler--Lagrange junctions to Hamilton steps for declared regular
+   Lagrangians. No theorem produces that realized chain from the Hamilton
+   flow; units, clocks, and physical attachment are open. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the
    [Born representation proof](Lean/EventAlgebra/FiniteBuschGleason.lean), and
    the [derived-action proof](Lean/InformationProjection/LogTransitionAction.lean).
-4. **The four laws of thermodynamics follow in the finite observer model.**
-   Given a common reference state and the repaired information visible to all
-   observers, the same finite repair rule gives equilibrium, entropy increase,
-   heat and work accounting, and the low-temperature limit. The remaining work
-   connects energy and clock units to a source-produced physical system. See the
+4. **The four laws form an exact conditional finite package.** Given a common
+   faithful reference and the complete repaired-visible fibre, the finite
+   identities give equilibrium, entropy contraction, heat and work accounting,
+   and a single-stage low-temperature bound. Source realization of the global
+   objective, one reference shared by both optimizers, equality of the source
+   collar and resampling kernel, nondegenerate refinement-uniform control, and
+   physical energy-clock calibration are open. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the Lean
    [conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
    and the [exact certificate](code/thermodynamics/conditional_repair_certificate.py).
@@ -176,10 +181,12 @@ results, each stated with its boundary at the link:
   [geometry theorem stack](Lean/Geometry.lean), the
   [finite regional-net interface](Lean/QFT.lean), and the
   [Lean boundary notes](Lean/docs/) for the exact scopes.
-- The library defines what counts as an observer through seven tests:
-  bounded window, readback, stable records, action, forward prediction, and
-  survival under refinement. A worked example passes all seven and three
-  deliberately broken systems fail exactly one each. See the
+- The library packages six complete operational observer tests and the
+  own-observer half of a seventh evidence test: bounded access, readback,
+  stable records, record-conditioned action, forward prediction, refinement,
+  and own-record readout. A worked example inhabits those fields and four
+  deliberately broken systems fail one field each. Restriction of records
+  between distinct observers through shared overlap maps is open. See the
   [operational observer proof](Lean/Tower/OperationalObserver.lean).
 
 The supporting Lean library contains more than 4200 theorems and lemmas and no
@@ -436,11 +443,15 @@ existence.
 
 The reconstruction runs from the three axioms to a public quantum theory,
 event geometry, and a macroscopic spacetime description. The main target is
-the Standard Model Lagrangian. Its gauge kinetic sector is forced: the
-kinetic form is block-diagonal in the certified sector projectors with one
-normalization per simple factor, and that form equals the derived action of
-its own source dynamics. This gives one kinetic normalization for the strong
-sector and one for the weak sector, both of Yang-Mills shape. Hypercharge is
+the Standard Model Lagrangian. On each certified compact bracket, ad-invariance
+forces the gauge kinetic shape to be block-diagonal with one free positive
+coefficient per simple factor. A separate exact identity defines a Gibbs step
+kernel from the quadratic cost on one three-dimensional factor of the
+colorless P family and recovers that cost as the kernel's log-transition
+action, up to additive and common-rescaling gauge. This does not derive source
+dynamics, bind the second factor, or cover the color-bearing F and G
+families, so no strong or weak coupling normalization has been derived.
+Hypercharge is
 abelian, and the carrier computation returns a zero abelian charge lattice, so
 its normalization is undetermined at this level. Deriving the abelian sector
 from a source-selected matter module, or exiting with the finding that the

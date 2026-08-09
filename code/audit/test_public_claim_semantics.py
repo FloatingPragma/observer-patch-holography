@@ -92,7 +92,7 @@ def test_readme_highlights_remain_short_and_reader_facing() -> None:
 
     english = (ROOT / "README.md").read_text(encoding="utf-8")
     french = (ROOT / "README_FR.md").read_text(encoding="utf-8")
-    assert "**The four laws of thermodynamics" in english
+    assert "**The four laws form an exact conditional finite package.**" in english
     assert "conditional finite theorem package" not in english.lower()
     assert "72-eV-wide interval" in english
     assert "lands within 72 eV" not in english

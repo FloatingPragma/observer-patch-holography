@@ -45,6 +45,7 @@
     "OPH-A5-REAL-AXIS-CABIBBO-NOGO",
     "OPH-W5-STABILISER-POTENTIAL-BOUNDARY",
     "OPH-SCREEN-A5-SM-RECOGNITION",
+    "OPH-GAUGE-KINETIC-HISTORY-BINDING",
     "OPH-SM-ROUTE-IDENTIFICATION",
     "OPH-WZ-STRICT-1L-POLE-MAP",
     "OPH-SM-Q1-LOCAL-G6",
@@ -837,7 +838,17 @@
     {
       "from": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
       "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
-      "role": "supplies finite full-block automorphism innerness and public-flow rigidity used by the two statable rows; neither result supplies physical thermality, a nontrivial sector category, or any of the five missing structural carriers"
+      "role": "supplies finite full-block automorphism innerness and public-flow rigidity used by the two statable finite surrogates; neither result supplies physical thermality, a DHR sector category or reconstructed gauge group, or any of the five missing structural carriers"
+    },
+    {
+      "from": "OPH-SCREEN-A5-SM-RECOGNITION",
+      "to": "OPH-GAUGE-KINETIC-HISTORY-BINDING",
+      "role": "supplies the certified compact-bracket families and simple-factor decomposition consumed by the bounded kinetic-shape record; source selection of the current and bracket is open"
+    },
+    {
+      "from": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+      "to": "OPH-GAUGE-KINETIC-HISTORY-BINDING",
+      "role": "supplies the finite declared-reference and log-transition-action algebra; the E9 instance constructs its kernel from one chosen P-factor cost and does not identify an independent source law"
     }
   ]
 }

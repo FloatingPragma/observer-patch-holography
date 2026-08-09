@@ -11,7 +11,7 @@ quantum-field-theoretic inheritance targets, with exactly three verdict
 shapes admitted per target: a theorem, a countermodel, or a typed
 non-evaluable exit naming the precise missing structure.  The matrix
 row counts behind the summary below are themselves kernel-checked
-against the matrix data.  Its current state:
+against the matrix data.  The resulting status is:
 
 \begin{center}
 \small
@@ -27,15 +27,18 @@ explicit TODO in the pinned Mathlib \tabularnewline
 \raggedright causal embeddings are proof-irrelevant, so the event-region
 category is thin and carries no symmetry-group action data; no spin structure
 in the development \tabularnewline
-\raggedright DHR sectors & \raggedright finite triviality theorem; full DHR a
-typed exit & \raggedright every bijective localized endomorphism of the finite
-net is inner, so the reconstructed gauge group is trivial
-(\path{Lean/QFT/SectorInheritance.lean}); no quasi-local algebra or vacuum
-representation exists for the full theory \tabularnewline
+\raggedright DHR sectors & \raggedright restricted bijective-endomorphism
+surrogate collapses; full DHR a typed exit & \raggedright every bijective
+localized endomorphism of the finite witness is inner and hence equivalent to
+the identity under the declared finite relation
+(\path{Lean/QFT/SectorInheritance.lean}); no DHR category, quasi-local algebra,
+vacuum representation, or reconstructed gauge group exists in the development
+\tabularnewline
 \raggedright field/action reconstruction & \raggedright gated by design &
 \raggedright owned by the separate finite current/holonomy, matter and Spin
-action, and period/character lattice packets, none of which is in the
-development yet \tabularnewline
+action, and period/character lattice packets; partial matter-freeze and lattice
+artifacts exist, but no field/action reconstruction packet has landed
+\tabularnewline
 \raggedright KMS/thermality & \raggedright finite Gibbs core proved; net-level
 degenerate; public-level refuted; horizon a typed exit & \raggedright the
 normalised Gibbs state satisfies the finite algebraic KMS identity on the
@@ -44,8 +47,8 @@ every grading-preserving flow at every complex time, and the public record
 algebra admits no nontrivial continuous star flow at all
 (\path{Lean/QFT/StructuralInheritance.lean}) \tabularnewline
 \raggedright relative-Cauchy stress response & \raggedright not statable: typed
-exit & \raggedright no Cauchy-embedding class, the time-slice module is a
-declared unstarted deliverable, and the pinned Mathlib contains no Lorentzian
+exit & \raggedright no Cauchy-embedding class or time-slice construction is
+present, and the pinned Mathlib contains no Lorentzian
 geometry \tabularnewline
 \raggedright particle/scattering & \raggedright not statable: typed exit &
 \raggedright no translation action on event regions and no spectrum condition;
@@ -58,7 +61,8 @@ inherit quantum-field-theoretic structure.  Of the seven targets, five
 are not statable against the committed carriers --- four blocked on
 structure that exists neither in the development nor in the pinned
 Mathlib, one gated by design on separate finite-reconstruction packets
---- one is refutable (the finite sector structure is trivial), and one
+--- one has a refutable restricted surrogate (bijective localized
+endomorphisms are inner), and one
 carries a finite provable core whose net-level reading is degenerate
 and whose public-level reading is refuted.  Two downstream gates
 follow.  The Einstein-branch readout completion may consume the finite
@@ -66,9 +70,10 @@ Gibbs-KMS identity as finite-block algebra, but its modular readout
 cannot be carried by a public flow (no nontrivial one exists), its
 stress readout receives nothing (the stress row is a typed exit), and
 no statement here supports ``the net is thermal''.  Particle-sector
-promotion receives exactly two finite receipts --- the Gibbs-KMS core
-and sector triviality --- and one constraint: the finite net carries no
-nontrivial superselection charge, so no candidate may claim a charge or
-flavor quantum number inherited from it; the spin-statistics, pole, and
-continuum receipts that promotion additionally requires are typed exits
-or unstarted deliverables here, not available results.
+promotion receives exactly two finite receipts --- the Gibbs-KMS core and
+innerness of the restricted bijective localized-endomorphism class --- and one
+constraint: no candidate may infer a charge or flavor quantum number from that
+restricted automorphism surrogate. Non-bijective transportable endomorphisms
+and full DHR reconstruction are unavailable; the spin-statistics, pole, and
+continuum receipts that promotion additionally requires are typed exits or
+absent structures here, not available results.

@@ -4,9 +4,9 @@
   Self-contained (core Lean 4, NO Mathlib import), so it compiles + checks standalone
   with plain `lean` — no heavy Mathlib build required.
 
-  Formalizes the LOGICAL ARCHITECTURE of
+  Formalizes only a LOGICAL IMPLICATION SCHEMA associated with
     B. Müller, "Explaining the Yang–Mills Mass Gap with Observer-Patch Repair Dynamics":
-      finite repair-gap (UNCONDITIONAL, Prop 8.1)  +  Assumption 9.2 (continuum certificate)
+      assumed finite repair-gap  +  assumed continuum spectral identification
         ⟹  positive continuum mass gap  Δ_YM ≥ c_* > 0   (Thm 11.1),
         and  Δ_YM = Δ_rep   (§12, exact gap accounting).
 
@@ -17,18 +17,26 @@
       variance floor) is encoded as HYPOTHESES (the `Certificate` structure), NOT proved.
       Discharging them is the genuine open frontier (constructive QFT); this file does not
       touch it and does not claim to.
-    * The finite gap (Prop 8.1: commuting-color projections ⟹ Δ_rep ≥ c_*) is the
-      unconditional input; its operator-theoretic proof lives in the sibling
-      Mathlib-typed modules (`YangMillsLemma72`, `YangMillsProp81`, `YangMillsGap`).
-      Here it enters as the `Lrep_gap` hypothesis.
+    * The finite gap is a HYPOTHESIS here (`Lrep_gap`), not an unconditional
+      result of this file.  In the current paper it is intended to be supplied
+      by the noncommuting Dobrushin/approximate-tensorisation theorem.  The
+      sibling Mathlib modules (`YangMillsLemma72`, `YangMillsProp81`,
+      `YangMillsGap`) instead prove a legacy/special pairwise-commuting branch.
+    * `spec_eq` is likewise a HYPOTHESIS.  This file proves neither continuum
+      convergence nor compatibility between any finite-gap theorem and that
+      spectral identification.
+    * Consequently the legacy commuting theorem cannot be inserted into the
+      current continuum receipt automatically.  A separate source proof of
+      commutation and certificate compatibility would be required, and would
+      define a different conditional branch from the current Dobrushin one.
 
-  What this file BUYS: a machine check that the paper's conditional claim is logically
-  valid — the reduction of the mass-gap claim to Assumption 9.2 is sound.
+  What this file buys: a machine check of the elementary implication from the
+  explicitly bundled hypotheses.  It does not machine-check that the current
+  paper establishes, or can consistently compose, those hypotheses.
 
-  SCOPE, verbatim: Machine-checked: the finite representation gap Δ_rep ≥ c_* > 0
-  (Lemma 7.2 / Lemma 7.4 / Prop 8.1 / Thm 7.3 assembly) and the conditional reduction
-  "Assumption 9.2 + finite gap ⇒ Δ_YM ≥ c_*". Assumption 9.2 itself is stated as an
-  explicit hypothesis and is not touched.
+  SCOPE: machine-checked only: "assumed positive finite gap + assumed equality
+  of nonzero spectra ⇒ positive continuum gap".  Neither the current
+  noncommuting finite-stage theorem nor the continuum receipt is proved here.
 -/
 
 namespace ObserverPatchHolography.RepairGapChain
@@ -55,18 +63,20 @@ structure Op (α : Type) where
     This is exactly the paper's spectral statement  Spec(O) ∩ (0, c) = ∅,  i.e. Δ(O) ≥ c. -/
 def GapAtLeast (O : Op α) (c : α) : Prop := ∀ x, O.nonzeroSpec x → le c x
 
-/-- Assumption 9.2 (continuum certificate) together with the finite gap (Prop 8.1),
-    bundled as the HYPOTHESES on which Müller's conditional theorem rests.
+/-- A continuum spectral certificate together with an assumed finite gap,
+    bundled as the HYPOTHESES on which the conditional theorem rests.
     `H` = continuum Yang–Mills Hamiltonian, `Lrep` = continuum repair generator. -/
 structure Certificate (H Lrep : Op α) (c_star zero : α) : Prop where
   /-- Lemma 7.4 (uniform active-collar rate floor): the repair rate is strictly positive. -/
   c_star_pos : lt zero c_star
-  /-- Prop 8.1 (finite commuting-color gap) transported to the continuum by Thm 9.3
-      (the generalized Mosco limit — Assumption 9.2 item Y4): Δ_rep ≥ c_*. -/
+  /-- Assumed repair-generator gap `Δ_rep ≥ c_*`.  On the current paper's
+      branch this is intended to come from the noncommuting Dobrushin argument;
+      this field does not prove that theorem or transport any legacy
+      commuting-projection result to the continuum. -/
   Lrep_gap : GapAtLeast Lrep c_star
-  /-- §12 exact gap accounting: on the certified branch  H = U⁻¹ L^rep U  (Thm 9.3, eq. 9),
-      and unitary conjugation preserves the spectrum, so H and L^rep share their nonzero
-      spectrum. This is the certified form of  Δ_YM = Δ_rep. -/
+  /-- Assumed exact spectral accounting: `H` and `Lrep` share their nonzero
+      spectrum.  The structure records this compatibility; it does not derive
+      it from a finite-stage theorem or a continuum limit. -/
   spec_eq : ∀ x, H.nonzeroSpec x ↔ Lrep.nonzeroSpec x
 
 /-- **Theorem 11.1 (conditional positive mass gap).**

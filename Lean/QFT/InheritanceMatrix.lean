@@ -3,9 +3,10 @@ import QFT.SectorInheritance
 /-!
 # The E4 structural-inheritance status matrix
 
-This module closes the E4 deliverable of completion-plan issue `#701`
-by recording the status of all seven inheritance targets as one
-first-class artifact.  Issue `#701` names seven targets — CPT,
+This module records the current partial E4 status of completion-plan issue
+`#701` by representing all seven inheritance targets as one first-class
+artifact.  It does not close that issue.  Issue `#701` names seven targets —
+CPT,
 spin-statistics, DHR/sector reconstruction, field/action
 reconstruction, KMS/thermality, relative-Cauchy stress response, and
 particle/scattering — and licenses exactly three verdict shapes per
@@ -15,7 +16,8 @@ blanket QFT inheritance claim is allowed, and none is made here.
 **Summary, stated so it cannot be quoted as a positive inheritance
 result: the constructed net does not inherit QFT structure.  Of the
 seven targets, five are not statable against the committed carriers,
-one is refutable (the finite sector structure is trivial), and one
+one has a refutable restricted surrogate (every bijective localized
+endomorphism is inner), and one
 carries a finite provable core whose net-level reading is degenerate
 and whose public-level reading is refuted.**  The five non-statable
 rows are the point of this document, not a gap in it: each names the
@@ -34,8 +36,8 @@ orphaning the matrix.
 |---|--------|---------------|------------------|
 | 1 | CPT | TYPED NON-EVALUABLE EXIT | No carrier.  `EventRegion` is order-theoretic data of the E1 net with no involution, region reflection, or distinguished vacuum; the claim boundary of `QFT/LocallyCovariantLimit.lean` attaches no Lorentzian reading.  In pinned Mathlib the Tomita conjugation is an explicit TODO (`Mathlib/Analysis/InnerProductSpace/StandardSubspace.lean`, "Define the Tomita conjugation, prove Tomita's theorem, prove the KMS condition"). |
 | 2 | Spin-statistics | TYPED NON-EVALUABLE EXIT | No carrier.  The hom-type `CausalEmbedding` is proof-only and `Subsingleton` (receipt `causalEmbedding_proof_irrelevant` below), so the event-region category is thin and carries no symmetry-group action data, hence no rotation double cover; no spin structure exists in the tree.  `Mathlib/LinearAlgebra/CliffordAlgebra/SpinGroup.lean` exists but nothing connects it to the net; the statistics side is additionally gated on row 3's exit. |
-| 3 | DHR / sector reconstruction | REFUTABLE (finite form) + exit (full DHR) | `QFT/SectorInheritance.lean`: every bijective localized endomorphism of the finite constructed net is inner (`privateSector_localized_inner`), so Doplicher–Roberts reconstruction returns the trivial gauge group; nonvacuity by `sectorWitness_inner`.  Full DHR (quasi-local algebra, vacuum representation, transportability) is that module's typed exit. |
-| 4 | Field / action reconstruction | GATED BY DESIGN | No carrier in tree, and none expected from E4: issue `#701` assigns the same-source current and holonomy to B14 (`#705`), the finite matter and Spin action to B15 (`#706`), and the period/character lattice and global form to B16 (`#707`).  None of the three has delivered a field or action reconstruction packet: B15 and B16 have no module at all, and B14's only module (`Screen/A5ResponseWordAlgebra.lean`) covers its response-word algebra boundary, not the current object E4 would consume.  E4 may consume those packets when they land; it may not build or hide them. |
+| 3 | DHR / sector reconstruction | RESTRICTED SURROGATE COLLAPSES + exit (full DHR) | `QFT/SectorInheritance.lean`: every bijective localized endomorphism of the finite constructed net is inner (`privateSector_localized_inner`) and hence equivalent to the identity under the file's declared finite relation; nonvacuity by `sectorWitness_inner`.  This does not construct a DHR category or perform Doplicher–Roberts reconstruction.  Full DHR (quasi-local algebra, vacuum representation, transportability) is that module's typed exit. |
+| 4 | Field / action reconstruction | GATED BY DESIGN | No reconstruction carrier is available to E4: issue `#701` assigns the same-source current and holonomy to B14 (`#705`), the finite matter and Spin action to B15 (`#706`), and the period/character lattice and global form to B16 (`#707`).  Partial B15 matter-freeze and B16 lattice artifacts exist, and B14 has a response-word algebra module, but none of the three has delivered the field/action reconstruction packet E4 would consume.  E4 may consume completed packets when they land; it may not build or hide them. |
 | 5 | KMS / thermality | PROVABLE (finite core) + REFUTABLE (net and public) + exit (horizon) | `QFT/StructuralInheritance.lean`: the finite algebraic Gibbs-KMS theorem on the witness private block (`privateGibbsState_kms`); the degeneracy countermodel — on the support-graded net every functional is KMS for every grading-preserving flow at every complex time (`supportGradedNet_regionalExpectation_kms_degenerate`); the cited B3 rigidity refuting public thermality (`publicRecord_no_thermal_flow`).  Horizon thermality is that module's typed exit. |
 | 6 | Relative-Cauchy stress response | TYPED NON-EVALUABLE EXIT | No carrier.  No `CauchyEmbedding` class exists anywhere in the tree, `QFT/TimeSlice.lean` is a declared later E3 deliverable that has not been started (claim boundary of `QFT/LocallyCovariantLimit.lean`), and no metric or perturbation data exists on the net.  Pinned Mathlib contains no Lorentzian geometry and no globally-hyperbolic structure of any kind (zero files). |
 | 7 | Particle / scattering | TYPED NON-EVALUABLE EXIT | No carrier.  Haag–Ruelle theory needs a translation group action on the net, a spectrum condition, and asymptotic limits; `EventRegion` carries no ℝ-action and no energy-momentum object exists in the tree (B9 `#685`, the optional spectral adapter, has no module).  Pinned Mathlib has zero Haag/scattering material. |
@@ -80,12 +82,13 @@ H2's promotion rule requires "the E3/E4 quantum, spin-statistics,
 pole, and continuum receipts".  What E4 supplies to H2:
 
 * exactly two finite receipts: the finite Gibbs-KMS core (row 5) and
-  finite sector triviality (row 3);
-* one constraint: sector triviality means the finite constructed net
-  carries no nontrivial superselection charge, so no H2 candidate may
-  claim a charge or flavor quantum number inherited from the finite
-  net's sector structure.  Flavor carriers must come from the
-  B14/B15/B16 source packets, which row 4 records as not in tree.
+  innerness of every bijective localized endomorphism in the restricted
+  finite surrogate (row 3);
+* one constraint: no H2 candidate may infer a nontrivial charge or flavor
+  quantum number from that restricted automorphism class.  Non-bijective
+  transportable endomorphisms and full DHR reconstruction are not available.
+  Flavor carriers must come from completed B14/B15/B16 source packets, which
+  row 4 records as not yet delivered despite their partial artifacts.
 
 What E4 withholds from H2: the spin-statistics receipt (row 2 is a
 typed exit — there is no spin structure and the thin category carries
@@ -158,10 +161,11 @@ def e4StatusMatrix : List E4Row :=
      target := "DHR / sector reconstruction"
      shape := [.refutable, .typedNonEvaluableExit]
      carrier := some "QFT/SectorInheritance.lean"
-     citation := "Finite sector triviality: every bijective localized \
-       endomorphism is inner (privateSector_localized_inner), trivial \
-       reconstructed gauge group; full DHR is that module's typed \
-       exit (no quasi-local algebra, no vacuum representation)." },
+     citation := "Restricted finite surrogate: every bijective localized \
+       endomorphism is inner (privateSector_localized_inner) and equivalent \
+       to the identity under the declared relation; no DHR category or \
+       reconstructed gauge group is constructed. Full DHR is that module's \
+       typed exit (no quasi-local algebra, no vacuum representation)." },
    { index := 4
      target := "field / action reconstruction"
      shape := [.gated]
@@ -252,7 +256,7 @@ theorem causalEmbedding_proof_irrelevant {ι : Type*} [Preorder ι]
     {U V : EventRegion N} (f g : CausalEmbedding U V) : f = g :=
   Subsingleton.elim f g
 
-/-- Row 3 anchor, refutable half: every bijective localized
+/-- Row 3 anchor, restricted-surrogate half: every bijective localized
 endomorphism of the witness private block is inner.  Cites
 `privateSector_localized_inner` of `QFT/SectorInheritance.lean`. -/
 theorem e4Row3_refutable_anchor

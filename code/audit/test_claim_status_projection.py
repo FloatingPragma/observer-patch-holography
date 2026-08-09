@@ -276,11 +276,12 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
     expected_gates = {
-        "OPH-THERMO-FOUR-LAW-PACKAGE": [703],
+        "OPH-THERMO-FOUR-LAW-PACKAGE": [688, 703],
         "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
         "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [693, 703],
+        "OPH-GAUGE-KINETIC-HISTORY-BINDING": [683, 705, 716],
     }
     for claim_id, gates in expected_gates.items():
         claim = by_id[claim_id]
@@ -298,11 +299,22 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     assert "ordinal time" not in time_claim["statement"]
 
     thermo = by_id["OPH-THERMO-FOUR-LAW-PACKAGE"]
-    assert "are attained or evidenced at the finite level and bound on one realized object" in thermo["statement"]
+    assert "degenerate representation-level compatibility witness" in thermo[
+        "statement"
+    ]
+    assert "Issue #688 is open" in thermo["statement"]
     assert "Issue #703 separately owns physical energy and clock calibration" in thermo[
         "statement"
     ]
-    assert "complete thermodynamic integration consumes that packet" in thermo["statement"]
+    assert "complete thermodynamic integration consumes both open packets" in thermo[
+        "statement"
+    ]
+
+    kinetic = by_id["OPH-GAUGE-KINETIC-HISTORY-BINDING"]
+    assert "only block [0,3)" in kinetic["statement"]
+    assert "does not cover P's second factor" in kinetic["statement"]
+    assert "No independently source-produced kernel is identified" in kinetic["statement"]
+    assert "relative multifactor coupling" in kinetic["statement"]
 
     flagship = (
         REPO_ROOT / "flagship" / "from_observer_consensus_to_standard_physics.tex"

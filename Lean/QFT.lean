@@ -91,14 +91,13 @@ and the machine-readable boundary that realized statistics inhabit only
 the diagonal context. The gauge-irreducibility module derives the Born
 weights of the unique invariant state from finite Schur and realized
 covariance, with negative controls separating every hypothesis.
-`QFT.HistoryActionBinding` binds the derived history-law action to
-the certified gauge kinetic form on one common object: the
-log-transition action of the Gibbs kernel of any increment cost equals
-that cost plus a per-step gauge constant, the reproducing pair is
-unique up to the additive-constant and multiplier-rescale gauge, most
-probable same-start histories are least-increment histories, and the
-coupling scale is the multiplier gauge; the certified sector-1 kinetic
-form instantiates every statement with exact positivity receipts, and a
-state-dependent control kernel proves the binding requires translation
-invariance.
+`QFT.HistoryActionBinding` constructs a translation-invariant Gibbs kernel
+from a supplied increment cost and proves that the kernel's log-transition
+action returns that cost up to the additive-constant and common-rescaling
+gauge.  The concrete receipt covers one three-dimensional factor of the
+colorless P family, with exact positivity on its truncated step group; it
+does not source-select the kernel, bind the other P factor, cover the
+color-bearing F/G families, or determine relative couplings.  A
+state-dependent control kernel proves that translation invariance is
+load-bearing for this increment-only representation.
 -/

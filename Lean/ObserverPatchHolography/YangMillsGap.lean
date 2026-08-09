@@ -3,31 +3,41 @@ import ObserverPatchHolography.YangMillsLemma72
 import ObserverPatchHolography.YangMillsProp81
 
 /-!
-# Yang–Mills finite repair-gap — setup + Theorem 7.3 / Lemma 7.4 assembly
+# Yang–Mills finite repair-gap — legacy commuting-projection branch
 
-Formalisation of the **finite, real** part of B. Müller, *Explaining the
-Yang–Mills Mass Gap with Observer-Patch Repair Dynamics* (r1515), §§7–8:
-the operator-theoretic content of the repair generator and the assembly of a
-strictly positive **finite-stage representation gap** `Δ_rep ≥ c_* > 0`.
+This module preserves a special conditional result from an earlier version of
+B. Müller, *Explaining the Yang–Mills Mass Gap with Observer-Patch Repair
+Dynamics*: a finite-gap assembly for a family of pairwise commuting
+orthogonal projections.  It is **not** a formalisation of the current paper's
+finite-stage theorem, whose collar conditional expectations need not commute
+and whose gap argument instead uses a Dobrushin/approximate-tensorisation
+hypothesis.
 
 ## Honest scope (read this first)
 
 This module proves an **implication**, nothing more:
 
-> IF the repair generator on a finite collar family has the structural form the
-> paper posits — each collar acts by an orthogonal projection `E_C` onto its
-> constants, the collars **mutually commute**, their joint fixed space is the
-> constants `P₀`, and there are **finitely many** active collar types each with
-> a **strictly positive** relaxation rate `c_C` (from Lemma 7.2) — THEN the
+> IF the repair generator on a finite collar family has the special structural
+> form assumed here — each collar acts by an orthogonal projection `E_C`, the
+> collars **mutually commute**, their joint fixed space is represented by
+> `P₀`, and there are **finitely many** active collar types each with a
+> **strictly positive** relaxation rate `c_C` (from Lemma 7.2) — THEN the
 > finite generator `L_r^rep = ∑_C c_C · (I − E_C)` dominates `c_* · (I − P₀)`
 > with `c_* = min_C c_C > 0` (Proposition 8.1): a strictly positive
 > finite-stage spectral gap.
 
-Everything to the left of `THEN` is a **hypothesis** here. The paper's
-*physical modelling claims* — that Yang–Mills' actual relaxation carries a
-uniform hidden-fiber symmetry, commuting colors, and a finite active-collar
-type set — are exactly those premises, and they are discharged **nowhere** in
-Lean. This file proves `structure ⇒ finite gap`, honestly and no more.
+Everything to the left of `THEN` is a **hypothesis** here.  In particular,
+pairwise commutation is not derived from the present Yang–Mills construction
+and is discharged **nowhere** in Lean.  This file proves only the legacy/special
+implication `commuting structure ⇒ finite gap`.
+
+The result must not be substituted for, or described as, the current paper's
+noncommuting Dobrushin finite-stage theorem.  Nor can it be composed into the
+current continuum receipt merely because both conclusions are called a finite
+gap: doing so would require a separate source-level proof that the current
+collar expectations commute and that this commuting branch satisfies the
+continuum certificate's compatibility hypotheses.  No such bridge is present
+here.
 
 One thing is deliberately **NOT** proved and **NOT** claimed:
 
@@ -37,7 +47,7 @@ One thing is deliberately **NOT** proved and **NOT** claimed:
   problem and is **untouched**. The deliverable here is `Δ_rep`, the
   finite-stage *representation* gap — **not** the physical Yang–Mills mass gap.
 
-The two keystone lemmas this file *assembles* are proved in sibling modules and
+The two keystone lemmas this legacy branch *assembles* are proved in sibling modules and
 **imported** here (no `sorry`s remain):
 
 * `lemma_7_2` — scalar relaxation on a uniform hidden fiber (each `c_C > 0`);
@@ -47,15 +57,16 @@ The two keystone lemmas this file *assembles* are proved in sibling modules and
 * `prop_8_1`  — commuting-color finite-stage gap (`commuting ⇒ gap`);
   proved in `ObserverPatchHolography.YangMillsProp81`.
 
-This file is the **setup + Theorem 7.3 / Lemma 7.4 assembly**; with the
+This file is the historical **setup + Theorem 7.3 / Lemma 7.4 assembly**; with the
 keystone imports wired, `thm_7_3_finite_gap` carries zero `sorry`s and no
 project-level axioms. The conditional continuum chain lives in the sibling
 `ObserverPatchHolography.RepairGapChain`.
 
-SCOPE, verbatim: Machine-checked: the finite representation gap Δ_rep ≥ c_* > 0
-(Lemma 7.2 / Lemma 7.4 / Prop 8.1 / Thm 7.3 assembly) and the conditional
-reduction "Assumption 9.2 + finite gap ⇒ Δ_YM ≥ c_*". Assumption 9.2 itself is
-stated as an explicit hypothesis and is not touched.
+SCOPE: machine-checked only on the special pairwise-commuting branch: the
+finite representation-gap implication `Δ_rep ≥ c_* > 0` (Lemma 7.2 / Lemma
+7.4 / Prop 8.1 / Thm 7.3 assembly).  This is neither the current paper's
+noncommuting finite-stage theorem nor a proof of any continuum-certificate
+premise.
 -/
 
 namespace ObserverPatchHolography.YangMillsGap
@@ -119,7 +130,7 @@ noncomputable def repairGenerator {ι : Type*} (s : Finset ι)
     (Ec : ι → (E →L[ℝ] E)) (rate : ι → ℝ) : E →L[ℝ] E :=
   ∑ a ∈ s, rate a • ((1 : E →L[ℝ] E) - Ec a)
 
-/-! ## §8.1 gap engine — imported statement (commuting colors) -/
+/-! ## §8.1 legacy gap engine — imported commuting-projection statement -/
 
 /-- **Proposition 8.1 (imported).** For a finite family of **mutually commuting**
     orthogonal (star) projections `Ec` whose non-commutative product equals the
@@ -148,16 +159,18 @@ theorem uniform_floor {ι : Type*} (s : Finset ι) (hne : s.Nonempty) (rate : ι
   obtain ⟨a₀, ha₀, hmin⟩ := s.exists_min_image rate hne
   exact ⟨rate a₀, hpos a₀ ha₀, hmin⟩
 
-/-! ## §7.3 assembly — the honest finite-gap deliverable -/
+/-! ## §7.3 legacy assembly — the special commuting finite-gap deliverable -/
 
-/-- **Theorem 7.3 / 7.4 (finite representation gap).** Combine Lemma 7.2 (each
+/-- **Legacy Theorem 7.3 / 7.4 (commuting finite representation gap).** Combine Lemma 7.2 (each
     collar rate `rate a > 0`), Proposition 8.1 (commuting colors ⇒ constant-rate
     gap), and the uniform floor (Lemma 7.4): the repair generator dominates
     `c_* · (I − P₀)` with `c_* > 0`.
 
-    This is `Δ_rep ≥ c_* > 0`, the finite-stage **representation** gap. It says
-    nothing about `Δ_YM`; the continuum bridge (Assumption 9.2) is not stated,
-    not assumed, and not proved.
+    This is `Δ_rep ≥ c_* > 0` only on the special pairwise-commuting branch.
+    It is not the current paper's noncommuting Dobrushin theorem and supplies
+    no premise of the current continuum receipt without an additional
+    compatibility proof.  It says nothing about `Δ_YM`; the continuum bridge
+    is not stated, assumed, or proved here.
 
     Proof shape: `c_* · (I − P₀) ≤ ∑ c_* · (I − E_C) ≤ ∑ c_C · (I − E_C)`, where
     the first `≤` is Prop 8.1 and the second is rate-monotonicity — each summand

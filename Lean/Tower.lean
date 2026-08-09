@@ -14,10 +14,12 @@ import Tower.OperationalObserver
 OPH repair endpoint, and the conditional schedule-independent endpoint
 theorem. The full endpoint theorem retains explicit termination, confluence,
 semantic-completeness, and quotient-congruence premises.
-`Tower.OperationalObserver` packages the seven-clause operational
-observerhood receipt over an arbitrary tower, with a nontrivial finite
-witness and three negative controls; the receipt selects no unique observer
-and attaches no instrument, consciousness claim, or source realization. This
+`Tower.OperationalObserver` packages clauses 1 through 6 and the own-observer
+half of clause 7 of the operational-observerhood receipt over an arbitrary
+tower, with a nontrivial finite witness and four negative controls.
+Cross-observer restriction through shared overlap maps remains open; the
+attained receipt selects no unique observer and attaches no instrument,
+consciousness claim, or source realization. This
 umbrella supplies no source realization, physical world, clock, causal net,
 geometry, or continuum limit. `Tower.EventGeometryReadout` adds the selected
 settled branch, the all-quotient event and geometry readout fragment with

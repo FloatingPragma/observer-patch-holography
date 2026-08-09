@@ -1,9 +1,10 @@
 import ObserverPatchHolography.YangMillsGap
 
 /-!
-# Yang–Mills finite repair-gap — a concrete NON-VACUITY witness for Theorem 7.3
+# Yang–Mills finite repair-gap — witnesses and a noncommuting countermodel
 
-`thm_7_3_finite_gap` (in `ObserverPatchHolography.YangMillsGap`) is a **conditional**:
+`thm_7_3_finite_gap` (in `ObserverPatchHolography.YangMillsGap`) is a
+legacy/special **commuting-projection conditional**:
 IF a finite nonempty collar family consists of mutually commuting star projections
 whose non-commutative product is `P₀`, and the relaxation rates are strictly positive,
 THEN the repair generator dominates `c_* · (I − P₀)` with `c_* > 0` (the finite-stage
@@ -12,10 +13,11 @@ representation gap `Δ_rep ≥ c_* > 0`).
 A conditional is empty unless its hypothesis bundle is jointly satisfiable. Nothing in
 the repo currently rules out that the premises (commuting star projections whose
 `noncommProd` equals `P₀`, over a nonempty index set, with positive rates) are jointly
-unsatisfiable — which would make the flagship theorem vacuous. This file discharges
+unsatisfiable — which would make that special conditional vacuous. This file discharges
 that: it exhibits a concrete complete real inner-product space
 `W := EuclideanSpace ℝ (Fin 1)` and a concrete two-collar family satisfying EVERY
-premise, so `thm_7_3_finite_gap` genuinely **fires** — certifying it is not vacuous.
+premise, so `thm_7_3_finite_gap` genuinely **fires** — certifying the
+commuting branch is not vacuous.
 This mirrors the non-vacuity methodology already used for the reconstruction layer in
 `Primitives.lean` (`demoCarrier_terminates`, `demoCarrier_dir_confluent`): pair the
 abstract theorem with a machine-checked concrete model.
@@ -32,11 +34,17 @@ This is a *minimal* witness.
 * The two rates are **distinct** (`1` and `2`), so `c_* = min = 1` and the resulting
   operator bound `1 · (I − P₀) ≤ L_r^rep` is non-reflexive (the generator is `3 · I`).
 
-What it does **not** do, and does not claim: exhibit a *proper* nonzero collar
-projection (`0 ≠ E_C ≠ 1`) — a natural strengthening left as future work — nor touch
-Assumption 9.2 (the continuum certificate `Δ_YM = Δ_rep`), which remains the open
-frontier. Adds no `sorry` and no `axiom`; the `#print axioms` lines below are expected
-to report only `[propext, Classical.choice, Quot.sound]`.
+The first witness does **not** touch the current paper's noncommuting
+Dobrushin branch or any continuum certificate.  The second section gives a
+separate exact three-state rational countermodel: two proper symmetric
+idempotent Markov projections fail to commute, and their rate-one repair
+generator has explicit eigenvalues `1/2` and `3/2`, rather than the commuting
+subset sums `0`, `1`, and `2`.  It is a regression guard against importing the
+commuting subset-sum conclusion into the noncommuting setting; it is not a
+Dobrushin-gap proof or a continuum model.
+
+Adds no `sorry` and no `axiom`; the `#print axioms` lines below are expected to
+report only standard Mathlib axioms where applicable.
 -/
 
 namespace ObserverPatchHolography.YangMillsGapWitness
@@ -77,12 +85,12 @@ theorem whrate : ∀ a ∈ wS, 0 < wRate a := by
   intro b _
   cases b <;> norm_num [wRate]
 
-/-- **NON-VACUITY WITNESS for Theorem 7.3 (finite representation gap).** The flagship
+/-- **NON-VACUITY WITNESS for the legacy commuting Theorem 7.3.** The
     finite-repair-gap theorem `thm_7_3_finite_gap` fires on a concrete complete real
     inner-product space: there is a strictly positive `c_*` with
     `c_* · (I − P₀) ≤ L_r^rep`. The premise bundle (nonempty collar family, commuting
     star projections, `noncommProd = P₀`, positive rates) is therefore jointly
-    satisfiable — the flagship conditional is not vacuous. By `wP0_eq_zero` the gap
+    satisfiable — the special commuting conditional is not vacuous. By `wP0_eq_zero` the gap
     operator `I − P₀ = I` here, and `c_* = min {1, 2} = 1 > 0`. -/
 theorem thm_7_3_finite_gap_nonvacuous :
     ∃ cstar : ℝ, 0 < cstar ∧
@@ -101,10 +109,168 @@ theorem repairGenerator_eq :
       Finset.sum_insert (by decide), Finset.sum_singleton, ← add_smul]
   norm_num [wRate]
 
+/-! ## Exact noncommuting three-state countermodel
+
+`ncE₁` and `ncE₂` are the conditional-expectation matrices for the
+partitions `{0} | {1,2}` and `{1} | {0,2}` of a uniform three-state
+space.  The receipts below check, over `ℚ`, that each is a proper
+symmetric idempotent Markov projection and that they do not commute.
+
+With unit rates, `ncL = (I - ncE₁) + (I - ncE₂)`.  Its displayed
+nonconstant eigenvectors have eigenvalues `1/2` and `3/2`.  Since a
+commuting two-projection subset-sum argument at unit rates would allow
+only `0`, `1`, and `2`, this is an exact finite counterexample to using
+that spectral conclusion without commutation.
+-/
+
+/-- The conditional expectation onto functions constant on `{1,2}`. -/
+def ncE₁ : Matrix (Fin 3) (Fin 3) ℚ :=
+  !![1, 0, 0;
+     0, 1 / 2, 1 / 2;
+     0, 1 / 2, 1 / 2]
+
+/-- The conditional expectation onto functions constant on `{0,2}`. -/
+def ncE₂ : Matrix (Fin 3) (Fin 3) ℚ :=
+  !![1 / 2, 0, 1 / 2;
+     0, 1, 0;
+     1 / 2, 0, 1 / 2]
+
+/-- The constant vector on the three-state space. -/
+def ncConstant : Fin 3 → ℚ := ![1, 1, 1]
+
+/-- A nonconstant low-mode vector. -/
+def ncLow : Fin 3 → ℚ := ![1, -1, 0]
+
+/-- A nonconstant high-mode vector. -/
+def ncHigh : Fin 3 → ℚ := ![1, 1, -2]
+
+/-- The rate-one noncommuting repair generator. -/
+def ncL : Matrix (Fin 3) (Fin 3) ℚ :=
+  !![1 / 2, 0, -1 / 2;
+     0, 1 / 2, -1 / 2;
+     -1 / 2, -1 / 2, 1]
+
+/-- The displayed matrix is exactly `(I - ncE₁) + (I - ncE₂)` with
+unit rates. -/
+theorem ncL_eq_rate_one_repairGenerator :
+    ncL = ((1 : Matrix (Fin 3) (Fin 3) ℚ) - ncE₁)
+      + ((1 : Matrix (Fin 3) (Fin 3) ℚ) - ncE₂) := by
+  ext i j
+  fin_cases i <;> fin_cases j <;>
+    simp [ncL, ncE₁, ncE₂] <;> norm_num
+
+/-- `ncE₁` is symmetric, idempotent, entrywise nonnegative, unital,
+and proper (`ncE₁ ≠ 0, 1`). -/
+theorem ncE₁_projection_receipt :
+    ncE₁.transpose = ncE₁ ∧ ncE₁ * ncE₁ = ncE₁
+      ∧ (∀ i j, 0 ≤ ncE₁ i j) ∧ ncE₁.mulVec ncConstant = ncConstant
+      ∧ ncE₁ ≠ 0 ∧ ncE₁ ≠ 1 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [ncE₁]
+  · ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [ncE₁, Matrix.mul_apply, dotProduct, Fin.sum_univ_succ]
+  · intro i j
+    fin_cases i <;> fin_cases j <;> norm_num [ncE₁]
+  · ext i
+    fin_cases i <;>
+      norm_num [ncE₁, ncConstant, Matrix.mulVec, dotProduct,
+        Fin.sum_univ_succ]
+  · intro h
+    have h00 := congrArg
+      (fun M : Matrix (Fin 3) (Fin 3) ℚ => M 0 0) h
+    norm_num [ncE₁] at h00
+  · intro h
+    have h12 := congrArg
+      (fun M : Matrix (Fin 3) (Fin 3) ℚ => M 1 2) h
+    change (1 / 2 : ℚ) = 0 at h12
+    norm_num at h12
+
+/-- `ncE₂` is symmetric, idempotent, entrywise nonnegative, unital,
+and proper (`ncE₂ ≠ 0, 1`). -/
+theorem ncE₂_projection_receipt :
+    ncE₂.transpose = ncE₂ ∧ ncE₂ * ncE₂ = ncE₂
+      ∧ (∀ i j, 0 ≤ ncE₂ i j) ∧ ncE₂.mulVec ncConstant = ncConstant
+      ∧ ncE₂ ≠ 0 ∧ ncE₂ ≠ 1 := by
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · ext i j
+    fin_cases i <;> fin_cases j <;> norm_num [ncE₂]
+  · ext i j
+    fin_cases i <;> fin_cases j <;>
+      norm_num [ncE₂, Matrix.mul_apply, dotProduct, Fin.sum_univ_succ]
+  · intro i j
+    fin_cases i <;> fin_cases j <;> norm_num [ncE₂]
+  · ext i
+    fin_cases i <;>
+      norm_num [ncE₂, ncConstant, Matrix.mulVec, dotProduct,
+        Fin.sum_univ_succ]
+  · intro h
+    have h00 := congrArg
+      (fun M : Matrix (Fin 3) (Fin 3) ℚ => M 0 0) h
+    norm_num [ncE₂] at h00
+  · intro h
+    have h02 := congrArg
+      (fun M : Matrix (Fin 3) (Fin 3) ℚ => M 0 2) h
+    change (1 / 2 : ℚ) = 0 at h02
+    norm_num at h02
+
+/-- The two exact conditional expectations do not commute. -/
+theorem ncE₁_ncE₂_noncommuting : ncE₁ * ncE₂ ≠ ncE₂ * ncE₁ := by
+  intro h
+  have h01 := congrArg
+    (fun M : Matrix (Fin 3) (Fin 3) ℚ => M 0 1) h
+  norm_num [ncE₁, ncE₂, Matrix.mul_apply, dotProduct,
+    Fin.sum_univ_succ] at h01
+
+/-- Constants are zero modes of the rate-one repair generator. -/
+theorem ncL_constant_eigen : ncL.mulVec ncConstant = 0 := by
+  ext i
+  fin_cases i <;>
+    norm_num [ncL, ncConstant, Matrix.mulVec, dotProduct,
+      Fin.sum_univ_succ]
+
+/-- Exact nonconstant eigenpair with eigenvalue `1/2`. -/
+theorem ncL_low_eigen :
+    ncL.mulVec ncLow = (1 / 2 : ℚ) • ncLow ∧ ncLow ≠ 0 := by
+  constructor
+  · ext i
+    fin_cases i <;>
+      norm_num [ncL, ncLow, Matrix.mulVec, dotProduct,
+        Fin.sum_univ_succ]
+  · intro h
+    have h0 := congrFun h (0 : Fin 3)
+    norm_num [ncLow] at h0
+
+/-- Exact nonconstant eigenpair with eigenvalue `3/2`. -/
+theorem ncL_high_eigen :
+    ncL.mulVec ncHigh = (3 / 2 : ℚ) • ncHigh ∧ ncHigh ≠ 0 := by
+  constructor
+  · ext i
+    fin_cases i <;>
+      norm_num [ncL, ncHigh, Matrix.mulVec, dotProduct,
+        Fin.sum_univ_succ]
+  · intro h
+    have h0 := congrFun h (0 : Fin 3)
+    norm_num [ncHigh] at h0
+
+/-- The two displayed eigenvalues are outside the rate-one
+commuting-projection subset sums `{0, 1, 2}`. -/
+theorem nc_eigenvalues_not_subset_sums :
+    (1 / 2 : ℚ) ≠ 0 ∧ (1 / 2 : ℚ) ≠ 1 ∧ (1 / 2 : ℚ) ≠ 2
+      ∧ (3 / 2 : ℚ) ≠ 0 ∧ (3 / 2 : ℚ) ≠ 1 ∧ (3 / 2 : ℚ) ≠ 2 := by
+  norm_num
+
 /-! ## Axiom self-audit (build-log visible) -/
 
 #print axioms thm_7_3_finite_gap_nonvacuous
 #print axioms wP0_eq_zero
 #print axioms repairGenerator_eq
+#print axioms ncE₁_projection_receipt
+#print axioms ncE₂_projection_receipt
+#print axioms ncE₁_ncE₂_noncommuting
+#print axioms ncL_eq_rate_one_repairGenerator
+#print axioms ncL_low_eigen
+#print axioms ncL_high_eigen
 
 end ObserverPatchHolography.YangMillsGapWitness

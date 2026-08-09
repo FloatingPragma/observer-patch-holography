@@ -2403,8 +2403,9 @@ carry the layer:
 \end{flushleft}
 
 \paragraph{The operational observerhood receipt.}
-An operational observer over a consensus tower is a structure with seven
-clause groups, each a finite statement about declared tower data:
+An operational observer over a consensus tower carries six complete
+clause groups and the own-observer half of a seventh, each a finite statement
+about declared tower data:
 \begin{enumerate}[label=(\roman*),leftmargin=2em]
 \item a bounded accessible interface: a declared accessible star
 subalgebra of the private algebra at each regulator, containing the
@@ -2420,11 +2421,13 @@ interventions preserving the accessible interface;
 strictly precedes its input in the observer's own record order;
 \item continuation: the observer label family and the prediction map
 commute with the declared refinement maps;
-\item readable evidence: a declared readout equal to the trace pairing of
+\item own-observer readable evidence: a declared readout equal to the trace pairing of
 each record element against the observer's state, with every record
 element fixed by every declared intervention.
 \end{enumerate}
-Readback idempotence on the interface and refinement stability of the
+Restriction of records between distinct observers through typed shared-overlap
+maps is not a field of this structure and remains an open B17 composition
+receipt. Readback idempotence on the interface and refinement stability of the
 readout are derived. The witness data are exact and small: over a
 one-regulator tower with private algebra \(M_2(\mathbb C)\), the public
 algebra is the span of the two diagonal coordinate projectors, three
@@ -2441,10 +2444,11 @@ is computed against a map distinct from the identity. A nontriviality
 conjunction separates the witness from the constant adaptor: strict record
 precedence, a nonconstant non-identity prediction, a record element
 distinct from the zero and identity matrices, a nonzero generator, and a
-non-identity control. Three negative controls violate exactly one clause
-each on the same data: an erasing readback breaks the self-readback law,
-the identity generator breaks durability, and a resetting prediction
-breaks no-regress. The receipt selects no unique observer, attaches no
+non-identity control. Four negative controls violate one attained field each
+on the same data: an erasing readback breaks the self-readback law, the
+identity generator breaks durability, a resetting prediction breaks
+no-regress, and a constant readout breaks the own-evidence pairing. The
+partial receipt selects no unique observer, attaches no
 instrument, makes no consciousness claim, and supplies no source
 realization of the tower data.
 

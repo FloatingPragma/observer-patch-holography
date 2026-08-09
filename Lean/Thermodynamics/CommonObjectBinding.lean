@@ -7,12 +7,13 @@ namespace OPH.Thermodynamics
 open OPH.InformationProjection
 
 /-!
-# Common-object binding of the four B12 receipts (issue #688)
+# Degenerate common-object compatibility witness for B12 (issue #688)
 
-This module binds the four committed B12 receipts on one structure over
-one realized data set.  The data set is the exact restricted two-state
-chain of `MixingChainRealization`, extracted from the preregistered
-bounded source run `runs/b12_prereg_16k_20260806` of the simulator
+This module packages four finite representation-level ingredients relevant
+to the B12 receipts on one structure over one realized data set.  It does
+not discharge the source receipts of issue #688.  The data set is the exact
+restricted two-state chain of `MixingChainRealization`, extracted from the
+preregistered bounded source run `runs/b12_prereg_16k_20260806` of the simulator
 (seed `20260806`, engine commit
 `b39b78faf894894ebe573571e0902ccfaaeac32a`).  The payload with the full
 extraction is `oph-physics-sim/docs/B12_MIXING_CHAIN_PAYLOAD.json`
@@ -22,16 +23,16 @@ report is `finite_repair_transition_matrix_report.json`
 over `observer_views.jsonl`
 (sha256 `3da6f04d770b81b49a082ad1e6ecb93c611517dd85ecaccd7cc89077fcd6c0ca`).
 
-Module chain consumed here, with the receipt each carries:
+Module chain consumed here, with the finite ingredient each carries:
 
-* `MixingChainRealization` (receipt 3): the exact restricted recurrent
+* `MixingChainRealization` (receipt-3 input): the exact restricted recurrent
   chain `mixingChain` with stationary law `mixingChainStationary` and
   nonconstant protected labelling `protectedRecordLabel`;
-* `InformationProjection.GlobalObjective` (receipt 1): the global
+* `InformationProjection.GlobalObjective` (receipt-1 mathematical input): the global
   objective `objective π K ρ P` whose two marginal minimizations are
   the state-side and transition-side receipts, with joint minimum
   uniquely at the pinned pair;
-* `LowTemperatureControl` (receipt 4): `offMinMass`, `energyGap`,
+* `LowTemperatureControl` (receipt-4 finite control): `offMinMass`, `energyGap`,
   `refGibbs`, and `UniformGapRefinement`;
 * `FiniteConditionalRepair` (through the imports): the divergence stack
   `kl`/`klTerm`, the conditional-resampling kernel `heatBath`, and the
@@ -60,7 +61,7 @@ The protected labelling separates the two states, so every observation
 fibre is a singleton (`binding_fiber_singleton`) and the
 conditional-resampling kernel of the pinned reference over the record
 fibres is the identity kernel (`bindingKernel_eq_ident`).  The kernel
-receipt of the global objective on this data is therefore degenerate:
+component of the global objective on this data is therefore degenerate:
 the joint minimum sits at the pinned pair
 (`binding_objective_eq_zero_iff`), and the pinned kernel of that pair
 is the identity.  The realized transition chain fails domination by
@@ -85,15 +86,23 @@ No synthetic data enters: every literal is the committed run literal.
 
 ## Claim boundary
 
-Binding at the representation level over earned literals.  The physical
-collar identification, the physical inverse-temperature reading, and
-the energy-clock calibration remain with E5 (#703).
+Compatibility at the representation level over earned literals.  The
+stationary reference of the restricted transition chain is not identified
+with the preregistered state-side reference.  The realized chain is not the
+identity conditional-resampling kernel forced by the singleton fibres, and
+the `UniformGapRefinement` inhabitant below is a constant family rather than
+a nontrivially varying regulator tower.  A common source-reference theorem,
+an actual source-collar/resampling identification, and nondegenerate
+refinement control therefore remain open under B12 (#688).  The physical
+inverse-temperature reading and energy-clock calibration remain with E5
+(#703).
 -/
 
 /-! ## The bound data -/
 
-/-- The pinned common reference: the real cast of the exact stationary
-law of the realized restricted chain. -/
+/-- The pinned transition-side reference: the real cast of the exact
+stationary law of the realized restricted chain.  No equality with the
+independently preregistered state-side source reference is asserted. -/
 noncomputable def bindingReference : Fin 2 → ℝ :=
   fun i => ((mixingChainStationary i : ℚ) : ℝ)
 
@@ -132,7 +141,7 @@ theorem bindingChain_apply_1_0 : bindingChain 1 0 = 5 / 508 := by
 theorem bindingChain_apply_1_1 : bindingChain 1 1 = 503 / 508 := by
   norm_num [bindingChain, mixingChain]
 
-/-! ## Receipts carried over from the realized chain -/
+/-! ## Finite facts carried over from the realized chain -/
 
 theorem bindingReference_pos : ∀ i, 0 < bindingReference i := by
   intro i
@@ -170,8 +179,10 @@ theorem bindingChain_rows : ∀ i, (∑ j, bindingChain i j) = 1 := by
     rw [Fin.sum_univ_two, bindingChain_apply_1_0, bindingChain_apply_1_1]
     norm_num
 
-/-- The pinned reference is the exact stationary law of the realized
-transition chain: the two committed pieces consume one common object. -/
+/-- The pinned transition-side reference is the exact stationary law of the
+realized transition chain.  This theorem relates two fields extracted from
+that chain; it does not identify the reference with the independently fixed
+state-side source reference required by B12. -/
 theorem bindingReference_stationary :
     ∀ j, (∑ i, bindingReference i * bindingChain i j) = bindingReference j := by
   intro j
@@ -185,17 +196,17 @@ theorem bindingReference_stationary :
       bindingChain_apply_0_1, bindingChain_apply_1_1]
     norm_num
 
-/-! ## The binding structure -/
+/-! ## The finite compatibility structure -/
 
-/-- **Common-object record.**  One state space, one pinned reference,
-one transition object, one protected labelling, and one derived energy,
-with the shared-object facts as fields: the reference is strictly
-positive and normalized, the chain is strictly positive and row
-stochastic, the reference is the exact stationary law of the chain, the
-labelling is nonconstant, and the energy obeys the declared convention
-`E = -log ref` against the same reference. -/
+/-- **Finite compatibility record.**  One state space, one transition-side
+stationary reference, one transition object, one protected labelling, and
+one energy defined from that reference.  The fields record positivity,
+normalization, stationarity, nonconstant labelling, and the convention
+`E = -log ref`.  The type does not contain the independently preregistered
+state-side reference, a source-collar identification, or a nonconstant
+refinement family. -/
 structure CommonObjectBinding (Ω : Type*) [Fintype Ω] [DecidableEq Ω] where
-  /-- The pinned common reference law. -/
+  /-- The pinned transition-side stationary reference law. -/
   ref : Ω → ℝ
   /-- The realized transition object. -/
   chain : Ω → Ω → ℝ
@@ -211,9 +222,9 @@ structure CommonObjectBinding (Ω : Type*) [Fintype Ω] [DecidableEq Ω] where
   label_nonconstant : ∃ x y, label x ≠ label y
   energy_convention : ∀ x, energy x = -Real.log (ref x)
 
-/-- The realized binding: the one artifact carrying the run's
-stationary law, transition chain, protected labelling, and derived
-energy simultaneously. -/
+/-- The finite compatibility value carrying the run's stationary law,
+transition chain, protected labelling, and derived energy simultaneously.
+Its inhabitation is not a B12 common-source binding theorem. -/
 noncomputable def binding : CommonObjectBinding (Fin 2) where
   ref := bindingReference
   chain := bindingChain
@@ -293,7 +304,7 @@ theorem bindingChain_not_dominated :
   rw [bindingChain_apply_0_1] at h01
   norm_num at h01
 
-/-! ## Receipt 1 on the bound data: the global objective -/
+/-! ## Conditional global-objective identity on the bundled data -/
 
 /-- The global objective over the pinned pair is nonnegative on
 normalized data supported inside the record fibres. -/
@@ -313,13 +324,14 @@ theorem binding_objective_nonneg
     (fun x y h => hsupp x y
       ((heatBath_eq_zero_iff bindingReference_pos x y).mp h))
 
-/-- **Joint-minimum receipt on the bound data.**  The global objective
+/-- **Joint-minimum identity on the bundled data.**  The global objective
 over the realized reference and its record-fibre resampling kernel
 vanishes exactly at the pinned pair.  On this bound object the kernel
 half of the equivalence is hypothesis-forced (the record labels separate
 the two states, so the support and row-sum hypotheses alone pin the
-kernel); the state half carries the optimization content, and both
-consume the one common reference. -/
+kernel); the state half carries the optimization content.  Both slots use
+the same declared function inside this conditional objective, but no theorem
+identifies that function with the independent state-side source reference. -/
 theorem binding_objective_eq_zero_iff
     (ρ : Fin 2 → ℝ) (P : Fin 2 → Fin 2 → ℝ)
     (hρ0 : ∀ x, 0 ≤ ρ x) (hρ1 : (∑ x, ρ x) = 1)
@@ -333,7 +345,7 @@ theorem binding_objective_eq_zero_iff
     protectedRecordLabel ρ P bindingReference_pos bindingReference_sum
     hρ0 hρ1 hP0 hP1 hsupp
 
-/-! ## Receipt 3 bound through the objective's kernel slot -/
+/-! ## Realized-chain separation through the objective's kernel slot -/
 
 /-- Row `0` divergence of the resampling reference from the realized
 chain. -/
@@ -389,7 +401,7 @@ theorem binding_kernel_divergence_pos :
   have hm2 := mul_pos c2 h2
   linarith
 
-/-! ## Receipt 4 on the derived energy -/
+/-! ## Single-object low-temperature facts for the derived energy -/
 
 /-- The derived energy orders the two states strictly: the heavier
 reference state carries the lower energy. -/
@@ -419,7 +431,7 @@ theorem binding_partitionZ_one : partitionZ bindingEnergy 1 = 1 := by
         Finset.sum_congr rfl fun x _ => binding_gibbsWeight_one x
     _ = 1 := bindingReference_sum
 
-/-- **Convention receipt.**  The normalized Gibbs law of the derived
+/-- **Convention identity.**  The normalized Gibbs law of the derived
 energy at inverse temperature `beta = 1` is the pinned reference,
 exactly. -/
 theorem binding_gibbs_one :
@@ -493,7 +505,7 @@ theorem bindingEnergy_gap_value :
 theorem binding_gap_pos : 0 < Real.log (54356 / 7155) :=
   Real.log_pos (by norm_num)
 
-/-- **Exact gap receipt.**  The energy gap of the derived energy is
+/-- **Exact finite gap.**  The energy gap of the derived energy is
 the exact log ratio of the two stationary masses (distinct from the
 chain's spectral gap recorded in the mixing-chain realization). -/
 theorem binding_energyGap (h : (offMin bindingEnergy).Nonempty) :
@@ -530,7 +542,7 @@ theorem bindingEnergy_dichotomy (x : Fin 2) :
     show bindingEnergy 1 = minEnergy bindingEnergy
     exact binding_minEnergy.symm
 
-/-- **Exact bound receipt.**  The off-minimum Gibbs mass of the derived
+/-- **Exact finite bound.**  The off-minimum Gibbs mass of the derived
 energy carries the explicit bound with the exact cardinality and the
 exact gap at every real inverse temperature. -/
 theorem binding_offMinMass_le (beta : ℝ) :
@@ -547,9 +559,11 @@ theorem binding_offMinMass_tendsto_zero :
       Filter.atTop (nhds 0) :=
   offMinMass_tendsto_zero bindingEnergy binding_offMin_nonempty
 
-/-- The constant family over the bound energy inhabits the
-refinement-uniform control structure with the exact gap and the exact
-cardinality. -/
+/-- **Degenerate control.**  The constant family over the bound energy
+inhabits the formal refinement-uniform control structure with the exact gap
+and exact cardinality.  Because every regulator carries the same `Fin 2`
+object and every refinement map is the identity, this does not establish a
+nontrivially varying source-derived regulator refinement. -/
 noncomputable def bindingTower :
     UniformGapRefinement (fun _ : ℕ => Fin 2)
       (fun _ => bindingEnergy) where
@@ -569,7 +583,8 @@ theorem bindingTower_uniform_bound (beta : ℝ) (r : ℕ) :
   have h := bindingTower.uniform_bound beta r
   simpa using h
 
-/-- Refinement-uniform concentration of the bound family. -/
+/-- Uniform concentration of the constant bound family.  This is a formal
+control on one repeated finite object, not a continuum third-law receipt. -/
 theorem bindingTower_uniform_concentration :
     ∀ eps : ℝ, 0 < eps → ∃ beta0 : ℝ, ∀ beta : ℝ, beta0 ≤ beta →
       ∀ _r : ℕ, offMinMass bindingEnergy beta < eps := by
@@ -577,16 +592,20 @@ theorem bindingTower_uniform_concentration :
   obtain ⟨beta0, hb⟩ := bindingTower.uniform_concentration eps heps
   exact ⟨beta0, fun beta hbeta r => hb beta hbeta r⟩
 
-/-! ## The summary receipt -/
+/-! ## The summary finite conjunction -/
 
-/-- **Common-object binding receipt (issue #688).**  All four B12
-receipt facts on the one realized object, with exact values:
+/-- **Common-object compatibility witness (issue #688).**  Four finite
+representation-level facts on one realized object, with exact values.  The
+conjunction is intentionally not a closure theorem for the B12 source
+receipts:
 
 1. the global objective over the pinned reference and its record-fibre
    resampling kernel is nonnegative on admissible data and vanishes
    exactly at the pinned pair;
 2. the pinned reference is the exact stationary law of the realized
-   transition chain, and the protected record labelling is nonconstant;
+   transition chain, and the protected record labelling is nonconstant; no
+   equality with the independently preregistered state-side reference is
+   proved;
 3. the realized restricted chain is strictly positive and row
    stochastic, its record-fibre resampling kernel is the identity (the
    degenerate fact, stated), and the objective with the realized chain
@@ -595,7 +614,8 @@ receipt facts on the one realized object, with exact values:
 4. the derived energy `E = -log π` is nonconstant, reproduces the
    pinned reference as the Gibbs law at `beta = 1`, has nonempty
    off-minimum set with the exact gap `log (54356/7155)`, and carries
-   the explicit off-minimum bound at every real inverse temperature. -/
+   the explicit off-minimum bound at every real inverse temperature on
+   this single finite object. -/
 theorem commonObjectBinding_receipt :
     (∀ ρ P, (∀ x, 0 ≤ ρ x) → (∑ x, ρ x) = 1 →
         (∀ x y, 0 ≤ P x y) → (∀ x, (∑ y, P x y) = 1) →

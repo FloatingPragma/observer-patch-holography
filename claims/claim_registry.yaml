@@ -1668,11 +1668,7 @@
         "code/born_frame/finite_born_frame_certificate.py",
         "code/born_frame/verify_finite_born_frame_independent.py",
         "code/born_frame/runtime/finite_born_frame_certificate.json",
-        "code/born_frame/test_finite_born_frame_certificate.py",
-        "Lean/Thermodynamics/CommonObjectBinding.lean",
-        "Lean/Thermodynamics/LowTemperatureControl.lean",
-        "Lean/Thermodynamics/MixingChainRealization.lean",
-        "Lean/InformationProjection/GlobalObjective.lean"
+        "code/born_frame/test_finite_born_frame_certificate.py"
       ],
       "falsifier": "The bounded result fails if the declared context matrix does not have rank six, the frame or effect-system ranks differ from three or four, the three displayed relations do not exactly characterize the Hermitian slice, tomography is nonunique, either finite exact control fails, the celestial nonlinear weight leaves [0,1], loses antipodal normalization or continuity, gains an affine representation, or dense affine probability tests fail to force the closed unit ball.",
       "scope_if_false": "Only the bounded twelve-port frame audit or celestial closure-boundary theorem falls. The general finite event-algebra theorems, a future richer source-produced effect family, and every frozen physical prediction remain separately assessed.",
@@ -1682,7 +1678,7 @@
     },
     {
       "claim_id": "OPH-THERMO-FOUR-LAW-PACKAGE",
-      "statement": "On one finite regulator stage the four laws of thermodynamics form an exact conditional theorem package with five typed source and physical receipts. They are not a source-realized theorem of the three axioms. Axiom 3 applies separately to states and transition distributions. The state-side information projection with a faithful reference and observer-visible conserved constraints is the exponential family, by the exact Pythagorean identity D(rho||sigma0)=D(rho||tau)+D(tau||sigma0) on the constrained moment surface; on the tracial branch this is the Gibbs family, and equality of intensive multipliers at additive contact is the zeroth law, transitive through any thermometer with two distinct levels. The transition-side information projection onto the fibre of the complete repaired visible datum is weighted conditional resampling from the same reference, P_C(x,y)=1[b(y)=b(x)] pi(y)/pi(F_C(x)), the weighted observation-fiber projector of the consensus construction. The kernel is stochastic, idempotent, satisfies detailed balance, leaves the reference stationary, and fixes every fibre-measurable observable, which is dynamical conservation of protected charges. Relative entropy to the reference is nonincreasing under every finite stochastic kernel with that stationary law, so D(p P_C || pi) <= D(p || pi) is the transition-side second law, with the modular Clausius theorem Delta S >= Delta<K>, K = -log tau, on tau-preserving channels through the exact split D(p||tau) = <K>_p - S(p), specializing to Delta S >= beta Q on the identified energy branch. The zeroth-law transitivity core is the thermometer theorem: a nondegenerate finite spectrum identifies its inverse temperature. The repair kernel preserves full support while the zero-temperature state is rank deficient, the finite-step unattainability mechanism, and the excited-mass bound carries the quantitative threshold beta Delta > log((d-g0)/(g0 eps)), with the block maximum-entropy bound pinning the Gibbs entropy to log g0 through the excited mass. The Landauer erasure bound is a corollary of the Clausius theorem: an entropy drop of c under a tau-preserving repair channel expels at least c/beta of energy. Convex mixtures of collar kernels stay stochastic and stationary, so random-scan repair inherits the package. The exact first-law split dU = deltaQ + deltaW carries its explicit bilinear cross term. At every finite regulator the excited Gibbs mass obeys q_beta <= ((d-g0)/g0) exp(-beta Delta), the entropy limit is log g0, and finitely many faithful repair or pinching steps cannot reach the rank-deficient zero-temperature state. Partition pinching and partition averaging have explicit normalized Kraus families and preserve trace; Dynamics/ChoiCPTP.lean supplies the finite complete-positivity predicate and proves the averaging, pinching, and nonnegative-parameter relaxation channels CPTP. The record tower S(rho) <= S(pinched) <= S(averaged) separates conditioned learning from the nonselective commit. The deterministic strict-descent normalizer is a distinct map with no entropy inequality; the two-point counterexample is certified. The second-law inequality is the mean of a fluctuating entropy production sigma(x,y)=log(p(x)/pi(x))-log((pP_C)(y)/pi(y)) that satisfies the exact integral fluctuation identity <exp(-sigma)>=1 for every reference-preserving kernel, the pointwise detailed relation p(x)P_C(x,y)=exp(sigma)(pP_C)(y)P_C(y,x) under detailed balance, and its level-set form, with finite Onsager reciprocity of equilibrium time-lagged correlations; every one of these closes exactly over the rationals. The exact identity S(p)-S(tau)=<K>_p-<K>_tau-D(p||tau) makes the entanglement first law delta S=delta<K> a first-order corollary, and through the central split K=2 pi B+Z one repair step with a fibre-measurable central charge obeys the cap Clausius inequality 2 pi Delta<B> <= Delta S. The Einstein branch's finite first-law premise package is discharged on this model: on the simplex tangent space the entropy differential at the reference equals the modular pairing as a theorem, the modular pairing splits through K=2 pi B+Z, and the central pairing is the edge differential, so finite_bulk_edge_central_first_law applies with no assumed premise beyond the split of the reference; repair displacements are mass preserving with vanishing central pairing, so the first-order entropy change of repair is purely bulk-modular. On the pinned source-counted transition table, all fifteen nonempty field-subset projections of the four recorded fields have been audited. The repair-load quotient is an eight-state irreducible, aperiodic, nonreversible stationary H-theorem probe whose sampled relative entropy descends, while the fine chain's only closed recurrent class is singleton freezeout. The observed record-family value is constant and the stationary law is not identified with the state optimizer's source reference. The four source-side receipts of issue #688 (global objective representation, common source-derived reference for both optimizers, source collar realization on the explicitly restricted recurrent class, and refinement-uniform low-temperature control) are attained or evidenced at the finite level and bound on one realized object in Lean/Thermodynamics/CommonObjectBinding.lean, closing that issue. Issue #703 separately owns physical energy and clock calibration beyond the attained finite central-interface modular split; complete thermodynamic integration consumes that packet.",
+      "statement": "On one finite regulator stage the four laws of thermodynamics form an exact conditional theorem package with five typed source and physical receipts. They are not a source-realized theorem of the three axioms. Axiom 3 applies separately to states and transition distributions. The state-side information projection with a faithful reference and observer-visible conserved constraints is the exponential family, by the exact Pythagorean identity D(rho||sigma0)=D(rho||tau)+D(tau||sigma0) on the constrained moment surface; on the tracial branch this is the Gibbs family, and equality of intensive multipliers at additive contact is the zeroth law, transitive through any thermometer with two distinct levels. The transition-side information projection onto the fibre of the complete repaired visible datum is weighted conditional resampling from the same reference, P_C(x,y)=1[b(y)=b(x)] pi(y)/pi(F_C(x)), the weighted observation-fiber projector of the consensus construction. The kernel is stochastic, idempotent, satisfies detailed balance, leaves the reference stationary, and fixes every fibre-measurable observable, which is dynamical conservation of protected charges. Relative entropy to the reference is nonincreasing under every finite stochastic kernel with that stationary law, so D(p P_C || pi) <= D(p || pi) is the transition-side second law, with the modular Clausius theorem Delta S >= Delta<K>, K = -log tau, on tau-preserving channels through the exact split D(p||tau) = <K>_p - S(p), specializing to Delta S >= beta Q on the identified energy branch. The zeroth-law transitivity core is the thermometer theorem: a nondegenerate finite spectrum identifies its inverse temperature. The repair kernel preserves full support while the zero-temperature state is rank deficient, the finite-step unattainability mechanism, and the excited-mass bound carries the quantitative threshold beta Delta > log((d-g0)/(g0 eps)), with the block maximum-entropy bound pinning the Gibbs entropy to log g0 through the excited mass. The Landauer erasure bound is a corollary of the Clausius theorem: an entropy drop of c under a tau-preserving repair channel expels at least c/beta of energy. Convex mixtures of collar kernels stay stochastic and stationary, so random-scan repair inherits the package. The exact first-law split dU = deltaQ + deltaW carries its explicit bilinear cross term. At every finite regulator the excited Gibbs mass obeys q_beta <= ((d-g0)/g0) exp(-beta Delta), the entropy limit is log g0, and finitely many faithful repair or pinching steps cannot reach the rank-deficient zero-temperature state. Partition pinching and partition averaging have explicit normalized Kraus families and preserve trace; Dynamics/ChoiCPTP.lean supplies the finite complete-positivity predicate and proves the averaging, pinching, and nonnegative-parameter relaxation channels CPTP. The record tower S(rho) <= S(pinched) <= S(averaged) separates conditioned learning from the nonselective commit. The deterministic strict-descent normalizer is a distinct map with no entropy inequality; the two-point counterexample is certified. The second-law inequality is the mean of a fluctuating entropy production sigma(x,y)=log(p(x)/pi(x))-log((pP_C)(y)/pi(y)) that satisfies the exact integral fluctuation identity <exp(-sigma)>=1 for every reference-preserving kernel, the pointwise detailed relation p(x)P_C(x,y)=exp(sigma)(pP_C)(y)P_C(y,x) under detailed balance, and its level-set form, with finite Onsager reciprocity of equilibrium time-lagged correlations; every one of these closes exactly over the rationals. The exact identity S(p)-S(tau)=<K>_p-<K>_tau-D(p||tau) makes the entanglement first law delta S=delta<K> a first-order corollary, and through the central split K=2 pi B+Z one repair step with a fibre-measurable central charge obeys the cap Clausius inequality 2 pi Delta<B> <= Delta S. The Einstein branch's finite first-law premise package is discharged on this model: on the simplex tangent space the entropy differential at the reference equals the modular pairing as a theorem, the modular pairing splits through K=2 pi B+Z, and the central pairing is the edge differential, so finite_bulk_edge_central_first_law applies with no assumed premise beyond the split of the reference; repair displacements are mass preserving with vanishing central pairing, so the first-order entropy change of repair is purely bulk-modular. On the pinned source-counted transition table, all fifteen nonempty field-subset projections of the four recorded fields have been audited. The repair-load quotient is an eight-state irreducible, aperiodic, nonreversible stationary H-theorem probe whose sampled relative entropy descends, while the fine chain's only closed recurrent class is singleton freezeout. The observed record-family value is constant and the stationary law is not identified with the state optimizer's source reference. The bounded continuation supplies an abstract global objective, a run-derived transition chain with its stationary reference, and finite low-temperature controls. Lean/Thermodynamics/CommonObjectBinding.lean packages these ingredients only as a degenerate representation-level compatibility witness: its singleton protected fibres force the resampling kernel to be the identity, the realized chain differs from that kernel, the transition stationary reference is not identified with the preregistered state-side reference, and its bound-object refinement family is constant. Issue #688 is open for a typed equality, projection, or intertwining theorem that relates the independently fixed source references on one nondegenerate common object, together with the corresponding source-collar and refinement nonvacuity controls. Issue #703 separately owns physical energy and clock calibration beyond the attained finite central-interface modular split; complete thermodynamic integration consumes both open packets.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "finite_theorem_package_with_typed_physical_receipts",
       "assumptions": [
@@ -1701,7 +1697,7 @@
         "data_processing_inequality",
         "finite_matrix_trace_algebra"
       ],
-      "oph_specific_delta": "The second law is not assumed and not derived from strict-descent settlement, which the certified counterexample rules out as an entropy mechanism. The arrow comes from the transition-side instantiation of the same information-projection axiom that fixes the state, with the feasible set supplied by the repair construction's own repaired-visible fibre and the reference shared with the state optimizer. The four laws then follow as theorems on the finite stage, and every physical attachment is one of five named receipts rather than a hidden premise.",
+      "oph_specific_delta": "The second law is not assumed and not derived from strict-descent settlement, which the certified counterexample rules out as an entropy mechanism. Conditionally, the arrow comes from the transition-side instantiation of the same information-projection axiom used on the state side, with a repaired-visible fibre and one shared faithful reference supplied as premises. The exact finite four-law package then follows. Identifying that shared reference and the conditional-resampling kernel with one nondegenerate source-produced object, obtaining nontrivial refinement control, and attaching physical energy and clock units remain named receipts rather than hidden premises.",
       "novelty_type": "conditional_finite_thermodynamic_package_with_five_typed_receipts",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -1712,6 +1708,10 @@
         "Lean/Thermodynamics/FluctuationTheorems.lean",
         "Lean/Thermodynamics/CapFirstLaw.lean",
         "Lean/Thermodynamics/EinsteinPremiseLink.lean",
+        "Lean/Thermodynamics/CommonObjectBinding.lean",
+        "Lean/Thermodynamics/LowTemperatureControl.lean",
+        "Lean/Thermodynamics/MixingChainRealization.lean",
+        "Lean/InformationProjection/GlobalObjective.lean",
         "Lean/EventAlgebra/PartitionPinchingCP.lean",
         "code/thermodynamics/conditional_repair_certificate.py",
         "code/thermodynamics/runtime/conditional_repair_receipt.json",
@@ -1721,9 +1721,10 @@
       ],
       "falsifier": "The package fails if any exact statement fails: a feasible state beating the exponential family in the constrained projection, a fibre-supported law beating the conditional row, a stochastic kernel with stationary reference increasing relative entropy, a fibre-measurable charge moved by the kernel, a reference-preserving step violating the integral or detailed fluctuation identities, an asymmetric equilibrium time-lagged correlation under detailed balance, a state pair violating the exact-remainder cap first law, an excited Gibbs mass above the gap bound, or a partition whose pinching lacks the Kraus completeness. The physical reading fails at any of the five receipts: the weighted local objectives have no global representation; the two optimizers require distinct source references; the source collar fails to equal the conditional-resampling kernel on the complete repaired-visible fibre (property-only validation certifies only the weaker stationary H-theorem branch); physical energy-clock calibration contradicts the finite modular split; or no refinement-uniform low-temperature control exists for the claimed continuum third law.",
       "scope_if_false": "The thermodynamic completion package falls. The consensus normal-form theorems, the event-algebra library, and the modular cap identities are assessed by their own claims. No frozen prediction row depends on this package.",
-      "status": "finite_four_law_package_theorems_attained__four_source_receipts_bound__physical_calibration_open",
+      "status": "finite_four_law_package_attained__source_reference_collar_and_refinement_receipts_open__physical_calibration_open",
       "claim_class": "conditional_implication",
       "gates": [
+        688,
         703
       ]
     },
@@ -1847,7 +1848,7 @@
         "discrete_Noether_calculus",
         "discrete_Legendre_calculus"
       ],
-      "oph_specific_delta": "The which-action question is closed at the representation level: the log-transition action is derived from the source dynamics, unique up to the additive-constant and multiplier-rescale gauge, with the multiplier pinned by the normalization convention and the coupling-scale slot identified with that gauge. The machine-checked interface no-go stands, and the composition that survives it is the receipt-gated transfer with its witness and failing control. The Legendre bridge makes the Lagrangian and Hamiltonian faces two readouts of one finite mechanics on the committed packets. Remaining open on B7: the reference measure and the physical attachments.",
+      "oph_specific_delta": "For a supplied positive Markov source chain, the representation-level log-transition action is fixed by that chain and unique up to the additive-constant and multiplier-rescale gauge, with multiplier one selected by the normalization convention. This does not identify that abstract multiplier freedom with relative gauge-sector coupling coefficients or produce the chain from Hamiltonian dynamics. The machine-checked interface no-go stands, and the composition that survives it is the receipt-gated transfer with its witness and failing control. The Legendre bridge makes the Lagrangian and Hamiltonian faces two conditional readouts of one finite mechanics on the committed packets. Remaining open on B7: the reference measure, production of the realized chain from a Hamiltonian flow, and the physical attachments.",
       "novelty_type": "derived_action_with_machine_checked_interface_obstruction_and_receipt_gated_transfer",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -2364,6 +2365,42 @@
         706,
         707,
         697
+      ]
+    },
+    {
+      "claim_id": "OPH-GAUGE-KINETIC-HISTORY-BINDING",
+      "statement": "For each supplied certified generic compact bracket in families F, G, and P, the exact finite kinetic record decomposes the minus-Killing quadratic form over the derived-algebra simple factors, proves zero cross-block entries, and computes a two-dimensional space of ad-invariant symmetric forms: one free positive coefficient for each of the two simple factors. Those coefficients and their ratio are not selected. Separately, on a declared finite additive step group, the history theorem defines a translation-invariant Gibbs kernel from a chosen increment cost q and proves that the kernel's log-transition action is the increment action of that same q up to an additive path constant and a common multiplier rescaling. The concrete exact positivity instance covers only block [0,3), one three-dimensional simple factor of the colorless P family; it does not cover P's second factor or either color-bearing F/G family. No independently source-produced kernel is identified, no relative multifactor coupling is absorbed by the single multiplier, and the F/G carrier-invariant-dimension-three to bracket-invariant-dimension-two negative control is open under issue #716.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "partial_exact_bounded_gauge_kinetic_shape_and_constructed_one_factor_history_binding",
+      "assumptions": [
+        "supplied_certified_compact_bracket_kinetic_record",
+        "declared_finite_increment_cost_and_translation_group",
+        "declared_reference_measure",
+        "physical_history_action_attachment_deferred"
+      ],
+      "imported_results": [
+        "compact_Lie_algebra_and_invariant_form_classification",
+        "finite_Gibbs_kernel_and_log_transition_algebra"
+      ],
+      "oph_specific_delta": "Places the certified compact-bracket kinetic record and the exact finite history representation on one explicitly bounded E9 status surface while preserving the direction of construction: the Gibbs kernel is built from the chosen one-factor P cost, not independently derived from the source. It exposes the unselected relative coefficients and the missing color-bearing multifactor binding instead of calling one multiplier a derivation of all gauge couplings.",
+      "novelty_type": "partial_ad_invariant_kinetic_shape_and_constructed_one_factor_history_compatibility",
+      "evidence": [
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "extra/compact_proof_of_oph.tex",
+        "code/e9_kinetic/compute_kinetic_form.py",
+        "code/e9_kinetic/kinetic_form_v1.json",
+        "code/e9_kinetic/validate_kinetic_form.py",
+        "Lean/QFT/HistoryActionBinding.lean"
+      ],
+      "falsifier": "The supplied bracket record has a nonzero cross-factor kinetic entry, its ad-invariant symmetric-form dimension differs from the simple-factor count, the exact P-block positivity values change, the constructed Gibbs kernel is not stochastic, its log-transition action differs from the chosen increment action by more than the stated constant, or the state-dependent control is representable by an increment-only action.",
+      "scope_if_false": "Only the affected bounded kinetic-shape or constructed-kernel compatibility result falls. No source-selected gauge action, color-bearing history law, relative coupling, continuum theory, or phenomenological prediction has been established by this row.",
+      "status": "partial_ad_invariant_kinetic_shape_and_one_P_factor_constructed_kernel_binding__source_selection_color_binding_and_relative_couplings_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        683,
+        705,
+        716
       ]
     },
     {
@@ -3092,9 +3129,9 @@
     },
     {
       "claim_id": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
-      "statement": "Against the committed finite covariant-net carriers, exactly two of seven structural QFT targets carry theorem-shaped verdicts: row 3 proves that every bijective localized endomorphism of the constructed finite net is inner, so its finite DHR-type sector structure is trivial, while full DHR is a typed exit; row 5 proves a finite private-block Gibbs-KMS identity, but the constructed net-level KMS reading is degenerate and the finite public record algebra admits no nontrivial pointwise-continuous star flow, while horizon thermality is a typed exit. The other five targets are non-statable: CPT, spin-statistics, relative-Cauchy stress response, and particle/scattering are typed non-evaluable exits naming absent carrier structure, and field/action reconstruction is a typed design gate on separate absent producer packets. The matrix does not establish that the constructed net inherits QFT structure.",
+      "statement": "Against the committed finite covariant-net carriers, exactly two of seven structural QFT targets carry theorem-shaped finite surrogates. Row 3 proves that every bijective localized endomorphism of the constructed finite witness is inner and hence equivalent to the identity under the declared finite relation; it does not construct a DHR category, cover non-bijective transportable endomorphisms, or reconstruct a gauge group, so full DHR is a typed exit. Row 5 proves a finite private-block Gibbs-KMS identity, but the constructed net-level KMS reading is degenerate and the finite public record algebra admits no nontrivial pointwise-continuous star flow, while horizon thermality is a typed exit. The other five targets are non-statable: CPT, spin-statistics, relative-Cauchy stress response, and particle/scattering are typed non-evaluable exits naming absent carrier structure, and field/action reconstruction is a typed design gate on separate incomplete producer packets. The matrix is a partial status artifact and does not close E4 or establish that the constructed net inherits QFT structure.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
-      "tier": "exact_bounded_structural_QFT_status_matrix_with_five_typed_exits",
+      "tier": "partial_bounded_structural_QFT_status_matrix_with_five_typed_exits",
       "assumptions": [
         "directed_finite_consensus_tower_data",
         "proof_carrying_finite_causal_net_data",
@@ -3106,7 +3143,7 @@
         "finite_matrix_star_automorphism_innerness",
         "thin_poset_category"
       ],
-      "oph_specific_delta": "E4 records all seven requested inheritance targets in one kernel-checked matrix, pins the only two statable rows to their carrying finite theorems and countermodels, and makes every other row name the exact missing carrier or separate producer instead of promoting a finite net to QFT.",
+      "oph_specific_delta": "The partial E4 artifact records all seven requested inheritance targets in one kernel-checked matrix, pins the only two statable finite surrogates to their carrying theorems and countermodels, and makes every other row name the exact missing carrier or separate producer instead of promoting a finite net to QFT.",
       "novelty_type": "typed_structural_inheritance_status_matrix_with_negative_promotion_firewall",
       "evidence": [
         "paper/reality_as_consensus_protocol.tex",
@@ -3115,11 +3152,13 @@
         "Lean/QFT/SectorInheritance.lean",
         "Lean/QFT/InheritanceMatrix.lean"
       ],
-      "falsifier": "The kernel-checked matrix does not have exactly seven rows with theorem-shaped verdicts exactly at rows 3 and 5 and non-statable verdicts exactly at rows 1, 2, 4, 6, and 7; a row anchor fails; finite sector triviality or either finite KMS counter-reading fails on its declared carrier; or one of the five exit rows is statable against carrier structure already present in the committed tree.",
-      "scope_if_false": "Only the E4 status matrix, its finite row-3 or row-5 conclusion, or the affected typed exit falls. No blanket QFT inheritance claim is substituted, and unrelated finite consensus, dynamics, geometry, or gauge packets retain their own statuses.",
-      "status": "two_of_seven_structural_targets_statable__five_typed_exits__no_QFT_inheritance_promotion",
+      "falsifier": "The kernel-checked matrix does not have exactly seven rows with theorem-shaped finite surrogates exactly at rows 3 and 5 and non-statable verdicts exactly at rows 1, 2, 4, 6, and 7; a row anchor fails; innerness of the restricted bijective localized-endomorphism class or either finite KMS counter-reading fails on its declared carrier; or one of the five exit rows is statable against completed carrier structure present in the committed tree.",
+      "scope_if_false": "Only the partial E4 status matrix, its restricted finite row-3 or row-5 conclusion, or the affected typed exit falls. No blanket QFT inheritance claim is substituted, and unrelated finite consensus, dynamics, geometry, or gauge packets retain their own statuses.",
+      "status": "partial_structural_status_matrix__bijective_sector_surrogate_and_finite_KMS_core_attained__full_E4_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        701
+      ]
     }
   ]
 }

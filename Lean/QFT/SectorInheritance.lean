@@ -8,15 +8,16 @@ import Tower.OperationalObserver
 /-!
 # The E4 structural-inheritance matrix: the DHR / superselection-sector row
 
-This module delivers the second row of the E4 inheritance matrix of
-completion-plan issue `#701`: Doplicher–Haag–Roberts sector structure
-and gauge-group reconstruction.  Per the issue, the row is a separate
-theorem target with explicit hypotheses, a nonvacuous example, and a
+This module supplies a restricted finite surrogate for the second row of the
+E4 inheritance matrix of completion-plan issue `#701`: the
+Doplicher–Haag–Roberts sector and gauge-reconstruction target.  Per the issue,
+the row is a separate theorem target with explicit hypotheses, a nonvacuous example, and a
 typed non-evaluable exit; no blanket QFT inheritance claim is made or
-licensed by anything below.  The verdict shape of this row is
-REFUTABLE, and that is the result, not a caveat: Doplicher–Roberts
-reconstruction over a finite type-I net reconstructs the TRIVIAL gauge
-group, so the constructed net inherits DHR structure only degenerately.
+licensed by anything below.  The proved negative result is narrower than a
+DHR reconstruction theorem: every *bijective* localized endomorphism of the
+finite type-I witness is inner and therefore equivalent to the identity under
+the finite relation declared below.  No DHR category is constructed, so no
+Doplicher–Roberts gauge group is reconstructed here.
 
 ## Part 1 — PROVED: the transported inner-implementation engine
 
@@ -33,7 +34,7 @@ the implementing unitary produced through
 `Unitary.linearIsometryEquiv` and the conjugation read back through
 `Unitary.conjStarAlgAut`.
 
-## Part 2 — REFUTABLE: sector triviality of the finite constructed net
+## Part 2 — REFUTABLE SURROGATE: bijective localized endomorphisms
 
 `LocalizedIn ρ U` is the DHR-type localization predicate against the
 E3 example net: the endomorphism `ρ` of the private algebra acts as
@@ -41,15 +42,14 @@ the identity on the regional algebra of every region declared disjoint
 from `U` by `supportGradedNet.disjoint`, the net's own declared
 disjointness.  The sector theorem
 (`supportGraded_localized_inner`) states that every bijective
-localized endomorphism is inner, hence sector-equivalent to the
-identity (`supportGraded_localized_sector_trivial`): the DHR sector
-category of THIS FINITE CONSTRUCTED NET has one object up to
-equivalence, and the reconstructed gauge group is trivial.  The proof
-consumes part 1 and discards the localization hypothesis — that
-discard is the content, not a defect: over a finite type-I block every
-automorphism whatsoever is already inner, so localization can create
-no charge.  The row therefore refutes, for this net, the hope that
-DHR superselection structure is inherited nontrivially.
+localized endomorphism is inner, hence equivalent to the identity under the
+declared finite relation (`supportGraded_localized_sector_trivial`).  The proof
+consumes part 1 and discards the localization hypothesis: over a finite type-I
+block every automorphism whatsoever is already inner.  Thus the restricted
+class of bijective localized endomorphisms carries no nontrivial equivalence
+class.  This does not cover non-bijective transportable endomorphisms, construct
+their intertwiners, or justify a conclusion about a DHR category or
+reconstructed gauge group.
 
 Nonvacuity: the hypothesis class contains more than the identity.
 `sectorWitness`, conjugation by the diagonal involution
@@ -69,9 +69,10 @@ localized witness is operationally invisible — `sectorWitness X` and
 `X` have identical trace statistics against every matrix of the
 sector-preserving commutant
 (`sectorWitness_operationally_invisible`, via
-`EventAlgebra.PartitionOperationallyEquivalent`).  The localized
-endomorphism carries no charge visible to any sector-preserving
-readout, which is the operational face of sector triviality.  It is
+`EventAlgebra.PartitionOperationallyEquivalent`).  The localized endomorphism
+carries no charge visible to any sector-preserving readout, which is the
+operational face of this particular witness's collapse inside the restricted
+surrogate.  It is
 visible to sector-off-diagonal tests (it moves the matrix unit), so
 the commutant restriction is load-bearing, not decorative.
 
@@ -97,11 +98,13 @@ as horizon thermality is a typed exit of the KMS row and time-slice is
 a typed exit of E3.
 
 No statement in this module may be quoted as "the observer net has
-trivial superselection structure" or as any general DHR result.  What
-is proved is: every star-automorphism of the finite private block is
-unitarily inner (part 1), and FOR THIS FINITE CONSTRUCTED NET every
-bijective localized endomorphism is inner, so the finite DHR-type
-sector structure the net inherits is the trivial one (part 2).
+trivial superselection structure", "DHR reconstruction returns a trivial
+gauge group", or as any general DHR result.  What is proved is: every
+star-automorphism of the finite private block is unitarily inner (part 1), and
+every bijective localized endomorphism in the finite witness belongs to the
+identity equivalence class under the explicitly declared surrogate relation
+(part 2).  Whether other localized transportable endomorphisms exist is not
+statable on the committed carriers.
 -/
 
 namespace OPH.QFT
@@ -187,9 +190,9 @@ theorem localizedIn_empty
       Disjoint (∅ : Finset (Fin 2)) V := hV
   exact absurd hV'.1 Finset.not_nonempty_empty
 
-/-- DHR sector equivalence of two endomorphisms of the private
-algebra: one is a unitary conjugate of the other.  Sector triviality
-is `SectorEquivalent ρ (StarAlgHom.id ℂ _)`. -/
+/-- The finite surrogate equivalence used in this file: one endomorphism of
+the private algebra is a unitary conjugate of the other.  This definition is
+not a construction of the DHR intertwiner category. -/
 def SectorEquivalent
     (ρ σ : Matrix (Fin 2) (Fin 2) ℂ →⋆ₐ[ℂ] Matrix (Fin 2) (Fin 2) ℂ) : Prop :=
   ∃ u ∈ unitary (Matrix (Fin 2) (Fin 2) ℂ), ∀ x, ρ x = u * σ x * star u
@@ -197,12 +200,10 @@ def SectorEquivalent
 /-- **The sector theorem for the finite constructed net.**  Every
 bijective endomorphism of the private algebra that is DHR-localized in
 a region of the E3 example net is inner: it is conjugation by a
-unitary matrix.  The proof consumes the transported engine and
-DISCARDS the localization hypothesis — over a finite type-I block
-every automorphism whatsoever is inner, which is exactly why
-Doplicher–Roberts reconstruction over this net returns the trivial
-gauge group.  This is a statement about THIS finite constructed net;
-no general DHR claim is made. -/
+unitary matrix.  The proof consumes the transported engine and discards the
+localization hypothesis — over a finite type-I block every automorphism
+whatsoever is inner.  It therefore collapses the restricted bijective
+surrogate only; no DHR category or reconstructed gauge group follows. -/
 theorem supportGraded_localized_inner
     (ρ : Matrix (Fin 2) (Fin 2) ℂ →⋆ₐ[ℂ] Matrix (Fin 2) (Fin 2) ℂ)
     {U : Finset (Fin 2)} (_hloc : LocalizedIn ρ U)
@@ -213,10 +214,10 @@ theorem supportGraded_localized_inner
   exact ⟨u, hu, fun x =>
     ((StarAlgEquiv.ofBijective_apply hbij x).symm).trans (hconj x)⟩
 
-/-- Sector triviality, stated as sector equivalence: every bijective
-localized endomorphism of the finite constructed net is
-sector-equivalent to the identity endomorphism.  The DHR-type sector
-category of this net has a single sector. -/
+/-- Restricted-surrogate collapse: every bijective localized endomorphism of
+the finite constructed net is equivalent to the identity endomorphism under
+`SectorEquivalent`.  This theorem does not quantify over non-bijective DHR
+endomorphisms or construct a sector category. -/
 theorem supportGraded_localized_sector_trivial
     (ρ : Matrix (Fin 2) (Fin 2) ℂ →⋆ₐ[ℂ] Matrix (Fin 2) (Fin 2) ℂ)
     {U : Finset (Fin 2)} (hloc : LocalizedIn ρ U)
@@ -359,9 +360,9 @@ theorem sectorWitness_inner :
 Relative to the declared two-sector partition `witnessPartition`, the
 nontrivial localized witness is operationally invisible: it changes no
 trace statistic against any matrix of the sector-preserving
-commutant.  This ties the sector triviality of this row to the finite
-superselection module: the localized endomorphism carries no charge
-any sector-preserving readout can see.  It is NOT invisible to
+commutant.  This ties the explicit witness's collapse in the restricted
+surrogate to the finite superselection module: this localized endomorphism
+carries no charge any sector-preserving readout can see.  It is NOT invisible to
 sector-off-diagonal tests — it negates the off-diagonal matrix unit —
 so the commutant restriction in
 `EventAlgebra.PartitionOperationallyEquivalent` is load-bearing. -/

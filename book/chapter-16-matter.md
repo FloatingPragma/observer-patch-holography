@@ -329,14 +329,15 @@ Nothing about that weight was supplied. Write down the dynamics and the action
 comes with it, fixed up to an additive constant and an overall rescaling.
 Those two freedoms are the choice of a zero point and the choice of units.
 
-The derived action carries two familiar readings at once. Paths that minimize
-it step by step are the most probable histories of the chain, so least action
-and most likely turn out to be two ways of reading one function. A finite
-Legendre bridge connects it to the Hamiltonian picture: the discrete
-Euler--Lagrange condition at a junction holds exactly when one step of
-discrete Hamiltonian flow carries the incoming state to the outgoing one, and
-the conserved quantity on the chain side equals the momentum on the
-Hamiltonian side.
+The derived action carries two familiar readings at once. Among paths with a
+common start, smaller log-transition action means greater probability, so
+least action and most likely are two readings of one chain functional. A
+separate finite Legendre theorem applies to a supplied regular Lagrangian:
+its discrete Euler--Lagrange condition at a junction holds exactly when one
+step of the corresponding discrete Hamilton flow carries the incoming state
+to the outgoing one, with quadratic momentum, energy, and Noether witnesses.
+The composite receipt records both results, but it does not identify the
+realized chain with that Hamiltonian system.
 
 The boundary is where physics enters. The reference against which the weight
 is measured is a declared object. Nothing identifies the finite scalar

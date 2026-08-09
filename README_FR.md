@@ -88,30 +88,33 @@ données et certificats :
    [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
    la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean)
    et les [données finies de signature](evidence/einstein_convergence/).
-2. **L’accord des observateurs reproduit les règles quantiques.** Dans le modèle
-   fini déclaré, l’accord donne les probabilités et règles de mesure quantiques,
-   ainsi que des limites exactes sur les corrélations et la copie. Le lien entre
-   ces mathématiques et les appareils de mesure physiques est en cours. Voir l’
+2. **Une algèbre finie d’effets déclarée admet la représentation de Born.**
+   Toute valuation normalisée, non négative et additive sur toutes les sommes
+   d’effets coexistants est la trace contre une unique matrice de densité, y
+   compris en dimension deux. Le système d’effets produit par la source, le
+   pont opérationnel vers l’additivité ou les fréquences et l’instrument
+   physique restent ouverts ; l’accord des observateurs ne fournit pas seul
+   ces prémisses. Voir l’
    [article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
    la [preuve des registres publics](Lean/EventAlgebra/PublicRecordAlgebra.lean)
    et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-3. **La dynamique, les poids quantiques et l’action sont forcés, pas
-   choisis.** L’évolution temporelle continue n’a aucune liberté au-delà
-   d’un hamiltonien : la forme de Schrödinger est un théorème. Le poids
-   quantique est la seule affectation additive sur les effets de mesure,
-   jusqu’au cas du qubit. La dynamique réalisée fixe sa propre action à une
-   jauge près : moindre action et histoire la plus probable sont deux
-   lectures d’une même fonctionnelle, reliées au flot hamiltonien par un
-   pont de Legendre. L’attachement des unités est en cours. Voir
-   l’[article sur les observateurs](paper/observers_are_all_you_need.pdf),
-   la [preuve de Born](Lean/EventAlgebra/FiniteBuschGleason.lean) et la
+3. **Les flots de symétrie finis et les lois d’histoire admettent des
+   représentations exactes par une action.** Sur une algèbre étoilée unitaire
+   de dimension finie, tout groupe continu à un paramètre est engendré bloc
+   par bloc par un hamiltonien. Pour une chaîne de Markov positive, l’action
+   logarithmique représente sa loi des chemins à deux jauges près. Séparément,
+   Legendre relie les jonctions d’Euler--Lagrange aux pas hamiltoniens d’un
+   lagrangien déclaré. Aucun théorème ne produit la chaîne depuis ce flot ;
+   unités, horloges et attachement physique restent ouverts. Voir
+   l’[article sur les observateurs](paper/observers_are_all_you_need.pdf) et la
    [preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean).
-4. **Les quatre lois de la thermodynamique découlent du modèle fini des
-   observateurs.** Avec un état de référence commun et l’information réparée
-   visible par tous, la même règle finie donne l’équilibre, la croissance de
-   l’entropie, le bilan entre chaleur et travail et la limite de basse
-   température. Le travail restant relie les unités d’énergie et de temps à un
-   système physique produit par la source. Voir l’
+4. **Les quatre lois forment un paquet fini conditionnel exact.** Une référence
+   fidèle commune et la fibre complète de l’information visible réparée donnent
+   l’équilibre, la contraction de l’entropie, le bilan chaleur-travail et une
+   borne de basse température. La réalisation de l’objectif global, une même
+   référence pour les deux optimiseurs, l’égalité entre collier et noyau de
+   rééchantillonnage, le contrôle uniforme sous raffinement et l’étalonnage de
+   l’énergie et de l’horloge sont ouverts. Voir l’
    [article sur les observateurs](paper/observers_are_all_you_need.pdf), la
    [preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
    et le [certificat exact](code/thermodynamics/conditional_repair_certificate.py).
@@ -187,11 +190,14 @@ supplémentaires, chacun énoncé avec sa frontière au bout du lien :
   [pile de théorèmes géométriques](Lean/Geometry.lean), l’
   [interface finie du réseau régional](Lean/QFT.lean) et les
   [notes de frontière Lean](Lean/docs/) pour les portées exactes.
-- La bibliothèque définit ce qui compte comme un observateur à travers sept
-  tests : fenêtre bornée, relecture, registres stables, action, prédiction
-  vers l’avant et survie au raffinement. Un exemple concret passe les sept
-  tests et trois systèmes volontairement défectueux échouent chacun à
-  exactement un test. Voir la
+- La bibliothèque formalise six tests opérationnels complets et la moitié
+  propre à l’observateur d’un septième test de preuve lisible : accès borné,
+  relecture, registres stables, action conditionnée par les registres,
+  prédiction vers l’avant, raffinement et lecture de ses propres registres.
+  Un exemple concret habite ces champs et quatre systèmes volontairement
+  défectueux échouent chacun à un champ. La restriction des registres entre
+  observateurs distincts par des applications de recouvrement partagées reste
+  ouverte. Voir la
   [preuve de l’observateur opérationnel](Lean/Tower/OperationalObserver.lean).
 
 La bibliothèque Lean associée contient plus de 4200 théorèmes et lemmes et
@@ -468,12 +474,17 @@ ainsi.
 
 La reconstruction va des trois axiomes à une théorie quantique publique, à une
 géométrie des événements et à une description macroscopique de l’espace-temps.
-La cible principale est le lagrangien du Modèle standard. Son secteur
-cinétique de jauge est forcé : la forme cinétique est diagonale par blocs dans
-les projecteurs certifiés, avec une normalisation par facteur simple, et cette
-forme égale l’action dérivée de sa propre dynamique de source. Cela donne une
-normalisation cinétique pour le secteur fort et une pour le secteur faible,
-toutes deux de forme Yang-Mills. L’hypercharge est abélienne, et le calcul au
+La cible principale est le lagrangien du Modèle standard. Pour chaque crochet
+compact certifié, l’invariance adjointe force la forme cinétique de jauge à
+être diagonale par blocs, avec un coefficient positif libre par facteur
+simple. Une identité exacte distincte définit un noyau de Gibbs à partir du
+coût quadratique sur un seul facteur tridimensionnel de la famille P, qui
+ne porte pas la couleur, puis retrouve ce coût comme action logarithmique de
+transition, à une constante additive et une remise à l’échelle commune près.
+Cette identité ne dérive pas la dynamique de la source, ne lie pas le second
+facteur et ne couvre pas les familles F et G porteuses de couleur.
+Aucune normalisation de couplage fort ou faible n’est donc dérivée.
+L’hypercharge est abélienne, et le calcul au
 niveau du porteur renvoie un réseau de charges abéliennes nul, de sorte que sa
 normalisation reste indéterminée à ce niveau. Dériver le secteur abélien
 depuis un module de matière sélectionné par la source, ou sortir avec le

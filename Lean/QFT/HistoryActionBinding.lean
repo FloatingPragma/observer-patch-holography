@@ -6,17 +6,17 @@ import Mathlib.Data.Fin.VecNotation
 /-!
 # The history-action binding (E9 sector 2, issue #716)
 
-`InformationProjection.LogTransitionAction` derives the history-law
-action from Markov source dynamics: over the declared reference, the
-path law of a strictly positive row-stochastic kernel is the
-exponential tilt of the reference by the log-transition action at
-multiplier one, uniquely up to the additive-constant and
-multiplier-rescaling gauge.  This module binds that derived action to
-the sector-1 field-configuration kinetic form on one common object.
-The common object is a translation-invariant Gibbs step kernel on a
-finite additive abelian group of field increments: the transition
-weight of a step depends on the increment alone, through a step cost
-`q`.
+`InformationProjection.LogTransitionAction` rewrites the history law
+of a supplied Markov kernel as an exponential tilt.  Here, however,
+the common object is defined in the opposite direction: for a chosen
+step cost `q`, this module **constructs** the translation-invariant
+kernel `gibbsKernel q` and then verifies that its log-transition action
+agrees with the increment action of `q`, up to a path-independent
+constant.  Thus this is a consistency/binding theorem for the kernel
+constructed from `q`; it does not independently derive `q` or that
+kernel from source dynamics.  Calling the resulting path law a source
+law requires a separate identification of the constructed kernel with
+a physically supplied source process.
 
 ## Layer 1: the general binding theorem
 
@@ -26,7 +26,7 @@ strictly positive (`gibbsKernel_pos`) and row-stochastic with the same
 normalizer in every row (`gibbsKernel_row_sum`); the row sum reindexes
 by group translation, and this translation invariance carries the
 whole binding.  The keystone `logTransition_eq_increment_add_const`
-computes the derived log-transition action of the Gibbs kernel: it
+computes the log-transition action of this constructed Gibbs kernel: it
 equals the increment action
 `incrementAction q n γ = ∑ i, q (γ (i + 1) - γ i)` plus the per-step
 constant `n * log (gibbsNorm q)`.  Consequences:
@@ -41,20 +41,22 @@ constant `n * log (gibbsNorm q)`.  Consequences:
 * `same_start_most_probable_iff_least_increment`: for two paths with a
   common start, path-law order is reversed increment-action order.
   The most probable histories from a common start are the least-action
-  histories of the same functional that generates the dynamics.
+  histories for the same `q` used to construct the kernel.
 * `coupling_scale_is_multiplier_gauge`: the path law of the kernel
   with rescaled cost `g * q` is the tilt of the reference by the
-  unrescaled increment action at multiplier `g`.  The sector-1
-  coupling-scale ray and the B7 multiplier slot are one gauge freedom
-  at representation level.
+  unrescaled increment action at multiplier `g`.  This is one common
+  rescaling freedom for the single cost being considered.  It can
+  absorb an overall scale, or the scale of an isolated factor, but it
+  does not determine independent relative couplings among factors.
 
-## Layer 2: the certified sector-1 kinetic increment
+## Layer 2: one certified three-dimensional P-factor increment
 
-The carrier literals are transcribed from the certified kinetic record
+The concrete witness transcribes literals from the certified kinetic record
 `code/e9_kinetic/kinetic_form_v1.json`, block
 `families.P.derived_algebra.kinetic_form_matrix_upper_entries`, gauge
-block indices `[0, 3)` (sector `three_plus` of the P family, derived
-algebra `so(3) ⊕ so(3)`, dimension six).  Scalars encode as
+block indices `[0, 3)`: exactly one three-dimensional `three_plus`
+factor of the P-family derived algebra `so(3) ⊕ so(3)`.  It is not a
+witness for the full six-dimensional P derived algebra.  Scalars encode as
 `[i, j, n1, d1, n2, d2]` meaning `n1/d1 + (n2/d2) * sqrt 5`
 (`conventions.field`, `conventions.matrix_encoding`), and every
 recorded kinetic matrix equals minus one quarter of the corresponding
@@ -69,10 +71,8 @@ certified basis increment lattice truncated to single steps `-1, 0,
 +1` per direction, an exact finite carrier.  `sectorIncrement v` is
 the kinetic increment `(lift v)ᵀ K (lift v)`.  Receipts:
 `sectorIncrement_zero` (value `0` at the zero step),
-`sectorIncrement_pos` (strictly positive on all 26 nonzero steps, the
-positive-definiteness receipt of the certified gauge-metric inertia
-`[6, 0, 0]`, equivalently the Killing inertia `[0, 6, 0]` under the
-minus-one-quarter kinetic shape, evaluated exactly on this block), and
+`sectorIncrement_pos` (strictly positive on all 26 nonzero steps,
+evaluated exactly on this three-dimensional block), and
 the exact values `sectorIncrement_unit_step` (`1200 - 400 √5` at
 `(1, 0, 0)`) and `sectorIncrement_double_step` (`4000 - 1600 √5` at
 `(1, 1, 0)`).  Every layer-1 theorem is instantiated at
@@ -86,8 +86,9 @@ log-transition action lies outside the additive-constant gauge orbit
 of every increment action (`binding_requires_invariance`, and
 `binding_requires_invariance_multiplier` at every multiplier): the
 constant paths at `0` and at `1` carry the same increment and
-different transition weights.  Translation invariance of the source
-kernel is the load-bearing hypothesis of the binding.
+different transition weights.  Translation invariance is the
+load-bearing restriction on kernels represented by this
+increment-only construction.
 
 ## Claim boundary
 
@@ -97,9 +98,12 @@ reference measure is the declared object inherited from the B7 packet,
 the initial law times the uniform-step counting weight.  The step
 group is a truncation of the certified basis increment lattice to
 single steps.  No continuum limit, no physical units, and no
-laboratory gauge field are claimed.  The sector-1 coupling ray appears
-exactly as the multiplier-rescale gauge of the derived action
-(`coupling_scale_is_multiplier_gauge`, `sector_coupling_is_multiplier`).
+laboratory gauge field are claimed.  The concrete kinetic witness
+covers only one three-dimensional P factor.  Its one multiplier gives
+only a common overall rescaling (or an isolated-factor rescaling).
+Binding the remaining P factor, the F and G families—including the
+color-bearing factors—and proving or selecting their relative
+multi-factor couplings remain open.
 -/
 
 namespace OPH.QFT
@@ -117,9 +121,10 @@ theorem gibbsNorm_pos {Ω : Type*} [Fintype Ω] [Nonempty Ω]
     (q : Ω → ℝ) : 0 < gibbsNorm q :=
   Finset.sum_pos (fun _ _ => Real.exp_pos _) Finset.univ_nonempty
 
-/-- The translation-invariant Gibbs step kernel of a step cost `q` on
-a finite additive abelian group: the transition weight from `x` to `y`
-depends on the increment `y - x` alone. -/
+/-- The translation-invariant Gibbs step kernel **constructed from** a
+chosen step cost `q` on a finite additive abelian group: the transition
+weight from `x` to `y` depends on the increment `y - x` alone.  This
+definition is not an independent derivation of a source kernel. -/
 noncomputable def gibbsKernel {Ω : Type*} [AddCommGroup Ω] [Fintype Ω]
     (q : Ω → ℝ) (x y : Ω) : ℝ :=
   Real.exp (-q (y - x)) / gibbsNorm q
@@ -170,12 +175,12 @@ theorem gibbsKernel_log {Ω : Type*} [AddCommGroup Ω] [Fintype Ω]
   rw [Real.log_div (Real.exp_ne_zero _) (ne_of_gt (gibbsNorm_pos q)),
     Real.log_exp]
 
-/-- **Keystone: the derived action of the Gibbs kernel is the
-increment action.**  The log-transition action of the Gibbs kernel of
-`q` equals the increment action of `q` plus the per-step constant
-`n * log (gibbsNorm q)`.  The derived history-law action and the
-field-configuration kinetic action are one functional up to the gauge
-constant. -/
+/-- **Keystone for the constructed kernel.**  The log-transition
+action of the explicitly defined kernel `gibbsKernel q` equals the
+increment action of the chosen `q` plus the per-step constant
+`n * log (gibbsNorm q)`.  This verifies consistency of the two
+representations; it does not infer `q` or the kernel from an
+independently supplied source. -/
 theorem logTransition_eq_increment_add_const {Ω : Type*}
     [AddCommGroup Ω] [Fintype Ω] [Nonempty Ω] (q : Ω → ℝ) (n : ℕ)
     (γ : PathSpace Ω n) :
@@ -201,11 +206,12 @@ theorem markovPathLaw_gibbs_closed {Ω : Type*} [AddCommGroup Ω]
     Fintype.card_fin, ← Real.exp_sum, Finset.sum_neg_distrib]
   ring
 
-/-- **The increment action reproduces the source law.**  The tilt of
-the declared B7 reference by the increment action at multiplier one is
-the Markov path law of the Gibbs kernel: the per-step normalizer
-constant aggregates to a path constant and leaves the tilt
-unchanged. -/
+/-- **The increment action reproduces the constructed-kernel law.**
+The tilt of the declared B7 reference by the increment action at
+multiplier one is the Markov path law of `gibbsKernel q`, which was
+constructed from the same `q`: the per-step normalizer constant
+aggregates to a path constant and leaves the tilt unchanged.  No
+independent source-selection statement is made. -/
 theorem increment_action_reproduces_law {Ω : Type*} [AddCommGroup Ω]
     [Fintype Ω] [Nonempty Ω] (pi q : Ω → ℝ) (n : ℕ)
     (hpi : ∀ x, 0 < pi x) (hpi1 : ∑ x, pi x = 1) :
@@ -248,8 +254,8 @@ theorem binding_unique_up_to_gauge {Ω : Type*} [AddCommGroup Ω]
 /-- **Least-action readout.**  For two paths with a common start, the
 Gibbs path law orders them oppositely to the increment action: the
 most probable paths from a common start are the least-action paths of
-the same functional that generates the dynamics.  Equal initial weight
-and equal normalizer cancel, and the exponential is monotone. -/
+the same `q` used to construct the kernel.  Equal initial weight and
+equal normalizer cancel, and the exponential is monotone. -/
 theorem same_start_most_probable_iff_least_increment {Ω : Type*}
     [AddCommGroup Ω] [Fintype Ω] [Nonempty Ω] (pi q : Ω → ℝ) (n : ℕ)
     (hpi : ∀ x, 0 < pi x) (γ γ' : PathSpace Ω n) (h0 : γ 0 = γ' 0) :
@@ -262,11 +268,12 @@ theorem same_start_most_probable_iff_least_increment {Ω : Type*}
     mul_le_mul_iff_of_pos_left (hpi (γ 0)), Real.exp_le_exp,
     neg_le_neg_iff]
 
-/-- **Coupling scale is the multiplier gauge.**  The tilt of the
+/-- **One common cost scale is the multiplier gauge.**  The tilt of the
 declared reference by the increment action of `q` at multiplier `g`
 equals the Markov path law of the Gibbs kernel with rescaled cost
-`g * q`.  The coupling-scale ray of the kinetic form and the B7
-multiplier slot are one gauge freedom at representation level. -/
+`g * q`.  This single scalar absorbs a common overall scale, or the
+scale of an isolated factor.  It does not absorb independent relative
+couplings between P/F/G or between several simple factors. -/
 theorem coupling_scale_is_multiplier_gauge {Ω : Type*}
     [AddCommGroup Ω] [Fintype Ω] [Nonempty Ω] (pi q : Ω → ℝ) (n : ℕ)
     (g : ℝ) (hpi : ∀ x, 0 < pi x) (hpi1 : ∑ x, pi x = 1) :
@@ -287,7 +294,7 @@ theorem coupling_scale_is_multiplier_gauge {Ω : Type*}
     tilt_action_multiplier_rescale (stepUniformRef pi n)
       (incrementAction q n) g (stepUniformRef_pos pi n hpi)]
 
-/-! ## Layer 2: the certified sector-1 kinetic increment -/
+/-! ## Layer 2: one certified three-dimensional P-factor increment -/
 
 /-- The centered lift of the step group `ZMod 3` into the integer
 increment lattice: `0 ↦ 0`, `1 ↦ 1`, `2 ↦ -1`. -/
@@ -295,8 +302,9 @@ def centeredLift : ZMod 3 → ℤ :=
   fun x => if x = 0 then 0 else if x = 1 then 1 else -1
 
 /-- The sector step group: one `ZMod 3` factor per gauge direction of
-the certified block, the basis increment lattice truncated to single
-steps `-1, 0, +1` per direction under the centered lift. -/
+the single three-dimensional P block `[0, 3)`, with the basis increment
+lattice truncated to steps `-1, 0, +1` under the centered lift.  This
+is not the whole six-dimensional P derived algebra. -/
 abbrev SectorStep : Type := ZMod 3 × ZMod 3 × ZMod 3
 
 /-- The lifted coordinate vector of a sector step. -/
@@ -322,7 +330,7 @@ def sectorKineticIrr : Fin 3 → Fin 3 → ℤ :=
 noncomputable def sectorKinetic (i j : Fin 3) : ℝ :=
   (sectorKineticRat i j : ℝ) + (sectorKineticIrr i j : ℝ) * Real.sqrt 5
 
-/-- **The sector-1 kinetic increment.**  The quadratic form
+/-- **The one-factor P kinetic increment.**  The quadratic form
 `(lift v)ᵀ K (lift v)` of the certified kinetic matrix on the centered
 lift of a sector step. -/
 noncomputable def sectorIncrement (v : SectorStep) : ℝ :=
@@ -384,11 +392,11 @@ theorem sector_pairs_criterion :
             ∨ 5 * sectorIncrementIrr v ^ 2 < sectorIncrementRat v ^ 2) := by
   decide
 
-/-- **Positive definiteness receipt.**  The kinetic increment is
-strictly positive on every nonzero step of the 27-element step group:
-the certified gauge-metric inertia `[6, 0, 0]` (Killing inertia
-`[0, 6, 0]` under the minus-one-quarter kinetic shape), evaluated
-exactly on this block. -/
+/-- **Positive definiteness receipt for the selected block.**  The
+kinetic increment is strictly positive on every nonzero step of this
+27-element, three-dimensional step group.  This exhaustive receipt is
+for block `[0, 3)` only; it is not a six-dimensional P-family or
+multi-family inertia theorem. -/
 theorem sectorIncrement_pos (v : SectorStep) (hv : v ≠ 0) :
     0 < sectorIncrement v := by
   rw [sectorIncrement_eq_pair v]
@@ -431,9 +439,9 @@ theorem sector_unit_step_value_pos :
 
 /-! ### The earned binding instance at the certified kinetic form -/
 
-/-- **Sector keystone.**  The derived log-transition action of the
-Gibbs kernel of the certified kinetic increment is the kinetic action
-plus the per-step gauge constant. -/
+/-- **One-factor P keystone.**  The log-transition action of the Gibbs
+kernel constructed from this three-dimensional P increment is the
+kinetic action plus the per-step gauge constant. -/
 theorem sector_logTransition_eq_kinetic_action (n : ℕ)
     (γ : PathSpace SectorStep n) :
     logTransitionAction (gibbsKernel sectorIncrement) n γ
@@ -441,8 +449,9 @@ theorem sector_logTransition_eq_kinetic_action (n : ℕ)
         + n * Real.log (gibbsNorm sectorIncrement) :=
   logTransition_eq_increment_add_const sectorIncrement n γ
 
-/-- The certified kinetic action reproduces the sector source law over
-the declared reference at multiplier one. -/
+/-- The certified one-factor kinetic action reproduces the path law of
+the Gibbs kernel constructed from that same increment, over the
+declared reference at multiplier one. -/
 theorem sector_kinetic_action_reproduces_law (pi : SectorStep → ℝ)
     (n : ℕ) (hpi : ∀ x, 0 < pi x) (hpi1 : ∑ x, pi x = 1) :
     tilt (stepUniformRef pi n) (incrementAction sectorIncrement n) 1
@@ -473,9 +482,11 @@ theorem sector_most_probable_iff_least_kinetic (pi : SectorStep → ℝ)
   same_start_most_probable_iff_least_increment pi sectorIncrement n hpi
     γ γ' h0
 
-/-- The sector coupling scale is the multiplier gauge: rescaling the
-certified kinetic form by `g` produces the path law read off by the
-unrescaled kinetic action at multiplier `g`. -/
+/-- The single factor's common scale is the multiplier gauge:
+rescaling this one certified three-dimensional P form by `g` produces
+the constructed path law read off by the unrescaled action at
+multiplier `g`.  This theorem does not fix relative couplings to the
+other P factor or to F/G factors. -/
 theorem sector_coupling_is_multiplier (pi : SectorStep → ℝ) (n : ℕ)
     (g : ℝ) (hpi : ∀ x, 0 < pi x) (hpi1 : ∑ x, pi x = 1) :
     tilt (stepUniformRef pi n) (incrementAction sectorIncrement n) g
