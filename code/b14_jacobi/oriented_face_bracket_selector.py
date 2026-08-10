@@ -669,7 +669,9 @@ def main() -> int:
         require(args.output.exists(), f"missing certificate {args.output}")
         require(json.loads(args.output.read_text()) == result, "committed certificate is stale")
     else:
-        args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+        args.output.write_bytes(
+            (json.dumps(result, indent=2, sort_keys=True) + "\n").encode("utf-8")
+        )
     print(json.dumps({
         "certificate": str(args.output),
         "identity": result["source_face_bracket"]["identity"],
