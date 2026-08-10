@@ -666,12 +666,15 @@ the records that observers actually read stay in the commuting part.
 An exact audit tests a more source-shaped alternative. Give every
 one of the twenty oriented faces the same cyclic bracket weight. The resulting
 operation is exactly one certified symmetry channel, $60R_{13}$, but it fails
-the Jacobi identity in 240 independent coordinates. If one additionally
-chooses the displayed Euclidean metric on structure constants, the nearest
-consistent compact family is uniquely the color-bearing family called $G$.
-That metric and the instruction “repair by the nearest bracket” are not
-consequences of the observer axioms. The result is a conditional discriminator
-rather than a derivation of the physical bracket.
+the Jacobi identity in 240 independent coordinates. The exact comparison is
+more robust than one least-squares fit: $G$ is the nearest classified compact
+family under total absolute edit, quadratic edit, and worst-coordinate edit.
+For the absolute-edit comparison, the competing $F$ value is an infimum
+approached by compact brackets rather than an attained minimum. All three
+coordinate norms and the instruction “repair by the nearest bracket” are
+additional choices, not consequences of the observer axioms. The result is a
+robust conditional discriminator rather than a derivation of the physical
+bracket.
 
 The distinction between symmetry and multiplication matters. $A_5$ symmetry
 by itself permits fourteen different antisymmetric products on the twelve

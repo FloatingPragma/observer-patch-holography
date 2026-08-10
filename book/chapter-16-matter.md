@@ -342,12 +342,18 @@ realized chain with that Hamiltonian system.
 The boundary is where physics enters. The reference against which the weight
 is measured is a declared object. Nothing identifies the finite scalar
 constant with a physical current, supplies a complex amplitude or an
-interference rule, or attaches units and a clock. One direction is closed off
-by an explicit refutation: no theorem produces the realized chain from a
-Hamiltonian flow, and the obvious quadratic guess fails on the chain's own
-numbers. The route runs through the derived action or it does not run. The
-path-integral account in this section is the target physical mechanism, and
-the attachment to measured dynamics is work in progress.
+interference rule, or attaches units and a clock. A sharper exact theorem
+closes off a silent shortcut. The natural bilinear real extension of the
+binary log-transition table is affine in its velocity argument and has no
+global Legendre solver. Adding $a\,y(y-1)/2$ changes no binary history at all,
+yet every positive $a$ gives a regular strictly convex Lagrangian and
+Hamiltonian, and the checked $a=1,2$ members are distinct. The finite source law therefore does not choose its own
+off-alphabet velocity curvature. A source enrichment or new physical
+principle must make that selection before the chain can be identified with a
+real Hamiltonian flow.
+
+The path-integral account in this section is the target physical mechanism.
+No attachment to measured dynamics is supplied here.
 
 In quantum mechanics, the probability amplitude for a particle to go from
 A to B is a sum over all possible paths:

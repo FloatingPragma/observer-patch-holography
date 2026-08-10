@@ -29,7 +29,7 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-08-09T21:17:22Z",
+  "generated_utc": "2026-08-10T06:03:00Z",
   "open_issue_count": 19,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
@@ -37,7 +37,7 @@
       "blocker": "No hard issue prerequisite. Open scope: B7 is an open lane. The audited implementation has exact conditional helpers. It does not derive a physical least-action chain from Axiom 3.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: - Lean/InformationProjection/PathGibbs.lean - Lean/Variational/DiscreteEulerLagrange.lean - Lean/Variational/DiscreteNoether.lean - Lean/Variational/FiniteHistoryBridge.lean - Lean/docs/B7_HISTORY_BRIDGE.md - detailed-paper, claim, assumption, novelty, falsification, dependency, and structural-postdiction entries Downstream physical attachment is also constrained by #688, #703, and #701, but the V2 DAG dependency line remains: ## Current audited progress (2026-08-09) This status supersedes the earlier remaining-work summary above. `Variational/FiniteRealTransfer.lean` now supplies the finite-to-real transfer interface and worked/nonworking controls. `InformationProjection/HistoryLaw.lean` proves the normalized tilt's constrained minimization and uniqueness. `InformationProjection/SourceHistoryPacket.lean` earns the finite source history packet from the pinned simulator payload. `InformationProjection/LogTransitionAction.lean` proves that every strictly positive finite Markov path law is the Gibbs tilt of its log-transition action over the declared step-uniform reference, characterizes the full additive-constant/multiplier-rescale gauge orbit, instantiates the committed chain, and excludes the repair-count action at every multiplier. B7 remains open because the reference measure is still declared rather than source-selected, and because physical units, clock/current attachment, amplitudes/interference, field-valued paths, stationary-saddle coverage, and continuum control remain absent. The representation-level which-action and finite-to-real-interface gaps are no longer open.",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: - Lean/InformationProjection/PathGibbs.lean - Lean/Variational/DiscreteEulerLagrange.lean - Lean/Variational/DiscreteNoether.lean - Lean/Variational/FiniteHistoryBridge.lean - Lean/docs/B7_HISTORY_BRIDGE.md - detailed-paper, claim, assumption, novelty, falsification, dependency, and structural-postdiction entries Downstream physical attachment is also constrained by #688, #703, and #701, but the V2 DAG dependency line remains: ## Current audited progress (2026-08-09) This status supersedes the earlier remaining-work summary above. `Variational/FiniteRealTransfer.lean` now supplies the finite-to-real transfer interface and worked/nonworking controls. `InformationProjection/HistoryLaw.lean` proves the normalized tilt's constrained minimization and uniqueness. `InformationProjection/SourceHistoryPacket.lean` earns the finite source history packet from the pinned simulator payload. `InformationProjection/LogTransitionAction.lean` proves that every strictly positive finite Markov path law is the Gibbs tilt of its log-transition action over the declared step-uniform reference, characterizes the full additive-constant/multiplier-rescale gauge orbit, instantiates the committed chain, and excludes the repair-count action at every multiplier. B7 remains open because the reference measure is still declared rather than source-selected, and because physical units, clock/current attachment, amplitudes/interference, field-valued paths, stationary-saddle coverage, and continuum control remain absent. The representation-level which-action and finite-to-real-interface gaps are no longer open. ## Current audited progress (2026-08-10) `Lean/Variational/RealizedHistoryLegendreNoGo.lean` proves an exact same-history nonidentifiability boundary. The canonical bilinear real extension of the committed binary log-action is affine in velocity and has no global momentum solver. For every supplied `a > 0`, the strictly convex extension `L_a = L_0 + (a/2)y(y-1)` agrees with `L_0` on every realized source history, yet has an exact velocity solver and Legendre transform. The choices `a = 1` and `a = 2` give distinct Lagrangians and Hamiltonians, with exact midpoint variation gap `1/8`. This is a no-go for inferring a unique real Legendre geometry from the realized binary history sample, not a no-go for a source rule with additional data. B7 remains open for source selection of the reference and the real enrichment/curvature, plus the already listed physical clock/current, amplitude, field, saddle, and continuum attachments.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -48,14 +48,14 @@
       "number": 683,
       "phase": "v2-w1-observer-laws",
       "title": "[B7] Conditional history weights and the finite/real variation bridge",
-      "updated_at": "2026-08-09T19:08:37Z",
+      "updated_at": "2026-08-10T06:01:37Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/683"
     },
     {
-      "blocker": "No hard issue prerequisite. Open scope: Quantum entropy and support-aware relative entropy for finite matrices with 0 log 0 = 0; the pinching Pythagorean identity D(rho, sigma) = D(rho, E rho) + D(E rho, sigma) for sigma in the commutant; complete averaging as the unique maximum-entropy state under record constraints with S = H(p) + sum p_i log d_i; the two-level information chain and the publicization H-theorem. This is the single heavy technical dependency of the track (matrix logarithm and spectral calculus); every other track-B lane proceeds without it.",
+      "blocker": "No hard issue prerequisite. Open scope: B9 is the optional spectral-information lane. No other V2 issue waits on its closure.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: EventAlgebra/SpectralEntropy.lean, EventAlgebra/RecordInformationProjection.lean, EventAlgebra/RecordMajorization.lean (sign-average representation first).",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: `EventAlgebra/SpectralEntropy.lean`, `EventAlgebra/SpectralEntropyBoundary.lean`, `EventAlgebra/RecordInformationProjection.lean`, and `EventAlgebra/RecordMajorization.lean` (sign-average representation attained; majorization remains open).",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -66,7 +66,7 @@
       "number": 685,
       "phase": "v2-w1-observer-laws",
       "title": "[B9] Spectral information theory",
-      "updated_at": "2026-08-05T01:08:16Z",
+      "updated_at": "2026-08-10T06:01:38Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/685"
     },
     {
@@ -213,10 +213,10 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/701"
     },
     {
-      "blocker": "Live prerequisite contract: A3 (#698, closed bounded), B1 (#677, closed bounded), B2 (#678, closed bounded), and B11 (#687, closed bounded). Open scope: B11 (#687, closed bounded) exhausts only the bounded twelve-port enumeration. Exact extensions show that the declared unsharp battery admits a transverse non-Born cubic and that the real S3 source web is blind to the Pauli-Y direction. The positive target is therefore a source-earned complex-tomographically-complete instrument web, an operational theorem deriving full noncontextual additivity, and preregistered instrument validation. The landed results are no-gos, not the physical Born antecedent needed by the reconstruction gate.",
+      "blocker": "Live prerequisite contract: A3 (#698, closed bounded), B1 (#677, closed bounded), B2 (#678, closed bounded), and B11 (#687, closed bounded). Open scope: B11 (#687, closed bounded) exhausts only the bounded twelve-port enumeration. Exact extensions show that the declared unsharp battery admits a transverse non-Born cubic and that the real S3 source web is blind to the Pauli-Y direction. The positive target is therefore a source-earned complex-tomographically-complete instrument web, an operational theorem deriving full noncontextual additivity, and preregistered instrument validation. The landed results are no-gos or algebraic boundaries, not the physical Born antecedent needed by the reconstruction gate.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Complete the declared scope with theorem/certificate evidence or record an explicit scoped countermodel, no-go, or typed not-evaluable exit. Declared scope: B11 (#687, closed bounded) exhausts only the bounded twelve-port enumeration. Exact extensions show that the declared unsharp battery admits a transverse non-Born cubic and that the real S3 source web is blind to the Pauli-Y direction. The positive target is therefore a source-earned complex-tomographically-complete instrument web, an operational theorem deriving full noncontextual additivity, and preregistered instrument validation. The landed results are no-gos, not the physical Born antecedent needed by the reconstruction gate.",
+      "closure": "Complete the declared scope with theorem/certificate evidence or record an explicit scoped countermodel, no-go, or typed not-evaluable exit. Declared scope: B11 (#687, closed bounded) exhausts only the bounded twelve-port enumeration. Exact extensions show that the declared unsharp battery admits a transverse non-Born cubic and that the real S3 source web is blind to the Pauli-Y direction. The positive target is therefore a source-earned complex-tomographically-complete instrument web, an operational theorem deriving full noncontextual additivity, and preregistered instrument validation. The landed results are no-gos or algebraic boundaries, not the physical Born antecedent needed by the reconstruction gate.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -227,7 +227,7 @@
       "number": 702,
       "phase": "v2-w1-observer-laws",
       "title": "[B13] Source-realized interlocking public effect family",
-      "updated_at": "2026-08-09T20:56:05Z",
+      "updated_at": "2026-08-10T06:02:12Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/702"
     },
     {
@@ -280,7 +280,7 @@
       "number": 705,
       "phase": "v2-w1-observer-laws",
       "title": "[B14] Same-source twelve-port current and holonomy",
-      "updated_at": "2026-08-09T20:31:08Z",
+      "updated_at": "2026-08-10T06:01:40Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/705"
     },
     {

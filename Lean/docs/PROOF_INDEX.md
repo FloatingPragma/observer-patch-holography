@@ -215,15 +215,24 @@ Mapping between Lean 4 theorems in this project and statements in
   supplies no completed public quantum-effect producer, so this is a bounded
   no-go rather than a Born-rule derivation. See
   `../code/born_frame/README.md`.
-- B13 finite-effect closure boundary
-  (`EventAlgebra/FiniteEffectClosureBoundary.lean`): the continuous celestial
+- B13 finite-effect and phase-lift boundary
+  (`EventAlgebra/FiniteEffectClosureBoundary.lean`,
+  `QFT/SourcePhaseLiftBridge.lean`): the continuous celestial
   weight `F(n)=(1+n_z^3)/2` lies in `[0,1]` and obeys exact antipodal binary
   normalization, but no affine/Born coefficient vector represents it. Once
   affinity is supplied, probability bounds on any dense set of celestial
   directions extend to the full sphere and force the coefficient into the
-  closed unit ball. Thus continuity and binary-context normalization do not
-  close the Born bridge; source effect semantics, noncontextuality on a rich
-  effect family, and the public instrument/readback attachment remain open.
+  closed unit ball. Separately, subtracting the normalized complex commutator
+  of the two earned noncommuting real projectors from `I/2` gives exactly the
+  missing positive Pauli-Y projector and completes fixed-trace two-by-two
+  tomography. A generous
+  closure under real scaling, sums, complements, and real Kraus pullbacks
+  remains real symmetric, cannot distinguish the opposite Pauli-Y states, and
+  cannot produce the phase lift. Thus continuity and more phase-free real
+  contexts do not close the Born bridge. The complex effect is an algebraic
+  target, not a source operation or receipt; source effect semantics,
+  operational additivity, and the public phase-sensitive instrument/readback
+  attachment remain open under #702. See `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - C1 canonical Lorentz module (`Geometry/CanonicalLorentzModule.lean`,
   `Geometry/CelestialNullCone.lean`, `Geometry/ObserverFrameHyperboloid.lean`,
   `Geometry/ObserverRestSpace.lean`, `Geometry/EinsteinTensorBridge.lean`):
@@ -416,20 +425,30 @@ Mapping between Lean 4 theorems in this project and statements in
   that charge. These results do not identify seam data with physical
   stress-energy and do not discharge the continuum Ward premise. See
   `B5_WARD_BRIDGE.md`.
-- B7 conditional finite histories, scalar variation, and the bridge no-go
+- B7 conditional finite histories, scalar variation, and two bridge no-gos
   (`InformationProjection/PathGibbs.lean`,
+  `InformationProjection/LogTransitionAction.lean`,
   `Variational/DiscreteEulerLagrange.lean`,
   `Variational/DiscreteNoether.lean`,
-  `Variational/FiniteHistoryBridge.lean`): admission-free finite information
+  `Variational/FiniteHistoryBridge.lean`,
+  `Variational/FiniteRealTransfer.lean`,
+  `Variational/LegendreBridge.lean`,
+  `Variational/RealizedHistoryLegendreNoGo.lean`): admission-free finite information
   projection and scalar real calculus. The finite inverse-noise family places
   asymptotically zero total mass on all strict nonminimizers. The separate
   real-path theorem gives local Euler--Lagrange and Noether equalities, plus a
   constant scalar segment current across a finite chain when every interior
   premise holds, with a nonzero witness. An injectivity/cardinality theorem proves that no finite
   real-path family supplies every real site variation, so the two branches do
-  not compose under these interfaces. Source-law construction, uniqueness, physical action,
-  clock, amplitudes, fields, continuum, and observable-current attachments
-  are open obligations. See `B7_HISTORY_BRIDGE.md`.
+  not compose under those bare interfaces; an explicit undercut receipt gives
+  the transfer that survives. The exact finite source law is a log-transition
+  Gibbs action, but its canonical bilinear real extension is affine in
+  velocity and has no global momentum solver. Distinct strictly convex real
+  enrichments agree on every realized binary history yet give distinct
+  Hamiltonians. Thus the source law does not select real variation curvature.
+  Reference and real-enrichment selection, physical action, clock, amplitudes,
+  fields, continuum, and observable-current attachments remain open under
+  #683. See `B7_HISTORY_BRIDGE.md`.
 - B8 finite Green--Kubo and graph transport
   (`Thermodynamics/GreenKubo.lean`,
   `Thermodynamics/GraphDiffusion.lean`): admission-free finite Markov and
@@ -913,6 +932,22 @@ Mapping between Lean 4 theorems in this project and statements in
   standard axioms, no `native_decide`. Does **not** construct a compact
   current bracket, the `u(12)` comparison rank, or the fourteen-dimensional
   alternating equivariant space.
+- #705 conditional oriented-face bracket discriminator
+  (`Screen/OrientedFaceBracketSelector.lean`): the twenty declared oriented
+  faces in the pinned Reynolds frame give the exact all-coordinate identity
+  `B_face = 60 R13`, and a kernel-checked coefficient witnesses Jacobi
+  failure. The independent Python certificate checks the full Jacobi census
+  and exact primal-dual optimization on 792 upper-triangular coordinates.
+  The compact family `G` uniquely wins the supplied total-absolute,
+  Hilbert--Schmidt-squared, and worst-coordinate comparisons; the exact
+  distances are serialized in Lean and their strict ordering is checked by
+  `three_norm_unique_nearest_G`. The `F` total-absolute value is an
+  unattained infimum. The norms and minimum-repair rule are basis-dependent
+  inputs, and the comparison is only with the compact locus classified under
+  the three named compact-Lie inputs. It is neither a source bracket selector
+  nor a classification of the full Jacobi variety. Issues #705 and #697 stay
+  open for source reconstruction and physical current attachment. See
+  `B14_ORIENTED_FACE_SELECTOR.md`.
 - #568 icosahedral-lane completion (`Screen/A5Commutant.lean`,
   `Screen/A5IncidenceResponse.lean`, `Screen/TraceBalancedKernel.lean`,
   `Screen/TrichotomyCases.lean`, plus removability controls in
@@ -1027,8 +1062,9 @@ Mapping between Lean 4 theorems in this project and statements in
   through the neutral equivalence; the class restriction is the named
   named premise for nets outside the declared domain. It does **not** bear on
   the Prop 4.2 / Def 4.1 counts)
-- Finite event algebras (`EventAlgebra` library, journal-neutral bundle):
-  64 / 64 audited declarations, sorry-free → 100% (standard axioms only;
+- Finite event algebras (eleven-module journal-neutral core):
+  152 / 152 audited declarations across eleven modules, sorry-free → 100%
+  (standard axioms only;
   `chsh_mul_self` needs only `propext` + `Quot.sound`). A self-contained
   neutral-vocabulary development : it does **not** bear on the
   Prop 4.2 / Def 4.1 counts. See "Finite event algebras" below.
@@ -1244,18 +1280,23 @@ Def 4.1 item.
 
 ## Finite event algebras (`EventAlgebra` library)
 
-A self-contained, sorry-free development of finite-dimensional quantum
-event algebras over `Matrix (Fin n) (Fin n) ℂ`, built for journal
-submission. **These modules are OPH-vocabulary-free by design**: namespace
+A self-contained, sorry-free core of finite-dimensional quantum event
+algebras over `Matrix (Fin n) (Fin n) ℂ`, built for journal submission. **The
+eleven core modules are OPH-vocabulary-free by design**: namespace
 `EventAlgebra`, imports Mathlib only, no observer/patch/screen/record
-vocabulary anywhere, and no imports from the rest of this repository. Every
+vocabulary and no imports from the rest of this repository. The larger
+`EventAlgebra.lean` umbrella compiles this core together with OPH-facing
+adapter modules; those adapters are outside the neutral count. Every core
 lemma's doc comment carries a scope tag : **algebra-only** (pure
 `*`-algebra content) or **consumes a tracial state** (content passing
 through the trace pairing `(ρ, P) ↦ Tr(ρ P)`), so the split between the
-algebraic layer and the state layer is machine-visible. Modules live in
-`EventAlgebra/` with umbrella `EventAlgebra.lean`; Mathlib
-friction log in `EventAlgebra/MATHLIB_NOTES.md`. All 64 audited
-declarations report `[propext, Classical.choice, Quot.sound]` (the ring
+algebraic layer and the state layer is machine-visible. The core modules are
+`Basic`, `Lueders`, `PartitionPinching`, `PartitionAverage`,
+`StateExpectation`, `Robertson`, `Superselection`, `RecordMajorization`,
+`SpectralEntropyBoundary`, `Tsirelson`, and `ExpectationBound`; the Mathlib
+friction log is `EventAlgebra/MATHLIB_NOTES.md`. All 152 audited
+declarations across the eleven modules report
+`[propext, Classical.choice, Quot.sound]` (the ring
 identity `chsh_mul_self` even avoids `Classical.choice`).
 
 Definitions: `IsEvent` (Hermitian idempotent), `IsState` (PSD, trace one),
@@ -1365,6 +1406,34 @@ projective partition:
 | `trace_mul_eq_zero_of_partitionOffDiagonal` | The pinching kernel is invisible to every matrix in the sector-preserving commutant. |
 | `partitionPinching_partitionCorner_eq_zero` | Every cross-sector corner lies in the pinching kernel. |
 | `partitionAverage_partitionCorner_eq_zero` | The declared commutative public average erases every cross-sector corner. |
+
+`RecordMajorization.lean` : exact random-unitary realization of arbitrary
+supplied-partition pinching (6 audited declarations):
+
+| Lean name | One-line statement |
+|---|---|
+| `sum_recordSignScalar_mul` | Independent Boolean block signs have the exact diagonal/off-diagonal character sum. |
+| `signedRecordUnitary_isUnitary` | Every independently signed block reflection is unitary. |
+| `sum_uniformRecordSignWeight` | The `2^k` equal positive weights sum to one. |
+| `recordSignAverage_eq_uniformCombination` | The sign average is the displayed positive uniform conjugation combination. |
+| `recordSignAverage_eq_partitionPinching` | The complete independent-sign average is exactly partition pinching. |
+| `globalSignAverage_not_binary_pinching` | Averaging only `+I` and `-I` leaves an exact binary off-diagonal control unchanged and is not pinching. |
+
+`SpectralEntropyBoundary.lean` : exact support boundary for the totalized-log
+raw trace formula (5 audited declarations):
+
+| Lean name | One-line statement |
+|---|---|
+| `totalizedMatrixLog_event_eq_zero` | Totalized continuous-functional-calculus logarithm sends every projection event to zero. |
+| `binary_orthogonal_density_receipt` | The binary coordinate projections are orthogonal density matrices and fail support inclusion. |
+| `totalizedRelativeEntropy_binary_orthogonal_eq_zero` | The raw totalized-log trace formula returns zero on that orthogonal pair. |
+| `not_supportContained_binary_orthogonal` | The explicit basis-vector witness refutes support inclusion. |
+| `supportAware_not_totalizedRelativeEntropy` | Every extended divergence assigning infinity on support failure differs from the raw formula on the witness. |
+
+The second module is a no-go for one totalization architecture, not for
+support-aware Umegaki entropy. Majorization, data processing, Pythagorean
+information projection, MaxEnt, and source/instrument attachment remain open
+under #685.
 
 `Tsirelson.lean` : the Tsirelson bound, norm form (6 lemmas; abstract
 C*-route shipped, matrix corollary included):

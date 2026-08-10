@@ -18,6 +18,8 @@ import EventAlgebra.FiniteBuschGleason
 import EventAlgebra.InterlockingContexts
 import EventAlgebra.FiniteWebBornNoGo
 import EventAlgebra.FrequencyConcentration
+import EventAlgebra.RecordMajorization
+import EventAlgebra.SpectralEntropyBoundary
 
 /-!
 # Finite projection-event calculus — umbrella root
@@ -44,8 +46,9 @@ with projection events over `Matrix (Fin n) (Fin n) ℂ`:
   with the pinching, Born-statistics preservation, and the
   classical-conditioning collapse;
 * `EventAlgebra.PartitionAverageCP`: an explicit normalized Parseval-frame
-  Kraus family whose conjugation sum is the partition average, reported as a
-  Kraus/trace result because no complete-positivity predicate is defined;
+  Kraus family whose conjugation sum is the partition average.  The companion
+  `Dynamics.ChoiCPTP` module binds this Kraus receipt to the repository's
+  finite CP/CPTP predicate;
 * `EventAlgebra.TwoScalePublicRepair`: the decomposition, invariant public
   component, residual scaling, and exponential semigroup laws for relaxation
   toward an idempotent linear publicization map;
@@ -100,4 +103,11 @@ full-effect premise of `FiniteBuschGleason`.
 `EventAlgebra.FrequencyConcentration` proves the exact frequency-operator
 moment and concentration theorems with the uniqueness of the stable
 frequency point and its circularity boundary stated as a theorem.
+`EventAlgebra.RecordMajorization` proves that arbitrary partition pinching is
+the uniform random-unitary average over all independently signed block
+reflections.  `EventAlgebra.SpectralEntropyBoundary` proves that Lean's
+totalized matrix logarithm cannot by itself define support-aware relative
+entropy: it assigns zero to an exact orthogonal pure-state pair whose support
+inclusion fails.  The support-aware entropy and majorization continuation
+remain separate work.
 -/

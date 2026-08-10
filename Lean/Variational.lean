@@ -3,6 +3,7 @@ import Variational.DiscreteNoether
 import Variational.FiniteHistoryBridge
 import Variational.FiniteRealTransfer
 import Variational.LegendreBridge
+import Variational.RealizedHistoryLegendreNoGo
 
 /-!
 # Variational umbrella root
@@ -18,4 +19,9 @@ the strictly convex class, the two-faces theorem tying log-transition
 minimizers to most probable paths of the realized chain, and the Noether
 correspondence carrying the constant chain current to a conserved
 quantity of the Hamilton flow.
+`Variational.RealizedHistoryLegendreNoGo` proves the complementary boundary:
+the binary source-history law fixes only the four endpoint values of a real
+two-point Lagrangian.  Infinitely many strictly convex real enrichments agree
+on every realized history while giving different Legendre transforms, so a
+source or physical curvature receipt is required to select one.
 -/

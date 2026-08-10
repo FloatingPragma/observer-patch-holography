@@ -2,8 +2,9 @@
 """Independent exact replay of the B14 oriented-face discriminator packet.
 
 No code is imported from the producer.  This verifier separately rebuilds the
-face tensor, Reynolds/channel coordinates, Jacobi census, and P/F/G least-square
-normal equations over Q(sqrt(5)).
+face tensor, Reynolds/channel coordinates, Jacobi census, P/F/G least-square
+normal equations, and the exact L1/Linfinity primal-dual certificates over
+Q(sqrt(5)).
 """
 
 from __future__ import annotations
@@ -123,6 +124,105 @@ def exact_sign(x):
     return 1 if delta < 0 else -1
 
 
+def f_abs(value):
+    return value if exact_sign(value) >= 0 else -value
+
+
+def sum_abs(values):
+    return sum((f_abs(value) for value in values), Z)
+
+
+def max_abs(values):
+    result = Z
+    for value in values:
+        absolute = f_abs(value)
+        if exact_sign(absolute - result) > 0:
+            result = absolute
+    return result
+
+
+def pairing(left, right):
+    return sum((a * b for a, b in zip(left, right)), Z)
+
+
+def family_point(vectors, parameters):
+    check(len(vectors) == len(parameters), "family parameter length mismatch")
+    return [sum((parameters[j] * vectors[j][i] for j in range(len(vectors))), Z)
+            for i in range(len(COORDS))]
+
+
+def coordinate_image(coordinate, permutation):
+    out, left, right = coordinate
+    image_out = permutation[out]
+    image_left = permutation[left]
+    image_right = permutation[right]
+    orientation = 1
+    if image_right < image_left:
+        image_left, image_right = image_right, image_left
+        orientation = -1
+    return (image_out, image_left, image_right), orientation
+
+
+def orbit_covector(seeds, group):
+    coordinate_index = {coordinate: i for i, coordinate in enumerate(COORDS)}
+    values = [Z for _ in COORDS]
+    assigned = [False for _ in COORDS]
+    for coordinate, seed_value in seeds:
+        check(coordinate in coordinate_index, "dual seed outside coordinate domain")
+        for permutation in group:
+            image, orientation = coordinate_image(coordinate, permutation)
+            index = coordinate_index[image]
+            value = orientation * seed_value
+            if assigned[index]:
+                check(values[index] == value, "inconsistent signed dual orbit")
+            else:
+                values[index] = value
+                assigned[index] = True
+    return values
+
+
+def sparse_covector(entries):
+    coordinate_index = {coordinate: i for i, coordinate in enumerate(COORDS)}
+    values = [Z for _ in COORDS]
+    for coordinate, value in entries:
+        index = coordinate_index[coordinate]
+        check(not values[index], "duplicate sparse dual coordinate")
+        values[index] = value
+    return values
+
+
+def lp_record(target, vectors, parameters, distance, dual, norm_kind):
+    point = family_point(vectors, parameters)
+    residual = [target[i] - point[i] for i in range(len(target))]
+    if norm_kind == "l1":
+        primal = sum_abs(residual)
+        dual_norm = max_abs(dual)
+    elif norm_kind == "linfinity":
+        primal = max_abs(residual)
+        dual_norm = sum_abs(dual)
+    else:
+        raise VerificationError(f"unsupported norm {norm_kind}")
+    check(primal == distance, f"{norm_kind} primal mismatch")
+    check(exact_sign(F5(1) - dual_norm) >= 0, f"{norm_kind} dual infeasible")
+    annihilations = [pairing(dual, vector) for vector in vectors]
+    check(not any(annihilations), f"{norm_kind} dual misses annihilator")
+    objective = pairing(dual, target)
+    check(objective == distance, f"{norm_kind} duality gap")
+    return {
+        "parameters": [encode(value) for value in parameters],
+        "distance": encode(distance),
+        "primal_residual_support": sum(bool(value) for value in residual),
+        "primal_active_max_coordinates": (
+            sum(f_abs(value) == distance for value in residual)
+            if norm_kind == "linfinity" else None
+        ),
+        "dual_support": sum(bool(value) for value in dual),
+        "dual_norm": encode(dual_norm),
+        "dual_objective": encode(objective),
+        "dual_annihilates_family": [encode(value) for value in annihilations],
+    }
+
+
 def matrix_from_sparse(rows):
     matrix = [[Z for _ in range(M)] for _ in range(M)]
     for i, row in enumerate(rows):
@@ -226,8 +326,10 @@ def replay():
     }
     records = {}
     raw_distances = {}
+    family_vectors = {}
     for family, (names, specs) in specifications.items():
         vectors = [vector_for_channels(spec) for spec in specs]
+        family_vectors[family] = vectors
         gram = [[sum((a * b for a, b in zip(left, right)), Z) for right in vectors] for left in vectors]
         rhs = [sum((a * b for a, b in zip(vector, target)), Z) for vector in vectors]
         coefficients = solve_normal(gram, rhs)
@@ -251,8 +353,118 @@ def replay():
             })
         records[family] = record
 
-    check(len({tuple(row) for row in receipt["proper_port_action"]["permutation_rows"]}) == 60,
+    group = receipt["proper_port_action"]["permutation_rows"]
+    check(len({tuple(row) for row in group}) == 60,
           "proper group pin differs")
+
+    l1_parameters = {
+        "P": [Z, Z],
+        "F": [Z, Z, Z],
+        "G": [
+            F5(Fraction(-1, 8), Fraction(1, 40)),
+            F5(Fraction(1, 8), Fraction(-1, 8)),
+            S / 10,
+        ],
+    }
+    l1_distances = {"P": F5(60), "F": F5(60), "G": F5(-30, 30)}
+    l1_seeds = {
+        "P": [
+            ((0, 1, 8), F5(Fraction(3, 10))),
+            ((0, 1, 9), F5(Fraction(4, 15))),
+            ((0, 1, 10), F5(Fraction(-13, 30))),
+            ((0, 2, 8), U),
+        ],
+        "F": [
+            ((0, 1, 5), F5(Fraction(-1, 2), Fraction(1, 2))),
+            ((0, 1, 8), F5(Fraction(-2, 5), Fraction(1, 4))),
+            ((0, 1, 9), F5(Fraction(-1, 4), Fraction(1, 4))),
+            ((0, 1, 10), F5(Fraction(-3, 20))),
+            ((0, 2, 8), U),
+        ],
+        "G": [
+            ((0, 1, 4), F5(Fraction(-17, 40), Fraction(1, 4))),
+            ((0, 1, 5), F5(-1)),
+            ((0, 1, 6), F5(Fraction(-11, 60))),
+            ((0, 1, 9), F5(Fraction(-1, 60))),
+            ((0, 2, 4), F5(Fraction(1, 4), Fraction(-29, 120))),
+            ((0, 2, 8), F5(Fraction(-1, 2), Fraction(1, 2))),
+        ],
+    }
+    l1 = {}
+    for family in ("P", "F", "G"):
+        dual = orbit_covector(l1_seeds[family], group)
+        l1[family] = lp_record(
+            target, family_vectors[family], l1_parameters[family],
+            l1_distances[family], dual, "l1",
+        )
+        l1[family]["dual_orbit_seeds"] = [
+            [*coordinate, *encode(value)] for coordinate, value in l1_seeds[family]
+        ]
+    g_l1_product = l1_parameters["G"][0] * l1_parameters["G"][1]
+    check(exact_sign(g_l1_product) > 0, "L1 G optimizer not compact")
+    l1["G"]["compact_sign_product_a_times_b"] = encode(g_l1_product)
+    l1["G"]["optimizer_lies_in_compact_open_stratum"] = True
+    l1["P"]["compact_attainment"] = "zero belongs to compact family P"
+    l1["F"]["compact_attainment"] = (
+        "60 is the compact-F infimum: the linear-family minimizer is zero, "
+        "and compact F points scale continuously to zero"
+    )
+
+    linf_parameters = {
+        "P": [Z, F5(Fraction(1, 4), Fraction(-1, 4))],
+        "F": [
+            F5(Fraction(-3, 40), Fraction(1, 40)),
+            F5(Fraction(-1, 8), Fraction(3, 40)),
+            F5(Fraction(-3, 10)),
+        ],
+        "G": [
+            F5(Fraction(1, 20), Fraction(-1, 20)),
+            F5(Fraction(-1, 4), Fraction(1, 20)),
+            F5(Fraction(-3, 10), Fraction(1, 10)),
+        ],
+    }
+    linf_distances = {
+        "P": F5(Fraction(1, 2)),
+        "F": S / 5,
+        "G": F5(Fraction(1, 2), Fraction(-1, 10)),
+    }
+    linf_entries = {
+        "P": [
+            ((0, 1, 8), F5(Fraction(1, 2))),
+            ((0, 2, 8), F5(Fraction(1, 2))),
+        ],
+        "F": [
+            ((0, 1, 5), F5(Fraction(1, 2), Fraction(-1, 10))),
+            ((0, 1, 8), F5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 1, 9), F5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 2, 8), S / 5),
+        ],
+        "G": [
+            ((0, 1, 4), F5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 1, 7), S / 5),
+            ((0, 2, 6), F5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 2, 8), F5(Fraction(1, 2), Fraction(-1, 10))),
+        ],
+    }
+    linf = {}
+    for family in ("P", "F", "G"):
+        dual = sparse_covector(linf_entries[family])
+        linf[family] = lp_record(
+            target, family_vectors[family], linf_parameters[family],
+            linf_distances[family], dual, "linfinity",
+        )
+        linf[family]["dual_entries"] = [
+            [*coordinate, *encode(value)] for coordinate, value in linf_entries[family]
+        ]
+    f_linf_product = linf_parameters["F"][0] * linf_parameters["F"][1]
+    g_linf_product = linf_parameters["G"][0] * linf_parameters["G"][1]
+    check(exact_sign(f_linf_product) < 0, "Linfinity F optimizer not compact")
+    check(exact_sign(g_linf_product) > 0, "Linfinity G optimizer not compact")
+    linf["F"]["compact_sign_product_a_times_b"] = encode(f_linf_product)
+    linf["F"]["optimizer_lies_in_compact_open_stratum"] = True
+    linf["G"]["compact_sign_product_a_times_b"] = encode(g_linf_product)
+    linf["G"]["optimizer_lies_in_compact_open_stratum"] = True
+
     return {
         "face_count": len(faces),
         "nonzero": sum(bool(x) for x in target),
@@ -261,6 +473,10 @@ def replay():
         "jacobi": jacobi,
         "families": records,
         "distances": raw_distances,
+        "l1": l1,
+        "l1_distances": l1_distances,
+        "linfinity": linf,
+        "linfinity_distances": linf_distances,
     }
 
 
@@ -304,11 +520,42 @@ def verify_certificate(path: Path = DEFAULT):
         "distance_F_minus_distance_G": encode(d["F"] - d["G"]),
         "distance_P_minus_distance_G": encode(d["P"] - d["G"]),
     }, "distance gaps mismatch")
+
+    robustness = cert["endpoint_norm_robustness"]
+    check(robustness["l1"]["families"] == replayed["l1"], "L1 primal/dual replay mismatch")
+    check(robustness["linfinity"]["families"] == replayed["linfinity"],
+          "Linfinity primal/dual replay mismatch")
+    l1d = replayed["l1_distances"]
+    linfd = replayed["linfinity_distances"]
+    check(exact_sign(l1d["P"] - l1d["G"]) > 0 and
+          exact_sign(l1d["F"] - l1d["G"]) > 0,
+          "L1 does not uniquely distinguish G")
+    check(exact_sign(linfd["P"] - linfd["G"]) > 0 and
+          exact_sign(linfd["F"] - linfd["G"]) > 0,
+          "Linfinity does not uniquely distinguish G")
+    check(robustness["l1"]["unique_nearest_compact_family_by_minimum_or_infimum"] == "G",
+          "L1 nearest-family label mismatch")
+    check(robustness["linfinity"]["unique_nearest_compact_family"] == "G",
+          "Linfinity nearest-family label mismatch")
+    check(robustness["l1"]["exact_gap_P_minus_G"] == encode(l1d["P"] - l1d["G"]),
+          "L1 P/G gap mismatch")
+    check(robustness["l1"]["exact_gap_F_minus_G"] == encode(l1d["F"] - l1d["G"]),
+          "L1 F/G gap mismatch")
+    check(robustness["linfinity"]["exact_gap_P_minus_G"] ==
+          encode(linfd["P"] - linfd["G"]), "Linfinity P/G gap mismatch")
+    check(robustness["linfinity"]["exact_gap_F_minus_G"] ==
+          encode(linfd["F"] - linfd["G"]), "Linfinity F/G gap mismatch")
+    check(robustness["repair_norm_or_minimization_rule_is_source_derived"] is False,
+          "norm-robustness boundary weakened")
+    check(robustness["conclusion_status"] ==
+          "EXACT_THREE_NORM_ROBUST_CONDITIONAL_DISCRIMINATOR__NOT_SOURCE_SELECTION",
+          "norm-robustness status mismatch")
     return {
         "verified": str(path),
         "identity": "B_face=60*R13",
         "jacobi_nonzero": replayed["jacobi"]["nonzero_count"],
         "unique_nearest": "G",
+        "robust_norms": ["L1", "L2", "Linfinity"],
     }
 
 

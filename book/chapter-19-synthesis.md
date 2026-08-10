@@ -184,11 +184,12 @@ artifacts do not supply the twelve source-current generators or their bracket
 closure, so the physical current attachment is work in progress.
 
 An exact equal-weight oriented-face construction singles out one symmetry
-channel and, after an explicitly added nearest-bracket metric, uniquely favors
-one compact color family. Because neither that metric nor its repair rule is
-source-derived, this is a finite discriminator rather than closure of the
-attachment. Bracket invariance also reduces the color-family kinetic weights
-from three to two, but leaves their relative coupling free.
+channel and, under three explicitly added coordinate edit norms, uniquely
+favors the same compact color family. Because neither those norms nor the
+nearest-repair rule is source-derived, this robustness is a finite
+discriminator rather than closure of the attachment. Bracket invariance also
+reduces the color-family kinetic weights from three to two, but leaves their
+relative coupling free.
 
 The same finite matter table excludes the usual heavy $X/Y$ gauge-boson
 channel. That exclusion does not imply proton stability. An exact census of

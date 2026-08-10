@@ -82,24 +82,25 @@ certificates:
 2. **A declared finite effect algebra has the Born representation.** Every
    normalized nonnegative valuation that is additive on all coexisting-effect
    sums is the trace against one density matrix, including in dimension two.
-   The source-produced effect system, operational additivity or frequency
-   bridge, and physical instrument are work in progress; observer agreement
-   alone does not supply those premises. See the
+   The current source pair algebraically exposes the missing complex phase
+   direction, but produces neither that instrument nor its outcomes.
+   Operational additivity and physical validation are not established. See the
    [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf),
    the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
    the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
 3. **Finite symmetry flows and history laws have exact action
    representations.** On a unital finite-dimensional star algebra, every
-   pointwise-continuous one-parameter automorphism group is generated
-   blockwise by a Hamiltonian. For a realized positive Markov chain, the
+   pointwise-continuous automorphism flow is Hamiltonian blockwise. For a
+   realized positive Markov chain, the
    log-transition action represents its path law up to additive and
    multiplier gauge. Separately, the finite Legendre theorem relates
    Euler--Lagrange junctions to Hamilton steps for declared regular
-   Lagrangians. No theorem produces that realized chain from the Hamilton
-   flow; units, clocks, and physical attachment are open. See the
+   Lagrangians. Exact controls show that the same binary histories admit
+   different regular real enrichments and Hamiltonians; units, clocks, the
+   enrichment rule, and physical attachment are open. See the
    [observers paper](paper/observers_are_all_you_need.pdf), the
-   [Born representation proof](Lean/EventAlgebra/FiniteBuschGleason.lean), and
-   the [derived-action proof](Lean/InformationProjection/LogTransitionAction.lean).
+   [derived-action proof](Lean/InformationProjection/LogTransitionAction.lean)
+   with its [Legendre boundary](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
 4. **The four laws form an exact conditional finite package.** Given a common
    faithful reference and the complete repaired-visible fibre, the finite
    identities give equilibrium, entropy contraction, heat and work accounting,
@@ -189,7 +190,7 @@ results, each stated with its boundary at the link:
   overlap evidence is open. See the
   [overlap proof](Lean/QFT/OperationalOverlapEvidence.lean).
 
-The supporting Lean library contains more than 4300 theorems and lemmas and no
+The supporting Lean library contains more than 4400 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See

@@ -181,6 +181,12 @@ LEAN_RECEIPTS = {
     / "DiscreteNoether.lean",
     "FiniteHistoryBridge": REPO / "Lean" / "Variational"
     / "FiniteHistoryBridge.lean",
+    "RealizedHistoryLegendreNoGo": REPO / "Lean" / "Variational"
+    / "RealizedHistoryLegendreNoGo.lean",
+    "RecordMajorization": REPO / "Lean" / "EventAlgebra"
+    / "RecordMajorization.lean",
+    "SpectralEntropyBoundary": REPO / "Lean" / "EventAlgebra"
+    / "SpectralEntropyBoundary.lean",
     "PortGramRepairBand": LEAN_SCREEN / "PortGramRepairBand.lean",
     "PortGramRepairCovariance": LEAN_SCREEN / "PortGramRepairCovariance.lean",
     "PrimitivePortFrameQuotient": LEAN_SCREEN / "PrimitivePortFrameQuotient.lean",
@@ -199,6 +205,8 @@ LEAN_RECEIPTS = {
     / "FiniteWebBornNoGo.lean",
     "SourceContextTomographyNoGo": REPO / "Lean" / "QFT"
     / "SourceContextTomographyNoGo.lean",
+    "SourcePhaseLiftBridge": REPO / "Lean" / "QFT"
+    / "SourcePhaseLiftBridge.lean",
     "TwoFactorHistoryBinding": REPO / "Lean" / "QFT"
     / "TwoFactorHistoryBinding.lean",
 }
@@ -487,6 +495,7 @@ def _forced_structure(
     face_selector = oriented_face.get(
         "orthogonal_compact_locus_discriminator", {}
     )
+    face_norms = oriented_face.get("endpoint_norm_robustness", {})
     if (
         oriented_face.get("schema")
         != "oph.b14.oriented_face_bracket_selector.v1"
@@ -505,6 +514,19 @@ def _forced_structure(
             "minimum_hs_or_jacobi_repair_is_source_derived"
         )
         is not False
+        or face_norms.get("repair_norm_or_minimization_rule_is_source_derived")
+        is not False
+        or face_norms.get("l1", {}).get(
+            "unique_nearest_compact_family_by_minimum_or_infimum"
+        )
+        != "G"
+        or face_norms.get("linfinity", {}).get(
+            "unique_nearest_compact_family"
+        )
+        != "G"
+        or "infimum" not in face_norms.get("l1", {}).get(
+            "families", {}
+        ).get("F", {}).get("compact_attainment", "")
     ):
         raise SystemExit(
             "oriented-face bracket parent left its conditional discriminator boundary"
@@ -727,11 +749,14 @@ def _forced_structure(
                 "faces is exactly 60 times Reynolds basis vector R13 and is "
                 "A5-equivariant. It fails Jacobi in exactly 240 of the 2640 "
                 "independent output/input-triple coordinates, split 120 at +1 "
-                "and 120 at -1. Conditional on the displayed upper-triangular "
-                "structure-constant Euclidean metric and the certified compact "
-                "locus, its unique nearest compact family is G: squared "
-                "distances are (615-123 sqrt(5))/22 to G, "
-                "(615+123 sqrt(5))/22 to F, and 45 to P"
+                "and 120 at -1. Conditional on the displayed 792-coordinate "
+                "upper-triangular convention and the certified compact locus, "
+                "exact primal-dual certificates make G the winning family for "
+                "three edit norms. Distances to G, F, P are respectively "
+                "30(sqrt(5)-1), 60, 60 in L1; "
+                "(615-123 sqrt(5))/22, (615+123 sqrt(5))/22, 45 in squared "
+                "L2; and (5-sqrt(5))/10, sqrt(5)/5, 1/2 in Linfinity. "
+                "The F L1 value is an unattained compact-family infimum"
             ),
             "observed_counterpart": (
                 "a finite source-incidence discriminator among the three compact "
@@ -747,6 +772,7 @@ def _forced_structure(
                     "face_bracket_eq_sixty_r13",
                     "jacobi_failure_witness",
                     "unique_nearest_G",
+                    "three_norm_unique_nearest_G",
                 ],
             },
             "lean_receipts": _lean_receipt(
@@ -756,18 +782,21 @@ def _forced_structure(
                         "face_bracket_eq_sixty_r13",
                         "jacobi_failure_witness",
                         "unique_nearest_G",
+                        "three_norm_unique_nearest_G",
                     ),
                 },
             ),
             "hypothesis_boundary": (
                 "the equal-weight oriented-face construction is a declared "
                 "deterministic rule applied to the pinned incidence orientation, "
-                "not a rule forced by the OPH axioms. The comparison "
-                "adds a coefficient-space metric; neither minimum-distance "
-                "repair nor any Jacobi-repair dynamics is source-derived. The "
-                "result therefore distinguishes a compact family under an "
-                "exposed premise and does not close B14 or select a physical "
-                "gauge bracket"
+                "not a rule forced by the OPH axioms. The comparison adds "
+                "three basis-dependent coordinate norms; neither a norm, "
+                "minimum-distance repair, nor any Jacobi-repair dynamics is "
+                "source-derived. Exact code proves the 792-coordinate "
+                "optimization, while Lean checks the serialized radical "
+                "values and order. The result compares only with the "
+                "classified compact locus and does not close B14 or select a "
+                "physical gauge bracket"
             ),
             "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
         },
@@ -988,10 +1017,16 @@ def _forced_structure(
                 "distinct commutative projector-span readout, factors through "
                 "pinching, is surjective onto the supplied partition's public "
                 "projector-span algebra, and commutes with the partition "
-                "commutant. An exact rank-two control keeps the maps distinct"
+                "commutant. An exact rank-two control keeps the maps distinct. "
+                "The same pinching is the positive uniform random-unitary "
+                "average over all 2^k independently signed block reflections. "
+                "A separate orthogonal-density witness has failed support "
+                "inclusion but zero raw relative entropy under the totalized "
+                "matrix logarithm"
             ),
             "observed_counterpart": (
-                "finite uncertainty and partition-relative superselection"
+                "finite uncertainty, partition-relative superselection, and "
+                "the support-aware spectral-information boundary"
             ),
             "match": (
                 "exact bounded finite package; source and "
@@ -1019,11 +1054,22 @@ def _forced_structure(
                     "partitionCenterAdaptor_commutes_with_block",
                     "rankTwo_pinching_ne_average",
                 ],
+                "RecordMajorization": [
+                    "recordSignAverage_eq_partitionPinching",
+                    "globalSignAverage_not_binary_pinching",
+                ],
+                "SpectralEntropyBoundary": [
+                    "binary_orthogonal_density_receipt",
+                    "totalizedRelativeEntropy_binary_orthogonal_eq_zero",
+                    "supportAware_not_totalizedRelativeEntropy",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "Robertson",
                 "Superselection",
                 "B10EdgeCenterAction",
+                "RecordMajorization",
+                "SpectralEntropyBoundary",
                 declarations={
                     "Robertson": (
                         "finite_state_robertson_commutator",
@@ -1046,6 +1092,15 @@ def _forced_structure(
                         "partitionCenterAdaptor_commutes_with_block",
                         "rankTwo_pinching_ne_average",
                     ),
+                    "RecordMajorization": (
+                        "recordSignAverage_eq_partitionPinching",
+                        "globalSignAverage_not_binary_pinching",
+                    ),
+                    "SpectralEntropyBoundary": (
+                        "binary_orthogonal_density_receipt",
+                        "totalizedRelativeEntropy_binary_orthogonal_eq_zero",
+                        "supportAware_not_totalizedRelativeEntropy",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
@@ -1053,6 +1108,11 @@ def _forced_structure(
                 "finite inputs. Pinching lands in the generally noncommutative "
                 "commutant, while averaging lands in the commutative projector "
                 "span. The adaptor is relative to that supplied partition. "
+                "The sign average is an exact precursor, not a proof of "
+                "spectral majorization. The totalized-log countermodel rejects "
+                "only that naive architecture; a support-aware extended "
+                "divergence, pinching Pythagoras, constrained maximum entropy, "
+                "and the publicization information chain remain open on #685. "
                 "No source rule selects that partition, a state, an observable, "
                 "a detector algebra, or a public instrument, and no "
                 "edge-to-partition identification is constructed"
@@ -2292,13 +2352,19 @@ def _forced_structure(
                 "noncontextual on the whole web, and non-affine. The realized "
                 "real S3 source contexts are not complex tomographically "
                 "complete: distinct pure Pauli-Y states agree on every declared "
-                "outcome and a missing complex Y projector separates them"
+                "outcome and a missing complex Y projector separates them. "
+                "For two earned noncommuting projectors P,Q, the algebraic "
+                "phase lift I/2-(2sqrt(3)/3)i(QP-PQ) is exactly that Y "
+                "projector and completes fixed-trace tomography; every effect "
+                "in a generous real/Kraus closure remains Y-blind and cannot "
+                "produce it"
             ),
             "observed_counterpart": (
                 "finite noncontextual weight representation and the Born rule"
             ),
             "match": (
-                "exact bounded rank-gap no-go; public quantum-effect source missing"
+                "exact bounded rank-gap and phase-free no-gos plus an algebraic "
+                "complex tomography target; public quantum instrument missing"
             ),
             "lean_declarations": {
                 "FiniteBornFrame": [
@@ -2324,12 +2390,20 @@ def _forced_structure(
                     "current_source_context_web_not_tomographically_complete",
                     "pauliY_context_distinguishes_states",
                 ],
+                "SourcePhaseLiftBridge": [
+                    "sourcePhaseLift_eq_rhoYPlus",
+                    "sourcePhaseLift_mem_complexSourceAlgebra",
+                    "realSourceEffectClosure_not_tomographically_complete",
+                    "sourcePhaseTomography_injective_on_equalTrace",
+                    "sourcePhaseLift_boundary_summary",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteBornFrame",
                 "FiniteEffectClosureBoundary",
                 "FiniteWebBornNoGo",
                 "SourceContextTomographyNoGo",
+                "SourcePhaseLiftBridge",
                 declarations={
                     "FiniteBornFrame": (
                         "contextAdditive_unique_parameterization",
@@ -2354,11 +2428,20 @@ def _forced_structure(
                         "current_source_context_web_not_tomographically_complete",
                         "pauliY_context_distinguishes_states",
                     ),
+                    "SourcePhaseLiftBridge": (
+                        "sourcePhaseLift_eq_rhoYPlus",
+                        "sourcePhaseLift_mem_complexSourceAlgebra",
+                        "realSourceEffectClosure_not_tomographically_complete",
+                        "sourcePhaseTomography_injective_on_equalTrace",
+                        "sourcePhaseLift_boundary_summary",
+                    ),
                 },
             ),
             "artifact_refs": [
                 "code/born_frame/runtime/finite_born_frame_certificate.json",
                 "code/born_frame/verify_finite_born_frame_independent.py",
+                "code/born_context_phase_lift/verify_source_phase_lift.py",
+                "code/born_context_phase_lift/test_source_phase_lift.py",
             ],
             "hypothesis_boundary": (
                 "the central atoms and spinor projectors are different objects. "
@@ -2368,11 +2451,15 @@ def _forced_structure(
                 "and normalized antipodal binary contexts still do not derive "
                 "affinity; the transverse cubic refutes the current finite "
                 "Busch--Gleason interface, and the Pauli-Y pair identifies the "
-                "missing complex tomography direction. The full-effect theorem "
-                "still applies only after full coexistent-effect additivity is "
-                "supplied. No physical Born derivation, observable, or prediction "
-                "is emitted. Issue #702 owns a source-earned complex effect web, "
-                "operational additivity, and public instrument/readback"
+                "missing complex tomography direction. The exact phase lift "
+                "constructs that direction only inside the complex operator "
+                "algebra; the source has no phase producer, rotated or phase "
+                "outcome receipts, common-preparation validation, or operational "
+                "effect composition. The full-effect theorem still applies only "
+                "after full coexistent-effect additivity is supplied. No physical "
+                "Born derivation, observable, or prediction is emitted. Issue "
+                "#702 owns the source-earned phase instrument, operational "
+                "additivity, and public readback"
             ),
             "paper_ref": "observers paper, finite Born-frame rank audit",
         },
@@ -2807,15 +2894,20 @@ def _forced_structure(
                 "local-action minimum under every single-site variation gives "
                 "the scalar discrete Euler--Lagrange equation and local "
                 "Noether transport, with a nonzero free-path witness. No "
-                "finite real-path family contains every such variation"
+                "finite real-path family contains every such variation. For "
+                "the committed binary chain, the bilinear corner extension "
+                "has no velocity solver, while an infinite positive-curvature "
+                "family agrees on every source history and gives regular "
+                "strictly convex Lagrangians and Hamiltonians; its checked "
+                "curvatures one and two are distinct on both faces"
             ),
             "observed_counterpart": (
                 "Gibbs path selection, least-action limits, discrete "
                 "Euler--Lagrange equations, and Noether currents"
             ),
             "match": (
-                "exact conditional helpers plus an interface obstruction; "
-                "the physical and source-derived composition is open"
+                "exact conditional helpers plus finite/real and real-enrichment "
+                "non-identifiability boundaries; physical composition is open"
             ),
             "lean_declarations": {
                 "PathGibbs": [
@@ -2837,12 +2929,20 @@ def _forced_structure(
                     "exists_real_site_variation_outside",
                     "not_all_real_site_variations_mem",
                 ],
+                "RealizedHistoryLegendreNoGo": [
+                    "chainLogLagrangian_no_velocity_solver",
+                    "chainCurvedLagrangian_realized_indistinguishable",
+                    "chainCurvedLagrangian_one_two_midpoint_gap",
+                    "chainCurved_legendreTransform",
+                    "realizedHistory_legendre_nonidentifiability_receipt",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "PathGibbs",
                 "DiscreteEulerLagrange",
                 "DiscreteNoether",
                 "FiniteHistoryBridge",
+                "RealizedHistoryLegendreNoGo",
                 declarations={
                     "PathGibbs": (
                         "pathGibbs_pythagorean",
@@ -2863,18 +2963,26 @@ def _forced_structure(
                         "exists_real_site_variation_outside",
                         "not_all_real_site_variations_mem",
                     ),
+                    "RealizedHistoryLegendreNoGo": (
+                        "chainLogLagrangian_no_velocity_solver",
+                        "chainCurvedLagrangian_realized_indistinguishable",
+                        "chainCurvedLagrangian_one_two_midpoint_gap",
+                        "chainCurved_legendreTransform",
+                        "realizedHistory_legendre_nonidentifiability_receipt",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
-                "the exponential log relation, moment packet, modal history, "
-                "real Lagrangian, derivatives, invariance, and universal "
-                "real-site minimality are supplied. The finite state type and "
-                "real differential path type do not compose: the formal "
-                "obstruction requires a new enrichment or transfer theorem. "
-                "Issue #683 remains open for source-law construction, "
-                "uniqueness, that bridge, saddle histories, physical action "
-                "and clock, amplitudes, fields, continuum, and observable "
-                "currents. This row emits no prediction-ladder entry"
+                "the finite source packet and its log-transition corner action "
+                "are attained, while the reference remains declared. A typed "
+                "finite-to-real transfer exists only under an undercut receipt. "
+                "The complete binary history law still cannot select the "
+                "off-alphabet curvature of a regular Legendre system: the "
+                "displayed family is constructed, not source-produced. Issue "
+                "#683 remains open for a source-selected reference and real "
+                "enrichment, saddle histories, physical action and clock, "
+                "amplitudes, fields, continuum, and observable currents. This "
+                "row emits no prediction-ladder entry"
             ),
             "paper_ref": "observers paper, conditional history boundary",
         },

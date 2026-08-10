@@ -44,6 +44,45 @@ This is superselection relative to a supplied projective partition and its
 declared readout. It does not construct an edge object, an edge-to-partition
 map, or a physical charge sector.
 
+## B9 random-unitary pinching and spectral support boundary
+
+`EventAlgebra/RecordMajorization.lean` proves the exact random-unitary
+representation for an arbitrary supplied `k`-block projective partition:
+
+- `card_recordSign`: there are exactly `2^k` independent block-sign words;
+- `uniformRecordSignWeight_pos` and `sum_uniformRecordSignWeight`: their
+  uniform weights are strictly positive and sum to one;
+- `signedRecordUnitary_isUnitary`: every independently signed block
+  reflection is unitary;
+- `recordSignAverage_eq_partitionPinching`: the positive uniform conjugation
+  average is exactly partition pinching;
+- `globalSignAverage_not_binary_pinching`: averaging only the two global
+  signs `+I` and `-I` leaves a binary off-diagonal control unchanged and is
+  therefore not pinching.
+
+This proves an explicit finite random-unitary realization of the already
+supplied partition readout. It does not derive majorization, choose a
+partition, or produce a laboratory randomizer.
+
+`EventAlgebra/SpectralEntropyBoundary.lean` proves why the naive totalized
+matrix-log formula is not yet support-aware relative entropy:
+
+- `totalizedMatrixLog_event_eq_zero`: the totalized continuous-functional-
+  calculus logarithm sends every projection event to zero;
+- `not_supportContained_binary_orthogonal`: the two exact binary coordinate
+  projections fail support inclusion in one direction;
+- `binary_orthogonal_density_receipt`: both projections are certified density
+  matrices and are orthogonal;
+- `totalizedRelativeEntropy_binary_orthogonal_eq_zero`: nevertheless the raw
+  formula `Re Tr rho (log rho - log sigma)` returns zero;
+- `supportAware_not_totalizedRelativeEntropy`: any divergence assigning
+  infinity when support inclusion fails must differ from this raw formula.
+
+The result rejects one inadequate totalization architecture; it does not
+reject support-aware Umegaki entropy. Issue #685 remains open for the explicit
+support layer, data processing or majorization, Pythagorean information
+projection, MaxEnt, and the physical information-chain attachment.
+
 ## Exterior basis and algebraic exclusion
 
 `Screen/ExteriorComponentBridge.lean` uses Mathlib's

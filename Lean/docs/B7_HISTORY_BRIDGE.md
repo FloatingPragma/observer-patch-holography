@@ -56,12 +56,35 @@ the constant chain current equals the quadratic Legendre momentum, conserved
 together with the energy along the free Hamilton orbit that reproduces the
 committed witness path.
 
+`Variational/RealizedHistoryLegendreNoGo.lean` proves a complementary inverse
+boundary for that same committed two-state source chain. The canonical
+bilinear real extension of the exact four-corner log-transition table is
+affine in velocity and has no global momentum solver. For every real `a`,
+
+\[
+L_a(x,y)=L_0(x,y)+\frac a2 y(y-1)
+\]
+
+agrees with the source action on every realized binary history at every
+length. For `a > 0`, however, it is strictly convex in velocity and has an
+explicit velocity solver and Legendre transform. The cases `a = 1` and
+`a = 2` are distinct Lagrangians with distinct Hamiltonians, while their
+first off-alphabet midpoint values differ by exactly `1/8`. The summary
+theorem `realizedHistory_legendre_nonidentifiability_receipt` packages the
+corner agreement, all-history indistinguishability, strict-convexity,
+solver, midpoint, and distinct-Hamiltonian controls. The finite source law
+therefore does not select a real variation curvature or Hamiltonian
+enrichment.
+
 ## Open B7 obligations
 
 The package does not:
 
 - derive the reference measure; the initial law times the uniform-step
   counting weight is a declared object;
+- select one real continuation away from the binary history alphabet; the
+  exact source law admits the distinct strictly convex `a = 1` and `a = 2`
+  enrichments above;
 - produce the realized chain from a Hamiltonian flow; the naive
   quadratic-Gibbs identification is refuted on the chain literals;
 - recover stationary saddle histories from a global Gibbs minimum;

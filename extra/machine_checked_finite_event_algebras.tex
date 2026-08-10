@@ -61,6 +61,9 @@ trace preserving, and idempotent; its range and fixed points are exactly the
 partition commutant. It also satisfies the bimodule law,
 Hilbert--Schmidt Pythagorean and contraction identities, and a
 trace-duality uniqueness theorem.
+It is also exactly the positive uniform random-unitary average over all
+independently signed block reflections. A global-sign control shows why
+independent signs are necessary.
 
 A second expectation averages onto the commutative span of the partition.
 The two maps satisfy tower laws, preserve the partition's Born statistics,
@@ -71,11 +74,14 @@ Tsirelson theorem to a state-level
 Clauser--Horne--Shimony--Holt bound for projection events. The artifact pins
 its Lean and Mathlib revisions and records declaration-level axiom
 dependencies. Complete positivity, a Physlib correspondence, rank-one
-classicality, and a sharpness witness lie outside the formalization.
+classicality, and a sharpness witness lie outside the formalization. A
+separate support countermodel proves that totalizing the matrix logarithm at
+zero cannot define support-aware relative entropy: the raw trace formula
+vanishes on an orthogonal pure-state pair.
 \end{abstract}
 
 \noindent\textbf{Keywords:} formal verification, Lean~4, projective measurement,
-partition pinching, L\"uders update, CHSH
+partition pinching, support-aware relative entropy, L\"uders update, CHSH
 
 \medskip
 \noindent\textbf{Mathematics Subject Classification (2020):}
@@ -144,9 +150,9 @@ after removing only TeX's protective backslash before each underscore, in the
 \texttt{EventAlgebra/*.lean} files. In the public repository these files are
 under \texttt{Lean/EventAlgebra/}. Table~\ref{tab:modules} maps each module
 name to its subject matter. The top-level \texttt{EventAlgebra.lean} file
-imports these nine modules alongside the wider OPH event-algebra library.
+imports these eleven modules alongside the wider OPH event-algebra library.
 
-The checked development contributes nine pieces:
+The checked development contributes eleven pieces:
 
 \begin{enumerate}[(i)]
 \item an arbitrary supplied projective partition, independent of a selected
@@ -156,6 +162,12 @@ commutativity, and centrality theorems;
 \item partition pinching bundled as a complex \texttt{LinearMap}, with exact
 range and fixed-point theorems, positivity, unitality, trace preservation, the
 commutant bimodule law, Hilbert--Schmidt geometry, and map-level uniqueness;
+\item an exact random-unitary representation of arbitrary partition pinching
+as the positive uniform average over all independently signed block
+reflections, together with a global-sign negative control;
+\item an orthogonal-state support countermodel showing that the totalized
+matrix logarithm returns zero where any support-aware extended relative
+entropy must return infinity;
 \item partition averaging bundled as a complex \texttt{LinearMap} onto the
 span, with exact range, trace duality, map-level uniqueness, tower laws
 against the pinching, preservation of partition Born statistics, and a
@@ -182,16 +194,21 @@ scoped-instance hazards, and workarounds met during construction
 (Section~\ref{sec:mathlib}).
 \end{enumerate}
 
-Four results are outside the current library. Neither expectation is bundled
-as a completely positive trace-preserving channel. No theorem identifies an
+Three results are outside the current library. No theorem identifies an
 arbitrary partition with Physlib's spectral partition. There is no rank-one
 classical-representation theorem. The CHSH bounds carry no sharpness witness:
-nothing asserts that $2\sqrt2$ is attained.
+nothing asserts that $2\sqrt2$ is attained. A companion module,
+\texttt{Dynamics/ChoiCPTP.lean}, defines an explicit finite-matrix CPTP
+predicate and proves both partition expectations completely positive and
+trace preserving; the eleven-module audit here covers their event-algebra
+interfaces rather than recounting that companion development.
 
 Section~\ref{sec:setting} fixes the mathematical and Lean interfaces.
 Sections~\ref{sec:events} and \ref{sec:lueders} treat projection events and
 selective update. Section~\ref{sec:pinching} gives the bundled partition
-pinching and its geometry, and Section~\ref{sec:average} the averaging
+pinching and its geometry, Section~\ref{sec:spectral-boundary} the
+random-unitary representation and logarithm-support boundary, and
+Section~\ref{sec:average} the averaging
 expectation, the two-level structure, and the partition-relative operational
 quotient. Sections~\ref{sec:functional}, \ref{sec:robertson}, and
 \ref{sec:chsh} describe the state functional, finite-state uncertainty, and
@@ -218,7 +235,7 @@ functions that return states, the library defines the subtypes
 practical. Algebraic lemmas use raw matrices. A function advertised as a state
 update returns a value whose type carries the state conditions.
 
-Table~\ref{tab:modules} lists the nine source modules. The comparison in
+Table~\ref{tab:modules} lists the eleven source modules. The comparison in
 this work concerns their compiled interfaces and uses, not the number of
 declarations in each file.
 
@@ -244,6 +261,11 @@ functional, normalization and positivity \\
 identity, variance nonnegativity, and exact Pauli controls \\
 \texttt{Superselection} & complete operational quotient for partition
 pinching and cross-sector invisibility for both declared readouts \\
+\texttt{Record\allowbreak Majorization} & positive uniform independent-sign
+random-unitary representation of arbitrary partition pinching and a
+global-sign negative control \\
+\texttt{Spectral\allowbreak Entropy\allowbreak Boundary} & exact support-failure density witness and
+totalized-matrix-logarithm no-go for support-aware relative entropy \\
 \texttt{Tsirelson} & CHSH ring identity, norm theorem, Mathlib interoperability,
 and event-level matrix client \\
 \texttt{ExpectationBound} & state-expectation operator-norm bound and the
@@ -435,9 +457,11 @@ positive, unital, trace-preserving linear projection with a bimodule law and
 a trace-duality characterization; these are the identities that
 characterize the trace-preserving conditional expectation onto a subalgebra
 in the operator-algebra literature \cite{umegaki1954,takesaki1972}. The
-library proves the identities directly for this map. It does not instantiate
-an operator-algebra conditional-expectation or channel interface because
-complete positivity is not proved.
+library proves the identities directly for this map. This core module does
+not instantiate an operator-algebra conditional-expectation interface. The
+companion \texttt{Dynamics/ChoiCPTP.lean} separately proves its custom
+finite-matrix \texttt{IsCPTP} predicate from the same Kraus and trace
+identities.
 
 \subsection{L\"uders naturality}
 
@@ -454,6 +478,47 @@ The raw formula is
 are states, and the nonzero-weight proof is transported by
 \texttt{bornWeight\_partitionPinching}. This checks the same operation through
 the bundled state and event interfaces.
+
+\section{Random-unitary pinching and the entropy support boundary}
+\label{sec:spectral-boundary}
+
+The first B9 majorization precursor has an exact finite representation. For
+each sign assignment \(s:\{0,\ldots,k-1\}\to\{\pm1\}\), set
+\[
+ U_s=\sum_i s(i)P_i .
+\]
+Orthogonality and completeness make every \(U_s\) a selfadjoint unitary. The
+independent sign characters obey
+\(\sum_s s(i)s(j)=2^k\delta_{ij}\), hence
+\[
+ \frac1{2^k}\sum_s U_s X U_s^*=\sum_iP_iXP_i=\pinch_\pi(X).
+\]
+The real weights are strictly positive and sum to one, so this is a literal
+random-unitary representation. A two-coordinate control proves that replacing
+the independent sign family by only the global pair \(\{I,-I\}\) leaves an
+off-diagonal matrix unchanged and is not pinching. These statements are
+checked in \texttt{RecordMajorization.lean}. They are an algebraic precursor;
+they do not prove spectral majorization or entropy monotonicity.
+
+The support layer cannot be bypassed by totalizing the logarithm. In Lean,
+\(\log 0=0\); continuous functional calculus therefore sends the logarithm
+of every projection to the zero matrix, since a projection's spectrum lies
+in \(\{0,1\}\). Consequently the raw finite expression
+\[
+ \operatorname{Re}\Tr\!\left[\rho(\log\rho-\log\sigma)\right]
+\]
+is zero for the two orthogonal rank-one coordinate projections. Both are
+density matrices, but the first support is not contained in the second.
+Thus any extended-real divergence that returns \(+\infty\) on support failure
+cannot equal this totalized raw formula. The density, support, zero-value, and
+inequivalence receipts are checked in
+\texttt{SpectralEntropyBoundary.lean}.
+
+This is a fail-closed architectural result, not a no-go for Umegaki entropy.
+A complete continuation must define the support-aware extended divergence and
+then prove the pinching relative-entropy Pythagorean identity, spectral
+majorization, constrained maximum-entropy formula, and the two-level
+publicization information chain.
 
 \section{Averaging on the partition span}
 \label{sec:average}
@@ -832,7 +897,7 @@ Holography repository \cite{observerPatchHolographyRepo}. The exact source
 snapshot is the repository revision containing this manuscript and its built
 PDF; the manuscript source accompanies the submission.
 
-Table~\ref{tab:scale} describes the nine modules discussed here and the
+Table~\ref{tab:scale} describes the eleven modules discussed here and the
 umbrella root. Other modules imported by the broader root are outside this
 paper's count. The comparison in Section~\ref{sec:comparison} concerns
 interfaces, not counts.
@@ -851,11 +916,13 @@ Module & Lines & Audited declarations \\
 \texttt{StateExpectation} & 105 & 4 \\
 \texttt{Robertson} & 416 & 20 \\
 \texttt{Superselection} & 197 & 9 \\
+\texttt{RecordMajorization} & 322 & 6 \\
+\texttt{SpectralEntropyBoundary} & 161 & 5 \\
 \texttt{Tsirelson} & 275 & 8 \\
 \texttt{ExpectationBound} & 174 & 4 \\
-\texttt{EventAlgebra} (root) & 87 & 0 \\
+\texttt{EventAlgebra} (root) & 113 & 0 \\
 \midrule
-Total & 2837 & 141 \\
+Total & 3346 & 152 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the
@@ -865,7 +932,7 @@ generated axiom audit.}
 
 Every public result discussed in the paper appears under its Lean name. The
 modules end with \texttt{\#print axioms} commands for the principal
-declarations, and a clean build emits the generated output. The 141 audited
+declarations, and a clean build emits the generated output. The 152 audited
 declarations report only subsets of propositional extensionality, classical
 choice, and quotient soundness, the standard Lean/Mathlib base. No declaration
 reports \texttt{sorryAx}, and a source scan finds no \texttt{sorry}
@@ -901,10 +968,16 @@ predicate, typed event/state subtypes, closure and trace-pairing lemmas; treated
 as prerequisite; no priority claim \\
 Pinching & Physlib spectral pinching is a state-selected bundled CPTP map with
 fixed-point and geometric results & arbitrary supplied projective partition;
-bundled linear map and commutant; no CPTP or Physlib correspondence theorem \\
+bundled linear map and commutant; companion custom-\texttt{IsCPTP} proof; no
+Physlib correspondence theorem \\
 Retraction structure & operator-algebra conditional expectations and channel
 interfaces & exact range/fixed points, positive/unital/trace-preserving,
 bimodule, Hilbert--Schmidt geometry, map-level trace-duality uniqueness \\
+Random-unitary and entropy boundary & random-unitary dephasing and
+support-aware Umegaki divergence in finite quantum information & exact
+independent-sign average for arbitrary supplied partitions; a support-failure
+countermodel showing that totalized matrix logarithms cannot encode the
+extended divergence \\
 Commutative layer & conditional expectations onto commutative subalgebras in
 operator-algebra practice & bundled averaging expectation onto the partition
 span, exact range and uniqueness, tower laws with pinching, Born-statistics
@@ -944,9 +1017,10 @@ and event-level CHSH bounds in norm and state form. The pinching has the
 bundled commutant as its exact range and the average has the bundled span;
 each map is the unique trace-dual projection onto its range, the two compose
 as a tower, and both interact with L\"uders conditioning by checked
-theorems. The supplied-state Robertson bound and the partition-relative
-operational quotient use the same finite matrix API. Each formal statement in
-the paper points to a declaration in the repository source.
+theorems. The supplied-state Robertson bound, the independent-sign
+representation, the logarithm-support boundary, and the partition-relative
+operational quotient use the same finite matrix API. Each formal statement
+in the paper points to a declaration in the repository source.
 
 The construction follows one pattern: state algebraic content as predicates
 over raw matrices, move to subtypes exactly where an API promises a state,
@@ -955,8 +1029,9 @@ are exact, and hand finished objects to Mathlib interfaces through small
 adapters. The pattern is independent of measurement theory and applies to
 other finite-dimensional operator-algebra developments over Mathlib.
 
-Complete positivity is not established, so neither expectation is a quantum
-channel in the library. There is no theorem connecting the supplied
+The companion \texttt{Dynamics/ChoiCPTP.lean} establishes complete positivity
+and trace preservation for both expectations under a custom finite-matrix
+\texttt{IsCPTP} interface. There is no theorem connecting the supplied
 partition to Physlib's spectral pinching and no rank-one classical
 specialization. The CHSH bounds have no sharpness witness. The entire
 development is finite-dimensional and says nothing about normal maps on
@@ -966,8 +1041,8 @@ The proved surface contains the arbitrary-partition pinching with its exact
 range and bimodule law, the averaging expectation with its tower and
 classical-conditioning laws, typed L\"uders naturality, the complete
 partition-relative quotient, the supplied-state Robertson inequality, and the
-state-level CHSH corollary. It contains no complete-positivity theorem,
-completely positive trace-preserving channel bundle, Physlib
+state-level CHSH corollary; the companion module adds the custom CPTP proofs.
+It contains no Physlib
 spectral-partition correspondence, source-selected quantum instrument, or
 two-qubit sharpness witness for the CHSH bounds.
 

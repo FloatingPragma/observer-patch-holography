@@ -37,6 +37,7 @@ class OrientedFaceBracketSelectorTests(unittest.TestCase):
         self.assertEqual(result["identity"], "B_face=60*R13")
         self.assertEqual(result["jacobi_nonzero"], 240)
         self.assertEqual(result["unique_nearest"], "G")
+        self.assertEqual(result["robust_norms"], ["L1", "L2", "Linfinity"])
 
     def test_fresh_production_is_byte_identical(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -84,6 +85,24 @@ class OrientedFaceBracketSelectorTests(unittest.TestCase):
         self.assert_semantic_mutation_rejected(
             lambda body: body["orthogonal_compact_locus_discriminator"]
                 .__setitem__("unique_nearest_family", "F")
+        )
+
+    def test_mutated_l1_distance_is_rejected_after_rehash(self) -> None:
+        self.assert_semantic_mutation_rejected(
+            lambda body: body["endpoint_norm_robustness"]["l1"]["families"]["G"]
+                .__setitem__("distance", [-29, 1, 30, 1])
+        )
+
+    def test_mutated_linf_dual_is_rejected_after_rehash(self) -> None:
+        self.assert_semantic_mutation_rejected(
+            lambda body: body["endpoint_norm_robustness"]["linfinity"]["families"]["G"]
+                ["dual_entries"][0].__setitem__(3, 2)
+        )
+
+    def test_false_three_norm_source_selection_is_rejected_after_rehash(self) -> None:
+        self.assert_semantic_mutation_rejected(
+            lambda body: body["endpoint_norm_robustness"]
+                .__setitem__("repair_norm_or_minimization_rule_is_source_derived", True)
         )
 
 

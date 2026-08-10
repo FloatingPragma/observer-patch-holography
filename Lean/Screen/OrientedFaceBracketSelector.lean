@@ -10,10 +10,11 @@ the stage-1 Reynolds basis.  (The older `CoreAxioms.orientedFaces` literal is an
 isomorphic but different port relabeling.)
 
 The source-derived statement is the equal-weight cyclic face bracket and its
-exact identity `B_face = 60 R13`.  The bracket fails Jacobi.  The exact P/F/G
-distances and unique nearest `G` result below are conditional on an additional
-coefficient-space Hilbert--Schmidt metric.  **No minimum-HS rule, Jacobi-repair
-rule, or physical source selection is derived here.**
+exact identity `B_face = 60 R13`.  The bracket fails Jacobi.  Exact certificate
+replay finds the same unique nearest compact family `G` for total-absolute,
+Hilbert--Schmidt, and worst-coordinate edits; this file kernel-checks all three
+exact distance orderings.  **No one of those repair norms, minimum-repair
+rules, Jacobi-repair laws, or physical source selections is derived here.**
 -/
 
 namespace OPH.OrientedFaceBracketSelector
@@ -167,10 +168,103 @@ theorem unique_nearest_G (family : CompactFamily) (h : family ≠ .G) :
   | F => exact distanceG_lt_distanceF
   | G => exact False.elim (h rfl)
 
+/-! ## Exact endpoint-norm robustness
+
+The independently replayed certificate supplies exact primal/dual witnesses
+for the `L1` and `Linfinity` distances below.  For family `F`, the displayed
+`L1` value is the compact-stratum infimum: its linear-family optimizer is zero
+and compact points scale to zero.  The `G` optimizer lies strictly inside its
+compact sign stratum.  These declarations check the radical arithmetic and
+the common family ordering; they do not replace the certificate's 792-entry
+primal/dual replay.
+-/
+
+inductive EditNorm
+  | totalAbsolute
+  | hilbertSchmidtSquared
+  | worstCoordinate
+deriving DecidableEq, Repr
+
+noncomputable def totalAbsoluteDistance : CompactFamily → ℝ
+  | .P => 60
+  | .F => 60
+  | .G => 30 * (Real.sqrt 5 - 1)
+
+noncomputable def worstCoordinateDistance : CompactFamily → ℝ
+  | .P => 1 / 2
+  | .F => Real.sqrt 5 / 5
+  | .G => (5 - Real.sqrt 5) / 10
+
+noncomputable def certifiedDistance : EditNorm → CompactFamily → ℝ
+  | .totalAbsolute => totalAbsoluteDistance
+  | .hilbertSchmidtSquared => squaredDistance
+  | .worstCoordinate => worstCoordinateDistance
+
+theorem sqrt_five_lt_three : Real.sqrt 5 < 3 := by
+  have hs : 0 ≤ Real.sqrt 5 := Real.sqrt_nonneg 5
+  have hs2 : Real.sqrt 5 ^ 2 = 5 := by norm_num
+  nlinarith
+
+theorem five_lt_three_sqrt_five : 5 < 3 * Real.sqrt 5 := by
+  have hs : 0 ≤ Real.sqrt 5 := Real.sqrt_nonneg 5
+  have hs2 : Real.sqrt 5 ^ 2 = 5 := by norm_num
+  nlinarith
+
+theorem two_sqrt_five_lt_five : 2 * Real.sqrt 5 < 5 := by
+  have hs : 0 ≤ Real.sqrt 5 := Real.sqrt_nonneg 5
+  have hs2 : Real.sqrt 5 ^ 2 = 5 := by norm_num
+  nlinarith
+
+theorem totalAbsoluteDistance_G_lt_P :
+    totalAbsoluteDistance .G < totalAbsoluteDistance .P := by
+  simp only [totalAbsoluteDistance]
+  nlinarith [sqrt_five_lt_three]
+
+theorem totalAbsoluteDistance_G_lt_F :
+    totalAbsoluteDistance .G < totalAbsoluteDistance .F := by
+  simpa [totalAbsoluteDistance] using totalAbsoluteDistance_G_lt_P
+
+theorem worstCoordinateDistance_G_lt_F :
+    worstCoordinateDistance .G < worstCoordinateDistance .F := by
+  simp only [worstCoordinateDistance]
+  nlinarith [five_lt_three_sqrt_five]
+
+theorem worstCoordinateDistance_F_lt_P :
+    worstCoordinateDistance .F < worstCoordinateDistance .P := by
+  simp only [worstCoordinateDistance]
+  nlinarith [two_sqrt_five_lt_five]
+
+theorem worstCoordinateDistance_G_lt_P :
+    worstCoordinateDistance .G < worstCoordinateDistance .P :=
+  lt_trans worstCoordinateDistance_G_lt_F worstCoordinateDistance_F_lt_P
+
+/-- All three exactly certified coordinate-edit rules distinguish the same
+compact family `G`.  This is norm robustness, not derivation of a repair rule. -/
+theorem three_norm_unique_nearest_G
+    (norm : EditNorm) (family : CompactFamily) (h : family ≠ .G) :
+    certifiedDistance norm .G < certifiedDistance norm family := by
+  cases norm with
+  | totalAbsolute =>
+      cases family with
+      | P => exact totalAbsoluteDistance_G_lt_P
+      | F => exact totalAbsoluteDistance_G_lt_F
+      | G => exact False.elim (h rfl)
+  | hilbertSchmidtSquared =>
+      cases family with
+      | P => exact distanceG_lt_distanceP
+      | F => exact distanceG_lt_distanceF
+      | G => exact False.elim (h rfl)
+  | worstCoordinate =>
+      cases family with
+      | P => exact worstCoordinateDistance_G_lt_P
+      | F => exact worstCoordinateDistance_G_lt_F
+      | G => exact False.elim (h rfl)
+
 #print axioms face_bracket_eq_sixty_r13
 #print axioms jacobi_failure_witness
 #print axioms projectionF_compact_sign
 #print axioms projectionG_compact_sign
 #print axioms unique_nearest_G
+#print axioms three_norm_unique_nearest_G
 
 end OPH.OrientedFaceBracketSelector

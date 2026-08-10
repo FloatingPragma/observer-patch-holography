@@ -381,10 +381,18 @@ lie in one real plane. The different response
 $F_y(n)=(1+n_y^3)/2$ agrees with the ordinary half-weight on that whole
 battery and is nonlinear away from it. Likewise, the declared real
 $S_3$ source web cannot distinguish two complex qubit states that differ only
-in the Pauli-$Y$ direction. A physical Born bridge therefore needs a
-complex-tomographically-complete effect and instrument web plus an operational
-reason for noncontextual additivity; recording more frequencies on an
-incomplete web cannot supply that reason by itself.
+in the Pauli-$Y$ direction. The missing mathematical coordinate is explicit:
+$I/2$ minus the normalized complex commutator of two earned noncommuting
+projectors is exactly the $+Y$ projector, and adding it makes the
+two-dimensional operator frame tomographically complete.
+
+Real coarse graining and real Kraus
+processing cannot produce that effect or distinguish the two states. This
+identifies the required phase-sensitive capability, but the source has not
+produced the operation or any outcomes for it. A physical Born bridge
+therefore needs a complex-tomographically-complete effect and instrument web
+plus an operational reason for noncontextual additivity; recording more
+frequencies on an incomplete web cannot supply that reason by itself.
 
 ### Net Axioms (Algebraic)
 

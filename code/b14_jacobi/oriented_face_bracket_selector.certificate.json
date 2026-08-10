@@ -1,5 +1,5 @@
 {
-  "certificate_sha256": "sha256:bfb46a89c065b233ef2e2d38984d99e76f5c904fd941981a44ce4cb9178d8597",
+  "certificate_sha256": "sha256:867e8213b82f735a94f151e90e1148022a97ff424804824ade995e0a723c7c04",
   "channel_coordinates": {
     "d_five": [
       0,
@@ -86,11 +86,665 @@
       20
     ]
   },
-  "claim_boundary": "The equal-weight cyclic bracket is derived from the pinned oriented-face incidence and is exactly 60*R13. It fails Jacobi. The squared-distance comparison is conditional on adding the displayed coefficient-space Hilbert--Schmidt metric. Neither minimum-Hilbert--Schmidt repair nor any Jacobi-repair law is source-derived; therefore the unique nearest G result is a discriminator, not an OPH source-selection or B14 closure theorem.",
+  "claim_boundary": "The equal-weight cyclic bracket is derived from the pinned oriented-face incidence and is exactly 60*R13. It fails Jacobi. Exact primal/dual certificates show that G is uniquely nearest among the classified compact families under total absolute, Hilbert--Schmidt, and worst-coordinate edit. No one of those repair norms, nor the rule that minimizes it over the Jacobi locus, is source-derived; three-norm agreement is therefore a robust discriminator, not an OPH source-selection or B14 closure theorem.",
+  "endpoint_norm_robustness": {
+    "conclusion_status": "EXACT_THREE_NORM_ROBUST_CONDITIONAL_DISCRIMINATOR__NOT_SOURCE_SELECTION",
+    "coordinate_convention": "the same 792 upper-triangular structure-constant coordinates; L1 is total absolute edit and Linfinity is worst-coordinate edit",
+    "l1": {
+      "exact_gap_F_minus_G": [
+        90,
+        1,
+        -30,
+        1
+      ],
+      "exact_gap_P_minus_G": [
+        90,
+        1,
+        -30,
+        1
+      ],
+      "families": {
+        "F": {
+          "compact_attainment": "60 is the compact-F infimum: the linear-family minimizer is zero, and compact F points scale continuously to zero",
+          "distance": [
+            60,
+            1,
+            0,
+            1
+          ],
+          "dual_annihilates_family": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_norm": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dual_objective": [
+            60,
+            1,
+            0,
+            1
+          ],
+          "dual_orbit_seeds": [
+            [
+              0,
+              1,
+              5,
+              -1,
+              2,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              8,
+              -2,
+              5,
+              1,
+              4
+            ],
+            [
+              0,
+              1,
+              9,
+              -1,
+              4,
+              1,
+              4
+            ],
+            [
+              0,
+              1,
+              10,
+              -3,
+              20,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              8,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_support": 300,
+          "parameters": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "primal_active_max_coordinates": null,
+          "primal_residual_support": 60
+        },
+        "G": {
+          "compact_sign_product_a_times_b": [
+            -1,
+            32,
+            3,
+            160
+          ],
+          "distance": [
+            -30,
+            1,
+            30,
+            1
+          ],
+          "dual_annihilates_family": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_norm": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dual_objective": [
+            -30,
+            1,
+            30,
+            1
+          ],
+          "dual_orbit_seeds": [
+            [
+              0,
+              1,
+              4,
+              -17,
+              40,
+              1,
+              4
+            ],
+            [
+              0,
+              1,
+              5,
+              -1,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              6,
+              -11,
+              60,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              9,
+              -1,
+              60,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              4,
+              1,
+              4,
+              -29,
+              120
+            ],
+            [
+              0,
+              2,
+              8,
+              -1,
+              2,
+              1,
+              2
+            ]
+          ],
+          "dual_support": 360,
+          "optimizer_lies_in_compact_open_stratum": true,
+          "parameters": [
+            [
+              -1,
+              8,
+              1,
+              40
+            ],
+            [
+              1,
+              8,
+              -1,
+              8
+            ],
+            [
+              0,
+              1,
+              1,
+              10
+            ]
+          ],
+          "primal_active_max_coordinates": null,
+          "primal_residual_support": 60
+        },
+        "P": {
+          "compact_attainment": "zero belongs to compact family P",
+          "distance": [
+            60,
+            1,
+            0,
+            1
+          ],
+          "dual_annihilates_family": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_norm": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dual_objective": [
+            60,
+            1,
+            0,
+            1
+          ],
+          "dual_orbit_seeds": [
+            [
+              0,
+              1,
+              8,
+              3,
+              10,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              9,
+              4,
+              15,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              10,
+              -13,
+              30,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              8,
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_support": 240,
+          "parameters": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "primal_active_max_coordinates": null,
+          "primal_residual_support": 60
+        }
+      },
+      "unique_nearest_compact_family_by_minimum_or_infimum": "G"
+    },
+    "linfinity": {
+      "exact_gap_F_minus_G": [
+        -1,
+        2,
+        3,
+        10
+      ],
+      "exact_gap_P_minus_G": [
+        0,
+        1,
+        1,
+        10
+      ],
+      "families": {
+        "F": {
+          "compact_sign_product_a_times_b": [
+            3,
+            160,
+            -7,
+            800
+          ],
+          "distance": [
+            0,
+            1,
+            1,
+            5
+          ],
+          "dual_annihilates_family": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_entries": [
+            [
+              0,
+              1,
+              5,
+              1,
+              2,
+              -1,
+              10
+            ],
+            [
+              0,
+              1,
+              8,
+              1,
+              4,
+              -1,
+              20
+            ],
+            [
+              0,
+              1,
+              9,
+              1,
+              4,
+              -1,
+              20
+            ],
+            [
+              0,
+              2,
+              8,
+              0,
+              1,
+              1,
+              5
+            ]
+          ],
+          "dual_norm": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dual_objective": [
+            0,
+            1,
+            1,
+            5
+          ],
+          "dual_support": 4,
+          "optimizer_lies_in_compact_open_stratum": true,
+          "parameters": [
+            [
+              -3,
+              40,
+              1,
+              40
+            ],
+            [
+              -1,
+              8,
+              3,
+              40
+            ],
+            [
+              -3,
+              10,
+              0,
+              1
+            ]
+          ],
+          "primal_active_max_coordinates": 300,
+          "primal_residual_support": 480
+        },
+        "G": {
+          "compact_sign_product_a_times_b": [
+            -1,
+            40,
+            3,
+            200
+          ],
+          "distance": [
+            1,
+            2,
+            -1,
+            10
+          ],
+          "dual_annihilates_family": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_entries": [
+            [
+              0,
+              1,
+              4,
+              1,
+              4,
+              -1,
+              20
+            ],
+            [
+              0,
+              1,
+              7,
+              0,
+              1,
+              1,
+              5
+            ],
+            [
+              0,
+              2,
+              6,
+              1,
+              4,
+              -1,
+              20
+            ],
+            [
+              0,
+              2,
+              8,
+              1,
+              2,
+              -1,
+              10
+            ]
+          ],
+          "dual_norm": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dual_objective": [
+            1,
+            2,
+            -1,
+            10
+          ],
+          "dual_support": 4,
+          "optimizer_lies_in_compact_open_stratum": true,
+          "parameters": [
+            [
+              1,
+              20,
+              -1,
+              20
+            ],
+            [
+              -1,
+              4,
+              1,
+              20
+            ],
+            [
+              -3,
+              10,
+              1,
+              10
+            ]
+          ],
+          "primal_active_max_coordinates": 300,
+          "primal_residual_support": 480
+        },
+        "P": {
+          "distance": [
+            1,
+            2,
+            0,
+            1
+          ],
+          "dual_annihilates_family": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              0,
+              1
+            ]
+          ],
+          "dual_entries": [
+            [
+              0,
+              1,
+              8,
+              1,
+              2,
+              0,
+              1
+            ],
+            [
+              0,
+              2,
+              8,
+              1,
+              2,
+              0,
+              1
+            ]
+          ],
+          "dual_norm": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dual_objective": [
+            1,
+            2,
+            0,
+            1
+          ],
+          "dual_support": 2,
+          "parameters": [
+            [
+              0,
+              1,
+              0,
+              1
+            ],
+            [
+              1,
+              4,
+              -1,
+              4
+            ]
+          ],
+          "primal_active_max_coordinates": 240,
+          "primal_residual_support": 480
+        }
+      },
+      "unique_nearest_compact_family": "G"
+    },
+    "repair_norm_or_minimization_rule_is_source_derived": false,
+    "three_norm_agreement": "G is uniquely nearest for total absolute edit (L1), squared Hilbert--Schmidt edit (L2), and worst-coordinate edit (Linfinity)"
+  },
   "field": "Q(sqrt(5)); [a_num,a_den,b_num,b_den] encodes a+b*sqrt(5)",
   "implementation_pins": {
-    "producer_sha256": "sha256:a52a62ac6a0f268fa693f1a2d2620694a330e63f7854d0fc2c15eea015e3adf1",
-    "verifier_sha256": "sha256:87beb891df6ef2eacedf7603d6617666b2d9785a27115787647eed126d16d1e4"
+    "producer_sha256": "sha256:a822102c312aeb8daae2262125f99e29bbbf0217252a3ae1bcdb5b753c39025e",
+    "verifier_sha256": "sha256:c1b0f1ff62ae22067857e3b2b9cad1efc256d2dad091bc8408265ecd08329db3"
   },
   "issue": 705,
   "jacobi_failure": {

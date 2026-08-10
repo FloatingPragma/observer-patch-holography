@@ -5,14 +5,15 @@ The twenty coherently oriented faces in the pinned echosahedral source packet
 define the most direct equal-weight alternating bracket: every face contributes
 its three positive cyclic structure constants.  This program independently
 locates that tensor in the pinned fourteen-dimensional Reynolds basis, computes
-all Jacobi residual components, and projects it orthogonally onto the already
-classified compact P/F/G loci.
+all Jacobi residual components, and compares it with the already classified
+compact P/F/G loci.  Besides the Hilbert--Schmidt projection, exact primal/dual
+certificates solve the total-absolute and worst-coordinate repair problems.
 
-BOUNDARY: the face tensor itself is source-derived.  Hilbert--Schmidt distance,
-orthogonal projection, and any proposed Jacobi repair/minimization rule are not
-source-derived by this calculation.  The nearest-locus result is therefore an
-exact discriminator conditional on that explicitly added metric rule, not a
-selection or closure theorem.
+BOUNDARY: the face tensor itself is source-derived.  None of the three repair
+norms, nor any proposed Jacobi repair/minimization rule, is source-derived by
+this calculation.  Their agreement is therefore an exact robustness result
+conditional on those explicitly tested rules, not a selection or closure
+theorem.
 """
 
 from __future__ import annotations
@@ -204,6 +205,104 @@ def dot(left, right):
     return sum((x * y for x, y in zip(left, right)), ZERO)
 
 
+def qabs(value):
+    return value if sign(value) >= 0 else -value
+
+
+def qsum_abs(values):
+    return sum((qabs(value) for value in values), ZERO)
+
+
+def qmax_abs(values):
+    result = ZERO
+    for value in values:
+        absolute = qabs(value)
+        if sign(absolute - result) > 0:
+            result = absolute
+    return result
+
+
+def family_point(basis, parameters):
+    require(len(basis) == len(parameters), "family parameter length mismatch")
+    return [sum((parameters[j] * basis[j][i] for j in range(len(basis))), ZERO)
+            for i in range(len(COORDS))]
+
+
+def coordinate_image(coordinate, permutation):
+    out, left, right = coordinate
+    image_out = permutation[out]
+    image_left = permutation[left]
+    image_right = permutation[right]
+    orientation = 1
+    if image_right < image_left:
+        image_left, image_right = image_right, image_left
+        orientation = -1
+    return (image_out, image_left, image_right), orientation
+
+
+def orbit_covector(seed_values, group):
+    """Extend signed coordinate seeds through the proper port action."""
+    coordinate_index = {coordinate: i for i, coordinate in enumerate(COORDS)}
+    values = [ZERO for _ in COORDS]
+    assigned = [False for _ in COORDS]
+    for coordinate, seed_value in seed_values:
+        require(coordinate in coordinate_index, "dual seed outside the coordinate domain")
+        for permutation in group:
+            image, orientation = coordinate_image(coordinate, permutation)
+            index = coordinate_index[image]
+            value = orientation * seed_value
+            if assigned[index]:
+                require(values[index] == value, "inconsistent signed dual orbit")
+            else:
+                values[index] = value
+                assigned[index] = True
+    return values
+
+
+def sparse_covector(entries):
+    coordinate_index = {coordinate: i for i, coordinate in enumerate(COORDS)}
+    values = [ZERO for _ in COORDS]
+    for coordinate, value in entries:
+        require(coordinate in coordinate_index, "dual entry outside the coordinate domain")
+        index = coordinate_index[coordinate]
+        require(not values[index], "duplicate sparse dual entry")
+        values[index] = value
+    return values
+
+
+def lp_distance_record(target, basis, parameters, distance, dual, norm_kind):
+    """Check an exact primal/dual certificate for L1 or Linfinity distance."""
+    point = family_point(basis, parameters)
+    residual = [target[i] - point[i] for i in range(len(target))]
+    if norm_kind == "l1":
+        primal_value = qsum_abs(residual)
+        dual_norm = qmax_abs(dual)
+    elif norm_kind == "linfinity":
+        primal_value = qmax_abs(residual)
+        dual_norm = qsum_abs(dual)
+    else:
+        raise CertificateError(f"unsupported LP norm {norm_kind}")
+    require(primal_value == distance, f"{norm_kind} primal value mismatch")
+    require(sign(Q5(1) - dual_norm) >= 0, f"{norm_kind} dual norm exceeds one")
+    annihilations = [dot(dual, vector) for vector in basis]
+    require(not any(annihilations), f"{norm_kind} dual does not annihilate family")
+    dual_objective = dot(dual, target)
+    require(dual_objective == distance, f"{norm_kind} dual objective mismatch")
+    return {
+        "parameters": [enc(value) for value in parameters],
+        "distance": enc(distance),
+        "primal_residual_support": sum(bool(value) for value in residual),
+        "primal_active_max_coordinates": (
+            sum(qabs(value) == distance for value in residual)
+            if norm_kind == "linfinity" else None
+        ),
+        "dual_support": sum(bool(value) for value in dual),
+        "dual_norm": enc(dual_norm),
+        "dual_objective": enc(dual_objective),
+        "dual_annihilates_family": [enc(value) for value in annihilations],
+    }
+
+
 def solve(matrix, rhs):
     n = len(rhs)
     aug = [list(row) + [rhs[i]] for i, row in enumerate(matrix)]
@@ -355,14 +454,137 @@ def build_certificate():
     group = receipt["proper_port_action"]["permutation_rows"]
     require(len(group) == 60 and len({tuple(g) for g in group}) == 60, "proper action order mismatch")
 
+    # Exact endpoint-norm robustness audit.  The L1 duals are averaged into
+    # signed proper-action orbits, while the Linfinity duals are sparse.  Each
+    # primal/dual pair is checked directly over Q(sqrt(5)); no numerical
+    # optimizer participates in the certificate.
+    l1_parameters = {
+        "P": [ZERO, ZERO],
+        "F": [ZERO, ZERO, ZERO],
+        "G": [
+            Q5(Fraction(-1, 8), Fraction(1, 40)),
+            Q5(Fraction(1, 8), Fraction(-1, 8)),
+            ROOT5 / 10,
+        ],
+    }
+    l1_distances = {
+        "P": Q5(60),
+        "F": Q5(60),
+        "G": Q5(-30, 30),
+    }
+    l1_dual_seeds = {
+        "P": [
+            ((0, 1, 8), Q5(Fraction(3, 10))),
+            ((0, 1, 9), Q5(Fraction(4, 15))),
+            ((0, 1, 10), Q5(Fraction(-13, 30))),
+            ((0, 2, 8), ONE),
+        ],
+        "F": [
+            ((0, 1, 5), Q5(Fraction(-1, 2), Fraction(1, 2))),
+            ((0, 1, 8), Q5(Fraction(-2, 5), Fraction(1, 4))),
+            ((0, 1, 9), Q5(Fraction(-1, 4), Fraction(1, 4))),
+            ((0, 1, 10), Q5(Fraction(-3, 20))),
+            ((0, 2, 8), ONE),
+        ],
+        "G": [
+            ((0, 1, 4), Q5(Fraction(-17, 40), Fraction(1, 4))),
+            ((0, 1, 5), Q5(-1)),
+            ((0, 1, 6), Q5(Fraction(-11, 60))),
+            ((0, 1, 9), Q5(Fraction(-1, 60))),
+            ((0, 2, 4), Q5(Fraction(1, 4), Fraction(-29, 120))),
+            ((0, 2, 8), Q5(Fraction(-1, 2), Fraction(1, 2))),
+        ],
+    }
+    l1_records = {}
+    for family in ("P", "F", "G"):
+        dual = orbit_covector(l1_dual_seeds[family], group)
+        l1_records[family] = lp_distance_record(
+            target, bases[family], l1_parameters[family],
+            l1_distances[family], dual, "l1",
+        )
+        l1_records[family]["dual_orbit_seeds"] = [
+            [*coordinate, *enc(value)] for coordinate, value in l1_dual_seeds[family]
+        ]
+    l1_g_product = l1_parameters["G"][0] * l1_parameters["G"][1]
+    require(sign(l1_g_product) > 0, "L1 G optimizer misses compact stratum")
+    require(sign(l1_distances["P"] - l1_distances["G"]) > 0, "L1 G not closer than P")
+    require(sign(l1_distances["F"] - l1_distances["G"]) > 0, "L1 G not closer than F")
+    l1_records["G"]["compact_sign_product_a_times_b"] = enc(l1_g_product)
+    l1_records["G"]["optimizer_lies_in_compact_open_stratum"] = True
+    l1_records["P"]["compact_attainment"] = "zero belongs to compact family P"
+    l1_records["F"]["compact_attainment"] = (
+        "60 is the compact-F infimum: the linear-family minimizer is zero, "
+        "and compact F points scale continuously to zero"
+    )
+
+    linf_parameters = {
+        "P": [ZERO, Q5(Fraction(1, 4), Fraction(-1, 4))],
+        "F": [
+            Q5(Fraction(-3, 40), Fraction(1, 40)),
+            Q5(Fraction(-1, 8), Fraction(3, 40)),
+            Q5(Fraction(-3, 10)),
+        ],
+        "G": [
+            Q5(Fraction(1, 20), Fraction(-1, 20)),
+            Q5(Fraction(-1, 4), Fraction(1, 20)),
+            Q5(Fraction(-3, 10), Fraction(1, 10)),
+        ],
+    }
+    linf_distances = {
+        "P": Q5(Fraction(1, 2)),
+        "F": ROOT5 / 5,
+        "G": Q5(Fraction(1, 2), Fraction(-1, 10)),
+    }
+    linf_dual_entries = {
+        "P": [
+            ((0, 1, 8), Q5(Fraction(1, 2))),
+            ((0, 2, 8), Q5(Fraction(1, 2))),
+        ],
+        "F": [
+            ((0, 1, 5), Q5(Fraction(1, 2), Fraction(-1, 10))),
+            ((0, 1, 8), Q5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 1, 9), Q5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 2, 8), ROOT5 / 5),
+        ],
+        "G": [
+            ((0, 1, 4), Q5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 1, 7), ROOT5 / 5),
+            ((0, 2, 6), Q5(Fraction(1, 4), Fraction(-1, 20))),
+            ((0, 2, 8), Q5(Fraction(1, 2), Fraction(-1, 10))),
+        ],
+    }
+    linf_records = {}
+    for family in ("P", "F", "G"):
+        dual = sparse_covector(linf_dual_entries[family])
+        linf_records[family] = lp_distance_record(
+            target, bases[family], linf_parameters[family],
+            linf_distances[family], dual, "linfinity",
+        )
+        linf_records[family]["dual_entries"] = [
+            [*coordinate, *enc(value)] for coordinate, value in linf_dual_entries[family]
+        ]
+    linf_f_product = linf_parameters["F"][0] * linf_parameters["F"][1]
+    linf_g_product = linf_parameters["G"][0] * linf_parameters["G"][1]
+    require(sign(linf_f_product) < 0, "Linfinity F optimizer misses compact stratum")
+    require(sign(linf_g_product) > 0, "Linfinity G optimizer misses compact stratum")
+    require(sign(linf_distances["F"] - linf_distances["G"]) > 0,
+            "Linfinity G not closer than F")
+    require(sign(linf_distances["P"] - linf_distances["G"]) > 0,
+            "Linfinity G not closer than P")
+    linf_records["F"]["compact_sign_product_a_times_b"] = enc(linf_f_product)
+    linf_records["F"]["optimizer_lies_in_compact_open_stratum"] = True
+    linf_records["G"]["compact_sign_product_a_times_b"] = enc(linf_g_product)
+    linf_records["G"]["optimizer_lies_in_compact_open_stratum"] = True
+
     body = {
         "schema": "oph.b14.oriented_face_bracket_selector.v1",
         "issue": 705,
         "claim_boundary": (
             "The equal-weight cyclic bracket is derived from the pinned oriented-face incidence and is exactly 60*R13. "
-            "It fails Jacobi. The squared-distance comparison is conditional on adding the displayed coefficient-space "
-            "Hilbert--Schmidt metric. Neither minimum-Hilbert--Schmidt repair nor any Jacobi-repair law is source-derived; "
-            "therefore the unique nearest G result is a discriminator, not an OPH source-selection or B14 closure theorem."
+            "It fails Jacobi. Exact primal/dual certificates show that G is uniquely nearest among the classified compact "
+            "families under total absolute, Hilbert--Schmidt, and worst-coordinate edit. No one of those repair norms, "
+            "nor the rule that minimizes it over the Jacobi locus, is source-derived; three-norm agreement is therefore "
+            "a robust discriminator, not an OPH source-selection or B14 closure theorem."
         ),
         "field": "Q(sqrt(5)); [a_num,a_den,b_num,b_den] encodes a+b*sqrt(5)",
         "source_face_bracket": {
@@ -387,6 +609,33 @@ def build_certificate():
                 "distance_P_minus_distance_G": enc(expected_distances["P"] - expected_distances["G"]),
             },
             "conclusion_status": "TARGET_CLEAN_CONDITIONAL_DISCRIMINATOR__NOT_SOURCE_SELECTION",
+        },
+        "endpoint_norm_robustness": {
+            "coordinate_convention": (
+                "the same 792 upper-triangular structure-constant coordinates; "
+                "L1 is total absolute edit and Linfinity is worst-coordinate edit"
+            ),
+            "l1": {
+                "families": l1_records,
+                "unique_nearest_compact_family_by_minimum_or_infimum": "G",
+                "exact_gap_P_minus_G": enc(l1_distances["P"] - l1_distances["G"]),
+                "exact_gap_F_minus_G": enc(l1_distances["F"] - l1_distances["G"]),
+            },
+            "linfinity": {
+                "families": linf_records,
+                "unique_nearest_compact_family": "G",
+                "exact_gap_F_minus_G": enc(linf_distances["F"] - linf_distances["G"]),
+                "exact_gap_P_minus_G": enc(linf_distances["P"] - linf_distances["G"]),
+            },
+            "three_norm_agreement": (
+                "G is uniquely nearest for total absolute edit (L1), squared "
+                "Hilbert--Schmidt edit (L2), and worst-coordinate edit (Linfinity)"
+            ),
+            "repair_norm_or_minimization_rule_is_source_derived": False,
+            "conclusion_status": (
+                "EXACT_THREE_NORM_ROBUST_CONDITIONAL_DISCRIMINATOR__"
+                "NOT_SOURCE_SELECTION"
+            ),
         },
         "upstream": {
             "source_manifest_path": str(MANIFEST.relative_to(REPO)),

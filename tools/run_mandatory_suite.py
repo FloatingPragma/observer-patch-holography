@@ -74,6 +74,31 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the oriented-face three-norm certificate",
+        [
+            sys.executable,
+            "code/b14_jacobi/oriented_face_bracket_selector.py",
+            "--check",
+        ],
+    ),
+    (
+        "Replay the oriented-face three-norm certificate independently",
+        [
+            sys.executable,
+            "code/b14_jacobi/verify_oriented_face_bracket_selector.py",
+        ],
+    ),
+    (
+        "Execute the oriented-face certificate mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/b14_jacobi/test_oriented_face_bracket_selector.py",
+        ],
+    ),
+    (
         "Validate the retrospective alpha/HVP accounting verdict",
         [
             sys.executable,

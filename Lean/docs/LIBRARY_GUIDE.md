@@ -175,6 +175,18 @@ surface for the OPH consensus layer. Contents:
   a sterile matter completion. These are finite no-go theorems about the
   exposed reduct, not a claim that a richer operational producer packet cannot
   select the physical completion.
+- A sorry-free conditional **B14 oriented-face discriminator** in
+  `Screen/OrientedFaceBracketSelector.lean`: the twenty declared oriented
+  faces give exactly `B_face = 60 R13`, and an exact coefficient witnesses
+  Jacobi failure. On 792 upper-triangular structure-constant coordinates, an
+  independently replayed exact primal-dual certificate finds the same compact
+  family `G` nearest under total-absolute, Hilbert--Schmidt-squared, and
+  worst-coordinate edits. Lean checks the serialized radical values and all
+  three strict orderings in `three_norm_unique_nearest_G`. The `F` total-
+  absolute value is an unattained infimum. Every norm and minimum-repair rule
+  is a basis-dependent supplied premise, and the comparison covers only the
+  classified compact locus. Issues #705 and #697 track source bracket
+  selection and current realization. See `B14_ORIENTED_FACE_SELECTOR.md`.
 - A sorry-free abstract **A2 holonomy bridge** in
   `Screen/A2HolonomyBridge.lean`: the projective implementer group, the
   supplied port-response flow, and its algebraically generated subgroup are
@@ -281,8 +293,9 @@ surface for the OPH consensus layer. Contents:
   the leading head-on, collinear residual. General independent-lepton and
   full anisotropic optimization are open. No interaction,
   opacity, source, shower, or detector statement follows.
-- A sorry-free **finite event algebras** library (`EventAlgebra/`,
-  lake target `EventAlgebra`, 64 audited declarations, standard axioms
+- A sorry-free **finite event-algebra journal-neutral core** (eleven modules
+  under `EventAlgebra/`, compiled by lake target `EventAlgebra`, 152 audited
+  declarations, standard axioms
   only): events as Hermitian idempotents, states as positive trace-one
   matrices, Born weights (reality, nonnegativity, normalisation,
   additivity, complement bound, monotonicity), Lüders conditioning
@@ -291,12 +304,18 @@ surface for the OPH consensus layer. Contents:
   expectation onto a commutative center (projector laws, state
   preservation, trace selfadjointness, Pythagoras, contractivity,
   uniqueness, compatibility with conditioning on central events), the
-  expectation functional, and the Tsirelson bound `‖S‖ ≤ 2√2` in
-  abstract unital C*-rings with a matrix instantiation. **This bundle is
+  expectation functional, supplied-state Robertson inequality, complete
+  supplied-partition operational quotient, the exact positive uniform
+  independent-sign random-unitary representation of pinching, its global-
+  sign negative control, the totalized-log support countermodel, and the
+  Tsirelson bound `‖S‖ ≤ 2√2` in abstract unital C*-rings with a matrix
+  instantiation. The support countermodel rejects the naive totalized raw
+  trace formula, not support-aware relative entropy. **This core is
   OPH-vocabulary-free by design** (namespace `EventAlgebra`, Mathlib-only
-  imports, no repository vocabulary); it is the journal-neutral surface
-  for submission; every lemma is tagged **algebra-only** or **consumes a
-  tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
+  imports, no repository vocabulary). The larger `EventAlgebra` umbrella also
+  imports OPH-facing adapter modules which are outside this neutral core. The
+  core is the journal-neutral surface for submission; every lemma is tagged
+  **algebra-only** or **consumes a tracial state** in its doc comment. Inventory in `PROOF_INDEX.md`
   ("Finite event algebras"); Mathlib friction log in
   `EventAlgebra/MATHLIB_NOTES.md`. Not a Prop 4.2 / Def 4.1 item.
 - An admission-free **B4 fixed-word locality package**:
@@ -327,12 +346,30 @@ surface for the OPH consensus layer. Contents:
   inverse-noise concentration. `Variational/DiscreteEulerLagrange.lean` and
   `Variational/DiscreteNoether.lean` prove separate scalar real-path local
   identities and a chain-wide constant scalar current when the premises hold
-  at every interior record. `Variational/FiniteHistoryBridge.lean` proves that no finite
-  real-path family is closed under all real single-site variations, so those
-  interfaces do not compose without a new enrichment or transfer theorem.
-  The source history law, uniqueness, physical action, clock, amplitude,
-  fields, continuum, and observable current are open obligations under #683. See
-  `B7_HISTORY_BRIDGE.md`.
+  at every interior record. `Variational/FiniteHistoryBridge.lean` proves that
+  no finite real-path family is closed under all real single-site variations;
+  `Variational/FiniteRealTransfer.lean` gives the receipt-gated composition
+  that survives. `InformationProjection/LogTransitionAction.lean` derives the
+  exact finite log-transition action, and `Variational/LegendreBridge.lean`
+  proves its conditional mechanics interfaces. Finally,
+  `Variational/RealizedHistoryLegendreNoGo.lean` proves that the same binary
+  source law admits distinct strictly convex real enrichments and distinct
+  Hamiltonians while the canonical bilinear extension has no global momentum
+  solver. The source does not select the real curvature. Issue #683 tracks
+  reference selection, physical action, clock, amplitude, fields, continuum,
+  and observable current. See `B7_HISTORY_BRIDGE.md`.
+- An admission-free bounded **B13 effect and phase-lift boundary**:
+  `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and
+  normalized antipodal binary contexts do not force Born affinity.
+  `QFT/SourcePhaseLiftBridge.lean` proves that subtracting the normalized
+  complex commutator of the earned real pair from `I/2` gives exactly the
+  missing positive Pauli-Y projector and completes fixed-trace two-by-two
+  tomography, while even a
+  generous closure under real coarse graining and real Kraus pullbacks remains
+  Pauli-Y blind and cannot produce that effect. This is an algebraic target,
+  not a source operation or outcome receipt; issue #702 tracks the
+  phase-sensitive source instrument and operational additivity. See
+  `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - An admission-free **B8 finite transport package**:
   `Thermodynamics/GreenKubo.lean` proves the reversible Dirichlet identity,
   Onsager symmetry, finite-matrix positive semidefiniteness, and an exact

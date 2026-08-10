@@ -35,8 +35,10 @@ loop-to-kernel receipts. The compact locus of the equivariant Jacobi
 variety is classified into three certified bracket families with exact
 carrier-selected global forms. A declared equal-weight oriented-face bracket
 is exactly \(60R_{13}\), has \(240\) nonzero Jacobi coordinates, and,
-conditional on an added coefficient metric, uniquely projects nearest to
-family \(G\). The rule, metric, and minimum-repair law are not source-derived.
+conditional on any one of three added coordinate repair norms
+\(\ell_1,\ell_2,\ell_\infty\), has family \(G\) uniquely nearest among the
+classified compact locus. The rule, norms, and minimum-repair law are not
+source-derived.
 Over each supplied bracket, ad-invariance leaves one coefficient per simple
 factor. In particular, the \(F/G\) carrier-form spaces drop exactly from
 dimension three to two, while the \(P\) control remains two-dimensional.
@@ -155,10 +157,29 @@ has the unique nearest family \(G\):
  d_F^2=\frac{615+123\sqrt5}{22},\qquad d_P^2=45 .
 \]
 Both \(F/G\) projections lie in their certified open compact strata. The
-equal-weight rule is a declared deterministic construction, not a consequence
-of the three axioms; neither the metric nor minimum-distance Jacobi repair is
-source-derived. Thus this is a target-clean conditional discriminator, not
-B14 closure or physical bracket selection.
+same conclusion is exact for two endpoint edit norms on the identical
+792-coordinate convention. Exact primal--dual certificates give
+\[
+\begin{aligned}
+ d_1(G)&=30(\sqrt5-1)
+   < \inf d_1(F)=d_1(P)=60,\\
+ d_\infty(G)&=\frac{5-\sqrt5}{10}
+   <d_\infty(F)=\frac{\sqrt5}{5}
+   <d_\infty(P)=\frac12.
+\end{aligned}
+\]
+The \(G\) optimizers lie in its open compact stratum. The displayed
+\(\ell_1\) value for \(F\) is an infimum, not an attained minimum: the zero
+point minimizes the ambient linear family and compact \(F\) points approach
+it under scaling. The exact Python replay proves the 792-coordinate
+primal--dual optimization; the Lean theorem checks the serialized radical
+values and their strict order. Thus the family verdict is robust across
+total, quadratic, and worst-coordinate edit scores, but only on the
+classified compact locus and only after the coordinate norm is supplied.
+The equal-weight rule is a declared deterministic construction, not a
+consequence of the three axioms; none of the norms or the minimum-distance
+Jacobi repair is source-derived. Thus this is a target-clean conditional
+discriminator, not B14 closure or physical bracket selection.
 
 Over the supplied certified brackets, ad-invariance fixes the kinetic shape
 block-diagonally with exactly zero cross terms. On carrier-projector forms the

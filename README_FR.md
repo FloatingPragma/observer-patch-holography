@@ -91,21 +91,22 @@ données et certificats :
 2. **Une algèbre finie d’effets déclarée admet la représentation de Born.**
    Toute valuation normalisée, non négative et additive sur toutes les sommes
    d’effets coexistants est la trace contre une unique matrice de densité, y
-   compris en dimension deux. Le système d’effets produit par la source, le
-   pont opérationnel vers l’additivité ou les fréquences et l’instrument
-   physique restent ouverts ; l’accord des observateurs ne fournit pas seul
-   ces prémisses. Voir l’
+   compris en dimension deux. Le couple actuel expose algébriquement la
+   direction de phase complexe manquante, mais ne produit ni l’instrument ni
+   ses résultats. L’additivité opérationnelle et la validation physique
+   restent ouvertes. Voir l’
    [article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
    la [preuve des registres publics](Lean/EventAlgebra/PublicRecordAlgebra.lean)
    et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
 3. **Les flots de symétrie finis et les lois d’histoire admettent des
    représentations exactes par une action.** Sur une algèbre étoilée unitaire
-   de dimension finie, tout groupe continu à un paramètre est engendré bloc
-   par bloc par un hamiltonien. Pour une chaîne de Markov positive, l’action
+   finie, tout flot continu d’automorphismes est hamiltonien par blocs. Pour
+   une chaîne de Markov positive, l’action
    logarithmique représente sa loi des chemins à deux jauges près. Séparément,
-   Legendre relie les jonctions d’Euler--Lagrange aux pas hamiltoniens d’un
-   lagrangien déclaré. Aucun théorème ne produit la chaîne depuis ce flot ;
-   unités, horloges et attachement physique restent ouverts. Voir
+   Legendre relie les jonctions d’Euler--Lagrange aux pas hamiltoniens.
+   Les mêmes histoires binaires admettent plusieurs enrichissements réguliers et
+   hamiltoniens ; la règle d’enrichissement, les unités, les horloges et
+   l’attachement physique restent ouverts. Voir
    l’[article sur les observateurs](paper/observers_are_all_you_need.pdf) et la
    [preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean).
 4. **Les quatre lois forment un paquet fini conditionnel exact.** Une référence
@@ -198,7 +199,7 @@ supplémentaires, chacun énoncé avec sa frontière au bout du lien :
   Voir la
   [preuve de recouvrement](Lean/QFT/OperationalOverlapEvidence.lean).
 
-La bibliothèque Lean associée contient plus de 4300 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 4400 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà

@@ -16,6 +16,7 @@ import QFT.ConvexAffinityBridge
 import QFT.SourceConvexFamily
 import QFT.SourceContextWeb
 import QFT.SourceContextTomographyNoGo
+import QFT.SourcePhaseLiftBridge
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.TwoFactorHistoryBinding
@@ -91,7 +92,12 @@ bare-language predicate decides Einstein truth.
 The source context web mirrors the realized gauge elements through the
 exact two-dimensional representation with noncommutation certificates
 and the machine-readable boundary that realized statistics inhabit only
-the diagonal context. The gauge-irreducibility module derives the Born
+the diagonal context.  The phase-lift module proves that the normalized
+complex commutator of the earned noncommuting pair is exactly the missing
+Pauli-Y projector and completes fixed-trace operator tomography.  It also
+proves that a generous phase-free real effect closure remains Pauli-Y blind.
+This is an algebraic closure theorem, not a source instrument or outcome
+receipt. The gauge-irreducibility module derives the Born
 weights of the unique invariant state from finite Schur and realized
 covariance, with negative controls separating every hypothesis.
 `QFT.HistoryActionBinding` constructs a translation-invariant Gibbs kernel

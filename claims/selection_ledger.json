@@ -782,7 +782,7 @@
       "owner_issues": [
         705
       ],
-      "where": "The declared equal-weight cyclic rule on the twenty pinned oriented faces gives exactly 60 R13 and an exact 240-coordinate Jacobi failure. Under the separately declared upper-triangular structure-constant metric, orthogonal projection onto the certified compact locus uniquely favors family G. Neither the equal-weight rule nor minimum-distance Jacobi repair is derived from the OPH source, so the physical bracket selection remains open.",
+      "where": "The declared equal-weight cyclic rule on the twenty pinned oriented faces gives exactly 60 R13 and an exact 240-coordinate Jacobi failure. On the same 792 upper-triangular coordinates, exact primal-dual certificates make family G win total absolute, squared Euclidean, and worst-coordinate edit comparisons with the classified compact locus; the competing F total-edit value is an unattained infimum. Neither the equal-weight rule, any of the three basis-dependent norms, nor minimum-distance Jacobi repair is derived from the OPH source, so physical bracket selection remains open.",
       "menu": {
         "size": null,
         "alternatives": "no source-derived finite menu of Jacobi-repair laws has been enumerated",
@@ -796,12 +796,13 @@
       "lean": [
         {
           "module": "Lean/Screen/OrientedFaceBracketSelector.lean",
-          "declaration": "unique_nearest_G"
+          "declaration": "three_norm_unique_nearest_G"
         }
       ],
       "negative_controls": [
         "the equal-weight face bracket itself fails Jacobi, so equivariance and source incidence do not make it a Lie bracket",
-        "changing or removing the declared metric removes the nearest-family conclusion"
+        "changing or removing the declared coordinate norms removes the audited nearest-family conclusion",
+        "the three-norm agreement does not compare against the full Jacobi variety and does not supply a repair dynamics"
       ],
       "paper_anchors": []
     }

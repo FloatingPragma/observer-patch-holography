@@ -258,6 +258,16 @@ the observer's patches. When the reference is flat, this is plain local
 entropy maximization: the least opinionated state the constraints allow. It
 is Jaynes's die, played across a federation of patches at once.
 
+The finite matrix formalization has an exact first step and a sharp warning.
+For any projective record partition, erasing cross-record coherences is the
+uniform average over all independently signed block reflections. But a
+matrix logarithm that simply declares $\log 0=0$ cannot define the required
+support-aware relative entropy: it assigns zero to two orthogonal pure states
+even though one state's support is absent from the other. The full spectral
+majorization, extended-entropy, and information-projection package therefore
+needs an explicit support layer; it cannot be obtained by silently
+totalizing the logarithm.
+
 ### Where the Four Laws Come From
 
 Chapter 4 treated thermodynamics as a hint, a set of laws discovered from
