@@ -187,6 +187,19 @@ surface for the OPH consensus layer. Contents:
   is a basis-dependent supplied premise, and the comparison covers only the
   classified compact locus. Issues #705 and #697 track source bracket
   selection and current realization. See `B14_ORIENTED_FACE_SELECTOR.md`.
+- A sorry-free **B14 invariant-metric phase diagram** in
+  `Screen/OrientedFaceInvariantMetric.lean` over the independently replayed
+  `invariant_metric_phase` certificate: the commutant of the port action is
+  four dimensional and spanned by the symmetric spectral projectors, so the
+  positive sector-scale cone is the complete family of invariant carrier
+  inner products; the induced bracket metric is channel-diagonal, and the
+  certified closed forms give quantified real theorems: `P` is excluded for
+  every invariant metric, every sector-balanced metric and every metric with
+  `beta/delta` in `[1/50, 6]` selects `G` uniquely, `F` takes over exactly
+  past the chirality threshold with witness `(8,1,1)`, and Galois
+  conjugation with the sector swap exchanges the two mirror families. The
+  nearest-point rule and carrier-induced class remain declared; nothing here
+  is source selection. See `B14_ORIENTED_FACE_SELECTOR.md`.
 - A sorry-free abstract **A2 holonomy bridge** in
   `Screen/A2HolonomyBridge.lean`: the projective implementer group, the
   supplied port-response flow, and its algebraically generated subgroup are
@@ -355,8 +368,15 @@ surface for the OPH consensus layer. Contents:
   `Variational/RealizedHistoryLegendreNoGo.lean` proves that the same binary
   source law admits distinct strictly convex real enrichments and distinct
   Hamiltonians while the canonical bilinear extension has no global momentum
-  solver. The source does not select the real curvature. Issue #683 tracks
-  reference selection, physical action, clock, amplitude, fields, continuum,
+  solver. The source does not select the real curvature.
+  `InformationProjection/ReferenceNormalForm.lean` fixes the reference gauge:
+  target-relabeling invariance, row-constant weight, and constant step
+  action each characterize the uniform kernel among row-stochastic kernels,
+  so every invariant Markov reference has path law `stepUniformRef` exactly,
+  with a biased two-state negative control; the invariance principle is a
+  normal-form convention, not a source product. Issue #683 tracks
+  source selection of the reference principle, physical action, clock,
+  amplitude, fields, continuum,
   and observable current. See `B7_HISTORY_BRIDGE.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and

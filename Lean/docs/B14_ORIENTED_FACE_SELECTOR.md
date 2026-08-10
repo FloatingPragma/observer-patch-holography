@@ -34,12 +34,65 @@ optimizations and their feasibility conditions. Lean checks the serialized
 radical values and strict family order; `three_norm_unique_nearest_G` proves
 that `G` wins every one of the three encoded comparisons.
 
+## Carrier-induced invariant-metric phase diagram
+
+`code/b14_jacobi/invariant_metric_phase.py` removes the basis dependence of
+the quadratic rule.  The pinned carrier splits multiplicity-free into sectors
+`1 + 3 + 3' + 5`; the commutant of the port action has exact dimension four
+and is spanned by the four symmetric spectral projectors, so the complete
+family of invariant carrier inner products is the positive sector-scale cone
+`alpha P_1 + beta P_3 + gamma P_3' + delta P_5`.  Every such metric induces a
+Hilbert--Schmidt metric on the bracket space that is diagonal across the
+fourteen channels (all cross pairings vanish identically), and the squared
+distances from the face bracket to the classified compact families are the
+exact three-term Laurent forms
+
+```
+d_P^2 = (15-3s)/beta + (15+3s)/gamma + ((15-3s)/2) beta/delta^2 + ((15+3s)/2) gamma/delta^2
+d_F^2 = ((15+3s)/2) gamma/delta^2 + (15+3s)/gamma + (60+12s)/(11 beta)
+d_G^2 = ((15-3s)/2) beta/delta^2 + (15-3s)/beta + (60-12s)/(11 gamma)
+```
+
+with `s = sqrt(5)`; `alpha` never appears.  The certified phase diagram:
+
+- `P` is strictly excluded for every invariant carrier metric (both gap
+  tables are coefficient-positive);
+- every sector-balanced metric (`gamma = beta`) selects `G` strictly, with
+  gap `3 s beta/delta^2 + (90 s/11)/beta`;
+- every metric with `beta/delta` in `[1/50, 6]` selects `G` for all `gamma`
+  and `delta`;
+- `F` becomes nearest only past an explicit chirality threshold in
+  `beta/delta`; the exact witness `(beta,gamma,delta) = (8,1,1)` has
+  `d_F^2 < d_G^2`;
+- conjugating `sqrt(5)` and swapping `beta <-> gamma` maps `d_G` to `d_F`
+  exactly: the `F`/`G` asymmetry is the Galois image of the sector swap, and
+  the face orientation selects the branch with the smaller conjugate at every
+  balanced point;
+- a channel-diagonal invariant metric on the bracket space that is not
+  carrier-induced reverses the balanced-point selection, so
+  carrier-inducedness is load-bearing (carrier-induced metrics force the
+  normalized `t_pp_to_p` and `t_pf_to_f` weights to share one monomial).
+
+`verify_invariant_metric_phase.py` independently replays the commutant
+system, the projector membership, every sample point through the raw carrier
+metric, and every sign fact.  `Screen/OrientedFaceInvariantMetric.lean`
+proves the phase consequences as quantified real theorems over the closed
+forms (`dG2_lt_dP2`, `dF2_lt_dP2`, `balanced_unique_nearest_G`,
+`box_unique_nearest_G`, `F_wins_at_witness`) and ties the reference point to
+the pinned selector distances.
+
 ## Open boundary
 
-The face incidence is pinned input, and each norm is a basis-dependent added
-premise. Neither a norm, a minimum-distance Jacobi repair rule, nor a physical
-bracket producer is selected by the source. The comparison ranges only over
+The face incidence is pinned input.  For the quadratic rule the metric choice
+is now characterized rather than declared coordinate data: the comparison is
+robust over the complete carrier-induced invariant class, with balance in the
+two three-dimensional sectors as the stated sufficient condition and an exact
+chirality threshold beyond it.  The nearest-point repair rule, the
+restriction to carrier-induced metrics, and the `L1`/`Linfinity` coordinate
+rules remain declared discriminator choices, and none of them is
+source-derived.  Neither a minimum-distance Jacobi repair law nor a physical
+bracket producer is selected by the source.  The comparison ranges only over
 the compact locus classified under the three named compact-Lie inputs; it is
 not a classification of the full Jacobi variety or its noncompact
-components. Ordered source tomography, source bracket selection, and
+components.  Ordered source tomography, source bracket selection, and
 same-current holonomy remain open under issues #705 and #697.

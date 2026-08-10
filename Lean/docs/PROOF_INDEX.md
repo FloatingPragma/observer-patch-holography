@@ -446,7 +446,16 @@ Mapping between Lean 4 theorems in this project and statements in
   velocity and has no global momentum solver. Distinct strictly convex real
   enrichments agree on every realized binary history yet give distinct
   Hamiltonians. Thus the source law does not select real variation curvature.
-  Reference and real-enrichment selection, physical action, clock, amplitudes,
+  `InformationProjection/ReferenceNormalForm.lean` adds the reference gauge
+  normal form: among row-stochastic kernels, target-relabeling invariance,
+  row-constant weight, and constant log-transition step action are each
+  equivalent to the uniform kernel, so any invariant Markov reference has
+  path law `stepUniformRef` exactly (`relabel_invariant_iff_uniform`,
+  `constant_step_action_iff_uniform`, `unique_invariant_reference`), with a
+  biased two-state kernel as the load-bearing negative control. The
+  invariance principle is a stated normal-form convention, not a source
+  product. Source selection of the reference principle and real enrichment,
+  physical action, clock, amplitudes,
   fields, continuum, and observable-current attachments remain open under
   #683. See `B7_HISTORY_BRIDGE.md`.
 - B8 finite Green--Kubo and graph transport
@@ -948,6 +957,32 @@ Mapping between Lean 4 theorems in this project and statements in
   nor a classification of the full Jacobi variety. Issues #705 and #697 stay
   open for source reconstruction and physical current attachment. See
   `B14_ORIENTED_FACE_SELECTOR.md`.
+- #705 carrier-induced invariant-metric phase diagram
+  (`Screen/OrientedFaceInvariantMetric.lean` with the independently replayed
+  `code/b14_jacobi/invariant_metric_phase.py` certificate): the carrier
+  splits multiplicity-free into `1 + 3 + 3' + 5`, the commutant is four
+  dimensional (the linear-system replay in the verifier and the
+  kernel-checked orbital span in `Screen/A5Commutant.lean` agree), and the
+  four symmetric spectral projectors span it, so the complete family of
+  invariant carrier inner products is the positive sector-scale cone. The
+  induced bracket-space metric is channel-diagonal for every member, and the
+  certificate derives the exact three-term Laurent closed forms for the
+  squared distances from the face bracket to the classified compact
+  families. The Lean module proves the phase facts as quantified real
+  theorems: `P` is strictly excluded everywhere (`dG2_lt_dP2`,
+  `dF2_lt_dP2`), every sector-balanced metric selects `G`
+  (`balanced_unique_nearest_G`), every metric with `beta/delta` in
+  `[1/50, 6]` selects `G` for all `gamma` and `delta`
+  (`box_unique_nearest_G`), `F` genuinely wins past the chirality threshold
+  (`F_wins_at_witness` at `(8,1,1)`), and the reference point reproduces the
+  pinned selector distances (`reference_P/F/G`). Galois conjugation with the
+  sector swap maps `d_G` to `d_F` exactly, and a non-carrier-induced control
+  reverses the balanced-point selection. Sorry-free, standard axioms, no
+  `native_decide`. The closed-form derivation from the pinned tensors is
+  certificate content, the nearest-point rule and carrier-induced class are
+  declared discriminator choices, the comparison is conditional on the
+  classified compact locus, and no source selection or physical current is
+  claimed. See `B14_ORIENTED_FACE_SELECTOR.md`.
 - #568 icosahedral-lane completion (`Screen/A5Commutant.lean`,
   `Screen/A5IncidenceResponse.lean`, `Screen/TraceBalancedKernel.lean`,
   `Screen/TrichotomyCases.lean`, plus removability controls in

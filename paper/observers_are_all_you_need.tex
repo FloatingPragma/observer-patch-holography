@@ -2064,7 +2064,15 @@ Legendre transform; the strict-convexity gap is
 convexity, and the \(a=1,2\) distinction are checked in Lean.
 \end{proof}
 
-The reference measure remains a declared object, and the package supplies no
+The reference measure is characterized exactly rather than declared:
+among row-stochastic kernels, invariance under every relabeling of
+transition targets, row-constant transition weight, and constant
+log-transition step action are each exactly equivalent to the uniform
+kernel, so any target-relabeling-invariant Markov reference has the
+step-uniform path law, and a biased two-state control shows the invariance
+premise is load-bearing.  This fixes the reference gauge by an invariance
+convention, exactly as a coordinate convention is fixed; the invariance
+principle itself is stated, not source-produced.  The package supplies no
 identification of \(A_{\mathrm{eff}}\) with the local action, no
 identification of the finite scalar chain constant with a vector-valued or
 physical current, no complex amplitude, interference rule, physical clock,

@@ -72,6 +72,8 @@ PARENTS = {
     / "gauge_kinetic_invariant_forms.certificate.json",
     "oriented_face_bracket_selector": CODE / "b14_jacobi"
     / "oriented_face_bracket_selector.certificate.json",
+    "invariant_metric_phase": CODE / "b14_jacobi"
+    / "invariant_metric_phase.certificate.json",
 }
 
 LEAN_RECEIPTS = {
@@ -197,6 +199,7 @@ LEAN_RECEIPTS = {
     "CarrierFrequencySpeed": LEAN_SCREEN / "CarrierFrequencySpeed.lean",
     "GaugeKineticInvariantForms": LEAN_SCREEN / "GaugeKineticInvariantForms.lean",
     "OrientedFaceBracketSelector": LEAN_SCREEN / "OrientedFaceBracketSelector.lean",
+    "OrientedFaceInvariantMetric": LEAN_SCREEN / "OrientedFaceInvariantMetric.lean",
     "OperationalOverlapEvidence": REPO / "Lean" / "QFT"
     / "OperationalOverlapEvidence.lean",
     "CommonReferenceObstruction": REPO / "Lean" / "Thermodynamics"
@@ -400,6 +403,7 @@ def _forced_structure(
     carrier_frequency: dict[str, Any],
     gauge_kinetic: dict[str, Any],
     oriented_face: dict[str, Any],
+    invariant_metric: dict[str, Any],
 ) -> list[dict[str, Any]]:
     spectrum = matter["realized_package"]["charge_spectrum"]
     sm_spectrum = {"-1/2": 2, "-2/3": 3, "1": 1, "1/3": 3, "1/6": 6}
@@ -797,6 +801,70 @@ def _forced_structure(
                 "values and order. The result compares only with the "
                 "classified compact locus and does not close B14 or select a "
                 "physical gauge bracket"
+            ),
+            "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
+        },
+        {
+            "id": "invariant_metric_phase_diagram",
+            "statement": (
+                "The carrier splits multiplicity-free into 1+3+3'+5 and the "
+                "commutant of the port action is exactly four-dimensional, "
+                "spanned by the four symmetric spectral projectors, so the "
+                "positive sector-scale cone is the complete family of "
+                "invariant carrier inner products. Every induced bracket "
+                "metric is channel-diagonal, and the squared distances from "
+                "the face bracket to the classified compact families are "
+                "exact three-term Laurent forms in the sector scales with "
+                "the fixed-sector scale absent. P is strictly excluded for "
+                "every invariant metric; every sector-balanced metric and "
+                "every metric with beta/delta in [1/50, 6] selects G "
+                "uniquely for all gamma and delta; F becomes nearest only "
+                "past the exact chirality threshold, with witness (8,1,1); "
+                "and Galois conjugation with the sector swap maps d_G to "
+                "d_F exactly. A non-carrier-induced channel reweighting "
+                "reverses the balanced-point selection"
+            ),
+            "observed_counterpart": (
+                "a metric-robust phase diagram for the finite source-incidence "
+                "discriminator over the complete invariant carrier-metric cone"
+            ),
+            "match": (
+                "exact conditional phase diagram; no source metric or repair law"
+            ),
+            "artifact_ref": _rel("invariant_metric_phase"),
+            "receipt_sha256": invariant_metric["certificate_sha256"],
+            "lean_declarations": {
+                "OrientedFaceInvariantMetric": [
+                    "reference_G",
+                    "dG2_lt_dP2",
+                    "dF2_lt_dP2",
+                    "balanced_unique_nearest_G",
+                    "box_unique_nearest_G",
+                    "F_wins_at_witness",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "OrientedFaceInvariantMetric",
+                declarations={
+                    "OrientedFaceInvariantMetric": (
+                        "reference_G",
+                        "dG2_lt_dP2",
+                        "dF2_lt_dP2",
+                        "balanced_unique_nearest_G",
+                        "box_unique_nearest_G",
+                        "F_wins_at_witness",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "the closed forms are certificate content derived from the "
+                "pinned tensors by the independently replayed producer; Lean "
+                "proves the phase consequences as quantified real theorems "
+                "over those forms. The nearest-point repair rule and the "
+                "restriction to carrier-induced metrics are declared "
+                "discriminator choices, the comparison is conditional on the "
+                "classified compact locus, and no metric, bracket, current, "
+                "or physical gauge structure is source-selected"
             ),
             "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
         },
@@ -3527,6 +3595,7 @@ def build(
     carrier_frequency = _load("carrier_frequency_speed")
     gauge_kinetic = _load("gauge_kinetic_invariant_forms")
     oriented_face = _load("oriented_face_bracket_selector")
+    invariant_metric = _load("invariant_metric_phase")
     alpha_hvp_verdict = _load("alpha_hvp_verdict")
     payload = _load("hadron_payload")
     standby = _load("solver_standby")
@@ -3542,6 +3611,7 @@ def build(
             carrier_frequency,
             gauge_kinetic,
             oriented_face,
+            invariant_metric,
         ),
         "quantum_carrier_status": _quantum_carrier_status_row(
             quantum_carrier_status

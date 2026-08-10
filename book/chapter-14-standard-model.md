@@ -670,7 +670,17 @@ the Jacobi identity in 240 independent coordinates. The exact comparison is
 more robust than one least-squares fit: $G$ is the nearest classified compact
 family under total absolute edit, quadratic edit, and worst-coordinate edit.
 For the absolute-edit comparison, the competing $F$ value is an infimum
-approached by compact brackets rather than an attained minimum. All three
+approached by compact brackets rather than an attained minimum.
+
+The verdict
+also does not depend on how the comparison weighs the screen's sectors. The
+quadratic score can be computed with any symmetric way of measuring lengths
+on the twelve ports, and there is an exact map of every such choice: the
+two-factor family $P$ never comes closest, every even-handed weighting picks
+$G$, and only a weighting lopsided between the two mirror sectors by more
+than about seven to one flips the answer to the mirror family $F$. The two
+mirror families sit at exactly conjugate distances, and the face orientation
+is what breaks the tie toward $G$. The remaining
 coordinate norms and the instruction “repair by the nearest bracket” are
 additional choices, not consequences of the observer axioms. The result is a
 robust conditional discriminator rather than a derivation of the physical

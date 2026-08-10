@@ -34,11 +34,15 @@ quotient require same-source response, character-completeness, and
 loop-to-kernel receipts. The compact locus of the equivariant Jacobi
 variety is classified into three certified bracket families with exact
 carrier-selected global forms. A declared equal-weight oriented-face bracket
-is exactly \(60R_{13}\), has \(240\) nonzero Jacobi coordinates, and,
-conditional on any one of three added coordinate repair norms
-\(\ell_1,\ell_2,\ell_\infty\), has family \(G\) uniquely nearest among the
-classified compact locus. The rule, norms, and minimum-repair law are not
-source-derived.
+is exactly \(60R_{13}\), has \(240\) nonzero Jacobi coordinates, and has
+family \(G\) uniquely nearest among the classified compact locus under
+each of three added coordinate repair norms
+\(\ell_1,\ell_2,\ell_\infty\) and, in the quadratic case, under every
+invariant carrier metric that is balanced in the two mirror
+three-dimensional sectors or whose \(3^+\) scale stays within the exact
+chirality box \(\beta/\delta\in[1/50,6]\); \(P\) is excluded for the
+complete invariant cone. The rule, the nearest-point law, and the
+carrier-induced metric class are not source-derived.
 Over each supplied bracket, ad-invariance leaves one coefficient per simple
 factor. In particular, the \(F/G\) carrier-form spaces drop exactly from
 dimension three to two, while the \(P\) control remains two-dimensional.
@@ -180,6 +184,47 @@ The equal-weight rule is a declared deterministic construction, not a
 consequence of the three axioms; none of the norms or the minimum-distance
 Jacobi repair is source-derived. Thus this is a target-clean conditional
 discriminator, not B14 closure or physical bracket selection.
+
+The quadratic verdict is additionally metric-robust over the complete
+invariant class. The carrier splits multiplicity-free as \(1+3+3'+5\), and
+the commutant of the port action is exactly four-dimensional, spanned by the
+four symmetric spectral projectors; hence every invariant carrier inner
+product is a positive sector-scale metric
+\(\alpha P_1+\beta P_3+\gamma P_{3'}+\delta P_5\), and every induced
+Hilbert--Schmidt metric on structure constants is diagonal across the
+fourteen equivariant channels. The squared distances from \(B_{\rm face}\)
+to the classified compact families are the exact closed forms
+\[
+\begin{aligned}
+ d_P^2&=\frac{15-3\sqrt5}{\beta}+\frac{15+3\sqrt5}{\gamma}
+   +\frac{15-3\sqrt5}{2}\,\frac{\beta}{\delta^2}
+   +\frac{15+3\sqrt5}{2}\,\frac{\gamma}{\delta^2},\\
+ d_F^2&=\frac{15+3\sqrt5}{2}\,\frac{\gamma}{\delta^2}
+   +\frac{15+3\sqrt5}{\gamma}+\frac{60+12\sqrt5}{11\beta},\qquad
+ d_G^2=\frac{15-3\sqrt5}{2}\,\frac{\beta}{\delta^2}
+   +\frac{15-3\sqrt5}{\beta}+\frac{60-12\sqrt5}{11\gamma},
+\end{aligned}
+\]
+with \(\alpha\) absent. Both gaps \(d_P^2-d_G^2\) and \(d_P^2-d_F^2\)
+are coefficient-positive Laurent polynomials, so \(P\) is strictly
+excluded for every invariant carrier metric. At \(\gamma=\beta\) the gap
+is \(d_F^2-d_G^2=3\sqrt5\,\beta/\delta^2+(90\sqrt5/11)/\beta>0\), so
+every sector-balanced metric selects \(G\); and for every metric with
+\(\beta/\delta\in[1/50,6]\) the family \(G\) stays uniquely nearest for
+all \(\gamma\) and \(\delta\). The mirror family \(F\) genuinely takes
+over past the exact tie surface, with witness
+\((\beta,\gamma,\delta)=(8,1,1)\). Conjugating \(\sqrt5\) and swapping
+\(\beta\leftrightarrow\gamma\) maps \(d_G\) to \(d_F\) exactly: the
+\(F/G\) asymmetry is the Galois image of the sector swap, and the face
+orientation selects the branch with the smaller conjugate at every balanced
+point. A channel-diagonal invariant metric on the bracket space that is not
+carrier-induced reverses the balanced-point selection, so the
+carrier-induced restriction is load-bearing. The exact replay derives the
+closed forms from the pinned tensors and replays six sample metrics through
+raw normal equations; the Lean companion proves the exclusion, balanced,
+box, and witness statements as quantified real theorems over the closed
+forms. The nearest-point law and the carrier-induced class remain declared
+discriminator choices.
 
 Over the supplied certified brackets, ad-invariance fixes the kinetic shape
 block-diagonally with exactly zero cross terms. On carrier-projector forms the

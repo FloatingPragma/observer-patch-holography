@@ -3,6 +3,7 @@ import InformationProjection.GlobalObjective
 import InformationProjection.HistoryLaw
 import InformationProjection.SourceHistoryPacket
 import InformationProjection.LogTransitionAction
+import InformationProjection.ReferenceNormalForm
 
 /-!
 # Information-projection umbrella root

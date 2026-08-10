@@ -76,12 +76,29 @@ solver, midpoint, and distinct-Hamiltonian controls. The finite source law
 therefore does not select a real variation curvature or Hamiltonian
 enrichment.
 
+## Reference normal form
+
+`InformationProjection/ReferenceNormalForm.lean` characterizes the declared
+reference exactly.  Among row-stochastic kernels, invariance under every
+relabeling of transition targets, row-constant transition weight, and
+constant log-transition step action are each equivalent to the uniform
+kernel (`relabel_invariant_iff_uniform`, `row_const_iff_uniform`,
+`constant_step_action_iff_uniform`), and any target-relabeling-invariant
+row-stochastic Markov reference has path law equal to `stepUniformRef`
+(`unique_invariant_reference`).  A biased two-state control is
+row-stochastic, strictly positive, and neither invariant nor uniform, so the
+invariance premise is load-bearing.  This fixes the reference gauge by an
+invariance property, exactly as a coordinate convention is fixed; it is a
+representation-level normal-form theorem, not a source selection.
+
 ## Open B7 obligations
 
 The package does not:
 
-- derive the reference measure; the initial law times the uniform-step
-  counting weight is a declared object;
+- source-select the reference measure; the step-uniform reference is now
+  characterized as the unique target-relabeling-invariant Markov reference,
+  but the invariance principle itself is a stated normal-form convention,
+  not a source product;
 - select one real continuation away from the binary history alphabet; the
   exact source law admits the distinct strictly convex `a = 1` and `a = 2`
   enrichments above;

@@ -1,0 +1,726 @@
+{
+ "certificate_sha256": "sha256:9bb6ca0967b82d4c06798aa8b5cce76d9d0d5dac26f496d7f488e9d90acbfb19",
+ "channel_norm_monomials": {
+  "t_ff_to_m": {
+   "monomial": "gamma_over_delta_sq",
+   "norm": [
+    600,
+    1,
+    120,
+    1
+   ]
+  },
+  "t_ff_to_p": {
+   "monomial": "beta_over_delta_sq",
+   "norm": [
+    600,
+    1,
+    -120,
+    1
+   ]
+  },
+  "t_mf_to_f": {
+   "monomial": "inv_gamma",
+   "norm": [
+    1200,
+    1,
+    240,
+    1
+   ]
+  },
+  "t_mm_to_m": {
+   "monomial": "inv_gamma",
+   "norm": [
+    600,
+    1,
+    120,
+    1
+   ]
+  },
+  "t_pf_to_f": {
+   "monomial": "inv_beta",
+   "norm": [
+    1200,
+    1,
+    -240,
+    1
+   ]
+  },
+  "t_pp_to_p": {
+   "monomial": "inv_beta",
+   "norm": [
+    600,
+    1,
+    -120,
+    1
+   ]
+  }
+ },
+ "claim_boundary": "This certificate proves the exact phase diagram of the nearest-classified-compact-family rule over the complete four-parameter cone of invariant carrier inner products: P is excluded everywhere, every sector-balanced metric and every metric with beta/delta in [1/50, 6] selects G, and F requires an explicit sector-asymmetric (chiral) metric past the exact tie surface.  The comparison ranges over the compact locus classified by the pinned certificate, conditional on its three named textbook lemmas.  The nearest-point repair rule and the carrier-induced metric class are declared discriminator choices; no norm, bracket, current, or physical gauge structure is source-selected, and no laboratory identification is made.",
+ "closed_forms": {
+  "alpha_absent": true,
+  "coupled_minimizers": {
+   "F": {
+    "K": [
+     60,
+     11,
+     12,
+     11
+    ],
+    "a": [
+     -1,
+     22,
+     1,
+     220
+    ],
+    "b": [
+     0,
+     1,
+     1,
+     20
+    ],
+    "open_stratum_sign": "a*b < 0 holds strictly"
+   },
+   "G": {
+    "K": [
+     60,
+     11,
+     -12,
+     11
+    ],
+    "a": [
+     -1,
+     22,
+     -1,
+     220
+    ],
+    "b": [
+     0,
+     1,
+     -1,
+     20
+    ],
+    "open_stratum_sign": "a*b > 0 holds strictly"
+   }
+  },
+  "d_F_squared": {
+   "gamma_over_delta_sq": [
+    15,
+    2,
+    3,
+    2
+   ],
+   "inv_beta": [
+    60,
+    11,
+    12,
+    11
+   ],
+   "inv_gamma": [
+    15,
+    1,
+    3,
+    1
+   ]
+  },
+  "d_G_squared": {
+   "beta_over_delta_sq": [
+    15,
+    2,
+    -3,
+    2
+   ],
+   "inv_beta": [
+    15,
+    1,
+    -3,
+    1
+   ],
+   "inv_gamma": [
+    60,
+    11,
+    -12,
+    11
+   ]
+  },
+  "d_P_squared": {
+   "beta_over_delta_sq": [
+    15,
+    2,
+    -3,
+    2
+   ],
+   "gamma_over_delta_sq": [
+    15,
+    2,
+    3,
+    2
+   ],
+   "inv_beta": [
+    15,
+    1,
+    -3,
+    1
+   ],
+   "inv_gamma": [
+    15,
+    1,
+    3,
+    1
+   ]
+  },
+  "monomial_basis": [
+   "beta_over_delta_sq",
+   "inv_beta",
+   "gamma_over_delta_sq",
+   "inv_gamma"
+  ],
+  "norm_face": {
+   "beta_over_delta_sq": [
+    15,
+    2,
+    -3,
+    2
+   ],
+   "gamma_over_delta_sq": [
+    15,
+    2,
+    3,
+    2
+   ],
+   "inv_beta": [
+    45,
+    2,
+    -9,
+    2
+   ],
+   "inv_gamma": [
+    45,
+    2,
+    9,
+    2
+   ]
+  }
+ },
+ "completeness": {
+  "commutant_dimension_over_Q": 4,
+  "projectors_symmetric_orthogonal_idempotent_invariant": true,
+  "sector_dimensions": {
+   "five": 5,
+   "fixed": 1,
+   "three_minus": 3,
+   "three_plus": 3
+  },
+  "statement": "the ordered-pair orbit count of the proper port action is four, so the commutant is four dimensional and is spanned by the four symmetric invariant spectral projectors; the commutation system is rational, so its solution dimension is the same over the reals, and every invariant inner product on the carrier is a positive sector-scale metric"
+ },
+ "diagonality": {
+  "all_cross_pairings_vanish": true,
+  "cross_channel_pairs_checked": 91
+ },
+ "face_channel_coordinates": {
+  "d_five": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "d_minus": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "d_plus": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "t_ff_to_m": [
+   0,
+   1,
+   -1,
+   20
+  ],
+  "t_ff_to_p": [
+   0,
+   1,
+   1,
+   20
+  ],
+  "t_mf_to_f": [
+   0,
+   1,
+   -1,
+   20
+  ],
+  "t_mf_to_m": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "t_mf_to_p": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "t_mm_to_m": [
+   0,
+   1,
+   -1,
+   20
+  ],
+  "t_pf_to_f": [
+   0,
+   1,
+   1,
+   20
+  ],
+  "t_pf_to_m": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "t_pf_to_p": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "t_pm_to_f": [
+   0,
+   1,
+   0,
+   1
+  ],
+  "t_pp_to_p": [
+   0,
+   1,
+   1,
+   20
+  ]
+ },
+ "galois_duality": {
+  "statement": "conjugating sqrt5 and swapping beta <-> gamma maps d_G to d_F exactly",
+  "verified": true
+ },
+ "implementation_pins": {
+  "producer_sha256": "sha256:498e8838a84d76a2d994929ef568eb0008bfde6315233072a8da98e3a06d7471",
+  "verifier_sha256": "sha256:9e972b121bad774aecf4118acce77c03b174fc4df2aa128cb230f11ed66e0d50"
+ },
+ "issue": "https://github.com/FloatingPragma/observer-patch-holography/issues/705",
+ "non_induced_control": {
+  "channel_scaled": "t_pf_to_f",
+  "d_F_control": [
+   3465,
+   122,
+   693,
+   122
+  ],
+  "d_G_control": [
+   2265,
+   22,
+   -453,
+   22
+  ],
+  "scale": [
+   6,
+   1
+  ],
+  "statement": "scaling the t_pf_to_f channel weight by six at the balanced reference point reverses the selection to F; carrier-induced metrics force the t_pp_to_p and t_pf_to_f weights to share the monomial 1/beta, so this control metric is invariant on the bracket space but not carrier-induced, and carrier-inducedness is load-bearing"
+ },
+ "phase_diagram": {
+  "F_region_witness": {
+   "d_F_squared": [
+    255,
+    11,
+    51,
+    11
+   ],
+   "d_G_squared": [
+    5925,
+    88,
+    -1185,
+    88
+   ],
+   "point": {
+    "beta": [
+     8,
+     1
+    ],
+    "delta": [
+     1,
+     1
+    ],
+    "gamma": [
+     1,
+     1
+    ]
+   },
+   "statement": "at beta = 8 delta the F family is strictly nearer, so the sector-asymmetry threshold is real"
+  },
+  "P_exclusion": {
+   "gap_P_minus_F": {
+    "beta_over_delta_sq": [
+     15,
+     2,
+     -3,
+     2
+    ],
+    "inv_beta": [
+     105,
+     11,
+     -45,
+     11
+    ]
+   },
+   "gap_P_minus_G": {
+    "gamma_over_delta_sq": [
+     15,
+     2,
+     3,
+     2
+    ],
+    "inv_gamma": [
+     105,
+     11,
+     45,
+     11
+    ]
+   },
+   "statement": "both gaps are coefficient-positive Laurent polynomials, so P is strictly excluded for every invariant carrier metric"
+  },
+  "balanced_slice": {
+   "gap_F_minus_G_at_balanced": {
+    "beta_over_delta_sq": [
+     0,
+     1,
+     3,
+     1
+    ],
+    "inv_beta": [
+     0,
+     1,
+     90,
+     11
+    ]
+   },
+   "statement": "at gamma = beta the F-G gap is 3 sqrt5 beta/delta^2 + (90 sqrt5/11)/beta > 0, so every sector-balanced invariant metric selects G"
+  },
+  "constants": {
+   "C_minus": [
+    105,
+    11,
+    -45,
+    11
+   ],
+   "C_plus": [
+    105,
+    11,
+    45,
+    11
+   ],
+   "aF1": [
+    15,
+    2,
+    3,
+    2
+   ],
+   "aG1": [
+    15,
+    2,
+    -3,
+    2
+   ],
+   "galois_conjugate_pairs": true
+  },
+  "phase_box": {
+   "K": [
+    28,
+    1,
+    0,
+    1
+   ],
+   "h_discriminant": [
+    4124,
+    11,
+    -180,
+    1
+   ],
+   "interval": [
+    [
+     1,
+     50
+    ],
+    [
+     6,
+     1
+    ]
+   ],
+   "parabola_endpoint_high": [
+    1227,
+    11,
+    -639,
+    11
+   ],
+   "parabola_endpoint_low": [
+    98873,
+    11000,
+    -225033,
+    55000
+   ],
+   "statement": "for beta/delta in [1/50, 6] the k-branch stays below 28 while the h-branch exceeds 28 for every gamma, so G is selected on the whole box for all gamma and delta"
+  },
+  "tie_surface": "h(gamma/delta) = k(beta/delta) with h(v) = aF1 v + C_plus/v and k(u) = aG1 u + C_minus/u"
+ },
+ "reference_point": {
+  "d_F_squared": [
+   615,
+   22,
+   123,
+   22
+  ],
+  "d_G_squared": [
+   615,
+   22,
+   -123,
+   22
+  ],
+  "d_P_squared": [
+   45,
+   1,
+   0,
+   1
+  ],
+  "matches_pinned_selector_l2": true
+ },
+ "samples": [
+  {
+   "families": {
+    "F": [
+     615,
+     22,
+     123,
+     22
+    ],
+    "G": [
+     615,
+     22,
+     -123,
+     22
+    ],
+    "P": [
+     45,
+     1,
+     0,
+     1
+    ]
+   },
+   "scales": {
+    "beta": [
+     1,
+     1
+    ],
+    "delta": [
+     1,
+     1
+    ],
+    "gamma": [
+     1,
+     1
+    ]
+   }
+  },
+  {
+   "families": {
+    "F": [
+     949,
+     110,
+     949,
+     550
+    ],
+    "G": [
+     1091,
+     110,
+     -1091,
+     550
+    ],
+    "P": [
+     14,
+     1,
+     -11,
+     25
+    ]
+   },
+   "scales": {
+    "beta": [
+     2,
+     1
+    ],
+    "delta": [
+     5,
+     1
+    ],
+    "gamma": [
+     3,
+     1
+    ]
+   }
+  },
+  {
+   "families": {
+    "F": [
+     4595,
+     462,
+     919,
+     462
+    ],
+    "G": [
+     4945,
+     462,
+     -989,
+     462
+    ],
+    "P": [
+     120,
+     7,
+     5,
+     21
+    ]
+   },
+   "scales": {
+    "beta": [
+     7,
+     1
+    ],
+    "delta": [
+     3,
+     1
+    ],
+    "gamma": [
+     2,
+     1
+    ]
+   }
+  },
+  {
+   "families": {
+    "F": [
+     11975,
+     1056,
+     2395,
+     1056
+    ],
+    "G": [
+     16975,
+     1056,
+     -3395,
+     1056
+    ],
+    "P": [
+     1025,
+     48,
+     -23,
+     12
+    ]
+   },
+   "scales": {
+    "beta": [
+     1,
+     1
+    ],
+    "delta": [
+     4,
+     1
+    ],
+    "gamma": [
+     9,
+     1
+    ]
+   }
+  },
+  {
+   "families": {
+    "F": [
+     1809,
+     44,
+     1809,
+     220
+    ],
+    "G": [
+     1093,
+     22,
+     -1093,
+     110
+    ],
+    "P": [
+     289,
+     4,
+     -91,
+     20
+    ]
+   },
+   "scales": {
+    "beta": [
+     1,
+     3
+    ],
+    "delta": [
+     1,
+     1
+    ],
+    "gamma": [
+     5,
+     2
+    ]
+   }
+  },
+  {
+   "families": {
+    "F": [
+     45605,
+     2904,
+     9121,
+     2904
+    ],
+    "G": [
+     2405,
+     264,
+     -481,
+     264
+    ],
+    "P": [
+     415,
+     22,
+     305,
+     132
+    ]
+   },
+   "scales": {
+    "beta": [
+     11,
+     1
+    ],
+    "delta": [
+     6,
+     1
+    ],
+    "gamma": [
+     1,
+     1
+    ]
+   }
+  }
+ ],
+ "schema": "b14-invariant-metric-phase/1",
+ "upstream": {
+  "compact_locus_sha256": "sha256:ddc1f27a7ac13081a47ecf7edc9573db5b193c31c41a70ac3ef0b0272db47400",
+  "manifest_sha256": "sha256:12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+  "reynolds_basis_sha256": "sha256:bee15ce78b3dcb2d7ce9da2a817fe27435cad5054765b10f86f29a5a1203c16b",
+  "selector_sha256": "sha256:a3892aa81468bca56c1bfbd110adc4e26008c91dcf1f55421db3eb6def5a15e9",
+  "stage1_receipt_sha256": "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd"
+ }
+}
