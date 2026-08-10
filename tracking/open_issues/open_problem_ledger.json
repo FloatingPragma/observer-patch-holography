@@ -29,7 +29,7 @@
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/157"
     }
   ],
-  "generated_utc": "2026-08-10T20:33:21Z",
+  "generated_utc": "2026-08-10T20:36:21Z",
   "open_issue_count": 19,
   "repo": "FloatingPragma/observer-patch-holography",
   "rows": [
@@ -37,7 +37,7 @@
       "blocker": "No hard issue prerequisite. Open scope: B7 is an open lane. The audited implementation has exact conditional helpers. It does not derive a physical least-action chain from Axiom 3.",
       "chrome_policy": "Local theorem or certificate work first; use an independent worker only to audit a concrete issue-scoped packet.",
       "claim_level": "active issue-scoped construction",
-      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: - Lean/InformationProjection/PathGibbs.lean - Lean/Variational/DiscreteEulerLagrange.lean - Lean/Variational/DiscreteNoether.lean - Lean/Variational/FiniteHistoryBridge.lean - Lean/docs/B7_HISTORY_BRIDGE.md - detailed-paper, claim, assumption, novelty, falsification, dependency, and structural-postdiction entries Downstream physical attachment is also constrained by #688, #703, and #701, but the V2 DAG dependency line remains: ## Current audited progress (2026-08-09) This status supersedes the earlier remaining-work summary above. `Variational/FiniteRealTransfer.lean` now supplies the finite-to-real transfer interface and worked/nonworking controls. `InformationProjection/HistoryLaw.lean` proves the normalized tilt's constrained minimization and uniqueness. `InformationProjection/SourceHistoryPacket.lean` earns the finite source history packet from the pinned simulator payload. `InformationProjection/LogTransitionAction.lean` proves that every strictly positive finite Markov path law is the Gibbs tilt of its log-transition action over the declared step-uniform reference, characterizes the full additive-constant/multiplier-rescale gauge orbit, instantiates the committed chain, and excludes the repair-count action at every multiplier. B7 remains open because the reference measure is still declared rather than source-selected, and because physical units, clock/current attachment, amplitudes/interference, field-valued paths, stationary-saddle coverage, and continuum control remain absent. The representation-level which-action and finite-to-real-interface gaps are no longer open. ## Current audited progress (2026-08-10) `Lean/Variational/RealizedHistoryLegendreNoGo.lean` proves an exact same-history nonidentifiability boundary. The canonical bilinear real extension of the committed binary log-action is affine in velocity and has no global momentum solver. For every supplied `a > 0`, the strictly convex extension `L_a = L_0 + (a/2)y(y-1)` agrees with `L_0` on every realized source history, yet has an exact velocity solver and Legendre transform. The choices `a = 1` and `a = 2` give distinct Lagrangians and Hamiltonians, with exact midpoint variation gap `1/8`. This is a no-go for inferring a unique real Legendre geometry from the realized binary history sample, not a no-go for a source rule with additional data. B7 remains open for source selection of the reference and the real enrichment/curvature, plus the already listed physical clock/current, amplitude, field, saddle, and continuum attachments.",
+      "closure": "Verify the live deliverables at their declared status without scientific promotion from issue state: - Lean/InformationProjection/PathGibbs.lean - Lean/Variational/DiscreteEulerLagrange.lean - Lean/Variational/DiscreteNoether.lean - Lean/Variational/FiniteHistoryBridge.lean - Lean/docs/B7_HISTORY_BRIDGE.md - detailed-paper, claim, assumption, novelty, falsification, dependency, and structural-postdiction entries Downstream physical attachment is also constrained by #688, #703, and #701, but the V2 DAG dependency line remains: ## Current audited progress (2026-08-09) This status supersedes the earlier remaining-work summary above. `Variational/FiniteRealTransfer.lean` now supplies the finite-to-real transfer interface and worked/nonworking controls. `InformationProjection/HistoryLaw.lean` proves the normalized tilt's constrained minimization and uniqueness. `InformationProjection/SourceHistoryPacket.lean` earns the finite source history packet from the pinned simulator payload. `InformationProjection/LogTransitionAction.lean` proves that every strictly positive finite Markov path law is the Gibbs tilt of its log-transition action over the declared step-uniform reference, characterizes the full additive-constant/multiplier-rescale gauge orbit, instantiates the committed chain, and excludes the repair-count action at every multiplier. B7 remains open because the reference measure is still declared rather than source-selected, and because physical units, clock/current attachment, amplitudes/interference, field-valued paths, stationary-saddle coverage, and continuum control remain absent. The representation-level which-action and finite-to-real-interface gaps are no longer open. ## Current audited progress (2026-08-10) `Lean/Variational/RealizedHistoryLegendreNoGo.lean` proves an exact same-history nonidentifiability boundary. The canonical bilinear real extension of the committed binary log-action is affine in velocity and has no global momentum solver. For every supplied `a > 0`, the strictly convex extension `L_a = L_0 + (a/2)y(y-1)` agrees with `L_0` on every realized source history, yet has an exact velocity solver and Legendre transform. The choices `a = 1` and `a = 2` give distinct Lagrangians and Hamiltonians, with exact midpoint variation gap `1/8`. This is a no-go for inferring a unique real Legendre geometry from the realized binary history sample, not a no-go for a source rule with additional data. B7 remains open for source selection of the reference and the real enrichment/curvature, plus the already listed physical clock/current, amplitude, field, saddle, and continuum attachments. ## Current audited progress (2026-08-10, second round) `InformationProjection/ReferenceNormalForm.lean` (RER `dac0bc3f`) characterizes the declared reference exactly: among row-stochastic kernels, target-relabeling invariance and row-constant weight are each equivalent to the uniform kernel, constant log-transition step action is equivalent under strict positivity, and every target-relabeling-invariant Markov reference has path law `stepUniformRef`; a biased two-state control shows the invariance premise is load-bearing. This fixes the reference gauge by an invariance convention and passed independent adversarial audit. The invariance principle itself is stated, not source-produced, so B7 remains open for source selection of the reference principle and the real enrichment/curvature, plus the physical clock/current, amplitude, field, saddle, and continuum attachments.",
       "falsification": "Closure is invalid if the delivered artifact does not cover the live scope, a hard prerequisite remains unresolved, or theorem status exceeds its evidence. Scientific falsifiers remain in the canonical claim-local ledgers.",
       "labels": [
         "dag:ready-now",
@@ -48,7 +48,7 @@
       "number": 683,
       "phase": "v2-w1-observer-laws",
       "title": "[B7] Conditional history weights and the finite/real variation bridge",
-      "updated_at": "2026-08-10T20:30:54Z",
+      "updated_at": "2026-08-10T20:36:14Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/683"
     },
     {
@@ -84,7 +84,7 @@
       "number": 692,
       "phase": "v2-w3-covariant-net",
       "title": "[E1] Finite causal observer net",
-      "updated_at": "2026-08-09T19:08:37Z",
+      "updated_at": "2026-08-10T20:35:22Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/692"
     },
     {
@@ -280,7 +280,7 @@
       "number": 705,
       "phase": "v2-w1-observer-laws",
       "title": "[B14] Same-source twelve-port current and holonomy",
-      "updated_at": "2026-08-10T20:30:48Z",
+      "updated_at": "2026-08-10T20:36:12Z",
       "url": "https://github.com/FloatingPragma/observer-patch-holography/issues/705"
     },
     {
