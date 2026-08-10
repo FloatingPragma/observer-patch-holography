@@ -275,9 +275,13 @@ def test_de_sitter_claim_split_preserves_status_boundaries():
 def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
+    # E1 (#692) closed bounded on 2026-08-11 with the audited rich-fibre
+    # packet, so the B4 locality claim's finite coverage/region-factor
+    # attachment is discharged and its gate list is empty; the physical
+    # promotion scopes are owned by the still-gated downstream claims.
     expected_gates = {
         "OPH-THERMO-FOUR-LAW-PACKAGE": [703],
-        "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
+        "OPH-FINITE-LOCALITY-NOSIGNALLING": [],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
         "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [693, 703],
