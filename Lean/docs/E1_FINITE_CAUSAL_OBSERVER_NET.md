@@ -82,11 +82,51 @@ time-slice axiom, continuum QFT, physical clocks, fields, sectors, or
 laboratory attachment.
 
 Accordingly, the two requested Lean deliverable files exist and the
-finite conditional interface is substantial, but issue #692 should remain
-open until at least one noncommutative/source-attached model discharges the
-strong restriction/gluing and factor-localization receipts or the issue is
-explicitly narrowed to the proof-carrying interface plus its parameterized
-degenerate consistency model.
+finite conditional interface is substantial; the remaining scope was the
+noncommutative/source-attached model with coverage and factor receipts.
+
+## The rich-fibre packet (2026-08-11)
+
+The second preregistered bounded run closes that scope at its declared
+finite level. The pilot run `e1_prereg_64k_20260810` failed its gates
+(one split fibre per truncation-12 window; overlapping windows) and is
+closed negatively under its fail-closed clause. The second
+preregistration froze two pilot-calibrated design changes before its
+fresh-seed run: truncation 20 and target-blind greedy-disjoint observer
+selection (support node identities only). On the fresh seed every gate
+passed: split-fibre counts 3, 3, 4, 4 on pairwise-disjoint windows,
+byte-replayed and custody-pinned
+(`oph-physics-sim` `docs/E1_RICH_FIBRE_PAYLOAD_2.json`).
+
+`QFT/RichFibreWitness.lean` mirrors the payload literally with
+kernel-decided receipts (window lengths, pairwise node disjointness,
+split census, per-fibre positions, ambient indexing on the 81-point
+basis). `QFT/RichFibreRegionalNet.lean` builds the tower and the
+`FiniteCausalObserverNet` instance over it and earns, with standard
+axioms only:
+
+- a genuinely noncommutative block algebra at **every** observer region
+  (`richRegional_noncommutative_all`), with the realized two-by-two
+  matrix factor of each designated split fibre
+  (`richDesignatedFactor`);
+- region separation: distinct windows are declared disjoint with the
+  kernel node-disjointness receipt backing the declaration, and block
+  members of distinct windows commute elementwise
+  (`richBlock_commute_disjoint`, `richFibreNet_separation`);
+- the character-and-block restriction system with the reflexivity,
+  transitivity, and inclusion laws;
+- **computed genuine coverage**: the four-window family generates the
+  top algebra (`richWindowCover_coverageLaw`,
+  `richWindowCover_familyJoin`), and dropping any one window breaks
+  coverage because each window carries its own noncommutative block
+  (`richDropCover_not_coverageLaw`).
+
+The enrichment rule, region lattice, restriction system, and state are
+declared readings of the payload literals; ambient window disjointness
+is constructional, and the witness receipt proves the realized node
+windows are disjoint in the source. CP/CPTP repair semantics, scheduler
+locality, continuum causal and time-slice structure, and physical
+clocks remain with #693, #700, and #703.
 
 ## Verification
 
@@ -95,8 +135,14 @@ The targeted build order is:
 ```text
 lake env lean -o .lake/build/lib/lean/QFT/FiniteCausalObserverNet.olean QFT/FiniteCausalObserverNet.lean
 lake env lean QFT/ObserverNetDescent.lean
+lake build QFT.RichFibreWitness QFT.RichFibreRegionalNet
 ```
 
 The displayed `#print axioms` reports contain only `propext`,
-`Classical.choice`, and `Quot.sound`. Neither file declares a project axiom,
-an admission, or an unsafe definition.
+`Classical.choice`, and `Quot.sound` (`richSplit_counts` is axiom-free).
+No file declares a project axiom, an admission, an unsafe definition, or a
+`native_decide` step. The rich-fibre packet additionally carries the
+unique-restriction-gluing receipt on the four-window cover
+(`richWindowCover_hasUniqueDescent`) and its reconstruction corollary
+(`richWindowCover_reconstruction`) through the committed descent
+interface.

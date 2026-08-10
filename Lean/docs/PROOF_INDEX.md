@@ -272,8 +272,21 @@ Mapping between Lean 4 theorems in this project and statements in
   regional-factor attachment. The parameterized consistency model assigns the
   same commutative public algebra to every region, and the star-homomorphic
   restrictions are strong extra data rather than ordinary AQFT-net structure.
-  A closed noncommutative or source-attached regional net, genuine coverage,
-  and factor localization are open obligations. See
+  The rich-fibre packet closes those obligations at declared finite level
+  (`QFT/RichFibreWitness.lean`, `QFT/RichFibreRegionalNet.lean`): the second
+  preregistered fresh-seed 64k run realizes split-fibre counts 3, 3, 4, 4 on
+  four pairwise-disjoint twenty-node windows (gates G1 through G4 passed; the
+  pilot failed and is closed negatively), and the mirrored net earns a
+  noncommutative block algebra at every observer region with its realized
+  two-by-two designated-fibre factor, kernel-backed window disjointness,
+  elementwise commutation across distinct windows, the
+  character-and-block restriction laws, computed four-window coverage of the
+  top algebra with unique restriction gluing and its reconstruction
+  corollary, and the drop-one negative control showing every window is
+  load-bearing. Sorry-free, standard axioms, no `native_decide`. The
+  enrichment rule and restriction system are declared readings of the
+  custody-pinned payload; CP/CPTP, scheduler, continuum, and clock scopes
+  stay with #693, #700, and #703. See
   `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and

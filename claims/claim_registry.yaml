@@ -1846,11 +1846,9 @@
       ],
       "falsifier": "The finite claim fails if localRepair can distinguish two inputs that agree on its closed neighborhood, a fixed word changes a regional readout from data outside the n-fold grown set, a row-normalized first-factor map changes the algebraic second marginal, or a Kraus-complete local family changes the stated partial trace. Its #692 attachment fails if no genuine finite coverage/region-factor realization is supplied. A later physical-causality promotion separately fails without the #693 source channel and scheduler receipts, the #703 physical clock, or the #700 continuum causal/time-slice receipts.",
       "scope_if_false": "Only the B4 finite helper package or its #692 finite coverage/region-factor attachment falls. Consensus termination and the independently gated channel, clock, event-manifold, and continuum-causality branches retain their separate premises.",
-      "status": "fixed_word_dependency_upper_bound_and_generic_marginal_identities_proved__physical_region_attachment_open",
+      "status": "fixed_word_dependency_upper_bound_and_generic_marginal_identities_proved__finite_coverage_and_region_factor_attachment_discharged_by_the_rich_fibre_net__physical_promotion_gated_downstream",
       "claim_class": "conditional_implication",
-      "gates": [
-        692
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
@@ -3078,14 +3076,14 @@
     },
     {
       "claim_id": "OPH-FINITE-CAUSAL-OBSERVER-NET",
-      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, exact algebraic locality on declared-disjoint regions, compatible regional expectations, covariant refinement, and complex-linear idempotent local repairs that explicitly fix their local algebra and every declared-disjoint observable. The B2 relaxation of each repair composes by multiplication of amplitudes and exactly preserves remote observables and their expectations. Supplied star-homomorphic overlap restrictions define compatible local families, and a supplied unique restriction-gluing receipt gives a glue with exact restriction and uniqueness laws and forces joint injectivity. The API type FiniteCover is only a nonempty finite subregion family and contains no joint-coverage axiom. A generic B4 basis-reindexed marginal identity is carried alongside a declared-disjoint region pair, but the theorem does not use disjointness or identify either regional algebra with a matrix factor. Negative controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. A partition-and-state-parameterized constant commutative model and a two-region subregion family prove conditional consistency of the interface. The packet does not construct a closed noncommutative region-separating source model, genuine coverage, regional factor localization, CP or CPTP repair, scheduler locality, spacetime causality, time-slice property, continuum QFT, fields, sectors, physical clocks, or prediction. Issue #692 gates only the finite noncommutative source, coverage, and regional-factor continuation; #693 owns source-produced channel/instrument and adaptive-scheduler provenance, #700 continuum causal/time-slice structure, and #703 physical clocks.",
+      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, exact algebraic locality on declared-disjoint regions, compatible regional expectations, covariant refinement, and complex-linear idempotent local repairs that explicitly fix their local algebra and every declared-disjoint observable. The B2 relaxation of each repair composes by multiplication of amplitudes and exactly preserves remote observables and their expectations. Supplied star-homomorphic overlap restrictions define compatible local families, and a supplied unique restriction-gluing receipt gives a glue with exact restriction and uniqueness laws and forces joint injectivity. The API type FiniteCover is only a nonempty finite subregion family and contains no joint-coverage axiom. A generic B4 basis-reindexed marginal identity is carried alongside a declared-disjoint region pair, but the theorem does not use disjointness or identify either regional algebra with a matrix factor. Negative controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. A partition-and-state-parameterized constant commutative model and a two-region subregion family prove conditional consistency of the interface. The rich-fibre continuation discharges the finite noncommutative source scope on the second preregistered fresh-seed bounded run: the payload's four greedy-disjoint observers realize split-fibre counts three, three, four, and four on pairwise-disjoint twenty-node windows (preregistered gates G1 through G4 passed; the pilot run failed its gates and is closed negatively), the mirrored net carries a genuinely noncommutative block algebra at every observer region with a realized two-by-two matrix factor localized at each designated split fibre, distinct windows are declared disjoint with the kernel-checked node-disjointness receipt backing the declaration, block members of distinct windows commute elementwise, the character-and-block restriction system satisfies the reflexivity, transitivity, and inclusion laws, the four-window family provably covers the top algebra with the unique restriction-gluing receipt (every compatible family has exactly one globalizing top observable, lying in the family join), and any family avoiding one window and the top breaks coverage because each window carries its own realized noncommutative block. The packet does not construct CP or CPTP repair, scheduler locality, spacetime causality, time-slice property, continuum QFT, fields, sectors, physical clocks, or prediction; the enrichment rule, region lattice, restriction system, and state are declared readings of the committed payload literals. #693 owns source-produced channel/instrument and adaptive-scheduler provenance, #700 continuum causal/time-slice structure, and #703 physical clocks.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "substantial_conditional_finite_causal_observer_net_with_noncommutative_realization_open",
+      "tier": "finite_causal_observer_net_with_preregistered_rich_fibre_noncommutative_realization_coverage_and_factors",
       "assumptions": [
         "proof_carrying_finite_causal_net_data",
         "idempotent_local_repair_fixed_region_and_remote_receipts",
         "star_homomorphic_overlap_restrictions_and_unique_descent",
-        "noncommutative_source_realization_deferred"
+        "declared_enrichment_reading_of_preregistered_payload_literals"
       ],
       "imported_results": [
         "finite_matrix_star_subalgebras",
@@ -3099,15 +3097,17 @@
         "paper/observers_are_all_you_need.tex",
         "Lean/QFT/FiniteCausalObserverNet.lean",
         "Lean/QFT/ObserverNetDescent.lean",
+        "Lean/QFT/CoverageReceipt.lean",
+        "Lean/QFT/SourceRegionalNet.lean",
+        "Lean/QFT/RichFibreWitness.lean",
+        "Lean/QFT/RichFibreRegionalNet.lean",
         "Lean/docs/E1_FINITE_CAUSAL_OBSERVER_NET.md"
       ],
-      "falsifier": "The attained interface fails if a declared locality, isotony, refinement, expectation, repair-composition, local or remote fixed-observable identity fails, the generic basis-split helper violates its exact partial-trace conclusion, supplied unique restriction gluing does not provide exact restriction and uniqueness or imply joint injectivity, the parameterized commutative model fails its declared disjointness/gluing receipts, or any negative control fails.",
+      "falsifier": "The attained interface fails if a declared locality, isotony, refinement, expectation, repair-composition, local or remote fixed-observable identity fails, the generic basis-split helper violates its exact partial-trace conclusion, supplied unique restriction gluing does not provide exact restriction and uniqueness or imply joint injectivity, the parameterized commutative model fails its declared disjointness/gluing receipts, or any negative control fails. The rich-fibre packet fails if a payload literal is transcribed wrongly, a preregistered gate verdict does not replay from the raw run artifacts, the greedy-disjoint selection consumes any record or companion datum, any window pair overlaps, any window region lacks a noncommuting regional pair or its realized two-by-two factor, the four-window coverage law or the drop-one negative control fails, or a restriction law fails.",
       "scope_if_false": "Only the substantial conditional finite E1 interface or its consistency controls fall. A noncommutative source net, physical causality, continuum AQFT, and every frozen prediction are separate obligations with independent assessments.",
-      "status": "substantial_conditional_finite_net_interface_attained__noncommutative_source_realization_open",
+      "status": "bounded_finite_contract_attained__four_region_noncommutative_source_net_coverage_and_factor_receipts_earned__cptp_scheduler_continuum_and_clock_scopes_downstream",
       "claim_class": "conditional_implication",
-      "gates": [
-        692
-      ]
+      "gates": []
     },
     {
       "claim_id": "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",

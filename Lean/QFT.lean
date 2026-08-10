@@ -11,6 +11,8 @@ import QFT.CoverageReceipt
 import QFT.GlueCountermodel
 import QFT.SimEarnedWitness
 import QFT.SourceRegionalNet
+import QFT.RichFibreWitness
+import QFT.RichFibreRegionalNet
 import QFT.PublicEndpointBridge
 import QFT.ConvexAffinityBridge
 import QFT.SourceConvexFamily

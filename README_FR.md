@@ -199,7 +199,7 @@ supplémentaires, chacun énoncé avec sa frontière au bout du lien :
   Voir la
   [preuve de recouvrement](Lean/QFT/OperationalOverlapEvidence.lean).
 
-La bibliothèque Lean associée contient plus de 4400 théorèmes et lemmes et
+La bibliothèque Lean associée contient plus de 4500 théorèmes et lemmes et
 aucune preuve admise. Des rapports d’axiomes explicites couvrent le
 sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
 leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà

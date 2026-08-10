@@ -378,6 +378,19 @@ surface for the OPH consensus layer. Contents:
   source selection of the reference principle, physical action, clock,
   amplitude, fields, continuum,
   and observable current. See `B7_HISTORY_BRIDGE.md`.
+- A sorry-free **E1 rich-fibre regional net** in
+  `QFT/RichFibreWitness.lean` and `QFT/RichFibreRegionalNet.lean`: the
+  literal mirror of the second preregistered 64k run's payload (four
+  greedy-disjoint observers, twenty-node windows, split-fibre counts
+  3, 3, 4, 4, kernel-decided disjointness and census receipts) and the
+  finite causal observer net over it, with a genuinely noncommutative
+  block algebra and realized two-by-two designated-fibre factor at every
+  observer region, elementwise commutation across distinct windows,
+  character-and-block restrictions, computed four-window coverage of the
+  top algebra, and the drop-one coverage negative control. The enrichment
+  rule and restriction system are declared readings of the custody-pinned
+  payload; downstream CP/CPTP, scheduler, continuum, and clock scopes stay
+  with E2, E3, and E5. See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and
   normalized antipodal binary contexts do not force Born affinity.
