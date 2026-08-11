@@ -6,7 +6,7 @@ namespace OPH.Thermodynamics
 # Collar-matrix realization on a mixing recurrent chain (B12 receipt 3)
 
 This module mirrors, as exact rational literals, the mixing recurrent chain
-extracted from the preregistered bounded source run
+extracted from the locally hash-pinned bounded source run
 `runs/b12_prereg_16k_20260806` of the simulator (seed `20260806`, engine
 commit `b39b78faf894894ebe573571e0902ccfaaeac32a`).  The payload with the full
 extraction and its exact verification lives at
@@ -39,7 +39,7 @@ literals.  The rational layer (row stochasticity, entrywise positivity, the
 stationary law, and the exact second eigenvalue) is elaborated from the same
 literals by `norm_num`; rational division is kept out of kernel reduction.
 
-Claim boundary.  Realization at the representation level over earned
+Claim boundary.  Realization at the representation level over extracted
 literals.  Every entry of the chain is strictly positive, so the chain is a
 primitive stochastic matrix: irreducible, aperiodic, and mixing to its unique
 stationary law.  The protected labelling carried by this chain is the
@@ -47,14 +47,16 @@ committed record-checkpoint class; the `record_family` projection of the
 state-side protected record (`record_signature`, 32 classes, preserved by the
 idempotent conditional-resampling kernel of the same run) is constant on the
 transition alphabet of this run.  The state-side and transition-side objects
-share one pinned source reference (run id, seed, config hash, commit, and
-sha256 digests recorded in the payload).  The physical collar identification
-and the energy-clock calibration remain with E5 (#703).
+share one pinned source bundle and provenance record (run id, seed, config
+hash, commit, and sha256 digests recorded in the payload); that does not
+identify a common state/transition probability law.  B20 (#725) owns that
+common-law and physical-collar attachment, while E5 (#703) owns only the
+energy-clock calibration.
 -/
 
 /-- The exact restricted recurrent chain: row-normalized unweighted integer
 transition counts on the unique closed recurrent class `{18, 19}` of the
-preregistered run's 26-state quotient chain. -/
+locally hash-pinned run's 26-state quotient chain. -/
 def mixingChain : Fin 2 → Fin 2 → ℚ := fun i =>
   ![![1324/1431, 107/1431], ![5/508, 503/508]] i
 
@@ -179,14 +181,15 @@ theorem mixingChain_second_eigenvalue :
   refine ⟨?_, by norm_num, by norm_num⟩
   norm_num [mixingChain]
 
-/-- **Collar-matrix realization receipt (B12 receipt 3).**  The exact chain
-extracted from the preregistered source run is row stochastic with every
+/-- **Transition-side matrix realization receipt.**  The exact chain
+extracted from the locally hash-pinned source run is row stochastic with every
 entry strictly positive (a one-step primitivity witness, so the chain is an
 irreducible aperiodic recurrent chain mixing to its stationary law), it
 fixes a strictly positive exact stationary law, and its states carry a
 nonconstant protected record labelling.  The realization is at the
-representation level over earned literals; the physical collar
-identification and the energy-clock calibration remain with E5. -/
+representation level over committed extracted literals; it does not identify the
+state-side probability reference.  B20 (#725) owns the physical-collar and
+common-reference continuation, and E5 (#703) owns the energy-clock calibration. -/
 theorem mixingChainRealization_receipt :
     (∀ i, (∑ j, mixingChain i j) = 1) ∧
       (∀ i j, 0 < mixingChain i j) ∧

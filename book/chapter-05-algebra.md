@@ -382,8 +382,8 @@ $F_y(n)=(1+n_y^3)/2$ agrees with the ordinary half-weight on that whole
 battery and is nonlinear away from it. Likewise, the declared real
 $S_3$ source web cannot distinguish two complex qubit states that differ only
 in the Pauli-$Y$ direction. The missing mathematical coordinate is explicit:
-$I/2$ minus the normalized complex commutator of two earned noncommuting
-projectors is exactly the $+Y$ projector, and adding it makes the
+$I/2$ minus the normalized complex commutator of two source-attached
+algebraic projector candidates is exactly the $+Y$ projector, and adding it makes the
 two-dimensional operator frame tomographically complete.
 
 Real coarse graining and real Kraus
@@ -413,13 +413,27 @@ ones does not supply those reverse restriction maps.
 A parameterized consistency model assigns the same commutative record algebra
 to every region and makes every restriction the identity once a partition and
 state are supplied. It proves that the interface is coherent on those inputs,
-but it is not a closed source witness and does not construct a noncommutative
-regional quantum model. The separately carried B4 identity is only a generic
-basis-reindexed marginal theorem; no formal receipt identifies its matrix
-factors with the two regional algebras. Genuine coverage, source-derived
-regional factorization, positive quantum channels, locality for adaptive
-repair schedules, spacetime causality, a time-slice law, and the continuum
-field theory are open.
+but it is not a closed source witness.
+
+A later conditional packet starts from four source-attached, pairwise-disjoint
+windows and then applies a declared adapter. The adapter constructs
+noncommutative block algebras, exact coverage of its declared top algebra, and
+restriction gluing. It also exhibits a nonunital two-by-two matrix corner in
+each region. The source run itself supplies only window and class labels: it
+does not produce the matrix units, state, repair, regional restrictions, or a
+tensor split. The B4 identity remains a generic basis-reindexed marginal
+theorem; no `TensorSplitReceipt` identifies its factors with these regional
+algebras. The live E1 task therefore seeks source-attached operator generation
+and either a genuine region-to-product receipt or a justified local-channel
+adapter.
+
+A separate conditional helper bounds a supplied adaptive
+scheduler that consults only a declared region, proves that this consultation
+region genuinely enlarges the influence cone, and transports the bound across
+declared refinement maps. The source does not produce that scheduler, region,
+channel, or refinement structure. Positive source-produced channels,
+physical scheduler attachment, spacetime causality, a time-slice law, and
+continuum field theory remain separate obligations.
 
 ### The Overlap Algebra
 

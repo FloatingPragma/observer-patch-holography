@@ -467,7 +467,7 @@
         "match": "exact conditional finite discriminator; no source repair law",
         "observed_counterpart": "a finite source-incidence discriminator among the three compact bracket families",
         "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
-        "receipt_sha256": "sha256:6472ef1c1ba94fb1a9dc9c0361f6c673ce1f34e084651c51f428cb7ce614f6f9",
+        "receipt_sha256": "sha256:0152c9bf00bccdd1b564d57975f4e42e323e7c58bd5c10a2c667663293d7dd37",
         "statement": "The equal-weight cyclic bracket of the twenty pinned oriented faces is exactly 60 times Reynolds basis vector R13 and is A5-equivariant. It fails Jacobi in exactly 240 of the 2640 independent output/input-triple coordinates, split 120 at +1 and 120 at -1. Conditional on the displayed 792-coordinate upper-triangular convention and the certified compact locus, exact primal-dual certificates make G the winning family for three edit norms. Distances to G, F, P are respectively 30(sqrt(5)-1), 60, 60 in L1; (615-123 sqrt(5))/22, (615+123 sqrt(5))/22, 45 in squared L2; and (5-sqrt(5))/10, sqrt(5)/5, 1/2 in Linfinity. The F L1 value is an unattained compact-family infimum"
       },
       {
@@ -491,7 +491,7 @@
         "observed_counterpart": "a metric-robust phase diagram for the finite source-incidence discriminator over the complete invariant carrier-metric cone",
         "paper_ref": "Standard Model gauge paper, bracket-selection boundary",
         "receipt_sha256": "sha256:9bb6ca0967b82d4c06798aa8b5cce76d9d0d5dac26f496d7f488e9d90acbfb19",
-        "statement": "The carrier splits multiplicity-free into 1+3+3'+5 and the commutant of the port action is exactly four-dimensional, spanned by the four symmetric spectral projectors, so the positive sector-scale cone is the complete family of invariant carrier inner products. Every induced bracket metric is channel-diagonal, and the squared distances from the face bracket to the classified compact families are exact three-term Laurent forms in the sector scales with the fixed-sector scale absent. P is strictly excluded for every invariant metric; every sector-balanced metric and every metric with beta/delta in [1/50, 6] selects G uniquely for all gamma and delta; F becomes nearest only past the exact chirality threshold, with witness (8,1,1); and Galois conjugation with the sector swap maps d_G to d_F exactly. A non-carrier-induced channel reweighting reverses the balanced-point selection"
+        "statement": "The carrier splits multiplicity-free into 1+3+3'+5 and the commutant of the port action is exactly four-dimensional, spanned by the four symmetric spectral projectors, so the positive sector-scale cone is the complete family of invariant carrier inner products. Every induced bracket metric is channel-diagonal, and the squared distances from the face bracket to the classified compact families are exact three-term Laurent forms in the sector scales with the fixed-sector scale absent. P is strictly excluded for every invariant metric; every sector-balanced metric and every metric with beta/delta in [1/50, 6] selects G uniquely for all gamma and delta; F occupies the nonempty side d_F^2<d_G^2 of the exact three-scale tie surface, with witness (8,1,1); and Galois conjugation with the sector swap maps d_G to d_F exactly. A non-carrier-induced channel reweighting reverses the balanced-point selection"
       },
       {
         "artifact_ref": "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
@@ -1043,7 +1043,7 @@
         "statement": "Coincidence-invariant Herm2 readback descends uniquely through an actual event setoid. Separately, one supplied time-oriented affine Lorentz overlap cocycle and a chart-coordinate family satisfying its overlap law induce translation-free displacement covariance, invariant intervals, future-null celestial transport, compatible event frames, and isometric transport of their positive rest spaces. The rank-three source FrameQuotient is linearly and isometrically identified with the standard internal rest fiber as a candidate local readback. The formal stack does not identify the quotient-descended readback with the supplied atlas coordinates. Exact controls exhibit a nontrivial translated future-null atlas and show that reflexive symmetric pairwise overlap need not be transitive"
       },
       {
-        "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom, the B4 helper has no regional-factor attachment, and the parameterized consistency model is commutative and degenerate. Issue #692 gates a noncommutative region-separating source realization with genuine coverage and factor-localization receipts; no CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
+        "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom and the B4 helper has no regional-factor attachment. The rich-fibre source payload supplies window/class labels only: its block algebra, base-point state, restrictions, and repair are declared postprocessors. Conditional coverage is attained inside that adapter, but its nonunital matrix corners are not tensor factors or a `TensorSplitReceipt`. Issue #692 gates source-attached operator generation and a justified region-product or local-channel adapter; no CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
         "id": "finite_causal_observer_net_interface",
         "lean_declarations": {
           "FiniteCausalObserverNet": [
@@ -1063,16 +1063,29 @@
             "glue_restrict",
             "glue_unique",
             "partitionPublicTwoRegionCover_hasUniqueDescent"
+          ],
+          "RichFibreRegionalNet": [
+            "richRegional_noncommutative_all",
+            "richDesignatedFactor",
+            "richWindowCover_coverageLaw",
+            "richDropCover_not_coverageLaw",
+            "richWindowCover_reconstruction"
+          ],
+          "RichFibreWitness": [
+            "richSupport_pairwise_disjoint",
+            "richSplit_census"
           ]
         },
         "lean_receipts": [
           "Lean/QFT/FiniteCausalObserverNet.lean",
-          "Lean/QFT/ObserverNetDescent.lean"
+          "Lean/QFT/ObserverNetDescent.lean",
+          "Lean/QFT/RichFibreWitness.lean",
+          "Lean/QFT/RichFibreRegionalNet.lean"
         ],
-        "match": "substantial conditional finite interface; noncommutative source open",
+        "match": "substantial conditional finite interface and declared-adapter coverage; source-attached operators and product split open",
         "observed_counterpart": "a causal local quantum-observable net with overlap descent",
         "paper_ref": "observers paper, finite causal observer-net interface",
-        "statement": "A proof-carrying finite enrichment of one consensus tower has declared region posets, overlaps, disjointness, local star subalgebras, isotony, algebraic locality, covariant refinement, compatible expectations, and idempotent regional repairs that explicitly fix local and declared-disjoint observables. Its relaxations compose exactly and preserve remote expectations. Supplied overlap restrictions support a unique restriction-gluing interface on declared nonempty subregion families, controls isolate missing premises, and a partition-and-state-parameterized commutative constant-partition model proves conditional consistency"
+        "statement": "A proof-carrying finite enrichment of one consensus tower has declared region posets, overlaps, disjointness, local star subalgebras, isotony, algebraic locality, covariant refinement, compatible expectations, and idempotent regional repairs that explicitly fix local and declared-disjoint observables. Its relaxations compose exactly and preserve remote expectations. Supplied overlap restrictions support a unique restriction-gluing interface on declared nonempty subregion families, controls isolate missing premises, and a partition-and-state-parameterized commutative model proves conditional consistency. A retained source packet supplies four disjoint windows with split-fibre labels; a separately declared adapter constructs noncommutative regional blocks, exact coverage and gluing, and nonunital two-by-two matrix corners at every window"
       },
       {
         "hypothesis_boundary": "the formal CP/CPTP predicate covers partition averaging, partition pinching, and the nonnegative-time relaxation channel; a positive trace-preserving transpose control is not completely positive. The operator-exponential theorem uses bounded endomorphisms of a complete real normed space. Poisson rate and forward-time interpretations require nonnegative parameters. No source-derived rate, physical clock, or prediction is supplied",
@@ -1204,12 +1217,22 @@
         "artifact_refs": [
           "code/born_frame/runtime/finite_born_frame_certificate.json",
           "code/born_frame/verify_finite_born_frame_independent.py",
+          "code/born_context_phase_lift/BORN_CONTEXT_WEB_PAYLOAD.v1.json",
+          "code/born_context_phase_lift/README.md",
           "code/born_context_phase_lift/verify_source_phase_lift.py",
-          "code/born_context_phase_lift/test_source_phase_lift.py"
+          "code/born_context_phase_lift/test_source_phase_lift.py",
+          "code/thermodynamics/repair_current_orientation/repair_current_payload.v3.json",
+          "code/thermodynamics/repair_current_orientation/verify_repair_current_orientation.py",
+          "code/thermodynamics/repair_current_orientation/test_verify_repair_current_orientation.py"
         ],
-        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter from source-derived geometry, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity; the transverse cubic refutes the current finite Busch--Gleason interface, and the Pauli-Y pair identifies the missing complex tomography direction. The exact phase lift constructs that direction only inside the complex operator algebra; the source has no phase producer, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. The full-effect theorem still applies only after full coexistent-effect additivity is supplied. No physical Born derivation, observable, or prediction is emitted. Issue #702 owns the source-earned phase instrument, operational additivity, and public readback",
+        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter obtained by applying a two-dimensional representation to source-realized gauge labels, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity; the transverse cubic refutes the current finite Busch--Gleason interface, and the Pauli-Y pair identifies the missing complex tomography direction. The exact phase lift constructs that direction only inside the complex operator algebra; the source has no phase producer, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. Conjugation identifies one two-candidate orbit but does not prove that this orbit exhausts all hidden phase data. The repair-count bit is a post-hoc diagnostic on a locally hash-pinned B12 run; its statistic and designation rule were not preregistered, and the phase pairing is an arbitrary typed convention. The full-effect theorem still applies only after full coexistent-effect additivity is supplied. No physical Born derivation, observable, or prediction is emitted. Issue #702 owns the source-earned phase instrument, operational additivity, and public readback",
         "id": "finite_born_frame_rank_gap",
         "lean_declarations": {
+          "ConjugationGauge": [
+            "bornWeight_re_matrixConj",
+            "conj_invisible_on_fixed_effects",
+            "yStates_are_conj_orbit"
+          ],
           "FiniteBornFrame": [
             "contextAdditive_unique_parameterization",
             "exists_frameCentered_iff_frameRelations",
@@ -1229,9 +1252,22 @@
             "finiteBuschGleasonInterface_false",
             "current_finite_web_born_no_go"
           ],
+          "RepairCurrentOrientation": [
+            "designatedPair_lexLeast",
+            "designatedCycle_lexLeast",
+            "designatedCycle_normalized_products",
+            "reversal_flips_orientation",
+            "reversibleControl_no_orientation"
+          ],
           "SourceContextTomographyNoGo": [
             "current_source_context_web_not_tomographically_complete",
             "pauliY_context_distinguishes_states"
+          ],
+          "SourceOrientedCompletion": [
+            "orientationApplicable_holds",
+            "reversal_selects_conjugate",
+            "completionTomography_injective_on_states",
+            "oriented_born_capstone"
           ],
           "SourcePhaseLiftBridge": [
             "sourcePhaseLift_eq_rhoYPlus",
@@ -1246,15 +1282,18 @@
           "Lean/EventAlgebra/FiniteEffectClosureBoundary.lean",
           "Lean/EventAlgebra/FiniteWebBornNoGo.lean",
           "Lean/QFT/SourceContextTomographyNoGo.lean",
-          "Lean/QFT/SourcePhaseLiftBridge.lean"
+          "Lean/QFT/SourcePhaseLiftBridge.lean",
+          "Lean/QFT/ConjugationGauge.lean",
+          "Lean/Thermodynamics/RepairCurrentOrientation.lean",
+          "Lean/QFT/SourceOrientedCompletion.lean"
         ],
         "match": "exact bounded rank-gap and phase-free no-gos plus an algebraic complex tomography target; public quantum instrument missing",
         "observed_counterpart": "finite noncontextual weight representation and the Born rule",
         "paper_ref": "observers paper, finite Born-frame rank audit",
-        "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball. The current finite unsharp battery also fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, noncontextual on the whole web, and non-affine. The realized real S3 source contexts are not complex tomographically complete: distinct pure Pauli-Y states agree on every declared outcome and a missing complex Y projector separates them. For two earned noncommuting projectors P,Q, the algebraic phase lift I/2-(2sqrt(3)/3)i(QP-PQ) is exactly that Y projector and completes fixed-trace tomography; every effect in a generous real/Kraus closure remains Y-blind and cannot produce it"
+        "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball. The current finite unsharp battery also fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, noncontextual on the whole web, and non-affine. The source-attached real S3 algebraic contexts obtained by applying a declared representation to source-realized gauge labels are not complex tomographically complete: distinct pure Pauli-Y states agree on every declared outcome and a missing complex Y projector separates them. For two source-attached algebraic projector candidates P,Q, the algebraic phase lift I/2-(2sqrt(3)/3)i(QP-PQ) is exactly that Y projector and completes fixed-trace tomography; every effect in a generous real/Kraus closure remains Y-blind and cannot produce it. Entrywise conjugation exchanges the two phase candidates while simultaneous state-effect conjugation preserves the real Born weight. A post-hoc raw-count product-gap diagnostic from retained B12 data supplies an exact reversal-odd bit and normalized cycle products, but neither its statistic nor designation rule was preregistered; its pairing with the phase torsor is declared and emits no source selection or validation"
       },
       {
-        "hypothesis_boundary": "The exact obstruction closes issue #688 only as a bounded negative result for the current source artifact: it rules out a nondegenerate action-intertwining common object and a deterministic empirical pushforward. It does not supply a replacement source object, an independently justified stochastic coupling, source collar equality, or nonconstant refinement family. Issue #703 separately owns physical energy and clock calibration beyond the attained central-interface modular split. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
+        "hypothesis_boundary": "The exact obstruction closes issue #688 only as a bounded negative result for two direct mechanisms on the current artifact: a mixing-mode-retaining linear intertwiner into the idempotent heat bath and a deterministic empirical pushforward. It does not exclude stochastic, nonlinear, reverse-direction, dilated, or enriched-source constructions. Issue #725 owns the replacement common reference, collar, objective, and genuinely varying refinement family. Issue #703 separately owns physical energy and clock calibration beyond the attained central-interface modular split. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
         "id": "thermodynamic_four_law_package",
         "lean_declarations": {
           "CapFirstLaw": [
@@ -1294,6 +1333,8 @@
             "clausius",
             "landauer",
             "heatBath_preserves_pos",
+            "mixture_stochastic",
+            "mixture_stationary",
             "block_entropy_le"
           ],
           "FirstLawIdentity": [
@@ -1338,7 +1379,7 @@
         "statement": "With a faithful common reference and repaired-visible fibre supplied, Axiom 3 instantiated on states selects the Gibbs exponential family by the exact information-projection Pythagorean identity, and instantiated on transition distributions over the repaired-visible fibre selects weighted conditional resampling from the same reference. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges; relative entropy to the reference contracts under it; the exact first-law split carries its bilinear cross term; the excited Gibbs mass obeys the finite gap bound with entropy limit log g0; partition pinching has an explicit normalized projector Kraus family and is formally CPTP; more generally, every stochastic kernel preserving a faithful stationary reference contracts relative entropy even without detailed balance, with an exact lazy directed three-cycle as the nonreversible separation witness. On the current source artifact, however, the transition action has a nonconstant eigenmode with eigenvalue 665437/726948, whereas the candidate state-side heat-bath action is idempotent; every intertwiner kills that mode. Its stationary mass 7155/61511 is also not a deterministic pushforward of the equally weighted 16384-state empirical table"
       },
       {
-        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #688, #693, #694, and #703 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #725, #693, #694, and #703 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",
         "id": "finite_green_kubo_graph_transport",
         "lean_declarations": {
           "GraphDiffusion": [
@@ -1412,7 +1453,7 @@
         "statement": "On the exact twelve-port, thirty-seam incidence graph, a declared pointwise continuity update gives regional source minus outward flux, internal cancellation, and closed-graph conservation for zero-total source. Rational Gauss solutions exist exactly for neutral loads and form one translate of a nineteen-dimensional cycle kernel. For finite real linear state maps, all-state charge conservation is equivalent to the dual fixed-observable equation; an exact two-state counterexample shows that channel covariance alone does not imply conservation"
       },
       {
-        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. The row's sole live gate, #692, owns finite coverage and the OPH region-factor adapter. Source channel/adaptive-scheduler semantics (#693), physical clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice structure (#700) are downstream promotions outside this claim's gate. This row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. A declared rich-fibre adapter conditionally attains coverage, but its source supplies no operators and its corners are not tensor factors. The row's sole live gate, #692, owns source-attached operator generation and a region-product, TensorSplitReceipt, or local-channel adapter. Source channel/adaptive-scheduler semantics (#693), physical clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice structure (#700) are downstream promotions outside this claim's gate. This row emits no prediction-ladder entry",
         "id": "finite_fixed_word_locality_and_marginal_invariance",
         "lean_declarations": {
           "DependencyCone": [
@@ -1434,6 +1475,27 @@
         "observed_counterpart": "finite propagation cones and classical or quantum no-signalling",
         "paper_ref": "consensus-protocol paper, finite locality boundary",
         "statement": "For the concrete single-site OPH localRepair, every fixed exogenous word of n sequential moves has an n-fold closed-neighborhood dependency upper bound. Separately, on a supplied finite bipartite split, row-normalized real maps preserve the remote algebraic marginal and Kraus-complete local matrix families preserve the remote partial trace"
+      },
+      {
+        "hypothesis_boundary": "sigma, R, ConsultsOnly, and every ConeRefinement map/law are supplied. The helper proves neither their source production nor fairness, liveness, positivity, normalized state/channel, CPTP, distance, clock, spacelike, continuum, or laboratory semantics. Issue #693 remains the live E2 source scheduler/channel gate; #703 and #700 retain the clock and continuum-causality attachments. This row emits no prediction-ladder entry",
+        "id": "conditional_adaptive_scheduler_locality_helper",
+        "lean_declarations": {
+          "AdaptiveScheduler": [
+            "adaptiveRun_agree_on",
+            "adaptive_no_influence",
+            "consultation_region_not_droppable",
+            "ball_image",
+            "run_natural",
+            "readback_cone_bound"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean"
+        ],
+        "match": "exact conditional helper; source scheduler and physical channel attachment open",
+        "observed_counterpart": "adaptive finite update locality under an explicitly bounded consultation region",
+        "paper_ref": "E2 adaptive-scheduler helper, finite locality boundary",
+        "statement": "For concrete localRepair, a supplied adaptive scheduler and supplied ConsultsOnly consultation region have the exact n-step cone bound ball(S union R,n); a one-site change outside ball(S,n) union ball(R,n) cannot change the probe readout. A two-cell control proves the consultation term is indispensable. Declared refinement maps and one-step intertwining imply cone-image inclusion and run/readback naturality"
       },
       {
         "hypothesis_boundary": "the finite source packet and its log-transition corner action are attained, while the reference remains declared. A typed finite-to-real transfer exists only under an undercut receipt. The complete binary history law still cannot select the off-alphabet curvature of a regular Legendre system: the displayed family is constructed, not source-produced. Issue #683 remains open for a source-selected reference and real enrichment, saddle histories, physical action and clock, amplitudes, fields, continuum, and observable currents. This row emits no prediction-ladder entry",

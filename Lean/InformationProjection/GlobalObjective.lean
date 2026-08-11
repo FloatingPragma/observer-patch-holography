@@ -33,12 +33,11 @@ masses moves the unique minimizer and the kernel entries, so the
 objective pins its reference.
 
 Scope boundary: this module is the finite mathematical representation
-demanded by receipt 1.  Whether the OPH source realizes this objective
-on a bounded run is the territory of receipts 2 and 3, evidenced by
-the preregistered bounded source run recorded on the issue; the
-refinement-uniform low-temperature control of receipt 4 is a separate
-open obligation.  No source construction, physical energy, clock, or
-continuum statement is made here.
+demanded by receipt 1.  A locally hash-pinned bounded run probed the
+state-side and transition-side objects but did not identify the common
+reference or realize this objective. B20 (#725) owns that source/objective
+continuation and the refinement-uniform low-temperature control. No source
+construction, physical energy, clock, or continuum statement is made here.
 -/
 
 variable {Ω : Type*} [Fintype Ω] [DecidableEq Ω]

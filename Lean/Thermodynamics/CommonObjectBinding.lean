@@ -10,10 +10,12 @@ open OPH.InformationProjection
 # Degenerate common-object compatibility witness for B12 (issue #688)
 
 This module packages four finite representation-level ingredients relevant
-to the B12 receipts on one structure over one realized data set.  It does
-not discharge the source receipts of issue #688.  The data set is the exact
+to the historical B12 receipts on one structure over one realized data set.
+It does not discharge the replacement source/common-object receipts of issue
+#725; #688 is their bounded-negative predecessor.  The data set is the exact
 restricted two-state chain of `MixingChainRealization`, extracted from the
-preregistered bounded source run `runs/b12_prereg_16k_20260806` of the simulator
+locally pre-specified and hash-pinned bounded source run
+`runs/b12_prereg_16k_20260806` of the simulator
 (seed `20260806`, engine commit
 `b39b78faf894894ebe573571e0902ccfaaeac32a`).  The payload with the full
 extraction is `oph-physics-sim/docs/B12_MIXING_CHAIN_PAYLOAD.json`
@@ -82,18 +84,20 @@ by the domination-failure theorem), a measured separation between the
 mixing dynamics and the degenerate resampling projection; the same
 objective
 vanishes at the realized pair itself (`binding_realized_pair_zero`).
-No synthetic data enters: every literal is the committed run literal.
+No synthetic transition counts enter: all numerical literals trace to
+retained data, while the energy, singleton-fibre kernel, and refinement
+tower are declared adapter constructions.
 
 ## Claim boundary
 
-Compatibility at the representation level over earned literals.  The
+Compatibility at the representation level over committed extracted literals.  The
 stationary reference of the restricted transition chain is not identified
-with the preregistered state-side reference.  The realized chain is not the
+with the separately pre-specified state-side reference.  The realized chain is not the
 identity conditional-resampling kernel forced by the singleton fibres, and
 the `UniformGapRefinement` inhabitant below is a constant family rather than
 a nontrivially varying regulator tower.  A common source-reference theorem,
 an actual source-collar/resampling identification, and nondegenerate
-refinement control therefore remain open under B12 (#688).  The physical
+refinement control therefore remain open under B20 (#725).  The physical
 inverse-temperature reading and energy-clock calibration remain with E5
 (#703).
 -/
@@ -102,7 +106,7 @@ inverse-temperature reading and energy-clock calibration remain with E5
 
 /-- The pinned transition-side reference: the real cast of the exact
 stationary law of the realized restricted chain.  No equality with the
-independently preregistered state-side source reference is asserted. -/
+separately pre-specified state-side source reference is asserted. -/
 noncomputable def bindingReference : Fin 2 → ℝ :=
   fun i => ((mixingChainStationary i : ℚ) : ℝ)
 
@@ -202,7 +206,7 @@ theorem bindingReference_stationary :
 stationary reference, one transition object, one protected labelling, and
 one energy defined from that reference.  The fields record positivity,
 normalization, stationarity, nonconstant labelling, and the convention
-`E = -log ref`.  The type does not contain the independently preregistered
+`E = -log ref`.  The type does not contain the separately pre-specified
 state-side reference, a source-collar identification, or a nonconstant
 refinement family. -/
 structure CommonObjectBinding (Ω : Type*) [Fintype Ω] [DecidableEq Ω] where
@@ -604,7 +608,7 @@ receipts:
    exactly at the pinned pair;
 2. the pinned reference is the exact stationary law of the realized
    transition chain, and the protected record labelling is nonconstant; no
-   equality with the independently preregistered state-side reference is
+   equality with the separately pre-specified state-side reference is
    proved;
 3. the realized restricted chain is strictly positive and row
    stochastic, its record-fibre resampling kernel is the identity (the

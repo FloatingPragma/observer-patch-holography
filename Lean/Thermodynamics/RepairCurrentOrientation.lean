@@ -1,17 +1,20 @@
 import Mathlib
 
 /-!
-# The repair-load irreversibility current and its orientation
+# A post-hoc repair-load orientation statistic
 
 Literal mirror of `docs/REPAIR_CURRENT_PAYLOAD.json` of `oph-physics-sim`
-(payload schema v2, sha256
-`a9214bd110a1e8808c16202f6970dd90fd0e6c63ac6aa58acdc181b2da39d2c1`,
-extracted from the retained preregistered bundle
+(payload schema v3, sha256
+`7f8ea7ef9c92a50e23207c2fe85d09ed2bce1c1aa539ae9914a9b9edd0df26d6`,
+extracted from the retained locally hash-pinned B12 bundle
 `runs/b12_prereg_16k_20260806` by `scripts/extract_repair_current.py`):
 the exact ordered transition counts of the committed run's
 transition-history windows, projected onto the declared
 `repair_load_bucket` coordinate, with the two declared orientation
-invariants.
+invariants.  The B12 contract was locally frozen before execution, without an
+independent public pre-result timestamp; this projection, maximizing rule,
+and orientation use were designed after the run.  They are therefore
+post-hoc descriptive statistics, not preregistered evidence.
 
 The mathematical content is small and exact: the ordered count table is
 not symmetric, the designated pair `3 -> 4` carries `1343` forward counts
@@ -23,13 +26,14 @@ reversal behaviour for arbitrary tables; the literal receipts instantiate
 them on the committed counts.  The designation rule itself is certified
 by kernel decides: `1343` and `1239691068` are the exact maxima of the
 pair asymmetry and the cycle gap, each attained only on the designated
-orbit, whose lexicographically least representative is the designated
-pair or cycle by inspection of the listed orbit.  The transposition of
+orbit.  Separate kernel-checked code inequalities certify that the
+displayed pair and cycle are the lexicographically least maximizers.  The transposition of
 the table under window reversal is an identity of ordered recounting,
 recorded by the extractor as reversal semantics rather than as a data
 check.
 
-**Boundary.**  These are ordered counts of one committed bounded run
+**Boundary.**  These are post-hoc functions of ordered counts from one
+committed bounded run
 under one declared quotient.  No physical arrow of time, continuum
 current, thermodynamic-limit statement, or laboratory claim is made; the
 physical clock is owned by E5.  The orientation bit extracted here is
@@ -116,6 +120,15 @@ theorem designatedPair_attainment :
     ∀ a b : Fin 8, (pairAsymmetry repairCounts a b).natAbs = 1343 →
       (a = 3 ∧ b = 4) ∨ (a = 4 ∧ b = 3) := by decide
 
+/-- Numeric code for lexicographic order on pairs of `Fin 8`. -/
+def pairLexCode (a b : Fin 8) : ℕ := a.val * 8 + b.val
+
+/-- `(3,4)` is kernel-certified as the lexicographically least pair
+maximizer, rather than merely selected after listing the orbit. -/
+theorem designatedPair_lexLeast :
+    ∀ a b : Fin 8, (pairAsymmetry repairCounts a b).natAbs = 1343 →
+      pairLexCode 3 4 ≤ pairLexCode a b := by decide
+
 /-- The signed cycle gap of an ordered count table. -/
 def cycleGap (C : Fin 8 → Fin 8 → ℕ) (a b c : Fin 8) : ℤ :=
   (cycleForward C a b c : ℤ) - (cycleForward C c b a : ℤ)
@@ -135,8 +148,48 @@ theorem designatedCycle_attainment :
         (a = 5 ∧ b = 3 ∧ c = 4) ∨ (a = 5 ∧ b = 4 ∧ c = 3) ∨
         (a = 4 ∧ b = 3 ∧ c = 5) ∨ (a = 3 ∧ b = 5 ∧ c = 4) := by decide
 
-/-- **The source orientation bit**: the committed counted order runs the
-designated cycle forward.  Time reversal flips it. -/
+/-- Numeric code for lexicographic order on triples of `Fin 8`. -/
+def cycleLexCode (a b c : Fin 8) : ℕ := a.val * 64 + b.val * 8 + c.val
+
+/-- `(3,4,5)` is kernel-certified as the lexicographically least cycle-gap
+maximizer. -/
+theorem designatedCycle_lexLeast :
+    ∀ a b c : Fin 8,
+      (cycleGap repairCounts a b c).natAbs = 1239691068 →
+        cycleLexCode 3 4 5 ≤ cycleLexCode a b c := by decide
+
+/-! ## Exact row-normalized check
+
+Raw count products depend on row occupancies.  For the displayed selected
+cycle, row normalization leaves the forward/backward sign unchanged but
+changes the magnitude.  This is an exact check on that cycle, not a claim
+that the raw maximizing cycle is invariant under arbitrary row reweighting. -/
+
+/-- Exact outgoing count in one row. -/
+def repairRowTotal (a : Fin 8) : ℕ := ∑ b : Fin 8, repairCounts a b
+
+/-- Row-normalized rational transition kernel. -/
+def repairKernelQ (a b : Fin 8) : ℚ :=
+  (repairCounts a b : ℚ) / (repairRowTotal a : ℚ)
+
+/-- Forward product for a rational transition kernel. -/
+def cycleForwardQ (K : Fin 8 → Fin 8 → ℚ) (a b c : Fin 8) : ℚ :=
+  K a b * K b c * K c a
+
+theorem repairKernelQ_row_stochastic :
+    ∀ a : Fin 8, ∑ b : Fin 8, repairKernelQ a b = 1 := by
+  decide +kernel
+
+/-- The designated normalized Markov product is exact; the reverse support
+is absent.  The relevant orientation information is the positive product
+gap, not a finite cycle ratio. -/
+theorem designatedCycle_normalized_products :
+    cycleForwardQ repairKernelQ 3 4 5 = 9391599 / 57188378 ∧
+      cycleForwardQ repairKernelQ 5 4 3 = 0 := by
+  decide +kernel
+
+/-- **The post-hoc count orientation bit**: the committed counted order runs
+the designated cycle forward.  Time reversal flips it. -/
 def repairOrientationBit : Bool :=
   decide (cycleForward repairCounts 5 4 3 < cycleForward repairCounts 3 4 5)
 
@@ -147,9 +200,10 @@ theorem reversal_flips_orientation :
     decide (cycleForward (reversal repairCounts) 5 4 3 <
         cycleForward (reversal repairCounts) 3 4 5) = false := by decide
 
-/-! ## Negative control: a reversible table carries no orientation -/
+/-! ## Negative control: a synthetic symmetric count table carries no orientation -/
 
-/-- A detailed-balanced control table: symmetric counts. -/
+/-- A synthetic exactly symmetric count table.  This is an algebraic
+control, not an empirical finite-sample detailed-balance receipt. -/
 def reversibleControl : Fin 8 → Fin 8 → ℕ := fun a b =>
   (a : ℕ) + (b : ℕ) + 1
 
@@ -174,8 +228,12 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.designatedCycle_products
 #print axioms OPH.Thermodynamics.designatedPair_maximal
 #print axioms OPH.Thermodynamics.designatedPair_attainment
+#print axioms OPH.Thermodynamics.designatedPair_lexLeast
 #print axioms OPH.Thermodynamics.designatedCycle_maximal
 #print axioms OPH.Thermodynamics.designatedCycle_attainment
+#print axioms OPH.Thermodynamics.designatedCycle_lexLeast
+#print axioms OPH.Thermodynamics.repairKernelQ_row_stochastic
+#print axioms OPH.Thermodynamics.designatedCycle_normalized_products
 #print axioms OPH.Thermodynamics.repairOrientationBit_true
 #print axioms OPH.Thermodynamics.reversal_flips_orientation
 #print axioms OPH.Thermodynamics.reversibleControl_no_orientation

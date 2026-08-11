@@ -1,14 +1,15 @@
 import QFT.ConvexAffinityBridge
 
 /-!
-# A source-produced convex preparation family from the B12 run
+# A declared convex-family adapter over B12 fibre counts
 
 The `ConvexAffinityBridge` module derives outcome affinity for every
 preparation family with a declared convex mixing law; the open B13 core
-is source production of such a family.  This module mirrors, as exact
-literals, a four-fibre subfamily of the convex family carried by the B12
-preregistered source run, together with the boundary theorem naming what
-this realization cannot supply.
+is source production of such a family.  This module mirrors four exact
+fibre-conditional count laws from the locally pre-specified and
+hash-pinned B12 run, then places them in a declared simplex/diagonal-state
+adapter.  The boundary theorem names what that algebraic construction
+cannot supply operationally.
 
 ## Source provenance
 
@@ -24,14 +25,13 @@ from `freezeout_fields.npz` (sha256
 The extraction script `scripts/extract_b13_convex_family.py` re-derives
 the table with the receipt's own binning producer and emits
 `docs/B13_CONVEX_FAMILY_PAYLOAD.json`: the 32 exact fibre-conditional
-laws, the realized record marginal, and declared record-rebalancing
+laws, the realized record marginal, and declared counterfactual record-rebalancing
 mixtures, each verified in exact rational arithmetic to equal the
 companion marginal of the correspondingly reweighted table.  The fibre
-laws are realized states on the companion alphabet, and convex mixtures
-of fibre laws weighted by any record distribution are exactly the
-companion marginals of record-rebalanced versions of the run's own
-table, so the mixing operation is realized by the run's record
-statistics rather than declared by hand.
+laws are exact empirical conditional distributions.  Their diagonal
+state embeddings and arbitrary convex mixtures are mathematical
+adapters: the run supplies one joint table, not an operational
+preparation or record-reweighting instrument for every simplex point.
 
 The four laws mirrored here are the fibre-conditional laws of record
 classes 0, 1, 2, 3 (the payload's declared selection rule: the first
@@ -55,24 +55,25 @@ realized record marginal restricted to the chosen fibres is exactly
   of the mixture);
 * the affinity receipt `sourceConvexFamily_outcome_affine`, consumed
   from the committed `ConvexPreparationFamily.outcome_affine`;
-* the earned-family theorem `sourceConvexFamily_earned_from_run`: the
-  simplex vertices realize the run's fibre laws, the payload's two
+* the exact attachment theorem `sourceConvexFamily_declared_attachment`: the
+  simplex vertices embed the run's fibre laws, the payload's two
   committed simplex points (the restricted realized record marginal and
   the declared rebalanced point) are family states whose diagonals are
   the payload's exact mixed laws, and the four fibre states are pairwise
   distinct;
 * the boundary theorems: every family outcome factors through the
   diagonal compression of the effect
-  (`sourceConvexFamily_outcome_eq_diagonalPart`), the realized effect
+  (`sourceConvexFamily_outcome_eq_diagonalPart`), the declared diagonal effect
   algebra is commutative (`sourceRealizedEffects_commute`), and no
   noncommuting context pair exists in this realization
   (`source_no_noncommuting_context_pair`).
 
 ## Claim boundary
 
-The literals mirror realized frequencies of one committed run; the
-family is a mathematical mirror of source data, and its mixing operation
-is the run's record-marginal rebalancing.  What the full Born bridge
+The literals mirror realized frequencies of one committed run.  The
+family, arbitrary simplex weights, diagonal states/effects, and mixing
+operation are declared mathematical adapters over those frequencies,
+not source-produced preparations or instruments.  What the full Born bridge
 additionally needs is interlocking contexts: shared effects across
 incompatible measurements.  The boundary theorems prove that this
 diagonal realization cannot supply them, because every effect it can
@@ -183,11 +184,11 @@ theorem sourceMixture_eq_diagonal (w : Fin 4 → ℝ) :
   · simp only [Matrix.sum_apply, Matrix.smul_apply, sourceFibreState,
       Matrix.diagonal_apply_ne _ hjk, smul_zero, Finset.sum_const_zero]
 
-/-- The source convex family: states are record-weight mixtures of the
+/-- The source-attached convex-family adapter: states are record-weight mixtures of the
 four diagonal fibre states, and the mixing operation is record-marginal
-rebalancing on the weight simplex.  Both the states and the mixing
-operation are mirrors of realized run data; the mixing law is proved
-from the diagonal closed form. -/
+rebalancing on the weight simplex.  The vertices use extracted run
+counts; arbitrary weights, state embeddings, and the mixing operation
+are declared, and the mixing law is proved from the diagonal closed form. -/
 def sourceConvexFamily : ConvexPreparationFamily 8 SourceRecordSimplex where
   mix l hl w w' :=
     ⟨fun i => l * w.1 i + (1 - l) * w'.1 i, by
@@ -360,16 +361,15 @@ theorem sourceConvexFamily_outcome_affine (E : Matrix (Fin 8) (Fin 8) ℂ)
         + ((1 - l : ℝ) : ℂ) * bornWeight (sourceConvexFamily.state q) E :=
   sourceConvexFamily.outcome_affine E l hl p q
 
-/-- The earned-family theorem.  The family is realized from the run's
-fibre laws with the mixing operation realized by record-marginal
-rebalancing: the simplex vertices are the four fibre states extracted
+/-- Exact source-attachment theorem (legacy API name).  The simplex
+vertices are the four diagonal fibre states built from counts extracted
 from the pinned joint table, the restricted realized record marginal and
 the declared rebalanced point are family states whose diagonals are the
 payload's exact mixed laws, and the four fibre states are pairwise
 distinct.  Provenance: run `b12_prereg_16k_20260806`, receipt sha256
 `d6739274e9451295b8bb0334180231bfb1e516c03bfd6f2c80f70e4da64db749`,
 payload `docs/B13_CONVEX_FAMILY_PAYLOAD.json` of the sim repository. -/
-theorem sourceConvexFamily_earned_from_run :
+theorem sourceConvexFamily_declared_attachment :
     (∀ i, sourceConvexFamily.state (sourceVertex i) = sourceFibreState i)
     ∧ sourceConvexFamily.state sourceRestrictedMarginalPoint
         = Matrix.diagonal (fun j => ((sourceUniformMixedLaw j : ℝ) : ℂ))
@@ -383,8 +383,8 @@ theorem sourceConvexFamily_earned_from_run :
 
 /-! ## The commutative-context boundary -/
 
-/-- The effect algebra this realization can present: the diagonal
-matrices on the companion alphabet. -/
+/-- The declared diagonal effect algebra of this adapter: matrices on
+the companion alphabet.  It is not a source-produced instrument algebra. -/
 def sourceRealizedEffectAlgebra : Set (Matrix (Fin 8) (Fin 8) ℂ) :=
   Set.range Matrix.diagonal
 
@@ -393,7 +393,7 @@ def sourceDiagonalPart (E : Matrix (Fin 8) (Fin 8) ℂ) :
     Matrix (Fin 8) (Fin 8) ℂ :=
   Matrix.diagonal fun j => E j j
 
-/-- The diagonal compression lands in the realized effect algebra. -/
+/-- The diagonal compression lands in the declared diagonal effect algebra. -/
 theorem sourceDiagonalPart_mem (E : Matrix (Fin 8) (Fin 8) ℂ) :
     sourceDiagonalPart E ∈ sourceRealizedEffectAlgebra :=
   ⟨_, rfl⟩
@@ -414,7 +414,7 @@ theorem sourceConvexFamily_outcome_eq_diagonalPart
   simp [bornWeight, Matrix.trace, Matrix.diag, Matrix.diagonal_mul,
     sourceDiagonalPart]
 
-/-- The realized effect algebra is commutative: any two diagonal effects
+/-- The declared diagonal effect algebra is commutative: any two effects
 commute. -/
 theorem sourceRealizedEffects_commute :
     ∀ E ∈ sourceRealizedEffectAlgebra, ∀ F ∈ sourceRealizedEffectAlgebra,
@@ -436,10 +436,10 @@ theorem sourceConvexFamily_states_commute (p q : SourceRecordSimplex) :
   exact congrArg _ (funext fun j => mul_comm _ _)
 
 /-- The boundary theorem: no noncommuting context pair exists in this
-realization.  Interlocking contexts require shared effects across
-incompatible measurements; the realized effect algebra is commutative,
+declared adapter.  Interlocking contexts require shared effects across
+incompatible measurements; its diagonal effect algebra is commutative,
 so this diagonal family supplies none.  This names the exact gap between
-the earned convex-mixing production and the full B13 Born bridge. -/
+the algebraic convex-family construction and the full B13 Born bridge. -/
 theorem source_no_noncommuting_context_pair :
     ¬ ∃ E F : Matrix (Fin 8) (Fin 8) ℂ,
         E ∈ sourceRealizedEffectAlgebra ∧ F ∈ sourceRealizedEffectAlgebra
@@ -466,7 +466,7 @@ end
 #print axioms sourceConvexFamily_state_restrictedMarginal
 #print axioms sourceConvexFamily_state_rebalanced
 #print axioms sourceConvexFamily_outcome_affine
-#print axioms sourceConvexFamily_earned_from_run
+#print axioms sourceConvexFamily_declared_attachment
 #print axioms sourceDiagonalPart_mem
 #print axioms sourceConvexFamily_outcome_eq_diagonalPart
 #print axioms sourceRealizedEffects_commute

@@ -61,13 +61,15 @@ with `s = sqrt(5)`; `alpha` never appears.  The certified phase diagram:
   gap `3 s beta/delta^2 + (90 s/11)/beta`;
 - every metric with `beta/delta` in `[1/50, 6]` selects `G` for all `gamma`
   and `delta`;
-- `F` becomes nearest only past an explicit chirality threshold in
-  `beta/delta`; the exact witness `(beta,gamma,delta) = (8,1,1)` has
-  `d_F^2 < d_G^2`;
+- the `F` region is the exact side `d_F^2 < d_G^2` of the displayed tie
+  surface; the witness `(beta,gamma,delta) = (8,1,1)` proves that region is
+  nonempty, but there is no single threshold in one sector ratio over the
+  full three-scale cone;
 - conjugating `sqrt(5)` and swapping `beta <-> gamma` maps `d_G` to `d_F`
-  exactly: the `F`/`G` asymmetry is the Galois image of the sector swap, and
-  the face orientation selects the branch with the smaller conjugate at every
-  balanced point;
+  exactly: the `F`/`G` asymmetry is the Galois image of the sector swap.
+  Global reversal of every face sends the face bracket to its negative and
+  leaves all three distances unchanged because the compared compact families
+  are centrally symmetric, so face orientation does not select this branch;
 - a channel-diagonal invariant metric on the bracket space that is not
   carrier-induced reverses the balanced-point selection, so
   carrier-inducedness is load-bearing (carrier-induced metrics force the
@@ -87,7 +89,7 @@ The face incidence is pinned input.  For the quadratic rule the metric choice
 is now characterized rather than declared coordinate data: the comparison is
 robust over the complete carrier-induced invariant class, with balance in the
 two three-dimensional sectors as the stated sufficient condition and an exact
-chirality threshold beyond it.  The nearest-point repair rule, the
+three-scale tie surface beyond it.  The nearest-point repair rule, the
 restriction to carrier-induced metrics, and the `L1`/`Linfinity` coordinate
 rules remain declared discriminator choices, and none of them is
 source-derived.  Neither a minimum-distance Jacobi repair law nor a physical

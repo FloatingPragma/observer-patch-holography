@@ -28,19 +28,29 @@ only Lean's standard extensionality, choice, and quotient principles.
 
 ## Exact boundary
 
-The cone is an `n`-move, `n`-fold-neighborhood upper bound. It is not proved
-minimal, influence need not reach its boundary, and no graph-radius `nR`,
-distance, clock, or propagation speed is present. Both compared runs use the
-same externally fixed word. An adaptive scheduler selected from the current
-global state is outside the theorem.
+The fixed-word cone is an `n`-move, `n`-fold-neighborhood upper bound. It is
+not proved minimal, influence need not reach its boundary, and no graph-radius
+`nR`, distance, clock, or propagation speed is present. Both compared runs use
+the same externally fixed word.
+
+`ObserverPatchHolography/Locality/AdaptiveScheduler.lean` is a separate E2
+conditional helper, not an enlargement of the B4 result. Given a supplied
+adaptive scheduler `σ` and a supplied consultation region `R` satisfying
+`ConsultsOnly σ R`, it proves agreement on `ball (S ∪ R) n`, one-site
+no-influence outside `ball S n ∪ ball R n`, and a two-cell countermodel showing
+that the `R` term cannot be dropped. Given a declared `ConeRefinement`, it also
+proves cone-image inclusion and run/readback naturality. These results do not
+produce `σ`, `R`, refinement data, fairness, a positive state, or a channel
+from the source; nor do they have distance, clock, CPTP, spacelike, or
+laboratory-channel semantics.
 
 The no-signalling results do not construct an OPH graph-region product or
 tensor factor, positivity and normalization for a source state or channel, a
 bundled stochastic or CPTP laboratory operation, or spacelike separation.
 Issue #692 (E1) is the B4 claim's sole live gate and owns only the finite
-coverage/region-factor attachment. Source state/channel production and an
-adaptive scheduler belong downstream to #693 (E2), the operational clock to
-#691 (D1), and continuum causal/time-slice and spacelike attachment to #700
+coverage/region-factor attachment. Source scheduler and state/channel
+production remain open under #693 (E2), the operational clock to
+#703 (E5), and continuum causal/time-slice and spacelike attachment to #700
 (E3); those continuations are outside B4's own live gate.
 
 This packet therefore closes only B4's finite helper deliverables. It emits no

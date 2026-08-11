@@ -1,12 +1,12 @@
 import QFT.ObserverAccessCut
 
 /-!
-# Sim-earned access-cut witness from the B12 preregistered run
+# Sim-attached access-cut witness from the locally frozen B12 run
 
 This module mirrors, as Lean literals, the exact finite payload
 `docs/SIM_EARNED_WITNESS_PAYLOAD.json` of the `oph-physics-sim`
-repository, and builds from those literals an earned instance of the E6
-access-cut interface.  Interpretation of every literal is governed by the
+repository, and builds from those literals a declared, payload-attached
+instance of the E6 access-cut interface.  Interpretation of every literal is governed by the
 payload's sibling `docs/SIM_EARNED_WITNESS_NOTES.md`.
 
 ## Provenance (verbatim from the payload's provenance block)
@@ -89,7 +89,8 @@ is stated as a theorem instead of being repaired by synthetic data:
 
 ## Claim boundary
 
-The literals are earned finite data from the preregistered bounded run
+The literals are earned finite data from the locally pre-specified and
+hash-pinned bounded run
 identified above and carry no physical claim.  Verbatim from the
 payload: "Realized finite data from one committed run under a declared
 binning and a declared observer selection rule.  The integers are counts
@@ -751,7 +752,7 @@ noncomputable def simRestrict : ∀ U V : SimRegion, SimRegion.le V U →
   | .s92, .s64, h => nomatch h
   | .s92, .top, h => nomatch h
 
-/-! ## The earned tower, net, and access cut -/
+/-! ## The payload-attached declared tower, net, and access cut -/
 
 /-- The selected tower state: the declared pure state on the ambient
 index.  The payload pins no state; this field is declared data. -/
@@ -761,7 +762,7 @@ noncomputable def simEarnedState : StateMatrix 33 :=
       rw [Matrix.trace_diagonal]
       simp [Pi.single_apply]⟩
 
-/-- The earned consensus tower: `Record () = Fin 32` is the payload's
+/-- The declared payload-attached consensus tower: `Record () = Fin 32` is the payload's
 record-class type, `Observer () = PayloadObserver` carries the four
 payload observers, and the public algebra of each observer is the
 diagonal span of its record classes on its truncated support. -/
@@ -832,10 +833,10 @@ theorem simRegionAlgebra_commute {U V : SimRegion}
   funext i
   exact mul_comm _ _
 
-/-- The earned finite causal observer net over the earned tower: the
-region lattice `SimRegion`, the diagonal regional algebras, the
-character-and-pullback restriction system, distinct-support
-disjointness, and identity repair. -/
+/-- The declared finite causal observer net over the payload-attached
+tower: the region lattice `SimRegion`, the diagonal regional algebras,
+the character-and-pullback restriction system, distinct-support
+disjointness, and identity repair are adapter data, not source outputs. -/
 noncomputable def simEarnedNet : FiniteCausalObserverNet simEarnedTower where
   Region := fun _ => SimRegion
   regionFintype := fun _ => inferInstance
@@ -893,8 +894,9 @@ noncomputable def simEarnedNet : FiniteCausalObserverNet simEarnedTower where
   repair_fixes_disjoint := by intros; rfl
   repair_natural := by intros; rfl
 
-/-- The earned access cut: observer regions are the payload support
-regions and accessible algebras are the joint-class diagonal spans. -/
+/-- The declared payload-attached access cut: observer regions are the
+payload support regions and accessible algebras are the joint-class
+diagonal spans. -/
 noncomputable def simEarnedCut :
     ObserverAccessCut simEarnedTower simEarnedNet () where
   observerRegion := SimRegion.regionOf
@@ -957,7 +959,7 @@ theorem o64Separator_not_mem_public :
   rw [h17] at h20
   exact one_ne_zero h20
 
-/-- Strictness, earned from the payload: observer 64's truncated support
+/-- Data-supported strictness inside the declared adapter: observer 64's truncated support
 realizes record class 18 with two distinct companion classes, so its
 public record algebra sits strictly inside its accessible algebra. -/
 theorem simEarnedCut_public_lt_accessible_o64 :
@@ -1052,7 +1054,7 @@ theorem o36Separator_not_mem_accessible :
   rw [h3] at h4
   exact one_ne_zero h4
 
-/-- Strictness, earned from the payload: observer 36's truncated support
+/-- Data-supported strictness inside the declared adapter: observer 36's truncated support
 carries two nodes with the same joint class (20, 6), so its accessible
 algebra sits strictly inside the regional algebra of its support. -/
 theorem simEarnedCut_accessible_lt_regional_o36 :
@@ -1143,7 +1145,7 @@ theorem simEarnedCut_repairStable : RepairStableAccessCut simEarnedCut := by
   exact hX
 
 /-- The cut satisfies the accessible-glue receipt over the singleton
-descent packet of the earned net. -/
+descent packet of the declared payload-attached net. -/
 theorem simEarnedCut_accessibleGlueClosure (o : PayloadObserver) :
     simEarnedCut.AccessibleGlueClosure o simEarnedNet.singletonDescent :=
   simEarnedCut.accessibleGlueClosure_singleton o

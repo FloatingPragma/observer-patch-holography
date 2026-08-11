@@ -1053,7 +1053,7 @@ def build_receipt() -> dict[str, Any]:
                 "excitedMass_lt_of_beta_large, gibbs_beta_injective, "
                 "clausius, landauer, kl_eq_energy_sub_shannon, "
                 "heatBath_preserves_pos, push_total, mixture_row_sum, "
-                "mixture_stationary, block_entropy_le"
+                "mixture_stochastic, mixture_stationary, block_entropy_le"
             ),
             "stationary_realization": (
                 "Thermodynamics/StationaryRealization.lean: "

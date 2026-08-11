@@ -14,7 +14,7 @@ Boundary.  This theorem concerns informational completeness of the declared
 real two-dimensional context web.  It does not deny that the web contains
 noncommuting real projectors, and it does not apply after a genuinely complex
 source context (for example a Pauli-Y projector) has been earned.  No missing
-context statistics are imputed to the preregistered run.
+context statistics are imputed to the locally frozen run.
 -/
 
 namespace OPH.QFT

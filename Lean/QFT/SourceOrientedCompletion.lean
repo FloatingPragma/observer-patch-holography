@@ -2,20 +2,23 @@ import QFT.ConjugationGauge
 import RepairCurrentOrientation
 
 /-!
-# The source-oriented phase completion and the conditional Born capstone
+# A post-hoc count-oriented phase convention and conditional Born capstone
 
 `QFT/ConjugationGauge.lean` proves that the ambiguity among the two
 candidate phase completions of the real source web is exactly a
-conjugation orbit: the candidates are conjugation-conjugate, conjugation
-preserves states, effects, and every real Born weight, and no
+conjugation orbit: the candidates are conjugation-conjugate, simultaneous
+conjugation of state and effect preserves the real part of their Born weight,
+and no
 conjugation-fixed effect separates any state from its conjugate.  That
 bounds the web's ambiguity from below; the full Pauli-Y coordinate,
 magnitude included, is separately invisible to the web, and no theorem
 here claims the orbit exhausts the ambiguity.
-`Thermodynamics/RepairCurrentOrientation.lean` extracts from the
-committed preregistered run an exact orientation bit whose designated
+`Thermodynamics/RepairCurrentOrientation.lean` applies a post-hoc maximizing
+rule to a retained locally hash-pinned B12 run and obtains an exact bit whose designated
 cycle carries a strict forward excess and whose value flips under time
-reversal of the counted order.
+reversal of the counted order.  The B12 contract was locally frozen before
+execution but lacks an independent public pre-result timestamp; the
+orientation statistic was not in that contract.
 
 This module composes the two under one **declared typed convention**:
 
@@ -34,15 +37,15 @@ effect valuation is represented by a state that the three oriented
 weights pin uniquely.  On a symmetric (detailed-balanced) table the
 comparison bit degenerates to the reversal-even constant `false` in both
 time directions and the strict-inequality applicability condition fails,
-so the convention declares no orientation there; the committed run's
-irreversibility is what makes it applicable.
+so the convention declares no orientation there; the committed table's
+strict post-hoc raw-count product gap is what makes this instance applicable.
 
 **Boundary.**  The transport of the thermodynamic bit onto the torsor
 index is a typed convention, not a theorem; the opposite pairing is
 equally admissible, and the coincidence with the phase lift is made by
 the declared pairing rather than found.  What is proved: the ambiguity
-among the two candidates is one conjugation orbit, the source supplies a
-reversal-odd bit satisfying the applicability condition, both torsor
+among the two candidates is one conjugation orbit, the retained counts admit
+this post-hoc reversal-odd bit satisfying the applicability condition, both torsor
 elements complete state tomography (so the convention is outcome-robust
 in either branch), and the composition with the representation theorem
 is exact.  No y-magnitude instrument, operational additivity derivation,
@@ -65,8 +68,8 @@ def phaseCompletion : Bool → Matrix (Fin 2) (Fin 2) ℂ
   | true => rhoYPlus
   | false => rhoYMinus
 
-/-- Conjugation acts on the torsor as the bit flip: the gauge group of
-the two-candidate ambiguity is exactly `ℤ₂`. -/
+/-- Conjugation acts on this two-candidate torsor as its nontrivial `ℤ₂`
+flip.  This does not classify a larger completion space. -/
 theorem matrixConj_phaseCompletion (b : Bool) :
     matrixConj (phaseCompletion b) = phaseCompletion (!b) := by
   cases b
@@ -81,8 +84,8 @@ theorem phaseCompletion_isState (b : Bool) :
   · exact rhoYMinus_isState
   · exact rhoYPlus_isState
 
-/-- The applicability condition of the declared convention: the
-designated cycle of the committed table carries a strict forward
+/-- The applicability condition of the declared convention on the hardwired
+`repairCounts` table: its designated cycle carries a strict forward
 excess. -/
 def orientationApplicable : Prop :=
   OPH.Thermodynamics.cycleForward OPH.Thermodynamics.repairCounts 5 4 3 <
@@ -93,26 +96,27 @@ theorem orientationApplicable_holds : orientationApplicable := by
   unfold orientationApplicable
   decide
 
-/-- **The declared convention**: the source's repair-current orientation
-bit selects the completion.  Its use is justified by
-`orientationApplicable_holds`; on tables failing the condition no
-orientation is declared. -/
-def sourceOrientedPhase : Matrix (Fin 2) (Fin 2) ℂ :=
+/-- **The declared convention**: the post-hoc repair-count orientation bit
+selects the completion.  The proof argument makes the fixed committed-table
+strict inequality part of the API; without a proof of that proposition no
+oriented phase is supplied.  The name is retained for compatibility and does not mean
+the rule was source-selected. -/
+def sourceOrientedPhase (_h : orientationApplicable) : Matrix (Fin 2) (Fin 2) ℂ :=
   phaseCompletion OPH.Thermodynamics.repairOrientationBit
 
-/-- The committed run's orientation selects `rhoYPlus`. -/
-theorem sourceOrientedPhase_eq_rhoYPlus :
-    sourceOrientedPhase = rhoYPlus :=
+/-- The post-hoc rule on the committed counts selects `rhoYPlus`. -/
+theorem sourceOrientedPhase_eq_rhoYPlus (h : orientationApplicable) :
+    sourceOrientedPhase h = rhoYPlus :=
   (congrArg phaseCompletion
     OPH.Thermodynamics.repairOrientationBit_true).trans rfl
 
 /-- Under the declared pairing, the selected completion coincides with
-the algebraic phase lift of the earned pair.  The coincidence is made by
+the algebraic phase lift of the source-attached algebraic pair. The coincidence is made by
 the pairing convention; with the opposite (equally admissible) pairing
 the selected completion would be the conjugate lift. -/
-theorem sourceOrientedPhase_eq_sourcePhaseLift :
-    sourceOrientedPhase = sourcePhaseLift := by
-  rw [sourceOrientedPhase_eq_rhoYPlus, sourcePhaseLift_eq_rhoYPlus]
+theorem sourceOrientedPhase_eq_sourcePhaseLift (h : orientationApplicable) :
+    sourceOrientedPhase h = sourcePhaseLift := by
+  rw [sourceOrientedPhase_eq_rhoYPlus h, sourcePhaseLift_eq_rhoYPlus]
 
 /-! ## Time reversal on the committed table -/
 
@@ -128,11 +132,11 @@ order selects exactly the conjugate completion.  This glues three
 decided literals (bit `true`, reversed bit `false`, and the conjugation
 of `rhoYPlus`); it is a property of this table, not a general
 equivariance, and on a balanced table both bits would coincide. -/
-theorem reversal_selects_conjugate :
-    phaseCompletion reversedOrientationBit = matrixConj sourceOrientedPhase := by
+theorem reversal_selects_conjugate (h : orientationApplicable) :
+    phaseCompletion reversedOrientationBit = matrixConj (sourceOrientedPhase h) := by
   have hrev : reversedOrientationBit = false :=
     OPH.Thermodynamics.reversal_flips_orientation
-  rw [hrev, sourceOrientedPhase_eq_rhoYPlus, matrixConj_rhoYPlus]
+  rw [hrev, sourceOrientedPhase_eq_rhoYPlus h, matrixConj_rhoYPlus]
   rfl
 
 /-- On a symmetric (detailed-balanced) table the comparison bit is
@@ -153,7 +157,8 @@ theorem symmetric_table_bit_degenerate (C : Fin 8 → Fin 8 → ℕ)
 /-! ## Both torsor elements complete state tomography -/
 
 /-- The tomographic frame completed by a torsor element: the record
-projector, one realized rotated web projector, and the chosen
+projector, one source-attached algebraic projector candidate obtained through
+the declared representation, and the chosen
 completion. -/
 def completionTomography (b : Bool) (rho : Matrix (Fin 2) (Fin 2) ℂ) :
     Fin 3 → ℂ :=
@@ -174,9 +179,9 @@ theorem sourcePhaseTomography_matrixConj (rho : Matrix (Fin 2) (Fin 2) ℂ) :
       matrixConj_sourcePhaseLift]
 
 /-- **Both branches are tomographically complete.**  The frame completed
-by either torsor element identifies every certified state, so the
-declared convention is outcome-robust: whichever value the source bit
-had taken, the selected frame would separate states. -/
+by either torsor element identifies every certified state, so either Boolean
+index gives a separating frame.  The index used below is post-hoc, not
+source-produced. -/
 theorem completionTomography_injective_on_states (b : Bool)
     {rho sigma : Matrix (Fin 2) (Fin 2) ℂ}
     (hrho : EventAlgebra.IsState rho) (hsigma : EventAlgebra.IsState sigma)
@@ -203,41 +208,43 @@ theorem completionTomography_injective_on_states (b : Bool)
 /-! ## The oriented frame -/
 
 /-- The oriented tomographic frame: the frame completed by the
-source-selected torsor element. -/
-def orientedTomography (rho : Matrix (Fin 2) (Fin 2) ℂ) : Fin 3 → ℂ :=
+post-hoc count-selected torsor element, with applicability explicit. -/
+def orientedTomography (h : orientationApplicable)
+    (rho : Matrix (Fin 2) (Fin 2) ℂ) : Fin 3 → ℂ :=
   ![EventAlgebra.bornWeight rho (complexifyRealMatrix recordProjector),
     EventAlgebra.bornWeight rho (complexifyRealMatrix (conjProjector 3)),
-    EventAlgebra.bornWeight rho sourceOrientedPhase]
+    EventAlgebra.bornWeight rho (sourceOrientedPhase h)]
 
 /-- The oriented frame is the bit instance of the two-branch frame. -/
-theorem orientedTomography_eq_completionTomography :
-    orientedTomography =
+theorem orientedTomography_eq_completionTomography (h : orientationApplicable) :
+    orientedTomography h =
       completionTomography OPH.Thermodynamics.repairOrientationBit := rfl
 
 /-- The oriented frame coincides with the phase-lifted frame. -/
-theorem orientedTomography_eq_sourcePhaseTomography :
-    orientedTomography = sourcePhaseTomography := by
+theorem orientedTomography_eq_sourcePhaseTomography (h : orientationApplicable) :
+    orientedTomography h = sourcePhaseTomography := by
   funext rho
   unfold orientedTomography sourcePhaseTomography
-  rw [sourceOrientedPhase_eq_sourcePhaseLift]
+  rw [sourceOrientedPhase_eq_sourcePhaseLift h]
 
 /-- **Oriented tomographic completeness.**  Three Born weights against
 the oriented frame identify every certified state. -/
 theorem orientedTomography_injective_on_states
+    (happ : orientationApplicable)
     {rho sigma : Matrix (Fin 2) (Fin 2) ℂ}
     (hrho : EventAlgebra.IsState rho) (hsigma : EventAlgebra.IsState sigma)
-    (h : orientedTomography rho = orientedTomography sigma) :
+    (h : orientedTomography happ rho = orientedTomography happ sigma) :
     rho = sigma := by
-  rw [orientedTomography_eq_sourcePhaseTomography] at h
+  rw [orientedTomography_eq_sourcePhaseTomography happ] at h
   exact sourcePhaseTomography_injective_on_states hrho hsigma h
 
 /-- The oriented completion separates the conjugation orbit that every
 conjugation-fixed frame must conflate: weight `1` on `rhoYPlus`, weight
 `0` on its conjugate. -/
-theorem sourceOrientedPhase_separates_conj_orbit :
-    EventAlgebra.bornWeight rhoYPlus sourceOrientedPhase = 1 ∧
-      EventAlgebra.bornWeight (matrixConj rhoYPlus) sourceOrientedPhase = 0 := by
-  rw [sourceOrientedPhase_eq_sourcePhaseLift, matrixConj_rhoYPlus]
+theorem sourceOrientedPhase_separates_conj_orbit (h : orientationApplicable) :
+    EventAlgebra.bornWeight rhoYPlus (sourceOrientedPhase h) = 1 ∧
+      EventAlgebra.bornWeight (matrixConj rhoYPlus) (sourceOrientedPhase h) = 0 := by
+  rw [sourceOrientedPhase_eq_sourcePhaseLift h, matrixConj_rhoYPlus]
   exact sourcePhaseLift_distinguishes_Y_states
 
 /-- Without the oriented entry the remaining frame is conjugation-fixed,
@@ -263,30 +270,32 @@ valuation on the two-by-two event algebra is represented by a state
 whose full Born functional it equals, and that representing state is
 pinned among all states by its three Born weights against the oriented
 frame alone. -/
-theorem oriented_born_capstone (v : Matrix (Fin 2) (Fin 2) ℂ → ℝ)
+theorem oriented_born_capstone (happ : orientationApplicable)
+    (v : Matrix (Fin 2) (Fin 2) ℂ → ℝ)
     (hv : EventAlgebra.IsEffectValuation v) :
     ∃ rho : Matrix (Fin 2) (Fin 2) ℂ,
       (EventAlgebra.IsState rho ∧
         ∀ E, EventAlgebra.IsEffect E →
           v E = (EventAlgebra.bornWeight rho E).re) ∧
       ∀ sigma : Matrix (Fin 2) (Fin 2) ℂ, EventAlgebra.IsState sigma →
-        orientedTomography sigma = orientedTomography rho → sigma = rho := by
+        orientedTomography happ sigma = orientedTomography happ rho → sigma = rho := by
   obtain ⟨rho, hrho, -⟩ := EventAlgebra.finite_busch_gleason hv
   exact ⟨rho, hrho, fun sigma hsigma h =>
-    orientedTomography_injective_on_states hsigma hrho.1 h⟩
+    orientedTomography_injective_on_states happ hsigma hrho.1 h⟩
 
 /-- Agreement on the three oriented-frame weights forces agreement of
 the full Born valuation on every effect: the oriented frame determines
 the whole outcome functional of a certified state. -/
 theorem oriented_frame_determines_valuation
+    (happ : orientationApplicable)
     {rho sigma : Matrix (Fin 2) (Fin 2) ℂ}
     (hrho : EventAlgebra.IsState rho) (hsigma : EventAlgebra.IsState sigma)
-    (h : orientedTomography rho = orientedTomography sigma) :
+    (h : orientedTomography happ rho = orientedTomography happ sigma) :
     ∀ E, EventAlgebra.IsEffect E →
       (EventAlgebra.bornWeight rho E).re =
         (EventAlgebra.bornWeight sigma E).re := by
   intro E _
-  rw [orientedTomography_injective_on_states hrho hsigma h]
+  rw [orientedTomography_injective_on_states happ hrho hsigma h]
 
 end
 

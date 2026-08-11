@@ -18,9 +18,9 @@ Pauli-Y states):
 
 * conjugation preserves Hermiticity, positive semidefiniteness, states,
   effects, and events, and equals transposition on Hermitian matrices;
-* the real part of every Born weight is conjugation-invariant, so no
-  outcome statistic separates a state from its conjugate as long as
-  every available effect is conjugation-fixed;
+* simultaneous conjugation of state and effect conjugates the Born weight;
+  therefore a conjugation-fixed effect gives the same real Born weight on a
+  state and its conjugate;
 * the two phase completions are conjugation-conjugate, and the phase
   lift's conjugate is the opposite lift.
 
@@ -32,10 +32,12 @@ y-magnitude readout of an unknown state is exactly what the missing
 instrument owes.  What is exact at the orbit level: the ambiguity among
 the two constructed candidate completions is one conjugation orbit, so
 choosing between them is choosing an orientation of a two-element torsor
-acted on by conjugation.  The committed repair current supplies such an
-orientation in `Thermodynamics/RepairCurrentOrientation.lean`, and
-`QFT/SourceOrientedCompletion.lean` states the declared transport
-convention and its consequences.
+acted on by conjugation.  A post-hoc rule applied to the committed repair
+counts gives one reversal-odd bit in
+`Thermodynamics/RepairCurrentOrientation.lean`, and
+`QFT/SourceOrientedCompletion.lean` states the declared, applicability-guarded
+transport convention and its consequences.  This does not source-select the
+rule or its pairing with the torsor.
 
 **Boundary.**  No instrument, outcome, or physical measurement is
 constructed here; the y-magnitude readout of an unknown state remains
@@ -147,7 +149,8 @@ theorem bornWeight_matrixConj_left (ρ E : Matrix (Fin 2) (Fin 2) ℂ) :
   conv_lhs => rw [← matrixConj_involutive E]
   exact bornWeight_matrixConj ρ (matrixConj E)
 
-/-- The real part of every Born weight is conjugation-invariant. -/
+/-- Simultaneously conjugating the state and effect preserves the real part
+of their Born weight. -/
 theorem bornWeight_re_matrixConj (ρ E : Matrix (Fin 2) (Fin 2) ℂ) :
     (EventAlgebra.bornWeight (matrixConj ρ) (matrixConj E)).re =
       (EventAlgebra.bornWeight ρ E).re := by

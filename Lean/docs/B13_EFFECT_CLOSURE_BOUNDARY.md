@@ -30,9 +30,10 @@ module exposes both the centered and probability-interval versions.
 
 ## Exact phase-lift target and real-closure no-go
 
-`QFT/SourcePhaseLiftBridge.lean` starts from the two noncommuting real
-projection effects earned by the committed source payload,
-`recordProjector` and `conjProjector 3`. Subtracting their normalized complex
+`QFT/SourcePhaseLiftBridge.lean` starts from two noncommuting real algebraic
+projector candidates obtained by applying the declared two-dimensional S3
+representation to source-realized gauge labels: `recordProjector` and
+`conjProjector 3`. Subtracting their normalized complex
 commutator from `I/2` gives the phase lift
 
 \[
@@ -41,8 +42,8 @@ commutator from `I/2` gives the phase lift
 
 exactly. Lean proves that this phase lift is a projection, that its binary
 complement completes a context, and that it distinguishes the two pure
-Pauli-Y states which the native real web cannot distinguish. The record
-projector, the realized rotated projector, and the phase lift separate all
+Pauli-Y states which the algebraic real web cannot distinguish. The record
+projector, the algebraically rotated projector, and the phase lift separate all
 two-by-two matrices on every fixed-trace slice; this statement does not need
 positivity or Hermiticity.
 
@@ -56,12 +57,14 @@ membership, exact projection, fixed-trace tomography, real-closure exclusion,
 and the receipt fact that the committed run has outcomes only for its native
 diagonal context.
 
-## Conjugation gauge and source-oriented completion
+## Conjugation gauge and post-hoc count-oriented completion
 
 `QFT/ConjugationGauge.lean` makes the completion ambiguity structural.
 Entrywise conjugation preserves Hermiticity, positivity, states, effects,
 and events, equals transposition on Hermitian matrices, and conjugates the
-trace, so the real part of every Born weight is conjugation-invariant. The
+trace. Simultaneously conjugating state and effect therefore preserves the
+real part of their Born weight; conjugating the state alone does so only for
+a conjugation-fixed effect. The
 complexified real web is fixed pointwise, and the two candidate phase
 completions \(\rho_{Y+}\) and \(\rho_{Y-}\) form one conjugation orbit.
 Hence no conjugation-fixed frame separates any state from its conjugate,
@@ -72,15 +75,19 @@ hidden from the web.
 
 `Thermodynamics/RepairCurrentOrientation.lean` mirrors the committed
 payload `docs/REPAIR_CURRENT_PAYLOAD.json` of `oph-physics-sim` (schema
-v2, sha256 `a9214bd110a1e8808c16202f6970dd90fd0e6c63ac6aa58acdc181b2da39d2c1`,
-recounted from the retained preregistered bundle
+v3, sha256 `7f8ea7ef9c92a50e23207c2fe85d09ed2bce1c1aa539ae9914a9b9edd0df26d6`,
+recounted post hoc from the retained bundle of a run executed under an
+unrelated, locally hash-pinned B12 contract
 `runs/b12_prereg_16k_20260806` with report-total, alphabet,
 strict-integer, and npz support/recount cross-checks). Kernel decides
 certify the totals, the designated pair `3 -> 4` with `1343` forward and
 `0` backward counts, the designated cycle `(3,4,5)` with products
 `1239691068` and `0`, the maximality and unique-orbit attainment of both
-designations, the reversal-oddness of the orientation bit under
-transposition, and the symmetric-control degeneration.
+designations and lexicographically least tie breaks, the exact normalized
+selected-cycle products `9391599/57188378` and `0`, the reversal-oddness of
+the bit under transposition, and the synthetic symmetric-control degeneration.
+Neither this statistic nor its designation rule was preregistered, and the
+payload records that it is ineligible as validation.
 
 `QFT/SourceOrientedCompletion.lean` composes the two under a declared
 typed convention with an explicit applicability condition (the strict
@@ -96,8 +103,8 @@ effect valuation by its three oriented Born weights.
 ## Boundary and continuation
 
 This is substantial bounded progress for B13, not closure. The phase lift
-is an exact operator-algebra target, and the orientation is a counted
-property of one bounded run consumed under a declared convention; neither
+is an exact operator-algebra target, and the orientation is a post-hoc
+raw-count diagnostic consumed under a declared convention; neither
 is a source operation, public effect, instrument, or outcome receipt. The
 package does not derive affinity, a source effect algebra, Gleason/Busch
 hypotheses, noncontextuality across rich coexistent-effect contexts,
@@ -105,6 +112,6 @@ operational coarse graining, a physical quantum instrument, or any
 arrow-of-time claim. Issue #702 remains open for a phase-sensitive
 source-produced instrument with common-preparation outcomes (including the
 y-magnitude readout of an unknown state), the operational additivity
-bridge, and preregistered validation of the oriented readout; adding only
+bridge, and a freshly preregistered validation of the oriented readout; adding only
 more phase-free real contexts or continuity to binary-projector
 normalization cannot work.

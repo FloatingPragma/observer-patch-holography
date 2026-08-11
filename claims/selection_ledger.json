@@ -805,6 +805,43 @@
         "the three-norm agreement does not compare against the full Jacobi variety and does not supply a repair dynamics"
       ],
       "paper_anchors": []
+    },
+    {
+      "row": 24,
+      "selector_id": "post_hoc_repair_count_phase_pairing",
+      "label": "B13 post-hoc repair-count statistic and completion pairing",
+      "class": "exposed_premise",
+      "conditional_on": [],
+      "canonical_claim_id": "OPH-FINITE-BORN-FRAME-RANK-GAP",
+      "secondary_claim_ids": [],
+      "owner_issues": [],
+      "where": "`RepairCurrentOrientation.lean` mirrors a post-hoc raw-count product-gap statistic whose statistic, maximizing cycle, and tie-break rule were not preregistered. `SourceOrientedCompletion.lean` then declares one of the two possible pairings between its Bool value and the conjugate phase-completion pair; the opposite pairing is equally admissible. The applicability proof is threaded through the API, but neither the statistic nor pairing is source-selected or eligible as validation.",
+      "menu": {
+        "size": null,
+        "alternatives": "the two explicit torsor pairings sit inside an unenumerated space of possible post-hoc statistics and designation rules; no source-derived menu was frozen",
+        "enumeration_source": "Lean/QFT/SourceOrientedCompletion.lean"
+      },
+      "compression_input": false,
+      "receipts": [
+        "Lean/QFT/SourceOrientedCompletion.lean",
+        "Lean/Thermodynamics/RepairCurrentOrientation.lean"
+      ],
+      "lean": [
+        {
+          "module": "Lean/QFT/SourceOrientedCompletion.lean",
+          "declaration": "oriented_born_capstone"
+        },
+        {
+          "module": "Lean/Thermodynamics/RepairCurrentOrientation.lean",
+          "declaration": "designatedCycle_normalized_products"
+        }
+      ],
+      "negative_controls": [
+        "the opposite Bool-to-completion pairing is equally admissible and selects the conjugate branch",
+        "a synthetic symmetric table fails the strict applicability condition",
+        "the payload records that neither statistic nor designation rule was preregistered and that the result is ineligible as validation"
+      ],
+      "paper_anchors": []
     }
   ]
 }

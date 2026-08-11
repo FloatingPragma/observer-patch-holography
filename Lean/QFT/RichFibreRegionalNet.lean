@@ -2,7 +2,7 @@ import QFT.RichFibreWitness
 import QFT.CoverageReceipt
 
 /-!
-# The rich-fibre regional net: four noncommutative source regions
+# The rich-fibre regional net: four declared noncommutative regions
 
 This module builds the finite causal observer net over the rich-fibre
 witness of `QFT/RichFibreWitness.lean` (the second preregistered run
@@ -12,8 +12,9 @@ twenty-node window, so the uniform enrichment rule of
 `QFT/SourceRegionalNet.lean` yields a genuinely noncommutative regional
 algebra at **every** observer region.  The windows are pairwise disjoint
 in the source (`richSupport_pairwise_disjoint`, the preregistered gate G3
-on the literals), so the ambient block model mirrors four separated
-physical supports.
+on the literals).  The ambient block indexing is a separate declared
+construction; the locality theorem uses that construction rather than the
+source-node identities directly.
 
 Contents: the block-relation machinery over the `Fin 81` ambient basis;
 the enrichment rule from the payload literals (two ambient indices are
@@ -23,14 +24,15 @@ locality on declared-disjoint regions (a genuine block-versus-block
 commutation theorem, since two enriched regions are now disjoint), and
 the character/block restriction system; the tower and the
 `FiniteCausalObserverNet` instance; and the receipts (noncommutativity at
-all four regions, the realized two-by-two matrix factor of each
+all four regions, the constructed two-by-two matrix-unit corner associated with each
 designated split fibre, region separation, and the computed coverage law
 for the four-window family under the top region).
 
-**Boundary.**  The net mirrors the committed payload of one preregistered
-bounded run; the enrichment rule, region lattice, restriction system, and
-state are declared readings of those literals through the committed E1
-interfaces.  No physical causality, locality, clock, instrument, or
+**Boundary.**  The payload supplies window nodes and record/companion labels.
+The enrichment rule, region lattice, restriction system, base-point state,
+and identity repair are declared postprocessors through the committed E1
+interfaces.  The matrix-unit corner is not a `TensorSplitReceipt` or an
+identification of a regional algebra with a tensor factor.  No physical causality, locality, clock, instrument, or
 prediction is claimed; source-produced CP/CPTP instrument provenance
 remains with E2 and continuum structure with E3.
 -/
@@ -772,7 +774,8 @@ theorem richTop_entry_zero_of_owner {X : Matrix (Fin 81) (Fin 81) ℂ}
   hX.1 i j ((richRelTop_of_owner o i j hio).trans h)
 
 /-- The restriction from the top block algebra onto one observer
-window: a star-algebra homomorphism keeping the realized blocks. -/
+window: a star-algebra homomorphism keeping the declared blocks indexed
+by realized fibres. -/
 noncomputable def richPullback (o : RichObserver) :
     richRegionAlgebra .top →⋆ₐ[ℂ]
       richRegionAlgebra (RichRegion.regionOf o) where
@@ -1145,7 +1148,7 @@ theorem richFibreNet_separation (o o' : RichObserver) (h : o ≠ o')
     Commute X.1 Y.1 :=
   richFibreNet.locality () (richFibreNet_disjoint_supports o o' h) X Y
 
-/-! ## The realized matrix units and per-region noncommutativity -/
+/-! ## The declared matrix units and per-region noncommutativity -/
 
 /-- The matrix unit at one ambient entry. -/
 def richFibreUnit (a b : Fin 81) : Matrix (Fin 81) (Fin 81) ℂ :=
@@ -1192,7 +1195,7 @@ theorem richFibreUnit_diag_ne (a b : Fin 81) (hab : a ≠ b) :
   simp [richFibreUnit, hab] at this
 
 /-- **Every window region of the rich-fibre net is noncommutative**: the
-realized designated split fibre of each observer supplies a
+declared full-block enrichment of a realized designated split fibre supplies a
 noncommuting pair of regional observables.  This is the receipt the
 truncation-8 net could earn at one region only. -/
 theorem richRegional_noncommutative_all (o : RichObserver) :
@@ -1232,9 +1235,10 @@ theorem richRegional_noncommutative_all (o : RichObserver) :
       richFibreUnit_mul 66 65 (by decide)]
     exact richFibreUnit_diag_ne 65 66 (by decide)
 
-/-- The regional-factor localization receipt: at every observer, the
-four matrix units of its designated split fibre lie in its regional
-algebra and multiply as a full two-by-two matrix factor. -/
+/-- At every observer, four constructed matrix units associated with its
+designated split fibre lie in the regional algebra and obey the two-by-two
+matrix-unit products.  This is an embedded matrix corner, not a
+`TensorSplitReceipt` and not a regional tensor-factor identification. -/
 theorem richDesignatedFactor (o : RichObserver) :
     ∃ a b : Fin 81, a ≠ b ∧
       richNodeOwner a = some o ∧ richNodeOwner b = some o ∧
@@ -1577,7 +1581,8 @@ theorem richDesignated_not_in_drop (o : RichObserver) :
 
 /-- **Negative coverage control at every window**: any family avoiding
 one window and the top region itself fails the coverage law, because the
-dropped window carries its own realized noncommutative block.  The
+dropped window carries its own declared noncommutative block indexed by
+its realized fibre.  The
 top-exclusion hypothesis is necessary: the singleton family at the top
 trivially covers. -/
 theorem richDropCover_not_coverageLaw (o : RichObserver)

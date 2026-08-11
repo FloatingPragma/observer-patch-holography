@@ -672,15 +672,17 @@ family under total absolute edit, quadratic edit, and worst-coordinate edit.
 For the absolute-edit comparison, the competing $F$ value is an infimum
 approached by compact brackets rather than an attained minimum.
 
-The verdict
-also does not depend on how the comparison weighs the screen's sectors. The
-quadratic score can be computed with any symmetric way of measuring lengths
+The dependence on sector weights can also be mapped exactly. The quadratic
+score can be computed with any symmetric way of measuring lengths
 on the twelve ports, and there is an exact map of every such choice: the
 two-factor family $P$ never comes closest, every even-handed weighting picks
-$G$, and only a weighting lopsided between the two mirror sectors by more
-than about seven to one flips the answer to the mirror family $F$. The two
-mirror families sit at exactly conjugate distances, and the face orientation
-is what breaks the tie toward $G$. The remaining
+$G$, while an exact three-scale tie surface separates a nonempty $F$ region,
+with $(\beta,\gamma,\delta)=(8,1,1)$ as one certified witness. There is no
+single threshold in one sector ratio across the full cone. After swapping the
+two mirror-sector weights, the two family distances are Galois conjugates.
+Reversing every face orientation
+negates the face bracket but cannot break the tie because the compared compact
+families are centrally symmetric. The remaining
 coordinate norms and the instruction “repair by the nearest bracket” are
 additional choices, not consequences of the observer axioms. The result is a
 robust conditional discriminator rather than a derivation of the physical

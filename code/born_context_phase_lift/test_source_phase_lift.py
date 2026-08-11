@@ -46,8 +46,9 @@ def source_commutator(payload: dict):
 
 
 def test_committed_payload_has_exact_rank_jump_and_no_instrument_receipt() -> None:
-    report = verify_payload(load_payload(), SOURCE_ROOT)
-    assert report["source_hashes_verified"] is True
+    report = verify_payload(load_payload(), payload_path=PAYLOAD_PATH)
+    assert report["payload_file_sha256"] == report["payload_expected_sha256"]
+    assert report["source_hashes_verified"] is False
     assert report["native_operator_span_rank"] == 3
     assert report["phase_lifted_operator_span_rank"] == 4
     assert report["phase_lift_equals_plus_y_projector"] is True
@@ -133,7 +134,7 @@ def test_mutated_source_hash_fails_custody_check() -> None:
     payload = load_payload()
     payload["provenance"]["gauge_state_sha256"] = "0" * 64
     with pytest.raises(VerificationError, match="provenance hash drift"):
-        verify_payload(payload, SOURCE_ROOT)
+        verify_payload(payload)
 
 
 def test_mutated_source_commit_fails_custody_check() -> None:
@@ -150,9 +151,20 @@ def test_wrong_phase_normalization_is_not_a_projector() -> None:
     assert CONE != CZERO
 
 
-def test_payload_path_is_outside_the_theorem_repository() -> None:
-    """Custody control: the verifier reads the sibling source artifact."""
+def test_payload_path_is_vendored_inside_the_theorem_repository() -> None:
+    """The mandatory verifier is hermetic and pins the exact source payload bytes."""
 
     theorem_repo = Path(__file__).resolve().parents[2]
-    assert theorem_repo not in PAYLOAD_PATH.parents
+    assert theorem_repo in PAYLOAD_PATH.parents
     assert PAYLOAD_PATH.is_file()
+
+
+@pytest.mark.skipif(not SOURCE_ROOT.is_dir(), reason="optional sibling simulator absent")
+def test_optional_sibling_source_custody_rehash() -> None:
+    report = verify_payload(
+        load_payload(),
+        SOURCE_ROOT,
+        verify_hashes=True,
+        payload_path=PAYLOAD_PATH,
+    )
+    assert report["source_hashes_verified"] is True

@@ -87,8 +87,8 @@ noncommutative/source-attached model with coverage and factor receipts.
 
 ## The rich-fibre packet (2026-08-11)
 
-The second preregistered bounded run closes that scope at its declared
-finite level. The pilot run `e1_prereg_64k_20260810` failed its gates
+The second preregistered bounded run substantially narrows that scope without
+closing it. The pilot run `e1_prereg_64k_20260810` failed its gates
 (one split fibre per truncation-12 window; overlapping windows) and is
 closed negatively under its fail-closed clause. The second
 preregistration froze two pilot-calibrated design changes before its
@@ -106,8 +106,8 @@ basis). `QFT/RichFibreRegionalNet.lean` builds the tower and the
 axioms only:
 
 - a genuinely noncommutative block algebra at **every** observer region
-  (`richRegional_noncommutative_all`), with the realized two-by-two
-  matrix factor of each designated split fibre
+  (`richRegional_noncommutative_all`), with a constructed two-by-two
+  matrix-unit corner associated with each designated split fibre
   (`richDesignatedFactor`);
 - region separation: distinct windows are declared disjoint with the
   kernel node-disjointness receipt backing the declaration, and block
@@ -121,10 +121,13 @@ axioms only:
   coverage because each window carries its own noncommutative block
   (`richDropCover_not_coverageLaw`).
 
-The enrichment rule, region lattice, restriction system, and state are
-declared readings of the payload literals; ambient window disjointness
-is constructional, and the witness receipt proves the realized node
-windows are disjoint in the source. CP/CPTP repair semantics, scheduler
+The enrichment rule, region lattice, restriction system, base-point state,
+and identity repair are declared postprocessors of the payload literals;
+ambient window disjointness is constructional, and the witness receipt proves
+the realized node windows are independently disjoint in the source. The
+matrix-unit corner does not instantiate `TensorSplitReceipt` or identify the
+regional algebra with a tensor factor. E1 and the B4 region-factor gate remain
+open. CP/CPTP repair semantics, scheduler
 locality, continuum causal and time-slice structure, and physical
 clocks remain with #693, #700, and #703.
 

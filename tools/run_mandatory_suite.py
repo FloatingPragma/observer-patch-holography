@@ -74,6 +74,57 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Replay the B12 common-reference obstruction independently",
+        [
+            sys.executable,
+            "code/thermodynamics/common_reference_obstruction/verify_common_reference_obstruction.py",
+        ],
+    ),
+    (
+        "Execute the B12 common-reference mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/thermodynamics/common_reference_obstruction/test_common_reference_obstruction.py",
+        ],
+    ),
+    (
+        "Replay the B13 algebraic phase-lift boundary hermetically",
+        [
+            sys.executable,
+            "code/born_context_phase_lift/verify_source_phase_lift.py",
+        ],
+    ),
+    (
+        "Execute the B13 phase-lift provenance and mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/born_context_phase_lift/test_source_phase_lift.py",
+        ],
+    ),
+    (
+        "Replay the post-hoc repair-current diagnostic independently",
+        [
+            sys.executable,
+            "code/thermodynamics/repair_current_orientation/verify_repair_current_orientation.py",
+        ],
+    ),
+    (
+        "Execute the repair-current provenance and mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/thermodynamics/repair_current_orientation/test_verify_repair_current_orientation.py",
+        ],
+    ),
+    (
         "Validate the oriented-face three-norm certificate",
         [
             sys.executable,

@@ -9,11 +9,12 @@ all Jacobi residual components, and compares it with the already classified
 compact P/F/G loci.  Besides the Hilbert--Schmidt projection, exact primal/dual
 certificates solve the total-absolute and worst-coordinate repair problems.
 
-BOUNDARY: the face tensor itself is source-derived.  None of the three repair
-norms, nor any proposed Jacobi repair/minimization rule, is source-derived by
-this calculation.  Their agreement is therefore an exact robustness result
-conditional on those explicitly tested rules, not a selection or closure
-theorem.
+BOUNDARY: the oriented incidence is pinned source input, while the
+equal-weight cyclic rule that turns it into the face tensor is declared.  None
+of the three repair norms, nor any proposed Jacobi repair/minimization rule, is
+source-derived by this calculation.  Their agreement is therefore an exact
+robustness result conditional on those explicitly tested rules, not a
+selection or closure theorem.
 """
 
 from __future__ import annotations
@@ -580,7 +581,7 @@ def build_certificate():
         "schema": "oph.b14.oriented_face_bracket_selector.v1",
         "issue": 705,
         "claim_boundary": (
-            "The equal-weight cyclic bracket is derived from the pinned oriented-face incidence and is exactly 60*R13. "
+            "Applying the declared equal-weight cyclic rule to the pinned oriented-face incidence gives exactly 60*R13. "
             "It fails Jacobi. Exact primal/dual certificates show that G is uniquely nearest among the classified compact "
             "families under total absolute, Hilbert--Schmidt, and worst-coordinate edit. No one of those repair norms, "
             "nor the rule that minimizes it over the Jacobi locus, is source-derived; three-norm agreement is therefore "

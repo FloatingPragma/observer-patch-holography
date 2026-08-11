@@ -9,8 +9,8 @@ port order of the pinned echosahedral manifest, which is also the port frame of
 the stage-1 Reynolds basis.  (The older `CoreAxioms.orientedFaces` literal is an
 isomorphic but different port relabeling.)
 
-The source-derived statement is the equal-weight cyclic face bracket and its
-exact identity `B_face = 60 R13`.  The bracket fails Jacobi.  Exact certificate
+The pinned incidence, together with the declared equal-weight cyclic rule,
+gives a bracket with exact identity `B_face = 60 R13`.  The bracket fails Jacobi.  Exact certificate
 replay finds the same unique nearest compact family `G` for total-absolute,
 Hilbert--Schmidt, and worst-coordinate edits; this file kernel-checks all three
 exact distance orderings.  **No one of those repair norms, minimum-repair

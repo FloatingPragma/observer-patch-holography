@@ -8,7 +8,9 @@ Exact mirror of the committed extraction payload of `oph-physics-sim`
 preregistered greedy-disjoint rule (support node identities only), the
 windows are the declared first-20 truncations, and every receipt below is
 decided by kernel computation on the literals alone.  The module asserts
-nothing beyond the payload: no synthetic node, class, or fibre enters.
+nothing beyond the payload at the source-window level: no synthetic source
+window node, class, or fibre enters.  The downstream adapter does add one
+auxiliary non-source base-point basis index.
 
 Provenance (verbatim from the payload's provenance block):
 

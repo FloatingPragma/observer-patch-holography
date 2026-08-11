@@ -245,8 +245,7 @@ section Mixture
 
 variable {C : Type*} [Fintype C]
 
-/-- A convex mixture of stochastic kernels is stochastic: random-scan
-repair over several collars is again a repair kernel. -/
+/-- An affine mixture of row-normalized kernels remains row-normalized. -/
 theorem mixture_row_sum (a : C → ℝ) (K : C → Ω → Ω → ℝ)
     (ha1 : ∑ c, a c = 1) (hK1 : ∀ c x, ∑ y, K c x y = 1) (x : Ω) :
     ∑ y, (∑ c, a c * K c x y) = 1 := by
@@ -258,8 +257,24 @@ theorem mixture_row_sum (a : C → ℝ) (K : C → Ω → Ω → ℝ)
         exact Finset.sum_congr rfl fun c _ => by rw [hK1 c x, mul_one]
     _ = 1 := ha1
 
-/-- A convex mixture of kernels sharing the stationary reference keeps
-it stationary. -/
+/-- A nonnegative normalized mixture of nonnegative row-normalized kernels is
+again a stochastic kernel.  These positivity premises are load-bearing: row
+normalization alone permits signed affine combinations. -/
+theorem mixture_stochastic (a : C → ℝ) (K : C → Ω → Ω → ℝ)
+    (ha0 : ∀ c, 0 ≤ a c) (ha1 : ∑ c, a c = 1)
+    (hK0 : ∀ c x y, 0 ≤ K c x y)
+    (hK1 : ∀ c x, ∑ y, K c x y = 1) :
+    (∀ x y, 0 ≤ ∑ c, a c * K c x y) ∧
+      ∀ x, ∑ y, (∑ c, a c * K c x y) = 1 := by
+  constructor
+  · intro x y
+    exact Finset.sum_nonneg fun c _ => mul_nonneg (ha0 c) (hK0 c x y)
+  · intro x
+    exact mixture_row_sum a K ha1 hK1 x
+
+/-- An affine mixture whose weights sum to one preserves a stationary
+reference shared by every component.  Together with `mixture_stochastic`,
+nonnegative normalized weights give the random-scan stochastic receipt. -/
 theorem mixture_stationary (π : Ω → ℝ) (a : C → ℝ) (K : C → Ω → Ω → ℝ)
     (ha1 : ∑ c, a c = 1)
     (hstat : ∀ c y, push π (K c) y = π y) (y : Ω) :
@@ -930,5 +945,6 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.clausius
 #print axioms OPH.Thermodynamics.heatBath_preserves_pos
 #print axioms OPH.Thermodynamics.landauer
+#print axioms OPH.Thermodynamics.mixture_stochastic
 #print axioms OPH.Thermodynamics.mixture_stationary
 #print axioms OPH.Thermodynamics.block_entropy_le

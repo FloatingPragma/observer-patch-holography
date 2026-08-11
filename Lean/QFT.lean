@@ -72,12 +72,12 @@ The glue countermodel certifies that the accessible-glue
 receipt is independent of ambient descent: a diamond net with asymmetric
 entry-pick restrictions carries unique descent while the unique glue of
 an accessible family escapes the accessible algebra.
-The sim-earned witness mirrors the preregistered bounded
-run's extracted payload as kernel-decided literals: four observers with
-truncated supports, integer record classes, and the exact joint table
-inhabit an earned access cut whose strictness receipts hold exactly
-where the realized data separates and whose gaps are proved as collapse
-equalities.
+The sim-attached witness mirrors the locally hash-pinned bounded run's
+extracted payload as kernel-decided literals: four observers with
+truncated supports, integer record classes, and the exact joint table.
+A declared tower/net/access-cut adapter built over those literals has
+strictness receipts exactly where the realized data separates, while
+its gaps are proved as collapse equalities.
 The public-endpoint bridge glues the A4 packet to the bare
 tower: the readback adaptor identifies the public setoid with the
 quotient kernel, completed schedule endpoints agree with the bare normal
@@ -96,9 +96,10 @@ bare-language predicate decides Einstein truth.
 The source context web mirrors the realized gauge elements through the
 exact two-dimensional representation with noncommutation certificates
 and the machine-readable boundary that realized statistics inhabit only
-the diagonal context.  The phase-lift module proves that the normalized
-complex commutator of the earned noncommuting pair is exactly the missing
-Pauli-Y projector and completes fixed-trace operator tomography.  It also
+the diagonal context.  The phase-lift module proves that subtracting the
+normalized complex commutator of two source-attached algebraic projector
+candidates from `I/2` gives the missing Pauli-Y projector and completes
+fixed-trace operator tomography.  It also
 proves that a generous phase-free real effect closure remains Pauli-Y blind.
 This is an algebraic closure theorem, not a source instrument or outcome
 receipt. The gauge-irreducibility module derives the Born

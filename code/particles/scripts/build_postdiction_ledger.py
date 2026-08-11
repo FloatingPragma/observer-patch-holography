@@ -122,6 +122,9 @@ LEAN_RECEIPTS = {
     / "FiniteCausalObserverNet.lean",
     "ObserverNetDescent": REPO / "Lean" / "QFT"
     / "ObserverNetDescent.lean",
+    "RichFibreWitness": REPO / "Lean" / "QFT" / "RichFibreWitness.lean",
+    "RichFibreRegionalNet": REPO / "Lean" / "QFT"
+    / "RichFibreRegionalNet.lean",
     "PublicRecordAlgebra": REPO / "Lean" / "EventAlgebra"
     / "PublicRecordAlgebra.lean",
     "NoBroadcastingAdapter": REPO / "Lean" / "EventAlgebra"
@@ -176,6 +179,8 @@ LEAN_RECEIPTS = {
     / "Locality" / "DependencyCone.lean",
     "NoSignalling": REPO / "Lean" / "ObserverPatchHolography"
     / "Locality" / "NoSignalling.lean",
+    "AdaptiveScheduler": REPO / "Lean" / "ObserverPatchHolography"
+    / "Locality" / "AdaptiveScheduler.lean",
     "PathGibbs": REPO / "Lean" / "InformationProjection" / "PathGibbs.lean",
     "DiscreteEulerLagrange": REPO / "Lean" / "Variational"
     / "DiscreteEulerLagrange.lean",
@@ -210,6 +215,12 @@ LEAN_RECEIPTS = {
     / "SourceContextTomographyNoGo.lean",
     "SourcePhaseLiftBridge": REPO / "Lean" / "QFT"
     / "SourcePhaseLiftBridge.lean",
+    "ConjugationGauge": REPO / "Lean" / "QFT"
+    / "ConjugationGauge.lean",
+    "RepairCurrentOrientation": REPO / "Lean" / "Thermodynamics"
+    / "RepairCurrentOrientation.lean",
+    "SourceOrientedCompletion": REPO / "Lean" / "QFT"
+    / "SourceOrientedCompletion.lean",
     "TwoFactorHistoryBinding": REPO / "Lean" / "QFT"
     / "TwoFactorHistoryBinding.lean",
 }
@@ -818,8 +829,9 @@ def _forced_structure(
                 "the fixed-sector scale absent. P is strictly excluded for "
                 "every invariant metric; every sector-balanced metric and "
                 "every metric with beta/delta in [1/50, 6] selects G "
-                "uniquely for all gamma and delta; F becomes nearest only "
-                "past the exact chirality threshold, with witness (8,1,1); "
+                "uniquely for all gamma and delta; F occupies the nonempty "
+                "side d_F^2<d_G^2 of the exact three-scale tie surface, "
+                "with witness (8,1,1); "
                 "and Galois conjugation with the sector swap maps d_G to "
                 "d_F exactly. A non-carrier-induced channel reweighting "
                 "reverses the balanced-point selection"
@@ -2047,13 +2059,18 @@ def _forced_structure(
                 "Supplied overlap restrictions support a unique restriction-gluing "
                 "interface on declared nonempty subregion families, controls "
                 "isolate missing premises, and a partition-and-state-parameterized "
-                "commutative constant-partition model proves conditional consistency"
+                "commutative model proves conditional consistency. A retained "
+                "source packet supplies four disjoint windows with split-fibre "
+                "labels; a separately declared adapter constructs noncommutative "
+                "regional blocks, exact coverage and gluing, and nonunital "
+                "two-by-two matrix corners at every window"
             ),
             "observed_counterpart": (
                 "a causal local quantum-observable net with overlap descent"
             ),
             "match": (
-                "substantial conditional finite interface; noncommutative source open"
+                "substantial conditional finite interface and declared-adapter "
+                "coverage; source-attached operators and product split open"
             ),
             "lean_declarations": {
                 "FiniteCausalObserverNet": [
@@ -2074,10 +2091,23 @@ def _forced_structure(
                     "glue_unique",
                     "partitionPublicTwoRegionCover_hasUniqueDescent",
                 ],
+                "RichFibreWitness": [
+                    "richSupport_pairwise_disjoint",
+                    "richSplit_census",
+                ],
+                "RichFibreRegionalNet": [
+                    "richRegional_noncommutative_all",
+                    "richDesignatedFactor",
+                    "richWindowCover_coverageLaw",
+                    "richDropCover_not_coverageLaw",
+                    "richWindowCover_reconstruction",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteCausalObserverNet",
                 "ObserverNetDescent",
+                "RichFibreWitness",
+                "RichFibreRegionalNet",
                 declarations={
                     "FiniteCausalObserverNet": (
                         "commute_of_disjoint",
@@ -2097,16 +2127,30 @@ def _forced_structure(
                         "glue_unique",
                         "partitionPublicTwoRegionCover_hasUniqueDescent",
                     ),
+                    "RichFibreWitness": (
+                        "richSupport_pairwise_disjoint",
+                        "richSplit_census",
+                    ),
+                    "RichFibreRegionalNet": (
+                        "richRegional_noncommutative_all",
+                        "richDesignatedFactor",
+                        "richWindowCover_coverageLaw",
+                        "richDropCover_not_coverageLaw",
+                        "richWindowCover_reconstruction",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
                 "ordinary isotony does not supply the star-homomorphic "
                 "restriction retractions or unique gluing. `FiniteCover` has no "
-                "joint-coverage axiom, the B4 helper has no regional-factor "
-                "attachment, and the parameterized consistency model is "
-                "commutative and degenerate. Issue #692 gates a noncommutative "
-                "region-separating source realization with genuine coverage and "
-                "factor-localization receipts; "
+                "joint-coverage axiom and the B4 helper has no regional-factor "
+                "attachment. The rich-fibre source payload supplies window/class "
+                "labels only: its block algebra, base-point state, restrictions, "
+                "and repair are declared postprocessors. Conditional coverage is "
+                "attained inside that adapter, but its nonunital matrix corners are "
+                "not tensor factors or a `TensorSplitReceipt`. Issue #692 gates "
+                "source-attached operator generation and a justified region-product "
+                "or local-channel adapter; "
                 "no CP/CPTP channel, scheduler locality, spacetime causality, "
                 "time-slice property, continuum QFT, observable, decision rule, "
                 "or prediction is supplied"
@@ -2417,15 +2461,21 @@ def _forced_structure(
                 "supplied, dense probability tests force the coefficient into "
                 "the closed unit ball. The current finite unsharp battery also "
                 "fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, "
-                "noncontextual on the whole web, and non-affine. The realized "
-                "real S3 source contexts are not complex tomographically "
+                "noncontextual on the whole web, and non-affine. The source-attached "
+                "real S3 algebraic contexts obtained by applying a declared representation to source-realized gauge labels are not complex tomographically "
                 "complete: distinct pure Pauli-Y states agree on every declared "
                 "outcome and a missing complex Y projector separates them. "
-                "For two earned noncommuting projectors P,Q, the algebraic "
+                "For two source-attached algebraic projector candidates P,Q, the algebraic "
                 "phase lift I/2-(2sqrt(3)/3)i(QP-PQ) is exactly that Y "
                 "projector and completes fixed-trace tomography; every effect "
                 "in a generous real/Kraus closure remains Y-blind and cannot "
-                "produce it"
+                "produce it. Entrywise conjugation exchanges the two phase "
+                "candidates while simultaneous state-effect conjugation "
+                "preserves the real Born weight. A post-hoc raw-count product-gap "
+                "diagnostic from retained B12 data supplies an exact reversal-odd "
+                "bit and normalized cycle products, but neither its statistic nor "
+                "designation rule was preregistered; its pairing with the phase "
+                "torsor is declared and emits no source selection or validation"
             ),
             "observed_counterpart": (
                 "finite noncontextual weight representation and the Born rule"
@@ -2465,6 +2515,24 @@ def _forced_structure(
                     "sourcePhaseTomography_injective_on_equalTrace",
                     "sourcePhaseLift_boundary_summary",
                 ],
+                "ConjugationGauge": [
+                    "bornWeight_re_matrixConj",
+                    "conj_invisible_on_fixed_effects",
+                    "yStates_are_conj_orbit",
+                ],
+                "RepairCurrentOrientation": [
+                    "designatedPair_lexLeast",
+                    "designatedCycle_lexLeast",
+                    "designatedCycle_normalized_products",
+                    "reversal_flips_orientation",
+                    "reversibleControl_no_orientation",
+                ],
+                "SourceOrientedCompletion": [
+                    "orientationApplicable_holds",
+                    "reversal_selects_conjugate",
+                    "completionTomography_injective_on_states",
+                    "oriented_born_capstone",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteBornFrame",
@@ -2472,6 +2540,9 @@ def _forced_structure(
                 "FiniteWebBornNoGo",
                 "SourceContextTomographyNoGo",
                 "SourcePhaseLiftBridge",
+                "ConjugationGauge",
+                "RepairCurrentOrientation",
+                "SourceOrientedCompletion",
                 declarations={
                     "FiniteBornFrame": (
                         "contextAdditive_unique_parameterization",
@@ -2503,18 +2574,42 @@ def _forced_structure(
                         "sourcePhaseTomography_injective_on_equalTrace",
                         "sourcePhaseLift_boundary_summary",
                     ),
+                    "ConjugationGauge": (
+                        "bornWeight_re_matrixConj",
+                        "conj_invisible_on_fixed_effects",
+                        "yStates_are_conj_orbit",
+                    ),
+                    "RepairCurrentOrientation": (
+                        "designatedPair_lexLeast",
+                        "designatedCycle_lexLeast",
+                        "designatedCycle_normalized_products",
+                        "reversal_flips_orientation",
+                        "reversibleControl_no_orientation",
+                    ),
+                    "SourceOrientedCompletion": (
+                        "orientationApplicable_holds",
+                        "reversal_selects_conjugate",
+                        "completionTomography_injective_on_states",
+                        "oriented_born_capstone",
+                    ),
                 },
             ),
             "artifact_refs": [
                 "code/born_frame/runtime/finite_born_frame_certificate.json",
                 "code/born_frame/verify_finite_born_frame_independent.py",
+                "code/born_context_phase_lift/BORN_CONTEXT_WEB_PAYLOAD.v1.json",
+                "code/born_context_phase_lift/README.md",
                 "code/born_context_phase_lift/verify_source_phase_lift.py",
                 "code/born_context_phase_lift/test_source_phase_lift.py",
+                "code/thermodynamics/repair_current_orientation/repair_current_payload.v3.json",
+                "code/thermodynamics/repair_current_orientation/verify_repair_current_orientation.py",
+                "code/thermodynamics/repair_current_orientation/test_verify_repair_current_orientation.py",
             ],
             "hypothesis_boundary": (
                 "the central atoms and spinor projectors are different objects. "
-                "The projector family is a declared mathematical adapter from "
-                "source-derived geometry, not a source-produced public quantum "
+                "The projector family is a declared mathematical adapter obtained "
+                "by applying a two-dimensional representation to source-realized "
+                "gauge labels, not a source-produced public quantum "
                 "instrument. The celestial countermodel proves that continuity "
                 "and normalized antipodal binary contexts still do not derive "
                 "affinity; the transverse cubic refutes the current finite "
@@ -2523,7 +2618,12 @@ def _forced_structure(
                 "constructs that direction only inside the complex operator "
                 "algebra; the source has no phase producer, rotated or phase "
                 "outcome receipts, common-preparation validation, or operational "
-                "effect composition. The full-effect theorem still applies only "
+                "effect composition. Conjugation identifies one two-candidate "
+                "orbit but does not prove that this orbit exhausts all hidden "
+                "phase data. The repair-count bit is a post-hoc diagnostic on a "
+                "locally hash-pinned B12 run; its statistic and designation rule "
+                "were not preregistered, and the phase pairing is an arbitrary "
+                "typed convention. The full-effect theorem still applies only "
                 "after full coexistent-effect additivity is supplied. No physical "
                 "Born derivation, observable, or prediction is emitted. Issue "
                 "#702 owns the source-earned phase instrument, operational "
@@ -2578,6 +2678,8 @@ def _forced_structure(
                     "clausius",
                     "landauer",
                     "heatBath_preserves_pos",
+                    "mixture_stochastic",
+                    "mixture_stationary",
                     "block_entropy_le",
                 ],
                 "StationaryRealization": [
@@ -2651,6 +2753,8 @@ def _forced_structure(
                         "clausius",
                         "landauer",
                         "heatBath_preserves_pos",
+                        "mixture_stochastic",
+                        "mixture_stationary",
                         "block_entropy_le",
                     ),
                     "StationaryRealization": (
@@ -2702,12 +2806,13 @@ def _forced_structure(
             ),
             "hypothesis_boundary": (
                 "The exact obstruction closes issue #688 only as a bounded "
-                "negative result for the current source artifact: it rules out "
-                "a nondegenerate action-intertwining common object and a "
-                "deterministic empirical pushforward. It does not supply a "
-                "replacement source object, an independently justified "
-                "stochastic coupling, source collar equality, or nonconstant "
-                "refinement family. Issue #703 separately owns physical energy "
+                "negative result for two direct mechanisms on the current "
+                "artifact: a mixing-mode-retaining linear intertwiner into the "
+                "idempotent heat bath and a deterministic empirical pushforward. "
+                "It does not exclude stochastic, nonlinear, reverse-direction, "
+                "dilated, or enriched-source constructions. Issue #725 owns the "
+                "replacement common reference, collar, objective, and genuinely "
+                "varying refinement family. Issue #703 separately owns physical energy "
                 "and clock calibration beyond the attained central-interface "
                 "modular split. The "
                 "pinned 20-state collar table has an audit of all "
@@ -2798,7 +2903,7 @@ def _forced_structure(
                 "the reversible kernel, linear Poisson solver, graph, distance, "
                 "clock increment, volumes, heat capacities, and conductances "
                 "are declared finite inputs. No theorem identifies the "
-                "Green--Kubo coefficient with graph conductance. Issues #688, "
+                "Green--Kubo coefficient with graph conductance. Issues #725, "
                 "#693, #694, and #703 own the source evolution, physical equilibrium "
                 "reference and conserved quantity, source-realized geometry, "
                 "clock, and calibration; bounded algebraic C2 issue #690 is "
@@ -2942,8 +3047,11 @@ def _forced_structure(
                 "or graph-radius speed law. The bipartite split is supplied, "
                 "the classical theorem permits signed arrays, and no OPH "
                 "region-factor, spacelike, clock, stochastic-state, CPTP, or "
-                "laboratory attachment is proved. The row's sole live gate, "
-                "#692, owns finite coverage and the OPH region-factor adapter. "
+                "laboratory attachment is proved. A declared rich-fibre adapter "
+                "conditionally attains coverage, but its source supplies no "
+                "operators and its corners are not tensor factors. The row's "
+                "sole live gate, #692, owns source-attached operator generation "
+                "and a region-product, TensorSplitReceipt, or local-channel adapter. "
                 "Source channel/adaptive-scheduler semantics (#693), physical "
                 "clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice "
                 "structure (#700) are "
@@ -2951,6 +3059,60 @@ def _forced_structure(
                 "emits no prediction-ladder entry"
             ),
             "paper_ref": "consensus-protocol paper, finite locality boundary",
+        },
+        {
+            "id": "conditional_adaptive_scheduler_locality_helper",
+            "statement": (
+                "For concrete localRepair, a supplied adaptive scheduler and "
+                "supplied ConsultsOnly consultation region have the exact "
+                "n-step cone bound ball(S union R,n); a one-site change outside "
+                "ball(S,n) union ball(R,n) cannot change the probe readout. "
+                "A two-cell control proves the consultation term is "
+                "indispensable. Declared refinement maps and one-step "
+                "intertwining imply cone-image inclusion and run/readback "
+                "naturality"
+            ),
+            "observed_counterpart": (
+                "adaptive finite update locality under an explicitly bounded "
+                "consultation region"
+            ),
+            "match": (
+                "exact conditional helper; source scheduler and physical "
+                "channel attachment open"
+            ),
+            "lean_declarations": {
+                "AdaptiveScheduler": [
+                    "adaptiveRun_agree_on",
+                    "adaptive_no_influence",
+                    "consultation_region_not_droppable",
+                    "ball_image",
+                    "run_natural",
+                    "readback_cone_bound",
+                ],
+            },
+            "lean_receipts": _lean_receipt(
+                "AdaptiveScheduler",
+                declarations={
+                    "AdaptiveScheduler": (
+                        "adaptiveRun_agree_on",
+                        "adaptive_no_influence",
+                        "consultation_region_not_droppable",
+                        "ball_image",
+                        "run_natural",
+                        "readback_cone_bound",
+                    ),
+                },
+            ),
+            "hypothesis_boundary": (
+                "sigma, R, ConsultsOnly, and every ConeRefinement map/law are "
+                "supplied. The helper proves neither their source production nor "
+                "fairness, liveness, positivity, normalized state/channel, CPTP, "
+                "distance, clock, spacelike, continuum, or laboratory semantics. "
+                "Issue #693 remains the live E2 source scheduler/channel gate; "
+                "#703 and #700 retain the clock and continuum-causality "
+                "attachments. This row emits no prediction-ladder entry"
+            ),
+            "paper_ref": "E2 adaptive-scheduler helper, finite locality boundary",
         },
         {
             "id": "finite_history_variational_helpers_and_bridge_obstruction",

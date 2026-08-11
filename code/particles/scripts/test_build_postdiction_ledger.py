@@ -83,6 +83,27 @@ def test_forced_structure_receipts_exist(result):
             assert (ledger.REPO / ref).exists()
 
 
+def test_adaptive_scheduler_helper_keeps_its_inputs_and_e2_gate_explicit(result):
+    rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
+    row = rows["conditional_adaptive_scheduler_locality_helper"]
+    assert row["match"] == (
+        "exact conditional helper; source scheduler and physical "
+        "channel attachment open"
+    )
+    assert row["lean_declarations"]["AdaptiveScheduler"] == [
+        "adaptiveRun_agree_on",
+        "adaptive_no_influence",
+        "consultation_region_not_droppable",
+        "ball_image",
+        "run_natural",
+        "readback_cone_bound",
+    ]
+    boundary = row["hypothesis_boundary"]
+    assert "sigma, R, ConsultsOnly" in boundary
+    assert "Issue #693 remains the live E2 source scheduler/channel gate" in boundary
+    assert "no prediction-ladder entry" in boundary
+
+
 def test_hypercharge_spectrum_matches_receipt(result):
     row = next(
         r
@@ -231,10 +252,41 @@ def test_thermodynamic_receipt_owners_are_separate(result):
     )
     boundary = row["hypothesis_boundary"]
     assert "closes issue #688 only as a bounded negative result" in boundary
-    assert "does not supply a replacement source object" in boundary
-    assert "independently justified stochastic coupling" in boundary
+    assert "two direct mechanisms" in boundary
+    assert "mixing-mode-retaining linear intertwiner" in boundary
+    assert "deterministic empirical pushforward" in boundary
+    assert "does not exclude stochastic, nonlinear, reverse-direction" in boundary
+    assert "Issue #725 owns the replacement common reference" in boundary
     assert "#703 separately owns physical energy and clock calibration" in boundary
     assert "five receipts stay open under issue #688" not in boundary
+
+
+def test_born_frame_row_keeps_post_hoc_orientation_out_of_source_selection(result):
+    row = next(
+        item
+        for item in result["sections"]["forced_structure"]
+        if item["id"] == "finite_born_frame_rank_gap"
+    )
+    assert "source-attached real S3 algebraic contexts" in row["statement"]
+    assert "post-hoc raw-count product-gap diagnostic" in row["statement"]
+    assert "emits no source selection or validation" in row["statement"]
+    assert "bornWeight_re_matrixConj" in row["lean_declarations"]["ConjugationGauge"]
+    assert "designatedCycle_normalized_products" in row["lean_declarations"][
+        "RepairCurrentOrientation"
+    ]
+    assert "oriented_born_capstone" in row["lean_declarations"][
+        "SourceOrientedCompletion"
+    ]
+    assert "statistic and designation rule were not preregistered" in row[
+        "hypothesis_boundary"
+    ]
+    assert "phase pairing is an arbitrary typed convention" in row[
+        "hypothesis_boundary"
+    ]
+    assert (
+        "code/thermodynamics/repair_current_orientation/verify_repair_current_orientation.py"
+        in row["artifact_refs"]
+    )
 
 
 def test_alpha_row_values_match_endpoint(result):

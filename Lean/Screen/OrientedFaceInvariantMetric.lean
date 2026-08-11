@@ -202,7 +202,7 @@ theorem box_unique_nearest_G {β γ δ : ℝ} (hβ : 0 < β) (hγ : 0 < γ) (hδ
   | F => exact box_dG2_lt_dF2 hβ hγ hδ h1 h2
   | G => exact False.elim (h rfl)
 
-/-! ## The chirality threshold is real: F wins at `(8, 1, 1)` -/
+/-! ## The F region is nonempty: F wins at `(8, 1, 1)` -/
 
 theorem F_wins_at_witness : dF2 8 1 1 < dG2 8 1 1 := by
   have hs := hs5_pos

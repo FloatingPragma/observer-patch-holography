@@ -1146,10 +1146,18 @@ schedule word gives the displayed implication.  A one-site update outside
 statement is machine checked for the repository repair map~\cite{ophrepo}.
 \end{proof}
 
-This support upper bound is uniform over fixed exogenous schedule words.  It
-does not cover an adaptive scheduler whose next site depends on the current
-global record.  It supplies no converse, minimal cone, graph metric,
-propagation speed, or claim that influence reaches the boundary of \(B_n(S)\).
+This fixed-word bound has an exact conditional adaptive extension.  If the
+next-site scheduler is supplied together with a region \(R\) on which its
+choice depends, then agreement on \(B_n(S\cup R)\) forces the two \(n\)-step
+runs to agree on \(S\cup R\); equivalently, a change outside both
+\(B_n(S)\) and \(B_n(R)\) cannot alter the probe readout.  Fixed words embed
+as record-blind schedulers, while a two-cell countermodel proves that the
+consultation-region term cannot be dropped.  Naturality also follows under
+the laws of a separately declared refinement structure.  These results do
+not produce the scheduler, consultation region, channel, or refinement maps
+from the source.  Neither theorem supplies a converse, minimal cone, physical
+graph metric, propagation speed, or claim that influence reaches the cone
+boundary.
 
 \begin{proposition}[Bipartite marginal invariance]
 \label{prop:bipartite-marginal-invariance}
@@ -2779,13 +2787,15 @@ state-and-law space, and it does not remove the branch and record hypotheses sta
 theorem.
 \end{remark}
 
-\paragraph{An executed preregistered witness chain.}
+\paragraph{An executed locally frozen witness chain.}
 The certificate discipline above has one executed finite instance running
 from a source run to kernel-checked literals. A bounded run of the
-companion simulation engine was preregistered: its gate contract was
-committed before execution and pins a nonconstant protected record, separate
+companion simulation engine was locally pre-specified and hash-pinned before
+execution, but it has no independent public pre-result timestamp: the contract
+and result first enter repository history together. The contract pins a nonconstant protected record, separate
 state and transition tables, an exact recognizer, stationarity, and
-contraction. The executed run passed those data-extraction checks. It did not
+contraction. The executed run passed those extraction checks; this is not a
+prospectively validated or publicly preregistered result. It did not
 earn the typed equality that its provisional ``common reference'' label
 suggested: the transition stationary law and the empirical state-side
 reference are distinct objects. In fact their exact denominator mismatch and
@@ -2794,7 +2804,7 @@ nondegenerate intertwining with the idempotent state-side resampling action on
 this artifact. A declared extraction script froze
 the run's finite payload, and the payload integers are mirrored verbatim
 in \path{Lean/QFT/SimEarnedWitness.lean} as literals whose receipts are
-kernel-decided, inhabiting an earned instance of the observer access-cut
+kernel-decided, inhabiting a declared payload-attached instance of the observer access-cut
 interface of Section~\ref{sec:operational-observer-layer}. Where the
 truncated payload cannot support a receipt, the collapse is stated as a
 theorem instead of being repaired by synthetic data: on three of the four

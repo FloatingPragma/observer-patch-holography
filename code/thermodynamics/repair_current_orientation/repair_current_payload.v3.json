@@ -1,0 +1,219 @@
+{
+ "analysis_status": "post_hoc_diagnostic",
+ "buckets": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "current_antisymmetric_part": [
+  [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   -1024,
+   0
+  ],
+  [
+   0,
+   0,
+   32,
+   -28,
+   1,
+   4,
+   -10,
+   1
+  ],
+  [
+   0,
+   -32,
+   0,
+   167,
+   -135,
+   5,
+   -5,
+   0
+  ],
+  [
+   0,
+   28,
+   -167,
+   0,
+   1343,
+   -594,
+   46,
+   -283
+  ],
+  [
+   0,
+   -1,
+   135,
+   -1343,
+   0,
+   1293,
+   -205,
+   121
+  ],
+  [
+   0,
+   -4,
+   -5,
+   594,
+   -1293,
+   0,
+   1153,
+   -78
+  ],
+  [
+   1024,
+   10,
+   5,
+   -46,
+   205,
+   -1153,
+   0,
+   -45
+  ],
+  [
+   0,
+   -1,
+   0,
+   283,
+   -121,
+   78,
+   45,
+   0
+  ]
+ ],
+ "cycle_orientation_nonempty": true,
+ "designated_cycle": {
+  "backward_product": 0,
+  "buckets": [
+   3,
+   4,
+   5
+  ],
+  "difference": 1239691068,
+  "forward_product": 1239691068
+ },
+ "designated_pair": {
+  "bucket_from": 3,
+  "bucket_to": 4,
+  "count_backward": 0,
+  "count_forward": 1343,
+  "difference": 1343
+ },
+ "designation_rule_preregistered": false,
+ "eligible_as_validation": false,
+ "observer_count": 1028,
+ "ordered_counts": [
+  [
+   23552,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   2,
+   32,
+   0,
+   1,
+   5,
+   0,
+   3
+  ],
+  [
+   0,
+   0,
+   0,
+   167,
+   0,
+   5,
+   0,
+   0
+  ],
+  [
+   0,
+   28,
+   0,
+   349,
+   1343,
+   0,
+   46,
+   0
+  ],
+  [
+   0,
+   0,
+   135,
+   0,
+   0,
+   1554,
+   0,
+   144
+  ],
+  [
+   0,
+   1,
+   0,
+   594,
+   261,
+   227,
+   1246,
+   3
+  ],
+  [
+   1024,
+   10,
+   5,
+   0,
+   205,
+   93,
+   78,
+   71
+  ],
+  [
+   0,
+   2,
+   0,
+   283,
+   23,
+   81,
+   116,
+   55
+  ]
+ ],
+ "pair_orientation_nonempty": true,
+ "provenance": {
+  "counting_convention": "ordered pairs of consecutive transition_history_descriptor steps per observer, unweighted integer multiplicities, under the report state alphabet; identical to the mixing-chain extraction convention",
+  "designated_cycle_rule": "lexicographically least ordered bucket 3-cycle maximizing |forward product - backward product|",
+  "designated_pair_rule": "lexicographically least ordered bucket pair maximizing |C(a,b)-C(b,a)|",
+  "falsifiable_checks": "observer, skip, and transition totals equal the pinned report; every step lies inside the report alphabet with exact integer field values; the recounted 26-state integer matrix matches the pinned npz weighted matrix on positivity support and within 1e-6 on weighted recount",
+  "pinned_input_sha256": {
+   "conditional_resampling_realization_receipt.json": "d6739274e9451295b8bb0334180231bfb1e516c03bfd6f2c80f70e4da64db749",
+   "finite_repair_transition_matrix.npz": "1f8ff2cc413f4bbfeabe9450ae48cb5d0794ec28f284f25913e7c9c61b677163",
+   "finite_repair_transition_matrix_report.json": "e38bb28475fb7b34127b864abd20414efc920d8ef9ddbdf5c78612874ae37f2d",
+   "git_commit.txt": "2a084f768662274335ba7c23afaa18b61bd1184e8d481a4e17ab511c1e9d3293",
+   "observer_views.jsonl": "3da6f04d770b81b49a082ad1e6ecb93c611517dd85ecaccd7cc89077fcd6c0ca"
+  },
+  "projection_field": "repair_load_bucket",
+  "recount_identities": "reversing every transition window transposes the count table, and re-bucketing conserves totals; both hold for any ordered recount by construction and are identities, not data checks",
+  "run_git_commit": "b39b78faf894894ebe573571e0902ccfaaeac32a",
+  "run_id": "b12_prereg_16k_20260806"
+ },
+ "schema": "oph.sim.repair_current_payload.v3",
+ "statistic_preregistered": false,
+ "transition_count": 31744
+}

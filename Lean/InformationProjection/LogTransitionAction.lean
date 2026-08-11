@@ -5,13 +5,13 @@ namespace OPH.InformationProjection
 open OPH.Thermodynamics
 
 /-!
-# The log-transition action: the source dynamics selects its action (B7, #683)
+# The log-transition action: a supplied Markov law fixes its representation-level action (B7, #683)
 
 `SourceHistoryPacket` inhabits the `HistoryLaw` interface at literals from
-one preregistered run and leaves the action slot and the multiplier slot as
+one locally hash-pinned run and leaves the action slot and the multiplier slot as
 declared inputs.  This module closes the which-action half at the
-representation level: for Markov source dynamics the action is derived from
-the dynamics, with no free slot.
+representation level: for a supplied Markov transition law the action is
+derived from that law, with no free slot.
 
 For a Markov chain with strictly positive transition matrix `P` and initial
 law `pi` on a finite state space, the path law
@@ -36,13 +36,13 @@ the same characterization.  Combining with the derived Gibbs form: an
 action-multiplier pair reproduces the Markov path law over the declared
 reference exactly when its multiplier-weighted action equals the
 log-transition action plus a constant (`action_unique_up_to_gauge`).  The
-source dynamics selects its action up to this gauge, and the normalization
+supplied transition law fixes its action up to this gauge, and the normalization
 convention that the action is the bare log-transition sum pins the
 multiplier to one; the residual freedom is the exact trade of multiplier
 against action scale (`markov_multiplier_action_tradeoff`), so the B7
 multiplier-selection gap reduces to the same gauge fixing.
 
-The earned instantiation reads the committed two-state mixing chain through
+The exact packet instantiation reads the committed two-state mixing chain through
 this derivation.  The transition products of the eight length-three paths
 are exact rational literals tied to the committed integer counts by
 kernel-decided identities, the log-transition action takes the value
@@ -55,10 +55,10 @@ multiplier: it takes equal values on two paths that the chain path law
 separates (`sourceRepairAction_no_multiplier`).
 
 Scope boundary: representation-level derivation over named finite data and,
-in the instantiation, over the committed literals of one preregistered run.
+in the instantiation, over the committed literals of one locally hash-pinned run.
 The reference stays a declared object (initial law times uniform-step
 counting weight); the theorems state that once the reference is declared,
-the source dynamics forces the action up to gauge and the convention pins
+the supplied transition law fixes the action up to gauge and the convention pins
 the multiplier.
 -/
 
@@ -347,7 +347,7 @@ theorem markov_multiplier_action_tradeoff [Nonempty Ω] (pi : Ω → ℝ)
 
 end MarkovGibbs
 
-/-! ## The earned instantiation: the committed two-state mixing chain
+/-! ## Exact packet instantiation: the committed two-state mixing chain
 
 The eight length-three paths of `SourceHistoryPacket` over the recurrent
 class of the committed chain, encoded `g = 4*s0 + 2*s1 + s2`.  The integer
@@ -645,8 +645,8 @@ theorem sourceLogTiltZ_eq :
 /-- **The committed chain path law is the Gibbs law of its log-transition
 action.**  The tilt of the declared reference by the derived action at
 multiplier one equals the committed `sourceTauChainR` path law exactly:
-the earned instantiation of `markov_path_law_eq_gibbs` on the literals of
-the preregistered run. -/
+the exact instantiation of `markov_path_law_eq_gibbs` on literals extracted
+from the retained locally hash-pinned run. -/
 theorem sourceLogTilt_eq_chain :
     tilt sourceLogRefR sourceLogActionR 1 = sourceTauChainR := by
   funext g
@@ -781,8 +781,8 @@ theorem sourceTauChainR_eq_markovPathLaw (g : Fin 8) :
 
 /-! ### Packet receipt -/
 
-/-- **Derived-action packet receipt (B7, issue #683).**  On the committed
-literals of the preregistered run: the tilt of the declared reference by
+/-- **Derived-action packet receipt (B7, issue #683).**  On committed
+literals extracted from the retained locally hash-pinned run: the tilt of the declared reference by
 the log-transition action at multiplier one is the committed chain path law
 with partition constant exactly `1/4`; an action-multiplier pair reproduces
 that path law precisely when its multiplier-weighted action is the derived

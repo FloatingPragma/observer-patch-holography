@@ -1,0 +1,1011 @@
+{
+ "schema": "oph.sim.born_context_web_payload.v1",
+ "provenance": {
+  "run_id": "b12_prereg_16k_20260806",
+  "run_git_commit": "b39b78faf894894ebe573571e0902ccfaaeac32a",
+  "seed": 20260806,
+  "receipt_path": "runs/b12_prereg_16k_20260806/conditional_resampling_realization_receipt.json",
+  "receipt_sha256": "d6739274e9451295b8bb0334180231bfb1e516c03bfd6f2c80f70e4da64db749",
+  "receipt_schema": "oph.sim.conditional_resampling_realization.v1",
+  "freezeout_path": "runs/b12_prereg_16k_20260806/freezeout_fields.npz",
+  "freezeout_sha256": "b962c5b80205a17d5d6bc023f5f5d487bc23c1327793978e7d1bc69494fac49e",
+  "gauge_state_path": "runs/b12_prereg_16k_20260806/s3_gauge_state.npz",
+  "gauge_state_sha256": "5f2cd276b84b1917c4d321a532db6efd12442931fbc80fd764cbcf1918dadca2",
+  "e1_payload_path": "docs/E1_REGIONAL_PAYLOAD.json",
+  "e1_payload_sha256": "005223dc4fa7442bf10e6e8b446a1e5ebba08e41796d6ac89c45251de090bf45",
+  "e1_payload_schema": "oph.sim.e1_regional_payload.v1",
+  "extraction": {
+   "script": "scripts/extract_born_context_web.py",
+   "binning_producer": "oph_fpe.dynamics.conditional_resampling.realization_inputs_from_freezeout",
+   "record_field": "record_signature",
+   "companion_field": "cumulative_repair_load",
+   "gauge_element_tables": "oph_fpe.finite_groups",
+   "incidence_rule": "an npz edge row counts once when at least one endpoint lies in the node set; rows are undirected with left < right and no duplicates"
+  }
+ },
+ "irrep": {
+  "name": "standard_two_dimensional",
+  "scalar_encoding": "a scalar is a pair [a, b] of rationals in lowest terms meaning a + b*sqrt(3); a matrix is a row-major list of such pairs",
+  "composition_convention": "(g*h)[i] = g[h[i]], the S3_MUL table of oph_fpe.finite_groups",
+  "generator_assignment": "rho((1,2,0)) = rotation by 120 degrees, rho((0,2,1)) = diag(1, -1)",
+  "verification": {
+   "homomorphism_pairs_checked": 36,
+   "orthogonality_checked": true,
+   "class_character_checked": true,
+   "arithmetic": "exact fractions in Q(sqrt 3)"
+  },
+  "elements": [
+   {
+    "index": 0,
+    "permutation": [
+     0,
+     1,
+     2
+    ],
+    "class": "identity",
+    "order": 1,
+    "matrix": [
+     [
+      [
+       "1",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ],
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "1",
+       "0"
+      ]
+     ]
+    ]
+   },
+   {
+    "index": 1,
+    "permutation": [
+     0,
+     2,
+     1
+    ],
+    "class": "transposition",
+    "order": 2,
+    "matrix": [
+     [
+      [
+       "1",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ],
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "-1",
+       "0"
+      ]
+     ]
+    ]
+   },
+   {
+    "index": 2,
+    "permutation": [
+     1,
+     0,
+     2
+    ],
+    "class": "transposition",
+    "order": 2,
+    "matrix": [
+     [
+      [
+       "-1/2",
+       "0"
+      ],
+      [
+       "0",
+       "1/2"
+      ]
+     ],
+     [
+      [
+       "0",
+       "1/2"
+      ],
+      [
+       "1/2",
+       "0"
+      ]
+     ]
+    ]
+   },
+   {
+    "index": 3,
+    "permutation": [
+     1,
+     2,
+     0
+    ],
+    "class": "threecycle",
+    "order": 3,
+    "matrix": [
+     [
+      [
+       "-1/2",
+       "0"
+      ],
+      [
+       "0",
+       "-1/2"
+      ]
+     ],
+     [
+      [
+       "0",
+       "1/2"
+      ],
+      [
+       "-1/2",
+       "0"
+      ]
+     ]
+    ]
+   },
+   {
+    "index": 4,
+    "permutation": [
+     2,
+     0,
+     1
+    ],
+    "class": "threecycle",
+    "order": 3,
+    "matrix": [
+     [
+      [
+       "-1/2",
+       "0"
+      ],
+      [
+       "0",
+       "1/2"
+      ]
+     ],
+     [
+      [
+       "0",
+       "-1/2"
+      ],
+      [
+       "-1/2",
+       "0"
+      ]
+     ]
+    ]
+   },
+   {
+    "index": 5,
+    "permutation": [
+     2,
+     1,
+     0
+    ],
+    "class": "transposition",
+    "order": 2,
+    "matrix": [
+     [
+      [
+       "-1/2",
+       "0"
+      ],
+      [
+       "0",
+       "-1/2"
+      ]
+     ],
+     [
+      [
+       "0",
+       "-1/2"
+      ],
+      [
+       "1/2",
+       "0"
+      ]
+     ]
+    ]
+   }
+  ]
+ },
+ "edge_gauge_extraction": {
+  "edge_row_count": 97404,
+  "gauge_class_census": {
+   "identity": 18636,
+   "transposition": 47092,
+   "threecycle": 31676
+  },
+  "class_census_matches_committed": true,
+  "per_observer": [
+   {
+    "observer_id": 36,
+    "truncated_support_nodes": [
+     36,
+     10,
+     15,
+     23,
+     28,
+     31,
+     41,
+     44
+    ],
+    "incident_edge_count": 72,
+    "element_counts": [
+     [
+      0,
+      17
+     ],
+     [
+      1,
+      9
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      4,
+      11
+     ],
+     [
+      5,
+      12
+     ]
+    ]
+   },
+   {
+    "observer_id": 60,
+    "truncated_support_nodes": [
+     60,
+     26,
+     34,
+     39,
+     47,
+     52,
+     68,
+     73
+    ],
+    "incident_edge_count": 73,
+    "element_counts": [
+     [
+      0,
+      12
+     ],
+     [
+      1,
+      9
+     ],
+     [
+      2,
+      19
+     ],
+     [
+      3,
+      16
+     ],
+     [
+      4,
+      7
+     ],
+     [
+      5,
+      10
+     ]
+    ]
+   },
+   {
+    "observer_id": 64,
+    "truncated_support_nodes": [
+     64,
+     30,
+     38,
+     43,
+     51,
+     56,
+     72,
+     77
+    ],
+    "incident_edge_count": 71,
+    "element_counts": [
+     [
+      0,
+      16
+     ],
+     [
+      1,
+      12
+     ],
+     [
+      2,
+      12
+     ],
+     [
+      3,
+      11
+     ],
+     [
+      4,
+      10
+     ],
+     [
+      5,
+      10
+     ]
+    ]
+   },
+   {
+    "observer_id": 92,
+    "truncated_support_nodes": [
+     92,
+     37,
+     50,
+     58,
+     71,
+     79,
+     84,
+     100
+    ],
+    "incident_edge_count": 75,
+    "element_counts": [
+     [
+      0,
+      13
+     ],
+     [
+      1,
+      13
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      15
+     ],
+     [
+      4,
+      12
+     ],
+     [
+      5,
+      18
+     ]
+    ]
+   }
+  ],
+  "per_split_fibre": [
+   {
+    "observer_id": 64,
+    "record_class": 18,
+    "nodes": [
+     64,
+     43
+    ],
+    "incident_edge_count": 21,
+    "element_counts": [
+     [
+      0,
+      8
+     ],
+     [
+      1,
+      4
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      2
+     ],
+     [
+      4,
+      3
+     ],
+     [
+      5,
+      1
+     ]
+    ]
+   },
+   {
+    "observer_id": 64,
+    "record_class": 28,
+    "nodes": [
+     51,
+     77
+    ],
+    "incident_edge_count": 23,
+    "element_counts": [
+     [
+      0,
+      3
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      2,
+      4
+     ],
+     [
+      3,
+      5
+     ],
+     [
+      4,
+      4
+     ],
+     [
+      5,
+      4
+     ]
+    ]
+   }
+  ]
+ },
+ "context_web": {
+  "observer_id": 64,
+  "record_class": 18,
+  "block_basis": [
+   {
+    "block_index": 0,
+    "node": 64,
+    "companion_class": 13
+   },
+   {
+    "block_index": 1,
+    "node": 43,
+    "companion_class": 3
+   }
+  ],
+  "diagonal_context": {
+   "context_id": "diagonal",
+   "kind": "record_companion_projectors",
+   "projectors": [
+    [
+     [
+      [
+       "1",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ],
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ]
+    ],
+    [
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ],
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "1",
+       "0"
+      ]
+     ]
+    ]
+   ],
+   "realized_outcome_counts": [
+    111,
+    68
+   ],
+   "joint_table_cells": [
+    {
+     "record_class": 18,
+     "companion_class": 13,
+     "count": 111
+    },
+    {
+     "record_class": 18,
+     "companion_class": 3,
+     "count": 68
+    }
+   ],
+   "fibre_mass": 512,
+   "block_restricted_mass": 179,
+   "total_mass": 16384,
+   "block_conditional_frequencies": [
+    "111/179",
+    "68/179"
+   ]
+  },
+  "conjugated_contexts": [
+   {
+    "context_id": "conjugated_1",
+    "gauge_element_index": 1,
+    "permutation": [
+     0,
+     2,
+     1
+    ],
+    "class": "transposition",
+    "projectors": [
+     [
+      [
+       [
+        "1",
+        "0"
+       ],
+       [
+        "0",
+        "0"
+       ]
+      ],
+      [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "0",
+        "0"
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "0",
+        "0"
+       ]
+      ],
+      [
+       [
+        "0",
+        "0"
+       ],
+       [
+        "1",
+        "0"
+       ]
+      ]
+     ]
+    ],
+    "equals_diagonal_context": true,
+    "commutator_with_record_projector": [
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ],
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ]
+    ],
+    "noncommutation_certificate": false,
+    "realized_incident_edge_count_on_observer_support": 12,
+    "realized_incident_edge_count_on_fibre_nodes": 4,
+    "realized_outcome_counts": null
+   },
+   {
+    "context_id": "conjugated_2",
+    "gauge_element_index": 2,
+    "permutation": [
+     1,
+     0,
+     2
+    ],
+    "class": "transposition",
+    "projectors": [
+     [
+      [
+       [
+        "1/4",
+        "0"
+       ],
+       [
+        "0",
+        "-1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "-1/4"
+       ],
+       [
+        "3/4",
+        "0"
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        "3/4",
+        "0"
+       ],
+       [
+        "0",
+        "1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "1/4"
+       ],
+       [
+        "1/4",
+        "0"
+       ]
+      ]
+     ]
+    ],
+    "equals_diagonal_context": false,
+    "commutator_with_record_projector": [
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "1/4"
+      ]
+     ],
+     [
+      [
+       "0",
+       "-1/4"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ]
+    ],
+    "noncommutation_certificate": true,
+    "realized_incident_edge_count_on_observer_support": 12,
+    "realized_incident_edge_count_on_fibre_nodes": 3,
+    "realized_outcome_counts": null
+   },
+   {
+    "context_id": "conjugated_3",
+    "gauge_element_index": 3,
+    "permutation": [
+     1,
+     2,
+     0
+    ],
+    "class": "threecycle",
+    "projectors": [
+     [
+      [
+       [
+        "1/4",
+        "0"
+       ],
+       [
+        "0",
+        "-1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "-1/4"
+       ],
+       [
+        "3/4",
+        "0"
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        "3/4",
+        "0"
+       ],
+       [
+        "0",
+        "1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "1/4"
+       ],
+       [
+        "1/4",
+        "0"
+       ]
+      ]
+     ]
+    ],
+    "equals_diagonal_context": false,
+    "commutator_with_record_projector": [
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "1/4"
+      ]
+     ],
+     [
+      [
+       "0",
+       "-1/4"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ]
+    ],
+    "noncommutation_certificate": true,
+    "realized_incident_edge_count_on_observer_support": 11,
+    "realized_incident_edge_count_on_fibre_nodes": 2,
+    "realized_outcome_counts": null
+   },
+   {
+    "context_id": "conjugated_4",
+    "gauge_element_index": 4,
+    "permutation": [
+     2,
+     0,
+     1
+    ],
+    "class": "threecycle",
+    "projectors": [
+     [
+      [
+       [
+        "1/4",
+        "0"
+       ],
+       [
+        "0",
+        "1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "1/4"
+       ],
+       [
+        "3/4",
+        "0"
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        "3/4",
+        "0"
+       ],
+       [
+        "0",
+        "-1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "-1/4"
+       ],
+       [
+        "1/4",
+        "0"
+       ]
+      ]
+     ]
+    ],
+    "equals_diagonal_context": false,
+    "commutator_with_record_projector": [
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "-1/4"
+      ]
+     ],
+     [
+      [
+       "0",
+       "1/4"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ]
+    ],
+    "noncommutation_certificate": true,
+    "realized_incident_edge_count_on_observer_support": 10,
+    "realized_incident_edge_count_on_fibre_nodes": 3,
+    "realized_outcome_counts": null
+   },
+   {
+    "context_id": "conjugated_5",
+    "gauge_element_index": 5,
+    "permutation": [
+     2,
+     1,
+     0
+    ],
+    "class": "transposition",
+    "projectors": [
+     [
+      [
+       [
+        "1/4",
+        "0"
+       ],
+       [
+        "0",
+        "1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "1/4"
+       ],
+       [
+        "3/4",
+        "0"
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        "3/4",
+        "0"
+       ],
+       [
+        "0",
+        "-1/4"
+       ]
+      ],
+      [
+       [
+        "0",
+        "-1/4"
+       ],
+       [
+        "1/4",
+        "0"
+       ]
+      ]
+     ]
+    ],
+    "equals_diagonal_context": false,
+    "commutator_with_record_projector": [
+     [
+      [
+       "0",
+       "0"
+      ],
+      [
+       "0",
+       "-1/4"
+      ]
+     ],
+     [
+      [
+       "0",
+       "1/4"
+      ],
+      [
+       "0",
+       "0"
+      ]
+     ]
+    ],
+    "noncommutation_certificate": true,
+    "realized_incident_edge_count_on_observer_support": 10,
+    "realized_incident_edge_count_on_fibre_nodes": 1,
+    "realized_outcome_counts": null
+   }
+  ],
+  "context_coincidence_classes": [
+   [
+    "conjugated_2",
+    "conjugated_3"
+   ],
+   [
+    "conjugated_4",
+    "conjugated_5"
+   ],
+   [
+    "diagonal",
+    "conjugated_1"
+   ]
+  ]
+ },
+ "outcome_frequency_boundary": {
+  "contexts_with_realized_frequencies": [
+   "diagonal"
+  ],
+  "contexts_without_realized_frequencies": [
+   "conjugated_1",
+   "conjugated_2",
+   "conjugated_3",
+   "conjugated_4",
+   "conjugated_5"
+  ],
+  "requirement_for_additivity_receipt": "realized per-context outcome counts with positive mass on every conjugated context, produced by a run, on top of the diagonal counts above",
+  "named_capability_gap": "the simulator has no producer that realizes a gauge-conjugated binary readout on the committed fibre states; rotated-context statistics require that producer",
+  "prohibited_fill": "computing Born predictions from the diagonal state and reporting them as rotated-context frequencies"
+ },
+ "claim_boundary": "Realized finite data from one committed run: the gauge elements, their incidence counts, and the diagonal outcome counts are exact reads of committed artifacts, and the irrep images, conjugated projectors, and commutators are exact consequences of the element labels alone. The web earns noncommuting effect contexts from run data; no outcome statistics exist for the conjugated contexts, no noncontextual additivity receipt over the web is claimed, and no Born-rule closure is claimed."
+}

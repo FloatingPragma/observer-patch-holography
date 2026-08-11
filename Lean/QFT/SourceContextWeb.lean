@@ -1,16 +1,16 @@
 import Mathlib
 
 /-!
-# Source context web: realized gauge contexts on the B12 split fibre
+# Source context web: a declared algebraic adapter over B12 gauge labels
 
 This module consumes the context-web payload
 `docs/BORN_CONTEXT_WEB_PAYLOAD.json` of the `oph-physics-sim`
 repository (schema `oph.sim.born_context_web_payload.v1`, produced by
 `scripts/extract_born_context_web.py`) and mirrors, as exact literals
-over `ℝ` with `Real.sqrt 3`, the realized effect web on the designated
-split fibre of observer 64: the two-dimensional irreducible S3
-representation images of the run's realized edge gauge elements, the
-conjugated binary contexts they generate over the diagonal
+over `ℝ` with `Real.sqrt 3`, a source-attached algebraic projector web on
+the designated split fibre of observer 64: the declared two-dimensional
+irreducible S3 representation images of the run's realized edge gauge
+elements, the conjugated binary contexts they algebraically generate over the diagonal
 record/companion projectors of the fibre block, the exact
 noncommutation certificates, and the outcome-frequency boundary that
 separates the one context with realized run statistics from the
@@ -61,20 +61,21 @@ computations exactly from `sqrt3 ^ 2 = 3`.
 
 ## Receipts
 
-* `gaugeIrrep_unitary` and `realized_images_unitary`: every realized
-  image is exactly orthogonal, so unitary as a real matrix.
+* `gaugeIrrep_unitary` and the legacy-named `realized_images_unitary`:
+  every declared representation image whose label occurs in the source
+  census is exactly orthogonal, so unitary as a real matrix.
 * `rotationPlus_order_three` with `s3Perm_threeCycles_order_three`: the
   permutation-order-3 elements land on matrices of multiplicative
   order 3, the 120-degree rotations.
 * `conjProjector_three` / `conjProjector_four` and companions: the
-  exact conjugated projectors of every realized nonidentity element.
+  exact conjugated projector candidates for every occurring nonidentity label.
 * `commutator_three` / `commutator_four` and
   `conjProjector_three_noncommuting` /
   `conjProjector_four_noncommuting`: the exact commutators of the
   order-3 conjugated projectors against the record projector, with the
   nonvanishing certificates.
-* `realizedWeb_contains_noncommuting_context`: a realized element on
-  the designated fibre edges carries a conjugated context that fails to
+* `realizedWeb_contains_noncommuting_context` (legacy API name): an
+  occurring label has a declared conjugated context that fails to
   commute with the diagonal context.
 * `conjProjector_one_eq_record`, `conjProjector_two_eq_three`,
   `conjProjector_four_eq_five`: the exact coincidence structure of the
@@ -94,9 +95,11 @@ computations exactly from `sqrt3 ^ 2 = 3`.
 
 ## Claim boundary
 
-This module earns the effect web from run data: realized gauge
-elements, their exact representation images, and genuinely noncommuting
-conjugated contexts over the realized fibre block.  The noncontextual
+This module attaches a declared algebraic projector web to run data: the
+source realizes gauge labels and counts, while the two-dimensional irrep,
+projectors, and conjugation rule are mathematical adapters.  They give exact
+representation images and genuinely noncommuting candidate contexts over the
+declared fibre block, not source-produced instruments.  The noncontextual
 additivity receipt over the web is the remaining Born obligation, and
 it needs realized per-context outcome frequencies on the rotated
 contexts.  Producing those statistics is a named simulator capability
@@ -104,8 +107,8 @@ gap: the simulator has no producer that realizes a gauge-conjugated
 binary readout on the committed fibre states.  The gap must never be
 filled by computing Born predictions from the diagonal state; the
 payload records the same boundary in its machine-readable
-`outcome_frequency_boundary` field.  No probability claim beyond
-realized frequencies, no measurement attachment, and no Born-rule
+`outcome_frequency_boundary` field.  No probability claim beyond the native
+diagonal frequencies, no rotated measurement attachment, and no Born-rule
 closure is asserted.
 -/
 
@@ -192,8 +195,8 @@ def rotationMinus : Matrix (Fin 2) (Fin 2) ℝ :=
 def reflectionFive : Matrix (Fin 2) (Fin 2) ℝ :=
   !![-(1/2), -(sqrt3/2); -(sqrt3/2), 1/2]
 
-/-- The two-dimensional irreducible representation on the realized
-element indices, mirroring the payload's `irrep.elements` matrices. -/
+/-- The declared two-dimensional irreducible representation on the
+source label indices, mirroring the payload's `irrep.elements` matrices. -/
 def gaugeIrrep : Fin 6 → Matrix (Fin 2) (Fin 2) ℝ :=
   ![1, reflectionOne, reflectionTwo, rotationPlus, rotationMinus,
     reflectionFive]
@@ -252,8 +255,8 @@ theorem gaugeIrrep_unitary (g : Fin 6) :
   · exact rotationMinus_orthogonal
   · exact reflectionFive_orthogonal
 
-/-- The images of the realized gauge elements are unitary; every
-element is realized on observer 64's support edges. -/
+/-- Every declared representation image is unitary; the premise records
+that its label occurs on observer 64's support edges. -/
 theorem realized_images_unitary :
     ∀ g : Fin 6, s64SupportGaugeCounts g ≠ 0 →
       gaugeIrrep g * (gaugeIrrep g)ᵀ = 1
@@ -283,12 +286,12 @@ theorem rotationPlus_order_three :
 
 /-! ## The diagonal context of the designated fibre block -/
 
-/-- Projector onto the first block basis state, the realized outcome
-`(record 18, companion 13)` at node 64. -/
+/-- Declared projector onto the first block basis state, labelled by the
+realized class pair `(record 18, companion 13)` at node 64. -/
 def recordProjector : Matrix (Fin 2) (Fin 2) ℝ := !![1, 0; 0, 0]
 
-/-- Projector onto the second block basis state, the realized outcome
-`(record 18, companion 3)` at node 43. -/
+/-- Declared projector onto the second block basis state, labelled by the
+realized class pair `(record 18, companion 3)` at node 43. -/
 def companionProjector : Matrix (Fin 2) (Fin 2) ℝ := !![0, 0; 0, 1]
 
 theorem record_add_companion : recordProjector + companionProjector = 1 := by
@@ -338,7 +341,7 @@ theorem conjProjector_idem (g : Fin 6) :
           recordProjector_idem]
 
 /-- Conjugation by the diagonal reflection reproduces the diagonal
-record projector exactly: this realized context coincides with the
+record projector exactly: this declared algebraic context coincides with the
 diagonal one and carries no separate effect data. -/
 theorem conjProjector_one_eq_record : conjProjector 1 = recordProjector := by
   show reflectionOne * recordProjector * reflectionOneᵀ = recordProjector
@@ -445,9 +448,9 @@ theorem conjProjector_four_noncommuting :
   have := sqrt3_pos
   linarith
 
-/-- The realized web contains genuinely noncommuting contexts: an S3
-element realized on the designated fibre edges conjugates the record
-projector to an effect that fails to commute with it. -/
+/-- The declared source-attached web contains genuinely noncommuting
+projector candidates: an S3 label occurring on the designated fibre
+edges indexes a conjugation that fails to commute with the record projector. -/
 theorem realizedWeb_contains_noncommuting_context :
     ∃ g : Fin 6, designatedFibreGaugeCounts g ≠ 0
       ∧ conjProjector g * recordProjector
@@ -456,8 +459,9 @@ theorem realizedWeb_contains_noncommuting_context :
 
 /-! ## The outcome-frequency boundary -/
 
-/-- The contexts of the realized web: the diagonal record/companion
-context and one conjugated context per gauge element index. -/
+/-- The contexts of the declared source-attached algebraic web: the
+diagonal record/companion context and one conjugated context per gauge
+label index. -/
 inductive WebContext : Type where
   | diagonal : WebContext
   | conjugated : Fin 6 → WebContext
@@ -497,7 +501,7 @@ theorem realized_statistics_only_diagonal (c : WebContext) :
   cases c <;> simp [realizedOutcomeCounts]
 
 /-- The exact data requirement of the noncontextual additivity receipt
-over the realized web: per-context outcome counts with positive mass on
+over the declared algebraic web: per-context outcome counts with positive mass on
 every context, the rotated contexts included, with the diagonal fields
 pinned to the run's committed values.  The run inhabits the diagonal
 fields alone (`realized_statistics_only_diagonal`); filling the rotated

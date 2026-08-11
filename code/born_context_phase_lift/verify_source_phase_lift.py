@@ -2,15 +2,15 @@
 """Independent exact verifier for the B13 source phase-lift boundary.
 
 The verifier deliberately does not import the simulator extractor.  It reads
-the committed ``BORN_CONTEXT_WEB_PAYLOAD.json`` as an adversarial input,
-rechecks its source hashes, reconstructs the S3 representation and projector
+the vendored, hash-pinned ``BORN_CONTEXT_WEB_PAYLOAD.v1.json`` as an adversarial
+input, pins its source-hash metadata, reconstructs the S3 representation and projector
 orbit in exact ``Q(sqrt(3))`` arithmetic, and then works in
 ``Q(sqrt(3), i)`` to certify the following sharp boundary:
 
 * the native real web has operator-span rank three and is blind to the two
   opposite Pauli-Y states;
-* the normalized phase lift of the earned commutator is exactly the +Y
-  projector and raises the operator-span rank to four;
+* the phase lift built from two source-attached algebraic projector candidates
+  is exactly the +Y projector and raises the operator-span rank to four;
 * the payload still supplies no rotated or phase-lifted outcome receipt.
 
 This is an operator-algebra certificate, not an instrument simulation.  No
@@ -47,6 +47,8 @@ EXPECTED_SOURCE_HASHES = {
     "gauge_state_sha256": "5f2cd276b84b1917c4d321a532db6efd12442931fbc80fd764cbcf1918dadca2",
     "e1_payload_sha256": "005223dc4fa7442bf10e6e8b446a1e5ebba08e41796d6ac89c45251de090bf45",
 }
+HERE = Path(__file__).resolve().parent
+VENDORED_PAYLOAD = HERE / "BORN_CONTEXT_WEB_PAYLOAD.v1.json"
 
 
 @dataclass(frozen=True)
@@ -329,7 +331,7 @@ def verify_payload(
     payload: dict[str, Any],
     source_root: Path | None = None,
     *,
-    verify_hashes: bool = True,
+    verify_hashes: bool = False,
     payload_path: Path | None = None,
 ) -> dict[str, Any]:
     need(
@@ -356,17 +358,23 @@ def verify_payload(
 
     hashes_verified = False
     payload_file_sha256: str | None = None
-    if verify_hashes:
-        need(source_root is not None, "source root required for hash verification")
-        authenticated_payload = payload_path or (
-            source_root / "docs" / "BORN_CONTEXT_WEB_PAYLOAD.json"
-        )
-        need(authenticated_payload.is_file(), "missing pinned context-web payload")
-        payload_file_sha256 = sha256(authenticated_payload)
+    if payload_path is not None:
+        need(payload_path.is_file(), "missing pinned context-web payload")
+        payload_file_sha256 = sha256(payload_path)
         need(
             payload_file_sha256 == EXPECTED_PAYLOAD_SHA256,
             "context-web payload hash mismatch",
         )
+    if verify_hashes:
+        need(source_root is not None, "source root required for hash verification")
+        if payload_path is None:
+            authenticated_payload = source_root / "docs" / "BORN_CONTEXT_WEB_PAYLOAD.json"
+            need(authenticated_payload.is_file(), "missing pinned context-web payload")
+            payload_file_sha256 = sha256(authenticated_payload)
+            need(
+                payload_file_sha256 == EXPECTED_PAYLOAD_SHA256,
+                "context-web payload hash mismatch",
+            )
         for path_key, hash_key in (
             ("receipt_path", "receipt_sha256"),
             ("freezeout_path", "freezeout_sha256"),
@@ -599,7 +607,7 @@ def verify_payload(
         "rotated_outcome_receipt_present": False,
         "phase_lift_instrument_receipt_present": False,
         "claim_boundary": (
-            "Exact operator-algebra closure only. The committed source web remains phase-free "
+            "Exact operator-algebra closure only. The source-attached algebraic web remains phase-free "
             "and has no rotated or phase-lifted outcome producer; common-preparation instrument "
             "validation and operational noncontextual additivity remain open."
         ),
@@ -609,7 +617,7 @@ def verify_payload(
 def default_paths() -> tuple[Path, Path]:
     workspace = Path(__file__).resolve().parents[3]
     source_root = workspace / "oph-physics-sim"
-    return source_root / "docs" / "BORN_CONTEXT_WEB_PAYLOAD.json", source_root
+    return VENDORED_PAYLOAD, source_root
 
 
 def main() -> None:
@@ -617,14 +625,24 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--payload", type=Path, default=default_payload)
     parser.add_argument("--source-root", type=Path, default=default_source_root)
-    parser.add_argument("--skip-source-hashes", action="store_true")
+    source_group = parser.add_mutually_exclusive_group()
+    source_group.add_argument(
+        "--verify-source-hashes",
+        action="store_true",
+        help="also rehash the optional sibling simulator's large raw inputs",
+    )
+    source_group.add_argument(
+        "--skip-source-hashes",
+        action="store_true",
+        help="deprecated compatibility flag; hermetic verification is the default",
+    )
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     payload = json.loads(args.payload.read_text())
     report = verify_payload(
         payload,
         args.source_root,
-        verify_hashes=not args.skip_source_hashes,
+        verify_hashes=args.verify_source_hashes,
         payload_path=args.payload,
     )
     text = json.dumps(report, indent=2, sort_keys=True) + "\n"

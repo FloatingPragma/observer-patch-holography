@@ -6,10 +6,10 @@ namespace OPH.InformationProjection
 open OPH.Thermodynamics
 
 /-!
-# Source-produced history-law packet (B7, issue #683)
+# Source-attached history-law packet (B7, issue #683)
 
 This module mirrors, as exact literals, the history-law packet extracted
-from the preregistered bounded source run `runs/b12_prereg_16k_20260806`
+from the locally hash-pinned bounded source run `runs/b12_prereg_16k_20260806`
 of the simulator (seed `20260806`, engine commit
 `b39b78faf894894ebe573571e0902ccfaaeac32a`).  The payload with the full
 extraction and its exact verification lives at
@@ -51,9 +51,11 @@ declared multiplier point `lambda0 = -log (3190100906251/10^12)` has an
 exactly rational tilted law whose mean action lies within `10^-12` of
 the declared mean.
 
-Claim boundary.  Representation-level mirror over earned literals from
-one preregistered bounded source run.  The run produces the reference
-law, the action, and the empirical law; the multiplier is matched to the
+Claim boundary.  Representation-level mirror over literals extracted
+from one retained locally hash-pinned bounded source run.  The declared
+postprocessing constructs the Markov reference, repair-count action, and
+empirical path law from those data; these objects were not all fixed by
+the run's local pre-execution contract.  The multiplier is matched to the
 DECLARED alternative mean, the empirical mean action of the same run.
 No source mechanism selects the multiplier: the multiplier selection
 principle from source data is the open core of issue B7.
@@ -74,7 +76,7 @@ theorem tilt_zero (τ S : Γ → ℝ) (hτ1 : ∑ g, τ g = 1) :
 
 end TiltZero
 
-/-! ## The literal layer: earned integers and rationals -/
+/-! ## The literal layer: extracted integers and rationals -/
 
 /-- First state of path `g` under the encoding `g = 4*s0 + 2*s1 + s2`
 (local `0` = global 18, local `1` = global 19). -/
@@ -91,7 +93,7 @@ segment of an observer transition history contributes each consecutive
 state triple as one window. -/
 def sourceWindowCount : Fin 8 → ℕ := ![1149, 96, 2, 87, 3, 2, 3, 412]
 
-/-- The source-intrinsic action: the repair-move count (number of state
+/-- The declared repair-count action: the number of state
 changes) of the length-3 path. -/
 def sourceAction : Fin 8 → ℕ := ![0, 1, 2, 1, 1, 2, 1, 0]
 
@@ -425,17 +427,17 @@ theorem sourceTilt_zero :
     tilt sourceTauChainR sourceActionR 0 = sourceTauChainR :=
   tilt_zero sourceTauChainR sourceActionR sourceTauChainR_sum
 
-/-- **Earned inhabitation of the history-law interface.**  The
+/-- **Exact packet inhabitation of the history-law interface.**  The
 `HistoryLaw` projection theorems hold at the literals of this packet:
-for every multiplier, the tilt of the source-produced reference law by
-the source-intrinsic action is a strictly positive normalized path law,
+for every multiplier, the tilt of the declared extracted reference law
+by the declared repair-count action is a strictly positive normalized path law,
 and it is the unique minimizer of relative entropy to the reference
 among laws sharing its mean action.  The multiplier is the one slot the
-source does not fill: `lam` is a free input here, the payload matches it
+packet does not fill: `lam` is a free input here, the payload matches it
 to the declared empirical mean action of the same run, and the
 multiplier selection principle from source data is the open core of
 issue B7. -/
-theorem sourceHistoryLaw_earned_inhabitation (lam : ℝ) :
+theorem sourceHistoryLaw_packet_inhabitation (lam : ℝ) :
     (∀ g, 0 < tilt sourceTauChainR sourceActionR lam g)
       ∧ (∑ g, tilt sourceTauChainR sourceActionR lam g = 1)
       ∧ (∀ ρ : Fin 8 → ℝ, (∀ g, 0 ≤ ρ g) → (∑ g, ρ g = 1) →
@@ -828,8 +830,8 @@ theorem sourceTilt_lambdaZero_mean_close :
 
 /-! ## Packet receipt -/
 
-/-- **Source-produced history-law packet receipt (B7, issue #683).**
-Both produced path laws are strictly positive and normalized, the
+/-- **Source-attached history-law packet receipt (B7, issue #683).**
+Both declared extracted path laws are strictly positive and normalized, the
 action is nonconstant, the reference law is the Markov product of the
 committed mixing chain (`sourceTauChainQ_eq_markov_product`, with the
 cleared-denominator identity kernel-decided at
@@ -866,7 +868,7 @@ end OPH.InformationProjection
 #print axioms OPH.InformationProjection.sourceTauChainR_meanAction
 #print axioms OPH.InformationProjection.sourceKl_emp_chain_pos
 #print axioms OPH.InformationProjection.sourceTilt_zero
-#print axioms OPH.InformationProjection.sourceHistoryLaw_earned_inhabitation
+#print axioms OPH.InformationProjection.sourceHistoryLaw_packet_inhabitation
 #print axioms OPH.InformationProjection.sourceMatchingMultiplier_exists
 #print axioms OPH.InformationProjection.sourceTilt_lambdaZero_apply
 #print axioms OPH.InformationProjection.sourceTilt_lambdaZero_mean_close

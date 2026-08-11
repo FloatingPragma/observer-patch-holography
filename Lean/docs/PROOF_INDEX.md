@@ -223,33 +223,36 @@ Mapping between Lean 4 theorems in this project and statements in
   affinity is supplied, probability bounds on any dense set of celestial
   directions extend to the full sphere and force the coefficient into the
   closed unit ball. Separately, subtracting the normalized complex commutator
-  of the two earned noncommuting real projectors from `I/2` gives exactly the
+  of the two source-attached algebraic projector candidates from `I/2` gives exactly the
   missing positive Pauli-Y projector and completes fixed-trace two-by-two
   tomography. A generous
   closure under real scaling, sums, complements, and real Kraus pullbacks
   remains real symmetric, cannot distinguish the opposite Pauli-Y states, and
   cannot produce the phase lift. Thus continuity and more phase-free real
   contexts do not close the Born bridge.
-  `QFT/ConjugationGauge.lean` proves that entrywise conjugation preserves
-  states, effects, events, and every real Born weight, equals transposition
+  `QFT/ConjugationGauge.lean` proves that simultaneous entrywise conjugation
+  of state and effect preserves real Born weights, while state-only blindness
+  requires a conjugation-fixed effect; it equals transposition
   on Hermitian matrices, fixes the complexified real web pointwise, and
   exchanges the two candidate completions: the two-candidate ambiguity is
   exactly one conjugation orbit, invisible to every conjugation-fixed frame,
   a lower bound on the web's ambiguity.
-  `Thermodynamics/RepairCurrentOrientation.lean` mirrors the committed
-  repair-current payload and kernel-decides the count totals, the designated
+  `Thermodynamics/RepairCurrentOrientation.lean` mirrors a committed post-hoc
+  repair-current diagnostic and kernel-decides the count totals, the designated
   pair `3 -> 4` (1343 forward, 0 backward), the designated cycle `(3,4,5)`
   (products 1239691068 and 0), the maximality and unique-orbit attainment of
-  both designations, reversal-oddness of the orientation bit, and the
-  symmetric-control degeneration. `QFT/SourceOrientedCompletion.lean`
+  both designations and lexicographically least tie breaks, the exact
+  row-normalized selected-cycle check, reversal-oddness of the bit, and the
+  synthetic symmetric-control degeneration. `QFT/SourceOrientedCompletion.lean`
   transports the bit onto the completion torsor under a declared typed
   convention with a kernel-decided strict-inequality applicability
   condition; the selected completion coincides with the phase lift under the
   declared pairing, either torsor element completes state tomography, and
   the finite Busch--Gleason composition pins the represented state by three
   oriented weights. The transport is a convention, not a theorem. The
-  complex effect and its orientation are algebraic and counted structures,
-  not a source operation or receipt; source effect semantics, operational
+  complex effect is algebraic and the orientation is a post-hoc raw-count
+  diagnostic, not a source operation or validation receipt; neither statistic
+  nor designation rule was preregistered. Source effect semantics, operational
   additivity, the y-magnitude readout, and the public phase-sensitive
   instrument/readback attachment with preregistered validation remain open
   under #702. See `B13_EFFECT_CLOSURE_BOUNDARY.md`.
@@ -292,18 +295,21 @@ Mapping between Lean 4 theorems in this project and statements in
   regional-factor attachment. The parameterized consistency model assigns the
   same commutative public algebra to every region, and the star-homomorphic
   restrictions are strong extra data rather than ordinary AQFT-net structure.
-  The rich-fibre packet closes those obligations at declared finite level
+  The rich-fibre packet strengthens that interface without closing its source
+  and tensor-factor obligations
   (`QFT/RichFibreWitness.lean`, `QFT/RichFibreRegionalNet.lean`): the second
   preregistered fresh-seed 64k run realizes split-fibre counts 3, 3, 4, 4 on
   four pairwise-disjoint twenty-node windows (gates G1 through G4 passed; the
   pilot failed and is closed negatively), and the mirrored net earns a
-  noncommutative block algebra at every observer region with its realized
-  two-by-two designated-fibre factor, kernel-backed window disjointness,
+  noncommutative block algebra at every observer region with an embedded
+  two-by-two designated-fibre matrix corner, kernel-backed window disjointness,
   elementwise commutation across distinct windows, the
   character-and-block restriction laws, computed four-window coverage of the
   top algebra with unique restriction gluing and its reconstruction
   corollary, and the drop-one negative control showing every window is
-  load-bearing. Sorry-free, standard axioms, no `native_decide`. The
+  load-bearing. The enrichment, state, restrictions, and identity repair are
+  declared, and no `TensorSplitReceipt` identifies a regional tensor factor;
+  E1 therefore remains open. Sorry-free, standard axioms, no `native_decide`. The
   enrichment rule and restriction system are declared readings of the
   custody-pinned payload; CP/CPTP, scheduler, continuum, and clock scopes
   stay with #693, #700, and #703. See
@@ -443,8 +449,12 @@ Mapping between Lean 4 theorems in this project and statements in
   concrete single-site repair readout depends only on an iterated closed
   neighborhood. Generic row-normalized and Kraus-complete first-factor maps
   preserve the remote algebraic marginal or partial trace. No minimal cone,
-  adaptive scheduler, distance, clock, OPH region factorization, normalized
-  classical state, or physical spacelike channel follows. See
+  source scheduler, distance, clock, OPH region factorization, normalized
+  classical state, or physical spacelike channel follows. The separate E2
+  module `ObserverPatchHolography/Locality/AdaptiveScheduler.lean` proves
+  adaptive cone/no-influence and declared-refinement naturality only under a
+  supplied `ConsultsOnly` scheduler and consultation region; it produces no
+  scheduler or physical channel semantics. See
   `B4_LOCALITY_BOUNDARY.md`.
 - B5 finite continuity, Gauss solvability, and protected charges
   (`Screen/RegionalContinuity.lean`, `Screen/DiscreteGauss.lean`,
@@ -480,12 +490,15 @@ Mapping between Lean 4 theorems in this project and statements in
   enrichments agree on every realized binary history yet give distinct
   Hamiltonians. Thus the source law does not select real variation curvature.
   `InformationProjection/ReferenceNormalForm.lean` adds the reference gauge
-  normal form: among row-stochastic kernels, target-relabeling invariance,
+  normal form: among row-stochastic kernels, independent target-scrambling
+  invariance at fixed source,
   row-constant weight, and constant log-transition step action are each
   equivalent to the uniform kernel, so any invariant Markov reference has
   path law `stepUniformRef` exactly (`relabel_invariant_iff_uniform`,
   `constant_step_action_iff_uniform`, `unique_invariant_reference`), with a
-  biased two-state kernel as the load-bearing negative control. The
+  biased target-weight and simultaneous-relabeling two-state controls. The
+  latter is positive, nonuniform, and simultaneously invariant, so the
+  independent scrambling premise is genuinely stronger. The
   invariance principle is a stated normal-form convention, not a source
   product. Source selection of the reference principle and real enrichment,
   physical action, clock, amplitudes,
@@ -1006,7 +1019,7 @@ Mapping between Lean 4 theorems in this project and statements in
   `dF2_lt_dP2`), every sector-balanced metric selects `G`
   (`balanced_unique_nearest_G`), every metric with `beta/delta` in
   `[1/50, 6]` selects `G` for all `gamma` and `delta`
-  (`box_unique_nearest_G`), `F` genuinely wins past the chirality threshold
+  (`box_unique_nearest_G`), `F` genuinely wins in a nonempty region across the exact tie surface
   (`F_wins_at_witness` at `(8,1,1)`), and the reference point reproduces the
   pinned selector distances (`reference_P/F/G`). Galois conjugation with the
   sector swap maps `d_G` to `d_F` exactly, and a non-carrier-induced control

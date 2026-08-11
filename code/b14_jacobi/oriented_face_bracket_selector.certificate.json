@@ -1,5 +1,5 @@
 {
-  "certificate_sha256": "sha256:6472ef1c1ba94fb1a9dc9c0361f6c673ce1f34e084651c51f428cb7ce614f6f9",
+  "certificate_sha256": "sha256:0152c9bf00bccdd1b564d57975f4e42e323e7c58bd5c10a2c667663293d7dd37",
   "channel_coordinates": {
     "d_five": [
       0,
@@ -86,7 +86,7 @@
       20
     ]
   },
-  "claim_boundary": "The equal-weight cyclic bracket is derived from the pinned oriented-face incidence and is exactly 60*R13. It fails Jacobi. Exact primal/dual certificates show that G is uniquely nearest among the classified compact families under total absolute, Hilbert--Schmidt, and worst-coordinate edit. No one of those repair norms, nor the rule that minimizes it over the Jacobi locus, is source-derived; three-norm agreement is therefore a robust discriminator, not an OPH source-selection or B14 closure theorem.",
+  "claim_boundary": "Applying the declared equal-weight cyclic rule to the pinned oriented-face incidence gives exactly 60*R13. It fails Jacobi. Exact primal/dual certificates show that G is uniquely nearest among the classified compact families under total absolute, Hilbert--Schmidt, and worst-coordinate edit. No one of those repair norms, nor the rule that minimizes it over the Jacobi locus, is source-derived; three-norm agreement is therefore a robust discriminator, not an OPH source-selection or B14 closure theorem.",
   "endpoint_norm_robustness": {
     "conclusion_status": "EXACT_THREE_NORM_ROBUST_CONDITIONAL_DISCRIMINATOR__NOT_SOURCE_SELECTION",
     "coordinate_convention": "the same 792 upper-triangular structure-constant coordinates; L1 is total absolute edit and Linfinity is worst-coordinate edit",
@@ -743,7 +743,7 @@
   },
   "field": "Q(sqrt(5)); [a_num,a_den,b_num,b_den] encodes a+b*sqrt(5)",
   "implementation_pins": {
-    "producer_sha256": "sha256:f7c54e9ef34412325d9a8be486bce5510184cd107c5e6634ed2c5452065ded26",
+    "producer_sha256": "sha256:84e08536b06144d9fa4dc6c0829fbc44ab5f4da05314b3d5b869a05145270789",
     "verifier_sha256": "sha256:c1b0f1ff62ae22067857e3b2b9cad1efc256d2dad091bc8408265ecd08329db3"
   },
   "issue": 705,

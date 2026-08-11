@@ -79,15 +79,19 @@ enrichment.
 ## Reference normal form
 
 `InformationProjection/ReferenceNormalForm.lean` characterizes the declared
-reference exactly.  Among row-stochastic kernels, invariance under every
-relabeling of transition targets, row-constant transition weight, and
+reference exactly within a declared independent-target-scrambling normal
+form. Among row-stochastic kernels, invariance under every independent
+relabeling of transition targets at fixed source, row-constant transition weight, and
 constant log-transition step action are each equivalent to the uniform
 kernel (`relabel_invariant_iff_uniform`, `row_const_iff_uniform`,
-`constant_step_action_iff_uniform`), and any target-relabeling-invariant
+`constant_step_action_iff_uniform`), and any independently target-relabeling-invariant
 row-stochastic Markov reference has path law equal to `stepUniformRef`
 (`unique_invariant_reference`).  A biased two-state control is
 row-stochastic, strictly positive, and neither invariant nor uniform, so the
-invariance premise is load-bearing.  This fixes the reference gauge by an
+invariance premise is load-bearing. A second stay-biased control is positive,
+row-stochastic, nonuniform, and invariant under ordinary simultaneous
+source-target relabeling, proving that the independent scrambling condition is
+strictly stronger. This fixes the reference gauge by an
 invariance property, exactly as a coordinate convention is fixed; it is a
 representation-level normal-form theorem, not a source selection.
 
@@ -96,7 +100,7 @@ representation-level normal-form theorem, not a source selection.
 The package does not:
 
 - source-select the reference measure; the step-uniform reference is now
-  characterized as the unique target-relabeling-invariant Markov reference,
+  characterized as the unique independently target-scrambling-invariant Markov reference,
   but the invariance principle itself is a stated normal-form convention,
   not a source product;
 - select one real continuation away from the binary history alphabet; the

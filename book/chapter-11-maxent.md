@@ -315,16 +315,19 @@ the apparent conservation test is empty. This table supports the finite
 stationary-kernel calculation. It supplies neither a common state-and-transition
 reference nor a physical energy or clock calibration.
 
-The separately preregistered state table and recurrent transition chain cannot
-be joined by the hoped-for common-object map. The state-side resampling step is
+The state table/reference was locally pre-specified and hash-pinned. The
+recurrent transition chain was extracted post hoc from retained run data.
+Neither of the two audited direct maps joins
+them nondegenerately. The state-side resampling step is
 idempotent, while the transition chain has a nonconstant mode multiplied by
 $665437/726948$, strictly between zero and one. Any map intertwining these two
 steps must erase that mode. Independently, the transition stationary mass
 $7155/61511$ falls between two adjacent masses available from the $16{,}384$
 equally weighted state observations, so no deterministic regrouping of that
 table produces it. An invented random coupling would not be evidence from the
-run. This is a final negative result for the current artifact, not a no-go for
-all possible source dynamics.
+run. This is a negative result for those two direct-binding mechanisms on the
+current artifact, not a no-go for stochastic, nonlinear, reverse-direction,
+or enriched-source constructions.
 
 The finite theorem package therefore does not import thermodynamic identities
 as an extra axiom, but its physical interpretation is conditional. Five

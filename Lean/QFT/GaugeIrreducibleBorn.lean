@@ -3,7 +3,7 @@ import QFT.ConvexAffinityBridge
 /-!
 # Gauge irreducibility and the Born weight of the invariant state
 
-This module is the gauge route to the Born rule on the realized split
+This module is a conditional gauge route to the Born rule on the source-labelled split
 fibre: the third of three independent derivation routes, next to the
 Busch/Gleason effect-additivity route and the realized-frequency route.
 The route derives the Born weight for the gauge-invariant state alone,
@@ -47,13 +47,13 @@ generator assignment `rho((1,2,0)) = rotation by 120 degrees`,
   Any outcome assignment `v` on states and effects that (a) mixes
   affinely in the effect slot at the invariant state, in the exact
   binary-mixing grammar of the convex-affinity bridge, (b) is covariant
-  under the realized gauge action, assigning to a rotated effect in the
+  under the declared gauge representation, assigning to a rotated effect in the
   rotated state the original value, and (c) is normalized at the sure
   and impossible effects, takes on every projection event `E` the value
   `v tracialState E = Re (Tr ((1/2) • 1 * E))`
   (`bornWeight_tracialState_def` displays the right side in that shape;
   the trace is real for events, so the real part is a display choice).
-  The proof averages the effect over the six realized gauge images
+  The proof averages the effect over the six supplied representation images
   through five binary mixes, identifies the average as a scalar by
   Schur, and evaluates the scalar by the trace.
 
@@ -82,9 +82,9 @@ split fibre of observer 64, record class 18, nodes 64 and 43: of the 21
 incident edge slots the payload counts 8, 4, 3, 2, 3, 1 across the six
 elements, every element with positive count.  The literals are
 transcribed in `designatedFibreEdgeCount`; the receipt-shaped Prop
-`RealizesAllGaugeElements` names exactly what the run supplies, and
+`RealizesAllGaugeElements` is a legacy name for label-census coverage, and
 `born_weight_forced_with_realized_covariance` consumes it: covariance
-is assumed only at gauge elements with positive realized edge count,
+is assumed only at gauge labels with positive realized edge count,
 and the census receipt `designatedFibre_realizes_all` discharges the
 rest.  The payload also names its own capability gap: no realized
 gauge-conjugated outcome frequencies exist on the committed fibre, and
@@ -102,7 +102,7 @@ events of the bridge witness layer (`vertexZero_vertexPlus_noncomm`):
 both are the exact half, and `admissible_values_on_noncommuting_pair`
 shows every admissible assignment takes that value on both.  The
 negative controls: `cornerAssignment` satisfies effect-slot mixing and
-normalization, breaks covariance on a realized rotation
+normalization, breaks covariance on a represented rotation whose label occurs
 (`cornerAssignment_breaks_covariance`), and evades the conclusion
 (`cornerAssignment_evades_born`); `traceSquareAssignment` satisfies
 state-slot affinity, covariance, and normalization, violates
@@ -452,7 +452,7 @@ theorem bornWeight_tracialState_def (E : Matrix (Fin 2) (Fin 2) ℂ) :
     bornWeight tracialState E
       = ((2⁻¹ : ℂ) • (1 : Matrix (Fin 2) (Fin 2) ℂ) * E).trace := rfl
 
-/-! ## The twirl over the six realized gauge elements -/
+/-! ## The twirl over the six supplied representation images -/
 
 /-- The equal-weight average of an effect over the six explicit gauge
 conjugates.  The six group words enumerate `S3`. -/
@@ -566,7 +566,7 @@ on pairs of a state and an effect that
 
 * (a) mixes affinely in the effect slot at the invariant state, in the
   binary-mixing grammar of the convex-affinity bridge,
-* (b) is covariant under the realized gauge action, and
+* (b) is covariant under the supplied gauge representation, and
 * (c) is normalized at the sure and impossible effects,
 
 takes on every projection event the Born weight of the tracial state.
@@ -605,7 +605,7 @@ theorem born_weight_forced_at_invariant_state
     ring
   rw [← h1, twirl_event_eq hE, h2]
 
-/-! ## The source tie: the realized edge census -/
+/-! ## The source tie: label coverage in the edge census -/
 
 /-- The per-element incident edge counts of the designated split fibre
 (observer 64, record class 18, nodes 64 and 43), transcribed from the
@@ -622,15 +622,15 @@ def designatedFibreEdgeCount (g : S3) : ℕ :=
   else if g = rGen * rGen then 3
   else 1
 
-/-- Receipt-shaped interface Prop for the source tie: an edge census
-realizes the gauge action when every group element has positive count.
-The committed payload is the intended producer; any module binding the
-payload literals can discharge this Prop without this file importing
-it. -/
+/-- Receipt-shaped interface Prop for the source tie (legacy name): an
+edge census covers every group label when every count is positive.  It
+does not source-produce the supplied representation or its action.  The
+committed payload is the intended producer of the census; any module
+binding the payload literals can discharge this Prop without importing it. -/
 def RealizesAllGaugeElements (count : S3 → ℕ) : Prop :=
   ∀ g : S3, 0 < count g
 
-/-- The designated-fibre census realizes all six gauge elements. -/
+/-- The designated-fibre census contains all six gauge labels. -/
 theorem designatedFibre_realizes_all :
     RealizesAllGaugeElements designatedFibreEdgeCount := by
   show ∀ g : S3, 0 < designatedFibreEdgeCount g
@@ -642,10 +642,10 @@ theorem designatedFibre_edge_total :
     ∑ g : S3, designatedFibreEdgeCount g = 21 := by
   decide
 
-/-- The derivation with covariance assumed only at gauge elements of
-positive realized edge count: any census realizing all six elements
-discharges the full covariance need, so the run's census is exactly
-what the route consumes from the source. -/
+/-- The derivation with covariance assumed only at gauge labels of
+positive edge count: any census covering all six labels discharges the
+indexing condition.  Covariance under the supplied representation
+remains a hypothesis; the run provides only the census. -/
 theorem born_weight_forced_with_realized_covariance
     (v : Matrix (Fin 2) (Fin 2) ℂ → Matrix (Fin 2) (Fin 2) ℂ → ℝ)
     (hmix : ∀ (l : ℝ), 0 ≤ l → l ≤ 1 → ∀ X Y : Matrix (Fin 2) (Fin 2) ℂ,
@@ -764,8 +764,9 @@ theorem cornerAssignment_norm_one : cornerAssignment tracialState 1 = 1 := by
 theorem cornerAssignment_norm_zero : cornerAssignment tracialState 0 = 0 := by
   simp [cornerAssignment]
 
-/-- The corner assignment breaks covariance on the realized rotation:
-the rotated first witness projector carries corner value `1/4` against
+/-- The corner assignment breaks covariance on a represented rotation
+whose label has positive source count: the rotated first witness
+projector carries corner value `1/4` against
 the unrotated value `1`. -/
 theorem cornerAssignment_breaks_covariance :
     cornerAssignment (conjBy rGen tracialState) (conjBy rGen vertexZero)

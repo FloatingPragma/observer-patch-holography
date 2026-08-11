@@ -6,7 +6,7 @@ namespace OPH.Thermodynamics
 /-!
 # Common-reference obstruction for the current B12 artifact
 
-The preregistered B12 run currently supplies two different finite objects.
+The locally hash-pinned B12 run currently supplies two different finite objects.
 Its state-side conditional-resampling kernel is idempotent, while the
 transition-side recurrent chain has the exact nonstationary eigenvalue
 `665437 / 726948`, strictly between zero and one.  This module records the
@@ -49,7 +49,7 @@ def kernelActLinear {Omega : Type*} [Fintype Omega]
         ring
       _ = c * ∑ y, K x y * f y := by rw [Finset.mul_sum]
 
-/-- The exact recurrent-chain kernel, cast from the earned rational
+/-- The exact recurrent-chain kernel, cast from the extracted rational
 literals to real scalars. -/
 def mixingChainReal (i j : Fin 2) : ℝ := (mixingChain i j : ℚ)
 
@@ -176,8 +176,8 @@ theorem no_empirical_deterministic_stationary_pushforward (k : ℕ) :
   have hhiNat : k < 1906 := by exact_mod_cast hhi
   omega
 
-/-- Summary of the exact obstruction packet: the earned mixing eigenpair,
-the empirical denominator mismatch, and the universal dynamic no-go. -/
+/-- Summary of the exact obstruction packet: the extracted mixing eigenpair,
+the empirical denominator mismatch, and the mechanism-scoped dynamic no-go. -/
 theorem current_common_reference_obstruction_summary :
     mixingActLinear mixingMode = (665437 / 726948 : ℝ) • mixingMode ∧
     (∀ k : ℕ, (k : ℚ) / 16384 ≠ 7155 / 61511) ∧

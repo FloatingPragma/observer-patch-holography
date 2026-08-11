@@ -24,8 +24,8 @@ normalization forced, and the named corollary states the history law as
 the information projection of the reference onto the mean-action
 constraint.
 `InformationProjection.SourceHistoryPacket` mirrors the B7
-source-produced history-law packet as exact literals from one
-preregistered run: both produced path laws are strictly positive and
+source-attached history-law packet as exact literals extracted from one
+retained locally hash-pinned run: both path laws are strictly positive and
 normalized, the reference law is the Markov product of the committed
 mixing chain with the cleared-denominator identity kernel-decided, the
 tilt at multiplier zero is the reference exactly, the `HistoryLaw`

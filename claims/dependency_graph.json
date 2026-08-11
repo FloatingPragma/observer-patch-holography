@@ -86,6 +86,7 @@
     "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
     "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
     "OPH-FINITE-LOCALITY-NOSIGNALLING",
+    "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER",
     "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
     "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
     "OPH-CANONICAL-LORENTZ-MODULE",
@@ -768,7 +769,12 @@
     {
       "from": "OPH-OBS-PATCH-DEF",
       "to": "OPH-FINITE-LOCALITY-NOSIGNALLING",
-      "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; E1 owns finite coverage and the OPH region-factor attachment, while E2 owns source-produced channel semantics and refinement-natural adaptive scheduling"
+      "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; E1 conditionally attains declared-adapter coverage and owns source-attached operator generation and the OPH region-product or local-channel attachment, while E2 owns source-produced channel semantics and refinement-natural adaptive scheduling"
+    },
+    {
+      "from": "OPH-OBS-PATCH-DEF",
+      "to": "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER",
+      "role": "supplies the concrete localRepair used by the conditional adaptive cone induction; the scheduler, ConsultsOnly region, and refinement maps/laws are supplied E2 inputs, while their source production and every channel or physical reading are unresolved under #693"
     },
     {
       "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
@@ -788,7 +794,7 @@
     {
       "from": "OPH-CONSENSUS-TOWER-INTERFACE",
       "to": "OPH-FINITE-CAUSAL-OBSERVER-NET",
-      "role": "supplies the common finite regulator, private algebra, observer state pairing, and refinement maps decorated by E1; finite region locality and noncommutative source realization remain additional receipts"
+      "role": "supplies the common finite regulator, private algebra, observer state pairing, and refinement maps decorated by E1; declared finite locality, noncommutative blocks, and coverage are conditional adapter receipts, while source-attached operator generation and a region-product or local-channel adapter are separate obligations"
     },
     {
       "from": "OPH-PUBLICIZATION-DYNAMICS-FINITE",
@@ -798,7 +804,7 @@
     {
       "from": "OPH-FINITE-LOCALITY-NOSIGNALLING",
       "to": "OPH-FINITE-CAUSAL-OBSERVER-NET",
-      "role": "supplies the finite tensor-split Kraus no-signalling helper and its normalization boundary; E1 keeps the split as an explicit receipt and separately requires regional algebraic locality and descent"
+      "role": "supplies the finite tensor-split Kraus no-signalling helper and its normalization boundary; E1 does not instantiate a TensorSplitReceipt and separately requires a source-attached region-product identification or justified local-channel adapter"
     },
     {
       "from": "OPH-CANONICAL-LORENTZ-MODULE",

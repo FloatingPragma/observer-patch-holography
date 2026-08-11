@@ -8,7 +8,7 @@ Issue B7 (#683).  The log-transition-action representation theorem
 as the Gibbs tilt of the *declared* step-uniform reference.  This module
 removes one layer of that declaredness by characterizing the reference
 exactly: among row-stochastic kernels, the uniform kernel is the unique one
-that is invariant under relabeling of transition targets and the unique one
+that is invariant under *independent* relabeling of transition targets and the unique one
 with row-constant transition weight; among strictly positive row-stochastic
 kernels it is also the unique one whose log-transition step action is
 constant.  Each characterization is an iff with
@@ -16,7 +16,7 @@ the nondegeneracy premises stated, and a two-state nonuniform control shows
 the invariance premise is load-bearing.
 
 Consequently the (reference, action, multiplier) representation of the
-committed law with a target-relabeling-invariant Markov reference is unique:
+committed law with an independently target-relabeling-invariant Markov reference is unique:
 the reference must be `stepUniformRef` and the action is then the
 log-transition action up to the already-characterized gauge orbit.
 
@@ -130,10 +130,10 @@ theorem unique_invariant_reference [Nonempty Ω] (pi : Ω → ℝ) (n : ℕ)
     markovPathLaw pi Q n = stepUniformRef pi n :=
   stepUniformRef_is_normal_form pi n Q hrow hinv
 
-/-! ## Negative control
+/-! ## Negative controls
 
-A two-state kernel with distinct positive rows summing to one is
-row-stochastic and strictly positive but neither relabeling-invariant nor of
+A two-state kernel with unequal positive target weights is
+row-stochastic and strictly positive but neither independently target-relabeling-invariant nor of
 constant step action: the invariance premise is load-bearing, not decorative. -/
 
 /-- The biased two-state control kernel. -/
@@ -161,9 +161,50 @@ theorem biasedKernel_not_uniform : biasedKernel ≠ uniformKernel Bool := by
   simp [biasedKernel, uniformKernel] at this
   norm_num at this
 
+/-- Ordinary simultaneous relabeling of source and target is weaker than
+the independent target-scrambling condition used above. -/
+def SimultaneousRelabelInvariant (P : Ω → Ω → ℝ) : Prop :=
+  ∀ (σ : Equiv.Perm Ω) (x y : Ω), P (σ x) (σ y) = P x y
+
+/-- A positive two-state kernel that distinguishes staying from switching. -/
+noncomputable def stayBiasedKernel : Bool → Bool → ℝ :=
+  fun x y => if x = y then (2/3 : ℝ) else (1/3 : ℝ)
+
+theorem stayBiasedKernel_row_stochastic : RowStochastic stayBiasedKernel := by
+  intro x
+  cases x <;> simp [stayBiasedKernel] <;> norm_num
+
+theorem stayBiasedKernel_pos : ∀ x y, 0 < stayBiasedKernel x y := by
+  intro x y
+  by_cases h : x = y <;> simp [stayBiasedKernel, h]
+
+theorem stayBiasedKernel_simultaneous_invariant :
+    SimultaneousRelabelInvariant stayBiasedKernel := by
+  intro σ x y
+  simp only [stayBiasedKernel, Equiv.apply_eq_iff_eq]
+
+theorem stayBiasedKernel_not_uniform :
+    stayBiasedKernel ≠ uniformKernel Bool := by
+  intro h
+  have hdiag := congrFun (congrFun h true) true
+  simp [stayBiasedKernel, uniformKernel] at hdiag
+  norm_num at hdiag
+
+/-- Simultaneous source-target relabeling alone does not characterize the
+uniform reference.  The normal form theorem genuinely assumes independent
+target scrambling at fixed source. -/
+theorem simultaneous_relabel_invariance_does_not_force_uniform :
+    ∃ P : Bool → Bool → ℝ,
+      RowStochastic P ∧ (∀ x y, 0 < P x y) ∧
+        SimultaneousRelabelInvariant P ∧ P ≠ uniformKernel Bool :=
+  ⟨stayBiasedKernel, stayBiasedKernel_row_stochastic,
+    stayBiasedKernel_pos, stayBiasedKernel_simultaneous_invariant,
+    stayBiasedKernel_not_uniform⟩
+
 #print axioms relabel_invariant_iff_uniform
 #print axioms constant_step_action_iff_uniform
 #print axioms unique_invariant_reference
 #print axioms biasedKernel_not_invariant
+#print axioms simultaneous_relabel_invariance_does_not_force_uniform
 
 end OPH.InformationProjection.ReferenceNormalForm

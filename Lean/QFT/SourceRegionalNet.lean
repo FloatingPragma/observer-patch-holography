@@ -2,17 +2,18 @@ import QFT.SimEarnedWitness
 import QFT.CoverageReceipt
 
 /-!
-# Source regional net: the enriched earned net from the B12 split fibres
+# Source regional net: a declared adapter over the B12 split fibres
 
 This module consumes the fibre payload
 `docs/E1_REGIONAL_PAYLOAD.json` of the `oph-physics-sim` repository
 (schema `oph.sim.e1_regional_payload.v1`, produced by
-`scripts/extract_e1_regional_payload.py`) and builds, over the earned
-tower `simEarnedTower` of `QFT/SimEarnedWitness.lean`, a second finite
-causal observer net whose regional algebra at the split-fibre support is
-genuinely noncommutative.  Every off-diagonal direction of that algebra
-is indexed by a realized split fibre of the committed run; no synthetic
-matrix unit enters.
+`scripts/extract_e1_regional_payload.py`) and builds, over the declared
+payload-attached tower `simEarnedTower` of `QFT/SimEarnedWitness.lean`, a
+second finite causal observer net whose regional algebra at the
+split-fibre support is genuinely noncommutative.  The run supplies the
+fibre labels and incidences.  The full matrix units and block algebras
+are a declared pair-groupoid adapter indexed by those fibres; they are
+not operators emitted by the source run.
 
 ## Provenance (verbatim from the payload's provenance block)
 
@@ -62,11 +63,12 @@ in one realized split fibre of that observer (`splitPair`), and the
 regional algebra of the support is the block algebra of that relation:
 matrices supported on related pairs whose diagonal is constant across
 the ambient indices.  For observer 64 the rule yields two free
-two-by-two blocks, one per realized split fibre, and the noncommutative
-receipts below are earned from the run.  For observers 36, 60, and 92
+two-by-two blocks, one per realized split fibre, and the conditional
+noncommutative receipts below follow for that declared adapter.  For
+observers 36, 60, and 92
 the rule yields the relation `i = j`, and the collapse receipts
 (`enrichedRegion_collapse_o36` and companions) state that the enriched
-algebra equals the diagonal regional algebra of the sim-earned net:
+algebra equals the diagonal regional algebra of the declared sim-attached net:
 the truncated payload data cannot support a noncommutative receipt
 there, and the collapse is proved instead of being repaired by
 synthetic data.
@@ -1076,12 +1078,12 @@ noncomputable def sourceRegionalRestrict : ∀ U V : SimRegion,
   | .s92, .s64, h => nomatch h
   | .s92, .top, h => nomatch h
 
-/-! ## The enriched earned net -/
+/-! ## The payload-attached declared net -/
 
-/-- The source regional net: the finite causal observer net over the
-earned tower whose `s64` regional algebra carries the two realized
-matrix blocks of the split fibres, while every other region keeps a
-commutative algebra. -/
+/-- The source regional net: a finite causal observer net over the
+declared payload-attached tower.  Its `s64` algebra carries the two
+declared matrix blocks indexed by realized split fibres, while every
+other region keeps a commutative algebra. -/
 noncomputable def sourceRegionalNet : FiniteCausalObserverNet simEarnedTower where
   Region := fun _ => SimRegion
   regionFintype := fun _ => inferInstance

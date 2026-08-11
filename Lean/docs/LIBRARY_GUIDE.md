@@ -195,8 +195,8 @@ surface for the OPH consensus layer. Contents:
   inner products; the induced bracket metric is channel-diagonal, and the
   certified closed forms give quantified real theorems: `P` is excluded for
   every invariant metric, every sector-balanced metric and every metric with
-  `beta/delta` in `[1/50, 6]` selects `G` uniquely, `F` takes over exactly
-  past the chirality threshold with witness `(8,1,1)`, and Galois
+  `beta/delta` in `[1/50, 6]` selects `G` uniquely, `F` wins in a nonempty
+  region across the exact three-scale tie surface with witness `(8,1,1)`, and Galois
   conjugation with the sector swap exchanges the two mirror families. The
   nearest-point rule and carrier-induced class remain declared; nothing here
   is source selection. See `B14_ORIENTED_FACE_SELECTOR.md`.
@@ -337,9 +337,13 @@ surface for the OPH consensus layer. Contents:
   `localRepair`; `ObserverPatchHolography/Locality/NoSignalling.lean` proves
   generic finite marginal and partial-trace identities on a supplied
   bipartite split. B4's sole live gate is #692 (E1), which owns only finite
-  coverage and OPH region factorization. Source state/channel production and
-  adaptive scheduling continue under #693 (E2), the operational clock under
-  #691, and continuum causal/time-slice and physical spacelike
+  coverage and OPH region factorization. A separate conditional E2 helper,
+  `ObserverPatchHolography/Locality/AdaptiveScheduler.lean`, proves an
+  adaptive cone/no-influence/refinement-naturality packet only for supplied
+  `ConsultsOnly` scheduler and consultation-region data. It produces no source
+  scheduler, state/channel semantics, physical distance, or clock. Those
+  production and identification obligations continue under #693 (E2), the operational clock under
+  #703, and continuum causal/time-slice and physical spacelike
   attachment under #700 (E3); these are downstream rather than B4 claim
   gates. See
   `B4_LOCALITY_BOUNDARY.md`.
@@ -369,11 +373,14 @@ surface for the OPH consensus layer. Contents:
   source law admits distinct strictly convex real enrichments and distinct
   Hamiltonians while the canonical bilinear extension has no global momentum
   solver. The source does not select the real curvature.
-  `InformationProjection/ReferenceNormalForm.lean` fixes the reference gauge:
-  target-relabeling invariance, row-constant weight, and constant step
+  `InformationProjection/ReferenceNormalForm.lean` fixes the reference gauge
+  within a declared normal form: independent target-scrambling invariance at
+  fixed source, row-constant weight, and constant step
   action each characterize the uniform kernel among row-stochastic kernels,
   so every invariant Markov reference has path law `stepUniformRef` exactly,
-  with a biased two-state negative control; the invariance principle is a
+  with biased target-weight and simultaneous-relabeling controls; the latter
+  proves ordinary simultaneous relabeling does not force uniformity. The
+  stronger invariance principle is a
   normal-form convention, not a source product. Issue #683 tracks
   source selection of the reference principle, physical action, clock,
   amplitude, fields, continuum,
@@ -384,38 +391,44 @@ surface for the OPH consensus layer. Contents:
   greedy-disjoint observers, twenty-node windows, split-fibre counts
   3, 3, 4, 4, kernel-decided disjointness and census receipts) and the
   finite causal observer net over it, with a genuinely noncommutative
-  block algebra and realized two-by-two designated-fibre factor at every
+  block algebra and embedded two-by-two designated-fibre matrix corner at every
   observer region, elementwise commutation across distinct windows,
   character-and-block restrictions, computed four-window coverage of the
   top algebra, and the drop-one coverage negative control. The enrichment
-  rule and restriction system are declared readings of the custody-pinned
-  payload; downstream CP/CPTP, scheduler, continuum, and clock scopes stay
-  with E2, E3, and E5. See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
+  rule, region lattice, restriction system, state, and identity repair are
+  declared readings of the custody-pinned payload. No regional tensor-factor
+  receipt is proved, so E1 and the B4 attachment are unresolved; downstream
+  CP/CPTP, scheduler, continuum, and clock scopes stay with E2, E3, and E5.
+  See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and
   normalized antipodal binary contexts do not force Born affinity.
   `QFT/SourcePhaseLiftBridge.lean` proves that subtracting the normalized
-  complex commutator of the earned real pair from `I/2` gives exactly the
+  complex commutator of the source-attached algebraic pair from `I/2` gives exactly the
   missing positive Pauli-Y projector and completes fixed-trace two-by-two
   tomography, while even a
   generous closure under real coarse graining and real Kraus pullbacks remains
   Pauli-Y blind and cannot produce that effect. This is an algebraic target,
   not a source operation or outcome receipt.
-  `QFT/ConjugationGauge.lean` proves that entrywise conjugation preserves
-  states, effects, and real Born weights, fixes the complexified real web
+  `QFT/ConjugationGauge.lean` proves that simultaneous entrywise conjugation
+  of state and effect preserves real Born weights, while state-only blindness
+  requires a conjugation-fixed effect; it fixes the complexified real web
   pointwise, and exchanges the two candidate completions, so the
   two-candidate ambiguity is one conjugation orbit and every
   conjugation-fixed frame conflates each state with its conjugate.
-  `Thermodynamics/RepairCurrentOrientation.lean` kernel-decides the committed
-  run's repair-load count table with its designated pair and cycle receipts,
-  their maximality and unique-orbit attainment, and the reversal-odd
+  `Thermodynamics/RepairCurrentOrientation.lean` kernel-decides a post-hoc
+  repair-load raw-count diagnostic on retained data from a run with an
+  unrelated B12 contract: the designated pair and cycle, their maximality,
+  lexicographically least tie breaks, exact row-normalized selected-cycle
+  check, and the reversal-odd
   orientation bit. `QFT/SourceOrientedCompletion.lean` transports the bit
   onto the completion torsor under a declared typed convention with a
   kernel-decided applicability condition; either torsor element completes
   state tomography, and the finite Busch--Gleason composition pins the
   represented state by three oriented weights. The transport is a declared
-  convention; the y-magnitude readout, operational additivity, and
-  preregistered validation stay with issue #702. See
+  convention. Neither the statistic nor designation rule was preregistered;
+  the y-magnitude readout, operational additivity, and fresh prospective
+  validation stay with issue #702. See
   `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - An admission-free **B8 finite transport package**:
   `Thermodynamics/GreenKubo.lean` proves the reversible Dirichlet identity,
