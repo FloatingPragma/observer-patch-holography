@@ -4,6 +4,7 @@ import InformationProjection.HistoryLaw
 import InformationProjection.SourceHistoryPacket
 import InformationProjection.LogTransitionAction
 import InformationProjection.ReferenceNormalForm
+import InformationProjection.SourceReferenceSelection
 
 /-!
 # Information-projection umbrella root

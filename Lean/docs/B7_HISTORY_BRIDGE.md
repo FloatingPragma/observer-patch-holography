@@ -115,3 +115,27 @@ The package does not:
 Issue #683 owns those open obligations. The derived-action and bridge
 results enter the flagship variational passage; they emit no
 prediction-ladder row.
+
+## Source selection of the reference and the multiplier boundary
+
+`InformationProjection/SourceReferenceSelection.lean` upgrades the
+target-relabeling normal form to a source product.  The Axiom-3
+conditional-resampling repair kernel of the trivial visible datum under
+the counting reference equals the uniform kernel exactly, so the
+representation theorem's step-uniform reference is the repair law's own
+output.  Two controls prove both inputs load-bearing: the identity
+visible datum turns the repair kernel into the identity kernel, and a
+biased two-point reference weights the rows, each breaking
+target-relabel invariance.  The counting reference is the committed
+source counting measure of the repair-word packet, taken as a declared
+identification.
+
+The multiplier is proved not packet-determined: the exact rational
+tilts of the committed chain law at weights one and one half are both
+strictly positive and normalized, and their mean actions differ, so the
+packet's internal receipts admit every weight and only the declared
+constraint level, the committed empirical mean action, separates them.
+The multiplier selection gap therefore closes onto the declared level:
+the level is a source literal and the intermediate-value receipt matches
+a multiplier to it, while no packet-internal rule can produce the
+multiplier without that level.
