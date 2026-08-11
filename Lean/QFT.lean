@@ -19,6 +19,8 @@ import QFT.SourceConvexFamily
 import QFT.SourceContextWeb
 import QFT.SourceContextTomographyNoGo
 import QFT.SourcePhaseLiftBridge
+import QFT.ConjugationGauge
+import QFT.SourceOrientedCompletion
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.TwoFactorHistoryBinding

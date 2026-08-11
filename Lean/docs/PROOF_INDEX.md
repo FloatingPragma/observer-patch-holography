@@ -229,10 +229,30 @@ Mapping between Lean 4 theorems in this project and statements in
   closure under real scaling, sums, complements, and real Kraus pullbacks
   remains real symmetric, cannot distinguish the opposite Pauli-Y states, and
   cannot produce the phase lift. Thus continuity and more phase-free real
-  contexts do not close the Born bridge. The complex effect is an algebraic
-  target, not a source operation or receipt; source effect semantics,
-  operational additivity, and the public phase-sensitive instrument/readback
-  attachment remain open under #702. See `B13_EFFECT_CLOSURE_BOUNDARY.md`.
+  contexts do not close the Born bridge.
+  `QFT/ConjugationGauge.lean` proves that entrywise conjugation preserves
+  states, effects, events, and every real Born weight, equals transposition
+  on Hermitian matrices, fixes the complexified real web pointwise, and
+  exchanges the two candidate completions: the two-candidate ambiguity is
+  exactly one conjugation orbit, invisible to every conjugation-fixed frame,
+  a lower bound on the web's ambiguity.
+  `Thermodynamics/RepairCurrentOrientation.lean` mirrors the committed
+  repair-current payload and kernel-decides the count totals, the designated
+  pair `3 -> 4` (1343 forward, 0 backward), the designated cycle `(3,4,5)`
+  (products 1239691068 and 0), the maximality and unique-orbit attainment of
+  both designations, reversal-oddness of the orientation bit, and the
+  symmetric-control degeneration. `QFT/SourceOrientedCompletion.lean`
+  transports the bit onto the completion torsor under a declared typed
+  convention with a kernel-decided strict-inequality applicability
+  condition; the selected completion coincides with the phase lift under the
+  declared pairing, either torsor element completes state tomography, and
+  the finite Busch--Gleason composition pins the represented state by three
+  oriented weights. The transport is a convention, not a theorem. The
+  complex effect and its orientation are algebraic and counted structures,
+  not a source operation or receipt; source effect semantics, operational
+  additivity, the y-magnitude readout, and the public phase-sensitive
+  instrument/readback attachment with preregistered validation remain open
+  under #702. See `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - C1 canonical Lorentz module (`Geometry/CanonicalLorentzModule.lean`,
   `Geometry/CelestialNullCone.lean`, `Geometry/ObserverFrameHyperboloid.lean`,
   `Geometry/ObserverRestSpace.lean`, `Geometry/EinsteinTensorBridge.lean`):

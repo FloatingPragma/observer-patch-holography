@@ -400,8 +400,22 @@ surface for the OPH consensus layer. Contents:
   tomography, while even a
   generous closure under real coarse graining and real Kraus pullbacks remains
   Pauli-Y blind and cannot produce that effect. This is an algebraic target,
-  not a source operation or outcome receipt; issue #702 tracks the
-  phase-sensitive source instrument and operational additivity. See
+  not a source operation or outcome receipt.
+  `QFT/ConjugationGauge.lean` proves that entrywise conjugation preserves
+  states, effects, and real Born weights, fixes the complexified real web
+  pointwise, and exchanges the two candidate completions, so the
+  two-candidate ambiguity is one conjugation orbit and every
+  conjugation-fixed frame conflates each state with its conjugate.
+  `Thermodynamics/RepairCurrentOrientation.lean` kernel-decides the committed
+  run's repair-load count table with its designated pair and cycle receipts,
+  their maximality and unique-orbit attainment, and the reversal-odd
+  orientation bit. `QFT/SourceOrientedCompletion.lean` transports the bit
+  onto the completion torsor under a declared typed convention with a
+  kernel-decided applicability condition; either torsor element completes
+  state tomography, and the finite Busch--Gleason composition pins the
+  represented state by three oriented weights. The transport is a declared
+  convention; the y-magnitude readout, operational additivity, and
+  preregistered validation stay with issue #702. See
   `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - An admission-free **B8 finite transport package**:
   `Thermodynamics/GreenKubo.lean` proves the reversible Dirichlet identity,

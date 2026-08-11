@@ -56,14 +56,55 @@ membership, exact projection, fixed-trace tomography, real-closure exclusion,
 and the receipt fact that the committed run has outcomes only for its native
 diagonal context.
 
+## Conjugation gauge and source-oriented completion
+
+`QFT/ConjugationGauge.lean` makes the completion ambiguity structural.
+Entrywise conjugation preserves Hermiticity, positivity, states, effects,
+and events, equals transposition on Hermitian matrices, and conjugates the
+trace, so the real part of every Born weight is conjugation-invariant. The
+complexified real web is fixed pointwise, and the two candidate phase
+completions \(\rho_{Y+}\) and \(\rho_{Y-}\) form one conjugation orbit.
+Hence no conjugation-fixed frame separates any state from its conjugate,
+and the choice between the two candidates is the choice of an orientation
+of a two-element torsor. These statements bound the web's ambiguity from
+below; the full Pauli-Y coordinate, magnitude included, is separately
+hidden from the web.
+
+`Thermodynamics/RepairCurrentOrientation.lean` mirrors the committed
+payload `docs/REPAIR_CURRENT_PAYLOAD.json` of `oph-physics-sim` (schema
+v2, sha256 `a9214bd110a1e8808c16202f6970dd90fd0e6c63ac6aa58acdc181b2da39d2c1`,
+recounted from the retained preregistered bundle
+`runs/b12_prereg_16k_20260806` with report-total, alphabet,
+strict-integer, and npz support/recount cross-checks). Kernel decides
+certify the totals, the designated pair `3 -> 4` with `1343` forward and
+`0` backward counts, the designated cycle `(3,4,5)` with products
+`1239691068` and `0`, the maximality and unique-orbit attainment of both
+designations, the reversal-oddness of the orientation bit under
+transposition, and the symmetric-control degeneration.
+
+`QFT/SourceOrientedCompletion.lean` composes the two under a declared
+typed convention with an explicit applicability condition (the strict
+designated-cycle inequality, kernel-decided for the committed table): the
+orientation bit selects the torsor element. Under the declared pairing the
+selected completion coincides with the phase lift; the coincidence is made
+by the pairing, and the opposite pairing is equally admissible. The frame
+completed by either torsor element identifies every certified state, so
+the convention is outcome-robust in both branches, and the composition
+with `finite_busch_gleason` pins the state representing any additive
+effect valuation by its three oriented Born weights.
+
 ## Boundary and continuation
 
-This is substantial bounded progress for B13, not closure. The phase lift is
-an exact operator-algebra target, not a source operation, public effect,
-instrument, or outcome receipt. The package does not derive affinity, a
-source effect algebra, Gleason/Busch hypotheses, noncontextuality across rich
-coexistent-effect contexts, operational coarse graining, or a physical
-quantum instrument. Issue #702 remains open for a phase-sensitive
-source-produced instrument with common-preparation outcomes and the
-operational additivity bridge; adding only more phase-free real contexts or
-continuity to binary-projector normalization cannot work.
+This is substantial bounded progress for B13, not closure. The phase lift
+is an exact operator-algebra target, and the orientation is a counted
+property of one bounded run consumed under a declared convention; neither
+is a source operation, public effect, instrument, or outcome receipt. The
+package does not derive affinity, a source effect algebra, Gleason/Busch
+hypotheses, noncontextuality across rich coexistent-effect contexts,
+operational coarse graining, a physical quantum instrument, or any
+arrow-of-time claim. Issue #702 remains open for a phase-sensitive
+source-produced instrument with common-preparation outcomes (including the
+y-magnitude readout of an unknown state), the operational additivity
+bridge, and preregistered validation of the oriented readout; adding only
+more phase-free real contexts or continuity to binary-projector
+normalization cannot work.
