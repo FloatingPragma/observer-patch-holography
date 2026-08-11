@@ -49,16 +49,18 @@ empirical mean action inside the rational bracket
 `(31901/10000, 3190101/1000000)` carried by the payload, and the
 declared multiplier point `lambda0 = -log (3190100906251/10^12)` has an
 exactly rational tilted law whose mean action lies within `10^-12` of
-the declared mean.
+the declared mean.  The matching quadratic is strictly increasing on the
+positive parameter ray, so the positive parameter at the supplied target is
+unique.
 
 Claim boundary.  Representation-level mirror over literals extracted
 from one retained locally hash-pinned bounded source run.  The declared
 postprocessing constructs the Markov reference, repair-count action, and
 empirical path law from those data; these objects were not all fixed by
-the run's local pre-execution contract.  The multiplier is matched to the
-DECLARED alternative mean, the empirical mean action of the same run.
-No source mechanism selects the multiplier: the multiplier selection
-principle from source data is the open core of issue B7.
+the run's local pre-execution contract.  The unique positive parameter is
+matched to the DECLARED alternative mean, the empirical mean action of the
+same run.  No prospective source mechanism selects that constraint observable
+or level: its provenance and physical interpretation remain open in issue B7.
 -/
 
 section TiltZero
@@ -432,11 +434,10 @@ theorem sourceTilt_zero :
 for every multiplier, the tilt of the declared extracted reference law
 by the declared repair-count action is a strictly positive normalized path law,
 and it is the unique minimizer of relative entropy to the reference
-among laws sharing its mean action.  The multiplier is the one slot the
-packet does not fill: `lam` is a free input here, the payload matches it
-to the declared empirical mean action of the same run, and the
-multiplier selection principle from source data is the open core of
-issue B7. -/
+among laws sharing its mean action.  `lam` is a free input to this generic
+inhabitation theorem.  The packet later proves a unique positive exponential
+parameter at its declared empirical target, while source provenance and
+physical selection of that target remain open in issue B7. -/
 theorem sourceHistoryLaw_packet_inhabitation (lam : ℝ) :
     (∀ g, 0 < tilt sourceTauChainR sourceActionR lam g)
       ∧ (∑ g, tilt sourceTauChainR sourceActionR lam g = 1)
@@ -609,6 +610,52 @@ theorem sourceMatchQuad_key (x : ℝ) :
   unfold sourceMatchQuad
   ring
 
+/-- The matching quadratic is strictly increasing on the positive
+parameter ray.  This is a statement about the supplied empirical target;
+it does not source-select that target. -/
+theorem sourceMatchQuad_strictMonoOn_pos :
+    StrictMonoOn sourceMatchQuad (Set.Ioi 0) := by
+  intro x hx y hy hxy
+  have hprod : 0 < (y - x) * (y + x) :=
+    mul_pos (sub_pos.mpr hxy) (add_pos hy hx)
+  have hsq : x ^ 2 < y ^ 2 := by
+    nlinarith
+  unfold sourceMatchQuad
+  nlinarith
+
+/-- The matching quadratic has at most one positive root. -/
+theorem sourceMatchQuad_positive_root_unique {x y : ℝ}
+    (hx : 0 < x) (hy : 0 < y)
+    (hfx : sourceMatchQuad x = 0) (hfy : sourceMatchQuad y = 0) :
+    x = y := by
+  by_contra hne
+  rcases lt_or_gt_of_ne hne with hxy | hyx
+  · have hlt := sourceMatchQuad_strictMonoOn_pos hx hy hxy
+    linarith
+  · have hlt := sourceMatchQuad_strictMonoOn_pos hy hx hyx
+    linarith
+
+/-- Two positive exponential parameters that match the same declared
+empirical mean coincide.  Thus the mathematical parameter is identifiable
+once that target mean is supplied; the open issue is provenance and physical
+selection of the target, not multiplicity of its positive solution. -/
+theorem sourcePositiveMeanMatch_unique {x y : ℝ}
+    (hx : 0 < x) (hy : 0 < y)
+    (hmx : meanAction (tilt sourceTauChainR sourceActionR (-Real.log x))
+        sourceActionR = 197 / 1754)
+    (hmy : meanAction (tilt sourceTauChainR sourceActionR (-Real.log y))
+        sourceActionR = 197 / 1754) :
+    x = y := by
+  apply sourceMatchQuad_positive_root_unique hx hy
+  · rw [sourceMatchQuad_key]
+    have hm := sourceTilt_neg_log_meanAction_mul hx
+    rw [hmx] at hm
+    linarith
+  · rw [sourceMatchQuad_key]
+    have hm := sourceTilt_neg_log_meanAction_mul hy
+    rw [hmy] at hm
+    linarith
+
 /-- Sign of the matching quadratic at the lower bracket endpoint:
 `F(31901/10000) = -18214945532951/522870889618080000000 < 0`. -/
 theorem sourceMatchQuad_lo_neg : sourceMatchQuad (31901 / 10000) < 0 := by
@@ -656,6 +703,21 @@ theorem sourceMatchingMultiplier_exists :
     rw [hmean]
     linarith
   exact mul_right_cancel₀ (ne_of_gt hZ) hprod
+
+/-- **Existence and uniqueness at the supplied target.**  There is exactly
+one positive exponential parameter `x = exp (-lambda)` whose tilted mean
+equals the declared empirical mean.  This strengthens the intermediate-value
+receipt without promoting the declared target to a source-selected physical
+constraint. -/
+theorem sourceMatchingPositiveParameter_existsUnique :
+    ∃! x : ℝ, 0 < x ∧
+      meanAction (tilt sourceTauChainR sourceActionR (-Real.log x))
+        sourceActionR = 197 / 1754 := by
+  obtain ⟨x, hxlo, hxhi, hmatch⟩ := sourceMatchingMultiplier_exists
+  have hx : 0 < x := lt_trans (by norm_num) hxlo
+  refine ⟨x, ⟨hx, hmatch⟩, ?_⟩
+  intro y hy
+  exact sourcePositiveMeanMatch_unique hy.1 hx hy.2 hmatch
 
 /-! ## The declared multiplier point -/
 
@@ -838,9 +900,11 @@ cleared-denominator identity kernel-decided at
 `sourceTauChainNum_markov_integer_identity`), the tilt at multiplier
 zero is the reference law exactly, the empirical law diverges strictly
 from the reference, and a multiplier matching the declared empirical
-mean action exists inside the payload's rational bracket.  The multiplier slot
-itself remains a declared input: producing it from source data is the
-open core of B7. -/
+mean action exists inside the payload's rational bracket.  A separate theorem
+proves that the positive exponential parameter at that supplied target is
+unique.  The constraint observable and level remain declared postprocessing
+inputs; their prospective source and physical selection is the open core of
+B7. -/
 theorem sourceHistoryPacket_receipt :
     (∀ g, 0 < sourceTauEmpR g) ∧ (∀ g, 0 < sourceTauChainR g)
       ∧ (∑ g, sourceTauEmpR g = 1) ∧ (∑ g, sourceTauChainR g = 1)
@@ -870,6 +934,9 @@ end OPH.InformationProjection
 #print axioms OPH.InformationProjection.sourceTilt_zero
 #print axioms OPH.InformationProjection.sourceHistoryLaw_packet_inhabitation
 #print axioms OPH.InformationProjection.sourceMatchingMultiplier_exists
+#print axioms OPH.InformationProjection.sourceMatchQuad_strictMonoOn_pos
+#print axioms OPH.InformationProjection.sourcePositiveMeanMatch_unique
+#print axioms OPH.InformationProjection.sourceMatchingPositiveParameter_existsUnique
 #print axioms OPH.InformationProjection.sourceTilt_lambdaZero_apply
 #print axioms OPH.InformationProjection.sourceTilt_lambdaZero_mean_close
 #print axioms OPH.InformationProjection.sourceHistoryPacket_receipt

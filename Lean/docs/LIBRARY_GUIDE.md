@@ -336,10 +336,11 @@ surface for the OPH consensus layer. Contents:
   `n`-move closed-neighborhood dependency upper bound against the concrete
   `localRepair`; `ObserverPatchHolography/Locality/NoSignalling.lean` proves
   generic finite marginal and partial-trace identities on a supplied
-  bipartite split. B4's former gate #692 (E1) is closed bounded under its narrowed
-  finite algebraic contract, with finite coverage and slot-factor
-  localization attained and the assembly's source attachment carried by
-  the E6 successor (#712). A separate conditional E2 helper,
+  bipartite split. B4's live gate #692 (E1) retains exact conditional
+  coverage, generated observer algebras, declared slot factors, CP-regional
+  expectations, and constant-tower anchoring. Source selection of the joint
+  carrier and a coherent correlation or descent receipt are not supplied; closed
+  #712 consumes the older interface. A separate conditional E2 helper,
   `ObserverPatchHolography/Locality/AdaptiveScheduler.lean`, proves an
   adaptive cone/no-influence/refinement-naturality packet only for supplied
   `ConsultsOnly` scheduler and consultation-region data. It produces no source
@@ -383,9 +384,14 @@ surface for the OPH consensus layer. Contents:
   with biased target-weight and simultaneous-relabeling controls; the latter
   proves ordinary simultaneous relabeling does not force uniformity. The
   stronger invariance principle is a
-  normal-form convention, not a source product. Issue #683 tracks
-  source selection of the reference principle, physical action, clock,
-  amplitude, fields, continuum,
+  normal-form convention, not a source product. The conditional helper
+  `InformationProjection/SourceReferenceSelection.lean` realizes the uniform
+  transition kernel from declared counting/trivial inputs; rescaling and
+  distinct-initial-law controls prove that it does not select the complete
+  path reference. `Variational/StationarySaddleCoverage.lean` gives only a
+  mode/minimizer counterexample and leaves stationary-phase routes open. Issue
+  #683 tracks source selection of the reference principle, physical action,
+  clock, amplitude, fields, continuum,
   and observable current. See `B7_HISTORY_BRIDGE.md`.
 - A sorry-free **E1 rich-fibre regional net** in
   `QFT/RichFibreWitness.lean` and `QFT/RichFibreRegionalNet.lean`: the
@@ -413,8 +419,8 @@ surface for the OPH consensus layer. Contents:
   marginal, and the conditional expectation onto a slot carries Kraus,
   positivity, trace, fixed-slot, scalarisation, and idempotence
   receipts. The extraction is post-hoc and ineligible as validation, and
-  the slot assembly is a declared postprocessor; issue #692 is closed
-  bounded under its narrowed contract.
+  the slot assembly is a declared postprocessor; issue #692 is live for
+  its source and same-witness regional attachment.
   `QFT/CPRestrictionNet.lean` and `QFT/TwoSlotCPNetWitness.lean` execute
   the authorized restriction redesign: conditional expectations replace
   the star-homomorphic restrictions that a kernel-checked obstruction
@@ -424,9 +430,11 @@ surface for the OPH consensus layer. Contents:
   disjoint slot, and coverage by the two slot regions. `QFT/TowerAnchoredDiamond.lean` anchors the diamond over one constant
   A3 tower stage whose public layer is spanned by the reindexed lifted
   checkpoint partition and whose ambient is definitionally the stage's
-  private algebra; issue #692 is closed bounded under its
-  narrowed finite algebraic contract, and the source attachment of the
-  slot assembly is carried by the E6 successor (#712).
+  private algebra. The two slot expectations are not jointly injective: a
+  nonzero off-diagonal correlation matrix unit has both partial traces zero.
+  Coverage is therefore not unique gluing. Issue #692 is live for a
+  source-selected joint carrier and coherent correlation or descent receipt;
+  closed #712 consumes the older interface.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and

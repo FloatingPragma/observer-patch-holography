@@ -33,9 +33,9 @@ diamond.
 postprocessors over the post-hoc payload transcriptions; the witness
 carries no tower stage, spacetime, channel semantics, instrument, clock,
 or physical claim, and the extraction is ineligible as validation.
-Issue #692 is closed bounded under its narrowed finite algebraic
-contract; the source attachment of the slot assembly is carried by the
-E6 successor (#712).
+Issue #692 remains open for source selection of the joint carrier and a
+coherent CP-net correlation or descent receipt.  Closed issue #712
+consumes the older finite-net interface and does not supply that bridge.
 -/
 
 namespace OPH.QFT
@@ -523,6 +523,69 @@ def twoSlotNet : CPRegionalNet PairIndex where
     rw [hset]
     exact slot_ranges_generate_top
 
+/-! ## Marginal nonuniqueness control -/
+
+/-- A nonzero off-diagonal correlation matrix unit on the two-slot
+ambient space.  It is invisible to both one-slot conditional
+expectations. -/
+def offDiagonalCorrelation : Matrix PairIndex PairIndex ℂ :=
+  Matrix.single ((0, 0) : PairIndex) ((1, 1) : PairIndex) 1
+
+/-- The correlation matrix unit is genuinely nonzero. -/
+theorem offDiagonalCorrelation_ne_zero : offDiagonalCorrelation ≠ 0 := by
+  intro h
+  have hentry := congrFun
+    (congrFun h ((0, 0) : PairIndex)) ((1, 1) : PairIndex)
+  simp [offDiagonalCorrelation] at hentry
+
+/-- The right-factor partial trace of the correlation unit vanishes. -/
+theorem offDiagonalCorrelation_ptraceSnd :
+    ptraceSnd offDiagonalCorrelation = 0 := by
+  ext a a'
+  simp [ptraceSnd, offDiagonalCorrelation, Matrix.single]
+
+/-- The left-factor partial trace of the correlation unit vanishes. -/
+theorem offDiagonalCorrelation_ptraceFst :
+    OPH.Locality.ptraceFst offDiagonalCorrelation = 0 := by
+  ext b b'
+  simp [OPH.Locality.ptraceFst, offDiagonalCorrelation, Matrix.single]
+
+/-- The left-slot conditional expectation erases the correlation unit. -/
+theorem leftSlotExpectation_offDiagonalCorrelation :
+    leftSlotExpectation offDiagonalCorrelation = 0 := by
+  change (14 : ℂ)⁻¹ •
+    (ptraceSnd offDiagonalCorrelation ⊗ₖ
+      (1 : Matrix (Fin 14) (Fin 14) ℂ)) = 0
+  rw [offDiagonalCorrelation_ptraceSnd]
+  simp
+
+/-- The right-slot conditional expectation erases the correlation unit. -/
+theorem rightSlotExpectation_offDiagonalCorrelation :
+    rightSlotExpectation offDiagonalCorrelation = 0 := by
+  change (13 : ℂ)⁻¹ •
+    ((1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ
+      OPH.Locality.ptraceFst offDiagonalCorrelation) = 0
+  rw [offDiagonalCorrelation_ptraceFst]
+  simp
+
+/-- Both regional conditional expectations erase the same nonzero
+correlation unit.  Consequently the pair of regional expectations is not
+jointly injective: coverage by the two factor algebras does not imply unique
+gluing or reconstruction from the two marginals. -/
+theorem slotExpectations_not_jointly_injective :
+    ¬ Function.Injective
+      (fun M : Matrix PairIndex PairIndex ℂ =>
+        (leftSlotExpectation M, rightSlotExpectation M)) := by
+  intro hinj
+  have hpair :
+      (leftSlotExpectation offDiagonalCorrelation,
+          rightSlotExpectation offDiagonalCorrelation) =
+        (leftSlotExpectation 0, rightSlotExpectation 0) := by
+    rw [leftSlotExpectation_offDiagonalCorrelation,
+      rightSlotExpectation_offDiagonalCorrelation]
+    simp
+  exact offDiagonalCorrelation_ne_zero (hinj hpair)
+
 /-! ## Local-channel and rationale receipts -/
 
 /-- **Local-channel receipt.**  Pinching by observer 86's lifted
@@ -597,3 +660,7 @@ end OPH.QFT
 #print axioms OPH.QFT.ptraceSnd_slotRight
 #print axioms OPH.QFT.leftSlotExpectation_scalarises_right
 #print axioms OPH.QFT.chk86_proper
+#print axioms OPH.QFT.offDiagonalCorrelation_ne_zero
+#print axioms OPH.QFT.leftSlotExpectation_offDiagonalCorrelation
+#print axioms OPH.QFT.rightSlotExpectation_offDiagonalCorrelation
+#print axioms OPH.QFT.slotExpectations_not_jointly_injective

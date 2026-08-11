@@ -44,9 +44,10 @@ factors) and the label conventions are declared postprocessors; the
 paths, alphabets, and counts are post-hoc transcriptions of committed
 run outputs, not preregistered, and ineligible as validation.  No region
 lattice over a consensus tower, physical channel, instrument, causality,
-or prediction is constructed here.  Issue #692 is closed bounded under
-its narrowed finite algebraic contract; the source attachment of the
-slot assembly is carried by the E6 successor (#712).
+or prediction is constructed here.  Issue #692 remains open for source
+selection of the joint carrier, slot split, and regional attachment.
+Closed issue #712 consumes the older finite-net interface and does not
+supply that bridge.
 -/
 
 namespace OPH.QFT

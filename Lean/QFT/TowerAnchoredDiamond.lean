@@ -25,10 +25,10 @@ one observer, the declared partition, the uniform state, and the zero
 generator.  It carries no nonconstant refinement, no source-produced
 tower dynamics, and no physical claim.  The slot assembly and label
 conventions stay declared postprocessors over post-hoc transcriptions,
-ineligible as validation.  The source attachment of the assembly and
-any nonconstant tower realization are carried by the E6 successor
-(#712); issue #692 is closed bounded under its narrowed finite
-algebraic contract.
+ineligible as validation.  Issue #692 remains open for source attachment
+of the assembly, a coherent CP-net correlation or descent receipt, and
+any nonconstant source realization.  Closed issue #712 consumes the
+older finite-net interface and does not supply that bridge.
 -/
 
 namespace OPH.QFT

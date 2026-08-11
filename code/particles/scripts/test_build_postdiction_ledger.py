@@ -104,6 +104,63 @@ def test_adaptive_scheduler_helper_keeps_its_inputs_and_e2_gate_explicit(result)
     assert "no prediction-ladder entry" in boundary
 
 
+def test_e1_conditional_packet_keeps_source_regional_correlation_gate(result):
+    rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
+    row = rows["finite_causal_observer_net_interface"]
+    assert row["match"] == (
+        "substantial conditional finite interface, operator-generation, "
+        "and CP-diamond packet; source regional selection and "
+        "correlation/descent open"
+    )
+    assert row["lean_declarations"]["TwoSlotCPNetWitness"] == [
+        "slotExpectations_not_jointly_injective",
+        "checkpoint_pinch_fixes_right",
+        "twoSlot_left_no_scalar_hom",
+    ]
+    assert "Cartesian joint carrier, region map, and slot split are declared" in row[
+        "hypothesis_boundary"
+    ]
+    assert "not jointly injective" in row["hypothesis_boundary"]
+    assert "uncommitted frame exploration supports no no-go" in row[
+        "hypothesis_boundary"
+    ]
+    assert "Issue #692 gates" in row["hypothesis_boundary"]
+
+
+def test_b7_reference_and_stationary_controls_do_not_overclose(result):
+    rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
+    row = rows["finite_history_variational_helpers_and_bridge_obstruction"]
+    assert row["lean_declarations"]["SourceReferenceSelection"] == [
+        "heatBath_counting_trivial_eq_uniform",
+        "reference_realized_under_counting_trivial_inputs",
+        "nontrivial_datum_not_invariant",
+        "noncounting_reference_not_invariant",
+        "heatBath_scaledCounting_trivial_eq_uniform",
+        "uniform_transition_does_not_determine_path_reference",
+        "committed_tilts_have_distinct_mean_actions",
+    ]
+    assert row["lean_declarations"]["StationarySaddleCoverage"] == [
+        "stationaryMaximumHistory_stationary",
+        "stationaryMaximumHistory_not_minimal",
+        "gibbs_prefers_nonstationary",
+    ]
+    assert row["lean_declarations"]["SourceHistoryPacket"] == [
+        "sourceMatchQuad_strictMonoOn_pos",
+        "sourcePositiveMeanMatch_unique",
+        "sourceMatchingPositiveParameter_existsUnique",
+    ]
+    assert row["lean_declarations"]["LogTransitionAction"] == [
+        "bare_log_action_multiplier_unique_of_nonconstant",
+    ]
+    boundary = row["hypothesis_boundary"]
+    assert "supplied counting reference" in boundary
+    assert "distinct initial laws" in boundary
+    assert "exists uniquely" in boundary
+    assert "modes/minimizers only" in boundary
+    assert "saddles, complex or signed stationary phase" in boundary
+    assert "Issue #683 is a live gate" in boundary
+
+
 def test_hypercharge_spectrum_matches_receipt(result):
     row = next(
         r

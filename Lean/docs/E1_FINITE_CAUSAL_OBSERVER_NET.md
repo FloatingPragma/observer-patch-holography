@@ -199,6 +199,16 @@ proves that no unital algebra homomorphism carries the left regional
 algebra to the scalars, so the star-homomorphic interface is
 uninhabitable over this diamond.
 
+Coverage is not unique gluing.  The exact control
+`slotExpectations_not_jointly_injective` exhibits the nonzero correlation
+matrix unit $E_{01}\otimes E_{01}$, whose left- and right-factor partial
+traces and hence both regional conditional expectations vanish.  Thus the
+two regional expectations do not determine a joint algebra element.  The
+unique restriction-gluing receipts proved for the earlier
+star-homomorphic interface cannot be imported into this redesigned
+diamond; reconstruction requires separately supplied correlation data or
+a different descent contract.
+
 `QFT/TowerAnchoredDiamond.lean` anchors the diamond over one constant
 A3 tower stage.  A basis equivalence of the joint slot space with
 `Fin 182` induces a star-algebra equivalence of the ambient algebras;
@@ -212,23 +222,38 @@ partition member lies in the anchored left region, and the left region
 is a kernel-checked proper subalgebra.  The stage is the constant
 adaptor with the zero generator.
 
-## Closure
+## Remaining E1 boundary
 
-Issue #692 is closed bounded under the narrowed finite algebraic
-contract its own closure clause names: genuine coverage, a
-noncommutative region-separating model whose regional algebras are
-generated from source-counted operators, the principled
-conditional-expectation redesign of the excluded restriction interface,
-slot-factor localization consuming the B4 helper, a proper local pinch
-channel, and constant-tower anchoring.  A bounded exploration of the
-retained global snapshot frames found the committed class binning
-tie-unstable under float32 rounding and the raw-configuration quotient
-structureless, so further source attachment of the slot assembly needs
-new instrumentation.  That residual and any nonconstant tower
-realization are carried by the E6 successor (#712); instrument
-provenance, continuum structure, and clocks stay with #693, #700, and
-#703.  The slot assembly and label conventions stay declared
-postprocessors in the closed record, ineligible as validation.
+Issue #692 remains open.  The five-module redesign chain establishes a
+substantial conditional finite algebraic packet: source-counted operators
+generate each observer's realized matrix algebra, a declared Cartesian slot
+assembly gives exact factor localization and coverage, explicit Kraus maps
+give the regional expectations and local-pinch receipts, and the diamond
+transports to one constant A3 tower stage.  It does not derive the Cartesian
+product carrier, slot embeddings, diamond disjointness, or region assignment
+from the simulator source.  For the currently designated pair (86, 88), the
+full 96-node supports overlap on 25 nodes, so its declared slot disjointness
+cannot be read as source-support disjointness.
+
+The retained payload does not justify cutting off the source-attachment
+route.  In particular, the full supports of pairs (86, 247) and (247, 384)
+are disjoint and remain viable bounded candidates for a source-attached
+regional construction.  Disjoint support alone is not a tensor-product
+proof, but it is a better-controlled starting point for deriving a joint
+carrier, local operator embeddings, and their relation to the source's
+configuration space.  The explored float32-binning and raw-configuration
+encodings are negative probes of those particular encodings, not a no-go for
+every source attachment and not evidence that new large-scale simulation is
+required.
+
+E1 therefore remains open for a source-derived region/product or justified
+local-channel attachment and for an explicit replacement descent contract
+that respects the marginal nonuniqueness theorem above.  The existing E6
+packet is built on the earlier `FiniteCausalObserverNet` interface and does
+not by itself consume this `CPRegionalNet` witness.  Instrument provenance,
+continuum structure, and clocks remain with #693, #700, and #703.  The slot
+assembly and label conventions remain declared postprocessors over a
+post-hoc extraction, ineligible as validation.
 
 ## Verification
 

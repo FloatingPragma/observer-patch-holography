@@ -87,45 +87,39 @@ $A_5$, et le corpus le dérive du câblage au lieu de le poser à côté. Les
 parcelles se joignent à leurs voisines par des coutures typées, et leur
 fédération se raffine en la surface d’une sphère. C’est le seul endroit où OPH
 choisit une architecture précise, et c’est là que se joue la contrainte.
-L’icosaèdre rend les trois dimensions spatiales et les forces du Modèle
-standard, la sphère rend la relativité, et câbler les parcelles autrement
-change tout l’aval.
+Des branches finies exactes construites sur ce support donnent des structures
+candidates tridimensionnelles et de jauge. Leur rattachement depuis la source
+à l’espace-temps et aux champs physiques reste ouvert, et un autre câblage
+changerait les mathématiques en aval.
 
-### 1. La moindre action sort des probabilités
+### 1. Les probabilités donnent une action finie, mais le pont physique reste ouvert
 
-Presque toute la physique s’écrit comme un principe d’action. La nature choisit
-l’histoire qui rend une certaine quantité stationnaire, et aucun manuel ne dit
-pourquoi. Deux théorèmes finis y répondent. Tout flot de symétrie continu sur
-un système fini est engendré par un hamiltonien, bloc par bloc, et pour un
-processus qui tient des registres, le logarithme de ses probabilités de
-transition est une action dont les histoires stationnaires sont les histoires
-probables. Le principe variationnel qui soutient la mécanique classique, la
-théorie des champs et l’intégrale de chemin est donc une comptabilité de
-probabilités vue de loin. Rien ne minimise quoi que ce soit, et les histoires
-qui dominent sont celles sur lesquelles s’accorde le plus grand nombre de
-registres microscopiques de réparation.
+Presque toute la physique s’écrit comme un principe d’action. Dans le paquet
+fini d’OPH, le logarithme négatif d’une loi de transition positive classe les
+histoires : les plus probables minimisent cette action finie relativement à
+une référence déclarée. Un autre théorème relie des lagrangiens réguliers fournis
+aux équations discrètes d’Euler--Lagrange et de Hamilton. Ces liens sont exacts,
+mais ne constituent pas encore une dérivation unique du principe d’action
+stationnaire de la physique continue. Une histoire stationnaire n’est pas
+nécessairement un mode probable, et les mêmes données binaires admettent
+plusieurs enrichissements lagrangiens réels.
 
-**État.** Exact et vérifié par machine, avec un théorème de Legendre fini qui
-relie les jonctions d’Euler-Lagrange aux pas hamiltoniens. Des contrôles
-montrent que les mêmes histoires binaires admettent plusieurs enrichissements
-réguliers, donc les unités, les horloges, la règle d’enrichissement et
-l’attachement physique sont en cours. Voir l’
+**État.** Exact et vérifié par machine au niveau fini annoncé. La référence
+de comptage ne réalise le noyau de transition uniforme qu’après déclaration de
+ses entrées ; elle ne sélectionne pas la référence de chemin complète depuis la
+source. Les unités, les horloges, l’enrichissement réel, le mécanisme de phase
+stationnaire et l’attachement physique restent ouverts. Voir l’
 [article sur les observateurs](paper/observers_are_all_you_need.pdf) et la
 [preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean)
 avec sa [frontière de Legendre](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
 
-### 2. La règle de Born est forcée
+### 2. Un théorème fini de représentation de Born
 
-La mécanique quantique fournit les probabilités par la règle de Born, et dans
-la présentation habituelle cette règle est un axiome que l’on accepte. Partez
-plutôt de la liste finie des questions par oui ou non qu’un observateur peut
-poser au registre public, et exigez seulement que les probabilités
-s’additionnent entre questions posables ensemble. Cela suffit. Toute
-attribution cohérente de probabilités est la trace contre une unique matrice de
-densité, en toute dimension finie, y compris deux, là où le théorème de Gleason
-restreint aux projecteurs échoue. L’incertitude quantique et les probabilités
-de mesure sont ce à quoi ressemble une tenue de registres cohérente quand un
-observateur ne peut voir qu’une partie d’un système, lui-même compris.
+Sur une algèbre finie d’effets déclarée séparément, toute attribution de
+probabilité normalisée, non contextuelle et additive est la trace contre une
+unique matrice de densité, y compris en dimension deux. La source doit encore
+produire le système d’effets, son instrument public et l’additivité
+opérationnelle.
 
 **État.** Exact et vérifié par machine. Les batteries finies de tests ne
 fournissent pas à elles seules l’hypothèse d’additivité sur laquelle tourne le
@@ -137,17 +131,13 @@ validation physique sont en cours. Voir l’
 le [théorème Lean de représentation de Born](Lean/EventAlgebra/FiniteBuschGleason.lean)
 et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
 
-### 3. Les quatre lois de la thermodynamique sortent de la réparation
+### 3. La réparation conditionnelle organise les quatre lois
 
-Des observateurs à mémoire finie se contredisent, comparent leurs registres et
-réparent l’écart. Faites tourner cette boucle et les quatre lois arrivent
-ensemble en un seul paquet : l’équilibre entre systèmes partageant une
-référence, l’entropie qui se contracte sous réparation, le bilan de la chaleur
-et du travail, et une borne qui se comporte comme la troisième loi à basse
-température. La thermodynamique cesse d’être une science empirique séparée
-posée sur la mécanique. La flèche du temps devient la direction dans laquelle
-la réparation pousse les registres vers l’accord, ce qui fait de la seconde loi
-un énoncé de comptabilité plutôt qu’un énoncé sur la vapeur.
+Avec une référence fidèle commune, une dynamique de réparation compatible et
+les étalonnages nommés, un paquet fini reproduit des identités et inégalités
+de forme zéro-ième, première, deuxième et troisième loi. Il ne dérive pas encore
+de la source la référence commune, le col physique, l’énergie, l’horloge ni une
+flèche du temps empirique.
 
 **État.** Un paquet fini conditionnel exact, vérifié par machine, accompagné de
 théorèmes d’obstruction qui énoncent ce que la paire épinglée état-transition
@@ -157,24 +147,13 @@ l’[article sur les observateurs](paper/observers_are_all_you_need.pdf), la
 [preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
 et l’[obstruction source](Lean/Thermodynamics/CommonReferenceObstruction.lean).
 
-### 4. L’espace et le temps sont construits par les observateurs
+### 4. Les registres finis donnent des candidats géométriques
 
-Les comptes courants qu’un observateur tient sur ses propres ports portent une
-mesure de rang trois, si bien que la compléter comme les réels complètent les
-fractions donne l’espace continu ordinaire à trois dimensions, sans grille ni
-coordonnées introduites. Chaque repère d’observateur porte un espace de repos à
-trois dimensions dont la distance est prouvée définie positive, et l’espace
-construit à partir des registres coïncide avec cet espace de repos. La sphère
-en laquelle les parcelles se fédèrent a pour groupe de symétrie exactement le
-groupe de Lorentz à trois dimensions d’espace et une de temps. Un événement est
-une coïncidence, deux registres nommant le même lorsque le raffinement ne peut
-plus les séparer. Ni l’espace ni le temps ne sont un contenant dans lequel
-l’univers se trouve. Chaque observateur mesure les distances dans son propre
-espace de repos et porte son propre ordre sur ses propres registres, la
-description fondamentale ne contient ni ligne de temps globale ni horloge
-maîtresse, et l’espace-temps à quatre dimensions est la description effective
-sur laquelle les observateurs convergent une fois leurs comptes rendus séparés
-recousus par les événements dont ils conviennent.
+Des constructions finies exactes donnent un candidat de complétion
+tridimensionnelle, des espaces de repos positifs, un module de Lorentz
+intrinsèque et des interfaces typées d’événements et d’horloges. Elles montrent
+comment représenter une géométrie familière sans horloge maîtresse. Elles ne
+prouvent pas encore qu’une variété continue physique est produite par la source.
 
 **État.** La complétion tridimensionnelle, la métrique de repos définie
 positive et l’identification entre les deux sont exactes et vérifiées par
@@ -189,39 +168,28 @@ la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean), la
 [pile de théorèmes géométriques](Lean/Geometry.lean) et les
 [données de convergence](evidence/einstein_convergence/).
 
-### 5. Les forces viennent des douze ports
+### 5. L’algèbre des douze ports distingue un type de Lie de jauge
 
-Demandez quelles symétries survivent lorsque des parcelles voisines doivent
-s’accorder sur ce qui traverse leurs ports, et la réponse est la structure de
-symétrie de la force forte, de la force faible et de l’électromagnétisme. Une
-structure de matière déclarée séparément donne la forme globale exacte
-qu’emploient les physiciens, $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
-Rien de tout cela n’a été fourni, si bien que les groupes de jauge de la
-physique des particules cessent d’être un choix lu sur les expériences et
-deviennent une conséquence de la façon dont des observateurs bornés se relient.
-Le résultat fini ne contient pas non plus les symétries supplémentaires qui
-portent la désintégration du proton dans l’unification minimale, donc ce canal
-est absent.
+Sous les prémisses d’équivariance et de compacité annoncées, la classification
+finie des crochets sur le support à douze ports a le type de Lie du Modèle
+standard. Une table de matière déclarée séparément possède le noyau central
+d’ordre six attendu. Cela ne sélectionne pas encore depuis la source les champs,
+la matière, la forme globale ni la stabilité du proton.
 
-**État.** Exact et vérifié par machine pour le type de Lie comme pour la forme
-globale. La stabilité générale du proton est une question distincte que ce
-résultat ne tranche pas. Dériver la structure de matière et les champs de jauge
-physiques depuis la source est en cours. Voir l’
+**État.** Exact et vérifié par machine au niveau algébrique fini. La sélection
+du crochet, de la matière, de la forme globale, des couplages et des champs
+physiques depuis la source reste ouverte. Voir l’
 [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
 la [preuve Lean de jauge](Lean/Screen/A5OPH.lean) et la
 [preuve de la forme globale](Lean/Screen/Z6Descent.lean).
 
-### 6. Une génération de matière, par balayage exhaustif
+### 6. Une recherche finie de candidats de matière
 
-Balayez toutes les possibilités que le cadre autorise, sans rien fournir de
-plus, et ce qui survit, ce sont les quinze états de particules d’une génération
-du Modèle standard portant exactement les bonnes charges électriques, chaque
-anomalie s’annulant d’elle-même. Une sélection finie distincte renvoie une
-bande de rang trois, la structure candidate derrière les trois familles. Le
-contenu en particules du monde n’a jamais été un choix libre. Étant donné
-l’écran à douze ports, c’est la seule matière qui puisse y vivre de façon
-cohérente, et l’annulation des anomalies, qui dans le Modèle standard ressemble
-à un accident numérique tombé juste, est automatique.
+Un balayage exhaustif dans une grammaire finie déclarée retrouve les quinze
+états et les charges d’une génération du Modèle standard, avec annulation
+exacte des anomalies. Une construction distincte possède une bande de rang
+trois candidate pour les familles. L’exhaustivité vaut dans cette grammaire :
+la source ne l’a pas encore sélectionnée ni attachée à des particules physiques.
 
 **État.** Le balayage est exhaustif et la sélection est vérifiée par machine.
 Relier ces structures à des particules physiques, rattacher la bande de rang
@@ -231,17 +199,13 @@ supplémentaires sont des travaux en cours. Voir l’
 la [preuve Lean de sélection](Lean/Screen/ExteriorSelection.lean) et la
 [preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
 
-### 7. La relation de Koide devient un théorème
+### 7. L’identité de Koide est exacte sous une prémisse d’équilibre
 
-Au début des années 1980, Yoshio Koide a remarqué que les masses de l’électron,
-du muon et du tau vérifient une relation simple avec une précision frappante,
-et elle est restée sans explication depuis. Ici c’est un théorème, car la
-réponse symétrique de la structure à douze ports force exactement cette
-relation. Fournissez deux des trois masses et la formule renvoie la troisième
-dans une fenêtre de 72 eV centrée sur $1776{,}969027$ MeV, et la masse mesurée
-du tau se trouve dans cette fenêtre. La structure des masses leptoniques est de
-la géométrie, et une coïncidence restée inexpliquée pendant quarante ans
-devient une conséquence de la forme d’une parcelle d’observateur.
+La relation de Koide suit exactement d’une condition d’équilibre circulante à
+trois composantes positives, et l’arithmétique d’intervalles donne la comparaison
+avec la masse du tau. Cette condition a été reconnue à partir des leptons connus :
+c’est une postdiction précise et une cible de dérivation, non une prédiction de
+la source ni une conséquence des seuls axiomes.
 
 **État.** Exact et vérifié par machine. La prémisse d’équilibre sur laquelle
 tourne la relation est lue sur la structure connue des leptons, ce qui en fait
@@ -251,17 +215,13 @@ l’avance. Dériver cette prémisse depuis la source est en cours. Voir l’
 la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et le
 [registre des comparaisons](docs/POSTDICTION_LEDGER.md).
 
-### 8. Une prédiction scellée sur la propagation des ondes
+### 8. Des empreintes d’ondes gelées, en attente d’attachement physique
 
-L’écran à douze ports porte deux règles candidates pour la propagation des
-ondes, et toutes deux font voyager une onde légèrement différemment selon la
-direction. L’écart est minuscule et sa première signature directionnelle
-n’apparaît qu’au sixième ordre, ce qui explique qu’aucune expérience ne soit
-tombée dessus. Les motifs exacts, leurs rapports numériques et la règle qui
-décide de la réfutation sont sous horodatage cryptographique, enregistrés avant
-tout examen des données de comparaison. C’est ici qu’OPH peut mourir, car une
-mesure de propagation assez sensible trouve l’empreinte ou supprime la branche,
-et la garde cryptographique interdit de déplacer la cible après coup.
+Deux branches finies possèdent des empreintes anisotropes exactes dont les
+rapports et contrats de décision ont été gelés avant les données de comparaison
+éligibles. Elles ne deviennent des prédictions physiques qu’après sélection de
+la branche, du champ, de l’horloge, de l’échelle, du repère et du détecteur.
+Avant cela, un résultat nul ne réfute pas OPH par ces lignes seules.
 
 **État.** Les reçus sont exacts et les bandes d’élimination sont enregistrées
 sur l’échelle des prédictions gelées. Relier une règle sélectionnée par la

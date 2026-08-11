@@ -275,25 +275,38 @@ def test_de_sitter_claim_split_preserves_status_boundaries():
 def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
-    # E1/B4 #692 is closed bounded under the narrowed finite algebraic
-    # contract (source-generated regional algebras, slot-factor
-    # identification with the B4 helper consumed, conditional-expectation
-    # restriction redesign, constant-tower anchoring); the source
-    # attachment of the slot assembly is carried by the E6 successor #712.
+    # E1/B4 #692 stays live after the five-module conditional packet: the
+    # source does not select the Cartesian carrier, region map, or slot split,
+    # and coverage does not supply CP-net gluing. B7 #683 likewise stays live:
+    # supplied counting/trivial data realize only a transition kernel, and the
+    # stationary control concerns modes/minimizers rather than all saddles.
     expected_gates = {
         "OPH-THERMO-FOUR-LAW-PACKAGE": [703, 725],
-        "OPH-FINITE-LOCALITY-NOSIGNALLING": [],
+        "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
         "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER": [693],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
-        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [],
+        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
         "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [693, 703, 725],
         "OPH-GAUGE-KINETIC-HISTORY-BINDING": [705, 716],
+        "OPH-FINITE-CAUSAL-OBSERVER-NET": [692],
     }
     for claim_id, gates in expected_gates.items():
         claim = by_id[claim_id]
         assert claim["claim_class"] == "conditional_implication"
         assert claim["gates"] == gates
         assert "physical_establishment" not in claim["status"]
+
+    e1 = by_id["OPH-FINITE-CAUSAL-OBSERVER-NET"]
+    assert "source does not select the Cartesian joint carrier" in e1["statement"]
+    assert "uncommitted global-frame exploration supports no no-go" in e1[
+        "statement"
+    ]
+    assert "Closed E6 issue #712" in e1["statement"]
+
+    b7 = by_id["OPH-FINITE-HISTORY-VARIATIONAL-HELPERS"]
+    assert "does not source-select either input" in b7["statement"]
+    assert "does not exclude constrained saddles" in b7["statement"]
+    assert "Gate #683" in b7["statement"]
 
     adaptive = by_id["OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER"]
     assert "supplied adaptive scheduler" in adaptive["statement"]

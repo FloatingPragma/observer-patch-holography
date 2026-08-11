@@ -300,7 +300,7 @@ Mapping between Lean 4 theorems in this project and statements in
   (`QFT/RichFibreWitness.lean`, `QFT/RichFibreRegionalNet.lean`): the second
   preregistered fresh-seed 64k run realizes split-fibre counts 3, 3, 4, 4 on
   four pairwise-disjoint twenty-node windows (gates G1 through G4 passed; the
-  pilot failed and is closed negatively), and the mirrored net earns a
+  pilot failed and is closed negatively), and a declared mirrored adapter carries a
   noncommutative block algebra at every observer region with an embedded
   two-by-two designated-fibre matrix corner, kernel-backed window disjointness,
   elementwise commutation across distinct windows, the
@@ -308,11 +308,11 @@ Mapping between Lean 4 theorems in this project and statements in
   top algebra with unique restriction gluing and its reconstruction
   corollary, and the drop-one negative control showing every window is
   load-bearing. The enrichment, state, restrictions, and identity repair are
-  declared, and no `TensorSplitReceipt` identifies a regional tensor factor;
-  E1 is closed bounded under its narrowed contract. Sorry-free, standard axioms, no `native_decide`. The
-  enrichment rule and restriction system are declared readings of the
-  custody-pinned payload; CP/CPTP, scheduler, continuum, and clock scopes
-  stay with #693, #700, and #703.
+  declared, and no `TensorSplitReceipt` identifies a regional tensor factor.
+  This older packet therefore does not close E1. Sorry-free, standard axioms,
+  no `native_decide`. The enrichment rule and restriction system are declared
+  readings of the custody-pinned payload; CP/CPTP, scheduler, continuum, and
+  clock scopes stay with #693, #700, and #703.
   The adapter preflight (`QFT/SourceOperatorGeneration.lean`,
   `QFT/JointSlotFactorisation.lean`) is attained as a bounded post-hoc
   packet over the same retained bundle: each rich observer's counted
@@ -341,10 +341,11 @@ Mapping between Lean 4 theorems in this project and statements in
   stage's public layer is spanned by the reindexed lifted checkpoint
   partition (proper, orthogonal, complete) with the uniform state, the
   net's ambient is definitionally the stage's private algebra, and the
-  partition members lie in the proper anchored left region. Issue #692 is
-  closed bounded under its narrowed finite algebraic contract; the
-  source attachment of the assembly is carried by the E6 successor
-  (#712).
+  partition members lie in the proper anchored left region. A nonzero
+  off-diagonal correlation matrix unit has both slot expectations zero, so
+  coverage does not imply unique gluing. Issue #692 remains open for a
+  source-selected joint carrier and coherent correlation or descent receipt;
+  closed #712 consumes the older interface.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and
@@ -532,7 +533,13 @@ Mapping between Lean 4 theorems in this project and statements in
   latter is positive, nonuniform, and simultaneously invariant, so the
   independent scrambling premise is genuinely stronger. The
   invariance principle is a stated normal-form convention, not a source
-  product. Source selection of the reference principle and real enrichment,
+  product. `InformationProjection/SourceReferenceSelection.lean` conditionally
+  realizes the uniform transition kernel from supplied counting/trivial
+  inputs; rescaling and distinct-initial-law controls prove that it does not
+  select the complete path reference. `Variational/StationarySaddleCoverage.lean`
+  proves only that positive Gibbs weighting need not make every stationary
+  point a mode or minimizer, leaving genuine saddle and stationary-phase
+  routes open. Source selection of the reference principle and real enrichment,
   physical action, clock, amplitudes,
   fields, continuum, and observable-current attachments remain open under
   #683. See `B7_HISTORY_BRIDGE.md`.

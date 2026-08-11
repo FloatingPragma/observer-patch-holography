@@ -125,6 +125,15 @@ LEAN_RECEIPTS = {
     "RichFibreWitness": REPO / "Lean" / "QFT" / "RichFibreWitness.lean",
     "RichFibreRegionalNet": REPO / "Lean" / "QFT"
     / "RichFibreRegionalNet.lean",
+    "SourceOperatorGeneration": REPO / "Lean" / "QFT"
+    / "SourceOperatorGeneration.lean",
+    "JointSlotFactorisation": REPO / "Lean" / "QFT"
+    / "JointSlotFactorisation.lean",
+    "CPRestrictionNet": REPO / "Lean" / "QFT" / "CPRestrictionNet.lean",
+    "TwoSlotCPNetWitness": REPO / "Lean" / "QFT"
+    / "TwoSlotCPNetWitness.lean",
+    "TowerAnchoredDiamond": REPO / "Lean" / "QFT"
+    / "TowerAnchoredDiamond.lean",
     "PublicRecordAlgebra": REPO / "Lean" / "EventAlgebra"
     / "PublicRecordAlgebra.lean",
     "NoBroadcastingAdapter": REPO / "Lean" / "EventAlgebra"
@@ -190,6 +199,14 @@ LEAN_RECEIPTS = {
     / "FiniteHistoryBridge.lean",
     "RealizedHistoryLegendreNoGo": REPO / "Lean" / "Variational"
     / "RealizedHistoryLegendreNoGo.lean",
+    "SourceReferenceSelection": REPO / "Lean" / "InformationProjection"
+    / "SourceReferenceSelection.lean",
+    "SourceHistoryPacket": REPO / "Lean" / "InformationProjection"
+    / "SourceHistoryPacket.lean",
+    "LogTransitionAction": REPO / "Lean" / "InformationProjection"
+    / "LogTransitionAction.lean",
+    "StationarySaddleCoverage": REPO / "Lean" / "Variational"
+    / "StationarySaddleCoverage.lean",
     "RecordMajorization": REPO / "Lean" / "EventAlgebra"
     / "RecordMajorization.lean",
     "SpectralEntropyBoundary": REPO / "Lean" / "EventAlgebra"
@@ -2063,14 +2080,21 @@ def _forced_structure(
                 "source packet supplies four disjoint windows with split-fibre "
                 "labels; a separately declared adapter constructs noncommutative "
                 "regional blocks, exact coverage and gluing, and nonunital "
-                "two-by-two matrix corners at every window"
+                "two-by-two matrix corners at every window. A five-module "
+                "continuation conditionally proves full observer-algebra "
+                "generation from post-hoc counted transitions and field "
+                "projectors, exact commuting factors on a declared Cartesian "
+                "carrier, a conditional-expectation diamond with coverage and "
+                "an explicit noninjective-correlation control, and transport to "
+                "one constant A3 stage"
             ),
             "observed_counterpart": (
                 "a causal local quantum-observable net with overlap descent"
             ),
             "match": (
-                "substantial conditional finite interface and declared-adapter "
-                "coverage; source-attached operators and product split open"
+                "substantial conditional finite interface, operator-generation, "
+                "and CP-diamond packet; source regional selection and "
+                "correlation/descent open"
             ),
             "lean_declarations": {
                 "FiniteCausalObserverNet": [
@@ -2102,12 +2126,49 @@ def _forced_structure(
                     "richDropCover_not_coverageLaw",
                     "richWindowCover_reconstruction",
                 ],
+                "SourceOperatorGeneration": [
+                    "sourceAlgebra_eq_top",
+                    "obs86_sourceAlgebra_eq_top",
+                    "obs88_sourceAlgebra_eq_top",
+                    "obs247_sourceAlgebra_eq_top",
+                    "obs384_sourceAlgebra_eq_top",
+                    "obs86_projectors_only_ne_top",
+                ],
+                "JointSlotFactorisation": [
+                    "obs86_lifted_eq_leftSlot",
+                    "obs88_lifted_eq_rightSlot",
+                    "slot_commute",
+                    "obs86_checkpoint_pinch_no_signalling",
+                    "rightSlotExpectation_fixes_right",
+                    "rightSlotExpectation_posSemidef",
+                ],
+                "CPRestrictionNet": [
+                    "restrictCP_comp",
+                    "slot_ranges_generate_top",
+                    "no_scalar_restriction_of_matrix_factor",
+                ],
+                "TwoSlotCPNetWitness": [
+                    "slotExpectations_not_jointly_injective",
+                    "checkpoint_pinch_fixes_right",
+                    "twoSlot_left_no_scalar_hom",
+                ],
+                "TowerAnchoredDiamond": [
+                    "anchoredTower_privateAlgebra",
+                    "partition_members_in_left_region",
+                    "anchoredCheckpointPartition_proper",
+                    "anchoredNet_left_ne_top",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteCausalObserverNet",
                 "ObserverNetDescent",
                 "RichFibreWitness",
                 "RichFibreRegionalNet",
+                "SourceOperatorGeneration",
+                "JointSlotFactorisation",
+                "CPRestrictionNet",
+                "TwoSlotCPNetWitness",
+                "TowerAnchoredDiamond",
                 declarations={
                     "FiniteCausalObserverNet": (
                         "commute_of_disjoint",
@@ -2138,6 +2199,38 @@ def _forced_structure(
                         "richDropCover_not_coverageLaw",
                         "richWindowCover_reconstruction",
                     ),
+                    "SourceOperatorGeneration": (
+                        "sourceAlgebra_eq_top",
+                        "obs86_sourceAlgebra_eq_top",
+                        "obs88_sourceAlgebra_eq_top",
+                        "obs247_sourceAlgebra_eq_top",
+                        "obs384_sourceAlgebra_eq_top",
+                        "obs86_projectors_only_ne_top",
+                    ),
+                    "JointSlotFactorisation": (
+                        "obs86_lifted_eq_leftSlot",
+                        "obs88_lifted_eq_rightSlot",
+                        "slot_commute",
+                        "obs86_checkpoint_pinch_no_signalling",
+                        "rightSlotExpectation_fixes_right",
+                        "rightSlotExpectation_posSemidef",
+                    ),
+                    "CPRestrictionNet": (
+                        "restrictCP_comp",
+                        "slot_ranges_generate_top",
+                        "no_scalar_restriction_of_matrix_factor",
+                    ),
+                    "TwoSlotCPNetWitness": (
+                        "slotExpectations_not_jointly_injective",
+                        "checkpoint_pinch_fixes_right",
+                        "twoSlot_left_no_scalar_hom",
+                    ),
+                    "TowerAnchoredDiamond": (
+                        "anchoredTower_privateAlgebra",
+                        "partition_members_in_left_region",
+                        "anchoredCheckpointPartition_proper",
+                        "anchoredNet_left_ne_top",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
@@ -2148,9 +2241,18 @@ def _forced_structure(
                 "labels only: its block algebra, base-point state, restrictions, "
                 "and repair are declared postprocessors. Conditional coverage is "
                 "attained inside that adapter, but its nonunital matrix corners are "
-                "not tensor factors or a `TensorSplitReceipt`. Issue #692 gates "
-                "source-attached operator generation and a justified region-product "
-                "or local-channel adapter; "
+                "not tensor factors or a `TensorSplitReceipt`. The later "
+                "operator-generation theorem transcribes source paths post hoc, "
+                "while the Cartesian joint carrier, region map, and slot split "
+                "are declared. The designated full supports overlap. The exact "
+                "off-diagonal control proves that the two slot expectations are "
+                "not jointly injective, so coverage does not imply unique gluing. "
+                "The constant tower is not a nonconstant source realization, and "
+                "the uncommitted frame exploration supports no no-go. Issue #692 "
+                "gates a source-attached Cartesian or other justified regional "
+                "construction, a correlation or descent receipt compatible "
+                "with the noninjectivity control, and a "
+                "nonconstant source realization or genuinely scoped no-go; "
                 "no CP/CPTP channel, scheduler locality, spacetime causality, "
                 "time-slice property, continuum QFT, observable, decision rule, "
                 "or prediction is supplied"
@@ -3048,10 +3150,16 @@ def _forced_structure(
                 "the classical theorem permits signed arrays, and no OPH "
                 "region-factor, spacelike, clock, stochastic-state, CPTP, or "
                 "laboratory attachment is proved. A declared rich-fibre adapter "
-                "conditionally attains coverage, but its source supplies no "
-                "operators and its corners are not tensor factors. The row's "
-                "sole live gate, #692, owns source-attached operator generation "
-                "and a region-product, TensorSplitReceipt, or local-channel adapter. "
+                "conditionally attains coverage. The later E1 packet transcribes "
+                "operators post hoc and consumes this row's partial-trace helper "
+                "on a declared Cartesian slot, but the source does not select the "
+                "joint carrier, region map, or split. Its exact off-diagonal "
+                "control shows the two slot expectations are not jointly "
+                "injective, so coverage does not supply gluing. The row's sole "
+                "live gate, #692, owns a source-attached Cartesian or other "
+                "justified regional construction plus a correlation or descent "
+                "receipt compatible with the noninjectivity control and a "
+                "nonconstant source realization. "
                 "Source channel/adaptive-scheduler semantics (#693), physical "
                 "clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice "
                 "structure (#700) are "
@@ -3129,7 +3237,16 @@ def _forced_structure(
                 "has no velocity solver, while an infinite positive-curvature "
                 "family agrees on every source history and gives regular "
                 "strictly convex Lagrangians and Hamiltonians; its checked "
-                "curvatures one and two are distinct on both faces"
+                "curvatures one and two are distinct on both faces. Supplied "
+                "counting-reference and trivial-datum inputs conditionally "
+                "realize the uniform transition kernel; scale and initial-law "
+                "controls show this does not select the complete path reference. "
+                "Two exact multiplier tilts have distinct mean actions, and "
+                "the matching quadratic gives one unique positive parameter "
+                "at the supplied empirical target. A "
+                "concave three-record history is stationary but not minimal and "
+                "is not a positive-Gibbs mode against one variation, giving only "
+                "a scoped mode/minimizer control"
             ),
             "observed_counterpart": (
                 "Gibbs path selection, least-action limits, discrete "
@@ -3166,6 +3283,28 @@ def _forced_structure(
                     "chainCurved_legendreTransform",
                     "realizedHistory_legendre_nonidentifiability_receipt",
                 ],
+                "SourceReferenceSelection": [
+                    "heatBath_counting_trivial_eq_uniform",
+                    "reference_realized_under_counting_trivial_inputs",
+                    "nontrivial_datum_not_invariant",
+                    "noncounting_reference_not_invariant",
+                    "heatBath_scaledCounting_trivial_eq_uniform",
+                    "uniform_transition_does_not_determine_path_reference",
+                    "committed_tilts_have_distinct_mean_actions",
+                ],
+                "SourceHistoryPacket": [
+                    "sourceMatchQuad_strictMonoOn_pos",
+                    "sourcePositiveMeanMatch_unique",
+                    "sourceMatchingPositiveParameter_existsUnique",
+                ],
+                "LogTransitionAction": [
+                    "bare_log_action_multiplier_unique_of_nonconstant",
+                ],
+                "StationarySaddleCoverage": [
+                    "stationaryMaximumHistory_stationary",
+                    "stationaryMaximumHistory_not_minimal",
+                    "gibbs_prefers_nonstationary",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "PathGibbs",
@@ -3173,6 +3312,10 @@ def _forced_structure(
                 "DiscreteNoether",
                 "FiniteHistoryBridge",
                 "RealizedHistoryLegendreNoGo",
+                "SourceReferenceSelection",
+                "SourceHistoryPacket",
+                "LogTransitionAction",
+                "StationarySaddleCoverage",
                 declarations={
                     "PathGibbs": (
                         "pathGibbs_pythagorean",
@@ -3200,17 +3343,48 @@ def _forced_structure(
                         "chainCurved_legendreTransform",
                         "realizedHistory_legendre_nonidentifiability_receipt",
                     ),
+                    "SourceReferenceSelection": (
+                        "heatBath_counting_trivial_eq_uniform",
+                        "reference_realized_under_counting_trivial_inputs",
+                        "nontrivial_datum_not_invariant",
+                        "noncounting_reference_not_invariant",
+                        "heatBath_scaledCounting_trivial_eq_uniform",
+                        "uniform_transition_does_not_determine_path_reference",
+                        "committed_tilts_have_distinct_mean_actions",
+                    ),
+                    "SourceHistoryPacket": (
+                        "sourceMatchQuad_strictMonoOn_pos",
+                        "sourcePositiveMeanMatch_unique",
+                        "sourceMatchingPositiveParameter_existsUnique",
+                    ),
+                    "LogTransitionAction": (
+                        "bare_log_action_multiplier_unique_of_nonconstant",
+                    ),
+                    "StationarySaddleCoverage": (
+                        "stationaryMaximumHistory_stationary",
+                        "stationaryMaximumHistory_not_minimal",
+                        "gibbs_prefers_nonstationary",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
                 "the finite source packet and its log-transition corner action "
-                "are attained, while the reference remains declared. A typed "
+                "are attained, while the complete reference is not source-"
+                "selected. Conditional repair of supplied trivial data under a "
+                "supplied counting reference realizes only its uniform transition "
+                "kernel; constant rescaling leaves that kernel unchanged, and "
+                "distinct initial laws give distinct complete path references. The "
+                "matching parameter exists uniquely at the supplied empirical "
+                "target, but the constraint observable and level remain declared. A typed "
                 "finite-to-real transfer exists only under an undercut receipt. "
-                "The complete binary history law still cannot select the "
+                "The complete binary history law does not select the "
                 "off-alphabet curvature of a regular Legendre system: the "
-                "displayed family is constructed, not source-produced. Issue "
-                "#683 remains open for a source-selected reference and real "
-                "enrichment, saddle histories, physical action and clock, "
+                "displayed family is constructed, not source-produced. The "
+                "concave control concerns modes/minimizers only: constrained "
+                "saddles, complex or signed stationary phase, and refinement "
+                "routes are not excluded. Issue #683 is a live gate for a "
+                "compositional source history/reference, selected real enrichment "
+                "and stationary-phase mechanism, physical action and clock, "
                 "amplitudes, fields, continuum, and observable currents. This "
                 "row emits no prediction-ladder entry"
             ),

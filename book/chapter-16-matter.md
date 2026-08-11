@@ -340,7 +340,17 @@ The composite receipt records both results, but it does not identify the
 realized chain with that Hamiltonian system.
 
 The boundary is where physics enters. The reference against which the weight
-is measured is a declared object. Nothing identifies the finite scalar
+is measured is a declared object. Conditional resampling of a declared
+counting reference with a trivial visible datum reproduces the uniform
+transition kernel, but it selects neither those inputs nor the complete path
+reference. Constant rescalings of the counting mass produce the same kernel,
+and the reference, repair-count multiplier, and log-transition action have not
+been composed into one source-selected history law.
+For the separately declared empirical target, the positive exponential
+parameter exists uniquely. This is conditional parameter identification; it
+does not select the target observable or level from the source.
+
+Nothing identifies the finite scalar
 constant with a physical current, supplies a complex amplitude or an
 interference rule, or attaches units and a clock. A sharper exact theorem
 closes off a silent shortcut. The natural bilinear real extension of the
@@ -351,6 +361,11 @@ Hamiltonian, and the checked $a=1,2$ members are distinct. The finite source law
 off-alphabet velocity curvature. A source enrichment or new physical
 principle must make that selection before the chain can be identified with a
 real Hamiltonian flow.
+
+A separate concave-action control shows that positive Gibbs weighting need
+not make every stationary history a mode or minimizer. It does not rule out
+constrained saddles, complex stationary phase, or a source-selected regular
+action. Those routes are retained rather than being closed by the control.
 
 The path-integral account in this section is the target physical mechanism.
 No attachment to measured dynamics is supplied here.

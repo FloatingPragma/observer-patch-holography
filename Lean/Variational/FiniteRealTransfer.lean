@@ -31,8 +31,10 @@ embedding on which the receipt and the transferred conclusion both
 fail.
 
 The undercut receipt is a named input.  Nothing here derives it from
-OPH source data; issue B7 remains open on that derivation, on
-multiplier existence and uniqueness, and on physical attachment.
+OPH source data.  The separate committed packet proves existence and a unique
+positive exponential parameter at its declared empirical target; issue B7
+remains open on prospective source selection of that constraint observable and
+level, on the undercut-receipt derivation, and on physical attachment.
 -/
 
 variable {N : ℕ}

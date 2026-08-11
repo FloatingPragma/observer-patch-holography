@@ -36,11 +36,12 @@ the same characterization.  Combining with the derived Gibbs form: an
 action-multiplier pair reproduces the Markov path law over the declared
 reference exactly when its multiplier-weighted action equals the
 log-transition action plus a constant (`action_unique_up_to_gauge`).  The
-supplied transition law fixes its action up to this gauge, and the normalization
-convention that the action is the bare log-transition sum pins the
-multiplier to one; the residual freedom is the exact trade of multiplier
-against action scale (`markov_multiplier_action_tradeoff`), so the B7
-multiplier-selection gap reduces to the same gauge fixing.
+supplied transition law fixes its action up to this gauge.  Taking the bare
+log-transition sum at multiplier one chooses a canonical representative;
+it forces that multiplier only when the path action is nonconstant
+(`bare_log_action_multiplier_unique_of_nonconstant`).  For a constant action,
+normalization erases the multiplier.  The residual freedom is the exact trade
+of multiplier against action scale (`markov_multiplier_action_tradeoff`).
 
 The exact packet instantiation reads the committed two-state mixing chain through
 this derivation.  The transition products of the eight length-three paths
@@ -325,13 +326,41 @@ theorem action_unique_up_to_gauge [Nonempty Ω] (pi : Ω → ℝ)
       (stepUniformRef_pos pi n hpi)]
   exact exists_congr fun c => forall_congr' fun γ => by rw [one_mul]
 
-/-- **The multiplier is pinned by the action-scale convention.**  At every
+/-- If the bare log-transition path action is nonconstant, then using that
+same unrescaled action fixes the reproducing multiplier to one.  The
+nonconstancy premise is necessary: for a uniform kernel the action is
+constant and normalization erases the multiplier. -/
+theorem bare_log_action_multiplier_unique_of_nonconstant [Nonempty Ω]
+    (pi : Ω → ℝ) (P : Ω → Ω → ℝ) (n : ℕ)
+    (hpi : ∀ x, 0 < pi x) (hP : ∀ x y, 0 < P x y)
+    (hpi1 : ∑ x, pi x = 1) (hP1 : ∀ x, ∑ y, P x y = 1)
+    (hnonconst : ∃ γ δ : PathSpace Ω n,
+      logTransitionAction P n γ ≠ logTransitionAction P n δ)
+    (lam : ℝ)
+    (hfit : tilt (stepUniformRef pi n) (logTransitionAction P n) lam
+      = markovPathLaw pi P n) :
+    lam = 1 := by
+  obtain ⟨c, hc⟩ :=
+    (action_unique_up_to_gauge pi P n hpi hP hpi1 hP1
+      (logTransitionAction P n) lam).mp hfit
+  obtain ⟨γ, δ, hne⟩ := hnonconst
+  have hγ := hc γ
+  have hδ := hc δ
+  have hprod :
+      (lam - 1) *
+        (logTransitionAction P n γ - logTransitionAction P n δ) = 0 := by
+    nlinarith
+  rcases mul_eq_zero.mp hprod with hlam | haction
+  · linarith
+  · exact (hne (sub_eq_zero.mp haction)).elim
+
+/-- **Exact multiplier/action scale trade.**  At every
 nonzero multiplier the rescaled action `lam⁻¹ * S_log` reproduces the Markov
 path law, and by `action_unique_up_to_gauge` nothing outside this orbit
-does: the multiplier trades exactly against the action scale, so fixing the
-action as the bare log-transition sum pins the multiplier to one.  The B7
-multiplier-selection gap over Markov source dynamics is this gauge
-fixing. -/
+does.  Choosing the bare log-transition sum at multiplier one is a canonical
+representative.  It is the unique bare-action multiplier only under the
+separate nonconstancy premise of
+`bare_log_action_multiplier_unique_of_nonconstant`. -/
 theorem markov_multiplier_action_tradeoff [Nonempty Ω] (pi : Ω → ℝ)
     (P : Ω → Ω → ℝ) (n : ℕ) (hpi : ∀ x, 0 < pi x)
     (hP : ∀ x y, 0 < P x y)
@@ -811,6 +840,7 @@ end OPH.InformationProjection
 #print axioms OPH.InformationProjection.markov_tiltZ_eq
 #print axioms OPH.InformationProjection.markov_path_law_eq_gibbs
 #print axioms OPH.InformationProjection.action_unique_up_to_gauge
+#print axioms OPH.InformationProjection.bare_log_action_multiplier_unique_of_nonconstant
 #print axioms OPH.InformationProjection.markov_multiplier_action_tradeoff
 #print axioms OPH.InformationProjection.sourceTransProdNum_eq_counts
 #print axioms OPH.InformationProjection.sourceTransProdDen_eq_rowSums

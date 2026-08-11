@@ -114,13 +114,14 @@ def test_readme_highlights_remain_short_and_reader_facing() -> None:
     french = " ".join((ROOT / "README_FR.md").read_text(encoding="utf-8").split())
     assert "exact conditional finite package" in english
     assert "conditional finite theorem package" not in english.lower()
-    assert "72 eV window" in english
     assert "lands within 72 eV" not in english
-    assert "fenêtre de 72 eV" in french
     assert "tombe à 72 eV" not in french
-    assert re.search(r"separately\s+specified matter structure", english)
-    assert "two candidate rules" in english.lower()
-    assert "deux règles candidates" in french.lower()
+    assert "comparison against a measured value" in english
+    assert "comparaison avec une valeur mesurée" in french
+    assert "separately declared matter table" in english.lower()
+    assert "source has not selected the grammar" in english.lower()
+    assert "two finite screen branches" in english.lower()
+    assert "deux branches finies" in french.lower()
 
 
 def test_active_v2_owner_display_separates_historical_milestones() -> None:

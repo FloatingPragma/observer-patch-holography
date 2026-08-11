@@ -36,13 +36,15 @@ control family provably carries none, with the transferred conclusion
 failing there.
 
 `InformationProjection/LogTransitionAction.lean` derives the action. For a
-strictly positive row-stochastic kernel and a normalized initial law, the
+strictly positive row-stochastic kernel and a strictly positive normalized
+initial law, the
 Markov path law equals the exponential tilt of the step-uniform reference by
 the log-transition action at multiplier one, and an action-multiplier pair
 reproduces the law exactly when the multiplier-weighted action equals the
 log-transition action plus a constant, so the action is unique up to the
-additive-constant and multiplier-rescale gauge and the normalization
-convention pins the multiplier. The committed source chain instantiates both
+additive-constant and multiplier-rescale gauge. The bare-action convention
+chooses multiplier one and fixes it only when the path action is nonconstant;
+a constant action leaves the multiplier invisible after normalization. The committed source chain instantiates both
 statements with kernel-decided receipts, and the committed repair-count
 action reproduces the chain law at no multiplier.
 
@@ -116,46 +118,52 @@ Issue #683 owns those open obligations. The derived-action and bridge
 results enter the flagship variational passage; they emit no
 prediction-ladder row.
 
-## Source selection of the reference and the multiplier boundary
+## Conditional realization of the reference kernel and the multiplier boundary
 
-`InformationProjection/SourceReferenceSelection.lean` upgrades the
-target-relabeling normal form to a source product.  The Axiom-3
-conditional-resampling repair kernel of the trivial visible datum under
-the counting reference equals the uniform kernel exactly, so the
-representation theorem's step-uniform reference is the repair law's own
-output.  Two controls prove both inputs load-bearing: the identity
-visible datum turns the repair kernel into the identity kernel, and a
-biased two-point reference weights the rows, each breaking
-target-relabel invariance.  The counting reference is the committed
-source counting measure of the repair-word packet, taken as a declared
-identification.
+`InformationProjection/SourceReferenceSelection.lean` conditionally realizes
+the target-relabeling normal form.  If the trivial visible datum and counting
+reference are supplied, their conditional-resampling repair kernel equals the
+uniform transition kernel exactly.  This does not source-select those inputs:
+Axiom 3 optimizes relative to an exact reference and does not manufacture that
+reference.  The identity visible datum and a biased two-point reference are
+separating controls showing that alternative supplied inputs can change the
+kernel.
 
-The multiplier is proved not packet-determined: the exact rational
-tilts of the committed chain law at weights one and one half are both
-strictly positive and normalized, and their mean actions differ, so the
-packet's internal receipts admit every weight and only the declared
-constraint level, the committed empirical mean action, separates them.
-The multiplier selection gap therefore closes onto the declared level:
-the level is a source literal and the intermediate-value receipt matches
-a multiplier to it, while no packet-internal rule can produce the
-multiplier without that level.
+Two exact non-uniqueness controls prevent promotion.  Every positive constant
+rescaling of the counting reference gives the same uniform kernel, so the
+kernel does not determine the mass normalization.  Two distinct positive
+normalized initial laws combined with that same uniform transition kernel
+give distinct `stepUniformRef` path laws, so selecting the transition kernel
+does not select the whole history reference.  The counting reference and
+trivial datum remain declared identifications pending an A1-generated source
+receipt.
 
-## Stationary-saddle coverage and the bounded closure
+The multiplier receipt is narrower.  The exact rational tilts of the committed
+chain law at weights one and one half are both strictly positive and normalized,
+and their mean actions differ.  The intermediate-value theorem matches some
+multiplier to the declared empirical mean `197/1754`.  The matching quadratic
+is strictly increasing on the positive exponential-parameter ray, so that
+parameter is unique at the supplied target.  These results prove existence,
+uniqueness at that target, and two-point sensitivity; they do not source-select
+the constraint observable or level.
 
-`Variational/StationarySaddleCoverage.lean` certifies the scoped
-negative for stationary-point coverage: the three-record zero history
-under the concave two-point Lagrangian satisfies the discrete
-Euler-Lagrange stationarity condition with explicit derivative
-witnesses, fails minimality against the unit variation, and carries
-strictly smaller Gibbs weight than that variation at every positive
-multiplier.  The projection tracks minimizers and provably misses
-stationary points.
+## Positive-Gibbs mode boundary
 
-With the reference source-selected, the multiplier bounded to the
-declared constraint level, and the coverage question closed negatively,
-the finite gaps of issue #683 are discharged.  The physical action,
-time, current, amplitude, field, and continuum attachments carry the
-committed finite-variation, Legendre, and multiplier obstructions; their
-production is owned by the operational-clock, Born-bridge, and
-continuum successors.  Issue #683 is closed bounded under those scoped
-exits.
+`Variational/StationarySaddleCoverage.lean` certifies a narrow negative for the
+claim that positive-Gibbs modes recover every stationary history.  The
+three-record zero history under the concave two-point Lagrangian satisfies the
+discrete Euler--Lagrange stationarity condition with explicit derivative
+witnesses, fails minimality against the unit variation, and carries strictly
+smaller unnormalized Gibbs weight than that variation at every positive
+multiplier.  This witness is a stationary maximum, not a saddle, and the
+theorem does not assign it zero normalized mass or remove it from the support.
+
+The counterexample therefore closes only the universal positive-Gibbs
+mode/minimizer route.  It does not rule out genuine saddle recovery, complex or
+signed stationary-phase weights, constrained ensembles, a source-selected real
+enrichment, or a refinement limit.  Together with the reference-scale and
+initial-law controls, it leaves source selection of the whole history
+reference, the real enrichment and transfer receipt, and the physical action,
+time, current, amplitude, field, and continuum attachments explicit.  The
+finite theorems in this packet do not by themselves justify closing those
+obligations.

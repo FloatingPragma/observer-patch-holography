@@ -423,9 +423,19 @@ each region. The source run itself supplies only window and class labels: it
 does not produce the matrix units, state, repair, regional restrictions, or a
 tensor split. The B4 identity remains a generic basis-reindexed marginal
 theorem; no `TensorSplitReceipt` identifies its factors with these regional
-algebras. The live E1 task therefore seeks source-attached operator generation
-and either a genuine region-to-product receipt or a justified local-channel
-adapter.
+algebras.
+
+The post-hoc continuation generates each individual observer algebra from
+its counted transition operator and diagonal field projectors. On a separately
+declared Cartesian carrier, two lifted algebras become commuting matrix
+factors, explicit partial-trace expectations form a regional diamond, and the
+diamond transports to a constant consensus-tower stage. This is useful exact
+progress, not the missing source theorem: the run does not choose the
+Cartesian carrier, region map, or factor split, and the two regional
+expectations lose nonzero correlation terms. Coverage therefore does not imply
+unique gluing. The live E1 task seeks a source-attached joint carrier and a
+coherent CP-net correlation or descent receipt. Fully disjoint retained
+observer pairs give a cheap route to test before another large simulation.
 
 A separate conditional helper bounds a supplied adaptive
 scheduler that consults only a declared region, proves that this consultation
