@@ -501,7 +501,7 @@ number measured in nature.
 The gauge theorem gives the clearest example: icosahedral incidence fixes the
 twelve-dimensional symmetry module, while the complete-response clause of
 Axiom 1 and the internal-transport clause of Axiom 2 force the local Standard
-Model algebra. That proof sits inside a corpus of more than four thousand
+Model algebra. That proof sits inside a corpus of more than forty-five hundred
 machine-checked theorems, each checked under stated assumptions without settling
 physical identification. Symmetry determines the available roles. The
 interacting dynamics within those roles determines masses, mixing, binding,
