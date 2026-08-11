@@ -21,6 +21,8 @@ import QFT.SourceContextTomographyNoGo
 import QFT.SourcePhaseLiftBridge
 import QFT.ConjugationGauge
 import QFT.SourceOrientedCompletion
+import QFT.SourceOperatorGeneration
+import QFT.JointSlotFactorisation
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.TwoFactorHistoryBinding

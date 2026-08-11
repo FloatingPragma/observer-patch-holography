@@ -312,8 +312,23 @@ Mapping between Lean 4 theorems in this project and statements in
   E1 therefore remains open. Sorry-free, standard axioms, no `native_decide`. The
   enrichment rule and restriction system are declared readings of the
   custody-pinned payload; CP/CPTP, scheduler, continuum, and clock scopes
-  stay with #693, #700, and #703. See
-  `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
+  stay with #693, #700, and #703.
+  The adapter preflight (`QFT/SourceOperatorGeneration.lean`,
+  `QFT/JointSlotFactorisation.lean`) is attained as a bounded post-hoc
+  packet over the same retained bundle: each rich observer's counted
+  32-step transition operator and diagonal field projectors generate the
+  full matrix algebra on its realized support-modal alphabet
+  (field-separation, step-compression, and walk-reachability decides,
+  with a diagonal-only load-bearing control), and on the declared joint
+  slot space of the pair (86, 88) the lifted generated algebras are
+  exactly the two tensor factors, the slots commute, the complete
+  checkpoint-projector family pinches without changing the right
+  marginal through the committed B4 helper, and the conditional
+  expectation onto the right slot carries Kraus, positivity, trace,
+  fixed-slot, scalarisation, and idempotence receipts. The extraction is
+  post-hoc and ineligible as validation, the slot assembly is a declared
+  postprocessor, and no region lattice over the tower is constructed.
+  See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and
   counterexamples. It proves $L=2|E|(I-R)$ for the uniform repair response,
