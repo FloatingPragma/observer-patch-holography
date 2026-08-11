@@ -806,3 +806,9 @@ censoring, control, refinement, held-out likelihood, and replication evidence.
   from multiple uncertain observations with selection biases", Monthly Notices
   of the Royal Astronomical Society, 2019.
   https://doi.org/10.1093/mnras/stz896
+
+The finite information-ledger draft
+(`../cosmology/oph_black_hole_information_ledger.tex`, issue B19) carries
+the unitarity-versus-record bookkeeping that any future compact-object
+information statement would consume; it freezes no prediction and leaves
+this note's custody untouched.

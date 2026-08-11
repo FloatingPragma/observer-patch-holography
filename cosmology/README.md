@@ -14,6 +14,7 @@ The main OPH papers establish the structural observer, geometry, gravity, and ma
 | [Cosmological Vacuum And Structure Formation](oph_cosmological_vacuum_and_structure_formation.pdf) ([source](oph_cosmological_vacuum_and_structure_formation.tex)) | Vacuum boundary, fluctuation ensembles, proto-objects, worldlines, and structure seeds |
 | [Cosmology Data And Likelihood Contracts](oph_cosmology_data_likelihood_contracts.pdf) ([source](oph_cosmology_data_likelihood_contracts.tex)) | Boundary between the conditional source theorem, finite source instantiation, transfer, nuisance treatment, and official likelihood comparison |
 | [Boltzmann Transport Derivation](oph_boltzmann_transport_derivation.pdf) ([source](oph_boltzmann_transport_derivation.tex)) | Finite transport interface between OPH sources and observable distribution functions |
+| [Black-Hole Information Ledger](oph_black_hole_information_ledger.pdf) ([source](oph_black_hole_information_ledger.tex)) | Working draft under issue B19: forced unitarity plus sign-unitary publicization assembled into the finite information ledger, with the entropy core, GSL-shaped monotone, complementarity, and finite KMS receipts as open targets; not a release asset |
 
 The [radial-lift theorem note](RADIAL_LIFT_SOLUTION.md) gives the one-shell
 non-identifiability proof, the physical source-dilation theorem, radial
