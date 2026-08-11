@@ -336,8 +336,10 @@ surface for the OPH consensus layer. Contents:
   `n`-move closed-neighborhood dependency upper bound against the concrete
   `localRepair`; `ObserverPatchHolography/Locality/NoSignalling.lean` proves
   generic finite marginal and partial-trace identities on a supplied
-  bipartite split. B4's sole live gate is #692 (E1), which owns only finite
-  coverage and OPH region factorization. A separate conditional E2 helper,
+  bipartite split. B4's former gate #692 (E1) is closed bounded under its narrowed
+  finite algebraic contract, with finite coverage and slot-factor
+  localization attained and the assembly's source attachment carried by
+  the E6 successor (#712). A separate conditional E2 helper,
   `ObserverPatchHolography/Locality/AdaptiveScheduler.lean`, proves an
   adaptive cone/no-influence/refinement-naturality packet only for supplied
   `ConsultsOnly` scheduler and consultation-region data. It produces no source
@@ -411,8 +413,8 @@ surface for the OPH consensus layer. Contents:
   marginal, and the conditional expectation onto a slot carries Kraus,
   positivity, trace, fixed-slot, scalarisation, and idempotence
   receipts. The extraction is post-hoc and ineligible as validation, and
-  the slot assembly is a declared postprocessor; issue #692 keeps the
-  source-attached net contract.
+  the slot assembly is a declared postprocessor; issue #692 is closed
+  bounded under its narrowed contract.
   `QFT/CPRestrictionNet.lean` and `QFT/TwoSlotCPNetWitness.lean` execute
   the authorized restriction redesign: conditional expectations replace
   the star-homomorphic restrictions that a kernel-checked obstruction
@@ -422,8 +424,9 @@ surface for the OPH consensus layer. Contents:
   disjoint slot, and coverage by the two slot regions. `QFT/TowerAnchoredDiamond.lean` anchors the diamond over one constant
   A3 tower stage whose public layer is spanned by the reindexed lifted
   checkpoint partition and whose ambient is definitionally the stage's
-  private algebra; the source attachment of the slot assembly stays with
-  issue #692.
+  private algebra; issue #692 is closed bounded under its
+  narrowed finite algebraic contract, and the source attachment of the
+  slot assembly is carried by the E6 successor (#712).
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and

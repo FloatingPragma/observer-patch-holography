@@ -275,13 +275,14 @@ def test_de_sitter_claim_split_preserves_status_boundaries():
 def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
-    # The rich-fibre packet gives a strong conditional block/coverage
-    # construction, but its nonunital M2 corner is not a TensorSplitReceipt
-    # and its algebra/state/restriction adapter is declared.  E1/B4 #692
-    # therefore remains the finite source and region-factor gate.
+    # E1/B4 #692 is closed bounded under the narrowed finite algebraic
+    # contract (source-generated regional algebras, slot-factor
+    # identification with the B4 helper consumed, conditional-expectation
+    # restriction redesign, constant-tower anchoring); the source
+    # attachment of the slot assembly is carried by the E6 successor #712.
     expected_gates = {
         "OPH-THERMO-FOUR-LAW-PACKAGE": [703, 725],
-        "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
+        "OPH-FINITE-LOCALITY-NOSIGNALLING": [],
         "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER": [693],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],

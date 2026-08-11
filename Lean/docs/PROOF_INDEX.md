@@ -309,7 +309,7 @@ Mapping between Lean 4 theorems in this project and statements in
   corollary, and the drop-one negative control showing every window is
   load-bearing. The enrichment, state, restrictions, and identity repair are
   declared, and no `TensorSplitReceipt` identifies a regional tensor factor;
-  E1 therefore remains open. Sorry-free, standard axioms, no `native_decide`. The
+  E1 is closed bounded under its narrowed contract. Sorry-free, standard axioms, no `native_decide`. The
   enrichment rule and restriction system are declared readings of the
   custody-pinned payload; CP/CPTP, scheduler, continuum, and clock scopes
   stay with #693, #700, and #703.
@@ -341,8 +341,10 @@ Mapping between Lean 4 theorems in this project and statements in
   stage's public layer is spanned by the reindexed lifted checkpoint
   partition (proper, orthogonal, complete) with the uniform state, the
   net's ambient is definitionally the stage's private algebra, and the
-  partition members lie in the proper anchored left region. Source
-  attachment of the assembly stays open.
+  partition members lie in the proper anchored left region. Issue #692 is
+  closed bounded under its narrowed finite algebraic contract; the
+  source attachment of the assembly is carried by the E6 successor
+  (#712).
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and

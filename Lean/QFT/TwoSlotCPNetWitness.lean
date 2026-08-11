@@ -33,8 +33,9 @@ diamond.
 postprocessors over the post-hoc payload transcriptions; the witness
 carries no tower stage, spacetime, channel semantics, instrument, clock,
 or physical claim, and the extraction is ineligible as validation.
-Issue #692 stays open on the source-attached net packet over the A3
-tower.
+Issue #692 is closed bounded under its narrowed finite algebraic
+contract; the source attachment of the slot assembly is carried by the
+E6 successor (#712).
 -/
 
 namespace OPH.QFT

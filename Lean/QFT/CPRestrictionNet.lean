@@ -43,7 +43,11 @@ proper pair of slot regions instead.
 **Boundary.**  This is a finite algebraic interface with a declared
 region system; no tower stage, spacetime, causal relation, channel
 semantics, instrument, clock, or physical claim is attached, and no
-source object is constructed here.  Issue #692 stays open.
+source object is constructed here.  Issue #692 is closed bounded under
+its narrowed finite algebraic contract; the source attachment of the
+slot assembly and the nonconstant tower realization are carried by the
+E6 successor (#712), with instrument, continuum, and clock scopes at
+#693, #700, and #703.
 -/
 
 namespace OPH.QFT

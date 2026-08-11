@@ -31,7 +31,9 @@ preregistered and is ineligible as validation.  The generated algebras
 replace the declared pair-groupoid enrichment of the earlier packet at
 the level of one observer's realized label space; no region lattice,
 restriction system, tensor factorisation, physical channel, instrument,
-or prediction is constructed here.  Issue #692 stays open.
+or prediction is constructed here.  Issue #692 is closed bounded under
+its narrowed finite algebraic contract; the source attachment of the
+slot assembly is carried by the E6 successor (#712).
 -/
 
 namespace OPH.QFT

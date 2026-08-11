@@ -26,7 +26,9 @@ generator.  It carries no nonconstant refinement, no source-produced
 tower dynamics, and no physical claim.  The slot assembly and label
 conventions stay declared postprocessors over post-hoc transcriptions,
 ineligible as validation.  The source attachment of the assembly and
-any nonconstant tower realization stay open under issue #692.
+any nonconstant tower realization are carried by the E6 successor
+(#712); issue #692 is closed bounded under its narrowed finite
+algebraic contract.
 -/
 
 namespace OPH.QFT

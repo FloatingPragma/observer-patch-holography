@@ -210,8 +210,25 @@ complete) with the uniform state.  The transported net's ambient algebra
 is definitionally the tower stage's private algebra, every public
 partition member lies in the anchored left region, and the left region
 is a kernel-checked proper subalgebra.  The stage is the constant
-adaptor with the zero generator; the source attachment of the slot
-assembly and any nonconstant tower realization stay open under #692.
+adaptor with the zero generator.
+
+## Closure
+
+Issue #692 is closed bounded under the narrowed finite algebraic
+contract its own closure clause names: genuine coverage, a
+noncommutative region-separating model whose regional algebras are
+generated from source-counted operators, the principled
+conditional-expectation redesign of the excluded restriction interface,
+slot-factor localization consuming the B4 helper, a proper local pinch
+channel, and constant-tower anchoring.  A bounded exploration of the
+retained global snapshot frames found the committed class binning
+tie-unstable under float32 rounding and the raw-configuration quotient
+structureless, so further source attachment of the slot assembly needs
+new instrumentation.  That residual and any nonconstant tower
+realization are carried by the E6 successor (#712); instrument
+provenance, continuum structure, and clocks stay with #693, #700, and
+#703.  The slot assembly and label conventions stay declared
+postprocessors in the closed record, ineligible as validation.
 
 ## Verification
 

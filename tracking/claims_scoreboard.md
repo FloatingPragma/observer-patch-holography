@@ -30,7 +30,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2018`. 93 claims, 18 distinct live gates across 39 gated claims.
+Release: `r2018`. 93 claims, 17 distinct live gates across 37 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -97,7 +97,7 @@ Release: `r2018`. 93 claims, 18 distinct live gates across 39 gated claims.
 | `OPH-THERMO-FOUR-LAW-PACKAGE` | `conditional_implication` | `finite_four_law_package_attained__current_artifact_linear_intertwiner_and_deterministic_pushforward_no_gos__replacement_source_refinement_and_physical_calibration_open` | [#703](https://github.com/FloatingPragma/observer-patch-holography/issues/703), [#725](https://github.com/FloatingPragma/observer-patch-holography/issues/725) |
 | `OPH-THERMO-SOURCE-REALIZATION-AUDIT` | `empirical_implementation` | `bounded_current_artifact_linear_intertwiner_and_deterministic_pushforward_no_gos_attained__nonreversible_h_theorem_probe_only__replacement_source_and_physical_realization_open` | none |
 | `OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION` | `conditional_implication` | `finite_green_kubo_matrix_remainder_projector_obstruction_and_graph_updates_proved__physical_transport_attachment_open` | [#693](https://github.com/FloatingPragma/observer-patch-holography/issues/693), [#703](https://github.com/FloatingPragma/observer-patch-holography/issues/703), [#725](https://github.com/FloatingPragma/observer-patch-holography/issues/725) |
-| `OPH-FINITE-LOCALITY-NOSIGNALLING` | `conditional_implication` | `fixed_word_dependency_and_generic_marginal_identities_proved__declared_adapter_coverage_attained__source_operator_and_region_product_or_channel_attachment_open` | [#692](https://github.com/FloatingPragma/observer-patch-holography/issues/692) |
+| `OPH-FINITE-LOCALITY-NOSIGNALLING` | `conditional_implication` | `fixed_word_dependency_and_generic_marginal_identities_proved__declared_adapter_coverage_attained__source_operator_and_region_product_or_channel_attachment_open` | none |
 | `OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER` | `conditional_implication` | `conditional_adaptive_cone_no_influence_and_declared_refinement_naturality_proved__source_scheduler_channel_and_physical_attachment_open` | [#693](https://github.com/FloatingPragma/observer-patch-holography/issues/693) |
 | `OPH-FINITE-HISTORY-VARIATIONAL-HELPERS` | `conditional_implication` | `derived_action_legendre_bridge_and_reference_normal_form_proved__same_history_real_enrichment_nonidentifiability_attained__source_principle_curvature_and_physical_attachments_open` | [#683](https://github.com/FloatingPragma/observer-patch-holography/issues/683) |
 | `OPH-A5-SEAM-CURRENT-EDGE30` | `conditional_implication` | `exact_source_native_edge_ray_dirichlet_action_conditional_rank_two_transverse_oscillator_formal_observation_map_q_le_one_spatial_remainder_and_exact_synthetic_leading_recovery__higher_order_synthetic_pair_unresolved__fz12_frozen__physical_position_field_clock_frequency_gluing_scale_frame_readout_and_comparison_open` | [#695](https://github.com/FloatingPragma/observer-patch-holography/issues/695), [#696](https://github.com/FloatingPragma/observer-patch-holography/issues/696), [#704](https://github.com/FloatingPragma/observer-patch-holography/issues/704) |
@@ -132,7 +132,7 @@ Release: `r2018`. 93 claims, 18 distinct live gates across 39 gated claims.
 | `OPH-PARADISE` | `declared_structure` | `speculative_interpretation` | none |
 | `OPH-PUBLIC-WORLD-ENDPOINT-FINITE` | `conditional_implication` | `bounded_finite_conditional_endpoint_attained__source_physical_and_cross_regulator_realization_open` | none |
 | `OPH-CANONICAL-LORENTZ-MODULE` | `conditional_implication` | `exact_intrinsic_Lorentz_module_and_Einstein_coordinate_bridge_attained__physical_soldering_open` | none |
-| `OPH-FINITE-CAUSAL-OBSERVER-NET` | `conditional_implication` | `bounded_finite_interface_and_conditional_rich_fibre_block_coverage_packet_attained__post_hoc_source_operator_generation_and_slot_factor_receipts_attained__cp_restriction_redesign_two_slot_diamond_and_constant_tower_anchoring_attained__source_attachment_open` | [#692](https://github.com/FloatingPragma/observer-patch-holography/issues/692) |
+| `OPH-FINITE-CAUSAL-OBSERVER-NET` | `conditional_implication` | `closed_bounded_under_narrowed_finite_algebraic_contract__source_operator_generation_slot_factor_receipts_cp_restriction_redesign_and_constant_tower_anchoring_attained__slot_assembly_source_attachment_carried_by_e6_successor` | none |
 | `OPH-FINITE-HOLONOMY-CHARACTER-PHASE` | `conditional_implication` | `bounded_finite_holonomy_and_character_phase_packet_attained__physical_attachment_open` | none |
 | `OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING` | `conditional_implication` | `bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open` | none |
 | `OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX` | `conditional_implication` | `partial_structural_status_matrix__bijective_sector_surrogate_and_finite_KMS_core_attained__full_E4_open` | [#701](https://github.com/FloatingPragma/observer-patch-holography/issues/701) |
@@ -143,7 +143,6 @@ Release: `r2018`. 93 claims, 18 distinct live gates across 39 gated claims.
 |---|---|---|
 | [#683](https://github.com/FloatingPragma/observer-patch-holography/issues/683) | [B7] Conditional history weights and the finite/real variation bridge | `OPH-FINITE-HISTORY-VARIATIONAL-HELPERS`, `OPH-GAUGE-KINETIC-HISTORY-BINDING` |
 | [#685](https://github.com/FloatingPragma/observer-patch-holography/issues/685) | [B9] Spectral information theory | `OPH-FINITE-QUANTUM-LIMITATION-SUITE` |
-| [#692](https://github.com/FloatingPragma/observer-patch-holography/issues/692) | [E1] Finite causal observer net | `OPH-FINITE-LOCALITY-NOSIGNALLING`, `OPH-FINITE-CAUSAL-OBSERVER-NET` |
 | [#693](https://github.com/FloatingPragma/observer-patch-holography/issues/693) | [E2] Joint refinement toward the locally covariant limit | `OPH-UNIFIED-TYPED-SPINE`, `OPH-CONS-D1`, `OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION`, `OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER` |
 | [#694](https://github.com/FloatingPragma/observer-patch-holography/issues/694) | [F1] Einstein-branch continuation | `OPH-UNIFIED-TYPED-SPINE`, `OPH-GR-E2E-BRANCH-ENTRY`, `OPH-GR-D6-HORIZON-RECORD`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM`, `OPH-FINITE-CONSERVATION-WARD-PRECURSOR` |
 | [#695](https://github.com/FloatingPragma/observer-patch-holography/issues/695) | [G1] Custody and comparisons (standing) | `OPH-WZ-STRICT-1L-POLE-MAP`, `OPH-A5-SEAM-CURRENT-EDGE30` |
