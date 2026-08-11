@@ -579,64 +579,22 @@ Sous clôture complète, la boucle répond à la dernière question qu’une th�
 du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est
 ainsi.
 
-## Obligations de preuve ouvertes et frontière de falsification
+## Problèmes ouverts et frontière de falsification
 
-La reconstruction va des trois axiomes à une théorie quantique publique, à une
-géométrie des événements et à une description macroscopique de l’espace-temps.
-La cible principale est le lagrangien du Modèle standard. Le calcul fini exact
-réduit maintenant de trois à deux les poids cinétiques de chaque famille
-porteuse de couleur, tandis qu’une comparaison déclarée à partir des faces
-favorise conditionnellement une famille compacte. Il ne dérive pas encore la
-règle de comparaison, les couplages relatifs, la normalisation de
-l’hypercharge ni une action issue de la source. L’attachement de la matière et
-du secteur scalaire reste ouvert, et un désaccord avec le Modèle standard est
-une sortie permise plutôt qu’un résultat que le protocole peut ajuster. Voir le
-[programme d’action effective](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
+La reconstruction va des trois axiomes vers une théorie quantique
+publique, une géométrie des événements, une description macroscopique de
+l'espace-temps et, au bout de la chaîne, le lagrangien du Modèle
+Standard. Certains maillons de cette chaîne sont prouvés, d'autres le
+sont sous forme bornée, d'autres sont ouverts. Chaque étape ouverte est
+une [question de recherche](https://github.com/FloatingPragma/observer-patch-holography/issues)
+suivie avec ses dépendances, et chaque affirmation des articles porte sa
+propre note de portée. Un désaccord avec le Modèle Standard à une étape
+quelconque est un résultat admis que le protocole ne peut pas ajuster
+pour l'éviter.
 
-Les autres objectifs majeurs :
-
-- **Un courant et une holonomie dérivés de la source sur le porteur à douze
-  ports.** La réponse enregistrée engendre une algèbre commutative exactement
-  de dimension quatre : elle ne fournit ni douze générateurs indépendants ni
-  un commutateur non nul, et les deux complétions faciles sont exclues. La
-  construction de l’objet de courant fini est ouverte.
-  [Courant et holonomie](https://github.com/FloatingPragma/observer-patch-holography/issues/705).
-- **Matière finie et action de Spin sélectionnées par la source**, avec la
-  période abélienne primitive, le réseau de caractères et la forme globale de
-  jauge qui fixent le quotient familier.
-  [Matière et action de Spin](https://github.com/FloatingPragma/observer-patch-holography/issues/706),
-  [forme globale de jauge](https://github.com/FloatingPragma/observer-patch-holography/issues/707).
-- **Un réseau localement covariant sur la tour d’observateurs construite.** La
-  catégorie finie des régions d’événements et son foncteur observable
-  covariant sont construits. L’algèbre limite et la propriété de tranche
-  temporelle sont ouvertes. Sur les sept cibles d’héritage structurel, qui
-  couvrent CPT, la statistique de spin, les secteurs de supersélection et la
-  diffusion, deux sont énonçables contre le réseau construit et cinq nomment
-  la structure exacte qui manque.
-  [Réseau covariant](https://github.com/FloatingPragma/observer-patch-holography/issues/700),
-  [héritage structurel](https://github.com/FloatingPragma/observer-patch-holography/issues/701).
-- **La matrice de prémisses de la branche d’Einstein.** Chaque ligne est
-  déchargée sur une même tour commune avant que la branche compte comme
-  clôture d’Einstein. L’[échelle des prémisses de gravité](docs/GRAVITY_PREMISE_LADDER.md)
-  porte les onze échelons avec le statut et le responsable de chacun.
-  [Continuation d’Einstein](https://github.com/FloatingPragma/observer-patch-holography/issues/694).
-- **Des horloges opérationnelles réalisées par la source**, qui fournissent un
-  temps physique sans fabriquer la direction qu’elles vérifient ensuite.
-  [Horloges opérationnelles](https://github.com/FloatingPragma/observer-patch-holography/issues/703).
-- **Constantes, masses des particules et mélanges.** Ce sont des sorties de la
-  dernière vague, conditionnées par la reconstruction ci-dessus plutôt que
-  moteurs de celle-ci.
-  [Constantes](https://github.com/FloatingPragma/observer-patch-holography/issues/696),
-  [masses et mélanges](https://github.com/FloatingPragma/observer-patch-holography/issues/697).
-
-Les [questions de recherche cadrées](https://github.com/FloatingPragma/observer-patch-holography/issues) portent l’ensemble complet avec
-leurs dépendances. Tout système physique proposé dans ces programmes est
-représenté comme une parcelle bornée et auto-lectrice munie d’un dossier
-public de preuves.
-
-Le [programme de vérification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) se limite
-aux affirmations mathématiques et aux branches réalisées suffisamment mûres.
-Il sert d’index de vérification plutôt que de récit principal du dépôt.
+Le [programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md)
+recense les affirmations mûres avec les observations exactes qui les
+briseraient.
 
 ## Guide du dépôt
 

@@ -539,61 +539,21 @@ everything can be asked: why anything exists, and why it is the way it is.
 The universe is the unique structure consistent with reading itself into
 existence.
 
-## Open Proof Obligations And Falsification Boundary
+## Open Problems And The Falsification Boundary
 
-The reconstruction runs from the three axioms to a public quantum theory,
-event geometry, and a macroscopic spacetime description. The main target is
-the Standard Model Lagrangian. Exact finite work narrows each color-family
-kinetic form from three carrier weights to two, while a declared face-based
-comparison conditionally favors one compact family. It does not derive
-the comparison rule, relative couplings, hypercharge normalization, or a
-source action. Matter and scalar attachment are open, and a mismatch with
-the Standard Model is an allowed outcome rather than something the protocol
-may tune away.
-See the [effective-action program](https://github.com/FloatingPragma/observer-patch-holography/issues/716).
+The reconstruction runs from the three axioms toward a public quantum
+theory, event geometry, a macroscopic spacetime description, and, at the
+end of the chain, the Standard Model Lagrangian. Some links in that chain
+are proved, some are proved in bounded form, and some are open. Each open
+step is a tracked
+[research question](https://github.com/FloatingPragma/observer-patch-holography/issues)
+with its dependencies, and every claim in the papers carries its own scope
+note. A mismatch with the Standard Model at any step is an allowed outcome
+that the protocol may not tune away.
 
-The other major goals:
-
-- **A source-derived current and holonomy on the twelve-port carrier.** The
-  registered response generates an exactly four-dimensional commutative
-  algebra, so it supplies neither twelve independent generators nor a nonzero
-  commutator, and both easy completions are excluded. Constructing the finite
-  current object is open.
-  [Current and holonomy](https://github.com/FloatingPragma/observer-patch-holography/issues/705).
-- **Source-selected finite matter and a Spin action**, together with the
-  primitive abelian period, character lattice, and global gauge form that fix
-  the familiar quotient.
-  [Matter and Spin action](https://github.com/FloatingPragma/observer-patch-holography/issues/706),
-  [global gauge form](https://github.com/FloatingPragma/observer-patch-holography/issues/707).
-- **A locally covariant net over the constructed observer tower.** The finite
-  event-region category and its covariant observable functor are built. The
-  limit algebra and the time-slice property are open. Of the seven structural
-  inheritance targets, covering CPT, spin-statistics, superselection sectors,
-  and scattering, two are statable against the constructed net and five name
-  the exact structure that is absent.
-  [Covariant net](https://github.com/FloatingPragma/observer-patch-holography/issues/700),
-  [structural inheritance](https://github.com/FloatingPragma/observer-patch-holography/issues/701).
-- **The Einstein-branch premise matrix.** Every row is discharged on one
-  common tower before the branch counts as Einstein closure. The
-  [gravity premise ladder](docs/GRAVITY_PREMISE_LADDER.md) carries the eleven
-  rungs with the status and owner of each.
-  [Einstein continuation](https://github.com/FloatingPragma/observer-patch-holography/issues/694).
-- **Source-realized operational clocks** that supply physical time without
-  manufacturing the direction they later verify.
-  [Operational clocks](https://github.com/FloatingPragma/observer-patch-holography/issues/703).
-- **Constants, particle masses, and mixings.** These are outputs of the final
-  wave, gated on the reconstruction above rather than drivers of it.
-  [Constants](https://github.com/FloatingPragma/observer-patch-holography/issues/696),
-  [masses and mixings](https://github.com/FloatingPragma/observer-patch-holography/issues/697).
-
-The [scoped research questions](https://github.com/FloatingPragma/observer-patch-holography/issues)
-carry the full set with their dependencies. Every proposed physical system in
-these programs is represented as a bounded, self-reading patch with a public
-evidence bundle.
-
-The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is limited
-to mature mathematical and realized-branch claims. It is a verification
-index rather than the organizing narrative of the repository.
+The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) lists
+the mature claims together with the exact observations that would break
+them.
 
 ## Choose A Reading Path
 
