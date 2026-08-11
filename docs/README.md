@@ -5,18 +5,15 @@ question a reader usually has: how does the argument work, where is each claim
 proved, and what observation could defeat it?
 
 If you are new to OPH, the strongest starting material lives outside this
-directory. The book [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/)
-([print PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf))
-tells the whole story of the theory, its discovery, and the case that the
-observer-first turn is the one physics has been circling for a century, in a
-form written to be enjoyed. The [OPH textbooks](https://learn.floatingpragma.io/) work through
-every basic derivation with the math taught along the way. The
+directory. The [flagship paper](../flagship/from_observer_consensus_to_standard_physics.pdf)
+states the primary technical account. The [OPH textbooks](https://learn.floatingpragma.io/) work through
+the basic derivations with the math taught along the way. The
 [interactive simulation](https://simulation.floatingpragma.io/) renders real
 run data so you can watch the universe assemble itself.
 
 ## Three Reading Routes
 
-- **First encounter:** the [book](https://oph-book.floatingpragma.io/), the
+- **First encounter:** the [flagship paper](../flagship/from_observer_consensus_to_standard_physics.pdf),
   [textbooks](https://learn.floatingpragma.io/), and the
   [simulation](https://simulation.floatingpragma.io/) above, then the
   [compact case](../extra/compact_proof_of_oph.pdf) and the repository

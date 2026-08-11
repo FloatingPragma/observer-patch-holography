@@ -2,7 +2,7 @@
 
 > La réalité est le monde public stable reconstruit par des observateurs finis et auto-lecteurs qui comparent leurs recouvrements et réparent leurs désaccords.
 
-[Read in English](README.md) · [Livre](https://oph-book.floatingpragma.io/) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
+[Read in English](README.md) · [Article phare](flagship/from_observer_consensus_to_standard_physics.pdf) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
 
 L’Holographie des parcelles d’observateur, ou OPH, est un programme de
 recherche pour une théorie du tout sans boutons de réglage, construit sur une
@@ -45,12 +45,8 @@ où les résultats finis exacts restent distincts des identifications physiques
 ouvertes. Le matériel ci-dessous vous fait traverser ce basculement sans
 prérequis.
 
-- **Le livre.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/),
-  aussi disponible en [PDF qualité impression](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf),
-  raconte toute l’histoire : ce que dit la théorie, comment elle a été
-  découverte, et pourquoi le tournant observateur-d’abord est celui que la
-  physique contourne depuis un siècle. Il est écrit pour divertir et la
-  science y reste exacte.
+- **L’article phare.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
+  donne le compte rendu technique principal de la reconstruction fondée sur les observateurs.
 - **Les manuels.** Les [manuels OPH](https://learn.floatingpragma.io/)
   enseignent la théorie par le chemin long. Chaque dérivation de base y est
   développée en entier, avec les mathématiques nécessaires construites au fur
@@ -540,8 +536,8 @@ Il sert d’index de vérification plutôt que de récit principal du dépôt.
 
 ## Explorer OPH
 
-- [Le livre, édition web](https://oph-book.floatingpragma.io)
-- [Le livre, PDF d’impression](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf)
+- [L’article phare](flagship/from_observer_consensus_to_standard_physics.pdf)
+- [Index des articles](paper/)
 - [Manuels](https://learn.floatingpragma.io)
 - [Simulation interactive](https://simulation.floatingpragma.io)
 - [Applications et matériel OMEGA](https://omega.floatingpragma.io)

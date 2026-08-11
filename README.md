@@ -2,7 +2,7 @@
 
 > Reality is the stable public world reconstructed by finite, self-reading observers that compare their overlaps and repair disagreement.
 
-[Read in French](README_FR.md) · [Paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Book](https://oph-book.floatingpragma.io/) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/)
+[Read in French](README_FR.md) · [Flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/)
 
 Observer Patch Holography (OPH) is a zero-dial theory-of-everything research
 program built on one central thesis: **observers are primary, and objective
@@ -37,11 +37,6 @@ foundation. Spacetime, matter, and the constants become precise reconstruction
 problems, with exact finite results and open physical identifications kept
 apart. The material below takes you through that shift from a standing start.
 
-- **The book.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/),
-  also available as a [print-quality PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf),
-  tells the whole story: what the theory says, how it was discovered, and why
-  the observer-first turn is the one physics has been circling for a century.
-  It is written to entertain and it keeps the science exact.
 - **The flagship paper.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
   gives the primary technical account of the observer-first reconstruction.
 - **The textbooks.** The [OPH textbooks](https://learn.floatingpragma.io/)
@@ -526,7 +521,7 @@ The [paper index](paper/) gives the curated publication map. Focused research PD
 - [`paper/`](paper): core papers, TeX sources, PDFs, and release metadata.
 - [`extra/`](extra): the published compact proof plus repository-only focused research PDFs.
 - [`code/`](code): certificates, simulations, particle calculations, and experiments.
-- [`book/`](book): the book source and downloadable PDF.
+- [`book/`](book): legacy book source and downloadable PDF, retained outside the primary reading path.
 - [`cosmology/`](cosmology): dark-sector and cosmology research.
 - [`physics-problems/`](physics-problems): focused applications and open-problem notes.
 - [`docs/`](docs): claim policy, falsification program, and technical audit material.
@@ -539,8 +534,8 @@ cited here.
 
 ## Explore OPH
 
-- [The book, web edition](https://oph-book.floatingpragma.io)
-- [The book, print PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf)
+- [The flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf)
+- [Core paper index](paper/)
 - [Textbooks](https://learn.floatingpragma.io)
 - [Interactive simulation](https://simulation.floatingpragma.io)
 - [OMEGA applications and hardware](https://omega.floatingpragma.io)
