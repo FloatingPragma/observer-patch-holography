@@ -335,8 +335,14 @@ Mapping between Lean 4 theorems in this project and statements in
   the earlier cover type lacked, and is inhabited by the designated-pair
   diamond with a proper generating slot pair, explicit Kraus-certified
   expectations, a proper Heisenberg pinch channel fixing the disjoint
-  slot, and the instantiated scalar-homomorphism obstruction.  Anchoring
-  over the A3 tower stays open.
+  slot, and the instantiated scalar-homomorphism obstruction.  The diamond is anchored over one
+  constant A3 tower stage (`QFT/TowerAnchoredDiamond.lean`): nets
+  transport along ambient star equivalences with every receipt, the
+  stage's public layer is spanned by the reindexed lifted checkpoint
+  partition (proper, orthogonal, complete) with the uniform state, the
+  net's ambient is definitionally the stage's private algebra, and the
+  partition members lie in the proper anchored left region. Source
+  attachment of the assembly stays open.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and

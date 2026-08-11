@@ -25,6 +25,7 @@ import QFT.SourceOperatorGeneration
 import QFT.JointSlotFactorisation
 import QFT.CPRestrictionNet
 import QFT.TwoSlotCPNetWitness
+import QFT.TowerAnchoredDiamond
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.TwoFactorHistoryBinding

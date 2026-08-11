@@ -419,8 +419,11 @@ surface for the OPH consensus layer. Contents:
   excludes above matrix factors, a joint-coverage law is part of the
   interface, and the designated pair inhabits the resulting diamond with
   Kraus-certified expectations, a proper local pinch channel fixing the
-  disjoint slot, and coverage by the two slot regions. Tower anchoring
-  stays with issue #692.
+  disjoint slot, and coverage by the two slot regions. `QFT/TowerAnchoredDiamond.lean` anchors the diamond over one constant
+  A3 tower stage whose public layer is spanned by the reindexed lifted
+  checkpoint partition and whose ambient is definitionally the stage's
+  private algebra; the source attachment of the slot assembly stays with
+  issue #692.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and

@@ -199,9 +199,19 @@ proves that no unital algebra homomorphism carries the left regional
 algebra to the scalars, so the star-homomorphic interface is
 uninhabitable over this diamond.
 
-The witness carries no tower stage: anchoring the diamond over the A3
-tower through a basis equivalence to a constant tower stage, and the
-source attachment of the slot assembly, stay open under #692.
+`QFT/TowerAnchoredDiamond.lean` anchors the diamond over one constant
+A3 tower stage.  A basis equivalence of the joint slot space with
+`Fin 182` induces a star-algebra equivalence of the ambient algebras;
+the generic `CPRegionalNet.transport` carries a net along any such
+equivalence with every interface receipt; and the constant tower stage
+at dimension 182 carries the reindexed lifted checkpoint partition as
+its public layer (members kernel-checked proper, pairwise orthogonal,
+complete) with the uniform state.  The transported net's ambient algebra
+is definitionally the tower stage's private algebra, every public
+partition member lies in the anchored left region, and the left region
+is a kernel-checked proper subalgebra.  The stage is the constant
+adaptor with the zero generator; the source attachment of the slot
+assembly and any nonconstant tower realization stay open under #692.
 
 ## Verification
 

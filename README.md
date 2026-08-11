@@ -289,7 +289,7 @@ readers, with the boundary of each stated at the link:
   overlap evidence is open. See the
   [overlap proof](Lean/QFT/OperationalOverlapEvidence.lean).
 
-The supporting Lean library contains more than 4600 theorems and lemmas and no
+The supporting Lean library contains more than 4700 theorems and lemmas and no
 admitted proofs. Explicit axiom reports cover the audited theorem subset.
 Twenty-three finite proofs use `native_decide`; their generated native-code
 evaluation axioms extend the trust base beyond kernel-only checking. See
