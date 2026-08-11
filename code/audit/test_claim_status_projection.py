@@ -285,9 +285,9 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
         "OPH-FINITE-LOCALITY-NOSIGNALLING": [],
         "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER": [693],
         "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
-        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
+        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [],
         "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [693, 703, 725],
-        "OPH-GAUGE-KINETIC-HISTORY-BINDING": [683, 705, 716],
+        "OPH-GAUGE-KINETIC-HISTORY-BINDING": [705, 716],
     }
     for claim_id, gates in expected_gates.items():
         claim = by_id[claim_id]

@@ -139,3 +139,23 @@ The multiplier selection gap therefore closes onto the declared level:
 the level is a source literal and the intermediate-value receipt matches
 a multiplier to it, while no packet-internal rule can produce the
 multiplier without that level.
+
+## Stationary-saddle coverage and the bounded closure
+
+`Variational/StationarySaddleCoverage.lean` certifies the scoped
+negative for stationary-point coverage: the three-record zero history
+under the concave two-point Lagrangian satisfies the discrete
+Euler-Lagrange stationarity condition with explicit derivative
+witnesses, fails minimality against the unit variation, and carries
+strictly smaller Gibbs weight than that variation at every positive
+multiplier.  The projection tracks minimizers and provably misses
+stationary points.
+
+With the reference source-selected, the multiplier bounded to the
+declared constraint level, and the coverage question closed negatively,
+the finite gaps of issue #683 are discharged.  The physical action,
+time, current, amplitude, field, and continuum attachments carry the
+committed finite-variation, Legendre, and multiplier obstructions; their
+production is owned by the operational-clock, Born-bridge, and
+continuum successors.  Issue #683 is closed bounded under those scoped
+exits.

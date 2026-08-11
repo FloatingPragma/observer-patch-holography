@@ -41,8 +41,10 @@ identification of that committed input, and the trivial datum is the
 no-visible-information case of the Axiom-3 fibre structure.  No physical
 unit, clock, current, amplitude, field, or continuum object is
 constructed, and the multiplier's constraint level stays a source
-literal rather than a packet-internal function.  Issue #683 stays open
-on its remaining finite and physical attachments.
+literal rather than a packet-internal function.  Issue #683 is closed bounded
+under its scoped exits: the finite gaps are discharged here and in the
+committed packet modules, and the physical attachments carry committed
+obstructions with their production owned by the named successors.
 -/
 
 namespace OPH.InformationProjection
