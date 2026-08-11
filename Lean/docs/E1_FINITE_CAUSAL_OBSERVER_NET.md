@@ -171,6 +171,38 @@ tower.  The factor-identification corollaries recycle the generation
 theorems through the slot embeddings and are not independent results.
 Issue #692 stays open on the source-attached net packet.
 
+## Conditional-expectation net redesign and the two-slot witness
+
+`QFT/CPRestrictionNet.lean` executes the restriction-interface redesign
+the reopening authorizes.  A `CPRegionalNet` carries the finite region
+poset, overlaps, disjointness, regional star subalgebras, isotony, and
+locality of the committed interface, and replaces the star-homomorphic
+restrictions, whose scalar-character instances the repository's own
+obstruction excludes, by one conditional expectation per region:
+membership, pointwise fixing, positivity, and trace preservation are
+fields with the tower law along inclusion; idempotence, unitality, and
+the retraction of isotony are theorems.  A `coverage` field states the
+joint law the earlier `FiniteCover` type lacked.  The generic two-slot
+theorem proves that the left and right slot embeddings of any product
+index generate the full matrix algebra.
+
+`QFT/TwoSlotCPNetWitness.lean` inhabits the interface with the
+designated pair as a diamond: scalar bottom, the two slot regions
+carrying the identified source-generated algebras, full top,
+slot-commutation locality, the normalized trace and the two
+partial-trace slot expectations (each with a matrix-unit Kraus identity
+and a positivity receipt), and coverage discharged by the proper slot
+pair.  The checkpoint pinch channel is proper (all four projectors
+kernel-checked nonzero and non-identity) and fixes every right-slot
+observable pointwise in Heisenberg form.  The instantiated obstruction
+proves that no unital algebra homomorphism carries the left regional
+algebra to the scalars, so the star-homomorphic interface is
+uninhabitable over this diamond.
+
+The witness carries no tower stage: anchoring the diamond over the A3
+tower through a basis equivalence to a constant tower stage, and the
+source attachment of the slot assembly, stay open under #692.
+
 ## Verification
 
 The targeted build order is:

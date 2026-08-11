@@ -162,27 +162,29 @@ theorem sum_indicator_val {n : ℕ} (c : ℕ) (hc : c < n) :
   simp_rw [hcond]
   simp
 
+/-- The checkpoint projectors are self-adjoint. -/
+theorem chk86_conjTranspose (v : Fin 4) : (chk86 v)ᴴ = chk86 v := by
+  unfold chk86
+  rw [Matrix.diagonal_conjTranspose]
+  congr 1
+  funext s
+  by_cases h : obs86.tbl s 1 = (v : ℕ) <;> simp [h, Pi.star_apply]
+
+/-- The checkpoint projectors are idempotent. -/
+theorem chk86_idem (v : Fin 4) : chk86 v * chk86 v = chk86 v := by
+  unfold chk86
+  rw [Matrix.diagonal_mul_diagonal]
+  congr 1
+  funext s
+  by_cases h : obs86.tbl s 1 = (v : ℕ) <;> simp [h]
+
 /-- The checkpoint projectors form a complete Kraus family. -/
 theorem chk86_complete :
     ∑ v : Fin 4, (chk86 v)ᴴ * chk86 v = 1 := by
-  have hsa : ∀ v : Fin 4, (chk86 v)ᴴ = chk86 v := by
-    intro v
-    unfold chk86
-    rw [Matrix.diagonal_conjTranspose]
-    congr 1
-    funext s
-    by_cases h : obs86.tbl s 1 = (v : ℕ) <;> simp [h, Pi.star_apply]
-  have hidem : ∀ v : Fin 4, chk86 v * chk86 v = chk86 v := by
-    intro v
-    unfold chk86
-    rw [Matrix.diagonal_mul_diagonal]
-    congr 1
-    funext s
-    by_cases h : obs86.tbl s 1 = (v : ℕ) <;> simp [h]
   calc ∑ v : Fin 4, (chk86 v)ᴴ * chk86 v
       = ∑ v : Fin 4, chk86 v := by
         refine Finset.sum_congr rfl fun v _ => ?_
-        rw [hsa v, hidem v]
+        rw [chk86_conjTranspose v, chk86_idem v]
     _ = 1 := by
         unfold chk86
         have hds : (∑ v : Fin 4, Matrix.diagonal fun s =>
@@ -202,6 +204,15 @@ theorem chk86_complete :
           funext s
           exact sum_indicator_val _ (chk86_value_lt s)
         rw [hone, Matrix.diagonal_one]
+
+/-- The checkpoint projectors sum to the identity. -/
+theorem chk86_sum : ∑ v : Fin 4, chk86 v = 1 := by
+  have h := chk86_complete
+  calc ∑ v : Fin 4, chk86 v
+      = ∑ v : Fin 4, (chk86 v)ᴴ * chk86 v := by
+        refine Finset.sum_congr rfl fun v _ => ?_
+        rw [chk86_conjTranspose v, chk86_idem v]
+    _ = 1 := h
 
 /-- The checkpoint Kraus operators live inside the identified left
 slot. -/

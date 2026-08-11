@@ -328,6 +328,15 @@ Mapping between Lean 4 theorems in this project and statements in
   fixed-slot, scalarisation, and idempotence receipts. The extraction is
   post-hoc and ineligible as validation, the slot assembly is a declared
   postprocessor, and no region lattice over the tower is constructed.
+  The redesigned interface (`QFT/CPRestrictionNet.lean`,
+  `QFT/TwoSlotCPNetWitness.lean`) replaces the excluded star-homomorphic
+  scalar restrictions by conditional expectations with membership,
+  fixing, positivity, trace, and tower laws, adds the joint-coverage law
+  the earlier cover type lacked, and is inhabited by the designated-pair
+  diamond with a proper generating slot pair, explicit Kraus-certified
+  expectations, a proper Heisenberg pinch channel fixing the disjoint
+  slot, and the instantiated scalar-homomorphism obstruction.  Anchoring
+  over the A3 tower stays open.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and
