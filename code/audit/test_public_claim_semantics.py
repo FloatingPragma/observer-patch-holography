@@ -11,18 +11,16 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def _highlight_blocks(text: str, heading: str, terminator: str) -> list[str]:
+    """Return the numbered receipt sections between the heading and terminator.
+
+    Receipts are discovered by their numbered subheadings, so adding or
+    removing one changes the returned list rather than breaking the parse.
+    """
     start = text.index(heading)
     body = text[start : text.index(terminator, start)]
-    blocks: list[str] = []
-    for number in range(1, 9):
-        block_start = body.index(f"{number}. **")
-        block_end = (
-            body.index(f"{number + 1}. **", block_start)
-            if number < 8
-            else len(body)
-        )
-        blocks.append(body[block_start:block_end])
-    return blocks
+    starts = [match.start() for match in re.finditer(r"(?m)^### \d+\. ", body)]
+    bounds = starts + [len(body)]
+    return [body[bounds[i] : bounds[i + 1]] for i in range(len(starts))]
 
 
 def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
@@ -57,49 +55,72 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
         assert not forbidden.search(text), f"{name} restores the obsolete window kill rule"
 
     compact = surfaces["compact"].read_text(encoding="utf-8").lower()
-    readme = surfaces["English README"].read_text(encoding="utf-8").lower()
+    readme = " ".join(surfaces["English README"].read_text(encoding="utf-8").lower().split())
+    french = " ".join(surfaces["French README"].read_text(encoding="utf-8").lower().split())
     assert "more than three" in compact and "standard uncertainties" in compact
-    assert re.search(r"target-informed\s+conditional\s+postdiction", readme)
+    assert "rather than a prediction made in advance" in readme
+    assert "plutôt qu’une prédiction posée à l’avance" in french
 
 
 def test_readme_highlights_remain_short_and_reader_facing() -> None:
+    # Each receipt is one plain-language paragraph plus one status paragraph.
+    # The French renderings run longer than the English for the same content,
+    # so each surface carries its own word budget.
     surfaces = [
         (
             ROOT / "README.md",
-            "## Eight Reproducible Physics Receipts",
-            "Beyond the eight receipts",
+            "Reproducible Physics Receipts",
+            "### Further results",
+            "**Status.**",
+            290,
         ),
         (
             ROOT / "README_FR.md",
-            "## Huit reçus de physique reproductibles",
-            "Au-delà des huit reçus",
+            "reçus de physique reproductibles",
+            "### Résultats supplémentaires",
+            "**État.**",
+            330,
         ),
     ]
-    for path, heading, terminator in surfaces:
+    for path, heading, terminator, status, word_budget in surfaces:
         text = path.read_text(encoding="utf-8")
-        for number, block in enumerate(
-            _highlight_blocks(text, heading, terminator), start=1
-        ):
+        blocks = _highlight_blocks(text, heading, terminator)
+        assert len(blocks) >= 8, f"{path.name} lists {len(blocks)} receipts"
+        for number, block in enumerate(blocks, start=1):
+            assert status in block, (
+                f"{path.name} receipt {number} drops the technical status"
+            )
+            body = block.split("\n", 1)[1]
+            paragraphs = [para for para in body.split("\n\n") if para.strip()]
+            assert len(paragraphs) == 2, (
+                f"{path.name} receipt {number} has {len(paragraphs)} paragraphs; "
+                "one plain-language reading plus one status paragraph"
+            )
+            assert not paragraphs[0].startswith("**"), (
+                f"{path.name} receipt {number} opens with a label instead of prose"
+            )
             prose = re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", block)
             words = re.findall(r"\b[\wÀ-ÿ]+(?:[-’'][\wÀ-ÿ]+)*\b", prose)
-            assert len(words) <= 100, (
+            assert len(words) <= word_budget, (
                 f"{path.name} receipt {number} has {len(words)} words; "
                 "proof inventories belong in the linked technical surfaces"
             )
-            assert len(re.findall(r"\]\(", block)) <= 3, (
-                f"{path.name} receipt {number} links more than three destinations"
+            assert len(re.findall(r"\]\(", block)) <= 4, (
+                f"{path.name} receipt {number} links more than four destinations"
             )
 
-    english = (ROOT / "README.md").read_text(encoding="utf-8")
-    french = (ROOT / "README_FR.md").read_text(encoding="utf-8")
-    assert "**The four laws form an exact conditional finite package.**" in english
+    # Flattened so the checks survive the line wrapping of the README prose.
+    english = " ".join((ROOT / "README.md").read_text(encoding="utf-8").split())
+    french = " ".join((ROOT / "README_FR.md").read_text(encoding="utf-8").split())
+    assert "exact conditional finite package" in english
     assert "conditional finite theorem package" not in english.lower()
-    assert "72-eV-wide interval" in english
+    assert "72 eV window" in english
     assert "lands within 72 eV" not in english
-    assert "intervalle large de 72 eV" in french
+    assert "fenêtre de 72 eV" in french
     assert "tombe à 72 eV" not in french
     assert re.search(r"separately\s+specified matter structure", english)
-    assert "Two declared twelve-port wave" in english
+    assert "two candidate rules" in english.lower()
+    assert "deux règles candidates" in french.lower()
 
 
 def test_active_v2_owner_display_separates_historical_milestones() -> None:

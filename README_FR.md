@@ -72,94 +72,208 @@ mesures admissibles.
 
 ## Huit reçus de physique reproductibles
 
-Ces résultats publics renvoient directement à leurs articles, preuves,
-données et certificats :
+Huit résultats que chacun peut vérifier. Chaque entrée donne le résultat en
+langage courant, ce qu’il signifie pour l’image du monde, puis l’endroit où
+vivent les preuves, les données et les certificats.
 
-1. **L’espace tridimensionnel émerge de l’algèbre des registres de
-   réparation.** La réponse déclarée sur douze ports contient une complétion
-   euclidienne abstraite exacte en trois dimensions. Additionner les registres
-   de comparaison et compléter leur distance donne l’espace continu ordinaire,
-   sans supposer de grille. L’identification physique de ces points et de leur
-   échelle est en cours. Voir l’
-   [article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
-   la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean)
-   et les [données finies de signature](evidence/einstein_convergence/).
-2. **Une algèbre finie d’effets déclarée admet la représentation de Born.**
-   Toute valuation normalisée, non négative et additive sur toutes les sommes
-   d’effets coexistants est la trace contre une unique matrice de densité, y
-   compris en dimension deux. Le couple actuel expose algébriquement la
-   direction de phase complexe manquante, mais ne produit ni l’instrument ni
-   ses résultats. L’additivité opérationnelle et la validation physique
-   restent ouvertes. Voir l’
-   [article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
-   la [preuve des registres publics](Lean/EventAlgebra/PublicRecordAlgebra.lean)
-   et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-3. **Les flots de symétrie finis et les lois d’histoire admettent des
-   représentations exactes par une action.** Sur une algèbre étoilée unitaire
-   finie, tout flot continu d’automorphismes est hamiltonien par blocs. Pour
-   une chaîne de Markov positive, l’action
-   logarithmique représente sa loi des chemins à deux jauges près. Séparément,
-   Legendre relie les jonctions d’Euler--Lagrange aux pas hamiltoniens.
-   Les mêmes histoires binaires admettent plusieurs enrichissements réguliers et
-   hamiltoniens ; la règle d’enrichissement, les unités, les horloges et
-   l’attachement physique restent ouverts. Voir
-   l’[article sur les observateurs](paper/observers_are_all_you_need.pdf) et la
-   [preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean).
-4. **Les quatre lois forment un paquet fini conditionnel exact.** Une référence
-   fidèle commune et la fibre complète de l’information visible réparée donnent
-   l’équilibre, la contraction de l’entropie, le bilan chaleur-travail et une
-   borne de basse température. Pour la paire état-transition épinglée, les
-   obstructions exactes excluent un entrelacement dynamique non dégénéré et une
-   image directe empirique déterministe. Un couplage justifié séparément ou une
-   autre source, le contrôle sous raffinement et l’étalonnage physique sont
-   ouverts. Voir l’
-   [article sur les observateurs](paper/observers_are_all_you_need.pdf), la
-   [preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
-   et l’[obstruction source](Lean/Thermodynamics/CommonReferenceObstruction.lean).
-5. **La structure de jauge du Modèle standard issue de douze ports.** La
-   géométrie, la réponse réversible complète et l’accord des observateurs
-   retrouvent les symétries des forces forte, faible et électromagnétique. Une
-   structure de matière déclarée
-   séparément donne leur forme globale familière
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. Les symétries supplémentaires
-   responsables de la désintégration du proton dans l’unification minimale
-   n’apparaissent pas. Dériver la matière et les champs physiques depuis la
-   source est en cours. Voir l’
-   [article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-   la [preuve Lean de jauge](Lean/Screen/A5OPH.lean) et la
-   [preuve de la forme globale](Lean/Screen/Z6Descent.lean).
-6. **Une génération de matière issue d’une recherche finie.** Dans l’ensemble
-   des possibilités déclarées, le balayage exhaustif laisse les quinze états et
-   les charges exactes d’une génération du Modèle standard, avec annulation de
-   toutes les anomalies. Une sélection finie distincte donne un candidat de
-   rang trois pour les familles. Le travail restant relie ces structures aux
-   particules physiques et exclut les secteurs légers supplémentaires. Voir l’
-   [article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
-   la [preuve Lean de sélection](Lean/Screen/ExteriorSelection.lean) et la
-   [preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
-7. **La relation de Koide devient un théorème.** Une réponse hermitienne $C_3$
-   donne la relation exacte, dans la chambre positive, entre les masses de
-   l’électron, du muon et du tau. Avec deux masses fournies, la formule fixe un
-   intervalle large de 72 eV, centré à $1776{,}969027$ MeV et compatible avec
-   la masse mesurée du tau. Il s’agit d’une postdiction conditionnelle informée
-   par la cible, car sa prémisse d’équilibre vient de la structure connue des
-   leptons. Sa dérivation depuis la source est en cours. Voir l’
-   [article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
-   la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et le
-   [registre des comparaisons](docs/POSTDICTION_LEDGER.md).
-8. **Une empreinte gelée dans la façon dont les ondes se propagent.** Deux
-   règles ondulatoires déclarées sur douze ports fixent des motifs directionnels
-   distinctifs dont la première anisotropie apparaît au sixième ordre. Leurs
-   rapports et règles de rejet sont sous garde cryptographique préalable à la
-   comparaison. Le lien entre une règle sélectionnée par la source et un champ
-   physique est en cours. Une mesure assez sensible peut alors éliminer cette
-   branche. Voir l’
-   [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
-   les [reçus exacts](code/a5_fingerprint/runtime/) et l’
-   [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
+### D’abord, le câblage
 
-Au-delà des huit reçus, la couche exacte porte une série de résultats
-supplémentaires, chacun énoncé avec sa frontière au bout du lien :
+OPH s’engage sur une disposition concrète de simulateur, et cette disposition
+est le premier axiome. Le substrat est un réseau de parcelles d’observateur,
+chacune portant douze ports sur sa frontière, câblés comme les douze sommets
+d’un icosaèdre, la forme à 30 arêtes et 20 faces triangulaires. Les soixante
+rotations de cette forme constituent le groupe que les mathématiciens appellent
+$A_5$, et le corpus le dérive du câblage au lieu de le poser à côté. Les
+parcelles se joignent à leurs voisines par des coutures typées, et leur
+fédération se raffine en la surface d’une sphère. C’est le seul endroit où OPH
+choisit une architecture précise, et c’est là que se joue la contrainte.
+L’icosaèdre rend les trois dimensions spatiales et les forces du Modèle
+standard, la sphère rend la relativité, et câbler les parcelles autrement
+change tout l’aval.
+
+### 1. La moindre action sort des probabilités
+
+Presque toute la physique s’écrit comme un principe d’action. La nature choisit
+l’histoire qui rend une certaine quantité stationnaire, et aucun manuel ne dit
+pourquoi. Deux théorèmes finis y répondent. Tout flot de symétrie continu sur
+un système fini est engendré par un hamiltonien, bloc par bloc, et pour un
+processus qui tient des registres, le logarithme de ses probabilités de
+transition est une action dont les histoires stationnaires sont les histoires
+probables. Le principe variationnel qui soutient la mécanique classique, la
+théorie des champs et l’intégrale de chemin est donc une comptabilité de
+probabilités vue de loin. Rien ne minimise quoi que ce soit, et les histoires
+qui dominent sont celles sur lesquelles s’accorde le plus grand nombre de
+registres microscopiques de réparation.
+
+**État.** Exact et vérifié par machine, avec un théorème de Legendre fini qui
+relie les jonctions d’Euler-Lagrange aux pas hamiltoniens. Des contrôles
+montrent que les mêmes histoires binaires admettent plusieurs enrichissements
+réguliers, donc les unités, les horloges, la règle d’enrichissement et
+l’attachement physique sont en cours. Voir l’
+[article sur les observateurs](paper/observers_are_all_you_need.pdf) et la
+[preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean)
+avec sa [frontière de Legendre](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
+
+### 2. La règle de Born est forcée
+
+La mécanique quantique fournit les probabilités par la règle de Born, et dans
+la présentation habituelle cette règle est un axiome que l’on accepte. Partez
+plutôt de la liste finie des questions par oui ou non qu’un observateur peut
+poser au registre public, et exigez seulement que les probabilités
+s’additionnent entre questions posables ensemble. Cela suffit. Toute
+attribution cohérente de probabilités est la trace contre une unique matrice de
+densité, en toute dimension finie, y compris deux, là où le théorème de Gleason
+restreint aux projecteurs échoue. L’incertitude quantique et les probabilités
+de mesure sont ce à quoi ressemble une tenue de registres cohérente quand un
+observateur ne peut voir qu’une partie d’un système, lui-même compris.
+
+**État.** Exact et vérifié par machine. Les batteries finies de tests ne
+fournissent pas à elles seules l’hypothèse d’additivité sur laquelle tourne le
+théorème, et un théorème de frontière énonce ce que la construction actuelle
+livre, exposant algébriquement la direction de phase complexe manquante sans
+produire cet instrument ni ses résultats. L’additivité opérationnelle et la
+validation physique sont en cours. Voir l’
+[article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
+le [théorème Lean de représentation de Born](Lean/EventAlgebra/FiniteBuschGleason.lean)
+et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
+
+### 3. Les quatre lois de la thermodynamique sortent de la réparation
+
+Des observateurs à mémoire finie se contredisent, comparent leurs registres et
+réparent l’écart. Faites tourner cette boucle et les quatre lois arrivent
+ensemble en un seul paquet : l’équilibre entre systèmes partageant une
+référence, l’entropie qui se contracte sous réparation, le bilan de la chaleur
+et du travail, et une borne qui se comporte comme la troisième loi à basse
+température. La thermodynamique cesse d’être une science empirique séparée
+posée sur la mécanique. La flèche du temps devient la direction dans laquelle
+la réparation pousse les registres vers l’accord, ce qui fait de la seconde loi
+un énoncé de comptabilité plutôt qu’un énoncé sur la vapeur.
+
+**État.** Un paquet fini conditionnel exact, vérifié par machine, accompagné de
+théorèmes d’obstruction qui énoncent ce que la paire épinglée état-transition
+ne peut pas faire. Un couplage justifié séparément, le contrôle sous
+raffinement et l’étalonnage physique énergie-horloge sont en cours. Voir
+l’[article sur les observateurs](paper/observers_are_all_you_need.pdf), la
+[preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
+et l’[obstruction source](Lean/Thermodynamics/CommonReferenceObstruction.lean).
+
+### 4. L’espace et le temps sont construits par les observateurs
+
+Les comptes courants qu’un observateur tient sur ses propres ports portent une
+mesure de rang trois, si bien que la compléter comme les réels complètent les
+fractions donne l’espace continu ordinaire à trois dimensions, sans grille ni
+coordonnées introduites. Chaque repère d’observateur porte un espace de repos à
+trois dimensions dont la distance est prouvée définie positive, et l’espace
+construit à partir des registres coïncide avec cet espace de repos. La sphère
+en laquelle les parcelles se fédèrent a pour groupe de symétrie exactement le
+groupe de Lorentz à trois dimensions d’espace et une de temps. Un événement est
+une coïncidence, deux registres nommant le même lorsque le raffinement ne peut
+plus les séparer. Ni l’espace ni le temps ne sont un contenant dans lequel
+l’univers se trouve. Chaque observateur mesure les distances dans son propre
+espace de repos et porte son propre ordre sur ses propres registres, la
+description fondamentale ne contient ni ligne de temps globale ni horloge
+maîtresse, et l’espace-temps à quatre dimensions est la description effective
+sur laquelle les observateurs convergent une fois leurs comptes rendus séparés
+recousus par les événements dont ils conviennent.
+
+**État.** La complétion tridimensionnelle, la métrique de repos définie
+positive et l’identification entre les deux sont exactes et vérifiées par
+machine, la dernière comme lecture candidate. Le résultat de Lorentz vaut sur
+une branche déclarée qui consomme deux certificats que le consensus fini seul
+ne produit pas. La variété d’événements à quatre dimensions est un théorème
+conditionnel dont les reçus sont en cours, la causalité stable entrant comme
+hypothèse nommée, si bien que la cinématique des repères est ce qui tient sans
+condition. Voir l’
+[article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
+la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean), la
+[pile de théorèmes géométriques](Lean/Geometry.lean) et les
+[données de convergence](evidence/einstein_convergence/).
+
+### 5. Les forces viennent des douze ports
+
+Demandez quelles symétries survivent lorsque des parcelles voisines doivent
+s’accorder sur ce qui traverse leurs ports, et la réponse est la structure de
+symétrie de la force forte, de la force faible et de l’électromagnétisme. Une
+structure de matière déclarée séparément donne la forme globale exacte
+qu’emploient les physiciens, $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$.
+Rien de tout cela n’a été fourni, si bien que les groupes de jauge de la
+physique des particules cessent d’être un choix lu sur les expériences et
+deviennent une conséquence de la façon dont des observateurs bornés se relient.
+Le résultat fini ne contient pas non plus les symétries supplémentaires qui
+portent la désintégration du proton dans l’unification minimale, donc ce canal
+est absent.
+
+**État.** Exact et vérifié par machine pour le type de Lie comme pour la forme
+globale. La stabilité générale du proton est une question distincte que ce
+résultat ne tranche pas. Dériver la structure de matière et les champs de jauge
+physiques depuis la source est en cours. Voir l’
+[article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
+la [preuve Lean de jauge](Lean/Screen/A5OPH.lean) et la
+[preuve de la forme globale](Lean/Screen/Z6Descent.lean).
+
+### 6. Une génération de matière, par balayage exhaustif
+
+Balayez toutes les possibilités que le cadre autorise, sans rien fournir de
+plus, et ce qui survit, ce sont les quinze états de particules d’une génération
+du Modèle standard portant exactement les bonnes charges électriques, chaque
+anomalie s’annulant d’elle-même. Une sélection finie distincte renvoie une
+bande de rang trois, la structure candidate derrière les trois familles. Le
+contenu en particules du monde n’a jamais été un choix libre. Étant donné
+l’écran à douze ports, c’est la seule matière qui puisse y vivre de façon
+cohérente, et l’annulation des anomalies, qui dans le Modèle standard ressemble
+à un accident numérique tombé juste, est automatique.
+
+**État.** Le balayage est exhaustif et la sélection est vérifiée par machine.
+Relier ces structures à des particules physiques, rattacher la bande de rang
+trois aux trois familles mesurées et exclure des secteurs légers
+supplémentaires sont des travaux en cours. Voir l’
+[article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
+la [preuve Lean de sélection](Lean/Screen/ExteriorSelection.lean) et la
+[preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
+
+### 7. La relation de Koide devient un théorème
+
+Au début des années 1980, Yoshio Koide a remarqué que les masses de l’électron,
+du muon et du tau vérifient une relation simple avec une précision frappante,
+et elle est restée sans explication depuis. Ici c’est un théorème, car la
+réponse symétrique de la structure à douze ports force exactement cette
+relation. Fournissez deux des trois masses et la formule renvoie la troisième
+dans une fenêtre de 72 eV centrée sur $1776{,}969027$ MeV, et la masse mesurée
+du tau se trouve dans cette fenêtre. La structure des masses leptoniques est de
+la géométrie, et une coïncidence restée inexpliquée pendant quarante ans
+devient une conséquence de la forme d’une parcelle d’observateur.
+
+**État.** Exact et vérifié par machine. La prémisse d’équilibre sur laquelle
+tourne la relation est lue sur la structure connue des leptons, ce qui en fait
+une comparaison avec une valeur mesurée plutôt qu’une prédiction posée à
+l’avance. Dériver cette prémisse depuis la source est en cours. Voir l’
+[article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
+la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et le
+[registre des comparaisons](docs/POSTDICTION_LEDGER.md).
+
+### 8. Une prédiction scellée sur la propagation des ondes
+
+L’écran à douze ports porte deux règles candidates pour la propagation des
+ondes, et toutes deux font voyager une onde légèrement différemment selon la
+direction. L’écart est minuscule et sa première signature directionnelle
+n’apparaît qu’au sixième ordre, ce qui explique qu’aucune expérience ne soit
+tombée dessus. Les motifs exacts, leurs rapports numériques et la règle qui
+décide de la réfutation sont sous horodatage cryptographique, enregistrés avant
+tout examen des données de comparaison. C’est ici qu’OPH peut mourir, car une
+mesure de propagation assez sensible trouve l’empreinte ou supprime la branche,
+et la garde cryptographique interdit de déplacer la cible après coup.
+
+**État.** Les reçus sont exacts et les bandes d’élimination sont enregistrées
+sur l’échelle des prédictions gelées. Relier une règle sélectionnée par la
+source à un champ physique est en cours. Voir l’
+[article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
+les [reçus exacts](code/a5_fingerprint/runtime/) et l’
+[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
+
+### Résultats supplémentaires
+
+La couche exacte porte plus que ces huit reçus. Ce qui suit s’adresse aux
+lecteurs techniques, chaque énoncé donnant sa frontière au bout du lien :
 
 - Un théorème de graphe signé prouve que l’écran n’a aucune excitation
   libre à coût nul : sur une capture de source sans donnée cible,
@@ -503,7 +617,8 @@ Les autres objectifs majeurs :
   [héritage structurel](https://github.com/FloatingPragma/observer-patch-holography/issues/701).
 - **La matrice de prémisses de la branche d’Einstein.** Chaque ligne est
   déchargée sur une même tour commune avant que la branche compte comme
-  clôture d’Einstein.
+  clôture d’Einstein. L’[échelle des prémisses de gravité](docs/GRAVITY_PREMISE_LADDER.md)
+  porte les onze échelons avec le statut et le responsable de chacun.
   [Continuation d’Einstein](https://github.com/FloatingPragma/observer-patch-holography/issues/694).
 - **Des horloges opérationnelles réalisées par la source**, qui fournissent un
   temps physique sans fabriquer la direction qu’elles vérifient ensuite.

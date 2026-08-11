@@ -62,94 +62,198 @@ refutation by qualifying measurements.
 
 ## Eight Reproducible Physics Receipts
 
-These public results link directly to their papers, proofs, data, and
-certificates:
+Eight results anyone can check. Each one gives the finding in plain language,
+what it means for the picture of the world, and where the proofs, data, and
+certificates live.
 
-1. **Three-dimensional space emerges from the algebra of repair records.**
-   The declared twelve-port response contains an exact abstract
-   three-dimensional Euclidean completion. Adding comparison records and
-   completing their distance gives ordinary continuous three-space without an
-   assumed coordinate grid. Physical identification of these points and their
-   scale is work in progress. See the
-   [spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
-   the Lean [completion proof](Lean/Screen/PrimitivePortFrameQuotient.lean),
-   and the [finite signature evidence](evidence/einstein_convergence/).
-2. **A declared finite effect algebra has the Born representation.** Every
-   normalized nonnegative valuation that is additive on all coexisting-effect
-   sums is the trace against one density matrix, including in dimension two.
-   The current source pair algebraically exposes the missing complex phase
-   direction, but produces neither that instrument nor its outcomes.
-   Operational additivity and physical validation are not established. See the
-   [technical paper](flagship/from_observer_consensus_to_standard_physics.pdf),
-   the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
-   the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-3. **Finite symmetry flows and history laws have exact action
-   representations.** On a unital finite-dimensional star algebra, every
-   pointwise-continuous automorphism flow is Hamiltonian blockwise. For a
-   realized positive Markov chain, the
-   log-transition action represents its path law up to additive and
-   multiplier gauge. Separately, the finite Legendre theorem relates
-   Euler--Lagrange junctions to Hamilton steps for declared regular
-   Lagrangians. Exact controls show that the same binary histories admit
-   different regular real enrichments and Hamiltonians; units, clocks, the
-   enrichment rule, and physical attachment are open. See the
-   [observers paper](paper/observers_are_all_you_need.pdf), the
-   [derived-action proof](Lean/InformationProjection/LogTransitionAction.lean)
-   with its [Legendre boundary](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
-4. **The four laws form an exact conditional finite package.** Given a common
-   faithful reference and the complete repaired-visible fibre, the finite
-   identities give equilibrium, entropy contraction, heat and work accounting,
-   and a single-stage low-temperature bound. For the pinned state/transition
-   pair, exact obstructions exclude a nondegenerate action intertwiner and a
-   deterministic empirical pushforward. A separately justified coupling or
-   different source, refinement control, and physical energy-clock calibration
-   are open. See the
-   [observers paper](paper/observers_are_all_you_need.pdf), the Lean
-   [conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-   and the [source obstruction](Lean/Thermodynamics/CommonReferenceObstruction.lean).
-5. **The Standard Model gauge structure from twelve ports.** The twelve-port
-   geometry, complete reversible response, and observer agreement recover the
-   symmetries of the strong, weak, and electromagnetic forces. A separately
-   specified matter structure gives
-   their familiar global form
-   $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. The finite result also lacks
-   the extra symmetries responsible for proton decay in minimal grand
-   unification. Deriving the matter structure and physical gauge fields from
-   the source is work in progress. See the
-   [Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-   the Lean [gauge proof](Lean/Screen/A5OPH.lean), and the
-   [global-form proof](Lean/Screen/Z6Descent.lean).
-6. **One generation of matter out of a finite search.** An exhaustive scan of
-   the declared possibilities leaves the fifteen particle states and exact
-   charges of one Standard Model generation, with all anomalies cancelled.
-   A separate finite selection gives a rank-three family candidate. The
-   remaining work attaches these structures to physical particles and excludes
-   extra light sectors. See the
-   [particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
-   the Lean [matter-selection proof](Lean/Screen/ExteriorSelection.lean), and
-   the [family-band proof](Lean/Screen/A5FamilyBand.lean).
-7. **The Koide lepton relation comes out as a theorem.** A Hermitian $C_3$
-   response gives the exact positive-chamber relation among the electron,
-   muon, and tau masses. With two masses supplied, the formula fixes a
-   72-eV-wide interval centered at $1776.969027$ MeV, compatible with the
-   measured tau mass. This is a target-informed conditional postdiction because
-   its balance premise comes from the known lepton pattern. Source derivation
-   of that premise is work in progress. See the
-   [Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf),
-   the [Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and the
-   [comparison ledger](docs/POSTDICTION_LEDGER.md).
-8. **A frozen fingerprint in how waves travel.** Two declared twelve-port wave
-   rules fix distinctive directional patterns whose first anisotropy appears
-   at sixth order. Their ratios and rejection rules sit in pre-comparison
-   cryptographic custody. Physical-field attachment of a source-selected rule
-   is work in progress. A sufficiently sensitive propagation measurement can
-   then rule out that branch. See the
-   [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
-   the [exact receipts](code/a5_fingerprint/runtime/), and the
-   [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
+### First, the wiring
 
-Beyond the eight receipts, the exact layer carries a set of further
-results, each stated with its boundary at the link:
+OPH commits to a concrete simulator layout, and that layout is the first axiom.
+The substrate is a network of observer patches, each carrying twelve ports on
+its boundary, wired as the twelve corners of an icosahedron, the shape with 30
+edges and 20 triangular faces. The sixty rotations of that shape form the group
+mathematicians call $A_5$, which the corpus derives from the wiring rather than
+assuming alongside it. Patches join to their neighbors through typed seams, and
+the federation of them refines to the surface of a sphere. This is the one
+place OPH picks a specific architecture, and it is where the constraining
+happens. The icosahedron returns three spatial dimensions and the Standard
+Model forces, the sphere returns relativity, and wiring the patches differently
+changes everything downstream.
+
+### 1. Least action comes out of probability
+
+Almost all of physics is written as an action principle. Nature picks the
+history that makes some quantity stationary, and no textbook says why. Two
+finite theorems answer it. Any continuous symmetry flow on a finite system is
+generated by a Hamiltonian, block by block, and for a process that keeps
+records the logarithm of its transition probabilities is an action whose
+stationary histories are the likely ones. The variational principle underneath
+classical mechanics, field theory, and the path integral is therefore
+probability accounting seen from far away. Nothing minimizes anything, and the
+histories that dominate are the ones the most microscopic repair records agree
+on.
+
+**Status.** Exact and machine-checked, with a finite Legendre theorem relating
+Euler-Lagrange junctions to Hamilton steps. Control results show that the same
+binary histories admit different regular real enrichments, so units, clocks,
+the enrichment rule, and physical attachment are work in progress. See the
+[observers paper](paper/observers_are_all_you_need.pdf) and the
+[derived-action proof](Lean/InformationProjection/LogTransitionAction.lean)
+with its [Legendre boundary](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
+
+### 2. The Born rule is forced
+
+Quantum mechanics hands you probabilities through the Born rule, and in the
+usual presentation that rule is an axiom you accept. Start instead from the
+finite list of yes/no questions an observer can put to the public record, and
+require only that probabilities add up across questions that can be asked
+together. That turns out to be enough. Every consistent way of assigning
+probabilities is a trace against one density matrix, in every finite dimension
+including two, where the projector-only Gleason theorem fails. Quantum
+uncertainty and measurement probabilities are what consistent record-keeping
+looks like when an observer can only ever see part of a system, itself
+included.
+
+**Status.** Exact and machine-checked. The finite test batteries do not by
+themselves supply the additivity hypothesis the theorem runs on, and a
+companion boundary theorem states what the current construction delivers,
+exposing the missing complex phase direction algebraically without producing
+that instrument or its outcomes. Operational additivity and physical validation
+are work in progress. See the
+[technical paper](flagship/from_observer_consensus_to_standard_physics.pdf),
+the Lean [Born representation theorem](Lean/EventAlgebra/FiniteBuschGleason.lean),
+and the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
+
+### 3. The four laws of thermodynamics fall out of repair
+
+Observers with finite memory disagree, compare notes, and repair the
+difference. Run that loop and the four laws arrive together as one package:
+equilibrium among systems that share a reference, entropy that contracts under
+repair, heat and work that balance, and a bound that behaves like the third law
+at low temperature. Thermodynamics stops being a separate empirical science
+sitting on top of mechanics. The arrow of time becomes the direction in which
+repair drives records into agreement, which makes the second law a statement
+about bookkeeping rather than about steam.
+
+**Status.** An exact conditional finite package, machine-checked, alongside
+obstruction theorems that state what the pinned state and transition pair
+cannot do. A separately justified coupling, refinement control, and physical
+energy-clock calibration are work in progress. See the
+[observers paper](paper/observers_are_all_you_need.pdf), the Lean
+[conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
+and the [source obstruction](Lean/Thermodynamics/CommonReferenceObstruction.lean).
+
+### 4. Space and time are built by observers
+
+An observer's running tallies over its own ports carry a measure whose rank is
+three, so completing it the way the real numbers complete the fractions gives
+ordinary continuous three-dimensional space, with no grid or coordinates put
+in. Every observer frame carries a three-dimensional rest space whose distance
+is proven positive-definite, and the space built out of records matches that
+rest space. The sphere the patches federate into has a symmetry group that is
+exactly the Lorentz group of three space dimensions and one of time. An event
+is a coincidence, so two records name the same one when refinement cannot pull
+them apart. Neither space nor time is a container the universe sits in. Each
+observer measures distance in its own rest space and carries its own ordering
+of its own records, the fundamental description holds no global timeline and no
+master clock, and four-dimensional spacetime is the effective description
+observers converge on once their separate accounts are stitched together
+through the events they agree about.
+
+**Status.** The three-dimensional completion, the positive-definite rest
+metric, and the identification between them are exact and machine-checked, the
+last as a candidate readout. The Lorentz result holds on a stated branch that
+consumes two certificates finite consensus alone does not produce. The
+four-dimensional event manifold is a conditional theorem whose receipts are
+work in progress, with stable causality entering as a named assumption, so
+frame kinematics is what stands unconditionally. See the
+[spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
+the Lean [completion proof](Lean/Screen/PrimitivePortFrameQuotient.lean), the
+[geometry theorem stack](Lean/Geometry.lean), and the
+[convergence evidence](evidence/einstein_convergence/).
+
+### 5. The forces come from twelve ports
+
+Ask which symmetries survive when neighboring patches have to agree about what
+crosses their ports, and the answer is the symmetry structure of the strong
+force, the weak force, and electromagnetism. A separately specified matter
+structure gives the exact global form physicists use,
+$(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$. None of this was supplied, so
+the gauge groups of particle physics stop being a choice read off experiments
+and become a consequence of how bounded observers connect. The finite result
+also lacks the extra symmetries that carry proton decay in minimal grand
+unification, so that decay channel is absent.
+
+**Status.** Exact and machine-checked for both the Lie type and the global
+form. General proton stability is a separate question the result does not
+settle. Deriving the matter structure and the physical gauge fields from the
+source is work in progress. See the
+[Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
+the Lean [gauge proof](Lean/Screen/A5OPH.lean), and the
+[global-form proof](Lean/Screen/Z6Descent.lean).
+
+### 6. One generation of matter, from an exhaustive search
+
+Sweep every possibility the framework allows, with nothing further supplied,
+and what survives is the fifteen particle states of one Standard Model
+generation carrying exactly the right electric charges, with every anomaly
+cancelling on its own. A separate finite selection returns a rank-three band,
+the candidate structure behind the three families. The particle content of the
+world was never a free choice. Given the twelve-port screen this is the only
+matter that can consistently live on it, and anomaly cancellation, which in the
+Standard Model reads like a numerical accident that happened to work out, is
+automatic.
+
+**Status.** The scan is exhaustive and the selection is machine-checked.
+Attaching these structures to physical particles, tying the rank-three band to
+the three measured families, and excluding extra light sectors are work in
+progress. See the
+[particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
+the Lean [matter-selection proof](Lean/Screen/ExteriorSelection.lean), and the
+[family-band proof](Lean/Screen/A5FamilyBand.lean).
+
+### 7. The Koide relation becomes a theorem
+
+In the early 1980s Yoshio Koide noticed that the electron, muon, and tau masses
+satisfy a simple relation to remarkable precision, and it has sat there without
+an explanation ever since. Here it is a theorem, because the symmetric response
+of the twelve-port structure forces exactly that relation. Supply two of the
+three masses and the formula returns the third inside a 72 eV window centered
+on $1776.969027$ MeV, and the measured tau mass sits in that window. The lepton
+mass pattern is geometry, and a coincidence that has gone unexplained for forty
+years becomes a consequence of the shape of an observer patch.
+
+**Status.** Exact and machine-checked. The balance premise the relation runs on
+is read off the known lepton pattern, so this counts as a comparison against a
+measured value rather than a prediction made in advance. Deriving that premise
+from the source is work in progress. See the
+[Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf), the
+[Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and the
+[comparison ledger](docs/POSTDICTION_LEDGER.md).
+
+### 8. A sealed prediction about how waves travel
+
+The twelve-port screen carries two candidate rules for how waves move across
+it, and both of them make a wave travel slightly differently in different
+directions. The deviation is tiny and its first directional signature appears
+only at sixth order, which is why no experiment has run into it. The exact
+patterns, their numerical ratios, and the rule for what counts as a refutation
+sit under cryptographic timestamp, registered before any comparison data was
+examined. This is where OPH can die, because a sensitive enough propagation
+measurement either finds the fingerprint or removes the branch, and the custody
+means the target cannot be moved afterwards.
+
+**Status.** The receipts are exact and the kill bands are registered on the
+frozen-prediction ladder. Attaching a source-selected rule to a physical field
+is work in progress. See the
+[screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
+the [exact receipts](code/a5_fingerprint/runtime/), and the
+[frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
+
+### Further results
+
+The exact layer carries more than the eight, written here for technical
+readers, with the boundary of each stated at the link:
 
 - A signed-graph theorem proves the screen has no free excitation at zero
   cost: on a target-clean source capture the declared signed operator obeys
@@ -470,7 +574,9 @@ The other major goals:
   [Covariant net](https://github.com/FloatingPragma/observer-patch-holography/issues/700),
   [structural inheritance](https://github.com/FloatingPragma/observer-patch-holography/issues/701).
 - **The Einstein-branch premise matrix.** Every row is discharged on one
-  common tower before the branch counts as Einstein closure.
+  common tower before the branch counts as Einstein closure. The
+  [gravity premise ladder](docs/GRAVITY_PREMISE_LADDER.md) carries the eleven
+  rungs with the status and owner of each.
   [Einstein continuation](https://github.com/FloatingPragma/observer-patch-holography/issues/694).
 - **Source-realized operational clocks** that supply physical time without
   manufacturing the direction they later verify.
@@ -486,7 +592,7 @@ these programs is represented as a bounded, self-reading patch with a public
 evidence bundle.
 
 The [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md) is limited
-to mature mathematical and realized-branch claims. It serves as a verification
+to mature mathematical and realized-branch claims. It is a verification
 index rather than the organizing narrative of the repository.
 
 ## Choose A Reading Path
