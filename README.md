@@ -2,7 +2,7 @@
 
 > Reality is the stable public world reconstructed by finite, self-reading observers that compare their overlaps and repair disagreement.
 
-[Read in French](README_FR.md) · [Flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/)
+[Read in French](README_FR.md) · [Technical paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/)
 
 Observer Patch Holography (OPH) is a zero-dial theory-of-everything research
 program built on one central thesis: **observers are primary, and objective
@@ -37,7 +37,7 @@ foundation. Spacetime, matter, and the constants become precise reconstruction
 problems, with exact finite results and open physical identifications kept
 apart. The material below takes you through that shift from a standing start.
 
-- **The flagship paper.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
+- **The technical paper.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
   gives the primary technical account of the observer-first reconstruction.
 - **The textbooks.** The [OPH textbooks](https://learn.floatingpragma.io/)
   teach the theory the long way. Every basic derivation is worked in full,
@@ -80,7 +80,7 @@ certificates:
    The current source pair algebraically exposes the missing complex phase
    direction, but produces neither that instrument nor its outcomes.
    Operational additivity and physical validation are not established. See the
-   [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf),
+   [technical paper](flagship/from_observer_consensus_to_standard_physics.pdf),
    the [public-record proof](Lean/EventAlgebra/PublicRecordAlgebra.lean), and
    the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
 3. **Finite symmetry flows and history laws have exact action
@@ -534,7 +534,7 @@ cited here.
 
 ## Explore OPH
 
-- [The flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf)
+- [The technical paper](flagship/from_observer_consensus_to_standard_physics.pdf)
 - [Core paper index](paper/)
 - [Textbooks](https://learn.floatingpragma.io)
 - [Interactive simulation](https://simulation.floatingpragma.io)

@@ -5,7 +5,7 @@ question a reader usually has: how does the argument work, where is each claim
 proved, and what observation could defeat it?
 
 If you are new to OPH, the strongest starting material lives outside this
-directory. The [flagship paper](../flagship/from_observer_consensus_to_standard_physics.pdf)
+directory. The [technical paper](../flagship/from_observer_consensus_to_standard_physics.pdf)
 states the primary technical account. The [OPH textbooks](https://learn.floatingpragma.io/) work through
 the basic derivations with the math taught along the way. The
 [interactive simulation](https://simulation.floatingpragma.io/) renders real
@@ -13,7 +13,7 @@ run data so you can watch the universe assemble itself.
 
 ## Three Reading Routes
 
-- **First encounter:** the [flagship paper](../flagship/from_observer_consensus_to_standard_physics.pdf),
+- **First encounter:** the [technical paper](../flagship/from_observer_consensus_to_standard_physics.pdf),
   [textbooks](https://learn.floatingpragma.io/), and the
   [simulation](https://simulation.floatingpragma.io/) above, then the
   [compact case](../extra/compact_proof_of_oph.pdf) and the repository
