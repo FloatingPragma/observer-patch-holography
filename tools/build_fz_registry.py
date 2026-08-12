@@ -1993,17 +1993,17 @@ def validate(register: dict) -> list[dict]:
 
     fz05 = rows_by_id.get("FZ-05", {})
     if (
-        "#696" not in fz05.get("content", "")
-        or "#694" not in fz05.get("content", "")
-        or "#695" not in fz05.get("content", "")
+        "#736" not in fz05.get("content", "")
+        or "#729" not in fz05.get("content", "")
+        or "#738" not in fz05.get("content", "")
         or "retrospective" not in fz05.get("comparison_protocol", "").lower()
         or not all(
             issue in fz05.get("kill_band", "")
-            for issue in ("#694", "#695", "#696")
+            for issue in ("#729", "#736", "#738")
         )
     ):
         fail(
-            "FZ-05 must keep the V2 capacity, common-tower, custody, and "
+            "FZ-05 must keep the capacity, common-tower, custody, and "
             "retrospective exposure boundaries"
         )
     receipt = load_json(FZ02_RECEIPT_PATH)
@@ -2916,14 +2916,14 @@ def render(register: dict, rows: list[dict]) -> str:
         "together with a non-affine regrading no-go and "
         "conditional affine clock/proper-time comparison only after supplied "
         "event and calibration data; it has no source physical clock, "
-        "observable, or prospective decision rule. E1 has live gate #692: "
+        "observable, or prospective decision rule. The observer-net lane has live gate #728: "
         "its five-module continuation conditionally proves post-hoc source-operator "
         "generation, exact factors on a declared Cartesian carrier, a "
         "conditional-expectation diamond with coverage, and constant-tower "
         "transport. The source does not select that carrier, region map, or slot "
         "split, and the exact off-diagonal control shows the two slot expectations "
         "are not jointly injective; a source correlation/descent receipt and a "
-        "nonconstant realization are not supplied. B7 has live gate #683: supplied counting "
+        "nonconstant realization are not supplied. The mechanics lane has live gate #731: supplied counting "
         "and trivial data conditionally realize only the uniform transition "
         "kernel, not those inputs, an initial law, or the complete reference. Its "
         "stationary-maximum control excludes universal Gibbs mode/minimizer "
@@ -2938,13 +2938,13 @@ def render(register: dict, rows: list[dict]) -> str:
         "add no rung: the statistic and its arbitrary completion pairing were not "
         "preregistered and are ineligible as validation. The branch has no "
         "source-produced public quantum instrument or prospective observable; "
-        "issue #702 owns the complex effect, operational-additivity, and "
+        "issue #730 owns the complex effect, operational-additivity, and "
         "instrument continuation. The B12 audit likewise emits no row: in "
         "addition to its nonreversible H-theorem probe, an exact spectral and "
         "empirical-denominator obstruction rules out the hoped-for common "
         "reference through two audited direct mechanisms on the current artifact. "
-        "Issue #725 owns stochastic/nonlinear/enriched replacement source, collar, "
-        "and refinement routes; #703 owns energy-clock attachment. No observable "
+        "Issue #732 owns stochastic/nonlinear/enriched replacement source, collar, "
+        "and refinement routes and energy-clock attachment. No observable "
         "or prospective decision rule is fixed. B14's "
         "oriented-face nearest-compact comparison is robust in the three added "
         "coordinate norms but remains metric- and repair-rule-conditional. E9's invariant-form "
