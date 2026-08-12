@@ -1,0 +1,1767 @@
+{
+ "arena2_result": {
+  "fields": [
+   "record_class",
+   "companion_class"
+  ],
+  "fixed_space_dimension": 1,
+  "join_component_count": 1,
+  "non_idempotence_witness": {
+   "mix_entry": "7803/207872",
+   "mix_squared_entry": "289/14848",
+   "x": 0,
+   "y": 0
+  },
+  "non_idempotent": true,
+  "nonconstant_protected_observable": false,
+  "passes_all_requirements": false,
+  "row_stochastic": true,
+  "scheduler": "uniform over the 2 committed fields of the subset, declared",
+  "second_scheduler": {
+   "fixed_space_dimension": 1,
+   "rule": "weights proportional to partition block counts, declared",
+   "stationary_under_shared_reference": true,
+   "weights": [
+    "4/5",
+    "1/5"
+   ]
+  },
+  "stationary_under_shared_reference": true
+ },
+ "arena2_state_count": 256,
+ "arena2_states": [
+  [
+   0,
+   0,
+   17
+  ],
+  [
+   0,
+   1,
+   40
+  ],
+  [
+   0,
+   3,
+   49
+  ],
+  [
+   0,
+   6,
+   92
+  ],
+  [
+   0,
+   7,
+   17
+  ],
+  [
+   0,
+   10,
+   138
+  ],
+  [
+   0,
+   13,
+   99
+  ],
+  [
+   0,
+   15,
+   60
+  ],
+  [
+   1,
+   0,
+   12
+  ],
+  [
+   1,
+   1,
+   34
+  ],
+  [
+   1,
+   3,
+   82
+  ],
+  [
+   1,
+   6,
+   102
+  ],
+  [
+   1,
+   7,
+   21
+  ],
+  [
+   1,
+   10,
+   105
+  ],
+  [
+   1,
+   13,
+   102
+  ],
+  [
+   1,
+   15,
+   54
+  ],
+  [
+   2,
+   0,
+   19
+  ],
+  [
+   2,
+   1,
+   25
+  ],
+  [
+   2,
+   3,
+   71
+  ],
+  [
+   2,
+   6,
+   87
+  ],
+  [
+   2,
+   7,
+   22
+  ],
+  [
+   2,
+   10,
+   139
+  ],
+  [
+   2,
+   13,
+   90
+  ],
+  [
+   2,
+   15,
+   59
+  ],
+  [
+   3,
+   0,
+   17
+  ],
+  [
+   3,
+   1,
+   37
+  ],
+  [
+   3,
+   3,
+   83
+  ],
+  [
+   3,
+   6,
+   89
+  ],
+  [
+   3,
+   7,
+   12
+  ],
+  [
+   3,
+   10,
+   109
+  ],
+  [
+   3,
+   13,
+   98
+  ],
+  [
+   3,
+   15,
+   67
+  ],
+  [
+   4,
+   0,
+   13
+  ],
+  [
+   4,
+   1,
+   29
+  ],
+  [
+   4,
+   3,
+   65
+  ],
+  [
+   4,
+   6,
+   94
+  ],
+  [
+   4,
+   7,
+   11
+  ],
+  [
+   4,
+   10,
+   126
+  ],
+  [
+   4,
+   13,
+   107
+  ],
+  [
+   4,
+   15,
+   67
+  ],
+  [
+   5,
+   0,
+   13
+  ],
+  [
+   5,
+   1,
+   33
+  ],
+  [
+   5,
+   3,
+   65
+  ],
+  [
+   5,
+   6,
+   104
+  ],
+  [
+   5,
+   7,
+   21
+  ],
+  [
+   5,
+   10,
+   110
+  ],
+  [
+   5,
+   13,
+   100
+  ],
+  [
+   5,
+   15,
+   66
+  ],
+  [
+   6,
+   0,
+   10
+  ],
+  [
+   6,
+   1,
+   38
+  ],
+  [
+   6,
+   3,
+   64
+  ],
+  [
+   6,
+   6,
+   90
+  ],
+  [
+   6,
+   7,
+   11
+  ],
+  [
+   6,
+   10,
+   131
+  ],
+  [
+   6,
+   13,
+   97
+  ],
+  [
+   6,
+   15,
+   71
+  ],
+  [
+   7,
+   0,
+   13
+  ],
+  [
+   7,
+   1,
+   26
+  ],
+  [
+   7,
+   3,
+   79
+  ],
+  [
+   7,
+   6,
+   121
+  ],
+  [
+   7,
+   7,
+   14
+  ],
+  [
+   7,
+   10,
+   101
+  ],
+  [
+   7,
+   13,
+   89
+  ],
+  [
+   7,
+   15,
+   69
+  ],
+  [
+   8,
+   0,
+   13
+  ],
+  [
+   8,
+   1,
+   35
+  ],
+  [
+   8,
+   3,
+   72
+  ],
+  [
+   8,
+   6,
+   101
+  ],
+  [
+   8,
+   7,
+   10
+  ],
+  [
+   8,
+   10,
+   114
+  ],
+  [
+   8,
+   13,
+   106
+  ],
+  [
+   8,
+   15,
+   61
+  ],
+  [
+   9,
+   0,
+   14
+  ],
+  [
+   9,
+   1,
+   35
+  ],
+  [
+   9,
+   3,
+   84
+  ],
+  [
+   9,
+   6,
+   91
+  ],
+  [
+   9,
+   7,
+   16
+  ],
+  [
+   9,
+   10,
+   97
+  ],
+  [
+   9,
+   13,
+   105
+  ],
+  [
+   9,
+   15,
+   70
+  ],
+  [
+   10,
+   0,
+   5
+  ],
+  [
+   10,
+   1,
+   27
+  ],
+  [
+   10,
+   3,
+   78
+  ],
+  [
+   10,
+   6,
+   112
+  ],
+  [
+   10,
+   7,
+   15
+  ],
+  [
+   10,
+   10,
+   114
+  ],
+  [
+   10,
+   13,
+   91
+  ],
+  [
+   10,
+   15,
+   70
+  ],
+  [
+   11,
+   0,
+   12
+  ],
+  [
+   11,
+   1,
+   42
+  ],
+  [
+   11,
+   3,
+   62
+  ],
+  [
+   11,
+   6,
+   93
+  ],
+  [
+   11,
+   7,
+   18
+  ],
+  [
+   11,
+   10,
+   126
+  ],
+  [
+   11,
+   13,
+   98
+  ],
+  [
+   11,
+   15,
+   61
+  ],
+  [
+   12,
+   0,
+   12
+  ],
+  [
+   12,
+   1,
+   26
+  ],
+  [
+   12,
+   3,
+   75
+  ],
+  [
+   12,
+   6,
+   89
+  ],
+  [
+   12,
+   7,
+   14
+  ],
+  [
+   12,
+   10,
+   137
+  ],
+  [
+   12,
+   13,
+   96
+  ],
+  [
+   12,
+   15,
+   63
+  ],
+  [
+   13,
+   0,
+   13
+  ],
+  [
+   13,
+   1,
+   20
+  ],
+  [
+   13,
+   3,
+   68
+  ],
+  [
+   13,
+   6,
+   121
+  ],
+  [
+   13,
+   7,
+   13
+  ],
+  [
+   13,
+   10,
+   104
+  ],
+  [
+   13,
+   13,
+   95
+  ],
+  [
+   13,
+   15,
+   78
+  ],
+  [
+   14,
+   0,
+   11
+  ],
+  [
+   14,
+   1,
+   34
+  ],
+  [
+   14,
+   3,
+   73
+  ],
+  [
+   14,
+   6,
+   108
+  ],
+  [
+   14,
+   7,
+   8
+  ],
+  [
+   14,
+   10,
+   119
+  ],
+  [
+   14,
+   13,
+   99
+  ],
+  [
+   14,
+   15,
+   60
+  ],
+  [
+   15,
+   0,
+   16
+  ],
+  [
+   15,
+   1,
+   33
+  ],
+  [
+   15,
+   3,
+   89
+  ],
+  [
+   15,
+   6,
+   96
+  ],
+  [
+   15,
+   7,
+   15
+  ],
+  [
+   15,
+   10,
+   130
+  ],
+  [
+   15,
+   13,
+   75
+  ],
+  [
+   15,
+   15,
+   58
+  ],
+  [
+   16,
+   0,
+   6
+  ],
+  [
+   16,
+   1,
+   29
+  ],
+  [
+   16,
+   3,
+   67
+  ],
+  [
+   16,
+   6,
+   100
+  ],
+  [
+   16,
+   7,
+   12
+  ],
+  [
+   16,
+   10,
+   133
+  ],
+  [
+   16,
+   13,
+   108
+  ],
+  [
+   16,
+   15,
+   57
+  ],
+  [
+   17,
+   0,
+   10
+  ],
+  [
+   17,
+   1,
+   36
+  ],
+  [
+   17,
+   3,
+   74
+  ],
+  [
+   17,
+   6,
+   91
+  ],
+  [
+   17,
+   7,
+   19
+  ],
+  [
+   17,
+   10,
+   121
+  ],
+  [
+   17,
+   13,
+   87
+  ],
+  [
+   17,
+   15,
+   74
+  ],
+  [
+   18,
+   0,
+   18
+  ],
+  [
+   18,
+   1,
+   24
+  ],
+  [
+   18,
+   3,
+   68
+  ],
+  [
+   18,
+   6,
+   90
+  ],
+  [
+   18,
+   7,
+   15
+  ],
+  [
+   18,
+   10,
+   115
+  ],
+  [
+   18,
+   13,
+   111
+  ],
+  [
+   18,
+   15,
+   71
+  ],
+  [
+   19,
+   0,
+   12
+  ],
+  [
+   19,
+   1,
+   37
+  ],
+  [
+   19,
+   3,
+   66
+  ],
+  [
+   19,
+   6,
+   92
+  ],
+  [
+   19,
+   7,
+   22
+  ],
+  [
+   19,
+   10,
+   124
+  ],
+  [
+   19,
+   13,
+   91
+  ],
+  [
+   19,
+   15,
+   68
+  ],
+  [
+   20,
+   0,
+   16
+  ],
+  [
+   20,
+   1,
+   22
+  ],
+  [
+   20,
+   3,
+   71
+  ],
+  [
+   20,
+   6,
+   96
+  ],
+  [
+   20,
+   7,
+   14
+  ],
+  [
+   20,
+   10,
+   100
+  ],
+  [
+   20,
+   13,
+   105
+  ],
+  [
+   20,
+   15,
+   88
+  ],
+  [
+   21,
+   0,
+   11
+  ],
+  [
+   21,
+   1,
+   28
+  ],
+  [
+   21,
+   3,
+   73
+  ],
+  [
+   21,
+   6,
+   95
+  ],
+  [
+   21,
+   7,
+   14
+  ],
+  [
+   21,
+   10,
+   109
+  ],
+  [
+   21,
+   13,
+   118
+  ],
+  [
+   21,
+   15,
+   64
+  ],
+  [
+   22,
+   0,
+   8
+  ],
+  [
+   22,
+   1,
+   43
+  ],
+  [
+   22,
+   3,
+   63
+  ],
+  [
+   22,
+   6,
+   92
+  ],
+  [
+   22,
+   7,
+   22
+  ],
+  [
+   22,
+   10,
+   123
+  ],
+  [
+   22,
+   13,
+   100
+  ],
+  [
+   22,
+   15,
+   61
+  ],
+  [
+   23,
+   0,
+   8
+  ],
+  [
+   23,
+   1,
+   34
+  ],
+  [
+   23,
+   3,
+   73
+  ],
+  [
+   23,
+   6,
+   102
+  ],
+  [
+   23,
+   7,
+   14
+  ],
+  [
+   23,
+   10,
+   111
+  ],
+  [
+   23,
+   13,
+   104
+  ],
+  [
+   23,
+   15,
+   66
+  ],
+  [
+   24,
+   0,
+   12
+  ],
+  [
+   24,
+   1,
+   25
+  ],
+  [
+   24,
+   3,
+   62
+  ],
+  [
+   24,
+   6,
+   121
+  ],
+  [
+   24,
+   7,
+   11
+  ],
+  [
+   24,
+   10,
+   122
+  ],
+  [
+   24,
+   13,
+   103
+  ],
+  [
+   24,
+   15,
+   56
+  ],
+  [
+   25,
+   0,
+   13
+  ],
+  [
+   25,
+   1,
+   32
+  ],
+  [
+   25,
+   3,
+   67
+  ],
+  [
+   25,
+   6,
+   104
+  ],
+  [
+   25,
+   7,
+   16
+  ],
+  [
+   25,
+   10,
+   111
+  ],
+  [
+   25,
+   13,
+   105
+  ],
+  [
+   25,
+   15,
+   64
+  ],
+  [
+   26,
+   0,
+   17
+  ],
+  [
+   26,
+   1,
+   34
+  ],
+  [
+   26,
+   3,
+   73
+  ],
+  [
+   26,
+   6,
+   103
+  ],
+  [
+   26,
+   7,
+   25
+  ],
+  [
+   26,
+   10,
+   126
+  ],
+  [
+   26,
+   13,
+   83
+  ],
+  [
+   26,
+   15,
+   51
+  ],
+  [
+   27,
+   0,
+   15
+  ],
+  [
+   27,
+   1,
+   37
+  ],
+  [
+   27,
+   3,
+   76
+  ],
+  [
+   27,
+   6,
+   96
+  ],
+  [
+   27,
+   7,
+   15
+  ],
+  [
+   27,
+   10,
+   119
+  ],
+  [
+   27,
+   13,
+   91
+  ],
+  [
+   27,
+   15,
+   63
+  ],
+  [
+   28,
+   0,
+   11
+  ],
+  [
+   28,
+   1,
+   37
+  ],
+  [
+   28,
+   3,
+   78
+  ],
+  [
+   28,
+   6,
+   100
+  ],
+  [
+   28,
+   7,
+   15
+  ],
+  [
+   28,
+   10,
+   109
+  ],
+  [
+   28,
+   13,
+   95
+  ],
+  [
+   28,
+   15,
+   67
+  ],
+  [
+   29,
+   0,
+   17
+  ],
+  [
+   29,
+   1,
+   31
+  ],
+  [
+   29,
+   3,
+   73
+  ],
+  [
+   29,
+   6,
+   99
+  ],
+  [
+   29,
+   7,
+   16
+  ],
+  [
+   29,
+   10,
+   125
+  ],
+  [
+   29,
+   13,
+   93
+  ],
+  [
+   29,
+   15,
+   58
+  ],
+  [
+   30,
+   0,
+   8
+  ],
+  [
+   30,
+   1,
+   32
+  ],
+  [
+   30,
+   3,
+   73
+  ],
+  [
+   30,
+   6,
+   106
+  ],
+  [
+   30,
+   7,
+   15
+  ],
+  [
+   30,
+   10,
+   107
+  ],
+  [
+   30,
+   13,
+   103
+  ],
+  [
+   30,
+   15,
+   68
+  ],
+  [
+   31,
+   0,
+   14
+  ],
+  [
+   31,
+   1,
+   36
+  ],
+  [
+   31,
+   3,
+   64
+  ],
+  [
+   31,
+   6,
+   96
+  ],
+  [
+   31,
+   7,
+   16
+  ],
+  [
+   31,
+   10,
+   96
+  ],
+  [
+   31,
+   13,
+   118
+  ],
+  [
+   31,
+   15,
+   72
+  ]
+ ],
+ "designated_subset": null,
+ "extra_step_fields_realized_values": {
+  "record_family": [
+   0
+  ]
+ },
+ "field_order": [
+  "checkpoint_class",
+  "stable_flag",
+  "s3_sector_class",
+  "repair_load_bucket"
+ ],
+ "no_go_grammar": "every subset of at least two retained step fields on the 26-state alphabet, and the record/companion class pair on the realized 256-state conditional-resampling structure, each under the visit-count or occupation reference of its arena and the declared uniform random-scan scheduler on the subset's conditional-resampling projectors, with a second declared block-count-proportional scheduler certified at every computed subset. The computed subsets are the eleven packet-field subsets and the record/companion pair; for each computed mixture the exact fixed-space dimension is one, so every mixture-invariant observable is constant. The remaining step-field subsets contain a certified-constant field, so their mixtures carry the strictly positive full-space resampler as a component, which forces the same one-dimensional fixed space (a strictly positive stochastic component makes the mixture irreducible); non-idempotence is claimed only for the computed subsets",
+ "observer_count": 1028,
+ "provenance": {
+  "counting_convention": "exact integer recount of consecutive transition_history_descriptor steps on the committed 26-state packet alphabet, cross-checked against the pinned report totals",
+  "designation_rule": "first field subset passing every requirement, enumerated by size then lexicographically in the committed field order",
+  "epistemic_status": "post-hoc algebraic feasibility preflight on a retained artifact; ineligible as validation; only a positive preflight may trigger a fresh prospectively frozen run",
+  "numpy_version": "2.3.5",
+  "pinned_input_sha256": {
+   "conditional_resampling_realization_receipt.json": "d6739274e9451295b8bb0334180231bfb1e516c03bfd6f2c80f70e4da64db749",
+   "finite_repair_transition_matrix_report.json": "e38bb28475fb7b34127b864abd20414efc920d8ef9ddbdf5c78612874ae37f2d",
+   "freezeout_fields.npz": "b962c5b80205a17d5d6bc023f5f5d487bc23c1327793978e7d1bc69494fac49e",
+   "git_commit.txt": "2a084f768662274335ba7c23afaa18b61bd1184e8d481a4e17ab511c1e9d3293",
+   "observer_views.jsonl": "3da6f04d770b81b49a082ad1e6ecb93c611517dd85ecaccd7cc89077fcd6c0ca"
+  },
+  "reference_rule": "visit counts (row sums of the exact count table), normalized; faithfulness is a hard check",
+  "run_git_commit": "b39b78faf894894ebe573571e0902ccfaaeac32a",
+  "run_id": "b12_prereg_16k_20260806",
+  "scheduler_rule": "uniform law on the committed fields of the subset, declared in advance; no output-dependent choice"
+ },
+ "recorded_next_route": "enriched-source: a committed producer exporting an additional protected field whose join with an existing field is disconnected (this requires a fresh export, since every retained extra step field is certified constant on this run), or a dilated construction outside the random-scan grammar; declared impossible for nothing beyond the stated grammar",
+ "reference": [
+  "1913/31744",
+  "617/15872",
+  "47/1024",
+  "1533/31744",
+  "21/1984",
+  "363/31744",
+  "661/3968",
+  "125/1984",
+  "13473/31744",
+  "213/7936",
+  "499/31744",
+  "15/7936",
+  "211/31744",
+  "215/31744",
+  "73/15872",
+  "3/31744",
+  "7/3968",
+  "5/3968",
+  "1431/31744",
+  "127/7936",
+  "23/31744",
+  "5/3968",
+  "41/31744",
+  "9/15872",
+  "3/31744",
+  "1/31744"
+ ],
+ "schema": "oph.b20_random_scan_preflight.v2",
+ "state_count": 26,
+ "state_labels": [
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 5]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 6]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 4]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 3]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 4]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 5]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+  "[[\"checkpoint_class\", 3], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 7]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 7]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 6]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 3]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 2]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 1]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 5]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 4]]",
+  "[[\"checkpoint_class\", 3], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+  "[[\"checkpoint_class\", 2], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 0]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 0], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 2]]",
+  "[[\"checkpoint_class\", 1], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 1]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 6]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 3]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 2]]",
+  "[[\"checkpoint_class\", 0], [\"stable_flag\", 1], [\"s3_sector_class\", 0], [\"repair_load_bucket\", 7]]"
+ ],
+ "subset_results": [
+  {
+   "fields": [
+    "checkpoint_class",
+    "stable_flag"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "19059219/167977810",
+    "mix_squared_entry": "15321217/167977810",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 2 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "2/3",
+     "1/3"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "checkpoint_class",
+    "s3_sector_class"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "41946351/384419840",
+    "mix_squared_entry": "65112781/768839680",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 2 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "4/5",
+     "1/5"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "checkpoint_class",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "13813773/28240520",
+    "mix_squared_entry": "8736671/28240520",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 2 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "1/3",
+     "2/3"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "stable_flag",
+    "s3_sector_class"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "56898359/880642048",
+    "mix_squared_entry": "109968805/1761284096",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 2 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "2/3",
+     "1/3"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "stable_flag",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "2615071/5881304",
+    "mix_squared_entry": "1478749/5881304",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 2 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "1/5",
+     "4/5"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "s3_sector_class",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "16296847/37013504",
+    "mix_squared_entry": "18527405/74027008",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 2 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "1/9",
+     "8/9"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "checkpoint_class",
+    "stable_flag",
+    "s3_sector_class"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "765686623201/7998431400960",
+    "mix_squared_entry": "1776067301221/23995294202880",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 3 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "4/7",
+     "2/7",
+     "1/7"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "checkpoint_class",
+    "stable_flag",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "18646988543/53416943580",
+    "mix_squared_entry": "27790742117/160250830740",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 3 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "2/7",
+     "1/7",
+     "4/7"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "checkpoint_class",
+    "s3_sector_class",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "116379116873/336175150080",
+    "mix_squared_entry": "172433513837/1008525450240",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 3 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "4/13",
+     "1/13",
+     "8/13"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "stable_flag",
+    "s3_sector_class",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "7386523425/23337014272",
+    "mix_squared_entry": "10167512741/70011042816",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 3 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "2/11",
+     "1/11",
+     "8/11"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  },
+  {
+   "fields": [
+    "checkpoint_class",
+    "stable_flag",
+    "s3_sector_class",
+    "repair_load_bucket"
+   ],
+   "fixed_space_dimension": 1,
+   "join_component_count": 1,
+   "non_idempotence_witness": {
+    "mix_entry": "156498052166293/565222485667840",
+    "mix_squared_entry": "280156187063827/2260889942671360",
+    "x": 0,
+    "y": 0
+   },
+   "non_idempotent": true,
+   "nonconstant_protected_observable": false,
+   "passes_all_requirements": false,
+   "row_stochastic": true,
+   "scheduler": "uniform over the 4 committed fields of the subset, declared",
+   "second_scheduler": {
+    "fixed_space_dimension": 1,
+    "rule": "weights proportional to partition block counts, declared",
+    "stationary_under_shared_reference": true,
+    "weights": [
+     "4/15",
+     "2/15",
+     "1/15",
+     "8/15"
+    ]
+   },
+   "stationary_under_shared_reference": true
+  }
+ ],
+ "transition_count": 31744,
+ "verdict": "negative",
+ "visit_counts": [
+  1913,
+  1234,
+  1457,
+  1533,
+  336,
+  363,
+  5288,
+  2000,
+  13473,
+  852,
+  499,
+  60,
+  211,
+  215,
+  146,
+  3,
+  56,
+  40,
+  1431,
+  508,
+  23,
+  40,
+  41,
+  18,
+  3,
+  1
+ ]
+}

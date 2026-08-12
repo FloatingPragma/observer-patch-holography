@@ -91,6 +91,23 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Replay the B20 random-scan preflight offline algebra layer",
+        [
+            sys.executable,
+            "code/b20_random_scan/validate_random_scan.py",
+        ],
+    ),
+    (
+        "Execute the B20 random-scan mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/b20_random_scan/test_b20_preflight.py",
+        ],
+    ),
+    (
         "Replay the B13 algebraic phase-lift boundary hermetically",
         [
             sys.executable,
