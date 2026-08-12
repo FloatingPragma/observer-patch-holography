@@ -81,9 +81,9 @@ derives the rest as theorems. From that one architecture:
   stated branch. Deterministic simulations measure a Lorentzian event form
   with one time and three space directions, and an Einstein-equation
   composition stands on the modular and entropy layer.
-- **The Standard Model gauge group from twelve ports.** OPH makes exactly
-  one architectural choice: each observer patch has twelve boundary ports
-  wired as the corners of an icosahedron. A classification theorem forces
+- **The Standard Model gauge group from twelve ports.** OPH makes an
+  architectural choice at the simulation hardware layer: each observer patch
+  has twelve boundary ports wired as the corners of an icosahedron. A classification theorem forces
   the complete port response to have the Standard Model's gauge Lie type,
   with no gauge group chosen from a catalogue, and an exhaustive finite
   search returns the fifteen states and charge pattern of one Standard Model

@@ -95,9 +95,10 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   d’événement lorentzienne à une direction de temps et trois d’espace, et
   une composition des équations d’Einstein s’appuie sur la couche modulaire
   et entropique.
-- **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH ne
-  fait qu’un seul choix architectural : chaque parcelle d’observateur porte
-  douze ports de frontière câblés comme les sommets d’un icosaèdre. Un
+- **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
+  fait un choix architectural au niveau du matériel de simulation : chaque
+  parcelle d’observateur porte douze ports de frontière câblés comme les
+  sommets d’un icosaèdre. Un
   théorème de classification force la réponse complète des ports à avoir le
   type de Lie de jauge du Modèle standard, sans groupe de jauge choisi sur
   catalogue, et une recherche finie exhaustive rend les quinze états et le
