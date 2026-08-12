@@ -70,212 +70,62 @@ cryptographique et bandes d’élimination avant tout examen des données de
 comparaison, avec des règles fixes qui permettent leur réfutation par des
 mesures admissibles.
 
-## Huit reçus de physique reproductibles
+## Une seule architecture, toute la physique
 
-Huit résultats que chacun peut vérifier. Chaque entrée donne le résultat en
-langage courant, ce qu’il signifie pour l’image du monde, puis l’endroit où
-vivent les preuves, les données et les certificats.
+Chaque théorie établie commence par supposer l’essentiel de la physique : un
+espace-temps, des champs quantiques, un groupe de jauge, une table de
+constantes mesurées. OPH ne suppose rien de tout cela. Elle part des
+observateurs, des systèmes finis qui lisent une partie d’eux-mêmes et de
+leurs voisins, tiennent des registres et réparent le désaccord, et dérive le
+reste sous forme de théorèmes. De cette seule architecture sortent :
 
-### D’abord, le câblage
+- **La mécanique quantique en théorèmes.** Sur la surface finie des
+  observateurs, les enregistrements publics forment une algèbre
+  d’événements avec les probabilités de Born, le conditionnement de Lüders
+  et la borne de Tsirelson. La dynamique de Schrödinger est l’unique flot de
+  symétrie continu, et les poids de Born suivent sans axiome de continuité
+  en toute dimension finie, y compris la dimension deux.
+- **Les quatre lois de la thermodynamique par la réparation du désaccord.**
+  Un seul paquet de théorèmes conditionnels sur la façon dont les
+  observateurs se rééchantillonnent vers le consensus donne les quatre lois,
+  la deuxième apparaissant comme du traitement de données appliqué à la
+  réparation, avec la borne de Landauer en corollaire.
+- **La relativité sur l’écran.** La cinématique de Lorentz est un théorème
+  sur sa branche déclarée. Des simulations déterministes mesurent une forme
+  d’événement lorentzienne à une direction de temps et trois d’espace, et
+  une composition des équations d’Einstein s’appuie sur la couche modulaire
+  et entropique.
+- **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH ne
+  fait qu’un seul choix architectural : chaque parcelle d’observateur porte
+  douze ports de frontière câblés comme les sommets d’un icosaèdre. Un
+  théorème de classification force la réponse complète des ports à avoir le
+  type de Lie de jauge du Modèle standard, sans groupe de jauge choisi sur
+  catalogue, et une recherche finie exhaustive rend les quinze états et le
+  motif de charges d’une génération du Modèle standard, avec annulation
+  exacte des anomalies.
+- **Les constantes comme points fixes.** Le cœur de la théorie ne comporte
+  aucun paramètre ajustable. La relation de Koide pour les leptons chargés
+  tient exactement sous une prémisse d’équilibre déclarée, l’arithmétique
+  d’intervalles certifie la comparaison de la masse du tau, et un mécanisme
+  de capacité fixe donne le signe de l’avance temporelle de de Sitter. Les
+  constantes de la nature entrent comme des problèmes de point fixe à
+  résoudre.
+- **Vérifié machine et falsifiable.** Des milliers de théorèmes Lean sans
+  preuve admise, de l’arithmétique rationnelle exacte à la place de la
+  confiance en virgule flottante, et des simulations déterministes avec
+  reçus épinglés. Une échelle de prédictions gelées enregistre des bandes
+  d’élimination sous garde cryptographique avant l’examen des données de
+  comparaison, de sorte qu’OPH s’engage à l’avance sur ce qui la réfuterait.
 
-OPH s’engage sur une disposition concrète de simulateur, et cette disposition
-est le premier axiome. Le substrat est un réseau de parcelles d’observateur,
-chacune portant douze ports sur sa frontière, câblés comme les douze sommets
-d’un icosaèdre, la forme à 30 arêtes et 20 faces triangulaires. Les soixante
-rotations de cette forme constituent le groupe que les mathématiciens appellent
-$A_5$, et le corpus le dérive du câblage au lieu de le poser à côté. Les
-parcelles se joignent à leurs voisines par des coutures typées, et leur
-fédération se raffine en la surface d’une sphère. C’est le seul endroit où OPH
-choisit une architecture précise, et c’est là que se joue la contrainte.
-Des branches finies exactes construites sur ce support donnent des structures
-candidates tridimensionnelles et de jauge. Leur rattachement depuis la source
-à l’espace-temps et aux champs physiques reste ouvert, et un autre câblage
-changerait les mathématiques en aval.
+Les résultats finis exacts et les identifications physiques ouvertes restent
+strictement séparés dans tout le corpus ; chaque résultat ci-dessus porte ses
+prémisses et sa frontière dans les articles et les preuves liés. La version
+condensée de ce dossier, avec les reçus et leurs preuves en une seule table,
+est le [dossier compact d’OPH](extra/compact_proof_of_oph.pdf) ; la voie
+technique complète est
+l’[article phare](flagship/from_observer_consensus_to_standard_physics.pdf).
 
-### 1. Les probabilités donnent une action finie, mais le pont physique reste ouvert
-
-Presque toute la physique s’écrit comme un principe d’action. Dans le paquet
-fini d’OPH, le logarithme négatif d’une loi de transition positive classe les
-histoires : les plus probables minimisent cette action finie relativement à
-une référence déclarée. Un autre théorème relie des lagrangiens réguliers fournis
-aux équations discrètes d’Euler--Lagrange et de Hamilton. Ces liens sont exacts,
-mais ne constituent pas encore une dérivation unique du principe d’action
-stationnaire de la physique continue. Une histoire stationnaire n’est pas
-nécessairement un mode probable, et les mêmes données binaires admettent
-plusieurs enrichissements lagrangiens réels.
-
-**État.** Exact et vérifié par machine au niveau fini annoncé. La référence
-de comptage ne réalise le noyau de transition uniforme qu’après déclaration de
-ses entrées ; elle ne sélectionne pas la référence de chemin complète depuis la
-source. Les unités, les horloges, l’enrichissement réel, le mécanisme de phase
-stationnaire et l’attachement physique restent ouverts. Voir l’
-[article sur les observateurs](paper/observers_are_all_you_need.pdf) et la
-[preuve de l’action dérivée](Lean/InformationProjection/LogTransitionAction.lean)
-avec sa [frontière de Legendre](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
-
-### 2. Un théorème fini de représentation de Born
-
-Sur une algèbre finie d’effets déclarée séparément, toute attribution de
-probabilité normalisée, non contextuelle et additive est la trace contre une
-unique matrice de densité, y compris en dimension deux. La source doit encore
-produire le système d’effets, son instrument public et l’additivité
-opérationnelle.
-
-**État.** Exact et vérifié par machine. Les batteries finies de tests ne
-fournissent pas à elles seules l’hypothèse d’additivité sur laquelle tourne le
-théorème, et un théorème de frontière énonce ce que la construction actuelle
-livre, exposant algébriquement la direction de phase complexe manquante sans
-produire cet instrument ni ses résultats. L’additivité opérationnelle et la
-validation physique sont en cours. Voir l’
-[article principal](flagship/from_observer_consensus_to_standard_physics.pdf),
-le [théorème Lean de représentation de Born](Lean/EventAlgebra/FiniteBuschGleason.lean)
-et la [frontière de la règle de Born](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-
-### 3. La réparation conditionnelle organise les quatre lois
-
-Avec une référence fidèle commune, une dynamique de réparation compatible et
-les étalonnages nommés, un paquet fini reproduit des identités et inégalités
-de forme zéro-ième, première, deuxième et troisième loi. Il ne dérive pas encore
-de la source la référence commune, le col physique, l’énergie, l’horloge ni une
-flèche du temps empirique.
-
-**État.** Un paquet fini conditionnel exact, vérifié par machine, accompagné de
-théorèmes d’obstruction qui énoncent ce que la paire épinglée état-transition
-ne peut pas faire. Un couplage justifié séparément, le contrôle sous
-raffinement et l’étalonnage physique énergie-horloge sont en cours. Voir
-l’[article sur les observateurs](paper/observers_are_all_you_need.pdf), la
-[preuve Lean de réparation conditionnelle](Lean/Thermodynamics/FiniteConditionalRepair.lean)
-et l’[obstruction source](Lean/Thermodynamics/CommonReferenceObstruction.lean).
-
-### 4. Les registres finis donnent des candidats géométriques
-
-Des constructions finies exactes donnent un candidat de complétion
-tridimensionnelle, des espaces de repos positifs, un module de Lorentz
-intrinsèque et des interfaces typées d’événements et d’horloges. Elles montrent
-comment représenter une géométrie familière sans horloge maîtresse. Elles ne
-prouvent pas encore qu’une variété continue physique est produite par la source.
-
-**État.** La complétion tridimensionnelle, la métrique de repos définie
-positive et l’identification entre les deux sont exactes et vérifiées par
-machine, la dernière comme lecture candidate. Le résultat de Lorentz vaut sur
-une branche déclarée qui consomme deux certificats que le consensus fini seul
-ne produit pas. La variété d’événements à quatre dimensions est un théorème
-conditionnel dont les reçus sont en cours, la causalité stable entrant comme
-hypothèse nommée, si bien que la cinématique des repères est ce qui tient sans
-condition. Voir l’
-[article sur l’espace-temps et Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
-la [preuve Lean de complétion](Lean/Screen/PrimitivePortFrameQuotient.lean), la
-[pile de théorèmes géométriques](Lean/Geometry.lean) et les
-[données de convergence](evidence/einstein_convergence/).
-
-### 5. L’algèbre des douze ports distingue un type de Lie de jauge
-
-Sous les prémisses d’équivariance et de compacité annoncées, la classification
-finie des crochets sur le support à douze ports a le type de Lie du Modèle
-standard. Une table de matière déclarée séparément possède le noyau central
-d’ordre six attendu. Cela ne sélectionne pas encore depuis la source les champs,
-la matière, la forme globale ni la stabilité du proton.
-
-**État.** Exact et vérifié par machine au niveau algébrique fini. La sélection
-du crochet, de la matière, de la forme globale, des couplages et des champs
-physiques depuis la source reste ouverte. Voir l’
-[article sur la jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-la [preuve Lean de jauge](Lean/Screen/A5OPH.lean) et la
-[preuve de la forme globale](Lean/Screen/Z6Descent.lean).
-
-### 6. Une recherche finie de candidats de matière
-
-Un balayage exhaustif dans une grammaire finie déclarée retrouve les quinze
-états et les charges d’une génération du Modèle standard, avec annulation
-exacte des anomalies. Une construction distincte possède une bande de rang
-trois candidate pour les familles. L’exhaustivité vaut dans cette grammaire :
-la source ne l’a pas encore sélectionnée ni attachée à des particules physiques.
-
-**État.** Le balayage est exhaustif et la sélection est vérifiée par machine.
-Relier ces structures à des particules physiques, rattacher la bande de rang
-trois aux trois familles mesurées et exclure des secteurs légers
-supplémentaires sont des travaux en cours. Voir l’
-[article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
-la [preuve Lean de sélection](Lean/Screen/ExteriorSelection.lean) et la
-[preuve de la bande familiale](Lean/Screen/A5FamilyBand.lean).
-
-### 7. L’identité de Koide est exacte sous une prémisse d’équilibre
-
-La relation de Koide suit exactement d’une condition d’équilibre circulante à
-trois composantes positives, et l’arithmétique d’intervalles donne la comparaison
-avec la masse du tau. Cette condition a été reconnue à partir des leptons connus :
-c’est une postdiction précise et une cible de dérivation, non une prédiction de
-la source ni une conséquence des seuls axiomes.
-
-**État.** Exact et vérifié par machine. La prémisse d’équilibre sur laquelle
-tourne la relation est lue sur la structure connue des leptons, ce qui en fait
-une comparaison avec une valeur mesurée plutôt qu’une prédiction posée à
-l’avance. Dériver cette prémisse depuis la source est en cours. Voir l’
-[article sur Koide](extra/koide_identity_from_positive_c3_face_circulants.pdf),
-la [preuve Lean](Lean/ObserverPatchHolography/KoideCirculant.lean) et le
-[registre des comparaisons](docs/POSTDICTION_LEDGER.md).
-
-### 8. Des empreintes d’ondes gelées, en attente d’attachement physique
-
-Deux branches finies possèdent des empreintes anisotropes exactes dont les
-rapports et contrats de décision ont été gelés avant les données de comparaison
-éligibles. Elles ne deviennent des prédictions physiques qu’après sélection de
-la branche, du champ, de l’horloge, de l’échelle, du repère et du détecteur.
-Avant cela, un résultat nul ne réfute pas OPH par ces lignes seules.
-
-**État.** Les reçus sont exacts et les bandes d’élimination sont enregistrées
-sur l’échelle des prédictions gelées. Relier une règle sélectionnée par la
-source à un champ physique est en cours. Voir l’
-[article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf),
-les [reçus exacts](code/a5_fingerprint/runtime/) et l’
-[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md).
-
-### Résultats supplémentaires
-
-La couche exacte porte plus que ces huit reçus. Ce qui suit s’adresse aux
-lecteurs techniques, chaque énoncé donnant sa frontière au bout du lien :
-
-- Un théorème de graphe signé prouve que l’écran n’a aucune excitation
-  libre à coût nul : sur une capture de source sans donnée cible,
-  l’opérateur signé déclaré vérifie $\lambda_{\min}\geq24^{-8661}>0$. Il
-  ne fournit ni horloge physique, ni masse de particule. Voir l’
-  [article sur la microphysique de l’écran](paper/screen_microphysics_and_observer_synchronization.pdf)
-  et le
-  [reçu figé de l’écart](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-- Un théorème fini de capacité maximise l’entropie généralisée à $\log M$,
-  donne le décalage exact du choc $\log(1-f)$ et fixe la relation de Sitter
-  pure $\mu^2=d-2$ ; la lecture physique en avance temporelle attend ses
-  dictionnaires déclarés. Voir l’
-  [article ciblé sur de Sitter](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-  et sa [preuve Lean](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
-- Sur les branches déclarées séparément de Maxwell, de Yang-Mills et
-  d’Einstein, les noyaux quadratiques ont un paramètre de masse dure nul et
-  les modes classiques transverses attendus : des énoncés de porteurs
-  classiques, pas des prédictions de pôles quantiques. Voir le
-  [registre de la structure forcée](docs/POSTDICTION_LEDGER.md#forced-structure).
-- La couche finie d’achèvement prouve un unique point terminal public sur
-  les parcours achevés, un modèle de Lorentz interne avec contrat borné de
-  soudure, et une interface de réseau régional munie de preuves, avec
-  témoins exacts et théorèmes d’obstruction ; les attachements à la source
-  restent ouverts et typés. Voir les
-  [preuves du point terminal public](Lean/Tower/FixedPointEndpoint.lean), la
-  [pile de théorèmes géométriques](Lean/Geometry.lean), l’
-  [interface finie du réseau régional](Lean/QFT.lean) et les
-  [notes de frontière Lean](Lean/docs/) pour les portées exactes.
-- La bibliothèque formalise sept tests opérationnels finis : accès borné,
-  relecture, registres stables, action conditionnée, prédiction, continuation
-  et preuve commune non nulle à travers un recouvrement typé. Le dernier test
-  est prouvé à un régulateur ; sa naturalité par raffinement reste ouverte.
-  Voir la
-  [preuve de recouvrement](Lean/QFT/OperationalOverlapEvidence.lean).
-
-La bibliothèque Lean associée contient plus de 4700 théorèmes et lemmes et
-aucune preuve admise. Des rapports d’axiomes explicites couvrent le
-sous-ensemble audité. Vingt-trois preuves finies utilisent `native_decide` ;
-leurs axiomes d’évaluation en code natif étendent la base de confiance au-delà
-du noyau de Lean. Voir [Lean/](Lean/).
-
-Le reste de ce README est l’architecture d’où viennent ces reçus.
+Le reste de ce README présente l’architecture d’où vient ce dossier.
 
 ## Les trois axiomes
 
@@ -363,7 +213,7 @@ sortir de la même boucle de cohérence qui produit les lois.
 
 Le [registre des affirmations](tracking/claims_scoreboard.md) précise la
 portée, les prémisses et la classe de preuve de chaque branche. Ce README se
-concentre sur les reçus exacts et mesurés les plus forts.
+concentre sur les parties les plus solides du dossier.
 
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
@@ -435,7 +285,7 @@ apporte davantage qu’une correspondance numérique isolée.
 
 ## État technique
 
-Les huit reçus ci-dessus donnent le résumé destiné au lecteur. Les prémisses,
+Le dossier ci-dessus donne le résumé destiné au lecteur. Les prémisses,
 l’origine des comparaisons et les règles de falsification se trouvent dans le
 [tableau des affirmations](tracking/claims_scoreboard.md), le
 [registre des postdictions](docs/POSTDICTION_LEDGER.md) et l’

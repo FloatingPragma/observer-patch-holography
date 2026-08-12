@@ -60,212 +60,55 @@ instrument: stances registered with cryptographic custody and kill bands
 before their comparison data is examined, with fixed rules that permit
 refutation by qualifying measurements.
 
-## Eight Reproducible Physics Receipts
+## One Architecture, All Of Physics
 
-Eight results anyone can check. Each one gives the finding in plain language,
-what it means for the picture of the world, and where the proofs, data, and
-certificates live.
+Every mainstream theory starts by assuming most of physics: a spacetime,
+quantum fields, a gauge group, a list of measured constants. OPH assumes none
+of that. It starts with observers, finite systems that read part of
+themselves and their neighbors, keep records, and repair disagreement, and
+derives the rest as theorems. From that one architecture:
 
-### First, the wiring
+- **Quantum mechanics as theorems.** On the finite observer surface, public
+  records form an event algebra with Born probabilities, Lüders
+  conditioning, and the Tsirelson bound. Schrödinger dynamics is the unique
+  continuous symmetry flow, and the Born weights follow without a continuity
+  axiom in every finite dimension, including dimension two.
+- **The four laws of thermodynamics from disagreement repair.** One
+  conditional theorem package about how observers resample toward consensus
+  yields all four laws, with the second law appearing as data processing
+  applied to repair and the Landauer bound as a corollary.
+- **Relativity on the screen.** Lorentz kinematics is a theorem on its
+  stated branch. Deterministic simulations measure a Lorentzian event form
+  with one time and three space directions, and an Einstein-equation
+  composition stands on the modular and entropy layer.
+- **The Standard Model gauge group from twelve ports.** OPH makes exactly
+  one architectural choice: each observer patch has twelve boundary ports
+  wired as the corners of an icosahedron. A classification theorem forces
+  the complete port response to have the Standard Model's gauge Lie type,
+  with no gauge group chosen from a catalogue, and an exhaustive finite
+  search returns the fifteen states and charge pattern of one Standard Model
+  generation with exact anomaly cancellation.
+- **Constants as fixed points.** The core has zero adjustable parameters.
+  Koide's charged-lepton relation holds exactly under a stated balance
+  premise, interval arithmetic certifies the tau-mass comparison, and a
+  fixed-capacity mechanism gives the de Sitter time-advance sign. The
+  constants of nature enter as fixed-point problems to be solved.
+- **Machine-checked and falsifiable.** Thousands of Lean theorems with no
+  admitted proofs, exact rational arithmetic in place of floating-point
+  trust, and deterministic simulations with pinned receipts. A
+  frozen-prediction ladder registers kill bands under cryptographic custody
+  before comparison data is examined, so OPH commits in advance to what
+  would refute it.
 
-OPH commits to a concrete simulator layout, and that layout is the first axiom.
-The substrate is a network of observer patches, each carrying twelve ports on
-its boundary, wired as the twelve corners of an icosahedron, the shape with 30
-edges and 20 triangular faces. The sixty rotations of that shape form the group
-mathematicians call $A_5$, which the corpus derives from the wiring rather than
-assuming alongside it. Patches join to their neighbors through typed seams, and
-the federation of them refines to the surface of a sphere. This is the one
-place OPH picks a specific architecture, and it is where the constraining
-happens. Exact finite branches built on this carrier produce three-dimensional
-and gauge-theoretic candidate structures. Their source attachment to physical
-spacetime and fields is a separate, open part of the program, and different
-wiring would change the downstream mathematics.
+Exact finite results and open physical identifications stay strictly
+separate across the corpus; every result above carries its premises and
+boundary in the linked papers and proofs. The condensed version of this
+case, with the receipts and their evidence in one table, is the
+[compact case for OPH](extra/compact_proof_of_oph.pdf); the full technical
+route is the
+[flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf).
 
-### 1. Probability gives a finite action, with an open real-physics bridge
-
-Almost all of physics is written as an action principle. In the finite OPH
-packet, the negative logarithm of a positive transition law ranks histories:
-the most probable histories minimize that finite action relative to a stated
-reference. A separate theorem relates supplied regular Lagrangians to discrete
-Euler--Lagrange and Hamilton equations. These exact links do not constitute
-one derivation of the stationary-action principle of continuum physics.
-In particular, a stationary history need not be a probability mode, and the
-same binary transition data admit different real Lagrangian enrichments.
-
-**Status.** Exact and machine-checked at the stated finite level. The counting
-reference realizes the uniform transition kernel only after its inputs are
-declared; it does not select the complete path reference from the source.
-Units, clocks, the real enrichment rule, stationary-phase mechanism, and
-physical attachment are not supplied. See the
-[observers paper](paper/observers_are_all_you_need.pdf) and the
-[derived-action proof](Lean/InformationProjection/LogTransitionAction.lean)
-with its [Legendre boundary](Lean/Variational/RealizedHistoryLegendreNoGo.lean).
-
-### 2. A finite Born representation theorem
-
-On a separately declared finite effect algebra, every normalized,
-noncontextually additive probability assignment is the trace against one
-density matrix, including in dimension two. This is the finite Born
-representation theorem the project needs. The source must separately produce the
-effect system, its public instrument, and the operational additivity premise.
-
-**Status.** Exact and machine-checked. The finite test batteries do not by
-themselves supply the additivity hypothesis the theorem runs on, and a
-companion boundary theorem states what the current construction delivers,
-exposing the missing complex phase direction algebraically without producing
-that instrument or its outcomes. Operational additivity and physical validation
-are work in progress. See the
-[technical paper](flagship/from_observer_consensus_to_standard_physics.pdf),
-the Lean [Born representation theorem](Lean/EventAlgebra/FiniteBuschGleason.lean),
-and the [Born-rule boundary](Lean/EventAlgebra/FiniteEffectClosureBoundary.lean).
-
-### 3. Conditional repair organizes the four laws
-
-Given a common faithful reference, compatible conditional-repair dynamics,
-and the named calibration premises, one finite theorem package reproduces
-zeroth-, first-, second-, and third-law-shaped identities and inequalities.
-The package clarifies which thermodynamic statements are information-theoretic
-consequences of repair. It does not derive the common reference, physical
-collar, energy, clock, or an empirical arrow of time from the source.
-
-**Status.** An exact conditional finite package, machine-checked, alongside
-obstruction theorems that state what the pinned state and transition pair
-cannot do. A separately justified coupling, refinement control, and physical
-energy-clock calibration are work in progress. See the
-[observers paper](paper/observers_are_all_you_need.pdf), the Lean
-[conditional-repair proof](Lean/Thermodynamics/FiniteConditionalRepair.lean),
-and the [source obstruction](Lean/Thermodynamics/CommonReferenceObstruction.lean).
-
-### 4. Finite observer records yield geometric candidates
-
-Exact finite constructions give a three-dimensional completion candidate,
-positive observer rest spaces, an intrinsic Lorentz module, and typed event
-and clock interfaces. They show how familiar geometry can be represented in
-observer records without inserting one master clock. They do not prove
-that a source-produced continuum event manifold or physical spacetime emerges.
-
-**Status.** The three-dimensional completion, the positive-definite rest
-metric, and the identification between them are exact and machine-checked, the
-last as a candidate readout. The Lorentz result holds on a stated branch that
-consumes two certificates finite consensus alone does not produce. The
-four-dimensional event manifold is a conditional theorem whose receipts are
-work in progress, with stable causality entering as a named assumption, so
-frame kinematics is what stands unconditionally. See the
-[spacetime and Einstein paper](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf),
-the Lean [completion proof](Lean/Screen/PrimitivePortFrameQuotient.lean), the
-[geometry theorem stack](Lean/Geometry.lean), and the
-[convergence evidence](evidence/einstein_convergence/).
-
-### 5. Twelve-port algebra singles out a gauge Lie type
-
-Under the stated equivariance and compactness premises, the complete finite
-bracket classification on the twelve-port carrier has the Standard Model Lie
-type. A separately declared matter table has the familiar order-six central
-kernel. These are strong algebraic constraints, not a source-selected
-gauge field, matter package, global quotient, or proton-stability theorem.
-
-**Status.** Exact and machine-checked at the finite algebraic level. Selecting
-the bracket, matter structure, global form, couplings, and physical gauge
-fields from the source is work in progress. See the
-[Standard Model gauge paper](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf),
-the Lean [gauge proof](Lean/Screen/A5OPH.lean), and the
-[global-form proof](Lean/Screen/Z6Descent.lean).
-
-### 6. A finite matter-candidate search
-
-An exhaustive search inside a declared finite candidate grammar returns the
-fifteen states and charge pattern of one Standard Model generation, with exact
-anomaly cancellation. A separate finite construction has a rank-three band
-that may be relevant to families. The result is exhaustive only within that
-grammar; the source has not selected the grammar or attached the states to
-physical particles.
-
-**Status.** The scan is exhaustive and the selection is machine-checked.
-Attaching these structures to physical particles, tying the rank-three band to
-the three measured families, and excluding extra light sectors are work in
-progress. See the
-[particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf),
-the Lean [matter-selection proof](Lean/Screen/ExteriorSelection.lean), and the
-[family-band proof](Lean/Screen/A5FamilyBand.lean).
-
-### 7. The Koide identity is exact under a supplied balance premise
-
-Koide's relation follows exactly from a positive three-component circulant
-balance condition, and interval arithmetic gives the corresponding tau-mass
-comparison. The balance condition was recognized using the known lepton
-pattern, so this is a precise postdiction and a useful target for derivation,
-not a source prediction or a consequence of the axioms alone.
-
-**Status.** Exact and machine-checked. The balance premise the relation runs on
-is read off the known lepton pattern, so this counts as a comparison against a
-measured value rather than a prediction made in advance. Deriving that premise
-from the source is work in progress. See the
-[Koide paper](extra/koide_identity_from_positive_c3_face_circulants.pdf), the
-[Lean proof](Lean/ObserverPatchHolography/KoideCirculant.lean), and the
-[comparison ledger](docs/POSTDICTION_LEDGER.md).
-
-### 8. Frozen wave fingerprints awaiting physical attachment
-
-Two finite screen branches have exact anisotropic wave fingerprints whose
-ratios and decision contracts were frozen before eligible comparison data.
-That custody prevents later target movement. They become physical predictions
-only after a source-selected branch, field, clock, scale, frame, detector map,
-and sufficient experimental power are supplied; until then a null experiment
-cannot falsify OPH through these rows alone.
-
-**Status.** The receipts are exact and the kill bands are registered on the
-frozen-prediction ladder. Attaching a source-selected rule to a physical field
-is work in progress. See the
-[screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf),
-the [exact receipts](code/a5_fingerprint/runtime/), and the
-[frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md).
-
-### Further results
-
-The exact layer carries more than the eight, written here for technical
-readers, with the boundary of each stated at the link:
-
-- A signed-graph theorem proves the screen has no free excitation at zero
-  cost: on a target-clean source capture the declared signed operator obeys
-  $\lambda_{\min}\geq24^{-8661}>0$. It supplies no physical clock or
-  particle mass. See the
-  [screen microphysics paper](paper/screen_microphysics_and_observer_synchronization.pdf)
-  and the pinned
-  [source-gap receipt](https://github.com/muellerberndt/oph-physics-sim/blob/d99ca548a4853e83f819a3a2c9d813f7a3429bdb/data/local_domain/source_gap_receipt.json).
-- A finite capacity theorem maximizes generalized entropy at $\log M$,
-  gives the exact shock shift $\log(1-f)$, and fixes the pure de Sitter
-  relation $\mu^2=d-2$; the physical time-advance reading waits on its
-  stated dictionaries. See the
-  [focused de Sitter paper](extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.pdf)
-  and its [Lean proof](Lean/ObserverPatchHolography/DeSitterCapacityShock.lean).
-- On separately declared Maxwell, Yang-Mills, and Einstein branches, the
-  quadratic kernels have zero hard mass parameters and the expected
-  transverse or transverse-traceless classical modes. These are classical
-  carrier statements, not quantum pole predictions. See the
-  [forced-structure ledger](docs/POSTDICTION_LEDGER.md#forced-structure).
-- The finite completion layer proves one public endpoint across completed
-  schedules and representatives, an internal Lorentz model with a bounded
-  soldering contract, and a proof-carrying regional-net interface with exact
-  witnesses and obstruction theorems; the source attachments stay open and
-  typed. See the
-  [public-world endpoint proofs](Lean/Tower/FixedPointEndpoint.lean), the
-  [geometry theorem stack](Lean/Geometry.lean), the
-  [finite regional-net interface](Lean/QFT.lean), and the
-  [Lean boundary notes](Lean/docs/) for the exact scopes.
-- The library packages seven finite operational observer tests: bounded
-  access, readback, stable records, record-conditioned action, forward
-  prediction, continuation, and nonzero shared-record evidence through a
-  typed overlap. The last test is proved at one regulator; refinement-natural
-  overlap evidence is open. See the
-  [overlap proof](Lean/QFT/OperationalOverlapEvidence.lean).
-
-The supporting Lean library contains more than 4700 theorems and lemmas and no
-admitted proofs. Explicit axiom reports cover the audited theorem subset.
-Twenty-three finite proofs use `native_decide`; their generated native-code
-evaluation axioms extend the trust base beyond kernel-only checking. See
-[Lean/](Lean/).
-
-The rest of this README is the architecture those receipts come from.
+The rest of this README is the architecture that case comes from.
 
 ## The Three Axioms
 
@@ -348,7 +191,7 @@ record, or self-consistent readback lacks public physics.
 
 The [claim scoreboard](tracking/claims_scoreboard.md) states the scope,
 premises, and evidence class of each branch. This README concentrates on the
-strongest exact and measured receipts.
+strongest parts of the case.
 
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
@@ -401,7 +244,7 @@ assumes and what is missing.
 
 ## Technical status
 
-The eight receipts above are the reader-facing summary. Exact premises,
+The case above is the reader-facing summary. Exact premises,
 comparison ancestry, and falsification rules live in the
 [claim scoreboard](tracking/claims_scoreboard.md), the
 [postdiction ledger](docs/POSTDICTION_LEDGER.md), and the
