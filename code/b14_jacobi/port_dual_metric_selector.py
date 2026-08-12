@@ -485,7 +485,9 @@ def main() -> None:
                 "committed certificate is stale")
         print(f"CHECK PASSED: {args.output.name} matches a fresh rebuild")
     else:
-        args.output.write_text(text)
+        # write_bytes keeps LF endings on every platform, so fresh
+        # production stays byte-identical to the committed certificate.
+        args.output.write_bytes(text.encode("utf-8"))
         print(f"wrote {args.output} ({len(text.encode())} bytes)")
     print(f"certificate_sha256: {certificate['certificate_sha256']}")
     print("selection: G at sector scales (1/12, 1/12, 1/12, 1/12); "

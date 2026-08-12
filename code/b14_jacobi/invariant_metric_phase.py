@@ -991,7 +991,9 @@ if __name__ == "__main__":
             raise CertificateError("recomputed certificate differs from the committed bytes")
         print("committed certificate is current")
     else:
-        cli.output.write_text(payload, encoding="utf-8")
+        # write_bytes keeps LF endings on every platform, so fresh
+        # production stays byte-identical to the committed certificate.
+        cli.output.write_bytes(payload.encode("utf-8"))
         print("certificate written:", cli.output)
         print("certificate_sha256:", result["certificate_sha256"])
         print("phase box:", result["phase_diagram"]["phase_box"]["statement"])

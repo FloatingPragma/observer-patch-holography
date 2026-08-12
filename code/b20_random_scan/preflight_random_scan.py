@@ -499,7 +499,8 @@ def main() -> None:
     }
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(certificate, indent=1, sort_keys=True) + "\n"
-    OUT_PATH.write_text(text)
+    # write_bytes keeps LF endings on every platform.
+    OUT_PATH.write_bytes(text.encode("utf-8"))
     digest = hashlib.sha256(text.encode()).hexdigest()
     print(f"wrote {OUT_PATH} ({len(text.encode())} bytes)")
     print(f"certificate_sha256: {digest}")
