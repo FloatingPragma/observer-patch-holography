@@ -12,7 +12,8 @@ order; every ancestry class comes from the six-value enum and every status
 from the four-value enum; P and N entries cite the register row PR-17;
 register-import entries cite an existing premise-register row or the literal
 ``proposed`` for a declared premise named descriptively; the register-row ids
-cited on a row equal the premise list of its owning observation-ledger row;
+cited on a row equal the premise list of its owning observation-ledger row
+plus any explicitly diagnostic-only empirical import rows;
 rows with status ``postdiction_comparison`` carry a measured comparison
 target in plain sight, ``diagnostic`` rows carry a measured comparison target
 or a flagged empirical import, ``owed`` rows consume nothing, and
@@ -28,15 +29,17 @@ import json
 import sys
 from pathlib import Path
 
+import strict_json
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "tracking" / "constants_ancestry.json"
 SURFACE_PATH = ROOT / "docs" / "CONSTANTS_ANCESTRY_V3.md"
 PREMISE_REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
 OBSERVATION_LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 
-SCHEMA = "oph.constants_ancestry.v1"
+SCHEMA = "oph.constants_ancestry.v3"
 ISSUE = 736
-ISSUE_URL = "https://github.com/muellerberndt/reverse-engineering-reality/issues"
+ISSUE_URL = "https://github.com/FloatingPragma/observer-patch-holography/issues"
 
 CLASSES = (
     "P",
@@ -60,6 +63,7 @@ ROW_KEYS = {
     "constant",
     "value_or_enclosure",
     "ancestry",
+    "diagnostic_import_register_rows",
     "status",
     "ledger_row",
     "evidence",
@@ -113,13 +117,20 @@ def fail(message: str) -> None:
     raise SystemExit(f"constants ancestry: {message}")
 
 
+def _display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def load_json(path: Path) -> dict:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return strict_json.load(path)
     except FileNotFoundError:
-        fail(f"missing input {path.relative_to(ROOT)}")
-    except json.JSONDecodeError as error:
-        fail(f"invalid JSON in {path.relative_to(ROOT)}: {error}")
+        fail(f"missing input {_display_path(path)}")
+    except (json.JSONDecodeError, strict_json.DuplicateKeyError) as error:
+        fail(f"invalid JSON in {_display_path(path)}: {error}")
     raise AssertionError("unreachable")
 
 
@@ -195,8 +206,7 @@ def validate_ancestry(
         if klass in ("P", "N"):
             if entry.get("register_row") != PN_REGISTER_ROW:
                 fail(
-                    f"{where}: a {klass} entry must cite register row "
-                    f"{PN_REGISTER_ROW}"
+                    f"{where}: a {klass} entry must cite register row {PN_REGISTER_ROW}"
                 )
             cited.add(PN_REGISTER_ROW)
         elif klass == "register_import":
@@ -287,10 +297,7 @@ def validate(register: dict) -> list[dict]:
         if row["constant"] != expected_constant:
             fail(f"{where}: constant must equal {expected_constant!r}")
         if row["status"] not in STATUSES:
-            fail(
-                f"{where}: status {row['status']!r} is not in the enum "
-                f"{STATUSES}"
-            )
+            fail(f"{where}: status {row['status']!r} is not in the enum {STATUSES}")
         if row["status"] != expected_status:
             fail(f"{where}: status must equal {expected_status!r}")
         if row["ledger_row"] != expected_ledger:
@@ -301,15 +308,42 @@ def validate(register: dict) -> list[dict]:
                 "observation ledger"
             )
 
-        validate_pointer(where, "value_or_enclosure", row["value_or_enclosure"], POINTER_KEYS)
+        validate_pointer(
+            where, "value_or_enclosure", row["value_or_enclosure"], POINTER_KEYS
+        )
         validate_pointer(where, "falsifier", row["falsifier"], FALSIFIER_KEYS)
 
         cited = validate_ancestry(where, row["status"], row["ancestry"], premise_types)
         expected_premises = set(ledger_premises[expected_ledger])
-        if cited != expected_premises:
+        diagnostic_imports = row["diagnostic_import_register_rows"]
+        if (
+            not isinstance(diagnostic_imports, list)
+            or any(not isinstance(item, str) for item in diagnostic_imports)
+            or len(diagnostic_imports) != len(set(diagnostic_imports))
+        ):
+            fail(
+                f"{where}: diagnostic_import_register_rows must be a "
+                "duplicate-free list of ids"
+            )
+        if diagnostic_imports and row["status"] != "diagnostic":
+            fail(f"{where}: diagnostic-only imports are legal only on a diagnostic row")
+        if set(diagnostic_imports) & expected_premises:
+            fail(
+                f"{where}: diagnostic-only imports must be disjoint from "
+                "observation-ledger premises"
+            )
+        for premise in diagnostic_imports:
+            if premise_types.get(premise) != "empirical_import":
+                fail(
+                    f"{where}: diagnostic-only import {premise!r} must be a "
+                    "registered empirical_import"
+                )
+        expected_cited = expected_premises | set(diagnostic_imports)
+        if cited != expected_cited:
             fail(
                 f"{where}: cited register rows {sorted(cited)} must equal the "
-                f"observation-ledger premises {sorted(expected_premises)}"
+                f"observation-ledger premises plus diagnostic-only imports "
+                f"{sorted(expected_cited)}"
             )
         for entry in row["ancestry"]:
             pn_classes_seen.update(
@@ -334,9 +368,7 @@ def validate(register: dict) -> list[dict]:
 
 def measured_display(row: dict, premise_types: dict[str, str]) -> str:
     flags: list[str] = []
-    if any(
-        entry["class"] == "measured_comparison_target" for entry in row["ancestry"]
-    ):
+    if any(entry["class"] == "measured_comparison_target" for entry in row["ancestry"]):
         flags.append("measured_comparison_target")
     imports = sorted(
         entry["register_row"]
@@ -353,9 +385,7 @@ def measured_display(row: dict, premise_types: dict[str, str]) -> str:
 def ancestry_lines(row: dict) -> list[str]:
     lines: list[str] = []
     if not row["ancestry"]:
-        lines.append(
-            "- none: the row consumes nothing until its registration lands."
-        )
+        lines.append("- none: the row consumes nothing until its registration lands.")
         return lines
     for entry in row["ancestry"]:
         klass = entry["class"]
@@ -386,10 +416,12 @@ def render(rows: list[dict]) -> str:
     lines.append(
         "One row per constants family in the masses-and-constants lane. Each"
         " row declares its complete input ancestry against the premise"
-        " register: P and N are the only numerical inputs (register row"
-        " PR-17), and every other number entering a row is classified in"
-        " place as a register import, derived arithmetic, external"
-        " mathematics, or a measured comparison target. A row that consumes"
+        " register: P and N are the only proposed fundamental free numerical"
+        " parameters (register row PR-17). Measured calibrations, fitted"
+        " anchors, comparison targets, and transport payloads are separate"
+        " numerical empirical inputs. Every quantity entering a row is"
+        " classified in place as a register import, derived arithmetic,"
+        " external mathematics, or a measured comparison target. A row that consumes"
         " a measured value carries that consumption in plain sight, through"
         " a **`measured_comparison_target`** entry or a flagged"
         " empirical-import register row. Declared premises without a register"
@@ -417,11 +449,18 @@ def render(rows: list[dict]) -> str:
             f"Status `{row['status']}`; owning observation-ledger row"
             f" {row['ledger_row']}."
         )
+        if row["diagnostic_import_register_rows"]:
+            lines.append(
+                "Diagnostic-only empirical register imports: "
+                + ", ".join(row["diagnostic_import_register_rows"])
+                + ". These inputs classify or construct the diagnostic artifact,"
+                " do not count as premises consumed by the physical observation"
+                " row, and cannot promote that row."
+            )
         lines.append("")
         pointer = row["value_or_enclosure"]
         lines.append(
-            f"- Value or enclosure: `{pointer['artifact']}`."
-            f" {pointer['reading']}"
+            f"- Value or enclosure: `{pointer['artifact']}`. {pointer['reading']}"
         )
         lines.append("- Ancestry:")
         for line in ancestry_lines(row):
@@ -429,9 +468,7 @@ def render(rows: list[dict]) -> str:
         evidence = ", ".join(f"`{path}`" for path in row["evidence"])
         lines.append(f"- Evidence: {evidence}.")
         falsifier = row["falsifier"]
-        lines.append(
-            f"- Falsifier (`{falsifier['artifact']}`): {falsifier['rule']}"
-        )
+        lines.append(f"- Falsifier (`{falsifier['artifact']}`): {falsifier['rule']}")
         lines.append("")
 
     lines.append("## What the statuses mean")

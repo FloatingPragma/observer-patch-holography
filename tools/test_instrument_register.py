@@ -1,14 +1,10 @@
-"""Drift and tamper rejection tests for the V3 emergent-instrument register.
-
-The committed register carries INS-01 in SPECIFIED status. The FROZEN, RUNNING,
-and verdict transitions are covered abstractly through fixture rows, so a
-promotion of INS-01 lands as a register edit with no tool change.
-"""
+"""Drift and tamper rejection tests for the V3 emergent-instrument register."""
 
 from __future__ import annotations
 
 import copy
 import hashlib
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -23,18 +19,17 @@ FIXTURE_RULE = (
     "Frozen fixture rule: the arm passes on the reference reading, with"
     " verdict REPLICATED, FAILED, or INCONCLUSIVE."
 )
-FIXTURE_FREEZE = [
-    {
-        "path": "oph-physics-sim/receipts/fixture_freeze.json",
-        "sha256": "0" * 64,
+
+
+def _local_artifact(path: str) -> dict[str, str]:
+    return {
+        "path": path,
+        "sha256": hashlib.sha256((register_tool.ROOT / path).read_bytes()).hexdigest(),
     }
-]
-FIXTURE_RECEIPTS = [
-    {
-        "path": "oph-physics-sim/receipts/fixture_verdict.json",
-        "sha256": "1" * 64,
-    }
-]
+
+
+FIXTURE_FREEZE = [_local_artifact("docs/STYLE_GUIDE.md")]
+FIXTURE_RECEIPTS = [_local_artifact("docs/AXIOM_REFERENCE.md")]
 
 
 def _register() -> dict:
@@ -58,8 +53,10 @@ def _fixture_row(
         "decision_rule": FIXTURE_RULE,
         "seeds_policy": "One declared seed and five declared replicate ids.",
         "controls": ["Fixture control: matched-density arm."],
+        "custody_repository": None,
         "freeze_artifacts": copy.deepcopy(FIXTURE_FREEZE) if frozen else [],
         "frozen_utc": "2026-08-11T00:00:00Z" if frozen else None,
+        "limitations": "Fixture-only validation row with no scientific claim.",
         "verdict_receipts": copy.deepcopy(FIXTURE_RECEIPTS) if receipts else [],
     }
 
@@ -72,7 +69,15 @@ def test_committed_register_validates() -> None:
     assert rows[0]["status"] == "FAILED"
     assert len(rows[0]["freeze_artifacts"]) == 3
     assert rows[0]["frozen_utc"] is not None
-    assert len(rows[0]["verdict_receipts"]) == 1
+    assert len(rows[0]["verdict_receipts"]) == 17
+    assert rows[0]["custody_repository"] == {
+        "url": register_tool.SIMULATOR_REPOSITORY_URL,
+        "commit": register_tool.SIMULATOR_COMMIT,
+    }
+    limitations = rows[0]["limitations"]
+    assert "no raw feature matrices or fit captures" in limitations
+    assert "not an independent observable recomputation" in limitations
+    assert "reachable from the configured GitHub remote's main branch" in limitations
 
 
 def test_rebuild_parity_with_committed_surface() -> None:
@@ -281,9 +286,7 @@ def test_duplicate_artifact_path_rejected() -> None:
 
 def test_in_repo_artifact_hash_binding() -> None:
     pinned = "claims/emergent_instrument_register.json"
-    digest = hashlib.sha256(
-        (register_tool.ROOT / pinned).read_bytes()
-    ).hexdigest()
+    digest = hashlib.sha256((register_tool.ROOT / pinned).read_bytes()).hexdigest()
 
     register = _register()
     row = _fixture_row("FROZEN")
@@ -356,6 +359,26 @@ def test_wrong_schema_rejected() -> None:
         register_tool.validate(register)
 
 
+def test_duplicate_json_key_rejected(tmp_path: Path) -> None:
+    duplicate = tmp_path / "duplicate.json"
+    duplicate.write_text('{"schema":"first","schema":"second"}\n', encoding="utf-8")
+    with pytest.raises(SystemExit, match="duplicate JSON key 'schema'"):
+        register_tool.load_json(duplicate)
+
+
+def test_nested_duplicate_json_key_rejected(tmp_path: Path) -> None:
+    duplicate = tmp_path / "nested-duplicate.json"
+    duplicate.write_text(
+        json.dumps({"row": {"id": "INS-01"}}).replace(
+            '"id": "INS-01"', '"id": "INS-01", "id": "INS-02"'
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(SystemExit, match="duplicate JSON key 'id'"):
+        register_tool.load_json(duplicate)
+
+
 def test_stale_surface_fails_check(tmp_path, monkeypatch) -> None:
     stale = tmp_path / "INSTRUMENT_REGISTER_V3.md"
     stale.write_bytes(b"stale\n")
@@ -374,11 +397,53 @@ def test_missing_in_repo_artifact_path_rejected():
         register_tool.validate(register)
 
 
-def test_external_pointer_path_accepted():
+def test_external_pointer_without_custody_rejected():
     register = _register()
     row = _fixture_row("FROZEN")
     row["freeze_artifacts"] = [
         {"path": "oph-physics-sim/docs/some_prereg.md", "sha256": "4" * 64}
     ]
     register["rows"].append(row)
-    register_tool.validate(register)
+    with pytest.raises(
+        SystemExit, match="external artifacts require custody_repository"
+    ):
+        register_tool.validate(register)
+
+
+def test_ins01_abbreviated_commit_rejected():
+    register = _register()
+    register["rows"][0]["custody_repository"]["commit"] = "42aa966"
+    with pytest.raises(SystemExit, match="full 40-character SHA-1"):
+        register_tool.validate(register)
+
+
+def test_ins01_wrong_repository_rejected():
+    register = _register()
+    register["rows"][0]["custody_repository"]["url"] = (
+        "https://github.com/example/oph-physics-sim"
+    )
+    with pytest.raises(SystemExit, match="sibling simulator origin"):
+        register_tool.validate(register)
+
+
+def test_ins01_manifest_is_mandatory():
+    register = _register()
+    register["rows"][0]["verdict_receipts"].pop(0)
+    with pytest.raises(SystemExit, match="inventory is incomplete"):
+        register_tool.validate(register)
+
+
+def test_ins01_all_fifteen_cell_receipts_are_mandatory():
+    register = _register()
+    register["rows"][0]["verdict_receipts"].pop()
+    with pytest.raises(SystemExit, match="inventory is incomplete"):
+        register_tool.validate(register)
+
+
+def test_ins01_sibling_bytes_are_hash_bound():
+    if not (register_tool.ROOT.parent / "oph-physics-sim" / ".git").exists():
+        pytest.skip("sibling simulator custody checkout is absent")
+    register = _register()
+    register["rows"][0]["verdict_receipts"][-1]["sha256"] = "4" * 64
+    with pytest.raises(SystemExit, match="external artifact hash mismatch"):
+        register_tool.validate(register)

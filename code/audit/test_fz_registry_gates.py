@@ -444,7 +444,7 @@ def test_pending_row_requires_a_live_owning_issue():
         fz_tool.validate(register)
 
 
-def test_historical_owners_are_preserved_and_v2_successors_are_live():
+def test_historical_owners_are_preserved_and_v3_successors_are_live():
     register = live_register()
     rows = register["rows"]
     open_issues = {
@@ -455,8 +455,8 @@ def test_historical_owners_are_preserved_and_v2_successors_are_live():
     }
     mapping = fz_tool.validate_owner_successors(rows, open_issues)
     assert mapping == {
-        "FZ-03": (736,),
-        "FZ-05": (738,),
+        "FZ-03": (745,),
+        "FZ-05": (729, 736, 738),
         "FZ-10": (736,),
         "FZ-11": (733, 736),
         "FZ-12": (733, 736),
@@ -474,9 +474,10 @@ def test_historical_owners_are_preserved_and_v2_successors_are_live():
     }
     rendered = fz_tool.render(register, fz_tool.validate(register))
     assert "historical [#508]" in rendered
-    assert "active V2 [#736]" in rendered
+    assert "current V3 [#736]" in rendered
     assert "historical [#639]" in rendered
-    assert "active V2 [#738]" in rendered
+    assert "current V3 [#729]" in rendered
+    assert "[#738](https://github.com/FloatingPragma/observer-patch-holography/issues/738)" in rendered
 
 
 def test_owner_successor_map_fails_closed_when_a_historical_row_is_missing(

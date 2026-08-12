@@ -1,5 +1,5 @@
 {
- "schema": "oph.premise_register.v1",
+ "schema": "oph.premise_register.v2",
  "issue": 727,
  "rows": [
   {
@@ -226,6 +226,7 @@
    "disposition": "import",
    "statement": "The hadronic vacuum-polarization and spectral input is a pinned empirical payload built from the e+e- hadronic compilation registered in code/particles/hadron/empirical_ee_hadrons_sources.yaml (KNT19, arXiv:1911.00367, per docs/HADRON.md), consumed by the Ward-projected hadron lane and the alpha(m_Z) anchor transport as a flagged import. The registry carries a nonperturbative-QCD barrier policy: the payload is compare and transport data and is never promoted to a source-only theorem.",
    "consuming_lanes": [
+    729,
     736
    ],
    "evidence": [
@@ -242,7 +243,10 @@
    "disposition": "import",
    "statement": "Internal modular charge, energy gaps, and repair-step order carry no laboratory units; attaching them to physical clocks and energy scales uses declared measured anchors, with conversion to SI units a separate calibration statement (row independent_physical_scale_receipt in claims/assumption_dictionary.md, with the typed transport geometry row recording that types alone do not calibrate laboratory units). The four-law claim in claims/claim_registry.yaml records physical energy and clock calibration as named receipts owned jointly by the thermodynamics and constants lanes.",
    "consuming_lanes": [
+    729,
+    730,
     732,
+    733,
     735,
     736
    ],
@@ -271,10 +275,10 @@
   },
   {
    "id": "PR-17",
-   "name": "numerical inputs P and N",
+   "name": "proposed fundamental numerical parameters P and N",
    "type": "numerical_input",
    "disposition": "import",
-   "statement": "P and N are the two declared numerical inputs of the program; every other number entering a composition is derived, external mathematics, or a flagged empirical import. The screen-grain proposal P = phi + sqrt(pi)/A_T(P) has an interval-certified fixed point (docs/AXIOM_REFERENCE.md, certified under code/P_derivation/), and the direct capacity proposal N = log M_0(U_N), declared as declared_capacity_map in claims/assumption_dictionary.md, is not evaluable on the incomplete source antecedent.",
+   "statement": "P and N are the two proposed fundamental free numerical parameters of the program. Measured calibration anchors, fitted inputs, comparison targets, and empirical transport payloads are separate numerical empirical inputs and remain flagged as such; other quantities are derived or imported mathematics. The screen-grain proposal P = phi + sqrt(pi)/A_T(P) has an interval-certified fixed point (docs/AXIOM_REFERENCE.md, certified under code/P_derivation/), and the direct capacity proposal N = log M_0(U_N), declared as declared_capacity_map in claims/assumption_dictionary.md, is not evaluable on the incomplete source antecedent.",
    "consuming_lanes": [
     729,
     736
@@ -284,7 +288,7 @@
     "code/P_derivation/",
     "claims/assumption_dictionary.md"
    ],
-   "notes": "The two numbers stay the only numerical inputs under hard rule 2; lane #736 restates the P and N routes as conditional determinations with fully registered ancestry."
+   "notes": "The two numbers stay the only proposed fundamental free parameters under hard rule 2. Lane #736 records every empirical and mathematical input separately and never describes a result consuming those inputs as derived from P and N alone."
   },
   {
    "id": "PR-18",
@@ -508,7 +512,7 @@
     "Lean/QFT/JointSlotFactorisation.lean",
     "Lean/QFT/SourceCorrelationCapstone.lean"
    ],
-   "notes": "Removal requires source selection of the joint carrier; the bounded closure of issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier."
+   "notes": "Removal requires source selection of the joint carrier; the bounded closure of historical issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier."
   },
   {
    "id": "PR-33",
@@ -548,7 +552,8 @@
    "disposition": "remove",
    "statement": "The carrier loop classes realized by the source are the six-axis screen gluing classes of Lean/Screen/Z6Exact.lean, and their image under the committed intertwiner sixAxisToKernel of Lean/Screen/Z6Descent.lean (axis generator to the kernel generator (omega_3 I_3, -I_2, e^{i pi/3}), antipodal sign reversal to conjugation, injective with image exactly the tensor-action kernel) generates the full Z6 tensor-action kernel of Lean/Screen/TraceBalancedKernel.lean; the physical global gauge form is the quotient of SU(3) x SU(2) x U(1) by that image, S(U(3) x U(2))/Z6. The realized local weights descend through all four admissible quotients (Z6Descent.four_admissible_global_forms), so this identity is the clause that selects the physical quotient; the intertwiner itself is a proved receipt, and the premise is the same-source physical identification of its domain.",
    "consuming_lanes": [
-    734
+    734,
+    735
    ],
    "evidence": [
     "Lean/Screen/Z6Descent.lean",
@@ -566,7 +571,8 @@
    "disposition": "remove",
    "statement": "The family multiplicity object is a single complete spectral band of the twelve-port adjacency realized inside the screen coefficient space: candidates carrying a source-visible proper splitting projector are excluded (the single-complete-object clause), bands whose rotation action has nontrivial kernel are excluded (the faithfulness clause), and the complex dimension lies in the pinned physical window [3, 5]. Admissible candidates are compared by the operational Laplacian seam cost per unit norm over Z[sqrt5], and the unique strict minimizer is selected. On the committed carrier the admissible candidates are the 3, 3', and 5 bands with exact costs 5 - sqrt5 < 6 < 5 + sqrt5, so the rules select the rank-three band (Lean/Screen/A5FamilyBand.lean, family_band_selected); without the faithfulness clause the minimizer is the trivial band at cost zero (trivial_band_without_faithfulness), so the clause is load-bearing. The clauses are declared in code/a5_closure/family_band_attachment_certificate.py and its reference manifest.",
    "consuming_lanes": [
-    734
+    734,
+    735
    ],
    "evidence": [
     "code/a5_closure/family_band_attachment_certificate.py",
@@ -583,6 +589,7 @@
    "disposition": "remove",
    "statement": "The P-closure map consumed by the fine-structure lane is a declared selection: the one-loop running and matching conventions, the tree-level m_Z closure, and the continuation masses enter as declared map data, certified as declared in the interval contraction certificate, and no source rule selects this map among admissible closure maps.",
    "consuming_lanes": [
+    729,
     736
    ],
    "evidence": [
@@ -598,6 +605,7 @@
    "disposition": "remove",
    "statement": "The screen detuning reading of P and the electromagnetic return reading are the same typed quantity, so the fixed point of the declared closure map and the fine-structure return value factor through one same-invariant identification; the scoreboard row p_detuning_same_quantity_readback records the bridge as an undischarged anchor.",
    "consuming_lanes": [
+    729,
     736
    ],
    "evidence": [
@@ -613,6 +621,7 @@
    "disposition": "remove",
    "statement": "The Thomson endpoint transport attaches to the physical Thomson scheme through a declared readback contract; the endpoint receipt consumes the contract as declared, and the scoreboard row alpha_in_thomson records the physical attachment as an undischarged anchor.",
    "consuming_lanes": [
+    729,
     736
    ],
    "evidence": [
@@ -643,6 +652,7 @@
    "disposition": "remove",
    "statement": "The conditional Higgs and top rows of the electroweak section consume declared selection premises; the postdiction ledger records the rows as conditional on the declared selection axioms, and the sector stance is owed.",
    "consuming_lanes": [
+    729,
     736
    ],
    "evidence": [
@@ -665,6 +675,275 @@
     "Lean/Thermodynamics/CapFirstLaw.lean"
    ],
    "notes": "Composes with PR-07 (declared repair law) and PR-15 (clock and energy calibration anchors). The composition with the repair kernel conserves the central charge with no further hypothesis, so the cap Clausius inequality carries no independent temperature input. No continuum horizon exists on the finite model; horizon temperature in physical units stays with PR-15 plus the horizon-dictionary content of this row. Evidence context: Lean/Thermodynamics/HorizonThermalitySurface.lean: structure HorizonRecordData; theorems HorizonSurface.horizon_cap_clausius; HorizonSurface.entanglement_first_law_exact; HorizonSurface.entanglement_first_law_first_order; HorizonSurface.modular_weight_double_identification"
+  },
+  {
+   "id": "PR-43",
+   "name": "pointwise-continuous public star-automorphism flow",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "A real-parameter group of star automorphisms of one represented finite matrix algebra is supplied, with identity at zero, the group law, and pointwise continuity. The finite Stone-converse receipt then represents that supplied flow by conjugation with a time-independent self-adjoint generator, unique up to an additive real scalar. The premise supplies neither a source-selected evolution nor a physical clock.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+    "Lean/Dynamics/StoneConverse.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs the observer protocol to emit the automorphism group and its source-selected generator. Physical-time calibration remains a separate PR-15 attachment."
+  },
+  {
+   "id": "PR-44",
+   "name": "finite subsystem split and normalized local-operation interface",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "statement": "The finite locality helpers are read on a supplied bipartite carrier split with a designated local factor and a normalized local operation: a row-normalized classical kernel or Kraus-complete quantum family. Adaptive variants additionally take a supplied scheduler and consultation region. These data yield exact algebraic no-signalling and dependency-cone identities but do not identify spacelike physical regions, a laboratory channel, or a source-selected factorization.",
+   "consuming_lanes": [
+    728,
+    730
+   ],
+   "evidence": [
+    "Lean/ObserverPatchHolography/Locality/NoSignalling.lean",
+    "Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source-produced subsystem or region split, normalized channel semantics, and scheduler provenance. PR-52 separately owns the physical spacetime and causal reading."
+  },
+  {
+   "id": "PR-45",
+   "name": "source-selected real variational dynamics and symmetry data",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The variational surface is supplied with a positive initial law and transition kernel, a finite history length, a real Lagrangian or stiffness and potential with derivative data, and, for Noether transport, a differentiable one-parameter transformation and exact invariance law. The finite Euler-Lagrange, Legendre-Hamilton, and Noether receipts are conditional on these data; the observer source does not select them.",
+   "consuming_lanes": [
+    731
+   ],
+   "evidence": [
+    "Lean/Variational/MechanicsAdequacySurface.lean",
+    "Lean/Variational/DiscreteNoether.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs one source-derived real history action, potential, symmetry action, and physical clock that compose with the path reference and real enrichment rather than merely standing beside them."
+  },
+  {
+   "id": "PR-46",
+   "name": "physical global-form selection attachments",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "Selection of the physical global gauge group from the four quotients compatible with the realized local weights requires a source-complete character category, an instanton or topological normalization, and a laboratory flux or line-operator attachment. The finite kernel, six-axis intertwiner, and four-quotient menu do not supply those identifications.",
+   "consuming_lanes": [
+    734,
+    735
+   ],
+   "evidence": [
+    "Lean/Screen/SMStructureAdequacySurface.lean",
+    "Lean/Screen/Z6Descent.lean",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "notes": "Removal needs a same-source physical discriminator that selects one quotient and rules out the other three without importing the observed Standard Model global form."
+  },
+  {
+   "id": "PR-47",
+   "name": "spacetime Spin and fermion-chirality attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The parity-graded exterior component table is attached to a physical Lorentzian Spin structure, odd-Weyl fermion typing, and fermion parity so that the finite table grading has the claimed spacetime chirality meaning. The central arithmetic and parity scan do not construct this attachment.",
+   "consuming_lanes": [
+    734,
+    735,
+    745
+   ],
+   "evidence": [
+    "Lean/Screen/SMStructureAdequacySurface.lean",
+    "claims/assumption_dictionary.md",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "notes": "Removal needs a source-selected Lorentzian Spin lift that composes with the exterior matter carrier and its local dynamics."
+  },
+  {
+   "id": "PR-48",
+   "name": "one-Higgs scalar carrier and kinetic-action attachment",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "statement": "One complex weak doublet of hypercharge one half is selected as the physical scalar carrier, identified with the declared weak block, and furnished with a gauge-covariant kinetic action and normalization. The exterior table and central-weight arithmetic identify a compatible candidate but do not select its physical existence or dynamics.",
+   "consuming_lanes": [
+    735,
+    745
+   ],
+   "evidence": [
+    "claims/assumption_dictionary.md",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "Lean/Screen/Z6Descent.lean"
+   ],
+   "notes": "Removal needs a source action that selects the scalar carrier and fixes its kinetic normalization rather than assuming the one-Higgs branch."
+  },
+  {
+   "id": "PR-49",
+   "name": "renormalizable Higgs potential and electroweak-breaking law",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The scalar sector carries the renormalizable quadratic-plus-quartic Higgs potential, a stable symmetry-breaking branch, and a vacuum attachment with a declared relation to the physical electroweak scale. No committed OPH theorem selects the potential, its coefficients, or the broken vacuum.",
+   "consuming_lanes": [
+    735,
+    736,
+    745
+   ],
+   "evidence": [
+    "claims/assumption_dictionary.md",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "code/particles/hierarchy/STATUS.md"
+   ],
+   "notes": "Removal needs a target-clean source-derived stable scalar potential, vacuum, and scale bridge. Until then electroweak breaking is a registered premise, not an OPH result."
+  },
+  {
+   "id": "PR-50",
+   "name": "Yukawa interaction-line and coupling-matrix attachment",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "The gauge-invariant up, down, and charged-lepton interaction lines are selected on the one-Higgs matter package and furnished with complete Yukawa matrices, including family labels and physical chiral attachment. The exterior grammar records compatible invariant lines, while exact non-identifiability receipts show that it does not determine their matrices, eigenvalues, textures, or phases.",
+   "consuming_lanes": [
+    735,
+    736,
+    745
+   ],
+   "evidence": [
+    "code/particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source-derived interaction action selecting all three matrices without measured mass or mixing ancestry."
+  },
+  {
+   "id": "PR-51",
+   "name": "common screen-electroweak load and capacity bridge",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The A5-invariant screen-load line and the electroweak scalar order-unit line are identified by one refinement-natural positive unital readout, and that same typed load is attached to the global capacity action used by the conditional N closure. The current branch certificate explicitly leaves the common-load identification and inherited screen-electroweak bridge premises open.",
+   "consuming_lanes": [
+    729,
+    736,
+    740
+   ],
+   "evidence": [
+    "claims/assumption_dictionary.md",
+    "code/capacity_readback/manifests/n_closure_branch_certificate.json",
+    "tracking/claims_scoreboard.md"
+   ],
+   "notes": "Removal needs a target-independent same-quantity theorem and a source-derived global capacity action; registering the row licenses only conditional ancestry."
+  },
+  {
+   "id": "PR-52",
+   "name": "observer-to-physical-spacetime and causal attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The intrinsic Lorentz module, null cone, event-germ atlas, and declared finite causal regions are jointly identified with one observer-produced physical spacetime, including compatible rods, operational clocks, causal reachability, refinement, and continuum soldering. The existing algebraic geometry and finite-net modules explicitly do not construct this joint attachment.",
+   "consuming_lanes": [
+    728,
+    729,
+    730,
+    740
+   ],
+   "evidence": [
+    "Lean/Geometry/CanonicalLorentzModule.lean",
+    "Lean/QFT/FiniteCausalObserverNet.lean",
+    "Lean/Geometry/EventFrameSoldering.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure."
+  },
+  {
+   "id": "PR-53",
+   "name": "physical photon field, frame, and comparison attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The internal seam-current action and its rank-two oscillator are identified with a physical photon or other declared field sector, a coherent frame and boost law, a calibrated clock and length scale, a cofinal gluing or continuum domain, and an operational wave-packet readout with nuisance and comparison semantics. The exact internal dispersion coefficients alone supply none of these attachments.",
+   "consuming_lanes": [
+    733,
+    736,
+    738,
+    740
+   ],
+   "evidence": [
+    "Lean/Screen/LightSignalAdequacySurface.lean",
+    "claims/frozen_prediction_register.json",
+    "docs/FROZEN_PREDICTION_LADDER.md"
+   ],
+   "notes": "Removal needs a target-clean physical field/readout bridge. A predictive comparison remains ineligible until this row and the applicable custody and power contracts are discharged."
+  },
+  {
+   "id": "PR-54",
+   "name": "source gauge-field, current, and action attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The selected compact bracket and matter representation are realized by one source-produced gauge connection, current algebra, field strength, covariant matter operator, and local action on the same spacetime carrier. The finite classification and invariant-form receipts determine conditional algebraic shapes but do not construct this physical field/action package.",
+   "consuming_lanes": [
+    733,
+    734,
+    735,
+    740,
+    743,
+    744,
+    745
+   ],
+   "evidence": [
+    "Lean/Screen/SMStructureAdequacySurface.lean",
+    "Lean/Screen/GaugeKineticInvariantForms.lean",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes; side-by-side classification theorems are insufficient."
+  },
+  {
+   "id": "PR-55",
+   "name": "declared baryon- and lepton-number labels",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "The ten one-generation Weyl-field labels are furnished with the displayed accidental baryon number B and lepton number L. These labels are used to classify baryon-violating dimension-six field multisets and to state Delta B equals Delta L. Gauge representation and hypercharge data do not by themselves derive these two global labels or prove their conservation.",
+   "consuming_lanes": [
+    734,
+    744
+   ],
+   "evidence": [
+    "Lean/Screen/BaryonDimensionSix.lean",
+    "code/a5_closure/baryon_dimension_six_census.py",
+    "claims/claim_registry.yaml"
+   ],
+   "notes": "Removal needs a source-side definition of the accidental charges on the physical matter carrier. The finite census remains conditional on the displayed labels."
+  },
+  {
+   "id": "PR-56",
+   "name": "dimension-six baryon-operator eligibility and contraction grammar",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "statement": "Candidate dimension-six baryon operators are represented by ordered four-field multisets on the declared one-generation Weyl table and filtered by exact hypercharge neutrality, color triality, weak parity, Lorentz-chirality parity, and nonzero baryon label. Surviving rows are tested in the supplied epsilon-contraction and exterior-algebra grammar. The exhaustive finite result proves completeness only inside this declared grammar.",
+   "consuming_lanes": [
+    734,
+    735,
+    744
+   ],
+   "evidence": [
+    "Lean/Screen/BaryonDimensionSix.lean",
+    "code/a5_closure/baryon_dimension_six_census.py",
+    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json"
+   ],
+   "notes": "Removal needs a source-derived effective-operator domain and a proof that the finite grammar is complete for the physical low-energy action."
+  },
+  {
+   "id": "PR-57",
+   "name": "physical proton state and baryon-violating effective-action attachment",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The declared quark and lepton fields, baryon labels, and finite operator census are attached to a physical proton state and one low-energy effective action with source-selected Wilson coefficients, renormalization and scale conventions, QCD matrix elements, and decay readout. Without this attachment the census neither proves proton stability nor predicts a lifetime.",
+   "consuming_lanes": [
+    734,
+    735,
+    744
+   ],
+   "evidence": [
+    "Lean/Screen/BaryonDimensionSix.lean",
+    "claims/claim_registry.yaml",
+    "code/particles/runs/status/postdiction_ledger.json"
+   ],
+   "notes": "Removal needs a same-architecture matter/QCD/action construction and an operational decay comparison. The current exact result is only a conditional finite operator census."
   }
  ]
 }

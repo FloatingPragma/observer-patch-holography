@@ -371,7 +371,13 @@ def render(rows: list[dict]) -> str:
     )
     lines.append("for")
     lines.append(
-        "[issue #554](https://github.com/FloatingPragma/observer-patch-holography/issues/554)."
+        "[historical issue #554](https://github.com/FloatingPragma/observer-patch-holography/issues/554);"
+    )
+    lines.append(
+        "current premise custody is [#727](https://github.com/FloatingPragma/observer-patch-holography/issues/727),"
+    )
+    lines.append(
+        "and source discharge is [#739](https://github.com/FloatingPragma/observer-patch-holography/issues/739)."
     )
     lines.append("")
 

@@ -1,5 +1,5 @@
 {
- "schema": "oph.emergent_instrument_register.v1",
+ "schema": "oph.emergent_instrument_register.v2",
  "issue": 738,
  "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
  "policy": "An instrument row is a preregistered simulation experiment: declared observable, declared analysis, declared controls, and a decision rule frozen before the run, with pinned receipts. This register is a separate surface from the frozen-prediction ladder; the ladder is reserved for physical predictions against external data, and simulation instruments never enter it. Each instrument binds to exactly one observation-ledger row, and its verdict promotes or blocks that row's emergent rung. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
@@ -17,6 +17,10 @@
     "C-SUPPORT: matched support-density control at 16384/128/6; a fired control reads as mean signature degradation plus halved cross edges.",
     "C-ANCESTRY: ancestry-permutation null at zero extra runtime; the null destroys (1,3) on at least 4 of 5 replicates."
    ],
+   "custody_repository": {
+    "url": "https://github.com/muellerberndt/oph-physics-sim",
+    "commit": "42aa96607f40dae94c5a8b65e9dd8e71e5b6434e"
+   },
    "freeze_artifacts": [
     {
      "path": "oph-physics-sim/scripts/ol_a1_signature_replication.py",
@@ -32,10 +36,75 @@
     }
    ],
    "frozen_utc": "2026-08-12T19:14:51Z",
+   "limitations": "The committed campaign retains the manifest, summary, and fifteen per-arm receipt files but no raw feature matrices or fit captures from which an independent implementation could reconstruct every observable. The simulator's validate-only mode rechecks the committed receipt fields and frozen decision rule using the producer implementation; it is not an independent observable recomputation. The pinned campaign commit is present in the sibling custody checkout and is reachable from the configured GitHub remote's main branch; remote reachability closes only the publication-custody check and does not supply the missing raw captures or an independent observable recomputation.",
    "verdict_receipts": [
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/manifest.json",
+     "sha256": "befad341fdc5dfe8dcc1370c9ec613748b3891f7744957b133251ac36ac85d28"
+    },
     {
      "path": "oph-physics-sim/data/ol_a1_replication/campaign_summary.json",
      "sha256": "e9f8cd54f1451b546a88341f678203f87f500dd4207584309dbe9a0612d2fe6b"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r1.json",
+     "sha256": "66be4d632ae4a37b42369b6a89ee0bee4d6c667fd9cc612449fbc7f7fbb9b515"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r2.json",
+     "sha256": "87841e0a5fab7feca514cba821c158c177bb308c53cba6f9d3a8c96d2276f765"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r3.json",
+     "sha256": "03d5b2e305bd5652d73b60bdc757d8c9812007a9b81648602e02772522161674"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r4.json",
+     "sha256": "07c43363eb37ae908d6ef2d203b9b4afbe080d05a52802c69ce20d80bc649ece"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r5.json",
+     "sha256": "bf81a4f85aca32f6292458005d481590d7c9556ae9829025a607d9c0f048125a"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r1.json",
+     "sha256": "0a4dd46e524914f54c307ebbd970e85fe8bba1abc733f2e62b6a970c32b1e016"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r2.json",
+     "sha256": "e2da7a503978ef7e66b780a40017e491c09f80e03da10c9c5f0095975f64a416"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r3.json",
+     "sha256": "86f387b87ae7dd16792a0df6a1f5d09b99c759deb30f8696848739b1fdd67d24"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r4.json",
+     "sha256": "83e1719b8efec4a73a9decf9f2cb8ddddb46ed1f4fb5d842ee7a04771c1e5bba"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r5.json",
+     "sha256": "5dc398c3f86f8b172bfd5cee1332c3077d7c69a7381f4b46092fc96953e77eb4"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r1.json",
+     "sha256": "ae4d18d3c7a4c113d5fa279b4198218589d546b962b7294736f48045c8b0b8c4"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r2.json",
+     "sha256": "b38f02987fb5c10b8ef4971b6078b4cda2943f2f0258fd3267416618cc2abcb2"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r3.json",
+     "sha256": "39cbb3c7a4bcd37c71e68302bece6dba606bbe7f3f3413d077a6c5257e0b1bd7"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r4.json",
+     "sha256": "109257fa22802d15c9fd8d2bff14dfc0e1584d634e05bda038c77a559d387e7c"
+    },
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r5.json",
+     "sha256": "0461bc690c019ed34ad974aee7deaba0247c2d64b607c78ba107202e649404f4"
     }
    ]
   }

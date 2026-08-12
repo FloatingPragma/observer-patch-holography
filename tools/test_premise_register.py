@@ -34,7 +34,11 @@ def test_rebuild_parity_with_committed_surface() -> None:
 
 def test_check_mode_passes_on_committed_artifacts() -> None:
     result = subprocess.run(
-        [sys.executable, str(Path(__file__).parent / "build_premise_register.py"), "--check"],
+        [
+            sys.executable,
+            str(Path(__file__).parent / "build_premise_register.py"),
+            "--check",
+        ],
         capture_output=True,
         text=True,
         check=False,
@@ -88,7 +92,7 @@ def test_renamed_row_rejected() -> None:
 def test_dropped_row_rejected() -> None:
     register = _register()
     register["rows"].pop()
-    with pytest.raises(SystemExit, match="exactly 42 entries"):
+    with pytest.raises(SystemExit, match="exactly 57 entries"):
         register_tool.validate(register)
 
 
@@ -98,3 +102,10 @@ def test_stale_surface_fails_check(tmp_path, monkeypatch) -> None:
     monkeypatch.setattr(register_tool, "SURFACE_PATH", stale)
     monkeypatch.setattr(sys, "argv", ["build_premise_register.py", "--check"])
     assert register_tool.main() == 1
+
+
+def test_duplicate_json_key_rejected(tmp_path: Path) -> None:
+    duplicate = tmp_path / "duplicate.json"
+    duplicate.write_text('{"schema":"one","schema":"two"}', encoding="utf-8")
+    with pytest.raises(SystemExit, match="duplicate JSON key"):
+        register_tool.load_json(duplicate)

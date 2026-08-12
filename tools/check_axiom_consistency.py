@@ -278,7 +278,7 @@ def pdf_checks(errors: list[str]) -> None:
                 errors.append(f"{rel}: extracted text carries stale token ({label})")
 
 
-def write_inventory() -> None:
+def inventory_payload() -> dict:
     rows = []
     seen: set[Path] = set()
     for glob in ACTIVE_GLOBS:
@@ -293,7 +293,7 @@ def write_inventory() -> None:
                     "allowlisted": path_allowed(path),
                 }
             )
-    payload = {
+    return {
         "schema": "oph.active_surface_inventory.v1",
         "generator": "tools/check_axiom_consistency.py --inventory",
         "surface_count": len(rows),
@@ -301,9 +301,32 @@ def write_inventory() -> None:
         "pdf_surfaces": PDF_SURFACES,
         "surfaces": rows,
     }
+
+
+def write_inventory() -> None:
+    payload = inventory_payload()
     out = ROOT / "claims" / "active_surface_inventory.json"
     out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
-    print(f"wrote {out.relative_to(ROOT)} ({len(rows)} surfaces)")
+    print(
+        f"wrote {out.relative_to(ROOT)} "
+        f"({payload['surface_count']} surfaces)"
+    )
+
+
+def inventory_check(errors: list[str]) -> None:
+    path = ROOT / "claims" / "active_surface_inventory.json"
+    expected = json.dumps(inventory_payload(), indent=2) + "\n"
+    if not path.is_file():
+        errors.append(
+            "claims/active_surface_inventory.json: missing; regenerate with "
+            "python3 tools/check_axiom_consistency.py --inventory"
+        )
+        return
+    if path.read_text(encoding="utf-8") != expected:
+        errors.append(
+            "claims/active_surface_inventory.json: stale; regenerate with "
+            "python3 tools/check_axiom_consistency.py --inventory"
+        )
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -311,6 +334,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--pdf", action="store_true", help="also scan designated release PDFs")
     parser.add_argument("--list-only", action="store_true", help="print violations without failing")
     parser.add_argument("--inventory", action="store_true", help="write claims/active_surface_inventory.json")
+    parser.add_argument(
+        "--check-inventory",
+        action="store_true",
+        help="fail if claims/active_surface_inventory.json differs from a live scan",
+    )
     args = parser.parse_args(argv)
 
     if args.inventory:
@@ -321,6 +349,8 @@ def main(argv: list[str] | None = None) -> int:
     registry_checks(errors)
     scan_surfaces(errors)
     entry_surface_checks(errors)
+    if args.check_inventory:
+        inventory_check(errors)
     if args.pdf:
         pdf_checks(errors)
 

@@ -9,8 +9,8 @@ Fail-closed rules: frozen rows carry a parseable, non-future UTC freeze time,
 custody, a typed attestation state, content hash, kill band, and comparison
 protocol. Historical owner numbers remain unchanged in the custody register;
 ``claims/frozen_prediction_owner_successors.json`` separately maps every
-archived row owner to at least one open V2 successor. Pending rows carry either
-an open owner or one of those validated historical-to-V2 mappings and a
+archived row owner to at least one open V3 successor. Pending rows carry either
+an open owner or one of those validated historical-to-V3 mappings and a
 milestone. Retrospective results occupy a separate collection;
 their former reservations cannot also occur as ladder rows. The issue-506
 record is checked against a fresh replay of its canonical producer as well as
@@ -1282,7 +1282,7 @@ def validate_fz11_prediction(
     if receipt.get("frozen_utc") != row["frozen_utc"]:
         fail("FZ-11 receipt and register row must carry one freeze time")
     if receipt.get("issue") != 655 or row.get("owning_issue") != 655:
-        fail("FZ-11 must remain owned by open physical-bridge issue #655")
+        fail("FZ-11 must retain historical physical-bridge issue #655")
     if FZ11_DECISION_RULE_CUSTODY_COMMIT not in str(row.get("custody", "")):
         fail("FZ-11 row does not name the append-only decision-rule custody")
     exact_row_fields = {
@@ -2954,8 +2954,9 @@ def render(register: dict, rows: list[dict]) -> str:
     )
     lines.append("")
     lines.append(
-        "Historical owner numbers remain unchanged in the frozen register."
-        " Active V2 execution ownership is supplied by the fail-closed"
+        "Historical owner numbers and issue references inside immutable frozen"
+        " content remain unchanged and are explicitly historical. Current V3"
+        " execution ownership is supplied by the fail-closed"
         " non-custody map"
         " `claims/frozen_prediction_owner_successors.json`; every listed"
         " successor must be open in the canonical issue snapshot."
@@ -2983,7 +2984,7 @@ def render(register: dict, rows: list[dict]) -> str:
                     for issue in successors
                 )
                 owner = (
-                    f"{historical}; active V2 {active}; historical milestone "
+                    f"{historical}; current V3 {active}; historical milestone "
                     f"{row['milestone']}"
                 )
             else:
@@ -3109,7 +3110,7 @@ def render(register: dict, rows: list[dict]) -> str:
         "is examined; validation requires each pending row to name an open owner"
     )
     lines.append(
-        "or retain its historical owner with an explicit open V2 successor, and"
+        "or retain its historical owner with an explicit open V3 successor, and"
         " fails closed otherwise."
     )
     lines.append(

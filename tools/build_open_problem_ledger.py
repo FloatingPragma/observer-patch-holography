@@ -54,6 +54,26 @@ V2_WAVE_TITLES = {
     4: "Quantitative outputs",
 }
 
+V3_TITLE_RE = re.compile(r"^\[V3-([A-Z]{1,2}[0-9]+)\]\s+")
+POLICY_FIELDS = {
+    "phase",
+    "claim_level",
+    "blocker",
+    "closure",
+    "falsification",
+    "chrome_policy",
+}
+PLACEHOLDER_POLICY = {
+    "phase": "unclassified",
+    "claim_level": "open",
+    "blocker": "Classify blocker from the live issue body.",
+    "closure": "Add exact closure criterion to this ledger.",
+    "falsification": "Add exact falsification criterion to this ledger.",
+    "chrome_policy": (
+        "Do not launch workers until the issue has a concrete local packet."
+    ),
+}
+
 
 ISSUE_POLICY: dict[int, dict[str, str]] = {
     28: {
@@ -1569,6 +1589,536 @@ ISSUE_POLICY: dict[int, dict[str, str]] = {
 }
 
 
+# V3 is adequacy-first: these rows classify the issue contracts without
+# inferring scientific closure from GitHub state.  Add each new ``[V3-*]``
+# lane here before regenerating the ledger.  The builder and offline validator
+# fail closed when a V3-labelled issue has no entry, which makes later lanes
+# (for example #740+) a one-row declarative addition rather than a parser
+# heuristic.
+V3_ISSUE_POLICY: dict[int, dict[str, str]] = {
+    740: {
+        "phase": "v3-common-world-integration",
+        "claim_level": "program-level same-architecture compatibility gate",
+        "blocker": (
+            "The lane results are carried by separate conditional witnesses; no "
+            "artifact yet proves that one AV-n jointly inhabits their carriers, "
+            "records, clocks, fields, matter, actions, repair semantics, scales, "
+            "and physical readouts."
+        ),
+        "closure": (
+            "One machine-checked common-world manifest joins every row included in "
+            "a program-level adequacy claim on one inhabited AV-n, with typed maps, "
+            "exact premise and empirical-input ancestry, receipts, and audit pointers."
+        ),
+        "falsification": (
+            "Incompatible witness types, clocks, calibrations, architecture versions, "
+            "or an owed required observation row block the common-world claim."
+        ),
+        "chrome_policy": (
+            "Use an independent worker only to audit a sealed compatibility packet; "
+            "dependency closure is not positive evidence and cannot fill a missing map."
+        ),
+    },
+    741: {
+        "phase": "v3-infrastructure-architecture-versioning",
+        "claim_level": "immutable architecture, promotion, and audit index",
+        "blocker": (
+            "Promotions and audit assertions are not uniformly keyed to an immutable "
+            "axiom/protocol/premise snapshot, reviewed commit, reviewer identity, "
+            "repair history, and artifact hashes."
+        ),
+        "closure": (
+            "The initial AV-n manifest, append-only decision history, semantic diff, "
+            "promotion invalidation/replay rules, prediction-lineage guard, and "
+            "machine-readable audit index land with mutation gates and independent audit."
+        ),
+        "falsification": (
+            "A semantic architecture change silently preserves a promotion or frozen "
+            "prediction, or an audit/promotion cannot be traced to its exact version "
+            "and artifacts, invalidates the custody infrastructure."
+        ),
+        "chrome_policy": (
+            "Workers may audit a committed version/diff/index packet; they cannot "
+            "supply scientific evidence or decide an architecture change implicitly."
+        ),
+    },
+    742: {
+        "phase": "v3-l11-cosmology-astrophysics",
+        "claim_level": "conditional cosmology and astrophysics adequacy lane",
+        "blocker": (
+            "No premise-complete common-world composition yet joins expansion, "
+            "perturbations, structure, compact-object/gravitational propagation, "
+            "dark-sector, ultra-high-energy, and birefringence targets to explicit "
+            "clocks, matter, calibration, and empirical inputs."
+        ),
+        "closure": (
+            "Every scoped target has an evidence-backed conservative status and "
+            "atomic premise ancestry; qualifying compositions share one AV-n and "
+            "eligible instruments and comparisons are preregistered under #737/#738."
+        ),
+        "falsification": (
+            "A fitted background is promoted as structure formation, missing physics "
+            "is relabeled as derived dark matter, or inspected data are called a "
+            "prediction without a fresh freeze."
+        ),
+        "chrome_policy": (
+            "Audit sealed, target-clean finite packets only; do not inspect comparison "
+            "data to choose a cosmological mechanism or nuisance model."
+        ),
+    },
+    743: {
+        "phase": "v3-l12-interacting-qft-rg-scattering",
+        "claim_level": "interacting-QFT, RG, and scattering composition gap",
+        "blocker": (
+            "The finite/free surfaces do not select one interaction, regulator, "
+            "renormalization prescription, scale map, interacting state, asymptotic "
+            "or finite operational scattering interface, and controlled error budget."
+        ),
+        "closure": (
+            "At least one non-free same-AV-n benchmark composes end to end with "
+            "declared regulator/scheme dependence, RG flow, unitarity/locality and "
+            "scattering claims, error control, receipts, mutation gates, and audit."
+        ),
+        "falsification": (
+            "An interaction symbol on a free theory, unrelated theorem re-exports, "
+            "or an uncontrolled finite-volume receipt is used as continuum QFT, RG, "
+            "or an S-matrix."
+        ),
+        "chrome_policy": (
+            "Use workers for independent audit of a concrete regulator-explicit "
+            "packet only; no target coupling or subtraction-point fitting."
+        ),
+    },
+    744: {
+        "phase": "v3-l13-qcd-hadron-nuclear-atomic",
+        "claim_level": "layered strong-interaction-to-atomic adequacy lane",
+        "blocker": (
+            "Perturbative QCD, confinement, hadron, nuclear, and atomic targets lack "
+            "a layered contract that separates source calculations from empirical "
+            "transport and states the nonperturbative and laptop-scale boundaries."
+        ),
+        "closure": (
+            "The perturbative and atomic benchmarks close within declared errors, "
+            "each nonperturbative layer has an exact evidence-backed status/blocker, "
+            "and no spectral or transport payload is relabeled as generated theory."
+        ),
+        "falsification": (
+            "Empirical Ward projection is promoted to a hadron spectrum, one layer's "
+            "success promotes another, or a fit/measurement is called a source-only "
+            "prediction."
+        ),
+        "chrome_policy": (
+            "Workers may audit finite perturbative/atomic or classification packets; "
+            "do not use them as a substitute for nonperturbative compute."
+        ),
+    },
+    745: {
+        "phase": "v3-l14-electroweak-weak-flavor-neutrino",
+        "claim_level": "conditional electroweak, weak, flavor, and neutrino composition",
+        "blocker": (
+            "No one action/version jointly supplies the scalar potential and broken "
+            "vacuum, chiral weak currents, physical W/Z/H sheet, Yukawa matrices, "
+            "mixing and CP structure, neutrino mechanism, calibration, and readout."
+        ),
+        "closure": (
+            "One AV-n action inhabits the scalar, breaking, weak-current, flavor, "
+            "and neutrino objects; all numbers and premises are classified, loop/RG "
+            "imports are scoped, and ledger surfaces, receipts, gates, and audit agree."
+        ),
+        "falsification": (
+            "A term table is called an assembled action, chart-local poles are called "
+            "particles, fitted Yukawa/mixing inputs are called derived, or tree-level "
+            "receipts are promoted to loop phenomenology."
+        ),
+        "chrome_policy": (
+            "Audit sealed action/correspondence packets only; no target mass, angle, "
+            "phase, or neutrino hierarchy may select the construction."
+        ),
+    },
+    726: {
+        "phase": "v3-infrastructure-observation-ledger",
+        "claim_level": "standing adequacy-accounting and promotion gate",
+        "blocker": (
+            "The observation ledger must remain exhaustive and keep each physics "
+            "target bound to one adequacy rung, owning lane, complete premise list, "
+            "and evidence bundle; the ledger itself is not evidence."
+        ),
+        "closure": (
+            "Every declared physics target has one machine-readable row and one "
+            "generated Markdown row, deterministic parity checks pass, structural "
+            "and emergent promotions cite audited lane receipts, and predictive "
+            "rows point to frozen custody contracts."
+        ),
+        "falsification": (
+            "An omitted target, unnamed consumed premise, unsupported rung "
+            "promotion, moving numerical target, or source/generated drift invalidates "
+            "the ledger state."
+        ),
+        "chrome_policy": (
+            "Use an independent worker only to audit a committed ledger and its "
+            "receipts; never let a worker promote a row from prose alone."
+        ),
+    },
+    727: {
+        "phase": "v3-infrastructure-premise-register",
+        "claim_level": "standing conditionality and disposition gate",
+        "blocker": (
+            "Every premise consumed by a composition must be registered with an "
+            "exact statement, type, consuming lanes, disposition, and the relevant "
+            "source-selection no-go or provenance evidence."
+        ),
+        "closure": (
+            "The machine register and generated surface are exhaustive and in "
+            "parity, every consumer cites a registered row, numerical ancestry "
+            "distinguishes P and N from derived values and flagged imports, and "
+            "each disposition change is an audited recorded event."
+        ),
+        "falsification": (
+            "A hidden premise, silent disposition change, unflagged numerical or "
+            "empirical input, missing consumer edge, or claim that registration "
+            "makes a premise true invalidates the register contract."
+        ),
+        "chrome_policy": (
+            "Use workers only for independent premise-ancestry or no-go audits of "
+            "a committed packet; architecture decisions remain explicit local edits."
+        ),
+    },
+    728: {
+        "phase": "v3-l1-spacetime-adequacy",
+        "claim_level": (
+            "conditional spacetime composition with a preregistered emergent-signature gate"
+        ),
+        "blocker": (
+            "Dimensionality, Lorentz kinematics, causal order, event-manifold data, "
+            "and the measured (1,3) signature must be composed with all stable-"
+            "causality, open-image, affine, source, and finite-versus-continuum "
+            "premises explicit; the emergent signature requires its independent "
+            "preregistered replication and controls."
+        ),
+        "closure": (
+            "One audited composed statement exists per spacetime target with the "
+            "registered premise list and exact rung, the signature instrument has a "
+            "frozen decision rule and reported controls, and any failed event or "
+            "source premise is recorded rather than hidden."
+        ),
+        "falsification": (
+            "A signature verdict read from the update rule, omitted replication "
+            "control, unregistered premise, or continuum claim supported only by a "
+            "finite receipt rejects the claimed promotion."
+        ),
+        "chrome_policy": (
+            "Local composition and instrument receipts first; workers may audit a "
+            "frozen replication packet without changing its analysis or controls."
+        ),
+    },
+    729: {
+        "phase": "v3-l2-gravitation-adequacy",
+        "claim_level": (
+            "conditional effective-gravity composition with calibrated and predictive boundaries"
+        ),
+        "blocker": (
+            "The Einstein relation, finite Newtonian regime, horizon thermality, "
+            "gravitational-wave stance, and N-linked cosmological row require one "
+            "common typed tower, registered stress/entropy/scale premises, the "
+            "declared repair law, and frozen comparison custody."
+        ),
+        "closure": (
+            "The registered Einstein composition, finite inverse-square limit, and "
+            "horizon temperature/entropy package are composed without an independent "
+            "temperature input; gravitational-wave and cosmological rows retain their "
+            "frozen or constants-lane contracts."
+        ),
+        "falsification": (
+            "Target-theory curvature or stress imported as source data, calibration "
+            "bypassed, a continuum claim inferred from finite receipts, or Lambda "
+            "tuned outside the N ancestry invalidates the gravity composition."
+        ),
+        "chrome_policy": (
+            "Use workers only to audit a concrete same-tower composition, finite "
+            "Newtonian receipt, or horizon packet; no post-hoc gravitational fit."
+        ),
+    },
+    730: {
+        "phase": "v3-l3-quantum-adequacy",
+        "claim_level": "conditional finite quantum and structural-field-theory composition",
+        "blocker": (
+            "Born and Lueders rules, dynamics, Tsirelson, no-signalling, phase-"
+            "complete tomography, and regional-net structure must be composed from "
+            "the registered algebra-state, effect-additivity, phase-instrument, "
+            "carrier, and correlation premises with the finite boundary explicit."
+        ),
+        "closure": (
+            "Each quantum target has one audited composed statement and premise "
+            "list; the phase instrument supplies real outcomes rather than fabricated "
+            "data; the locally covariant net/covariance/time-slice result is stated at "
+            "its proved finite level; affinity discharge remains on #739."
+        ),
+        "falsification": (
+            "An unregistered quantum representation, fabricated phase outcome, "
+            "post-hoc statistic, or continuum/vacuum/local-field language beyond the "
+            "finite receipts invalidates the promotion."
+        ),
+        "chrome_policy": (
+            "Workers may audit a committed algebra, instrument, or finite-net packet; "
+            "they may not supply missing quantum outcomes or promote continuum QFT."
+        ),
+    },
+    731: {
+        "phase": "v3-l4-mechanics-adequacy",
+        "claim_level": "exact finite mechanics composition under registered premises",
+        "blocker": (
+            "Stationary action, the Euler-Lagrange/Hamilton bridge, and Noether "
+            "conservation require the registered path reference and real enrichment, "
+            "with source selection, saddle scope, units, clocks, and amplitudes "
+            "kept outside the finite theorem."
+        ),
+        "closure": (
+            "One mechanics surface composes the transition-derived action, committed "
+            "mode/minimizer boundary, Legendre bridge, and Noether witnesses over the "
+            "named register rows; reference/enrichment/saddle discharge remains #739."
+        ),
+        "falsification": (
+            "A target-chosen action, consequence-selected enrichment, tuned reference "
+            "or multiplier, or stationary-phase/continuum claim beyond the committed "
+            "finite scope rejects the composition."
+        ),
+        "chrome_policy": (
+            "Use workers only for proof or countermodel audit of a committed finite "
+            "mechanics surface; do not search target dynamics to choose an enrichment."
+        ),
+    },
+    732: {
+        "phase": "v3-l5-thermodynamics-adequacy",
+        "claim_level": "conditional finite four-law package under the declared repair law",
+        "blocker": (
+            "The four laws, fluctuation identities, Landauer bound, and repair arrow "
+            "consume one common faithful reference/repaired-fibre law plus the named "
+            "receipts; laboratory meaning additionally consumes explicit energy and "
+            "clock calibration."
+        ),
+        "closure": (
+            "One audited surface composes the finite four-law and fluctuation package "
+            "under the registered repair law, keeps calibration explicit, and opens "
+            "an emergent run only after an architecture export is recorded and the "
+            "instrument is preregistered."
+        ),
+        "falsification": (
+            "A stationary law manufactured from the desired equilibrium, distinct "
+            "state/transition references, fitted coupling or calibration, or post-hoc "
+            "run labeled validation invalidates the physical reading."
+        ),
+        "chrome_policy": (
+            "Use workers for exact finite theorem, source-reference, or preregistered "
+            "instrument audits only; no laboratory target fitting."
+        ),
+    },
+    733: {
+        "phase": "v3-l6-electromagnetism-adequacy",
+        "claim_level": (
+            "conditional finite Maxwell-shaped composition with frozen dispersion branches"
+        ),
+        "blocker": (
+            "Maxwell-shaped equations, transverse massless propagation, Gauss/Coulomb "
+            "structure, and light-signal emergence require the registered counting, "
+            "oscillator, physical-frequency, sector, frame, exclusivity, and "
+            "calibration bridges; dispersion verdicts remain frozen."
+        ),
+        "closure": (
+            "One finite U(1) composition supplies the equations, rank-two transverse "
+            "propagation, zero mode, and Gauss/Coulomb receipts under named premises; "
+            "frozen dispersion rows keep custody, and the emergent light-signal run "
+            "uses a preregistered instrument."
+        ),
+        "falsification": (
+            "A forbidden hand-inserted kinetic term, frequency tuned to c, comparison "
+            "outside the frozen rule, or continuum/laboratory Maxwell claim without "
+            "the registered bridge invalidates the promotion."
+        ),
+        "chrome_policy": (
+            "Audit committed finite-field, propagation, or frozen-branch packets only; "
+            "never inspect comparison data to choose the field bridge."
+        ),
+    },
+    734: {
+        "phase": "v3-l7-standard-model-structure",
+        "claim_level": "conditional Standard Model gauge, matter, family, and global-form composition",
+        "blocker": (
+            "The gauge algebra, one-generation matter content, chirality, family band, "
+            "and global form must be composed over explicit selection, grammar, "
+            "loop-to-kernel, and physical-chirality premises; source dynamics and "
+            "character identities remain discharge work."
+        ),
+        "closure": (
+            "One audited structure surface states exactly which gauge, matter, "
+            "chirality, family, and global-form rows are attained or conditional, "
+            "names every premise, and leaves coupling values and action assembly to "
+            "their owning lanes."
+        ),
+        "falsification": (
+            "Target-named generators, anomaly-informed table extension, a family "
+            "count read from observation, or an unregistered global-form identity "
+            "invalidates the structure claim."
+        ),
+        "chrome_policy": (
+            "Use workers only for independent replay of a committed classification, "
+            "matter, family, or kernel packet; no target-guided grammar changes."
+        ),
+    },
+    735: {
+        "phase": "v3-l8-standard-model-lagrangian",
+        "claim_level": "term-by-term conditional effective-action correspondence",
+        "blocker": (
+            "Gauge and matter kinetic terms, scalar/Yukawa and electroweak-breaking "
+            "stances, proton-stability boundary, and the assembled action must be "
+            "classified term by term as derived, registered premise, partial, or "
+            "absent; coupling values belong to #736."
+        ),
+        "closure": (
+            "A generated correspondence table and composed action cover every "
+            "textbook Standard Model Lagrangian term, cite the exact receipts and "
+            "complete premise register, preserve absent/partial rows, and make no "
+            "renormalized or laboratory claim."
+        ),
+        "falsification": (
+            "A term transcribed from the target action, scalar structure tuned for "
+            "symmetry breaking, an unsupported row upgraded, or a coupling number "
+            "introduced outside #736 invalidates the assembly."
+        ),
+        "chrome_policy": (
+            "Use workers only for a term-by-term audit of the committed correspondence "
+            "and action; do not fill absent terms from the textbook target."
+        ),
+    },
+    736: {
+        "phase": "v3-l9-masses-and-constants",
+        "claim_level": "conditional quantitative determinations with frozen predictive subsets",
+        "blocker": (
+            "Fine structure, N/Lambda, lepton, quark/mixing, electroweak, hadron, "
+            "neutrino, and calibration rows require complete numerical ancestry: P "
+            "and N are the only proposed fundamental free numerical parameters, while "
+            "empirical numerical payloads and every "
+            "selection or physical bridge remain explicitly registered."
+        ),
+        "closure": (
+            "Each quantitative row has a certified enclosure or exact status, full "
+            "input ancestry and falsifier; P and N routes state every selection and "
+            "same-quantity bridge; target-anchored or predictive subsets retain their "
+            "compare-only or frozen-custody classification."
+        ),
+        "falsification": (
+            "An unflagged numerical input, target-anchored quantity called a "
+            "prediction, post-comparison interval widening, correction selected by "
+            "proximity, or failed registered kill band invalidates the row."
+        ),
+        "chrome_policy": (
+            "Use workers for ancestry, interval, or frozen-rule audit of committed "
+            "packets only; no target access during source construction."
+        ),
+    },
+    737: {
+        "phase": "v3-l10-emergent-instruments",
+        "claim_level": "preregistered simulator-instrument and emergent-rung gate",
+        "blocker": (
+            "Each emergent target requires an instrument with its observable, "
+            "analysis, controls, decision rule, architecture digest, and owning "
+            "ledger row frozen before deterministic runs; architecture changes must "
+            "first be recorded in the premise register."
+        ),
+        "closure": (
+            "Every instrument binds exactly one observation row and composition lane, "
+            "replays from committed artifacts, reports positive, negative, and control "
+            "outcomes equally, and promotes or blocks only the rung named by its "
+            "preregistered rule."
+        ),
+        "falsification": (
+            "Post-hoc analysis, parameter revision after data, silent reruns, omitted "
+            "controls, irreproducible configuration, or a laboratory claim from a "
+            "laptop simulation invalidates the instrument verdict."
+        ),
+        "chrome_policy": (
+            "Workers may independently replay or audit a frozen laptop-scale packet; "
+            "they may not revise the instrument after seeing its run."
+        ),
+    },
+    738: {
+        "phase": "v3-standing-custody",
+        "claim_level": "standing custody, comparison, and falsification enforcement",
+        "blocker": (
+            "This issue intentionally never closes: it continuously guards frozen "
+            "targets, exposure classes, compare-only ancestry, independent audits, "
+            "the tracking cascade, and immutable registration artifacts."
+        ),
+        "closure": (
+            "A clean standing state means every prediction has a pre-exposure target, "
+            "rule, band, and precision floor; every promotion survives independent "
+            "audit; negative findings remain visible; and issue, ledger, scoreboard, "
+            "and commit ordering stays synchronized."
+        ),
+        "falsification": (
+            "Retrospective work called prediction, rewritten frozen bytes, hidden "
+            "negative outcomes, promotion without audit, or a ledger change without "
+            "receipts is a custody failure."
+        ),
+        "chrome_policy": (
+            "Use workers only for adversarial audit of sealed artifacts; never use a "
+            "worker to manufacture evidence or inspect embargoed comparison data."
+        ),
+    },
+    739: {
+        "phase": "v3-deferred-premise-discharge",
+        "claim_level": "deferred necessity and axiomatization queue; adequacy remains conditional",
+        "blocker": (
+            "Every premise-register row marked remove or axiomatize retains its "
+            "source-selection, representation, affinity, clock, bracket, matter, "
+            "character, repair-export, or spectral-information obligation until an "
+            "audited derivation or recorded architecture decision retires it."
+        ),
+        "closure": (
+            "For each queued row, either derive it from the current basis with a "
+            "producer/verifier packet and bounded countermodels, record and propagate "
+            "an explicit axiomatization decision, or retain an honest scoped no-go; "
+            "the queue closes only when no remove/axiomatize obligation remains."
+        ),
+        "falsification": (
+            "Silent promotion, deleting a bounded negative, treating deferral as "
+            "derivation, or claiming necessity while any consumed premise remains "
+            "undischarged invalidates the necessity claim."
+        ),
+        "chrome_policy": (
+            "Local source theorem or countermodel packet first; workers may audit one "
+            "named discharge attempt but cannot decide axiomatization implicitly."
+        ),
+    },
+}
+
+
+# Explicitly classify the one parked non-V3 continuation proposal that remains
+# open beside the V3 program.  It is deliberately non-promoting.
+ISSUE_POLICY[715] = {
+    "phase": "parked-external-extension-review",
+    "claim_level": "parked external algebraic proposal; no physical promotion",
+    "blocker": (
+        "The external inductive-limit and admissible-instrument definitions, finite "
+        "Python witnesses, and Lean-style sketch have not been pinned, independently "
+        "replayed, or integrated with the canonical OPH algebra and repair interfaces."
+    ),
+    "closure": (
+        "Import a hash-pinned review packet, replay the finite witnesses, formalize "
+        "or reject the restriction-lift and W-invariance lemmas, and either absorb "
+        "the definitions with explicit non-physical boundaries or archive the proposal."
+    ),
+    "falsification": (
+        "A finite compatible-family counterexample to restriction lift, an admitted "
+        "repair leaving W, or dependence on an extra axiom rejects the proposed layer; "
+        "none of its finite witnesses closes a physical bridge."
+    ),
+    "chrome_policy": (
+        "Do not launch a worker until the external revision is hash-pinned into a "
+        "local review packet; then use one only for independent theorem/replay audit."
+    ),
+}
+
+
 CLOSED_OUT_OF_SCOPE_ISSUES: dict[int, dict[str, str]] = {
     153: {
         "title": "hadron backend/systematics",
@@ -1863,15 +2413,46 @@ def _v2_policy(issue: dict[str, Any]) -> dict[str, str] | None:
     }
 
 
-def _fallback_policy(issue: dict[str, Any]) -> dict[str, str]:
-    return {
-        "phase": "unclassified",
-        "claim_level": "open",
-        "blocker": "Classify blocker from the live issue body.",
-        "closure": "Add exact closure criterion to this ledger.",
-        "falsification": "Add exact falsification criterion to this ledger.",
-        "chrome_policy": "Do not launch workers until the issue has a concrete local packet.",
+def _v3_policy(issue: dict[str, Any]) -> dict[str, str] | None:
+    """Return the explicit V3 contract, failing closed on unregistered lanes."""
+
+    title = str(issue.get("title") or "")
+    labels = {
+        str(label.get("name") or "").strip().casefold()
+        for label in issue.get("labels") or []
+        if str(label.get("name") or "").strip()
     }
+    title_match = V3_TITLE_RE.match(title)
+    if title_match is None and "v3" not in labels:
+        return None
+
+    number = int(issue.get("number") or 0)
+    where = f"V3 issue #{number}"
+    if title_match is None:
+        raise ValueError(f"{where} title lacks a task code such as [V3-L1]")
+    policy = V3_ISSUE_POLICY.get(number)
+    if policy is None:
+        raise ValueError(
+            f"{where} has no explicit ledger policy; add it to V3_ISSUE_POLICY"
+        )
+    if set(policy) != POLICY_FIELDS:
+        raise ValueError(
+            f"{where} policy fields differ: "
+            f"missing={sorted(POLICY_FIELDS - set(policy))}, "
+            f"extra={sorted(set(policy) - POLICY_FIELDS)}"
+        )
+    for field, value in policy.items():
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"{where} policy has empty {field}")
+        if value == PLACEHOLDER_POLICY.get(field):
+            raise ValueError(f"{where} policy retains placeholder {field}")
+    if not policy["phase"].startswith("v3-"):
+        raise ValueError(f"{where} policy phase must start with 'v3-'")
+    return dict(policy)
+
+
+def _fallback_policy(issue: dict[str, Any]) -> dict[str, str]:
+    return dict(PLACEHOLDER_POLICY)
 
 
 def build_ledger(issues: list[dict[str, Any]]) -> dict[str, Any]:
@@ -1879,7 +2460,9 @@ def build_ledger(issues: list[dict[str, Any]]) -> dict[str, Any]:
     open_numbers = {int(issue["number"]) for issue in issues}
     for issue in sorted(issues, key=lambda item: item["number"]):
         number = int(issue["number"])
-        policy = _v2_policy(issue)
+        policy = _v3_policy(issue)
+        if policy is None:
+            policy = _v2_policy(issue)
         if policy is None:
             policy = ISSUE_POLICY.get(number, _fallback_policy(issue))
         labels = [label["name"] for label in issue.get("labels", [])]
@@ -2029,8 +2612,37 @@ def validate_committed_ledger(json_path: Path, markdown_path: Path) -> list[str]
                 for label in labels
                 if isinstance(label, str) and label.startswith("track:")
             ]
+            normalized_labels = {
+                label.casefold() for label in labels if isinstance(label, str)
+            }
         else:
             track_labels = []
+            normalized_labels = set()
+        is_v3 = (
+            V3_TITLE_RE.match(str(row.get("title") or "")) is not None
+            or "v3" in normalized_labels
+        )
+        if is_v3:
+            policy = V3_ISSUE_POLICY.get(number) if isinstance(number, int) else None
+            if policy is None:
+                problems.append(
+                    f"row {index} has no explicit V3 policy in V3_ISSUE_POLICY"
+                )
+            phase = str(row.get("phase") or "")
+            if not phase.startswith("v3-"):
+                problems.append(f"row {index} has an unclassified V3 phase")
+            for field in POLICY_FIELDS:
+                value = row.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    problems.append(f"row {index} has an empty V3 {field}")
+                elif value == PLACEHOLDER_POLICY.get(field):
+                    problems.append(
+                        f"row {index} retains placeholder V3 {field}"
+                    )
+                elif policy is not None and value != policy[field]:
+                    problems.append(
+                        f"row {index} V3 {field} differs from explicit policy"
+                    )
         if track_labels:
             phase = str(row.get("phase") or "")
             if not phase.startswith("v2-"):
@@ -2050,9 +2662,8 @@ def validate_committed_ledger(json_path: Path, markdown_path: Path) -> list[str]
                         f"{track_labels[0]}"
                     )
             placeholder_values = {
-                "blocker": "Classify blocker from the live issue body.",
-                "closure": "Add exact closure criterion to this ledger.",
-                "falsification": "Add exact falsification criterion to this ledger.",
+                field: PLACEHOLDER_POLICY[field]
+                for field in ("blocker", "closure", "falsification")
             }
             for field, placeholder in placeholder_values.items():
                 value = row.get(field)

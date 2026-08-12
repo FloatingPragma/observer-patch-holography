@@ -140,6 +140,77 @@ def _v2_issue(
     }
 
 
+def _v3_issue(
+    *,
+    number: int = 726,
+    title: str = "[V3-I1] Observation ledger",
+) -> dict:
+    return {
+        "number": number,
+        "title": title,
+        "url": f"https://example.invalid/{number}",
+        "labels": [{"name": "V3"}],
+        "updatedAt": "2026-08-12T00:00:00Z",
+        "body": "Fixture body; V3 policy is deliberately explicit, not inferred.",
+        "milestone": None,
+    }
+
+
+def test_v3_policy_table_covers_current_lanes_with_complete_contracts() -> None:
+    assert set(range(726, 746)).issubset(ledger_tool.V3_ISSUE_POLICY)
+    for number, policy in ledger_tool.V3_ISSUE_POLICY.items():
+        assert set(policy) == ledger_tool.POLICY_FIELDS, number
+        assert policy["phase"].startswith("v3-"), number
+        for field, value in policy.items():
+            assert value.strip(), (number, field)
+            assert value != ledger_tool.PLACEHOLDER_POLICY.get(field), (
+                number,
+                field,
+            )
+
+
+def test_v3_policy_is_explicit_and_not_inferred_from_issue_body() -> None:
+    issue = _v3_issue()
+    row = ledger_tool.build_ledger([issue])["rows"][0]
+
+    assert row["phase"] == "v3-infrastructure-observation-ledger"
+    assert row["claim_level"] == (
+        "standing adequacy-accounting and promotion gate"
+    )
+    for field in ledger_tool.POLICY_FIELDS:
+        assert row[field] == ledger_tool.V3_ISSUE_POLICY[726][field]
+
+
+def test_v3_builder_rejects_unregistered_lane() -> None:
+    issue = _v3_issue(number=999, title="[V3-X1] Future fixture lane")
+    with pytest.raises(ValueError, match="no explicit ledger policy"):
+        ledger_tool.build_ledger([issue])
+
+
+def test_v3_common_world_two_letter_task_code_is_supported() -> None:
+    issue = _v3_issue(
+        number=740,
+        title="[V3-CW1] Common-world integration fixture",
+    )
+    row = ledger_tool.build_ledger([issue])["rows"][0]
+    assert row["phase"] == "v3-common-world-integration"
+
+
+def test_parked_external_proposal_has_non_promoting_explicit_policy() -> None:
+    issue = {
+        "number": 715,
+        "title": "External algebraic proposal",
+        "url": "https://example.invalid/715",
+        "labels": [{"name": "program:continuation"}],
+        "updatedAt": "2026-08-12T00:00:00Z",
+        "body": "External proposal fixture.",
+        "milestone": None,
+    }
+    row = ledger_tool.build_ledger([issue])["rows"][0]
+    assert row["phase"] == "parked-external-extension-review"
+    assert "no physical promotion" in row["claim_level"]
+
+
 def test_v2_policy_comes_from_live_contract_without_scientific_promotion() -> None:
     row = ledger_tool.build_ledger([_v2_issue()])["rows"][0]
 
@@ -233,3 +304,18 @@ def test_offline_check_rejects_placeholder_v2_metadata(tmp_path) -> None:
     assert "row 0 retains placeholder V2 blocker" in problems
     assert "row 0 retains placeholder V2 closure" in problems
     assert "row 0 retains placeholder V2 falsification" in problems
+
+
+def test_offline_check_rejects_placeholder_v3_metadata(tmp_path) -> None:
+    payload = _ledger()
+    row = payload["rows"][0]
+    row["number"] = 726
+    row["title"] = "[V3-I1] Observation ledger"
+    row["labels"] = ["V3"]
+    row.update(ledger_tool.PLACEHOLDER_POLICY)
+    paths = _write(tmp_path, payload)
+
+    problems = ledger_tool.validate_committed_ledger(*paths)
+    assert "row 0 has an unclassified V3 phase" in problems
+    for field in ledger_tool.POLICY_FIELDS:
+        assert f"row 0 retains placeholder V3 {field}" in problems

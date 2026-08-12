@@ -8,7 +8,7 @@ render.
 Fail-closed rules: the row ids, names, types, and dispositions are fixed
 program-wide and must equal the expected inventory exactly, in order; every
 type comes from the six-value enum and every disposition from the three-value
-enum; every consuming lane is a V3 lane issue in 728..738, duplicate-free and
+enum; every consuming lane is a V3 issue in 728..745, duplicate-free and
 ascending; every evidence path exists in the repository; statements and notes
 are nonempty. The rendered page is a generated surface; edit the JSON, then
 regenerate.
@@ -21,13 +21,15 @@ import json
 import sys
 from pathlib import Path
 
+import strict_json
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
 SURFACE_PATH = ROOT / "docs" / "PREMISE_REGISTER_V3.md"
 
-SCHEMA = "oph.premise_register.v1"
+SCHEMA = "oph.premise_register.v2"
 ISSUE = 727
-ISSUE_URL = "https://github.com/muellerberndt/reverse-engineering-reality/issues"
+ISSUE_URL = "https://github.com/FloatingPragma/observer-patch-holography/issues"
 
 TYPES = (
     "structural_rule",
@@ -39,7 +41,7 @@ TYPES = (
 )
 DISPOSITIONS = ("remove", "axiomatize", "import")
 LANE_MIN = 728
-LANE_MAX = 738
+LANE_MAX = 745
 
 ROW_KEYS = {
     "id",
@@ -100,7 +102,12 @@ EXPECTED_ROWS = (
         "structural_rule",
         "remove",
     ),
-    ("PR-17", "numerical inputs P and N", "numerical_input", "import"),
+    (
+        "PR-17",
+        "proposed fundamental numerical parameters P and N",
+        "numerical_input",
+        "import",
+    ),
     (
         "PR-18",
         "spherically symmetric radial readout",
@@ -246,6 +253,96 @@ EXPECTED_ROWS = (
         "structural_rule",
         "axiomatize",
     ),
+    (
+        "PR-43",
+        "pointwise-continuous public star-automorphism flow",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-44",
+        "finite subsystem split and normalized local-operation interface",
+        "representation_choice",
+        "remove",
+    ),
+    (
+        "PR-45",
+        "source-selected real variational dynamics and symmetry data",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-46",
+        "physical global-form selection attachments",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-47",
+        "spacetime Spin and fermion-chirality attachment",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-48",
+        "one-Higgs scalar carrier and kinetic-action attachment",
+        "representation_choice",
+        "remove",
+    ),
+    (
+        "PR-49",
+        "renormalizable Higgs potential and electroweak-breaking law",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-50",
+        "Yukawa interaction-line and coupling-matrix attachment",
+        "selection_rule",
+        "remove",
+    ),
+    (
+        "PR-51",
+        "common screen-electroweak load and capacity bridge",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-52",
+        "observer-to-physical-spacetime and causal attachment",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-53",
+        "physical photon field, frame, and comparison attachment",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-54",
+        "source gauge-field, current, and action attachment",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-55",
+        "declared baryon- and lepton-number labels",
+        "selection_rule",
+        "remove",
+    ),
+    (
+        "PR-56",
+        "dimension-six baryon-operator eligibility and contraction grammar",
+        "representation_choice",
+        "remove",
+    ),
+    (
+        "PR-57",
+        "physical proton state and baryon-violating effective-action attachment",
+        "structural_rule",
+        "remove",
+    ),
 )
 
 DISPOSITION_MEANING = {
@@ -279,13 +376,20 @@ def fail(message: str) -> None:
     raise SystemExit(f"premise register: {message}")
 
 
+def _display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def load_json(path: Path) -> dict:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return strict_json.load(path)
     except FileNotFoundError:
-        fail(f"missing input {path.relative_to(ROOT)}")
-    except json.JSONDecodeError as error:
-        fail(f"invalid JSON in {path.relative_to(ROOT)}: {error}")
+        fail(f"missing input {_display_path(path)}")
+    except (json.JSONDecodeError, strict_json.DuplicateKeyError) as error:
+        fail(f"invalid JSON in {_display_path(path)}: {error}")
     raise AssertionError("unreachable")
 
 
@@ -305,9 +409,9 @@ def validate(register: dict) -> list[dict]:
         fail(f"rows must contain exactly {len(EXPECTED_ROWS)} entries")
 
     for index, row in enumerate(rows):
-        expected_id, expected_name, expected_type, expected_disposition = (
-            EXPECTED_ROWS[index]
-        )
+        expected_id, expected_name, expected_type, expected_disposition = EXPECTED_ROWS[
+            index
+        ]
         where = f"row {expected_id}"
         if not isinstance(row, dict):
             fail(f"{where}: row must be an object")
@@ -349,8 +453,7 @@ def validate(register: dict) -> list[dict]:
                 fail(f"{where}: consuming lane {lane!r} must be an integer")
             if not LANE_MIN <= lane <= LANE_MAX:
                 fail(
-                    f"{where}: consuming lane {lane} is outside "
-                    f"{LANE_MIN}..{LANE_MAX}"
+                    f"{where}: consuming lane {lane} is outside {LANE_MIN}..{LANE_MAX}"
                 )
         if lanes != sorted(set(lanes)):
             fail(f"{where}: consuming_lanes must be strictly ascending")
@@ -392,9 +495,11 @@ def render(rows: list[dict]) -> str:
         " exactly once, with its type, its declared disposition, the lanes"
         " that consume it, its exact statement, and its evidence paths. A"
         " premise used by a lane theorem and absent from this register is a"
-        " hard audit failure. P and N are the only numerical inputs; every"
-        " other number entering a composition is derived, external"
-        " mathematics, or a flagged empirical import on this register."
+        " hard audit failure. P and N are the only proposed fundamental free"
+        " numerical parameters; measured calibrations, fits, targets, and"
+        " transport payloads remain separate flagged empirical inputs. Every"
+        " numerical quantity is classified in this ancestry rather than"
+        " hidden by the P/N statement."
         " Registering a premise legitimizes its use inside conditional"
         " compositions; it does not make the premise true, derived, or"
         " physical. Disposition changes, including promotion to axiom, are"

@@ -19,22 +19,117 @@ import re
 import sys
 from pathlib import Path
 
+import strict_json
+
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "OBSERVATION_LEDGER_V3.md"
+PREMISE_REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
+ARCHITECTURE_REGISTER_PATH = ROOT / "tracking" / "architecture_versions.json"
+AUDIT_REGISTER_PATH = ROOT / "tracking" / "audit_register.json"
 
-SCHEMA = "oph.observation_ledger.v1"
+SCHEMA = "oph.observation_ledger.v3"
 ISSUE = 726
-REPO_URL = "https://github.com/muellerberndt/reverse-engineering-reality"
+REPO_URL = "https://github.com/FloatingPragma/observer-patch-holography"
 
-RUNGS = ("structural", "emergent", "predictive")
+RUNGS = ("formal_precursor", "structural", "emergent", "predictive")
 STATUSES = ("attained", "partial", "owed")
-LANE_MIN = 728
-LANE_MAX = 738
+LANE_ISSUES = frozenset((*range(728, 739), 740, 742, 743, 744, 745))
 
-ID_PATTERN = re.compile(r"^OL-[A-I][1-9]$")
+ID_PATTERN = re.compile(r"^OL-[A-N][1-9]$")
 PREMISE_PATTERN = re.compile(r"^PR-\d{2}$")
+AUDIT_PATTERN = re.compile(r"^AUD-[A-Z0-9-]+$")
 BANNED_CHARACTERS = ("—", "–")
+
+EXPECTED_ROW_IDS = (
+    "OL-A1",
+    "OL-A2",
+    "OL-A3",
+    "OL-A4",
+    "OL-B1",
+    "OL-B2",
+    "OL-B3",
+    "OL-B4",
+    "OL-B5",
+    "OL-C1",
+    "OL-C2",
+    "OL-C3",
+    "OL-C4",
+    "OL-C5",
+    "OL-C6",
+    "OL-D1",
+    "OL-D2",
+    "OL-D3",
+    "OL-E1",
+    "OL-E2",
+    "OL-E3",
+    "OL-E4",
+    "OL-F1",
+    "OL-F2",
+    "OL-F3",
+    "OL-F4",
+    "OL-G1",
+    "OL-G2",
+    "OL-G3",
+    "OL-G4",
+    "OL-G5",
+    "OL-G8",
+    "OL-G6",
+    "OL-G7",
+    "OL-G9",
+    "OL-H1",
+    "OL-H2",
+    "OL-H3",
+    "OL-H4",
+    "OL-H5",
+    "OL-H6",
+    "OL-H7",
+    "OL-H8",
+    "OL-I1",
+    "OL-I2",
+    "OL-I3",
+    "OL-J1",
+    "OL-J2",
+    "OL-J3",
+    "OL-K1",
+    "OL-K2",
+    "OL-K3",
+    "OL-L1",
+    "OL-L2",
+    "OL-L3",
+    "OL-M1",
+    "OL-M2",
+    "OL-M3",
+    "OL-N1",
+)
+
+# Premise-register lane ownership is broader than this observation table: a
+# lane can consume a premise in a correspondence table, theorem surface,
+# constants/frozen register, or architecture protocol without attaching it to
+# a particular observation row.  Every such pair is explicit here so a newly
+# uncovered reverse-map mismatch fails closed.
+NON_OBSERVATION_SURFACE_CONSUMERS = {
+    (728, "PR-01"): "architecture and spacetime composition surface",
+    (729, "PR-01"): "Einstein composition surface",
+    (730, "PR-01"): "quantum composition surface",
+    (732, "PR-01"): "thermodynamic composition surface",
+    (735, "PR-13"): "SM correspondence and mass-sector boundary",
+    (729, "PR-14"): "gravity/constants comparison boundary",
+    (735, "PR-15"): "SM correspondence calibration boundary",
+    (729, "PR-16"): "gravity ladder attachment boundary",
+    (729, "PR-29"): "layered gravity source surface",
+    (729, "PR-30"): "layered gravity source surface",
+    (729, "PR-31"): "layered gravity source surface",
+    (729, "PR-38"): "P-closure gravity/constants crosswalk",
+    (729, "PR-39"): "P-closure gravity/constants crosswalk",
+    (736, "PR-53"): "constants physical-comparison boundary",
+    (738, "PR-53"): "frozen-instrument physical-comparison custody",
+    (744, "PR-55"): "baryon-label/proton surface",
+    (735, "PR-56"): "SM correspondence operator census",
+    (744, "PR-56"): "baryon-operator/proton surface",
+    (735, "PR-57"): "SM correspondence proton boundary",
+    (744, "PR-57"): "physical proton/effective-action surface",
+}
 
 ROW_KEYS = {
     "id",
@@ -42,181 +137,12 @@ ROW_KEYS = {
     "rung",
     "status",
     "lane_issue",
+    "architecture_version",
     "premises",
+    "open_premises",
+    "audit_records",
     "evidence",
     "notes",
-}
-
-# Fixed program-wide premise register seed (issue #727): id -> (name, type,
-# disposition). The register artifact under #727 is the authority; this copy
-# exists so the ledger fails closed on ids the register does not carry.
-PREMISE_REGISTER = {
-    "PR-01": (
-        "confluent terminating repair contract",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-02": (
-        "algebra-state representation of public records",
-        "representation_choice",
-        "axiomatize",
-    ),
-    "PR-03": ("operational effect additivity", "selection_rule", "remove"),
-    "PR-04": ("phase-operation instrument", "structural_rule", "remove"),
-    "PR-05": ("counting path reference", "selection_rule", "remove"),
-    "PR-06": ("real Legendre enrichment", "representation_choice", "remove"),
-    "PR-07": (
-        "declared repair law: common faithful reference and repaired-visible fibre",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-08": (
-        "refinement-uniform low-temperature control",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-09": (
-        "equal-face-weight and barycentric one-third port-dual rules",
-        "selection_rule",
-        "axiomatize",
-    ),
-    "PR-10": (
-        "measure-to-metric and nearest-point repair rules",
-        "selection_rule",
-        "axiomatize",
-    ),
-    "PR-11": ("compact-Lie classification inputs", "external_mathematics", "import"),
-    "PR-12": ("matter candidate grammar", "selection_rule", "remove"),
-    "PR-13": ("Koide balance premise", "selection_rule", "remove"),
-    "PR-14": ("hadronic transport packet", "empirical_import", "import"),
-    "PR-15": ("clock and energy calibration anchors", "empirical_import", "import"),
-    "PR-16": (
-        "stable causality and open-image conditions",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-17": ("numerical inputs P and N", "numerical_input", "import"),
-    "PR-18": (
-        "spherically symmetric radial readout",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-19": ("shell-flux normalization", "structural_rule", "remove"),
-    "PR-20": (
-        "equal source-counting measure on the sixty directed source seams",
-        "selection_rule",
-        "axiomatize",
-    ),
-    "PR-21": (
-        "auxiliary oscillator lift of the seam-current generator",
-        "representation_choice",
-        "axiomatize",
-    ),
-    "PR-22": (
-        "physical-frequency identification for the seam-current symbol",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-23": (
-        "typed modular flow supply",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-24": (
-        "half-sided inclusion and null translation supply",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-25": (
-        "null-stress tomography supply",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-26": (
-        "generalized-entropy stationarity supply",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-27": (
-        "small-ball geometry supply",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-28": (
-        "physical tower and calibration supply",
-        "structural_rule",
-        "axiomatize",
-    ),
-    "PR-29": (
-        "layered shell-cardinality law",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-30": (
-        "layered shell equidistribution",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-31": (
-        "layered steady sourcing",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-32": (
-        "Cartesian joint carrier of an observer pair",
-        "representation_choice",
-        "axiomatize",
-    ),
-    "PR-33": (
-        "two-slot diamond region map",
-        "selection_rule",
-        "axiomatize",
-    ),
-    "PR-34": (
-        "two-observer slot split",
-        "representation_choice",
-        "axiomatize",
-    ),
-    "PR-35": (
-        "same-source loop-to-kernel identity",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-36": (
-        "family band-selection rules: single complete faithful band and operational cost order",
-        "selection_rule",
-        "remove",
-    ),
-    "PR-37": (
-        "fine-structure closure map selection",
-        "selection_rule",
-        "remove",
-    ),
-    "PR-38": (
-        "same-quantity bridge for the P closure",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-39": (
-        "physical Thomson readback contract",
-        "structural_rule",
-        "remove",
-    ),
-    "PR-40": (
-        "payload-coherent anchor-gap premise",
-        "selection_rule",
-        "remove",
-    ),
-    "PR-41": (
-        "electroweak sector selection premises",
-        "selection_rule",
-        "remove",
-    ),
-    "PR-42": (
-        "horizon record central-charge identification",
-        "structural_rule",
-        "axiomatize",
-    ),
 }
 
 GROUPS = (
@@ -230,6 +156,11 @@ GROUPS = (
     ("Standard Model Lagrangian", (735,)),
     ("Masses and constants", (736,)),
     ("Cosmology and instruments", (737, 738)),
+    ("Common-world integration", (740,)),
+    ("Cosmology and astrophysics", (742,)),
+    ("Interacting quantum field theory", (743,)),
+    ("QCD, hadrons, and nuclei", (744,)),
+    ("Electroweak and weak phenomenology", (745,)),
 )
 
 
@@ -239,12 +170,27 @@ def fail(message: str) -> None:
 
 def load_ledger(path: Path) -> dict:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return strict_json.load(path)
     except FileNotFoundError:
         fail(f"missing input {path}")
-    except json.JSONDecodeError as error:
+    except (json.JSONDecodeError, strict_json.DuplicateKeyError) as error:
         fail(f"invalid JSON in {path}: {error}")
     raise AssertionError("unreachable")
+
+
+def load_premise_register() -> tuple[list[dict], dict[str, dict]]:
+    register = load_ledger(PREMISE_REGISTER_PATH)
+    rows = register.get("rows")
+    if not isinstance(rows, list) or not rows:
+        fail("premise register rows must be a nonempty list")
+    by_id: dict[str, dict] = {}
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get("id"), str):
+            fail("premise register contains a malformed row")
+        if row["id"] in by_id:
+            fail(f"premise register repeats {row['id']}")
+        by_id[row["id"]] = row
+    return rows, by_id
 
 
 def _clean_prose(where: str, field: str, value: object) -> str:
@@ -268,7 +214,27 @@ def validate(ledger: dict) -> list[dict]:
     rows = ledger["rows"]
     if not isinstance(rows, list) or not rows:
         fail("rows must be a nonempty list")
+    row_ids = [row.get("id") if isinstance(row, dict) else None for row in rows]
+    if tuple(row_ids) != EXPECTED_ROW_IDS:
+        fail("row ids must equal the fixed ordered observation inventory")
 
+    _, premise_by_id = load_premise_register()
+    architecture_register = load_ledger(ARCHITECTURE_REGISTER_PATH)
+    architecture_ids = {
+        version.get("id")
+        for version in architecture_register.get("versions", [])
+        if isinstance(version, dict)
+    }
+    if not architecture_ids:
+        fail("architecture version register must contain at least one version")
+    audit_register = load_ledger(AUDIT_REGISTER_PATH)
+    audit_by_id = {
+        record.get("id"): record
+        for record in audit_register.get("records", [])
+        if isinstance(record, dict) and isinstance(record.get("id"), str)
+    }
+    if not audit_by_id:
+        fail("audit register must contain at least one record")
     seen_ids: set[str] = set()
     for index, row in enumerate(rows):
         where = f"rows[{index}]"
@@ -283,7 +249,7 @@ def validate(ledger: dict) -> list[dict]:
             )
         row_id = row["id"]
         if not isinstance(row_id, str) or not ID_PATTERN.match(row_id):
-            fail(f"{where}: id must match OL-<A..I><digit>")
+            fail(f"{where}: id must match OL-<A..N><digit>")
         if row_id in seen_ids:
             fail(f"duplicate row id {row_id}")
         seen_ids.add(row_id)
@@ -299,20 +265,69 @@ def validate(ledger: dict) -> list[dict]:
         lane = row["lane_issue"]
         if not isinstance(lane, int) or isinstance(lane, bool):
             fail(f"{where}: lane_issue must be an integer")
-        if not LANE_MIN <= lane <= LANE_MAX:
-            fail(f"{where}: lane_issue must lie in {LANE_MIN}..{LANE_MAX}")
+        if lane not in LANE_ISSUES:
+            fail(f"{where}: lane_issue {lane} is not a registered V3 lane")
 
-        premises = row["premises"]
-        if not isinstance(premises, list):
-            fail(f"{where}: premises must be a list")
-        if len(premises) != len(set(premises)):
-            fail(f"{where}: premises must be duplicate-free")
-        for premise in premises:
-            if not isinstance(premise, str) or not PREMISE_PATTERN.match(premise):
-                fail(f"{where}: premise ids must match PR-<two digits>")
-            if premise not in PREMISE_REGISTER:
-                fail(f"{where}: premise {premise} is not on the seed register")
-        if row["status"] == "owed" and premises:
+        architecture_version = row["architecture_version"]
+        if architecture_version not in architecture_ids:
+            fail(
+                f"{where}: architecture_version {architecture_version!r} is not "
+                "on the architecture version register"
+            )
+
+        audit_records = row["audit_records"]
+        if (
+            not isinstance(audit_records, list)
+            or any(
+                not isinstance(record, str) or not AUDIT_PATTERN.fullmatch(record)
+                for record in audit_records
+            )
+            or len(audit_records) != len(set(audit_records))
+        ):
+            fail(f"{where}: audit_records must be a duplicate-free list of ids")
+        unknown_audits = set(audit_records) - set(audit_by_id)
+        if unknown_audits:
+            fail(f"{where}: unknown audit records {sorted(unknown_audits)}")
+        for audit_id in audit_records:
+            audited_rows = audit_by_id[audit_id].get("reviewed_observation_rows", [])
+            if row_id not in audited_rows:
+                fail(f"{where}: audit record {audit_id} does not review this row")
+        if row["status"] == "attained" and not audit_records:
+            fail(f"{where}: attained status requires a registered audit record")
+        if row["status"] == "attained":
+            for audit_id in audit_records:
+                audit = audit_by_id[audit_id]
+                if row_id not in audit.get("attained_rows_reviewed", []):
+                    fail(
+                        f"{where}: audit record {audit_id} does not review the "
+                        "attained promotion"
+                    )
+                if "attained_status_review" not in audit.get("qualifies_for", []):
+                    fail(
+                        f"{where}: audit record {audit_id} is not qualified for "
+                        "attained-status review"
+                    )
+
+        for field in ("premises", "open_premises"):
+            premises = row[field]
+            if not isinstance(premises, list):
+                fail(f"{where}: {field} must be a list")
+            if len(premises) != len(set(premises)):
+                fail(f"{where}: {field} must be duplicate-free")
+            for premise in premises:
+                if not isinstance(premise, str) or not PREMISE_PATTERN.match(premise):
+                    fail(f"{where}: premise ids must match PR-<two digits>")
+                if premise not in premise_by_id:
+                    fail(f"{where}: premise {premise} is not on the canonical register")
+                consuming = premise_by_id[premise].get("consuming_lanes")
+                if not isinstance(consuming, list) or lane not in consuming:
+                    fail(
+                        f"{where}: premise {premise} does not declare consuming "
+                        f"lane #{lane}"
+                    )
+        if set(row["premises"]) & set(row["open_premises"]):
+            fail(f"{where}: consumed and open premise lists must be disjoint")
+        if row["status"] == "owed" and row["premises"]:
             fail(f"{where}: an owed row carries no consumed premises")
 
         evidence = row["evidence"]
@@ -329,8 +344,26 @@ def validate(ledger: dict) -> list[dict]:
                 fail(f"{where}: evidence path missing: {path}")
 
     grouped_lanes = [lane for _, lanes in GROUPS for lane in lanes]
-    if sorted(grouped_lanes) != list(range(LANE_MIN, LANE_MAX + 1)):
+    if set(grouped_lanes) != set(LANE_ISSUES) or len(grouped_lanes) != len(LANE_ISSUES):
         fail("group table must cover every lane exactly once")
+    ledger_pairs = {
+        (row["lane_issue"], premise)
+        for row in rows
+        for premise in (*row["premises"], *row["open_premises"])
+    }
+    declared_pairs = {
+        (lane, premise_id)
+        for premise_id, premise in premise_by_id.items()
+        for lane in premise.get("consuming_lanes", [])
+    }
+    uncovered = declared_pairs - ledger_pairs
+    exceptions = set(NON_OBSERVATION_SURFACE_CONSUMERS)
+    if uncovered != exceptions:
+        fail(
+            "premise reverse-map exceptions drifted: missing exceptions "
+            f"{sorted(uncovered - exceptions)}, stale exceptions "
+            f"{sorted(exceptions - uncovered)}"
+        )
     return rows
 
 
@@ -353,7 +386,8 @@ def render(rows: list[dict]) -> str:
     lines.append("")
     lines.append(
         f"One row per observation the architecture must reproduce, tracked for"
-        f" {_issue_link(726)}. Premise ids PR-01 through PR-42 name rows of the"
+        f" {_issue_link(726)}. Premise ids PR-01 through"
+        f" PR-{len(load_premise_register()[0]):02d} name rows of the"
         f" premise register ({_issue_link(727)}), the audited anti-cheating"
         f" surface; each row lists the register rows its current status"
         f" consumes. The row set, rungs, and lane assignments follow completion"
@@ -365,6 +399,12 @@ def render(rows: list[dict]) -> str:
     lines.append("")
     lines.append("## Adequacy rungs")
     lines.append("")
+    lines.append(
+        "- **Formal precursor**: an exact mathematical representation or"
+        " helper exists, but no theorem attaches it to the observer"
+        " architecture or a physical readout. It cannot by itself satisfy a"
+        " physics target."
+    )
     lines.append(
         "- **Structural**: the architecture provably carries the law; an exact"
         " theorem from the three axioms plus named register rows,"
@@ -418,21 +458,31 @@ def render(rows: list[dict]) -> str:
         lines.append(f"## {title} ({lane_word} {lane_list})")
         lines.append("")
         lines.append(
-            "| Row | Observation | Rung | Status | Lane | Premises |"
-            " Evidence | Boundary |"
+            "| Row | Observation | Rung | Status | Architecture | Lane | Premises |"
+            " Open premises | Audit records | Evidence | Boundary |"
         )
-        lines.append("| --- | --- | --- | --- | --- | --- | --- | --- |")
+        lines.append(
+            "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
+        )
         for row in group_rows:
             premises = ", ".join(row["premises"]) if row["premises"] else "none"
+            open_premises = (
+                ", ".join(row["open_premises"]) if row["open_premises"] else "none"
+            )
             evidence = (
                 ", ".join(f"`{path}`" for path in row["evidence"])
                 if row["evidence"]
                 else "none"
             )
+            audit_records = (
+                ", ".join(row["audit_records"]) if row["audit_records"] else "none"
+            )
             lines.append(
                 f"| {row['id']} | {row['target']} | {row['rung']} |"
-                f" {row['status']} | {_lane_link(row['lane_issue'])} |"
-                f" {premises} | {evidence} | {row['notes']} |"
+                f" {row['status']} | {row['architecture_version']} |"
+                f" {_lane_link(row['lane_issue'])} | {premises} |"
+                f" {open_premises} | {audit_records} | {evidence} |"
+                f" {row['notes']} |"
             )
 
     status_counts = {status: 0 for status in STATUSES}
@@ -449,17 +499,28 @@ def render(rows: list[dict]) -> str:
         + "."
     )
     lines.append("")
-    lines.append("## Premises consumed")
+    lines.append("## Premises consumed or still open")
     lines.append("")
-    consumed = sorted({premise for row in rows for premise in row["premises"]})
+    consumed = sorted(
+        {
+            premise
+            for row in rows
+            for premise in (*row["premises"], *row["open_premises"])
+        }
+    )
+    premise_by_id = load_premise_register()[1]
     for premise in consumed:
-        name, kind, disposition = PREMISE_REGISTER[premise]
+        entry = premise_by_id[premise]
+        name = entry["name"]
+        kind = entry["type"]
+        disposition = entry["disposition"]
         lines.append(f"- **{premise}** {name} ({kind}, {disposition})")
     lines.append("")
     lines.append(
-        f"Register rows that no current status consumes are omitted from this"
-        f" list; owed compositions name them in their boundary sentences where"
-        f" they apply. The full register with types and dispositions lives"
+        f"Register rows that no current or open target consumes are omitted"
+        f" from this list. `Premises` records hypotheses used by the attained"
+        f" portion; `Open premises` records registered hypotheses still needed"
+        f" for the row's full target. The full register lives"
         f" under {_issue_link(727)}."
     )
     return "\n".join(lines) + "\n"

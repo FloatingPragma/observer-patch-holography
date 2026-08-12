@@ -1209,7 +1209,10 @@ def _forced_structure(
                 "spectral majorization. The totalized-log countermodel rejects "
                 "only that naive architecture; a support-aware extended "
                 "divergence, pinching Pythagoras, constrained maximum entropy, "
-                "and the publicization information chain remain open on #685. "
+                "and the publicization information chain remain open in the "
+                "current quantum-composition lane #730; any remaining "
+                "principle-level acceptance belongs to discharge lane #739. "
+                "The superseded historical supporting-theory owner was #685. "
                 "No source rule selects that partition, a state, an observable, "
                 "a detector algebra, or a public instrument, and no "
                 "edge-to-partition identification is constructed"
@@ -2058,8 +2061,10 @@ def _forced_structure(
                 "source atlas realization, event population, certified "
                 "separation, open rank-four charts, physical cone attachment, "
                 "refinement naturality, semantic causal reachability, and an "
-                "operational clock. Issues #693, #694, and #703 own those "
-                "residuals; no physical spacetime, Einstein dynamics, "
+                "operational clock. Current lanes #728, #729, #732, #737, "
+                "and #739 own those residuals; the superseded historical "
+                "contracts were #693, #694, and #703. No physical spacetime, "
+                "Einstein dynamics, "
                 "observable, decision rule, or prediction follows"
             ),
             "paper_ref": "spacetime paper, bounded algebraic event-frame soldering",
@@ -2248,12 +2253,15 @@ def _forced_structure(
                 "off-diagonal control proves that the two slot expectations are "
                 "not jointly injective, so coverage does not imply unique gluing. "
                 "The constant tower is not a nonconstant source realization, and "
-                "the uncommitted frame exploration supports no no-go. Issue #692 "
-                "gates a source-attached Cartesian or other justified regional "
+                "the uncommitted frame exploration supports no no-go. Current "
+                "observer-net lane #728 gates a source-attached Cartesian or "
+                "other justified regional "
                 "construction, a correlation or descent receipt compatible "
                 "with the noninjectivity control, and a "
-                "nonconstant source realization or genuinely scoped no-go; "
-                "no CP/CPTP channel, scheduler locality, spacetime causality, "
+                "nonconstant source composition; discharge lane #739 owns a "
+                "source realization or genuinely scoped no-go. The superseded "
+                "historical gate was #692. "
+                "No CP/CPTP channel, scheduler locality, spacetime causality, "
                 "time-slice property, continuum QFT, observable, decision rule, "
                 "or prediction is supplied"
             ),
@@ -2727,9 +2735,11 @@ def _forced_structure(
                 "were not preregistered, and the phase pairing is an arbitrary "
                 "typed convention. The full-effect theorem still applies only "
                 "after full coexistent-effect additivity is supplied. No physical "
-                "Born derivation, observable, or prediction is emitted. Issue "
-                "#702 owns the source-earned phase instrument, operational "
-                "additivity, and public readback"
+                "Born derivation, observable, or prediction is emitted. Current "
+                "lane #730 owns the source-earned phase instrument, operational "
+                "additivity, and public readback; discharge lane #739 owns the "
+                "remaining affinity-principle obligation. The superseded "
+                "historical owner was #702"
             ),
             "paper_ref": "observers paper, finite Born-frame rank audit",
         },
@@ -2912,11 +2922,13 @@ def _forced_structure(
                 "artifact: a mixing-mode-retaining linear intertwiner into the "
                 "idempotent heat bath and a deterministic empirical pushforward. "
                 "It does not exclude stochastic, nonlinear, reverse-direction, "
-                "dilated, or enriched-source constructions. Issue #725 owns the "
-                "replacement common reference, collar, objective, and genuinely "
-                "varying refinement family. Issue #703 separately owns physical energy "
-                "and clock calibration beyond the attained central-interface "
-                "modular split. The "
+                "dilated, or enriched-source constructions. Current lane #732 "
+                "owns the replacement common reference, collar, objective, "
+                "genuinely varying refinement family, and physical energy-clock "
+                "calibration beyond the attained central-interface modular split; "
+                "discharge lane #739 owns clock derivation and the repair-export "
+                "decision. The superseded historical owners were #725 and #703. "
+                "The "
                 "pinned 20-state collar table has an audit of all "
                 "15 nonempty field-subset projections: its repair-load quotient "
                 "is an eight-state raw ergodic nonreversible H-theorem "
@@ -3005,10 +3017,11 @@ def _forced_structure(
                 "the reversible kernel, linear Poisson solver, graph, distance, "
                 "clock increment, volumes, heat capacities, and conductances "
                 "are declared finite inputs. No theorem identifies the "
-                "Green--Kubo coefficient with graph conductance. Issues #725, "
-                "#693, #694, and #703 own the source evolution, physical equilibrium "
-                "reference and conserved quantity, source-realized geometry, "
-                "clock, and calibration; bounded algebraic C2 issue #690 is "
+                "Green--Kubo coefficient with graph conductance. Current lanes "
+                "#732, #728, #729, #737, and #739 own the source evolution, "
+                "physical equilibrium reference and conserved quantity, "
+                "source-realized geometry, instrumentation, clock, and "
+                "calibration; bounded algebraic C2 issue #690 is explicitly "
                 "closed and this row emits no prediction-ladder "
                 "entry"
             ),
@@ -3089,10 +3102,13 @@ def _forced_structure(
                 "current, update order, and charge have no physical identity. "
                 "The guarded WardLimitManifest derives zero limiting residual "
                 "from exact finite-residual vanishing and convergence on a "
-                "shrinking scale with separating tests. Issue #694 must define "
+                "shrinking scale with separating tests. Current gravity lane "
+                "#729 must define "
                 "that residual from finite continuity, identify it with physical "
                 "distributional divergence, and supply the source, transport, "
-                "chart, and common-tower evidence before continuum Ward use"
+                "chart, and common-tower evidence before continuum Ward use; "
+                "instrument attachment remains in #737 and deferred discharge "
+                "in #739. The superseded historical owner was #694"
             ),
             "paper_ref": "screen-microphysics paper, finite conservation bridge",
         },
@@ -3155,15 +3171,17 @@ def _forced_structure(
                 "on a declared Cartesian slot, but the source does not select the "
                 "joint carrier, region map, or split. Its exact off-diagonal "
                 "control shows the two slot expectations are not jointly "
-                "injective, so coverage does not supply gluing. The row's sole "
-                "live gate, #692, owns a source-attached Cartesian or other "
+                "injective, so coverage does not supply gluing. Current "
+                "composition gate #728 owns a source-attached Cartesian or other "
                 "justified regional construction plus a correlation or descent "
                 "receipt compatible with the noninjectivity control and a "
-                "nonconstant source realization. "
-                "Source channel/adaptive-scheduler semantics (#693), physical "
-                "clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice "
-                "structure (#700) are "
-                "downstream promotions outside this claim's gate. This row "
+                "nonconstant source composition; #739 owns the residual source "
+                "realization or no-go. Source channel/adaptive-scheduler semantics "
+                "remain in #728, physical clocks in #739, physical spacetime "
+                "attachment in #729, instrumentation in #737, and continuum "
+                "causal/time-slice structure in #730. Those current lanes are "
+                "downstream promotions outside this claim's gate. The superseded "
+                "historical gate was #692. This row "
                 "emits no prediction-ladder entry"
             ),
             "paper_ref": "consensus-protocol paper, finite locality boundary",
@@ -3216,8 +3234,8 @@ def _forced_structure(
                 "supplied. The helper proves neither their source production nor "
                 "fairness, liveness, positivity, normalized state/channel, CPTP, "
                 "distance, clock, spacelike, continuum, or laboratory semantics. "
-                "Issue #693 remains the live E2 source scheduler/channel gate; "
-                "#703 and #700 retain the clock and continuum-causality "
+                "Current lane #728 remains the source scheduler/channel gate; "
+                "#739 and #730 retain the clock and continuum-causality "
                 "attachments. This row emits no prediction-ladder entry"
             ),
             "paper_ref": "E2 adaptive-scheduler helper, finite locality boundary",
@@ -3382,10 +3400,11 @@ def _forced_structure(
                 "displayed family is constructed, not source-produced. The "
                 "concave control concerns modes/minimizers only: constrained "
                 "saddles, complex or signed stationary phase, and refinement "
-                "routes are not excluded. Issue #683 is a live gate for a "
-                "compositional source history/reference, selected real enrichment "
-                "and stationary-phase mechanism, physical action and clock, "
-                "amplitudes, fields, continuum, and observable currents. This "
+                "routes are not excluded. Current lane #731 owns composition of "
+                "the source history/reference, action, amplitudes, fields, and "
+                "observable currents; discharge lane #739 owns source selection "
+                "of the reference, real enrichment, stationary-phase mechanism, "
+                "and clock. The superseded historical gate was #683. This "
                 "row emits no prediction-ladder entry"
             ),
             "paper_ref": "observers paper, conditional history boundary",
@@ -3547,8 +3566,8 @@ def _alpha_rows(
                 _rel("anchor_bridge"),
                 _rel("alpha_hvp_verdict"),
             ],
-            "blocking_issues": [708, 696],
-            "historical_blocking_issues": [425, 545],
+            "blocking_issues": [736],
+            "historical_blocking_issues": [425, 545, 696, 708],
         }
     ]
 
@@ -3586,7 +3605,7 @@ def _lepton_rows(
                 "interval, and its "
                 "distance to the standard on-shell reference deficit is the "
                 "scheme term of the resource-deferred historical anchor "
-                "boundary #545. The live quantitative successor #696 does "
+                "boundary #545. Current quantitative lane #736 does "
                 "not discharge that missing source. The lepton "
                 "scale is localized only under the recorded accounting "
                 "packet. A "
@@ -3600,8 +3619,8 @@ def _lepton_rows(
             "width_floor": width_floor["floor_attribution"],
             "tier": "T1_empirical_closure",
             "artifact_refs": [_rel("kappa_rectangle"), _rel("kappa_coherent")],
-            "blocking_issues": [696, 697],
-            "historical_blocking_issues": [425, 545],
+            "blocking_issues": [736],
+            "historical_blocking_issues": [425, 545, 696, 697],
         }
     )
     mcpr_masses = [float(m) / 1000.0 for m in mcpr["masses_MeV_display"]]
@@ -3670,8 +3689,8 @@ def _lepton_rows(
             "epistemic_scope": lane["numerical_certificate"]["epistemic_scope"],
             "numerical_certificate": lane["numerical_certificate"],
             "artifact_ref": _rel(artifact),
-            "blocking_issues": [696, 697],
-            "historical_blocking_issues": [425, 545],
+            "blocking_issues": [736],
+            "historical_blocking_issues": [425, 545, 696, 697],
         }
         if key.endswith("coherent"):
             entry["width_reduction_factor"] = lane["kappa_interval"]["width_reduction_factor"]
@@ -3761,8 +3780,8 @@ def _quark_rows(
             "fiber_cut_detected": obstruction["fiber_cut_detected"],
             "tier": obstruction["claim_tier"],
             "artifact_ref": _rel("fiber_obstruction"),
-            "blocking_issues": [697],
-            "historical_blocking_issues": obstruction["github_issues"],
+            "blocking_issues": [736],
+            "historical_blocking_issues": obstruction["github_issues"] + [697],
         },
         {
             "id": "quark_down_type_clebsch_route_rejected",
@@ -3812,8 +3831,9 @@ def _hadron_rows(payload: dict[str, Any], standby: dict[str, Any]) -> list[dict[
             "policy": (
                 "The published-compilation payload is the correction engine of "
                 "the fine-structure lane; source-only hadron rows stay "
-                "suppressed. Historical issue #425 records the resource-deferred "
-                "QCD backend; live bounded particle-output ownership is #697, "
+                "suppressed. Historical issues #425 and #697 record the "
+                "resource-deferred QCD backend and prior bounded particle lane; "
+                "current bounded particle-output ownership is #736, "
                 "and source-only QCD remains outside the available resources."
             ),
             "artifact_ref": _rel("hadron_payload"),
@@ -3893,7 +3913,7 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
                 "the standard on-shell reference deficit "
                 f"{wp['reference_deficit_inv_alpha']:.4f} is the scheme "
                 "term of the resource-deferred historical anchor boundary "
-                "#545; live quantitative successor #696 does not discharge "
+                "#545; current quantitative lane #736 does not discharge "
                 "that source requirement. The lepton "
                 "scale is localized only under that recorded accounting "
                 "packet. A "
@@ -4121,7 +4141,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
             + ", ".join(f"#{i}" for i in row["blocking_issues"])
         )
         add(
-            "- Historical resource-deferred boundaries: "
+            "- Historical issues and resource-deferred boundaries: "
             + ", ".join(f"#{i}" for i in row["historical_blocking_issues"])
         )
     add("")

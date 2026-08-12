@@ -1,18 +1,19 @@
 """Build and validate the Standard Model Lagrangian correspondence table.
 
 Issue #735's headline deliverable: one row per term of the textbook Standard
-Model Lagrangian, each classified by what OPH supplies for it. The
+Model term-and-sector inventory, each classified by what OPH supplies. The
 machine-readable table is ``tracking/sm_lagrangian_correspondence.json``.
 This tool validates it fail-closed and renders
 ``docs/SM_LAGRANGIAN_CORRESPONDENCE.md``; ``--check`` fails when the
 committed page differs from the render.
 
-Fail-closed rules: row ids are contiguous in the SML-01 style; every
+Fail-closed rules: row ids and term labels match the exact ordered nineteen-row
+inventory; every
 classification is one of the four enum values; a derived_conditional or
 registered_premise row names at least one premise id and an absent row names
 none; every premise id (in the premises list or cited inline in a boundary)
-is a row of the fixed program-wide premise register, which the artifact
-embeds verbatim; every evidence path resolves to a committed file; a
+is a row of the canonical program-wide premise register; every evidence path
+resolves to a committed file; a
 derived_conditional or partial row cites at least one evidence path; and the
 rendered prose carries no banned wording.
 """
@@ -25,11 +26,14 @@ import re
 import sys
 from pathlib import Path
 
+import strict_json
+
 ROOT = Path(__file__).resolve().parents[1]
 TABLE_PATH = ROOT / "tracking" / "sm_lagrangian_correspondence.json"
 SURFACE_PATH = ROOT / "docs" / "SM_LAGRANGIAN_CORRESPONDENCE.md"
+PREMISE_REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
 
-SCHEMA = "oph.sm_lagrangian_correspondence.v1"
+SCHEMA = "oph.sm_lagrangian_correspondence.v2"
 ISSUE = 735
 
 CLASSIFICATIONS = (
@@ -45,118 +49,39 @@ CLASS_LABELS = {
     "absent": "absent",
 }
 
-TOP_KEYS = {"schema", "issue", "policy", "premise_register", "rows"}
-ROW_KEYS = {"id", "term", "classification", "premises", "evidence", "boundary"}
+TOP_KEYS = {"schema", "issue", "policy", "premise_register_source", "rows"}
+ROW_KEYS = {
+    "id",
+    "term",
+    "classification",
+    "premises",
+    "open_premises",
+    "evidence",
+    "boundary",
+}
 
-# The program-wide premise register rows (issue #727). Ids, names, types, and
-# dispositions are fixed program-wide; the artifact embeds them verbatim and
-# validation rejects any divergence.
-PREMISE_REGISTER: tuple[dict, ...] = (
-    {
-        "id": "PR-01",
-        "name": "confluent terminating repair contract",
-        "type": "structural_rule",
-        "disposition": "axiomatize",
-    },
-    {
-        "id": "PR-02",
-        "name": "algebra-state representation of public records",
-        "type": "representation_choice",
-        "disposition": "axiomatize",
-    },
-    {
-        "id": "PR-03",
-        "name": "operational effect additivity",
-        "type": "selection_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-04",
-        "name": "phase-operation instrument",
-        "type": "structural_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-05",
-        "name": "counting path reference",
-        "type": "selection_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-06",
-        "name": "real Legendre enrichment",
-        "type": "representation_choice",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-07",
-        "name": (
-            "declared repair law: common faithful reference and "
-            "repaired-visible fibre"
-        ),
-        "type": "structural_rule",
-        "disposition": "axiomatize",
-    },
-    {
-        "id": "PR-08",
-        "name": "refinement-uniform low-temperature control",
-        "type": "structural_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-09",
-        "name": "equal-face-weight and barycentric one-third port-dual rules",
-        "type": "selection_rule",
-        "disposition": "axiomatize",
-    },
-    {
-        "id": "PR-10",
-        "name": "measure-to-metric and nearest-point repair rules",
-        "type": "selection_rule",
-        "disposition": "axiomatize",
-    },
-    {
-        "id": "PR-11",
-        "name": "compact-Lie classification inputs",
-        "type": "external_mathematics",
-        "disposition": "import",
-    },
-    {
-        "id": "PR-12",
-        "name": "matter candidate grammar",
-        "type": "selection_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-13",
-        "name": "Koide balance premise",
-        "type": "selection_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-14",
-        "name": "hadronic transport packet",
-        "type": "empirical_import",
-        "disposition": "import",
-    },
-    {
-        "id": "PR-15",
-        "name": "clock and energy calibration anchors",
-        "type": "empirical_import",
-        "disposition": "import",
-    },
-    {
-        "id": "PR-16",
-        "name": "stable causality and open-image conditions",
-        "type": "structural_rule",
-        "disposition": "remove",
-    },
-    {
-        "id": "PR-17",
-        "name": "numerical inputs P and N",
-        "type": "numerical_input",
-        "disposition": "import",
-    },
+PREMISE_REGISTER_SOURCE = "tracking/premise_register.json"
+
+EXPECTED_TERMS = (
+    "SU(3) gauge kinetic term: -(1/4) G^a_munu G_a^munu",
+    "SU(2) gauge kinetic term: -(1/4) W^i_munu W_i^munu",
+    "U(1) hypercharge kinetic term: -(1/4) B_munu B^munu",
+    "Nonabelian gauge self-interactions: cubic g f A A dA and quartic g^2 f f A A A A structures from the SU(2) and SU(3) field strengths",
+    "Quark doublet kinetic/covariant term: Qbar i gamma^mu D_mu Q, Q = (u_L, d_L), Y = 1/6",
+    "Up-singlet kinetic/covariant term: ubar_R i gamma^mu D_mu u_R, Y = 2/3",
+    "Down-singlet kinetic/covariant term: dbar_R i gamma^mu D_mu d_R, Y = -1/3",
+    "Lepton doublet kinetic/covariant term: Lbar i gamma^mu D_mu L, L = (nu_L, e_L), Y = -1/2",
+    "Electron-singlet kinetic/covariant term: ebar_R i gamma^mu D_mu e_R, Y = -1",
+    "Right-handed neutrino stance: nu_R, no kinetic or mass term in the minimal Standard Model",
+    "Higgs kinetic/covariant term: (D_mu H)^dagger (D^mu H), H a weak doublet with Y = 1/2",
+    "Higgs potential: mu^2 H^dagger H + lambda (H^dagger H)^2",
+    "Up-type Yukawa term: - Qbar Y_u Htilde u_R + h.c.",
+    "Down-type Yukawa term: - Qbar Y_d H d_R + h.c.",
+    "Lepton Yukawa term: - Lbar Y_e H e_R + h.c.",
+    "Theta-QCD term: (theta g3^2 / 32 pi^2) G^a_munu Gtilde_a^munu",
+    "Generation triplication: three copies of the chiral fermion content",
+    "Gauge couplings: g1, g2, g3 as numerical parameters",
+    "CKM/PMNS mixing structure: V_CKM in the charged quark current and U_PMNS in the lepton sector",
 )
 
 PR_TOKEN = re.compile(r"PR-\d{2}")
@@ -185,14 +110,40 @@ def fail(message: str) -> None:
     raise SystemExit(f"sm correspondence: {message}")
 
 
+def _display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def load_json(path: Path) -> dict:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return strict_json.load(path)
     except FileNotFoundError:
-        fail(f"missing input {path.relative_to(ROOT)}")
-    except json.JSONDecodeError as error:
-        fail(f"invalid JSON in {path.relative_to(ROOT)}: {error}")
+        fail(f"missing input {_display_path(path)}")
+    except (json.JSONDecodeError, strict_json.DuplicateKeyError) as error:
+        fail(f"invalid JSON in {_display_path(path)}: {error}")
     raise AssertionError("unreachable")
+
+
+def canonical_premise_register() -> tuple[dict, ...]:
+    data = load_json(PREMISE_REGISTER_PATH)
+    rows = data.get("rows")
+    if not isinstance(rows, list) or not rows:
+        fail("canonical premise register must contain rows")
+    projection: list[dict] = []
+    seen: set[str] = set()
+    for row in rows:
+        if not isinstance(row, dict):
+            fail("canonical premise register contains a malformed row")
+        projected = {key: row.get(key) for key in ("id", "name", "type", "disposition")}
+        premise_id = projected["id"]
+        if not isinstance(premise_id, str) or premise_id in seen:
+            fail("canonical premise register ids must be unique strings")
+        seen.add(premise_id)
+        projection.append(projected)
+    return tuple(projection)
 
 
 def check_prose(where: str, text: str) -> None:
@@ -215,13 +166,14 @@ def validate(data: dict) -> list[dict]:
         fail("policy must be a nonempty string")
     check_prose("policy", data["policy"])
 
-    if data["premise_register"] != list(PREMISE_REGISTER):
-        fail("premise_register must match the fixed program-wide rows verbatim")
-    register_ids = {entry["id"] for entry in PREMISE_REGISTER}
+    if data["premise_register_source"] != PREMISE_REGISTER_SOURCE:
+        fail(f"premise_register_source must equal {PREMISE_REGISTER_SOURCE!r}")
+    premise_register = canonical_premise_register()
+    register_ids = {entry["id"] for entry in premise_register}
 
     rows = data["rows"]
-    if not isinstance(rows, list) or not rows:
-        fail("rows must be a nonempty list")
+    if not isinstance(rows, list) or len(rows) != len(EXPECTED_TERMS):
+        fail(f"rows must contain exactly {len(EXPECTED_TERMS)} entries")
     for index, row in enumerate(rows):
         expected_id = f"SML-{index + 1:02d}"
         where = f"rows[{index}]"
@@ -238,11 +190,8 @@ def validate(data: dict) -> list[dict]:
             fail(f"{where}: id must equal {expected_id}")
         where = row["id"]
         term = row["term"]
-        if not isinstance(term, str) or ": " not in term:
-            fail(
-                f"{where}: term must be a string of the form "
-                "'textbook name: schematic expression'"
-            )
+        if term != EXPECTED_TERMS[index]:
+            fail(f"{where}: term must equal the canonical inventory entry")
         check_prose(f"{where}.term", term)
         classification = row["classification"]
         if classification not in CLASSIFICATIONS:
@@ -268,6 +217,18 @@ def validate(data: dict) -> list[dict]:
                 )
         if classification == "absent" and premises:
             fail(f"{where}: an absent row names no premises")
+        open_premises = row["open_premises"]
+        if (
+            not isinstance(open_premises, list)
+            or any(not isinstance(p, str) for p in open_premises)
+            or len(open_premises) != len(set(open_premises))
+        ):
+            fail(f"{where}: open_premises must be a duplicate-free list of strings")
+        open_unknown = set(open_premises) - register_ids
+        if open_unknown:
+            fail(f"{where}: unknown open premise ids {sorted(open_unknown)}")
+        if set(premises) & set(open_premises):
+            fail(f"{where}: consumed and open premise lists must be disjoint")
         evidence = row["evidence"]
         if (
             not isinstance(evidence, list)
@@ -280,8 +241,7 @@ def validate(data: dict) -> list[dict]:
                 fail(f"{where}: evidence path missing: {path}")
         if classification in ("derived_conditional", "partial") and not evidence:
             fail(
-                f"{where}: a {classification} row must cite at least one "
-                "evidence path"
+                f"{where}: a {classification} row must cite at least one evidence path"
             )
         boundary = row["boundary"]
         if (
@@ -294,8 +254,7 @@ def validate(data: dict) -> list[dict]:
         inline_unknown = set(PR_TOKEN.findall(boundary)) - register_ids
         if inline_unknown:
             fail(
-                f"{where}: boundary cites unknown premise ids "
-                f"{sorted(inline_unknown)}"
+                f"{where}: boundary cites unknown premise ids {sorted(inline_unknown)}"
             )
     return rows
 
@@ -304,8 +263,9 @@ def referenced_register_rows(rows: list[dict]) -> list[dict]:
     ids: set[str] = set()
     for row in rows:
         ids.update(row["premises"])
+        ids.update(row["open_premises"])
         ids.update(PR_TOKEN.findall(row["boundary"]))
-    return [entry for entry in PREMISE_REGISTER if entry["id"] in ids]
+    return [entry for entry in canonical_premise_register() if entry["id"] in ids]
 
 
 def render(data: dict, rows: list[dict]) -> str:
@@ -314,7 +274,7 @@ def render(data: dict, rows: list[dict]) -> str:
         counts[row["classification"]] += 1
 
     lines: list[str] = []
-    lines.append("# The Standard Model Lagrangian correspondence table")
+    lines.append("# The Standard Model term-and-sector correspondence table")
     lines.append("")
     lines.append(
         "Generated by `tools/build_sm_correspondence.py` from"
@@ -325,21 +285,24 @@ def render(data: dict, rows: list[dict]) -> str:
     lines.append(data["policy"])
     lines.append("")
     lines.append(
-        f"Summary: {len(rows)} terms;"
+        f"Summary: {len(rows)} term-and-sector entries;"
         f" {counts['derived_conditional']} derived conditional,"
         f" {counts['partial']} partial,"
         f" {counts['registered_premise']} registered premise,"
         f" {counts['absent']} absent."
     )
     lines.append("")
-    lines.append("| Row | Term | Classification | Premises |")
-    lines.append("| --- | --- | --- | --- |")
+    lines.append("| Row | Term or sector | Classification | Premises | Open premises |")
+    lines.append("| --- | --- | --- | --- | --- |")
     for row in rows:
         name, expression = row["term"].split(": ", 1)
         premises = ", ".join(row["premises"]) if row["premises"] else "none"
+        open_premises = (
+            ", ".join(row["open_premises"]) if row["open_premises"] else "none"
+        )
         lines.append(
             f"| {row['id']} | {name}: `{expression}` |"
-            f" `{row['classification']}` | {premises} |"
+            f" `{row['classification']}` | {premises} | {open_premises} |"
         )
     lines.append("")
     lines.append("## Term boundaries")

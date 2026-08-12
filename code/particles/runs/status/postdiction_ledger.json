@@ -28,7 +28,7 @@
     },
     {
       "id": "lepton_closure_target",
-      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the retrospective accounting interval [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the scheme term of the resource-deferred historical anchor boundary #545; live quantitative successor #696 does not discharge that source requirement. The lepton scale is localized only under that recorded accounting packet. A source-emitted bridge value is a falsification target: the closure value would satisfy the conditional lane, while a value outside the interval refutes the declared decomposition."
+      "statement": "The anchor-gap value 0.6379 closes the charged-lepton lane exactly on the measured triple, inside the retrospective accounting interval [0.6199, 0.6506]; the distance +0.0070 to the standard on-shell reference deficit 0.6309 is the scheme term of the resource-deferred historical anchor boundary #545; current quantitative lane #736 does not discharge that source requirement. The lepton scale is localized only under that recorded accounting packet. A source-emitted bridge value is a falsification target: the closure value would satisfy the conditional lane, while a value outside the interval refutes the declared decomposition."
     }
   ],
   "row_class": "compare_only_postdiction_ledger",
@@ -47,8 +47,7 @@
         ],
         "audit_verdict": "MULTI_CLASS_NOT_EVALUABLE__ONE_RECORDED_ACCOUNTING_REPLAY_COMPATIBLE",
         "blocking_issues": [
-          708,
-          696
+          736
         ],
         "cross_class_agreement": {
           "independently_evaluated_class_count": 0,
@@ -58,7 +57,9 @@
         },
         "historical_blocking_issues": [
           425,
-          545
+          545,
+          696,
+          708
         ],
         "id": "alpha_inv_thomson_endpoint",
         "measured": 137.035999177,
@@ -82,15 +83,16 @@
           "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json"
         ],
         "blocking_issues": [
-          696,
-          697
+          736
         ],
         "historical_blocking_issues": [
           425,
-          545
+          545,
+          696,
+          697
         ],
         "id": "charged_leptons_closure_target",
-        "statement": "The certified solve inverts exactly at the measured triple: one anchor-gap value closes the charged-lepton lane on the witness, that value lies inside the retrospective accounting interval, and its distance to the standard on-shell reference deficit is the scheme term of the resource-deferred historical anchor boundary #545. The live quantitative successor #696 does not discharge that missing source. The lepton scale is localized only under the recorded accounting packet. A source-emitted bridge value is a sharp falsification target: landing on the closure value satisfies the conditional lane on the witness, while landing outside the recorded interval refutes the decomposition.",
+        "statement": "The certified solve inverts exactly at the measured triple: one anchor-gap value closes the charged-lepton lane on the witness, that value lies inside the retrospective accounting interval, and its distance to the standard on-shell reference deficit is the scheme term of the resource-deferred historical anchor boundary #545. Current quantitative lane #736 does not discharge that missing source. The lepton scale is localized only under the recorded accounting packet. A source-emitted bridge value is a sharp falsification target: landing on the closure value satisfies the conditional lane on the witness, while landing outside the recorded interval refutes the decomposition.",
         "tier": "T1_empirical_closure",
         "width_floor": "the certified width floor at the current premise set is the anchor scheme-bridge ambiguity (issue 545, source branch); the payload term cancels in this lane and the higher-order band is a level convention pinned by the open bridge",
         "witness_point": {
@@ -140,8 +142,7 @@
       {
         "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_from_alpha_transport.json",
         "blocking_issues": [
-          696,
-          697
+          736
         ],
         "centrals_gev": [
           0.0005088574871435145,
@@ -151,7 +152,9 @@
         "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
         "historical_blocking_issues": [
           425,
-          545
+          545,
+          696,
+          697
         ],
         "id": "charged_leptons_kappa_rectangle",
         "intervals_gev": [
@@ -230,8 +233,7 @@
       {
         "artifact_ref": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
         "blocking_issues": [
-          696,
-          697
+          736
         ],
         "centrals_gev": [
           0.0005088574871435262,
@@ -241,7 +243,9 @@
         "epistemic_scope": "target-anchored empirical-closure diagnostic, not a source-only or prospective charged-lepton prediction",
         "historical_blocking_issues": [
           425,
-          545
+          545,
+          696,
+          697
         ],
         "id": "charged_leptons_kappa_coherent",
         "intervals_gev": [
@@ -605,7 +609,7 @@
         "survivor_dimension": 15
       },
       {
-        "hypothesis_boundary": "the state, observables, and projective partition are supplied finite inputs. Pinching lands in the generally noncommutative commutant, while averaging lands in the commutative projector span. The adaptor is relative to that supplied partition. The sign average is an exact precursor, not a proof of spectral majorization. The totalized-log countermodel rejects only that naive architecture; a support-aware extended divergence, pinching Pythagoras, constrained maximum entropy, and the publicization information chain remain open on #685. No source rule selects that partition, a state, an observable, a detector algebra, or a public instrument, and no edge-to-partition identification is constructed",
+        "hypothesis_boundary": "the state, observables, and projective partition are supplied finite inputs. Pinching lands in the generally noncommutative commutant, while averaging lands in the commutative projector span. The adaptor is relative to that supplied partition. The sign average is an exact precursor, not a proof of spectral majorization. The totalized-log countermodel rejects only that naive architecture; a support-aware extended divergence, pinching Pythagoras, constrained maximum entropy, and the publicization information chain remain open in the current quantum-composition lane #730; any remaining principle-level acceptance belongs to discharge lane #739. The superseded historical supporting-theory owner was #685. No source rule selects that partition, a state, an observable, a detector algebra, or a public instrument, and no edge-to-partition identification is constructed",
         "id": "finite_quantum_limitation_suite",
         "lean_declarations": {
           "B10EdgeCenterAction": [
@@ -991,7 +995,7 @@
         "statement": "The real Pauli-coordinate module Herm2 is exactly the four-dimensional space of two-by-two complex Hermitian matrices, with determinant equal to the Lorentz quadratic form of constructive inertia (+---). Positive future-null rays are set-equivalent to the unit two-sphere, the algebraic future-unit hyperboloid has three-dimensional positive rest spaces, and an explicit linear chart matches the existing Einstein coordinates with exactly the required sign flip"
       },
       {
-        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Issues #693, #694, and #703 own those residuals; no physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
+        "hypothesis_boundary": "the coincidence setoid, invariant readback, affine Lorentz cocycle, overlap-compatible chart-coordinate family, and base frame are supplied. Quotient descent does not construct or identify that atlas family. The exact handoff retains source atlas realization, event population, certified separation, open rank-four charts, physical cone attachment, refinement naturality, semantic causal reachability, and an operational clock. Current lanes #728, #729, #732, #737, and #739 own those residuals; the superseded historical contracts were #693, #694, and #703. No physical spacetime, Einstein dynamics, observable, decision rule, or prediction follows",
         "id": "algebraic_event_frame_soldering",
         "lean_declarations": {
           "CelestialSoldering": [
@@ -1043,7 +1047,7 @@
         "statement": "Coincidence-invariant Herm2 readback descends uniquely through an actual event setoid. Separately, one supplied time-oriented affine Lorentz overlap cocycle and a chart-coordinate family satisfying its overlap law induce translation-free displacement covariance, invariant intervals, future-null celestial transport, compatible event frames, and isometric transport of their positive rest spaces. The rank-three source FrameQuotient is linearly and isometrically identified with the standard internal rest fiber as a candidate local readback. The formal stack does not identify the quotient-descended readback with the supplied atlas coordinates. Exact controls exhibit a nontrivial translated future-null atlas and show that reflexive symmetric pairwise overlap need not be transitive"
       },
       {
-        "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom and the B4 helper has no regional-factor attachment. The rich-fibre source payload supplies window/class labels only: its block algebra, base-point state, restrictions, and repair are declared postprocessors. Conditional coverage is attained inside that adapter, but its nonunital matrix corners are not tensor factors or a `TensorSplitReceipt`. The later operator-generation theorem transcribes source paths post hoc, while the Cartesian joint carrier, region map, and slot split are declared. The designated full supports overlap. The exact off-diagonal control proves that the two slot expectations are not jointly injective, so coverage does not imply unique gluing. The constant tower is not a nonconstant source realization, and the uncommitted frame exploration supports no no-go. Issue #692 gates a source-attached Cartesian or other justified regional construction, a correlation or descent receipt compatible with the noninjectivity control, and a nonconstant source realization or genuinely scoped no-go; no CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
+        "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom and the B4 helper has no regional-factor attachment. The rich-fibre source payload supplies window/class labels only: its block algebra, base-point state, restrictions, and repair are declared postprocessors. Conditional coverage is attained inside that adapter, but its nonunital matrix corners are not tensor factors or a `TensorSplitReceipt`. The later operator-generation theorem transcribes source paths post hoc, while the Cartesian joint carrier, region map, and slot split are declared. The designated full supports overlap. The exact off-diagonal control proves that the two slot expectations are not jointly injective, so coverage does not imply unique gluing. The constant tower is not a nonconstant source realization, and the uncommitted frame exploration supports no no-go. Current observer-net lane #728 gates a source-attached Cartesian or other justified regional construction, a correlation or descent receipt compatible with the noninjectivity control, and a nonconstant source composition; discharge lane #739 owns a source realization or genuinely scoped no-go. The superseded historical gate was #692. No CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
         "id": "finite_causal_observer_net_interface",
         "lean_declarations": {
           "CPRestrictionNet": [
@@ -1262,7 +1266,7 @@
           "code/thermodynamics/repair_current_orientation/verify_repair_current_orientation.py",
           "code/thermodynamics/repair_current_orientation/test_verify_repair_current_orientation.py"
         ],
-        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter obtained by applying a two-dimensional representation to source-realized gauge labels, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity; the transverse cubic refutes the current finite Busch--Gleason interface, and the Pauli-Y pair identifies the missing complex tomography direction. The exact phase lift constructs that direction only inside the complex operator algebra; the source has no phase producer, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. Conjugation identifies one two-candidate orbit but does not prove that this orbit exhausts all hidden phase data. The repair-count bit is a post-hoc diagnostic on a locally hash-pinned B12 run; its statistic and designation rule were not preregistered, and the phase pairing is an arbitrary typed convention. The full-effect theorem still applies only after full coexistent-effect additivity is supplied. No physical Born derivation, observable, or prediction is emitted. Issue #702 owns the source-earned phase instrument, operational additivity, and public readback",
+        "hypothesis_boundary": "the central atoms and spinor projectors are different objects. The projector family is a declared mathematical adapter obtained by applying a two-dimensional representation to source-realized gauge labels, not a source-produced public quantum instrument. The celestial countermodel proves that continuity and normalized antipodal binary contexts still do not derive affinity; the transverse cubic refutes the current finite Busch--Gleason interface, and the Pauli-Y pair identifies the missing complex tomography direction. The exact phase lift constructs that direction only inside the complex operator algebra; the source has no phase producer, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. Conjugation identifies one two-candidate orbit but does not prove that this orbit exhausts all hidden phase data. The repair-count bit is a post-hoc diagnostic on a locally hash-pinned B12 run; its statistic and designation rule were not preregistered, and the phase pairing is an arbitrary typed convention. The full-effect theorem still applies only after full coexistent-effect additivity is supplied. No physical Born derivation, observable, or prediction is emitted. Current lane #730 owns the source-earned phase instrument, operational additivity, and public readback; discharge lane #739 owns the remaining affinity-principle obligation. The superseded historical owner was #702",
         "id": "finite_born_frame_rank_gap",
         "lean_declarations": {
           "ConjugationGauge": [
@@ -1330,7 +1334,7 @@
         "statement": "The twelve declared central port atoms form one classical context with an eleven-dimensional normalized weight simplex. The separate declared qubit adapter has six disjoint antipodal binary contexts: additive weights have affine dimension six, while the trace-one Hermitian/Born slice has dimension three and is characterized by three exact golden-ratio relations. Tomography is unique when a representation exists, but exact unit-interval controls show both nonrepresentation and a unique Hermitian representation whose matrix is nonpositive. On the full celestial sphere, the continuous normalized binary weight F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is supplied, dense probability tests force the coefficient into the closed unit ball. The current finite unsharp battery also fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, noncontextual on the whole web, and non-affine. The source-attached real S3 algebraic contexts obtained by applying a declared representation to source-realized gauge labels are not complex tomographically complete: distinct pure Pauli-Y states agree on every declared outcome and a missing complex Y projector separates them. For two source-attached algebraic projector candidates P,Q, the algebraic phase lift I/2-(2sqrt(3)/3)i(QP-PQ) is exactly that Y projector and completes fixed-trace tomography; every effect in a generous real/Kraus closure remains Y-blind and cannot produce it. Entrywise conjugation exchanges the two phase candidates while simultaneous state-effect conjugation preserves the real Born weight. A post-hoc raw-count product-gap diagnostic from retained B12 data supplies an exact reversal-odd bit and normalized cycle products, but neither its statistic nor designation rule was preregistered; its pairing with the phase torsor is declared and emits no source selection or validation"
       },
       {
-        "hypothesis_boundary": "The exact obstruction closes issue #688 only as a bounded negative result for two direct mechanisms on the current artifact: a mixing-mode-retaining linear intertwiner into the idempotent heat bath and a deterministic empirical pushforward. It does not exclude stochastic, nonlinear, reverse-direction, dilated, or enriched-source constructions. Issue #725 owns the replacement common reference, collar, objective, and genuinely varying refinement family. Issue #703 separately owns physical energy and clock calibration beyond the attained central-interface modular split. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
+        "hypothesis_boundary": "The exact obstruction closes issue #688 only as a bounded negative result for two direct mechanisms on the current artifact: a mixing-mode-retaining linear intertwiner into the idempotent heat bath and a deterministic empirical pushforward. It does not exclude stochastic, nonlinear, reverse-direction, dilated, or enriched-source constructions. Current lane #732 owns the replacement common reference, collar, objective, genuinely varying refinement family, and physical energy-clock calibration beyond the attained central-interface modular split; discharge lane #739 owns clock derivation and the repair-export decision. The superseded historical owners were #725 and #703. The pinned 20-state collar table has an audit of all 15 nonempty field-subset projections: its repair-load quotient is an eight-state raw ergodic nonreversible H-theorem probe, but the declared record charge is constant and the common reference is unidentified; its only fine-chain recurrent restriction is singleton freezeout. The strict-descent normalizer carries no entropy inequality",
         "id": "thermodynamic_four_law_package",
         "lean_declarations": {
           "CapFirstLaw": [
@@ -1416,7 +1420,7 @@
         "statement": "With a faithful common reference and repaired-visible fibre supplied, Axiom 3 instantiated on states selects the Gibbs exponential family by the exact information-projection Pythagorean identity, and instantiated on transition distributions over the repaired-visible fibre selects weighted conditional resampling from the same reference. The kernel is stochastic, idempotent, reversible, stationary, and fixes fibre-measurable charges; relative entropy to the reference contracts under it; the exact first-law split carries its bilinear cross term; the excited Gibbs mass obeys the finite gap bound with entropy limit log g0; partition pinching has an explicit normalized projector Kraus family and is formally CPTP; more generally, every stochastic kernel preserving a faithful stationary reference contracts relative entropy even without detailed balance, with an exact lazy directed three-cycle as the nonreversible separation witness. On the current source artifact, however, the transition action has a nonconstant eigenmode with eigenvalue 665437/726948, whereas the candidate state-side heat-bath action is idempotent; every intertwiner kills that mode. Its stationary mass 7155/61511 is also not a deterministic pushforward of the equally weighted 16384-state empirical table"
       },
       {
-        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Issues #725, #693, #694, and #703 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, clock, and calibration; bounded algebraic C2 issue #690 is closed and this row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the reversible kernel, linear Poisson solver, graph, distance, clock increment, volumes, heat capacities, and conductances are declared finite inputs. No theorem identifies the Green--Kubo coefficient with graph conductance. Current lanes #732, #728, #729, #737, and #739 own the source evolution, physical equilibrium reference and conserved quantity, source-realized geometry, instrumentation, clock, and calibration; bounded algebraic C2 issue #690 is explicitly closed and this row emits no prediction-ladder entry",
         "id": "finite_green_kubo_graph_transport",
         "lean_declarations": {
           "GraphDiffusion": [
@@ -1453,7 +1457,7 @@
         "statement": "A finite reversible Markov kernel with a linear Poisson solver has a symmetric positive-semidefinite Green--Kubo matrix and an exact finite correlation sum with propagated remainder. One full-fibre repair projector has constant positive-lag correlation and cannot supply a nonzero decaying memory tail with stabilizing sums. Typed finite-graph Fick and Fourier updates obey exact source balance and source-free conservation"
       },
       {
-        "hypothesis_boundary": "the pointwise update is a declared finite premise; the load, current, update order, and charge have no physical identity. The guarded WardLimitManifest derives zero limiting residual from exact finite-residual vanishing and convergence on a shrinking scale with separating tests. Issue #694 must define that residual from finite continuity, identify it with physical distributional divergence, and supply the source, transport, chart, and common-tower evidence before continuum Ward use",
+        "hypothesis_boundary": "the pointwise update is a declared finite premise; the load, current, update order, and charge have no physical identity. The guarded WardLimitManifest derives zero limiting residual from exact finite-residual vanishing and convergence on a shrinking scale with separating tests. Current gravity lane #729 must define that residual from finite continuity, identify it with physical distributional divergence, and supply the source, transport, chart, and common-tower evidence before continuum Ward use; instrument attachment remains in #737 and deferred discharge in #739. The superseded historical owner was #694",
         "id": "finite_conservation_ward_precursor",
         "lean_declarations": {
           "DiscreteGauss": [
@@ -1490,7 +1494,7 @@
         "statement": "On the exact twelve-port, thirty-seam incidence graph, a declared pointwise continuity update gives regional source minus outward flux, internal cancellation, and closed-graph conservation for zero-total source. Rational Gauss solutions exist exactly for neutral loads and form one translate of a nineteen-dimensional cycle kernel. For finite real linear state maps, all-state charge conservation is equivalent to the dual fixed-observable equation; an exact two-state counterexample shows that channel covariance alone does not imply conservation"
       },
       {
-        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. A declared rich-fibre adapter conditionally attains coverage. The later E1 packet transcribes operators post hoc and consumes this row's partial-trace helper on a declared Cartesian slot, but the source does not select the joint carrier, region map, or split. Its exact off-diagonal control shows the two slot expectations are not jointly injective, so coverage does not supply gluing. The row's sole live gate, #692, owns a source-attached Cartesian or other justified regional construction plus a correlation or descent receipt compatible with the noninjectivity control and a nonconstant source realization. Source channel/adaptive-scheduler semantics (#693), physical clocks (#703), physical spacetime attachment (#694), and continuum causal/time-slice structure (#700) are downstream promotions outside this claim's gate. This row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the repair word is fixed externally and shared by both inputs; adaptive or globally state-dependent scheduling is not covered. The cone is an upper bound, not a minimal cone or graph-radius speed law. The bipartite split is supplied, the classical theorem permits signed arrays, and no OPH region-factor, spacelike, clock, stochastic-state, CPTP, or laboratory attachment is proved. A declared rich-fibre adapter conditionally attains coverage. The later E1 packet transcribes operators post hoc and consumes this row's partial-trace helper on a declared Cartesian slot, but the source does not select the joint carrier, region map, or split. Its exact off-diagonal control shows the two slot expectations are not jointly injective, so coverage does not supply gluing. Current composition gate #728 owns a source-attached Cartesian or other justified regional construction plus a correlation or descent receipt compatible with the noninjectivity control and a nonconstant source composition; #739 owns the residual source realization or no-go. Source channel/adaptive-scheduler semantics remain in #728, physical clocks in #739, physical spacetime attachment in #729, instrumentation in #737, and continuum causal/time-slice structure in #730. Those current lanes are downstream promotions outside this claim's gate. The superseded historical gate was #692. This row emits no prediction-ladder entry",
         "id": "finite_fixed_word_locality_and_marginal_invariance",
         "lean_declarations": {
           "DependencyCone": [
@@ -1514,7 +1518,7 @@
         "statement": "For the concrete single-site OPH localRepair, every fixed exogenous word of n sequential moves has an n-fold closed-neighborhood dependency upper bound. Separately, on a supplied finite bipartite split, row-normalized real maps preserve the remote algebraic marginal and Kraus-complete local matrix families preserve the remote partial trace"
       },
       {
-        "hypothesis_boundary": "sigma, R, ConsultsOnly, and every ConeRefinement map/law are supplied. The helper proves neither their source production nor fairness, liveness, positivity, normalized state/channel, CPTP, distance, clock, spacelike, continuum, or laboratory semantics. Issue #693 remains the live E2 source scheduler/channel gate; #703 and #700 retain the clock and continuum-causality attachments. This row emits no prediction-ladder entry",
+        "hypothesis_boundary": "sigma, R, ConsultsOnly, and every ConeRefinement map/law are supplied. The helper proves neither their source production nor fairness, liveness, positivity, normalized state/channel, CPTP, distance, clock, spacelike, continuum, or laboratory semantics. Current lane #728 remains the source scheduler/channel gate; #739 and #730 retain the clock and continuum-causality attachments. This row emits no prediction-ladder entry",
         "id": "conditional_adaptive_scheduler_locality_helper",
         "lean_declarations": {
           "AdaptiveScheduler": [
@@ -1535,7 +1539,7 @@
         "statement": "For concrete localRepair, a supplied adaptive scheduler and supplied ConsultsOnly consultation region have the exact n-step cone bound ball(S union R,n); a one-site change outside ball(S,n) union ball(R,n) cannot change the probe readout. A two-cell control proves the consultation term is indispensable. Declared refinement maps and one-step intertwining imply cone-image inclusion and run/readback naturality"
       },
       {
-        "hypothesis_boundary": "the finite source packet and its log-transition corner action are attained, while the complete reference is not source-selected. Conditional repair of supplied trivial data under a supplied counting reference realizes only its uniform transition kernel; constant rescaling leaves that kernel unchanged, and distinct initial laws give distinct complete path references. The matching parameter exists uniquely at the supplied empirical target, but the constraint observable and level remain declared. A typed finite-to-real transfer exists only under an undercut receipt. The complete binary history law does not select the off-alphabet curvature of a regular Legendre system: the displayed family is constructed, not source-produced. The concave control concerns modes/minimizers only: constrained saddles, complex or signed stationary phase, and refinement routes are not excluded. Issue #683 is a live gate for a compositional source history/reference, selected real enrichment and stationary-phase mechanism, physical action and clock, amplitudes, fields, continuum, and observable currents. This row emits no prediction-ladder entry",
+        "hypothesis_boundary": "the finite source packet and its log-transition corner action are attained, while the complete reference is not source-selected. Conditional repair of supplied trivial data under a supplied counting reference realizes only its uniform transition kernel; constant rescaling leaves that kernel unchanged, and distinct initial laws give distinct complete path references. The matching parameter exists uniquely at the supplied empirical target, but the constraint observable and level remain declared. A typed finite-to-real transfer exists only under an undercut receipt. The complete binary history law does not select the off-alphabet curvature of a regular Legendre system: the displayed family is constructed, not source-produced. The concave control concerns modes/minimizers only: constrained saddles, complex or signed stationary phase, and refinement routes are not excluded. Current lane #731 owns composition of the source history/reference, action, amplitudes, fields, and observable currents; discharge lane #739 owns source selection of the reference, real enrichment, stationary-phase mechanism, and clock. The superseded historical gate was #683. This row emits no prediction-ladder entry",
         "id": "finite_history_variational_helpers_and_bridge_obstruction",
         "lean_declarations": {
           "DiscreteEulerLagrange": [
@@ -1666,7 +1670,7 @@
         "delta_alpha_had_5_MZ": 0.027609,
         "id": "hadronic_correction_engine",
         "pin_factor": 1.0317603861495885,
-        "policy": "The published-compilation payload is the correction engine of the fine-structure lane; source-only hadron rows stay suppressed. Historical issue #425 records the resource-deferred QCD backend; live bounded particle-output ownership is #697, and source-only QCD remains outside the available resources.",
+        "policy": "The published-compilation payload is the correction engine of the fine-structure lane; source-only hadron rows stay suppressed. Historical issues #425 and #697 record the resource-deferred QCD backend and prior bounded particle lane; current bounded particle-output ownership is #736, and source-only QCD remains outside the available resources.",
         "source_compilation": "knt19_pinned_piecewise_v1",
         "uncertainty_total": 0.000112
       },
@@ -1733,12 +1737,13 @@
       {
         "artifact_ref": "code/particles/runs/flavor/quark_spread_fiber_structure_transport_obstruction.json",
         "blocking_issues": [
-          697
+          736
         ],
         "fiber_cut_detected": false,
         "fork": "ii_fiber_survives",
         "historical_blocking_issues": [
-          591
+          591,
+          697
         ],
         "id": "quark_absolute_masses_obstruction",
         "statement": "No absolute quark mass is emitted: the two-modulus spread fiber survives every certified structure transport, so the six absolute masses are non-identifiable from the corpus, by theorem rather than by omission",

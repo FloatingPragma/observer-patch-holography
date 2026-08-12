@@ -45,7 +45,8 @@ from CODATA are `3.0e-4` and `2.5e-6` in relative units. The familiar `2e6` and
 `1.6e4` figures divide by experimental uncertainty only; they are diagnostics, not
 physical pulls, because the same-scheme hadronic and finite remainder plus a theory
 uncertainty model are missing. The corresponding source-chain and gauge-width
-maps ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)) are therefore incomplete
+maps (documented by historical [#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545),
+with current integration under [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736)) are therefore incomplete
 maps. The missing
 hadronic term is a frontier for every method on Earth: the payload asks for 4×10⁻⁹
 relative precision on the hadronic moment (see "Why The Hadronic Test Is Hard" in
@@ -91,7 +92,9 @@ closure program.
 
 Arming the exposure is open work. The historical v2 target is externally timestamped,
 but the V1 execution was not target-blind; its defect inventory is recorded on the
-P-closure issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)). A corrected contract must be
+historical P-closure issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545));
+current ownership is [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736).
+A corrected contract must be
 activated and executed before this lane can test the "exactly our universe" claim.
 
 ---

@@ -76,11 +76,64 @@ PINNED_GITHUB_EVIDENCE = re.compile(
     r"https://github\.com/[^/]+/[^/]+/blob/[0-9a-f]{40}/.+"
 )
 
+# Current V3 topical custody for claim rows whose own statement leaves the
+# corresponding physical attachment open.  This is deliberately an explicit
+# claim-by-claim policy rather than a keyword rule: exact finite helpers and
+# scoped no-go results remain valid without inheriting every downstream lane.
+# When one of these issues is discharged, its claim gates and this policy must
+# be updated together, so ownership cannot disappear as an incidental edit.
+REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
+    "OPH-CARRIER-PRESENTATION-INVARIANCE": frozenset({741}),
+    "OPH-UNIFIED-TYPED-SPINE": frozenset({740, 741}),
+    "OPH-GR-D6-CAPACITY": frozenset({742}),
+    "OPH-GR-D6-HORIZON-RECORD": frozenset({742}),
+    "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT": frozenset({742}),
+    "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM": frozenset({742}),
+    "OPH-COSMO-SCREEN-SPECTRUM": frozenset({742}),
+    "OPH-WZ-STRICT-1L-POLE-MAP": frozenset({743, 745}),
+    "OPH-SM-Q1-LOCAL-G6": frozenset({743, 745}),
+    "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION": frozenset({743}),
+    "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS": frozenset({743}),
+    "OPH-SM-Q3-BV-RESTORATION": frozenset({743}),
+    "OPH-SM-Q4-OS-OBSERVABLE-SECTOR": frozenset({743}),
+    "OPH-SM-Q4-RESONANCE-CONTINUATION": frozenset({743}),
+    "OPH-A5-PRIMITIVE-PORT-SPIN6": frozenset({742}),
+    "OPH-A5-SEAM-CURRENT-EDGE30": frozenset({742}),
+    "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": frozenset({743}),
+    "OPH-QUARK-REGISTER-CLEBSCH": frozenset({745}),
+    "OPH-KOIDE-CIRCULANT-IDENTITY": frozenset({745}),
+    "OPH-W5-STABILISER-POTENTIAL-BOUNDARY": frozenset({745}),
+    "OPH-SM-ROUTE-IDENTIFICATION": frozenset({740}),
+    "OPH-Q-N-RESERVE-CANDIDATES": frozenset({742}),
+    "OPH-HIER-EW": frozenset({740, 742, 745}),
+    "OPH-SCREEN-24-CLOCK-DETERMINANT": frozenset({745}),
+    "OPH-ALPHA-PIXEL": frozenset({744}),
+    "OPH-DM-CONT": frozenset({742}),
+    "OPH-YM-GAP": frozenset({743, 744}),
+    "OPH-CHI-NU": frozenset({742}),
+    "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX": frozenset({743}),
+}
+
+
+class DuplicateKeyError(ValueError):
+    """Raised when a JSON-compatible YAML object repeats a key."""
+
+
+def _unique_object(pairs: list[tuple[str, object]]) -> dict:
+    result: dict = {}
+    for key, value in pairs:
+        if key in result:
+            raise DuplicateKeyError(f"duplicate object key {key!r}")
+        result[key] = value
+    return result
+
 
 def load_json(path: Path) -> dict:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
+        return json.loads(
+            path.read_text(encoding="utf-8"), object_pairs_hook=_unique_object
+        )
+    except (json.JSONDecodeError, DuplicateKeyError) as exc:
         raise SystemExit(f"{path}: invalid JSON-compatible YAML: {exc}") from exc
 
 
@@ -191,6 +244,17 @@ def load_issue_snapshot(root: Path) -> tuple[set[int], set[int], dict]:
     return set(numbers), closed, snapshot
 
 
+def check_required_v3_topic_gates(claim: dict) -> None:
+    """Keep named V3 topical owners attached until deliberate discharge."""
+    claim_id = claim["claim_id"]
+    required_gates = REQUIRED_V3_TOPIC_GATES_BY_CLAIM.get(claim_id, frozenset())
+    missing = sorted(required_gates - set(claim["gates"]))
+    require(
+        not missing,
+        f"{claim_id}: missing required V3 topical gate owners {missing}",
+    )
+
+
 def check_gates(claim: dict, open_issues: set[int], closed_issues: set[int]) -> None:
     """Fail closed on stale, missing, or promotion-violating live gates."""
     claim_id = claim["claim_id"]
@@ -199,6 +263,7 @@ def check_gates(claim: dict, open_issues: set[int], closed_issues: set[int]) -> 
         isinstance(gates, list) and all(isinstance(g, int) for g in gates),
         f"{claim_id}: gates must be a list of GitHub issue numbers",
     )
+    check_required_v3_topic_gates(claim)
     for gate in gates:
         require(
             gate not in closed_issues,

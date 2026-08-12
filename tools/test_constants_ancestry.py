@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -157,6 +158,40 @@ def test_ledger_premise_mismatch_rejected() -> None:
     ]
     with pytest.raises(SystemExit, match="observation-ledger premises"):
         ancestry_tool.validate(register)
+
+
+def test_diagnostic_import_must_be_empirical_import() -> None:
+    register = _register()
+    _row(register, "CA-06")["diagnostic_import_register_rows"] = ["PR-11"]
+    with pytest.raises(SystemExit, match="registered empirical_import"):
+        ancestry_tool.validate(register)
+
+
+def test_diagnostic_import_forbidden_on_postdiction_row() -> None:
+    register = _register()
+    _row(register, "CA-03")["diagnostic_import_register_rows"] = ["PR-14"]
+    with pytest.raises(SystemExit, match="only on a diagnostic row"):
+        ancestry_tool.validate(register)
+
+
+def test_duplicate_json_key_rejected(tmp_path: Path) -> None:
+    duplicate = tmp_path / "duplicate.json"
+    duplicate.write_text('{"schema":"first","schema":"second"}\n', encoding="utf-8")
+    with pytest.raises(SystemExit, match="duplicate JSON key 'schema'"):
+        ancestry_tool.load_json(duplicate)
+
+
+def test_nested_duplicate_json_key_rejected(tmp_path: Path) -> None:
+    duplicate = tmp_path / "nested-duplicate.json"
+    duplicate.write_text(
+        json.dumps({"row": {"id": "CA-01"}}).replace(
+            '"id": "CA-01"', '"id": "CA-01", "id": "CA-02"'
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(SystemExit, match="duplicate JSON key 'id'"):
+        ancestry_tool.load_json(duplicate)
 
 
 def test_dropped_row_rejected() -> None:

@@ -41,3 +41,73 @@ def test_invalid_rung_fails() -> None:
     ledger["rows"][0]["rung"] = "cosmic"
     with pytest.raises(SystemExit, match="rung"):
         tool.validate(ledger)
+
+
+def test_owed_row_may_name_registered_open_premises() -> None:
+    ledger = _ledger()
+    row = next(row for row in ledger["rows"] if row["id"] == "OL-A4")
+    assert row["status"] == "owed"
+    assert row["premises"] == []
+    assert row["open_premises"] == ["PR-16", "PR-52"]
+    tool.validate(ledger)
+
+
+def test_reverse_premise_lane_mismatch_fails() -> None:
+    ledger = _ledger()
+    row = next(row for row in ledger["rows"] if row["id"] == "OL-A2")
+    row["open_premises"] = ["PR-43"]
+    with pytest.raises(SystemExit, match="does not declare consuming lane #728"):
+        tool.validate(ledger)
+
+
+def test_unknown_architecture_version_fails() -> None:
+    ledger = _ledger()
+    ledger["rows"][0]["architecture_version"] = "AV-999"
+    with pytest.raises(SystemExit, match="architecture_version"):
+        tool.validate(ledger)
+
+
+def test_duplicate_audit_record_fails() -> None:
+    ledger = _ledger()
+    ledger["rows"][0]["audit_records"] = ["AUD-1", "AUD-1"]
+    with pytest.raises(SystemExit, match="audit_records"):
+        tool.validate(ledger)
+
+
+def test_dropped_observation_row_fails() -> None:
+    ledger = _ledger()
+    ledger["rows"] = [row for row in ledger["rows"] if row["id"] != "OL-E2"]
+    with pytest.raises(SystemExit, match="fixed ordered observation inventory"):
+        tool.validate(ledger)
+
+
+def test_attained_row_without_audit_fails() -> None:
+    ledger = _ledger()
+    row = next(row for row in ledger["rows"] if row["id"] == "OL-C1")
+    row["audit_records"] = []
+    with pytest.raises(SystemExit, match="attained status requires"):
+        tool.validate(ledger)
+
+
+def test_unknown_audit_id_fails() -> None:
+    ledger = _ledger()
+    row = next(row for row in ledger["rows"] if row["id"] == "OL-C1")
+    row["audit_records"] = ["AUD-UNKNOWN"]
+    with pytest.raises(SystemExit, match="unknown audit records"):
+        tool.validate(ledger)
+
+
+def test_new_reverse_consumer_gap_fails() -> None:
+    ledger = _ledger()
+    for row in ledger["rows"]:
+        if row["id"] in {"OL-K2", "OL-K3"}:
+            row["open_premises"] = []
+    with pytest.raises(SystemExit, match="reverse-map exceptions drifted"):
+        tool.validate(ledger)
+
+
+def test_duplicate_json_key_fails_at_load(tmp_path) -> None:
+    path = tmp_path / "duplicate.json"
+    path.write_text('{"schema":"one","schema":"two"}', encoding="utf-8")
+    with pytest.raises(SystemExit, match="duplicate JSON key"):
+        tool.load_ledger(path)

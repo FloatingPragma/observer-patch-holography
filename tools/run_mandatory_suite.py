@@ -7,14 +7,17 @@ This is the one command REPRODUCE.md documents and CI enforces:
     python tools/run_mandatory_suite.py --certificates # + exact certificate suites
     python tools/run_mandatory_suite.py --certificate-smoke-only
 
-The mandatory suite validates the claim registry against its live gates,
-validates external inputs, public quantitative surfaces, null-model controls,
-and the paper release manifest, then proves those gates reject isolated
-false-green mutations. It also proves the full scientific collection imports
-cleanly (which is what keeps the optional cloud/hardware lanes fail-closed)
-and executes the fast fixture suites. The exact certificate suites (#566
-port-current, #314 matter-lift) run in their own CI workflow on their own
-triggers; `--certificates` runs them here with the same commands.
+The mandatory suite validates the claim registry against its committed gate
+assignments and validates the committed open-problem snapshot offline. Live
+GitHub parity is a separate networked check with
+`tools/build_open_problem_ledger.py --check-live`. The suite also validates
+external inputs, public quantitative surfaces, null-model controls, and the
+paper release manifest, then proves those gates reject isolated false-green
+mutations. It proves the full scientific collection imports cleanly (which is
+what keeps the optional cloud/hardware lanes fail-closed) and executes the
+fast fixture suites. The exact certificate suites (#566 port-current, #314
+matter-lift) run in their own CI workflow on their own triggers;
+`--certificates` runs them here with the same commands.
 """
 
 from __future__ import annotations
@@ -27,6 +30,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 MANDATORY_STEPS: list[tuple[str, list[str]]] = [
+    (
+        "Execute strict JSON duplicate-key gates",
+        [sys.executable, "-m", "pytest", "-q", "tools/test_strict_json.py"],
+    ),
+    (
+        "Validate the active-surface inventory without rewriting it",
+        [
+            sys.executable,
+            "tools/check_axiom_consistency.py",
+            "--check-inventory",
+        ],
+    ),
     (
         "Validate the committed open-problem ledger offline",
         [sys.executable, "tools/build_open_problem_ledger.py", "--check"],
@@ -172,6 +187,32 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             sys.executable,
             "tools/build_observation_ledger.py",
             "--check",
+        ],
+    ),
+    (
+        "Validate the append-only V3 audit register",
+        [sys.executable, "tools/build_audit_register.py", "--check"],
+    ),
+    (
+        "Execute the V3 audit-register mutation gates",
+        [sys.executable, "-m", "pytest", "-q", "tools/test_audit_register.py"],
+    ),
+    (
+        "Validate the architecture-version register",
+        [
+            sys.executable,
+            "tools/build_architecture_versions.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the architecture-version mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_architecture_versions.py",
         ],
     ),
     (

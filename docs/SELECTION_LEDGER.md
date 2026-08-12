@@ -18,7 +18,9 @@ PREMISE (chosen and declared in theorem antecedents), or OPEN (neither, with the
 owning GitHub issue). It shows exactly what is proved and exactly what is left:
 pick an open row and work on it. It is the canonical free-versus-forced surface
 for
-[issue #554](https://github.com/FloatingPragma/observer-patch-holography/issues/554).
+[historical issue #554](https://github.com/FloatingPragma/observer-patch-holography/issues/554);
+current premise custody is [#727](https://github.com/FloatingPragma/observer-patch-holography/issues/727),
+and source discharge is [#739](https://github.com/FloatingPragma/observer-patch-holography/issues/739).
 
 ## Forced by consensus
 

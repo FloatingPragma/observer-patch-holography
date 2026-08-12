@@ -84,7 +84,9 @@
       "scope_if_false": "The affected invariance or architecture-sensitivity claim falls. Branch-local theorems stated directly on either carrier retain their own statuses.",
       "status": "declared_cross_paper_contract_with_branch_local_tests",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [
+        741
+      ]
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
@@ -123,7 +125,9 @@
       "gates": [
         728,
         729,
-        730
+        730,
+        740,
+        741
       ]
     },
     {
@@ -750,7 +754,8 @@
       "status": "finite_theorems_closed__bounded_counterfamily_nonidentifiable__complete_source_membership_open",
       "claim_class": "conditional_implication",
       "gates": [
-        736
+        736,
+        742
       ]
     },
     {
@@ -849,7 +854,8 @@
       "claim_class": "conditional_implication",
       "gates": [
         729,
-        736
+        736,
+        742
       ]
     },
     {
@@ -936,7 +942,8 @@
       "status": "conditional_time_advance_sign__capacity_horizon_Einstein_scale_and_coefficient_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        729
+        729,
+        742
       ]
     },
     {
@@ -965,7 +972,8 @@
       "status": "exact_graph_spectrum__normalized_discrete_spectrum_conditional_on_DS_GAUGE_and_DS_LAPLACIAN__physical_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
-        729
+        729,
+        742
       ]
     },
     {
@@ -1033,7 +1041,8 @@
       "status": "conditional_theorem_complete_finite_source_instantiation_work_in_progress",
       "claim_class": "conditional_implication",
       "gates": [
-        736
+        736,
+        742
       ]
     },
     {
@@ -1073,7 +1082,9 @@
       "claim_class": "conditional_implication",
       "gates": [
         736,
-        738
+        738,
+        743,
+        745
       ]
     },
     {
@@ -1099,7 +1110,9 @@
       "status": "conditional_implication_defined__oph_source_action_open",
       "claim_class": "conditional_implication",
       "gates": [
-        730
+        730,
+        743,
+        745
       ]
     },
     {
@@ -1125,7 +1138,8 @@
       "status": "conditional_criterion_defined__full_G6_measure_construction_open",
       "claim_class": "conditional_implication",
       "gates": [
-        730
+        730,
+        743
       ]
     },
     {
@@ -1151,7 +1165,8 @@
       "status": "conditional_soundness_defined__full_G6_hamiltonian_construction_open",
       "claim_class": "conditional_implication",
       "gates": [
-        730
+        730,
+        743
       ]
     },
     {
@@ -1177,7 +1192,8 @@
       "status": "conditional_formal_theorem_defined__oph_restoration_and_validation_open",
       "claim_class": "conditional_implication",
       "gates": [
-        730
+        730,
+        743
       ]
     },
     {
@@ -1203,7 +1219,8 @@
       "status": "conditional_implication_defined__nonperturbative_G6_tower_open",
       "claim_class": "conditional_implication",
       "gates": [
-        730
+        730,
+        743
       ]
     },
     {
@@ -1231,7 +1248,8 @@
       "claim_class": "conditional_implication",
       "gates": [
         730,
-        736
+        736,
+        743
       ]
     },
     {
@@ -1312,7 +1330,8 @@
       "claim_class": "conditional_implication",
       "gates": [
         733,
-        736
+        736,
+        742
       ]
     },
     {
@@ -1927,30 +1946,6 @@
       ],
       "oph_specific_delta": "For a supplied positive Markov chain, the representation-level log-transition action is fixed up to the additive-constant and multiplier-rescale gauge, with bare-action multiplier uniqueness under nonconstancy. The machine-checked finite/real obstruction and receipt-gated transfer isolate the exact composition premise. The same-history theorem proves that the complete binary law admits distinct regular real enrichments and Hamiltonians. The counting/trivial repair identity conditionally realizes only the uniform transition kernel, while scale and initial-law controls prevent it from being promoted to a source-selected complete reference. At the declared empirical target the positive exponential parameter exists uniquely, but the target observable and level are not source-selected. The stationary maximum is a scoped mode/minimizer control, not a general saddle or stationary-phase no-go. B7 is gated by #731.",
       "novelty_type": "conditional_helpers_with_reference_kernel_and_mode_minimizer_controls__complete_source_reference_open",
-      "claim_id": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
-      "statement": "On a finite history type, a supplied positive normalized exponential tilt with the displayed moment match obeys the finite information-projection Pythagorean and minimizer identities; supplied modes minimize the effective action, and normalized inverse-noise mass on every strict nonminimum tends to zero. Separately, real single-site minimality implies the scalar discrete Euler--Lagrange equation, differentiable invariance transports the scalar Noether momentum, and a finite chain carries a constant current under the stated premises. No finite real-path family contains every real single-site variation; composition with the real calculus requires the certified undercut receipt, which has an exact witness and failing control. For a strictly positive normalized initial law and strictly positive finite Markov kernel, the path law is an exponential tilt of the step-uniform path reference by its log-transition action, with the exact additive-constant and multiplier-rescale gauge. Multiplier one is the canonical bare-action representative and is unique for a nonconstant path action; a constant action leaves it invisible after normalization. The committed binary packet realizes this representation but the repair-count action does not. Its canonical bilinear real extension has no global velocity solver, while the family L_a=L_0+(a/2)y(y-1) agrees on every binary history and yields distinct strictly convex Legendre--Hamilton systems for positive a, so the finite law does not select an off-alphabet curvature. Independent target-scrambling characterizes the uniform transition kernel; ordinary simultaneous relabeling does not. Conditional resampling of a supplied trivial visible datum under a supplied counting reference also equals that uniform kernel, but this identity does not source-select either input, an initial path law, or the complete reference: positive rescalings give the same kernel and two distinct normalized initial laws give distinct path references with the same transition kernel. Two exact positive normalized tilts of the committed chain at distinct weights have different mean actions, establishing two-point multiplier sensitivity rather than nonidentifiability. The matching quadratic is strictly increasing on the positive exponential-parameter ray, so exactly one positive parameter matches the supplied empirical target. The constraint observable and level remain declared inputs; source selection of that target is open. Finally, a concave three-record example is stationary but not minimal, and a nonstationary variation has larger positive Gibbs weight at every positive multiplier. This is only a counterexample to identifying every stationary history with a positive-Gibbs mode or minimizer; it does not exclude constrained saddles, complex or signed stationary phase, source-selected real enrichment, or refinement limits. Gate #731 is live for a compositional source-derived history and complete reference, selection of the real enrichment and stationary-phase mechanism, and physical action, clock, amplitude, field, continuum, and observable-current attachments.",
-      "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "exact_conditional_finite_history_helpers_with_formal_bridge_obstruction_and_real_enrichment_nonidentifiability",
-      "reference_normal_form": "Among row-stochastic kernels on a finite nonempty alphabet, invariance under every independent relabeling of transition targets at fixed source, row-constant transition weight, and constant log-transition step action are each equivalent to the uniform kernel. Ordinary simultaneous source-target relabeling is insufficient. Conditional resampling of the supplied trivial datum under the supplied counting reference realizes the uniform transition kernel, but Axiom 3 does not select those inputs. Constant rescalings leave the kernel unchanged, and the transition kernel does not determine the initial law or complete path reference. This is a conditional realization and gauge normal form, not source selection.",
-      "real_enrichment_nonidentifiability": "For the committed two-state source chain, the canonical bilinear extension of the exact four-corner log-transition table is affine in velocity and has no global momentum solver. Every L_a=L_0+(a/2)y(y-1) agrees with the exact source action on every realized history at every length. For a>0 it is strictly convex with an explicit velocity solver and Legendre transform, while a=1 and a=2 give distinct Lagrangians and Hamiltonians and differ by 1/8 at the first off-alphabet midpoint. Thus the finite law does not select a real variation curvature or Hamiltonian enrichment.",
-      "assumptions": [
-        "finite_history_exponential_tilt_packet",
-        "declared_modal_history_or_minimum",
-        "real_local_action_variation_packet",
-        "undercut_receipt_for_finite_to_real_transfer",
-        "declared_reference_measure_now_characterized_as_relabeling_invariant_normal_form",
-        "source_selected_real_legendre_curvature_deferred",
-        "physical_history_action_attachment_deferred"
-      ],
-      "imported_results": [
-        "finite_information_projection",
-        "finite_Gibbs_concentration",
-        "discrete_Euler_Lagrange_calculus",
-        "discrete_Noether_calculus",
-        "discrete_Legendre_calculus"
-      ],
-      "oph_specific_delta": "For a supplied positive Markov chain, the representation-level log-transition action is fixed up to the additive-constant and multiplier-rescale gauge, with bare-action multiplier uniqueness under nonconstancy. The machine-checked finite/real obstruction and receipt-gated transfer isolate the exact composition premise. The same-history theorem proves that the complete binary law admits distinct regular real enrichments and Hamiltonians. The counting/trivial repair identity conditionally realizes only the uniform transition kernel, while scale and initial-law controls prevent it from being promoted to a source-selected complete reference. At the declared empirical target the positive exponential parameter exists uniquely, but the target observable and level are not source-selected. The stationary maximum is a scoped mode/minimizer control, not a general saddle or stationary-phase no-go. B7 is gated by #731.",
-      "novelty_type": "conditional_helpers_with_reference_kernel_and_mode_minimizer_controls__complete_source_reference_open",
       "evidence": [
         "Lean/Variational/MechanicsAdequacySurface.lean",
         "paper/observers_are_all_you_need.tex",
@@ -2058,7 +2053,8 @@
       "gates": [
         733,
         736,
-        738
+        738,
+        742
       ]
     },
     {
@@ -2256,7 +2252,8 @@
       "status": "finite_incidence_gauss_and_dual_charge_criteria_proved__physical_ward_bridge_open",
       "claim_class": "conditional_implication",
       "gates": [
-        729
+        729,
+        743
       ]
     },
     {
@@ -2336,7 +2333,9 @@
       "scope_if_false": "Only the affected conditional register-Clebsch layer or the permutation-complete declared common-transport family rejection is revised. The upstream gauge/matter reconstruction, its conditional channel counts, and the conditional MCPR charged-lepton algebra remain separately assessable.",
       "status": "conditional_channel_and_F1_F2_enumeration_retained__all_six_declared_common_transport_assignments_retrospectively_rejected_by_FLAG__physical_coefficient_order_and_source_binding_absent",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        745
+      ]
     },
     {
       "claim_id": "OPH-KOIDE-CIRCULANT-IDENTITY",
@@ -2369,7 +2368,8 @@
       "status": "exact_positive_chamber_circulant_identity_and_conditional_finite_GNS_balance_closed__physical_chiral_attachment_phase_and_ratios_open__MCPR_near_hit_diagnostic",
       "claim_class": "conditional_implication",
       "gates": [
-        736
+        736,
+        745
       ]
     },
     {
@@ -2433,7 +2433,8 @@
       "status": "exact_C3_C5_double_degeneracy_and_C2_projective_two_parameter_boundary_closed__screen_derived_A5_invariant_potential_open",
       "claim_class": "conditional_implication",
       "gates": [
-        736
+        736,
+        745
       ]
     },
     {
@@ -2562,7 +2563,8 @@
       "gates": [
         730,
         734,
-        736
+        736,
+        740
       ]
     },
     {
@@ -2690,7 +2692,9 @@
       "scope_if_false": "The reserve-corrected N candidates fall. The closure principle, the bounded direct-N counterfamily result, the unfinished complete-source bridge, the finite collar theorem, and structural OPH claims remain separate unless they import the failed identification.",
       "status": "exact_retrospective_branch_pair__declared_global_attachment_class_nonidentifiable__horizon_not_evaluable__no_prediction",
       "claim_class": "empirical_implementation",
-      "gates": []
+      "gates": [
+        742
+      ]
     },
     {
       "claim_id": "OPH-HIER-EW",
@@ -2726,7 +2730,10 @@
       "status": "weak_multiplicity_and_abstract_order_unit_map_closed__physical_common_load_and_direct_capacity_open",
       "claim_class": "conditional_implication",
       "gates": [
-        736
+        736,
+        740,
+        742,
+        745
       ]
     },
     {
@@ -2755,7 +2762,8 @@
       "claim_class": "conditional_implication",
       "gates": [
         732,
-        736
+        736,
+        745
       ]
     },
     {
@@ -2846,7 +2854,8 @@
       "status": "exact_declared_map_fixed_points__source_selection_same_invariant_bridge_and_physical_endpoint_open",
       "claim_class": "conditional_implication",
       "gates": [
-        736
+        736,
+        744
       ]
     },
     {
@@ -2874,7 +2883,9 @@
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
       "status": "resource_deferred",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [
+        742
+      ]
     },
     {
       "claim_id": "OPH-YM-GAP",
@@ -2911,7 +2922,10 @@
       "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
       "status": "resource_deferred__finite_transfer_results_not_promoted_to_continuum_gap",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [
+        743,
+        744
+      ]
     },
     {
       "claim_id": "OPH-CHI-NU",
@@ -2935,7 +2949,9 @@
       "scope_if_false": "The coherent-matter construction branch falls; the dark-sector theory is affected only if it depends on the same source branch.",
       "status": "resource_deferred",
       "claim_class": "empirical_implementation",
-      "gates": []
+      "gates": [
+        742
+      ]
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
@@ -3294,38 +3310,39 @@
       "status": "partial_structural_status_matrix__bijective_sector_surrogate_and_finite_KMS_core_attained__full_E4_open",
       "claim_class": "conditional_implication",
       "gates": [
-        730
+        730,
+        743
       ]
     },
     {
-          "claim_id": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
-          "statement": "On the committed three-dimensional completion carrier the ball volume scales as radius to the carrier finrank by the generic finite-dimensional volume theorem, with no three-dimensional evaluation in the proof; the shell content at positive radius is 4 pi r^2, the exponent equal to the carrier dimension minus one; and any declared spherically symmetric strength profile whose product with the shell content is a constant charge equals charge/(4 pi r^2) exactly, with the scale-free form strength times squared radius shell-independent. The radial readout and shell-flux normalization are declared premise-register rows PR-18 and PR-19, and the carrier dimension is the committed completion theorem, so the inverse-square exponent is derived rather than assumed. The module touches neither Einstein-branch stress nor geometry objects; the join to the composed Einstein branch is open on the screen-carrier-to-physical-position attachment; no continuum field, potential, or laboratory constant is claimed.",
-          "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-          "tier": "finite_theorem",
-          "assumptions": [
-                "declared_radial_readout",
-                "declared_shell_flux_normalization",
-                "committed_completion_carrier"
-          ],
-          "imported_results": [
-                "mathlib_euclidean_ball_volume",
-                "finite_dimensional_linear_algebra"
-          ],
-          "oph_specific_delta": "The inverse-square exponent is carrier-dimension-minus-one with the dimension supplied by the committed completion theorem; the two flux premises are register rows whose discharge is queued, so the Newtonian-limit row carries its first committed receipt without a hidden premise.",
-          "novelty_type": "dimension_forced_inverse_square_shell_law",
-          "evidence": [
-                "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-                "Lean/Geometry/InverseSquareShellLaw.lean",
-                "Lean/Screen/PrimitivePortFrameQuotient.lean",
-                "docs/PREMISE_REGISTER_V3.md"
-          ],
-          "falsifier": "The claim fails if the ball-volume scaling exponent differs from the carrier finrank, if the shell content at positive radius differs from 4 pi r^2, or if any RadialFluxData instance violates the inverse-square or scale-free identities.",
-          "scope_if_false": "The Newtonian-limit row of the gravitation lane loses its receipt; the completion carrier and the Einstein composition are assessed by their own claims.",
-          "status": "finite_shell_law_attained__einstein_join_and_premise_discharge_open",
-          "claim_class": "conditional_implication",
-          "gates": [
-                729
-          ]
+      "claim_id": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
+      "statement": "On the committed three-dimensional completion carrier the ball volume scales as radius to the carrier finrank by the generic finite-dimensional volume theorem, with no three-dimensional evaluation in the proof; the shell content at positive radius is 4 pi r^2, the exponent equal to the carrier dimension minus one; and any declared spherically symmetric strength profile whose product with the shell content is a constant charge equals charge/(4 pi r^2) exactly, with the scale-free form strength times squared radius shell-independent. The radial readout and shell-flux normalization are declared premise-register rows PR-18 and PR-19, and the carrier dimension is the committed completion theorem, so the inverse-square exponent is derived rather than assumed. The module touches neither Einstein-branch stress nor geometry objects; the join to the composed Einstein branch is open on the screen-carrier-to-physical-position attachment; no continuum field, potential, or laboratory constant is claimed.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "finite_theorem",
+      "assumptions": [
+        "declared_radial_readout",
+        "declared_shell_flux_normalization",
+        "committed_completion_carrier"
+      ],
+      "imported_results": [
+        "mathlib_euclidean_ball_volume",
+        "finite_dimensional_linear_algebra"
+      ],
+      "oph_specific_delta": "The inverse-square exponent is carrier-dimension-minus-one with the dimension supplied by the committed completion theorem; the two flux premises are register rows whose discharge is queued, so the Newtonian-limit row carries its first committed receipt without a hidden premise.",
+      "novelty_type": "dimension_forced_inverse_square_shell_law",
+      "evidence": [
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "Lean/Geometry/InverseSquareShellLaw.lean",
+        "Lean/Screen/PrimitivePortFrameQuotient.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the ball-volume scaling exponent differs from the carrier finrank, if the shell content at positive radius differs from 4 pi r^2, or if any RadialFluxData instance violates the inverse-square or scale-free identities.",
+      "scope_if_false": "The Newtonian-limit row of the gravitation lane loses its receipt; the completion carrier and the Einstein composition are assessed by their own claims.",
+      "status": "finite_shell_law_attained__einstein_join_and_premise_discharge_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729
+      ]
     }
   ]
 }

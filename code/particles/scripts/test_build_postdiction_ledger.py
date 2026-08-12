@@ -83,7 +83,7 @@ def test_forced_structure_receipts_exist(result):
             assert (ledger.REPO / ref).exists()
 
 
-def test_adaptive_scheduler_helper_keeps_its_inputs_and_e2_gate_explicit(result):
+def test_adaptive_scheduler_helper_keeps_its_inputs_and_v3_gate_explicit(result):
     rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
     row = rows["conditional_adaptive_scheduler_locality_helper"]
     assert row["match"] == (
@@ -100,7 +100,7 @@ def test_adaptive_scheduler_helper_keeps_its_inputs_and_e2_gate_explicit(result)
     ]
     boundary = row["hypothesis_boundary"]
     assert "sigma, R, ConsultsOnly" in boundary
-    assert "Issue #693 remains the live E2 source scheduler/channel gate" in boundary
+    assert "Current lane #728 remains the source scheduler/channel gate" in boundary
     assert "no prediction-ladder entry" in boundary
 
 
@@ -124,7 +124,7 @@ def test_e1_conditional_packet_keeps_source_regional_correlation_gate(result):
     assert "uncommitted frame exploration supports no no-go" in row[
         "hypothesis_boundary"
     ]
-    assert "Issue #692 gates" in row["hypothesis_boundary"]
+    assert "Current observer-net lane #728 gates" in row["hypothesis_boundary"]
 
 
 def test_b7_reference_and_stationary_controls_do_not_overclose(result):
@@ -158,7 +158,8 @@ def test_b7_reference_and_stationary_controls_do_not_overclose(result):
     assert "exists uniquely" in boundary
     assert "modes/minimizers only" in boundary
     assert "saddles, complex or signed stationary phase" in boundary
-    assert "Issue #683 is a live gate" in boundary
+    assert "Current lane #731 owns composition" in boundary
+    assert "superseded historical gate was #683" in boundary
 
 
 def test_hypercharge_spectrum_matches_receipt(result):
@@ -313,8 +314,9 @@ def test_thermodynamic_receipt_owners_are_separate(result):
     assert "mixing-mode-retaining linear intertwiner" in boundary
     assert "deterministic empirical pushforward" in boundary
     assert "does not exclude stochastic, nonlinear, reverse-direction" in boundary
-    assert "Issue #725 owns the replacement common reference" in boundary
-    assert "#703 separately owns physical energy and clock calibration" in boundary
+    assert "Current lane #732 owns the replacement common reference" in boundary
+    assert "discharge lane #739 owns clock derivation" in boundary
+    assert "superseded historical owners were #725 and #703" in boundary
     assert "five receipts stay open under issue #688" not in boundary
 
 
@@ -362,8 +364,8 @@ def test_alpha_row_values_match_endpoint(result):
     assert row["audit_verdict"] == verdict["verdict"]
     assert row["cross_class_agreement"]["independently_evaluated_class_count"] == 0
     assert "does not identify the physical source" in row["reading"]
-    assert row["blocking_issues"] == [708, 696]
-    assert row["historical_blocking_issues"] == [425, 545]
+    assert row["blocking_issues"] == [736]
+    assert row["historical_blocking_issues"] == [425, 545, 696, 708]
 
 
 def test_lepton_rows_match_parents_and_contain_witness(result):
@@ -383,8 +385,8 @@ def test_lepton_rows_match_parents_and_contain_witness(result):
         "charged_leptons_kappa_rectangle",
         "charged_leptons_kappa_coherent",
     ):
-        assert rows[row_id]["blocking_issues"] == [696, 697]
-        assert rows[row_id]["historical_blocking_issues"] == [425, 545]
+        assert rows[row_id]["blocking_issues"] == [736]
+        assert rows[row_id]["historical_blocking_issues"] == [425, 545, 696, 697]
 
 
 def test_ew_rows_preserve_comparison_status(result):
@@ -413,8 +415,8 @@ def test_quark_section_is_obstruction_plus_conditional_texture(result):
         "target_informed"
     ] is True
     assert "cabibbo_gst_sqrt_md_over_ms" in texture["values"]
-    assert obstruction["blocking_issues"] == [697]
-    assert obstruction["historical_blocking_issues"] == [591]
+    assert obstruction["blocking_issues"] == [736]
+    assert obstruction["historical_blocking_issues"] == [591, 697]
 
 
 def test_hadron_row_carries_pinned_payload(result):
@@ -447,8 +449,12 @@ def test_markdown_rendered(tmp_path):
     assert "`code/particles/runs/status/postdiction_ledger.json`" in text
     assert "Each row is checked in Lean, by a structured executable artifact" in text
     assert "Every step is machine checked in the Lean workspace" not in text
-    assert "Live blocking issues: #708, #696" in text
-    assert "Historical resource-deferred boundaries: #425, #545" in text
+    assert "Live blocking issues: #736" in text
+    assert (
+        "Historical issues and resource-deferred boundaries: "
+        "#425, #545, #696, #708"
+        in text
+    )
 
 
 def test_principal_results_prioritize_strong_structural_rows(result):

@@ -1,111 +1,8 @@
 {
- "schema": "oph.sm_lagrangian_correspondence.v1",
+ "schema": "oph.sm_lagrangian_correspondence.v2",
  "issue": 735,
- "policy": "One row per term of the textbook Standard Model Lagrangian, classified by what OPH supplies for that term. A `derived_conditional` row states an exact theorem shape under the named premise-register rows. A `registered_premise` row is consumed as a declared register row. A `partial` row carries some attained structure, stated exactly in its boundary. An `absent` row has no OPH structure. Coupling values are owned by the constants lane (issue #736); this table records shapes and relative structures only. Classification is conservative: a conditional result is conditional, a declared premise is declared, and every boundary states exactly what is and is not supplied.",
- "premise_register": [
-  {
-   "id": "PR-01",
-   "name": "confluent terminating repair contract",
-   "type": "structural_rule",
-   "disposition": "axiomatize"
-  },
-  {
-   "id": "PR-02",
-   "name": "algebra-state representation of public records",
-   "type": "representation_choice",
-   "disposition": "axiomatize"
-  },
-  {
-   "id": "PR-03",
-   "name": "operational effect additivity",
-   "type": "selection_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-04",
-   "name": "phase-operation instrument",
-   "type": "structural_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-05",
-   "name": "counting path reference",
-   "type": "selection_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-06",
-   "name": "real Legendre enrichment",
-   "type": "representation_choice",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-07",
-   "name": "declared repair law: common faithful reference and repaired-visible fibre",
-   "type": "structural_rule",
-   "disposition": "axiomatize"
-  },
-  {
-   "id": "PR-08",
-   "name": "refinement-uniform low-temperature control",
-   "type": "structural_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-09",
-   "name": "equal-face-weight and barycentric one-third port-dual rules",
-   "type": "selection_rule",
-   "disposition": "axiomatize"
-  },
-  {
-   "id": "PR-10",
-   "name": "measure-to-metric and nearest-point repair rules",
-   "type": "selection_rule",
-   "disposition": "axiomatize"
-  },
-  {
-   "id": "PR-11",
-   "name": "compact-Lie classification inputs",
-   "type": "external_mathematics",
-   "disposition": "import"
-  },
-  {
-   "id": "PR-12",
-   "name": "matter candidate grammar",
-   "type": "selection_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-13",
-   "name": "Koide balance premise",
-   "type": "selection_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-14",
-   "name": "hadronic transport packet",
-   "type": "empirical_import",
-   "disposition": "import"
-  },
-  {
-   "id": "PR-15",
-   "name": "clock and energy calibration anchors",
-   "type": "empirical_import",
-   "disposition": "import"
-  },
-  {
-   "id": "PR-16",
-   "name": "stable causality and open-image conditions",
-   "type": "structural_rule",
-   "disposition": "remove"
-  },
-  {
-   "id": "PR-17",
-   "name": "numerical inputs P and N",
-   "type": "numerical_input",
-   "disposition": "import"
-  }
- ],
+ "policy": "One row per entry of the canonical Standard Model term-and-sector inventory, classified by what OPH supplies. The inventory includes Lagrangian terms plus explicit sector and content stances that are required to interpret the action; it is not mislabeled as nineteen literal textbook terms. A `derived_conditional` row states an exact theorem shape under named premise-register rows. A `registered_premise` row is consumed as a declared register row. A `partial` row carries some attained structure, stated exactly in its boundary. An `absent` row has no OPH structure. Coupling values are owned by the constants lane (issue #736); this table records shapes and relative structures only. Classification is conservative: a conditional result is conditional, a declared premise is declared, and every boundary states exactly what is and is not supplied.",
+ "premise_register_source": "tracking/premise_register.json",
  "rows": [
   {
    "id": "SML-01",
@@ -115,6 +12,9 @@
     "PR-09",
     "PR-10",
     "PR-11"
+   ],
+   "open_premises": [
+    "PR-54"
    ],
    "evidence": [
     "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
@@ -132,6 +32,9 @@
     "PR-10",
     "PR-11"
    ],
+   "open_premises": [
+    "PR-54"
+   ],
    "evidence": [
     "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
     "Lean/Screen/GaugeKineticInvariantForms.lean",
@@ -146,6 +49,11 @@
    "premises": [
     "PR-11",
     "PR-12"
+   ],
+   "open_premises": [
+    "PR-35",
+    "PR-46",
+    "PR-54"
    ],
    "evidence": [
     "Lean/Screen/A5OPH.lean",
@@ -163,6 +71,9 @@
     "PR-10",
     "PR-11"
    ],
+   "open_premises": [
+    "PR-54"
+   ],
    "evidence": [
     "code/a5_closure/port_current_inner_certificate.py",
     "code/b14_jacobi/port_dual_metric_selector.certificate.json",
@@ -178,6 +89,10 @@
    "premises": [
     "PR-11",
     "PR-12"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.py",
@@ -195,6 +110,10 @@
     "PR-11",
     "PR-12"
    ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
+   ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/exterior_sm_completion.json",
@@ -209,6 +128,10 @@
    "premises": [
     "PR-11",
     "PR-12"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.py",
@@ -225,6 +148,10 @@
     "PR-11",
     "PR-12"
    ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
+   ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/exterior_sm_completion.json",
@@ -239,6 +166,10 @@
    "premises": [
     "PR-11",
     "PR-12"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.py",
@@ -255,6 +186,13 @@
     "PR-11",
     "PR-12"
    ],
+   "open_premises": [
+    "PR-47",
+    "PR-48",
+    "PR-49",
+    "PR-50",
+    "PR-54"
+   ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.json",
     "Lean/Screen/ExteriorSelection.lean",
@@ -267,8 +205,10 @@
    "term": "Higgs kinetic/covariant term: (D_mu H)^dagger (D^mu H), H a weak doublet with Y = 1/2",
    "classification": "registered_premise",
    "premises": [
-    "PR-12"
+    "PR-12",
+    "PR-48"
    ],
+   "open_premises": [],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.json",
     "Lean/Screen/Z6Descent.lean"
@@ -278,19 +218,28 @@
   {
    "id": "SML-12",
    "term": "Higgs potential: mu^2 H^dagger H + lambda (H^dagger H)^2",
-   "classification": "absent",
-   "premises": [],
+   "classification": "registered_premise",
+   "premises": [
+    "PR-49"
+   ],
+   "open_premises": [],
    "evidence": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ],
-   "boundary": "No OPH structure produces the potential shape or either coefficient, the electroweak chart that touches the breaking scale consumes the registered calibration anchors (PR-15) on a conditional comparison branch, and the electroweak-breaking stance is an open obligation of this lane."
+   "boundary": "The renormalizable quadratic-plus-quartic potential, a stable broken branch, and its vacuum attachment are explicitly registered as PR-49. No OPH theorem produces the potential, either coefficient, the vacuum, or the electroweak scale, so this is a declared premise rather than a derived term."
   },
   {
    "id": "SML-13",
    "term": "Up-type Yukawa term: - Qbar Y_u Htilde u_R + h.c.",
    "classification": "registered_premise",
    "premises": [
-    "PR-12"
+    "PR-12",
+    "PR-48",
+    "PR-50"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.json",
@@ -304,7 +253,13 @@
    "term": "Down-type Yukawa term: - Qbar Y_d H d_R + h.c.",
    "classification": "registered_premise",
    "premises": [
-    "PR-12"
+    "PR-12",
+    "PR-48",
+    "PR-50"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.json",
@@ -319,7 +274,13 @@
    "classification": "registered_premise",
    "premises": [
     "PR-12",
-    "PR-13"
+    "PR-13",
+    "PR-48",
+    "PR-50"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "code/a5_closure/exterior_sm_completion.json",
@@ -334,6 +295,7 @@
    "term": "Theta-QCD term: (theta g3^2 / 32 pi^2) G^a_munu Gtilde_a^munu",
    "classification": "absent",
    "premises": [],
+   "open_premises": [],
    "evidence": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ],
@@ -345,7 +307,12 @@
    "classification": "partial",
    "premises": [
     "PR-11",
-    "PR-12"
+    "PR-12",
+    "PR-36"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ],
    "evidence": [
     "Lean/Screen/A5FamilyBand.lean",
@@ -358,6 +325,7 @@
    "term": "Gauge couplings: g1, g2, g3 as numerical parameters",
    "classification": "absent",
    "premises": [],
+   "open_premises": [],
    "evidence": [
     "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
     "Lean/Screen/KineticFormDichotomy.lean"
@@ -369,7 +337,15 @@
    "term": "CKM/PMNS mixing structure: V_CKM in the charged quark current and U_PMNS in the lepton sector",
    "classification": "partial",
    "premises": [
-    "PR-12"
+    "PR-12",
+    "PR-36",
+    "PR-48",
+    "PR-50"
+   ],
+   "open_premises": [
+    "PR-47",
+    "PR-49",
+    "PR-54"
    ],
    "evidence": [
     "code/particles/flavor/derive_icosahedral_axis_angle_spectrum.py",

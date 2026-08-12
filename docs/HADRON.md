@@ -10,7 +10,8 @@ P map has an interval-certified unique fixed point on its stated domain, the
 charged-lepton transport term is a closed one-loop kernel, and the gauge-width
 map lands 2.5×10⁻⁶ relative from the measured α⁻¹ with the hadronic transport
 term open. That open term is a frontier of the entire field, a property of
-the observable: closing the pixel maps of issue #545 asks for 4×10⁻⁹ relative precision on the
+the observable: closing the pixel maps documented by historical issue #545
+and now owned by #736 asks for 4×10⁻⁹ relative precision on the
 hadronic moment, beyond every method on Earth. The best data-driven
 dispersive determinations carry relative uncertainties near 4×10⁻³, the
 leading lattice programs reach a comparable order after campaigns at the 10⁷
@@ -20,15 +21,20 @@ Existing grid work is exploratory.
 
 ## Closure-Program Note
 
-The hadronic lane is the primary generator of the closure program
-([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)): a
+The hadronic lane is a primary input to the closure program. Historical
+[#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)
+records the pixel contract; current quantitative integration is owned by
+[#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736),
+and source-side nonperturbative production by
+[#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744). A
 genuinely target-blind Ward-projected transport computation under a valid
 detached contract is the object that could close or move the source-chain
 and gauge-width pixel maps. The
 target-contract provenance (externally timestamped v1/v2, v2's invalid scalar
 scoring algebra, the permanently inactive post-target-access v3 erratum
 scaffold, the exploratory non-blind V1 grid) is recorded on the P-closure
-issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)). A valid experiment needs a
+historical issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545));
+it is evidence, not a live owner. A valid experiment needs a
 detached successor whose complete source method is frozen before genuinely
 withheld data, or an audited clean-room producer with no target access. The
 payload computation must not read the target file; the complete transitive

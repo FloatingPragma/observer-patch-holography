@@ -42,8 +42,9 @@ than through a field: the diagonal reading substitutes the port-dual
 weight into all three sector-scale slots of the distance forms, and
 the discriminator verdict is the nearest classified compact family.
 
-Two consumed premises sit outside the register and are named
-descriptively as declared premises of the V3 program.  The
+Two further physical premises are registered as PR-35 and PR-36, but
+they are not fields of `SMStructurePremiseData` and are not discharged
+by the composite theorem below.  The
 same-source loop-to-kernel identity (the physical carrier-loop class
 of the source is the six-axis gluing class, and its image under the
 committed intertwiner generates the tensor-action kernel) gates the
@@ -352,7 +353,7 @@ twelve-port adjacency with dimension in the pinned window, and
 admissible bands are compared by the operational seam-cost order over
 `Z[sqrt5]`), the admissible candidates number three and the rank-three
 band is the unique strict cost minimizer.  The three-family row is
-conditional on the registration of those rules, and exactly those
+conditional on those registered but undischarged rules, and exactly those
 rules plus the realization clause of the executable certificate
 separate it from a derived family triplication.  Re-export of
 `OPH.A5FamilyBand.family_band_selected`. -/
@@ -475,9 +476,10 @@ realized-weight stabilizer is exactly the `Z6` tensor kernel; the
 selected kernel admits exactly four global forms; and the rank-three
 band is the unique strict cost minimizer among admissible bands.  The
 first four conjuncts consume the bundled premises; the last three are
-committed receipts re-exported beside them, with the global form and
-the family count conditional on the declared loop-to-kernel and
-band-selection premises named in the header. -/
+committed arithmetic receipts re-exported beside them.  The theorem type
+does not consume or discharge PR-35 or PR-36.  Physical global-form and
+family claims remain conditional on those rows and on the additional
+attachment rows recorded in the premise register. -/
 theorem smStructureAdequacySurface_receipt (D : SMStructurePremiseData) :
     (D.centreDim = 1 ∧ D.simpleIdealDims = {3, 8})
       ∧ (∀ p : Fin 12,

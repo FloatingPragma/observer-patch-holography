@@ -103,6 +103,22 @@ def test_clean_fixture_passes(tmp_path):
     checker.main(tmp_path)
 
 
+def test_duplicate_registry_object_key_fails_closed(tmp_path):
+    write_fixture_repo(tmp_path)
+    path = tmp_path / "claims" / "claim_registry.yaml"
+    text = path.read_text(encoding="utf-8")
+    path.write_text(
+        text.replace(
+            '"statement": "Fixture claim.",',
+            '"statement": "Fixture claim.", "statement": "Shadowed claim.",',
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SystemExit, match="duplicate object key 'statement'"):
+        checker.main(tmp_path)
+
+
 def test_broken_evidence_path_fails_closed(tmp_path):
     write_fixture_repo(tmp_path)
     edit_registry(
@@ -289,6 +305,28 @@ def test_gate_missing_from_github_fails_closed(tmp_path):
     edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(999))
     with pytest.raises(SystemExit, match="missing from the GitHub issue snapshot"):
         checker.main(tmp_path)
+
+
+@pytest.mark.parametrize(
+    ("claim_id", "remaining_gates", "missing_owner"),
+    [
+        ("OPH-DM-CONT", [], 742),
+        ("OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX", [730], 743),
+        ("OPH-YM-GAP", [743], 744),
+        ("OPH-UNIFIED-TYPED-SPINE", [728, 729, 730, 740], 741),
+        ("OPH-HIER-EW", [736, 740, 742], 745),
+    ],
+)
+def test_named_v3_topic_gate_owner_cannot_silently_disappear(
+    claim_id, remaining_gates, missing_owner
+):
+    with pytest.raises(
+        SystemExit,
+        match=rf"{claim_id}: missing required V3 topical gate owners.*{missing_owner}",
+    ):
+        checker.check_required_v3_topic_gates(
+            {"claim_id": claim_id, "gates": remaining_gates}
+        )
 
 
 def test_claim_promoted_while_gate_open_fails_closed(tmp_path):

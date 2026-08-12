@@ -114,6 +114,11 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
         )
         self.assertIn('"oph.active_surface_inventory.v1"', payload)
 
+    def test_committed_inventory_matches_live_scan_without_writing(self) -> None:
+        errors: list[str] = []
+        guard.inventory_check(errors)
+        self.assertEqual(errors, [], "\n".join(errors))
+
 
 if __name__ == "__main__":
     unittest.main()

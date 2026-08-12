@@ -201,9 +201,7 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
     }
     assert alpha_blockers == {
         736: "open_work_item",
-        318: "resource_deferred_blocker",
-        545: "resource_deferred_blocker",
-        425: "resource_deferred_blocker",
+        744: "open_work_item",
     }
     assert (
         by_id["repair_generator_yang_mills_hamiltonian"]["source_anchors"]
@@ -268,7 +266,7 @@ def test_de_sitter_claim_split_preserves_status_boundaries():
         in by_id["OPH-GR-DS-CAPACITY-TRANSFER"]["statement"]
     )
     discrete = by_id["OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM"]
-    assert discrete["gates"] == [729]
+    assert discrete["gates"] == [729, 742]
     assert "draft_only_no_live_gate" not in discrete["status"]
 
 
@@ -284,7 +282,7 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
         "OPH-THERMO-FOUR-LAW-PACKAGE": [732],
         "OPH-FINITE-LOCALITY-NOSIGNALLING": [728],
         "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER": [728],
-        "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [729],
+        "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [729, 743],
         "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [731],
         "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [728, 732],
         "OPH-GAUGE-KINETIC-HISTORY-BINDING": [734, 735],
