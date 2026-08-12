@@ -1,0 +1,79 @@
+{
+ "boundary": "The equal-face-weight rule, barycentric one-third share, diagonal measure-to-metric rule, and nearest-point repair rule are declared, and the compact locus is conditional on its three named textbook lemmas; the certificate upgrades the committed metric-conditional selection to a measure-conditional selection whose measure is pinned by a committed Lean theorem. No physical current, coupling, laboratory gauge field, or source bracket selection is claimed.",
+ "certificate_sha256": "sha256:7148dbda85ce4166847ef720b7489eed7ef3b8b8b0d16ee4c8b16ed24fbdbca4",
+ "controls": {
+  "degenerate_projector_rejected": true,
+  "f_witness_nonvacuous": true,
+  "skewed_face_weighting_rejected": true
+ },
+ "declared_rules": {
+  "face_weighting": "equal normalized weights on the twenty faces",
+  "measure_to_metric": "the normalized port-dual measure is read as the diagonal carrier inner product it induces on port functions",
+  "repair_rule": "nearest classified compact family",
+  "vertex_share": "1/3"
+ },
+ "gaps": {
+  "F_minus_G": [
+   "0",
+   "1476/11"
+  ],
+  "P_minus_G": [
+   "2250/11",
+   "738/11"
+  ]
+ },
+ "implementation_pins": {
+  "producer_sha256": "c572cfacd132f0f029397c6df02be27803c23ad1f6348f427cd9cabef795c4a1",
+  "verifier_sha256": "156012aabe142f390d4589eb2c7736db72e6889eda984f99c4f9e1ef21f3e3ed"
+ },
+ "issue": "https://github.com/muellerberndt/reverse-engineering-reality/issues/705",
+ "lean_companions": [
+  "Lean/Screen/PrimitivePortDualMeasure.lean",
+  "Lean/Screen/OrientedFaceInvariantMetric.lean",
+  "Lean/Screen/PortDualMetricSelection.lean"
+ ],
+ "phase_box_member": true,
+ "pinned_inputs": {
+  "a5_alternating_bracket_space_stage1.receipt.json": "c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd",
+  "echosahedral_federation_reference.json": "12ec97358ade25f919f9981f1cd7c99c2b27aaaaa9ce14bd2320d73a9c1bfc14",
+  "invariant_metric_phase.certificate.json": "85d1408977961ccc8515f186ad9dc565fb6f7276855c3556539f54a24b227954",
+  "oriented_face_bracket_selector.certificate.json": "f830132685d893e5787eb2ca57d05867c272b65d61c533200c24725c7c159a65"
+ },
+ "port_dual_weight": "1/12",
+ "scaling_receipt": "c * d^2(c,c,c) = d^2(1,1,1) verified at c = 1/12 against the pinned selector reference distances for P, F, G",
+ "schema": "oph.b14_port_dual_metric_selector.v1",
+ "sector_balanced": true,
+ "sector_scales": {
+  "five": [
+   "1/12",
+   "0"
+  ],
+  "fixed": [
+   "1/12",
+   "0"
+  ],
+  "three_minus": [
+   "1/12",
+   "0"
+  ],
+  "three_plus": [
+   "1/12",
+   "0"
+  ]
+ },
+ "selection": "G",
+ "squared_distances_at_measure_point": {
+  "F": [
+   "3690/11",
+   "738/11"
+  ],
+  "G": [
+   "3690/11",
+   "-738/11"
+  ],
+  "P": [
+   "540",
+   "0"
+  ]
+ }
+}

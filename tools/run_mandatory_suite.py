@@ -167,6 +167,48 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Replay the invariant-metric phase certificate independently",
+        [
+            sys.executable,
+            "code/b14_jacobi/verify_invariant_metric_phase.py",
+        ],
+    ),
+    (
+        "Execute the invariant-metric phase mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/b14_jacobi/test_invariant_metric_phase.py",
+        ],
+    ),
+    (
+        "Validate the port-dual metric-selector certificate",
+        [
+            sys.executable,
+            "code/b14_jacobi/port_dual_metric_selector.py",
+            "--check",
+        ],
+    ),
+    (
+        "Replay the port-dual metric-selector certificate independently",
+        [
+            sys.executable,
+            "code/b14_jacobi/verify_port_dual_metric_selector.py",
+        ],
+    ),
+    (
+        "Execute the port-dual metric-selector mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/b14_jacobi/test_port_dual_metric_selector.py",
+        ],
+    ),
+    (
         "Validate the retrospective alpha/HVP accounting verdict",
         [
             sys.executable,
