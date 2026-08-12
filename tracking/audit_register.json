@@ -8,7 +8,8 @@
       "started_on": "2026-08-12",
       "completed_on": "2026-08-13",
       "baseline_commit": "283e0b286a35d9dcb03dac52bb7e8b9178fc523e",
-      "audited_head": "1381ff87ae649602659787877028ab0229d6507d",
+      "audited_head": "1381ff871ee5a06edc962a649e62f1efe6e2f23b",
+      "repair_commit": "3ab5bc2064235a740bb5574ea165564e43046bca",
       "audit_class": "independent adversarial implementation audit by separated agent contexts, with independent receipt replay where source material permitted",
       "reviewers": [
         {
@@ -150,12 +151,36 @@
         }
       ],
       "evidence": [
-        "docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md",
-        "tracking/observation_ledger.json",
-        "tracking/premise_register.json",
-        "tracking/sm_lagrangian_correspondence.json",
-        "claims/emergent_instrument_register.json",
-        "claims/claim_registry.yaml"
+        {
+          "path": "docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md",
+          "bytes": 5655,
+          "sha256": "sha256:7cf9ae1ad8439e2a042c012a50003a9c20fd203254dd467a032c876c181b1fcf"
+        },
+        {
+          "path": "tracking/observation_ledger.json",
+          "bytes": 42673,
+          "sha256": "sha256:b47c028fd692abd02a9f662e376124f4c51af25c4d16a07edd61f4866b6b29c4"
+        },
+        {
+          "path": "tracking/premise_register.json",
+          "bytes": 60411,
+          "sha256": "sha256:c4797624da1f4467548c64d9659b6f81d06b6f02663f6f299cea0eb45e007e7c"
+        },
+        {
+          "path": "tracking/sm_lagrangian_correspondence.json",
+          "bytes": 15771,
+          "sha256": "sha256:af1e64f350695e1196d39fd463febf5f49e3c6f30394f1208a594d9aa2ca5b73"
+        },
+        {
+          "path": "claims/emergent_instrument_register.json",
+          "bytes": 7375,
+          "sha256": "sha256:e0bf1b5edb687890424e2c8ec9877c411c75df5925edf4955dc3a65734d53e69"
+        },
+        {
+          "path": "claims/claim_registry.yaml",
+          "bytes": 343146,
+          "sha256": "sha256:258415b111221fa5b55f557c5a0c9af4dc82fd65497ea3a43f924347ea7b3042"
+        }
       ],
       "limitations": [
         "The OL-A1 campaign retained eigenvalue summaries but not raw feature matrices, so observable reconstruction from raw captures was impossible without rerunning the full simulation.",

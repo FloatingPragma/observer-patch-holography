@@ -43,3 +43,17 @@ def test_duplicate_finding_id_fails() -> None:
     data["records"][0]["findings"][1]["id"] = data["records"][0]["findings"][0]["id"]
     with pytest.raises(SystemExit, match="finding ids"):
         audit.validate(data)
+
+
+def test_repair_commit_must_resolve() -> None:
+    data = _data()
+    data["records"][0]["repair_commit"] = "0" * 40
+    with pytest.raises(SystemExit, match="repair_commit does not resolve"):
+        audit.validate(data)
+
+
+def test_evidence_pin_drift_fails() -> None:
+    data = _data()
+    data["records"][0]["evidence"][0]["sha256"] = "sha256:" + "0" * 64
+    with pytest.raises(SystemExit, match="evidence pin drift"):
+        audit.validate(data)

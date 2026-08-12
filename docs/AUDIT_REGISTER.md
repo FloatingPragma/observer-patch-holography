@@ -6,7 +6,7 @@ Audit records are append-only custody objects. A record names the exact commit r
 
 ## AUD-V3-2026-08-12
 
-Audit window: `2026-08-12` through `2026-08-13`. Baseline `283e0b286a35d9dcb03dac52bb7e8b9178fc523e`; audited head `1381ff87ae649602659787877028ab0229d6507d`.
+Audit window: `2026-08-12` through `2026-08-13`. Baseline `283e0b286a35d9dcb03dac52bb7e8b9178fc523e`; audited head `1381ff871ee5a06edc962a649e62f1efe6e2f23b`; repair commit `3ab5bc2064235a740bb5574ea165564e43046bca`.
 
 Class: independent adversarial implementation audit by separated agent contexts, with independent receipt replay where source material permitted
 
@@ -46,9 +46,9 @@ Limitations:
 
 Evidence:
 
-- `docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md`
-- `tracking/observation_ledger.json`
-- `tracking/premise_register.json`
-- `tracking/sm_lagrangian_correspondence.json`
-- `claims/emergent_instrument_register.json`
-- `claims/claim_registry.yaml`
+- `docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md` — 5655 bytes, `sha256:7cf9ae1ad8439e2a042c012a50003a9c20fd203254dd467a032c876c181b1fcf`
+- `tracking/observation_ledger.json` — 42673 bytes, `sha256:b47c028fd692abd02a9f662e376124f4c51af25c4d16a07edd61f4866b6b29c4`
+- `tracking/premise_register.json` — 60411 bytes, `sha256:c4797624da1f4467548c64d9659b6f81d06b6f02663f6f299cea0eb45e007e7c`
+- `tracking/sm_lagrangian_correspondence.json` — 15771 bytes, `sha256:af1e64f350695e1196d39fd463febf5f49e3c6f30394f1208a594d9aa2ca5b73`
+- `claims/emergent_instrument_register.json` — 7375 bytes, `sha256:e0bf1b5edb687890424e2c8ec9877c411c75df5925edf4955dc3a65734d53e69`
+- `claims/claim_registry.yaml` — 343146 bytes, `sha256:258415b111221fa5b55f557c5a0c9af4dc82fd65497ea3a43f924347ea7b3042`

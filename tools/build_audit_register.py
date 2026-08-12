@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 
 import strict_json
@@ -30,6 +32,7 @@ RECORD_KEYS = {
     "completed_on",
     "baseline_commit",
     "audited_head",
+    "repair_commit",
     "audit_class",
     "reviewers",
     "scope",
@@ -43,6 +46,8 @@ RECORD_KEYS = {
 }
 REVIEWER_KEYS = {"name", "task", "role"}
 FINDING_KEYS = {"id", "severity", "disposition", "summary", "owner_issues"}
+EVIDENCE_KEYS = {"path", "bytes", "sha256"}
+SHA256_RE = re.compile(r"^sha256:[0-9a-f]{64}$")
 
 
 def fail(message: str) -> None:
@@ -107,9 +112,17 @@ def validate(data: dict) -> list[dict]:
         for key in ("started_on", "completed_on"):
             if not isinstance(record[key], str) or not DATE_RE.fullmatch(record[key]):
                 fail(f"{where}: malformed {key}")
-        for key in ("baseline_commit", "audited_head"):
+        for key in ("baseline_commit", "audited_head", "repair_commit"):
             if not isinstance(record[key], str) or not COMMIT_RE.fullmatch(record[key]):
                 fail(f"{where}: malformed {key}")
+            resolved = subprocess.run(
+                ["git", "cat-file", "-e", f"{record[key]}^{{commit}}"],
+                cwd=ROOT,
+                capture_output=True,
+                check=False,
+            )
+            if resolved.returncode != 0:
+                fail(f"{where}: {key} does not resolve to a commit")
         for key in ("audit_class", "scope"):
             if not isinstance(record[key], str) or not record[key].strip():
                 fail(f"{where}: {key} must be nonempty")
@@ -139,14 +152,35 @@ def validate(data: dict) -> list[dict]:
         _strings(f"{where}.qualifies_for", record["qualifies_for"])
         _strings(f"{where}.does_not_qualify_for", record["does_not_qualify_for"])
         _strings(f"{where}.limitations", record["limitations"])
-        evidence = _strings(f"{where}.evidence", record["evidence"])
-        for path in evidence:
+        evidence = record["evidence"]
+        if not isinstance(evidence, list) or not evidence:
+            fail(f"{where}.evidence must be a nonempty list")
+        evidence_paths: set[str] = set()
+        for pin in evidence:
+            if not isinstance(pin, dict) or set(pin) != EVIDENCE_KEYS:
+                fail(f"{where}: malformed evidence pin")
+            path = pin["path"]
             if (
-                path.startswith("/")
+                not isinstance(path, str)
+                or not path
+                or path.startswith("/")
                 or ".." in path.split("/")
                 or not (ROOT / path).is_file()
             ):
                 fail(f"{where}: evidence path missing or non-relative: {path}")
+            if path in evidence_paths:
+                fail(f"{where}: duplicate evidence path: {path}")
+            evidence_paths.add(path)
+            payload = (ROOT / path).read_bytes()
+            digest = "sha256:" + hashlib.sha256(payload).hexdigest()
+            if not isinstance(pin["bytes"], int) or isinstance(pin["bytes"], bool):
+                fail(f"{where}: malformed evidence byte count: {path}")
+            if not isinstance(pin["sha256"], str) or not SHA256_RE.fullmatch(
+                pin["sha256"]
+            ):
+                fail(f"{where}: malformed evidence digest: {path}")
+            if pin["bytes"] != len(payload) or pin["sha256"] != digest:
+                fail(f"{where}: evidence pin drift: {path}")
         findings = record["findings"]
         if not isinstance(findings, list) or not findings:
             fail(f"{where}: findings must be nonempty")
@@ -194,7 +228,7 @@ def render(data: dict, records: list[dict]) -> str:
                 "",
                 f"## {record['id']}",
                 "",
-                f"Audit window: `{record['started_on']}` through `{record['completed_on']}`. Baseline `{record['baseline_commit']}`; audited head `{record['audited_head']}`.",
+                f"Audit window: `{record['started_on']}` through `{record['completed_on']}`. Baseline `{record['baseline_commit']}`; audited head `{record['audited_head']}`; repair commit `{record['repair_commit']}`.",
                 "",
                 f"Class: {record['audit_class']}",
                 "",
@@ -231,7 +265,10 @@ def render(data: dict, records: list[dict]) -> str:
                 "",
                 "Evidence:",
                 "",
-                *[f"- `{path}`" for path in record["evidence"]],
+                *[
+                    f"- `{pin['path']}` — {pin['bytes']} bytes, `{pin['sha256']}`"
+                    for pin in record["evidence"]
+                ],
             ]
         )
     return "\n".join(lines) + "\n"

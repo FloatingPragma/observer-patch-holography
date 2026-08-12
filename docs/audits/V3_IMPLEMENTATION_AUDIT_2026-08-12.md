@@ -1,6 +1,6 @@
 # Completion plan V3 implementation audit
 
-Audit window: 2026-08-12 through 2026-08-13. Baseline commit: `283e0b286a35d9dcb03dac52bb7e8b9178fc523e`. Audited Fable head: `1381ff87ae649602659787877028ab0229d6507d`.
+Audit window: 2026-08-12 through 2026-08-13. Baseline commit: `283e0b286a35d9dcb03dac52bb7e8b9178fc523e`. Audited Fable head: `1381ff871ee5a06edc962a649e62f1efe6e2f23b`. Repair commit: `3ab5bc2064235a740bb5574ea165564e43046bca`.
 
 This was an adversarial implementation and epistemic-status audit, not a new scientific comparison. Three separated reviewer contexts inspected the plan, live issues, all post-baseline commits, tracking and claim registries, generated documentation, formal composition surfaces, validators, and the sibling OL-A1 simulator campaign. The machine-readable custody record is `AUD-V3-2026-08-12` in `tracking/audit_register.json`.
 
