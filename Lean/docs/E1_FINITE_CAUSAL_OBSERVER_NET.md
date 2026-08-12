@@ -255,6 +255,27 @@ continuum structure, and clocks remain with #693, #700, and #703.  The slot
 assembly and label conventions remain declared postprocessors over a
 post-hoc extraction, ineligible as validation.
 
+## The correlation capstone on the justified pair
+
+`QFT/SourceCorrelationCapstone.lean` answers the reopening's residual
+items on the pair the correction identified as viable.  Observers 86
+and 247 have kernel-checked fully disjoint 96-node supports, transcribed
+verbatim from the committed payload (schema v2), so the support
+disjointness backing this pair's regional split is a source datum.  The
+conditional-expectation diamond is instantiated on their carrier with
+both factor identifications, and the source-counted joint empirical
+state carries the correlation receipts: certified positive with trace
+one, partial traces equal to the marginal empirical states through
+kernel-checked count marginalisation, provably different from the
+product of its marginals at the freezeout entry, and mapped by the two
+regional expectations to the same expectation pair as that product.
+The on-carrier erasure theorem makes the receipt self-contained: the
+expectation pair is not injective at exactly the source correlation, so
+the counted joint state is the marginal-coherent datum the net must
+carry.  The label conventions and the two-observers-as-factors reading
+stay declared postprocessors; the nonconstant source realization or its
+scoped no-go stays open under #692.
+
 ## Verification
 
 The targeted build order is:
