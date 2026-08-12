@@ -58,70 +58,59 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
     readme = " ".join(surfaces["English README"].read_text(encoding="utf-8").lower().split())
     french = " ".join(surfaces["French README"].read_text(encoding="utf-8").lower().split())
     assert "more than three" in compact and "standard uncertainties" in compact
-    assert "rather than a prediction made in advance" in readme
-    assert "plutôt qu’une prédiction posée à l’avance" in french
+    # The reader-facing case never promotes the tau or capacity comparisons
+    # to predictions: the README states the balance premise for Koide and
+    # the post-hoc status of the capacity comparison in both languages.
+    assert "stated balance premise" in readme
+    assert "so neither is a prediction" in readme
+    assert "prémisse d’équilibre déclarée" in french
+    assert "aucun des deux n’est une prédiction" in french
 
 
-def test_readme_highlights_remain_short_and_reader_facing() -> None:
-    # Each receipt is one plain-language paragraph plus one status paragraph.
-    # The French renderings run longer than the English for the same content,
-    # so each surface carries its own word budget.
+def test_readme_case_section_remains_short_and_reader_facing() -> None:
+    # The case section is a fixed set of bold-led bullets; each stays short,
+    # reader-facing, and lightly linked, so the front door never regrows a
+    # receipt inventory. The French renderings run longer for the same
+    # content, so each surface carries its own word budget.
     surfaces = [
         (
             ROOT / "README.md",
-            "Reproducible Physics Receipts",
-            "### Further results",
-            "**Status.**",
-            290,
+            "## One Architecture, All Of Physics",
+            120,
         ),
         (
             ROOT / "README_FR.md",
-            "reçus de physique reproductibles",
-            "### Résultats supplémentaires",
-            "**État.**",
-            330,
+            "## Une seule architecture, toute la physique",
+            140,
         ),
     ]
-    for path, heading, terminator, status, word_budget in surfaces:
+    for path, heading, word_budget in surfaces:
         text = path.read_text(encoding="utf-8")
-        blocks = _highlight_blocks(text, heading, terminator)
-        assert len(blocks) >= 8, f"{path.name} lists {len(blocks)} receipts"
-        for number, block in enumerate(blocks, start=1):
-            assert status in block, (
-                f"{path.name} receipt {number} drops the technical status"
+        start = text.index(heading) + len(heading)
+        body = text[start : text.index("\n## ", start)]
+        bullets = re.split(r"(?m)^- ", body)[1:]
+        assert 5 <= len(bullets) <= 8, f"{path.name} lists {len(bullets)} case bullets"
+        for number, bullet in enumerate(bullets, start=1):
+            assert bullet.startswith("**"), (
+                f"{path.name} case bullet {number} drops its bold lead"
             )
-            body = block.split("\n", 1)[1]
-            paragraphs = [para for para in body.split("\n\n") if para.strip()]
-            assert len(paragraphs) == 2, (
-                f"{path.name} receipt {number} has {len(paragraphs)} paragraphs; "
-                "one plain-language reading plus one status paragraph"
-            )
-            assert not paragraphs[0].startswith("**"), (
-                f"{path.name} receipt {number} opens with a label instead of prose"
-            )
-            prose = re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", block)
+            prose = re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", bullet)
             words = re.findall(r"\b[\wÀ-ÿ]+(?:[-’'][\wÀ-ÿ]+)*\b", prose)
             assert len(words) <= word_budget, (
-                f"{path.name} receipt {number} has {len(words)} words; "
-                "proof inventories belong in the linked technical surfaces"
+                f"{path.name} case bullet {number} has {len(words)} words; "
+                "detail belongs in the linked technical surfaces"
             )
-            assert len(re.findall(r"\]\(", block)) <= 4, (
-                f"{path.name} receipt {number} links more than four destinations"
+            assert len(re.findall(r"\]\(", bullet)) <= 3, (
+                f"{path.name} case bullet {number} links more than three destinations"
             )
 
     # Flattened so the checks survive the line wrapping of the README prose.
     english = " ".join((ROOT / "README.md").read_text(encoding="utf-8").split())
     french = " ".join((ROOT / "README_FR.md").read_text(encoding="utf-8").split())
-    assert "exact conditional finite package" in english
-    assert "conditional finite theorem package" not in english.lower()
     assert "lands within 72 eV" not in english
     assert "tombe à 72 eV" not in french
-    assert "comparison against a measured value" in english
-    assert "comparaison avec une valeur mesurée" in french
-    assert "separately declared matter table" in english.lower()
-    assert "source has not selected the grammar" in english.lower()
-    assert "two finite screen branches" in english.lower()
-    assert "deux branches finies" in french.lower()
+    assert "carries diagnostic status" in english
+    assert "statut diagnostique" in french
 
 
 def test_active_v2_owner_display_separates_historical_milestones() -> None:

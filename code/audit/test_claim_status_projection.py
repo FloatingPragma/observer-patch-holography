@@ -200,7 +200,7 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         for row in by_id["alpha_in_thomson"]["blocking_issues"]
     }
     assert alpha_blockers == {
-        696: "open_work_item",
+        736: "open_work_item",
         318: "resource_deferred_blocker",
         545: "resource_deferred_blocker",
         425: "resource_deferred_blocker",
@@ -216,8 +216,8 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         ]
     }
     assert de_sitter_blockers == {
-        703: "open_work_item",
-        694: "open_work_item",
+        732: "open_work_item",
+        729: "open_work_item",
     }
     assert set(
         by_id["de_sitter_capacity_transfer_shock_sign"]["source_anchors"]
@@ -233,10 +233,10 @@ def test_live_physical_registry_contains_required_audit_rows_and_dispositions():
         for row in by_id["observer_record_clock_to_physical_proper_time"][
             "blocking_issues"
         ]
-    } == {693, 694, 703}
+    } == {728, 729, 732}
     assert {
         row["number"] for row in by_id["g_si_clock"]["blocking_issues"]
-    } == {697, 703}
+    } == {736, 732}
 
 
 def test_de_sitter_claim_split_preserves_status_boundaries():
@@ -268,27 +268,27 @@ def test_de_sitter_claim_split_preserves_status_boundaries():
         in by_id["OPH-GR-DS-CAPACITY-TRANSFER"]["statement"]
     )
     discrete = by_id["OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM"]
-    assert discrete["gates"] == [694]
+    assert discrete["gates"] == [729]
     assert "draft_only_no_live_gate" not in discrete["status"]
 
 
 def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     registry, _, _ = scoreboard.source_documents()
     by_id = {claim["claim_id"]: claim for claim in registry["claims"]}
-    # E1/B4 #692 stays live after the five-module conditional packet: the
+    # E1/B4 #728 stays live after the five-module conditional packet: the
     # source does not select the Cartesian carrier, region map, or slot split,
-    # and coverage does not supply CP-net gluing. B7 #683 likewise stays live:
+    # and coverage does not supply CP-net gluing. B7 #731 likewise stays live:
     # supplied counting/trivial data realize only a transition kernel, and the
     # stationary control concerns modes/minimizers rather than all saddles.
     expected_gates = {
-        "OPH-THERMO-FOUR-LAW-PACKAGE": [703, 725],
-        "OPH-FINITE-LOCALITY-NOSIGNALLING": [692],
-        "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER": [693],
-        "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [694],
-        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [683],
-        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [693, 703, 725],
-        "OPH-GAUGE-KINETIC-HISTORY-BINDING": [705, 716],
-        "OPH-FINITE-CAUSAL-OBSERVER-NET": [692],
+        "OPH-THERMO-FOUR-LAW-PACKAGE": [732],
+        "OPH-FINITE-LOCALITY-NOSIGNALLING": [728],
+        "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER": [728],
+        "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": [729],
+        "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS": [731],
+        "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION": [728, 732],
+        "OPH-GAUGE-KINETIC-HISTORY-BINDING": [734, 735],
+        "OPH-FINITE-CAUSAL-OBSERVER-NET": [728],
     }
     for claim_id, gates in expected_gates.items():
         claim = by_id[claim_id]
@@ -306,7 +306,7 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     b7 = by_id["OPH-FINITE-HISTORY-VARIATIONAL-HELPERS"]
     assert "does not source-select either input" in b7["statement"]
     assert "does not exclude constrained saddles" in b7["statement"]
-    assert "Gate #683" in b7["statement"]
+    assert "Gate #731" in b7["statement"]
 
     adaptive = by_id["OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER"]
     assert "supplied adaptive scheduler" in adaptive["statement"]
@@ -330,8 +330,8 @@ def test_v2_finite_packets_keep_their_physical_gates_and_flagship_boundary():
     assert "does not exclude stochastic, nonlinear, reverse-direction, dilated, or enriched-source constructions" in thermo[
         "statement"
     ]
-    assert "Issue #725 owns the replacement same-source reference" in thermo["statement"]
-    assert "issue #703 separately owns physical energy and clock calibration" in thermo[
+    assert "Issue #732 owns the replacement same-source reference" in thermo["statement"]
+    assert "together with physical energy and clock calibration" in thermo[
         "statement"
     ]
 

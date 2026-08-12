@@ -379,9 +379,9 @@ def test_fz02_frame_lock_is_ineligible_pending_issue_643():
 def test_fz05_requires_physical_attachment_and_retrospective_exposure():
     register = live_register()
     fz05 = next(row for row in register["rows"] if row["id"] == "FZ-05")
-    assert all(issue in fz05["content"] for issue in ("#694", "#695", "#696"))
+    assert all(issue in fz05["content"] for issue in ("#729", "#738", "#736"))
     assert "retrospective" in fz05["comparison_protocol"].lower()
-    assert all(issue in fz05["kill_band"] for issue in ("#694", "#695", "#696"))
+    assert all(issue in fz05["kill_band"] for issue in ("#729", "#738", "#736"))
 
     fz05["content"] = "A positive finite N is a cosmological prediction."
     with pytest.raises(SystemExit, match="FZ-05 must keep"):
@@ -455,11 +455,11 @@ def test_historical_owners_are_preserved_and_v2_successors_are_live():
     }
     mapping = fz_tool.validate_owner_successors(rows, open_issues)
     assert mapping == {
-        "FZ-03": (697,),
-        "FZ-05": (695,),
-        "FZ-10": (697,),
-        "FZ-11": (696, 704),
-        "FZ-12": (696, 704),
+        "FZ-03": (736,),
+        "FZ-05": (738,),
+        "FZ-10": (736,),
+        "FZ-11": (733, 736),
+        "FZ-12": (733, 736),
     }
     assert {
         row["id"]: row["owning_issue"]
@@ -474,9 +474,9 @@ def test_historical_owners_are_preserved_and_v2_successors_are_live():
     }
     rendered = fz_tool.render(register, fz_tool.validate(register))
     assert "historical [#508]" in rendered
-    assert "active V2 [#697]" in rendered
+    assert "active V2 [#736]" in rendered
     assert "historical [#639]" in rendered
-    assert "active V2 [#695]" in rendered
+    assert "active V2 [#738]" in rendered
 
 
 def test_owner_successor_map_fails_closed_when_a_historical_row_is_missing(
