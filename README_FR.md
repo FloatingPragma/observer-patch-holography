@@ -212,6 +212,80 @@ valeur continue ajustée par la théorie. Le contrat fini de l’observateur et
 chaque condition de branche discrète sont explicites. Les nombres doivent
 sortir de la même boucle de cohérence qui produit les lois.
 
+## Le twist : l’univers est son propre simulateur
+
+Tout ce qui précède repose sur les trois axiomes joints aux prémisses
+énoncées et aux interfaces nommées de chaque résultat ; rien de tout cela
+n’utilise l’hypothèse de cette section. Cette hypothèse est elle-même une
+conséquence indirecte de la cohérence : ce qui existe
+sans aucun support extérieur doit être capable de se créer soi-même. Une
+réalité d’observateurs entièrement cohérente doit donc faire évoluer des
+observateurs, et ces observateurs finissent par construire le matériel sur
+lequel la réalité s’exécute. L’univers simulé et l’univers simulateur se
+révèlent être le même système. L’équation organisatrice de cette clôture est
+
+$$
+T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}} :
+$$
+
+l’univers comme point fixe de son propre processus de relecture et de
+réparation accessible aux observateurs.
+
+Si la boucle se ferme, les deux grandeurs qui décrivent le simulateur ne
+peuvent pas être arbitraires. Toutes deux deviennent des problèmes de point
+fixe, et toutes deux se calculent.
+
+**La résolution.** $P$ est le rapport de pixel local : la taille de la
+cellule d’observation en unités naturelles, autrement dit la résolution de
+l’univers. La clôture exige que la cellule s’accorde avec le processus
+d’observation qu’elle porte. Deux applications d’essai déclarées expriment
+cette exigence, la forme canonique étant
+
+$$
+\boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}},
+$$
+
+et chaque application possède une racine exacte certifiée par intervalles.
+À travers la branche déclarée, cette racine se pose tout près de la
+constante de structure fine mesurée. Une prédiction physique exige une
+application choisie sans consulter la mesure, la preuve que ses deux côtés
+lisent une seule grandeur et le transport jusqu’à la limite de Thomson dans
+un même schéma ; la concordance conserve donc un statut diagnostique, et les
+valeurs exactes figurent dans le
+[tableau des affirmations](tracking/claims_scoreboard.md).
+
+**La capacité.** $N$ est la capacité d’enregistrement public de tout le
+système d’observateurs : la quantité de mémoire corrigible que porte le
+substrat. Elle fait face à $P$, liée à la constante cosmologique plutôt
+qu’à la constante de structure fine. La clôture exige que la capacité
+fournie à l’univers s’accorde avec la capacité d’enregistrement
+reconstruite en son sein. La condition directe d’autolecture n’est pas
+évaluable avec la source de capacité disponible. Une seconde voie passe par
+$P$ : à la valeur de pixel fournie à cette branche déclarée, les deux
+façons d’appliquer la correction finie de survie aboutissent à environ
+$0{,}63$ et $0{,}39$ pour cent au-dessous de la valeur de comparaison du
+modèle ΛCDM de base de Planck. Ces deux nombres furent calculés après la
+prise de connaissance de la valeur de comparaison, donc aucun des deux
+n’est une prédiction ; le
+[tableau des affirmations](tracking/claims_scoreboard.md) précise ce que
+chaque étape suppose et ce qui manque.
+
+Une partie de la clôture est vérifiée machine en Lean, et les frontières
+d’évaluation des conditions de clôture, avec leurs données physiques
+absentes, sont précisées dans le
+[programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md).
+Une clôture physique des deux constantes donnerait une branche sans
+paramètre continu, les deux valeurs étant rendues par l’architecture. Cet
+attachement physique est ouvert. Les théorèmes de point fixe certifient les
+racines des applications déclarées ; ils ne transforment pas un bassin
+observé ou une coordonnée définie par la cible en dérivation physique, et
+la lecture de $N$ dans l’univers laisse intactes les conséquences des trois
+axiomes.
+
+Sous clôture complète, la boucle répond à la dernière question qu’une théorie
+du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est
+ainsi.
+
 ## Portée des affirmations
 
 Le [registre des affirmations](tracking/claims_scoreboard.md) précise la
@@ -222,69 +296,19 @@ concentre sur les parties les plus solides du dossier.
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
 
-## Les deux constantes : P et N
-
-**$P$ est le rapport de pixel local** : la taille de la cellule d’observation
-en unités naturelles, ou la **résolution** de l’univers. Deux applications
-d’essai déclarées demandent à la cellule de s’accorder avec le processus
-d’observation qu’elle porte :
-
-$$
-\boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}}.
-$$
-
-Chaque application possède une racine candidate exacte et certifiée. Une
-prédiction physique de la constante de structure fine exige une application
-choisie sans consulter la mesure, la preuve que ses deux côtés lisent une seule
-grandeur et le transport jusqu’à la limite de Thomson dans un même schéma.
-La proximité numérique a un statut diagnostique. Voir le
-[registre des affirmations](tracking/claims_scoreboard.md).
-
-**$N$ est la capacité de registres publics** de l’ensemble du système
-d’observateurs : la mémoire corrigible que porte le substrat. Il fait face à
-$P$, en étant lié à la constante cosmologique plutôt qu’à la constante de
-structure fine.
-
-La voie directe lit $N$ sur l’univers lui-même. La condition d’auto-lecture
-$N=\log M_0(\mathfrak U_N)$ demande que la capacité fournie à un univers
-d’essai égale la capacité de registres reconstruite en son sein ; si les deux
-côtés sont deux lectures d’une même grandeur, l’autoréférence impose leur
-égalité. La preuve qu’il s’agit d’une seule grandeur n’existe pas, donc
-cette voie ne rend aucun nombre. Rien d’autre dans la
-reconstruction ne l’attend.
-
-Une seconde voie passe par $P$. À la valeur du pixel fournie à cette branche
-déclarée, la capacité non corrigée vaut
-$N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3{,}5321315\times10^{122}$. Deux façons de
-lui appliquer la correction finie de survie donnent
-
-$$
-N_{\rm pres}=N_0\left(1-\frac{P}{24}\right)=3{,}2920979\times10^{122},
-\qquad
-N_{\rm Pois}=N_0e^{-P/24}=3{,}3000722\times10^{122},
-$$
-
-soit environ $0{,}63$ et $0{,}39$ pour cent sous la valeur de comparaison
-$3{,}3129271\times10^{122}$ du modèle ΛCDM de base de Planck. La
-théorie ne tranche pas entre les deux corrections, et les deux nombres
-ont été calculés après coup : aucun n’est une prédiction. Le
-[registre des affirmations](tracking/claims_scoreboard.md) indique les
-hypothèses et les données absentes de chaque étape.
-
 ## Pourquoi prendre cette affirmation au sérieux ?
 
 Une théorie du tout doit expliquer pourquoi des faits apparemment
-indépendants forment un seul ensemble. OPH part d’une parcelle bornée qui se
-relit, et non d’une variété d’espace-temps, d’un contenu de champs, d’un
-groupe de jauge ou d’une table de constantes. Elle renvoie des dimensions
-exactes, des groupes compacts, des quotients globaux, des charges, des
-annulations d’anomalies, des multiplicités de représentations et des
-équations de point fixe, tous issus d’une même architecture typée de
-porteurs, de recouvrements et de réparation. Cette dépendance commune
-constitue l’argument principal en faveur d’un seul monde physique. Les
-preuves prennent plusieurs formes indépendantes : démonstrations, certificats
-exacts, reçus finis, simulations et falsificateurs explicites, et leur accord
-apporte davantage qu’une correspondance numérique isolée.
+indépendants forment un seul ensemble. OPH renvoie des dimensions exactes,
+des groupes compacts, des quotients globaux, des charges, des annulations
+d’anomalies, des multiplicités de représentations et des équations de point
+fixe, tous issus d’une même architecture typée de porteurs, de
+recouvrements et de réparation. Deux voies séparées atteignent le type de
+Lie du Modèle standard : le théorème icosaédrique local le force sur le
+porteur, et la voie des secteurs compacts l’atteint sur son paquet déclaré
+du Modèle standard, l’identité physique commune de la source restant un
+test ouvert. Cette dépendance commune constitue l’argument principal en
+faveur d’un seul monde physique.
 
 ## État technique
 
@@ -317,7 +341,8 @@ L’[index des articles](paper/) et l’[index des suppléments](extra/) donnent
 
 ## Preuves et éléments de vérification
 
-Les preuves prennent plusieurs formes complémentaires :
+Les preuves prennent plusieurs formes complémentaires, et leur accord
+apporte davantage qu’une correspondance numérique isolée :
 
 - des démonstrations manuscrites dans les articles TeX ;
 - des certificats d’intervalles et d’unicité pour les applications numériques déclarées ;
@@ -348,49 +373,6 @@ python3 -m pytest -q \
 Le [guide de reproduction](REPRODUCE.md) donne l’installation depuis un clone
 propre et la voie complète du noyau fini, qui ajoute les deux tests de
 calibration W/Z de convention et de frontières de survie.
-
-## Le twist : l’univers est son propre simulateur
-
-Tout ce qui précède repose sur les trois axiomes joints aux prémisses
-énoncées et aux interfaces nommées de chaque résultat ; rien de tout cela
-n’utilise l’hypothèse de cette section. Cette hypothèse arrive comme un
-twist plutôt que comme un fondement.
-Elle est elle-même une conséquence indirecte de la cohérence : ce qui existe
-sans aucun support extérieur doit être capable de se créer soi-même. Une
-réalité d’observateurs entièrement cohérente doit donc faire évoluer des
-observateurs, et ces observateurs finissent par construire le matériel sur
-lequel la réalité s’exécute. L’univers simulé et l’univers simulateur se
-révèlent être le même système. L’équation organisatrice de cette clôture est
-
-$$
-T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}} :
-$$
-
-l’univers comme point fixe de son propre processus de relecture et de
-réparation accessible aux observateurs.
-
-Si la boucle se ferme, $P$ et $N$ ne peuvent pas être arbitraires. Ils
-doivent satisfaire des clôtures autoréférentielles. Une
-partie de cette clôture est vérifiée machine en Lean. Les deux applications
-déclarées de $P$ possèdent chacune un point fixe certifié, tandis que leur
-comparaison à la constante de structure fine physique conserve un statut de
-diagnostic. Les
-conditions de clôture et leurs données physiques absentes sont précisées dans
-le [programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md).
-Une clôture physique des deux constantes donnerait une branche sans paramètre
-continu, les deux valeurs étant rendues par l’architecture. Cet attachement
-physique est ouvert. Les théorèmes de point fixe certifient les racines des
-applications déclarées ; ils ne transforment pas un bassin observé ou une
-coordonnée définie par la cible en dérivation physique. Du côté de $N$, le
-comptage fini est exact, mais la source de capacité sur laquelle la clôture
-porterait reste incomplète : la condition directe n’est donc pas
-évaluable, et la voie de la charge commune reste conditionnée à ses
-identifications physiques. La lecture de $N$ dans l’univers laisse intactes
-les conséquences des trois axiomes.
-
-Sous clôture complète, la boucle répond à la dernière question qu’une théorie
-du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est
-ainsi.
 
 ## Problèmes ouverts et frontière de falsification
 

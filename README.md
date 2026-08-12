@@ -190,6 +190,75 @@ records, readback, and repair loop. OPH does not claim that human thoughts
 manufacture reality. It claims that a world with no possible local perspective,
 record, or self-consistent readback lacks public physics.
 
+## The Twist: The Universe Is Its Own Simulator
+
+Everything above stands on the three axioms together with the stated
+premises and named interfaces of each result; none of it uses the hypothesis
+of this section. The hypothesis is itself
+an indirect consequence of consistency: something that exists with no outside
+support must be capable of creating itself. A completely consistent
+observer-built reality must therefore evolve observers, and those observers
+eventually build the hardware the reality runs on. The simulated universe and
+the simulating universe turn out to be the same system. The patches,
+computation, records, and resulting world all belong to one closed loop; no
+external computer or programmer appears in the formal construction. The
+organizing equation of that closure is
+
+$$
+T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}}:
+$$
+
+the universe as a fixed point of its own observer-accessible readback and
+repair process.
+
+If the loop closes, the two quantities that describe the simulator cannot
+be arbitrary. Both become fixed-point problems, and both can be computed.
+
+**The resolution.** $P$ is the local pixel ratio: the observation cell's
+size in natural units, informally the universe's resolution. Closure
+requires the cell to agree with the observation process it supports. Two
+declared trial maps express that requirement, the canonical one reading
+
+$$
+\boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}},
+$$
+
+and each map has one exact interval-certified root. Through the declared
+branch that root lands close to the measured fine-structure constant. A physical prediction needs a map selected without using the
+measured constant, proof that its two sides read one quantity, and
+same-scheme transport to the Thomson limit, so the match carries diagnostic
+status; the exact values live on the
+[claim scoreboard](tracking/claims_scoreboard.md).
+
+**The capacity.** $N$ is the public-record capacity of the whole observer
+system: how much correctable memory the substrate carries. It sits opposite
+$P$, tied to the cosmological constant rather than to the fine-structure
+constant. Closure requires the capacity handed to the universe to agree
+with the record capacity reconstructed inside it. The direct self-read
+condition is not evaluable with the current capacity source. A second route
+goes through $P$: at the pixel value supplied to that declared branch, the
+two ways of applying the finite survival correction land about $0.63$ and
+$0.39$ percent below the Planck base-ΛCDM comparison value. Both numbers
+were computed after the comparison value was known, so neither is a
+prediction; the [claim scoreboard](tracking/claims_scoreboard.md) states
+what each step assumes and what is missing.
+
+Part of the closure is machine-checked in Lean, and the evaluation
+boundaries of the closure conditions and their missing physical inputs are
+stated in the
+[OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
+A physical closure of both constants would give a zero-continuous-parameter
+branch with both values returned by the architecture. That physical
+attachment is open. The fixed-point theorems certify roots of declared
+maps; they do not turn an observed basin or target-defined coordinate into
+a physical derivation, and reading $N$ from the universe leaves every
+consequence of the three axioms intact.
+
+Under full closure, the loop answers the last question a theory of
+everything can be asked: why anything exists, and why it is the way it is.
+The universe is the unique structure consistent with reading itself into
+existence.
+
 ## Claim Scope
 
 The [claim scoreboard](tracking/claims_scoreboard.md) states the scope,
@@ -199,51 +268,6 @@ strongest parts of the case.
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
-
-## The Two Constants: P and N
-
-**$P$ is the local pixel ratio**: the observation cell's size in natural
-units, informally the universe's **resolution**. Two declared trial maps ask
-the cell to agree with the observation process it supports:
-
-$$
-\boxed{P_\star=\varphi+\frac{\sqrt\pi}{A_T(P_\star)}}.
-$$
-
-Each map has one exact interval-certified candidate root. A physical
-fine-structure prediction needs a map selected without using the measured
-constant, proof that its two sides read one quantity, and same-scheme transport
-to the Thomson limit. The numerical match has diagnostic status. See the
-[claim scoreboard](tracking/claims_scoreboard.md) for the exact values.
-
-**$N$ is the public-record capacity** of the whole observer system: how much
-correctable memory the substrate carries. It sits opposite $P$, tied to the
-cosmological constant rather than to the fine-structure constant.
-
-The direct route reads $N$ off the universe itself. The self-read condition
-$N=\log M_0(\mathfrak U_N)$ asks the capacity handed to a trial universe to
-match the record capacity reconstructed inside it, and if both sides are
-readings of one quantity, self-reference forces them to agree. The proof that
-they are one quantity does not exist, so this route returns no
-number. Nothing else in the reconstruction waits on it.
-
-A second route goes through $P$. At the pixel value supplied to that declared
-branch the uncorrected capacity is
-$N_0=\pi\exp[6\pi/(P\alpha_U(P))]=3.5321315\times10^{122}$. Two ways of
-applying the finite survival correction to it give
-
-$$
-N_{\rm pres}=N_0\left(1-\frac{P}{24}\right)=3.2920979\times10^{122},
-\qquad
-N_{\rm Pois}=N_0e^{-P/24}=3.3000722\times10^{122},
-$$
-
-about $0.63$ and $0.39$ percent below the Planck base-ΛCDM comparison
-value $3.3129271\times10^{122}$. The theory does not select between the two
-corrections, and both numbers were computed after the comparison value was
-known, so neither is a prediction. The
-[claim scoreboard](tracking/claims_scoreboard.md) states what each step
-assumes and what is missing.
 
 ## Technical status
 
@@ -259,25 +283,21 @@ research route.
 ## Why Take The Claim Seriously?
 
 A successful theory of everything should explain why facts that appear
-unrelated arrive as one package. OPH starts from a bounded self-reading patch
-instead of a spacetime manifold, field content, gauge group, or table of
-constants. It returns exact dimensions, compact Lie types, conditional global
-quotients, charge assignments, anomaly cancellations, representation
-multiplicities, and fixed-point equations. These outputs come from one typed
-carrier, overlap, and repair architecture. The local icosahedral theorem
-forces the Standard Model Lie type. The separate compact-sector route reaches
-that type only on its declared Standard Model packet, and a common physical
-source identity is an open test. Their shared dependence is the main case that
-OPH describes one physical world rather than a collection of coincidences.
-
-The evidence also comes in different forms: paper proofs, exact arithmetic,
-interval certificates, finite receipts, simulations,
-and explicit falsifiers. Agreement among those forms is more informative than
-another numerical match produced by another adjustable model.
+unrelated arrive as one package. OPH returns exact dimensions, compact Lie
+types, conditional global quotients, charge assignments, anomaly
+cancellations, representation multiplicities, and fixed-point equations from
+one typed carrier, overlap, and repair architecture. Two separate routes
+reach the Standard Model Lie type: the local icosahedral theorem forces it
+on the carrier, and the compact-sector route reaches it on its declared
+Standard Model packet, with a common physical source identity as an open
+test. That shared dependence is the main case that OPH describes one
+physical world rather than a collection of coincidences.
 
 ## Evidence You Can Inspect
 
-The evidence comes in several complementary forms:
+The evidence comes in several complementary forms, and agreement among them
+is more informative than another numerical match produced by another
+adjustable model:
 
 - hand proofs in the TeX papers;
 - interval and uniqueness certificates for declared numerical maps;
@@ -307,53 +327,6 @@ python3 -m pytest -q \
 The [reproduction guide](REPRODUCE.md) gives the clean-clone setup and the
 fuller finite-core lane, which adds the two W/Z convention and
 survival-boundary calibration tests.
-
-## The Twist: The Universe Is Its Own Simulator
-
-Everything above stands on the three axioms together with the stated
-premises and named interfaces of each result; none of it uses the hypothesis
-of this section. That hypothesis arrives as a twist rather than a
-foundation. It is itself
-an indirect consequence of consistency: something that exists with no outside
-support must be capable of creating itself. A completely consistent
-observer-built reality must therefore evolve observers, and those observers
-eventually build the hardware the reality runs on. The simulated universe and
-the simulating universe turn out to be the same system. The patches,
-computation, records, and resulting world all belong to one closed loop; no
-external computer or programmer appears in the formal construction. The
-organizing equation of that closure is
-
-$$
-T(\mathfrak U_{\mathrm{OPH}})=\mathfrak U_{\mathrm{OPH}}:
-$$
-
-the universe as a fixed point of its own observer-accessible readback and
-repair process.
-
-If the loop closes, $P$ and $N$ cannot be arbitrary. They must satisfy
-self-referential closure conditions: the cell
-must agree with the observation process it supports, and the record capacity
-must agree with the records the system keeps about itself. Part of that
-closure is machine-checked in Lean. The two declared $P$ maps have certified
-fixed points, while their comparison with the physical fine-structure
-constant has diagnostic status. The evaluation boundaries of the closure conditions and
-their missing physical inputs are stated in the
-[OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
-
-A physical closure of both constants would give a zero-continuous-parameter
-branch with both values returned by the architecture. That physical
-attachment is open. The fixed-point theorems certify roots of declared maps;
-they do not turn an observed basin or target-defined coordinate into a
-physical derivation. On the $N$ side the finite counting is exact, but the
-capacity source it would close over is incomplete, so the direct condition is
-not evaluable and the common-load route stays conditional on its physical
-identifications. Reading $N$ from the universe leaves every consequence of the
-three axioms intact.
-
-Under full closure, the loop answers the last question a theory of
-everything can be asked: why anything exists, and why it is the way it is.
-The universe is the unique structure consistent with reading itself into
-existence.
 
 ## Open Problems And The Falsification Boundary
 
