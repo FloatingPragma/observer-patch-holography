@@ -167,6 +167,60 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the V3 observation ledger surface",
+        [
+            sys.executable,
+            "tools/build_observation_ledger.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the observation ledger gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_observation_ledger.py",
+        ],
+    ),
+    (
+        "Validate the V3 premise register surface",
+        [
+            sys.executable,
+            "tools/build_premise_register.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the premise register gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_premise_register.py",
+        ],
+    ),
+    (
+        "Validate the SM Lagrangian correspondence surface",
+        [
+            sys.executable,
+            "tools/build_sm_correspondence.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the SM correspondence gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_sm_correspondence.py",
+        ],
+    ),
+    (
         "Replay the invariant-metric phase certificate independently",
         [
             sys.executable,

@@ -37,7 +37,8 @@ lean_lib «OPHThermodynamics» where
     `GreenKubo, `GraphDiffusion, `StationaryRealization,
     `PoissonizedRepair, `PoissonizedRepairOperatorExp,
     `LowTemperatureControl, `MixingChainRealization, `CommonObjectBinding,
-    `CommonReferenceObstruction, `RepairCurrentOrientation]
+    `CommonReferenceObstruction, `RepairCurrentOrientation,
+    `FourLawAdequacySurface]
 
 @[default_target]
 lean_lib «OPHScreen» where

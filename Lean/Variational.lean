@@ -5,6 +5,7 @@ import Variational.FiniteRealTransfer
 import Variational.LegendreBridge
 import Variational.RealizedHistoryLegendreNoGo
 import Variational.StationarySaddleCoverage
+import Variational.MechanicsAdequacySurface
 
 /-!
 # Variational umbrella root

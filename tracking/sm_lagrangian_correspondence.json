@@ -1,0 +1,383 @@
+{
+ "schema": "oph.sm_lagrangian_correspondence.v1",
+ "issue": 735,
+ "policy": "One row per term of the textbook Standard Model Lagrangian, classified by what OPH supplies for that term. A `derived_conditional` row states an exact theorem shape under the named premise-register rows. A `registered_premise` row is consumed as a declared register row. A `partial` row carries some attained structure, stated exactly in its boundary. An `absent` row has no OPH structure. Coupling values are owned by the constants lane (issue #736); this table records shapes and relative structures only. Classification is conservative: a conditional result is conditional, a declared premise is declared, and every boundary states exactly what is and is not supplied.",
+ "premise_register": [
+  {
+   "id": "PR-01",
+   "name": "confluent terminating repair contract",
+   "type": "structural_rule",
+   "disposition": "axiomatize"
+  },
+  {
+   "id": "PR-02",
+   "name": "algebra-state representation of public records",
+   "type": "representation_choice",
+   "disposition": "axiomatize"
+  },
+  {
+   "id": "PR-03",
+   "name": "operational effect additivity",
+   "type": "selection_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-04",
+   "name": "phase-operation instrument",
+   "type": "structural_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-05",
+   "name": "counting path reference",
+   "type": "selection_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-06",
+   "name": "real Legendre enrichment",
+   "type": "representation_choice",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-07",
+   "name": "declared repair law: common faithful reference and repaired-visible fibre",
+   "type": "structural_rule",
+   "disposition": "axiomatize"
+  },
+  {
+   "id": "PR-08",
+   "name": "refinement-uniform low-temperature control",
+   "type": "structural_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-09",
+   "name": "equal-face-weight and barycentric one-third port-dual rules",
+   "type": "selection_rule",
+   "disposition": "axiomatize"
+  },
+  {
+   "id": "PR-10",
+   "name": "measure-to-metric and nearest-point repair rules",
+   "type": "selection_rule",
+   "disposition": "axiomatize"
+  },
+  {
+   "id": "PR-11",
+   "name": "compact-Lie classification inputs",
+   "type": "external_mathematics",
+   "disposition": "import"
+  },
+  {
+   "id": "PR-12",
+   "name": "matter candidate grammar",
+   "type": "selection_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-13",
+   "name": "Koide balance premise",
+   "type": "selection_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-14",
+   "name": "hadronic transport packet",
+   "type": "empirical_import",
+   "disposition": "import"
+  },
+  {
+   "id": "PR-15",
+   "name": "clock and energy calibration anchors",
+   "type": "empirical_import",
+   "disposition": "import"
+  },
+  {
+   "id": "PR-16",
+   "name": "stable causality and open-image conditions",
+   "type": "structural_rule",
+   "disposition": "remove"
+  },
+  {
+   "id": "PR-17",
+   "name": "numerical inputs P and N",
+   "type": "numerical_input",
+   "disposition": "import"
+  }
+ ],
+ "rows": [
+  {
+   "id": "SML-01",
+   "term": "SU(3) gauge kinetic term: -(1/4) G^a_munu G_a^munu",
+   "classification": "partial",
+   "premises": [
+    "PR-09",
+    "PR-10",
+    "PR-11"
+   ],
+   "evidence": [
+    "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
+    "code/e9_kinetic/kinetic_form_v1.json",
+    "Lean/Screen/GaugeKineticInvariantForms.lean"
+   ],
+   "boundary": "Ad-invariance over each supplied certified compact bracket forces a block-diagonal kinetic form with zero cross terms and one free positive Killing-relative coefficient on the color factor, so the Yang-Mills shape is attained on the classified bracket branches, while the source selection of the bracket, the assembled action, and the coefficient value are not supplied."
+  },
+  {
+   "id": "SML-02",
+   "term": "SU(2) gauge kinetic term: -(1/4) W^i_munu W_i^munu",
+   "classification": "partial",
+   "premises": [
+    "PR-09",
+    "PR-10",
+    "PR-11"
+   ],
+   "evidence": [
+    "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
+    "Lean/Screen/GaugeKineticInvariantForms.lean",
+    "Lean/Screen/KineticFormDichotomy.lean"
+   ],
+   "boundary": "The one-coefficient Yang-Mills shape on the weak factor rests on the imported classical uniqueness of the invariant form on a compact simple ideal (declared under PR-11), while the certified reduction covers the color-type branches, and the kinetic dichotomy isolates the weak-to-color coefficient ratio that separates the two declared candidate branches (six versus three halves) without selecting either, while the source bracket, the assembled action, and the coefficient value are not supplied."
+  },
+  {
+   "id": "SML-03",
+   "term": "U(1) hypercharge kinetic term: -(1/4) B_munu B^munu",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "Lean/Screen/A5OPH.lean",
+    "Lean/Screen/Z6Descent.lean",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "boundary": "The one-dimensional centre is part of the forced abstract Lie type on the certified carrier and its quadratic kinetic shape carries one free normalization, while the abelian charge lattice is undetermined at carrier level, the hypercharge identification enters through the registered matter grammar, and the global form rests on declared completions."
+  },
+  {
+   "id": "SML-04",
+   "term": "Nonabelian gauge self-interactions: cubic g f A A dA and quartic g^2 f f A A A A structures from the SU(2) and SU(3) field strengths",
+   "classification": "partial",
+   "premises": [
+    "PR-09",
+    "PR-10",
+    "PR-11"
+   ],
+   "evidence": [
+    "code/a5_closure/port_current_inner_certificate.py",
+    "code/b14_jacobi/port_dual_metric_selector.certificate.json",
+    "Lean/Screen/PortDualMetricSelection.lean",
+    "Lean/Screen/A5OPH.lean"
+   ],
+   "boundary": "The forced nonabelian Lie type implies cubic and quartic self-coupling structure once a Yang-Mills kinetic form is written, and the structure constants are pinned only by the measure- and metric-conditional selection of one classified compact family under the declared face-weight and nearest-point rules, while source bracket selection and the composed field-strength action are open."
+  },
+  {
+   "id": "SML-05",
+   "term": "Quark doublet kinetic/covariant term: Qbar i gamma^mu D_mu Q, Q = (u_L, d_L), Y = 1/6",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.py",
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/ExteriorSelection.lean",
+    "Lean/Screen/ExteriorComponentBridge.lean"
+   ],
+   "boundary": "The registered exterior grammar places the quark doublet with hypercharge one sixth inside the unique chiral anomaly-free fifteen-state generation, which fixes the covariant-derivative coupling pattern of the term, while the Dirac kinetic operator, the physical spin lift, and a source-selected matter action are not supplied."
+  },
+  {
+   "id": "SML-06",
+   "term": "Up-singlet kinetic/covariant term: ubar_R i gamma^mu D_mu u_R, Y = 2/3",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.py",
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/ExteriorSelection.lean"
+   ],
+   "boundary": "The up singlet with hypercharge two thirds is an exact component of the same registered-grammar generation, so the covariant coupling pattern is fixed, while the kinetic operator, spin lift, and matter action are not supplied."
+  },
+  {
+   "id": "SML-07",
+   "term": "Down-singlet kinetic/covariant term: dbar_R i gamma^mu D_mu d_R, Y = -1/3",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.py",
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/ExteriorSelection.lean"
+   ],
+   "boundary": "The down singlet with hypercharge minus one third is an exact component of the registered-grammar generation, so the covariant coupling pattern is fixed, while the kinetic operator, spin lift, and matter action are not supplied."
+  },
+  {
+   "id": "SML-08",
+   "term": "Lepton doublet kinetic/covariant term: Lbar i gamma^mu D_mu L, L = (nu_L, e_L), Y = -1/2",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.py",
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/ExteriorSelection.lean"
+   ],
+   "boundary": "The lepton doublet with hypercharge minus one half is an exact component of the registered-grammar generation, whose displayed anomaly sums cancel, so the covariant coupling pattern is fixed, while the kinetic operator, spin lift, and matter action are not supplied."
+  },
+  {
+   "id": "SML-09",
+   "term": "Electron-singlet kinetic/covariant term: ebar_R i gamma^mu D_mu e_R, Y = -1",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.py",
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/ExteriorSelection.lean"
+   ],
+   "boundary": "The electron singlet with hypercharge minus one is an exact component of the registered-grammar generation, so the covariant coupling pattern is fixed, while the kinetic operator, spin lift, and matter action are not supplied."
+  },
+  {
+   "id": "SML-10",
+   "term": "Right-handed neutrino stance: nu_R, no kinetic or mass term in the minimal Standard Model",
+   "classification": "derived_conditional",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/ExteriorSelection.lean",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "boundary": "Within the registered grammar the exhaustive scan admits exactly one unordered charge-conjugate pair of chiral anomaly-free packages, each with fifteen Weyl states and no right-handed neutrino, so the minimal-content stance is a theorem of the declared grammar whose component menu contains only the nontrivial isotypic components, leaving neutral anomaly-free singlets outside the scanned space with the certificate's no-extra-sector boundary as the recorded open obligation, while no seesaw structure, Majorana term, or neutrino-mass stance is supplied (the neutrino stance is owned by the masses lane, issue #736)."
+  },
+  {
+   "id": "SML-11",
+   "term": "Higgs kinetic/covariant term: (D_mu H)^dagger (D^mu H), H a weak doublet with Y = 1/2",
+   "classification": "registered_premise",
+   "premises": [
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.json",
+    "Lean/Screen/Z6Descent.lean"
+   ],
+   "boundary": "The scalar doublet enters as the declared Higgs-equals-weak-carrier selection inside the registered grammar and its central weight passes the Z6 kernel arithmetic, while no scalar kinetic term, scalar dynamics, or electroweak-breaking mechanism is derived."
+  },
+  {
+   "id": "SML-12",
+   "term": "Higgs potential: mu^2 H^dagger H + lambda (H^dagger H)^2",
+   "classification": "absent",
+   "premises": [],
+   "evidence": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "boundary": "No OPH structure produces the potential shape or either coefficient, the electroweak chart that touches the breaking scale consumes the registered calibration anchors (PR-15) on a conditional comparison branch, and the electroweak-breaking stance is an open obligation of this lane."
+  },
+  {
+   "id": "SML-13",
+   "term": "Up-type Yukawa term: - Qbar Y_u Htilde u_R + h.c.",
+   "classification": "registered_premise",
+   "premises": [
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.json",
+    "code/particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "boundary": "The registered grammar contains the gauge-invariant line for this coupling among the three one-Higgs invariant lines of the exterior witness, and an exact non-definability theorem leaves a free positive rescaling family of admissible up-type spectra, so no Yukawa matrix, eigenvalue, or texture is derived."
+  },
+  {
+   "id": "SML-14",
+   "term": "Down-type Yukawa term: - Qbar Y_d H d_R + h.c.",
+   "classification": "registered_premise",
+   "premises": [
+    "PR-12"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.json",
+    "code/particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "boundary": "The registered grammar contains the gauge-invariant line for this coupling, and the same exact non-definability theorem leaves a free positive rescaling family of admissible down-type spectra, so no Yukawa matrix, eigenvalue, or texture is derived."
+  },
+  {
+   "id": "SML-15",
+   "term": "Lepton Yukawa term: - Lbar Y_e H e_R + h.c.",
+   "classification": "registered_premise",
+   "premises": [
+    "PR-12",
+    "PR-13"
+   ],
+   "evidence": [
+    "code/a5_closure/exterior_sm_completion.json",
+    "code/particles/leptons/derive_koide_circulant_identity.py",
+    "code/particles/runs/leptons/koide_circulant_identity.json",
+    "Lean/ObserverPatchHolography/KoideCirculant.lean"
+   ],
+   "boundary": "The invariant line exists in the registered grammar, and on the declared Koide balance premise an exact circulant identity conditionally pins the charged-lepton spectral invariant to two thirds, while the coupling matrix, the individual mass ratios, the circulant phase, and the physical chiral attachment are not supplied."
+  },
+  {
+   "id": "SML-16",
+   "term": "Theta-QCD term: (theta g3^2 / 32 pi^2) G^a_munu Gtilde_a^munu",
+   "classification": "absent",
+   "premises": [],
+   "evidence": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "boundary": "The stated source domain does not derive the bare angle, does not emit the anomaly-invariant combination, and does not prove that the physical strong-CP phase vanishes, and the owning paper records this as an explicit strong-CP boundary."
+  },
+  {
+   "id": "SML-17",
+   "term": "Generation triplication: three copies of the chiral fermion content",
+   "classification": "partial",
+   "premises": [
+    "PR-11",
+    "PR-12"
+   ],
+   "evidence": [
+    "Lean/Screen/A5FamilyBand.lean",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "boundary": "Under the added single-band and cost-order selection premises an exact Laplacian-cost theorem selects the rank-three band inside the pinned admissibility window on band dimension (three through five), giving a conditional rank-45 three-generation candidate, while those selection premises are declared rather than derived and the composed three-family matter attachment is open."
+  },
+  {
+   "id": "SML-18",
+   "term": "Gauge couplings: g1, g2, g3 as numerical parameters",
+   "classification": "absent",
+   "premises": [],
+   "evidence": [
+    "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
+    "Lean/Screen/KineticFormDichotomy.lean"
+   ],
+   "boundary": "No coupling value or ratio is selected: ad-invariance leaves one free positive coefficient per simple factor, the committed two-factor Gibbs-kernel binding makes the relative coefficient identifiable modulo common scaling without selecting it, and coupling determination is owned by the constants lane (issue #736)."
+  },
+  {
+   "id": "SML-19",
+   "term": "CKM/PMNS mixing structure: V_CKM in the charged quark current and U_PMNS in the lepton sector",
+   "classification": "partial",
+   "premises": [
+    "PR-12"
+   ],
+   "evidence": [
+    "code/particles/flavor/derive_icosahedral_axis_angle_spectrum.py",
+    "code/particles/runs/flavor/icosahedral_axis_angle_spectrum.json",
+    "code/particles/flavor/derive_generation_bundle_same_label_physical_invariant_bundle.py",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "boundary": "The rephasing-quotient mixing carrier is defined on the declared one-Higgs package with exact descent receipts and exact no-gos (identity mixing on a common circulant fiber, an exhaustive icosahedral axis-angle spectrum excluding a direct Cabibbo identification, a rejected register-Clebsch route), while no mixing angle or CP phase is derived and the target-informed neutrino candidate fails the correlated NuFIT 6.1 profile."
+  }
+ ]
+}

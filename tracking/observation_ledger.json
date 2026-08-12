@@ -1,0 +1,641 @@
+{
+ "schema": "oph.observation_ledger.v1",
+ "issue": 726,
+ "rows": [
+  {
+   "id": "OL-A1",
+   "target": "Three space dimensions and one time direction",
+   "rung": "emergent",
+   "status": "partial",
+   "lane_issue": 728,
+   "premises": [],
+   "evidence": [
+    "evidence/einstein_convergence/README.md",
+    "evidence/einstein_convergence/manifest.json"
+   ],
+   "notes": "The (1,3) event-form measurement holds on the retained three-rung support-adjusted path; the replication instrument is owed, and its scouted specification records that the threshold verdict rides on a near-null eigenvalue whose robust reading is (1,2) with one degenerate direction."
+  },
+  {
+   "id": "OL-A2",
+   "target": "Lorentz kinematics",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 728,
+   "premises": [],
+   "evidence": [
+    "Lean/Geometry/CanonicalLorentzModule.lean",
+    "Lean/Geometry/ObserverFrameHyperboloid.lean",
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
+   ],
+   "notes": "The theorems hold on the spherical-support branch."
+  },
+  {
+   "id": "OL-A3",
+   "target": "Causal order and light-cone structure",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 728,
+   "premises": [],
+   "evidence": [
+    "Lean/QFT/FiniteCausalObserverNet.lean",
+    "Lean/Geometry/CelestialNullCone.lean"
+   ],
+   "notes": "The receipts are finite; the statements are certified on finite observer nets."
+  },
+  {
+   "id": "OL-A4",
+   "target": "Four-dimensional event-manifold description",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 728,
+   "premises": [],
+   "evidence": [
+    "Lean/Geometry/EventFrameSoldering.lean",
+    "Lean/QFT/LocallyCovariantLimit.lean"
+   ],
+   "notes": "Soldering and locally covariant limit receipts exist; the composed manifold claim under the registered stable-causality row PR-16 is owed."
+  },
+  {
+   "id": "OL-B1",
+   "target": "Einstein field equations as the effective description",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 729,
+   "premises": [
+    "PR-08"
+   ],
+   "evidence": [
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+    "docs/GRAVITY_PREMISE_LADDER.md",
+    "evidence/einstein_convergence/manifest.json"
+   ],
+   "notes": "The composition is conditional on the refinement-uniform low-temperature control row PR-08; the restatement against the premise register is owed."
+  },
+  {
+   "id": "OL-B2",
+   "target": "Newtonian inverse-square limit",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 729,
+   "premises": [
+    "PR-18",
+    "PR-19"
+   ],
+   "evidence": [
+    "Lean/Geometry/InverseSquareShellLaw.lean"
+   ],
+   "notes": "The shell law is committed: under the declared radial readout and shell-flux normalization the strength falls as the inverse square, with the exponent supplied by the carrier dimension theorem; the join to the composed Einstein branch is open."
+  },
+  {
+   "id": "OL-B3",
+   "target": "Horizon entropy and temperature",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 729,
+   "premises": [],
+   "evidence": [
+    "code/geometry/runs/h3_kms_repaired_4k_status.json",
+    "cosmology/oph_black_hole_information_ledger.tex"
+   ],
+   "notes": "Thermality receipts are partial; the composition with the declared repair law PR-07 is owed."
+  },
+  {
+   "id": "OL-B4",
+   "target": "Gravitational-wave ringdown stance",
+   "rung": "predictive",
+   "status": "owed",
+   "lane_issue": 729,
+   "premises": [],
+   "evidence": [
+    "docs/FROZEN_PREDICTION_LADDER.md"
+   ],
+   "notes": "The frozen register records the historical ringdown line as void and the integer-k template as build-stage with no frozen numeric prediction; a qualifying frozen instrument is owed."
+  },
+  {
+   "id": "OL-B5",
+   "target": "Cosmological constant (shared with OL-H2)",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 729,
+   "premises": [
+    "PR-17"
+   ],
+   "evidence": [
+    "cosmology/oph_cosmological_vacuum_and_structure_formation.tex",
+    "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean",
+    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean"
+   ],
+   "notes": "The row is shared with OL-H2 and tracks its status; the global-capacity action is owed."
+  },
+  {
+   "id": "OL-C1",
+   "target": "Born probabilities and L\u00fcders conditioning",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 730,
+   "premises": [
+    "PR-02"
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/FiniteBuschGleason.lean",
+    "Lean/EventAlgebra/Lueders.lean"
+   ],
+   "notes": "The theorems hold on the registered algebra-state representation of public records."
+  },
+  {
+   "id": "OL-C2",
+   "target": "Schr\u00f6dinger dynamics as the unique continuous symmetry flow",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 730,
+   "premises": [
+    "PR-02"
+   ],
+   "evidence": [
+    "Lean/Dynamics/StoneConverse.lean"
+   ],
+   "notes": "The uniqueness statement is finite-dimensional and holds on the registered representation."
+  },
+  {
+   "id": "OL-C3",
+   "target": "Entanglement to the Tsirelson bound",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 730,
+   "premises": [
+    "PR-02"
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/Tsirelson.lean"
+   ],
+   "notes": "The bound is certified on the registered representation."
+  },
+  {
+   "id": "OL-C4",
+   "target": "No-signalling and locality",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 730,
+   "premises": [
+    "PR-02"
+   ],
+   "evidence": [
+    "Lean/Locality.lean",
+    "Lean/EventAlgebra/NoBroadcastingAdapter.lean"
+   ],
+   "notes": "The receipts are finite and hold on the registered representation."
+  },
+  {
+   "id": "OL-C5",
+   "target": "Phase completion and full operator tomography",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 730,
+   "premises": [
+    "PR-02",
+    "PR-04"
+   ],
+   "evidence": [
+    "Lean/QFT/SourcePhaseLiftBridge.lean",
+    "code/born_context_phase_lift/verify_source_phase_lift.py"
+   ],
+   "notes": "The completion holds under the registered phase-operation instrument row PR-04; a source-produced instrument is owed."
+  },
+  {
+   "id": "OL-C6",
+   "target": "Structural field theory: regional nets, covariance, time-slice",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 730,
+   "premises": [],
+   "evidence": [
+    "Lean/QFT/SourceRegionalNet.lean",
+    "Lean/QFT/RichFibreRegionalNet.lean"
+   ],
+   "notes": "Net receipts exist at a stated finite level; the composed field-theory claim is owed."
+  },
+  {
+   "id": "OL-D1",
+   "target": "Stationary and least action",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 731,
+   "premises": [
+    "PR-05",
+    "PR-06"
+   ],
+   "evidence": [
+    "Lean/Variational/StationarySaddleCoverage.lean",
+    "Lean/InformationProjection/PathGibbs.lean",
+    "Lean/InformationProjection/ReferenceNormalForm.lean"
+   ],
+   "notes": "The results hold under the registered counting-reference and Legendre-enrichment rows; the composition as one surface is owed."
+  },
+  {
+   "id": "OL-D2",
+   "target": "Euler-Lagrange and Hamilton bridge",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 731,
+   "premises": [
+    "PR-06"
+   ],
+   "evidence": [
+    "Lean/Variational/DiscreteEulerLagrange.lean",
+    "Lean/Variational/LegendreBridge.lean"
+   ],
+   "notes": "The bridge consumes the real Legendre enrichment row PR-06."
+  },
+  {
+   "id": "OL-D3",
+   "target": "Noether conservation",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 731,
+   "premises": [],
+   "evidence": [
+    "Lean/Variational/DiscreteNoether.lean"
+   ],
+   "notes": "The conservation witnesses are finite and discrete."
+  },
+  {
+   "id": "OL-E1",
+   "target": "The four laws of thermodynamics",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 732,
+   "premises": [
+    "PR-07"
+   ],
+   "evidence": [
+    "Lean/Thermodynamics/CapFirstLaw.lean",
+    "Lean/Thermodynamics/FirstLawIdentity.lean",
+    "Lean/Thermodynamics/FluctuationTheorems.lean"
+   ],
+   "notes": "The laws hold under the declared repair law PR-07; the composed single surface is owed."
+  },
+  {
+   "id": "OL-E2",
+   "target": "Exact fluctuation identities",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 732,
+   "premises": [
+    "PR-07"
+   ],
+   "evidence": [
+    "Lean/Thermodynamics/FluctuationTheorems.lean",
+    "code/thermodynamics/conditional_repair_certificate.py",
+    "code/thermodynamics/runtime/conditional_repair_receipt.json"
+   ],
+   "notes": "The identities are exact theorems over the reals under the declared repair law, with a rational-arithmetic replay certificate beside them."
+  },
+  {
+   "id": "OL-E3",
+   "target": "Landauer bound",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 732,
+   "premises": [
+    "PR-07"
+   ],
+   "evidence": [
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean"
+   ],
+   "notes": "The bound is certified in the finite conditional-repair setting under the declared repair law."
+  },
+  {
+   "id": "OL-E4",
+   "target": "Arrow of time from repair",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 732,
+   "premises": [
+    "PR-07"
+   ],
+   "evidence": [
+    "Lean/Thermodynamics/RepairCurrentOrientation.lean",
+    "Lean/ObserverPatchHolography/DirectedSeamRepair.lean"
+   ],
+   "notes": "The orientation holds under the declared repair law PR-07; the emergent rung opens if the repair law is promoted into the architecture."
+  },
+  {
+   "id": "OL-F1",
+   "target": "Maxwell-shaped field equations",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 733,
+   "premises": [],
+   "evidence": [],
+   "notes": "The composition under registered premises is owed by the electromagnetism lane."
+  },
+  {
+   "id": "OL-F2",
+   "target": "Massless transverse propagation",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 733,
+   "premises": [],
+   "evidence": [
+    "Lean/Screen/SeamCurrentFreePhotonLift.lean"
+   ],
+   "notes": "Rank-two transverse completion and zero-mode receipts exist; the composition is owed."
+  },
+  {
+   "id": "OL-F3",
+   "target": "Gauss law and Coulomb structure",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 733,
+   "premises": [],
+   "evidence": [
+    "Lean/Screen/DiscreteGauss.lean"
+   ],
+   "notes": "The discrete receipts are attained; the promotion to the composed claim is owed."
+  },
+  {
+   "id": "OL-F4",
+   "target": "Dispersion coefficients",
+   "rung": "predictive",
+   "status": "attained",
+   "lane_issue": 733,
+   "premises": [],
+   "evidence": [
+    "claims/frozen_prediction_register.json",
+    "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json",
+    "code/a5_fingerprint/runtime/seam_current_edge_prediction_receipt.json"
+   ],
+   "notes": "Three exact coefficients and the degree-six angular shape are frozen with kill bands; the physical bridge premises are declared in the freeze scope and their derivation is owed."
+  },
+  {
+   "id": "OL-G1",
+   "target": "Gauge Lie algebra u(1)+su(2)+su(3)",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 734,
+   "premises": [
+    "PR-11"
+   ],
+   "evidence": [
+    "docs/A2_HOLONOMY_GAUGE_FORCING.md",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "notes": "The forced statement fixes the algebra type and consumes the compact-Lie classification imports PR-11."
+  },
+  {
+   "id": "OL-G2",
+   "target": "Global gauge group form S(U(3)xU(2))/Z6",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 734,
+   "premises": [],
+   "evidence": [
+    "Lean/Screen/Z6Descent.lean",
+    "Lean/Screen/Z6Exact.lean"
+   ],
+   "notes": "The descent receipts hold under a loop-to-kernel premise whose register row is owed."
+  },
+  {
+   "id": "OL-G3",
+   "target": "One generation: fifteen states, hypercharges, anomaly cancellation",
+   "rung": "structural",
+   "status": "attained",
+   "lane_issue": 734,
+   "premises": [
+    "PR-12"
+   ],
+   "evidence": [
+    "Lean/Screen/ExteriorSelection.lean",
+    "Lean/Screen/QuantumMatterIntegration.lean",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "notes": "The statement consumes the matter candidate grammar row PR-12."
+  },
+  {
+   "id": "OL-G4",
+   "target": "Three families",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 734,
+   "premises": [],
+   "evidence": [
+    "Lean/Screen/A5FamilyBand.lean"
+   ],
+   "notes": "The band-selection premises sit outside the seed register; their registration and the composition are owed."
+  },
+  {
+   "id": "OL-G5",
+   "target": "Chirality structure",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 734,
+   "premises": [],
+   "evidence": [],
+   "notes": "The structure is stated with table provenance; a derivation receipt is owed."
+  },
+  {
+   "id": "OL-G8",
+   "target": "Proton-stability stance",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 734,
+   "premises": [],
+   "evidence": [
+    "Lean/Screen/BaryonDimensionSix.lean",
+    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json"
+   ],
+   "notes": "The dimension-six census receipt is attained; the stability stance is owed."
+  },
+  {
+   "id": "OL-G6",
+   "target": "Kinetic sector: Yang-Mills forms and zero hard masses",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 735,
+   "premises": [],
+   "evidence": [
+    "Lean/Screen/GaugeKineticInvariantForms.lean",
+    "Lean/Screen/KineticFormDichotomy.lean",
+    "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json"
+   ],
+   "notes": "The invariant forms are attained on branches; the assembled kinetic sector is owed."
+  },
+  {
+   "id": "OL-G7",
+   "target": "Yukawa/Higgs sector and electroweak-breaking stance",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 735,
+   "premises": [],
+   "evidence": [],
+   "notes": "The register row and the stance are owed."
+  },
+  {
+   "id": "OL-G9",
+   "target": "Assembled Standard Model Lagrangian with term-by-term correspondence table",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 735,
+   "premises": [],
+   "evidence": [],
+   "notes": "The table classifying every term as derived, registered, or absent is the lane's headline deliverable and is owed."
+  },
+  {
+   "id": "OL-H1",
+   "target": "Fine-structure constant via the P closure",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [
+    "PR-14",
+    "PR-17"
+   ],
+   "evidence": [
+    "code/P_derivation/fixed_point_certificate.py",
+    "code/P_derivation/runtime/p_global_uniqueness_extension_certificate_2026-07-17.json"
+   ],
+   "notes": "The interval-certified root is diagnostic; the conditional determination with the three bridge premises registered is owed."
+  },
+  {
+   "id": "OL-H2",
+   "target": "Cosmological constant via N",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [
+    "PR-17"
+   ],
+   "evidence": [
+    "cosmology/oph_cosmological_vacuum_and_structure_formation.tex",
+    "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean",
+    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean"
+   ],
+   "notes": "The two-correction arithmetic is conditional; the global-capacity action is owed."
+  },
+  {
+   "id": "OL-H3",
+   "target": "Charged-lepton masses",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [
+    "PR-13",
+    "PR-15"
+   ],
+   "evidence": [
+    "Lean/ObserverPatchHolography/KoideCirculant.lean",
+    "code/particles/leptons/charged_interval_decimal_certificate.py",
+    "docs/FROZEN_PREDICTION_LADDER.md"
+   ],
+   "notes": "The Koide theorem and certified intervals consume the balance and calibration rows; the premise-explicit promotion is owed."
+  },
+  {
+   "id": "OL-H4",
+   "target": "Quark masses and mixings",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [
+    "PR-15"
+   ],
+   "evidence": [
+    "code/particles/flavor/derive_quark_current_family_exact_pdg_theorem.py",
+    "docs/POSTDICTION_LEDGER.md"
+   ],
+   "notes": "The kappa-interval surface is conditional on its declared transport premises, and results on it are postdictions."
+  },
+  {
+   "id": "OL-H5",
+   "target": "W, Z, and Higgs sector",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [],
+   "evidence": [
+    "code/particles/calibration/wz_upstream_completion/outputs/certified_second_sheet_poles.json"
+   ],
+   "notes": "The pole-stack receipts are chart-local; the sector stance is owed."
+  },
+  {
+   "id": "OL-H6",
+   "target": "Hadron spectrum",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [
+    "PR-14"
+   ],
+   "evidence": [
+    "code/particles/hadron/derive_empirical_ward_projected_spectral_measure.py",
+    "docs/HADRON.md"
+   ],
+   "notes": "The Ward-projected lane is conditional and consumes the hadronic transport packet import PR-14."
+  },
+  {
+   "id": "OL-H7",
+   "target": "Neutrino stance",
+   "rung": "predictive",
+   "status": "owed",
+   "lane_issue": 736,
+   "premises": [],
+   "evidence": [
+    "docs/FROZEN_PREDICTION_LADDER.md"
+   ],
+   "notes": "The register row is pending freeze; comparison is forbidden until the stance and its decision rule are registered."
+  },
+  {
+   "id": "OL-H8",
+   "target": "Units and calibration: clock and energy anchors",
+   "rung": "structural",
+   "status": "partial",
+   "lane_issue": 736,
+   "premises": [
+    "PR-15"
+   ],
+   "evidence": [
+    "Lean/Time/ProperTimeCalibration.lean",
+    "Lean/Time/ClockReadout.lean"
+   ],
+   "notes": "Calibration enters as the flagged import row PR-15, shared with the thermodynamics lane; a derived clock sits in the discharge queue."
+  },
+  {
+   "id": "OL-I1",
+   "target": "Dispersion-comb exclusions",
+   "rung": "predictive",
+   "status": "attained",
+   "lane_issue": 738,
+   "premises": [],
+   "evidence": [
+    "docs/FROZEN_PREDICTION_LADDER.md",
+    "claims/frozen_prediction_register.json",
+    "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_decision_rule_v2.json"
+   ],
+   "notes": "The dated template class is excluded from eligible comparisons; every further comparison runs under the registered custody contracts."
+  },
+  {
+   "id": "OL-I2",
+   "target": "Ultra-high-energy and birefringence stances",
+   "rung": "predictive",
+   "status": "owed",
+   "lane_issue": 737,
+   "premises": [],
+   "evidence": [
+    "docs/FROZEN_PREDICTION_LADDER.md",
+    "physics-problems/high_energy_messenger_coefficients.md"
+   ],
+   "notes": "The candidates sit as resource-deferred register rows; any freeze runs under the custody rules of the standing lane."
+  },
+  {
+   "id": "OL-I3",
+   "target": "Dark-sector stance",
+   "rung": "predictive",
+   "status": "owed",
+   "lane_issue": 737,
+   "premises": [],
+   "evidence": [
+    "cosmology/oph_dark_matter_paper.tex"
+   ],
+   "notes": "Stance material exists as a paper; the composed stance and any custody registration are owed."
+  }
+ ]
+}

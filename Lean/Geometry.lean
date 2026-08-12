@@ -8,6 +8,7 @@ import Geometry.EventGermDisplacement
 import Geometry.CelestialSoldering
 import Geometry.EventFrameSoldering
 import Geometry.SpatialReadbackSoldering
+import Geometry.InverseSquareShellLaw
 
 /-!
 # OPH construction geometry umbrella
@@ -26,4 +27,7 @@ result does not construct or identify the atlas coordinate family. The
 contract does not construct its source event atlas, population, open charts,
 physical cone,
 causal reachability, refinement tower, rods, clocks, or physical spacetime.
+The inverse-square shell law carries the Newtonian-limit row: under the
+declared radial readout and shell-flux normalization the strength falls as
+the inverse square, with the exponent supplied by the carrier dimension.
 -/

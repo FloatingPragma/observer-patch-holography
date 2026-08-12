@@ -1750,6 +1750,7 @@
         "code/thermodynamics/test_conditional_repair_certificate.py",
         "code/thermodynamics/common_reference_obstruction/verify_common_reference_obstruction.py",
         "code/thermodynamics/common_reference_obstruction/test_common_reference_obstruction.py",
+        "Lean/Thermodynamics/FourLawAdequacySurface.lean",
         "code/b20_random_scan/preflight_random_scan.py",
         "code/b20_random_scan/runtime/b20_preflight_certificate.json",
         "code/b20_random_scan/validate_random_scan.py",
@@ -1925,7 +1926,32 @@
       ],
       "oph_specific_delta": "For a supplied positive Markov chain, the representation-level log-transition action is fixed up to the additive-constant and multiplier-rescale gauge, with bare-action multiplier uniqueness under nonconstancy. The machine-checked finite/real obstruction and receipt-gated transfer isolate the exact composition premise. The same-history theorem proves that the complete binary law admits distinct regular real enrichments and Hamiltonians. The counting/trivial repair identity conditionally realizes only the uniform transition kernel, while scale and initial-law controls prevent it from being promoted to a source-selected complete reference. At the declared empirical target the positive exponential parameter exists uniquely, but the target observable and level are not source-selected. The stationary maximum is a scoped mode/minimizer control, not a general saddle or stationary-phase no-go. B7 is gated by #731.",
       "novelty_type": "conditional_helpers_with_reference_kernel_and_mode_minimizer_controls__complete_source_reference_open",
+      "claim_id": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+      "statement": "On a finite history type, a supplied positive normalized exponential tilt with the displayed moment match obeys the finite information-projection Pythagorean and minimizer identities; supplied modes minimize the effective action, and normalized inverse-noise mass on every strict nonminimum tends to zero. Separately, real single-site minimality implies the scalar discrete Euler--Lagrange equation, differentiable invariance transports the scalar Noether momentum, and a finite chain carries a constant current under the stated premises. No finite real-path family contains every real single-site variation; composition with the real calculus requires the certified undercut receipt, which has an exact witness and failing control. For a strictly positive normalized initial law and strictly positive finite Markov kernel, the path law is an exponential tilt of the step-uniform path reference by its log-transition action, with the exact additive-constant and multiplier-rescale gauge. Multiplier one is the canonical bare-action representative and is unique for a nonconstant path action; a constant action leaves it invisible after normalization. The committed binary packet realizes this representation but the repair-count action does not. Its canonical bilinear real extension has no global velocity solver, while the family L_a=L_0+(a/2)y(y-1) agrees on every binary history and yields distinct strictly convex Legendre--Hamilton systems for positive a, so the finite law does not select an off-alphabet curvature. Independent target-scrambling characterizes the uniform transition kernel; ordinary simultaneous relabeling does not. Conditional resampling of a supplied trivial visible datum under a supplied counting reference also equals that uniform kernel, but this identity does not source-select either input, an initial path law, or the complete reference: positive rescalings give the same kernel and two distinct normalized initial laws give distinct path references with the same transition kernel. Two exact positive normalized tilts of the committed chain at distinct weights have different mean actions, establishing two-point multiplier sensitivity rather than nonidentifiability. The matching quadratic is strictly increasing on the positive exponential-parameter ray, so exactly one positive parameter matches the supplied empirical target. The constraint observable and level remain declared inputs; source selection of that target is open. Finally, a concave three-record example is stationary but not minimal, and a nonstationary variation has larger positive Gibbs weight at every positive multiplier. This is only a counterexample to identifying every stationary history with a positive-Gibbs mode or minimizer; it does not exclude constrained saddles, complex or signed stationary phase, source-selected real enrichment, or refinement limits. Gate #731 is live for a compositional source-derived history and complete reference, selection of the real enrichment and stationary-phase mechanism, and physical action, clock, amplitude, field, continuum, and observable-current attachments.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_conditional_finite_history_helpers_with_formal_bridge_obstruction_and_real_enrichment_nonidentifiability",
+      "reference_normal_form": "Among row-stochastic kernels on a finite nonempty alphabet, invariance under every independent relabeling of transition targets at fixed source, row-constant transition weight, and constant log-transition step action are each equivalent to the uniform kernel. Ordinary simultaneous source-target relabeling is insufficient. Conditional resampling of the supplied trivial datum under the supplied counting reference realizes the uniform transition kernel, but Axiom 3 does not select those inputs. Constant rescalings leave the kernel unchanged, and the transition kernel does not determine the initial law or complete path reference. This is a conditional realization and gauge normal form, not source selection.",
+      "real_enrichment_nonidentifiability": "For the committed two-state source chain, the canonical bilinear extension of the exact four-corner log-transition table is affine in velocity and has no global momentum solver. Every L_a=L_0+(a/2)y(y-1) agrees with the exact source action on every realized history at every length. For a>0 it is strictly convex with an explicit velocity solver and Legendre transform, while a=1 and a=2 give distinct Lagrangians and Hamiltonians and differ by 1/8 at the first off-alphabet midpoint. Thus the finite law does not select a real variation curvature or Hamiltonian enrichment.",
+      "assumptions": [
+        "finite_history_exponential_tilt_packet",
+        "declared_modal_history_or_minimum",
+        "real_local_action_variation_packet",
+        "undercut_receipt_for_finite_to_real_transfer",
+        "declared_reference_measure_now_characterized_as_relabeling_invariant_normal_form",
+        "source_selected_real_legendre_curvature_deferred",
+        "physical_history_action_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_information_projection",
+        "finite_Gibbs_concentration",
+        "discrete_Euler_Lagrange_calculus",
+        "discrete_Noether_calculus",
+        "discrete_Legendre_calculus"
+      ],
+      "oph_specific_delta": "For a supplied positive Markov chain, the representation-level log-transition action is fixed up to the additive-constant and multiplier-rescale gauge, with bare-action multiplier uniqueness under nonconstancy. The machine-checked finite/real obstruction and receipt-gated transfer isolate the exact composition premise. The same-history theorem proves that the complete binary law admits distinct regular real enrichments and Hamiltonians. The counting/trivial repair identity conditionally realizes only the uniform transition kernel, while scale and initial-law controls prevent it from being promoted to a source-selected complete reference. At the declared empirical target the positive exponential parameter exists uniquely, but the target observable and level are not source-selected. The stationary maximum is a scoped mode/minimizer control, not a general saddle or stationary-phase no-go. B7 is gated by #731.",
+      "novelty_type": "conditional_helpers_with_reference_kernel_and_mode_minimizer_controls__complete_source_reference_open",
       "evidence": [
+        "Lean/Variational/MechanicsAdequacySurface.lean",
         "paper/observers_are_all_you_need.tex",
         "Lean/InformationProjection/PathGibbs.lean",
         "Lean/InformationProjection/LogTransitionAction.lean",
@@ -3269,6 +3295,36 @@
       "gates": [
         730
       ]
+    },
+    {
+          "claim_id": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
+          "statement": "On the committed three-dimensional completion carrier the ball volume scales as radius to the carrier finrank by the generic finite-dimensional volume theorem, with no three-dimensional evaluation in the proof; the shell content at positive radius is 4 pi r^2, the exponent equal to the carrier dimension minus one; and any declared spherically symmetric strength profile whose product with the shell content is a constant charge equals charge/(4 pi r^2) exactly, with the scale-free form strength times squared radius shell-independent. The radial readout and shell-flux normalization are declared premise-register rows PR-18 and PR-19, and the carrier dimension is the committed completion theorem, so the inverse-square exponent is derived rather than assumed. The module touches neither Einstein-branch stress nor geometry objects; the join to the composed Einstein branch is open on the screen-carrier-to-physical-position attachment; no continuum field, potential, or laboratory constant is claimed.",
+          "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+          "tier": "finite_theorem",
+          "assumptions": [
+                "declared_radial_readout",
+                "declared_shell_flux_normalization",
+                "committed_completion_carrier"
+          ],
+          "imported_results": [
+                "mathlib_euclidean_ball_volume",
+                "finite_dimensional_linear_algebra"
+          ],
+          "oph_specific_delta": "The inverse-square exponent is carrier-dimension-minus-one with the dimension supplied by the committed completion theorem; the two flux premises are register rows whose discharge is queued, so the Newtonian-limit row carries its first committed receipt without a hidden premise.",
+          "novelty_type": "dimension_forced_inverse_square_shell_law",
+          "evidence": [
+                "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+                "Lean/Geometry/InverseSquareShellLaw.lean",
+                "Lean/Screen/PrimitivePortFrameQuotient.lean",
+                "docs/PREMISE_REGISTER_V3.md"
+          ],
+          "falsifier": "The claim fails if the ball-volume scaling exponent differs from the carrier finrank, if the shell content at positive radius differs from 4 pi r^2, or if any RadialFluxData instance violates the inverse-square or scale-free identities.",
+          "scope_if_false": "The Newtonian-limit row of the gravitation lane loses its receipt; the completion carrier and the Einstein composition are assessed by their own claims.",
+          "status": "finite_shell_law_attained__einstein_join_and_premise_discharge_open",
+          "claim_class": "conditional_implication",
+          "gates": [
+                729
+          ]
     }
   ]
 }

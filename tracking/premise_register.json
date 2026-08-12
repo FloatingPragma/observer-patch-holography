@@ -1,0 +1,318 @@
+{
+ "schema": "oph.premise_register.v1",
+ "issue": 727,
+ "rows": [
+  {
+   "id": "PR-01",
+   "name": "confluent terminating repair contract",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "statement": "Declared repair moves close every covered local mismatch, overlapping moves complete to a common local diamond on the quotient, and every accepted nontrivial aggregate transaction strictly lowers one declared well-founded exact measure, so repair reduction terminates and normal endpoints from sources with equal protected observation agree exactly when the observation identifies consistent states. The contract is declared through the rows repair_completeness, local_diamond, and strict_well_founded_transactional_descent in claims/assumption_dictionary.md; the endpoint-uniqueness characterization is machine-checked in Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean.",
+   "consuming_lanes": [
+    728,
+    729,
+    730,
+    732
+   ],
+   "evidence": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
+    "Lean/ObservableNormalForms/ObservableNormalForms/Exact.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Promotion is a recorded basis amendment of the shape specified in docs/CANONICAL_REPAIR_LAW_RFC.md and requires a basis-wide dependency and countermodel audit."
+  },
+  {
+   "id": "PR-02",
+   "name": "algebra-state representation of public records",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "statement": "Public records are represented as the span of the mutually orthogonal projectors of a projective partition inside a finite complex matrix star algebra, with states read through the trace pairing and record events using that declared algebraic readout surface. The representation is packaged in Lean/EventAlgebra/PublicRecordAlgebra.lean and declared as declared_record_surface in claims/assumption_dictionary.md.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/PublicRecordAlgebra.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Promotion would state the algebra-state readout surface as an architectural clause; a source-produced representation theorem in the discharge queue would retire the row instead."
+  },
+  {
+   "id": "PR-03",
+   "name": "operational effect additivity",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "A public frame valuation is additive on every required coexistent effect sum, v(A + B) = v(A) + v(B) whenever A + B remains an effect, across measurement contexts. With this additivity the finite Busch-Gleason theorem in Lean/EventAlgebra/FiniteBuschGleason.lean forces the Born trace form; the same module carries the countermodel in which positivity, per-context normalisation, and continuity hold while cross-context additivity fails, and the row source_produced_public_effect_algebra_deferred in claims/assumption_dictionary.md records that the retained finite unsharp web admits a transverse cubic non-Born valuation.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/FiniteBuschGleason.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source-produced complex-tomographically-complete effect and instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 composes with the row registered and #739 owns the discharge."
+  },
+  {
+   "id": "PR-04",
+   "name": "phase-operation instrument",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The phase operation completing the diagonal record algebra to full operator tomography is a declared instrument: the exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ) generates the missing Pauli-Y projector and is tomographically complete on fixed-trace two-by-two matrices, while the producer supplies no phase operation, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. The lift and its boundary are declared in code/born_context_phase_lift/README.md and in the row source_phase_sensitive_instrument_deferred of claims/assumption_dictionary.md.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "code/born_context_phase_lift/README.md",
+    "code/born_context_phase_lift/verify_source_phase_lift.py",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source-produced phase-sensitive instrument with rotated and phase outcome receipts and operational effect composition; the algebraic lift alone is the declared adapter."
+  },
+  {
+   "id": "PR-05",
+   "name": "counting path reference",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "The path-space reference is a supplied initial law times the uniform-step counting weight; among row-stochastic kernels this normal form is characterized by invariance under independent relabeling of transition targets at fixed source, by row-constant weight, or by constant log-transition step action, and Axiom 3 selects neither the counting reference nor the trivial datum whose conditional resampling realizes it. The reference is formalized in Lean/InformationProjection/LogTransitionAction.lean; Lean/InformationProjection/ReferenceNormalForm.lean proves the characterization, and Lean/InformationProjection/SourceReferenceSelection.lean proves the counting-reference realization and the non-selection boundary.",
+   "consuming_lanes": [
+    731
+   ],
+   "evidence": [
+    "Lean/InformationProjection/ReferenceNormalForm.lean",
+    "Lean/InformationProjection/LogTransitionAction.lean",
+    "Lean/InformationProjection/SourceReferenceSelection.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source rule selecting the counting reference and the trivial datum; the relabeling-invariant normal form is characterized, and the selection belongs to the discharge queue."
+  },
+  {
+   "id": "PR-06",
+   "name": "real Legendre enrichment",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "statement": "The finite source law fixes its four-corner log-transition action and a bilinear real extension that is affine in the velocity slot; adding (a/2)*y*(y - 1) for any a > 0 changes no realized source history and yields strictly convex Legendre-Hamilton systems that differ between values of a. Selecting one real velocity curvature is therefore a representation choice beyond the realized-history law, proved as a sharp finite no-go in Lean/Variational/RealizedHistoryLegendreNoGo.lean with the bridge itself in Lean/Variational/LegendreBridge.lean.",
+   "consuming_lanes": [
+    731
+   ],
+   "evidence": [
+    "Lean/Variational/LegendreBridge.lean",
+    "Lean/Variational/RealizedHistoryLegendreNoGo.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet velocity curvature, which the realized-history law provably underdetermines."
+  },
+  {
+   "id": "PR-07",
+   "name": "declared repair law: common faithful reference and repaired-visible fibre",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "statement": "One common faithful reference serves both Axiom 3 instantiations, and the transition feasible set is the fibre of the complete repaired visible datum of the active collar; on these two declared inputs the state projection selects the Gibbs exponential family and the transition projection selects weighted conditional resampling from the same reference, which yields the exact four-law package. The pair is declared through the row complete_repaired_visible_datum_fibre in claims/assumption_dictionary.md and consumed by Lean/Thermodynamics/FiniteConditionalRepair.lean; the B12 obstruction (code/thermodynamics/common_reference_obstruction/) and the B20 random-scan preflight (code/b20_random_scan/) prove that the pinned source run and its certified random-scan grammar do not supply the pair.",
+   "consuming_lanes": [
+    729,
+    732
+   ],
+   "evidence": [
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+    "Lean/Thermodynamics/CommonReferenceObstruction.lean",
+    "code/thermodynamics/common_reference_obstruction/",
+    "code/b20_random_scan/",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Promotion is the recorded axiomatization candidate of lane #732 with the B12/B20 bounded no-gos as its justification record; a simulator export realizing the law through the recorded-decision process would open the emergent rung."
+  },
+  {
+   "id": "PR-08",
+   "name": "refinement-uniform low-temperature control",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "A declared refinement family carries minimum-preserving maps, one uniform positive energy-gap lower bound, and one cardinality bound, so the off-minimum Gibbs mass is controlled by cardBound * exp(-beta * gapBound) across every member simultaneously. The control and its negative control (a family with shrinking gaps violates the uniform conclusion) are proved in Lean/Thermodynamics/LowTemperatureControl.lean; the four-law falsifier row in claims/claim_registry.yaml names the refinement-uniform control as the receipt behind the continuum third-law reading.",
+   "consuming_lanes": [
+    732
+   ],
+   "evidence": [
+    "Lean/Thermodynamics/LowTemperatureControl.lean",
+    "claims/claim_registry.yaml"
+   ],
+   "notes": "Removal needs a source-produced refinement family whose uniform gap lower bound and cardinality bound are theorems rather than declared data."
+  },
+  {
+   "id": "PR-09",
+   "name": "equal-face-weight and barycentric one-third port-dual rules",
+   "type": "selection_rule",
+   "disposition": "axiomatize",
+   "statement": "The port-dual measure places equal normalized weights on the twenty faces of the oriented carrier, and each face's weight is shared barycentrically, one third to each incident port, giving the normalized port-dual weight 1/12. The rules are declared in code/b14_jacobi/port_dual_metric_selector.certificate.json (declared_rules.face_weighting and declared_rules.vertex_share), with the measure pinned by the committed theorem in Lean/Screen/PrimitivePortDualMeasure.lean.",
+   "consuming_lanes": [
+    734,
+    735
+   ],
+   "evidence": [
+    "code/b14_jacobi/port_dual_metric_selector.certificate.json",
+    "code/b14_jacobi/port_dual_metric_selector.py",
+    "Lean/Screen/PrimitivePortDualMeasure.lean"
+   ],
+   "notes": "Promotion would fix the face weighting and barycentric share as an architectural measure clause; a source derivation of the port-dual measure would retire the row through the discharge queue."
+  },
+  {
+   "id": "PR-10",
+   "name": "measure-to-metric and nearest-point repair rules",
+   "type": "selection_rule",
+   "disposition": "axiomatize",
+   "statement": "The normalized port-dual measure is read as the diagonal carrier inner product it induces on port functions, and the discriminator verdict is the nearest classified compact family in the functorially induced bracket-space metric. Both rules are declared in code/b14_jacobi/port_dual_metric_selector.certificate.json (declared_rules.measure_to_metric and declared_rules.repair_rule) and in the row carrier_induced_invariant_metric_class_and_nearest_point_rule of claims/assumption_dictionary.md; neither is source-derived.",
+   "consuming_lanes": [
+    734,
+    735
+   ],
+   "evidence": [
+    "code/b14_jacobi/port_dual_metric_selector.certificate.json",
+    "Lean/Screen/PortDualMetricSelection.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Promotion would fix the induced-metric reading and the nearest-point verdict as architectural repair semantics; a source derivation of either rule retires the row through the discharge queue."
+  },
+  {
+   "id": "PR-11",
+   "name": "compact-Lie classification inputs",
+   "type": "external_mathematics",
+   "disposition": "import",
+   "statement": "Three Lie-theory facts enter the gauge classification as declared classical inputs: the direct-sum splitting L = Z(L) + [L, L] of a compact Lie algebra into invariant submodules, surjectivity of the exponential map on compact connected groups, and the classification of compact simple Lie algebras through its dimension list. The cited modules declare the remaining Lie-theoretic bridge steps of the classification (centre rationality through the torus/cocharacter step, the su(2)^4 fixed-space exclusion, and the reductive-decomposition boundary bundle) as classical inputs subsumed under this row. They are marked as inputs in Lean/Screen/A5OPH.lean and Lean/Screen/TrichotomyCases.lean and cited by paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex.",
+   "consuming_lanes": [
+    734,
+    735
+   ],
+   "evidence": [
+    "Lean/Screen/A5OPH.lean",
+    "Lean/Screen/TrichotomyCases.lean",
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+   ],
+   "notes": "The facts are classical compact-Lie theory consumed as imports; the row's only movement is machine-checked replacements for the paper citations, and no derivation obligation attaches."
+  },
+  {
+   "id": "PR-12",
+   "name": "matter candidate grammar",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "A matter candidate is a pair (S, M): S a stratum of the classified compact locus of the fourteen-parameter equivariant Jacobi variety on the twelve-port carrier, and M a nonempty Z/2-graded finite-dimensional complex module of the complexified semisimple bracket at S with zero abelian charges and total dimension at most twelve, counted up to graded isomorphism and the global parity flip. The grammar, budget, observables, and decision rule are frozen before any comparison in code/b15_matter_freeze/matter_class_freeze_v1.json; the exterior selection boundary is recorded as exterior_Higgs_matter_selection in claims/assumption_dictionary.md.",
+   "consuming_lanes": [
+    734,
+    735
+   ],
+   "evidence": [
+    "code/b15_matter_freeze/matter_class_freeze_v1.json",
+    "code/b15_matter_freeze/matter_class_freeze_v1.md",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source-selection theorem that picks the physical matter module inside the frozen candidate class; grammar changes require a fresh freeze version before any evaluation."
+  },
+  {
+   "id": "PR-13",
+   "name": "Koide balance premise",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "For a positive-chamber face circulant with square-root masses sqrt(m_k) = sqrt(s)*(a + 2*rho*cos(delta + 2*pi*k/3)), the balance premise rho/a = 1/sqrt(2) makes the signed Koide quotient equal 2/3 exactly. The circulant identity is machine-checked in Lean/ObserverPatchHolography/KoideCirculant.lean, and code/particles/leptons/koide_balance_comparison_certificate.py records the declared ancestry: the balance condition was abstracted from the measured charged triple, and no source-only derivation of the premise exists in the corpus.",
+   "consuming_lanes": [
+    735,
+    736
+   ],
+   "evidence": [
+    "Lean/ObserverPatchHolography/KoideCirculant.lean",
+    "code/particles/leptons/koide_balance_comparison_certificate.py",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "Removal needs a source-only derivation of the balanced modulus rho/a = 1/sqrt(2); every Koide row is conditional with measured-target ancestry on the premise class."
+  },
+  {
+   "id": "PR-14",
+   "name": "hadronic transport packet",
+   "type": "empirical_import",
+   "disposition": "import",
+   "statement": "The hadronic vacuum-polarization and spectral input is a pinned empirical payload built from the e+e- hadronic compilation registered in code/particles/hadron/empirical_ee_hadrons_sources.yaml (KNT19, arXiv:1911.00367, per docs/HADRON.md), consumed by the Ward-projected hadron lane and the alpha(m_Z) anchor transport as a flagged import. The registry carries a nonperturbative-QCD barrier policy: the payload is compare and transport data and is never promoted to a source-only theorem.",
+   "consuming_lanes": [
+    736
+   ],
+   "evidence": [
+    "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
+    "docs/HADRON.md",
+    "code/particles/alpha_hvp_audit/"
+   ],
+   "notes": "A source-side hadronic computation would replace the pinned payload; the packet is permanent as compare and transport data and is flagged wherever consumed."
+  },
+  {
+   "id": "PR-15",
+   "name": "clock and energy calibration anchors",
+   "type": "empirical_import",
+   "disposition": "import",
+   "statement": "Internal modular charge, energy gaps, and repair-step order carry no laboratory units; attaching them to physical clocks and energy scales uses declared measured anchors, with conversion to SI units a separate calibration statement (row independent_physical_scale_receipt in claims/assumption_dictionary.md, with the typed transport geometry row recording that types alone do not calibrate laboratory units). The four-law claim in claims/claim_registry.yaml records physical energy and clock calibration as named receipts owned jointly by the thermodynamics and constants lanes.",
+   "consuming_lanes": [
+    732,
+    735,
+    736
+   ],
+   "evidence": [
+    "claims/assumption_dictionary.md",
+    "claims/claim_registry.yaml"
+   ],
+   "notes": "Unit attachment is calibration against measured standards, so the row stays an import; lanes #732 and #736 own the conversion chain that consumes it."
+  },
+  {
+   "id": "PR-16",
+   "name": "stable causality and open-image conditions",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "Stable causality of the constructed event region and the record-Cauchy global-hyperbolicity clause are named global assumptions, and the rank-four local charts of the event-manifold theorem carry an open-image receipt; no global causality claim is derived. Both are declared as record_cauchy_and_stable_causality and event_manifold_receipts_E1_E6 in claims/assumption_dictionary.md, with the synthetic receipt run in code/geometry/event_manifold_reconstruction.py.",
+   "consuming_lanes": [
+    728,
+    729
+   ],
+   "evidence": [
+    "claims/assumption_dictionary.md",
+    "claims/claim_registry.yaml",
+    "code/geometry/event_manifold_reconstruction.py"
+   ],
+   "notes": "Removal needs causal-structure and open-image theorems on the constructed event region in place of the named global assumptions; the spacetime and gravitation lanes own that composition work."
+  },
+  {
+   "id": "PR-17",
+   "name": "numerical inputs P and N",
+   "type": "numerical_input",
+   "disposition": "import",
+   "statement": "P and N are the two declared numerical inputs of the program; every other number entering a composition is derived, external mathematics, or a flagged empirical import. The screen-grain proposal P = phi + sqrt(pi)/A_T(P) has an interval-certified fixed point (docs/AXIOM_REFERENCE.md, certified under code/P_derivation/), and the direct capacity proposal N = log M_0(U_N), declared as declared_capacity_map in claims/assumption_dictionary.md, is not evaluable on the incomplete source antecedent.",
+   "consuming_lanes": [
+    729,
+    736
+   ],
+   "evidence": [
+    "docs/AXIOM_REFERENCE.md",
+    "code/P_derivation/",
+    "claims/assumption_dictionary.md"
+   ],
+   "notes": "The two numbers stay the only numerical inputs under hard rule 2; lane #736 restates the P and N routes as conditional determinations with fully registered ancestry."
+  },
+  {
+   "id": "PR-18",
+   "name": "spherically symmetric radial readout",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "A source distribution on the committed three-dimensional completion carrier is read through one radial strength profile: the flux through a shell depends on the shell radius alone. The premise enters as the strength field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean and is a symmetry declaration; no source theorem produces it.",
+   "consuming_lanes": [
+    729
+   ],
+   "evidence": [
+    "Lean/Geometry/InverseSquareShellLaw.lean"
+   ],
+   "notes": "Removal requires a source-derived isotropy statement for repair readback on the completion carrier."
+  },
+  {
+   "id": "PR-19",
+   "name": "shell-flux normalization",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The radial strength times the shell content (the derivative of the ball volume) is the constant source charge on every positive shell: a Gauss-shaped conservation declaration entering as the normalized field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean. Under it the inverse-square law is forced with the exponent supplied by the carrier dimension; no source theorem produces the normalization itself.",
+   "consuming_lanes": [
+    729
+   ],
+   "evidence": [
+    "Lean/Geometry/InverseSquareShellLaw.lean"
+   ],
+   "notes": "Removal requires a source-derived flux-conservation statement, for which the discrete Gauss receipts on the fixed carrier are the committed precursor."
+  }
+ ]
+}

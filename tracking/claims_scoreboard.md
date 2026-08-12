@@ -30,7 +30,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2018`. 93 claims, 10 distinct live gates across 39 gated claims.
+Release: `r2018`. 94 claims, 10 distinct live gates across 40 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -38,7 +38,7 @@ Release: `r2018`. 93 claims, 10 distinct live gates across 39 gated claims.
 | `empirical_implementation` | 3 |
 | `emitted_artifact` | 5 |
 | `branch_entry` | 1 |
-| `conditional_implication` | 74 |
+| `conditional_implication` | 75 |
 | `declared_structure` | 10 |
 
 | Claim | Class | Status | Live gates |
@@ -136,13 +136,14 @@ Release: `r2018`. 93 claims, 10 distinct live gates across 39 gated claims.
 | `OPH-FINITE-HOLONOMY-CHARACTER-PHASE` | `conditional_implication` | `bounded_finite_holonomy_and_character_phase_packet_attained__physical_attachment_open` | none |
 | `OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING` | `conditional_implication` | `bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open` | none |
 | `OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX` | `conditional_implication` | `partial_structural_status_matrix__bijective_sector_surrogate_and_finite_KMS_core_attained__full_E4_open` | [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730) |
+| `OPH-GEOMETRY-INVERSE-SQUARE-SHELL` | `conditional_implication` | `finite_shell_law_attained__einstein_join_and_premise_discharge_open` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729) |
 
 ## Live gates
 
 | Issue | Title | Gated claims |
 |---|---|---|
 | [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728) | [V3-L1] Spacetime adequacy: dimensionality, signature, and Lorentz frames | `OPH-UNIFIED-TYPED-SPINE`, `OPH-CONS-D1`, `OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION`, `OPH-FINITE-LOCALITY-NOSIGNALLING`, `OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER`, `OPH-FINITE-CAUSAL-OBSERVER-NET` |
-| [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729) | [V3-L2] Gravitation: Einstein composition, Newtonian limit, and horizon thermality | `OPH-UNIFIED-TYPED-SPINE`, `OPH-GR-E2E-BRANCH-ENTRY`, `OPH-GR-D6-HORIZON-RECORD`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM`, `OPH-FINITE-CONSERVATION-WARD-PRECURSOR` |
+| [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729) | [V3-L2] Gravitation: Einstein composition, Newtonian limit, and horizon thermality | `OPH-UNIFIED-TYPED-SPINE`, `OPH-GR-E2E-BRANCH-ENTRY`, `OPH-GR-D6-HORIZON-RECORD`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM`, `OPH-FINITE-CONSERVATION-WARD-PRECURSOR`, `OPH-GEOMETRY-INVERSE-SQUARE-SHELL` |
 | [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730) | [V3-L3] Quantum adequacy: Born statistics, dynamics, and structural field theory | `OPH-UNIFIED-TYPED-SPINE`, `OPH-SM-Q1-LOCAL-G6`, `OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION`, `OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS`, `OPH-SM-Q3-BV-RESTORATION`, `OPH-SM-Q4-OS-OBSERVABLE-SECTOR`, `OPH-SM-Q4-RESONANCE-CONTINUATION`, `OPH-FINITE-QUANTUM-LIMITATION-SUITE`, `OPH-GAUGE-D7-D9`, `OPH-SCREEN-A5-SM-RECOGNITION`, `OPH-SM-ROUTE-IDENTIFICATION`, `OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX` |
 | [#731](https://github.com/FloatingPragma/observer-patch-holography/issues/731) | [V3-L4] Mechanics: least action and the Lagrangian/Hamiltonian bridge | `OPH-FINITE-HISTORY-VARIATIONAL-HELPERS` |
 | [#732](https://github.com/FloatingPragma/observer-patch-holography/issues/732) | [V3-L5] Thermodynamics under the declared repair law and physical calibration | `OPH-THERMO-FOUR-LAW-PACKAGE`, `OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION`, `OPH-SCREEN-24-CLOCK-DETERMINANT` |
