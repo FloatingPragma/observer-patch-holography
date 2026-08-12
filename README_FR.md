@@ -108,9 +108,11 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   aucun paramètre ajustable. La relation de Koide pour les leptons chargés
   tient exactement sous une prémisse d’équilibre déclarée, l’arithmétique
   d’intervalles certifie la comparaison de la masse du tau, et un mécanisme
-  de capacité fixe donne le signe de l’avance temporelle de de Sitter. Les
-  constantes de la nature entrent comme des problèmes de point fixe à
-  résoudre.
+  de capacité fixe donne le signe de l’avance temporelle de de Sitter. La résolution de la
+  fermeture déclarée du pixel rend une valeur qui frôle la constante de
+  structure fine mesurée ; cette concordance a un statut diagnostique tant
+  que son rattachement physique reste ouvert. Les constantes de la nature
+  entrent comme des problèmes de point fixe à résoudre.
 - **Vérifié machine et falsifiable.** Des milliers de théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
@@ -263,7 +265,7 @@ N_{\rm Pois}=N_0e^{-P/24}=3{,}3000722\times10^{122},
 $$
 
 soit environ $0{,}63$ et $0{,}39$ pour cent sous la valeur de comparaison
-$3{,}3129271\times10^{122}$ du modèle $\Lambda\mathrm{CDM}$ de base de Planck. La
+$3{,}3129271\times10^{122}$ du modèle ΛCDM de base de Planck. La
 théorie ne tranche pas entre les deux corrections, et les deux nombres
 ont été calculés après coup : aucun n’est une prédiction. Le
 [registre des affirmations](tracking/claims_scoreboard.md) indique les

@@ -91,8 +91,11 @@ derives the rest as theorems. From that one architecture:
 - **Constants as fixed points.** The core has zero adjustable parameters.
   Koide's charged-lepton relation holds exactly under a stated balance
   premise, interval arithmetic certifies the tau-mass comparison, and a
-  fixed-capacity mechanism gives the de Sitter time-advance sign. The
-  constants of nature enter as fixed-point problems to be solved.
+  fixed-capacity mechanism gives the de Sitter time-advance sign. Solving the
+  declared pixel-closure map returns a near-hit of the measured
+  fine-structure constant; the match carries diagnostic status while its
+  physical attachment is open. The constants of nature enter as fixed-point
+  problems to be solved.
 - **Machine-checked and falsifiable.** Thousands of Lean theorems with no
   admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
@@ -235,7 +238,7 @@ N_{\rm pres}=N_0\left(1-\frac{P}{24}\right)=3.2920979\times10^{122},
 N_{\rm Pois}=N_0e^{-P/24}=3.3000722\times10^{122},
 $$
 
-about $0.63$ and $0.39$ percent below the Planck base-$\Lambda\mathrm{CDM}$ comparison
+about $0.63$ and $0.39$ percent below the Planck base-ΛCDM comparison
 value $3.3129271\times10^{122}$. The theory does not select between the two
 corrections, and both numbers were computed after the comparison value was
 known, so neither is a prediction. The
