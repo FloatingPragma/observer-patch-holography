@@ -6,14 +6,14 @@
    "id": "OL-A1",
    "target": "Three space dimensions and one time direction",
    "rung": "emergent",
-   "status": "partial",
+   "status": "owed",
    "lane_issue": 728,
    "premises": [],
    "evidence": [
     "evidence/einstein_convergence/README.md",
     "evidence/einstein_convergence/manifest.json"
    ],
-   "notes": "The (1,3) event-form measurement holds on the retained three-rung support-adjusted path; the replication instrument is owed, and its scouted specification records that the threshold verdict rides on a near-null eigenvalue whose robust reading is (1,2) with one degenerate direction."
+   "notes": "The retained three-rung (1,3) measurement stands as a recorded artifact, and the preregistered fresh-seed replication returned FAILED: the 65536-carrier rung reproduced (1,3) on five of five replicates at both thresholds, the 16384-carrier rung was seed-fragile (two of five), the margin-ratio trend missed its declared band on all five, and the ancestry-permutation null reproduced the verdict in fourteen of fifteen cells, so the estimator does not currently attribute the signature to ancestry structure. The emergent rung is demoted per the frozen rule; the instrument record is INS-01 on the emergent-instrument register."
   },
   {
    "id": "OL-A2",
@@ -62,14 +62,21 @@
    "status": "partial",
    "lane_issue": 729,
    "premises": [
-    "PR-08"
+    "PR-08",
+    "PR-23",
+    "PR-24",
+    "PR-25",
+    "PR-26",
+    "PR-27",
+    "PR-28"
    ],
    "evidence": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "docs/GRAVITY_PREMISE_LADDER.md",
     "evidence/einstein_convergence/manifest.json"
    ],
-   "notes": "The composition is conditional on the refinement-uniform low-temperature control row PR-08; the restatement against the premise register is owed."
+   "notes": "The composed Einstein conclusion is re-exported through one register surface whose fields name every physical premise; the continuum limit and physical identification maps stay declared rows."
   },
   {
    "id": "OL-B2",
@@ -92,12 +99,17 @@
    "rung": "structural",
    "status": "partial",
    "lane_issue": 729,
-   "premises": [],
+   "premises": [
+    "PR-07",
+    "PR-15",
+    "PR-42"
+   ],
    "evidence": [
+    "Lean/Thermodynamics/HorizonThermalitySurface.lean",
     "code/geometry/runs/h3_kms_repaired_4k_status.json",
     "cosmology/oph_black_hole_information_ledger.tex"
    ],
-   "notes": "Thermality receipts are partial; the composition with the declared repair law PR-07 is owed."
+   "notes": "The cap Clausius inequality and the capacity identities compose with the declared repair law as the horizon-thermality-shaped surface; physical temperature consumes the calibration row and the horizon dictionary stays declared."
   },
   {
    "id": "OL-B4",
@@ -138,7 +150,8 @@
    ],
    "evidence": [
     "Lean/EventAlgebra/FiniteBuschGleason.lean",
-    "Lean/EventAlgebra/Lueders.lean"
+    "Lean/EventAlgebra/Lueders.lean",
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean"
    ],
    "notes": "The theorems hold on the registered algebra-state representation of public records."
   },
@@ -152,7 +165,8 @@
     "PR-02"
    ],
    "evidence": [
-    "Lean/Dynamics/StoneConverse.lean"
+    "Lean/Dynamics/StoneConverse.lean",
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean"
    ],
    "notes": "The uniqueness statement is finite-dimensional and holds on the registered representation."
   },
@@ -166,6 +180,7 @@
     "PR-02"
    ],
    "evidence": [
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/EventAlgebra/Tsirelson.lean"
    ],
    "notes": "The bound is certified on the registered representation."
@@ -196,6 +211,7 @@
     "PR-04"
    ],
    "evidence": [
+    "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/QFT/SourcePhaseLiftBridge.lean",
     "code/born_context_phase_lift/verify_source_phase_lift.py"
    ],
@@ -205,14 +221,19 @@
    "id": "OL-C6",
    "target": "Structural field theory: regional nets, covariance, time-slice",
    "rung": "structural",
-   "status": "owed",
+   "status": "partial",
    "lane_issue": 730,
-   "premises": [],
-   "evidence": [
-    "Lean/QFT/SourceRegionalNet.lean",
-    "Lean/QFT/RichFibreRegionalNet.lean"
+   "premises": [
+    "PR-32",
+    "PR-33",
+    "PR-34"
    ],
-   "notes": "Net receipts exist at a stated finite level; the composed field-theory claim is owed."
+   "evidence": [
+    "Lean/QFT/RichFibreRegionalNet.lean",
+    "Lean/QFT/SourceRegionalNet.lean",
+    "Lean/QFT/StructuralNetAdequacySurface.lean"
+   ],
+   "notes": "The regional net, diamond, constant-tower transport, counted correlation, and erasure receipts compose as one surface under the declared carrier, region-map, and slot-split rows; the time-slice property and local covariance beyond constant-tower transport are not attained."
   },
   {
    "id": "OL-D1",
@@ -225,9 +246,10 @@
     "PR-06"
    ],
    "evidence": [
-    "Lean/Variational/StationarySaddleCoverage.lean",
     "Lean/InformationProjection/PathGibbs.lean",
-    "Lean/InformationProjection/ReferenceNormalForm.lean"
+    "Lean/InformationProjection/ReferenceNormalForm.lean",
+    "Lean/Variational/MechanicsAdequacySurface.lean",
+    "Lean/Variational/StationarySaddleCoverage.lean"
    ],
    "notes": "The results hold under the registered counting-reference and Legendre-enrichment rows; the composition as one surface is owed."
   },
@@ -270,7 +292,8 @@
    "evidence": [
     "Lean/Thermodynamics/CapFirstLaw.lean",
     "Lean/Thermodynamics/FirstLawIdentity.lean",
-    "Lean/Thermodynamics/FluctuationTheorems.lean"
+    "Lean/Thermodynamics/FluctuationTheorems.lean",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
    ],
    "notes": "The laws hold under the declared repair law PR-07; the composed single surface is owed."
   },
@@ -323,11 +346,17 @@
    "id": "OL-F1",
    "target": "Maxwell-shaped field equations",
    "rung": "structural",
-   "status": "owed",
+   "status": "partial",
    "lane_issue": 733,
-   "premises": [],
-   "evidence": [],
-   "notes": "The composition under registered premises is owed by the electromagnetism lane."
+   "premises": [
+    "PR-20",
+    "PR-21",
+    "PR-22"
+   ],
+   "evidence": [
+    "Lean/Screen/LightSignalAdequacySurface.lean"
+   ],
+   "notes": "The attained content is the conditional free-vector second-order wave law with the identified frequency under the declared seam rows; the Maxwell-shaped remainder (source-produced curl pairing, position-space assembly with the gauge quotient, source coupling, covariance, continuum control) is open."
   },
   {
    "id": "OL-F2",
@@ -335,8 +364,13 @@
    "rung": "structural",
    "status": "partial",
    "lane_issue": 733,
-   "premises": [],
+   "premises": [
+    "PR-20",
+    "PR-21",
+    "PR-22"
+   ],
    "evidence": [
+    "Lean/Screen/LightSignalAdequacySurface.lean",
     "Lean/Screen/SeamCurrentFreePhotonLift.lean"
    ],
    "notes": "Rank-two transverse completion and zero-mode receipts exist; the composition is owed."
@@ -377,6 +411,7 @@
     "PR-11"
    ],
    "evidence": [
+    "Lean/Screen/SMStructureAdequacySurface.lean",
     "docs/A2_HOLONOMY_GAUGE_FORCING.md",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
    ],
@@ -388,8 +423,11 @@
    "rung": "structural",
    "status": "partial",
    "lane_issue": 734,
-   "premises": [],
+   "premises": [
+    "PR-35"
+   ],
    "evidence": [
+    "Lean/Screen/SMStructureAdequacySurface.lean",
     "Lean/Screen/Z6Descent.lean",
     "Lean/Screen/Z6Exact.lean"
    ],
@@ -417,7 +455,9 @@
    "rung": "structural",
    "status": "partial",
    "lane_issue": 734,
-   "premises": [],
+   "premises": [
+    "PR-36"
+   ],
    "evidence": [
     "Lean/Screen/A5FamilyBand.lean"
    ],
@@ -488,7 +528,10 @@
    "lane_issue": 736,
    "premises": [
     "PR-14",
-    "PR-17"
+    "PR-17",
+    "PR-37",
+    "PR-38",
+    "PR-39"
    ],
    "evidence": [
     "code/P_derivation/fixed_point_certificate.py",
@@ -520,7 +563,10 @@
    "lane_issue": 736,
    "premises": [
     "PR-13",
-    "PR-15"
+    "PR-14",
+    "PR-15",
+    "PR-17",
+    "PR-40"
    ],
    "evidence": [
     "Lean/ObserverPatchHolography/KoideCirculant.lean",
@@ -550,7 +596,10 @@
    "rung": "structural",
    "status": "partial",
    "lane_issue": 736,
-   "premises": [],
+   "premises": [
+    "PR-17",
+    "PR-41"
+   ],
    "evidence": [
     "code/particles/calibration/wz_upstream_completion/outputs/certified_second_sheet_poles.json"
    ],

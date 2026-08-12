@@ -20,6 +20,7 @@ import EventAlgebra.FiniteWebBornNoGo
 import EventAlgebra.FrequencyConcentration
 import EventAlgebra.RecordMajorization
 import EventAlgebra.SpectralEntropyBoundary
+import EventAlgebra.QuantumAdequacySurface
 
 /-!
 # Finite projection-event calculus — umbrella root

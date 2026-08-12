@@ -25,8 +25,31 @@ Every named premise the V3 composition lanes consume appears here exactly once, 
 | PR-17 | numerical inputs P and N | `numerical_input` | `import` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729), [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736) |
 | PR-18 | spherically symmetric radial readout | `structural_rule` | `remove` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
 | PR-19 | shell-flux normalization | `structural_rule` | `remove` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-20 | equal source-counting measure on the sixty directed source seams | `selection_rule` | `axiomatize` | [#733](https://github.com/muellerberndt/reverse-engineering-reality/issues/733) |
+| PR-21 | auxiliary oscillator lift of the seam-current generator | `representation_choice` | `axiomatize` | [#733](https://github.com/muellerberndt/reverse-engineering-reality/issues/733) |
+| PR-22 | physical-frequency identification for the seam-current symbol | `structural_rule` | `axiomatize` | [#733](https://github.com/muellerberndt/reverse-engineering-reality/issues/733) |
+| PR-23 | typed modular flow supply | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-24 | half-sided inclusion and null translation supply | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-25 | null-stress tomography supply | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-26 | generalized-entropy stationarity supply | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-27 | small-ball geometry supply | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-28 | physical tower and calibration supply | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-29 | layered shell-cardinality law | `structural_rule` | `remove` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-30 | layered shell equidistribution | `structural_rule` | `remove` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-31 | layered steady sourcing | `structural_rule` | `remove` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
+| PR-32 | Cartesian joint carrier of an observer pair | `representation_choice` | `axiomatize` | [#730](https://github.com/muellerberndt/reverse-engineering-reality/issues/730) |
+| PR-33 | two-slot diamond region map | `selection_rule` | `axiomatize` | [#730](https://github.com/muellerberndt/reverse-engineering-reality/issues/730) |
+| PR-34 | two-observer slot split | `representation_choice` | `axiomatize` | [#730](https://github.com/muellerberndt/reverse-engineering-reality/issues/730) |
+| PR-35 | same-source loop-to-kernel identity | `structural_rule` | `remove` | [#734](https://github.com/muellerberndt/reverse-engineering-reality/issues/734) |
+| PR-36 | family band-selection rules: single complete faithful band and operational cost order | `selection_rule` | `remove` | [#734](https://github.com/muellerberndt/reverse-engineering-reality/issues/734) |
+| PR-37 | fine-structure closure map selection | `selection_rule` | `remove` | [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736) |
+| PR-38 | same-quantity bridge for the P closure | `structural_rule` | `remove` | [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736) |
+| PR-39 | physical Thomson readback contract | `structural_rule` | `remove` | [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736) |
+| PR-40 | payload-coherent anchor-gap premise | `selection_rule` | `remove` | [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736) |
+| PR-41 | electroweak sector selection premises | `selection_rule` | `remove` | [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736) |
+| PR-42 | horizon record central-charge identification | `structural_rule` | `axiomatize` | [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729) |
 
-Totals: 19 premises. 10 remove, 5 axiomatize, 4 import.
+Totals: 42 premises. 20 remove, 18 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -181,6 +204,190 @@ The radial strength times the shell content (the derivative of the ball volume) 
 - Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
 - Evidence: `Lean/Geometry/InverseSquareShellLaw.lean`.
 - Disposition note: Removal requires a source-derived flux-conservation statement, for which the discrete Gauss receipts on the fixed carrier are the committed precursor.
+
+### PR-20 equal source-counting measure on the sixty directed source seams
+
+The seam move law is selected by an A2-natural, A3-unique projection on the sixty directed source seams: a feasible move simplex, a naturality-invariant objective, and a unique selected minimizer, supplied as the structure A2A3DirectedSeamProjection in Lean/Screen/SeamCurrentHomogeneousAction.lean. Given the data, the committed theorems force the equal weight 1/60 and the one dimensionless completion Dirichlet generator; no source theorem constructs the projection data.
+
+- Type `selection_rule`; disposition `axiomatize`; consumed by [#733](https://github.com/muellerberndt/reverse-engineering-reality/issues/733).
+- Evidence: `Lean/Screen/SeamCurrentHomogeneousAction.lean`, `Lean/Screen/SeamCurrentDirichletGenerator.lean`, `Lean/Screen/LightSignalAdequacySurface.lean`.
+- Disposition note: The forcing theorem a2a3_directed_seam_weight_eq_one_sixtieth discharges the weight law from the data; the register row is the existence of the projection data itself. Evidence context: selected_generator_eq_dirichlet)
+
+### PR-21 auxiliary oscillator lift of the seam-current generator
+
+The dynamics of one transverse mode on the carrier completion is declared to be the first-order oscillator lift (A', Pi') = (Pi, -Lambda A) of the spatial symbol, with the second application of the generator defining the algebraic A''. The committed record derives the spatial generator; the second-order evolution shape enters as this declaration and no source theorem produces it. Carried as the fields modeDynamics and modeDynamics_is_lift of LightSignalPremiseData.
+
+- Type `representation_choice`; disposition `axiomatize`; consumed by [#733](https://github.com/muellerberndt/reverse-engineering-reality/issues/733).
+- Evidence: `Lean/Screen/SeamCurrentAuxiliaryOscillatorLift.lean`, `Lean/Screen/SeamCurrentFreePhotonLift.lean`, `Lean/Screen/LightSignalAdequacySurface.lean`.
+- Disposition note: Removal needs a source theorem producing the second-order structure, for example a derivation of the first-order pairing from the repair and record architecture. Evidence context: transverse_wave_second_order; attainedCommittedOrderLaw_holds)
+
+### PR-22 physical-frequency identification for the seam-current symbol
+
+A nonnegative readout frequency omega(k) is identified with the coordinate-dilated carrier symbol through omega(k)^2 = dilatedCompletionFourierSymbol(a, k) at a supplied strictly positive chart scale a. The chart scale is a declared coordinate; identifying a with a physical length and omega with a laboratory frequency consumes the clock and energy calibration anchors (PR-15). Carried as the fields chartScale, physicalFrequency, and physicalFrequency_sq_eq_symbol of LightSignalPremiseData.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#733](https://github.com/muellerberndt/reverse-engineering-reality/issues/733).
+- Evidence: `Lean/Screen/SeamCurrentDirichletGenerator.lean`, `Lean/Screen/CarrierFrequencySpeed.lean`, `Lean/Screen/LightSignalAdequacySurface.lean`.
+- Disposition note: Under the identification the composed surface proves the readout frequency equals the committed nonnegative branch, has an exact zero mode, and is globally one-Lipschitz in the chart momentum. Evidence context: physicalFrequency_zero_mode; physicalFrequency_global_one_lipschitz)
+
+### PR-23 typed modular flow supply
+
+The finite first-law pairings on the variation space satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential; the continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the stress. The package is a theorem on the finite thermodynamic model and a declared supply beyond it.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean`, `Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean`.
+- Disposition note: Discharged on the finite thermodynamic model; declared at the continuum level. Disposition may be remove if the register treats the finite discharge as the derivation route. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields modularFlowData; entropyDifferentialIsModular; modularGeneratorSplit; centralChargeIsEdge; diamondKernelIdentification; finite-model discharge cited from Lean/Thermodynamics/EinsteinPremiseLink.lean via einstein_register_first_law_discharge
+
+### PR-24 half-sided inclusion and null translation supply
+
+The reconstructed stress readout satisfies the weak Ward identity under the chart coordinate steps, the conservation shadow of the null translations generated by half-sided modular inclusion.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean`, `Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean`.
+- Disposition note: Consumed as a structure field argument; no Lean axiom is added. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean field nullTranslationWard; consumed by einstein_register_lambda_constancy and einstein_register_composition
+
+### PR-25 null-stress tomography supply
+
+On the null cone the geometry and stress quadratic charges match up to the coupling, both charge forms are symmetric, and one universal stress source feeds the entropy channel and the null tomography.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean`, `Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean`.
+- Disposition note: The nine-direction tomography frame and decoder are theorems in Tensor.lean; only the null-null matching and source universality are declared. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields nullStressTomography; geometrySymmetric; stressSymmetric; entropyStressReadout; universalSource
+
+### PR-26 generalized-entropy stationarity supply
+
+The first-order bulk entropy variation balances the fixed-volume area variation over 4*G, and the declared MaxEnt family has zero normalisation rate, unit constraint speed, and the Gibbs differential equation.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean`, `Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean`.
+- Disposition note: The envelope identity and the rest-frame Einstein arithmetic are exact theorems once these fields are supplied. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields generalizedEntropyStationarity; bulkEntropyVariation; areaVariation; maxEntTangent; maxEntNormalization; maxEntConstraintSpeed; maxEntGibbsDifferential
+
+### PR-27 small-ball geometry supply
+
+The fixed-volume small-geodesic-ball area identity holds with the exact 4*pi*ell^4/15 coefficient, one cofinal shrinking family carries the collar, kernel, and chart remainders as o(ell^4), the smooth geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean`, `Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean`.
+- Disposition note: The radial integral and coefficient arithmetic are proved exactly in SmallBall.lean; the geometric identifications stay declared. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields fixedVolumeAreaExpansion; scalingFamily; commonScalingTail; bianchiConservation; smallBallNewton; smallBallRadius; coefficient arithmetic is exact in SmallBall.lean
+
+### PR-28 physical tower and calibration supply
+
+An Einstein-admissible tower exists with protected boundary fibre, typed common-domain readouts, and refinement naturality; the strict dependency manifest validates; the discrete chart is connected in the symmetric step closure; the vacuum reference fixes the metric residue at the chart base; and the coupling carries the independent scale identification kappa = 8*pi*G_N.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean`, `Lean/Thermodynamics/EinsteinPremiseLink.lean`.
+- Disposition note: The scale identification is a calibration anchor and may instead be filed as empirical_import shared with the clock and energy calibration anchors row; Lambda enters only through the vacuum reference and the numerical inputs P and N row. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields tower; readouts; protectedBoundaryFiber; typedCommonDomain; refinementNaturality; auditCandidate; auditManifest; strictAudit; chartStep; chartBase; chartConnected; geometryReadout; stressReadout; couplingConstant; newtonConstant; vacuumLambda; vacuumReference; scaleIdentification
+
+### PR-29 layered shell-cardinality law
+
+The layered readout graph has exactly shellCoeff * n^2 outward boundary edges at shell n for every positive layer index n up to a declared resolution depth. The premise enters as the shellCard field of LayeredFluxData in Lean/Screen/LayeredDiscreteGauss.lean; no source theorem produces it. The committed 20 * n^2 faceCount in Lean/Screen/DiscreteRefinement.lean is a subdivision count on one fixed screen; identifying subdivision frequency with radial layer distance is exactly the open step, so the count is declared rather than derived. The depth truncation is forced: unbounded_shellCard_forces_zero proves an n^2 law imposed at every positive layer collapses the coefficient to zero on any finite carrier.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/Screen/LayeredDiscreteGauss.lean`.
+- Disposition note: Removal requires a layered carrier built from the committed refinement tower together with a derived boundary-edge count and a layer-to-distance identification.
+
+### PR-30 layered shell equidistribution
+
+Within one shell of the layered readout graph, up to the declared depth, every outward boundary edge carries the same outward flux. The premise enters as the equidistributed field of LayeredFluxData in Lean/Screen/LayeredDiscreteGauss.lean and is the discrete counterpart of the spherically symmetric radial readout premise (PR-18); no source theorem produces it.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/Screen/LayeredDiscreteGauss.lean`.
+- Disposition note: Removal requires a source-derived isotropy statement for the layered graph, the same obstruction as PR-18 on the completion carrier.
+
+### PR-31 layered steady sourcing
+
+On the layered readout graph the vertex outflow of the flux field equals a declared source supported in the layer-zero ball, for every vertex up to the declared depth, so the flux is divergence-free outside the source region there. The premise enters as the steadyGauss and sourceSupport fields of LayeredFluxData in Lean/Screen/LayeredDiscreteGauss.lean. The depth truncation is forced: steady_total_source_eq_zero proves a steady drained source on the whole closed finite carrier has zero total load, so layers beyond depth absorb the flux in place of spatial infinity. On the fixed twelve-port carrier the corresponding identity is a theorem: steady_witness_regionFlux_eq_source derives it from the committed regional continuity law.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/Screen/LayeredDiscreteGauss.lean`.
+- Disposition note: Removal requires a layered carrier realization carrying a steady continuity witness; the twelve-port bridge theorem records the discharge pattern.
+
+### PR-32 Cartesian joint carrier of an observer pair
+
+The joint index space of a two-observer regional construction is the Cartesian product of the two observers' label alphabets, entering as the LeftLabels and RightLabels fields of StructuralNetDeclaredPremises in Lean/QFT/StructuralNetAdequacySurface.lean, with committed instances Fin 13 x Fin 14 (pair 86, 88) and Fin 13 x Fin 13 (pair 86, 247). No source theorem produces the product form.
+
+- Type `representation_choice`; disposition `axiomatize`; consumed by [#730](https://github.com/muellerberndt/reverse-engineering-reality/issues/730).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean`, `Lean/QFT/JointSlotFactorisation.lean`, `Lean/QFT/SourceCorrelationCapstone.lean`.
+- Disposition note: Removal requires source selection of the joint carrier; the bounded closure of issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier.
+
+### PR-33 two-slot diamond region map
+
+The region system of the committed net is the four-region diamond bot < left, right < top with the region map assigning the scalar bottom, the two slot-factor algebras, and the full joint algebra, entering as the regionMap field of StructuralNetDeclaredPremises with committed instances twoSlotAlgebra (Lean/QFT/TwoSlotCPNetWitness.lean) and twoSlotAlgebra247 (Lean/QFT/SourceCorrelationCapstone.lean). No source theorem produces the region system.
+
+- Type `selection_rule`; disposition `axiomatize`; consumed by [#730](https://github.com/muellerberndt/reverse-engineering-reality/issues/730).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean`, `Lean/QFT/TwoSlotCPNetWitness.lean`.
+- Disposition note: Removal requires a source-derived region lattice; the committed nets carry no region system beyond the diamond.
+
+### PR-34 two-observer slot split
+
+Two observers of a pair are read as the two tensor factors of the joint carrier through the left and right slot embeddings A -> A (x) 1 and B -> 1 (x) B, entering as the splitLeft and splitRight fields of StructuralNetDeclaredPremises. For the support-disjoint pair (86, 247) the split is backed by the kernel-checked support disjointness theorem supports_disjoint; the split itself is declared, and the designated pair (86, 88) has overlapping supports with no disjointness receipt.
+
+- Type `representation_choice`; disposition `axiomatize`; consumed by [#730](https://github.com/muellerberndt/reverse-engineering-reality/issues/730).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean`, `Lean/QFT/JointSlotFactorisation.lean`, `Lean/QFT/SourceCorrelationCapstone.lean`.
+- Disposition note: Removal requires a source-produced factorisation of the joint algebra; the disjointness datum grounds the 86/247 instance without deriving the embedding form.
+
+### PR-35 same-source loop-to-kernel identity
+
+The carrier loop classes realized by the source are the six-axis screen gluing classes of Lean/Screen/Z6Exact.lean, and their image under the committed intertwiner sixAxisToKernel of Lean/Screen/Z6Descent.lean (axis generator to the kernel generator (omega_3 I_3, -I_2, e^{i pi/3}), antipodal sign reversal to conjugation, injective with image exactly the tensor-action kernel) generates the full Z6 tensor-action kernel of Lean/Screen/TraceBalancedKernel.lean; the physical global gauge form is the quotient of SU(3) x SU(2) x U(1) by that image, S(U(3) x U(2))/Z6. The realized local weights descend through all four admissible quotients (Z6Descent.four_admissible_global_forms), so this identity is the clause that selects the physical quotient; the intertwiner itself is a proved receipt, and the premise is the same-source physical identification of its domain.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#734](https://github.com/muellerberndt/reverse-engineering-reality/issues/734).
+- Evidence: `Lean/Screen/Z6Descent.lean`, `Lean/Screen/Z6Exact.lean`, `Lean/Screen/SMStructureAdequacySurface.lean`, `code/a5_closure/manifests/global_form_semantic_artifact.json`, `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex`.
+- Disposition note: Removal needs a same-source holonomy theorem computing the carrier loop classes from the source packet and matching them to the kernel through the committed intertwiner; the companion character-category completeness residual sits on the discharge queue (#739). Registration keeps OL-G2 conditional with the premise named.
+
+### PR-36 family band-selection rules: single complete faithful band and operational cost order
+
+The family multiplicity object is a single complete spectral band of the twelve-port adjacency realized inside the screen coefficient space: candidates carrying a source-visible proper splitting projector are excluded (the single-complete-object clause), bands whose rotation action has nontrivial kernel are excluded (the faithfulness clause), and the complex dimension lies in the pinned physical window [3, 5]. Admissible candidates are compared by the operational Laplacian seam cost per unit norm over Z[sqrt5], and the unique strict minimizer is selected. On the committed carrier the admissible candidates are the 3, 3', and 5 bands with exact costs 5 - sqrt5 < 6 < 5 + sqrt5, so the rules select the rank-three band (Lean/Screen/A5FamilyBand.lean, family_band_selected); without the faithfulness clause the minimizer is the trivial band at cost zero (trivial_band_without_faithfulness), so the clause is load-bearing. The clauses are declared in code/a5_closure/family_band_attachment_certificate.py and its reference manifest.
+
+- Type `selection_rule`; disposition `remove`; consumed by [#734](https://github.com/muellerberndt/reverse-engineering-reality/issues/734).
+- Evidence: `code/a5_closure/family_band_attachment_certificate.py`, `code/a5_closure/manifests/family_band_attachment_reference.json`, `Lean/Screen/A5FamilyBand.lean`, `Lean/Screen/SMStructureAdequacySurface.lean`.
+- Disposition note: Removal needs a source derivation of the comparison order and of the realization clause that places the multiplicity object inside the screen coefficient space; registration composes OL-G4 conditionally, and family triplication stays a selection under these rules.
+
+### PR-37 fine-structure closure map selection
+
+The P-closure map consumed by the fine-structure lane is a declared selection: the one-loop running and matching conventions, the tree-level m_Z closure, and the continuation masses enter as declared map data, certified as declared in the interval contraction certificate, and no source rule selects this map among admissible closure maps.
+
+- Type `selection_rule`; disposition `remove`; consumed by [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736).
+- Evidence: `code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json`, `code/P_derivation/FULL_DERIVATION.md`.
+- Disposition note: Removal needs a source-selection theorem for the closure map; with the row registered the fine-structure row states its map ancestry against the register and the diagnostic keeps its missing pieces exactly named.
+
+### PR-38 same-quantity bridge for the P closure
+
+The screen detuning reading of P and the electromagnetic return reading are the same typed quantity, so the fixed point of the declared closure map and the fine-structure return value factor through one same-invariant identification; the scoreboard row p_detuning_same_quantity_readback records the bridge as an undischarged anchor.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736).
+- Evidence: `tracking/claims_scoreboard.md`, `code/P_derivation/THOMSON_TRANSPORT_THEOREMS.md`.
+- Disposition note: Registration legitimizes conditional use; discharge needs the commuting same-quantity readback certificate named on the scoreboard row.
+
+### PR-39 physical Thomson readback contract
+
+The Thomson endpoint transport attaches to the physical Thomson scheme through a declared readback contract; the endpoint receipt consumes the contract as declared, and the scoreboard row alpha_in_thomson records the physical attachment as an undischarged anchor.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736).
+- Evidence: `code/P_derivation/runtime/thomson_endpoint_contract_current.json`, `tracking/claims_scoreboard.md`.
+- Disposition note: Removal needs the source-attached Thomson readback; until then the endpoint stays compare-only.
+
+### PR-40 payload-coherent anchor-gap premise
+
+The coherent charged-lepton kappa closure consumes one declared premise: the anchor gap is coherent with the pinned hadronic payload across the three charged channels, which narrows the certified rectangle intervals to the coherent intervals by the recorded factor.
+
+- Type `selection_rule`; disposition `remove`; consumed by [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736).
+- Evidence: `code/particles/leptons/derive_charged_kappa_interval_coherent_closure.py`, `docs/POSTDICTION_LEDGER.md`.
+- Disposition note: Removal needs a source derivation of the payload-coherent anchor gap; every coherent-interval row is conditional on the premise and the rectangle intervals stand without it.
+
+### PR-41 electroweak sector selection premises
+
+The conditional Higgs and top rows of the electroweak section consume declared selection premises; the postdiction ledger records the rows as conditional on the declared selection axioms, and the sector stance is owed.
+
+- Type `selection_rule`; disposition `remove`; consumed by [#736](https://github.com/muellerberndt/reverse-engineering-reality/issues/736).
+- Evidence: `docs/POSTDICTION_LEDGER.md`, `code/particles/hierarchy/STATUS.md`.
+- Disposition note: Registration names the selection premises the compare-only rows consume; a source selection theorem or a recorded sector stance retires the row.
+
+### PR-42 horizon record central-charge identification
+
+Over the declared repair law (PR-07), the modular weight of the declared reference splits as -log ref = 2*pi*B + Z, with the central charge Z measurable through the repaired visible datum; the identification of B with a physical boost energy and of Z with the edge record of a physical horizon is content of the row. The 2*pi coefficient is the declared modular normalization of the split.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/muellerberndt/reverse-engineering-reality/issues/729).
+- Evidence: `Lean/Thermodynamics/HorizonThermalitySurface.lean`, `Lean/Thermodynamics/CapFirstLaw.lean`.
+- Disposition note: Composes with PR-07 (declared repair law) and PR-15 (clock and energy calibration anchors). The composition with the repair kernel conserves the central charge with no further hypothesis, so the cap Clausius inequality carries no independent temperature input. No continuum horizon exists on the finite model; horizon temperature in physical units stays with PR-15 plus the horizon-dictionary content of this row. Evidence context: Lean/Thermodynamics/HorizonThermalitySurface.lean: structure HorizonRecordData; theorems HorizonSurface.horizon_cap_clausius; HorizonSurface.entanglement_first_law_exact; HorizonSurface.entanglement_first_law_first_order; HorizonSurface.modular_weight_double_identification
 
 ## What the dispositions mean
 

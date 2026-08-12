@@ -5,6 +5,7 @@ import ObserverPatchHolography.EinsteinBranch.Tensor
 import ObserverPatchHolography.EinsteinBranch.Manifest
 import ObserverPatchHolography.EinsteinBranch.Composition
 import ObserverPatchHolography.EinsteinBranch.AxiomAudit
+import ObserverPatchHolography.EinsteinBranch.RegisterSurface
 
 /-!
 # Corrected Einstein-branch formalisation (GitHub #578)

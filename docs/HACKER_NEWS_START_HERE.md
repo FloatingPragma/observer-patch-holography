@@ -6,7 +6,7 @@ disagreement.
 
 This repository contains:
 
-- a Lean 4 library of more than 4800 checked theorems and lemmas with no
+- a Lean 4 library of more than 4900 checked theorems and lemmas with no
   admitted proofs; the audited theorem subset carries explicit axiom reports,
   and 23 finite proofs extend trust to `native_decide`'s native-code evaluation
   axiom;
@@ -83,11 +83,15 @@ python3 code/particles/calibration/strict_one_loop_pole_map/run_all.py
 
 The last command regenerates a conditional receipt, runs its adversarial
 suite, validates both JSON Schemas, and checks the receipt without importing
-the producer. The simulation negative control lives in
-[evidence/einstein_convergence](../evidence/einstein_convergence/): at
-constant coupling density the held-out event form carries Lorentzian signature
-$(1,3)$ at 16k, 65k, and 262k carriers with the cone margin halving per rung,
-and the density-starved control run degrades the signature to $(2,2)$ on cue.
+the producer. The simulation record lives in
+[evidence/einstein_convergence](../evidence/einstein_convergence/): on the
+retained path the held-out event form carries Lorentzian signature $(1,3)$
+at 16k, 65k, and 262k carriers. A preregistered fresh-seed replication
+(instrument register row INS-01) reproduces $(1,3)$ at the 65k rung on five
+of five replicates and returns FAILED overall: the 16k rung is seed-fragile,
+the margin-ratio band is missed, and the ancestry-permutation null does not
+discriminate, so the emergent reading is demoted with the receipts on the
+record.
 Every stored number is sha256-bound and regenerates bit for bit from the
 companion [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim)
 repository.
@@ -96,7 +100,7 @@ repository.
 
 | Status | Contents |
 | --- | --- |
-| Proved, machine-checked | More than 4800 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
+| Proved, machine-checked | More than 4900 Lean theorems and lemmas: finite consensus core, gauge identifiability, Einstein-branch composition, and a negative result against the naive version of the program's own claim |
 | Proved, certified numerics | Fixed-point existence and uniqueness for each declared $P$ map on the declared domain, via interval contraction and adaptive subdivision certificates |
 | Measured | The Einstein-cone convergence ladder above, with its adversarial density control |
 | Conditional | The strict one-loop W/Z pole map (proved and machine checked, fixture is a post-exposure regression), the $N$ extension, the $N$–Higgs bridge, and the $N_g=3$ selection; each conditional branch names its open producer |

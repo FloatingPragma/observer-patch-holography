@@ -92,7 +92,9 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité sur l’écran.** La cinématique de Lorentz est un théorème
   sur sa branche déclarée. Des simulations déterministes mesurent une forme
-  d’événement lorentzienne à une direction de temps et trois d’espace, et
+  d’événement lorentzienne à une direction de temps et trois d’espace, une
+  réplication prédéclarée à graine fraîche la reproduit à grande échelle en
+  signalant la sensibilité de la plus petite configuration à la graine, et
   une composition des équations d’Einstein s’appuie sur la couche modulaire
   et entropique.
 - **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
@@ -113,7 +115,7 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   structure fine mesurée ; cette concordance a un statut diagnostique tant
   que son rattachement physique reste ouvert. Les constantes de la nature
   entrent comme des problèmes de point fixe à résoudre.
-- **Vérifié machine et falsifiable.** Plus de 4800 théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 4900 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. Une échelle de prédictions gelées enregistre des bandes

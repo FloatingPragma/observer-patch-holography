@@ -1,0 +1,43 @@
+{
+ "schema": "oph.emergent_instrument_register.v1",
+ "issue": 738,
+ "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
+ "policy": "An instrument row is a preregistered simulation experiment: declared observable, declared analysis, declared controls, and a decision rule frozen before the run, with pinned receipts. This register is a separate surface from the frozen-prediction ladder; the ladder is reserved for physical predictions against external data, and simulation instruments never enter it. Each instrument binds to exactly one observation-ledger row, and its verdict promotes or blocks that row's emergent rung. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
+ "rows": [
+  {
+   "id": "INS-01",
+   "title": "OL-A1 (1,3) signature replication instrument",
+   "owning_issue": 737,
+   "ledger_row": "OL-A1",
+   "status": "FAILED",
+   "spec_pointer": "plan/OL_A1_SIGNATURE_REPLICATION_SPEC.md (oph-meta planning workspace)",
+   "decision_rule": "Pointer while SPECIFIED: the binding text is the Tier A decision rule in the specification, copied verbatim into this field at freeze time. Tier A summary: arms A1 = 16384/128/96, A2 = 65536/256/96, and C1 = 16384/128/6 with five declared replicates per arm; observables O1 threshold inertia, O2 robust inertia at relative tau 1e-3 with reference (1,2)/(1,2)/(2,1), O3 degeneracy ratio against the reference band 2e-5..4e-5, O4 cone margin and rung ratio (retained 0.5725, declared band 0.35..0.80), O5 structural diagnostics, and O6 split-half inertia concordance; verdict REPLICATED, FAILED, or INCONCLUSIVE per the frozen rule, and FAILED demotes the OL-A1 emergent rung with equal prominence. Eigenvalue caution: the archived (1,3) threshold verdict rides on one eigenvalue at relative magnitude about 3e-5 against a 1e-12 threshold; at a relative threshold of 1e-3 the robust inertia of the retained rungs is (1,2) with one degenerate direction, matching the independently measured (1,2) receipt, and a fresh seed can flip (1,3) to (2,2) with no change in physical content. Every public sentence about this instrument carries that caution.",
+   "seeds_policy": "One fresh seed drawn at freeze time and five declared replicate ids per arm. The held-out split is stride-structured per rung (strides 8/35/141), so train/held-out parity structure is recorded and stratified across replicates. N = 5 resolves seed fragility at the 1-in-5 level only, and the report states so. The runtime environment is single and recorded.",
+   "controls": [
+    "C-SUPPORT: matched support-density control at 16384/128/6; a fired control reads as mean signature degradation plus halved cross edges.",
+    "C-ANCESTRY: ancestry-permutation null at zero extra runtime; the null destroys (1,3) on at least 4 of 5 replicates."
+   ],
+   "freeze_artifacts": [
+    {
+     "path": "oph-physics-sim/scripts/ol_a1_signature_replication.py",
+     "sha256": "6cd6b179e9f62e7d7f5f1177ec4cfa329a07c0279ef9e7aedc7aef2383e8acc1"
+    },
+    {
+     "path": "oph-physics-sim/docs/OL_A1_PREREGISTERED_SIGNATURE_REPLICATION_2026-08-12.md",
+     "sha256": "b4953ec083e9af7121baf0656d97ab538598e705575f7b6742a26c9ade7490ae"
+    },
+    {
+     "path": "oph-physics-sim/docs/OL_A1_SEED_TABLE_2026-08-12.json",
+     "sha256": "acc8d5d67c2a4eaffe25c07fcdbfdcd7175a8b9a82142b8edb53d0d402f70f05"
+    }
+   ],
+   "frozen_utc": "2026-08-12T19:14:51Z",
+   "verdict_receipts": [
+    {
+     "path": "oph-physics-sim/data/ol_a1_replication/campaign_summary.json",
+     "sha256": "e9f8cd54f1451b546a88341f678203f87f500dd4207584309dbe9a0612d2fe6b"
+    }
+   ]
+  }
+ ]
+}

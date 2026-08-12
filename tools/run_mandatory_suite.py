@@ -203,6 +203,42 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate the V3 constants ancestry surface",
+        [
+            sys.executable,
+            "tools/build_constants_ancestry.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the constants ancestry gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_constants_ancestry.py",
+        ],
+    ),
+    (
+        "Validate the emergent-instrument register surface",
+        [
+            sys.executable,
+            "tools/build_instrument_register.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the instrument register gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_instrument_register.py",
+        ],
+    ),
+    (
         "Validate the SM Lagrangian correspondence surface",
         [
             sys.executable,

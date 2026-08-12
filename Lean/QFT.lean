@@ -3,6 +3,7 @@ import QFT.ObserverNetDescent
 import QFT.ObserverAccessCut
 import QFT.ObserverEventWorld
 import QFT.OperationalOverlapEvidence
+import QFT.StructuralNetAdequacySurface
 import QFT.ObserverEventTower
 import QFT.NoncommutativeWitness
 import QFT.SourceLinkSquare

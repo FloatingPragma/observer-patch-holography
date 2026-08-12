@@ -102,6 +102,121 @@ PREMISE_REGISTER = {
         "remove",
     ),
     "PR-19": ("shell-flux normalization", "structural_rule", "remove"),
+    "PR-20": (
+        "equal source-counting measure on the sixty directed source seams",
+        "selection_rule",
+        "axiomatize",
+    ),
+    "PR-21": (
+        "auxiliary oscillator lift of the seam-current generator",
+        "representation_choice",
+        "axiomatize",
+    ),
+    "PR-22": (
+        "physical-frequency identification for the seam-current symbol",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-23": (
+        "typed modular flow supply",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-24": (
+        "half-sided inclusion and null translation supply",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-25": (
+        "null-stress tomography supply",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-26": (
+        "generalized-entropy stationarity supply",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-27": (
+        "small-ball geometry supply",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-28": (
+        "physical tower and calibration supply",
+        "structural_rule",
+        "axiomatize",
+    ),
+    "PR-29": (
+        "layered shell-cardinality law",
+        "structural_rule",
+        "remove",
+    ),
+    "PR-30": (
+        "layered shell equidistribution",
+        "structural_rule",
+        "remove",
+    ),
+    "PR-31": (
+        "layered steady sourcing",
+        "structural_rule",
+        "remove",
+    ),
+    "PR-32": (
+        "Cartesian joint carrier of an observer pair",
+        "representation_choice",
+        "axiomatize",
+    ),
+    "PR-33": (
+        "two-slot diamond region map",
+        "selection_rule",
+        "axiomatize",
+    ),
+    "PR-34": (
+        "two-observer slot split",
+        "representation_choice",
+        "axiomatize",
+    ),
+    "PR-35": (
+        "same-source loop-to-kernel identity",
+        "structural_rule",
+        "remove",
+    ),
+    "PR-36": (
+        "family band-selection rules: single complete faithful band and operational cost order",
+        "selection_rule",
+        "remove",
+    ),
+    "PR-37": (
+        "fine-structure closure map selection",
+        "selection_rule",
+        "remove",
+    ),
+    "PR-38": (
+        "same-quantity bridge for the P closure",
+        "structural_rule",
+        "remove",
+    ),
+    "PR-39": (
+        "physical Thomson readback contract",
+        "structural_rule",
+        "remove",
+    ),
+    "PR-40": (
+        "payload-coherent anchor-gap premise",
+        "selection_rule",
+        "remove",
+    ),
+    "PR-41": (
+        "electroweak sector selection premises",
+        "selection_rule",
+        "remove",
+    ),
+    "PR-42": (
+        "horizon record central-charge identification",
+        "structural_rule",
+        "axiomatize",
+    ),
 }
 
 GROUPS = (
@@ -238,7 +353,7 @@ def render(rows: list[dict]) -> str:
     lines.append("")
     lines.append(
         f"One row per observation the architecture must reproduce, tracked for"
-        f" {_issue_link(726)}. Premise ids PR-01 through PR-19 name rows of the"
+        f" {_issue_link(726)}. Premise ids PR-01 through PR-42 name rows of the"
         f" premise register ({_issue_link(727)}), the audited anti-cheating"
         f" surface; each row lists the register rows its current status"
         f" consumes. The row set, rungs, and lane assignments follow completion"

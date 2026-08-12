@@ -1,0 +1,337 @@
+{
+ "schema": "oph.constants_ancestry.v1",
+ "issue": 736,
+ "rows": [
+  {
+   "id": "CA-01",
+   "constant": "fine-structure constant",
+   "value_or_enclosure": {
+    "artifact": "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+    "reading": "The certified Thomson endpoint enclosure is the alpha_inv_interval field with central alpha_inv_central, compare-only under the recorded guards; the P fixed-point enclosure behind it is certified in code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json."
+   },
+   "ancestry": [
+    {
+     "input": "numerical input P: the interval-certified fixed point of the declared screen-grain map",
+     "class": "P",
+     "register_row": "PR-17"
+    },
+    {
+     "input": "declared closure-map selection: the one-loop running and matching conventions, the tree-level m_Z closure, and the continuation masses enter as declared map data, certified as declared in the interval certificate",
+     "class": "register_import",
+     "register_row": "PR-37"
+    },
+    {
+     "input": "declared same-quantity bridge: identification of the screen detuning reading and the electromagnetic return reading of P as one typed quantity",
+     "class": "register_import",
+     "register_row": "PR-38"
+    },
+    {
+     "input": "declared physical Thomson readback contract behind the endpoint transport",
+     "class": "register_import",
+     "register_row": "PR-39"
+    },
+    {
+     "input": "hadronic transport packet: the pinned measured e+e- hadronic compilation payload consumed by the endpoint transport",
+     "class": "register_import",
+     "register_row": "PR-14"
+    },
+    {
+     "input": "closed one-loop lepton vacuum-polarization transport kernel",
+     "class": "external_mathematics"
+    },
+    {
+     "input": "CODATA inverse fine-structure witness, compare-only",
+     "class": "measured_comparison_target"
+    }
+   ],
+   "status": "diagnostic",
+   "ledger_row": "OL-H1",
+   "evidence": [
+    "code/P_derivation/fixed_point_certificate.py",
+    "code/P_derivation/runtime/p_interval_contraction_certificate_2026-07-14.json",
+    "code/P_derivation/runtime/p_global_uniqueness_extension_certificate_2026-07-17.json",
+    "code/P_derivation/runtime/empirical_thomson_endpoint_current.json",
+    "docs/POSTDICTION_LEDGER.md",
+    "tracking/claims_scoreboard.md"
+   ],
+   "falsifier": {
+    "artifact": "docs/POSTDICTION_LEDGER.md",
+    "rule": "The interval-certified enclosures are the kill surface: a failed fixed-point enclosure kills the root, and a source-emitted bridge value outside the recorded same-scheme accounting interval refutes the declared decomposition. The row promotes to a conditional determination only when the three declared bridge premises are register rows with dispositions."
+   }
+  },
+  {
+   "id": "CA-02",
+   "constant": "cosmological constant via N",
+   "value_or_enclosure": {
+    "artifact": "code/capacity_readback/manifests/n_closure_branch_certificate.json",
+    "reading": "The two recorded branch values N = N0*(1 - P/24) and N = N0*exp(-P/24) over the conditional baseline N0 = pi*exp(6*pi/(P*alpha_U)); both branches carry status conditional_unselected_retrospective, every physical attachment gate is open, and the row is shared with the gravitation lane row OL-B5."
+   },
+   "ancestry": [
+    {
+     "input": "numerical input N under the declared capacity map; the direct proposal is not evaluable on the incomplete source antecedent",
+     "class": "N",
+     "register_row": "PR-17"
+    },
+    {
+     "input": "numerical input P entering the conditional baseline and both reserve corrections",
+     "class": "P",
+     "register_row": "PR-17"
+    },
+    {
+     "input": "conditional screen and electroweak bridge value alpha_U; the inherited bridge premises and the common-load identification are open",
+     "class": "derived"
+    },
+    {
+     "input": "exact two-branch reserve arithmetic 1 - P/24 and exp(-P/24) typed by the finite edge-center receipt; neither branch is selected",
+     "class": "derived"
+    },
+    {
+     "input": "Planck posterior propagation of the measured cosmological constant to an N comparison value with recorded offsets",
+     "class": "measured_comparison_target"
+    }
+   ],
+   "status": "diagnostic",
+   "ledger_row": "OL-H2",
+   "evidence": [
+    "code/capacity_readback/manifests/n_closure_branch_certificate.json",
+    "code/capacity_readback/direct_n_closure_verdict.py",
+    "code/capacity_readback/planck_posterior/planck_lambda_to_N_propagation.json",
+    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean",
+    "cosmology/oph_cosmological_vacuum_and_structure_formation.tex"
+   ],
+   "falsifier": {
+    "artifact": "code/capacity_readback/manifests/n_closure_branch_certificate.json",
+    "rule": "No averaging or selection between the two corrections without a derivation. A source-derived global capacity action must select the reserve semantics; a selected action whose value lies outside both recorded branches kills the route, and the recorded Planck offset is the standing comparison."
+   }
+  },
+  {
+   "id": "CA-03",
+   "constant": "charged-lepton masses",
+   "value_or_enclosure": {
+    "artifact": "code/particles/runs/status/postdiction_ledger.json",
+    "reading": "The charged_leptons section carries the certified rows: the Koide conditional tau enclosure under the balanced-circulant and mass-ordering premises, the anchor-gap accounting interval with the recorded scheme term, and the rectangle and coherent kappa intervals with the witness triple inside every interval; decimal enclosures are certified by code/particles/leptons/charged_interval_decimal_certificate.py."
+   },
+   "ancestry": [
+    {
+     "input": "Koide balance premise, abstracted from the measured charged triple",
+     "class": "register_import",
+     "register_row": "PR-13"
+    },
+    {
+     "input": "clock and energy calibration anchors for the MeV attachment of the mass rows",
+     "class": "register_import",
+     "register_row": "PR-15"
+    },
+    {
+     "input": "declared payload-coherent anchor-gap premise of the coherent kappa interval closure",
+     "class": "register_import",
+     "register_row": "PR-40"
+    },
+    {
+     "input": "positive-chamber circulant identity and the machine-checked interval inversion arithmetic",
+     "class": "derived"
+    },
+    {
+     "input": "measured electron and muon masses as anchors and the measured tau mass as the compare witness",
+     "class": "measured_comparison_target"
+    },
+    {
+     "input": "hadronic transport packet entering the alpha(m_Z) anchor transport of the kappa solve (delta_alpha_had_5 window)",
+     "class": "register_import",
+     "register_row": "PR-14"
+    },
+    {
+     "input": "numerical input P entering through the a0(P) inverse fine-structure anchor behind the transport inversion",
+     "class": "P",
+     "register_row": "PR-17"
+    },
+    {
+     "input": "the CODATA inverse fine-structure value as the declared empirical closure of the anchor transport",
+     "class": "measured_comparison_target"
+    }
+   ],
+   "status": "postdiction_comparison",
+   "ledger_row": "OL-H3",
+   "evidence": [
+    "Lean/ObserverPatchHolography/KoideCirculant.lean",
+    "code/particles/leptons/koide_balance_comparison_certificate.py",
+    "code/particles/leptons/charged_interval_decimal_certificate.py",
+    "code/particles/leptons/derive_charged_kappa_interval_coherent_closure.py",
+    "docs/POSTDICTION_LEDGER.md",
+    "docs/FROZEN_PREDICTION_LADDER.md"
+   ],
+   "falsifier": {
+    "artifact": "docs/FROZEN_PREDICTION_LADDER.md",
+    "rule": "FZ10-R01 is the frozen kill rule: a tau world average differing from the recorded central by more than three standard uncertainties kills the balanced-circulant premise. Witness exit from any certified kappa interval kills the interval surface, and a source-emitted bridge value outside the recorded accounting interval refutes the declared anchor decomposition."
+   }
+  },
+  {
+   "id": "CA-04",
+   "constant": "quark masses and mixings",
+   "value_or_enclosure": {
+    "artifact": "code/particles/runs/status/postdiction_ledger.json",
+    "reading": "The quarks section records that no absolute quark mass is emitted: the two-modulus spread fiber survives every certified structure transport, so the six absolute masses are non-identifiable from the corpus by theorem. The down-type register-Clebsch ratio row is recorded as a rejected conditional candidate under the retrospective conservative gate."
+   },
+   "ancestry": [
+    {
+     "input": "family transport kernels and the conditional kappa-interval surface arithmetic under their declared transport premises",
+     "class": "derived"
+    },
+    {
+     "input": "two-modulus spread-fiber nonidentifiability obstruction transport",
+     "class": "derived"
+    },
+    {
+     "input": "clock and energy calibration anchors for mass units on compare rows",
+     "class": "register_import",
+     "register_row": "PR-15"
+    },
+    {
+     "input": "PDG and FLAG quark mass and mass-ratio witnesses, compare-only; the rejected register-Clebsch route additionally consumed the measured charged-lepton masses through its boundary Yukawas",
+     "class": "measured_comparison_target"
+    }
+   ],
+   "status": "postdiction_comparison",
+   "ledger_row": "OL-H4",
+   "evidence": [
+    "code/particles/flavor/derive_quark_current_family_exact_pdg_theorem.py",
+    "code/particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
+    "code/particles/flavor/derive_down_type_register_clebsch_lane.py",
+    "docs/POSTDICTION_LEDGER.md"
+   ],
+   "falsifier": {
+    "artifact": "docs/POSTDICTION_LEDGER.md",
+    "rule": "The retrospective conservative FLAG gate is the recorded decision rule and rejected all six generation assignments of the down-type route. The nonidentifiability obstruction dies if a certified structure transport separates the two-modulus spread fiber; until then no absolute quark mass row exists to compare."
+   }
+  },
+  {
+   "id": "CA-05",
+   "constant": "W, Z, and Higgs sector",
+   "value_or_enclosure": {
+    "artifact": "code/particles/calibration/wz_upstream_completion/outputs/certified_second_sheet_poles.json",
+    "reading": "Chart-local interval receipts: zero exclusion in the declared principal-sheet boxes and, for each of W and Z, one simple scalar zero with derivative and scalar-residue balls in its declared lower-half pole box on a channel-specific algebraic chart. The W/Z chart coordinates keep their physical-comparison status NOT_EVALUABLE; the conditional Higgs and top centrals with envelopes are the electroweak section of code/particles/runs/status/postdiction_ledger.json."
+   },
+   "ancestry": [
+    {
+     "input": "certified contour stack and second-sheet pole interval receipts on the declared channel-specific charts",
+     "class": "derived"
+    },
+    {
+     "input": "one-loop electroweak self-energy forms consumed by the separate external pole-map fixture, not composed with the OPH chart",
+     "class": "external_mathematics"
+    },
+    {
+     "input": "declared electroweak selection premises of the conditional Higgs and top rows",
+     "class": "register_import",
+     "register_row": "PR-41"
+    },
+    {
+     "input": "PDG Higgs and top mass witnesses, compare-only",
+     "class": "measured_comparison_target"
+    },
+    {
+     "input": "numerical input P entering the conditional Higgs and top centrals through the calibration surface",
+     "class": "P",
+     "register_row": "PR-17"
+    }
+   ],
+   "status": "postdiction_comparison",
+   "ledger_row": "OL-H5",
+   "evidence": [
+    "code/particles/calibration/wz_upstream_completion/outputs/certified_second_sheet_poles.json",
+    "code/particles/calibration/wz_upstream_completion/outputs/certified_wz_contours.json",
+    "code/particles/runs/status/postdiction_ledger.json",
+    "docs/POSTDICTION_LEDGER.md"
+   ],
+   "falsifier": {
+    "artifact": "docs/POSTDICTION_LEDGER.md",
+    "rule": "The declared boxes are the kill surface for the pole stack: a replay violating a zero-exclusion or pole-box enclosure kills the receipts. The Higgs and top rows die when the measured witness exits the recorded envelope. No physical W or Z pole comparison is defined until a receipt identifies a chart with the physical resonance sheet; the sector stance is owed."
+   }
+  },
+  {
+   "id": "CA-06",
+   "constant": "hadron spectrum",
+   "value_or_enclosure": {
+    "artifact": "code/particles/runs/hadron/empirical_ward_projected_spectral_measure.json",
+    "reading": "The Ward-projected export of the pinned payload, with positivity verified on the exported grids and atoms and requadrature at the recorded tolerance; the correction-engine value Delta alpha_had^(5)(M_Z^2) with its uncertainty is the hadrons section of code/particles/runs/status/postdiction_ledger.json. Source-only hadron rows stay suppressed."
+   },
+   "ancestry": [
+    {
+     "input": "hadronic transport packet: the pinned measured e+e- hadronic compilation, compare and transport data under the nonperturbative-QCD barrier policy",
+     "class": "register_import",
+     "register_row": "PR-14"
+    },
+    {
+     "input": "Ward-projected spectral-measure export arithmetic with positivity and requadrature receipts",
+     "class": "derived"
+    },
+    {
+     "input": "dispersion relation and optical-theorem identities behind the empirical closure",
+     "class": "external_mathematics"
+    }
+   ],
+   "status": "diagnostic",
+   "ledger_row": "OL-H6",
+   "evidence": [
+    "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
+    "code/particles/hadron/derive_empirical_ward_projected_spectral_measure.py",
+    "docs/HADRON.md",
+    "docs/POSTDICTION_LEDGER.md"
+   ],
+   "falsifier": {
+    "artifact": "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
+    "rule": "The payload is pinned: a requadrature difference above the recorded tolerance or a positivity failure on the exported grids kills the export. The packet is never promoted to a source-only theorem; replacement requires a source-side hadronic computation, and the standby QCD solver stays invocation-gated on source-side parameter emissions."
+   }
+  },
+  {
+   "id": "CA-07",
+   "constant": "neutrino stance",
+   "value_or_enclosure": {
+    "artifact": "docs/FROZEN_PREDICTION_LADDER.md",
+    "reading": "None frozen. FZ-03 is registered pending freeze and no value or enclosure is on record; the recorded template candidate on the results surface is rejected by its declared gate and no neutrino row is eligible for promotion."
+   },
+   "ancestry": [],
+   "status": "owed",
+   "ledger_row": "OL-H7",
+   "evidence": [
+    "docs/FROZEN_PREDICTION_LADDER.md",
+    "code/particles/RESULTS_STATUS.md"
+   ],
+   "falsifier": {
+    "artifact": "docs/FROZEN_PREDICTION_LADDER.md",
+    "rule": "Comparison is forbidden until the neutrino stance and its decision rule are registered on the frozen ladder; registration precedes any comparison, and a comparison recorded before registration is an audit failure."
+   }
+  },
+  {
+   "id": "CA-08",
+   "constant": "units and calibration: clock and energy anchors",
+   "value_or_enclosure": {
+    "artifact": "claims/assumption_dictionary.md",
+    "reading": "No dimensionless constant; the row is the laboratory-unit attachment. Internal modular charge, energy gaps, and repair-step order carry no laboratory units, and the conversion to physical clocks and energy scales is the declared calibration statement recorded as the independent physical scale receipt row."
+   },
+   "ancestry": [
+    {
+     "input": "clock and energy calibration anchors: declared measured standards shared with the thermodynamics lane",
+     "class": "register_import",
+     "register_row": "PR-15"
+    },
+    {
+     "input": "exact affine calibration algebra: two ordered event pairs determine the unique positive-affine interpolation, with the cross-product consistency check at a third shared event",
+     "class": "derived"
+    }
+   ],
+   "status": "conditional_determination",
+   "ledger_row": "OL-H8",
+   "evidence": [
+    "claims/assumption_dictionary.md",
+    "Lean/Time/ProperTimeCalibration.lean",
+    "Lean/Time/ClockReadout.lean",
+    "Lean/Time/ClockComparison.lean"
+   ],
+   "falsifier": {
+    "artifact": "Lean/Time/ClockComparison.lean",
+    "rule": "Affine consistency at a third shared event is equivalent to the cross-product equation and gives a no-new-fit-parameter check; a failing check falsifies a claimed common calibration. The anchors stay flagged measured imports, and a derived clock is open in the discharge queue."
+   }
+  }
+ ]
+}

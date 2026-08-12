@@ -79,8 +79,10 @@ derives the rest as theorems. From that one architecture:
   applied to repair and the Landauer bound as a corollary.
 - **Relativity on the screen.** Lorentz kinematics is a theorem on its
   stated branch. Deterministic simulations measure a Lorentzian event form
-  with one time and three space directions, and an Einstein-equation
-  composition stands on the modular and entropy layer.
+  with one time and three space directions, a preregistered fresh-seed
+  replication reproduces it at scale while flagging the smallest run as
+  seed-sensitive, and an Einstein-equation composition stands on the
+  modular and entropy layer.
 - **The Standard Model gauge group from twelve ports.** OPH makes an
   architectural choice at the simulation hardware layer: each observer patch
   has twelve boundary ports wired as the corners of an icosahedron. A classification theorem forces
@@ -96,7 +98,7 @@ derives the rest as theorems. From that one architecture:
   fine-structure constant; the match carries diagnostic status while its
   physical attachment is open. The constants of nature enter as fixed-point
   problems to be solved.
-- **Machine-checked and falsifiable.** More than 4800 Lean theorems with
+- **Machine-checked and falsifiable.** More than 4900 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
   frozen-prediction ladder registers kill bands under cryptographic custody
