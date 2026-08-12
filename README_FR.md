@@ -113,7 +113,7 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   structure fine mesurée ; cette concordance a un statut diagnostique tant
   que son rattachement physique reste ouvert. Les constantes de la nature
   entrent comme des problèmes de point fixe à résoudre.
-- **Vérifié machine et falsifiable.** Des milliers de théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 4700 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. Une échelle de prédictions gelées enregistre des bandes
