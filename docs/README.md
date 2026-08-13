@@ -36,13 +36,20 @@ run data so you can watch the universe assemble itself.
   [GitHub issue labeled `closure`](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure),
   with its evaluation boundary and required completion stated on the issue.
 - [Proof Spine](PROOF_SPINE.md) gives the dependency route through the principal claims.
-- [Book Chapter Ledger](BOOK_CHAPTER_LEDGER.md) records where the technical
-  theorem boundaries are translated into reader-facing prose.
+- [Premise Register](PREMISE_REGISTER_V3.md) names each V3 input and its
+  consumers; the generated [Premise Discharge Queue](PREMISE_DISCHARGE_QUEUE_V3.md)
+  turns every `remove` or `axiomatize` row into an auditable action item.
+- [Architecture Replay Index](ARCHITECTURE_REPLAY_INDEX.md) shows which
+  promotions and frozen targets survive the current architecture version;
+  [Audit Custody](AUDIT_CUSTODY.md) pins the independent review history.
 - [OPH Falsification Program](OPH_FALSIFICATION_PROGRAM.md) lists only mature mathematical and realized-branch falsifiers.
 
 ## Focused Technical Notes
 
-- [Entanglement Geometry](ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md) explains the geometric role of entanglement and modular flow.
+- [Modal Maxwell Factorization Boundary](MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md)
+  records the exact Fourier-modal first-order factorization of the FZ-12
+  oscillator and the locality, gauge/action, source, and readout boundaries
+  that remain open.
 - [Hadron Data Policy](HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
 - [IBM Quantum Cloud Archive](IBM_QUANTUM_CLOUD.md) documents the reproducible hardware benchmark and its interpretation boundary.
 - Simulator outputs have no theorem or empirical-promotion authority in the

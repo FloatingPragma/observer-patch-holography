@@ -134,6 +134,10 @@ LEAN_RECEIPTS = {
     / "TwoSlotCPNetWitness.lean",
     "TowerAnchoredDiamond": REPO / "Lean" / "QFT"
     / "TowerAnchoredDiamond.lean",
+    "ModalMaxwellFactorizationBoundary": LEAN_SCREEN
+    / "ModalMaxwellFactorizationBoundary.lean",
+    "FiniteUnitaryScatteringNoGo": REPO / "Lean" / "QFT"
+    / "FiniteUnitaryScatteringNoGo.lean",
     "PublicRecordAlgebra": REPO / "Lean" / "EventAlgebra"
     / "PublicRecordAlgebra.lean",
     "NoBroadcastingAdapter": REPO / "Lean" / "EventAlgebra"
@@ -1218,6 +1222,149 @@ def _forced_structure(
                 "edge-to-partition identification is constructed"
             ),
             "paper_ref": "finite-event-algebra paper",
+        },
+        {
+            "id": "modal_maxwell_factorization_boundary",
+            "statement": (
+                "On the complexified nonzero-momentum transverse fibre, "
+                "the Fourier-modal block D=i[omega_a(k)/|k|](k cross -) "
+                "has zero modal divergence and squares to the committed "
+                "FZ-12 scalar spatial action. The opposite-sign pair "
+                "G(E,B)=(D B,-D E) therefore squares to the existing "
+                "second-order oscillator on both amplitudes; the same-sign "
+                "mutation has the wrong second-order sign"
+            ),
+            "observed_counterpart": (
+                "Fourier-modal algebra of the vacuum Maxwell curl pair; "
+                "not a physical electromagnetic observation"
+            ),
+            "match": (
+                "exact bounded modal factorization; local source-produced "
+                "physical Maxwell theory open"
+            ),
+            "lean_declarations": {
+                "ModalMaxwellFactorizationBoundary": [
+                    "modalCurlScale_sq_mul_dot_self",
+                    "dot_modalCurl_zero",
+                    "modalCurl_sq_on_transverse",
+                    "complexMomentumDot_fourierCurl_zero",
+                    "complexPhotonSpatialAction_complexifies",
+                    "fourierCurl_sq_on_transverse",
+                    "maxwellShapedModalGenerator_sq_wave",
+                    "maxwellShapedModalGenerator_transverse",
+                    "sameSignCurlMutation_sq_positive",
+                    "sameSignCurlMutation_fails_wave",
+                ]
+            },
+            "lean_receipts": _lean_receipt(
+                "ModalMaxwellFactorizationBoundary",
+                declarations={
+                    "ModalMaxwellFactorizationBoundary": (
+                        "modalCurlScale_sq_mul_dot_self",
+                        "dot_modalCurl_zero",
+                        "modalCurl_sq_on_transverse",
+                        "complexMomentumDot_fourierCurl_zero",
+                        "complexPhotonSpatialAction_complexifies",
+                        "fourierCurl_sq_on_transverse",
+                        "maxwellShapedModalGenerator_sq_wave",
+                        "maxwellShapedModalGenerator_transverse",
+                        "sameSignCurlMutation_sq_positive",
+                        "sameSignCurlMutation_fails_wave",
+                    )
+                },
+            ),
+            "artifact_refs": [
+                "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
+                "code/electromagnetism/modal_maxwell_factorization.py",
+                "code/electromagnetism/test_modal_maxwell_factorization.py",
+            ],
+            "hypothesis_boundary": (
+                "this is a pointwise Fourier-modal/pseudodifferential "
+                "factorization of an already committed mathematical "
+                "oscillator. Its momentum-dependent multiplier supplies no "
+                "local position-space operator, real-field assembly or "
+                "opposite-momentum reality pairing, electric/magnetic "
+                "identification, source-produced dynamics, U(1) potential "
+                "or gauge quotient, Maxwell action, bridge from the finite "
+                "Gauss receipts to this modal divergence, conserved physical "
+                "current or source coupling, Lorentz covariance, continuum "
+                "control, or laboratory readout. It removes no registered "
+                "premise: PR-20, PR-21, and PR-22 remain declared inputs, "
+                "while PR-53 and PR-54 remain open attachments. Current lane "
+                "#733 owns those obligations and remains open. This row "
+                "emits no frozen prediction"
+            ),
+            "paper_ref": (
+                "screen-microphysics paper, modal Maxwell factorization boundary"
+            ),
+        },
+        {
+            "id": "finite_unitary_scattering_limit_no_go",
+            "statement": (
+                "In every Hausdorff topological group, ordinary convergence "
+                "of the natural powers g^n forces g to be the identity. Thus "
+                "a supplied nonidentity finite-dimensional exact unitary U "
+                "at fixed cutoff has no ordinary large-time limit in either "
+                "the unitary subgroup or the ambient matrix topology, and "
+                "hence has no full weak-operator limit at that same fixed "
+                "finite dimension. The "
+                "exact scope control (U^n)^(-1) U^n = 1 converges for every U"
+            ),
+            "observed_counterpart": (
+                "fixed-cutoff scattering-construction boundary; not a "
+                "physical observation or prediction"
+            ),
+            "match": (
+                "exact direct-power obstruction; physical scattering and "
+                "asymptotic comparison construction open"
+            ),
+            "lean_declarations": {
+                "FiniteUnitaryScatteringNoGo": [
+                    "tendsto_powers_forces_identity",
+                    "nontrivial_powers_have_no_limit",
+                    "finite_unitary_powers_have_no_limit",
+                    "finite_unitary_ambient_powers_have_no_limit",
+                    "identical_relative_evolution_is_constant",
+                    "identical_relative_evolution_tendsto",
+                ]
+            },
+            "lean_receipts": _lean_receipt(
+                "FiniteUnitaryScatteringNoGo",
+                declarations={
+                    "FiniteUnitaryScatteringNoGo": (
+                        "tendsto_powers_forces_identity",
+                        "nontrivial_powers_have_no_limit",
+                        "finite_unitary_powers_have_no_limit",
+                        "finite_unitary_ambient_powers_have_no_limit",
+                        "identical_relative_evolution_is_constant",
+                        "identical_relative_evolution_tendsto",
+                    )
+                },
+            ),
+            "artifact_refs": [
+                "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
+                "code/qft/finite_unitary_scattering_no_go.py",
+                "code/qft/test_finite_unitary_scattering_no_go.py",
+            ],
+            "hypothesis_boundary": (
+                "this is only a no-go for direct ordinary convergence of one "
+                "fixed-cutoff power sequence U^n. Full weak-operator "
+                "convergence at that same finite dimension is excluded too, "
+                "because the standard finite-dimensional operator topologies "
+                "coincide. It leaves relative or comparison dynamics, "
+                "selected projected scalar or observable limits, infinite-"
+                "dimensional weak limits, subsequential or Cesaro limits, "
+                "continuum or infinite-volume limits, open-"
+                "system evolution, and finite-time operational protocols "
+                "open. It constructs no wave operator, S-matrix, cross "
+                "section, pole, optical theorem, renormalization flow, or "
+                "continuum QFT. Current lane #743 owns those interacting-QFT, "
+                "renormalization, and scattering obligations. This row emits "
+                "no frozen prediction"
+            ),
+            "paper_ref": (
+                "consensus paper, structural-QFT inheritance boundary"
+            ),
         },
         {
             "id": "finite_exterior_component_bridge",

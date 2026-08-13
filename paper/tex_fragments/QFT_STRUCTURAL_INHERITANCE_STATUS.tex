@@ -52,7 +52,10 @@ present, and the pinned Mathlib contains no Lorentzian
 geometry \tabularnewline
 \raggedright particle/scattering & \raggedright not statable: typed exit &
 \raggedright no translation action on event regions and no spectrum condition;
-no Haag--Ruelle material in the pinned Mathlib \tabularnewline
+no Haag--Ruelle material in the pinned Mathlib.  A separate general
+topological-group theorem now excludes only the direct fixed-cutoff limit
+$U^n\to U_\infty$ for a nonidentity exact unitary update; it neither supplies
+nor excludes a relative scattering construction \tabularnewline
 \end{tabular}
 \end{center}
 
@@ -77,3 +80,21 @@ restricted automorphism surrogate. Non-bijective transportable endomorphisms
 and full DHR reconstruction are unavailable; the spin-statistics, pole, and
 continuum receipts that promotion additionally requires are typed exits or
 absent structures here, not available results.
+
+Natural powers nevertheless give one exact architecture constraint on the
+scattering exit: in every Hausdorff topological group, $g^n\to a$ forces
+$g=1$ (\path{Lean/QFT/FiniteUnitaryScatteringNoGo.lean}).  Hence a nontrivial exact
+unitary update at fixed finite cutoff cannot itself settle to an ordinary
+matrix-topology large-time limit.  The same module proves the scope control
+$(g^n)^{-1}g^n=1$: relative evolution can converge even when the individual
+powers do not.  Any fixed-cutoff direct-power construction that uses $U^n$
+itself as its asymptotic carrier must therefore do something beyond full
+convergence of that sequence.  At fixed finite dimension, merely passing to
+full weak-operator convergence does not evade the obstruction because the
+standard finite-dimensional operator topologies coincide.  Routes not
+excluded here include comparison dynamics, selected projected scalar or
+observable readouts, an infinite-dimensional weak limit after a continuum or
+infinite-volume passage, or open-system evolution.  A finite-time operational
+or recurrence-aware readout is another route not excluded here.  The theorem
+proves no S-matrix, asymptotic state, optical theorem, cross section, or
+interacting continuum limit, and it does not close issue~\#743.

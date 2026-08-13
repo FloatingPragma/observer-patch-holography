@@ -96,6 +96,17 @@ def test_fz02_hash_is_bound_to_the_live_receipt():
         fz_tool.validate(register)
 
 
+def test_generic_frozen_row_cannot_be_rewritten_behind_old_hash():
+    register = live_register()
+    row = next(item for item in register["rows"] if item["id"] == "FZ-10")
+    original_hash = row["content_sha256"]
+    row["content"] = "A stronger post-hoc target"
+    row["kill_band"] = "FZ10-R01: silently weakened after comparison"
+    assert row["content_sha256"] == original_hash
+    with pytest.raises(SystemExit, match="immutable bootstrap"):
+        fz_tool.validate(register)
+
+
 def test_fz11_is_a_frozen_unarmed_branch_prediction():
     register = live_register()
     fz11 = next(row for row in register["rows"] if row["id"] == "FZ-11")

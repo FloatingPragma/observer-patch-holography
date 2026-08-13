@@ -2058,6 +2058,38 @@
       ]
     },
     {
+      "claim_id": "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
+      "statement": "On the existing exact FZ-12 mathematical modal packet, let k be a nonzero three-coordinate momentum, let omega_a(k)^2=Lambda_a(k) be its committed nonnegative scalar spatial symbol, and complexify the momentum-orthogonal fibre. The Fourier-modal operator D_(a,k)=i[omega_a(k)/sqrt(k.k)](k cross -) has zero modal divergence and satisfies D_(a,k)^2=Lambda_a(k) on that fibre. Hence the opposite-sign paired generator G(E,B)=(D B,-D E) preserves both transverse constraints and squares to -Lambda_a(k) on both amplitudes. The same-sign mutation G_+(E,B)=(D B,D E) instead squares to +Lambda_a(k), and fails the oscillator equation whenever the tested spatial action is nonzero. This is an exact modal/pseudodifferential factorization of the already committed oscillator, not a derivation of physical Maxwell theory: the momentum-dependent multiplier supplies no local position-space operator, real field or opposite-momentum reality assembly, electric/magnetic identification, source-produced dynamics, U(1) potential or gauge quotient, Maxwell action, bridge to the rational Gauss receipts, conserved physical current or source coupling, Lorentz covariance, continuum control, or laboratory readout. It removes no registered premise, emits no frozen prediction, and does not close issue #733.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "exact_conditional_modal_factorization_with_physical_Maxwell_boundary",
+      "assumptions": [
+        "certified_echosahedral_carrier_lineage",
+        "cumulative_signed_antipodal_position_module"
+      ],
+      "imported_results": [
+        "three_dimensional_vector_triple_product_identity",
+        "cross_product_orthogonality",
+        "complex_Fourier_multiplier_algebra"
+      ],
+      "oph_specific_delta": "Composes the OPH-specific exact FZ-12 scalar symbol and rank-two transverse modal carrier with a kernel-checked Fourier-curl square root, an opposite-sign paired first-order factorization, and sign and normalization controls. The theorem isolates precisely what first-order Maxwell-shaped algebra is available while making locality, field reality, gauge/action, Gauss/source, covariance, continuum, and readout attachments explicit nonconclusions.",
+      "novelty_type": "exact_OPH_modal_Maxwell_shaped_factorization_with_mutation_firewall",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "Lean/Screen/SeamCurrentFreePhotonLift.lean",
+        "Lean/Screen/ModalMaxwellFactorizationBoundary.lean",
+        "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
+        "code/electromagnetism/modal_maxwell_factorization.py",
+        "code/electromagnetism/test_modal_maxwell_factorization.py"
+      ],
+      "falsifier": "The bounded mathematical result fails if the modal curl has nonzero momentum divergence, its square differs from the committed scalar spatial action on a nonzero transverse mode, the opposite-sign paired generator fails its second-order oscillator equation or transverse preservation, the same-sign mutation has the oscillator sign on an amplitude with nonzero spatial action, or the independent exact replay fails either its sign or normalization control.",
+      "scope_if_false": "Only the modal square-root and paired-factorization theorem falls. The upstream exact FZ-12 scalar symbol, rank-two transverse oscillator, frozen dispersion branches, finite Gauss receipts, and every later physical electromagnetism attachment retain their separately stated scopes and gates.",
+      "status": "exact_modal_factorization_attained__local_source_produced_physical_Maxwell_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733
+      ]
+    },
+    {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
       "statement": "The certified twelve-port carrier has real module 1+3+3'+5 and a one-dimensional fixed space. A1 supplies a faithful complete compact twelve-dimensional port response, and A2 implements every proper carrier recharting internally on that same response. Inner automorphisms fix the centre, so its dimension is at most one. The centreless branch would be su(2)^4, whose inner A5 fixed dimension is a multiple of three, contradicting the carrier fixed line. Compact classification therefore forces the abstract Lie type u(1)+su(2)+su(3). A target-blind impulse/readback protocol separately derives J=(A^3-4A^2-5A+10I)/10 and R=-J. The charged-double-triplet matrices are an exact declared witness of the forced type. The registered recurrence is four-dimensional and commutative. Twelve diagonal phases have first-order rank twelve and derived rank zero, while adjoining connected adjacency generates u(12) with derived rank 143. Conditional on the canonical oriented carrier, the complete target-free space Hom_A5(exterior_square(Q^12),Q^12) has dimension fourteen and an exact rational Reynolds basis. Its complete Jacobi system has exact quadratic coefficient-row rank 38 and an 11+27 rowspace decomposition. The rank-27 residual equations apply on every derivation-weight flat. The compact real locus is classified, conditional on three named compact-Lie inputs, into the certified P, F, and G families. Applying the declared equal-weight cyclic rule to the twenty oriented faces gives exactly B_face=60 R13. It fails Jacobi in 240 of 2640 independent coordinates, split 120 at +1 and 120 at -1. On the displayed 792 upper-triangular structure-constant coordinates, exact primal-dual certificates give L1 distances 30(sqrt(5)-1), 60, and 60; squared-L2 distances (615-123 sqrt(5))/22, (615+123 sqrt(5))/22, and 45; and Linfinity distances (5-sqrt(5))/10, sqrt(5)/5, and 1/2 to G, F, and P, respectively. The F L1 value is an unattained compact-family infimum. Thus G uniquely wins all three supplied coordinate-norm family comparisons. Exact code proves the coordinate optimizations; Lean checks the serialized radical values and strict order. The face rule is a declared deterministic construction, every norm and the minimum-distance repair rule are basis-dependent supplied premises, and the comparison is only with the classified compact locus. Noncompact components, source bracket selection, ordered-source reconstruction, and same-current holonomy remain undischarged under issues #734 and #736. The quadratic comparison is additionally metric-robust over the complete carrier-induced invariant class: the carrier splits multiplicity-free into 1+3+3'+5, the commutant of the port action is exactly four-dimensional and spanned by the four symmetric spectral projectors, so every invariant carrier inner product is a positive sector-scale metric alpha P_1+beta P_3+gamma P_3'+delta P_5. Every induced bracket-space metric is channel-diagonal, and the squared distances from the face bracket to P, F, and G are exact three-term Laurent forms in (beta,gamma,delta) with alpha absent. P is strictly excluded for every invariant carrier metric; every sector-balanced metric (gamma=beta) and every metric with beta/delta in [1/50,6] selects G uniquely for all gamma and delta; F occupies the nonempty region d_F^2<d_G^2 across the exact three-scale tie surface, with witness (8,1,1); and conjugating sqrt(5) while swapping beta and gamma maps d_G to d_F exactly, so the F/G asymmetry is the Galois image of the sector swap. A channel-diagonal invariant metric on the bracket space that is not carrier-induced reverses the balanced-point selection, so carrier-inducedness is load-bearing. The nearest-point repair rule and the carrier-induced class remain declared discriminator choices; nothing in the phase diagram is source selection. The committed dual-measure theorem adds a measure-conditional point: on the pinned incidence table, equal normalized face weights and the declared barycentric one-third share give port-dual weight exactly 1/12 at every port, and under the declared diagonal measure-to-metric rule that uniform measure induces the scalar carrier inner product at the balanced cone point (1/12,1/12,1/12,1/12), where G is uniquely nearest with squared distances (3690-738 sqrt(5))/11 to G, (3690+738 sqrt(5))/11 to F, and 540 to P, twelve times the reference distances by the exact scaling identity c d^2(c,c,c)=d^2(1,1,1). The weighting rules and the measure-to-metric identification are declared, so this upgrades the metric-conditional selection to a measure-conditional selection whose measure is pinned by a committed theorem; it is not source selection of the bracket or a physical gauge structure, and the source derivation of the selection rule remains the open closure target.",
       "three_norm_robustness": "On the same 792 upper-triangular coordinates, exact primal-dual certificates also give L1 distances 30(sqrt(5)-1), 60, 60 and Linfinity distances (5-sqrt(5))/10, sqrt(5)/5, 1/2 to G, F, P. The F L1 value is a compact-family infimum, not an attained minimum. Thus G wins the L1, squared-L2, and Linfinity family comparisons. Exact code proves the coordinate optimization; Lean checks the serialized radical values and strict order. Every norm and the minimum-repair rule remain basis-dependent supplied premises, and the comparison is only with the classified compact locus.",
@@ -3311,6 +3343,38 @@
       "claim_class": "conditional_implication",
       "gates": [
         730,
+        743
+      ]
+    },
+    {
+      "claim_id": "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
+      "statement": "In every Hausdorff topological group, ordinary convergence of the natural powers g^n forces g to be the identity. Consequently, a supplied nonidentity finite-dimensional exact unitary update U at fixed cutoff has no ordinary large-time limit, either in the unitary subgroup or in the ambient matrix topology. At fixed finite dimension this also excludes full weak-operator convergence, because the standard finite-dimensional operator topologies coincide. This excludes only using full direct convergence of U^n as a scattering carrier. It does not exclude relative or comparison dynamics, selected projected scalar or observable limits, infinite-dimensional weak limits, subsequential or Cesaro limits, continuum or infinite-volume limits, open-system evolution, or finite-time operational protocols; the exact identical-relative control (U^n)^(-1) U^n = 1 converges for every U. No wave operator, S-matrix, cross section, resonance pole, optical theorem, renormalization flow, or continuum QFT is constructed.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_general_topological_group_no_go_with_fixed_finite_unitary_specialization",
+      "assumptions": [
+        "finite_cutoff_or_regulated_branch"
+      ],
+      "imported_results": [
+        "continuity_of_topological_group_multiplication",
+        "Hausdorff_uniqueness_of_limits",
+        "closedness_of_the_finite_dimensional_unitary_group",
+        "equivalence_of_standard_operator_topologies_in_finite_dimension"
+      ],
+      "oph_specific_delta": "The general no-go is standard group-topological mathematics rather than an OPH-specific theorem. Its OPH contribution is a kernel-checked architecture constraint for lane #743 together with an explicit relative-evolution control that prevents the constraint from being promoted into a scattering no-go.",
+      "novelty_type": "formalized_scattering_architecture_constraint_with_relative_limit_control",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
+        "Lean/QFT/FiniteUnitaryScatteringNoGo.lean",
+        "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
+        "code/qft/finite_unitary_scattering_no_go.py",
+        "code/qft/test_finite_unitary_scattering_no_go.py"
+      ],
+      "falsifier": "The exact claim fails if a nonidentity element of a Hausdorff topological group has ordinarily convergent natural powers, if a nonidentity finite-dimensional unitary power sequence converges in the inherited unitary or ambient matrix topology, or if the identical-relative sequence is not constantly the identity.",
+      "scope_if_false": "Only the direct-power asymptotic obstruction and its use as a fixed-cutoff architecture constraint fall. Interacting QFT, physical scattering, relative or comparison limits, selected projected scalar or observable convergence, infinite-dimensional weak limits, Cesaro procedures, continuum limits, open-system constructions, and finite-time operational protocols remain separate obligations regardless.",
+      "status": "exact_direct_power_limit_obstruction_attained__physical_scattering_open",
+      "claim_class": "conditional_implication",
+      "gates": [
         743
       ]
     },

@@ -1,0 +1,1500 @@
+{
+  "schema": "oph.architecture_replay_index.v1",
+  "issue": 741,
+  "current_architecture_version": "AV-0",
+  "current_architecture_snapshot_sha256": "622d27b36582530cefb757d01f65efac616df9481b39eb511a289a4786e9acd4",
+  "policy": "Architecture transitions invalidate affected observation promotions and version-bound predictions by default. Until every AV-n pins its own observation-consumer snapshot, any changed premise conservatively invalidates every observation row. Reinstatement requires explicit replay on the successor and a version-matching audit; a prediction requires a new pre-comparison freeze. Historical results remain visible under their original version.",
+  "transitions": [],
+  "observation_rows": [
+    {
+      "row_id": "OL-A1",
+      "rung": "emergent",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-A2",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-A3",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-A4",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-B1",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-B2",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-B3",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-B4",
+      "rung": "predictive",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "no_current_candidate",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [
+        "FZ-06"
+      ],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-B5",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-C1",
+      "rung": "structural",
+      "status": "attained",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "qualified_on_current_version",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "none",
+      "audits": [
+        {
+          "id": "AUD-V3-2026-08-12",
+          "origin_state": "legacy_source_pinned",
+          "reviewed_commit": "1381ff871ee5a06edc962a649e62f1efe6e2f23b",
+          "repair_commit": "3ab5bc2064235a740bb5574ea165564e43046bca",
+          "reviewers": [
+            {
+              "name": "Pasteur",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Socrates",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Hypatia",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            }
+          ],
+          "finding_ids": [
+            "V3-AUD-01",
+            "V3-AUD-02",
+            "V3-AUD-03",
+            "V3-AUD-04",
+            "V3-AUD-05",
+            "V3-AUD-06",
+            "V3-AUD-07",
+            "V3-AUD-08",
+            "V3-AUD-09",
+            "V3-AUD-10",
+            "V3-AUD-11",
+            "V3-AUD-12"
+          ],
+          "artifact_hashes": [
+            {
+              "revision": "9c1dd24728218966705b82a900ec2ba966d57394",
+              "path": "docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md",
+              "sha256": "7cf9ae1ad8439e2a042c012a50003a9c20fd203254dd467a032c876c181b1fcf",
+              "git_blob_sha1": "579b7bd18b739428f8e168c9301449aa7e392632"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/observation_ledger.json",
+              "sha256": "b47c028fd692abd02a9f662e376124f4c51af25c4d16a07edd61f4866b6b29c4",
+              "git_blob_sha1": "8bc8e312f3dcc8e3b79a6c594049a21d09807a0f"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/premise_register.json",
+              "sha256": "c4797624da1f4467548c64d9659b6f81d06b6f02663f6f299cea0eb45e007e7c",
+              "git_blob_sha1": "fa7f2dd52f468773c60c25a410d1cf0c7243490b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/sm_lagrangian_correspondence.json",
+              "sha256": "af1e64f350695e1196d39fd463febf5f49e3c6f30394f1208a594d9aa2ca5b73",
+              "git_blob_sha1": "8257f2e5000d8bf085e2de34c63e0e73661f1d7c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/emergent_instrument_register.json",
+              "sha256": "e0bf1b5edb687890424e2c8ec9877c411c75df5925edf4955dc3a65734d53e69",
+              "git_blob_sha1": "a6e8598ea1d49891e0bc6c953e57cd7003216b4c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/claim_registry.yaml",
+              "sha256": "258415b111221fa5b55f557c5a0c9af4dc82fd65497ea3a43f924347ea7b3042",
+              "git_blob_sha1": "b064279bb07019ad6a15a80bf75ae2b3a564764b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+              "sha256": "3730f22758d9e531b4565add854d571ad831e7c8888cde3d173966bbb261f36b",
+              "git_blob_sha1": "ca9aff2ded41aada1341702a2f9e1dbf8d30deee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/Lueders.lean",
+              "sha256": "09976fdd7305e852eb283176b788ad1cd73bff6ae543a441f29770413c51aec6",
+              "git_blob_sha1": "a7a7496ced8637e3f04d8eb37a5c4336e1fae8c2"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+              "sha256": "63b5bc19b4da13958b8313a4339c47ce49ac9c3ca3ec922fbe4a707a3e808f15",
+              "git_blob_sha1": "84faa335832ffde991826ad70997eb8f96cc7131"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FluctuationTheorems.lean",
+              "sha256": "a599da8aa5c08a4663716cdf93ce02618d0abec37d5431bf7335474998626452",
+              "git_blob_sha1": "89dbd2ff2c25de80818dfcf8b154eaeb45b29784"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/conditional_repair_certificate.py",
+              "sha256": "45e90961348797bdf5ab7bbf5fa903bcc6f27387533a2ecd24e66545b55b3e84",
+              "git_blob_sha1": "1d0780970ae5c729533db5395e5a29780594129b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/runtime/conditional_repair_receipt.json",
+              "sha256": "57a9bcfc4d6f7949fe9d7e00819f821d0517167308cf375fedae13d55021ae9f",
+              "git_blob_sha1": "a20c7e5182bd17ddd961e74e336c8096ef66ad25"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+              "sha256": "c4b1c0fd8674ec11a23cc3cf87d12a892f73b797754449b88e801cbf543ae781",
+              "git_blob_sha1": "719a14f7e8be7c2a51162793548fadf79025b3af"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/ExteriorSelection.lean",
+              "sha256": "a83cdeb1b418754796708e26f3a16e16f805df78424fc85d220fd8887cb01d3a",
+              "git_blob_sha1": "22f181b73b5b2780fc31c6c5aa76bea8dae0baee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/QuantumMatterIntegration.lean",
+              "sha256": "9d2c3ab2519e62b7e7867872ebebfd879e198c30b141c59eb93982c7c4b217c1",
+              "git_blob_sha1": "2601e2b562ad6fccf3a301cf112c90daa7bbb15c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+              "sha256": "b1a954ae2280351ca9dcc091d8876adb7b73ab906d1104d522feb84496dd6cee",
+              "git_blob_sha1": "de860286668a369ad877247e19cf1bd7b57e13e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "row_id": "OL-C2",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-C3",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-C4",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-C5",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-C6",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-D1",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-D2",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-D3",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-E1",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-E2",
+      "rung": "structural",
+      "status": "attained",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "qualified_on_current_version",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "none",
+      "audits": [
+        {
+          "id": "AUD-V3-2026-08-12",
+          "origin_state": "legacy_source_pinned",
+          "reviewed_commit": "1381ff871ee5a06edc962a649e62f1efe6e2f23b",
+          "repair_commit": "3ab5bc2064235a740bb5574ea165564e43046bca",
+          "reviewers": [
+            {
+              "name": "Pasteur",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Socrates",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Hypatia",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            }
+          ],
+          "finding_ids": [
+            "V3-AUD-01",
+            "V3-AUD-02",
+            "V3-AUD-03",
+            "V3-AUD-04",
+            "V3-AUD-05",
+            "V3-AUD-06",
+            "V3-AUD-07",
+            "V3-AUD-08",
+            "V3-AUD-09",
+            "V3-AUD-10",
+            "V3-AUD-11",
+            "V3-AUD-12"
+          ],
+          "artifact_hashes": [
+            {
+              "revision": "9c1dd24728218966705b82a900ec2ba966d57394",
+              "path": "docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md",
+              "sha256": "7cf9ae1ad8439e2a042c012a50003a9c20fd203254dd467a032c876c181b1fcf",
+              "git_blob_sha1": "579b7bd18b739428f8e168c9301449aa7e392632"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/observation_ledger.json",
+              "sha256": "b47c028fd692abd02a9f662e376124f4c51af25c4d16a07edd61f4866b6b29c4",
+              "git_blob_sha1": "8bc8e312f3dcc8e3b79a6c594049a21d09807a0f"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/premise_register.json",
+              "sha256": "c4797624da1f4467548c64d9659b6f81d06b6f02663f6f299cea0eb45e007e7c",
+              "git_blob_sha1": "fa7f2dd52f468773c60c25a410d1cf0c7243490b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/sm_lagrangian_correspondence.json",
+              "sha256": "af1e64f350695e1196d39fd463febf5f49e3c6f30394f1208a594d9aa2ca5b73",
+              "git_blob_sha1": "8257f2e5000d8bf085e2de34c63e0e73661f1d7c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/emergent_instrument_register.json",
+              "sha256": "e0bf1b5edb687890424e2c8ec9877c411c75df5925edf4955dc3a65734d53e69",
+              "git_blob_sha1": "a6e8598ea1d49891e0bc6c953e57cd7003216b4c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/claim_registry.yaml",
+              "sha256": "258415b111221fa5b55f557c5a0c9af4dc82fd65497ea3a43f924347ea7b3042",
+              "git_blob_sha1": "b064279bb07019ad6a15a80bf75ae2b3a564764b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+              "sha256": "3730f22758d9e531b4565add854d571ad831e7c8888cde3d173966bbb261f36b",
+              "git_blob_sha1": "ca9aff2ded41aada1341702a2f9e1dbf8d30deee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/Lueders.lean",
+              "sha256": "09976fdd7305e852eb283176b788ad1cd73bff6ae543a441f29770413c51aec6",
+              "git_blob_sha1": "a7a7496ced8637e3f04d8eb37a5c4336e1fae8c2"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+              "sha256": "63b5bc19b4da13958b8313a4339c47ce49ac9c3ca3ec922fbe4a707a3e808f15",
+              "git_blob_sha1": "84faa335832ffde991826ad70997eb8f96cc7131"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FluctuationTheorems.lean",
+              "sha256": "a599da8aa5c08a4663716cdf93ce02618d0abec37d5431bf7335474998626452",
+              "git_blob_sha1": "89dbd2ff2c25de80818dfcf8b154eaeb45b29784"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/conditional_repair_certificate.py",
+              "sha256": "45e90961348797bdf5ab7bbf5fa903bcc6f27387533a2ecd24e66545b55b3e84",
+              "git_blob_sha1": "1d0780970ae5c729533db5395e5a29780594129b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/runtime/conditional_repair_receipt.json",
+              "sha256": "57a9bcfc4d6f7949fe9d7e00819f821d0517167308cf375fedae13d55021ae9f",
+              "git_blob_sha1": "a20c7e5182bd17ddd961e74e336c8096ef66ad25"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+              "sha256": "c4b1c0fd8674ec11a23cc3cf87d12a892f73b797754449b88e801cbf543ae781",
+              "git_blob_sha1": "719a14f7e8be7c2a51162793548fadf79025b3af"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/ExteriorSelection.lean",
+              "sha256": "a83cdeb1b418754796708e26f3a16e16f805df78424fc85d220fd8887cb01d3a",
+              "git_blob_sha1": "22f181b73b5b2780fc31c6c5aa76bea8dae0baee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/QuantumMatterIntegration.lean",
+              "sha256": "9d2c3ab2519e62b7e7867872ebebfd879e198c30b141c59eb93982c7c4b217c1",
+              "git_blob_sha1": "2601e2b562ad6fccf3a301cf112c90daa7bbb15c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+              "sha256": "b1a954ae2280351ca9dcc091d8876adb7b73ab906d1104d522feb84496dd6cee",
+              "git_blob_sha1": "de860286668a369ad877247e19cf1bd7b57e13e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "row_id": "OL-E3",
+      "rung": "structural",
+      "status": "attained",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "qualified_on_current_version",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "none",
+      "audits": [
+        {
+          "id": "AUD-V3-2026-08-12",
+          "origin_state": "legacy_source_pinned",
+          "reviewed_commit": "1381ff871ee5a06edc962a649e62f1efe6e2f23b",
+          "repair_commit": "3ab5bc2064235a740bb5574ea165564e43046bca",
+          "reviewers": [
+            {
+              "name": "Pasteur",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Socrates",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Hypatia",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            }
+          ],
+          "finding_ids": [
+            "V3-AUD-01",
+            "V3-AUD-02",
+            "V3-AUD-03",
+            "V3-AUD-04",
+            "V3-AUD-05",
+            "V3-AUD-06",
+            "V3-AUD-07",
+            "V3-AUD-08",
+            "V3-AUD-09",
+            "V3-AUD-10",
+            "V3-AUD-11",
+            "V3-AUD-12"
+          ],
+          "artifact_hashes": [
+            {
+              "revision": "9c1dd24728218966705b82a900ec2ba966d57394",
+              "path": "docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md",
+              "sha256": "7cf9ae1ad8439e2a042c012a50003a9c20fd203254dd467a032c876c181b1fcf",
+              "git_blob_sha1": "579b7bd18b739428f8e168c9301449aa7e392632"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/observation_ledger.json",
+              "sha256": "b47c028fd692abd02a9f662e376124f4c51af25c4d16a07edd61f4866b6b29c4",
+              "git_blob_sha1": "8bc8e312f3dcc8e3b79a6c594049a21d09807a0f"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/premise_register.json",
+              "sha256": "c4797624da1f4467548c64d9659b6f81d06b6f02663f6f299cea0eb45e007e7c",
+              "git_blob_sha1": "fa7f2dd52f468773c60c25a410d1cf0c7243490b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/sm_lagrangian_correspondence.json",
+              "sha256": "af1e64f350695e1196d39fd463febf5f49e3c6f30394f1208a594d9aa2ca5b73",
+              "git_blob_sha1": "8257f2e5000d8bf085e2de34c63e0e73661f1d7c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/emergent_instrument_register.json",
+              "sha256": "e0bf1b5edb687890424e2c8ec9877c411c75df5925edf4955dc3a65734d53e69",
+              "git_blob_sha1": "a6e8598ea1d49891e0bc6c953e57cd7003216b4c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/claim_registry.yaml",
+              "sha256": "258415b111221fa5b55f557c5a0c9af4dc82fd65497ea3a43f924347ea7b3042",
+              "git_blob_sha1": "b064279bb07019ad6a15a80bf75ae2b3a564764b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+              "sha256": "3730f22758d9e531b4565add854d571ad831e7c8888cde3d173966bbb261f36b",
+              "git_blob_sha1": "ca9aff2ded41aada1341702a2f9e1dbf8d30deee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/Lueders.lean",
+              "sha256": "09976fdd7305e852eb283176b788ad1cd73bff6ae543a441f29770413c51aec6",
+              "git_blob_sha1": "a7a7496ced8637e3f04d8eb37a5c4336e1fae8c2"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+              "sha256": "63b5bc19b4da13958b8313a4339c47ce49ac9c3ca3ec922fbe4a707a3e808f15",
+              "git_blob_sha1": "84faa335832ffde991826ad70997eb8f96cc7131"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FluctuationTheorems.lean",
+              "sha256": "a599da8aa5c08a4663716cdf93ce02618d0abec37d5431bf7335474998626452",
+              "git_blob_sha1": "89dbd2ff2c25de80818dfcf8b154eaeb45b29784"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/conditional_repair_certificate.py",
+              "sha256": "45e90961348797bdf5ab7bbf5fa903bcc6f27387533a2ecd24e66545b55b3e84",
+              "git_blob_sha1": "1d0780970ae5c729533db5395e5a29780594129b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/runtime/conditional_repair_receipt.json",
+              "sha256": "57a9bcfc4d6f7949fe9d7e00819f821d0517167308cf375fedae13d55021ae9f",
+              "git_blob_sha1": "a20c7e5182bd17ddd961e74e336c8096ef66ad25"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+              "sha256": "c4b1c0fd8674ec11a23cc3cf87d12a892f73b797754449b88e801cbf543ae781",
+              "git_blob_sha1": "719a14f7e8be7c2a51162793548fadf79025b3af"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/ExteriorSelection.lean",
+              "sha256": "a83cdeb1b418754796708e26f3a16e16f805df78424fc85d220fd8887cb01d3a",
+              "git_blob_sha1": "22f181b73b5b2780fc31c6c5aa76bea8dae0baee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/QuantumMatterIntegration.lean",
+              "sha256": "9d2c3ab2519e62b7e7867872ebebfd879e198c30b141c59eb93982c7c4b217c1",
+              "git_blob_sha1": "2601e2b562ad6fccf3a301cf112c90daa7bbb15c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+              "sha256": "b1a954ae2280351ca9dcc091d8876adb7b73ab906d1104d522feb84496dd6cee",
+              "git_blob_sha1": "de860286668a369ad877247e19cf1bd7b57e13e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "row_id": "OL-E4",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-F1",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-F2",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-F3",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-F4",
+      "rung": "predictive",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "no_current_candidate",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [
+        "FZ-11",
+        "FZ-12"
+      ],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G1",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G2",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G3",
+      "rung": "structural",
+      "status": "attained",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "qualified_on_current_version",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "none",
+      "audits": [
+        {
+          "id": "AUD-V3-2026-08-12",
+          "origin_state": "legacy_source_pinned",
+          "reviewed_commit": "1381ff871ee5a06edc962a649e62f1efe6e2f23b",
+          "repair_commit": "3ab5bc2064235a740bb5574ea165564e43046bca",
+          "reviewers": [
+            {
+              "name": "Pasteur",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Socrates",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            },
+            {
+              "name": "Hypatia",
+              "model": "Codex GPT-5 family; exact deployment identifier was not exposed"
+            }
+          ],
+          "finding_ids": [
+            "V3-AUD-01",
+            "V3-AUD-02",
+            "V3-AUD-03",
+            "V3-AUD-04",
+            "V3-AUD-05",
+            "V3-AUD-06",
+            "V3-AUD-07",
+            "V3-AUD-08",
+            "V3-AUD-09",
+            "V3-AUD-10",
+            "V3-AUD-11",
+            "V3-AUD-12"
+          ],
+          "artifact_hashes": [
+            {
+              "revision": "9c1dd24728218966705b82a900ec2ba966d57394",
+              "path": "docs/audits/V3_IMPLEMENTATION_AUDIT_2026-08-12.md",
+              "sha256": "7cf9ae1ad8439e2a042c012a50003a9c20fd203254dd467a032c876c181b1fcf",
+              "git_blob_sha1": "579b7bd18b739428f8e168c9301449aa7e392632"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/observation_ledger.json",
+              "sha256": "b47c028fd692abd02a9f662e376124f4c51af25c4d16a07edd61f4866b6b29c4",
+              "git_blob_sha1": "8bc8e312f3dcc8e3b79a6c594049a21d09807a0f"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/premise_register.json",
+              "sha256": "c4797624da1f4467548c64d9659b6f81d06b6f02663f6f299cea0eb45e007e7c",
+              "git_blob_sha1": "fa7f2dd52f468773c60c25a410d1cf0c7243490b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "tracking/sm_lagrangian_correspondence.json",
+              "sha256": "af1e64f350695e1196d39fd463febf5f49e3c6f30394f1208a594d9aa2ca5b73",
+              "git_blob_sha1": "8257f2e5000d8bf085e2de34c63e0e73661f1d7c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/emergent_instrument_register.json",
+              "sha256": "e0bf1b5edb687890424e2c8ec9877c411c75df5925edf4955dc3a65734d53e69",
+              "git_blob_sha1": "a6e8598ea1d49891e0bc6c953e57cd7003216b4c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "claims/claim_registry.yaml",
+              "sha256": "258415b111221fa5b55f557c5a0c9af4dc82fd65497ea3a43f924347ea7b3042",
+              "git_blob_sha1": "b064279bb07019ad6a15a80bf75ae2b3a564764b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/FiniteBuschGleason.lean",
+              "sha256": "3730f22758d9e531b4565add854d571ad831e7c8888cde3d173966bbb261f36b",
+              "git_blob_sha1": "ca9aff2ded41aada1341702a2f9e1dbf8d30deee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/Lueders.lean",
+              "sha256": "09976fdd7305e852eb283176b788ad1cd73bff6ae543a441f29770413c51aec6",
+              "git_blob_sha1": "a7a7496ced8637e3f04d8eb37a5c4336e1fae8c2"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/EventAlgebra/QuantumAdequacySurface.lean",
+              "sha256": "63b5bc19b4da13958b8313a4339c47ce49ac9c3ca3ec922fbe4a707a3e808f15",
+              "git_blob_sha1": "84faa335832ffde991826ad70997eb8f96cc7131"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FluctuationTheorems.lean",
+              "sha256": "a599da8aa5c08a4663716cdf93ce02618d0abec37d5431bf7335474998626452",
+              "git_blob_sha1": "89dbd2ff2c25de80818dfcf8b154eaeb45b29784"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/conditional_repair_certificate.py",
+              "sha256": "45e90961348797bdf5ab7bbf5fa903bcc6f27387533a2ecd24e66545b55b3e84",
+              "git_blob_sha1": "1d0780970ae5c729533db5395e5a29780594129b"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "code/thermodynamics/runtime/conditional_repair_receipt.json",
+              "sha256": "57a9bcfc4d6f7949fe9d7e00819f821d0517167308cf375fedae13d55021ae9f",
+              "git_blob_sha1": "a20c7e5182bd17ddd961e74e336c8096ef66ad25"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+              "sha256": "c4b1c0fd8674ec11a23cc3cf87d12a892f73b797754449b88e801cbf543ae781",
+              "git_blob_sha1": "719a14f7e8be7c2a51162793548fadf79025b3af"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/ExteriorSelection.lean",
+              "sha256": "a83cdeb1b418754796708e26f3a16e16f805df78424fc85d220fd8887cb01d3a",
+              "git_blob_sha1": "22f181b73b5b2780fc31c6c5aa76bea8dae0baee"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "Lean/Screen/QuantumMatterIntegration.lean",
+              "sha256": "9d2c3ab2519e62b7e7867872ebebfd879e198c30b141c59eb93982c7c4b217c1",
+              "git_blob_sha1": "2601e2b562ad6fccf3a301cf112c90daa7bbb15c"
+            },
+            {
+              "revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+              "path": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+              "sha256": "b1a954ae2280351ca9dcc091d8876adb7b73ab906d1104d522feb84496dd6cee",
+              "git_blob_sha1": "de860286668a369ad877247e19cf1bd7b57e13e3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "row_id": "OL-G4",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G5",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G8",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G6",
+      "rung": "formal_precursor",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G7",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-G9",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H1",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H2",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H3",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H4",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H5",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H6",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H7",
+      "rung": "predictive",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "candidate_requires_version_bound_event",
+      "candidate_baseline_lineages": [
+        "FZ-03"
+      ],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-H8",
+      "rung": "structural",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-I1",
+      "rung": "predictive",
+      "status": "partial",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "no_current_candidate",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [
+        "FZ-01",
+        "FZ-02",
+        "FZ-06",
+        "FZ-11",
+        "FZ-12"
+      ],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-I2",
+      "rung": "predictive",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "candidate_requires_version_bound_event",
+      "candidate_baseline_lineages": [
+        "FZ-09"
+      ],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-I3",
+      "rung": "predictive",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "candidate_requires_version_bound_event",
+      "candidate_baseline_lineages": [
+        "FZ-07",
+        "FZ-08"
+      ],
+      "historical_only_lineages": [
+        "FZ-01"
+      ],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-J1",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-J2",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-J3",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-K1",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-K2",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-K3",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-L1",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-L2",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-L3",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-M1",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-M2",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-M3",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    },
+    {
+      "row_id": "OL-N1",
+      "rung": "structural",
+      "status": "owed",
+      "recorded_architecture_version": "AV-0",
+      "current_architecture_version": "AV-0",
+      "promotion_state": "not_promoted",
+      "prediction_lineage_state": "not_predictive",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [],
+      "qualifying_freeze_events": [],
+      "required_action": "complete the row contract before promotion",
+      "audits": []
+    }
+  ],
+  "frozen_prediction_lineages": [
+    {
+      "id": "FZ-01",
+      "registered_content_sha256": "manifest-bound: registration_manifest_2026-07-17.json maps each artifact to its sha256",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_new_freeze_required"
+    },
+    {
+      "id": "FZ-02",
+      "registered_content_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_new_freeze_required"
+    },
+    {
+      "id": "FZ-03",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_until_version_bound_freeze"
+    },
+    {
+      "id": "FZ-05",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_until_version_bound_freeze"
+    },
+    {
+      "id": "FZ-06",
+      "registered_content_sha256": "manifest-bound through the FZ-01 registration manifest",
+      "source_architecture_version": null,
+      "lineage_status": "superseded_void",
+      "current_version_eligibility": "permanently_ineligible",
+      "transition_policy": "Preserve the void historical record; no architecture transition or event can revive it. A scientifically distinct successor must be a new event.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "permanently_ineligible"
+    },
+    {
+      "id": "FZ-07",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_until_version_bound_freeze"
+    },
+    {
+      "id": "FZ-08",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_until_version_bound_freeze"
+    },
+    {
+      "id": "FZ-09",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_until_version_bound_freeze"
+    },
+    {
+      "id": "FZ-10",
+      "registered_content_sha256": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_new_freeze_required"
+    },
+    {
+      "id": "FZ-11",
+      "registered_content_sha256": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_new_freeze_required"
+    },
+    {
+      "id": "FZ-12",
+      "registered_content_sha256": "0b8f0f7573f556ef0f47158fe07eca002c5b35790231d1ef2b75518057d12915",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use.",
+      "current_architecture_version": "AV-0",
+      "effective_eligibility": "ineligible_new_freeze_required"
+    }
+  ]
+}

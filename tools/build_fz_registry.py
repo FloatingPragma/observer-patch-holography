@@ -47,8 +47,16 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+try:
+    import strict_json
+except ModuleNotFoundError:  # Support importlib loading from repository tests.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import strict_json
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "claims" / "frozen_prediction_register.json"
+FROZEN_ROWS_BOOTSTRAP_REVISION = "68663e9e52a3931c322676a127dd0af144a01de3"
+FROZEN_ROWS_BOOTSTRAP_GIT_BLOB_SHA1 = "731ff48c6005a0d2b3930c1d33a6f00c2dd3e345"
 OWNER_SUCCESSOR_PATH = (
     ROOT / "claims" / "frozen_prediction_owner_successors.json"
 )
@@ -343,10 +351,10 @@ def fail(message: str) -> None:
 
 def load_json(path: Path) -> dict:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return strict_json.load(path)
     except FileNotFoundError:
         fail(f"missing input {path.relative_to(ROOT)}")
-    except json.JSONDecodeError as error:
+    except (json.JSONDecodeError, strict_json.DuplicateKeyError) as error:
         fail(f"invalid JSON in {path.relative_to(ROOT)}: {error}")
     raise AssertionError("unreachable")
 
@@ -1875,6 +1883,43 @@ def validate_owner_successors(
     return lookup
 
 
+def validate_frozen_rows_bootstrap(rows: list[dict]) -> None:
+    """Bind complete ladder rows to their immutable V3-bootstrap payload.
+
+    A future row addition or state transition needs an explicit append-only
+    lineage event and schema migration. It cannot be represented by rewriting
+    a row while retaining a stale, self-declared content hash.
+    """
+
+    where = "frozen-row V3 bootstrap"
+    relative = REGISTER_PATH.relative_to(ROOT).as_posix()
+    resolved = _run_git(
+        ROOT,
+        ["rev-parse", f"{FROZEN_ROWS_BOOTSTRAP_REVISION}:{relative}"],
+        where,
+    )
+    if resolved.returncode != 0:
+        fail(f"{where}: pinned register Git object is unavailable")
+    actual_blob = resolved.stdout.decode("ascii", errors="replace").strip()
+    if actual_blob != FROZEN_ROWS_BOOTSTRAP_GIT_BLOB_SHA1:
+        fail(f"{where}: pinned register Git blob changed")
+    raw = read_commit_blob(ROOT, FROZEN_ROWS_BOOTSTRAP_REVISION, relative, where)
+    try:
+        historical = strict_json.loads(raw.decode("utf-8"))
+    except (
+        UnicodeDecodeError,
+        json.JSONDecodeError,
+        strict_json.DuplicateKeyError,
+    ) as error:
+        fail(f"{where}: pinned register is invalid strict JSON: {error}")
+    historical_rows = historical.get("rows") if isinstance(historical, dict) else None
+    if historical_rows != rows:
+        fail(
+            f"{where}: ladder rows differ from the immutable bootstrap; "
+            "add an explicit append-only lineage event and schema migration"
+        )
+
+
 def validate(register: dict) -> list[dict]:
     if set(register) != REGISTER_KEYS:
         fail("top-level keys mismatch")
@@ -2014,6 +2059,7 @@ def validate(register: dict) -> list[dict]:
             f"receipt hash {live_hash}"
         )
     validate_owner_successors(rows, open_issues)
+    validate_frozen_rows_bootstrap(rows)
     return rows
 
 
@@ -2950,7 +2996,13 @@ def render(register: dict, rows: list[dict]) -> str:
         "coordinate norms but remains metric- and repair-rule-conditional. E9's invariant-form "
         "dimension drop, constructed multifactor binding, and relative-coefficient "
         "identifiability are structural, source-unselected results and likewise "
-        "do not create prediction rows."
+        "do not create prediction rows. The fixed-cutoff unitary-power no-go "
+        "rules out only direct convergence of a nonidentity exact update; its "
+        "relative-evolution control leaves scattering open, and it supplies no "
+        "prospective observable or prediction row. Architecture-version "
+        "eligibility is tracked separately in "
+        "`claims/frozen_prediction_architecture_lineages.json`; a frozen target "
+        "never migrates silently to a different AV-n."
     )
     lines.append("")
     lines.append(

@@ -34,6 +34,7 @@ import SeamCurrentHomogeneousAction
 import SeamCurrentDirichletGenerator
 import SeamCurrentAuxiliaryOscillatorLift
 import SeamCurrentFreePhotonLift
+import ModalMaxwellFactorizationBoundary
 import SeamCurrentPhysicalMetricAttachment
 import SeamCurrentPhotonLeptonThreshold
 import CarrierFrequencySpeed

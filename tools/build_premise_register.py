@@ -506,6 +506,15 @@ def render(rows: list[dict]) -> str:
         " recorded events with rationale, never silent edits."
     )
     lines.append("")
+    lines.append(
+        "Every `remove` or `axiomatize` row is projected into the generated"
+        " [premise-discharge queue](PREMISE_DISCHARGE_QUEUE_V3.md), with its"
+        " exact statement, evidence, conditional-consumer edges, next action,"
+        " and durable architecture/audit-register custody established under"
+        " issues #741 and #738. Imports are listed there as"
+        " explicit exclusions rather than silently entering the queue."
+    )
+    lines.append("")
     lines.append("| Row | Premise | Type | Disposition | Consuming lanes |")
     lines.append("| --- | --- | --- | --- | --- |")
     for row in rows:

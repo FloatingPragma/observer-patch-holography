@@ -5,6 +5,34 @@ commands verify that the claim registry is internally connected and that the
 public test collection imports without error. Individual evidence families
 then have their own theorem, certificate, or experimental acceptance rule.
 
+The V3 premise-discharge queue is also reproducible independently. It derives
+one `D1-PR-xx` action item for every `remove` or `axiomatize` premise, preserves
+the register's evidence and consumer edges, and fails if its machine or
+Markdown surface drifts:
+
+```bash
+python tools/build_premise_discharge_queue.py --check
+python -m pytest -q tools/test_premise_discharge_queue.py
+```
+
+Architecture and audit custody can be replayed without executing a simulation:
+
+```bash
+python tools/build_architecture_versions.py --check
+python tools/build_audit_custody.py --check
+python tools/build_architecture_replay.py --check
+python -m pytest -q tools/test_architecture_versions.py tools/test_audit_custody.py tools/test_architecture_replay.py
+```
+
+The bounded modal Maxwell-shaped factorization is also an exact, laptop-scale
+algebra check rather than a simulation campaign:
+
+```bash
+python -m pytest -q \
+  code/electromagnetism/test_modal_maxwell_factorization.py \
+  tools/test_modal_maxwell_factorization_surfaces.py
+```
+
 ## Environment
 
 - CPython 3.12 or newer (verified on 3.12 and 3.13).

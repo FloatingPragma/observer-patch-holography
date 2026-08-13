@@ -1,0 +1,163 @@
+{
+  "schema": "oph.frozen_prediction_architecture_lineages.v2",
+  "issue": 741,
+  "frozen_register_revision": "68663e9e52a3931c322676a127dd0af144a01de3",
+  "frozen_register_git_blob_sha1": "731ff48c6005a0d2b3930c1d33a6f00c2dd3e345",
+  "policy": "A historical frozen target does not silently migrate across architecture versions. Baseline rows are a deterministic, immutable view of the pre-V3 frozen register. New predictive custody is an append-only event committed before comparison, then anchored to its first-appearance commit. Only an anchored event on the current anchored AV-n can qualify an attained predictive observation row. A superseded void row remains void; a distinct successor must be a new event.",
+  "rows": [
+    {
+      "id": "FZ-01",
+      "registered_content_sha256": "manifest-bound: registration_manifest_2026-07-17.json maps each artifact to its sha256",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use."
+    },
+    {
+      "id": "FZ-02",
+      "registered_content_sha256": "d95afcdef548e51f18825053ea74bc23d124672481194cff7282aee91b306b82",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use."
+    },
+    {
+      "id": "FZ-03",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default."
+    },
+    {
+      "id": "FZ-05",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default."
+    },
+    {
+      "id": "FZ-06",
+      "registered_content_sha256": "manifest-bound through the FZ-01 registration manifest",
+      "source_architecture_version": null,
+      "lineage_status": "superseded_void",
+      "current_version_eligibility": "permanently_ineligible",
+      "transition_policy": "Preserve the void historical record; no architecture transition or event can revive it. A scientifically distinct successor must be a new event."
+    },
+    {
+      "id": "FZ-07",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default."
+    },
+    {
+      "id": "FZ-08",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default."
+    },
+    {
+      "id": "FZ-09",
+      "registered_content_sha256": null,
+      "source_architecture_version": null,
+      "lineage_status": "unbound_pending_freeze",
+      "current_version_eligibility": "ineligible_until_version_bound_freeze",
+      "transition_policy": "Bind the eventual freeze through an append-only event to the then-current AV-n; any later architecture transition invalidates that event by default."
+    },
+    {
+      "id": "FZ-10",
+      "registered_content_sha256": "09efbad8de813790d10671b425daef69429831c58daa212f4be131c61f653898",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use."
+    },
+    {
+      "id": "FZ-11",
+      "registered_content_sha256": "8ac97d7c46199717ed031610efdda65c40f6a251e78715d6bc05888d598e66d8",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use."
+    },
+    {
+      "id": "FZ-12",
+      "registered_content_sha256": "0b8f0f7573f556ef0f47158fe07eca002c5b35790231d1ef2b75518057d12915",
+      "source_architecture_version": null,
+      "lineage_status": "legacy_unversioned",
+      "current_version_eligibility": "ineligible_new_freeze_required",
+      "transition_policy": "Preserve historical custody; preregister a new target in an append-only event bound to one current architecture version before predictive use."
+    }
+  ],
+  "predictive_observation_bindings": [
+    {
+      "observation_row_id": "OL-B4",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [
+        "FZ-06"
+      ],
+      "no_candidate_reason": "FZ-06 is permanently void. A qualifying ringdown target must be a scientifically distinct append-only event.",
+      "qualification_rule": "anchored_current_architecture_event_covering_full_row"
+    },
+    {
+      "observation_row_id": "OL-F4",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [
+        "FZ-11",
+        "FZ-12"
+      ],
+      "no_candidate_reason": "FZ-11 and FZ-12 predate AV-0 and remain internal historical targets. A physical dispersion prediction needs a new full-row event.",
+      "qualification_rule": "anchored_current_architecture_event_covering_full_row"
+    },
+    {
+      "observation_row_id": "OL-H7",
+      "candidate_baseline_lineages": [
+        "FZ-03"
+      ],
+      "historical_only_lineages": [],
+      "no_candidate_reason": null,
+      "qualification_rule": "anchored_current_architecture_event_covering_full_row"
+    },
+    {
+      "observation_row_id": "OL-I1",
+      "candidate_baseline_lineages": [],
+      "historical_only_lineages": [
+        "FZ-01",
+        "FZ-02",
+        "FZ-06",
+        "FZ-11",
+        "FZ-12"
+      ],
+      "no_candidate_reason": "The existing comb and template records are pre-AV historical custody or void. Attainment needs a new event that freezes the complete row-level comparison contract.",
+      "qualification_rule": "anchored_current_architecture_event_covering_full_row"
+    },
+    {
+      "observation_row_id": "OL-I2",
+      "candidate_baseline_lineages": [
+        "FZ-09"
+      ],
+      "historical_only_lineages": [],
+      "no_candidate_reason": null,
+      "qualification_rule": "anchored_current_architecture_event_covering_full_row"
+    },
+    {
+      "observation_row_id": "OL-I3",
+      "candidate_baseline_lineages": [
+        "FZ-07",
+        "FZ-08"
+      ],
+      "historical_only_lineages": [
+        "FZ-01"
+      ],
+      "no_candidate_reason": null,
+      "qualification_rule": "anchored_current_architecture_event_covering_full_row"
+    }
+  ],
+  "events": [],
+  "event_anchors": []
+}

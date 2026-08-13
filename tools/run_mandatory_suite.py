@@ -198,6 +198,32 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Validate immutable promotion-audit custody",
+        [sys.executable, "tools/build_audit_custody.py", "--check"],
+    ),
+    (
+        "Execute the promotion-audit custody mutation gates",
+        [sys.executable, "-m", "pytest", "-q", "tools/test_audit_custody.py"],
+    ),
+    (
+        "Validate architecture replay and prediction lineages",
+        [sys.executable, "tools/build_architecture_replay.py", "--check"],
+    ),
+    (
+        "Execute predictive-lineage custody mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_prediction_lineage_custody.py",
+        ],
+    ),
+    (
+        "Execute architecture replay mutation gates",
+        [sys.executable, "-m", "pytest", "-q", "tools/test_architecture_replay.py"],
+    ),
+    (
         "Execute the architecture-version mutation gates",
         [
             sys.executable,
@@ -233,6 +259,64 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "tools/test_premise_register.py",
+        ],
+    ),
+    (
+        "Validate the V3 premise-discharge queue",
+        [
+            sys.executable,
+            "tools/build_premise_discharge_queue.py",
+            "--check",
+        ],
+    ),
+    (
+        "Execute the premise-discharge queue gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_premise_discharge_queue.py",
+        ],
+    ),
+    (
+        "Execute the fixed-unitary scattering obstruction controls",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/qft/test_finite_unitary_scattering_no_go.py",
+        ],
+    ),
+    (
+        "Execute the fixed-unitary scattering cross-surface gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_finite_unitary_scattering_surfaces.py",
+        ],
+    ),
+    (
+        "Execute the modal Maxwell factorization and mutation controls",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/electromagnetism/test_modal_maxwell_factorization.py",
+        ],
+    ),
+    (
+        "Execute the modal Maxwell cross-surface scope gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "tools/test_modal_maxwell_factorization_surfaces.py",
         ],
     ),
     (

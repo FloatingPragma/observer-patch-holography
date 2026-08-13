@@ -3193,6 +3193,62 @@ massless particle. The zero mode is an exact property of the declared
 mathematical oscillator. A physical photon statement requires the missing
 sector, action, clock, position, frame, quantization, and pole attachments.
 
+There is nevertheless one exact first-order factorization of this modal
+oscillator that is useful for locating the remaining electromagnetic gap.
+Complexify \(T_k\), and, for \(k\ne0\), define
+\[
+ D_{a,k}v
+ =i\,\frac{\omega_a(k)}{\sqrt{k\mathbin{\cdot}k}}\,k\mathbin{\times}v.
+\]
+The coefficient is the already committed nonnegative square root
+\(\omega_a(k)^2=\Lambda_a(k)\); it is not a new kinetic symbol.
+
+\begin{proposition}[Exact modal Maxwell-shaped factorization and boundary]
+\label{prop:modal-maxwell-factorization-boundary}
+For every nonzero \(k\), \(k\mathbin{\cdot}D_{a,k}v=0\).  On the complexified
+transverse fibre,
+\[
+ D_{a,k}^{\,2}v=\Lambda_a(k)v.
+\]
+Consequently the opposite-sign paired generator
+\[
+ \mathcal G_{a,k}(E,B)=(D_{a,k}B,-D_{a,k}E)
+\]
+obeys
+\[
+ \mathcal G_{a,k}^{\,2}(E,B)
+   =-\Lambda_a(k)(E,B),
+\]
+and preserves both modal transversality constraints.  The same-sign mutation
+\(\mathcal G^+_{a,k}(E,B)=(D_{a,k}B,D_{a,k}E)\) instead squares to
+\(+\Lambda_a(k)(E,B)\); whenever the spatial action on the tested amplitude
+is nonzero, it cannot obey the displayed oscillator equation.
+\end{proposition}
+
+\begin{proof}
+The vector triple-product identity gives
+\(k\times(k\times v)=-|k|^2v\) on \(T_k\), while
+\(k\cdot(k\times v)=0\). Multiplication by \(i\omega_a(k)/|k|\) therefore gives
+\(D_{a,k}^2=\omega_a(k)^2=\Lambda_a(k)\) on that fibre. Squaring the two
+off-diagonal sign choices proves the paired statements.  The universal
+identities, scalar-extension bridge, transversality receipts, and mutation
+control are checked in Lean; an independent off-axis Gaussian-rational replay
+checks both sign and normalization mutations~\cite{ophrepo}.
+\end{proof}
+
+This is an exact pointwise Fourier-modal, hence generally
+pseudodifferential, factorization.  The factor
+\(\omega_a(k)/|k|\) is momentum dependent, so the proposition does not prove
+a local position-space curl operator.  It supplies neither a reality pairing
+between the \(k\) and \(-k\) modes nor an assembled real field; it identifies
+neither amplitude as a physical electric or magnetic field.  It also supplies
+no source-produced dynamics, \(\mathrm U(1)\) potential or gauge quotient,
+Maxwell action, bridge from the rational seam-incidence Gauss receipts to this
+complex modal divergence, conserved physical current or source coupling,
+Lorentz covariance, continuum control, or laboratory readout.  No registered
+premise is removed, no frozen prediction is emitted, and issue~\#733 remains
+open.
+
 \begin{proposition}[Exhaustive fixed-design recovery calibration]
 \label{prop:seam-current-synthetic-recovery}
 Consider the twelve design rows formed by

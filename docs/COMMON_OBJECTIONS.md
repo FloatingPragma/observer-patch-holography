@@ -329,8 +329,6 @@ and the cap first law pairs `K_C` with the bulk entropy:
 
 with the generalized-entropy bookkeeping `delta S_gen(C) = delta S_bulk(C) + delta <L_C>`.
 
-(The `delta S_gen`-consistent statement above matches ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md.)
-
 After the `BW_{S^2}` step this becomes
 
 `delta S_bulk(C) = 2pi delta <B_C>`.

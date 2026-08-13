@@ -1,8 +1,15 @@
 {
- "schema": "oph.emergent_instrument_register.v2",
+ "schema": "oph.emergent_instrument_register.v3",
  "issue": 738,
  "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
- "policy": "An instrument row is a preregistered simulation experiment: declared observable, declared analysis, declared controls, and a decision rule frozen before the run, with pinned receipts. This register is a separate surface from the frozen-prediction ladder; the ladder is reserved for physical predictions against external data, and simulation instruments never enter it. Each instrument binds to exactly one observation-ledger row, and its verdict promotes or blocks that row's emergent rung. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
+ "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support or qualify an observation-ledger rung only after its architecture version is anchored, a pinned independent audit qualifies that exact row, and the ledger-control lineage explicitly selects it. A controlling FAILED verdict blocks or demotes the bound emergent rung to owed until an eligible later instrument passes all three gates; a later design or unaudited run cannot overwrite it. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
+ "ledger_controls": [
+  {
+   "ledger_row": "OL-A1",
+   "controlling_instrument": "INS-01",
+   "supersession_policy": "INS-01 remains controlling after its FAILED verdict. A later instrument may supersede it only when that instrument is REPLICATED, binds an anchored architecture version, cites an origin-anchored independent audit that promotes OL-A1, and is then explicitly selected here. Until all gates hold, OL-A1 remains owed."
+  }
+ ],
  "rows": [
   {
    "id": "INS-01",
@@ -36,6 +43,12 @@
     }
    ],
    "frozen_utc": "2026-08-12T19:14:51Z",
+   "lineage_predecessor": null,
+   "promotion_eligibility": {
+    "state": "INELIGIBLE",
+    "architecture_version": null,
+    "audit_ids": []
+   },
    "limitations": "The committed campaign retains the manifest, summary, and fifteen per-arm receipt files but no raw feature matrices or fit captures from which an independent implementation could reconstruct every observable. The simulator's validate-only mode rechecks the committed receipt fields and frozen decision rule using the producer implementation; it is not an independent observable recomputation. The pinned campaign commit is present in the sibling custody checkout and is reachable from the configured GitHub remote's main branch; remote reachability closes only the publication-custody check and does not supply the missing raw captures or an independent observable recomputation.",
    "verdict_receipts": [
     {
@@ -106,7 +119,34 @@
      "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r5.json",
      "sha256": "0461bc690c019ed34ad974aee7deaba0247c2d64b607c78ba107202e649404f4"
     }
-   ]
-  }
- ]
+      ]
+    },
+    {
+      "id": "INS-02",
+      "title": "OL-A1 factorial carrier-count and support-size follow-up",
+      "owning_issue": 737,
+      "ledger_row": "OL-A1",
+      "status": "SPECIFIED",
+      "spec_pointer": "docs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md",
+      "decision_rule": "Design-stage pointer only. A later freeze must report threshold stability, continuous spectral margins, carrier-count and absolute-support-size main effects, their interaction, quantitative ancestry-destruction and synthetic-sensitivity gates, sham equivalence, and cone-margin scaling separately through one fixed estimator before applying a predeclared overall REPLICATED, FAILED, or INCONCLUSIVE rule. No component pass may overwrite a failed control or endpoint, and no component failure may erase a separately reported component pass.",
+      "seeds_policy": "No seed has been drawn. Before a future freeze, a target-blind prospective precision and power calculation must determine the replicate count from declared minimum effects, interval widths, multiplicity, and attrition; no fixed count is presumed sufficient. Fresh seeds form paired blocks spanning every retained factorial cell and control, with cell execution order randomized within each block, no seed redraw or optional stopping, and one recorded runtime environment. Runtime-only pilots may measure cost but may not expose signature, margin, or control outcomes.",
+      "controls": [
+        "Degree-preserving ancestry rewiring must preserve carrier count, degree sequence, support counts, and one-point record marginals while breaking lineage correlations.",
+        "Depth-stratified lineage shuffling must preserve the population at every declared depth while breaking cross-depth family identity.",
+        "A sham identifier relabeling must preserve the complete ancestry graph and leave the analysis invariant.",
+        "A synthetic ancestry-sensitive statistic of known sign must pass a predeclared quantitative recovery gate through the same estimator used for the main and ancestry-destroyed cells; it has no promotion authority."
+      ],
+      "custody_repository": null,
+      "freeze_artifacts": [],
+      "frozen_utc": null,
+      "lineage_predecessor": "INS-01",
+      "promotion_eligibility": {
+        "state": "INELIGIBLE",
+        "architecture_version": null,
+        "audit_ids": []
+      },
+      "limitations": "This is an open SPECIFIED design, not a preregistration or authorization to run. Candidate carrier counts, absolute support sizes, fixed observer count, replicate count, statistics, and quantitative gates remain mutable until a target-blind freeze. INS-01 remains the controlling completed verdict and OL-A1 remains owed; INS-02 cannot supersede it unless a later REPLICATED result passes the anchored-architecture, independent-audit, and explicit-control gates.",
+      "verdict_receipts": []
+    }
+  ]
 }

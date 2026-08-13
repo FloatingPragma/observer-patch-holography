@@ -39,7 +39,7 @@ def _register() -> dict:
 def _fixture_row(
     status: str,
     *,
-    row_id: str = "INS-02",
+    row_id: str = "INS-03",
     frozen: bool = True,
     receipts: bool = False,
 ) -> dict:
@@ -56,9 +56,36 @@ def _fixture_row(
         "custody_repository": None,
         "freeze_artifacts": copy.deepcopy(FIXTURE_FREEZE) if frozen else [],
         "frozen_utc": "2026-08-11T00:00:00Z" if frozen else None,
+        "lineage_predecessor": "INS-02",
+        "promotion_eligibility": {
+            "state": "INELIGIBLE",
+            "architecture_version": None,
+            "audit_ids": [],
+        },
         "limitations": "Fixture-only validation row with no scientific claim.",
         "verdict_receipts": copy.deepcopy(FIXTURE_RECEIPTS) if receipts else [],
     }
+
+
+def _replicated_ins02(register: dict) -> dict:
+    row = register["rows"][1]
+    row["status"] = "REPLICATED"
+    row["freeze_artifacts"] = copy.deepcopy(FIXTURE_FREEZE)
+    row["frozen_utc"] = "2026-08-11T00:00:00Z"
+    row["verdict_receipts"] = copy.deepcopy(FIXTURE_RECEIPTS)
+    row["promotion_eligibility"] = {
+        "state": "ELIGIBLE",
+        "architecture_version": "AV-0",
+        "audit_ids": ["AUD-FIXTURE"],
+    }
+    return row
+
+
+def _ledger_rows(*, ol_a1_status: str = "owed", architecture: str = "AV-0") -> dict:
+    rows = copy.deepcopy(register_tool.load_ledger_rows())
+    rows["OL-A1"]["status"] = ol_a1_status
+    rows["OL-A1"]["architecture_version"] = architecture
+    return rows
 
 
 def test_committed_register_validates() -> None:
@@ -78,6 +105,47 @@ def test_committed_register_validates() -> None:
     assert "no raw feature matrices or fit captures" in limitations
     assert "not an independent observable recomputation" in limitations
     assert "reachable from the configured GitHub remote's main branch" in limitations
+    assert rows[1]["id"] == "INS-02"
+    assert rows[1]["status"] == "SPECIFIED"
+    assert rows[1]["freeze_artifacts"] == []
+    assert rows[1]["verdict_receipts"] == []
+    assert rows[1]["frozen_utc"] is None
+    assert "not a preregistration or authorization to run" in rows[1]["limitations"]
+    assert rows[1]["lineage_predecessor"] == "INS-01"
+    assert rows[1]["promotion_eligibility"] == {
+        "state": "INELIGIBLE",
+        "architecture_version": None,
+        "audit_ids": [],
+    }
+    assert register["ledger_controls"][0]["controlling_instrument"] == "INS-01"
+
+
+def test_ins02_design_contract_is_explicit_and_unfrozen() -> None:
+    register = _register()
+    row = register["rows"][1]
+    design = (register_tool.ROOT / row["spec_pointer"]).read_text(encoding="utf-8")
+    design_flat = " ".join(design.split())
+
+    assert row["status"] == "SPECIFIED"
+    assert row["freeze_artifacts"] == []
+    assert row["frozen_utc"] is None
+    assert row["verdict_receipts"] == []
+    assert "16,384; 65,536; 131,072; 262,144" in design
+    assert "absolute support size" in design
+    assert "one value fixed at the future preregistration" in design
+    assert "target-blind prospective calculation" in design
+    assert "rather than assuming that eight" in design
+    assert "paired seed block" in design_flat
+    assert "randomize execution order" in design_flat
+    assert "same fixed estimator" in design_flat
+    assert "**destruction:**" in design
+    assert "**sham equivalence:**" in design
+    assert "**synthetic sensitivity:**" in design
+    assert "prospective precision and power" in row["seeds_policy"]
+    assert "paired blocks" in row["seeds_policy"]
+    assert "randomized within each block" in row["seeds_policy"]
+    assert "quantitative ancestry-destruction" in row["decision_rule"]
+    assert "through one fixed estimator" in row["decision_rule"]
 
 
 def test_rebuild_parity_with_committed_surface() -> None:
@@ -86,6 +154,14 @@ def test_rebuild_parity_with_committed_surface() -> None:
     rendered = register_tool.render(register, rows).encode("utf-8")
     committed = register_tool.SURFACE_PATH.read_bytes()
     assert rendered == committed
+
+
+def test_intro_distinguishes_negative_control_from_positive_eligibility() -> None:
+    register = _register()
+    rendered = register_tool.render(register, register_tool.validate(register))
+    assert "completed decisive instrument" in rendered
+    assert "positive qualification additionally requires" in rendered
+    assert "completed, eligible instrument" not in rendered
 
 
 def test_check_mode_passes_on_committed_artifacts() -> None:
@@ -158,35 +234,35 @@ def test_frozen_fixture_row_validates() -> None:
     register = _register()
     register["rows"].append(_fixture_row("FROZEN"))
     rows = register_tool.validate(register)
-    assert rows[1]["status"] == "FROZEN"
+    assert rows[-1]["status"] == "FROZEN"
 
 
 def test_running_fixture_row_validates() -> None:
     register = _register()
     register["rows"].append(_fixture_row("RUNNING"))
     rows = register_tool.validate(register)
-    assert rows[1]["status"] == "RUNNING"
+    assert rows[-1]["status"] == "RUNNING"
 
 
 def test_replicated_fixture_row_validates() -> None:
     register = _register()
     register["rows"].append(_fixture_row("REPLICATED", receipts=True))
     rows = register_tool.validate(register)
-    assert rows[1]["verdict_receipts"]
+    assert rows[-1]["verdict_receipts"]
 
 
 def test_failed_fixture_row_validates() -> None:
     register = _register()
     register["rows"].append(_fixture_row("FAILED", receipts=True))
     rows = register_tool.validate(register)
-    assert rows[1]["status"] == "FAILED"
+    assert rows[-1]["status"] == "FAILED"
 
 
 def test_inconclusive_fixture_row_validates() -> None:
     register = _register()
     register["rows"].append(_fixture_row("INCONCLUSIVE", receipts=True))
     rows = register_tool.validate(register)
-    assert rows[1]["status"] == "INCONCLUSIVE"
+    assert rows[-1]["status"] == "INCONCLUSIVE"
 
 
 def test_frozen_row_without_artifacts_rejected() -> None:
@@ -242,12 +318,12 @@ def test_void_row_coherence() -> None:
     register = _register()
     register["rows"].append(_fixture_row("VOID", frozen=True))
     rows = register_tool.validate(register)
-    assert rows[1]["status"] == "VOID"
+    assert rows[-1]["status"] == "VOID"
 
     register = _register()
     register["rows"].append(_fixture_row("VOID", frozen=False))
     rows = register_tool.validate(register)
-    assert rows[1]["frozen_utc"] is None
+    assert rows[-1]["frozen_utc"] is None
 
     register = _register()
     row = _fixture_row("VOID", frozen=True)
@@ -293,7 +369,7 @@ def test_in_repo_artifact_hash_binding() -> None:
     row["freeze_artifacts"] = [{"path": pinned, "sha256": digest}]
     register["rows"].append(row)
     rows = register_tool.validate(register)
-    assert rows[1]["freeze_artifacts"][0]["path"] == pinned
+    assert rows[-1]["freeze_artifacts"][0]["path"] == pinned
 
     register = _register()
     row = _fixture_row("FROZEN")
@@ -448,4 +524,261 @@ def test_ins01_sibling_bytes_are_hash_bound():
     register = _register()
     register["rows"][0]["verdict_receipts"][-1]["sha256"] = "4" * 64
     with pytest.raises(SystemExit, match="external artifact hash mismatch"):
+        register_tool.validate(register)
+
+
+def test_ledger_id_range_includes_n() -> None:
+    register = _register()
+    register["rows"] = [register["rows"][0]]
+    register["rows"][0]["ledger_row"] = "OL-N1"
+    register["ledger_controls"] = [
+        {
+            "ledger_row": "OL-N1",
+            "controlling_instrument": "INS-01",
+            "supersession_policy": "Fixture supersession policy.",
+        }
+    ]
+    rows = register_tool.validate(
+        register,
+        ledger_rows={
+            "OL-N1": {
+                "id": "OL-N1",
+                "status": "owed",
+                "architecture_version": "AV-0",
+            }
+        },
+    )
+    assert rows[0]["ledger_row"] == "OL-N1"
+
+
+def test_ledger_id_range_rejects_o() -> None:
+    register = _register()
+    register["rows"][0]["ledger_row"] = "OL-O1"
+    with pytest.raises(SystemExit, match="ledger_row must match"):
+        register_tool.validate(register)
+
+
+def test_specified_successor_cannot_control() -> None:
+    register = _register()
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
+    with pytest.raises(SystemExit, match="must carry a decisive completed verdict"):
+        register_tool.validate(register)
+
+
+def test_inconclusive_successor_cannot_erase_controlling_failure() -> None:
+    register = _register()
+    row = register["rows"][1]
+    row["status"] = "INCONCLUSIVE"
+    row["freeze_artifacts"] = copy.deepcopy(FIXTURE_FREEZE)
+    row["frozen_utc"] = "2026-08-11T00:00:00Z"
+    row["verdict_receipts"] = copy.deepcopy(FIXTURE_RECEIPTS)
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
+    with pytest.raises(SystemExit, match="must carry a decisive completed verdict"):
+        register_tool.validate(register)
+
+
+def test_ineligible_positive_successor_cannot_control() -> None:
+    register = _register()
+    row = register["rows"][1]
+    row["status"] = "REPLICATED"
+    row["freeze_artifacts"] = copy.deepcopy(FIXTURE_FREEZE)
+    row["frozen_utc"] = "2026-08-11T00:00:00Z"
+    row["verdict_receipts"] = copy.deepcopy(FIXTURE_RECEIPTS)
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
+    with pytest.raises(SystemExit, match="REPLICATED verdict must be ELIGIBLE"):
+        register_tool.validate(register)
+
+
+def test_completed_failed_successor_may_control_but_keeps_row_owed() -> None:
+    register = _register()
+    row = register["rows"][1]
+    row["status"] = "FAILED"
+    row["freeze_artifacts"] = copy.deepcopy(FIXTURE_FREEZE)
+    row["frozen_utc"] = "2026-08-11T00:00:00Z"
+    row["verdict_receipts"] = copy.deepcopy(FIXTURE_RECEIPTS)
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
+    rows = register_tool.validate(register)
+    assert rows[1]["status"] == "FAILED"
+
+    with pytest.raises(SystemExit, match="requires the ledger row to be owed"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+        )
+
+
+def test_controlling_failed_verdict_forces_owed_ledger_status() -> None:
+    register = _register()
+    with pytest.raises(
+        SystemExit,
+        match="controlling FAILED verdict requires the ledger row to be owed",
+    ):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+        )
+
+
+def test_eligible_audited_replicated_successor_can_control() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
+    rows = register_tool.validate(
+        register,
+        ledger_rows=_ledger_rows(ol_a1_status="attained"),
+        promotion_gates={
+            "anchored_versions": {"AV-0"},
+            "current_version": "AV-0",
+            "independent_audit_promotions": {"AUD-FIXTURE": {"OL-A1"}},
+            "independently_audited_instruments": {
+                "AUD-FIXTURE": {
+                    "INS-02": register_tool.auditable_instrument_sha256(
+                        register["rows"][1]
+                    )
+                }
+            },
+        },
+    )
+    assert rows[1]["promotion_eligibility"]["state"] == "ELIGIBLE"
+
+
+def test_eligible_successor_rejects_unanchored_architecture() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    with pytest.raises(SystemExit, match="architecture version is not origin-anchored"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+            promotion_gates={
+                "anchored_versions": set(),
+                "current_version": "AV-0",
+                "independent_audit_promotions": {"AUD-FIXTURE": {"OL-A1"}},
+                "independently_audited_instruments": {
+                    "AUD-FIXTURE": {
+                        "INS-02": register_tool.auditable_instrument_sha256(
+                            register["rows"][1]
+                        )
+                    }
+                },
+            },
+        )
+
+
+def test_eligible_successor_rejects_nonqualifying_audit() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    with pytest.raises(SystemExit, match="independent promotion audit"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+            promotion_gates={
+                "anchored_versions": {"AV-0"},
+                "current_version": "AV-0",
+                "independent_audit_promotions": {"AUD-FIXTURE": set()},
+                "independently_audited_instruments": {
+                    "AUD-FIXTURE": {
+                        "INS-02": register_tool.auditable_instrument_sha256(
+                            register["rows"][1]
+                        )
+                    }
+                },
+            },
+        )
+
+
+def test_eligible_successor_requires_matching_ledger_architecture() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    with pytest.raises(SystemExit, match="does not match the ledger row"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(
+                ol_a1_status="attained", architecture="AV-1"
+            ),
+            promotion_gates={
+                "anchored_versions": {"AV-0"},
+                "current_version": "AV-0",
+                "independent_audit_promotions": {"AUD-FIXTURE": {"OL-A1"}},
+                "independently_audited_instruments": {
+                    "AUD-FIXTURE": {
+                        "INS-02": register_tool.auditable_instrument_sha256(
+                            register["rows"][1]
+                        )
+                    }
+                },
+            },
+        )
+
+
+def test_eligible_successor_requires_current_architecture() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    with pytest.raises(SystemExit, match="architecture version is not current"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+            promotion_gates={
+                "anchored_versions": {"AV-0", "AV-1"},
+                "current_version": "AV-1",
+                "independent_audit_promotions": {"AUD-FIXTURE": {"OL-A1"}},
+                "independently_audited_instruments": {
+                    "AUD-FIXTURE": {
+                        "INS-02": register_tool.auditable_instrument_sha256(
+                            register["rows"][1]
+                        )
+                    }
+                },
+            },
+        )
+
+
+def test_eligible_successor_requires_audit_of_exact_instrument() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    with pytest.raises(SystemExit, match="does not pin this exact replicated instrument"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+            promotion_gates={
+                "anchored_versions": {"AV-0"},
+                "current_version": "AV-0",
+                "independent_audit_promotions": {"AUD-FIXTURE": {"OL-A1"}},
+                "independently_audited_instruments": {
+                    "AUD-FIXTURE": {"INS-02": "0" * 64}
+                },
+            },
+        )
+
+
+def test_replicated_root_cannot_control_without_promotion_gates() -> None:
+    register = _register()
+    register["rows"] = [register["rows"][0]]
+    register["rows"][0]["status"] = "REPLICATED"
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-01"
+    with pytest.raises(SystemExit, match="REPLICATED verdict must be ELIGIBLE"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_a1_status="attained"),
+        )
+
+
+def test_nonreplicated_successor_cannot_be_eligible() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    register["rows"][1]["status"] = "FAILED"
+    with pytest.raises(SystemExit, match="only a REPLICATED instrument can be ELIGIBLE"):
+        register_tool.validate(register)
+
+
+def test_lineage_predecessor_must_name_earlier_same_ledger_instrument() -> None:
+    register = _register()
+    register["rows"][1]["lineage_predecessor"] = "INS-99"
+    with pytest.raises(SystemExit, match="must name an earlier instrument"):
+        register_tool.validate(register)
+
+
+def test_ledger_control_coverage_is_exact() -> None:
+    register = _register()
+    register["ledger_controls"] = []
+    with pytest.raises(SystemExit, match="must be a nonempty list"):
         register_tool.validate(register)

@@ -1,7 +1,14 @@
 {
-  "schema": "oph.architecture_version_register.v2",
+  "schema": "oph.architecture_version_register.v3",
   "issue": 741,
   "current_version": "AV-0",
+  "version_anchors": [
+    {
+      "id": "AV-0",
+      "origin_revision": "3ab5bc2064235a740bb5574ea165564e43046bca",
+      "record_sha256": "6c1c826255c88011d606c34e2317833de44573885d5e7bc1abcf7fb0189b1291"
+    }
+  ],
   "policy": "Architecture versions are immutable normative snapshots. The current version is checked against live normative bytes and records each byte sequence's SHA-256 and Git blob id. A successor pins the full Git revision whose register ended at its predecessor; historical versions are then replayed from those immutable Git blobs rather than from changed live paths. A digest or protocol-decision change creates a successor version and invalidates every dependent promotion until its evidence is replayed. A version manifest is not an existence proof: common-world inhabitation is owned by issue #740.",
   "versions": [
     {

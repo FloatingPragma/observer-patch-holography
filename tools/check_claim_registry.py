@@ -99,6 +99,7 @@ REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
     "OPH-SM-Q4-RESONANCE-CONTINUATION": frozenset({743}),
     "OPH-A5-PRIMITIVE-PORT-SPIN6": frozenset({742}),
     "OPH-A5-SEAM-CURRENT-EDGE30": frozenset({742}),
+    "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY": frozenset({733}),
     "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": frozenset({743}),
     "OPH-QUARK-REGISTER-CLEBSCH": frozenset({745}),
     "OPH-KOIDE-CIRCULANT-IDENTITY": frozenset({745}),
@@ -112,6 +113,7 @@ REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
     "OPH-YM-GAP": frozenset({743, 744}),
     "OPH-CHI-NU": frozenset({742}),
     "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX": frozenset({743}),
+    "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO": frozenset({743}),
 }
 
 

@@ -36,6 +36,7 @@ import QFT.LocallyCovariantLimit
 import QFT.StructuralInheritance
 import QFT.SectorInheritance
 import QFT.InheritanceMatrix
+import QFT.FiniteUnitaryScatteringNoGo
 
 /-!
 # OPH construction QFT umbrella

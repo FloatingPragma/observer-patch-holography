@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 
 import pytest
 
@@ -81,6 +80,76 @@ def test_forced_structure_receipts_exist(result):
             assert (ledger.REPO / row["artifact_ref"]).exists()
         for ref in row.get("artifact_refs", []):
             assert (ledger.REPO / ref).exists()
+
+
+def test_finite_unitary_limit_row_keeps_scattering_scope_open(result):
+    rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
+    row = rows["finite_unitary_scattering_limit_no_go"]
+    assert row["match"] == (
+        "exact direct-power obstruction; physical scattering and "
+        "asymptotic comparison construction open"
+    )
+    assert row["lean_declarations"]["FiniteUnitaryScatteringNoGo"] == [
+        "tendsto_powers_forces_identity",
+        "nontrivial_powers_have_no_limit",
+        "finite_unitary_powers_have_no_limit",
+        "finite_unitary_ambient_powers_have_no_limit",
+        "identical_relative_evolution_is_constant",
+        "identical_relative_evolution_tendsto",
+    ]
+    boundary = row["hypothesis_boundary"]
+    for route in (
+        "relative or comparison dynamics",
+        "selected projected scalar or observable limits",
+        "infinite-dimensional weak limits",
+        "Cesaro limits",
+        "continuum or infinite-volume limits",
+        "open-system evolution",
+        "finite-time operational protocols",
+    ):
+        assert route in boundary
+    assert "only a no-go for direct ordinary convergence" in boundary
+    assert "Full weak-operator convergence" in boundary
+    assert "finite-dimensional operator topologies coincide" in boundary
+    assert "constructs no wave operator, S-matrix" in boundary
+    assert "Current lane #743 owns" in boundary
+    assert "no frozen prediction" in boundary
+
+
+def test_modal_maxwell_row_keeps_physical_em_and_premises_open(result):
+    rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
+    row = rows["modal_maxwell_factorization_boundary"]
+    assert row["match"] == (
+        "exact bounded modal factorization; local source-produced "
+        "physical Maxwell theory open"
+    )
+    assert row["lean_declarations"]["ModalMaxwellFactorizationBoundary"] == [
+        "modalCurlScale_sq_mul_dot_self",
+        "dot_modalCurl_zero",
+        "modalCurl_sq_on_transverse",
+        "complexMomentumDot_fourierCurl_zero",
+        "complexPhotonSpatialAction_complexifies",
+        "fourierCurl_sq_on_transverse",
+        "maxwellShapedModalGenerator_sq_wave",
+        "maxwellShapedModalGenerator_transverse",
+        "sameSignCurlMutation_sq_positive",
+        "sameSignCurlMutation_fails_wave",
+    ]
+    boundary = row["hypothesis_boundary"]
+    for excluded in (
+        "local position-space operator",
+        "opposite-momentum reality pairing",
+        "U(1) potential or gauge quotient",
+        "Maxwell action",
+        "finite Gauss receipts",
+        "Lorentz covariance",
+        "laboratory readout",
+    ):
+        assert excluded in boundary
+    assert "PR-20, PR-21, and PR-22 remain declared inputs" in boundary
+    assert "PR-53 and PR-54 remain open attachments" in boundary
+    assert "Current lane #733" in boundary
+    assert "emits no frozen prediction" in boundary
 
 
 def test_adaptive_scheduler_helper_keeps_its_inputs_and_v3_gate_explicit(result):

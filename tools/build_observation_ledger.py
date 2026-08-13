@@ -14,11 +14,15 @@ byte for byte from the render.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
 from pathlib import Path
 
+import build_audit_custody
+import build_architecture_versions
+import prediction_lineage_custody
 import strict_json
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +30,11 @@ LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "OBSERVATION_LEDGER_V3.md"
 PREMISE_REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
 ARCHITECTURE_REGISTER_PATH = ROOT / "tracking" / "architecture_versions.json"
+AUDIT_CUSTODY_PATH = ROOT / "tracking" / "audit_custody.json"
+PREDICTION_LINEAGE_PATH = (
+    ROOT / "claims" / "frozen_prediction_architecture_lineages.json"
+)
+FROZEN_PREDICTION_PATH = ROOT / "claims" / "frozen_prediction_register.json"
 
 SCHEMA = "oph.observation_ledger.v3"
 ISSUE = 726
@@ -101,6 +110,17 @@ EXPECTED_ROW_IDS = (
     "OL-N1",
 )
 
+# These premise packets were the subject of a concrete independent
+# hidden-premise audit.  Keep their row-level ancestry explicit: lane-level
+# reverse-map coverage alone would not detect moving a premise to another row
+# in the same lane.
+AUDITED_ROW_PREMISE_CONTRACTS = {
+    "OL-E1": {
+        "premises": ("PR-07", "PR-15"),
+        "open_premises": ("PR-08",),
+    },
+}
+
 # Premise-register lane ownership is broader than this observation table: a
 # lane can consume a premise in a correspondence table, theorem surface,
 # constants/frozen register, or architecture protocol without attaching it to
@@ -141,6 +161,7 @@ ROW_KEYS = {
     "evidence",
     "notes",
 }
+PREDICTIVE_ROW_KEYS = ROW_KEYS | {"prediction_event"}
 
 GROUPS = (
     ("Spacetime", (728,)),
@@ -199,11 +220,15 @@ def _clean_prose(where: str, field: str, value: object) -> str:
     return value
 
 
+def _current_evidence_sha256(path: str) -> str:
+    return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+
+
 def validate(ledger: dict) -> list[dict]:
     if not isinstance(ledger, dict):
         fail("ledger must be an object")
-    if set(ledger) != {"schema", "issue", "rows"}:
-        fail("top-level keys must be exactly schema, issue, rows")
+    if set(ledger) != {"schema", "issue", "audit_pointers", "rows"}:
+        fail("top-level keys must be exactly schema, issue, audit_pointers, rows")
     if ledger["schema"] != SCHEMA:
         fail(f"schema must equal {SCHEMA}")
     if ledger["issue"] != ISSUE:
@@ -215,8 +240,22 @@ def validate(ledger: dict) -> list[dict]:
     if tuple(row_ids) != EXPECTED_ROW_IDS:
         fail("row ids must equal the fixed ordered observation inventory")
 
+    audit_data = build_audit_custody.load_json(AUDIT_CUSTODY_PATH)
+    audit_records = build_audit_custody.validate(audit_data)
+    audit_by_id = {record["id"]: record for record in audit_records}
+    audit_row_indexes = {
+        record["id"]: build_audit_custody.reviewed_row_index(record)
+        for record in audit_records
+    }
+    audit_pointers = ledger["audit_pointers"]
+    if not isinstance(audit_pointers, dict):
+        fail("audit_pointers must be an object")
+
     _, premise_by_id = load_premise_register()
-    architecture_register = load_ledger(ARCHITECTURE_REGISTER_PATH)
+    architecture_register = build_architecture_versions.load_json(
+        ARCHITECTURE_REGISTER_PATH
+    )
+    build_architecture_versions.validate(architecture_register)
     architecture_ids = {
         version.get("id")
         for version in architecture_register.get("versions", [])
@@ -224,14 +263,22 @@ def validate(ledger: dict) -> list[dict]:
     }
     if not architecture_ids:
         fail("architecture version register must contain at least one version")
+    anchored_architecture_ids = {
+        anchor.get("id")
+        for anchor in architecture_register.get("version_anchors", [])
+        if isinstance(anchor, dict)
+    }
     seen_ids: set[str] = set()
     for index, row in enumerate(rows):
         where = f"rows[{index}]"
         if not isinstance(row, dict):
             fail(f"{where}: row must be an object")
-        if set(row) != ROW_KEYS:
-            missing = ROW_KEYS - set(row)
+        expected_keys = PREDICTIVE_ROW_KEYS if row.get("rung") == "predictive" else ROW_KEYS
+        if set(row) != expected_keys:
+            missing = expected_keys - set(row)
             extra = set(row) - ROW_KEYS
+            if row.get("rung") == "predictive":
+                extra = set(row) - PREDICTIVE_ROW_KEYS
             fail(
                 f"{where}: keys mismatch "
                 f"(missing {sorted(missing)}, extra {sorted(extra)})"
@@ -250,6 +297,14 @@ def validate(ledger: dict) -> list[dict]:
             fail(f"{where}: rung must be one of {RUNGS}")
         if row["status"] not in STATUSES:
             fail(f"{where}: status must be one of {STATUSES}")
+        if row["rung"] == "predictive":
+            pointer = row["prediction_event"]
+            if pointer is not None and (
+                not isinstance(pointer, dict)
+                or set(pointer)
+                != prediction_lineage_custody.PREDICTION_EVENT_POINTER_KEYS
+            ):
+                fail(f"{where}: prediction_event must be null or an exact event pointer")
 
         lane = row["lane_issue"]
         if not isinstance(lane, int) or isinstance(lane, bool):
@@ -263,6 +318,8 @@ def validate(ledger: dict) -> list[dict]:
                 f"{where}: architecture_version {architecture_version!r} is not "
                 "on the architecture version register"
             )
+        if row["status"] == "attained" and architecture_version not in anchored_architecture_ids:
+            fail(f"{where}: an attained row cannot use an unanchored architecture tip")
 
         for field in ("premises", "open_premises"):
             premises = row[field]
@@ -285,6 +342,14 @@ def validate(ledger: dict) -> list[dict]:
             fail(f"{where}: consumed and open premise lists must be disjoint")
         if row["status"] == "owed" and row["premises"]:
             fail(f"{where}: an owed row carries no consumed premises")
+        contract = AUDITED_ROW_PREMISE_CONTRACTS.get(row["id"])
+        if contract is not None:
+            for field, expected in contract.items():
+                if tuple(row[field]) != expected:
+                    fail(
+                        f"{where}: {field} must equal the independently audited "
+                        f"row-level contract {list(expected)}"
+                    )
 
         evidence = row["evidence"]
         if not isinstance(evidence, list):
@@ -298,6 +363,54 @@ def validate(ledger: dict) -> list[dict]:
                 fail(f"{where}: evidence path {path} must be repo-relative")
             if not (ROOT / path).is_file():
                 fail(f"{where}: evidence path missing: {path}")
+
+    attained_ids = {row["id"] for row in rows if row["status"] == "attained"}
+    if set(audit_pointers) != attained_ids:
+        fail("audit_pointers keys must exactly equal the attained observation rows")
+    row_by_id = {row["id"]: row for row in rows}
+    for row_id, audit_ids in audit_pointers.items():
+        if not isinstance(audit_ids, list) or not audit_ids:
+            fail(f"{row_id}: audit pointer list must be nonempty")
+        if len(audit_ids) != len(set(audit_ids)):
+            fail(f"{row_id}: audit pointer list must be duplicate-free")
+        current = row_by_id[row_id]
+        qualified = False
+        for audit_id in audit_ids:
+            if not isinstance(audit_id, str) or audit_id not in audit_by_id:
+                fail(f"{row_id}: unknown audit record {audit_id!r}")
+            record = audit_by_id[audit_id]
+            if row_id not in record["reviewed_rows"]:
+                fail(f"{row_id}: {audit_id} did not review this row")
+            historical = audit_row_indexes[audit_id].get(row_id)
+            if historical is None:
+                fail(f"{row_id}: {audit_id} has no historical row payload")
+            current_projection = dict(current)
+            historical_projection = dict(historical)
+            historical_projection.pop("audit_records", None)
+            if (
+                row_id in record["promoted_rows"]
+                and historical_projection == current_projection
+            ):
+                pins = {
+                    (pin["revision"], pin["path"]): pin
+                    for pin in record["artifact_pins"]
+                }
+                drifted = [
+                    path
+                    for path in current["evidence"]
+                    if _current_evidence_sha256(path)
+                    != pins[(record["repair_commit"], path)]["sha256"]
+                ]
+                if drifted:
+                    fail(
+                        f"{row_id}: current evidence bytes drifted from "
+                        f"{audit_id} at its repair commit: {drifted}"
+                    )
+                qualified = True
+        if not qualified:
+            fail(
+                f"{row_id}: no audit pointer qualifies its exact historical row payload"
+            )
 
     grouped_lanes = [lane for _, lanes in GROUPS for lane in lanes]
     if set(grouped_lanes) != set(LANE_ISSUES) or len(grouped_lanes) != len(LANE_ISSUES):
@@ -320,6 +433,17 @@ def validate(ledger: dict) -> list[dict]:
             f"{sorted(uncovered - exceptions)}, stale exceptions "
             f"{sorted(exceptions - uncovered)}"
         )
+
+    lineage_data = prediction_lineage_custody.load_json(PREDICTION_LINEAGE_PATH)
+    frozen_data = prediction_lineage_custody.load_json(FROZEN_PREDICTION_PATH)
+    lineage_state = prediction_lineage_custody.validate(
+        lineage_data,
+        frozen_data,
+        architecture_register,
+        rows,
+        root=ROOT,
+    )
+    prediction_lineage_custody.require_predictive_promotions(rows, lineage_state)
     return rows
 
 
@@ -331,7 +455,10 @@ def _issue_link(number: int) -> str:
     return f"[issue #{number}]({REPO_URL}/issues/{number})"
 
 
-def render(rows: list[dict]) -> str:
+def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None) -> str:
+    if audit_pointers is None:
+        canonical = load_ledger(LEDGER_PATH)
+        audit_pointers = canonical.get("audit_pointers", {})
     lines: list[str] = []
     lines.append("# V3 Observation Ledger")
     lines.append("")
@@ -403,6 +530,30 @@ def render(rows: list[dict]) -> str:
         " predictions."
     )
 
+    lineage_data = prediction_lineage_custody.load_json(PREDICTION_LINEAGE_PATH)
+    lines.extend(
+        [
+            "",
+            "## Predictive lineage custody",
+            "",
+            "Every predictive row has an explicit mapping in "
+            "`claims/frozen_prediction_architecture_lineages.json`. Historical "
+            "or pending baseline rows do not qualify a promotion. An attained "
+            "predictive row requires an append-only freeze event anchored to "
+            "its first-appearance commit and bound to the current anchored AV-n.",
+            "",
+            "| Row | Pending candidates | Historical only | No-candidate boundary |",
+            "| --- | --- | --- | --- |",
+        ]
+    )
+    for binding in lineage_data["predictive_observation_bindings"]:
+        candidates = ", ".join(binding["candidate_baseline_lineages"]) or "none"
+        historical = ", ".join(binding["historical_only_lineages"]) or "none"
+        reason = binding["no_candidate_reason"] or "none"
+        lines.append(
+            f"| {binding['observation_row_id']} | {candidates} | {historical} | {reason} |"
+        )
+
     for title, lanes in GROUPS:
         group_rows = [row for row in rows if row["lane_issue"] in lanes]
         if not group_rows:
@@ -413,10 +564,10 @@ def render(rows: list[dict]) -> str:
         lines.append(f"## {title} ({lane_word} {lane_list})")
         lines.append("")
         lines.append(
-            "| Row | Observation | Rung | Status | Architecture | Lane | Premises |"
+            "| Row | Observation | Rung | Status | Architecture | Audit | Lane | Premises |"
             " Open premises | Evidence | Boundary |"
         )
-        lines.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+        lines.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
         for row in group_rows:
             premises = ", ".join(row["premises"]) if row["premises"] else "none"
             open_premises = (
@@ -427,9 +578,11 @@ def render(rows: list[dict]) -> str:
                 if row["evidence"]
                 else "none"
             )
+            audits = ", ".join(audit_pointers.get(row["id"], [])) or "none"
             lines.append(
                 f"| {row['id']} | {row['target']} | {row['rung']} |"
                 f" {row['status']} | {row['architecture_version']} |"
+                f" {audits} |"
                 f" {_lane_link(row['lane_issue'])} | {premises} |"
                 f" {open_premises} | {evidence} |"
                 f" {row['notes']} |"
@@ -487,7 +640,7 @@ def main(argv: list[str] | None = None) -> int:
 
     ledger = load_ledger(LEDGER_PATH)
     rows = validate(ledger)
-    surface = render(rows).encode("utf-8")
+    surface = render(rows, ledger["audit_pointers"]).encode("utf-8")
     if args.check:
         committed = SURFACE_PATH.read_bytes() if SURFACE_PATH.is_file() else b""
         if committed != surface:

@@ -35,6 +35,7 @@
   "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
   "OPH-POSITIVE-COSINE-FREQUENCY-CONTRACTION",
   "OPH-A5-SEAM-CURRENT-EDGE30",
+  "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
   "OPH-SCREEN-PORT-CURRENT-INNER",
   "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
   "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
@@ -94,6 +95,7 @@
   "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
   "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
   "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+  "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
   "OPH-GEOMETRY-INVERSE-SQUARE-SHELL"
  ],
  "edges": [
@@ -663,6 +665,11 @@
    "role": "supplies the edge-branch coefficient ray reproduced as the interior band point at -1/15; the physical branch premises stay with the edge claim and its owning issues"
   },
   {
+   "from": "OPH-A5-SEAM-CURRENT-EDGE30",
+   "to": "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
+   "role": "supplies the exact FZ-12 scalar spatial symbol and rank-two transverse oscillator that are factored by the complex Fourier-modal curl pair; it supplies no local real field, source-produced Maxwell dynamics, gauge/action, Gauss/source bridge, covariance, continuum limit, or readout"
+  },
+  {
    "from": "OPH-OBS-PATCH-DEF",
    "to": "OPH-TIME-ORDER-TYPE-LEDGER",
    "role": "supplies the observer record, repair, and interface vocabulary whose order structures are separated from modular, worldline, clock, proper-time, and optional global-time layers; all physical realization maps remain explicit"
@@ -846,6 +853,11 @@
    "from": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
    "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
    "role": "supplies finite full-block automorphism innerness and public-flow rigidity used by the two statable finite surrogates; neither result supplies physical thermality, a DHR sector category or reconstructed gauge group, or any of the five missing structural carriers"
+  },
+  {
+   "from": "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
+   "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+   "role": "sharpens the particle/scattering exit by excluding only direct ordinary convergence of one fixed-cutoff unitary power sequence; it neither makes the row statable nor excludes relative, weak, projected, Cesaro, continuum, open-system, or finite-time operational constructions"
   },
   {
    "from": "OPH-SCREEN-A5-SM-RECOGNITION",

@@ -32,6 +32,12 @@ def test_rebuild_parity_with_committed_surface() -> None:
     assert rendered == committed
 
 
+def test_discharge_link_names_durable_register_custody() -> None:
+    rendered = register_tool.render(register_tool.validate(_register()))
+    assert "durable architecture/audit-register custody" in rendered
+    assert "issue #741 decision/version custody" not in rendered
+
+
 def test_check_mode_passes_on_committed_artifacts() -> None:
     result = subprocess.run(
         [

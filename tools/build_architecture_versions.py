@@ -18,16 +18,35 @@ REGISTER_PATH = ROOT / "tracking" / "architecture_versions.json"
 SURFACE_PATH = ROOT / "docs" / "ARCHITECTURE_VERSION_REGISTER.md"
 PREMISE_PATH = ROOT / "tracking" / "premise_register.json"
 
-SCHEMA = "oph.architecture_version_register.v2"
+SCHEMA = "oph.architecture_version_register.v3"
+LEGACY_ROOT_SCHEMA = "oph.architecture_version_register.v2"
+AV0_FIRST_APPEARANCE_REVISION = "3ab5bc2064235a740bb5574ea165564e43046bca"
+AV0_FIRST_APPEARANCE_RECORD_SHA256 = (
+    "6c1c826255c88011d606c34e2317833de44573885d5e7bc1abcf7fb0189b1291"
+)
 ISSUE = 741
 VERSION_RE = re.compile(r"^AV-(0|[1-9][0-9]*)$")
 DIGEST_RE = re.compile(r"^[0-9a-f]{64}$")
 GIT_BLOB_RE = re.compile(r"^[0-9a-f]{40}$")
 GIT_REVISION_RE = re.compile(r"^[0-9a-f]{40}$")
 STATUS_ENUM = {"exploratory_uninhabited", "inhabited_conditional", "retired"}
+PENDING_TIP_PROMOTION_STATUS = (
+    "At its origin commit this version is an unanchored, promotion-ineligible "
+    "tip. After its complete record receives an immutable origin anchor, each "
+    "row still requires replayed evidence and an independent version-matching "
+    "audit before promotion."
+)
 PREMISE_REGISTER_RELATIVE = "tracking/premise_register.json"
 
-TOP_KEYS = {"schema", "issue", "current_version", "policy", "versions"}
+TOP_KEYS = {
+    "schema",
+    "issue",
+    "current_version",
+    "version_anchors",
+    "policy",
+    "versions",
+}
+ANCHOR_KEYS = {"id", "origin_revision", "record_sha256"}
 VERSION_KEYS = {
     "id",
     "created_on",
@@ -49,12 +68,25 @@ BASIS_KEYS = {
 }
 FILE_KEYS = {"path", "role", "sha256", "git_blob_sha1"}
 DECISION_KEYS = {"id", "decision", "premises"}
-SNAPSHOT_KEYS = (
+LEGACY_SNAPSHOT_KEYS = (
     "id",
     "created_on",
     "basis",
     "normative_files",
     "protocol_decisions",
+    "invalidation_triggers",
+    "replay_surfaces",
+)
+SNAPSHOT_KEYS = (
+    "id",
+    "created_on",
+    "status",
+    "predecessor_register_revision",
+    "basis",
+    "normative_files",
+    "protocol_decisions",
+    "common_world_status",
+    "promotion_status",
     "invalidation_triggers",
     "replay_surfaces",
 )
@@ -106,10 +138,11 @@ def _git_blob_sha1(payload: bytes) -> str:
     return hashlib.sha1(header + payload).hexdigest()
 
 
-def _snapshot_payload(version: dict) -> bytes:
+def _snapshot_payload(version: dict, *, legacy: bool = False) -> bytes:
     """Canonical immutable portion of one architecture version."""
 
-    projection = {key: version[key] for key in SNAPSHOT_KEYS}
+    keys = LEGACY_SNAPSHOT_KEYS if legacy else SNAPSHOT_KEYS
+    projection = {key: version[key] for key in keys}
     return json.dumps(
         projection,
         ensure_ascii=False,
@@ -120,6 +153,10 @@ def _snapshot_payload(version: dict) -> bytes:
 
 def snapshot_sha256(version: dict) -> str:
     return hashlib.sha256(_snapshot_payload(version)).hexdigest()
+
+
+def legacy_snapshot_sha256(version: dict) -> str:
+    return hashlib.sha256(_snapshot_payload(version, legacy=True)).hexdigest()
 
 
 def _git_output(*args: str) -> bytes:
@@ -166,6 +203,213 @@ def _pinned_register(revision: str) -> dict:
     if not isinstance(result, dict):
         fail(f"predecessor revision {revision} has a malformed register")
     return result
+
+
+def _optional_pinned_register(revision: str) -> dict | None:
+    result = subprocess.run(
+        ["git", "show", f"{revision}:tracking/architecture_versions.json"],
+        cwd=ROOT,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    if result.returncode != 0:
+        return None
+    try:
+        payload = strict_json.loads(result.stdout.decode("utf-8"))
+    except (
+        UnicodeDecodeError,
+        json.JSONDecodeError,
+        strict_json.DuplicateKeyError,
+    ) as error:
+        fail(f"revision {revision} has an invalid architecture register: {error}")
+    if not isinstance(payload, dict):
+        fail(f"revision {revision} has a malformed architecture register")
+    return payload
+
+
+def _parents(revision: str) -> list[str]:
+    return _git_output("show", "-s", "--format=%P", revision).decode().strip().split()
+
+
+def _git_is_ancestor(ancestor: str, descendant: str) -> bool:
+    result = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ancestor, descendant],
+        cwd=ROOT,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=False,
+    )
+    if result.returncode == 0:
+        return True
+    if result.returncode == 1:
+        return False
+    detail = result.stderr.decode("utf-8", errors="replace").strip()
+    fail(
+        "git merge-base --is-ancestor "
+        f"{ancestor} {descendant} failed: {detail or 'object unavailable'}"
+    )
+    raise AssertionError("unreachable")
+
+
+def _git_is_first_parent_ancestor(ancestor: str, descendant: str) -> bool:
+    revisions = {
+        item
+        for item in _git_output("rev-list", "--first-parent", descendant)
+        .decode()
+        .splitlines()
+        if item
+    }
+    return ancestor in revisions
+
+
+def _single_parent(revision: str, version_id: str) -> str:
+    parents = _parents(revision)
+    if len(parents) != 1:
+        fail(f"{version_id}: origin revision must be a single-parent commit")
+    return parents[0]
+
+
+def _validate_committed_history_guard(
+    versions: list[dict], anchors: list[dict]
+) -> None:
+    """Reject version rewrites, anchor shrinkage, and delete/reintroduce gaps."""
+
+    head = _git_output("rev-parse", "HEAD").decode().strip()
+    revisions = (
+        _git_output(
+            "log",
+            "--first-parent",
+            "--full-history",
+            "--format=%H",
+            head,
+            "--",
+            "tracking/architecture_versions.json",
+        )
+        .decode()
+        .strip()
+        .splitlines()
+    )
+    current_ids = [version["id"] for version in versions]
+    current_by_id = {version["id"]: version for version in versions}
+    current_anchors = {anchor["id"]: anchor for anchor in anchors}
+    saw_schema = False
+    left_schema_span = False
+    for revision in revisions:
+        historical = _optional_pinned_register(revision)
+        if historical is None or historical.get("schema") != SCHEMA:
+            if saw_schema:
+                left_schema_span = True
+            continue
+        if left_schema_span:
+            fail(
+                "architecture register cannot disappear and later reappear in "
+                "Git history"
+            )
+        saw_schema = True
+        historical_versions = historical.get("versions")
+        historical_anchors = historical.get("version_anchors")
+        if not isinstance(historical_versions, list) or not isinstance(
+            historical_anchors, list
+        ):
+            fail(f"{revision}: historical architecture register is malformed")
+        historical_ids = [
+            version.get("id") if isinstance(version, dict) else None
+            for version in historical_versions
+        ]
+        if current_ids[: len(historical_ids)] != historical_ids:
+            fail("architecture version history is not append-only")
+        for historical_version in historical_versions:
+            version_id = historical_version["id"]
+            if current_by_id[version_id] != historical_version:
+                fail(f"{version_id}: record rewrites committed architecture history")
+        for historical_anchor in historical_anchors:
+            version_id = historical_anchor.get("id")
+            if current_anchors.get(version_id) != historical_anchor:
+                fail(f"{version_id}: origin anchor rewrites committed history")
+
+
+def _validate_committed_head_anchors(anchors: list[dict]) -> None:
+    """An origin anchor is operative only after its declaration is committed.
+
+    The origin revision necessarily predates the anchor declaration.  Accepting
+    a worktree-only anchor would collapse that two-commit protocol and let
+    generated consumers treat an uncommitted declaration as durable custody.
+    """
+
+    head = _git_output("rev-parse", "HEAD").decode().strip()
+    committed = _optional_pinned_register(head)
+    committed_anchors = (
+        committed.get("version_anchors")
+        if isinstance(committed, dict) and committed.get("schema") == SCHEMA
+        else []
+    )
+    if not isinstance(committed_anchors, list):
+        fail("committed HEAD architecture anchors are malformed")
+    # The canonical checkout is presently performing the one-time v2 -> v3
+    # migration.  AV-0's declaration is independently hard-bound above to its
+    # audited first appearance and complete-record digest, so allow exactly
+    # that bootstrap declaration until the first v3 register commit lands.
+    # This exception cannot admit a successor or an arbitrary fixture anchor.
+    if (
+        not isinstance(committed, dict)
+        or committed.get("schema") != SCHEMA
+    ) and ROOT == REGISTER_PATH.parents[1] and anchors == [
+        {
+            "id": "AV-0",
+            "origin_revision": AV0_FIRST_APPEARANCE_REVISION,
+            "record_sha256": AV0_FIRST_APPEARANCE_RECORD_SHA256,
+        }
+    ]:
+        return
+    if len(anchors) > len(committed_anchors) or anchors != committed_anchors[: len(anchors)]:
+        fail("every operative version anchor must already be committed at HEAD")
+
+
+def replay_surface_bindings(
+    data: dict, version: dict, *, is_current: bool
+) -> list[dict[str, str]]:
+    """Resolve replay surfaces at the version origin, or live for a pending tip."""
+
+    anchors = {
+        anchor["id"]: anchor
+        for anchor in data.get("version_anchors", [])
+        if isinstance(anchor, dict) and isinstance(anchor.get("id"), str)
+    }
+    version_id = version["id"]
+    anchor = anchors.get(version_id)
+    bindings: list[dict[str, str]] = []
+    for path in version["replay_surfaces"]:
+        if path.startswith("/") or ".." in path.split("/"):
+            fail(f"{version_id}: replay surfaces must be safe repo-relative paths")
+        if anchor is not None:
+            revision = anchor["origin_revision"]
+            payload = _git_output("show", f"{revision}:{path}")
+            blob = _git_output("rev-parse", f"{revision}:{path}").decode().strip()
+            if not GIT_BLOB_RE.fullmatch(blob):
+                fail(f"{version_id}: replay surface is not a Git blob: {path}")
+            object_type = _git_output("cat-file", "-t", blob).strip()
+            if object_type != b"blob":
+                fail(f"{version_id}: replay surface is not a Git blob: {path}")
+            custody = revision
+        elif is_current:
+            resolved = ROOT / path
+            if not resolved.is_file():
+                fail(f"{version_id}: live replay surface missing: {path}")
+            payload = resolved.read_bytes()
+            blob = _git_blob_sha1(payload)
+            custody = "pending_live_tip"
+        else:
+            fail(f"{version_id}: historical replay surface lacks an origin anchor")
+        bindings.append(
+            {
+                "path": path,
+                "custody": custody,
+                "sha256": hashlib.sha256(payload).hexdigest(),
+                "git_blob_sha1": blob,
+            }
+        )
+    return bindings
 
 
 def _verify_revision_file_bindings(
@@ -234,6 +478,114 @@ def validate(data: dict) -> list[dict]:
     if data["current_version"] != expected_ids[-1]:
         fail("current_version must name the final version")
 
+    anchors = data["version_anchors"]
+    if not isinstance(anchors, list) or not anchors:
+        fail("version_anchors must be a nonempty contiguous prefix")
+    anchor_ids = [anchor.get("id") if isinstance(anchor, dict) else None for anchor in anchors]
+    if anchor_ids != expected_ids[: len(anchors)]:
+        fail("version_anchors must cover a contiguous prefix starting at AV-0")
+    if len(anchors) > len(versions):
+        fail("version_anchors cannot name nonexistent versions")
+    if len(versions) - len(anchors) > 1:
+        fail("at most one final architecture version may await its origin anchor")
+    head_revision = _git_output("rev-parse", "HEAD").decode().strip()
+    for index, anchor in enumerate(anchors):
+        version_id = expected_ids[index]
+        if not isinstance(anchor, dict) or set(anchor) != ANCHOR_KEYS:
+            fail(f"{version_id}: malformed version anchor")
+        revision = anchor["origin_revision"]
+        if not isinstance(revision, str) or not GIT_REVISION_RE.fullmatch(revision):
+            fail(f"{version_id}: origin_revision must be a full Git commit")
+        if not _git_is_ancestor(revision, head_revision):
+            fail(f"{version_id}: origin_revision must be an ancestor of HEAD")
+        if not _git_is_first_parent_ancestor(revision, head_revision):
+            fail(
+                f"{version_id}: origin_revision must lie on HEAD's first-parent "
+                "custody history"
+            )
+        if version_id == "AV-0" and ROOT == REGISTER_PATH.parents[1]:
+            if (
+                revision != AV0_FIRST_APPEARANCE_REVISION
+                or anchor["record_sha256"] != AV0_FIRST_APPEARANCE_RECORD_SHA256
+            ):
+                fail(
+                    "AV-0: origin anchor must equal its audited first appearance "
+                    f"{AV0_FIRST_APPEARANCE_REVISION} / "
+                    f"{AV0_FIRST_APPEARANCE_RECORD_SHA256}"
+                )
+        origin = _pinned_register(revision)
+        if origin.get("schema") not in {LEGACY_ROOT_SCHEMA, SCHEMA}:
+            fail(f"{version_id}: origin revision has an incompatible schema")
+        origin_versions = origin.get("versions")
+        if (
+            origin.get("current_version") != version_id
+            or not isinstance(origin_versions, list)
+            or len(origin_versions) != index + 1
+            or not isinstance(origin_versions[index], dict)
+        ):
+            fail(f"{version_id}: origin revision must end exactly at {version_id}")
+        origin_record = origin_versions[index]
+        origin_payload = json.dumps(
+            origin_record,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        digest = hashlib.sha256(origin_payload).hexdigest()
+        if anchor["record_sha256"] != digest:
+            fail(f"{version_id}: anchor record_sha256 drifted")
+        current_payload = json.dumps(
+            versions[index],
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+        if current_payload != origin_payload:
+            fail(f"{version_id}: record differs from its origin anchor")
+        parents = _parents(revision)
+        if version_id == "AV-0":
+            if len(parents) > 1:
+                fail("AV-0: origin revision cannot be a merge commit")
+            parent_register = (
+                _optional_pinned_register(parents[0]) if parents else None
+            )
+            if parent_register is not None:
+                fail("AV-0: origin parent already contains an architecture register")
+        else:
+            if origin_record.get("status") == "retired":
+                fail(f"{version_id}: origin cannot introduce a retired current tip")
+            if (
+                origin_record.get("promotion_status")
+                != PENDING_TIP_PROMOTION_STATUS
+            ):
+                fail(
+                    f"{version_id}: origin record must preserve the canonical "
+                    "pre-anchor promotion-ineligible state"
+                )
+            origin_parent = _single_parent(revision, version_id)
+            if origin_parent != versions[index]["predecessor_register_revision"]:
+                fail(
+                    f"{version_id}: origin parent must equal "
+                    "predecessor_register_revision"
+                )
+            parent_register = _optional_pinned_register(origin_parent)
+            parent_versions = (
+                parent_register.get("versions")
+                if isinstance(parent_register, dict)
+                else None
+            )
+            if (
+                parent_register is None
+                or parent_register.get("schema") != SCHEMA
+                or not isinstance(parent_versions, list)
+                or len(parent_versions) != index
+            ):
+                fail(
+                    f"{version_id}: origin revision is not the version's first "
+                    "append-only appearance"
+                )
+        _verify_revision_file_bindings(version_id, revision, origin_record)
+
     for version_index, version in enumerate(versions):
         version_id = version["id"] if isinstance(version, dict) else "<malformed>"
         if not isinstance(version, dict) or set(version) != VERSION_KEYS:
@@ -246,9 +598,20 @@ def validate(data: dict) -> list[dict]:
         is_current = version_index == len(versions) - 1
         if is_current and version["status"] == "retired":
             fail(f"{version_id}: current version cannot be retired")
+        is_anchored = version_id in set(anchor_ids)
+        if (
+            is_current
+            and not is_anchored
+            and version["promotion_status"] != PENDING_TIP_PROMOTION_STATUS
+        ):
+            fail(f"{version_id}: an unanchored current tip is promotion-ineligible")
 
         recorded_snapshot = version["snapshot_sha256"]
-        actual_snapshot = snapshot_sha256(version)
+        actual_snapshot = (
+            legacy_snapshot_sha256(version)
+            if version_index == 0
+            else snapshot_sha256(version)
+        )
         if not isinstance(recorded_snapshot, str) or not DIGEST_RE.fullmatch(
             recorded_snapshot
         ):
@@ -292,7 +655,11 @@ def validate(data: dict) -> list[dict]:
                 fail(f"{version_id}: predecessor revision carries a malformed version")
             pinned_snapshot = pinned_predecessor.get("snapshot_sha256")
             try:
-                pinned_actual_snapshot = snapshot_sha256(pinned_predecessor)
+                pinned_actual_snapshot = (
+                    legacy_snapshot_sha256(pinned_predecessor)
+                    if version_index - 1 == 0
+                    else snapshot_sha256(pinned_predecessor)
+                )
             except (KeyError, TypeError) as error:
                 fail(
                     f"{version_id}: predecessor revision carries a malformed "
@@ -303,7 +670,9 @@ def validate(data: dict) -> list[dict]:
                     f"{version_id}: predecessor revision carries an invalid "
                     f"{predecessor_id} snapshot digest"
                 )
-            if _snapshot_payload(pinned_predecessor) != _snapshot_payload(predecessor):
+            if _snapshot_payload(
+                pinned_predecessor, legacy=version_index - 1 == 0
+            ) != _snapshot_payload(predecessor, legacy=version_index - 1 == 0):
                 fail(
                     f"{version_id}: {predecessor_id} differs from its pinned "
                     "predecessor revision; architecture history is append-only"
@@ -390,12 +759,12 @@ def validate(data: dict) -> list[dict]:
         _string_list(
             f"{version_id}.invalidation_triggers", version["invalidation_triggers"]
         )
-        replay = _string_list(
+        _string_list(
             f"{version_id}.replay_surfaces", version["replay_surfaces"]
         )
-        for path in replay:
-            if not (ROOT / path).is_file():
-                fail(f"{version_id}: replay surface missing: {path}")
+        replay_surface_bindings(data, version, is_current=is_current)
+    _validate_committed_history_guard(versions, anchors)
+    _validate_committed_head_anchors(anchors)
     return versions
 
 
@@ -406,9 +775,24 @@ def render(data: dict, versions: list[dict]) -> str:
         "Generated by `tools/build_architecture_versions.py` from "
         "`tracking/architecture_versions.json`; edit the JSON and regenerate. "
         "Issue [#741](https://github.com/FloatingPragma/observer-patch-holography/issues/741) "
-        "owns version and promotion custody.",
+        "established the bootstrap; this register is the durable version and "
+        "promotion-custody surface.",
         "",
         data["policy"],
+        "",
+        "An architecture version uses a two-commit custody protocol: first commit "
+        "the complete promotion-ineligible version record, then declare its origin "
+        "anchor in a later commit. An anchor is not operative while it exists only "
+        "in the worktree. The sole bootstrap exception is the hard-pinned AV-0 "
+        "v2-to-v3 migration, which already binds its audited first appearance.",
+        "",
+        "",
+        "Version origin anchors:",
+        "",
+        *[
+            f"- `{anchor['id']}`: origin `{anchor['origin_revision']}`, complete-record SHA-256 `{anchor['record_sha256']}`."
+            for anchor in data["version_anchors"]
+        ],
     ]
     for version in versions:
         basis = version["basis"]
@@ -467,7 +851,15 @@ def render(data: dict, versions: list[dict]) -> str:
                 "",
                 "Replay surfaces:",
                 "",
-                *[f"- `{item}`" for item in version["replay_surfaces"]],
+                *[
+                    f"- `{item['path']}` at `{item['custody']}`: SHA-256 "
+                    f"`{item['sha256']}`, Git blob `{item['git_blob_sha1']}`."
+                    for item in replay_surface_bindings(
+                        data,
+                        version,
+                        is_current=version["id"] == data["current_version"],
+                    )
+                ],
             ]
         )
     lines.append("")
