@@ -74,7 +74,7 @@ Limitations:
 
 Window: `2026-08-13` through `2026-08-13`. Baseline `68663e9e52a3931c322676a127dd0af144a01de3`; reviewed `289d265fe26bf4383cacbac4629449c88dc3e9b8`; repair `289d265fe26bf4383cacbac4629449c88dc3e9b8`.
 
-Native record pending its origin anchor. It cannot qualify a promotion; its declared post-anchor promotion scope is none.
+Native record, qualified by its immutable origin at `36be62086ae20a9149b3b49188621b7a4f804f99:tracking/audit_custody.json` (record SHA-256 `caf18adcd20ab9d7724ce18cf1aaf2d95186d0c8122dee1f4b7821e21bebd61e`).
 
 Independent separated-agent adversarial implementation and scientific-scope audit, including mutation attacks, exact replay, Lean checks, and clean paper and mandatory-suite builds.
 

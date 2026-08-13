@@ -91,7 +91,9 @@ def _two_commit_event_repo(
     _git(repo, "add", "claims/frozen_prediction_register.json")
     _git(repo, "add", "tracking/architecture_versions.json")
     _git(repo, "add", "tracking/observation_ledger.json")
-    _git(repo, "commit", "-q", "-m", "install lineage baseline")
+    # The shared source checkout can already contain the exact baseline bytes.
+    # Always create the fixture boundary instead of depending on source dirtiness.
+    _git(repo, "commit", "-q", "--allow-empty", "-m", "install lineage baseline")
     baseline = _git(repo, "rev-parse", "HEAD")
 
     path = repo / "claims/frozen_prediction_architecture_lineages.json"

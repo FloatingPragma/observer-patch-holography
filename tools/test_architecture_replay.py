@@ -160,7 +160,10 @@ def test_real_temp_git_av0_to_av1_build_invalidates_old_promotions(
     _git(repo, "config", "user.name", "Replay Test")
     _git(repo, "config", "user.email", "replay-test@example.invalid")
     _git(repo, "add", "-A")
-    _git(repo, "commit", "-q", "-m", "materialize AV-0 custody")
+    # The source checkout may already have every copied custody surface committed.
+    # Keep the fixture independent of unrelated source-worktree dirtiness while
+    # still creating the explicit test baseline commit used below.
+    _git(repo, "commit", "-q", "--allow-empty", "-m", "materialize AV-0 custody")
     predecessor_revision = _git(repo, "rev-parse", "HEAD")
 
     register_path = repo / "tracking/architecture_versions.json"
