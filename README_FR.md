@@ -91,14 +91,8 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité sur l’écran.** La cinématique de Lorentz est un théorème
-  sur sa branche déclarée. Des simulations déterministes mesurent une forme
-  d’événement lorentzienne à une direction de temps et trois d’espace. Une
-  réplication prédéclarée à graine fraîche rend un verdict global
-  **FAILED** : elle reproduit la forme à grande échelle, mais la plus petite
-  configuration est sensible à la graine, la bande déclarée du rapport des
-  marges est manquée et le témoin nul par permutation de l’ascendance ne
-  discrimine pas. Une composition des équations d’Einstein s’appuie sur la
-  couche modulaire et entropique.
+  sur sa branche déclarée, et une composition des équations d’Einstein
+  s’appuie sur la couche modulaire et entropique.
 - **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
   fait un choix architectural au niveau du matériel de simulation : chaque
   parcelle d’observateur porte douze ports de frontière câblés comme les

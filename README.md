@@ -78,12 +78,8 @@ derives the rest as theorems. From that one architecture:
   yields all four laws, with the second law appearing as data processing
   applied to repair and the Landauer bound as a corollary.
 - **Relativity on the screen.** Lorentz kinematics is a theorem on its
-  stated branch. Deterministic simulations measure a Lorentzian event form
-  with one time and three space directions. A preregistered fresh-seed
-  replication returns **FAILED** overall: it reproduces the form at scale,
-  but the smallest run is seed-sensitive, the declared margin-ratio band is
-  missed, and the ancestry-permutation null does not discriminate. An
-  Einstein-equation composition stands on the modular and entropy layer.
+  stated branch, and an Einstein-equation composition stands on the modular
+  and entropy layer.
 - **The Standard Model gauge group from twelve ports.** OPH makes an
   architectural choice at the simulation hardware layer: each observer patch
   has twelve boundary ports wired as the corners of an icosahedron. A classification theorem forces
