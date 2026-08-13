@@ -67,7 +67,8 @@ def test_paper_boundary_forbids_scattering_promotion() -> None:
     assert "relative evolution can converge" in boundary
     assert "Routes not excluded here include comparison dynamics" in boundary
     assert "proves no S-matrix" in boundary
-    assert r"it does not close issue~\#743" in boundary
+    assert "interacting-QFT/RG/scattering construction remains unresolved" in boundary
+    assert r"it does not close issue~\#743" not in boundary
 
 
 def test_lean_kernel_checks_the_result() -> None:

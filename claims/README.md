@@ -1,9 +1,9 @@
 # OPH Claim Registry
 
 The papers are the standalone source for every theorem, assumption, falsifier, and claim boundary.
-This directory is the development mirror that keeps those standalone statements synchronized
-across the public stack.
-It is an internal release-audit surface, not public reading-path material. Do not link the registry
+This directory contains the machine-readable scientific registry that keeps those standalone
+statements synchronized across the public stack.
+It is not public reading-path material. Do not link the registry
 from the top-level public README files; point readers to the papers, falsifiability map, and public
 explainers instead.
 README numeric summaries should distinguish source-only rows, empirical closures, compare-only
@@ -31,11 +31,6 @@ every canonical claim ID with no unknown IDs, that the one-row-per-claim novelty
 projections have no duplicates, and that paper sources do not depend on direct paths to this
 registry. The falsification matrix may keep several independently scoped rows for one claim.
 
-`python3 tools/build_scoreboard.py` regenerates the row-by-row claims scoreboard and the identical
-checksummed claim-status blocks embedded in `docs/PROOF_SPINE.md` and
-`docs/COMPRESSION_SCORECARD.md`. Its `--check` mode fails if any of those three surfaces drifts
-from the registry or the complete open-issue-number set in the committed GitHub ledger.
-
 The GitHub workflow runs the validator on registry changes and on public claim-surface changes.
 When a pull request changes paper TeX or the README claim narrative, it must also touch this
-registry/check surface. That rule keeps the registry from becoming a one-time audit artifact.
+registry/check surface. That rule keeps the registry from becoming a stale snapshot.

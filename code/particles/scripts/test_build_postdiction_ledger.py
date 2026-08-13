@@ -82,12 +82,12 @@ def test_forced_structure_receipts_exist(result):
             assert (ledger.REPO / ref).exists()
 
 
-def test_finite_unitary_limit_row_keeps_scattering_scope_open(result):
+def test_finite_unitary_limit_row_records_missing_scattering_scope(result):
     rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
     row = rows["finite_unitary_scattering_limit_no_go"]
     assert row["match"] == (
         "exact direct-power obstruction; physical scattering and "
-        "asymptotic comparison construction open"
+        "asymptotic comparison construction not constructed"
     )
     assert row["lean_declarations"]["FiniteUnitaryScatteringNoGo"] == [
         "tendsto_powers_forces_identity",
@@ -112,16 +112,16 @@ def test_finite_unitary_limit_row_keeps_scattering_scope_open(result):
     assert "Full weak-operator convergence" in boundary
     assert "finite-dimensional operator topologies coincide" in boundary
     assert "constructs no wave operator, S-matrix" in boundary
-    assert "Current lane #743 owns" in boundary
+    assert "Scientific owner #743 records" in boundary
     assert "no frozen prediction" in boundary
 
 
-def test_modal_maxwell_row_keeps_physical_em_and_premises_open(result):
+def test_modal_maxwell_row_records_missing_physical_em_attachments(result):
     rows = {row["id"]: row for row in result["sections"]["forced_structure"]}
     row = rows["modal_maxwell_factorization_boundary"]
     assert row["match"] == (
         "exact bounded modal factorization; local source-produced "
-        "physical Maxwell theory open"
+        "physical Maxwell theory not constructed"
     )
     assert row["lean_declarations"]["ModalMaxwellFactorizationBoundary"] == [
         "modalCurlScale_sq_mul_dot_self",
@@ -147,8 +147,8 @@ def test_modal_maxwell_row_keeps_physical_em_and_premises_open(result):
     ):
         assert excluded in boundary
     assert "PR-20, PR-21, and PR-22 remain declared inputs" in boundary
-    assert "PR-53 and PR-54 remain open attachments" in boundary
-    assert "Current lane #733" in boundary
+    assert "PR-53 and PR-54 name missing attachments" in boundary
+    assert "Scientific owner #733" in boundary
     assert "emits no frozen prediction" in boundary
 
 
@@ -157,7 +157,7 @@ def test_adaptive_scheduler_helper_keeps_its_inputs_and_v3_gate_explicit(result)
     row = rows["conditional_adaptive_scheduler_locality_helper"]
     assert row["match"] == (
         "exact conditional helper; source scheduler and physical "
-        "channel attachment open"
+        "channel attachment not constructed"
     )
     assert row["lean_declarations"]["AdaptiveScheduler"] == [
         "adaptiveRun_agree_on",
@@ -169,7 +169,7 @@ def test_adaptive_scheduler_helper_keeps_its_inputs_and_v3_gate_explicit(result)
     ]
     boundary = row["hypothesis_boundary"]
     assert "sigma, R, ConsultsOnly" in boundary
-    assert "Current lane #728 remains the source scheduler/channel gate" in boundary
+    assert "Scientific owner #728 records the missing source scheduler/channel" in boundary
     assert "no prediction-ladder entry" in boundary
 
 
@@ -179,7 +179,7 @@ def test_e1_conditional_packet_keeps_source_regional_correlation_gate(result):
     assert row["match"] == (
         "substantial conditional finite interface, operator-generation, "
         "and CP-diamond packet; source regional selection and "
-        "correlation/descent open"
+        "correlation/descent not constructed"
     )
     assert row["lean_declarations"]["TwoSlotCPNetWitness"] == [
         "slotExpectations_not_jointly_injective",
@@ -193,7 +193,7 @@ def test_e1_conditional_packet_keeps_source_regional_correlation_gate(result):
     assert "uncommitted frame exploration supports no no-go" in row[
         "hypothesis_boundary"
     ]
-    assert "Current observer-net lane #728 gates" in row["hypothesis_boundary"]
+    assert "Scientific owner #728 records" in row["hypothesis_boundary"]
 
 
 def test_b7_reference_and_stationary_controls_do_not_overclose(result):
@@ -227,8 +227,8 @@ def test_b7_reference_and_stationary_controls_do_not_overclose(result):
     assert "exists uniquely" in boundary
     assert "modes/minimizers only" in boundary
     assert "saddles, complex or signed stationary phase" in boundary
-    assert "Current lane #731 owns composition" in boundary
-    assert "superseded historical gate was #683" in boundary
+    assert "Scientific owner #731 records the missing composition" in boundary
+    assert "superseded historical gate" not in boundary
 
 
 def test_hypercharge_spectrum_matches_receipt(result):
@@ -355,6 +355,17 @@ def test_rank_three_completion_and_carrier_class_are_visible(result):
     ]
 
 
+def test_layered_discrete_gauss_row_is_premise_complete_and_bounded(result):
+    rows = {r["id"]: r for r in result["sections"]["forced_structure"]}
+    row = rows["layered_discrete_gauss_boundary"]
+    assert "Q/(c n^2)" in row["statement"]
+    assert "three-vertex chain inhabits" in row["statement"]
+    assert "forces c=0" in row["statement"]
+    assert "PR-29" in row["match"] and "PR-31" in row["match"]
+    assert "physical radius" in row["hypothesis_boundary"]
+    assert "perEdgeFlux_eq" in row["lean_declarations"]["LayeredDiscreteGauss"]
+
+
 def test_bounded_time_row_does_not_promote_order_to_time(result):
     row = next(
         item
@@ -378,14 +389,14 @@ def test_thermodynamic_receipt_owners_are_separate(result):
         if item["id"] == "thermodynamic_four_law_package"
     )
     boundary = row["hypothesis_boundary"]
-    assert "closes issue #688 only as a bounded negative result" in boundary
+    assert "is only a bounded negative result" in boundary
     assert "two direct mechanisms" in boundary
     assert "mixing-mode-retaining linear intertwiner" in boundary
     assert "deterministic empirical pushforward" in boundary
     assert "does not exclude stochastic, nonlinear, reverse-direction" in boundary
-    assert "Current lane #732 owns the replacement common reference" in boundary
-    assert "discharge lane #739 owns clock derivation" in boundary
-    assert "superseded historical owners were #725 and #703" in boundary
+    assert "Scientific owner #732 records the missing replacement common reference" in boundary
+    assert "scientific owner #739 records clock derivation" in boundary
+    assert "superseded historical owners" not in boundary
     assert "five receipts stay open under issue #688" not in boundary
 
 
@@ -433,8 +444,8 @@ def test_alpha_row_values_match_endpoint(result):
     assert row["audit_verdict"] == verdict["verdict"]
     assert row["cross_class_agreement"]["independently_evaluated_class_count"] == 0
     assert "does not identify the physical source" in row["reading"]
-    assert row["blocking_issues"] == [736]
-    assert row["historical_blocking_issues"] == [425, 545, 696, 708]
+    assert row["scientific_owner_issues"] == [736]
+    assert "historical_context_issues" not in row
 
 
 def test_lepton_rows_match_parents_and_contain_witness(result):
@@ -454,8 +465,8 @@ def test_lepton_rows_match_parents_and_contain_witness(result):
         "charged_leptons_kappa_rectangle",
         "charged_leptons_kappa_coherent",
     ):
-        assert rows[row_id]["blocking_issues"] == [736]
-        assert rows[row_id]["historical_blocking_issues"] == [425, 545, 696, 697]
+        assert rows[row_id]["scientific_owner_issues"] == [736]
+        assert "historical_context_issues" not in rows[row_id]
 
 
 def test_ew_rows_preserve_comparison_status(result):
@@ -484,8 +495,8 @@ def test_quark_section_is_obstruction_plus_conditional_texture(result):
         "target_informed"
     ] is True
     assert "cabibbo_gst_sqrt_md_over_ms" in texture["values"]
-    assert obstruction["blocking_issues"] == [736]
-    assert obstruction["historical_blocking_issues"] == [591, 697]
+    assert obstruction["scientific_owner_issues"] == [736]
+    assert "historical_context_issues" not in obstruction
 
 
 def test_hadron_row_carries_pinned_payload(result):
@@ -518,12 +529,8 @@ def test_markdown_rendered(tmp_path):
     assert "`code/particles/runs/status/postdiction_ledger.json`" in text
     assert "Each row is checked in Lean, by a structured executable artifact" in text
     assert "Every step is machine checked in the Lean workspace" not in text
-    assert "Live blocking issues: #736" in text
-    assert (
-        "Historical issues and resource-deferred boundaries: "
-        "#425, #545, #696, #708"
-        in text
-    )
+    assert "Scientific owner: #736" in text
+    assert "Historical context:" not in text
 
 
 def test_principal_results_prioritize_strong_structural_rows(result):
@@ -570,7 +577,7 @@ def test_build_is_deterministic_and_has_no_wall_clock_field(tmp_path):
     assert first == second
     assert ledger._render_md(first) == ledger._render_md(second)
     assert "generated_utc" not in first
-    assert first["schema_version"] == 2
+    assert first["schema_version"] == 3
 
 
 def test_fail_closed_on_missing_lean_declaration(tmp_path, monkeypatch):

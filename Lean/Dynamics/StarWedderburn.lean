@@ -13,9 +13,9 @@ import Dynamics.CenterSpectral
 
 `CenterSpectral.lean` resolves the identity of a star subalgebra of a finite
 complex matrix algebra into minimal orthogonal central projections.  This
-module carries steps 2 and 3 of the remaining gap of issue 679: the
-classification of each minimal central corner as one full matrix block, and
-the Stone converse on an arbitrary finite direct sum of full matrix blocks.
+module completes the finite classification by identifying each minimal
+central corner with one full matrix block and proving the Stone converse on
+an arbitrary finite direct sum of full matrix blocks.
 
 1. Projection order inside a star subalgebra: star projections of `S`
    (`IsProjectionIn`), minimal star projections of `S`

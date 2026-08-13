@@ -97,4 +97,4 @@ bracket producer is selected by the source.  The comparison ranges only over
 the compact locus classified under the three named compact-Lie inputs; it is
 not a classification of the full Jacobi variety or its noncompact
 components.  Ordered source tomography, source bracket selection, and
-same-current holonomy remain open under issues #705 and #697.
+same-current holonomy remain open under issues #734 and #736.

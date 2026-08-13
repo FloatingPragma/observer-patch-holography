@@ -10,9 +10,8 @@ import Dynamics.StoneConverse
 # Central-block decomposition and control
 
 `StoneConverse.lean` closes the private converse on one full finite matrix
-block.  This module carries the bounded central-block step of the remaining
-gap of issue 679: decomposition along central star projections and full
-control of the two-block direct sum.
+block.  This module supplies the bounded central-block step: decomposition
+along central star projections and full control of the two-block direct sum.
 
 1. A central star projection of a complex star algebra cuts the algebra
    into two complementary corners, and the cut is a star-algebra
@@ -46,10 +45,9 @@ control of the two-block direct sum.
    Block fixing is derived, so no block-preservation hypothesis is taken.
 
 The results cover the two-block direct sum exactly.  For arbitrary finite
-central-block sums, the spectral decomposition of the center of a general
-finite-dimensional star subalgebra into minimal central projections and
-the induction over block counts are separate obligations of issue 679.
-No physical clock, source-selected Hamiltonian, or physical time
+central-block sums, `CenterSpectral.lean` supplies the spectral decomposition
+of the center and `StarWedderburn.lean` supplies the induction over block
+counts.  No physical clock, source-selected Hamiltonian, or physical time
 identification is claimed; the parameter is a real number.
 -/
 

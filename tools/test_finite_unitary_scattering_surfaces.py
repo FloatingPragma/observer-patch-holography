@@ -24,7 +24,6 @@ OBSERVATION_EVIDENCE = [
     "code/qft/finite_unitary_scattering_no_go.py",
     "code/qft/test_finite_unitary_scattering_no_go.py",
     "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
-    "docs/PROOF_SPINE.md",
 ]
 
 POSTDICTION_ARTIFACTS = [
@@ -53,7 +52,7 @@ def _row(rows: list[dict], key: str, value: str) -> dict:
     return matches[0]
 
 
-def test_claim_is_exact_but_keeps_scattering_open() -> None:
+def test_claim_is_exact_but_records_missing_scattering_construction() -> None:
     claim = _row(_json("claims/claim_registry.yaml")["claims"], "claim_id", CLAIM_ID)
     assert claim["owner_paper"] == "paper/reality_as_consensus_protocol.tex"
     assert claim["evidence"] == CLAIM_EVIDENCE
@@ -86,7 +85,7 @@ def test_observation_row_remains_owed_with_exact_evidence_and_premise() -> None:
     assert "a weaker or projected limit" not in notes
 
 
-def test_detailed_paper_states_fixed_cutoff_scope_and_no_issue_closure() -> None:
+def test_detailed_paper_states_fixed_cutoff_scope_without_issue_status() -> None:
     fragment = (ROOT / "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex").read_text(
         encoding="utf-8"
     )
@@ -96,7 +95,8 @@ def test_detailed_paper_states_fixed_cutoff_scope_and_no_issue_closure() -> None
     assert "full weak-operator convergence does not evade" in prose
     assert "selected projected scalar or observable readouts" in prose
     assert "infinite-dimensional weak limit" in prose
-    assert r"it does not close issue~\#743" in prose
+    assert "interacting-QFT/RG/scattering construction remains unresolved" in prose
+    assert r"it does not close issue~\#743" not in prose
 
 
 def test_no_frozen_prediction_row_is_emitted() -> None:
@@ -119,7 +119,7 @@ def test_postdiction_row_matches_theorem_and_boundary() -> None:
     )
     assert row["match"] == (
         "exact direct-power obstruction; physical scattering and "
-        "asymptotic comparison construction open"
+        "asymptotic comparison construction not constructed"
     )
     assert row["lean_declarations"]["FiniteUnitaryScatteringNoGo"] == (
         LEAN_DECLARATIONS
@@ -131,7 +131,7 @@ def test_postdiction_row_matches_theorem_and_boundary() -> None:
     assert "finite-dimensional operator topologies coincide" in boundary
     assert "selected projected scalar or observable limits" in boundary
     assert "infinite-dimensional weak limits" in boundary
-    assert "Current lane #743 owns" in boundary
+    assert "Scientific owner #743 records" in boundary
     assert "no frozen prediction" in boundary
 
 

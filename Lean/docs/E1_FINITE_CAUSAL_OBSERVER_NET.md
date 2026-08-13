@@ -71,7 +71,7 @@ The negative controls prove that:
 The imported B4 control additionally shows that Kraus or kernel normalization
 cannot be dropped from the corresponding factorized no-signalling identity.
 
-## Exact open boundary and issue status
+## Exact unattained boundary
 
 This packet does not construct a closed noncommutative, region-separating inhabitant
 from observer-patch source data. It does not derive a tensor split from
@@ -126,10 +126,10 @@ and identity repair are declared postprocessors of the payload literals;
 ambient window disjointness is constructional, and the witness receipt proves
 the realized node windows are independently disjoint in the source. The
 matrix-unit corner does not instantiate `TensorSplitReceipt` or identify the
-regional algebra with a tensor factor. E1 and the B4 region-factor gate remain
-open. CP/CPTP repair semantics, scheduler
-locality, continuum causal and time-slice structure, and physical
-clocks remain with #693, #700, and #703.
+regional algebra with a tensor factor. E1 and the B4 region-factor gate are
+therefore not attained. Source-attached locality and continuum kinematics are
+scoped to #728, structural continuum QFT to #730, physical repair calibration
+to #732, and premise-level clock derivation to #739.
 
 ## Source-operator adapter preflight
 
@@ -169,12 +169,13 @@ forcing zero drops); the slot assembly and label conventions are declared
 postprocessors; and the packet constructs no region lattice over the
 tower.  The factor-identification corollaries recycle the generation
 theorems through the slot embeddings and are not independent results.
-Issue #692 stays open on the source-attached net packet.
+The remaining source-attached net packet is scoped to spacetime adequacy
+(#728).
 
 ## Conditional-expectation net redesign and the two-slot witness
 
-`QFT/CPRestrictionNet.lean` executes the restriction-interface redesign
-the reopening authorizes.  A `CPRegionalNet` carries the finite region
+`QFT/CPRestrictionNet.lean` executes the restriction-interface redesign. A
+`CPRegionalNet` carries the finite region
 poset, overlaps, disjointness, regional star subalgebras, isotony, and
 locality of the committed interface, and replaces the star-homomorphic
 restrictions, whose scalar-character instances the repository's own
@@ -224,14 +225,16 @@ adaptor with the zero generator.
 
 ## Remaining E1 boundary
 
-Issue #692 remains open.  The five-module redesign chain establishes a
-substantial conditional finite algebraic packet: source-counted operators
+The remaining physical-carrier, spacetime, and regional-net attachments are
+scoped to #728, while their structural field-theory continuation is scoped to
+#730. The five-module redesign chain establishes a substantial conditional
+finite algebraic packet: source-counted operators
 generate each observer's realized matrix algebra, a declared Cartesian slot
 assembly gives exact factor localization and coverage, explicit Kraus maps
 give the regional expectations and local-pinch receipts, and the diamond
 transports to one constant A3 tower stage.  It does not derive the Cartesian
 product carrier, slot embeddings, diamond disjointness, or region assignment
-from the simulator source.  For the currently designated pair (86, 88), the
+from the simulator source. For the designated pair (86, 88), the
 full 96-node supports overlap on 25 nodes, so its declared slot disjointness
 cannot be read as source-support disjointness.
 
@@ -246,19 +249,20 @@ encodings are negative probes of those particular encodings, not a no-go for
 every source attachment and not evidence that new large-scale simulation is
 required.
 
-E1 therefore remains open for a source-derived region/product or justified
-local-channel attachment and for an explicit replacement descent contract
+The unattained E1 scope is a source-derived region/product or justified
+local-channel attachment and an explicit replacement descent contract
 that respects the marginal nonuniqueness theorem above.  The existing E6
 packet is built on the earlier `FiniteCausalObserverNet` interface and does
-not by itself consume this `CPRegionalNet` witness.  Instrument provenance,
-continuum structure, and clocks remain with #693, #700, and #703.  The slot
+not by itself consume this `CPRegionalNet` witness. Instrument provenance is
+scoped to #737, continuum structure to #728 and #730, physical calibration to
+#732, and premise-level clock derivation to #739. The slot
 assembly and label conventions remain declared postprocessors over a
 post-hoc extraction, ineligible as validation.
 
 ## The correlation capstone on the justified pair
 
-`QFT/SourceCorrelationCapstone.lean` answers the reopening's residual
-items on the pair the correction identified as viable.  Observers 86
+`QFT/SourceCorrelationCapstone.lean` supplies the residual correlation packet
+on the source-supported pair. Observers 86
 and 247 have kernel-checked fully disjoint 96-node supports, transcribed
 verbatim from the committed payload (schema v2), so the support
 disjointness backing this pair's regional split is a source datum.  The
@@ -273,8 +277,8 @@ The on-carrier erasure theorem makes the receipt self-contained: the
 expectation pair is not injective at exactly the source correlation, so
 the counted joint state is the marginal-coherent datum the net must
 carry.  The label conventions and the two-observers-as-factors reading
-stay declared postprocessors; the nonconstant source realization or its
-scoped no-go stays open under #692.
+stay declared postprocessors; nonconstant source realization or a scoped
+no-go is an explicit boundary of #728.
 
 ## Verification
 

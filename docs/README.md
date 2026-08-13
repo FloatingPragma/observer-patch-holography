@@ -1,7 +1,8 @@
-# OPH Project Documentation Index
+# OPH Policies And Scientific Registers
 
-This directory contains project policies and indexes, architecture and custody
-material, reproduction guidance, and canonical or generated status ledgers.
+This directory contains repository policies, reproduction guidance, and
+canonical or generated scientific registers. Research planning and project
+reviews live in the workspace-level `plan/` directory, not here.
 Scientific results live in the papers, Lean library, executable code, and
 evidence artifacts; this directory is not a parallel result-publication layer.
 
@@ -19,10 +20,9 @@ run data so you can watch the universe assemble itself.
   [simulation](https://simulation.floatingpragma.io/) above, then the
   [compact case](../extra/compact_proof_of_oph.pdf) and the repository
   [README](../README.md) from the three axioms through the twist.
-- **Scientific audit:** use the [proof spine](PROOF_SPINE.md), the
-  [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure),
-  the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper
-  index](../paper/).
+- **Technical verification:** use the [claim registry](../claims/claim_registry.yaml),
+  the [observation ledger](OBSERVATION_LEDGER_V3.md), the [premise register](PREMISE_REGISTER_V3.md),
+  the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
   guide](../REPRODUCE.md), [executable evidence](../code/), and [Lean
   formalization](../Lean/).
@@ -36,13 +36,10 @@ run data so you can watch the universe assemble itself.
 - Each quantitative closure condition is tracked as a
   [GitHub issue labeled `closure`](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure),
   with its evaluation boundary and required completion stated on the issue.
-- [Proof Spine](PROOF_SPINE.md) gives the dependency route through the principal claims.
 - [Premise Register](PREMISE_REGISTER_V3.md) names each V3 input and its
-  consumers; the generated [Premise Discharge Queue](PREMISE_DISCHARGE_QUEUE_V3.md)
-  turns every `remove` or `axiomatize` row into an auditable action item.
-- [Architecture Replay Index](ARCHITECTURE_REPLAY_INDEX.md) shows which
-  promotions and frozen targets survive the current architecture version;
-  [Audit Custody](AUDIT_CUSTODY.md) pins the independent review history.
+  consumers and classifies each evidence path by its scientific role.
+- [Observation Ledger](OBSERVATION_LEDGER_V3.md) records the physical targets,
+  adequacy rungs, premise ancestry, frozen-target links, and evidence paths.
 - [OPH Falsification Program](OPH_FALSIFICATION_PROGRAM.md) lists only mature mathematical and realized-branch falsifiers.
 
 ## Evidence And Data Policies

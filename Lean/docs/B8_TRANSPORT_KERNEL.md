@@ -57,7 +57,7 @@ boundary-reservoir law, hydrodynamic limit, or measured coefficient.
 A physical transport claim must additionally bind, on one source-derived
 observer system, the transition generator, equilibrium reference, conserved
 quantity, graph or continuum geometry, distance, clock, constitutive
-coefficient, boundary conditions, and readout. B20 (#725) owns the common
-reference and collar, E5 (#703) owns energy/clock calibration, and C2 (#690)
-and D1 (#691) own the other remaining attachment layers. B8 supplies no frozen
+coefficient, boundary conditions, and readout. Issue #732 owns the common
+reference, collar, and energy/clock calibration; #730 and #731 own the other
+remaining quantum and mechanics attachment layers. B8 supplies no frozen
 prediction and changes no prediction-ladder row.

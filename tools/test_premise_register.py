@@ -32,10 +32,12 @@ def test_rebuild_parity_with_committed_surface() -> None:
     assert rendered == committed
 
 
-def test_discharge_link_names_durable_register_custody() -> None:
+def test_intro_keeps_register_scientific_and_explains_evidence_roles() -> None:
     rendered = register_tool.render(register_tool.validate(_register()))
-    assert "durable architecture/audit-register custody" in rendered
-    assert "issue #741 decision/version custody" not in rendered
+    assert "Established under [issue #727]" in rendered
+    assert "maintained as a scientific register" in rendered
+    assert "implicit reverse-consumer edge" in rendered
+    assert "premise-discharge queue" not in rendered
 
 
 def test_check_mode_passes_on_committed_artifacts() -> None:
@@ -84,8 +86,38 @@ def test_missing_evidence_path_rejected() -> None:
 def test_lane_out_of_range_rejected() -> None:
     register = _register()
     register["rows"][0]["consuming_lanes"] = [727]
-    with pytest.raises(SystemExit, match="outside"):
+    with pytest.raises(SystemExit, match="not a current scientific lane"):
         register_tool.validate(register)
+
+
+def test_retired_lane_738_rejected() -> None:
+    register = _register()
+    register["rows"][0]["consuming_lanes"] = [738]
+    with pytest.raises(SystemExit, match="not a current scientific lane"):
+        register_tool.validate(register)
+
+
+def test_evidence_role_path_parity_is_exact() -> None:
+    register = _register()
+    row = register["rows"][0]
+    row["evidence_roles"].pop(row["evidence"][0])
+    with pytest.raises(SystemExit, match="exact evidence-path parity"):
+        register_tool.validate(register)
+
+
+def test_unknown_evidence_role_rejected() -> None:
+    register = _register()
+    row = register["rows"][0]
+    row["evidence_roles"][row["evidence"][0]] = "related"
+    with pytest.raises(SystemExit, match="must be one of"):
+        register_tool.validate(register)
+
+
+def test_pr53_has_no_retired_custody_lane() -> None:
+    register = _register()
+    row = next(row for row in register["rows"] if row["id"] == "PR-53")
+    assert row["consuming_lanes"] == [733, 736, 740]
+    assert 738 not in row["consuming_lanes"]
 
 
 def test_renamed_row_rejected() -> None:

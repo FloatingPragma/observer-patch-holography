@@ -2,7 +2,7 @@
 """Aggregate the certified postdiction rows into one ledger.
 
 The ledger is a deterministic aggregator.  Numeric values and measured
-references are read live from their parent artifacts.  Structural rows are
+references are read mechanically from their parent artifacts.  Structural rows are
 derived from validated structured parents, with any direct algebraic
 corollary identified as such.  A missing or inconsistent parent is a hard
 failure, not a silently absent row.
@@ -221,6 +221,7 @@ LEAN_RECEIPTS = {
     "PortGramA5Isometry": LEAN_SCREEN / "PortGramA5Isometry.lean",
     "RepairWordCarrierReadout": LEAN_SCREEN / "RepairWordCarrierReadout.lean",
     "SeamCurrentCarrierQuotient": LEAN_SCREEN / "SeamCurrentCarrierQuotient.lean",
+    "LayeredDiscreteGauss": LEAN_SCREEN / "LayeredDiscreteGauss.lean",
     "A5CarrierClassBand": LEAN_SCREEN / "A5CarrierClassBand.lean",
     "CarrierFrequencySpeed": LEAN_SCREEN / "CarrierFrequencySpeed.lean",
     "GaugeKineticInvariantForms": LEAN_SCREEN / "GaugeKineticInvariantForms.lean",
@@ -697,7 +698,7 @@ def _forced_structure(
                 "Lie type u(1)+su(2)+su(3). Target-blind impulse and readback "
                 "separately determine R=-J. The charged-double-triplet matrices "
                 "are an exact declared witness, while ordered source tomography "
-                "and same-current holonomy remain open"
+                "and same-current holonomy are not constructed"
             ),
             "observed_counterpart": "Standard Model gauge Lie algebra su(3)+su(2)+u(1)",
             "match": "axiom-forced abstract Lie type; conditional matrix witness",
@@ -1012,7 +1013,7 @@ def _forced_structure(
                 "The six-axis class has order six only after diagonal and "
                 "zero-sum coefficient relations are declared. Source selection "
                 "of those relations, a complete character category, and a "
-                "same-source loop-to-kernel theorem remain open"
+                "same-source loop-to-kernel theorem are not constructed"
             ),
             "observed_counterpart": (
                 "Standard Model global gauge-group form and its charge "
@@ -1131,7 +1132,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact bounded finite package; source and "
-                "physical-instrument attachments remain open"
+                "physical-instrument attachments not constructed"
             ),
             "lean_declarations": {
                 "Robertson": [
@@ -1213,10 +1214,10 @@ def _forced_structure(
                 "spectral majorization. The totalized-log countermodel rejects "
                 "only that naive architecture; a support-aware extended "
                 "divergence, pinching Pythagoras, constrained maximum entropy, "
-                "and the publicization information chain remain open in the "
-                "current quantum-composition lane #730; any remaining "
-                "principle-level acceptance belongs to discharge lane #739. "
-                "The superseded historical supporting-theory owner was #685. "
+                "and the publicization information chain are not constructed. "
+                "Scientific owner #730 records those quantum-composition "
+                "obligations; #739 records any residual premise-discharge "
+                "obligation. "
                 "No source rule selects that partition, a state, an observable, "
                 "a detector algebra, or a public instrument, and no "
                 "edge-to-partition identification is constructed"
@@ -1240,7 +1241,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact bounded modal factorization; local source-produced "
-                "physical Maxwell theory open"
+                "physical Maxwell theory not constructed"
             ),
             "lean_declarations": {
                 "ModalMaxwellFactorizationBoundary": [
@@ -1290,8 +1291,8 @@ def _forced_structure(
                 "current or source coupling, Lorentz covariance, continuum "
                 "control, or laboratory readout. It removes no registered "
                 "premise: PR-20, PR-21, and PR-22 remain declared inputs, "
-                "while PR-53 and PR-54 remain open attachments. Current lane "
-                "#733 owns those obligations and remains open. This row "
+                "while PR-53 and PR-54 name missing attachments. Scientific "
+                "owner #733 records those obligations. This row "
                 "emits no frozen prediction"
             ),
             "paper_ref": (
@@ -1316,7 +1317,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact direct-power obstruction; physical scattering and "
-                "asymptotic comparison construction open"
+                "asymptotic comparison construction not constructed"
             ),
             "lean_declarations": {
                 "FiniteUnitaryScatteringNoGo": [
@@ -1356,9 +1357,9 @@ def _forced_structure(
                 "dimensional weak limits, subsequential or Cesaro limits, "
                 "continuum or infinite-volume limits, open-"
                 "system evolution, and finite-time operational protocols "
-                "open. It constructs no wave operator, S-matrix, cross "
+                "unresolved by this result. It constructs no wave operator, S-matrix, cross "
                 "section, pole, optical theorem, renormalization flow, or "
-                "continuum QFT. Current lane #743 owns those interacting-QFT, "
+                "continuum QFT. Scientific owner #743 records those interacting-QFT, "
                 "renormalization, and scattering obligations. This row emits "
                 "no frozen prediction"
             ),
@@ -1386,7 +1387,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact bounded finite action; source selection and physical "
-                "matter attachment open"
+                "matter attachment not constructed"
             ),
             "lean_declarations": {
                 "ExteriorComponentBridge": [
@@ -1537,7 +1538,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact intrinsic metric completion; physical position, scale, "
-                "refinement, and gluing open"
+                "refinement, and gluing not constructed"
             ),
             "lean_declarations": {
                 "PortGramRepairBand": [
@@ -1615,6 +1616,70 @@ def _forced_structure(
             ),
         },
         {
+            "id": "layered_discrete_gauss_boundary",
+            "statement": (
+                "On a supplied finite directed graph with an integer layering, "
+                "a finite depth, steady sourcing, shell equidistribution, and "
+                "shell cardinality c n^2, exact divergence bookkeeping gives "
+                "outward flux per shell edge Q/(c n^2) and makes flux times "
+                "n^2 shell-independent. A three-vertex chain inhabits the "
+                "premises. Two exact global controls show why the depth bound "
+                "is essential: a globally steady drained source on a closed "
+                "finite carrier has zero total load, and an n^2 shell law at "
+                "every positive layer forces c=0"
+            ),
+            "observed_counterpart": (
+                "a depth-bounded discrete inverse-square precursor with no "
+                "physical radius, gravitational-field, or mass identification"
+            ),
+            "match": (
+                "exact conditional finite theorem under PR-29, PR-30, and "
+                "PR-31; physical Newtonian attachment not constructed"
+            ),
+            "lean_declarations": {
+                "LayeredDiscreteGauss": [
+                    "sum_vertexOutflow_eq_regionFlux",
+                    "steady_total_source_eq_zero",
+                    "unbounded_shellCard_forces_zero",
+                    "regionFlux_eq_charge",
+                    "shell_total_eq_charge",
+                    "perEdgeFlux_eq",
+                    "scale_free",
+                    "chainWitness_charge",
+                    "regionFlux_twelvePort",
+                    "steady_witness_regionFlux_eq_source",
+                ]
+            },
+            "lean_receipts": _lean_receipt(
+                "LayeredDiscreteGauss",
+                declarations={
+                    "LayeredDiscreteGauss": (
+                        "sum_vertexOutflow_eq_regionFlux",
+                        "steady_total_source_eq_zero",
+                        "unbounded_shellCard_forces_zero",
+                        "regionFlux_eq_charge",
+                        "shell_total_eq_charge",
+                        "perEdgeFlux_eq",
+                        "scale_free",
+                        "chainWitness_charge",
+                        "regionFlux_twelvePort",
+                        "steady_witness_regionFlux_eq_source",
+                    )
+                },
+            ),
+            "hypothesis_boundary": (
+                "PR-29 supplies the c n^2 shell count, PR-30 supplies equal "
+                "outward flux within each shell, and PR-31 supplies steady "
+                "sourcing through the declared depth. The exponent and "
+                "isotropy are therefore conditional inputs. The theorem "
+                "constructs no physical radius, field, mass density, "
+                "continuum limit, or Einstein-branch join"
+            ),
+            "paper_ref": (
+                "spacetime-recovery paper, layered discrete Gauss precursor"
+            ),
+        },
+        {
             "id": "carrier_class_dispersion_band",
             "statement": (
                 "Every member of the declared positive-weight scalar cosine "
@@ -1635,7 +1700,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact class theorem; physical sector, frame, finite scale, "
-                "readout, and comparison remain open"
+                "readout, and comparison not constructed"
             ),
             "artifact_ref": _rel("carrier_class_dispersion"),
             "lean_declarations": {
@@ -1689,7 +1754,7 @@ def _forced_structure(
             "match": (
                 "exact bounded finite theorem; physical position, frequency, "
                 "clock, field, signal front, frame, scale, readout, and "
-                "comparison remain open"
+                "comparison not constructed"
             ),
             "artifact_ref": _rel("carrier_frequency_speed"),
             "receipt_sha256": carrier_frequency["receipt_sha256"],
@@ -1730,7 +1795,7 @@ def _forced_structure(
             "observed_counterpart": (
                 "typed separation between operational ordering and physical time"
             ),
-            "match": "exact formal boundary; physical time realization open",
+            "match": "exact formal boundary; physical time realization not constructed",
             "lean_declarations": {
                 "TimeOrderLedger": [
                     "canonicalLedgerKinds_pairwise",
@@ -1778,7 +1843,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact bounded conditional algebra with finite controls; source "
-                "physical clock open"
+                "physical clock not constructed"
             ),
             "lean_declarations": {
                 "ObserverHistory": [
@@ -1911,7 +1976,7 @@ def _forced_structure(
             "observed_counterpart": (
                 "one common finite refinement substrate for observer theories"
             ),
-            "match": "exact structural interface; source realization open",
+            "match": "exact structural interface; source realization not constructed",
             "lean_declarations": {
                 "ConsensusTower": [
                     "public_mem_refine",
@@ -1961,7 +2026,7 @@ def _forced_structure(
                 "an observer-independent public normal-form endpoint"
             ),
             "match": (
-                "exact bounded conditional endpoint; source and limit open"
+                "exact bounded conditional endpoint; source and limit not constructed"
             ),
             "lean_declarations": {
                 "PublicWorldQuotient": [
@@ -2091,7 +2156,7 @@ def _forced_structure(
                 "supplies algebraic overlap covariance only from declared "
                 "inputs; source event realization, rods, clocks, physical "
                 "spacetime, continuum attachment, observable, decision rule, "
-                "and prediction remain open"
+                "and prediction are not constructed"
             ),
             "paper_ref": "observers paper, canonical Lorentz module",
         },
@@ -2117,7 +2182,7 @@ def _forced_structure(
                 "event-frame and local rest-space Lorentz covariance"
             ),
             "match": (
-                "exact bounded algebraic contract; source and physical receipts open"
+                "exact bounded algebraic contract; source and physical receipts not constructed"
             ),
             "lean_declarations": {
                 "LorentzOverlapCocycle": [
@@ -2208,9 +2273,8 @@ def _forced_structure(
                 "source atlas realization, event population, certified "
                 "separation, open rank-four charts, physical cone attachment, "
                 "refinement naturality, semantic causal reachability, and an "
-                "operational clock. Current lanes #728, #729, #732, #737, "
-                "and #739 own those residuals; the superseded historical "
-                "contracts were #693, #694, and #703. No physical spacetime, "
+                "operational clock. Scientific owners #728, #729, #732, #737, "
+                "and #739 record those residuals. No physical spacetime, "
                 "Einstein dynamics, "
                 "observable, decision rule, or prediction follows"
             ),
@@ -2246,7 +2310,7 @@ def _forced_structure(
             "match": (
                 "substantial conditional finite interface, operator-generation, "
                 "and CP-diamond packet; source regional selection and "
-                "correlation/descent open"
+                "correlation/descent not constructed"
             ),
             "lean_declarations": {
                 "FiniteCausalObserverNet": [
@@ -2400,14 +2464,13 @@ def _forced_structure(
                 "off-diagonal control proves that the two slot expectations are "
                 "not jointly injective, so coverage does not imply unique gluing. "
                 "The constant tower is not a nonconstant source realization, and "
-                "the uncommitted frame exploration supports no no-go. Current "
-                "observer-net lane #728 gates a source-attached Cartesian or "
+                "the uncommitted frame exploration supports no no-go. Scientific "
+                "owner #728 records the missing source-attached Cartesian or "
                 "other justified regional "
                 "construction, a correlation or descent receipt compatible "
                 "with the noninjectivity control, and a "
-                "nonconstant source composition; discharge lane #739 owns a "
-                "source realization or genuinely scoped no-go. The superseded "
-                "historical gate was #692. "
+                "nonconstant source composition; scientific owner #739 records a "
+                "missing source realization or genuinely scoped no-go. "
                 "No CP/CPTP channel, scheduler locality, spacetime causality, "
                 "time-slice property, continuum QFT, observable, decision rule, "
                 "or prediction is supplied"
@@ -2533,7 +2596,7 @@ def _forced_structure(
             "observed_counterpart": (
                 "classical-stochastic public and quantum-unitary private dynamics"
             ),
-            "match": "substantial exact finite packet; global converse open",
+            "match": "substantial exact finite packet; global converse not constructed",
             "lean_declarations": {
                 "PublicMarkov": [
                     "recordMapOfKernel_injective",
@@ -2606,7 +2669,7 @@ def _forced_structure(
                 "finite algebraic two-path character phase and cyclic-root structure"
             ),
             "match": (
-                "exact bounded algebraic packet; physical attachment open"
+                "exact bounded algebraic packet; physical attachment not constructed"
             ),
             "lean_declarations": {
                 "HolonomyInterference": [
@@ -2716,7 +2779,7 @@ def _forced_structure(
                 "full celestial sphere, the continuous normalized binary weight "
                 "F(n)=(1+n_z^3)/2 is exactly non-affine; after affinity is "
                 "supplied, dense probability tests force the coefficient into "
-                "the closed unit ball. The current finite unsharp battery also "
+                "the closed unit ball. The displayed finite unsharp battery also "
                 "fails: F_y(n)=(1+n_y^3)/2 is normalized, probability-valued, "
                 "noncontextual on the whole web, and non-affine. The source-attached "
                 "real S3 algebraic contexts obtained by applying a declared representation to source-realized gauge labels are not complex tomographically "
@@ -2869,7 +2932,7 @@ def _forced_structure(
                 "gauge labels, not a source-produced public quantum "
                 "instrument. The celestial countermodel proves that continuity "
                 "and normalized antipodal binary contexts still do not derive "
-                "affinity; the transverse cubic refutes the current finite "
+                "affinity; the transverse cubic refutes the displayed finite "
                 "Busch--Gleason interface, and the Pauli-Y pair identifies the "
                 "missing complex tomography direction. The exact phase lift "
                 "constructs that direction only inside the complex operator "
@@ -2882,11 +2945,10 @@ def _forced_structure(
                 "were not preregistered, and the phase pairing is an arbitrary "
                 "typed convention. The full-effect theorem still applies only "
                 "after full coexistent-effect additivity is supplied. No physical "
-                "Born derivation, observable, or prediction is emitted. Current "
-                "lane #730 owns the source-earned phase instrument, operational "
-                "additivity, and public readback; discharge lane #739 owns the "
-                "remaining affinity-principle obligation. The superseded "
-                "historical owner was #702"
+                "Born derivation, observable, or prediction is emitted. Scientific "
+                "owner #730 records the missing source-earned phase instrument, operational "
+                "additivity, and public readback; scientific owner #739 records the "
+                "remaining affinity-principle obligation"
             ),
             "paper_ref": "observers paper, finite Born-frame rank audit",
         },
@@ -2910,7 +2972,7 @@ def _forced_structure(
                 "faithful stationary reference contracts relative entropy "
                 "even without detailed balance, with an exact lazy directed "
                 "three-cycle as the nonreversible separation witness. On the "
-                "current source artifact, however, the transition action has a "
+                "committed source artifact, however, the transition action has a "
                 "nonconstant eigenmode with eigenvalue 665437/726948, whereas "
                 "the candidate state-side heat-bath action is idempotent; every "
                 "intertwiner kills that mode. Its stationary mass 7155/61511 is "
@@ -3064,17 +3126,17 @@ def _forced_structure(
                 },
             ),
             "hypothesis_boundary": (
-                "The exact obstruction closes issue #688 only as a bounded "
-                "negative result for two direct mechanisms on the current "
+                "The exact obstruction is only a bounded negative result for "
+                "two direct mechanisms on the certified "
                 "artifact: a mixing-mode-retaining linear intertwiner into the "
                 "idempotent heat bath and a deterministic empirical pushforward. "
                 "It does not exclude stochastic, nonlinear, reverse-direction, "
-                "dilated, or enriched-source constructions. Current lane #732 "
-                "owns the replacement common reference, collar, objective, "
+                "dilated, or enriched-source constructions. Scientific owner "
+                "#732 records the missing replacement common reference, collar, objective, "
                 "genuinely varying refinement family, and physical energy-clock "
                 "calibration beyond the attained central-interface modular split; "
-                "discharge lane #739 owns clock derivation and the repair-export "
-                "decision. The superseded historical owners were #725 and #703. "
+                "scientific owner #739 records clock derivation and the repair-export "
+                "decision. "
                 "The "
                 "pinned 20-state collar table has an audit of all "
                 "15 nonempty field-subset projections: its repair-load quotient "
@@ -3104,7 +3166,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact finite conditional transport structure; physical "
-                "generator and coefficients open"
+                "generator and coefficients not constructed"
             ),
             "lean_declarations": {
                 "GreenKubo": [
@@ -3164,12 +3226,12 @@ def _forced_structure(
                 "the reversible kernel, linear Poisson solver, graph, distance, "
                 "clock increment, volumes, heat capacities, and conductances "
                 "are declared finite inputs. No theorem identifies the "
-                "Green--Kubo coefficient with graph conductance. Current lanes "
-                "#732, #728, #729, #737, and #739 own the source evolution, "
+                "Green--Kubo coefficient with graph conductance. Scientific "
+                "owners #732, #728, #729, #737, and #739 record the missing source evolution, "
                 "physical equilibrium reference and conserved quantity, "
                 "source-realized geometry, instrumentation, clock, and "
-                "calibration; bounded algebraic C2 issue #690 is explicitly "
-                "closed and this row emits no prediction-ladder "
+                "calibration; the bounded algebraic C2 receipt is separate, "
+                "and this row emits no prediction-ladder "
                 "entry"
             ),
             "paper_ref": "observers paper, finite transport theorem",
@@ -3191,7 +3253,7 @@ def _forced_structure(
             "observed_counterpart": (
                 "continuity, Gauss constraint, and protected-charge structure"
             ),
-            "match": "exact finite precursor; physical Ward bridge open",
+            "match": "exact finite precursor; physical Ward bridge not constructed",
             "lean_declarations": {
                 "RegionalContinuity": [
                     "regional_continuity",
@@ -3249,13 +3311,13 @@ def _forced_structure(
                 "current, update order, and charge have no physical identity. "
                 "The guarded WardLimitManifest derives zero limiting residual "
                 "from exact finite-residual vanishing and convergence on a "
-                "shrinking scale with separating tests. Current gravity lane "
-                "#729 must define "
+                "shrinking scale with separating tests. Scientific owner #729 "
+                "records the obligation to define "
                 "that residual from finite continuity, identify it with physical "
                 "distributional divergence, and supply the source, transport, "
                 "chart, and common-tower evidence before continuum Ward use; "
-                "instrument attachment remains in #737 and deferred discharge "
-                "in #739. The superseded historical owner was #694"
+                "scientific owner #737 records the missing instrument attachment, "
+                "and #739 records deferred premise discharge"
             ),
             "paper_ref": "screen-microphysics paper, finite conservation bridge",
         },
@@ -3275,7 +3337,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact fixed-word and algebraic helpers; physical causality "
-                "attachment open"
+                "attachment not constructed"
             ),
             "lean_declarations": {
                 "DependencyCone": [
@@ -3318,17 +3380,16 @@ def _forced_structure(
                 "on a declared Cartesian slot, but the source does not select the "
                 "joint carrier, region map, or split. Its exact off-diagonal "
                 "control shows the two slot expectations are not jointly "
-                "injective, so coverage does not supply gluing. Current "
-                "composition gate #728 owns a source-attached Cartesian or other "
+                "injective, so coverage does not supply gluing. Scientific "
+                "owner #728 records the missing source-attached Cartesian or other "
                 "justified regional construction plus a correlation or descent "
                 "receipt compatible with the noninjectivity control and a "
                 "nonconstant source composition; #739 owns the residual source "
-                "realization or no-go. Source channel/adaptive-scheduler semantics "
-                "remain in #728, physical clocks in #739, physical spacetime "
-                "attachment in #729, instrumentation in #737, and continuum "
-                "causal/time-slice structure in #730. Those current lanes are "
-                "downstream promotions outside this claim's gate. The superseded "
-                "historical gate was #692. This row "
+                "realization or no-go. The missing source channel/adaptive-scheduler semantics "
+                "are recorded by #728, physical clocks by #739, physical spacetime "
+                "attachment by #729, instrumentation by #737, and continuum "
+                "causal/time-slice structure by #730. Those scientific owners mark "
+                "downstream promotions outside this claim's gate. This row "
                 "emits no prediction-ladder entry"
             ),
             "paper_ref": "consensus-protocol paper, finite locality boundary",
@@ -3351,7 +3412,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact conditional helper; source scheduler and physical "
-                "channel attachment open"
+                "channel attachment not constructed"
             ),
             "lean_declarations": {
                 "AdaptiveScheduler": [
@@ -3381,8 +3442,8 @@ def _forced_structure(
                 "supplied. The helper proves neither their source production nor "
                 "fairness, liveness, positivity, normalized state/channel, CPTP, "
                 "distance, clock, spacelike, continuum, or laboratory semantics. "
-                "Current lane #728 remains the source scheduler/channel gate; "
-                "#739 and #730 retain the clock and continuum-causality "
+                "Scientific owner #728 records the missing source scheduler/channel "
+                "attachment; #739 and #730 record the clock and continuum-causality "
                 "attachments. This row emits no prediction-ladder entry"
             ),
             "paper_ref": "E2 adaptive-scheduler helper, finite locality boundary",
@@ -3419,7 +3480,7 @@ def _forced_structure(
             ),
             "match": (
                 "exact conditional helpers plus finite/real and real-enrichment "
-                "non-identifiability boundaries; physical composition is open"
+                "non-identifiability boundaries; physical composition is not constructed"
             ),
             "lean_declarations": {
                 "PathGibbs": [
@@ -3547,11 +3608,11 @@ def _forced_structure(
                 "displayed family is constructed, not source-produced. The "
                 "concave control concerns modes/minimizers only: constrained "
                 "saddles, complex or signed stationary phase, and refinement "
-                "routes are not excluded. Current lane #731 owns composition of "
+                "routes are not excluded. Scientific owner #731 records the missing composition of "
                 "the source history/reference, action, amplitudes, fields, and "
-                "observable currents; discharge lane #739 owns source selection "
+                "observable currents; scientific owner #739 records source selection "
                 "of the reference, real enrichment, stationary-phase mechanism, "
-                "and clock. The superseded historical gate was #683. This "
+                "and clock. This "
                 "row emits no prediction-ladder entry"
             ),
             "paper_ref": "observers paper, conditional history boundary",
@@ -3713,8 +3774,7 @@ def _alpha_rows(
                 _rel("anchor_bridge"),
                 _rel("alpha_hvp_verdict"),
             ],
-            "blocking_issues": [736],
-            "historical_blocking_issues": [425, 545, 696, 708],
+            "scientific_owner_issues": [736],
         }
     ]
 
@@ -3750,10 +3810,9 @@ def _lepton_rows(
                 "one anchor-gap value closes the charged-lepton lane on the "
                 "witness, that value lies inside the retrospective accounting "
                 "interval, and its "
-                "distance to the standard on-shell reference deficit is the "
-                "scheme term of the resource-deferred historical anchor "
-                "boundary #545. Current quantitative lane #736 does "
-                "not discharge that missing source. The lepton "
+                "distance to the standard on-shell reference deficit is an "
+                "unfixed scheme term. Scientific owner #736 records that "
+                "missing source obligation. The lepton "
                 "scale is localized only under the recorded accounting "
                 "packet. A "
                 "source-emitted bridge value is a sharp falsification "
@@ -3766,8 +3825,7 @@ def _lepton_rows(
             "width_floor": width_floor["floor_attribution"],
             "tier": "T1_empirical_closure",
             "artifact_refs": [_rel("kappa_rectangle"), _rel("kappa_coherent")],
-            "blocking_issues": [736],
-            "historical_blocking_issues": [425, 545, 696, 697],
+            "scientific_owner_issues": [736],
         }
     )
     mcpr_masses = [float(m) / 1000.0 for m in mcpr["masses_MeV_display"]]
@@ -3836,8 +3894,7 @@ def _lepton_rows(
             "epistemic_scope": lane["numerical_certificate"]["epistemic_scope"],
             "numerical_certificate": lane["numerical_certificate"],
             "artifact_ref": _rel(artifact),
-            "blocking_issues": [736],
-            "historical_blocking_issues": [425, 545, 696, 697],
+            "scientific_owner_issues": [736],
         }
         if key.endswith("coherent"):
             entry["width_reduction_factor"] = lane["kappa_interval"]["width_reduction_factor"]
@@ -3927,8 +3984,7 @@ def _quark_rows(
             "fiber_cut_detected": obstruction["fiber_cut_detected"],
             "tier": obstruction["claim_tier"],
             "artifact_ref": _rel("fiber_obstruction"),
-            "blocking_issues": [736],
-            "historical_blocking_issues": obstruction["github_issues"] + [697],
+            "scientific_owner_issues": [736],
         },
         {
             "id": "quark_down_type_clebsch_route_rejected",
@@ -3978,9 +4034,9 @@ def _hadron_rows(payload: dict[str, Any], standby: dict[str, Any]) -> list[dict[
             "policy": (
                 "The published-compilation payload is the correction engine of "
                 "the fine-structure lane; source-only hadron rows stay "
-                "suppressed. Historical issues #425 and #697 record the "
-                "resource-deferred QCD backend and prior bounded particle lane; "
-                "current bounded particle-output ownership is #736, "
+                "suppressed. The resource-deferred QCD backend supplies no "
+                "source-only result; "
+                "scientific owner #736 records the bounded particle-output obligation, "
                 "and source-only QCD remains outside the available resources."
             ),
             "artifact_ref": _rel("hadron_payload"),
@@ -4009,7 +4065,7 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
             "statement": (
                 forced["intrinsic_rank_three_response_completion"]["statement"]
                 + ". This is an exact intrinsic metric completion; physical "
-                "position, scale, refinement, and gluing remain open."
+                "position, scale, refinement, and gluing are not constructed."
             ),
         },
         {
@@ -4032,7 +4088,7 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
             "statement": (
                 forced["carrier_class_dispersion_band"]["statement"]
                 + ". The class theorem is exact; physical field attachment, "
-                "finite scale, coherent frame, readout, and comparison remain open."
+                "finite scale, coherent frame, readout, and comparison are not constructed."
             ),
         },
         {
@@ -4059,9 +4115,8 @@ def _principal_results(sections: dict[str, Any]) -> list[dict[str, Any]]:
                 f"distance {wp['scheme_term_difference_inv_alpha']:+.4f} to "
                 "the standard on-shell reference deficit "
                 f"{wp['reference_deficit_inv_alpha']:.4f} is the scheme "
-                "term of the resource-deferred historical anchor boundary "
-                "#545; current quantitative lane #736 does not discharge "
-                "that source requirement. The lepton "
+                "unfixed scheme term; scientific owner #736 records that missing source "
+                "requirement. The lepton "
                 "scale is localized only under that recorded accounting "
                 "packet. A "
                 "source-emitted bridge value is a falsification target: the "
@@ -4129,7 +4184,7 @@ def build(
                 "id": "neutrino_dimensionless_pointer",
                 "statement": (
                     "dimensionless PMNS and mass-splitting-ratio "
-                    "comparisons live on the results status surface; the "
+                    "comparisons are recorded on the results surface; the "
                     "absolute attachment stays compare-only"
                 ),
                 "artifact_ref": "code/particles/RESULTS_STATUS.md",
@@ -4139,7 +4194,7 @@ def build(
     result = {
         "artifact": "oph_postdiction_ledger",
         "generator": "code/particles/scripts/build_postdiction_ledger.py",
-        "schema_version": 2,
+        "schema_version": 3,
         "row_class": "compare_only_postdiction_ledger",
         "guards": {
             "compare_only": True,
@@ -4149,7 +4204,7 @@ def build(
             "hand_typed_measured_values": False,
         },
         "aggregation_policy": (
-            "numeric values and measured references are read live from cited "
+            "numeric values and measured references are read mechanically from cited "
             "parents; structural rows are derived from validated Lean "
             "declarations, structured parents, or both, and identify direct "
             "algebraic corollaries explicitly; a missing or inconsistent "
@@ -4185,7 +4240,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
         "is `code/particles/runs/status/postdiction_ledger.json`."
     )
     add("")
-    add("Numeric values and measured references on this page are read live from "
+    add("Numeric values and measured references on this page are read mechanically from "
         "the cited parent artifacts. Structural rows are derived from validated "
         "Lean declarations, structured parents, or both, and direct algebraic "
         "corollaries are identified. "
@@ -4204,8 +4259,8 @@ def _render_md(ledger: dict[str, Any]) -> str:
     add("These finite structural results precede or constrain numeric lanes. "
         "They include the icosahedral gauge packet and generic observer-law "
         "boundaries. Each row is checked in Lean, by a structured executable "
-        "artifact, or by both, and records its own classical inputs and open "
-        "physical premises.")
+        "artifact, or by both, and records its own classical inputs and missing "
+        "physical attachments.")
     add("")
     add("| Result | Observed counterpart | Match | Receipts |")
     add("| --- | --- | --- | --- |")
@@ -4284,12 +4339,8 @@ def _render_md(ledger: dict[str, Any]) -> str:
             f"`{row['cross_class_agreement']['independently_evaluated_class_count']}`.")
         add(f"- Reading: {row['reading']}")
         add(
-            "- Live blocking issues: "
-            + ", ".join(f"#{i}" for i in row["blocking_issues"])
-        )
-        add(
-            "- Historical issues and resource-deferred boundaries: "
-            + ", ".join(f"#{i}" for i in row["historical_blocking_issues"])
+            "- Scientific owner: "
+            + ", ".join(f"#{i}" for i in row["scientific_owner_issues"])
         )
     add("")
     add("## Charged leptons")
@@ -4302,7 +4353,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
                 "lane exactly on the measured triple (inversion machine-checked); "
                 f"the distance `{wp['scheme_term_difference_inv_alpha']:+.4f}` to the "
                 f"on-shell reference deficit `{wp['reference_deficit_inv_alpha']:.4f}` "
-                "is the live scheme term of the bridge. The certified width floor "
+                "is the unfixed scheme term of the bridge. The certified width floor "
                 "is the scheme-band ambiguity; no budget is shrunk without the "
                 "source bridge.")
             continue
@@ -4371,7 +4422,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
     for row in s["quarks"]:
         if row["id"].endswith("obstruction"):
             add(f"- Absolute masses ({row['tier']}): {row['statement']} "
-                f"(issues {', '.join(f'#{i}' for i in row['blocking_issues'])}).")
+                f"(scientific owner {', '.join(f'#{i}' for i in row['scientific_owner_issues'])}).")
         else:
             vals = row["values"]
             flag = row["flag_2024_compare_only"]
@@ -4417,7 +4468,7 @@ def main() -> None:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="fail if the committed JSON or Markdown differs from a live rebuild",
+        help="fail if the committed JSON or Markdown differs from a deterministic rebuild",
     )
     args = parser.parse_args()
     result = build(args.out, args.md, write=not args.check)

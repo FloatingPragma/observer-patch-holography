@@ -51,7 +51,7 @@ region lattice beyond the committed diamond, nonconstant tower,
 channel semantics, instrument, clock, or physical claim is attached.
 Of the reopened issue's three residual items, the justified regional
 construction and the marginal-coherent correlation receipt are
-addressed here at the stated strength; issue #692 stays open on the
+addressed here at the stated strength; issue #728 owns the
 nonconstant source realization or its scoped no-go.
 -/
 

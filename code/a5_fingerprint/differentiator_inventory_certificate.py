@@ -529,10 +529,9 @@ def build_rows() -> list[dict[str, Any]]:
             ),
             "data_contact": (
                 "class-level surface behind the frozen FZ-11 and FZ-12 "
-                "branch predictions; issue #704 owns target-clean producer "
-                "and physical-bridge work, issue #696 owns quantitative "
-                "physical output, and issue #695 owns immutable comparison "
-                "custody"
+                "branch predictions; their target-clean producer, physical "
+                "bridge, quantitative output, and pre-comparison registration "
+                "belong to the relevant propagation and prediction lanes"
             ),
             "falsification": (
                 "a resolved intrinsic dispersion with B0/C4^2 below "

@@ -8,10 +8,10 @@ render.
 Fail-closed rules: the row ids, names, types, and dispositions are fixed
 program-wide and must equal the expected inventory exactly, in order; every
 type comes from the six-value enum and every disposition from the three-value
-enum; every consuming lane is a V3 issue in 728..745, duplicate-free and
-ascending; every evidence path exists in the repository; statements and notes
-are nonempty. The rendered page is a generated surface; edit the JSON, then
-regenerate.
+enum; every consuming lane is a current scientific lane, duplicate-free and
+ascending; every evidence path exists in the repository and has exactly one
+explicit evidence role; statements and notes are nonempty. The rendered page
+is a generated surface; edit the JSON, then regenerate.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
 SURFACE_PATH = ROOT / "docs" / "PREMISE_REGISTER_V3.md"
 
-SCHEMA = "oph.premise_register.v2"
+SCHEMA = "oph.premise_register.v3"
 ISSUE = 727
 ISSUE_URL = "https://github.com/FloatingPragma/observer-patch-holography/issues"
 
@@ -40,8 +40,13 @@ TYPES = (
     "numerical_input",
 )
 DISPOSITIONS = ("remove", "axiomatize", "import")
-LANE_MIN = 728
-LANE_MAX = 745
+LANE_ISSUES = frozenset((*range(728, 738), 740, 742, 743, 744, 745))
+EVIDENCE_ROLES = {
+    "statement",
+    "conditional_consumer",
+    "no_go",
+    "external_input",
+}
 
 ROW_KEYS = {
     "id",
@@ -51,6 +56,7 @@ ROW_KEYS = {
     "statement",
     "consuming_lanes",
     "evidence",
+    "evidence_roles",
     "notes",
 }
 
@@ -315,7 +321,7 @@ EXPECTED_ROWS = (
     ),
     (
         "PR-53",
-        "physical photon field, frame, and comparison attachment",
+        "physical finite-carrier propagation, frame, and comparison attachment",
         "structural_rule",
         "remove",
     ),
@@ -348,16 +354,16 @@ EXPECTED_ROWS = (
 DISPOSITION_MEANING = {
     "remove": (
         "A remove row is consumed as a declared premise while its derivation "
-        "from the three axioms is open work in the discharge queue (issue "
-        "#739). The row leaves the register only through a proved source "
+        "from the three axioms remains open. The row leaves the register only"
+        " through a proved source "
         "derivation; every composition citing it is conditional on it, and "
         "any bounded no-go attached to the row records exactly what the "
         "current axioms fail to supply."
     ),
     "axiomatize": (
-        "An axiomatize row is a candidate for promotion into the "
-        "architecture. Promotion is a recorded register decision with "
-        "rationale and a basis-wide dependency and countermodel audit, never "
+        "An axiomatize row is a candidate for promotion into the basis. "
+        "Promotion is a recorded register decision with rationale and a "
+        "basis-wide dependency and countermodel review, never "
         "a silent edit; the row keeps its source-selection no-gos as the "
         "evidence of what the current axioms do not supply, and a promoted "
         "row remains on the register with its decision record."
@@ -451,10 +457,8 @@ def validate(register: dict) -> list[dict]:
         for lane in lanes:
             if not isinstance(lane, int) or isinstance(lane, bool):
                 fail(f"{where}: consuming lane {lane!r} must be an integer")
-            if not LANE_MIN <= lane <= LANE_MAX:
-                fail(
-                    f"{where}: consuming lane {lane} is outside {LANE_MIN}..{LANE_MAX}"
-                )
+            if lane not in LANE_ISSUES:
+                fail(f"{where}: consuming lane {lane} is not a current scientific lane")
         if lanes != sorted(set(lanes)):
             fail(f"{where}: consuming_lanes must be strictly ascending")
 
@@ -468,6 +472,22 @@ def validate(register: dict) -> list[dict]:
                 fail(f"{where}: evidence entries must be nonempty strings")
             if not (ROOT / path).exists():
                 fail(f"{where}: evidence path missing: {path}")
+        evidence_roles = row["evidence_roles"]
+        if not isinstance(evidence_roles, dict):
+            fail(f"{where}: evidence_roles must be an object")
+        if set(evidence_roles) != set(evidence):
+            missing = set(evidence) - set(evidence_roles)
+            extra = set(evidence_roles) - set(evidence)
+            fail(
+                f"{where}: evidence_roles must have exact evidence-path parity "
+                f"(missing {sorted(missing)}, extra {sorted(extra)})"
+            )
+        for path, role in evidence_roles.items():
+            if role not in EVIDENCE_ROLES:
+                fail(
+                    f"{where}: evidence role for {path} must be one of "
+                    f"{sorted(EVIDENCE_ROLES)}"
+                )
     return rows
 
 
@@ -487,7 +507,8 @@ def render(rows: list[dict]) -> str:
     lines.append(
         "Generated by `tools/build_premise_register.py` from"
         " `tracking/premise_register.json`; edit the JSON, then regenerate."
-        f" [Issue #{ISSUE}]({ISSUE_URL}/{ISSUE}) owns this register."
+        f" Established under [issue #{ISSUE}]({ISSUE_URL}/{ISSUE});"
+        " maintained as a scientific register."
     )
     lines.append("")
     lines.append(
@@ -495,24 +516,24 @@ def render(rows: list[dict]) -> str:
         " exactly once, with its type, its declared disposition, the lanes"
         " that consume it, its exact statement, and its evidence paths. A"
         " premise used by a lane theorem and absent from this register is a"
-        " hard audit failure. P and N are the only proposed fundamental free"
+        " hard validation failure. P and N are the only proposed fundamental free"
         " numerical parameters; measured calibrations, fits, targets, and"
         " transport payloads remain separate flagged empirical inputs. Every"
         " numerical quantity is classified in this ancestry rather than"
         " hidden by the P/N statement."
         " Registering a premise legitimizes its use inside conditional"
         " compositions; it does not make the premise true, derived, or"
-        " physical. Disposition changes, including promotion to axiom, are"
-        " recorded events with rationale, never silent edits."
+        " physical. Disposition changes, including promotion to axiom, require"
+        " an explicit scientific rationale, never a silent edit."
     )
     lines.append("")
     lines.append(
-        "Every `remove` or `axiomatize` row is projected into the generated"
-        " [premise-discharge queue](PREMISE_DISCHARGE_QUEUE_V3.md), with its"
-        " exact statement, evidence, conditional-consumer edges, next action,"
-        " and durable architecture/audit-register custody established under"
-        " issues #741 and #738. Imports are listed there as"
-        " explicit exclusions rather than silently entering the queue."
+        "Each evidence path has one explicit primary role: `statement` locates"
+        " the premise interface, `conditional_consumer` uses that premise in a"
+        " conditional result, `no_go` proves a source-selection or derivation"
+        " obstruction, and `external_input` identifies imported mathematics or"
+        " data. These roles describe evidential function only; they create no"
+        " implicit reverse-consumer edge or lane ownership."
     )
     lines.append("")
     lines.append("| Row | Premise | Type | Disposition | Consuming lanes |")
@@ -540,7 +561,10 @@ def render(rows: list[dict]) -> str:
             f"- Type `{row['type']}`; disposition `{row['disposition']}`;"
             f" consumed by {lane_links(row['consuming_lanes'])}."
         )
-        evidence = ", ".join(f"`{path}`" for path in row["evidence"])
+        evidence = ", ".join(
+            f"`{path}` (`{row['evidence_roles'][path]}`)"
+            for path in row["evidence"]
+        )
         lines.append(f"- Evidence: {evidence}.")
         lines.append(f"- Disposition note: {row['notes']}")
         lines.append("")

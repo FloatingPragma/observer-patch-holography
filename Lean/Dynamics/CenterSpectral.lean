@@ -8,10 +8,10 @@ import Dynamics.CentralBlocks
 /-!
 # Spectral decomposition of the center of a star subalgebra
 
-`CentralBlocks.lean` controls the two-block direct sum.  This module carries
-step 1 of the remaining gap of issue 679: the center of a star subalgebra of
-a finite complex matrix algebra is spanned by finitely many minimal
-orthogonal central projections summing to one.
+`CentralBlocks.lean` controls the two-block direct sum.  This module supplies
+the first layer of the finite central-decomposition argument: the center of a
+star subalgebra of a finite complex matrix algebra is spanned by finitely many
+minimal orthogonal central projections summing to one.
 
 1. Relative-center vocabulary: membership in the center of a star
    subalgebra `S` (`IsCentralIn`), central star projections of `S`
@@ -45,10 +45,10 @@ orthogonal central projections summing to one.
    `centralCutEquiv` (`pairResolutionCutEquiv`); the second projection is
    forced to be the complement (`pair_resolution_eq_one_sub`).
 
-The iterated `k`-fold product equivalence over a full minimal resolution
-and the induction over block counts remain separate obligations of issue
-679.  No physical clock, source-selected Hamiltonian, or physical time
-identification is claimed.
+The iterated `k`-fold product equivalence over a full minimal resolution and
+the induction over block counts are supplied downstream in
+`StarWedderburn.lean`.  No physical clock, source-selected Hamiltonian, or
+physical time identification is claimed.
 -/
 
 namespace OPH.Dynamics
@@ -627,8 +627,8 @@ theorem IsCentralIn.exists_spectral_resolution [Nonempty n]
     eq_sum_smul_spectralProjection _⟩
 
 /-- A non-scalar self-adjoint central element splits off a nontrivial
-central projection.  This is the induction driver for the block
-decomposition of issue 679. -/
+central projection.  This is the induction driver for the finite
+central-block decomposition. -/
 theorem IsCentralIn.exists_nontrivial_central_projection [Nonempty n]
     {h : Matrix n n ℂ} (hh : IsCentralIn S h) (hsa : IsSelfAdjoint h)
     (hns : ∀ c : ℂ, h ≠ c • 1) :
@@ -889,8 +889,8 @@ theorem pair_resolution_orthogonal {p q : A}
 /-- Two-projection case of the iterated factorization: a resolution of
 the identity by two central star projections factors the algebra as the
 direct sum of the two corners, through the central cut equivalence of
-`CentralBlocks.lean`.  The `k`-fold iterated product over a full minimal
-resolution is a separate obligation of issue 679. -/
+`CentralBlocks.lean`.  `StarWedderburn.lean` supplies the `k`-fold iterated
+product over a full minimal resolution. -/
 noncomputable def pairResolutionCutEquiv {p q : A}
     (hp : IsCentralStarProjection p) (hq : IsCentralStarProjection q)
     (hsum : p + q = 1) :

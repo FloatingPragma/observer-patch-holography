@@ -53,13 +53,11 @@ as empty lists or trusted booleans:
 - finite-order term masks;
 - certified vector remainders.
 
-The complete issue remains open. Issue #634 supplies the bounded finite
-action-domain context. The open positive inputs are the physical family
-attachment in #569, scalar action and kinetic normalization in #636, complete
-source Yukawa matrices in #637, physical local carrier in #631, and the
-W/Z-coupled census in #632. The mass spectrum, scheme selection, and
-remainder-producing RG engine remain part of #32. The #630 integration packet
-and #638 source-to-FJ map are not RG prerequisites.
+The complete scientific construction remains unresolved. Its positive inputs
+are a physical family attachment, scalar action and kinetic normalization,
+complete source Yukawa matrices, a physical local carrier, and the W/Z-coupled
+census. The mass spectrum, scheme selection, and remainder-producing RG engine
+remain absent from this finite representation-index frontier.
 
 ## Evidence
 

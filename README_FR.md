@@ -249,29 +249,19 @@ constante de structure fine mesurée. Une prédiction physique exige une
 application choisie sans consulter la mesure, la preuve que ses deux côtés
 lisent une seule grandeur et le transport jusqu’à la limite de Thomson dans
 un même schéma ; la concordance conserve donc un statut diagnostique, et les
-valeurs exactes figurent dans le
-[tableau des affirmations](tracking/claims_scoreboard.md).
+valeurs exactes et leurs hypothèses figurent dans les
+[articles techniques](paper/).
 
 **La capacité.** $N$ est la capacité d’enregistrement public de tout le
 système d’observateurs : la quantité de mémoire corrigible que porte le
 substrat. Elle fait face à $P$, liée à la constante cosmologique plutôt
-qu’à la constante de structure fine. La clôture exige que la capacité
-fournie à l’univers s’accorde avec la capacité d’enregistrement
-reconstruite en son sein. La condition directe d’autolecture n’est pas
-évaluable avec la source de capacité disponible. Une seconde voie passe par
-$P$ : à la valeur de pixel fournie à cette branche déclarée, les deux
-façons d’appliquer la correction finie de survie aboutissent à environ
-$0{,}63$ et $0{,}39$ pour cent au-dessous de la valeur de comparaison du
-modèle ΛCDM de base de Planck. Ces deux nombres furent calculés après la
-prise de connaissance de la valeur de comparaison, donc aucun des deux
-n’est une prédiction ; le
-[tableau des affirmations](tracking/claims_scoreboard.md) précise ce que
-chaque étape suppose et ce qui manque.
+qu’à la constante de structure fine. Le programme de capacité demande si la
+capacité publique attribuée à l’univers s’accorde avec celle reconstruite de
+l’intérieur. Les identités finies qui soutiennent cette question sont
+vérifiées en Lean ; les articles techniques et le
+[programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md) précisent
+les hypothèses et les tests requis pour une clôture physique.
 
-Une partie de la clôture est vérifiée machine en Lean, et les frontières
-d’évaluation des conditions de clôture, avec leurs données physiques
-absentes, sont précisées dans le
-[programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md).
 Une clôture physique des deux constantes donnerait une branche sans
 paramètre continu, les deux valeurs étant rendues par l’architecture. Cet
 attachement physique est ouvert. Les théorèmes de point fixe certifient les
@@ -283,12 +273,6 @@ axiomes.
 Sous clôture complète, la boucle répond à la dernière question qu’une théorie
 du tout puisse recevoir : pourquoi quelque chose existe, et pourquoi c’est
 ainsi.
-
-## Portée des affirmations
-
-Le [registre des affirmations](tracking/claims_scoreboard.md) précise la
-portée, les prémisses et la classe de preuve de chaque branche. Ce README se
-concentre sur les parties les plus solides du dossier.
 
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
@@ -311,13 +295,10 @@ faveur d’un seul monde physique.
 ## État technique
 
 Le dossier ci-dessus donne le résumé destiné au lecteur. Les prémisses,
-l’origine des comparaisons et les règles de falsification se trouvent dans le
-[tableau des affirmations](tracking/claims_scoreboard.md), le
-[registre des postdictions](docs/POSTDICTION_LEDGER.md) et l’
-[échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md). Les résultats
-finis et structurels exacts constituent la partie la plus solide. Les liens
-entre la source et la physique, les échelles physiques et les comparaisons
-prospectives avec les données forment la principale voie de recherche.
+l’origine des comparaisons et les règles de falsification se trouvent dans les
+[articles techniques](paper/) et le
+[programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md). Les
+résultats finis et structurels exacts constituent la partie la plus solide.
 
 ## Choisir un parcours de lecture
 
@@ -350,11 +331,11 @@ apporte davantage qu’une correspondance numérique isolée :
   démonstrations manuscrites et le développement Lean ne suffisent pas, dans le
   dépôt compagnon
   [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim) ;
-- un registre des affirmations et un registre de clôture reliant les résultats publics aux artefacts.
+- des registres scientifiques reliant les affirmations publiques aux preuves.
 
-## Auditer le noyau fini
+## Valider le noyau fini
 
-L’audit scientifique le plus court vérifie le graphe des affirmations,
+La validation indépendante la plus courte vérifie le graphe des affirmations,
 l’algèbre exacte à douze ports, la capacité des registres publics, le paquet
 réversible de $N$ et le consensus fini :
 
@@ -397,7 +378,7 @@ briseraient.
 - [`book/`](book) : source du livre et PDF téléchargeable.
 - [`cosmology/`](cosmology) : recherche sur le secteur sombre et la cosmologie.
 - [`physics-problems/`](physics-problems) : applications ciblées et notes sur des problèmes ouverts.
-- [`docs/`](docs) : registre de clôture, politique des affirmations et matériel d’audit.
+- [`docs/`](docs) : politiques stables destinées aux lecteurs et registres scientifiques canoniques.
 - [`assets/`](assets) : diagrammes et figures publiques.
 
 ## Explorer OPH

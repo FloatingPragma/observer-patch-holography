@@ -426,7 +426,7 @@ def render(rows: list[dict]) -> str:
         " a **`measured_comparison_target`** entry or a flagged"
         " empirical-import register row. Declared premises without a register"
         " row are marked as proposed and named descriptively. The postdiction"
-        " ledger and the claim scoreboard are the comparison authorities;"
+        " ledger and canonical claim registry are the comparison authorities;"
         " this surface classifies ancestry, records falsifiers, and promotes"
         " nothing."
     )

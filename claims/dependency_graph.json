@@ -8,7 +8,6 @@
   "OPH-CONS-BFT-PREPARED-LOCK",
   "OPH-CONS-REFINEMENT-MODULI",
   "OPH-GR-D2-COLLAR-RECOVERY",
-  "OPH-FINITE-AUDIT-MATSCHEKO",
   "OPH-GR-D3-CAP-H3",
   "OPH-GR-D3-H3-LOCALIZATION",
   "OPH-GR-D3H-GEOMETRY-PRODUCER",
@@ -96,7 +95,8 @@
   "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
   "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
   "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
-  "OPH-GEOMETRY-INVERSE-SQUARE-SHELL"
+  "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
+  "OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS"
  ],
  "edges": [
   {
@@ -227,7 +227,7 @@
   {
    "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
    "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
-   "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale were specified historically in issue #655, remain under frozen custody in #738, have target-clean producer owner #733, and quantitative-output owner #736"
+   "role": "supplies the primitive twelve-port orbit, proper A5 transitivity, and exact moment geometry; the scalar physical-sector bridge, coherent frame, exclusivity, and finite nonzero scale were specified historically in issue #655, with target-clean producer owner #733 and physical-output and comparison owner #736"
   },
   {
    "from": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -237,7 +237,7 @@
   {
    "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
    "to": "OPH-A5-SEAM-CURRENT-EDGE30",
-   "role": "supplies the antipodal six-axis load quotient and response-selected metric carrier; the position action, physical sector, cofinal gluing, scale, frame and readout remain the frozen FZ-12 branch premises with target-clean producer owner #733, quantitative-output owner #736, and custody owner #738"
+   "role": "supplies the antipodal six-axis load quotient and response-selected metric carrier; the position action, physical sector, cofinal gluing, scale, frame and readout remain the frozen FZ-12 branch premises with target-clean producer owner #733 and physical-output and comparison owner #736"
   },
   {
    "from": "OPH-SCREEN-PORT-CURRENT-INNER",
@@ -777,7 +777,7 @@
   {
    "from": "OPH-OBS-PATCH-DEF",
    "to": "OPH-FINITE-LOCALITY-NOSIGNALLING",
-   "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; the conditional E1 packet consumes the B4 partial-trace helper on a declared Cartesian slot while live gate #728 owns source selection of the regional carrier/split and a correlation or descent receipt compatible with the exact noninjectivity control, and E2 owns source-produced channel semantics and refinement-natural adaptive scheduling"
+   "role": "supplies the concrete localRepair read/write semantics used by the fixed-word dependency upper bound; the conditional E1 packet consumes the B4 partial-trace helper on a declared Cartesian slot while scientific owner #728 carries source selection of the regional carrier/split and a correlation or descent receipt compatible with the exact noninjectivity control, and E2 owns source-produced channel semantics and refinement-natural adaptive scheduling"
   },
   {
    "from": "OPH-OBS-PATCH-DEF",

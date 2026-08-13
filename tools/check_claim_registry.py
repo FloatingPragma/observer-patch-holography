@@ -8,6 +8,7 @@ YAML dependency while keeping the requested `.yaml` public path.
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 import sys
@@ -37,7 +38,20 @@ REQUIRED_CLAIM_FIELDS = {
     "status",
     "claim_class",
     "gates",
+    "premise_dependencies",
 }
+
+CLAIM_REGISTRY_SCHEMA = 3
+PREMISE_REGISTER_RELATIVE = Path("tracking") / "premise_register.json"
+PREMISE_DEPENDENCY_FIELDS = ("consumed", "open", "boundary")
+PREMISE_DEPENDENCY_CLASSIFICATIONS = {
+    "explicit_edges",
+    "explicit_non_consumer",
+}
+PREMISE_ID = re.compile(r"^PR-[0-9]{2}$")
+PREMISE_DEPENDENCY_PROJECTION_SHA256 = (
+    "fbef5c5d78afd145925d61f41b0b06ce63c794aff0210bbaec148611cd6b2c42"
+)
 
 # Controlled claim classification (issue #512). `status` stays descriptive
 # free text; `claim_class` is the machine-checked epistemic class.
@@ -70,8 +84,6 @@ ESTABLISHMENT_WORDING = re.compile(
     re.IGNORECASE,
 )
 
-ISSUE_SNAPSHOT_RELATIVE = Path("tracking") / "open_issues" / "open_problem_ledger.json"
-CLAIM_ID_TOKEN = re.compile(r"\bOPH-[A-Z0-9][A-Z0-9-]{2,}\b")
 PINNED_GITHUB_EVIDENCE = re.compile(
     r"https://github\.com/[^/]+/[^/]+/blob/[0-9a-f]{40}/.+"
 )
@@ -83,8 +95,6 @@ PINNED_GITHUB_EVIDENCE = re.compile(
 # When one of these issues is discharged, its claim gates and this policy must
 # be updated together, so ownership cannot disappear as an incidental edit.
 REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
-    # Closed bootstrap #741 is enforced by the durable architecture/audit
-    # registers and is no longer a live claim gate.
     "OPH-UNIFIED-TYPED-SPINE": frozenset({740}),
     "OPH-GR-D6-CAPACITY": frozenset({742}),
     "OPH-GR-D6-HORIZON-RECORD": frozenset({742}),
@@ -218,33 +228,148 @@ def dictionary_tokens(root: Path) -> set[str]:
     return set(re.findall(r"^\|\s*`([^`]+)`", text, re.MULTILINE))
 
 
-def load_issue_snapshot(root: Path) -> tuple[set[int], set[int], dict]:
-    """Open and closed issue numbers from the committed GitHub issue snapshot.
+def premise_ids(root: Path) -> set[str]:
+    """Load the canonical premise IDs without inferring any semantic edges."""
+    register = load_json(root / PREMISE_REGISTER_RELATIVE)
+    rows = register.get("rows", [])
+    require(
+        isinstance(rows, list) and rows,
+        f"{PREMISE_REGISTER_RELATIVE}: premise register has no rows",
+    )
+    identifiers = [row.get("id") for row in rows if isinstance(row, dict)]
+    require(
+        len(identifiers) == len(rows)
+        and all(isinstance(identifier, str) and PREMISE_ID.fullmatch(identifier) for identifier in identifiers),
+        f"{PREMISE_REGISTER_RELATIVE}: malformed premise ids",
+    )
+    require(
+        len(identifiers) == len(set(identifiers)),
+        f"{PREMISE_REGISTER_RELATIVE}: duplicate premise ids",
+    )
+    return set(identifiers)
 
-    The snapshot is the fail-closed stand-in for live GitHub state: gates are
-    validated against it, and CI regenerating it against the live repository is
-    what keeps it synchronized. The snapshot itself must be internally consistent:
-    a hard-coded or stale `open_issue_count` is rejected here.
+
+def check_premise_dependencies(claim: dict, known_premises: set[str]) -> None:
+    """Require an explicit direct-edge classification for every claim.
+
+    `consumed` is an antecedent used by the scoped claim, `open` is a missing
+    premise needed for the stronger physical claim named on that same row, and
+    `boundary` is a premise whose derivation space the claim's no-go or audit
+    directly constrains without consuming it. Claim-to-claim transitive ancestry
+    stays in the dependency graph. Shared evidence and thematic similarity never
+    create premise edges.
     """
-    snapshot = load_json(root / ISSUE_SNAPSHOT_RELATIVE)
-    rows = snapshot.get("rows", [])
-    numbers = [row.get("number") for row in rows]
+    claim_id = claim["claim_id"]
+    dependencies = claim.get("premise_dependencies")
     require(
-        all(isinstance(n, int) for n in numbers),
-        f"{ISSUE_SNAPSHOT_RELATIVE}: issue rows with non-integer numbers",
+        isinstance(dependencies, dict),
+        f"{claim_id}: premise_dependencies must be an object",
     )
+    classification = dependencies.get("classification")
     require(
-        len(set(numbers)) == len(numbers),
-        f"{ISSUE_SNAPSHOT_RELATIVE}: duplicate issue numbers in rows",
+        classification in PREMISE_DEPENDENCY_CLASSIFICATIONS,
+        f"{claim_id}: premise dependency classification must be one of "
+        f"{sorted(PREMISE_DEPENDENCY_CLASSIFICATIONS)}",
     )
+    expected_keys = {"classification", *PREMISE_DEPENDENCY_FIELDS}
+    if classification == "explicit_non_consumer":
+        expected_keys.add("rationale")
     require(
-        snapshot.get("open_issue_count") == len(rows),
-        f"{ISSUE_SNAPSHOT_RELATIVE}: open_issue_count "
-        f"{snapshot.get('open_issue_count')!r} does not equal the computed row "
-        f"count {len(rows)} (hard-coded or stale count)",
+        set(dependencies) == expected_keys,
+        f"{claim_id}: premise_dependencies keys must equal {sorted(expected_keys)}",
     )
-    closed = {row.get("number") for row in snapshot.get("closed_out_of_scope_records", [])}
-    return set(numbers), closed, snapshot
+
+    fields: dict[str, list[str]] = {}
+    for field in PREMISE_DEPENDENCY_FIELDS:
+        values = dependencies[field]
+        require(
+            isinstance(values, list)
+            and all(isinstance(value, str) and PREMISE_ID.fullmatch(value) for value in values),
+            f"{claim_id}: premise_dependencies.{field} must be a list of PR-xx ids",
+        )
+        require(
+            len(values) == len(set(values)),
+            f"{claim_id}: premise_dependencies.{field} repeats an id",
+        )
+        require(
+            values == sorted(values),
+            f"{claim_id}: premise_dependencies.{field} must be sorted",
+        )
+        unknown = sorted(set(values) - known_premises)
+        require(
+            not unknown,
+            f"{claim_id}: premise_dependencies.{field} cites unknown premise ids {unknown}",
+        )
+        fields[field] = values
+
+    for index, left in enumerate(PREMISE_DEPENDENCY_FIELDS):
+        for right in PREMISE_DEPENDENCY_FIELDS[index + 1 :]:
+            overlap = sorted(set(fields[left]) & set(fields[right]))
+            require(
+                not overlap,
+                f"{claim_id}: premise dependency fields {left} and {right} overlap at {overlap}",
+            )
+
+    edge_count = sum(len(values) for values in fields.values())
+    if classification == "explicit_edges":
+        require(
+            edge_count > 0,
+            f"{claim_id}: explicit_edges classification requires at least one direct premise edge",
+        )
+    else:
+        require(
+            edge_count == 0,
+            f"{claim_id}: explicit_non_consumer must carry no premise edges",
+        )
+        rationale = dependencies["rationale"]
+        require(
+            isinstance(rationale, str) and rationale.strip(),
+            f"{claim_id}: explicit_non_consumer requires a nonempty rationale",
+        )
+
+
+def premise_dependency_projection_sha256(claims: list[dict]) -> str:
+    """Bind the independently reviewed direct-edge classification.
+
+    The validator cannot infer scientific premise semantics from prose.  This
+    projection pin makes every reviewed classification, edge type, and
+    claim-specific non-consumer rationale an explicit review event instead of
+    allowing a syntactically valid mutation to pass unnoticed.
+    """
+    projection = {
+        claim["claim_id"]: claim["premise_dependencies"] for claim in claims
+    }
+    raw = (
+        json.dumps(
+            projection,
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        )
+        + "\n"
+    ).encode("ascii")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def check_non_consumer_rationale_uniqueness(claims: list[dict]) -> None:
+    """Reject boilerplate shared across independently classified non-consumers."""
+    rationale_owners: dict[str, list[str]] = {}
+    for claim in claims:
+        dependencies = claim["premise_dependencies"]
+        if dependencies["classification"] != "explicit_non_consumer":
+            continue
+        normalized = " ".join(dependencies["rationale"].split()).casefold()
+        rationale_owners.setdefault(normalized, []).append(claim["claim_id"])
+    duplicates = {
+        rationale: owners
+        for rationale, owners in rationale_owners.items()
+        if len(owners) > 1
+    }
+    require(
+        not duplicates,
+        "explicit_non_consumer rationales must be claim-specific; repeated "
+        f"rationales={duplicates}",
+    )
 
 
 def check_required_v3_topic_gates(claim: dict) -> None:
@@ -258,26 +383,24 @@ def check_required_v3_topic_gates(claim: dict) -> None:
     )
 
 
-def check_gates(claim: dict, open_issues: set[int], closed_issues: set[int]) -> None:
-    """Fail closed on stale, missing, or promotion-violating live gates."""
+def check_gates(claim: dict) -> None:
+    """Validate issue-number syntax and local topic/promotion contracts.
+
+    Live and closed issue state is owned by GitHub and the workspace DAG, not a
+    mirrored repository snapshot.
+    """
     claim_id = claim["claim_id"]
     gates = claim["gates"]
     require(
-        isinstance(gates, list) and all(isinstance(g, int) for g in gates),
-        f"{claim_id}: gates must be a list of GitHub issue numbers",
+        isinstance(gates, list)
+        and all(isinstance(g, int) and not isinstance(g, bool) and g > 0 for g in gates),
+        f"{claim_id}: gates must be a list of positive GitHub issue numbers",
+    )
+    require(
+        len(gates) == len(set(gates)),
+        f"{claim_id}: gates must not repeat GitHub issue numbers",
     )
     check_required_v3_topic_gates(claim)
-    for gate in gates:
-        require(
-            gate not in closed_issues,
-            f"{claim_id}: gate #{gate} is closed on GitHub but referenced "
-            "as an open dependency",
-        )
-        require(
-            gate in open_issues,
-            f"{claim_id}: gate #{gate} is missing from the GitHub issue snapshot "
-            "(open theorem work not tracked on GitHub)",
-        )
     if claim["claim_class"] in PROMOTED_CLASSES:
         require(
             not gates,
@@ -298,22 +421,12 @@ def check_wording(claim: dict) -> None:
         )
 
 
-def check_snapshot_claim_tokens(snapshot: dict, known_claims: set[str]) -> None:
-    """Reverse direction: claim IDs cited by the issue snapshot must exist."""
-    for row in snapshot.get("rows", []) + snapshot.get("closed_out_of_scope_records", []):
-        for value in row.values():
-            if not isinstance(value, str):
-                continue
-            for token in CLAIM_ID_TOKEN.findall(value):
-                require(
-                    token in known_claims,
-                    f"{ISSUE_SNAPSHOT_RELATIVE}: issue #{row.get('number')} cites "
-                    f"unknown claim id {token}",
-                )
-
-
 def main(root: Path = ROOT) -> None:
     registry = load_json(root / "claims" / "claim_registry.yaml")
+    require(
+        registry.get("schema_version") == CLAIM_REGISTRY_SCHEMA,
+        f"claim registry schema_version must equal {CLAIM_REGISTRY_SCHEMA}",
+    )
     require(
         registry.get("release_id") == release_id_from_tex(root),
         f"registry release_id {registry.get('release_id')!r} does not match paper/release_info.tex",
@@ -322,7 +435,7 @@ def main(root: Path = ROOT) -> None:
     require(isinstance(claims, list) and claims, "claim registry has no claims")
     check_standalone_papers(root)
     defined_tokens = dictionary_tokens(root)
-    open_issues, closed_issues, snapshot = load_issue_snapshot(root)
+    known_premises = premise_ids(root)
 
     seen: set[str] = set()
     owner_paths: set[str] = set()
@@ -342,7 +455,8 @@ def main(root: Path = ROOT) -> None:
             f"{claim_id}: claim_class {claim.get('claim_class')!r} is not in the "
             f"controlled vocabulary {sorted(CLAIM_CLASS_VOCABULARY)}",
         )
-        check_gates(claim, open_issues, closed_issues)
+        check_gates(claim)
+        check_premise_dependencies(claim, known_premises)
         check_wording(claim)
         owner = root / claim["owner_paper"]
         require(owner.exists(), f"{claim_id}: owner paper does not exist: {claim['owner_paper']}")
@@ -358,7 +472,16 @@ def main(root: Path = ROOT) -> None:
                 f"{claim_id}: evidence path does not exist and pinned source URL is invalid: {evidence}",
             )
 
-    check_snapshot_claim_tokens(snapshot, seen)
+    check_non_consumer_rationale_uniqueness(claims)
+
+    if root.resolve() == ROOT.resolve():
+        actual_projection_sha256 = premise_dependency_projection_sha256(claims)
+        require(
+            actual_projection_sha256 == PREMISE_DEPENDENCY_PROJECTION_SHA256,
+            "claim-registry premise-dependency projection differs from the "
+            "independently reviewed classification; review the semantic change "
+            "and update the pinned projection deliberately",
+        )
 
     for matrix_name, required_columns, one_row_per_claim in [
         ("novelty_matrix.csv", {"claim_id", "closest_prior_work", "oph_specific_delta", "novelty_type", "falsifier"}, True),
@@ -395,9 +518,20 @@ def main(root: Path = ROOT) -> None:
 
     gated = [claim for claim in claims if claim["gates"]]
     gate_count = len({gate for claim in gated for gate in claim["gates"]})
+    classification_counts = Counter(
+        claim["premise_dependencies"]["classification"] for claim in claims
+    )
+    premise_edge_count = sum(
+        len(claim["premise_dependencies"][field])
+        for claim in claims
+        for field in PREMISE_DEPENDENCY_FIELDS
+    )
     print(
         f"claim registry OK: {len(seen)} claims, {len(owner_paths)} owner papers, "
-        f"{gate_count} live gates across {len(gated)} gated claims"
+        f"{gate_count} GitHub gates across {len(gated)} gated claims, "
+        f"{premise_edge_count} direct premise edges "
+        f"({classification_counts['explicit_edges']} classified consumers/boundaries, "
+        f"{classification_counts['explicit_non_consumer']} explicit non-consumers)"
     )
 
 

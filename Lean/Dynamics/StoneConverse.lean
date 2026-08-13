@@ -42,11 +42,11 @@ explicit differentiability-at-zero hypothesis.
    fundamental theorem of calculus recovers the family from its primitive
    as a differentiable expression.
 
-The results concern one full matrix block.  Classification and control of
-arbitrary finite-dimensional private central-block decompositions is a
-separate obligation of issue 679.  No physical clock, source-selected
-Hamiltonian, or physical time identification is claimed; the parameter is a
-real number.
+The results concern one full matrix block.  `CentralBlocks.lean`,
+`CenterSpectral.lean`, and `StarWedderburn.lean` extend the construction to
+arbitrary finite-dimensional private central-block decompositions.  No
+physical clock, source-selected Hamiltonian, or physical time identification
+is claimed; the parameter is a real number.
 -/
 
 namespace OPH.Dynamics

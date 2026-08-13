@@ -1,7 +1,7 @@
 # A1 time-and-order type ledger
 
-`Time/TimeOrderLedger.lean` implements V2 issue #675 as a type boundary, not
-as a chronology theorem.
+`Time/TimeOrderLedger.lean` implements a type boundary, not a chronology
+theorem.
 
 ## Exact inventory
 

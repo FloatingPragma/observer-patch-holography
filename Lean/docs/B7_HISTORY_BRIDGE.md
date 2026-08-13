@@ -114,8 +114,9 @@ The package does not:
 - construct physical action, time, fields, complex amplitudes, interference,
   a continuum path space, or a laboratory current.
 
-Issue #683 owns those open obligations. The derived-action and bridge
-results enter the flagship variational passage; they emit no
+The mechanics-composition lane #731 owns those open scientific obligations,
+while deferred premise discharge is scheduled under #739. The derived-action
+and bridge results enter the flagship variational passage; they emit no
 prediction-ladder row.
 
 ## Conditional realization of the reference kernel and the multiplier boundary

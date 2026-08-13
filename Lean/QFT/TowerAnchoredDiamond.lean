@@ -22,13 +22,13 @@ subalgebra.
 
 **Boundary.**  The tower stage is the constant adaptor: one regulator,
 one observer, the declared partition, the uniform state, and the zero
-generator.  It carries no nonconstant refinement, no source-produced
-tower dynamics, and no physical claim.  The slot assembly and label
-conventions stay declared postprocessors over post-hoc transcriptions,
-ineligible as validation.  Issue #692 remains open for source attachment
-of the assembly, a coherent CP-net correlation or descent receipt, and
-any nonconstant source realization.  Closed issue #712 consumes the
-older finite-net interface and does not supply that bridge.
+generator. It carries no nonconstant refinement, no source-produced tower
+dynamics, and no physical claim. The slot assembly and label conventions stay
+declared postprocessors over post-hoc transcriptions, ineligible as
+validation. Source attachment of the assembly, a coherent CP-net correlation
+or descent receipt, and any nonconstant source realization are scoped to
+spacetime adequacy (#728); the older finite-net interface does not supply that
+bridge.
 -/
 
 namespace OPH.QFT

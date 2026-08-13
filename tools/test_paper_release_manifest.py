@@ -585,11 +585,11 @@ def test_bump_helper_points_to_strict_publication_wrapper() -> None:
     )
 
 
-def test_reproduce_marks_release_channel_audit_as_publication_only() -> None:
+def test_reproduce_marks_release_channel_integrity_check_as_publication_only() -> None:
     guide = (REPO_ROOT / "REPRODUCE.md").read_text(encoding="utf-8")
     normalized = " ".join(guide.split())
     assert (
         "The manually dispatched `Release Channel Integrity` workflow is a "
-        "post-publication audit."
+        "post-publication integrity check."
     ) in normalized
     assert "Do not use it to validate a same-release preview." in normalized

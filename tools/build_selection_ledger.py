@@ -1,17 +1,17 @@
 """Build and validate the canonical selection ledger surface.
 
 The machine-readable ledger is ``claims/selection_ledger.json``. This tool
-validates it fail-closed against the claim registry, the committed open-issue
-snapshot, the physical-identification selector menus, the Lean corpus, and the
-paper anchors, then renders ``docs/SELECTION_LEDGER.md`` from it. The rendered
+validates it fail-closed against the claim registry, the physical-identification
+selector menus, the Lean corpus, and the paper anchors, then renders
+``docs/SELECTION_LEDGER.md`` from it. The rendered
 page is a generated surface: ``--check`` fails when the committed page differs
 from the render, and the mandatory suite runs that check.
 
 Boundary rule enforced here (issue #554): every open selection names owner
-issues that are live gates of its canonical or secondary claims (or live
+issues that are declared gates of its canonical or secondary claims (or
 blocking issues of a physical identification carrying one of those claims), so
-the ledger, the claim registry, and the receipt registry expose identical
-dependency boundaries.
+the scientific registries expose identical dependency boundaries. Live issue
+state belongs to GitHub and the workspace DAG, not to this repository.
 """
 
 from __future__ import annotations
@@ -25,7 +25,6 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "claims" / "selection_ledger.json"
 REGISTRY_PATH = ROOT / "claims" / "claim_registry.yaml"
 IDENTIFICATION_PATH = ROOT / "claims" / "physical_identification_registry.json"
-SNAPSHOT_PATH = ROOT / "tracking" / "open_issues" / "open_problem_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "SELECTION_LEDGER.md"
 
 SCHEMA = "oph.selection_ledger.v1"
@@ -100,6 +99,226 @@ def positive_int(value: object) -> bool:
     return isinstance(value, int) and not isinstance(value, bool) and value > 0
 
 
+def require_exact_keys(value: object, expected: set[str], where: str) -> dict:
+    if not isinstance(value, dict):
+        fail(f"{where}: value must be an object")
+    actual = set(value)
+    if actual != expected:
+        fail(
+            f"{where}: keys mismatch "
+            f"(missing {sorted(expected - actual)}, extra {sorted(actual - expected)})"
+        )
+    return value
+
+
+def validate_physical_identification_registry(
+    identification: object,
+    claim_ids: set[str],
+    root: Path = ROOT,
+) -> tuple[dict[str, set[int]], dict[str, dict]]:
+    """Validate scientific identification and compression bookkeeping.
+
+    This deliberately validates declarations only. Whether an issue is open,
+    closed, or superseded is live project state owned by GitHub and the
+    workspace DAG, not by this repository.
+    """
+
+    payload = require_exact_keys(
+        identification,
+        {
+            "schema_version",
+            "physical_identifications",
+            "selector_menus",
+            "compression_bound",
+        },
+        "physical identification registry",
+    )
+    if payload["schema_version"] != 1:
+        fail("physical identification registry: schema_version must equal 1")
+
+    identifications = payload["physical_identifications"]
+    if not isinstance(identifications, list) or not identifications:
+        fail("physical identification registry: physical_identifications must be nonempty")
+
+    seen_identifications: set[str] = set()
+    identification_blockers: dict[str, set[int]] = {}
+    for index, raw_row in enumerate(identifications):
+        where = f"physical_identifications[{index}]"
+        row = require_exact_keys(
+            raw_row,
+            {
+                "identification_id",
+                "label",
+                "status",
+                "claim_ids",
+                "source_anchors",
+                "blocking_issues",
+            },
+            where,
+        )
+        identification_id = row["identification_id"]
+        if not isinstance(identification_id, str) or not identification_id:
+            fail(f"{where}: identification_id must be a nonempty string")
+        if identification_id in seen_identifications:
+            fail(f"duplicate physical identification id {identification_id}")
+        seen_identifications.add(identification_id)
+        if not isinstance(row["label"], str) or not row["label"].strip():
+            fail(f"{where}: label must be a nonempty string")
+        if row["status"] != "undischarged":
+            fail(f"{where}: status must equal undischarged")
+
+        row_claim_ids = row["claim_ids"]
+        if (
+            not isinstance(row_claim_ids, list)
+            or not row_claim_ids
+            or any(not isinstance(claim_id, str) or not claim_id for claim_id in row_claim_ids)
+            or len(set(row_claim_ids)) != len(row_claim_ids)
+        ):
+            fail(f"{where}: claim_ids must be a nonempty unique string list")
+        unknown_claims = sorted(set(row_claim_ids) - claim_ids)
+        if unknown_claims:
+            fail(f"{where}: unknown canonical claim ids {unknown_claims}")
+
+        anchors = row["source_anchors"]
+        if (
+            not isinstance(anchors, list)
+            or not anchors
+            or any(not isinstance(anchor, str) or not anchor.strip() for anchor in anchors)
+        ):
+            fail(f"{where}: source_anchors must be nonempty strings")
+
+        blockers = row["blocking_issues"]
+        if not isinstance(blockers, list) or not blockers:
+            fail(f"{where}: blocking_issues must be nonempty")
+        blocker_numbers: list[int] = []
+        for blocker_index, raw_blocker in enumerate(blockers):
+            blocker_where = f"{where}.blocking_issues[{blocker_index}]"
+            blocker = require_exact_keys(
+                raw_blocker,
+                {"number", "scope", "role"},
+                blocker_where,
+            )
+            number = blocker["number"]
+            if not positive_int(number):
+                fail(f"{blocker_where}: number must be a positive integer")
+            if blocker["scope"] not in {
+                "unresolved_attachment",
+                "resource_deferred",
+                "bounded_out_of_scope",
+            }:
+                fail(f"{blocker_where}: scope is outside the controlled vocabulary")
+            if not isinstance(blocker["role"], str) or not blocker["role"].strip():
+                fail(f"{blocker_where}: role must be a nonempty string")
+            blocker_numbers.append(number)
+        if len(set(blocker_numbers)) != len(blocker_numbers):
+            fail(f"{where}: blocking issue numbers must be unique")
+        for claim_id in row_claim_ids:
+            identification_blockers.setdefault(claim_id, set()).update(blocker_numbers)
+
+    raw_menus = payload["selector_menus"]
+    if not isinstance(raw_menus, list) or not raw_menus:
+        fail("physical identification registry: selector_menus must be nonempty")
+    selector_menus: dict[str, dict] = {}
+    undeclared_blockers: set[int] = set()
+    for index, raw_menu in enumerate(raw_menus):
+        where = f"selector_menus[{index}]"
+        menu = require_exact_keys(
+            raw_menu,
+            {"selector_id", "label", "source", "status", "menu_size", "blocking_issues"},
+            where,
+        )
+        selector_id = menu["selector_id"]
+        if not isinstance(selector_id, str) or not selector_id:
+            fail(f"{where}: selector_id must be a nonempty string")
+        if selector_id in selector_menus:
+            fail(f"duplicate physical selector id {selector_id}")
+        selector_menus[selector_id] = menu
+        if not isinstance(menu["label"], str) or not menu["label"].strip():
+            fail(f"{where}: label must be a nonempty string")
+        source = menu["source"]
+        if not isinstance(source, str) or not source:
+            fail(f"{where}: source must be a repository-relative path")
+        relative_source = Path(source)
+        if relative_source.is_absolute():
+            fail(f"{where}: source must be a repository-relative path")
+        try:
+            source_path = (root / relative_source).resolve()
+            source_path.relative_to(root.resolve())
+        except ValueError:
+            fail(f"{where}: source escapes the repository")
+        if not source_path.is_file():
+            fail(f"{where}: source does not exist: {source}")
+
+        blockers = menu["blocking_issues"]
+        if (
+            not isinstance(blockers, list)
+            or any(not positive_int(number) for number in blockers)
+            or len(set(blockers)) != len(blockers)
+        ):
+            fail(f"{where}: blocking_issues must be unique positive integers")
+        if menu["status"] == "declared":
+            if not positive_int(menu["menu_size"]):
+                fail(f"{where}: a declared selector requires a positive integer menu_size")
+            if blockers:
+                fail(f"{where}: a declared selector cannot retain blocking_issues")
+        elif menu["status"] == "undeclared":
+            if menu["menu_size"] is not None:
+                fail(f"{where}: an undeclared selector cannot carry a numeric menu_size")
+            if not blockers:
+                fail(f"{where}: an undeclared selector requires blocking issues")
+            undeclared_blockers.update(blockers)
+        else:
+            fail(f"{where}: status must equal declared or undeclared")
+
+    bound = require_exact_keys(
+        payload["compression_bound"],
+        {"status", "reason", "blocking_issues", "p_acc_upper_bound"},
+        "compression_bound",
+    )
+    bound_blockers = bound["blocking_issues"]
+    if (
+        not isinstance(bound_blockers, list)
+        or any(not positive_int(number) for number in bound_blockers)
+        or len(set(bound_blockers)) != len(bound_blockers)
+    ):
+        fail("compression_bound: blocking_issues must be unique positive integers")
+    if undeclared_blockers:
+        if bound["p_acc_upper_bound"] is not None:
+            fail("compression_bound: numeric P_acc is forbidden while menu sizes are undeclared")
+        if bound["status"] != "not_computable" or bound["reason"] != "menu_sizes_undeclared":
+            fail(
+                "compression_bound: undeclared menus require "
+                "not_computable / menu_sizes_undeclared"
+            )
+        if set(bound_blockers) != undeclared_blockers:
+            fail("compression_bound: blockers must exactly match undeclared selector menus")
+    else:
+        if bound_blockers:
+            fail("compression_bound: declared selector menus cannot retain blockers")
+        if bound["status"] == "not_computed":
+            if bound["reason"] != "calculation_not_run" or bound["p_acc_upper_bound"] is not None:
+                fail(
+                    "compression_bound: not_computed requires calculation_not_run "
+                    "and no numeric P_acc"
+                )
+        elif bound["status"] == "computed":
+            value = bound["p_acc_upper_bound"]
+            if (
+                isinstance(value, bool)
+                or not isinstance(value, (int, float))
+                or not 0 <= value <= 1
+                or bound["reason"] != "all_menu_sizes_declared"
+            ):
+                fail(
+                    "compression_bound: computed requires an all-menu numeric P_acc "
+                    "between zero and one"
+                )
+        else:
+            fail("compression_bound: fully declared menus require computed or not_computed")
+
+    return identification_blockers, selector_menus
+
+
 def validate(ledger: dict) -> list[dict]:
     if ledger.get("schema") != SCHEMA:
         fail(f"schema must equal {SCHEMA}")
@@ -114,18 +333,9 @@ def validate(ledger: dict) -> list[dict]:
     claim_gates = {claim["claim_id"]: set(claim["gates"]) for claim in registry["claims"]}
 
     identification = load_json(IDENTIFICATION_PATH)
-    identification_blockers: dict[str, set[int]] = {}
-    for entry in identification["physical_identifications"]:
-        for claim_id in entry["claim_ids"]:
-            identification_blockers.setdefault(claim_id, set()).update(
-                blocker["number"] for blocker in entry["blocking_issues"]
-            )
-    selector_menus = {
-        row["selector_id"]: row for row in identification["selector_menus"]
-    }
-
-    snapshot = load_json(SNAPSHOT_PATH)
-    open_issues = {row["number"] for row in snapshot["rows"]}
+    identification_blockers, selector_menus = (
+        validate_physical_identification_registry(identification, claim_ids)
+    )
 
     seen_ids: set[str] = set()
     undeclared_owned: set[int] = set()
@@ -177,11 +387,9 @@ def validate(ledger: dict) -> list[dict]:
                 allowed |= claim_gates[claim_id]
                 allowed |= identification_blockers.get(claim_id, set())
             for number in owners:
-                if number not in open_issues:
-                    fail(f"{where}: owner issue #{number} is not open in the snapshot")
                 if number not in allowed:
                     fail(
-                        f"{where}: owner issue #{number} is not a live gate of the "
+                        f"{where}: owner issue #{number} is not a declared gate of the "
                         "row's claims; the ledger and registry boundaries diverge"
                     )
         else:
@@ -374,7 +582,7 @@ def render(rows: list[dict]) -> str:
         "[historical issue #554](https://github.com/FloatingPragma/observer-patch-holography/issues/554);"
     )
     lines.append(
-        "current premise custody is [#727](https://github.com/FloatingPragma/observer-patch-holography/issues/727),"
+        "the premise register was established under [#727](https://github.com/FloatingPragma/observer-patch-holography/issues/727) and remains a maintained scientific register,"
     )
     lines.append(
         "and source discharge is [#739](https://github.com/FloatingPragma/observer-patch-holography/issues/739)."

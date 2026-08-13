@@ -881,8 +881,8 @@ def build_certificate(
             "declared physical interval."
         ),
         "protocol_stage": (
-            "maximal-domain supplement to the global uniqueness certificate "
-            "(proof spine GAP-A7); see docs/PROOF_SPINE.md"
+            "maximal-domain supplement to the interval-certified global "
+            "uniqueness result"
         ),
         "backend": (
             "mpmath.iv binary interval arithmetic with outward rounding on every "

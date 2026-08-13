@@ -34,8 +34,9 @@ Imported premises, not established here:
   orbits and the range `[-5/9, 1]` from the 62-direction stationary
   census of the fixed-point packet;
 * every physical sector, frame, scale, and exclusivity premise of the
-  frozen branch predictions. Issue #704 owns target-clean producer and
-  physical-bridge work; issue #695 owns immutable comparison custody.
+  frozen branch predictions. The target-clean producer and physical bridge
+  are scoped to the electromagnetism lane (#733); validation follows the
+  owning lane's preregistered comparison contract.
 
 The arbitrary finite-mixture formulas for `D0` and `D6` are proved in the
 written invariant argument and checked by the exact Python certificate. This

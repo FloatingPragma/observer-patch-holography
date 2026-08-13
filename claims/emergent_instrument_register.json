@@ -1,13 +1,13 @@
 {
- "schema": "oph.emergent_instrument_register.v3",
- "issue": 738,
+ "schema": "oph.emergent_instrument_register.v4",
+ "issue": 737,
  "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
- "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support or qualify an observation-ledger rung only after its architecture version is anchored, a pinned independent audit qualifies that exact row, and the ledger-control lineage explicitly selects it. A controlling FAILED verdict blocks or demotes the bound emergent rung to owed until an eligible later instrument passes all three gates; a later design or unaudited run cannot overwrite it. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
+ "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support an observation-ledger rung only when the committed receipts satisfy the frozen decision rule and the ledger-control lineage explicitly selects it. A controlling FAILED verdict blocks or demotes the bound emergent rung to owed until an explicitly selected later instrument is REPLICATED; a later design or incomplete run cannot overwrite it. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
  "ledger_controls": [
   {
    "ledger_row": "OL-A1",
    "controlling_instrument": "INS-01",
-   "supersession_policy": "INS-01 remains controlling after its FAILED verdict. A later instrument may supersede it only when that instrument is REPLICATED, binds an anchored architecture version, cites an origin-anchored independent audit that promotes OL-A1, and is then explicitly selected here. Until all gates hold, OL-A1 remains owed."
+   "supersession_policy": "INS-01 remains controlling after its FAILED verdict. A later instrument may supersede it only when that instrument is REPLICATED under its frozen decision rule and is then explicitly selected here. Until both conditions hold, OL-A1 remains owed."
   }
  ],
  "rows": [
@@ -44,11 +44,6 @@
    ],
    "frozen_utc": "2026-08-12T19:14:51Z",
    "lineage_predecessor": null,
-   "promotion_eligibility": {
-    "state": "INELIGIBLE",
-    "architecture_version": null,
-    "audit_ids": []
-   },
    "limitations": "The committed campaign retains the manifest, summary, and fifteen per-arm receipt files but no raw feature matrices or fit captures from which an independent implementation could reconstruct every observable. The simulator's validate-only mode rechecks the committed receipt fields and frozen decision rule using the producer implementation; it is not an independent observable recomputation. The pinned campaign commit is present in the sibling custody checkout and is reachable from the configured GitHub remote's main branch; remote reachability closes only the publication-custody check and does not supply the missing raw captures or an independent observable recomputation.",
    "verdict_receipts": [
     {
@@ -140,12 +135,7 @@
       "freeze_artifacts": [],
       "frozen_utc": null,
       "lineage_predecessor": "INS-01",
-      "promotion_eligibility": {
-        "state": "INELIGIBLE",
-        "architecture_version": null,
-        "audit_ids": []
-      },
-      "limitations": "This is an open SPECIFIED design, not a preregistration or authorization to run. Candidate carrier counts, absolute support sizes, fixed observer count, replicate count, statistics, and quantitative gates remain mutable until a target-blind freeze. INS-01 remains the controlling completed verdict and OL-A1 remains owed; INS-02 cannot supersede it unless a later REPLICATED result passes the anchored-architecture, independent-audit, and explicit-control gates.",
+      "limitations": "This is an open SPECIFIED design, not a preregistration or authorization to run. Candidate carrier counts, absolute support sizes, fixed observer count, replicate count, statistics, and quantitative gates remain mutable until a target-blind freeze. INS-01 remains the controlling completed verdict and OL-A1 remains owed; INS-02 cannot supersede it unless a later frozen run returns REPLICATED and the ledger control explicitly selects it.",
       "verdict_receipts": []
     }
   ]

@@ -32,10 +32,10 @@ diamond.
 **Boundary.**  The slot assembly and region labels are declared
 postprocessors over the post-hoc payload transcriptions; the witness
 carries no tower stage, spacetime, channel semantics, instrument, clock,
-or physical claim, and the extraction is ineligible as validation.
-Issue #692 remains open for source selection of the joint carrier and a
-coherent CP-net correlation or descent receipt.  Closed issue #712
-consumes the older finite-net interface and does not supply that bridge.
+or physical claim, and the extraction is ineligible as validation. Source
+selection of the joint carrier and a coherent CP-net correlation or descent
+receipt are scoped to spacetime adequacy (#728); the older finite-net
+interface does not supply that bridge.
 -/
 
 namespace OPH.QFT

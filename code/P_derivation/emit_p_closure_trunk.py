@@ -144,16 +144,11 @@ def build_p_closure_trunk(report: dict[str, Any]) -> dict[str, Any]:
         "promotion_gates": [
             {
                 "id": "ward_projected_thomson_endpoint",
-                "github_issue": 235,
-                "issue_status": "closed_blocker_isolated_source_residual_no_go",
                 "current_reduction_status": "source_spectral_reduction_theorem_emitted_measure_payload_absent",
                 "required_status": "populated_source_spectral_measure_payload_plus_same_scheme_interval_certificate",
             },
             {
                 "id": "rg_matching_threshold_scheme",
-                "github_issue": 32,
-                "issue_status": "open_source_rg_frontier_partial",
-                "upstream_issues": [569, 630, 631, 632, 634],
                 "current_progress": (
                     "exact finite representation indices and the parametric "
                     "one-loop gauge law are source-bound; the QFT functional "
@@ -166,15 +161,8 @@ def build_p_closure_trunk(report: dict[str, Any]) -> dict[str, Any]:
             },
             {
                 "id": "interval_fixed_point_certificate",
-                "github_issue": 235,
-                "issue_status": "closed_conditional_certificate_boundary",
+                "current_reduction_status": "conditional_interval_certificate_without_source_return",
                 "required_status": "interval_existence_uniqueness_certificate_after_R_Q_source_emission",
-            },
-            {
-                "id": "particle_codepath_adoption",
-                "github_issue": 224,
-                "issue_status": "closed_canonical_guarded_trunk_adoption",
-                "required_status": "all_particle_consumers_read_the_guarded_trunk_artifact_for_audit_and_compare_surfaces",
             },
         ],
         "consumer_policy": {

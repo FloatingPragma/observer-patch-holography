@@ -5,25 +5,6 @@ commands verify that the claim registry is internally connected and that the
 public test collection imports without error. Individual evidence families
 then have their own theorem, certificate, or experimental acceptance rule.
 
-The V3 premise-discharge queue is also reproducible independently. It derives
-one `D1-PR-xx` action item for every `remove` or `axiomatize` premise, preserves
-the register's evidence and consumer edges, and fails if its machine or
-Markdown surface drifts:
-
-```bash
-python tools/build_premise_discharge_queue.py --check
-python -m pytest -q tools/test_premise_discharge_queue.py
-```
-
-Architecture and audit custody can be replayed without executing a simulation:
-
-```bash
-python tools/build_architecture_versions.py --check
-python tools/build_audit_custody.py --check
-python tools/build_architecture_replay.py --check
-python -m pytest -q tools/test_architecture_versions.py tools/test_audit_custody.py tools/test_architecture_replay.py
-```
-
 The bounded modal Maxwell-shaped factorization is also an exact, laptop-scale
 algebra check rather than a simulation campaign:
 
@@ -39,7 +20,7 @@ python -m pytest -q \
 - A clean virtual environment.
 - Tectonic 0.15.0 and Pandoc 3.8.3 for the publication artifacts.
 - Ghostscript, `rsvg-convert`, and `pdftotext` on `PATH` for the book and
-  publication audit. On Ubuntu these are supplied by `ghostscript`,
+  publication validation. On Ubuntu these are supplied by `ghostscript`,
   `librsvg2-bin`, and `poppler-utils`.
 - `xz` only for the optional NuFIT 6.1 profile replay described below. The
   profile files are external inputs and are not required by the mandatory
@@ -57,13 +38,12 @@ python tools/run_mandatory_suite.py
 `requirements.txt` pins the core dependencies. The runner is the single
 documented mandatory command, and it is the exact command CI
 (`.github/workflows/mandatory-suite.yml`) enforces on every push and PR. It
-both collects and executes: claim-registry validation (including live-gate
-and wording checks), offline validation of the committed issue ledger,
-external-data provenance/hash/license-boundary validation, release-manifest
-validation and its regression tests, the generated claims-scoreboard drift
-check, a clean `--collect-only` pass over `code/`, the audit fixture suite in
+both collects and executes: claim-registry validation, generated scientific
+register validation, external-data provenance/hash/license-boundary validation,
+release-manifest validation and its regression tests, a clean `--collect-only`
+pass over `code/`, the scientific validation fixtures in
 `code/audit/` (which includes the scope guard proving no cloud or hardware
-lane is silently collected), the A5 closure ledger audit, and the Phase-0
+lane is silently collected), the A5 closure ledger checks, and the Phase-0
 proof/non-identifiability receipts.
 
 The exact certificate suites (#566 port-current, #314 matter-lift, ~26
@@ -93,8 +73,8 @@ mandatory collection unless explicitly enabled:
 
 The mandatory suite is **collectable and executable** from a clean clone. The
 acceptance bar for this path is a green `python tools/run_mandatory_suite.py`:
-claim registry, release manifest, scoreboard sync, a clean `--collect-only`
-run with zero import errors, and the executed audit fixtures.
+claim registry, release manifest, scientific-register sync, a clean `--collect-only`
+run with zero import errors, and the executed validation fixtures.
 
 Full test execution (`python -m pytest code`) is **not** expected to be green
 from a clean clone, so it is not the documented gate here. Individual scientific
@@ -108,7 +88,8 @@ from the public checkout alone. In particular:
 - Some byte- and value-level receipt checks are sensitive to platform line
   endings and to `numpy`/`scipy` versions.
 
-Run the full suite for scientific auditing, not as a clean-clone pass/fail gate.
+Run the full suite for extended scientific validation, not as a clean-clone
+pass/fail gate.
 
 ## Finite Core Checks
 
@@ -135,7 +116,7 @@ This regenerates the conditional fixture receipt, runs the adversarial suite,
 validates both JSON Schemas, checks the receipt without importing the producer,
 and verifies the package manifest.
 
-These checks cover the twelve-port algebra audit, exact physical-boundary
+These checks cover the twelve-port algebra validation, exact physical-boundary
 controls for the A5/SM and W/Z lanes, exact public-record capacity, the
 reversible reference packet, and the finite consensus packets. They do not
 claim a physical three-family attachment, an OPH-native W/Z pole, the missing
@@ -159,7 +140,7 @@ lake build
 
 CI (`.github/workflows/lean-ci.yml`) runs both builds with a resumable cache,
 rejects any `sorry`/`admit`/global-axiom regression, and replays the
-Einstein-branch axiom audit. `Lean/README.md` documents the layout;
+Einstein-branch axiom check. `Lean/README.md` documents the layout;
 `Lean/docs/PROOF_INDEX.md` maps theorems to paper statements.
 
 ## Paper review and publication builds
@@ -194,7 +175,7 @@ validation. Publication remains a separate maintainer action after the
 candidate is committed, pushed, and inspected.
 
 The manually dispatched `Release Channel Integrity` workflow is a
-post-publication audit. Do not use it to validate a same-release preview. A
+post-publication integrity check. Do not use it to validate a same-release preview. A
 preview manifest describes the local bytes under review, while the tagged
 GitHub Release remains fixed until the maintainer publishes a new release.
 
@@ -202,7 +183,7 @@ Both builders derive `SOURCE_DATE_EPOCH` from the visible date in
 `paper/release_info.tex`, force UTC, avoid host-font selection, and retain the
 logs consumed by the warning gate. The preview CI performs the sequence
 twice on a clean Ubuntu runner and rejects any paper or book PDF whose SHA-256
-changes on the second pass. A local audit can make the same comparison with
+changes on the second pass. A local check can make the same comparison with
 `sha256sum` (or `shasum -a 256` on macOS).
 
 The book's SVGs have source-bound canonical PDF renderings under
@@ -231,20 +212,6 @@ The `Paper Preview Build` workflow enforces this check. A committed PDF and
 manifest pair therefore cannot substitute another paper's bytes at the
 expected path; the source rebuild restores the correct artifact and makes the
 job fail.
-
-The issue ledger has two modes. The clean-clone/CI command above uses:
-
-```bash
-python3 tools/build_open_problem_ledger.py --check
-```
-
-That mode is entirely offline and checks the committed snapshot without GitHub
-credentials. Maintainers regenerate the snapshot from live GitHub state before
-a release; network access is intentionally not a scientific build input. The
-separate claim-registry workflow runs
-`python3 tools/build_open_problem_ledger.py --check-live` on relevant pushes
-and daily with the repository's read-only GitHub token, so a changed open/closed
-gate cannot remain silently hidden behind a structurally valid old snapshot.
 
 ## External comparison data
 

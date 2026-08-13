@@ -35,7 +35,6 @@ READER_GLOBS = [
 ]
 
 STATUS_GLOBS = [
-    "docs/PROOF_SPINE.md",
     "code/geometry/*STATUS*.md",
     "claims/claim_registry.yaml",
     "claims/dependency_graph.json",

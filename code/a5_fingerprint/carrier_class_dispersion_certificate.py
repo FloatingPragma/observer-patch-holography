@@ -94,9 +94,9 @@ isotropic ratio outside [-16/135, 16/75], an intrinsic residue at ranks one
 through five, or a rank-six residue off the rotated I6 line excludes every
 member of the declared positive-weight scalar cosine class at once rather
 than one frozen branch.
-The physical premises are open. Issue #704 owns target-clean producer and
-physical-bridge work; issue #696 owns quantitative physical output; issue #695
-owns immutable comparison custody.
+The physical premises are not constructed here. Their target-clean producer,
+physical bridge, quantitative output, and pre-comparison registration belong
+to the relevant propagation and prediction lanes.
 
 Run with --write to refresh the committed receipt.
 """
@@ -1383,9 +1383,10 @@ def build_receipt() -> dict[str, Any]:
         ),
         "physical_premises_unchanged": (
             "sector, frame, scale, and exclusivity premises of FZ-11 and "
-            "FZ-12 stay open; issue #704 owns target-clean producer and "
-            "physical-bridge work, issue #696 owns quantitative physical "
-            "output, and issue #695 owns immutable comparison custody; this "
+            "FZ-12 are not constructed here; their target-clean producer, "
+            "physical bridge, quantitative output, and pre-comparison "
+            "registration belong to the relevant propagation and prediction "
+            "lanes; this "
             "certificate adds no comparison and reads no data"
         ),
         "rotation_group": rotation_cert,

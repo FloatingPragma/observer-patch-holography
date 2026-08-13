@@ -47,11 +47,10 @@ laboratory-channel semantics.
 The no-signalling results do not construct an OPH graph-region product or
 tensor factor, positivity and normalization for a source state or channel, a
 bundled stochastic or CPTP laboratory operation, or spacelike separation.
-Issue #692 (E1) is the B4 claim's sole live gate and owns only the finite
-coverage/region-factor attachment. Source scheduler and state/channel
-production remain open under #693 (E2), the operational clock to
-#703 (E5), and continuum causal/time-slice and spacelike attachment to #700
-(E3); those continuations are outside B4's own live gate.
+Current lanes #728 and #730 own the finite coverage/region-factor and physical
+spacetime attachments. Source scheduler and state/channel production,
+operational clock attachment, and continuum causal/time-slice and spacelike
+attachment remain explicit scientific gaps on those lanes.
 
 This packet therefore closes only B4's finite helper deliverables. It emits no
 prediction-ladder row and is not promoted as physical causality.

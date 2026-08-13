@@ -106,10 +106,10 @@ surface for the OPH consensus layer. Contents:
   unital active-record maps are exactly row-stochastic kernels, continuous
   label-permutation flows are trivial, every automorphism of one finite full
   private matrix block is unitarily inner, and a fixed self-adjoint Hamiltonian
-  gives a unitary real-parameter von Neumann flow. Classification of arbitrary
-  public star automorphisms as label permutations, arbitrary central-block
-  decomposition, and the converse continuous-group-to-Hamiltonian theorem are
-  open in issue #679. See `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
+  gives a unitary real-parameter von Neumann flow. The finite central-block
+  decomposition and converse continuous-group-to-Hamiltonian theorem are also
+  attained; source selection of dynamics, rate, and physical clock remains
+  outside the bounded package. See `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
 - A sorry-free integer completion bridge in
   `ObserverPatchHolography/DirectedSeamRepair.lean`. It proves total-sector
   preservation, the exact parity residual, equality of the two-direction
@@ -185,7 +185,7 @@ surface for the OPH consensus layer. Contents:
   three strict orderings in `three_norm_unique_nearest_G`. The `F` total-
   absolute value is an unattained infimum. Every norm and minimum-repair rule
   is a basis-dependent supplied premise, and the comparison covers only the
-  classified compact locus. Issues #705 and #697 track source bracket
+  classified compact locus. Issues #734 and #736 track source bracket
   selection and current realization. See `B14_ORIENTED_FACE_SELECTOR.md`.
 - A sorry-free **B14 invariant-metric phase diagram** in
   `Screen/OrientedFaceInvariantMetric.lean` over the independently replayed
@@ -336,19 +336,20 @@ surface for the OPH consensus layer. Contents:
   `n`-move closed-neighborhood dependency upper bound against the concrete
   `localRepair`; `ObserverPatchHolography/Locality/NoSignalling.lean` proves
   generic finite marginal and partial-trace identities on a supplied
-  bipartite split. B4's live gate #692 (E1) retains exact conditional
-  coverage, generated observer algebras, declared slot factors, CP-regional
-  expectations, and constant-tower anchoring. Source selection of the joint
-  carrier and a coherent correlation or descent receipt are not supplied; closed
-  #712 consumes the older interface. A separate conditional E2 helper,
+  bipartite split. The quantum/spacetime lanes #730 and #728 retain exact
+  conditional coverage, generated observer algebras, declared slot factors,
+  CP-regional expectations, and constant-tower anchoring. Source selection of
+  the joint carrier and a coherent correlation or descent receipt are not
+  supplied; the older interface does not supply that bridge. A separate
+  conditional E2 helper,
   `ObserverPatchHolography/Locality/AdaptiveScheduler.lean`, proves an
   adaptive cone/no-influence/refinement-naturality packet only for supplied
   `ConsultsOnly` scheduler and consultation-region data. It produces no source
-  scheduler, state/channel semantics, physical distance, or clock. Those
-  production and identification obligations continue under #693 (E2), the operational clock under
-  #703, and continuum causal/time-slice and physical spacelike
-  attachment under #700 (E3); these are downstream rather than B4 claim
-  gates. See
+  scheduler, state/channel semantics, physical distance, or clock. Scheduler
+  production and physical spacelike attachment are scoped to #728, structural
+  continuum QFT to #730, physical clock calibration to #732, and premise-level
+  clock derivation to #739; these are downstream rather than B4 claim gates.
+  See
   `B4_LOCALITY_BOUNDARY.md`.
 - An admission-free **B5 finite conservation package**:
   `Screen/RegionalContinuity.lean` proves the exact regional and global
@@ -389,10 +390,11 @@ surface for the OPH consensus layer. Contents:
   transition kernel from declared counting/trivial inputs; rescaling and
   distinct-initial-law controls prove that it does not select the complete
   path reference. `Variational/StationarySaddleCoverage.lean` gives only a
-  mode/minimizer counterexample and leaves stationary-phase routes open. Issue
-  #683 tracks source selection of the reference principle, physical action,
-  clock, amplitude, fields, continuum,
-  and observable current. See `B7_HISTORY_BRIDGE.md`.
+  mode/minimizer counterexample and leaves stationary-phase routes open. The
+  mechanics-composition lane #731 tracks source selection of the reference
+  principle, physical action, clock, amplitude, fields, continuum, and
+  observable current; premise discharge is deferred under #739. See
+  `B7_HISTORY_BRIDGE.md`.
 - A sorry-free **E1 rich-fibre regional net** in
   `QFT/RichFibreWitness.lean` and `QFT/RichFibreRegionalNet.lean`: the
   literal mirror of the second preregistered 64k run's payload (four
@@ -419,7 +421,7 @@ surface for the OPH consensus layer. Contents:
   marginal, and the conditional expectation onto a slot carries Kraus,
   positivity, trace, fixed-slot, scalarisation, and idempotence
   receipts. The extraction is post-hoc and ineligible as validation, and
-  the slot assembly is a declared postprocessor; issue #692 is live for
+  the slot assembly is a declared postprocessor; issue #728 owns
   its source and same-witness regional attachment.
   `QFT/CPRestrictionNet.lean` and `QFT/TwoSlotCPNetWitness.lean` execute
   the authorized restriction redesign: conditional expectations replace
@@ -432,7 +434,7 @@ surface for the OPH consensus layer. Contents:
   checkpoint partition and whose ambient is definitionally the stage's
   private algebra. The two slot expectations are not jointly injective: a
   nonzero off-diagonal correlation matrix unit has both partial traces zero.
-  Coverage is therefore not unique gluing. Issue #692 is live for a
+  Coverage is therefore not unique gluing. Issue #728 owns a
   source-selected joint carrier and coherent correlation or descent receipt;
   closed #712 consumes the older interface.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
@@ -464,7 +466,7 @@ surface for the OPH consensus layer. Contents:
   represented state by three oriented weights. The transport is a declared
   convention. Neither the statistic nor designation rule was preregistered;
   the y-magnitude readout, operational additivity, and fresh prospective
-  validation stay with issue #702. See
+  validation stay with issue #730. See
   `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - An admission-free **B8 finite transport package**:
   `Thermodynamics/GreenKubo.lean` proves the reversible Dirichlet identity,

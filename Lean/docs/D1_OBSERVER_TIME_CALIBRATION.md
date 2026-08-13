@@ -1,8 +1,9 @@
 # D1 bounded observer histories and clock calibration
 
-The five modules under `Time/` implement the bounded part of V2 issue #691.
-They separate what follows from record order, what follows only after a metric
-calibration, and what still requires a source-produced physical clock.
+The five modules under `Time/` implement the bounded observer-history and
+clock-calibration packet. They separate what follows from record order, what
+follows only after a metric calibration, and what still requires a
+source-produced physical clock.
 
 ## Exact finite results
 
@@ -44,9 +45,9 @@ do not derive those fields from A1--A3. Shared-event equality is likewise a
 supplied public receipt. No module constructs a source history, refinement
 transport, physical instrument, SI unit, preferred foliation, global time
 function, modular-time identity, common-atlas physical clock pair, or
-predesignation/custody protocol. V2 issue #703 owns source-realized clocks,
-physical calibration, and coherence for networks of three or more clocks on
-the common tower.
+predesignation protocol. Physical calibration is scoped to the thermodynamics
+composition lane (#732); derivation of source-realized clocks and their
+network coherence is scoped to the premise-discharge lane (#739).
 
 ## Verification
 

@@ -7,8 +7,9 @@ machine-certified interval and global-uniqueness fixed points for each
 declared map, and a full adversarial third-party audit that reproduced the
 certificate arithmetic and identified no false theorem in the recovered
 mathematical core. Each rebuttal states its conditionals explicitly; the
-binding statuses live on the [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure) and in
-[PROOF_SPINE.md](PROOF_SPINE.md).
+scientific claim boundaries live in the papers and the
+[falsification program](OPH_FALSIFICATION_PROGRAM.md); current work ownership
+lives on the [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
 
 ## Contents
 
@@ -93,7 +94,7 @@ closure program.
 Arming the exposure is open work. The historical v2 target is externally timestamped,
 but the V1 execution was not target-blind; its defect inventory is recorded on the
 historical P-closure issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545));
-current ownership is [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736).
+the scientific continuation is specified by [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736).
 A corrected contract must be
 activated and executed before this lane can test the "exactly our universe" claim.
 

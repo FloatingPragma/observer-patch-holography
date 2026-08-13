@@ -226,26 +226,18 @@ and each map has one exact interval-certified root. Through the declared
 branch that root lands close to the measured fine-structure constant. A physical prediction needs a map selected without using the
 measured constant, proof that its two sides read one quantity, and
 same-scheme transport to the Thomson limit, so the match carries diagnostic
-status; the exact values live on the
-[claim scoreboard](tracking/claims_scoreboard.md).
+status; the exact construction and its assumptions are stated in the
+[technical papers](paper/).
 
 **The capacity.** $N$ is the public-record capacity of the whole observer
 system: how much correctable memory the substrate carries. It sits opposite
 $P$, tied to the cosmological constant rather than to the fine-structure
-constant. Closure requires the capacity handed to the universe to agree
-with the record capacity reconstructed inside it. The direct self-read
-condition is not evaluable with the current capacity source. A second route
-goes through $P$: at the pixel value supplied to that declared branch, the
-two ways of applying the finite survival correction land about $0.63$ and
-$0.39$ percent below the Planck base-ΛCDM comparison value. Both numbers
-were computed after the comparison value was known, so neither is a
-prediction; the [claim scoreboard](tracking/claims_scoreboard.md) states
-what each step assumes and what is missing.
+constant. The capacity program asks whether the public capacity assigned to
+the universe agrees with the capacity reconstructed from within it. Exact
+finite identities supporting that question are machine-checked in Lean; the
+technical papers and [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md)
+state the assumptions and tests needed for a physical closure claim.
 
-Part of the closure is machine-checked in Lean, and the evaluation
-boundaries of the closure conditions and their missing physical inputs are
-stated in the
-[OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md).
 A physical closure of both constants would give a zero-continuous-parameter
 branch with both values returned by the architecture. That physical
 attachment is open. The fixed-point theorems certify roots of declared
@@ -258,26 +250,16 @@ everything can be asked: why anything exists, and why it is the way it is.
 The universe is the unique structure consistent with reading itself into
 existence.
 
-## Claim Scope
-
-The [claim scoreboard](tracking/claims_scoreboard.md) states the scope,
-premises, and evidence class of each branch. This README concentrates on the
-strongest parts of the case.
-
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->
 <!-- Quantitative table suppressed while physical_establishment count is zero. -->
 <!-- PUBLIC-QUANTITATIVE-CLAIMS:END -->
 
 ## Technical status
 
-The case above is the reader-facing summary. Exact premises,
-comparison ancestry, and falsification rules live in the
-[claim scoreboard](tracking/claims_scoreboard.md), the
-[postdiction ledger](docs/POSTDICTION_LEDGER.md), and the
-[frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md). The exact finite
-and structural results are the strongest part of the stack. Source-to-physical
-attachments, physical scales, and prospective data comparisons form the main
-research route.
+The case above is the reader-facing summary. Exact premises, comparison
+ancestry, and falsification rules live in the [technical papers](paper/) and
+the [OPH Falsification Program](docs/OPH_FALSIFICATION_PROGRAM.md). The exact
+finite and structural results are the strongest part of the stack.
 
 ## Why Take The Claim Seriously?
 
@@ -307,9 +289,9 @@ adjustable model:
   [oph-physics-sim](https://github.com/muellerberndt/oph-physics-sim) repository;
 - a claim registry connecting prose claims to artifacts.
 
-## Audit The Finite Core
+## Validate The Finite Core
 
-The shortest scientific audit checks the claim graph, the exact twelve-port
+The shortest independent validation checks the claim graph, the exact twelve-port
 algebra, public-record capacity, the reversible $N$ packet, and finite
 consensus:
 
@@ -378,7 +360,7 @@ The [paper index](paper/) gives the curated publication map. Focused research PD
 - [`book/`](book): legacy book source and downloadable PDF, retained outside the primary reading path.
 - [`cosmology/`](cosmology): dark-sector and cosmology research.
 - [`physics-problems/`](physics-problems): focused applications and open-problem notes.
-- [`docs/`](docs): claim policy, falsification program, and technical audit material.
+- [`docs/`](docs): stable reader policies and canonical scientific ledgers.
 - [`assets/`](assets): diagrams and public figures.
 
 The simulation source is maintained in the companion
@@ -398,7 +380,7 @@ cited here.
 
 ## Contribute
 
-OPH welcomes proofs, counterexamples, simulations, audits, and readable
+OPH welcomes proofs, counterexamples, simulations, independent reviews, and readable
 explanations. The [reproduction guide](REPRODUCE.md) rebuilds the certificates
 and checks from a clean clone. The
 [scoped research questions](https://github.com/FloatingPragma/observer-patch-holography/issues)

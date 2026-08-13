@@ -68,22 +68,13 @@ continuous public star automorphisms rather than a supplied permutation flow.
 Transport to the ordered matrix subalgebra uses the B1 star-algebra
 equivalence; no source law or physical clock is introduced.
 
-The private innerness theorem covers one full endomorphism algebra, hence one
-simple matrix block. It does not classify an arbitrary finite-dimensional
-complex C-star algebra as a direct sum of full matrix blocks. The pinned
-Mathlib tree exposes no applicable block-decomposition theorem. Proving
-the decomposition, transporting the topology and star structure, and
-handling central-block permutations form the remaining route for the
-per-central-block statement in issue 679.
-
-For a continuous one-parameter group of private automorphisms, the innerness
-theorem supplies a unitary implementer for each group element. It does not
-supply a coherent continuous choice of implementers, remove the phase
-ambiguity, or derive one time-independent self-adjoint generator. The pinned
-Mathlib tree exposes no packaged finite-dimensional Stone theorem for this
-lift. The explicit fixed-Hamiltonian flow has the unitary and von
-Neumann receipts, but the converse from an arbitrary continuous automorphism
-group is an open obligation.
+The private innerness theorem covers one full endomorphism algebra. Companion
+modules decompose every unital finite-dimensional matrix star subalgebra into
+full central blocks and prove the finite Stone converse: a pointwise-continuous
+automorphism group has a coherent unitary lift and one time-independent
+self-adjoint generator per block, unique up to central scalar shifts. The
+non-unital case and source selection of a physical flow remain outside this
+bounded package.
 
 No source rule selects a stochastic kernel, Hamiltonian, time scale, or
 physical clock. These results establish the finite algebraic dichotomy under
@@ -92,7 +83,8 @@ declared dynamical data and do not constitute a physical prediction.
 ## Closure classification
 
 The public stochastic classification, arbitrary-public-automorphism
-classification and continuity obstruction, simple private-block innerness
-theorem, fixed-Hamiltonian unitary flow, and von Neumann differential equation
-are attained without admissions. Issue 679 is open only for the
-arbitrary finite central-block decomposition.
+classification and continuity obstruction, finite central-block decomposition,
+simple private-block innerness theorem, continuous-flow Stone converse,
+fixed-Hamiltonian unitary flow, and von Neumann differential equation are
+attained without admissions. Source selection of dynamics, rate, and physical
+clock remains part of the current quantum-composition work.

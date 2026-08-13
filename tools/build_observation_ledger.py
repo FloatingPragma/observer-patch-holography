@@ -14,39 +14,49 @@ byte for byte from the render.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import re
 import sys
 from pathlib import Path
 
-import build_audit_custody
-import build_architecture_versions
-import prediction_lineage_custody
 import strict_json
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "OBSERVATION_LEDGER_V3.md"
 PREMISE_REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
-ARCHITECTURE_REGISTER_PATH = ROOT / "tracking" / "architecture_versions.json"
-AUDIT_CUSTODY_PATH = ROOT / "tracking" / "audit_custody.json"
-PREDICTION_LINEAGE_PATH = (
-    ROOT / "claims" / "frozen_prediction_architecture_lineages.json"
-)
-FROZEN_PREDICTION_PATH = ROOT / "claims" / "frozen_prediction_register.json"
+FROZEN_REGISTER_PATH = ROOT / "claims" / "frozen_prediction_register.json"
 
-SCHEMA = "oph.observation_ledger.v3"
+SCHEMA = "oph.observation_ledger.v4"
 ISSUE = 726
 REPO_URL = "https://github.com/FloatingPragma/observer-patch-holography"
 
 RUNGS = ("formal_precursor", "structural", "emergent", "predictive")
 STATUSES = ("attained", "partial", "owed")
-LANE_ISSUES = frozenset((*range(728, 739), 740, 742, 743, 744, 745))
+LANE_ISSUES = frozenset((*range(728, 738), 740, 742, 743, 744, 745))
 
 ID_PATTERN = re.compile(r"^OL-[A-N][1-9]$")
 PREMISE_PATTERN = re.compile(r"^PR-\d{2}$")
+FROZEN_TARGET_PATTERN = re.compile(r"^FZ-\d{2}$")
 BANNED_CHARACTERS = ("—", "–")
+FROZEN_TARGET_STATUSES = {
+    "frozen_attested",
+    "frozen_stamped_upgrade_pending",
+    "standing_frozen",
+}
+
+# Exact scientific relationship between predictive observation rows and the
+# frozen targets that actually address them.  Existence alone is insufficient:
+# an unrelated frozen target must never qualify a row.  `all` means every
+# listed target is part of the row contract; `any` is reserved for a future
+# row whose alternatives are explicitly interchangeable.
+PREDICTIVE_TARGET_CONTRACTS = {
+    "OL-B4": {"targets": ("FZ-06",), "attainment": "all"},
+    "OL-F4": {"targets": ("FZ-11", "FZ-12"), "attainment": "all"},
+    "OL-H7": {"targets": ("FZ-03",), "attainment": "all"},
+    "OL-I2": {"targets": ("FZ-09",), "attainment": "all"},
+    "OL-I3": {"targets": ("FZ-07", "FZ-08"), "attainment": "all"},
+}
 
 EXPECTED_ROW_IDS = (
     "OL-A1",
@@ -92,7 +102,6 @@ EXPECTED_ROW_IDS = (
     "OL-H6",
     "OL-H7",
     "OL-H8",
-    "OL-I1",
     "OL-I2",
     "OL-I3",
     "OL-J1",
@@ -110,11 +119,10 @@ EXPECTED_ROW_IDS = (
     "OL-N1",
 )
 
-# These premise packets were the subject of a concrete independent
-# hidden-premise audit.  Keep their row-level ancestry explicit: lane-level
-# reverse-map coverage alone would not detect moving a premise to another row
-# in the same lane.
-AUDITED_ROW_PREMISE_CONTRACTS = {
+# Keep this load-bearing row-level ancestry explicit: lane-level reverse-map
+# coverage alone would not detect moving a premise to another row in the same
+# lane.
+ROW_PREMISE_CONTRACTS = {
     "OL-E1": {
         "premises": ("PR-07", "PR-15"),
         "open_premises": ("PR-08",),
@@ -141,7 +149,6 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (729, "PR-38"): "P-closure gravity/constants crosswalk",
     (729, "PR-39"): "P-closure gravity/constants crosswalk",
     (736, "PR-53"): "constants physical-comparison boundary",
-    (738, "PR-53"): "frozen-instrument physical-comparison custody",
     (744, "PR-55"): "baryon-label/proton surface",
     (735, "PR-56"): "SM correspondence operator census",
     (744, "PR-56"): "baryon-operator/proton surface",
@@ -149,19 +156,18 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (744, "PR-57"): "physical proton/effective-action surface",
 }
 
-ROW_KEYS = {
+BASE_ROW_KEYS = {
     "id",
     "target",
     "rung",
     "status",
     "lane_issue",
-    "architecture_version",
     "premises",
     "open_premises",
     "evidence",
     "notes",
 }
-PREDICTIVE_ROW_KEYS = ROW_KEYS | {"prediction_event"}
+PREDICTIVE_ROW_KEYS = BASE_ROW_KEYS | {"frozen_targets"}
 
 GROUPS = (
     ("Spacetime", (728,)),
@@ -173,7 +179,7 @@ GROUPS = (
     ("Standard Model structure", (734,)),
     ("Standard Model Lagrangian", (735,)),
     ("Masses and constants", (736,)),
-    ("Cosmology and instruments", (737, 738)),
+    ("Cosmology and instruments", (737,)),
     ("Common-world integration", (740,)),
     ("Cosmology and astrophysics", (742,)),
     ("Interacting quantum field theory", (743,)),
@@ -211,6 +217,27 @@ def load_premise_register() -> tuple[list[dict], dict[str, dict]]:
     return rows, by_id
 
 
+def load_frozen_target_rows() -> dict[str, dict]:
+    register = load_ledger(FROZEN_REGISTER_PATH)
+    rows = register.get("rows") if isinstance(register, dict) else None
+    if not isinstance(rows, list) or not rows:
+        fail("frozen-prediction register rows must be a nonempty list")
+    by_id: dict[str, dict] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            fail("frozen-prediction register contains a malformed row")
+        row_id = row.get("id")
+        status = row.get("status")
+        if not isinstance(row_id, str) or not FROZEN_TARGET_PATTERN.fullmatch(row_id):
+            fail("frozen-prediction register contains a malformed target id")
+        if not isinstance(status, str) or not status:
+            fail(f"frozen-prediction register row {row_id} has no status")
+        if row_id in by_id:
+            fail(f"frozen-prediction register repeats {row_id}")
+        by_id[row_id] = row
+    return by_id
+
+
 def _clean_prose(where: str, field: str, value: object) -> str:
     if not isinstance(value, str) or not value.strip():
         fail(f"{where}: {field} must be a nonempty string")
@@ -220,15 +247,11 @@ def _clean_prose(where: str, field: str, value: object) -> str:
     return value
 
 
-def _current_evidence_sha256(path: str) -> str:
-    return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
-
-
 def validate(ledger: dict) -> list[dict]:
     if not isinstance(ledger, dict):
         fail("ledger must be an object")
-    if set(ledger) != {"schema", "issue", "audit_pointers", "rows"}:
-        fail("top-level keys must be exactly schema, issue, audit_pointers, rows")
+    if set(ledger) != {"schema", "issue", "rows"}:
+        fail("top-level keys must be exactly schema, issue, rows")
     if ledger["schema"] != SCHEMA:
         fail(f"schema must equal {SCHEMA}")
     if ledger["issue"] != ISSUE:
@@ -240,45 +263,21 @@ def validate(ledger: dict) -> list[dict]:
     if tuple(row_ids) != EXPECTED_ROW_IDS:
         fail("row ids must equal the fixed ordered observation inventory")
 
-    audit_data = build_audit_custody.load_json(AUDIT_CUSTODY_PATH)
-    audit_records = build_audit_custody.validate(audit_data)
-    audit_by_id = {record["id"]: record for record in audit_records}
-    audit_row_indexes = {
-        record["id"]: build_audit_custody.reviewed_row_index(record)
-        for record in audit_records
-    }
-    audit_pointers = ledger["audit_pointers"]
-    if not isinstance(audit_pointers, dict):
-        fail("audit_pointers must be an object")
-
     _, premise_by_id = load_premise_register()
-    architecture_register = build_architecture_versions.load_json(
-        ARCHITECTURE_REGISTER_PATH
-    )
-    build_architecture_versions.validate(architecture_register)
-    architecture_ids = {
-        version.get("id")
-        for version in architecture_register.get("versions", [])
-        if isinstance(version, dict)
-    }
-    if not architecture_ids:
-        fail("architecture version register must contain at least one version")
-    anchored_architecture_ids = {
-        anchor.get("id")
-        for anchor in architecture_register.get("version_anchors", [])
-        if isinstance(anchor, dict)
-    }
+    frozen_target_by_id = load_frozen_target_rows()
     seen_ids: set[str] = set()
     for index, row in enumerate(rows):
         where = f"rows[{index}]"
         if not isinstance(row, dict):
             fail(f"{where}: row must be an object")
-        expected_keys = PREDICTIVE_ROW_KEYS if row.get("rung") == "predictive" else ROW_KEYS
+        expected_keys = (
+            PREDICTIVE_ROW_KEYS
+            if row.get("rung") == "predictive"
+            else BASE_ROW_KEYS
+        )
         if set(row) != expected_keys:
             missing = expected_keys - set(row)
-            extra = set(row) - ROW_KEYS
-            if row.get("rung") == "predictive":
-                extra = set(row) - PREDICTIVE_ROW_KEYS
+            extra = set(row) - expected_keys
             fail(
                 f"{where}: keys mismatch "
                 f"(missing {sorted(missing)}, extra {sorted(extra)})"
@@ -297,29 +296,52 @@ def validate(ledger: dict) -> list[dict]:
             fail(f"{where}: rung must be one of {RUNGS}")
         if row["status"] not in STATUSES:
             fail(f"{where}: status must be one of {STATUSES}")
+        if row["status"] == "attained" and row["open_premises"]:
+            fail(f"{where}: an attained row cannot retain open premises")
         if row["rung"] == "predictive":
-            pointer = row["prediction_event"]
-            if pointer is not None and (
-                not isinstance(pointer, dict)
-                or set(pointer)
-                != prediction_lineage_custody.PREDICTION_EVENT_POINTER_KEYS
-            ):
-                fail(f"{where}: prediction_event must be null or an exact event pointer")
-
+            targets = row["frozen_targets"]
+            if not isinstance(targets, list):
+                fail(f"{where}: frozen_targets must be a list")
+            for target in targets:
+                if (
+                    not isinstance(target, str)
+                    or not FROZEN_TARGET_PATTERN.fullmatch(target)
+                ):
+                    fail(f"{where}: frozen target ids must match FZ-<two digits>")
+                if target not in frozen_target_by_id:
+                    fail(f"{where}: frozen target {target} is not on the register")
+            if len(targets) != len(set(targets)):
+                fail(f"{where}: frozen_targets must be duplicate-free")
+            contract = PREDICTIVE_TARGET_CONTRACTS.get(row_id)
+            if contract is None:
+                fail(f"{where}: predictive row lacks a fixed target contract")
+            if contract["attainment"] != "all":
+                fail(
+                    f"{where}: fixed predictive target contract must require all"
+                    " targets"
+                )
+            if tuple(targets) != contract["targets"]:
+                fail(
+                    f"{where}: frozen_targets must equal fixed scientific"
+                    f" contract {list(contract['targets'])}"
+                )
+            if row["status"] == "attained":
+                locked = [
+                    frozen_target_by_id[target]["status"] in FROZEN_TARGET_STATUSES
+                    for target in targets
+                ]
+                qualifies = all(locked)
+                if not qualifies:
+                    fail(
+                        f"{where}: attained predictive row requires"
+                        f" {contract['attainment']} targets in its fixed contract"
+                        " to be frozen or locked"
+                    )
         lane = row["lane_issue"]
         if not isinstance(lane, int) or isinstance(lane, bool):
             fail(f"{where}: lane_issue must be an integer")
         if lane not in LANE_ISSUES:
             fail(f"{where}: lane_issue {lane} is not a registered V3 lane")
-
-        architecture_version = row["architecture_version"]
-        if architecture_version not in architecture_ids:
-            fail(
-                f"{where}: architecture_version {architecture_version!r} is not "
-                "on the architecture version register"
-            )
-        if row["status"] == "attained" and architecture_version not in anchored_architecture_ids:
-            fail(f"{where}: an attained row cannot use an unanchored architecture tip")
 
         for field in ("premises", "open_premises"):
             premises = row[field]
@@ -342,12 +364,12 @@ def validate(ledger: dict) -> list[dict]:
             fail(f"{where}: consumed and open premise lists must be disjoint")
         if row["status"] == "owed" and row["premises"]:
             fail(f"{where}: an owed row carries no consumed premises")
-        contract = AUDITED_ROW_PREMISE_CONTRACTS.get(row["id"])
+        contract = ROW_PREMISE_CONTRACTS.get(row["id"])
         if contract is not None:
             for field, expected in contract.items():
                 if tuple(row[field]) != expected:
                     fail(
-                        f"{where}: {field} must equal the independently audited "
+                        f"{where}: {field} must equal the fixed "
                         f"row-level contract {list(expected)}"
                     )
 
@@ -364,57 +386,12 @@ def validate(ledger: dict) -> list[dict]:
             if not (ROOT / path).is_file():
                 fail(f"{where}: evidence path missing: {path}")
 
-    attained_ids = {row["id"] for row in rows if row["status"] == "attained"}
-    if set(audit_pointers) != attained_ids:
-        fail("audit_pointers keys must exactly equal the attained observation rows")
-    row_by_id = {row["id"]: row for row in rows}
-    for row_id, audit_ids in audit_pointers.items():
-        if not isinstance(audit_ids, list) or not audit_ids:
-            fail(f"{row_id}: audit pointer list must be nonempty")
-        if len(audit_ids) != len(set(audit_ids)):
-            fail(f"{row_id}: audit pointer list must be duplicate-free")
-        current = row_by_id[row_id]
-        qualified = False
-        for audit_id in audit_ids:
-            if not isinstance(audit_id, str) or audit_id not in audit_by_id:
-                fail(f"{row_id}: unknown audit record {audit_id!r}")
-            record = audit_by_id[audit_id]
-            if row_id not in record["reviewed_rows"]:
-                fail(f"{row_id}: {audit_id} did not review this row")
-            historical = audit_row_indexes[audit_id].get(row_id)
-            if historical is None:
-                fail(f"{row_id}: {audit_id} has no historical row payload")
-            current_projection = dict(current)
-            historical_projection = dict(historical)
-            historical_projection.pop("audit_records", None)
-            if (
-                row_id in record["promoted_rows"]
-                and historical_projection == current_projection
-            ):
-                pins = {
-                    (pin["revision"], pin["path"]): pin
-                    for pin in record["artifact_pins"]
-                }
-                drifted = [
-                    path
-                    for path in current["evidence"]
-                    if _current_evidence_sha256(path)
-                    != pins[(record["repair_commit"], path)]["sha256"]
-                ]
-                if drifted:
-                    fail(
-                        f"{row_id}: current evidence bytes drifted from "
-                        f"{audit_id} at its repair commit: {drifted}"
-                    )
-                qualified = True
-        if not qualified:
-            fail(
-                f"{row_id}: no audit pointer qualifies its exact historical row payload"
-            )
-
     grouped_lanes = [lane for _, lanes in GROUPS for lane in lanes]
     if set(grouped_lanes) != set(LANE_ISSUES) or len(grouped_lanes) != len(LANE_ISSUES):
         fail("group table must cover every lane exactly once")
+    predictive_ids = {row["id"] for row in rows if row["rung"] == "predictive"}
+    if predictive_ids != set(PREDICTIVE_TARGET_CONTRACTS):
+        fail("fixed predictive-target contracts must cover every predictive row")
     ledger_pairs = {
         (row["lane_issue"], premise)
         for row in rows
@@ -434,16 +411,6 @@ def validate(ledger: dict) -> list[dict]:
             f"{sorted(exceptions - uncovered)}"
         )
 
-    lineage_data = prediction_lineage_custody.load_json(PREDICTION_LINEAGE_PATH)
-    frozen_data = prediction_lineage_custody.load_json(FROZEN_PREDICTION_PATH)
-    lineage_state = prediction_lineage_custody.validate(
-        lineage_data,
-        frozen_data,
-        architecture_register,
-        rows,
-        root=ROOT,
-    )
-    prediction_lineage_custody.require_predictive_promotions(rows, lineage_state)
     return rows
 
 
@@ -455,10 +422,7 @@ def _issue_link(number: int) -> str:
     return f"[issue #{number}]({REPO_URL}/issues/{number})"
 
 
-def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None) -> str:
-    if audit_pointers is None:
-        canonical = load_ledger(LEDGER_PATH)
-        audit_pointers = canonical.get("audit_pointers", {})
+def render(rows: list[dict]) -> str:
     lines: list[str] = []
     lines.append("# V3 Observation Ledger")
     lines.append("")
@@ -469,9 +433,8 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
     lines.append("")
     lines.append(
         f"One row per observation the architecture must reproduce. The closed"
-        f" {_issue_link(726)} is the historical bootstrap; the committed"
-        f" ledger and standing audit custody now maintain the surface. Premise"
-        f" ids PR-01 through"
+        f" {_issue_link(726)} is the historical bootstrap; this committed"
+        f" ledger is the maintained surface. Premise ids PR-01 through"
         f" PR-{len(load_premise_register()[0]):02d} name rows of the"
         f" premise register ({_issue_link(727)}), the anti-cheating"
         f" surface; each row lists the register rows its current status"
@@ -500,15 +463,16 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
         " pinned receipts."
     )
     lines.append(
-        "- **Predictive**: a frozen instrument binds the row to future data"
-        " with registered kill bands, under the custody rules of the standing"
-        " lane."
+        "- **Predictive**: a pre-comparison frozen instrument owned by the"
+        " relevant physics lane binds the row to future data with registered"
+        " kill bands."
     )
     lines.append("")
     lines.append(
         "A structural claim whose premises are unregistered is invalid, an"
         " emergent claim without a preregistered instrument is invalid, and a"
-        " predictive claim without custody is invalid."
+        " predictive claim without its exact pre-comparison frozen target is"
+        " invalid."
     )
     lines.append("")
     lines.append("## Status labels")
@@ -529,32 +493,10 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
     lines.append(
         "Statuses are conservative: a conditional result is conditional, a"
         " declared premise is declared, and postdictions are never"
-        " predictions."
+        " predictions. Predictive rows name their related FZ register targets;"
+        " an attained predictive row requires the targets specified by its"
+        " fixed row-level contract to be frozen or locked."
     )
-
-    lineage_data = prediction_lineage_custody.load_json(PREDICTION_LINEAGE_PATH)
-    lines.extend(
-        [
-            "",
-            "## Predictive lineage custody",
-            "",
-            "Every predictive row has an explicit mapping in "
-            "`claims/frozen_prediction_architecture_lineages.json`. Historical "
-            "or pending baseline rows do not qualify a promotion. An attained "
-            "predictive row requires an append-only freeze event anchored to "
-            "its first-appearance commit and bound to the current anchored AV-n.",
-            "",
-            "| Row | Pending candidates | Historical only | No-candidate boundary |",
-            "| --- | --- | --- | --- |",
-        ]
-    )
-    for binding in lineage_data["predictive_observation_bindings"]:
-        candidates = ", ".join(binding["candidate_baseline_lineages"]) or "none"
-        historical = ", ".join(binding["historical_only_lineages"]) or "none"
-        reason = binding["no_candidate_reason"] or "none"
-        lines.append(
-            f"| {binding['observation_row_id']} | {candidates} | {historical} | {reason} |"
-        )
 
     for title, lanes in GROUPS:
         group_rows = [row for row in rows if row["lane_issue"] in lanes]
@@ -566,11 +508,18 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
         lines.append(f"## {title} ({lane_word} {lane_list})")
         lines.append("")
         lines.append(
-            "| Row | Observation | Rung | Status | Architecture | Audit | Lane | Premises |"
+            "| Row | Observation | Rung | Status | Lane | Frozen targets | Premises |"
             " Open premises | Evidence | Boundary |"
         )
-        lines.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
+        lines.append(
+            "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
+        )
         for row in group_rows:
+            frozen_targets = (
+                ", ".join(row.get("frozen_targets", []))
+                if row.get("frozen_targets")
+                else "none"
+            )
             premises = ", ".join(row["premises"]) if row["premises"] else "none"
             open_premises = (
                 ", ".join(row["open_premises"]) if row["open_premises"] else "none"
@@ -580,12 +529,10 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
                 if row["evidence"]
                 else "none"
             )
-            audits = ", ".join(audit_pointers.get(row["id"], [])) or "none"
             lines.append(
                 f"| {row['id']} | {row['target']} | {row['rung']} |"
-                f" {row['status']} | {row['architecture_version']} |"
-                f" {audits} |"
-                f" {_lane_link(row['lane_issue'])} | {premises} |"
+                f" {row['status']} | {_lane_link(row['lane_issue'])} |"
+                f" {frozen_targets} | {premises} |"
                 f" {open_premises} | {evidence} |"
                 f" {row['notes']} |"
             )
@@ -604,7 +551,7 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
         + "."
     )
     lines.append("")
-    lines.append("## Premises consumed or still open")
+    lines.append("## Premise usage and missing attachments")
     lines.append("")
     consumed = sorted(
         {
@@ -622,9 +569,9 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
         lines.append(f"- **{premise}** {name} ({kind}, {disposition})")
     lines.append("")
     lines.append(
-        f"Register rows that no current or open target consumes are omitted"
+        f"Register rows that no declared target consumes are omitted"
         f" from this list. `Premises` records hypotheses used by the attained"
-        f" portion; `Open premises` records registered hypotheses still needed"
+        f" portion; `Open premises` records registered hypotheses needed"
         f" for the row's full target. The full register lives"
         f" under {_issue_link(727)}."
     )
@@ -642,7 +589,7 @@ def main(argv: list[str] | None = None) -> int:
 
     ledger = load_ledger(LEDGER_PATH)
     rows = validate(ledger)
-    surface = render(rows, ledger["audit_pointers"]).encode("utf-8")
+    surface = render(rows).encode("utf-8")
     if args.check:
         committed = SURFACE_PATH.read_bytes() if SURFACE_PATH.is_file() else b""
         if committed != surface:

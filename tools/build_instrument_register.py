@@ -1,4 +1,4 @@
-"""Build and validate the V3 emergent-instrument register surface (issue #738).
+"""Build and validate the V3 emergent-instrument register surface (issue #737).
 
 The machine-readable register is ``claims/emergent_instrument_register.json``.
 This tool validates it fail-closed and renders
@@ -6,7 +6,7 @@ This tool validates it fail-closed and renders
 differs byte for byte from the render.
 
 The register holds simulation-instrument designs and frozen instruments. Lane
-#737 owns the instruments; the standing custody lane #738 owns this register.
+#737 owns both the instruments and this register.
 A SPECIFIED row is mutable design work, not a preregistration. The register is
 separate from the frozen-prediction ladder: that ladder is reserved for
 physical predictions against external data, and simulation instruments never
@@ -15,17 +15,16 @@ enter it.
 Fail-closed rules: row ids match INS-<two digits>, ascend strictly, and start
 at INS-01; every status comes from the seven-value enum; every ledger row id
 names a committed observation-ledger row; every owning issue is a V3 lane
-issue in 728..738. A SPECIFIED row carries no freeze artifacts, no freeze
+issue #737. A SPECIFIED row carries no freeze artifacts, no freeze
 time, and no verdict receipts. A FROZEN or RUNNING row carries a parseable,
 non-future UTC freeze time, at least one freeze artifact, a decision rule
 naming all three verdict labels, and no verdict receipts. A REPLICATED,
 FAILED, or INCONCLUSIVE row additionally carries at least one verdict
 receipt. A VOID row issues no verdict and carries freeze artifacts exactly
 when it carries a freeze time. Explicit ledger-control lineages prevent a
-SPECIFIED design or unaudited run from overwriting a completed verdict. A
-REPLICATED instrument becomes eligible only under the current anchored architecture
-version and an origin-anchored independent audit that promotes the same ledger
-row. Artifact entries pin a relative path and a SHA-256 digest; an entry whose
+SPECIFIED design or incomplete run from overwriting a completed verdict. A
+REPLICATED instrument can support its ledger row only when explicitly selected
+by the ledger-control lineage. Artifact entries pin a relative path and a SHA-256 digest; an entry whose
 path resolves inside this repository is hashed against its pinned digest, and
 an entry outside it is a recorded pointer whose bytes are verified in the
 owning repository's custody checkout.
@@ -49,8 +48,8 @@ REGISTER_PATH = ROOT / "claims" / "emergent_instrument_register.json"
 LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "INSTRUMENT_REGISTER_V3.md"
 
-SCHEMA = "oph.emergent_instrument_register.v3"
-ISSUE = 738
+SCHEMA = "oph.emergent_instrument_register.v4"
+ISSUE = 737
 GENERATED_SURFACE = "docs/INSTRUMENT_REGISTER_V3.md"
 REPO_URL = "https://github.com/FloatingPragma/observer-patch-holography"
 
@@ -67,13 +66,10 @@ FROZEN_PRE_RUN_STATUSES = {"FROZEN", "RUNNING"}
 VERDICT_STATUSES = {"REPLICATED", "FAILED", "INCONCLUSIVE"}
 CONTROLLING_STATUSES = {"REPLICATED", "FAILED"}
 VERDICT_LABELS = ("REPLICATED", "FAILED", "INCONCLUSIVE")
-LANE_MIN = 728
-LANE_MAX = 738
+OWNING_ISSUE = 737
 
 ID_PATTERN = re.compile(r"^INS-\d{2}$")
 LEDGER_ID_PATTERN = re.compile(r"^OL-[A-N][1-9]$")
-ARCHITECTURE_VERSION_PATTERN = re.compile(r"^AV-(0|[1-9][0-9]*)$")
-AUDIT_ID_PATTERN = re.compile(r"^AUD-[A-Z0-9-]+$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 BANNED_CHARACTERS = ("—", "–")
@@ -105,29 +101,9 @@ ROW_KEYS = {
     "freeze_artifacts",
     "frozen_utc",
     "lineage_predecessor",
-    "promotion_eligibility",
     "limitations",
     "verdict_receipts",
 }
-PROMOTION_ELIGIBILITY_KEYS = {"state", "architecture_version", "audit_ids"}
-PROMOTION_ELIGIBILITY_STATES = {"INELIGIBLE", "ELIGIBLE"}
-AUDITABLE_ROW_KEYS = (
-    "id",
-    "title",
-    "owning_issue",
-    "ledger_row",
-    "status",
-    "spec_pointer",
-    "decision_rule",
-    "seeds_policy",
-    "controls",
-    "custody_repository",
-    "freeze_artifacts",
-    "frozen_utc",
-    "lineage_predecessor",
-    "limitations",
-    "verdict_receipts",
-)
 ARTIFACT_KEYS = {"path", "sha256"}
 REPOSITORY_KEYS = {"url", "commit"}
 
@@ -178,9 +154,8 @@ STATUS_MEANING = {
     ),
     "REPLICATED": (
         "The frozen decision rule returned its positive verdict. The row"
-        " carries freeze artifacts and verdict receipts, but it supports or"
-        " qualifies a ledger rung only after the architecture, independent"
-        " audit, and explicit ledger-control gates all pass."
+        " carries freeze artifacts and verdict receipts, but it supports a"
+        " ledger rung only when the ledger-control lineage explicitly selects it."
     ),
     "FAILED": (
         "The frozen decision rule returned its negative verdict. The row"
@@ -367,82 +342,9 @@ def load_ledger_rows() -> dict[str, dict]:
     return by_id
 
 
-def auditable_instrument_sha256(row: dict) -> str:
-    """Hash the scientific row fields that must predate a promotion audit."""
-
-    projection = {key: row[key] for key in AUDITABLE_ROW_KEYS}
-    payload = json.dumps(
-        projection,
-        ensure_ascii=False,
-        sort_keys=True,
-        separators=(",", ":"),
-    ).encode("utf-8")
-    return hashlib.sha256(payload).hexdigest()
-
-
-def load_promotion_gates() -> dict[str, object]:
-    """Load independently validated AV and audit gates for eligible successors."""
-
-    import build_architecture_versions as architecture_tool
-    import build_audit_custody as audit_tool
-
-    architecture = architecture_tool.load_json(architecture_tool.REGISTER_PATH)
-    architecture_tool.validate(architecture)
-    anchored_versions = {
-        anchor["id"] for anchor in architecture["version_anchors"]
-    }
-    current_version = architecture["current_version"]
-
-    audit = audit_tool.load_json(audit_tool.REGISTER_PATH)
-    audit_records = audit_tool.validate(audit)
-    independent_audit_promotions: dict[str, set[str]] = {}
-    independently_audited_instruments: dict[str, dict[str, str]] = {}
-    for record in audit_records:
-        if (
-            record.get("_origin_state") == "pending_origin_anchor"
-            or "independent" not in record["audit_class"].lower()
-            or "attained_status_review" not in record["qualifies_for"]
-        ):
-            continue
-        independent_audit_promotions[record["id"]] = set(
-            record["promoted_rows"]
-        )
-        instrument_pin = next(
-            (
-                pin
-                for pin in record["artifact_pins"]
-                if pin["revision"] == record["repair_commit"]
-                and pin["path"] == "claims/emergent_instrument_register.json"
-            ),
-            None,
-        )
-        audited_rows: dict[str, str] = {}
-        if instrument_pin is not None:
-            historical = audit_tool._historical_json(  # noqa: SLF001
-                record["repair_commit"],
-                "claims/emergent_instrument_register.json",
-            )
-            for row in historical.get("rows", []):
-                if (
-                    isinstance(row, dict)
-                    and row.get("status") == "REPLICATED"
-                    and row.get("ledger_row") in record["promoted_rows"]
-                    and all(key in row for key in AUDITABLE_ROW_KEYS)
-                ):
-                    audited_rows[row["id"]] = auditable_instrument_sha256(row)
-        independently_audited_instruments[record["id"]] = audited_rows
-    return {
-        "anchored_versions": anchored_versions,
-        "current_version": current_version,
-        "independent_audit_promotions": independent_audit_promotions,
-        "independently_audited_instruments": independently_audited_instruments,
-    }
-
-
 def validate(
     register: dict,
     ledger_rows: dict[str, dict] | None = None,
-    promotion_gates: dict[str, object] | None = None,
 ) -> list[dict]:
     if not isinstance(register, dict):
         fail("register must be an object")
@@ -467,7 +369,6 @@ def validate(
     previous_number = 0
     seen_rows: dict[str, dict] = {}
     ledger_roots: dict[str, str] = {}
-    eligible_rows: list[dict] = []
     for index, row in enumerate(rows):
         where = f"rows[{index}]"
         if not isinstance(row, dict):
@@ -499,8 +400,8 @@ def validate(
         owning_issue = row["owning_issue"]
         if not isinstance(owning_issue, int) or isinstance(owning_issue, bool):
             fail(f"{where}: owning_issue must be an integer")
-        if not LANE_MIN <= owning_issue <= LANE_MAX:
-            fail(f"{where}: owning_issue must lie in {LANE_MIN}..{LANE_MAX}")
+        if owning_issue != OWNING_ISSUE:
+            fail(f"{where}: owning_issue must equal {OWNING_ISSUE}")
 
         ledger_row = row["ledger_row"]
         if not isinstance(ledger_row, str) or not LEDGER_ID_PATTERN.match(ledger_row):
@@ -600,47 +501,6 @@ def validate(
                 )
 
         lineage_predecessor = row["lineage_predecessor"]
-        eligibility = row["promotion_eligibility"]
-        if not isinstance(eligibility, dict) or set(eligibility) != PROMOTION_ELIGIBILITY_KEYS:
-            fail(
-                f"{where}: promotion_eligibility keys must equal "
-                f"{sorted(PROMOTION_ELIGIBILITY_KEYS)}"
-            )
-        state = eligibility["state"]
-        if state not in PROMOTION_ELIGIBILITY_STATES:
-            fail(
-                f"{where}: promotion eligibility state must be one of "
-                f"{sorted(PROMOTION_ELIGIBILITY_STATES)}"
-            )
-        architecture_version = eligibility["architecture_version"]
-        if architecture_version is not None and (
-            not isinstance(architecture_version, str)
-            or not ARCHITECTURE_VERSION_PATTERN.fullmatch(architecture_version)
-        ):
-            fail(f"{where}: malformed promotion architecture_version")
-        audit_ids = eligibility["audit_ids"]
-        if (
-            not isinstance(audit_ids, list)
-            or len(audit_ids) != len(set(audit_ids))
-            or any(
-                not isinstance(audit_id, str)
-                or not AUDIT_ID_PATTERN.fullmatch(audit_id)
-                for audit_id in audit_ids
-            )
-        ):
-            fail(f"{where}: audit_ids must be unique valid audit ids")
-
-        if state == "INELIGIBLE" and (architecture_version is not None or audit_ids):
-            fail(f"{where}: an INELIGIBLE instrument cannot assert promotion gates")
-        if state == "ELIGIBLE":
-            if status != "REPLICATED":
-                fail(f"{where}: only a REPLICATED instrument can be ELIGIBLE")
-            if architecture_version is None or not audit_ids:
-                fail(
-                    f"{where}: ELIGIBLE requires an architecture version and audit ids"
-                )
-            eligible_rows.append(row)
-
         if lineage_predecessor is None:
             if ledger_row in ledger_roots:
                 fail(f"{where}: ledger row {ledger_row} already has a root instrument")
@@ -662,58 +522,6 @@ def validate(
                     f"{where}: lineage predecessor must belong to the same ledger row"
                 )
         seen_rows[row_id] = row
-
-    if eligible_rows:
-        if promotion_gates is None:
-            promotion_gates = load_promotion_gates()
-        anchored_versions = promotion_gates.get("anchored_versions")
-        current_version = promotion_gates.get("current_version")
-        audit_promotions = promotion_gates.get("independent_audit_promotions")
-        audited_instruments = promotion_gates.get(
-            "independently_audited_instruments"
-        )
-        if (
-            not isinstance(anchored_versions, set)
-            or not isinstance(current_version, str)
-            or not isinstance(audit_promotions, dict)
-            or not isinstance(audited_instruments, dict)
-        ):
-            fail("promotion gate index is malformed")
-        for row in eligible_rows:
-            where = row["id"]
-            eligibility = row["promotion_eligibility"]
-            architecture_version = eligibility["architecture_version"]
-            if architecture_version not in anchored_versions:
-                fail(f"{where}: promotion architecture version is not origin-anchored")
-            if architecture_version != current_version:
-                fail(f"{where}: promotion architecture version is not current")
-            ledger_architecture = ledger_rows[row["ledger_row"]].get(
-                "architecture_version"
-            )
-            if ledger_architecture != architecture_version:
-                fail(
-                    f"{where}: promotion architecture version does not match the ledger row"
-                )
-            for audit_id in eligibility["audit_ids"]:
-                promoted_rows = audit_promotions.get(audit_id)
-                if (
-                    not isinstance(promoted_rows, set)
-                    or row["ledger_row"] not in promoted_rows
-                ):
-                    fail(
-                        f"{where}: audit {audit_id} is not an origin-anchored "
-                        "independent promotion audit for the ledger row"
-                    )
-                audit_instruments = audited_instruments.get(audit_id)
-                if (
-                    not isinstance(audit_instruments, dict)
-                    or audit_instruments.get(row["id"])
-                    != auditable_instrument_sha256(row)
-                ):
-                    fail(
-                        f"{where}: audit {audit_id} does not pin this exact "
-                        "replicated instrument"
-                    )
 
     ledger_controls = register["ledger_controls"]
     if not isinstance(ledger_controls, list) or not ledger_controls:
@@ -741,13 +549,6 @@ def validate(
         if controlling["status"] == "FAILED" and ledger_status != "owed":
             fail(
                 f"{where}: a controlling FAILED verdict requires the ledger row to be owed"
-            )
-        if (
-            controlling["status"] == "REPLICATED"
-            and controlling["promotion_eligibility"]["state"] != "ELIGIBLE"
-        ):
-            fail(
-                f"{where}: a controlling REPLICATED verdict must be ELIGIBLE"
             )
         if controlling["status"] == "REPLICATED" and ledger_status != "attained":
             fail(
@@ -784,14 +585,13 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append(
         f"One row per simulation-instrument design or frozen instrument of"
-        f" the emergent adequacy program. Lane {_issue_link(737)} owns the instruments;"
-        f" the standing custody lane {_issue_link(738)} owns this register."
+        f" the emergent adequacy program. Lane {_issue_link(737)} owns the instruments"
+        f" and this register."
         f" Each instrument binds to exactly one row of the observation ledger"
         f" (`docs/OBSERVATION_LEDGER_V3.md`). SPECIFIED is mutable design work,"
         f" not a preregistration or verdict. Only a completed decisive"
         f" instrument explicitly selected by the ledger-control lineage can"
-        f" block or qualify the bound emergent rung; positive qualification"
-        f" additionally requires explicit promotion eligibility."
+        f" block or support the bound emergent rung."
     )
     lines.append("")
     lines.append("## Separation from the frozen-prediction ladder")
@@ -832,11 +632,8 @@ def render(register: dict, rows: list[dict]) -> str:
         " receipts. A REPLICATED, FAILED, or INCONCLUSIVE row additionally"
         " carries at least one verdict receipt. A VOID row issues no verdict"
         " and carries freeze artifacts exactly when it carries a freeze time."
-        " A positive instrument is promotion-eligible only after a REPLICATED verdict,"
-        " an origin-anchored architecture version, and an origin-anchored"
-        " independent audit that pins that exact instrument and promotes the"
-        " same observation row. A REPLICATED instrument cannot control before"
-        " eligibility is explicit. A controlling FAILED"
+        " A REPLICATED instrument supports its observation row only when it is"
+        " explicitly selected by the ledger-control lineage. A controlling FAILED"
         " verdict requires the ledger row to remain owed."
         " An artifact entry whose path resolves inside this repository is"
         " hashed against its pinned digest. External entries require a"
@@ -889,20 +686,9 @@ def render(register: dict, rows: list[dict]) -> str:
             if row["lineage_predecessor"] is not None
             else "none"
         )
-        eligibility = row["promotion_eligibility"]
-        architecture_version = (
-            eligibility["architecture_version"]
-            if eligibility["architecture_version"] is not None
-            else "none"
-        )
-        audit_ids = ", ".join(eligibility["audit_ids"]) or "none"
         lines.append(
             f"- Lineage predecessor: {predecessor}. This does not change the "
             "controlling verdict."
-        )
-        lines.append(
-            f"- Promotion eligibility: `{eligibility['state']}`; architecture"
-            f" `{architecture_version}`; audits {audit_ids}."
         )
         lines.append(f"- Reproducibility boundary: {row['limitations']}")
         lines.append("- Controls:")

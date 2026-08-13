@@ -75,7 +75,7 @@ def _csv(relative_path: str) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
-def test_claim_is_exactly_bounded_and_keeps_lane_open() -> None:
+def test_claim_is_exactly_bounded_and_records_missing_attachments() -> None:
     claim = _row(_json("claims/claim_registry.yaml")["claims"], "claim_id", CLAIM_ID)
     assert claim["owner_paper"] == (
         "paper/screen_microphysics_and_observer_synchronization.tex"
@@ -90,7 +90,8 @@ def test_claim_is_exactly_bounded_and_keeps_lane_open() -> None:
     assert "modal/pseudodifferential factorization" in statement
     assert "removes no registered premise" in statement
     assert "emits no frozen prediction" in statement
-    assert "does not close issue #733" in statement
+    assert "attachments remain unresolved" in statement
+    assert "does not close issue" not in statement
     assert "same-sign mutation has the oscillator sign on an amplitude with nonzero spatial action" in claim["falsifier"]
     for excluded in EXCLUDED_PHYSICAL_CONTENT:
         assert excluded in statement
@@ -106,7 +107,8 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     notes = row["notes"]
     assert "modal/pseudodifferential algebraic factorization only" in notes
     assert "removes no registered premise" in notes
-    assert "does not close issue #733" in notes
+    assert "scientific owner #733 records the missing physical attachments" in notes
+    assert "does not close issue" not in notes
     for excluded in EXCLUDED_PHYSICAL_CONTENT:
         assert excluded in notes
 
@@ -122,7 +124,8 @@ def test_detailed_paper_states_exact_result_and_full_boundary() -> None:
     assert "generally pseudodifferential" in prose
     assert "No registered premise is removed" in prose
     assert "no frozen prediction is emitted" in prose
-    assert r"issue~\#733 remains open" in prose
+    assert "attachments remain unresolved" in prose
+    assert r"issue~\#733 remains open" not in prose
     for excluded in (
         "local position-space curl operator",
         "assembled real field",
@@ -144,7 +147,7 @@ def test_postdiction_row_matches_theorem_and_boundary() -> None:
     row = _row(rows, "id", POSTDICTION_ID)
     assert row["match"] == (
         "exact bounded modal factorization; local source-produced "
-        "physical Maxwell theory open"
+        "physical Maxwell theory not constructed"
     )
     assert row["lean_declarations"]["ModalMaxwellFactorizationBoundary"] == (
         LEAN_DECLARATIONS
@@ -153,8 +156,8 @@ def test_postdiction_row_matches_theorem_and_boundary() -> None:
     assert set(POSTDICTION_ARTIFACTS).issubset(CLAIM_EVIDENCE)
     boundary = row["hypothesis_boundary"]
     assert "PR-20, PR-21, and PR-22 remain declared inputs" in boundary
-    assert "PR-53 and PR-54 remain open attachments" in boundary
-    assert "Current lane #733" in boundary
+    assert "PR-53 and PR-54 name missing attachments" in boundary
+    assert "Scientific owner #733 records" in boundary
     assert "emits no frozen prediction" in boundary
 
 

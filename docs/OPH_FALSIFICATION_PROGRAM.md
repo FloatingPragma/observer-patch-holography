@@ -139,6 +139,7 @@ and the result addresses the same mathematical or physical observable in the
 same convention. Missing hypotheses yield no verdict. Counterexamples remain
 scoped to the stated claim and do not transfer to independent theorem rows.
 
-Claim status and unclosed maps are recorded on the
-[closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure) and in
-[`PROOF_SPINE.md`](PROOF_SPINE.md).
+Current work ownership and unclosed maps are recorded on the
+[closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
+Scientific claim boundaries are recorded in the owner papers and the
+machine-readable claim registry.

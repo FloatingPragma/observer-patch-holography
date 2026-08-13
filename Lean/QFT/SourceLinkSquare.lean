@@ -4,8 +4,8 @@ import QFT.ObserverEventWorld
 /-!
 # The source-link square between all-quotient readouts and one selected world
 
-This module implements deliverables 2 and 4 of completion-plan issue
-`#713`.
+This module constructs the finite source-link square between all-quotient
+readouts and one selected observer world.
 
 `WorldSlice` is the fixed readout codomain: the components of a finite
 observer event world that can vary with a quotient state, namely the
@@ -66,8 +66,9 @@ refinement maps to the bare coarse maps.
 The square is finite bookkeeping tying the all-quotient readouts to one
 selected observer world.  No source produces the branch, no mechanism
 selects the world, no probability law is stated, and no continuum claim
-follows.  The Einstein readout completion (issue `#694`) owns every
-Einstein readout beyond the event and geometry fragment.
+follows. Einstein readouts beyond the event and geometry fragment are scoped
+to gravitation composition (#729), with physical readout instrumentation
+scoped separately to #737.
 -/
 
 namespace OPH.QFT

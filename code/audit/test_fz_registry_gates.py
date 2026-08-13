@@ -23,14 +23,6 @@ def live_register() -> dict:
     return json.loads(fz_tool.REGISTER_PATH.read_text(encoding="utf-8"))
 
 
-def live_owner_successors() -> dict:
-    return json.loads(fz_tool.OWNER_SUCCESSOR_PATH.read_text(encoding="utf-8"))
-
-
-def write_owner_successors(path: Path, payload: dict) -> None:
-    path.write_text(json.dumps(payload), encoding="utf-8")
-
-
 def test_live_register_validates_and_surface_is_current():
     register = live_register()
     rows = fz_tool.validate(register)
@@ -387,12 +379,13 @@ def test_fz02_frame_lock_is_ineligible_pending_issue_643():
         fz_tool.validate(register)
 
 
-def test_fz05_requires_physical_attachment_and_retrospective_exposure():
+def test_fz05_assigns_attachment_and_comparison_to_physics_lanes():
     register = live_register()
     fz05 = next(row for row in register["rows"] if row["id"] == "FZ-05")
-    assert all(issue in fz05["content"] for issue in ("#729", "#738", "#736"))
+    assert all(issue in fz05["content"] for issue in ("#729", "#736"))
+    assert fz05["owning_issue"] == 736
     assert "retrospective" in fz05["comparison_protocol"].lower()
-    assert all(issue in fz05["kill_band"] for issue in ("#729", "#738", "#736"))
+    assert all(issue in fz05["kill_band"] for issue in ("#729", "#736"))
 
     fz05["content"] = "A positive finite N is a cosmological prediction."
     with pytest.raises(SystemExit, match="FZ-05 must keep"):
@@ -448,83 +441,40 @@ def test_in_repo_custody_artifact_hashes_are_verified():
         fz_tool.validate(register)
 
 
-def test_pending_row_requires_a_live_owning_issue():
+def test_pending_row_requires_a_current_owning_issue():
     register = live_register()
-    register["rows"][2]["owning_issue"] = 599
-    with pytest.raises(SystemExit, match="does not match FZ-03 owning_issue"):
+    register["rows"][2]["owning_issue"] = None
+    with pytest.raises(SystemExit, match="requires a current owning issue"):
         fz_tool.validate(register)
 
 
-def test_historical_owners_are_preserved_and_v3_successors_are_live():
+def test_pending_owners_are_current_and_frozen_owners_are_historical():
     register = live_register()
     rows = register["rows"]
-    open_issues = {
-        row["number"]
-        for row in json.loads(fz_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))[
-            "rows"
-        ]
-    }
-    mapping = fz_tool.validate_owner_successors(rows, open_issues)
-    assert mapping == {
-        "FZ-03": (745,),
-        "FZ-05": (729, 736, 738),
-        "FZ-10": (736,),
-        "FZ-11": (733, 736),
-        "FZ-12": (733, 736),
-    }
     assert {
         row["id"]: row["owning_issue"]
         for row in rows
-        if row["id"] in mapping
+        if row["owning_issue"] is not None
     } == {
-        "FZ-03": 508,
-        "FZ-05": 639,
+        "FZ-03": 745,
+        "FZ-05": 736,
         "FZ-10": 546,
         "FZ-11": 655,
         "FZ-12": 666,
     }
     rendered = fz_tool.render(register, fz_tool.validate(register))
-    assert "historical [#508]" in rendered
-    assert "current V3 [#736]" in rendered
-    assert "historical [#639]" in rendered
-    assert "current V3 [#729]" in rendered
-    assert "[#738](https://github.com/FloatingPragma/observer-patch-holography/issues/738)" in rendered
+    assert "[#745](https://github.com" in rendered
+    assert "[#736](https://github.com" in rendered
+    assert "historical [#546]" in rendered
+    assert "Current execution ownership and issue state live in GitHub" in rendered
+    assert "current V3" not in rendered
 
 
-def test_owner_successor_map_fails_closed_when_a_historical_row_is_missing(
-    tmp_path: Path,
-):
-    payload = live_owner_successors()
-    payload["mappings"] = [
-        mapping for mapping in payload["mappings"] if mapping["row_id"] != "FZ-03"
-    ]
-    path = tmp_path / "successors.json"
-    write_owner_successors(path, payload)
-    rows = live_register()["rows"]
-    open_issues = {
-        row["number"]
-        for row in json.loads(fz_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))[
-            "rows"
-        ]
-    }
-    with pytest.raises(SystemExit, match=r"missing=\['FZ-03'\]"):
-        fz_tool.validate_owner_successors(rows, open_issues, path)
-
-
-def test_owner_successor_map_fails_closed_on_unknown_active_issue(tmp_path: Path):
-    payload = live_owner_successors()
-    payload["mappings"][0]["active_successor_issues"] = [999999]
-    path = tmp_path / "successors.json"
-    write_owner_successors(path, payload)
-    rows = live_register()["rows"]
-    open_issues = {
-        row["number"]
-        for row in json.loads(fz_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))[
-            "rows"
-        ]
-    }
-    with pytest.raises(SystemExit, match=r"snapshot: \[999999\]"):
-        fz_tool.validate_owner_successors(rows, open_issues, path)
+def test_pending_row_content_can_change_before_freeze():
+    register = live_register()
+    fz03 = next(row for row in register["rows"] if row["id"] == "FZ-03")
+    fz03["content"] += "; preregistration draft revised before freeze"
+    fz_tool.validate(register)
 
 
 def test_pending_row_requires_a_kill_band():

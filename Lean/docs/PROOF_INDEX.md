@@ -255,7 +255,7 @@ Mapping between Lean 4 theorems in this project and statements in
   nor designation rule was preregistered. Source effect semantics, operational
   additivity, the y-magnitude readout, and the public phase-sensitive
   instrument/readback attachment with preregistered validation remain open
-  under #702. See `B13_EFFECT_CLOSURE_BOUNDARY.md`.
+  under #730. See `B13_EFFECT_CLOSURE_BOUNDARY.md`.
 - C1 canonical Lorentz module (`Geometry/CanonicalLorentzModule.lean`,
   `Geometry/CelestialNullCone.lean`, `Geometry/ObserverFrameHyperboloid.lean`,
   `Geometry/ObserverRestSpace.lean`, `Geometry/EinsteinTensorBridge.lean`):
@@ -312,7 +312,7 @@ Mapping between Lean 4 theorems in this project and statements in
   This older packet therefore does not close E1. Sorry-free, standard axioms,
   no `native_decide`. The enrichment rule and restriction system are declared
   readings of the custody-pinned payload; CP/CPTP, scheduler, continuum, and
-  clock scopes stay with #693, #700, and #703.
+  clock scopes stay with #728, #730, and #732.
   The adapter preflight (`QFT/SourceOperatorGeneration.lean`,
   `QFT/JointSlotFactorisation.lean`) is attained as a bounded post-hoc
   packet over the same retained bundle: each rich observer's counted
@@ -343,7 +343,7 @@ Mapping between Lean 4 theorems in this project and statements in
   net's ambient is definitionally the stage's private algebra, and the
   partition members lie in the proper anchored left region. A nonzero
   off-diagonal correlation matrix unit has both slot expectations zero, so
-  coverage does not imply unique gluing. Issue #692 remains open for a
+  coverage does not imply unique gluing. Current lanes #728 and #730 retain a
   source-selected joint carrier and coherent correlation or descent receipt;
   closed #712 consumes the older interface.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
@@ -1039,8 +1039,8 @@ Mapping between Lean 4 theorems in this project and statements in
   unattained infimum. The norms and minimum-repair rule are basis-dependent
   inputs, and the comparison is only with the compact locus classified under
   the three named compact-Lie inputs. It is neither a source bracket selector
-  nor a classification of the full Jacobi variety. Issues #705 and #697 stay
-  open for source reconstruction and physical current attachment. See
+  nor a classification of the full Jacobi variety. Issues #734 and #736 own
+  source reconstruction and physical current attachment. See
   `B14_ORIENTED_FACE_SELECTOR.md`.
 - #705 carrier-induced invariant-metric phase diagram
   (`Screen/OrientedFaceInvariantMetric.lean` with the independently replayed
@@ -1553,7 +1553,7 @@ raw trace formula (5 audited declarations):
 The second module is a no-go for one totalization architecture, not for
 support-aware Umegaki entropy. Majorization, data processing, Pythagorean
 information projection, MaxEnt, and source/instrument attachment remain open
-under #685.
+under #730 and deferred premise work under #739.
 
 `Tsirelson.lean` : the Tsirelson bound, norm form (6 lemmas; abstract
 C*-route shipped, matrix corollary included):

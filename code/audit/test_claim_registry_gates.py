@@ -27,18 +27,9 @@ def write_fixture_repo(root: Path) -> None:
     (root / "claims").mkdir()
     (root / "extra").mkdir()
     (root / "code").mkdir()
-    (root / "tracking" / "open_issues").mkdir(parents=True)
-    (root / "tracking" / "open_issues" / "open_problem_ledger.json").write_text(
-        json.dumps(
-            {
-                "open_issue_count": 1,
-                "rows": [{"number": 42, "title": "open fixture gate"}],
-                "closed_out_of_scope_records": [
-                    {"number": 7, "title": "closed fixture issue"}
-                ],
-            }
-        ),
-        encoding="utf-8",
+    (root / "tracking").mkdir()
+    (root / "tracking" / "premise_register.json").write_text(
+        json.dumps({"rows": [{"id": "PR-01"}]}), encoding="utf-8"
     )
     (root / "paper" / "release_info.tex").write_text(
         "\\newcommand{\\OPHPaperReleaseID}{r-test}\n", encoding="utf-8"
@@ -51,7 +42,7 @@ def write_fixture_repo(root: Path) -> None:
         encoding="utf-8",
     )
     registry = {
-        "schema_version": 1,
+        "schema_version": 3,
         "release_id": "r-test",
         "claims": [
             {
@@ -69,6 +60,12 @@ def write_fixture_repo(root: Path) -> None:
                 "status": "declared_basis",
                 "claim_class": "conditional_implication",
                 "gates": [42],
+                "premise_dependencies": {
+                    "classification": "explicit_edges",
+                    "consumed": ["PR-01"],
+                    "open": [],
+                    "boundary": [],
+                },
             }
         ],
     }
@@ -286,24 +283,18 @@ def test_release_id_drift_fails_closed(tmp_path):
         checker.main(tmp_path)
 
 
-def edit_snapshot(root: Path, mutate) -> None:
-    path = root / "tracking" / "open_issues" / "open_problem_ledger.json"
-    snapshot = json.loads(path.read_text(encoding="utf-8"))
-    mutate(snapshot)
-    path.write_text(json.dumps(snapshot), encoding="utf-8")
-
-
-def test_closed_issue_referenced_as_open_gate_fails_closed(tmp_path):
+def test_duplicate_gate_fails_closed(tmp_path):
     write_fixture_repo(tmp_path)
-    edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(7))
-    with pytest.raises(SystemExit, match="closed on GitHub but referenced"):
+    edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(42))
+    with pytest.raises(SystemExit, match="must not repeat"):
         checker.main(tmp_path)
 
 
-def test_gate_missing_from_github_fails_closed(tmp_path):
+@pytest.mark.parametrize("gate", [0, -1, True, "42"])
+def test_gate_must_be_a_positive_integer(tmp_path, gate):
     write_fixture_repo(tmp_path)
-    edit_registry(tmp_path, lambda r: r["claims"][0]["gates"].append(999))
-    with pytest.raises(SystemExit, match="missing from the GitHub issue snapshot"):
+    edit_registry(tmp_path, lambda r: r["claims"][0].update(gates=[gate]))
+    with pytest.raises(SystemExit, match="positive GitHub issue numbers"):
         checker.main(tmp_path)
 
 
@@ -313,8 +304,7 @@ def test_gate_missing_from_github_fails_closed(tmp_path):
         ("OPH-DM-CONT", [], 742),
         ("OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX", [730], 743),
         ("OPH-YM-GAP", [743], 744),
-        # Closed bootstrap #741 is durable register custody, not a live claim
-        # gate; the common-world integration owner #740 remains mandatory.
+        # The common-world integration owner remains mandatory.
         ("OPH-UNIFIED-TYPED-SPINE", [728, 729, 730], 740),
         ("OPH-HIER-EW", [736, 740, 742], 745),
     ],
@@ -363,21 +353,147 @@ def test_wording_stronger_than_class_fails_closed(tmp_path):
         checker.main(tmp_path)
 
 
-def test_stale_snapshot_count_fails_closed(tmp_path):
+def test_unknown_premise_id_fails_closed(tmp_path):
     write_fixture_repo(tmp_path)
-    edit_snapshot(tmp_path, lambda s: s.update(open_issue_count=58))
-    with pytest.raises(SystemExit, match="hard-coded or stale count"):
-        checker.main(tmp_path)
-
-
-def test_snapshot_citing_unknown_claim_fails_closed(tmp_path):
-    write_fixture_repo(tmp_path)
-    edit_snapshot(
+    edit_registry(
         tmp_path,
-        lambda s: s["rows"][0].update(blocker="Blocked on OPH-GHOST-CLAIM."),
+        lambda r: r["claims"][0]["premise_dependencies"].update(
+            consumed=["PR-99"]
+        ),
     )
-    with pytest.raises(SystemExit, match="cites unknown claim id"):
+    with pytest.raises(SystemExit, match="cites unknown premise ids"):
         checker.main(tmp_path)
+
+
+def test_premise_dependency_fields_must_be_disjoint(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0]["premise_dependencies"].update(open=["PR-01"]),
+    )
+    with pytest.raises(SystemExit, match="fields consumed and open overlap"):
+        checker.main(tmp_path)
+
+
+def test_premise_dependency_object_rejects_unrecognized_keys(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0]["premise_dependencies"].update(
+            inferred=["PR-01"]
+        ),
+    )
+    with pytest.raises(SystemExit, match="premise_dependencies keys must equal"):
+        checker.main(tmp_path)
+
+
+def test_explicit_edges_requires_an_edge(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0].update(
+            premise_dependencies={
+                "classification": "explicit_edges",
+                "consumed": [],
+                "open": [],
+                "boundary": [],
+            }
+        ),
+    )
+    with pytest.raises(SystemExit, match="requires at least one direct premise edge"):
+        checker.main(tmp_path)
+
+
+def test_explicit_non_consumer_requires_empty_edges_and_rationale(tmp_path):
+    write_fixture_repo(tmp_path)
+    edit_registry(
+        tmp_path,
+        lambda r: r["claims"][0].update(
+            premise_dependencies={
+                "classification": "explicit_non_consumer",
+                "consumed": [],
+                "open": [],
+                "boundary": [],
+                "rationale": "",
+            }
+        ),
+    )
+    with pytest.raises(SystemExit, match="requires a nonempty rationale"):
+        checker.main(tmp_path)
+
+
+def test_nonconsumer_rationales_must_be_claim_specific() -> None:
+    shared = {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Generic category boilerplate.",
+    }
+    claims = [
+        {"claim_id": "FIX-1", "premise_dependencies": dict(shared)},
+        {"claim_id": "FIX-2", "premise_dependencies": dict(shared)},
+    ]
+    with pytest.raises(SystemExit, match="must be claim-specific"):
+        checker.check_non_consumer_rationale_uniqueness(claims)
+
+
+def test_canonical_direct_premise_examples_are_exact() -> None:
+    registry = checker.load_json(REPO_ROOT / "claims" / "claim_registry.yaml")
+    rows = {claim["claim_id"]: claim["premise_dependencies"] for claim in registry["claims"]}
+    assert rows["OPH-FINITE-BORN-FRAME-RANK-GAP"] == {
+        "classification": "explicit_edges",
+        "consumed": ["PR-02", "PR-03"],
+        "open": ["PR-04"],
+        "boundary": [],
+    }
+    assert rows["OPH-THERMO-FOUR-LAW-PACKAGE"] == {
+        "classification": "explicit_edges",
+        "consumed": ["PR-07", "PR-15"],
+        "open": ["PR-08"],
+        "boundary": [],
+    }
+    assert rows["OPH-FINITE-HISTORY-VARIATIONAL-HELPERS"] == {
+        "classification": "explicit_edges",
+        "consumed": ["PR-05", "PR-06", "PR-45"],
+        "open": ["PR-15"],
+        "boundary": [],
+    }
+    assert rows["OPH-SCREEN-PORT-CURRENT-INNER"] == {
+        "classification": "explicit_edges",
+        "consumed": ["PR-09", "PR-10", "PR-11"],
+        "open": ["PR-54"],
+        "boundary": [],
+    }
+
+
+def test_reviewed_premise_projection_rejects_consumed_to_open_mutation() -> None:
+    registry = checker.load_json(REPO_ROOT / "claims" / "claim_registry.yaml")
+    claims = json.loads(json.dumps(registry["claims"]))
+    claim = next(row for row in claims if row["claim_id"] == "OPH-CONS-D1")
+    claim["premise_dependencies"]["consumed"] = []
+    claim["premise_dependencies"]["open"] = ["PR-01"]
+    assert (
+        checker.premise_dependency_projection_sha256(claims)
+        != checker.PREMISE_DEPENDENCY_PROJECTION_SHA256
+    )
+
+
+def test_reviewed_premise_projection_rejects_consumer_reclassification() -> None:
+    registry = checker.load_json(REPO_ROOT / "claims" / "claim_registry.yaml")
+    claims = json.loads(json.dumps(registry["claims"]))
+    claim = next(row for row in claims if row["claim_id"] == "OPH-CONS-D1")
+    claim["premise_dependencies"] = {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Generic post-hoc reclassification.",
+    }
+    assert (
+        checker.premise_dependency_projection_sha256(claims)
+        != checker.PREMISE_DEPENDENCY_PROJECTION_SHA256
+    )
 
 
 def test_live_repository_registry_passes():

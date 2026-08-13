@@ -8,11 +8,8 @@ import Mathlib.GroupTheory.GroupAction.Quotient
 Companion to `IcosahedralAntibridge`.  That file builds the concrete
 transitive `A5`-action on the twelve-point homogeneous space
 `DefectSpace = A5 ⧸ H5` and proves the anti-bridge no-go.  This file adds
-the finite **orbit / stabilizer / faithfulness** computations that the
-`A5` formalization lane requires
-(`FloatingPragma/observer-patch-holography#568`, acceptance item
-"finite orbit, stabilizer, character, rank, and kernel computations are
-checked by the prover"):
+the finite **orbit / stabilizer / faithfulness** computations for the
+abstract `A5` carrier model:
 
 * `stabilizer_coe_one_eq_H5` — the stabilizer of the base vertex `⟦1⟧`
   is exactly `H5` (so vertex stabilizers are the order-5 rotation
@@ -21,12 +18,12 @@ checked by the prover"):
   twelve vertices: `|A5| = 12 * 5`, i.e. `60 = 12 * 5`.
 * `defectSpace_action_faithful` — the kernel of the action is trivial
   (`H5.normalCore = ⊥`), because `A5` is simple and `H5` is a proper
-  subgroup.  This is the "kernel computation" the lane asks for.
+  subgroup.
 
 Claim discipline: these are finite facts about the abstract icosahedral
-model `A5 ⧸ H5`.  They do not by themselves establish any physical
-current, compact Lie-algebra classification, cover, or matter claim; the
-`#568` lane keeps those as explicit theorem boundaries and open items.
+model `A5 ⧸ H5`. They do not by themselves establish any physical current,
+compact Lie-algebra classification, cover, or matter claim; those remain
+explicit theorem boundaries of this module.
 -/
 
 namespace OPH

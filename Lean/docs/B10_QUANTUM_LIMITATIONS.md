@@ -79,7 +79,7 @@ matrix-log formula is not yet support-aware relative entropy:
   infinity when support inclusion fails must differ from this raw formula.
 
 The result rejects one inadequate totalization architecture; it does not
-reject support-aware Umegaki entropy. Issue #685 remains open for the explicit
+reject support-aware Umegaki entropy. Current quantum lane #730 owns the explicit
 support layer, data processing or majorization, Pythagorean information
 projection, MaxEnt, and the physical information-chain attachment.
 

@@ -197,7 +197,18 @@ class FixedPointWitnessTests(unittest.TestCase):
             trunk["promotion_gates"][0]["current_reduction_status"],
             "source_spectral_reduction_theorem_emitted_measure_payload_absent",
         )
-        self.assertEqual(trunk["promotion_gates"][-1]["issue_status"], "closed_canonical_guarded_trunk_adoption")
+        self.assertEqual(
+            [gate["id"] for gate in trunk["promotion_gates"]],
+            [
+                "ward_projected_thomson_endpoint",
+                "rg_matching_threshold_scheme",
+                "interval_fixed_point_certificate",
+            ],
+        )
+        self.assertTrue(
+            all("issue_status" not in gate and "github_issue" not in gate
+                for gate in trunk["promotion_gates"])
+        )
 
 
 if __name__ == "__main__":

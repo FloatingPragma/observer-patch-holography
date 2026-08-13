@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Emit the constructive contract for RG matching and threshold closure.
 
-This artifact turns the open running/matching issue into concrete local objects:
+This artifact turns the unresolved running/matching boundary into concrete local objects:
 scheme locks, threshold certificates, beta-coefficient provenance, and interval
 composition checks.  It does not promote the current declared conventions into
 an OPH theorem.
@@ -39,11 +39,8 @@ def build_contract() -> dict[str, Any]:
     }
     return {
         "artifact": "oph_rg_matching_threshold_contract",
-        "github_issue": 32,
         "status": "open_source_rg_frontier_partial",
         "promotion_allowed": False,
-        "github_issue_state": "open",
-        "github_dependencies": [569, 630, 631, 632, 634],
         "source_frontier": frontier_ref,
         "worker_result_policy": {
             "partial_frontier_allowed": True,
@@ -141,9 +138,9 @@ def build_contract() -> dict[str, Any]:
         },
         "local_next_steps": [
             "Implement a generic exact ordered-interval composition engine while source threshold data remain absent.",
-            "Consume the positive scalar/Yukawa action from #630 when it exists.",
-            "Consume the physical local electroweak carrier from #631 and the coupled-sector census from #632.",
-            "Attach the physical family object from #569 before specializing the parametric beta law.",
+            "Consume a source-produced positive scalar/Yukawa action when it exists.",
+            "Consume a physical local electroweak carrier and its coupled-sector census.",
+            "Attach the physical family object before specializing the parametric beta law.",
             "Wire a complete independently replayed matching packet into the compressed P trunk only after source closure.",
         ],
         "forbidden_promotions": [

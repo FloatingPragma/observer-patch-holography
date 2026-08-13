@@ -51,10 +51,10 @@ jobs:
           pip install -r requirements.txt
 
       # #507: the mandatory suite is one documented command, identical here and
-      # in REPRODUCE.md. It validates the claim registry (incl. live gates,
-      # #512) and the release manifest (#514, unconditional on every push/PR so
-      # manifest drift can never be bypassed by a path-filter miss), checks the
-      # generated claims scoreboard, collects the full scientific suite, and
-      # executes the fast audit fixtures.
+      # in REPRODUCE.md. It validates the scientific claim registry (#512),
+      # generated scientific registers, and the release manifest (#514,
+      # unconditional on every push/PR so manifest drift cannot be bypassed by
+      # a path-filter miss), collects the full scientific suite, and executes
+      # the fast validation fixtures.
       - name: Run the mandatory suite
         run: python tools/run_mandatory_suite.py

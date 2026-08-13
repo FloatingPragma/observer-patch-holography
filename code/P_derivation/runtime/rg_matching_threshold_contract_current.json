@@ -82,20 +82,11 @@
     "reusing_the_issue_593_external_validation_packet_as_an_OPH_source",
     "promoting_p_closure_root_without_interval_composition_certificate"
   ],
-  "github_dependencies": [
-    569,
-    630,
-    631,
-    632,
-    634
-  ],
-  "github_issue": 32,
-  "github_issue_state": "open",
   "local_next_steps": [
     "Implement a generic exact ordered-interval composition engine while source threshold data remain absent.",
-    "Consume the positive scalar/Yukawa action from #630 when it exists.",
-    "Consume the physical local electroweak carrier from #631 and the coupled-sector census from #632.",
-    "Attach the physical family object from #569 before specializing the parametric beta law.",
+    "Consume a source-produced positive scalar/Yukawa action when it exists.",
+    "Consume a physical local electroweak carrier and its coupled-sector census.",
+    "Attach the physical family object before specializing the parametric beta law.",
     "Wire a complete independently replayed matching packet into the compressed P trunk only after source closure."
   ],
   "promotion_allowed": false,

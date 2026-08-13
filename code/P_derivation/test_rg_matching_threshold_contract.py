@@ -19,11 +19,11 @@ def test_rg_matching_threshold_contract_is_open_partial_and_nonpromoting() -> No
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_rg_matching_threshold_contract"
-    assert payload["github_issue"] == 32
     assert payload["status"] == "open_source_rg_frontier_partial"
     assert payload["promotion_allowed"] is False
-    assert payload["github_issue_state"] == "open"
-    assert payload["github_dependencies"] == [569, 630, 631, 632, 634]
+    assert "github_issue" not in payload
+    assert "github_issue_state" not in payload
+    assert "github_dependencies" not in payload
     assert payload["source_frontier"]["status"] == (
         "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN"
     )

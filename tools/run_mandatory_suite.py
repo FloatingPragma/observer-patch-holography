@@ -7,16 +7,13 @@ This is the one command REPRODUCE.md documents and CI enforces:
     python tools/run_mandatory_suite.py --certificates # + exact certificate suites
     python tools/run_mandatory_suite.py --certificate-smoke-only
 
-The mandatory suite validates the claim registry against its committed gate
-assignments and validates the committed open-problem snapshot offline. Live
-GitHub parity is a separate networked check with
-`tools/build_open_problem_ledger.py --check-live`. The suite also validates
-external inputs, public quantitative surfaces, null-model controls, and the
-paper release manifest, then proves those gates reject isolated false-green
-mutations. It proves the full scientific collection imports cleanly (which is
-what keeps the optional cloud/hardware lanes fail-closed) and executes the
-fast fixture suites. The exact certificate suites (#566 port-current, #314
-matter-lift) run in their own CI workflow on their own triggers;
+The mandatory suite validates the scientific claim registry, external inputs,
+public quantitative surfaces, null-model controls, and the paper release
+manifest, then proves those gates reject isolated false-green mutations. It
+proves the full scientific collection imports cleanly (which is what keeps the
+optional cloud/hardware lanes fail-closed) and executes the fast fixture
+suites. The exact certificate suites (#566 port-current, #314 matter-lift) run
+in their own CI workflow on their own triggers;
 `--certificates` runs them here with the same commands.
 """
 
@@ -41,10 +38,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "tools/check_axiom_consistency.py",
             "--check-inventory",
         ],
-    ),
-    (
-        "Validate the committed open-problem ledger offline",
-        [sys.executable, "tools/build_open_problem_ledger.py", "--check"],
     ),
     ("Validate claim registry", [sys.executable, "tools/check_claim_registry.py"]),
     (
@@ -190,50 +183,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the architecture-version register",
-        [
-            sys.executable,
-            "tools/build_architecture_versions.py",
-            "--check",
-        ],
-    ),
-    (
-        "Validate immutable promotion-audit custody",
-        [sys.executable, "tools/build_audit_custody.py", "--check"],
-    ),
-    (
-        "Execute the promotion-audit custody mutation gates",
-        [sys.executable, "-m", "pytest", "-q", "tools/test_audit_custody.py"],
-    ),
-    (
-        "Validate architecture replay and prediction lineages",
-        [sys.executable, "tools/build_architecture_replay.py", "--check"],
-    ),
-    (
-        "Execute predictive-lineage custody mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_prediction_lineage_custody.py",
-        ],
-    ),
-    (
-        "Execute architecture replay mutation gates",
-        [sys.executable, "-m", "pytest", "-q", "tools/test_architecture_replay.py"],
-    ),
-    (
-        "Execute the architecture-version mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_architecture_versions.py",
-        ],
-    ),
-    (
         "Execute the observation ledger gates",
         [
             sys.executable,
@@ -259,24 +208,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "tools/test_premise_register.py",
-        ],
-    ),
-    (
-        "Validate the V3 premise-discharge queue",
-        [
-            sys.executable,
-            "tools/build_premise_discharge_queue.py",
-            "--check",
-        ],
-    ),
-    (
-        "Execute the premise-discharge queue gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_premise_discharge_queue.py",
         ],
     ),
     (
@@ -807,7 +738,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "-q",
             "paper/tools/test_check_build_warnings.py",
             "tools/test_reproducible_build_env.py",
-            "tools/test_open_problem_ledger.py",
         ],
     ),
     (
@@ -941,10 +871,9 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "code/a5_fingerprint/test_carrier_frequency_speed_certificate.py",
         ],
     ),
-    ("Check the claims scoreboard is regenerated", [sys.executable, "tools/build_scoreboard.py", "--check"]),
     ("Collect the mandatory scientific suite", [sys.executable, "-m", "pytest", "--collect-only", "-q", "code"]),
-    ("Execute the audit fixture suite", [sys.executable, "-m", "pytest", "-q", "code/audit"]),
-    ("Audit A5 closure ledgers", [sys.executable, "code/a5_closure/test_audit.py"]),
+    ("Execute the scientific validation fixtures", [sys.executable, "-m", "pytest", "-q", "code/audit"]),
+    ("Validate A5 closure ledgers", [sys.executable, "code/a5_closure/test_audit.py"]),
     (
         "Execute the three-axiom campaign certificate suites",
         [

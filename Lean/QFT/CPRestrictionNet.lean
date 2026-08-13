@@ -42,12 +42,12 @@ proper pair of slot regions instead.
 
 **Boundary.**  This is a finite algebraic interface with a declared
 region system; no tower stage, spacetime, causal relation, channel
-semantics, instrument, clock, or physical claim is attached, and no
-source object is constructed here.  Issue #692 remains open for a
-source-attached regional assembly, correlation or descent receipt, and
-nonconstant source realization.  Closed issue #712 consumes the older
-finite-net interface and does not supply this migration.  Instrument,
-continuum, and clock scopes remain at #693, #700, and #703.
+semantics, instrument, clock, or physical claim is attached, and no source
+object is constructed here. Source-attached regional assembly and descent
+are scoped to spacetime adequacy (#728), while structural field-theory
+continuation is scoped to quantum adequacy (#730). Physical calibration,
+instrument provenance, and premise-level clock derivation are separated into
+#732, #737, and #739, respectively.
 -/
 
 namespace OPH.QFT

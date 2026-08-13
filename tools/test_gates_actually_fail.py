@@ -54,7 +54,7 @@ def _write_json(path: Path, payload: Any) -> None:
 
 
 def _write_claim_fixture(root: Path) -> Path:
-    for relative in ("paper", "extra", "claims", "code", "tracking/open_issues"):
+    for relative in ("paper", "extra", "claims", "code", "tracking"):
         (root / relative).mkdir(parents=True, exist_ok=True)
 
     (root / "paper/release_info.tex").write_text(
@@ -81,7 +81,7 @@ def _write_claim_fixture(root: Path) -> Path:
     _write_json(
         registry_path,
         {
-            "schema_version": 1,
+            "schema_version": 3,
             "release_id": "r-test",
             "claims": [
                 {
@@ -99,6 +99,12 @@ def _write_claim_fixture(root: Path) -> Path:
                     "status": "conditional_fixture",
                     "claim_class": "conditional_implication",
                     "gates": [42],
+                    "premise_dependencies": {
+                        "classification": "explicit_edges",
+                        "consumed": ["PR-01"],
+                        "open": [],
+                        "boundary": [],
+                    },
                 }
             ],
         },
@@ -119,14 +125,7 @@ def _write_claim_fixture(root: Path) -> Path:
         root / "claims/dependency_graph.json",
         {"nodes": ["OPH-FIXTURE-GATE"], "edges": []},
     )
-    _write_json(
-        root / "tracking/open_issues/open_problem_ledger.json",
-        {
-            "open_issue_count": 1,
-            "rows": [{"number": 42, "title": "open fixture gate"}],
-            "closed_out_of_scope_records": [],
-        },
-    )
+    _write_json(root / "tracking/premise_register.json", {"rows": [{"id": "PR-01"}]})
     return registry_path
 
 

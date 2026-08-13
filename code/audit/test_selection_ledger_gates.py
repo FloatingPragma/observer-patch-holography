@@ -21,6 +21,15 @@ def live_ledger() -> dict:
     return json.loads(ledger_tool.LEDGER_PATH.read_text(encoding="utf-8"))
 
 
+def live_identification_registry() -> dict:
+    return json.loads(ledger_tool.IDENTIFICATION_PATH.read_text(encoding="utf-8"))
+
+
+def canonical_claim_ids() -> set[str]:
+    registry = json.loads(ledger_tool.REGISTRY_PATH.read_text(encoding="utf-8"))
+    return {claim["claim_id"] for claim in registry["claims"]}
+
+
 def test_live_ledger_validates_and_surface_is_current():
     rows = ledger_tool.validate(live_ledger())
     rendered = ledger_tool.render(rows)
@@ -43,6 +52,54 @@ def test_every_row_names_one_canonical_claim_and_class():
         assert row["class"] in ledger_tool.CLASSES
         assert row["canonical_claim_id"]
         assert row["menu"]["alternatives"].strip()
+
+
+def test_physical_identification_schema_mutation_fails():
+    registry = live_identification_registry()
+    registry["schema_version"] = 2
+    with pytest.raises(SystemExit, match="schema_version must equal 1"):
+        ledger_tool.validate_physical_identification_registry(
+            registry, canonical_claim_ids()
+        )
+
+
+def test_physical_identification_unknown_claim_fails():
+    registry = live_identification_registry()
+    registry["physical_identifications"][0]["claim_ids"] = ["OPH-NO-SUCH-CLAIM"]
+    with pytest.raises(SystemExit, match="unknown canonical claim ids"):
+        ledger_tool.validate_physical_identification_registry(
+            registry, canonical_claim_ids()
+        )
+
+
+def test_physical_identification_status_mutation_fails():
+    registry = live_identification_registry()
+    registry["physical_identifications"][0]["status"] = "attained"
+    with pytest.raises(SystemExit, match="status must equal undischarged"):
+        ledger_tool.validate_physical_identification_registry(
+            registry, canonical_claim_ids()
+        )
+
+
+def test_physical_identification_blocker_scope_mutation_fails():
+    registry = live_identification_registry()
+    registry["physical_identifications"][0]["blocking_issues"][0][
+        "scope"
+    ] = "live_issue_state_mirror"
+    with pytest.raises(SystemExit, match="scope is outside the controlled vocabulary"):
+        ledger_tool.validate_physical_identification_registry(
+            registry, canonical_claim_ids()
+        )
+
+
+def test_physical_identification_premature_compression_mutation_fails():
+    registry = live_identification_registry()
+    registry["compression_bound"]["p_acc_upper_bound"] = 0.5
+    with pytest.raises(SystemExit, match="numeric P_acc is forbidden"):
+        ledger_tool.validate_physical_identification_registry(
+            registry, canonical_claim_ids()
+        )
+
 
 def test_required_selector_omission_fails_even_after_renumbering():
     ledger = live_ledger()
@@ -74,14 +131,12 @@ def test_conditional_selector_cycle_fails():
         ledger_tool.validate(ledger)
 
 
-def test_open_row_owner_outside_claim_gates_fails():
+def test_open_row_owner_outside_declared_claim_gates_fails():
     ledger = live_ledger()
     registry = json.loads(ledger_tool.REGISTRY_PATH.read_text(encoding="utf-8"))
     identification = json.loads(
         ledger_tool.IDENTIFICATION_PATH.read_text(encoding="utf-8")
     )
-    snapshot = json.loads(ledger_tool.SNAPSHOT_PATH.read_text(encoding="utf-8"))
-    open_issues = {row["number"] for row in snapshot["rows"]}
     row = next(r for r in ledger["rows"] if r["class"] == "open")
     allowed: set[int] = set()
     for claim_id in [row["canonical_claim_id"], *row["secondary_claim_ids"]]:
@@ -90,7 +145,8 @@ def test_open_row_owner_outside_claim_gates_fails():
         for entry in identification["physical_identifications"]:
             if claim_id in entry["claim_ids"]:
                 allowed |= {b["number"] for b in entry["blocking_issues"]}
-    divergent = sorted(open_issues - allowed)[0]
+    divergent = max(allowed) + 100_000
+    assert divergent not in allowed
     row["owner_issues"] = [divergent]
     with pytest.raises(SystemExit, match="boundaries diverge"):
         ledger_tool.validate(ledger)

@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "release_id": "r2019",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
@@ -27,7 +27,15 @@
       "scope_if_false": "The synthesis ontology falls; branch-local theorem statements must be restated in the hidden-coordinate theory that replaces the formal basis.",
       "status": "declared_basis",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-OBS-PATCH-DEF",
@@ -55,7 +63,14 @@
       "scope_if_false": "The observer identification or quotient-equivalence claim falls on the affected branch; finite carrier geometry by itself is a separate object.",
       "status": "typed_definition_and_exact_fixed_regulator_seven_clause_operational_receipt__refinement_naturality_source_and_higher_overlap_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row defines and inhabits a fixed-regulator observer interface from paper-local typed data; source realization, refinement naturality, and higher-overlap coherence are separate downstream work, so no canonical PR is a direct premise."
+      }
     },
     {
       "claim_id": "OPH-CARRIER-PRESENTATION-INVARIANCE",
@@ -84,7 +99,14 @@
       "scope_if_false": "The affected invariance or architecture-sensitivity claim falls. Branch-local theorems stated directly on either carrier retain their own statuses.",
       "status": "declared_cross_paper_contract_with_branch_local_tests",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is the equivalence criterion defining when two presentations preserve the same observer signature, not an added physical input or attachment represented by PR-01 through PR-57."
+      }
     },
     {
       "claim_id": "OPH-UNIFIED-TYPED-SPINE",
@@ -125,7 +147,20 @@
         729,
         730,
         740
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-03",
+          "PR-04",
+          "PR-51",
+          "PR-52",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-CONS-D1",
@@ -168,7 +203,15 @@
       "claim_class": "conditional_implication",
       "gates": [
         728
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-01"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-CONS-BFT-PREPARED-LOCK",
@@ -208,7 +251,14 @@
       "scope_if_false": "The assumption-dependent BFT extension falls; the core finite OPH repair-confluence theorem is independent.",
       "status": "paper_proved_for_declared_protocol__finite_reference_traces_executable__not_Lean_or_TLA_formalized",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This theorem is conditional only on its authenticated-quorum and view-change protocol, which is distinct from the OPH repair-confluence contract PR-01 and from every physical-attachment premise."
+      }
     },
     {
       "claim_id": "OPH-CONS-REFINEMENT-MODULI",
@@ -244,7 +294,14 @@
       "scope_if_false": "The quantitative refinement-limit conclusions fall; fixed-cutoff finite normal-form uniqueness remains separate.",
       "status": "telescope_Lean_proved__uniform_family_and_cofinal_theorems_paper_proved__parametric_counterfamily_schemas_executable",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This abstract stability theorem uses paper-local Lipschitz, uniformity, completeness, and tail hypotheses and neither selects a source law nor invokes a registered physical bridge."
+      }
     },
     {
       "claim_id": "OPH-GR-PORT-RESPONSE-COMPLETION",
@@ -280,7 +337,14 @@
       "scope_if_false": "The repair-derived local carrier claim falls. The separately conditional spherical-support Lorentz branch and finite consensus theorems remain subject to their own premises.",
       "status": "exact_source_load_quotient_frame_completion_and_proper_action__pathwise_position_gluing_and_scale_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The exact completion theorem consumes only its named carrier, response, and module data; physical position, scale, global gluing, and field interpretation are explicitly left to separate downstream claims."
+      }
     },
     {
       "claim_id": "OPH-GR-D2-COLLAR-RECOVERY",
@@ -310,40 +374,14 @@
       "scope_if_false": "The conditional nonexact collar-recovery and collar-remainder route reopens; exact central-interface Markovity survives if its separate clause holds, and no scalar CMI result by itself supplies a stress tensor or dark-sector source.",
       "status": "proved_on_conditional_mixing_branch_with_exact_central_specialization",
       "claim_class": "conditional_implication",
-      "gates": []
-    },
-    {
-      "claim_id": "OPH-FINITE-AUDIT-MATSCHEKO",
-      "statement": "Matscheko's Lean audit checks a declared finite subset. On the A5/Z6 lane it covers the abstract u(3)+so(3) commutator, dimension and noncentrality witness, six-axis lattice quotient, and 11/25 arithmetic; it does not check the port-frame map, A5 equivariance, compact-Lie classification, trace-balanced global form, or physical identification.",
-      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-      "tier": "finite_audit_receipt",
-      "assumptions": [
-        "finite_or_regulated_branch",
-        "OPHProofChain Lean audit provenance",
-        "standard Lean and Mathlib axioms"
-      ],
-      "imported_results": [
-        "finite quotient repair",
-        "finite modular KMS flow",
-        "matrix-algebra uniqueness",
-        "lambda constancy under conservation and connectivity",
-        "abstract A5 coefficient commutator",
-        "six-axis lattice quotient",
-        "finite arithmetic checks",
-        "QBFT quorum-overlap caveat"
-      ],
-      "oph_specific_delta": "The audit certifies finite theorem packets only on its stated formal scope; physical branch-entry and scaling receipts are separate.",
-      "novelty_type": "independent_formal_audit",
-      "evidence": [
-        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-        "paper/screen_microphysics_and_observer_synchronization.tex",
-        "paper/appendix_B_bft_qecc_extensions.tex"
-      ],
-      "falsifier": "A cited finite audit theorem fails to build, imports a nonstandard axiom not listed in the audit, or discharges a physical or scaling-limit hypothesis it only assumes.",
-      "scope_if_false": "The corresponding finite receipt is reopened; physical branch hypotheses and unrelated fixed-cutoff results must be assessed separately.",
-      "status": "finite_audit_imported_with_physics_residues",
-      "claim_class": "emitted_artifact",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This information-theoretic implication uses a paper-local Gibbs-mixing envelope and supplies a collar-recovery ingredient to the gravity chain rather than consuming one of its registered Einstein-composition premises."
+      }
     },
     {
       "claim_id": "OPH-GR-D5",
@@ -375,7 +413,20 @@
       "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",
       "status": "proved_on_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-23",
+          "PR-24",
+          "PR-25",
+          "PR-26",
+          "PR-27",
+          "PR-28"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-GR-D3-CAP-H3",
@@ -405,7 +456,14 @@
       "scope_if_false": "The OPH Lorentz/H3 chart claim falls or must be weakened; finite consensus, compact-gauge reconstruction, and unrelated fixed-cutoff results do not automatically fall.",
       "status": "proved_on_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This algebraic H3/cap consequence starts from a supplied cap-BW branch; that branch's modular and source ancestry belongs to its producer and composition claims, with no new PR entering this implication."
+      }
     },
     {
       "claim_id": "OPH-GR-D3-H3-LOCALIZATION",
@@ -438,7 +496,14 @@
       "scope_if_false": "Record-populated observer-facing H3 localization is weakened or reopened; the cap-normal chart theorem, gauge reconstruction, and Einstein branch do not automatically fall.",
       "status": "conditional_theorem",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This conditional localization lemma uses its own calibrated cap-response, compactness, observability, error, and gap hypotheses and stops before any physical-spacetime attachment."
+      }
     },
     {
       "claim_id": "OPH-GR-D3H-GEOMETRY-PRODUCER",
@@ -468,7 +533,14 @@
       "scope_if_false": "The producer branch reopens and the certificate reverts to a declared hypothesis; the conditional BW/Lorentz theorems and unrelated branches survive on their declared forms.",
       "status": "proved_on_receipt_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This producer starts from the repaired normal form supplied by OPH-CONS-D1 and adds geometry-specific receipts; PR-01 is therefore transitive ancestry through that producer claim, not a repeated direct edge."
+      }
     },
     {
       "claim_id": "OPH-GR-D4-NULLNET-STANDARDNESS",
@@ -499,7 +571,14 @@
       "scope_if_false": "The null bridge loses its standardness conclusion; the Einstein branch inherits that boundary.",
       "status": "proved_on_receipt_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This theorem derives null-net consequences from produced cap flow and branch-local standardness and intersection receipts; canonical Einstein supplies are attached at OPH-GR-D5 rather than re-consumed here."
+      }
     },
     {
       "claim_id": "OPH-GR-D4B-EVENT-MANIFOLD",
@@ -531,7 +610,18 @@
       "scope_if_false": "The event-manifold continuation reopens and all corpus surfaces revert to Lorentz-group and observer-frame kinematics language; the kinematic chart and localization theorems survive.",
       "status": "conditional_theorem",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-16"
+        ],
+        "open": [
+          "PR-15",
+          "PR-52"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-GR-FINITE-LOCAL-DOMAIN",
@@ -560,7 +650,14 @@
       "scope_if_false": "The finite local-domain artifact is withdrawn. The conditional event-manifold, gauge, and matter theorems remain subject to their own premises.",
       "status": "attained_on_one_frozen_target_clean_finite_source_capture",
       "claim_class": "emitted_artifact",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row certifies one finite captured artifact from capture-specific seam, chart, and counting data while explicitly making no continuum-manifold, Spin, QFT, or laboratory attachment."
+      }
     },
     {
       "claim_id": "OPH-GR-D4C-LOCAL-STRESS",
@@ -588,7 +685,14 @@
       "scope_if_false": "The stress arrow reopens; the null bridge and event manifold survive on their own receipts.",
       "status": "proved_on_receipt_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This component constructs the local stress and weak-Ward package from gravity-lane receipts, thereby helping realize later PR-24 and PR-25 composition inputs rather than importing them."
+      }
     },
     {
       "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE",
@@ -617,7 +721,14 @@
       "scope_if_false": "The entropy bridge and its generalized-entropy interface support fail.",
       "status": "proved_finite_plus_receipt_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This component proves finite entropy and first-law identities from local optimizer, central-interface, and edge-normalization data, supplying content later bundled in PR-23 and PR-26 rather than consuming those rows."
+      }
     },
     {
       "claim_id": "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
@@ -654,7 +765,14 @@
       "scope_if_false": "The absolute form degrades to per-component constancy; the first-variation identity survives.",
       "status": "proved_on_receipt_branch",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is the detailed receipt-level theorem behind OPH-GR-D5; PR-23 through PR-28 belong to that umbrella composition, while this row spells out its internal branch conditions, so its registered ancestry is transitive."
+      }
     },
     {
       "claim_id": "OPH-GR-E2E-BRANCH-ENTRY",
@@ -703,7 +821,14 @@
       "claim_class": "branch_entry",
       "gates": [
         729
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This entry composes premise-bearing D3 through D5 components; its only added condition is simultaneous realized-branch nonemptiness, which is not a canonical PR row, so existing PR ancestry remains transitive."
+      }
     },
     {
       "claim_id": "OPH-GR-D6-CAPACITY",
@@ -753,7 +878,14 @@
       "gates": [
         736,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "Its antecedents are capacity-constructor receipts outside the canonical PR set, and it treats N symbolically without selecting the proposed parameter in PR-17 or invoking the screen-electroweak bridge PR-51."
+      }
     },
     {
       "claim_id": "OPH-GR-D6-READBACK-NOGO",
@@ -791,7 +923,15 @@
       "scope_if_false": "Only the affected no-go control falls; a physical direct capacity map requires the complete capacity-indexed A1-A3 public-checkpoint and code receipt.",
       "status": "proved_no_go",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [],
+        "boundary": [
+          "PR-51"
+        ]
+      }
     },
     {
       "claim_id": "OPH-GR-D6-A5-FINITE-CONTROL",
@@ -820,7 +960,14 @@
       "scope_if_false": "The finite A5 control reopens. The D=24 fixed-cutoff packet and the general conditional capacity theorems are separate.",
       "status": "finite_control_closed_physical_N_closure_false_for_this_packet",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is an implementation-dependence control for a bounded A5 software packet and explicitly denies physical N closure, so it consumes neither PR-17 nor PR-51."
+      }
     },
     {
       "claim_id": "OPH-GR-D6-HORIZON-RECORD",
@@ -853,7 +1000,15 @@
         729,
         736,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+      "consumed": [],
+      "open": [
+        "PR-42"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-GR-DS-MU2-IDENTITY",
@@ -880,7 +1035,14 @@
       "scope_if_false": "Only the standard pure de Sitter Killing-horizon class and downstream statements importing this identity are reopened. Non-pure-de-Sitter backgrounds and modified shock operators lie outside the tested class. The finite entropy and capacity-transfer algebra remain separate.",
       "status": "exact_pure_de_Sitter_mu_squared_equals_lambda_one_identity",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a pure algebraic identity conditional on a supplied de Sitter shock equation and expressly omits any OPH screen or physical attachment."
+      }
     },
     {
       "claim_id": "OPH-GR-DS-CAPACITY-TRANSFER",
@@ -908,7 +1070,14 @@
       "scope_if_false": "The affected finite positive-sector, positive-real relaxation, or uniform-transfer identity is retracted. Nonuniform transfer laws, alternative entropy functionals, and dimension-changing carrier dynamics lie outside the tested class. The pure de Sitter mass identity and graph spectrum remain separately assessable.",
       "status": "exact_finite_entropy_and_admissible_transfer__exact_analytic_gradient_Hessian_and_monotone_interpolation__no_unconstrained_interior_maximum",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row proves finite entropy and analytic-calculus identities for an abstract capacity partition; horizon, gravity, and physical-screen identifications are separate downstream attachments."
+      }
     },
     {
       "claim_id": "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT",
@@ -941,7 +1110,16 @@
       "gates": [
         729,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+      "consumed": [],
+        "open": [
+          "PR-42",
+          "PR-52"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM",
@@ -971,7 +1149,14 @@
       "gates": [
         729,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The claim consumes the specialist de-Sitter shock premises DS-GAUGE and DS-LAPLACIAN, which are not rows in PR-01 through PR-57; it does not use the finite-carrier field attachment PR-53 or Standard Model gauge-action attachment PR-54."
+      }
     },
     {
       "claim_id": "OPH-REPAIR-SHOCK-DOMAIN-BOUNDARY",
@@ -996,7 +1181,14 @@
       "scope_if_false": "Only the stated fixed-sector domain boundary is revised. Separately typed dimension-changing repair or shock generators remain admissible escape routes. No entropy, pure de Sitter mass, or graph-spectrum identity follows from that revision.",
       "status": "fixed_sector_repair_generator_excludes_dimension_changing_shocks_without_typed_extension",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a type and domain boundary for a supplied fixed-sector generator and neither assumes nor rules out a physical dimension-changing extension, so no canonical PR enters."
+      }
     },
     {
       "claim_id": "OPH-COSMO-SCREEN-SPECTRUM",
@@ -1040,7 +1232,14 @@
       "gates": [
         736,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The dimensionless P coordinate is inherited through the explicit OPH-Q-PN-CLOSURE dependency-graph parent rather than re-consumed here; the remaining scale, source, freezeout, and radial hypotheses are paper-local source-DAG interfaces outside the canonical PR set."
+      }
     },
     {
       "claim_id": "OPH-WZ-STRICT-1L-POLE-MAP",
@@ -1079,10 +1278,21 @@
       "claim_class": "conditional_implication",
       "gates": [
         736,
-        738,
         743,
         745
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-Q1-LOCAL-G6",
@@ -1110,7 +1320,19 @@
         730,
         743,
         745
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION",
@@ -1137,7 +1359,16 @@
       "gates": [
         730,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-47",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS",
@@ -1164,7 +1395,15 @@
       "gates": [
         730,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-Q3-BV-RESTORATION",
@@ -1191,7 +1430,15 @@
       "gates": [
         730,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-Q4-OS-OBSERVABLE-SECTOR",
@@ -1218,7 +1465,15 @@
       "gates": [
         730,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-Q4-RESONANCE-CONTINUATION",
@@ -1247,7 +1502,15 @@
         730,
         736,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SCREEN-ECHOSAHEDRAL-SELECTOR",
@@ -1284,7 +1547,14 @@
       "scope_if_false": "The echosahedral source-selector theorem and its use in the finite A5 branch fall. Generic observer-patch, consensus, relativity, and independently assumed icosahedral calculations are assessed separately.",
       "status": "operational_counting_and_dynamic_cost_exact_in_named_realization__unit_split_and_incidence_outputs_exact_on_declared_carrier",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This named-realization theorem uses declared carrier, counting, cost, and event-machine data that are not PR rows and explicitly stops before the physical gauge-current lift."
+      }
     },
     {
       "claim_id": "OPH-A5-PRIMITIVE-PORT-SPIN6",
@@ -1329,7 +1599,16 @@
         733,
         736,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-A5-CARRIER-CLASS-DISPERSION-BAND",
@@ -1365,7 +1644,14 @@
       "scope_if_false": "The class-band theorem and its widened kill surface fall. The FZ-11 and FZ-12 branch predictions are assessed by their own claims and custody rules. The universality and fixed-point packets are assessed by their own exact identities.",
       "status": "exact_class_band_certified__physical_branch_premises_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a theorem over a declared positive-cosine kinetic class, with all physical-sector and comparison attachments explicitly deferred to the owning branch predictions."
+      }
     },
     {
       "claim_id": "OPH-POSITIVE-COSINE-FREQUENCY-CONTRACTION",
@@ -1395,7 +1681,14 @@
       "scope_if_false": "Failure retracts the global auxiliary-frequency contraction or the affected frozen-support binding. The carrier-class Taylor coefficient theorem, immutable FZ payloads, and wider OPH framework remain separately assessable. An open physical attachment blocks phenomenological use and is not a mathematical counterexample.",
       "status": "exact_global_auxiliary_frequency_contraction_attained__physical_propagation_and_comparison_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a pure tight-frame and cosine-symbol Lipschitz theorem; physical frequency, clock, field, frame, scale, detector, and comparison semantics are excluded and owned by downstream PR-15, PR-22, and PR-53 consumers."
+      }
     },
     {
       "claim_id": "OPH-TIME-ORDER-TYPE-LEDGER",
@@ -1422,7 +1715,14 @@
       "scope_if_false": "Only the type-safety or affine-gauge boundary falls. No spacetime, modular, thermodynamic, or physical-clock theorem is inferred from this ledger.",
       "status": "exact_time_order_type_ledger_attained__physical_time_realization_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a Lean type-separation and affine-regraduation boundary rather than a construction or calibration of physical time, leaving PR-15 and PR-52 to downstream realization claims."
+      }
     },
     {
       "claim_id": "OPH-BOUNDED-OBSERVER-TIME-CALIBRATION",
@@ -1456,7 +1756,14 @@
       "scope_if_false": "Only the bounded observer-time gauge, conditional affine realization, or public comparison theorem falls. C1/C2 algebraic Lorentz geometry, the A1 type ledger, Einstein dynamics, physical clocks, and every frozen prediction remain separately assessed.",
       "status": "exact_bounded_conditional_time_packet_attained__source_physical_clock_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This bounded implication assumes a supplied atlas, history, and clock correspondence and proves only conditional clock algebra; source generation, physical realization, refinement, and SI calibration are separate downstream attachments."
+      }
     },
     {
       "claim_id": "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
@@ -1486,7 +1793,15 @@
       "scope_if_false": "Only the finite public-algebra representation or sharp no-cloning theorem falls. The mixed-state adapter, physical record selection, and every phenomenological claim remain separately assessed.",
       "status": "exact_public_record_algebra_and_sharp_no_cloning_attained__mixed_broadcast_physics_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-CONSENSUS-TOWER-INTERFACE",
@@ -1514,7 +1829,15 @@
       "scope_if_false": "Only the structural tower interface or constant adaptor falls. No source realization, physical clock, causal net, geometry, continuum theory, or frozen prediction is inferred from this claim.",
       "status": "exact_consensus_tower_interface_and_constant_adaptor_attained__nonconstant_source_realization_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-PUBLICIZATION-DYNAMICS-FINITE",
@@ -1552,7 +1875,17 @@
       "scope_if_false": "Only the finite publicization packet falls. No physical channel, clock, entropy, locality, or prediction claim follows from this package without its separate interfaces.",
       "status": "exact_publicization_packet_attained__cptp_attained_physical_attachments_unclaimed",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
@@ -1591,7 +1924,15 @@
       "scope_if_false": "Only the attained finite B3 packet falls. Source dynamics, physical time, and every frozen prediction remain separately assessed.",
       "status": "finite_dichotomy_attained__central_blocks_and_stone_converse_closed",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-43"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-QUANTUM-LIMITATION-SUITE",
@@ -1629,7 +1970,15 @@
       "claim_class": "conditional_implication",
       "gates": [
         730
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-EXTERIOR-COMPONENT-BRIDGE",
@@ -1662,11 +2011,21 @@
       "claim_class": "conditional_implication",
       "gates": [
         734
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-12"
+        ],
+        "open": [
+          "PR-47"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-BORN-FRAME-RANK-GAP",
-      "statement": "The two available twelve-port objects have exact but different finite probability content. The twelve declared central port atoms form one classical context: normalized nonnegative weights form an eleven-simplex and determine a unique state on the commutative algebra C^12, but the same diagonal weights do not determine a density matrix in a separately supplied ambient M12 algebra. The declared binary-icosahedral qubit adapter instead has six disjoint antipodal binary contexts. Context-independent finite additivity on those contexts has affine dimension six. Its trace-one Hermitian/Born slice has affine dimension three and is characterized exactly over Q(sqrt(5)) by three independent golden-ratio relations. The Hermitian and density representation is unique whenever it exists, but an exact unit-interval additive weight has no Hermitian representation, and a second represented unit-interval weight has a nonpositive unique matrix. Hence positivity and additivity on only these twelve projectors do not force a density representation. A stronger exact countermodel on the full C1 celestial sphere shows that F(n)=(1+n_z^3)/2 is continuous, lies in [0,1], and obeys F(-n)=1-F(n), yet is not affine/Born. Conversely, once affinity is supplied, probability bounds on any dense set extend to the sphere and force the coefficient into the closed unit ball. The full finite-effect theorem separately proves that every normalized nonnegative valuation additive on all coexisting matrix-effect sums is the Born weight of a unique density matrix, but the declared finite web does not earn that premise. Its unsharp trine excludes the z-cubic response, while the exact transverse response F_y(n)=(1+n_y^3)/2 defines a probability-valued normalized noncontextual assignment on the whole declared web and is non-affine; therefore the declared FiniteBuschGleasonInterface is false. The source-attached algebraic context web obtained by applying the declared two-dimensional S3 representation to source-realized gauge labels is also not tomographically complete: the distinct pure Pauli-Y states have weight one half on every diagonal and real S3-conjugated projector candidate, while a missing complex Y projector distinguishes them exactly. For the two source-attached algebraic projector candidates P and Q, I/2-(2 sqrt(3)/3)i(QP-PQ) is exactly that missing positive Pauli-Y projector, and the lifted three-effect frame separates every fixed-trace 2-by-2 matrix. Yet closure under real scaling, sums, complements, and real Kraus pullbacks remains real symmetric, stays blind to the opposite Pauli-Y states, and cannot produce the phase lift. The algebraic complex direction is therefore an exact target, not a source operation, instrument, outcome, or public receipt. The ambiguity among the two candidate phase completions is exactly a conjugation orbit: entrywise conjugation preserves states, effects, and events, equals transposition on Hermitian matrices, and simultaneous conjugation of state and effect preserves the real Born weight; state-only blindness requires a conjugation-fixed effect; it fixes the complexified real web pointwise, and exchanges the two candidates, so every conjugation-fixed frame conflates each state with its conjugate. This bounds the web's ambiguity from below; the full Pauli-Y coordinate, magnitude included, is separately hidden. A post-hoc deterministic recount on data from a run executed under an unrelated, locally hash-pinned B12 contract gives an asymmetric raw-count table: the designated pair 3->4 counts 1343 forward and 0 backward, the designated cycle (3,4,5) has forward product 1239691068 against backward product 0, kernel decides certify the unique maximizing orbits and lexicographically least tie breaks, and the exact row-normalized selected-cycle products are 9391599/57188378 and 0. Window reversal transposes the table by ordered recounting, while a synthetic symmetric count table makes the comparison degenerate. Neither the statistic nor its designation rule was preregistered, and the payload marks it ineligible as validation. Under a declared typed convention transporting the bit onto the two-element completion torsor when that condition holds, the selected completion coincides with the algebraic phase lift, the frame completed by either torsor element identifies every certified state, and the finite Busch-Gleason theorem composes: every additive effect valuation is represented by a state that the three oriented weights pin uniquely. The transport is a declared convention rather than a theorem, the opposite pairing is equally admissible, and the orientation is a post-hoc diagnostic on one bounded run rather than a source-selected rule, validation receipt, or physical arrow-of-time claim. Live issue #730 tracks the missing source-earned phase-sensitive, complex-tomographically-complete effect/instrument web and an operational coarse-graining or equivalence theorem deriving full noncontextual additivity; frequencies validate such an instrument but do not create the universal valuation law.",
+      "statement": "The two available twelve-port objects have exact but different finite probability content. The twelve declared central port atoms form one classical context: normalized nonnegative weights form an eleven-simplex and determine a unique state on the commutative algebra C^12, but the same diagonal weights do not determine a density matrix in a separately supplied ambient M12 algebra. The declared binary-icosahedral qubit adapter instead has six disjoint antipodal binary contexts. Context-independent finite additivity on those contexts has affine dimension six. Its trace-one Hermitian/Born slice has affine dimension three and is characterized exactly over Q(sqrt(5)) by three independent golden-ratio relations. The Hermitian and density representation is unique whenever it exists, but an exact unit-interval additive weight has no Hermitian representation, and a second represented unit-interval weight has a nonpositive unique matrix. Hence positivity and additivity on only these twelve projectors do not force a density representation. A stronger exact countermodel on the full C1 celestial sphere shows that F(n)=(1+n_z^3)/2 is continuous, lies in [0,1], and obeys F(-n)=1-F(n), yet is not affine/Born. Conversely, once affinity is supplied, probability bounds on any dense set extend to the sphere and force the coefficient into the closed unit ball. The full finite-effect theorem separately proves that every normalized nonnegative valuation additive on all coexisting matrix-effect sums is the Born weight of a unique density matrix, but the declared finite web does not earn that premise. Its unsharp trine excludes the z-cubic response, while the exact transverse response F_y(n)=(1+n_y^3)/2 defines a probability-valued normalized noncontextual assignment on the whole declared web and is non-affine; therefore the declared FiniteBuschGleasonInterface is false. The source-attached algebraic context web obtained by applying the declared two-dimensional S3 representation to source-realized gauge labels is also not tomographically complete: the distinct pure Pauli-Y states have weight one half on every diagonal and real S3-conjugated projector candidate, while a missing complex Y projector distinguishes them exactly. For the two source-attached algebraic projector candidates P and Q, I/2-(2 sqrt(3)/3)i(QP-PQ) is exactly that missing positive Pauli-Y projector, and the lifted three-effect frame separates every fixed-trace 2-by-2 matrix. Yet closure under real scaling, sums, complements, and real Kraus pullbacks remains real symmetric, stays blind to the opposite Pauli-Y states, and cannot produce the phase lift. The algebraic complex direction is therefore an exact target, not a source operation, instrument, outcome, or public receipt. The ambiguity among the two candidate phase completions is exactly a conjugation orbit: entrywise conjugation preserves states, effects, and events, equals transposition on Hermitian matrices, and simultaneous conjugation of state and effect preserves the real Born weight; state-only blindness requires a conjugation-fixed effect; it fixes the complexified real web pointwise, and exchanges the two candidates, so every conjugation-fixed frame conflates each state with its conjugate. This bounds the web's ambiguity from below; the full Pauli-Y coordinate, magnitude included, is separately hidden. A post-hoc deterministic recount on data from a run executed under an unrelated, locally hash-pinned B12 contract gives an asymmetric raw-count table: the designated pair 3->4 counts 1343 forward and 0 backward, the designated cycle (3,4,5) has forward product 1239691068 against backward product 0, kernel decides certify the unique maximizing orbits and lexicographically least tie breaks, and the exact row-normalized selected-cycle products are 9391599/57188378 and 0. Window reversal transposes the table by ordered recounting, while a synthetic symmetric count table makes the comparison degenerate. Neither the statistic nor its designation rule was preregistered, and the payload marks it ineligible as validation. Under a declared typed convention transporting the bit onto the two-element completion torsor when that condition holds, the selected completion coincides with the algebraic phase lift, the frame completed by either torsor element identifies every certified state, and the finite Busch-Gleason theorem composes: every additive effect valuation is represented by a state that the three oriented weights pin uniquely. The transport is a declared convention rather than a theorem, the opposite pairing is equally admissible, and the orientation is a post-hoc diagnostic on one bounded run rather than a source-selected rule, validation receipt, or physical arrow-of-time claim. Issue #730 owns the missing source-earned phase-sensitive, complex-tomographically-complete effect/instrument web and an operational coarse-graining or equivalence theorem deriving full noncontextual additivity; frequencies validate such an instrument but do not create the universal valuation law.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "exact_bounded_finite_frame_rank_gap_no_gos_and_algebraic_phase_lift_boundary",
       "phase_lift_boundary": "For the two source-attached algebraic projector candidates P and Q obtained through the declared two-dimensional S3 representation, I/2-(2 sqrt(3)/3)i(QP-PQ) is exactly the missing +Y projector. The three effects P, Q, +Y separate every fixed-trace 2-by-2 matrix. A generous closure under real scaling, sums, complements, and real Kraus pullbacks remains real symmetric, is blind to the opposite Pauli-Y states, and cannot produce the phase lift. This identifies the minimal algebraic complex direction but is not a source operation, instrument, or outcome receipt.",
@@ -1719,7 +2078,18 @@
       "phase_lift_falsifier": "The bounded phase-lift packet fails if I/2-(2 sqrt(3)/3)i(QP-PQ) is not the +Y projector, the lifted fixed-trace frame is noninjective, the real closure produces a complex phase effect or distinguishes the Pauli-Y pair, a pinned payload/source hash changes unnoticed, or fabricated rotated or phase outcome receipts pass.",
       "status": "exact_bounded_rank_gap_and_finite_web_no_gos__algebraic_phase_lift_and_fixed_trace_tomography_attained__conjugation_orbit_gauge_attained__post_hoc_raw_count_orientation_diagnostic_only__source_phase_instrument_operational_additivity_and_fresh_validation_missing",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-03"
+        ],
+        "open": [
+          "PR-04"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-THERMO-FOUR-LAW-PACKAGE",
@@ -1779,7 +2149,18 @@
       "claim_class": "conditional_implication",
       "gates": [
         732
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-07",
+          "PR-15"
+        ],
+        "open": [
+          "PR-08"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-THERMO-SOURCE-REALIZATION-AUDIT",
@@ -1813,7 +2194,15 @@
       "scope_if_false": "Only this source-matrix audit and its scheduling conclusion fall. The exact finite four-law package and every frozen prediction row remain separately assessable.",
       "status": "bounded_current_artifact_linear_intertwiner_and_deterministic_pushforward_no_gos_attained__nonreversible_h_theorem_probe_only__replacement_source_and_physical_realization_open",
       "claim_class": "empirical_implementation",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [],
+        "boundary": [
+          "PR-07"
+        ]
+      }
     },
     {
       "claim_id": "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
@@ -1848,11 +2237,20 @@
       "gates": [
         728,
         732
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-07",
+          "PR-15"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-LOCALITY-NOSIGNALLING",
-      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel. A declared rich-fibre adapter conditionally attains exact finite coverage, but its source payload supplies only window/class labels and its nonunital matrix corners are not tensor factors. The five-module E1 continuation adds a substantial conditional packet: post-hoc transcribed counted transitions and diagonal field projectors generate each rich-observer matrix algebra; on a separately declared Cartesian joint carrier the two lifts are exact commuting factors and the left checkpoint pinch consumes the B4 partial-trace helper; a conditional-expectation diamond has coverage and transports to one constant A3 stage. The source does not select the Cartesian carrier, region map, or slot split, and the designated full supports overlap. An exact nonzero correlation with both slot partial traces zero proves that the two slot expectations are not jointly injective, so coverage does not supply unique gluing; no positive same-witness CP-net gluing or nonconstant source realization is proved. Closed E6 issue #712 consumes the older net and does not own this residual. Gate #728 is live. Source-produced channel semantics and adaptive scheduling belong to #728, physical clocks to #732, and continuum causal/time-slice structure to #730.",
+      "statement": "For the concrete OPH localRepair, every fixed exogenous repair word of length n has an n-fold closed-neighborhood dependency upper bound: agreement on that grown region forces agreement of the final readout, and changing one initial record outside it has no effect on the region. Separately, on a named finite bipartite split, a row-normalized real map on the first factor preserves the second marginal of any signed joint array, and a Kraus-complete local matrix family preserves the partial trace over the acted factor. These are finite combinatorial and algebraic statements. They do not prove a minimal cone, influence reaching its boundary, an adaptive or globally state-dependent scheduler bound, graph-radius nR, physical distance or speed, positivity and probability normalization of the classical arrays, an OPH region-to-product or tensor-factor map, spacelike separation, or a laboratory channel. A declared rich-fibre adapter conditionally attains exact finite coverage, but its source payload supplies only window/class labels and its nonunital matrix corners are not tensor factors. The five-module E1 continuation adds a substantial conditional packet: post-hoc transcribed counted transitions and diagonal field projectors generate each rich-observer matrix algebra; on a separately declared Cartesian joint carrier the two lifts are exact commuting factors and the left checkpoint pinch consumes the B4 partial-trace helper; a conditional-expectation diamond has coverage and transports to one constant A3 stage. The source does not select the Cartesian carrier, region map, or slot split, and the designated full supports overlap. An exact nonzero correlation with both slot partial traces zero proves that the two slot expectations are not jointly injective, so coverage does not supply unique gluing; no positive same-witness CP-net gluing or nonconstant source realization is proved. Closed E6 issue #712 consumes the older net and does not own this residual. Issue #728 owns the remaining source attachment. Source-produced channel semantics and adaptive scheduling belong to #728, physical clocks to #732, and continuum causal/time-slice structure to #730.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "exact_finite_fixed_schedule_locality_helpers_with_physical_attachment_open",
       "assumptions": [
@@ -1887,7 +2285,17 @@
       "claim_class": "conditional_implication",
       "gates": [
         728
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-44"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-ADAPTIVE-SCHEDULER-LOCALITY-HELPER",
@@ -1916,11 +2324,21 @@
       "claim_class": "conditional_implication",
       "gates": [
         728
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-44"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
-      "statement": "On a finite history type, a supplied positive normalized exponential tilt with the displayed moment match obeys the finite information-projection Pythagorean and minimizer identities; supplied modes minimize the effective action, and normalized inverse-noise mass on every strict nonminimum tends to zero. Separately, real single-site minimality implies the scalar discrete Euler--Lagrange equation, differentiable invariance transports the scalar Noether momentum, and a finite chain carries a constant current under the stated premises. No finite real-path family contains every real single-site variation; composition with the real calculus requires the certified undercut receipt, which has an exact witness and failing control. For a strictly positive normalized initial law and strictly positive finite Markov kernel, the path law is an exponential tilt of the step-uniform path reference by its log-transition action, with the exact additive-constant and multiplier-rescale gauge. Multiplier one is the canonical bare-action representative and is unique for a nonconstant path action; a constant action leaves it invisible after normalization. The committed binary packet realizes this representation but the repair-count action does not. Its canonical bilinear real extension has no global velocity solver, while the family L_a=L_0+(a/2)y(y-1) agrees on every binary history and yields distinct strictly convex Legendre--Hamilton systems for positive a, so the finite law does not select an off-alphabet curvature. Independent target-scrambling characterizes the uniform transition kernel; ordinary simultaneous relabeling does not. Conditional resampling of a supplied trivial visible datum under a supplied counting reference also equals that uniform kernel, but this identity does not source-select either input, an initial path law, or the complete reference: positive rescalings give the same kernel and two distinct normalized initial laws give distinct path references with the same transition kernel. Two exact positive normalized tilts of the committed chain at distinct weights have different mean actions, establishing two-point multiplier sensitivity rather than nonidentifiability. The matching quadratic is strictly increasing on the positive exponential-parameter ray, so exactly one positive parameter matches the supplied empirical target. The constraint observable and level remain declared inputs; source selection of that target is open. Finally, a concave three-record example is stationary but not minimal, and a nonstationary variation has larger positive Gibbs weight at every positive multiplier. This is only a counterexample to identifying every stationary history with a positive-Gibbs mode or minimizer; it does not exclude constrained saddles, complex or signed stationary phase, source-selected real enrichment, or refinement limits. Gate #731 is live for a compositional source-derived history and complete reference, selection of the real enrichment and stationary-phase mechanism, and physical action, clock, amplitude, field, continuum, and observable-current attachments.",
+      "statement": "On a finite history type, a supplied positive normalized exponential tilt with the displayed moment match obeys the finite information-projection Pythagorean and minimizer identities; supplied modes minimize the effective action, and normalized inverse-noise mass on every strict nonminimum tends to zero. Separately, real single-site minimality implies the scalar discrete Euler--Lagrange equation, differentiable invariance transports the scalar Noether momentum, and a finite chain carries a constant current under the stated premises. No finite real-path family contains every real single-site variation; composition with the real calculus requires the certified undercut receipt, which has an exact witness and failing control. For a strictly positive normalized initial law and strictly positive finite Markov kernel, the path law is an exponential tilt of the step-uniform path reference by its log-transition action, with the exact additive-constant and multiplier-rescale gauge. Multiplier one is the canonical bare-action representative and is unique for a nonconstant path action; a constant action leaves it invisible after normalization. The committed binary packet realizes this representation but the repair-count action does not. Its canonical bilinear real extension has no global velocity solver, while the family L_a=L_0+(a/2)y(y-1) agrees on every binary history and yields distinct strictly convex Legendre--Hamilton systems for positive a, so the finite law does not select an off-alphabet curvature. Independent target-scrambling characterizes the uniform transition kernel; ordinary simultaneous relabeling does not. Conditional resampling of a supplied trivial visible datum under a supplied counting reference also equals that uniform kernel, but this identity does not source-select either input, an initial path law, or the complete reference: positive rescalings give the same kernel and two distinct normalized initial laws give distinct path references with the same transition kernel. Two exact positive normalized tilts of the committed chain at distinct weights have different mean actions, establishing two-point multiplier sensitivity rather than nonidentifiability. The matching quadratic is strictly increasing on the positive exponential-parameter ray, so exactly one positive parameter matches the supplied empirical target. The constraint observable and level remain declared inputs; source selection of that target is open. Finally, a concave three-record example is stationary but not minimal, and a nonstationary variation has larger positive Gibbs weight at every positive multiplier. This is only a counterexample to identifying every stationary history with a positive-Gibbs mode or minimizer; it does not exclude constrained saddles, complex or signed stationary phase, source-selected real enrichment, or refinement limits. Issue #731 owns the remaining compositional source-derived history and complete reference, selection of the real enrichment and stationary-phase mechanism, and physical action, clock, amplitude, field, continuum, and observable-current attachments.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "exact_conditional_finite_history_helpers_with_formal_bridge_obstruction_and_real_enrichment_nonidentifiability",
       "reference_normal_form": "Among row-stochastic kernels on a finite nonempty alphabet, invariance under every independent relabeling of transition targets at fixed source, row-constant transition weight, and constant log-transition step action are each equivalent to the uniform kernel. Ordinary simultaneous source-target relabeling is insufficient. Conditional resampling of the supplied trivial datum under the supplied counting reference realizes the uniform transition kernel, but Axiom 3 does not select those inputs. Constant rescalings leave the kernel unchanged, and the transition kernel does not determine the initial law or complete path reference. This is a conditional realization and gauge normal form, not source selection.",
@@ -1966,7 +2384,19 @@
       "claim_class": "conditional_implication",
       "gates": [
         731
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-05",
+          "PR-06",
+          "PR-45"
+        ],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-A5-SEAM-CURRENT-EDGE30",
@@ -2050,13 +2480,25 @@
       "gates": [
         733,
         736,
-        738,
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-20",
+          "PR-21",
+          "PR-22"
+        ],
+        "open": [
+          "PR-15",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
-      "statement": "On the existing exact FZ-12 mathematical modal packet, let k be a nonzero three-coordinate momentum, let omega_a(k)^2=Lambda_a(k) be its committed nonnegative scalar spatial symbol, and complexify the momentum-orthogonal fibre. The Fourier-modal operator D_(a,k)=i[omega_a(k)/sqrt(k.k)](k cross -) has zero modal divergence and satisfies D_(a,k)^2=Lambda_a(k) on that fibre. Hence the opposite-sign paired generator G(E,B)=(D B,-D E) preserves both transverse constraints and squares to -Lambda_a(k) on both amplitudes. The same-sign mutation G_+(E,B)=(D B,D E) instead squares to +Lambda_a(k), and fails the oscillator equation whenever the tested spatial action is nonzero. This is an exact modal/pseudodifferential factorization of the already committed oscillator, not a derivation of physical Maxwell theory: the momentum-dependent multiplier supplies no local position-space operator, real field or opposite-momentum reality assembly, electric/magnetic identification, source-produced dynamics, U(1) potential or gauge quotient, Maxwell action, bridge to the rational Gauss receipts, conserved physical current or source coupling, Lorentz covariance, continuum control, or laboratory readout. It removes no registered premise, emits no frozen prediction, and does not close issue #733.",
+      "statement": "On the exact FZ-12 mathematical modal packet, let k be a nonzero three-coordinate momentum, let omega_a(k)^2=Lambda_a(k) be its committed nonnegative scalar spatial symbol, and complexify the momentum-orthogonal fibre. The Fourier-modal operator D_(a,k)=i[omega_a(k)/sqrt(k.k)](k cross -) has zero modal divergence and satisfies D_(a,k)^2=Lambda_a(k) on that fibre. Hence the opposite-sign paired generator G(E,B)=(D B,-D E) preserves both transverse constraints and squares to -Lambda_a(k) on both amplitudes. The same-sign mutation G_+(E,B)=(D B,D E) instead squares to +Lambda_a(k), and fails the oscillator equation whenever the tested spatial action is nonzero. This is an exact modal/pseudodifferential factorization of the committed oscillator, not a derivation of physical Maxwell theory: the momentum-dependent multiplier supplies no local position-space operator, real field or opposite-momentum reality assembly, electric/magnetic identification, source-produced dynamics, U(1) potential or gauge quotient, Maxwell action, bridge to the rational Gauss receipts, conserved physical current or source coupling, Lorentz covariance, continuum control, or laboratory readout. It removes no registered premise and emits no frozen prediction; local field, gauge-action, source-current, continuum, and readout attachments remain unresolved.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "exact_conditional_modal_factorization_with_physical_Maxwell_boundary",
       "assumptions": [
@@ -2083,7 +2525,16 @@
       "claim_class": "conditional_implication",
       "gates": [
         733
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER",
@@ -2147,7 +2598,19 @@
       "gates": [
         734,
         736
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-09",
+          "PR-10",
+          "PR-11"
+        ],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
@@ -2173,7 +2636,14 @@
       "scope_if_false": "Only the product-adjoint X/Y-channel exclusion and the current classification supporting it are reopened. No general proton-stability or lifetime claim is made.",
       "status": "exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This exact product-adjoint channel exclusion does not consume or constrain the separate proton/EFT/QCD physical-attachment premise PR-57; its own statement explicitly leaves general proton stability and all other baryon-violation mechanisms open."
+      }
     },
     {
       "claim_id": "OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT",
@@ -2216,7 +2686,20 @@
       "gates": [
         734,
         736
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-12"
+        ],
+        "open": [
+          "PR-46",
+          "PR-47",
+          "PR-48",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
@@ -2248,7 +2731,14 @@
       "scope_if_false": "The finite federation/support bridge falls. The local A5 selector and independently assumed support-visible S2 branch are separately assessable.",
       "status": "proved_on_source_bound_nonvacuous_incidence_nerve_and_controlled_oriented_support_tower",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The finite source producer itself emits its repair, readback, and support receipts, so PR-01 and PR-02 are not imported; H3, events, BW/KMS time, scale, and fields are explicitly downstream."
+      }
     },
     {
       "claim_id": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
@@ -2282,7 +2772,14 @@
       "gates": [
         729,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a finite algebraic Gauss and duality precursor on a supplied update, while physical current and stress identification and continuum Ward convergence belong to premise-bearing gravity and QFT compositions."
+      }
     },
     {
       "claim_id": "OPH-GAUGE-D7-D9",
@@ -2323,7 +2820,20 @@
         730,
         734,
         736
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-12"
+        ],
+        "open": [
+          "PR-35",
+          "PR-46",
+          "PR-47",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-QUARK-REGISTER-CLEBSCH",
@@ -2363,7 +2873,15 @@
       "claim_class": "conditional_implication",
       "gates": [
         745
-      ]
+      ],
+      "premise_dependencies": {
+      "classification": "explicit_edges",
+      "consumed": [],
+      "open": [
+        "PR-50"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-KOIDE-CIRCULANT-IDENTITY",
@@ -2398,7 +2916,18 @@
       "gates": [
         736,
         745
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+      "consumed": [
+        "PR-13"
+      ],
+      "open": [
+        "PR-47",
+          "PR-50"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-A5-REAL-AXIS-CABIBBO-NOGO",
@@ -2428,7 +2957,15 @@
       "scope_if_false": "Only the direct identification of Cabibbo with an acute angle between the canonical 31 real three-dimensional icosahedral residual axes is reopened. No conclusion follows for all A5 flavor models, spinorial representations, higher-order breaking, or general overlap geometry.",
       "status": "proved_narrow_no_go_for_direct_Cabibbo_identification_with_31_real_3d_icosahedral_residual_axes",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [],
+        "boundary": [
+          "PR-50"
+        ]
+      }
     },
     {
       "claim_id": "OPH-W5-STABILISER-POTENTIAL-BOUNDARY",
@@ -2463,7 +3000,15 @@
       "gates": [
         736,
         745
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [],
+        "boundary": [
+          "PR-50"
+        ]
+      }
     },
     {
       "claim_id": "OPH-SCREEN-A5-SM-RECOGNITION",
@@ -2519,7 +3064,25 @@
         730,
         734,
         736
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-09",
+          "PR-10",
+          "PR-11",
+          "PR-12",
+          "PR-36"
+        ],
+        "open": [
+          "PR-35",
+          "PR-46",
+          "PR-47",
+          "PR-48",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-GAUGE-KINETIC-HISTORY-BINDING",
@@ -2559,7 +3122,17 @@
       "gates": [
         734,
         735
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-05"
+        ],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SM-ROUTE-IDENTIFICATION",
@@ -2593,7 +3166,18 @@
         734,
         736,
         740
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-35",
+          "PR-46",
+          "PR-47",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
@@ -2622,7 +3206,18 @@
       "scope_if_false": "The exterior representation route falls. The abstract A5 coefficient bracket and unrelated consensus or gravity branches survive.",
       "status": "proved_conditional_representation_witness",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-12"
+        ],
+        "open": [
+          "PR-47",
+          "PR-48"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-Q-PN-CLOSURE",
@@ -2664,7 +3259,20 @@
       "claim_class": "declared_structure",
       "gates": [
         736
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-17",
+          "PR-37"
+        ],
+        "open": [
+          "PR-38",
+          "PR-39",
+          "PR-51"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-Q-N-RESERVE-CANDIDATES",
@@ -2722,7 +3330,16 @@
       "claim_class": "empirical_implementation",
       "gates": [
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-17",
+          "PR-51"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-HIER-EW",
@@ -2762,7 +3379,16 @@
         740,
         742,
         745
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-17",
+          "PR-51"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SCREEN-24-CLOCK-DETERMINANT",
@@ -2792,7 +3418,16 @@
         732,
         736,
         745
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-50"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-SOURCE-DIMENSIONLESS-GAP",
@@ -2821,7 +3456,14 @@
       "scope_if_false": "The finite source-gap claim is withdrawn. The local-domain operator identities and the separate 24-register scaling no-go remain intact.",
       "status": "exact_positive_dimensionless_gap__physical_transition_and_SI_binding_absent",
       "claim_class": "emitted_artifact",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This finite graph certificate proves only a dimensionless spectral gap; physical frequency or mass calibration and Yang-Mills action identification are explicitly absent and belong to downstream PR-15 and PR-54 consumers."
+      }
     },
     {
       "claim_id": "OPH-SCREEN-MODULAR-GEARING",
@@ -2851,7 +3493,17 @@
       "scope_if_false": "The finite modular-gearing carrier theorem falls. The independent finite modular-flow core, BW certificate theorem, screen-register combinatorics, and gauge-current classification require separate audits.",
       "status": "theorem_proved_source_derived_realization_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-07",
+          "PR-15",
+          "PR-42"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-ALPHA-PIXEL",
@@ -2884,7 +3536,20 @@
       "gates": [
         736,
         744
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-17",
+          "PR-37"
+        ],
+      "open": [
+        "PR-14",
+        "PR-38",
+          "PR-39"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-DM-CONT",
@@ -2913,7 +3578,14 @@
       "claim_class": "declared_structure",
       "gates": [
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a resource-deferred phenomenological dark-sector model whose galaxy, transported-stress, and likelihood assumptions lie outside the canonical derivation-premise register."
+      }
     },
     {
       "claim_id": "OPH-YM-GAP",
@@ -2953,7 +3625,15 @@
       "gates": [
         743,
         744
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-CHI-NU",
@@ -2979,7 +3659,14 @@
       "claim_class": "empirical_implementation",
       "gates": [
         742
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a resource-deferred laboratory concept conditional on a separate dark-sector channel and engineering factor, not a claimed core derivation or canonical PR consumer."
+      }
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
@@ -3012,7 +3699,14 @@
       "scope_if_false": "Failure retracts OPH-correct selected-candidate status for the named BD row; the structural BD audit, OPH recovered core, and other string candidates are separate.",
       "status": "resource_deferred__rank_gate_failed_structural_benchmark_only",
       "claim_class": "emitted_artifact",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a fail-closed external string-vacuum benchmark with its own operator, spectrum, moduli, and catalogue gates, outside the canonical OPH derivation-premise set."
+      }
     },
     {
       "claim_id": "OPH-POW-PHOTONIC",
@@ -3039,7 +3733,14 @@
       "scope_if_false": "The hardware enrichment branch falls; no cryptographic break or OPH core theorem is implied.",
       "status": "experimental_protocol",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is an applied SHA-256d hardware test protocol under verifier, blinding, and receipt rules, not a fundamental-physics derivation consuming a canonical PR."
+      }
     },
     {
       "claim_id": "OPH-IBM-GENERATIVE-REPAIR",
@@ -3079,7 +3780,14 @@
         325,
         507,
         512
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is an engineering archive testing a programmed self-reading controller and explicitly does not discriminate OPH from standard quantum mechanics, so it has no core derivation-premise edge."
+      }
     },
     {
       "claim_id": "OPH-THINKING-PATCH",
@@ -3107,7 +3815,14 @@
       "scope_if_false": "The cognitive continuation falls; physical OPH branches are independent.",
       "status": "interpretive_model",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is an interpretive biological continuation whose biological-instantiation assumptions lie outside the core physics premise register."
+      }
     },
     {
       "claim_id": "OPH-PARADISE",
@@ -3131,7 +3846,14 @@
       "scope_if_false": "The meaning-layer essay falls; physics theorem surfaces are unaffected.",
       "status": "speculative_interpretation",
       "claim_class": "declared_structure",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is a speculative ethical and metaphysical interpretation, not a theorem or empirical derivation in the canonical completion program."
+      }
     },
     {
       "claim_id": "OPH-PUBLIC-WORLD-ENDPOINT-FINITE",
@@ -3162,7 +3884,15 @@
       "scope_if_false": "Only the bounded finite A4 quotient and endpoint packet falls. Source realization, cross-regulator naturality, continuum limits, physical spacetime, and every frozen prediction remain separate and are not asserted by this claim.",
       "status": "bounded_finite_conditional_endpoint_attained__source_physical_and_cross_regulator_realization_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-01"
+        ],
+        "open": [],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-CANONICAL-LORENTZ-MODULE",
@@ -3196,11 +3926,18 @@
       "scope_if_false": "Only the intrinsic C1 Lorentz module or its coordinate bridge falls. No physical soldering, clock, spacetime, Einstein dynamics, continuum statement, or frozen prediction is supplied by this claim.",
       "status": "exact_intrinsic_Lorentz_module_and_Einstein_coordinate_bridge_attained__physical_soldering_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This is intrinsic finite-dimensional Lorentz algebra, while observer selection, event-frame soldering, clocks, and physical spacetime attachment are explicitly deferred to the OPH-GR-D4B and PR-52 branch."
+      }
     },
     {
       "claim_id": "OPH-FINITE-CAUSAL-OBSERVER-NET",
-      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, algebraic locality, compatible expectations, covariant refinement, local repairs, and supplied restriction-gluing receipts. Controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. The retained rich-fibre payload supplies four pairwise-disjoint twenty-node windows with exact split-fibre counts. A declared adapter constructs noncommutative block algebras, localized nonunital matrix corners, commuting distinct-window blocks, four-window coverage, unique gluing, and a drop-one control, but its algebra enrichment, region lattice, restrictions, state, and repair are postprocessors and its corners are not regional tensor factors. A five-module continuation adds substantial exact conditional progress. For each rich observer, the star algebra generated by its post-hoc transcribed counted transition operator and diagonal field projectors is the full matrix algebra on its realized alphabet; field separation, step compression, and walk reachability prove generation, and a diagonal-only control proves the transition operator load-bearing. On the separately declared Cartesian carrier for observers 86 and 88, the two lifts are exact commuting matrix factors; the checkpoint-projector Kraus family is complete and its pinch leaves the right marginal invariant through the B4 helper; the right-slot conditional expectation has exact matrix-unit, positivity, trace, fixing, scalarisation, and idempotence receipts. A redesigned CPRegionalNet replaces star-homomorphic restrictions by conditional expectations with membership, fixing, positivity, trace, tower, and joint-coverage laws. The declared pair inhabits a four-region diamond with scalar bottom, two proper slot regions, full top, three nonidentity conditional expectations plus identity at the top, exact slot commutation and coverage, a nonidentity checkpoint pinch fixing the other slot, and an obstruction to a unital algebra map from a matrix factor to scalars. An explicit nonzero off-diagonal correlation has both slot partial traces zero, so the two slot expectations are not jointly injective and coverage does not imply unique gluing. Reindexing transports the diamond to one constant 182-dimensional A3 stage whose public layer is the proper checkpoint partition and whose left region is proper. These theorems do not close E1. The extraction is post-hoc and ineligible as validation; the source does not select the Cartesian joint carrier, region map, or slot split; the designated full supports overlap; no positive same-witness CP-net gluing or descent theorem is supplied; and there is no nonconstant source tower. The uncommitted global-frame exploration supports no no-go, while fully disjoint retained observer pairs are viable. Closed E6 issue #712 consumes the older net and does not own this residual. Gate #728 is live for a source-attached Cartesian or other justified regional construction, coherent CP-net gluing/correlation treatment, and a nonconstant source realization or a genuinely scoped no-go. #728 owns source-produced channel/instrument and adaptive-scheduler provenance, #730 continuum causal/time-slice structure, and #732 physical clocks. The correlation capstone answers the reopening's named residuals on a justified pair: observers 86 and 247 have kernel-checked fully disjoint 96-node supports transcribed from the committed payload, the conditional-expectation diamond is instantiated on their carrier with both factor identifications, and the source-counted joint empirical state (exact rational masses from the 32 aligned joint labels) is certified positive with trace one, has partial traces equal to the marginal empirical states through kernel-checked count marginalisation, differs from the product of its marginals at the freezeout entry, and is mapped by the two regional expectations to the same expectation pair as that product: the on-carrier erasure theorem, so the counted joint state is the marginal-coherent correlation datum the net must carry. The label conventions and the two-observers-as-factors reading stay declared postprocessors; the extraction is post-hoc and ineligible as validation. The nonconstant source realization or its scoped no-go stays open under #728.",
+      "statement": "A FiniteCausalObserverNet is a proof-carrying enrichment of one A3 tower with finite region posets, declared overlaps and disjointness, region-indexed star subalgebras, isotony, algebraic locality, compatible expectations, covariant refinement, local repairs, and supplied restriction-gluing receipts. Controls show that finiteness and isotony do not imply locality, idempotence does not imply remote fixing, and nonseparating restrictions prevent unique gluing. The retained rich-fibre payload supplies four pairwise-disjoint twenty-node windows with exact split-fibre counts. A declared adapter constructs noncommutative block algebras, localized nonunital matrix corners, commuting distinct-window blocks, four-window coverage, unique gluing, and a drop-one control, but its algebra enrichment, region lattice, restrictions, state, and repair are postprocessors and its corners are not regional tensor factors. A five-module continuation adds substantial exact conditional progress. For each rich observer, the star algebra generated by its post-hoc transcribed counted transition operator and diagonal field projectors is the full matrix algebra on its realized alphabet; field separation, step compression, and walk reachability prove generation, and a diagonal-only control proves the transition operator load-bearing. On the separately declared Cartesian carrier for observers 86 and 88, the two lifts are exact commuting matrix factors; the checkpoint-projector Kraus family is complete and its pinch leaves the right marginal invariant through the B4 helper; the right-slot conditional expectation has exact matrix-unit, positivity, trace, fixing, scalarisation, and idempotence receipts. A redesigned CPRegionalNet replaces star-homomorphic restrictions by conditional expectations with membership, fixing, positivity, trace, tower, and joint-coverage laws. The declared pair inhabits a four-region diamond with scalar bottom, two proper slot regions, full top, three nonidentity conditional expectations plus identity at the top, exact slot commutation and coverage, a nonidentity checkpoint pinch fixing the other slot, and an obstruction to a unital algebra map from a matrix factor to scalars. An explicit nonzero off-diagonal correlation has both slot partial traces zero, so the two slot expectations are not jointly injective and coverage does not imply unique gluing. Reindexing transports the diamond to one constant 182-dimensional A3 stage whose public layer is the proper checkpoint partition and whose left region is proper. These theorems do not close E1. The extraction is post-hoc and ineligible as validation; the source does not select the Cartesian joint carrier, region map, or slot split; the designated full supports overlap; no positive same-witness CP-net gluing or descent theorem is supplied; and there is no nonconstant source tower. The uncommitted global-frame exploration supports no no-go, while fully disjoint retained observer pairs are viable. Closed E6 issue #712 consumes the older net and does not own this residual. Issue #728 owns a source-attached Cartesian or other justified regional construction, coherent CP-net gluing/correlation treatment, and a nonconstant source realization or a genuinely scoped no-go. #728 owns source-produced channel/instrument and adaptive-scheduler provenance, #730 continuum causal/time-slice structure, and #732 physical clocks. The correlation capstone answers the reopening's named residuals on a justified pair: observers 86 and 247 have kernel-checked fully disjoint 96-node supports transcribed from the committed payload, the conditional-expectation diamond is instantiated on their carrier with both factor identifications, and the source-counted joint empirical state (exact rational masses from the 32 aligned joint labels) is certified positive with trace one, has partial traces equal to the marginal empirical states through kernel-checked count marginalisation, differs from the product of its marginals at the freezeout entry, and is mapped by the two regional expectations to the same expectation pair as that product: the on-carrier erasure theorem, so the counted joint state is the marginal-coherent correlation datum the net must carry. The label conventions and the two-observers-as-factors reading stay declared postprocessors; the extraction is post-hoc and ineligible as validation. The nonconstant source realization or its scoped no-go stays open under #728.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "substantial_conditional_finite_causal_observer_net_with_rich_fibre_block_and_coverage_packet__source_and_tensor_factor_open",
       "assumptions": [
@@ -3239,7 +3976,20 @@
       "claim_class": "conditional_implication",
       "gates": [
         728
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+      "consumed": [
+        "PR-32",
+        "PR-33",
+        "PR-34",
+        "PR-44"
+      ],
+      "open": [
+        "PR-52"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-HOLONOMY-CHARACTER-PHASE",
@@ -3270,7 +4020,17 @@
       "scope_if_false": "Only the bounded B6 path, phase, control, or cyclic-quantization packet falls. No physical gauge connection, flux, interference experiment, continuum gauge theory, or frozen prediction is asserted by this claim.",
       "status": "bounded_finite_holonomy_and_character_phase_packet_attained__physical_attachment_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-46",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-ALGEBRAIC-EVENT-FRAME-SOLDERING",
@@ -3306,7 +4066,14 @@
       "scope_if_false": "Only the bounded algebraic C2 contract or its candidate source-frame bridge falls. Source event population, certified separation, topology, physical cone and causal attachment, refinement, rods, clocks, physical spacetime, Einstein dynamics, and every frozen prediction remain separate.",
       "status": "bounded_algebraic_event_frame_soldering_attained__source_population_causal_clock_and_physical_attachment_open",
       "claim_class": "conditional_implication",
-      "gates": []
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This proves a bounded algebraic result from supplied setoid, cocycle, coordinate, and frame data; source event population, causality, clock realization, refinement, and physical attachment remain with OPH-GR-D4B and its PR-15, PR-16, and PR-52 edges."
+      }
     },
     {
       "claim_id": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
@@ -3316,8 +4083,7 @@
       "assumptions": [
         "directed_finite_consensus_tower_data",
         "proof_carrying_finite_causal_net_data",
-        "finite_full_private_matrix_block",
-        "pointwise_continuous_public_star_automorphism_group"
+        "finite_full_private_matrix_block"
       ],
       "imported_results": [
         "finite_matrix_Gibbs_KMS_identity",
@@ -3340,7 +4106,16 @@
       "gates": [
         730,
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     },
     {
       "claim_id": "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
@@ -3371,7 +4146,14 @@
       "claim_class": "conditional_implication",
       "gates": [
         743
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The fixed-cutoff group-theoretic obstruction constrains only ordinary convergence of one supplied unitary power sequence; it neither consumes nor delimits PR-54's source gauge-field, current, and action attachment."
+      }
     },
     {
       "claim_id": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
@@ -3401,7 +4183,60 @@
       "claim_class": "conditional_implication",
       "gates": [
         729
-      ]
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-18",
+          "PR-19"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS",
+      "statement": "On any finite directed graph with an integer layer function, a supplied flux and source, a finite resolution depth, the registered layered shell-cardinality law PR-29, shell equidistribution PR-30, and steady sourcing PR-31 imply an exact depth-bounded discrete Gauss law. At every positive layer n not exceeding the depth and for nonzero shell coefficient c, the outward flux per shell edge equals the total layer-zero charge divided by c n^2, and flux times n^2 is shell-independent. The premises are jointly inhabited by an exact three-vertex chain witness. Two global finite-carrier obstructions explain the depth bound: a steady drained source imposed on the whole closed carrier has zero total load, and an n^2 shell-cardinality law imposed at every positive layer forces c=0. A fixed twelve-port bridge identifies the generic regional flux with the committed incidence flux and derives the corresponding steady regional identity. No layer is identified with physical radius, no flux with a gravitational field, and no source with mass density.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "exact_depth_bounded_conditional_discrete_shell_law_with_global_finite_carrier_obstructions",
+      "assumptions": [
+        "declared_layered_shell_cardinality",
+        "declared_layered_shell_equidistribution",
+        "declared_layered_steady_sourcing",
+        "finite_layer_resolution",
+        "nonzero_shell_coefficient"
+      ],
+      "imported_results": [
+        "finite_sum_reindexing",
+        "finite_graph_divergence_bookkeeping",
+        "rational_field_algebra"
+      ],
+      "oph_specific_delta": "The alternative discrete inverse-square route is machine-checked with every load-bearing shell premise named, a nonvacuous finite witness, two exact global obstructions explaining why the carrier must be depth-bounded, and an exact bridge to the committed twelve-port conservation receipt.",
+      "novelty_type": "premise_complete_depth_bounded_discrete_gauss_law_with_finite_carrier_no_gos",
+      "evidence": [
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "Lean/Screen/LayeredDiscreteGauss.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the generic regional divergence identity, depth-bounded charge identity, shell total, inverse-square per-edge formula, scale-free identity, chain witness, global steady-source obstruction, unbounded-shell obstruction, or fixed twelve-port bridge fails under its stated hypotheses.",
+      "scope_if_false": "Only the premise-complete discrete shell precursor and its finite-carrier boundary fall. The continuum shell theorem, completion carrier, Einstein composition, and physical Newtonian identification remain independently assessed.",
+      "status": "exact_depth_bounded_conditional_discrete_shell_law_attained__physical_radius_field_and_mass_identification_unclaimed",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-29",
+          "PR-30",
+          "PR-31"
+        ],
+        "open": [],
+        "boundary": []
+      }
     }
   ]
 }
