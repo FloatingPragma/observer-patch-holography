@@ -69,3 +69,56 @@ Limitations:
 - The simulator's producer-side validate-only path is not itself an independent verifier; this audit used a separate standard-library inventory and arithmetic replay over the retained receipts.
 - No new target data were examined and no predictive row was promoted.
 - The audit reviewed committed Lean theorem statements and dependency surfaces but did not perform a fresh Lean build because this checkout had no configured elan default toolchain.
+
+## AUD-V3-2026-08-13-INTEGRATION
+
+Window: `2026-08-13` through `2026-08-13`. Baseline `68663e9e52a3931c322676a127dd0af144a01de3`; reviewed `289d265fe26bf4383cacbac4629449c88dc3e9b8`; repair `289d265fe26bf4383cacbac4629449c88dc3e9b8`.
+
+Native record pending its origin anchor. It cannot qualify a promotion; its declared post-anchor promotion scope is none.
+
+Independent separated-agent adversarial implementation and scientific-scope audit, including mutation attacks, exact replay, Lean checks, and clean paper and mandatory-suite builds.
+
+The audit reviewed the V3 architecture, audit, observation, predictive-lineage, instrument, premise-queue, claim, postdiction, paper, and theorem changes in commit 289d265fe26bf4383cacbac4629449c88dc3e9b8. It tested whether custody could be rewritten or laundered, checked the bounded Maxwell and fixed-unitary claims against their formal statements, verified that INS-02 remains design-only, and audited downstream README, flagship, book, and generated-surface consistency.
+
+Reviewers:
+
+- **Carson** (`custody_queue_adversary`; Codex GPT-5 family; exact deployment identifier was not exposed): Independent adversarial custody and mutation review
+- **Euclid** (`final_science_audit`; Codex GPT-5 family; exact deployment identifier was not exposed): Independent mathematical, epistemic-status, and cross-surface review
+
+Reviewed rows: OL-A1, OL-B4, OL-F1, OL-F4, OL-H7, OL-I1, OL-I2, OL-I3, OL-K2.
+
+Promotion-qualified rows: none.
+
+| Finding | Severity | Disposition | Owners | Summary |
+| --- | --- | --- | --- | --- |
+| V3-INT-01 | critical | fixed | #726, #738, #741 | Architecture, audit, evidence, frozen-target, and predictive-lineage custody admitted several coherent rewrite or retro-freeze attacks; origin, first-parent, committed-anchor, historical-row, exact-evidence, and pre-comparison guards now reject the reproduced attacks. |
+| V3-INT-02 | boundary | verified_boundary | #733 | The modal Maxwell factorization is an exact Fourier-modal square root of the existing oscillator only; locality, real-field assembly, gauge/action, source, covariance, continuum, and readout remain open and OL-F1 remains partial. |
+| V3-INT-03 | boundary | verified_boundary | #743 | The finite-unitary theorem excludes ordinary convergence of a nontrivial fixed-cutoff direct power sequence but leaves comparison, projected, infinite-dimensional, continuum, open-system, and finite-time scattering routes open; OL-K2 remains owed. |
+| V3-INT-04 | boundary | verified_boundary | #728, #737, #738 | INS-02 separates carrier count from absolute support size and strengthens paired ancestry controls, but is neither frozen nor executed; INS-01 remains the controlling FAILED verdict and OL-A1 remains owed. |
+| V3-INT-05 | high | tracked_open | #727, #739 | The 53-item premise-discharge queue is explicit but not exhaustive: claim premise classification and historical consumer retirement events remain incomplete, so issues #727 and #739 stay open. |
+| V3-INT-06 | boundary | verified_boundary | #733, #737, #743 | Neither bounded theorem merits zero-sum flagship space; the marketing READMEs remain free of detailed negative status, and the existing book statements require no scientific change. |
+
+Historical artifact pins:
+
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tracking/observation_ledger.json`: 43338 bytes, SHA-256 `91d376fdb4d400d4cd59954b3c651914a4783d3c75ccdd71eaa0af457b511eba`, Git blob `0a659fa45266c2530478ffcb9225e307eb86fae1`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tracking/architecture_versions.json`: 4813 bytes, SHA-256 `3d51a4f497eb60748982d83dd28d768274731fe519883d58e454ec2ad4a1dac3`, Git blob `db2d92d41f48ff6ece8352687494cca448249672`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tracking/architecture_replay_index.json`: 61727 bytes, SHA-256 `b1c6f16593a61f1a6eab0bd2cb41e47ea876f02b6a9d56f3cd27fb364bc4a81f`, Git blob `f72b442e48fb29240fa5f50b136cffc43a914213`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:claims/frozen_prediction_architecture_lineages.json`: 7897 bytes, SHA-256 `0cc7be762c5d759e4cad5d28c79de6bb3bde710ad0736f781b11865a0cb2e16a`, Git blob `1ec2c04954bde05467421d6d4be22e7fcfdb9228`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tracking/premise_discharge_queue.json`: 235133 bytes, SHA-256 `418c3d116dd13635d8898151b1f7423ed9123c038ddd45cde7c632a0c1ed92f1`, Git blob `0a247c18338ccb6dedef5ad9d2ddb21272c9821f`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:claims/emergent_instrument_register.json`: 11102 bytes, SHA-256 `40e99c06a4ae20bfd6aeaae7a1bac13ddb5bd47ba2afe2ec0bd8af93e176c4de`, Git blob `3fbee434280743c690e32e3a6875ab2b460539d8`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:claims/claim_registry.yaml`: 350339 bytes, SHA-256 `766551a345b6015228970e6b67c9e4def6fd6e71d0740c2d89b756810644b3e7`, Git blob `664308af0bb57b73c9927f66326121412c1c5546`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tools/build_architecture_versions.py`: 36255 bytes, SHA-256 `dc3e2ab940b0d6ce8ff731a4ca9b5a1c717215f402cc6ed7aa7898962a5dcfa1`, Git blob `107daa51a952402dc58c941b994e5f552b60e63a`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tools/build_audit_custody.py`: 34579 bytes, SHA-256 `4cab336101c7b20901ccabc4569361b4bcd9fb8ccda6fc668b75b8a295e72a50`, Git blob `7f14c0851950bbec44932e82d2d367bb9addad72`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:tools/prediction_lineage_custody.py`: 31150 bytes, SHA-256 `21d8812111bafa8cd9df8121b21d6ad12fdcb8419798567eb8228cea05ea5c58`, Git blob `b9959a553f821f3d33e67d6e1e8cf97eefb0d578`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:Lean/Screen/ModalMaxwellFactorizationBoundary.lean`: 14993 bytes, SHA-256 `cdd72422868853796b1311eed60b07fca64160563425465341e02ec7c4477fc6`, Git blob `f768fa172d519878c748d797dada5700681c2761`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:Lean/QFT/FiniteUnitaryScatteringNoGo.lean`: 5947 bytes, SHA-256 `2026dc7d0660d1bccdd803c4693fdbf00836f10d8ea1629fbdec764382236b90`, Git blob `b5d2edeaaecac3d0816e602db7b19b1699783c19`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:docs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md`: 8583 bytes, SHA-256 `f2e5235af1d733f042f9d6b35c3b33590c4dfe76be321fec925ba03304ea98e9`, Git blob `2dbb1f7065d607c29d4496d38b43f1d499981ffb`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:paper/screen_microphysics_and_observer_synchronization.tex`: 180652 bytes, SHA-256 `3119d31c17b83132a4682bc683b6fdf58bc499c1e6c539bd31b2f8788e14da71`, Git blob `ca31bee003e9648464c84d2b6322f09c791822e1`.
+- `289d265fe26bf4383cacbac4629449c88dc3e9b8:paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex`: 6309 bytes, SHA-256 `7c79da13c1f26e26f52735f02b95298fc958926ddad11f6fb5ab064d3ef02dae`, Git blob `f0e65ab2d18b4cb373d6c3092d1e3e7e10a2b2b1`.
+
+Limitations:
+
+- This was an internal separated-agent audit, not an external independent scientific replication.
+- No new target data were examined, no long simulation was run, and no observation row was promoted.
+- The premise queue reconstructs exact current consumers but does not yet provide exhaustive claim classification or historical consumer tombstones; issues #727 and #739 remain open.
+- The bounded Maxwell and finite-unitary results constrain architecture only and do not close their physical composition lanes.
