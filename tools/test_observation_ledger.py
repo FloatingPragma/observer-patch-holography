@@ -25,7 +25,7 @@ def test_ol_a1_failed_control_and_unfrozen_followup_are_exact() -> None:
     assert row["status"] == "owed"
     assert row["rung"] == "emergent"
     assert "claims/emergent_instrument_register.json" in row["evidence"]
-    assert "docs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md" in row["evidence"]
+    assert "docs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md" not in row["evidence"]
     assert "threshold form on two of five" in row["notes"]
     assert "robust reference on one of five" in row["notes"]
     assert "does not prove carrier count is the cause" in row["notes"]

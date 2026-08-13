@@ -16,7 +16,6 @@ CLAIM_EVIDENCE = [
     "paper/screen_microphysics_and_observer_synchronization.tex",
     "Lean/Screen/SeamCurrentFreePhotonLift.lean",
     LEAN_PATH,
-    "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
     "code/electromagnetism/modal_maxwell_factorization.py",
     "code/electromagnetism/test_modal_maxwell_factorization.py",
 ]
@@ -24,14 +23,15 @@ CLAIM_EVIDENCE = [
 OBSERVATION_EVIDENCE = [
     "Lean/Screen/LightSignalAdequacySurface.lean",
     LEAN_PATH,
-    "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
     "code/electromagnetism/modal_maxwell_factorization.py",
+    "code/electromagnetism/test_modal_maxwell_factorization.py",
+    "paper/screen_microphysics_and_observer_synchronization.tex",
 ]
 
 POSTDICTION_ARTIFACTS = [
-    "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
     "code/electromagnetism/modal_maxwell_factorization.py",
     "code/electromagnetism/test_modal_maxwell_factorization.py",
+    "paper/screen_microphysics_and_observer_synchronization.tex",
 ]
 
 LEAN_DECLARATIONS = [

@@ -1,8 +1,9 @@
-# OPH Documentation Index
+# OPH Project Documentation Index
 
-The papers are the theory’s primary sources. This directory answers the next
-question a reader usually has: how does the argument work, where is each claim
-proved, and what observation could defeat it?
+This directory contains project policies and indexes, architecture and custody
+material, reproduction guidance, and canonical or generated status ledgers.
+Scientific results live in the papers, Lean library, executable code, and
+evidence artifacts; this directory is not a parallel result-publication layer.
 
 If you are new to OPH, the strongest starting material lives outside this
 directory. The [technical paper](../flagship/from_observer_consensus_to_standard_physics.pdf)
@@ -44,12 +45,8 @@ run data so you can watch the universe assemble itself.
   [Audit Custody](AUDIT_CUSTODY.md) pins the independent review history.
 - [OPH Falsification Program](OPH_FALSIFICATION_PROGRAM.md) lists only mature mathematical and realized-branch falsifiers.
 
-## Focused Technical Notes
+## Evidence And Data Policies
 
-- [Modal Maxwell Factorization Boundary](MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md)
-  records the exact Fourier-modal first-order factorization of the FZ-12
-  oscillator and the locality, gauge/action, source, and readout boundaries
-  that remain open.
 - [Hadron Data Policy](HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
 - [IBM Quantum Cloud Archive](IBM_QUANTUM_CLOUD.md) documents the reproducible hardware benchmark and its interpretation boundary.
 - Simulator outputs have no theorem or empirical-promotion authority in the

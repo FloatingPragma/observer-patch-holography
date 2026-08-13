@@ -15,22 +15,22 @@ CLAIM_EVIDENCE = [
     "paper/reality_as_consensus_protocol.tex",
     "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
     LEAN_PATH,
-    "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
     "code/qft/finite_unitary_scattering_no_go.py",
     "code/qft/test_finite_unitary_scattering_no_go.py",
 ]
 
 OBSERVATION_EVIDENCE = [
     LEAN_PATH,
-    "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
     "code/qft/finite_unitary_scattering_no_go.py",
+    "code/qft/test_finite_unitary_scattering_no_go.py",
+    "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
     "docs/PROOF_SPINE.md",
 ]
 
 POSTDICTION_ARTIFACTS = [
-    "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
     "code/qft/finite_unitary_scattering_no_go.py",
     "code/qft/test_finite_unitary_scattering_no_go.py",
+    "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
 ]
 
 LEAN_DECLARATIONS = [

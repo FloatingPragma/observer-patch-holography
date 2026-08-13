@@ -26,8 +26,7 @@
       "evidence": [
         "evidence/einstein_convergence/README.md",
         "evidence/einstein_convergence/manifest.json",
-        "claims/emergent_instrument_register.json",
-        "docs/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md"
+        "claims/emergent_instrument_register.json"
       ],
       "notes": "The retained three-rung (1,3) measurement stands as a recorded artifact, and the preregistered fresh-seed replication returned FAILED. The 65536-carrier rung reproduced the threshold (1,3) form and its preregistered robust reference on five of five replicates. The 16384-carrier rung reproduced the threshold form on two of five and its robust reference on one of five, so it is seed-sensitive; this does not prove carrier count is the cause. The margin-ratio trend missed its declared band on all five, and the ancestry-permutation null did not discriminate, so the estimator does not currently attribute the signature to ancestry structure. The emergent rung is demoted per the frozen rule; INS-01 remains the controlling verdict. INS-02 records an open carrier-count-by-absolute-support-size design with the 16384 rung, fixed observer count, and stronger quantitative ancestry controls, but it is not frozen or authorized to run and changes no status.",
       "open_premises": [],
@@ -450,8 +449,9 @@
       "evidence": [
         "Lean/Screen/LightSignalAdequacySurface.lean",
         "Lean/Screen/ModalMaxwellFactorizationBoundary.lean",
-        "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
-        "code/electromagnetism/modal_maxwell_factorization.py"
+        "code/electromagnetism/modal_maxwell_factorization.py",
+        "code/electromagnetism/test_modal_maxwell_factorization.py",
+        "paper/screen_microphysics_and_observer_synchronization.tex"
       ],
       "notes": "The composed light-signal surface supplies a conditional internal free-vector second-order wave law and coordinate-frequency symbol under the declared seam rows. An exact complex modal factorization now gives the opposite-sign Fourier-curl pairing whose square is that wave operator, with a same-sign mutation control. Because its multiplier is momentum dependent, this is a modal/pseudodifferential algebraic factorization only: it supplies no local position-space operator, assembled real field or opposite-momentum reality pairing, source-produced curl dynamics, U(1) potential or quotient, Maxwell action, bridge to the finite Gauss receipts, physical current or source coupling, Lorentz covariance, continuum control, or laboratory readout. It removes no registered premise and does not close issue #733.",
       "open_premises": [
@@ -979,8 +979,9 @@
       "premises": [],
       "evidence": [
         "Lean/QFT/FiniteUnitaryScatteringNoGo.lean",
-        "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
         "code/qft/finite_unitary_scattering_no_go.py",
+        "code/qft/test_finite_unitary_scattering_no_go.py",
+        "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
         "docs/PROOF_SPINE.md"
       ],
       "notes": "A kernel-checked Hausdorff-topological-group theorem rules out ordinary large-time convergence of powers of any nonidentity exact fixed-cutoff unitary update. At fixed finite dimension it also excludes full weak-operator convergence, because the standard operator topologies coincide. An exact relative-evolution control converges identically, so a viable scattering construction must do something beyond direct convergence of those powers, for example use comparison dynamics, a selected projected scalar or observable limit, an infinite-dimensional weak limit after a continuum or infinite-volume passage, open evolution, or a finite-time recurrence-aware readout. The result does not rule out scattering. No source-selected interacting action, asymptotic-state construction, S-matrix or finite operational substitute, optical-theorem bridge, and detector readout are jointly registered, so the observation row remains owed.",

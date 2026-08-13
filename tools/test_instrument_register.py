@@ -123,26 +123,25 @@ def test_committed_register_validates() -> None:
 def test_ins02_design_contract_is_explicit_and_unfrozen() -> None:
     register = _register()
     row = register["rows"][1]
-    design = (register_tool.ROOT / row["spec_pointer"]).read_text(encoding="utf-8")
-    design_flat = " ".join(design.split())
 
     assert row["status"] == "SPECIFIED"
     assert row["freeze_artifacts"] == []
     assert row["frozen_utc"] is None
     assert row["verdict_receipts"] == []
-    assert "16,384; 65,536; 131,072; 262,144" in design
-    assert "absolute support size" in design
-    assert "one value fixed at the future preregistration" in design
-    assert "target-blind prospective calculation" in design
-    assert "rather than assuming that eight" in design
-    assert "paired seed block" in design_flat
-    assert "randomize execution order" in design_flat
-    assert "same fixed estimator" in design_flat
-    assert "**destruction:**" in design
-    assert "**sham equivalence:**" in design
-    assert "**synthetic sensitivity:**" in design
+    assert row["spec_pointer"] == (
+        "plan/OL_A1_FACTORIAL_FOLLOWUP_DESIGN.md (oph-meta planning workspace)"
+    )
+    assert "16,384; 65,536; 131,072; and 262,144" in row["decision_rule"]
+    assert "absolute support sizes 48; 96; and 192" in row["decision_rule"]
+    assert "observer count fixed at the future preregistration" in row["decision_rule"]
+    assert "target-blind freeze" in row["decision_rule"]
+    assert "one fixed estimator" in row["decision_rule"]
     assert "prospective precision and power" in row["seeds_policy"]
     assert "paired blocks" in row["seeds_policy"]
+    controls = " ".join(row["controls"])
+    assert "Degree-preserving ancestry rewiring" in controls
+    assert "sham identifier relabeling" in controls
+    assert "synthetic ancestry-sensitive statistic" in controls
     assert "randomized within each block" in row["seeds_policy"]
     assert "quantitative ancestry-destruction" in row["decision_rule"]
     assert "through one fixed estimator" in row["decision_rule"]

@@ -17,7 +17,9 @@ from finite_unitary_scattering_no_go import (
 REPO_ROOT = Path(__file__).resolve().parents[2]
 LEAN_ROOT = REPO_ROOT / "Lean"
 LEAN_SOURCE = LEAN_ROOT / "QFT" / "FiniteUnitaryScatteringNoGo.lean"
-BOUNDARY_DOC = REPO_ROOT / "docs" / "FINITE_UNITARY_SCATTERING_NO_GO.md"
+BOUNDARY_SURFACE = (
+    REPO_ROOT / "paper" / "tex_fragments" / "QFT_STRUCTURAL_INHERITANCE_STATUS.tex"
+)
 
 
 def test_exact_controls_attack_both_claim_and_boundary() -> None:
@@ -60,11 +62,12 @@ def test_lean_source_has_no_proof_escape_hatches() -> None:
     assert "identical_relative_evolution_tendsto" in source
 
 
-def test_documented_boundary_forbids_scattering_promotion() -> None:
-    boundary = " ".join(BOUNDARY_DOC.read_text(encoding="utf-8").split())
-    assert "It is not a no-go for scattering" in boundary
-    assert "does not discharge the interacting QFT" in boundary
-    assert "Comparison limits for distinct dynamics" in boundary
+def test_paper_boundary_forbids_scattering_promotion() -> None:
+    boundary = " ".join(BOUNDARY_SURFACE.read_text(encoding="utf-8").split())
+    assert "relative evolution can converge" in boundary
+    assert "Routes not excluded here include comparison dynamics" in boundary
+    assert "proves no S-matrix" in boundary
+    assert r"it does not close issue~\#743" in boundary
 
 
 def test_lean_kernel_checks_the_result() -> None:

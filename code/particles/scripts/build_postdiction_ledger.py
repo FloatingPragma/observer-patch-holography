@@ -1274,9 +1274,9 @@ def _forced_structure(
                 },
             ),
             "artifact_refs": [
-                "docs/MODAL_MAXWELL_FACTORIZATION_BOUNDARY.md",
                 "code/electromagnetism/modal_maxwell_factorization.py",
                 "code/electromagnetism/test_modal_maxwell_factorization.py",
+                "paper/screen_microphysics_and_observer_synchronization.tex",
             ],
             "hypothesis_boundary": (
                 "this is a pointwise Fourier-modal/pseudodifferential "
@@ -1342,9 +1342,9 @@ def _forced_structure(
                 },
             ),
             "artifact_refs": [
-                "docs/FINITE_UNITARY_SCATTERING_NO_GO.md",
                 "code/qft/finite_unitary_scattering_no_go.py",
                 "code/qft/test_finite_unitary_scattering_no_go.py",
+                "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex",
             ],
             "hypothesis_boundary": (
                 "this is only a no-go for direct ordinary convergence of one "
