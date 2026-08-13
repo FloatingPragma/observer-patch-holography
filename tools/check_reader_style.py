@@ -25,8 +25,6 @@ READER_GLOBS = [
     "code/README.md",
     "docs/README.md",
     "docs/COMMON_OBJECTIONS.md",
-    "docs/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md",
-    "docs/STRANGE_LOOP.md",
     "assets/README.md",
     "paper/README.md",
     "extra/README.md",
@@ -38,11 +36,6 @@ READER_GLOBS = [
 
 STATUS_GLOBS = [
     "docs/PROOF_SPINE.md",
-    "docs/BOOK_CHAPTER_LEDGER.md",
-    "docs/CONSISTENCY_STACK.md",
-    "docs/CLOSURE_LEDGER.md",
-    "docs/SURVIVAL_PROOF_FINAL_INTEGRATION_*.md",
-    "docs/UNIFIED_CARRIER_COHERENCE_AUDIT_*.md",
     "code/geometry/*STATUS*.md",
     "claims/claim_registry.yaml",
     "claims/dependency_graph.json",

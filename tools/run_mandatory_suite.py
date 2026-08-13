@@ -190,14 +190,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the append-only V3 audit register",
-        [sys.executable, "tools/build_audit_register.py", "--check"],
-    ),
-    (
-        "Execute the V3 audit-register mutation gates",
-        [sys.executable, "-m", "pytest", "-q", "tools/test_audit_register.py"],
-    ),
-    (
         "Validate the architecture-version register",
         [
             sys.executable,

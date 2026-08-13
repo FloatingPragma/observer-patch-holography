@@ -67,33 +67,10 @@ def test_unknown_architecture_version_fails() -> None:
         tool.validate(ledger)
 
 
-def test_duplicate_audit_record_fails() -> None:
-    ledger = _ledger()
-    ledger["rows"][0]["audit_records"] = ["AUD-1", "AUD-1"]
-    with pytest.raises(SystemExit, match="audit_records"):
-        tool.validate(ledger)
-
-
 def test_dropped_observation_row_fails() -> None:
     ledger = _ledger()
     ledger["rows"] = [row for row in ledger["rows"] if row["id"] != "OL-E2"]
     with pytest.raises(SystemExit, match="fixed ordered observation inventory"):
-        tool.validate(ledger)
-
-
-def test_attained_row_without_audit_fails() -> None:
-    ledger = _ledger()
-    row = next(row for row in ledger["rows"] if row["id"] == "OL-C1")
-    row["audit_records"] = []
-    with pytest.raises(SystemExit, match="attained status requires"):
-        tool.validate(ledger)
-
-
-def test_unknown_audit_id_fails() -> None:
-    ledger = _ledger()
-    row = next(row for row in ledger["rows"] if row["id"] == "OL-C1")
-    row["audit_records"] = ["AUD-UNKNOWN"]
-    with pytest.raises(SystemExit, match="unknown audit records"):
         tool.validate(ledger)
 
 

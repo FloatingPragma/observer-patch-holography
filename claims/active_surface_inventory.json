@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 266,
+  "surface_count": 263,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -395,19 +395,9 @@
       "allowlisted": false
     },
     {
-      "path": "docs/AUDIT_REGISTER.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "docs/AXIOM_REFERENCE.md",
       "glob": "docs/*.md",
       "allowlisted": true
-    },
-    {
-      "path": "docs/BOOK_CHAPTER_LEDGER.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
     },
     {
       "path": "docs/CANONICAL_REPAIR_LAW_RFC.md",
@@ -426,11 +416,6 @@
     },
     {
       "path": "docs/CONSTANTS_ANCESTRY_V3.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/ENTANGLEMENT_GEOMETRY_PROBLEM_OPH.md",
       "glob": "docs/*.md",
       "allowlisted": false
     },

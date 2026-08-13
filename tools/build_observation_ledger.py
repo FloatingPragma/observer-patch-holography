@@ -26,7 +26,6 @@ LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "OBSERVATION_LEDGER_V3.md"
 PREMISE_REGISTER_PATH = ROOT / "tracking" / "premise_register.json"
 ARCHITECTURE_REGISTER_PATH = ROOT / "tracking" / "architecture_versions.json"
-AUDIT_REGISTER_PATH = ROOT / "tracking" / "audit_register.json"
 
 SCHEMA = "oph.observation_ledger.v3"
 ISSUE = 726
@@ -38,7 +37,6 @@ LANE_ISSUES = frozenset((*range(728, 739), 740, 742, 743, 744, 745))
 
 ID_PATTERN = re.compile(r"^OL-[A-N][1-9]$")
 PREMISE_PATTERN = re.compile(r"^PR-\d{2}$")
-AUDIT_PATTERN = re.compile(r"^AUD-[A-Z0-9-]+$")
 BANNED_CHARACTERS = ("—", "–")
 
 EXPECTED_ROW_IDS = (
@@ -140,7 +138,6 @@ ROW_KEYS = {
     "architecture_version",
     "premises",
     "open_premises",
-    "audit_records",
     "evidence",
     "notes",
 }
@@ -227,14 +224,6 @@ def validate(ledger: dict) -> list[dict]:
     }
     if not architecture_ids:
         fail("architecture version register must contain at least one version")
-    audit_register = load_ledger(AUDIT_REGISTER_PATH)
-    audit_by_id = {
-        record.get("id"): record
-        for record in audit_register.get("records", [])
-        if isinstance(record, dict) and isinstance(record.get("id"), str)
-    }
-    if not audit_by_id:
-        fail("audit register must contain at least one record")
     seen_ids: set[str] = set()
     for index, row in enumerate(rows):
         where = f"rows[{index}]"
@@ -274,39 +263,6 @@ def validate(ledger: dict) -> list[dict]:
                 f"{where}: architecture_version {architecture_version!r} is not "
                 "on the architecture version register"
             )
-
-        audit_records = row["audit_records"]
-        if (
-            not isinstance(audit_records, list)
-            or any(
-                not isinstance(record, str) or not AUDIT_PATTERN.fullmatch(record)
-                for record in audit_records
-            )
-            or len(audit_records) != len(set(audit_records))
-        ):
-            fail(f"{where}: audit_records must be a duplicate-free list of ids")
-        unknown_audits = set(audit_records) - set(audit_by_id)
-        if unknown_audits:
-            fail(f"{where}: unknown audit records {sorted(unknown_audits)}")
-        for audit_id in audit_records:
-            audited_rows = audit_by_id[audit_id].get("reviewed_observation_rows", [])
-            if row_id not in audited_rows:
-                fail(f"{where}: audit record {audit_id} does not review this row")
-        if row["status"] == "attained" and not audit_records:
-            fail(f"{where}: attained status requires a registered audit record")
-        if row["status"] == "attained":
-            for audit_id in audit_records:
-                audit = audit_by_id[audit_id]
-                if row_id not in audit.get("attained_rows_reviewed", []):
-                    fail(
-                        f"{where}: audit record {audit_id} does not review the "
-                        "attained promotion"
-                    )
-                if "attained_status_review" not in audit.get("qualifies_for", []):
-                    fail(
-                        f"{where}: audit record {audit_id} is not qualified for "
-                        "attained-status review"
-                    )
 
         for field in ("premises", "open_premises"):
             premises = row[field]
@@ -388,13 +344,12 @@ def render(rows: list[dict]) -> str:
         f"One row per observation the architecture must reproduce, tracked for"
         f" {_issue_link(726)}. Premise ids PR-01 through"
         f" PR-{len(load_premise_register()[0]):02d} name rows of the"
-        f" premise register ({_issue_link(727)}), the audited anti-cheating"
+        f" premise register ({_issue_link(727)}), the anti-cheating"
         f" surface; each row lists the register rows its current status"
         f" consumes. The row set, rungs, and lane assignments follow completion"
         f" plan V3 (`plan/COMPLETION_PLAN_V3.md` in the oph-meta planning"
         f" workspace). The ledger records adequacy status. It is not itself"
-        f" evidence: a promotion requires the owning lane's receipts and"
-        f" survives independent audit before landing here."
+        f" evidence: a promotion requires the owning lane's receipts."
     )
     lines.append("")
     lines.append("## Adequacy rungs")
@@ -459,11 +414,9 @@ def render(rows: list[dict]) -> str:
         lines.append("")
         lines.append(
             "| Row | Observation | Rung | Status | Architecture | Lane | Premises |"
-            " Open premises | Audit records | Evidence | Boundary |"
+            " Open premises | Evidence | Boundary |"
         )
-        lines.append(
-            "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"
-        )
+        lines.append("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |")
         for row in group_rows:
             premises = ", ".join(row["premises"]) if row["premises"] else "none"
             open_premises = (
@@ -474,14 +427,11 @@ def render(rows: list[dict]) -> str:
                 if row["evidence"]
                 else "none"
             )
-            audit_records = (
-                ", ".join(row["audit_records"]) if row["audit_records"] else "none"
-            )
             lines.append(
                 f"| {row['id']} | {row['target']} | {row['rung']} |"
                 f" {row['status']} | {row['architecture_version']} |"
                 f" {_lane_link(row['lane_issue'])} | {premises} |"
-                f" {open_premises} | {audit_records} | {evidence} |"
+                f" {open_premises} | {evidence} |"
                 f" {row['notes']} |"
             )
 

@@ -46,9 +46,6 @@ The list above follows the build order: prologue, numbered chapters,
 appendices, epilogue. Narration exports for the audiobook are generated from
 these files and live in
 [`../../book/audiobook-chapters/`](../../book/audiobook-chapters/).
-The technical
-[chapter ledger](../docs/BOOK_CHAPTER_LEDGER.md) lives with the project docs and
-is not included in the reader-facing book build.
 
 ## Print PDF Build
 
