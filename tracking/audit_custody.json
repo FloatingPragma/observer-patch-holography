@@ -1,7 +1,13 @@
 {
   "schema": "oph.audit_custody.v2",
   "issue": 738,
-  "record_anchors": [],
+  "record_anchors": [
+    {
+      "id": "AUD-V3-2026-08-13-INTEGRATION",
+      "origin_revision": "36be62086ae20a9149b3b49188621b7a4f804f99",
+      "record_sha256": "caf18adcd20ab9d7724ce18cf1aaf2d95186d0c8122dee1f4b7821e21bebd61e"
+    }
+  ],
   "policy": "Audit records are append-only historical custody objects. A legacy migration is qualified only by its exact source-register Git object. A native audit that is still pending its origin anchor cannot qualify any promotion; a later commit must add an origin anchor that pins the complete record from the commit where it first appeared. Each qualified record binds reviewer identity and model disclosure, the reviewed and repair commits, exact observation rows and promotion scope, findings, limitations, and artifact bytes resolved from immutable Git objects. A later live-file edit cannot rewrite an earlier audit. An implementation audit is not an external scientific replication, a new empirical comparison, or a common-world existence proof.",
   "records": [
     {
