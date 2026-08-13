@@ -30,7 +30,7 @@ Generated from `claims/physical_identification_registry.json`. Each row names th
 
 A numeric `P_acc` or compression bound is inadmissible until every selector menu in the canonical registry has a declared finite size.
 
-Release: `r2019`. 96 claims, 16 distinct live gates across 48 gated claims.
+Release: `r2019`. 96 claims, 15 distinct live gates across 47 gated claims.
 
 | Class | Claims |
 |---|---|
@@ -45,8 +45,8 @@ Release: `r2019`. 96 claims, 16 distinct live gates across 48 gated claims.
 |---|---|---|---|
 | `OPH-SYN-FORMAL-BASIS` | `declared_structure` | `declared_basis` | none |
 | `OPH-OBS-PATCH-DEF` | `conditional_implication` | `typed_definition_and_exact_fixed_regulator_seven_clause_operational_receipt__refinement_naturality_source_and_higher_overlap_open` | none |
-| `OPH-CARRIER-PRESENTATION-INVARIANCE` | `declared_structure` | `declared_cross_paper_contract_with_branch_local_tests` | [#741](https://github.com/FloatingPragma/observer-patch-holography/issues/741) |
-| `OPH-UNIFIED-TYPED-SPINE` | `declared_structure` | `typed_composition_defined_physical_common_tower_open` | [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728), [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740), [#741](https://github.com/FloatingPragma/observer-patch-holography/issues/741) |
+| `OPH-CARRIER-PRESENTATION-INVARIANCE` | `declared_structure` | `declared_cross_paper_contract_with_branch_local_tests` | none |
+| `OPH-UNIFIED-TYPED-SPINE` | `declared_structure` | `typed_composition_defined_physical_common_tower_open` | [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728), [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740) |
 | `OPH-CONS-D1` | `conditional_implication` | `paper_proved_on_declared_branch__A4_Lean_endpoint_attained__source_physical_realization_open` | [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728) |
 | `OPH-CONS-BFT-PREPARED-LOCK` | `conditional_implication` | `paper_proved_for_declared_protocol__finite_reference_traces_executable__not_Lean_or_TLA_formalized` | none |
 | `OPH-CONS-REFINEMENT-MODULI` | `conditional_implication` | `telescope_Lean_proved__uniform_family_and_cofinal_theorems_paper_proved__parametric_counterfamily_schemas_executable` | none |
@@ -155,7 +155,6 @@ Release: `r2019`. 96 claims, 16 distinct live gates across 48 gated claims.
 | [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736) | [V3-L9] Masses and constants: P, N, and the particle spectrum | `OPH-GR-D6-CAPACITY`, `OPH-GR-D6-HORIZON-RECORD`, `OPH-COSMO-SCREEN-SPECTRUM`, `OPH-WZ-STRICT-1L-POLE-MAP`, `OPH-SM-Q4-RESONANCE-CONTINUATION`, `OPH-A5-PRIMITIVE-PORT-SPIN6`, `OPH-A5-SEAM-CURRENT-EDGE30`, `OPH-SCREEN-PORT-CURRENT-INNER`, `OPH-SCREEN-SUPER-TANNAKIAN-MATTER-LIFT`, `OPH-GAUGE-D7-D9`, `OPH-KOIDE-CIRCULANT-IDENTITY`, `OPH-W5-STABILISER-POTENTIAL-BOUNDARY`, `OPH-SCREEN-A5-SM-RECOGNITION`, `OPH-SM-ROUTE-IDENTIFICATION`, `OPH-Q-PN-CLOSURE`, `OPH-HIER-EW`, `OPH-SCREEN-24-CLOCK-DETERMINANT`, `OPH-ALPHA-PIXEL` |
 | [#738](https://github.com/FloatingPragma/observer-patch-holography/issues/738) | [V3-G1] Standing custody, falsification instruments, and comparisons | `OPH-WZ-STRICT-1L-POLE-MAP`, `OPH-A5-SEAM-CURRENT-EDGE30` |
 | [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740) | [V3-CW1] Common-world integration: one inhabited architecture | `OPH-UNIFIED-TYPED-SPINE`, `OPH-SM-ROUTE-IDENTIFICATION`, `OPH-HIER-EW` |
-| [#741](https://github.com/FloatingPragma/observer-patch-holography/issues/741) | [V3-I3] Architecture/protocol versioning and audit custody | `OPH-CARRIER-PRESENTATION-INVARIANCE`, `OPH-UNIFIED-TYPED-SPINE` |
 | [#742](https://github.com/FloatingPragma/observer-patch-holography/issues/742) | [V3-L11] Cosmology and astrophysics adequacy | `OPH-GR-D6-CAPACITY`, `OPH-GR-D6-HORIZON-RECORD`, `OPH-GR-DS-SHOCK-SIGN-ATTACHMENT`, `OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM`, `OPH-COSMO-SCREEN-SPECTRUM`, `OPH-A5-PRIMITIVE-PORT-SPIN6`, `OPH-A5-SEAM-CURRENT-EDGE30`, `OPH-Q-N-RESERVE-CANDIDATES`, `OPH-HIER-EW`, `OPH-DM-CONT`, `OPH-CHI-NU` |
 | [#743](https://github.com/FloatingPragma/observer-patch-holography/issues/743) | [V3-L12] Interacting QFT, RG flow, and scattering | `OPH-WZ-STRICT-1L-POLE-MAP`, `OPH-SM-Q1-LOCAL-G6`, `OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION`, `OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS`, `OPH-SM-Q3-BV-RESTORATION`, `OPH-SM-Q4-OS-OBSERVABLE-SECTOR`, `OPH-SM-Q4-RESONANCE-CONTINUATION`, `OPH-FINITE-CONSERVATION-WARD-PRECURSOR`, `OPH-YM-GAP`, `OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX`, `OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO` |
 | [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744) | [V3-L13] QCD, hadrons, nuclear physics, and atomic physics | `OPH-ALPHA-PIXEL`, `OPH-YM-GAP` |

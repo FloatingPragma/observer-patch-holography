@@ -313,7 +313,9 @@ def test_gate_missing_from_github_fails_closed(tmp_path):
         ("OPH-DM-CONT", [], 742),
         ("OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX", [730], 743),
         ("OPH-YM-GAP", [743], 744),
-        ("OPH-UNIFIED-TYPED-SPINE", [728, 729, 730, 740], 741),
+        # Closed bootstrap #741 is durable register custody, not a live claim
+        # gate; the common-world integration owner #740 remains mandatory.
+        ("OPH-UNIFIED-TYPED-SPINE", [728, 729, 730], 740),
         ("OPH-HIER-EW", [736, 740, 742], 745),
     ],
 )

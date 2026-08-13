@@ -1,4 +1,4 @@
-"""Build and validate the V3 observation ledger surface (issue #726).
+"""Build and validate the V3 observation ledger surface (bootstrap issue #726).
 
 The machine-readable ledger is ``tracking/observation_ledger.json``: one row
 per physical observation the architecture must reproduce, with an adequacy
@@ -468,8 +468,10 @@ def render(rows: list[dict], audit_pointers: dict[str, list[str]] | None = None)
     )
     lines.append("")
     lines.append(
-        f"One row per observation the architecture must reproduce, tracked for"
-        f" {_issue_link(726)}. Premise ids PR-01 through"
+        f"One row per observation the architecture must reproduce. The closed"
+        f" {_issue_link(726)} is the historical bootstrap; the committed"
+        f" ledger and standing audit custody now maintain the surface. Premise"
+        f" ids PR-01 through"
         f" PR-{len(load_premise_register()[0]):02d} name rows of the"
         f" premise register ({_issue_link(727)}), the anti-cheating"
         f" surface; each row lists the register rows its current status"

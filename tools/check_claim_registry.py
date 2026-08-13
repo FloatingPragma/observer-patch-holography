@@ -83,8 +83,9 @@ PINNED_GITHUB_EVIDENCE = re.compile(
 # When one of these issues is discharged, its claim gates and this policy must
 # be updated together, so ownership cannot disappear as an incidental edit.
 REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
-    "OPH-CARRIER-PRESENTATION-INVARIANCE": frozenset({741}),
-    "OPH-UNIFIED-TYPED-SPINE": frozenset({740, 741}),
+    # Closed bootstrap #741 is enforced by the durable architecture/audit
+    # registers and is no longer a live claim gate.
+    "OPH-UNIFIED-TYPED-SPINE": frozenset({740}),
     "OPH-GR-D6-CAPACITY": frozenset({742}),
     "OPH-GR-D6-HORIZON-RECORD": frozenset({742}),
     "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT": frozenset({742}),
