@@ -58,13 +58,15 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
     readme = " ".join(surfaces["English README"].read_text(encoding="utf-8").lower().split())
     french = " ".join(surfaces["French README"].read_text(encoding="utf-8").lower().split())
     assert "more than three" in compact and "standard uncertainties" in compact
-    # The reader-facing case never promotes the tau or capacity comparisons
-    # to predictions: the README states the balance premise for Koide and
-    # the post-hoc status of the capacity comparison in both languages.
+    # The reader-facing case states the Koide premise and presents capacity
+    # as a high-level scientific program. Detailed negative/comparison status
+    # belongs in the technical surfaces, not the marketing README files.
     assert "stated balance premise" in readme
-    assert "so neither is a prediction" in readme
+    assert "the capacity program asks whether" in readme
+    assert "so neither is a prediction" not in readme
     assert "prémisse d’équilibre déclarée" in french
-    assert "aucun des deux n’est une prédiction" in french
+    assert "le programme de capacité demande si" in french
+    assert "aucun des deux n’est une prédiction" not in french
 
 
 def test_readme_case_section_remains_short_and_reader_facing() -> None:
