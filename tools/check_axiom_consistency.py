@@ -217,6 +217,14 @@ def path_allowed(path: Path) -> bool:
     return any(token in rel for token in ALLOWLIST_PATHS)
 
 
+def _sort_key(path: Path) -> tuple[str, ...]:
+    # Sorting Path objects is platform dependent: Windows compares parts
+    # case-folded, so mixed-case names order differently there and the
+    # generated inventory never matches the committed bytes. Comparing the
+    # parts case-sensitively reproduces the POSIX order on every platform.
+    return path.relative_to(ROOT).parts
+
+
 def scan_text(rel: str, text: str, errors: list[str]) -> None:
     for number, line in enumerate(text.splitlines(), start=1):
         if any(pattern.search(line) for pattern in LINE_ALLOW):
@@ -236,7 +244,7 @@ def scan_text(rel: str, text: str, errors: list[str]) -> None:
 def scan_surfaces(errors: list[str]) -> None:
     seen: set[Path] = set()
     for glob in ACTIVE_GLOBS:
-        for path in sorted(ROOT.glob(glob)):
+        for path in sorted(ROOT.glob(glob), key=_sort_key):
             if not path.is_file() or path in seen or path_allowed(path):
                 continue
             seen.add(path)
@@ -281,7 +289,7 @@ def inventory_payload() -> dict:
     rows = []
     seen: set[Path] = set()
     for glob in ACTIVE_GLOBS:
-        for path in sorted(ROOT.glob(glob)):
+        for path in sorted(ROOT.glob(glob), key=_sort_key):
             if not path.is_file() or path in seen:
                 continue
             seen.add(path)

@@ -418,6 +418,8 @@ def test_ins01_abbreviated_commit_rejected():
 
 
 def test_ins01_wrong_repository_rejected():
+    if not (register_tool.ROOT.parent / "oph-physics-sim" / ".git").exists():
+        pytest.skip("sibling simulator custody checkout is absent")
     register = _register()
     register["rows"][0]["custody_repository"]["url"] = (
         "https://github.com/example/oph-physics-sim"
