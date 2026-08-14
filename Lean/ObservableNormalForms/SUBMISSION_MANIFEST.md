@@ -11,10 +11,14 @@ ObservableNormalForms.lean
 ObservableNormalForms/AxiomAudit.lean
 ObservableNormalForms/ConditionalResampling.lean
 ObservableNormalForms/Exact.lean
+ObservableNormalForms/Examples/AmdA2A5Conditional.lean
+ObservableNormalForms/Examples/ProtectedObstructions.lean
 ObservableNormalForms/Examples/Rule90.lean
 ObservableNormalForms/Functional.lean
+ObservableNormalForms/MechanismVariants.lean
 ObservableNormalForms/Moduli.lean
 ObservableNormalForms/ObserverConfluence.lean
+ObservableNormalForms/ProtectedObstructions.lean
 ObservableNormalForms/Refinement.lean
 ObservableNormalForms/Repair.lean
 ObservableNormalForms/Stability.lean
@@ -25,6 +29,7 @@ SUBMISSION_MANIFEST.md
 lake-manifest.json
 lakefile.lean
 lean-toolchain
+tools/verify_protected_obstruction_models.py
 ```
 
 Do not include `.lake/`, editor metadata, generated object files, or build
@@ -35,13 +40,15 @@ logs.
 ```sh
 lake exe cache get
 lake build 2>&1 | tee lake-build.log
-rg -n '^\s*(sorry|admit)\b|:=\s*(sorry|admit)\b' \
+rg -n '^\s*(sorry|admit|axiom)\b' \
   ObservableNormalForms --glob '*.lean'
 rg -n 'sorryAx' lake-build.log
+python tools/verify_protected_obstruction_models.py
 ```
 
 Expected result: `lake build` succeeds; the source audit finds no admissions;
-the theorem-level axiom output in `lake-build.log` contains no `sorryAx`.
+the theorem-level axiom output in `lake-build.log` contains no `sorryAx`; and
+the deterministic protected-obstruction explorer reports 16/16 checks.
 
 Before creating a public archive, regenerate the file hashes with:
 
