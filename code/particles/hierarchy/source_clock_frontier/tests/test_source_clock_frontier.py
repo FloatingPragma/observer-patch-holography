@@ -226,7 +226,7 @@ def test_newton_g_composition_is_downstream_only() -> None:
             "role": "newton_g_composition",
             "required_input": "source_energy_interval",
             "possible_output": "source_g_si_interval",
-            "status": "downstream_open_not_issue_633_acceptance_gate",
+            "status": "downstream_optional_context_not_source_clock_evidence",
         }
     ]
     mutated = load_frontier()

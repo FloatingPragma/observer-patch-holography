@@ -16,7 +16,6 @@ PARTICLES_ROOT = ROOT / "particles"
 P_ROOT = ROOT / "P_derivation"
 P_TRUNK = P_ROOT / "runtime" / "p_closure_trunk_current.json"
 MEASURED_ENDPOINT = P_ROOT / "runtime" / "measured_endpoint_calibration_current.json"
-PIPELINE_STATUS = PARTICLES_ROOT / "runs" / "status" / "particle_pipeline_closure_status.json"
 EXACT_NONHADRON = PARTICLES_ROOT / "exact_nonhadron_masses.json"
 RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
 DIRECT_TOP = PARTICLES_ROOT / "runs" / "calibration" / "direct_top_bridge_contract.json"
@@ -308,7 +307,6 @@ def _hierarchy_surface() -> dict[str, Any]:
 def build_payload() -> dict[str, Any]:
     p_trunk = _load_json(P_TRUNK)
     measured_endpoint = _load_json(MEASURED_ENDPOINT)
-    pipeline = _load_json(PIPELINE_STATUS)
     exact = _load_json(EXACT_NONHADRON)
     results = _load_json(RESULTS_STATUS)
     direct_top = _load_json(DIRECT_TOP)
@@ -329,12 +327,6 @@ def build_payload() -> dict[str, Any]:
     conditional_nonpromotable_rows = [
         entry for entry in ordered_outputs if entry.get("promotable") is not True
     ]
-    particle_five_gates = [
-        gate
-        for gate in pipeline["issue_gates"]
-        if gate["issue"] in {223, 224, 225, 234, 235, 32, 153, 199, 201, 207}
-    ]
-
     return {
         "artifact": "oph_final_current_end_to_end_particle_predictions",
         "generated_utc": _now_utc(),
@@ -349,7 +341,6 @@ def build_payload() -> dict[str, Any]:
                 "code/P_derivation/runtime/measured_endpoint_calibration_current.json"
             ),
             "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
-            "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
             "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
             "carrier_mode_acceptance": "code/particles/runs/status/carrier_mode_acceptance.json",
             "results_status": "code/particles/results_status.json",
@@ -450,7 +441,6 @@ def build_payload() -> dict[str, Any]:
                 "artifact": "code/particles/runs/leptons/charged_kappa_interval_coherent_closure.json",
                 "numerical_certificate": kappa_coherent["numerical_certificate"],
             },
-            "blocking_issues": [425, 545],
         },
         "charged_lepton_anchor_boundary": {
             "artifact": charged_trace_required.get("artifact"),
@@ -481,11 +471,6 @@ def build_payload() -> dict[str, Any]:
             "forbidden_ancestors": quark_sigma_required.get("forbidden_ancestors", []),
             "reopen_requirements": quark_sigma_required.get("reopen_requirements", {}),
             "dependency_audit": quark_sigma_required.get("dependency_audit", {}),
-            "issue_acceptance": {
-                "377": quark_sigma_obstruction.get("issue_377_acceptance_met_as_obstruction"),
-                "379": quark_sigma_obstruction.get("issue_379_acceptance_met_as_obstruction"),
-                "380": quark_sigma_obstruction.get("issue_380_acceptance_met_as_obstruction"),
-            },
         },
         "quark_scheme_and_yukawa_boundary": {
             "artifact": quark_scheme_obstruction.get("artifact"),
@@ -498,7 +483,6 @@ def build_payload() -> dict[str, Any]:
             "stored_matrix_dimensional_audit": quark_scheme_obstruction.get(
                 "stored_matrix_dimensional_audit", {}
             ),
-            "issue_acceptance": quark_scheme_obstruction.get("issue_acceptance", {}),
             "closure_effect": quark_scheme_obstruction.get("closure_effect", {}),
             "physical_rg_dynamics_nondefinability": quark_scheme_obstruction.get(
                 "physical_rg_dynamics_nondefinability", {}
@@ -523,9 +507,6 @@ def build_payload() -> dict[str, Any]:
         },
         "fine_structure": _fine_structure_surface(measured_endpoint),
         "hierarchy_and_naturality": _hierarchy_surface(),
-        "finalization_gates": pipeline["finalization_gates"],
-        "particle_five_issue_gates": particle_five_gates,
-        "companion_open_branches": list(pipeline.get("companion_status_branches", [])),
         "predictions": predictions,
         "conditional_nonpromotable_rows": conditional_nonpromotable_rows,
         "hadron_policy": {
@@ -539,7 +520,6 @@ def build_payload() -> dict[str, Any]:
                 "hadron closure values stay in a separate output class; the e+e- spectral payload "
                 "has a source registry and schema."
             ),
-            "github_issues": [153, 157],
         },
         "direct_top_auxiliary_comparison": {
             "primary_top_codomain": direct_top["current_target_audit_coordinate"]["pdg_summary_id"],
@@ -567,32 +547,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"- Claim label: `{payload['p_closure']['claim_status']}`",
         f"- May feed promoted particle predictions: `{payload['p_closure']['may_feed_live_particle_predictions']}`",
         "",
-        "## Particle-Five Receipts",
+        "## Promotable Numerical Predictions",
         "",
-        "| Receipt label | Closable | Local artifact | Worker policy |",
-        "| --- | --- | --- | --- |",
     ]
-    for gate in payload["particle_five_issue_gates"]:
-        lines.append(
-            f"| `{_display_status(gate['state'])}` | `{gate['closable_now']}` | "
-            f"`{gate['local_next_artifact']}` | {gate['chrome_workers']} |"
-        )
-    companion_open_branches = payload.get("companion_open_branches") or []
-    if companion_open_branches:
-        lines.extend(
-            [
-                "",
-                "## Companion Claim Boundaries",
-                "",
-                "| Topic | Claim label | Boundary | Gate |",
-                "| --- | --- | --- | --- |",
-            ]
-        )
-        for branch in companion_open_branches:
-            lines.append(
-                f"| {branch['label']} | `{_display_status(branch['state'])}` | {branch['summary']} | {branch['next_action']} |"
-            )
-    lines.extend(["", "## Promotable Numerical Predictions", ""])
     if payload["predictions"]:
         lines.extend(
             [
@@ -614,7 +571,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 "",
                 "## Conditional Non-Promotable Candidates",
                 "",
-                "These numerical rows remain visible as conditional audit candidates. They are not predictions.",
+                "These numerical rows remain visible as conditional diagnostic candidates. They are not predictions.",
                 "",
                 "| Particle | Candidate | Claim label | Scope |",
                 "| --- | ---: | --- | --- |",
@@ -652,7 +609,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 "",
                 "## Withheld Non-Prediction Rows",
                 "",
-                "These rows are retained in audit surfaces but are not numeric predictions.",
+                "These rows are retained in source artifacts but are not numeric predictions.",
                 "",
                 "| Particle | Claim label | Reason | Missing gate |",
                 "| --- | --- | --- | --- |",
@@ -695,10 +652,6 @@ def render_markdown(payload: dict[str, Any]) -> str:
         lines.append(
             f"- Coherent width reduction over the rectangle: "
             f"`{certified['coherent']['width_reduction_factor']:.3g}x`"
-        )
-        lines.append(
-            "- Blocking issues: "
-            + ", ".join(f"#{i}" for i in certified["blocking_issues"])
         )
     charged_boundary = payload.get("charged_lepton_anchor_boundary") or {}
     if charged_boundary.get("artifact"):

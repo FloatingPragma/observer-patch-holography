@@ -1,5 +1,6 @@
 {
   "artifact": "oph_lattice_engine_lane_status",
+  "classification": "real_engine_executed_at_diagnostic_scale__production_evidence_absent",
   "distinction_from_surrogate": "run_local_diagnostic_backend.py synthesizes correlators from target masses and is execution-bridge scaffolding only. The lattice engine computes correlators from gauge dynamics with no target anchoring; its masses are whatever the bare parameters produce.",
   "engine": {
     "capabilities": [
@@ -23,23 +24,21 @@
   "executed_output": {
     "export_present": false
   },
-  "generated_utc": "2026-07-12T03:01:40Z",
-  "github_issue": 425,
   "guards": {
     "diagnostic_output_promotable": false,
-    "issue_425_closed_by_this_artifact": false
+    "production_requirements_satisfied": false
   },
-  "issue_425_remaining": {
-    "closure_requires": [
+  "production_boundary": {
+    "compute_class": "HPC allocation or an established production engine driven through run_external_production_backend.py",
+    "promotion_rule": "hadron rows stay suppressed until production output and systematics exist",
+    "required_evidence": [
       "seeded N_f = 2+1 ensembles at the frozen receipt schedule (N_therm = 2048, N_sep = 512) on production volumes",
       "strange RHMC branch with persisted rational coefficients",
       "clover force in the dynamical update",
       "even-odd preconditioned solvers at production tolerances",
       "continuum, finite-volume, chiral, and statistical budgets",
       "publication-complete manifest provenance"
-    ],
-    "compute_class": "HPC allocation or an established production engine driven through run_external_production_backend.py; out of local scope",
-    "promotion_gate": "unchanged: hadron rows stay suppressed until production output and systematics exist"
+    ]
   },
-  "status": "real_engine_executed_diagnostic_scale_production_closure_open"
+  "provenance_issue": 425
 }

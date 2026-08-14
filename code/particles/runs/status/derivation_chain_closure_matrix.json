@@ -1,262 +1,57 @@
 {
-  "artifact": "oph_particle_derivation_chain_closure_matrix",
-  "closure_summary": {
-    "all_derivation_chains_claimed_closed": false,
-    "closed_or_scoped_chains": [
-      "conditional_classical_carrier_modes",
-      "hierarchy_naturality_bridge",
-      "charged_leptons"
-    ],
-    "empirical_closure_policy_chains": [
+  "artifact": "oph_particle_derivation_chain_classification_matrix",
+  "classification": "scientific_chain_boundaries_and_required_receipts",
+  "classification_summary": {
+    "empirical_output_class_chains": [
       "hadrons"
     ],
-    "policy": "Do not promote candidate, compare-only, witness-only, corpus-limited no-go, or source-backend-absent chains as closed theorem predictions.",
-    "remaining_nonclosed_chains": [
+    "nonpromoting_chains": [
       "p_closure_root",
+      "conditional_classical_carrier_modes",
       "electroweak_massive_bosons",
+      "hierarchy_naturality_bridge",
       "higgs_top_declared_surface",
+      "charged_leptons",
       "selected_class_quarks",
-      "neutrino_absolute_attachment"
+      "neutrino_absolute_attachment",
+      "hadrons"
     ],
+    "policy": "Do not promote candidate, compare-only, witness-only, corpus-limited no-go, or source-backend-absent chains as theorem predictions.",
+    "promotable_chains": [],
     "source_backend_absent_chains": [
       "hadrons"
     ]
   },
-  "generated_utc": "2026-07-29T17:21:23Z",
-  "particle_five_gates": {
-    "153": {
-      "chrome_workers": "do_not_use_for_backend_execution",
-      "closable_now": true,
-      "close_reason": "Source-only hadron prediction is outside the local environment. Empirical hadron closure has a separate output class with an e+e- source registry and schema.",
-      "closed_as_out_of_scope": true,
-      "empirical_hadron_closure_allowed": true,
-      "issue": 153,
-      "local_next_artifact": "particles/runs/hadron/ward_projected_spectral_measure_contract.json",
-      "requires_oph_hardware_backend": true,
-      "state": "closed_out_of_scope_computationally_blocked",
-      "title": "Hadron backend and systematics"
-    },
-    "199": {
-      "chrome_workers": "not_needed_until_new_global_public_frame_classifier_source_exists",
-      "closable_now": true,
-      "issue": 199,
-      "local_next_artifact": "particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
-      "selected_fiber_descent_preserved": true,
-      "state": "closed_current_corpus_global_classification_no_go",
-      "title": "Class-uniform public quark-frame descent"
-    },
-    "201": {
-      "chrome_workers": "not_needed_until_new_uncentered_trace_lift_source_exists",
-      "closable_now": true,
-      "issue": 201,
-      "local_next_artifact": "particles/runs/leptons/charged_end_to_end_impossibility_theorem.json",
-      "public_charged_masses_emitted": false,
-      "state": "closed_current_corpus_charged_end_to_end_no_go",
-      "title": "Charged determinant trace-lift attachment"
-    },
-    "207": {
-      "chrome_workers": "not_needed_until_new_response_kernel_source_exists",
-      "closable_now": true,
-      "issue": 207,
-      "local_next_artifact": "particles/runs/calibration/direct_top_bridge_contract.json",
-      "state": "closed_current_corpus_codomain_no_go",
-      "title": "Direct-top codomain bridge"
-    },
-    "223": {
-      "chrome_workers": "not_needed_for_closed_package",
-      "closable_now": true,
-      "closed_as_blocker_isolation": true,
-      "contract_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
-      "issue": 223,
-      "local_next_artifact": "P_derivation/runtime/thomson_endpoint_package_current.json",
-      "promotion_allowed": false,
-      "state": "closed_blocker_isolated_endpoint_package",
-      "successor_issue": 235,
-      "title": "Ward-projected Thomson endpoint package"
-    },
-    "224": {
-      "chrome_workers": "not_needed_for_guarded_codepath_closure",
-      "closable_now": true,
-      "closed_as_guarded_candidate_adoption": true,
-      "issue": 224,
-      "local_next_artifact": "P_derivation/runtime/p_closure_trunk_current.json",
-      "promotion_allowed": false,
-      "stage_gate": "populated source spectral measure payload plus full interval certificate before live particle promotion",
-      "state": "closed_canonical_guarded_trunk_adoption",
-      "title": "Adopt certified derived P closure root"
-    },
-    "225": {
-      "chrome_workers": "not_needed_for_material_sync",
-      "closable_now": true,
-      "closed_as_material_update": true,
-      "issue": 225,
-      "local_next_artifact": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-      "publish_performed": false,
-      "state": "closed_material_sync_no_live_publish",
-      "title": "Synchronize derived P closure values across material surfaces"
-    },
-    "234": {
-      "chrome_workers": "not_needed_for_closed_provenance_taxonomy",
-      "closable_now": true,
-      "closed_as_material_audit": true,
-      "issue": 234,
-      "local_next_artifact": "particles/runs/status/blind_prediction_provenance.json",
-      "state": "closed_provenance_ledger_and_declared_sensitivity_taxonomy",
-      "title": "Blind-prediction provenance and convention-sensitivity audits"
-    },
-    "235": {
-      "chrome_workers": "not_needed_until_source_spectral_measure_payload_exists",
-      "closable_now": true,
-      "closed_as_first_missing_lemma_isolated": true,
-      "first_missing_lemma": "source-emitted same-scheme Ward-projected R_Q(P)",
-      "hadron_dependency_hardware_gated": true,
-      "interval_certificate_artifact": "P_derivation/runtime/fine_structure_interval_certificate_current.json",
-      "issue": 235,
-      "local_next_artifact": "P_derivation/runtime/thomson_endpoint_contract_current.json",
-      "minimal_new_payload": "oph_qcd_ward_projected_hadronic_spectral_measure",
-      "no_go_artifact": "P_derivation/runtime/screening_invariant_no_go_current.json",
-      "package_artifact": "P_derivation/runtime/thomson_endpoint_package_current.json",
-      "promotion_allowed": false,
-      "residual_contract_artifact": "P_derivation/runtime/r_q_residual_contract_current.json",
-      "source_spectral_reduction": "source_spectral_reduction_theorem_emitted_measure_payload_absent",
-      "state": "closed_blocker_isolated_source_residual_no_go",
-      "title": "Source spectral measure payload and interval certificate"
-    },
-    "32": {
-      "chrome_workers": "not_needed_for_local_exact_precursor",
-      "closable_now": false,
-      "closed_as_declared_convention_contract": false,
-      "issue": 32,
-      "local_next_artifact": "P_derivation/runtime/rg_matching_threshold_contract_current.json",
-      "promotion_allowed": false,
-      "source_frontier": {
-        "byte_sha256": "e2c54b0b209aacbeee20c1a82763ec216824b13a70b25832cd57d7357e5496c8",
-        "bytes": 13045,
-        "path": "P_derivation/source_rg_frontier/outputs/rg_representation_frontier.json",
-        "status": "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN",
-        "subject_digest": "21df7aad292aa1677031afbdf98e37d34da9b637c80f109d7f228b5c5a3dd7af"
-      },
-      "state": "open_source_rg_frontier_partial",
-      "title": "RG matching and threshold structure"
-    },
-    "332": {
-      "chrome_workers": "not_needed_for_closed_certificate",
-      "closable_now": true,
-      "epsilon_H": "0",
-      "issue": 332,
-      "local_next_artifact": "particles/hierarchy/issue_332_rg_naturality_certificate.json",
-      "state": "closed_exact_selected_branch",
-      "title": "RG/Higgs naturality closure"
-    },
-    "335": {
-      "chrome_workers": "not_needed_for_closed_certificate",
-      "closable_now": true,
-      "full_theorem_grade_resonance_promoted": false,
-      "issue": 335,
-      "local_next_artifact": "particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-      "state": "exact_conditional_local_global_hierarchy_resonance",
-      "title": "Local/global hierarchy resonance",
-      "work_in_progress_receipts": [
-        "source production of the unit cost, inverse pairing, and D-optimal selector",
-        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
-      ]
-    },
-    "337": {
-      "chrome_workers": "not_needed_for_closed_certificate",
-      "closable_now": true,
-      "issue": 337,
-      "local_next_artifact": "particles/hierarchy/certificates/R_EW_tick_projection_certificate.json",
-      "state": "closed_projection_bridge_with_exact_residual",
-      "title": "Electroweak projection bridge"
-    },
-    "377": {
-      "additional_axioms_used": false,
-      "axiom_level_obstruction_artifact": "particles/runs/flavor/quark_axiom_level_yukawa_moduli_nonidentifiability.json",
-      "chrome_workers": "not_needed_until_new_action_breaking_source_observable_exists",
-      "closable_now": true,
-      "closure_kind": "accepted_sharper_obstruction",
-      "issue": 377,
-      "local_next_artifact": "particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
-      "numeric_quark_rows_emitted": false,
-      "source_only_sigma_emitted": false,
-      "state": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
-      "title": "Source-only quark spread package"
-    },
-    "378": {
-      "chrome_workers": "not_needed_until_new_global_public_frame_classifier_source_exists",
-      "closable_now": true,
-      "issue": 378,
-      "local_next_artifact": "particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json",
-      "selected_fiber_descent_preserved": true,
-      "state": "closed_current_corpus_global_classification_no_go",
-      "title": "Global public quark-frame classification"
-    },
-    "379": {
-      "chrome_workers": "not_needed_until_source_generator_replaces_template",
-      "closable_now": true,
-      "closure_kind": "accepted_sharper_obstruction",
-      "issue": 379,
-      "local_next_artifact": "particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
-      "state": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
-      "title": "Source-only up-type spread and branch generator"
-    },
-    "380": {
-      "chrome_workers": "not_needed_until_new_coefficient_fixing_identity_exists",
-      "closable_now": true,
-      "closure_kind": "accepted_sharper_obstruction",
-      "issue": 380,
-      "local_next_artifact": "particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
-      "state": "closed_current_corpus_two_modulus_nonidentifiability_obstruction",
-      "title": "Source-only down-type spread and branch generator"
-    },
-    "381": {
-      "chrome_workers": "not_needed_until_operational_scheme_selector_exists",
-      "closable_now": true,
-      "closure_kind": "accepted_sharper_obstruction",
-      "issue": 381,
-      "local_next_artifact": "particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json",
-      "state": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
-      "title": "Light-quark low-energy scheme and readout map"
-    },
-    "382": {
-      "chrome_workers": "not_needed_until_rg_threshold_packet_exists",
-      "closable_now": true,
-      "closure_kind": "accepted_sharper_obstruction",
-      "issue": 382,
-      "local_next_artifact": "particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json",
-      "state": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
-      "title": "Heavy-quark matching and threshold transport"
-    }
+  "generated_utc": "2026-08-14T05:35:45Z",
+  "provenance": {
+    "artifact": "oph_blind_prediction_provenance_ledger",
+    "promotion_allowed": false
   },
-  "provenance_status": "closed_provenance_ledger_and_declared_sensitivity_taxonomy",
   "rows": [
     {
       "chain": "p_closure_root",
       "claim_level": "compressed_candidate_trunk_not_final_particle_root",
-      "closed_issue_refs": [
-        224
+      "evidence_artifacts": [
+        "code/P_derivation/runtime/r_q_residual_contract_current.json",
+        "code/P_derivation/runtime/fine_structure_interval_certificate_current.json"
       ],
-      "next_artifact": "code/P_derivation/runtime/r_q_residual_contract_current.json + code/P_derivation/runtime/fine_structure_interval_certificate_current.json",
-      "open_gates": [],
       "outputs": {
-        "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
-        "alpha_inv": "136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341"
+        "P": "1.63097210492078846050203640439",
+        "alpha_inv": "136.994020662724205139718642793"
       },
       "promotable": false,
-      "stage_gate": "populated source spectral measure payload + full interval certificate",
-      "status": "candidate_not_live_root"
+      "required_receipts": [
+        "source_emitted_same_scheme_Ward_projected_R_Q",
+        "full_interval_composition_certificate"
+      ],
+      "scientific_boundary": "The fixed-point root is a guarded candidate and cannot feed promoted particle rows.",
+      "status": "candidate_nonpromoting_root"
     },
     {
       "chain": "conditional_classical_carrier_modes",
       "claim_level": "conditional_classical_or_perturbative_mode",
-      "closure_reason": "Issue #536 is closed by separating the conditional classical-mode theorem from the unmet quantum-particle gate; no 0 GeV particle row is emitted.",
-      "next_artifact": "code/particles/runs/status/carrier_mode_acceptance.json",
-      "open_gates": [
-        "quantization_constructed_from_oph",
-        "positive_physical_hilbert_space",
-        "physical_two_point_or_hamiltonian_spectrum_constructed",
-        "positive_residue_massless_pole",
-        "asymptotic_or_deconfined_particle_state"
+      "evidence_artifacts": [
+        "code/particles/runs/status/carrier_mode_acceptance.json"
       ],
       "outputs": {
         "gluon": {
@@ -276,44 +71,53 @@
         }
       },
       "promotable": false,
-      "status": "closed_scoped_classical_modes_quantum_particle_gate_open"
+      "required_receipts": [
+        "quantization_constructed_from_oph",
+        "positive_physical_hilbert_space",
+        "physical_two_point_or_hamiltonian_spectrum_constructed",
+        "positive_residue_massless_pole",
+        "asymptotic_or_deconfined_particle_state"
+      ],
+      "scientific_boundary": "The conditional classical-mode theorem does not satisfy the quantum-particle gate; no 0 GeV particle row is emitted.",
+      "status": "conditional_classical_modes__quantum_particle_receipts_absent"
     },
     {
       "chain": "electroweak_massive_bosons",
       "claim_level": "gap_frontier",
-      "closed_issue_refs": [
-        224
+      "evidence_artifacts": [
+        "code/P_derivation/runtime/r_q_residual_contract_current.json"
       ],
-      "next_artifact": "code/P_derivation/runtime/r_q_residual_contract_current.json",
-      "open_gates": [],
       "outputs": {},
       "promotable": false,
-      "stage_gate": "promotable target-free D10 repair plus certified P/root endpoint stack",
-      "status": "no_public_prediction_row_target_free_d10_repair_not_promoted"
+      "required_receipts": [
+        "target_free_D10_source_law",
+        "certified_P_root_endpoint_stack"
+      ],
+      "scientific_boundary": "No source-promoted W/Z mass row is available.",
+      "status": "no_public_prediction__target_free_source_law_absent"
     },
     {
       "chain": "hierarchy_naturality_bridge",
       "claim_boundary": "The hierarchy relation is exact under the declared screen premises; Higgs naturality is exact on its selected branch. The public Thomson endpoint, W/Z mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G are separate surfaces.",
       "claim_level": "exact_conditional_selected_branch_source_side_theorem",
-      "closed_issue_refs": [
-        332,
-        335,
-        337
+      "evidence_artifacts": [
+        "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
+        "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
+        "code/particles/hierarchy/issue_332_rg_naturality_certificate.json"
       ],
       "full_theorem_grade_resonance_promoted": false,
-      "next_artifact": null,
-      "open_gates": [
-        "source production of the unit cost, inverse pairing, and D-optimal selector",
-        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
-      ],
       "outputs": {
         "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
         "bridge_residual": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
         "epsilon_H": "0"
       },
       "promotable": false,
+      "required_receipts": [
+        "source production of the unit cost, inverse pairing, and D-optimal selector",
+        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
+      ],
       "resonance_status": "exact_conditional_local_global_hierarchy_resonance",
-      "status": "exact_conditional_selected_branch_local_global_hierarchy_naturality",
+      "status": "exact_conditional_selected_branch__full_resonance_not_promoted",
       "work_in_progress_receipts": [
         "source production of the unit cost, inverse pairing, and D-optimal selector",
         "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
@@ -322,32 +126,30 @@
     {
       "chain": "higgs_top_declared_surface",
       "claim_level": "conditional_declared_surface_higgs_top_candidate",
-      "closed_issue_refs": [
-        207
-      ],
       "codomain_obstruction": "hard_no_go_current_corpus_compare_only_direct_top_codomain",
-      "next_artifact": "code/particles/runs/calibration/direct_top_bridge_contract.json",
-      "open_gates": [
-        "closed_promotable_EWTargetFreeRepairValueLaw_D10"
+      "evidence_artifacts": [
+        "code/particles/runs/calibration/direct_top_bridge_contract.json"
       ],
       "outputs": {
         "higgs": 125.1995304097179
       },
       "promotable": false,
+      "required_receipts": [
+        "EWTargetFreeRepairValueLaw_D10"
+      ],
       "status": "conditional_declared_surface_higgs_top_candidate"
     },
     {
       "chain": "charged_leptons",
       "claim_level": "target_anchored_witness_withheld_no_public_charged_mass_output",
-      "closed_issue_refs": [
-        201
+      "evidence_artifacts": [
+        "code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json"
       ],
-      "next_artifact": "code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json",
       "nonclosure_theorem": "oph_charged_end_to_end_impossibility_theorem",
-      "open_gates": [],
       "outputs": {},
       "promotable": false,
-      "status": "closed_current_corpus_charged_end_to_end_no_go",
+      "required_receipts": [],
+      "status": "corpus_limited_charged_end_to_end_no_go",
       "withheld_non_prediction_rows": [
         {
           "centered_log": -4.495209645475038,
@@ -420,30 +222,24 @@
     {
       "chain": "selected_class_quarks",
       "claim_level": "mixed_scheme_dimensionful_mass_texture_audit",
-      "closed_issue_refs": [
-        199,
-        207,
-        212,
-        377,
-        379,
-        380,
-        381,
-        382
+      "evidence_artifacts": [
+        "code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
+        "code/particles/runs/flavor/quark_running_mass_scheme_convention_obstruction.json",
+        "code/particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json"
       ],
       "global_classification_obstruction": "hard_no_go_current_corpus_global_classification_not_emitted",
-      "next_artifact": "code/particles/runs/flavor/quark_sigma_source_nonidentifiability_obstruction.json",
-      "open_gates": [
+      "outputs": {},
+      "promotable": false,
+      "required_receipts": [
         "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
         "QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT",
         "QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION",
         "QUARK_THRESHOLD_AND_TOP_CONVERSION",
         "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
       ],
-      "outputs": {},
-      "promotable": false,
       "scheme_and_yukawa_obstruction": "oph_quark_running_mass_scheme_convention_obstruction",
       "source_spread_obstruction": "oph_quark_sigma_source_nonidentifiability_obstruction",
-      "status": "closed_sharper_quark_source_obstructions_numeric_rows_withheld",
+      "status": "quark_source_nonidentifiability__numeric_rows_withheld",
       "withheld_non_prediction_rows": [
         {
           "claim_tier": "mixed_scheme_dimensionful_mass_texture_audit",
@@ -570,15 +366,15 @@
     {
       "chain": "neutrino_absolute_attachment",
       "claim_level": "rejected_target_informed_weighted_cycle_candidate",
-      "next_artifact": null,
-      "open_gates": [
+      "evidence_artifacts": [],
+      "outputs": {},
+      "promotable": false,
+      "required_receipts": [
         "source_emitted_family_transport_kernel",
         "source_derived_weight_exponent_and_cycle_matrix_law",
         "source_derived_basis_permutation_and_holonomy_orientation",
         "pre_reference_hash_lock"
       ],
-      "outputs": {},
-      "promotable": false,
       "status": "rejected_target_informed_weighted_cycle_candidate",
       "unit": "eV",
       "withheld_non_prediction_rows": [
@@ -620,16 +416,18 @@
     {
       "chain": "hadrons",
       "claim_level": "source_only_absent_empirical_rows_separate",
-      "closed_issue_refs": [
-        153,
-        157
+      "evidence_artifacts": [
+        "docs/HADRON.md",
+        "code/particles/hadron/empirical_ee_hadrons_sources.yaml",
+        "code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json"
       ],
-      "closure_reason": "Source-only hadron prediction requires a working OPH hadron backend. Empirical hadron closure uses a separate e+e- payload class.",
-      "next_artifact": "docs/HADRON.md + code/particles/hadron/empirical_ee_hadrons_sources.yaml + code/particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
-      "open_gates": [],
       "outputs": {},
       "promotable": false,
-      "status": "source_backend_absent_empirical_closure_policy_emitted"
+      "required_receipts": [
+        "source_only_hadron_backend"
+      ],
+      "scientific_boundary": "Source-only hadron prediction requires a working OPH hadron backend. Empirical hadron closure uses a separate e+e- payload class.",
+      "status": "source_backend_absent__empirical_output_class_separate"
     }
   ],
   "source_artifacts": {
@@ -637,12 +435,6 @@
     "final_predictions": "code/particles/runs/status/final_end_to_end_predictions.json",
     "hierarchy_ew_capacity": "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
     "hierarchy_higgs_naturality": "code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
-    "hierarchy_local_global_resonance": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
-    "pipeline_status": "code/particles/runs/status/particle_pipeline_closure_status.json"
-  },
-  "status": "executable_nonhadron_chain_matrix_emitted",
-  "worker_policy": {
-    "chrome_pro_workers_needed_now": false,
-    "reason": "Hadron issues #153/#157 have a source-backend boundary and an empirical closure policy surface; the P/electromagnetic source-only endpoint needs a populated source spectral measure payload and interval certificate. The hierarchy relation is exact under its declared screen premises, and the naturality defect is exact on the selected branch. The charged absolute-anchor, quark global-classification, and direct-top auxiliary-codomain lanes have corpus-limited no-go boundaries."
+    "hierarchy_local_global_resonance": "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json"
   }
 }

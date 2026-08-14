@@ -1,7 +1,8 @@
 # OPH-native W/Z source packet
 
-This package owns the producer-side frontier of GitHub issue #594. It is
-separate from the external Standard-Model calculation in issue #593.
+This package defines the producer-side W/Z source frontier. It is separate
+from the external Standard-Model calculation and records issue numbers only as
+provenance pointers for the pinned scientific artifacts.
 
 The committed inventory binds the finite source parents that can be consumed
 without a physical W/Z claim:
@@ -24,7 +25,7 @@ physical family selection. The issue-314 spin packet lives on its separate
 twelve-port support. No source, domain, or transport bridge attaches it to
 the issue-634 local operator packet. Matter-pole identification, seam and
 gauge action, physical Spin/locality, refinement, and laboratory-current
-attachment remain open.
+attachment are not supplied.
 
 The #609 matter-menu receipt is bound as a negative boundary. It is complete
 inside the declared exterior algebra and retains a source-invisible sterile
@@ -44,10 +45,10 @@ an extended-domain no-go. The
 packets do not supply a complete physical census, quantum particle ontology,
 or continuum pole.
 
-Issue #634 is closed at finite bounded scope. It supplies a finite causal,
-section, and local-operator domain. It supplies no continuum Lorentzian
-spacetime or quantum-EFT transfer. Issue #635 owns that transfer or its
-stated-domain no-go.
+The pinned #634 receipt supplies a finite causal, section, and local-operator
+domain at finite bounded scope. It supplies no continuum Lorentzian spacetime
+or quantum-EFT transfer. Such a transfer, or a stated-domain no-go, is not
+supplied by this package.
 
 The #32 RG frontier contributes exact per-copy representation indices and the
 parametric one-loop gauge law after an explicit imported QFT functional. It
@@ -56,9 +57,10 @@ threshold, finite map, Jacobian, term mask, or vector remainder.
 
 The #630 frontier classifies the available renormalizable coefficient spaces
 and retains exact two-completion witnesses for the scalar, Yukawa, and
-`v_chart` to `v_F` choices. The positive producer has three separate owners:
-#636 for the scalar action, #637 for complete Yukawa matrices, and #638 for
-the source-to-FJ coordinate map. Issue #630 integrates their final verdicts.
+`v_chart` to `v_F` choices. The corresponding required interfaces carry
+provenance pointers #636 for the scalar action, #637 for complete Yukawa
+matrices, and #638 for the source-to-FJ coordinate map. The integration
+interface carries pointer #630.
 The bound frontier emits no coefficient assignment, physical scalar action,
 or coordinate identification.
 
@@ -79,41 +81,40 @@ separate downstream use in #334.
 The strongest machine status is:
 
 ```text
-FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE
+FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_NOT_SUPPLIED__PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE
 ```
 
 `promotion_allowed` is fixed to `false`. The inventory emits no pole
-coordinate and no physical-unit value. Each resolved-boundary row identifies
-a live GitHub issue outcome and hash-binds its bounded receipt. The issue
-outcome remains tracking metadata, while the checker enforces the receipt's
-exact scope and physical-promotion boundary. Neither is promoted to a positive
-scientific source parent.
+coordinate and no physical-unit value. Each resolved-boundary row hash-binds
+an immutable scientific receipt and classifies its exact scope and
+physical-promotion boundary. Issue numbers, where retained, are provenance
+pointers only; live project state is not an input or authority. No bounded
+receipt is promoted to a positive scientific source parent.
 
-## Producer work queue
+## Scientific boundary
 
-| ID | Work item | Status | Main owners |
-| --- | --- | --- | --- |
-| P594-01 | Hash-bind and independently resolve the finite source-parent inventory | Complete | #565, #566, #314, #567 |
-| P594-02 | Define the target firewall, closed input allowlist, separate comparison boundary, and sealed-input replay | Partial: path/content closure and sealed-input replay pass; runtime transcript and human-selection ancestry remain open | #594 |
-| P594-03 | Produce the source action and complete W/Z-coupled field/operator census | Partial: #634 supplies only the finite typed domain; scalar action, Yukawa action, physical family action, continuum transfer, and coupled-sector census remain open | #569, #635, #636, #637, #632; #609 and #311 remain bounded controls |
-| P594-04 | Complete the physical family, seam-action, and matter-pole attachment | Partial: the finite rank-45 tensor-identity attachment is bound; every physical attachment gate remains open | #569 |
-| P594-05 | Prove the source-Higgs coordinate to FJ-coordinate map | Partial: the #630 frontier gives an exact non-selection witness; #638 owns the positive map or no-go | #635, #636, #638 |
-| P594-06 | Emit full target-clean Yukawa matrices and coefficient law | Partial: invariant channel spaces are classified; complete matrices and physical coefficients remain open | #569, #636, #637 |
-| P594-07 | Emit target-clean running, thresholds, finite maps, Jacobians, masks, and remainders | Partial: exact representation indices and a parametric one-loop gauge law are independently replayed; complete census, QFT attachment, intervals, thresholds, maps, Jacobians, masks, and remainders remain open | #32 after #569, #636, #637, #631, and #632; #638 is not an RG prerequisite |
-| P594-08 | Emit a unique point law or target-independent joint law and pole covariance | Blocked | #594; #545 is an optional physical pixel-root route, not a hard dependency |
-| P594-09 | Substitute the native packet into the frozen QFT calculator without changing its algorithms and recompute the common subject digest | Blocked | #593 and the #635 transfer |
-| P594-10 | Decide the physical-unit row on the declared serialized interface | Complete at bounded negative scope: `PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE`; no GeV row may be emitted on this interface | #633 |
-| P594-11 | Run clean-room replay, then mount known W/Z values in a separate read-only comparison process | Blocked by the remaining open P594-03 through P594-09 gates | #594 |
+The package is a deterministic, non-promoting inventory of the bounded parent
+artifacts listed above. Its successful replay establishes path and content
+closure for those inputs and enforces the separation between source inputs and
+comparison data. It does not construct a physical W/Z source.
 
-The GitHub issue is the live status surface. Open acceptance boxes stay
-unchecked until their full clauses are discharged. Progress comments should
-cite the inventory digest and distinguish complete, partial, and blocked rows.
+A promoting source packet would additionally require a complete coupled-field
+action and operator census, physical matter and family attachment, complete
+Yukawa matrices and coefficients, an explicit source-to-FJ coordinate map,
+interval-by-interval matching and running data, and a source-selected joint law
+with pole covariance. It would then have to pass an independent clean-room
+substitution into the frozen pole calculator before any external comparison is
+mounted. None of those objects is inferred from a successful inventory replay.
+
+On the serialized interface represented here, the physical-unit verdict is
+`PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE`; consequently
+the package emits no GeV W/Z row.
 
 ## Files
 
 - `data/source_parent_policy_v1.json`: trusted role, path, scope, and firewall
   policy.
-- `schemas/source_parent_inventory_v1.schema.json`: closed output schema.
+- `schemas/source_parent_inventory_v1.schema.json`: strict output schema.
 - `build_source_parent_inventory.py`: deterministic producer.
 - `check_source_parent_inventory.py`: independent resolver. It imports no
   producer code and can replay all eleven allowlisted verifiers.

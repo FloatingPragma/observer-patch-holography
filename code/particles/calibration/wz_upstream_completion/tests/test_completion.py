@@ -339,7 +339,7 @@ def test_dependency_dag_is_acyclic_and_promotion_false():
     assert obj["nodes"]["OPH_NATIVE_PHYSICAL"]["status"] == "false"
 
 
-def test_post_audit_integration_manifest_is_complete_and_current():
+def test_integration_manifest_is_complete_and_current():
     manifest = json.loads((ROOT / "INTEGRATION_MANIFEST.json").read_text())
     expected_paths = {
         path.relative_to(ROOT).as_posix()

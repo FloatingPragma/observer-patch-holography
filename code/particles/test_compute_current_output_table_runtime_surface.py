@@ -43,6 +43,10 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     assert companion_by_id["hierarchy_naturality"]["status"] == "selected_branch_theorem"
     assert "epsilon_H=0" in companion_by_id["hierarchy_naturality"]["summary"]
     assert companion_by_id["strong_cp"]["status"] == "open"
+    assert all("next_action" not in row for row in companion)
+    assert all("blocked_by" not in row for row in companion)
+    assert all("scientific_boundary" in row for row in companion)
+    assert all("required_scientific_evidence" in row for row in companion)
     assert payload["comparison_rows"]
     assert payload["inputs"]["hadron_profile"] == "suppressed"
     assert uv["prelimit_system_artifact"] == "code/particles/runs/uv/bw_realized_transported_cap_local_system.json"
@@ -86,11 +90,18 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     assert (current_dir / "P_derivation" / "runtime" / "source_spectral_theorem_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "thomson_endpoint_package_current.json").exists()
     assert (current_dir / "P_derivation" / "runtime" / "rg_matching_threshold_contract_current.json").exists()
-    assert (current_dir / "runs" / "status" / "particle_derivation_gap_ledger.json").exists()
-    assert (current_dir / "runs" / "status" / "particle_pipeline_closure_status.json").exists()
     provenance = json.loads((current_dir / "runs" / "status" / "blind_prediction_provenance.json").read_text())
-    assert provenance["status"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
-    assert (current_dir / "PARTICLE_PROVENANCE_AUDIT.md").exists()
+    assert provenance["artifact"] == "oph_blind_prediction_provenance_ledger"
+    assert provenance["promotion_allowed"] is False
+    assert (current_dir / "PARTICLE_PROVENANCE_LEDGER.md").exists()
+    assert not (
+        current_dir / "runs" / "status" / "particle_pipeline_closure_status.json"
+    ).exists()
+    assert not (
+        current_dir / "runs" / "status" / "particle_derivation_gap_ledger.json"
+    ).exists()
+    assert not (current_dir / "PARTICLE_PIPELINE_CLOSURE_STATUS.md").exists()
+    assert not (current_dir / "DERIVATION_GAP_LEDGER.md").exists()
     final_predictions = json.loads((current_dir / "runs" / "status" / "final_end_to_end_predictions.json").read_text())
     assert final_predictions["artifact"] == "oph_final_current_end_to_end_particle_predictions"
     assert {entry["particle_id"] for entry in final_predictions["predictions"]} == {"higgs"}

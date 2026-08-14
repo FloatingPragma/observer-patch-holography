@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
-"""Compute the Ward-projected Thomson endpoint package for issue #223.
+"""Compute the Ward-projected Thomson endpoint package.
 
 The package is deliberately conditional.  It computes the endpoint residual
-that would close the CODATA/NIST comparison and expresses that residual in the
+required by the CODATA/NIST comparison and expresses that residual in the
 same variables used by the OPH P-closure code.  It does not let the comparison
-constant enter the solver path.  Issue #223 is satisfied by this blocker
-isolation package; issue #235 carries the source-emitted residual map and
-interval-certificate theorem burden.
+constant enter the solver path.  The package isolates the missing
+source-emitted residual map and interval-certificate theorem without treating
+project state as scientific evidence.
 """
 
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 from decimal import Decimal, localcontext
 import json
 from pathlib import Path
@@ -31,10 +30,6 @@ from paper_math import PaperMathContext, _dec, to_serializable
 DEFAULT_REPORT = Path(__file__).resolve().parent / "runtime" / "full_p_alpha_report_current.json"
 DEFAULT_OUT = Path(__file__).resolve().parent / "runtime" / "thomson_endpoint_package_current.json"
 DEFAULT_ENDPOINT_PRECISION = 80
-
-
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _screening_payload(
@@ -157,10 +152,7 @@ def build_endpoint_package(
     return to_serializable(
         {
             "artifact": "oph_ward_projected_thomson_endpoint_package",
-            "generated_utc": _now_utc(),
-            "github_issue": 223,
-            "successor_github_issue": 235,
-            "claim_status": "endpoint_package_computed_blocker_isolated",
+            "classification": "conditional_endpoint_package__source_transport_map_absent",
             "promotion_allowed": False,
             "compare_input_role": (
                 "The CODATA/NIST value is used after the internal report is built, only to compute "
@@ -190,7 +182,6 @@ def build_endpoint_package(
             "codata_mapped_endpoint_packet": compare_point,
             "first_non_internalized_object": {
                 "id": "ward_projected_qcd_screening_and_endpoint_remainder",
-                "successor_github_issue": 235,
                 "missing_source_transport_delta_alpha_inv_at_codata_p": exact_packet[
                     "missing_source_transport_delta_alpha_inv"
                 ],
@@ -204,19 +195,18 @@ def build_endpoint_package(
                     "The charged-lepton one-loop kernel is populated. The remaining scalar is in "
                     "the Ward-projected hadronic spectral transport plus electroweak scheme "
                     "remainder. A theorem must emit that map from OPH data; a fitted residual or "
-                    "external endpoint comparison does not close the lane."
+                    "external endpoint comparison does not supply the source-only theorem."
                 ),
             },
-            "issue_223_acceptance": {
+            "scientific_result": {
                 "theorem_grade_object_defined": True,
                 "first_non_internalized_scalar_isolated": True,
-                "charged_spectrum_is_actual_blocker": False,
-                "screening_or_endpoint_remainder_is_actual_blocker": True,
+                "charged_spectrum_is_limiting_missing_object": False,
+                "screening_or_endpoint_remainder_is_limiting_missing_object": True,
                 "imported_thomson_endpoint_removed_from_solver_path": True,
-                "closable_as_measured_alpha_derivation": False,
-                "closable_as_blocker_isolation_package": True,
-                "closed_by_conditional_package_only": True,
-                "successor_issue_for_source_residual_map": 235,
+                "measured_alpha_derivation_supplied": False,
+                "source_residual_map_supplied": False,
+                "result_scope": "conditional_missing_object_isolation",
             },
         }
     )

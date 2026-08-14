@@ -28,15 +28,6 @@
       "sigma_u_star": 5.579692209267639
     }
   },
-  "generated_utc": "2026-07-27T08:32:13Z",
-  "github_issue": 199,
-  "issue_199_acceptance_met_as_obstruction": true,
-  "lane_closure_verdict": {
-    "closed_as": "selected_class_theorem_plus_global_classification_obstruction",
-    "closure_kind": "hard_no_go_current_corpus",
-    "issue_199_acceptance_met": true,
-    "why_no_global_theorem": "The selected fiber theorem uses the realized same-label line-lift section. Away from f_P, the current source basis has no classifier for ambient public quark-frame classes and admits canonical-preserving off-canonical frame lifts. Therefore a global map bar_sigma would add data not emitted by the present theorem corpus."
-  },
   "missing_global_objects": [
     "oph_arbitrary_P_public_quark_frame_transport_classification",
     "oph_global_public_quark_frame_bridge_map",
@@ -44,11 +35,20 @@
   ],
   "notes": [
     "This does not weaken the selected-class conditional quark support wrapper.",
-    "It closes the stronger #199 global/class-uniform lane by naming the exact missing objects.",
-    "Future work should open a new issue only if a source-emitted global classifier is added."
+    "The stronger global/class-uniform theorem is not identified on the current corpus."
   ],
+  "promotion_boundary": {
+    "public_promotion_allowed": false,
+    "reason": "Selected-fiber constancy does not determine a class-uniform descent without a source-emitted global classifier and quotient-intrinsic sigma law.",
+    "requirements_ref": "missing_global_objects"
+  },
   "proof_status": "hard_no_go_current_corpus_global_classification_not_emitted",
   "public_promotion_allowed": false,
+  "scientific_result": {
+    "established_scope": "selected_class_theorem_plus_global_classification_obstruction",
+    "result_kind": "hard_no_go_current_corpus",
+    "why_no_global_theorem": "The selected fiber theorem uses the realized same-label line-lift section. Away from f_P, the current source basis has no classifier for ambient public quark-frame classes and admits canonical-preserving off-canonical frame lifts. Therefore a global map bar_sigma would add data not emitted by the present theorem corpus."
+  },
   "scope": "global_class_uniform_public_quark_frame_descent",
   "selected_class_descent": {
     "artifact": "oph_quark_public_physical_sigma_datum_descent",

@@ -1,16 +1,14 @@
 # Physical W/Z upstream mathematical completion package
 
-This directory preserves and hardens Pro's upstream theorem/specification
-package between the structural OPH branch and the already constructed strict
-W/Z pole map. The integrated v4.2 text is a corrected **draft sufficiency
-specification**, not a production scientific receipt system.
+This directory preserves the scientific theorem/specification package between
+the structural OPH branch and the already constructed strict W/Z pole map. The
+integrated v4.2 text is a corrected **draft sufficiency specification**, not a
+production scientific receipt system.
 
 ## Main files
 
 - `OPH_SM_EFT_WZ_COMPLETION_THEOREMS.md` — corrected non-entailment results, one explicit sufficient augmented branch, action/BRST/FJ/renormalization/pole theorems, proofs, and scientific boundaries.
-- `INDEPENDENT_AUDIT.md` — archive verification, theorem audit, checker exploit, required production objects, and closure consequences.
 - `candidate_axioms/OPH_PLUS_SM_EFT_FJ_V1.md` — explicit sufficient candidate source augmentation for human review; no minimality claim.
-- `AGENT_WORK_ORDER_V4.md` — path-by-path coding-agent instructions.
 - `docs/OPH_SOURCE_PARENT_CORRECTIONS.md` — H3/event-base, mixed-GNS, cone, causality and clock parent repairs.
 - `schemas/` — the baseline Draft 2020-12 checklist schemas plus the
   fail-closed diagnostic and certified-contour receipt schemas. The baseline
@@ -29,8 +27,8 @@ specification**, not a production scientific receipt system.
   immutable inputs, exact fixture/correction data, partition identity,
   interval nesting, residual gates, claim scope, and the self-digest. It is
   an arithmetic/shape validator: it does not re-evaluate the loop functions,
-  authenticate the producer, or supply the issue's still-open clean-room
-  numerical third verifier.
+  authenticate the producer, or supply an independent clean-room numerical
+  third verifier.
 - `producers/certified_second_sheet_poles.py` — scalar W/Z pole certificates
   on an explicitly declared channel-by-channel continuation chart. The
   receipt uses a mass-exchange-symmetric one-mass `B0` chart and records
@@ -71,8 +69,8 @@ The principal receipt proves only zero exclusion on its declared first-sheet
 boxes. Its coefficient-polynomial denominator checks are not Laurent
 denominator balls. The pole receipt proves a scalar subclaim on one declared
 multi-channel continuation, not the full neutral matrix-rank or
-physical-current acceptance row. Both receipts keep the corresponding
-issue-wide completion flags false, and all OPH-native and unit claims remain
+physical-current evidence boundary. Both receipts keep the corresponding
+full-stack completion flags false, and all OPH-native and unit claims remain
 false. The scalar pole receipt fixes its engine convention as
 `G(s)=s-m_tree^2-Pi_engine(s)` and does not certify a sign bridge to the
 separately written theorem convention. A receipt self-hash detects accidental
@@ -80,7 +78,9 @@ corruption but does not authenticate numerical evidence; the bundled
 validation therefore performs byte-exact producer regeneration before running
 either structural checker.
 
-`UPSTREAM_PACKAGE_MANIFEST.json` records Pro's pristine 35-file archive. The
-post-audit integrated file identities are recorded separately in
-`INTEGRATION_MANIFEST.json`; running validation does not rewrite either source
+`UPSTREAM_PACKAGE_MANIFEST.json` is an immutable record of the pristine
+35-file source archive; its historical file pins are retained even when a
+source-archive file is not part of the current package surface. Current
+integrated file identities are recorded separately in
+`INTEGRATION_MANIFEST.json`; running validation does not rewrite either
 manifest.

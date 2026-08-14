@@ -33,7 +33,7 @@ def test_verdict_is_bounded_and_does_not_promote_a_prediction() -> None:
             "cosmological_prediction",
             "prospective_forecast",
             "horizon_interpretation",
-            "issue_650_stage_gate_opened",
+            "named_law_comparison_promotable",
         )
     )
     assert all(selected is False for selected in value["branch_status"].values())

@@ -188,7 +188,7 @@ def _check_thomson(
     rounding = support.get("interval_backend", {}).get("rounding", "")
     if "not_theorem_grade" not in rounding:
         failures.append("thomson_interval_backend_boundary_missing")
-    # Deliberately do not read issue_223_acceptance.theorem_grade_object_defined.
+    # The package's scientific-result boolean is descriptive, not a promotion input.
     return failures
 
 

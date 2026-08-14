@@ -32,6 +32,7 @@ SCHEMA = HERE / "boson_source_prediction_closure_audit.schema.json"
 QT_CERTIFICATE_SCHEMA = HERE / "d10_ew_quotient_path_certificate.schema.json"
 GENERATED = ROOT / "particles" / "runs" / "calibration" / "boson_source_prediction_closure_audit.json"
 QT_GENERATED = ROOT / "particles" / "runs" / "calibration" / "d10_ew_quotient_transport_receipt.json"
+P_TRUNK = ROOT / "P_derivation" / "runtime" / "p_closure_trunk_current.json"
 
 
 def _build() -> dict:
@@ -87,13 +88,12 @@ def test_four_pixel_branches_and_four_mass_surfaces_stay_distinct() -> None:
     assert branches["source_audit_P_cand"]["P"] == (
         "1.63097209585889737696451390350695562847912625483895268486516"
     )
-    # Frozen against the trunk artifact regenerated in commit 7e94eb43
-    # ("Incorporate audit feedback"): solver precision 100 with 120 outer
-    # iterations, fixed-point residual 8.7e-41 (the prior 30-digit value
-    # carried an under-converged residual of 3.8e-8).
+    # This cross-surface receipt must reproduce the canonical trunk artifact;
+    # the trunk's own verifier owns its numerical precision and convergence
+    # contract, so this test must not pin a stale duplicate value.
+    p_trunk = json.loads(P_TRUNK.read_text(encoding="utf-8"))
     assert branches["compressed_p_trunk_candidate"]["P"] == (
-        "1.630972172289734415925897501373482673022655099072161516985001733211"
-        "109918232723345616738572172898702297689609012"
+        p_trunk["fixed_point_candidate"]["P"]
     )
     assert all(not row["eligible_for_source_only_mass_prediction"] for row in branches.values())
     assert report["branch_consistency"]["single_end_to_end_branch_selected"] is False

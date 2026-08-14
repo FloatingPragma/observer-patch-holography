@@ -17,7 +17,7 @@ OUTPUT = ROOT / "particles" / "runs" / "calibration" / "direct_top_bridge_contra
 REFERENCE = ROOT / "particles" / "data" / "particle_reference_values.json"
 
 
-def test_direct_top_bridge_contract_closes_auxiliary_row_as_current_corpus_no_go() -> None:
+def test_direct_top_bridge_contract_records_auxiliary_row_no_go() -> None:
     subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
@@ -27,13 +27,23 @@ def test_direct_top_bridge_contract_closes_auxiliary_row_as_current_corpus_no_go
         - float(references["top_quark"]["value_gev"])
     )
     assert payload["artifact"] == "oph_direct_top_bridge_contract"
-    assert payload["github_issue"] == 207
     assert payload["status"] == "hard_no_go_current_corpus_compare_only_direct_top_codomain"
     assert payload["promotion_allowed"] is False
-    assert payload["worker_result_policy"]["obstruction_only_result_allowed"] is True
-    assert payload["worker_result_policy"]["pro_workers_needed_now"] is False
-    assert payload["closure_verdict"]["issue_207_acceptance_met_as_obstruction"] is True
-    assert payload["closure_verdict"]["auxiliary_row_policy"] == "compare_only_not_promotable"
+    assert set(payload) == {
+        "artifact",
+        "auxiliary_direct_top_coordinate",
+        "comparison_only_readout",
+        "constructive_objects",
+        "current_target_audit_coordinate",
+        "forbidden_solver_inputs",
+        "formal_nonidentifiability_witness",
+        "promotion_allowed",
+        "promotion_boundary",
+        "scientific_result",
+        "status",
+    }
+    assert payload["scientific_result"]["result_kind"] == "hard_no_go_current_corpus"
+    assert payload["scientific_result"]["auxiliary_row_policy"] == "compare_only_not_promotable"
     assert payload["current_target_audit_coordinate"]["pdg_summary_id"] == "Q007TP4"
     assert payload["auxiliary_direct_top_coordinate"]["pdg_summary_id"] == "Q007TP"
     assert payload["current_target_audit_coordinate"]["value_gev"] == pytest.approx(
@@ -47,7 +57,7 @@ def test_direct_top_bridge_contract_closes_auxiliary_row_as_current_corpus_no_go
         abs=1.0e-12,
     )
     assert payload["comparison_only_readout"]["within_combined_one_sigma"] is True
-    assert payload["closure_gate"]["closable_now"] is True
+    assert payload["promotion_boundary"]["promotion_allowed"] is False
     assert payload["formal_nonidentifiability_witness"]["lambda_matching_auxiliary_central_value_gev"] == pytest.approx(
         expected_delta,
         abs=1.0e-12,

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Emit the screening-invariant non-identifiability certificate for #235."""
+"""Emit the screening-invariant non-identifiability certificate."""
 
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 from decimal import Decimal, localcontext
 import hashlib
 import json
@@ -16,10 +15,6 @@ from paper_math import _dec, to_serializable
 
 DEFAULT_PACKAGE = Path(__file__).resolve().parent / "runtime" / "thomson_endpoint_package_current.json"
 DEFAULT_OUT = Path(__file__).resolve().parent / "runtime" / "screening_invariant_no_go_current.json"
-
-
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _canonical_hash(payload: dict[str, Any]) -> str:
@@ -93,8 +88,6 @@ def build_no_go(package: dict[str, Any]) -> dict[str, Any]:
     return to_serializable(
         {
             "artifact": "oph_screening_invariant_no_go_certificate",
-            "generated_utc": _now_utc(),
-            "github_issue": 235,
             "claim_status": "source_invariant_surface_does_not_determine_screening_scalar",
             "promotion_allowed": False,
             "source_packet_hash": _canonical_hash(source_packet),
@@ -142,7 +135,6 @@ def build_no_go(package: dict[str, Any]) -> dict[str, Any]:
             },
             "required_source_object": {
                 "id": "ward_projected_qcd_screening_and_endpoint_remainder",
-                "successor_github_issue": 235,
                 "required_primitives": [
                     "rho_had(s;P)",
                     "Delta_EW(P)",

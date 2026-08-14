@@ -167,22 +167,22 @@
       "parallel_fibre_identity_residual": 4.531626267810507e-20
     }
   },
-  "generated_utc": "2026-07-28T16:41:55Z",
+  "generated_utc": "2026-08-14T05:22:42Z",
   "input_manifest": [
     {
-      "bytes": 5111,
+      "bytes": 5208,
       "path": "code/P_derivation/runtime/measured_endpoint_calibration_current.json",
-      "sha256": "b8b5d869083148a6199349408abde07501e199502cc601e66454d7b569355e26"
+      "sha256": "02d7b09dd92bd47d2319d8441da81867332baa171dd97ad9b84f8c116164657c"
     },
     {
-      "bytes": 10535,
+      "bytes": 6550,
       "path": "code/P_derivation/runtime/p_closure_trunk_current.json",
-      "sha256": "a2ba0b67f52cecc09f1f8df01627afa1d493b0a3dd6b1670aa36f95da631e523"
+      "sha256": "2deb03e66c4c8dcbbd36781edb298cf7e7489086254a31f1721f0ee9fdfacbd9"
     },
     {
-      "bytes": 4992,
+      "bytes": 4460,
       "path": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
-      "sha256": "caa4b21e6ff81640a4e7c5587dbb7a88c1b9aa2d3ce54e58e7d12e2bfa1af911"
+      "sha256": "feb7ca98a79b6283f7cff92afac5a8050137900944b514d5af587d409f3e911f"
     },
     {
       "bytes": 13732,
@@ -215,9 +215,9 @@
       "sha256": "05544e2a34a3f6769595651e6833c81d26c3978c2874adef8a7d4bf7ec14194e"
     },
     {
-      "bytes": 12715,
+      "bytes": 13058,
       "path": "code/particles/calibration/derive_d11_live_exact_split_pair_theorem.py",
-      "sha256": "1630aa25eef17650251864c7e0dd48421949f0d5114da2f9a4d669ef94beb7cb"
+      "sha256": "26b8288dbf9c7498314f5f35bf42288dbfe71bb844d4015f013078279a151e0a"
     },
     {
       "bytes": 21707,
@@ -302,17 +302,17 @@
     {
       "bytes": 1696,
       "path": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
-      "sha256": "c3e50061e73bab93c4115120752405d52cc4f1edc97e0ab2bc3c2f94c8a39274"
+      "sha256": "61bf90facc9790ed38d210527d3089c62a9d82a980bb407ef89e81fd2e9a1183"
     },
     {
-      "bytes": 6318,
+      "bytes": 6422,
       "path": "code/particles/runs/calibration/d11_live_exact_split_pair_theorem.json",
-      "sha256": "a1fb352a95b8c0912a6219b2ba3699ff6fe3076b32a7b5b95871312df3c7f4c5"
+      "sha256": "967836473401d39f54edc9553409be2a640b4f09e243756acab42e60817241c2"
     },
     {
       "bytes": 1884,
       "path": "code/particles/runs/calibration/d11_reference_exact_adapter.json",
-      "sha256": "1f5de55ab6ab93e33eb4c9c67515300ff24ab1c7914ca568d7c61c52dd1a4e32"
+      "sha256": "af3618e7237e17f003594fdfda05f6868c2da032d0e4b23ac37802f01662d124"
     }
   ],
   "mass_surfaces": [
@@ -501,7 +501,7 @@
   "schema_version": "1.0.0",
   "source_branches": {
     "compressed_p_trunk_candidate": {
-      "P": "1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012",
+      "P": "1.63097210492078846050203640439",
       "alpha_U": null,
       "branch_id": "compressed_p_trunk_candidate",
       "eligible_for_source_only_mass_prediction": false,

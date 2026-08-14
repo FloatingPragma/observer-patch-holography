@@ -94,12 +94,17 @@ def test_source_spectral_theorem_blocks_without_measure_payload() -> None:
     payload = build_source_spectral_theorem()
 
     assert payload["artifact"] == "oph_ward_projected_source_spectral_theorem"
+    assert "generated_utc" not in payload
+    assert "github_issue" not in payload
     assert payload["theorem_id"] == "WardProjectedHadronicSpectralEmission_Q"
     assert payload["status"] == "source_spectral_reduction_theorem_emitted_measure_payload_absent"
     assert payload["promotion_allowed"] is False
     assert payload["external_inputs_used"] is False
     assert payload["source_payload_validation"]["status"] == "blocked_source_spectral_measure_missing"
     assert payload["current_corpus_obstruction"]["production_dump_present"] is False
+    assert payload["current_corpus_obstruction"]["hadron_contract_classification"] == (
+        "scientific_contract_without_production_data"
+    )
     assert payload["current_corpus_obstruction"]["finite_volume_levels_populated"] is False
     assert payload["conclusion"]["source_spectral_reduction_closed"] is True
     assert payload["conclusion"]["exact_alpha_emitted_from_current_corpus"] is False

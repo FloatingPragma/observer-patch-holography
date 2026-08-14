@@ -2,7 +2,7 @@
 
 ## Mathematical completion theorem stack and computational receipt contract
 
-**Version:** 4.2 (independently audited integration)  
+**Version:** 4.2 (integrated scientific specification)
 **Date:** 2026-07-20  
 **Status:** corrected *draft sufficiency specification*; production receipt schemas and a production aggregate verifier remain open  
 **Permitted present claim:** `DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION`
@@ -1400,8 +1400,9 @@ It does not resolve artifacts, recompute their digests or derive the evidence
 booleans. The integrated checker therefore refuses scientific promotion
 unconditionally, even if every declaration is forged true. The shipped
 templates are deliberately valid at the schema level while failing their
-candidate conjunction. A future production verifier must implement the
-artifact-resolving architecture in `INDEPENDENT_AUDIT.md` and
+candidate conjunction. A future production verifier must resolve immutable
+artifacts, recompute their digests and equations, and derive rather than trust
+every evidence result, as required by
 `../simulator/UPSTREAM_MATH_SIMULATOR_REQUIREMENTS.md`.
 
 ---

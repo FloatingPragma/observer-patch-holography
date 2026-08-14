@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Emit the global public quark-frame descent obstruction for issue #199.
+"""Emit the global public quark-frame descent obstruction.
 
 The selected public quark frame class ``f_P`` has a closed representative-
 independence statement: the existing public sigma-datum descent theorem proves constancy on the declared bridge fiber
-``R_decl(f_P)``. Issue #199 asks for the stronger class-uniform/global theorem
-over arbitrary public quark-frame classes. The present corpus does not emit the
-ambient classifier or quotient-intrinsic sigma law needed for that theorem.
+``R_decl(f_P)``. The stronger class-uniform/global theorem over arbitrary public
+quark-frame classes requires an ambient classifier and quotient-intrinsic sigma
+law that the present corpus does not emit.
 
-This artifact closes the lane as a current-corpus no-go: selected-class descent
+This artifact proves a current-corpus no-go: selected-class descent
 is not a source selector, and global/class-uniform descent would require
 choosing additional off-canonical frame data not emitted by the source basis.
 """
@@ -16,7 +16,6 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -32,11 +31,6 @@ DEFAULT_OUT = (
     ROOT / "particles" / "runs" / "flavor" / "quark_class_uniform_public_frame_descent_obstruction.json"
 )
 
-
-def _timestamp() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
 def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -46,11 +40,8 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
     countermodel = off_canonical["formal_countermodel_witness"]["arbitrary_frame_transport_countermodel"]
     return {
         "artifact": "oph_quark_class_uniform_public_frame_descent_obstruction",
-        "generated_utc": _timestamp(),
-        "github_issue": 199,
         "scope": "global_class_uniform_public_quark_frame_descent",
         "proof_status": "hard_no_go_current_corpus_global_classification_not_emitted",
-        "issue_199_acceptance_met_as_obstruction": True,
         "theorem_grade_global_descent": False,
         "public_promotion_allowed": False,
         "selected_class_descent": {
@@ -75,10 +66,9 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
             "For arbitrary public quark-frame classes F_phys, the corpus does not emit a global bridge map "
             "b: R_decl -> F_phys with a source-derived quotient-intrinsic sigma law."
         ),
-        "lane_closure_verdict": {
-            "closure_kind": "hard_no_go_current_corpus",
-            "closed_as": "selected_class_theorem_plus_global_classification_obstruction",
-            "issue_199_acceptance_met": True,
+        "scientific_result": {
+            "result_kind": "hard_no_go_current_corpus",
+            "established_scope": "selected_class_theorem_plus_global_classification_obstruction",
             "why_no_global_theorem": (
                 "The selected fiber theorem uses the realized same-label line-lift section. Away from f_P, "
                 "the current source basis has no classifier for ambient public quark-frame classes and admits "
@@ -91,6 +81,14 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
             "oph_global_public_quark_frame_bridge_map",
             "oph_quotient_intrinsic_public_sigma_law",
         ],
+        "promotion_boundary": {
+            "public_promotion_allowed": False,
+            "requirements_ref": "missing_global_objects",
+            "reason": (
+                "Selected-fiber constancy does not determine a class-uniform descent "
+                "without a source-emitted global classifier and quotient-intrinsic sigma law."
+            ),
+        },
         "formal_countermodel_witness": {
             "selected_point": off_canonical["formal_countermodel_witness"]["canonical_point"],
             "frame_transport_countermodel": countermodel,
@@ -112,8 +110,7 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
         ],
         "notes": [
             "This does not weaken the selected-class conditional quark support wrapper.",
-            "It closes the stronger #199 global/class-uniform lane by naming the exact missing objects.",
-            "Future work should open a new issue only if a source-emitted global classifier is added.",
+            "The stronger global/class-uniform theorem is not identified on the current corpus.",
         ],
     }
 

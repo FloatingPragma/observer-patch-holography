@@ -52,10 +52,11 @@ Composition boundaries, stated exactly:
   locality modules and is not composed on this surface; OL-C6
   (structural field theory) is owed to the regional-net modules.
 
-The row dispositions are the register's: PR-02 axiomatize, PR-03 and
-PR-04 remove, with the discharge queue (#739) owning the removals.
+The row dispositions are the register's: PR-02 is an explicit
+representation assumption, while PR-03 and PR-04 identify assumptions
+that a source-complete account would have to replace by constructions.
 Nothing here claims the axioms force the quantum representation of
-public records; that is the register's open disposition.
+public records or supply the declared phase instrument.
 -/
 
 /-- **Register rows PR-02 and PR-03: the represented public frame.**

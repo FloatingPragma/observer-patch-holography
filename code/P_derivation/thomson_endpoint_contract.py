@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-"""Emit the constructive contract for the Ward-projected Thomson endpoint.
+"""Emit the scientific contract for the Ward-projected Thomson endpoint.
 
-This artifact is the implementation target beneath the open low-energy
-electromagnetic endpoint.  It does not promote the current continuation model.
-It names the exact source-side objects that must be produced next so workers and
-local code have constructive deliverables rather than obstruction-only packets.
+The artifact records the established no-go results, the missing source-side
+objects, and the exact promotion boundary. It deliberately carries no
+project-control or scheduling state.
 """
 
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 import json
 from pathlib import Path
 from typing import Any
@@ -18,24 +16,22 @@ from typing import Any
 
 DEFAULT_OUT = Path(__file__).resolve().parent / "runtime" / "thomson_endpoint_contract_current.json"
 
-
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
 def build_contract() -> dict[str, Any]:
     return {
         "artifact": "oph_ward_projected_thomson_endpoint_contract",
-        "generated_utc": _now_utc(),
-        "github_issue": 235,
-        "closed_blocker_isolation_issue": 223,
-        "status": "closed_blocker_isolated_not_endpoint_theorem",
+        "status": "source_spectral_reduction_closed_measure_payload_absent",
         "promotion_allowed": False,
-        "issue_235_resolution": {
-            "close_recommendation": "close_as_first_missing_lemma_isolated",
-            "exact_alpha_promoted": False,
-            "first_missing_lemma": "source-emitted same-scheme Ward-projected R_Q(P)",
-            "minimal_new_theorem": "WardProjectedHadronicSpectralEmission_Q",
+        "promotion_boundary": {
+            "promotion_allowed": False,
+            "first_missing_scientific_object": (
+                "source-emitted same-scheme Ward-projected R_Q(P)"
+            ),
+            "minimal_required_theorem": "WardProjectedHadronicSpectralEmission_Q",
+            "reason": (
+                "The source-spectral reduction is established, but the source-emitted "
+                "Ward-projected hadronic measure, same-scheme endpoint remainder, and "
+                "full interval transport certificate are absent."
+            ),
         },
         "computed_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
         "blocking_artifacts": {
@@ -44,14 +40,6 @@ def build_contract() -> dict[str, Any]:
             "residual_map_contract": "code/P_derivation/runtime/r_q_residual_contract_current.json",
             "source_spectral_theorem": "code/P_derivation/runtime/source_spectral_theorem_current.json",
             "spectral_transport_validator": "code/P_derivation/thomson_spectral_transport.py",
-        },
-        "worker_result_policy": {
-            "obstruction_only_result_allowed": False,
-            "constructive_no_go_result_allowed": True,
-            "required_if_primary_route_fails": (
-                "emit an implementation-ready replacement object, builder interface, schema, "
-                "certificate interface, or runnable local target"
-            ),
         },
         "no_go_results": {
             "detuning_only_bypass": "closed_no_go",
@@ -167,13 +155,6 @@ def build_contract() -> dict[str, Any]:
                     "unique_fixed_point_statement",
                 ],
             },
-        ],
-        "local_next_steps": [
-            "Use thomson_endpoint_package.py to compute the residual endpoint packet from the internal report.",
-            "Use screening_invariant_no_go.py to reject fitted c_Q and low-height invariant shortcuts.",
-            "Use thomson_endpoint_interval_certificate.py to emit the blocked Banach certificate and R_Q contract.",
-            "Populate a source-emitted Ward-projected QCD screening and endpoint-remainder map matching that packet.",
-            "Upgrade the interval certificate only after the endpoint builder uses source-emitted transport.",
         ],
         "forbidden_solver_inputs": [
             "measured_alpha_0",

@@ -418,8 +418,8 @@ def main() -> int:
             "one exact xi-condition in the (dlam, dmu2) plane lies outside "
             "the generator span; its value is proportional to lam times "
             "the Goldstone xi-mass trace combination (g1^2 + 3 g2^2) v^2, "
-            "and its discharge belongs to the scalar-sector xi-budget "
-            "audit recorded on the issue"
+            "and it remains an explicit scalar-sector xi-condition "
+            "outside this counterterm receipt"
         ),
     }
     payload["problems"] = problems

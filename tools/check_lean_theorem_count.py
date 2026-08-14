@@ -32,7 +32,6 @@ LEAN_ROOT = REPO_ROOT / "Lean"
 CLAIM_FILES = [
     REPO_ROOT / "README.md",
     REPO_ROOT / "README_FR.md",
-    REPO_ROOT / "docs" / "HACKER_NEWS_START_HERE.md",
     REPO_ROOT / "extra" / "compact_proof_of_oph.tex",
 ]
 

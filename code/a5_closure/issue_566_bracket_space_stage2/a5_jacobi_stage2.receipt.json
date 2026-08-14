@@ -13,8 +13,8 @@
   },
   "claim_boundary": "This packet constructs the complete Jacobi polynomial system for the stage-one fourteen-parameter equivariant alternating bracket and certifies an exact coefficient-row rank 38 system with an 11+27 rowspace decomposition. The rank-27 residual equation system remains applicable on every derivation-weight flat. The three-dimensional derivation-only family is a Jacobi statement only and is neutral about compactness and source selection. It does not select coefficients, classify the residual solution variety, establish compactness, identify a preferred Lie algebra or source, or close issue #566.",
   "implementation_pins": {
-    "independent_verifier_sha256": "sha256:29ddd520f70656e74f503bee5401d229e184a3617d02b3bdf7e87825394e7b89",
-    "producer_sha256": "sha256:7e1784f56393584984738b55fa0f76b5bd3e8ede2671c52edaebcf5bedc0c4e2",
+    "independent_verifier_sha256": "sha256:c809abacdc297aaf41926f26a405394c801c5c79e4ea130a05e37f8075fac97f",
+    "producer_sha256": "sha256:9b0283aecc785fb5b35c206a70b340bd3bab2dbc78aded5b022c9502fe674d28",
     "test_sha256": "sha256:a57f1cc635225902455e0e84e13ddffa0bdfd40c596ef26a1c8ae13263bcc62b"
   },
   "issue": 566,
@@ -172,14 +172,14 @@
   ],
   "not_attained": {
     "compactness_established": false,
+    "full_bracket_classification_and_selection_supplied": false,
     "full_jacobi_solution_variety_classified": false,
-    "issue_566_closed": false,
     "preferred_bracket_selected": false,
     "rational_descent_components_classified": false,
     "source_selection": false,
     "special_weight_flat_residual_solutions_classified": false
   },
-  "receipt_sha256": "sha256:b01ca33d254b65ec0a1a07a0e6327ed836209052b57ba48f87d4c389656319e8",
+  "receipt_sha256": "sha256:72b4e5daae38ba042dafeb5f04aa6aa3c4e5e1786b7ac9f9a19642232bc56710",
   "schema": "oph.a5_jacobi_stage2.receipt.v1",
   "semantic_inputs": {
     "count": 2,
@@ -188,15 +188,15 @@
       "basis_file_sha256": "sha256:bee15ce78b3dcb2d7ce9da2a817fe27435cad5054765b10f86f29a5a1203c16b",
       "basis_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_reynolds_basis.json",
       "proper_group_sha256": "sha256:d1ab7e4be9d7f8296fc5b6f55057388a0c7dbe7d2675c9e2f9ff549597ffbf88",
-      "receipt_file_sha256": "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd",
+      "receipt_file_sha256": "sha256:40c4d345e4f82e19aac7a51d71495a4a3a2c2585026352dc1c38424dcc16fa7a",
       "receipt_path": "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json",
-      "receipt_self_sha256": "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f"
+      "receipt_self_sha256": "sha256:3b854175e151799d9ea820c940a657030e032889fef74c82cfa86c1b89887642"
     },
     "stage1_later_gates_all_false": true
   },
   "status": "EXACT_JACOBI_SYSTEM_AND_FIXED_LINE_REDUCTION__FULL_CLASSIFICATION_OPEN",
   "system_artifact": {
-    "canonical_json_sha256": "sha256:37d3858a1b6988bd05730cf6a934518fb52b987c6ee3de70715916679a471c19",
+    "canonical_json_sha256": "sha256:4c536b3b5caa251fa332f27545a6e13a148c2d56a2e021b5a49fb22e9b49f6bc",
     "path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json"
   },
   "target_firewall": {

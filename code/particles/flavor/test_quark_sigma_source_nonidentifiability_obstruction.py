@@ -40,9 +40,9 @@ def test_quark_sigma_obstruction_closes_all_three_backlog_issues_without_promoti
     assert payload["source_only_sigma_emitted"] is False
     assert payload["public_promotion_allowed"] is False
     assert payload["numeric_quark_rows_allowed"] is False
-    assert payload["issue_377_acceptance_met_as_obstruction"] is True
-    assert payload["issue_379_acceptance_met_as_obstruction"] is True
-    assert payload["issue_380_acceptance_met_as_obstruction"] is True
+    assert payload["provenance_issues"] == [377, 379, 380]
+    assert "github_issues" not in payload
+    assert all(payload["scientific_receipt_outcomes"].values())
 
     composition = payload["issue_composition"]
     assert composition["issue_379_up_type"]["remaining_fiber"] == "R_{>0}"

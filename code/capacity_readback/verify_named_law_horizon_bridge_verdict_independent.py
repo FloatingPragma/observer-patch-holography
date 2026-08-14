@@ -48,7 +48,7 @@ def verify() -> None:
         "parent pin",
     )
     boundary = parent.get("comparison_boundary", {})
-    require(boundary.get("issue_650_stage_gate_opened") is False, "stage gate")
+    require(boundary.get("named_law_comparison_promotable") is False, "comparison promotion")
     require(boundary.get("cosmological_prediction") is False, "parent prediction")
     short = value.get("short_circuit", {})
     require(short.get("input_available") is False, "input promotion")

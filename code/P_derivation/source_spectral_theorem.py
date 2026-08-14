@@ -9,7 +9,6 @@ spectral measure from comparison data or from the residual scalar.
 from __future__ import annotations
 
 import argparse
-from datetime import datetime, timezone
 from fractions import Fraction
 import json
 from pathlib import Path
@@ -32,10 +31,6 @@ DEFAULT_HADRON_CLOSURE = (
 )
 DEFAULT_RHO_LEVELS = ROOT / "particles" / "runs" / "hadron" / "rho_levels.json"
 DEFAULT_SCHEMA = ROOT / "particles" / "hadron" / "ward_projected_spectral_measure.schema.json"
-
-
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def _load_optional(path: Path) -> dict[str, Any]:
@@ -131,7 +126,10 @@ def _current_corpus_obstruction(
     rho_levels: dict[str, Any],
 ) -> dict[str, Any]:
     return {
-        "hadron_contract_status": hadron_contract.get("status", "missing"),
+        "hadron_contract_classification": hadron_contract.get(
+            "classification",
+            hadron_contract.get("status", "missing"),
+        ),
         "production_dump_present": _bool_from_path(hadron_closure, "production_dump_present"),
         "public_unsuppression_ready": _bool_from_path(hadron_closure, "public_unsuppression_ready"),
         "finite_volume_levels_populated": _levels_populated(rho_levels),
@@ -176,8 +174,6 @@ def build_source_spectral_theorem(
 
     return {
         "artifact": "oph_ward_projected_source_spectral_theorem",
-        "generated_utc": _now_utc(),
-        "github_issue": 235,
         "theorem_id": "WardProjectedHadronicSpectralEmission_Q",
         "status": status,
         "promotion_allowed": source_payload_accepted,

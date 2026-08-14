@@ -3,13 +3,13 @@
   "auxiliary_principal_sheet_zero_exclusion_only": true,
   "coefficient_denominator_witness_is_laurent_denominator": false,
   "engine_inverse_propagator_convention": "G(s)=s-m_tree^2-Pi_engine(s)",
+  "full_physical_pole_evidence_supplied": false,
+  "independent_numerical_reevaluation_supplied": false,
   "independent_numerical_replay_certified": false,
-  "issue_593_full_acceptance_satisfied": false,
-  "issue_593_independent_third_verifier_row_satisfied": false,
-  "issue_593_precision_ladder_row_satisfied": false,
-  "issue_593_root_laurent_row_satisfied": false,
   "laurent_denominator_certified": false,
+  "precision_ladder_receipt_supplied": false,
   "root_enclosure_certified": false,
+  "root_laurent_evidence_supplied": false,
   "theorem_self_energy_sign_bridge_certified": false
  },
  "artifact_finding": "the earlier sampled diagnostic reported winding one on boxes crossing the real axis; that value is a branch-gluing artifact of the discontinuous epsilon evaluation across the physical cut and is superseded by this certificate: the principal-sheet function has no zero in the declared off-axis boxes; pole location and continuation require a separate second-sheet receipt",
@@ -49,7 +49,7 @@
  "pins": {
   "diagnostic_module_sha256": "sha256:1a332f12c34b9ff612eb786652fb34fdeb37c7ef32cdbbe36b6960a7088592b5",
   "interval_module_sha256": "sha256:c4224a0c9317ebd32c663880dc7a1c2a15fe9a3ac1075a32efbf818705659d00",
-  "producer_module_sha256": "sha256:4744bef340374424917e94c713c6036e6b9e8a18c9120ba30c8d58f73eb63fc7",
+  "producer_module_sha256": "sha256:f4f72034f759154905b3998796d4441386237795d2ab0402de071b9a318d709e",
   "vector_blocks_sha256": "sha256:bbff3823b2b3c4a2f2fd1cd3feba407df3a762966a74cb43c9a4d213a5c8c80d"
  },
  "precision_nesting": {
@@ -2271,7 +2271,7 @@
   "sheet_certified_on_declared_boxes": true,
   "unit_claim": false
  },
- "receipt_sha256": "sha256:36ec81a8a8377ce90f482b68817b6b763b3c98bc1b0e783a61e10f4be8e3615a",
+ "receipt_sha256": "sha256:05005e79aaa475814d97dabff223bf74459d319bd640b4333424a203f07ce559",
  "results": {
   "W": {
    "128": {

@@ -1,5 +1,5 @@
 {
-  "artifact": "oph_blind_prediction_provenance_audit",
+  "artifact": "oph_blind_prediction_provenance_ledger",
   "carrier_mode_rows": [
     {
       "blind_status": "not_a_quantum_particle_prediction",
@@ -35,20 +35,11 @@
       "target_use": "no_particle_mass_target_used"
     }
   ],
-  "closure_gate": {
-    "closable_now": true,
-    "close_issue_when": [
-      "row provenance ledger is emitted",
-      "declared sensitivity taxonomy is emitted",
-      "numeric sweeps remain stage-gated by the source spectral measure payload"
-    ],
-    "closed_as": "provenance_ledger_and_declared_sensitivity_taxonomy",
-    "reason": "The row provenance ledger, prospective comparison protocol, and declared convention-sensitivity taxonomy are emitted. Numeric sensitivity intervals remain tied to the populated source spectral measure payload and interval certificate."
-  },
   "convention_sensitivity": {
-    "endpoint_contract_status": "closed_blocker_isolated_not_endpoint_theorem",
-    "endpoint_package_status": "endpoint_package_computed_blocker_isolated",
-    "next_artifact": "interval composition certificates after the populated source spectral measure payload exists",
+    "classification": "declared_taxonomy__numeric_sweep_not_performed",
+    "endpoint_contract_classification": "source_spectral_reduction_closed_measure_payload_absent",
+    "endpoint_package_classification": null,
+    "missing_evidence": "populated source spectral measure payload and interval-composition certificates",
     "numeric_sweep_performed": false,
     "required_objects": [
       "representation_index_frontier",
@@ -57,25 +48,9 @@
       "beta_provenance_table",
       "matching_interval_composition_certificate"
     ],
-    "rg_contract_status": "open_source_rg_frontier_partial",
-    "status": "declared_taxonomy_emitted_numeric_sweep_stage_gated"
+    "rg_contract_classification": "open_source_rg_frontier_partial"
   },
-  "finalization_gates": {
-    "empirical_hadron_closure_policy_documented": true,
-    "empirical_hadron_spectral_endpoint_packet_available": true,
-    "hierarchy_local_global_resonance_closed": false,
-    "higgs_naturality_defect_closed": true,
-    "nonhadron_prediction_surface_buildable": true,
-    "obstruction_only_worker_result_allowed": true,
-    "p_trunk_candidate_only": true,
-    "paper_material_sync_complete_without_live_publish": true,
-    "pixel_screen_resonance_summary_closed": true,
-    "source_only_hadrons_suppressed_by_default": true,
-    "source_spectral_stage_gate": "populated source spectral measure payload plus interval certificate",
-    "symmetry_only_particle_promotion_blocked": true
-  },
-  "generated_utc": "2026-07-29T16:25:40Z",
-  "github_issue": 234,
+  "generated_utc": "2026-08-14T05:35:45Z",
   "pipeline_inputs": {
     "P": 1.630968209403959,
     "hadron_profile": "suppressed",
@@ -86,6 +61,7 @@
   "promotion_allowed": false,
   "prospective_comparison_workflows": [
     {
+      "classification": "protocol_defined__not_exercised",
       "id": "new_quantity_pre_reference_provenance",
       "required_evidence": [
         "source_artifact_hashes",
@@ -94,10 +70,10 @@
         "pre_reference_runtime_output",
         "post_reference_comparison_only_delta"
       ],
-      "rule": "For any quantitative row outside construction inputs, timestamp and hash the source artifacts, record allowed conventions, then fetch or reveal the external reference.",
-      "status": "protocol_emitted_unexercised"
+      "rule": "For any quantitative row outside construction inputs, timestamp and hash the source artifacts, record allowed conventions, then fetch or reveal the external reference."
     },
     {
+      "classification": "taxonomy_declared__certified_intervals_required",
       "id": "convention_sensitivity_sweep",
       "required_evidence": [
         "scheme_record",
@@ -105,8 +81,7 @@
         "matching_interval_composition_certificate",
         "rowwise_sensitivity_intervals"
       ],
-      "rule": "Vary only declared scheme, matching, and threshold choices inside certified intervals; report induced intervals for every public quantitative row.",
-      "status": "declared_taxonomy_emitted_numeric_sweep_stage_gated"
+      "rule": "Vary only declared scheme, matching, and threshold choices inside certified intervals; report induced intervals for every public quantitative row."
     }
   ],
   "row_counts": {
@@ -133,17 +108,20 @@
       "value": 125.1995304097179
     }
   ],
+  "scientific_boundary": {
+    "numeric_sensitivity_intervals_supplied": false,
+    "public_rows_classified": true,
+    "reason": "The ledger classifies target ancestry, blindness, and declared convention sensitivity. It does not supply the source spectral measure or interval-composition certificates required for a numerical sensitivity sweep."
+  },
   "scope": "public_quantitative_particle_rows",
   "source_surfaces": {
     "carrier_mode_acceptance": "code/particles/runs/status/carrier_mode_acceptance.json",
     "exact_nonhadron": "code/particles/exact_nonhadron_masses.json",
-    "pipeline_closure_status": "code/particles/runs/status/particle_pipeline_closure_status.json",
     "results_status": "code/particles/results_status.json",
     "rg_matching_threshold_contract": "code/P_derivation/runtime/rg_matching_threshold_contract_current.json",
     "thomson_endpoint_contract": "code/P_derivation/runtime/thomson_endpoint_contract_current.json",
     "thomson_endpoint_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json"
   },
-  "status": "closed_provenance_ledger_and_declared_sensitivity_taxonomy",
   "withheld_rows": [
     {
       "blind_status": "withheld_not_blind",

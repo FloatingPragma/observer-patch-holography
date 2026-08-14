@@ -9,6 +9,10 @@ evidence summaries. It is not part of the public theory reading route.
 - [`premise_register.json`](premise_register.json) is the V3 premise register
   source (rendered to `docs/PREMISE_REGISTER_V3.md` by
   `python3 tools/build_premise_register.py`).
+- [`constants_ancestry.json`](constants_ancestry.json) classifies the source
+  and comparison ancestry of constants rows (rendered to
+  `docs/CONSTANTS_ANCESTRY_V3.md` by
+  `python3 tools/build_constants_ancestry.py`).
 - [`sm_lagrangian_correspondence.json`](sm_lagrangian_correspondence.json) is
   the Standard Model Lagrangian correspondence source (rendered to
   `docs/SM_LAGRANGIAN_CORRESPONDENCE.md` by

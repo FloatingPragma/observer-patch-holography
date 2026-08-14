@@ -14,23 +14,27 @@ SCRIPT = ROOT / "rg_matching_threshold_contract.py"
 OUTPUT = ROOT / "runtime" / "rg_matching_threshold_contract_current.json"
 
 
-def test_rg_matching_threshold_contract_is_open_partial_and_nonpromoting() -> None:
+def test_rg_matching_threshold_contract_is_partial_and_nonpromoting() -> None:
     subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
 
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert payload["artifact"] == "oph_rg_matching_threshold_contract"
     assert payload["status"] == "open_source_rg_frontier_partial"
     assert payload["promotion_allowed"] is False
-    assert "github_issue" not in payload
-    assert "github_issue_state" not in payload
-    assert "github_dependencies" not in payload
+    assert set(payload) == {
+        "artifact",
+        "constructive_objects",
+        "forbidden_promotions",
+        "promotion_allowed",
+        "promotion_boundary",
+        "scientific_boundary",
+        "source_frontier",
+        "status",
+    }
     assert payload["source_frontier"]["status"] == (
         "PARTIAL_EXACT_REPRESENTATION_INDICES__SOURCE_MATCHING_OPEN"
     )
-    assert payload["worker_result_policy"]["partial_frontier_allowed"] is True
-    assert payload["worker_result_policy"]["closure_requires_complete_source_packet"] is True
-    assert payload["closure_gate"]["closable_now"] is False
-    assert payload["closure_gate"]["closed_as"] is None
+    assert payload["promotion_boundary"]["promotion_allowed"] is False
     object_ids = {item["id"] for item in payload["constructive_objects"]}
     assert object_ids == {
         "representation_index_frontier",
@@ -49,9 +53,12 @@ def test_rg_matching_threshold_contract_is_open_partial_and_nonpromoting() -> No
         "partial_parametric_gauge_one_loop_only"
     )
     assert statuses["threshold_map"] == "not_emitted"
-    assert "zero-vertex decoupling" in payload["closure_gate"]["reason"]
+    assert "zero-vertex decoupling" in payload["promotion_boundary"]["reason"]
+    assert "representation indices alone do not determine" in payload[
+        "scientific_boundary"
+    ]["corpus_limited_no_go"]
     assert "using_threshold_choices_as_hidden_fit_parameters" in payload["forbidden_promotions"]
     assert (
-        "reusing_the_issue_593_external_validation_packet_as_an_OPH_source"
+        "reusing_an_external_validation_packet_as_an_OPH_source"
         in payload["forbidden_promotions"]
     )

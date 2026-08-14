@@ -240,11 +240,6 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         "Audit the sector-isolated charged trace lift and its zero-residual gate.",
     ),
     PipelineStep(
-        "derivation_gap_ledger",
-        "particles/scripts/build_derivation_gap_ledger.py",
-        "Refresh the coupled derivation-gap ledger.",
-    ),
-    PipelineStep(
         "carrier_mode_acceptance",
         "particles/scripts/build_carrier_mode_acceptance.py",
         "Refresh the fail-closed classical-carrier / quantum-particle gate.",
@@ -407,19 +402,9 @@ FINAL_PIPELINE_STEPS: tuple[PipelineStep, ...] = (
         ),
     ),
     PipelineStep(
-        "pipeline_closure_status_bootstrap",
-        "particles/scripts/build_particle_pipeline_closure_status.py",
-        "Refresh closure status before provenance rebuild.",
-    ),
-    PipelineStep(
         "blind_prediction_provenance",
         "particles/scripts/build_blind_prediction_provenance.py",
         "Refresh row-level blind-prediction provenance.",
-    ),
-    PipelineStep(
-        "pipeline_closure_status_finalize",
-        "particles/scripts/build_particle_pipeline_closure_status.py",
-        "Refresh closure status after provenance rebuild.",
     ),
     PipelineStep(
         "final_end_to_end_predictions",

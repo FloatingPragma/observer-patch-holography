@@ -411,7 +411,7 @@
     "theorem_scope": "current_family_common_refinement_transport_frame_only",
     "wrapper_theorem": "oph_quark_exact_yukawa_end_to_end_theorem"
   },
-  "generated_utc": "2026-07-27T08:32:18Z",
+  "generated_utc": "2026-08-14T05:39:23Z",
   "internalized_theorems": [
     {
       "formula": "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)",
@@ -965,11 +965,11 @@
       "source_object": "X(P): source-emitted physical quark data or physical amplitudes",
       "target_action": "nontrivial"
     },
-    "github_issues": [
+    "proof_status": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
+    "provenance_issues": [
       381,
       382
     ],
-    "proof_status": "closed_structural_finite_renormalization_nonidentifiability_obstruction",
     "public_numeric_quark_rows_allowed": false,
     "reference_data_policy": {
       "PDG_or_API_quark_rows_consumed": false,
@@ -1117,11 +1117,6 @@
     },
     "fiber_dimension": 2,
     "free_action": "(lambda_u,lambda_d).(sigma_u,sigma_d)=(lambda_u*sigma_u,lambda_d*sigma_d)",
-    "github_issues": [
-      377,
-      379,
-      380
-    ],
     "independent_coordinates": [
       "sigma_u",
       "sigma_d"
@@ -1134,6 +1129,11 @@
     },
     "numeric_quark_rows_allowed": false,
     "proof_status": "closed_exact_current_corpus_obstruction",
+    "provenance_issues": [
+      377,
+      379,
+      380
+    ],
     "source_only_sigma_emitted": false,
     "theorem_grade_obstruction": true,
     "theorem_statement": "After all target-derived and compare-only ancestors are removed, the strongest current quark source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present source theory does not identify a unique quark spread package or running quark mass sextet."

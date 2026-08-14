@@ -126,7 +126,7 @@ Status `conditional_determination`; owning observation-ledger row OL-H8.
   - `register_import` (PR-15): clock and energy calibration anchors: declared measured standards shared with the thermodynamics lane.
   - `derived`: exact affine calibration algebra: two ordered event pairs determine the unique positive-affine interpolation, with the cross-product consistency check at a third shared event.
 - Evidence: `claims/assumption_dictionary.md`, `Lean/Time/ProperTimeCalibration.lean`, `Lean/Time/ClockReadout.lean`, `Lean/Time/ClockComparison.lean`.
-- Falsifier (`Lean/Time/ClockComparison.lean`): Affine consistency at a third shared event is equivalent to the cross-product equation and gives a no-new-fit-parameter check; a failing check falsifies a claimed common calibration. The anchors stay flagged measured imports, and a derived clock is open in the discharge queue.
+- Falsifier (`Lean/Time/ClockComparison.lean`): Affine consistency at a third shared event is equivalent to the cross-product equation and gives a no-new-fit-parameter check; a failing check falsifies a claimed common calibration. The anchors stay flagged measured imports, and a source-derived physical clock is not yet supplied.
 
 ## What the statuses mean
 

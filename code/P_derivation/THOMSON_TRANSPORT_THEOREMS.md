@@ -196,10 +196,9 @@ Constructive implementation target:
 - `runtime/source_spectral_theorem_current.json`
 - `../particles/hadron/ward_projected_spectral_measure.schema.json`
 
-Workers should not return obstruction-only text for this branch. If the
-free-quark screened route fails, the required replacement is a populated
-Ward-projected spectral-measure export or a code/schema patch that moves that
-export toward the endpoint builder.
+An admissible continuation must provide a populated Ward-projected
+spectral-measure export, or an executable schema/producer extension that
+supplies part of that scientific payload to the endpoint builder.
 
 ## Theorem 4: Electroweak Matching Remainder
 
@@ -223,10 +222,9 @@ bound.
 
 ## Theorem 5: Full Thomson Endpoint
 
-**Status:** endpoint package closed for issue #223; source-residual
-non-identifiability boundary closed for issue #235. Exact-alpha promotion
-requires the populated source spectral measure payload, same-scheme
-remainder, and interval certificate.
+**Status:** endpoint package computed and source-residual non-identifiability
+established. Exact-alpha promotion requires the populated source spectral
+measure payload, same-scheme remainder, and interval certificate.
 
 If Theorems 2, 3, and 4 are closed on the same source family and scheme, define
 
@@ -287,8 +285,8 @@ the outer equation from the CODATA/NIST comparison value:
 
 ## Theorem 6: Corpus-Limited Non-Identifiability of `R_Q(P)`
 
-**Status:** closed no-go for the current corpus; issue #235 is closable as
-first missing lemma isolated, not as an alpha promotion.
+**Status:** closed no-go for the current corpus. The first missing scientific
+object is isolated; exact alpha is not promoted.
 
 Let the current source corpus consist of the OPH axioms, realized Standard
 Model branch, D10 source packet, outer detuning equation, Ward-projected
@@ -383,8 +381,8 @@ certificate be upgraded to a theorem-grade proof for
 G(P) = phi + sqrt(pi) / (B(P) + R_Q(P)).
 ```
 
-This closes the #235 boundary as a blocker-isolation theorem. It does not close
-the exact fine-structure derivation.
+This establishes the corpus-limited non-identifiability boundary. It does not
+establish the exact fine-structure derivation.
 
 ```text
 P_C = 1.630968209403959324879279847782648941...

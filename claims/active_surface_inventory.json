@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 260,
+  "surface_count": 257,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -385,11 +385,6 @@
       "allowlisted": false
     },
     {
-      "path": "docs/A2_HOLONOMY_GAUGE_FORCING.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "docs/AXIOM_REFERENCE.md",
       "glob": "docs/*.md",
       "allowlisted": true
@@ -420,22 +415,12 @@
       "allowlisted": false
     },
     {
-      "path": "docs/HACKER_NEWS_START_HERE.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
       "path": "docs/HADRON.md",
       "glob": "docs/*.md",
       "allowlisted": false
     },
     {
       "path": "docs/HARDWARE_EVIDENCE_BUNDLE_H.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/IBM_QUANTUM_CLOUD.md",
       "glob": "docs/*.md",
       "allowlisted": false
     },

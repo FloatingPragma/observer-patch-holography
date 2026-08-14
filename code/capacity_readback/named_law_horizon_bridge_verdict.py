@@ -71,8 +71,8 @@ def build() -> dict[str, Any]:
     if parent.get("schema") != PARENT_SCHEMA or parent.get("status") != PARENT_STATUS:
         raise ValueError("named-law capacity verdict drift")
     boundary = parent.get("comparison_boundary", {})
-    if boundary.get("issue_650_stage_gate_opened") is not False:
-        raise ValueError("horizon stage gate unexpectedly opened")
+    if boundary.get("named_law_comparison_promotable") is not False:
+        raise ValueError("named-law comparison was overpromoted")
     if boundary.get("cosmological_prediction") is not False:
         raise ValueError("parent promoted a cosmological prediction")
     scope = parent.get("exit_scope", {})

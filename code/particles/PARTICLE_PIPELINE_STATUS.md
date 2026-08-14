@@ -1,37 +1,16 @@
 # Particle Pipeline Status
 
-Generated: `2026-07-29T17:21:23Z`
+Generated: `2026-08-14T05:35:45Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `no_promotable_numerical_particle_predictions__conditional_candidates_classical_carriers_and_empirical_hadrons_separated`
 
 ## P Closure
 
-- Candidate `P`: `1.630972172289734415925897501373482673022655099072161516985001733211109918232723345616738572172898702297689609012`
-- Candidate `alpha^-1`: `136.9940258961185127104409023920559579278278595210377402655367838643416163059458987723160506837823465289198011341`
+- Candidate `P`: `1.63097210492078846050203640439`
+- Candidate `alpha^-1`: `136.994020662724205139718642793`
 - Claim label: `compressed_candidate_trunk_not_final_particle_root`
 - May feed promoted particle predictions: `False`
-
-## Particle-Five Receipts
-
-| Receipt label | Closable | Local artifact | Worker policy |
-| --- | --- | --- | --- |
-| `closed_blocker_isolated_endpoint_package` | `True` | `P_derivation/runtime/thomson_endpoint_package_current.json` | not_needed_for_closed_package |
-| `closed_blocker_isolated_source_residual_no_go` | `True` | `P_derivation/runtime/thomson_endpoint_contract_current.json` | not_needed_until_source_spectral_measure_payload_exists |
-| `closed_canonical_guarded_trunk_adoption` | `True` | `P_derivation/runtime/p_closure_trunk_current.json` | not_needed_for_guarded_codepath_closure |
-| `closed_material_sync_no_live_publish` | `True` | `paper/deriving_the_particle_zoo_from_observer_consistency.tex` | not_needed_for_material_sync |
-| `open_source_rg_frontier_partial` | `False` | `P_derivation/runtime/rg_matching_threshold_contract_current.json` | not_needed_for_local_exact_precursor |
-| `closed_out_of_scope_computationally_blocked` | `True` | `particles/runs/hadron/ward_projected_spectral_measure_contract.json` | do_not_use_for_backend_execution |
-| `closed_corpus_limited_charged_end_to_end_no_go` | `True` | `particles/runs/leptons/charged_end_to_end_impossibility_theorem.json` | not_needed_until_new_uncentered_trace_lift_source_exists |
-| `closed_corpus_limited_codomain_no_go` | `True` | `particles/runs/calibration/direct_top_bridge_contract.json` | not_needed_until_new_response_kernel_source_exists |
-| `closed_provenance_ledger_and_declared_sensitivity_taxonomy` | `True` | `particles/runs/status/blind_prediction_provenance.json` | not_needed_for_closed_provenance_taxonomy |
-| `closed_corpus_limited_global_classification_no_go` | `True` | `particles/runs/flavor/quark_class_uniform_public_frame_descent_obstruction.json` | not_needed_until_new_global_public_frame_classifier_source_exists |
-
-## Companion Claim Boundaries
-
-| Topic | Claim label | Boundary | Gate |
-| --- | --- | --- | --- |
-| Strong CP | `open_theta_qcd_bar_theta_vanishing_gap` | The selected-class quark audit wrapper carries target-anchored mass textures on the public class f_P. The two spread moduli are non-identifiable from the source corpus, and the dimensionful mixed-scheme matrices are not certified physical Yukawas. The available corpus does not derive theta_QCD, does not emit the physical anomaly-invariant bar(theta), and does not prove that the physical strong-CP phase vanishes. | Keep strong CP explicit as an open branch. First emit a source-only quark mass matrix at one declared scale with physical determinant-line phase data. Then fix the topological-angle contribution and prove that the anomaly-invariant strong-CP phase vanishes. |
 
 ## Promotable Numerical Predictions
 
@@ -39,7 +18,7 @@ No promotable numerical particle prediction is emitted on the current corpus.
 
 ## Conditional Non-Promotable Candidates
 
-These numerical rows remain visible as conditional audit candidates. They are not predictions.
+These numerical rows remain visible as conditional diagnostic candidates. They are not predictions.
 
 | Particle | Candidate | Claim label | Scope |
 | --- | ---: | --- | --- |
@@ -57,7 +36,7 @@ These rows are zero hard parameters in declared quadratic actions, not `0 GeV` q
 
 ## Withheld Non-Prediction Rows
 
-These rows are retained in audit surfaces but are not numeric predictions.
+These rows are retained in source artifacts but are not numeric predictions.
 
 | Particle | Claim label | Reason | Missing gate |
 | --- | --- | --- | --- |
@@ -88,7 +67,6 @@ Target-anchored empirical-closure diagnostics; the compare-only witness triple l
 | coherent | `tau` | `[1.7391, 1.8004]` | `True` |
 
 - Coherent width reduction over the rectangle: `3.78x`
-- Blocking issues: #425, #545
 
 ## Charged-Lepton Anchor Boundary
 

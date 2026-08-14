@@ -55,16 +55,12 @@ sheets, and numerical freezes remain separate producers.
 - [docs/POSTDICTION_LEDGER.md](../../docs/POSTDICTION_LEDGER.md)
 - [RESULTS_STATUS.md](RESULTS_STATUS.md)
 - [PARTICLE_PIPELINE_STATUS.md](PARTICLE_PIPELINE_STATUS.md)
-- [PARTICLE_PROVENANCE_AUDIT.md](PARTICLE_PROVENANCE_AUDIT.md)
+- [PARTICLE_PROVENANCE_LEDGER.md](PARTICLE_PROVENANCE_LEDGER.md)
 - [MASS_CANDIDATE_STATUS.md](MASS_CANDIDATE_STATUS.md)
 - [THEOREM_GAP_REGISTER.md](THEOREM_GAP_REGISTER.md)
 - [DERIVATION_CHAIN_CLOSURE_MATRIX.md](DERIVATION_CHAIN_CLOSURE_MATRIX.md)
-- [PARTICLE_PIPELINE_CLOSURE_STATUS.md](PARTICLE_PIPELINE_CLOSURE_STATUS.md)
 - [CARRIER_MODE_ACCEPTANCE.md](CARRIER_MODE_ACCEPTANCE.md)
 - [HADRON_SYSTEMATICS_STATUS.md](HADRON_SYSTEMATICS_STATUS.md)
-- [DERIVATION_GAP_LEDGER.md](DERIVATION_GAP_LEDGER.md)
-- [GAP_BUNDLE_CAMPAIGN.md](GAP_BUNDLE_CAMPAIGN.md)
-- [campaigns/gap_bundle](campaigns/gap_bundle)
 - [particle_mass_derivation_graph.svg](particle_mass_derivation_graph.svg)
 
 ## High-Level Chain
@@ -327,16 +323,10 @@ map are absent. The electroweak readout (#594) is not evaluable and is outside t
   [RESULTS_STATUS.md](RESULTS_STATUS.md)
 - complete particle-pipeline status:
   [PARTICLE_PIPELINE_STATUS.md](PARTICLE_PIPELINE_STATUS.md)
-- target-use and convention audit:
-  [PARTICLE_PROVENANCE_AUDIT.md](PARTICLE_PROVENANCE_AUDIT.md)
+- target-use and convention provenance ledger:
+  [PARTICLE_PROVENANCE_LEDGER.md](PARTICLE_PROVENANCE_LEDGER.md)
 - per-family mass-candidate classification:
   [MASS_CANDIDATE_STATUS.md](MASS_CANDIDATE_STATUS.md)
-- systematic open-gap ledger after the compressed `P`-trunk simplification:
-  [DERIVATION_GAP_LEDGER.md](DERIVATION_GAP_LEDGER.md)
-- bundled closure campaign for addressing the open blockers as coupled
-  packets:
-  [GAP_BUNDLE_CAMPAIGN.md](GAP_BUNDLE_CAMPAIGN.md)
-  and [campaigns/gap_bundle](campaigns/gap_bundle)
 - conditional candidate outputs withheld from the public prediction columns:
   [CONDITIONAL_CANDIDATES.md](CONDITIONAL_CANDIDATES.md)
 - exact-fits-only diagnostic surface:
@@ -460,7 +450,6 @@ python3 hadron/derive_current_hadron_lane_audit.py
 python3 jwst/build_compact_object_source_release_receipts.py
 python3 fractional/build_fractional_quotient_receipts.py
 python3 scripts/build_results_status_table.py
-python3 scripts/build_derivation_gap_ledger.py
 python3 scripts/build_exact_fit_surface.py
 python3 scripts/build_exact_nonhadron_mass_bundle.py
 python3 scripts/generate_mass_derivation_svg.py

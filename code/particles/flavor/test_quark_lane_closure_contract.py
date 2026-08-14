@@ -129,7 +129,8 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
     assert source_obstruction["independent_coordinates"] == ["sigma_u", "sigma_d"]
     assert source_obstruction["source_only_sigma_emitted"] is False
     assert source_obstruction["numeric_quark_rows_allowed"] is False
-    assert source_obstruction["github_issues"] == [377, 379, 380]
+    assert source_obstruction["provenance_issues"] == [377, 379, 380]
+    assert "github_issues" not in source_obstruction
     assert source_obstruction["dependency_audit"]["no_target_leak"] is True
     assert source_obstruction["dependency_audit"]["allowed_forbidden_disjoint"] is True
     assert source_obstruction["minimal_future_extension"]["required_independent_scalar_count"] == 2
@@ -159,7 +160,8 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
     assert scheme_obstruction["proof_status"] == (
         "closed_structural_finite_renormalization_nonidentifiability_obstruction"
     )
-    assert scheme_obstruction["github_issues"] == [381, 382]
+    assert scheme_obstruction["provenance_issues"] == [381, 382]
+    assert "github_issues" not in scheme_obstruction
     assert scheme_obstruction["reference_data_policy"]["no_target_leak_by_construction"] is True
     assert scheme_obstruction["row_partition"]["light_running_coordinates"] == ["u", "d", "s"]
     assert scheme_obstruction["row_partition"]["heavy_running_coordinates"] == ["c", "b"]

@@ -213,7 +213,7 @@ def build_payload() -> dict[str, Any]:
     return {
         "artifact": "oph_massless_carrier_mode_acceptance",
         "schema": "oph_carrier_mode_quantum_particle_gate_v1",
-        "github_issue": 536,
+        "provenance_issue": 536,
         "status": "classical_action_branch_modes_recorded_quantum_particle_gate_open",
         "abstract_symmetry_group_alone_passes_classical_gate": False,
         "abstract_symmetry_group_alone_passes_quantum_gate": False,

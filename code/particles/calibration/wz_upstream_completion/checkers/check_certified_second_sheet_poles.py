@@ -14,7 +14,7 @@ remains a separate required trust-boundary check.
 A pass certifies only a scalar simple pole on the recorded algebraic chart.
 It does not certify the chart identity as a physical/unique second sheet,
 a sign bridge to the separately written theorem convention, full matrix
-rank-n-1 Laurent data, issue #593's combined row, BMHV restoration, a
+rank-n-1 Laurent data, the combined full-physical-pole evidence, BMHV restoration, a
 physical-current pole, OPH-native provenance, units, or unitarity.
 """
 
@@ -594,16 +594,16 @@ def check_scope_and_gates(receipt: dict[str, Any]) -> None:
             "continuation_identity_independently_certified": False,
             "standard_second_sheet_identification_certified": False,
             "full_matrix_rank_n_minus_1_laurent_certified": False,
-            "issue_593_pole_laurent_row_discharged": False,
+            "matrix_rank_laurent_evidence_supplied": False,
             "finite_delta_diagnostics_are_noncertifying": True,
             "independent_numerical_replay_certified": False,
             "engine_inverse_propagator_convention": (
                 "G(s)=s-m_tree^2-Pi_engine(s)"
             ),
             "theorem_self_energy_sign_bridge_certified": False,
-            "issue_593_precision_ladder_row_discharged": False,
-            "issue_593_independent_third_verifier_row_discharged": False,
-            "issue_593_full_acceptance_satisfied": False,
+            "precision_ladder_receipt_supplied": False,
+            "independent_numerical_reevaluation_supplied": False,
+            "full_physical_pole_evidence_supplied": False,
         },
         "claim scope is not the exact fail-closed scalar statement",
     )
@@ -1913,10 +1913,10 @@ def validate_receipt(
         "standard_second_sheet_identification_certified": False,
         "theorem_self_energy_sign_bridge_certified": False,
         "full_matrix_rank_n_minus_1_laurent_certified": False,
-        "issue_593_precision_ladder_row_discharged": False,
-        "issue_593_independent_third_verifier_row_discharged": False,
-        "issue_593_pole_laurent_row_discharged": False,
-        "issue_593_full_acceptance_satisfied": False,
+        "precision_ladder_receipt_supplied": False,
+        "independent_numerical_reevaluation_supplied": False,
+        "matrix_rank_laurent_evidence_supplied": False,
+        "full_physical_pole_evidence_supplied": False,
         "bmhv_restoration_certified": False,
         "physical_current_claim": False,
         "oph_native": False,

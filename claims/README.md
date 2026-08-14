@@ -11,6 +11,8 @@ rows, and SI convention/display rows.
 
 The registry is part of the working process:
 
+- `claims/axiom_registry.yaml` records the normative three-axiom identities,
+  interfaces, exclusions, and scientific realization boundaries.
 - `claims/claim_registry.yaml` records top-level claim IDs, owner papers, claim tiers, imported
   mathematics, OPH-specific deltas, assumptions, evidence, falsifiers, and survival rules.
 - `claims/novelty_matrix.csv` maps each claim against prior work.
@@ -18,6 +20,25 @@ The registry is part of the working process:
   phenomenological failure modes.
 - `claims/dependency_graph.json` records cross-claim dependencies.
 - `claims/assumption_dictionary.md` gives stable names to recurring assumptions.
+- `claims/frozen_prediction_register.json` records frozen and pending
+  prediction contracts; `tools/build_fz_registry.py` validates it and renders
+  `docs/FROZEN_PREDICTION_LADDER.md`.
+- `claims/emergent_instrument_register.json` records scientific simulation and
+  measurement instruments; `tools/build_instrument_register.py` validates it
+  and renders `docs/INSTRUMENT_REGISTER_V3.md`.
+- `claims/selection_ledger.json` and
+  `claims/physical_identification_registry.json` record scientific selection
+  classes and physical-identification boundaries; `tools/build_selection_ledger.py`
+  validates them and renders `docs/SELECTION_LEDGER.md`.
+- `claims/gravity_premise_ladder.json` records the gravity premise-elimination
+  rungs; `tools/build_gravity_ladder.py` validates it and renders
+  `docs/GRAVITY_PREMISE_LADDER.md`.
+- `claims/public_surface_quantitative_claims.json` controls quantitative
+  statements on public summary surfaces and is checked by
+  `tools/check_public_surface_claims.py`.
+- `claims/active_surface_inventory.json` is a generated reachability
+  projection written by `tools/check_axiom_consistency.py --inventory`; it is
+  not a hand-edited registry or project-status surface.
 
 The validator is:
 

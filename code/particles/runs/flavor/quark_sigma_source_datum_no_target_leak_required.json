@@ -89,7 +89,7 @@
     "CODATA",
     "compare_only"
   ],
-  "generated_utc": "2026-07-12T03:21:51Z",
+  "generated_utc": "2026-08-14T05:29:50Z",
   "independent_unselected_coordinates": [
     "sigma_u",
     "sigma_d"
@@ -108,6 +108,11 @@
   "obstruction_theorem_statement": "After all target-derived and compare-only ancestors are removed, the strongest current quark source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present source theory does not identify a unique quark spread package or running quark mass sextet.",
   "promotion_allowed": false,
   "proof_status": "closed_exact_current_corpus_obstruction",
+  "provenance_issues": [
+    377,
+    379,
+    380
+  ],
   "public_promotion_allowed": false,
   "reopen_requirements": {
     "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
@@ -124,11 +129,6 @@
     "Q\u03a3-B": "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",
     "Q\u03a3-C": "NO_TARGET_LEAK_DAG_QUARK_SOURCE_SPREAD"
   },
-  "resolved_github_issues": [
-    377,
-    379,
-    380
-  ],
   "selected_class": "f_P",
   "source_only_sigma_emitted": false,
   "status": "closed_current_corpus_nonidentifiability_obstruction",
