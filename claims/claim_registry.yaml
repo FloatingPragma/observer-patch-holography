@@ -304,6 +304,48 @@
       }
     },
     {
+      "claim_id": "OPH-CONS-PROTECTED-BEHAVIOR-PROFILE",
+      "statement": "For a declared finite protected-behavior model with nonempty active-source sets, protected behaviors separate into nested stages of target-fiber existence, some-source positive first hit, all-active-source almost-sure first hit, and all-active-source uniqueness of the first-hit endpoint class modulo a declared silent equivalence. The complementary cuts partition the corresponding failure modes. Under explicit scheduler support laws the stages recover the existing OPH behavior-cut interface, and under an exact finite-state morphism preserving protected membership, active sources, targets, observations, transition mass, and endpoint quotients the complete profile is preserved.",
+      "owner_paper": "extra/observable_normal_forms.tex",
+      "tier": "finite_protected_behavior_profile_and_exact_transport",
+      "assumptions": [
+        "finite_declared_scheduler_kernel",
+        "nonempty_declared_active_sources",
+        "protected_targets_from_consistent_observation_fibers",
+        "declared_silent_endpoint_equivalence",
+        "scheduler_support_rewrite_correspondence",
+        "exact_protected_profile_morphism_packet"
+      ],
+      "imported_results": [
+        "finite_Markov_first_hit_expansion",
+        "finite_closed_class_reachability",
+        "strong_lumpability_pushforward",
+        "finite_set_partition_and_product_preorder"
+      ],
+      "oph_specific_delta": "The package assembles standard finite-state ingredients around protected observations and declared active sources, separates four operational failure modes, recovers the repository's existing behavior cuts without assuming their conclusions, and transports the complete source, target, observation, kernel, and endpoint-quotient profile through one explicit exact morphism packet.",
+      "novelty_type": "protected_observation_first_hit_certificate_architecture",
+      "evidence": [
+        "extra/observable_normal_forms.tex",
+        "flagship/from_observer_consensus_to_standard_physics.tex",
+        "Lean/ObservableNormalForms/ObservableNormalForms/ProtectedObstructions.lean",
+        "Lean/ObservableNormalForms/ObservableNormalForms/Examples/ProtectedObstructions.lean",
+        "Lean/ObservableNormalForms/PROOF_INDEX.md",
+        "Lean/ObservableNormalForms/README.md"
+      ],
+      "falsifier": "A declared finite fixture violates layer nesting or the obstruction partition, a protected behavior differs from its structurally recovered behavior cut, an exact morphism changes any layer or endpoint-quotient support, or a premise-removal mutation leaves the affected conclusion valid.",
+      "scope_if_false": "The protected-behavior profile, recovery, or transport conclusion falls at the affected interface; the pre-existing static-fiber, repair, and mechanism-variant declarations retain their separately proved scopes.",
+      "status": "finite_profile_and_transport_Lean_proved__paper_synced__native_controls_executable__no_product_refinement_claim",
+      "claim_class": "conditional_implication",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The finite protected-observation profile consumes paper-local declared scheduler, active-source, target, and endpoint-quotient data rather than a canonical V3 premise row; claim-to-claim ancestry and stronger physical or implementation attachments remain separate."
+      }
+    },
+    {
       "claim_id": "OPH-GR-PORT-RESPONSE-COMPLETION",
       "statement": "For the declared twelve-port incidence, uniform scalar repair mean T = I - (5I-A)/60, and complete equally weighted centered probe census, the normalized infinite-response kernel converges to the intrinsic rank-three Gram G = 4 P_slow. The twelve integer source loads have the exact antipodal-odd quotient Z^12/{x:x_p=x_-p}=Z^6. The thirty-seam boundary has image exactly the even-sum D6 sublattice, with one residual parity coset. Equipped with the pullback of the response-selected Gram metric, both integer modules embed densely and have the same abstract continuous three-dimensional Euclidean completion. This is not the completion of D6 in its usual six-dimensional lattice metric. The sixty proper carrier maps act faithfully and isometrically on the selected rank-three range, preserve the signed module, and extend to its completion. The three declared finite recharting maps obey their exact cocycle. The nonlinear repair kernel does not descend through the signed quotient even though its conditional mean does, so hidden working state and ordered history remain a separate fiber. Interpreting the completion as physical carrier position requires the source readback and distinguishability premises. Scale refinement, cofinal overlap gluing, global physical space, scale, time, and field attachment are open.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",

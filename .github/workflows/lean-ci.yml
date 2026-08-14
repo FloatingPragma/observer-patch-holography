@@ -152,6 +152,9 @@ jobs:
           echo "Progress was saved; re-run this workflow to resume from the cache." >&2
           exit 1
 
+      - name: Run protected-obstruction finite explorer
+        run: python3 Lean/ObservableNormalForms/tools/verify_protected_obstruction_models.py
+
       - name: Check zero proof debt
         working-directory: Lean
         run: |
