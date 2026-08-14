@@ -128,8 +128,8 @@ the realized node windows are independently disjoint in the source. The
 matrix-unit corner does not instantiate `TensorSplitReceipt` or identify the
 regional algebra with a tensor factor. E1 and the B4 region-factor gate are
 therefore not attained. Source-attached locality and continuum kinematics are
-scoped to #728, structural continuum QFT to #730, physical repair calibration
-to #732, and premise-level clock derivation to #739.
+scoped to #728, structural continuum QFT to #730, empirical repair/clock
+calibration to PR-15, and source-derived clock work to #739.
 
 ## Source-operator adapter preflight
 
@@ -200,7 +200,8 @@ proves that no unital algebra homomorphism carries the left regional
 algebra to the scalars, so the star-homomorphic interface is
 uninhabitable over this diamond.
 
-Coverage is not unique gluing.  The exact control
+Coverage alone does not reconstruct a joint element from these two
+expectations.  The exact control
 `slotExpectations_not_jointly_injective` exhibits the nonzero correlation
 matrix unit $E_{01}\otimes E_{01}$, whose left- and right-factor partial
 traces and hence both regional conditional expectations vanish.  Thus the
@@ -250,12 +251,14 @@ every source attachment and not evidence that new large-scale simulation is
 required.
 
 The unattained E1 scope is a source-derived region/product or justified
-local-channel attachment and an explicit replacement descent contract
-that respects the marginal nonuniqueness theorem above.  The existing E6
+local-channel attachment, a nonconstant realization, a physical factor
+interpretation, and a time-slice generation contract.  The two certified
+marginals do not reconstruct arbitrary joint data, but that scoped result does
+not rule out richer overlap/descent data or a source-selected joint. The existing E6
 packet is built on the earlier `FiniteCausalObserverNet` interface and does
 not by itself consume this `CPRegionalNet` witness. Instrument provenance is
-scoped to #737, continuum structure to #728 and #730, physical calibration to
-#732, and premise-level clock derivation to #739. The slot
+scoped to #737, continuum structure to #728 and #730, empirical calibration to
+PR-15, and source-derived clock work to #739. The slot
 assembly and label conventions remain declared postprocessors over a
 post-hoc extraction, ineligible as validation.
 

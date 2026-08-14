@@ -31,10 +31,11 @@ preregistered and is ineligible as validation.  The generated algebras
 replace the declared pair-groupoid enrichment of the earlier packet at
 the level of one observer's realized label space; no region lattice,
 restriction system, tensor factorisation, physical channel, instrument,
-or prediction is constructed here. A source-selected joint carrier, regional
-assembly, and coherent CP-net correlation or descent receipt are scoped to
-spacetime adequacy (#728); the older finite-net interface does not supply that
-bridge.
+or prediction is constructed here. The later
+`QFT.SourceCorrelationCapstone` grounds full-support disjointness and a counted
+correlation state for one pair; source selection or justification of the
+factor reading, regional assembly, and a nonconstant realization remain
+scoped to spacetime adequacy (#728).
 -/
 
 namespace OPH.QFT

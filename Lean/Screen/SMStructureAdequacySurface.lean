@@ -37,7 +37,7 @@ declared fixed-space argument against `su(2)^4`).  The Lie-theoretic
 bridge behind those lists is the compact-Lie classification import of
 register row PR-11.  The matter block carries a selection mask
 constrained exactly by the exterior selection boundary recorded under register row
-PR-12: nonempty, chiral, and anomaly free over the ten exterior
+PR-59: nonempty, chiral, and anomaly free over the ten exterior
 components.  The measure-to-metric and nearest-point repair rules of
 register row PR-10 enter through the committed definitions rather
 than through a field: the diagonal reading substitutes the port-dual
@@ -107,7 +107,7 @@ rational-centre list, the simple-ideal dimension multiset
 `simpleIdealDims` drawn from the compact-simple dimension list below
 twelve, the twelve-dimensional total, the S5 centre bound, and the
 exclusion of centre dimension zero.  The third block carries the
-exterior selection boundary recorded under register row PR-12: a
+exterior selection boundary recorded under register row PR-59: a
 selection mask over the ten exterior components that is nonempty,
 chiral, and anomaly free.  The measure-to-metric and nearest-point repair rules of
 register row PR-10 are consumed through the committed distance forms,
@@ -146,16 +146,16 @@ structure SMStructurePremiseData where
   (part of register row PR-11). -/
   centreDim_ne_zero : centreDim ≠ 0
   /-- The matter selection mask over the ten exterior components
-  (register row PR-12). -/
+  (register row PR-59). -/
   selectionMask : Fin 1024
-  /-- The selection is nonempty (register row PR-12). -/
+  /-- The selection is nonempty (register row PR-59). -/
   selection_nonempty : selectionMask.val ≠ 0
   /-- The selection is chiral: no component appears with its
-  conjugate (register row PR-12). -/
+  conjugate (register row PR-59). -/
   selection_chiral :
     OPH.ExteriorSelection.chiral selectionMask.val = true
   /-- All four anomaly forms vanish on the selection (register row
-  PR-12). -/
+  PR-59). -/
   selection_anomalyFree :
     OPH.ExteriorSelection.anomalyFree selectionMask.val = true
 
@@ -230,7 +230,7 @@ theorem measure_selects_G (p : Fin 12) (family : CompactFamily)
 
 /-- **The one-generation selection (OL-G3).**  The bundled selection
 mask, constrained exactly by the matter candidate grammar of register
-row PR-12, is one of the two conjugate fermionic-parity sectors of the
+row PR-59, is one of the two conjugate fermionic-parity sectors of the
 ten-component exterior table.  The theorem does not choose between
 them.  Re-export of `OPH.ExteriorSelection.selection_unique` at the
 bundled premises. -/
@@ -244,7 +244,7 @@ theorem matter_selection_is_parity_sector :
 Componentwise, the bundled selection agrees with the even-parity table
 or with the odd-parity table of the declared component grammar.  The
 grading is table provenance: the parity column is part of register row
-PR-12, and the scan outputs which sectors survive.  A physical
+PR-59, and the scan outputs which sectors survive.  A physical
 chirality claim consumes a spacetime Spin attachment that no theorem
 here supplies. -/
 theorem selection_parity_graded :
@@ -271,7 +271,7 @@ statements never mention a literal mask. -/
 
 /-- The even-parity sector selects fifteen states: the masked sum of
 color dimension times weak dimension over the even mask (table
-receipt under register row PR-12). -/
+receipt under register row PR-59). -/
 theorem evenMask_state_count :
     OPH.ExteriorSelection.maskSum
       (fun i => OPH.ExteriorSelection.colorDim i *
@@ -279,7 +279,7 @@ theorem evenMask_state_count :
       OPH.ExteriorSelection.evenMask = 15 := by decide
 
 /-- The odd-parity sector selects fifteen states (table receipt under
-register row PR-12). -/
+register row PR-59). -/
 theorem oddMask_state_count :
     OPH.ExteriorSelection.maskSum
       (fun i => OPH.ExteriorSelection.colorDim i *
@@ -289,7 +289,7 @@ theorem oddMask_state_count :
 /-- The common central stabilizer of the even-sector component
 weights is exactly the tensor-action kernel: the five selected rows
 pin the same six-element kernel as the full ten-row table (register
-row PR-12 grammar; exhaustive scan over the 36 central
+row PR-59 grammar; exhaustive scan over the 36 central
 parameters). -/
 theorem kernel_on_evenMask_components :
     ∀ c : OPH.TraceBalancedKernel.C,
@@ -318,7 +318,7 @@ variable (D : SMStructurePremiseData)
 /-! ## Mask-threaded matter receipts (OL-G3 evidence, OL-G5 contract) -/
 
 /-- **The fifteen-state count on the bundled mask (OL-G3).**  The
-selection mask of the bundle, constrained by the register row PR-12
+selection mask of the bundle, constrained by the register row PR-59
 grammar, selects components of total dimension fifteen. -/
 theorem masked_generation_count :
     OPH.ExteriorSelection.maskSum
@@ -330,7 +330,7 @@ theorem masked_generation_count :
   · exact oddMask_state_count
 
 /-- **The four anomaly forms vanish on the bundled mask (OL-G3).**
-Unfolds the Boolean `anomalyFree` field of register row PR-12 into
+Unfolds the Boolean `anomalyFree` field of register row PR-59 into
 the four integer equations on the bundled selection. -/
 theorem masked_anomaly_forms :
     OPH.ExteriorSelection.grav D.selectionMask.val = 0
@@ -375,7 +375,7 @@ theorem masked_diagonal_z6_fixes :
 
 /-- **The chirality-row contract (OL-G5).**  The bundled selection
 carries the componentwise parity grading of the declared component
-grammar (register row PR-12, table provenance), and no central
+grammar (register row PR-59, table provenance), and no central
 parameter acts by `-1` on all five matter multiplets, so the finite
 central arithmetic supplies no spacetime Spin or fermion-parity
 attachment.  A physical chirality claim consumes the spacetime Spin
@@ -446,7 +446,7 @@ The selected diagonal kernel has exactly four subgroups, and every
 realized local weight descends through all four, so the local tensor
 table determines a maximal effective quotient without selecting a
 physical global form.  The leading undischarged clause toward the
-`S(U(3) x U(2))/Z6` quotient is the same-source loop-to-kernel
+`S(U(3) x U(2)) ≅ (SU(3) x SU(2) x U(1))/Z6` global form is the same-source loop-to-kernel
 identity, a declared premise of the V3 program; the committed record
 additionally names a source-derived complete character category,
 instanton normalization, and laboratory flux attachment as premises of
@@ -521,7 +521,7 @@ theorem smStructure_family_band_cost_receipts :
 integer-scaled anomaly forms of three copies vanish, and the diagonal
 `Z6` generator fixes every field of the fifteen-state generation and
 hence all three copies.  These are table receipts under register row
-PR-12 and the declared band rules; no derived triplication is claimed.
+PR-59 and the declared band rules; no derived triplication is claimed.
 Re-export of `OPH.A5FamilyBand.three_copy_anomaly_forms` and
 `OPH.A5FamilyBand.diagonal_z6_fixes_three_copies`. -/
 theorem smStructure_three_family_receipts :

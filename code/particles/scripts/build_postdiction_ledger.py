@@ -134,6 +134,10 @@ LEAN_RECEIPTS = {
     / "TwoSlotCPNetWitness.lean",
     "TowerAnchoredDiamond": REPO / "Lean" / "QFT"
     / "TowerAnchoredDiamond.lean",
+    "SourceCorrelationCapstone": REPO / "Lean" / "QFT"
+    / "SourceCorrelationCapstone.lean",
+    "StructuralNetAdequacySurface": REPO / "Lean" / "QFT"
+    / "StructuralNetAdequacySurface.lean",
     "ModalMaxwellFactorizationBoundary": LEAN_SCREEN
     / "ModalMaxwellFactorizationBoundary.lean",
     "FiniteUnitaryScatteringNoGo": REPO / "Lean" / "QFT"
@@ -2273,8 +2277,9 @@ def _forced_structure(
                 "source atlas realization, event population, certified "
                 "separation, open rank-four charts, physical cone attachment, "
                 "refinement naturality, semantic causal reachability, and an "
-                "operational clock. Scientific owners #728, #729, #732, #737, "
-                "and #739 record those residuals. No physical spacetime, "
+                "operational clock. Scientific owners #728, #729, #737, and "
+                "#739 record the source, geometry, instrument, and source-clock "
+                "residuals; empirical calibration is PR-15. No physical spacetime, "
                 "Einstein dynamics, "
                 "observable, decision rule, or prediction follows"
             ),
@@ -2302,15 +2307,18 @@ def _forced_structure(
                 "projectors, exact commuting factors on a declared Cartesian "
                 "carrier, a conditional-expectation diamond with coverage and "
                 "an explicit noninjective-correlation control, and transport to "
-                "one constant A3 stage"
+                "one constant A3 stage on the distinct 86/88 carrier. The 86/247 capstone kernel-checks fully "
+                "disjoint source supports and an exact counted correlated state "
+                "with the committed marginals on the instantiated diamond"
             ),
             "observed_counterpart": (
                 "a causal local quantum-observable net with overlap descent"
             ),
             "match": (
                 "substantial conditional finite interface, operator-generation, "
-                "and CP-diamond packet; source regional selection and "
-                "correlation/descent not constructed"
+                "CP-diamond, and support-disjoint counted-correlation packet; "
+                "source justification of the factor reading and a nonconstant "
+                "realization are not constructed"
             ),
             "lean_declarations": {
                 "FiniteCausalObserverNet": [
@@ -2374,6 +2382,16 @@ def _forced_structure(
                     "anchoredCheckpointPartition_proper",
                     "anchoredNet_left_ne_top",
                 ],
+                "SourceCorrelationCapstone": [
+                    "supports_disjoint",
+                    "slotExpectations_erase_source_correlation",
+                ],
+                "StructuralNetAdequacySurface": [
+                    "supportDisjoint_correlation_counted_state",
+                    "supportDisjointNet_expect_recovers_marginals",
+                    "supportDisjoint_composed_adequacy",
+                    "supportDisjoint_swap_covariance",
+                ],
             },
             "lean_receipts": _lean_receipt(
                 "FiniteCausalObserverNet",
@@ -2385,6 +2403,8 @@ def _forced_structure(
                 "CPRestrictionNet",
                 "TwoSlotCPNetWitness",
                 "TowerAnchoredDiamond",
+                "SourceCorrelationCapstone",
+                "StructuralNetAdequacySurface",
                 declarations={
                     "FiniteCausalObserverNet": (
                         "commute_of_disjoint",
@@ -2447,6 +2467,16 @@ def _forced_structure(
                         "anchoredCheckpointPartition_proper",
                         "anchoredNet_left_ne_top",
                     ),
+                    "SourceCorrelationCapstone": (
+                        "supports_disjoint",
+                        "slotExpectations_erase_source_correlation",
+                    ),
+                    "StructuralNetAdequacySurface": (
+                        "supportDisjoint_correlation_counted_state",
+                        "supportDisjointNet_expect_recovers_marginals",
+                        "supportDisjoint_composed_adequacy",
+                        "supportDisjoint_swap_covariance",
+                    ),
                 },
             ),
             "hypothesis_boundary": (
@@ -2458,18 +2488,17 @@ def _forced_structure(
                 "and repair are declared postprocessors. Conditional coverage is "
                 "attained inside that adapter, but its nonunital matrix corners are "
                 "not tensor factors or a `TensorSplitReceipt`. The later "
-                "operator-generation theorem transcribes source paths post hoc, "
-                "while the Cartesian joint carrier, region map, and slot split "
-                "are declared. The designated full supports overlap. The exact "
-                "off-diagonal control proves that the two slot expectations are "
-                "not jointly injective, so coverage does not imply unique gluing. "
-                "The constant tower is not a nonconstant source realization, and "
-                "the uncommitted frame exploration supports no no-go. Scientific "
-                "owner #728 records the missing source-attached Cartesian or "
-                "other justified regional "
-                "construction, a correlation or descent receipt compatible "
-                "with the noninjectivity control, and a "
-                "nonconstant source composition; scientific owner #739 records a "
+                "operator-generation theorem transcribes source paths post hoc. "
+                "The later 86/247 capstone grounds fully disjoint committed "
+                "supports and an exact counted correlated state with the correct "
+                "marginals. Its erasure theorem proves that coverage does not "
+                "imply unique reconstruction. The two-observers-as-factors "
+                "reading and region map remain declared. The constant-tower "
+                "transport is on the separate 86/88 carrier, no theorem joins "
+                "the two carriers, and neither is a nonconstant source realization. Scientific owner #728 "
+                "records the missing source-attached or otherwise justified "
+                "regional construction and a nonconstant source composition; "
+                "scientific owner #739 records a "
                 "missing source realization or genuinely scoped no-go. "
                 "No CP/CPTP channel, scheduler locality, spacetime causality, "
                 "time-slice property, continuum QFT, observable, decision rule, "
@@ -3132,11 +3161,11 @@ def _forced_structure(
                 "idempotent heat bath and a deterministic empirical pushforward. "
                 "It does not exclude stochastic, nonlinear, reverse-direction, "
                 "dilated, or enriched-source constructions. Scientific owner "
-                "#732 records the missing replacement common reference, collar, objective, "
-                "genuinely varying refinement family, and physical energy-clock "
-                "calibration beyond the attained central-interface modular split; "
-                "scientific owner #739 records clock derivation and the repair-export "
-                "decision. "
+                "#739 records the missing replacement common reference, collar, "
+                "objective, genuinely varying refinement family, source-clock "
+                "derivation, and repair-export decision; empirical energy-clock "
+                "calibration is PR-15. Closed #732 records only the attained "
+                "conditional composition milestone. "
                 "The "
                 "pinned 20-state collar table has an audit of all "
                 "15 nonempty field-subset projections: its repair-load quotient "
@@ -3227,10 +3256,12 @@ def _forced_structure(
                 "clock increment, volumes, heat capacities, and conductances "
                 "are declared finite inputs. No theorem identifies the "
                 "Green--Kubo coefficient with graph conductance. Scientific "
-                "owners #732, #728, #729, #737, and #739 record the missing source evolution, "
-                "physical equilibrium reference and conserved quantity, "
-                "source-realized geometry, instrumentation, clock, and "
-                "calibration; the bounded algebraic C2 receipt is separate, "
+                "owners #728, #729, #737, and #739 record the missing source "
+                "evolution, physical equilibrium reference and conserved quantity, "
+                "source-realized geometry, instrumentation, and source clock; "
+                "empirical calibration is PR-15, and closed #732 is only a "
+                "conditional composition milestone. The bounded algebraic C2 "
+                "receipt is separate, "
                 "and this row emits no prediction-ladder "
                 "entry"
             ),
@@ -3377,14 +3408,12 @@ def _forced_structure(
                 "laboratory attachment is proved. A declared rich-fibre adapter "
                 "conditionally attains coverage. The later E1 packet transcribes "
                 "operators post hoc and consumes this row's partial-trace helper "
-                "on a declared Cartesian slot, but the source does not select the "
-                "joint carrier, region map, or split. Its exact off-diagonal "
-                "control shows the two slot expectations are not jointly "
-                "injective, so coverage does not supply gluing. Scientific "
-                "owner #728 records the missing source-attached Cartesian or other "
-                "justified regional construction plus a correlation or descent "
-                "receipt compatible with the noninjectivity control and a "
-                "nonconstant source composition; #739 owns the residual source "
+                "on a declared Cartesian slot. The later 86/247 capstone grounds "
+                "fully disjoint source supports and the exact counted correlated "
+                "state with its marginals, while its erasure theorem proves that "
+                "coverage cannot reconstruct that state. Scientific owner #728 "
+                "records the missing source-attached or otherwise justified "
+                "factor reading and nonconstant source composition; #739 owns the residual source "
                 "realization or no-go. The missing source channel/adaptive-scheduler semantics "
                 "are recorded by #728, physical clocks by #739, physical spacetime "
                 "attachment by #729, instrumentation by #737, and continuum "
@@ -3608,11 +3637,12 @@ def _forced_structure(
                 "displayed family is constructed, not source-produced. The "
                 "concave control concerns modes/minimizers only: constrained "
                 "saddles, complex or signed stationary phase, and refinement "
-                "routes are not excluded. Scientific owner #731 records the missing composition of "
-                "the source history/reference, action, amplitudes, fields, and "
-                "observable currents; scientific owner #739 records source selection "
-                "of the reference, real enrichment, stationary-phase mechanism, "
-                "and clock. This "
+                "routes are not excluded. Closed #731 records only the attained "
+                "declared-bundle composition. Scientific owner #739 records source "
+                "selection of the reference, real enrichment, stationary-phase "
+                "mechanism, and source clock; #730 records the amplitude/interference "
+                "interface, while physical fields and observable currents are not "
+                "supplied here. This "
                 "row emits no prediction-ladder entry"
             ),
             "paper_ref": "observers paper, conditional history boundary",

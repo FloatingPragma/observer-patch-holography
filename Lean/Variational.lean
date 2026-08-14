@@ -35,10 +35,13 @@ embedding and enrichment, and the registered derivative data, one
 extremal history threads the derived action, the exponential-tilt path
 law, the interior mode clause, the discrete Hamilton equations, and,
 with supplied symmetry data, a constant Noether segment momentum.
-`Variational.ModeExtremalEnrichment` forces the enrichment member on the
-committed mixing chain by the declared mode-extremality principle, with
-the forced curvature `2 * log (362055879 / 271780)`, and discharges the
-composed hypothesis at the realized global mode.
+`Variational.ModeExtremalEnrichment` selects one representative inside a
+declared one-parameter ansatz by the mode-extremality principle, with
+curvature `2 * log (362055879 / 271780)`, and discharges the composed
+hypothesis at the transition-weight global mode.  Its machine-checked
+two-parameter counterfamily proves that the same stationarity and fixed-endpoint
+single-site variation minimum do
+not select a unique real enrichment beyond that ansatz.
 `Variational.TranslationInvariantComposedInstance` discharges the
 symmetry-extended bundle on a declared symmetric kernel, with the
 constant Noether current exactly zero.

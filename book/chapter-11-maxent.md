@@ -290,10 +290,16 @@ twice, and preserves the quantities the patches agree on.
 The laws follow from those two readings. Distance from the reference, measured
 as relative entropy, shrinks under repair and never grows. That contraction is
 the Second Law, and the Clausius inequality relating entropy change to heat
-falls out of it, as does Landauer's price for erasing a bit. Two systems
-placed in contact settle at a common inverse temperature, which is the Zeroth
-Law. The energy bookkeeping splits exactly into a heat term and a work term,
-which is the First Law. The weight the construction can place on excited
+falls out of it, as does Landauer's price for erasing a bit. On one supplied
+nondegenerate finite spectrum, equality of two Gibbs distributions forces
+equality of their inverse temperatures; the formal result does not prove that
+contact dynamics equilibrates two systems. For a finite joint state/Hamiltonian
+update, energy bookkeeping has heat, work, and a bilinear cross term. The
+familiar two-term formula is first-order or exact when the update is ordered
+with the state or Hamiltonian held fixed; the repair heat stroke fixes the
+Hamiltonian. This is not a source-derived energy conservation law.
+
+The weight the construction can place on excited
 states is bounded, so entropy has a floor set by the number of ground states,
 and no finite sequence of repair steps reaches it. That is the Third Law.
 
@@ -329,6 +335,14 @@ run. This is a negative result for those two direct-binding mechanisms on the
 current artifact, not a no-go for stochastic, nonlinear, reverse-direction,
 or enriched-source constructions.
 
+The exact B20 preflight tests one such continuation inside a declared
+random-scan grammar. Every computed uniform-scheduler mixture in its two
+certified arenas is non-idempotent, while both the uniform and block-count
+schedulers have a one-dimensional fixed space. Constant-field cases carry
+only the fixed-space conclusion. Thus this grammar supplies no nonconstant
+protected observable; adaptive, zero-weight, dilated, enriched-export, and
+new-source constructions remain outside the no-go.
+
 The finite theorem package therefore does not import thermodynamic identities
 as an extra axiom, but its physical interpretation is conditional. Five
 requirements remain explicit for any replacement source object: a global
@@ -336,7 +350,9 @@ representation of the weighted objective;
 one source-derived reference shared by both optimizers; realization of the
 conditional-resampling kernel on the complete repaired-visible fibre by the
 source-collar transition matrix; physical energy and clock calibration; and
-refinement-uniform low-temperature control for a continuum third law.
+uniform low-temperature tail control on a coherent cofinal family. The current
+uniformly bounded-cardinality Lean family is one sufficient finite-family witness, not a
+necessary form for a growing regulator tower or by itself a continuum theorem.
 Stochasticity, stationarity, and charge preservation alone establish only the
 weaker stationary H-theorem branch and do not close the third receipt. Until
 all five are supplied, this is not a thermometer reading.

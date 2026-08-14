@@ -123,12 +123,39 @@ EXPECTED_ROW_IDS = (
 # coverage alone would not detect moving a premise to another row in the same
 # lane.
 ROW_PREMISE_CONTRACTS = {
+    "OL-D1": {
+        # The composed theorem consumes these antecedents, but the row stays
+        # partial: the committed witness is one declared one-parameter
+        # enrichment, not a source-selected or generally unique least action.
+        "premises": ("PR-05", "PR-06", "PR-45"),
+        "open_premises": (),
+    },
     "OL-E1": {
         # 2026-08-14 composed promotion: the refinement-uniform third law is
         # threaded into fourLaws_composed, so PR-08 moved from open to
         # consumed on this row.
         "premises": ("PR-07", "PR-15", "PR-08"),
         "open_premises": (),
+    },
+    "OL-G2": {
+        "premises": ("PR-35", "PR-59"),
+        "open_premises": ("PR-46",),
+    },
+    "OL-G3": {
+        "premises": ("PR-59",),
+        "open_premises": ("PR-47", "PR-54"),
+    },
+    "OL-G4": {
+        "premises": ("PR-36", "PR-59"),
+        "open_premises": ("PR-47", "PR-54"),
+    },
+    "OL-G5": {
+        "premises": ("PR-59",),
+        "open_premises": ("PR-47",),
+    },
+    "OL-G8": {
+        "premises": ("PR-55", "PR-56", "PR-59"),
+        "open_premises": ("PR-47", "PR-54", "PR-57"),
     },
 }
 
@@ -143,6 +170,8 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (730, "PR-01"): "quantum composition surface",
     (732, "PR-01"): "thermodynamic composition surface",
     (735, "PR-13"): "SM correspondence and mass-sector boundary",
+    (734, "PR-12"): "separately frozen B15 matter-search negative control, not a PR-59 antecedent",
+    (735, "PR-12"): "separately frozen B15 matter-search negative control, not a PR-59 antecedent",
     (729, "PR-14"): "gravity/constants comparison boundary",
     (735, "PR-15"): "SM correspondence calibration boundary",
     (729, "PR-16"): "gravity ladder attachment boundary",
@@ -157,6 +186,9 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (744, "PR-56"): "baryon-operator/proton surface",
     (735, "PR-57"): "SM correspondence proton boundary",
     (744, "PR-57"): "physical proton/effective-action surface",
+    (736, "PR-59"): "mass and constants exterior-table boundary",
+    (744, "PR-59"): "QCD and baryon-census exterior-table boundary",
+    (745, "PR-59"): "electroweak exterior-table boundary",
 }
 
 BASE_ROW_KEYS = {

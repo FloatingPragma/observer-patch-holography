@@ -678,11 +678,11 @@ The finite echosahedral route is independent:
 certified twelve-port carrier
 -> incidence theorem: unique central graph involution J
 -> target-blind impulse/readback: solve the common farthest-shell filter,
-   hence R = -J up to charge conjugation
+   hence R = -J with exact relative response-band signs
 -> complete compact port response plus endogenous overlap transport
 -> abstract compact Lie type su(3)+su(2)+u(1)
 -> declared matrix witness; source tomography and same-current holonomy open
--> conditional conjugate pair of fifteen-state exterior modules
+-> separately declared conjugate pair of fifteen-state exterior modules
 -> common central kernel computed on every declared tensor
 -> conditional maximal faithful matter image
 ```

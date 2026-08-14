@@ -47,7 +47,8 @@ frozen run.
 
 Claim boundary: this is a bounded algebraic feasibility receipt over one
 retained artifact.  No four-law composition, physical thermodynamics,
-energy, or clock claim is made; #703 owns physical calibration.
+energy, or clock claim is made; physical calibration is the empirical import
+PR-15.
 
 Usage (from the repository root):
 

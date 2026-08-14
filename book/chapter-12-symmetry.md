@@ -276,11 +276,12 @@ leaves four baryon-violating operator classes. Their coefficients and physical
 emission are separate dynamical questions, so the calculation predicts no
 decay rate or proton lifetime.
 
-The same architecture bounds the family count inside a window from three to
-five, and an exact screen theorem, also machine-checked, selects three.
-Attaching that count to the three measured chiral families, and building the
-laboratory current and matter content from physical sources, is work in
-progress.
+The same architecture supplies a declared family-count window from three to
+five. Under the separate single-complete-band and mismatch-cost premises, an
+exact machine-checked screen theorem selects a rank-three family candidate.
+Identification with the measured chiral families, source selection, the
+laboratory current, and physical matter content are not supplied by this
+theorem.
 
 The notation looks forbidding, but the roles are practical. $SU(3)$ is the
 color accounting system for quarks. $SU(2)$ is the weak doublet accounting

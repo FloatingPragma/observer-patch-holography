@@ -35,9 +35,10 @@ objective pins its reference.
 Scope boundary: this module is the finite mathematical representation
 demanded by receipt 1.  A locally hash-pinned bounded run probed the
 state-side and transition-side objects but did not identify the common
-reference or realize this objective. Issue #732 owns that source/objective
-continuation and the refinement-uniform low-temperature control. No source
-construction, physical energy, clock, or continuum statement is made here.
+reference or realize this objective. Source/objective and uniform-tail
+construction remains premise work under #739; physical calibration is the
+separate empirical import PR-15. No source construction, physical energy,
+clock, or continuum statement is made here.
 -/
 
 variable {Ω : Type*} [Fintype Ω] [DecidableEq Ω]

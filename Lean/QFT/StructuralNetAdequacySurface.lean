@@ -52,14 +52,15 @@ carriers they are re-exported side by side rather than composed, and
 that separation is part of the committed level.
 
 **What OL-C6 lacks at the committed level.**  The time-slice property
-is not attained: the committed region systems carry no time parameter,
-no dynamics on the net, and no statement that the algebra of a slice
-region determines the top algebra; the coverage law is an algebraic
-generation statement over a declared generating family and is not a
-time-slice statement.  The exact block: no registered premise supplies
-net-compatible dynamics, PR-43's flow lives on one full matrix block
-with no region compatibility, and PR-52 owns the physical time and
-causal reading.  Genuine local covariance beyond the committed receipts
+is not attained: the committed region systems carry no time-indexed or
+Cauchy-region interface, no evolution compatible with those regions, and
+no statement that a slice algebra generates or determines the algebra of
+its causal development.  The coverage law is an algebraic generation
+statement over a declared finite family and is not a time-slice statement.
+PR-58 records this missing interface.  A continuous automorphism flow is one
+possible realization, not a necessary definition of time-slice; PR-43's flow
+lives on one full matrix block with no region compatibility, and PR-52 owns
+the physical time and causal reading.  Genuine local covariance beyond the committed receipts
 is not attained: the receipts in this direction are the transport of
 one diamond along one basis equivalence onto one constant tower stage,
 and the Z/2 slot-swap action of `supportDisjoint_swap_covariance`, an
@@ -527,6 +528,18 @@ theorem slotSwap_involutive (M : Matrix PairIndex247 PairIndex247 ℂ) :
     slotSwap (slotSwap M) = M :=
   rfl
 
+/-- The source-counted empirical state is not invariant under the internal
+slot swap.  Thus the covariance receipt below concerns the net maps and
+regional expectations, not a symmetry of the observed joint distribution. -/
+theorem slotSwap_correlationState_ne :
+    slotSwap correlationState ≠ correlationState := by
+  intro h
+  have hentry := congrArg
+    (fun M : Matrix PairIndex247 PairIndex247 ℂ =>
+      M ((1, 5) : PairIndex247) ((1, 5) : PairIndex247)) h
+  norm_num [slotSwap_apply, correlationState, Matrix.diagonal,
+    jointCount_one_five, jointCount_five_one] at hentry
+
 /-- The swap exchanges the two partial traces (first form). -/
 theorem ptraceFst_slotSwap (M : Matrix PairIndex247 PairIndex247 ℂ) :
     OPH.Locality.ptraceFst (slotSwap M) = ptraceSnd M :=
@@ -665,7 +678,8 @@ intertwine the swap, the swap preserves the region order, and the swap
 is an involution.  This is a symmetry-group action on the region system
 of the committed net, strictly beyond the constant-tower transport; it
 is an internal algebra symmetry of the declared two-slot split and
-carries no spacetime reading. -/
+carries no spacetime reading.  It does not fix the source-counted empirical
+state (`slotSwap_correlationState_ne`). -/
 theorem supportDisjoint_swap_covariance :
     (∀ U : TwoSlotRegion,
       StarSubalgebra.map
@@ -710,6 +724,7 @@ end OPH.QFT
 #print axioms OPH.QFT.slotSwap_apply
 #print axioms OPH.QFT.slotSwap_kronecker
 #print axioms OPH.QFT.slotSwap_involutive
+#print axioms OPH.QFT.slotSwap_correlationState_ne
 #print axioms OPH.QFT.ptraceFst_slotSwap
 #print axioms OPH.QFT.ptraceSnd_slotSwap
 #print axioms OPH.QFT.slotSwap_map_localAlgebra

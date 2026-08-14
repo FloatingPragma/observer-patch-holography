@@ -114,8 +114,9 @@ The package does not:
 - construct physical action, time, fields, complex amplitudes, interference,
   a continuum path space, or a laboratory current.
 
-The mechanics-composition lane #731 owns those open scientific obligations,
-while deferred premise discharge is scheduled under #739. The derived-action
+Closed mechanics milestone #731 supplies the scoped conditional composition;
+the open source-selection and physical obligations are deferred premise work
+under #739. The derived-action
 and bridge results enter the flagship variational passage; they emit no
 prediction-ladder row.
 

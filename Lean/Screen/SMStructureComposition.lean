@@ -7,14 +7,14 @@ open scoped BigOperators
 
 One theorem on one premise bundle.  `Screen/SMStructureAdequacySurface.lean`
 supplies the typed bundle `SMStructurePremiseData` (register rows
-PR-09, PR-11, PR-12, with the measure-to-metric and nearest-point
+PR-09, PR-11, PR-59, with the measure-to-metric and nearest-point
 rules of row PR-10 entering through the committed distance forms) and
 proves its clauses separately.  This module closes the composition
 contract of the issue: the measure-conditional selection of the
 compact family `G` and the forced dimension type `(1, {3, 8})` meet
 in a single uniqueness statement, the matter clauses are stated on
-the bundled selection mask, and a two-model theorem identifies every
-supplied family/mask pair that satisfies the composed predicate.
+the bundled selection mask, and a two-mask theorem identifies every
+supplied coarse-family-label/mask pair that satisfies the composed predicate.
 
 `genericTypeData` is the committed generic-stratum dimension column
 of the pinned compact-locus classification certificate
@@ -24,7 +24,7 @@ plane `P` is `so(3) + so(3) + R^6`, dimension data `(6, {3, 3})`,
 and the generic algebra of each of `F` and `G` is `su(3) + so(3) + R`,
 dimension data `(1, {3, 8})`.  The table is consumed under register
 row PR-11 exactly as the component tables of `ExteriorSelection` are
-consumed under register row PR-12: a committed literal reading of a
+consumed under register row PR-59: a committed literal reading of a
 pinned certificate, with its receipts beside it.  The mirror tie
 `genericTypeData .F = genericTypeData .G` is one of those receipts:
 the type reading alone separates nothing inside the compact
@@ -41,11 +41,14 @@ scopes the type claim: a `G`-module isomorphism determines no Lie
 bracket, and the source current and action attachment stays on the
 register as row PR-54.  The global-form clauses of OL-G2 stay
 outside every theorem here; they are conditional on register rows
-PR-35 and PR-46 and are stated on the surface only.  The two-model
-theorem quantifies over the classified compact locus and the
-1024-mask grammar under the bundled premises; no wider model class
-is claimed, and the compact locus is conditional on the pinned
-classification certificate of row PR-11.
+PR-35 and PR-46 and are stated on the surface only.  The two-mask
+theorem quantifies over three coarse compact-family labels and the
+1024-mask grammar under the bundled premises.  A label such as `G`
+does not select a point of its continuous bracket family, a global
+form, a family band, a Spin attachment, a current, or an action.  The
+theorem therefore classifies coarse label/mask pairs, not complete
+Standard Model structures, and the compact locus is conditional on
+the pinned classification certificate of row PR-11.
 -/
 
 namespace OPH.SMStructureComposition
@@ -168,16 +171,17 @@ theorem composed_family_unique (D : SMStructurePremiseData) :
   · rintro family ⟨hnear, -⟩
     exact strictlyNearestAt_eq_G D family hnear
 
-/-! ## The two-model capstone -/
+/-! ## The two-mask capstone -/
 
-/-- The composed Standard-Model structure predicate at a supplied
-family/mask pair, relative to the bundle: the family is strictly
+/-- The composed coarse family-label/mask predicate at a supplied
+pair, relative to the bundle: the family label is strictly
 nearest at the bundled measure and carries the forced generic
-dimension data, and the mask satisfies the register row PR-12
+dimension data, and the mask satisfies the register row PR-59
 grammar (nonempty, chiral, anomaly free).  The mask constraints
-mirror the bundle's own PR-12 fields, restated on the supplied
-mask. -/
-def IsSMStructureModel (D : SMStructurePremiseData)
+mirror the bundle's own PR-59 fields, restated on the supplied mask.
+This predicate deliberately contains no bracket parameter or physical
+matter, global-form, field, current, or action attachment. -/
+def IsCoarseFamilyMaskCandidate (D : SMStructurePremiseData)
     (family : CompactFamily) (m : Fin 1024) : Prop :=
   StrictlyNearestAt D family
     ∧ genericTypeData family = (D.centreDim, D.simpleIdealDims)
@@ -185,16 +189,16 @@ def IsSMStructureModel (D : SMStructurePremiseData)
     ∧ OPH.ExteriorSelection.chiral m.val = true
     ∧ OPH.ExteriorSelection.anomalyFree m.val = true
 
-/-- **The two-model theorem.**  Within the classified compact locus
-and the 1024-mask grammar, under the bundled premises PR-09 through
-PR-12, the composed predicate has exactly two models: the family `G`
-with the even-parity mask and the family `G` with the odd-parity
-mask.  No wider model class is claimed, and the compact locus is
-conditional on the pinned classification certificate of row
-PR-11. -/
-theorem smStructure_two_models (D : SMStructurePremiseData) :
+/-- **The two-mask theorem.**  Within the three coarse compact-family
+labels and the 1024-mask grammar, under the bundled premises PR-09,
+PR-10, PR-11, and PR-59, the composed predicate has exactly two
+label/mask pairs: label `G` with the even-parity mask and label `G`
+with the odd-parity mask.  This does not count bracket points inside
+the continuous `G` family and is not a two-model classification of
+complete Standard Model structures. -/
+theorem smStructure_two_coarse_masks (D : SMStructurePremiseData) :
     ∀ (family : CompactFamily) (m : Fin 1024),
-      IsSMStructureModel D family m ↔
+      IsCoarseFamilyMaskCandidate D family m ↔
         ((family = .G ∧ m.val = OPH.ExteriorSelection.evenMask)
           ∨ (family = .G ∧ m.val = OPH.ExteriorSelection.oddMask)) := by
   intro family m
@@ -216,27 +220,27 @@ theorem smStructure_two_models (D : SMStructurePremiseData) :
       · rw [hm]; exact OPH.ExteriorSelection.parity_sectors_survive.2.2.1
       · rw [hm]; exact OPH.ExteriorSelection.parity_sectors_survive.2.2.2
 
-/-- Both models are realized and charge conjugation exchanges their
-masks componentwise: the composed surface is unique up to charge
-conjugation within the stated locus and grammar.  The theorem does
-not choose between the two models. -/
-theorem smStructure_conj_exchanges_models (D : SMStructurePremiseData) :
-    IsSMStructureModel D .G
+/-- Both coarse candidates are realized and the declared conjugation
+permutation exchanges their masks componentwise.  No action of charge
+conjugation on a selected bracket point or complete physical model is
+constructed here. -/
+theorem smStructure_conj_exchanges_masks (D : SMStructurePremiseData) :
+    IsCoarseFamilyMaskCandidate D .G
         ⟨OPH.ExteriorSelection.evenMask, by decide⟩
-      ∧ IsSMStructureModel D .G
+      ∧ IsCoarseFamilyMaskCandidate D .G
           ⟨OPH.ExteriorSelection.oddMask, by decide⟩
       ∧ ∀ i : Fin 10,
           OPH.ExteriorSelection.mem OPH.ExteriorSelection.evenMask i
             = OPH.ExteriorSelection.mem OPH.ExteriorSelection.oddMask
                 (OPH.ExteriorSelection.conj i) :=
-  ⟨(smStructure_two_models D .G _).mpr (Or.inl ⟨rfl, rfl⟩),
-    (smStructure_two_models D .G _).mpr (Or.inr ⟨rfl, rfl⟩),
+  ⟨(smStructure_two_coarse_masks D .G _).mpr (Or.inl ⟨rfl, rfl⟩),
+    (smStructure_two_coarse_masks D .G _).mpr (Or.inr ⟨rfl, rfl⟩),
     OPH.ExteriorSelection.conj_exchanges_survivors⟩
 
 /-! ## The composed receipt -/
 
 /-- **The composed Standard Model structure receipt (issue #734).**
-For every premise bundle `D` (register rows PR-09 through PR-12):
+For every premise bundle `D` (register rows PR-09, PR-10, PR-11, and PR-59):
 exactly one classified compact family is strictly nearest at the
 bundled measure with generic dimension data equal to the bundle's
 forced classification data; that data is `(1, {3, 8})`; the bundled
@@ -294,6 +298,6 @@ end OPH.SMStructureComposition
 #print axioms OPH.SMStructureComposition.strictlyNearestAt_G
 #print axioms OPH.SMStructureComposition.strictlyNearestAt_eq_G
 #print axioms OPH.SMStructureComposition.composed_family_unique
-#print axioms OPH.SMStructureComposition.smStructure_two_models
-#print axioms OPH.SMStructureComposition.smStructure_conj_exchanges_models
+#print axioms OPH.SMStructureComposition.smStructure_two_coarse_masks
+#print axioms OPH.SMStructureComposition.smStructure_conj_exchanges_masks
 #print axioms OPH.SMStructureComposition.smStructureComposition_receipt

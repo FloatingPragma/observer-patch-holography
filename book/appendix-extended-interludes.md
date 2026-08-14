@@ -659,9 +659,11 @@ state spaces carry the real theorem content.
 
 The Tannaka-Krein and generation-count diagrams are closer to the technical
 program. They show gauge structure reconstructed from representation data and
-the face-cycle route that selects three families. The exterior-matter
-diagram then shows how the color and weak carriers generate one chiral
-Standard Model generation.
+the face-cycle route that, under the declared single-band and cost premises,
+selects a rank-three family candidate. The exterior-matter diagram then shows
+how the declared color and weak carrier table supplies one conditional chiral
+Standard Model generation candidate. Neither diagram source-selects its
+matter grammar or proves the physical family count.
 
 The modular-flow, null-blowup, and Newton-limit diagrams form a sequence.
 They show how cap flow supplies a dimensionless local ordering, how a curved
@@ -702,12 +704,13 @@ clocks are the remaining steps on this handle.
 The fourth handle is matter. The twelve port readings split exactly as
 $1+3+3'+5$, and incidence fixes the antipode as a polynomial in adjacency.
 The carrier axioms force the $U(1)$, $SU(2)$, and $SU(3)$ Lie type, and the
-forcing is machine-checked. The exterior matter scan leaves exactly one
-conjugate pair of chiral representations, the fifteen states of one Standard
-Model generation, with anomaly balance supplying the hypercharges and scalar
-compatibility. The realized tensors share a central kernel of order six, so
-the faithful global form is the familiar Standard Model quotient. The quantum
-field theory built on this structure is work in progress.
+forcing is machine-checked. Within the declared exterior table, the matter
+scan leaves exactly two conjugate chiral masks, each a fifteen-state Standard
+Model generation candidate, with table-level anomaly balance, hypercharges,
+and scalar compatibility. The declared tensors share a central kernel of order
+six, which gives their maximal faithful image. This does not select the
+physical global form; source matter/current attachment and quantum field
+theory are not supplied by this construction.
 
 ## Interlude 17: How Particle Data Enters a Book Like This
 
@@ -765,8 +768,10 @@ the twelve port readings split as $1+3+3'+5$, incidence expresses the antipode
 as a polynomial in adjacency, and port readback fixes the signed inverse-port
 response. The complete compact response and carrier transport force the
 $U(1)$, $SU(2)$, and $SU(3)$ Lie type, and the forcing is machine-checked.
-The matter tensors determine a common kernel of order six and with it the
-faithful Standard Model quotient.
+For the declared matter tensors, the common kernel of order six gives their
+maximal faithful image, the familiar Standard Model quotient candidate.
+Source selection of the physical global form and laboratory currents remains
+separate.
 
 Modular theory gives every suitable algebra-state pair a canonical flow. It
 becomes the geometric boost flow on a round cap once the finite cap-flow
