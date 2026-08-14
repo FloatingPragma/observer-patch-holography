@@ -15,17 +15,33 @@ name: Mandatory Suite
 # The two long-running exact-arithmetic certificate suites (#566 port-current,
 # #314 matter-lift) used to run here on every push; they now live in
 # certificate-suites.yml, which re-runs them only when their inputs under
-# code/a5_closure/ change and on a nightly full-platform schedule. Keeping them
-# out of this job drops it from ~27 min to ~1 min without dropping any gate.
+# code/a5_closure/ change and on a nightly full-platform schedule.
+#
+# The per-push job runs the standard suite: every register validation,
+# certificate check, independent replay, and fast mutation gate. The five
+# heavy replay/mutation-scan steps listed in HEAVY_STEP_TITLES of
+# tools/run_mandatory_suite.py run in the nightly mandatory-full job below
+# (and on demand via workflow_dispatch with full=true), keeping the per-push
+# gate fast without dropping any step from daily enforcement.
 
 on:
   push:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      full:
+        description: "Run the full suite including the heavy replay/mutation steps"
+        type: boolean
+        default: false
+  schedule:
+    # Nightly full run: the five heavy replay/mutation steps that the
+    # per-push standard job defers stay enforced every day.
+    - cron: "17 3 * * *"
 
 jobs:
   mandatory:
+    if: github.event_name != 'schedule'
     name: mandatory collection (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
@@ -57,4 +73,27 @@ jobs:
       # a path-filter miss), collects the full scientific suite, and executes
       # the fast validation fixtures.
       - name: Run the mandatory suite
-        run: python tools/run_mandatory_suite.py
+        run: python tools/run_mandatory_suite.py ${{ inputs.full && '--full' || '' }}
+
+  mandatory-full:
+    name: mandatory full (nightly)
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run the full mandatory suite
+        run: python tools/run_mandatory_suite.py --full

@@ -14,8 +14,10 @@ observer overlap repair on a holographic screen. From this architecture OPH
 reconstructs an exact finite structural core: conditional quantum-record
 identities, a conditional finite four-law package, a three-dimensional
 observer-frame carrier, and explicit order/clock interfaces. It also derives
-Lorentz kinematics on the stated global-support branch, the Standard Model
-gauge Lie type, and a conditional one-generation exterior matter pair.
+Lorentz kinematics on the stated global-support branch, a conditional
+four-dimensional Lorentzian event manifold, a conditional Einstein branch for
+gravity, the Standard Model gauge Lie type, and a conditional one-generation
+exterior matter pair.
 
 Three axioms govern the simulator architecture and how observers reach
 consensus. Beside them sit two proposed closure programs. The first seeks a
@@ -77,8 +79,15 @@ derives the rest as theorems. From that one architecture:
   conditional theorem package about how observers resample toward consensus
   yields all four laws, with the second law appearing as data processing
   applied to repair and the Landauer bound as a corollary.
-- **Relativity on the screen.** Lorentz kinematics is a theorem on its
-  stated branch.
+- **Relativity and gravity on the screen.** Modular covariance makes Lorentz
+  kinematics a theorem on its stated branch and fixes the three-dimensional
+  observer-frame space. Record germs produce a four-dimensional Lorentzian
+  event manifold: three space dimensions and one time direction, with the
+  time orientation supplied by repair. Null translations and modular charges
+  reconstruct a local conserved stress tensor, and a fixed-cap
+  generalized-entropy identity delivers the Einstein field equations on that
+  branch. Gravity arrives as the thermodynamics of observer repair, and the
+  Newtonian inverse-square law follows from the carrier dimension theorem.
 - **The Standard Model gauge group from twelve ports.** OPH makes an
   architectural choice at the simulation hardware layer: each observer patch
   has twelve boundary ports wired as the corners of an icosahedron. A classification theorem forces

@@ -354,22 +354,25 @@ def _declared_boundary_evidence() -> list[dict[str, Any]]:
         )
 
     quantum_eft = _load_json(QUANTUM_EFT_FRONTIER_PATH)
-    open_interfaces = quantum_eft.get("open_interfaces")
-    if not isinstance(open_interfaces, list):
-        raise CertificateError("QUANTUM_EFT_BOUNDARY", "open-interface list is absent")
+    required_interfaces = quantum_eft.get("required_interfaces")
+    if not isinstance(required_interfaces, list):
+        raise CertificateError(
+            "QUANTUM_EFT_BOUNDARY", "required-interface list is absent"
+        )
     quantum_rows = [
         row
-        for row in open_interfaces
+        for row in required_interfaces
         if isinstance(row, dict)
         and row.get("gate_id") == "finite_to_lorentzian_quantum_eft_transfer"
     ]
     if (
         quantum_eft.get("schema") != "oph.wz.source_parent_inventory.v1"
-        or quantum_eft.get("issue") != 594
+        or quantum_eft.get("provenance_issue") != 594
         or quantum_eft.get("promotion_allowed") is not False
         or len(quantum_rows) != 1
-        or quantum_rows[0].get("owner_issues") != [635]
-        or quantum_rows[0].get("status") != "open"
+        or quantum_rows[0].get("provenance_issues") != [635]
+        or quantum_rows[0].get("classification") != "not_supplied"
+        or quantum_rows[0].get("supplied_evidence") != []
     ):
         raise CertificateError(
             "QUANTUM_EFT_BOUNDARY",

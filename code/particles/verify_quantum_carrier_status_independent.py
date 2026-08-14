@@ -292,7 +292,7 @@ def _boundary_evidence() -> list[dict[str, Any]]:
         raise VerificationError("inhabited Einstein boundary changed")
 
     quantum_eft = _load(QUANTUM_EFT_PATH)
-    interfaces = quantum_eft.get("open_interfaces")
+    interfaces = quantum_eft.get("required_interfaces")
     if not isinstance(interfaces, list):
         raise VerificationError("quantum-EFT interface list missing")
     selected = [
@@ -303,11 +303,12 @@ def _boundary_evidence() -> list[dict[str, Any]]:
     ]
     if (
         quantum_eft.get("schema") != "oph.wz.source_parent_inventory.v1"
-        or quantum_eft.get("issue") != 594
+        or quantum_eft.get("provenance_issue") != 594
         or quantum_eft.get("promotion_allowed") is not False
         or len(selected) != 1
-        or selected[0].get("owner_issues") != [635]
-        or selected[0].get("status") != "open"
+        or selected[0].get("provenance_issues") != [635]
+        or selected[0].get("classification") != "not_supplied"
+        or selected[0].get("supplied_evidence") != []
     ):
         raise VerificationError("quantum-EFT source frontier changed")
 

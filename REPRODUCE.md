@@ -37,7 +37,18 @@ python tools/run_mandatory_suite.py
 
 `requirements.txt` pins the core dependencies. The runner is the single
 documented mandatory command, and it is the exact command CI
-(`.github/workflows/mandatory-suite.yml`) enforces on every push and PR. It
+(`.github/workflows/mandatory-suite.yml`) enforces on every push and PR. The
+default run is the standard suite; five long-running replay/mutation-scan
+steps (listed in `HEAVY_STEP_TITLES` inside the runner, together most of the
+suite's runtime) are deferred to
+
+```bash
+python tools/run_mandatory_suite.py --full
+```
+
+which CI enforces nightly and on demand, and which the release checklist
+runs before publication. The standard run prints exactly which steps it
+skipped. The suite
 both collects and executes: claim-registry validation, generated scientific
 register validation, external-data provenance/hash/license-boundary validation,
 release-manifest validation and its regression tests, a clean `--collect-only`
