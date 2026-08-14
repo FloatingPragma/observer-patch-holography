@@ -105,6 +105,22 @@ Mapping between Lean 4 theorems in this project and statements in
   same-initial repair, all-path completeness, full `Repair` width, a complete
   support family, a global or unique minimum, broad A5 safety, zero raw A2
   capability growth, or strategy preservation from observation alone.
+- Protected-behavior obstruction profile
+  (`ObservableNormalForms/ProtectedObstructions.lean`,
+  `ObservableNormalForms/Examples/ProtectedObstructions.lean`): a sorry-free
+  finite-state development that assembles standard first-hit, closed-class,
+  Bellman, and lumpability facts around protected observations and declared
+  active sources. It separates consistent-fiber existence, some-source
+  positive first hit, all-source almost-sure hit, and endpoint-class selection;
+  recovers the four `RealizedBehavior` and `BehaviorCut` coordinates from the
+  #722 interface through explicit supported traces; proves exact finite-state
+  transport under the complete source/target/observation/kernel/quotient
+  packet; and activates the boundaries on TwoBit, fixed-relation, proper-target,
+  strict-reversal, and nonidentity fixtures. The companion Isabelle session is
+  `PARTIAL / NO SAME`. No rate, expected-time, mixing, infinite-state or tower
+  theorem, scalar ranking, arbitrary implementation invariance, or product
+  refinement is claimed. See
+  `ObservableNormalForms/PROOF_INDEX.md` for theorem-level traceability.
 - Time-and-order type ledger
   (`Time/TimeOrderLedger.lean`): sorry-free type infrastructure for V2 A1.
   Universe closure, repair schedule, observer record order, modular parameter,

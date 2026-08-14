@@ -85,7 +85,13 @@ The bound survives arbitrary refinement depth, and compatible finite levels
 define a solver-independent projective limit. The paper also proves repair and
 symmetry obstructions, gives a checkable conditional-expectation resampling
 projector, and classifies two succinct decision problems as coNP- and
-\(\Pi_2^P\)-complete. These results supply the observable-normal-form machinery used by the
+\(\Pi_2^P\)-complete. For a declared finite scheduler, four nested
+protected-behavior tests separate empty fibers, failed positive reach,
+non-almost-sure reach, and ambiguous first-hit endpoint classes, and an exact
+finite-state morphism preserves the resulting profile. The Markov-chain
+ingredients are standard; the contribution is their source-quantified
+assembly around protected observations and the existing behavior-cut
+interface. These results supply the observable-normal-form machinery used by the
 Observer-Patch Holography consensus and Yang--Mills papers.
 \end{abstract}
 
@@ -148,7 +154,7 @@ The manuscript has six technical contributions.
 
 \begin{enumerate}[label=\textbf{C\arabic*.},leftmargin=3.2em]
 \item \textbf{Correct exact interface.}
-We state a canonical partial normalizer and a boundary-indexed unique-normal-form theorem with the empty-fiber case separated from weak normalization.  An audited-terminal theorem further separates computational quiescence from semantic consistency.  Identification modulo a silent equivalence is characterized exactly by cross-source endpoint agreement.  The exact confluence implications are explicitly treated as classical.
+We state a canonical partial normalizer and a boundary-indexed unique-normal-form theorem with the empty-fiber case separated from weak normalization.  An audited-terminal theorem further separates computational quiescence from semantic consistency.  Identification modulo a silent equivalence is characterized exactly by cross-source endpoint agreement.  For a separately declared finite scheduler, we also distinguish the static fiber question from positive first hit, almost-sure first hit, and endpoint-class selection.  The exact confluence implications are explicitly treated as classical.
 
 \item \textbf{Sharp observational stability.}
 For a residual $\Phi$ and an observation map $B$, we define intrinsic moduli $\eta_\Phi$ and $\omega_B$.  For arbitrary residual levels $\delta_x,\delta_y$,
@@ -166,13 +172,13 @@ At zero residual the bound is exact by definition.  Across all finite metric sys
 One-step approximate naturality follows from consistency and observation defects.  We distinguish same-level receipt-conditioned agreement from genuinely cross-level comparison.  An anchor-optimized theorem compares independently computed outputs at arbitrary refinement levels after restriction to a common level.  Compatible nested inputs leave only the intervening defect segment, and summable pathwise defects yield an implementation-independent projective limit.  A counterexample shows that stagewise injectivity is not enough without a uniform inverse modulus.
 
 \item \textbf{Repair and selection obstructions.}
-A total exact local repair preserving an exterior collar exists if and only if the local consistency relation projects surjectively onto that collar.  On a finite full-support probability space, observation-fiber resampling is the weighted orthogonal conditional-expectation projector and has a finite matrix recognition receipt.  A stabilizer obstruction prevents an equivariant selector on ambiguous fibers.  These results are elementary, but their integration prevents a normalizer from silently becoming a sector-selection axiom.
+A total exact local repair preserving an exterior collar exists if and only if the local consistency relation projects surjectively onto that collar.  For a finite scheduler, four nested protected-behavior sets and their complementary cuts isolate fiber, positive-reach, almost-sure, and endpoint-selection obstructions.  The underlying finite Markov facts are standard; the contribution is the integrated protected-observation certificate and its exact behavior-cut recovery.  On a finite full-support probability space, observation-fiber resampling is the weighted orthogonal conditional-expectation projector and has a finite matrix recognition receipt.  A stabilizer obstruction prevents an equivariant selector on ambiguous fibers.
 
 \item \textbf{Constructive and linear classes.}
 Ranked functional-audit systems have singleton-or-empty fibers, terminate under every effective asynchronous schedule with an explicit update bound, and settle synchronously in dependency depth; acyclic Boolean circuits compile directly into this class.  Linear quotient systems admit rank tests and singular-value bounds that instantiate \eqref{eq:intro-master}; finite linear dynamics yield the usual observability matrix as a special case.
 
 \item \textbf{Receipts and complexity.}
-A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.
+A standard finite Markov drift lemma turns a row-wise kernel inequality into endpoint, stationary, and expected-occupation receipts, without asserting infinite-horizon confinement under persistent noise.  Machine-checked first-hit laws, exact finite-state transport, and native TwoBit, fixed-relation, and proper-target counterexamples provide separate receipts for the protected-behavior profile.  For succinct Boolean systems, we record tight coNP- and $\Pi_2^P$-completeness classifications in this formulation; these supporting results are not part of the principal novelty claim.
 \end{enumerate}
 
 \subsection{Relation to existing theory}
@@ -245,6 +251,20 @@ hypotheses \citep{Kahn1974,Abramsky2011}.  Ranked functional systems below
 are a finite terminating special case with residual audits.  Their purpose is
 to give a class in which the exact boundary hypotheses, update bound, and
 obstruction output are explicit.  They do not reprove those principles.
+
+\subsection{Finite Markov reachability and lumping}
+
+First-hitting probabilities, the decomposition into transient and closed
+classes in a finite chain, least nonnegative solutions of reachability Bellman
+equations, and strong lumpability are standard
+\citep{Norris1997,KemenySnell1976,BaierKatoen2008}.  Markov functions and
+intertwining provide neighboring language for law pushforward
+\citep{RogersPitman1981}.  We use these facts without a novelty claim.  The new
+role they play here is architectural: declared active sources and a protected
+observation index four separate failure modes; those modes recover the
+pre-existing OPH behavior cuts through explicit supported traces; and exact
+transport retains the active-source, target, observation, and silent-quotient
+data in addition to the kernel law.
 
 \section{Exact observable fibers}\label{sec:exact}
 
@@ -365,6 +385,16 @@ ensuring that every source has at least one endpoint.  Strong normalization,
 fairness, or another liveness argument is needed to conclude that every
 allowed schedule settles.  None of these three hypotheses may be substituted
 for either of the others.
+\end{remark}
+
+\begin{remark}[Static fibers versus a stochastic scheduler]
+The fiber $C_b$ is determined by $(Q,C,B)$ alone.  Statements that a source
+reaches $C_b$ with positive probability, hits it almost surely, or selects one
+endpoint class require additional data: a transition kernel, a nonempty set of
+declared active sources, and an equivalence on first-hit endpoints.  None of
+those dynamic conclusions follows from singleton fibers or confluence alone;
+conversely, a stochastic reachability statement does not construct a local
+repair with prescribed write support.
 \end{remark}
 
 \begin{corollary}[Correct empty/singleton alternative]\label{cor:empty-singleton}
@@ -1424,6 +1454,152 @@ with value $+\infty$ when no admissible support has the required projection prop
 
 The definition prevents a one-site no-go from being misreported as a global inconsistency: increasing the transaction support may restore surjectivity.
 
+\subsection{A protected-behavior first-hit profile}
+\label{sec:protected-first-hit}
+
+We now add stochastic data without identifying it with the static repair
+question.  Let $Q$ be finite and let $K:Q\times Q\to[0,1]$ be a row-stochastic
+kernel.  Fix a protected carrier $P\subseteq\cB$.  For every $b\in P$, let
+$I_b\subseteq Q$ be a nonempty set of declared active sources and put
+$T_b=C_b$.  Let $\approx_b$ be an equivalence relation on $T_b$.  The first
+entrance time
+\[
+ \tau_b:=\inf\{n\geq0:X_n\in T_b\}
+\]
+includes time zero.  For $q\in I_b$ and $c\in T_b$, define the endpoint mass
+\[
+ h_b(q,c):=\Pr_q[X_{\tau_b}=c,\ \tau_b<\infty]
+\]
+and its total $h_b(q)=\sum_{c\in T_b}h_b(q,c)$.  These are determined by the
+increasing finite-horizon sums of first-hit path weights; no arbitrary initial
+probability law is part of the qualitative definition.
+
+\begin{definition}[Protected-behavior layers and cuts]
+Define nested subsets of $P$ by
+\begin{align*}
+ L_0&=\{b\in P:T_b\ne\varnothing\},\\
+ L_1&=\{b\in L_0:\exists q\in I_b,\ h_b(q)>0\},\\
+ L_2&=\{b\in L_1:\forall q\in I_b,\ h_b(q)=1\},\\
+ L_3&=\left\{b\in L_2:
+   \begin{array}{l}
+   h_b(q,c)>0,\ h_b(q',c')>0\\[-2pt]
+   \Longrightarrow c\approx_b c'
+   \quad(q,q'\in I_b)
+   \end{array}\right\}.
+\end{align*}
+The cumulative cuts are $K_j=P\setminus L_j$.  The disjoint obstruction
+strata are
+\[
+ \Delta_0=K_0,\qquad
+ \Delta_j=K_j\setminus K_{j-1}\quad(1\leq j\leq3).
+\]
+Thus $\Delta_0$ is an empty-fiber obstruction, $\Delta_1$ a failure of any
+declared source to supply positive reach, $\Delta_2$ a failure of all-source
+almost-sure reach, and $\Delta_3$ a failure of endpoint-class selection.
+\end{definition}
+
+\begin{theorem}[Profile partition and structural characterizations]
+\label{thm:protected-profile}
+The layers satisfy
+\[
+ L_3\subseteq L_2\subseteq L_1\subseteq L_0\subseteq P,
+\]
+and
+\[
+ P=\Delta_0\sqcup\Delta_1\sqcup\Delta_2\sqcup\Delta_3\sqcup L_3.
+\]
+Moreover:
+\begin{enumerate}[label=(\roman*)]
+\item $b\in L_1$ exactly when a positive-support finite path from some
+      $q\in I_b$ first enters $T_b$ at its endpoint;
+\item $b\in L_2$ exactly when $b\in L_1$ and no active source can reach,
+      before hitting $T_b$, a nonempty closed positive-support set disjoint
+      from $T_b$;
+\item $b\in L_3$ exactly when $b\in L_2$ and the union of positive first-hit
+      endpoint supports over $I_b$ is one $\approx_b$-class.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Nesting is immediate from the definitions, after which successive set
+differences give the displayed disjoint partition.  For (i), expand the
+finite-horizon first-hit mass as the sum of products of transition weights;
+nonnegativity makes the sum positive exactly when one summand is positive.
+For (ii), the states reachable before the first hit form a finite directed
+support graph.  A positive probability of avoiding $T_b$ forever reaches a
+bottom strongly connected component disjoint from $T_b$, while any reachable
+closed such component retains positive mass away from the target.  This is the
+standard finite-chain closed-class argument.  Part (iii) simply rewrites the
+pairwise definition in terms of the union of positive endpoint supports.
+\end{proof}
+
+The all-source quantifier here means all members of the declared $I_b$, not
+all states of $Q$.  Positive reach, almost-sure hit, and endpoint selection are
+different predicates.  In particular, $h_b(q)=1$ supplies neither a rate nor
+an expected hitting-time bound, and singleton support modulo $\approx_b$ need
+not mean literal endpoint equality.
+
+\begin{proposition}[Exact behavior-cut recovery]
+\label{prop:behavior-cut-recovery}
+Construct traces from positive-support paths, observe each trace by its
+protected behavior, and define four admissibility levels respectively by
+target existence, positive supported reach, absence of a reachable closed
+trap for every active source, and one endpoint class over all active sources.
+If support-to-rewrite soundness, rewrite-to-support completeness, and target
+normality hold, then the four realized-behavior sets are exactly $L_0,L_1,L_2,
+L_3$ and the corresponding behavior cuts are exactly $K_0,K_1,K_2,K_3$.
+\end{proposition}
+
+\begin{proof}
+At level zero the trace witness reduces to nonempty target fiber.  Level one
+uses part (i) of \cref{thm:protected-profile}; level two uses part (ii); and
+level three uses part (iii).  The two scheduler laws identify supported paths
+with observation-preserving rewrite paths in both directions.  Taking
+complements inside $P$ gives the cut equalities.  The structural certificates
+are explicit parts of this adapter; the proposition does not claim that an
+arbitrary admissibility profile has these four meanings.
+\end{proof}
+
+Consequently, variant comparison is coordinatewise:
+$(K_0,K_1,K_2,K_3)\leq(K'_0,K'_1,K'_2,K'_3)$ when every coordinate is
+included.  This is a product preorder, not a scalar score or total order.
+
+\begin{theorem}[Exact finite-state profile transport]
+\label{thm:protected-transport}
+Consider two finite protected profiles and maps $f:Q\to Q'$ and
+$g:P\to P'$.  Suppose protected membership is reflected and covered; active
+sources are reflected and covered along $f$; target membership is reflected
+and every target endpoint is covered; observations commute with $f$ and $g$;
+the target equivalences satisfy
+\[
+ c\approx_b d\quad\Longleftrightarrow\quad
+ f(c)\approx'_{g(b)}f(d);
+\]
+and the kernels obey exact lumping
+\[
+ K'(f(q),y)=\sum_{x:f(x)=y}K(q,x).
+\]
+Then first-hit endpoint mass pushes forward along $f$, total hit probability
+is preserved, and for every $b\in P$ and $0\leq j\leq3$,
+\[
+ b\in L_j\Longleftrightarrow g(b)\in L'_j,
+ \qquad
+ b\in K_j\Longleftrightarrow g(b)\in K'_j.
+\]
+\end{theorem}
+
+\begin{proof}
+Induction on the first-hit time gives the exact endpoint-mass pushforward:
+the base case uses target reflection and coverage, and the step uses kernel
+lumping.  Monotone limits preserve the equality for total and endpoint hit
+probabilities.  Active-source coverage and target coverage reflect positive
+mass and almost-sure mass in both directions, while quotient exactness
+reflects the singleton endpoint-class condition.  The four layer equivalences
+and then their complementary cut equivalences follow.  Observation
+commutation records that the transported target is the same protected
+behavior; it is not a model-to-code refinement claim.
+\end{proof}
+
 \subsection{Finite observation-conditioned resampling}
 
 There is nevertheless a canonical \emph{averaging} operation once a reference
@@ -1868,11 +2044,11 @@ If $Q$, $C$, $B$, $d_Q$, $d_{\cB}$, and $\Phi$ are given by explicit finite tabl
 Let $Q=C=\{a,b\}$ with the empty rewrite relation and a constant observation map.  Every state is a normal form and the relation is confluent, but the sole observation fiber contains two consistent states.
 \end{example}
 
-\begin{example}[A two-bit positive witness]\label{ex:two-bit-positive}
-Let $Q=\mathbb F_2^2$, let $B(u,v)=u$, and put
-$C=\{(0,0),(1,0)\}$.  For each $u\in\mathbb F_2$, take the step
-$(u,1)\to(u,0)$.  It preserves $B$, the normal forms
-are exactly $C$, and every source $(u,v)$ terminates at $(u,0)$.  Thus sources
+\begin{example}[Two-bit witness]\label{ex:two-bit-positive}
+Let $Q=\mathbb F_2^2$, let $B(u,v)=u$, and set
+$C=\{(0,0),(1,0)\}$.  For each $u\in\mathbb F_2$, add the rewrite
+$(u,1)\to(u,0)$.  This preserves $B$; the normal forms
+are exactly $C$; and every source $(u,v)$ terminates at $(u,0)$.  Thus sources
 with the same observation have the same endpoint, jointly witnessing
 normalization, same-source confluence, and the stronger cross-source property
 of \cref{thm:cross-source-modulo} for equality.
@@ -1894,6 +2070,27 @@ singleton $\{c\}$.  Nevertheless, the boundary-$0$ state $x$ normalizes to
 $d$, not to $c$, because the rewrite changes the observation.  Thus the
 observation-preservation hypothesis in \cref{cor:empty-singleton} is
 load-bearing.
+\end{example}
+
+\begin{example}[Native protected-profile separations]
+The machine-checked artifact instantiates \cref{thm:protected-profile} and
+\cref{prop:behavior-cut-recovery} on four reader-facing boundaries.
+\begin{itemize}
+\item A fine TwoBit observation reaches the final layer, while its coarse
+      observation is almost surely reachable but has two endpoint classes;
+      the inherited coarse rewrite remains confluent.
+\item A full fixed relation satisfies the static collar criterion, whereas a
+      relation missing one collar value activates the empty-fiber cut; filling
+      that value is a negative control.
+\item A proper-target three-state chain with a reachable closed trap has
+      positive but not almost-sure hit, while another hits almost surely but
+      has two inequivalent positive endpoints.
+\item Two profiles reverse their strict comparison between the first and
+      second cut coordinates, so neither is below the other in the product
+      preorder.  A separate nonidentity state map activates exact transport.
+\end{itemize}
+These fixtures establish nonvacuity and sharp separation.  They do not claim
+empirical representativeness, stochastic rates, or a global mechanism rank.
 \end{example}
 
 \subsection{Rule 90 as a regression test}\label{sec:rule90}
@@ -1996,6 +2193,12 @@ separates two burdens that are often mixed.  A rewrite algorithm, numerical solv
 
 In a refinement program, proving $B_r|_{C_r}$ injective for every $r$ does not prevent the inverse condition number from diverging.  \Cref{ex:nonuniform} is deliberately minimal.  The correct limit-facing statement is uniform stable separation, not a list of stagewise singleton claims.  This is the main stability requirement emphasized for refinement-sensitive applications.
 
+The protected first-hit profile has the same discipline at a different
+interface.  Finite hitting, closed-class, Bellman, and lumpability arguments
+are standard; the OPH-specific step is to assemble them around protected
+observations and declared sources, recover the existing behavior cuts, and
+retain every source, target, quotient, and scheduler premise during transport.
+
 \subsection{Limitations}
 
 The theory assumes a declared meaningful quotient, consistent set, residual, observation metric, and refinement map.  It does not select those objects.  In particular:
@@ -2005,6 +2208,13 @@ The theory assumes a declared meaningful quotient, consistent set, residual, obs
 \item a finite update bound is not a wall-clock liveness theorem;
 \item a boundary pseudometric does not acquire additional semantics without a separate interpretation theorem;
 \item a small Rule-90 example does not establish cellular-automaton universality or generality.
+\item a finite protected profile is relative to one declared scheduler and
+      active-source family; it gives no rate, expected hitting time, mixing
+      bound, stationary law, infinite-state extension, or refinement-tower
+      conclusion;
+\item coordinatewise cut comparison is not a scalar score, total order, or
+      family-wide optimum, and exact finite transport is not implementation or
+      product refinement.
 \end{itemize}
 These exclusions are necessary for both mathematical correctness and journal review.
 
@@ -2017,12 +2227,14 @@ this manuscript are self-contained. No empirical dataset is used.
 
 Confluence is about paths from one state.  Observable normalization is about what partial data determine after consistency is enforced.  Their exact intersection is classical unique-normal-form theory: under observation preservation and $\NF(\to)=C$, identification modulo any silent equivalence is equivalent to agreement of normal endpoints across all sources with the same observation.  This does not by itself provide normalization or all-schedule settlement.  Their stable intersection is governed by two analytic objects: an error bound to the consistent set and an inverse modulus for the observation map on that set.
 
-The resulting estimate is universal and sharp in its two unavoidable components. It survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies a precise answer to three different questions:
+The resulting estimate is universal and sharp in its two unavoidable components. It survives refinement: one-step defects telescope, same-level solver agreement needs no tower term, and compatible cross-level computations differ by their receipt errors and the intervening normalizer-defect tail.  For a compatible admissible input in complete spaces, nonexpansive restrictions, vanishing receipt errors, and summable pathwise tails give a common projective limit; exact compatibility recovers the inverse-limit normalizer.  On finite probability spaces, fiber averaging supplies the canonical conditional-expectation projector, while its matrix receipt keeps that averaging distinct from representative selection or a spectral-gap claim.  Empty fibers and ambiguous fibers stay visible; a repair operator does not absorb them.  The theory therefore supplies a four-stage protected-behavior ladder followed by an orthogonal local-support question:
 \[
 \boxed{
 \begin{array}{c}
 \text{Does a consistent extension exist?}\\
-\text{Is it observably unique and stable?}\\
+\text{Does some declared source reach it with positive probability?}\\
+\text{Do all declared sources reach it almost surely?}\\
+\text{Do first-hit endpoints select one silent-equivalence class?}\\
 \text{Can the declared local support construct it?}
 \end{array}}
 \]

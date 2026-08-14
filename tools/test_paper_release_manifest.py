@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import copy
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 import pytest
 
@@ -49,6 +49,13 @@ def test_manifest_generation_timestamp_is_release_derived() -> None:
     assert (
         generator.deterministic_generated_at("July 25, 2026")
         == "2026-07-25T00:00:00Z"
+    )
+
+
+def test_manifest_paths_are_posix_on_windows() -> None:
+    assert (
+        generator.manifest_path(PureWindowsPath(r"paper\example.pdf"))
+        == "paper/example.pdf"
     )
 
 

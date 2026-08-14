@@ -69,7 +69,10 @@ named repair and response laws,
 exact finite consequences, and physical realization maps. The patches carry
 state, records, overlap readback, and an oriented twelve-port boundary.
 We prove conditions for a canonical observable normal form, stable
-under refinement and independent of repair schedule. Read on transition
+under refinement and independent of repair schedule. A declared finite
+scheduler also yields a four-stage protected first-hit profile---target-fiber
+existence, positive reach, almost-sure reach, and a unique endpoint class---
+that is preserved by exact finite-state morphisms. Read on transition
 distributions, the third axiom yields a conditional finite four-law package
 once the common source reference and repair-fibre attachments are supplied.
 The second law is then a data-processing inequality for repair; the physical
@@ -239,6 +242,17 @@ accumulated refinement bound, and complexity barriers for succinct boundary
 problems. On the declared transactional repair branch, semantic dependency
 closure and revalidation yield the local diamond and hence a
 schedule-independent public record.
+
+For a separately declared finite scheduler, protected observations admit four
+nested first-hit layers: nonempty consistent fiber, positive reach from some
+active source, almost-sure reach from every active source, and a single
+first-hit endpoint class modulo the declared silent equivalence. Their
+complementary cuts partition empty-fiber, inaccessible, liveness, and
+selection obstructions. Explicit support--rewrite laws recover the existing
+behavior-cut interface, while an exact finite-state morphism transports the
+whole profile. The finite Markov ingredients are standard; the OPH-specific
+content is this source-quantified protected-observation certificate and its
+connection to the existing cut order.
 
 The declared twelve-port repair mean also gives a conditional local carrier
 theorem. Its centered equal-port response kernel selects a rank-three
@@ -828,6 +842,42 @@ repair schedule. A repair relation implements it only when the relation
 preserves $B$, reaches the consistent set, and satisfies an appropriate
 liveness condition. Confluence from one source does not by itself prove
 determination across distinct sources with the same protected record.
+
+\subsection{Protected first-hit obstructions}
+
+Fix a finite stochastic kernel, a protected carrier $P\subseteq\mathcal B$,
+nonempty declared active-source sets $I_b$, targets $T_b=C_b$, and a
+declared silent equivalence on each $T_b$. Let $L_0,L_1,L_2,L_3\subseteq P$
+record, respectively, nonempty target fiber, positive first hit from some
+active source, almost-sure first hit from every active source, and one
+positive first-hit endpoint class over all active sources. Detailed
+definitions and proofs are given in the observable-normal-forms component
+paper \cite{ophnormalforms}.
+
+\begin{theorem}[Protected first-hit profile and cut recovery]
+\label{thm:flagship-protected-first-hit}
+The layers are nested,
+\[
+L_3\subseteq L_2\subseteq L_1\subseteq L_0\subseteq P,
+\]
+and the successive differences of their complementary cuts partition $P$
+into empty-fiber, failed-positive-reach, non-almost-sure, and ambiguous-endpoint
+obstructions, followed by $L_3$. If positive kernel support and the declared
+rewrite relation correspond in both directions and targets are normal, these
+four cuts are exactly the existing OPH behavior cuts. Under an exact
+finite-state morphism preserving and reflecting protected membership, active
+sources, targets, observations, kernel mass, and endpoint quotients, membership
+in every layer and cut is preserved.
+\end{theorem}
+
+\begin{corollary}[Variant comparison]
+The four protected cuts compare coordinatewise, hence define a product
+preorder. They do not define a scalar score or total order.
+\end{corollary}
+
+This theorem is conditional on the declared scheduler and morphism packet. It
+asserts neither a hitting-time rate nor an expected hitting-time bound, and it
+is not an implementation or product-refinement theorem.
 
 \subsection{Approximate outputs and refinement}
 
@@ -3537,6 +3587,17 @@ a schedule-independent public record. The completed finite algebra-state
 surface then carries the standard probability, conditioning, expectation, and
 correlation identities.
 
+With a declared finite scheduler, the observable-normal-form interface also
+separates four protected first-hit failures: empty consistent fiber, absence of
+positive reach, failure of all-source almost-sure reach, and ambiguity of the
+first-hit endpoint class. The corresponding cuts recover the established OPH
+behavior-cut order under explicit support--rewrite laws and are preserved by
+the stated exact finite-state morphism. Longer definitions, proofs, native
+examples, and countermodels remain in the observable-normal-forms component
+paper \cite{ophnormalforms}. These finite results do not supply rates, expected
+hitting times, infinite-tower transport, deployed-code refinement, or a new
+physical identification.
+
 The principal finite gauge result is the A1--A2 forcing theorem. Complete
 reversible response supplies a compact commutator-closed twelve-dimensional
 current, and endogenous overlap transport makes the proper carrier action
@@ -3780,7 +3841,9 @@ FloatingPragma (2026). \emph{The OPH Axiom Reference}.
 Mueller, B., Matscheko, D., and Hill, J. (2026).
 \emph{Observation-Determined Normal Forms: Stability, Obstructions, and
 Refinement in Constraint and Rewrite Systems}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/extra/observable_normal_forms.pdf}
+Distributed as \path{extra/observable_normal_forms.pdf} in the same repository
+revision as this paper; SHA-256
+\texttt{fe1e11f0a67f2a097f4604935b86d95f418d2d6ae1c76a2d0d19da0acbaa423e}.
 
 \bibitem{opheventalgebra}
 Mueller, B. (2026). \emph{Verified Projection-Event Calculus in Lean 4:

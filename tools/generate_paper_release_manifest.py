@@ -9,7 +9,7 @@ import shutil
 import subprocess
 import sys
 from datetime import datetime
-from pathlib import Path
+from pathlib import Path, PurePath
 
 import build_tex_papers as paper_sources
 
@@ -163,10 +163,16 @@ def fill_section(repo_root: Path, section: dict, pdfs: dict[str, Path]) -> None:
         if not pdf_path.is_file():
             raise SystemExit(f"missing release PDF for {paper_id}: {pdf_path}")
         section[paper_id] = {
-            "pdf_path": str(relative_path),
+            "pdf_path": manifest_path(relative_path),
             "sha256": sha256(pdf_path),
             "size_bytes": pdf_path.stat().st_size,
         }
+
+
+def manifest_path(path: PurePath) -> str:
+    """Serialize repository-relative paths independently of the host OS."""
+
+    return path.as_posix()
 
 
 def book_manifest_entry(repo_root: Path, release_id: str) -> dict:
