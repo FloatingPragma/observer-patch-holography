@@ -213,5 +213,5 @@ payload = {
 }
 
 out = HERE / "a5_screen_sm_closure.json"
-out.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+out.write_bytes((json.dumps(payload, indent=2) + "\n").encode("utf-8"))
 print(json.dumps(payload, indent=2))

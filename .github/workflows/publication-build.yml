@@ -69,6 +69,21 @@ jobs:
         with:
           python-version: "3.12"
 
+      # The bundle server (data1.fullyjustified.net) rate-limits shared CI
+      # runners (HTTP 429), which surfaced as spurious "font not loadable"
+      # build failures. Caching Tectonic's bundle cache keeps warm runs off
+      # the network. The key is run-scoped with a restore-keys prefix so each
+      # run restores the newest prior cache and saves its own grown copy;
+      # an exact fixed key would freeze the first (possibly partial) cache
+      # forever, because actions/cache never overwrites an existing key.
+      - name: Cache the Tectonic bundle
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Tectonic
+          key: tectonic-bundle-0.15.0-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            tectonic-bundle-0.15.0-${{ runner.os }}-
+
       - name: Install pinned Tectonic
         uses: wtfjoke/setup-tectonic@v4
         with:
@@ -87,11 +102,30 @@ jobs:
       - name: Validate source-bound canonical book PDF assets
         run: python tools/book_pdf_assets.py
 
+      # Retried because the bundle server rate-limits shared runners; each
+      # attempt extends the local Tectonic cache, so retries make progress
+      # and the run-scoped cache save preserves it for the next run.
       - name: Build every review PDF and enforce its warning budget
-        run: python tools/refresh_paper_release.py --preview
+        run: |
+          for attempt in 1 2 3; do
+            if python tools/refresh_paper_release.py --preview; then
+              exit 0
+            fi
+            echo "preview build attempt ${attempt} failed; backing off before retry"
+            sleep 90
+          done
+          exit 1
 
       - name: Build the book and enforce its warning budget
-        run: python tools/build_book_pdf.py
+        run: |
+          for attempt in 1 2 3; do
+            if python tools/build_book_pdf.py; then
+              exit 0
+            fi
+            echo "book build attempt ${attempt} failed; backing off before retry"
+            sleep 90
+          done
+          exit 1
 
       - name: Require committed preview artifacts to match the source rebuild
         run: |

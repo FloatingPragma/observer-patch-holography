@@ -17,9 +17,11 @@ architecture, OPH reconstruit un noyau structurel fini exact : des identités
 conditionnelles pour les registres quantiques, un paquet fini conditionnel
 des quatre principes, un porteur tridimensionnel de repères d’observateur et
 des interfaces explicites d’ordre et d’horloge. OPH dérive aussi la
-cinématique de Lorentz sur la branche de support global déclarée, le type de
-Lie du Modèle standard, ainsi qu’une paire extérieure conditionnelle pour une
-génération de matière.
+cinématique de Lorentz sur la branche de support global déclarée, une variété
+d’événements lorentzienne conditionnelle à quatre dimensions, une branche
+d’Einstein conditionnelle pour la gravitation, le type de Lie du Modèle
+standard, ainsi qu’une paire extérieure conditionnelle pour une génération de
+matière.
 
 Trois axiomes régissent l’architecture du simulateur et la manière dont les
 observateurs parviennent à un consensus. À côté d’eux se trouvent deux
@@ -90,8 +92,18 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   observateurs se rééchantillonnent vers le consensus donne les quatre lois,
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
-- **La relativité sur l’écran.** La cinématique de Lorentz est un théorème
-  sur sa branche déclarée.
+- **La relativité et la gravitation sur l’écran.** La covariance modulaire
+  fait de la cinématique de Lorentz un théorème sur sa branche déclarée et
+  fixe l’espace tridimensionnel des repères d’observateur. Les germes de
+  registres produisent une variété d’événements lorentzienne à quatre
+  dimensions : trois dimensions d’espace et une direction de temps, dont
+  l’orientation temporelle est fournie par la réparation. Les translations
+  nulles et les charges modulaires reconstruisent un tenseur
+  d’énergie-impulsion local conservé, et une identité d’entropie généralisée
+  à capacité fixe livre les équations du champ d’Einstein sur cette branche.
+  La gravitation apparaît comme la thermodynamique de la réparation entre
+  observateurs, et la loi newtonienne en carré inverse découle du théorème de
+  dimension du porteur.
 - **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
   fait un choix architectural au niveau du matériel de simulation : chaque
   parcelle d’observateur porte douze ports de frontière câblés comme les

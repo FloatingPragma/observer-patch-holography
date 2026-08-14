@@ -3,9 +3,17 @@
 
 This is the one command REPRODUCE.md documents and CI enforces:
 
-    python tools/run_mandatory_suite.py                # mandatory suite
+    python tools/run_mandatory_suite.py                # standard suite (per-push CI)
+    python tools/run_mandatory_suite.py --full         # + the heavy replay/mutation steps
     python tools/run_mandatory_suite.py --certificates # + exact certificate suites
     python tools/run_mandatory_suite.py --certificate-smoke-only
+
+The standard suite runs every register validation, certificate check,
+independent replay, and fast mutation gate. Five long-running replay and
+mutation-scan steps (listed in HEAVY_STEP_TITLES, together most of the
+suite's runtime) are excluded from the default run and enforced by --full,
+which the nightly full job and the pre-release checklist execute; the
+default run prints exactly which steps it skipped.
 
 The mandatory suite validates the scientific claim registry, external inputs,
 public quantitative surfaces, null-model controls, and the paper release
@@ -978,6 +986,23 @@ CERTIFICATE_SMOKE_STEPS: list[tuple[str, list[str]]] = [
 ]
 
 
+# The heavy replay/mutation steps excluded from the default run and enforced
+# by --full. Measured 2026-08-14 on the reference laptop these five steps take
+# about 260s, 220s, 45s, 35s, and 22s; every other step finishes in a few
+# seconds. Each entry must match a MANDATORY_STEPS title exactly; main()
+# fails closed if one does not, so a renamed step cannot silently drop out of
+# both modes.
+HEAVY_STEP_TITLES: frozenset[str] = frozenset(
+    {
+        "Replay the B20 random-scan preflight offline algebra layer",
+        "Execute the B20 random-scan mutation gates",
+        "Execute the fixed-unitary scattering obstruction controls",
+        "Execute the invariant-metric phase mutation gates",
+        "Execute the complete-packet lift mutation gates",
+    }
+)
+
+
 def run_steps(steps: list[tuple[str, list[str]]]) -> None:
     for title, command in steps:
         print(f"==> {title}", flush=True)
@@ -988,6 +1013,11 @@ def run_steps(steps: list[tuple[str, list[str]]]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--full",
+        action="store_true",
+        help="also execute the heavy replay/mutation steps in HEAVY_STEP_TITLES",
+    )
     parser.add_argument(
         "--certificates",
         action="store_true",
@@ -1008,7 +1038,28 @@ def main() -> None:
     if args.certificates_only and args.certificate_smoke_only:
         parser.error("--certificates-only and --certificate-smoke-only are mutually exclusive")
 
-    steps = [] if args.certificates_only or args.certificate_smoke_only else list(MANDATORY_STEPS)
+    mandatory_titles = {title for title, _ in MANDATORY_STEPS}
+    unknown_heavy = HEAVY_STEP_TITLES - mandatory_titles
+    if unknown_heavy:
+        raise SystemExit(
+            "HEAVY_STEP_TITLES entries missing from MANDATORY_STEPS: "
+            + ", ".join(sorted(unknown_heavy))
+        )
+
+    if args.certificates_only or args.certificate_smoke_only:
+        steps = []
+    elif args.full:
+        steps = list(MANDATORY_STEPS)
+    else:
+        steps = [
+            step for step in MANDATORY_STEPS if step[0] not in HEAVY_STEP_TITLES
+        ]
+        print(
+            "standard mode: skipping "
+            f"{len(HEAVY_STEP_TITLES)} heavy steps (run with --full to include):"
+        )
+        for title in sorted(HEAVY_STEP_TITLES):
+            print(f"  - {title}")
     if args.certificates or args.certificates_only:
         steps += CERTIFICATE_STEPS
     if args.certificate_smoke_only:
@@ -1018,8 +1069,10 @@ def main() -> None:
         print("certificate suites OK")
     elif args.certificate_smoke_only:
         print("certificate smoke suite OK")
+    elif args.full:
+        print("mandatory suite OK (full)")
     else:
-        print("mandatory suite OK")
+        print("mandatory suite OK (standard; heavy steps deferred to --full)")
 
 
 if __name__ == "__main__":
