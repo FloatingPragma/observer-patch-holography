@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import shutil
 import subprocess
+import time
 from pathlib import Path
 
 from reproducible_build_env import build_environment
@@ -52,6 +53,14 @@ RELEASED_ADJUNCT_PAPERS = {
     "compact_proof_of_oph": EXTRA_PAPERS["compact_proof_of_oph"],
 }
 ALL_PAPERS = {**PAPERS, **EXTRA_PAPERS, **COSMOLOGY_PAPERS}
+
+TECTONIC_FETCH_ATTEMPTS = 3
+TECTONIC_TRANSIENT_FETCH_MARKERS = (
+    "429 too many requests",
+    "failed to retrieve",
+    "connection reset by peer",
+    "operation timed out",
+)
 
 RELEASE_TRACKED = (
     "from_observer_consensus_to_standard_physics",
@@ -158,13 +167,24 @@ def build_one(paper_id: str) -> None:
     # one log per discovered source; without --keep-logs an old ignored log can
     # make a clean-looking gate report describe a previous build instead.
     cmd = ["tectonic", "-X", "compile", tex_path.name, "--keep-logs"]
-    result = subprocess.run(
-        cmd,
-        cwd=tex_path.parent,
-        text=True,
-        capture_output=True,
-        env=build_environment(REPO_ROOT),
-    )
+    for attempt in range(1, TECTONIC_FETCH_ATTEMPTS + 1):
+        result = subprocess.run(
+            cmd,
+            cwd=tex_path.parent,
+            text=True,
+            capture_output=True,
+            env=build_environment(REPO_ROOT),
+        )
+        if result.returncode == 0:
+            break
+        if attempt == TECTONIC_FETCH_ATTEMPTS or not transient_fetch_failure(result):
+            break
+        delay = 10 * attempt
+        print(
+            f"tectonic transient fetch failure for {paper_id}; "
+            f"retrying in {delay}s ({attempt}/{TECTONIC_FETCH_ATTEMPTS})",
+        )
+        time.sleep(delay)
     if result.returncode != 0:
         if result.stdout.strip():
             print(result.stdout[-8000:])
@@ -173,6 +193,11 @@ def build_one(paper_id: str) -> None:
         raise SystemExit(f"tectonic failed for {paper_id}")
 
     print(tex_path.parent / f"{tex_path.stem}.pdf")
+
+
+def transient_fetch_failure(result: subprocess.CompletedProcess[str]) -> bool:
+    output = f"{result.stdout}\n{result.stderr}".lower()
+    return any(marker in output for marker in TECTONIC_TRANSIENT_FETCH_MARKERS)
 
 
 def main() -> int:

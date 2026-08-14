@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import copy
 import json
+import subprocess
 from pathlib import Path, PureWindowsPath
 
 import pytest
@@ -57,6 +58,35 @@ def test_manifest_paths_are_posix_on_windows() -> None:
         generator.manifest_path(PureWindowsPath(r"paper\example.pdf"))
         == "paper/example.pdf"
     )
+
+
+@pytest.mark.parametrize(
+    "message",
+    [
+        "response code 429 Too Many Requests",
+        'failed to retrieve "ec-lmtt8.tfm" from the network',
+        "connection reset by peer",
+        "operation timed out",
+    ],
+)
+def test_tectonic_transient_fetch_failures_are_retryable(message: str) -> None:
+    result = subprocess.CompletedProcess(
+        ["tectonic"],
+        1,
+        stdout="",
+        stderr=message,
+    )
+    assert refresher.paper_sources.transient_fetch_failure(result)
+
+
+def test_tectonic_tex_errors_are_not_retryable() -> None:
+    result = subprocess.CompletedProcess(
+        ["tectonic"],
+        1,
+        stdout="",
+        stderr="undefined control sequence",
+    )
+    assert not refresher.paper_sources.transient_fetch_failure(result)
 
 
 def test_manifest_binds_canonical_book_bytes_and_release() -> None:
