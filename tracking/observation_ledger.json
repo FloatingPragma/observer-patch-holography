@@ -495,7 +495,6 @@
       ],
       "evidence": [
         "Lean/Screen/SMStructureAdequacySurface.lean",
-        "docs/A2_HOLONOMY_GAUGE_FORCING.md",
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
       ],
       "notes": "Dimension arithmetic and the measure-conditional nearest-family result stand side by side under PR-09 through PR-11. They do not construct a source-selected bracket, physical gauge current, connection, or action.",
@@ -809,7 +808,7 @@
         "Lean/Time/ProperTimeCalibration.lean",
         "Lean/Time/ClockReadout.lean"
       ],
-      "notes": "Calibration enters as the flagged import row PR-15, shared with the thermodynamics lane; a derived clock sits in the discharge queue.",
+      "notes": "Calibration enters as the flagged import row PR-15, shared with the thermodynamics lane; a source-derived physical clock is not yet supplied.",
       "open_premises": []
     },
     {

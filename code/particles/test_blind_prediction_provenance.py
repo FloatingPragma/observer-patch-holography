@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Smoke tests for the quantitative particle provenance audit."""
+"""Smoke tests for the quantitative particle provenance ledger."""
 
 from __future__ import annotations
 
@@ -16,18 +16,17 @@ from build_blind_prediction_provenance import build_payload  # noqa: E402
 def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity_taxonomy() -> None:
     payload = build_payload()
 
-    assert payload["artifact"] == "oph_blind_prediction_provenance_audit"
-    assert payload["github_issue"] == 234
-    assert payload["status"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
+    assert payload["artifact"] == "oph_blind_prediction_provenance_ledger"
     assert payload["promotion_allowed"] is False
-    assert (
-        payload["finalization_gates"][
-            "empirical_hadron_spectral_endpoint_packet_available"
-        ]
-        is True
+    assert payload["scientific_boundary"]["public_rows_classified"] is True
+    assert payload["scientific_boundary"]["numeric_sensitivity_intervals_supplied"] is False
+    assert "pipeline_closure_status" not in payload["source_surfaces"]
+    assert "github_issue" not in payload
+    assert "closure_gate" not in payload
+    assert "finalization_gates" not in payload
+    assert payload["convention_sensitivity"]["classification"] == (
+        "declared_taxonomy__numeric_sweep_not_performed"
     )
-    assert payload["closure_gate"]["closable_now"] is True
-    assert payload["convention_sensitivity"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"
     row_map = {row["particle_id"]: row for row in payload["rows"]}
     carrier_map = {row["carrier_id"]: row for row in payload["carrier_mode_rows"]}
     withheld_map = {row["particle_id"]: row for row in payload["withheld_rows"]}
@@ -47,5 +46,9 @@ def test_blind_prediction_provenance_records_target_use_and_declared_sensitivity
     assert withheld_map["electron_neutrino"]["target_use"] == "target_ranked_selector_development_and_correlated_profile_rejection"
     assert withheld_map["electron_neutrino"]["blind_status"] == "withheld_not_blind_rejected_candidate"
     workflows = {workflow["id"]: workflow for workflow in payload["prospective_comparison_workflows"]}
-    assert workflows["new_quantity_pre_reference_provenance"]["status"] == "protocol_emitted_unexercised"
-    assert workflows["convention_sensitivity_sweep"]["status"] == "declared_taxonomy_emitted_numeric_sweep_stage_gated"
+    assert workflows["new_quantity_pre_reference_provenance"]["classification"] == (
+        "protocol_defined__not_exercised"
+    )
+    assert workflows["convention_sensitivity_sweep"]["classification"] == (
+        "taxonomy_declared__certified_intervals_required"
+    )

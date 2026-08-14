@@ -350,7 +350,7 @@ def scalar_gauge_entries() -> tuple[list[dict[str, Any]], dict[str, dict[str, An
     """Vector masses, seagulls, derivative couplings, solved gauge
     fixing, and the xi-weighted Goldstone bilinears from the closed
     generator forms; returns the entries, the solved k vectors, and
-    the derived cancelled-mixing audit list."""
+    the derived cancelled-mixing cross-check list."""
 
     entries: list[dict[str, Any]] = []
     phi = {name: PHI_POLYS[name] for name in REAL_BASIS}

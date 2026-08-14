@@ -101,7 +101,7 @@ LATER_GATES = {
     "bracket_selected": False,
     "carrier_choice_derived_by_this_packet": False,
     "compactness_established": False,
-    "issue_566_closed": False,
+    "full_bracket_classification_and_selection_supplied": False,
     "jacobi_solution_classification_complete": False,
     "jacobi_solution_found": False,
     "physical_current_identified": False,

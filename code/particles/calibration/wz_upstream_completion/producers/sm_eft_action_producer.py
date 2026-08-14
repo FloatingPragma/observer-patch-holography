@@ -9,7 +9,7 @@ chart and Fermi vev types, retained and excluded operator lists with
 reasons, a source-ancestry DAG, and one canonical subject digest binding
 every packet.
 
-Contract, per the agent work order: no target data is read or emitted;
+Package contract: no target data is read or emitted;
 every numeric entry is a structural exact rational (a charge, a
 representation dimension, or a fixed kinetic coefficient) and every
 coupling is a typed symbol; the hypercharge convention is the SM one and

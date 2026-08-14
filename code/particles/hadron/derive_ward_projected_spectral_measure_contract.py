@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Emit the constructive QCD spectral-measure contract for the Thomson endpoint."""
+"""Emit the scientific QCD spectral-measure contract for the Thomson endpoint."""
 
 from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -15,36 +14,24 @@ DEFAULT_OUT = ROOT / "particles" / "runs" / "hadron" / "ward_projected_spectral_
 SCHEMA = ROOT / "particles" / "hadron" / "ward_projected_spectral_measure.schema.json"
 
 
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
 def build_artifact() -> dict[str, Any]:
     return {
         "artifact": "oph_ward_projected_spectral_measure_contract",
-        "generated_utc": _now_utc(),
-        "status": "constructive_contract_emitted_not_production_data",
+        "classification": "scientific_contract_without_production_data",
         "schema": SCHEMA.relative_to(ROOT).as_posix(),
+        "production_data_supplied": False,
         "promotion_allowed": False,
-        "current_local_scope": "closed_out_of_scope_computationally_blocked",
-        "github_issues_closed_out_of_scope": [153, 157],
-        "close_reason": (
-            "The current compute environment has no working OPH hadron backend. Local surrogate "
-            "code and Chrome workers cannot execute or promote production hadron predictions."
-        ),
-        "hardware_gate": {
+        "production_boundary": {
+            "required_artifact": "oph_qcd_ward_projected_hadronic_spectral_measure",
             "requires_working_oph_hadron_backend": True,
-            "expected_backend_class": "OPH hardware backend such as GLORB/Echosahedron",
-            "chrome_workers_useful_for_backend_execution": False,
+            "backend_class": "OPH hardware backend such as GLORB/Echosahedron",
             "local_surrogate_promotable": False,
+            "promotion_rule": (
+                "Promotion requires a schema-valid production payload emitted by a working OPH "
+                "hadron backend with every declared systematic budget supplied."
+            ),
+            "no_go_without_production_payload": True,
         },
-        "constructive_next_artifact": "oph_qcd_ward_projected_hadronic_spectral_measure",
-        "why_this_is_forward_progress": (
-            "The stable-channel hadron backend is not enough for the Thomson endpoint, so the next "
-            "implementation target is now a concrete production export schema for the required "
-            "Ward-projected electromagnetic spectral measure. The actual production run is out of "
-            "local scope until a working OPH hadron backend exists."
-        ),
         "minimum_payload": {
             "projection": {
                 "lane": "U(1)_Q",
@@ -77,14 +64,14 @@ def build_artifact() -> dict[str, Any]:
         "local_real_engine": {
             "package": "particles/hadron/lattice_backend/",
             "runner": "particles/hadron/run_lattice_diagnostic_backend.py",
-            "status_artifact": "particles/runs/hadron/lattice_engine_lane_status.json",
-            "execution_class": "real_lattice_diagnostic_toy_scale",
-            "satisfies_constructive_next_artifact": False,
+            "evidence_artifact": "particles/runs/hadron/lattice_engine_lane_status.json",
+            "classification": "real_lattice_diagnostic_toy_scale",
+            "satisfies_production_contract": False,
             "role": (
                 "Physics-true lattice engine executed locally at toy scale: real gauge "
-                "ensembles, real Dirac solves, real contractions, no target anchoring. "
-                "Production closure still requires the seeded 2+1 family at HPC scale "
-                "with full systematics; this engine documents and de-risks that path."
+                "ensembles, real Dirac solves, real contractions, and no target anchoring. "
+                "Its toy-scale evidence does not supply the seeded 2+1 production family or "
+                "the full systematic budgets required by this contract."
             ),
         },
         "empirical_companion": {
@@ -92,14 +79,14 @@ def build_artifact() -> dict[str, Any]:
             "schema": "particles/hadron/empirical_ward_projected_spectral_measure.schema.json",
             "emitted_payload": "particles/runs/hadron/empirical_ward_projected_spectral_measure.json",
             "builder": "particles/hadron/derive_empirical_ward_projected_spectral_measure.py",
-            "row_class": "oph_plus_empirical_hadron_closure",
-            "satisfies_constructive_next_artifact": False,
+            "classification": "oph_plus_empirical_hadron_closure",
+            "satisfies_production_contract": False,
             "role": (
                 "Declared-empirical hadronic spectral input for the empirical closure surface. "
                 "It carries the e+e- R(s) compilation as an explicit positive spectral measure "
                 "with both endpoint kernels and a requadrature consistency gate, so the empirical "
-                "Thomson endpoint consumes a spectral object rather than a bare integral. The "
-                "source-only production export above remains the open target."
+                "Thomson endpoint consumes a spectral object rather than a bare integral. It is "
+                "not an OPH-source production payload."
             ),
         },
     }

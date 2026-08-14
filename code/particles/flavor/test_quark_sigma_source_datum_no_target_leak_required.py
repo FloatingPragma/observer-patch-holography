@@ -42,7 +42,8 @@ def test_quark_sigma_source_gate_projects_the_target_free_obstruction() -> None:
     assert payload["source_only_sigma_emitted"] is False
     assert payload["downstream_algebra_closed"] is True
     assert payload["promotion_allowed"] is False
-    assert payload["resolved_github_issues"] == [377, 379, 380]
+    assert payload["provenance_issues"] == [377, 379, 380]
+    assert "resolved_github_issues" not in payload
     assert payload["compatible_spread_fiber"] == "(R_{>0})^2"
     assert payload["compatible_spread_fiber_dimension"] == 2
     assert payload["independent_unselected_coordinates"] == ["sigma_u", "sigma_d"]

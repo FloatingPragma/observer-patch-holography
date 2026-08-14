@@ -5,9 +5,6 @@
 # stabilizes checkout without changing committed content.
 * text=auto eol=lf
 
-# External data table committed with CRLF; keep its exact bytes (never rewrite).
-code/dark_matter/data/external/SPARC_MassModels_Lelli2016c.mrt -text
-
 # Canonical book diagram renderings are byte-hashed build inputs.
 assets/book_pdf_renderings/*.pdf -text -eol
 assets/book_pdf_renderings/**/*.pdf -text -eol

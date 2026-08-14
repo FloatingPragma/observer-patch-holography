@@ -91,8 +91,7 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
 - **La relativité sur l’écran.** La cinématique de Lorentz est un théorème
-  sur sa branche déclarée, et une composition des équations d’Einstein
-  s’appuie sur la couche modulaire et entropique.
+  sur sa branche déclarée.
 - **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
   fait un choix architectural au niveau du matériel de simulation : chaque
   parcelle d’observateur porte douze ports de frontière câblés comme les

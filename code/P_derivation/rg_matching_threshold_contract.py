@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Emit the constructive contract for RG matching and threshold closure.
+"""Emit the scientific contract for RG matching and threshold transport.
 
-This artifact turns the unresolved running/matching boundary into concrete local objects:
-scheme locks, threshold certificates, beta-coefficient provenance, and interval
-composition checks.  It does not promote the current declared conventions into
-an OPH theorem.
+The artifact records the exact source-bound precursor, the scientific objects
+that are still absent, the corpus-limited non-identifiability result, and the
+promotion boundary. Project-control and scheduling metadata belong outside
+this repository.
 """
 
 from __future__ import annotations
@@ -42,14 +42,6 @@ def build_contract() -> dict[str, Any]:
         "status": "open_source_rg_frontier_partial",
         "promotion_allowed": False,
         "source_frontier": frontier_ref,
-        "worker_result_policy": {
-            "partial_frontier_allowed": True,
-            "closure_requires_complete_source_packet": True,
-            "next_constructive_slice": (
-                "build the generic ordered-interval, map, Jacobian, mask, and "
-                "vector-remainder engine without claiming source threshold inputs"
-            ),
-        },
         "constructive_objects": [
             {
                 "id": "representation_index_frontier",
@@ -118,9 +110,21 @@ def build_contract() -> dict[str, Any]:
                 ],
             },
         ],
-        "closure_gate": {
-            "closable_now": False,
-            "closed_as": None,
+        "scientific_boundary": {
+            "established": (
+                "The source frontier determines exact per-copy representation indices."
+            ),
+            "not_established": (
+                "A source-selected physical action, coupled-field census, threshold "
+                "ordering, finite matching transport, or certified vector running map."
+            ),
+            "corpus_limited_no_go": (
+                "The exact representation indices alone do not determine a unique "
+                "physical RG and threshold transport packet."
+            ),
+        },
+        "promotion_boundary": {
+            "promotion_allowed": False,
             "reason": (
                 "The finite source receipts determine exact per-copy representation indices, "
                 "but no target-clean OPH source emits the physical action, family and scalar "
@@ -128,7 +132,7 @@ def build_contract() -> dict[str, Any]:
                 "decoupling, ordered thresholds, finite decoupling and scheme maps, "
                 "Jacobians, masks, or certified vector remainders."
             ),
-            "close_issue_when": [
+            "required_scientific_objects": [
                 "one target-clean OPH source emits the complete W/Z-coupled active and heavy field census modulo proved zero-vertex decoupling",
                 "the same source emits every ordered interval and threshold location",
                 "finite decoupling and scheme maps, Jacobians, and term masks are executable and independently replayed",
@@ -136,18 +140,11 @@ def build_contract() -> dict[str, Any]:
                 "no measured electroweak target or external Standard Model packet enters source construction",
             ],
         },
-        "local_next_steps": [
-            "Implement a generic exact ordered-interval composition engine while source threshold data remain absent.",
-            "Consume a source-produced positive scalar/Yukawa action when it exists.",
-            "Consume a physical local electroweak carrier and its coupled-sector census.",
-            "Attach the physical family object before specializing the parametric beta law.",
-            "Wire a complete independently replayed matching packet into the compressed P trunk only after source closure.",
-        ],
         "forbidden_promotions": [
             "treating_the_conditional_Ng3_NH1_evaluation_as_source_selected",
             "silently_treating_declared_MSSM_running_as_OPH_derived",
             "using_threshold_choices_as_hidden_fit_parameters",
-            "reusing_the_issue_593_external_validation_packet_as_an_OPH_source",
+            "reusing_an_external_validation_packet_as_an_OPH_source",
             "promoting_p_closure_root_without_interval_composition_certificate",
         ],
     }

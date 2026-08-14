@@ -295,7 +295,7 @@ def vertex_terms(record: dict[str, Any], slots: list[tuple[str, str | None, tupl
 
 def mult_free(record: dict[str, Any]) -> int:
     # the cubic record has three distinct fields, so the multiplicity
-    # factor is one; kept explicit for the audit trail.
+    # factor is one; kept explicit in the provenance record.
     return multiplicity_factor(record["fields"])
 
 

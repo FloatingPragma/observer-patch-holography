@@ -1,6 +1,6 @@
 {
   "artifact": "oph_ward_projected_thomson_endpoint_package",
-  "claim_status": "endpoint_package_computed_blocker_isolated",
+  "classification": "conditional_endpoint_package__source_transport_map_absent",
   "codata_mapped_endpoint_packet": {
     "asymptotic_package": {
       "implemented_endpoint_alpha_inv": "136.99371810027661927974495250235134316283886150291180003298213201906180591837353170114568930",
@@ -71,15 +71,12 @@
     "statement": "OPH axioms plus the realized Standard Model branch, the D10 source map, a source-only Ward-projected Thomson transport map A_T(P), and an interval contraction certificate for G(P)=phi+sqrt(pi)/A_T(P) imply a unique pixel fixed point and alpha(P*)=1/A_T(P*)."
   },
   "first_non_internalized_object": {
-    "blocker_statement": "The charged-lepton one-loop kernel is populated. The remaining scalar is in the Ward-projected hadronic spectral transport plus electroweak scheme remainder. A theorem must emit that map from OPH data; a fitted residual or external endpoint comparison does not close the lane.",
+    "blocker_statement": "The charged-lepton one-loop kernel is populated. The remaining scalar is in the Ward-projected hadronic spectral transport plus electroweak scheme remainder. A theorem must emit that map from OPH data; a fitted residual or external endpoint comparison does not supply the source-only theorem.",
     "id": "ward_projected_qcd_screening_and_endpoint_remainder",
     "missing_source_transport_delta_alpha_inv_at_codata_p": "0.04146586100522338905344871535731404448730208198590711656812056464944371240646525111663476",
     "required_screening_factor_at_codata_p": "0.89540013264765879780580028318167064130770986481229164844830591011545242521273086888107864576",
-    "residual_second_order_screening_coefficient_at_codata_p": "0.65802575992715543563823017023236005042492009907058639608566007832470711257322011342309305088",
-    "successor_github_issue": 235
+    "residual_second_order_screening_coefficient_at_codata_p": "0.65802575992715543563823017023236005042492009907058639608566007832470711257322011342309305088"
   },
-  "generated_utc": "2026-07-18T05:01:01Z",
-  "github_issue": 223,
   "implemented_fixed_point_gap": {
     "alpha_inv_gap_ppm": "300.38821794478974925663693628907251382629767246307393630221145959251606325812721",
     "alpha_inv_gap_sigma": "1960190.4565267954624081207410998639256568499506955626427619047619047619047619048",
@@ -105,23 +102,21 @@
     "source_report_mode": "thomson_structured_running",
     "source_report_precision": 100
   },
-  "issue_223_acceptance": {
-    "charged_spectrum_is_actual_blocker": false,
-    "closable_as_blocker_isolation_package": true,
-    "closable_as_measured_alpha_derivation": false,
-    "closed_by_conditional_package_only": true,
+  "promotion_allowed": false,
+  "scientific_result": {
+    "charged_spectrum_is_limiting_missing_object": false,
     "first_non_internalized_scalar_isolated": true,
     "imported_thomson_endpoint_removed_from_solver_path": true,
-    "screening_or_endpoint_remainder_is_actual_blocker": true,
-    "successor_issue_for_source_residual_map": 235,
+    "measured_alpha_derivation_supplied": false,
+    "result_scope": "conditional_missing_object_isolation",
+    "screening_or_endpoint_remainder_is_limiting_missing_object": true,
+    "source_residual_map_supplied": false,
     "theorem_grade_object_defined": true
   },
-  "promotion_allowed": false,
   "source_only_guard": {
     "codata_enters_solver": false,
     "free_quark_screening_promotable": false,
     "hidden_external_alpha_allowed": false,
     "measured_endpoint_allowed_as_transport_input": false
-  },
-  "successor_github_issue": 235
+  }
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the post-audit manifest without self-referential runtime logs."""
+"""Generate the current integration manifest without self-referential runtime logs."""
 from __future__ import annotations
 
 import hashlib

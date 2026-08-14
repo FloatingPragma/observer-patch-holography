@@ -53,7 +53,6 @@ Inspect the current particle output surface:
 ```bash
 cd code/particles
 python3 compute_current_output_table.py --no-print-table --show-paths
-python3 scripts/build_derivation_gap_ledger.py
 ```
 
 The geometry suite is available through:

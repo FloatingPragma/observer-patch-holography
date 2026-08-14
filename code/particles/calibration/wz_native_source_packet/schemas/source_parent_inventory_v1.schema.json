@@ -50,7 +50,7 @@
       "additionalProperties": false,
       "required": [
         "role",
-        "issue",
+        "provenance_issue",
         "verifier_id",
         "status",
         "files",
@@ -62,7 +62,7 @@
           "type": "string",
           "minLength": 1
         },
-        "issue": {
+        "provenance_issue": {
           "type": "integer",
           "minimum": 1
         },
@@ -78,10 +78,10 @@
         },
         "context_status": {
           "enum": [
-            "open_finite_candidate",
-            "open_partial_context",
-            "closed_bounded_context",
-            "closed_no_go_context",
+            "finite_candidate_not_source_selected",
+            "partial_context",
+            "bounded_context",
+            "no_go_context",
             "bounded_clock_contract"
           ]
         },
@@ -146,24 +146,24 @@
         }
       }
     },
-    "open_interface": {
+    "required_interface": {
       "type": "object",
       "additionalProperties": false,
       "required": [
         "gate_id",
-        "owner_issues",
+        "provenance_issues",
         "required_output",
         "prerequisites",
         "terminal_for_dimensionless_output",
-        "status",
-        "evidence"
+        "classification",
+        "supplied_evidence"
       ],
       "properties": {
         "gate_id": {
           "type": "string",
           "minLength": 1
         },
-        "owner_issues": {
+        "provenance_issues": {
           "type": "array",
           "minItems": 1,
           "uniqueItems": true,
@@ -187,10 +187,10 @@
         "terminal_for_dimensionless_output": {
           "type": "boolean"
         },
-        "status": {
-          "const": "open"
+        "classification": {
+          "const": "not_supplied"
         },
-        "evidence": {
+        "supplied_evidence": {
           "type": "array",
           "maxItems": 0
         }
@@ -201,12 +201,12 @@
       "additionalProperties": false,
       "required": [
         "boundary_id",
-        "owner_issue",
-        "outcome",
+        "provenance_issue",
+        "classification",
         "scope",
         "effect",
         "scientific_parent_status",
-        "resolution_authority",
+        "classification_authority",
         "verdict",
         "files"
       ],
@@ -215,15 +215,15 @@
           "type": "string",
           "minLength": 1
         },
-        "owner_issue": {
+        "provenance_issue": {
           "type": "integer",
           "minimum": 1
         },
-        "outcome": {
+        "classification": {
           "enum": [
-            "closed_bounded",
-            "closed_no_go",
-            "closed_not_evaluable"
+            "bounded_receipt",
+            "no_go_receipt",
+            "not_evaluable_receipt"
           ]
         },
         "scope": {
@@ -240,8 +240,8 @@
             "nonpromoting_final_boundary"
           ]
         },
-        "resolution_authority": {
-          "const": "pinned_receipt_plus_live_github_issue_tracking"
+        "classification_authority": {
+          "const": "pinned_receipt"
         },
         "verdict": {
           "type": "string",
@@ -263,8 +263,8 @@
       "required": [
         "id",
         "class",
-        "issue",
-        "status"
+        "provenance_issue",
+        "classification"
       ],
       "properties": {
         "id": {
@@ -276,16 +276,16 @@
             "verified_finite_parent",
             "conditional_context",
             "resolved_boundary",
-            "open_interface",
+            "required_interface",
             "candidate_output",
             "external_validation_consumer"
           ]
         },
-        "issue": {
+        "provenance_issue": {
           "type": "integer",
           "minimum": 1
         },
-        "status": {
+        "classification": {
           "type": "string",
           "minLength": 1
         }
@@ -309,34 +309,35 @@
         }
       }
     },
-    "acceptance_row": {
+    "scientific_boundary_row": {
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "acceptance_index",
-        "status",
+        "boundary_index",
+        "classification",
         "summary",
-        "blocking_gates"
+        "missing_interfaces"
       ],
       "properties": {
-        "acceptance_index": {
+        "boundary_index": {
           "type": "integer",
           "minimum": 1,
           "maximum": 9
         },
-        "status": {
+        "classification": {
           "enum": [
-            "open",
-            "partial",
-            "closed_bounded",
-            "closed_not_evaluable"
+            "bounded_receipt",
+            "not_evaluable_receipt",
+            "partial_evidence",
+            "required_interface_not_supplied",
+            "required_interfaces_not_supplied"
           ]
         },
         "summary": {
           "type": "string",
           "minLength": 1
         },
-        "blocking_gates": {
+        "missing_interfaces": {
           "type": "array",
           "uniqueItems": true,
           "items": {
@@ -349,7 +350,7 @@
   },
   "required": [
     "schema",
-    "issue",
+    "provenance_issue",
     "claim_lane",
     "campaign_classification",
     "status",
@@ -361,10 +362,10 @@
     "coordinate_bridge",
     "consumer_contract",
     "resolved_boundaries",
-    "open_interfaces",
+    "required_interfaces",
     "source_dag",
     "target_firewall",
-    "acceptance_map",
+    "scientific_boundary_map",
     "finite_parent_bundle_digest",
     "conditional_context_digest",
     "inventory_digest"
@@ -373,7 +374,7 @@
     "schema": {
       "const": "oph.wz.source_parent_inventory.v1"
     },
-    "issue": {
+    "provenance_issue": {
       "const": 594
     },
     "claim_lane": {
@@ -383,7 +384,7 @@
       "const": "post_exposure_validation"
     },
     "status": {
-      "const": "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
+      "const": "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_NOT_SUPPLIED__PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
     },
     "promotion_allowed": {
       "const": false
@@ -465,7 +466,7 @@
         "source_coordinate",
         "renormalized_coordinate",
         "equality_receipt",
-        "status",
+        "classification",
         "relabel_allowed"
       ],
       "properties": {
@@ -478,8 +479,8 @@
         "equality_receipt": {
           "type": "null"
         },
-        "status": {
-          "const": "open"
+        "classification": {
+          "const": "equality_receipt_absent"
         },
         "relabel_allowed": {
           "const": false
@@ -490,18 +491,18 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "issue",
-        "status",
+        "provenance_issue",
+        "classification",
         "schemas",
         "frozen_algorithm_substitution_ready",
         "common_subject_digest_ready"
       ],
       "properties": {
-        "issue": {
+        "provenance_issue": {
           "const": 593
         },
-        "status": {
-          "const": "open_dependency"
+        "classification": {
+          "const": "source_packet_not_ready"
         },
         "schemas": {
           "type": "array",
@@ -527,11 +528,11 @@
         "$ref": "#/$defs/resolved_boundary"
       }
     },
-    "open_interfaces": {
+    "required_interfaces": {
       "type": "array",
       "minItems": 1,
       "items": {
-        "$ref": "#/$defs/open_interface"
+        "$ref": "#/$defs/required_interface"
       }
     },
     "source_dag": {
@@ -601,7 +602,7 @@
         "sealed_input_replay_supported",
         "runtime_execution_receipt",
         "human_formula_selection_ancestry",
-        "full_gate_satisfied"
+        "full_firewall_evidence_supplied"
       ],
       "properties": {
         "allowed_source_roots": {
@@ -653,22 +654,22 @@
           "const": true
         },
         "runtime_execution_receipt": {
-          "const": "open"
+          "const": "not_supplied"
         },
         "human_formula_selection_ancestry": {
-          "const": "open"
+          "const": "not_supplied"
         },
-        "full_gate_satisfied": {
+        "full_firewall_evidence_supplied": {
           "const": false
         }
       }
     },
-    "acceptance_map": {
+    "scientific_boundary_map": {
       "type": "array",
       "minItems": 9,
       "maxItems": 9,
       "items": {
-        "$ref": "#/$defs/acceptance_row"
+        "$ref": "#/$defs/scientific_boundary_row"
       }
     },
     "finite_parent_bundle_digest": {

@@ -331,16 +331,18 @@ def build_artifact(
     return {
         "artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
         "generated_utc": _timestamp(),
-        "github_issues": [377, 379, 380],
+        "provenance_issues": [377, 379, 380],
         "proof_status": "closed_exact_current_corpus_obstruction",
         "claim_tier": "source_only_nonidentifiability_obstruction",
         "theorem_grade_obstruction": True,
         "source_only_sigma_emitted": False,
         "public_promotion_allowed": False,
         "numeric_quark_rows_allowed": False,
-        "issue_377_acceptance_met_as_obstruction": True,
-        "issue_379_acceptance_met_as_obstruction": True,
-        "issue_380_acceptance_met_as_obstruction": True,
+        "scientific_receipt_outcomes": {
+            "all_quark_source_spread_nonidentifiability": True,
+            "up_type_source_spread_nonidentifiability": True,
+            "down_type_source_spread_nonidentifiability": True,
+        },
         "theorem_statement": (
             "After all target-derived and compare-only ancestors are removed, the strongest current quark "
             "source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent "

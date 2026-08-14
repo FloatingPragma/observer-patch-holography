@@ -47,7 +47,8 @@ def test_group_only_and_classical_equation_only_do_not_pass_particle_gate() -> N
 def test_default_receipt_records_modes_but_no_quantum_particles() -> None:
     module = _load_module()
     payload = module.build_payload()
-    assert payload["github_issue"] == 536
+    assert payload["provenance_issue"] == 536
+    assert "github_issue" not in payload
     assert payload["abstract_symmetry_group_alone_passes_quantum_gate"] is False
     carriers = {row["carrier_id"]: row for row in payload["carriers"]}
     assert set(carriers) == {"photon", "gluon", "graviton"}

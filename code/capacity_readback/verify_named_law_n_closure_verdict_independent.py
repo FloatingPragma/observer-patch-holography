@@ -70,7 +70,7 @@ def verify() -> None:
         "cosmological_prediction",
         "prospective_forecast",
         "horizon_interpretation",
-        "issue_650_stage_gate_opened",
+        "named_law_comparison_promotable",
     ):
         require(boundary.get(key) is False, f"promotion: {key}")
     scope = value.get("exit_scope", {})

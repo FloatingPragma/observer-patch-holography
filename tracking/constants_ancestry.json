@@ -353,7 +353,7 @@
       ],
       "falsifier": {
         "artifact": "Lean/Time/ClockComparison.lean",
-        "rule": "Affine consistency at a third shared event is equivalent to the cross-product equation and gives a no-new-fit-parameter check; a failing check falsifies a claimed common calibration. The anchors stay flagged measured imports, and a derived clock is open in the discharge queue."
+        "rule": "Affine consistency at a third shared event is equivalent to the cross-product equation and gives a no-new-fit-parameter check; a failing check falsifies a claimed common calibration. The anchors stay flagged measured imports, and a source-derived physical clock is not yet supplied."
       },
       "diagnostic_import_register_rows": []
     }

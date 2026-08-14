@@ -16,13 +16,12 @@ The main OPH papers establish the structural observer, geometry, gravity, and ma
 | [Boltzmann Transport Derivation](oph_boltzmann_transport_derivation.pdf) ([source](oph_boltzmann_transport_derivation.tex)) | Finite transport interface between OPH sources and observable distribution functions |
 | [Black-Hole Information Ledger](oph_black_hole_information_ledger.pdf) ([source](oph_black_hole_information_ledger.tex)) | Working draft under issue B19: unitarity within the supplied pointwise-continuous star-automorphism class plus sign-unitary publicization assembled into the finite information ledger, with the entropy core, GSL-shaped monotone, complementarity, and finite KMS receipts as open targets; not a release asset |
 
-The [radial-lift theorem note](RADIAL_LIFT_SOLUTION.md) gives the one-shell
-non-identifiability proof, the physical source-dilation theorem, radial
-cross-covariance tomography, the exact amplitude conversion, and finite-window
-bound. The [simulator contract](SIMULATOR_RADIAL_CONTRACT_330.md) specifies the
-fail-closed evidence split used by finite runs. The
-[coverage audit](RADIAL_LIFT_COVERAGE.md) maps each radial result to its formal
-paper theorem and supporting artifact.
+The [formal radial-lift theorem fragment](../paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex)
+contains the one-shell non-identifiability proof, physical source-dilation
+theorem, radial cross-covariance tomography, exact amplitude conversion, and
+finite-window bound. The
+[simulator contract](../code/cosmology/SIMULATOR_RADIAL_CONTRACT_330.md)
+specifies the fail-closed evidence split used by finite runs.
 
 The [physical CMB theorem program](physical_cmb_theorem_program.md) collects the remaining source, lift, stress, abundance, transfer, and likelihood obligations in one place.
 
@@ -34,7 +33,9 @@ Physical promotion requires the canonical repair pair, a relativistic constituti
 
 ## Reproducibility
 
-Companion code lives in [`../code/dark_matter/`](../code/dark_matter/). The larger simulator and visualization surfaces are:
+Companion radial-lift and clock-certificate code lives in
+[`../code/cosmology/`](../code/cosmology/). The larger simulator and
+visualization surfaces are:
 
 - [OPH physics simulator](https://github.com/muellerberndt/oph-physics-sim)
 - [Interactive simulation](https://simulation.floatingpragma.io)

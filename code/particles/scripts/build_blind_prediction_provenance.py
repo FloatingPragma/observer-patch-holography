@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the quantitative particle provenance and blind-prediction audit."""
+"""Build the quantitative particle provenance and blind-prediction ledger."""
 
 from __future__ import annotations
 
@@ -16,12 +16,11 @@ P_ROOT = ROOT / "P_derivation"
 EXACT_NONHADRON = PARTICLES_ROOT / "exact_nonhadron_masses.json"
 CARRIER_ACCEPTANCE = PARTICLES_ROOT / "runs" / "status" / "carrier_mode_acceptance.json"
 RESULTS_STATUS = PARTICLES_ROOT / "results_status.json"
-PIPELINE_STATUS = PARTICLES_ROOT / "runs" / "status" / "particle_pipeline_closure_status.json"
 RG_CONTRACT = P_ROOT / "runtime" / "rg_matching_threshold_contract_current.json"
 THOMSON_CONTRACT = P_ROOT / "runtime" / "thomson_endpoint_contract_current.json"
 THOMSON_PACKAGE = P_ROOT / "runtime" / "thomson_endpoint_package_current.json"
 DEFAULT_JSON_OUT = PARTICLES_ROOT / "runs" / "status" / "blind_prediction_provenance.json"
-DEFAULT_MD_OUT = PARTICLES_ROOT / "PARTICLE_PROVENANCE_AUDIT.md"
+DEFAULT_MD_OUT = PARTICLES_ROOT / "PARTICLE_PROVENANCE_LEDGER.md"
 
 
 def _now_utc() -> str:
@@ -149,7 +148,6 @@ def build_payload() -> dict[str, Any]:
     exact = _load_json(EXACT_NONHADRON)
     carrier_acceptance = _load_json(CARRIER_ACCEPTANCE)
     results = _load_json(RESULTS_STATUS)
-    pipeline = _load_json(PIPELINE_STATUS)
     rg = _load_json(RG_CONTRACT)
     thomson = _load_json(THOMSON_CONTRACT)
     thomson_package = _load_json(THOMSON_PACKAGE)
@@ -160,23 +158,29 @@ def build_payload() -> dict[str, Any]:
     ]
 
     return {
-        "artifact": "oph_blind_prediction_provenance_audit",
+        "artifact": "oph_blind_prediction_provenance_ledger",
         "generated_utc": _now_utc(),
-        "github_issue": 234,
         "scope": "public_quantitative_particle_rows",
-        "status": "closed_provenance_ledger_and_declared_sensitivity_taxonomy",
         "promotion_allowed": False,
+        "scientific_boundary": {
+            "public_rows_classified": True,
+            "numeric_sensitivity_intervals_supplied": False,
+            "reason": (
+                "The ledger classifies target ancestry, blindness, and declared "
+                "convention sensitivity. It does not supply the source spectral "
+                "measure or interval-composition certificates required for a "
+                "numerical sensitivity sweep."
+            ),
+        },
         "source_surfaces": {
             "exact_nonhadron": _repo_ref(EXACT_NONHADRON),
             "carrier_mode_acceptance": _repo_ref(CARRIER_ACCEPTANCE),
             "results_status": _repo_ref(RESULTS_STATUS),
-            "pipeline_closure_status": _repo_ref(PIPELINE_STATUS),
             "rg_matching_threshold_contract": _repo_ref(RG_CONTRACT),
             "thomson_endpoint_contract": _repo_ref(THOMSON_CONTRACT),
             "thomson_endpoint_package": _repo_ref(THOMSON_PACKAGE),
         },
         "pipeline_inputs": results.get("inputs", {}),
-        "finalization_gates": pipeline.get("finalization_gates", {}),
         "row_counts": {
             "total": len(rows),
             "withheld_non_prediction": len(withheld_rows),
@@ -194,18 +198,21 @@ def build_payload() -> dict[str, Any]:
         "withheld_rows": withheld_rows,
         "carrier_mode_rows": carrier_mode_rows,
         "convention_sensitivity": {
-            "status": "declared_taxonomy_emitted_numeric_sweep_stage_gated",
-            "rg_contract_status": rg.get("status"),
+            "classification": "declared_taxonomy__numeric_sweep_not_performed",
+            "rg_contract_classification": rg.get("status"),
             "required_objects": [item["id"] for item in rg.get("constructive_objects", [])],
-            "endpoint_contract_status": thomson.get("status"),
-            "endpoint_package_status": thomson_package.get("claim_status"),
+            "endpoint_contract_classification": thomson.get("status"),
+            "endpoint_package_classification": thomson_package.get("claim_status"),
             "numeric_sweep_performed": False,
-            "next_artifact": "interval composition certificates after the populated source spectral measure payload exists",
+            "missing_evidence": (
+                "populated source spectral measure payload and interval-composition "
+                "certificates"
+            ),
         },
         "prospective_comparison_workflows": [
             {
                 "id": "new_quantity_pre_reference_provenance",
-                "status": "protocol_emitted_unexercised",
+                "classification": "protocol_defined__not_exercised",
                 "rule": (
                     "For any quantitative row outside construction inputs, timestamp and hash the source artifacts, "
                     "record allowed conventions, then fetch or reveal the external reference."
@@ -220,7 +227,7 @@ def build_payload() -> dict[str, Any]:
             },
             {
                 "id": "convention_sensitivity_sweep",
-                "status": "declared_taxonomy_emitted_numeric_sweep_stage_gated",
+                "classification": "taxonomy_declared__certified_intervals_required",
                 "rule": (
                     "Vary only declared scheme, matching, and threshold choices inside certified intervals; "
                     "report induced intervals for every public quantitative row."
@@ -233,36 +240,23 @@ def build_payload() -> dict[str, Any]:
                 ],
             },
         ],
-        "closure_gate": {
-            "closable_now": True,
-            "closed_as": "provenance_ledger_and_declared_sensitivity_taxonomy",
-            "reason": (
-                "The row provenance ledger, prospective comparison protocol, and declared convention-sensitivity "
-                "taxonomy are emitted. Numeric sensitivity intervals remain tied to the populated source "
-                "spectral measure payload and interval certificate."
-            ),
-            "close_issue_when": [
-                "row provenance ledger is emitted",
-                "declared sensitivity taxonomy is emitted",
-                "numeric sweeps remain stage-gated by the source spectral measure payload",
-            ],
-        },
     }
 
 
 def render_markdown(payload: dict[str, Any]) -> str:
     lines = [
-        "# Particle Provenance Audit",
+        "# Particle Provenance Ledger",
         "",
         f"Generated: `{payload['generated_utc']}`",
         "",
         "This ledger records target-use and convention-sensitivity status for the public quantitative particle rows.",
         "",
-        "## Closure Gate",
+        "## Scientific Boundary",
         "",
-        f"- Status: `{payload['status']}`",
-        f"- Closable: `{payload['closure_gate']['closable_now']}`",
-        f"- Reason: {payload['closure_gate']['reason']}",
+        f"- Promotion allowed: `{payload['promotion_allowed']}`",
+        f"- Public rows classified: `{payload['scientific_boundary']['public_rows_classified']}`",
+        f"- Numeric sensitivity intervals supplied: `{payload['scientific_boundary']['numeric_sensitivity_intervals_supplied']}`",
+        f"- Boundary: {payload['scientific_boundary']['reason']}",
         "",
         "## Rows",
         "",
@@ -282,7 +276,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 "",
                 "## Withheld Non-Prediction Rows",
                 "",
-                "These rows have audit artifacts but no public prediction value in the output tables.",
+                "These rows have source artifacts but no public prediction value in the output tables.",
                 "",
                 "| Particle | Claim label | Blind status | Target use | Reason |",
                 "| --- | --- | --- | --- | --- |",
@@ -321,24 +315,24 @@ def render_markdown(payload: dict[str, Any]) -> str:
     )
     for workflow in payload["prospective_comparison_workflows"]:
         evidence = ", ".join(f"`{item}`" for item in workflow["required_evidence"])
-        lines.append(f"- `{workflow['id']}`: `{workflow['status']}`. {workflow['rule']} Required evidence: {evidence}.")
+        lines.append(f"- `{workflow['id']}`: `{workflow['classification']}`. {workflow['rule']} Required evidence: {evidence}.")
     lines.extend(
         [
             "",
             "## Convention Sensitivity",
             "",
-            f"- Status: `{payload['convention_sensitivity']['status']}`",
-            f"- RG contract status: `{payload['convention_sensitivity']['rg_contract_status']}`",
-            f"- Endpoint contract status: `{payload['convention_sensitivity']['endpoint_contract_status']}`",
-            f"- Endpoint package status: `{payload['convention_sensitivity']['endpoint_package_status']}`",
-            f"- Next artifact: {payload['convention_sensitivity']['next_artifact']}",
+            f"- Classification: `{payload['convention_sensitivity']['classification']}`",
+            f"- RG contract classification: `{payload['convention_sensitivity']['rg_contract_classification']}`",
+            f"- Endpoint contract classification: `{payload['convention_sensitivity']['endpoint_contract_classification']}`",
+            f"- Endpoint package classification: `{payload['convention_sensitivity']['endpoint_package_classification']}`",
+            f"- Missing evidence: {payload['convention_sensitivity']['missing_evidence']}",
         ]
     )
     return "\n".join(lines)
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build the blind-prediction provenance audit.")
+    parser = argparse.ArgumentParser(description="Build the blind-prediction provenance ledger.")
     parser.add_argument("--json-out", default=str(DEFAULT_JSON_OUT))
     parser.add_argument("--markdown-out", default=str(DEFAULT_MD_OUT))
     parser.add_argument("--print-json", action="store_true")

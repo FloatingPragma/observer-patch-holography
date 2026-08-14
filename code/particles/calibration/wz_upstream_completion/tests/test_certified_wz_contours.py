@@ -259,12 +259,12 @@ class FrozenReceiptTests(unittest.TestCase):
             "G(s)=s-m_tree^2-Pi_engine(s)",
         )
         self.assertFalse(scope["theorem_self_energy_sign_bridge_certified"])
-        self.assertFalse(scope["issue_593_precision_ladder_row_satisfied"])
+        self.assertFalse(scope["precision_ladder_receipt_supplied"])
         self.assertFalse(
-            scope["issue_593_independent_third_verifier_row_satisfied"]
+            scope["independent_numerical_reevaluation_supplied"]
         )
-        self.assertFalse(scope["issue_593_root_laurent_row_satisfied"])
-        self.assertFalse(scope["issue_593_full_acceptance_satisfied"])
+        self.assertFalse(scope["root_laurent_evidence_supplied"])
+        self.assertFalse(scope["full_physical_pole_evidence_supplied"])
 
 
 class PrincipalCheckerMutationTests(unittest.TestCase):
@@ -507,7 +507,7 @@ class PrincipalCheckerMutationTests(unittest.TestCase):
     def test_issue_row_overclaim_with_valid_self_hash_is_rejected(self) -> None:
         self.assert_rehashed_mutation_rejected(
             lambda receipt: receipt["acceptance_scope"].__setitem__(
-                "issue_593_root_laurent_row_satisfied", True
+                "root_laurent_evidence_supplied", True
             )
         )
 
@@ -576,18 +576,18 @@ class SecondSheetFrozenReceiptTests(unittest.TestCase):
         self.assertFalse(scope["continuation_identity_independently_certified"])
         self.assertFalse(scope["standard_second_sheet_identification_certified"])
         self.assertFalse(scope["full_matrix_rank_n_minus_1_laurent_certified"])
-        self.assertFalse(scope["issue_593_pole_laurent_row_discharged"])
+        self.assertFalse(scope["matrix_rank_laurent_evidence_supplied"])
         self.assertFalse(scope["independent_numerical_replay_certified"])
         self.assertEqual(
             scope["engine_inverse_propagator_convention"],
             "G(s)=s-m_tree^2-Pi_engine(s)",
         )
         self.assertFalse(scope["theorem_self_energy_sign_bridge_certified"])
-        self.assertFalse(scope["issue_593_precision_ladder_row_discharged"])
+        self.assertFalse(scope["precision_ladder_receipt_supplied"])
         self.assertFalse(
-            scope["issue_593_independent_third_verifier_row_discharged"]
+            scope["independent_numerical_reevaluation_supplied"]
         )
-        self.assertFalse(scope["issue_593_full_acceptance_satisfied"])
+        self.assertFalse(scope["full_physical_pole_evidence_supplied"])
         promotion = self.receipt["promotion"]
         self.assertFalse(
             promotion["continuation_identity_independently_certified"]
@@ -601,14 +601,14 @@ class SecondSheetFrozenReceiptTests(unittest.TestCase):
         self.assertFalse(
             promotion["full_matrix_rank_n_minus_1_laurent_certified"]
         )
-        self.assertFalse(promotion["issue_593_pole_laurent_row_discharged"])
+        self.assertFalse(promotion["matrix_rank_laurent_evidence_supplied"])
         self.assertFalse(
-            promotion["issue_593_precision_ladder_row_discharged"]
+            promotion["precision_ladder_receipt_supplied"]
         )
         self.assertFalse(
-            promotion["issue_593_independent_third_verifier_row_discharged"]
+            promotion["independent_numerical_reevaluation_supplied"]
         )
-        self.assertFalse(promotion["issue_593_full_acceptance_satisfied"])
+        self.assertFalse(promotion["full_physical_pole_evidence_supplied"])
         self.assertFalse(promotion["bmhv_restoration_certified"])
         self.assertFalse(promotion["physical_current_claim"])
         self.assertFalse(promotion["oph_native"])

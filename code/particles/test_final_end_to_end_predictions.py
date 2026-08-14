@@ -13,14 +13,14 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from build_final_end_to_end_predictions import build_payload  # noqa: E402
 
 
-def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -> None:
+def test_final_end_to_end_predictions_preserve_scientific_boundaries_and_values() -> None:
     payload = build_payload()
 
     assert payload["artifact"] == "oph_final_current_end_to_end_particle_predictions"
     assert payload["p_closure"]["may_feed_live_particle_predictions"] is False
     assert payload["hadron_policy"]["source_only_hadron_predictions_emitted"] is False
     assert payload["hadron_policy"]["empirical_hadron_closure_allowed_for_display"] is True
-    assert payload["hadron_policy"]["github_issues"] == [153, 157]
+    assert "github_issues" not in payload["hadron_policy"]
     fine = payload["fine_structure"]
     assert fine["source_side_no_hadron_near_endpoint"]["row_class"] == (
         "source_side_no_hadron_near_endpoint"
@@ -45,12 +45,10 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
         ]
         is False
     )
-    assert (
-        payload["finalization_gates"][
-            "empirical_hadron_spectral_endpoint_packet_available"
-        ]
-        is True
-    )
+    assert "finalization_gates" not in payload
+    assert "particle_five_issue_gates" not in payload
+    assert "companion_open_branches" not in payload
+    assert "pipeline_status" not in payload["source_surfaces"]
     hierarchy = payload["hierarchy_and_naturality"]
     assert hierarchy["status"]["resonance_status"] == "exact_conditional_local_global_hierarchy_resonance"
     assert hierarchy["status"]["full_theorem_grade_resonance_promoted"] is False
@@ -85,20 +83,6 @@ def test_final_end_to_end_predictions_include_particle_five_gates_and_values() -
     assert alignment["repair_register_slots"] == 24
     assert alignment["screen_ports"] == 12
     assert alignment["identification_status"] == "work_in_progress"
-    gates = {gate["issue"]: gate for gate in payload["particle_five_issue_gates"]}
-    assert set(gates) == {32, 153, 199, 201, 207, 223, 224, 225, 234, 235}
-    assert gates[153]["state"] == "closed_out_of_scope_computationally_blocked"
-    assert gates[199]["state"] == "closed_current_corpus_global_classification_no_go"
-    assert gates[201]["state"] == "closed_current_corpus_charged_end_to_end_no_go"
-    assert gates[223]["state"] == "closed_blocker_isolated_endpoint_package"
-    assert gates[235]["state"] == "closed_blocker_isolated_source_residual_no_go"
-    assert gates[224]["state"] == "closed_canonical_guarded_trunk_adoption"
-    assert gates[225]["state"] == "closed_material_sync_no_live_publish"
-    assert gates[234]["state"] == "closed_provenance_ledger_and_declared_sensitivity_taxonomy"
-    assert gates[32]["state"] == "open_source_rg_frontier_partial"
-    assert gates[32]["closable_now"] is False
-    companion = {branch["label"]: branch for branch in payload["companion_open_branches"]}
-    assert companion["Strong CP"]["state"] == "open_theta_qcd_bar_theta_vanishing_gap"
     predictions = {entry["particle_id"]: entry for entry in payload["predictions"]}
     assert "photon" not in predictions
     assert "gluon" not in predictions

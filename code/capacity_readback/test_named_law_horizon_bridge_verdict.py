@@ -36,7 +36,7 @@ def test_runtime_is_byte_exact() -> None:
 @pytest.mark.parametrize(
     ("path", "value"),
     [
-        (("comparison_boundary", "issue_650_stage_gate_opened"), True),
+        (("comparison_boundary", "named_law_comparison_promotable"), True),
         (("comparison_boundary", "cosmological_prediction"), True),
         (("exit_scope", "bounded_to_declared_attachment_class"), False),
         (("exit_scope", "all_possible_global_capacity_laws_excluded"), True),

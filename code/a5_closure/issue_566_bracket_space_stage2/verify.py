@@ -177,7 +177,7 @@ ATTAINED_KEYS = {
     "independent_jacobi_quadrics", "raw_jacobi_coordinate_count", "residual_independent_quadrics",
 }
 NOT_ATTAINED_KEYS = {
-    "compactness_established", "full_jacobi_solution_variety_classified", "issue_566_closed", "preferred_bracket_selected",
+    "compactness_established", "full_jacobi_solution_variety_classified", "full_bracket_classification_and_selection_supplied", "preferred_bracket_selected",
     "rational_descent_components_classified", "source_selection", "special_weight_flat_residual_solutions_classified",
 }
 SYSTEM_ARTIFACT_KEYS = {"canonical_json_sha256", "path"}
@@ -279,7 +279,7 @@ def validate_stage1_keysets(basis: Any, receipt: Any) -> None:
     for row in rank["gram_diagonal"]:
         check_keys(row, STAGE1_FRACTION_KEYS, "UPSTREAM_FRACTION_KEYS")
     later_keys = {
-        "bracket_selected", "carrier_choice_derived_by_this_packet", "compactness_established", "issue_566_closed",
+        "bracket_selected", "carrier_choice_derived_by_this_packet", "compactness_established", "full_bracket_classification_and_selection_supplied",
         "jacobi_solution_classification_complete", "jacobi_solution_found", "physical_current_identified", "source_selection",
     }
     check_keys(receipt.get("later_gates"), later_keys, "UPSTREAM_GATE_KEYS")

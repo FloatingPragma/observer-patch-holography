@@ -25,11 +25,12 @@ def test_quark_off_canonical_p_evaluator_obstruction_records_hard_blockers() -> 
     assert payload["theorem_grade_closure"] is False
     assert payload["selected_public_exact_surface"]["closed"] is False
     assert payload["selected_public_pure_B_payload"]["closed"] is True
-    assert payload["lane_closure_verdict"]["closure_kind"] == "hard_no_go_current_corpus"
-    assert payload["lane_closure_verdict"]["issue_212_acceptance_met"] is False
-    assert payload["lane_closure_verdict"]["closed_theorem_grade_surface"] == (
+    assert payload["scientific_result"]["closure_kind"] == "hard_no_go_current_corpus"
+    assert payload["scientific_result"]["off_canonical_evaluator_supplied"] is False
+    assert payload["scientific_result"]["theorem_grade_surface"] == (
         "selected_public_physical_quark_frame_class_only"
     )
+    assert "lane_closure_verdict" not in payload
 
     edge = payload["edge_statistics_sigma_lift_obstruction"]
     assert edge["missing_object"] == "oph_edge_statistics_sigma_lift"

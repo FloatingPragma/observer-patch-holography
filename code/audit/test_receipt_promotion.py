@@ -426,7 +426,7 @@ def test_thomson_theorem_grade_boolean_cannot_change_verdict() -> None:
     registry = _registry()
     path = "code/P_derivation/runtime/thomson_endpoint_package_current.json"
     artifact = _artifact(path)
-    artifact["issue_223_acceptance"]["theorem_grade_object_defined"] = False
+    artifact["scientific_result"]["theorem_grade_object_defined"] = False
 
     report = _audit(registry, {path: artifact})
 

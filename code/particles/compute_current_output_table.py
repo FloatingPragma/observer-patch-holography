@@ -105,8 +105,6 @@ RUNTIME_SURFACED_ARTIFACTS = (
     Path("runs/hadron/production_geometry_summary.json"),
     Path("runs/hadron/hadron_production_closure_validation_report.json"),
     Path("runs/hadron/hadron_production_readiness_report.json"),
-    Path("runs/status/particle_derivation_gap_ledger.json"),
-    Path("runs/status/particle_pipeline_closure_status.json"),
     Path("runs/status/blind_prediction_provenance.json"),
     Path("runs/status/final_end_to_end_predictions.json"),
     Path("runs/status/derivation_chain_closure_matrix.json"),
@@ -199,12 +197,10 @@ def _copy_outputs(work_particles: Path, current_dir: Path) -> None:
         "runs/status/carrier_mode_acceptance.json",
         "runs/status/exact_fits_only_current.json",
         "runs/status/exact_nonhadron_masses_current.json",
-        "runs/status/particle_derivation_gap_ledger.json",
-        "runs/status/particle_pipeline_closure_status.json",
         "runs/status/blind_prediction_provenance.json",
         "runs/status/final_end_to_end_predictions.json",
         "runs/status/derivation_chain_closure_matrix.json",
-        "PARTICLE_PROVENANCE_AUDIT.md",
+        "PARTICLE_PROVENANCE_LEDGER.md",
         "PARTICLE_PIPELINE_STATUS.md",
         "DERIVATION_CHAIN_CLOSURE_MATRIX.md",
         "CARRIER_MODE_ACCEPTANCE.md",
@@ -525,6 +521,8 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     work_particles = work_code / "particles"
     current_dir = runtime_root / "current"
 
+    if current_dir.exists():
+        shutil.rmtree(current_dir)
     if work_root.exists():
         shutil.rmtree(work_root)
     work_code.mkdir(parents=True, exist_ok=True)
@@ -604,7 +602,6 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     status_cmd = ["python3", "particles/scripts/build_results_status_table.py"]
     exact_nonhadron_cmd = ["python3", "particles/scripts/build_exact_nonhadron_mass_bundle.py"]
     exact_fit_cmd = ["python3", "particles/scripts/build_exact_fit_surface.py"]
-    gap_ledger_cmd = ["python3", "particles/scripts/build_derivation_gap_ledger.py"]
     svg_cmd = ["python3", "particles/scripts/generate_mass_derivation_svg.py"]
     if with_hadrons:
         status_cmd.append("--with-hadrons")
@@ -612,10 +609,7 @@ def build_runtime(runtime_root: Path, *, with_hadrons: bool, verbose: bool) -> P
     _run(status_cmd, cwd=work_code, verbose=verbose)
     _run(exact_nonhadron_cmd, cwd=work_code, verbose=verbose)
     _run(exact_fit_cmd, cwd=work_code, verbose=verbose)
-    _run(gap_ledger_cmd, cwd=work_code, verbose=verbose)
-    _run(["python3", "particles/scripts/build_particle_pipeline_closure_status.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/scripts/build_blind_prediction_provenance.py"], cwd=work_code, verbose=verbose)
-    _run(["python3", "particles/scripts/build_particle_pipeline_closure_status.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/scripts/build_final_end_to_end_predictions.py"], cwd=work_code, verbose=verbose)
     _run(["python3", "particles/scripts/build_derivation_chain_closure_matrix.py"], cwd=work_code, verbose=verbose)
     _run(svg_cmd, cwd=work_code, verbose=verbose)

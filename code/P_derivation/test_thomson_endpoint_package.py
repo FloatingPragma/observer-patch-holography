@@ -32,9 +32,12 @@ def test_endpoint_package_is_conditional_and_source_guarded() -> None:
     )
 
     assert payload["artifact"] == "oph_ward_projected_thomson_endpoint_package"
-    assert payload["github_issue"] == 223
-    assert payload["successor_github_issue"] == 235
-    assert payload["claim_status"] == "endpoint_package_computed_blocker_isolated"
+    assert payload["classification"] == (
+        "conditional_endpoint_package__source_transport_map_absent"
+    )
+    assert "generated_utc" not in payload
+    assert "github_issue" not in payload
+    assert "successor_github_issue" not in payload
     assert payload["promotion_allowed"] is False
     assert payload["source_only_guard"]["codata_enters_solver"] is False
     assert payload["source_only_guard"]["measured_endpoint_allowed_as_transport_input"] is False
@@ -43,8 +46,10 @@ def test_endpoint_package_is_conditional_and_source_guarded() -> None:
         payload["first_non_internalized_object"]["id"]
         == "ward_projected_qcd_screening_and_endpoint_remainder"
     )
-    assert payload["first_non_internalized_object"]["successor_github_issue"] == 235
-    assert payload["issue_223_acceptance"]["theorem_grade_object_defined"] is True
-    assert payload["issue_223_acceptance"]["closable_as_measured_alpha_derivation"] is False
-    assert payload["issue_223_acceptance"]["closable_as_blocker_isolation_package"] is True
-    assert payload["issue_223_acceptance"]["successor_issue_for_source_residual_map"] == 235
+    assert "successor_github_issue" not in payload["first_non_internalized_object"]
+    result = payload["scientific_result"]
+    assert result["theorem_grade_object_defined"] is True
+    assert result["measured_alpha_derivation_supplied"] is False
+    assert result["source_residual_map_supplied"] is False
+    assert result["result_scope"] == "conditional_missing_object_isolation"
+    assert "issue_223_acceptance" not in payload

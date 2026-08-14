@@ -53,7 +53,7 @@ def build_artifact(obstruction: dict[str, Any]) -> dict[str, Any]:
         "downstream_algebra_closed": True,
         "selected_class": "f_P",
         "required_identity": "P -> f_P -> Sigma_ud_phys -> (sigma_u,sigma_d,sigma_seed_ud,eta_ud)",
-        "resolved_github_issues": [377, 379, 380],
+        "provenance_issues": [377, 379, 380],
         "obstruction_artifact": obstruction["artifact"],
         "obstruction_theorem_statement": obstruction["theorem_statement"],
         "compatible_spread_fiber": classification["fiber"],

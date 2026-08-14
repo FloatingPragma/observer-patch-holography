@@ -504,7 +504,7 @@ def test_physical_units_or_poles_cannot_be_emitted() -> None:
     assert_rejected(mutated, "schema validation")
 
 
-def test_physical_unit_verdict_cannot_be_reopened() -> None:
+def test_physical_unit_verdict_cannot_be_reclassified() -> None:
     mutated = load_inventory()
     mutated["unit_scope"]["physical_unit_verdict"] = "OPEN"
     rehash_inventory(mutated)
@@ -516,12 +516,12 @@ def test_resolved_finite_boundary_cannot_be_promoted_to_continuum() -> None:
     boundary = next(
         item
         for item in mutated["resolved_boundaries"]
-        if item["owner_issue"] == 634
+        if item["provenance_issue"] == 634
     )
-    boundary["outcome"] = "closed_positive"
+    boundary["classification"] = "positive_physical_source"
     boundary["effect"] = "continuum Lorentzian spacetime attained"
     rehash_inventory(mutated)
-    assert_rejected(mutated, "schema validation|boundary state drifted")
+    assert_rejected(mutated, "schema validation|classification drifted")
 
 
 def test_resolved_boundary_receipt_verdict_is_load_bearing(tmp_path: Path) -> None:
@@ -659,22 +659,24 @@ def test_field_census_does_not_depend_on_common_carrier() -> None:
     assert_rejected(mutated, "dependency edges drifted|incorrectly depends")
 
 
-def test_current_issue_owners_are_explicit() -> None:
+def test_scientific_interface_provenance_is_explicit() -> None:
     inventory = load_inventory()
-    gates = {
+    interfaces = {
         row["gate_id"]: row
-        for row in inventory["open_interfaces"]
+        for row in inventory["required_interfaces"]
     }
-    owners = {
-        gate_id: row["owner_issues"]
-        for gate_id, row in gates.items()
+    provenance = {
+        gate_id: row["provenance_issues"]
+        for gate_id, row in interfaces.items()
     }
-    assert owners["finite_to_lorentzian_quantum_eft_transfer"] == [635]
-    assert owners["source_scalar_action"] == [636]
-    assert owners["full_yukawa_operator_and_coefficients"] == [637]
-    assert owners["source_to_fj_coordinate_map"] == [638]
-    assert owners["scalar_yukawa_fj_integration"] == [630]
-    rg_prerequisites = set(gates["target_clean_rg_threshold_matching"]["prerequisites"])
+    assert provenance["finite_to_lorentzian_quantum_eft_transfer"] == [635]
+    assert provenance["source_scalar_action"] == [636]
+    assert provenance["full_yukawa_operator_and_coefficients"] == [637]
+    assert provenance["source_to_fj_coordinate_map"] == [638]
+    assert provenance["scalar_yukawa_fj_integration"] == [630]
+    rg_prerequisites = set(
+        interfaces["target_clean_rg_threshold_matching"]["prerequisites"]
+    )
     assert {
         "finite_local_domain_boundary",
         "physical_family_and_matter_pole_attachment",
@@ -687,33 +689,38 @@ def test_current_issue_owners_are_explicit() -> None:
     assert "source_to_fj_coordinate_map" not in rg_prerequisites
 
 
-def test_acceptance_rows_cannot_self_close() -> None:
+def test_scientific_boundary_cannot_be_overpromoted() -> None:
     mutated = load_inventory()
-    mutated["acceptance_map"][0]["status"] = "complete"
-    mutated["acceptance_map"][0]["blocking_gates"] = []
+    mutated["scientific_boundary_map"][0]["classification"] = (
+        "positive_physical_source"
+    )
+    mutated["scientific_boundary_map"][0]["missing_interfaces"] = []
     rehash_inventory(mutated)
     assert_rejected(mutated, "schema validation|overpromoted")
 
 
-def test_acceptance_summary_cannot_overclaim() -> None:
+def test_scientific_boundary_summary_cannot_overclaim() -> None:
     mutated = load_inventory()
-    mutated["acceptance_map"][0]["summary"] = (
-        "issue 634 supplies a physical Lorentzian quantum field theory"
+    mutated["scientific_boundary_map"][0]["summary"] = (
+        "the receipt supplies a physical Lorentzian quantum field theory"
     )
     rehash_inventory(mutated)
     assert_rejected(mutated, "claim scope drifted")
 
 
-def test_acceptance_row_nine_cannot_drop_a_replay_gate() -> None:
+def test_boundary_row_nine_cannot_drop_a_replay_interface() -> None:
     mutated = load_inventory()
     row = next(
         item
-        for item in mutated["acceptance_map"]
-        if item["acceptance_index"] == 9
+        for item in mutated["scientific_boundary_map"]
+        if item["boundary_index"] == 9
     )
-    row["blocking_gates"].remove("runtime_and_human_target_firewall")
+    row["missing_interfaces"].remove("runtime_and_human_target_firewall")
     rehash_inventory(mutated)
-    assert_rejected(mutated, "acceptance row 9 status, blockers, or claim scope drifted")
+    assert_rejected(
+        mutated,
+        "scientific boundary row 9 classification, missing interfaces, or claim scope drifted",
+    )
 
 
 def test_inventory_digest_is_load_bearing() -> None:

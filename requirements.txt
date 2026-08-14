@@ -6,7 +6,6 @@
 #
 # Optional lanes keep their own extras and stay opt-in:
 #   code/ibm_quantum_cloud/requirements-ibm.txt   IBM / Qiskit hardware lane (OPH_RUN_IBM=1)
-#   code/dark_matter/requirements-boltzmann.txt    CAMB / Boltzmann cosmology lane
 #   code/particles/requirements-quantum.txt        qiskit ancillary experiments
 numpy==2.5.1
 scipy==1.18.0

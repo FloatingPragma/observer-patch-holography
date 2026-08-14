@@ -7,7 +7,6 @@
     "source_spectral_theorem": "code/P_derivation/runtime/source_spectral_theorem_current.json",
     "spectral_transport_validator": "code/P_derivation/thomson_spectral_transport.py"
   },
-  "closed_blocker_isolation_issue": 223,
   "computed_package": "code/P_derivation/runtime/thomson_endpoint_package_current.json",
   "constructive_objects": [
     {
@@ -126,31 +125,17 @@
     "free_quark_screened_ansatz_as_theorem_input",
     "charged_physical_values_imported_into_the_determinant_line"
   ],
-  "generated_utc": "2026-06-29T06:58:22Z",
-  "github_issue": 235,
-  "issue_235_resolution": {
-    "close_recommendation": "close_as_first_missing_lemma_isolated",
-    "exact_alpha_promoted": false,
-    "first_missing_lemma": "source-emitted same-scheme Ward-projected R_Q(P)",
-    "minimal_new_theorem": "WardProjectedHadronicSpectralEmission_Q"
-  },
-  "local_next_steps": [
-    "Use thomson_endpoint_package.py to compute the residual endpoint packet from the internal report.",
-    "Use screening_invariant_no_go.py to reject fitted c_Q and low-height invariant shortcuts.",
-    "Use thomson_endpoint_interval_certificate.py to emit the blocked Banach certificate and R_Q contract.",
-    "Populate a source-emitted Ward-projected QCD screening and endpoint-remainder map matching that packet.",
-    "Upgrade the interval certificate only after the endpoint builder uses source-emitted transport."
-  ],
   "no_go_results": {
     "detuning_only_bypass": "closed_no_go",
     "reason": "The outer detuning coordinate and the current D10 invariant packet do not determine the zero-momentum Ward-projected current-current spectral transport.",
     "screening_scalar_from_current_invariants": "closed_no_go"
   },
   "promotion_allowed": false,
-  "status": "closed_blocker_isolated_not_endpoint_theorem",
-  "worker_result_policy": {
-    "constructive_no_go_result_allowed": true,
-    "obstruction_only_result_allowed": false,
-    "required_if_primary_route_fails": "emit an implementation-ready replacement object, builder interface, schema, certificate interface, or runnable local target"
-  }
+  "promotion_boundary": {
+    "first_missing_scientific_object": "source-emitted same-scheme Ward-projected R_Q(P)",
+    "minimal_required_theorem": "WardProjectedHadronicSpectralEmission_Q",
+    "promotion_allowed": false,
+    "reason": "The source-spectral reduction is established, but the source-emitted Ward-projected hadronic measure, same-scheme endpoint remainder, and full interval transport certificate are absent."
+  },
+  "status": "source_spectral_reduction_closed_measure_payload_absent"
 }

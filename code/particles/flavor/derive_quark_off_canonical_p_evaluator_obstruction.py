@@ -187,15 +187,15 @@ def build_artifact(
             if public_source_payload is None
             else public_source_payload.get("off_canonical_promotion_allowed"),
         },
-        "lane_closure_verdict": {
-            "issue_212_acceptance_met": False,
+        "scientific_result": {
+            "off_canonical_evaluator_supplied": False,
             "closure_kind": "hard_no_go_current_corpus",
-            "closed_theorem_grade_surface": "selected_public_physical_quark_frame_class_only",
+            "theorem_grade_surface": "selected_public_physical_quark_frame_class_only",
             "blocked_surface": "arbitrary_P_off_canonical_quark_evaluator",
-            "repo_runtime_browser_contract_status": (
+            "runtime_surface_classification": (
                 "shared candidate/evidence surface only; theorem-grade off-canonical promotion disallowed"
             ),
-            "why_this_is_final_for_current_corpus": (
+            "current_corpus_boundary": (
                 "The attached source artifacts admit distinct canonical-preserving off-canonical completions "
                 "for both the even sigma pair and the odd kappa payload. A direct arbitrary-P evaluator would "
                 "therefore choose extra data not emitted by the present theorem corpus."

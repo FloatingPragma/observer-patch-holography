@@ -15,7 +15,7 @@ It does *not* independently evaluate the loop functions or prove that the
 recorded interval boxes enclose the physical expressions.  A pass is therefore
 a structural/evidence validation of the committed auxiliary principal-sheet
 zero-exclusion receipt, not the independent numerical third verifier required
-by issue #593.  It is not a resonance-root, Laurent-denominator,
+by the full physical-pole contract. It is not a resonance-root, Laurent-denominator,
 theorem-sign-bridge, physical-current, physical-unit, or OPH-native
 certificate.
 """
@@ -1407,10 +1407,10 @@ def _check_claims(
         "coefficient_denominator_witness_is_laurent_denominator": False,
         "root_enclosure_certified": False,
         "laurent_denominator_certified": False,
-        "issue_593_precision_ladder_row_satisfied": False,
-        "issue_593_independent_third_verifier_row_satisfied": False,
-        "issue_593_root_laurent_row_satisfied": False,
-        "issue_593_full_acceptance_satisfied": False,
+        "precision_ladder_receipt_supplied": False,
+        "independent_numerical_reevaluation_supplied": False,
+        "root_laurent_evidence_supplied": False,
+        "full_physical_pole_evidence_supplied": False,
     }
     if scope != expected_scope:
         problems.append("acceptance scope overstates or changes the receipt")
@@ -1536,10 +1536,10 @@ def check(
             not problems and all_certified
         ),
         "independent_physics_reevaluation_performed": False,
-        "issue_593_precision_ladder_row_satisfied": False,
-        "issue_593_independent_third_verifier_row_satisfied": False,
-        "issue_593_root_laurent_row_satisfied": False,
-        "issue_593_full_acceptance_satisfied": False,
+        "precision_ladder_receipt_supplied": False,
+        "independent_numerical_reevaluation_supplied": False,
+        "root_laurent_evidence_supplied": False,
+        "full_physical_pole_evidence_supplied": False,
         "problems": problems,
     }
 

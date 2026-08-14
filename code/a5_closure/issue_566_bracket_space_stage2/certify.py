@@ -353,7 +353,7 @@ ATTAINED_KEYS = {
 NOT_ATTAINED_KEYS = {
     "compactness_established",
     "full_jacobi_solution_variety_classified",
-    "issue_566_closed",
+    "full_bracket_classification_and_selection_supplied",
     "preferred_bracket_selected",
     "rational_descent_components_classified",
     "source_selection",
@@ -550,7 +550,7 @@ def validate_upstream_keysets(basis_raw: Mapping[str, Any], receipt_raw: Mapping
         "bracket_selected",
         "carrier_choice_derived_by_this_packet",
         "compactness_established",
-        "issue_566_closed",
+        "full_bracket_classification_and_selection_supplied",
         "jacobi_solution_classification_complete",
         "jacobi_solution_found",
         "physical_current_identified",
@@ -2312,7 +2312,7 @@ def build_artifacts() -> tuple[dict[str, Any], dict[str, Any]]:
             "preferred_bracket_selected": False,
             "source_selection": False,
             "compactness_established": False,
-            "issue_566_closed": False,
+            "full_bracket_classification_and_selection_supplied": False,
         },
         "system_artifact": {
             "path": "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json",

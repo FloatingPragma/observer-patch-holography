@@ -2,13 +2,11 @@
 
 This note collects rebuttals to common objections to the OPH framework, with longer technical responses where needed.
 
-The objections below meet a certified core: a sorry-free Lean theorem subset,
-machine-certified interval and global-uniqueness fixed points for each
-declared map, and a full adversarial third-party audit that reproduced the
-certificate arithmetic and identified no false theorem in the recovered
-mathematical core. Each rebuttal states its conditionals explicitly; the
-scientific claim boundaries live in the papers and the
-[falsification program](OPH_FALSIFICATION_PROGRAM.md); current work ownership
+The objections below meet a checkable core: a sorry-free Lean theorem subset
+and machine-certified interval and global-uniqueness fixed points for each
+declared map. Each rebuttal states its conditionals explicitly; the scientific
+claim boundaries live in the papers and the
+[falsification program](OPH_FALSIFICATION_PROGRAM.md), while work ownership
 lives on the [closure issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+label%3Aclosure).
 
 ## Contents

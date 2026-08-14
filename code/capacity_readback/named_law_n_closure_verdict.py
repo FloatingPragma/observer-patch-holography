@@ -112,7 +112,7 @@ def build() -> dict[str, Any]:
             "cosmological_prediction": False,
             "prospective_forecast": False,
             "horizon_interpretation": False,
-            "issue_650_stage_gate_opened": False,
+            "named_law_comparison_promotable": False,
         },
         "exit_scope": {
             "bounded_to_declared_attachment_class": True,

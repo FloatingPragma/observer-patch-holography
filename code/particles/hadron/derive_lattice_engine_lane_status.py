@@ -1,26 +1,21 @@
 #!/usr/bin/env python3
-"""Emit the lane status for the real diagnostic lattice engine (#425).
+"""Emit the scientific classification of the real diagnostic lattice engine.
 
 Records what now exists (a physics-true engine with executed output), what
-its verification anchors are, and exactly what the #425 production closure
-still requires. The status artifact never promotes the diagnostic output.
+its verification anchors are, and what a production payload requires. The
+artifact never promotes the diagnostic output.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUT = ROOT / "particles" / "runs" / "hadron" / "lattice_engine_lane_status.json"
 EXPORT = ROOT / "particles" / "runs" / "hadron" / "lattice_diagnostic_backend_export.json"
-
-
-def _now_utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def build_status() -> dict[str, Any]:
@@ -57,9 +52,8 @@ def build_status() -> dict[str, Any]:
 
     return {
         "artifact": "oph_lattice_engine_lane_status",
-        "generated_utc": _now_utc(),
-        "github_issue": 425,
-        "status": "real_engine_executed_diagnostic_scale_production_closure_open",
+        "provenance_issue": 425,
+        "classification": "real_engine_executed_at_diagnostic_scale__production_evidence_absent",
         "engine": {
             "package": "particles/hadron/lattice_backend/",
             "runner": "particles/hadron/run_lattice_diagnostic_backend.py",
@@ -87,8 +81,8 @@ def build_status() -> dict[str, Any]:
             "its masses are whatever the bare parameters produce."
         ),
         "executed_output": executed,
-        "issue_425_remaining": {
-            "closure_requires": [
+        "production_boundary": {
+            "required_evidence": [
                 "seeded N_f = 2+1 ensembles at the frozen receipt schedule "
                 "(N_therm = 2048, N_sep = 512) on production volumes",
                 "strange RHMC branch with persisted rational coefficients",
@@ -98,14 +92,13 @@ def build_status() -> dict[str, Any]:
                 "publication-complete manifest provenance",
             ],
             "compute_class": "HPC allocation or an established production engine "
-                             "driven through run_external_production_backend.py; "
-                             "out of local scope",
-            "promotion_gate": "unchanged: hadron rows stay suppressed until "
-                              "production output and systematics exist",
+                             "driven through run_external_production_backend.py",
+            "promotion_rule": "hadron rows stay suppressed until production output "
+                              "and systematics exist",
         },
         "guards": {
             "diagnostic_output_promotable": False,
-            "issue_425_closed_by_this_artifact": False,
+            "production_requirements_satisfied": False,
         },
     }
 

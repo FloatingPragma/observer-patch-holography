@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Build the fail-closed producer-side frontier for GitHub issue #594.
+"""Build the fail-closed producer-side W/Z source frontier.
 
 The output binds finite OPH source parents and records the exact interfaces
-that remain open. It emits no action coefficients, pole coordinates, target
-comparison, or physical-unit value. The external-SM calculation in issue #593
-is treated only as a downstream consumer dependency.
+that are not supplied. It emits no action coefficients, pole coordinates,
+target comparison, or physical-unit value. The external-SM calculation is
+treated only as a downstream consumer dependency.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ DEFAULT_OUTPUT = HERE / "outputs" / "source_parent_inventory.json"
 
 SCHEMA = "oph.wz.source_parent_inventory.v1"
 STATUS = (
-    "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_VERDICT_OPEN__"
+    "FINITE_BOUNDARIES_CLASSIFIED__DIMENSIONLESS_SOURCE_NOT_SUPPLIED__"
     "PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE"
 )
 RESOLVED_BOUNDARY_SENTINELS = {
@@ -181,7 +181,7 @@ def expand_binding(
         payloads.append(payload)
     binding = {
         "role": spec["role"],
-        "issue": spec["issue"],
+        "provenance_issue": spec["provenance_issue"],
         "verifier_id": spec["verifier_id"],
         "status": status,
         "files": pins,
@@ -255,8 +255,8 @@ def source_dag(
         {
             "id": binding["role"],
             "class": "verified_finite_parent",
-            "issue": binding["issue"],
-            "status": "verified_finite_parent",
+            "provenance_issue": binding["provenance_issue"],
+            "classification": "verified_finite_parent",
         }
         for binding in positive
     ]
@@ -264,8 +264,8 @@ def source_dag(
         {
             "id": binding["role"],
             "class": "conditional_context",
-            "issue": binding["issue"],
-            "status": binding["context_status"],
+            "provenance_issue": binding["provenance_issue"],
+            "classification": binding["context_status"],
         }
         for binding in conditional
     )
@@ -273,17 +273,17 @@ def source_dag(
         {
             "id": item["boundary_id"],
             "class": "resolved_boundary",
-            "issue": item["owner_issue"],
-            "status": item["outcome"],
+            "provenance_issue": item["provenance_issue"],
+            "classification": item["classification"],
         }
         for item in resolved_boundaries
     )
     nodes.extend(
         {
             "id": item["gate_id"],
-            "class": "open_interface",
-            "issue": item["owner_issues"][0],
-            "status": "open",
+            "class": "required_interface",
+            "provenance_issue": item["provenance_issues"][0],
+            "classification": "not_supplied",
         }
         for item in interfaces
     )
@@ -292,8 +292,8 @@ def source_dag(
             {
                 "id": "oph_native_dimensionless_packet",
                 "class": "candidate_output",
-                "issue": 594,
-                "status": "blocked",
+                "provenance_issue": 594,
+                "classification": "not_supplied",
             },
         ]
     )
@@ -341,25 +341,25 @@ def source_dag(
     }
 
 
-def acceptance_map() -> list[dict[str, Any]]:
+def scientific_boundary_map() -> list[dict[str, Any]]:
     return [
         {
-            "acceptance_index": 1,
-            "status": "closed_bounded",
-            "summary": "issue 634 supplies a finite causal and local-operator domain; no continuum Lorentzian or quantum-EFT promotion follows",
-            "blocking_gates": [],
+            "boundary_index": 1,
+            "classification": "bounded_receipt",
+            "summary": "the pinned local-domain receipt supplies a finite causal and local-operator domain; no continuum Lorentzian or quantum-EFT promotion follows",
+            "missing_interfaces": [],
         },
         {
-            "acceptance_index": 2,
-            "status": "closed_not_evaluable",
-            "summary": "issue 633 closes the physical-unit row as PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE under a bounded schema/source scan and named channel-nonuse experiment; no complete-domain clock non-identifiability theorem follows",
-            "blocking_gates": [],
+            "boundary_index": 2,
+            "classification": "not_evaluable_receipt",
+            "summary": "the pinned clock receipt classifies the physical-unit row as PHYSICAL_UNITS_NOT_EVALUABLE_ON_DECLARED_SERIALIZED_INTERFACE under a bounded schema/source scan and named channel-nonuse experiment; no complete-domain clock non-identifiability theorem follows",
+            "missing_interfaces": [],
         },
         {
-            "acceptance_index": 3,
-            "status": "open",
+            "boundary_index": 3,
+            "classification": "required_interfaces_not_supplied",
             "summary": "the finite rank-forty-five candidate is bound, but no source-selected scalar action, complete Yukawa matrices, physical family action, or coupled-sector census is emitted",
-            "blocking_gates": [
+            "missing_interfaces": [
                 "physical_family_and_matter_pole_attachment",
                 "scalar_yukawa_fj_integration",
                 "common_screen_electroweak_carrier",
@@ -367,51 +367,51 @@ def acceptance_map() -> list[dict[str, Any]]:
             ],
         },
         {
-            "acceptance_index": 4,
-            "status": "open",
-            "summary": "v_chart and v_F remain distinct typed coordinates; the source-to-FJ map is owned by issue 638 and its integration by issue 630",
-            "blocking_gates": [
+            "boundary_index": 4,
+            "classification": "required_interfaces_not_supplied",
+            "summary": "v_chart and v_F remain distinct typed coordinates; neither the source-to-FJ map nor its scalar/Yukawa integration is supplied",
+            "missing_interfaces": [
                 "source_to_fj_coordinate_map",
                 "scalar_yukawa_fj_integration"
             ],
         },
         {
-            "acceptance_index": 5,
-            "status": "partial",
+            "boundary_index": 5,
+            "classification": "partial_evidence",
             "summary": (
-                "the issue-32 frontier supplies exact per-copy representation "
+                "the finite RG frontier supplies exact per-copy representation "
                 "indices and a parametric one-loop gauge law under an imported "
                 "QFT functional; ordered intervals, thresholds, finite maps, "
                 "Jacobians, masks, and remainders are absent"
             ),
-            "blocking_gates": ["target_clean_rg_threshold_matching"],
+            "missing_interfaces": ["target_clean_rg_threshold_matching"],
         },
         {
-            "acceptance_index": 6,
-            "status": "open",
+            "boundary_index": 6,
+            "classification": "required_interface_not_supplied",
             "summary": "the finite domain has no certified transfer to a Lorentzian Spin quantum EFT accepted by the pole consumer",
-            "blocking_gates": ["finite_to_lorentzian_quantum_eft_transfer"],
+            "missing_interfaces": ["finite_to_lorentzian_quantum_eft_transfer"],
         },
         {
-            "acceptance_index": 7,
-            "status": "open",
+            "boundary_index": 7,
+            "classification": "required_interfaces_not_supplied",
             "summary": "substitution into unchanged validated QFT algorithms waits for the source packet and the production consumer",
-            "blocking_gates": [
+            "missing_interfaces": [
                 "unique_source_root_and_joint_law",
                 "validated_qft_consumer"
             ],
         },
         {
-            "acceptance_index": 8,
-            "status": "partial",
-            "summary": "source paths and structured ancestry are allowlisted and target-free; hermetic runtime and human-selection receipts remain open",
-            "blocking_gates": ["runtime_and_human_target_firewall"],
+            "boundary_index": 8,
+            "classification": "partial_evidence",
+            "summary": "source paths and structured ancestry are allowlisted and target-free; hermetic runtime and human-selection receipts are not supplied",
+            "missing_interfaces": ["runtime_and_human_target_firewall"],
         },
         {
-            "acceptance_index": 9,
-            "status": "open",
-            "summary": "independent replay of the complete native source-to-consumer conjunction requires every open producer and firewall gate",
-            "blocking_gates": [
+            "boundary_index": 9,
+            "classification": "required_interfaces_not_supplied",
+            "summary": "independent replay of the complete native source-to-consumer conjunction requires every missing producer and firewall interface",
+            "missing_interfaces": [
                 "unique_source_root_and_joint_law",
                 "validated_qft_consumer",
                 "runtime_and_human_target_firewall"
@@ -426,7 +426,7 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
     policy_raw = policy_path.read_bytes()
     policy = load_json(policy_path)
     require(policy.get("schema") == "oph.wz.source_parent_policy.v1", "wrong policy schema")
-    require(policy.get("issue") == 594, "policy is not for issue #594")
+    require(policy.get("provenance_issue") == 594, "policy provenance identifier drifted")
     require(
         policy.get("claim_lane") == "OPH_NATIVE_DIMENSIONLESS_SOURCE_FRONTIER",
         "policy claim lane drifted",
@@ -469,8 +469,8 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
         )
         payload = payloads[0]
         require(
-            payload.get("issue") == item["owner_issue"],
-            f"resolved boundary {item['boundary_id']} has the wrong issue owner",
+            payload.get("issue") == item["provenance_issue"],
+            f"resolved boundary {item['boundary_id']} provenance identifier drifted",
         )
         require(
             payload.get("verdict") == item["expected_verdict"],
@@ -491,12 +491,12 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
         resolved_boundaries.append(
             {
                 "boundary_id": item["boundary_id"],
-                "owner_issue": item["owner_issue"],
-                "outcome": item["outcome"],
+                "provenance_issue": item["provenance_issue"],
+                "classification": item["classification"],
                 "scope": item["scope"],
                 "effect": item["effect"],
                 "scientific_parent_status": item["scientific_parent_status"],
-                "resolution_authority": item["resolution_authority"],
+                "classification_authority": item["classification_authority"],
                 "verdict": payload["verdict"],
                 "files": pins,
             }
@@ -504,15 +504,15 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
     interfaces = [
         {
             "gate_id": item["gate_id"],
-            "owner_issues": item["owner_issues"],
+            "provenance_issues": item["provenance_issues"],
             "required_output": item["required_output"],
             "prerequisites": item["prerequisites"],
             "terminal_for_dimensionless_output":
                 item["terminal_for_dimensionless_output"],
-            "status": "open",
-            "evidence": [],
+            "classification": "not_supplied",
+            "supplied_evidence": [],
         }
-        for item in policy["open_interfaces"]
+        for item in policy["required_interfaces"]
     ]
 
     firewall_policy = policy["firewall_policy"]
@@ -557,7 +557,7 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
     finite_seed = [
         {
             "role": binding["role"],
-            "issue": binding["issue"],
+            "provenance_issue": binding["provenance_issue"],
             "files": [
                 {
                     "path": item["path"],
@@ -571,7 +571,7 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
     conditional_seed = [
         {
             "role": binding["role"],
-            "issue": binding["issue"],
+            "provenance_issue": binding["provenance_issue"],
             "files": [
                 {
                     "path": item["path"],
@@ -585,7 +585,7 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
 
     inventory: dict[str, Any] = {
         "schema": SCHEMA,
-        "issue": 594,
+        "provenance_issue": 594,
         "claim_lane": "OPH_NATIVE_DIMENSIONLESS_SOURCE_FRONTIER",
         "campaign_classification": "post_exposure_validation",
         "status": STATUS,
@@ -610,18 +610,18 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
             "source_coordinate": "v_chart",
             "renormalized_coordinate": "v_F",
             "equality_receipt": None,
-            "status": "open",
+            "classification": "equality_receipt_absent",
             "relabel_allowed": False,
         },
         "consumer_contract": {
-            "issue": 593,
-            "status": "open_dependency",
+            "provenance_issue": 593,
+            "classification": "source_packet_not_ready",
             "schemas": consumer_schemas,
             "frozen_algorithm_substitution_ready": False,
             "common_subject_digest_ready": False,
         },
         "resolved_boundaries": resolved_boundaries,
-        "open_interfaces": interfaces,
+        "required_interfaces": interfaces,
         "source_dag": source_dag(
             positive,
             conditional,
@@ -637,11 +637,11 @@ def build_inventory(repo_root: Path) -> dict[str, Any]:
             "comparison_channel_present": False,
             "network_required": False,
             "sealed_input_replay_supported": True,
-            "runtime_execution_receipt": "open",
-            "human_formula_selection_ancestry": "open",
-            "full_gate_satisfied": False,
+            "runtime_execution_receipt": "not_supplied",
+            "human_formula_selection_ancestry": "not_supplied",
+            "full_firewall_evidence_supplied": False,
         },
-        "acceptance_map": acceptance_map(),
+        "scientific_boundary_map": scientific_boundary_map(),
         "finite_parent_bundle_digest": canonical_sha256(finite_seed),
         "conditional_context_digest": canonical_sha256(conditional_seed),
     }
@@ -684,7 +684,7 @@ def main() -> int:
                 "status": inventory["status"],
                 "positive_parent_count": len(inventory["positive_parent_bindings"]),
                 "conditional_context_count": len(inventory["conditional_context"]),
-                "open_interface_count": len(inventory["open_interfaces"]),
+                "required_interface_count": len(inventory["required_interfaces"]),
                 "promotion_allowed": inventory["promotion_allowed"],
                 "inventory_digest": inventory["inventory_digest"],
             },

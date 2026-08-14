@@ -25,13 +25,10 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
         "fine_structure_interval_certificate",
         "rg_matching_threshold_contract",
     ]
-    assert ids.index("pipeline_closure_status_bootstrap") < ids.index("blind_prediction_provenance")
-    assert ids.index("blind_prediction_provenance") < ids.index("pipeline_closure_status_finalize")
-    assert ids.index("pixel_screen_resonance_summary") < ids.index("pipeline_closure_status_bootstrap")
-    assert ids.index("pipeline_closure_status_finalize") < ids.index("final_end_to_end_predictions")
+    assert ids.index("pixel_screen_resonance_summary") < ids.index("blind_prediction_provenance")
+    assert ids.index("blind_prediction_provenance") < ids.index("final_end_to_end_predictions")
     assert ids.index("final_end_to_end_predictions") < ids.index("derivation_chain_closure_matrix")
     assert ids.index("charged_end_to_end_nonclosure") < ids.index("charged_trace_lift_theorem")
-    assert ids.index("charged_trace_lift_theorem") < ids.index("derivation_gap_ledger")
     assert ids.index("quark_sigma_source_nonidentifiability_obstruction") < ids.index(
         "quark_sigma_source_boundary"
     )
@@ -101,7 +98,6 @@ def test_final_particle_pipeline_orders_contracts_before_predictions() -> None:
     assert ids.index("quark_public_mass_texture_yukawa_boundary") < ids.index(
         "direct_top_bridge_contract"
     )
-    assert ids.index("quark_lane_closure_contract") < ids.index("derivation_gap_ledger")
     assert ids[-1] == "mass_derivation_svg"
     scripts = {step.script for step in steps}
     assert "P_derivation/screening_invariant_no_go.py" in scripts

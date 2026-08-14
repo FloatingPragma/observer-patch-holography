@@ -45,8 +45,8 @@
     "projector_trace_numerator": 840
   },
   "implementation_pins": {
-    "independent_verifier_sha256": "sha256:6af98a67b0b336b26552628f3b81e938b81dfd6338694ece80dc61d31f9d2ed5",
-    "producer_sha256": "sha256:d4ed0cc9d53955e1968b32ab19a46b91f01b8587bf1b7b4536fb06498b8bcd75",
+    "independent_verifier_sha256": "sha256:eb1bf9e0d046e23981a1e7399a4684cea1f7f2b3ea2f80492611f726c284f628",
+    "producer_sha256": "sha256:3b351429bfc3e11bafea3c7d7ff2c9708a81ea552f88409f13ff356ee015a3c9",
     "test_sha256": "sha256:7e20cb947f015b508031553b623c0d35c9a678ce29b1d17fe13bf39284185a63"
   },
   "issue": 566,
@@ -54,7 +54,7 @@
     "bracket_selected": false,
     "carrier_choice_derived_by_this_packet": false,
     "compactness_established": false,
-    "issue_566_closed": false,
+    "full_bracket_classification_and_selection_supplied": false,
     "jacobi_solution_classification_complete": false,
     "jacobi_solution_found": false,
     "physical_current_identified": false,
@@ -1019,7 +1019,7 @@
     "port_count": 12,
     "transitive_on_ports": true
   },
-  "receipt_sha256": "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f",
+  "receipt_sha256": "sha256:3b854175e151799d9ea820c940a657030e032889fef74c82cfa86c1b89887642",
   "representation": {
     "V_dimension": 12,
     "action": "simultaneous output and signed unordered-input permutation",

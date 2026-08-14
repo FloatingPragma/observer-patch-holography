@@ -1309,8 +1309,12 @@ def build_companion_status_rows(ledger_entries: Dict[str, Dict[str, Any]]) -> Li
                 "topic": str(hierarchy.get("label", "Electroweak hierarchy/naturality bridge")),
                 "status": str(hierarchy.get("tier", "selected_branch_theorem")),
                 "summary": str(hierarchy.get("status_summary", "")).strip(),
-                "next_action": str(hierarchy.get("next_action", "")).strip(),
-                "blocked_by": list(hierarchy.get("blocked_by") or []),
+                "scientific_boundary": str(
+                    hierarchy.get("scientific_boundary", "")
+                ).strip(),
+                "required_scientific_evidence": list(
+                    hierarchy.get("required_scientific_evidence") or []
+                ),
             }
         )
     strong_cp = ledger_entries.get("continuation.qcd.strong_cp")
@@ -1322,8 +1326,12 @@ def build_companion_status_rows(ledger_entries: Dict[str, Dict[str, Any]]) -> Li
             "topic": str(strong_cp.get("label", "Strong CP")),
             "status": str(strong_cp.get("tier", "open")),
             "summary": str(strong_cp.get("status_summary", "")).strip(),
-            "next_action": str(strong_cp.get("next_action", "")).strip(),
-            "blocked_by": list(strong_cp.get("blocked_by") or []),
+            "scientific_boundary": str(
+                strong_cp.get("scientific_boundary", "")
+            ).strip(),
+            "required_scientific_evidence": list(
+                strong_cp.get("required_scientific_evidence") or []
+            ),
         }
     )
     return rows
@@ -1411,12 +1419,16 @@ def render_markdown(
             [
                 "## Companion Claim Boundaries",
                 "",
-                "| Topic | Claim label | Boundary | Gate |",
-                "| --- | --- | --- | --- |",
+                "| Topic | Claim label | Scientific result | Scientific boundary | Required evidence |",
+                "| --- | --- | --- | --- | --- |",
             ]
         )
         for row in companion_status_rows:
-            lines.append(f"| {row['topic']} | {row['status']} | {row['summary']} | {row['next_action']} |")
+            evidence = "; ".join(row["required_scientific_evidence"]) or "none"
+            lines.append(
+                f"| {row['topic']} | {row['status']} | {row['summary']} | "
+                f"{row['scientific_boundary']} | {evidence} |"
+            )
         lines.append("")
 
     for group in groups_present:

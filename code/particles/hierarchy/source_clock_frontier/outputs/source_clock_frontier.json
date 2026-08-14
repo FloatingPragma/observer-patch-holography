@@ -206,7 +206,7 @@
       "possible_output": "source_g_si_interval",
       "required_input": "source_energy_interval",
       "role": "newton_g_composition",
-      "status": "downstream_open_not_issue_633_acceptance_gate"
+      "status": "downstream_optional_context_not_source_clock_evidence"
     }
   ],
   "exact_unit_chart": {
@@ -218,7 +218,7 @@
     "source_selection_input": false,
     "status": "exact_si_definitions_for_final_attachment_only"
   },
-  "frontier_digest": "ae373cd8f885cf859bf060e5a04dde1a89b086119cd61f5004119ccd68d31f8e",
+  "frontier_digest": "775e6c00077daf6ea16c899a586b7102fdac4638784af38184df1b1d6d7ba7bd",
   "interval_inversion_receipt": {
     "arithmetic_domain": "exact_rationals",
     "checks": {
@@ -270,9 +270,9 @@
   ],
   "physical_promotion_allowed": false,
   "policy_pin": {
-    "byte_sha256": "270b7f47de03666a7a70c4bbc71cf2ef75402ef5f512b02946acbb3ef58fd2eb",
-    "bytes": 4943,
-    "canonical_json_sha256": "39f3b909436678b7214fa16974f95d0efbebef92e95d490f555a6ae2f75a44c8",
+    "byte_sha256": "129dffa6519af7137c81be87901fba692a6e03e74eb18c8df08372866b330d6b",
+    "bytes": 4951,
+    "canonical_json_sha256": "9ee38d9260b8d2d5f6392df11853a32083ab69e1fdf66eb44cd87c1f173c0d1e",
     "path": "code/particles/hierarchy/source_clock_frontier/data/source_clock_policy_v1.json"
   },
   "provenance_dag": {
@@ -382,7 +382,7 @@
       {
         "class": "downstream_open_composition",
         "id": "newton_g_composition",
-        "status": "downstream_open_not_issue_633_acceptance_gate"
+        "status": "downstream_optional_context_not_source_clock_evidence"
       },
       {
         "class": "blocked_candidate_output",

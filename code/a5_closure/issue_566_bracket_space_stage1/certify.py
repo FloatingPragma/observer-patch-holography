@@ -833,7 +833,7 @@ def build_artifacts() -> tuple[dict[str, Any], dict[str, Any]]:
             "jacobi_solution_classification_complete": False,
             "compactness_established": False,
             "physical_current_identified": False,
-            "issue_566_closed": False,
+            "full_bracket_classification_and_selection_supplied": False,
         },
         "implementation_pins": {
             "producer_sha256": sha256_file(Path(__file__).resolve()),

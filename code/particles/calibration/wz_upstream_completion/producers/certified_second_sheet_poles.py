@@ -6,8 +6,8 @@ transverse inverse-propagator function built from the frozen synthetic
 fixture has one simple zero on an explicitly declared algebraic chart.
 It does not certify that chart as *the* physical or unique resonance
 sheet, does not certify the full neutral/charged matrix rank-``n-1``
-Laurent hypothesis, and therefore does not discharge issue #593's
-combined pole-plus-Laurent acceptance row.
+Laurent hypothesis, and therefore does not supply the combined full-matrix
+pole-plus-Laurent evidence.
 
 Declared chart.  Each channel carries an explicit base-chart label and
 an explicit crossed/principal sheet action.  The crossing window is
@@ -52,7 +52,7 @@ What is not certified and stays false in the receipt: independently
 certified continuation identity, standard/physical second-sheet
 identification, a sign bridge from the pinned engine convention
 ``G = s - m_tree^2 - Pi_engine`` to the separately written theorem
-convention, full matrix rank-``n-1`` Laurent data, issue #593 row closure,
+convention, full matrix rank-``n-1`` Laurent data, full physical-pole evidence,
 BMHV restoration, physical-current normalization, unitarity, any unit
 claim, and any OPH-native statement.
 """
@@ -1414,16 +1414,16 @@ def build_receipt() -> dict[str, Any]:
             "continuation_identity_independently_certified": False,
             "standard_second_sheet_identification_certified": False,
             "full_matrix_rank_n_minus_1_laurent_certified": False,
-            "issue_593_pole_laurent_row_discharged": False,
+            "matrix_rank_laurent_evidence_supplied": False,
             "finite_delta_diagnostics_are_noncertifying": True,
             "independent_numerical_replay_certified": False,
             "engine_inverse_propagator_convention": (
                 "G(s)=s-m_tree^2-Pi_engine(s)"
             ),
             "theorem_self_energy_sign_bridge_certified": False,
-            "issue_593_precision_ladder_row_discharged": False,
-            "issue_593_independent_third_verifier_row_discharged": False,
-            "issue_593_full_acceptance_satisfied": False,
+            "precision_ladder_receipt_supplied": False,
+            "independent_numerical_reevaluation_supplied": False,
+            "full_physical_pole_evidence_supplied": False,
         },
         "source_subject": {
             "relative_path": "outputs/fj_direct_vector_blocks.json",
@@ -1497,10 +1497,10 @@ def build_receipt() -> dict[str, Any]:
             "standard_second_sheet_identification_certified": False,
             "theorem_self_energy_sign_bridge_certified": False,
             "full_matrix_rank_n_minus_1_laurent_certified": False,
-            "issue_593_precision_ladder_row_discharged": False,
-            "issue_593_independent_third_verifier_row_discharged": False,
-            "issue_593_pole_laurent_row_discharged": False,
-            "issue_593_full_acceptance_satisfied": False,
+            "precision_ladder_receipt_supplied": False,
+            "independent_numerical_reevaluation_supplied": False,
+            "matrix_rank_laurent_evidence_supplied": False,
+            "full_physical_pole_evidence_supplied": False,
             "bmhv_restoration_certified": False,
             "physical_current_claim": False,
             "oph_native": False,

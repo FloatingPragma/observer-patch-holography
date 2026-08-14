@@ -1,6 +1,6 @@
 # Particle Results Status
 
-Generated: `2026-07-28T17:31:22Z`
+Generated: `2026-08-14T05:26:31Z`
 
 Inputs: `P=1.630968209403959` | `log_dim_H=1e+122` | `loops=4` | `with_hadrons=False` | `hadron_profile=suppressed`
 
@@ -41,10 +41,10 @@ Measured/reference values are pinned from the official Particle Data Group 2026 
 
 ## Companion Claim Boundaries
 
-| Topic | Claim label | Boundary | Gate |
-| --- | --- | --- | --- |
-| Electroweak hierarchy/naturality bridge | selected_branch_theorem | Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0. | Keep this theorem scoped to hierarchy/naturality. W/Z mass promotion, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G stay in their own ledgers. |
-| Strong CP | open | Open. The quark source equations leave two independent spread moduli, and the stored mixed-convention GeV matrices are target-audit mass textures rather than physical Yukawas. The available corpus does not derive theta_QCD, emit the physical anomaly-invariant bar(theta), or prove that the physical strong-CP phase vanishes. | First emit a source-only quark mass matrix at one declared scale with physical determinant-line phase data. Then fix the topological-angle contribution and prove that the resulting anomaly-invariant strong-CP phase vanishes. |
+| Topic | Claim label | Scientific result | Scientific boundary | Required evidence |
+| --- | --- | --- | --- | --- |
+| Electroweak hierarchy/naturality bridge | selected_branch_theorem | Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0. | This theorem is scoped to hierarchy/naturality and does not promote W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G. | HIERARCHY-SCREEN-READOUT; source production of the strict unit cost, inverse pairing, and D-optimal selector |
+| Strong CP | open | Open. The quark source equations leave two independent spread moduli, and the stored mixed-convention GeV matrices are target-audit mass textures rather than physical Yukawas. The available corpus does not derive theta_QCD, emit the physical anomaly-invariant bar(theta), or prove that the physical strong-CP phase vanishes. | The available corpus does not supply a source-only quark mass matrix at one declared scale with physical determinant-line phase data, a fixed topological-angle contribution, or a proof that the anomaly-invariant strong-CP phase vanishes. | source-only quark mass matrix at one declared scale; physical determinant-line phase data; source-fixed topological-angle contribution; proof for the anomaly-invariant strong-CP phase |
 
 ## Bosons
 

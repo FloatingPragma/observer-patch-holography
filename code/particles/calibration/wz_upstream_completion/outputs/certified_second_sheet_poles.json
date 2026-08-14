@@ -17,11 +17,11 @@
   "engine_inverse_propagator_convention": "G(s)=s-m_tree^2-Pi_engine(s)",
   "finite_delta_diagnostics_are_noncertifying": true,
   "full_matrix_rank_n_minus_1_laurent_certified": false,
+  "full_physical_pole_evidence_supplied": false,
+  "independent_numerical_reevaluation_supplied": false,
   "independent_numerical_replay_certified": false,
-  "issue_593_full_acceptance_satisfied": false,
-  "issue_593_independent_third_verifier_row_discharged": false,
-  "issue_593_pole_laurent_row_discharged": false,
-  "issue_593_precision_ladder_row_discharged": false,
+  "matrix_rank_laurent_evidence_supplied": false,
+  "precision_ladder_receipt_supplied": false,
   "standard_second_sheet_identification_certified": false,
   "theorem_self_energy_sign_bridge_certified": false
  },
@@ -925,12 +925,12 @@
   "xi": "1"
  },
  "pins": {
-  "checker_module_sha256": "sha256:02a1cb43c2e1829750bacec94c7034e0d4abf240c9b51711cbb4cb3f839bc6d0",
+  "checker_module_sha256": "sha256:68f871e8103fc1a82a22341dc5081dfd9cdcfde04811c3532d48bad41f30b4cc",
   "diagnostic_producer_sha256": "sha256:1a332f12c34b9ff612eb786652fb34fdeb37c7ef32cdbbe36b6960a7088592b5",
   "interval_arithmetic_module_sha256": "sha256:c4224a0c9317ebd32c663880dc7a1c2a15fe9a3ac1075a32efbf818705659d00",
-  "principal_zero_exclusion_producer_sha256": "sha256:4744bef340374424917e94c713c6036e6b9e8a18c9120ba30c8d58f73eb63fc7",
-  "principal_zero_exclusion_receipt_sha256": "sha256:23b114cfe4ccd95cdf0a9456024b5ac75f3871eda9206e6e72a33a09f7a1cd5b",
-  "producer_module_sha256": "sha256:433cb2d99ae8d354abc13758b93e4f72cce416414204afe9f8cd4edf11dbd254",
+  "principal_zero_exclusion_producer_sha256": "sha256:f4f72034f759154905b3998796d4441386237795d2ab0402de071b9a318d709e",
+  "principal_zero_exclusion_receipt_sha256": "sha256:a2fddd54ad580afa081cd63aa65135c7194f670813864e15d8cc7e363d82456a",
+  "producer_module_sha256": "sha256:3c494ed621cfb2176068a6311cb3c31378a95f67f21b94f8d23073eb6ddd5fdf",
   "vector_blocks_sha256": "sha256:bbff3823b2b3c4a2f2fd1cd3feba407df3a762966a74cb43c9a4d213a5c8c80d"
  },
  "precision_nesting": {
@@ -12053,12 +12053,12 @@
   "bmhv_restoration_certified": false,
   "continuation_identity_independently_certified": false,
   "full_matrix_rank_n_minus_1_laurent_certified": false,
-  "issue_593_full_acceptance_satisfied": false,
-  "issue_593_independent_third_verifier_row_discharged": false,
-  "issue_593_pole_laurent_row_discharged": false,
-  "issue_593_precision_ladder_row_discharged": false,
+  "full_physical_pole_evidence_supplied": false,
+  "independent_numerical_reevaluation_supplied": false,
+  "matrix_rank_laurent_evidence_supplied": false,
   "oph_native": false,
   "physical_current_claim": false,
+  "precision_ladder_receipt_supplied": false,
   "scalar_laurent_denominator_ball_certified": true,
   "scalar_pole_on_declared_algebraic_chart_certified": true,
   "scalar_residue_ball_certified": true,
@@ -12068,7 +12068,7 @@
   "unit_claim": false,
   "unitarity_claim": false
  },
- "receipt_sha256": "sha256:1fa0121df3a1b33fc7a769b0efcdf7a8c2cc872e187f906a67e85e5c3c35b9d4",
+ "receipt_sha256": "sha256:12fcdca842c3c23f36fbbdd463ef4bcd1bd3e623e0400573b657799cd5ad938c",
  "results": {
   "W": {
    "128": {

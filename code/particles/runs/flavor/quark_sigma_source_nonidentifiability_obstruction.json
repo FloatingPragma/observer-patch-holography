@@ -237,15 +237,7 @@
     "requested_tuple_not_invariant": true,
     "source_projection_fixed": true
   },
-  "generated_utc": "2026-07-27T08:32:18Z",
-  "github_issues": [
-    377,
-    379,
-    380
-  ],
-  "issue_377_acceptance_met_as_obstruction": true,
-  "issue_379_acceptance_met_as_obstruction": true,
-  "issue_380_acceptance_met_as_obstruction": true,
+  "generated_utc": "2026-08-14T05:39:23Z",
   "issue_composition": {
     "issue_377_all_quark": {
       "closure": "closed_as_current_corpus_nonidentifiability_obstruction",
@@ -300,12 +292,22 @@
     "x2": -0.517586335468169
   },
   "proof_status": "closed_exact_current_corpus_obstruction",
+  "provenance_issues": [
+    377,
+    379,
+    380
+  ],
   "public_prediction_policy": {
     "forward_yukawa_numeric_promotion": "withheld",
     "reason": "source spread fiber has two unselected positive moduli",
     "running_quark_numeric_rows": "withheld"
   },
   "public_promotion_allowed": false,
+  "scientific_receipt_outcomes": {
+    "all_quark_source_spread_nonidentifiability": true,
+    "down_type_source_spread_nonidentifiability": true,
+    "up_type_source_spread_nonidentifiability": true
+  },
   "scope": {
     "conclusion_kind": "nonidentifiability_not_absolute_impossibility_in_future_extensions",
     "premise": "Target-free current-corpus quark source signature, granting the current template-derived ordered branch-generator and edge packets for the sake of a stronger obstruction.",

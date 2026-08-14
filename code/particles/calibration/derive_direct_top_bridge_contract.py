@@ -2,7 +2,8 @@
 """Emit the direct-top target-codomain obstruction certificate.
 
 Chain role: keep the target-audit top extraction coordinate explicit while
-closing transport to the auxiliary direct-top comparison as a current-corpus no-go.
+recording transport to the auxiliary direct-top comparison as a current-corpus
+no-go.
 
 The current target-audit top coordinate uses the PDG cross-section top entry.
 The direct-top PDG entry is a
@@ -17,7 +18,6 @@ from __future__ import annotations
 import argparse
 import json
 import math
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -27,11 +27,6 @@ REFERENCE_JSON = ROOT / "particles" / "data" / "particle_reference_values.json"
 QUARK_EXACT_READOUT_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_current_family_exact_readout.json"
 PUBLIC_QUARK_THEOREM_JSON = ROOT / "particles" / "runs" / "flavor" / "quark_public_exact_yukawa_end_to_end_theorem.json"
 DEFAULT_OUT = ROOT / "particles" / "runs" / "calibration" / "direct_top_bridge_contract.json"
-
-
-def _timestamp() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
 
 def _load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -69,20 +64,12 @@ def build_payload(
 
     return {
         "artifact": "oph_direct_top_bridge_contract",
-        "generated_utc": _timestamp(),
-        "github_issue": 207,
         "status": "hard_no_go_current_corpus_compare_only_direct_top_codomain",
         "promotion_allowed": False,
-        "worker_result_policy": {
-            "obstruction_only_result_allowed": True,
-            "pro_workers_needed_now": False,
-            "reason": "A new worker pass is not useful until a source-side extraction-response object exists.",
-        },
-        "closure_verdict": {
-            "issue_207_acceptance_met_as_obstruction": True,
-            "closure_kind": "hard_no_go_current_corpus",
-            "closed_target_audit_surface": "Q007TP4_cross_section_top_coordinate",
-            "blocked_surface": "Q007TP_auxiliary_direct_top_coordinate",
+        "scientific_result": {
+            "result_kind": "hard_no_go_current_corpus",
+            "established_comparison_surface": "Q007TP4_cross_section_top_coordinate",
+            "unidentified_transport_surface": "Q007TP_auxiliary_direct_top_coordinate",
             "auxiliary_row_policy": "compare_only_not_promotable",
             "why_no_forward_bridge": (
                 "The current OPH/D10/D11/quark corpus emits a top coordinate in the PDG cross-section "
@@ -148,7 +135,7 @@ def build_payload(
                     "scheme_conversion_budget",
                     "experimental_codomain_budget",
                     "correlation_policy",
-                    "closure_decision",
+                    "interval_comparison_result",
                 ],
             },
         ],
@@ -162,24 +149,19 @@ def build_payload(
                 "target-audit top data equally well because the extraction-response codomain is absent."
             ),
         },
-        "closure_gate": {
-            "closable_now": True,
+        "promotion_boundary": {
+            "promotion_allowed": False,
             "reason": (
                 "The current target-audit top coordinate and the auxiliary direct-top average are compatible "
                 "as a comparison, but no source-side extraction-response map has been emitted; therefore "
-                "the direct-top theorem bridge is closed as a no-go on the current corpus."
+                "the current corpus does not identify a direct-top theorem bridge."
             ),
-            "reopen_only_when": [
-                "codomain metadata is explicit in the public status surfaces",
+            "required_scientific_objects": [
+                "codomain metadata is explicit in the comparison packet",
                 "a response kernel maps the current top coordinate into the direct-top codomain without using the direct-top central value as an input",
                 "the propagated interval overlaps or explains the auxiliary direct-top entry",
             ],
         },
-        "local_next_steps": [
-            "Keep both Q007TP and Q007TP4 as compare-only target coordinates.",
-            "Do not launch more workers for this lane unless a source-side or QFT extraction-response map is introduced.",
-            "Open a new issue only for a concrete response-kernel artifact, not for further border sharpening.",
-        ],
         "forbidden_solver_inputs": [
             "Q007TP_direct_top_central_value_as_calibration_input",
             "post_hoc_shift_to_force_the_direct_top_average",

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for the #235 screening-invariant non-identifiability certificate."""
+"""Tests for the screening-invariant non-identifiability certificate."""
 
 from __future__ import annotations
 
@@ -20,6 +20,9 @@ def _package() -> dict:
 
 def test_target_equivalences_hold() -> None:
     payload = build_no_go(_package())
+    assert "generated_utc" not in payload
+    assert "github_issue" not in payload
+    assert "successor_github_issue" not in payload["required_source_object"]
     eq = payload["target_equivalences"]
 
     assert eq["all_equal_to_precision"] is True

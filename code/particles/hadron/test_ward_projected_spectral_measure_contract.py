@@ -15,18 +15,20 @@ OUTPUT = ROOT / "particles" / "runs" / "hadron" / "ward_projected_spectral_measu
 SCHEMA = ROOT / "particles" / "hadron" / "ward_projected_spectral_measure.schema.json"
 
 
-def test_contract_emits_constructive_spectral_measure_target() -> None:
+def test_contract_emits_scientific_production_boundary() -> None:
     subprocess.run([sys.executable, str(SCRIPT)], check=True, cwd=ROOT)
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     schema = json.loads(SCHEMA.read_text(encoding="utf-8"))
 
     assert payload["artifact"] == "oph_ward_projected_spectral_measure_contract"
-    assert payload["constructive_next_artifact"] == "oph_qcd_ward_projected_hadronic_spectral_measure"
+    assert payload["classification"] == "scientific_contract_without_production_data"
+    assert payload["production_data_supplied"] is False
     assert payload["promotion_allowed"] is False
-    assert payload["current_local_scope"] == "closed_out_of_scope_computationally_blocked"
-    assert payload["github_issues_closed_out_of_scope"] == [153, 157]
-    assert payload["hardware_gate"]["requires_working_oph_hadron_backend"] is True
-    assert payload["hardware_gate"]["chrome_workers_useful_for_backend_execution"] is False
+    boundary = payload["production_boundary"]
+    assert boundary["required_artifact"] == "oph_qcd_ward_projected_hadronic_spectral_measure"
+    assert boundary["requires_working_oph_hadron_backend"] is True
+    assert boundary["no_go_without_production_payload"] is True
+    assert boundary["local_surrogate_promotable"] is False
     assert "stable_channel_only_backend_export" in payload["forbidden_promotions"]
     assert schema["properties"]["artifact"]["const"] == "oph_qcd_ward_projected_hadronic_spectral_measure"
     required = set(schema["required"])
@@ -41,10 +43,10 @@ def test_contract_names_empirical_companion_without_promoting_it() -> None:
 
     companion = payload["empirical_companion"]
     assert companion["artifact"] == "oph_empirical_ward_projected_hadronic_spectral_measure"
-    assert companion["row_class"] == "oph_plus_empirical_hadron_closure"
-    assert companion["satisfies_constructive_next_artifact"] is False
+    assert companion["classification"] == "oph_plus_empirical_hadron_closure"
+    assert companion["satisfies_production_contract"] is False
     # the companion never replaces the production target
-    assert payload["constructive_next_artifact"] == (
+    assert payload["production_boundary"]["required_artifact"] == (
         "oph_qcd_ward_projected_hadronic_spectral_measure")
     assert payload["promotion_allowed"] is False
 
@@ -54,13 +56,22 @@ def test_contract_names_empirical_companion_without_promoting_it() -> None:
     guard_props = companion_schema["properties"]["guards"]["properties"]
     assert guard_props["promotable_as_oph_source_theorem"]["const"] is False
     assert guard_props["surrogate_hadron_artifact"]["const"] is False
-    assert guard_props["satisfies_production_constructive_next_artifact"]["const"] is False
 
 
 def test_contract_names_local_real_engine_without_promoting_it() -> None:
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     engine = payload["local_real_engine"]
-    assert engine["execution_class"] == "real_lattice_diagnostic_toy_scale"
-    assert engine["satisfies_constructive_next_artifact"] is False
+    assert engine["classification"] == "real_lattice_diagnostic_toy_scale"
+    assert engine["satisfies_production_contract"] is False
     assert (ROOT / engine["runner"]).exists()
     assert (ROOT / engine["package"]).is_dir()
+
+
+def test_contract_generation_is_byte_deterministic(tmp_path: pathlib.Path) -> None:
+    first = tmp_path / "first.json"
+    second = tmp_path / "second.json"
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(first)], check=True, cwd=ROOT)
+    subprocess.run(
+        [sys.executable, str(SCRIPT), "--output", str(second)], check=True, cwd=ROOT)
+    assert first.read_bytes() == second.read_bytes()

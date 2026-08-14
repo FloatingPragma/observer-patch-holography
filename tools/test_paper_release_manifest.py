@@ -535,7 +535,6 @@ def test_preview_ci_watches_every_theorem_count_input() -> None:
         "Lean/**/*.lean",
         "README.md",
         "README_FR.md",
-        "docs/HACKER_NEWS_START_HERE.md",
         "tools/check_lean_theorem_count.py",
     )
     for path in direct_inputs:

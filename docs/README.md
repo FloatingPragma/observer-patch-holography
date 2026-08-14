@@ -45,7 +45,11 @@ run data so you can watch the universe assemble itself.
 ## Evidence And Data Policies
 
 - [Hadron Data Policy](HADRON.md) defines provenance and promotion rules for the hadronic pipeline.
-- [IBM Quantum Cloud Archive](IBM_QUANTUM_CLOUD.md) documents the reproducible hardware benchmark and its interpretation boundary.
+- [Hardware Evidence Bundle H](HARDWARE_EVIDENCE_BUNDLE_H.md) defines the
+  evidence and attestation contract for physical hardware claims.
+- The [IBM Quantum Cloud code and data archive](../code/ibm_quantum_cloud/README.md)
+  contains the reproducible engineering benchmark, receipts, and interpretation
+  boundary beside their executable producers.
 - Simulator outputs have no theorem or empirical-promotion authority in the
   paper stack. A simulator count, replay, fit, or diagnostic closes no
   analytic or physical receipt; theorem status needs analytic proof packets,

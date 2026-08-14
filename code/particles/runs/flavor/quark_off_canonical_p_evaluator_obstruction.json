@@ -103,21 +103,13 @@
       }
     ]
   },
-  "generated_utc": "2026-07-27T08:32:18Z",
+  "generated_utc": "2026-08-14T05:39:23Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",
     "public_exact_yukawa_theorem": "oph_quark_public_exact_yukawa_end_to_end_theorem",
     "public_source_payload": "oph_quark_d12_public_source_payload",
     "spread_map": "oph_family_excitation_spread_map"
-  },
-  "lane_closure_verdict": {
-    "blocked_surface": "arbitrary_P_off_canonical_quark_evaluator",
-    "closed_theorem_grade_surface": "selected_public_physical_quark_frame_class_only",
-    "closure_kind": "hard_no_go_current_corpus",
-    "issue_212_acceptance_met": false,
-    "repo_runtime_browser_contract_status": "shared candidate/evidence surface only; theorem-grade off-canonical promotion disallowed",
-    "why_this_is_final_for_current_corpus": "The attached source artifacts admit distinct canonical-preserving off-canonical completions for both the even sigma pair and the odd kappa payload. A direct arbitrary-P evaluator would therefore choose extra data not emitted by the present theorem corpus."
   },
   "notes": [
     "The selected public exact quark theorem is closed and can be used as a theorem-grade static evaluator.",
@@ -282,6 +274,14 @@
     "oph_off_canonical_odd_response_kappa_value_law",
     "oph_arbitrary_P_public_quark_frame_transport_classification"
   ],
+  "scientific_result": {
+    "blocked_surface": "arbitrary_P_off_canonical_quark_evaluator",
+    "closure_kind": "hard_no_go_current_corpus",
+    "current_corpus_boundary": "The attached source artifacts admit distinct canonical-preserving off-canonical completions for both the even sigma pair and the odd kappa payload. A direct arbitrary-P evaluator would therefore choose extra data not emitted by the present theorem corpus.",
+    "off_canonical_evaluator_supplied": false,
+    "runtime_surface_classification": "shared candidate/evidence surface only; theorem-grade off-canonical promotion disallowed",
+    "theorem_grade_surface": "selected_public_physical_quark_frame_class_only"
+  },
   "scope": "arbitrary_P_off_canonical_quark_evaluator",
   "selected_public_exact_surface": {
     "closed": false,
