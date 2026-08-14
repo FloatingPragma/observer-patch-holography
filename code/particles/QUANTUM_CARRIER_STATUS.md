@@ -16,4 +16,4 @@ The gluon row does not promote a colored gauge-potential pole to an asymptotic p
 
 The not-evaluable verdicts are bounded to the pinned declared corpus. The resource rows record missing local production paths and do not prove that every possible completion fails.
 
-Receipt: `sha256:094bad7486084b755ada4e97d55b99af4ba396f0fc23d050859a21941707f578`.
+Receipt: `sha256:3d0c7434d5bba80638cdd8c647220239b1b7140f6b654f920b68a3a81b9e61ca`.

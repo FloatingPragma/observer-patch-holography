@@ -465,6 +465,13 @@ def test_canonical_direct_premise_examples_are_exact() -> None:
         "open": ["PR-54"],
         "boundary": [],
     }
+    assert rows["OPH-CONS-PROTECTED-BEHAVIOR-PROFILE"] == {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The finite protected-observation profile consumes paper-local declared scheduler, active-source, target, and endpoint-quotient data rather than a canonical V3 premise row; claim-to-claim ancestry and stronger physical or implementation attachments remain separate.",
+    }
 
 
 def test_reviewed_premise_projection_rejects_consumed_to_open_mutation() -> None:
@@ -489,6 +496,26 @@ def test_reviewed_premise_projection_rejects_consumer_reclassification() -> None
         "open": [],
         "boundary": [],
         "rationale": "Generic post-hoc reclassification.",
+    }
+    assert (
+        checker.premise_dependency_projection_sha256(claims)
+        != checker.PREMISE_DEPENDENCY_PROJECTION_SHA256
+    )
+
+
+def test_reviewed_premise_projection_rejects_protected_profile_reclassification() -> None:
+    registry = checker.load_json(REPO_ROOT / "claims" / "claim_registry.yaml")
+    claims = json.loads(json.dumps(registry["claims"]))
+    claim = next(
+        row
+        for row in claims
+        if row["claim_id"] == "OPH-CONS-PROTECTED-BEHAVIOR-PROFILE"
+    )
+    claim["premise_dependencies"] = {
+        "classification": "explicit_edges",
+        "consumed": ["PR-01"],
+        "open": [],
+        "boundary": [],
     }
     assert (
         checker.premise_dependency_projection_sha256(claims)

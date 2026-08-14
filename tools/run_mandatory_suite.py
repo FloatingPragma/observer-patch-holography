@@ -40,6 +40,17 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "-m", "pytest", "-q", "tools/test_strict_json.py"],
     ),
     (
+        "Execute protected-obstruction finite explorer",
+        [
+            sys.executable,
+            "Lean/ObservableNormalForms/tools/verify_protected_obstruction_models.py",
+        ],
+    ),
+    (
+        "Regression-test the active-surface inventory guard",
+        [sys.executable, "-m", "pytest", "-q", "tools/test_check_axiom_consistency.py"],
+    ),
+    (
         "Validate the active-surface inventory without rewriting it",
         [
             sys.executable,

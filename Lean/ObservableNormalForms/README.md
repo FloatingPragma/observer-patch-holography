@@ -18,8 +18,49 @@ Build this directory directly with:
 lake build
 ```
 
+Python `3.12` or newer is required only for the deterministic finite-model
+explorer described below.
+
 The directory can be zipped as-is for a submission artifact. Generated `.lake`
 content and build logs are intentionally excluded.
+
+## 60-second review route
+
+1. Read the protected-obstruction result and scope boundary below.
+2. Inspect the protected-obstruction table in [`PROOF_INDEX.md`](PROOF_INDEX.md).
+3. Review `ObservableNormalForms/ProtectedObstructions.lean`, then
+   `ObservableNormalForms/Examples/ProtectedObstructions.lean` for the
+   fine/coarse TwoBit separation, the full/missing fixed-relation boundary,
+   the proper-target closed-trap and ambiguous-endpoint chains, and the
+   common-carrier strict reversal.
+4. Inspect `ObservableNormalForms/AxiomAudit.lean`; run `lake build`, the
+   designated conditional target, and
+   `python tools/verify_protected_obstruction_models.py`.
+5. Review the manuscript and claim-registry diff last. Build evidence supports
+   reproducibility; it does not replace theorem or assumption review.
+
+## Protected-obstruction result and scope
+
+For a declared finite scheduler, the development separates four nested
+questions for each protected behavior: whether its consistent fiber exists,
+whether some declared active source reaches it with positive first-hit
+probability, whether every active source hits almost surely, and whether the
+first-hit endpoint class is unique modulo the declared silent equivalence.
+Their complementary cuts form an exact obstruction profile. Explicit
+supported-trace adapters recover the four existing `RealizedBehavior` and
+`BehaviorCut` coordinates of `MechanismVariants.lean`, and an exact
+finite-state morphism transports the profile under the full source, target,
+kernel-lumping, and endpoint-quotient hypotheses; observation commutation is
+packaged separately in `FrozenMorphism` and is not consumed by the layer
+transport.
+
+Finite-state first-hit expansion, closed-class reachability, Bellman
+least-fixed-point reasoning, and strong lumpability are standard Markov-chain
+ingredients. The contribution here is their source-quantified assembly around
+protected observations, the exact OPH behavior-cut adapter, and the verified
+native activations and counterexamples. No rate, expected hitting time,
+mixing, infinite-state or refinement-tower theorem, scalar ranking, deployed
+implementation refinement, or arbitrary-scheduler invariance is claimed.
 
 ## Contents
 
@@ -46,6 +87,22 @@ content and build logs are intentionally excluded.
   width. The exact-range bridge composes actual encoded-collar surjectivity
   with fixed-relation `StrongRepair`. These declarations do not imply
   mechanism reachability, strategy preservation, or full `Repair` width.
+- `ProtectedObstructions.lean`: canonical finite-state first-hit and transport
+  development. It builds exact-time mass and fixed-horizon cumulative endpoint
+  mass from `FiniteMarkovKernel.pathWeight`, takes bounded monotone limits,
+  derives positive-path and no-reachable-closed-trap characterizations, and
+  proves the least nonnegative Bellman fixed-point property. Structural
+  morphisms carry protected/initial/target reflection and coverage, kernel
+  lumping, and quotient exactness; fiber nonemptiness, positive/almost-sure/
+  selection exactness, endpoint pushforward, and L0--L3 exactness are derived
+  theorems rather than premise fields. The file also contains the T0--T8 public
+  adapter, common-carrier family completion, and full-support initial-law
+  corollaries.
+- `Examples/ProtectedObstructions.lean`: nonidentity transport and finite
+  load-bearing fixtures for common-carrier strict reversal, an empty target
+  fiber, fine/coarse TwoBit, full/missing fixed relations, and proper-target
+  closed-trap and ambiguous-endpoint chains. The proper-target models keep
+  equality at the source distinct from positive transition support.
 - `Functional.lean`: synchronous ranked-dependency settling, fixed-point, and
   uniqueness theorems.
 - `Stochastic.lean`: finite Markov affine-drift iteration and a one-time
@@ -72,10 +129,25 @@ content and build logs are intentionally excluded.
 - `PROOF_INDEX.md`: paper-label-to-Lean mapping and explicit formalization gaps.
 - `SUBMISSION_MANIFEST.md`: exact archive contents and reproduction commands.
 - `BUILD_RECEIPT.md`: pinned local parent/standalone build and axiom-audit result.
+- `tools/verify_protected_obstruction_models.py`: deterministic finite-model
+  explorer for the protected-obstruction fixtures and their minimum state
+  counts.
 
 All theorem-bearing source files in this directory are intended to be
 `sorry`-free. The build and `#print axioms` receipt should be regenerated for
 the final submission archive after the manuscript theorem numbering freezes.
+
+## Protected-obstruction verification boundary
+
+Lean is canonical for the stochastic protected-obstruction implementation:
+the transition kernel, path-weight first-hit law, scheduler correspondence,
+behavior-cut adapter, and quantitative endpoint pushforward are all derived
+here, and the axiom audit covers every public theorem.
+
+The Bellman fixed-point characterization is a theorem derived from the
+canonical path law, not the definition of the law. In particular, the artifact
+does not claim uniqueness among all nonnegative Bellman fixed points when a
+reachable closed non-target trap exists.
 
 The conditional module does not claim same-initial executable repair,
 all-path or trace completeness, full `Repair` width, a complete support

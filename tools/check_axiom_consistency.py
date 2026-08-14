@@ -35,6 +35,7 @@ ACTIVE_GLOBS = [
     "paper/tex_fragments/*.tex",
     "flagship/*.tex",
     "extra/compact_proof_of_oph.tex",
+    "extra/observable_normal_forms.tex",
     "cosmology/*.tex",
     "book/*.md",
     "docs/*.md",
@@ -135,6 +136,7 @@ REQUIRED_ENUM = [
 PDF_SURFACES = [
     "flagship/from_observer_consensus_to_standard_physics.pdf",
     "extra/compact_proof_of_oph.pdf",
+    "extra/observable_normal_forms.pdf",
     "paper/observers_are_all_you_need.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",

@@ -98,6 +98,11 @@ def test_projection_pins_bounded_source_frontiers_without_exhaustive_claim() -> 
     assert boundaries["qcd_spectral_resource"]["evidence_class"] == (
         "bounded_local_resource_receipt"
     )
+    quantum_eft = boundaries["lorentzian_quantum_eft_transfer"]
+    assert quantum_eft["evidence_class"] == "required_interface_not_supplied"
+    assert quantum_eft["status"] == (
+        "REQUIRED_INTERFACE_NOT_SUPPLIED_ON_DECLARED_SOURCE_INVENTORY"
+    )
     assert "limited to the pinned declared corpus" in projection["scope"]
 
 
@@ -318,6 +323,47 @@ def test_independent_bounded_parent_drift_is_rejected(
     altered = tmp_path / "local_domain.json"
     altered.write_text(json.dumps(boundary), encoding="utf-8")
     monkeypatch.setattr(verifier, "LOCAL_DOMAIN_PATH", altered)
+    with pytest.raises(verifier.VerificationError):
+        verifier.verify()
+
+
+def test_required_quantum_eft_interface_drift_is_rejected(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    module = _producer()
+    frontier = json.loads(
+        module.QUANTUM_EFT_FRONTIER_PATH.read_text(encoding="utf-8")
+    )
+    selected = next(
+        row
+        for row in frontier["required_interfaces"]
+        if row["gate_id"] == "finite_to_lorentzian_quantum_eft_transfer"
+    )
+    selected["classification"] = "supplied"
+    altered = tmp_path / "quantum_eft_frontier.json"
+    altered.write_text(json.dumps(frontier), encoding="utf-8")
+    monkeypatch.setattr(module, "QUANTUM_EFT_FRONTIER_PATH", altered)
+    with pytest.raises(module.CertificateError) as error:
+        module.reconstruct_source_projection()
+    assert error.value.code == "QUANTUM_EFT_BOUNDARY"
+
+
+def test_independent_required_quantum_eft_interface_drift_is_rejected(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    verifier = _verifier()
+    frontier = json.loads(verifier.QUANTUM_EFT_PATH.read_text(encoding="utf-8"))
+    selected = next(
+        row
+        for row in frontier["required_interfaces"]
+        if row["gate_id"] == "finite_to_lorentzian_quantum_eft_transfer"
+    )
+    selected["supplied_evidence"] = ["unverified"]
+    altered = tmp_path / "quantum_eft_frontier.json"
+    altered.write_text(json.dumps(frontier), encoding="utf-8")
+    monkeypatch.setattr(verifier, "QUANTUM_EFT_PATH", altered)
     with pytest.raises(verifier.VerificationError):
         verifier.verify()
 
