@@ -1,6 +1,7 @@
 import Variational.LegendreBridge
 import Variational.RealizedHistoryLegendreNoGo
 import Variational.StationarySaddleCoverage
+import Variational.SourceToHamiltonianComposed
 import InformationProjection.LogTransitionAction
 
 namespace OPH.Variational
@@ -38,7 +39,12 @@ history law does not determine the regular Lagrangian that the Legendre
 bridge consumes.  The derived-action theorems and the Legendre-bridge
 theorems therefore stand side by side inside the
 structure-parameterized namespace, with the enrichment a declared
-register row.
+register row.  The composition that is available under the registered
+rows is the single-bundle theorem of
+`Variational.SourceToHamiltonianComposed`, re-exported below as
+`mechanicsSurface_composed`: over the bundle `ComposedMechanicsData`
+(rows PR-06 and PR-45 as fields, row PR-05 in the tilt clause), one
+history threads the derived-action, mode, and Hamilton clauses.
 
 Contents.  On the derived-action side: the Markov path law is the
 exponential tilt of the step-uniform reference by the log-transition
@@ -488,6 +494,55 @@ theorem mechanicsAdequacySurface_receipt {Ω : Type*} [Fintype Ω]
     chainCurvedLagrangian_one_ne_two,
     stationaryMaximumHistory_not_minimal⟩
 
+/-! ## The composed surface re-export -/
+
+/-- **The composed mechanics surface (issue #731, rows PR-05, PR-06,
+PR-45).**  Re-export of
+`Variational.SourceToHamiltonianComposed.source_to_hamiltonian_composed`
+on the surface: for one composed bundle and one history whose embedded
+path is a real fixed-endpoint extremizer at interior junctions, the
+derived-action identity, the exponential-tilt identity over the
+registered reference, the interior mode clause, and the discrete
+Hamilton equations hold of the same objects, with the enrichment no-go
+and the mode/minimizer scoping carried as boundary conjuncts. -/
+theorem mechanicsSurface_composed {Ω : Type*} [Fintype Ω]
+    [Nonempty Ω] (D : ComposedMechanicsData Ω) (s : Fin (D.n + 1) → Ω)
+    (hmin_real : ∀ (k m : Fin D.n), k.succ = m.castSucc → ∀ x : ℝ,
+      localAction D.Lenr (D.emb ∘ s)
+        ≤ localAction D.Lenr (Function.update (D.emb ∘ s) k.succ x)) :
+    localAction D.Lenr (D.emb ∘ s)
+        = InformationProjection.logTransitionAction D.P D.n s
+      ∧ InformationProjection.markovPathLaw D.pi D.P D.n
+          = InformationProjection.tilt
+              (InformationProjection.stepUniformRef D.pi D.n)
+              (InformationProjection.logTransitionAction D.P D.n) 1
+      ∧ (∀ (k m : Fin D.n), k.succ = m.castSucc → ∀ x : Ω,
+          InformationProjection.markovPathLaw D.pi D.P D.n
+              (Function.update s k.succ x)
+            ≤ InformationProjection.markovPathLaw D.pi D.P D.n s)
+      ∧ (∀ (k m : Fin D.n), k.succ = m.castSucc →
+          (D.emb ∘ s) m.castSucc
+              = D.vel ((D.emb ∘ s) k.castSucc)
+                  (D.d2 ((D.emb ∘ s) k.castSucc) ((D.emb ∘ s) k.succ))
+            ∧ D.d2 ((D.emb ∘ s) k.castSucc) ((D.emb ∘ s) k.succ)
+                + D.d1 ((D.emb ∘ s) m.castSucc)
+                    (D.vel ((D.emb ∘ s) m.castSucc)
+                      (D.d2 ((D.emb ∘ s) m.castSucc)
+                        ((D.emb ∘ s) m.succ))) = 0)
+      ∧ (¬ ∃ vel : ℝ → ℝ → ℝ, SolvesMomentum chainLogLagrangian vel)
+      ∧ chainCurvedLagrangian 1 ≠ chainCurvedLagrangian 2
+      ∧ (¬ ∀ x, localAction concaveControlL stationaryMaximumHistory
+          ≤ localAction concaveControlL
+              (Function.update stationaryMaximumHistory
+                ((0 : Fin 2).succ) x))
+      ∧ ∀ lam : ℝ, 0 < lam →
+          Real.exp (-lam
+              * localAction concaveControlL stationaryMaximumHistory)
+            < Real.exp (-lam * localAction concaveControlL
+                (Function.update stationaryMaximumHistory
+                  ((0 : Fin 2).succ) 1)) :=
+  source_to_hamiltonian_composed D s hmin_real
+
 end OPH.Variational
 
 #print axioms OPH.Variational.MechanicsPremiseData.path_law_eq_exponential_tilt
@@ -512,3 +567,4 @@ end OPH.Variational
 #print axioms OPH.Variational.mechanicsSurface_enrichment_no_go
 #print axioms OPH.Variational.mechanicsSurface_stationary_maximum_scoping
 #print axioms OPH.Variational.mechanicsAdequacySurface_receipt
+#print axioms OPH.Variational.mechanicsSurface_composed

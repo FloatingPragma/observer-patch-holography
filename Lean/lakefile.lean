@@ -73,8 +73,10 @@ lean_lib «OPHScreen» where
     `GaugeKineticInvariantForms, `OrientedFaceBracketSelector,
     `OrientedFaceInvariantMetric, `PortDualMetricSelection,
     `LightSignalAdequacySurface, `ModalMaxwellFactorizationBoundary,
+    `LightSignalMaxwellComposition, `SeamU1HolonomyClassification,
     `LayeredDiscreteGauss,
-    `SMStructureAdequacySurface,
+    `SMStructureAdequacySurface, `SMStructureComposition,
+    `MatterGrammarIndexBridge,
     `ExteriorComponentBridge, `QuantumMatterIntegration,
     `B10EdgeCenterAction,
     `B10QuantumLimitations, `CarrierUniqueness]

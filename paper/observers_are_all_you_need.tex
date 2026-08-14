@@ -1900,6 +1900,19 @@ isomorphic blocks, and the swap is realized on the square two-block
 algebra. The parameter is a real number; no physical clock,
 source-selected Hamiltonian, or physical time identification is claimed.
 
+The measurement and dynamics surfaces now share one object. A composed
+frame-duality theorem (\texttt{schroedinger\_frame\_duality}) consumes
+the registered record representation, operational effect additivity,
+and one supplied pointwise-continuous flow through a single typed
+bundle and proves that the unique Busch--Gleason state of the
+Heisenberg-shifted registered frame is exactly the propagator
+conjugation of the unique state, at every flow parameter: the
+Schr\"odinger picture of the Born frame is forced by the Heisenberg
+action of the rigid generator. The flow stays a supplied premise and
+its parameter is not physical time; what the theorem removes is any
+freedom to represent the measurement statistics and the dynamics on
+different state objects.
+
 \subsection{Conditional history weights and the variational bridge boundary}
 \label{sec:history-variational-boundary}
 
@@ -2170,6 +2183,28 @@ needed for a regular Legendre system. It derives the finite action and
 conditional bridges at the representation level; the real enrichment and
 physical attachments are open obligations under the attachment doctrine.
 
+Two composition results sharpen this boundary. First, the two halves of
+the mechanics package are now one theorem
+(\texttt{source\_to\_hamiltonian\_composed}): under the registered path
+reference, real enrichment, and supplied-dynamics rows, a fixed-endpoint
+real-extremal embedded history realizes the derived corner action of the
+same kernel whose exponential tilt over the registered reference is the
+path law, is an interior most-probable update of that law at every
+interior site, and satisfies the discrete Hamilton equations, with the
+segment momenta constant under the supplied symmetry data; the
+mode/minimizer scoping and the enrichment no-go ride along as conjuncts
+of the same statement. Second, while the realized law cannot select the
+enrichment, a declared mode-extremality principle pins it uniquely
+inside the registered one-parameter curvature family on the committed
+chain: interior stationarity of the embedded constant-record history
+forces the curvature
+\(a_\star=2\log\!\bigl(W_{11}^2/(W_{10}W_{01})\bigr)>0\), positivity
+being exactly strict interior mode dominance, and at \(a_\star\) that
+history is a genuine fixed-endpoint minimizer at every length, so the
+composed conditional is inhabited on the committed kernel rather than
+vacuous. The principle references off-alphabet variations and is
+declared, not derived; the no-go stands.
+
 \subsection{Thermodynamics from conditional repair in an observer modular parameter}
 \label{sec:thermodynamics}
 
@@ -2177,13 +2212,25 @@ On one finite regulator stage, the four laws form a conditional theorem
 package once one repaired distinction and two compatible instantiations of
 Axiom~3 are supplied. Five named source and physical receipts are unsupplied.
 The Lean development carries three composed named-premise surfaces for
-these packages: \texttt{FourLawAdequacySurface} bundles the declared
-repair law and the calibration data and re-exports the zeroth, first,
-second, third, and Landauer statements as one package;
-\texttt{HorizonThermalitySurface} carries the cap Clausius inequality
-and the capacity identities as the horizon-facing composition; and
-\texttt{MechanicsAdequacySurface} does the same for the derived action,
-the Legendre bridge, and the conservation witnesses.
+these packages. \texttt{FourLawAdequacySurface} now proves one theorem,
+\texttt{fourLaws\_composed}: one typed antecedent bundle whose fields
+are exactly the registered repair law, the clock-and-energy
+calibration, and the refinement-uniform gap family, and one conclusion
+record whose clauses all consume that bundle---the kernel receipts,
+both zeroth-law forms, the modular and diagonal-heat-channel first
+laws, the second-law and fluctuation statements, the finite and
+refinement-uniform third laws threaded to the same calibrated energy
+through an explicit member identification, and the Landauer bound.
+The same surface carries an exact dissipation identity: the mean
+fluctuating entropy production of one repair step equals the relative
+entropy from the current state to its repaired image, is strictly
+positive whenever the step changes a strictly positive state, and
+vanishes exactly on the fibre-conditional-reference fixed points, so
+the arrow of time under the declared repair law is strict rather than
+merely nonnegative. \texttt{HorizonThermalitySurface} carries the cap
+Clausius inequality and the capacity identities as the horizon-facing
+composition. \texttt{MechanicsAdequacySurface} re-exports the composed
+source-to-Hamiltonian theorem described below.
 Three maps stay distinct. The strict-descent normalizer settles
 public facts; it is terminating and idempotent and carries no entropy
 inequality, and the two-point normalizer \(a\mapsto b\), \(b\mapsto b\)

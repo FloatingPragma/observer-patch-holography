@@ -98,13 +98,15 @@
     "Lean/InformationProjection/ReferenceNormalForm.lean",
     "Lean/InformationProjection/LogTransitionAction.lean",
     "Lean/InformationProjection/SourceReferenceSelection.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/Variational/SourceToHamiltonianComposed.lean"
    ],
    "evidence_roles": {
     "Lean/InformationProjection/ReferenceNormalForm.lean": "conditional_consumer",
     "Lean/InformationProjection/LogTransitionAction.lean": "statement",
     "Lean/InformationProjection/SourceReferenceSelection.lean": "no_go",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source rule selecting the counting reference and the trivial datum; the relabeling-invariant normal form is characterized, and the selection remains open scientific work in lane #731."
   },
@@ -120,14 +122,18 @@
    "evidence": [
     "Lean/Variational/LegendreBridge.lean",
     "Lean/Variational/RealizedHistoryLegendreNoGo.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/Variational/ModeExtremalEnrichment.lean",
+    "Lean/Variational/SourceToHamiltonianComposed.lean"
    ],
    "evidence_roles": {
     "Lean/Variational/LegendreBridge.lean": "statement",
     "Lean/Variational/RealizedHistoryLegendreNoGo.lean": "no_go",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/Variational/ModeExtremalEnrichment.lean": "conditional_consumer",
+    "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer"
    },
-   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet velocity curvature, which the realized-history law provably underdetermines."
+   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet velocity curvature, which the realized-history law provably underdetermines. Mode-extremal consistency now pins the member uniquely within the registered one-parameter curvature family on the committed chain: interior-junction stationarity of the embedded constant-1 history forces a = 2*log(362055879/271780) > 0, with positivity equivalent to strict interior mode dominance (Lean/Variational/ModeExtremalEnrichment.lean). The selection principle is declared, references off-alphabet variations, and leaves the realized-history no-go in force; the row remains a representation choice."
   },
   {
    "id": "PR-07",
@@ -144,14 +150,16 @@
     "Lean/Thermodynamics/CommonReferenceObstruction.lean",
     "code/thermodynamics/common_reference_obstruction/",
     "code/b20_random_scan/",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
    ],
    "evidence_roles": {
     "Lean/Thermodynamics/FiniteConditionalRepair.lean": "conditional_consumer",
     "Lean/Thermodynamics/CommonReferenceObstruction.lean": "no_go",
     "code/thermodynamics/common_reference_obstruction/": "no_go",
     "code/b20_random_scan/": "no_go",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer"
    },
    "notes": "Promotion is the recorded axiomatization candidate of lane #732 with the B12/B20 bounded no-gos as its justification record; a simulator export realizing the law through the recorded-decision process would open the emergent rung."
   },
@@ -166,13 +174,15 @@
    ],
    "evidence": [
     "Lean/Thermodynamics/LowTemperatureControl.lean",
-    "claims/claim_registry.yaml"
+    "claims/claim_registry.yaml",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
    ],
    "evidence_roles": {
     "Lean/Thermodynamics/LowTemperatureControl.lean": "conditional_consumer",
-    "claims/claim_registry.yaml": "conditional_consumer"
+    "claims/claim_registry.yaml": "conditional_consumer",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a source-produced refinement family whose uniform gap lower bound and cardinality bound are theorems rather than declared data."
+   "notes": "Removal needs a source-produced refinement family whose uniform gap lower bound and cardinality bound are theorems rather than declared data. The refinement-uniform bound is now threaded into the composed four-law conclusion at the calibrated energy through the r0-member identification of the refinement attachment (fourLaws_composed)."
   },
   {
    "id": "PR-09",
@@ -231,12 +241,14 @@
    "evidence": [
     "Lean/Screen/A5OPH.lean",
     "Lean/Screen/TrichotomyCases.lean",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "Lean/Screen/SMStructureComposition.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/A5OPH.lean": "external_input",
     "Lean/Screen/TrichotomyCases.lean": "external_input",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "external_input"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "external_input",
+    "Lean/Screen/SMStructureComposition.lean": "conditional_consumer"
    },
    "notes": "The facts are classical compact-Lie theory consumed as imports; the row's only movement is machine-checked replacements for the paper citations, and no derivation obligation attaches."
   },
@@ -322,13 +334,15 @@
    ],
    "evidence": [
     "claims/assumption_dictionary.md",
-    "claims/claim_registry.yaml"
+    "claims/claim_registry.yaml",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
-    "claims/claim_registry.yaml": "conditional_consumer"
+    "claims/claim_registry.yaml": "conditional_consumer",
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer"
    },
-  "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt."
+   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt."
   },
   {
    "id": "PR-16",
@@ -420,12 +434,14 @@
    "evidence": [
     "Lean/Screen/SeamCurrentHomogeneousAction.lean",
     "Lean/Screen/SeamCurrentDirichletGenerator.lean",
-    "Lean/Screen/LightSignalAdequacySurface.lean"
+    "Lean/Screen/LightSignalAdequacySurface.lean",
+    "Lean/Screen/LightSignalMaxwellComposition.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SeamCurrentHomogeneousAction.lean": "statement",
     "Lean/Screen/SeamCurrentDirichletGenerator.lean": "conditional_consumer",
-    "Lean/Screen/LightSignalAdequacySurface.lean": "conditional_consumer"
+    "Lean/Screen/LightSignalAdequacySurface.lean": "conditional_consumer",
+    "Lean/Screen/LightSignalMaxwellComposition.lean": "conditional_consumer"
    },
    "notes": "The forcing theorem a2a3_directed_seam_weight_eq_one_sixtieth discharges the weight law from the data; the register row is the existence of the projection data itself. Evidence context: selected_generator_eq_dirichlet)"
   },
@@ -743,7 +759,7 @@
     "code/a5_closure/family_band_attachment_certificate.py": "statement",
     "code/a5_closure/manifests/family_band_attachment_reference.json": "statement",
     "Lean/Screen/A5FamilyBand.lean": "conditional_consumer",
-    "Lean/Screen/SMStructureAdequacySurface.lean": "statement"
+    "Lean/Screen/SMStructureAdequacySurface.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source derivation of the comparison order and of the realization clause that places the multiplicity object inside the screen coefficient space; registration composes OL-G4 conditionally, and family triplication stays a selection under these rules."
   },
@@ -877,12 +893,14 @@
    "evidence": [
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/Dynamics/StoneConverse.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/EventAlgebra/SchroedingerFrameFlow.lean"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/QuantumAdequacySurface.lean": "statement",
     "Lean/Dynamics/StoneConverse.lean": "conditional_consumer",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/EventAlgebra/SchroedingerFrameFlow.lean": "conditional_consumer"
    },
    "notes": "Removal needs the observer protocol to emit the automorphism group and its source-selected generator. Physical-time calibration remains a separate PR-15 attachment."
   },
@@ -899,12 +917,14 @@
    "evidence": [
     "Lean/ObserverPatchHolography/Locality/NoSignalling.lean",
     "Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/EventAlgebra/SlotLocalitySurface.lean"
    ],
    "evidence_roles": {
     "Lean/ObserverPatchHolography/Locality/NoSignalling.lean": "conditional_consumer",
     "Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean": "conditional_consumer",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/EventAlgebra/SlotLocalitySurface.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source-produced subsystem or region split, normalized channel semantics, and scheduler provenance. PR-52 separately owns the physical spacetime and causal reading."
   },
@@ -913,19 +933,23 @@
    "name": "source-selected real variational dynamics and symmetry data",
    "type": "structural_rule",
    "disposition": "remove",
-   "statement": "The variational surface is supplied with a positive initial law and transition kernel, a finite history length, a real Lagrangian or stiffness and potential with derivative data, and, for Noether transport, a differentiable one-parameter transformation and exact invariance law. The finite Euler-Lagrange, Legendre-Hamilton, and Noether receipts are conditional on these data; the observer source does not select them.",
+   "statement": "The variational surface is supplied with a positive initial law and transition kernel, a finite history length, a record embedding of the alphabet into the reals, a real Lagrangian or stiffness and potential with derivative data, and, for Noether transport, a differentiable one-parameter transformation and exact invariance law. The finite Euler-Lagrange, Legendre-Hamilton, and Noether receipts are conditional on these data and are stated for fixed-endpoint interior-junction variations; the observer source does not select them.",
    "consuming_lanes": [
     731
    ],
    "evidence": [
     "Lean/Variational/MechanicsAdequacySurface.lean",
     "Lean/Variational/DiscreteNoether.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/Variational/SourceToHamiltonianComposed.lean",
+    "Lean/Variational/TranslationInvariantComposedInstance.lean"
    ],
    "evidence_roles": {
     "Lean/Variational/MechanicsAdequacySurface.lean": "statement",
     "Lean/Variational/DiscreteNoether.lean": "conditional_consumer",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer",
+    "Lean/Variational/TranslationInvariantComposedInstance.lean": "conditional_consumer"
    },
    "notes": "Removal needs one source-derived real history action, potential, symmetry action, and physical clock that compose with the path reference and real enrichment rather than merely standing beside them."
   },
@@ -1206,6 +1230,23 @@
     "code/particles/runs/status/postdiction_ledger.json": "statement"
    },
    "notes": "Removal needs one common observer realization of the matter, QCD, and action construction plus an operational decay comparison. The current exact result is only a conditional finite operator census."
+  },
+  {
+   "id": "PR-58",
+   "name": "net-compatible dynamics and region-symmetry action",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "No registered premise supplies a pointwise-continuous automorphism flow of the joint algebra that maps each regional algebra of the declared diamond to itself or to a covariant image, nor any group action on the region system beyond the constructed Z/2 slot swap. PR-43 supplies a flow on one full matrix block with no region compatibility, and PR-52 owns the physical time and causal reading. This row is the exact block on the OL-C6 time-slice target.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "Lean/QFT/StructuralNetAdequacySurface.lean"
+   ],
+   "evidence_roles": {
+    "Lean/QFT/StructuralNetAdequacySurface.lean": "statement"
+   },
+   "notes": "Removal needs a source-selected flow or symmetry action compatible with the declared regional net. The Z/2 slot-swap receipt on the equal-alphabet carrier is the first nonconstant region-symmetry action and does not discharge the dynamics half."
   }
  ]
 }

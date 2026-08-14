@@ -2,6 +2,7 @@ import EventAlgebra.FiniteBuschGleason
 import EventAlgebra.Lueders
 import EventAlgebra.Tsirelson
 import EventAlgebra.PublicRecordAlgebra
+import EventAlgebra.SlotLocalitySurface
 import Dynamics.StoneConverse
 import QFT.SourcePhaseLiftBridge
 
@@ -29,6 +30,12 @@ effect additivity). `PhaseInstrument` bundles the register row PR-04
 it (`committedPhaseInstrument`), and the real/Kraus blindness boundary
 is carried alongside as the committed limit.
 
+The companion modules `EventAlgebra.SlotLocalitySurface` (the OL-C3
+and OL-C4 receipts composed under the PR-44 slot split) and
+`EventAlgebra.SchroedingerFrameFlow` (the OL-C1 single-statement
+composition with conditioning closure, and the OL-C2 duality under
+PR-43) extend this surface inside the same `QuantumSurface` namespace.
+
 Composition boundaries, stated exactly:
 
 * the Tsirelson bound (`tsirelson_of_events`) is algebra-only: it
@@ -36,21 +43,32 @@ Composition boundaries, stated exactly:
   valuation, so it does not factor through `RepresentedPublicFrame`;
   it is re-exported side by side inside the namespace, on the same
   represented carrier, and the bound is an inequality with no
-  attainment claim;
+  attainment claim; the composed bipartite form, with the cross-party
+  commutation derived from the registered PR-44 slot split, is
+  `slot_locality_receipts` on the slot-locality surface;
 * the unique continuous symmetry flow (`unique_continuous_flow`)
   consumes a pointwise continuous star-automorphism group of the
   represented algebra and no frame valuation; the represented carrier
   of PR-02 is the composition point, the flow concerns one full matrix
   block, and no physical clock or source-selected Hamiltonian is
-  claimed, the parameter is a real number;
+  claimed, the parameter is a real number; the composed form on the
+  represented state is `schroedinger_frame_duality` in
+  `EventAlgebra.SchroedingerFrameFlow`: the unique Busch-Gleason state
+  of the Heisenberg-shifted frame follows the propagator conjugation
+  of the unique generator, with the flow staying the supplied PR-43
+  premise and the clock attachment staying open on PR-15;
 * the phase-completion theorems consume the committed dimension-two
   payload and no frame valuation; the register row PR-04 records that
   the payload supplies the algebraic lift and no instrument receipts,
   and `phase_boundary_summary` carries the committed limit: realized
   outcome statistics inhabit only the diagonal native context;
-* OL-C4 (no-signalling and locality receipts) is carried by the
-  locality modules and is not composed on this surface; OL-C6
-  (structural field theory) is owed to the regional-net modules.
+* OL-C4 (no-signalling and locality receipts) is composed on the
+  slot-locality surface: `slot_locality_receipts` consumes the PR-44
+  interface, derives the Tsirelson commutation from the slot split,
+  and threads the lifted local channel into the PR-02 trace pairing;
+  the physical spacelike reading stays open on register row PR-52;
+  OL-C6 (structural field theory) is owed to the regional-net
+  modules.
 
 The row dispositions are the register's: PR-02 is an explicit
 representation assumption, while PR-03 and PR-04 identify assumptions

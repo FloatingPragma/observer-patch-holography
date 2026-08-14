@@ -26,6 +26,8 @@ OBSERVATION_EVIDENCE = [
     "code/electromagnetism/modal_maxwell_factorization.py",
     "code/electromagnetism/test_modal_maxwell_factorization.py",
     "paper/screen_microphysics_and_observer_synchronization.tex",
+    "Lean/Screen/LightSignalMaxwellComposition.lean",
+    "Lean/Screen/SeamU1HolonomyClassification.lean",
 ]
 
 POSTDICTION_ARTIFACTS = [

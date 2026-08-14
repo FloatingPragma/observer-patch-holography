@@ -39,24 +39,36 @@ Every theorem in this module is a re-export or a direct conjunction of
 committed theorems from `QFT.CPRestrictionNet`,
 `QFT.TwoSlotCPNetWitness`, `QFT.TowerAnchoredDiamond`,
 `QFT.JointSlotFactorisation`, and `QFT.SourceCorrelationCapstone`,
-presented as composition; no structural mathematics beyond the
-committed theorems is proved here.  Where the committed receipts live
-on different carriers they are re-exported side by side rather than
-composed, and that separation is part of the committed level.
+presented as composition, with one exception: the slot-swap section
+proves the finite Z/2 swap receipts of the support-disjoint carrier
+(`slotSwap`, `supportDisjoint_swap_covariance`).  The theorem
+`supportDisjoint_composed_adequacy` states the support-disjoint
+receipts as one conjunction consuming `supportDisjointPairPremises`,
+with every clause about the one net `supportDisjointPairNet` and the
+one state `correlationState`; the conjunction is presentation-level
+composition of the committed receipts, and the clause list is the
+derivation record.  Where the committed receipts live on different
+carriers they are re-exported side by side rather than composed, and
+that separation is part of the committed level.
 
 **What OL-C6 lacks at the committed level.**  The time-slice property
 is not attained: the committed region systems carry no time parameter,
 no dynamics on the net, and no statement that the algebra of a slice
 region determines the top algebra; the coverage law is an algebraic
 generation statement over a declared generating family and is not a
-time-slice statement.  Genuine local covariance beyond constant-tower
-transport is not attained: the only receipt in this direction is the
-transport of one diamond along one basis equivalence onto one constant
-tower stage, with no symmetry-group action on the region system, no
-naturality across tower stages, and no nonconstant stage.  Every
-statement is finite-dimensional matrix algebra; no continuum limit, no
-vacuum state, and no local quantum field is constructed, and no
-continuum quantum field theory is claimed.
+time-slice statement.  The exact block: no registered premise supplies
+net-compatible dynamics, PR-43's flow lives on one full matrix block
+with no region compatibility, and PR-52 owns the physical time and
+causal reading.  Genuine local covariance beyond the committed receipts
+is not attained: the receipts in this direction are the transport of
+one diamond along one basis equivalence onto one constant tower stage,
+and the Z/2 slot-swap action of `supportDisjoint_swap_covariance`, an
+internal algebra symmetry of the declared two-slot split with
+equivariant regional expectations.  The swap is not a spacetime
+symmetry; no naturality across tower stages and no nonconstant stage
+is attached.  Every statement is finite-dimensional matrix algebra; no
+continuum limit, no vacuum state, and no local quantum field is
+constructed, and no continuum quantum field theory is claimed.
 
 **Boundary.**  The slot assembly and the label conventions stay
 declared postprocessors over post-hoc payload transcriptions,
@@ -385,6 +397,293 @@ theorem supportDisjoint_on_carrier_erasure :
     correlationState ≠ marginal86State ⊗ₖ marginal247State :=
   slotExpectations_erase_source_correlation
 
+/-! ## The support-disjoint receipts as one composed conjunction -/
+
+/-- **The composed support-disjoint adequacy statement.**  One
+conjunction consuming the premise bundle `supportDisjointPairPremises`
+(register rows PR-32, PR-33, PR-34), with every clause about the one
+net `supportDisjointPairNet` and the one state `correlationState`: net
+existence with the joint coverage law, the conditional-expectation
+diamond, the source-grounded split, the correlation-carrying counted
+state with exact marginal consistency, the marginal recovery through
+the net's expectations, and the on-carrier erasure.  Every clause is a
+committed receipt of this module; the conjunction is the
+presentation-level composition that lets the ledger row cite one
+statement on the shared objects, and it adds no derivation. -/
+theorem supportDisjoint_composed_adequacy :
+    ((supportDisjointPairNet.Region = TwoSlotRegion) ∧
+      (∀ U : TwoSlotRegion,
+        supportDisjointPairNet.localAlgebra U =
+          supportDisjointPairPremises.regionMap U) ∧
+      (StarAlgebra.adjoin ℂ
+          (⋃ U ∈ ({TwoSlotRegion.left, TwoSlotRegion.right} :
+              Finset TwoSlotRegion),
+            (supportDisjointPairPremises.regionMap U :
+              Set (Matrix supportDisjointPairPremises.Carrier
+                supportDisjointPairPremises.Carrier ℂ))) = ⊤)) ∧
+    ((∀ (U : TwoSlotRegion)
+        (X : Matrix supportDisjointPairPremises.Carrier
+          supportDisjointPairPremises.Carrier ℂ),
+      supportDisjointPairNet.expect U X ∈
+        supportDisjointPairPremises.regionMap U) ∧
+      (∀ U : TwoSlotRegion,
+        ∀ X ∈ supportDisjointPairPremises.regionMap U,
+          supportDisjointPairNet.expect U X = X) ∧
+      (∀ (U : TwoSlotRegion)
+          (X : Matrix supportDisjointPairPremises.Carrier
+            supportDisjointPairPremises.Carrier ℂ),
+        X.PosSemidef → (supportDisjointPairNet.expect U X).PosSemidef) ∧
+      (∀ (U : TwoSlotRegion)
+          (X : Matrix supportDisjointPairPremises.Carrier
+            supportDisjointPairPremises.Carrier ℂ),
+        (supportDisjointPairNet.expect U X).trace = X.trace) ∧
+      (∀ U V : TwoSlotRegion, supportDisjointPairNet.regionLE U V →
+        ∀ X, supportDisjointPairNet.expect U
+            (supportDisjointPairNet.expect V X) =
+          supportDisjointPairNet.expect U X)) ∧
+    ((∀ i j : Fin 96, support86Full i ≠ support247Full j) ∧
+      (StarSubalgebra.map supportDisjointPairPremises.splitLeft
+          obs86.sourceAlgebra =
+        supportDisjointPairPremises.regionMap TwoSlotRegion.left) ∧
+      (StarSubalgebra.map supportDisjointPairPremises.splitRight
+          obs247.sourceAlgebra =
+        supportDisjointPairPremises.regionMap TwoSlotRegion.right)) ∧
+    (((∑ p : Fin 13 × Fin 13, jointCount p) = 32) ∧
+      correlationState.PosSemidef ∧
+      correlationState.trace = 1 ∧
+      ptraceSnd correlationState = marginal86State ∧
+      OPH.Locality.ptraceFst correlationState = marginal247State ∧
+      correlationState ≠ marginal86State ⊗ₖ marginal247State) ∧
+    ((supportDisjointPairNet.expect TwoSlotRegion.left correlationState =
+        (13 : ℂ)⁻¹ •
+          (marginal86State ⊗ₖ (1 : Matrix (Fin 13) (Fin 13) ℂ))) ∧
+      (supportDisjointPairNet.expect TwoSlotRegion.right correlationState =
+        (13 : ℂ)⁻¹ •
+          ((1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ marginal247State))) ∧
+    (((supportDisjointPairNet.expect TwoSlotRegion.left correlationState,
+        supportDisjointPairNet.expect TwoSlotRegion.right
+          correlationState) =
+      (supportDisjointPairNet.expect TwoSlotRegion.left
+          (marginal86State ⊗ₖ marginal247State),
+        supportDisjointPairNet.expect TwoSlotRegion.right
+          (marginal86State ⊗ₖ marginal247State))) ∧
+      correlationState ≠ marginal86State ⊗ₖ marginal247State) :=
+  ⟨supportDisjoint_net_exists_with_coverage,
+    supportDisjoint_conditional_expectation_diamond,
+    supportDisjoint_split_grounding,
+    supportDisjoint_correlation_counted_state,
+    supportDisjointNet_expect_recovers_marginals,
+    supportDisjoint_on_carrier_erasure⟩
+
+/-! ## The Z/2 slot-swap action on the support-disjoint diamond -/
+
+/-- The label-swap map on the two-slot diamond: exchanges the left and
+right regions and fixes bottom and top. -/
+def TwoSlotRegion.swap : TwoSlotRegion → TwoSlotRegion
+  | TwoSlotRegion.bot => TwoSlotRegion.bot
+  | TwoSlotRegion.left => TwoSlotRegion.right
+  | TwoSlotRegion.right => TwoSlotRegion.left
+  | TwoSlotRegion.top => TwoSlotRegion.top
+
+/-- The region swap is an involution. -/
+theorem TwoSlotRegion.swap_swap : ∀ U : TwoSlotRegion, U.swap.swap = U := by
+  decide
+
+/-- The region swap preserves the diamond order. -/
+theorem TwoSlotRegion.swap_monotone : ∀ U V : TwoSlotRegion,
+    TwoSlotRegion.le U V = true →
+      TwoSlotRegion.le U.swap V.swap = true := by
+  decide
+
+/-- The slot-swap star-algebra equivalence of the support-disjoint
+carrier: matrix reindexing along the exchange of the two tensor
+factors.  This is a constructed object, not a declared premise; it is
+an internal algebra symmetry of the declared two-slot split, not a
+spacetime symmetry. -/
+def slotSwap :
+    Matrix PairIndex247 PairIndex247 ℂ ≃⋆ₐ[ℂ]
+      Matrix PairIndex247 PairIndex247 ℂ :=
+  StarAlgEquiv.ofAlgEquiv
+    (Matrix.reindexAlgEquiv ℂ ℂ (Equiv.prodComm (Fin 13) (Fin 13)))
+    (fun M => by
+      simp only [Matrix.reindexAlgEquiv_apply, Matrix.star_eq_conjTranspose]
+      exact reindex_conjTranspose _ M)
+
+theorem slotSwap_apply (M : Matrix PairIndex247 PairIndex247 ℂ)
+    (z w : PairIndex247) :
+    slotSwap M z w = M (z.2, z.1) (w.2, w.1) :=
+  rfl
+
+/-- The slot swap exchanges the two Kronecker factors. -/
+theorem slotSwap_kronecker (A B : Matrix (Fin 13) (Fin 13) ℂ) :
+    slotSwap (A ⊗ₖ B) = B ⊗ₖ A := by
+  ext z w
+  rw [slotSwap_apply]
+  simp only [Matrix.kroneckerMap_apply]
+  exact mul_comm _ _
+
+/-- The slot swap is an involution. -/
+theorem slotSwap_involutive (M : Matrix PairIndex247 PairIndex247 ℂ) :
+    slotSwap (slotSwap M) = M :=
+  rfl
+
+/-- The swap exchanges the two partial traces (first form). -/
+theorem ptraceFst_slotSwap (M : Matrix PairIndex247 PairIndex247 ℂ) :
+    OPH.Locality.ptraceFst (slotSwap M) = ptraceSnd M :=
+  rfl
+
+/-- The swap exchanges the two partial traces (second form). -/
+theorem ptraceSnd_slotSwap (M : Matrix PairIndex247 PairIndex247 ℂ) :
+    ptraceSnd (slotSwap M) = OPH.Locality.ptraceFst M :=
+  rfl
+
+/-- **Region covariance of the swap.**  The slot swap maps each
+regional algebra of the support-disjoint diamond onto the regional
+algebra of the swapped region. -/
+theorem slotSwap_map_localAlgebra (U : TwoSlotRegion) :
+    StarSubalgebra.map
+        (slotSwap : Matrix PairIndex247 PairIndex247 ℂ →⋆ₐ[ℂ]
+          Matrix PairIndex247 PairIndex247 ℂ)
+        (twoSlotAlgebra247 U) =
+      twoSlotAlgebra247 U.swap := by
+  cases U
+  · -- bottom: the scalars map onto the scalars.
+    apply le_antisymm
+    · rintro x ⟨y, hy, rfl⟩
+      obtain ⟨c, rfl⟩ := StarSubalgebra.mem_bot.mp hy
+      exact ⟨c, (AlgHomClass.commutes
+        (slotSwap : Matrix PairIndex247 PairIndex247 ℂ →⋆ₐ[ℂ]
+          Matrix PairIndex247 PairIndex247 ℂ) c).symm⟩
+    · intro x hx
+      obtain ⟨c, rfl⟩ := StarSubalgebra.mem_bot.mp hx
+      exact ⟨algebraMap ℂ _ c, ⟨c, rfl⟩,
+        AlgHomClass.commutes
+          (slotSwap : Matrix PairIndex247 PairIndex247 ℂ →⋆ₐ[ℂ]
+            Matrix PairIndex247 PairIndex247 ℂ) c⟩
+  · -- left: the left factor maps onto the right factor.
+    apply le_antisymm
+    · rintro x ⟨y, ⟨A, rfl⟩, rfl⟩
+      refine ⟨A, ?_⟩
+      show (1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ A =
+        slotSwap (A ⊗ₖ (1 : Matrix (Fin 13) (Fin 13) ℂ))
+      exact (slotSwap_kronecker A 1).symm
+    · rintro x ⟨B, rfl⟩
+      refine ⟨slotLeft (Fin 13) B, ⟨B, rfl⟩, ?_⟩
+      show slotSwap (B ⊗ₖ (1 : Matrix (Fin 13) (Fin 13) ℂ)) =
+        (1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ B
+      exact slotSwap_kronecker B 1
+  · -- right: the right factor maps onto the left factor.
+    apply le_antisymm
+    · rintro x ⟨y, ⟨B, rfl⟩, rfl⟩
+      refine ⟨B, ?_⟩
+      show B ⊗ₖ (1 : Matrix (Fin 13) (Fin 13) ℂ) =
+        slotSwap ((1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ B)
+      exact (slotSwap_kronecker 1 B).symm
+    · rintro x ⟨A, rfl⟩
+      refine ⟨slotRight (Fin 13) A, ⟨A, rfl⟩, ?_⟩
+      show slotSwap ((1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ A) =
+        A ⊗ₖ (1 : Matrix (Fin 13) (Fin 13) ℂ)
+      exact slotSwap_kronecker 1 A
+  · -- top: a star-algebra equivalence is surjective.
+    show StarSubalgebra.map
+        (slotSwap : Matrix PairIndex247 PairIndex247 ℂ →⋆ₐ[ℂ]
+          Matrix PairIndex247 PairIndex247 ℂ) ⊤ = ⊤
+    rw [← StarAlgHom.range_eq_map_top, StarSubalgebra.eq_top_iff]
+    intro x
+    exact ⟨slotSwap.symm x, slotSwap.apply_symm_apply x⟩
+
+/-- **Expectation equivariance of the swap.**  The regional conditional
+expectations of the support-disjoint net intertwine the slot swap: the
+expectation of the swapped region evaluated on the swapped matrix is
+the swap of the original expectation. -/
+theorem slotSwap_expect (U : TwoSlotRegion)
+    (M : Matrix PairIndex247 PairIndex247 ℂ) :
+    supportDisjointPairNet.expect U.swap (slotSwap M) =
+      slotSwap (supportDisjointPairNet.expect U M) := by
+  have hswap_smul_kron : ∀ (c : ℂ) (A B : Matrix (Fin 13) (Fin 13) ℂ),
+      slotSwap (c • (A ⊗ₖ B)) = c • (B ⊗ₖ A) := by
+    intro c A B
+    ext z w
+    rw [slotSwap_apply]
+    simp only [Matrix.smul_apply, Matrix.kroneckerMap_apply, smul_eq_mul]
+    ring
+  cases U
+  · -- bottom onto bottom: the scalar expectation.
+    show scalarExpectation PairIndex247 (slotSwap M) =
+      slotSwap (scalarExpectation PairIndex247 M)
+    have htr : (slotSwap M).trace = M.trace :=
+      trace_reindex_equiv (Equiv.prodComm (Fin 13) (Fin 13)) M
+    have h1 : scalarExpectation PairIndex247 (slotSwap M) =
+        (Fintype.card PairIndex247 : ℂ)⁻¹ • (slotSwap M).trace •
+          (1 : Matrix PairIndex247 PairIndex247 ℂ) := rfl
+    have h2 : scalarExpectation PairIndex247 M =
+        (Fintype.card PairIndex247 : ℂ)⁻¹ • M.trace •
+          (1 : Matrix PairIndex247 PairIndex247 ℂ) := rfl
+    rw [h1, h2, htr]
+    ext z w
+    rw [slotSwap_apply]
+    simp only [Matrix.smul_apply, smul_eq_mul, Matrix.one_apply]
+    by_cases h : z = w
+    · subst h
+      simp
+    · have h' : ¬ ((z.2, z.1) = (w.2, w.1)) := by
+        intro hc
+        exact h (Prod.ext (congrArg Prod.snd hc) (congrArg Prod.fst hc))
+      simp [h, h']
+  · -- left onto right.
+    show rightSlotExpectation (slotSwap M) =
+      slotSwap (leftSlotExpectation M)
+    have h1 : rightSlotExpectation (α := Fin 13) (β := Fin 13)
+        (slotSwap M) =
+        (Fintype.card (Fin 13) : ℂ)⁻¹ •
+          ((1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ
+            OPH.Locality.ptraceFst (slotSwap M)) := rfl
+    have h2 : leftSlotExpectation (α := Fin 13) (β := Fin 13) M =
+        (Fintype.card (Fin 13) : ℂ)⁻¹ •
+          (ptraceSnd M ⊗ₖ (1 : Matrix (Fin 13) (Fin 13) ℂ)) := rfl
+    rw [h1, h2, ptraceFst_slotSwap, hswap_smul_kron]
+  · -- right onto left.
+    show leftSlotExpectation (slotSwap M) =
+      slotSwap (rightSlotExpectation M)
+    have h1 : leftSlotExpectation (α := Fin 13) (β := Fin 13)
+        (slotSwap M) =
+        (Fintype.card (Fin 13) : ℂ)⁻¹ •
+          (ptraceSnd (slotSwap M) ⊗ₖ
+            (1 : Matrix (Fin 13) (Fin 13) ℂ)) := rfl
+    have h2 : rightSlotExpectation (α := Fin 13) (β := Fin 13) M =
+        (Fintype.card (Fin 13) : ℂ)⁻¹ •
+          ((1 : Matrix (Fin 13) (Fin 13) ℂ) ⊗ₖ
+            OPH.Locality.ptraceFst M) := rfl
+    rw [h1, h2, ptraceSnd_slotSwap, hswap_smul_kron]
+  · -- top onto top: the identity expectation.
+    rfl
+
+/-- **The swap-covariance receipt.**  The Z/2 slot-swap action on the
+support-disjoint diamond, in one statement: the swap maps each regional
+algebra onto the swapped region's algebra, the regional expectations
+intertwine the swap, the swap preserves the region order, and the swap
+is an involution.  This is a symmetry-group action on the region system
+of the committed net, strictly beyond the constant-tower transport; it
+is an internal algebra symmetry of the declared two-slot split and
+carries no spacetime reading. -/
+theorem supportDisjoint_swap_covariance :
+    (∀ U : TwoSlotRegion,
+      StarSubalgebra.map
+          (slotSwap : Matrix PairIndex247 PairIndex247 ℂ →⋆ₐ[ℂ]
+            Matrix PairIndex247 PairIndex247 ℂ)
+          (twoSlotAlgebra247 U) =
+        twoSlotAlgebra247 U.swap) ∧
+    (∀ (U : TwoSlotRegion) (M : Matrix PairIndex247 PairIndex247 ℂ),
+      supportDisjointPairNet.expect U.swap (slotSwap M) =
+        slotSwap (supportDisjointPairNet.expect U M)) ∧
+    (∀ U V : TwoSlotRegion, supportDisjointPairNet.regionLE U V →
+      supportDisjointPairNet.regionLE U.swap V.swap) ∧
+    (∀ M : Matrix PairIndex247 PairIndex247 ℂ,
+      slotSwap (slotSwap M) = M) :=
+  ⟨slotSwap_map_localAlgebra, slotSwap_expect,
+    fun U V hUV => TwoSlotRegion.swap_monotone U V hUV,
+    slotSwap_involutive⟩
+
 end
 
 end OPH.QFT
@@ -404,3 +703,15 @@ end OPH.QFT
 #print axioms OPH.QFT.supportDisjoint_correlation_counted_state
 #print axioms OPH.QFT.supportDisjointNet_expect_recovers_marginals
 #print axioms OPH.QFT.supportDisjoint_on_carrier_erasure
+#print axioms OPH.QFT.supportDisjoint_composed_adequacy
+#print axioms OPH.QFT.TwoSlotRegion.swap_swap
+#print axioms OPH.QFT.TwoSlotRegion.swap_monotone
+#print axioms OPH.QFT.slotSwap
+#print axioms OPH.QFT.slotSwap_apply
+#print axioms OPH.QFT.slotSwap_kronecker
+#print axioms OPH.QFT.slotSwap_involutive
+#print axioms OPH.QFT.ptraceFst_slotSwap
+#print axioms OPH.QFT.ptraceSnd_slotSwap
+#print axioms OPH.QFT.slotSwap_map_localAlgebra
+#print axioms OPH.QFT.slotSwap_expect
+#print axioms OPH.QFT.supportDisjoint_swap_covariance

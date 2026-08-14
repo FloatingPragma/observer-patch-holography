@@ -3,6 +3,7 @@ import FirstLawIdentity
 import FluctuationTheorems
 import StationaryRealization
 import CapFirstLaw
+import LowTemperatureControl
 
 set_option autoImplicit false
 
@@ -14,9 +15,15 @@ namespace OPH.Thermodynamics
 One parameterized package for the observation-ledger rows OL-E1 (the
 four laws), OL-E2 (the exact fluctuation identities), OL-E3 (the
 Landauer bound), and OL-E4 (the arrow of time from repair), V3 issue
-#732. Every theorem below is a committed result of the thermodynamics
-modules, re-exported through one named premise bundle so that a ledger
-row cites a single surface instead of five scattered conditionals.
+#732. Every theorem in `FourLawSurface` is a committed result of the
+thermodynamics modules, stated through the named per-row premise
+structures. The composed surface is the one theorem
+`fourLaws_composed`: from the single typed antecedent bundle
+`FourLawAntecedent`, whose fields are exactly the premise-register
+rows PR-07, PR-15, and PR-08, the full conclusion record
+`FourLawConclusions` holds for the one kernel `repairKernel A.repair`
+and the one calibrated energy `A.calib.energy`. A ledger row cites
+that single composed statement.
 
 `RepairLawData` is the premise-register row PR-07, the declared repair
 law: one faithful reference law shared by the state and transition
@@ -40,17 +47,30 @@ Landauer statements consume it; the second-law statements do not.
 Composition boundaries, stated exactly:
 
 * the exact first-law split `first_exact_split` is an algebraic matrix
-  identity with no repair-law hypothesis, so it does not factor through
-  `RepairLawData`; it is re-exported side by side inside the namespace;
+  identity with no repair-law hypothesis; its diagonal (classical)
+  instantiation at the repair step and the calibrated energy is the
+  threaded clause `first_heat_channel`, and the general matrix
+  statement stays a standalone module theorem with no repair-law
+  content;
 * the stationary-kernel second law `second_contraction_of_stationary`
   quantifies over arbitrary stochastic kernels preserving the declared
   reference, covering nonreversible repair chains; detailed balance
   enters only the fluctuation relations;
 * the refinement-uniform low-temperature control is the register row
-  PR-08; it is consumed by the refinement-family strengthening in
-  `LowTemperatureControl` and is a hypothesis of no statement here;
-* every remaining theorem takes `RepairLawData`, and where stated
-  `CalibrationData`, as its only nonstructural input.
+  PR-08; the bundle field `RefinementAttachment` attaches it to the
+  calibrated energy through a carrier identification, and the clauses
+  `third_refinement_uniform` and `third_calibrated_member` of the
+  composed conclusion consume it; no other clause needs it, and the
+  per-clause doc comments name the rows each clause uses;
+* the arrow clauses state nonnegativity for every strictly positive
+  state, the exact dissipation identity, and strictness: a
+  state-changing repair step produces strictly positive mean entropy
+  production, and zero production forces the fibre-conditional
+  reference form; states with zero atoms carry the nonnegativity
+  clause only;
+* every theorem of `FourLawSurface` takes `RepairLawData`, and where
+  stated `CalibrationData`, as its only nonstructural input; the
+  per-row structures stay exported for finer consumers.
 
 The laws are exact finite theorems under the register. Laboratory
 thermodynamics requires the calibration row. Nothing here claims the
@@ -216,10 +236,12 @@ theorem zeroth_multiplier_unique [Nonempty Ω]
 across a joint update of state and energy observable splits exactly
 into the heat increment, the work increment, and one explicit bilinear
 cross term. This is an algebraic matrix identity with no repair-law
-hypothesis; it is re-exported side by side because it does not factor
-through `RepairLawData`. Physical content additionally requires the
-calibration row and a protocol distinguishing controlled changes of the
-observable from state changes. -/
+hypothesis; its diagonal instantiation at the repair step and the
+calibrated energy is the threaded theorem `first_heat_channel`, and
+the general matrix statement carries no repair-law content. Physical
+content additionally requires the calibration row and a protocol
+distinguishing controlled changes of the observable from state
+changes. -/
 theorem first_exact_split {n : ℕ}
     (ρ dρ H dH : Matrix (Fin n) (Fin n) ℂ) :
     internalEnergy (ρ + dρ) (H + dH) - internalEnergy ρ H
@@ -353,7 +375,9 @@ theorem third_excited_mass_threshold [Nonempty Ω]
 extinguishes no atom: a fully supported state stays fully supported,
 so finitely many repair steps reach no rank-deficient ground-sector
 state. The refinement-uniform strengthening consumes the register row
-PR-08 and lives in `LowTemperatureControl`. -/
+PR-08; its base theorems live in `LowTemperatureControl`, and the
+clauses `third_refinement_uniform` and `third_calibrated_member` of
+the composed conclusion thread it to the calibrated energy. -/
 theorem third_no_step_extinguishes (p : Ω → ℝ) (hp : ∀ x, 0 < p x)
     (y : Ω) : 0 < push p (repairKernel D) y :=
   heatBath_preserves_pos D.ref_pos p hp y
@@ -374,7 +398,487 @@ theorem landauer_bound (C : CalibrationData D) (p : Ω → ℝ) (c : ℝ)
     D.ref_pos (repairKernel_nonneg D) (repairKernel_row_sum D)
     (repairKernel_stationary D) C.beta_pos C.thermal herase
 
+/-! ## Arrow of time, exact form
+
+The nonnegativity clause above is the Jensen shadow of an exact
+identity: the mean fluctuating entropy production of one repair step
+equals the relative entropy from the state to its own repaired image.
+The identity is classical information theory for conditional-
+expectation projections; its role here is that the arrow clause of the
+composed surface becomes a forcing statement rather than a bare
+inequality. All three theorems consume register row PR-07 only. -/
+
+/-- **Arrow of time, exact dissipation identity.** The mean fluctuating
+entropy production of one repair step equals `D(p ‖ push p K)`, the
+relative entropy from the state to its repaired image. Stated for
+strictly positive states; states with zero atoms carry the
+nonnegativity clause only. Consumes register row PR-07. -/
+theorem arrow_mean_entropy_production_eq_kl_to_repaired (p : Ω → ℝ)
+    (hp : ∀ x, 0 < p x) :
+    ∑ x, ∑ y, p x * repairKernel D x y
+        * sigmaEP D.ref p (push p (repairKernel D)) x y
+      = kl p (push p (repairKernel D)) := by
+  have hmean := sigma_mean_eq_kl_descent D.ref p (repairKernel D) hp
+    (repairKernel_row_sum D)
+    (heatBath_preserves_pos D.ref_pos p hp)
+  have hpyth := heatBath_kl_pythagorean (b := D.visible) D.ref_pos p hp
+  rw [hmean, repairKernel_def]
+  linarith [hpyth]
+
+/-- **Arrow of time, strictness.** A repair step that changes a
+strictly positive state produces strictly positive mean entropy
+production, and zero mean entropy production forces the state onto the
+repaired manifold. Together with the exact identity this excludes a
+degenerate always-zero arrow off the fixed states at the structural
+rung; the emergent rung is gated on the simulator-export decision
+recorded in the register row PR-07 notes. Consumes register row
+PR-07. -/
+theorem arrow_strict (p : Ω → ℝ) (hp : ∀ x, 0 < p x) :
+    push p (repairKernel D) ≠ p ↔
+      0 < ∑ x, ∑ y, p x * repairKernel D x y
+        * sigmaEP D.ref p (push p (repairKernel D)) x y := by
+  rw [arrow_mean_entropy_production_eq_kl_to_repaired D p hp]
+  have hq : ∀ y, 0 < push p (repairKernel D) y :=
+    heatBath_preserves_pos D.ref_pos p hp
+  have hsum : ∑ x, p x = ∑ y, push p (repairKernel D) y :=
+    (push_total p (repairKernel D) (repairKernel_row_sum D)).symm
+  constructor
+  · intro hne
+    have hzero : kl p (push p (repairKernel D)) ≠ 0 := fun h =>
+      hne ((kl_eq_zero_iff_of_pos p (push p (repairKernel D)) hp hq
+        hsum).mp h).symm
+    have hnn : 0 ≤ kl p (push p (repairKernel D)) :=
+      kl_nonneg p (push p (repairKernel D)) (fun x => (hp x).le)
+        (fun y => (hq y).le)
+        (fun y hy => absurd hy (ne_of_gt (hq y))) hsum
+    exact lt_of_le_of_ne hnn (Ne.symm hzero)
+  · intro hpos heq
+    have hself : kl p (push p (repairKernel D)) = 0 := by
+      rw [heq]
+      exact (kl_eq_zero_iff_of_pos p p hp hp rfl).mpr rfl
+    rw [hself] at hpos
+    exact lt_irrefl 0 hpos
+
+/-- **Zero-dissipation characterization.** A state is fixed by one
+repair step exactly when it carries the reference's conditional
+structure on every visible fibre: within each fibre the state is the
+reference reweighted by the ratio of state fibre mass to reference
+fibre mass. Consumes register row PR-07. -/
+theorem repair_fixed_iff (p : Ω → ℝ) :
+    push p (repairKernel D) = p ↔
+      ∀ y, p y = D.ref y * fiberMass p D.visible y
+        / fiberMass D.ref D.visible y := by
+  constructor
+  · intro h y
+    have hstep := push_heatBath_eq (π := D.ref) (b := D.visible) p y
+    rw [← repairKernel_def, h] at hstep
+    exact hstep
+  · intro h
+    funext y
+    rw [repairKernel_def, push_heatBath_eq p y]
+    exact (h y).symm
+
+/-! ## First law, diagonal matrix bridge -/
+
+/-- Diagonal embedding of a classical state or observable into the
+matrix carrier of the exact first-law identity, along the constructed
+equivalence `Fintype.equivFin`. -/
+noncomputable def diagR (v : Ω → ℝ) :
+    Matrix (Fin (Fintype.card Ω)) (Fin (Fintype.card Ω)) ℂ :=
+  Matrix.diagonal (fun i => (v ((Fintype.equivFin Ω).symm i) : ℂ))
+
+/-- **First law, heat channel of one repair step.** Embedding the
+state and the calibrated energy as diagonal matrices along
+`Fintype.equivFin`, one repair step is a pure-heat stroke of the exact
+matrix identity `first_exact_split`: the observable is held fixed
+(`dH = 0`), the cross term vanishes, and the heat increment equals the
+classical energy flow `∑ x, (push p K x - p x) * energy x`, the
+quantity whose negative the Landauer clause bounds from below, at the
+same state, kernel, and calibrated energy. The clause instantiates the
+algebraic identity on the diagonal (classical) sector only; no claim
+is made that the off-diagonal matrix content derives from the repair
+law. Consumes register rows PR-07 and PR-15. -/
+theorem first_heat_channel (C : CalibrationData D) (p : Ω → ℝ) :
+    (internalEnergy (diagR (push p (repairKernel D))) (diagR C.energy)
+        - internalEnergy (diagR p) (diagR C.energy)
+      = heatIncrement
+          (diagR (push p (repairKernel D)) - diagR p)
+          (diagR C.energy))
+    ∧ heatIncrement
+        (diagR (push p (repairKernel D)) - diagR p) (diagR C.energy)
+      = ∑ x, (push p (repairKernel D) x - p x) * C.energy x := by
+  constructor
+  · have hsplit := firstLaw_split (diagR p)
+      (diagR (push p (repairKernel D)) - diagR p) (diagR C.energy)
+      (0 : Matrix (Fin (Fintype.card Ω)) (Fin (Fintype.card Ω)) ℂ)
+    have hadd : diagR p + (diagR (push p (repairKernel D)) - diagR p)
+        = diagR (push p (repairKernel D)) := by abel
+    rw [hadd, add_zero] at hsplit
+    have hwork : workIncrement (diagR p)
+        (0 : Matrix (Fin (Fintype.card Ω)) (Fin (Fintype.card Ω)) ℂ)
+        = 0 := by
+      unfold workIncrement
+      rw [Matrix.mul_zero, Matrix.trace_zero]
+      exact Complex.zero_re
+    have hcross : (Matrix.trace
+        ((diagR (push p (repairKernel D)) - diagR p)
+          * (0 : Matrix (Fin (Fintype.card Ω))
+              (Fin (Fintype.card Ω)) ℂ))).re = 0 := by
+      rw [Matrix.mul_zero, Matrix.trace_zero]
+      exact Complex.zero_re
+    rw [hwork, hcross] at hsplit
+    linarith [hsplit]
+  · unfold heatIncrement diagR
+    simp only [Matrix.diagonal_sub, Matrix.diagonal_mul_diagonal,
+      Matrix.trace_diagonal]
+    rw [Complex.re_sum]
+    have hterm : ∀ i : Fin (Fintype.card Ω),
+        (((push p (repairKernel D) ((Fintype.equivFin Ω).symm i) : ℂ)
+            - (p ((Fintype.equivFin Ω).symm i) : ℂ))
+          * (C.energy ((Fintype.equivFin Ω).symm i) : ℂ)).re
+        = (push p (repairKernel D) ((Fintype.equivFin Ω).symm i)
+            - p ((Fintype.equivFin Ω).symm i))
+          * C.energy ((Fintype.equivFin Ω).symm i) := by
+      intro i
+      rw [← Complex.ofReal_sub, ← Complex.ofReal_mul,
+        Complex.ofReal_re]
+    rw [Finset.sum_congr rfl fun i _ => hterm i]
+    exact Equiv.sum_comp (Fintype.equivFin Ω).symm
+      (fun x => (push p (repairKernel D) x - p x) * C.energy x)
+
 end FourLawSurface
+
+open FourLawSurface
+
+universe u
+
+/-- **Register row PR-08 attachment: the refinement-uniform gap
+family, tied to the calibrated energy.** The declared refinement
+family of `LowTemperatureControl` lives on an indexed family of
+carriers; the distinguished member `r0` is identified with the surface
+state space by the equivalence `e`, and `energy_eq` identifies that
+member's energy with the calibrated energy of register row PR-15.
+These two fields are the bridge between the PR-08 carrier and the
+surface carrier; without them the two halves share no object. -/
+structure RefinementAttachment {Ω : Type u} [Fintype Ω] [DecidableEq Ω]
+    {B : Type*} [DecidableEq B] (D : RepairLawData Ω B)
+    (C : CalibrationData D) where
+  /-- The refinement index type. -/
+  I : Type
+  /-- The refinement order on the index type. -/
+  [preorderI : Preorder I]
+  /-- The member carriers of the declared family. -/
+  X : I → Type u
+  /-- Every member carrier is finite. -/
+  [fintypeX : ∀ r, Fintype (X r)]
+  /-- Every member carrier has decidable equality. -/
+  [decEqX : ∀ r, DecidableEq (X r)]
+  /-- Every member carrier is inhabited. -/
+  [nonemptyX : ∀ r, Nonempty (X r)]
+  /-- The member energies of the declared family. -/
+  E : ∀ r, X r → ℝ
+  /-- The declared refinement family with one uniform positive gap
+  lower bound and one uniform cardinality bound: register row
+  PR-08. -/
+  family : UniformGapRefinement X E
+  /-- The distinguished member identified with the surface state
+  space. -/
+  r0 : I
+  /-- The carrier identification of the distinguished member with the
+  surface state space. -/
+  e : X r0 ≃ Ω
+  /-- The distinguished member's energy is the calibrated energy of
+  register row PR-15 through the carrier identification. -/
+  energy_eq : ∀ x, E r0 x = C.energy (e x)
+
+attribute [instance] RefinementAttachment.preorderI
+attribute [instance] RefinementAttachment.fintypeX
+attribute [instance] RefinementAttachment.decEqX
+attribute [instance] RefinementAttachment.nonemptyX
+
+/-- **The composed thermodynamic antecedent.** One typed bundle whose
+three fields are exactly the premise-register rows: PR-07, the
+declared repair law, disposition axiomatize, carrying the B12 and B20
+bounded no-gos as its justification record; PR-15, the clock and
+energy calibration import, shared with the constants lane; PR-08, the
+refinement-uniform gap family attached to the same calibrated energy
+at the distinguished member. Every clause of `FourLawConclusions`
+consumes this bundle. Bundling makes clauses that need only one row
+formally depend on the whole bundle; each clause doc comment names the
+rows it uses, and the per-row structures stay exported for finer
+consumers such as the horizon surface. -/
+structure FourLawAntecedent (Ω : Type u) [Fintype Ω] [DecidableEq Ω]
+    (B : Type*) [DecidableEq B] where
+  /-- Register row PR-07: the declared repair law. -/
+  repair : RepairLawData Ω B
+  /-- Register row PR-15: the clock and energy calibration of the
+  declared reference. -/
+  calib : CalibrationData repair
+  /-- Register row PR-08: the refinement-uniform gap family attached
+  to the calibrated energy. -/
+  refinement : RefinementAttachment repair calib
+
+/-- The bundle forces an inhabited state space through the carrier
+identification of the distinguished refinement member. -/
+theorem FourLawAntecedent.nonempty {Ω : Type u} [Fintype Ω]
+    [DecidableEq Ω] {B : Type*} [DecidableEq B]
+    (A : FourLawAntecedent Ω B) : Nonempty Ω :=
+  A.refinement.e.nonempty_congr.mp
+    (A.refinement.nonemptyX A.refinement.r0)
+
+/-- **The composed four-law conclusion package.** One `Prop`-valued
+record whose clauses are all stated for the one kernel
+`repairKernel A.repair`, the one reference `A.repair.ref`, and the one
+calibrated energy `A.calib.energy` of the bundle `A`. The
+observation-ledger rows OL-E1 through OL-E4 cite `fourLaws_composed`,
+which produces this record from the bundle. The `Nonempty` instance is
+derivable from the bundle through `FourLawAntecedent.nonempty`. -/
+structure FourLawConclusions {Ω : Type u} [Fintype Ω] [DecidableEq Ω]
+    [Nonempty Ω] {B : Type*} [DecidableEq B]
+    (A : FourLawAntecedent Ω B) : Prop where
+  /-- Kernel receipt (row PR-07): entries are nonnegative. -/
+  kernel_nonneg : ∀ x y, 0 ≤ repairKernel A.repair x y
+  /-- Kernel receipt (row PR-07): rows are normalized. -/
+  kernel_row_sum : ∀ x, ∑ y, repairKernel A.repair x y = 1
+  /-- Kernel receipt (row PR-07): the declared reference is
+  stationary. -/
+  kernel_stationary :
+    ∀ y, push A.repair.ref (repairKernel A.repair) y = A.repair.ref y
+  /-- Kernel receipt (row PR-07): detailed balance with the declared
+  reference. -/
+  kernel_detailed_balance : ∀ x y,
+    A.repair.ref x * repairKernel A.repair x y
+      = A.repair.ref y * repairKernel A.repair y x
+  /-- Kernel receipt (row PR-07): one full fibre resampling is
+  idempotent. -/
+  kernel_idempotent : ∀ x y,
+    ∑ z, repairKernel A.repair x z * repairKernel A.repair z y
+      = repairKernel A.repair x y
+  /-- Kernel receipt (row PR-07): each row is the information
+  projection onto its visible fibre. -/
+  kernel_row_optimal : ∀ (x : Ω) (r : Ω → ℝ), (∀ y, 0 ≤ r y) →
+    (∑ y, r y = 1) →
+    (∀ y, A.repair.visible y ≠ A.repair.visible x → r y = 0) →
+    kl (repairKernel A.repair x) A.repair.ref ≤ kl r A.repair.ref
+  /-- Zeroth law (rows PR-07 and PR-15): the declared reference is the
+  Gibbs state of the calibrated energy at the calibrated
+  multiplier. -/
+  zeroth_ref_eq_gibbs :
+    ∀ x, A.repair.ref x = gibbs A.calib.energy A.calib.beta x
+  /-- Zeroth law, thermometer form (rows PR-07 and PR-15). -/
+  zeroth_thermometer : ∀ (beta1 beta2 : ℝ) (i j : Ω),
+    A.calib.energy i ≠ A.calib.energy j →
+    gibbs A.calib.energy beta1 = gibbs A.calib.energy beta2 →
+    beta1 = beta2
+  /-- Zeroth law, multiplier uniqueness (rows PR-07 and PR-15): any
+  second calibration row over the same declared reference and the same
+  nondegenerate energy carries the bundle's multiplier. -/
+  zeroth_multiplier_unique : ∀ C2 : CalibrationData A.repair,
+    C2.energy = A.calib.energy →
+    ∀ i j : Ω, A.calib.energy i ≠ A.calib.energy j →
+    A.calib.beta = C2.beta
+  /-- First law, modular form with exact remainder (row PR-07). -/
+  first_cap_exact : ∀ p : Ω → ℝ,
+    shannon p - shannon A.repair.ref
+      = (∑ x, p x * (-Real.log (A.repair.ref x)))
+        - (∑ x, A.repair.ref x * (-Real.log (A.repair.ref x)))
+        - kl p A.repair.ref
+  /-- First law, conservation under pure repair (row PR-07). -/
+  first_repair_conserves_fibre_mean : ∀ Q : Ω → ℝ,
+    (∀ x y, A.repair.visible x = A.repair.visible y → Q x = Q y) →
+    ∀ p : Ω → ℝ,
+    ∑ y, push p (repairKernel A.repair) y * Q y = ∑ x, p x * Q x
+  /-- First law, heat channel of one repair step (rows PR-07 and
+  PR-15): the diagonal instantiation of `first_exact_split` at the
+  repair step and the calibrated energy; the refinement field is
+  unused by this clause. -/
+  first_heat_channel : ∀ p : Ω → ℝ,
+    (internalEnergy (diagR (push p (repairKernel A.repair)))
+          (diagR A.calib.energy)
+        - internalEnergy (diagR p) (diagR A.calib.energy)
+      = heatIncrement
+          (diagR (push p (repairKernel A.repair)) - diagR p)
+          (diagR A.calib.energy))
+    ∧ heatIncrement
+        (diagR (push p (repairKernel A.repair)) - diagR p)
+        (diagR A.calib.energy)
+      = ∑ x, (push p (repairKernel A.repair) x - p x)
+          * A.calib.energy x
+  /-- Second law, contraction form (row PR-07). -/
+  second_contraction : ∀ p : Ω → ℝ, (∀ x, 0 ≤ p x) →
+    kl (push p (repairKernel A.repair)) A.repair.ref
+      ≤ kl p A.repair.ref
+  /-- Second law without detailed balance (row PR-07): any stochastic
+  kernel preserving the declared reference contracts relative entropy
+  to it. -/
+  second_contraction_of_stationary :
+    ∀ (p : Ω → ℝ) (K : Ω → Ω → ℝ), (∀ x, 0 ≤ p x) →
+    (∀ x y, 0 ≤ K x y) → (∀ x, ∑ y, K x y = 1) →
+    push A.repair.ref K = A.repair.ref →
+    kl (push p K) A.repair.ref ≤ kl p A.repair.ref
+  /-- Second law, Clausius form (row PR-07). -/
+  second_clausius : ∀ p : Ω → ℝ, (∀ x, 0 ≤ p x) →
+    (∑ x, push p (repairKernel A.repair) x
+        * (-Real.log (A.repair.ref x)))
+      - (∑ x, p x * (-Real.log (A.repair.ref x)))
+      ≤ shannon (push p (repairKernel A.repair)) - shannon p
+  /-- Integral fluctuation identity (row PR-07). -/
+  second_integral_fluctuation : ∀ p : Ω → ℝ, (∀ x, 0 < p x) →
+    (∑ x, p x = 1) →
+    ∑ x, ∑ y, p x * repairKernel A.repair x y
+      * Real.exp (-(sigmaEP A.repair.ref p
+          (push p (repairKernel A.repair)) x y)) = 1
+  /-- Detailed fluctuation relation, Crooks form (row PR-07). -/
+  second_crooks : ∀ p : Ω → ℝ, (∀ x, 0 < p x) → ∀ x y,
+    p x * repairKernel A.repair x y
+      = Real.exp (sigmaEP A.repair.ref p
+          (push p (repairKernel A.repair)) x y)
+        * (push p (repairKernel A.repair) y
+            * repairKernel A.repair y x)
+  /-- Arrow of time, nonnegativity (row PR-07). -/
+  arrow_mean_entropy_production_nonneg : ∀ p : Ω → ℝ,
+    (∀ x, 0 < p x) →
+    0 ≤ ∑ x, ∑ y, p x * repairKernel A.repair x y
+      * sigmaEP A.repair.ref p (push p (repairKernel A.repair)) x y
+  /-- Arrow of time, exact dissipation identity (row PR-07): the mean
+  entropy production of one repair step equals the relative entropy
+  from the state to its repaired image. Stated for strictly positive
+  states. -/
+  arrow_mean_ep_eq_kl_to_repaired : ∀ p : Ω → ℝ, (∀ x, 0 < p x) →
+    ∑ x, ∑ y, p x * repairKernel A.repair x y
+        * sigmaEP A.repair.ref p (push p (repairKernel A.repair)) x y
+      = kl p (push p (repairKernel A.repair))
+  /-- Arrow of time, strictness (row PR-07): a state-changing repair
+  step produces strictly positive mean entropy production, and zero
+  production forces the state onto the repaired manifold. Stated for
+  strictly positive states. -/
+  arrow_strict : ∀ p : Ω → ℝ, (∀ x, 0 < p x) →
+    (push p (repairKernel A.repair) ≠ p ↔
+      0 < ∑ x, ∑ y, p x * repairKernel A.repair x y
+        * sigmaEP A.repair.ref p (push p (repairKernel A.repair)) x y)
+  /-- Zero-dissipation characterization (row PR-07): the fixed states
+  of one repair step are exactly the states carrying the reference's
+  conditional structure on every visible fibre. -/
+  repair_fixed_iff : ∀ p : Ω → ℝ,
+    (push p (repairKernel A.repair) = p ↔
+      ∀ y, p y = A.repair.ref y * fiberMass p A.repair.visible y
+        / fiberMass A.repair.ref A.repair.visible y)
+  /-- Third law, excited-mass bound (rows PR-07 and PR-15). -/
+  third_excited_mass_bound : ∀ beta E0 Δ : ℝ, 0 ≤ beta → 0 < Δ →
+    (∀ x, A.calib.energy x = E0 ∨ E0 + Δ ≤ A.calib.energy x) →
+    (Finset.univ.filter (fun x => A.calib.energy x = E0)).Nonempty →
+    excitedMass A.calib.energy beta E0
+      ≤ ((Finset.univ.filter
+            (fun x => A.calib.energy x ≠ E0)).card : ℝ)
+        / ((Finset.univ.filter
+            (fun x => A.calib.energy x = E0)).card : ℝ)
+        * Real.exp (-beta * Δ)
+  /-- Third law, quantitative threshold (rows PR-07 and PR-15). -/
+  third_excited_mass_threshold : ∀ beta E0 Δ eps : ℝ, 0 ≤ beta →
+    0 < Δ → 0 < eps →
+    (∀ x, A.calib.energy x = E0 ∨ E0 + Δ ≤ A.calib.energy x) →
+    (Finset.univ.filter (fun x => A.calib.energy x = E0)).Nonempty →
+    Real.log
+        (((Finset.univ.filter
+            (fun x => A.calib.energy x ≠ E0)).card : ℝ)
+          / ((Finset.univ.filter
+              (fun x => A.calib.energy x = E0)).card : ℝ) / eps)
+      < beta * Δ →
+    excitedMass A.calib.energy beta E0 < eps
+  /-- Third law, finite-step unattainability (row PR-07). -/
+  third_no_step_extinguishes : ∀ p : Ω → ℝ, (∀ x, 0 < p x) →
+    ∀ y, 0 < push p (repairKernel A.repair) y
+  /-- Third law, refinement-uniform bound (row PR-08): one explicit
+  bound controls every member of the declared refinement family at
+  every real inverse temperature. -/
+  third_refinement_uniform : ∀ (beta : ℝ) (r : A.refinement.I),
+    offMinMass (A.refinement.E r) beta
+      ≤ (A.refinement.family.cardBound : ℝ)
+        * Real.exp (-beta * A.refinement.family.gapBound)
+  /-- Third law, calibrated member (rows PR-08 and PR-15): the
+  calibrated energy is the distinguished member of the declared
+  refinement family through the carrier identification, and inherits
+  the refinement-uniform bound at every real inverse temperature. -/
+  third_calibrated_member : ∀ beta : ℝ,
+    offMinMass A.calib.energy beta
+        = offMinMass (A.refinement.E A.refinement.r0) beta
+    ∧ offMinMass A.calib.energy beta
+        ≤ (A.refinement.family.cardBound : ℝ)
+          * Real.exp (-beta * A.refinement.family.gapBound)
+  /-- Landauer bound (rows PR-07 and PR-15). -/
+  landauer_bound : ∀ (p : Ω → ℝ) (c : ℝ), (∀ x, 0 ≤ p x) →
+    shannon (push p (repairKernel A.repair)) - shannon p ≤ -c →
+    (∑ x, p x * A.calib.energy x)
+      - (∑ x, push p (repairKernel A.repair) x * A.calib.energy x)
+      ≥ c / A.calib.beta
+
+/-- **The composed four-law theorem.** From the one typed antecedent
+bundle of register rows PR-07, PR-15, and PR-08, the full four-law
+conclusion package holds for the one kernel `repairKernel A.repair`
+and the one calibrated energy `A.calib.energy`: kernel receipts, both
+zeroth-law forms, the fibre-mean-conservation, modular, and
+heat-channel first laws, all five second-law and fluctuation
+statements, the exact-identity and strict arrow clauses, the finite
+and refinement-uniform third laws with the calibrated energy as the
+distinguished family member, and the Landauer bound. The laws are
+exact finite theorems under the register at the structural rung;
+nothing here asserts a source selection of the reference, the visible
+datum, or the kernel, and the emergent rung is gated on the
+simulator-export decision recorded in the register row PR-07 notes.
+The `Nonempty` instance is derivable from the bundle through
+`FourLawAntecedent.nonempty`. -/
+theorem fourLaws_composed {Ω : Type u} [Fintype Ω] [DecidableEq Ω]
+    [Nonempty Ω] {B : Type*} [DecidableEq B]
+    (A : FourLawAntecedent Ω B) : FourLawConclusions A := by
+  refine
+    { kernel_nonneg := repairKernel_nonneg A.repair
+      kernel_row_sum := repairKernel_row_sum A.repair
+      kernel_stationary := repairKernel_stationary A.repair
+      kernel_detailed_balance := repairKernel_detailedBalance A.repair
+      kernel_idempotent := repairKernel_idempotent A.repair
+      kernel_row_optimal := repairKernel_row_optimal A.repair
+      zeroth_ref_eq_gibbs := ref_eq_gibbs A.repair A.calib
+      zeroth_thermometer := zeroth_thermometer A.repair A.calib
+      zeroth_multiplier_unique := fun C2 hE i j hij =>
+        zeroth_multiplier_unique A.repair A.calib C2 hE.symm i j hij
+      first_cap_exact := first_cap_exact A.repair
+      first_repair_conserves_fibre_mean :=
+        first_repair_conserves_fibre_mean A.repair
+      first_heat_channel := first_heat_channel A.repair A.calib
+      second_contraction := second_contraction A.repair
+      second_contraction_of_stationary :=
+        second_contraction_of_stationary A.repair
+      second_clausius := second_clausius A.repair
+      second_integral_fluctuation :=
+        second_integral_fluctuation A.repair
+      second_crooks := second_crooks A.repair
+      arrow_mean_entropy_production_nonneg :=
+        arrow_mean_entropy_production_nonneg A.repair
+      arrow_mean_ep_eq_kl_to_repaired :=
+        arrow_mean_entropy_production_eq_kl_to_repaired A.repair
+      arrow_strict := arrow_strict A.repair
+      repair_fixed_iff := repair_fixed_iff A.repair
+      third_excited_mass_bound :=
+        third_excited_mass_bound A.repair A.calib
+      third_excited_mass_threshold :=
+        third_excited_mass_threshold A.repair A.calib
+      third_no_step_extinguishes :=
+        third_no_step_extinguishes A.repair
+      third_refinement_uniform := fun beta r =>
+        A.refinement.family.uniform_bound beta r
+      third_calibrated_member := ?_
+      landauer_bound := landauer_bound A.repair A.calib }
+  intro beta
+  have hE : A.refinement.E A.refinement.r0
+      = fun x => A.calib.energy (A.refinement.e x) :=
+    funext A.refinement.energy_eq
+  have hoff : offMinMass (A.refinement.E A.refinement.r0) beta
+      = offMinMass A.calib.energy beta := by
+    rw [hE]
+    exact offMinMass_equiv A.refinement.e A.calib.energy beta
+  refine ⟨hoff.symm, ?_⟩
+  rw [← hoff]
+  exact A.refinement.family.uniform_bound beta A.refinement.r0
 
 end OPH.Thermodynamics
 
@@ -400,3 +904,9 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.FourLawSurface.third_excited_mass_threshold
 #print axioms OPH.Thermodynamics.FourLawSurface.third_no_step_extinguishes
 #print axioms OPH.Thermodynamics.FourLawSurface.landauer_bound
+#print axioms OPH.Thermodynamics.FourLawSurface.arrow_mean_entropy_production_eq_kl_to_repaired
+#print axioms OPH.Thermodynamics.FourLawSurface.arrow_strict
+#print axioms OPH.Thermodynamics.FourLawSurface.repair_fixed_iff
+#print axioms OPH.Thermodynamics.FourLawSurface.first_heat_channel
+#print axioms OPH.Thermodynamics.FourLawAntecedent.nonempty
+#print axioms OPH.Thermodynamics.fourLaws_composed

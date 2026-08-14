@@ -349,6 +349,12 @@ EXPECTED_ROWS = (
         "structural_rule",
         "remove",
     ),
+    (
+        "PR-58",
+        "net-compatible dynamics and region-symmetry action",
+        "structural_rule",
+        "remove",
+    ),
 )
 
 DISPOSITION_MEANING = {

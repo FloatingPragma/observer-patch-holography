@@ -124,8 +124,11 @@ EXPECTED_ROW_IDS = (
 # lane.
 ROW_PREMISE_CONTRACTS = {
     "OL-E1": {
-        "premises": ("PR-07", "PR-15"),
-        "open_premises": ("PR-08",),
+        # 2026-08-14 composed promotion: the refinement-uniform third law is
+        # threaded into fourLaws_composed, so PR-08 moved from open to
+        # consumed on this row.
+        "premises": ("PR-07", "PR-15", "PR-08"),
+        "open_premises": (),
     },
 }
 

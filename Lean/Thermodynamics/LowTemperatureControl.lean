@@ -17,6 +17,10 @@ conditional thermodynamics package at the representation level:
   uniform positive gap lower bound, and one cardinality bound is
   controlled by the single bound `cardBound * exp (-beta * gapBound)`
   across every member simultaneously, giving uniform concentration;
+* the partition function, the exact minimum energy, the excited mass,
+  and the off-minimum mass are invariant under an equivalence of state
+  spaces; these transport receipts carry the register row PR-08 bound
+  onto the calibrated energy of the composed four-law surface;
 * the conditional-resampling reference law is the constant-energy
   member of the reference-relative Gibbs family at every `beta`, and
   the repair kernel fixes it; this is the degenerate instance receipt
@@ -496,6 +500,61 @@ theorem shrinkingGap_uniform_concentration_fails :
 
 end NegativeControl
 
+section EquivTransport
+
+variable {α : Type*} [Fintype α] [DecidableEq α]
+
+omit [DecidableEq Ω] [DecidableEq α] in
+/-- Transport of the partition function along an equivalence of state
+spaces. -/
+theorem partitionZ_equiv (e : α ≃ Ω) (E : Ω → ℝ) (beta : ℝ) :
+    partitionZ (fun x => E (e x)) beta = partitionZ E beta := by
+  unfold partitionZ gibbsWeight
+  exact Equiv.sum_comp e (fun y => Real.exp (-beta * E y))
+
+omit [DecidableEq Ω] [DecidableEq α] in
+/-- Transport of the exact minimum energy along an equivalence of
+state spaces. -/
+theorem minEnergy_equiv [Nonempty α] [Nonempty Ω] (e : α ≃ Ω)
+    (E : Ω → ℝ) : minEnergy (fun x => E (e x)) = minEnergy E := by
+  apply le_antisymm
+  · obtain ⟨y, hy⟩ := exists_minEnergy E
+    calc minEnergy (fun x => E (e x)) ≤ E (e (e.symm y)) :=
+          minEnergy_le (fun x => E (e x)) (e.symm y)
+      _ = minEnergy E := by rw [e.apply_symm_apply, hy]
+  · obtain ⟨x, hx⟩ := exists_minEnergy (fun x => E (e x))
+    calc minEnergy E ≤ E (e x) := minEnergy_le E (e x)
+      _ = minEnergy (fun x => E (e x)) := hx
+
+omit [DecidableEq Ω] [DecidableEq α] in
+/-- Transport of the excited mass along an equivalence of state
+spaces. -/
+theorem excitedMass_equiv (e : α ≃ Ω) (E : Ω → ℝ) (beta E0 : ℝ) :
+    excitedMass (fun x => E (e x)) beta E0 = excitedMass E beta E0 := by
+  unfold excitedMass
+  rw [partitionZ_equiv e E beta]
+  congr 1
+  refine Finset.sum_equiv e ?_ ?_
+  · intro x
+    simp
+  · intro x _
+    rfl
+
+omit [DecidableEq Ω] [DecidableEq α] in
+/-- **Transport of the off-minimum mass along an equivalence of state
+spaces.** Two energies related by an equivalence of carriers hold equal
+off-minimum Gibbs mass at every real inverse temperature. This receipt
+carries the register row PR-08 refinement-uniform bound from the
+distinguished family member onto the calibrated energy of the composed
+four-law surface. -/
+theorem offMinMass_equiv [Nonempty α] [Nonempty Ω] (e : α ≃ Ω)
+    (E : Ω → ℝ) (beta : ℝ) :
+    offMinMass (fun x => E (e x)) beta = offMinMass E beta := by
+  unfold offMinMass
+  rw [minEnergy_equiv e E, excitedMass_equiv e E beta (minEnergy E)]
+
+end EquivTransport
+
 end OPH.Thermodynamics
 
 #print axioms OPH.Thermodynamics.offMinMass_le_card_mul
@@ -510,3 +569,7 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.twoLevel_bound
 #print axioms OPH.Thermodynamics.shrinkingGap_no_uniform_gap
 #print axioms OPH.Thermodynamics.shrinkingGap_uniform_concentration_fails
+#print axioms OPH.Thermodynamics.partitionZ_equiv
+#print axioms OPH.Thermodynamics.minEnergy_equiv
+#print axioms OPH.Thermodynamics.excitedMass_equiv
+#print axioms OPH.Thermodynamics.offMinMass_equiv

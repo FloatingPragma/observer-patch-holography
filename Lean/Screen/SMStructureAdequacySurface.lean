@@ -15,11 +15,13 @@ OL-G5: the forced gauge Lie type, the measure-conditional selection of
 the compact family `G`, the exterior one-generation matter selection
 with anomaly cancellation and its parity grading, the `Z6` kernel with
 its conditional global-form status, and the family-band receipts
-behind the three-family row.  This module adds no mathematical
-content; every theorem re-exports a committed result through the
-premise structure below.  Where the committed hypotheses do not
-literally compose, the re-exports stand side by side inside the
-premise-parameterized namespace and this header names the gap.
+behind the three-family row.  The theorems re-export committed
+results through the premise structures below and add mask-threaded
+finite receipts on the bundled selection.  The companion module
+`Screen/SMStructureComposition.lean` states the composed uniqueness
+theorem on this bundle; the constant re-exports that stand beside the
+premise namespaces here are the conditional OL-G2 clauses and the
+band cost receipts, and this header names their status.
 
 `SMStructurePremiseData` bundles the supplied objects the committed
 theorems consume, in three blocks.  The port-dual weighting block
@@ -42,35 +44,38 @@ than through a field: the diagonal reading substitutes the port-dual
 weight into all three sector-scale slots of the distance forms, and
 the discriminator verdict is the nearest classified compact family.
 
-Two further physical premises are registered as PR-35 and PR-36, but
-they are not fields of `SMStructurePremiseData` and are not discharged
-by the composite theorem below.  The
-same-source loop-to-kernel identity (the physical carrier-loop class
-of the source is the six-axis gluing class, and its image under the
-committed intertwiner generates the tensor-action kernel) gates the
-global-form row OL-G2; the theorems here supply the abstract
-intertwiner and the four-quotient menu only, so the row stays
-conditional.  The family band-selection rules (the family
-multiplicity object is a single complete faithful band of the
-twelve-port adjacency with dimension in the pinned window, and
-admissible bands are compared by the operational seam-cost order)
-gate the three-family row OL-G4; the theorems here supply the
-selection arithmetic on the committed carrier, and exactly those
-rules plus the realization clause of the executable certificate
+Two further physical premises are registered as PR-35 and PR-36;
+neither is discharged by any theorem below.  The same-source
+loop-to-kernel identity (the physical carrier-loop class of the
+source is the six-axis gluing class, and its image under the
+committed intertwiner generates the tensor-action kernel) is not a
+field of any bundle here and gates the global-form row OL-G2; the
+theorems supply the abstract intertwiner and the four-quotient menu
+only, so the row stays conditional.  The family band-selection rules
+(the family multiplicity object is a single complete faithful band of
+the twelve-port adjacency with dimension in the pinned window, and
+admissible bands are compared by the operational seam-cost order) are
+typed as fields of the extended bundle `SMThreeFamilyPremiseData`
+below and gate the three-family row OL-G4; they are supplied
+hypotheses, not theorems, and exactly those rules plus the
+realization clause of the executable certificate
 `family_band_attachment_certificate.py` separate the row from a
 derived family triplication.
 
-Composition gaps.  The measure-conditional selection picks the
-compact family `G` in the classified locus, and the trichotomy forces
-the dimension data `(1, {3, 8})`; the identification of the selected
-family with the forced type passes through the pinned compact-locus
-classification of row PR-11, so the two theorems stand side by side
-here and no composition across that bridge is claimed.  The committed
+Composition across the classification bridge.  The
+measure-conditional selection picks the compact family `G` in the
+classified locus, and the trichotomy forces the dimension data
+`(1, {3, 8})`; the identification of the selected family with the
+forced type passes through the pinned compact-locus classification of
+row PR-11.  The module `Screen/SMStructureComposition.lean` commits
+that reading as the literal table `genericTypeData` and proves the
+composed uniqueness statement on this premise bundle.  The committed
 gap theorem of `A5OPH` (a `G`-module isomorphism determines no Lie
-bracket) scopes the type claim.  The matter selection and the band
-selection concern different committed objects (the exterior component
-table and the adjacency spectrum) and are re-exported beside one
-another without a joint statement.
+bracket) scopes the type claim there and here.  The matter selection
+composes with the band selection through the extended bundle
+`SMThreeFamilyPremiseData` below, whose conclusion threads the
+bundled selection mask; the exterior component table and the
+adjacency spectrum stay distinct committed objects.
 
 Boundary.  No physical current, laboratory charge, coupling,
 Lagrangian assembly, symmetry breaking, or spacetime Spin attachment
@@ -254,6 +259,139 @@ theorem selection_parity_graded :
   · refine Or.inr fun i => ?_
     rw [h]
     exact OPH.ExteriorSelection.oddMask_is_odd_sector i
+
+end SMStructurePremiseData
+
+/-! ## Mask-literal receipts behind the threaded matter clauses
+
+The two parity-sector literals carry the fifteen-state dimension
+count and the exact masked central-stabilizer scan.  They feed the
+mask-threaded theorems on the premise bundle below; the bundle-level
+statements never mention a literal mask. -/
+
+/-- The even-parity sector selects fifteen states: the masked sum of
+color dimension times weak dimension over the even mask (table
+receipt under register row PR-12). -/
+theorem evenMask_state_count :
+    OPH.ExteriorSelection.maskSum
+      (fun i => OPH.ExteriorSelection.colorDim i *
+        OPH.ExteriorSelection.weakDim i)
+      OPH.ExteriorSelection.evenMask = 15 := by decide
+
+/-- The odd-parity sector selects fifteen states (table receipt under
+register row PR-12). -/
+theorem oddMask_state_count :
+    OPH.ExteriorSelection.maskSum
+      (fun i => OPH.ExteriorSelection.colorDim i *
+        OPH.ExteriorSelection.weakDim i)
+      OPH.ExteriorSelection.oddMask = 15 := by decide
+
+/-- The common central stabilizer of the even-sector component
+weights is exactly the tensor-action kernel: the five selected rows
+pin the same six-element kernel as the full ten-row table (register
+row PR-12 grammar; exhaustive scan over the 36 central
+parameters). -/
+theorem kernel_on_evenMask_components :
+    ∀ c : OPH.TraceBalancedKernel.C,
+      (∀ i : Fin 10,
+        OPH.ExteriorSelection.mem OPH.ExteriorSelection.evenMask i
+            = true →
+          OPH.Z6Descent.phase c
+            (OPH.QuantumMatterIntegration.componentWeight i) = 0) ↔
+        OPH.TraceBalancedKernel.tensorCharFun c = 0 := by decide +kernel
+
+/-- The common central stabilizer of the odd-sector component weights
+is exactly the tensor-action kernel. -/
+theorem kernel_on_oddMask_components :
+    ∀ c : OPH.TraceBalancedKernel.C,
+      (∀ i : Fin 10,
+        OPH.ExteriorSelection.mem OPH.ExteriorSelection.oddMask i
+            = true →
+          OPH.Z6Descent.phase c
+            (OPH.QuantumMatterIntegration.componentWeight i) = 0) ↔
+        OPH.TraceBalancedKernel.tensorCharFun c = 0 := by decide +kernel
+
+namespace SMStructurePremiseData
+
+variable (D : SMStructurePremiseData)
+
+/-! ## Mask-threaded matter receipts (OL-G3 evidence, OL-G5 contract) -/
+
+/-- **The fifteen-state count on the bundled mask (OL-G3).**  The
+selection mask of the bundle, constrained by the register row PR-12
+grammar, selects components of total dimension fifteen. -/
+theorem masked_generation_count :
+    OPH.ExteriorSelection.maskSum
+      (fun i => OPH.ExteriorSelection.colorDim i *
+        OPH.ExteriorSelection.weakDim i)
+      D.selectionMask.val = 15 := by
+  rcases D.matter_selection_is_parity_sector with h | h <;> rw [h]
+  · exact evenMask_state_count
+  · exact oddMask_state_count
+
+/-- **The four anomaly forms vanish on the bundled mask (OL-G3).**
+Unfolds the Boolean `anomalyFree` field of register row PR-12 into
+the four integer equations on the bundled selection. -/
+theorem masked_anomaly_forms :
+    OPH.ExteriorSelection.grav D.selectionMask.val = 0
+      ∧ OPH.ExteriorSelection.su3 D.selectionMask.val = 0
+      ∧ OPH.ExteriorSelection.su2 D.selectionMask.val = 0
+      ∧ OPH.ExteriorSelection.cube D.selectionMask.val = 0 := by
+  have h := D.selection_anomalyFree
+  simp only [OPH.ExteriorSelection.anomalyFree, Bool.and_eq_true,
+    beq_iff_eq] at h
+  exact ⟨h.1.1.1, h.1.1.2, h.1.2, h.2⟩
+
+/-- **The Z6 kernel on the bundled mask (OL-G3 evidence).**  The
+common central stabilizer of the component weights selected by the
+bundled mask is exactly the tensor-action kernel.  The statement
+consumes the bundled selection; the constant realized-weight form is
+`smStructure_z6_kernel` below. -/
+theorem masked_z6_kernel :
+    ∀ c : OPH.TraceBalancedKernel.C,
+      (∀ i : Fin 10,
+        OPH.ExteriorSelection.mem D.selectionMask.val i = true →
+          OPH.Z6Descent.phase c
+            (OPH.QuantumMatterIntegration.componentWeight i) = 0) ↔
+        OPH.TraceBalancedKernel.tensorCharFun c = 0 := by
+  rcases D.matter_selection_is_parity_sector with h | h <;> rw [h]
+  · exact kernel_on_evenMask_components
+  · exact kernel_on_oddMask_components
+
+/-- The diagonal kernel generator `(ω₃I₃, -I₂, e^{iπ/3})` fixes every
+component selected by the bundled mask: instance of `masked_z6_kernel`
+at the generator, whose kernel membership is
+`TraceBalancedKernel.gen_mem`. -/
+theorem masked_diagonal_z6_fixes :
+    ∀ i : Fin 10,
+      OPH.ExteriorSelection.mem D.selectionMask.val i = true →
+        OPH.Z6Descent.phase OPH.TraceBalancedKernel.gen
+          (OPH.QuantumMatterIntegration.componentWeight i) = 0 := by
+  have hK : OPH.TraceBalancedKernel.gen ∈
+      OPH.TraceBalancedKernel.tensorChar.ker :=
+    OPH.TraceBalancedKernel.gen_mem
+  exact (D.masked_z6_kernel OPH.TraceBalancedKernel.gen).mpr
+    (AddMonoidHom.mem_ker.mp hK)
+
+/-- **The chirality-row contract (OL-G5).**  The bundled selection
+carries the componentwise parity grading of the declared component
+grammar (register row PR-12, table provenance), and no central
+parameter acts by `-1` on all five matter multiplets, so the finite
+central arithmetic supplies no spacetime Spin or fermion-parity
+attachment.  A physical chirality claim consumes the spacetime Spin
+attachment of register row PR-47, which no theorem here supplies;
+the second conjunct is the recorded mask-independent obstruction on
+the same declared grammar. -/
+theorem chirality_contract :
+    ((∀ i : Fin 10, OPH.ExteriorSelection.mem D.selectionMask.val i
+        = !OPH.ExteriorSelection.odd i)
+      ∨ (∀ i : Fin 10, OPH.ExteriorSelection.mem D.selectionMask.val i
+        = OPH.ExteriorSelection.odd i))
+      ∧ ∀ c : OPH.TraceBalancedKernel.C,
+          ¬ (∀ w ∈ OPH.Z6Descent.matterWeights,
+            OPH.Z6Descent.phase c w = 3) :=
+  ⟨D.selection_parity_graded,
+    OPH.Z6Descent.no_universal_fermion_minus_one⟩
 
 end SMStructurePremiseData
 
@@ -464,6 +602,154 @@ theorem committedSMStructurePremiseData_weight :
         committedSMStructurePremiseData.faceWeight p = 1 / 12 :=
   committedSMStructurePremiseData.port_dual_weight_pinned
 
+/-! ## The three-family extended bundle (OL-G4) -/
+
+/-- The three-family premise bundle: the base Standard-Model
+structure premises extended by the family band-selection rules of
+register row PR-36 as typed fields.  Each field is a supplied
+hypothesis, the registered rule; none is discharged here, and the
+bundle types the conditionality of the three-family row OL-G4.  The
+band object is a candidate row `(label, complex dimension, seam cost
+in Z[sqrt5], kernel order)` over the committed twelve-port adjacency
+menu of `A5FamilyBand`. -/
+structure SMThreeFamilyPremiseData extends SMStructurePremiseData where
+  /-- The supplied family-multiplicity object (register row PR-36). -/
+  band : String × ℕ × (ℤ × ℤ) × ℕ
+  /-- The band is realized in the committed four-band menu of the
+  twelve-port adjacency: the single-complete-band clause of register
+  row PR-36. -/
+  band_realized : band ∈ OPH.A5FamilyBand.candidates
+  /-- The band action is faithful, kernel order one, backed by the
+  committed kernel receipts `A5FamilyBand.band_kernels`
+  (faithfulness clause of register row PR-36). -/
+  band_faithful : band.2.2.2 = 1
+  /-- The band dimension lies in the pinned physical window `[3, 5]`
+  (register row PR-36). -/
+  band_window : 3 ≤ band.2.1 ∧ band.2.1 ≤ 5
+  /-- Admissible bands are compared by the operational seam-cost
+  order over `Z[sqrt5]`, and the supplied band is cost-minimal under
+  that comparison (register row PR-36).  This field is the registered
+  selection rule; the identification of the minimizer is the theorem
+  `band_identified`. -/
+  band_minimal : ∀ c ∈ OPH.A5FamilyBand.candidates,
+    OPH.A5FamilyBand.admissible c = true → c ≠ band →
+      OPH.A5FamilyBand.z5lt band.2.2.1 c.2.2.1 = true
+
+namespace SMThreeFamilyPremiseData
+
+variable (E : SMThreeFamilyPremiseData)
+
+/-- **The band identification (OL-G4, conditional).**  Under the
+typed band-selection rules of register row PR-36, the supplied band
+is the rank-three band: the trivial band fails the faithfulness
+clause, and the `3'` and `5` bands fail the seam-cost comparison
+rule against the rank-three candidate.  The rules are registered and
+undischarged; `smStructure_family_band_cost_receipts` stays beside
+this theorem as the load-bearing no-cheat evidence that cost
+minimization without faithfulness selects the trivial band. -/
+theorem band_identified : E.band = ("3", 3, (5, -1), 1) := by
+  have hfaith := E.band_faithful
+  have hmin := E.band_minimal
+  have hmem := E.band_realized
+  have h3mem : ("3", 3, ((5 : ℤ), (-1 : ℤ)), 1) ∈
+      OPH.A5FamilyBand.candidates := by
+    simp [OPH.A5FamilyBand.candidates]
+  have h3adm :
+      OPH.A5FamilyBand.admissible ("3", 3, ((5 : ℤ), (-1 : ℤ)), 1)
+        = true := by decide
+  simp only [OPH.A5FamilyBand.candidates, List.mem_cons,
+    List.not_mem_nil, or_false] at hmem
+  rcases hmem with h | h | h | h
+  · rw [h] at hfaith
+    exact absurd hfaith (by decide)
+  · exact h
+  · exfalso
+    have hne : ("3", 3, ((5 : ℤ), (-1 : ℤ)), 1) ≠ E.band := by
+      rw [h]
+      intro heq
+      exact absurd
+        (congrArg (fun t : String × ℕ × (ℤ × ℤ) × ℕ => t.2.2.1.2) heq)
+        (by decide)
+    have hlt := hmin _ h3mem h3adm hne
+    rw [h] at hlt
+    exact absurd hlt (by decide)
+  · exfalso
+    have hne : ("3", 3, ((5 : ℤ), (-1 : ℤ)), 1) ≠ E.band := by
+      rw [h]
+      intro heq
+      exact absurd
+        (congrArg (fun t : String × ℕ × (ℤ × ℤ) × ℕ => t.2.2.1.2) heq)
+        (by decide)
+    have hlt := hmin _ h3mem h3adm hne
+    rw [h] at hlt
+    exact absurd hlt (by decide)
+
+/-- **The three-family composed receipt (OL-G4, conditional).**  On
+the extended bundle: the supplied band is identified as the
+rank-three band; three copies of the bundled selection give
+forty-five states; the integer-scaled anomaly forms of three copies
+vanish on the bundled mask; and the diagonal `Z6` generator fixes
+every selected component.  Every clause threads the bundled band or
+mask.  Exactly three clauses separate this from a derived family
+triplication: the typed PR-36 rules are supplied hypotheses, the
+physical realization clause lives in the executable certificate
+`family_band_attachment_certificate.py`, and the physical matter and
+action attachments are register rows PR-47 and PR-54. -/
+theorem three_family_receipt :
+    E.band = ("3", 3, (5, -1), 1)
+      ∧ E.band.2.1 = 3
+      ∧ (E.band.2.1 : ℤ) *
+          OPH.ExteriorSelection.maskSum
+            (fun i => OPH.ExteriorSelection.colorDim i *
+              OPH.ExteriorSelection.weakDim i)
+            E.selectionMask.val = 45
+      ∧ (E.band.2.1 : ℤ) *
+          OPH.ExteriorSelection.grav E.selectionMask.val = 0
+      ∧ (E.band.2.1 : ℤ) *
+          OPH.ExteriorSelection.su3 E.selectionMask.val = 0
+      ∧ (E.band.2.1 : ℤ) *
+          OPH.ExteriorSelection.su2 E.selectionMask.val = 0
+      ∧ (E.band.2.1 : ℤ) *
+          OPH.ExteriorSelection.cube E.selectionMask.val = 0
+      ∧ (∀ i : Fin 10,
+          OPH.ExteriorSelection.mem E.selectionMask.val i = true →
+            OPH.Z6Descent.phase OPH.TraceBalancedKernel.gen
+              (OPH.QuantumMatterIntegration.componentWeight i) = 0) := by
+  have hband := E.band_identified
+  have hdim : E.band.2.1 = 3 := by rw [hband]
+  have hcount := E.toSMStructurePremiseData.masked_generation_count
+  obtain ⟨hg, h3, h2, hc⟩ :=
+    E.toSMStructurePremiseData.masked_anomaly_forms
+  refine ⟨hband, hdim, ?_, ?_, ?_, ?_, ?_,
+    E.toSMStructurePremiseData.masked_diagonal_z6_fixes⟩
+  · rw [hdim, hcount]; norm_num
+  · rw [hdim, hg]; norm_num
+  · rw [hdim, h3]; norm_num
+  · rw [hdim, h2]; norm_num
+  · rw [hdim, hc]; norm_num
+
+end SMThreeFamilyPremiseData
+
+/-- The committed three-family premise instance: the committed base
+instance extended by the rank-three band literal, every rule field
+discharged by exact arithmetic.  Nonvacuity control for the extended
+premise structure; it selects nothing by itself. -/
+def committedSMThreeFamilyPremiseData : SMThreeFamilyPremiseData where
+  toSMStructurePremiseData := committedSMStructurePremiseData
+  band := ("3", 3, (5, -1), 1)
+  band_realized := by simp [OPH.A5FamilyBand.candidates]
+  band_faithful := rfl
+  band_window := ⟨by norm_num, by norm_num⟩
+  band_minimal := by
+    intro c hc hadm hne
+    simp only [OPH.A5FamilyBand.candidates, List.mem_cons,
+      List.not_mem_nil, or_false] at hc
+    rcases hc with rfl | rfl | rfl | rfl
+    · exact absurd hadm (by decide)
+    · exact absurd rfl hne
+    · decide
+    · decide
+
 /-! ## Composite receipt -/
 
 /-- **The Standard Model structure surface receipt (issue #734).**
@@ -537,3 +823,15 @@ end OPH.SMStructureAdequacySurface
 #print axioms OPH.SMStructureAdequacySurface.committedSMStructurePremiseData
 #print axioms OPH.SMStructureAdequacySurface.committedSMStructurePremiseData_weight
 #print axioms OPH.SMStructureAdequacySurface.smStructureAdequacySurface_receipt
+#print axioms OPH.SMStructureAdequacySurface.evenMask_state_count
+#print axioms OPH.SMStructureAdequacySurface.oddMask_state_count
+#print axioms OPH.SMStructureAdequacySurface.kernel_on_evenMask_components
+#print axioms OPH.SMStructureAdequacySurface.kernel_on_oddMask_components
+#print axioms OPH.SMStructureAdequacySurface.SMStructurePremiseData.masked_generation_count
+#print axioms OPH.SMStructureAdequacySurface.SMStructurePremiseData.masked_anomaly_forms
+#print axioms OPH.SMStructureAdequacySurface.SMStructurePremiseData.masked_z6_kernel
+#print axioms OPH.SMStructureAdequacySurface.SMStructurePremiseData.masked_diagonal_z6_fixes
+#print axioms OPH.SMStructureAdequacySurface.SMStructurePremiseData.chirality_contract
+#print axioms OPH.SMStructureAdequacySurface.SMThreeFamilyPremiseData.band_identified
+#print axioms OPH.SMStructureAdequacySurface.SMThreeFamilyPremiseData.three_family_receipt
+#print axioms OPH.SMStructureAdequacySurface.committedSMThreeFamilyPremiseData

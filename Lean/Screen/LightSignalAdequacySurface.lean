@@ -66,9 +66,12 @@ the projector compatibility of the spatial action.  On the Gauss side:
 solvability exactly on neutral loads, the declared spanning-tree
 solution, the solution fibre as one affine translate of the cycle
 kernel, and the exact rank nineteen of that kernel, which is the
-committed source-free solution ambiguity of the discrete receipts (the
-discrete analogue of a gauge ambiguity; no gauge potential or quotient
-is committed).
+committed source-free solution ambiguity of the discrete receipts.  The
+matching finite U(1) seam connection and its port-gauge quotient are
+committed and classified in `SeamU1HolonomyClassification`: connections
+modulo gauge are exactly the nineteen chord holonomies, the same count
+as this cycle rank.  What remains uncommitted is the position-space
+assembly with dynamics for that potential, stated below.
 
 Composition theorems proved here, each a short consequence of the
 committed statements under the bundled premises: the supplied readout

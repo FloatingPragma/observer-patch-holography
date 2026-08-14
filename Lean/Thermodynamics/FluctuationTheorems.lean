@@ -1,4 +1,5 @@
 import FiniteConditionalRepair
+import CapFirstLaw
 
 namespace OPH.Thermodynamics
 
@@ -23,6 +24,16 @@ relative-entropy descent, so the second law is the Jensen shadow of an
 exact identity rather than a primitive inequality. Detailed balance
 also yields the finite Onsager relation: equilibrium time-lagged
 correlations are symmetric under exchange of the two observables.
+
+For the conditional-resampling kernel the descent itself carries an
+exact Pythagorean split, `heatBath_kl_pythagorean`: relative entropy to
+the reference decomposes as the relative entropy to the repaired image
+plus the relative entropy from the repaired image to the reference. The
+proof runs through the fibre-measurable log-ratio of one repair step
+and the fibre-mean conservation of the repair kernel; it sums over the
+state space only, so the visible alphabet needs no finiteness. The
+identity is classical information theory for conditional-expectation
+projections, restated for the committed kernel.
 
 All statements are finite and elementary; the conditional-resampling
 repair kernel satisfies every hypothesis through the theorems of
@@ -223,6 +234,65 @@ theorem heatBath_correlation_symm (f g : Ω → ℝ) :
   correlation_symm π (heatBath π b)
     (fun x y => heatBath_detailedBalance x y) f g
 
+/-- **Pythagorean identity for one repair step.** Relative entropy to
+the reference law splits exactly across the repaired image:
+`D(p ‖ π) = D(p ‖ push p K) + D(push p K ‖ π)` for the
+conditional-resampling kernel `K` at every strictly positive state
+`p`. The proof uses the closed form of the repair step, whose
+log-ratio against the reference is measurable through the visible
+datum, together with fibre-mean conservation; every sum ranges over
+the state space, so the visible alphabet carries no finiteness
+hypothesis. Combined with `sigma_mean_eq_kl_descent` this identifies
+the mean entropy production of one repair step with
+`D(p ‖ push p K)`. -/
+theorem heatBath_kl_pythagorean (hπ : ∀ x, 0 < π x)
+    (p : Ω → ℝ) (hp : ∀ x, 0 < p x) :
+    kl p π = kl p (push p (heatBath π b))
+      + kl (push p (heatBath π b)) π := by
+  have hq : ∀ y, 0 < push p (heatBath π b) y :=
+    heatBath_preserves_pos hπ p hp
+  have hratio : ∀ y, push p (heatBath π b) y / π y
+      = fiberMass p b y / fiberMass π b y := by
+    intro y
+    rw [push_heatBath_eq p y]
+    have hπy := (hπ y).ne'
+    field_simp
+  have hfib : ∀ x y, b x = b y →
+      Real.log (push p (heatBath π b) x / π x)
+        = Real.log (push p (heatBath π b) y / π y) := by
+    intro x y hxy
+    rw [hratio x, hratio y, fiberMass_congr (π := p) hxy,
+      fiberMass_congr (π := π) hxy]
+  have hterm : ∀ x, klTerm (p x) (π x)
+      = klTerm (p x) (push p (heatBath π b) x)
+        + p x * Real.log (push p (heatBath π b) x / π x) := by
+    intro x
+    rw [klTerm_of_pos (ne_of_gt (hp x)), klTerm_of_pos (ne_of_gt (hp x)),
+      Real.log_div (ne_of_gt (hp x)) (ne_of_gt (hπ x)),
+      Real.log_div (ne_of_gt (hp x)) (ne_of_gt (hq x)),
+      Real.log_div (ne_of_gt (hq x)) (ne_of_gt (hπ x))]
+    ring
+  have hmean : ∑ y, push p (heatBath π b) y
+        * Real.log (push p (heatBath π b) y / π y)
+      = ∑ x, p x * Real.log (push p (heatBath π b) x / π x) :=
+    push_heatBath_fixes_mean hπ
+      (fun x => Real.log (push p (heatBath π b) x / π x)) hfib p
+  have hklq : kl (push p (heatBath π b)) π
+      = ∑ y, push p (heatBath π b) y
+          * Real.log (push p (heatBath π b) y / π y) :=
+    Finset.sum_congr rfl fun y _ =>
+      klTerm_of_pos (ne_of_gt (hq y)) (π y)
+  calc kl p π
+      = ∑ x, (klTerm (p x) (push p (heatBath π b) x)
+          + p x * Real.log (push p (heatBath π b) x / π x)) :=
+        Finset.sum_congr rfl fun x _ => hterm x
+    _ = kl p (push p (heatBath π b))
+        + ∑ x, p x * Real.log (push p (heatBath π b) x / π x) :=
+        Finset.sum_add_distrib
+    _ = kl p (push p (heatBath π b))
+        + kl (push p (heatBath π b)) π := by
+        rw [← hmean, hklq]
+
 end HeatBathInstantiation
 
 end OPH.Thermodynamics
@@ -235,3 +305,4 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.heatBath_integral_fluctuation
 #print axioms OPH.Thermodynamics.heatBath_crooks
 #print axioms OPH.Thermodynamics.heatBath_correlation_symm
+#print axioms OPH.Thermodynamics.heatBath_kl_pythagorean

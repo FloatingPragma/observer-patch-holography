@@ -18,6 +18,12 @@ completion program on one regulator stage:
   fibre-measurable observable;
 * the transition-side second law: relative entropy to the reference law
   is nonincreasing under the repair kernel;
+* the strict pointwise lower bound on relative-entropy terms and the
+  vanishing characterization: on positive vectors of equal total mass,
+  relative entropy is zero exactly at equality;
+* the closed form of one repair step: the pushforward through the
+  conditional-resampling kernel reweights the reference law by the
+  ratio of state fibre mass to reference fibre mass;
 * the Gibbs information-projection Pythagorean identity and the unique
   constrained minimizer;
 * the finite low-temperature concentration bound and its quantitative
@@ -928,6 +934,88 @@ theorem block_entropy_le (s : Finset Ω) (p : Ω → ℝ)
 
 end QuantitativeNernst
 
+section StrictDescent
+
+/-- Strict pointwise lower bound: at positive arguments with `q ≠ p`,
+the relative-entropy term dominates `q - p` strictly. -/
+theorem klTerm_gt {q p : ℝ} (hq : 0 < q) (hp : 0 < p) (hne : q ≠ p) :
+    q - p < klTerm q p := by
+  have hx : p / q ≠ 1 := by
+    intro h
+    exact hne ((div_eq_one_iff_eq (ne_of_gt hq)).mp h).symm
+  have hlog := Real.log_lt_sub_one_of_pos (div_pos hp hq) hx
+  have hflip : Real.log (q / p) = -Real.log (p / q) := by
+    rw [← Real.log_inv]
+    congr 1
+    field_simp
+  rw [klTerm_of_pos (ne_of_gt hq), hflip]
+  have hmul := mul_lt_mul_of_pos_left hlog hq
+  have hqd : q * (p / q - 1) = p - q := by field_simp
+  nlinarith [hmul, hqd]
+
+omit [DecidableEq Ω] in
+/-- Strict positivity of relative entropy off the diagonal: positive
+vectors of equal total mass that differ somewhere have strictly
+positive relative entropy. -/
+theorem kl_pos_of_ne (q p : Ω → ℝ) (hq : ∀ x, 0 < q x)
+    (hp : ∀ x, 0 < p x) (hsum : ∑ x, q x = ∑ x, p x) (hne : q ≠ p) :
+    0 < kl q p := by
+  obtain ⟨x0, hx0⟩ : ∃ x, q x ≠ p x := Function.ne_iff.mp hne
+  have hlt : ∑ x, (q x - p x) < ∑ x, klTerm (q x) (p x) := by
+    apply Finset.sum_lt_sum
+    · exact fun x _ => klTerm_ge (hq x).le (hp x).le
+        (fun h => absurd h (ne_of_gt (hp x)))
+    · exact ⟨x0, Finset.mem_univ x0, klTerm_gt (hq x0) (hp x0) hx0⟩
+  rw [Finset.sum_sub_distrib, hsum, sub_self] at hlt
+  simpa [kl] using hlt
+
+omit [DecidableEq Ω] in
+/-- **Vanishing characterization of relative entropy.** On strictly
+positive vectors of equal total mass, relative entropy vanishes exactly
+at equality. -/
+theorem kl_eq_zero_iff_of_pos (q p : Ω → ℝ) (hq : ∀ x, 0 < q x)
+    (hp : ∀ x, 0 < p x) (hsum : ∑ x, q x = ∑ x, p x) :
+    kl q p = 0 ↔ q = p := by
+  constructor
+  · intro h
+    by_contra hne
+    exact absurd h (ne_of_gt (kl_pos_of_ne q p hq hp hsum hne))
+  · intro h
+    subst h
+    unfold kl
+    apply Finset.sum_eq_zero
+    intro x _
+    rw [klTerm_of_pos (ne_of_gt (hq x)), div_self (ne_of_gt (hq x)),
+      Real.log_one, mul_zero]
+
+variable {π : Ω → ℝ} {b : Ω → B}
+
+/-- **Closed form of one repair step.** The pushforward through the
+conditional-resampling kernel reweights the reference law by the ratio
+of state fibre mass to reference fibre mass at every point. The
+identity carries no faithfulness hypothesis: at a reference-null fibre
+both sides vanish under the division convention, and on a faithful
+reference every fibre mass is positive. -/
+theorem push_heatBath_eq (p : Ω → ℝ) (y : Ω) :
+    push p (heatBath π b) y
+      = π y * fiberMass p b y / fiberMass π b y := by
+  unfold push heatBath
+  have hstep : ∀ x,
+      p x * (if b y = b x then π y / fiberMass π b x else 0)
+        = if b x = b y then p x * (π y / fiberMass π b y) else 0 := by
+    intro x
+    by_cases h : b y = b x
+    · rw [if_pos h, if_pos h.symm, fiberMass_congr h.symm]
+    · rw [if_neg h, if_neg fun h' => h h'.symm, mul_zero]
+  rw [Finset.sum_congr rfl fun x _ => hstep x, Finset.sum_ite,
+    Finset.sum_const_zero, add_zero, ← Finset.sum_mul]
+  have hM : (∑ x ∈ Finset.univ.filter (fun x => b x = b y), p x)
+      = fiberMass p b y := rfl
+  rw [hM]
+  ring
+
+end StrictDescent
+
 end OPH.Thermodynamics
 
 #print axioms OPH.Thermodynamics.kl_push_le
@@ -948,3 +1036,7 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.mixture_stochastic
 #print axioms OPH.Thermodynamics.mixture_stationary
 #print axioms OPH.Thermodynamics.block_entropy_le
+#print axioms OPH.Thermodynamics.klTerm_gt
+#print axioms OPH.Thermodynamics.kl_pos_of_ne
+#print axioms OPH.Thermodynamics.kl_eq_zero_iff_of_pos
+#print axioms OPH.Thermodynamics.push_heatBath_eq

@@ -65,8 +65,9 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-55 | declared baryon- and lepton-number labels | `selection_rule` | `remove` | [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744) |
 | PR-56 | dimension-six baryon-operator eligibility and contraction grammar | `representation_choice` | `remove` | [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744) |
 | PR-57 | physical proton state and baryon-violating effective-action attachment | `structural_rule` | `remove` | [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744) |
+| PR-58 | net-compatible dynamics and region-symmetry action | `structural_rule` | `remove` | [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730) |
 
-Totals: 57 premises. 35 remove, 18 axiomatize, 4 import.
+Totals: 58 premises. 36 remove, 18 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -107,7 +108,7 @@ The phase operation completing the diagonal record algebra to full operator tomo
 The path-space reference is a supplied initial law times the uniform-step counting weight; among row-stochastic kernels this normal form is characterized by invariance under independent relabeling of transition targets at fixed source, by row-constant weight, or by constant log-transition step action, and Axiom 3 selects neither the counting reference nor the trivial datum whose conditional resampling realizes it. The reference is formalized in Lean/InformationProjection/LogTransitionAction.lean; Lean/InformationProjection/ReferenceNormalForm.lean proves the characterization, and Lean/InformationProjection/SourceReferenceSelection.lean proves the counting-reference realization and the non-selection boundary.
 
 - Type `selection_rule`; disposition `remove`; consumed by [#731](https://github.com/FloatingPragma/observer-patch-holography/issues/731).
-- Evidence: `Lean/InformationProjection/ReferenceNormalForm.lean` (`conditional_consumer`), `Lean/InformationProjection/LogTransitionAction.lean` (`statement`), `Lean/InformationProjection/SourceReferenceSelection.lean` (`no_go`), `claims/assumption_dictionary.md` (`statement`).
+- Evidence: `Lean/InformationProjection/ReferenceNormalForm.lean` (`conditional_consumer`), `Lean/InformationProjection/LogTransitionAction.lean` (`statement`), `Lean/InformationProjection/SourceReferenceSelection.lean` (`no_go`), `claims/assumption_dictionary.md` (`statement`), `Lean/Variational/SourceToHamiltonianComposed.lean` (`conditional_consumer`).
 - Disposition note: Removal needs a source rule selecting the counting reference and the trivial datum; the relabeling-invariant normal form is characterized, and the selection remains open scientific work in lane #731.
 
 ### PR-06 real Legendre enrichment
@@ -115,15 +116,15 @@ The path-space reference is a supplied initial law times the uniform-step counti
 The finite source law fixes its four-corner log-transition action and a bilinear real extension that is affine in the velocity slot; adding (a/2)*y*(y - 1) for any a > 0 changes no realized source history and yields strictly convex Legendre-Hamilton systems that differ between values of a. Selecting one real velocity curvature is therefore a representation choice beyond the realized-history law, proved as a sharp finite no-go in Lean/Variational/RealizedHistoryLegendreNoGo.lean with the bridge itself in Lean/Variational/LegendreBridge.lean.
 
 - Type `representation_choice`; disposition `remove`; consumed by [#731](https://github.com/FloatingPragma/observer-patch-holography/issues/731).
-- Evidence: `Lean/Variational/LegendreBridge.lean` (`statement`), `Lean/Variational/RealizedHistoryLegendreNoGo.lean` (`no_go`), `claims/assumption_dictionary.md` (`statement`).
-- Disposition note: Removal needs additional source data or a physical receipt selecting the off-alphabet velocity curvature, which the realized-history law provably underdetermines.
+- Evidence: `Lean/Variational/LegendreBridge.lean` (`statement`), `Lean/Variational/RealizedHistoryLegendreNoGo.lean` (`no_go`), `claims/assumption_dictionary.md` (`statement`), `Lean/Variational/ModeExtremalEnrichment.lean` (`conditional_consumer`), `Lean/Variational/SourceToHamiltonianComposed.lean` (`conditional_consumer`).
+- Disposition note: Removal needs additional source data or a physical receipt selecting the off-alphabet velocity curvature, which the realized-history law provably underdetermines. Mode-extremal consistency now pins the member uniquely within the registered one-parameter curvature family on the committed chain: interior-junction stationarity of the embedded constant-1 history forces a = 2*log(362055879/271780) > 0, with positivity equivalent to strict interior mode dominance (Lean/Variational/ModeExtremalEnrichment.lean). The selection principle is declared, references off-alphabet variations, and leaves the realized-history no-go in force; the row remains a representation choice.
 
 ### PR-07 declared repair law: common faithful reference and repaired-visible fibre
 
 One common faithful reference serves both Axiom 3 instantiations, and the transition feasible set is the fibre of the complete repaired visible datum of the active collar; on these two declared inputs the state projection selects the Gibbs exponential family and the transition projection selects weighted conditional resampling from the same reference, which yields the exact four-law package. The pair is declared through the row complete_repaired_visible_datum_fibre in claims/assumption_dictionary.md and consumed by Lean/Thermodynamics/FiniteConditionalRepair.lean; the B12 obstruction (code/thermodynamics/common_reference_obstruction/) and the B20 random-scan preflight (code/b20_random_scan/) prove that the pinned source run and its certified random-scan grammar do not supply the pair.
 
 - Type `structural_rule`; disposition `axiomatize`; consumed by [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#732](https://github.com/FloatingPragma/observer-patch-holography/issues/732).
-- Evidence: `Lean/Thermodynamics/FiniteConditionalRepair.lean` (`conditional_consumer`), `Lean/Thermodynamics/CommonReferenceObstruction.lean` (`no_go`), `code/thermodynamics/common_reference_obstruction/` (`no_go`), `code/b20_random_scan/` (`no_go`), `claims/assumption_dictionary.md` (`statement`).
+- Evidence: `Lean/Thermodynamics/FiniteConditionalRepair.lean` (`conditional_consumer`), `Lean/Thermodynamics/CommonReferenceObstruction.lean` (`no_go`), `code/thermodynamics/common_reference_obstruction/` (`no_go`), `code/b20_random_scan/` (`no_go`), `claims/assumption_dictionary.md` (`statement`), `Lean/Thermodynamics/FourLawAdequacySurface.lean` (`conditional_consumer`).
 - Disposition note: Promotion is the recorded axiomatization candidate of lane #732 with the B12/B20 bounded no-gos as its justification record; a simulator export realizing the law through the recorded-decision process would open the emergent rung.
 
 ### PR-08 refinement-uniform low-temperature control
@@ -131,8 +132,8 @@ One common faithful reference serves both Axiom 3 instantiations, and the transi
 A declared refinement family carries minimum-preserving maps, one uniform positive energy-gap lower bound, and one cardinality bound, so the off-minimum Gibbs mass is controlled by cardBound * exp(-beta * gapBound) across every member simultaneously. The control and its negative control (a family with shrinking gaps violates the uniform conclusion) are proved in Lean/Thermodynamics/LowTemperatureControl.lean; the four-law falsifier row in claims/claim_registry.yaml names the refinement-uniform control as the receipt behind the continuum third-law reading.
 
 - Type `structural_rule`; disposition `remove`; consumed by [#732](https://github.com/FloatingPragma/observer-patch-holography/issues/732).
-- Evidence: `Lean/Thermodynamics/LowTemperatureControl.lean` (`conditional_consumer`), `claims/claim_registry.yaml` (`conditional_consumer`).
-- Disposition note: Removal needs a source-produced refinement family whose uniform gap lower bound and cardinality bound are theorems rather than declared data.
+- Evidence: `Lean/Thermodynamics/LowTemperatureControl.lean` (`conditional_consumer`), `claims/claim_registry.yaml` (`conditional_consumer`), `Lean/Thermodynamics/FourLawAdequacySurface.lean` (`conditional_consumer`).
+- Disposition note: Removal needs a source-produced refinement family whose uniform gap lower bound and cardinality bound are theorems rather than declared data. The refinement-uniform bound is now threaded into the composed four-law conclusion at the calibrated energy through the r0-member identification of the refinement attachment (fourLaws_composed).
 
 ### PR-09 equal-face-weight and barycentric one-third port-dual rules
 
@@ -155,7 +156,7 @@ The normalized port-dual measure is read as the diagonal carrier inner product i
 Three Lie-theory facts enter the gauge classification as declared classical inputs: the direct-sum splitting L = Z(L) + [L, L] of a compact Lie algebra into invariant submodules, surjectivity of the exponential map on compact connected groups, and the classification of compact simple Lie algebras through its dimension list. The cited modules declare the remaining Lie-theoretic bridge steps of the classification (centre rationality through the torus/cocharacter step, the su(2)^4 fixed-space exclusion, and the reductive-decomposition boundary bundle) as classical inputs subsumed under this row. They are marked as inputs in Lean/Screen/A5OPH.lean and Lean/Screen/TrichotomyCases.lean and cited by paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex.
 
 - Type `external_mathematics`; disposition `import`; consumed by [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735).
-- Evidence: `Lean/Screen/A5OPH.lean` (`external_input`), `Lean/Screen/TrichotomyCases.lean` (`external_input`), `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex` (`external_input`).
+- Evidence: `Lean/Screen/A5OPH.lean` (`external_input`), `Lean/Screen/TrichotomyCases.lean` (`external_input`), `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex` (`external_input`), `Lean/Screen/SMStructureComposition.lean` (`conditional_consumer`).
 - Disposition note: The facts are classical compact-Lie theory consumed as imports; the row's only movement is machine-checked replacements for the paper citations, and no derivation obligation attaches.
 
 ### PR-12 matter candidate grammar
@@ -187,7 +188,7 @@ The hadronic vacuum-polarization and spectral input is a pinned empirical payloa
 Internal modular charge, energy gaps, and repair-step order carry no laboratory units. PR-15 is the empirical attachment to declared measured clock and energy standards, including conversion into laboratory or SI units. It is separate from the source-side independent_physical_scale_receipt in claims/assumption_dictionary.md: that structural receipt asks two internally generated readouts to remove positive-rescaling freedom before any empirical unit conversion, and it is not part of this import row. The four-law claim in claims/claim_registry.yaml records laboratory energy and clock calibration as a named empirical input shared by the thermodynamics and constants lanes.
 
 - Type `empirical_import`; disposition `import`; consumed by [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730), [#732](https://github.com/FloatingPragma/observer-patch-holography/issues/732), [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736).
-- Evidence: `claims/assumption_dictionary.md` (`statement`), `claims/claim_registry.yaml` (`conditional_consumer`).
+- Evidence: `claims/assumption_dictionary.md` (`statement`), `claims/claim_registry.yaml` (`conditional_consumer`), `Lean/Thermodynamics/FourLawAdequacySurface.lean` (`conditional_consumer`).
 - Disposition note: Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt.
 
 ### PR-16 stable causality and open-image conditions
@@ -227,7 +228,7 @@ The radial strength times the shell content (the derivative of the ball volume) 
 The seam move law is selected by an A2-natural, A3-unique projection on the sixty directed source seams: a feasible move simplex, a naturality-invariant objective, and a unique selected minimizer, supplied as the structure A2A3DirectedSeamProjection in Lean/Screen/SeamCurrentHomogeneousAction.lean. Given the data, the committed theorems force the equal weight 1/60 and the one dimensionless completion Dirichlet generator; no source theorem constructs the projection data.
 
 - Type `selection_rule`; disposition `axiomatize`; consumed by [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733).
-- Evidence: `Lean/Screen/SeamCurrentHomogeneousAction.lean` (`statement`), `Lean/Screen/SeamCurrentDirichletGenerator.lean` (`conditional_consumer`), `Lean/Screen/LightSignalAdequacySurface.lean` (`conditional_consumer`).
+- Evidence: `Lean/Screen/SeamCurrentHomogeneousAction.lean` (`statement`), `Lean/Screen/SeamCurrentDirichletGenerator.lean` (`conditional_consumer`), `Lean/Screen/LightSignalAdequacySurface.lean` (`conditional_consumer`), `Lean/Screen/LightSignalMaxwellComposition.lean` (`conditional_consumer`).
 - Disposition note: The forcing theorem a2a3_directed_seam_weight_eq_one_sixtieth discharges the weight law from the data; the register row is the existence of the projection data itself. Evidence context: selected_generator_eq_dirichlet)
 
 ### PR-21 auxiliary oscillator lift of the seam-current generator
@@ -355,7 +356,7 @@ The carrier loop classes realized by the source are the six-axis screen gluing c
 The family multiplicity object is a single complete spectral band of the twelve-port adjacency realized inside the screen coefficient space: candidates carrying a source-visible proper splitting projector are excluded (the single-complete-object clause), bands whose rotation action has nontrivial kernel are excluded (the faithfulness clause), and the complex dimension lies in the pinned physical window [3, 5]. Admissible candidates are compared by the operational Laplacian seam cost per unit norm over Z[sqrt5], and the unique strict minimizer is selected. On the committed carrier the admissible candidates are the 3, 3', and 5 bands with exact costs 5 - sqrt5 < 6 < 5 + sqrt5, so the rules select the rank-three band (Lean/Screen/A5FamilyBand.lean, family_band_selected); without the faithfulness clause the minimizer is the trivial band at cost zero (trivial_band_without_faithfulness), so the clause is load-bearing. The clauses are declared in code/a5_closure/family_band_attachment_certificate.py and its reference manifest.
 
 - Type `selection_rule`; disposition `remove`; consumed by [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735).
-- Evidence: `code/a5_closure/family_band_attachment_certificate.py` (`statement`), `code/a5_closure/manifests/family_band_attachment_reference.json` (`statement`), `Lean/Screen/A5FamilyBand.lean` (`conditional_consumer`), `Lean/Screen/SMStructureAdequacySurface.lean` (`statement`).
+- Evidence: `code/a5_closure/family_band_attachment_certificate.py` (`statement`), `code/a5_closure/manifests/family_band_attachment_reference.json` (`statement`), `Lean/Screen/A5FamilyBand.lean` (`conditional_consumer`), `Lean/Screen/SMStructureAdequacySurface.lean` (`conditional_consumer`).
 - Disposition note: Removal needs a source derivation of the comparison order and of the realization clause that places the multiplicity object inside the screen coefficient space; registration composes OL-G4 conditionally, and family triplication stays a selection under these rules.
 
 ### PR-37 fine-structure closure map selection
@@ -411,7 +412,7 @@ Over the declared repair law (PR-07), the modular weight of the declared referen
 A real-parameter group of star automorphisms of one represented finite matrix algebra is supplied, with identity at zero, the group law, and pointwise continuity. The finite Stone-converse receipt then represents that supplied flow by conjugation with a time-independent self-adjoint generator, unique up to an additive real scalar. The premise supplies neither a source-selected evolution nor a physical clock.
 
 - Type `structural_rule`; disposition `remove`; consumed by [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
-- Evidence: `Lean/EventAlgebra/QuantumAdequacySurface.lean` (`statement`), `Lean/Dynamics/StoneConverse.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Evidence: `Lean/EventAlgebra/QuantumAdequacySurface.lean` (`statement`), `Lean/Dynamics/StoneConverse.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`), `Lean/EventAlgebra/SchroedingerFrameFlow.lean` (`conditional_consumer`).
 - Disposition note: Removal needs the observer protocol to emit the automorphism group and its source-selected generator. Physical-time calibration remains a separate PR-15 attachment.
 
 ### PR-44 finite subsystem split and normalized local-operation interface
@@ -419,15 +420,15 @@ A real-parameter group of star automorphisms of one represented finite matrix al
 The finite locality helpers are read on a supplied bipartite carrier split with a designated local factor and a normalized local operation: a row-normalized classical kernel or Kraus-complete quantum family. Adaptive variants additionally take a supplied scheduler and consultation region. These data yield exact algebraic no-signalling and dependency-cone identities but do not identify spacelike physical regions, a laboratory channel, or a source-selected factorization.
 
 - Type `representation_choice`; disposition `remove`; consumed by [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728), [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
-- Evidence: `Lean/ObserverPatchHolography/Locality/NoSignalling.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Evidence: `Lean/ObserverPatchHolography/Locality/NoSignalling.lean` (`conditional_consumer`), `Lean/ObserverPatchHolography/Locality/AdaptiveScheduler.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`), `Lean/EventAlgebra/SlotLocalitySurface.lean` (`conditional_consumer`).
 - Disposition note: Removal needs a source-produced subsystem or region split, normalized channel semantics, and scheduler provenance. PR-52 separately owns the physical spacetime and causal reading.
 
 ### PR-45 source-selected real variational dynamics and symmetry data
 
-The variational surface is supplied with a positive initial law and transition kernel, a finite history length, a real Lagrangian or stiffness and potential with derivative data, and, for Noether transport, a differentiable one-parameter transformation and exact invariance law. The finite Euler-Lagrange, Legendre-Hamilton, and Noether receipts are conditional on these data; the observer source does not select them.
+The variational surface is supplied with a positive initial law and transition kernel, a finite history length, a record embedding of the alphabet into the reals, a real Lagrangian or stiffness and potential with derivative data, and, for Noether transport, a differentiable one-parameter transformation and exact invariance law. The finite Euler-Lagrange, Legendre-Hamilton, and Noether receipts are conditional on these data and are stated for fixed-endpoint interior-junction variations; the observer source does not select them.
 
 - Type `structural_rule`; disposition `remove`; consumed by [#731](https://github.com/FloatingPragma/observer-patch-holography/issues/731).
-- Evidence: `Lean/Variational/MechanicsAdequacySurface.lean` (`statement`), `Lean/Variational/DiscreteNoether.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
+- Evidence: `Lean/Variational/MechanicsAdequacySurface.lean` (`statement`), `Lean/Variational/DiscreteNoether.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`), `Lean/Variational/SourceToHamiltonianComposed.lean` (`conditional_consumer`), `Lean/Variational/TranslationInvariantComposedInstance.lean` (`conditional_consumer`).
 - Disposition note: Removal needs one source-derived real history action, potential, symmetry action, and physical clock that compose with the path reference and real enrichment rather than merely standing beside them.
 
 ### PR-46 physical global-form selection attachments
@@ -525,6 +526,14 @@ The declared quark and lepton fields, baryon labels, and finite operator census 
 - Type `structural_rule`; disposition `remove`; consumed by [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744).
 - Evidence: `Lean/Screen/BaryonDimensionSix.lean` (`statement`), `claims/claim_registry.yaml` (`statement`), `code/particles/runs/status/postdiction_ledger.json` (`statement`).
 - Disposition note: Removal needs one common observer realization of the matter, QCD, and action construction plus an operational decay comparison. The current exact result is only a conditional finite operator census.
+
+### PR-58 net-compatible dynamics and region-symmetry action
+
+No registered premise supplies a pointwise-continuous automorphism flow of the joint algebra that maps each regional algebra of the declared diamond to itself or to a covariant image, nor any group action on the region system beyond the constructed Z/2 slot swap. PR-43 supplies a flow on one full matrix block with no region compatibility, and PR-52 owns the physical time and causal reading. This row is the exact block on the OL-C6 time-slice target.
+
+- Type `structural_rule`; disposition `remove`; consumed by [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`).
+- Disposition note: Removal needs a source-selected flow or symmetry action compatible with the declared regional net. The Z/2 slot-swap receipt on the equal-alphabet carrier is the first nonconstant region-symmetry action and does not discharge the dynamics half.
 
 ## What the dispositions mean
 
