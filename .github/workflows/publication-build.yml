@@ -69,6 +69,17 @@ jobs:
         with:
           python-version: "3.12"
 
+      # The bundle server (data1.fullyjustified.net) rate-limits shared CI
+      # runners (HTTP 429), which surfaced as spurious "font not loadable"
+      # build failures. Caching Tectonic's bundle cache keeps warm runs
+      # entirely off the network; the cache key tracks the pinned Tectonic
+      # version and the font/package set is versioned by the bundle itself.
+      - name: Cache the Tectonic bundle
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/Tectonic
+          key: tectonic-bundle-0.15.0-${{ runner.os }}
+
       - name: Install pinned Tectonic
         uses: wtfjoke/setup-tectonic@v4
         with:
