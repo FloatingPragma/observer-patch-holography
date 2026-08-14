@@ -113,6 +113,11 @@ class AxiomConsistencyGuardTests(unittest.TestCase):
             encoding="utf-8"
         )
         self.assertIn('"oph.active_surface_inventory.v1"', payload)
+        self.assertIn('"path": "extra/observable_normal_forms.tex"', payload)
+        self.assertIn(
+            "extra/observable_normal_forms.pdf",
+            guard.PDF_SURFACES,
+        )
 
     def test_committed_inventory_matches_live_scan_without_writing(self) -> None:
         errors: list[str] = []

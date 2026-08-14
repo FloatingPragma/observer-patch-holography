@@ -829,6 +829,21 @@ preserves $B$, reaches the consistent set, and satisfies an appropriate
 liveness condition. Confluence from one source does not by itself prove
 determination across distinct sources with the same protected record.
 
+For a separately declared finite scheduler, protected observations admit
+four nested first-hit layers: nonempty consistent fiber, positive reach
+from some active source, almost-sure reach from every active source, and a
+single first-hit endpoint class modulo the declared silent equivalence.
+Their complementary cuts partition the empty-fiber, inaccessible, liveness,
+and selection obstructions, the layers instantiate the behavior-cut
+interface of this section exactly under explicit support--rewrite laws, and
+an exact finite-state morphism transports the whole profile. The four cuts
+compare coordinatewise, a product preorder rather than a scalar score. The
+definitions, machine-checked theorems, native fixtures, and countermodels
+are in the observable-normal-forms component paper \cite{ophnormalforms};
+the statement is conditional on the declared scheduler and morphism packet
+and supplies neither hitting-time rates nor an implementation-refinement
+result.
+
 \subsection{Approximate outputs and refinement}
 
 Let $(Q,d_Q)$ be finite, let $(\mathcal B,d_{\mathcal B})$ be metric, and let
@@ -3605,6 +3620,14 @@ a schedule-independent public record. The completed finite algebra-state
 surface then carries the standard probability, conditioning, expectation, and
 correlation identities.
 
+With a declared finite scheduler, the observable-normal-form interface also
+separates four protected first-hit failures whose cuts instantiate the
+behavior-cut interface exactly and transport along the stated exact
+finite-state morphism, as developed in the observable-normal-forms component
+paper \cite{ophnormalforms}. These finite results supply no rates, expected
+hitting times, infinite-tower transport, deployed-code refinement, or
+physical identification.
+
 The principal finite gauge result is the A1--A2 forcing theorem. Complete
 reversible response supplies a compact commutator-closed twelve-dimensional
 current, and endogenous overlap transport makes the proper carrier action
@@ -3847,8 +3870,10 @@ FloatingPragma (2026). \emph{The OPH Axiom Reference}.
 \bibitem{ophnormalforms}
 Mueller, B., Matscheko, D., and Hill, J. (2026).
 \emph{Observation-Determined Normal Forms: Stability, Obstructions, and
-Refinement in Constraint and Rewrite Systems}. Public manuscript.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/extra/observable_normal_forms.pdf}
+Refinement in Constraint and Rewrite Systems}. Public manuscript, distributed
+as \path{extra/observable_normal_forms.pdf} in the same repository revision as
+this paper.
+\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observable_normal_forms.pdf}
 
 \bibitem{opheventalgebra}
 Mueller, B. (2026). \emph{Verified Projection-Event Calculus in Lean 4:

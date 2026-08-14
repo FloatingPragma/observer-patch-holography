@@ -373,6 +373,7 @@ def _declared_boundary_evidence() -> list[dict[str, Any]]:
         or quantum_rows[0].get("provenance_issues") != [635]
         or quantum_rows[0].get("classification") != "not_supplied"
         or quantum_rows[0].get("supplied_evidence") != []
+        or quantum_rows[0].get("terminal_for_dimensionless_output") is not True
     ):
         raise CertificateError(
             "QUANTUM_EFT_BOUNDARY",
@@ -425,13 +426,13 @@ def _declared_boundary_evidence() -> list[dict[str, Any]]:
         },
         {
             "boundary_id": "lorentzian_quantum_eft_transfer",
-            "evidence_class": "declared_open_interface",
+            "evidence_class": "required_interface_not_supplied",
             "issue_context": [635],
             "pin": _file_pin(
                 QUANTUM_EFT_FRONTIER_PATH,
-                "source inventory with the quantum-EFT transfer typed open",
+                "source inventory with the quantum-EFT transfer classified required and not supplied",
             ),
-            "status": "OPEN_ON_DECLARED_SOURCE_INVENTORY",
+            "status": "REQUIRED_INTERFACE_NOT_SUPPLIED_ON_DECLARED_SOURCE_INVENTORY",
         },
         {
             "boundary_id": "qcd_spectral_resource",
@@ -884,7 +885,7 @@ def main() -> int:
             args.json_out.parent.mkdir(parents=True, exist_ok=True)
             args.markdown_out.parent.mkdir(parents=True, exist_ok=True)
             args.json_out.write_bytes(_pretty_bytes(payload))
-            args.markdown_out.write_text(render_markdown(payload), encoding="utf-8")
+            args.markdown_out.write_bytes(render_markdown(payload).encode("utf-8"))
             print(f"wrote {PROJECTION_PATH.relative_to(REPO_ROOT)}")
             print(f"wrote {args.json_out.relative_to(REPO_ROOT)}")
             print(f"wrote {args.markdown_out.relative_to(REPO_ROOT)}")

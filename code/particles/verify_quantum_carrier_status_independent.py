@@ -294,7 +294,7 @@ def _boundary_evidence() -> list[dict[str, Any]]:
     quantum_eft = _load(QUANTUM_EFT_PATH)
     interfaces = quantum_eft.get("required_interfaces")
     if not isinstance(interfaces, list):
-        raise VerificationError("quantum-EFT interface list missing")
+        raise VerificationError("quantum-EFT required-interface list missing")
     selected = [
         row
         for row in interfaces
@@ -309,6 +309,7 @@ def _boundary_evidence() -> list[dict[str, Any]]:
         or selected[0].get("provenance_issues") != [635]
         or selected[0].get("classification") != "not_supplied"
         or selected[0].get("supplied_evidence") != []
+        or selected[0].get("terminal_for_dimensionless_output") is not True
     ):
         raise VerificationError("quantum-EFT source frontier changed")
 
@@ -355,13 +356,13 @@ def _boundary_evidence() -> list[dict[str, Any]]:
         },
         {
             "boundary_id": "lorentzian_quantum_eft_transfer",
-            "evidence_class": "declared_open_interface",
+            "evidence_class": "required_interface_not_supplied",
             "issue_context": [635],
             "pin": _pin(
                 QUANTUM_EFT_PATH,
-                "source inventory with the quantum-EFT transfer typed open",
+                "source inventory with the quantum-EFT transfer classified required and not supplied",
             ),
-            "status": "OPEN_ON_DECLARED_SOURCE_INVENTORY",
+            "status": "REQUIRED_INTERFACE_NOT_SUPPLIED_ON_DECLARED_SOURCE_INVENTORY",
         },
         {
             "boundary_id": "qcd_spectral_resource",

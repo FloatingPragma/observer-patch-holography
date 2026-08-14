@@ -132,17 +132,17 @@
     },
     {
       "boundary_id": "lorentzian_quantum_eft_transfer",
-      "evidence_class": "declared_open_interface",
+      "evidence_class": "required_interface_not_supplied",
       "issue_context": [
         635
       ],
       "pin": {
         "bytes": 50249,
         "path": "code/particles/calibration/wz_native_source_packet/outputs/source_parent_inventory.json",
-        "role": "source inventory with the quantum-EFT transfer typed open",
+        "role": "source inventory with the quantum-EFT transfer classified required and not supplied",
         "sha256": "sha256:49a1f3a3af331b12bdc23146201ec8c032ec04ba4b098fceaba4cffafdc294f0"
       },
-      "status": "OPEN_ON_DECLARED_SOURCE_INVENTORY"
+      "status": "REQUIRED_INTERFACE_NOT_SUPPLIED_ON_DECLARED_SOURCE_INVENTORY"
     },
     {
       "boundary_id": "qcd_spectral_resource",
