@@ -13,7 +13,7 @@
 
 \hypersetup{
   pdftitle={Finite Observer Consensus as a Reconstruction Principle: Normal Forms, the Standard Model Lie Type, and a Route to the Einstein Field Equation},
-  pdfauthor={Bernhard Mueller; Alexander Osika; Mario Poneder; Kai Xue; Ben Cassie; Peter Nguyen; Maarten Antoine Visser; Kale Arnav Anirudha; David Matscheko; Jonathan Hill; William T. Glynn},
+  pdfauthor={Bernhard Mueller; Alexander Osika; Mario Poneder; Kai Xue; Ben Cassie; Peter Nguyen; Jinwook Kim; David Matscheko; Jonathan Hill; William T. Glynn; Maarten Antoine Visser; Kale Arnav Anirudha},
   pdfsubject={Finite observer-patch reconstruction in foundations of physics},
   pdfkeywords={foundations of physics, Observer Patch Holography, finite reconstruction, quantum records, Einstein field equation, gauge structure},
   pdflang={en-US}
@@ -33,17 +33,19 @@
 \title{Finite Observer Consensus as a Reconstruction Principle:\\
 Normal Forms, the Standard Model Lie Type, and a Route to the Einstein Field Equation}
 
-\author{Bernhard Mueller\textsuperscript{1,*}\quad
-Alexander Osika\textsuperscript{2}\quad
-Mario Poneder\quad
-Kai Xue\\
-Ben Cassie\quad
-Peter Nguyen\quad
-Maarten Antoine Visser\quad
-Kale Arnav Anirudha\\
-David Matscheko\quad
-Jonathan Hill\quad
-William T. Glynn}
+\author{%
+\normalsize Bernhard Mueller\textsuperscript{1,*}\qquad
+\normalsize Alexander Osika\textsuperscript{2}\qquad
+\normalsize Mario Poneder\qquad
+\normalsize Kai Xue\\[0.5em]
+\normalsize Ben Cassie\qquad
+\normalsize Peter Nguyen\qquad
+\normalsize Jinwook Kim\textsuperscript{3}\qquad
+\normalsize David Matscheko\\[0.5em]
+\normalsize Jonathan Hill\qquad
+\normalsize William T. Glynn\qquad
+\normalsize Maarten Antoine Visser\qquad
+\normalsize Kale Arnav Anirudha}
 \date{\OPHPaperReleaseDate}
 
 \begin{document}
@@ -55,7 +57,8 @@ William T. Glynn}
 \footnotesize\textbf{Author affiliations:}\\
 \begin{tabular}{rl}
 \textsuperscript{1} & Pragma Research Inc.\\
-\textsuperscript{2} & Asimov Labs
+\textsuperscript{2} & Loki Labs\\
+\textsuperscript{3} & Oraclizer Labs
 \end{tabular}\\
 \textsuperscript{*}Corresponding author:
 \href{mailto:bernhard@floatingpragma.ai}{\nolinkurl{bernhard@floatingpragma.ai}}.
@@ -3786,7 +3789,7 @@ funding were received for the preparation of this manuscript.
 
 \noindent\textbf{Author affiliations.}
 Bernhard Mueller is affiliated with Pragma Research Inc. Alexander Osika is
-affiliated with Asimov Labs.
+affiliated with Loki Labs. Jinwook Kim is affiliated with Oraclizer Labs.
 
 \noindent\textbf{Author contributions.}
 Bernhard Mueller developed the OPH concept and mathematical synthesis, wrote
@@ -3799,18 +3802,22 @@ Xue contributed consistency checks, simulator review, visualization review,
 and prototype-engineering review. Ben Cassie contributed implementation-claim
 and physical-evidence review. Peter Nguyen contributed proof auditing,
 branch-boundary analysis, compact-gauge and global-quotient analysis, and
-manuscript consistency review. Maarten Antoine Visser contributed
-consensus-protocol review and physics feedback on the foundations and
-emergent-spacetime framing. Kale Arnav Anirudha contributed consensus-paper
-material, asynchronous-agreement analysis, repair-map definitions, and formal
-review of the protocol surface. David Matscheko contributed proof review of
+manuscript consistency review. Jinwook Kim contributed the Lean formalization
+of protected-behavior obstruction profiles and the conditional mechanism-variant
+example in the observable normal forms library, their integration into the
+paper surfaces, and the registered claim gates and reproducible-build
+reliability work. David Matscheko contributed proof review of
 consensus repair, observable normal forms, modular and Einstein algebra,
 edge entropy, hypercharge, and the $\mathbb Z_6$ quotient. Jonathan Hill
 contributed Lean formalization and proof auditing of observable normal forms,
 refinement and repair results, complexity classifications, and artifact
 coverage. William T. Glynn contributed simulator development, computational
 implementation, reproducible-build infrastructure, and release-validation
-work in the main OPH research repository. All authors reviewed and approved
+work in the main OPH research repository. Maarten Antoine Visser contributed
+consensus-protocol review and physics feedback on the foundations and
+emergent-spacetime framing. Kale Arnav Anirudha contributed consensus-paper
+material, asynchronous-agreement analysis, repair-map definitions, and formal
+review of the protocol surface. All authors reviewed and approved
 the manuscript. All authors agree to be accountable for all aspects of the
 work.
 
@@ -3842,7 +3849,7 @@ Not applicable.
 
 \noindent\textbf{Competing interests.}
 Bernhard Mueller is affiliated with Pragma Research Inc. Alexander Osika is
-affiliated with Asimov Labs. The authors participate in OPH-related research, software, simulation, or
+affiliated with Loki Labs. Jinwook Kim is affiliated with Oraclizer Labs. The authors participate in OPH-related research, software, simulation, or
 prototype-development programs and may receive professional or reputational
 benefit from this work. These relationships are disclosed. The authors declare
 no other competing interests.
@@ -3885,7 +3892,7 @@ FloatingPragma (2026). \emph{The OPH Axiom Reference}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/docs/AXIOM_REFERENCE.md}
 
 \bibitem{ophnormalforms}
-Mueller, B., Matscheko, D., and Hill, J. (2026).
+Mueller, B., Kim, J., Matscheko, D., and Hill, J. (2026).
 \emph{Observation-Determined Normal Forms: Stability, Obstructions, and
 Refinement in Constraint and Rewrite Systems}. Public manuscript, distributed
 as \path{extra/observable_normal_forms.pdf} in the same repository revision as
@@ -3899,22 +3906,21 @@ Interoperability}. Public manuscript and formal artifact.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/extra/machine_checked_finite_event_algebras.pdf}
 
 \bibitem{ophconsensus}
-Mueller, B., Xue, K., Anirudha, K.\,A., Matscheko, D., and Hill, J. (2026).
+Mueller, B., Xue, K., Kim, J., Anirudha, K.\,A., Matscheko, D., and Hill, J. (2026).
 \emph{Reality as a Consensus Protocol: The Fixed-Point Computation That
 Implements Physics}. Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/paper/reality_as_consensus_protocol.pdf}
 
 \bibitem{ophMicrophysics}
-Mueller, B., Osika, A., Xue, K., Cassie, B., Visser, M.\,A., and Matscheko,
-D. (2026). \emph{Federated Echosahedral Screen Microphysics: Patch Hardware,
+Mueller, B., Osika, A., Xue, K., and Cassie, B. (2026).
+ \emph{Federated Echosahedral Screen Microphysics: Patch Hardware,
 Records, and Observer Synchronization in Observer-Patch Holography}. Public
 manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/paper/screen_microphysics_and_observer_synchronization.pdf}
 
 \bibitem{ophobservers}
-Mueller, B., Osika, A., Poneder, M., Xue, K., Cassie, B., Nguyen, P.,
-Visser, M.\,A., Anirudha, K.\,A., Matscheko, D., Hill, J., and Glynn,
-W.\,T. (2026). \emph{From Observer Consensus to Standard Physics}. Public manuscript.
+Mueller, B., Osika, A., Poneder, M., Xue, K., Cassie, B., Nguyen, P., Kim, J., Matscheko, D., Hill, J., Glynn, W.\,T., Visser, M.\,A., and Anirudha, K.\,A. (2026).
+ \emph{From Observer Consensus to Standard Physics}. Public manuscript.
 \url{https://wkaxfdgxoqmghwgshymt.supabase.co/storage/v1/object/public/papers/from_observer_consensus_to_standard_physics.pdf}
 
 \bibitem{ophEinstein}
@@ -3924,14 +3930,14 @@ Dynamics from Overlap Consistency}. Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf}
 
 \bibitem{ophGauge}
-Mueller, B., Osika, A., Poneder, M., Xue, K., Nguyen, P., Visser, M.\,A.,
-and Matscheko, D. (2026). \emph{Deriving Standard Model Gauge Structure from
+Mueller, B., Osika, A., Poneder, M., Xue, K., Nguyen, P., and Matscheko, D. (2026).
+ \emph{Deriving Standard Model Gauge Structure from
 Observer Overlap Consistency}. Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/ff1981be069d3e5fa70d953e27b3786dd4c2b99d/paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf}
 
 \bibitem{ophzoo}
-Mueller, B., Osika, A., Poneder, M., Xue, K., Visser, M.\,A., and
-Matscheko, D. (2026). \emph{Deriving the Particle Zoo from Observer
+Mueller, B., Osika, A., Poneder, M., and Xue, K. (2026).
+ \emph{Deriving the Particle Zoo from Observer
 Consistency}. Public manuscript.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/7260dc7c4ac05f84c021167f1e095a58998573f1/paper/deriving_the_particle_zoo_from_observer_consistency.pdf}
 
