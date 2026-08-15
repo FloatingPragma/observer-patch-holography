@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "release_id": "r2019",
+  "release_id": "r2020",
   "source_commit_policy": "The release commit is supplied by git and the paper release manifest at release packaging time; this working registry is validated against paper/release_info.tex.",
   "claims": [
     {
@@ -1045,9 +1045,9 @@
       ],
       "premise_dependencies": {
         "classification": "explicit_edges",
-      "consumed": [],
-      "open": [
-        "PR-42"
+        "consumed": [],
+        "open": [
+          "PR-42"
         ],
         "boundary": []
       }
@@ -1155,7 +1155,7 @@
       ],
       "premise_dependencies": {
         "classification": "explicit_edges",
-      "consumed": [],
+        "consumed": [],
         "open": [
           "PR-42",
           "PR-52"
@@ -2972,11 +2972,11 @@
       ],
       "premise_dependencies": {
         "classification": "explicit_edges",
-      "consumed": [
-        "PR-13"
-      ],
-      "open": [
-        "PR-47",
+        "consumed": [
+          "PR-13"
+        ],
+        "open": [
+          "PR-47",
           "PR-50"
         ],
         "boundary": []
@@ -3597,9 +3597,9 @@
           "PR-17",
           "PR-37"
         ],
-      "open": [
-        "PR-14",
-        "PR-38",
+        "open": [
+          "PR-14",
+          "PR-38",
           "PR-39"
         ],
         "boundary": []
@@ -4034,14 +4034,14 @@
       ],
       "premise_dependencies": {
         "classification": "explicit_edges",
-      "consumed": [
-        "PR-32",
-        "PR-33",
-        "PR-34",
-        "PR-44"
-      ],
-      "open": [
-        "PR-52"
+        "consumed": [
+          "PR-32",
+          "PR-33",
+          "PR-34",
+          "PR-44"
+        ],
+        "open": [
+          "PR-52"
         ],
         "boundary": []
       }
