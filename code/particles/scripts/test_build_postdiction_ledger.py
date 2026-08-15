@@ -178,19 +178,22 @@ def test_e1_conditional_packet_keeps_source_regional_correlation_gate(result):
     row = rows["finite_causal_observer_net_interface"]
     assert row["match"] == (
         "substantial conditional finite interface, operator-generation, "
-        "and CP-diamond packet; source regional selection and "
-        "correlation/descent not constructed"
+        "CP-diamond, and support-disjoint counted-correlation packet; "
+        "source justification of the factor reading and a nonconstant "
+        "realization are not constructed"
     )
     assert row["lean_declarations"]["TwoSlotCPNetWitness"] == [
         "slotExpectations_not_jointly_injective",
         "checkpoint_pinch_fixes_right",
         "twoSlot_left_no_scalar_hom",
     ]
-    assert "Cartesian joint carrier, region map, and slot split are declared" in row[
+    assert "two-observers-as-factors reading and region map remain declared" in row[
         "hypothesis_boundary"
     ]
-    assert "not jointly injective" in row["hypothesis_boundary"]
-    assert "uncommitted frame exploration supports no no-go" in row[
+    assert "coverage does not imply unique reconstruction" in row[
+        "hypothesis_boundary"
+    ]
+    assert "constant-tower transport is on the separate 86/88 carrier" in row[
         "hypothesis_boundary"
     ]
     assert "Scientific owner #728 records" in row["hypothesis_boundary"]
@@ -227,7 +230,8 @@ def test_b7_reference_and_stationary_controls_do_not_overclose(result):
     assert "exists uniquely" in boundary
     assert "modes/minimizers only" in boundary
     assert "saddles, complex or signed stationary phase" in boundary
-    assert "Scientific owner #731 records the missing composition" in boundary
+    assert "Closed #731 records only the attained declared-bundle composition" in boundary
+    assert "Scientific owner #739 records source selection" in boundary
     assert "superseded historical gate" not in boundary
 
 
@@ -394,8 +398,9 @@ def test_thermodynamic_receipt_owners_are_separate(result):
     assert "mixing-mode-retaining linear intertwiner" in boundary
     assert "deterministic empirical pushforward" in boundary
     assert "does not exclude stochastic, nonlinear, reverse-direction" in boundary
-    assert "Scientific owner #732 records the missing replacement common reference" in boundary
-    assert "scientific owner #739 records clock derivation" in boundary
+    assert "Scientific owner #739 records the missing replacement common reference" in boundary
+    assert "empirical energy-clock calibration is PR-15" in boundary
+    assert "Closed #732 records only the attained conditional composition milestone" in boundary
     assert "superseded historical owners" not in boundary
     assert "five receipts stay open under issue #688" not in boundary
 

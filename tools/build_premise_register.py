@@ -351,8 +351,14 @@ EXPECTED_ROWS = (
     ),
     (
         "PR-58",
-        "net-compatible dynamics and region-symmetry action",
+        "time-indexed net evolution and time-slice generation interface",
         "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-59",
+        "declared five-mode exterior component and mask-selection grammar",
+        "selection_rule",
         "remove",
     ),
 )

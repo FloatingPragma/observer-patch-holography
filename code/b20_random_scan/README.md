@@ -10,10 +10,11 @@ projectors admit a nonconstant protected observable.
   `fractions.Fraction`), forms the faithful visit-count reference, and
   for every subset of at least two committed packet fields builds the
   heat-bath projectors and their random-scan mixture under two declared
-  schedulers (uniform and block-count-proportional).  Records per
-  subset: row-stochasticity, exact stationarity, a non-idempotence
-  witness entry, the join component count, and the exact fixed-space
-  dimension of the mixture by rational elimination.  A second arena
+  schedulers (uniform and block-count-proportional). For the primary uniform
+  scheduler it records row-stochasticity, exact stationarity, a
+  non-idempotence witness, join component count, and exact fixed-space
+  dimension. The second-scheduler packet records its rule and weights, exact
+  stationarity, and fixed-space dimension. A second arena
   runs the same battery on the realized 256-state record/companion
   conditional-resampling structure.  Every retained step field beyond
   the packet fields is inventoried and must be constant, so the
@@ -34,11 +35,13 @@ projectors admit a nonconstant protected observable.
   rejected) plus synthetic-instance oracle cross-checks of the
   connectivity and elimination routines.
 
-Result: **negative** across both arenas.  Every certified mixture is
-row-stochastic, exactly stationary for the shared reference, and
-non-idempotent (escaping the #688 idempotent-collar obstruction), but
-every fixed space is one-dimensional: the only protected observables in
-the certified grammar are constants.  The certificate states the no-go
+Result: **negative** across both arenas. Every computed uniform-scheduler
+mixture is row-stochastic, exactly stationary for the shared reference, and
+non-idempotent. Under both declared schedulers every computed fixed space is
+one-dimensional. The analytically covered constant-field mixtures inherit
+only this fixed-space conclusion; no non-idempotence claim is made for them.
+Thus the only protected observables in the certified grammar are constants.
+The certificate states the no-go
 grammar precisely and records the next viable route (an enriched export
 with a disconnected join, or a dilated construction) rather than
 declaring anything beyond the grammar impossible.  Per the issue

@@ -10,23 +10,23 @@ Summary: 19 term-and-sector entries; 1 derived conditional, 11 partial, 5 regist
 | --- | --- | --- | --- | --- |
 | SML-01 | SU(3) gauge kinetic term: `-(1/4) G^a_munu G_a^munu` | `partial` | PR-09, PR-10, PR-11 | PR-54 |
 | SML-02 | SU(2) gauge kinetic term: `-(1/4) W^i_munu W_i^munu` | `partial` | PR-09, PR-10, PR-11 | PR-54 |
-| SML-03 | U(1) hypercharge kinetic term: `-(1/4) B_munu B^munu` | `partial` | PR-11, PR-12 | PR-35, PR-46, PR-54 |
+| SML-03 | U(1) hypercharge kinetic term: `-(1/4) B_munu B^munu` | `partial` | PR-11, PR-59 | PR-35, PR-46, PR-54 |
 | SML-04 | Nonabelian gauge self-interactions: `cubic g f A A dA and quartic g^2 f f A A A A structures from the SU(2) and SU(3) field strengths` | `partial` | PR-09, PR-10, PR-11 | PR-54 |
-| SML-05 | Quark doublet kinetic/covariant term: `Qbar i gamma^mu D_mu Q, Q = (u_L, d_L), Y = 1/6` | `partial` | PR-11, PR-12 | PR-47, PR-54 |
-| SML-06 | Up-singlet kinetic/covariant term: `ubar_R i gamma^mu D_mu u_R, Y = 2/3` | `partial` | PR-11, PR-12 | PR-47, PR-54 |
-| SML-07 | Down-singlet kinetic/covariant term: `dbar_R i gamma^mu D_mu d_R, Y = -1/3` | `partial` | PR-11, PR-12 | PR-47, PR-54 |
-| SML-08 | Lepton doublet kinetic/covariant term: `Lbar i gamma^mu D_mu L, L = (nu_L, e_L), Y = -1/2` | `partial` | PR-11, PR-12 | PR-47, PR-54 |
-| SML-09 | Electron-singlet kinetic/covariant term: `ebar_R i gamma^mu D_mu e_R, Y = -1` | `partial` | PR-11, PR-12 | PR-47, PR-54 |
-| SML-10 | Right-handed neutrino stance: `nu_R, no kinetic or mass term in the minimal Standard Model` | `derived_conditional` | PR-11, PR-12 | PR-47, PR-48, PR-49, PR-50, PR-54 |
-| SML-11 | Higgs kinetic/covariant term: `(D_mu H)^dagger (D^mu H), H a weak doublet with Y = 1/2` | `registered_premise` | PR-12, PR-48 | none |
+| SML-05 | Quark doublet kinetic/covariant term: `Qbar i gamma^mu D_mu Q, Q = (u_L, d_L), Y = 1/6` | `partial` | PR-11, PR-59 | PR-47, PR-54 |
+| SML-06 | Up-singlet kinetic/covariant term: `ubar_R i gamma^mu D_mu u_R, Y = 2/3` | `partial` | PR-11, PR-59 | PR-47, PR-54 |
+| SML-07 | Down-singlet kinetic/covariant term: `dbar_R i gamma^mu D_mu d_R, Y = -1/3` | `partial` | PR-11, PR-59 | PR-47, PR-54 |
+| SML-08 | Lepton doublet kinetic/covariant term: `Lbar i gamma^mu D_mu L, L = (nu_L, e_L), Y = -1/2` | `partial` | PR-11, PR-59 | PR-47, PR-54 |
+| SML-09 | Electron-singlet kinetic/covariant term: `ebar_R i gamma^mu D_mu e_R, Y = -1` | `partial` | PR-11, PR-59 | PR-47, PR-54 |
+| SML-10 | Right-handed neutrino stance: `nu_R, no kinetic or mass term in the minimal Standard Model` | `derived_conditional` | PR-11, PR-59 | PR-47, PR-48, PR-49, PR-50, PR-54 |
+| SML-11 | Higgs kinetic/covariant term: `(D_mu H)^dagger (D^mu H), H a weak doublet with Y = 1/2` | `registered_premise` | PR-48, PR-59 | none |
 | SML-12 | Higgs potential: `mu^2 H^dagger H + lambda (H^dagger H)^2` | `registered_premise` | PR-49 | none |
-| SML-13 | Up-type Yukawa term: `- Qbar Y_u Htilde u_R + h.c.` | `registered_premise` | PR-12, PR-48, PR-50 | PR-47, PR-54 |
-| SML-14 | Down-type Yukawa term: `- Qbar Y_d H d_R + h.c.` | `registered_premise` | PR-12, PR-48, PR-50 | PR-47, PR-54 |
-| SML-15 | Lepton Yukawa term: `- Lbar Y_e H e_R + h.c.` | `registered_premise` | PR-12, PR-13, PR-48, PR-50 | PR-47, PR-54 |
+| SML-13 | Up-type Yukawa term: `- Qbar Y_u Htilde u_R + h.c.` | `registered_premise` | PR-48, PR-50, PR-59 | PR-47, PR-54 |
+| SML-14 | Down-type Yukawa term: `- Qbar Y_d H d_R + h.c.` | `registered_premise` | PR-48, PR-50, PR-59 | PR-47, PR-54 |
+| SML-15 | Lepton Yukawa term: `- Lbar Y_e H e_R + h.c.` | `registered_premise` | PR-13, PR-48, PR-50, PR-59 | PR-47, PR-54 |
 | SML-16 | Theta-QCD term: `(theta g3^2 / 32 pi^2) G^a_munu Gtilde_a^munu` | `absent` | none | none |
-| SML-17 | Generation triplication: `three copies of the chiral fermion content` | `partial` | PR-11, PR-12, PR-36 | PR-47, PR-54 |
+| SML-17 | Generation triplication: `three copies of the chiral fermion content` | `partial` | PR-11, PR-36, PR-59 | PR-47, PR-54 |
 | SML-18 | Gauge couplings: `g1, g2, g3 as numerical parameters` | `absent` | none | none |
-| SML-19 | CKM/PMNS mixing structure: `V_CKM in the charged quark current and U_PMNS in the lepton sector` | `partial` | PR-12, PR-36, PR-48, PR-50 | PR-47, PR-49, PR-54 |
+| SML-19 | CKM/PMNS mixing structure: `V_CKM in the charged quark current and U_PMNS in the lepton sector` | `partial` | PR-36, PR-48, PR-50, PR-59 | PR-47, PR-49, PR-54 |
 
 ## Term boundaries
 
@@ -77,7 +77,6 @@ Premise ids name rows of the program-wide premise register (issue #727). Rows re
 - `PR-09` equal-face-weight and barycentric one-third port-dual rules (type selection_rule, disposition axiomatize)
 - `PR-10` measure-to-metric and nearest-point repair rules (type selection_rule, disposition axiomatize)
 - `PR-11` compact-Lie classification inputs (type external_mathematics, disposition import)
-- `PR-12` matter candidate grammar (type selection_rule, disposition remove)
 - `PR-13` Koide balance premise (type selection_rule, disposition remove)
 - `PR-35` same-source loop-to-kernel identity (type structural_rule, disposition remove)
 - `PR-36` family band-selection rules: single complete faithful band and operational cost order (type selection_rule, disposition remove)
@@ -87,5 +86,6 @@ Premise ids name rows of the program-wide premise register (issue #727). Rows re
 - `PR-49` renormalizable Higgs potential and electroweak-breaking law (type structural_rule, disposition remove)
 - `PR-50` Yukawa interaction-line and coupling-matrix attachment (type selection_rule, disposition remove)
 - `PR-54` source gauge-field, current, and action attachment (type structural_rule, disposition remove)
+- `PR-59` declared five-mode exterior component and mask-selection grammar (type selection_rule, disposition remove)
 
 The classification enum is closed: `derived_conditional` is an exact theorem shape under the named register rows, `registered_premise` is consumed as a declared register row, `partial` carries the attained structure stated in its boundary, and `absent` has no OPH structure. A row upgrade requires receipts, a premise list, and a regeneration of this surface.

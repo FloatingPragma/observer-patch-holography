@@ -169,6 +169,10 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Replay the B14 compact-locus certificate independently",
+        [sys.executable, "code/b14_jacobi/verify.py"],
+    ),
+    (
         "Validate the oriented-face three-norm certificate",
         [
             sys.executable,

@@ -429,13 +429,19 @@ The post-hoc continuation generates each individual observer algebra from
 its counted transition operator and diagonal field projectors. On a separately
 declared Cartesian carrier, two lifted algebras become commuting matrix
 factors, explicit partial-trace expectations form a regional diamond, and the
-diamond transports to a constant consensus-tower stage. This is useful exact
-progress, not the missing source theorem: the run does not choose the
-Cartesian carrier, region map, or factor split, and the two regional
-expectations lose nonzero correlation terms. Coverage therefore does not imply
-unique gluing. The live E1 task seeks a source-attached joint carrier and a
-coherent CP-net correlation or descent receipt. Fully disjoint retained
-observer pairs give a cheap route to test before another large simulation.
+diamond transports to a constant consensus-tower stage. The later 86/247
+capstone uses fully disjoint committed supports and the counted 32-step joint
+labels to construct an exact positive correlated state whose partial traces
+are the counted marginal states. It therefore supplies the finite
+marginal-coherent correlation datum that the regional net must retain. The
+same expectations erase that correlation, so coverage does not imply unique
+reconstruction.
+
+This is a strong exact conditional result rather than a source theorem. The
+two-observer factor reading, Cartesian carrier, region map, and constant tower
+are declared postprocessors, the extraction is post-hoc, and a nonconstant
+source realization must be constructed or ruled out under the explicitly
+limited contract of issue #728.
 
 A separate conditional helper bounds a supplied adaptive
 scheduler that consults only a declared region, proves that this consultation

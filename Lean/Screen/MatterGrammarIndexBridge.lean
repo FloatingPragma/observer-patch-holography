@@ -6,7 +6,7 @@ import BaryonDimensionSix
 
 Two committed `Fin 10` tables describe one-generation matter content
 in different index orders: the exterior component table of
-`Screen/ExteriorSelection.lean` (register row PR-12) and the frozen
+`Screen/ExteriorSelection.lean` (register row PR-59) and the frozen
 Weyl field grammar of `Screen/BaryonDimensionSix.lean` in the order
 `Q, L, u_R, d_R, e_R` followed by conjugates (register rows PR-55
 and PR-56).  This module commits the explicit permutation between
@@ -30,7 +30,7 @@ changes none of that.
 namespace OPH.MatterGrammarIndexBridge
 
 /-- The committed index dictionary from the exterior component order
-of `ExteriorSelection` (register row PR-12) to the frozen census
+of `ExteriorSelection` (register row PR-59) to the frozen census
 field order `Q, L, u_R, d_R, e_R, Q_bar, L_bar, u_R_bar, d_R_bar,
 e_R_bar` of `BaryonDimensionSix` (register rows PR-55/PR-56). -/
 def fieldIndex : Fin 10 → Fin 10 := ![3, 6, 7, 0, 9, 2, 5, 4, 8, 1]
@@ -80,7 +80,7 @@ theorem weyl_parity_column :
 evidence).**  The committed permutation is bijective and matches the
 charge, color, doublet, conjugation, and Weyl-parity columns of the
 two frozen tables.  The identification is a kernel-checked dictionary
-between index tables under register rows PR-12 and PR-55/PR-56; no
+between index tables under register rows PR-59 and PR-55/PR-56; no
 physical attachment is derived. -/
 theorem matterGrammarIndexBridge_receipt :
     Function.Bijective fieldIndex
@@ -107,7 +107,7 @@ theorem matterGrammarIndexBridge_receipt :
 mask maps to a census field whose Weyl-chirality column equals the
 sector parity: the image row is undotted left-Weyl exactly when the
 bundled selection is the even-parity sector.  Table provenance under
-register row PR-12; a physical chirality claim consumes the
+register row PR-59; a physical chirality claim consumes the
 spacetime Spin attachment of register row PR-47, which no theorem
 here supplies. -/
 theorem selected_components_weyl_parity

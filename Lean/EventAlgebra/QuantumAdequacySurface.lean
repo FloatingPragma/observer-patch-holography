@@ -25,10 +25,12 @@ derivation.
 
 `RepresentedPublicFrame` bundles the register rows PR-02 (the
 algebra-state representation of public records) and PR-03 (operational
-effect additivity). `PhaseInstrument` bundles the register row PR-04
-(the phase-operation instrument); the committed algebraic lift inhabits
-it (`committedPhaseInstrument`), and the real/Kraus blindness boundary
-is carried alongside as the committed limit.
+effect additivity). `AlgebraicPhaseCompletion` bundles only the algebraic
+effect and tomography fields associated with register row PR-04; the
+committed lift inhabits it (`committedAlgebraicPhaseCompletion`).  It is not
+an operational instrument.  PR-04's source-produced operation, outcome, and
+common-preparation receipts remain unconstructed, and the real/Kraus
+blindness boundary is carried alongside as the committed limit.
 
 The companion modules `EventAlgebra.SlotLocalitySurface` (the OL-C3
 and OL-C4 receipts composed under the PR-44 slot split) and
@@ -74,7 +76,8 @@ The row dispositions are the register's: PR-02 is an explicit
 representation assumption, while PR-03 and PR-04 identify assumptions
 that a source-complete account would have to replace by constructions.
 Nothing here claims the axioms force the quantum representation of
-public records or supply the declared phase instrument.
+public records or supply the operational instrument receipts declared by
+PR-04.
 -/
 
 /-- **Register rows PR-02 and PR-03: the represented public frame.**
@@ -111,8 +114,8 @@ structure RepresentedPublicFrame (d : ℕ) where
   additive : ∀ {E F : Matrix (Fin d) (Fin d) ℂ}, IsEffect E → IsEffect F →
     IsEffect (E + F) → value (E + F) = value E + value F
 
-/-- **Register row PR-04: the phase-operation instrument.** The declared
-phase operation on the dimension-two represented algebra: one projection
+/-- **Algebraic part of register row PR-04.** The declared phase-sensitive
+effect on the dimension-two represented algebra: one projection
 event that separates the two Pauli-Y states which every phase-free real
 record context weighs equally, and that closes operator tomography
 together with the committed record projector and the algebraically
@@ -120,10 +123,11 @@ rotated projector. The committed payload supplies the exact algebraic
 lift `I/2 - (2*sqrt(3)/3) i (QP - PQ)` and no instrument receipts: no
 rotated or phase outcome counts and no common-preparation validation.
 The lift inhabits every field of this structure
-(`committedPhaseInstrument`); the instrument character of the row is the
-declared part, and no theorem in this module asserts it. -/
-structure PhaseInstrument where
-  /-- The declared phase operation. -/
+(`committedAlgebraicPhaseCompletion`).  This structure intentionally carries
+no operation, outcome, or common-preparation receipt and therefore is not an
+instrument. -/
+structure AlgebraicPhaseCompletion where
+  /-- The declared phase-sensitive effect. -/
   lift : Matrix (Fin 2) (Fin 2) ℂ
   /-- The declared operation is a projection event of the represented
   algebra. -/
@@ -378,7 +382,7 @@ projection event, it separates the two Pauli-Y states, and it closes
 operator tomography on every fixed-trace slice. The instrument character
 of the row (source-produced outcome receipts) is the declared part; this
 inhabitant witnesses the algebraic fields only. -/
-noncomputable def committedPhaseInstrument : PhaseInstrument where
+noncomputable def committedAlgebraicPhaseCompletion : AlgebraicPhaseCompletion where
   lift := sourcePhaseLift
   isEvent := sourcePhaseLift_isEvent
   separates := sourcePhaseLift_distinguishes_Y_states
@@ -391,9 +395,11 @@ noncomputable def committedPhaseInstrument : PhaseInstrument where
       · simpa [sourcePhaseTomography] using hlift)
 
 /-- **Full operator tomography on states.** Under any inhabitant of the
-PR-04 bundle, two states agreeing on the record projector, the rotated
-projector, and the declared phase operation are equal. -/
-theorem phase_states_determined (I : PhaseInstrument)
+declared algebraic phase-completion fields associated with PR-04, two states
+agreeing on the record projector, the rotated projector, and the declared
+phase operation are equal.  This does not inhabit PR-04's operational
+preparation, operation, or outcome receipts. -/
+theorem phase_states_determined (I : AlgebraicPhaseCompletion)
     {rho sigma : Matrix (Fin 2) (Fin 2) ℂ}
     (hrho : IsState rho) (hsigma : IsState sigma)
     (hrec : bornWeight rho (complexifyRealMatrix recordProjector) =
@@ -449,6 +455,26 @@ theorem phase_boundary_summary :
         (realizedOutcomeCounts c).isSome ↔ c = WebContext.diagonal) :=
   sourcePhaseLift_boundary_summary
 
+/-- **The composed algebraic OL-C5 receipt.**  One statement packages the
+phase-sensitive projection effect, fixed-trace tomography, the proof that the
+effect is outside every committed phase-free real closure, and the exact
+absence boundary on realized outcomes.  This is algebraic phase completion,
+not an operational instrument; discharging PR-04 still requires a
+source-produced operation and common-preparation outcome receipts. -/
+theorem phase_completion_composed :
+    ComplexSourceAlgebraClosure sourcePhaseLift ∧
+      IsEvent sourcePhaseLift ∧
+      (∀ rho sigma : Matrix (Fin 2) (Fin 2) ℂ,
+        Matrix.trace rho = Matrix.trace sigma →
+        sourcePhaseTomography rho = sourcePhaseTomography sigma →
+        rho = sigma) ∧
+      (¬ ∃ E : Matrix (Fin 2) (Fin 2) ℝ,
+        RealSourceEffectClosure E ∧
+          complexifyRealMatrix E = sourcePhaseLift) ∧
+      (∀ c : WebContext,
+        (realizedOutcomeCounts c).isSome ↔ c = WebContext.diagonal) :=
+  phase_boundary_summary
+
 end PhaseCompletion
 
 end QuantumSurface
@@ -474,8 +500,9 @@ end EventAlgebra
 #print axioms EventAlgebra.QuantumSurface.tsirelson_of_events
 #print axioms EventAlgebra.QuantumSurface.unique_continuous_flow
 #print axioms EventAlgebra.QuantumSurface.flow_generator_unique
-#print axioms EventAlgebra.QuantumSurface.committedPhaseInstrument
+#print axioms EventAlgebra.QuantumSurface.committedAlgebraicPhaseCompletion
 #print axioms EventAlgebra.QuantumSurface.phase_states_determined
 #print axioms EventAlgebra.QuantumSurface.real_closure_blind
 #print axioms EventAlgebra.QuantumSurface.phase_lift_outside_real_closure
 #print axioms EventAlgebra.QuantumSurface.phase_boundary_summary
+#print axioms EventAlgebra.QuantumSurface.phase_completion_composed

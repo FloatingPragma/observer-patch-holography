@@ -283,7 +283,7 @@ noncomputable def symComposedData (M : ℕ) : ComposedSymmetryData (Fin 2)
     simp only [symLagrangian, quadTwoPoint, quadLagrangian]
     ring
 
-/-- **The fully-discharged composed receipt (issue #731).**  At the
+/-- **The fully inhabited conditional composed receipt (issue #731).**  At the
 declared symmetric kernel and every length, with the embedded
 constant-0 history: the enriched local action equals the derived
 log-transition action of the same kernel; the path law is the
@@ -293,9 +293,10 @@ history among interior single-site alphabet variations; the embedded
 path satisfies the discrete Hamilton equations of the
 translation-invariant enrichment at every interior junction; and the
 translation Noether momentum is one constant along the whole chain,
-with exact value `0` on every segment.  One history under one bundle
+with exact value `0` on every segment.  One history under one declared bundle
 carries the derived action, the mode, the real extremizer, the Hamilton
-flow, and the conserved current. -/
+flow, and the conserved current.  This does not discharge source selection of
+the reference, real enrichment, clock, or physical action. -/
 theorem symComposed_receipt (M : ℕ) :
     localAction symLagrangian (chainEmb (constZeroHistory M))
         = InformationProjection.logTransitionAction symKernel M

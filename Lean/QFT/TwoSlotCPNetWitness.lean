@@ -32,10 +32,11 @@ diamond.
 **Boundary.**  The slot assembly and region labels are declared
 postprocessors over the post-hoc payload transcriptions; the witness
 carries no tower stage, spacetime, channel semantics, instrument, clock,
-or physical claim, and the extraction is ineligible as validation. Source
-selection of the joint carrier and a coherent CP-net correlation or descent
-receipt are scoped to spacetime adequacy (#728); the older finite-net
-interface does not supply that bridge.
+or physical claim, and the extraction is ineligible as validation. The later
+`QFT.SourceCorrelationCapstone` grounds a fully support-disjoint pair and its
+counted correlation state; source selection or justification of the factor
+reading and a nonconstant regional realization remain scoped to spacetime
+adequacy (#728).
 -/
 
 namespace OPH.QFT
@@ -570,8 +571,10 @@ theorem rightSlotExpectation_offDiagonalCorrelation :
 
 /-- Both regional conditional expectations erase the same nonzero
 correlation unit.  Consequently the pair of regional expectations is not
-jointly injective: coverage by the two factor algebras does not imply unique
-gluing or reconstruction from the two marginals. -/
+jointly injective: coverage by the two factor algebras does not imply
+reconstruction of an arbitrary joint matrix from these two marginals alone.
+This says nothing against richer descent data, alternate carriers, or a
+source-selected joint state. -/
 theorem slotExpectations_not_jointly_injective :
     ¬ Function.Injective
       (fun M : Matrix PairIndex PairIndex ℂ =>

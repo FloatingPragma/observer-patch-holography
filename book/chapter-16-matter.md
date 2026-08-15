@@ -71,15 +71,18 @@ recovered, durable excitations are sorted by mass, spin, and helicity. On the
 twelve-port branch, incidence and port readback derive the signed
 inverse-port response, and the compact response and internal overlap
 transport required by the axioms force the Standard Model Lie type. An
-exhaustive scan of the allowed matter menu leaves exactly one conjugate pair
-of chiral, anomaly-free fifteen-state modules, the shape of one Standard
-Model generation. The anomaly and central-descent calculations then give the
-charge pattern, a three-color carrier, and the exact common $\mathbb Z_6$
-kernel. These are machine-checked theorems in the project's Lean corpus.
+exhaustive scan of the declared ten-row exterior table leaves exactly two
+conjugate chiral, anomaly-free masks, each a fifteen-state Standard Model
+generation candidate. The anomaly and central-descent calculations then give
+the table-level charge pattern, a three-color carrier, and the exact common
+$\mathbb Z_6$ kernel. These are machine-checked theorems in the project's Lean
+corpus, but they do not establish source selection or completeness against
+other matter grammars.
 
-The same architecture bounds the number of generations inside a window from
-three to five, and an exact screen theorem, machine-checked as well, selects
-three.
+The same architecture supplies a declared three-to-five window. Under the
+separate single-complete-band and screen-cost premises, an exact
+machine-checked theorem selects a rank-three family candidate; it does not
+source-derive three physical generations.
 
 The simpler reading is that the architecture supplies a cast of possible
 roles. It tells us what kinds of charge and transformation can survive across
@@ -357,8 +360,15 @@ closes off a silent shortcut. The natural bilinear real extension of the
 binary log-transition table is affine in its velocity argument and has no
 global Legendre solver. Adding $a\,y(y-1)/2$ changes no binary history at all,
 yet every positive $a$ gives a regular strictly convex Lagrangian and
-Hamiltonian, and the checked $a=1,2$ members are distinct. The finite source law therefore does not choose its own
-off-alphabet velocity curvature. A source enrichment or new physical
+Hamiltonian, and the checked $a=1,2$ members are distinct. The finite source law
+therefore does not choose its own off-alphabet velocity curvature.
+
+A declared mode-extremality rule chooses one
+member only after restricting the admissible extensions to this one-parameter
+ansatz. In the equally corner-invisible family
+$L_{a,c}=L_0+a y(y-1)/2+c x(x-1)/2$, the same stationarity and fixed-endpoint
+single-site variation minimum fix
+only $a+c$ while the velocity curvature $a$ varies. A source enrichment or new physical
 principle must make that selection before the chain can be identified with a
 real Hamiltonian flow.
 

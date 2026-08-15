@@ -338,17 +338,20 @@ surface for the OPH consensus layer. Contents:
   generic finite marginal and partial-trace identities on a supplied
   bipartite split. The quantum/spacetime lanes #730 and #728 retain exact
   conditional coverage, generated observer algebras, declared slot factors,
-  CP-regional expectations, and constant-tower anchoring. Source selection of
-  the joint carrier and a coherent correlation or descent receipt are not
-  supplied; the older interface does not supply that bridge. A separate
+  CP-regional expectations, and constant-tower anchoring.
+  `QFT/SourceCorrelationCapstone.lean` further grounds the fully disjoint
+  86/247 supports and their exact counted correlated state and marginals.
+  Source selection or justification of the factor reading and a nonconstant
+  realization are not supplied. A separate
   conditional E2 helper,
   `ObserverPatchHolography/Locality/AdaptiveScheduler.lean`, proves an
   adaptive cone/no-influence/refinement-naturality packet only for supplied
   `ConsultsOnly` scheduler and consultation-region data. It produces no source
   scheduler, state/channel semantics, physical distance, or clock. Scheduler
   production and physical spacelike attachment are scoped to #728, structural
-  continuum QFT to #730, physical clock calibration to #732, and premise-level
-  clock derivation to #739; these are downstream rather than B4 claim gates.
+  continuum QFT to #730, empirical clock calibration to PR-15, and
+  source-derived clock work to #739; these are downstream rather than B4
+  claim gates.
   See
   `B4_LOCALITY_BOUNDARY.md`.
 - An admission-free **B5 finite conservation package**:
@@ -391,9 +394,10 @@ surface for the OPH consensus layer. Contents:
   distinct-initial-law controls prove that it does not select the complete
   path reference. `Variational/StationarySaddleCoverage.lean` gives only a
   mode/minimizer counterexample and leaves stationary-phase routes open. The
-  mechanics-composition lane #731 tracks source selection of the reference
-  principle, physical action, clock, amplitude, fields, continuum, and
-  observable current; premise discharge is deferred under #739. See
+  closed mechanics milestone #731 records the scoped conditional composition;
+  source selection of the reference and real enrichment, physical action,
+  clock, amplitude, fields, continuum, and observable current remain deferred
+  premise work under #739. See
   `B7_HISTORY_BRIDGE.md`.
 - A sorry-free **E1 rich-fibre regional net** in
   `QFT/RichFibreWitness.lean` and `QFT/RichFibreRegionalNet.lean`: the
@@ -434,9 +438,11 @@ surface for the OPH consensus layer. Contents:
   checkpoint partition and whose ambient is definitionally the stage's
   private algebra. The two slot expectations are not jointly injective: a
   nonzero off-diagonal correlation matrix unit has both partial traces zero.
-  Coverage is therefore not unique gluing. Issue #728 owns a
-  source-selected joint carrier and coherent correlation or descent receipt;
-  closed #712 consumes the older interface.
+  Coverage therefore does not reconstruct a joint element from these two
+  expectations. The later correlation capstone
+  supplies the exact support-disjoint counted state that the expectations
+  erase. Issue #728 owns source justification of the factor reading and a
+  nonconstant realization; closed #712 consumes the older interface.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - An admission-free bounded **B13 effect and phase-lift boundary**:
   `EventAlgebra/FiniteEffectClosureBoundary.lean` proves that continuity and

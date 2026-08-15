@@ -8,8 +8,8 @@ module answers.  The designated pair (86, 88) has overlapping full
 supports, so its slot split does not reflect source disjointness; and
 the two regional conditional expectations are not jointly injective on
 the committed pair's carrier (`slotExpectations_not_jointly_injective`),
-so no pair of marginals reconstructs a joint state and the CP net needs
-a marginal-coherent correlation datum; the same erasure is proved on
+so this pair of marginal maps does not reconstruct an arbitrary joint state
+and the CP net needs a marginal-coherent correlation datum; the same erasure is proved on
 this module's carrier below.
 
 The committed source-operator payload (schema v2, sha256
@@ -39,15 +39,17 @@ two states differ; the joint state itself is therefore the
 marginal-coherent correlation datum of the committed diamond on this
 carrier, and it is source-counted, not declared.  The diamond itself is
 instantiated on this carrier below, with the factor identifications of
-both observers' source-generated algebras and the anchoring over a
-constant tower stage, so the justified pair carries the full committed
-regional construction.
+both observers' source-generated algebras.  The separate constant-tower
+transport is proved for the different 86/88 carrier in
+`QFT.TowerAnchoredDiamond`; no theorem currently transports this 86/247
+diamond to that tower or identifies the two carriers.
 
 **Boundary.**  The label conventions and the reading of two observers
 as the two factors stay declared postprocessors; the support
 disjointness, joint labels, counts, and marginals are committed source
 data.  The extraction is post-hoc and ineligible as validation.  No
-region lattice beyond the committed diamond, nonconstant tower,
+region lattice beyond the committed diamond, tower anchoring,
+nonconstant tower,
 channel semantics, instrument, clock, or physical claim is attached.
 Of the reopened issue's three residual items, the justified regional
 construction and the marginal-coherent correlation receipt are
@@ -125,6 +127,13 @@ theorem jointCount_marginal_left :
 
 theorem jointCount_marginal_right :
     ∀ j : Fin 13, ∑ i : Fin 13, jointCount (i, j) = count247 j := by decide
+
+/-- The counted table is not symmetric under exchanging the two observer
+labels: the ordered cell `(1,5)` occurs once. -/
+theorem jointCount_one_five : jointCount (1, 5) = 1 := by decide
+
+/-- The transposed ordered cell `(5,1)` does not occur. -/
+theorem jointCount_five_one : jointCount (5, 1) = 0 := by decide
 
 /-- The source-counted joint empirical state. -/
 def correlationState : Matrix (Fin 13 × Fin 13) (Fin 13 × Fin 13) ℂ :=

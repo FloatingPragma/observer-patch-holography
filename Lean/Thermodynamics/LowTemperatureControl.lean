@@ -37,7 +37,7 @@ Imported premises, not established here:
   and of the reference with the shared optimizer reference (B12
   receipts 1 and 2);
 * the identification of `beta` with a physical inverse temperature and
-  the energy-clock calibration (E5, #703);
+  the empirical energy-clock calibration (PR-15);
 * every continuum and physical-realization statement.
 -/
 

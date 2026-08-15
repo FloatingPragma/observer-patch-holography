@@ -49,8 +49,9 @@ idempotent conditional-resampling kernel of the same run) is constant on the
 transition alphabet of this run.  The state-side and transition-side objects
 share one pinned source bundle and provenance record (run id, seed, config
 hash, commit, and sha256 digests recorded in the payload); that does not
-identify a common state/transition probability law.  Issue #732 owns that
-common-law, physical-collar, and energy-clock attachment.
+identify a common state/transition probability law. Source-side common-law and
+physical-collar construction remains under #739; energy-clock calibration is
+the empirical import PR-15.
 -/
 
 /-- The exact restricted recurrent chain: row-normalized unweighted integer
@@ -187,8 +188,9 @@ irreducible aperiodic recurrent chain mixing to its stationary law), it
 fixes a strictly positive exact stationary law, and its states carry a
 nonconstant protected record labelling.  The realization is at the
 representation level over committed extracted literals; it does not identify the
-state-side probability reference.  Issue #732 owns the physical-collar,
-common-reference, and energy-clock continuation. -/
+state-side probability reference. Source-side physical-collar and
+common-reference construction remains under #739; energy-clock calibration is
+the empirical import PR-15. -/
 theorem mixingChainRealization_receipt :
     (∀ i, (∑ j, mixingChain i j) = 1) ∧
       (∀ i j, 0 < mixingChain i j) ∧

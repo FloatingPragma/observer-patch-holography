@@ -199,8 +199,9 @@ CKM matrix
 mix under the weak interaction, and its complex phase is the Standard Model's
 source of charge-parity violation. Counting its physical phases gives the lower
 bound $N_g\ge3$ with one Higgs doublet, and weak-sector ultraviolet consistency
-gives $N_g\le5$. Inside that window an exact finite screen theorem, machine-checked,
-selects three generations.
+gives $N_g\le5$. Inside that window, a machine-checked finite theorem selects a
+rank-three band candidate only under the declared single-complete-band and
+mismatch-cost premises; it does not source-derive three physical generations.
 
 Classical limit
 :   The classical limit is the regime where quantum
@@ -412,8 +413,9 @@ port module, port readback fixes the inverse-port response, and the complete
 compact response and internal transport clauses leave
 $SU(3)\times SU(2)\times U(1)$ as the only possibility. The forcing is
 machine-checked. The matter tensors share a center of order six, so the
-faithful global form is the familiar $\mathbb Z_6$ quotient. Laboratory
-identification of currents and fluxes is a separate physical step.
+declared representation has the familiar $\mathbb Z_6$ quotient as its
+maximal faithful image. This does not select the physical global form;
+laboratory identification of currents and fluxes is a separate physical step.
 
 Generalized entropy
 :   Generalized entropy combines a geometric area term
@@ -818,12 +820,13 @@ cells to keep the fundamental bookkeeping finite.
 
 Quotient
 :   A quotient identifies descriptions that act the same for the
-purpose at hand. The realized Standard Model tensors have a common
+purpose at hand. The declared Standard Model tensors have a common
 $\mathbb Z_6$ kernel, so their maximal faithful image is
 $(SU(3)\times SU(2)\times U(1))/\mathbb Z_6$, and that center quotient is
 machine-checked. The cover and its $\mathbb Z_2$ and $\mathbb Z_3$ quotients
-carry the same local tensors. Laboratory identification of currents and
-fluxes is a separate physical step.
+carry the same local tensors. This does not select the physical global form;
+source selection and laboratory identification of currents and fluxes are
+separate physical steps.
 
 Record
 :   A record is physical information that can be consulted later or

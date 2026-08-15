@@ -274,9 +274,11 @@ The electron is stable. The muon and tau decay quickly.
 The fermions come in a strange pattern: three copies. The up and down quarks, plus the electron and its neutrino, form the first generation. The charm and strange quarks, plus the muon and its neutrino, form the second. The top and bottom, plus the tau and its neutrino, form the third.
 
 The Standard Model by itself does not explain why there are three generations.
-OPH does. CP structure in the quark sector requires at least three,
-ultraviolet consistency allows at most five, and the screen's own cost
-calculation selects exactly three; section 14.12 walks through the argument.
+In the current OPH construction, the declared three-to-five window together
+with a single-complete-band premise and the stated screen cost selects a
+rank-three family candidate; section 14.12 walks through that conditional
+argument. This does not supply a source derivation of three physical
+generations.
 The charged members of the second and
 third observed generations are heavier copies of the first, while the
 neutrino sector has its own mixing pattern. Almost all ordinary matter uses
@@ -459,10 +461,12 @@ Why do the Yukawa couplings have the values they do? Why is the top quark so muc
 Before the machinery starts, it helps to know what comes out. The twelve-port
 carrier, its complete public response, and its internal overlap transport
 force the gauge Lie type of the Standard Model. That is a theorem, and the
-machine checks it. The matter construction then fixes the sixfold central
-quotient and the fifteen chiral states of one generation, and the icosahedral
-faces supply a natural three-place home for the families. Chirality and the
-sixfold central action come straight from the generation table.
+machine checks it. Within the declared exterior-table grammar, the matter
+construction gives a fifteen-state chiral candidate and an exact sixfold
+central kernel. That kernel determines the maximal faithful image but does
+not choose the physical global quotient. Under the separate declared band and
+cost premises, the icosahedral faces provide a conditional rank-three family
+candidate; they do not source-select three physical generations.
 
 This is architectural recognition. Think of working out a machine's
 instruction set from its wiring before anyone has connected it to a motor.
@@ -556,9 +560,10 @@ removes that duplicate counting across color, weak isospin, and hypercharge.
 From the transportable charge sectors, reconstruction gives a compact gauge
 group. The twelve-port carrier gives a second, independent route: its wiring
 and its complete reversible response, with no measured target in sight, force
-the Standard Model Lie type outright. The matter construction then fixes the
-charge lattice up to conjugation, the three-color carrier, and the common
-center kernel.
+the Standard Model Lie type outright. Within its declared table, the matter
+construction reproduces the charge lattice up to conjugation, the three-color
+carrier, and the common center kernel. This does not select that table from
+the source or choose the physical global quotient.
 
 The consistency test underneath that first stage is technical, and its point is
 simple. Some ways of gluing patches around a loop leave a leftover twist, and
@@ -588,8 +593,10 @@ is a color triplet and $N_c=3$. On the one-Higgs branch, intrinsic CKM CP
 capability requires at least three generations and weak-sector ultraviolet
 consistency permits at most five. The graph and anomaly equations leave
 three, four, or five. A separate screen calculation, described below, picks
-three, and three copies of the fifteen-state pattern give the forty-five
-chiral directions of the full matter sector. The Witten anomaly is a
+three, and three declared copies of the fifteen-state pattern give a
+rank-forty-five matter candidate. This remains a conditional table-level
+construction: physical chirality, source selection, and exclusion of extra
+light sectors require separate attachments. The Witten anomaly is a
 consistency check on the triplet-doublet arithmetic.
 
 ### The Icosahedral Closure Route
@@ -707,8 +714,10 @@ $$
 The port response adds one final signature. Send an impulse into a port and
 read the others: the pattern that comes back is the exact sign flip of the
 graph's one central involution, positive on the singlet and five-dimensional
-sectors, negative on the two triplets. That shared sign flip is charge
-conjugation, built into the wiring.
+sectors, negative on the two triplets. That shared sign pattern is an
+algebraic charge-conjugation candidate built into the wiring; identifying it
+with physical charge conjugation requires the separate matter/current
+attachment.
 
 The six axes carry two further pieces of structure. The integral coefficient
 lattice has an exact sixfold residue. An exhaustive scan of all 1024 subsets
@@ -738,14 +747,16 @@ The first cost is uniquely smallest, so rank three wins, and a simulated
 impulse through the unitary screen channel reconstructs the same rank-three
 residue at its lowest positive frequency.
 
-Combining the band with the fifteen-state generation table gives the full
-matter sector, forty-five complex directions. The table is chiral, its
-anomalies cancel, and its sixfold central action is exact.
+Three declared copies of the fifteen-state generation table give a
+conditional rank-forty-five matter candidate. The table-level chirality,
+anomaly sums, and sixfold central action are exact within that declared
+grammar; physical chirality, source selection, and completeness against
+additional light sectors are not supplied by this construction.
 
 Put together, the carrier forces the exact abstract gauge Lie type, and the
-matter construction supplies the hypercharge assignments, chirality, the
-color fundamental, the weak doublet, the compatible scalar charge, and the
-sixfold kernel with its maximal faithful image. That is the architectural
+declared matter table supplies a conditional hypercharge, chirality, color,
+weak-doublet, scalar-charge, and sixfold-kernel candidate with its maximal
+faithful image. That is the architectural
 half of the particle story. A particle seen in a detector adds the separate
 route from these finite objects to a laboratory current with dynamical poles,
 and the book keeps the two jobs apart because each one can fail
@@ -986,15 +997,16 @@ distances and higher energies, with no immediate breakdown when the resolution
 is increased.
 
 Those conditions leave three, four, or five generations, and anomaly
-arithmetic can take the count no further. The screen can. Its coefficient
-space splits into complete family bands, the mismatch cost of each band is
-computable, and the rank-three band costs strictly less than every
-alternative. The inequality is exact, and the machine checks it:
+arithmetic can take the count no further. Under the declared premise that one
+complete coefficient band represents the family carrier, together with the
+stated mismatch cost, the rank-three band costs strictly less than every
+alternative. The conditional inequality is exact, and the machine checks it:
 
-$$\boxed{N_g = 3}$$
+$$\boxed{\operatorname{rank}(B_*) = 3}$$
 
-The universe has three generations because three is the cheapest complete
-family band the screen supports.
+This selects a rank-three candidate inside the declared band grammar. It does
+not source-derive that grammar, identify the band with physical families, or
+exclude additional light sectors.
 
 The one-Higgs slot also has a clean local geometric carrier. The construction
 uses exactly one weak doublet at the bottom rung, and complex geometry
@@ -1086,9 +1098,12 @@ which of those roles propagate as particles.
 
 The particle picture can be told as one continuous line. The framework
 rebuilds the gauge structure from charge sectors that fit together around
-every loop. The matter construction fixes the Standard Model charge
-assignments, the charge lattice, and the color carrier. The screen selects
-three families inside the three-to-five window. The same structure picks out
+every loop. Within the declared exterior grammar, the matter construction
+reproduces the Standard Model charge table, charge lattice, and color carrier.
+Under the stated single-band and cost premises, the screen selects a
+rank-three family candidate inside the three-to-five window; physical family
+selection and completeness against extra sectors are separate. The same
+structure picks out
 which patterns play the electromagnetic, color, and gravitational carrier
 roles. Their field equations give classical wave modes, and a positive-energy
 quantum construction turns those roles into particles.
@@ -1279,10 +1294,13 @@ lifetime.
 The Standard Model looks like the answer to a very specific question. What is
 the simplest set of low-energy matter that OPH's gluing rules can carry,
 rebuild into a gauge structure, and keep stable as you look closer? The
-chapter's answer runs from wiring to inventory. The twelve-port screen forces
-the gauge Lie type, anomaly freedom and primitive integrality fix the charge
-lattice, the coupled carrier fixes three colors, and the screen's band cost
-picks three generations out of the allowed window.
+chapter's conditional answer runs from wiring to inventory. The twelve-port
+screen forces the abstract gauge Lie type; inside the declared exterior
+grammar, anomaly freedom and primitive integrality reproduce the charge
+lattice and color carrier; and under the stated single-band and cost premises,
+the screen selects a rank-three family candidate inside the allowed window.
+Source selection, the physical quotient, and completeness against additional
+light sectors are separate obligations.
 
 Two consequences are worth pulling out of the pile. Color singlets carry
 integer electric charge, exactly, as lattice arithmetic on the $\mathbb Z_6$
@@ -1359,10 +1377,12 @@ exponent's scale is $24=2(8+3+1)$, twice the count of gauge directions. The
 clock-and-curvature bridge then supplies the absolute energy scale in GeV,
 and calibrating that bridge end to end is work in progress.
 
-The result is a particle inventory read off the screen: a specific local
-gauge algebra, its maximal faithful matter image, the charge pattern, the
-color carrier, three generations, and the carrier roles, with stable patterns
-organized by the screen's emergent symmetries. Underneath the whole
+The result is a conditional particle-architecture candidate read off the
+screen: a specific abstract gauge algebra, the maximal faithful image of one
+declared matter table, its charge pattern and color carrier, a rank-three
+family candidate under the band/cost premises, and finite carrier roles.
+Source selection, physical family multiplicity, the physical quotient, and
+completeness against extra sectors are separate. Underneath the whole
 inventory runs the quietest thread in the chapter. The screen that carries
 these particles sits close to perfect golden-ratio balance without sitting on
 it, and that slight detuning is why there are records and structure for any

@@ -264,14 +264,17 @@ compact gauge bookkeeping, the mass gap says the first genuine excitation
 above the vacuum costs a positive amount of energy, and refinement is what
 lets the finite screen construction grow into that smooth theory.
 
-The color triplet is structural. The CP and weak-sector conditions narrow the
-number of families to a window from three to five, and an exact finite theorem
-then selects exactly three. That selection, like the gauge algebra and the
-center quotient, is machine-checked. Combining the family band with the
-generation table gives the forty-five fermion directions of the three-family
-Standard Model, with the right chirality and the same sixfold central action.
-Gauge factors organize the force directions; the interacting field dynamics
-supplies physical masses and mixing data.
+The color triplet is structural inside the declared table. The CP and
+weak-sector conditions narrow the family-count candidate to a window from
+three to five. Under the separate single-complete-band and mismatch-cost
+premises, an exact finite theorem selects a rank-three band candidate. Three
+declared copies of the fifteen-state table then give a conditional
+rank-forty-five matter candidate, with table-level chirality and an exact
+sixfold kernel. These machine-checked statements do not source-select the
+table or band, choose the physical quotient, or exclude extra light sectors.
+Gauge factors organize the force directions; interacting field dynamics and
+physical attachment must separately supply masses, mixing, and family
+identification.
 
 The Standard Model then looks less like a cabinet full of unrelated entries
 and more like the smallest admissible charged world that lets the observer

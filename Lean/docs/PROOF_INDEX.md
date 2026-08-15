@@ -327,7 +327,8 @@ Mapping between Lean 4 theorems in this project and statements in
   This older packet therefore does not close E1. Sorry-free, standard axioms,
   no `native_decide`. The enrichment rule and restriction system are declared
   readings of the custody-pinned payload; CP/CPTP, scheduler, continuum, and
-  clock scopes stay with #728, #730, and #732.
+  source-clock scopes stay with #728, #730, and #739, while empirical clock
+  calibration is PR-15.
   The adapter preflight (`QFT/SourceOperatorGeneration.lean`,
   `QFT/JointSlotFactorisation.lean`) is attained as a bounded post-hoc
   packet over the same retained bundle: each rich observer's counted
@@ -358,9 +359,13 @@ Mapping between Lean 4 theorems in this project and statements in
   net's ambient is definitionally the stage's private algebra, and the
   partition members lie in the proper anchored left region. A nonzero
   off-diagonal correlation matrix unit has both slot expectations zero, so
-  coverage does not imply unique gluing. Current lanes #728 and #730 retain a
-  source-selected joint carrier and coherent correlation or descent receipt;
-  closed #712 consumes the older interface.
+  coverage does not imply reconstruction of an arbitrary joint matrix from
+  those two marginals alone. `QFT/SourceCorrelationCapstone.lean`
+  then instantiates the diamond on the fully support-disjoint retained pair
+  86/247 and supplies its exact counted correlated state and marginals. Current
+  lanes #728 and #730 retain source justification of the factor reading, a
+  nonconstant realization, and continuum causal/time-slice structure; closed
+  #712 consumes the older interface.
   See `E1_FINITE_CAUSAL_OBSERVER_NET.md`.
 - BipoSH inverse and response boundary
   (`Screen/BipoSHInverseBoundary.lean`): sorry-free finite linear algebra and

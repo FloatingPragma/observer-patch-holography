@@ -250,16 +250,17 @@
    "status": "partial",
    "lane_issue": 730,
    "premises": [
-    "PR-02",
-    "PR-04"
+    "PR-02"
    ],
    "evidence": [
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/QFT/SourcePhaseLiftBridge.lean",
     "code/born_context_phase_lift/verify_source_phase_lift.py"
    ],
-   "notes": "The completion holds under the registered phase-operation instrument row PR-04; a source-produced instrument is owed.",
-   "open_premises": []
+   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure/outcome boundary. AlgebraicPhaseCompletion is deliberately not an operational instrument: PR-04 remains open for a source-produced operation, rotated or phase outcomes, and common-preparation receipts.",
+   "open_premises": [
+    "PR-04"
+   ]
   },
   {
    "id": "OL-C6",
@@ -277,9 +278,8 @@
     "Lean/QFT/SourceRegionalNet.lean",
     "Lean/QFT/StructuralNetAdequacySurface.lean"
    ],
-   "notes": "The regional net, diamond, constant-tower transport, counted correlation, and erasure receipts compose as one conjunction on one net and one state (supportDisjoint_composed_adequacy), and the equal-alphabet carrier now carries a finite Z/2 slot-swap star-equivalence acting on the region system with equivariant conditional expectations, strictly beyond constant-tower transport. The time-slice property is not attained; its exact block is recorded as PR-58 (no registered net-compatible dynamics or larger region-symmetry action).",
+   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state in supportDisjoint_composed_adequacy. On that carrier, supportDisjoint_swap_covariance separately proves internal Z/2 covariance of the net maps; slotSwap_correlationState_ne proves that the counted empirical state is not swap invariant. Separately, the 86/88 diamond transports to one constant tower stage; no theorem joins that tower anchor to the 86/247 carrier. Neither swap receipt is spacetime covariance. The time-slice property is not attained: PR-58 records the missing time-indexed or Cauchy-region interface, net-compatible evolution, and slice-to-region generation theorem. A continuous symmetry action is only one possible route.",
    "open_premises": [
-    "PR-44",
     "PR-52",
     "PR-58"
    ]
@@ -288,7 +288,7 @@
    "id": "OL-D1",
    "target": "Stationary and least action",
    "rung": "structural",
-   "status": "attained",
+   "status": "partial",
    "lane_issue": 731,
    "premises": [
     "PR-05",
@@ -303,7 +303,7 @@
     "Lean/Variational/SourceToHamiltonianComposed.lean",
     "Lean/Variational/ModeExtremalEnrichment.lean"
    ],
-   "notes": "One composed theorem (source_to_hamiltonian_composed) fuses the history-law and real variational halves: under the registered path reference, enrichment, and supplied-dynamics rows, a fixed-endpoint real-extremal embedded history realizes the derived action of the same kernel whose exponential tilt over the registered reference is the path law, is an interior mode of that law, and satisfies the discrete Hamilton equations, with the mode/minimizer boundary carried as conjuncts. Mode-extremal consistency pins the enrichment member uniquely within the registered family on the committed chain and discharges the extremality hypothesis at every length, so the composed conditional is inhabited on committed data. Physical units, clocks, and amplitudes remain register rows.",
+   "notes": "One composed theorem (source_to_hamiltonian_composed) fuses the history-law and real variational halves under explicit registered antecedents: a fixed-endpoint real single-site-minimal embedded history at every interior junction realizes the derived action of the same kernel, is an interior mode of its exponential-tilt path law, and satisfies the discrete Hamilton equations. The committed chain supplies one inhabited witness after a mode-extremality rule selects a member of a deliberately restricted one-parameter enrichment family. A machine-checked two-parameter corner-invisible counterfamily shows that the same mode, stationarity, and fixed-endpoint single-site minimality conditions do not select a unique velocity curvature once equally natural first-slot freedom is admitted. This is therefore a conditional one-path satisfiability and composition result, not a source derivation or uniqueness theorem for least action. Physical units, clocks, amplitudes, and general stationary-phase mechanisms remain open.",
    "open_premises": []
   },
   {
@@ -519,20 +519,20 @@
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
     "Lean/Screen/SMStructureComposition.lean"
    ],
-   "notes": "The forced-type classification and the measure-conditional nearest-family selection are now one theorem on one typed bundle: the composed receipt selects the compact family and threads the identification through the checked type table, with a mirror-tie and enumeration-compatibility receipt beside it, and the registered premises admit exactly two SM-structure models exchanged by conjugation. A source-selected bracket, physical gauge field, and laboratory current remain open under PR-54.",
+   "notes": "The forced-type classification and the measure-conditional nearest-family selection are one theorem on one typed bundle. This row classifies the coarse compact family and Lie type only; it does not select a point in the continuous G bracket family, a matter mask, or a complete Standard Model structure. A source-selected bracket, physical gauge field, and laboratory current remain open under PR-54.",
    "open_premises": [
     "PR-54"
    ]
   },
   {
    "id": "OL-G2",
-   "target": "Global gauge group form S(U(3)xU(2))/Z6",
+   "target": "Global gauge group form S(U(3)xU(2)) ≅ (SU(3)xSU(2)xU(1))/Z6",
    "rung": "structural",
    "status": "partial",
    "lane_issue": 734,
    "premises": [
-    "PR-12",
-    "PR-35"
+    "PR-35",
+    "PR-59"
    ],
    "evidence": [
     "Lean/Screen/SMStructureAdequacySurface.lean",
@@ -548,10 +548,10 @@
    "id": "OL-G3",
    "target": "One generation: fifteen states, hypercharges, anomaly cancellation",
    "rung": "structural",
-   "status": "attained",
+   "status": "partial",
    "lane_issue": 734,
    "premises": [
-    "PR-12"
+    "PR-59"
    ],
    "evidence": [
     "Lean/Screen/ExteriorSelection.lean",
@@ -559,8 +559,11 @@
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
     "Lean/Screen/SMStructureComposition.lean"
    ],
-   "notes": "The statement consumes the matter candidate grammar row PR-12; the fifteen-state count, anomaly forms, and Z6 stabilizer are machine-checked directly on the bundled selection mask of the composed receipt.",
-   "open_premises": []
+   "notes": "The fifteen-state count, anomaly forms, and Z6 stabilizer are machine-checked directly on the bundled selection mask under the declared five-mode exterior-table grammar PR-59. PR-59 is distinct from the separately frozen PR-12 search class and does not exclude other carriers, direct sums, vectorlike additions, neutral singlets, or light sectors. The physical chirality and common source action remain open under PR-47 and PR-54.",
+   "open_premises": [
+    "PR-47",
+    "PR-54"
+   ]
   },
   {
    "id": "OL-G4",
@@ -569,8 +572,8 @@
    "status": "partial",
    "lane_issue": 734,
    "premises": [
-    "PR-12",
-    "PR-36"
+    "PR-36",
+    "PR-59"
    ],
    "evidence": [
     "Lean/Screen/A5FamilyBand.lean",
@@ -589,13 +592,13 @@
    "status": "partial",
    "lane_issue": 734,
    "premises": [
-    "PR-12"
+    "PR-59"
    ],
    "evidence": [
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "Lean/Screen/ExteriorSelection.lean"
    ],
-   "notes": "The exterior scan proves a parity grading under the registered component grammar through one threaded grading-plus-obstruction theorem on the bundled mask, with charge conjugation exchanging the two surviving sectors; PR-12 provenance and the PR-47 consumption of any physical chirality claim are named in place.",
+   "notes": "The exterior scan proves a parity grading under the declared five-mode component grammar PR-59 through one threaded grading-plus-obstruction theorem on the bundled mask, with the declared conjugation permutation exchanging the two surviving sectors. PR-59 is not selected from PR-12; source selection and completeness are part of discharging PR-59 itself, while the PR-47 physical chirality attachment remains open.",
    "open_premises": [
     "PR-47"
    ]
@@ -607,16 +610,16 @@
    "status": "partial",
    "lane_issue": 734,
    "premises": [
-    "PR-12",
     "PR-55",
-    "PR-56"
+    "PR-56",
+    "PR-59"
    ],
    "evidence": [
     "Lean/Screen/BaryonDimensionSix.lean",
     "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json",
     "Lean/Screen/MatterGrammarIndexBridge.lean"
    ],
-   "notes": "The exact census proves that four baryon-violating field-multiset classes and their conjugates survive inside the declared one-generation, charge-label, and contraction grammar, and a kernel-checked dictionary now identifies the census table with the selected generation of the matter grammar column by column. It predicts neither proton stability nor decay; physical matter, action, proton state, and readout attachments stay open under PR-47, PR-54, and PR-57.",
+   "notes": "The exact census proves that four baryon-violating field-multiset classes and their conjugates survive inside the declared exterior-table, charge-label, and contraction grammar, and a kernel-checked dictionary identifies the census table with the PR-59 selected generation column by column. PR-59 is distinct from PR-12 and is not source-selected by this census. The result predicts neither proton stability nor decay; physical matter, action, proton state, and readout attachments stay open under PR-47, PR-54, and PR-57.",
    "open_premises": [
     "PR-47",
     "PR-54",
@@ -657,12 +660,12 @@
    ],
    "notes": "The correspondence inventory records compatible scalar and Yukawa-line premises and exact Yukawa non-identifiability. It is not a theorem that the architecture carries a physical Higgs, Yukawa sector, or broken vacuum; the complete target remains owed.",
    "open_premises": [
-    "PR-12",
     "PR-47",
     "PR-48",
     "PR-49",
     "PR-50",
-    "PR-54"
+    "PR-54",
+    "PR-59"
    ]
   },
   {
@@ -685,7 +688,8 @@
     "PR-48",
     "PR-49",
     "PR-50",
-    "PR-54"
+    "PR-54",
+    "PR-59"
    ]
   },
   {
