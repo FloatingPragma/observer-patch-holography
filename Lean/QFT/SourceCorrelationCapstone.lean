@@ -41,8 +41,10 @@ carrier, and it is source-counted, not declared.  The diamond itself is
 instantiated on this carrier below, with the factor identifications of
 both observers' source-generated algebras.  The separate constant-tower
 transport is proved for the different 86/88 carrier in
-`QFT.TowerAnchoredDiamond`; no theorem currently transports this 86/247
-diamond to that tower or identifies the two carriers.
+`QFT.TowerAnchoredDiamond`; `QFT.TowerAnchoredCorrelation` anchors this
+86/247 diamond to its own tower stage by the same committed pattern and
+relates the two carriers through the shared observer 86, without
+identifying the carriers.
 
 **Boundary.**  The label conventions and the reading of two observers
 as the two factors stay declared postprocessors; the support

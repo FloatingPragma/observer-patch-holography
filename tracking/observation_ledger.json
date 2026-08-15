@@ -168,7 +168,7 @@
   },
   {
    "id": "OL-C1",
-   "target": "Born probabilities and L\u00fcders conditioning",
+   "target": "Born probabilities and Lüders conditioning",
    "rung": "structural",
    "status": "attained",
    "lane_issue": 730,
@@ -218,9 +218,10 @@
    "evidence": [
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/EventAlgebra/Tsirelson.lean",
-    "Lean/EventAlgebra/SlotLocalitySurface.lean"
+    "Lean/EventAlgebra/SlotLocalitySurface.lean",
+    "Lean/EventAlgebra/TsirelsonSaturation.lean"
    ],
-   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is an upper bound only; no entangled-state realization, saturation, source preparation, or observer instrument is attained.",
+   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is now exactly attained on the committed interface by a declared witness: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2) exactly, and the witness events inhabit the committed PR-44 interface. Every diagonal state with record-diagonal observables in [-1,1] obeys the classical bound 2, so the committed counted correlation state cannot reach the Tsirelson value through record-diagonal readouts; attainment requires non-diagonal structure of exactly the kind whose operational status PR-04 leaves open. The witness state and events are declared data: no source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open.",
    "open_premises": []
   },
   {
@@ -255,9 +256,10 @@
    "evidence": [
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/QFT/SourcePhaseLiftBridge.lean",
-    "code/born_context_phase_lift/verify_source_phase_lift.py"
+    "code/born_context_phase_lift/verify_source_phase_lift.py",
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean"
    ],
-   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure/outcome boundary. AlgebraicPhaseCompletion is deliberately not an operational instrument: PR-04 remains open for a source-produced operation, rotated or phase outcomes, and common-preparation receipts.",
+   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure/outcome boundary. AlgebraicPhaseCompletion is deliberately not an operational instrument. The operational semantics PR-04 owes is now typed: OperationalPhaseInstrument demands one shared preparation, exact per-context POVMs including a provably non-diagonal phase context, realized counts, and an exact Born-consistency law; every inhabitant completes operational fixed-trace tomography, and two certified states with identical diagonal Born data prove the phase context necessary rather than decorative. No inhabitant exists in the repository: the committed payload supplies no preparation declaration and no rotated or phase outcome counts, count provenance is a custody condition the register keeps outside the type system, and PR-04 remains open for a source-produced operation, rotated or phase outcomes, and common-preparation receipts.",
    "open_premises": [
     "PR-04"
    ]
@@ -276,9 +278,11 @@
    "evidence": [
     "Lean/QFT/RichFibreRegionalNet.lean",
     "Lean/QFT/SourceRegionalNet.lean",
-    "Lean/QFT/StructuralNetAdequacySurface.lean"
+    "Lean/QFT/StructuralNetAdequacySurface.lean",
+    "Lean/QFT/TowerAnchoredCorrelation.lean",
+    "Lean/QFT/PathTimeSliceInterface.lean"
    ],
-   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state in supportDisjoint_composed_adequacy. On that carrier, supportDisjoint_swap_covariance separately proves internal Z/2 covariance of the net maps; slotSwap_correlationState_ne proves that the counted empirical state is not swap invariant. Separately, the 86/88 diamond transports to one constant tower stage; no theorem joins that tower anchor to the 86/247 carrier. Neither swap receipt is spacetime covariance. The time-slice property is not attained: PR-58 records the missing time-indexed or Cauchy-region interface, net-compatible evolution, and slice-to-region generation theorem. A continuous symmetry action is only one possible route.",
+   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state in supportDisjoint_composed_adequacy. On that carrier, supportDisjoint_swap_covariance separately proves internal Z/2 covariance of the net maps; slotSwap_correlationState_ne proves that the counted empirical state is not swap invariant. Neither swap receipt is spacetime covariance. Both committed carriers now carry one common tower-anchored construction: the 86/247 diamond transports to a tower stage by the same committed transport pattern, and the exact shared-observer theorem towerCarriers_share_obs86_marginal relates the two carriers through their common left observer; the carriers are not identified. The PR-58 interface is now typed and delimited: TimeIndexedNetEvolution demands the time index, region family, net-compatible evolution, and slice-to-region generation clause; a full inhabitant exists with the committed walk-step evolution and a constant region family, the natural walk-slice candidate provably fails generation at every time, and forced step-invariance proves that no inhabitant over either committed diamond carries a moving region family. Discharge of PR-58 therefore requires a net in which distinct regions share one algebra, which no committed net supplies; PR-52 stays open.",
    "open_premises": [
     "PR-52",
     "PR-58"
@@ -434,9 +438,10 @@
     "code/electromagnetism/test_modal_maxwell_factorization.py",
     "paper/screen_microphysics_and_observer_synchronization.tex",
     "Lean/Screen/LightSignalMaxwellComposition.lean",
-    "Lean/Screen/SeamU1HolonomyClassification.lean"
+    "Lean/Screen/SeamU1HolonomyClassification.lean",
+    "Lean/Screen/PositionSpaceMaxwellAction.lean"
    ],
-   "notes": "The composed light-signal surface supplies a conditional internal free-vector second-order wave law and coordinate-frequency symbol under the declared seam rows. The exact complex modal factorization is a modal/pseudodifferential algebraic factorization only, and the composed modal-Maxwell receipt now proves that first-order content about the same supplied objects: an explicit boundary map carries the supplied mode dynamics onto the opposite-sign curl pairing at the bundle's chart scale and identified frequency, with both divergence constraints, global phase equivariance, and the same-sign mutation control. A finite U(1) seam connection with its port-gauge quotient is committed and classified. The receipt removes no registered premise, and the scientific owner #733 records the missing physical attachments: no local position-space assembly, no real field or reality pairing, no Maxwell action or dynamics for the committed potential, no Gauss/Coulomb readout beyond the exact rational receipts, no physical current coupling, no Lorentz covariance, no continuum control, and no laboratory readout; PR-53 and PR-54 stay open.",
+   "notes": "The composed light-signal surface supplies a conditional internal free-vector second-order wave law and coordinate-frequency symbol under the declared seam rows. The exact complex modal factorization is a modal/pseudodifferential algebraic factorization only, and the composed modal-Maxwell receipt now proves that first-order content about the same supplied objects: an explicit boundary map carries the supplied mode dynamics onto the opposite-sign curl pairing at the bundle's chart scale and identified frequency, with both divergence constraints, global phase equivariance, and the same-sign mutation control. A finite U(1) seam connection with its port-gauge quotient is committed and classified. A local position-space assembly is now also committed: real seam fields with the port-gauge quotient, an idempotent self-adjoint field-strength projector onto the rank-nineteen cycle space matching the U(1) chord classification, an exact quadratic sourced action with gauge invariance equivalent to source conservation, existence and uniqueness of stationary points modulo gauge, and the electrostatic join to the exact Green matrix and its Gauss receipts. The receipt removes no registered premise, and the scientific owner #733 records the missing physical attachments: calling the committed package a physical Maxwell action stays unproved, no real field is identified with a laboratory field, no physical current is source-produced, and Lorentz covariance, continuum control, and laboratory readout are not attained; PR-53 and PR-54 stay open.",
    "open_premises": [
     "PR-53",
     "PR-54"
@@ -474,9 +479,14 @@
    "evidence": [
     "Lean/Screen/DiscreteGauss.lean",
     "Lean/Screen/LightSignalMaxwellComposition.lean",
-    "Lean/Screen/SeamU1HolonomyClassification.lean"
+    "Lean/Screen/SeamU1HolonomyClassification.lean",
+    "Lean/Screen/DiscreteCoulombGreen.lean",
+    "Lean/Screen/PositionSpaceMaxwellAction.lean",
+    "code/electromagnetism/discrete_coulomb_green.py",
+    "code/electromagnetism/verify_discrete_coulomb_green_independent.py",
+    "code/electromagnetism/runtime/discrete_coulomb_green_receipt.json"
    ],
-   "notes": "The discrete Gauss receipts are threaded through the exhibited shared incidence objects: the PR-20-forced measure is orientation-balanced across the committed double cover of the thirty-seam table and its expected signed port boundary vanishes on the same boundary object that carries the solvability, section, fibre, and rank-nineteen receipts. A finite U(1) seam connection and its port-gauge quotient are committed and classified: connections modulo gauge are exactly the nineteen chord holonomies, and the moduli count equals the committed Gauss cycle rank. No Coulomb readout, discrete Green function, source-produced current, action, or continuum composition is committed; that half stays open under PR-54.",
+   "notes": "The discrete Gauss receipts are threaded through the exhibited shared incidence objects: the PR-20-forced measure is orientation-balanced across the committed double cover of the thirty-seam table and its expected signed port boundary vanishes on the same boundary object that carries the solvability, section, fibre, and rank-nineteen receipts. A finite U(1) seam connection and its port-gauge quotient are committed and classified: connections modulo gauge are exactly the nineteen chord holonomies, and the moduli count equals the committed Gauss cycle rank. The Coulomb half is now committed as exact finite mathematics on the same incidence objects: the explicit rational Green matrix with machine-checked identities, the kernel-equals-constants theorem along the committed spanning tree, the canonical Coulomb solution of every neutral Gauss problem, the Thomson characterization as the unique cycle-orthogonal and unique minimal-energy Gauss solution, an exact adjacent-port dipole receipt with strict distance ordering, and the identity that the committed uniform seam repair equals one minus one-sixtieth of the same Laplacian with fixed loads exactly the Gauss obstruction. A design-only handoff interface for the instrument lane is recorded in the receipt. No source-produced current, physical charge or potential identification, laboratory attachment, or continuum composition is committed; that attachment stays open under PR-54.",
    "open_premises": [
     "PR-54"
    ]

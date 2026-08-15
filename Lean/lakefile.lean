@@ -38,7 +38,8 @@ lean_lib «OPHThermodynamics» where
     `PoissonizedRepair, `PoissonizedRepairOperatorExp,
     `LowTemperatureControl, `MixingChainRealization, `CommonObjectBinding,
     `CommonReferenceObstruction, `RepairCurrentOrientation,
-    `FourLawAdequacySurface, `HorizonThermalitySurface]
+    `FourLawAdequacySurface, `HorizonThermalitySurface,
+    `CoherentRefinementFamily]
 
 @[default_target]
 lean_lib «OPHScreen» where
@@ -74,7 +75,7 @@ lean_lib «OPHScreen» where
     `OrientedFaceInvariantMetric, `PortDualMetricSelection,
     `LightSignalAdequacySurface, `ModalMaxwellFactorizationBoundary,
     `LightSignalMaxwellComposition, `SeamU1HolonomyClassification,
-    `LayeredDiscreteGauss,
+    `LayeredDiscreteGauss, `DiscreteCoulombGreen, `PositionSpaceMaxwellAction,
     `SMStructureAdequacySurface, `SMStructureComposition,
     `MatterGrammarIndexBridge,
     `ExteriorComponentBridge, `QuantumMatterIntegration,

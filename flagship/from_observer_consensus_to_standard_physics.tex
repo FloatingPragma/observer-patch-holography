@@ -271,7 +271,10 @@ or laboratory current; the physical reading consumes these as premises.
 
 When the completed finite record surface is represented by a declared
 algebra-state pair, its public projectors carry exact projection-event,
-conditioning, expectation, and Clauser--Horne--Shimony--Holt identities. The
+conditioning, expectation, and Clauser--Horne--Shimony--Holt identities,
+with the Tsirelson bound attained exactly by a declared entangled slot
+witness while every record-diagonal readout of the counted source data
+stays inside the classical bound. The
 geometry branch distinguishes observer-velocity kinematics from event
 geometry. Its Einstein result is a reconstruction implication whose modular,
 stress, entropy, area, Ward, continuum, and scale premises are displayed in
@@ -298,7 +301,11 @@ log-transition action, unique up to an additive constant and a multiplier
 rescaling; a finite Legendre bridge makes discrete Euler--Lagrange transport
 equivalent to one step of the discrete Hamilton flow. The same complete
 binary history law admits distinct strictly convex real enrichments and
-Hamiltonians, so it does not select the required velocity curvature. A declared
+Hamiltonians, so it does not select the required velocity curvature; the
+corner-invisible quadratic enrichments are classified exactly as a
+two-parameter family, and one named velocity-only clause restores unique
+selection of the committed curvature, with each clause proved
+load-bearing. A declared
 equal-weight bracket on the twenty oriented faces is exactly \(60R_{13}\)
 and fails Jacobi in \(240\) coordinates. Over the complete cone of
 invariant carrier metrics (the commutant of the port action is exactly
@@ -340,8 +347,11 @@ unsharp-web countermodels and exact phase-lift boundary, the converse ladder
 that makes blockwise Hamiltonian generation a theorem, the derived
 log-transition action with its real-Legendre non-identifiability theorem, the
 oriented-face compact-family discriminator with its complete
-invariant-metric phase diagram, and the \(F/G\)
-invariant-form dimension-drop theorem.
+invariant-metric phase diagram, the \(F/G\)
+invariant-form dimension-drop theorem, the exact Coulomb--Green and
+position-space action package on the seam carrier with its Thomson-unique
+electrostatic sector, and the slot-interface Tsirelson saturation with its
+record-diagonal classical boundary.
 
 \subsection{The three axioms}
 
@@ -1158,6 +1168,29 @@ rotation orbits and is not uniquely selected by the carrier. The finite
 source packet supplies neither a completed two-wing record instrument nor
 source-selected settings. Proposition~\ref{prop:icosahedral-chsh} is an exact
 projective candidate rather than a physical Bell prediction.
+
+\begin{theorem}[Exact Tsirelson saturation and the diagonal boundary]
+\label{thm:tsirelson-saturation}
+The bound of Theorem~\ref{thm:born} is attained exactly on the committed
+slot-split interface: the normalized maximally entangled state on the
+four-dimensional product carrier, with the two Pauli projections on the
+left slot and the two quarter-rotated projections on the right slot,
+gives $S_{\mathrm{CHSH}}=2\sqrt2$, and the four events inhabit the
+registered finite subsystem split with the identity Kraus family.
+Conversely, every state diagonal in the record basis, paired with any
+four diagonal observables valued in $[-1,1]$, obeys the classical bound
+$\lvert S_{\mathrm{CHSH}}\rvert\le2$; in particular the counted
+correlation state of the committed source pair obeys it.
+\end{theorem}
+
+The two halves bracket the committed record surface exactly: the
+algebra-state representation attains the full quantum value on a declared
+entangled witness, while every record-diagonal readout of the counted
+classical data provably stays inside the classical bound, so any future
+attainment on committed source data requires non-diagonal phase structure
+of exactly the kind whose operational status the phase-instrument
+interface leaves open. The saturating state and events are declared data
+of the library, not source-produced preparations.
 
 The first identity is the Born rule on this finite surface
 \cite{born1926}; the second is L\"uders conditioning \cite{luders1950}; the
@@ -2701,10 +2734,21 @@ transformations are classified exactly by their nineteen chord
 holonomies---the first cohomology of the thirty-seam graph with circle
 coefficients is \(U(1)^{19}\), the same count as the source-free Gauss
 cycle rank, through the eleven-seam spanning tree of the committed
-boundary section. These statements depend on choosing the
-spatial symbol as the oscillator stiffness. They do not construct a
-position-space flow, dynamics for the committed connection, a physical
-clock, a photon Hilbert space, or a massless physical particle.
+boundary section. A committed position-space package completes the
+electrostatic half on the same carrier: the seam Laplacian has an
+explicit symmetric rational Green matrix with kernel exactly the
+constants, every neutral load has a canonical Coulomb solution that is
+the unique cycle-orthogonal and unique minimal-energy solution of the
+discrete Gauss problem, the committed uniform seam repair is one minus
+one-sixtieth of the same Laplacian, and real seam fields carry a
+gauge-invariant quadratic action whose sourced stationary points exist
+exactly for conserved sources and are unique modulo port gauge, the
+rank-nineteen real companion of the holonomy classification. These
+statements depend on choosing the spatial symbol as the oscillator
+stiffness and the equal-weight seam pairing. They do not identify a
+physical field, charge, current, clock, photon Hilbert space, or
+massless physical particle, and no continuum control or laboratory
+readout is constructed.
 
 An exhaustive target-free calibration enumerates all \(2^{12}\) sign-error
 vectors in one fixed twelve-row design. At noise scale \(1/200\), the leading
@@ -3458,10 +3502,16 @@ Transactional diamond and consensus normal form
    the observation-relative endpoint-uniqueness module of the Lean
    library; the finite transaction-model verifier with its receipt and
    negative controls\\
-Event algebra, Born, L\"uders, Tsirelson
+Event algebra, Born, L\"uders, Tsirelson, saturation
  & \texttt{Lean/EventAlgebra/} (\texttt{Basic}, \texttt{Lueders},
-   \texttt{Tsirelson}, \texttt{ExpectationBound}, partition and state
+   \texttt{Tsirelson}, \texttt{ExpectationBound},
+   \texttt{TsirelsonSaturation}, partition and state
    modules); per-module axiom audits\\
+Coulomb--Green and position-space action package
+ & \path{Lean/Screen/DiscreteCoulombGreen.lean};
+   \path{Lean/Screen/PositionSpaceMaxwellAction.lean};
+   \path{code/electromagnetism/discrete_coulomb_green.py} with its
+   independent verifier, pytest gate, and receipt\\
 Central defects and edge-center entropy
  & overlap-cocycle and one-sided reduction proofs in this manuscript;
    \path{Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean}

@@ -4006,7 +4006,7 @@
         "idempotent_linear_relaxation",
         "finite_tensor_split_Kraus_no_signalling"
       ],
-      "oph_specific_delta": "E1 gives exact finite causal-region, repair-locality, expectation, refinement, restriction-gluing, and source-operator generation packets. The declared two-slot CP diamond supplies a coherent finite replacement for the obstructed star-homomorphic scalar restrictions and consumes the B4 helper. The 86/247 capstone supplies a fully support-disjoint, marginal-coherent counted correlation datum on that carrier and proves its erasure by the regional expectation pair. The internal Z/2 swap intertwines the 86/247 net maps but does not fix the counted empirical state and is not spacetime covariance. The constant-tower transport lies on the different 86/88 carrier; no theorem joins the two carriers. The residual source-attachment problem is narrower and unresolved: the source must select or justify the regional carrier and factor reading and supply a nonconstant-tower realization or a scoped no-go.",
+      "oph_specific_delta": "E1 gives exact finite causal-region, repair-locality, expectation, refinement, restriction-gluing, and source-operator generation packets. The declared two-slot CP diamond supplies a coherent finite replacement for the obstructed star-homomorphic scalar restrictions and consumes the B4 helper. The 86/247 capstone supplies a fully support-disjoint, marginal-coherent counted correlation datum on that carrier and proves its erasure by the regional expectation pair. The internal Z/2 swap intertwines the 86/247 net maps but does not fix the counted empirical state and is not spacetime covariance. The constant-tower transport lies on the different 86/88 carrier; the committed tower anchoring of the 86/247 diamond and the shared-observer marginal theorem relate the two carriers through observer 86 without identifying them. The residual source-attachment problem is narrower and unresolved: the source must select or justify the regional carrier and factor reading and supply a nonconstant-tower realization or a scoped no-go.",
       "novelty_type": "proof_carrying_finite_observer_net_with_conditional_source_operator_cp_diamond_and_support_disjoint_counted_correlation",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -4290,6 +4290,234 @@
           "PR-31"
         ],
         "open": [],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+      "statement": "On the committed thirty-seam, twelve-port incidence table, the vertex Laplacian of the committed rational seam boundary has an explicit symmetric rational Green matrix G with L G = 1 - (1/12) allOnes, zero row sums, and kernel exactly the constants, proved along the committed spanning tree. For every neutral rational port load, the coboundary of G applied to the load solves the committed discrete Gauss problem and is the unique cycle-orthogonal and unique minimal-seam-energy Gauss solution (the Thomson characterization), with an exact adjacent-port dipole receipt whose potential classes strictly decrease with graph distance; the committed uniform seam repair equals one minus one-sixtieth of the same Laplacian, with fixed loads exactly the Gauss obstruction. On real position-space seam fields, the field-strength projector 1 - d G boundary is idempotent and self-adjoint for the equal-weight pairing with range the rank-nineteen cycle space, the quotient of fields by port gauge is linearly equivalent to that cycle space in exact dimension agreement with the committed U(1)^19 chord classification, and the sourced quadratic action is gauge invariant exactly when the source is conserved, has stationary points exactly at fieldStrength = source, is solvable exactly for conserved sources, and has gauge-unique global minimizers whose electrostatic sector is the Coulomb solution. This is exact finite mathematics on the committed carrier, not a physical Maxwell theory: the equal-weight pairing coincides with the PR-20 equal seam-counting selection, and no premise is consumed, no field, charge, current, or potential is identified with a laboratory object, and no covariance, continuum control, or readout is constructed; PR-53 and PR-54 stay open and no frozen prediction is emitted.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "exact_finite_coulomb_green_and_position_space_action_with_physical_boundary",
+      "assumptions": [
+        "committed_thirty_seam_incidence_table"
+      ],
+      "imported_results": [
+        "finite_graph_laplacian_theory",
+        "orthogonal_projection_linear_algebra",
+        "thomson_variational_principle"
+      ],
+      "oph_specific_delta": "Discharges the canonical-choice question the committed discrete Gauss layer left open by exhibiting the exact rational Green matrix and the Thomson-unique Coulomb solution on the committed seam carrier, assembles the first committed local real position-space gauge field, quadratic action, and conserved-source coupling on that carrier, proves the real rank-nineteen companion of the committed U(1)^19 holonomy classification, and binds the committed uniform seam repair to the same Laplacian.",
+      "novelty_type": "exact_OPH_carrier_coulomb_green_and_variational_maxwell_package",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "Lean/Screen/DiscreteCoulombGreen.lean",
+        "Lean/Screen/PositionSpaceMaxwellAction.lean",
+        "code/electromagnetism/discrete_coulomb_green.py",
+        "code/electromagnetism/verify_discrete_coulomb_green_independent.py",
+        "code/electromagnetism/test_discrete_coulomb_green.py",
+        "code/electromagnetism/runtime/discrete_coulomb_green_receipt.json"
+      ],
+      "falsifier": "The bounded result fails if the Laplacian-Green identity, symmetry, row sums, or kernel characterization fails on the committed incidence, if a neutral load admits a Gauss solution with strictly smaller seam energy than the Coulomb solution or a second cycle-orthogonal solution, if the dipole distance classes are not strictly ordered, if the field projector fails idempotence, self-adjointness, or its kernel and range identification, if gauge invariance holds for a nonconserved source or fails for a conserved one, or if the independent exact replay disagrees with the receipt.",
+      "scope_if_false": "Only the Coulomb-Green and position-space action package falls. The committed Gauss receipts, holonomy classification, modal factorization, and every later physical attachment retain their separately stated scopes and gates.",
+      "status": "exact_coulomb_green_and_position_space_action_attained__source_current_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": [
+          "PR-20"
+        ]
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-TSIRELSON-SATURATION",
+      "statement": "On the committed finite record algebra, the committed CHSH upper bound 2*sqrt(2) is exactly attained: the normalized maximally entangled state on the four-dimensional product carrier, with the two Pauli projections on the left slot and the two quarter-rotated projections on the right slot, has CHSH expectation exactly 2*sqrt(2), the four events inhabit the committed PR-44 slot-locality interface with the identity Kraus family, and the attaining observable is the slot-lifted CHSH operator of that interface witness. Separately, every state diagonal in the record basis paired with any four diagonal observables valued in [-1,1] obeys the classical bound 2, so the committed counted 86/247 correlation state cannot reach the Tsirelson value through record-diagonal readouts. The saturating state and events are declared data: no theorem produces them from committed source runs, no physical regions, spacelike separation, or observer instruments are constructed, and the delimitation does not assert that the committed phase lift suffices for attainment.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "exact_saturation_witness_with_classical_delimitation",
+      "assumptions": [
+        "declared_bell_state_and_event_quadruple"
+      ],
+      "imported_results": [
+        "finite_matrix_algebra",
+        "trace_expectation_bounds"
+      ],
+      "oph_specific_delta": "Supplies the first attainment witness in the corpus for the committed slot-split Tsirelson bound, on the committed PR-44 interface rather than an abstract C*-algebra, and pins the classical boundary of the committed counted correlation state: record-diagonal readouts are provably insufficient for saturation, isolating non-diagonal structure as the exact gap whose operational status PR-04 leaves open.",
+      "novelty_type": "exact_OPH_slot_interface_tsirelson_saturation_and_diagonal_delimitation",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/TsirelsonSaturation.lean"
+      ],
+      "falsifier": "The bounded result fails if the declared state is not positive semidefinite with trace one, if any declared event fails its event certificate or the slot commutation, if the CHSH expectation of the declared witness differs from 2*sqrt(2), or if some diagonal state with diagonal observables valued in [-1,1] exceeds the classical bound 2.",
+      "scope_if_false": "Only the saturation witness and diagonal delimitation fall. The committed upper-bound theorems and slot-locality receipts retain their separately stated scopes and gates.",
+      "status": "exact_saturation_attained_on_declared_witness__source_entangled_preparation_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-44"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+      "statement": "The operational content register row PR-04 owes is typed as one structure on the committed two-dimensional record algebra: one shared preparation, the committed web contexts plus one designated phase context, per-context binary outcome effects forming exact POVMs with a provably non-diagonal phase effect, realized counts with the diagonal counts pinned to the committed run literals, and one exact Born-consistency law tying every context to the same preparation. Every inhabitant yields operational fixed-trace state identification through the committed algebraic completion, and the preparation is the unique state reproducing the realized frequencies, so PR-04 discharge reduces to inhabiting the structure, equivalently to supplying the missing preparation, rotated and phase outcome counts, and Born-consistency receipts. Necessity is exact: two certified distinct states carry identical Born data on every diagonal effect, the committed rotated context separates that pair, and no diagonal effect and no complexified real effect can satisfy the phase-sensitivity clause. No inhabitant exists in the repository: the committed payload supplies no preparation declaration and no rotated or phase outcome counts, and count provenance is a custody condition the register keeps outside the type system, where the discharge discipline prohibits synthetic counts. PR-04 stays open.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "typed_operational_reduction_with_exact_necessity",
+      "assumptions": [
+        "committed_diagonal_record_algebra_and_web_contexts"
+      ],
+      "imported_results": [
+        "finite_matrix_algebra",
+        "povm_effect_calculus"
+      ],
+      "oph_specific_delta": "Types the exact operational semantics that separates the committed algebraic phase completion from a PR-04 instrument, proves the reduction of PR-04 discharge to one structure inhabitation, and proves the phase context necessary against both diagonal and complexified real effects through the committed blindness receipts.",
+      "novelty_type": "typed_OPH_operational_instrument_reduction_with_necessity_receipts",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/OperationalPhaseInstrument.lean"
+      ],
+      "falsifier": "The bounded result fails if some inhabitant of the structure fails fixed-trace identification, if the two certified states are not distinct positive semidefinite trace-one matrices with identical diagonal Born data, if a diagonal or complexified real effect satisfies the phase-sensitivity clause, or if the stated equivalence between discharge and the missing-receipt data fails.",
+      "scope_if_false": "Only the typed reduction and necessity receipts fall. The committed algebraic phase completion and its boundary retain their separately stated scopes and gates.",
+      "status": "operational_semantics_typed_and_reduction_proved__pr04_attainment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [
+          "PR-04"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+      "statement": "Both committed joint carriers carry one common tower-anchored construction: the support-disjoint 86/247 diamond transports to a consensus-tower stage by the same committed transport pattern as the 86/88 witness, and an exact shared-observer theorem relates the two carriers through their common left observer's marginal data; the carriers are not identified. The PR-58 interface is typed: a finite time index with an evolution direction, a region family per time, per-step ambient star-automorphisms carrying each slice algebra onto the evolved slice algebra, admitted slice data, and the slice-to-region generation clause in the register wording. A full inhabitant exists on the committed 86/247 net with the walk-step evolution read from the committed joint path and the committed source generators, and its region family is constant; the natural walk-slice candidate is net-compatible but provably fails generation at every time; and forced step-invariance proves that every inhabitant over either committed diamond has a step-invariant region family, one whose slice region never moves along the evolution, because admission plus generation places the evolved slice algebra inside the slice algebra while net compatibility carries the slice algebra onto it and both committed region-to-algebra maps are injective. Discharge of PR-58 therefore requires a net in which distinct regions share one algebra, which no committed net supplies. No Cauchy-region reading, physical time, or clock is attached; PR-52 stays open; the Z/2 slot swap is not used.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "structural_tower_join_with_interface_delimitation",
+      "assumptions": [
+        "committed_source_walk_payload_carriers"
+      ],
+      "imported_results": [
+        "finite_matrix_algebra",
+        "star_algebra_dimension_counting"
+      ],
+      "oph_specific_delta": "Removes the committed carrier asymmetry by tower-anchoring the 86/247 diamond in the committed 86/88 form, proves the first committed theorem relating the two carriers through their shared observer, types the PR-58 interface in the register wording, inhabits it with a source-read evolution, and proves the forced step-invariance delimitation that scopes PR-58 discharge to nets with distinct regions sharing one algebra.",
+      "novelty_type": "exact_OPH_tower_join_and_time_slice_interface_delimitation",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "Lean/QFT/TowerAnchoredCorrelation.lean",
+        "Lean/QFT/PathTimeSliceInterface.lean"
+      ],
+      "falsifier": "The bounded result fails if the 86/247 anchoring violates the committed transport pattern or its nontriviality receipts, if the shared-observer marginal agreement fails on the committed payload tables, if the full inhabitant fails net compatibility or its generation clause, if the walk-slice candidate satisfies generation at some time, or if some inhabitant over a committed diamond carries a nonconstant region family.",
+      "scope_if_false": "Only the tower join and interface delimitation fall. The committed regional nets, counted correlation receipts, and marginal theorems retain their separately stated scopes and gates.",
+      "status": "tower_join_and_interface_delimitation_attained__pr58_discharge_requires_new_net_shape",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-32",
+          "PR-33",
+          "PR-34"
+        ],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-MECH-ENRICHMENT-CHARACTERIZATION",
+      "statement": "Within the declared quadratic two-slot grammar around the committed two-state mixing chain, corner invisibility holds exactly on the committed two-parameter family: a quadratic polynomial vanishes at all four binary corners exactly when it is eps x(x-1) + zeta y(y-1), so the machine-checked counterfamily is complete and no third corner-invisible quadratic direction exists. The committed constant-one interior-junction stationarity holds exactly on the affine line a + c = a*, and the single named velocity-only clause, that the added sentence is a function of the velocity slot alone, restores uniqueness at (a*, 0), the committed one-parameter rule with all six coefficients pinned. Each clause is load-bearing: the committed counterfamily point a = c = a*/2 satisfies every clause except velocity-only with a different momentum map, and an explicit velocity-only cubic satisfies corner invisibility and junction stationarity, so quadraticity is load-bearing under stationarity alone; the committed real fixed-endpoint single-site minimality excludes those cubics and returns the committed rule exactly. This is exact selection mathematics inside the declared grammar: nothing states or implies that the source selects the enrichment, the realized-history no-go stays in force, PR-06 stays a register row, and OL-D1 stays partial.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_enrichment_selection_characterization_inside_declared_grammar",
+      "assumptions": [
+        "declared_quadratic_two_slot_grammar"
+      ],
+      "imported_results": [
+        "real_polynomial_linear_algebra",
+        "frechet_derivative_calculus"
+      ],
+      "oph_specific_delta": "Upgrades the audited nonuniqueness finding into an exact classification: the committed counterfamily is complete in the quadratic grammar, one named clause separates the committed selection from the stationarity line with proved necessity of each clause, and the committed minimality receipt is shown to exclude the cubic extensions that junction stationarity alone admits.",
+      "novelty_type": "exact_OPH_enrichment_clause_characterization_with_necessity_witnesses",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Variational/EnrichmentCharacterization.lean"
+      ],
+      "falsifier": "The bounded result fails if some corner-invisible quadratic lies outside the two-parameter family, if the stationarity line differs from a + c = a*, if the velocity-only clause admits a second selection, if the counterfamily point fails a clause other than velocity-only, if the exhibited cubic fails corner invisibility or junction stationarity, or if the committed minimality receipt admits a cubic with a nonzero cubic coefficient.",
+      "scope_if_false": "Only the characterization falls. The committed mode-extremal receipts, the counterfamily, and the realized-history no-go retain their separately stated scopes and gates.",
+      "status": "exact_two_clause_characterization_attained__source_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        731
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-06",
+          "PR-45"
+        ],
+        "open": [],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
+      "statement": "The refinement-uniform low-temperature control of the committed four-law surface is generalized to a coherent family: an index preorder with directedness, per-stage finite spaces and energies, refine maps with identity and composition laws and a load-bearing energy-compatibility law, one designated ground datum, and one uniform spectral-tail envelope with a single inverse-temperature threshold driving the off-minimum Gibbs mass to zero across the family. The envelope yields the third-law conclusion the committed surface consumes; the committed gap-plus-cardinality witness is one instance; an explicit ladder family with unbounded stage cardinality and nontrivial coherent truncation maps satisfies the envelope while the uniform-cardinality hypothesis fails, so the coherent-envelope form is strictly wider than the committed special case; and an alternative composed four-law route through the new antecedent is proved. PR-08 stays a register row: no source-produced family is constructed and no physical temperature is attached; PR-15 stays open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "coherent_refinement_envelope_generalization_of_third_law_control",
+      "assumptions": [
+        "declared_coherent_refinement_family_data"
+      ],
+      "imported_results": [
+        "geometric_series_tail_bounds",
+        "finite_gibbs_state_calculus"
+      ],
+      "oph_specific_delta": "Implements the register's coherent cofinal target for PR-08: coherence laws that are used rather than decorative, an envelope strictly wider than the committed gap-plus-cardinality special case as proved by an unbounded-cardinality ladder instance, and a composed four-law route through the new antecedent, without weakening any committed statement.",
+      "novelty_type": "exact_OPH_coherent_tail_envelope_with_strict_generality_witness",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Thermodynamics/CoherentRefinementFamily.lean"
+      ],
+      "falsifier": "The bounded result fails if the envelope does not force the off-minimum Gibbs mass below every positive bound beyond one threshold uniformly across a declared family, if the gap-plus-cardinality data fails to instantiate the structure, if the ladder instance fails the envelope or has bounded stage cardinality or incoherent truncation maps, or if the composed four-law route fails from the new antecedent.",
+      "scope_if_false": "Only the coherent-envelope generalization falls. The committed gap-based third-law member and the composed four-law surface retain their separately stated scopes and gates.",
+      "status": "coherent_envelope_form_attained__source_produced_family_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        732
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-07",
+          "PR-08"
+        ],
+        "open": [
+          "PR-15"
+        ],
         "boundary": []
       }
     }

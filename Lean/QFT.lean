@@ -28,6 +28,8 @@ import QFT.CPRestrictionNet
 import QFT.TwoSlotCPNetWitness
 import QFT.TowerAnchoredDiamond
 import QFT.SourceCorrelationCapstone
+import QFT.TowerAnchoredCorrelation
+import QFT.PathTimeSliceInterface
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.TwoFactorHistoryBinding

@@ -23,6 +23,8 @@ import EventAlgebra.SpectralEntropyBoundary
 import EventAlgebra.SlotLocalitySurface
 import EventAlgebra.QuantumAdequacySurface
 import EventAlgebra.SchroedingerFrameFlow
+import EventAlgebra.TsirelsonSaturation
+import EventAlgebra.OperationalPhaseInstrument
 
 /-!
 # Finite projection-event calculus — umbrella root

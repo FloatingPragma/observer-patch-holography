@@ -28,6 +28,7 @@ OBSERVATION_EVIDENCE = [
     "paper/screen_microphysics_and_observer_synchronization.tex",
     "Lean/Screen/LightSignalMaxwellComposition.lean",
     "Lean/Screen/SeamU1HolonomyClassification.lean",
+    "Lean/Screen/PositionSpaceMaxwellAction.lean",
 ]
 
 POSTDICTION_ARTIFACTS = [

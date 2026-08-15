@@ -2590,6 +2590,88 @@ realized on the square two-block algebra. The parameter is a real
 number; no physical clock, source-selected Hamiltonian, or physical
 time identification is claimed \cite{ophrepo}.
 \input{tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex}
+\paragraph{Tower-anchored joint carriers and the typed time-slice interface.}
+Two committed regional diamonds carry counted correlation data of
+retained observer pairs from one bounded companion run: a two-slot
+conditional-expectation net for the pair 86/88 on a joint carrier of
+dimension 182, and one for the fully support-disjoint pair 86/247 on a
+joint carrier of dimension 169. In
+\path{Lean/QFT/TowerAnchoredCorrelation.lean} the 86/247 diamond
+transports onto the private algebra of one constant consensus-tower
+stage by the same committed transport pattern as the 86/88 witness, with
+the same committed checkpoint family of observer 86 as commutative
+public layer, the uniform selected state, and the template nontriviality
+receipts: every partition member lies in the anchored left region, every
+member is proper, and the anchored left region is a proper subalgebra.
+Both committed carriers therefore carry one common tower-anchored
+construction (\texttt{bothCarriers\_common\_anchoring}); the earlier
+state, in which only the 86/88 diamond carried a tower anchoring, no
+longer holds. An exact
+shared-observer theorem
+(\texttt{towerCarriers\_share\_obs86\_marginal}) relates the two
+carriers through their common left observer: the two committed joint
+paths have equal left label components at every step, equal left
+occupation counts, and equal induced diagonal hinge states, each equal
+to the committed marginal state of observer 86, and the left partial
+trace of the counted correlation state equals the 86/88 hinge state.
+The carriers are not identified: the ambient dimensions 169 and 182
+differ, and no map between the two anchored nets is constructed.
+
+The registered time-slice interface obligation on these nets is typed in
+\path{Lean/QFT/PathTimeSliceInterface.lean}. The structure
+\texttt{TimeIndexedNetEvolution} carries a finite time index with an
+evolution direction, a region family per time, per-step ambient
+star-automorphisms carrying each slice region's algebra onto the evolved
+slice region's algebra, admitted slice data in each slice region's
+algebra, and the slice-to-region generation clause in the register
+wording: the algebra generated from one admitted slice equals the
+algebra of the corresponding evolved region. A full inhabitant exists
+over the committed 86/247 net, with the walk-step evolution read from
+the committed 32-step joint path and admitted data given by the
+committed source generators of observer 86 lifted into the left slot;
+its region family is constant. The natural walk-slice candidate, whose
+admitted datum at each time is the single committed walk projector, is
+net-compatible and transports its slice projectors exactly along the
+committed path, but its generation clause fails at every time
+(\texttt{walkSlice\_generation\_fails}): the generated algebra is
+diagonal and the evolved region's algebra is not.
+
+\begin{proposition}[Forced step-invariance over the committed diamonds]
+\label{prop:forced-step-invariance}
+For every inhabitant of \texttt{TimeIndexedNetEvolution}, the admission
+and generation clauses place the evolved slice region's algebra inside
+the slice region's algebra, while net compatibility carries the slice
+region's algebra onto the evolved slice region's algebra by an ambient
+star-automorphism, so the two algebras are equal at every time
+(\texttt{sliceAlgebra\_step\_eq}). Over a net whose region-to-algebra
+map is injective, the region family itself is step-invariant
+(\texttt{slice\_step\_eq\_of\_injective}). Both committed diamonds have
+injective region-to-algebra maps, so every inhabitant over either
+committed diamond has a step-invariant region family, one whose slice
+region never moves along the evolution
+(\texttt{twoSlotNet247\_slice\_step\_invariant},
+\texttt{twoSlotNet\_slice\_step\_invariant}).
+\end{proposition}
+
+\begin{proof}
+The generated algebra of the admitted slice data lies inside the slice
+region's algebra and equals the evolved slice region's algebra, giving
+containment. An ambient star-automorphism preserves finite dimension, so
+net compatibility makes the two algebras equidimensional, and
+containment at equal finite dimension is equality. Injectivity of the
+region-to-algebra map turns algebra equality into region equality. Every
+step is machine-checked \cite{ophrepo}.
+\end{proof}
+
+Discharge of the time-slice obligation therefore requires a net in which
+distinct regions share one algebra, the genuine Cauchy-slice shape, and
+no committed net supplies one; the obligation stays registered. No
+Cauchy-region reading, physical time, or clock is attached; the cyclic
+time index is bookkeeping over the committed steps; the
+\(\mathbb Z/2\) slot swap is not used; and the physical-time, causality,
+and spacetime-attachment obligations stay open. The slot assembly and
+label conventions stay declared postprocessors over post-hoc
+transcriptions, ineligible as validation.
 \paragraph{Boundary-fibre circularity control.}
 Over the bare consensus tower of the gravitational branch (finite
 presentation and

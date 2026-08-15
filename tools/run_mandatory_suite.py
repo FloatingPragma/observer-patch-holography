@@ -274,6 +274,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Execute the discrete Coulomb-Green replay, verifier, and mutation guards",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/electromagnetism/test_discrete_coulomb_green.py",
+        ],
+    ),
+    (
         "Validate the V3 constants ancestry surface",
         [
             sys.executable,

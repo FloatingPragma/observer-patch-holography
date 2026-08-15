@@ -3003,9 +3003,13 @@ every nonzero chart momentum; the pairing squares to minus the
 identified frequency on both amplitudes, preserves both modal
 divergence constraints, commutes with the global phase action, and the
 same-sign mutation fails the identified wave law. The intertwining is a
-factorization, not an equivalence, and no real position-space field,
-potential dynamics, source coupling, covariance, or continuum control
-is claimed. The same module threads the discrete Gauss receipts through
+factorization, not an equivalence, and no potential dynamics, covariance,
+or continuum control is claimed there; the real position-space seam
+field, its gauge quotient, and its conserved-source quadratic action are
+committed separately, as exact finite mathematics on the seam carrier,
+in Propositions~\ref{prop:discrete-coulomb-green}
+and~\ref{prop:position-space-maxwell-action}, with every physical
+attachment open there as well. The same module threads the discrete Gauss receipts through
 the shared seam alphabet: the forced counting measure is
 orientation-balanced across the committed double cover of the thirty
 seams and its expected signed port boundary vanishes on the same
@@ -3017,8 +3021,10 @@ connections modulo port gauge are classified exactly by their nineteen
 chord holonomies---the first finite cohomology group of the seam graph
 with circle coefficients is \(U(1)^{19}\), and the moduli count equals
 the committed Gauss cycle rank. The connection is a finite kinematic
-object with no curvature dynamics, action, source coupling, or physical
-field identification. The attained content is a conditional free-vector
+object with no curvature dynamics and no physical field identification;
+its real de Rham companion carries the committed quadratic action and
+conserved-source coupling of
+Proposition~\ref{prop:position-space-maxwell-action}. The attained content is a conditional free-vector
 law; the composed surface itemizes the open remainder toward
 Maxwell-shaped field equations and makes no photon claim.
 
@@ -3269,9 +3275,174 @@ neither amplitude as a physical electric or magnetic field.  It also supplies
 no source-produced dynamics, \(\mathrm U(1)\) potential or gauge quotient,
 Maxwell action, bridge from the rational seam-incidence Gauss receipts to this
 complex modal divergence, conserved physical current or source coupling,
-Lorentz covariance, continuum control, or laboratory readout.  No registered premise is removed and no frozen prediction is emitted.  The
-local field, gauge-action, source-current, continuum, and readout attachments
+Lorentz covariance, continuum control, or laboratory readout.
+Propositions~\ref{prop:discrete-coulomb-green}
+and~\ref{prop:position-space-maxwell-action} commit exact finite
+seam-carrier counterparts of the gauge quotient, the quadratic action
+with conserved-source coupling, and the canonical Gauss solution; the
+bridge from those receipts to this complex modal divergence stays
+missing, and every physical item in the list stays uncommitted there as
+well.  No registered premise is removed and no frozen prediction is emitted.  The
+physical local-field, gauge-action, source-current, continuum, and readout attachments
 remain unresolved.
+
+The two seam-carrier packages are premise-free exact finite mathematics
+on the committed thirty-seam, twelve-port incidence table. Write
+\(\partial\) for the committed rational seam boundary, \(d\) for its
+exact transpose, \(\langle x,y\rangle=\sum_ex_ey_e\) for the
+equal-weight seam pairing, and \(\|F\|^2=\langle F,F\rangle\) for the
+seam energy.
+
+\begin{proposition}[Exact rational Coulomb Green function of the committed seam Laplacian]
+\label{prop:discrete-coulomb-green}
+The vertex Laplacian \(L=\partial d\) of the committed incidence gives
+every port degree five, and an explicit symmetric rational Green matrix
+\(G\), with integer entries over the common denominator \(180\),
+satisfies exactly
+\[
+LG=GL=I-\tfrac1{12}\,\mathbf 1\mathbf 1^{\mathsf T},
+\qquad
+G^{\mathsf T}=G,\qquad G\mathbf 1=0,
+\]
+and the kernel of \(L\) is exactly the constant loads, proved along the
+committed spanning tree through the energy identity. For every neutral
+rational port load \(\rho\), the seam field \(F_\rho=d(G\rho)\) solves
+the committed discrete Gauss problem \(\partial F_\rho=\rho\); it is
+the unique Gauss solution orthogonal to every source-free cycle, and it
+is the unique Gauss solution of minimal seam energy, by the exact
+Thomson decomposition
+\[
+\|F\|^2=\|F_\rho\|^2+\|F-F_\rho\|^2
+\qquad\text{for every solution }F\text{ of }\partial F=\rho .
+\]
+This discharges the canonical-choice question that the committed
+discrete Gauss layer of
+Theorem~\ref{thm:finite-seam-continuity-ward-boundary} explicitly left
+open: each nineteen-dimensional solution fibre carries exactly one
+cycle-orthogonal point, equivalently exactly one energy-minimal point.
+The exact adjacent-port dipole receipt across seam zero has potential
+classes indexed by the pair of graph distances to the two poles, taking
+exactly the values
+\[
+\frac{11}{60},\qquad\frac1{20},\qquad\frac1{60},\qquad 0
+\]
+and their negatives, with the displayed list strictly decreasing, and
+the single-source Green values by graph distance are
+\[
+\frac7{36},\qquad\frac1{90},\qquad-\frac7{180},\qquad-\frac1{18},
+\]
+strictly decreasing. Finally, the committed uniform seam-repair
+operator acts on real port loads as \(1-\tfrac1{60}L\) for the real
+scalar extension of this same Laplacian, and its fixed loads are
+exactly the constants, that is, exactly the kernel of \(L\), exactly
+the Gauss-obstruction directions.
+\end{proposition}
+
+\begin{proof}
+The Laplacian matrix is derived from the committed table alone, and the
+Green identities are kernel-checked integer matrix identities over the
+denominator \(180\), cast exactly to \(\mathbb Q\) and \(\mathbb R\).
+The kernel characterization chains constancy along the eleven committed
+tree seams through the energy identity. The Thomson clauses compose the
+committed Gauss-fibre description with the displayed orthogonal energy
+decomposition. The dipole and single-source values are re-derived from
+the committed incidence by a two-step hop classification proved to
+coincide with graph distance, and the repair bridge is an exact
+operator identity against the committed uniform repair. The chain is
+machine-checked in \texttt{DiscreteCoulombGreen}
+(\texttt{laplacian\_\allowbreak mul\_\allowbreak green}, \texttt{greenMatrix\_\allowbreak symm},
+\texttt{greenMatrix\_\allowbreak row\_\allowbreak sum}, \texttt{laplacian\_\allowbreak eq\_\allowbreak zero\_\allowbreak iff},
+\texttt{coulombField\_\allowbreak gauss}, \texttt{thomson\_\allowbreak unique\_\allowbreak orthogonal},
+\texttt{thomson\_\allowbreak minimum}, \texttt{dipole\_\allowbreak value\_\allowbreak strict\_\allowbreak ordering},
+\texttt{green\_\allowbreak distance\_\allowbreak strictly\_\allowbreak decreasing},
+\texttt{uniformSeamRepair\_\allowbreak eq\_\allowbreak id\_\allowbreak sub\_\allowbreak realLaplacian},
+\texttt{uniformSeamRepair\_\allowbreak fixed\_\allowbreak iff\_\allowbreak constant}) with no native
+decision procedure~\cite{ophrepo}.
+\end{proof}
+
+The same Green matrix assembles a local real position-space package on
+the committed seams.
+
+\begin{proposition}[Local position-space action and its exact Coulomb sector]
+\label{prop:position-space-maxwell-action}
+Let real position-space seam fields be real-valued functions \(A\) on
+the thirty committed seams, and let a real port gauge function \(\chi\)
+act by \(A\mapsto A+d\chi\) through the real cast of the committed
+incidence. The field-strength projector \(P=1-dG\partial\) is
+idempotent and self-adjoint for the equal-weight seam pairing; its
+kernel is exactly the image of \(d\), and its range is exactly the
+kernel of \(\partial\), the cycle space, of real dimension nineteen.
+The field strength \(PA\) is gauge invariant and determines \(A\)
+exactly up to gauge, and the quotient of position fields by gauge is
+linearly equivalent to the cycle space, in exact dimension agreement
+with the committed finite \(U(1)^{19}\) chord-holonomy classification,
+of which it is the real de Rham companion. For every source \(J\) on
+the seams, the sourced quadratic action
+\[
+S_J(A)=\frac12\,\|PA\|^2-\langle J,A\rangle
+\]
+is gauge invariant exactly when \(\partial J=0\), in both directions;
+it obeys the exact quadratic expansion
+\[
+S_J(A+h)=S_J(A)+\langle PA-J,\,h\rangle+\frac12\,\|Ph\|^2
+\]
+with no remainder; its first variation at \(A\) vanishes identically
+exactly when \(PA=J\); the stationarity equation is solvable exactly
+when \(J\) is conserved, and then \(A=J\) is a solution; any two
+solutions differ exactly by a gauge; and every solution is a global
+minimum, with equality exactly on the gauge orbit. For a neutral
+rational load, the real cast of the Coulomb field of
+Proposition~\ref{prop:discrete-coulomb-green} is the unique
+minimal-energy solution of the electrostatic sector.
+\end{proposition}
+
+\begin{proof}
+Idempotence, self-adjointness, and the kernel and range identifications
+are exact consequences of the Green identities and the adjointness of
+\(d\) and \(\partial\); the dimension count follows by rank-nullity
+through the projector and agrees with the committed chord count and the
+committed rational cycle rank. The gauge-invariance equivalence, the
+displayed expansion, the variational clauses, and the electrostatic
+join with the Thomson principle of
+Proposition~\ref{prop:discrete-coulomb-green} are exact real linear
+algebra over the same incidence. The chain is machine-checked in
+\texttt{PositionSpaceMaxwellAction}
+(\texttt{fieldProjector\_\allowbreak idempotent},
+\texttt{fieldProjector\_\allowbreak selfAdjoint}, \texttt{ker\_\allowbreak fieldProjector},
+\texttt{range\_\allowbreak fieldProjector}, \texttt{position\allowbreak Quotient\allowbreak Equiv\allowbreak Cycles},
+\texttt{cycleSpace\_\allowbreak finrank\_\allowbreak eq\_\allowbreak chord\_\allowbreak count},
+\texttt{fieldStrength\_\allowbreak gauge\_\allowbreak invariant},
+\texttt{sourcedAction\_\allowbreak gauge\_\allowbreak invariant\_\allowbreak iff},
+\texttt{sourcedAction\_\allowbreak expansion}, \texttt{stationary\_\allowbreak iff},
+\texttt{stationary\_\allowbreak solvable\_\allowbreak iff},
+\texttt{solutions\_\allowbreak differ\_\allowbreak by\_\allowbreak gauge},
+\texttt{sourced\_\allowbreak global\_\allowbreak minimum}, \texttt{electrostatic\_\allowbreak join}), and
+one composed theorem (\texttt{positionSpaceMaxwellCoulomb\_\allowbreak receipt})
+carries all clauses as a single typed conjunction. A producer
+re-derives every exact value from the byte-pinned Lean sources, an
+independent verifier replays it with different exact linear algebra,
+and a pytest suite with mutation guards binds both to one canonical
+receipt (\texttt{discrete\_\allowbreak coulomb\_\allowbreak green\_\allowbreak receipt.json})~\cite{ophrepo}.
+\end{proof}
+
+Both propositions are exact finite mathematics on the committed
+carrier, not a physical Maxwell theory. The equal-weight pairing
+coincides with the committed equal seam-counting selection of premise
+row PR-20, and no premise is consumed: the coincidence is stated so
+that an instrument construction consuming that row reads the same
+pairing. No
+physical field, charge, current, potential, or photon is identified
+with a laboratory object; port loads are not charges, seam values are
+not fields or fluxes, the Green matrix is not a laboratory potential,
+and the word Coulomb names the canonical discrete Gauss solution of
+the committed finite table only. No Lorentz covariance, continuum
+control, or laboratory readout is constructed; the physical
+propagation-and-comparison and source gauge-field-current-action
+attachment rows PR-53 and PR-54 stay open; no registered premise is
+removed, and no frozen prediction is emitted. The canonical receipt
+records a design-only handoff-interface block for an instrument
+consumer, naming exact rational observables and a replay template; the
+block is not a freeze and arms no verdict.
 
 \begin{proposition}[Exhaustive fixed-design recovery calibration]
 \label{prop:seam-current-synthetic-recovery}

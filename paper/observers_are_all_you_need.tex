@@ -2208,12 +2208,37 @@ history is a genuine fixed-endpoint single-site minimizer at every interior
 junction and length, so the
 composed conditional is inhabited on the committed kernel rather than
 vacuous. This is not uniqueness among regular corner-preserving
-enrichments. The exact two-parameter family
-\(L_{a,c}=L_0+a y(y-1)/2+c x(x-1)/2\) has the same binary corners and the
-same constant-history stationarity and single-site variation minimum whenever
-\(a+c=a_\star\); the regular member \(a=c=a_\star/2\) has a different
-velocity curvature. The selection principle is declared rather than
-source-derived, and the strengthened nonidentifiability boundary remains.
+enrichments, and the residual freedom is exactly characterized inside one
+declared grammar, in the module \texttt{EnrichmentCharacterization}.
+Within the quadratic two-slot grammar, a sentence vanishes at the four
+binary corners exactly when it is \(\varepsilon\,x(x-1)+\zeta\,y(y-1)\),
+so the corner-invisible enrichments are exactly the two-parameter family
+\(L_{a,c}=L_0+a\,y(y-1)/2+c\,x(x-1)/2\), with injective parameters and no
+third corner-invisible quadratic direction
+(\texttt{quadPoly\_cornerInvisible\_iff}). The committed interior-junction
+stationarity holds on this family exactly on the affine line
+\(a+c=a_\star\) (\texttt{chainTwoSlot\_stationary\_line}); members of that
+line share the binary corners, the constant-history stationarity, and the
+single-site variation minimum, while the regular member
+\(a=c=a_\star/2\) has a different velocity curvature. One named
+velocity-only clause, that the added sentence is a function of the
+velocity slot alone, restores uniqueness at \((a,c)=(a_\star,0)\), the
+committed one-parameter rule with all six grammar coefficients pinned
+(\texttt{quadPoly\_selection\_unique}). Each clause is load-bearing: the
+counterfamily point \(a=c=a_\star/2\) satisfies every clause except
+velocity-only and carries a different momentum map
+(\texttt{velocityOnly\_clause\_necessary}); an explicit velocity-only
+cubic satisfies corner invisibility and the junction stationarity
+equation, so quadraticity is load-bearing under stationarity alone
+(\texttt{quadraticity\_clause\_necessary}); and the committed real
+fixed-endpoint single-site minimality excludes those cubics and returns
+the committed rule exactly
+(\texttt{chainCubic\_realMin\_forces\_quadratic}). This is exact selection
+mathematics inside the declared grammar. The grammar, the
+mode-extremality principle, and the velocity-only clause are declared
+rather than source-derived; nothing here states that the source selects
+the enrichment, the real enrichment stays a registered open obligation,
+and the strengthened nonidentifiability boundary remains.
 
 \subsection{Thermodynamics from conditional repair in an observer modular parameter}
 \label{sec:thermodynamics}
@@ -2253,6 +2278,33 @@ unresolved degrees inside the fibre of the complete repaired visible
 datum. The modular flow of a faithful reference supplies the reversible
 observer ordering and preserves relative entropy. Only the middle map
 carries the arrow.
+
+The refinement-uniform low-temperature control of the composed surface
+generalizes to a coherent family, in the module
+\texttt{CoherentRefinementFamily}: an index preorder with directedness,
+per-stage finite state spaces and energies, refine maps satisfying
+identity and composition laws together with a load-bearing
+energy-compatibility law, one designated ground datum realizing each
+stage minimum and preserved by the maps, and one uniform spectral-tail
+envelope, a single inverse-temperature threshold with one envelope
+function that bounds the off-minimum Gibbs mass of every stage
+simultaneously and tends to zero, so one threshold per tolerance takes
+the whole family below that tolerance
+(\texttt{uniform\_concentration}), the third-law conclusion shape the
+composed surface consumes. The committed gap-plus-cardinality witness is
+one instance (\texttt{ofUniformGap}), and the coherent-envelope form is
+strictly wider: an explicit ladder family with unbounded stage
+cardinality and nontrivial coherent truncation maps satisfies the
+envelope while the uniform-cardinality hypothesis fails, so the committed
+uniform-gap structure is uninhabited on the same data
+(\texttt{ladderFamily}, \texttt{ladder\_uniformGap\_isEmpty}). An
+alternative composed four-law route through the new antecedent is proved
+(\texttt{fourLaws\_composed\_coherent}), with the repair and calibration
+rows carried over definitionally and every committed declaration of the
+composed surface untouched. No source-produced family is constructed and
+no physical temperature is attached; the coherent family is declared
+data, and the spectral-tail control stays a registered open obligation
+together with the physical energy and clock identification.
 
 Axiom~3 applies separately to states and to transition distributions,
 and both instantiations are solved exactly. On the state side, with
@@ -2518,9 +2570,12 @@ identification of one modular charge with physical energy and a
 calibrated clock, of which the finite central-interface split
 \(K_C=2\pi B_C+Z_C\) is the attained cap-branch part; and
 uniform low-temperature spectral-tail control on a coherent cofinal family
-for a continuum third law. The current finite gap-plus-cardinality theorem is
-one sufficient witness, while growing-cardinality density-of-states routes
-remain viable. The
+for a continuum third law, a requirement whose target form is the
+committed coherent-envelope structure: the finite gap-plus-cardinality
+theorem is one instance rather than the only committed control, the
+unbounded-cardinality ladder instance realizes a growing-cardinality
+density-of-states route with coherent truncation maps, and the unsupplied
+receipt is a source-produced family inhabiting that structure. The
 derivation carries a structural point worth stating plainly: every
 proof in the package is short and elementary once the framework
 supplies its two inputs, the repair fibre as the transition feasible

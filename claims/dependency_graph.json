@@ -97,7 +97,13 @@
   "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
   "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
   "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
-  "OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS"
+  "OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS",
+  "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+  "OPH-QUANTUM-TSIRELSON-SATURATION",
+  "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+  "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+  "OPH-MECH-ENRICHMENT-CHARACTERIZATION",
+  "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE"
  ],
  "edges": [
   {
@@ -884,6 +890,41 @@
    "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
    "to": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
    "role": "supplies the committed three-dimensional completion carrier"
+  },
+  {
+   "from": "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
+   "to": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+   "role": "names the missing local position-space assembly, action, and Gauss/Coulomb readout that the Coulomb-Green and position-space action package commits at the finite boundary"
+  },
+  {
+   "from": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+   "to": "OPH-A5-SEAM-CURRENT-EDGE30",
+   "role": "shares the committed seam carrier whose incidence, spanning tree, and holonomy classification the action package consumes"
+  },
+  {
+   "from": "OPH-SYN-FORMAL-BASIS",
+   "to": "OPH-QUANTUM-TSIRELSON-SATURATION",
+   "role": "supplies the finite record-algebra language in which the saturation witness and diagonal delimitation are stated"
+  },
+  {
+   "from": "OPH-QUANTUM-TSIRELSON-SATURATION",
+   "to": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+   "role": "the diagonal delimitation isolates non-diagonal structure as the exact gap whose operational semantics the phase interface types"
+  },
+  {
+   "from": "OPH-SYN-FORMAL-BASIS",
+   "to": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+   "role": "supplies the finite record-algebra language for the tower join and the typed time-slice interface"
+  },
+  {
+   "from": "OPH-SYN-FORMAL-BASIS",
+   "to": "OPH-MECH-ENRICHMENT-CHARACTERIZATION",
+   "role": "supplies the record-slot language of the declared quadratic grammar the characterization quantifies over"
+  },
+  {
+   "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
+   "to": "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
+   "role": "the committed third-law member is the special case the coherent-envelope family strictly generalizes and rethreads"
   }
  ]
 }

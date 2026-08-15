@@ -7,6 +7,7 @@ import Variational.RealizedHistoryLegendreNoGo
 import Variational.StationarySaddleCoverage
 import Variational.SourceToHamiltonianComposed
 import Variational.ModeExtremalEnrichment
+import Variational.EnrichmentCharacterization
 import Variational.TranslationInvariantComposedInstance
 import Variational.MechanicsAdequacySurface
 

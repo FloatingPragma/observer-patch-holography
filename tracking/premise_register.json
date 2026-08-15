@@ -76,14 +76,16 @@
    "evidence": [
     "code/born_context_phase_lift/README.md",
     "code/born_context_phase_lift/verify_source_phase_lift.py",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean"
    ],
    "evidence_roles": {
     "code/born_context_phase_lift/README.md": "statement",
     "code/born_context_phase_lift/verify_source_phase_lift.py": "conditional_consumer",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement"
    },
-   "notes": "Removal needs a source-produced phase-sensitive instrument with rotated and phase outcome receipts and operational effect composition; the algebraic lift alone is the declared adapter."
+   "notes": "Removal needs a source-produced phase-sensitive instrument with rotated and phase outcome receipts and operational effect composition; the algebraic lift alone is the declared adapter. The operational semantics is now typed in Lean/EventAlgebra/OperationalPhaseInstrument.lean: discharge is equivalent to supplying the missing preparation, rotated and phase outcome counts, and Born-consistency receipts, the phase context is proved necessary against diagonal and complexified real effects, and count provenance must be producer receipts of a committed run, a custody condition the register keeps outside the type system."
   },
   {
    "id": "PR-05",
@@ -124,16 +126,18 @@
     "Lean/Variational/RealizedHistoryLegendreNoGo.lean",
     "claims/assumption_dictionary.md",
     "Lean/Variational/ModeExtremalEnrichment.lean",
-    "Lean/Variational/SourceToHamiltonianComposed.lean"
+    "Lean/Variational/SourceToHamiltonianComposed.lean",
+    "Lean/Variational/EnrichmentCharacterization.lean"
    ],
    "evidence_roles": {
     "Lean/Variational/LegendreBridge.lean": "statement",
     "Lean/Variational/RealizedHistoryLegendreNoGo.lean": "no_go",
     "claims/assumption_dictionary.md": "statement",
     "Lean/Variational/ModeExtremalEnrichment.lean": "conditional_consumer",
-    "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer"
+    "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer",
+    "Lean/Variational/EnrichmentCharacterization.lean": "no_go"
    },
-   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet real enrichment, which the realized-history law provably underdetermines. The declared mode-extremality rule fixes a = 2*log(362055879/271780) only after the admissible extensions are restricted to L_a = L_0 + (a/2)y(y-1). The machine-checked family L_{a,c} = L_0 + (a/2)y(y-1) + (c/2)x(x-1) agrees on every binary corner, is regular for a > 0, and has the same constant-one stationarity and fixed-endpoint single-site variation minimum whenever a+c has the forced value; the explicit split a=c=a*/2 has different velocity curvature. Thus the rule supplies one inhabited representative but does not select a unique real enrichment beyond the chosen ansatz."
+   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet real enrichment, which the realized-history law provably underdetermines. The declared mode-extremality rule fixes a = 2*log(362055879/271780) only after the admissible extensions are restricted to L_a = L_0 + (a/2)y(y-1). The machine-checked family L_{a,c} = L_0 + (a/2)y(y-1) + (c/2)x(x-1) agrees on every binary corner, is regular for a > 0, and has the same constant-one stationarity and fixed-endpoint single-site variation minimum whenever a+c has the forced value; the explicit split a=c=a*/2 has different velocity curvature. Thus the rule supplies one inhabited representative but does not select a unique real enrichment beyond the chosen ansatz. The selection problem is now exactly characterized in Lean/Variational/EnrichmentCharacterization.lean: corner-invisible quadratics are exactly the two-parameter family, the committed junction stationarity fixes the affine line a + c = a*, the single named velocity-only clause restores uniqueness at (a*, 0), the counterfamily point proves that clause load-bearing, a cubic sentence survives corner invisibility and junction stationarity so quadraticity is load-bearing under stationarity alone, and the committed real fixed-endpoint single-site minimality excludes those cubics and returns the committed rule exactly."
   },
   {
    "id": "PR-07",
@@ -175,14 +179,16 @@
    "evidence": [
     "Lean/Thermodynamics/LowTemperatureControl.lean",
     "claims/claim_registry.yaml",
-    "Lean/Thermodynamics/FourLawAdequacySurface.lean"
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean",
+    "Lean/Thermodynamics/CoherentRefinementFamily.lean"
    ],
    "evidence_roles": {
     "Lean/Thermodynamics/LowTemperatureControl.lean": "conditional_consumer",
     "claims/claim_registry.yaml": "conditional_consumer",
-    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer"
+    "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer",
+    "Lean/Thermodynamics/CoherentRefinementFamily.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a source-produced coherent cofinal family and a proved uniform tail envelope; it does not require a uniform total-cardinality bound. The current FourLawAntecedent consumes the stronger UniformGapRefinement special case and threads its distinguished member to the calibrated energy. That structure is an indexed uniformly bounded family, not yet a continuum-refinement theorem: its maps lack identity and composition laws and its uniform bound does not use them. Growing-cardinality, density-of-states, and other direct spectral-tail routes remain viable."
+   "notes": "Removal needs a source-produced coherent cofinal family and a proved uniform tail envelope; it does not require a uniform total-cardinality bound. The current FourLawAntecedent consumes the stronger UniformGapRefinement special case and threads its distinguished member to the calibrated energy. That structure is an indexed uniformly bounded family, not yet a continuum-refinement theorem: its maps lack identity and composition laws and its uniform bound does not use them. Growing-cardinality, density-of-states, and other direct spectral-tail routes remain viable. The coherent-envelope form is now committed in Lean/Thermodynamics/CoherentRefinementFamily.lean: refine maps with identity and composition laws and a load-bearing energy-compatibility law, one uniform spectral-tail envelope driving the off-minimum Gibbs mass to zero across the family, the gap-plus-cardinality witness retained as one instance, a ladder family with unbounded stage cardinality proving the envelope strictly wider than the gap special case, and an alternative composed four-law route. A source-produced family is still owed."
   },
   {
    "id": "PR-09",
@@ -1241,12 +1247,14 @@
     730
    ],
    "evidence": [
-    "Lean/QFT/StructuralNetAdequacySurface.lean"
+    "Lean/QFT/StructuralNetAdequacySurface.lean",
+    "Lean/QFT/PathTimeSliceInterface.lean"
    ],
    "evidence_roles": {
-    "Lean/QFT/StructuralNetAdequacySurface.lean": "statement"
+    "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
+    "Lean/QFT/PathTimeSliceInterface.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow or larger symmetry action is one possible route, not the definition of the time-slice property. The Z/2 slot-swap receipt on the equal-alphabet carrier is a finite internal symmetry only and does not discharge this row."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow or larger symmetry action is one possible route, not the definition of the time-slice property. The Z/2 slot-swap receipt on the equal-alphabet carrier is a finite internal symmetry only and does not discharge this row. The interface is now typed and delimited in Lean/QFT/PathTimeSliceInterface.lean: forced step-invariance proves that every inhabitant over the two committed diamonds has a step-invariant region family, one whose slice region never moves along the evolution, so removal requires a net in which distinct regions share one algebra, which no committed net supplies."
   },
   {
    "id": "PR-59",
