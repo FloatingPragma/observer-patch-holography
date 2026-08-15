@@ -55,7 +55,9 @@ release-manifest validation and its regression tests, a clean `--collect-only`
 pass over `code/`, the scientific validation fixtures in
 `code/audit/` (which includes the scope guard proving no cloud or hardware
 lane is silently collected), the A5 closure ledger checks, and the Phase-0
-proof/non-identifiability receipts.
+proof/non-identifiability receipts. One fixture is excluded from that step:
+`code/audit/test_e4_absence_guards.py` needs the pinned Mathlib sources and
+runs in the Lean CI workflow instead, where the toolchain is provisioned.
 
 The exact certificate suites (#566 port-current, #314 matter-lift, ~26
 minutes) run through the same runner in their own CI workflow

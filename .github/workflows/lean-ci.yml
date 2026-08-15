@@ -10,6 +10,9 @@ on:
       - "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json"
       - "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py"
       - "code/audit/test_fz_registry_gates.py"
+      - "code/audit/test_e4_absence_guards.py"
+      - "code/b15_matter_freeze/**"
+      - "code/b16_lattices/**"
       - "docs/FROZEN_PREDICTION_LADDER.md"
       - "tools/build_fz_registry.py"
       - "tools/check_lean_native_decide_inventory.py"
@@ -22,6 +25,9 @@ on:
       - "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json"
       - "code/a5_fingerprint/test_spin_six_primitive_port_prediction.py"
       - "code/audit/test_fz_registry_gates.py"
+      - "code/audit/test_e4_absence_guards.py"
+      - "code/b15_matter_freeze/**"
+      - "code/b16_lattices/**"
       - "docs/FROZEN_PREDICTION_LADDER.md"
       - "tools/build_fz_registry.py"
       - "tools/check_lean_native_decide_inventory.py"
@@ -208,6 +214,16 @@ jobs:
 
       - name: Check native_decide trust inventory
         run: python3 tools/check_lean_native_decide_inventory.py
+
+      - name: Run the E4 stale-absence guards against the provisioned Mathlib
+        # These guards read the pinned Mathlib source under Lean/.lake and
+        # fail closed when it is absent, so they run only here, after the
+        # build has provisioned it. The mandatory collection job excludes
+        # them by path for the same reason (tools/run_mandatory_suite.py).
+        run: |
+          set -euo pipefail
+          python3 -m pip install --quiet pytest==9.1.1
+          python3 -m pytest -q code/audit/test_e4_absence_guards.py
 
       - name: Replay FZ-11 primitive-port axiom audit
         run: python3 tools/build_fz_registry.py --check --verify-fz11-lean
