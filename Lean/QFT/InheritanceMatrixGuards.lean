@@ -124,8 +124,9 @@ def projectAbsenceProbes : List AbsenceProbe :=
        Doplicher-Roberts reconstruction in tree (full-DHR exit)"
      probes := ["quasilocal", "vacuumrepresentation", "doplicherroberts"] },
    { row := 6
-     claim := "no CauchyEmbedding class and no time-slice module in tree"
-     probes := ["cauchyembedding", "timeslice"] },
+     claim := "no CauchyEmbedding class in tree; the typed time-indexed \
+       net-evolution interface is cited as present separately"
+     probes := ["cauchyembedding"] },
    { row := 7
      claim := "no energy-momentum or spectrum-condition object and no \
        B9 spectral adapter in tree"

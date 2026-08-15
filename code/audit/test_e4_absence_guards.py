@@ -52,7 +52,7 @@ TREE_ABSENCE_PROBES = {
     1: ["tomita"],
     2: ["spinstructure"],
     3: ["quasilocal", "vacuumrepresentation", "doplicherroberts"],
-    6: ["cauchyembedding", "timeslice"],
+    6: ["cauchyembedding"],
     7: ["energymomentum", "spectrumcondition", "spectraladapter"],
 }
 
@@ -67,6 +67,13 @@ SPIN_GROUP_DECL = "def spinGroup"
 
 # Row-6 citation: TimeSlice is a declared unstarted E3 deliverable.
 TIME_SLICE_FILE = LEAN_DIR / "QFT" / "TimeSlice.lean"
+
+# Row-6 presence citation (post V3.10 wording): the typed time-indexed
+# net-evolution interface exists and the row says so; its disappearance
+# makes the corrected citation stale.
+ROW6_PRESENT_PATHS = [
+    LEAN_DIR / "QFT" / "PathTimeSliceInterface.lean",
+]
 
 # Row-4 presence citations (post-4012dea5 wording): these exist, and the
 # row says so; their disappearance makes the citation stale.
@@ -244,6 +251,16 @@ def test_row4_presence_citations():
     findings: list[str] = []
     for path in ROW4_PRESENT_PATHS:
         _require(path, findings, "row-4 cited artifact")
+    assert not findings, "\n".join(findings)
+
+
+def test_row6_presence_citation():
+    """Row 6 (post-V3.10 wording): the typed time-indexed interface the
+    corrected row cites as present exists; its disappearance makes the
+    citation stale."""
+    findings: list[str] = []
+    for path in ROW6_PRESENT_PATHS:
+        _require(path, findings, "row-6 cited artifact")
     assert not findings, "\n".join(findings)
 
 
