@@ -6,20 +6,20 @@ set_option autoImplicit false
 namespace OPH.Thermodynamics
 
 /-!
-# Coherent cofinal refinement families with a uniform spectral-tail envelope
+# Coherent directed refinement families with a uniform spectral-tail envelope
 
 Targeted PR-08 work (V3 issue #739). This module is finite mathematics
 throughout; every theorem is stated on explicit finite state spaces and
 uses the exact Gibbs-mass definitions of `LowTemperatureControl`
-(`offMinMass`, `minEnergy`, `gibbsWeight`, `partitionZ`), so
-composition with the four-law surface is definitional.
+(`offMinMass`, `minEnergy`, `gibbsWeight`, `partitionZ`).  Its companion
+result for the four-law surface is described precisely below.
 
 What IS proved here:
 
 * `CoherentRefinementFamily`: an indexed family of finite energies over
   a preorder with a directedness field, coarse-graining maps satisfying
   the identity and composition coherence laws, an energy-compatibility
-  law that makes the maps load-bearing (`minEnergy_mono` consumes it),
+  law used by `minEnergy_mono`,
   a designated ground datum carried to the stage minimum and preserved
   by the maps, and one uniform spectral-tail envelope: a threshold
   `beta0`, a function `Env` bounding the off-minimum Gibbs mass of
@@ -27,18 +27,21 @@ What IS proved here:
   to zero at infinite `beta`;
 * `uniform_concentration`: for every positive tolerance one
   inverse-temperature threshold takes the off-minimum mass of every
-  stage below the tolerance — the third-law conclusion shape the
-  composed four-law surface consumes;
-* `minEnergy_mono`, `refine_ground_min`, `refine_energy_le_chain`:
-  the coherence and compatibility laws are used, not decorative;
-* retention: `ofUniformGap` embeds the committed
-  `UniformGapRefinement` data into the coherent structure whenever its
-  maps satisfy the coherence laws, and `ofUniformGapConst` embeds the
-  constant-carrier case with identity maps; `twoLevelCoherent` retains
-  the committed two-level gap witness `twoLevelTower` as an instance.
-  The retained witness is degenerate as a family — constant carrier,
-  identity refine maps — and the coherent structure is strictly wider;
-* strict generality: the ladder family `ladderFamily` has stage `n`
+  stage below the tolerance; the companion theorem exports this beside
+  the old four-law conclusion record;
+* exact field use: `minEnergy_mono` uses energy compatibility,
+  `refine_ground_min` uses the ground-minimum and ground-preservation
+  fields, and `refine_energy_le_chain` uses composition and energy
+  compatibility.  The current concentration and four-law companion do
+  not use directedness, identity coherence, or those auxiliary lemmas;
+* retention: `ofUniformGap` constructs a coherent family from
+  `UniformGapRefinement` data only when directedness, coherence, energy
+  compatibility, and coherent ground data are additionally supplied.
+  `ofUniformGapConst` uses the old gap and cardinality bounds but installs
+  identity maps rather than preserving arbitrary old refine maps.
+  `twoLevelCoherent` retains the committed two-level gap witness
+  `twoLevelTower` as a degenerate constant-carrier instance;
+* cardinality separation: the ladder family `ladderFamily` has stage `n`
   carrying energy levels `0, δ, 2δ, …, nδ` with level `k` of
   degeneracy `2^k`, nontrivial stage-truncation refine maps satisfying
   the coherence laws, and the geometric spectral-tail envelope
@@ -46,24 +49,27 @@ What IS proved here:
   threshold `beta0 = log 4 / δ` (`geom_tail_sum_le`,
   `geom_tail_tsum`, `ladder_offMinMass_le`); its stage cardinality is
   unbounded (`ladder_card_unbounded`), so the uniform-cardinality
-  hypothesis of the committed structure fails on it:
+  hypothesis of `UniformGapRefinement` fails on it:
   `ladder_uniformGap_isEmpty` proves `UniformGapRefinement` is
   uninhabited on the ladder data while `ladderFamily` inhabits the
-  coherent structure;
+  coherent structure.  This separates the spectral-envelope condition
+  from uniform total cardinality on the same carriers and energies; it
+  is not a proof that either complete structure contains the other;
 * `constUniformGap`: every finite energy carries the
   gap-plus-cardinality data on a one-member constant family (exact gap
-  when the off-minimum set is inhabited, vacuous gap otherwise); the
-  coherent composed route uses this to reach the committed composed
-  statement;
-* the additive hook on the four-law surface:
+  when the off-minimum set is inhabited, vacuous gap otherwise);
+* the companion hook on the four-law surface:
   `CoherentRefinementAttachment` ties the coherent family to the
   calibrated energy exactly as `RefinementAttachment` ties the
   uniform-gap form, `FourLawCoherentAntecedent` bundles rows PR-07 and
   PR-15 unchanged with row PR-08 in the narrowed form, and
-  `fourLaws_composed_coherent` produces the full committed conclusion
-  package `FourLawConclusions` (through `toAntecedent`, which carries
-  rows PR-07 and PR-15 over definitionally) together with the
-  family-wide envelope, concentration, and calibrated-member clauses.
+  `fourLaws_composed_coherent` conjoins two results.  First it produces
+  `FourLawConclusions` through `toAntecedent`, which carries rows PR-07
+  and PR-15 over definitionally but fills the old PR-08 field with a
+  newly constructed degenerate constant family.  Separately it proves
+  the supplied directed family's envelope, concentration, and
+  calibrated-member clauses.  It does not substitute that supplied
+  family into the old `FourLawConclusions` type.
   The hook lives in this module rather than in
   `FourLawAdequacySurface`, keeping every committed declaration of the
   surface untouched; this module is registered as an
@@ -72,17 +78,26 @@ What IS proved here:
 
 What is NOT proved here:
 
+* cofinality: `directed` says only that two indices have a common upper
+  bound.  There is no ambient regulator preorder, stage map into such a
+  preorder, cofinality predicate, strict-extension/no-max condition, or
+  continuum limit.  Constant and singleton index systems are allowed;
+* inclusion between the complete `UniformGapRefinement` and
+  `CoherentRefinementFamily` structures.  The former lacks several
+  fields required by the latter, while the latter need not have a
+  uniform cardinality bound.  The ladder proves only the stated
+  same-data cardinality separation;
+* replacement of the old four-law refinement member by the supplied
+  directed family.  The theorem `fourLaws_composed_coherent` is the
+  companion conjunction described above;
 * the ground-degeneracy entropy limit (Gibbs entropy tending to
   `log g0`): no committed normalization or Gibbs-entropy limit lemma
   exists in the thermodynamics modules, and this file adds none;
 * any identification of `beta` with a physical inverse temperature or
   of the energies with a realized objective: register rows PR-15 and
   PR-07 stay open exactly as recorded in the four-law surface;
-* any claim that a realized source artifact supplies a coherent
-  refinement family: register row PR-08 remains a registered premise;
-  this module narrows its content to the coherent-envelope form and
-  proves the previous gap-plus-cardinality form is one sufficient
-  special case, not a necessary one.
+* any claim that a realized source artifact supplies a coherent directed
+  refinement family: register row PR-08 remains a registered premise.
 -/
 
 /-! ## Geometric tail bounds
@@ -132,21 +147,22 @@ theorem geom_tail_tsum (radius : ℝ) (h0 : 0 ≤ radius)
         rw [tsum_geometric_of_lt_one h0 h1]
     _ = radius / (1 - radius) := (div_eq_mul_inv _ _).symm
 
-/-! ## The coherent cofinal refinement family -/
+/-! ## The coherent directed refinement family -/
 
-/-- **A coherent cofinal refinement family with a uniform spectral-tail
+/-- **A coherent directed refinement family with a uniform spectral-tail
 envelope.** An indexed family of finite energies over a preorder with:
-a directedness (cofinality) field; coarse-graining maps satisfying the
-identity and composition coherence laws; energy compatibility, the law
-that makes the maps load-bearing (`minEnergy_mono` consumes it); a
+a directedness field; coarse-graining maps satisfying the identity and
+composition coherence laws; energy compatibility, which
+`minEnergy_mono` uses; a
 designated ground datum realizing each stage minimum and preserved by
 the maps; and one envelope `Env` with threshold `beta0` bounding the
 off-minimum Gibbs mass of every stage simultaneously, with `Env`
-tending to zero at infinite `beta`. This is the coherent-envelope form
-of register row PR-08: the committed gap-plus-cardinality structure
-`UniformGapRefinement` is one sufficient way to produce it
-(`ofUniformGap`, `ofUniformGapConst`), not a necessary one
-(`ladderFamily` with `ladder_uniformGap_isEmpty`). -/
+tending to zero at infinite `beta`.  `ofUniformGap` constructs this
+structure from gap-plus-cardinality data only after the additional
+directedness, coherence, energy-compatibility, and ground hypotheses are
+supplied.  The ladder shows that this structure's envelope need not come
+with a uniform total-cardinality bound; it does not establish inclusion
+between the two complete structures. -/
 structure CoherentRefinementFamily {I : Type*} [Preorder I]
     (X : I → Type*) [∀ r, Fintype (X r)] [∀ r, DecidableEq (X r)]
     [∀ r, Nonempty (X r)] (E : ∀ r, X r → ℝ) where
@@ -160,8 +176,7 @@ structure CoherentRefinementFamily {I : Type*} [Preorder I]
   refine_comp : ∀ {r s t : I} (hrs : r ≤ s) (hst : s ≤ t) (x : X t),
     refineMap hrs (refineMap hst x) = refineMap (le_trans hrs hst) x
   /-- Energy compatibility: coarse-graining does not raise the energy.
-  This law makes the maps load-bearing; `minEnergy_mono` consumes
-  it. -/
+  The auxiliary theorem `minEnergy_mono` consumes this field. -/
   refine_energy_le : ∀ {r s : I} (hrs : r ≤ s) (x : X s),
     E r (refineMap hrs x) ≤ E s x
   /-- The designated ground datum at each stage. -/
@@ -189,8 +204,7 @@ variable {I : Type*} [Preorder I] {X : I → Type*}
   {E : ∀ r, X r → ℝ}
 
 /-- Stage minima are monotone along refinement. This theorem consumes
-the energy-compatibility law through the refine maps: the maps are
-load-bearing. -/
+the energy-compatibility law through the refine maps. -/
 theorem minEnergy_mono (F : CoherentRefinementFamily X E) {r s : I}
     (hrs : r ≤ s) : minEnergy (E r) ≤ minEnergy (E s) := by
   obtain ⟨x, hx⟩ := exists_minEnergy (E s)
@@ -224,9 +238,9 @@ theorem envelope_bound (F : CoherentRefinementFamily X E) {beta : ℝ}
 
 /-- **Family-uniform concentration.** For every positive tolerance
 there is one inverse-temperature threshold past which every stage of
-the family holds its off-minimum Gibbs mass below the tolerance. This
-is the third-law conclusion shape the composed four-law surface
-consumes, now produced from the coherent-envelope antecedent. -/
+the family holds its off-minimum Gibbs mass below the tolerance.  The
+four-law companion theorem exports this conclusion beside, rather than
+inside, the old gap-plus-cardinality conclusion record. -/
 theorem uniform_concentration (F : CoherentRefinementFamily X E) :
     ∀ eps : ℝ, 0 < eps → ∃ beta1 : ℝ, ∀ beta : ℝ, beta1 ≤ beta →
       ∀ r : I, offMinMass (E r) beta < eps := by
@@ -273,12 +287,12 @@ noncomputable def ofUniformGap (F : UniformGapRefinement X E)
     tendsto_const_mul_exp_neg_gap (F.cardBound : ℝ) F.gapBound
       F.gapBound_pos
 
-/-- **Retention, constant-carrier form.** A `UniformGapRefinement` on
-a constant family over a directed preorder yields a coherent family
-with identity refine maps and a ground datum chosen from
-`exists_minEnergy`. This witness is degenerate as a family: constant
-carrier, identity maps. The coherent structure is strictly wider; see
-`ladder_uniformGap_isEmpty` with `ladderFamily`. -/
+/-- **Retention, constant-carrier form.** The gap and cardinality bounds
+of a `UniformGapRefinement` on a constant family over a directed preorder
+yield a coherent family with newly installed identity refine maps and a
+ground datum chosen from `exists_minEnergy`.  This is a degenerate
+constant-carrier witness; it does not preserve arbitrary refine maps from
+the supplied `UniformGapRefinement`. -/
 noncomputable def ofUniformGapConst {Ω : Type*} [Fintype Ω]
     [DecidableEq Ω] [Nonempty Ω] {E0 : Ω → ℝ}
     (hdir : ∀ r s : I, ∃ t : I, r ≤ t ∧ s ≤ t)
@@ -345,7 +359,7 @@ noncomputable def constUniformGap (I : Type*) [Preorder I]
   cardBound := Fintype.card Ω
   card_le := fun _ => le_rfl
 
-/-! ## The strict-generality instance: the exponential ladder family
+/-! ## Cardinality separation: the exponential ladder family
 
 Stage `n` carries the energy levels `0, δ, 2δ, …, nδ` with level `k`
 of degeneracy `2^k`. The stage cardinality `2^(n+1) - 1` is unbounded,
@@ -551,8 +565,8 @@ theorem ladder_offMinMass_le (δ : ℝ) (hδ : 0 < δ) (n : ℕ) (beta : ℝ)
           / (1 - 2 * Real.exp (-beta * δ)) :=
         geom_tail_sum_le _ hR0 hlt n
 
-/-- The explicit threshold: beyond `beta0 = log 4 / δ` the ratio
-`r = 2 * exp (-beta * δ)` is below `1/2`, in particular below `1`. -/
+/-- The explicit threshold: at and beyond `beta0 = log 4 / δ` the ratio
+`r = 2 * exp (-beta * δ)` is at most `1/2`, hence strictly below `1`. -/
 theorem ladder_r_lt_one (δ : ℝ) (hδ : 0 < δ) (beta : ℝ)
     (hbeta : Real.log 4 / δ ≤ beta) :
     2 * Real.exp (-beta * δ) < 1 := by
@@ -568,15 +582,17 @@ theorem ladder_r_lt_one (δ : ℝ) (hδ : 0 < δ) (beta : ℝ)
   rw [h3]
   linarith
 
-/-- **The strict-generality instance.** The ladder family inhabits the
+/-- **The growing-cardinality envelope instance.** The ladder family inhabits the
 coherent structure: stage truncations are nontrivial coherent refine
 maps, and the geometric spectral tail `r / (1 - r)` with
 `r = 2 * exp (-beta * δ)` is a uniform envelope beyond the explicit
 threshold `log 4 / δ`. Its stage cardinality is unbounded
 (`ladder_card_unbounded`), so the committed gap-plus-cardinality
 structure is uninhabited on the same data
-(`ladder_uniformGap_isEmpty`): the coherent-envelope form strictly
-extends the committed sufficient condition. -/
+(`ladder_uniformGap_isEmpty`).  Thus an envelope does not imply a
+uniform total-cardinality bound on the same carriers and energies.  This
+is a separation of those two conditions, not a structure-inclusion
+theorem. -/
 noncomputable def ladderFamily (δ : ℝ) (hδ : 0 < δ) :
     CoherentRefinementFamily LadderState (ladderEnergy δ) where
   directed := fun r s => ⟨max r s, le_max_left r s, le_max_right r s⟩
@@ -633,26 +649,29 @@ theorem ladder_no_uniform_card :
   rintro ⟨cB, hcB⟩
   exact absurd (hcB cB) (not_le.mpr (ladder_card_unbounded cB))
 
-/-- **Strictness receipt.** The committed gap-plus-cardinality
+/-- **Cardinality-separation receipt.** The committed gap-plus-cardinality
 structure is uninhabited on the ladder data: any instance would carry
 a uniform cardinality bound, and `ladder_card_unbounded` refutes it.
-Together with `ladderFamily` this proves the coherent-envelope
-structure strictly extends the committed sufficient condition. -/
+Together with `ladderFamily`, this proves that the spectral-envelope
+condition does not imply a uniform total-cardinality bound on the same
+carriers and energies. -/
 theorem ladder_uniformGap_isEmpty (δ : ℝ) :
     IsEmpty (UniformGapRefinement LadderState (ladderEnergy δ)) :=
   ⟨fun F => absurd (F.card_le F.cardBound)
     (not_le.mpr (ladder_card_unbounded F.cardBound))⟩
 
-/-! ## Coherent-envelope route on the composed four-law surface
+/-! ## Coherent-envelope companion to the composed four-law surface
 
-Register row PR-08, narrowed form. The declarations below add the
-alternative composed route through the coherent family and leave every
-committed declaration of `FourLawAdequacySurface` untouched. -/
+Register row PR-08, narrowed form.  The declarations below leave every
+committed declaration of `FourLawAdequacySurface` untouched.  They pair
+the old conclusion record, reached through a separately constructed
+constant-family witness, with consequences of the supplied directed
+family. -/
 
 universe u
 
 /-- **Register row PR-08, coherent-envelope attachment.** The coherent
-cofinal refinement family, tied to the calibrated energy of register
+directed refinement family, tied to the calibrated energy of register
 row PR-15 at the distinguished member through a carrier
 identification, exactly as `RefinementAttachment` ties the uniform-gap
 form. -/
@@ -673,7 +692,7 @@ structure CoherentRefinementAttachment {Ω : Type u} [Fintype Ω]
   [nonemptyX : ∀ r, Nonempty (X r)]
   /-- The member energies of the declared family. -/
   E : ∀ r, X r → ℝ
-  /-- The declared coherent cofinal family with a uniform spectral-tail
+  /-- The declared coherent directed family with a uniform spectral-tail
   envelope: register row PR-08 in the narrowed form. -/
   family : CoherentRefinementFamily X E
   /-- The distinguished member identified with the surface state
@@ -702,7 +721,7 @@ structure FourLawCoherentAntecedent (Ω : Type u) [Fintype Ω]
   /-- Register row PR-15: the clock and energy calibration of the
   declared reference. -/
   calib : CalibrationData repair
-  /-- Register row PR-08, narrowed form: the coherent cofinal family
+  /-- Register row PR-08, narrowed form: the coherent directed family
   with a uniform spectral-tail envelope, attached to the calibrated
   energy. -/
   refinement : CoherentRefinementAttachment repair calib
@@ -752,12 +771,12 @@ theorem FourLawCoherentAntecedent.toAntecedent_calib {Ω : Type u}
     (A : FourLawCoherentAntecedent Ω B) :
     A.toAntecedent.calib = A.calib := rfl
 
-/-- **The composed four-law theorem through the coherent-envelope
-row.** From the coherent antecedent — rows PR-07 and PR-15 exactly as
-committed, row PR-08 in the narrowed coherent-envelope form — the full
-committed conclusion package holds along the degenerate one-member
-route (`toAntecedent`; rows PR-07 and PR-15 are carried over
-definitionally), and additionally: the uniform spectral-tail envelope
+/-- **Four-law companion conjunction for the coherent-envelope row.**
+From the bundled data, the full old conclusion package holds along the
+separately constructed degenerate one-member route (`toAntecedent`;
+rows PR-07 and PR-15 are carried over definitionally).  The supplied
+directed family is not installed in that old conclusion record.
+Separately, its uniform spectral-tail envelope
 controls every member of the declared coherent family beyond the
 declared threshold; for every positive tolerance one
 inverse-temperature threshold takes every member's off-minimum mass

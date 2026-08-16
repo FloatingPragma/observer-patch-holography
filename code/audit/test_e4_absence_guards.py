@@ -5,14 +5,15 @@ scans the loaded environment (pinned Mathlib plus the import closure of
 ``QFT.InheritanceMatrix``) on every build; this test covers what that
 scan structurally cannot see:
 
-* tree files outside the import closure (an unstarted
+* tree files outside the import closure (a future stronger
   ``Lean/QFT/TimeSlice.lean`` appearing anywhere, a spin structure or
   Cauchy embedding landing in an unimported module);
 * comment-level citations, above all the Tomita TODO in
   ``Mathlib/Analysis/InnerProductSpace/StandardSubspace.lean`` that row 1
   cites verbatim; the TODO being resolved is exactly the "blocker
   starts moving" event the guard exists to catch;
-* the row-4 presence citations (B14 module, B15/B16 partial artifacts),
+* the row-4 presence citations (finite response/Hodge precursors and the
+  B15/B16 partial artifacts),
   which live outside Lean altogether.
 
 Fail-closed contract: an unreadable or missing citation path is a
@@ -65,7 +66,9 @@ TOMITA_TODO_TEXT = "Define the Tomita conjugation"
 SPIN_GROUP_FILE = MATHLIB_SRC / "LinearAlgebra" / "CliffordAlgebra" / "SpinGroup.lean"
 SPIN_GROUP_DECL = "def spinGroup"
 
-# Row-6 citation: TimeSlice is a declared unstarted E3 deliverable.
+# Row-6 re-review trigger: a dedicated stronger TimeSlice module landing
+# may change the relative-Cauchy exit even though the current finite
+# PathTimeSliceInterface is already cited as present.
 TIME_SLICE_FILE = LEAN_DIR / "QFT" / "TimeSlice.lean"
 
 # Row-6 presence citation (post V3.10 wording): the typed time-indexed
@@ -79,6 +82,7 @@ ROW6_PRESENT_PATHS = [
 # row says so; their disappearance makes the citation stale.
 ROW4_PRESENT_PATHS = [
     LEAN_DIR / "Screen" / "A5ResponseWordAlgebra.lean",
+    LEAN_DIR / "Screen" / "PositionSpaceMaxwellAction.lean",
     REPO_ROOT / "code" / "b15_matter_freeze" / "matter_class_freeze_v1.json",
     REPO_ROOT / "code" / "b16_lattices" / "lattices_v1.json",
 ]
@@ -239,14 +243,14 @@ def test_tree_absence_probes():
     findings += _scan(files, TREE_ABSENCE_PROBES, "project")
     if TIME_SLICE_FILE.exists():
         findings.append(
-            f"row 6: {TIME_SLICE_FILE} exists: the 'declared unstarted "
-            "E3 deliverable' citation has ended; re-review row 6"
+            f"row 6: {TIME_SLICE_FILE} exists: a dedicated stronger "
+            "time-slice module has landed; re-review the relative-Cauchy exit"
         )
     assert not findings, "\n".join(findings)
 
 
 def test_row4_presence_citations():
-    """Row 4 (post-4012dea5): the named partial artifacts exist; their
+    """Row 4: the named finite precursors and partial artifacts exist; their
     disappearance makes the corrected citation stale."""
     findings: list[str] = []
     for path in ROW4_PRESENT_PATHS:
@@ -261,6 +265,26 @@ def test_row6_presence_citation():
     findings: list[str] = []
     for path in ROW6_PRESENT_PATHS:
         _require(path, findings, "row-6 cited artifact")
+    if _require(MATRIX_LEAN, findings, "row-6 matrix citation"):
+        matrix = MATRIX_LEAN.read_text(encoding="utf-8")
+        for required in (
+            "QFT/PathTimeSliceInterface.lean supplies a finite",
+            "e4Row6_interface_anchor",
+            "relative-Cauchy evolution",
+            "stress-response",
+        ):
+            if required not in matrix:
+                findings.append(
+                    f"row 6: corrected matrix citation is missing {required!r}"
+                )
+        for stale in (
+            "QFT/TimeSlice.lean is a declared unstarted E3 deliverable",
+            "QFT/TimeSlice.lean \\\n+       is a declared unstarted E3 deliverable",
+        ):
+            if stale in matrix:
+                findings.append(
+                    f"row 6: stale pre-interface absence wording remains: {stale!r}"
+                )
     assert not findings, "\n".join(findings)
 
 

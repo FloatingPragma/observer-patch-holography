@@ -26,7 +26,9 @@ Issue #730 OL-C3.  Two finite receipts on committed carriers.
    cited, not re-proved.  The packaged statement is
    `tsirelson_saturation_receipt`: upper bound, exact attainment, and the
    identification of the attaining observable with the slot-lifted CHSH
-   operator of the interface witness.
+   operator of the interface witness.  The Bell state and all four setting
+   matrices are real; no Pauli-Y or genuinely complex phase effect enters
+   this witness.
 
 2. **Diagonal delimitation.**  For any convex weights and any four
    `[-1,1]`-valued diagonal observables on any finite carrier, the CHSH
@@ -52,11 +54,13 @@ What is NOT proved (open premises, by register row):
   clause of issue #730);
 * the bipartite slot split consumed by the witness is the supplied PR-44
   datum; nothing here produces the split;
-* the delimitation clause states only that record-basis diagonality is
-  insufficient for the value `2√2`; attainment requires non-diagonal
-  structure of exactly the kind whose operational status register row
-  PR-04 leaves open, and nothing here claims that the committed phase
-  lift supplies it.
+* the delimitation clause states only that one fixed diagonal state with four
+  jointly record-diagonal bounded readouts cannot exceed `2`.  It does not
+  cover arbitrary context-dependent classical experiments and it does not
+  identify the missing resource with PR-04 or with genuinely complex phase
+  structure.  This real Bell witness needs joint coherence/entanglement and
+  suitable noncommuting settings; source production of those objects remains
+  open.
 
 ## Tagging convention
 
@@ -654,10 +658,11 @@ theorem tsirelson_saturation_receipt :
 
 A state diagonal in the record basis, read against any four diagonal
 `[-1,1]`-valued observables, cannot exceed the classical CHSH value `2`.
-Attainment of `2√2` therefore requires non-diagonal structure — exactly
-the kind whose operational status register row PR-04 leaves open.  Nothing
-here claims the committed phase lift supplies that structure; the clause
-is a delimitation only. -/
+This is a common-static-record statement: the same diagonal state and four
+simultaneously defined diagonal functions appear in one CHSH expression.  It
+does not classify arbitrary context-dependent operational models.  In
+particular, it makes no necessity or sufficiency claim about PR-04 or complex
+phase structure; the saturating Bell construction above is entirely real. -/
 
 /-- **Premise-free real arithmetic.** The pointwise classical CHSH bound:
 for reals of modulus at most one,
@@ -747,10 +752,10 @@ theorem diagonal_state_chsh_le_two {ι : Type*} [Fintype ι] [DecidableEq ι]
 counted state `OPH.QFT.correlationState` — diagonal in the record basis by
 construction — obeys the classical CHSH bound `2` against every four
 diagonal `[-1,1]`-valued readouts.  The committed diagonal record surface
-therefore does not attain the Tsirelson value `2√2`: attainment requires
-non-diagonal structure of exactly the kind whose operational status
-register row PR-04 leaves open.  No claim is made that the committed phase
-lift supplies such structure — only that diagonality is insufficient. -/
+therefore does not attain the Tsirelson value `2√2` through this fixed-state,
+jointly diagonal readout model.  Only that scoped diagonality is insufficient;
+no implication involving PR-04 or genuinely complex phase structure is
+asserted. -/
 theorem counted_state_diagonal_chsh_le_two
     (a₀ a₁ b₀ b₁ : Fin 13 × Fin 13 → ℝ)
     (ha₀ : ∀ p, |a₀ p| ≤ 1) (ha₁ : ∀ p, |a₁ p| ≤ 1)

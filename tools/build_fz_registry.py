@@ -2963,6 +2963,20 @@ def render(register: dict, rows: list[dict]) -> str:
             f" {owner} | {row['kill_band']} |"
         )
     lines.append("")
+    lines.append("### Current structural landing and prediction boundary")
+    lines.append("")
+    lines.append(
+        "The local face-curvature action and separate scalar Coulomb minimum"
+        " strengthen the finite seam-carrier mathematics but do not arm or"
+        " promote FZ-12: they supply no temporal propagation, physical"
+        " position/scale/frame, source-to-laboratory field attachment,"
+        " calibrated readout, or same-operator lower-bound comparison. The"
+        " triple-observer quantum coupling and ambient-cofinal thermodynamic"
+        " interface likewise emit no eligible empirical target. No new frozen"
+        " row is minted by these structural theorems, and all immutable frozen"
+        " bytes remain unchanged."
+    )
+    lines.append("")
     lines.append("## Superseded records outside the ladder")
     lines.append("")
     lines.append(

@@ -694,8 +694,11 @@ theorem dipoleValue_antisymm (a b : Fin 4) :
   push_cast
   ring
 
-/-- **(G6)** The exact strict ordering of the dipole values, decreasing
-with hop distance from the positive pole. -/
+/-- **(G6)** The exact strict ordering of the enumerated signed dipole values.
+
+This is a value census, not a claim that the dipole potential is a function of
+hop distance from either pole.  Only `green_distance_strictly_decreasing`
+below makes a distance-class statement, for the single-source Green column. -/
 theorem dipole_value_strict_ordering :
     (11 : ℚ) / 60 > 1 / 20 ∧ (1 : ℚ) / 20 > 1 / 60 ∧ (1 : ℚ) / 60 > 0 ∧
       (0 : ℚ) > -(1 / 60) ∧ -(1 / 60 : ℚ) > -(1 / 20) ∧

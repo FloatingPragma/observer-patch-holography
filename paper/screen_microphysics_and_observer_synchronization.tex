@@ -3277,9 +3277,9 @@ Maxwell action, bridge from the rational seam-incidence Gauss receipts to this
 complex modal divergence, conserved physical current or source coupling,
 Lorentz covariance, continuum control, or laboratory readout.
 Propositions~\ref{prop:discrete-coulomb-green}
-and~\ref{prop:position-space-maxwell-action} commit exact finite
-seam-carrier counterparts of the gauge quotient, the quadratic action
-with conserved-source coupling, and the canonical Gauss solution; the
+through~\ref{prop:local-face-maxwell-action} commit exact finite
+seam-carrier counterparts of the gauge quotient, a local face-curvature
+action with conserved-source coupling, and the canonical Gauss solution; the
 bridge from those receipts to this complex modal divergence stays
 missing, and every physical item in the list stays uncommitted there as
 well.  No registered premise is removed and no frozen prediction is emitted.  The
@@ -3360,10 +3360,11 @@ machine-checked in \texttt{DiscreteCoulombGreen}
 decision procedure~\cite{ophrepo}.
 \end{proof}
 
-The same Green matrix assembles a local real position-space package on
-the committed seams.
+The same Green matrix assembles a global real Hodge-projection package on
+the committed seams. Because the Green matrix is global, this is not a
+local curvature action.
 
-\begin{proposition}[Local position-space action and its exact Coulomb sector]
+\begin{proposition}[Global Hodge-projector action and separate Coulomb solution]
 \label{prop:position-space-maxwell-action}
 Let real position-space seam fields be real-valued functions \(A\) on
 the thirty committed seams, and let a real port gauge function \(\chi\)
@@ -3372,11 +3373,12 @@ incidence. The field-strength projector \(P=1-dG\partial\) is
 idempotent and self-adjoint for the equal-weight seam pairing; its
 kernel is exactly the image of \(d\), and its range is exactly the
 kernel of \(\partial\), the cycle space, of real dimension nineteen.
-The field strength \(PA\) is gauge invariant and determines \(A\)
+The projected cycle representative \(PA\) is gauge invariant and determines \(A\)
 exactly up to gauge, and the quotient of position fields by gauge is
 linearly equivalent to the cycle space, in exact dimension agreement
 with the committed finite \(U(1)^{19}\) chord-holonomy classification,
-of which it is the real de Rham companion. For every source \(J\) on
+of which it is the real Lie-algebra/dimension companion rather than an
+identification with the compact torus. For every source \(J\) on
 the seams, the sourced quadratic action
 \[
 S_J(A)=\frac12\,\|PA\|^2-\langle J,A\rangle
@@ -3390,10 +3392,12 @@ with no remainder; its first variation at \(A\) vanishes identically
 exactly when \(PA=J\); the stationarity equation is solvable exactly
 when \(J\) is conserved, and then \(A=J\) is a solution; any two
 solutions differ exactly by a gauge; and every solution is a global
-minimum, with equality exactly on the gauge orbit. For a neutral
-rational load, the real cast of the Coulomb field of
+minimum, with equality exactly on the gauge orbit. Separately, for a neutral
+rational port load, the real cast of the Coulomb field of
 Proposition~\ref{prop:discrete-coulomb-green} is the unique
-minimal-energy solution of the electrostatic sector.
+minimal-energy solution of the Gauss problem. It is a coboundary and hence
+obeys \(P E_\rho=0\): it is not a stationary electrostatic sector of the
+displayed sourced Hodge action.
 \end{proposition}
 
 \begin{proof}
@@ -3401,11 +3405,12 @@ Idempotence, self-adjointness, and the kernel and range identifications
 are exact consequences of the Green identities and the adjointness of
 \(d\) and \(\partial\); the dimension count follows by rank-nullity
 through the projector and agrees with the committed chord count and the
-committed rational cycle rank. The gauge-invariance equivalence, the
-displayed expansion, the variational clauses, and the electrostatic
-join with the Thomson principle of
-Proposition~\ref{prop:discrete-coulomb-green} are exact real linear
-algebra over the same incidence. The chain is machine-checked in
+committed rational cycle rank. The gauge-invariance equivalence and the
+displayed expansion and variational clauses are exact for the global Hodge
+action. The separate scalar-extended Gauss/Thomson statement of
+Proposition~\ref{prop:discrete-coulomb-green} is exact real linear
+algebra over the same incidence; their non-join is pinned by
+\(P E_\rho=0\). The chain is machine-checked in
 \texttt{PositionSpaceMaxwellAction}
 (\texttt{fieldProjector\_\allowbreak idempotent},
 \texttt{fieldProjector\_\allowbreak selfAdjoint}, \texttt{ker\_\allowbreak fieldProjector},
@@ -3416,16 +3421,69 @@ algebra over the same incidence. The chain is machine-checked in
 \texttt{sourcedAction\_\allowbreak expansion}, \texttt{stationary\_\allowbreak iff},
 \texttt{stationary\_\allowbreak solvable\_\allowbreak iff},
 \texttt{solutions\_\allowbreak differ\_\allowbreak by\_\allowbreak gauge},
-\texttt{sourced\_\allowbreak global\_\allowbreak minimum}, \texttt{electrostatic\_\allowbreak join}), and
+\texttt{sourced\_\allowbreak global\_\allowbreak minimum},
+\texttt{fieldStrength\_\allowbreak realCoulombField\_\allowbreak zero},
+\texttt{electrostatic\_\allowbreak join}), and
 one composed theorem (\texttt{positionSpaceMaxwellCoulomb\_\allowbreak receipt})
 carries all clauses as a single typed conjunction. A producer
-re-derives every exact value from the byte-pinned Lean sources, an
-independent verifier replays it with different exact linear algebra,
-and a pytest suite with mutation guards binds both to one canonical
-receipt (\texttt{discrete\_\allowbreak coulomb\_\allowbreak green\_\allowbreak receipt.json})~\cite{ophrepo}.
+re-derives the Green, Coulomb, Thomson, and repair values from its two
+byte-pinned Lean sources, and an independent verifier replays that
+exact-rational receipt with different linear algebra; neither certifies the
+separate real Hodge module. A pytest suite with mutation guards binds the
+scoped replay to
+\texttt{discrete\_\allowbreak coulomb\_\allowbreak green\_\allowbreak receipt.json}~\cite{ophrepo}.
 \end{proof}
 
-Both propositions are exact finite mathematics on the committed
+The committed oriented twenty-face incidence supplies the local operator that
+the Green-built Hodge projector does not. Let \(C:\mathbb R^{30}\to
+\mathbb R^{20}\) be its signed face--seam matrix. Each face row has three
+entries, each seam occurs in two faces with opposite orientations, and the
+boundary-of-boundary identity is \(Cd=0\).
+
+\begin{proposition}[Local face-curvature action and separate scalar Coulomb sector]
+\label{prop:local-face-maxwell-action}
+On the committed oriented face complex, \(C\) has rank nineteen and
+\[
+\ker C=\operatorname{im}d.
+\]
+The local kinetic operator \(H=C^{\mathsf T}C\) has exactly five nonzero
+entries in every seam row, 150 nonzero entries in its \(30\times30\) matrix,
+and diagonal entry two. For a seam current \(J\),
+\[
+S_J^{\rm face}(A)=\frac12\lVert CA\rVert^2-\langle J,A\rangle
+\]
+is gauge invariant under \(A\mapsto A+d\chi\) exactly when
+\(\partial J=0\). Its stationarity equation \(HA=J\) is solvable exactly
+for those conserved currents; stationary points are global minimizers and
+are unique modulo gradients.
+
+Independently, for a port load \(\rho\), the scalar action
+\[
+S_\rho^{\rm scal}(\phi)=\frac12\lVert d\phi\rVert^2-
+\langle\rho,\phi\rangle
+\]
+has stationarity equation \(L\phi=\rho\). For neutral \(\rho\), the
+canonical potential \(\phi=G\rho\) is stationary and globally minimizing,
+uniquely modulo constants. The direct-product static action therefore
+combines a local vector face-curvature sector and the exact scalar Coulomb
+sector while retaining \(J\) and \(\rho\) as different typed sources.
+\end{proposition}
+
+\begin{proof}
+The rank calculation is exhibited by an explicit dual-tree section of the
+codimension-one face-sum space. Rank--nullity and \(Cd=0\) then identify the
+kernel with the eleven-dimensional gradient space. The local support counts,
+adjoint identity, range characterization, gauge equivalence, stationarity,
+and minimum statements are checked in
+\texttt{LocalFaceMaxwellAction}. An independent exact-rational replay
+reconstructs both incidences, their ranks and nullspaces, the complete support
+patterns, the Green solve, and the characteristic factors of \(CC^{\mathsf T}\)
+and \(\partial\partial^{\mathsf T}\). Erasing the signed orientation of one
+face boundary produces a machine-checked nonzero boundary-of-boundary
+control.
+\end{proof}
+
+All three propositions are exact finite mathematics on the committed
 carrier, not a physical Maxwell theory. The equal-weight pairing
 coincides with the committed equal seam-counting selection of premise
 row PR-20, and no premise is consumed: the coincidence is stated so
@@ -3436,7 +3494,8 @@ with a laboratory object; port loads are not charges, seam values are
 not fields or fluxes, the Green matrix is not a laboratory potential,
 and the word Coulomb names the canonical discrete Gauss solution of
 the committed finite table only. No Lorentz covariance, continuum
-control, or laboratory readout is constructed; the physical
+control, temporal electric--magnetic evolution, charge--current continuity
+map between the two typed source sectors, or laboratory readout is constructed; the physical
 propagation-and-comparison and source gauge-field-current-action
 attachment rows PR-53 and PR-54 stay open; no registered premise is
 removed, and no frozen prediction is emitted. The canonical receipt

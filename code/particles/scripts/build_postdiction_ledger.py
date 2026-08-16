@@ -138,6 +138,10 @@ LEAN_RECEIPTS = {
     / "SourceCorrelationCapstone.lean",
     "StructuralNetAdequacySurface": REPO / "Lean" / "QFT"
     / "StructuralNetAdequacySurface.lean",
+    "TripleCarrierJoin": REPO / "Lean" / "QFT" / "TripleCarrierJoin.lean",
+    "LocalFaceMaxwellAction": LEAN_SCREEN / "LocalFaceMaxwellAction.lean",
+    "CofinalSpectralTailFamily": REPO / "Lean" / "Thermodynamics"
+    / "CofinalSpectralTailFamily.lean",
     "ModalMaxwellFactorizationBoundary": LEAN_SCREEN
     / "ModalMaxwellFactorizationBoundary.lean",
     "FiniteUnitaryScatteringNoGo": REPO / "Lean" / "QFT"
@@ -2494,8 +2498,11 @@ def _forced_structure(
                 "marginals. Its erasure theorem proves that coverage does not "
                 "imply unique reconstruction. The two-observers-as-factors "
                 "reading and region map remain declared. The constant-tower "
-                "transport is on the separate 86/88 carrier, no theorem joins "
-                "the two carriers, and neither is a nonconstant source realization. Scientific owner #728 "
+                "transport is on the separate 86/88 carrier. TripleCarrierJoin "
+                "now couples both pair paths, counted states, checkpoints, and "
+                "adjacent-step marginals on one carrier, but supplies no "
+                "regional-net or tower morphism; neither packet is a "
+                "nonconstant source realization. Scientific owner #728 "
                 "records the missing source-attached or otherwise justified "
                 "regional construction and a nonconstant source composition; "
                 "scientific owner #739 records a "
@@ -3747,6 +3754,153 @@ def _forced_structure(
                     "element, or lifetime is supplied"
                 ),
                 "paper_ref": "Observers paper, gauge-channel boundary",
+            },
+        ]
+    )
+    rows.extend(
+        [
+            {
+                "id": "local_face_maxwell_static_composition",
+                "statement": (
+                    "The committed oriented twenty-face incidence has rank 19 "
+                    "and kernel exactly the port gradients. Its local seam "
+                    "Hessian has five nonzero entries per row; gauge invariance "
+                    "and stationary solvability are equivalent to conserved "
+                    "seam current. A separate scalar action has the neutral "
+                    "Green potential as its minimum modulo constants, and the "
+                    "direct-product theorem retains port load and seam current "
+                    "as distinct types"
+                ),
+                "observed_counterpart": (
+                    "static Maxwell-shaped local curvature and Coulomb sectors"
+                ),
+                "match": "exact conditional finite structural composition",
+                "lean_declarations": {
+                    "LocalFaceMaxwellAction": [
+                        "face_port_incidence_product_zero",
+                        "ker_faceCurvature_eq_gradient",
+                        "localKineticZ_five_per_row",
+                        "localSourcedAction_gauge_invariant_iff",
+                        "localStationary_solvable_iff",
+                        "greenPotential_stationary",
+                        "staticAction_global_minimum",
+                    ]
+                },
+                "lean_receipts": _lean_receipt(
+                    "LocalFaceMaxwellAction",
+                    declarations={
+                        "LocalFaceMaxwellAction": (
+                            "face_port_incidence_product_zero",
+                            "ker_faceCurvature_eq_gradient",
+                            "localKineticZ_five_per_row",
+                            "localSourcedAction_gauge_invariant_iff",
+                            "localStationary_solvable_iff",
+                            "greenPotential_stationary",
+                            "staticAction_global_minimum",
+                        )
+                    },
+                ),
+                "artifact_ref": (
+                    "code/electromagnetism/runtime/"
+                    "local_face_maxwell_action_receipt.json"
+                ),
+                "hypothesis_boundary": (
+                    "finite static carrier only: no temporal electromagnetic "
+                    "evolution, charge-current continuity map, physical source, "
+                    "spacetime/continuum attachment, or readout is supplied"
+                ),
+                "paper_ref": "Screen microphysics paper, local face action",
+            },
+            {
+                "id": "triple_observer_carrier_coupling",
+                "statement": (
+                    "One explicit (86,88,247) carrier recovers both committed "
+                    "32-row paths and counted pair states, both checkpoint "
+                    "partitions, and both marginal evolutions over exactly the "
+                    "31 adjacent source transitions"
+                ),
+                "observed_counterpart": (
+                    "common coupling of the two committed correlation packets"
+                ),
+                "match": "exact conditional state/path/checkpoint coupling",
+                "lean_declarations": {
+                    "TripleCarrierJoin": [
+                        "triplePath_projects_88",
+                        "triplePath_projects_247",
+                        "tripleCorrelationState_marginal_88",
+                        "tripleCorrelationState_marginal_247",
+                        "tripleCheckpoint_recovers_anchored_88",
+                        "tripleCheckpoint_recovers_anchored_247",
+                        "tripleMarginals_not_jointly_injective",
+                        "tripleCarrier_join_receipt",
+                    ]
+                },
+                "lean_receipts": _lean_receipt(
+                    "TripleCarrierJoin",
+                    declarations={
+                        "TripleCarrierJoin": (
+                            "triplePath_projects_88",
+                            "triplePath_projects_247",
+                            "tripleCorrelationState_marginal_88",
+                            "tripleCorrelationState_marginal_247",
+                            "tripleCheckpoint_recovers_anchored_88",
+                            "tripleCheckpoint_recovers_anchored_247",
+                            "tripleMarginals_not_jointly_injective",
+                            "tripleCarrier_join_receipt",
+                        )
+                    },
+                ),
+                "hypothesis_boundary": (
+                    "the full step alignment is declared and the pair marginals "
+                    "do not select it uniquely. The positive trace-preserving "
+                    "marginals are not promoted to CPTP, algebra, regional-net, "
+                    "tower, Cauchy, or physical-time morphisms"
+                ),
+                "paper_ref": "Consensus paper, triple-carrier coupling",
+            },
+            {
+                "id": "cofinal_spectral_tail_four_law_composition",
+                "statement": (
+                    "One supplied ambient-cofinal spectral family with no "
+                    "terminal regulator and strict finite-carrier growth carries "
+                    "uniform and cofinal-tail concentration. A supplied "
+                    "calibrated-stage energy identification yields exact "
+                    "off-minimum-mass equality and the same envelope; the family "
+                    "also has infinitely many stages and the directly "
+                    "constructed finite four-law core"
+                ),
+                "observed_counterpart": (
+                    "low-temperature control on a genuine regulator family"
+                ),
+                "match": "exact conditional thermodynamic structure",
+                "lean_declarations": {
+                    "CofinalSpectralTailFamily": [
+                        "cofinal_tail_concentration",
+                        "cofinalLadder_card_unbounded",
+                        "constantCarrier_cofinalFamily_isEmpty",
+                        "uniformGap_cofinalFamily_isEmpty",
+                        "fourLaws_composed_cofinal",
+                    ]
+                },
+                "lean_receipts": _lean_receipt(
+                    "CofinalSpectralTailFamily",
+                    declarations={
+                        "CofinalSpectralTailFamily": (
+                            "cofinal_tail_concentration",
+                            "cofinalLadder_card_unbounded",
+                            "constantCarrier_cofinalFamily_isEmpty",
+                            "uniformGap_cofinalFamily_isEmpty",
+                            "fourLaws_composed_cofinal",
+                        )
+                    },
+                ),
+                "hypothesis_boundary": (
+                    "strict carrier growth is one sufficient refinement route; "
+                    "the ambient regulator, energy, inverse temperature, repair, "
+                    "source production, and physical continuum meaning remain "
+                    "declared rather than derived"
+                ),
+                "paper_ref": "Observers paper, cofinal spectral-tail theorem",
             },
         ]
     )

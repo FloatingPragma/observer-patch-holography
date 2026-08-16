@@ -345,14 +345,24 @@ new-source constructions remain outside the no-go.
 
 The finite theorem package therefore does not import thermodynamic identities
 as an extra axiom, but its physical interpretation is conditional. Five
-requirements remain explicit for any replacement source object: a global
-representation of the weighted objective;
-one source-derived reference shared by both optimizers; realization of the
-conditional-resampling kernel on the complete repaired-visible fibre by the
-source-collar transition matrix; physical energy and clock calibration; and
-uniform low-temperature tail control on a coherent cofinal family. The current
-uniformly bounded-cardinality Lean family is one sufficient finite-family witness, not a
-necessary form for a growing regulator tower or by itself a continuum theorem.
+requirements apply to any replacement source object: a global representation
+of the weighted objective; one source-derived reference shared by both
+optimizers; realization of the conditional-resampling kernel on the complete
+repaired-visible fibre by the source-collar transition matrix; physical energy
+and clock calibration; and uniform low-temperature tail control on a genuinely
+cofinal family.
+
+The Lean library first separates a directed coherent envelope from genuine
+cofinality. A stronger interface then adds an explicit ambient regulator
+order, an order-reflecting cofinal stage embedding, no maximal regulator, and
+strict growth of the finite carrier data. Its stage set is infinite; an exact
+theorem excludes constant finite carriers, and a nonconstant ladder has
+unbounded cardinality. The four-law theorem constructs its finite core
+directly and states every regulator-family conclusion on that same supplied
+cofinal family, including concentration above every ambient regulator. This
+is one sufficient refinement architecture rather than a claim that all
+physical regulators must grow by cardinality. The interface does not itself
+produce a physical regulator, energy scale, temperature, or continuum limit.
 Stochasticity, stationarity, and charge preservation alone establish only the
 weaker stationary H-theorem branch and do not close the third receipt. Until
 all five are supplied, this is not a thermometer reading.

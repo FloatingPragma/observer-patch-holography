@@ -2,8 +2,9 @@
 
 Runs the producer build, the byte-level producer verification, the separate
 independent replay, and mutation guards: a perturbed Green entry fails both
-the producer identity check and the independent replay, and a wrong uniform
-repair weight fails the pair-average identity in both implementations.
+the producer identity check and the independent replay, a wrong uniform
+repair weight fails the pair-average identity in both implementations, and
+the receipt cannot acquire an unpinned position-action anchor.
 """
 
 from fractions import Fraction
@@ -32,12 +33,40 @@ def test_independent_replay_passes() -> None:
 def test_handoff_interface_is_design_only() -> None:
     committed = json.loads(producer.RECEIPT_PATH.read_bytes())
     handoff = committed["handoff_interface"]
+    assert handoff["schema"] == "oph.discrete_coulomb_green.handoff.v2"
     assert handoff["design_only"] is True
     assert handoff["frozen"] is False
     template = handoff["decision_rule_template"]
     assert template["template_only"] is True
     assert template["not_a_freeze"] is True
-    assert template["verdict_labels"] == ["REPLICATED", "FAILED", "INCONCLUSIVE"]
+    assert template["verdict_labels"] == [
+        "REPLICATED",
+        "FAILED",
+        "INCONCLUSIVE",
+    ]
+
+
+def test_receipt_excludes_unpinned_position_action_anchors() -> None:
+    committed = json.loads(producer.RECEIPT_PATH.read_bytes())
+    assert [contract["path"] for contract in committed["source_contracts"]] == [
+        "Lean/Screen/SeamCurrentCarrierQuotient.lean",
+        "Lean/Screen/DiscreteCoulombGreen.lean",
+    ]
+    observables = committed["handoff_interface"]["observables"]
+    assert [observable["name"] for observable in observables] == [
+        "port_potential_difference",
+        "seam_flux",
+    ]
+    assert all(
+        observable["exact_type"] == "rational" for observable in observables
+    )
+    assert all(
+        observable["lean_anchor"].startswith("OPH.DiscreteCoulombGreen.")
+        for observable in observables
+    )
+    encoded = json.dumps(committed, sort_keys=True)
+    assert "PositionSpaceMaxwellAction" not in encoded
+    assert "chord_field_strength_component" not in encoded
 
 
 def test_tree_solution_matches_committed_section() -> None:

@@ -50,7 +50,7 @@ PREMISE_DEPENDENCY_CLASSIFICATIONS = {
 }
 PREMISE_ID = re.compile(r"^PR-[0-9]{2}$")
 PREMISE_DEPENDENCY_PROJECTION_SHA256 = (
-    "00ee1340f7d6ce19bc86adce8b9db5da3274060a2ae53523100c91cd7bbc5984"
+    "cdd670224a33d7b3fdbe96c22290e2bf832541d33c72b352ea88ea5ddffbae00"
 )
 
 # Controlled claim classification (issue #512). `status` stays descriptive
@@ -191,6 +191,75 @@ def check_exact_claim_id_projection(
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise SystemExit(message)
+
+
+def check_dependency_graph_edges(raw_edges: object, nodes: set[str]) -> None:
+    """Validate that the scientific claim graph is a simple directed DAG.
+
+    A claim dependency points from an antecedent to a downstream consumer.
+    Self-loops, duplicate endpoint pairs, and directed cycles therefore make
+    the ancestry ill-typed even when every endpoint is a registered claim.
+    """
+
+    require(
+        isinstance(raw_edges, list),
+        "claims/dependency_graph.json: edges must be a list",
+    )
+    adjacency: dict[str, list[str]] = {node: [] for node in nodes}
+    seen_pairs: set[tuple[str, str]] = set()
+    for edge in raw_edges:
+        require(
+            isinstance(edge, dict),
+            f"dependency graph edge must be an object: {edge!r}",
+        )
+        source = edge.get("from")
+        target = edge.get("to")
+        require(
+            source in nodes,
+            f"dependency graph edge source is not a declared node: {edge}",
+        )
+        require(
+            target in nodes,
+            f"dependency graph edge target is not a declared node: {edge}",
+        )
+        require(edge.get("role"), f"dependency graph edge lacks role: {edge}")
+        require(
+            source != target,
+            f"dependency graph self-loop is forbidden: {source}",
+        )
+        pair = (source, target)
+        require(
+            pair not in seen_pairs,
+            f"dependency graph repeats directed edge: {source} -> {target}",
+        )
+        seen_pairs.add(pair)
+        adjacency[source].append(target)
+
+    state: dict[str, int] = {}
+    stack: list[str] = []
+    stack_index: dict[str, int] = {}
+
+    def visit(node: str) -> None:
+        state[node] = 1
+        stack_index[node] = len(stack)
+        stack.append(node)
+        for target in adjacency[node]:
+            if state.get(target, 0) == 0:
+                visit(target)
+            elif state[target] == 1:
+                start = stack_index[target]
+                cycle = stack[start:] + [target]
+                raise SystemExit(
+                    "dependency graph contains directed cycle: "
+                    + " -> ".join(cycle)
+                )
+        stack.pop()
+        stack_index.pop(node)
+        state[node] = 2
+
+    for node in sorted(nodes):
+        if state.get(node, 0) == 0:
+            visit(node)
 
 
 def evidence_is_available(root: Path, evidence: str) -> bool:
@@ -511,10 +580,7 @@ def main(root: Path = ROOT) -> None:
         one_row_per_claim=True,
     )
     nodes = set(raw_nodes)
-    for edge in graph.get("edges", []):
-        require(edge.get("from") in nodes, f"dependency graph edge source is not a declared node: {edge}")
-        require(edge.get("to") in nodes, f"dependency graph edge target is not a declared node: {edge}")
-        require(edge.get("role"), f"dependency graph edge lacks role: {edge}")
+    check_dependency_graph_edges(graph.get("edges", []), nodes)
 
     gated = [claim for claim in claims if claim["gates"]]
     gate_count = len({gate for claim in gated for gate in claim["gates"]})

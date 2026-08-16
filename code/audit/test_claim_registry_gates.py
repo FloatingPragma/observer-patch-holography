@@ -276,6 +276,38 @@ def test_dependency_edge_endpoint_must_be_a_declared_node(tmp_path):
         checker.main(tmp_path)
 
 
+def test_dependency_graph_self_loop_fails_closed():
+    with pytest.raises(SystemExit, match="self-loop is forbidden"):
+        checker.check_dependency_graph_edges(
+            [{"from": "FIX-1", "to": "FIX-1", "role": "loop"}],
+            {"FIX-1"},
+        )
+
+
+def test_dependency_graph_duplicate_edge_fails_closed():
+    edges = [
+        {"from": "FIX-1", "to": "FIX-2", "role": "first"},
+        {"from": "FIX-1", "to": "FIX-2", "role": "shadow"},
+    ]
+    with pytest.raises(SystemExit, match="repeats directed edge"):
+        checker.check_dependency_graph_edges(edges, {"FIX-1", "FIX-2"})
+
+
+def test_dependency_graph_directed_cycle_fails_closed():
+    edges = [
+        {"from": "FIX-1", "to": "FIX-2", "role": "one"},
+        {"from": "FIX-2", "to": "FIX-3", "role": "two"},
+        {"from": "FIX-3", "to": "FIX-1", "role": "three"},
+    ]
+    with pytest.raises(
+        SystemExit,
+        match=r"directed cycle: FIX-1 -> FIX-2 -> FIX-3 -> FIX-1",
+    ):
+        checker.check_dependency_graph_edges(
+            edges, {"FIX-1", "FIX-2", "FIX-3"}
+        )
+
+
 def test_release_id_drift_fails_closed(tmp_path):
     write_fixture_repo(tmp_path)
     edit_registry(tmp_path, lambda r: r.update(release_id="r-stale"))

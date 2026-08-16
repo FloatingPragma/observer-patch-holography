@@ -83,9 +83,9 @@
     "code/born_context_phase_lift/README.md": "statement",
     "code/born_context_phase_lift/verify_source_phase_lift.py": "conditional_consumer",
     "claims/assumption_dictionary.md": "statement",
-    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement"
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "no_go"
    },
-   "notes": "Removal needs a source-produced phase-sensitive instrument with rotated and phase outcome receipts and operational effect composition; the algebraic lift alone is the declared adapter. The operational semantics is now typed in Lean/EventAlgebra/OperationalPhaseInstrument.lean: discharge is equivalent to supplying the missing preparation, rotated and phase outcome counts, and Born-consistency receipts, the phase context is proved necessary against diagonal and complexified real effects, and count provenance must be producer receipts of a committed run, a custody condition the register keeps outside the type system."
+   "notes": "Removal needs a source-produced phase-sensitive operation/instrument with completely-positive outcome maps, a trace-preserving summed channel, effect/readback compatibility, common-preparation semantics, producer-bound receipts, and a preregistered statistical validation rule (or explicitly exhaustive deterministic semantics). Lean/EventAlgebra/OperationalPhaseInstrument.lean now deliberately types only IdealPhasePOVMCountModel, a static exact-fit model. Its synthetic_ideal_phase_fit theorem constructs an inhabitant from chosen rational literals with no producer, run, operation, or receipt, proving that exact POVM/count fit cannot by itself discharge PR-04. The diagonal/real-closure blindness theorems remain exact algebraic delimitations. Operational additivity/composition remains separately registered under PR-03."
   },
   {
    "id": "PR-05",
@@ -137,7 +137,7 @@
     "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer",
     "Lean/Variational/EnrichmentCharacterization.lean": "no_go"
    },
-   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet real enrichment, which the realized-history law provably underdetermines. The declared mode-extremality rule fixes a = 2*log(362055879/271780) only after the admissible extensions are restricted to L_a = L_0 + (a/2)y(y-1). The machine-checked family L_{a,c} = L_0 + (a/2)y(y-1) + (c/2)x(x-1) agrees on every binary corner, is regular for a > 0, and has the same constant-one stationarity and fixed-endpoint single-site variation minimum whenever a+c has the forced value; the explicit split a=c=a*/2 has different velocity curvature. Thus the rule supplies one inhabited representative but does not select a unique real enrichment beyond the chosen ansatz. The selection problem is now exactly characterized in Lean/Variational/EnrichmentCharacterization.lean: corner-invisible quadratics are exactly the two-parameter family, the committed junction stationarity fixes the affine line a + c = a*, the single named velocity-only clause restores uniqueness at (a*, 0), the counterfamily point proves that clause load-bearing, a cubic sentence survives corner invisibility and junction stationarity so quadraticity is load-bearing under stationarity alone, and the committed real fixed-endpoint single-site minimality excludes those cubics and returns the committed rule exactly."
+   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet real enrichment, which the realized-history law provably underdetermines. The declared mode-extremality rule fixes a = 2*log(362055879/271780) only after the admissible extensions are restricted to L_a = L_0 + (a/2)y(y-1). The complete quadratic classification proves that corner invisibility gives L_{a,c}, stationarity fixes a+c=a*, and the separately declared velocity-only clause fixes (a*,0) inside that quadratic grammar. The cubic control shows quadraticity is needed under stationarity alone, and the committed single-site minimum excludes that cubic family. It still does not select globally: for every 0<lambda<a*, the machine-checked quartic continuation L_lambda=L_a*+lambda*y^2*(y-1)^2 is corner-invisible and velocity-only, preserves the same stationarity and global fixed-endpoint single-site minimum, has an everywhere positive velocity Hessian and an invertible momentum map, and differs from every quadratic. Thus no tested clause bundle is a proved-minimal axiom system, and PR-06 remains active rather than discharged or ready for automatic axiomatization."
   },
   {
    "id": "PR-07",
@@ -172,7 +172,7 @@
    "name": "refinement-uniform low-temperature control",
    "type": "structural_rule",
    "disposition": "remove",
-   "statement": "A declared indexed family carries one uniform low-temperature tail bound strong enough to drive the off-minimum Gibbs mass, and where claimed the entropy excess, to zero with one inverse-temperature threshold across the family. The current Lean witness is a sufficient special case: a uniformly positive energy gap plus a uniform finite cardinality bound gives cardBound * exp(-beta * gapBound). Its maps preserve minima but are not yet proved functorial, and this special case is not asserted to be necessary for a growing regulator tower. A direct density-of-states, excited-to-ground degeneracy-ratio, or spectral-tail envelope is an allowed alternative route.",
+   "statement": "A declared indexed family carries one uniform low-temperature tail bound strong enough to drive the off-minimum Gibbs mass, and where claimed the entropy excess, to zero with one inverse-temperature threshold across the family. The original sufficient member uses a uniformly positive energy gap plus a uniform finite cardinality bound to obtain cardBound * exp(-beta * gapBound); its maps preserve minima but do not supply the later functorial and cofinal structure. The coherent-envelope route adds directed functorial data, and the ambient-cofinal route adds a nonterminal regulator embedding plus strict carrier growth on one supplied spectral-tail family. Neither route is asserted to be necessary for every growing regulator tower. A direct density-of-states or excited-to-ground degeneracy-ratio bound remains an allowed alternative.",
    "consuming_lanes": [
     732
    ],
@@ -180,15 +180,17 @@
     "Lean/Thermodynamics/LowTemperatureControl.lean",
     "claims/claim_registry.yaml",
     "Lean/Thermodynamics/FourLawAdequacySurface.lean",
-    "Lean/Thermodynamics/CoherentRefinementFamily.lean"
+    "Lean/Thermodynamics/CoherentRefinementFamily.lean",
+    "Lean/Thermodynamics/CofinalSpectralTailFamily.lean"
    ],
    "evidence_roles": {
     "Lean/Thermodynamics/LowTemperatureControl.lean": "conditional_consumer",
     "claims/claim_registry.yaml": "conditional_consumer",
     "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer",
-    "Lean/Thermodynamics/CoherentRefinementFamily.lean": "conditional_consumer"
+    "Lean/Thermodynamics/CoherentRefinementFamily.lean": "conditional_consumer",
+    "Lean/Thermodynamics/CofinalSpectralTailFamily.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a source-produced coherent cofinal family and a proved uniform tail envelope; it does not require a uniform total-cardinality bound. The current FourLawAntecedent consumes the stronger UniformGapRefinement special case and threads its distinguished member to the calibrated energy. That structure is an indexed uniformly bounded family, not yet a continuum-refinement theorem: its maps lack identity and composition laws and its uniform bound does not use them. Growing-cardinality, density-of-states, and other direct spectral-tail routes remain viable. The coherent-envelope form is now committed in Lean/Thermodynamics/CoherentRefinementFamily.lean: refine maps with identity and composition laws and a load-bearing energy-compatibility law, one uniform spectral-tail envelope driving the off-minimum Gibbs mass to zero across the family, the gap-plus-cardinality witness retained as one instance, a ladder family with unbounded stage cardinality proving the envelope strictly wider than the gap special case, and an alternative composed four-law route. A source-produced family is still owed."
+   "notes": "Removal needs a source-produced family with a proved uniform spectral-tail envelope and the regulator semantics required by the intended continuum claim; it does not require a uniform total-cardinality bound. CoherentRefinementFamily supplies the weaker directed-envelope layer and records its exact limitations. CofinalSpectralTailFamily adds an explicit nonempty ambient regulator preorder, an order-reflecting cofinal stage embedding, no maximal ambient stage, and data-level strict carrier growth. Its Nat ladder is nonconstant and unbounded, and constant finite carriers are formally excluded. fourLaws_composed_cofinal constructs the finite-law core directly and states every refinement conclusion on that same supplied family, including cofinal-tail concentration. Its calibrated-member theorem derives off-minimum-mass equality and the common envelope from a separately supplied calibrated-stage energy identification; it does not derive that identification. Strict cardinal growth is one sufficient genuine-refinement route, not a necessity claim for every possible physical regulator. No source produces this family or identifies its regulators, energy, inverse temperature, repair, or continuum interpretation, so PR-08 is substantially narrowed but not removed."
   },
   {
    "id": "PR-09",
@@ -1110,16 +1112,18 @@
    "evidence": [
     "Lean/Geometry/CanonicalLorentzModule.lean",
     "Lean/QFT/FiniteCausalObserverNet.lean",
+    "Lean/QFT/TripleCarrierJoin.lean",
     "Lean/Geometry/EventFrameSoldering.lean",
     "claims/assumption_dictionary.md"
    ],
    "evidence_roles": {
     "Lean/Geometry/CanonicalLorentzModule.lean": "statement",
     "Lean/QFT/FiniteCausalObserverNet.lean": "statement",
+    "Lean/QFT/TripleCarrierJoin.lean": "statement",
     "Lean/Geometry/EventFrameSoldering.lean": "statement",
     "claims/assumption_dictionary.md": "statement"
    },
-   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure."
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock."
   },
   {
    "id": "PR-53",
@@ -1134,15 +1138,17 @@
    ],
    "evidence": [
     "Lean/Screen/LightSignalAdequacySurface.lean",
+    "Lean/Screen/LocalFaceMaxwellAction.lean",
     "claims/frozen_prediction_register.json",
     "docs/FROZEN_PREDICTION_LADDER.md"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
+    "Lean/Screen/LocalFaceMaxwellAction.lean": "statement",
     "claims/frozen_prediction_register.json": "conditional_consumer",
     "docs/FROZEN_PREDICTION_LADDER.md": "conditional_consumer"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met."
+   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action, but no temporal propagation, calibrated frame/scale, physical source or readout, or continuum attachment. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met."
   },
   {
    "id": "PR-54",
@@ -1162,14 +1168,16 @@
    "evidence": [
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "Lean/Screen/GaugeKineticInvariantForms.lean",
+    "Lean/Screen/LocalFaceMaxwellAction.lean",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
     "Lean/Screen/GaugeKineticInvariantForms.lean": "statement",
+    "Lean/Screen/LocalFaceMaxwellAction.lean": "statement",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement"
    },
-   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes; side-by-side classification theorems are insufficient."
+   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately and supplies no temporal continuity equation, matter operator, physical source, spacetime attachment, or nonabelian sector."
   },
   {
    "id": "PR-55",
@@ -1248,13 +1256,15 @@
    ],
    "evidence": [
     "Lean/QFT/StructuralNetAdequacySurface.lean",
-    "Lean/QFT/PathTimeSliceInterface.lean"
+    "Lean/QFT/PathTimeSliceInterface.lean",
+    "Lean/QFT/TripleCarrierJoin.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/PathTimeSliceInterface.lean": "statement"
+    ,"Lean/QFT/TripleCarrierJoin.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow or larger symmetry action is one possible route, not the definition of the time-slice property. The Z/2 slot-swap receipt on the equal-alphabet carrier is a finite internal symmetry only and does not discharge this row. The interface is now typed and delimited in Lean/QFT/PathTimeSliceInterface.lean: forced step-invariance proves that every inhabitant over the two committed diamonds has a step-invariant region family, one whose slice region never moves along the evolution, so removal requires a net in which distinct regions share one algebra, which no committed net supplies."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection."
   },
   {
    "id": "PR-59",

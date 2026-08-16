@@ -30,6 +30,7 @@ import QFT.TowerAnchoredDiamond
 import QFT.SourceCorrelationCapstone
 import QFT.TowerAnchoredCorrelation
 import QFT.PathTimeSliceInterface
+import QFT.TripleCarrierJoin
 import QFT.GaugeIrreducibleBorn
 import QFT.HistoryActionBinding
 import QFT.TwoFactorHistoryBinding

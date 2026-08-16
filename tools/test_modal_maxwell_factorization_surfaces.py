@@ -29,6 +29,8 @@ OBSERVATION_EVIDENCE = [
     "Lean/Screen/LightSignalMaxwellComposition.lean",
     "Lean/Screen/SeamU1HolonomyClassification.lean",
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
+    "Lean/Screen/LocalFaceMaxwellAction.lean",
+    "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
 ]
 
 POSTDICTION_ARTIFACTS = [
@@ -108,11 +110,20 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     assert row["open_premises"] == ["PR-53", "PR-54"]
     assert row["evidence"] == OBSERVATION_EVIDENCE
     notes = row["notes"]
-    assert "modal/pseudodifferential algebraic factorization only" in notes
-    assert "removes no registered premise" in notes
-    assert "scientific owner #733 records the missing physical attachments" in notes
+    assert "modal package supplies an exact pseudodifferential first-order factorization" in notes
+    assert "LocalFaceMaxwellAction supplies the missing local finite operator" in notes
+    assert "The earlier dense global Hodge projector remains an exact comparison" in notes
+    assert "StaticSources keeps rho and J distinct" in notes
+    assert "PR-53 and PR-54 remain open" in notes
     assert "does not close issue" not in notes
-    for excluded in EXCLUDED_PHYSICAL_CONTENT:
+    for excluded in (
+        "temporal electric-magnetic dynamics",
+        "charge-current continuity map",
+        "Lorentz/spacetime attachment",
+        "physical field/current",
+        "continuum control",
+        "laboratory readout",
+    ):
         assert excluded in notes
 
 

@@ -5,63 +5,34 @@ set_option autoImplicit false
 namespace EventAlgebra
 
 /-!
-# Typed operational PR-04 instrument semantics (OL-C5, issue #730)
+# Ideal phase-POVM count fitting on the committed finite algebra
 
-This module types the operational content that register row PR-04 owes and
-proves exactly three things about it, all premise-free finite mathematics on
-the committed `Fin 2` record algebra:
+This module types an **ideal static POVM/count-fit model** on the committed
+`Fin 2` record algebra.  It does not type a quantum instrument, a source
+operation, or a scientific discharge of register row PR-04.
 
-* **The instrument type** (`OperationalPhaseInstrument`): one structure whose
-  fields are the algebraic phase-completion core (defaulting to the committed
-  `QuantumSurface.committedAlgebraicPhaseCompletion`), one declared
-  preparation shared by every context, the finite context family
-  `InstrumentContext` (the committed web contexts of `QFT.SourceContextWeb`
-  plus one designated phase context), per-context binary outcome effects
-  forming an exact POVM, an explicit phase-sensitivity clause, realized
-  outcome counts per context with the diagonal counts pinned to the committed
-  run literals `(111, 68)`, and one exact Born-consistency law tying every
-  context's realized frequency to the same preparation.
-* **Conditional sufficiency** (`operational_instrument_completes_tomography`,
-  `preparation_identified_by_realized_data`): every inhabitant of the
-  structure yields fixed-trace state identification, by composing the
-  instrument fields with the committed `completes` clause of the algebraic
-  core; in particular the preparation is the unique state reproducing the
-  realized frequencies.  PR-04 discharge therefore reduces to inhabiting the
-  structure.
-* **Exact necessity** (`diagonal_context_insufficient`,
-  `diagonal_receipts_do_not_identify`, `rotated_context_separates_x_pair`,
-  `phase_effect_not_diagonal`, `phase_effect_genuinely_complex`,
-  `phase_context_necessary`): two distinct certified states
-  (`rhoXPlus`, `rhoXMinus`) carry identical Born data on every diagonal
-  effect, so the diagonal context alone identifies no state; the committed
-  rotated context separates that pair, and the committed Pauli-Y pair (the
-  no-real-closure clause `QuantumSurface.real_closure_blind`) defeats even
-  the full phase-free real closure, so the phase-sensitivity field of the
-  instrument can be met by no diagonal effect and by no complexified real
-  effect.  The demanded phase context is necessary, not decorative.
+* `IdealPhasePOVMCountModel` contains one matrix state, the committed static
+  web effects plus a designated phase effect, binary POVM certificates,
+  integer count literals, and an exact frequency/Born-fit equation.
+* `ideal_phase_model_completes_tomography` and
+  `preparation_identified_by_exact_fit_data` preserve the valid conditional
+  tomography statements supplied by those effects.
+* The diagonal, rotated, and genuinely-complex necessity theorems remain
+  finite-algebra delimitations.
+* `modelOfIdealPhaseFitData` assembles a model from `IdealPhaseFitData`, and
+  `HasIdealPhaseFit` is equivalent to `Nonempty IdealPhaseFitData`.
 
-`partialWitness` records exactly which fields are inhabited today from
-committed objects: the algebraic core, every context effect matrix, the
-POVM certificates, and the diagonal outcome counts — and consumes the
-missing data (`MissingPhaseReceipts`: a preparation, rotated and phase
-outcome counts, and the Born-consistency receipts) as explicit hypotheses.
-`DischargesPR04` is the single reduction Prop, proved equivalent to
-`Nonempty MissingPhaseReceipts` (`dischargesPR04_iff_missing_receipts`).
-
-**What is NOT proved.**  PR-04 stays open.  No declaration in this file or
-elsewhere in the repository inhabits `OperationalPhaseInstrument`,
-`MissingPhaseReceipts`, or `DischargesPR04`: the committed payload supplies
-no preparation declaration, no rotated or phase outcome counts, and no
-common-preparation validation, and none are constructed here.  An inhabitant
-would certify internal coherence of supplied data — one preparation, exact
-POVMs, exact Born match — while the provenance of the supplied counts (that
-they are producer receipts of a committed simulator run rather than chosen
-numbers) is a custody condition the register tracks outside the type system;
-Lean cannot enforce it, and the register's discharge discipline prohibits
-synthetic counts.  No frame valuation is consumed: register rows PR-02 and
-PR-03 do not enter, and no probability reading beyond the committed diagonal
-frequencies is asserted.  This file supplies typed operational semantics, a
-proved reduction, and a proved necessity — not an operational attainment.
+**Boundary.**  This model is deliberately inhabitable by synthetic rational
+data: `synthetic_ideal_phase_fit` below constructs such an inhabitant without
+any producer, run, operation, or receipt input.  Hence ideal fit cannot by
+itself certify source provenance, operational implementation, or PR-04
+discharge.  A genuine operational target still needs source-attached
+completely-positive outcome maps, a trace-preserving summed channel,
+effect/readback compatibility, an implemented context-selection and common-
+preparation protocol, producer-bound receipts, and a preregistered statistical
+validation rule (or an explicitly exhaustive deterministic semantics).  None
+of those is a field here.  The trace/Born pairing is part of the ideal model;
+operational additivity and effect composition remain separate obligations.
 -/
 
 open Matrix
@@ -127,12 +98,13 @@ theorem webContextProjector_isEvent (c : WebContext) :
     (webContextProjector_symm c), ?_⟩
   rw [← complexifyRealMatrix_mul, webContextProjector_idem]
 
-/-! ## The instrument context family -/
+/-! ## The static POVM context family -/
 
-/-- The context family of the typed PR-04 instrument: every committed web
+/-- The context family of the ideal static model: every committed web
 context (the diagonal record/companion context and the six conjugated
 contexts of `QFT.SourceContextWeb`) together with one designated
-phase-sensitive context. -/
+phase-sensitive context.  This enumeration does not itself define an
+operational instrument. -/
 inductive InstrumentContext : Type where
   | web : WebContext → InstrumentContext
   | phase : InstrumentContext
@@ -175,31 +147,25 @@ theorem binaryFrequency_diagonal_run :
     binaryFrequency (111, 68) = 111 / 179 := by
   norm_num [binaryFrequency]
 
-/-! ## (P1) The typed operational instrument -/
+/-! ## (P1) The ideal static POVM/count-fit model -/
 
-/-- **The typed operational PR-04 instrument.**  One inhabitant of this
-structure is exactly what the register row PR-04 declares missing: a
-source-attached phase-sensitive instrument with common-preparation outcome
-receipts on the committed `Fin 2` record algebra.  The diagonal fields are
-inhabitable from committed objects (`partialWitness`); the preparation, the
-rotated and phase outcome counts, and every Born-consistency receipt are
-exactly what the committed payload does not supply.  No field is asserted to
-hold of the committed run; the structure is a demand, not a record. -/
-structure OperationalPhaseInstrument where
+/-- **An ideal static phase-POVM/count-fit model.**  This structure packages
+matrix effects, a model state, count literals, and exact fit equations.  It is
+not a quantum instrument: it has no outcome maps on states, summed channel,
+source operation, readback implementation, or producer receipt. -/
+structure IdealPhasePOVMCountModel where
   /-- (i) The algebraic core: an algebraic phase completion in the sense of
   the PR-04 bundle, defaulting to the committed one.  Its `lift` is the
   declared phase-sensitive projection event; its `separates` and `completes`
-  clauses are the committed algebraic receipts this instrument composes
+  clauses are the committed algebraic receipts this model composes
   with. -/
   core : AlgebraicPhaseCompletion := QuantumSurface.committedAlgebraicPhaseCompletion
-  /-- (ii) The declared preparation: one state reference shared by every
-  context.  The committed payload declares no preparation; this field is
-  part of what PR-04 owes. -/
+  /-- One model state shared by every context. -/
   prep : Matrix (Fin 2) (Fin 2) ℂ
   /-- The declared preparation is a state: positive semidefinite with unit
   trace. -/
   prep_isState : IsState prep
-  /-- (iv) Per-context binary outcome effects on the represented
+  /-- Per-context binary outcome effects on the represented
   dimension-two algebra. -/
   effect : InstrumentContext → Fin 2 → Matrix (Fin 2) (Fin 2) ℂ
   /-- POVM nonnegativity: every outcome effect is positive semidefinite. -/
@@ -228,32 +194,27 @@ structure OperationalPhaseInstrument where
   phase_sensitive :
     bornWeight rhoYPlus (effect InstrumentContext.phase 0) ≠
       bornWeight rhoYMinus (effect InstrumentContext.phase 0)
-  /-- (v) Realized outcome counts per context.  Only the diagonal entry has
-  a committed value today (`diagonal_counts_run`); the rotated and phase
-  entries are the missing receipts named by PR-04. -/
+  /-- Integer count literals per context. -/
   counts : InstrumentContext → ℕ × ℕ
-  /-- Every context carries positive realized outcome mass: no context of
-  the family may be left without data. -/
+  /-- Every context carries positive count mass. -/
   counts_pos : ∀ c : InstrumentContext, 0 < (counts c).1 + (counts c).2
   /-- The diagonal counts are the committed run literals: the two realized
   cells `(record 18, companion 13) = 111` and `(record 18, companion 3) =
   68` of `QFT.SourceContextWeb` (`realizedOutcomeCounts`). -/
   diagonal_counts_run :
     counts (InstrumentContext.web WebContext.diagonal) = (111, 68)
-  /-- (vi) The Born-consistency law and the common-preparation clause in one
-  field: for every context of the family, the realized outcome-`0` frequency
-  equals the Born weight of that context's outcome-`0` effect under the one
-  declared preparation `prep`.  A single `prep` appears for all contexts;
-  this is the common-preparation validation PR-04 owes.  Outcome `1` is
-  forced (`born_matches_snd`). -/
+  /-- The ideal fit law: every count frequency equals the Born weight of the
+  corresponding outcome-`0` effect under the one model state `prep`.
+  This equation is not a statistical validation rule for sampled data.
+  Outcome `1` is forced (`born_matches_snd`). -/
   born_matches : ∀ c : InstrumentContext,
     bornWeight prep (effect c 0) = binaryFrequency (counts c)
 
-namespace OperationalPhaseInstrument
+namespace IdealPhasePOVMCountModel
 
 /-- Outcome `1` of every context is the complement effect, forced by POVM
 normalisation. -/
-theorem effect_one (I : OperationalPhaseInstrument) (c : InstrumentContext) :
+theorem effect_one (I : IdealPhasePOVMCountModel) (c : InstrumentContext) :
     I.effect c 1 = 1 - I.effect c 0 := by
   have h := I.effect_complete c
   rw [← h]
@@ -262,7 +223,7 @@ theorem effect_one (I : OperationalPhaseInstrument) (c : InstrumentContext) :
 /-- Every outcome effect is an effect in the represented-algebra sense:
 `0 ≤ E ≤ 1` in the positive-semidefinite order.  The exact POVM fields
 compose to the standard effect certificate. -/
-theorem effect_isEffect (I : OperationalPhaseInstrument)
+theorem effect_isEffect (I : IdealPhasePOVMCountModel)
     (c : InstrumentContext) : ∀ i : Fin 2, IsEffect (I.effect c i) := by
   rw [Fin.forall_fin_two]
   refine ⟨⟨I.effect_posSemidef c 0, ?_⟩, ⟨I.effect_posSemidef c 1, ?_⟩⟩
@@ -273,7 +234,7 @@ theorem effect_isEffect (I : OperationalPhaseInstrument)
 
 /-- The diagonal outcome mass of every inhabitant is the committed run
 mass `179`. -/
-theorem diagonal_mass (I : OperationalPhaseInstrument) :
+theorem diagonal_mass (I : IdealPhasePOVMCountModel) :
     (I.counts (InstrumentContext.web WebContext.diagonal)).1 +
       (I.counts (InstrumentContext.web WebContext.diagonal)).2 = 179 := by
   rw [I.diagonal_counts_run]
@@ -281,7 +242,7 @@ theorem diagonal_mass (I : OperationalPhaseInstrument) :
 
 /-- Every inhabitant's diagonal counts are exactly the committed realized
 outcome counts of the run. -/
-theorem diagonal_counts_committed (I : OperationalPhaseInstrument) :
+theorem diagonal_counts_committed (I : IdealPhasePOVMCountModel) :
     realizedOutcomeCounts WebContext.diagonal =
       some (I.counts (InstrumentContext.web WebContext.diagonal)) := by
   rw [I.diagonal_counts_run]
@@ -290,7 +251,7 @@ theorem diagonal_counts_committed (I : OperationalPhaseInstrument) :
 /-- The outcome-`1` Born-consistency law, forced by normalisation: the
 realized outcome-`1` frequency equals the Born weight of the complement
 effect under the same preparation. -/
-theorem born_matches_snd (I : OperationalPhaseInstrument)
+theorem born_matches_snd (I : IdealPhasePOVMCountModel)
     (c : InstrumentContext) :
     bornWeight I.prep (I.effect c 1) =
       ((I.counts c).2 : ℂ) /
@@ -307,21 +268,18 @@ theorem born_matches_snd (I : OperationalPhaseInstrument)
   field_simp
   ring
 
-end OperationalPhaseInstrument
+end IdealPhasePOVMCountModel
 
-/-! ## (P2) Conditional sufficiency: an inhabitant completes tomography -/
+/-! ## (P2) Conditional sufficiency: an ideal model completes tomography -/
 
-/-- **Conditional sufficiency.**  Any inhabitant of the typed instrument
+/-- **Conditional sufficiency.**  Any ideal model
 yields fixed-trace state identification: two matrices of equal trace that
-agree in Born weight on every outcome effect of the instrument are equal.
+agree in Born weight on every outcome effect of the model are equal.
 The proof composes the pinned web and phase effects with the committed
-`completes` clause of the algebraic core; the instrument adds no separating
-power beyond the core and removes none.  PR-04 discharge reduces to
-inhabiting `OperationalPhaseInstrument`; this theorem is the reduction's
-sufficiency direction and consumes no committed outcome data beyond the
-inhabitant's own fields. -/
-theorem operational_instrument_completes_tomography
-    (I : OperationalPhaseInstrument)
+`completes` clause of the algebraic core.  This is an ideal algebraic
+identification theorem, not an operational implementation theorem. -/
+theorem ideal_phase_model_completes_tomography
+    (I : IdealPhasePOVMCountModel)
     {rho sigma : Matrix (Fin 2) (Fin 2) ℂ}
     (htr : Matrix.trace rho = Matrix.trace sigma)
     (h : ∀ (c : InstrumentContext) (i : Fin 2),
@@ -336,14 +294,12 @@ theorem operational_instrument_completes_tomography
   rw [I.phase_effect] at hlift
   exact I.core.completes rho sigma htr hrec hrot hlift
 
-/-- **Operational identification of the preparation.**  For any inhabitant,
-the declared preparation is the unique state whose Born weights reproduce
-the realized outcome frequencies of every context: a state matching the
-realized data is the preparation.  This is the exact sense in which an
-inhabitant would supply operational state identification from realized
-receipts. -/
-theorem preparation_identified_by_realized_data
-    (I : OperationalPhaseInstrument)
+/-- **Identification inside the exact-fit model.**  The model state is the
+unique state whose Born weights reproduce all exact count frequencies.  This
+does not assert that the counts were sampled from, or operationally produced
+by, that state. -/
+theorem preparation_identified_by_exact_fit_data
+    (I : IdealPhasePOVMCountModel)
     {sigma : Matrix (Fin 2) (Fin 2) ℂ} (hsigma : IsState sigma)
     (hfreq : ∀ c : InstrumentContext,
       bornWeight sigma (I.effect c 0) = binaryFrequency (I.counts c)) :
@@ -358,17 +314,19 @@ theorem preparation_identified_by_realized_data
     refine ⟨h0, ?_⟩
     rw [I.effect_one c, bornWeight_sub, bornWeight_sub,
       bornWeight_one hsigma, bornWeight_one I.prep_isState, h0]
-  exact operational_instrument_completes_tomography I
+  exact ideal_phase_model_completes_tomography I
     (hsigma.2.trans I.prep_isState.2.symm) hAll
 
-/-! ## (P3) Exact necessity: the diagonal context identifies no state
+/-! ## (P3) Exact incompleteness controls for restricted context families
 
 Two distinct certified states with equal diagonals witness that
 diagonal-only outcome families separate nothing: the committed native
-context's Born data are blind to every off-diagonal coordinate.  The
-committed rotated context separates this pair, and the committed Pauli-Y
-pair defeats the entire phase-free real closure, so each escalation step of
-the instrument's context family is necessary. -/
+context's Born data are blind to every off-diagonal coordinate.  A second
+control shows that wholly complexified-real effect families remain blind to
+a certified Pauli-Y pair.  Thus a complete static tomography family needs
+non-diagonal content and a separator outside that real closure.  These
+controls do not force the particular committed rotated or phase effects,
+their ordering, or any operational implementation. -/
 
 /-- Projection onto the `+X` axis: `(1/2)(1 + σ_x)`. -/
 def sigmaXPlusProj : Matrix (Fin 2) (Fin 2) ℂ :=
@@ -474,8 +432,8 @@ theorem rhoY_agree_on_diagonal (E : Matrix (Fin 2) (Fin 2) ℂ)
 certified fixed-trace states — `(1/2)(1 ± (1/2) σ_x)`, positive semidefinite
 by `rhoXPlus_isState` and `rhoXMinus_isState` — carry identical Born data on
 every diagonal effect.  No diagonal-only outcome family separates states, so
-the phase-sensitive context demanded by `OperationalPhaseInstrument` is
-necessary: realized diagonal receipts, however many, close no tomography. -/
+a phase-sensitive effect is necessary for full complex tomography: diagonal
+fit equations, however many, close no tomography. -/
 theorem diagonal_context_insufficient :
     ∃ rho sigma : Matrix (Fin 2) (Fin 2) ℂ,
       IsState rho ∧ IsState sigma ∧ rho ≠ sigma ∧
@@ -498,10 +456,10 @@ theorem complexifyRealMatrix_isDiag {E : Matrix (Fin 2) (Fin 2) ℝ}
 
 /-- The insufficiency instantiated on any inhabitant: both outcomes of the
 instrument's own diagonal context assign equal Born data to the two distinct
-`X`-polarized states.  The diagonal context of every inhabitant is blind to
-this pair; the separating power of an inhabitant lives entirely in its
+`X`-polarized states.  The diagonal context of every model is blind to
+this pair; the separating power of a model lives entirely in its
 non-diagonal contexts. -/
-theorem diagonal_receipts_do_not_identify (I : OperationalPhaseInstrument) :
+theorem diagonal_receipts_do_not_identify (I : IdealPhasePOVMCountModel) :
     ∃ rho sigma : Matrix (Fin 2) (Fin 2) ℂ,
       IsState rho ∧ IsState sigma ∧ rho ≠ sigma ∧
         ∀ i : Fin 2,
@@ -541,8 +499,8 @@ theorem rhoXMinus_rotated_weight :
 
 /-- The committed rotated context separates the pair the diagonal context
 cannot: the two `X`-polarized states receive Born weights differing by
-`sqrt 3 / 4`.  The rotated receipt PR-04 owes carries separating content
-beyond every diagonal receipt. -/
+`sqrt 3 / 4`.  This is a static effect-separation fact, not the operational
+receipt PR-04 owes. -/
 theorem rotated_context_separates_x_pair :
     bornWeight rhoXPlus (complexifyRealMatrix (conjProjector 3)) ≠
       bornWeight rhoXMinus (complexifyRealMatrix (conjProjector 3)) := by
@@ -553,18 +511,18 @@ theorem rotated_context_separates_x_pair :
   exact sqrt3_ne_zero hs'
 
 /-- The phase-sensitivity clause is unsatisfiable by diagonal effects: the
-phase outcome effect of every inhabitant is genuinely non-diagonal. -/
-theorem phase_effect_not_diagonal (I : OperationalPhaseInstrument) :
+phase outcome effect of every model is genuinely non-diagonal. -/
+theorem phase_effect_not_diagonal (I : IdealPhasePOVMCountModel) :
     ¬ (I.effect InstrumentContext.phase 0).IsDiag := fun hdiag =>
   I.phase_sensitive (rhoY_agree_on_diagonal _ hdiag)
 
 /-- The phase-sensitivity clause is unsatisfiable by every complexified real
 matrix: a real candidate would be symmetric (by positivity) and the
 committed real-symmetric blindness (`rhoY_bornWeight_equal_on_real_symmetric`)
-would contradict phase sensitivity.  This connects the instrument demand to
+would contradict phase sensitivity.  This connects the ideal model's demand to
 the committed no-real-closure clause: no phase-free real processing
 inhabits the phase context. -/
-theorem phase_effect_genuinely_complex (I : OperationalPhaseInstrument) :
+theorem phase_effect_genuinely_complex (I : IdealPhasePOVMCountModel) :
     ¬ ∃ E : Matrix (Fin 2) (Fin 2) ℝ,
       complexifyRealMatrix E = I.effect InstrumentContext.phase 0 := by
   rintro ⟨E, hE⟩
@@ -584,13 +542,13 @@ theorem phase_effect_genuinely_complex (I : OperationalPhaseInstrument) :
   rw [hE] at hblind
   exact I.phase_sensitive hblind
 
-/-- **The necessity ladder in one statement.**  First conjunct: the diagonal
-context alone identifies no state (the `X` pair).  Second conjunct: the
-committed no-real-closure clause — even the generous phase-free real closure
-identifies no state (the committed Pauli-Y pair).  Each escalation of the
-instrument's context family, diagonal to rotated to phase, is forced by an
-exact countermodel; the phase-sensitive context of (P1) is necessary, not
-decorative. -/
+/-- **Two exact incompleteness controls in one statement.**  First conjunct:
+the diagonal context alone identifies no state (the `X` pair).  Second
+conjunct: even the generous complexified-real closure identifies no state
+(the committed Pauli-Y pair).  Hence a complete static tomography family must
+contain non-diagonal content and cannot remain entirely in that real closure.
+The theorem does not force the particular rotated effect, the designated
+phase effect, their order, or any operational implementation. -/
 theorem phase_context_necessary :
     (∃ rho sigma : Matrix (Fin 2) (Fin 2) ℂ,
       IsState rho ∧ IsState sigma ∧ rho ≠ sigma ∧
@@ -605,9 +563,9 @@ theorem phase_context_necessary :
   ⟨diagonal_context_insufficient,
     realSourceEffectClosure_not_tomographically_complete⟩
 
-/-! ## (P4) The partial witness: what is inhabited today -/
+/-! ## (P4) Ideal fit data and model constructor -/
 
-/-- The committed outcome-`0` effect of each instrument context: web
+/-- The committed outcome-`0` effect of each static model context: web
 contexts carry the committed complexified projectors, the phase context
 carries the committed algebraic lift.  Every matrix here is a committed
 object; no outcome data accompanies any non-diagonal context. -/
@@ -628,31 +586,25 @@ def committedEffectPair (c : InstrumentContext) :
     Fin 2 → Matrix (Fin 2) (Fin 2) ℂ :=
   ![committedContextEffect c, 1 - committedContextEffect c]
 
-/-- **The missing PR-04 data, typed.**  Exactly the fields of
-`OperationalPhaseInstrument` that no committed object supplies: one declared
-preparation, realized outcome counts for the rotated and phase contexts,
-and the Born-consistency receipts tying every realized frequency — the
-committed diagonal one included — to that single preparation.  The diagonal
-Born receipt is listed here because the committed run realizes diagonal
-counts without declaring any preparation they validate.  Nothing in the
-repository inhabits this structure; supplying producer receipts for these
-fields is the open content of PR-04. -/
-structure MissingPhaseReceipts where
+/-- Data sufficient to complete the static ideal-fit model: one matrix state,
+integer count literals, and exact Born/frequency equations.  These fields do
+not encode provenance, sampling, operations, or receipts. -/
+structure IdealPhaseFitData where
   /-- The declared preparation shared by every context. -/
   prep : Matrix (Fin 2) (Fin 2) ℂ
   /-- The declared preparation is a state. -/
   prep_isState : IsState prep
-  /-- Realized outcome counts for each conjugated context.  Labels `0` and
+  /-- Count literals for each conjugated context.  Labels `0` and
   `1` conjugate to the diagonal projector (`conjProjector_one_eq_record`),
   so their receipts may repeat the diagonal data; labels `2`–`5` are the
   two genuinely rotated contexts. -/
   rotatedCounts : Fin 6 → ℕ × ℕ
-  /-- Positive realized mass on every rotated context. -/
+  /-- Positive count mass on every rotated context. -/
   rotatedCounts_pos : ∀ g : Fin 6,
     0 < (rotatedCounts g).1 + (rotatedCounts g).2
-  /-- Realized outcome counts for the phase context. -/
+  /-- Count literals for the phase context. -/
   phaseCounts : ℕ × ℕ
-  /-- Positive realized mass on the phase context. -/
+  /-- Positive count mass on the phase context. -/
   phaseCounts_pos : 0 < phaseCounts.1 + phaseCounts.2
   /-- The committed diagonal frequency is the Born weight of the record
   projector under the declared preparation: the common-preparation receipt
@@ -669,14 +621,11 @@ structure MissingPhaseReceipts where
   under the same preparation. -/
   born_phase : bornWeight prep sourcePhaseLift = binaryFrequency phaseCounts
 
-/-- **(P4) The partial witness.**  The fields of the typed instrument that
-committed objects inhabit today — the committed algebraic core, every
-context effect with its POVM certificates, and the committed diagonal
-outcome counts — assembled into a function from the missing data to a full
-instrument.  No outcome is fabricated: every datum PR-04 owes enters as a
-field of `MissingPhaseReceipts`, and this definition constructs no
-inhabitant of anything. -/
-def partialWitness (m : MissingPhaseReceipts) : OperationalPhaseInstrument where
+/-- Assemble the static model from ideal fit data.  This constructor supplies
+the already-declared effect matrices; it does not implement or source-produce
+the corresponding operations. -/
+def modelOfIdealPhaseFitData
+    (m : IdealPhaseFitData) : IdealPhasePOVMCountModel where
   core := QuantumSurface.committedAlgebraicPhaseCompletion
   prep := m.prep
   prep_isState := m.prep_isState
@@ -735,47 +684,31 @@ def partialWitness (m : MissingPhaseReceipts) : OperationalPhaseInstrument where
     | phase =>
         simpa [committedEffectPair, committedContextEffect] using m.born_phase
 
-/-- The partial witness carries the committed diagonal counts: its diagonal
-receipt is exactly the run's `realizedOutcomeCounts`. -/
-theorem partialWitness_diagonal_committed (m : MissingPhaseReceipts) :
+/-- The constructed model carries the committed diagonal count literals. -/
+theorem modelOfIdealPhaseFitData_diagonal_counts (m : IdealPhaseFitData) :
     realizedOutcomeCounts WebContext.diagonal =
-      some ((partialWitness m).counts
+      some ((modelOfIdealPhaseFitData m).counts
         (InstrumentContext.web WebContext.diagonal)) :=
-  (partialWitness m).diagonal_counts_committed
+  (modelOfIdealPhaseFitData m).diagonal_counts_committed
 
-/-! ## (P5) The reduction Prop -/
+/-! ## (P5) Exact ideal fit -/
 
-/-- **The PR-04 reduction Prop.**  PR-04's operational discharge, typed:
-some operational phase instrument exists over the committed algebraic core.
-Supplying the missing phase-context receipts is equivalent to inhabiting
-this Prop (`dischargesPR04_iff_missing_receipts`).  Nothing in the
-repository inhabits it today: the committed payload realizes diagonal
-counts only, and this file constructs no inhabitant.  An inhabitant
-certifies internal coherence of the supplied data — one preparation, exact
-POVMs, exact Born match across all contexts; that the supplied counts are
-producer receipts of a committed run is a custody condition the register
-tracks outside the type system, and the register's discharge discipline
-prohibits meeting this Prop with synthetic counts. -/
-def DischargesPR04 : Prop :=
-  ∃ I : OperationalPhaseInstrument,
+/-- Some static model over the committed algebraic core has an exact fit.
+This proposition intentionally says nothing about source provenance,
+implemented operations, or PR-04 discharge. -/
+def HasIdealPhaseFit : Prop :=
+  ∃ I : IdealPhasePOVMCountModel,
     I.core = QuantumSurface.committedAlgebraicPhaseCompletion
 
-/-- The missing receipts suffice: any inhabitant of `MissingPhaseReceipts`
-completes the partial witness into a full instrument over the committed
-core. -/
-theorem missing_receipts_discharge (m : MissingPhaseReceipts) :
-    DischargesPR04 :=
-  ⟨partialWitness m, rfl⟩
+/-- Any ideal fit-data package completes the static model. -/
+theorem idealPhaseFitData_hasIdealPhaseFit (m : IdealPhaseFitData) :
+    HasIdealPhaseFit :=
+  ⟨modelOfIdealPhaseFitData m, rfl⟩
 
-/-- **The proved reduction.**  Discharging the typed PR-04 Prop is exactly
-supplying the missing phase-context receipts: `DischargesPR04` holds if and
-only if `MissingPhaseReceipts` is inhabited.  Forward: an instrument over
-the committed core yields the preparation, the rotated and phase counts,
-and every Born receipt by reading its own fields.  Backward: the partial
-witness completes any receipt package into an instrument.  PR-04 stays
-open; this equivalence locates its remaining content exactly. -/
-theorem dischargesPR04_iff_missing_receipts :
-    DischargesPR04 ↔ Nonempty MissingPhaseReceipts := by
+/-- Exact fit is equivalent to inhabiting the ideal fit-data package.  This is
+an internal equivalence only, not an equivalence with scientific discharge. -/
+theorem hasIdealPhaseFit_iff_data :
+    HasIdealPhaseFit ↔ Nonempty IdealPhaseFitData := by
   constructor
   · rintro ⟨I, hcore⟩
     refine ⟨⟨I.prep, I.prep_isState,
@@ -795,7 +728,107 @@ theorem dischargesPR04_iff_missing_receipts :
       rw [I.phase_effect, hcore] at h
       exact h
   · rintro ⟨m⟩
-    exact missing_receipts_discharge m
+    exact idealPhaseFitData_hasIdealPhaseFit m
+
+/-! ## A synthetic counterreceipt to an operational interpretation -/
+
+/-- A diagonal state chosen solely from the committed diagonal count ratio. -/
+def syntheticIdealPrep : Matrix (Fin 2) (Fin 2) ℂ :=
+  Matrix.diagonal ![(111 / 179 : ℂ), (68 / 179 : ℂ)]
+
+theorem syntheticIdealPrep_isState : IsState syntheticIdealPrep := by
+  constructor
+  · refine Matrix.PosSemidef.diagonal ?_
+    intro i
+    fin_cases i
+    · change (0 : ℂ) ≤ (111 / 179 : ℂ)
+      positivity
+    · change (0 : ℂ) ≤ (68 / 179 : ℂ)
+      positivity
+  · norm_num [syntheticIdealPrep, Matrix.trace, Matrix.diag,
+      Fin.sum_univ_two]
+
+/-- Synthetic integer count literals exactly matching the diagonal model. -/
+def syntheticRotatedCounts : Fin 6 → ℕ × ℕ :=
+  ![(111, 68), (111, 68), (315, 401), (315, 401), (315, 401), (315, 401)]
+
+theorem synthetic_born_diagonal :
+    bornWeight syntheticIdealPrep (complexifyRealMatrix recordProjector) =
+      binaryFrequency (111, 68) := by
+  norm_num [bornWeight, syntheticIdealPrep, complexifyRealMatrix,
+    recordProjector, binaryFrequency, Matrix.trace, Matrix.diag,
+    Matrix.mul_apply, Fin.sum_univ_two]
+
+theorem synthetic_born_rotated (g : Fin 6) :
+    bornWeight syntheticIdealPrep (complexifyRealMatrix (conjProjector g)) =
+      binaryFrequency (syntheticRotatedCounts g) := by
+  fin_cases g
+  · have hzero : conjProjector (0 : Fin 6) = recordProjector := by
+      simp [conjProjector, gaugeIrrep]
+    change bornWeight syntheticIdealPrep
+      (complexifyRealMatrix (conjProjector (0 : Fin 6))) =
+        binaryFrequency (syntheticRotatedCounts (0 : Fin 6))
+    rw [hzero]
+    simpa [syntheticRotatedCounts] using synthetic_born_diagonal
+  · change bornWeight syntheticIdealPrep
+      (complexifyRealMatrix (conjProjector (1 : Fin 6))) =
+        binaryFrequency (syntheticRotatedCounts (1 : Fin 6))
+    rw [conjProjector_one_eq_record]
+    simpa [syntheticRotatedCounts] using synthetic_born_diagonal
+  · change bornWeight syntheticIdealPrep
+      (complexifyRealMatrix (conjProjector (2 : Fin 6))) =
+        binaryFrequency (315, 401)
+    rw [conjProjector_two]
+    norm_num [bornWeight, syntheticIdealPrep, complexifyRealMatrix,
+      syntheticRotatedCounts, binaryFrequency, Matrix.trace, Matrix.diag,
+      Matrix.mul_apply, Fin.sum_univ_two]
+  · change bornWeight syntheticIdealPrep
+      (complexifyRealMatrix (conjProjector (3 : Fin 6))) =
+        binaryFrequency (315, 401)
+    rw [conjProjector_three]
+    norm_num [bornWeight, syntheticIdealPrep, complexifyRealMatrix,
+      syntheticRotatedCounts, binaryFrequency, Matrix.trace, Matrix.diag,
+      Matrix.mul_apply, Fin.sum_univ_two]
+  · change bornWeight syntheticIdealPrep
+      (complexifyRealMatrix (conjProjector (4 : Fin 6))) =
+        binaryFrequency (315, 401)
+    rw [conjProjector_four]
+    norm_num [bornWeight, syntheticIdealPrep, complexifyRealMatrix,
+      syntheticRotatedCounts, binaryFrequency, Matrix.trace, Matrix.diag,
+      Matrix.mul_apply, Fin.sum_univ_two]
+  · change bornWeight syntheticIdealPrep
+      (complexifyRealMatrix (conjProjector (5 : Fin 6))) =
+        binaryFrequency (315, 401)
+    rw [conjProjector_five]
+    norm_num [bornWeight, syntheticIdealPrep, complexifyRealMatrix,
+      syntheticRotatedCounts, binaryFrequency, Matrix.trace, Matrix.diag,
+      Matrix.mul_apply, Fin.sum_univ_two]
+
+theorem synthetic_born_phase :
+    bornWeight syntheticIdealPrep sourcePhaseLift = binaryFrequency (1, 1) := by
+  rw [sourcePhaseLift_eq_rhoYPlus]
+  norm_num [bornWeight, syntheticIdealPrep, rhoYPlus, binaryFrequency,
+    Matrix.trace, Matrix.diag, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- A complete ideal fit-data package constructed from literals only. -/
+def syntheticIdealPhaseFitData : IdealPhaseFitData where
+  prep := syntheticIdealPrep
+  prep_isState := syntheticIdealPrep_isState
+  rotatedCounts := syntheticRotatedCounts
+  rotatedCounts_pos := by intro g; fin_cases g <;> decide
+  phaseCounts := (1, 1)
+  phaseCounts_pos := by decide
+  born_diagonal := synthetic_born_diagonal
+  born_rotated := synthetic_born_rotated
+  born_phase := synthetic_born_phase
+
+/-- **Synthetic counterreceipt.**  Exact ideal fit is inhabited using only
+declared matrices and chosen integer literals.  The theorem has no producer,
+run, CP outcome map, summed channel, readback, receipt, or statistical input.
+It therefore makes the boundary machine-visible: `HasIdealPhaseFit` is an
+algebraic consistency property and cannot be used as PR-04 discharge. -/
+theorem synthetic_ideal_phase_fit : HasIdealPhaseFit :=
+  idealPhaseFitData_hasIdealPhaseFit syntheticIdealPhaseFitData
 
 end
 
@@ -809,13 +842,13 @@ end
 #print axioms webContextProjector_isEvent
 #print axioms enumerateContexts_surjective
 #print axioms binaryFrequency_diagonal_run
-#print axioms OperationalPhaseInstrument.effect_one
-#print axioms OperationalPhaseInstrument.effect_isEffect
-#print axioms OperationalPhaseInstrument.diagonal_mass
-#print axioms OperationalPhaseInstrument.diagonal_counts_committed
-#print axioms OperationalPhaseInstrument.born_matches_snd
-#print axioms operational_instrument_completes_tomography
-#print axioms preparation_identified_by_realized_data
+#print axioms IdealPhasePOVMCountModel.effect_one
+#print axioms IdealPhasePOVMCountModel.effect_isEffect
+#print axioms IdealPhasePOVMCountModel.diagonal_mass
+#print axioms IdealPhasePOVMCountModel.diagonal_counts_committed
+#print axioms IdealPhasePOVMCountModel.born_matches_snd
+#print axioms ideal_phase_model_completes_tomography
+#print axioms preparation_identified_by_exact_fit_data
 #print axioms sigmaXPlusProj_isEvent
 #print axioms sigmaXMinusProj_isEvent
 #print axioms rhoXPlus_eq_mix
@@ -836,9 +869,10 @@ end
 #print axioms phase_effect_genuinely_complex
 #print axioms phase_context_necessary
 #print axioms committedContextEffect_isEvent
-#print axioms partialWitness
-#print axioms partialWitness_diagonal_committed
-#print axioms missing_receipts_discharge
-#print axioms dischargesPR04_iff_missing_receipts
+#print axioms modelOfIdealPhaseFitData
+#print axioms modelOfIdealPhaseFitData_diagonal_counts
+#print axioms idealPhaseFitData_hasIdealPhaseFit
+#print axioms hasIdealPhaseFit_iff_data
+#print axioms synthetic_ideal_phase_fit
 
 end EventAlgebra

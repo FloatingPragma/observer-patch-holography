@@ -73,8 +73,8 @@ derives the rest as theorems. From that one architecture:
 - **Quantum mechanics as theorems.** On the finite observer surface, public
   records form an event algebra with Born probabilities, Lüders
   conditioning, and the Tsirelson bound. An explicit entangled record state
-  attains the quantum ceiling 2√2 exactly, while classical record readouts
-  provably stop at 2. Schrödinger dynamics is the unique
+  attains the quantum ceiling 2√2 exactly, while a fixed counted state with
+  jointly record-diagonal readouts provably stops at 2. Schrödinger dynamics is the unique
   continuous symmetry flow, and the Born weights follow without a continuity
   axiom in every finite dimension, including dimension two.
 - **The four laws of thermodynamics from disagreement repair.** One
@@ -94,9 +94,9 @@ derives the rest as theorems. From that one architecture:
   patches carries an exact Coulomb law: every neutral charge distribution
   has one canonical minimal-energy potential, computed in exact rational
   arithmetic and machine-checked, and the operator that repairs observer
-  disagreement is built from the same Laplacian. A gauge-invariant action
-  on the seams completes the position-space picture, with sources allowed
-  exactly when they are conserved.
+  disagreement is built from the same Laplacian. Twenty oriented faces then
+  produce an exact local gauge action with five-neighbor seam coupling and a
+  nineteen-dimensional field-strength space.
 - **The Standard Model gauge group from twelve ports.** OPH makes an
   architectural choice at the simulation hardware layer: each observer patch
   has twelve boundary ports wired as the corners of an icosahedron. A classification theorem forces
@@ -112,7 +112,7 @@ derives the rest as theorems. From that one architecture:
   fine-structure constant; the match carries diagnostic status while its
   physical attachment is open. The constants of nature enter as fixed-point
   problems to be solved.
-- **Machine-checked and falsifiable.** More than 5600 Lean theorems with
+- **Machine-checked and falsifiable.** More than 5700 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
   frozen-prediction ladder registers kill bands under cryptographic custody

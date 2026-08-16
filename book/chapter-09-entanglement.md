@@ -122,11 +122,14 @@ mean absolute value. Classical local hidden-variable models keep
 that number at or below 2. Quantum mechanics permits a larger value, but not an
 arbitrary one. The ceiling $2\sqrt{2}$ is the quantum limit.
 
-Both sides of that story are machine-checked inside the OPH record algebra:
-an explicit entangled record state reaches $2\sqrt{2}$ exactly, while every
-classical record readout provably stays at or below 2. Closing the gap
-between the two numbers requires phase structure, the part of the quantum
-state that classical bookkeeping cannot hold.
+Both sides of a precise finite version are machine-checked inside the OPH
+record algebra: an explicit declared entangled state reaches $2\sqrt{2}$
+exactly, while a fixed record-diagonal state read by four observables diagonal
+in the same basis stays at or below 2. The attaining state and settings are
+entirely real. The proved gap is therefore entanglement, non-diagonal
+coherence, and noncommuting settings; it is not a proof that a genuinely
+complex phase operation is necessary, and it does not cover every contextual
+classical experiment.
 
 That stronger pattern has been observed. In 2015, Ronald Hanson's group in
 Delft ran the first loophole-free test, with entangled electron spins held in

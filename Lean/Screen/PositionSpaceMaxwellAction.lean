@@ -11,13 +11,13 @@ open OPH.SeamU1HolonomyClassification
 open OPH.DiscreteCoulombGreen
 
 /-!
-# The local real position-space action on the committed seams (issue #733)
+# A global real Hodge action and separate Gauss sector on the committed seams
 
 WHAT IS PROVED.  Finite exact real linear algebra on the committed
 thirty-seam table: real position-space fields `A : Fin 30 → ℝ` on the
 committed seams, real port gauge `χ : Fin 12 → ℝ` acting by
 `A + realCoboundary χ` through the cast of the committed rational
-incidence.  The field-strength projector
+incidence.  The global Hodge projector
 `fieldProjector = 1 - d ∘ G ∘ ∂` (with `G` the real cast of the exact
 Green matrix of `DiscreteCoulombGreen`) is idempotent
 (`fieldProjector_idempotent`) and self-adjoint for the equal-weight
@@ -34,7 +34,10 @@ committed finite `U(1)^19` classification
 `seamConnectionQuotientMulEquiv`, with the dimension agreeing with the
 committed chord count and the committed rational cycle rank, nineteen
 (`cycleSpace_finrank_eq_chord_count`, `cycleSpace_finrank_eq_rational`,
-`chord_count_eq_gauss_cycle_rank`).  The sourced quadratic action
+`chord_count_eq_gauss_cycle_rank`).  The historical declaration
+`fieldStrength A = fieldProjector A` therefore denotes the global cycle
+component of `A`, not a local plaquette curvature.  The global Hodge
+quadratic action
 `sourcedAction J A = (1/2) Σ (P A)² - Σ J·A` is gauge-invariant exactly
 when the source is conserved, `realBoundary J = 0`, both directions
 (`sourcedAction_gauge_invariant_iff`); the exact quadratic expansion
@@ -44,11 +47,14 @@ exactly at `P A = J` (`stationary_iff`); solvability holds exactly for
 conserved sources, with `A = J` a solution (`stationary_solvable_iff`,
 `conserved_source_fixed`); any two solutions differ exactly by gauge
 (`solutions_differ_by_gauge`); every solution is a global minimum, with
-equality exactly on the gauge orbit (`sourced_global_minimum`).  For a
-neutral rational charge the real cast of the Part-A Coulomb field is
+equality exactly on the gauge orbit (`sourced_global_minimum`).  Separately,
+for a neutral rational charge the real cast of the Part-A Coulomb field is
 the unique minimal-energy solution of the real Gauss sector
-(`electrostatic_join`, composing the Part-A Thomson principle through
-`realCoulombField_cast`).  One composed receipt
+(`electrostatic_join`, a historical name for scalar extension of the Part-A
+Thomson principle through `realCoulombField_cast`).  That Coulomb field is a
+pure coboundary, so its declared `fieldStrength` is identically zero
+(`fieldStrength_realCoulombField_zero`); it is not an electrostatic solution
+of the sourced Hodge action.  One composed receipt
 `positionSpaceMaxwellCoulomb_receipt` carries these clauses as a single
 typed conjunction.
 
@@ -62,13 +68,14 @@ of any premise bundle and no premise-register row is consumed by any
 proof here; the coincidence is stated so that an instrument lane
 consuming PR-20 reads the same pairing.
 
-WHAT IS NOT PROVED.  Calling `sourcedAction` a Maxwell action,
-identifying `J` with a physical current, any amplitude with a photon,
-the seam table with physical space, a continuum limit, or a laboratory
-readout is NOT proved and remains open under PR-53 and PR-54.  The
-word Coulomb names the canonical discrete Gauss solution only.  No
-dynamics, no quantization, no covariance, and no measurement statement
-appears in this module.
+WHAT IS NOT PROVED.  Calling `sourcedAction` a local Maxwell action or
+`fieldStrength` a local curvature, identifying `J` with a physical current,
+any amplitude with a photon, the seam table with physical space, a continuum
+limit, or a laboratory readout is NOT proved and remains open under PR-53
+and PR-54.  The word Coulomb names the canonical discrete Gauss solution
+only.  No dynamics, no quantization, no covariance, and no measurement
+statement appears in this module.  The file and declaration names are
+retained for compatibility and do not strengthen those interpretations.
 
 Axiom audit.  Every proof composes the `DiscreteCoulombGreen` receipts
 with exact real linear algebra; the module adds no project axiom and
@@ -114,11 +121,12 @@ theorem realSeamEnergy_zero : realSeamEnergy (0 : Fin 30 → ℝ) = 0 := by
   unfold realSeamEnergy
   simp
 
-/-! ## The field-strength projector -/
+/-! ## The global Hodge cycle projector -/
 
-/-- The field-strength projector `1 - d ∘ G ∘ ∂` on real position-space
-seam fields, built from the committed incidence and the exact real
-Green matrix. -/
+/-- The global Hodge projector `1 - d ∘ G ∘ ∂` on real seam fields,
+built from the committed incidence and the exact real Green matrix.  It
+projects onto cycles along coboundaries; it is not a local curvature
+operator. -/
 def fieldProjector : (Fin 30 → ℝ) →ₗ[ℝ] (Fin 30 → ℝ) :=
   LinearMap.id - realCoboundary ∘ₗ greenMatrixR.mulVecLin ∘ₗ realBoundary
 
@@ -208,9 +216,11 @@ theorem fieldProjector_selfAdjoint (A B : Fin 30 → ℝ) :
   rw [realPortInner_comm (realBoundary A)
     (greenMatrixR.mulVec (realBoundary B))]
 
-/-! ## Gauge invariance of the field strength and the real quotient -/
+/-! ## Gauge invariance of the projected cycle component and the real quotient -/
 
-/-- The field strength of a real position-space field. -/
+/-- Historical field-strength name for the global Hodge-projected cycle
+component of a real seam field.  This definition is not a local plaquette
+curvature. -/
 def fieldStrength (A : Fin 30 → ℝ) : Fin 30 → ℝ := fieldProjector A
 
 /-- **(M1)** The field strength is gauge-invariant. -/
@@ -292,9 +302,10 @@ theorem cycleSpace_finrank_eq_rational :
 
 /-! ## (M2) The sourced action and source conservation -/
 
-/-- The sourced quadratic action on real position-space fields.  The
-name records shape only; identifying it with a laboratory Maxwell
-action is exactly the open attachment PR-53/PR-54. -/
+/-- The sourced global Hodge quadratic action on real seam fields.  Its
+projector contains the Green operator, so this is not a local lattice
+action.  Identifying it with a physical Maxwell action is exactly the
+open attachment PR-53/PR-54. -/
 def sourcedAction (J A : Fin 30 → ℝ) : ℝ :=
   (1 / 2) * realSeamEnergy (fieldProjector A) - realSeamInner J A
 
@@ -438,12 +449,20 @@ theorem sourced_global_minimum (J A : Fin 30 → ℝ)
     rw [hB, LinearMap.mem_ker.mp hmem', realSeamEnergy_zero]
     ring
 
-/-! ## (M4) The electrostatic join with the Part-A Coulomb field -/
+/-! ## (M4) The separate real Gauss/Thomson scalar extension -/
 
 /-- The real Coulomb field of a real port load: the same canonical
 construction as Part A after scalar extension. -/
 def realCoulombField (ρ : Fin 12 → ℝ) : Fin 30 → ℝ :=
   realCoboundary (greenMatrixR.mulVec ρ)
+
+/-- The real Coulomb field is a pure coboundary, so the global Hodge
+`fieldStrength` annihilates it.  This explicit control separates the
+Gauss/Thomson sector below from the sourced Hodge-action sector above. -/
+theorem fieldStrength_realCoulombField_zero (ρ : Fin 12 → ℝ) :
+    fieldStrength (realCoulombField ρ) = 0 := by
+  unfold fieldStrength realCoulombField
+  exact fieldProjector_coboundary (greenMatrixR.mulVec ρ)
 
 theorem realCoulombField_gauss (ρ : Fin 12 → ℝ)
     (hρ : (∑ p : Fin 12, ρ p) = 0) :
@@ -537,11 +556,13 @@ theorem realCoulombField_cast (ρ : RationalPortLoad) :
   push_cast
   ring
 
-/-- **(M4)** Electrostatic join: for a neutral rational charge, the
-cast of the Part-A Coulomb field solves the real Gauss problem, is
-orthogonal to every real cycle, and is the unique minimal-energy real
-Gauss solution — the Part-A Thomson principle carried into the
-position-space sector. -/
+/-- **(M4)** Separate Gauss/Thomson scalar extension: for a neutral rational
+load, the cast of the Part-A Coulomb field solves the real Gauss problem,
+is orthogonal to every real cycle, and is the unique minimal-energy real
+Gauss solution.  The historical theorem name records only this scalar
+extension.  It does not join the Coulomb field to `sourcedAction`; indeed
+`fieldStrength_realCoulombField_zero` shows that the Hodge projector
+annihilates the Coulomb field. -/
 theorem electrostatic_join (ρ : RationalPortLoad)
     (hρ : rationalPortTotal ρ = 0) :
     realBoundary (fun s ↦ ((coulombField ρ s : ℚ) : ℝ)) =
@@ -574,8 +595,8 @@ theorem electrostatic_join (ρ : RationalPortLoad)
 
 /-! ## The one citable composed receipt -/
 
-/-- **The position-space Maxwell/Coulomb receipt (issue #733).**  One
-typed conjunction of the M1-M4 clauses: the projector is idempotent
+/-- **The global Hodge-action and separate Coulomb receipt (issue #733).**
+One typed conjunction of the M1-M4 clauses: the projector is idempotent
 and self-adjoint with kernel the gauge directions and range the
 nineteen-dimensional cycle space; the field strength is gauge-invariant
 and determines the field exactly up to gauge, with the real quotient
@@ -583,10 +604,13 @@ equivalent to the cycle space at the committed chord count; the sourced
 action is gauge-invariant exactly for conserved sources; the exact
 quadratic expansion, stationarity exactly at `P A = J`, solvability
 exactly for conserved sources, gauge-uniqueness of solutions, and the
-global-minimum property; and the electrostatic join with the Part-A
-Coulomb field.  Premise-free finite mathematics; PR-53 and PR-54 stay
-open, and the equal-weight pairing coincides with the PR-20 selection
-without consuming it. -/
+global-minimum property; plus the separate Part-A Gauss/Thomson scalar
+extension and the explicit control that its pure-coboundary Coulomb field
+has zero Hodge-projected `fieldStrength`.  The receipt proves neither a
+local Maxwell action nor an electrostatic solution of `sourcedAction`.
+Premise-free finite mathematics; PR-53 and PR-54 stay open, and the
+equal-weight pairing coincides with the PR-20 selection without consuming
+it. -/
 theorem positionSpaceMaxwellCoulomb_receipt :
     (∀ A : Fin 30 → ℝ,
       fieldProjector (fieldProjector A) = fieldProjector A)
@@ -627,6 +651,7 @@ theorem positionSpaceMaxwellCoulomb_receipt :
       sourcedAction J A ≤ sourcedAction J B ∧
         (sourcedAction J B = sourcedAction J A ↔
           B - A ∈ LinearMap.range realCoboundary))
+    ∧ (∀ ρ : Fin 12 → ℝ, fieldStrength (realCoulombField ρ) = 0)
     ∧ ∀ ρ : RationalPortLoad, rationalPortTotal ρ = 0 →
       realBoundary (fun s ↦ ((coulombField ρ s : ℚ) : ℝ)) =
           (fun p ↦ ((ρ p : ℚ) : ℝ)) ∧
@@ -646,7 +671,8 @@ theorem positionSpaceMaxwellCoulomb_receipt :
     cycleSpace_finrank_eq_chord_count, cycleSpace_finrank_eq_rational,
     sourcedAction_gauge_invariant_iff, sourcedAction_expansion,
     stationary_iff, stationary_solvable_iff, solutions_differ_by_gauge,
-    fun J A hA B ↦ sourced_global_minimum J A hA B, electrostatic_join⟩
+    fun J A hA B ↦ sourced_global_minimum J A hA B,
+    fieldStrength_realCoulombField_zero, electrostatic_join⟩
 
 end
 
@@ -681,6 +707,7 @@ used. -/
 #print axioms OPH.PositionSpaceMaxwellAction.stationary_solvable_iff
 #print axioms OPH.PositionSpaceMaxwellAction.solutions_differ_by_gauge
 #print axioms OPH.PositionSpaceMaxwellAction.sourced_global_minimum
+#print axioms OPH.PositionSpaceMaxwellAction.fieldStrength_realCoulombField_zero
 #print axioms OPH.PositionSpaceMaxwellAction.realCoulombField_gauss
 #print axioms OPH.PositionSpaceMaxwellAction.realCoulombField_orthogonal
 #print axioms OPH.PositionSpaceMaxwellAction.realThomson_decomposition

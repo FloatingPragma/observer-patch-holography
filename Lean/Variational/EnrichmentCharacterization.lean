@@ -56,7 +56,8 @@ all of it exact finite real algebra with no new premises:
   (`velocityOnly_clause_necessary`, re-exporting the committed
   injectivity `chainTwoSlotD2_curvature_injective`).
 
-* **Necessity of quadraticity (E4-ii).**  For velocity-only cubic
+* **Necessity of quadraticity inside the stationarity-only test
+  (E4-ii).**  For velocity-only cubic
   corner-invisible sentences `y(y-1)(μy + ν)` the committed
   stationarity equation fixes only `μ + ν = a*/2`
   (`chainCubic_stationary_iff`): the explicit cubic
@@ -64,18 +65,38 @@ all of it exact finite real algebra with no new premises:
   the constant-one junction with a certified derivative packet, and is
   not equal to any quadratic-grammar sentence
   (`quadraticity_clause_necessary`, `chainCubic_ne_twoSlot`,
-  `chainCubic_ne_quadGrammar`).  So quadraticity is a load-bearing
-  clause of the axiomatization, not a redundancy.  The stronger
-  committed receipt does exclude the cubics: real fixed-endpoint
+  `chainCubic_ne_quadGrammar`).  Thus quadraticity is needed for the
+  stated selection theorem if only corner invisibility, velocity-only,
+  and stationarity are assumed.  The stronger committed receipt does
+  exclude this declared cubic family: real fixed-endpoint
   single-site minimality of the embedded constant-one history forces
   `μ = 0` and returns the committed rule exactly
   (`chainCubic_gap`, `chainCubic_realMin_forces_quadratic`).
+
+* **Quartic continuation and global-selection boundary (E5).**  The
+  velocity-only quartic increment `λ y²(y-1)²` is corner-invisible and
+  leaves the committed stationarity equation unchanged.  For every
+  `0 < λ < a*`, its exact single-site gap is
+  `(x-1)²(a*/2 + λx²)`, so the embedded constant-one history remains a
+  global real single-site minimizer.  Its momentum derivative has the
+  exact positive Hessian
+  `(a* - λ) + 12λ(y-1/2)²`; consequently the momentum map is strictly
+  increasing and surjective, with a unique global velocity solution.
+  Nevertheless the Lagrangian is neither the committed rule nor any
+  member of the quadratic grammar
+  (`quartic_continuation_blocks_global_selection`).  Therefore the
+  cubic exclusion is not a global uniqueness theorem.
 
 What is NOT proved.  Nothing here states or implies that the committed
 source selects the enrichment; the realized-history no-go of
 `RealizedHistoryLegendreNoGo` stays in force, register row PR-06 stays
 a register row, and OL-D1 stays partial.  `VelocityOnly` is a named
-clause of a declared axiomatization, not a source-produced fact.  All
+clause of a declared axiomatization, not a source-produced fact.  In
+particular, no theorem in this module proves that corner invisibility,
+velocity-only, stationarity, single-site minimality, or regular
+momentum inversion is a globally selecting or minimal axiom system;
+the quartic continuation proves that those tested clauses still admit
+nonquadratic alternatives.  All
 statements are exact real algebra about the declared grammar around
 the committed two-state mixing chain; no continuum, units, clock, or
 amplitude is claimed.  The derivative data reference is register row
@@ -688,6 +709,399 @@ theorem chainCubic_realMin_forces_quadratic (μ ν : ℝ)
   simp only [chainCubicLagrangian, cubicIncrement, chainCurvedLagrangian]
   ring
 
+/-! ## E5: a quartic continuation beyond the cubic boundary -/
+
+/-- The quartic velocity-only increment used to test whether the
+single-site minimality receipt globally selects the committed rule. -/
+noncomputable def quarticIncrement (lam y : ℝ) : ℝ :=
+  lam * y ^ 2 * (y - 1) ^ 2
+
+/-- The first velocity derivative of `quarticIncrement`. -/
+noncomputable def quarticIncrementDeriv (lam y : ℝ) : ℝ :=
+  lam * (4 * y ^ 3 - 6 * y ^ 2 + 2 * y)
+
+/-- The second velocity derivative of `quarticIncrement`. -/
+noncomputable def quarticIncrementSecondDeriv (lam y : ℝ) : ℝ :=
+  lam * (12 * y ^ 2 - 12 * y + 2)
+
+/-- The committed curved rule plus the quartic velocity increment. -/
+noncomputable def chainQuarticLagrangian (lam : ℝ) (x y : ℝ) : ℝ :=
+  chainCurvedLagrangian modeExtremalCurvature x y
+    + quarticIncrement lam y
+
+/-- The exact second-slot derivative of `chainQuarticLagrangian`. -/
+noncomputable def chainQuarticD2 (lam : ℝ) (x y : ℝ) : ℝ :=
+  chainCurvedD2 modeExtremalCurvature x y
+    + quarticIncrementDeriv lam y
+
+/-- The quartic increment vanishes at every binary corner. -/
+theorem quarticIncrement_cornerInvisible (lam : ℝ) :
+    CornerInvisible (fun _ y => quarticIncrement lam y) := by
+  unfold CornerInvisible quarticIncrement
+  norm_num
+
+/-- The quartic increment is velocity-only by construction. -/
+theorem quarticIncrement_velocityOnly (lam : ℝ) :
+    VelocityOnly (fun _ y => quarticIncrement lam y) :=
+  fun _ _ _ => rfl
+
+/-- The quartic continuation reads the committed corner table exactly. -/
+theorem chainQuartic_corner (lam : ℝ) (i j : Fin 2) :
+    chainQuarticLagrangian lam ((i : ℕ) : ℝ) ((j : ℕ) : ℝ)
+      = -Real.log (chainWeight i j) := by
+  rw [chainQuarticLagrangian, chainCurvedLagrangian_corner]
+  fin_cases j <;> norm_num [quarticIncrement]
+
+/-- Exact first derivative of the quartic increment. -/
+theorem quarticIncrement_hasDerivAt (lam y : ℝ) :
+    HasDerivAt (quarticIncrement lam) (quarticIncrementDeriv lam y) y := by
+  have h := ((((hasDerivAt_id y).pow 4).const_mul lam).sub
+    (((hasDerivAt_id y).pow 3).const_mul (2 * lam))).add
+      (((hasDerivAt_id y).pow 2).const_mul lam)
+  have hfun : quarticIncrement lam
+      = fun t : ℝ => lam * t ^ 4 - (2 * lam) * t ^ 3 + lam * t ^ 2 := by
+    funext t
+    unfold quarticIncrement
+    ring
+  have hval : quarticIncrementDeriv lam y
+      = 4 * lam * y ^ 3 - 6 * lam * y ^ 2 + 2 * lam * y := by
+    unfold quarticIncrementDeriv
+    ring
+  rw [hfun, hval]
+  convert h using 1
+  all_goals (try simp only [id_eq])
+  all_goals ring
+
+/-- Exact derivative of the first-derivative polynomial. -/
+theorem quarticIncrementDeriv_hasDerivAt (lam y : ℝ) :
+    HasDerivAt (quarticIncrementDeriv lam)
+      (quarticIncrementSecondDeriv lam y) y := by
+  unfold quarticIncrementDeriv quarticIncrementSecondDeriv
+  convert ((((((hasDerivAt_id y).pow 3).const_mul 4).sub
+    (((hasDerivAt_id y).pow 2).const_mul 6)).add
+      ((hasDerivAt_id y).const_mul 2)).const_mul lam) using 1
+  all_goals simp only [id_eq]
+  all_goals ring
+
+/-- The exact momentum relation of the quartic continuation. -/
+theorem chainQuartic_momentum (lam x y : ℝ) :
+    MomentumRelation (chainQuarticLagrangian lam) x y
+      (chainQuarticD2 lam x y) := by
+  have hbase :=
+    chainCurvedLagrangian_momentum modeExtremalCurvature x y
+  have hquartic := quarticIncrement_hasDerivAt lam y
+  have h := hbase.add hquartic
+  simpa only [chainQuarticLagrangian, chainQuarticD2,
+    MomentumRelation] using h
+
+/-- The uncurried derivative packet of the quartic continuation. -/
+theorem chainQuartic_hasFDerivAt (lam : ℝ) (p : ℝ × ℝ) :
+    HasFDerivAt (Function.uncurry (chainQuarticLagrangian lam))
+      (chainCurvedD1 p.1 p.2 • ContinuousLinearMap.fst ℝ ℝ ℝ
+        + chainQuarticD2 lam p.1 p.2
+            • ContinuousLinearMap.snd ℝ ℝ ℝ) p := by
+  have hL := chainCurvedLagrangian_hasFDerivAt
+    modeExtremalCurvature p
+  have hq : HasFDerivAt (fun z : ℝ × ℝ => quarticIncrement lam z.2)
+      (quarticIncrementDeriv lam p.2
+        • ContinuousLinearMap.snd ℝ ℝ ℝ) p := by
+    have h2 := ((quarticIncrement_hasDerivAt lam p.2).hasFDerivAt).comp p
+      hasFDerivAt_snd
+    have hclm : (ContinuousLinearMap.toSpanSingleton ℝ
+          (quarticIncrementDeriv lam p.2)).comp
+          (ContinuousLinearMap.snd ℝ ℝ ℝ)
+        = quarticIncrementDeriv lam p.2
+            • ContinuousLinearMap.snd ℝ ℝ ℝ := by
+      refine ContinuousLinearMap.ext fun v => ?_
+      simp only [ContinuousLinearMap.coe_comp', Function.comp_apply,
+        ContinuousLinearMap.toSpanSingleton_apply,
+        ContinuousLinearMap.coe_snd', ContinuousLinearMap.smul_apply,
+        smul_eq_mul]
+      ring
+    rwa [hclm] at h2
+  have hsum := hL.add hq
+  have hfun : Function.uncurry (chainQuarticLagrangian lam)
+      = fun z : ℝ × ℝ =>
+          Function.uncurry
+            (chainCurvedLagrangian modeExtremalCurvature) z
+              + quarticIncrement lam z.2 := by
+    funext z
+    simp only [Function.uncurry, chainQuarticLagrangian]
+  have hD : chainCurvedD1 p.1 p.2 • ContinuousLinearMap.fst ℝ ℝ ℝ
+        + chainQuarticD2 lam p.1 p.2
+            • ContinuousLinearMap.snd ℝ ℝ ℝ
+      = (chainCurvedD1 p.1 p.2 • ContinuousLinearMap.fst ℝ ℝ ℝ
+          + chainCurvedD2 modeExtremalCurvature p.1 p.2
+              • ContinuousLinearMap.snd ℝ ℝ ℝ)
+        + quarticIncrementDeriv lam p.2
+            • ContinuousLinearMap.snd ℝ ℝ ℝ := by
+    refine ContinuousLinearMap.ext fun v => ?_
+    simp only [ContinuousLinearMap.add_apply,
+      ContinuousLinearMap.smul_apply, ContinuousLinearMap.coe_fst',
+      ContinuousLinearMap.coe_snd', smul_eq_mul, chainQuarticD2]
+    ring
+  rw [hfun, hD]
+  exact hsum
+
+/-- The quartic increment and its first derivative vanish at the
+constant-one junction, so the committed stationarity equation is
+unchanged for every `lam`. -/
+theorem chainQuartic_stationary (lam : ℝ) :
+    chainQuarticD2 lam 1 1 + chainCurvedD1 1 1 = 0 := by
+  have h := (modeExtremal_forced modeExtremalCurvature).mpr rfl
+  unfold chainQuarticD2 quarticIncrementDeriv
+  norm_num
+  exact h
+
+/-- Exact fixed-endpoint single-site gap of the quartic continuation. -/
+theorem chainQuartic_gap (lam x : ℝ) :
+    (chainQuarticLagrangian lam 1 x
+        - chainQuarticLagrangian lam 1 1)
+      + (chainQuarticLagrangian lam x 1
+        - chainQuarticLagrangian lam 1 1)
+      = (x - 1) ^ 2
+          * (modeExtremalCurvature / 2 + lam * x ^ 2) := by
+  have h := chainCurved_modeExtremal_gap x
+  unfold chainQuarticLagrangian quarticIncrement
+  norm_num
+  linarith
+
+/-- For nonnegative `lam`, the embedded constant-one history remains
+a global real fixed-endpoint single-site minimizer at every admissible
+interior junction. -/
+theorem chainQuartic_constOne_realMin (lam : ℝ) (hlam : 0 ≤ lam)
+    (M : ℕ) {k m : Fin M} (hkm : k.succ = m.castSucc) (x : ℝ) :
+    localAction (chainQuarticLagrangian lam)
+        (chainEmb (constOneHistory M))
+      ≤ localAction (chainQuarticLagrangian lam)
+          (Function.update (chainEmb (constOneHistory M)) k.succ x) := by
+  have hdiff := localAction_update_diff (chainQuarticLagrangian lam)
+    (chainEmb (constOneHistory M)) hkm x
+  simp only [chainEmb_constOne] at hdiff
+  have hgap := chainQuartic_gap lam x
+  have hcoef :
+      0 ≤ modeExtremalCurvature / 2 + lam * x ^ 2 :=
+    add_nonneg (le_of_lt (half_pos modeExtremalCurvature_pos))
+      (mul_nonneg hlam (sq_nonneg x))
+  have hnonneg :
+      0 ≤ (x - 1) ^ 2
+        * (modeExtremalCurvature / 2 + lam * x ^ 2) :=
+    mul_nonneg (sq_nonneg _) hcoef
+  linarith
+
+/-- Exact square-completed form of the velocity Hessian. -/
+theorem chainQuartic_hessian_identity (lam y : ℝ) :
+    modeExtremalCurvature + quarticIncrementSecondDeriv lam y
+      = (modeExtremalCurvature - lam)
+          + 12 * lam * (y - (1 / 2 : ℝ)) ^ 2 := by
+  unfold quarticIncrementSecondDeriv
+  ring
+
+/-- If `0 < lam < a*`, the velocity Hessian is positive everywhere. -/
+theorem chainQuartic_hessian_pos (lam y : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature) :
+    0 < modeExtremalCurvature + quarticIncrementSecondDeriv lam y := by
+  rw [chainQuartic_hessian_identity]
+  have hs : 0 ≤ (y - (1 / 2 : ℝ)) ^ 2 := sq_nonneg _
+  nlinarith
+
+/-- The quartic momentum map has the displayed positive derivative. -/
+theorem chainQuarticD2_hasDerivAt (lam x y : ℝ) :
+    HasDerivAt (chainQuarticD2 lam x)
+      (modeExtremalCurvature + quarticIncrementSecondDeriv lam y) y := by
+  have hbase : HasDerivAt
+      (chainCurvedD2 modeExtremalCurvature x)
+      modeExtremalCurvature y := by
+    unfold chainCurvedD2
+    convert ((hasDerivAt_const y (chainFiberSlope x)).add
+      ((hasDerivAt_id y).const_mul modeExtremalCurvature)).sub_const
+        (modeExtremalCurvature / 2) using 1
+    all_goals ring_nf
+  have hquartic := quarticIncrementDeriv_hasDerivAt lam y
+  simpa only [chainQuarticD2] using hbase.add hquartic
+
+/-- For `0 < lam < a*`, the momentum map is strictly increasing. -/
+theorem chainQuarticD2_strictMono (lam : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature) (x : ℝ) :
+    StrictMono (chainQuarticD2 lam x) := by
+  apply strictMono_of_deriv_pos
+  intro y
+  rw [(chainQuarticD2_hasDerivAt lam x y).deriv]
+  exact chainQuartic_hessian_pos lam y hlam0 hlam
+
+/-- The positive-Hessian quartic momentum map is onto.  The proof uses
+an explicit linear comparison and the intermediate value theorem. -/
+theorem chainQuarticD2_surjective (lam : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature) (x : ℝ) :
+    Function.Surjective (chainQuarticD2 lam x) := by
+  intro p
+  let c := modeExtremalCurvature - lam
+  have hc : 0 < c := by dsimp [c]; linarith
+  have hcne : c ≠ 0 := ne_of_gt hc
+  let z := (p - chainQuarticD2 lam x 0) / c
+  have hz_eq : chainQuarticD2 lam x 0 + c * z = p := by
+    dsimp [z]
+    field_simp [hcne]
+    ring
+  have haux : 0 < 4 * z ^ 2 - 6 * z + 3 := by
+    nlinarith [sq_nonneg (2 * z - (3 / 2 : ℝ))]
+  have hfactor : chainQuarticD2 lam x z
+      = chainQuarticD2 lam x 0 + c * z
+          + lam * z * (4 * z ^ 2 - 6 * z + 3) := by
+    dsimp [c]
+    unfold chainQuarticD2 quarticIncrementDeriv chainCurvedD2
+    ring
+  have hcont : Continuous (chainQuarticD2 lam x) := by
+    unfold chainQuarticD2 quarticIncrementDeriv chainCurvedD2
+    fun_prop
+  by_cases hz : 0 ≤ z
+  · have h0p : chainQuarticD2 lam x 0 ≤ p := by
+      rw [← hz_eq]
+      exact le_add_of_nonneg_right (mul_nonneg hc.le hz)
+    have hpfz : p ≤ chainQuarticD2 lam x z := by
+      rw [hfactor, hz_eq]
+      exact le_add_of_nonneg_right
+        (mul_nonneg (mul_nonneg hlam0.le hz) haux.le)
+    exact intermediate_value_univ 0 z hcont ⟨h0p, hpfz⟩
+  · have hzle : z ≤ 0 := le_of_not_ge hz
+    have hcz : c * z ≤ 0 :=
+      mul_nonpos_of_nonneg_of_nonpos hc.le hzle
+    have hp0 : p ≤ chainQuarticD2 lam x 0 := by
+      linarith [hz_eq, hcz]
+    have hrest : lam * z * (4 * z ^ 2 - 6 * z + 3) ≤ 0 :=
+      mul_nonpos_of_nonpos_of_nonneg
+        (mul_nonpos_of_nonneg_of_nonpos hlam0.le hzle) haux.le
+    have hfzp : chainQuarticD2 lam x z ≤ p := by
+      rw [hfactor, hz_eq]
+      linarith
+    exact intermediate_value_univ z 0 hcont ⟨hfzp, hp0⟩
+
+/-- A choice of velocity solving the quartic momentum relation. -/
+noncomputable def chainQuarticVelocitySolver (lam : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature)
+    (x p : ℝ) : ℝ :=
+  Classical.choose (chainQuarticD2_surjective lam hlam0 hlam x p)
+
+theorem chainQuarticVelocitySolver_spec (lam : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature)
+    (x p : ℝ) :
+    chainQuarticD2 lam x
+      (chainQuarticVelocitySolver lam hlam0 hlam x p) = p :=
+  Classical.choose_spec (chainQuarticD2_surjective lam hlam0 hlam x p)
+
+/-- The chosen velocity solves every quartic momentum equation. -/
+theorem chainQuartic_velocitySolver_solves (lam : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature) :
+    SolvesMomentum (chainQuarticLagrangian lam)
+      (chainQuarticVelocitySolver lam hlam0 hlam) := by
+  intro x p
+  have h := chainQuartic_momentum lam x
+    (chainQuarticVelocitySolver lam hlam0 hlam x p)
+  rw [chainQuarticVelocitySolver_spec lam hlam0 hlam x p] at h
+  exact h
+
+/-- Every quartic momentum equation has at most one velocity solution. -/
+theorem chainQuartic_momentum_unique (lam : ℝ)
+    (hlam0 : 0 < lam) (hlam : lam < modeExtremalCurvature)
+    (x p v₁ v₂ : ℝ)
+    (h₁ : MomentumRelation (chainQuarticLagrangian lam) x v₁ p)
+    (h₂ : MomentumRelation (chainQuarticLagrangian lam) x v₂ p) :
+    v₁ = v₂ := by
+  have hc₁ := (chainQuartic_momentum lam x v₁).deriv
+  have hc₂ := (chainQuartic_momentum lam x v₂).deriv
+  have hp₁ := h₁.deriv
+  have hp₂ := h₂.deriv
+  apply (chainQuarticD2_strictMono lam hlam0 hlam x).injective
+  calc
+    chainQuarticD2 lam x v₁ = p := hc₁.symm.trans hp₁
+    _ = chainQuarticD2 lam x v₂ := (hc₂.symm.trans hp₂).symm
+
+/-- A nonzero quartic continuation differs from the committed rule. -/
+theorem chainQuartic_ne_committed (lam : ℝ) (hlam : lam ≠ 0) :
+    chainQuarticLagrangian lam
+      ≠ chainCurvedLagrangian modeExtremalCurvature := by
+  intro h
+  have h2 := congrFun (congrFun h 0) 2
+  simp only [chainQuarticLagrangian, quarticIncrement] at h2
+  ring_nf at h2
+  apply hlam
+  linarith
+
+/-- A nonzero quartic continuation is not any sentence of the declared
+quadratic grammar. -/
+theorem chainQuartic_ne_quadGrammar (lam : ℝ) (hlam : lam ≠ 0)
+    (α β γ δ ε ζ : ℝ) :
+    chainQuarticLagrangian lam
+      ≠ fun x y =>
+          chainLogLagrangian x y + quadPoly α β γ δ ε ζ x y := by
+  intro h
+  have h0 := congrFun (congrFun h 0) 0
+  have h1 := congrFun (congrFun h 0) 1
+  have h2 := congrFun (congrFun h 0) 2
+  have h3 := congrFun (congrFun h 0) 3
+  simp only [chainQuarticLagrangian, chainCurvedLagrangian,
+    quarticIncrement, quadPoly] at h0 h1 h2 h3
+  ring_nf at h0 h1 h2 h3
+  apply hlam
+  linarith
+
+/-- **Explicit global-selection boundary.**  The parameter
+`lam = a*/2` gives a nonquadratic, corner-invisible, velocity-only,
+stationary continuation which retains the exact corner table, global
+real single-site minimality, a positive Hessian, and a unique global
+momentum inverse.  Thus the current tested clauses do not select the
+committed rule beyond the declared polynomial subfamilies. -/
+theorem quartic_continuation_blocks_global_selection :
+    ∃ lam : ℝ,
+      0 < lam ∧ lam < modeExtremalCurvature
+        ∧ CornerInvisible (fun _ y => quarticIncrement lam y)
+        ∧ VelocityOnly (fun _ y => quarticIncrement lam y)
+        ∧ chainQuarticD2 lam 1 1 + chainCurvedD1 1 1 = 0
+        ∧ (∀ i j : Fin 2,
+            chainQuarticLagrangian lam ((i : ℕ) : ℝ) ((j : ℕ) : ℝ)
+              = -Real.log (chainWeight i j))
+        ∧ (∀ M : ℕ, ∀ {k m : Fin M}, k.succ = m.castSucc →
+            ∀ x : ℝ,
+              localAction (chainQuarticLagrangian lam)
+                  (chainEmb (constOneHistory M))
+                ≤ localAction (chainQuarticLagrangian lam)
+                    (Function.update (chainEmb (constOneHistory M))
+                      k.succ x))
+        ∧ (∀ _x y : ℝ,
+            0 < modeExtremalCurvature
+              + quarticIncrementSecondDeriv lam y)
+        ∧ (∃ vel : ℝ → ℝ → ℝ,
+            SolvesMomentum (chainQuarticLagrangian lam) vel)
+        ∧ chainQuarticLagrangian lam
+            ≠ chainCurvedLagrangian modeExtremalCurvature
+        ∧ ∀ α β γ δ ε ζ : ℝ,
+            chainQuarticLagrangian lam
+              ≠ fun x y =>
+                  chainLogLagrangian x y
+                    + quadPoly α β γ δ ε ζ x y := by
+  let lam := modeExtremalCurvature / 2
+  have hlam0 : 0 < lam := by
+    dsimp [lam]
+    exact half_pos modeExtremalCurvature_pos
+  have hlam : lam < modeExtremalCurvature := by
+    dsimp [lam]
+    exact half_lt_self modeExtremalCurvature_pos
+  have hlamne : lam ≠ 0 := ne_of_gt hlam0
+  refine ⟨lam, hlam0, hlam,
+    quarticIncrement_cornerInvisible lam,
+    quarticIncrement_velocityOnly lam,
+    chainQuartic_stationary lam,
+    chainQuartic_corner lam,
+    ?_, ?_, ⟨chainQuarticVelocitySolver lam hlam0 hlam,
+      chainQuartic_velocitySolver_solves lam hlam0 hlam⟩,
+    chainQuartic_ne_committed lam hlamne, ?_⟩
+  · intro M k m hkm x
+    exact chainQuartic_constOne_realMin lam hlam0.le M hkm x
+  · intro x y
+    exact chainQuartic_hessian_pos lam y hlam0 hlam
+  · intro α β γ δ ε ζ
+    exact chainQuartic_ne_quadGrammar lam hlamne α β γ δ ε ζ
+
 end OPH.Variational
 
 #print axioms OPH.Variational.quadPoly_cornerInvisible_iff
@@ -718,6 +1132,27 @@ end OPH.Variational
 #print axioms OPH.Variational.quadraticity_clause_necessary
 #print axioms OPH.Variational.chainCubic_gap
 #print axioms OPH.Variational.chainCubic_realMin_forces_quadratic
+#print axioms OPH.Variational.quarticIncrement_cornerInvisible
+#print axioms OPH.Variational.quarticIncrement_velocityOnly
+#print axioms OPH.Variational.chainQuartic_corner
+#print axioms OPH.Variational.quarticIncrement_hasDerivAt
+#print axioms OPH.Variational.quarticIncrementDeriv_hasDerivAt
+#print axioms OPH.Variational.chainQuartic_momentum
+#print axioms OPH.Variational.chainQuartic_hasFDerivAt
+#print axioms OPH.Variational.chainQuartic_stationary
+#print axioms OPH.Variational.chainQuartic_gap
+#print axioms OPH.Variational.chainQuartic_constOne_realMin
+#print axioms OPH.Variational.chainQuartic_hessian_identity
+#print axioms OPH.Variational.chainQuartic_hessian_pos
+#print axioms OPH.Variational.chainQuarticD2_hasDerivAt
+#print axioms OPH.Variational.chainQuarticD2_strictMono
+#print axioms OPH.Variational.chainQuarticD2_surjective
+#print axioms OPH.Variational.chainQuarticVelocitySolver_spec
+#print axioms OPH.Variational.chainQuartic_velocitySolver_solves
+#print axioms OPH.Variational.chainQuartic_momentum_unique
+#print axioms OPH.Variational.chainQuartic_ne_committed
+#print axioms OPH.Variational.chainQuartic_ne_quadGrammar
+#print axioms OPH.Variational.quartic_continuation_blocks_global_selection
 
 -- Expected axioms for every theorem above: propext, Classical.choice,
 -- Quot.sound (real analysis via Mathlib).  No native_decide, no decide.

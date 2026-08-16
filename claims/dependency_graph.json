@@ -103,7 +103,10 @@
   "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
   "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
   "OPH-MECH-ENRICHMENT-CHARACTERIZATION",
-  "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE"
+  "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
+  "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+  "OPH-QUANTUM-TRIPLE-CARRIER-JOIN",
+  "OPH-THERMO-COFINAL-SPECTRAL-TAIL-COMPOSITION"
  ],
  "edges": [
   {
@@ -432,11 +435,6 @@
    "role": "supplies the charged-lepton determinant line; the 24-clock and natural attachment remain independent physical gates"
   },
   {
-   "from": "OPH-SCREEN-MODULAR-GEARING",
-   "to": "OPH-GR-D3-CAP-H3",
-   "role": "may supply a finite candidate modular state only after the gear-derived state is independently matched to the geometric cap state under the support-visible refinement schedule; it does not supply BW geometry or 2pi normalization"
-  },
-  {
    "from": "OPH-CONS-D1",
    "to": "OPH-POW-PHOTONIC",
    "role": "supplies patch-net constraint and repair language"
@@ -738,11 +736,6 @@
   },
   {
    "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
-   "to": "OPH-A5-PRIMITIVE-PORT-SPIN6",
-   "role": "independent finite packages on the same axioms; the thermodynamic kernel and the propagation branches share the source reference question but neither gates the other"
-  },
-  {
-   "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
    "to": "OPH-FINITE-TRANSPORT-GREEN-KUBO-DIFFUSION",
    "role": "supplies the conditional-resampling heat bath used by the projector-memory obstruction; the generic reversible resolvent and graph theorems are finite conditional mathematics, while all physical transport attachments remain separate"
   },
@@ -755,6 +748,11 @@
    "from": "OPH-CANONICAL-LORENTZ-MODULE",
    "to": "OPH-FINITE-BORN-FRAME-RANK-GAP",
    "role": "supplies only the C1 celestial unit-sphere domain used by the continuous B13 countermodel and dense-after-affinity theorem; it supplies no Born semantics, effect producer, affinity principle, or public instrument"
+  },
+  {
+   "from": "OPH-FINITE-BORN-FRAME-RANK-GAP",
+   "to": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+   "role": "supplies the committed two-dimensional algebraic state/effect representation and static phase-completion pair used by the ideal exact-fit model; it supplies no CP outcome operations, summed channel, source protocol, producer receipt, or statistical validation"
   },
   {
    "from": "OPH-FINITE-BORN-FRAME-RANK-GAP",
@@ -892,39 +890,74 @@
    "role": "supplies the committed three-dimensional completion carrier"
   },
   {
-   "from": "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY",
+   "from": "OPH-A5-SEAM-CURRENT-EDGE30",
    "to": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
-   "role": "names the missing local position-space assembly, action, and Gauss/Coulomb readout that the Coulomb-Green and position-space action package commits at the finite boundary"
+   "role": "supplies the committed oriented twelve-port, thirty-seam carrier and equal-weight seam repair whose boundary and Laplacian are consumed by the exact Green, Thomson, and global Hodge calculations; it supplies no physical electromagnetic attachment"
+  },
+  {
+   "from": "OPH-FINITE-CONSERVATION-WARD-PRECURSOR",
+   "to": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+   "role": "supplies the exact finite Gauss solvability, cycle ambiguity, and nineteen-dimensional seam-cycle precursor refined by the canonical Green solution and global Hodge projector; it does not supply the physical Ward or Maxwell bridges"
+  },
+  {
+   "from": "OPH-FINITE-LOCALITY-NOSIGNALLING",
+   "to": "OPH-QUANTUM-TSIRELSON-SATURATION",
+   "role": "supplies the registered PR-44 bipartite slot/local-operation interface instantiated by the declared Bell event quadruple; it supplies no source preparation, physical regions, or laboratory instrument"
+  },
+  {
+   "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+   "to": "OPH-QUANTUM-TSIRELSON-SATURATION",
+   "role": "supplies the committed 86/247 counted correlation state specialized by the record-diagonal CHSH delimitation; the separate declared Bell state and its attaining readouts are not source-produced by that net"
+  },
+  {
+   "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+   "to": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+   "role": "supplies the two committed finite regional diamonds, their counted correlation and marginal data, and the tower interfaces used by the parallel anchoring, shared-observer hinge, and transport-aware one-step evolution; it supplies no regional-net/tower join, Cauchy geometry, or physical time"
+  },
+  {
+   "from": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+   "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+   "role": "supplies the corrected finite transport-aware one-step precursor and constant-region inhabitant acknowledged by matrix row 6; it supplies no Cauchy geometry, coherent physical evolution, or stress-response derivative"
   },
   {
    "from": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
-   "to": "OPH-A5-SEAM-CURRENT-EDGE30",
-   "role": "shares the committed seam carrier whose incidence, spanning tree, and holonomy classification the action package consumes"
+   "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+   "role": "supplies the exact dense global Hodge-projector action acknowledged as a row-4 precursor; its nonlocality, Coulomb annihilation, and missing source/spacetime attachments prevent promotion to field/action reconstruction"
   },
   {
-   "from": "OPH-SYN-FORMAL-BASIS",
-   "to": "OPH-QUANTUM-TSIRELSON-SATURATION",
-   "role": "supplies the finite record-algebra language in which the saturation witness and diagonal delimitation are stated"
-  },
-  {
-   "from": "OPH-QUANTUM-TSIRELSON-SATURATION",
-   "to": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
-   "role": "the diagonal delimitation isolates non-diagonal structure as the exact gap whose operational semantics the phase interface types"
-  },
-  {
-   "from": "OPH-SYN-FORMAL-BASIS",
-   "to": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
-   "role": "supplies the finite record-algebra language for the tower join and the typed time-slice interface"
-  },
-  {
-   "from": "OPH-SYN-FORMAL-BASIS",
+   "from": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
    "to": "OPH-MECH-ENRICHMENT-CHARACTERIZATION",
-   "role": "supplies the record-slot language of the declared quadratic grammar the characterization quantifies over"
+   "role": "supplies the committed two-state log-transition action, the real enrichment family, derivative/minimality interface, and realized-history nonselection boundary that the quadratic classification and quartic continuation refine"
   },
   {
    "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
    "to": "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
-   "role": "the committed third-law member is the special case the coherent-envelope family strictly generalizes and rethreads"
+   "role": "supplies the existing finite four-law conclusion record and calibrated repair data paired with the separately supplied directed spectral-tail family; the new theorem is a companion conjunction, not a rethreading of that family through the old conclusion record"
+  },
+  {
+   "from": "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+   "to": "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+   "role": "supplies the committed seam boundary, exact Green potential, scalar Coulomb solution, and dense Hodge comparison refined by the oriented-face local action; it supplies no temporal or physical source attachment"
+  },
+  {
+   "from": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+   "to": "OPH-QUANTUM-TRIPLE-CARRIER-JOIN",
+   "role": "supplies the separately committed pair paths, counted states, and checkpoint anchorings that the target couples on the triple carrier; the new marginal maps are not net or tower morphisms"
+  },
+  {
+   "from": "OPH-QUANTUM-TRIPLE-CARRIER-JOIN",
+   "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+   "role": "supplies the common state/path/checkpoint and adjacent-step precursor acknowledged by row 6 while leaving regional-net morphisms, Cauchy geometry, and physical evolution absent"
+  },
+  {
+   "from": "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+   "to": "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
+   "role": "supplies the exact local finite static face-curvature action acknowledged by row 4 while leaving temporal dynamics, matter/current attachment, spacetime covariance, and continuum reconstruction absent"
+  },
+  {
+   "from": "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
+   "to": "OPH-THERMO-COFINAL-SPECTRAL-TAIL-COMPOSITION",
+   "role": "supplies the coherent spectral-envelope layer strengthened by an ambient cofinal embedding, strict carrier progress, and a rethreaded same-family four-law conclusion"
   }
  ]
 }

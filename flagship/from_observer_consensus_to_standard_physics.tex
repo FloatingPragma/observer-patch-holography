@@ -273,8 +273,8 @@ When the completed finite record surface is represented by a declared
 algebra-state pair, its public projectors carry exact projection-event,
 conditioning, expectation, and Clauser--Horne--Shimony--Holt identities,
 with the Tsirelson bound attained exactly by a declared entangled slot
-witness while every record-diagonal readout of the counted source data
-stays inside the classical bound. The
+witness while a fixed counted state with four jointly record-diagonal
+readouts stays inside the classical bound. The
 geometry branch distinguishes observer-velocity kinematics from event
 geometry. Its Einstein result is a reconstruction implication whose modular,
 stress, entropy, area, Ward, continuum, and scale premises are displayed in
@@ -348,10 +348,10 @@ that makes blockwise Hamiltonian generation a theorem, the derived
 log-transition action with its real-Legendre non-identifiability theorem, the
 oriented-face compact-family discriminator with its complete
 invariant-metric phase diagram, the \(F/G\)
-invariant-form dimension-drop theorem, the exact Coulomb--Green and
-position-space action package on the seam carrier with its Thomson-unique
-electrostatic sector, and the slot-interface Tsirelson saturation with its
-record-diagonal classical boundary.
+invariant-form dimension-drop theorem, the exact local finite face-curvature
+action with its scalar Coulomb direct-product sector and typed-source firewall,
+and the slot-interface Tsirelson saturation with its
+record-diagonal fixed-state/readout boundary.
 
 \subsection{The three axioms}
 
@@ -1183,14 +1183,15 @@ $\lvert S_{\mathrm{CHSH}}\rvert\le2$; in particular the counted
 correlation state of the committed source pair obeys it.
 \end{theorem}
 
-The two halves bracket the committed record surface exactly: the
-algebra-state representation attains the full quantum value on a declared
-entangled witness, while every record-diagonal readout of the counted
-classical data provably stays inside the classical bound, so any future
-attainment on committed source data requires non-diagonal phase structure
-of exactly the kind whose operational status the phase-instrument
-interface leaves open. The saturating state and events are declared data
-of the library, not source-produced preparations.
+The two halves bracket one precise committed record surface: the algebra-state
+representation attains the full quantum value on a declared entangled
+witness, while one fixed record-diagonal state with four jointly diagonal
+bounded readouts stays inside the classical bound. The Bell state and all four
+settings are real matrices. Thus the exact gap here is entanglement,
+non-diagonal coherence, and noncommutativity, not specifically the genuinely
+complex phase direction registered by PR-04. The result does not cover every
+context-dependent classical operational model. The saturating state and
+events are declared library data, not source-produced preparations.
 
 The first identity is the Born rule on this finite surface
 \cite{born1926}; the second is L\"uders conditioning \cite{luders1950}; the
@@ -2734,21 +2735,27 @@ transformations are classified exactly by their nineteen chord
 holonomies---the first cohomology of the thirty-seam graph with circle
 coefficients is \(U(1)^{19}\), the same count as the source-free Gauss
 cycle rank, through the eleven-seam spanning tree of the committed
-boundary section. A committed position-space package completes the
-electrostatic half on the same carrier: the seam Laplacian has an
+boundary section. A committed finite package completes the canonical-choice
+question for the discrete Gauss problem on the same carrier: the seam Laplacian has an
 explicit symmetric rational Green matrix with kernel exactly the
 constants, every neutral load has a canonical Coulomb solution that is
 the unique cycle-orthogonal and unique minimal-energy solution of the
-discrete Gauss problem, the committed uniform seam repair is one minus
-one-sixtieth of the same Laplacian, and real seam fields carry a
-gauge-invariant quadratic action whose sourced stationary points exist
-exactly for conserved sources and are unique modulo port gauge, the
-rank-nineteen real companion of the holonomy classification. These
-statements depend on choosing the spatial symbol as the oscillator
-stiffness and the equal-weight seam pairing. They do not identify a
-physical field, charge, current, clock, photon Hilbert space, or
-massless physical particle, and no continuum control or laboratory
-readout is constructed.
+discrete Gauss problem, and the committed uniform seam repair is one minus
+one-sixtieth of the same Laplacian.  More strongly, the twenty oriented faces
+give a genuinely local curvature \(CA\): \(C\) has rank nineteen and kernel
+exactly the port gradients, while \(C^{\mathsf T}C\) has only five nonzero
+entries per seam row.  The local quadratic action is gauge invariant exactly
+for conserved seam currents; its stationary points exist exactly for those
+currents and are global minima unique modulo gauge.  A separate scalar action
+has the neutral Green potential as its minimum modulo constants.  Their
+direct-product static theorem retains port charge and seam current as distinct
+types rather than inventing a continuity map. The modal wave statement
+depends on choosing the spatial symbol as the oscillator stiffness; the
+finite face and scalar actions use the committed oriented incidence and
+equal-weight seam pairing. They do not identify a
+physical field, temporal Maxwell evolution, charge--current continuity,
+clock, photon Hilbert space, or massless physical particle, and no continuum
+control or laboratory readout is constructed.
 
 An exhaustive target-free calibration enumerates all \(2^{12}\) sign-error
 vectors in one fixed twelve-row design. At noise scale \(1/200\), the leading
@@ -3262,9 +3269,13 @@ nonconstant protected observable inside that grammar, not adaptive, zero-weight,
 dilated, enriched-export, or new-source routes. The conditional theorem requires a separately source-justified
 stochastic coupling or a different source object, together with a global
 objective, one nondegenerate shared reference and collar kernel, energy-clock
-calibration, and uniform low-temperature spectral-tail control on a coherent
-cofinal family. The current finite gap-plus-cardinality theorem is one
-sufficient witness, not a necessary continuum route
+calibration, and uniform low-temperature spectral-tail control on a genuinely
+cofinal family.  A new exact interface carries an order-reflecting cofinal
+embedding into a nonterminal ambient regulator system and strict finite-carrier
+growth, excludes constant finite-carrier false greens, and proves the uniform
+and cofinal-tail bounds on that same supplied family.  The four-law theorem is
+rethreaded through this family rather than an auxiliary gap witness.  A source
+and physical continuum interpretation remain separate requirements
 \cite{ophobservers,ophrepo}. Under those named receipts, thermodynamics is
 recovered rather than imported.
 
@@ -3507,11 +3518,14 @@ Event algebra, Born, L\"uders, Tsirelson, saturation
    \texttt{Tsirelson}, \texttt{ExpectationBound},
    \texttt{TsirelsonSaturation}, partition and state
    modules); per-module axiom audits\\
-Coulomb--Green and position-space action package
+Coulomb--Green, global Hodge comparison, and local face-action package
  & \path{Lean/Screen/DiscreteCoulombGreen.lean};
    \path{Lean/Screen/PositionSpaceMaxwellAction.lean};
+   \path{Lean/Screen/LocalFaceMaxwellAction.lean};
    \path{code/electromagnetism/discrete_coulomb_green.py} with its
-   independent verifier, pytest gate, and receipt\\
+   independent verifier, pytest gate, and receipt;
+   \path{code/electromagnetism/local_face_maxwell_action.py} with its
+   independent verifier, mutation suite, and exact receipt\\
 Central defects and edge-center entropy
  & overlap-cocycle and one-sided reduction proofs in this manuscript;
    \path{Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean}

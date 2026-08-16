@@ -2603,8 +2603,8 @@ the same committed checkpoint family of observer 86 as commutative
 public layer, the uniform selected state, and the template nontriviality
 receipts: every partition member lies in the anchored left region, every
 member is proper, and the anchored left region is a proper subalgebra.
-Both committed carriers therefore carry one common tower-anchored
-construction (\texttt{bothCarriers\_common\_anchoring}); the earlier
+Both committed carriers therefore carry parallel tower anchorings of the
+same declared form (\texttt{bothCarriers\_common\_anchoring}); the earlier
 state, in which only the 86/88 diamond carried a tower anchoring, no
 longer holds. An exact
 shared-observer theorem
@@ -2614,64 +2614,69 @@ paths have equal left label components at every step, equal left
 occupation counts, and equal induced diagonal hinge states, each equal
 to the committed marginal state of observer 86, and the left partial
 trace of the counted correlation state equals the 86/88 hinge state.
-The carriers are not identified: the ambient dimensions 169 and 182
-differ, and no map between the two anchored nets is constructed.
+At the anchored-net level the carriers are not identified: the ambient
+dimensions 169 and 182 differ, and no map between the two anchored nets is
+constructed.
 
-The registered time-slice interface obligation on these nets is typed in
-\path{Lean/QFT/PathTimeSliceInterface.lean}. The structure
-\texttt{TimeIndexedNetEvolution} carries a finite time index with an
-evolution direction, a region family per time, per-step ambient
-star-automorphisms carrying each slice region's algebra onto the evolved
-slice region's algebra, admitted slice data in each slice region's
-algebra, and the slice-to-region generation clause in the register
-wording: the algebra generated from one admitted slice equals the
-algebra of the corresponding evolved region. A full inhabitant exists
-over the committed 86/247 net, with the walk-step evolution read from
-the committed 32-step joint path and admitted data given by the
-committed source generators of observer 86 lifted into the left slot;
-its region family is constant. The natural walk-slice candidate, whose
-admitted datum at each time is the single committed walk projector, is
-net-compatible and transports its slice projectors exactly along the
-committed path, but its generation clause fails at every time
-(\texttt{walkSlice\_generation\_fails}): the generated algebra is
-diagonal and the evolved region's algebra is not.
+That carrier-level obstruction can nevertheless be removed below the net
+level.  The module \path{Lean/QFT/TripleCarrierJoin.lean} uses the common
+finite carrier
+\[
+(\mathrm{obs86},\mathrm{obs88},\mathrm{obs247})
+  \in \operatorname{Fin}(13)\times\operatorname{Fin}(14)
+       \times\operatorname{Fin}(13).
+\]
+Its two coordinate projections recover both complete 32-row source paths and
+their occupation tables.  The diagonal triple counted state is positive and
+trace one; explicit linear positive trace-preserving marginals recover both
+counted pair states.  Four triple checkpoint projectors have normalized
+partial traces recovering both anchored checkpoint partition members.  On each of the 31 actual adjacent source
+transitions, a triple reindexing transports the source projector and
+intertwines with both pair marginals.  The endpoint is not wrapped to the
+first row: all three final-to-initial source counts are exactly zero.
 
-\begin{proposition}[Forced step-invariance over the committed diamonds]
-\label{prop:forced-step-invariance}
-For every inhabitant of \texttt{TimeIndexedNetEvolution}, the admission
-and generation clauses place the evolved slice region's algebra inside
-the slice region's algebra, while net compatibility carries the slice
-region's algebra onto the evolved slice region's algebra by an ambient
-star-automorphism, so the two algebras are equal at every time
-(\texttt{sliceAlgebra\_step\_eq}). Over a net whose region-to-algebra
-map is injective, the region family itself is step-invariant
-(\texttt{slice\_step\_eq\_of\_injective}). Both committed diamonds have
-injective region-to-algebra maps, so every inhabitant over either
-committed diamond has a step-invariant region family, one whose slice
-region never moves along the evolution
-(\texttt{twoSlotNet247\_slice\_step\_invariant},
-\texttt{twoSlotNet\_slice\_step\_invariant}).
-\end{proposition}
+This is a common state/path/checkpoint coupling, not a canonical gluing
+theorem.  The pair of marginals is provably noninjective on triple matrices,
+so the full row alignment selects the displayed coupling and the pair states
+alone do not.  The marginal maps are not used as multiplicative algebra maps,
+no completely-positive interface is claimed, and neither regional net nor
+independently declared uniform tower state is transported by this theorem.
 
-\begin{proof}
-The generated algebra of the admitted slice data lies inside the slice
-region's algebra and equals the evolved slice region's algebra, giving
-containment. An ambient star-automorphism preserves finite dimension, so
-net compatibility makes the two algebras equidimensional, and
-containment at equal finite dimension is equality. Injectivity of the
-region-to-algebra map turns algebra equality into region equality. Every
-step is machine-checked \cite{ophrepo}.
-\end{proof}
+The registered PR-58 direction is approached in
+\path{Lean/QFT/PathTimeSliceInterface.lean} by a finite \emph{one-step}
+interface. The structure \texttt{TimeIndexedNetEvolution} carries a finite
+index and successor, a region family, per-step ambient star-automorphisms
+mapping the current regional algebra to the next one, and admitted data in the
+current algebra. Its corrected generation clause first evolves those data and
+then requires their generated algebra to equal the next regional algebra.
+This ordering matters: an earlier version compared the raw, unevolved data
+with the next algebra and thereby created a spurious containment and
+step-invariance conclusion.
 
-Discharge of the time-slice obligation therefore requires a net in which
-distinct regions share one algebra, the genuine Cauchy-slice shape, and
-no committed net supplies one; the obligation stays registered. No
-Cauchy-region reading, physical time, or clock is attached; the cyclic
-time index is bookkeeping over the committed steps; the
-\(\mathbb Z/2\) slot swap is not used; and the physical-time, causality,
-and spacetime-attachment obligations stay open. The slot assembly and
-label conventions stay declared postprocessors over post-hoc
-transcriptions, ineligible as validation.
+A full finite inhabitant exists over the committed 86/247 net. Its cyclic
+\(\operatorname{Fin}(32)\) witness follows the 31 actual adjacent source-row
+pairs and adds one declared terminal-to-initial bookkeeping automorphism; all
+three corresponding source counts are zero, so that closing automorphism is
+not a committed transition. The admitted data are observer 86's lifted source
+generators, and the region is the left region at every step. The evolved generators again generate that region
+(\texttt{evolvedLiftedSourceGenerators\_generate\_left}). Constancy here is a
+property of this chosen witness, not a theorem about every possible
+inhabitant. The natural single-projector walk candidate remains a useful
+negative control: its evolved singleton is the next diagonal walk projector
+and cannot generate the top regional algebra
+(\texttt{walkSlice\_evolved\_generation\_fails}).
+
+This corrected interface and the triple coupling do not discharge PR-58. They have no multi-step
+cocycle or group-action law, Cauchy geometry, clock, physical time, or source
+selection.  The common carrier joins the committed state/path/checkpoint data
+but supplies no regional-net or tower morphism. The
+withdrawn raw-generation argument does not show that a new noninjective net
+shape is necessary. Viable routes include an evolution that transports
+admitted data between distinct current regional algebras, equal algebras for
+appropriate Cauchy neighborhoods, or a fixed algebra with coherent nontrivial
+dynamics. The \(\mathbb Z/2\) slot swap remains an internal finite symmetry,
+and physical time, causality, spacetime attachment, and actual carrier joining
+at the regional-net and tower levels stay open.
 \paragraph{Boundary-fibre circularity control.}
 Over the bare consensus tower of the gravitational branch (finite
 presentation and

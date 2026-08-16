@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 264,
+  "surface_count": 265,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -737,6 +737,11 @@
     },
     {
       "path": "Lean/Screen/LightSignalMaxwellComposition.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/LocalFaceMaxwellAction.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },

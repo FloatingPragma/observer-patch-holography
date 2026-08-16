@@ -261,6 +261,12 @@ finite-step unattainability. The strict-descent normalizer that settles public
 facts is a different map and carries no entropy inequality. Faithful
 stationarity alone also implies relative-entropy contraction; an exact lazy
 directed three-cycle separates that result from detailed balance. The global
+refinement theorem uses one supplied ambient-cofinal spectral family with
+no maximal regulator and strict finite-carrier growth; the same family carries
+uniform/cofinal-tail concentration. A supplied calibrated-stage energy
+identification yields the memberwise mass equality, and an explicit
+unbounded ladder excludes constant-carrier false greens.  No source or
+physical continuum identification is inferred. The global
 objective representation, common source-derived reference, source collar
 realization, energy-clock calibration, and refinement-uniform low-temperature
 control are premises. Exhausting the fifteen
@@ -328,7 +334,12 @@ fixes one member only inside that one-parameter ansatz: the exact family
 \(L_{a,c}=L_0+a y(y-1)/2+c x(x-1)/2\) preserves every binary corner and the
 same constant-history stationarity and fixed-endpoint single-site variation
 minimum whenever \(a+c=a_\star\),
-while its velocity curvature varies with \(a\). Conditional resampling with a
+while its velocity curvature varies with \(a\). A velocity-only clause selects
+the committed point only inside that quadratic grammar. It does not
+select globally: for \(0<\lambda<a_\star\), the quartic continuation
+\(L_{a_\star}+\lambda y^2(y-1)^2\) preserves every binary corner, the same
+junction stationarity, the fixed-endpoint single-site minimum, and a globally
+invertible momentum map while differing from every quadratic. Conditional resampling with a
 declared counting reference and trivial visible datum realizes the uniform
 transition kernel, but does not derive those inputs, the initial law, or the
 complete path reference from the source.  At the separately declared
@@ -496,13 +507,17 @@ oscillator lift is auxiliary. A basis-free transverse completion has rank two
 at nonzero momentum and an exact zero mode under its declared oscillator
 generator. The construction is a conditional free-vector model and makes no
 Maxwell or photon claim. Physical frequency remains a separate identification.
-A committed position-space package adds the exact rational Green matrix
+A committed finite-seam package adds the exact rational Green matrix
 of the seam Laplacian, the unique minimal-energy Coulomb solution of every
-neutral Gauss problem, and a gauge-invariant quadratic action on real seam
-fields whose stationary points exist exactly for conserved sources and are
-unique modulo port gauge, with the rank-nineteen field-strength moduli
-matching the committed \(U(1)^{19}\) holonomy classification. No physical
-field, charge, current, or readout is identified.
+neutral Gauss problem, and a genuinely local face-curvature action. Its
+signed face map has rank nineteen and kernel exactly the port gradients; the
+kinetic matrix has only five nonzero entries per seam row. Gauge invariance
+and stationary solvability are each equivalent to conservation of the typed
+seam current; when a stationary point exists, its minimum is unique modulo
+gauge. A separate scalar
+action has the Green potential as its neutral minimum modulo constants, and
+the direct-product static theorem keeps port charge and seam current distinct.
+This is a finite static composition, not temporal or physical Maxwell theory.
 Exact synthetic enumeration rejects a zero leading coefficient in every
 replica of the declared finite stress law; its nominal 95 percent intervals
 cover the injected value in 3904 of 4096 replicas. The linked higher-order
@@ -512,7 +527,7 @@ Lean arithmetic, exact code, custody records [9,13]\\
 \end{longtable}
 \end{center}
 
-The accompanying Lean library contains more than 5600 theorem and lemma declarations.
+The accompanying Lean library contains more than 5700 theorem and lemma declarations.
 The count includes positive results, premise boundaries, and countermodels.
 It is useful because the formal statements expose assumptions that prose can
 otherwise hide. The finite receipts bind inputs, outputs, tolerances, and
@@ -551,9 +566,13 @@ Clauser--Horne--Shimony--Holt (CHSH) parameter satisfies
 The bound is attained exactly: a declared maximally entangled state with two
 Pauli settings on one wing and two quarter-rotated settings on the other
 reaches \(|S_{\mathrm{CHSH}}|=2\sqrt2\) on the committed split interface,
-while every record-diagonal state with record-diagonal settings obeys the
-classical bound \(|S_{\mathrm{CHSH}}|\leq 2\), so the counted classical
-record surface cannot attain the quantum value through diagonal readouts.
+while every fixed record-diagonal state with four settings diagonal in the
+same basis obeys the classical bound \(|S_{\mathrm{CHSH}}|\leq 2\), so the
+counted classical record surface cannot attain the quantum value through
+those jointly diagonal readouts. The attaining state and settings are
+entirely real; the theorem isolates entanglement, non-diagonal coherence, and
+noncommutativity, not a necessary genuinely complex phase operation, and it
+does not cover arbitrary context-dependent classical instruments.
 On the declared binary-icosahedral spinor branch, one incidence-defined
 setting family realizes
 \(\lvert S_{\mathrm{CHSH}}\rvert=1+3/\sqrt5\) exactly. The exhaustive

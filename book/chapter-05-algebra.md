@@ -437,6 +437,15 @@ marginal-coherent correlation datum that the regional net must retain. The
 same expectations erase that correlation, so coverage does not imply unique
 reconstruction.
 
+The two committed pair packets admit one explicit triple
+carrier for observers 86, 88, and 247. Its coordinate marginals recover both
+32-step paths, both counted pair states, and both checkpoint partition
+families; the 31 actual adjacent source steps intertwine with both marginals.
+The pair marginals do not jointly reconstruct arbitrary triple matrices, and the
+marginal maps are not algebra or regional-net morphisms. This removes the
+finite state/path carrier mismatch without pretending to supply a time-slice
+law or a physical spacetime.
+
 This is a strong exact conditional result rather than a source theorem. The
 two-observer factor reading, Cartesian carrier, region map, and constant tower
 are declared postprocessors, the extraction is post-hoc, and a nonconstant

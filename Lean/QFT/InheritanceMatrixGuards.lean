@@ -33,8 +33,8 @@ the library root disappears.
 
 The tree-file-level companion `code/audit/test_e4_absence_guards.py`
 covers claims this module structurally cannot see: files outside the
-import closure of `QFT.InheritanceMatrix` (e.g. an unstarted
-`QFT/TimeSlice.lean` appearing anywhere in the tree, or the row-4
+import closure of `QFT.InheritanceMatrix` (e.g. a future
+`QFT/TimeSlice.lean` carrying a stronger Cauchy construction, or the row-4
 artifact paths in `code/`), and comment-level text such as the cited
 Tomita TODO in `Mathlib/Analysis/InnerProductSpace/StandardSubspace.lean`.
 
@@ -46,7 +46,8 @@ Tomita TODO in `Mathlib/Analysis/InnerProductSpace/StandardSubspace.lean`.
 | 2 | no spin-structure declaration in the closure | env scan |
 | 3 | no quasi-local algebra, vacuum representation, or Doplicher-Roberts declaration in the closure | env scan |
 | 6 | no Lorentz/globally-hyperbolic/Cauchy-surface/Cauchy-embedding declaration or module in pinned Mathlib | env scan |
-| 6 | no Cauchy-embedding or time-slice declaration in the closure | env scan |
+| 6 | no Cauchy-embedding declaration in the closure | env scan |
+| 6 | the finite `TimeIndexedNetEvolution` interface and its row anchor remain present | tree companion |
 | 7 | no Haag/Ruelle/scattering declaration or module in pinned Mathlib | env scan |
 | 7 | no energy-momentum, spectrum-condition, or spectral-adapter declaration in the closure | env scan |
 
@@ -63,10 +64,9 @@ Stated here so a green build is never quoted as more than it is:
   vocabulary of the matrix, not a semantic net.
 * The closure scans see only modules imported (transitively) by this
   file.  Tree files outside that closure are the Python companion's
-  job, and row 4's gate, "no field/action reconstruction packet has
-  been delivered", names no declaration at all, so no name probe can
-  watch it; only its concrete presence citations are checked, in the
-  companion.
+  job, and row 4's gate, "the full field/action reconstruction packet is
+  not supplied", names no single declaration, so no name probe can watch
+  it; only its concrete precursor citations are checked in the companion.
 * Row 5's horizon exit cites no external structure (it is the typed
   exit of `QFT/StructuralInheritance.lean` itself, pinned by
   the row-5 anchors), so there is nothing external for a guard to

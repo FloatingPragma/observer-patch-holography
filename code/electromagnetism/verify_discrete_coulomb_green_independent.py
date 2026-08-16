@@ -40,9 +40,9 @@ STATUS = (
 
 CARRIER_BYTES = 19162
 CARRIER_SHA256 = "e5f712cbccc5a1462945f0cb511a47064fe10818748498021d5c70ae169a933f"
-GREEN_LEAN_BYTES = 50759
+GREEN_LEAN_BYTES = 50954
 GREEN_LEAN_SHA256 = (
-    "fe337b4fae484c3da24cff4f0e9fabe56018b64b31b6d2be254c42bdb70df0bf"
+    "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078"
 )
 
 PORTS = 12
@@ -452,7 +452,9 @@ def expected_receipt(carrier_text: str, green_text: str) -> dict[str, Any]:
             "statement": (
                 "exact rational Green matrix, canonical Coulomb solution, "
                 "Thomson decomposition, hop-distance receipt, and the "
-                "I - L/60 repair bridge on the committed thirty-seam table"
+                "I - L/60 repair bridge on the committed thirty-seam table; "
+                "only the two pinned incidence/Green source contracts and "
+                "their derived exact rational data are in scope"
             ),
             "physical_prediction": False,
             "comparison_permitted": False,
@@ -557,13 +559,15 @@ def expected_receipt(carrier_text: str, green_text: str) -> dict[str, Any]:
             "verdict_emitted": False,
         },
         "handoff_interface": {
-            "schema": "oph.discrete_coulomb_green.handoff.v1",
+            "schema": "oph.discrete_coulomb_green.handoff.v2",
             "consumer": "instrument lane (issue 737)",
             "design_only": True,
             "frozen": False,
             "statement": (
-                "interface design for a later preregistration; no decision "
-                "rule is armed and no comparison budget exists here"
+                "interface design exposing only rational observables derived "
+                "from the two pinned incidence/Green source contracts for a "
+                "later preregistration; no decision rule is armed and no "
+                "comparison budget exists here"
             ),
             "observables": [
                 {
@@ -585,19 +589,6 @@ def expected_receipt(carrier_text: str, green_text: str) -> dict[str, Any]:
                     "exact_type": "rational",
                     "lean_anchor": (
                         "OPH.DiscreteCoulombGreen.coulombField_gauss"
-                    ),
-                },
-                {
-                    "name": "chord_field_strength_component",
-                    "definition": (
-                        "fieldStrength A on the nineteen chord seams of the "
-                        "committed spanning tree"
-                    ),
-                    "chords": chords,
-                    "exact_type": "real; exact rational on rational inputs",
-                    "lean_anchor": (
-                        "OPH.PositionSpaceMaxwellAction."
-                        "fieldStrength_determines_up_to_gauge"
                     ),
                 },
             ],

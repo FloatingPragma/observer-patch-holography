@@ -7,7 +7,8 @@ seam Laplacian with ``Fraction`` arithmetic, checks every identity that the
 kernel-checked Lean receipts state (Green identity, symmetry, zero row sums,
 kernel rank, hop-distance structure, dipole values, Thomson decomposition,
 and the ``I - L/60`` uniform-repair bridge), and writes one canonical
-receipt with a design-only handoff interface for the instrument lane.
+receipt with a design-only rational Green/Thomson handoff interface for the
+instrument lane.
 
 The receipt is finite exact mathematics on the committed table.  It does
 not identify a port load with a physical charge, a seam value with a
@@ -50,8 +51,8 @@ SOURCE_CONTRACT = (
     {
         "path": GREEN_LEAN_PATH,
         "role": "kernel-checked discrete Coulomb Green receipts (issue 733)",
-        "bytes": 50759,
-        "sha256": "fe337b4fae484c3da24cff4f0e9fabe56018b64b31b6d2be254c42bdb70df0bf",
+        "bytes": 50954,
+        "sha256": "a58830d60688b7df505d2c8cbc1ff2290b057f9be055def25db7006fae7bd078",
     },
 )
 
@@ -603,7 +604,9 @@ def build_receipt() -> dict[str, Any]:
             "statement": (
                 "exact rational Green matrix, canonical Coulomb solution, "
                 "Thomson decomposition, hop-distance receipt, and the "
-                "I - L/60 repair bridge on the committed thirty-seam table"
+                "I - L/60 repair bridge on the committed thirty-seam table; "
+                "only the two pinned incidence/Green source contracts and "
+                "their derived exact rational data are in scope"
             ),
             "physical_prediction": False,
             "comparison_permitted": False,
@@ -698,13 +701,15 @@ def build_receipt() -> dict[str, Any]:
             "verdict_emitted": False,
         },
         "handoff_interface": {
-            "schema": "oph.discrete_coulomb_green.handoff.v1",
+            "schema": "oph.discrete_coulomb_green.handoff.v2",
             "consumer": "instrument lane (issue 737)",
             "design_only": True,
             "frozen": False,
             "statement": (
-                "interface design for a later preregistration; no decision "
-                "rule is armed and no comparison budget exists here"
+                "interface design exposing only rational observables derived "
+                "from the two pinned incidence/Green source contracts for a "
+                "later preregistration; no decision rule is armed and no "
+                "comparison budget exists here"
             ),
             "observables": [
                 {
@@ -723,19 +728,6 @@ def build_receipt() -> dict[str, Any]:
                     ),
                     "exact_type": "rational",
                     "lean_anchor": "OPH.DiscreteCoulombGreen.coulombField_gauss",
-                },
-                {
-                    "name": "chord_field_strength_component",
-                    "definition": (
-                        "fieldStrength A on the nineteen chord seams of the "
-                        "committed spanning tree"
-                    ),
-                    "chords": chords,
-                    "exact_type": "real; exact rational on rational inputs",
-                    "lean_anchor": (
-                        "OPH.PositionSpaceMaxwellAction."
-                        "fieldStrength_determines_up_to_gauge"
-                    ),
                 },
             ],
             "replay": {

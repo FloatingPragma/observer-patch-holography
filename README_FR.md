@@ -85,8 +85,8 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   observateurs, les enregistrements publics forment une algèbre
   d’événements avec les probabilités de Born, le conditionnement de Lüders
   et la borne de Tsirelson. Un état de registre intriqué explicite atteint
-  exactement le plafond quantique 2√2, tandis que les lectures classiques
-  des registres s’arrêtent prouvablement à 2. La dynamique de Schrödinger est l’unique flot de
+  exactement le plafond quantique 2√2, tandis qu’un état compté fixe lu par
+  des observables toutes diagonales dans la même base s’arrête prouvablement à 2. La dynamique de Schrödinger est l’unique flot de
   symétrie continu, et les poids de Born suivent sans axiome de continuité
   en toute dimension finie, y compris la dimension deux.
 - **Les quatre lois de la thermodynamique par la réparation du désaccord.**
@@ -111,9 +111,9 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   distribution de charge neutre a un unique potentiel canonique d’énergie
   minimale, calculé en arithmétique rationnelle exacte et vérifié machine,
   et l’opérateur qui répare le désaccord entre observateurs est construit
-  sur le même laplacien. Une action invariante de jauge sur les coutures
-  complète le tableau en espace de position, avec des sources admises
-  exactement lorsqu’elles sont conservées.
+  sur le même laplacien. Vingt faces orientées produisent ensuite une action
+  de jauge locale exacte, avec un couplage à cinq voisins et un espace de
+  courbure de dimension dix-neuf.
 - **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
   fait un choix architectural au niveau du matériel de simulation : chaque
   parcelle d’observateur porte douze ports de frontière câblés comme les
@@ -132,7 +132,7 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   structure fine mesurée ; cette concordance a un statut diagnostique tant
   que son rattachement physique reste ouvert. Les constantes de la nature
   entrent comme des problèmes de point fixe à résoudre.
-- **Vérifié machine et falsifiable.** Plus de 5600 théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 5700 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. Une échelle de prédictions gelées enregistre des bandes

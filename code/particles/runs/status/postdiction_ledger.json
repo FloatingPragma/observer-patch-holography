@@ -1104,7 +1104,7 @@
         "statement": "Coincidence-invariant Herm2 readback descends uniquely through an actual event setoid. Separately, one supplied time-oriented affine Lorentz overlap cocycle and a chart-coordinate family satisfying its overlap law induce translation-free displacement covariance, invariant intervals, future-null celestial transport, compatible event frames, and isometric transport of their positive rest spaces. The rank-three source FrameQuotient is linearly and isometrically identified with the standard internal rest fiber as a candidate local readback. The formal stack does not identify the quotient-descended readback with the supplied atlas coordinates. Exact controls exhibit a nontrivial translated future-null atlas and show that reflexive symmetric pairwise overlap need not be transitive"
       },
       {
-        "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom and the B4 helper has no regional-factor attachment. The rich-fibre source payload supplies window/class labels only: its block algebra, base-point state, restrictions, and repair are declared postprocessors. Conditional coverage is attained inside that adapter, but its nonunital matrix corners are not tensor factors or a `TensorSplitReceipt`. The later operator-generation theorem transcribes source paths post hoc. The later 86/247 capstone grounds fully disjoint committed supports and an exact counted correlated state with the correct marginals. Its erasure theorem proves that coverage does not imply unique reconstruction. The two-observers-as-factors reading and region map remain declared. The constant-tower transport is on the separate 86/88 carrier, no theorem joins the two carriers, and neither is a nonconstant source realization. Scientific owner #728 records the missing source-attached or otherwise justified regional construction and a nonconstant source composition; scientific owner #739 records a missing source realization or genuinely scoped no-go. No CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
+        "hypothesis_boundary": "ordinary isotony does not supply the star-homomorphic restriction retractions or unique gluing. `FiniteCover` has no joint-coverage axiom and the B4 helper has no regional-factor attachment. The rich-fibre source payload supplies window/class labels only: its block algebra, base-point state, restrictions, and repair are declared postprocessors. Conditional coverage is attained inside that adapter, but its nonunital matrix corners are not tensor factors or a `TensorSplitReceipt`. The later operator-generation theorem transcribes source paths post hoc. The later 86/247 capstone grounds fully disjoint committed supports and an exact counted correlated state with the correct marginals. Its erasure theorem proves that coverage does not imply unique reconstruction. The two-observers-as-factors reading and region map remain declared. The constant-tower transport is on the separate 86/88 carrier. TripleCarrierJoin now couples both pair paths, counted states, checkpoints, and adjacent-step marginals on one carrier, but supplies no regional-net or tower morphism; neither packet is a nonconstant source realization. Scientific owner #728 records the missing source-attached or otherwise justified regional construction and a nonconstant source composition; scientific owner #739 records a missing source realization or genuinely scoped no-go. No CP/CPTP channel, scheduler locality, spacetime causality, time-slice property, continuum QFT, observable, decision rule, or prediction is supplied",
         "id": "finite_causal_observer_net_interface",
         "lean_declarations": {
           "CPRestrictionNet": [
@@ -1731,6 +1731,72 @@
         "operator_census_ref": "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json",
         "paper_ref": "Observers paper, gauge-channel boundary",
         "statement": "The declared charged-double-triplet current fixture has a direct-sum algebra with adjoint branch dimensions 8, 3, and 1. Its adjoint therefore contains no mixed (3,2,-5/6) (+) (bar3,2,+5/6) X/Y generator, so the ordinary minimal simple-GUT X/Y exchange channel is absent"
+      },
+      {
+        "artifact_ref": "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
+        "hypothesis_boundary": "finite static carrier only: no temporal electromagnetic evolution, charge-current continuity map, physical source, spacetime/continuum attachment, or readout is supplied",
+        "id": "local_face_maxwell_static_composition",
+        "lean_declarations": {
+          "LocalFaceMaxwellAction": [
+            "face_port_incidence_product_zero",
+            "ker_faceCurvature_eq_gradient",
+            "localKineticZ_five_per_row",
+            "localSourcedAction_gauge_invariant_iff",
+            "localStationary_solvable_iff",
+            "greenPotential_stationary",
+            "staticAction_global_minimum"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Screen/LocalFaceMaxwellAction.lean"
+        ],
+        "match": "exact conditional finite structural composition",
+        "observed_counterpart": "static Maxwell-shaped local curvature and Coulomb sectors",
+        "paper_ref": "Screen microphysics paper, local face action",
+        "statement": "The committed oriented twenty-face incidence has rank 19 and kernel exactly the port gradients. Its local seam Hessian has five nonzero entries per row; gauge invariance and stationary solvability are equivalent to conserved seam current. A separate scalar action has the neutral Green potential as its minimum modulo constants, and the direct-product theorem retains port load and seam current as distinct types"
+      },
+      {
+        "hypothesis_boundary": "the full step alignment is declared and the pair marginals do not select it uniquely. The positive trace-preserving marginals are not promoted to CPTP, algebra, regional-net, tower, Cauchy, or physical-time morphisms",
+        "id": "triple_observer_carrier_coupling",
+        "lean_declarations": {
+          "TripleCarrierJoin": [
+            "triplePath_projects_88",
+            "triplePath_projects_247",
+            "tripleCorrelationState_marginal_88",
+            "tripleCorrelationState_marginal_247",
+            "tripleCheckpoint_recovers_anchored_88",
+            "tripleCheckpoint_recovers_anchored_247",
+            "tripleMarginals_not_jointly_injective",
+            "tripleCarrier_join_receipt"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/QFT/TripleCarrierJoin.lean"
+        ],
+        "match": "exact conditional state/path/checkpoint coupling",
+        "observed_counterpart": "common coupling of the two committed correlation packets",
+        "paper_ref": "Consensus paper, triple-carrier coupling",
+        "statement": "One explicit (86,88,247) carrier recovers both committed 32-row paths and counted pair states, both checkpoint partitions, and both marginal evolutions over exactly the 31 adjacent source transitions"
+      },
+      {
+        "hypothesis_boundary": "strict carrier growth is one sufficient refinement route; the ambient regulator, energy, inverse temperature, repair, source production, and physical continuum meaning remain declared rather than derived",
+        "id": "cofinal_spectral_tail_four_law_composition",
+        "lean_declarations": {
+          "CofinalSpectralTailFamily": [
+            "cofinal_tail_concentration",
+            "cofinalLadder_card_unbounded",
+            "constantCarrier_cofinalFamily_isEmpty",
+            "uniformGap_cofinalFamily_isEmpty",
+            "fourLaws_composed_cofinal"
+          ]
+        },
+        "lean_receipts": [
+          "Lean/Thermodynamics/CofinalSpectralTailFamily.lean"
+        ],
+        "match": "exact conditional thermodynamic structure",
+        "observed_counterpart": "low-temperature control on a genuine regulator family",
+        "paper_ref": "Observers paper, cofinal spectral-tail theorem",
+        "statement": "One supplied ambient-cofinal spectral family with no terminal regulator and strict finite-carrier growth carries uniform and cofinal-tail concentration. A supplied calibrated-stage energy identification yields exact off-minimum-mass equality and the same envelope; the family also has infinitely many stages and the directly constructed finite four-law core"
       }
     ],
     "hadrons": [

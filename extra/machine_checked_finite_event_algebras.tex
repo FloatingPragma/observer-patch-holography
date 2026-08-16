@@ -76,12 +76,12 @@ exact fixed-state characterization. An operator-norm estimate lifts the
 Tsirelson theorem to a state-level
 Clauser--Horne--Shimony--Holt bound for projection events, and a declared
 maximally entangled witness on a checked slot-locality interface attains the
-bound $2\sqrt2$ exactly, while every record-diagonal state read through
-diagonal observables valued in $[-1,1]$ obeys the classical bound $2$. A
-typed operational phase-instrument structure reduces the discharge of the
-repository's open phase-tomography premise to the inhabitation of one
-structure, with exact necessity receipts and an uninhabited missing-data
-type. The artifact pins
+    bound $2\sqrt2$ exactly, while every fixed record-diagonal state read
+    through four observables diagonal in the same basis and valued in
+    $[-1,1]$ obeys the classical bound $2$. An ideal static phase-POVM/count
+    model preserves the exact tomography and blindness delimitations, and an
+    explicit synthetic inhabitant proves that exact fit alone is not an
+    operational instrument or PR-04 discharge. The artifact pins
 its Lean and Mathlib revisions and records declaration-level axiom
 dependencies. Complete positivity, a Physlib correspondence, and rank-one
 classicality lie outside the formalization. A
@@ -204,11 +204,10 @@ slot-locality interface of the wider library, whose CHSH expectation equals
 $2\sqrt2$ exactly, packaged with the cited upper bounds, together with a
 record-diagonal delimitation proving the classical bound $2$ for every
 diagonal state read against four diagonal observables valued in $[-1,1]$;
-\item a typed operational phase-instrument structure that reduces the
-discharge of the repository's open phase-tomography premise to the
-inhabitation of one structure, with conditional sufficiency, exact
-diagonal-insufficiency necessity, and a partial witness recording which
-fields committed objects inhabit; and
+\item an ideal static phase-POVM/count-fit structure with conditional
+tomography, exact diagonal/real-closure blindness, and an explicit synthetic
+inhabitant proving that the structure does not type source operations,
+producer receipts, or PR-04 discharge; and
 \item a reproducible, version-pinned artifact with per-declaration axiom
 output, no proof placeholders, and a documented catalog of the Mathlib gaps,
 scoped-instance hazards, and workarounds met during construction
@@ -235,8 +234,8 @@ expectation, the two-level structure, and the partition-relative operational
 quotient. Sections~\ref{sec:functional}, \ref{sec:robertson}, and
 \ref{sec:chsh} describe the state functional, finite-state uncertainty, and
 the CHSH clients with the exact saturation witness and its record-diagonal
-delimitation. Section~\ref{sec:phase-instrument} describes the typed
-operational phase instrument.
+delimitation. Section~\ref{sec:phase-instrument} describes the ideal static
+phase-POVM/count-fit model and its synthetic non-discharge control.
 Section~\ref{sec:mathlib} records the Mathlib engagement.
 Section~\ref{sec:evaluation} reports the audit methodology, and
 Section~\ref{sec:comparison} positions the development feature by feature.
@@ -297,10 +296,9 @@ state-level CHSH corollary \\
 \texttt{Tsirelson\allowbreak Saturation} & declared Bell witness on the
 slot-locality interface attaining $2\sqrt2$ exactly, packaged saturation
 receipt, and record-diagonal classical delimitation \\
-\texttt{Operational\allowbreak Phase\allowbreak Instrument} & typed
-phase-instrument structure, conditional tomography sufficiency, exact
-diagonal-insufficiency necessity, partial witness, and the discharge
-reduction \\
+\texttt{Operational\allowbreak Phase\allowbreak Instrument} & ideal static
+phase-POVM/count-fit structure, conditional tomography, exact blindness
+receipts, and a synthetic non-discharge counterreceipt \\
 \bottomrule
 \end{tabular}
 \caption{Module structure of the checked development.}
@@ -891,60 +889,61 @@ correlation state of the wider library, a record-diagonal state assembled
 from the counted joint run of the committed observer pair $(86,247)$,
 obeys the bound $2$ against every quadruple of diagonal $[-1,1]$-valued
 readouts (\texttt{counted\_state\_diagonal\_chsh\_le\_two}). Record-basis
-diagonality is therefore insufficient for the value $2\sqrt2$. Attainment
-requires non-diagonal structure, of exactly the kind whose operational
-status the register row PR-04 leaves open, and no theorem asserts that
-the repository's committed phase lift supplies it.
+diagonality is therefore insufficient for the value $2\sqrt2$. This is a
+delimitation of one fixed diagonal state with four readouts diagonal in the
+same basis, not of arbitrary contextual classical experiments. The Bell
+state and all four attaining settings are real matrices, so the proved gap is
+entanglement, non-diagonal coherence, and noncommutativity; it does not isolate
+the genuinely complex Pauli-$Y$ direction of PR-04, and no theorem asserts
+that the repository's committed phase lift is necessary or sufficient for
+attainment.
 
-\section{A typed operational phase instrument}
+\section{An ideal static phase-POVM count fit}
 \label{sec:phase-instrument}
 
-The module \texttt{OperationalPhaseInstrument.lean} types the operational
-content that register row PR-04 owes, on the committed two-dimensional
-record algebra. The structure \texttt{OperationalPhaseInstrument} has one
-shared preparation, a finite context family consisting of the committed
-web contexts plus one designated phase context, per-context binary
-outcome effects forming exact POVMs with an explicit phase-sensitivity
-clause, realized outcome counts with the diagonal counts pinned to the
-committed run literals $(111,68)$, and one exact Born-consistency law
-tying every context's realized frequency to the same preparation.
+The module \texttt{OperationalPhaseInstrument.lean} makes the interface
+boundary machine-visible. Its structure
+\texttt{IdealPhasePOVMCountModel} is an ideal static model: one matrix state,
+the committed web effects plus one designated phase effect, exact binary POVM
+certificates, integer count literals with the diagonal pair fixed to
+$(111,68)$, and exact frequency-equals-Born equations. It contains no source
+operation, completely-positive outcome maps, trace-preserving summed channel,
+postmeasurement state, readback implementation, producer identity, receipt
+binding, or statistical validation rule.
 
-Sufficiency is conditional. Every inhabitant of the structure yields
-fixed-trace state identification through the committed algebraic phase
-completion (\texttt{operational\_instrument\_completes\_tomography}), and
-the preparation is the unique state reproducing the realized frequencies
-(\texttt{preparation\_identified\_by\_realized\_data}). Discharge of the
-row therefore reduces to inhabiting the structure, and the reduction is
-itself a theorem: the proposition \texttt{DischargesPR04} is equivalent
-to \texttt{Nonempty MissingPhaseReceipts}
-(\texttt{dischargesPR04\_iff\_missing\_receipts}), where
-\texttt{MissingPhaseReceipts} collects exactly the missing data: a
-preparation, rotated and phase outcome counts, and Born-consistency
-receipts. The partial witness \texttt{partialWitness} records which
-fields committed objects inhabit: the algebraic core, every context
-effect matrix with its POVM certificates, and the diagonal counts; the
-missing data enter as explicit hypotheses.
+Every ideal model yields fixed-trace identification
+(\texttt{ideal\_phase\_model\_completes\_tomography}), and its state is the
+unique state fitting all exact equations
+(\texttt{preparation\_identified\_by\_exact\_fit\_data}). The construction
+\texttt{modelOfIdealPhaseFitData} is equivalent only to the existence of
+\texttt{IdealPhaseFitData} (\texttt{hasIdealPhaseFit\_iff\_data}); this is an
+algebraic fit statement, not a PR-04 discharge theorem.
 
-Necessity is exact. Two certified distinct states carry identical Born
+Two incompleteness controls are exact. Two certified distinct states carry identical Born
 data on every diagonal effect (\texttt{diagonal\_context\_insufficient}),
 so the diagonal context alone identifies no state; the committed rotated
 context separates that pair; and no diagonal effect and no complexified
 real effect satisfies the phase-sensitivity clause
 (\texttt{phase\_effect\_not\_diagonal},
-\texttt{phase\_effect\_genuinely\_complex}). The phase context is
-therefore necessary (\texttt{phase\_context\_necessary}).
+\texttt{phase\_effect\_genuinely\_complex}). Hence a complete static family
+needs non-diagonal content and some separator outside the complexified-real
+closure (\texttt{phase\_context\_necessary}). The theorem does not force the
+particular rotated effect, the designated phase effect, their order, or an
+operational implementation.
 
-The boundary is custody. Row PR-04 stays open: no declaration in the
-repository inhabits \texttt{OperationalPhaseInstrument},
-\texttt{MissingPhaseReceipts}, or \texttt{DischargesPR04}, since the
-committed payload supplies no preparation declaration and no rotated or
-phase outcome counts. An inhabitant certifies internal coherence of the
-supplied data: one preparation, exact POVMs, and an exact Born match. The
-provenance of the supplied counts, namely that they are producer receipts
-of a committed simulator run rather than chosen numbers, is a custody
-condition the register tracks outside the type system; the type checker
-cannot enforce it, and the register's discharge discipline prohibits
-synthetic counts. None are constructed here.
+The non-discharge boundary is exact. The declaration
+\texttt{syntheticIdealPhaseFitData} chooses the rational diagonal state with
+weights $111/179$ and $68/179$, rotated counts $(315,401)$, and phase counts
+$(1,1)$. The theorem \texttt{synthetic\_ideal\_phase\_fit} proves that these
+chosen literals inhabit \texttt{HasIdealPhaseFit} without any producer, run,
+operation, or receipt input. Exact finite frequency equality is also not a
+general validation criterion for sampled data. Therefore ideal fit cannot
+certify custody or discharge PR-04. A genuine target needs
+source-attached CP outcome maps, a trace-preserving summed channel,
+operation/readback and common-preparation semantics, producer-bound receipts,
+and a preregistered statistical validation rule (or an explicitly exhaustive
+deterministic semantics). Operational additivity/composition remains a
+separate PR-03 obligation.
 
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}
@@ -1074,11 +1073,11 @@ Module & Lines & Audited declarations \\
 \texttt{SpectralEntropyBoundary} & 161 & 5 \\
 \texttt{Tsirelson} & 275 & 8 \\
 \texttt{ExpectationBound} & 174 & 4 \\
-\texttt{TsirelsonSaturation} & 829 & 39 \\
-\texttt{OperationalPhaseInstrument} & 844 & 39 \\
+\texttt{TsirelsonSaturation} & 834 & 39 \\
+\texttt{OperationalPhaseInstrument} & 875 & 40 \\
 \texttt{EventAlgebra} (root) & 130 & 0 \\
 \midrule
-Total & 5036 & 230 \\
+Total & 5072 & 231 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the
@@ -1144,8 +1143,9 @@ unguarded state fixed-point equivalence, typed naturality with
 arbitrary-partition pinching \\
 CHSH/\allowbreak Tsirelson & Mathlib order theorem; Isabelle upper bound; Lean CHSH
 rigidity & complementary norm theorem, event-level client, state-expectation
-corollary, and an exact saturation witness on declared data; record-diagonal
-readouts capped at the classical bound \\
+corollary, and an exact saturation witness on declared data; fixed
+record-diagonal states with jointly diagonal readouts capped at the classical
+bound \\
 Reproducibility & public CI and archived releases are common best practice &
 pinned Lean/Mathlib, an exact repository snapshot, clean build instructions,
 and declaration-level axiom queries; no DOI claim \\
@@ -1192,8 +1192,9 @@ and trace preservation for both expectations under a custom finite-matrix
 \texttt{IsCPTP} interface. There is no theorem connecting the supplied
 partition to Physlib's spectral pinching and no rank-one classical
 specialization. The CHSH saturation witness rests on declared data: no
-theorem produces the state or the events from a committed source run, and
-the typed operational phase instrument has no inhabitant. The entire
+theorem produces the state or the events from a committed source run. The
+ideal static phase-fit model has an explicit synthetic inhabitant and is not
+an operational instrument. The entire
 development is finite-dimensional and says nothing about normal maps on
 infinite-dimensional von Neumann algebras.
 
@@ -1202,12 +1203,13 @@ range and bimodule law, the averaging expectation with its tower and
 classical-conditioning laws, typed L\"uders naturality, the complete
 partition-relative quotient, the supplied-state Robertson inequality, the
 state-level CHSH corollary, the exact saturation receipt with its
-record-diagonal delimitation, and the typed phase-instrument reduction; the
+record-diagonal delimitation, and the ideal phase-fit model with its synthetic
+non-discharge counterreceipt; the
 companion module adds the custom CPTP proofs.
 It contains no Physlib
 spectral-partition correspondence and no source-selected quantum instrument;
 the two-qubit saturation witness consists of declared data, and the
-phase-instrument structure is uninhabited.
+phase-operation instrument required by PR-04 is not constructed.
 
 \section*{Declarations}
 

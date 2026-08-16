@@ -221,8 +221,10 @@
     "Lean/EventAlgebra/SlotLocalitySurface.lean",
     "Lean/EventAlgebra/TsirelsonSaturation.lean"
    ],
-   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is now exactly attained on the committed interface by a declared witness: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2) exactly, and the witness events inhabit the committed PR-44 interface. Every diagonal state with record-diagonal observables in [-1,1] obeys the classical bound 2, so the committed counted correlation state cannot reach the Tsirelson value through record-diagonal readouts; attainment requires non-diagonal structure of exactly the kind whose operational status PR-04 leaves open. The witness state and events are declared data: no source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open.",
-   "open_premises": []
+   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is exactly attained by declared data: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2), and the events inhabit the PR-44 interface. For one fixed record-diagonal state and four readouts diagonal in that same basis, the classical bound is 2; this does not cover arbitrary contextual operational models. The Bell state and all settings are real, so the theorem isolates entanglement, non-diagonal coherence, and noncommuting settings rather than a genuinely complex PR-04 phase direction. No source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open.",
+   "open_premises": [
+    "PR-52"
+   ]
   },
   {
    "id": "OL-C4",
@@ -259,8 +261,9 @@
     "code/born_context_phase_lift/verify_source_phase_lift.py",
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean"
    ],
-   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure/outcome boundary. AlgebraicPhaseCompletion is deliberately not an operational instrument. The operational semantics PR-04 owes is now typed: OperationalPhaseInstrument demands one shared preparation, exact per-context POVMs including a provably non-diagonal phase context, realized counts, and an exact Born-consistency law; every inhabitant completes operational fixed-trace tomography, and two certified states with identical diagonal Born data prove the phase context necessary rather than decorative. No inhabitant exists in the repository: the committed payload supplies no preparation declaration and no rotated or phase outcome counts, count provenance is a custody condition the register keeps outside the type system, and PR-04 remains open for a source-produced operation, rotated or phase outcomes, and common-preparation receipts.",
+   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure boundary. AlgebraicPhaseCompletion is not an operational instrument. IdealPhasePOVMCountModel now packages a static state, fixed effects, count literals, and exact frequency/Born equations; every inhabitant completes ideal fixed-trace identification, and the diagonal/real-closure blindness theorems remain exact. The explicit synthetic_ideal_phase_fit inhabitant uses chosen rational literals with no producer, run, operation, or receipt, proving that this fit is not PR-04 discharge. A genuine operational target still needs source-attached CP outcome maps, a trace-preserving summed channel, operation/readback and common-preparation semantics, producer-bound receipts, and statistical validation. PR-03 and PR-04 remain open for that operational layer.",
    "open_premises": [
+    "PR-03",
     "PR-04"
    ]
   },
@@ -280,9 +283,10 @@
     "Lean/QFT/SourceRegionalNet.lean",
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/TowerAnchoredCorrelation.lean",
-    "Lean/QFT/PathTimeSliceInterface.lean"
+    "Lean/QFT/PathTimeSliceInterface.lean",
+    "Lean/QFT/TripleCarrierJoin.lean"
    ],
-   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state in supportDisjoint_composed_adequacy. On that carrier, supportDisjoint_swap_covariance separately proves internal Z/2 covariance of the net maps; slotSwap_correlationState_ne proves that the counted empirical state is not swap invariant. Neither swap receipt is spacetime covariance. Both committed carriers now carry one common tower-anchored construction: the 86/247 diamond transports to a tower stage by the same committed transport pattern, and the exact shared-observer theorem towerCarriers_share_obs86_marginal relates the two carriers through their common left observer; the carriers are not identified. The PR-58 interface is now typed and delimited: TimeIndexedNetEvolution demands the time index, region family, net-compatible evolution, and slice-to-region generation clause; a full inhabitant exists with the committed walk-step evolution and a constant region family, the natural walk-slice candidate provably fails generation at every time, and forced step-invariance proves that no inhabitant over either committed diamond carries a moving region family. Discharge of PR-58 therefore requires a net in which distinct regions share one algebra, which no committed net supplies; PR-52 stays open.",
+   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state. TripleCarrierJoin supplies a genuine common finite carrier for the 86/88 and 86/247 source rows: its projections recover both 32-step paths and occupation tables, positive trace-preserving matrix marginals recover both counted pair states, normalized checkpoint marginals recover both anchored partition members, and 31 non-wrapping adjacent-step reindexings intertwine with both pair marginals. The pair marginals do not determine the triple coupling, so the full step alignment is declared rather than canonical. Partial trace is not promoted to an algebra or net morphism, and the independently declared uniform tower states are not the counted state. The separate Fin-32 TimeIndexedNetEvolution witness includes a declared terminal-to-initial cyclic bookkeeping automorphism whose source-transition count is zero; only its first 31 steps follow adjacent source rows. The interface has no multi-step cocycle, Cauchy geometry, clock, source selection, or physical time. Thus the common state/path/checkpoint carrier obstruction is removed, while an actual regional-net/tower morphism and PR-52/PR-58 physical time-slice attachment are not supplied.",
    "open_premises": [
     "PR-52",
     "PR-58"
@@ -305,9 +309,10 @@
     "Lean/Variational/MechanicsAdequacySurface.lean",
     "Lean/Variational/StationarySaddleCoverage.lean",
     "Lean/Variational/SourceToHamiltonianComposed.lean",
-    "Lean/Variational/ModeExtremalEnrichment.lean"
+    "Lean/Variational/ModeExtremalEnrichment.lean",
+    "Lean/Variational/EnrichmentCharacterization.lean"
    ],
-   "notes": "One composed theorem (source_to_hamiltonian_composed) fuses the history-law and real variational halves under explicit registered antecedents: a fixed-endpoint real single-site-minimal embedded history at every interior junction realizes the derived action of the same kernel, is an interior mode of its exponential-tilt path law, and satisfies the discrete Hamilton equations. The committed chain supplies one inhabited witness after a mode-extremality rule selects a member of a deliberately restricted one-parameter enrichment family. A machine-checked two-parameter corner-invisible counterfamily shows that the same mode, stationarity, and fixed-endpoint single-site minimality conditions do not select a unique velocity curvature once equally natural first-slot freedom is admitted. This is therefore a conditional one-path satisfiability and composition result, not a source derivation or uniqueness theorem for least action. Physical units, clocks, amplitudes, and general stationary-phase mechanisms remain open.",
+   "notes": "One composed theorem (source_to_hamiltonian_composed) fuses the history-law and real variational halves under explicit registered antecedents: a fixed-endpoint real single-site-minimal embedded history at every interior junction realizes the derived action of the same kernel, is an interior mode of its exponential-tilt path law, and satisfies the discrete Hamilton equations. The committed chain supplies one inhabited witness only inside a deliberately restricted one-parameter enrichment family. The complete quadratic classification and split counterfamily already block uniqueness once first-slot freedom is admitted. More strongly, for 0<lambda<a* the quartic continuation is velocity-only, corner-invisible, stationary, globally single-site minimal, and globally regular in momentum while remaining distinct from every quadratic. Thus the current clauses do not select globally or form a proved-minimal axiom system. This remains a conditional one-path composition result, not a source derivation or uniqueness theorem for least action; physical units, clocks, amplitudes, and general stationary-phase mechanisms remain open.",
    "open_premises": []
   },
   {
@@ -363,9 +368,11 @@
     "Lean/Thermodynamics/FirstLawIdentity.lean",
     "Lean/Thermodynamics/FluctuationTheorems.lean",
     "Lean/Thermodynamics/FourLawAdequacySurface.lean",
-    "Lean/Thermodynamics/LowTemperatureControl.lean"
+    "Lean/Thermodynamics/LowTemperatureControl.lean",
+    "Lean/Thermodynamics/CoherentRefinementFamily.lean",
+    "Lean/Thermodynamics/CofinalSpectralTailFamily.lean"
    ],
-   "notes": "The four laws are fields of one composed conclusion (fourLaws_composed) consuming one typed bundle whose fields are exactly the registered rows PR-07, PR-15, and PR-08; the refinement-uniform third law is threaded to the calibrated energy through the r0-member identification, and the diagonal heat-channel clause threads the exact first-law split through the repair step. The rung stays structural: the emergent rung is gated on the recorded PR-07 simulator-export decision.",
+   "notes": "The finite four laws are fields of one composed conclusion consuming PR-07, PR-15, and PR-08. The stronger fourLaws_composed_cofinal theorem constructs the finite-law core directly and threads every regulator-family third-law field through one supplied ambient-cofinal spectral-tail family. That family has no maximal ambient regulator, infinitely many represented stages, strict finite-carrier growth, and uniform and cofinal-tail concentration. The supplied calibrated-stage energy identification yields exact off-minimum-mass equality and the same envelope at that member; it is an antecedent, not a derived calibration. The unbounded Nat ladder inhabits the interface and a theorem excludes constant finite carriers. This is a conditional structural theorem, not source discharge: no OPH source supplies the family, regulator interpretation, energy, inverse temperature, or continuum attachment. The emergent rung is gated on its registered source and calibration decisions.",
    "open_premises": []
   },
   {
@@ -439,9 +446,11 @@
     "paper/screen_microphysics_and_observer_synchronization.tex",
     "Lean/Screen/LightSignalMaxwellComposition.lean",
     "Lean/Screen/SeamU1HolonomyClassification.lean",
-    "Lean/Screen/PositionSpaceMaxwellAction.lean"
+    "Lean/Screen/PositionSpaceMaxwellAction.lean",
+    "Lean/Screen/LocalFaceMaxwellAction.lean",
+    "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json"
    ],
-   "notes": "The composed light-signal surface supplies a conditional internal free-vector second-order wave law and coordinate-frequency symbol under the declared seam rows. The exact complex modal factorization is a modal/pseudodifferential algebraic factorization only, and the composed modal-Maxwell receipt now proves that first-order content about the same supplied objects: an explicit boundary map carries the supplied mode dynamics onto the opposite-sign curl pairing at the bundle's chart scale and identified frequency, with both divergence constraints, global phase equivariance, and the same-sign mutation control. A finite U(1) seam connection with its port-gauge quotient is committed and classified. A local position-space assembly is now also committed: real seam fields with the port-gauge quotient, an idempotent self-adjoint field-strength projector onto the rank-nineteen cycle space matching the U(1) chord classification, an exact quadratic sourced action with gauge invariance equivalent to source conservation, existence and uniqueness of stationary points modulo gauge, and the electrostatic join to the exact Green matrix and its Gauss receipts. The receipt removes no registered premise, and the scientific owner #733 records the missing physical attachments: calling the committed package a physical Maxwell action stays unproved, no real field is identified with a laboratory field, no physical current is source-produced, and Lorentz covariance, continuum control, and laboratory readout are not attained; PR-53 and PR-54 stay open.",
+   "notes": "The composed light-signal surface supplies a conditional internal free-vector wave law and the modal package supplies an exact pseudodifferential first-order factorization. On the committed real seam/face complex, LocalFaceMaxwellAction supplies the missing local finite operator: the signed face curvature has kernel exactly the port gradients, its rank is nineteen, and H=C^T C has 150/900 nonzero entries, exactly five per seam row. The local quadratic action is gauge invariant exactly for conserved seam currents, is stationary exactly at H A=J, is solvable exactly for conserved J, and has minima unique modulo gradients. A separate scalar action has L phi=rho and the canonical neutral Green potential as its minimum modulo constants; StaticSources keeps rho and J distinct. The earlier dense global Hodge projector remains an exact comparison but is not the local action. This is a finite static structural Maxwell package, not temporal electric-magnetic dynamics: no charge-current continuity map, Lorentz/spacetime attachment, physical field/current, continuum control, or laboratory readout is supplied. PR-53 and PR-54 remain open.",
    "open_premises": [
     "PR-53",
     "PR-54"
@@ -482,11 +491,12 @@
     "Lean/Screen/SeamU1HolonomyClassification.lean",
     "Lean/Screen/DiscreteCoulombGreen.lean",
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
+    "Lean/Screen/LocalFaceMaxwellAction.lean",
     "code/electromagnetism/discrete_coulomb_green.py",
     "code/electromagnetism/verify_discrete_coulomb_green_independent.py",
     "code/electromagnetism/runtime/discrete_coulomb_green_receipt.json"
    ],
-   "notes": "The discrete Gauss receipts are threaded through the exhibited shared incidence objects: the PR-20-forced measure is orientation-balanced across the committed double cover of the thirty-seam table and its expected signed port boundary vanishes on the same boundary object that carries the solvability, section, fibre, and rank-nineteen receipts. A finite U(1) seam connection and its port-gauge quotient are committed and classified: connections modulo gauge are exactly the nineteen chord holonomies, and the moduli count equals the committed Gauss cycle rank. The Coulomb half is now committed as exact finite mathematics on the same incidence objects: the explicit rational Green matrix with machine-checked identities, the kernel-equals-constants theorem along the committed spanning tree, the canonical Coulomb solution of every neutral Gauss problem, the Thomson characterization as the unique cycle-orthogonal and unique minimal-energy Gauss solution, an exact adjacent-port dipole receipt with strict distance ordering, and the identity that the committed uniform seam repair equals one minus one-sixtieth of the same Laplacian with fixed loads exactly the Gauss obstruction. A design-only handoff interface for the instrument lane is recorded in the receipt. No source-produced current, physical charge or potential identification, laboratory attachment, or continuum composition is committed; that attachment stays open under PR-54.",
+   "notes": "The discrete Gauss and finite U(1) holonomy receipts share the committed incidence. The exact rational Green matrix gives the canonical solution of every neutral Gauss problem and the Thomson characterization as its unique cycle-orthogonal and energy-minimal representative. The new scalar action makes the same Green potential the unique stationary minimum modulo constants. In parallel, the oriented face incidence gives a local vector action whose gauge kernel is exactly the gradient space. Their direct-product static composition is typed without identifying port load rho with seam current J. It therefore closes the finite scalar/vector static composition question while leaving charge-current continuity, physical source production, laboratory attachment, and continuum dynamics open under PR-54. The design-only Green/Thomson handoff remains a specification, not a frozen run.",
    "open_premises": [
     "PR-54"
    ]
