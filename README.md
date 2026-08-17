@@ -112,7 +112,7 @@ derives the rest as theorems. From that one architecture:
   fine-structure constant; the match carries diagnostic status while its
   physical attachment is open. The constants of nature enter as fixed-point
   problems to be solved.
-- **Machine-checked and falsifiable.** More than 5700 Lean theorems with
+- **Machine-checked and falsifiable.** More than 5800 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
   frozen-prediction ladder registers kill bands under cryptographic custody

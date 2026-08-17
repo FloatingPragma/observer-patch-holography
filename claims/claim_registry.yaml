@@ -4257,6 +4257,44 @@
       }
     },
     {
+      "claim_id": "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+      "statement": "On the declared Hermitian Lorentz module, scaling a future unit-timelike frame vector by one declared positive mass parameter yields the exact kinematic mass-shell packet: the Lorentz square of the scaled vector is the squared mass parameter; the squared scalar coordinate equals the squared mass parameter plus the spatial squared norm; the scalar coordinate dominates the mass parameter, with equality exactly when the spatial coordinates vanish, and at the standard frame the scalar coordinate equals the mass parameter exactly; every oriented Lorentz map transports the construction to the transported frame with the same Lorentz square, so the shell identity holds in every oriented chart; and a future null vector satisfies the zero-mass shell identity. The mass parameter is a declared hypothesis of each statement. No mass is derived from observer repair data, the scalar coordinate is not identified with a physical energy readout, no clock, calibration anchor, SI unit, or energy-clock receipt is supplied, and no physical rest-energy or mass-energy-equivalence claim is made; those attachments are open under the clock/energy calibration and observer-to-physical-spacetime premises.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_kinematic_mass_shell_on_declared_Lorentz_module",
+      "assumptions": [
+        "declared_positive_mass_parameter",
+        "algebraic_frame_hyperboloid_and_rest_space",
+        "physical_lorentz_soldering_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "Lorentz_quadratic_form_algebra"
+      ],
+      "oph_specific_delta": "The relativistic energy-momentum shell shape, its rest-frame mass identity, its oriented-chart invariance, and its massless branch are machine-checked as exact consequences of the committed frame-hyperboloid normalization, with the declared mass parameter and every missing physical attachment named rather than implied.",
+      "novelty_type": "kinematic_mass_shell_from_frame_hyperboloid_normalization",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Geometry/MassShellKinematics.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the Lorentz square of the scaled frame vector differs from the squared mass parameter, the squared scalar coordinate differs from the squared mass parameter plus the spatial squared norm, the rest characterization or standard-frame identity fails, an oriented Lorentz map changes the Lorentz square, or a future null vector violates the zero-mass identity.",
+      "scope_if_false": "Only the kinematic mass-shell packet falls. The canonical Lorentz module, frame hyperboloid, soldering contract, and every physical energy, clock, or mass identification are assessed by their own claims and premises.",
+      "status": "exact_kinematic_mass_shell_attained__physical_energy_and_mass_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS",
       "statement": "On any finite directed graph with an integer layer function, a supplied flux and source, a finite resolution depth, the registered layered shell-cardinality law PR-29, shell equidistribution PR-30, and steady sourcing PR-31 imply an exact depth-bounded discrete Gauss law. At every positive layer n not exceeding the depth and for nonzero shell coefficient c, the outward flux per shell edge equals the total layer-zero charge divided by c n^2, and flux times n^2 is shell-independent. The premises are jointly inhabited by an exact three-vertex chain witness. Two global finite-carrier obstructions explain the depth bound: a steady drained source imposed on the whole closed carrier has zero total load, and an n^2 shell-cardinality law imposed at every positive layer forces c=0. A fixed twelve-port bridge identifies the generic regional flux with the committed incidence flux and derives the corresponding steady regional identity. No layer is identified with physical radius, no flux with a gravitational field, and no source with mass density.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",

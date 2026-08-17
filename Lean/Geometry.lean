@@ -9,6 +9,7 @@ import Geometry.CelestialSoldering
 import Geometry.EventFrameSoldering
 import Geometry.SpatialReadbackSoldering
 import Geometry.InverseSquareShellLaw
+import Geometry.MassShellKinematics
 
 /-!
 # OPH construction geometry umbrella

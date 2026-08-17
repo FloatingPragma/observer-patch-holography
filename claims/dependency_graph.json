@@ -97,6 +97,7 @@
   "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX",
   "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO",
   "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
+  "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
   "OPH-GEOMETRY-LAYERED-DISCRETE-GAUSS",
   "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
   "OPH-QUANTUM-TSIRELSON-SATURATION",
@@ -888,6 +889,11 @@
    "from": "OPH-GR-PORT-RESPONSE-COMPLETION",
    "to": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
    "role": "supplies the committed three-dimensional completion carrier"
+  },
+  {
+   "from": "OPH-CANONICAL-LORENTZ-MODULE",
+   "to": "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+   "role": "supplies the Herm2 Lorentz module, quadratic form, frame-hyperboloid normalization, and oriented Lorentz maps consumed by the kinematic mass-shell packet; it supplies no physical mass or energy identification"
   },
   {
    "from": "OPH-A5-SEAM-CURRENT-EDGE30",
