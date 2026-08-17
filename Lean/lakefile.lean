@@ -30,6 +30,11 @@ lean_lib «OPHTime» where
     `Time.ProperTimeCalibration, `Time.ClockComparison]
 
 @[default_target]
+lean_lib «OPHComputation» where
+  srcDir := "."
+  roots := #[`Computation.RepairUniversality]
+
+@[default_target]
 lean_lib «OPHThermodynamics» where
   srcDir := "Thermodynamics"
   roots := #[`FiniteConditionalRepair, `FirstLawIdentity,
