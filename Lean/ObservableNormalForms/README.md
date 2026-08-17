@@ -137,12 +137,18 @@ All theorem-bearing source files in this directory are intended to be
 `sorry`-free. The build and `#print axioms` receipt should be regenerated for
 the final submission archive after the manuscript theorem numbering freezes.
 
-## Protected-obstruction verification boundary
+## Protected-obstruction cross-prover boundary
 
 Lean is canonical for the stochastic protected-obstruction implementation:
 the transition kernel, path-weight first-hit law, scheduler correspondence,
 behavior-cut adapter, and quantitative endpoint pushforward are all derived
 here, and the axiom audit covers every public theorem.
+The separately maintained Isabelle/HOL companion is available at a
+[pinned public reference](https://github.com/Oraclizer/formal-verification/blob/d61f4dcf8b3f55a50ddeb2494049af322c5b7ec1/Protected_Behavior_Obstructions/README.md).
+It is explicitly `PARTIAL / NO SAME`: it checks related set/profile consequences
+under declared locale assumptions. It does not independently derive the transition
+kernel, path-weight first-hit law, scheduler correspondence, OPH behavior cuts,
+quantitative endpoint pushforward, or implementation refinement.
 
 The Bellman fixed-point characterization is a theorem derived from the
 canonical path law, not the definition of the law. In particular, the artifact

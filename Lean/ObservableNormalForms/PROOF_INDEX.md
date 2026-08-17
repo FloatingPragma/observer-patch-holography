@@ -116,6 +116,12 @@ mappings are explicit, replaceable assumptions. It is imported by
 
 Lean is canonical for the stochastic foundation and transport results in this
 section.
+A separately maintained Isabelle/HOL companion is available at the
+[pinned public reference](https://github.com/Oraclizer/formal-verification/blob/d61f4dcf8b3f55a50ddeb2494049af322c5b7ec1/Protected_Behavior_Obstructions/README.md).
+It is explicitly `PARTIAL / NO SAME`: it checks related set/profile consequences
+under stated locale assumptions and is not an independent reconstruction of
+the Lean kernel, `pathWeight`, first-hit law, scheduler, behavior-cut adapter,
+or quantitative pushforward.
 
 Finite first-hit expansion, positive-path reachability, the finite
 closed-class characterization of almost-sure hitting, least nonnegative
@@ -129,22 +135,22 @@ source-quantified conditions beyond the trace witness; almost-sure hitting has
 no single-trace witness, so those coordinates enter the profile as side
 conditions permitted by the interface.
 
-| Result | Lean declaration | Lean status | Boundary |
+| Result | Lean declaration | Lean status | Isabelle boundary |
 |---|---|---:|---|
-| First-hit foundation | `ProtectedObstructions.FirstHitAt`; `firstHitAtMass`; `cumulativeEndpointMass`; `hitBy`; `hitProbability`; `endpointHitProbability`; `hitProbability_bellman` | ✅ | Canonical construction from `FiniteMarkovKernel.pathWeight` and a bounded monotone limit. |
-| T0 partition | `ProtectedObstructions.PublicAdapter.Profile.t0_partition`; `t0_pairwise_disjoint`; `GenericCompletion.Profile.cut0_subset_cut1`; `cut1_subset_cut2`; `cut2_subset_cut3`; `delta1_eq_cut1_diff_cut0`; `delta2_eq_cut2_diff_cut1`; `delta3_eq_cut3_diff_cut2` | ✅ | Set-level partition algebra composed with the kernel-derived layer definitions. |
-| T1 empty fiber | `ProtectedObstructions.PublicAdapter.Profile.t1_fiber_empty_iff`; `t1_no_normal_endpoint_of_empty_fiber` | ✅ | Static target-set emptiness; no stochastic content in this row. |
-| T2 positive first hit | `ProtectedObstructions.endpointHitProbability_pos_iff`; `PublicAdapter.Profile.t2_positive_reach_iff` | ✅ | Positivity is derived from the kernel path law with an exact supported-path witness. |
-| T3 almost-sure first hit | `ProtectedObstructions.hitProbability_eq_one_iff_no_reachableClosedTrap`; `PublicAdapter.Profile.t3_almostSure_iff_noClosedTrap` | ✅ | Finite closed-class characterization with the pre-hit reach graph derived from the kernel. |
-| Least nonnegative fixed point and trap control | `ProtectedObstructions.hitProbability_least_nonnegative_fixedPoint`; `nonunique_nonnegativeBellmanFixedPoint_of_reachableClosedTrap` | ✅ | The least-fixed-point theorem is derived from the path law; no general uniqueness is claimed in a closed non-target trap. |
-| T4 endpoint selection | `ProtectedObstructions.PublicAdapter.Profile.t4_selection_iff_endpointUnionCert` | ✅ | Certificate unfolding over the derived first-hit endpoint law. |
-| T5 observable collapse | `ProtectedObstructions.PublicAdapter.Profile.t5_observableDetermination_collapse` | ✅ | Profile consequence under the stated determinacy premise. |
-| T6 scheduler correspondence | `ProtectedObstructions.PublicAdapter.Profile.t6_support_to_rewrite`; `t6_rewrite_to_support`; `target_is_normal` | ✅ | Soundness, completeness, and target normality are source proofs; T6 has no repeated conclusion fields. |
-| T7 behavior-cut recovery | `ProtectedObstructions.PublicAdapter.Profile.t7_behaviorCut0`; `t7_behaviorCut1`; `t7_behaviorCut2`; `t7_behaviorCut3`; `GenericCompletion.VariantFamily.cutAt_zero`; `cutAt_one`; `cutAt_two`; `cutAt_three` | ✅ | OPH `RealizedBehavior`/`BehaviorCut` adapter with one structural protected carrier; the L2 and L3 admissibility profiles carry source-quantified side conditions beyond the trace witness. |
-| T8 product preorder | `ProtectedObstructions.PublicAdapter.t8_coordinate_strict_iff`; `GenericCompletion.VariantFamily.le_refl`; `le_trans` | ✅ | Four-coordinate preorder with the strict-coordinate characterization. |
-| Structural morphism exactness | `ProtectedObstructions.NonidentityExactness.StructuralMorphism.fiber_nonempty_exact_derived`; `hitProbability_exact_derived`; `endpointHitProbability_pushforward_derived`; `positive_exact_derived`; `almostSure_exact_derived`; `endpointUnique_exact_derived`; `layer0_exact`; `layer1_exact`; `layer2_exact`; `layer3_exact` | ✅ | Kernel lumping and law pushforward are proved, and layer transport is derived as two-directional statements. |
-| Full-support quantitative transport | `ProtectedObstructions.PublicAdapter.GenericCompletion.InitialLaw.pooledHit_pos_iff`; `pooledEndpoint_pos_iff`; `pooledEndpointUnique_iff`; `pooledHit_eq_one_iff`; `Quantitative.pooledHit_exact_derived`; `pooledEndpoint_pushforward_derived` | ✅ | Positive stochastic transport and pooled endpoint pushforward. |
-| Nonidentity and native fixtures | `ProtectedObstructions.NonidentityExactness.Fixture.nonidentity_layer3_exact`; `PublicAdapter.GenericCompletion.StrictReversal.strict_forward`; `strict_reverse`; `NativeTwoBitC4.M0.protected_in_delta0`; `TwoBit.fine_survivor`; `coarse_in_delta3`; `C4.full_L0_iff_strongRepair`; `NativeC6.m2_delta2`; `m3_delta3` | ✅ | Fixture masses are exact rationals computed from the declared kernels; every stratum is inhabited. |
+| First-hit foundation | `ProtectedObstructions.FirstHitAt`; `firstHitAtMass`; `cumulativeEndpointMass`; `hitBy`; `hitProbability`; `endpointHitProbability`; `hitProbability_bellman` | ✅ | Lean-only canonical construction from `FiniteMarkovKernel.pathWeight` and a bounded monotone limit. |
+| T0 partition | `ProtectedObstructions.PublicAdapter.Profile.t0_partition`; `t0_pairwise_disjoint`; `GenericCompletion.Profile.cut0_subset_cut1`; `cut1_subset_cut2`; `cut2_subset_cut3`; `delta1_eq_cut1_diff_cut0`; `delta2_eq_cut2_diff_cut1`; `delta3_eq_cut3_diff_cut2` | ✅ | `PARTIAL`: Isabelle proves nested-set partition algebra over supplied profile functions; Lean composes it with the kernel-derived layer definitions. |
+| T1 empty fiber | `ProtectedObstructions.PublicAdapter.Profile.t1_fiber_empty_iff`; `t1_no_normal_endpoint_of_empty_fiber` | ✅ | `PARTIAL`: Isabelle proves only static target-set emptiness; no stochastic content is claimed for this row. |
+| T2 positive first hit | `ProtectedObstructions.endpointHitProbability_pos_iff`; `PublicAdapter.Profile.t2_positive_reach_iff` | ✅ | `PARTIAL`: Isabelle theorem `protected_profile.T2_positive_endpoint` consumes `hit_pos_iff_endpoint`; it does not derive positivity from a kernel or `pathWeight`. |
+| T3 almost-sure first hit | `ProtectedObstructions.hitProbability_eq_one_iff_no_reachableClosedTrap`; `PublicAdapter.Profile.t3_almostSure_iff_noClosedTrap` | ✅ | `PARTIAL`: Isabelle theorem `protected_profile.T3_all_sources_no_closed_trap` consumes `hit_one_iff_no_closed_trap`; it has no pre-hit reach graph or finite-kernel proof. |
+| Least nonnegative fixed point and trap control | `ProtectedObstructions.hitProbability_least_nonnegative_fixedPoint`; `nonunique_nonnegativeBellmanFixedPoint_of_reachableClosedTrap` | ✅ | Lean-only. The least-fixed-point theorem is derived from the path law; no general uniqueness is claimed in a closed non-target trap. |
+| T4 endpoint selection | `ProtectedObstructions.PublicAdapter.Profile.t4_selection_iff_endpointUnionCert` | ✅ | `PARTIAL`: Isabelle unfolds a certificate over an opaque supplied `first_hit` function. |
+| T5 observable collapse | `ProtectedObstructions.PublicAdapter.Profile.t5_observableDetermination_collapse` | ✅ | `PARTIAL`: Isabelle proves a profile consequence under locale laws and an explicit determinacy premise. |
+| T6 scheduler correspondence | `ProtectedObstructions.PublicAdapter.Profile.t6_support_to_rewrite`; `t6_rewrite_to_support`; `target_is_normal` | ✅ | Lean-only. Soundness, completeness, and target normality are source proofs; T6 has no repeated conclusion fields. |
+| T7 behavior-cut recovery | `ProtectedObstructions.PublicAdapter.Profile.t7_behaviorCut0`; `t7_behaviorCut1`; `t7_behaviorCut2`; `t7_behaviorCut3`; `GenericCompletion.VariantFamily.cutAt_zero`; `cutAt_one`; `cutAt_two`; `cutAt_three` | ✅ | Lean-only OPH `RealizedBehavior`/`BehaviorCut` adapter with one structural protected carrier; the L2 and L3 admissibility profiles carry source-quantified side conditions beyond the trace witness. |
+| T8 product preorder | `ProtectedObstructions.PublicAdapter.t8_coordinate_strict_iff`; `GenericCompletion.VariantFamily.le_refl`; `le_trans` | ✅ | `PARTIAL`: Isabelle proves four-coordinate preorder facts while `profile_correspondence` assumes exact cut membership; Lean proves the strict-coordinate characterization. |
+| Structural morphism exactness | `ProtectedObstructions.NonidentityExactness.StructuralMorphism.fiber_nonempty_exact_derived`; `hitProbability_exact_derived`; `endpointHitProbability_pushforward_derived`; `positive_exact_derived`; `almostSure_exact_derived`; `endpointUnique_exact_derived`; `layer0_exact`; `layer1_exact`; `layer2_exact`; `layer3_exact` | ✅ | `PARTIAL`: Isabelle proves only protected/initial/target/silent set-level identity and composition. It has no kernel lumping or law pushforward. |
+| Full-support quantitative transport | `ProtectedObstructions.PublicAdapter.GenericCompletion.InitialLaw.pooledHit_pos_iff`; `pooledEndpoint_pos_iff`; `pooledEndpointUnique_iff`; `pooledHit_eq_one_iff`; `Quantitative.pooledHit_exact_derived`; `pooledEndpoint_pushforward_derived` | ✅ | Lean-only for positive stochastic transport and pooled endpoint pushforward. |
+| Nonidentity and native fixtures | `ProtectedObstructions.NonidentityExactness.Fixture.nonidentity_layer3_exact`; `PublicAdapter.GenericCompletion.StrictReversal.strict_forward`; `strict_reverse`; `NativeTwoBitC4.M0.protected_in_delta0`; `TwoBit.fine_survivor`; `coarse_in_delta3`; `C4.full_L0_iff_strongRepair`; `NativeC6.m2_delta2`; `m3_delta3` | ✅ | The built Isabelle M2/M3 values remain `PARTIAL` direct finite functions rather than kernel-derived probabilities. |
 
 ### Native activation and counterexample route
 
