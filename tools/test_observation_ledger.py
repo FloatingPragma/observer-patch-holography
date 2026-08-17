@@ -197,7 +197,7 @@ def test_dropped_observation_row_fails() -> None:
 def test_new_reverse_consumer_gap_fails() -> None:
     ledger = _ledger()
     for row in ledger["rows"]:
-        if row["id"] in {"OL-K2", "OL-K3"}:
+        if row["id"] in {"OL-K2", "OL-K3", "OL-K5", "OL-K6"}:
             row["open_premises"] = []
     with pytest.raises(SystemExit, match="reverse-map exceptions drifted"):
         tool.validate(ledger)

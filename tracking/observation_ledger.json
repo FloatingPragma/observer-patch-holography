@@ -168,7 +168,7 @@
   },
   {
    "id": "OL-C1",
-   "target": "Born probabilities and Lüders conditioning",
+   "target": "Born probabilities and L\u00fcders conditioning",
    "rung": "structural",
    "status": "attained",
    "lane_issue": 730,
@@ -546,7 +546,7 @@
   },
   {
    "id": "OL-G2",
-   "target": "Global gauge group form S(U(3)xU(2)) ≅ (SU(3)xSU(2)xU(1))/Z6",
+   "target": "Global gauge group form S(U(3)xU(2)) \u2245 (SU(3)xSU(2)xU(1))/Z6",
    "rung": "structural",
    "status": "partial",
    "lane_issue": 734,
@@ -963,7 +963,7 @@
     "code/qft/test_finite_unitary_scattering_no_go.py",
     "paper/tex_fragments/QFT_STRUCTURAL_INHERITANCE_STATUS.tex"
    ],
-   "notes": "A kernel-checked Hausdorff-topological-group theorem rules out ordinary large-time convergence of powers of any nonidentity exact fixed-cutoff unitary update. At fixed finite dimension it also excludes full weak-operator convergence, because the standard operator topologies coincide. An exact relative-evolution control converges identically, so a viable scattering construction must do something beyond direct convergence of those powers, for example use comparison dynamics, a selected projected scalar or observable limit, an infinite-dimensional weak limit after a continuum or infinite-volume passage, open evolution, or a finite-time recurrence-aware readout. The result does not rule out scattering. No source-selected interacting action, asymptotic-state construction, S-matrix or finite operational substitute, optical-theorem bridge, and detector readout are jointly registered; the observation is therefore owed.",
+   "notes": "A kernel-checked Hausdorff-topological-group theorem rules out ordinary large-time convergence of powers of any nonidentity exact fixed-cutoff unitary update. At fixed finite dimension it also excludes full weak-operator convergence, because the standard operator topologies coincide. An exact relative-evolution control converges identically, so a viable scattering construction must do something beyond direct convergence of those powers, for example use comparison dynamics, a selected projected scalar or observable limit, an infinite-dimensional weak limit after a continuum or infinite-volume passage, open evolution, or a finite-time recurrence-aware readout. The result does not rule out scattering. Particle-antiparticle annihilation and pair-production amplitudes, including the two- and three-photon channels, are in this row's scope. No source-selected interacting action, asymptotic-state construction, S-matrix or finite operational substitute, optical-theorem bridge, and detector readout are jointly registered; the observation is therefore owed.",
    "open_premises": [
     "PR-54"
    ]
@@ -979,6 +979,48 @@
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
    ],
    "notes": "Imported perturbative formulas and finite conditional packets do not constitute an OPH renormalization theorem. A source field census, regulator family, counterterm and scheme policy, threshold maps, error bounds, and continuum or effective-field-theory exit are owed.",
+   "open_premises": [
+    "PR-54"
+   ]
+  },
+  {
+   "id": "OL-K4",
+   "target": "Internal particle clock and rest-frequency oscillation",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 743,
+   "premises": [],
+   "evidence": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
+   "notes": "A massive particle state carries a rest-frame internal oscillation at its Compton frequency. No localized particle state, self-starting oscillation, or frequency-rigidity statement exists in the corpus. The twenty-four-register rate no-go proves a repair iteration counter is not an operational clock, and the committed clock content is the SI calibration import (register row PR-15, owned by its own lanes) rather than a derived oscillation. A source-produced state, its internal dynamics, and an energy-frequency attachment are owed.",
+   "open_premises": []
+  },
+  {
+   "id": "OL-K5",
+   "target": "Particle persistence under free evolution",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 743,
+   "premises": [],
+   "evidence": [
+    "Lean/Thermodynamics/FiniteConditionalRepair.lean",
+    "Lean/QFT/FiniteUnitaryScatteringNoGo.lean"
+   ],
+   "notes": "A particle state persists under its own free dynamics without external stabilization. The corpus carries record-level stability only: idempotent conditional repair has exact fixed points with strict entropy production off them, which is stability of records under the declared repair law rather than persistence of a localized excitation. No localized particle state, perturbation-stability receipt, or long-run evolution instrument exists; the finite-unitary convergence delimitation constrains viable constructions without supplying one.",
+   "open_premises": [
+    "PR-54"
+   ]
+  },
+  {
+   "id": "OL-K6",
+   "target": "Magnetic moment and gyromagnetic ratio of charged particles",
+   "rung": "structural",
+   "status": "owed",
+   "lane_issue": 743,
+   "premises": [],
+   "evidence": [],
+   "notes": "A charged spin-carrying state sources a static magnetic dipole with gyromagnetic ratio near two, with the anomalous part fixed by interaction corrections. No magnetostatic content, dipole source, or moment mechanism exists in the corpus; the committed electromagnetism package is finite static structural Maxwell without temporal electric-magnetic dynamics, and the hadronic-payload accounting for the fine-structure row implements no moment calculation. A source-produced charged state with angular structure (the Spin attachment register row PR-47, owned by its own lanes), temporal electromagnetic coupling, and a readout contract are owed.",
    "open_premises": [
     "PR-54"
    ]
