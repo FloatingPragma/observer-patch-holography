@@ -10,6 +10,9 @@ import Geometry.EventFrameSoldering
 import Geometry.SpatialReadbackSoldering
 import Geometry.InverseSquareShellLaw
 import Geometry.MassShellKinematics
+import Geometry.InternalClockRestFrequency
+import Geometry.FreeEvolutionPersistence
+import Geometry.CausalOrderComposition
 
 /-!
 # OPH construction geometry umbrella

@@ -10,6 +10,7 @@ import Variational.ModeExtremalEnrichment
 import Variational.EnrichmentCharacterization
 import Variational.TranslationInvariantComposedInstance
 import Variational.MechanicsAdequacySurface
+import Variational.PolynomialEnrichmentSelection
 
 /-!
 # Variational umbrella root

@@ -107,7 +107,18 @@
   "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
   "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
   "OPH-QUANTUM-TRIPLE-CARRIER-JOIN",
-  "OPH-THERMO-COFINAL-SPECTRAL-TAIL-COMPOSITION"
+  "OPH-THERMO-COFINAL-SPECTRAL-TAIL-COMPOSITION",
+  "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+  "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+  "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
+  "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+  "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+  "OPH-MECH-POLYNOMIAL-BOOST-SELECTION",
+  "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+  "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+  "OPH-GEOMETRY-FREE-EVOLUTION-PERSISTENCE",
+  "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+  "OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE"
  ],
  "edges": [
   {
@@ -964,6 +975,86 @@
    "from": "OPH-THERMO-COHERENT-REFINEMENT-ENVELOPE",
    "to": "OPH-THERMO-COFINAL-SPECTRAL-TAIL-COMPOSITION",
    "role": "supplies the coherent spectral-envelope layer strengthened by an ambient cofinal embedding, strict carrier progress, and a rethreaded same-family four-law conclusion"
+  },
+  {
+   "from": "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+   "to": "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+   "role": "supplies the committed oriented face complex, incidences, local normal operator, and Coulomb-Green static sector over which the declared leapfrog evolution adds the temporal layer; it supplies no physical time, source production, or readout"
+  },
+  {
+   "from": "OPH-QUANTUM-TIME-SLICE-INTERFACE-DELIMITATION",
+   "to": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+   "role": "supplies the corrected one-step net-evolution interface and the committed 86/247 diamond whose region-family freedom the target settles in both the delimitation and the existence direction"
+  },
+  {
+   "from": "OPH-QUANTUM-TRIPLE-CARRIER-JOIN",
+   "to": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+   "role": "supplies the committed counted pair states, checkpoint anchorings, and 31 adjacent-step transports that the diagonal-layer join restricts and intertwines; the join adds no net or tower morphism"
+  },
+  {
+   "from": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+   "to": "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
+   "role": "supplies the ideal static phase model, committed web effects, and count literals whose inhabitant set the target reduces to one complex state coordinate with a decidable receipt window"
+  },
+  {
+   "from": "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+   "to": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+   "role": "supplies the committed mass-shell packet, frame hyperboloid, and oriented transports on which the internal-clock identities and the shell-completeness lemma are stated"
+  },
+  {
+   "from": "OPH-GAUGE-EXTERIOR-SM-WITNESS",
+   "to": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "role": "supplies the committed exterior-table scalar row, parity sectors, and one-Higgs invariant-line grammar whose charges the composed receipt balances; it supplies no scalar dynamics or breaking law"
+  },
+  {
+   "from": "OPH-GAUGE-KINETIC-HISTORY-BINDING",
+   "to": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "role": "supplies the invariant-form receipts whose free per-factor coefficients keep the relative coupling normalization declared, so the tree mass ratio is stated in declared constants"
+  },
+  {
+   "from": "OPH-MECH-ENRICHMENT-CHARACTERIZATION",
+   "to": "OPH-MECH-POLYNOMIAL-BOOST-SELECTION",
+   "role": "supplies the committed quadratic grammar, clause receipts, and quartic continuation that the polynomial boost-selection package extends and delimits"
+  },
+  {
+   "from": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "to": "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+   "role": "supplies the committed electroweak-breaking premise bundle, scalar sector functionals, and Yukawa line that the assembled structural action extends and sums; it supplies no source action or measured coefficient"
+  },
+  {
+   "from": "OPH-GAUGE-KINETIC-HISTORY-BINDING",
+   "to": "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+   "role": "supplies the committed weight space, constraint rows, and invariant normal form against which the declared diagonal gauge kinetic pairing of the assembled action is stated"
+  },
+  {
+   "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+   "to": "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+   "role": "supplies the committed rich-fibre and partition observer nets whose declared region lattices and disjointness relations the causal-order composition embeds into the declared cone"
+  },
+  {
+   "from": "OPH-CANONICAL-LORENTZ-MODULE",
+   "to": "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+   "role": "supplies the declared Hermitian Lorentz module, its determinant quadratic form, and the oriented map and overlap-cocycle interfaces on which the cone order and its invariances are stated"
+  },
+  {
+   "from": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+   "to": "OPH-GEOMETRY-FREE-EVOLUTION-PERSISTENCE",
+   "role": "supplies the declared plane-wave states, phase readouts, and internal clock whose identity with the flow phase along the state's own frame is a clause of the composed persistence receipt"
+  },
+  {
+   "from": "OPH-QUANTUM-TSIRELSON-SATURATION",
+   "to": "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+   "role": "supplies the declared saturating Bell state, the committed diagonal CHSH bound, and the slot-interface witness against which the reachability class is delimited"
+  },
+  {
+   "from": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+   "to": "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+   "role": "supplies the committed counted states, ambient anchorings, walk-step transports, and internal slot exchange that the reachable class encloses as its enumerated committed operations"
+  },
+  {
+   "from": "OPH-FINITE-QUANTUM-LIMITATION-SUITE",
+   "to": "OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE",
+   "role": "supplies the committed Pauli matrices of the Robertson module that inhabit the declared commutation hypothesis class at coupling two with nonzero spin term"
   }
  ]
 }

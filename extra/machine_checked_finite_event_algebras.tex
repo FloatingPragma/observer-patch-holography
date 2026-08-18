@@ -160,9 +160,9 @@ after removing only TeX's protective backslash before each underscore, in the
 \texttt{EventAlgebra/*.lean} files. In the public repository these files are
 under \texttt{Lean/EventAlgebra/}. Table~\ref{tab:modules} maps each module
 name to its subject matter. The top-level \texttt{EventAlgebra.lean} file
-imports these thirteen modules alongside the wider OPH event-algebra library.
+imports these fourteen modules alongside the wider OPH event-algebra library.
 
-The checked development contributes thirteen pieces:
+The checked development contributes fourteen pieces:
 
 \begin{enumerate}[(i)]
 \item an arbitrary supplied projective partition, independent of a selected
@@ -207,7 +207,13 @@ diagonal state read against four diagonal observables valued in $[-1,1]$;
 \item an ideal static phase-POVM/count-fit structure with conditional
 tomography, exact diagonal/real-closure blindness, and an explicit synthetic
 inhabitant proving that the structure does not type source operations,
-producer receipts, or PR-04 discharge; and
+producer receipts, or PR-04 discharge;
+\item an exact determination boundary for that structure: a coordinate
+characterization of the phase-sensitivity clause, run-literal pinning of the
+state diagonal with one free off-diagonal coordinate, affine dependence of
+every count frequency on that coordinate, a decidable integer receipt window
+on the phase counts, and the minimal phase-mass receipt
+(Section~\ref{sec:phase-determination}); and
 \item a reproducible, version-pinned artifact with per-declaration axiom
 output, no proof placeholders, and a documented catalog of the Mathlib gaps,
 scoped-instance hazards, and workarounds met during construction
@@ -221,7 +227,7 @@ classical-representation theorem. The CHSH bounds carry a saturation witness
 data, produced by no theorem from any source object. A companion module,
 \texttt{Dynamics/ChoiCPTP.lean}, defines an explicit finite-matrix CPTP
 predicate and proves both partition expectations completely positive and
-trace preserving; the thirteen-module audit here covers their event-algebra
+trace preserving; the fourteen-module audit here covers their event-algebra
 interfaces rather than recounting that companion development.
 
 Section~\ref{sec:setting} fixes the mathematical and Lean interfaces.
@@ -258,7 +264,7 @@ functions that return states, the library defines the subtypes
 practical. Algebraic lemmas use raw matrices. A function advertised as a state
 update returns a value whose type carries the state conditions.
 
-Table~\ref{tab:modules} lists the thirteen source modules. The comparison in
+Table~\ref{tab:modules} lists the fourteen source modules. The comparison in
 this work concerns their compiled interfaces and uses, not the number of
 declarations in each file.
 
@@ -299,6 +305,10 @@ receipt, and record-diagonal classical delimitation \\
 \texttt{Operational\allowbreak Phase\allowbreak Instrument} & ideal static
 phase-POVM/count-fit structure, conditional tomography, exact blindness
 receipts, and a synthetic non-discharge counterreceipt \\
+\texttt{Phase\allowbreak Instrument\allowbreak Determination} & coordinate
+characterization of the phase clause, run-literal state pinning, affine
+count-frequency dependence, decidable integer receipt window, and the
+minimal phase-mass receipt \\
 \bottomrule
 \end{tabular}
 \caption{Module structure of the checked development.}
@@ -898,6 +908,28 @@ the genuinely complex Pauli-$Y$ direction of PR-04, and no theorem asserts
 that the repository's committed phase lift is necessary or sufficient for
 attainment.
 
+The delimitation extends from one fixed counted state to the whole committed
+production surface
+(\texttt{SourceReachabilityDelimitation.lean}). The module defines the class
+of states reachable from the three source-counted occupation laws under
+every operation the development commits: the walk-step transports, the
+internal slot exchange, the ambient anchorings, the marginalizations, the
+regional and scalar conditional expectations, marginal products, and convex
+mixtures. Every state in that class remains diagonal in the record basis
+with nonnegative weights summing to one, and its CHSH value against any four
+record-diagonal $[-1,1]$-valued readouts is at most $2$, strictly below the
+attained $2\sqrt2$ of the declared witness. The witness state itself carries an
+off-diagonal entry of one half, so no map that preserves record diagonality
+reaches it from the class. Producing the attained saturation from source
+data within the committed operations therefore requires an operation that
+writes off-diagonal record coherence; the premise register keeps exactly
+that production open. The delimitation constrains readouts outside the
+jointly diagonal class only through the reachable states' diagonality, and
+it is a statement about the committed operation class, not about every
+conceivable architecture extension. Like \texttt{Dynamics/ChoiCPTP.lean},
+the module is a companion in the wider library, outside this paper's
+fourteen-module count and scale table.
+
 \section{An ideal static phase-POVM count fit}
 \label{sec:phase-instrument}
 
@@ -944,6 +976,53 @@ operation/readback and common-preparation semantics, producer-bound receipts,
 and a preregistered statistical validation rule (or an explicitly exhaustive
 deterministic semantics). Operational additivity/composition remains a
 separate PR-03 obligation.
+
+\subsection{Exact determination boundary and the integer receipt window}
+\label{sec:phase-determination}
+
+The module \texttt{PhaseInstrumentDetermination.lean} sharpens the boundary to
+an exact reduction. The phase-sensitivity clause has a coordinate
+characterization: for a Hermitian effect $E$ the Born-weight gap between the
+two Pauli-Y states equals $-2\,\mathrm{Im}\,E_{01}$
+(\texttt{bornWeight\_rhoY\_sub\_of\_isHermitian}), so the clause holds exactly
+when $\mathrm{Im}\,E_{01} \neq 0$
+(\texttt{phase\_sensitivity\_iff\_offdiag\_im}). The diagonal and
+complexified-real exclusions are the $\mathrm{Im}\,E_{01} = 0$ instances, and
+conjugating a committed web projector by any real matrix, gauge images and
+permutations included, is excluded in one statement
+(\texttt{phase\_effect\_ne\_real\_conjugated\_web}).
+
+The committed run literals pin the model state. Every inhabitant satisfies
+$\rho_{00} = 111/179$, $\rho_{11} = 68/179$, and
+$\rho_{10} = \overline{\rho_{01}}$ (\texttt{prep\_coordinates}), so one
+complex off-diagonal coordinate carries the entire remaining state content.
+Every count frequency of every inhabitant, in every instrument context, is an
+exact affine function of that coordinate, with real coefficients determined
+by the context's effect entries (\texttt{frequency\_affine}). Over the
+committed core the phase frequency equals
+$1/2 - \mathrm{Im}\,\rho_{01}$ (\texttt{phase\_frequency\_eq}) and the rotated
+frequency equals $315/716 - (\sqrt{3}/2)\,\mathrm{Re}\,\rho_{01}$
+(\texttt{rotated\_frequency\_eq}); two committed-core inhabitants have equal
+states exactly when all count frequencies agree
+(\texttt{prep\_eq\_iff\_frequencies\_eq}). Positivity bounds the coordinate by
+$|\rho_{01}|^2 \le 7548/32041$ (\texttt{prep\_offdiag\_normSq\_le}), which
+forces the decidable integer window
+$32041\,(a-b)^2 \le 30192\,(a+b)^2$ on the phase counts $(a,b)$ of every
+committed-core inhabitant (\texttt{phase\_counts\_receipt\_window}). Both
+phase outcomes of every committed-core inhabitant carry positive mass, and
+the minimal phase count mass over committed-core inhabitants is exactly two,
+attained by the synthetic inhabitant
+(\texttt{minimal\_phase\_count\_mass}).
+
+The reduction states the PR-04 residue exactly: for a committed-core
+inhabitant the state diagonal, the affine dependence of every count frequency
+on the one free coordinate, and the admissible count window are forced by the
+committed diagonal literals and the committed effects. What the row keeps
+open is count provenance, a custody condition the register holds outside the
+type system, together with source production of the phase operation and the
+common preparation. The window is a necessary condition on any producer-bound
+phase receipt and carries no provenance information, since the synthetic
+inhabitant meets it without a producer.
 
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}
@@ -1050,7 +1129,7 @@ Holography repository \cite{observerPatchHolographyRepo}. The exact source
 snapshot is the repository revision containing this manuscript and its built
 PDF; the manuscript source accompanies the submission.
 
-Table~\ref{tab:scale} describes the thirteen modules discussed here and the
+Table~\ref{tab:scale} describes the fourteen modules discussed here and the
 umbrella root. Other modules imported by the broader root are outside this
 paper's count. The comparison in Section~\ref{sec:comparison} concerns
 interfaces, not counts.
@@ -1074,10 +1153,11 @@ Module & Lines & Audited declarations \\
 \texttt{Tsirelson} & 275 & 8 \\
 \texttt{ExpectationBound} & 174 & 4 \\
 \texttt{TsirelsonSaturation} & 834 & 39 \\
-\texttt{OperationalPhaseInstrument} & 875 & 40 \\
-\texttt{EventAlgebra} (root) & 130 & 0 \\
+\texttt{OperationalPhaseInstrument} & 878 & 40 \\
+\texttt{PhaseInstrumentDetermination} & 503 & 24 \\
+\texttt{EventAlgebra} (root) & 133 & 0 \\
 \midrule
-Total & 5072 & 231 \\
+Total & 5581 & 255 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the

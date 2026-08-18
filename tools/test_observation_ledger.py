@@ -81,6 +81,18 @@ def test_attained_predictive_row_accepts_locked_target(monkeypatch) -> None:
     row = next(row for row in ledger["rows"] if row["id"] == "OL-F4")
     row["status"] = "attained"
     row["open_premises"] = []
+    # The synthetic register below drops lane 733 from PR-15, so the other
+    # lane-733 rows that genuinely keep PR-15 open must not consult it in
+    # this fixture; the scenario under test concerns OL-F4 alone.
+    for other in ledger["rows"]:
+        if (
+            other["id"] != "OL-F4"
+            and other.get("lane_issue") == 733
+            and "PR-15" in other.get("open_premises", [])
+        ):
+            other["open_premises"] = [
+                p for p in other["open_premises"] if p != "PR-15"
+            ]
     premise_rows, _ = tool.load_premise_register()
     premise_rows = json.loads(json.dumps(premise_rows))
     pr15 = next(item for item in premise_rows if item["id"] == "PR-15")

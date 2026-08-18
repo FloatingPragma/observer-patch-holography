@@ -77,15 +77,17 @@
     "code/born_context_phase_lift/README.md",
     "code/born_context_phase_lift/verify_source_phase_lift.py",
     "claims/assumption_dictionary.md",
-    "Lean/EventAlgebra/OperationalPhaseInstrument.lean"
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
+    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean"
    ],
    "evidence_roles": {
     "code/born_context_phase_lift/README.md": "statement",
     "code/born_context_phase_lift/verify_source_phase_lift.py": "conditional_consumer",
     "claims/assumption_dictionary.md": "statement",
-    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "no_go"
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "no_go",
+    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean": "no_go"
    },
-   "notes": "Removal needs a source-produced phase-sensitive operation/instrument with completely-positive outcome maps, a trace-preserving summed channel, effect/readback compatibility, common-preparation semantics, producer-bound receipts, and a preregistered statistical validation rule (or explicitly exhaustive deterministic semantics). Lean/EventAlgebra/OperationalPhaseInstrument.lean now deliberately types only IdealPhasePOVMCountModel, a static exact-fit model. Its synthetic_ideal_phase_fit theorem constructs an inhabitant from chosen rational literals with no producer, run, operation, or receipt, proving that exact POVM/count fit cannot by itself discharge PR-04. The diagonal/real-closure blindness theorems remain exact algebraic delimitations. Operational additivity/composition remains separately registered under PR-03."
+   "notes": "Removal needs a source-produced phase-sensitive operation/instrument with completely-positive outcome maps, a trace-preserving summed channel, effect/readback compatibility, common-preparation semantics, producer-bound receipts, and a preregistered statistical validation rule (or explicitly exhaustive deterministic semantics). Lean/EventAlgebra/OperationalPhaseInstrument.lean now deliberately types only IdealPhasePOVMCountModel, a static exact-fit model. Its synthetic_ideal_phase_fit theorem constructs an inhabitant from chosen rational literals with no producer, run, operation, or receipt, proving that exact POVM/count fit cannot by itself discharge PR-04. The diagonal/real-closure blindness theorems remain exact algebraic delimitations. Operational additivity/composition remains separately registered under PR-03. Lean/EventAlgebra/PhaseInstrumentDetermination.lean reduces the row's residue exactly: the committed diagonal literals pin the model state up to one complex off-diagonal coordinate, the phase clause is equivalent to a nonzero off-diagonal imaginary part for Hermitian effects, every count frequency of every inhabitant is an exact affine function of that coordinate (closed forms over the committed core for the phase and rotated-3 contexts), and phase counts obey the decidable window 32041(a-b)^2 <= 30192(a+b)^2 with both outcomes positive and minimal mass two. What the row keeps open is count provenance, source production of the phase operation, and common-preparation receipts; none is expressible inside the model, and the window is a necessary condition on any producer-bound phase receipt, never a provenance certificate."
   },
   {
    "id": "PR-05",
@@ -127,7 +129,8 @@
     "claims/assumption_dictionary.md",
     "Lean/Variational/ModeExtremalEnrichment.lean",
     "Lean/Variational/SourceToHamiltonianComposed.lean",
-    "Lean/Variational/EnrichmentCharacterization.lean"
+    "Lean/Variational/EnrichmentCharacterization.lean",
+    "Lean/Variational/PolynomialEnrichmentSelection.lean"
    ],
    "evidence_roles": {
     "Lean/Variational/LegendreBridge.lean": "statement",
@@ -135,9 +138,10 @@
     "claims/assumption_dictionary.md": "statement",
     "Lean/Variational/ModeExtremalEnrichment.lean": "conditional_consumer",
     "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer",
-    "Lean/Variational/EnrichmentCharacterization.lean": "no_go"
+    "Lean/Variational/EnrichmentCharacterization.lean": "no_go",
+    "Lean/Variational/PolynomialEnrichmentSelection.lean": "no_go"
    },
-   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet real enrichment, which the realized-history law provably underdetermines. The declared mode-extremality rule fixes a = 2*log(362055879/271780) only after the admissible extensions are restricted to L_a = L_0 + (a/2)y(y-1). The complete quadratic classification proves that corner invisibility gives L_{a,c}, stationarity fixes a+c=a*, and the separately declared velocity-only clause fixes (a*,0) inside that quadratic grammar. The cubic control shows quadraticity is needed under stationarity alone, and the committed single-site minimum excludes that cubic family. It still does not select globally: for every 0<lambda<a*, the machine-checked quartic continuation L_lambda=L_a*+lambda*y^2*(y-1)^2 is corner-invisible and velocity-only, preserves the same stationarity and global fixed-endpoint single-site minimum, has an everywhere positive velocity Hessian and an invertible momentum map, and differs from every quadratic. Thus no tested clause bundle is a proved-minimal axiom system, and PR-06 remains active rather than discharged or ready for automatic axiomatization."
+   "notes": "Removal needs additional source data or a physical receipt selecting the off-alphabet real enrichment, which the realized-history law provably underdetermines. The declared mode-extremality rule fixes a = 2*log(362055879/271780) only after the admissible extensions are restricted to L_a = L_0 + (a/2)y(y-1). The complete quadratic classification proves that corner invisibility gives L_{a,c}, stationarity fixes a+c=a*, and the separately declared velocity-only clause fixes (a*,0) inside that quadratic grammar. The cubic control shows quadraticity is needed under stationarity alone, and the committed single-site minimum excludes that cubic family. It still does not select globally: for every 0<lambda<a*, the machine-checked quartic continuation L_lambda=L_a*+lambda*y^2*(y-1)^2 is corner-invisible and velocity-only, preserves the same stationarity and global fixed-endpoint single-site minimum, has an everywhere positive velocity Hessian and an invertible momentum map, and differs from every quadratic. Thus no tested clause bundle is a proved-minimal axiom system, and PR-06 remains active rather than discharged or ready for automatic axiomatization. A second-order boost clause is on record as a named candidate (Lean/Variational/PolynomialEnrichmentSelection.lean, BoostNullCovariant): every boost difference of a boost difference of the enrichment is a discrete null Lagrangian in the committed fixed-endpoint sense. Every quadratic-grammar sentence satisfies it; among velocity-only polynomial enrichments of every degree bound it holds exactly for the quadratic-affine members; the quartic continuation fails it at an explicit witness; and corner invisibility, velocity-only, the committed stationarity calibration, and the clause select exactly the committed point in the full two-slot polynomial grammar. The literal first-order boost clause fails at the committed increment itself, and the full grammar contains the boost-covariant, corner-invisible, stationarity-neutral antisymmetric cubic (x-y)^3-(x-y) outside the quadratics, so the velocity-only clause stays load-bearing; the module carries the mutation guard boostDiff_first_slot_guard. The clause is a declared candidate axiom, not a derived symmetry, and does not discharge this row."
   },
   {
    "id": "PR-07",
@@ -338,7 +342,8 @@
     732,
     733,
     735,
-    736
+    736,
+    743
    ],
    "evidence": [
     "claims/assumption_dictionary.md",
@@ -372,7 +377,7 @@
     "claims/claim_registry.yaml": "conditional_consumer",
     "code/geometry/event_manifold_reconstruction.py": "conditional_consumer"
    },
-   "notes": "Removal needs causal-structure and open-image theorems on the constructed event region in place of the named global assumptions; the spacetime and gravitation lanes own that composition work."
+   "notes": "Removal needs causal-structure and open-image theorems on the constructed event region in place of the named global assumptions; the spacetime and gravitation lanes own that composition work. Evidence context: the cone relation of the declared module is proved a partial order in Lean/Geometry/CausalOrderComposition.lean; stable causality as a physical condition on an attached spacetime stays with this row."
   },
   {
    "id": "PR-17",
@@ -672,12 +677,14 @@
    "evidence": [
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/JointSlotFactorisation.lean",
-    "Lean/QFT/SourceCorrelationCapstone.lean"
+    "Lean/QFT/SourceCorrelationCapstone.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/JointSlotFactorisation.lean": "conditional_consumer",
-    "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer"
+    "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer",
+    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer"
    },
    "notes": "Removal requires source selection of the joint carrier; the bounded closure of historical issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier."
   },
@@ -692,11 +699,13 @@
    ],
    "evidence": [
     "Lean/QFT/StructuralNetAdequacySurface.lean",
-    "Lean/QFT/TwoSlotCPNetWitness.lean"
+    "Lean/QFT/TwoSlotCPNetWitness.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
-    "Lean/QFT/TwoSlotCPNetWitness.lean": "conditional_consumer"
+    "Lean/QFT/TwoSlotCPNetWitness.lean": "conditional_consumer",
+    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived region lattice; the committed nets carry no region system beyond the diamond."
   },
@@ -712,12 +721,14 @@
    "evidence": [
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/JointSlotFactorisation.lean",
-    "Lean/QFT/SourceCorrelationCapstone.lean"
+    "Lean/QFT/SourceCorrelationCapstone.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/JointSlotFactorisation.lean": "conditional_consumer",
-    "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer"
+    "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer",
+    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-produced factorisation of the joint algebra; the disjointness datum grounds the 86/247 instance without deriving the embedding form."
   },
@@ -992,6 +1003,7 @@
    "consuming_lanes": [
     734,
     735,
+    743,
     745
    ],
    "evidence": [
@@ -1019,12 +1031,14 @@
    "evidence": [
     "claims/assumption_dictionary.md",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-    "Lean/Screen/Z6Descent.lean"
+    "Lean/Screen/Z6Descent.lean",
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer",
-    "Lean/Screen/Z6Descent.lean": "statement"
+    "Lean/Screen/Z6Descent.lean": "statement",
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source action that selects the scalar carrier and fixes its kinetic normalization rather than assuming the one-Higgs branch."
   },
@@ -1042,12 +1056,14 @@
    "evidence": [
     "claims/assumption_dictionary.md",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-    "code/particles/hierarchy/STATUS.md"
+    "code/particles/hierarchy/STATUS.md",
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer",
-    "code/particles/hierarchy/STATUS.md": "conditional_consumer"
+    "code/particles/hierarchy/STATUS.md": "conditional_consumer",
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer"
    },
    "notes": "Removal needs a target-clean source-derived stable scalar potential, vacuum, and scale bridge. Until then electroweak breaking is a registered premise, not an OPH result."
   },
@@ -1065,12 +1081,14 @@
    "evidence": [
     "code/particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
    ],
    "evidence_roles": {
     "code/particles/flavor/derive_quark_axiom_level_yukawa_moduli_nonidentifiability.py": "no_go",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source-derived interaction action selecting all three matrices without measured mass or mixing ancestry."
   },
@@ -1107,23 +1125,28 @@
     728,
     729,
     730,
-    740
+    740,
+    743
    ],
    "evidence": [
     "Lean/Geometry/CanonicalLorentzModule.lean",
     "Lean/QFT/FiniteCausalObserverNet.lean",
     "Lean/QFT/TripleCarrierJoin.lean",
     "Lean/Geometry/EventFrameSoldering.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/CanonicalLorentzModule.lean": "statement",
     "Lean/QFT/FiniteCausalObserverNet.lean": "statement",
     "Lean/QFT/TripleCarrierJoin.lean": "statement",
     "Lean/Geometry/EventFrameSoldering.lean": "statement",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/QFT/CarrierJoinTransport.lean": "statement",
+    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean": "no_go"
    },
-   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock."
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open."
   },
   {
    "id": "PR-53",
@@ -1140,15 +1163,17 @@
     "Lean/Screen/LightSignalAdequacySurface.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "claims/frozen_prediction_register.json",
-    "docs/FROZEN_PREDICTION_LADDER.md"
+    "docs/FROZEN_PREDICTION_LADDER.md",
+    "Lean/Screen/TemporalMaxwellEvolution.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
     "Lean/Screen/LocalFaceMaxwellAction.lean": "statement",
     "claims/frozen_prediction_register.json": "conditional_consumer",
-    "docs/FROZEN_PREDICTION_LADDER.md": "conditional_consumer"
+    "docs/FROZEN_PREDICTION_LADDER.md": "conditional_consumer",
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action, but no temporal propagation, calibrated frame/scale, physical source or readout, or continuum attachment. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met."
+   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies an exact declared-step leapfrog evolution with continuity, energy, gauge, static-Coulomb, and wave receipts; a calibrated frame/scale, physical source or readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met."
   },
   {
    "id": "PR-54",
@@ -1169,15 +1194,17 @@
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "Lean/Screen/GaugeKineticInvariantForms.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "Lean/Screen/TemporalMaxwellEvolution.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
     "Lean/Screen/GaugeKineticInvariantForms.lean": "statement",
     "Lean/Screen/LocalFaceMaxwellAction.lean": "statement",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement",
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "statement"
    },
-   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately and supplies no temporal continuity equation, matter operator, physical source, spacetime attachment, or nonabelian sector."
+   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing."
   },
   {
    "id": "PR-55",
@@ -1257,14 +1284,16 @@
    "evidence": [
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/PathTimeSliceInterface.lean",
-    "Lean/QFT/TripleCarrierJoin.lean"
+    "Lean/QFT/TripleCarrierJoin.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
-    "Lean/QFT/PathTimeSliceInterface.lean": "statement"
-    ,"Lean/QFT/TripleCarrierJoin.lean": "statement"
+    "Lean/QFT/PathTimeSliceInterface.lean": "statement",
+    "Lean/QFT/TripleCarrierJoin.lean": "statement",
+    "Lean/QFT/CarrierJoinTransport.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open."
   },
   {
    "id": "PR-59",
@@ -1287,7 +1316,8 @@
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/super_tannakian_matter_lift_certificate.py",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
@@ -1297,7 +1327,8 @@
     "Lean/Screen/SMStructureAdequacySurface.lean": "conditional_consumer",
     "code/a5_closure/exterior_sm_completion.py": "conditional_consumer",
     "code/a5_closure/super_tannakian_matter_lift_certificate.py": "conditional_consumer",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "conditional_consumer"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "conditional_consumer",
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source-selected five-mode carrier and exterior table together with outcome-independent completeness against the relevant alternative matter carriers, or a genuinely fresh preregistered replacement grammar spanning them. PR-12 is a separate negative-control and search class, not a superset from which PR-59 can be selected. The two surviving masks are exact only inside the declared PR-59 table."
   }

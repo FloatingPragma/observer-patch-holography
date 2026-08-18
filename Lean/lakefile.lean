@@ -81,9 +81,10 @@ lean_lib «OPHScreen» where
     `LightSignalAdequacySurface, `ModalMaxwellFactorizationBoundary,
     `LightSignalMaxwellComposition, `SeamU1HolonomyClassification,
     `LayeredDiscreteGauss, `DiscreteCoulombGreen, `PositionSpaceMaxwellAction,
-    `LocalFaceMaxwellAction,
+    `LocalFaceMaxwellAction, `TemporalMaxwellEvolution,
     `SMStructureAdequacySurface, `SMStructureComposition,
-    `MatterGrammarIndexBridge,
+    `MatterGrammarIndexBridge, `ElectroweakBreakingComposition,
+    `AssembledActionComposition,
     `ExteriorComponentBridge, `QuantumMatterIntegration,
     `B10EdgeCenterAction,
     `B10QuantumLimitations, `CarrierUniqueness]

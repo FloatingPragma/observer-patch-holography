@@ -2674,9 +2674,59 @@ withdrawn raw-generation argument does not show that a new noninjective net
 shape is necessary. Viable routes include an evolution that transports
 admitted data between distinct current regional algebras, equal algebras for
 appropriate Cauchy neighborhoods, or a fixed algebra with coherent nontrivial
-dynamics. The \(\mathbb Z/2\) slot swap remains an internal finite symmetry,
-and physical time, causality, spacetime attachment, and actual carrier joining
-at the regional-net and tower levels stay open.
+dynamics. The \(\mathbb Z/2\) slot swap remains an internal finite symmetry; the
+diagonal-layer join below carries typed embeddings of both carriers, while
+physical time, causality, spacetime attachment, and joining at the
+regional-net and tower levels stay open.
+
+\paragraph{A typed hinge-fibered join of the two committed carriers.}
+The module \path{Lean/QFT/CarrierJoinTransport.lean} joins the two committed
+carriers at their diagonal layer, the layer on which every committed counted
+state lives.  The observer-86 hinge is the 13-dimensional function space on
+the shared label alphabet; it maps into the 182-dimensional 86/88 layer and
+the 169-dimensional 86/247 layer by fiber-uniform sections of slot
+marginalization, and the join is the pushout of the two carriers over the
+hinge.  Both embeddings are injective typed linear maps and agree exactly on
+the hinge (\texttt{embed\_agree\_on\_hinge}); the join has dimension
+$338 = 182 + 169 - 13$ (\texttt{joinCarrier\_finrank}), strictly below the
+direct-sum dimension $351$; and the intersection of the two embedded images
+is exactly the embedded hinge (\texttt{embed\_range\_inter}), so the
+construction glues along the shared observer rather than placing the
+carriers side by side.  A hinge restriction retracts the join onto the
+hinge; under it the two transported counted states restrict to the same
+committed observer-86 occupation law
+(\texttt{joinStates\_marginal\_compatible}).  The committed ambient
+anchoring equivalences act on the diagonal layer as the committed basis
+reindexings, and the join transports along them with commuting squares on
+both embeddings; the committed walk-step transports over the 31 actual
+adjacent source transitions restrict to the diagonal layer, share the
+observer-86 hinge action, and descend to one join evolution intertwined by
+both embeddings and by the hinge restriction.  The join is a finite linear
+object with declared fiber-uniform sections: no star-algebra amalgamation,
+order structure on the quotient, net morphism, tower morphism, or
+uniqueness claim accompanies it.
+
+\paragraph{Region families of the corrected one-step interface.}
+The same module settles the region-family freedom of
+\texttt{TimeIndexedNetEvolution} over the committed 86/247 diamond in both
+directions.  Any evolution family that maps each regional algebra onto
+itself forces a step-invariant region family, and every net-compatible
+slice family over the committed walk-step evolution on cyclic
+$\operatorname{Fin}(32)$ is constant (\texttt{stepEvolve\_slice\_constant});
+the scalar bottom and full top regions are rigid under every evolution
+family, so a one-step region change of any inhabitant exchanges the two
+slot regions (\texttt{slice\_change\_forces\_slot\_exchange}).  Conversely a
+slot-alternating inhabitant exists (\texttt{slotAlternatingEvolution}): the
+slice alternates between the left and right slot regions, the per-step
+automorphism composes the committed walk-step evolution with the internal
+slot exchange, the admitted data are the committed source generators of
+observer 86 at even steps and of observer 247 at odd steps, and the evolved
+data generate the next regional algebra at every step; the region family is
+provably not step-invariant.  The exchange factor is a constructed internal
+symmetry, not a source transition, and the walk factor carries the declared
+index-31 bookkeeping closure; physical time, causality, and the source
+content of the registered time-slice premise stay open.
+
 \paragraph{Boundary-fibre circularity control.}
 Over the bare consensus tower of the gravitational branch (finite
 presentation and

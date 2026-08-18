@@ -4674,6 +4674,460 @@
         "open": [],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+      "statement": "On the committed twelve-port, thirty-seam, twenty-oriented-face complex with the committed incidences d and C (Cd=0), time-indexed seam potentials A n and port potentials phi n define the staggered electric field E n = -(A(n+1)-A n)-d(phi n) on half steps and magnetic field B n = C(A n) at integer steps. One declared leapfrog Ampere law E(n+1)-E n = C^T B(n+1)-J n governs the evolution; the Faraday law B(n+1)-B n = -C(E n) is a theorem of the definitions. Along the evolution the Gauss constraint boundary(E n)=rho n propagates from step n to n+1 exactly when the discrete continuity equation rho(n+1)-rho n+boundary(J n)=0 holds, in both directions, with port load rho and seam current J distinct types bridged only by this equivalence. The staggered energy (1/2)|E n|^2+(1/2)<B n,B(n+1)> changes per step by exactly minus the source work (1/2)<E n+E(n+1),J n>, so source-free evolution conserves it exactly. Time-dependent gauge transformations A->A+d(chi n), phi->phi-(chi(n+1)-chi n) leave E, B, the evolution law, and the energy invariant. Constant-in-time source-free solutions have zero magnetic field, forced-neutral load, and electric field exactly the canonical Coulomb field of the committed Green solution, and every neutral load admits such a static solution. Source-free evolution obeys the exact discrete wave recursion A(n+2)-2A(n+1)+A n+C^T C A(n+1)+d(phi(n+1)-phi n)=0. The composed receipt carries the Faraday, continuity-equivalence, Gauss-propagation, energy, gauge, static-join, and wave clauses from the single typed antecedent bundle of histories, declared sources, Ampere law, initial Gauss constraint, and stepwise continuity, while the neutral-load static-existence clause and the explicit nonstatic inhabitant, whose magnetic field is zero at step zero and equals three on face zero at step one, are separate theorems of the same module. The step index is a declared evolution parameter, not physical time; the sources are declared, not source-produced; no photon, propagation-speed, covariance, continuum, or readout claim is made.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "exact_declared_step_leapfrog_maxwell_evolution_with_typed_continuity_bridge",
+      "assumptions": [
+        "committed_oriented_twenty_face_thirty_seam_complex",
+        "declared_evolution_step_index",
+        "declared_port_load_and_seam_current_histories",
+        "declared_leapfrog_ampere_update"
+      ],
+      "imported_results": [
+        "finite_cellular_laplacian_linear_algebra",
+        "discrete_leapfrog_integrator_algebra"
+      ],
+      "oph_specific_delta": "Adds the missing temporal layer over the committed static local face action: a declared exact leapfrog evolution whose Gauss propagation is equivalent to a proved discrete continuity equation between the two typed sources, an exactly conserved staggered energy, full time-dependent gauge invariance, an exact discrete wave law with the committed five-neighbor normal operator, and a static join that lands exactly on the committed Coulomb-Green sector, all without identifying port load with seam current.",
+      "novelty_type": "exact_OPH_temporal_leapfrog_maxwell_evolution_with_proved_continuity_equivalence_and_static_coulomb_join",
+      "evidence": [
+        "paper/screen_microphysics_and_observer_synchronization.tex",
+        "Lean/Screen/TemporalMaxwellEvolution.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The bounded result fails if Faraday's law does not follow from the staggered definitions, if Gauss propagation along the declared Ampere law is not equivalent to rho(n+1)-rho n+boundary(J n)=0 in either direction, if the staggered per-step energy balance has any remainder beyond the stated source work term, if any time-dependent gauge transformation changes E, B, the evolution law, or the energy, if a constant source-free solution has nonzero magnetic field or an electric field differing from the committed Coulomb field, if a neutral load admits no static solution, if the source-free wave recursion fails, or if the antecedent bundle is uninhabited or inhabited only by static solutions.",
+      "scope_if_false": "Only the temporal evolution layer falls. The static local face action, the Coulomb-Green receipts, the Hodge comparison, and every physical propagation, source, or readout attachment retain their separately stated scopes.",
+      "status": "exact_temporal_evolution_and_continuity_attained__physical_time_source_and_readout_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+      "statement": "The two committed quantum carriers admit one typed hinge-fibered join at their diagonal (record) function layer, the layer carrying every committed counted state. The observer-86 hinge is the 13-dimensional function space on the shared label alphabet; it maps into the 182-dimensional 86/88 layer and the 169-dimensional 86/247 layer by fiber-uniform sections of slot marginalization, and the join is the pushout over the hinge. Both embeddings are injective typed linear maps agreeing exactly on the hinge; the join has dimension exactly 338 = 182 + 169 - 13, strictly below the direct-sum dimension 351; the intersection of the two embedded images is exactly the 13-dimensional hinge image; a hinge retraction carries the two transported committed counted states to the same committed observer-86 occupation law; and both embeddings intertwine the committed ambient anchoring equivalences and the committed walk-step transports over the 31 actual adjacent source transitions through machine-checked commuting squares, with the join evolution descending from the shared observer-86 hinge action. Separately, the region-family freedom of the corrected one-step net-evolution interface over the committed 86/247 diamond is settled in both directions: any region-preserving evolution family forces step-invariant regions and every net-compatible slice family over the committed walk evolution on cyclic Fin 32 is constant; the scalar bottom and full top regions are rigid under every evolution family, so any one-step region change exchanges the two slot regions; and a slot-alternating inhabitant realizes a genuinely time-dependent region family with the committed per-observer source generators as admitted data and transport-aware generation at every step, its evolution composing the committed walk step with the constructed internal slot exchange. The join is a finite linear object with declared fiber-uniform sections: no star-algebra amalgamation, C*-pushout, order or positivity structure on the quotient, regional-net morphism, tower morphism, or join uniqueness is claimed; the counted states remain source-produced data of their own carriers; the slot exchange is an internal algebra symmetry, not a source transition; the walk factor carries the declared index-31 bookkeeping closure; no spacetime covariance, physical Cauchy surface, continuum limit, or PR-52/PR-58 discharge is claimed.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "typed_hinge_fibered_diagonal_layer_join_with_anchoring_and_walk_transport_squares_and_slice_region_dichotomy",
+      "assumptions": [
+        "committed_source_walk_payload_carriers",
+        "declared_fiber_uniform_hinge_sections",
+        "constructed_internal_slot_exchange"
+      ],
+      "imported_results": [
+        "finite_dimensional_linear_algebra_over_C_quotients_and_finrank",
+        "finite_matrix_star_algebras_and_reindexing"
+      ],
+      "oph_specific_delta": "Supplies the first typed object into which both committed carriers embed at their diagonal (record) function layer, with exact hinge gluing receipts (dimension, intersection, marginal compatibility) that block a trivial direct-sum green, and closes the region-family question the withdrawn forced-step-invariance no-go left open, in both the existence and the delimitation direction.",
+      "novelty_type": "exact_OPH_hinge_pushout_with_transport_intertwining_and_time_slice_region_dichotomy",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "Lean/QFT/CarrierJoinTransport.lean"
+      ],
+      "falsifier": "The claim fails if either embedding is noninjective or the hinge agreement fails, if the join dimension differs from 338 or does not equal 182 + 169 - 13, if the embedded-image intersection differs from the hinge image, if either transported counted state restricts to anything other than the committed count86 law, if any anchoring or walk-step commuting square fails, if a net-compatible slice family over the committed walk evolution is nonconstant, if a one-step region change of some inhabitant is not a slot exchange, or if the slot-alternating inhabitant fails net compatibility, admission, or transport-aware generation at any step.",
+      "scope_if_false": "Only the diagonal-layer join and the slice-region dichotomy fall. The pair carriers, their regional nets, the tower anchorings, the triple carrier coupling, and every source, operational, causal, or physical attachment are assessed by their own claims.",
+      "status": "typed_hinge_fibered_join_and_slice_region_dichotomy_attained__net_tower_morphism_and_physical_time_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-32",
+          "PR-33",
+          "PR-34"
+        ],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
+      "statement": "On the committed two-dimensional record algebra, the ideal static phase model IdealPhasePOVMCountModel is exactly determined up to one complex coordinate and count magnitudes. For a Hermitian effect the Born-weight gap between the two committed Pauli-Y states equals minus twice the imaginary part of the off-diagonal entry, so the phase-sensitivity clause holds exactly when that imaginary part is nonzero, and no conjugation of a committed web projector by any real matrix occupies the phase slot of any inhabitant. Every inhabitant's model state has diagonal entries pinned to 111/179 and 68/179 by the committed run literals and conjugate off-diagonal entries. Every count frequency of every inhabitant, in every instrument context, is an exact affine function of the one free coordinate, with real coefficients determined by the context's effect entries; over the committed algebraic core the phase-count frequency equals 1/2 minus the imaginary part of the free coordinate, the rotated-context frequency equals 315/716 minus sqrt(3)/2 times its real part, and two committed-core inhabitants have equal states exactly when all their count frequencies agree. Positivity bounds the squared modulus of the free coordinate by 7548/32041, which forces, for every inhabitant whose core equals the committed algebraic phase completion, the integer window 32041 (a-b)^2 <= 30192 (a+b)^2 on the phase counts (a,b), positive mass on both phase outcomes, and minimal phase count mass exactly two, attained by the synthetic inhabitant. The committed literals force the state diagonal, the affine dependence of every count frequency on the one free coordinate, and the admissible count window; they do not force the free coordinate or the frequency values, which vary with it. Nothing here produces counts, operations, preparations, or receipts, and PR-04 is not discharged: the residue of the row is count provenance, source production of the phase operation, and common preparation, none of which is expressible inside the model.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "exact_determination_boundary_and_integer_receipt_window_for_ideal_phase_fit",
+      "assumptions": [
+        "committed_diagonal_record_algebra_and_web_contexts"
+      ],
+      "imported_results": [
+        "finite_matrix_algebra",
+        "povm_effect_calculus"
+      ],
+      "oph_specific_delta": "Reduces the ideal phase model to one complex state coordinate with every count frequency, in every context, machine-checked as an exact affine function of it, with closed forms for the phase and rotated-3 contexts, characterizes the phase clause in matrix coordinates, and derives a decidable integer receipt window with an exact minimal count mass, so the non-mathematical residue of PR-04, count provenance and preparation/operation production, is the entire remaining content of the row.",
+      "novelty_type": "exact_state_coordinate_reduction_with_decidable_receipt_window",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/PhaseInstrumentDetermination.lean"
+      ],
+      "falsifier": "The bounded result fails if a Hermitian effect with zero off-diagonal imaginary part satisfies the phase clause or one with nonzero imaginary part fails it, if an inhabitant's state departs from the pinned diagonal or conjugate off-diagonal form, if any inhabitant's count frequency in any context departs from affine dependence on the free coordinate, if a committed-core inhabitant's phase or rotated frequency departs from the stated closed forms, if two committed-core inhabitants with equal states have differing count frequencies or conversely, or if a committed-core inhabitant's phase counts violate the integer window, carry a zero outcome, or realize mass below two.",
+      "scope_if_false": "Only the determination boundary and the receipt window fall. The ideal static fit, its synthetic non-discharge control, and the separately open operational and source attachments retain their own scopes and gates.",
+      "status": "exact_determination_boundary_and_receipt_window_attained__operational_pr03_pr04_instrument_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02"
+        ],
+        "open": [
+          "PR-03",
+          "PR-04"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+      "statement": "On the declared Hermitian Lorentz module with the committed kinematic mass-shell packet, the declared plane-wave phase form of the declared-mass momentum along its own frame worldline equals the mass parameter times the proper-time coordinate, with proper-time derivative exactly the declared mass, in every oriented Lorentz chart; the declared internal clock satisfies the exact rotation law I times its derivative equals mass times the clock; the clock function is invariant under every oriented Lorentz map; for nonzero mass the period set is exactly the integer lattice generated by 2 pi over the mass; the two phase readouts are per orientation: on the de Broglie phase p.x - E t the spatial gradient along each axis equals the momentum coordinate, and on the plane-wave phase E t - p.x the temporal rate equals the scalar coordinate, with the committed shell identity tying the two readouts; on the zero-mass branch the internal clock is constant, every real number is a period so no fundamental period exists, and no oriented Lorentz chart brings a future null vector to vanishing spatial coordinates; and every vector on the positive-scalar shell of a positive declared mass is the declared-mass momentum of a frame. The plane-wave evolution and the mass parameter are declared hypotheses of each statement. No physical clock, measured frequency, electron or Compton value, source-produced state, or laboratory-unit energy readout is claimed; those attachments are open under the clock/energy calibration and observer-to-physical-spacetime premises.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_internal_clock_rest_frequency_on_declared_Lorentz_module",
+      "assumptions": [
+        "declared_plane_wave_phase_form",
+        "declared_positive_mass_parameter",
+        "algebraic_frame_hyperboloid_and_worldline",
+        "physical_clock_and_calibration_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "complex_exponential_and_derivative_analysis"
+      ],
+      "oph_specific_delta": "The de Broglie internal-clock identity, its oriented-chart invariance, the exact period-rigidity classification, the exact per-orientation de Broglie phase-gradient relations, and the zero-mass degeneracy are machine-checked as consequences of the committed frame-hyperboloid normalization and one declared plane-wave form, with every missing physical attachment named; a shell-completeness lemma closes the parameterization-coverage gap identified by the lane review of the mass-shell packet.",
+      "novelty_type": "internal_clock_rest_frequency_from_frame_hyperboloid_normalization",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/Geometry/InternalClockRestFrequency.lean",
+        "Lean/Geometry/MassShellKinematics.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the rest phase differs from mass times the proper-time coordinate, the rotation law or oriented-chart invariance fails, a period exists off the 2 pi over mass lattice for nonzero mass, a spatial gradient on the de Broglie phase or a temporal rate on the plane-wave phase differs from the momentum or scalar coordinate, the zero-mass clock advances or has a fundamental period, an oriented chart brings a future null vector to vanishing spatial coordinates, or a positive-shell vector escapes the frame parameterization.",
+      "scope_if_false": "Only the internal-clock formal precursor falls. The kinematic mass-shell packet, the canonical Lorentz module, and every physical clock, frequency, or mass identification are assessed by their own claims and premises.",
+      "status": "exact_internal_clock_identities_attained__physical_clock_frequency_and_state_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+      "statement": "On the scalar doublet carrier whose complex dimension and q = 6Y charge are the committed exterior-table entries (2, 3), one typed premise bundle extends the committed Standard-Model structure premises by five declared scalar-sector constants: a positive quartic coupling, a positive breaking scale, two positive coupling constants, and one Yukawa coefficient. One composed theorem on that bundle proves: the global minimizer set of the declared quartic potential is exactly the nonzero shell |h|^2 = vev^2; the stabilizer of the chosen minimum inside the four-parameter electroweak direction space is exactly one one-parameter unbroken line, the (gY, gW) mix of the third weak and hypercharge directions; the second variation of the potential at the minimum is positive semidefinite with kernel exactly the set of infinitesimal gauge images at the minimum and exactly three-parameter; the gauge mass form vanishes exactly on the stabilizer, takes the normalized values gW^2 vev^2/4 and (gW^2+gY^2) vev^2/4 on the charged and neutral broken directions, keeps the unbroken direction exactly massless, and has tree ratio gW^2/(gW^2+gY^2) in the declared constants; the epsilon-paired Yukawa line produces at the minimum an exact bilinear with coefficient yuk*vev, vanishing identically exactly when yuk = 0 or vev = 0; and either committed parity sector supplies a colorless doublet/singlet row pair, parity- and Weyl-column-matched through the committed index dictionary, whose charges balance against the scalar row charge or its conjugate. A standalone theorem of the same module, outside the composed receipt, proves the potential along every ray from the minimum to be an exact polynomial identity whose quadratic coefficient is the second variation. A committed instance proves the bundle nonvacuous. All five constants are declared: no committed theorem selects the potential, the couplings, the scale, or the Yukawa coefficient, and no source action, physical vacuum, measured mass, Spin attachment, or family structure is claimed.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "conditional_structural_electroweak_breaking_composition_on_declared_grammar",
+      "assumptions": [
+        "declared_positive_quartic_coupling_and_breaking_scale",
+        "declared_positive_weak_and_hypercharge_couplings",
+        "declared_single_yukawa_coefficient",
+        "committed_five_mode_exterior_table_grammar",
+        "physical_scalar_existence_kinetic_normalization_and_source_action_deferred"
+      ],
+      "imported_results": [
+        "complex_and_real_field_algebra",
+        "finite_table_kernel_checks"
+      ],
+      "oph_specific_delta": "The electroweak-breaking geometry that the registered scalar and Yukawa premises name is machine-checked on one typed bundle over the committed grammar: one composed theorem proves the exact minimizer shell, the exact one-line stabilizer, the exact three-Goldstone kernel equal to the gauge-image set, the exact broken-direction mass values with the cosine-squared-shaped ratio stated in declared constants, and the exact yuk*vev fermion mass coefficient, and a standalone theorem of the same module proves the exact polynomial ray expansion pinning the second variation to the declared potential, with every declared parameter named rather than implied.",
+      "novelty_type": "composed_symmetry_breaking_inhabitant_on_committed_grammar",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/Screen/ElectroweakBreakingComposition.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if any bundle instance violates the minimizer characterization, if the stabilizer differs from the single (gY, gW) line, if the second-variation kernel differs from the gauge-image set or from three parameters, if the ray expansion misses the stated exact coefficients, if the broken-direction mass values or their ratio differ from the stated declared-constant forms, if the Yukawa coefficient at the minimum differs from yuk*vev or its vanishing law fails, or if a committed parity sector fails the doublet/singlet charge-balance receipt.",
+      "scope_if_false": "Only the composed electroweak-breaking inhabitant falls. The gauge-structure composition, the exterior selection, the index dictionary, and every physical Higgs, mass, or action claim are assessed by their own claims and premises.",
+      "status": "conditional_structural_composition_attained__physical_scalar_action_and_yukawa_matrices_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        735
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-59"
+        ],
+        "open": [
+          "PR-47",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-MECH-POLYNOMIAL-BOOST-SELECTION",
+      "statement": "Within the full two-slot polynomial enrichment grammar at every degree bound around the committed two-state mixing chain, one further named clause is tested: an enrichment is boost-null covariant when every boost difference of a boost difference of it is a discrete null Lagrangian, nullness being the committed fixed-endpoint notion that no single-site interior replacement changes the sum of the two adjacent terms, which leaves every committed local action unchanged. Every quadratic-grammar sentence satisfies the clause. Among velocity-only polynomial enrichments the clause holds at every degree bound exactly when all coefficients of degree three or higher vanish. The committed quartic continuation fails the clause at the explicit witness with shift pairs (0,1),(0,1) and replacement pair x=1, x'=0, while keeping the committed corner table, velocity-only form, stationarity, global single-site minimum, positive Hessian, and momentum solver. In the full grammar, corner invisibility, the committed velocity-only clause, the committed stationarity calibration stated through the certified velocity-slice derivative, and the boost clause select exactly the committed point: the enrichment equals the committed increment pointwise and the enriched Lagrangian equals the committed mode-extremal rule. The committed point satisfies all four clauses, so the system is inhabited, and every clause is load-bearing with explicit survivors. Two delimitations are machine-checked: the literal first-order boost clause fails at the committed increment itself, and the grammar contains the boost-covariant, corner-invisible, stationarity-neutral antisymmetric cubic (x-y)^3-(x-y) outside the quadratics, so the quadratic-affine characterization of the boost clause is a velocity-only-slice theorem and the velocity-only clause stays load-bearing. The boost clause is a declared candidate axiom for register row PR-06 rather than a derived symmetry; PR-06 is not discharged, the realized-history no-go stays in force, and OL-D1 stays partial.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_second_order_boost_null_selection_in_full_polynomial_grammar",
+      "assumptions": [
+        "declared_polynomial_two_slot_grammar",
+        "declared_velocity_only_selection_clause",
+        "declared_second_order_boost_null_clause"
+      ],
+      "imported_results": [
+        "real_polynomial_linear_algebra",
+        "hasse_derivative_coefficient_extraction",
+        "real_derivative_calculus"
+      ],
+      "oph_specific_delta": "Extends the committed enrichment classification from the quadratic grammar to polynomials of every degree bound, supplies the first named clause that excludes the audit quartic while keeping the committed point, proves the exact quadratic-affine characterization on the velocity-only slice uniformly in the degree bound, and machine-checks two delimitations: the first-order form of the clause is unavailable at the committed point, and the second-order form does not force quadraticity in the full two-slot grammar.",
+      "novelty_type": "second_order_boost_null_selection_with_first_order_impossibility_and_antisymmetric_cubic_boundary",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Variational/PolynomialEnrichmentSelection.lean"
+      ],
+      "falsifier": "The claim fails if some quadratic-grammar sentence violates the second-order boost-null clause, if some velocity-only polynomial with a nonvanishing coefficient of degree three or higher satisfies it, if the quartic continuation satisfies it at the displayed witness, if a polynomial enrichment satisfies all four clauses without equaling the committed increment pointwise, if the committed point violates one of the four clauses, if one of the exhibited survivors fails its stated clause pattern, or if the antisymmetric cubic leaves the grammar, gains velocity-only form, or loses corner invisibility, boost covariance, or stationarity neutrality.",
+      "scope_if_false": "Only the boost-clause selection package falls. The committed quadratic characterization, the quartic nonselection boundary, the mode-extremal receipts, and the realized-history no-go are assessed by their own claims.",
+      "status": "exact_polynomial_grammar_selection_attained__clause_physical_status_and_source_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-45"
+        ],
+        "open": [],
+        "boundary": [
+          "PR-06"
+        ]
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+      "statement": "On one typed premise bundle extending the committed electroweak-breaking bundle by two declared positive gauge weight parameters, one real-valued assembled structural action on one field tuple sums a gauge kinetic sector, formed as a declared diagonal pairing on the committed weight space with one declared magnitude per invariant carrier sector, the committed quartic potential, the committed gauge mass form at the chosen minimum, and the realified committed Yukawa line. The restriction to each sector's field slice over the common base tuple is exactly that sector's committed functional; the assembled gauge coefficients satisfy the committed G ad-invariance constraint row and collapse to the committed one-ray mirror form under the extra declared F row; the sum is exactly invariant under the global abelian phase action at unit scalars with product one and in particular at the committed integer charge balance of the bundled selection mask, with the scalar slot on plus or minus the committed scalar row charge; the imaginary part of the committed complex Yukawa line is recovered as an assembled evaluation; the base tuple evaluates to zero; and the bundle is inhabited with every declared parameter equal to one. Every coefficient is a declared bundle parameter. The assembly is a finite structural action on the committed coarse grammar. No spacetime, field strength two-form, covariant derivative, source-produced connection or action, quantization, measured coefficient, three-family structure, global form, physical chirality, or Spin attachment is claimed; the gauge kinetic sector enters through one declared magnitude per invariant carrier sector under a declared diagonal pairing on the committed weight space, with only the weight space, the constraint rows, and the committed normal form committed, and the scalar covariant kinetic term enters through its committed constant-direction coefficient at the minimum.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "assembled_structural_action_on_committed_coarse_grammar",
+      "assumptions": [
+        "committed_electroweak_breaking_premise_bundle",
+        "declared_positive_gauge_weight_parameters",
+        "declared_diagonal_sector_pairing_convention",
+        "source_produced_action_deferred"
+      ],
+      "imported_results": [
+        "real_and_complex_field_algebra",
+        "integer_zpow_group_arithmetic"
+      ],
+      "oph_specific_delta": "Three separately committed sector functionals are machine-checked to sum as one action on one carrier tuple, with exact sector restrictions, constraint-row coefficient invariance, exact abelian phase invariance at the committed charge balance, exact complex recovery of the realified Yukawa line, and every declared parameter, declared pairing convention, and missing physical attachment named rather than implied.",
+      "novelty_type": "first_composed_assembled_action_from_committed_sector_receipts",
+      "evidence": [
+        "Lean/Screen/AssembledActionComposition.lean",
+        "Lean/Screen/GaugeKineticInvariantForms.lean",
+        "Lean/Screen/ElectroweakBreakingComposition.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if any sector restriction differs from the committed sector functional, if the assembled gauge coefficients violate the committed G constraint row, if the F-row collapse fails to be one ray, if the abelian phase action at the committed charge balance changes the assembled value, if the complex recovery evaluation differs from the imaginary part of the committed line, or if the base tuple evaluates to a nonzero value.",
+      "scope_if_false": "Only the assembly falls. The committed gauge invariant-form receipts, the electroweak-breaking composition, the exterior selection grammar, and every physical action, coupling, and family claim are assessed by their own claims and premises.",
+      "status": "assembled_structural_action_attained__source_produced_physical_action_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        735
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-35",
+          "PR-36",
+          "PR-46",
+          "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-54",
+          "PR-59"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+      "statement": "The causal relation of the declared Hermitian Lorentz module, nonnegative Lorentz square and nonnegative scalar coordinate of the coordinate difference, is a partial order, and the committed finite causal orders compose with it: the six-element region lattice of the committed rich-fibre observer net embeds through a declared vertex assignment so that one region precedes another in the committed net exactly when the interval of their images is future-causal, in both directions on the whole carrier; the assignment is injective; the image contains two timelike-related and two spacelike-unrelated pairs on distinct doubletons; declared net disjointness lands in spacelike separation; every oriented Lorentz map and every affine overlap-cocycle transition preserves the equivalence, both invariances stated as clauses of the composed receipt; and the committed partition net composes through a declared label map with the same receipts, its carrier proved to afford exactly one incomparable doubleton (existence and uniqueness both machine-checked). The vertex assignments are declared witness constructions and a second distinct witness satisfies the same equivalence, so the committed data does not force the embedding. No physical causal order, spacetime, clock, scheduler, or observer-frame attachment is claimed.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "exact_finite_causal_order_composition_on_declared_Lorentz_module",
+      "assumptions": [
+        "declared_Lorentz_module",
+        "declared_vertex_assignment_witness",
+        "committed_net_regions_and_disjointness_declared",
+        "physical_causal_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "Lorentz_quadratic_form_algebra",
+        "committed_rich_fibre_net_receipts"
+      ],
+      "oph_specific_delta": "The committed finite observer-net region orders are machine-checked to be order-isomorphic onto their images inside the declared Lorentz cone, with injectivity, nondegeneracy, disjointness-to-spacelike, full oriented-chart and overlap-cocycle invariance, and with the declared status of the embedding itself proved by exhibiting a second witness.",
+      "novelty_type": "finite_causal_order_to_cone_order_composition",
+      "evidence": [
+        "Lean/Geometry/CausalOrderComposition.lean",
+        "Lean/Geometry.lean",
+        "Lean/QFT/RichFibreRegionalNet.lean",
+        "Lean/QFT/FiniteCausalObserverNet.lean",
+        "Lean/Geometry/CanonicalLorentzModule.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if either direction of the order equivalence fails at any pair of committed regions, if the vertex assignment identifies two distinct committed regions, if a declared-disjoint pair has causally related images, if an oriented Lorentz map or affine cocycle transition breaks the equivalence, or if the cone relation violates a partial-order law.",
+      "scope_if_false": "Only the composition packet falls. The committed nets, the canonical Lorentz module, the null-cone representation, and every physical spacetime or causal attachment are assessed by their own claims and premises.",
+      "status": "exact_composition_attained__physical_causal_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-16",
+          "PR-44",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-FREE-EVOLUTION-PERSISTENCE",
+      "statement": "On the declared Hermitian Lorentz module, the declared free evolution, the one-parameter translation flow along a declared frame worldline acting on wave functions by precomposition, is an exact one-parameter group under which every declared plane-wave state carries the exact persistence packet: the evolved state is a unit-modulus global-phase multiple of the plane wave of the same momentum at every parameter value, so mass-shell membership with the declared mass is preserved exactly; the temporal and spatial phase readouts of the evolved state equal the unchanged scalar and momentum coordinates at every parameter, so the momentum coordinates and the mass parameter are constants of the flow; the evolved state has modulus one at every parameter and event and never vanishes; agreement of the evolved states of two declared positive-mass labels at any single parameter forces equal mass parameters and equal frames, so distinct labels stay distinct with no spontaneous transition; along the state's own frame the global flow phase equals the internal clock, and this clock identity is a clause of the composed machine-checked receipt, which pins the declared flow and its phase as nontrivial; and on the zero-mass branch the massive parameterization degenerates to the constant fixed state with unrecoverable frame label, while a future null vector carries the shell, global-phase-covariance, and norm-persistence clauses on the zero-mass shell. The flow, the module, and the mass and frame labels are declared hypotheses of each statement. The packet is an invariance of a declared kinematic flow, distinct from record-repair stability; no physical particle, source-produced state, interaction, decay rate, localized wave packet, or laboratory persistence time is supplied, and those attachments are open under the clock and energy calibration, observer-to-physical-spacetime, and source field and action premises.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_free_evolution_persistence_on_declared_Lorentz_module",
+      "assumptions": [
+        "declared_positive_mass_parameter",
+        "declared_flow_frame_worldline",
+        "algebraic_frame_hyperboloid_and_rest_space",
+        "physical_lorentz_soldering_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "Lorentz_quadratic_form_algebra",
+        "complex_exponential_and_derivative_analysis"
+      ],
+      "oph_specific_delta": "Persistence of a free state, the shape usually assumed for particles, is machine-checked as an exact invariance package of the committed plane-wave flow: shell membership, labels, and unit modulus are constants of the flow and the flow is injective on positive-mass labels, with the missing physical attachments named rather than implied.",
+      "novelty_type": "free_evolution_persistence_packet_from_declared_plane_wave_flow",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/Geometry/FreeEvolutionPersistence.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the declared flow violates the one-parameter group law, if an evolved plane-wave state differs from a global-phase multiple of the same-momentum plane wave at some parameter, if a phase readout of the evolved state differs from the unchanged label coordinate, if the evolved state has modulus other than one or vanishes at some event, if two distinct positive-mass labels yield equal evolved states at some parameter, if the flow phase along the state's own frame differs from the internal clock, or if the zero-mass degeneracy or null-branch statements fail.",
+      "scope_if_false": "Only the free-evolution persistence packet falls. The canonical Lorentz module, the mass-shell packet, the internal-clock packet, and every physical particle, decay, or persistence-time identification are assessed by their own claims and premises.",
+      "status": "exact_persistence_packet_attained__physical_particle_and_laboratory_persistence_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+      "statement": "The committed source-reachable class, inductively generated by the three committed source-counted states (the 86/247, 86/88, and triple occupation laws) under the enumerated committed operations (the walk-step reindexing transports including the declared cyclic closure edge, the internal slot exchange, the two ambient anchoring equivalences, the three marginalization maps, the regional and scalar conditional expectations, marginal-product formation, and convex mixtures in the committed mixing shape), is exactly delimited: every state in the class is diagonal in the record basis with nonnegative real weights summing to one, hence record-diagonal, positive semidefinite, and of unit trace, and obeys the classical CHSH bound 2 exactly against every four jointly record-diagonal [-1,1]-valued readouts, strictly below the declared Tsirelson witness value 2*sqrt(2). The declared saturating Bell state carries the explicit off-diagonal record entry 1/2, is not record-diagonal, and no record-diagonality-preserving map carries any reachable state onto it. The class is nonempty: it contains the committed counted state and the committed observer-86 marginal. The delimitation covers the enumerated class and jointly record-diagonal readouts only; non-jointly-diagonal readouts on reachable states, contextual operational models, and architectures outside the enumeration are not covered, no bound on reachable states under arbitrary readouts is asserted, no hidden-variable claim is made, and no implication involving the registered phase premise is asserted. Source entangled preparation, physical regions, spacelike separation, and instruments stay open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_reachability_closure_and_classical_chsh_delimitation_on_committed_counted_data",
+      "assumptions": [
+        "committed_counted_payload_transcriptions_as_bundled_in_adequacy_surface",
+        "PR-44_slot_split_supplied_data",
+        "enumerated_committed_operation_class"
+      ],
+      "imported_results": [
+        "finite_dimensional_complex_matrix_algebra",
+        "committed_diagonal_CHSH_bound_TsirelsonSaturation"
+      ],
+      "oph_specific_delta": "The committed source-production surface is made exact as an inductive class and closed by machine check; the classical CHSH ceiling on that entire class under the committed jointly record-diagonal readouts and the explicit non-diagonal obstruction to the declared saturating state are theorems rather than narrative, with the open preparation premise isolated as exactly non-diagonal production.",
+      "novelty_type": "reachability_closure_delimitation_on_counted_source_data",
+      "evidence": [
+        "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
+        "Lean/EventAlgebra/TsirelsonSaturation.lean",
+        "docs/OBSERVATION_LEDGER_V3.md"
+      ],
+      "falsifier": "The claim fails if any enumerated operation maps a record-law state outside the record law, if any reachable state exceeds CHSH value 2 against jointly record-diagonal readouts, if the class fails to contain the committed counted state, or if the declared saturating state is record-diagonal. The corpus-level delimitation reading fails if the corpus commits an operation on the counted states outside the enumerated class whose output carries off-diagonal record coherence.",
+      "scope_if_false": "Only this reachability delimitation falls. The declared saturation witness, the diagonal bound, the counted states, and the slot interface are assessed by their own claims and premises.",
+      "status": "exact_delimitation_attained__source_entangled_preparation_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-44"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE",
+      "statement": "Over an arbitrary complex algebra, for three declared carrier elements X, three declared field elements B, and one declared coupling scalar q tied by the declared commutation hypothesis [X i, X j] = i q epsilon_ijk B k, the Pauli contraction satisfies the exact Clifford square (sigma.X)^2 = (X.X) tensor 1 + i sigma.(X x X); the epsilon cross square collapses exactly to (X x X) k = i q B k; the square equals (X.X) tensor 1 - q sigma.B with coefficient exactly q; every commuting carrier triple satisfies the declared commutation hypothesis with B = 0 and its spin term vanishes identically, the machine-checked forward direction, with no converse claimed; the committed Pauli matrices themselves inhabit the hypothesis class with q = 2 and nonzero spin term; and on that inhabitant the coefficient is pinned: no scalar other than q satisfies the same identity. In the convention where the orbital sector couples at q/(2m) per unit orbital angular momentum, dividing the Pauli square by 2m reads as spin coupling q/m per unit spin angular momentum, which is the statement g = 2; the reading is a recorded label of the identity, and no theorem mentions a physical field. The commutation data, coupling scalar, and carrier algebra are declared hypotheses of every statement. No gauge potential is constructed, no Dirac equation or relativistic derivation is performed, no anomalous-moment content exists, and no electron, mass value, laboratory unit, or measured moment enters; those attachments are open under the source gauge-field, Spin attachment, calibration, and observer-to-physical-spacetime premises.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_pauli_square_on_declared_commutation_data",
+      "assumptions": [
+        "declared_commutation_hypothesis_coupling_and_carrier",
+        "complex_algebra_scalar_action",
+        "source_gauge_field_attachment_deferred"
+      ],
+      "imported_results": [
+        "complex_matrix_algebra",
+        "Levi_Civita_contraction_algebra"
+      ],
+      "oph_specific_delta": "The factor two of the gyromagnetic ratio is machine-checked as the exact coefficient of the Clifford square, located entirely in the algebra sigma_a sigma_b = delta_ab + i epsilon_abc sigma_c, with the declared status of every input and every missing physical attachment named rather than implied; the coefficient-discrimination lemma turns the factor-two reading into a falsifiable exact statement on a concrete inhabitant.",
+      "novelty_type": "gyromagnetic_two_precursor_from_clifford_square",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/EventAlgebra/PauliMinimalCoupling.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the Clifford square identity fails for some triple over some complex algebra, the cross collapse differs from i q B k under the hypothesis, the Pauli square coefficient differs from q, a commuting triple yields a nonvanishing spin term or fails the hypothesis at B = 0, the Pauli-triple inhabitant violates the commutation hypothesis at q = 2 or has vanishing spin term, or some scalar c distinct from 2 satisfies the inhabitant identity.",
+      "scope_if_false": "Only the Pauli minimal-coupling square packet falls. The committed Pauli-matrix material, the Tsirelson and Robertson packets, and every physical field, moment, or laboratory identification are assessed by their own claims and premises.",
+      "status": "exact_pauli_square_attained__physical_moment_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-47",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

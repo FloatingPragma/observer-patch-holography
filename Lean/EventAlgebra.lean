@@ -25,6 +25,9 @@ import EventAlgebra.QuantumAdequacySurface
 import EventAlgebra.SchroedingerFrameFlow
 import EventAlgebra.TsirelsonSaturation
 import EventAlgebra.OperationalPhaseInstrument
+import EventAlgebra.PhaseInstrumentDetermination
+import EventAlgebra.SourceReachabilityDelimitation
+import EventAlgebra.PauliMinimalCoupling
 
 /-!
 # Finite projection-event calculus — umbrella root

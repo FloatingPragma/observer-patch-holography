@@ -43,10 +43,12 @@
    "premises": [],
    "evidence": [
     "Lean/QFT/FiniteCausalObserverNet.lean",
-    "Lean/Geometry/CelestialNullCone.lean"
+    "Lean/Geometry/CelestialNullCone.lean",
+    "Lean/Geometry/CausalOrderComposition.lean"
    ],
-   "notes": "Exact finite-net and null-cone statements exist, but the net's disjointness and regions are declared data and no theorem identifies them with Lorentzian causal order, a clock, or source-selected physical factorization.",
+   "notes": "Exact finite-net and null-cone statements exist, and Lean/Geometry/CausalOrderComposition.lean composes them: the committed rich-fibre and partition region orders embed order-equivalently into the causal order of the declared Lorentz module, with injectivity, nondegeneracy on four distinct doubletons, spacelike images for declared disjointness, and invariance under every oriented Lorentz map and affine overlap transition. The module, the vertex assignments, and the nets' regions and disjointness stay declared data; no theorem identifies the composition with a physical causal order, a clock, or source-selected physical factorization.",
    "open_premises": [
+    "PR-16",
     "PR-44",
     "PR-52"
    ]
@@ -219,9 +221,10 @@
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/EventAlgebra/Tsirelson.lean",
     "Lean/EventAlgebra/SlotLocalitySurface.lean",
-    "Lean/EventAlgebra/TsirelsonSaturation.lean"
+    "Lean/EventAlgebra/TsirelsonSaturation.lean",
+    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean"
    ],
-   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is exactly attained by declared data: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2), and the events inhabit the PR-44 interface. For one fixed record-diagonal state and four readouts diagonal in that same basis, the classical bound is 2; this does not cover arbitrary contextual operational models. The Bell state and all settings are real, so the theorem isolates entanglement, non-diagonal coherence, and noncommuting settings rather than a genuinely complex PR-04 phase direction. No source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open.",
+   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is exactly attained by declared data: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2), and the events inhabit the PR-44 interface. For one fixed record-diagonal state and four readouts diagonal in that same basis, the classical bound is 2; this does not cover arbitrary contextual operational models. The Bell state and all settings are real, so the theorem isolates entanglement, non-diagonal coherence, and noncommuting settings rather than a genuinely complex PR-04 phase direction. No source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open. The source side of the supply-or-delimit clause is discharged by an exact reachability delimitation: the committed counted states, closed under the enumerated committed operations (walk transports, slot exchange, ambient anchorings, marginalizations, conditional expectations, marginal products, convex mixtures), stay record-diagonal with nonnegative unit-sum weights, obey the classical bound 2 against every jointly record-diagonal readout quadruple, and admit no record-diagonality-preserving map onto the saturating Bell state; saturation through the committed jointly record-diagonal readouts, or production of the saturating state itself, therefore requires an operation outside the committed class that writes off-diagonal record coherence, which stays the open preparation premise. Reachable states under readouts outside the jointly record-diagonal class are outside this delimitation.",
    "open_premises": [
     "PR-52"
    ]
@@ -259,9 +262,10 @@
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/QFT/SourcePhaseLiftBridge.lean",
     "code/born_context_phase_lift/verify_source_phase_lift.py",
-    "Lean/EventAlgebra/OperationalPhaseInstrument.lean"
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
+    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean"
    ],
-   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure boundary. AlgebraicPhaseCompletion is not an operational instrument. IdealPhasePOVMCountModel now packages a static state, fixed effects, count literals, and exact frequency/Born equations; every inhabitant completes ideal fixed-trace identification, and the diagonal/real-closure blindness theorems remain exact. The explicit synthetic_ideal_phase_fit inhabitant uses chosen rational literals with no producer, run, operation, or receipt, proving that this fit is not PR-04 discharge. A genuine operational target still needs source-attached CP outcome maps, a trace-preserving summed channel, operation/readback and common-preparation semantics, producer-bound receipts, and statistical validation. PR-03 and PR-04 remain open for that operational layer.",
+   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure boundary. AlgebraicPhaseCompletion is not an operational instrument. IdealPhasePOVMCountModel now packages a static state, fixed effects, count literals, and exact frequency/Born equations; every inhabitant completes ideal fixed-trace identification, and the diagonal/real-closure blindness theorems remain exact. The explicit synthetic_ideal_phase_fit inhabitant uses chosen rational literals with no producer, run, operation, or receipt, proving that this fit is not PR-04 discharge. A genuine operational target still needs source-attached CP outcome maps, a trace-preserving summed channel, operation/readback and common-preparation semantics, producer-bound receipts, and statistical validation. PhaseInstrumentDetermination pins the determination boundary: every inhabitant's state diagonal is fixed to 111/179 and 68/179 by the committed run literals, the phase clause holds exactly when the effect's off-diagonal imaginary part is nonzero, every count frequency of every inhabitant is an exact affine function of the one free state coordinate with committed-core closed forms for the phase and rotated-3 contexts, committed-core inhabitants have equal states exactly when all count frequencies agree, and the phase counts of every committed-core inhabitant satisfy 32041(a-b)^2 <= 30192(a+b)^2 with both outcomes positive and minimal mass two. The free coordinate and the frequency values are not forced by the literals; they vary together through the affine law. The residue of PR-04 is count provenance, phase-operation production, and common preparation. PR-03 and PR-04 remain open for that operational layer.",
    "open_premises": [
     "PR-03",
     "PR-04"
@@ -284,9 +288,10 @@
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/TowerAnchoredCorrelation.lean",
     "Lean/QFT/PathTimeSliceInterface.lean",
-    "Lean/QFT/TripleCarrierJoin.lean"
+    "Lean/QFT/TripleCarrierJoin.lean",
+    "Lean/QFT/CarrierJoinTransport.lean"
    ],
-   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state. TripleCarrierJoin supplies a genuine common finite carrier for the 86/88 and 86/247 source rows: its projections recover both 32-step paths and occupation tables, positive trace-preserving matrix marginals recover both counted pair states, normalized checkpoint marginals recover both anchored partition members, and 31 non-wrapping adjacent-step reindexings intertwine with both pair marginals. The pair marginals do not determine the triple coupling, so the full step alignment is declared rather than canonical. Partial trace is not promoted to an algebra or net morphism, and the independently declared uniform tower states are not the counted state. The separate Fin-32 TimeIndexedNetEvolution witness includes a declared terminal-to-initial cyclic bookkeeping automorphism whose source-transition count is zero; only its first 31 steps follow adjacent source rows. The interface has no multi-step cocycle, Cauchy geometry, clock, source selection, or physical time. Thus the common state/path/checkpoint carrier obstruction is removed, while an actual regional-net/tower morphism and PR-52/PR-58 physical time-slice attachment are not supplied.",
+   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state. TripleCarrierJoin supplies a genuine common finite carrier for the 86/88 and 86/247 source rows: its projections recover both 32-step paths and occupation tables, positive trace-preserving matrix marginals recover both counted pair states, normalized checkpoint marginals recover both anchored partition members, and 31 non-wrapping adjacent-step reindexings intertwine with both pair marginals. The pair marginals do not determine the triple coupling, so the full step alignment is declared rather than canonical. Partial trace is not promoted to an algebra or net morphism, and the independently declared uniform tower states are not the counted state. The separate Fin-32 TimeIndexedNetEvolution witness includes a declared terminal-to-initial cyclic bookkeeping automorphism whose source-transition count is zero; only its first 31 steps follow adjacent source rows. The interface has no multi-step cocycle, Cauchy geometry, clock, source selection, or physical time. CarrierJoinTransport supplies the typed hinge-fibered join of the two committed carriers at their diagonal layer: both carriers embed injectively into one 338-dimensional pushout over the 13-dimensional observer-86 hinge (338 = 182 + 169 - 13), the embeddings agree exactly on the hinge, the intersection of the embedded images is exactly the hinge image, the transported counted states restrict to the committed count86 law, and both embeddings intertwine the committed ambient anchorings and the 31 non-wrapping walk-step transports through machine-checked commuting squares. The join is linear bookkeeping on the diagonal layer with declared fiber-uniform sections; no star-algebra amalgamation, net morphism, or tower morphism is constructed. The region-family question of the corrected one-step interface is settled in both directions: region-preserving evolution families (in particular the committed walk evolution) force step-invariant regions, bottom and top regions are rigid under every evolution family, any one-step region change is a slot exchange, and a slot-alternating inhabitant with the committed obs86/obs247 source generators realizes a genuinely time-dependent region family with transport-aware generation at every step; its exchange factor is the constructed internal slot swap, not a source transition. Thus the common state/path/checkpoint carrier obstruction is removed and the diagonal-layer join carries typed embeddings, while an actual regional-net/tower morphism and PR-52/PR-58 physical time-slice attachment are not supplied.",
    "open_premises": [
     "PR-52",
     "PR-58"
@@ -310,9 +315,10 @@
     "Lean/Variational/StationarySaddleCoverage.lean",
     "Lean/Variational/SourceToHamiltonianComposed.lean",
     "Lean/Variational/ModeExtremalEnrichment.lean",
-    "Lean/Variational/EnrichmentCharacterization.lean"
+    "Lean/Variational/EnrichmentCharacterization.lean",
+    "Lean/Variational/PolynomialEnrichmentSelection.lean"
    ],
-   "notes": "One composed theorem (source_to_hamiltonian_composed) fuses the history-law and real variational halves under explicit registered antecedents: a fixed-endpoint real single-site-minimal embedded history at every interior junction realizes the derived action of the same kernel, is an interior mode of its exponential-tilt path law, and satisfies the discrete Hamilton equations. The committed chain supplies one inhabited witness only inside a deliberately restricted one-parameter enrichment family. The complete quadratic classification and split counterfamily already block uniqueness once first-slot freedom is admitted. More strongly, for 0<lambda<a* the quartic continuation is velocity-only, corner-invisible, stationary, globally single-site minimal, and globally regular in momentum while remaining distinct from every quadratic. Thus the current clauses do not select globally or form a proved-minimal axiom system. This remains a conditional one-path composition result, not a source derivation or uniqueness theorem for least action; physical units, clocks, amplitudes, and general stationary-phase mechanisms remain open.",
+   "notes": "One composed theorem (source_to_hamiltonian_composed) fuses the history-law and real variational halves under explicit registered antecedents: a fixed-endpoint real single-site-minimal embedded history at every interior junction realizes the derived action of the same kernel, is an interior mode of its exponential-tilt path law, and satisfies the discrete Hamilton equations. The committed chain supplies one inhabited witness only inside a deliberately restricted one-parameter enrichment family. The complete quadratic classification and split counterfamily already block uniqueness once first-slot freedom is admitted. More strongly, for 0<lambda<a* the quartic continuation is velocity-only, corner-invisible, stationary, globally single-site minimal, and globally regular in momentum while remaining distinct from every quadratic. Thus the current clauses do not select globally or form a proved-minimal axiom system. A second-order boost clause sharpens this boundary: every boost difference of a boost difference of the enrichment is a discrete null Lagrangian in the committed fixed-endpoint sense. Among velocity-only polynomial enrichments of every degree bound that clause holds exactly for the quadratic-affine members, the quartic continuation fails it at an explicit witness, and corner invisibility plus velocity-only plus stationarity plus the clause select exactly the committed point in the full two-slot polynomial grammar. The literal first-order boost clause fails at the committed increment itself, and the grammar contains a boost-covariant, corner-invisible, stationarity-neutral antisymmetric cubic outside the quadratics, so velocity-only stays load-bearing and the boost clause is a declared candidate axiom rather than a derived symmetry. This remains a conditional one-path composition result, not a source derivation or uniqueness theorem for least action; physical units, clocks, amplitudes, and general stationary-phase mechanisms remain open.",
    "open_premises": []
   },
   {
@@ -448,10 +454,12 @@
     "Lean/Screen/SeamU1HolonomyClassification.lean",
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean",
-    "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json"
+    "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
+    "Lean/Screen/TemporalMaxwellEvolution.lean"
    ],
-   "notes": "The composed light-signal surface supplies a conditional internal free-vector wave law and the modal package supplies an exact pseudodifferential first-order factorization. On the committed real seam/face complex, LocalFaceMaxwellAction supplies the missing local finite operator: the signed face curvature has kernel exactly the port gradients, its rank is nineteen, and H=C^T C has 150/900 nonzero entries, exactly five per seam row. The local quadratic action is gauge invariant exactly for conserved seam currents, is stationary exactly at H A=J, is solvable exactly for conserved J, and has minima unique modulo gradients. A separate scalar action has L phi=rho and the canonical neutral Green potential as its minimum modulo constants; StaticSources keeps rho and J distinct. The earlier dense global Hodge projector remains an exact comparison but is not the local action. This is a finite static structural Maxwell package, not temporal electric-magnetic dynamics: no charge-current continuity map, Lorentz/spacetime attachment, physical field/current, continuum control, or laboratory readout is supplied. PR-53 and PR-54 remain open.",
+   "notes": "The composed light-signal surface supplies a conditional internal free-vector wave law and the modal package supplies an exact pseudodifferential first-order factorization. On the committed real seam/face complex, LocalFaceMaxwellAction supplies the missing local finite operator: the signed face curvature has kernel exactly the port gradients, its rank is nineteen, and H=C^T C has 150/900 nonzero entries, exactly five per seam row. The local quadratic action is gauge invariant exactly for conserved seam currents, is stationary exactly at H A=J, is solvable exactly for conserved J, and has minima unique modulo gradients. A separate scalar action has L phi=rho and the canonical neutral Green potential as its minimum modulo constants; StaticSources keeps rho and J distinct. The earlier dense global Hodge projector remains an exact comparison but is not the local action. TemporalMaxwellEvolution adds the temporal layer on the same carrier: a declared leapfrog Ampere update with Faraday's law a theorem of the staggered definitions, Gauss propagation equivalent to the discrete continuity equation rho(n+1)-rho n+boundary(J n)=0 in both directions with rho and J typed distinct, an exact staggered energy balance with conservation at J=0, full time-dependent gauge invariance, a static join landing exactly on the committed Coulomb field, and the exact source-free wave recursion with normal operator C^T C, all from one typed antecedent bundle with an explicit nonstatic inhabitant. The step index is a declared evolution parameter, not physical time, and the sources are declared: no Lorentz/spacetime attachment, physical field/current, continuum control, or laboratory readout is supplied. PR-15, PR-53, and PR-54 remain open.",
    "open_premises": [
+    "PR-15",
     "PR-53",
     "PR-54"
    ]
@@ -494,9 +502,10 @@
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "code/electromagnetism/discrete_coulomb_green.py",
     "code/electromagnetism/verify_discrete_coulomb_green_independent.py",
-    "code/electromagnetism/runtime/discrete_coulomb_green_receipt.json"
+    "code/electromagnetism/runtime/discrete_coulomb_green_receipt.json",
+    "Lean/Screen/TemporalMaxwellEvolution.lean"
    ],
-   "notes": "The discrete Gauss and finite U(1) holonomy receipts share the committed incidence. The exact rational Green matrix gives the canonical solution of every neutral Gauss problem and the Thomson characterization as its unique cycle-orthogonal and energy-minimal representative. The new scalar action makes the same Green potential the unique stationary minimum modulo constants. In parallel, the oriented face incidence gives a local vector action whose gauge kernel is exactly the gradient space. Their direct-product static composition is typed without identifying port load rho with seam current J. It therefore closes the finite scalar/vector static composition question while leaving charge-current continuity, physical source production, laboratory attachment, and continuum dynamics open under PR-54. The design-only Green/Thomson handoff remains a specification, not a frozen run.",
+   "notes": "The discrete Gauss and finite U(1) holonomy receipts share the committed incidence. The exact rational Green matrix gives the canonical solution of every neutral Gauss problem and the Thomson characterization as its unique cycle-orthogonal and energy-minimal representative. The new scalar action makes the same Green potential the unique stationary minimum modulo constants. In parallel, the oriented face incidence gives a local vector action whose gauge kernel is exactly the gradient space. Their direct-product static composition is typed without identifying port load rho with seam current J. It closes the finite scalar/vector static composition question, and TemporalMaxwellEvolution supplies the typed continuity bridge: along the declared evolution, Gauss propagation is equivalent to rho(n+1)-rho n+boundary(J n)=0, with rho and J typed distinct, and constant source-free solutions have electric field exactly the canonical Coulomb field. Physical source production, laboratory attachment, and continuum dynamics stay open under PR-54. The design-only Green/Thomson handoff remains a specification, not a frozen run.",
    "open_premises": [
     "PR-54"
    ]
@@ -671,35 +680,38 @@
    "id": "OL-G7",
    "target": "Yukawa/Higgs sector and electroweak-breaking stance",
    "rung": "structural",
-   "status": "owed",
+   "status": "partial",
    "lane_issue": 735,
-   "premises": [],
-   "evidence": [
-    "tracking/sm_lagrangian_correspondence.json",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
-   ],
-   "notes": "The correspondence inventory records compatible scalar and Yukawa-line premises and exact Yukawa non-identifiability. It is not a theorem that the architecture carries a physical Higgs, Yukawa sector, or broken vacuum; the complete target remains owed.",
-   "open_premises": [
-    "PR-47",
+   "premises": [
     "PR-48",
     "PR-49",
     "PR-50",
-    "PR-54",
     "PR-59"
+   ],
+   "evidence": [
+    "tracking/sm_lagrangian_correspondence.json",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "Lean/Screen/ElectroweakBreakingComposition.lean"
+   ],
+   "notes": "One typed bundle extends the committed structure premises by the declared quartic coupling, breaking scale, two coupling constants, and one Yukawa coefficient, and one composed theorem proves the exact minimizer shell, the one-line stabilizer, the positive semidefinite second variation with three-parameter Goldstone kernel equal to the gauge-image set, the broken-direction mass values with tree ratio gW^2/(gW^2+gY^2) in declared constants, and the exact yuk*vev Yukawa coefficient with its vanishing law, with a committed nonvacuity instance; a standalone theorem of the same module proves the exact polynomial ray expansion whose quadratic coefficient is the second variation. All five scalar-sector constants are declared, so this row is a conditional structural composition on the PR-59 grammar. The physical scalar existence and kinetic normalization, the potential and vacuum selection, the Yukawa matrices, the Spin/chirality attachment, and the source action stay open under PR-47, PR-48, PR-49, PR-50, and PR-54.",
+   "open_premises": [
+    "PR-47",
+    "PR-54"
    ]
   },
   {
    "id": "OL-G9",
    "target": "Standard Model term-and-sector correspondence and assembled action",
    "rung": "structural",
-   "status": "owed",
+   "status": "partial",
    "lane_issue": 735,
    "premises": [],
    "evidence": [
     "tracking/sm_lagrangian_correspondence.json",
-    "docs/SM_LAGRANGIAN_CORRESPONDENCE.md"
+    "docs/SM_LAGRANGIAN_CORRESPONDENCE.md",
+    "Lean/Screen/AssembledActionComposition.lean"
    ],
-   "notes": "The exact nineteen-entry term-and-sector accounting inventory is recorded, but accounting is not a physics receipt and does not assemble an action. The global form, family, Spin, scalar, Yukawa, and source-action attachments are not constructed.",
+   "notes": "The nineteen-row inventory is recorded and one assembled structural action is machine-checked: assembledAction in Lean/Screen/AssembledActionComposition.lean sums a gauge kinetic sector, formed as a declared diagonal pairing on the committed weight space with one declared magnitude per invariant carrier sector, the committed scalar sector (quartic potential plus gauge mass form at the chosen minimum), and the realified committed Yukawa line as one function of one field tuple on one typed premise bundle, with exact sector restrictions, committed constraint-row coefficient invariance, exact global abelian phase invariance at the committed charge balance, exact complex recovery of the Yukawa line, an all-parameters-one inhabitant, and one composed receipt. The assembly is structural and conditional: no spacetime, no field strength two-form, no covariant derivative, no source-produced action (PR-54 open), no measured coefficient, no three families, no global-form, chirality, or Spin attachment (PR-35, PR-36, PR-46, PR-47 open).",
    "open_premises": [
     "PR-35",
     "PR-36",
@@ -986,42 +998,54 @@
   {
    "id": "OL-K4",
    "target": "Internal particle clock and rest-frequency oscillation",
-   "rung": "structural",
-   "status": "owed",
+   "rung": "formal_precursor",
+   "status": "partial",
    "lane_issue": 743,
    "premises": [],
    "evidence": [
+    "Lean/Geometry/InternalClockRestFrequency.lean",
+    "Lean/Geometry/MassShellKinematics.lean",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ],
-   "notes": "A massive particle state carries a rest-frame internal oscillation at its Compton frequency. No localized particle state, self-starting oscillation, or frequency-rigidity statement exists in the corpus. The twenty-four-register rate no-go proves a repair iteration counter is not an operational clock, and the committed clock content is the SI calibration import (register row PR-15, owned by its own lanes) rather than a derived oscillation. A source-produced state, its internal dynamics, and an energy-frequency attachment are owed.",
-   "open_premises": []
+   "notes": "A massive particle state carries a rest-frame internal oscillation at its Compton frequency. The committed formal precursor proves, on the declared Hermitian Lorentz module with one declared plane-wave phase form and one declared mass parameter, that the rest phase advances at exactly the mass parameter in every oriented chart, that the period set is exactly the 2 pi over mass integer lattice (the frequency-rigidity identity for the declared clock), the per-orientation de Broglie readouts (the spatial gradient on the de Broglie phase p.x - E t equals the momentum coordinate; the temporal rate on the plane-wave phase E t - p.x equals the scalar coordinate) tied by the committed shell identity, and the zero-mass degeneracy: constant clock, every real a period, and no rest chart for future null vectors. The oscillation is a declared plane-wave form; no self-starting oscillation is derived. No localized particle state, source-produced state, internal dynamics, energy-frequency attachment in laboratory units, or Compton value exists in the corpus. The twenty-four-register rate no-go proves a repair iteration counter is not an operational clock, and the committed clock content is the SI calibration import (register row PR-15, owned by its own lanes) rather than a derived oscillation. The physical spacetime reading is the PR-52 attachment. A source-produced state, its internal dynamics, and an energy-frequency attachment are owed.",
+   "open_premises": [
+    "PR-15",
+    "PR-52"
+   ]
   },
   {
    "id": "OL-K5",
    "target": "Particle persistence under free evolution",
-   "rung": "structural",
-   "status": "owed",
+   "rung": "formal_precursor",
+   "status": "partial",
    "lane_issue": 743,
    "premises": [],
    "evidence": [
+    "Lean/Geometry/FreeEvolutionPersistence.lean",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
     "Lean/Thermodynamics/FiniteConditionalRepair.lean",
     "Lean/QFT/FiniteUnitaryScatteringNoGo.lean"
    ],
-   "notes": "A particle state persists under its own free dynamics without external stabilization. The corpus carries record-level stability only: idempotent conditional repair has exact fixed points with strict entropy production off them, which is stability of records under the declared repair law rather than persistence of a localized excitation. No localized particle state, perturbation-stability receipt, or long-run evolution instrument exists; the finite-unitary convergence delimitation constrains viable constructions without supplying one.",
+   "notes": "The declared free evolution on the declared Hermitian Lorentz module carries a machine-checked persistence packet for declared plane-wave states: exact shell invariance, label conservation, modulus-one persistence without decay or vanishing, injectivity on positive-mass labels with no spontaneous transition, an exact one-parameter group law, and the zero-mass degeneracy, with the flow phase along the state's own frame equal to the internal clock as a clause of the composed receipt. This is invariance of a declared kinematic flow, distinct from the record-level stability of the declared repair law tracked at OL-E4. No localized particle state, perturbation-stability receipt, source-produced state, or laboratory persistence time exists; the finite-unitary convergence delimitation constrains viable constructions without supplying one.",
    "open_premises": [
+    "PR-15",
+    "PR-52",
     "PR-54"
    ]
   },
   {
    "id": "OL-K6",
    "target": "Magnetic moment and gyromagnetic ratio of charged particles",
-   "rung": "structural",
-   "status": "owed",
+   "rung": "formal_precursor",
+   "status": "partial",
    "lane_issue": 743,
    "premises": [],
-   "evidence": [],
-   "notes": "A charged spin-carrying state sources a static magnetic dipole with gyromagnetic ratio near two, with the anomalous part fixed by interaction corrections. No magnetostatic content, dipole source, or moment mechanism exists in the corpus; the committed electromagnetism package is finite static structural Maxwell without temporal electric-magnetic dynamics, and the hadronic-payload accounting for the fine-structure row implements no moment calculation. A source-produced charged state with angular structure (the Spin attachment register row PR-47, owned by its own lanes), temporal electromagnetic coupling, and a readout contract are owed.",
+   "evidence": [
+    "Lean/EventAlgebra/PauliMinimalCoupling.lean"
+   ],
+   "notes": "A charged spin-carrying state sources a static magnetic dipole with gyromagnetic ratio near two, with the anomalous part fixed by interaction corrections. The committed formal precursor proves, over an arbitrary complex algebra with three declared carrier elements, three declared field elements, and one declared coupling scalar q tied by the declared commutation hypothesis [X i, X j] = i q epsilon_ijk B k, the exact Clifford square (sigma.X)^2 = (X.X) 1 + i sigma.(X x X), the exact cross collapse (X x X) k = i q B k, and the Pauli square (sigma.X)^2 = (X.X) 1 - q sigma.B with coefficient exactly q; every commuting triple satisfies the hypothesis with B = 0 and its spin term vanishes identically (the machine-checked forward direction, with no converse claimed), the Pauli-triple inhabitant at q = 2 shows the hypothesis class is nonempty with nonzero spin term, and a discrimination lemma pins the coefficient on the inhabitant. In the convention where the orbital sector couples at q/(2m) per unit orbital angular momentum, division by 2m reads as spin coupling q/m per unit spin angular momentum, the g = 2 statement; the reading is a recorded label, and no theorem mentions a physical field. The commutation data, coupling, and carrier are declared; no gauge potential, Dirac sector, anomalous moment, magnetostatic dipole source, source-produced charged state, or laboratory readout exists in the corpus (PR-54 and PR-47 open on the mechanism side, PR-15 and PR-52 open on the readout side).",
    "open_premises": [
+    "PR-47",
     "PR-54"
    ]
   },

@@ -31,6 +31,7 @@ OBSERVATION_EVIDENCE = [
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
+    "Lean/Screen/TemporalMaxwellEvolution.lean",
 ]
 
 POSTDICTION_ARTIFACTS = [
@@ -107,24 +108,24 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     assert row["status"] == "partial"
     assert row["lane_issue"] == 733
     assert row["premises"] == ["PR-20", "PR-21", "PR-22"]
-    assert row["open_premises"] == ["PR-53", "PR-54"]
+    assert row["open_premises"] == ["PR-15", "PR-53", "PR-54"]
     assert row["evidence"] == OBSERVATION_EVIDENCE
     notes = row["notes"]
     assert "modal package supplies an exact pseudodifferential first-order factorization" in notes
     assert "LocalFaceMaxwellAction supplies the missing local finite operator" in notes
     assert "The earlier dense global Hodge projector remains an exact comparison" in notes
     assert "StaticSources keeps rho and J distinct" in notes
-    assert "PR-53 and PR-54 remain open" in notes
+    assert "PR-15, PR-53, and PR-54 remain open" in notes
     assert "does not close issue" not in notes
-    for excluded in (
-        "temporal electric-magnetic dynamics",
-        "charge-current continuity map",
+    for required_boundary in (
+        "TemporalMaxwellEvolution adds the temporal layer",
+        "step index is a declared evolution parameter",
         "Lorentz/spacetime attachment",
         "physical field/current",
         "continuum control",
         "laboratory readout",
     ):
-        assert excluded in notes
+        assert required_boundary in notes
 
 
 def test_detailed_paper_states_exact_result_and_full_boundary() -> None:

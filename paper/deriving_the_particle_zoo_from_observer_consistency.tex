@@ -327,6 +327,90 @@ Coleman--Weinberg dynamics; the
 weak scale, Higgs/top quantitative surface, and \(\epsilon_H=0\) hierarchy/naturality closure are
 the OPH quantitative branch.
 
+The symmetry-breaking geometry of that slot carries a machine-checked
+composition (\texttt{Lean/Screen/ElectroweakBreakingComposition.lean}). One
+typed premise bundle extends the committed structure premises by five
+declared scalar-sector constants: a quartic coupling \(\lambda>0\), a
+breaking scale \(v>0\), two coupling constants \(g,g'>0\), and one Yukawa
+coefficient \(y\). On the doublet carrier whose complex dimension and
+\(q=6Y\) charge are the committed table entries \((2,3)\), one theorem on
+that bundle proves five exact statements. The global minimizer set of the
+declared potential \(\lambda(|h|^2-v^2)^2\) is exactly the nonzero shell
+\(|h|^2=v^2\). The stabilizer of the chosen minimum \((0,v)\) inside the
+four-parameter electroweak direction space is exactly one unbroken line, the
+\((g',g)\) mix of the third weak and hypercharge directions. The potential
+along every ray from the minimum is an exact polynomial identity whose
+quadratic coefficient is the second variation; that coefficient is positive
+semidefinite, and its kernel equals the set of infinitesimal gauge images at
+the minimum, with exactly three real parameters. The induced mass form
+vanishes exactly on the unbroken line and takes the normalized values
+\(g^2v^2/4\) and \((g^2+g'^2)v^2/4\) on the charged and neutral broken
+directions, so their tree ratio is \(g^2/(g^2+g'^2)\) in the declared
+constants. The epsilon-paired Yukawa line produces at the minimum a bilinear
+with exact coefficient \(yv\), vanishing exactly when \(y=0\) or \(v=0\),
+and either committed parity sector supplies a colorless doublet/singlet row
+pair whose committed charges balance against the scalar row charge or its
+conjugate. The five constants are declared bundle parameters: no committed
+theorem selects \(\lambda\), \(v\), \(g'/g\), or \(y\), the committed
+invariant-form receipts leave the relative coupling normalization free, and
+the composition supplies no source action, physical vacuum, measured mass,
+or family structure. The quantitative electroweak and Higgs/top surfaces are
+the separate branches described in their own sections.
+
+A kinematic internal-clock packet is machine-checked on the same declared
+Hermitian Lorentz module that carries the mass-shell receipts
+(\texttt{Lean/Geometry/InternalClockRestFrequency.lean}). For one declared
+positive mass parameter and one declared plane-wave phase form, the rest
+phase along a frame worldline advances at exactly the mass parameter in
+every oriented chart, the declared internal clock obeys the exact rotation
+law \(i\,\partial_\tau z = m\,z\), and its period set is exactly the
+\(2\pi/m\) integer lattice, the frequency-rigidity identity for the declared
+clock. The spatial phase gradient reads off the momentum coordinate on the
+de Broglie orientation of the phase, and the temporal rate reads off the
+energy coordinate on the opposite invariant orientation, tied by the
+committed shell identity, and the zero-mass branch degenerates exactly: the clock is constant, every
+real number is a period, and no oriented chart brings a future null vector
+to rest. The oscillation is a declared plane-wave form on a declared module:
+no localized particle state, self-starting oscillation, source-produced
+state, laboratory frequency unit, or Compton value is derived, and the
+clock-calibration and physical-spacetime attachments stay open register
+rows.
+
+The declared plane-wave states persist under their declared free evolution
+(\path{Lean/Geometry/FreeEvolutionPersistence.lean}). The free evolution
+is the translation flow along a declared frame worldline, acting on wave
+functions by precomposition, and it is an exact one-parameter group. Under
+this flow a plane-wave state changes by a unit-modulus global phase only,
+so its mass-shell membership, its momentum and energy readouts, and its
+unit modulus are exact constants of the flow, and two states with distinct
+positive mass or momentum labels stay distinct at every parameter value.
+Along the state's own frame the global phase is exactly the internal clock,
+and this identity is a clause of the composed machine-checked receipt. On
+the zero-mass branch the massive parameterization degenerates to the
+constant state and the frame label is not recoverable, while a future null
+vector carries the shell, global-phase-covariance, and norm-persistence
+clauses of the packet on the zero-mass shell. This is persistence of a
+declared kinematic state under a declared flow, separate from the
+record-repair stability results: no physical particle, decay rate,
+localized wave packet, or laboratory persistence time is claimed, and the
+clock calibration, spacetime attachment, and source production premises
+stay open.
+
+The gyromagnetic ratio of the spin sector has an exact algebraic origin
+(\path{Lean/EventAlgebra/PauliMinimalCoupling.lean}). Over any complex
+algebra, for a declared triple \(X\) with commutators
+\([X_i,X_j] = i\,q\,\epsilon_{ijk}B_k\), the square of the Pauli
+contraction is exactly
+\((\sigma\!\cdot\!X)^2 = |X|^2 - q\,(\sigma\!\cdot\!B)\), so the spin
+sector inherits the full coupling \(q\) where the orbital convention
+assigns \(q/(2m)\) per unit angular momentum: gyromagnetic ratio two. The
+commutation data, the coupling, and the carrier are declared. A commuting
+triple has identically vanishing spin term, the Pauli matrices themselves
+inhabit the hypothesis class with \(q = 2\) and a nonzero spin term, and
+the coefficient is pinned on that inhabitant. No gauge potential, Dirac
+equation, Spin structure, laboratory calibration, or spacetime attachment
+is constructed, and no anomalous-moment content is claimed.
+
 This also delimits the phrase ``and no others.'' The finite OPH claim concerns
 the low-energy packet implied by the stated response, matter, and descent
 contracts. Additional connected gauge generators,

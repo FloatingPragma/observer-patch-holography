@@ -158,6 +158,49 @@ geometric interface. The formal package does
 not produce the history, a coherent network of three or more clocks, the
 calibration from the OPH source tower, or an SI clock.
 
+A kinematic mass-shell packet is machine-checked on the declared Hermitian
+Lorentz module (\texttt{Lean/Geometry/MassShellKinematics.lean}). For one
+declared mass parameter \(m\) and any future unit-timelike frame \(u\), the
+scaled vector \(p = m\,u\) has Lorentz square exactly \(m^{2}\), and its
+scalar coordinate obeys \(p_{0}^{2} = m^{2} + \lvert\mathbf{p}\rvert^{2}\).
+For positive \(m\) the scalar coordinate dominates \(m\), with equality
+exactly when the spatial coordinates vanish, and at the standard frame it
+equals \(m\). Every oriented Lorentz map carries the construction to the
+transported frame with the same Lorentz square, so the shell identity holds
+in every oriented chart, and a future null vector satisfies the zero-mass
+identity \(v_{0}^{2} = \lvert\mathbf{v}\rvert^{2}\). The mass parameter is a
+declared hypothesis on the declared module, stated in its dimensionless
+convention with unit invariant speed. The packet identifies no coordinate
+with a physical energy readout and makes no physical rest-energy claim: the
+clock and energy calibration anchors and the observer-to-physical-spacetime
+attachment are open rows of the audited premise register, and the packet is
+registered under the spacetime lane's gate with those rows open.
+
+The committed finite causal orders compose into the declared cone
+(\path{Lean/Geometry/CausalOrderComposition.lean}). The determinant
+quadratic form orders the declared Hermitian module: one coordinate precedes
+another when their difference has nonnegative Lorentz square and nonnegative
+scalar coordinate, and this relation is a partial order whose transitivity
+is the reverse triangle inequality, proved from the three-coordinate
+Lagrange identity. A declared vertex assignment places the six-element
+region lattice of the rich-fibre observer net inside the module so that the
+committed region order agrees with the cone order of the images, in both
+directions on the whole carrier. The assignment is injective, the image
+contains two timelike-related and two spacelike-unrelated pairs, declared
+disjointness of regions lands in spacelike separation, and composing with
+any oriented Lorentz map, or with any affine overlap transition, preserves
+the equivalence; both invariances are clauses of the single composed
+receipt. The two-site partition net composes through a label map with the
+same receipts; its four-element carrier has exactly one incomparable pair,
+with both directions machine-checked: the pair of singletons is
+incomparable, and every incomparable pair is that one, which bounds the
+spacelike content any faithful placement of that carrier can show. The
+vertex assignment is a declared witness: a second distinct assignment
+satisfies the same equivalence, so the committed data does not force the
+embedding. No physical causal order, spacetime,
+clock, or observer frame is attached; those identifications remain
+registered open premises.
+
 A separate finite-graph precursor makes the discrete inverse-square route
 premise-complete.  For a supplied integer layering, steady source law, shell
 equidistribution, and shell count $c n^2$ through a finite depth, exact

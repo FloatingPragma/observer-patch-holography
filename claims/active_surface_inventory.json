@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 265,
+  "surface_count": 269,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -621,6 +621,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/AssembledActionComposition.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/B10EdgeCenterAction.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -686,6 +691,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/ElectroweakBreakingComposition.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/ElectroweakPoleScaleQuotient.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -707,6 +717,11 @@
     },
     {
       "path": "Lean/Screen/GaugeKineticInvariantForms.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/GlobalFormCharacterDescent.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
@@ -922,6 +937,11 @@
     },
     {
       "path": "Lean/Screen/SeamU1HolonomyClassification.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/Screen/TemporalMaxwellEvolution.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
     },
