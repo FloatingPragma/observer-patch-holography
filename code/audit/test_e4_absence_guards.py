@@ -53,7 +53,7 @@ TREE_ABSENCE_PROBES = {
     1: ["tomita"],
     2: ["spinstructure"],
     3: ["quasilocal", "vacuumrepresentation", "doplicherroberts"],
-    6: ["cauchyembedding"],
+    6: ["relativecauchy", "metricperturbation", "stressresponse"],
     7: ["energymomentum", "spectrumcondition", "spectraladapter"],
 }
 
