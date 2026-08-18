@@ -42,15 +42,16 @@ orphaning the matrix.
 | 3 | DHR / sector reconstruction | RESTRICTED SURROGATE COLLAPSES + exit (full DHR) | `QFT/SectorInheritance.lean`: every bijective localized endomorphism of the finite constructed net is inner (`privateSector_localized_inner`) and hence equivalent to the identity under the file's declared finite relation; nonvacuity by `sectorWitness_inner`.  This does not construct a DHR category or perform Doplicher–Roberts reconstruction.  Full DHR (quasi-local algebra, vacuum representation, transportability) is that module's typed exit. |
 | 4 | Field / action reconstruction | GATED BY DESIGN | Exact finite precursors now include the response-word algebra, the dense global Hodge comparison, and the genuinely local face-curvature/static scalar-vector action of `Screen/LocalFaceMaxwellAction.lean`.  The local action has the exact gauge kernel and conserved-source equivalence, but supplies no temporal dynamics, charge-current continuity map, source-selected physical current, physical matter/Spin action, spacetime carrier, or continuum limit.  Thus the full field/action reconstruction packet E4 would consume is still not supplied. |
 | 5 | KMS / thermality | PROVABLE (finite core) + REFUTABLE (net and public) + exit (horizon) | `QFT/StructuralInheritance.lean`: the finite algebraic Gibbs-KMS theorem on the witness private block (`privateGibbsState_kms`); the degeneracy countermodel — on the support-graded net every functional is KMS for every grading-preserving flow at every complex time (`supportGradedNet_regionalExpectation_kms_degenerate`); the cited B3 rigidity refuting public thermality (`publicRecord_no_thermal_flow`).  Horizon thermality is that module's typed exit. |
-| 6 | Relative-Cauchy stress response | TYPED NON-EVALUABLE EXIT | A finite one-step interface exists in `QFT/PathTimeSliceInterface.lean`.  `QFT/TripleCarrierJoin.lean` additionally gives one common state/path/checkpoint carrier and exact marginal intertwining over the 31 actual source transitions.  Neither supplies a regional-net morphism, a `CauchyEmbedding`, coherent physical evolution, Lorentzian metric perturbations, or a stress-response derivative. |
+| 6 | Relative-Cauchy stress response | TYPED NON-EVALUABLE EXIT | A finite one-step interface exists in `QFT/PathTimeSliceInterface.lean`.  `QFT/TripleCarrierJoin.lean` additionally gives one common state/path/checkpoint carrier and exact marginal intertwining over the 31 actual source transitions.  `QFT/LocallyCovariantLimit.lean` now supplies the order-theoretic E3 Cauchy embedding class `IsCauchyEmbedding`, defined through the net's contravariant restriction maps, with the limit-level time-slice property; its claim boundary attaches no Lorentzian reading.  None of these supplies a regional-net morphism, coherent physical evolution, Lorentzian metric perturbations, or a stress-response derivative. |
 | 7 | Particle / scattering | TYPED NON-EVALUABLE EXIT | No carrier.  Haag–Ruelle theory needs a translation group action on the net, a spectrum condition, and asymptotic limits; `EventRegion` carries no ℝ-action and no energy-momentum object exists in the tree (B9 `#685`, the optional spectral adapter, has no module).  Pinned Mathlib has zero Haag/scattering material. |
 
 Four of the five non-statable rows (1, 2, 6, 7) still lack structures
 required by the full target in the tree and in pinned Mathlib; row 4 is
 gated by design on three other bricks.  This is a statement about what
 the committed carriers presently type, not a no-go against extending
-them.  In particular row 6 now has the finite transport-aware precursor
-recorded above, while Cauchy geometry, coherent physical evolution and a
+them.  In particular row 6 now has the finite transport-aware precursor and
+the order-theoretic E3 Cauchy embedding class recorded above, while
+Lorentzian Cauchy geometry, coherent physical evolution and a
 stress-response derivative remain possible construction routes rather
 than being ruled out by this matrix.
 
@@ -75,10 +76,12 @@ readouts.  What E4 supplies to F1:
 
 What E4 withholds from F1: everything in rows 1, 6, and the row-5
 horizon exit.  Row 6 now acknowledges a finite time-indexed
-net-evolution interface, but the stress readout still receives no
-relative-Cauchy response: there is no Cauchy-embedding class,
-Lorentzian metric or metric perturbation, relative-Cauchy evolution,
-or stress derivative.  No statement of this module or of the two row
+net-evolution interface and the order-theoretic E3 Cauchy embedding
+class of `QFT/LocallyCovariantLimit.lean`, but the stress readout
+still receives no relative-Cauchy response: the embedding class is
+order-theoretic with no Lorentzian reading, and there is no Lorentzian
+metric or metric perturbation, relative-Cauchy evolution, or stress
+derivative.  No statement of this module or of the two row
 modules may be cited by F1 as "the net is thermal" or "the net carries
 stress response".  Where thermality was testable, E4 refuted it.
 
@@ -198,10 +201,13 @@ def e4StatusMatrix : List E4Row :=
      citation := "QFT/PathTimeSliceInterface.lean supplies a finite \
        one-step net-evolution interface; QFT/TripleCarrierJoin.lean supplies \
        a common state/path/checkpoint carrier and 31-step marginal \
-       intertwining, but no net morphism, CauchyEmbedding class, Lorentzian metric or \
-       metric perturbation, relative-Cauchy evolution, or stress-response \
-       derivative exists; the required Lorentzian/globally-hyperbolic \
-       carrier is also absent from pinned Mathlib." },
+       intertwining; QFT/LocallyCovariantLimit.lean supplies the \
+       order-theoretic E3 Cauchy embedding class with the limit time-slice \
+       property and no Lorentzian reading; but no net morphism, Lorentzian \
+       metric or metric perturbation, relative-Cauchy evolution, or \
+       stress-response derivative exists; the required \
+       Lorentzian/globally-hyperbolic carrier is also absent from pinned \
+       Mathlib." },
    { index := 7
      target := "particle / scattering"
      shape := [.typedNonEvaluableExit]

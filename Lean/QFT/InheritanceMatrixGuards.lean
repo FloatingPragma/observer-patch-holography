@@ -124,9 +124,11 @@ def projectAbsenceProbes : List AbsenceProbe :=
        Doplicher-Roberts reconstruction in tree (full-DHR exit)"
      probes := ["quasilocal", "vacuumrepresentation", "doplicherroberts"] },
    { row := 6
-     claim := "no CauchyEmbedding class in tree; the typed time-indexed \
-       net-evolution interface is cited as present separately"
-     probes := ["cauchyembedding"] },
+     claim := "no relative-Cauchy evolution, Lorentzian metric \
+       perturbation, or stress-response derivative in tree; the E3 Cauchy \
+       embedding class and the typed time-indexed net-evolution interface \
+       are cited as present separately"
+     probes := ["relativecauchy", "metricperturbation", "stressresponse"] },
    { row := 7
      claim := "no energy-momentum or spectrum-condition object and no \
        B9 spectral adapter in tree"
@@ -150,7 +152,12 @@ def presenceCitations : List PresenceCitation :=
    { row := 2
      claim := "SpinGroup.lean exists (cited as unconnected)"
      module? := some `Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup
-     decl? := some `spinGroup }]
+     decl? := some `spinGroup },
+   { row := 6
+     claim := "the order-theoretic E3 Cauchy embedding class exists \
+       (cited with no Lorentzian reading attached)"
+     module? := some `QFT.LocallyCovariantLimit
+     decl? := some `OPH.QFT.IsCauchyEmbedding }]
 
 /-- Module roots that belong to dependencies, not to this project.
 Anything else in the loaded environment is treated as project origin. -/
