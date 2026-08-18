@@ -120,6 +120,10 @@ Mapping between Lean 4 theorems in this project and statements in
   infinite-state or tower theorem, scalar ranking, arbitrary implementation
   invariance, or product refinement is claimed. See
   `ObservableNormalForms/PROOF_INDEX.md` for theorem-level traceability.
+  The separately maintained [Isabelle/HOL companion](https://github.com/Oraclizer/formal-verification/blob/d61f4dcf8b3f55a50ddeb2494049af322c5b7ec1/Protected_Behavior_Obstructions/README.md)
+  is explicitly `PARTIAL / NO SAME`; it checks related set/profile consequences
+  under declared assumptions and does not independently reconstruct the Lean
+  stochastic foundation or transport theorems.
 - Time-and-order type ledger
   (`Time/TimeOrderLedger.lean`): sorry-free type infrastructure for V2 A1.
   Universe closure, repair schedule, observer record order, modular parameter,
