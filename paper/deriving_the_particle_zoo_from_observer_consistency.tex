@@ -357,6 +357,33 @@ the composition supplies no source action, physical vacuum, measured mass,
 or family structure. The quantitative electroweak and Higgs/top surfaces are
 the separate branches described in their own sections.
 
+The neutral sector of that composition carries a machine-checked coupling
+dictionary (\texttt{Lean/Screen/NeutralCurrentDictionary.lean}). A weak slot
+is a row of the committed component table together with a weak component
+index: its third isospin is \(\pm\tfrac12\) on the two components of a
+doublet row and \(0\) on a singlet row, its hypercharge is the committed
+\(q=6Y\) charge column, and its electric charge is the sum \(Q=T_3+Y\) in
+the committed integer units. The neutral coupling of a slot along a
+direction is the diagonal action \(g a_3 T_3 + g' b\,Y\), and on every
+neutral direction the committed infinitesimal action is exactly diagonal
+with the two slot couplings of the scalar row, so the normalization is the
+committed one, with no freedom left. The unbroken direction of the breaking
+composition, normalized by the common direction length
+\(g_Z=\sqrt{g^2+g'^2}\), couples every slot of either committed parity
+sector at exactly \(e\,Q\) with \(e=gg'/g_Z\), and the neutral broken
+direction, normalized the same way, couples it at exactly
+\(g_Z\bigl(T_3-Q\sin^2\theta\bigr)\), where
+\(\sin^2\theta=g'^2/(g^2+g'^2)\) is a defined abbreviation in the declared
+constants and never a measured value. The Z direction is exactly the
+orthogonal complement of the unbroken line in the neutral plane, two
+committed rows with different electric charges have provably different
+photon couplings, and in either parity sector the zero-charge component of
+the colorless doublet row has photon coupling exactly zero and Z coupling
+exactly \(\pm(g^2+g'^2)/2\). The dictionary is exact tree-level algebra on
+the committed grammar: it supplies no physical current operator, no source
+action, no measured mixing angle, no running, and no decay amplitude, and
+the chirality and source-action attachments stay open register rows.
+
 A kinematic internal-clock packet is machine-checked on the same declared
 Hermitian Lorentz module that carries the mass-shell receipts
 (\texttt{Lean/Geometry/InternalClockRestFrequency.lean}). For one declared

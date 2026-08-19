@@ -118,7 +118,15 @@
   "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
   "OPH-GEOMETRY-FREE-EVOLUTION-PERSISTENCE",
   "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
-  "OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE"
+  "OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE",
+  "OPH-SCREEN-GLOBAL-FORM-CHARACTER-DESCENT",
+  "OPH-GEOMETRY-EVENT-POPULATION-CHART-INTERFACE",
+  "OPH-SCREEN-FERMION-SECTOR-ASSEMBLY",
+  "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+  "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+  "OPH-GEOMETRY-REST-FIBER-SHELL-TRANSPORT",
+  "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
+  "OPH-QFT-JOIN-RECORD-NET-MORPHISM"
  ],
  "edges": [
   {
@@ -1055,6 +1063,76 @@
    "from": "OPH-FINITE-QUANTUM-LIMITATION-SUITE",
    "to": "OPH-EVENTALGEBRA-PAULI-MINIMAL-COUPLING-SQUARE",
    "role": "supplies the committed Pauli matrices of the Robertson module that inhabit the declared commutation hypothesis class at coupling two with nonzero spin term"
+  },
+  {
+   "from": "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+   "to": "OPH-GEOMETRY-EVENT-POPULATION-CHART-INTERFACE",
+   "role": "supplies the committed cone order, overlap cocycle, and finite-order-to-cone equivalence receipts that the typed interface package reuses and embeds"
+  },
+  {
+   "from": "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+   "to": "OPH-SCREEN-FERMION-SECTOR-ASSEMBLY",
+   "role": "supplies the committed assembled structural action and premise bundle that the fermion sector extends with exact restriction receipts and without modification"
+  },
+  {
+   "from": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "to": "OPH-SCREEN-FERMION-SECTOR-ASSEMBLY",
+   "role": "supplies the committed electroweak receipt whose exhibited Yukawa rows the shared-row identification matches against the committed matter slots"
+  },
+  {
+   "from": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "to": "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
+   "role": "supplies the committed breaking directions, infinitesimal action, vacuum, stabilizer line, and premise bundle from which the coupling dictionary is proved"
+  },
+  {
+   "from": "OPH-GEOMETRY-INVERSE-SQUARE-SHELL",
+   "to": "OPH-GEOMETRY-REST-FIBER-SHELL-TRANSPORT",
+   "role": "supplies the committed RadialFluxData packet and shell-law theorems that the boost-shear isometry transports onto every declared rest fiber"
+  },
+  {
+   "from": "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "role": "supplies the kinematic mass-shell packet the record carries at its declared mass and state frame"
+  },
+  {
+   "from": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "role": "supplies the internal-clock packet and the clock identity read at the record's shared mass and frame fields"
+  },
+  {
+   "from": "OPH-GEOMETRY-FREE-EVOLUTION-PERSISTENCE",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "role": "supplies the free-evolution persistence packet whose flow displacements the join theorems place in the future cone"
+  },
+  {
+   "from": "OPH-QFT-CAUSAL-ORDER-COMPOSITION",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "role": "supplies the causal-order composition and the cone order on the one Lorentz module instance in which the kinematic joins land"
+  },
+  {
+   "from": "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "role": "supplies the temporal Maxwell receipt and the Gauss load evaluated by the record's screen bundle and port-dual measure"
+  },
+  {
+   "from": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "role": "supplies the electroweak-breaking receipt held at the record's declared premise bundle over the committed structure premises"
+  },
+  {
+   "from": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+   "to": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+   "role": "supplies the committed IdealPhasePOVMCountModel structure and the boundary text naming the explicitly exhaustive deterministic semantics as an acceptable validation route"
+  },
+  {
+   "from": "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
+   "to": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+   "role": "supplies the committed integer phase-count window and closed-form frequency law instantiated by the attainment receipt"
+  },
+  {
+   "from": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
+   "to": "OPH-QFT-JOIN-RECORD-NET-MORPHISM",
+   "role": "supplies the committed hinge-fibered join, embeddings, hinge restriction, and join evolution that the record-layer net morphisms equip with regional structure"
   }
  ]
 }

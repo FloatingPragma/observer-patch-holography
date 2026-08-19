@@ -28,6 +28,7 @@ import EventAlgebra.OperationalPhaseInstrument
 import EventAlgebra.PhaseInstrumentDetermination
 import EventAlgebra.SourceReachabilityDelimitation
 import EventAlgebra.PauliMinimalCoupling
+import EventAlgebra.OperationalPhaseAttainment
 
 /-!
 # Finite projection-event calculus — umbrella root

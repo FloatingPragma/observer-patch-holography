@@ -275,7 +275,26 @@ among the three classified family labels and the declared \(2^{10}\)
 exterior table, the admissible pairs are the \(G\) label with either of two
 conjugate masks. Conjugation is proved on the masks only. This does not count
 points in the continuous \(G\)-bracket family and does not classify complete
-physical Standard Model structures. A three-family
+physical Standard Model structures.
+
+The descent bookkeeping itself is exact. On the finite weight lattice of
+hypercharge, triality, and duality labels in the \(q=6Y\) normalization, a
+label is fixed by every element of the diagonal \(\mathbb Z_6\) kernel
+exactly when \(2t+3d+q\equiv 0 \pmod 6\); the kernel acts on any label by
+multiples of this center character. Every row of the matter table satisfies
+the congruence, including both carrier blocks and the scalar, a fractionally
+charged singlet is blocked by the generator, and exactly one sixth of the
+thirty-six lattice labels descend, with every character value carried by
+exactly six labels. The machine-checked receipt composes onto the selected
+matter mask: every selected component descends through the full kernel
+(\texttt{Lean/Screen/GlobalFormCharacterDescent.lean}). This is the
+character-lattice half of the global-form question only. The complete
+character category, the instanton normalization, the laboratory flux
+attachment, and the selection of one physical quotient among the four
+admissible ones are registered open premises, and no physical global form is
+derived from the congruence.
+
+A three-family
 bundle types the band-selection rules of the family row as antecedent
 fields whose triplication arithmetic threads the same selection mask,
 the chirality row carries one threaded grading-plus-obstruction
@@ -342,6 +361,38 @@ the committed constant-direction coefficient at the minimum, and the
 source-produced spacetime action, measured coefficients, three physical
 families, global form, physical chirality, and Spin attachments remain the
 open register rows they sit on.
+
+\subsection*{A fermion sector on the assembled action}
+
+The assembled action carries one typed fermion sector as a fourth summand,
+with the committed sum unchanged
+(\texttt{Lean/Screen/FermionSectorAssembly.lean}). The fermion carrier is
+one complex amplitude per row of the committed ten-component table, and the
+bilinear row-pair form \(\overline{\psi_i}\,\psi_j\) transforms under the
+abelian phase action through the committed integer charge column
+\(q = 6Y\). On the rows of the bundled selection mask the form is invariant
+at every unit phase exactly when the committed row charges balance, and the
+committed charge column separates those rows, so the invariant pairs are
+exactly the diagonal ones: the charge column forces the kinetic-shaped
+pairing to be diagonal. The extended action is the committed assembled sum
+plus the masked diagonal fermion sector with one declared coefficient per
+row. It restricts exactly to the committed assembled action on the zero
+fermion slot and at zero fermion coefficients, exactly to the fermion
+sector on the fermion slice, and the three committed sector restrictions
+persist. A typed embedding of the fermion amplitudes at the shared doublet
+and singlet rows into the committed matter slots evaluates the extended
+action to the committed mass bilinear with coefficient \(y\,v\), and the
+embedding intertwines the fermion phase action with the committed
+matter-slot phase action at the committed row charges. The extended sum is
+exactly invariant under the committed-charge abelian action extended by the
+fermion charge phase, the parameter census is the committed list plus the
+fermion coefficients, the bundle is inhabited over the committed
+inhabitant, and an exhibited charge-imbalanced pair of mask rows breaks the
+invariance receipt at an exhibited unit phase. The fermion coefficients are
+declared stand-in weights: the covariant kinetic term, the source-produced
+spacetime action, and the Spin and physical-chirality attachments stay open
+register rows, and no measured coupling, three-family structure, or Yukawa
+matrix appears.
 
 \tableofcontents
 \clearpage

@@ -152,6 +152,23 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Verify the recorded-decision phase-operation receipt independently",
+        [
+            sys.executable,
+            "code/phase_operation_producer/verify_phase_operation_receipt.py",
+        ],
+    ),
+    (
+        "Execute the phase-operation producer determinism and mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/phase_operation_producer/test_phase_operation_receipt.py",
+        ],
+    ),
+    (
         "Replay the post-hoc repair-current diagnostic independently",
         [
             sys.executable,

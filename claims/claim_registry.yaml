@@ -5128,6 +5128,363 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-SCREEN-GLOBAL-FORM-CHARACTER-DESCENT",
+      "statement": "On the committed 36-element weight lattice Z/6 x Z/3 x Z/2 of (hypercharge q = 6Y mod 6, triality, duality) labels with the committed central phase convention 2kt + 3ld + rq in sixths of a turn, a label is fixed by every element of the committed diagonal Z6 tensor-action kernel exactly when its center character 2t + 3d + q vanishes modulo six; through the committed cyclic embedding of Z/6 into the central parameters the whole kernel acts on a label by multiples of its center character; every row of the committed matter table satisfies the congruence: the ten exterior component rows through their committed central weights, the same rows as exact integer congruences on the committed charge and bidegree columns, and the realized weight table including both carrier blocks and the scalar; the fractionally charged singlet label (1, 0, 0) has center character one and is moved by the kernel generator, so the criterion is not vacuous; exactly six of the thirty-six lattice labels descend, one sixth exactly, with every center-character fibre of size six; and for every premise bundle of the committed Standard Model structure surface, every component selected by the bundled mask satisfies the congruence and descends through the full kernel. The lattice, phase convention, kernel, matter table, and selection grammar are the committed finite objects registered under PR-35 and PR-59. No complete character category, instanton or topological normalization, laboratory flux or line-operator attachment, or physical quotient selection is supplied; register row PR-46 stays open with the finite character-lattice piece carved out, and no physical global gauge-group form is derived.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "exact_character_descent_congruence_on_committed_z6_label_lattice",
+      "assumptions": [
+        "committed_z6_phase_convention_and_tensor_action_kernel",
+        "declared_exterior_component_table_and_mask_grammar_PR-59",
+        "same_source_loop_to_kernel_identity_PR-35_for_the_physical_reading",
+        "physical_global_form_selection_deferred_PR-46"
+      ],
+      "imported_results": [
+        "finite_zmod_and_integer_arithmetic",
+        "finite_decidable_enumeration"
+      ],
+      "oph_specific_delta": "The descent congruence 2t + 3d + q = 0 mod 6 is machine-checked as an iff against the full committed kernel action rather than read off the generator, applied row by row to the committed matter table in both central-weight and integer-column form, delimited by an explicit blocked control label and an exact one-sixth counting receipt with equidistributed fibres, and composed onto the bundled selection mask of the Standard Model structure surface.",
+      "novelty_type": "exact_character_lattice_descent_receipt_for_the_global_form_bundle",
+      "evidence": [
+        "Lean/Screen/GlobalFormCharacterDescent.lean",
+        "Lean/Screen/Z6Descent.lean",
+        "Lean/Screen/TraceBalancedKernel.lean",
+        "Lean/Screen/SMStructureAdequacySurface.lean"
+      ],
+      "falsifier": "The claim fails if some label satisfying the congruence is moved by a kernel element, some label violating it is fixed by every kernel element, some committed table row violates the congruence, the control label descends, the descending count differs from six among thirty-six or some character fibre from six, or some bundled-mask component fails the congruence.",
+      "scope_if_false": "Only the finite character-descent bookkeeping falls. The Z6 kernel receipts, the exterior selection scan, the four-quotient menu, and the registered rows PR-35, PR-46, and PR-59 are assessed by their own claims and premises.",
+      "status": "exact_character_descent_attained__physical_global_form_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        734,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-35",
+          "PR-59"
+        ],
+        "open": [
+          "PR-46"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-EVENT-POPULATION-CHART-INTERFACE",
+      "statement": "A typed antecedent bundle names, as declared fields, the finite event-manifold obligations of the event-manifold ledger row: a finite event population injected from the committed rich-fibre region carrier, a chart assignment into the declared Hermitian Lorentz module carried by a committed event-germ atlas with total visibility and its affine Lorentz overlap cocycle, a separation clause on base-chart coordinates, a cone clause identifying declared causal precedence with the declared future cone of base-chart displacements, and a population order clause identifying the committed region order with the declared precedence. Every inhabitant carries the finite event-manifold-shaped package: the coordinate module has real dimension four; the chart atlas is injective in every chart; the population map is injective; Lorentz intervals of displacements are chart-invariant; the precedence is realized in every chart as the cone order of chart displacements; the precedence is reflexive, transitive, and antisymmetric; the committed region order embeds into the cone order of populated chart images in every chart; and the exact triple-overlap cocycle holds. The bundle is inhabited on the committed six-element carrier with two affinely shifted charts and a machine-checked timelike causal pair and spacelike incomparable pair; dropping the separation clause admits a two-events-one-chart inhabitant, and dropping the cone clause admits an order-violating time-reversed chart. Every field is a declared hypothesis. No source atlas, no physical event population, no clock, no continuum, no open-chart topology, and no four-dimensional manifold claim beyond the finite chart package; those attachments are open under the stable-causality and observer-to-physical-spacetime premises.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "typed_finite_event_manifold_interface_on_declared_Lorentz_module",
+      "assumptions": [
+        "declared_event_population_precedence_and_chart_atlas",
+        "declared_separation_and_cone_clauses",
+        "physical_lorentz_soldering_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "Lorentz_quadratic_form_algebra",
+        "committed_causal_order_composition_receipts"
+      ],
+      "oph_specific_delta": "The open event-manifold obligations are typed as one antecedent bundle whose composed consequence is machine-checked by reusing the committed cone, cocycle, and order-equivalence receipts, with a finite committed-data witness and both dropped-clause counterexamples exhibited, and with the declared status of every field named rather than implied.",
+      "novelty_type": "typed_event_manifold_interface_from_committed_causal_order_composition",
+      "evidence": [
+        "Lean/Geometry/EventPopulationChartInterface.lean",
+        "Lean/Geometry/CausalOrderComposition.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if some inhabitant of the bundle has a non-injective chart in some chart label, a chart-dependent Lorentz interval, a chart where the precedence and the cone order disagree, a precedence violating a partial-order law, or a populated pair breaking the committed order equivalence; or if the witness violates a clause; or if either weakened bundle refuses the exhibited counterexample.",
+      "scope_if_false": "Only the typed interface package falls. The canonical Lorentz module, the causal-order composition, the soldering contract, and every physical event, clock, or spacetime identification are assessed by their own claims and premises.",
+      "status": "typed_finite_interface_attained__source_atlas_population_clock_and_physical_attachments_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        728
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-16",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-FERMION-SECTOR-ASSEMBLY",
+      "statement": "On one typed premise bundle extending the committed assembled-action bundle by one declared fermion coefficient per row of the committed ten-component exterior table, one typed fermion sector completes the committed assembled structural action without modifying it. The fermion carrier is one complex amplitude per committed row; the row-pair form, the conjugated pairing of two row amplitudes, transforms under the abelian phase action through the committed integer charge column, and on the rows of the bundled committed selection mask it is invariant at every unit phase exactly when the committed row charges balance, which on those rows happens exactly on the diagonal, so the committed charge column forces the kinetic-shaped pairing to be diagonal. The extended action is the committed assembled action plus the masked diagonal fermion sector with the declared coefficients; it restricts exactly to the committed assembled action on the zero fermion slot and at zero fermion coefficients, exactly to the fermion sector on the fermion slice, vanishes at the extended base tuple, and the three committed sector restrictions persist. The shared Yukawa rows of the bundled mask are selected, doublet-and-singlet flagged, Weyl-column matched, and charge-balanced against the committed scalar row charge, and a typed embedding of the fermion amplitudes into the committed matter slots evaluates the extended action to the exact committed mass bilinear coefficient, the Yukawa coefficient times the scale, with the embedding intertwining the fermion phase action and the committed matter-slot phase action at the committed row charges. The extended sum is exactly invariant under the committed-charge abelian action extended by the fermion charge phase; bundles agreeing on the committed declared coefficient list, the committed mask, and the fermion coefficients have equal extended actions; the bundle is inhabited extending the committed inhabitant with one exact witness evaluation; and an exhibited charge-imbalanced pair of committed mask rows breaks the invariance receipt at an exhibited unit phase. The fermion coefficients are declared stand-in weights on the boundary of the covariant-kinetic and Spin attachment rows: no derivative, spacetime carrier, field strength, source-produced action, quantization, measured coupling, three-family structure, Yukawa matrix, global form, physical chirality, or Spin attachment is claimed, and no per-row photon or Z neutral-current coupling value is computed.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "typed_fermion_sector_extension_of_committed_assembled_action",
+      "assumptions": [
+        "committed_assembled_action_premise_bundle",
+        "declared_fermion_coefficient_per_committed_row",
+        "source_produced_action_deferred",
+        "spin_and_chirality_attachment_deferred"
+      ],
+      "imported_results": [
+        "real_and_complex_field_algebra",
+        "integer_zpow_group_arithmetic",
+        "root_of_unity_divisibility_arithmetic"
+      ],
+      "oph_specific_delta": "The committed charge column is machine-checked to force the diagonal shape of the fermion bilinear on the committed mask rows, and the fermion sector is machine-checked to extend the committed assembled action with exact restriction, invariance, shared-row identification, census, inhabitant, and control receipts, with every declared coefficient and every missing physical attachment named rather than implied.",
+      "novelty_type": "charge_forced_diagonal_fermion_sector_on_committed_assembled_action",
+      "evidence": [
+        "Lean/Screen/FermionSectorAssembly.lean",
+        "Lean/Screen/AssembledActionComposition.lean",
+        "Lean/Screen/ElectroweakBreakingComposition.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the row-pair invariance holds at a committed-mask pair with unbalanced committed charges or fails at a balanced pair, if any restriction receipt differs from the committed functional, if the shared-row identification misses the committed mass bilinear coefficient, if the census equality fails on agreeing parameter lists, or if the exhibited control pair fails to break invariance.",
+      "scope_if_false": "Only the fermion-sector extension falls. The committed assembled action, the electroweak-breaking composition, the exterior selection grammar, and every physical fermion, coupling, family, and neutral-current claim are assessed by their own claims and premises.",
+      "status": "typed_fermion_sector_extension_attained__source_produced_action_and_spin_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        735
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-35",
+          "PR-36",
+          "PR-46",
+          "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-54",
+          "PR-59"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+      "statement": "One typed architecture record on the declared Hermitian Lorentz module and the committed twelve-port, thirty-seam, twenty-face screen carrier bundles one declared positive mass parameter, one declared state frame, one declared flow frame, one declared projective partition with state for the committed partition causal net, one declared Maxwell evolution bundle, and one declared electroweak-breaking premise bundle whose base instantiates the committed Standard-Model structure premises. For every inhabitant of the record the kinematic mass-shell packet, the internal-clock packet, the free-evolution persistence packet, and the causal-order composition hold simultaneously of the record's one mass, frame, flow frame, partition, and state, with the shared fields identified by typed definitional equalities; four join theorems place the four-momentum, the clock worldline, and every nonnegative-parameter flow displacement inside the future cone order of the same module that carries the committed finite causal nets, with the four-momentum future-causal from the committed net's bottom vertex. On the screen side the temporal Maxwell receipt and the electroweak-breaking receipt hold of the same record, and the pinned port-dual weight of the record's base premises evaluates the Maxwell Gauss load on the one committed twelve-port index type with every weight equal to one twelfth. An explicit instance inhabits the record. The two islands are joined to each other only by conjunction on the record plus the twelve-port evaluation: no typed dictionary identifies the screen carrier with the Lorentz module, no map identifies the Maxwell step index with the kinematic proper time, no common variational principle spans both carriers, and no gravitation, thermodynamics, matter-dynamics, quantization, or observer-readout lane appears in any field of the record.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "inhabited_partial_two_island_common_world_witness_on_declared_carriers",
+      "assumptions": [
+        "declared_positive_mass_state_frame_and_flow_frame",
+        "declared_partition_and_state_of_committed_partition_net",
+        "declared_maxwell_histories_sources_and_evolution_law",
+        "declared_electroweak_parameters_over_committed_structure_premises",
+        "physical_carrier_and_clock_identification_deferred"
+      ],
+      "imported_results": [
+        "committed_mass_shell_internal_clock_free_evolution_and_causal_order_receipts",
+        "committed_temporal_maxwell_and_electroweak_breaking_receipts",
+        "finite_dimensional_real_linear_algebra"
+      ],
+      "oph_specific_delta": "The simultaneous inhabitation of four kinematics receipts and two screen receipts by one typed record, with shared objects identified by typed definitional equalities rather than side-by-side restatement, four cone-order join theorems tying the mass-shell, clock, and free-evolution packets to the causal-order module instance, and the port-dual evaluation of the Maxwell Gauss load, is machine-checked, with the missing cross-island dictionaries and every absent lane named rather than implied.",
+      "novelty_type": "simultaneous_multi_lane_receipt_inhabitation_on_shared_typed_objects",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Geometry/CommonWorldKinematicsWitness.lean"
+      ],
+      "falsifier": "The claim fails if any bundled committed receipt fails at the record's fields, if a claimed definitional identification requires a transport map, if the four-momentum of a positive declared mass leaves the future cone or is not future-causal from the committed bottom vertex, if the clock worldline is not causally monotone, if a nonnegative-parameter flow displacement is not future-causal, if some port-dual weight of the record's base premises differs from one twelfth, or if the architecture record type is uninhabited.",
+      "scope_if_false": "Only the composed two-island witness falls. Each bundled lane receipt, the committed carriers and causal nets, and every physical attachment are assessed by their own claims and premises.",
+      "status": "partial_two_island_witness_attained__cross_island_dictionaries_and_remaining_lanes_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-59"
+        ],
+        "open": [
+          "PR-15",
+          "PR-16",
+          "PR-44",
+          "PR-47",
+          "PR-52",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+      "statement": "Register row PR-04 carries a recorded decision dated 2026-08-18 under its axiomatize disposition: the committed exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ), equal to the Pauli +Y projector, is a declared architecture operation. Under that recorded decision, a deterministic producer computes the complete outcome table of the declared operation and the committed web contexts on the committed record-diagonal run state diag(111/179, 68/179), in exact arithmetic over Q(sqrt(3), i), from the pinned committed context-web payload: each context count pair is the exact Born weight of the context effect scaled to the least positive integer multiple of the committed run mass 179 clearing its denominator, giving (111, 68) at mass 179 in the diagonal and record-conjugate contexts, (315, 401) at mass 716 in the rotated contexts, and (179, 179) at mass 358 in the phase context. This is the explicitly exhaustive deterministic semantics route the committed boundary text names as an acceptable validation route; no sampling, statistical estimate, or floating-point step occurs, and rerunning the producer reproduces the committed receipt byte for byte. An independent verifier sharing no arithmetic code rebuilds the operation and the full table from the pinned payload and demands exact agreement with every receipt field, including run-mass-multiple minimality and the integer phase window, and refuses any receipt that presents the counts as measured. The Lean module inhabits the committed static model IdealPhasePOVMCountModel over the committed algebraic core with exactly these literals and proves, from one typed antecedent bundle pinned to the recorded decision's operation and preparation, the composed receipt: committed core, declared operation in the phase slot, committed run state with vanishing off-diagonal as common preparation, committed diagonal literals, exact Born consistency in every context, the deterministic-scaling law in every context, every count mass a positive integer multiple of 179, and phase counts (179, 179) inside the committed integer window 32041(a-b)^2 <= 30192(a+b)^2. The operation is declared, never source-produced; the counts are produced by the declared semantics, never measured; register row PR-04 is consumed under its axiomatize disposition, never discharged; no laboratory or emergent-instrument claim is made, and the synthetic-inhabitant boundary of the base modules is unchanged.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "conditional_structural_phase_count_attainment_under_recorded_pr04_decision",
+      "assumptions": [
+        "recorded_pr04_axiomatize_decision_declares_phase_operation",
+        "committed_diagonal_record_algebra_and_web_contexts",
+        "explicitly_exhaustive_deterministic_count_semantics_declared"
+      ],
+      "imported_results": [
+        "finite_matrix_algebra",
+        "povm_effect_calculus",
+        "exact_quadratic_field_arithmetic"
+      ],
+      "oph_specific_delta": "Supplies the count-bearing inhabitant the two delimitation modules leave missing: a producer-bound receipt whose counts flow from the committed run payload through the declared operation under an explicitly exhaustive deterministic semantics, an independent exact verifier that enforces the semantics declaration and the nonclaims, and a machine-checked composed receipt inhabiting the committed operational structure and satisfying the committed integer window, with the phase operation's status carried as a recorded architecture decision on the premise register rather than as a derivation.",
+      "novelty_type": "recorded_decision_conditional_attainment_with_deterministic_producer_receipt",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
+        "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json",
+        "code/phase_operation_producer/produce_phase_operation_receipt.py",
+        "code/phase_operation_producer/verify_phase_operation_receipt.py"
+      ],
+      "falsifier": "The claim fails if rerunning the producer departs from the committed receipt, if the independent verifier finds any exact mismatch between the receipt and the table rebuilt from the pinned payload, if the declared operation differs from the Pauli +Y projector rebuilt from the payload irrep matrices, if any count pair departs from the exact scaled Born weight or any mass from the minimal run-mass multiple, if any clause of the composed Lean receipt fails, or if the phase counts leave the committed integer window.",
+      "scope_if_false": "Only the recorded-decision attainment layer falls. The ideal static fit, the determination boundary and its window, the algebraic phase completion, and the open source-production obligation of register row PR-04 are assessed by their own claims and register rows.",
+      "status": "conditional_structural_attainment_under_axiomatized_pr04__source_production_of_phase_operation_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-03",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-REST-FIBER-SHELL-TRANSPORT",
+      "statement": "On the declared Hermitian Lorentz module, the boost-shear map at each future unit-timelike frame is a machine-checked linear equivalence from the committed three-dimensional completion carrier onto the frame's Lorentz-orthogonal rest space whose pullback of the positive-definite rest metric is exactly the Euclidean coordinate form, and at the standard frame it reduces to the committed candidate bridge from the source Gram quotient. Under the declared radial readout and shell-flux normalization, consumed exactly as in the committed shell-law claim, the committed inverse-square shell law transports to every declared rest fiber: the radial readout pulled back through the equivalence is the carrier norm, the strength at a nonzero rest vector is the charge over 4 pi times the squared rest radius, the normalization and scale-free identities hold in transported form, the exponent reads as the rest-space dimension minus one with the dimension proved through the transport equivalence, and every committed oriented Lorentz chart transport carries the strength field exactly. One composed identity carries the screen chain into the fiber: the finite source Gram of two integer record controls equals the rest metric of their transported difference at every declared frame. The frame is a declared choice on the hyperboloid and no uniqueness of the identification is claimed. Nothing attaches the rest fiber to physical position, produces a gravitational field, potential, or mass density, joins the composed Einstein branch, selects a frame or the radial readout from source data, or discharges the two flux premises.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "finite_theorem",
+      "assumptions": [
+        "declared_radial_readout",
+        "declared_shell_flux_normalization",
+        "committed_completion_carrier",
+        "declared_frame_on_hyperboloid",
+        "physical_position_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_linear_algebra",
+        "Lorentz_quadratic_form_algebra",
+        "mathlib_euclidean_ball_volume"
+      ],
+      "oph_specific_delta": "The dimension-forced inverse-square shell law lands on the rest space of every declared observer frame through one typed boost-shear isometry that extends the committed standard-frame screen bridge, with oriented-chart invariance and the screen Gram chain carried into the fiber, so the Newtonian-limit row reads on observer rest displacements rather than only on the abstract completion carrier.",
+      "novelty_type": "shell_law_transport_to_observer_rest_fibers",
+      "evidence": [
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+        "Lean/Geometry/RestFiberShellTransport.lean",
+        "Lean/Geometry/InverseSquareShellLaw.lean",
+        "Lean/Geometry/SpatialReadbackSoldering.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the boost-shear map at some declared frame is not a linear equivalence onto the rest space or violates the exact metric pullback, if the pulled-back radial readout differs from the carrier norm, if a transported strength value at a nonzero rest vector differs from charge/(4 pi r^2) with r the rest radius, if the exponent read on the rest-space dimension differs from dimension minus one, if an oriented Lorentz chart transport changes the strength field, or if the composed screen-chain identity fails for some pair of integer record controls.",
+      "scope_if_false": "The rest-fiber transport step of the Newtonian-limit row loses its receipt; the committed shell law on the carrier, the rest-space theory, the candidate screen bridge, and the Einstein composition are assessed by their own claims.",
+      "status": "rest_fiber_transport_attained__physical_position_join_and_premise_discharge_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-18",
+          "PR-19"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
+      "statement": "On the weak slots of the committed ten-row exterior component table (a row together with a weak component index, third isospin in sixths 3 and -3 on the two components of a committed doublet row and 0 on a singlet row, hypercharge in sixths the committed q = 6Y integer charge column, electric charge the sum q6EM = t3Six + charge, the Q = T3 + Y composition in committed integer units), the neutral coupling of a slot along an electroweak direction is the diagonal action (gW a3 t3Six + gY b charge)/6, and one composed theorem on the committed electroweak-breaking premise bundle proves: on every neutral direction the committed infinitesimal action is exactly diagonal with entries i times the two slot couplings of the scalar row, pinning the /6 normalization to the committed action with no freedom left; the committed photon direction lies on the committed unbroken stabilizer line and is exactly massless, the committed Z direction is orthogonal to it under the declared diagonal pairing that polarizes the committed squared direction length, and every neutral direction orthogonal to the photon direction is a unique multiple of the Z-direction shape; with sinSqW = gY^2/(gW^2+gY^2), gZ = sqrt(gW^2+gY^2), and e = gW gY/gZ as defined abbreviations in the declared constants, the exact identities e = gW sinW, e = gY cosW, sinSqW + cosSqW = 1, and e^2 = gW^2 sinSqW = gY^2 cosSqW hold; every weak slot of every row of the bundled selection mask has photon coupling, normalized by the direction length gZ, exactly e times q6EM/6, and Z coupling, normalized the same way, exactly gZ times (t3Six/6 - (q6EM/6) sinSqW), the T3 - Q sin^2 shape in the committed integer units; in either committed parity sector two rows with different electric-charge entries have provably different photon couplings, and the zero-electric-charge weak component of the colorless doublet row has photon coupling exactly zero and Z coupling exactly plus or minus (gW^2+gY^2)/2, nonzero at positive declared couplings. The committed all-parameters-one instance proves the bundle nonvacuous. Every constant is declared: no measured sin^2 theta_W, running coupling, scale, or scheme appears; no physical current operator, spacetime, covariant derivative, source-produced action, weak decay, W-exchange amplitude, or Fermi limit is claimed; the third-isospin split of a doublet row is committed weak-dimension bookkeeping with the physical chirality attachment open; and no flavor, mixing-matrix, or neutrino-mass content is claimed beyond the charge dictionary.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_tree_level_neutral_coupling_dictionary_on_declared_grammar",
+      "assumptions": [
+        "committed_electroweak_breaking_premise_bundle",
+        "declared_positive_weak_and_hypercharge_couplings",
+        "committed_five_mode_exterior_table_grammar",
+        "third_isospin_split_as_committed_table_bookkeeping",
+        "physical_current_and_source_action_deferred"
+      ],
+      "imported_results": [
+        "real_and_complex_field_algebra",
+        "finite_table_kernel_checks"
+      ],
+      "oph_specific_delta": "The photon and Z coupling dictionary induced on the committed charge columns by the committed breaking directions is machine-checked as exact algebra in the declared constants: the Q = T3 + Y electric-charge reading and the T3 - Q sin^2 Z-coupling shape fall out of the committed unbroken direction and its orthogonal complement rather than being inserted, the /6 normalization is pinned to the committed infinitesimal action on the scalar row, and anti-false-green clauses separate charges and exhibit the zero-charge neutrino-type slot in both committed parity sectors, with every declared constant and missing physical attachment named rather than implied.",
+      "novelty_type": "neutral_coupling_dictionary_from_committed_breaking_directions",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/Screen/NeutralCurrentDictionary.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the committed infinitesimal action is not diagonal with the row-1 slot couplings on a neutral direction, if any mixing identity fails, if any slot's normalized photon coupling differs from e times q6EM/6 or its normalized Z coupling differs from gZ times (t3Six/6 - (q6EM/6) sinSqW), if two slots with different electric-charge entries get equal photon couplings at positive declared constants, or if a zero-charge slot gets a nonzero photon coupling or a zero Z coupling.",
+      "scope_if_false": "Only the neutral-coupling dictionary falls. The electroweak-breaking composition, the exterior selection grammar, the index dictionary, and every physical current, mixing-angle, decay, or flavor claim are assessed by their own claims and premises.",
+      "status": "exact_tree_level_dictionary_attained__physical_current_and_measured_mixing_angle_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        745
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-48",
+          "PR-49",
+          "PR-59"
+        ],
+        "open": [
+          "PR-47",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-JOIN-RECORD-NET-MORPHISM",
+      "statement": "On the committed hinge-fibered join of the two committed carriers, the regional structure transports at the record layer: for each region of the committed two-slot diamond, the typed record layer (constants, the two coordinate pullbacks, the full function space) is exactly the set of diagonal restrictions of the committed regional star algebra, with dimensions 1, 13, 14, 182 on the 86/88 carrier and 1, 13, 13, 169 on the 86/247 carrier; both record-layer nets and the induced net on the join (one region per committed region of each side plus the 13-dimensional observer-86 hinge, ordered by a kernel-checked partial order) are isotone; both committed embeddings are region-by-region net morphisms preserving inclusions and dimensions, with the hinge image identical through either embedding; the committed conditional expectations of both nets carry diagonal matrices to diagonal matrices on every region, and the induced record-layer expectations land in and pointwise fix their record layers; the matched pair of left-slot record expectations descends to one join hinge projection that commutes with both embeddings, is idempotent, projects onto the hinge region, fixes it, and preserves the committed hinge restriction; and the committed join evolution carries every induced region onto itself at every step. Two machine-checked negatives delimit the layer: the gluing submodule is not multiplicatively closed, so the quotient multiplication is ill-defined and the join carries no algebra structure through this pushout, and the record layer is commutative while the committed left regional algebra is noncommutative. The operator-layer net morphism, the tower morphism, spacetime, causality, physical time, continuum limits, and uniqueness of the induced net are not claimed; the declared region order and the fiber-uniform hinge sections are declared normalizations.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "record_layer_net_morphism_on_committed_carrier_join",
+      "assumptions": [
+        "cartesian_joint_carrier_declared",
+        "diamond_region_map_declared",
+        "two_observer_slot_split_declared",
+        "fiber_uniform_hinge_sections_declared",
+        "physical_time_and_spacetime_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_complex_linear_algebra",
+        "matrix_kronecker_and_diagonal_algebra"
+      ],
+      "oph_specific_delta": "The committed regional nets, conditional expectations, and walk evolution of both committed carriers are proved to restrict exactly to the diagonal record layer and to transport through the committed hinge-fibered join as an isotone net with embedding morphisms, expectation restriction, hinge descent, and step compatibility, while the failure of the operator layer to follow is machine-checked rather than asserted: the pushout admits no quotient multiplication and the record restriction erases the committed noncommutative locality structure.",
+      "novelty_type": "record_layer_net_morphism_with_kernel_checked_operator_layer_delimitation",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "Lean/QFT/JoinNetMorphism.lean",
+        "Lean/QFT/CarrierJoinTransport.lean"
+      ],
+      "falsifier": "The claim fails if some diagonal matrix lies in a committed regional algebra without its diagonal function lying in the stated record layer or conversely, if a record-layer or induced-join dimension differs from the stated table, if a committed conditional expectation carries some diagonal matrix off the diagonal or the induced map fails to land in or fix its record layer, if the hinge projection fails to commute with either committed embedding or fails idempotence or hinge-restriction preservation, if some join step fails to carry some induced region onto itself, or if the gluing submodule is multiplicatively closed or the committed left regional algebra of the 86/247 net is commutative.",
+      "scope_if_false": "Only the record-layer net-morphism packet falls. The committed hinge-fibered join, its embeddings and intertwinings, the committed regional nets and expectations, and the operator-layer and tower-morphism residuals are assessed by their own claims and premises.",
+      "status": "record_layer_net_morphism_attained__operator_layer_and_tower_morphism_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-32",
+          "PR-33",
+          "PR-34"
+        ],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

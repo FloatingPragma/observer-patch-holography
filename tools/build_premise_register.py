@@ -70,7 +70,7 @@ EXPECTED_ROWS = (
         "axiomatize",
     ),
     ("PR-03", "operational effect additivity", "selection_rule", "remove"),
-    ("PR-04", "phase-operation instrument", "structural_rule", "remove"),
+    ("PR-04", "phase-operation instrument", "structural_rule", "axiomatize"),
     ("PR-05", "counting path reference", "selection_rule", "remove"),
     ("PR-06", "real Legendre enrichment", "representation_choice", "remove"),
     (

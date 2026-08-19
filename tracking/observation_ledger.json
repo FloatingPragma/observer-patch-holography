@@ -57,14 +57,15 @@
    "id": "OL-A4",
    "target": "Four-dimensional event-manifold description",
    "rung": "structural",
-   "status": "owed",
+   "status": "partial",
    "lane_issue": 728,
    "premises": [],
    "evidence": [
     "Lean/Geometry/EventFrameSoldering.lean",
-    "Lean/QFT/LocallyCovariantLimit.lean"
+    "Lean/QFT/LocallyCovariantLimit.lean",
+    "Lean/Geometry/EventPopulationChartInterface.lean"
    ],
-   "notes": "Soldering and locally covariant limit receipts exist; one observer-produced physical event manifold with the registered stable-causality and spacetime-attachment rows remains owed.",
+   "notes": "Soldering, locally covariant limit, and typed event-population chart-interface receipts exist; the interface types the population, separation, cone, and overlap obligations as declared fields with a finite committed-data witness and both dropped-clause counterexamples; one observer-produced physical event manifold with the registered stable-causality and spacetime-attachment rows remains owed, and the source-atlas, physical-event-population, and clock attachments are represented by no field of the interface. The partial status records a formal precursor interface only.",
    "open_premises": [
     "PR-16",
     "PR-52"
@@ -106,9 +107,10 @@
     "PR-19"
    ],
    "evidence": [
-    "Lean/Geometry/InverseSquareShellLaw.lean"
+    "Lean/Geometry/InverseSquareShellLaw.lean",
+    "Lean/Geometry/RestFiberShellTransport.lean"
    ],
-   "notes": "The shell law is committed: under the declared radial readout and shell-flux normalization the strength falls as the inverse square, with the exponent supplied by the carrier dimension theorem; the join to the composed Einstein branch is not constructed.",
+   "notes": "The shell law is committed and transported: under the declared radial readout and shell-flux normalization the strength falls as the inverse square with the exponent supplied by the carrier dimension theorem, and a typed boost-shear isometry carries the law onto the rest space of every declared frame with exact metric pullback, oriented-chart invariance, and the screen Gram chain landing in the fiber; the join to the composed Einstein branch is not constructed and the physical-position attachment stays open.",
    "open_premises": [
     "PR-52"
    ]
@@ -256,19 +258,23 @@
    "status": "partial",
    "lane_issue": 730,
    "premises": [
-    "PR-02"
+    "PR-02",
+    "PR-04"
    ],
    "evidence": [
     "Lean/EventAlgebra/QuantumAdequacySurface.lean",
     "Lean/QFT/SourcePhaseLiftBridge.lean",
     "code/born_context_phase_lift/verify_source_phase_lift.py",
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
-    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean"
+    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean",
+    "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json",
+    "code/phase_operation_producer/produce_phase_operation_receipt.py",
+    "code/phase_operation_producer/verify_phase_operation_receipt.py",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean"
    ],
-   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure boundary. AlgebraicPhaseCompletion is not an operational instrument. IdealPhasePOVMCountModel now packages a static state, fixed effects, count literals, and exact frequency/Born equations; every inhabitant completes ideal fixed-trace identification, and the diagonal/real-closure blindness theorems remain exact. The explicit synthetic_ideal_phase_fit inhabitant uses chosen rational literals with no producer, run, operation, or receipt, proving that this fit is not PR-04 discharge. A genuine operational target still needs source-attached CP outcome maps, a trace-preserving summed channel, operation/readback and common-preparation semantics, producer-bound receipts, and statistical validation. PhaseInstrumentDetermination pins the determination boundary: every inhabitant's state diagonal is fixed to 111/179 and 68/179 by the committed run literals, the phase clause holds exactly when the effect's off-diagonal imaginary part is nonzero, every count frequency of every inhabitant is an exact affine function of the one free state coordinate with committed-core closed forms for the phase and rotated-3 contexts, committed-core inhabitants have equal states exactly when all count frequencies agree, and the phase counts of every committed-core inhabitant satisfy 32041(a-b)^2 <= 30192(a+b)^2 with both outcomes positive and minimal mass two. The free coordinate and the frequency values are not forced by the literals; they vary together through the affine law. The residue of PR-04 is count provenance, phase-operation production, and common preparation. PR-03 and PR-04 remain open for that operational layer.",
+   "notes": "The single conjunction phase_completion_composed attains algebraic phase-sensitive fixed-trace tomography and its exact real-closure boundary. IdealPhasePOVMCountModel packages a static state, fixed effects, count literals, and exact frequency/Born equations; every inhabitant completes ideal fixed-trace identification, the diagonal/real-closure blindness theorems are exact, and PhaseInstrumentDetermination pins every inhabitant to one free state coordinate with the decidable integer window 32041(a-b)^2 <= 30192(a+b)^2 on phase counts. Register row PR-04 carries a recorded decision dated 2026-08-18 (lane issue 730, axiomatize disposition): the committed exact lift, equal to the Pauli +Y projector, is a declared architecture operation. Under that decision, code/phase_operation_producer computes the complete outcome table on the committed record-diagonal run state diag(111/179, 68/179) by the explicitly exhaustive deterministic semantics, one of the two validation routes the committed boundary text names as acceptable: each count pair is the exact Born weight of the context effect scaled to the least positive integer multiple of the committed run mass 179 clearing its denominator (diagonal (111,68) at 179; rotated (315,401) at 716; phase (179,179) at 358), byte-reproducible from the pinned payload, with an independent exact verifier. OperationalPhaseAttainment.lean inhabits the committed structure with these literals and proves the composed receipt: committed core, declared operation in the phase slot, committed run state as common preparation, exact Born consistency and the deterministic-scaling law in every context, count masses positive multiples of 179, and phase counts inside the committed window. Attainment is conditional structural under the axiomatized PR-04 premise together with PR-02: the operation is declared, never source-produced; the counts are produced, never measured; the row is consumed, never discharged; the synthetic-inhabitant boundary is unchanged, and the row stays partial. The operational instrument layer (completely-positive outcome maps, a trace-preserving summed channel, cross-context operational additivity) stays registered under PR-03, and physical attachment stays open under PR-52.",
    "open_premises": [
-    "PR-03",
-    "PR-04"
+    "PR-03"
    ]
   },
   {
@@ -289,9 +295,10 @@
     "Lean/QFT/TowerAnchoredCorrelation.lean",
     "Lean/QFT/PathTimeSliceInterface.lean",
     "Lean/QFT/TripleCarrierJoin.lean",
-    "Lean/QFT/CarrierJoinTransport.lean"
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/QFT/JoinNetMorphism.lean"
    ],
-   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state. TripleCarrierJoin supplies a genuine common finite carrier for the 86/88 and 86/247 source rows: its projections recover both 32-step paths and occupation tables, positive trace-preserving matrix marginals recover both counted pair states, normalized checkpoint marginals recover both anchored partition members, and 31 non-wrapping adjacent-step reindexings intertwine with both pair marginals. The pair marginals do not determine the triple coupling, so the full step alignment is declared rather than canonical. Partial trace is not promoted to an algebra or net morphism, and the independently declared uniform tower states are not the counted state. The separate Fin-32 TimeIndexedNetEvolution witness includes a declared terminal-to-initial cyclic bookkeeping automorphism whose source-transition count is zero; only its first 31 steps follow adjacent source rows. The interface has no multi-step cocycle, Cauchy geometry, clock, source selection, or physical time. CarrierJoinTransport supplies the typed hinge-fibered join of the two committed carriers at their diagonal layer: both carriers embed injectively into one 338-dimensional pushout over the 13-dimensional observer-86 hinge (338 = 182 + 169 - 13), the embeddings agree exactly on the hinge, the intersection of the embedded images is exactly the hinge image, the transported counted states restrict to the committed count86 law, and both embeddings intertwine the committed ambient anchorings and the 31 non-wrapping walk-step transports through machine-checked commuting squares. The join is linear bookkeeping on the diagonal layer with declared fiber-uniform sections; no star-algebra amalgamation, net morphism, or tower morphism is constructed. The region-family question of the corrected one-step interface is settled in both directions: region-preserving evolution families (in particular the committed walk evolution) force step-invariant regions, bottom and top regions are rigid under every evolution family, any one-step region change is a slot exchange, and a slot-alternating inhabitant with the committed obs86/obs247 source generators realizes a genuinely time-dependent region family with transport-aware generation at every step; its exchange factor is the constructed internal slot swap, not a source transition. Thus the common state/path/checkpoint carrier obstruction is removed and the diagonal-layer join carries typed embeddings, while an actual regional-net/tower morphism and PR-52/PR-58 physical time-slice attachment are not supplied.",
+   "notes": "The support-disjoint 86/247 net, diamond, counted correlation, marginal recovery, and erasure compose on one carrier and one state. TripleCarrierJoin supplies a genuine common finite carrier for the 86/88 and 86/247 source rows: its projections recover both 32-step paths and occupation tables, positive trace-preserving matrix marginals recover both counted pair states, normalized checkpoint marginals recover both anchored partition members, and 31 non-wrapping adjacent-step reindexings intertwine with both pair marginals. The pair marginals do not determine the triple coupling, so the full step alignment is declared rather than canonical. Partial trace is not promoted to an algebra or net morphism, and the independently declared uniform tower states are not the counted state. The separate Fin-32 TimeIndexedNetEvolution witness includes a declared terminal-to-initial cyclic bookkeeping automorphism whose source-transition count is zero; only its first 31 steps follow adjacent source rows. The interface has no multi-step cocycle, Cauchy geometry, clock, source selection, or physical time. CarrierJoinTransport supplies the typed hinge-fibered join of the two committed carriers at their diagonal layer: both carriers embed injectively into one 338-dimensional pushout over the 13-dimensional observer-86 hinge (338 = 182 + 169 - 13), the embeddings agree exactly on the hinge, the intersection of the embedded images is exactly the hinge image, the transported counted states restrict to the committed count86 law, and both embeddings intertwine the committed ambient anchorings and the 31 non-wrapping walk-step transports through machine-checked commuting squares. The join is linear bookkeeping on the diagonal layer with declared fiber-uniform sections; no star-algebra amalgamation, net morphism, or tower morphism is constructed. The region-family question of the corrected one-step interface is settled in both directions: region-preserving evolution families (in particular the committed walk evolution) force step-invariant regions, bottom and top regions are rigid under every evolution family, any one-step region change is a slot exchange, and a slot-alternating inhabitant with the committed obs86/obs247 source generators realizes a genuinely time-dependent region family with transport-aware generation at every step; its exchange factor is the constructed internal slot swap, not a source transition. Thus the common state/path/checkpoint carrier obstruction is removed and the diagonal-layer join carries typed embeddings, while an actual regional-net/tower morphism and PR-52/PR-58 physical time-slice attachment are not supplied. JoinNetMorphism supplies the regional-net structure of the join at the record layer: the typed record layers are exactly the diagonal restrictions of the committed regional algebras on both carriers (dimensions 1, 13, 14, 182 on the 86/88 side and 1, 13, 13, 169 on the 86/247 side), both record-layer nets and the induced join net (one region per committed region of each side plus the 13-dimensional hinge, under a kernel-checked partial order) are isotone, both committed embeddings are region-by-region morphisms preserving inclusions and dimensions with an embedding-independent hinge image, the committed conditional expectations restrict to the record layer on every region and land in and fix it, the matched left-slot pair descends to one join hinge projection commuting with both embeddings, idempotent, and preserving the hinge restriction, and the committed join evolution carries every induced region onto itself. Two kernel-checked negatives delimit the layer: the gluing submodule is not multiplicatively closed, so the quotient multiplication is ill-defined and the join carries no algebra structure through this pushout, and the record layer is commutative while the committed left regional algebra is noncommutative. The net-morphism residual is thereby narrowed to the operator layer; no tower morphism and no PR-52/PR-58 physical time-slice attachment is supplied.",
    "open_premises": [
     "PR-52",
     "PR-58"
@@ -566,9 +573,10 @@
    "evidence": [
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "Lean/Screen/Z6Descent.lean",
-    "Lean/Screen/Z6Exact.lean"
+    "Lean/Screen/Z6Exact.lean",
+    "Lean/Screen/GlobalFormCharacterDescent.lean"
    ],
-   "notes": "The realized-weight kernel, six-axis intertwiner, and four admissible quotients are exact; PR-35 is registered. Selecting the physical quotient additionally requires the character, instanton, and laboratory-flux attachments collected in PR-46.",
+   "notes": "The realized-weight kernel, six-axis intertwiner, four admissible quotients, and the exact character-descent criterion are exact: a label descends through the diagonal Z6 kernel iff 2t + 3d + q = 0 mod 6, every committed table row satisfies the congruence, a fractionally charged control label is blocked, exactly one sixth of the 36-element label lattice descends with equidistributed fibres, and the receipt composes onto the bundled selection mask; PR-35 is registered. Selecting the physical quotient additionally requires the complete character category, instanton normalization, laboratory-flux attachment, and quotient selection collected in PR-46, of which the finite character-lattice piece is the machine-checked part.",
    "open_premises": [
     "PR-46"
    ]
@@ -709,9 +717,10 @@
    "evidence": [
     "tracking/sm_lagrangian_correspondence.json",
     "docs/SM_LAGRANGIAN_CORRESPONDENCE.md",
-    "Lean/Screen/AssembledActionComposition.lean"
+    "Lean/Screen/AssembledActionComposition.lean",
+    "Lean/Screen/FermionSectorAssembly.lean"
    ],
-   "notes": "The nineteen-row inventory is recorded and one assembled structural action is machine-checked: assembledAction in Lean/Screen/AssembledActionComposition.lean sums a gauge kinetic sector, formed as a declared diagonal pairing on the committed weight space with one declared magnitude per invariant carrier sector, the committed scalar sector (quartic potential plus gauge mass form at the chosen minimum), and the realified committed Yukawa line as one function of one field tuple on one typed premise bundle, with exact sector restrictions, committed constraint-row coefficient invariance, exact global abelian phase invariance at the committed charge balance, exact complex recovery of the Yukawa line, an all-parameters-one inhabitant, and one composed receipt. The assembly is structural and conditional: no spacetime, no field strength two-form, no covariant derivative, no source-produced action (PR-54 open), no measured coefficient, no three families, no global-form, chirality, or Spin attachment (PR-35, PR-36, PR-46, PR-47 open).",
+   "notes": "The nineteen-row inventory is recorded and one assembled structural action is machine-checked: assembledAction in Lean/Screen/AssembledActionComposition.lean sums a gauge kinetic sector, formed as a declared diagonal pairing on the committed weight space with one declared magnitude per invariant carrier sector, the committed scalar sector (quartic potential plus gauge mass form at the chosen minimum), and the realified committed Yukawa line as one function of one field tuple on one typed premise bundle, with exact sector restrictions, committed constraint-row coefficient invariance, exact global abelian phase invariance at the committed charge balance, exact complex recovery of the Yukawa line, an all-parameters-one inhabitant, and one composed receipt. The assembly is structural and conditional: no spacetime, no field strength two-form, no covariant derivative, no source-produced action (PR-54 open), no measured coefficient, no three families, no global-form, chirality, or Spin attachment (PR-35, PR-36, PR-46, PR-47 open). One typed fermion sector extends the assembled action without modifying it: Lean/Screen/FermionSectorAssembly.lean carries one complex amplitude per committed table row, proves the row-pair form invariant under the charge phase action at every unit phase exactly at committed charge balance, with the invariant mask pairs exactly diagonal, sums the masked diagonal fermion sector with declared per-row coefficients onto the committed action with exact restriction receipts (zero fermion slot and zero coefficients pin the committed action, the fermion slice pins the sector, the three committed sector restrictions persist), identifies the shared Yukawa rows with the committed matter slots at the exact committed mass bilinear coefficient, extends the committed-charge abelian invariance and the parameter census, inhabits the extended bundle over the committed inhabitant, and breaks the invariance receipt at an exhibited charge-imbalanced control pair. The covered-sector list is gauge kinetic, scalar, Yukawa line, and fermion sector; the fermion coefficients are declared stand-in weights on the PR-47/PR-54 boundary, and no derivative, spacetime carrier, or neutral-current coupling value appears.",
    "open_premises": [
     "PR-35",
     "PR-36",
@@ -1098,9 +1107,10 @@
    "lane_issue": 745,
    "premises": [],
    "evidence": [
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "Lean/Screen/NeutralCurrentDictionary.lean"
    ],
-   "notes": "The scalar carrier, kinetic normalization, stable potential, broken vacuum, and scale bridge are registered as open premises rather than derived results.",
+   "notes": "The scalar carrier, kinetic normalization, stable potential, broken vacuum, and scale bridge are registered as open premises rather than derived results. One structural receipt is on file (Lean/Screen/NeutralCurrentDictionary.lean): the exact tree-level photon/Z coupling dictionary on the weak slots of the committed exterior table, with the Q = T3 + Y electric-charge reading and the T3 - Q sin^2 Z-coupling shape proved from the committed unbroken direction and its orthogonal complement in declared constants, the normalization pinned to the committed infinitesimal action, and zero-charge and charge-separation witnesses in both committed parity sectors. The receipt supplies no physical current operator, source action, measured mixing angle, or mass value, and the open premises of this row stay open.",
    "open_premises": [
     "PR-47",
     "PR-48",
@@ -1153,9 +1163,10 @@
    "lane_issue": 740,
    "premises": [],
    "evidence": [
-    "tracking/premise_register.json"
+    "tracking/premise_register.json",
+    "Lean/Geometry/CommonWorldKinematicsWitness.lean"
    ],
-   "notes": "No artifact proves that one versioned observer architecture simultaneously inhabits the lane premise bundles or that their carriers, clocks, scales, references, and readouts are compatible. The integration lane owns explicit transport maps, satisfiability and contradiction checks, and one end-to-end observer evidence bundle.",
+   "notes": "A partial two-island witness is on record: one typed architecture record simultaneously carries the mass-shell, internal-clock, free-evolution, and causal-order receipts on one Lorentz module instance and the temporal Maxwell and electroweak-breaking receipts on one screen carrier instance, with an explicit inhabitant, typed definitional shared-field identifications, four cone-order join theorems, and the twelve-port port-dual evaluation. The islands are joined to each other only by conjunction on the record; no artifact supplies the cross-island carrier dictionary, shared clock, or common action, and the gravitation, thermodynamics, matter-dynamics, quantization, and readout lanes appear in no field, so the row stays owed. The integration lane owns explicit transport maps, satisfiability and contradiction checks, and one end-to-end observer evidence bundle.",
    "open_premises": [
     "PR-51",
     "PR-52",

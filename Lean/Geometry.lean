@@ -13,6 +13,9 @@ import Geometry.MassShellKinematics
 import Geometry.InternalClockRestFrequency
 import Geometry.FreeEvolutionPersistence
 import Geometry.CausalOrderComposition
+import Geometry.EventPopulationChartInterface
+import Geometry.CommonWorldKinematicsWitness
+import Geometry.RestFiberShellTransport
 
 /-!
 # OPH construction geometry umbrella

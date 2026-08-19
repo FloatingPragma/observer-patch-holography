@@ -1,0 +1,420 @@
+{
+ "committed_state": {
+  "matrix": [
+   [
+    [
+     "111/179",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ]
+   ],
+   [
+    [
+     "0",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "68/179",
+     "0",
+     "0",
+     "0"
+    ]
+   ]
+  ],
+  "reading": "record-diagonal state of the committed run literals (111, 68) at mass 179"
+ },
+ "contexts": [
+  {
+   "born_weight": "111/179",
+   "context": "web_diagonal",
+   "counts": [
+    111,
+    68
+   ],
+   "effect": [
+    [
+     [
+      "1",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 179,
+   "run_mass_multiple": 1
+  },
+  {
+   "born_weight": "111/179",
+   "context": "web_conjugated_0",
+   "counts": [
+    111,
+    68
+   ],
+   "effect": [
+    [
+     [
+      "1",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 179,
+   "run_mass_multiple": 1
+  },
+  {
+   "born_weight": "111/179",
+   "context": "web_conjugated_1",
+   "counts": [
+    111,
+    68
+   ],
+   "effect": [
+    [
+     [
+      "1",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 179,
+   "run_mass_multiple": 1
+  },
+  {
+   "born_weight": "315/716",
+   "context": "web_conjugated_2",
+   "counts": [
+    315,
+    401
+   ],
+   "effect": [
+    [
+     [
+      "1/4",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "-1/4",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "-1/4",
+      "0",
+      "0"
+     ],
+     [
+      "3/4",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 716,
+   "run_mass_multiple": 4
+  },
+  {
+   "born_weight": "315/716",
+   "context": "web_conjugated_3",
+   "counts": [
+    315,
+    401
+   ],
+   "effect": [
+    [
+     [
+      "1/4",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "-1/4",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "-1/4",
+      "0",
+      "0"
+     ],
+     [
+      "3/4",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 716,
+   "run_mass_multiple": 4
+  },
+  {
+   "born_weight": "315/716",
+   "context": "web_conjugated_4",
+   "counts": [
+    315,
+    401
+   ],
+   "effect": [
+    [
+     [
+      "1/4",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1/4",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "1/4",
+      "0",
+      "0"
+     ],
+     [
+      "3/4",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 716,
+   "run_mass_multiple": 4
+  },
+  {
+   "born_weight": "315/716",
+   "context": "web_conjugated_5",
+   "counts": [
+    315,
+    401
+   ],
+   "effect": [
+    [
+     [
+      "1/4",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "1/4",
+      "0",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "1/4",
+      "0",
+      "0"
+     ],
+     [
+      "3/4",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 716,
+   "run_mass_multiple": 4
+  },
+  {
+   "born_weight": "1/2",
+   "context": "phase",
+   "counts": [
+    179,
+    179
+   ],
+   "effect": [
+    [
+     [
+      "1/2",
+      "0",
+      "0",
+      "0"
+     ],
+     [
+      "0",
+      "0",
+      "-1/2",
+      "0"
+     ]
+    ],
+    [
+     [
+      "0",
+      "0",
+      "1/2",
+      "0"
+     ],
+     [
+      "1/2",
+      "0",
+      "0",
+      "0"
+     ]
+    ]
+   ],
+   "mass": 358,
+   "run_mass_multiple": 2
+  }
+ ],
+ "declared_operation": {
+  "equals_pauli_y_plus_projector": true,
+  "formula": "I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q)",
+  "matrix": [
+   [
+    [
+     "1/2",
+     "0",
+     "0",
+     "0"
+    ],
+    [
+     "0",
+     "0",
+     "-1/2",
+     "0"
+    ]
+   ],
+   [
+    [
+     "0",
+     "0",
+     "1/2",
+     "0"
+    ],
+    [
+     "1/2",
+     "0",
+     "0",
+     "0"
+    ]
+   ]
+  ],
+  "scalar_encoding": "each scalar is [re_rational, re_sqrt3, im_rational, im_sqrt3] over Q"
+ },
+ "inputs": {
+  "payload_path": "code/born_context_phase_lift/BORN_CONTEXT_WEB_PAYLOAD.v1.json",
+  "payload_sha256": "71a06f1c15192123cd09feb2386da702b572c8ac57c9b7633f5aa60c5d404e22",
+  "run_counts": [
+   111,
+   68
+  ],
+  "run_git_commit": "b39b78faf894894ebe573571e0902ccfaaeac32a",
+  "run_id": "b12_prereg_16k_20260806",
+  "run_mass": 179,
+  "seed": 20260806
+ },
+ "nonclaims": "The operation is declared, never source-produced. The counts are produced by the declared deterministic semantics, never measured. No laboratory or emergent-instrument claim follows; the physical-attachment premises of the register stay open.",
+ "phase_receipt_window": {
+  "inequality": "32041*(a - b)^2 <= 30192*(a + b)^2",
+  "lhs": 0,
+  "rhs": 3869527488,
+  "satisfied": true
+ },
+ "recorded_decision": {
+  "date": "2026-08-18",
+  "disposition": "axiomatize",
+  "lane_issue": 730,
+  "register_row": "PR-04",
+  "statement": "Recorded decision on register row PR-04 (disposition axiomatize): the committed exact lift I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q) of code/born_context_phase_lift is a declared architecture operation. The information cost is one declared non-diagonal operation with the exact matrix [[1/2, -i/2], [i/2, 1/2]], equal to the Pauli +Y projector."
+ },
+ "schema": "oph.receipt.pr04_phase_operation.v1",
+ "semantics": "Explicitly exhaustive deterministic semantics: every count pair is the exact Born weight of the context effect under the committed record-diagonal run state diag(111/179, 68/179), computed in exact arithmetic over Q(sqrt(3), i) and scaled to the least positive integer multiple of the committed run mass 179 that makes both counts integers. No sampling, no randomness, no statistical estimate, and no floating-point arithmetic enters at any step."
+}

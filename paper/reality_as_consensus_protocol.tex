@@ -2706,6 +2706,37 @@ object with declared fiber-uniform sections: no star-algebra amalgamation,
 order structure on the quotient, net morphism, tower morphism, or
 uniqueness claim accompanies it.
 
+\paragraph{Record-layer net morphisms for the join.}
+The module \path{Lean/QFT/JoinNetMorphism.lean} equips the join with the
+regional structure of the committed carriers at the layer on which the join
+exists.  For each region of the committed diamond, the record layer is the
+typed function subspace of the carrier (constants at the bottom, the two
+coordinate pullbacks on the slots, everything at the top), and a
+machine-checked characterization proves that these subspaces are exactly the
+diagonal restrictions of the committed regional algebras
+(\texttt{diagonal\_mem\_twoSlotAlgebra\_iff}), with dimensions $1$, $13$,
+$14$, $182$ on the 86/88 side and $1$, $13$, $13$, $169$ on the 86/247
+side.  The induced net on the join carries one region per committed region
+of each side plus the 13-dimensional hinge, ordered by a kernel-checked
+partial order; the net is isotone, both committed embeddings are
+region-by-region morphisms preserving inclusions and dimensions, the hinge
+image is the same subspace through either embedding, the committed
+conditional expectations restrict to the record layer on every region
+(landing in it and fixing it), the matched left-slot pair descends to one
+hinge projection on the join that commutes with both embeddings, is
+idempotent, and preserves the hinge restriction, and the committed join
+evolution carries every induced region onto itself
+(\texttt{joinStep\_maps\_joinRegionLayer}).  Two negatives delimit the
+layer exactly: the gluing submodule is not multiplicatively closed, so the
+quotient multiplication is ill-defined and the join carries no algebra
+structure through this pushout
+(\texttt{join\_quotient\_mul\_ill\_defined}), and the record layer is
+commutative while the committed left regional algebra is not, so the
+commutant distinctions of the operator layer collapse under the diagonal
+restriction.  The operator-layer net morphism and the tower morphism stay
+open, and physical time, causality, and spacetime attachment stay open
+under the registered premises.
+
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
 \texttt{TimeIndexedNetEvolution} over the committed 86/247 diamond in both

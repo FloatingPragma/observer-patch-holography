@@ -68,7 +68,7 @@
    "id": "PR-04",
    "name": "phase-operation instrument",
    "type": "structural_rule",
-   "disposition": "remove",
+   "disposition": "axiomatize",
    "statement": "The phase operation completing the diagonal record algebra to full operator tomography is a declared instrument: the exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ) generates the missing Pauli-Y projector and is tomographically complete on fixed-trace two-by-two matrices, while the producer supplies no phase operation, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. The lift and its boundary are declared in code/born_context_phase_lift/README.md and in the row source_phase_sensitive_instrument_deferred of claims/assumption_dictionary.md.",
    "consuming_lanes": [
     730
@@ -78,16 +78,24 @@
     "code/born_context_phase_lift/verify_source_phase_lift.py",
     "claims/assumption_dictionary.md",
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
-    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean"
+    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean",
+    "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json",
+    "code/phase_operation_producer/produce_phase_operation_receipt.py",
+    "code/phase_operation_producer/verify_phase_operation_receipt.py",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean"
    ],
    "evidence_roles": {
     "code/born_context_phase_lift/README.md": "statement",
     "code/born_context_phase_lift/verify_source_phase_lift.py": "conditional_consumer",
     "claims/assumption_dictionary.md": "statement",
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "no_go",
-    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean": "no_go"
+    "Lean/EventAlgebra/PhaseInstrumentDetermination.lean": "no_go",
+    "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json": "statement",
+    "code/phase_operation_producer/produce_phase_operation_receipt.py": "conditional_consumer",
+    "code/phase_operation_producer/verify_phase_operation_receipt.py": "conditional_consumer",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a source-produced phase-sensitive operation/instrument with completely-positive outcome maps, a trace-preserving summed channel, effect/readback compatibility, common-preparation semantics, producer-bound receipts, and a preregistered statistical validation rule (or explicitly exhaustive deterministic semantics). Lean/EventAlgebra/OperationalPhaseInstrument.lean now deliberately types only IdealPhasePOVMCountModel, a static exact-fit model. Its synthetic_ideal_phase_fit theorem constructs an inhabitant from chosen rational literals with no producer, run, operation, or receipt, proving that exact POVM/count fit cannot by itself discharge PR-04. The diagonal/real-closure blindness theorems remain exact algebraic delimitations. Operational additivity/composition remains separately registered under PR-03. Lean/EventAlgebra/PhaseInstrumentDetermination.lean reduces the row's residue exactly: the committed diagonal literals pin the model state up to one complex off-diagonal coordinate, the phase clause is equivalent to a nonzero off-diagonal imaginary part for Hermitian effects, every count frequency of every inhabitant is an exact affine function of that coordinate (closed forms over the committed core for the phase and rotated-3 contexts), and phase counts obey the decidable window 32041(a-b)^2 <= 30192(a+b)^2 with both outcomes positive and minimal mass two. What the row keeps open is count provenance, source production of the phase operation, and common-preparation receipts; none is expressible inside the model, and the window is a necessary condition on any producer-bound phase receipt, never a provenance certificate."
+   "notes": "Removal needs a source-produced phase-sensitive operation/instrument with completely-positive outcome maps, a trace-preserving summed channel, effect/readback compatibility, common-preparation semantics, producer-bound receipts, and a preregistered statistical validation rule (or explicitly exhaustive deterministic semantics). Lean/EventAlgebra/OperationalPhaseInstrument.lean now deliberately types only IdealPhasePOVMCountModel, a static exact-fit model. Its synthetic_ideal_phase_fit theorem constructs an inhabitant from chosen rational literals with no producer, run, operation, or receipt, proving that exact POVM/count fit cannot by itself discharge PR-04. The diagonal/real-closure blindness theorems remain exact algebraic delimitations. Operational additivity/composition remains separately registered under PR-03. Lean/EventAlgebra/PhaseInstrumentDetermination.lean reduces the row's residue exactly: the committed diagonal literals pin the model state up to one complex off-diagonal coordinate, the phase clause is equivalent to a nonzero off-diagonal imaginary part for Hermitian effects, every count frequency of every inhabitant is an exact affine function of that coordinate (closed forms over the committed core for the phase and rotated-3 contexts), and phase counts obey the decidable window 32041(a-b)^2 <= 30192(a+b)^2 with both outcomes positive and minimal mass two. What the row keeps open is count provenance, source production of the phase operation, and common-preparation receipts; none is expressible inside the model, and the window is a necessary condition on any producer-bound phase receipt, never a provenance certificate. Recorded decision 2026-08-18 (lane issue 730, appended without altering the earlier note text): disposition changed from remove to axiomatize. The phase operation, the committed exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ) declared in code/born_context_phase_lift, is a declared architecture operation. Information cost: one declared non-diagonal operation with exact matrix [[1/2, -i/2], [i/2, 1/2]], equal to the Pauli +Y projector. Phase-context and rotated-context counts are produced by an explicitly exhaustive deterministic semantics, one of the two validation routes the committed boundary text names as acceptable: exact Born arithmetic of the declared operation on the committed record-diagonal run state diag(111/179, 68/179), with counts as exact rational frequencies scaled to the least positive integer multiple of the committed run mass 179 that clears each denominator (phase (179, 179) at mass 358; rotated (315, 401) at mass 716; diagonal (111, 68) at mass 179). Producer, committed receipt, and independent verifier live in code/phase_operation_producer; the Lean inhabitant and composed receipt are Lean/EventAlgebra/OperationalPhaseAttainment.lean. No laboratory or emergent claim follows: the operation is declared, never source-produced; the counts are produced, never measured; PR-52 physical attachments stay open; the synthetic-inhabitant boundary of the no-go modules is unchanged; OL-C5 attainment is conditional structural under this axiomatized premise. Source production of a phase operation remains the open scientific obligation stated in this note."
   },
   {
    "id": "PR-05",
@@ -411,10 +419,12 @@
     729
    ],
    "evidence": [
-    "Lean/Geometry/InverseSquareShellLaw.lean"
+    "Lean/Geometry/InverseSquareShellLaw.lean",
+    "Lean/Geometry/RestFiberShellTransport.lean"
    ],
    "evidence_roles": {
-    "Lean/Geometry/InverseSquareShellLaw.lean": "conditional_consumer"
+    "Lean/Geometry/InverseSquareShellLaw.lean": "conditional_consumer",
+    "Lean/Geometry/RestFiberShellTransport.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived isotropy statement for repair readback on the completion carrier."
   },
@@ -428,10 +438,12 @@
     729
    ],
    "evidence": [
-    "Lean/Geometry/InverseSquareShellLaw.lean"
+    "Lean/Geometry/InverseSquareShellLaw.lean",
+    "Lean/Geometry/RestFiberShellTransport.lean"
    ],
    "evidence_roles": {
-    "Lean/Geometry/InverseSquareShellLaw.lean": "conditional_consumer"
+    "Lean/Geometry/InverseSquareShellLaw.lean": "conditional_consumer",
+    "Lean/Geometry/RestFiberShellTransport.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived flux-conservation statement, for which the discrete Gauss receipts on the fixed carrier are the committed precursor."
   },
@@ -678,13 +690,15 @@
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/JointSlotFactorisation.lean",
     "Lean/QFT/SourceCorrelationCapstone.lean",
-    "Lean/QFT/CarrierJoinTransport.lean"
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/QFT/JoinNetMorphism.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/JointSlotFactorisation.lean": "conditional_consumer",
     "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer",
-    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer"
+    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer",
+    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer"
    },
    "notes": "Removal requires source selection of the joint carrier; the bounded closure of historical issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier."
   },
@@ -700,12 +714,14 @@
    "evidence": [
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/TwoSlotCPNetWitness.lean",
-    "Lean/QFT/CarrierJoinTransport.lean"
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/QFT/JoinNetMorphism.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/TwoSlotCPNetWitness.lean": "conditional_consumer",
-    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer"
+    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer",
+    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived region lattice; the committed nets carry no region system beyond the diamond."
   },
@@ -722,13 +738,15 @@
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/JointSlotFactorisation.lean",
     "Lean/QFT/SourceCorrelationCapstone.lean",
-    "Lean/QFT/CarrierJoinTransport.lean"
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/QFT/JoinNetMorphism.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/JointSlotFactorisation.lean": "conditional_consumer",
     "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer",
-    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer"
+    "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer",
+    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-produced factorisation of the joint algebra; the disjointness datum grounds the 86/247 instance without deriving the embedding form."
   },
@@ -747,14 +765,16 @@
     "Lean/Screen/Z6Exact.lean",
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "code/a5_closure/manifests/global_form_semantic_artifact.json",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "Lean/Screen/GlobalFormCharacterDescent.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/Z6Descent.lean": "statement",
     "Lean/Screen/Z6Exact.lean": "statement",
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
     "code/a5_closure/manifests/global_form_semantic_artifact.json": "statement",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement",
+    "Lean/Screen/GlobalFormCharacterDescent.lean": "conditional_consumer"
    },
    "notes": "Removal needs a same-source holonomy theorem computing the carrier loop classes from the source packet and matching them to the kernel through the committed intertwiner; the companion character-category completeness residual remains open. Registration keeps OL-G2 conditional with the premise named."
   },
@@ -985,14 +1005,16 @@
    "evidence": [
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "Lean/Screen/Z6Descent.lean",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "Lean/Screen/GlobalFormCharacterDescent.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
     "Lean/Screen/Z6Descent.lean": "statement",
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement",
+    "Lean/Screen/GlobalFormCharacterDescent.lean": "statement"
    },
-   "notes": "Removal needs a same-source physical discriminator that selects one quotient and rules out the other three without importing the observed Standard Model global form."
+   "notes": "Removal needs a same-source physical discriminator that selects one quotient and rules out the other three without importing the observed Standard Model global form. The finite character-lattice piece of the bundle is machine-checked in Lean/Screen/GlobalFormCharacterDescent.lean: the descent congruence 2t + 3d + q = 0 mod 6 as an iff against the full kernel action, every committed table row, a blocked control label, and the exact one-sixth count; the complete character category, instanton normalization, laboratory flux attachment, and physical quotient selection are exactly the remaining open content of this row."
   },
   {
    "id": "PR-47",
@@ -1009,12 +1031,14 @@
    "evidence": [
     "Lean/Screen/SMStructureAdequacySurface.lean",
     "claims/assumption_dictionary.md",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "Lean/Screen/FermionSectorAssembly.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
     "claims/assumption_dictionary.md": "statement",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer",
+    "Lean/Screen/FermionSectorAssembly.lean": "statement"
    },
    "notes": "Removal needs a source-selected Lorentzian Spin lift that composes with the exterior matter carrier and its local dynamics."
   },
@@ -1032,13 +1056,15 @@
     "claims/assumption_dictionary.md",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
     "Lean/Screen/Z6Descent.lean",
-    "Lean/Screen/ElectroweakBreakingComposition.lean"
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer",
     "Lean/Screen/Z6Descent.lean": "statement",
-    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer"
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
+    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source action that selects the scalar carrier and fixes its kinetic normalization rather than assuming the one-Higgs branch."
   },
@@ -1195,14 +1221,16 @@
     "Lean/Screen/GaugeKineticInvariantForms.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-    "Lean/Screen/TemporalMaxwellEvolution.lean"
+    "Lean/Screen/TemporalMaxwellEvolution.lean",
+    "Lean/Screen/FermionSectorAssembly.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
     "Lean/Screen/GaugeKineticInvariantForms.lean": "statement",
     "Lean/Screen/LocalFaceMaxwellAction.lean": "statement",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement",
-    "Lean/Screen/TemporalMaxwellEvolution.lean": "statement"
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "statement",
+    "Lean/Screen/FermionSectorAssembly.lean": "statement"
    },
    "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing."
   },
@@ -1317,7 +1345,10 @@
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/super_tannakian_matter_lift_certificate.py",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
-    "Lean/Screen/ElectroweakBreakingComposition.lean"
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/GlobalFormCharacterDescent.lean",
+    "Lean/Screen/FermionSectorAssembly.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
@@ -1328,7 +1359,10 @@
     "code/a5_closure/exterior_sm_completion.py": "conditional_consumer",
     "code/a5_closure/super_tannakian_matter_lift_certificate.py": "conditional_consumer",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "conditional_consumer",
-    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer"
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
+    "Lean/Screen/GlobalFormCharacterDescent.lean": "conditional_consumer",
+    "Lean/Screen/FermionSectorAssembly.lean": "conditional_consumer",
+    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source-selected five-mode carrier and exterior table together with outcome-independent completeness against the relevant alternative matter carriers, or a genuinely fresh preregistered replacement grammar spanning them. PR-12 is a separate negative-control and search class, not a superset from which PR-59 can be selected. The two surviving masks are exact only inside the declared PR-59 table."
   }

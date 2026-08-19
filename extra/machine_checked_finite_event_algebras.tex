@@ -160,9 +160,9 @@ after removing only TeX's protective backslash before each underscore, in the
 \texttt{EventAlgebra/*.lean} files. In the public repository these files are
 under \texttt{Lean/EventAlgebra/}. Table~\ref{tab:modules} maps each module
 name to its subject matter. The top-level \texttt{EventAlgebra.lean} file
-imports these fourteen modules alongside the wider OPH event-algebra library.
+imports these fifteen modules alongside the wider OPH event-algebra library.
 
-The checked development contributes fourteen pieces:
+The checked development contributes fifteen pieces:
 
 \begin{enumerate}[(i)]
 \item an arbitrary supplied projective partition, independent of a selected
@@ -213,7 +213,14 @@ characterization of the phase-sensitivity clause, run-literal pinning of the
 state diagonal with one free off-diagonal coordinate, affine dependence of
 every count frequency on that coordinate, a decidable integer receipt window
 on the phase counts, and the minimal phase-mass receipt
-(Section~\ref{sec:phase-determination}); and
+(Section~\ref{sec:phase-determination});
+\item a recorded-decision attainment layer for that structure: under the
+register row that axiomatizes the committed exact lift as a declared
+architecture operation, a deterministic exact-arithmetic producer receipt,
+an independent verifier, and a composed Lean receipt inhabit the structure
+with produced count literals satisfying exact Born consistency, the
+deterministic-scaling law, and the integer receipt window
+(Section~\ref{sec:phase-attainment}); and
 \item a reproducible, version-pinned artifact with per-declaration axiom
 output, no proof placeholders, and a documented catalog of the Mathlib gaps,
 scoped-instance hazards, and workarounds met during construction
@@ -227,7 +234,7 @@ classical-representation theorem. The CHSH bounds carry a saturation witness
 data, produced by no theorem from any source object. A companion module,
 \texttt{Dynamics/ChoiCPTP.lean}, defines an explicit finite-matrix CPTP
 predicate and proves both partition expectations completely positive and
-trace preserving; the fourteen-module audit here covers their event-algebra
+trace preserving; the fifteen-module audit here covers their event-algebra
 interfaces rather than recounting that companion development.
 
 Section~\ref{sec:setting} fixes the mathematical and Lean interfaces.
@@ -241,7 +248,8 @@ quotient. Sections~\ref{sec:functional}, \ref{sec:robertson}, and
 \ref{sec:chsh} describe the state functional, finite-state uncertainty, and
 the CHSH clients with the exact saturation witness and its record-diagonal
 delimitation. Section~\ref{sec:phase-instrument} describes the ideal static
-phase-POVM/count-fit model and its synthetic non-discharge control.
+phase-POVM/count-fit model, its synthetic non-discharge control, and the
+recorded-decision attainment of the phase-count layer.
 Section~\ref{sec:mathlib} records the Mathlib engagement.
 Section~\ref{sec:evaluation} reports the audit methodology, and
 Section~\ref{sec:comparison} positions the development feature by feature.
@@ -264,7 +272,7 @@ functions that return states, the library defines the subtypes
 practical. Algebraic lemmas use raw matrices. A function advertised as a state
 update returns a value whose type carries the state conditions.
 
-Table~\ref{tab:modules} lists the fourteen source modules. The comparison in
+Table~\ref{tab:modules} lists the fifteen source modules. The comparison in
 this work concerns their compiled interfaces and uses, not the number of
 declarations in each file.
 
@@ -309,6 +317,10 @@ receipts, and a synthetic non-discharge counterreceipt \\
 characterization of the phase clause, run-literal state pinning, affine
 count-frequency dependence, decidable integer receipt window, and the
 minimal phase-mass receipt \\
+\texttt{Operational\allowbreak Phase\allowbreak Attainment} &
+recorded-decision inhabitant of the count-fit structure with produced count
+literals, exact Born consistency, deterministic scaling in every context,
+and the receipt-window clause \\
 \bottomrule
 \end{tabular}
 \caption{Module structure of the checked development.}
@@ -928,7 +940,7 @@ jointly diagonal class only through the reachable states' diagonality, and
 it is a statement about the committed operation class, not about every
 conceivable architecture extension. Like \texttt{Dynamics/ChoiCPTP.lean},
 the module is a companion in the wider library, outside this paper's
-fourteen-module count and scale table.
+fifteen-module count and scale table.
 
 \section{An ideal static phase-POVM count fit}
 \label{sec:phase-instrument}
@@ -1023,6 +1035,44 @@ type system, together with source production of the phase operation and the
 common preparation. The window is a necessary condition on any producer-bound
 phase receipt and carries no provenance information, since the synthetic
 inhabitant meets it without a producer.
+
+\subsection{Recorded-decision attainment of the phase-count layer}
+\label{sec:phase-attainment}
+
+Register row PR-04 of the premise register carries a recorded decision dated
+2026-08-18 under the row's axiomatize disposition: the committed exact lift
+$I/2 - (2\sqrt{3}/3)\,i\,(QP - PQ)$, equal to the Pauli $+Y$ projector, is a
+declared architecture operation. The module
+\path{OperationalPhaseAttainment.lean} consumes that decision and it
+inhabits \texttt{IdealPhasePOVMCountModel} over the committed core with
+produced count literals. A deterministic producer computes the complete outcome table
+of the declared operation and the committed web contexts on the committed
+record-diagonal run state $\mathrm{diag}(111/179, 68/179)$ in exact
+arithmetic over $\mathbb{Q}(\sqrt{3}, i)$: each context count pair is the
+exact Born weight of the context effect scaled to the least positive integer
+multiple of the committed run mass $179$ clearing its denominator, giving
+$(111, 68)$ at mass $179$ in the diagonal and record-conjugate contexts,
+$(315, 401)$ at mass $716$ in the rotated contexts, and $(179, 179)$ at mass
+$358$ in the phase context. This is the explicitly exhaustive deterministic
+semantics that the non-discharge boundary above names as an acceptable
+validation route; no sampling, statistical estimate, or floating-point step
+occurs, and rerunning the producer reproduces the committed receipt byte for
+byte. An independent verifier sharing no arithmetic code rebuilds the table
+from the pinned payload and demands exact agreement with every receipt
+field, run-mass-multiple minimality and the integer window included. The
+composed receipt (\texttt{operationalPhaseAttainment\_receipt}) derives,
+from one antecedent bundle pinned to the decision's operation and
+preparation, the conjunction: committed core, declared operation in the
+phase slot, committed run state with vanishing off-diagonal as common
+preparation, committed diagonal literals, exact Born consistency and the
+deterministic-scaling law in every context, every count mass a positive
+multiple of $179$, and phase counts $(179, 179)$ inside the window of
+\texttt{phase\_counts\_receipt\_window}. The attainment is conditional
+structural under the axiomatized row: the operation is declared, never
+source-produced, the counts are produced, never measured, the row is
+consumed, never discharged, and the synthetic-inhabitant boundary of the
+preceding sections is unchanged. Source production of a phase operation
+remains the open obligation of the row.
 
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}
@@ -1129,7 +1179,7 @@ Holography repository \cite{observerPatchHolographyRepo}. The exact source
 snapshot is the repository revision containing this manuscript and its built
 PDF; the manuscript source accompanies the submission.
 
-Table~\ref{tab:scale} describes the fourteen modules discussed here and the
+Table~\ref{tab:scale} describes the fifteen modules discussed here and the
 umbrella root. Other modules imported by the broader root are outside this
 paper's count. The comparison in Section~\ref{sec:comparison} concerns
 interfaces, not counts.
@@ -1155,9 +1205,10 @@ Module & Lines & Audited declarations \\
 \texttt{TsirelsonSaturation} & 834 & 39 \\
 \texttt{OperationalPhaseInstrument} & 878 & 40 \\
 \texttt{PhaseInstrumentDetermination} & 503 & 24 \\
+\texttt{OperationalPhaseAttainment} & 383 & 22 \\
 \texttt{EventAlgebra} (root) & 133 & 0 \\
 \midrule
-Total & 5581 & 255 \\
+Total & 5964 & 277 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the
@@ -1167,7 +1218,7 @@ generated axiom audit.}
 
 Every public result discussed in the paper appears under its Lean name. The
 modules end with \texttt{\#print axioms} commands for the principal
-declarations, and a clean build emits the generated output. The 230 audited
+declarations, and a clean build emits the generated output. The 277 audited
 declarations report only subsets of propositional extensionality, classical
 choice, and quotient soundness, the standard Lean/Mathlib base. No declaration
 reports \texttt{sorryAx}, and a source scan finds no \texttt{sorry}
