@@ -184,10 +184,10 @@ def test_invalid_rung_fails() -> None:
 
 def test_owed_row_may_name_registered_open_premises() -> None:
     ledger = _ledger()
-    row = next(row for row in ledger["rows"] if row["id"] == "OL-A4")
+    row = next(row for row in ledger["rows"] if row["id"] == "OL-M1")
     assert row["status"] == "owed"
     assert row["premises"] == []
-    assert row["open_premises"] == ["PR-16", "PR-52"]
+    assert row["open_premises"] == ["PR-47", "PR-48", "PR-49", "PR-54"]
     tool.validate(ledger)
 
 

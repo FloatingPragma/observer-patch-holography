@@ -63,7 +63,7 @@ componentwise square outside the graph, so the quotient multiplication is
 ill-defined (`join_quotient_mul_ill_defined`) and the join carries no
 algebra structure through this pushout.  The operator-layer net morphism
 therefore cannot be obtained by this construction; that residual stays
-open.  Second, the record layer is commutative (`diagonal_commute`), while
+open.  Second, the record layer is commutative (`recordDiagonal_commute`), while
 the committed left regional algebra of the 86/247 net is noncommutative
 (`twoSlotAlgebra247_left_noncommutative`): the commutant and locality
 structure of the committed operator-layer net (which separates disjoint
@@ -1080,7 +1080,7 @@ theorem join_quotient_mul_ill_defined :
 /-- **The record layer is commutative.**  All diagonal matrices commute,
 so the commutant and locality distinctions of the committed operator
 layer are invisible at the record layer. -/
-theorem diagonal_commute {γ : Type*} [Fintype γ] [DecidableEq γ]
+theorem recordDiagonal_commute {γ : Type*} [Fintype γ] [DecidableEq γ]
     (v w : γ → ℂ) :
     Matrix.diagonal v * Matrix.diagonal w =
       Matrix.diagonal w * Matrix.diagonal v := by
@@ -1092,7 +1092,7 @@ theorem diagonal_commute {γ : Type*} [Fintype γ] [DecidableEq γ]
 /-- **The committed left regional algebra is noncommutative at the
 operator layer.**  Two left-slot matrix units fail to commute, while
 their record-layer counterparts (all diagonal functions) commute by
-`diagonal_commute`: the operator-layer structure erased by the record
+`recordDiagonal_commute`: the operator-layer structure erased by the record
 restriction is nonempty. -/
 theorem twoSlotAlgebra247_left_noncommutative :
     ∃ X Y : Matrix PairIndex247 PairIndex247 ℂ,
@@ -1212,7 +1212,7 @@ theorem joinNetMorphism_receipt :
     joinHingeProject_mem_hinge, hingeRestrict_joinHingeProject,
     joinStep_maps_joinRegionLayer,
     hingeGraph_not_mul_closed, twoSlotAlgebra247_left_noncommutative,
-    diagonal_commute⟩
+    recordDiagonal_commute⟩
 
 end
 
@@ -1264,6 +1264,6 @@ end OPH.QFT
 #print axioms OPH.QFT.joinStep_maps_joinRegionLayer
 #print axioms OPH.QFT.hingeGraph_not_mul_closed
 #print axioms OPH.QFT.join_quotient_mul_ill_defined
-#print axioms OPH.QFT.diagonal_commute
+#print axioms OPH.QFT.recordDiagonal_commute
 #print axioms OPH.QFT.twoSlotAlgebra247_left_noncommutative
 #print axioms OPH.QFT.joinNetMorphism_receipt
