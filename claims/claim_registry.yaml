@@ -5485,6 +5485,267 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT",
+      "statement": "On the committed two-register repair carrier, with the declared reading of the first register as the shared network-facing record and the second as the private defect flag, the declared admissible scheduler class collects the finite Markov kernels whose supported steps do not increase the declared defect mismatch, write at most one register, and spend at most one unit of expected declared capacity per step. The self-update-only and network-update-only sub-classes fix the shared and the private register respectively and are exactly the zero-shared-spend and zero-private-spend loci of the typed step costs; both are inhabited by schedulers built from committed fixture kernels and the witnesses separate the sub-classes. Under every scheduler in the class the defective fiber has hit probability zero from every consistent state, and an explicit mismatch-violating kernel outside the class hits it with probability one. Under every self-update-only scheduler the fiber with the shared register flipped has hit probability zero, an explicit network-update-only class member hits it with probability one, and every in-class scheduler with a positive hit on that fiber spends shared capacity on some supported step. The almost-sure hitting hypothesis of the committed fine fixture is discharged by the committed repair kernel and refuted inside the class by the identity scheduler. The class is an architecture declaration on this finite carrier; the locality and capacity clauses are typed but no obstruction theorem consumes them; no physical scheduler selection and no biological, cognitive, or behavioral claim is made.",
+      "owner_paper": "extra/observable_normal_forms.tex",
+      "tier": "declared_finite_scheduler_class_with_all_scheduler_and_sub_class_obstruction_bounds",
+      "assumptions": [
+        "declared_admissible_scheduler_class_constraints",
+        "declared_two_register_capacity_split_reading",
+        "committed_two_bit_repair_fixture"
+      ],
+      "imported_results": [
+        "finite_Markov_first_hit_expansion",
+        "finite_closed_class_reachability"
+      ],
+      "oph_specific_delta": "The scheduler dependence of the protected-obstruction development is upgraded from one declared kernel to one declared class: the first obstruction bounds quantified over every scheduler in the class and over a full sub-class are machine-checked, the capacity split behind the sub-classes is typed as named cost functions, and both a hypothesis discharge from the repair dynamics and an in-class counterexample scheduler are exhibited.",
+      "novelty_type": "scheduler_quantified_obstruction_bounds_with_typed_capacity_split",
+      "evidence": [
+        "extra/observable_normal_forms.tex",
+        "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+      ],
+      "falsifier": "An in-class scheduler with a positive defect hit from a consistent state, a self-update-only scheduler with a positive cross hit, failure of the network-update-only witness to hit the cross fiber, an in-class scheduler with positive cross hit and zero shared cost on every supported step, or failure of the committed repair kernel to satisfy the class constraints.",
+      "scope_if_false": "Only the declared-class bounds fall; the committed this-scheduler protected-obstruction profile, its behavior-cut recovery, and its exact transport are assessed by OPH-CONS-PROTECTED-BEHAVIOR-PROFILE.",
+      "status": "class_declared_and_first_bounds_Lean_proved__locality_and_capacity_clauses_not_load_bearing__paper_sync_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        750
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-60",
+          "PR-61",
+          "PR-62",
+          "PR-63"
+        ],
+        "open": [],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
+      "statement": "On the committed produced instrument system (the attained inhabitant of the ideal phase POVM count model with the committed run state diag(111/179, 68/179) and the produced count literals), every committed outcome effect has trace one, so a sum of two committed effects is an effect exactly when it resolves the identity: the coexistent sums of two committed effects are precisely the unit resolutions, one per context, and any assignment sending the sure effect to one and normalised in each context is additive on all of them. The Born functional of the committed run state is a full additive effect valuation in the finite Busch-Gleason sense whose committed-effect values are the produced count frequencies as exact rational identities; every additive effect valuation matching the produced counts agrees with it on all effects, and every state whose Born weights match the produced counts is the committed run state. The coverage gap of the committed sums is essential: a cubic deformation of the run Born functional in the transverse imaginary off-diagonal coordinate, shaped to vanish on the committed effect set, reproduces every produced count frequency, maps every effect into [0,1], obeys the complement rule on all matrices, and is additive on every committed coexistent sum, yet fails additivity at the explicit effect pair halfWitness + halfWitness = witnessSum with values 35/64 against 143/256, is not an additive effect valuation, and is the Born functional of no state. The operational additivity premise of register row PR-03 is consumed only as an explicit hypothesis of the forcing theorems and is not derived; the produced system does not supply it.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_additivity_boundary_on_committed_produced_instrument_system",
+      "assumptions": [
+        "committed_run_state_algebra_surface_PR02",
+        "axiomatized_phase_operation_decision_PR04_via_imported_attainment",
+        "operational_cross_context_additivity_PR03_hypothesis_only"
+      ],
+      "imported_results": [
+        "finite_busch_gleason_representation",
+        "committed_tomographic_completion",
+        "finite_dimensional_complex_linear_algebra"
+      ],
+      "oph_specific_delta": "The exact location of the Born-rule additivity premise on the committed produced system is machine-checked from both sides: the produced count frequencies extend to the unique fully additive Born valuation, while the committed coexistent sums are enumerated exactly as the unit resolutions and shown to carry only normalisation, with an explicit produced-count-compatible non-Born countermodel proving the coverage gap essential.",
+      "novelty_type": "exact_boundary_between_produced_frequencies_and_valuation_additivity",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if some committed effect has trace other than one, if some pair of committed effects sums to a non-unit effect, if a produced count frequency differs from the run Born weight, if the countermodel leaves [0,1] on some effect or violates the complement rule or committed-sum additivity, or if the countermodel satisfies full additivity or Born form after all.",
+      "scope_if_false": "Only the additivity-boundary packet falls. The finite Busch-Gleason theorem, the attainment receipt, the produced count literals, and the PR-03 register row are assessed by their own claims and premises.",
+      "status": "exact_boundary_attained__operational_additivity_premise_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-52"
+        ],
+        "boundary": [
+          "PR-03"
+        ]
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-OPERATOR-LAYER-MORPHISM-BOUNDARY",
+      "statement": "On the committed 86/247 carrier with its committed regional star algebras, conditional expectations, and record layers, the boundary between the operator layer and the record layer is an exact asymmetry. Embedding direction: the record function carrier embeds into the joint matrix algebra as an injective unital star algebra homomorphism (the diagonal embedding) whose image lies in the committed regional algebra of a region exactly when the record function lies in the record layer of that region, and which intertwines the committed conditional expectations with the record-layer expectations on every region. Projection direction, positive complement: the committed left-slot conditional expectation is positive, trace-preserving, and unital, restricts to the record-layer expectation on diagonals, and is not multiplicative at an exact committed right-slot projector witness. Projection direction, no-go: no map from the joint matrix algebra to the record function carrier is multiplicative on pairs from the committed left regional algebra while restricting to the record-layer morphism on diagonals of the committed left record layer, because the committed noncommuting witness pair has both of its products diagonal and any multiplicative map into a commutative target identifies them; and no unital algebra homomorphism carries the committed left regional algebra, or the ambient joint algebra, into the record function carrier at all. The attainable grade of the projection direction is positive unital trace-preserving expectation; the homomorphism grade is attainable only in the embedding direction. Net-to-net and tower morphism structure at the operator layer, spacetime covariance, causality, physical time, continuum limits, physical attachment, and uniqueness of the diagonal embedding are not claimed.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_morphism_boundary_between_operator_and_record_layers_on_committed_carrier",
+      "assumptions": [
+        "cartesian_joint_carrier_declared",
+        "diamond_region_map_declared",
+        "two_observer_slot_split_declared",
+        "physical_time_and_spacetime_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_complex_linear_algebra",
+        "matrix_kronecker_and_diagonal_algebra"
+      ],
+      "oph_specific_delta": "The residual left by the record-layer net morphism packet (which morphisms exist beyond the record layer) is machine-checked as a proved boundary rather than an open question: the diagonal embedding is proved to be the exact homomorphic direction with region-exact membership and expectation intertwining, the committed conditional expectation is proved to be the exact grade ceiling of the projection direction with a committed witness breaking multiplicativity, and both a bare-multiplicativity no-go and an absolute unital-homomorphism no-go are derived from the committed noncommuting witness pair and the committed matrix-factor scalar obstruction, with every hypothesis named.",
+      "novelty_type": "operator_to_record_morphism_boundary_asymmetry_with_two_grade_no_go",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "Lean/QFT/OperatorLayerMorphismBoundary.lean",
+        "Lean/QFT/JoinNetMorphism.lean"
+      ],
+      "falsifier": "The claim fails if the diagonal embedding fails injectivity, a star, unital, or multiplicative homomorphism law, the exact regional membership equivalence, or the expectation intertwining on some region; if the committed left expectation fails positivity, trace preservation, unitality, or the diagonal restriction; if the committed right-slot projector witness does not break its multiplicativity; if some map multiplicative on the committed left regional algebra restricts to the record-layer morphism on the committed left record layer; or if some unital algebra homomorphism carries the committed left regional algebra or the ambient joint algebra into the record function carrier.",
+      "scope_if_false": "Only the morphism-boundary packet falls. The record-layer net morphisms, the hinge-fibered join, the committed regional nets and expectations, and the net-to-net and tower morphism residuals are assessed by their own claims and premises.",
+      "status": "operator_layer_morphism_boundary_attained__net_and_tower_morphism_structure_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-32",
+          "PR-33",
+          "PR-34"
+        ],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
+      "statement": "On the committed two-island common-world witness record, one typed cross-island dictionary joins the screen island's rank-three source Gram quotient (the quotient of the six-axis signed-record control module by the radical of the finite twelve-port source Gram form) to the rest fiber of the record's declared frame on the committed Hermitian Lorentz module. The dictionary is a linear equivalence composed from the committed first-isomorphism equivalence, the canonical completion-carrier equivalence, and the committed boost-shear rest-fiber isometry. The rest metric pulled back through the dictionary equals the screen quotient Gram at every declared frame; at the standard frame the dictionary equals the committed candidate readback; the declared rest radial readout squares to the screen Gram; every committed oriented Lorentz chart transport composed with the dictionary preserves the same identity; and the dictionary carries the class of every integer record control to the committed screen source chain scaled by the committed unit-diagonal normalization radius. One extended record type carries the base witness fields plus the dictionary and its metric clause; a composed receipt on one typed antecedent bundle (the extended record and the declared radial flux packet) proves the eight committed island packets, the bridge clause, and the transported inverse-square strength read on the screen Gram, of one record simultaneously; an explicit inhabitant extends the committed inhabitant definitionally. Dropping the metric clause readmits a mismatched pair, exhibited by the doubled dictionary violating the clause at a unit-Gram class, and the clause excludes that dictionary from every extended record. The bridge is a candidate local readout dictionary between two committed mathematical objects, not a physical identification; no shared clock, common action, common dynamics, or port/seam/face carrier map is supplied, and the dictionary is not unique under rest-metric-preserving automorphisms.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_typed_cross_island_dictionary_on_committed_two_island_witness",
+      "assumptions": [
+        "declared_base_witness_fields_as_in_committed_witness",
+        "declared_bridge_field_pinned_by_metric_clause",
+        "declared_radial_readout_and_shell_flux_normalization_for_the_shell_clause",
+        "physical_lorentz_soldering_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_real_linear_algebra",
+        "Lorentz_quadratic_form_algebra",
+        "golden_ratio_source_gram_table_algebra"
+      ],
+      "oph_specific_delta": "The two islands of the committed common-world witness are joined by one machine-checked typed dictionary whose metric content is forced to the screen source Gram, with the load-bearing role of the metric clause exhibited by an explicit mismatched extension, and every remaining cross-island join named rather than implied.",
+      "novelty_type": "typed_screen_quotient_to_rest_fiber_dictionary_on_common_world_witness",
+      "evidence": [
+        "paper/observers_are_all_you_need.tex",
+        "Lean/Geometry/CommonWorldIslandBridge.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the composed dictionary violates the metric identity at some frame and quotient pair, differs from the committed candidate readback at the standard frame, fails the source-chain or radius identity, if the extended record is uninhabited over the committed inhabitant, if any clause of the composed receipt fails at the antecedent bundle, or if the doubled dictionary satisfies the metric clause at the exhibited class.",
+      "scope_if_false": "Only the cross-island dictionary and its extended witness fall. The base two-island witness, the rest-fiber shell transport, the screen Gram quotient, and every physical attachment premise are assessed by their own claims and register rows.",
+      "status": "exact_cross_island_bridge_attained__shared_clock_action_dynamics_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-18",
+          "PR-19"
+        ],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
+      "statement": "On the unchanged committed assembled-action premise bundle, one completed assembled structural action carries the gauge kinetic sector at the committed invariant-form level: a typed gauge-field slot with one real coordinate vector per weighted invariant carrier sector of the committed multiplicity-free split (3+, 3-, 5; the trivial sector carries no committed weight), and the quadratic kinetic functional given by the committed weight vector against the sector coordinate squared norms. The committed diagonal pairing is exactly the axis restriction of the functional under the committed basis, the functional factors exactly through the committed pairing at the sector magnitudes, and agreement on the axis slice pins the weights, so the committed assembled action embeds exactly in the completed one and the completed action factors exactly through the committed one. Invariance is carried at the exact infinitesimal grade: every sector-internal skew-adjoint generator leaves every weight vector invariant, and the committed G and F ad-invariance constraint rows are realized exactly as the infinitesimal-invariance rows of two exhibited cross-sector generators at declared coefficient ratio (1, -sqrt 5), with simultaneous invariance leaving exactly the committed one-ray mirror family. Exact restriction receipts recover the invariant-form functional on the gauge slice and the committed scalar and Yukawa functionals on their slices; the global abelian phase invariance and the committed integer-charge invariance persist through the exact factorization; the parameter census is unchanged, with the invariant-form coefficients exactly the two declared committed normal-form parameters and exactly one parameter pair; the committed witness evaluation embeds at value 9/4 and one exhibited off-axis carrier point outside the axis slice evaluates to 17/4; the control weight vector (1, 1, 1) violates the committed G row and breaks the cross-generator invariance at an exhibited carrier pair with exact value 1 - sqrt 5. No group action, bracket representation, derivative, spacetime carrier, field-strength two-form, source-produced action, quantization, measured coefficient, three-family structure, global form, physical chirality, or Spin attachment is claimed; the cross-generator sector pattern and coefficient ratio are declared to realize the committed constraint rows, and their derivation from the pinned bracket tensors is certificate content.",
+      "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "tier": "gauge_sector_completion_at_committed_invariant_form_level",
+      "assumptions": [
+        "committed_assembled_action_premise_bundle",
+        "declared_cross_generator_coefficient_ratio",
+        "declared_sector_carrier_realization",
+        "source_produced_action_deferred"
+      ],
+      "imported_results": [
+        "real_and_complex_field_algebra",
+        "finite_coordinate_sum_algebra"
+      ],
+      "oph_specific_delta": "The gauge kinetic sector of the machine-checked assembled action is upgraded from a declared diagonal pairing to the committed invariant-form level with the identification, factorization, pinning, infinitesimal-invariance, census, witness, and control receipts all exact, and every declared realization and missing physical attachment named rather than implied.",
+      "novelty_type": "invariant_form_level_gauge_sector_extension_of_committed_assembled_action",
+      "evidence": [
+        "Lean/Screen/GaugeSectorBracketCompletion.lean",
+        "Lean/Screen/AssembledActionComposition.lean",
+        "Lean/Screen/GaugeKineticInvariantForms.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if the axis evaluation differs from the committed diagonal pairing, the sector-magnitude factorization fails, either cross-generator invariance row differs from its committed constraint row, the one-ray collapse fails, any restriction receipt differs from the committed functional, the census equality fails on agreeing parameter lists, the exhibited control pair fails to break invariance, or the off-axis witness lies in the axis slice.",
+      "scope_if_false": "Only the invariant-form-level completion falls. The committed assembled action, the invariant-form constraint receipts, the electroweak-breaking composition, and every physical action, coupling, and family claim are assessed by their own claims and premises.",
+      "status": "gauge_sector_completed_at_committed_invariant_form_level__source_produced_physical_action_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        735
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-35",
+          "PR-36",
+          "PR-46",
+          "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
+          "PR-54",
+          "PR-59"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
+      "statement": "On the weak slots of the committed ten-row exterior component table, the two charged directions (the committed wDirection and the second charged coordinate direction) are orthogonal to the committed photon and Z directions and to each other under the declared diagonal pairing, span exactly the orthogonal complement of the committed neutral plane at positive declared constants, and both carry the broken gauge mass value gW^2 vev^2/4. Their two complex combinations w1 +- i w2 of the committed infinitesimal actions are, in exact closed form, the strict shift operators of coefficient gW that move the lower weak slot of a doublet row to the upper one and back; the direction length of the charged pair under the committed pairing is sqrt 2, so the normalized coupling is exactly gW/sqrt 2, a constant derived from the committed pairing and pinned to the committed infinitesimal action on the scalar row by alignment receipts, with a rigidity receipt showing any drifted coefficient breaks the alignment identity. At a positive declared weak coupling a nonzero charged coupling exists exactly on the committed doublet partner pairs (upper component receiving from lower), committed singlet rows are annihilated at every slot pair, and reversed and repeated slot pairs get zero coupling on every row. Every nonzero coupling steps the committed electric-charge entry q6EM by exactly six, one unit in the committed q = 6Y normalization, from the committed charge columns per row; the commutator of the committed photon-direction action with the raising and lowering shifts is exactly plus or minus i gZ e times the shift, so per committed photon normalization gZ the charged directions carry exactly one declared electromagnetic unit e. The dictionaries compose: the commutator of the two charged-direction actions lands exactly on the committed photon and Z actions with coefficients -(gW gY)/(gW^2+gY^2) and -(gW^2)/(gW^2+gY^2), and the raising/lowering commutator is exactly 2 gW i times the committed third-weak action; these joins are exact operator-commutator identities of the committed infinitesimal action on the scalar-row carrier, and no abstract Lie bracket on the direction space is committed. One composed theorem states all clauses on the committed electroweak-breaking premise bundle, with a selected singlet mutation witness in either committed parity sector, and the committed all-parameters-one instance proves the bundle nonvacuous. Every constant is declared: no measured coupling, Fermi constant, or width appears; no physical current operator, spacetime, covariant derivative, source-produced action, W propagator, decay amplitude, or Fermi limit is claimed; CKM and flavor structure are absent (one-generation bookkeeping, no mixing matrix, no phase); the weak components of a doublet row are committed weak-dimension bookkeeping with the physical chirality attachment open.",
+      "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+      "tier": "exact_tree_level_charged_coupling_dictionary_on_declared_grammar",
+      "assumptions": [
+        "committed_electroweak_breaking_premise_bundle",
+        "declared_positive_weak_and_hypercharge_couplings",
+        "committed_five_mode_exterior_table_grammar",
+        "weak_component_split_as_committed_table_bookkeeping",
+        "physical_current_and_source_action_deferred"
+      ],
+      "imported_results": [
+        "real_and_complex_field_algebra",
+        "finite_table_kernel_checks"
+      ],
+      "oph_specific_delta": "The charged-current dictionary induced on the committed doublet column by the committed broken directions is machine-checked as exact algebra in the declared constants: the gW/sqrt 2 coupling is derived from the committed pairing normalization rather than inserted, the partner selection rule and singlet annihilation are exact equivalences on the committed table, the one-unit electric-charge step falls out of the committed charge columns, and the charged and committed neutral dictionaries compose through exact operator-commutator identities with the stated coefficients, with every declared constant and missing physical attachment named rather than implied.",
+      "novelty_type": "charged_coupling_dictionary_from_committed_broken_directions",
+      "evidence": [
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/Screen/ChargedCurrentDictionary.lean",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "The claim fails if either charged direction is not orthogonal to both committed neutral directions, if the charged plane is not exactly the orthogonal complement of the neutral plane, if the raising or lowering closed form differs from the strict shift with coefficient gW, if the derived normalization differs from sqrt 2, if a nonzero charged coupling exists off the committed partner pairs or vanishes on one at positive gW, if a nonzero coupling fails to step the committed electric charge by exactly six sixths, if a photon-commutator eigenvalue differs from i gZ e up to sign, or if the charged or ladder commutator lands off the committed neutral span or third-weak action with the stated exact coefficients.",
+      "scope_if_false": "Only the charged-coupling dictionary falls. The neutral-current dictionary, the electroweak-breaking composition, the exterior selection grammar, and every physical current, decay, Fermi-limit, or flavor claim are assessed by their own claims and premises.",
+      "status": "exact_tree_level_dictionary_attained__physical_current_and_decay_amplitudes_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        745
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-48",
+          "PR-49",
+          "PR-59"
+        ],
+        "open": [
+          "PR-47",
+          "PR-54"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

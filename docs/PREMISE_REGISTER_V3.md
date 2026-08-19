@@ -25,8 +25,8 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-15 | clock and energy calibration anchors | `empirical_import` | `import` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730), [#732](https://github.com/FloatingPragma/observer-patch-holography/issues/732), [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736), [#743](https://github.com/FloatingPragma/observer-patch-holography/issues/743) |
 | PR-16 | stable causality and open-image conditions | `structural_rule` | `remove` | [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728), [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729) |
 | PR-17 | proposed fundamental numerical parameters P and N | `numerical_input` | `import` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736) |
-| PR-18 | spherically symmetric radial readout | `structural_rule` | `remove` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729) |
-| PR-19 | shell-flux normalization | `structural_rule` | `remove` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729) |
+| PR-18 | spherically symmetric radial readout | `structural_rule` | `remove` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740) |
+| PR-19 | shell-flux normalization | `structural_rule` | `remove` | [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740) |
 | PR-20 | equal source-counting measure on the sixty directed source seams | `selection_rule` | `axiomatize` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733) |
 | PR-21 | auxiliary oscillator lift of the seam-current generator | `representation_choice` | `axiomatize` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733) |
 | PR-22 | physical-frequency identification for the seam-current symbol | `structural_rule` | `axiomatize` | [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733) |
@@ -67,8 +67,12 @@ Each evidence path has one explicit primary role: `statement` locates the premis
 | PR-57 | physical proton state and baryon-violating effective-action attachment | `structural_rule` | `remove` | [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744) |
 | PR-58 | time-indexed net evolution and time-slice generation interface | `structural_rule` | `remove` | [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730) |
 | PR-59 | declared five-mode exterior component and mask-selection grammar | `selection_rule` | `remove` | [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744), [#745](https://github.com/FloatingPragma/observer-patch-holography/issues/745) |
+| PR-60 | admissible scheduler class: mismatch non-increase clause | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-61 | admissible scheduler class: single-register locality clause | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-62 | admissible scheduler class: unit expected capacity clause | `structural_rule` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
+| PR-63 | two-register capacity-split reading | `representation_choice` | `axiomatize` | [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750) |
 
-Totals: 59 premises. 36 remove, 19 axiomatize, 4 import.
+Totals: 63 premises. 36 remove, 23 axiomatize, 4 import.
 
 ## Row statements and evidence
 
@@ -93,8 +97,8 @@ Public records are represented as the span of the mutually orthogonal projectors
 A public frame valuation is additive on every required coexistent effect sum, v(A + B) = v(A) + v(B) whenever A + B remains an effect, across measurement contexts. With this additivity the finite Busch-Gleason theorem in Lean/EventAlgebra/FiniteBuschGleason.lean forces the Born trace form; the same module carries the countermodel in which positivity, per-context normalisation, and continuity hold while cross-context additivity fails, and the row source_produced_public_effect_algebra_deferred in claims/assumption_dictionary.md records that the retained finite unsharp web admits a transverse cubic non-Born valuation.
 
 - Type `selection_rule`; disposition `remove`; consumed by [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
-- Evidence: `Lean/EventAlgebra/FiniteBuschGleason.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`).
-- Disposition note: Removal needs a source-produced complex-tomographically-complete effect and instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation.
+- Evidence: `Lean/EventAlgebra/FiniteBuschGleason.lean` (`conditional_consumer`), `claims/assumption_dictionary.md` (`statement`), `Lean/EventAlgebra/OperationalAdditivityBoundary.lean` (`no_go`).
+- Disposition note: Removal needs a source-produced complex-tomographically-complete effect and instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation. Lean/EventAlgebra/OperationalAdditivityBoundary.lean locates the row exactly on the committed produced system: the coexistent sums of two committed effects are precisely the unit resolutions (every committed effect has trace one, and in dimension two two trace-one effects coexist only as complements), any assignment sending the sure effect to one and normalised in each context is additive on all of them, and a machine-checked countermodel matching every produced count frequency, probability-valued on all effects, complement-consistent, and additive on every committed coexistent sum fails additivity at an explicit effect pair (35/64 against 143/256) and is the Born functional of no state; conversely full additivity plus the produced counts forces the run Born valuation and the committed run state uniquely. The committed produced system therefore cannot supply this premise; its removal still needs coexistent sums beyond the unit resolutions with an operational derivation of their additivity.
 
 ### PR-04 phase-operation instrument
 
@@ -212,16 +216,16 @@ P and N are the two proposed fundamental free numerical parameters of the progra
 
 A source distribution on the committed three-dimensional completion carrier is read through one radial strength profile: the flux through a shell depends on the shell radius alone. The premise enters as the strength field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean and is a symmetry declaration; no source theorem produces it.
 
-- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729).
-- Evidence: `Lean/Geometry/InverseSquareShellLaw.lean` (`conditional_consumer`), `Lean/Geometry/RestFiberShellTransport.lean` (`conditional_consumer`).
+- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740).
+- Evidence: `Lean/Geometry/InverseSquareShellLaw.lean` (`conditional_consumer`), `Lean/Geometry/RestFiberShellTransport.lean` (`conditional_consumer`), `Lean/Geometry/CommonWorldIslandBridge.lean` (`conditional_consumer`).
 - Disposition note: Removal requires a source-derived isotropy statement for repair readback on the completion carrier.
 
 ### PR-19 shell-flux normalization
 
 The radial strength times the shell content (the derivative of the ball volume) is the constant source charge on every positive shell: a Gauss-shaped conservation declaration entering as the normalized field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean. Under it the inverse-square law is forced with the exponent supplied by the carrier dimension; no source theorem produces the normalization itself.
 
-- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729).
-- Evidence: `Lean/Geometry/InverseSquareShellLaw.lean` (`conditional_consumer`), `Lean/Geometry/RestFiberShellTransport.lean` (`conditional_consumer`).
+- Type `structural_rule`; disposition `remove`; consumed by [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740).
+- Evidence: `Lean/Geometry/InverseSquareShellLaw.lean` (`conditional_consumer`), `Lean/Geometry/RestFiberShellTransport.lean` (`conditional_consumer`), `Lean/Geometry/CommonWorldIslandBridge.lean` (`conditional_consumer`).
 - Disposition note: Removal requires a source-derived flux-conservation statement, for which the discrete Gauss receipts on the fixed carrier are the committed precursor.
 
 ### PR-20 equal source-counting measure on the sixty directed source seams
@@ -325,7 +329,7 @@ On the layered readout graph the vertex outflow of the flux field equals a decla
 The joint index space of a two-observer regional construction is the Cartesian product of the two observers' label alphabets, entering as the LeftLabels and RightLabels fields of StructuralNetDeclaredPremises in Lean/QFT/StructuralNetAdequacySurface.lean, with committed instances Fin 13 x Fin 14 (pair 86, 88) and Fin 13 x Fin 13 (pair 86, 247). No source theorem produces the product form.
 
 - Type `representation_choice`; disposition `axiomatize`; consumed by [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
-- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`), `Lean/QFT/JointSlotFactorisation.lean` (`conditional_consumer`), `Lean/QFT/SourceCorrelationCapstone.lean` (`conditional_consumer`), `Lean/QFT/CarrierJoinTransport.lean` (`conditional_consumer`), `Lean/QFT/JoinNetMorphism.lean` (`conditional_consumer`).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`), `Lean/QFT/JointSlotFactorisation.lean` (`conditional_consumer`), `Lean/QFT/SourceCorrelationCapstone.lean` (`conditional_consumer`), `Lean/QFT/CarrierJoinTransport.lean` (`conditional_consumer`), `Lean/QFT/JoinNetMorphism.lean` (`conditional_consumer`), `Lean/QFT/OperatorLayerMorphismBoundary.lean` (`conditional_consumer`).
 - Disposition note: Removal requires source selection of the joint carrier; the bounded closure of historical issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier.
 
 ### PR-33 two-slot diamond region map
@@ -333,7 +337,7 @@ The joint index space of a two-observer regional construction is the Cartesian p
 The region system of the committed net is the four-region diamond bot < left, right < top with the region map assigning the scalar bottom, the two slot-factor algebras, and the full joint algebra, entering as the regionMap field of StructuralNetDeclaredPremises with committed instances twoSlotAlgebra (Lean/QFT/TwoSlotCPNetWitness.lean) and twoSlotAlgebra247 (Lean/QFT/SourceCorrelationCapstone.lean). No source theorem produces the region system.
 
 - Type `selection_rule`; disposition `axiomatize`; consumed by [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
-- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`), `Lean/QFT/TwoSlotCPNetWitness.lean` (`conditional_consumer`), `Lean/QFT/CarrierJoinTransport.lean` (`conditional_consumer`), `Lean/QFT/JoinNetMorphism.lean` (`conditional_consumer`).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`), `Lean/QFT/TwoSlotCPNetWitness.lean` (`conditional_consumer`), `Lean/QFT/CarrierJoinTransport.lean` (`conditional_consumer`), `Lean/QFT/JoinNetMorphism.lean` (`conditional_consumer`), `Lean/QFT/OperatorLayerMorphismBoundary.lean` (`conditional_consumer`).
 - Disposition note: Removal requires a source-derived region lattice; the committed nets carry no region system beyond the diamond.
 
 ### PR-34 two-observer slot split
@@ -341,7 +345,7 @@ The region system of the committed net is the four-region diamond bot < left, ri
 Two observers of a pair are read as the two tensor factors of the joint carrier through the left and right slot embeddings A -> A (x) 1 and B -> 1 (x) B, entering as the splitLeft and splitRight fields of StructuralNetDeclaredPremises. For the support-disjoint pair (86, 247) the split is backed by the kernel-checked support disjointness theorem supports_disjoint; the split itself is declared, and the designated pair (86, 88) has overlapping supports with no disjointness receipt.
 
 - Type `representation_choice`; disposition `axiomatize`; consumed by [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730).
-- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`), `Lean/QFT/JointSlotFactorisation.lean` (`conditional_consumer`), `Lean/QFT/SourceCorrelationCapstone.lean` (`conditional_consumer`), `Lean/QFT/CarrierJoinTransport.lean` (`conditional_consumer`), `Lean/QFT/JoinNetMorphism.lean` (`conditional_consumer`).
+- Evidence: `Lean/QFT/StructuralNetAdequacySurface.lean` (`statement`), `Lean/QFT/JointSlotFactorisation.lean` (`conditional_consumer`), `Lean/QFT/SourceCorrelationCapstone.lean` (`conditional_consumer`), `Lean/QFT/CarrierJoinTransport.lean` (`conditional_consumer`), `Lean/QFT/JoinNetMorphism.lean` (`conditional_consumer`), `Lean/QFT/OperatorLayerMorphismBoundary.lean` (`conditional_consumer`).
 - Disposition note: Removal requires a source-produced factorisation of the joint algebra; the disjointness datum grounds the 86/247 instance without deriving the embedding form.
 
 ### PR-35 same-source loop-to-kernel identity
@@ -453,7 +457,7 @@ The parity-graded exterior component table is attached to a physical Lorentzian 
 One complex weak doublet of hypercharge one half is selected as the physical scalar carrier, identified with the declared weak block, and furnished with a gauge-covariant kinetic action and normalization. The exterior table and central-weight arithmetic identify a compatible candidate but do not select its physical existence or dynamics.
 
 - Type `representation_choice`; disposition `remove`; consumed by [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#745](https://github.com/FloatingPragma/observer-patch-holography/issues/745).
-- Evidence: `claims/assumption_dictionary.md` (`statement`), `paper/deriving_the_particle_zoo_from_observer_consistency.tex` (`conditional_consumer`), `Lean/Screen/Z6Descent.lean` (`statement`), `Lean/Screen/ElectroweakBreakingComposition.lean` (`conditional_consumer`), `Lean/Screen/NeutralCurrentDictionary.lean` (`conditional_consumer`).
+- Evidence: `claims/assumption_dictionary.md` (`statement`), `paper/deriving_the_particle_zoo_from_observer_consistency.tex` (`conditional_consumer`), `Lean/Screen/Z6Descent.lean` (`statement`), `Lean/Screen/ElectroweakBreakingComposition.lean` (`conditional_consumer`), `Lean/Screen/NeutralCurrentDictionary.lean` (`conditional_consumer`), `Lean/Screen/ChargedCurrentDictionary.lean` (`conditional_consumer`).
 - Disposition note: Removal needs a source action that selects the scalar carrier and fixes its kinetic normalization rather than assuming the one-Higgs branch.
 
 ### PR-49 renormalizable Higgs potential and electroweak-breaking law
@@ -485,16 +489,16 @@ The A5-invariant screen-load line and the electroweak scalar order-unit line are
 The intrinsic Lorentz module, null cone, event-germ atlas, and declared finite causal regions are jointly identified with one observer-produced physical spacetime, including compatible rods, operational clocks, causal reachability, refinement, and continuum soldering. The existing algebraic geometry and finite-net modules explicitly do not construct this joint attachment.
 
 - Type `structural_rule`; disposition `remove`; consumed by [#728](https://github.com/FloatingPragma/observer-patch-holography/issues/728), [#729](https://github.com/FloatingPragma/observer-patch-holography/issues/729), [#730](https://github.com/FloatingPragma/observer-patch-holography/issues/730), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740), [#743](https://github.com/FloatingPragma/observer-patch-holography/issues/743).
-- Evidence: `Lean/Geometry/CanonicalLorentzModule.lean` (`statement`), `Lean/QFT/FiniteCausalObserverNet.lean` (`statement`), `Lean/QFT/TripleCarrierJoin.lean` (`statement`), `Lean/Geometry/EventFrameSoldering.lean` (`statement`), `claims/assumption_dictionary.md` (`statement`), `Lean/QFT/CarrierJoinTransport.lean` (`statement`), `Lean/EventAlgebra/SourceReachabilityDelimitation.lean` (`no_go`).
-- Disposition note: Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open.
+- Evidence: `Lean/Geometry/CanonicalLorentzModule.lean` (`statement`), `Lean/QFT/FiniteCausalObserverNet.lean` (`statement`), `Lean/QFT/TripleCarrierJoin.lean` (`statement`), `Lean/Geometry/EventFrameSoldering.lean` (`statement`), `claims/assumption_dictionary.md` (`statement`), `Lean/QFT/CarrierJoinTransport.lean` (`statement`), `Lean/EventAlgebra/SourceReachabilityDelimitation.lean` (`no_go`), `Lean/Geometry/CommonWorldIslandBridge.lean` (`statement`).
+- Disposition note: Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open.
 
 ### PR-53 physical finite-carrier propagation, frame, and comparison attachment
 
 A named branch-indexed finite-carrier propagation action is identified with a physical photon or other declared field sector, a coherent frame and boost law, a calibrated clock and length scale, a cofinal gluing or continuum domain, and an operational wave-packet readout with nuisance and comparison semantics. The primitive-port rank-six and seam-current rank-two actions are distinct branches; their exact internal dispersion coefficients alone supply none of these attachments.
 
 - Type `structural_rule`; disposition `remove`; consumed by [#733](https://github.com/FloatingPragma/observer-patch-holography/issues/733), [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736), [#740](https://github.com/FloatingPragma/observer-patch-holography/issues/740).
-- Evidence: `Lean/Screen/LightSignalAdequacySurface.lean` (`statement`), `Lean/Screen/LocalFaceMaxwellAction.lean` (`statement`), `claims/frozen_prediction_register.json` (`conditional_consumer`), `docs/FROZEN_PREDICTION_LADDER.md` (`conditional_consumer`), `Lean/Screen/TemporalMaxwellEvolution.lean` (`statement`).
-- Disposition note: Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies an exact declared-step leapfrog evolution with continuity, energy, gauge, static-Coulomb, and wave receipts; a calibrated frame/scale, physical source or readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met.
+- Evidence: `Lean/Screen/LightSignalAdequacySurface.lean` (`statement`), `Lean/Screen/LocalFaceMaxwellAction.lean` (`statement`), `claims/frozen_prediction_register.json` (`conditional_consumer`), `docs/FROZEN_PREDICTION_LADDER.md` (`conditional_consumer`), `Lean/Screen/TemporalMaxwellEvolution.lean` (`statement`), `Lean/Geometry/CommonWorldIslandBridge.lean` (`statement`).
+- Disposition note: Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies an exact declared-step leapfrog evolution with continuity, energy, gauge, static-Coulomb, and wave receipts; a calibrated frame/scale, physical source or readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open.
 
 ### PR-54 source gauge-field, current, and action attachment
 
@@ -541,8 +545,40 @@ No registered premise supplies a time-indexed or Cauchy-region interface togethe
 The bounded exterior-matter receipts supply the five-mode carrier V = C^3 + C^2 with trace-balanced integer charges q = 6Y = (-2, 3), omit exterior degrees zero and five, and use the ten remaining nontrivial isotypic rows with their committed color and weak dimensions, q6 column, exterior parity, and conjugation. The finite selection domain is exactly the 2^10 subsets of that table; admissibility requires nonemptiness, no row together with its conjugate, and vanishing of the displayed mixed gravitational-U(1), SU(3)^2 U(1), SU(2)^2 U(1), and U(1)^3 sums. This declared charged rank-fifteen exterior-table and mask grammar is distinct from the separately frozen PR-12 class, whose candidates have dimension at most twelve and zero abelian charges. Neither class contains the other. PR-59 neither source-selects physical matter nor proves completeness against other carriers, direct sums, vectorlike additions, neutral singlets, or light sectors.
 
 - Type `selection_rule`; disposition `remove`; consumed by [#734](https://github.com/FloatingPragma/observer-patch-holography/issues/734), [#735](https://github.com/FloatingPragma/observer-patch-holography/issues/735), [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736), [#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744), [#745](https://github.com/FloatingPragma/observer-patch-holography/issues/745).
-- Evidence: `claims/assumption_dictionary.md` (`statement`), `Lean/Screen/ExteriorSelection.lean` (`conditional_consumer`), `Lean/Screen/ExteriorComponentBridge.lean` (`conditional_consumer`), `Lean/Screen/QuantumMatterIntegration.lean` (`conditional_consumer`), `Lean/Screen/SMStructureAdequacySurface.lean` (`conditional_consumer`), `code/a5_closure/exterior_sm_completion.py` (`conditional_consumer`), `code/a5_closure/super_tannakian_matter_lift_certificate.py` (`conditional_consumer`), `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex` (`conditional_consumer`), `Lean/Screen/ElectroweakBreakingComposition.lean` (`conditional_consumer`), `Lean/Screen/GlobalFormCharacterDescent.lean` (`conditional_consumer`), `Lean/Screen/FermionSectorAssembly.lean` (`conditional_consumer`), `Lean/Screen/NeutralCurrentDictionary.lean` (`conditional_consumer`).
+- Evidence: `claims/assumption_dictionary.md` (`statement`), `Lean/Screen/ExteriorSelection.lean` (`conditional_consumer`), `Lean/Screen/ExteriorComponentBridge.lean` (`conditional_consumer`), `Lean/Screen/QuantumMatterIntegration.lean` (`conditional_consumer`), `Lean/Screen/SMStructureAdequacySurface.lean` (`conditional_consumer`), `code/a5_closure/exterior_sm_completion.py` (`conditional_consumer`), `code/a5_closure/super_tannakian_matter_lift_certificate.py` (`conditional_consumer`), `paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex` (`conditional_consumer`), `Lean/Screen/ElectroweakBreakingComposition.lean` (`conditional_consumer`), `Lean/Screen/GlobalFormCharacterDescent.lean` (`conditional_consumer`), `Lean/Screen/FermionSectorAssembly.lean` (`conditional_consumer`), `Lean/Screen/NeutralCurrentDictionary.lean` (`conditional_consumer`), `Lean/Screen/ChargedCurrentDictionary.lean` (`conditional_consumer`).
 - Disposition note: Removal needs a source-selected five-mode carrier and exterior table together with outcome-independent completeness against the relevant alternative matter carriers, or a genuinely fresh preregistered replacement grammar spanning them. PR-12 is a separate negative-control and search class, not a superset from which PR-59 can be selected. The two surviving masks are exact only inside the declared PR-59 table.
+
+### PR-60 admissible scheduler class: mismatch non-increase clause
+
+Every supported step of an admissible scheduler on the two-register repair carrier does not increase the declared defect mismatch, one unit per raised private defect flag. Typed as the mismatch_nonincrease clause of ObservableNormalForms.ProtectedObstructions.SchedulerClass.AdmissibleScheduler in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean; the all-scheduler defect cut consumes exactly this clause.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean` (`conditional_consumer`).
+- Disposition note: Declared clause of the admissible scheduler class; the only class-constraint row consumed by an obstruction theorem in the committed slice (all_scheduler_defect_cut). Consumed by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT. Promotion into the basis is a recorded register decision; no source theorem produces the clause.
+
+### PR-61 admissible scheduler class: single-register locality clause
+
+Every supported step writes at most one of the two registers, typed as the locality clause over the declared LocalMove grammar in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean. Declared; no obstruction theorem consumes it.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean` (`statement`).
+- Disposition note: Declared clause of the admissible scheduler class; typed but consumed by no obstruction theorem in the committed slice. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT, whose status records the clause as not load-bearing.
+
+### PR-62 admissible scheduler class: unit expected capacity clause
+
+The expected declared capacity spend of every step, stepCost = privateCost + sharedCost integrated against the kernel row, is at most one unit, typed as the capacity_bound clause in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean. Declared; no obstruction theorem consumes it.
+
+- Type `structural_rule`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean` (`statement`).
+- Disposition note: Declared clause of the admissible scheduler class; typed but consumed by no obstruction theorem in the committed slice. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT, whose status records the clause as not load-bearing.
+
+### PR-63 two-register capacity-split reading
+
+The first register of the committed two-bit repair carrier is read as the shared network-facing record and the second as the private local defect flag; privateCost charges one unit per private write and sharedCost one unit per shared write, and the self-update-only and network-update-only sub-classes are their zero-spend loci. The reading is a declaration, not a derivation.
+
+- Type `representation_choice`; disposition `axiomatize`; consumed by [#750](https://github.com/FloatingPragma/observer-patch-holography/issues/750).
+- Evidence: `Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean` (`statement`).
+- Disposition note: Declared reading behind the capacity split; the typed costs and sub-class loci are machine-checked in the evidence module. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT; no source theorem selects the reading.
 
 ## What the dispositions mean
 

@@ -16,6 +16,7 @@ import Geometry.CausalOrderComposition
 import Geometry.EventPopulationChartInterface
 import Geometry.CommonWorldKinematicsWitness
 import Geometry.RestFiberShellTransport
+import Geometry.CommonWorldIslandBridge
 
 /-!
 # OPH construction geometry umbrella

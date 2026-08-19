@@ -192,6 +192,12 @@ NON_OBSERVATION_SURFACE_CONSUMERS = {
     (736, "PR-59"): "mass and constants exterior-table boundary",
     (744, "PR-59"): "QCD and baryon-census exterior-table boundary",
     (745, "PR-59"): "electroweak exterior-table boundary",
+    (740, "PR-18"): "common-world island-bridge shell-readout surface; OL-N1 stays owed and carries no consumed premises",
+    (740, "PR-19"): "common-world island-bridge shell-readout surface; OL-N1 stays owed and carries no consumed premises",
+    (750, "PR-60"): "declared scheduler-class surface; the consuming lane has no observation row",
+    (750, "PR-61"): "declared scheduler-class surface; the consuming lane has no observation row",
+    (750, "PR-62"): "declared scheduler-class surface; the consuming lane has no observation row",
+    (750, "PR-63"): "declared scheduler-class capacity-split surface; the consuming lane has no observation row",
 }
 
 BASE_ROW_KEYS = {

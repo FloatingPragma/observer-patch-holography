@@ -86,6 +86,7 @@ lean_lib «OPHScreen» where
     `MatterGrammarIndexBridge, `ElectroweakBreakingComposition,
     `AssembledActionComposition, `GlobalFormCharacterDescent,
     `FermionSectorAssembly, `NeutralCurrentDictionary,
+    `ChargedCurrentDictionary, `GaugeSectorBracketCompletion,
     `ExteriorComponentBridge, `QuantumMatterIntegration,
     `B10EdgeCenterAction,
     `B10QuantumLimitations, `CarrierUniqueness]

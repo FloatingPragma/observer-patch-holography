@@ -10,6 +10,7 @@ import ObservableNormalForms.Stochastic
 import ObservableNormalForms.ConditionalResampling
 import ObservableNormalForms.ProtectedObstructions
 import ObservableNormalForms.Examples.ProtectedObstructions
+import ObservableNormalForms.SchedulerClassObstructions
 import ObservableNormalForms.Examples.Rule90
 import ObservableNormalForms.AxiomAudit
 

@@ -126,7 +126,13 @@
   "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
   "OPH-GEOMETRY-REST-FIBER-SHELL-TRANSPORT",
   "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
-  "OPH-QFT-JOIN-RECORD-NET-MORPHISM"
+  "OPH-QFT-JOIN-RECORD-NET-MORPHISM",
+  "OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT",
+  "OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
+  "OPH-QFT-OPERATOR-LAYER-MORPHISM-BOUNDARY",
+  "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
+  "OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
+  "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY"
  ],
  "edges": [
   {
@@ -1133,6 +1139,46 @@
    "from": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
    "to": "OPH-QFT-JOIN-RECORD-NET-MORPHISM",
    "role": "supplies the committed hinge-fibered join, embeddings, hinge restriction, and join evolution that the record-layer net morphisms equip with regional structure"
+  },
+  {
+   "from": "OPH-CONS-PROTECTED-BEHAVIOR-PROFILE",
+   "to": "OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT",
+   "role": "supplies the committed two-register repair carrier, fixture kernels, and this-scheduler protected-obstruction profile that the declared scheduler class quantifies over"
+  },
+  {
+   "from": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+   "to": "OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
+   "role": "supplies the attained inhabitant of the ideal phase POVM count model, the committed run state, and the produced count literals the additivity boundary is stated on"
+  },
+  {
+   "from": "OPH-QFT-JOIN-RECORD-NET-MORPHISM",
+   "to": "OPH-QFT-OPERATOR-LAYER-MORPHISM-BOUNDARY",
+   "role": "supplies the committed record layers, regional algebras, conditional expectations, and the operator-layer residual the morphism boundary makes exact"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
+   "role": "supplies the committed two-island witness record and inhabitant the bridged record extends by the cross-island dictionary"
+  },
+  {
+   "from": "OPH-GEOMETRY-REST-FIBER-SHELL-TRANSPORT",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
+   "role": "supplies the committed boost-shear rest-fiber isometry and screen source chain the bridge composes and carries into the rest fiber"
+  },
+  {
+   "from": "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION",
+   "to": "OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
+   "role": "supplies the committed assembled action, premise bundle, diagonal pairing, and constraint-row receipts the invariant-form completion extends and factors through"
+  },
+  {
+   "from": "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+   "to": "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
+   "role": "supplies the committed electroweak-breaking premise bundle, broken directions, and infinitesimal action the charged dictionary is derived on"
+  },
+  {
+   "from": "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
+   "to": "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
+   "role": "supplies the committed photon and Z directions and neutral units gZ and e consumed by the charge-step and commutator-join receipts"
   }
  ]
 }

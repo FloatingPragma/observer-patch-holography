@@ -43,6 +43,7 @@ import QFT.InheritanceMatrixGuards
 import QFT.FiniteUnitaryScatteringNoGo
 import QFT.CarrierJoinTransport
 import QFT.JoinNetMorphism
+import QFT.OperatorLayerMorphismBoundary
 
 /-!
 # OPH construction QFT umbrella

@@ -40,7 +40,7 @@ TYPES = (
     "numerical_input",
 )
 DISPOSITIONS = ("remove", "axiomatize", "import")
-LANE_ISSUES = frozenset((*range(728, 738), 740, 742, 743, 744, 745))
+LANE_ISSUES = frozenset((*range(728, 738), 740, 742, 743, 744, 745, 750))
 EVIDENCE_ROLES = {
     "statement",
     "conditional_consumer",
@@ -360,6 +360,30 @@ EXPECTED_ROWS = (
         "declared five-mode exterior component and mask-selection grammar",
         "selection_rule",
         "remove",
+    ),
+    (
+        "PR-60",
+        "admissible scheduler class: mismatch non-increase clause",
+        "structural_rule",
+        "axiomatize",
+    ),
+    (
+        "PR-61",
+        "admissible scheduler class: single-register locality clause",
+        "structural_rule",
+        "axiomatize",
+    ),
+    (
+        "PR-62",
+        "admissible scheduler class: unit expected capacity clause",
+        "structural_rule",
+        "axiomatize",
+    ),
+    (
+        "PR-63",
+        "two-register capacity-split reading",
+        "representation_choice",
+        "axiomatize",
     ),
 )
 

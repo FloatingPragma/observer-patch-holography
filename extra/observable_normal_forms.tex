@@ -2199,6 +2199,30 @@ are standard; the OPH-specific step is to assemble them around protected
 observations and declared sources, recover the existing behavior cuts, and
 retain every source, target, quotient, and scheduler premise during transport.
 
+\subsection{A declared scheduler class and its capacity split}
+
+The machine-checked development fixes one declared admissible scheduler
+class on the two-bit repair carrier. A scheduler in the class is a finite
+Markov kernel whose supported steps do not increase a declared defect
+mismatch, write at most one of the two registers, and spend at most one
+unit of expected declared capacity per step. Reading the observed register
+as the shared network record and the defect flag as a private register
+splits each step cost into a shared and a private part and cuts out two
+sub-classes: the self-update-only schedulers, which never write the shared
+register, and the network-update-only schedulers, which never write the
+private one. Three results hold on this carrier. Under every scheduler in
+the class the defective fiber is unreachable from every consistent state,
+while an explicit mismatch-violating kernel outside the class reaches it
+with probability one. The fiber with the shared register flipped is
+unreachable under every self-update-only scheduler and is hit with
+probability one by an explicit network-update-only member, so a positive
+hit prices at least one shared write. The almost-sure hitting hypothesis of
+the fine two-bit fixture is discharged by the declared repair kernel, and
+the in-class identity scheduler witnesses that the class constraints do not
+force it. The class is a declaration on this finite carrier: the locality
+and capacity clauses are typed and unconsumed by the obstruction theorems,
+and no scheduler-selection claim is made.
+
 \subsection{Limitations}
 
 The theory assumes a declared meaningful quotient, consistent set, residual, observation metric, and refinement map.  It does not select those objects.  In particular:
@@ -2211,7 +2235,9 @@ The theory assumes a declared meaningful quotient, consistent set, residual, obs
 \item a finite protected profile is relative to one declared scheduler and
       active-source family; it gives no rate, expected hitting time, mixing
       bound, stationary law, infinite-state extension, or refinement-tower
-      conclusion;
+      conclusion; results quantified over the declared admissible class are
+      relative to that class declaration and to the two-register
+      capacity-split reading;
 \item coordinatewise cut comparison is not a scalar score, total order, or
       family-wide optimum, and exact finite transport is not implementation or
       product refinement.

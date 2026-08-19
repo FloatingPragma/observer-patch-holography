@@ -56,13 +56,15 @@
    ],
    "evidence": [
     "Lean/EventAlgebra/FiniteBuschGleason.lean",
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "Lean/EventAlgebra/OperationalAdditivityBoundary.lean"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/FiniteBuschGleason.lean": "conditional_consumer",
-    "claims/assumption_dictionary.md": "statement"
+    "claims/assumption_dictionary.md": "statement",
+    "Lean/EventAlgebra/OperationalAdditivityBoundary.lean": "no_go"
    },
-   "notes": "Removal needs a source-produced complex-tomographically-complete effect and instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation."
+   "notes": "Removal needs a source-produced complex-tomographically-complete effect and instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation. Lean/EventAlgebra/OperationalAdditivityBoundary.lean locates the row exactly on the committed produced system: the coexistent sums of two committed effects are precisely the unit resolutions (every committed effect has trace one, and in dimension two two trace-one effects coexist only as complements), any assignment sending the sure effect to one and normalised in each context is additive on all of them, and a machine-checked countermodel matching every produced count frequency, probability-valued on all effects, complement-consistent, and additive on every committed coexistent sum fails additivity at an explicit effect pair (35/64 against 143/256) and is the Born functional of no state; conversely full additivity plus the produced counts forces the run Born valuation and the committed run state uniquely. The committed produced system therefore cannot supply this premise; its removal still needs coexistent sums beyond the unit resolutions with an operational derivation of their additivity."
   },
   {
    "id": "PR-04",
@@ -416,15 +418,18 @@
    "disposition": "remove",
    "statement": "A source distribution on the committed three-dimensional completion carrier is read through one radial strength profile: the flux through a shell depends on the shell radius alone. The premise enters as the strength field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean and is a symmetry declaration; no source theorem produces it.",
    "consuming_lanes": [
-    729
+    729,
+    740
    ],
    "evidence": [
     "Lean/Geometry/InverseSquareShellLaw.lean",
-    "Lean/Geometry/RestFiberShellTransport.lean"
+    "Lean/Geometry/RestFiberShellTransport.lean",
+    "Lean/Geometry/CommonWorldIslandBridge.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/InverseSquareShellLaw.lean": "conditional_consumer",
-    "Lean/Geometry/RestFiberShellTransport.lean": "conditional_consumer"
+    "Lean/Geometry/RestFiberShellTransport.lean": "conditional_consumer",
+    "Lean/Geometry/CommonWorldIslandBridge.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived isotropy statement for repair readback on the completion carrier."
   },
@@ -435,15 +440,18 @@
    "disposition": "remove",
    "statement": "The radial strength times the shell content (the derivative of the ball volume) is the constant source charge on every positive shell: a Gauss-shaped conservation declaration entering as the normalized field of RadialFluxData in Lean/Geometry/InverseSquareShellLaw.lean. Under it the inverse-square law is forced with the exponent supplied by the carrier dimension; no source theorem produces the normalization itself.",
    "consuming_lanes": [
-    729
+    729,
+    740
    ],
    "evidence": [
     "Lean/Geometry/InverseSquareShellLaw.lean",
-    "Lean/Geometry/RestFiberShellTransport.lean"
+    "Lean/Geometry/RestFiberShellTransport.lean",
+    "Lean/Geometry/CommonWorldIslandBridge.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/InverseSquareShellLaw.lean": "conditional_consumer",
-    "Lean/Geometry/RestFiberShellTransport.lean": "conditional_consumer"
+    "Lean/Geometry/RestFiberShellTransport.lean": "conditional_consumer",
+    "Lean/Geometry/CommonWorldIslandBridge.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived flux-conservation statement, for which the discrete Gauss receipts on the fixed carrier are the committed precursor."
   },
@@ -691,14 +699,16 @@
     "Lean/QFT/JointSlotFactorisation.lean",
     "Lean/QFT/SourceCorrelationCapstone.lean",
     "Lean/QFT/CarrierJoinTransport.lean",
-    "Lean/QFT/JoinNetMorphism.lean"
+    "Lean/QFT/JoinNetMorphism.lean",
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/JointSlotFactorisation.lean": "conditional_consumer",
     "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer",
     "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer",
-    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer"
+    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer",
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean": "conditional_consumer"
    },
    "notes": "Removal requires source selection of the joint carrier; the bounded closure of historical issue #692 records correlation and identification receipts on the support-disjoint pair without producing the carrier."
   },
@@ -715,13 +725,15 @@
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/TwoSlotCPNetWitness.lean",
     "Lean/QFT/CarrierJoinTransport.lean",
-    "Lean/QFT/JoinNetMorphism.lean"
+    "Lean/QFT/JoinNetMorphism.lean",
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/TwoSlotCPNetWitness.lean": "conditional_consumer",
     "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer",
-    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer"
+    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer",
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-derived region lattice; the committed nets carry no region system beyond the diamond."
   },
@@ -739,14 +751,16 @@
     "Lean/QFT/JointSlotFactorisation.lean",
     "Lean/QFT/SourceCorrelationCapstone.lean",
     "Lean/QFT/CarrierJoinTransport.lean",
-    "Lean/QFT/JoinNetMorphism.lean"
+    "Lean/QFT/JoinNetMorphism.lean",
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/JointSlotFactorisation.lean": "conditional_consumer",
     "Lean/QFT/SourceCorrelationCapstone.lean": "conditional_consumer",
     "Lean/QFT/CarrierJoinTransport.lean": "conditional_consumer",
-    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer"
+    "Lean/QFT/JoinNetMorphism.lean": "conditional_consumer",
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean": "conditional_consumer"
    },
    "notes": "Removal requires a source-produced factorisation of the joint algebra; the disjointness datum grounds the 86/247 instance without deriving the embedding form."
   },
@@ -1057,14 +1071,16 @@
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
     "Lean/Screen/Z6Descent.lean",
     "Lean/Screen/ElectroweakBreakingComposition.lean",
-    "Lean/Screen/NeutralCurrentDictionary.lean"
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex": "conditional_consumer",
     "Lean/Screen/Z6Descent.lean": "statement",
     "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
-    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer"
+    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer",
+    "Lean/Screen/ChargedCurrentDictionary.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source action that selects the scalar carrier and fixes its kinetic normalization rather than assuming the one-Higgs branch."
   },
@@ -1161,7 +1177,8 @@
     "Lean/Geometry/EventFrameSoldering.lean",
     "claims/assumption_dictionary.md",
     "Lean/QFT/CarrierJoinTransport.lean",
-    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean"
+    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
+    "Lean/Geometry/CommonWorldIslandBridge.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/CanonicalLorentzModule.lean": "statement",
@@ -1170,9 +1187,10 @@
     "Lean/Geometry/EventFrameSoldering.lean": "statement",
     "claims/assumption_dictionary.md": "statement",
     "Lean/QFT/CarrierJoinTransport.lean": "statement",
-    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean": "no_go"
+    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean": "no_go",
+    "Lean/Geometry/CommonWorldIslandBridge.lean": "statement"
    },
-   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open."
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open."
   },
   {
    "id": "PR-53",
@@ -1190,16 +1208,18 @@
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "claims/frozen_prediction_register.json",
     "docs/FROZEN_PREDICTION_LADDER.md",
-    "Lean/Screen/TemporalMaxwellEvolution.lean"
+    "Lean/Screen/TemporalMaxwellEvolution.lean",
+    "Lean/Geometry/CommonWorldIslandBridge.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
     "Lean/Screen/LocalFaceMaxwellAction.lean": "statement",
     "claims/frozen_prediction_register.json": "conditional_consumer",
     "docs/FROZEN_PREDICTION_LADDER.md": "conditional_consumer",
-    "Lean/Screen/TemporalMaxwellEvolution.lean": "statement"
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "statement",
+    "Lean/Geometry/CommonWorldIslandBridge.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies an exact declared-step leapfrog evolution with continuity, energy, gauge, static-Coulomb, and wave receipts; a calibrated frame/scale, physical source or readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met."
+   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies an exact declared-step leapfrog evolution with continuity, energy, gauge, static-Coulomb, and wave receipts; a calibrated frame/scale, physical source or readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open."
   },
   {
    "id": "PR-54",
@@ -1348,7 +1368,8 @@
     "Lean/Screen/ElectroweakBreakingComposition.lean",
     "Lean/Screen/GlobalFormCharacterDescent.lean",
     "Lean/Screen/FermionSectorAssembly.lean",
-    "Lean/Screen/NeutralCurrentDictionary.lean"
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
@@ -1362,9 +1383,78 @@
     "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
     "Lean/Screen/GlobalFormCharacterDescent.lean": "conditional_consumer",
     "Lean/Screen/FermionSectorAssembly.lean": "conditional_consumer",
-    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer"
+    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer",
+    "Lean/Screen/ChargedCurrentDictionary.lean": "conditional_consumer"
    },
    "notes": "Removal needs a source-selected five-mode carrier and exterior table together with outcome-independent completeness against the relevant alternative matter carriers, or a genuinely fresh preregistered replacement grammar spanning them. PR-12 is a separate negative-control and search class, not a superset from which PR-59 can be selected. The two surviving masks are exact only inside the declared PR-59 table."
+  },
+  {
+   "id": "PR-60",
+   "name": "admissible scheduler class: mismatch non-increase clause",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "statement": "Every supported step of an admissible scheduler on the two-register repair carrier does not increase the declared defect mismatch, one unit per raised private defect flag. Typed as the mismatch_nonincrease clause of ObservableNormalForms.ProtectedObstructions.SchedulerClass.AdmissibleScheduler in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean; the all-scheduler defect cut consumes exactly this clause.",
+   "consuming_lanes": [
+    750
+   ],
+   "evidence": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "evidence_roles": {
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean": "conditional_consumer"
+   },
+   "notes": "Declared clause of the admissible scheduler class; the only class-constraint row consumed by an obstruction theorem in the committed slice (all_scheduler_defect_cut). Consumed by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT. Promotion into the basis is a recorded register decision; no source theorem produces the clause."
+  },
+  {
+   "id": "PR-61",
+   "name": "admissible scheduler class: single-register locality clause",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "statement": "Every supported step writes at most one of the two registers, typed as the locality clause over the declared LocalMove grammar in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean. Declared; no obstruction theorem consumes it.",
+   "consuming_lanes": [
+    750
+   ],
+   "evidence": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "evidence_roles": {
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean": "statement"
+   },
+   "notes": "Declared clause of the admissible scheduler class; typed but consumed by no obstruction theorem in the committed slice. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT, whose status records the clause as not load-bearing."
+  },
+  {
+   "id": "PR-62",
+   "name": "admissible scheduler class: unit expected capacity clause",
+   "type": "structural_rule",
+   "disposition": "axiomatize",
+   "statement": "The expected declared capacity spend of every step, stepCost = privateCost + sharedCost integrated against the kernel row, is at most one unit, typed as the capacity_bound clause in Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean. Declared; no obstruction theorem consumes it.",
+   "consuming_lanes": [
+    750
+   ],
+   "evidence": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "evidence_roles": {
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean": "statement"
+   },
+   "notes": "Declared clause of the admissible scheduler class; typed but consumed by no obstruction theorem in the committed slice. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT, whose status records the clause as not load-bearing."
+  },
+  {
+   "id": "PR-63",
+   "name": "two-register capacity-split reading",
+   "type": "representation_choice",
+   "disposition": "axiomatize",
+   "statement": "The first register of the committed two-bit repair carrier is read as the shared network-facing record and the second as the private local defect flag; privateCost charges one unit per private write and sharedCost one unit per shared write, and the self-update-only and network-update-only sub-classes are their zero-spend loci. The reading is a declaration, not a derivation.",
+   "consuming_lanes": [
+    750
+   ],
+   "evidence": [
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+   ],
+   "evidence_roles": {
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean": "statement"
+   },
+   "notes": "Declared reading behind the capacity split; the typed costs and sub-class loci are machine-checked in the evidence module. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT; no source theorem selects the reading."
   }
  ]
 }

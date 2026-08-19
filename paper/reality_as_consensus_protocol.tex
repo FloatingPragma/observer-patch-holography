@@ -2737,6 +2737,34 @@ restriction.  The operator-layer net morphism and the tower morphism stay
 open, and physical time, causality, and spacetime attachment stay open
 under the registered premises.
 
+\paragraph{The operator-layer morphism boundary.}
+The operator-layer residual is made exact on the committed 86/247 objects
+in \path{Lean/QFT/OperatorLayerMorphismBoundary.lean}.  In the
+embedding direction the record function carrier enters the joint matrix
+algebra as an injective unital star algebra homomorphism, the diagonal
+embedding; its image lies in the committed regional algebra of a region
+exactly when the record function lies in the record layer of that region
+(\texttt{diagonalStarHom\_mem\_regionMap\_iff}), and it intertwines the
+committed conditional expectations with the record-layer expectations on
+every region.  In the projection direction the committed left-slot
+conditional expectation is positive, trace preserving, and unital, and
+restricts to the record-layer expectation on diagonals; a committed
+right-slot projector witnesses that it is not multiplicative
+(\texttt{leftSlotExpectation\_not\_multiplicative}), and that grade is the
+ceiling.  No map from the joint algebra to the record carrier is
+multiplicative on the committed left regional algebra while restricting to
+the record-layer morphism on diagonals: the committed noncommuting witness
+pair has both of its products diagonal, and any multiplicative map into a
+commutative target identifies them
+(\texttt{no\_multiplicative\_record\_projection247}).  No unital algebra
+homomorphism carries the committed left regional algebra, or the ambient
+joint algebra, into the record carrier at all
+(\texttt{twoSlot247\_left\_no\_record\_algHom}), through the committed
+matrix-factor scalar obstruction.  The boundary is an asymmetry: embedding
+at the star-homomorphism grade, projection at the positive unital
+trace-preserving expectation grade, and nothing stronger.  Net-to-net and
+tower morphism structure at the operator layer stays open.
+
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
 \texttt{TimeIndexedNetEvolution} over the committed 86/247 diamond in both
