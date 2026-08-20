@@ -2767,6 +2767,39 @@ classify complete positivity, idempotence, bimodularity, nonlinear maps,
 different targets, or enriched categorical structures. Net-to-net and tower
 morphism structure at the operator layer stays open.
 
+\paragraph{The normed completion of the colimit.}
+The consensus tower supplies a directed family of finite matrix observable
+algebras whose connecting maps are star algebra homomorphisms, and its
+filtered colimit carries an inductive-limit seminorm: the value at a class is
+the infimum, over the declared refinements of one representative, of the stage
+norm of the refined representative. Contractivity of the connecting maps makes
+that value independent of the chosen representative. The stage norms of one
+representative form a subset of a finite set determined by the spectrum of the
+product of the representative with its adjoint, so the infimum is attained at
+a declared refinement and every class has a representative whose stage norm no
+declared refinement changes. Attainment converts the seminorm into an exact
+kernel statement: a class has seminorm zero exactly when some declared
+refinement annihilates its representative, which is the refinement-null kernel
+of the colimit itself. The seminorm is therefore a norm, the colimit is a
+normed star algebra satisfying the C*-identity for it, and its uniform
+completion is a C*-algebra: it carries a star ring structure extended from the
+dense image together with an isometric star and the C*-identity. The regional
+structure transports to the completion: the closures of the images of the
+limit local algebras are isotone, independent of the regulator at which a
+region is presented, elementwise commuting for declared-disjoint regions, and
+equal along the order-theoretic Cauchy embeddings of the tower, and each of
+those four statements is instantiated on a committed witness net whose top
+region carries an element of norm one. Two controls fix the boundary of the
+construction: a tower whose connecting map annihilates the unit carries a
+nonzero stage element of stage norm one whose limit seminorm is zero, and a
+conjugation of the two-by-two stage by a diagonal scaling increases the norm
+of a matrix unit, so the star clause of the connecting maps is the clause the
+contractivity step consumes. The construction is algebraic and order-theoretic
+throughout, and the equality it transports along Cauchy embeddings is the
+order-theoretic equality of the tower, and the time-indexed evolution
+interface and every physical attachment are open premises.
+(\path{Lean/QFT/ColimitNormedCompletion.lean}).
+
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
 \texttt{TimeIndexedNetEvolution} over the committed 86/247 diamond in both

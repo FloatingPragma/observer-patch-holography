@@ -44,6 +44,7 @@ import QFT.FiniteUnitaryScatteringNoGo
 import QFT.CarrierJoinTransport
 import QFT.JoinNetMorphism
 import QFT.OperatorLayerMorphismBoundary
+import QFT.ColimitNormedCompletion
 
 /-!
 # OPH construction QFT umbrella

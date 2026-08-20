@@ -138,7 +138,8 @@
   "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
   "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
   "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
-  "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN"
+  "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
+  "OPH-QFT-COLIMIT-NORMED-COMPLETION"
  ],
  "edges": [
   {
@@ -1245,6 +1246,16 @@
    "from": "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
    "to": "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
    "role": "supplies the register constructor instantiated at the repair law whose reference is the run-state diagonal"
+  },
+  {
+   "from": "OPH-CONSENSUS-TOWER-INTERFACE",
+   "to": "OPH-QFT-COLIMIT-NORMED-COMPLETION",
+   "role": "supplies the directed regulator preorder, the finite matrix stage algebras, and the star algebra connecting maps whose contractivity carries the limit seminorm; it supplies no norm on the colimit, no completion, and no time-indexed interface"
+  },
+  {
+   "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
+   "to": "OPH-QFT-COLIMIT-NORMED-COMPLETION",
+   "role": "supplies the finite region-indexed net, the declared disjointness relation, and the committed support-graded witness on which the four transported regional statements are instantiated; it supplies no physical causal region, evolution, or spacetime attachment"
   }
  ]
 }

@@ -1352,15 +1352,17 @@
     "Lean/QFT/StructuralNetAdequacySurface.lean",
     "Lean/QFT/PathTimeSliceInterface.lean",
     "Lean/QFT/TripleCarrierJoin.lean",
-    "Lean/QFT/CarrierJoinTransport.lean"
+    "Lean/QFT/CarrierJoinTransport.lean",
+    "Lean/QFT/ColimitNormedCompletion.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
     "Lean/QFT/PathTimeSliceInterface.lean": "statement",
     "Lean/QFT/TripleCarrierJoin.lean": "statement",
-    "Lean/QFT/CarrierJoinTransport.lean": "statement"
+    "Lean/QFT/CarrierJoinTransport.lean": "statement",
+    "Lean/QFT/ColimitNormedCompletion.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open. ColimitNormedCompletion transports the committed order-theoretic Cauchy-embedding equality to the closures of the limit local algebras in the C*-completion of the colimit; the time-indexed net-compatible evolution and slice-generation interface stay open."
   },
   {
    "id": "PR-59",

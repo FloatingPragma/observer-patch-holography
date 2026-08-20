@@ -6045,6 +6045,45 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-QFT-COLIMIT-NORMED-COMPLETION",
+      "statement": "On the committed filtered-colimit layer of a consensus tower, the inductive-limit C*-seminorm is constructed and its kernel is determined exactly. Each stage carries the declared L2 operator norm of its finite complex matrix algebra, every connecting map of the committed interface is a star algebra homomorphism and therefore norm nonincreasing, and the seminorm of a colimit class is the infimum over the declared refinements of one representative of the stage norm of the refined representative, a value independent of the representative. The stage value set of one representative sits inside the finite set built from the spectrum of the product of the representative with its adjoint, so the defining infimum is attained at a declared refinement and every class has a representative whose stage norm no declared refinement changes. The seminorm satisfies the triangle inequality, absolute homogeneity over the complex scalars, submultiplicativity, star invariance, and the C*-identity, and a stage class has seminorm zero exactly when some declared refinement sends its representative to zero. Composed with the committed refinement-null kernel receipt this makes the seminorm a norm on the committed colimit, so the colimit carries normed ring, normed algebra, normed star group, and C*-ring structures whose norm is definitionally the limit seminorm, and no quotient object is constructed. The uniform completion of the colimit carries a star ring structure extended by uniform continuity from the isometric star of the colimit, an isometric star, the star module law, the normed algebra law for a noncommutative base, and the C*-identity, so the completion is a C*-algebra into which the colimit embeds isometrically with dense range, and the stage cocone maps into the completion are refinement compatible with jointly dense images. Isotony, refinement independence, elementwise commutation for declared-disjoint regions, and the committed order-theoretic Cauchy-embedding equality transport to the closures of the images of the committed limit local algebras, and each of the four transported statements is instantiated on the committed support-graded witness net, whose top region carries a transported element of norm one. Two controls delimit the construction: on the committed collapsing tower a nonzero stage element of stage norm one has limit seminorm zero, and a unital algebra homomorphism of the two-by-two stage that conjugates by a diagonal scaling increases the norm of a matrix unit and therefore fails star preservation, so the star clause of the connecting maps is what the contractivity step consumes. The construction is algebraic and order-theoretic throughout. No Lorentzian, spacetime, causal, physical time, or continuum reading is attached; no field, field operator, vacuum state, Wightman or Haag-Kastler axiom, or physical Hilbert space representation is constructed; the transported local algebras are not claimed to exhaust the completion or to satisfy Haag duality, additivity, or nuclearity; and no uniqueness of the constructed norm among C*-norms on the colimit is claimed.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_inductive_limit_C_star_seminorm_kernel_and_completion_on_the_committed_colimit",
+      "assumptions": [
+        "directed_finite_consensus_tower_data",
+        "finite_full_private_matrix_block",
+        "physical_time_and_spacetime_attachment_deferred"
+      ],
+      "imported_results": [
+        "finite_dimensional_complex_matrix_C_star_algebra",
+        "spectral_radius_of_selfadjoint_elements",
+        "uniform_completion_of_normed_rings"
+      ],
+      "oph_specific_delta": "The committed filtered colimit of a consensus tower is given its analytic layer with the kernel proved: attainment of the defining infimum is derived from finiteness of the stage value set through the spectrum of the finite matrix stages, so the seminorm kernel is identified with the committed refinement-null kernel and the colimit carries the norm directly. The completion is assembled with the two structures the ambient library leaves unregistered, the star of a completion and the normed algebra law over a noncommutative base, each declared in a scope of this module so that no global instance choice is exported. The four regional statements of the committed limit layer are transported to closures and each one is instantiated on the committed witness net, and two controls exhibit the collapsing kernel and the failure of contractivity for a non-star homomorphism.",
+      "novelty_type": "inductive_limit_C_star_seminorm_kernel_and_completion_on_a_committed_consensus_colimit",
+      "evidence": [
+        "Lean/QFT/ColimitNormedCompletion.lean",
+        "Lean/QFT/LocallyCovariantLimit.lean",
+        "paper/reality_as_consensus_protocol.tex"
+      ],
+      "falsifier": "The claim fails if the stage value set of some representative is infinite or the defining infimum is unattained, if the limit seminorm depends on the representative, if any seminorm law or the C*-identity fails on the colimit, if some class of limit seminorm zero is carried to zero by no declared refinement, if some nonzero class has limit seminorm zero, if the constructed star of the completion violates a star ring law or the isometry, if the completion fails the C*-identity, if the canonical map into the completion fails isometry or dense range, if any of the four transported regional statements fails at the closures, if any of the four instantiations on the committed support-graded net fails, if the transported local algebra of the committed top region carries no element of norm one, or if either control theorem fails.",
+      "scope_if_false": "Only the limit-norm and completion packet falls. The committed filtered colimit, its universal property, the committed limit local algebras and their order-theoretic receipts, the committed witness and collapsing towers, and every physical time, causal, spacetime, or continuum attachment are assessed by their own claims and premise rows.",
+      "status": "exact_limit_norm_kernel_and_C_star_completion_attained__time_indexed_evolution_interface_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

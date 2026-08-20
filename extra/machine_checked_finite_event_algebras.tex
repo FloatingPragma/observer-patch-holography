@@ -81,7 +81,8 @@ maximally entangled witness on a checked slot-locality interface attains the
     $[-1,1]$ obeys the classical bound $2$. An ideal static phase-POVM/count
     model preserves the exact tomography and blindness delimitations, and an
     explicit synthetic inhabitant proves that exact fit alone is not an
-    operational instrument or PR-04 discharge. The artifact pins
+    operational instrument and does not discharge the phase-sensitive-effect
+    premise. The artifact pins
 its Lean and Mathlib revisions and records declaration-level axiom
 dependencies. Complete positivity, a Physlib correspondence, and rank-one
 classicality lie outside the formalization. A
@@ -207,7 +208,7 @@ diagonal state read against four diagonal observables valued in $[-1,1]$;
 \item an ideal static phase-POVM/count-fit structure with conditional
 tomography, exact diagonal/real-closure blindness, and an explicit synthetic
 inhabitant proving that the structure does not type source operations,
-producer receipts, or PR-04 discharge;
+producer receipts, or discharge of the phase-sensitive-effect premise;
 \item an exact determination boundary for that structure: a coordinate
 characterization of the phase-sensitivity clause, run-literal pinning of the
 state diagonal with one free off-diagonal coordinate, affine dependence of
@@ -848,8 +849,7 @@ bound.
 \label{subsec:saturation}
 
 The module \texttt{TsirelsonSaturation.lean} supplies the attainment
-witness. Its carrier objects come from the wider library. The repository
-tracks open physical premises in a numbered register; row PR-44 supplies a
+witness. Its carrier objects come from the wider library. A supplied
 bipartite slot split of the record algebra, committed as the interface
 \texttt{SlotLocalityInterface}, which carries a norm-form Tsirelson bound
 through the theorem \texttt{slot\_locality\_receipts}. The module inhabits
@@ -890,9 +890,9 @@ from the committed theorems, not re-proved.
 The boundary is declared data. The saturating state and the four events
 are declarations of the module; no theorem produces them from committed
 source runs, and no physical regions, spacelike separation, or observer
-instruments are constructed. The register keeps those items open (row
-PR-52), and the receipt consumes the slot split of row PR-44 as a
-supplied datum.
+instruments are constructed. Identification of the finite causal structure with an
+observer-produced physical spacetime stays open, and the receipt consumes the
+bipartite slot split as a supplied datum.
 
 \subsection{The record-diagonal classical delimitation}
 \label{subsec:delimitation}
@@ -916,9 +916,9 @@ delimitation of one fixed diagonal state with four readouts diagonal in the
 same basis, not of arbitrary contextual classical experiments. The Bell
 state and all four attaining settings are real matrices, so the proved gap is
 entanglement, non-diagonal coherence, and noncommutativity; it does not isolate
-the genuinely complex Pauli-$Y$ direction of PR-04, and no theorem asserts
-that the repository's committed phase lift is necessary or sufficient for
-attainment.
+the genuinely complex Pauli-$Y$ direction of the declared phase-sensitive
+effect, and no theorem asserts that the committed phase lift is necessary or
+sufficient for attainment.
 
 The delimitation extends from one fixed counted state to the whole committed
 production surface
@@ -980,7 +980,8 @@ unique state fitting all exact equations
 (\texttt{preparation\_identified\_by\_exact\_fit\_data}). The construction
 \texttt{modelOfIdealPhaseFitData} is equivalent only to the existence of
 \texttt{IdealPhaseFitData} (\texttt{hasIdealPhaseFit\_iff\_data}); this is an
-algebraic fit statement, not a PR-04 discharge theorem.
+algebraic fit statement rather than a theorem establishing the
+phase-sensitive effect.
 
 Two incompleteness controls are exact. Two certified distinct states carry identical Born
 data on every diagonal effect (\texttt{diagonal\_context\_insufficient}),
@@ -1001,12 +1002,12 @@ $(1,1)$. The theorem \texttt{synthetic\_ideal\_phase\_fit} proves that these
 chosen literals inhabit \texttt{HasIdealPhaseFit} without any producer, run,
 operation, or receipt input. Exact finite frequency equality is also not a
 general validation criterion for sampled data. Therefore ideal fit cannot
-certify custody or discharge PR-04. A genuine target needs
+certify custody or establish the phase-sensitive effect. A genuine target needs
 source-attached CP outcome maps, a trace-preserving summed channel,
 operation/readback and common-preparation semantics, producer-bound receipts,
 and a preregistered statistical validation rule (or an explicitly exhaustive
-deterministic semantics). Operational additivity/composition remains a
-separate PR-03 obligation.
+deterministic semantics). Operational additivity and composition remain a
+separate cross-context additivity obligation.
 
 \subsection{Exact determination boundary and the integer receipt window}
 \label{sec:phase-determination}

@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import argparse
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -50,11 +51,41 @@ FLOOR_RE = re.compile(
 )
 
 
+def lean_source_files() -> list[Path]:
+    """Lean sources under ``Lean/`` that git tracks (index entries included).
+
+    Counting tracked files keeps the local gate equal to the CI gate: an
+    untracked module in a working tree would otherwise raise the local count
+    and let a floor overstate the committed library.  Outside a git checkout
+    the walk falls back to the filesystem.
+    """
+    try:
+        listing = subprocess.run(
+            ["git", "-C", str(REPO_ROOT), "ls-files", "-z", "--", "Lean"],
+            check=True,
+            capture_output=True,
+        ).stdout
+    except (OSError, subprocess.CalledProcessError):
+        listing = b""
+    if listing:
+        paths = [
+            REPO_ROOT / entry.decode("utf-8")
+            for entry in listing.split(b"\0")
+            if entry.endswith(b".lean")
+        ]
+    else:
+        paths = list(LEAN_ROOT.rglob("*.lean"))
+    return sorted(
+        path
+        for path in paths
+        if path.is_file()
+        and not any(part.startswith(".") or part == "lake-packages" for part in path.parts)
+    )
+
+
 def count_declarations() -> int:
     total = 0
-    for path in sorted(LEAN_ROOT.rglob("*.lean")):
-        if any(part.startswith(".") or part == "lake-packages" for part in path.parts):
-            continue
+    for path in lean_source_files():
         total += len(DECL_RE.findall(path.read_text(encoding="utf-8")))
     return total
 
