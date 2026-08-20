@@ -934,13 +934,31 @@ attained $2\sqrt2$ of the declared witness. The witness state itself carries an
 off-diagonal entry of one half, so no map that preserves record diagonality
 reaches that particular witness from the class. This target-specific
 obstruction does not show that every realization of the value $2\sqrt2$
-requires non-diagonal preparation: non-jointly-diagonal or contextual
-readouts are outside the bound, and no slot-local separability theorem for
-arbitrary settings is proved here. Those remain viable construction routes.
-The result is a statement about the committed operation class and the
-declared Bell-state witness, not about every conceivable architecture
-extension. Like \texttt{Dynamics/ChoiCPTP.lean},
+requires non-diagonal preparation: readouts that are not slot-local with
+respect to the declared split are outside the bound, and the slot-local
+separability theorem for arbitrary settings is supplied by the companion
+module described next. The result is a statement about the committed
+operation class and the declared Bell-state witness; every conceivable
+architecture extension is outside its scope. Like \texttt{Dynamics/ChoiCPTP.lean},
 the module is a companion in the wider library, outside this paper's
+fifteen-module count and scale table.
+
+The companion module \texttt{ProductSplitSeparability.lean} lifts the jointly-diagonal
+restriction on the declared slot split. A product-basis diagonal state with a probability
+diagonal is the explicit convex combination of the point states $e_{aa}\otimes e_{bb}$
+weighted by its diagonal entries (\texttt{productDiagonal\_separable}), and against any
+four Hermitian settings in the Loewner unit interval, two on each slot and with no
+commutation assumed inside a slot, its slot-local CHSH trace is real with modulus at most
+$2$ (\texttt{productDiagonal\_slotLocal\_chsh\_le\_two}). Every reachable state on the
+two committed pair carriers is therefore separable across the split and obeys the bound
+against all slot-local unit-interval readouts. Slot membership is the hypothesis that carries
+the bound: the Bell
+settings conjugated by $\mathrm{CNOT}\,(H\otimes1)$ commute pairwise across the wings, lie
+in the unit interval, and reach exactly $2\sqrt2$ on the product-diagonal state
+$|00\rangle\langle00|$, with one of them in neither slot
+(\texttt{crossWing\_commutation\_not\_sufficient}). A slot-local value above $2$ on a state certifies
+off-diagonal record coherence; regions and source preparation stay with the open premises.
+Like the reachability module, it is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
 \section{An ideal static phase-POVM count fit}
@@ -1070,6 +1088,25 @@ not prove leastness, source reachability of this two-dimensional matrix, or
 receipt provenance; the external verifier checks the deterministic
 least-denominator arithmetic separately. PR-64 and PR-65 are not discharged,
 nor is the independent cross-context additivity premise PR-03.
+
+The module \texttt{LuedersPhaseInstrument} types the PR-64 channel clauses as a
+structure \texttt{PhaseInstrument} on the eight committed contexts: outcome maps
+that are completely positive, trace-nonincreasing on positive-semidefinite
+inputs, summing to a trace-preserving channel per context, and inducing the
+committed effect table. The L\"uders maps $X \mapsto EXE$ inhabit it
+(\texttt{luedersPhaseInstrument}) with a singleton Kraus family, and the
+normalized post-measurement state is certain of its effect
+(\texttt{luedersPhaseInstrument\_repeatable}). On $\mathrm{diag}(111/179, 68/179)$
+the outcome traces reproduce the fixture frequencies, with $1/2$ in the phase
+context, whose post-measurement state is the declared $+Y$ projector itself;
+the phase and diagonal values are also obtained by direct matrix computation
+through the outcome maps, with no use of the stored Born-fit equations. A
+swap-twisted instrument meets every channel clause with the same induced effects,
+differs on the record entry, and fails repeatability
+(\texttt{effect\_table\_does\_not\_determine\_instrument}). The L\"uders choice is a
+declared selection, no source implements it, and PR-64, PR-65, and PR-03 are
+open. The module is a companion in the wider library, outside the
+fifteen-module count and scale table.
 
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}

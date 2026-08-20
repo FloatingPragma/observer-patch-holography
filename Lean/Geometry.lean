@@ -17,6 +17,8 @@ import Geometry.EventPopulationChartInterface
 import Geometry.CommonWorldKinematicsWitness
 import Geometry.RestFiberShellTransport
 import Geometry.CommonWorldIslandBridge
+import Geometry.EinsteinBranchInhabitant
+import Geometry.CommonWorldInstrumentJoin
 
 /-!
 # OPH construction geometry umbrella
@@ -38,4 +40,15 @@ causal reachability, refinement tower, rods, clocks, or physical spacetime.
 The inverse-square shell law carries the Newtonian-limit row: under the
 declared radial readout and shell-flux normalization the strength falls as
 the inverse square, with the exponent supplied by the carrier dimension.
+`Geometry.EinsteinBranchInhabitant` inhabits the Einstein-branch register
+surface for every declared repair law and horizon record with a synthetic
+demo-tier value whose modular flow supply is the thermodynamic first-law
+datum on the simplex tangent space; the Einstein clause holds at the value by
+definition of the chart geometry and selects nothing.
+`Geometry.CommonWorldInstrumentJoin` extends the bridged common-world record
+by the certified step-scaled evolution on the shared screen carrier, the
+declared Lüders instrument with its typed pinching transport to the committed
+diagonal partition, a declared step-to-clock dictionary, and the first-law
+join of the run-state diagonal; the missing joins are named exactly and the
+common-world row stays owed.
 -/

@@ -89,9 +89,10 @@
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "docs/GRAVITY_PREMISE_LADDER.md",
-    "evidence/einstein_convergence/manifest.json"
+    "evidence/einstein_convergence/manifest.json",
+    "Lean/Geometry/EinsteinBranchInhabitant.lean"
    ],
-   "notes": "The composed Einstein implication is re-exported through one register surface whose fields name the six physical supply bundles; no value of that bundle or common observer-to-spacetime realization is constructed.",
+   "notes": "The composed Einstein implication is re-exported through one register surface whose fields name the six physical supply bundles. The register is inhabited by a synthetic demo-tier value for every declared repair law and horizon record: the modular flow supply of the value is the thermodynamic first-law datum on the simplex tangent space, so the composed first-law clause at the value is the OL-B3 first-order entanglement first law on that variation space; the tower, readouts, torus chart, audit candidate, scaling family, and small-ball reals are declared supplies, and the Einstein, small-ball, universal-source, and vacuum-reference conclusions hold at the value by definition of those supplies and select nothing. The value certifies joint satisfiability of the premises; no common observer-to-spacetime realization is constructed.",
    "open_premises": [
     "PR-52"
    ]
@@ -129,9 +130,10 @@
    "evidence": [
     "Lean/Thermodynamics/HorizonThermalitySurface.lean",
     "code/geometry/runs/h3_kms_repaired_4k_status.json",
-    "cosmology/oph_black_hole_information_ledger.tex"
+    "cosmology/oph_black_hole_information_ledger.tex",
+    "Lean/Geometry/EinsteinBranchInhabitant.lean"
    ],
-   "notes": "The cap Clausius inequality and the capacity identities compose with the declared repair law as the horizon-thermality-shaped surface; physical temperature consumes the calibration row and the horizon dictionary stays declared.",
+   "notes": "The cap Clausius inequality and the capacity identities compose with the declared repair law as the horizon-thermality-shaped surface; physical temperature consumes the calibration row and the horizon dictionary stays declared. The horizon record supplies the typed modular flow field of the inhabited Einstein-branch register (EinsteinBranchInhabitant), a declared identification at the demo tier.",
    "open_premises": []
   },
   {
@@ -224,9 +226,10 @@
     "Lean/EventAlgebra/Tsirelson.lean",
     "Lean/EventAlgebra/SlotLocalitySurface.lean",
     "Lean/EventAlgebra/TsirelsonSaturation.lean",
-    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean"
+    "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
+    "Lean/EventAlgebra/ProductSplitSeparability.lean"
    ],
-   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is exactly attained by declared data: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2), and the events inhabit the PR-44 interface. For one fixed record-diagonal state and four readouts diagonal in that same basis, the classical bound is 2; this does not cover arbitrary contextual operational models. The Bell state and all settings are real, so the theorem isolates entanglement, non-diagonal coherence, and noncommuting settings rather than a genuinely complex PR-04 phase direction. No source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open. The source side of the supply-or-delimit clause is discharged by an exact reachability delimitation: the committed counted states, closed under the enumerated committed operations (walk transports, slot exchange, ambient anchorings, marginalizations, conditional expectations, marginal products, convex mixtures), stay record-diagonal with nonnegative unit-sum weights, obey the classical bound 2 against every jointly record-diagonal readout quadruple, and admit no record-diagonality-preserving map onto the saturating Bell state; saturation through the committed jointly record-diagonal readouts, or production of the saturating state itself, therefore requires an operation outside the committed class that writes off-diagonal record coherence, which stays the open preparation premise. Reachable states under readouts outside the jointly record-diagonal class are outside this delimitation.",
+   "notes": "The CHSH operator-norm upper bound is composed under the registered slot split: cross-party commutation is derived from PR-44 inside one typed bundle rather than supplied eventwise. The bound is exactly attained by declared data: the normalized maximally entangled state with two Pauli directions on the left slot and the two quarter-rotated directions on the right slot reaches 2*sqrt(2), and the events inhabit the PR-44 interface. For one fixed record-diagonal state and four readouts diagonal in that same basis, the classical bound is 2; this does not cover arbitrary contextual operational models. The Bell state and all settings are real, so the theorem isolates entanglement, non-diagonal coherence, and noncommuting settings rather than a genuinely complex PR-04 phase direction. No source entangled preparation, physical regions, spacelike separation, or observer instrument is attained, and PR-52 stays open. The source side of the supply-or-delimit clause is discharged by an exact reachability delimitation: the committed counted states, closed under the enumerated committed operations (walk transports, slot exchange, ambient anchorings, marginalizations, conditional expectations, marginal products, convex mixtures), stay record-diagonal with nonnegative unit-sum weights, obey the classical bound 2 against every jointly record-diagonal readout quadruple, and admit no record-diagonality-preserving map onto the saturating Bell state; saturation through the committed jointly record-diagonal readouts, or production of the saturating state itself, therefore requires an operation outside the committed class that writes off-diagonal record coherence, which stays the open preparation premise. Reachable states under readouts outside the jointly record-diagonal class are outside this delimitation. The jointly-diagonal restriction of the reachable-class bound is lifted on the PR-44 split: every record-law state on a product carrier is a finite convex combination of product states of the two slots, and its CHSH trace against any four Loewner unit-interval settings, two in each slot, is real with modulus at most 2, with no commutation assumed inside a slot. On the two committed pair carriers every reachable state is therefore separable across the split and obeys the bound against all slot-local readouts. The hypothesis that carries this bound is slot-locality relative to the split: the product-diagonal state |00><00| paired with unitarily conjugated Bell settings, which commute pairwise across the wings and are unit-interval, reaches exactly 2*sqrt(2), and one conjugated setting lies in neither slot. The routes outside the bound are readouts that are not slot-local with respect to the declared split and preparations that write off-diagonal record coherence into the state; PR-52 stays open.",
    "open_premises": [
     "PR-52"
    ]
@@ -271,9 +274,10 @@
     "code/phase_operation_producer/produce_phase_operation_receipt.py",
     "code/phase_operation_producer/verify_phase_operation_receipt.py",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
-    "Lean/EventAlgebra/OperationalAdditivityBoundary.lean"
+    "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean"
    ],
-   "notes": "The algebraic phase-completion theorem attains fixed-trace tomography and its exact real-closure boundary. IdealPhasePOVMCountModel is explicitly a static fit model. PR-04 declares the Pauli +Y projector as one phase-sensitive effect, not as a quantum operation or instrument. The phase-operation producer deterministically recalculates declared Born weights and exact integer pairs; its independent verifier makes this a reproducible semantic conformance fixture, not measurement or validation. The legacy-named OperationalPhaseAttainment receipt proves static fit equalities by consuming the model's assumed born_matches field; it carries no CP outcome maps, trace-preserving summed channel, least-multiple generation theorem, producer binding, or reachability proof for the Fin-2 preparation. PR-64 keeps the operational instrument channel open, PR-65 keeps source preparation and readback provenance open, PR-03 separately keeps cross-context valuation additivity open, and PR-52 keeps physical attachment open. OperationalAdditivityBoundary proves that the fixture's coexistent sums carry only normalization and supplies an exact non-Born countervaluation matching every fixture frequency, so PR-03 remains load-bearing.",
+   "notes": "The algebraic phase-completion theorem attains fixed-trace tomography and its exact real-closure boundary. IdealPhasePOVMCountModel is explicitly a static fit model. PR-04 declares the Pauli +Y projector as one phase-sensitive effect, not as a quantum operation or instrument. The phase-operation producer deterministically recalculates declared Born weights and exact integer pairs; its independent verifier makes this a reproducible semantic conformance fixture, not measurement or validation. The legacy-named OperationalPhaseAttainment receipt proves static fit equalities by consuming the model's assumed born_matches field; it carries no CP outcome maps, trace-preserving summed channel, least-multiple generation theorem, producer binding, or reachability proof for the Fin-2 preparation. PR-64 keeps the operational instrument channel open, PR-65 keeps source preparation and readback provenance open, PR-03 separately keeps cross-context valuation additivity open, and PR-52 keeps physical attachment open. OperationalAdditivityBoundary proves that the fixture's coexistent sums carry only normalization and supplies an exact non-Born countervaluation matching every fixture frequency, so PR-03 remains load-bearing. LuedersPhaseInstrument constructs a declared L\u00fcders instrument for the committed effect table and proves the PR-64 channel clauses (CP outcome maps, trace non-increase, CPTP summed channel per context, induced effects equal to the table) together with repeatability, joins it to the fixture on the committed run state (outcome traces equal the fixture frequencies, phase post-measurement state equal to the declared effect), and proves that the table does not determine the instrument through a swap-twisted comparison instrument. The public-readback clause of PR-64, instrument selection, and PR-65 provenance are open; PR-03 is untouched.",
    "open_premises": [
     "PR-03",
     "PR-64",
@@ -467,9 +471,10 @@
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
-    "Lean/Screen/TemporalMaxwellEvolution.lean"
+    "Lean/Screen/TemporalMaxwellEvolution.lean",
+    "Lean/Screen/ScaledMaxwellStability.lean"
    ],
-   "notes": "The composed light-signal surface supplies a conditional internal free-vector wave law and the modal package supplies an exact pseudodifferential first-order factorization. LocalFaceMaxwellAction supplies the local finite operator H=C^T C and separate scalar/vector static actions. TemporalMaxwellEvolution consumes PR-66, the declared unit-step Ampere update; Faraday, Gauss-continuity propagation, the staggered quadratic-form balance, gauge invariance, static join, and wave recursion are conditional consequences. The conserved staggered form is not proved positive, and the exact spectrum has unit-step growing modes because C C^T includes eigenvalues 5 and 3+sqrt(5), above the leapfrog threshold 4. A timestep-scaled update with a Courant/stability proof is a viable continuation under PR-53. The step index is not physical time and the sources are declared. PR-15, PR-53, and PR-54 remain open.",
+   "notes": "The composed light-signal surface supplies a conditional internal free-vector wave law and the modal package supplies an exact pseudodifferential first-order factorization. LocalFaceMaxwellAction supplies the local finite operator H=C^T C and separate scalar/vector static actions. TemporalMaxwellEvolution supplies the unit-step identities conditional on the declared update. ScaledMaxwellStability relocates that declaration: the step-scaled Ampere update and the Gauss constraint are the Euler-Lagrange equations of one declared discrete action whose only new ingredient beyond the committed static face action is the kinetic term (h/2)|E|^2. The scaled staggered form is exactly conserved for zero current, nonnegative under h^2 Lambda <= 4, and yields uniform electric and magnetic bounds for zero current and h^2 Lambda < 4. The committed carrier has the sharp constant Lambda = 3 + sqrt(5), proved by explicit rational spectral projectors of C C^T; below h^2 (3 + sqrt(5)) = 4 every zero-current solution is bounded and above it an explicit unbounded zero-current solution exists, so the declared unit step is unstable. The step index is not physical time and the sources are declared. PR-15, PR-53, and PR-54 stay open.",
    "open_premises": [
     "PR-15",
     "PR-53",
@@ -489,9 +494,10 @@
    ],
    "evidence": [
     "Lean/Screen/LightSignalAdequacySurface.lean",
-    "Lean/Screen/SeamCurrentFreePhotonLift.lean"
+    "Lean/Screen/SeamCurrentFreePhotonLift.lean",
+    "Lean/Screen/ScaledMaxwellStability.lean"
    ],
-   "notes": "The rank-two transverse completion and exact zero-mode receipts are composed on the light-signal surface; their identification with massless physical propagation is not constructed.",
+   "notes": "The rank-two transverse completion and exact zero-mode receipts are composed on the light-signal surface; their identification with massless physical propagation is not constructed. The step-scaled evolution of ScaledMaxwellStability gives a bounded finite carrier evolution for zero current and h^2 (3 + sqrt(5)) < 4, with the staggered form as a conserved nonnegative form that bounds both field energies; identification of its bounded modes with massless physical propagation is not constructed and stays under PR-53.",
    "open_premises": [
     "PR-53"
    ]
@@ -1177,9 +1183,10 @@
    "evidence": [
     "tracking/premise_register.json",
     "Lean/Geometry/CommonWorldKinematicsWitness.lean",
-    "Lean/Geometry/CommonWorldIslandBridge.lean"
+    "Lean/Geometry/CommonWorldIslandBridge.lean",
+    "Lean/Geometry/CommonWorldInstrumentJoin.lean"
    ],
-   "notes": "A partial two-island witness is on record: one typed architecture record simultaneously carries the mass-shell, internal-clock, free-evolution, and causal-order receipts on one Lorentz module instance and the temporal Maxwell and electroweak-breaking receipts on one screen carrier instance, with an explicit inhabitant, typed definitional shared-field identifications, four cone-order join theorems, and the twelve-port port-dual evaluation. The islands are joined to each other only by conjunction on the record; no artifact supplies the cross-island carrier dictionary, shared clock, or common action, and the gravitation, thermodynamics, matter-dynamics, quantization, and readout lanes appear in no field, so the row stays owed. The integration lane owns explicit transport maps, satisfiability and contradiction checks, and one end-to-end observer evidence bundle. One cross-island join is on record beyond conjunction: Lean/Geometry/CommonWorldIslandBridge.lean extends the two-island record by a typed dictionary from the rank-three screen source Gram quotient onto the rest fiber of the record's declared frame, with the rest-metric pullback pinned to the screen quotient Gram at every declared frame, standard-frame agreement with the committed candidate readback, an oriented-chart commuting square, a source-chain triangle, an explicit inhabitant extending the committed one, and a receipt that dropping the metric clause readmits a mismatched doubled dictionary. The dictionary is a candidate local readout, not a physical identification; the shared clock, common action, common dynamics, and the port/seam/face carrier map stay missing, so the row stays owed.",
+   "notes": "A partial two-island witness is on record: one typed architecture record simultaneously carries the mass-shell, internal-clock, free-evolution, and causal-order receipts on one Lorentz module instance and the temporal Maxwell and electroweak-breaking receipts on one screen carrier instance, with an explicit inhabitant, typed definitional shared-field identifications, four cone-order join theorems, and the twelve-port port-dual evaluation. The islands are joined to each other only by conjunction on the record; no artifact supplies the cross-island carrier dictionary, shared clock, or common action, and the gravitation, thermodynamics, matter-dynamics, quantization, and readout lanes appear in no field, so the row stays owed. The integration lane owns explicit transport maps, satisfiability and contradiction checks, and one end-to-end observer evidence bundle. One cross-island join is on record beyond conjunction: Lean/Geometry/CommonWorldIslandBridge.lean extends the two-island record by a typed dictionary from the rank-three screen source Gram quotient onto the rest fiber of the record's declared frame, with the rest-metric pullback pinned to the screen quotient Gram at every declared frame, standard-frame agreement with the committed candidate readback, an oriented-chart commuting square, a source-chain triangle, an explicit inhabitant extending the committed one, and a receipt that dropping the metric clause readmits a mismatched doubled dictionary. The dictionary is a candidate local readout, not a physical identification; the shared clock, common action, common dynamics, and the port/seam/face carrier map stay missing, so the row stays owed. Four further typed joins are on record on the bridged record (CommonWorldInstrumentJoin): a certified step-scaled Maxwell bundle beside the declared unit-step bundle on the same twelve-port carrier, sharing initial seam data and current, with every certified step below one and the unit-step instability carried beside the uniform bound; the L\u00fcders phase instrument joined on the two-dimensional record algebra through the identity of its diagonal-context channel with the committed pinching of the diagonal partition that refines the record's one-block partition, with the record's state a fixed point and the swap-twisted instrument excluded by the clause; a declared positive step duration identifying evolution step n with proper-time parameter n times the duration on the record's clock worldline, with the exponential clock law, the exact period criterion, causal ordering of step events, and zero or negative steps breaking the clauses; and a repair law whose reference is the run-state diagonal with a horizon record and the Einstein-branch register's first-law clause on the simplex tangent space. The requested identification of the record's partition and state with the instrument's diagonal pair and run state is false (one-block partition, pure record state) and is recorded as obstruction theorems; the refinement transport is the join. The step dictionary is declared and identifies no physical time; the common action across carriers, the port/seam/face-to-module carrier map, matter dynamics, and observer readout appear in no field, so the row stays owed.",
    "open_premises": [
     "PR-15",
     "PR-16",
@@ -1191,7 +1198,9 @@
     "PR-51",
     "PR-52",
     "PR-53",
-    "PR-54"
+    "PR-54",
+    "PR-64",
+    "PR-65"
    ]
   }
  ]

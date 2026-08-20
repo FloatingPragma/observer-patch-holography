@@ -82,6 +82,7 @@ lean_lib «OPHScreen» where
     `LightSignalMaxwellComposition, `SeamU1HolonomyClassification,
     `LayeredDiscreteGauss, `DiscreteCoulombGreen, `PositionSpaceMaxwellAction,
     `LocalFaceMaxwellAction, `TemporalMaxwellEvolution,
+    `ScaledMaxwellStability,
     `SMStructureAdequacySurface, `SMStructureComposition,
     `MatterGrammarIndexBridge, `ElectroweakBreakingComposition,
     `AssembledActionComposition, `GlobalFormCharacterDescent,

@@ -30,6 +30,8 @@ import EventAlgebra.SourceReachabilityDelimitation
 import EventAlgebra.PauliMinimalCoupling
 import EventAlgebra.OperationalPhaseAttainment
 import EventAlgebra.OperationalAdditivityBoundary
+import EventAlgebra.LuedersPhaseInstrument
+import EventAlgebra.ProductSplitSeparability
 
 /-!
 # Finite projection-event calculus — umbrella root
@@ -132,4 +134,13 @@ composed Born-Lueders statement with conditioning closure and the
 Schroedinger frame duality: the unique Busch-Gleason state of the
 flow-shifted frame follows the propagator conjugation of the unique
 self-adjoint generator of the supplied flow.
+`EventAlgebra.LuedersPhaseInstrument` types the PR-64 channel clauses on the
+committed eight-context effect table and inhabits them with the declared
+Lüders instrument, joined to the committed run fixture, with a swap-twisted
+comparison instrument proving that the effect table does not determine the
+instrument.  `EventAlgebra.ProductSplitSeparability` proves that every
+record-law state on the declared slot split is a convex combination of
+product states and obeys the classical CHSH bound against all slot-local
+unit-interval settings, with a conjugated counter-witness showing that
+cross-wing commutation alone does not carry the bound.
 -/

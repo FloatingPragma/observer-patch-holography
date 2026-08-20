@@ -399,7 +399,7 @@ EXPECTED_ROWS = (
     ),
     (
         "PR-66",
-        "declared temporal Maxwell update",
+        "declared discrete kinetic term of the temporal Maxwell action",
         "structural_rule",
         "remove",
     ),

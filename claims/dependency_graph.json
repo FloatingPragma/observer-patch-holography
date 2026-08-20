@@ -133,7 +133,12 @@
   "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
   "OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
   "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
-  "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY"
+  "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
+  "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+  "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
+  "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
+  "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+  "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN"
  ],
  "edges": [
   {
@@ -1129,12 +1134,12 @@
   {
    "from": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
    "to": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
-      "role": "supplies the static IdealPhasePOVMCountModel structure used by the declared-effect arithmetic conformance fixture; it supplies no instrument, source outcome, or validation"
+   "role": "supplies the static IdealPhasePOVMCountModel structure used by the declared-effect arithmetic conformance fixture; it supplies no instrument, source outcome, or validation"
   },
   {
    "from": "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
    "to": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
-      "role": "supplies the integer phase-count window and closed-form frequency law instantiated by the static conformance fixture"
+   "role": "supplies the integer phase-count window and closed-form frequency law instantiated by the static conformance fixture"
   },
   {
    "from": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
@@ -1149,7 +1154,7 @@
   {
    "from": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
    "to": "OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
-      "role": "supplies a static inhabitant, declared diagonal matrix, and generated expected-frequency numerators for the additivity countermodel; it supplies no produced instrument"
+   "role": "supplies a static inhabitant, declared diagonal matrix, and generated expected-frequency numerators for the additivity countermodel; it supplies no produced instrument"
   },
   {
    "from": "OPH-QFT-JOIN-RECORD-NET-MORPHISM",
@@ -1180,6 +1185,66 @@
    "from": "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
    "to": "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
    "role": "supplies the committed photon and Z directions and neutral units gZ and e consumed by the charge-step and commutator-join receipts"
+  },
+  {
+   "from": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+   "to": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+   "role": "supplies the committed run state, the effect table, and the fixture frequencies joined by the instrument; it supplies no instrument"
+  },
+  {
+   "from": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+   "to": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+   "role": "supplies the context family, the committed effect table, and the event certificates of its entries"
+  },
+  {
+   "from": "OPH-QUANTUM-TSIRELSON-SATURATION",
+   "to": "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
+   "role": "supplies the pointwise real CHSH bound, the declared Bell settings and witness operator, and the Bell-state pairing consumed by the counter-witness"
+  },
+  {
+   "from": "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+   "to": "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
+   "role": "supplies the record-law predicate and the reachability closure on the committed pair carriers that the slot-local bound strengthens"
+  },
+  {
+   "from": "OPH-GR-E2E-BRANCH-ENTRY",
+   "to": "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
+   "role": "supplies the composed conditional Einstein implication and the typed register surface whose premise bundle the inhabitant instantiates"
+  },
+  {
+   "from": "OPH-THERMO-FOUR-LAW-PACKAGE",
+   "to": "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
+   "role": "supplies the finite repair-law and first-law datum on the simplex tangent space that the inhabitant places in the register's modular flow supply"
+  },
+  {
+   "from": "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+   "to": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "role": "supplies the staggered definitions, the unit-step Ampere law recovered at h = 1, and the exact unit-step spectral instability that the scaled action and Courant threshold resolve"
+  },
+  {
+   "from": "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+   "to": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "role": "supplies the committed face curvature, local sourced face action, and incidence tables that form the potential term of the discrete action and the kernel-checked spectral projectors"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
+   "role": "supplies the bridged record type, its committed inhabitant, and the ten bridged clauses the extended receipt re-proves"
+  },
+  {
+   "from": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
+   "role": "supplies the scaled bundle type, the Courant hypothesis, the uniform bounds, and the unit-step instability joined on the shared screen carrier"
+  },
+  {
+   "from": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
+   "role": "supplies the repeatable phase instrument, its decision bundle, and the swap-twisted comparison instrument joined through the pinching identity"
+  },
+  {
+   "from": "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
+   "to": "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
+   "role": "supplies the register constructor instantiated at the repair law whose reference is the run-state diagonal"
   }
  ]
 }

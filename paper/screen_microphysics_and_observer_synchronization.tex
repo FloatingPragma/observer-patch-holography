@@ -3491,10 +3491,11 @@ and set
 \[
 E_n=-(A_{n+1}-A_n)-d\phi_n,\qquad B_n=CA_n,
 \]
-so that \(E\) sits on half steps and \(B\) on integer steps. Register row
-PR-66 declares the
+so that \(E\) sits on half steps and \(B\) on integer steps. The
 leapfrog Amp\`ere law
-\(E_{n+1}-E_n=C^{\mathsf T}B_{n+1}-J_n\) for a seam-current history \(J\).
+\(E_{n+1}-E_n=C^{\mathsf T}B_{n+1}-J_n\) for a seam-current history \(J\) is
+the unit-step instance of the declared discrete action of register row PR-66
+(Proposition~\ref{prop:scaled-maxwell-stability}).
 Then Faraday's law \(B_{n+1}-B_n=-CE_n\) holds identically. Along the
 declared evolution, the Gauss constraint \(\partial E_n=\rho_n\) propagates
 from step \(n\) to step \(n+1\) exactly when the discrete continuity
@@ -3533,12 +3534,54 @@ face at step one. Faraday's law and the Gauss propagation use
 \(Cd=0\) and its exact transpose \(\partial C^{\mathsf T}=0\); the balance
 identity uses the adjointness of \(C\) and \(C^{\mathsf T}\) under the
 committed equal-weight pairing together with the staggered magnetic cross
-term \(\langle B_n,B_{n+1}\rangle\), which makes the balance exact rather
-than approximate. This conservation law is not a stability theorem. The
-committed exact spectrum contains \(5\) and \(3+\sqrt5\), both above the
-unit-step leapfrog threshold \(4\), so growing modes exist. A timestep-scaled
-continuation must prove \(h^2\lambda_{\max}\leq4\), which here requires
-\(h\leq2/\sqrt{3+\sqrt5}\).
+term \(\langle B_n,B_{n+1}\rangle\), which makes the balance exact. This
+conservation law is not a stability theorem at unit step: the committed exact
+spectrum contains \(5\) and \(3+\sqrt5\), both above the unit-step leapfrog
+threshold \(4\), so growing modes exist. The timestep-scaled continuation
+with the sharp threshold is the next proposition.
+\end{proof}
+
+\begin{proposition}[Action origin and sharp stability of the step-scaled evolution]
+\label{prop:scaled-maxwell-stability}
+Fix a real step \(h>0\) and set \(E_n=-(A_{n+1}-A_n)/h-d\phi_n\), \(B_n=CA_n\).
+Let \(S_h\) be the window sum of
+\(\tfrac h2\lVert E_n\rVert^2-h\,\mathcal S_{\mathrm{loc}}(J_n,A_{n+1})+h\langle\rho_n,\phi_n\rangle\),
+with \(\mathcal S_{\mathrm{loc}}\) the local sourced face action above. The exact
+expansion of \(S_h\) has a linear part and an explicit quadratic remainder;
+stationarity under variations of \(A\) vanishing at both window endpoints is
+equivalent to \(E_{n+1}-E_n=h\,(C^{\mathsf T}B_{n+1}-J_n)\) at every interior
+step, and stationarity under variations of \(\phi\) is equivalent to
+\(\partial E_n=\rho_n\) at every window step. The form
+\(\mathcal E_n=\tfrac12\lVert E_n\rVert^2+\tfrac12\langle B_n,B_{n+1}\rangle\)
+obeys \(\mathcal E_{n+1}=\mathcal E_n-\tfrac h2\langle E_n+E_{n+1},J_n\rangle\),
+equals \(\tfrac12\lVert E_n\rVert^2+\tfrac18\lVert C(A_n+A_{n+1})\rVert^2-\tfrac{h^2}8\lVert CE_n\rVert^2\),
+and, whenever \(\lVert Cv\rVert^2\le\Lambda\lVert v\rVert^2\) with \(h^2\Lambda<4\)
+and \(J=0\), bounds \(\lVert E_n\rVert^2\le 8\mathcal E_0/(4-h^2\Lambda)\) and
+\(\lVert B_n\rVert^2\le 16\mathcal E_0/(4-h^2\Lambda)\) at every step. On the
+committed carrier the sharp constant is \(\Lambda=3+\sqrt5\): the five spectral
+projectors of \(CC^{\mathsf T}\) are explicit rational matrices whose identities
+are kernel-checked, and the golden sector obeys \(\lVert(N-3)u\rVert^2=5\lVert u\rVert^2\).
+Conversely, an eigenvector \(v\) of \(C^{\mathsf T}C\) with eigenvalue \(\lambda\)
+and \(h^2\lambda>4\) gives the zero-current solution \(A_n=r^nv\) with \(r<-1\) and
+unbounded \(\lVert E_n\rVert^2\); explicit eigenvectors with eigenvalues \(5\) and
+\(3+\sqrt5\) are exhibited, so such a solution exists whenever \(h^2(3+\sqrt5)>4\),
+and the unit step is unstable. The kinetic term and the step are declared; the
+step index is not physical time, and the source, frame, continuum, and readout
+attachments stay open.
+\end{proposition}
+
+\begin{proof}
+Every clause is a theorem of \texttt{ScaledMaxwellStability}: the action
+expansion and the two stationarity equivalences by summation by parts with a
+delta variation at each interior node, the balance and the energy identity by
+the adjointness of \(C\) and \(C^{\mathsf T}\) under the committed pairing, the
+bounds by conservation and the energy identity, the sharp constant by five
+explicit rational spectral projectors of \(CC^{\mathsf T}\) checked by kernel
+decision on integer tables together with a Cauchy--Schwarz transport through
+\(C^{\mathsf T}\), and the unbounded modes by explicit eigenvectors and the
+real root \(r<-1\) of \(r^2-(2-h^2\lambda)r+1=0\). The composed receipt
+\texttt{scaledMaxwellStability\_receipt} carries the clauses from one typed
+bundle, with an explicit inhabitant at \(h=1/2\).
 \end{proof}
 
 All four propositions are exact finite mathematics on the committed

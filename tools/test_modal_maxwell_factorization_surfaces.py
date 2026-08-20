@@ -32,6 +32,7 @@ OBSERVATION_EVIDENCE = [
     "Lean/Screen/LocalFaceMaxwellAction.lean",
     "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
     "Lean/Screen/TemporalMaxwellEvolution.lean",
+    "Lean/Screen/ScaledMaxwellStability.lean",
 ]
 
 POSTDICTION_ARTIFACTS = [
@@ -113,15 +114,15 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     notes = row["notes"]
     assert "modal package supplies an exact pseudodifferential first-order factorization" in notes
     assert "LocalFaceMaxwellAction supplies the local finite operator H=C^T C" in notes
-    assert "TemporalMaxwellEvolution consumes PR-66" in notes
-    assert "conserved staggered form is not proved positive" in notes
-    assert "exact spectrum has unit-step growing modes" in notes
-    assert "PR-15, PR-53, and PR-54 remain open" in notes
+    assert "TemporalMaxwellEvolution supplies the unit-step identities conditional on the declared update" in notes
+    assert "ScaledMaxwellStability relocates that declaration" in notes
+    assert "Euler-Lagrange equations of one declared discrete action" in notes
+    assert "declared unit step is unstable" in notes
+    assert "PR-15, PR-53, and PR-54 stay open" in notes
     assert "does not close issue" not in notes
     for required_boundary in (
-        "Faraday, Gauss-continuity propagation",
-        "conditional consequences",
-        "timestep-scaled update with a Courant/stability proof",
+        "nonnegative under h^2 Lambda <= 4",
+        "sharp constant Lambda = 3 + sqrt(5)",
         "step index is not physical time",
         "sources are declared",
     ):

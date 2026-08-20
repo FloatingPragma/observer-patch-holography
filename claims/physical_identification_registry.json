@@ -340,18 +340,19 @@
       "claim_ids": [
         "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
         "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
-        "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT"
+        "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
+        "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT"
       ],
       "source_anchors": [
         "PR-04 declared phase-sensitive effect",
-        "PR-64 CP/TNI outcome maps and trace-preserving summed channel",
+        "PR-64 public-outcome readback and instrument selection; the CP/TNI outcome maps and trace-preserving summed channel are constructed by a declared L\u00fcders instrument",
         "PR-65 common preparation, outcome readback, and run custody"
       ],
       "blocking_issues": [
         {
           "number": 730,
           "scope": "unresolved_attachment",
-          "role": "construct and source-bind the operational phase instrument; the current exact count table is a semantic conformance fixture"
+          "role": "source-bind the declared L\u00fcders instrument with common preparation, public outcomes, readback, and custody; the exact count table is a semantic conformance fixture"
         }
       ]
     },
@@ -361,13 +362,14 @@
       "status": "undischarged",
       "claim_ids": [
         "OPH-QUANTUM-TSIRELSON-SATURATION",
-        "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH"
+        "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+        "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH"
       ],
       "source_anchors": [
         "source-prepared joint state",
         "slot-local operational settings and readbacks",
         "physical separation and run custody",
-        "separability or contextual-readout analysis beyond the jointly diagonal bound"
+        "non-slot-local readout analysis beyond the slot-local separability bound"
       ],
       "blocking_issues": [
         {
@@ -384,23 +386,24 @@
       "claim_ids": [
         "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
         "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
-        "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY"
+        "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
+        "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION"
       ],
       "source_anchors": [
-        "PR-66 source- or action-derived evolution law",
-        "timestep scaling and positive stability control",
+        "PR-66 declared discrete kinetic term; the step-scaled update and the Gauss constraint are its Euler-Lagrange equations, and a derivation of the term from the axioms or repair dynamics is open",
+        "physical time and calibration of the declared step below the sharp threshold h^2 (3 + sqrt(5)) < 4",
         "physical field, current, frame, clock, continuum, and detector readback"
       ],
       "blocking_issues": [
         {
           "number": 737,
           "scope": "unresolved_attachment",
-          "role": "replace the unstable unit-step recurrence with a certified stable physical instrument and comparison path"
+          "role": "build the stability-certified step-scaled instrument below the sharp threshold and its comparison path; the unit-step recurrence is unstable"
         },
         {
           "number": 739,
           "scope": "unresolved_attachment",
-          "role": "derive or reduce the declared evolution, source, clock, and calibration premises"
+          "role": "derive or reduce the declared kinetic term, source, clock, and calibration premises"
         }
       ]
     },
