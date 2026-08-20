@@ -215,8 +215,8 @@ state diagonal with one free off-diagonal coordinate, affine dependence of
 every count frequency on that coordinate, a decidable integer receipt window
 on the phase counts, and the minimal phase-mass receipt
 (Section~\ref{sec:phase-determination});
-\item a static conformance layer for that structure: under the register row
-that declares the committed exact lift as a phase-sensitive effect, a
+\item a static conformance layer for that structure: taking the committed exact
+lift as a declared phase-sensitive effect, a
 deterministic exact-arithmetic calculator, an independent verifier, and a
 composed Lean arithmetic receipt inhabit the static model with generated
 expected-frequency numerators satisfying the assumed Born-fit equations,
@@ -1049,23 +1049,21 @@ attained by the synthetic inhabitant
 The reduction states the phase residue exactly: for a committed-core
 inhabitant the state diagonal, the affine dependence of every count frequency
 on the one free coordinate, and the admissible count window are forced by the
-committed diagonal literals and the committed effects. What the row keeps
-open is not encoded by this static type: PR-64 asks for completely positive
-outcome maps, a trace-preserving summed channel, and effect/readback
-compatibility, while PR-65 asks for a source-produced common preparation,
-context selection, public outcomes, provenance, and custody. The window is a
+committed diagonal literals and the committed effects. Two operational requirements are not encoded by this static type: a
+representation of the measurement by completely positive outcome maps with a
+trace-preserving summed channel and compatible effects, and a source-produced
+common preparation that selects the context and produces the public outcomes. The window is a
 necessary arithmetic condition only and carries no provenance information,
 since the synthetic inhabitant meets it without a source run.
 
 \subsection{Static conformance fixture for the phase-effect layer}
 \label{sec:phase-attainment}
 
-Register row PR-04 of the premise register carries a recorded decision dated
-2026-08-18 under the row's axiomatize disposition: the committed exact lift
-$I/2 - (2\sqrt{3}/3)\,i\,(QP - PQ)$, equal to the Pauli $+Y$ projector, is a
-declared phase-sensitive effect. It is not a state transition or an
+The committed exact lift
+$I/2 - (2\sqrt{3}/3)\,i\,(QP - PQ)$, equal to the Pauli $+Y$ projector, is taken
+as a declared phase-sensitive effect. It is not a state transition or an
 instrument. The module \path{OperationalPhaseAttainment.lean} consumes that
-decision and inhabits \texttt{IdealPhasePOVMCountModel} over the committed
+declaration and inhabits \texttt{IdealPhasePOVMCountModel} over the committed
 core with static integer literals. A deterministic calculator expands the
 Born table of the declared effects on the declared matrix
 $\mathrm{diag}(111/179, 68/179)$ in exact arithmetic over
@@ -1087,10 +1085,11 @@ equations and their cross-multiplied scaling consequences, positive integer
 masses, and phase counts inside the registered window. The Lean theorem does
 not prove leastness, source reachability of this two-dimensional matrix, or
 receipt provenance; the external verifier checks the deterministic
-least-denominator arithmetic separately. PR-64 and PR-65 are not discharged,
-nor is the independent cross-context additivity premise PR-03.
+least-denominator arithmetic separately. The instrument representation, the
+source-produced preparation, and the independent cross-context additivity
+premise all stay open.
 
-The module \texttt{LuedersPhaseInstrument} types the PR-64 channel clauses as a
+The module \texttt{LuedersPhaseInstrument} types the channel clauses as a
 structure \texttt{PhaseInstrument} on the eight committed contexts: outcome maps
 that are completely positive, trace-nonincreasing on positive-semidefinite
 inputs, summing to a trace-preserving channel per context, and inducing the
@@ -1105,8 +1104,8 @@ through the outcome maps, with no use of the stored Born-fit equations. A
 swap-twisted instrument meets every channel clause with the same induced effects,
 differs on the record entry, and fails repeatability
 (\texttt{effect\_table\_does\_not\_determine\_instrument}). The L\"uders choice is a
-declared selection, no source implements it, and PR-64, PR-65, and PR-03 are
-open. The module is a companion in the wider library, outside the
+declared selection, no source implements it, and the instrument representation,
+the source-produced preparation, and cross-context additivity stay open. The module is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
 \section{Working over Mathlib: scopes, gaps, and affordances}
@@ -1375,8 +1374,7 @@ companion module adds the custom CPTP proofs.
 It contains no Physlib
 spectral-partition correspondence and no source-selected quantum instrument;
 the two-qubit saturation witness consists of declared data, and the
-operational phase instrument and source custody required by PR-64 and PR-65
-are not constructed.
+operational phase instrument and its source custody are not constructed.
 
 \section*{Declarations}
 

@@ -198,6 +198,22 @@ PAPER_TRACKING_PATTERNS = [
         "issue-number-bearing artifact label in paper",
     ),
     (
+        re.compile(r"\bPR-\d+\b"),
+        "internal premise-register row in paper",
+    ),
+    (
+        re.compile(r"\b(?:premise |register )?row PR-\d+\b", re.IGNORECASE),
+        "internal premise-register row in paper",
+    ),
+    (
+        re.compile(r"\bpremise register\b|\bregister rows?\b", re.IGNORECASE),
+        "internal premise-register reference in paper",
+    ),
+    (
+        re.compile(r"\bthe (?:project's|repository) Lean\b", re.IGNORECASE),
+        "uncitable Lean authority in paper (name the theorem and cite the release)",
+    ),
+    (
         re.compile(r"\b(?:SM_Q0|UD12|RP-A5|F1/F2)\b", re.IGNORECASE),
         "opaque internal label in paper",
     ),

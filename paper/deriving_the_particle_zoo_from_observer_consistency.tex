@@ -330,7 +330,7 @@ the OPH quantitative branch.
 The symmetry-breaking geometry of that slot carries a machine-checked
 composition (\texttt{Lean/Screen/ElectroweakBreakingComposition.lean}). One
 typed premise bundle extends the committed structure premises by five
-declared finite constants under PR-67--PR-69: a quartic coupling \(\lambda>0\), a
+declared finite constants: a quartic coupling \(\lambda>0\), a
 model-shell radius \(r>0\), two coupling constants \(g,g'>0\), and one Yukawa
 coefficient \(y\). On the doublet carrier whose complex dimension and
 \(q=6Y\) charge are the committed table entries \((2,3)\), one theorem on
@@ -358,8 +358,9 @@ or family structure. The quantitative electroweak and Higgs/top surfaces are
 the separate branches described in their own sections. If the finite minimum
 is identified with the conventional vector displayed above, then
 \(r=v_{\rm SM}/\sqrt2\). Translating the finite coefficients into physical
-mass formulae additionally requires the open scalar kinetic and generator
-normalizations of PR-48 and the physical vacuum attachment PR-49.
+mass formulae additionally requires the scalar kinetic and generator
+normalizations and a physical vacuum attachment, neither of which is supplied
+here.
 
 The neutral sector of that composition carries a machine-checked coupling
 dictionary (\texttt{Lean/Screen/NeutralCurrentDictionary.lean}). A weak slot
@@ -384,9 +385,8 @@ committed rows with different electric charges have provably different
 photon couplings, and in either parity sector the zero-charge component of
 the colorless doublet row has photon coupling exactly zero and Z coupling
 exactly \(\pm(g^2+g'^2)/2\). The dictionary is exact tree-level algebra on
-the committed grammar: it supplies no physical current operator, no source
-action, no measured mixing angle, no running, and no decay amplitude, and
-the chirality and source-action attachments stay open register rows.
+the committed grammar: it supplies no physical current operator, source action, mixing angle, or
+decay amplitude, and the chirality and source-action attachments stay open.
 
 The charged sector of the same composition carries the companion
 machine-checked dictionary
@@ -414,10 +414,9 @@ coefficients \(-gg'/(g^2+g'^2)\) and \(-g^2/(g^2+g'^2)\); and the
 raising/lowering commutator is \(2gi\) times the third-weak action. These
 joins are exact operator-commutator identities of the committed action on
 the scalar-row carrier; no abstract bracket on the direction space is
-committed. The dictionary supplies no physical current operator, no source
-action, no W propagator, no decay amplitude, no Fermi limit, and no flavor
-or mixing-matrix content, and the same chirality and source-action
-attachments stay open register rows.
+committed. The dictionary supplies no physical current operator, propagator, decay
+amplitude, or flavor content, and the same chirality and source-action
+attachments stay open.
 
 A kinematic internal-clock packet is machine-checked on the same declared
 Hermitian Lorentz module that carries the mass-shell receipts
@@ -1685,8 +1684,7 @@ exact all-momentum bound. Its nonnegative auxiliary root \(\Omega\) obeys
 |\Omega(k)-\Omega(p)|\le |k-p|
 \]
 in the selected Euclidean carrier chart. This is a carrier-coordinate
-contraction. It supplies no physical position, frequency, clock, field,
-wave-packet, frame, scale, or detector map. If the seam symbol is physical
+contraction. It supplies no physical position, scale, or detector map. If the seam symbol is physical
 photon frequency squared, its complete cosine form is bounded above by
 \(|k|^2\). Positive-mass charged leptons with
 Lorentz-invariant positive-energy dispersion then exclude photon decay into an

@@ -1147,7 +1147,7 @@ at the firing site its trigger, solvability predicate, and selected repair
 value depend only on the closed incident-edge neighborhood.  Induction on the
 schedule word gives the displayed implication.  A one-site update outside
 \(B_n(S)\) leaves the two initial records equal throughout that set.  The
-statement is machine checked for the repository repair map~\cite{ophrepo}.
+statement is machine checked for the committed repair map~\cite{ophrepo}.
 \end{proof}
 
 This fixed-word bound has an exact conditional adaptive extension.  If the
@@ -2397,8 +2397,8 @@ survives refinement and continuation.
 \subsection{Operational observers, event worlds, and coexisting regional algebras}
 \label{sec:operational-observer-layer}
 
-The record-algebra layer extends upward, in the repository Lean development
-\cite{ophrepo}, to a machine-checked interface family in which the observer
+The record-algebra layer extends upward, in the accompanying Lean
+development~\cite{ophrepo}, to a machine-checked interface family in which the observer
 itself is a typed object. The base object is a consensus tower: a
 regulator-indexed family of finite matrix models carrying observer and
 record fibres, observer-indexed record orders, commutative public record
@@ -2642,7 +2642,7 @@ alone do not.  The marginal maps are not used as multiplicative algebra maps,
 no completely-positive interface is claimed, and neither regional net nor
 independently declared uniform tower state is transported by this theorem.
 
-The registered PR-58 direction is approached in
+The time-slice direction is approached in
 \path{Lean/QFT/PathTimeSliceInterface.lean} by a finite \emph{one-step}
 interface. The structure \texttt{TimeIndexedNetEvolution} carries a finite
 index and successor, a region family, per-step ambient star-automorphisms
@@ -2666,7 +2666,8 @@ negative control: its evolved singleton is the next diagonal walk projector
 and cannot generate the top regional algebra
 (\texttt{walkSlice\_evolved\_generation\_fails}).
 
-This corrected interface and the triple coupling do not discharge PR-58. They have no multi-step
+This corrected interface and the triple coupling do not supply a time-slice
+theorem. They have no multi-step
 cocycle or group-action law, Cauchy geometry, clock, physical time, or source
 selection.  The common carrier joins the committed state/path/checkpoint data
 but supplies no regional-net or tower morphism. The
