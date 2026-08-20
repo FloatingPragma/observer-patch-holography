@@ -88,11 +88,11 @@ calculations and reproducible simulations:
   Standard Model's gauge Lie type, without selecting a gauge group from a
   catalogue. An exhaustive finite construction also identifies a conditional
   fifteen-state, anomaly-free matter grammar.
-- **Constants as fixed-point problems.** Exact balance and closure
-  calculations produce sharp candidates for dimensionless physical
-  quantities, including a value close to the measured fine-structure
-  constant. They turn the constants of nature into concrete derivation and
-  falsification targets rather than free inputs.
+- **Constants as fixed-point problems.** Koide's relation holds exactly under
+  a stated balance premise, and the pixel-closure value close to the measured
+  fine-structure constant carries diagnostic status. These calculations turn
+  constants into concrete derivation and falsification targets rather than
+  free inputs.
 - **Machine-checked and falsifiable.** More than 6600 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
@@ -100,10 +100,9 @@ calculations and reproducible simulations:
   before comparison data is examined, so OPH commits in advance to what
   would refute it.
 
-The linked papers and scientific ledgers record the precise status of every
-step. Together, these results define a concrete and testable path from three
-observer axioms toward a complete physical theory. The condensed version of
-the case, with the receipts and their evidence in one table, is the
+The linked papers record each step's precise status. Together, these results
+define a testable path from three observer axioms toward a complete theory.
+The condensed case, with its receipts in one table, is the
 [compact case for OPH](extra/compact_proof_of_oph.pdf); the full technical
 route is the
 [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf).

@@ -102,11 +102,11 @@ simulations reproductibles :
   catalogue. Une construction finie exhaustive identifie aussi une grammaire
   de matière conditionnelle à quinze états avec annulation exacte des
   anomalies.
-- **Les constantes comme problèmes de point fixe.** Des calculs exacts
-  d’équilibre et de clôture produisent des candidats précis pour des grandeurs
-  physiques sans dimension, dont une valeur proche de la constante de
-  structure fine mesurée. Les constantes deviennent ainsi des cibles concrètes
-  de dérivation et de falsification plutôt que des données libres.
+- **Les constantes comme problèmes de point fixe.** La relation de Koide tient
+  exactement sous une prémisse d’équilibre déclarée, et la valeur issue de la
+  fermeture du pixel, proche de la constante de structure fine mesurée,
+  conserve un statut diagnostique. Ces calculs font des constantes des cibles
+  concrètes de dérivation et de falsification plutôt que des données libres.
 - **Vérifié machine et falsifiable.** Plus de 6600 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
@@ -114,11 +114,10 @@ simulations reproductibles :
   d’élimination sous garde cryptographique avant l’examen des données de
   comparaison, de sorte qu’OPH s’engage à l’avance sur ce qui la réfuterait.
 
-Les articles et registres scientifiques liés donnent le statut précis de
-chaque étape. Ensemble, ces résultats tracent une voie concrète et testable des
-trois axiomes d’observateurs vers une théorie physique complète. La version
-condensée du dossier, avec les reçus et leurs preuves en une seule table, est
-le [dossier compact d’OPH](extra/compact_proof_of_oph.pdf) ; la voie
+Les articles liés donnent le statut précis de chaque étape. Ensemble, ces
+résultats tracent une voie testable des trois axiomes d’observateurs vers une
+théorie physique complète. Le dossier condensé, avec ses reçus en une table,
+est le [dossier compact d’OPH](extra/compact_proof_of_oph.pdf) ; la voie
 technique complète est
 l’[article phare](flagship/from_observer_consensus_to_standard_physics.pdf).
 
