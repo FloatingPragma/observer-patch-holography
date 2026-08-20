@@ -36,9 +36,11 @@ committed record-layer expectation on diagonals
 the committed right-slot checkpoint-style projector
 `rightProjWitness = slotRight (single 0 0 1)` is idempotent, and the
 expectation of its square differs from the square of its expectation
-(`leftSlotExpectation_not_multiplicative`).  Positive unital
-trace-preserving expectation is therefore the exact attainable grade of
-operator-to-record maps; the homomorphism grade is not attainable.
+(`leftSlotExpectation_not_multiplicative`).  This supplies a positive
+unital trace-preserving projection with the record restriction, while the
+same map is not multiplicative.  The no-go below excludes the stated
+homomorphism grades; it does not classify every possible intermediate
+structure on operator-to-record maps.
 
 **Part 3: the projection direction admits no homomorphism, in two
 grades.**  Grade (a), absolute: no unital algebra homomorphism exists
@@ -83,10 +85,12 @@ rows PR-32 (Cartesian joint carrier), PR-33 (diamond region map), and
 PR-34 (slot split).
 
 **What stays open for the structural field-theory line.**  This module
-closes the question "which morphisms exist beyond the record layer"
-for maps between the committed operator layer and the committed record
-layer on one carrier: embedding at the star-homomorphism grade,
-projection at the conditional-expectation grade, and nothing stronger.
+closes the stated multiplicative projection questions beyond the record
+layer for maps between the committed operator layer and the committed record
+layer on one carrier: embedding at the star-homomorphism grade and a positive
+unital trace-preserving projection that is not multiplicative.  It does not
+classify stronger nonmultiplicative structures such as complete positivity,
+idempotence, or bimodularity.
 It does not construct morphisms between the two committed regional
 nets themselves at the operator layer, a functorial net-to-net or
 tower-to-tower morphism over the join, or any spacetime-covariant

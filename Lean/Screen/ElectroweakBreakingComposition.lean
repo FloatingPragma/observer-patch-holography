@@ -4,11 +4,12 @@ import MatterGrammarIndexBridge
 /-!
 # The composed electroweak-breaking/Yukawa inhabitant (V3, issue #735)
 
-One typed premise bundle, one composed receipt.  The registered
-scalar, potential, Yukawa, and source-action premises (register rows
-PR-48, PR-49, PR-50, PR-54) name structure that the committed grammar
-identifies as compatible without selecting it.  This module inhabits
-those clauses on the committed coarse grammar: it declares the
+One typed premise bundle, one composed receipt.  Register rows PR-67,
+PR-68, and PR-69 declare the finite scalar grammar, quartic breaking
+packet, and single Yukawa-line coefficient used here.  The broader
+physical scalar, vacuum, Yukawa-matrix, and source-action attachments
+(PR-48, PR-49, PR-50, PR-54) remain open.  This module inhabits only
+the finite clauses on the committed coarse grammar: it declares the
 premise parameters as typed fields of one bundle
 `EWBreakingPremiseData` (extending the committed
 `SMStructurePremiseData` of register rows PR-09, PR-10, PR-11,
@@ -23,9 +24,11 @@ declared abelian charge is the committed integer charge
 `charge 1 = 3` of that row in `q = 6Y` units, so the hypercharge
 reading is `Y = 1/2`, exactly the PR-48 candidate identification.
 The quartic potential is `V h = lam * (|h|^2 - vev^2)^2` with `lam`
-and `vev` declared positive bundle parameters (register row PR-49:
-the potential shape, its coefficients, and the vacuum are declared,
-never derived).  The proved clauses:
+and `vev` declared positive bundle parameters under PR-68.  Here
+`vev` is the model-shell radius and the chosen vector is `(0, vev)`.
+If it is compared with the conventional vector
+`vSM / sqrt 2 * (0, 1)`, then `vev = vSM / sqrt 2`; no physical
+kinetic or mass normalization is inferred.  The proved clauses:
 
 * the global minimizer set of `V` is exactly the nonzero shell
   `|h|^2 = vev^2`;
@@ -65,7 +68,7 @@ Boundary and nonclaims.  This is a conditional structural composition
 on the committed coarse grammar of register row PR-59.  It is not the
 physical Higgs sector.  The couplings `gW`, `gY`, the quartic `lam`,
 the scale `vev`, and the Yukawa coefficient `yuk` are declared bundle
-parameters: no committed theorem selects them, and the committed
+parameters under PR-67--PR-69: no committed theorem selects them, and the committed
 invariant-form receipts of `GaugeKineticInvariantForms` leave the
 relative coupling normalization free, so the mass ratio is stated in
 declared constants and is not a derived weak mixing angle.  No
@@ -75,7 +78,8 @@ PR-54 stays open, and the gauge mass form enters as the exact
 algebraic coefficient defined here, not as a term of a constructed
 Lagrangian.  The scalar carrier is built on the quantum numbers of
 the committed table; its physical existence and kinetic normalization
-stay on register row PR-48.  The Yukawa line is one line with one
+stay on register row PR-48.  Physical vacuum selection stays on
+PR-49.  The Yukawa line is one line with one
 declared coefficient; no Yukawa matrix, family structure, texture, or
 phase is claimed (register row PR-50 and its non-identifiability
 receipts are untouched, and register row PR-36 three-family structure
@@ -148,11 +152,10 @@ theorem vacuum_normSqSum (vev : ℝ) : normSqSum (vacuum vev) = vev ^ 2 := by
   simp [normSqSum, vacuum, Complex.normSq_ofReal]
   ring
 
-/-! ## The quartic potential and its exact minimizer set (PR-49
-declared shape) -/
+/-! ## The quartic potential and its exact minimizer set (finite PR-68 packet) -/
 
-/-- The declared quartic potential `lam * (|h|^2 - vev^2)^2`
-(register row PR-49: shape and coefficients declared). -/
+/-- The declared finite quartic potential `lam * (|h|^2 - vev^2)^2`
+(register row PR-68).  The physical vacuum attachment remains PR-49. -/
 def potential (lam vev : ℝ) (h : Doublet) : ℝ :=
   lam * (normSqSum h - vev ^ 2) ^ 2
 
@@ -349,10 +352,12 @@ theorem stabilizer_exactly_one_line (g g' vev : ℝ) (hg : 0 < g)
     show g' * (g * t) = g * (g' * t)
     ring
 
-/-! ## The second variation at the minimum and the Goldstone count -/
+/-! ## The quadratic coefficient at the minimum and the Goldstone count -/
 
-/-- The exact quadratic coefficient of the potential along a ray
-from the chosen minimum: the second variation. -/
+/-- The exact coefficient of `t²` in the potential along a ray from the
+chosen minimum.  The historical name `secondVariation` uses the quadratic-
+coefficient convention; the conventional second derivative at `t = 0` is
+twice this value. -/
 def secondVariation (lam vev : ℝ) (u : Doublet) : ℝ :=
   4 * lam * (vev * (u 1).re) ^ 2
 
@@ -370,7 +375,8 @@ theorem normSqSum_vacuum_add_smul (vev t : ℝ) (u : Doublet) :
 /-- **The exact ray expansion of the potential at the minimum.**  The
 potential along any ray from the chosen minimum is an exact
 polynomial in the ray parameter with no constant and no linear term;
-the quadratic coefficient is the second variation.  This is the
+the quadratic coefficient is `secondVariation` in the file's stated
+coefficient convention.  This is the
 polynomial form of criticality plus second-order behavior, with no
 limit taken. -/
 theorem potential_ray_expansion (lam vev t : ℝ) (u : Doublet) :
@@ -382,14 +388,14 @@ theorem potential_ray_expansion (lam vev t : ℝ) (u : Doublet) :
   rw [normSqSum_vacuum_add_smul]
   ring
 
-/-- The second variation is positive semidefinite. -/
+/-- The quadratic coefficient is positive semidefinite. -/
 theorem secondVariation_nonneg (lam vev : ℝ) (hlam : 0 < lam)
     (u : Doublet) : 0 ≤ secondVariation lam vev u := by
   unfold secondVariation
   positivity
 
-/-- The kernel equation of the second variation: with positive
-declared `lam` and `vev`, the second variation vanishes exactly on
+/-- The kernel equation of the quadratic coefficient: with positive
+declared `lam` and `vev`, it vanishes exactly on
 the directions with real-free lower component. -/
 theorem secondVariation_zero_iff (lam vev : ℝ) (hlam : 0 < lam)
     (hvev : 0 < vev) (u : Doublet) :
@@ -567,7 +573,7 @@ def epsPair (a b : Doublet) : ℂ := a 0 * b 1 - a 1 * b 0
 
 /-- One Yukawa line with one declared coefficient: the epsilon-paired
 coupling of the scalar to a doublet carrier and a singlet (register
-row PR-50: one line, no matrix, no family structure). -/
+row PR-69: one finite line; physical matrices and family structure remain PR-50). -/
 noncomputable def yukawaLine (y : ℝ) (h ψ : Doublet) (χ : ℂ) : ℂ :=
   (y : ℂ) * epsPair ψ h * χ
 
@@ -600,36 +606,32 @@ theorem yukawa_line_zero_iff (y vev : ℝ) :
 /-- The composed electroweak-breaking premise bundle: the committed
 Standard-Model structure premises (register rows PR-09, PR-10, PR-11,
 PR-59) extended by the declared scalar-sector, coupling, and Yukawa
-parameters.  Every added field is a declared hypothesis: the quartic
-coupling and breaking scale of register row PR-49, the two coupling
-constants whose selection stays on register rows PR-48/PR-54, and the
-single Yukawa coefficient of register row PR-50.  None is derived
-here. -/
+parameters.  Every added field is a declared finite hypothesis under
+PR-67--PR-69.  The physical scalar/action, vacuum selection, complete
+Yukawa matrices, and source action remain open under PR-48--PR-50 and
+PR-54.  None is derived here. -/
 structure EWBreakingPremiseData where
   /-- The committed Standard-Model structure premises. -/
   base : SMStructurePremiseData
-  /-- The declared quartic coupling (register row PR-49). -/
+  /-- The declared finite quartic coupling (register row PR-68). -/
   lam : ℝ
   /-- The quartic coupling is positive: the declared stability clause
-  of register row PR-49. -/
+  of register row PR-68. -/
   lam_pos : 0 < lam
-  /-- The declared symmetry-breaking scale (register row PR-49). -/
+  /-- The declared model-shell radius (register row PR-68). -/
   vev : ℝ
   /-- The breaking scale is positive: the declared broken-branch
-  clause of register row PR-49. -/
+  clause of register row PR-68. -/
   vev_pos : 0 < vev
-  /-- The declared weak coupling constant (register rows
-  PR-48/PR-54). -/
+  /-- The declared finite weak coupling constant (register row PR-67). -/
   gW : ℝ
   /-- Positivity of the declared weak coupling. -/
   gW_pos : 0 < gW
-  /-- The declared hypercharge coupling constant (register rows
-  PR-48/PR-54). -/
+  /-- The declared finite hypercharge coupling constant (register row PR-67). -/
   gY : ℝ
   /-- Positivity of the declared hypercharge coupling. -/
   gY_pos : 0 < gY
-  /-- The declared coefficient of the single Yukawa line (register
-  row PR-50). -/
+  /-- The declared coefficient of the single finite Yukawa line (PR-69). -/
   yuk : ℝ
 
 /-- The bundled selection mask supplies, in either committed parity
@@ -689,10 +691,10 @@ vanishing identically exactly when `yuk = 0` or `vev = 0`; and the
 bundled selection mask supports the charge bookkeeping required of
 one such line on the committed grammar.  Every clause consumes the
 bundle.
-The theorem does not consume or discharge register rows PR-47, PR-48,
-PR-49, PR-50, or PR-54: the potential shape, couplings, scale, and
-Yukawa coefficient are declared fields, and no spacetime action,
-physical vacuum, measured mass, or family structure is claimed. -/
+The theorem consumes only the finite declarations PR-67--PR-69.  It
+does not discharge PR-47, PR-48, PR-49, PR-50, or PR-54: no physical
+scalar, kinetic normalization, vacuum selection, complete Yukawa
+matrices, spacetime action, measured mass, or family structure is claimed. -/
 theorem electroweakBreakingComposition_receipt
     (D : EWBreakingPremiseData) :
     ((∀ h : Doublet,

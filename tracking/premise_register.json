@@ -64,14 +64,14 @@
     "claims/assumption_dictionary.md": "statement",
     "Lean/EventAlgebra/OperationalAdditivityBoundary.lean": "no_go"
    },
-   "notes": "Removal needs a source-produced complex-tomographically-complete effect and instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation. Lean/EventAlgebra/OperationalAdditivityBoundary.lean locates the row exactly on the committed produced system: the coexistent sums of two committed effects are precisely the unit resolutions (every committed effect has trace one, and in dimension two two trace-one effects coexist only as complements), any assignment sending the sure effect to one and normalised in each context is additive on all of them, and a machine-checked countermodel matching every produced count frequency, probability-valued on all effects, complement-consistent, and additive on every committed coexistent sum fails additivity at an explicit effect pair (35/64 against 143/256) and is the Born functional of no state; conversely full additivity plus the produced counts forces the run Born valuation and the committed run state uniquely. The committed produced system therefore cannot supply this premise; its removal still needs coexistent sums beyond the unit resolutions with an operational derivation of their additivity."
+   "notes": "Removal needs a source-produced complex-tomographically-complete effect/instrument system with an operational theorem deriving noncontextual additivity on all required coexistent sums; lane #730 owns that scientific obligation. Lean/EventAlgebra/OperationalAdditivityBoundary.lean locates the row on the committed static effect/count fixture: the listed coexistent sums are precisely the unit resolutions, any assignment normalized in each context is additive on them, and an explicit non-Born countermodel matches every generated expected frequency while failing full additivity at a separate effect pair. Conversely, full additivity plus those static fit values forces the declared matrix's Born valuation. The fixture therefore cannot supply PR-03, PR-64, or PR-65; removal still needs an operational derivation beyond context-wise normalization."
   },
   {
    "id": "PR-04",
-   "name": "phase-operation instrument",
+   "name": "declared phase-sensitive effect",
    "type": "structural_rule",
    "disposition": "axiomatize",
-   "statement": "The phase operation completing the diagonal record algebra to full operator tomography is a declared instrument: the exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ) generates the missing Pauli-Y projector and is tomographically complete on fixed-trace two-by-two matrices, while the producer supplies no phase operation, rotated or phase outcome receipts, common-preparation validation, or operational effect composition. The lift and its boundary are declared in code/born_context_phase_lift/README.md and in the row source_phase_sensitive_instrument_deferred of claims/assumption_dictionary.md.",
+   "statement": "The exact matrix I/2 - (2*sqrt(3)/3)*i*(QP - PQ), equal to the Pauli-Y plus projector, is one declared phase-sensitive effect. Together with the two committed real effects it completes fixed-trace two-by-two tomography. This declaration supplies an effect only, not a quantum operation or instrument; CP outcome maps, a trace-preserving summed channel, preparation, readback, and provenance are separate premises.",
    "consuming_lanes": [
     730
    ],
@@ -97,7 +97,7 @@
     "code/phase_operation_producer/verify_phase_operation_receipt.py": "conditional_consumer",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a source-produced phase-sensitive operation/instrument with completely-positive outcome maps, a trace-preserving summed channel, effect/readback compatibility, common-preparation semantics, producer-bound receipts, and a preregistered statistical validation rule (or explicitly exhaustive deterministic semantics). Lean/EventAlgebra/OperationalPhaseInstrument.lean now deliberately types only IdealPhasePOVMCountModel, a static exact-fit model. Its synthetic_ideal_phase_fit theorem constructs an inhabitant from chosen rational literals with no producer, run, operation, or receipt, proving that exact POVM/count fit cannot by itself discharge PR-04. The diagonal/real-closure blindness theorems remain exact algebraic delimitations. Operational additivity/composition remains separately registered under PR-03. Lean/EventAlgebra/PhaseInstrumentDetermination.lean reduces the row's residue exactly: the committed diagonal literals pin the model state up to one complex off-diagonal coordinate, the phase clause is equivalent to a nonzero off-diagonal imaginary part for Hermitian effects, every count frequency of every inhabitant is an exact affine function of that coordinate (closed forms over the committed core for the phase and rotated-3 contexts), and phase counts obey the decidable window 32041(a-b)^2 <= 30192(a+b)^2 with both outcomes positive and minimal mass two. What the row keeps open is count provenance, source production of the phase operation, and common-preparation receipts; none is expressible inside the model, and the window is a necessary condition on any producer-bound phase receipt, never a provenance certificate. Recorded decision 2026-08-18 (lane issue 730, appended without altering the earlier note text): disposition changed from remove to axiomatize. The phase operation, the committed exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ) declared in code/born_context_phase_lift, is a declared architecture operation. Information cost: one declared non-diagonal operation with exact matrix [[1/2, -i/2], [i/2, 1/2]], equal to the Pauli +Y projector. Phase-context and rotated-context counts are produced by an explicitly exhaustive deterministic semantics, one of the two validation routes the committed boundary text names as acceptable: exact Born arithmetic of the declared operation on the committed record-diagonal run state diag(111/179, 68/179), with counts as exact rational frequencies scaled to the least positive integer multiple of the committed run mass 179 that clears each denominator (phase (179, 179) at mass 358; rotated (315, 401) at mass 716; diagonal (111, 68) at mass 179). Producer, committed receipt, and independent verifier live in code/phase_operation_producer; the Lean inhabitant and composed receipt are Lean/EventAlgebra/OperationalPhaseAttainment.lean. No laboratory or emergent claim follows: the operation is declared, never source-produced; the counts are produced, never measured; PR-52 physical attachments stay open; the synthetic-inhabitant boundary of the no-go modules is unchanged; OL-C5 attainment is conditional structural under this axiomatized premise. Source production of a phase operation remains the open scientific obligation stated in this note."
+   "notes": "Recorded decision 2026-08-18, lane issue 730: the exact matrix [[1/2, -i/2], [i/2, 1/2]] is axiomatized as one declared phase effect. OperationalPhaseInstrument deliberately types only a static exact-fit model, and synthetic_ideal_phase_fit proves that such a fit carries no custody. PhaseInstrumentDetermination proves the one-coordinate reduction and integer window. The phase-operation producer is a deterministic semantic conformance calculator: it evaluates declared Born weights and scales them to exact integer pairs, with an independent verifier; it is not measurement or validation. OperationalPhaseAttainment proves static fit equalities but its Lean bundle contains no CP maps, summed channel, producer binding, or least-multiple generation law. PR-64 owns operational instrument realization, PR-65 owns source preparation and readback provenance, PR-03 owns valuation additivity, and PR-52 owns physical attachment."
   },
   {
    "id": "PR-05",
@@ -353,6 +353,7 @@
     733,
     735,
     736,
+    740,
     743
    ],
    "evidence": [
@@ -375,7 +376,8 @@
    "statement": "Stable causality of the constructed event region and the record-Cauchy global-hyperbolicity clause are named global assumptions, and the rank-four local charts of the event-manifold theorem carry an open-image receipt; no global causality claim is derived. Both are declared as record_cauchy_and_stable_causality and event_manifold_receipts_E1_E6 in claims/assumption_dictionary.md, with the synthetic receipt run in code/geometry/event_manifold_reconstruction.py.",
    "consuming_lanes": [
     728,
-    729
+    729,
+    740
    ],
    "evidence": [
     "claims/assumption_dictionary.md",
@@ -965,7 +967,8 @@
    "statement": "The finite locality helpers are read on a supplied bipartite carrier split with a designated local factor and a normalized local operation: a row-normalized classical kernel or Kraus-complete quantum family. Adaptive variants additionally take a supplied scheduler and consultation region. These data yield exact algebraic no-signalling and dependency-cone identities but do not identify spacelike physical regions, a laboratory channel, or a source-selected factorization.",
    "consuming_lanes": [
     728,
-    730
+    730,
+    740
    ],
    "evidence": [
     "Lean/ObserverPatchHolography/Locality/NoSignalling.lean",
@@ -1039,6 +1042,7 @@
    "consuming_lanes": [
     734,
     735,
+    740,
     743,
     745
    ],
@@ -1064,6 +1068,7 @@
    "statement": "One complex weak doublet of hypercharge one half is selected as the physical scalar carrier, identified with the declared weak block, and furnished with a gauge-covariant kinetic action and normalization. The exterior table and central-weight arithmetic identify a compatible candidate but do not select its physical existence or dynamics.",
    "consuming_lanes": [
     735,
+    740,
     745
    ],
    "evidence": [
@@ -1093,6 +1098,7 @@
    "consuming_lanes": [
     735,
     736,
+    740,
     745
    ],
    "evidence": [
@@ -1118,6 +1124,7 @@
    "consuming_lanes": [
     735,
     736,
+    740,
     745
    ],
    "evidence": [
@@ -1219,7 +1226,7 @@
     "Lean/Screen/TemporalMaxwellEvolution.lean": "statement",
     "Lean/Geometry/CommonWorldIslandBridge.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies an exact declared-step leapfrog evolution with continuity, energy, gauge, static-Coulomb, and wave receipts; a calibrated frame/scale, physical source or readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open."
+   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies a conditional declared-step recurrence with continuity, quadratic-form balance, gauge, static-Coulomb, and wave receipts. The exact unit-step spectrum has growing modes and the conserved staggered form is not positive; a timestep-scaled evolution, Courant/stability theorem, calibrated frame and scale, physical source/readout, and continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open."
   },
   {
    "id": "PR-54",
@@ -1455,6 +1462,137 @@
     "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean": "statement"
    },
    "notes": "Declared reading behind the capacity split; the typed costs and sub-class loci are machine-checked in the evidence module. Consumed as a class-membership constraint by OPH-CONS-SCHEDULER-CLASS-CAPACITY-SPLIT; no source theorem selects the reading."
+  },
+  {
+   "id": "PR-64",
+   "name": "operational phase-instrument channel realization",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "A phase-sensitive measurement is represented by context- and outcome-indexed completely-positive trace-nonincreasing state-update maps whose sum in each context is trace preserving, whose induced effects agree with the declared effect table, and whose outcome readback agrees with the recorded public outcome. A matrix effect or exact Born table alone is not such an instrument.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
+    "claims/assumption_dictionary.md"
+   ],
+   "evidence_roles": {
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "no_go",
+    "claims/assumption_dictionary.md": "statement"
+   },
+   "notes": "Removal needs a typed source-facing instrument with CP/TNI outcome maps, a TP summed channel, effect compatibility, and public readback compatibility. The committed static phase model has none of these fields. A declared Lüders instrument for the Pauli-Y projector would be a useful conditional construction, but would still leave source selection and provenance under PR-65."
+  },
+  {
+   "id": "PR-65",
+   "name": "source-produced phase preparation and readback provenance",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "One source construction supplies the common preparation used across the phase and real contexts, selects the phase-sensitive effect or instrument, produces the public outcomes through that instrument, and binds preparation, context, operation, readback, and receipt custody to one run. Deterministic recomputation of Born weights from declared matrices does not supply this provenance.",
+   "consuming_lanes": [
+    730
+   ],
+   "evidence": [
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
+    "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json",
+    "claims/assumption_dictionary.md"
+   ],
+   "evidence_roles": {
+    "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
+    "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "no_go",
+    "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json": "statement",
+    "claims/assumption_dictionary.md": "statement"
+   },
+   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity."
+  },
+  {
+   "id": "PR-66",
+   "name": "declared temporal Maxwell update",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The temporal Maxwell packet assumes the exact unit-step Ampere recurrence E(n+1)-E(n)=C^T B(n+1)-J(n). Faraday's law, Gauss-continuity propagation, the staggered quadratic-form balance, gauge invariance, and the wave recursion are conditional consequences of this declared update, not derivations of it from the three OPH axioms, repair dynamics, or the static action.",
+   "consuming_lanes": [
+    733
+   ],
+   "evidence": [
+    "Lean/Screen/TemporalMaxwellEvolution.lean",
+    "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
+    "claims/assumption_dictionary.md"
+   ],
+   "evidence_roles": {
+    "Lean/Screen/TemporalMaxwellEvolution.lean": "conditional_consumer",
+    "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json": "statement",
+    "claims/assumption_dictionary.md": "statement"
+   },
+   "notes": "Removal needs a source- or action-derived evolution law. The existing exact spectrum contains C C^T eigenvalues 5 and 3+sqrt(5), above the stability threshold 4 for the unscaled unit-step leapfrog recurrence. The conserved staggered form is therefore not a positive stability certificate. A timestep-scaled recurrence with a proved Courant bound is a viable continuation; physical calibration and comparison remain under PR-53."
+  },
+  {
+   "id": "PR-67",
+   "name": "declared finite one-doublet electroweak grammar",
+   "type": "representation_choice",
+   "disposition": "remove",
+   "statement": "The finite electroweak composition uses one declared complex doublet with q=6Y equal to three, a four-parameter weak-hypercharge infinitesimal action with declared positive couplings, and the displayed finite normalization. This is a mathematical grammar declaration, not selection of a physical scalar field or kinetic action.",
+   "consuming_lanes": [
+    735,
+    740,
+    745
+   ],
+   "evidence": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
+   ],
+   "evidence_roles": {
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
+    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer",
+    "Lean/Screen/ChargedCurrentDictionary.lean": "conditional_consumer"
+   },
+   "notes": "Removal needs source selection of this finite grammar. PR-48 remains separately open for a physical scalar carrier, covariant kinetic action, and normalization attachment."
+  },
+  {
+   "id": "PR-68",
+   "name": "declared finite quartic breaking packet",
+   "type": "structural_rule",
+   "disposition": "remove",
+   "statement": "The finite composition declares lambda>0, a model-shell radius r>0, the potential lambda times (normSq(h)-r^2)^2, and the chosen point (0,r). Its minimizer, stabilizer, quadratic-coefficient, and gauge-mass-form identities are conditional finite consequences of this packet.",
+   "consuming_lanes": [
+    735,
+    740,
+    745
+   ],
+   "evidence": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/NeutralCurrentDictionary.lean",
+    "Lean/Screen/ChargedCurrentDictionary.lean"
+   ],
+   "evidence_roles": {
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
+    "Lean/Screen/NeutralCurrentDictionary.lean": "conditional_consumer",
+    "Lean/Screen/ChargedCurrentDictionary.lean": "conditional_consumer"
+   },
+   "notes": "The Lean parameter called vev is the finite model-shell radius. If the vector is identified with the conventional Standard Model form (0,v_SM/sqrt(2)), then r=v_SM/sqrt(2); translating the finite mass-form coefficient to a physical mass additionally needs PR-48 kinetic normalization and PR-49 physical vacuum/scale attachment."
+  },
+  {
+   "id": "PR-69",
+   "name": "declared finite Yukawa-line coefficient",
+   "type": "selection_rule",
+   "disposition": "remove",
+   "statement": "The finite electroweak composition selects one epsilon-paired doublet-singlet Yukawa line with one declared real coefficient y and proves its exact bilinear value at the declared finite vacuum. It supplies no family matrices, physical chiral attachment, texture, phase, or measured mass identification.",
+   "consuming_lanes": [
+    735,
+    740
+   ],
+   "evidence": [
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Geometry/CommonWorldKinematicsWitness.lean"
+   ],
+   "evidence_roles": {
+    "Lean/Screen/ElectroweakBreakingComposition.lean": "conditional_consumer",
+    "Lean/Geometry/CommonWorldKinematicsWitness.lean": "conditional_consumer"
+   },
+   "notes": "Removal needs source selection of the finite line and coefficient. PR-50 remains separately open for the complete physical Yukawa matrices, family structure, and interaction attachment."
   }
  ]
 }

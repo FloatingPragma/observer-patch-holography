@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Independent verifier for the PR-04 recorded-decision phase-operation receipt.
+"""Independent verifier for the legacy-named PR-04 phase-effect fixture.
 
 The verifier shares no arithmetic code with the producer. It reads the pinned
 context-web payload and the committed receipt as adversarial inputs, rebuilds
-the declared operation and the complete deterministic outcome table from the
+the declared effect and the complete deterministic Born table from the
 payload alone in its own exact ``Q(sqrt(3), i)`` arithmetic (scalars as
 4-tuples of ``Fraction``), and demands byte-level agreement with every
-receipt field: input digests, the operation matrix, the committed state, the
+receipt field: input digests, the legacy-named operation matrix field, the declared matrix, the
 per-context effects, Born weights, masses, counts, the run-mass-multiple
 minimality of each mass, and the integer phase receipt window. Any mismatch
 raises; there is no tolerance parameter and no floating-point arithmetic.
@@ -14,8 +14,8 @@ raises; there is no tolerance parameter and no floating-point arithmetic.
 The verifier also demands the receipt's declaration fields: the recorded
 decision naming register row PR-04 under the axiomatize disposition, the
 exhaustive-deterministic-semantics declaration, and the nonclaims text. A
-receipt that presents these counts as measured, sampled, or laboratory data
-does not verify.
+receipt that presents these generated values as measured, sampled, laboratory
+data, or validation does not verify.
 """
 
 from __future__ import annotations
@@ -175,7 +175,7 @@ def check_window(counts: list[int]) -> tuple[int, int]:
 
 
 def expected_table(payload: dict[str, Any]) -> tuple[Matrix, Matrix, list[tuple[str, Matrix]]]:
-    """Rebuild the committed state, the declared operation, and the named
+    """Rebuild the committed state, the declared effect, and the named
     effect table from the payload alone."""
 
     elements = payload.get("irrep", {}).get("elements")
@@ -205,13 +205,13 @@ def expected_table(payload: dict[str, Any]) -> tuple[Matrix, Matrix, list[tuple[
     commutator = m_sub(
         m_mul(projectors[3], M_RECORD), m_mul(M_RECORD, projectors[3])
     )
-    operation = m_sub(
+    effect = m_sub(
         m_scale(scal(Fraction(1, 2)), M_IDENTITY),
         m_scale(scal(0, 0, 0, Fraction(2, 3)), commutator),
     )
-    need(operation == M_PLUS_Y, "recomputed operation is not the Pauli +Y projector")
-    need(m_dagger(operation) == operation, "recomputed operation not Hermitian")
-    need(m_mul(operation, operation) == operation, "recomputed operation not idempotent")
+    need(effect == M_PLUS_Y, "recomputed effect is not the Pauli +Y projector")
+    need(m_dagger(effect) == effect, "recomputed effect not Hermitian")
+    need(m_mul(effect, effect) == effect, "recomputed effect not idempotent")
 
     state = m_of(
         [
@@ -222,8 +222,8 @@ def expected_table(payload: dict[str, Any]) -> tuple[Matrix, Matrix, list[tuple[
 
     table: list[tuple[str, Matrix]] = [("web_diagonal", M_RECORD)]
     table += [(f"web_conjugated_{g}", projectors[g]) for g in range(6)]
-    table.append(("phase", operation))
-    return state, operation, table
+    table.append(("phase", effect))
+    return state, effect, table
 
 
 def verify(
@@ -238,7 +238,7 @@ def verify(
     need(decision.get("register_row") == "PR-04", "decision register row drift")
     need(decision.get("disposition") == "axiomatize", "decision disposition drift")
     need(decision.get("date") == "2026-08-18", "decision date drift")
-    need("declared architecture operation" in decision.get("statement", ""),
+    need("declared phase-sensitive effect" in decision.get("statement", ""),
          "decision statement drift")
 
     inputs = receipt.get("inputs", {})
@@ -262,17 +262,21 @@ def verify(
     need("never source-produced" in nonclaims, "nonclaims declaration missing")
     need("no laboratory or emergent-instrument claim" in nonclaims.lower(),
          "laboratory nonclaim missing")
+    need("not an operation, instrument, measurement, or validation" in nonclaims.lower(),
+         "static-fixture nonclaim missing")
 
-    state, operation, table = expected_table(payload)
+    state, effect, table = expected_table(payload)
 
-    declared_operation = decode_receipt_matrix(
+    legacy_effect_field = decode_receipt_matrix(
         receipt.get("declared_operation", {}).get("matrix")
     )
-    need(declared_operation == operation, "receipt operation matrix drift")
+    need(legacy_effect_field == effect, "legacy operation-field matrix drift")
     need(
         receipt.get("declared_operation", {}).get("equals_pauli_y_plus_projector") is True,
-        "operation projector flag drift",
+        "legacy effect-field projector flag drift",
     )
+    need(receipt.get("declared_operation", {}).get("legacy_field_name") is True,
+         "legacy field-name declaration missing")
     declared_state = decode_receipt_matrix(receipt.get("committed_state", {}).get("matrix"))
     need(declared_state == state, "receipt committed-state drift")
 
@@ -321,9 +325,10 @@ def verify(
         "phase_window_rhs": rhs,
         "deterministic_semantics_declared": True,
         "verdict": (
-            "Receipt verifies: the deterministic outcome table of the declared "
-            "PR-04 operation on the committed run state is reproduced exactly "
-            "from the pinned payload."
+            "Receipt verifies static semantic conformance: the generated Born "
+            "table of the declared PR-04 effect on the declared diagonal matrix "
+            "is reproduced exactly from the pinned payload; no instrument, "
+            "measurement, or validation is certified."
         ),
     }
 

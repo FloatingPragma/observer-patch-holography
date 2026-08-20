@@ -70,7 +70,7 @@ EXPECTED_ROWS = (
         "axiomatize",
     ),
     ("PR-03", "operational effect additivity", "selection_rule", "remove"),
-    ("PR-04", "phase-operation instrument", "structural_rule", "axiomatize"),
+    ("PR-04", "declared phase-sensitive effect", "structural_rule", "axiomatize"),
     ("PR-05", "counting path reference", "selection_rule", "remove"),
     ("PR-06", "real Legendre enrichment", "representation_choice", "remove"),
     (
@@ -384,6 +384,42 @@ EXPECTED_ROWS = (
         "two-register capacity-split reading",
         "representation_choice",
         "axiomatize",
+    ),
+    (
+        "PR-64",
+        "operational phase-instrument channel realization",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-65",
+        "source-produced phase preparation and readback provenance",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-66",
+        "declared temporal Maxwell update",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-67",
+        "declared finite one-doublet electroweak grammar",
+        "representation_choice",
+        "remove",
+    ),
+    (
+        "PR-68",
+        "declared finite quartic breaking packet",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-69",
+        "declared finite Yukawa-line coefficient",
+        "selection_rule",
+        "remove",
     ),
 )
 

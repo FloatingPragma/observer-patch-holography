@@ -48,16 +48,17 @@ integer constraints.  Four groups of results:
   mass over committed-core inhabitants is exactly two
   (`minimal_phase_count_mass`), attained by the synthetic inhabitant.
 
-**Boundary.**  Nothing here produces counts, operations, preparations,
-or receipts, and nothing here discharges register row PR-04.  The
-theorems reduce the residue of PR-04 to its non-mathematical part: for
+**Boundary.**  Nothing here produces counts, instruments, preparations,
+or receipts, and nothing here discharges a register row.  For
 a committed-core inhabitant, the state diagonal, the affine dependence
 of every count frequency on the one free coordinate, and the
 admissible count window are forced by the
 committed run literals `(111, 68)` and the committed effects, so what
-the row keeps open is exactly count provenance (a custody condition
-the register holds outside the type system) together with the
-source production of the phase operation and the common preparation.
+the remaining work includes count provenance, source production of the
+phase effect and common preparation, and the separate operational instrument
+realization (CP outcome maps, a trace-preserving summed channel, and
+effect/readback compatibility).  Those obligations are not expressible in
+this static model.
 The receipt window is a necessary condition on any
 producer-bound phase receipt, never a certificate of one; the
 synthetic inhabitant of the base module shows the window is
@@ -323,8 +324,8 @@ model states exactly when all their count frequencies agree.  Together
 with `prep_coordinates`, `phase_frequency_eq`, and
 `rotated_frequency_eq`, this reduces the entire mathematical content of
 a committed-core inhabitant to the one free state coordinate; the
-residue of register row PR-04 is count provenance and preparation
-production, neither of which is expressible inside the model. -/
+residue is not mathematical state identification: provenance, preparation,
+and operational-instrument realization remain outside the model. -/
 theorem prep_eq_iff_frequencies_eq {I J : IdealPhasePOVMCountModel}
     (hI : I.core = QuantumSurface.committedAlgebraicPhaseCompletion)
     (hJ : J.core = QuantumSurface.committedAlgebraicPhaseCompletion) :

@@ -300,9 +300,9 @@
       ],
       "blocking_issues": [
         {
-          "number": 733,
+          "number": 737,
           "scope": "unresolved_attachment",
-          "role": "attach the auxiliary carrier symbol to physical position, frequency, clock, field, signal front, frame, scale, source lag, readout, exclusivity, and frozen comparison governance"
+          "role": "execute the physical propagation and instrument program with position, frequency, clock, field, signal front, frame, scale, source lag, readout, exclusivity, stability, and frozen comparison governance"
         }
       ]
     },
@@ -330,6 +330,146 @@
           "number": 734,
           "scope": "unresolved_attachment",
           "role": "source-select the physical Z6 line and loop action; the declared quotient fixture is insufficient"
+        }
+      ]
+    },
+    {
+      "identification_id": "declared_phase_effect_to_operational_instrument",
+      "label": "declared Pauli-Y effect and static Born table / operational phase instrument",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
+        "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
+        "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT"
+      ],
+      "source_anchors": [
+        "PR-04 declared phase-sensitive effect",
+        "PR-64 CP/TNI outcome maps and trace-preserving summed channel",
+        "PR-65 common preparation, outcome readback, and run custody"
+      ],
+      "blocking_issues": [
+        {
+          "number": 730,
+          "scope": "unresolved_attachment",
+          "role": "construct and source-bind the operational phase instrument; the current exact count table is a semantic conformance fixture"
+        }
+      ]
+    },
+    {
+      "identification_id": "declared_chsh_witness_to_source_experiment",
+      "label": "declared Bell-state CHSH witness / source-prepared slot-local observer experiment",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-QUANTUM-TSIRELSON-SATURATION",
+        "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH"
+      ],
+      "source_anchors": [
+        "source-prepared joint state",
+        "slot-local operational settings and readbacks",
+        "physical separation and run custody",
+        "separability or contextual-readout analysis beyond the jointly diagonal bound"
+      ],
+      "blocking_issues": [
+        {
+          "number": 730,
+          "scope": "unresolved_attachment",
+          "role": "construct the source-prepared slot-local experiment without overreading the target-specific Bell-state obstruction"
+        }
+      ]
+    },
+    {
+      "identification_id": "finite_maxwell_complex_to_physical_field",
+      "label": "finite port-seam-face Maxwell packet / stable calibrated physical field propagation",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-EM-POSITION-SPACE-MAXWELL-COULOMB",
+        "OPH-EM-LOCAL-FACE-MAXWELL-STATIC-COMPOSITION",
+        "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY"
+      ],
+      "source_anchors": [
+        "PR-66 source- or action-derived evolution law",
+        "timestep scaling and positive stability control",
+        "physical field, current, frame, clock, continuum, and detector readback"
+      ],
+      "blocking_issues": [
+        {
+          "number": 737,
+          "scope": "unresolved_attachment",
+          "role": "replace the unstable unit-step recurrence with a certified stable physical instrument and comparison path"
+        },
+        {
+          "number": 739,
+          "scope": "unresolved_attachment",
+          "role": "derive or reduce the declared evolution, source, clock, and calibration premises"
+        }
+      ]
+    },
+    {
+      "identification_id": "finite_lorentz_clock_to_common_physical_world",
+      "label": "finite Lorentz, mass-shell, and clock packets / one physical common-world realization",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+        "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY",
+        "OPH-GEOMETRY-COMMON-WORLD-TWO-ISLAND-WITNESS",
+        "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE"
+      ],
+      "source_anchors": [
+        "source-selected event and spacetime attachment",
+        "shared physical clock and calibration",
+        "common action and cross-island carrier maps",
+        "end-to-end observer readback"
+      ],
+      "blocking_issues": [
+        {
+          "number": 728,
+          "scope": "unresolved_attachment",
+          "role": "supply the source-selected tower and physical event realization"
+        },
+        {
+          "number": 729,
+          "scope": "unresolved_attachment",
+          "role": "complete the physical spacetime and gravity-side join"
+        },
+        {
+          "number": 739,
+          "scope": "unresolved_attachment",
+          "role": "derive the shared clock and calibration premises"
+        },
+        {
+          "number": 740,
+          "scope": "unresolved_attachment",
+          "role": "construct one common action, carrier map, and observer evidence bundle"
+        }
+      ]
+    },
+    {
+      "identification_id": "finite_electroweak_grammar_to_physical_action",
+      "label": "declared finite electroweak grammar and current dictionaries / physical broken-phase action",
+      "status": "undischarged",
+      "claim_ids": [
+        "OPH-SCREEN-ELECTROWEAK-BREAKING-COMPOSITION",
+        "OPH-SCREEN-NEUTRAL-CURRENT-DICTIONARY",
+        "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
+        "OPH-SCREEN-ASSEMBLED-STRUCTURAL-ACTION"
+      ],
+      "source_anchors": [
+        "PR-67 finite one-doublet grammar",
+        "PR-68 finite quartic breaking packet",
+        "PR-69 finite Yukawa-line coefficient",
+        "PR-48 through PR-50 physical scalar, vacuum, and Yukawa attachments",
+        "source-produced gauge and matter action"
+      ],
+      "blocking_issues": [
+        {
+          "number": 735,
+          "scope": "unresolved_attachment",
+          "role": "construct the source-produced physical Standard Model action and normalize the scalar sector"
+        },
+        {
+          "number": 745,
+          "scope": "unresolved_attachment",
+          "role": "attach the neutral and charged current dictionaries to physical weak processes and readouts"
         }
       ]
     }

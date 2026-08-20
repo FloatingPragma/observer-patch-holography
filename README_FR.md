@@ -13,26 +13,18 @@ OPH commence par des observateurs : des systèmes bornés dotés d’un état lo
 d’une relecture d’eux-mêmes et de leurs voisins, de registres et de
 mouvements de réparation. La réalité émerge de la réparation des
 recouvrements d’observateurs sur un écran holographique. À partir de cette
-architecture, OPH reconstruit un noyau structurel fini exact : des identités
-conditionnelles pour les registres quantiques, un paquet fini conditionnel
-des quatre principes, un porteur tridimensionnel de repères d’observateur et
-des interfaces explicites d’ordre et d’horloge. OPH dérive aussi la
-cinématique de Lorentz sur la branche de support global déclarée, une variété
-d’événements lorentzienne conditionnelle à quatre dimensions, une branche
-d’Einstein conditionnelle pour la gravitation, le type de Lie du Modèle
-standard, ainsi qu’une paire extérieure conditionnelle pour une génération de
-matière.
+architecture, OPH construit une voie mathématique unique à travers les
+registres quantiques, la thermodynamique, l’espace tridimensionnel, les
+événements lorentziens, la gravitation, la structure de jauge, la matière et
+les constantes de la nature. Ses étapes les plus fortes sont des théorèmes
+finis exacts, chaque pont physique étant formulé de façon à pouvoir être prouvé
+ou testé.
 
-Trois axiomes régissent l’architecture du simulateur et la manière dont les
-observateurs parviennent à un consensus. À côté d’eux se trouvent deux
-programmes de clôture proposés. Le premier cherche un point fixe pour la
-constante de pixel $P$, dont l’identification physique à la constante de
-structure fine est une question ouverte. Le second cherche un point fixe pour
-la capacité $N$, dont le pont entre capacité de la source et constante
-cosmologique est une question ouverte. Identifier l’univers simulé à l’univers
-simulateur motive ces équations d’autocohérence ; cela ne prouve pas, à soi
-seul, qu’une solution existe, qu’elle est unique, ni qu’elle prend la valeur
-observée.
+Trois axiomes régissent l’architecture des observateurs et la manière dont ils
+parviennent à un consensus. Deux programmes d’autocohérence cherchent ensuite
+des points fixes pour la constante de pixel $P$ et la capacité $N$, transformant
+la constante de structure fine et la constante cosmologique en cibles précises
+de reconstruction plutôt qu’en données ajustées.
 
 ## Commencer ici
 
@@ -43,9 +35,8 @@ l’ancien tableau et évidente depuis l’intérieur du suivant. OPH opère la
 révision suivante. L’observateur, traité pendant un siècle comme une gêne aux
 marges de la mécanique quantique, passe au fondement. L’espace-temps, la
 matière et les constantes deviennent des problèmes précis de reconstruction,
-où les résultats finis exacts restent distincts des identifications physiques
-ouvertes. Le matériel ci-dessous vous fait traverser ce basculement sans
-prérequis.
+attaqués théorème par théorème et testés reçu par reçu. Le matériel ci-dessous
+vous fait traverser ce basculement sans prérequis.
 
 - **L’article phare.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
   donne le compte rendu technique principal de la reconstruction fondée sur les observateurs.
@@ -74,64 +65,48 @@ mesures admissibles.
 
 ## Une seule architecture, toute la physique
 
-Chaque théorie établie commence par supposer l’essentiel de la physique : un
-espace-temps, des champs quantiques, un groupe de jauge, une table de
-constantes mesurées. OPH ne suppose rien de tout cela. Elle part des
-observateurs, des systèmes finis qui lisent une partie d’eux-mêmes et de
-leurs voisins, tiennent des registres et réparent le désaccord, et dérive le
-reste sous forme de théorèmes. De cette seule architecture sortent :
+OPH part d’observateurs bornés : des systèmes finis qui lisent une partie
+d’eux-mêmes et de leurs voisins, tiennent des registres et réparent le
+désaccord. À partir de ce point de départ compact, elle construit un programme
+commun de reconstruction de la théorie quantique, de la thermodynamique, de
+l’espace-temps, des champs, de la matière et des constantes de la nature. Le
+dépôt réunit des théorèmes vérifiés par machine, des calculs exacts et des
+simulations reproductibles :
 
-- **La mécanique quantique en théorèmes.** Sur la surface finie des
-  observateurs, les enregistrements publics forment une algèbre
-  d’événements avec les probabilités de Born, le conditionnement de Lüders
-  et la borne de Tsirelson. Un état de registre intriqué explicite atteint
-  exactement le plafond quantique 2√2, tandis qu’un état compté fixe lu par
-  des observables toutes diagonales dans la même base s’arrête prouvablement à 2. La dynamique de Schrödinger est l’unique flot de
-  symétrie continu, et les poids de Born suivent sans axiome de continuité
-  en toute dimension finie, y compris la dimension deux.
+- **La structure quantique à partir des registres d’observateurs.** Les
+  algèbres finies d’événements portent la représentation de Born, le
+  conditionnement de Lüders et des résultats exacts de Tsirelson, dont une
+  construction de Bell qui atteint 2√2. Elles offrent ainsi un pont
+  mathématique rigoureux entre registres publics et probabilités quantiques.
 - **Les quatre lois de la thermodynamique par la réparation du désaccord.**
   Un seul paquet de théorèmes conditionnels sur la façon dont les
   observateurs se rééchantillonnent vers le consensus donne les quatre lois,
   la deuxième apparaissant comme du traitement de données appliqué à la
   réparation, avec la borne de Landauer en corollaire.
-- **La relativité et la gravitation sur l’écran.** La covariance modulaire
-  fait de la cinématique de Lorentz un théorème sur sa branche déclarée et
-  fixe l’espace tridimensionnel des repères d’observateur. Les germes de
-  registres produisent une variété d’événements lorentzienne à quatre
-  dimensions : trois dimensions d’espace et une direction de temps, dont
-  l’orientation temporelle est fournie par la réparation. Les translations
-  nulles et les charges modulaires reconstruisent un tenseur
-  d’énergie-impulsion local conservé, et une identité d’entropie généralisée
-  à capacité fixe livre les équations du champ d’Einstein sur cette branche.
-  La gravitation apparaît comme la thermodynamique de la réparation entre
-  observateurs, et la loi newtonienne en carré inverse découle du théorème de
-  dimension du porteur.
-- **L’électrostatique sur l’écran.** Le réseau de coutures entre les
-  parcelles d’observateurs porte une loi de Coulomb exacte : toute
-  distribution de charge neutre a un unique potentiel canonique d’énergie
-  minimale, calculé en arithmétique rationnelle exacte et vérifié machine,
-  et l’opérateur qui répare le désaccord entre observateurs est construit
-  sur le même laplacien. Vingt faces orientées produisent ensuite une action
-  de jauge locale exacte, avec un couplage à cinq voisins et un espace de
-  courbure de dimension dix-neuf.
+- **La relativité et la gravitation à partir de la géométrie des
+  observateurs.** Des résultats finis exacts établissent la cinématique de
+  Lorentz, la couche de masse, l’ordre causal, la loi en carré inverse et une
+  reconstruction conditionnelle d’Einstein. Ensemble, ils ouvrent une voie
+  concrète des registres et de la réparation vers l’espace-temps et la
+  gravitation.
+- **La géométrie des champs sur l’écran à douze ports.** L’écran fini porte
+  des théorèmes exacts de Green, Thomson, Gauss, courbure et invariance de
+  jauge. La même géométrie relie les charges aux ports, les données de couture,
+  la courbure locale et les opérateurs qui réparent le désaccord.
 - **Le groupe de jauge du Modèle standard à partir de douze ports.** OPH
   fait un choix architectural au niveau du matériel de simulation : chaque
   parcelle d’observateur porte douze ports de frontière câblés comme les
   sommets d’un icosaèdre. Un
   théorème de classification force la réponse complète des ports à avoir le
-  type de Lie de jauge du Modèle standard, sans groupe de jauge choisi sur
-  catalogue, et une recherche finie exhaustive rend les quinze états et le
-  motif de charges d’une génération du Modèle standard, avec annulation
-  exacte des anomalies.
-- **Les constantes comme points fixes.** Le cœur de la théorie ne comporte
-  aucun paramètre ajustable. La relation de Koide pour les leptons chargés
-  tient exactement sous une prémisse d’équilibre déclarée, l’arithmétique
-  d’intervalles certifie la comparaison de la masse du tau, et un mécanisme
-  de capacité fixe donne le signe de l’avance temporelle de de Sitter. La résolution de la
-  fermeture déclarée du pixel rend une valeur qui frôle la constante de
-  structure fine mesurée ; cette concordance a un statut diagnostique tant
-  que son rattachement physique reste ouvert. Les constantes de la nature
-  entrent comme des problèmes de point fixe à résoudre.
+  type de Lie de jauge du Modèle standard, sans choisir un groupe dans un
+  catalogue. Une construction finie exhaustive identifie aussi une grammaire
+  de matière conditionnelle à quinze états avec annulation exacte des
+  anomalies.
+- **Les constantes comme problèmes de point fixe.** Des calculs exacts
+  d’équilibre et de clôture produisent des candidats précis pour des grandeurs
+  physiques sans dimension, dont une valeur proche de la constante de
+  structure fine mesurée. Les constantes deviennent ainsi des cibles concrètes
+  de dérivation et de falsification plutôt que des données libres.
 - **Vérifié machine et falsifiable.** Plus de 6600 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
@@ -139,11 +114,11 @@ reste sous forme de théorèmes. De cette seule architecture sortent :
   d’élimination sous garde cryptographique avant l’examen des données de
   comparaison, de sorte qu’OPH s’engage à l’avance sur ce qui la réfuterait.
 
-Les résultats finis exacts et les identifications physiques ouvertes restent
-strictement séparés dans tout le corpus ; chaque résultat ci-dessus porte ses
-prémisses et sa frontière dans les articles et les preuves liés. La version
-condensée de ce dossier, avec les reçus et leurs preuves en une seule table,
-est le [dossier compact d’OPH](extra/compact_proof_of_oph.pdf) ; la voie
+Les articles et registres scientifiques liés donnent le statut précis de
+chaque étape. Ensemble, ces résultats tracent une voie concrète et testable des
+trois axiomes d’observateurs vers une théorie physique complète. La version
+condensée du dossier, avec les reçus et leurs preuves en une seule table, est
+le [dossier compact d’OPH](extra/compact_proof_of_oph.pdf) ; la voie
 technique complète est
 l’[article phare](flagship/from_observer_consensus_to_standard_physics.pdf).
 

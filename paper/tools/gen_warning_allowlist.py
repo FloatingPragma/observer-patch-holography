@@ -56,7 +56,8 @@ def build(log_paths: list[Path]) -> dict:
                 "badness_max": max(badnesses),
                 "max_count": len(badnesses),
                 "reason": "Layout-only microtype/hyphenation underfull at a fixed source location; "
-                "no claim change. Anchored to source line-range + badness band so a new/unseen "
+                "the warning itself carries no semantic status. Anchored to source line-range + "
+                "badness band so a new/unseen "
                 "underfull (different location or badness) is reported, not absorbed.",
             }
         )

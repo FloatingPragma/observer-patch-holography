@@ -10,13 +10,15 @@ is exact inside a separately declared integer counting and cost realization.
 These statements have machine-checked proofs. Finite menus are enumerated
 where they exist. Other exposed premises include continuous data or
 unenumerated maps and are excluded from finite compression accounting.
-No tuning is hidden: every premise is named, and every unresolved selection has
-an owner. This
-ledger records every discrete structural selection in the framework exactly
-once, classified as FORCED (derived from the axioms and source objects), EXPOSED
+Across the premise register and this ledger, declared inputs and unresolved
+attachments are named. This ledger is the bounded discrete-selection and
+compression inventory defined in `claims/selection_ledger.json`; it is not an
+exhaustive inventory of every theorem premise. Declared effects, evolution laws,
+scheduler clauses, and finite action packets belong in the premise register.
+Rows here are classified as FORCED (derived from the axioms and source objects), EXPOSED
 PREMISE (chosen and declared in theorem antecedents), or OPEN (neither, with the
-owning GitHub issue). It shows exactly what is proved and exactly what is left:
-pick an open row and work on it. It is the canonical free-versus-forced surface
+owning GitHub issue). It shows what is proved and open inside this finite menu:
+pick an open row and work on it. It is the free-versus-forced surface
 for
 [historical issue #554](https://github.com/FloatingPragma/observer-patch-holography/issues/554);
 the premise register was established under [#727](https://github.com/FloatingPragma/observer-patch-holography/issues/727) and remains a maintained scientific register,

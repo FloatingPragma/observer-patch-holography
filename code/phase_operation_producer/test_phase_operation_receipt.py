@@ -1,7 +1,7 @@
-"""Exact positive and mutation controls for the PR-04 phase-operation receipt.
+"""Exact positive and mutation controls for the legacy-named PR-04 phase-effect fixture.
 
 Three mutation families are guarded fail-closed: a wrong committed literal in
-the pinned payload, a wrong declared operation (coefficient or phase drift),
+the pinned payload, a wrong declared effect (coefficient or phase drift),
 and a tampered count in the receipt.
 """
 
@@ -92,10 +92,10 @@ def test_wrong_operation_coefficient_is_rejected() -> None:
     assert producer.mmul(wrong, wrong) != wrong
 
 
-def test_wrong_operation_matrix_fails_verifier() -> None:
+def test_wrong_legacy_effect_field_matrix_fails_verifier() -> None:
     receipt = load_receipt()
     receipt["declared_operation"]["matrix"][0][1] = ["0", "0", "1/2", "0"]
-    with pytest.raises(verifier.VerificationError, match="operation matrix drift"):
+    with pytest.raises(verifier.VerificationError, match="legacy operation-field matrix drift"):
         verifier.verify(receipt, load_payload(), payload_sha256())
 
 

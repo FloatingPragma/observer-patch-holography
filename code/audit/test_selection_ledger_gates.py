@@ -39,10 +39,13 @@ def test_live_ledger_validates_and_surface_is_current():
 
 def test_intro_exposes_continuous_and_unenumerated_premises():
     rendered = ledger_tool.render(ledger_tool.validate(live_ledger()))
-    assert "Other exposed premises include continuous data or" in rendered
-    assert "excluded from finite compression accounting" in rendered
-    assert "No tuning is hidden" in rendered
-    assert "There is no tunable layer anywhere" not in rendered
+    prose = " ".join(rendered.split())
+    assert "Other exposed premises include continuous data or" in prose
+    assert "excluded from finite compression accounting" in prose
+    assert "bounded discrete-selection and compression inventory" in prose
+    assert "not an exhaustive inventory of every theorem premise" in prose
+    assert "Declared effects, evolution laws," in prose
+    assert "There is no tunable layer anywhere" not in prose
 
 
 def test_every_row_names_one_canonical_claim_and_class():

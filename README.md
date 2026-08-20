@@ -11,22 +11,15 @@ fields, a gauge group, and a table of measured constants. OPH begins with
 observers: bounded systems that carry local state, read part of themselves and
 their neighbors, keep records, and repair disagreement. Reality emerges from
 observer overlap repair on a holographic screen. From this architecture OPH
-reconstructs an exact finite structural core: conditional quantum-record
-identities, a conditional finite four-law package, a three-dimensional
-observer-frame carrier, and explicit order/clock interfaces. It also derives
-Lorentz kinematics on the stated global-support branch, a conditional
-four-dimensional Lorentzian event manifold, a conditional Einstein branch for
-gravity, the Standard Model gauge Lie type, and a conditional one-generation
-exterior matter pair.
+builds a single mathematical route through quantum records, thermodynamics,
+three-dimensional space, Lorentzian events, gravity, gauge structure, matter,
+and the constants of nature. Its strongest steps are exact finite theorems,
+with each physical bridge made precise enough to prove or test.
 
-Three axioms govern the simulator architecture and how observers reach
-consensus. Beside them sit two proposed closure programs. The first seeks a
-fixed point for the pixel constant $P$, with an open physical attachment
-to the fine-structure constant. The second seeks a fixed point for the
-capacity $N$, with an open source-capacity bridge to the cosmological
-constant. Identifying the simulated and simulating universe motivates those
-self-consistency equations; it does not by itself prove that a solution
-exists, is unique, or has the observed numerical value.
+Three axioms govern the observer architecture and how observers reach
+consensus. Two self-consistency programs then seek fixed points for the pixel
+constant $P$ and the capacity $N$, turning the fine-structure and cosmological
+constants into sharp reconstruction targets rather than fitted inputs.
 
 ## Start Here
 
@@ -36,8 +29,8 @@ Each revision looked outrageous from inside the previous picture and obvious
 from inside the next one. OPH makes the next revision. The observer, treated
 for a century as a nuisance at the edge of quantum mechanics, moves to the
 foundation. Spacetime, matter, and the constants become precise reconstruction
-problems, with exact finite results and open physical identifications kept
-apart. The material below takes you through that shift from a standing start.
+problems that can be attacked theorem by theorem and tested receipt by receipt.
+The material below takes you through that shift from a standing start.
 
 - **The technical paper.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
   gives the primary technical account of the observer-first reconstruction.
@@ -64,54 +57,42 @@ refutation by qualifying measurements.
 
 ## One Architecture, All Of Physics
 
-Every mainstream theory starts by assuming most of physics: a spacetime,
-quantum fields, a gauge group, a list of measured constants. OPH assumes none
-of that. It starts with observers, finite systems that read part of
-themselves and their neighbors, keep records, and repair disagreement, and
-derives the rest as theorems. From that one architecture:
+OPH starts from bounded observers: finite systems that read parts of
+themselves and their neighbors, keep records, and repair disagreement. From
+that compact starting point, it develops a common reconstruction program for
+quantum theory, thermodynamics, spacetime, fields, matter, and the constants
+of nature. The repository combines machine-checked theorems with exact
+calculations and reproducible simulations:
 
-- **Quantum mechanics as theorems.** On the finite observer surface, public
-  records form an event algebra with Born probabilities, Lüders
-  conditioning, and the Tsirelson bound. An explicit entangled record state
-  attains the quantum ceiling 2√2 exactly, while a fixed counted state with
-  jointly record-diagonal readouts provably stops at 2. Schrödinger dynamics is the unique
-  continuous symmetry flow, and the Born weights follow without a continuity
-  axiom in every finite dimension, including dimension two.
+- **Quantum structure from observer records.** Finite event algebras support
+  Born representation, Lüders conditioning, and exact Tsirelson results,
+  including a Bell-state construction that attains 2√2. This gives a rigorous
+  mathematical bridge from public records to quantum probability.
 - **The four laws of thermodynamics from disagreement repair.** One
   conditional theorem package about how observers resample toward consensus
   yields all four laws, with the second law appearing as data processing
   applied to repair and the Landauer bound as a corollary.
-- **Relativity and gravity on the screen.** Modular covariance makes Lorentz
-  kinematics a theorem on its stated branch and fixes the three-dimensional
-  observer-frame space. Record germs produce a four-dimensional Lorentzian
-  event manifold: three space dimensions and one time direction, with the
-  time orientation supplied by repair. Null translations and modular charges
-  reconstruct a local conserved stress tensor, and a fixed-cap
-  generalized-entropy identity delivers the Einstein field equations on that
-  branch. Gravity arrives as the thermodynamics of observer repair, and the
-  Newtonian inverse-square law follows from the carrier dimension theorem.
-- **Electrostatics on the screen.** The seam network between observer
-  patches carries an exact Coulomb law: every neutral charge distribution
-  has one canonical minimal-energy potential, computed in exact rational
-  arithmetic and machine-checked, and the operator that repairs observer
-  disagreement is built from the same Laplacian. Twenty oriented faces then
-  produce an exact local gauge action with five-neighbor seam coupling and a
-  nineteen-dimensional field-strength space.
+- **Relativity and gravity from observer geometry.** Exact finite results
+  establish Lorentz kinematics, mass-shell structure, causal order, the
+  inverse-square law, and a conditional Einstein reconstruction. Together
+  they provide a concrete route from observer-accessible records and repair
+  to spacetime and gravity.
+- **Field geometry on the twelve-port screen.** The finite screen carries
+  exact Green, Thomson, Gauss, curvature, and gauge-invariance theorems. The
+  same geometry connects port loads, seam data, local curvature, and the
+  operators that repair disagreement.
 - **The Standard Model gauge group from twelve ports.** OPH makes an
   architectural choice at the simulation hardware layer: each observer patch
-  has twelve boundary ports wired as the corners of an icosahedron. A classification theorem forces
-  the complete port response to have the Standard Model's gauge Lie type,
-  with no gauge group chosen from a catalogue, and an exhaustive finite
-  search returns the fifteen states and charge pattern of one Standard Model
-  generation with exact anomaly cancellation.
-- **Constants as fixed points.** The core has zero adjustable parameters.
-  Koide's charged-lepton relation holds exactly under a stated balance
-  premise, interval arithmetic certifies the tau-mass comparison, and a
-  fixed-capacity mechanism gives the de Sitter time-advance sign. Solving the
-  declared pixel-closure map returns a near-hit of the measured
-  fine-structure constant; the match carries diagnostic status while its
-  physical attachment is open. The constants of nature enter as fixed-point
-  problems to be solved.
+  has twelve boundary ports wired as the corners of an icosahedron. A
+  classification theorem forces the complete port response to have the
+  Standard Model's gauge Lie type, without selecting a gauge group from a
+  catalogue. An exhaustive finite construction also identifies a conditional
+  fifteen-state, anomaly-free matter grammar.
+- **Constants as fixed-point problems.** Exact balance and closure
+  calculations produce sharp candidates for dimensionless physical
+  quantities, including a value close to the measured fine-structure
+  constant. They turn the constants of nature into concrete derivation and
+  falsification targets rather than free inputs.
 - **Machine-checked and falsifiable.** More than 6600 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
@@ -119,10 +100,10 @@ derives the rest as theorems. From that one architecture:
   before comparison data is examined, so OPH commits in advance to what
   would refute it.
 
-Exact finite results and open physical identifications stay strictly
-separate across the corpus; every result above carries its premises and
-boundary in the linked papers and proofs. The condensed version of this
-case, with the receipts and their evidence in one table, is the
+The linked papers and scientific ledgers record the precise status of every
+step. Together, these results define a concrete and testable path from three
+observer axioms toward a complete physical theory. The condensed version of
+the case, with the receipts and their evidence in one table, is the
 [compact case for OPH](extra/compact_proof_of_oph.pdf); the full technical
 route is the
 [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf).

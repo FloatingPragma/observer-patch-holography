@@ -476,7 +476,7 @@ def test_canonical_direct_premise_examples_are_exact() -> None:
     assert rows["OPH-FINITE-BORN-FRAME-RANK-GAP"] == {
         "classification": "explicit_edges",
         "consumed": ["PR-02", "PR-03"],
-        "open": ["PR-04"],
+        "open": ["PR-04", "PR-64", "PR-65"],
         "boundary": [],
     }
     assert rows["OPH-THERMO-FOUR-LAW-PACKAGE"] == {

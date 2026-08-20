@@ -30,7 +30,7 @@
     ]
    ]
   ],
-  "reading": "record-diagonal state of the committed run literals (111, 68) at mass 179"
+  "reading": "declared record-diagonal matrix built from literals (111, 68) at reference mass 179; no Fin-2 source-reachability witness"
  },
  "contexts": [
   {
@@ -357,6 +357,7 @@
  "declared_operation": {
   "equals_pauli_y_plus_projector": true,
   "formula": "I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q)",
+  "legacy_field_name": true,
   "matrix": [
    [
     [
@@ -401,7 +402,7 @@
   "run_mass": 179,
   "seed": 20260806
  },
- "nonclaims": "The operation is declared, never source-produced. The counts are produced by the declared deterministic semantics, never measured. No laboratory or emergent-instrument claim follows; the physical-attachment premises of the register stay open.",
+ "nonclaims": "The effect is declared, never source-produced. The integer pairs are calculated expected-frequency numerators, never measured. This fixture is not an operation, instrument, measurement, or validation. No laboratory or emergent-instrument claim follows; PR-03, PR-64, PR-65, and the physical-attachment premises stay open.",
  "phase_receipt_window": {
   "inequality": "32041*(a - b)^2 <= 30192*(a + b)^2",
   "lhs": 0,
@@ -413,8 +414,8 @@
   "disposition": "axiomatize",
   "lane_issue": 730,
   "register_row": "PR-04",
-  "statement": "Recorded decision on register row PR-04 (disposition axiomatize): the committed exact lift I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q) of code/born_context_phase_lift is a declared architecture operation. The information cost is one declared non-diagonal operation with the exact matrix [[1/2, -i/2], [i/2, 1/2]], equal to the Pauli +Y projector."
+  "statement": "Recorded decision on register row PR-04 (disposition axiomatize): the committed exact lift I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q) of code/born_context_phase_lift is a declared phase-sensitive effect. The information cost is one declared non-real effect with the exact matrix [[1/2, -i/2], [i/2, 1/2]], equal to the Pauli +Y projector."
  },
  "schema": "oph.receipt.pr04_phase_operation.v1",
- "semantics": "Explicitly exhaustive deterministic semantics: every count pair is the exact Born weight of the context effect under the committed record-diagonal run state diag(111/179, 68/179), computed in exact arithmetic over Q(sqrt(3), i) and scaled to the least positive integer multiple of the committed run mass 179 that makes both counts integers. No sampling, no randomness, no statistical estimate, and no floating-point arithmetic enters at any step."
+ "semantics": "Explicitly exhaustive deterministic semantics for a static conformance fixture: every integer pair is a generated expected-frequency numerator for the exact Born weight of the context effect under the declared diagonal matrix diag(111/179, 68/179), computed in exact arithmetic over Q(sqrt(3), i) and scaled to the least positive integer multiple of the committed run mass 179 that makes both counts integers. No sampling, no randomness, no statistical estimate, and no floating-point arithmetic enters at any step."
 }

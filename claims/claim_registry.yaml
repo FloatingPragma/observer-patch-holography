@@ -157,7 +157,9 @@
           "PR-51",
           "PR-52",
           "PR-53",
-          "PR-54"
+          "PR-54",
+          "PR-64",
+          "PR-65"
         ],
         "boundary": []
       }
@@ -2128,7 +2130,9 @@
           "PR-03"
         ],
         "open": [
-          "PR-04"
+          "PR-04",
+          "PR-64",
+          "PR-65"
         ],
         "boundary": []
       }
@@ -4434,7 +4438,7 @@
       ],
       "falsifier": "The bounded result fails if an ideal model violates its exact fit or identification theorem, if the two certified states are not distinct states with identical diagonal Born data, if a diagonal or complexified-real effect satisfies the phase-sensitivity clause, or if syntheticIdealPhaseFitData fails to inhabit the exact-fit interface without any producer or run input.",
       "scope_if_false": "Only the ideal static fit and its algebraic delimitations fall. The committed algebraic phase completion and the independently open operational/source attachment retain their separately stated scopes and gates.",
-      "status": "ideal_static_fit_and_synthetic_non_discharge_control_attained__operational_pr03_pr04_instrument_open",
+      "status": "ideal_static_effect_fit_and_synthetic_non_discharge_control_attained__operational_additivity_instrument_and_provenance_open",
       "claim_class": "conditional_implication",
       "gates": [
         730
@@ -4446,7 +4450,9 @@
         ],
         "open": [
           "PR-03",
-          "PR-04"
+          "PR-04",
+          "PR-64",
+          "PR-65"
         ],
         "boundary": []
       }
@@ -4677,7 +4683,7 @@
     },
     {
       "claim_id": "OPH-EM-TEMPORAL-MAXWELL-EVOLUTION-CONTINUITY",
-      "statement": "On the committed twelve-port, thirty-seam, twenty-oriented-face complex with the committed incidences d and C (Cd=0), time-indexed seam potentials A n and port potentials phi n define the staggered electric field E n = -(A(n+1)-A n)-d(phi n) on half steps and magnetic field B n = C(A n) at integer steps. One declared leapfrog Ampere law E(n+1)-E n = C^T B(n+1)-J n governs the evolution; the Faraday law B(n+1)-B n = -C(E n) is a theorem of the definitions. Along the evolution the Gauss constraint boundary(E n)=rho n propagates from step n to n+1 exactly when the discrete continuity equation rho(n+1)-rho n+boundary(J n)=0 holds, in both directions, with port load rho and seam current J distinct types bridged only by this equivalence. The staggered energy (1/2)|E n|^2+(1/2)<B n,B(n+1)> changes per step by exactly minus the source work (1/2)<E n+E(n+1),J n>, so source-free evolution conserves it exactly. Time-dependent gauge transformations A->A+d(chi n), phi->phi-(chi(n+1)-chi n) leave E, B, the evolution law, and the energy invariant. Constant-in-time source-free solutions have zero magnetic field, forced-neutral load, and electric field exactly the canonical Coulomb field of the committed Green solution, and every neutral load admits such a static solution. Source-free evolution obeys the exact discrete wave recursion A(n+2)-2A(n+1)+A n+C^T C A(n+1)+d(phi(n+1)-phi n)=0. The composed receipt carries the Faraday, continuity-equivalence, Gauss-propagation, energy, gauge, static-join, and wave clauses from the single typed antecedent bundle of histories, declared sources, Ampere law, initial Gauss constraint, and stepwise continuity, while the neutral-load static-existence clause and the explicit nonstatic inhabitant, whose magnetic field is zero at step zero and equals three on face zero at step one, are separate theorems of the same module. The step index is a declared evolution parameter, not physical time; the sources are declared, not source-produced; no photon, propagation-speed, covariance, continuum, or readout claim is made.",
+      "statement": "On the committed twelve-port, thirty-seam, twenty-oriented-face complex, PR-66 declares the unit-step Ampere recurrence. Conditional on that recurrence, the staggered definitions imply the exact Faraday identity, make Gauss propagation equivalent to the typed discrete continuity equation, preserve gauge invariance, and give an exact source-work balance for a staggered quadratic form. The form is not proved positive and must not be called physical energy. In the zero-current sector the static join permits arbitrary neutral port load and recovers the canonical Coulomb field. The corresponding zero-current wave recursion is exact, but the committed spectrum contains eigenvalues 5 and 3+sqrt(5), above the unit-step stability threshold 4, so growing modes exist and this packet supplies no stable-propagation certificate. A timestep-scaled continuation remains viable: stability requires h^2 lambda_max <= 4, hence h <= 2/sqrt(3+sqrt(5)) on the committed spectrum. The update, step, sources, and readout are declared rather than source-derived or physically attached; no photon, propagation speed, covariance, continuum limit, or laboratory field claim is made.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
       "tier": "exact_declared_step_leapfrog_maxwell_evolution_with_typed_continuity_bridge",
       "assumptions": [
@@ -4690,23 +4696,27 @@
         "finite_cellular_laplacian_linear_algebra",
         "discrete_leapfrog_integrator_algebra"
       ],
-      "oph_specific_delta": "Adds the missing temporal layer over the committed static local face action: a declared exact leapfrog evolution whose Gauss propagation is equivalent to a proved discrete continuity equation between the two typed sources, an exactly conserved staggered energy, full time-dependent gauge invariance, an exact discrete wave law with the committed five-neighbor normal operator, and a static join that lands exactly on the committed Coulomb-Green sector, all without identifying port load with seam current.",
+      "oph_specific_delta": "Conditional on PR-66, adds exact temporal identities over the committed local face action: typed continuity equivalence, Faraday and gauge identities, a conserved staggered quadratic form, zero-current wave recursion, and a neutral-load Coulomb join. It also records the exact unit-step instability, preserving the scaled-update route rather than promoting the packet to stable propagation.",
       "novelty_type": "exact_OPH_temporal_leapfrog_maxwell_evolution_with_proved_continuity_equivalence_and_static_coulomb_join",
       "evidence": [
         "paper/screen_microphysics_and_observer_synchronization.tex",
         "Lean/Screen/TemporalMaxwellEvolution.lean",
+        "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
+        "code/electromagnetism/verify_local_face_maxwell_action_independent.py",
         "docs/PREMISE_REGISTER_V3.md"
       ],
-      "falsifier": "The bounded result fails if Faraday's law does not follow from the staggered definitions, if Gauss propagation along the declared Ampere law is not equivalent to rho(n+1)-rho n+boundary(J n)=0 in either direction, if the staggered per-step energy balance has any remainder beyond the stated source work term, if any time-dependent gauge transformation changes E, B, the evolution law, or the energy, if a constant source-free solution has nonzero magnetic field or an electric field differing from the committed Coulomb field, if a neutral load admits no static solution, if the source-free wave recursion fails, or if the antecedent bundle is uninhabited or inhabited only by static solutions.",
+      "falsifier": "The bounded conditional result fails if Faraday's law does not follow from the staggered definitions, Gauss propagation along the declared Ampere law is not equivalent to the typed continuity equation, the staggered quadratic-form balance has an extra remainder, gauge transformation changes the declared fields or recurrence, a zero-current static solution fails the neutral-load Coulomb join, the zero-current recursion fails, or the reported unstable spectral modes and exact timestep bound are incorrect.",
       "scope_if_false": "Only the temporal evolution layer falls. The static local face action, the Coulomb-Green receipts, the Hodge comparison, and every physical propagation, source, or readout attachment retain their separately stated scopes.",
-      "status": "exact_temporal_evolution_and_continuity_attained__physical_time_source_and_readout_attachment_open",
+      "status": "exact_conditional_temporal_identities_attained__declared_unit_step_unstable__derived_stable_physical_evolution_open",
       "claim_class": "conditional_implication",
       "gates": [
         733
       ],
       "premise_dependencies": {
         "classification": "explicit_edges",
-        "consumed": [],
+        "consumed": [
+          "PR-66"
+        ],
         "open": [
           "PR-15",
           "PR-53",
@@ -4758,7 +4768,7 @@
     },
     {
       "claim_id": "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
-      "statement": "On the committed two-dimensional record algebra, the ideal static phase model IdealPhasePOVMCountModel is exactly determined up to one complex coordinate and count magnitudes. For a Hermitian effect the Born-weight gap between the two committed Pauli-Y states equals minus twice the imaginary part of the off-diagonal entry, so the phase-sensitivity clause holds exactly when that imaginary part is nonzero, and no conjugation of a committed web projector by any real matrix occupies the phase slot of any inhabitant. Every inhabitant's model state has diagonal entries pinned to 111/179 and 68/179 by the committed run literals and conjugate off-diagonal entries. Every count frequency of every inhabitant, in every instrument context, is an exact affine function of the one free coordinate, with real coefficients determined by the context's effect entries; over the committed algebraic core the phase-count frequency equals 1/2 minus the imaginary part of the free coordinate, the rotated-context frequency equals 315/716 minus sqrt(3)/2 times its real part, and two committed-core inhabitants have equal states exactly when all their count frequencies agree. Positivity bounds the squared modulus of the free coordinate by 7548/32041, which forces, for every inhabitant whose core equals the committed algebraic phase completion, the integer window 32041 (a-b)^2 <= 30192 (a+b)^2 on the phase counts (a,b), positive mass on both phase outcomes, and minimal phase count mass exactly two, attained by the synthetic inhabitant. The committed literals force the state diagonal, the affine dependence of every count frequency on the one free coordinate, and the admissible count window; they do not force the free coordinate or the frequency values, which vary with it. Nothing here produces counts, operations, preparations, or receipts, and PR-04 is not discharged: the residue of the row is count provenance, source production of the phase operation, and common preparation, none of which is expressible inside the model.",
+      "statement": "On the committed two-dimensional record algebra, the ideal static phase-effect model is exactly determined up to one complex state coordinate and integer magnitudes. Phase sensitivity is equivalent to a nonzero imaginary off-diagonal effect entry; the declared real web cannot occupy that slot. The diagonal literals pin the matrix diagonal, every context frequency is affine in the free coordinate, positivity gives the registered integer phase window, and the synthetic inhabitant attains minimal mass two. These are static model facts: no count is observed, no state transition or instrument is implemented, and no source preparation, readback, receipt binding, or custody is encoded. PR-03 remains the additivity premise, PR-64 remains the operational channel realization, and PR-65 remains source preparation and provenance.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
       "tier": "exact_determination_boundary_and_integer_receipt_window_for_ideal_phase_fit",
       "assumptions": [
@@ -4776,7 +4786,7 @@
       ],
       "falsifier": "The bounded result fails if a Hermitian effect with zero off-diagonal imaginary part satisfies the phase clause or one with nonzero imaginary part fails it, if an inhabitant's state departs from the pinned diagonal or conjugate off-diagonal form, if any inhabitant's count frequency in any context departs from affine dependence on the free coordinate, if a committed-core inhabitant's phase or rotated frequency departs from the stated closed forms, if two committed-core inhabitants with equal states have differing count frequencies or conversely, or if a committed-core inhabitant's phase counts violate the integer window, carry a zero outcome, or realize mass below two.",
       "scope_if_false": "Only the determination boundary and the receipt window fall. The ideal static fit, its synthetic non-discharge control, and the separately open operational and source attachments retain their own scopes and gates.",
-      "status": "exact_determination_boundary_and_receipt_window_attained__operational_pr03_pr04_instrument_open",
+      "status": "exact_static_effect_determination_boundary_and_count_window_attained__operational_additivity_instrument_and_provenance_open",
       "claim_class": "conditional_implication",
       "gates": [
         730
@@ -4788,7 +4798,9 @@
         ],
         "open": [
           "PR-03",
-          "PR-04"
+          "PR-04",
+          "PR-64",
+          "PR-65"
         ],
         "boundary": []
       }
@@ -4866,13 +4878,16 @@
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
-          "PR-48",
-          "PR-49",
-          "PR-50",
-          "PR-59"
+          "PR-59",
+          "PR-67",
+          "PR-68",
+          "PR-69"
         ],
         "open": [
           "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
           "PR-54"
         ],
         "boundary": []
@@ -4949,7 +4964,12 @@
       ],
       "premise_dependencies": {
         "classification": "explicit_edges",
-        "consumed": [],
+        "consumed": [
+          "PR-59",
+          "PR-67",
+          "PR-68",
+          "PR-69"
+        ],
         "open": [
           "PR-35",
           "PR-36",
@@ -4958,8 +4978,7 @@
           "PR-48",
           "PR-49",
           "PR-50",
-          "PR-54",
-          "PR-59"
+          "PR-54"
         ],
         "boundary": []
       }
@@ -5063,7 +5082,7 @@
         "finite_dimensional_complex_matrix_algebra",
         "committed_diagonal_CHSH_bound_TsirelsonSaturation"
       ],
-      "oph_specific_delta": "The committed source-production surface is made exact as an inductive class and closed by machine check; the classical CHSH ceiling on that entire class under the committed jointly record-diagonal readouts and the explicit non-diagonal obstruction to the declared saturating state are theorems rather than narrative, with the open preparation premise isolated as exactly non-diagonal production.",
+      "oph_specific_delta": "The committed source-production surface is made exact as an inductive class and closed by machine check. The classical CHSH ceiling holds on that class only for four jointly record-diagonal readouts, and the separate state-map theorem blocks only the declared Bell-state target under diagonality-preserving production. Non-jointly-diagonal or contextual readout routes remain viable until slot locality and operational compatibility are formalized.",
       "novelty_type": "reachability_closure_delimitation_on_counted_source_data",
       "evidence": [
         "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
@@ -5292,16 +5311,20 @@
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
-          "PR-48",
-          "PR-49",
-          "PR-50",
-          "PR-59"
+          "PR-59",
+          "PR-66",
+          "PR-67",
+          "PR-68",
+          "PR-69"
         ],
         "open": [
           "PR-15",
           "PR-16",
           "PR-44",
           "PR-47",
+          "PR-48",
+          "PR-49",
+          "PR-50",
           "PR-52",
           "PR-53",
           "PR-54"
@@ -5311,11 +5334,11 @@
     },
     {
       "claim_id": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
-      "statement": "Register row PR-04 carries a recorded decision dated 2026-08-18 under its axiomatize disposition: the committed exact lift I/2 - (2*sqrt(3)/3)*i*(QP - PQ), equal to the Pauli +Y projector, is a declared architecture operation. Under that recorded decision, a deterministic producer computes the complete outcome table of the declared operation and the committed web contexts on the committed record-diagonal run state diag(111/179, 68/179), in exact arithmetic over Q(sqrt(3), i), from the pinned committed context-web payload: each context count pair is the exact Born weight of the context effect scaled to the least positive integer multiple of the committed run mass 179 clearing its denominator, giving (111, 68) at mass 179 in the diagonal and record-conjugate contexts, (315, 401) at mass 716 in the rotated contexts, and (179, 179) at mass 358 in the phase context. This is the explicitly exhaustive deterministic semantics route the committed boundary text names as an acceptable validation route; no sampling, statistical estimate, or floating-point step occurs, and rerunning the producer reproduces the committed receipt byte for byte. An independent verifier sharing no arithmetic code rebuilds the operation and the full table from the pinned payload and demands exact agreement with every receipt field, including run-mass-multiple minimality and the integer phase window, and refuses any receipt that presents the counts as measured. The Lean module inhabits the committed static model IdealPhasePOVMCountModel over the committed algebraic core with exactly these literals and proves, from one typed antecedent bundle pinned to the recorded decision's operation and preparation, the composed receipt: committed core, declared operation in the phase slot, committed run state with vanishing off-diagonal as common preparation, committed diagonal literals, exact Born consistency in every context, the deterministic-scaling law in every context, every count mass a positive integer multiple of 179, and phase counts (179, 179) inside the committed integer window 32041(a-b)^2 <= 30192(a+b)^2. The operation is declared, never source-produced; the counts are produced by the declared semantics, never measured; register row PR-04 is consumed under its axiomatize disposition, never discharged; no laboratory or emergent-instrument claim is made, and the synthetic-inhabitant boundary of the base modules is unchanged.",
+      "statement": "Register row PR-04 declares the committed Pauli +Y phase-sensitive effect. A deterministic calculator expands the exact Born weights of that declared effect and the committed web effects on the declared diagonal Fin-2 matrix into least-denominator integer pairs, and an independent verifier reproduces the arithmetic, minimal masses, payload hashes, and integer window. This is a static semantic-conformance fixture. It is neither a measurement nor evidence that the source prepares the matrix, realizes an operation, or implements an instrument. In Lean, the model stores the Born-fit equalities as fields and the count theorem cross-multiplies those assumed equalities; external Python separately verifies deterministic least-denominator generation. No typed source reachability witness exists for the Fin-2 matrix. PR-64 is required for CP/TNI outcome maps, a trace-preserving summed channel, and effect/readback compatibility; PR-65 is required for common preparation, context selection, public outcomes, provenance, and custody; PR-03 is the separate cross-context additivity premise.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
-      "tier": "conditional_structural_phase_count_attainment_under_recorded_pr04_decision",
+      "tier": "static_phase_effect_count_fixture_semantic_conformance",
       "assumptions": [
-        "recorded_pr04_axiomatize_decision_declares_phase_operation",
+        "recorded_pr04_axiomatize_decision_declares_phase_effect",
         "committed_diagonal_record_algebra_and_web_contexts",
         "explicitly_exhaustive_deterministic_count_semantics_declared"
       ],
@@ -5324,8 +5347,8 @@
         "povm_effect_calculus",
         "exact_quadratic_field_arithmetic"
       ],
-      "oph_specific_delta": "Supplies the count-bearing inhabitant the two delimitation modules leave missing: a producer-bound receipt whose counts flow from the committed run payload through the declared operation under an explicitly exhaustive deterministic semantics, an independent exact verifier that enforces the semantics declaration and the nonclaims, and a machine-checked composed receipt inhabiting the committed operational structure and satisfying the committed integer window, with the phase operation's status carried as a recorded architecture decision on the premise register rather than as a derivation.",
-      "novelty_type": "recorded_decision_conditional_attainment_with_deterministic_producer_receipt",
+      "oph_specific_delta": "Supplies an exact conformance fixture for the declared phase effect and makes the unresolved instrument and source-custody obligations explicit. It does not promote generated expected-frequency numerators into observations or validation.",
+      "novelty_type": "declared_effect_static_count_conformance_with_instrument_boundary",
       "evidence": [
         "extra/machine_checked_finite_event_algebras.tex",
         "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
@@ -5333,9 +5356,9 @@
         "code/phase_operation_producer/produce_phase_operation_receipt.py",
         "code/phase_operation_producer/verify_phase_operation_receipt.py"
       ],
-      "falsifier": "The claim fails if rerunning the producer departs from the committed receipt, if the independent verifier finds any exact mismatch between the receipt and the table rebuilt from the pinned payload, if the declared operation differs from the Pauli +Y projector rebuilt from the payload irrep matrices, if any count pair departs from the exact scaled Born weight or any mass from the minimal run-mass multiple, if any clause of the composed Lean receipt fails, or if the phase counts leave the committed integer window.",
-      "scope_if_false": "Only the recorded-decision attainment layer falls. The ideal static fit, the determination boundary and its window, the algebraic phase completion, and the open source-production obligation of register row PR-04 are assessed by their own claims and register rows.",
-      "status": "conditional_structural_attainment_under_axiomatized_pr04__source_production_of_phase_operation_open",
+      "falsifier": "The fixture fails if rerunning the calculator departs from the committed receipt, the independent verifier finds an exact mismatch, the declared effect differs from the Pauli +Y projector rebuilt from the payload matrices, a count pair or least-denominator mass is wrong, a stated Lean arithmetic clause fails, or the phase counts leave the committed integer window.",
+      "scope_if_false": "Only the static conformance fixture falls. The algebraic phase completion and the open operational-instrument, additivity, and source-provenance obligations are assessed separately.",
+      "status": "static_declared_effect_count_conformance_attained__instrument_additivity_and_source_provenance_open",
       "claim_class": "conditional_implication",
       "gates": [
         730
@@ -5348,7 +5371,9 @@
         ],
         "open": [
           "PR-03",
-          "PR-52"
+          "PR-52",
+          "PR-64",
+          "PR-65"
         ],
         "boundary": []
       }
@@ -5431,12 +5456,14 @@
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
-          "PR-48",
-          "PR-49",
-          "PR-59"
+          "PR-59",
+          "PR-67",
+          "PR-68"
         ],
         "open": [
           "PR-47",
+          "PR-48",
+          "PR-49",
           "PR-54"
         ],
         "boundary": []
@@ -5508,7 +5535,7 @@
       ],
       "falsifier": "An in-class scheduler with a positive defect hit from a consistent state, a self-update-only scheduler with a positive cross hit, failure of the network-update-only witness to hit the cross fiber, an in-class scheduler with positive cross hit and zero shared cost on every supported step, or failure of the committed repair kernel to satisfy the class constraints.",
       "scope_if_false": "Only the declared-class bounds fall; the committed this-scheduler protected-obstruction profile, its behavior-cut recovery, and its exact transport are assessed by OPH-CONS-PROTECTED-BEHAVIOR-PROFILE.",
-      "status": "class_declared_and_first_bounds_Lean_proved__locality_and_capacity_clauses_not_load_bearing__paper_sync_open",
+      "status": "class_declared_and_first_bounds_Lean_proved__locality_and_capacity_clauses_not_load_bearing",
       "claim_class": "conditional_implication",
       "gates": [
         750
@@ -5527,12 +5554,12 @@
     },
     {
       "claim_id": "OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
-      "statement": "On the committed produced instrument system (the attained inhabitant of the ideal phase POVM count model with the committed run state diag(111/179, 68/179) and the produced count literals), every committed outcome effect has trace one, so a sum of two committed effects is an effect exactly when it resolves the identity: the coexistent sums of two committed effects are precisely the unit resolutions, one per context, and any assignment sending the sure effect to one and normalised in each context is additive on all of them. The Born functional of the committed run state is a full additive effect valuation in the finite Busch-Gleason sense whose committed-effect values are the produced count frequencies as exact rational identities; every additive effect valuation matching the produced counts agrees with it on all effects, and every state whose Born weights match the produced counts is the committed run state. The coverage gap of the committed sums is essential: a cubic deformation of the run Born functional in the transverse imaginary off-diagonal coordinate, shaped to vanish on the committed effect set, reproduces every produced count frequency, maps every effect into [0,1], obeys the complement rule on all matrices, and is additive on every committed coexistent sum, yet fails additivity at the explicit effect pair halfWitness + halfWitness = witnessSum with values 35/64 against 143/256, is not an additive effect valuation, and is the Born functional of no state. The operational additivity premise of register row PR-03 is consumed only as an explicit hypothesis of the forcing theorems and is not derived; the produced system does not supply it.",
+      "statement": "On the committed static phase-effect/count fixture, every listed effect has trace one and the enumerated coexistent pairs are exactly the context-wise resolutions of the identity. The declared diagonal matrix's Born functional matches the generated expected-frequency numerators as exact rational identities. A cubic deformation agrees on every listed effect and every listed context normalization while failing full effect additivity at an explicit pair, proving that the finite fixture does not derive PR-03. The forcing theorem obtains the Born representation only when PR-03 is supplied separately. The fixture contains no CP outcome maps, trace-preserving summed channel, post-state, source preparation, public readback, or custody, so PR-64 and PR-65 are not discharged and no produced instrument is claimed.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "exact_additivity_boundary_on_committed_produced_instrument_system",
+      "tier": "exact_additivity_boundary_on_committed_static_effect_fixture",
       "assumptions": [
         "committed_run_state_algebra_surface_PR02",
-        "axiomatized_phase_operation_decision_PR04_via_imported_attainment",
+        "axiomatized_phase_effect_decision_PR04_via_static_fixture",
         "operational_cross_context_additivity_PR03_hypothesis_only"
       ],
       "imported_results": [
@@ -5540,15 +5567,15 @@
         "committed_tomographic_completion",
         "finite_dimensional_complex_linear_algebra"
       ],
-      "oph_specific_delta": "The exact location of the Born-rule additivity premise on the committed produced system is machine-checked from both sides: the produced count frequencies extend to the unique fully additive Born valuation, while the committed coexistent sums are enumerated exactly as the unit resolutions and shown to carry only normalisation, with an explicit produced-count-compatible non-Born countermodel proving the coverage gap essential.",
-      "novelty_type": "exact_boundary_between_produced_frequencies_and_valuation_additivity",
+      "oph_specific_delta": "The exact location of the Born-rule additivity premise is machine-checked from both sides on a declared static fixture: exact expected frequencies are compatible with the Born valuation, while an explicit non-Born countermodel proves that context-wise normalization alone is insufficient.",
+      "novelty_type": "exact_boundary_between_static_expected_frequencies_and_valuation_additivity",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
         "docs/PREMISE_REGISTER_V3.md"
       ],
-      "falsifier": "The claim fails if some committed effect has trace other than one, if some pair of committed effects sums to a non-unit effect, if a produced count frequency differs from the run Born weight, if the countermodel leaves [0,1] on some effect or violates the complement rule or committed-sum additivity, or if the countermodel satisfies full additivity or Born form after all.",
-      "scope_if_false": "Only the additivity-boundary packet falls. The finite Busch-Gleason theorem, the attainment receipt, the produced count literals, and the PR-03 register row are assessed by their own claims and premises.",
+      "falsifier": "The claim fails if a trace or coexistent-sum enumeration identity is wrong, a fixture frequency differs from the declared Born weight, the countermodel leaves [0,1] or violates its stated complement/context-additivity properties, or it satisfies full additivity or Born form after all.",
+      "scope_if_false": "Only the additivity-boundary packet falls. The finite Busch-Gleason theorem, static count fixture, and PR-03, PR-64, and PR-65 register rows are assessed separately.",
       "status": "exact_boundary_attained__operational_additivity_premise_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -5561,7 +5588,9 @@
           "PR-04"
         ],
         "open": [
-          "PR-52"
+          "PR-52",
+          "PR-64",
+          "PR-65"
         ],
         "boundary": [
           "PR-03"
@@ -5736,15 +5765,52 @@
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
-          "PR-48",
-          "PR-49",
-          "PR-59"
+          "PR-59",
+          "PR-67",
+          "PR-68"
         ],
         "open": [
           "PR-47",
+          "PR-48",
+          "PR-49",
           "PR-54"
         ],
         "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
+      "statement": "The RepairUniversality module proves two exact finite computation precursors with distinct scopes. For every Boolean formula and every input, an input-specialized federation and one ordered sweep produce the formula value and a unique consensus output; because the federation itself is compiled from that input and the local RepairStep relation permits a stuttering move that leaves a failing observer unfixed, this is straight-line satisfiability rather than one fixed repair computer or an all-schedule convergence theorem. Separately, a width-five permutation word program is fixed independently of the input and evaluates the formula under the declared encoding. That theorem is formalized in the ambient permutation group on five points; alternating-subgroup membership of all instructions, uniformity, polynomial-size overhead, noise stability, immutable input loading, and fair asynchronous execution are not established.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_input_specialized_repair_satisfiability_and_fixed_width_five_word_program_boundary",
+      "assumptions": [
+        "input_specialized_formula_federation",
+        "weak_repair_step_relation",
+        "fixed_width_five_permutation_word_program"
+      ],
+      "imported_results": [
+        "Boolean_formula_evaluation",
+        "finite_permutation_group_algebra"
+      ],
+      "oph_specific_delta": "The computational content is registered at its exact quantifier strength: an input-specialized one-sweep repair construction and a separate input-independent width-five word program, with the stuttering and fixed-device gaps machine-visible rather than hidden by the word universality.",
+      "novelty_type": "repair_computation_precursors_with_fixed_device_and_schedule_boundary",
+      "evidence": [
+        "paper/reality_as_consensus_protocol.tex",
+        "Lean/Computation/RepairUniversality.lean"
+      ],
+      "falsifier": "The bounded claim fails if the compiled sweep does not evaluate a formula on its pinned input, consensus output is nonunique under the stated construction, the explicit stuttering witness fails, the width-five program depends on the input, or its run does not return the formula value.",
+      "scope_if_false": "Only these finite computation precursors fall. The general OPH confluence and public-normal-form theorems retain their separately stated scopes.",
+      "status": "input_specialized_sweep_and_fixed_width_word_program_attained__fixed_repair_device_fair_schedule_and_complexity_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "This row classifies exact finite computation theorems relative to their module-local formula, federation, and permutation definitions; it does not consume a registered physical or source premise, while fixed-device and schedule strengthening is future theorem work."
       }
     }
   ]

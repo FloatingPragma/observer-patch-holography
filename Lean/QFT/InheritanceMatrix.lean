@@ -103,8 +103,11 @@ pole, and continuum receipts".  What E4 supplies to H2:
 What E4 withholds from H2: the spin-statistics receipt (row 2 is a
 typed exit — there is no spin structure and the thin category carries
 no action data), the pole/particle receipt (row 7 is a typed exit —
-there is no ℝ-action and no spectrum condition), and the continuum
-receipt (the limit algebra is E3's declared unstarted deliverable).
+there is no ℝ-action and no spectrum condition), and the physical or
+norm-completed continuum receipt.  `QFT/LocallyCovariantLimit.lean`
+constructs the algebraic filtered colimit and its order-theoretic local,
+public, locality, refinement-independence, and time-slice properties; it
+does not provide a C*-norm/completion or a physical Lorentzian attachment.
 The E4 clause of H2's promotion rule is therefore NOT dischargeable
 today, and H2 may not quote E4 as having supplied its quantum receipts
 in general.  H2 physical promotion remains blocked on structure the

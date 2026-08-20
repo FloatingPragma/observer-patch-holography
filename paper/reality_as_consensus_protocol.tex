@@ -2750,8 +2750,7 @@ every region.  In the projection direction the committed left-slot
 conditional expectation is positive, trace preserving, and unital, and
 restricts to the record-layer expectation on diagonals; a committed
 right-slot projector witnesses that it is not multiplicative
-(\texttt{leftSlotExpectation\_not\_multiplicative}), and that grade is the
-ceiling.  No map from the joint algebra to the record carrier is
+(\texttt{leftSlotExpectation\_not\_multiplicative}). No map from the joint algebra to the record carrier is
 multiplicative on the committed left regional algebra while restricting to
 the record-layer morphism on diagonals: the committed noncommuting witness
 pair has both of its products diagonal, and any multiplicative map into a
@@ -2760,10 +2759,13 @@ commutative target identifies them
 homomorphism carries the committed left regional algebra, or the ambient
 joint algebra, into the record carrier at all
 (\texttt{twoSlot247\_left\_no\_record\_algHom}), through the committed
-matrix-factor scalar obstruction.  The boundary is an asymmetry: embedding
-at the star-homomorphism grade, projection at the positive unital
-trace-preserving expectation grade, and nothing stronger.  Net-to-net and
-tower morphism structure at the operator layer stays open.
+matrix-factor scalar obstruction. The boundary is an asymmetry for the
+declared expectation-versus-multiplicative projection grades: embedding is a
+star homomorphism, while the committed projection is a positive unital
+trace-preserving expectation and is not multiplicative. The theorem does not
+classify complete positivity, idempotence, bimodularity, nonlinear maps,
+different targets, or enriched categorical structures. Net-to-net and tower
+morphism structure at the operator layer stays open.
 
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
@@ -3872,9 +3874,20 @@ not imply pathwise long-run confinement under persistent noise.
 \paragraph{Expressive-power boundary.}
 The law-selection model of Theorem~\ref{thm:replicator} is a finite-candidate monotonicity result.
 For each fixed patch net the theorem package proves a finite-state exact reconciliation
-mechanism. A universality claim would require an explicit uniform family of patch nets and repair laws that
-simulates arbitrary circuits or machines with stated encoding overhead and stability under
-asynchronous schedules. No such theorem is supplied here.
+mechanism. The companion module
+\path{Lean/Computation/RepairUniversality.lean} adds two exact but narrower
+results. First, for each formula and each input it constructs an
+input-specialized federation and one ordered sweep whose output equals the
+formula value. The federation itself depends on the input, and its local
+\texttt{RepairStep} relation permits stuttering, so this is not one fixed
+repair device accepting arbitrary initial records and is not an all-schedule
+convergence theorem. Second, a width-five permutation word program is fixed
+independently of the input and evaluates the formula under the stated
+encoding; the formal carrier is the ambient permutation group on five points,
+and membership of every instruction in the alternating subgroup is not a
+typed theorem. A full universality claim requires a fixed federation,
+immutable input ports, accepted nontrivial repairs, fair/asynchronous
+convergence, and explicit overhead and stability bounds.
 
 \paragraph{Refinement and observable boundaries.}
 Theorem~\ref{thm:coarse-grain-consensus} gives an abstract reconciliation
@@ -3908,8 +3921,9 @@ quotient local diamond, the support/completely-positive trace-preserving
 clause on every Petz branch, or fair-block contraction.
 
 \paragraph{Universality and applications.}
-There is no uniform simulation construction, encoding-overhead theorem, or
-universality result. The fixed-point theorem classifies quotient normal forms
+There is no fixed-federation uniform repair simulation, encoding-overhead
+theorem, or all-schedule universality result. The input-specialized sweep and
+fixed width-five word-program results above are exact finite precursors. The fixed-point theorem classifies quotient normal forms
 and obstructions once a physical quotient and repair law are declared. It
 does not select a Hall sector, material order, confinement regime, nuclear
 yield, or hardware performance number without a quotient-intrinsic ensemble,

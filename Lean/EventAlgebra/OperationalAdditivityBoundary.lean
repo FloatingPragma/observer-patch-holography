@@ -5,13 +5,13 @@ set_option autoImplicit false
 namespace EventAlgebra
 
 /-!
-# The operational additivity boundary of the committed produced instrument system
+# The additivity boundary of the committed declared-effect count fixture
 
 This module locates register row PR-03 (operational effect additivity)
-exactly on the committed produced instrument system of
-`EventAlgebra.OperationalPhaseAttainment`: the attained inhabitant
+exactly on the committed static count fixture of
+`EventAlgebra.OperationalPhaseAttainment`: the legacy-named inhabitant
 `attainedModel` with its eight committed contexts, committed effects, and
-produced count literals.
+generated expected-frequency literals.
 
 **Exact claim.**  Three theorem groups, composed in one receipt
 (`operationalAdditivityBoundary_receipt`).
@@ -24,20 +24,20 @@ produced count literals.
    only if `E + F = 1` (`committed_coexistent_sum_iff`), and every context
    supplies one such pair (`committed_coexistent_sums_nonvacuous`).
 
-2. **Born form on the produced system, by extension and by forcing.**  The
-   Born functional of the committed run state (`bornRunValuation`) is a full
+2. **Born form on the static fixture, by extension and by forcing.**  The
+   Born functional of the declared diagonal matrix (`bornRunValuation`) is a full
    additive effect valuation in the sense of the committed finite
    Busch-Gleason theorem (`bornRunValuation_isEffectValuation`), and its
-   restriction to the committed effect set reproduces every produced count
+   restriction to the committed effect set reproduces every fixture count
    frequency as an exact rational identity (`bornRunValuation_matches`).  On
-   the produced system, additivity on all coexistent sums of the full effect
+   the static extension, additivity on all coexistent sums of the full effect
    algebra therefore holds as a theorem of the extension, with no additivity
-   premise on the produced data.  Conversely, full additivity together with
-   the produced counts forces this valuation and no other: every additive
-   effect valuation whose committed-effect values are the produced count
+   premise on the fixture data.  Conversely, full additivity together with
+   the fixture counts forces this valuation and no other: every additive
+   effect valuation whose committed-effect values are the fixture count
    frequencies agrees with `bornRunValuation` on all effects, and every state
-   whose Born weights match the produced count frequencies is the committed
-   run state (`additive_valuation_matching_counts_is_born`,
+   whose Born weights match the fixture frequencies is the committed
+   declared matrix (`additive_valuation_matching_counts_is_born`,
    `born_state_matching_counts_unique`).  The forcing consumes the full
    quantifier of PR-03; nothing here derives that quantifier.
 
@@ -49,7 +49,7 @@ produced count literals.
    countermodel witnesses the gap: `producedCubicValuation` deforms the run
    Born functional by the transverse cubic direction of the committed
    finite-web counterexample, shaped to vanish on the committed effect set.
-   It reproduces every produced count frequency, maps every effect into
+   It reproduces every fixture count frequency, maps every effect into
    `[0, 1]`, sends the sure effect to one, obeys the complement rule, and is
    additive on every committed coexistent sum, yet it fails additivity at the
    explicit effect pair `halfWitness + halfWitness = witnessSum` with the
@@ -60,31 +60,32 @@ produced count literals.
 
 **Premise consumption, named per the register.**
 
-* PR-02 (committed): the committed run state `committedRunState` on the
+* PR-02 (committed): the declared diagonal representation `committedRunState` on the
   committed algebra-state surface.
 * PR-04 (consumed through the imported attainment module, axiomatize
   disposition): the committed effect set carries the declared phase
-  operation; this module adds no operation and no counts.
+  effect; this module adds no effect and no counts.
 * PR-03 (registered premise, the subject of this module): consumed only as
   the explicit hypothesis `IsEffectValuation v` of the forcing theorems.
-  The countermodel proves that the produced system does not supply the
+  The countermodel proves that the static fixture does not supply the
   premise: the committed required coexistent sums are the unit resolutions,
   and additivity on them is normalisation.
 
-**Falsifier.**  Any failure of the exact identities: a committed effect of
+**Falsifier.** Any failure of the exact identities: a committed effect of
 trace other than one, a committed coexistent sum that is an effect without
-being the sure effect, a produced count frequency differing from the run
+being the sure effect, a fixture frequency differing from the declared Born
 Born weight, a countermodel value leaving `[0, 1]` on some effect, or the
 countermodel satisfying full additivity or Born form after all.
 
-**Nonclaims and boundary.**  No new operation, no new counts, and no claim
+**Nonclaims and boundary.**  No instrument, no new effect, no new counts, and no claim
 past the committed effect set.  The register row PR-03 is not discharged:
 its quantifier ranges over all required coexistent sums of the registered
-public frame, the committed produced system realizes only the unit
+public frame, the committed static fixture realizes only the unit
 resolutions, and the countermodel proves that this restricted family cannot
-substitute for the full quantifier.  The scientific status of the produced
-system stays conditional structural under the axiomatized PR-04 decision,
-exactly as stated in the imported attainment module.
+substitute for the full quantifier.  The scientific status is exact algebraic
+conformance of a declared-effect count fixture.  CP outcome maps, a summed
+channel, source preparation, and readback provenance remain open separately
+from PR-03 additivity.
 -/
 
 open Matrix
@@ -179,9 +180,9 @@ theorem committed_coexistent_sums_nonvacuous (c : InstrumentContext) :
   rw [attainedModel.effect_complete c]
   exact isEffect_one
 
-/-! ## The produced count frequencies and the run Born valuation -/
+/-! ## The static fixture frequencies and the declared-matrix Born valuation -/
 
-/-- The produced count frequency of each committed context and outcome:
+/-- The generated expected frequency of each committed context and outcome:
 outcome `0` carries the outcome-`0` frequency, outcome `1` the complementary
 frequency, both exact rationals of the committed count literals. -/
 def modelFrequency (c : InstrumentContext) : Fin 2 → ℂ :=
@@ -190,8 +191,8 @@ def modelFrequency (c : InstrumentContext) : Fin 2 → ℂ :=
     ((attainedModel.counts c).2 : ℂ) /
       (((attainedModel.counts c).1 + (attainedModel.counts c).2 : ℕ) : ℂ)]
 
-/-- The Born weight of every committed effect under the committed run state
-is the produced count frequency: the fit law of the attained inhabitant, in
+/-- The Born weight of every committed effect under the declared diagonal matrix
+is the fixture frequency: the stored fit law of the static inhabitant, in
 both outcomes. -/
 theorem committed_frequency_born (c : InstrumentContext) (i : Fin 2) :
     bornWeight committedRunState (attainedModel.effect c i) =
@@ -204,21 +205,21 @@ theorem committed_frequency_born (c : InstrumentContext) (i : Fin 2) :
     rw [attainedModel_prep_eq] at h
     simpa [modelFrequency] using h
 
-/-- The Born functional of the committed run state, as a real assignment on
-matrices: the candidate valuation of the produced system. -/
+/-- The Born functional of the declared diagonal matrix, as a real assignment on
+matrices: the candidate valuation extending the static fixture. -/
 def bornRunValuation (E : Matrix (Fin 2) (Fin 2) ℂ) : ℝ :=
   (bornWeight committedRunState E).re
 
 /-- **Additivity as a theorem of the extension.**  The run Born functional
 is an additive effect valuation in the sense of the committed finite
-Busch-Gleason theorem: on the produced system the PR-03 additivity shape
+Busch-Gleason theorem: on the full effect algebra the PR-03 additivity shape
 holds of this extension with no additivity premise. -/
 theorem bornRunValuation_isEffectValuation :
     IsEffectValuation bornRunValuation :=
   isEffectValuation_born committedRunState_isState
 
 /-- The run Born valuation restricts on the committed effect set to exactly
-the produced count frequencies. -/
+the fixture frequencies. -/
 theorem bornRunValuation_matches (c : InstrumentContext) (i : Fin 2) :
     ((bornRunValuation (attainedModel.effect c i) : ℝ) : ℂ) =
       modelFrequency c i := by
@@ -227,9 +228,9 @@ theorem bornRunValuation_matches (c : InstrumentContext) (i : Fin 2) :
       (attainedModel.effect_isEffect c i).isHermitian,
     committed_frequency_born]
 
-/-- **The produced counts pin the Born state.**  Every state whose Born
-weights on the committed effect set are the produced count frequencies is
-the committed run state: the committed effect set is tomographically
+/-- **The static exact-fit values pin the declared matrix.** Every state whose Born
+weights on the committed effect set are the fixture frequencies is
+the declared matrix: the committed effect set is tomographically
 complete on the fixed-trace slice. -/
 theorem born_state_matching_counts_unique {ρ : Matrix (Fin 2) (Fin 2) ℂ}
     (hρ : IsState ρ)
@@ -242,7 +243,7 @@ theorem born_state_matching_counts_unique {ρ : Matrix (Fin 2) (Fin 2) ℂ}
     rw [h c i, committed_frequency_born]
 
 /-- **Forcing under full additivity.**  Every additive effect valuation
-whose committed-effect values are the produced count frequencies is the run
+whose committed-effect values are the fixture frequencies is the run
 Born valuation on all effects.  The hypothesis `IsEffectValuation v` is the
 full PR-03 additivity premise; the theorem consumes it and does not derive
 it. -/
@@ -425,7 +426,7 @@ theorem producedCubicValuation_committed (c : InstrumentContext) (i : Fin 2) :
   rw [cubicDeformation_committed]
   ring
 
-/-- The countermodel reproduces every produced count frequency. -/
+/-- The countermodel reproduces every fixture frequency. -/
 theorem producedCubicValuation_matches (c : InstrumentContext) (i : Fin 2) :
     ((producedCubicValuation (attainedModel.effect c i) : ℝ) : ℂ) =
       modelFrequency c i := by
@@ -726,18 +727,18 @@ theorem producedCubicValuation_deviates :
 1. the coexistent sums formed within the committed effect set are exactly
    the unit resolutions, and every context supplies one;
 2. the run Born functional is a full additive effect valuation whose
-   committed-effect values are the produced count frequencies;
-3. full additivity plus the produced counts forces the run Born valuation
-   on all effects, and the produced counts pin the Born state to the
-   committed run state;
-4. the countermodel reproduces every produced count frequency, maps every
+   committed-effect values are the fixture frequencies;
+3. full additivity plus the fixture frequencies forces the run Born valuation
+   on all effects, and those values pin the matrix to the
+   declared diagonal matrix;
+4. the countermodel reproduces every fixture frequency, maps every
    effect into `[0, 1]`, sends the sure effect to one, and is additive on
    every committed coexistent sum;
 5. the countermodel fails additivity at an explicit effect pair, is not an
    additive effect valuation, and is the Born functional of no state.
 
 Boundary: clause 3 consumes the full PR-03 additivity premise as a
-hypothesis; clauses 1, 4, and 5 prove that the committed produced system
+hypothesis; clauses 1, 4, and 5 prove that the committed static fixture
 does not supply that premise, because its coexistent sums carry only
 normalisation. -/
 theorem operationalAdditivityBoundary_receipt :

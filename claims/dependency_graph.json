@@ -132,7 +132,8 @@
   "OPH-QFT-OPERATOR-LAYER-MORPHISM-BOUNDARY",
   "OPH-GEOMETRY-COMMON-WORLD-ISLAND-BRIDGE",
   "OPH-SCREEN-GAUGE-SECTOR-BRACKET-COMPLETION",
-  "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY"
+  "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
+  "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY"
  ],
  "edges": [
   {
@@ -1128,12 +1129,12 @@
   {
    "from": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
    "to": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
-   "role": "supplies the committed IdealPhasePOVMCountModel structure and the boundary text naming the explicitly exhaustive deterministic semantics as an acceptable validation route"
+      "role": "supplies the static IdealPhasePOVMCountModel structure used by the declared-effect arithmetic conformance fixture; it supplies no instrument, source outcome, or validation"
   },
   {
    "from": "OPH-QUANTUM-PHASE-MODEL-DETERMINATION-BOUNDARY",
    "to": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
-   "role": "supplies the committed integer phase-count window and closed-form frequency law instantiated by the attainment receipt"
+      "role": "supplies the integer phase-count window and closed-form frequency law instantiated by the static conformance fixture"
   },
   {
    "from": "OPH-QUANTUM-HINGE-FIBERED-JOIN-AND-SLICE-REGION-DICHOTOMY",
@@ -1148,7 +1149,7 @@
   {
    "from": "OPH-QUANTUM-PHASE-OPERATION-RECORDED-DECISION-ATTAINMENT",
    "to": "OPH-QUANTUM-OPERATIONAL-ADDITIVITY-BOUNDARY",
-   "role": "supplies the attained inhabitant of the ideal phase POVM count model, the committed run state, and the produced count literals the additivity boundary is stated on"
+      "role": "supplies a static inhabitant, declared diagonal matrix, and generated expected-frequency numerators for the additivity countermodel; it supplies no produced instrument"
   },
   {
    "from": "OPH-QFT-JOIN-RECORD-NET-MORPHISM",

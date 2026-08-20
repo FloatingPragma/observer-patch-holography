@@ -3483,7 +3483,7 @@ face boundary produces a machine-checked nonzero boundary-of-boundary
 control.
 \end{proof}
 
-\begin{proposition}[Temporal evolution, continuity, and energy on the committed carrier]
+\begin{proposition}[Conditional temporal identities and continuity on the committed carrier]
 \label{prop:temporal-maxwell-evolution}
 Index seam potentials \(A_n\in\mathbb R^{30}\) and port potentials
 \(\phi_n\in\mathbb R^{12}\) by a declared evolution step \(n\in\mathbb N\),
@@ -3491,7 +3491,8 @@ and set
 \[
 E_n=-(A_{n+1}-A_n)-d\phi_n,\qquad B_n=CA_n,
 \]
-so that \(E\) sits on half steps and \(B\) on integer steps. Declare the
+so that \(E\) sits on half steps and \(B\) on integer steps. Register row
+PR-66 declares the
 leapfrog Amp\`ere law
 \(E_{n+1}-E_n=C^{\mathsf T}B_{n+1}-J_n\) for a seam-current history \(J\).
 Then Faraday's law \(B_{n+1}-B_n=-CE_n\) holds identically. Along the
@@ -3503,17 +3504,17 @@ equation
 \]
 holds, in both directions; the port load \(\rho\) and the seam current
 \(J\) remain distinct types, and this equivalence is their only bridge.
-The staggered energy
+The staggered quadratic form
 \(\mathcal E_n=\tfrac12\lVert E_n\rVert^2+\tfrac12\langle B_n,B_{n+1}\rangle\)
 satisfies the exact per-step balance
 \(\mathcal E_{n+1}=\mathcal E_n-\tfrac12\langle E_n+E_{n+1},J_n\rangle\),
-hence is exactly conserved for \(J=0\). The time-dependent gauge
+hence is exactly conserved for \(J=0\). No positivity claim is made. The time-dependent gauge
 transformation \(A_n\mapsto A_n+d\chi_n\),
 \(\phi_n\mapsto\phi_n-(\chi_{n+1}-\chi_n)\) leaves \(E\), \(B\), the
 evolution law, and \(\mathcal E\) invariant. A constant-in-time solution
 with \(J=0\) has \(B_n=0\), a forced-neutral load, and \(E_n\) exactly the
 canonical Coulomb field \(dG\rho\); conversely every neutral \(\rho\) admits
-such a static solution. Source-free evolution obeys the exact discrete wave
+such a static solution. Zero-current evolution obeys the exact discrete wave
 law
 \[
 A_{n+2}-2A_{n+1}+A_n+C^{\mathsf T}CA_{n+1}+d(\phi_{n+1}-\phi_n)=0 .
@@ -3521,7 +3522,7 @@ A_{n+2}-2A_{n+1}+A_n+C^{\mathsf T}CA_{n+1}+d(\phi_{n+1}-\phi_n)=0 .
 \end{proposition}
 
 \begin{proof}
-The Faraday, continuity-equivalence, Gauss-propagation, energy, gauge,
+The Faraday, continuity-equivalence, Gauss-propagation, quadratic-form, gauge,
 static-join, and wave clauses are checked in
 \texttt{TemporalMaxwellEvolution} as one composed receipt from a single
 typed antecedent bundle; the neutral-load static existence and an explicit
@@ -3529,17 +3530,21 @@ nonstatic inhabitant are separate theorems of the same module, the
 inhabitant being zero initial data kicked by the boundary cycle of one
 committed face, with magnetic field zero at step zero and three on that
 face at step one. Faraday's law and the Gauss propagation use
-\(Cd=0\) and its exact transpose \(\partial C^{\mathsf T}=0\); the energy
+\(Cd=0\) and its exact transpose \(\partial C^{\mathsf T}=0\); the balance
 identity uses the adjointness of \(C\) and \(C^{\mathsf T}\) under the
 committed equal-weight pairing together with the staggered magnetic cross
 term \(\langle B_n,B_{n+1}\rangle\), which makes the balance exact rather
-than approximate.
+than approximate. This conservation law is not a stability theorem. The
+committed exact spectrum contains \(5\) and \(3+\sqrt5\), both above the
+unit-step leapfrog threshold \(4\), so growing modes exist. A timestep-scaled
+continuation must prove \(h^2\lambda_{\max}\leq4\), which here requires
+\(h\leq2/\sqrt{3+\sqrt5}\).
 \end{proof}
 
 All four propositions are exact finite mathematics on the committed
 carrier, not a physical Maxwell theory. The equal-weight pairing
 coincides with the committed equal seam-counting selection of premise
-row PR-20, and no premise is consumed: the coincidence is stated so
+row PR-20. The temporal proposition consumes the declared update PR-66; the coincidence is stated so
 that an instrument construction consuming that row reads the same
 pairing. No
 physical field, charge, current, potential, or photon is identified
@@ -3552,8 +3557,8 @@ update while Faraday names the proved backward-difference identity. No
 Lorentz covariance, continuum control, physical source production, or
 laboratory readout is constructed; the calibration row PR-15 and the
 physical propagation-and-comparison and source
-gauge-field-current-action attachment rows PR-53 and PR-54 stay open;
-no registered premise is removed, and no frozen prediction is emitted.
+gauge-field-current-action attachment rows PR-53 and PR-54 stay open. Stable
+calibrated propagation is also open; no frozen prediction is emitted.
 The canonical receipt records a design-only handoff-interface block for
 an instrument consumer, naming exact rational observables and a replay
 template; the block is not a freeze and arms no verdict.

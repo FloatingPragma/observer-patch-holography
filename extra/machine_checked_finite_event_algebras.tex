@@ -214,12 +214,12 @@ state diagonal with one free off-diagonal coordinate, affine dependence of
 every count frequency on that coordinate, a decidable integer receipt window
 on the phase counts, and the minimal phase-mass receipt
 (Section~\ref{sec:phase-determination});
-\item a recorded-decision attainment layer for that structure: under the
-register row that axiomatizes the committed exact lift as a declared
-architecture operation, a deterministic exact-arithmetic producer receipt,
-an independent verifier, and a composed Lean receipt inhabit the structure
-with produced count literals satisfying exact Born consistency, the
-deterministic-scaling law, and the integer receipt window
+\item a static conformance layer for that structure: under the register row
+that declares the committed exact lift as a phase-sensitive effect, a
+deterministic exact-arithmetic calculator, an independent verifier, and a
+composed Lean arithmetic receipt inhabit the static model with generated
+expected-frequency numerators satisfying the assumed Born-fit equations,
+the scaling law, and the integer receipt window
 (Section~\ref{sec:phase-attainment}); and
 \item a reproducible, version-pinned artifact with per-declaration axiom
 output, no proof placeholders, and a documented catalog of the Mathlib gaps,
@@ -249,7 +249,7 @@ quotient. Sections~\ref{sec:functional}, \ref{sec:robertson}, and
 the CHSH clients with the exact saturation witness and its record-diagonal
 delimitation. Section~\ref{sec:phase-instrument} describes the ideal static
 phase-POVM/count-fit model, its synthetic non-discharge control, and the
-recorded-decision attainment of the phase-count layer.
+declared-effect conformance fixture for the phase-count layer.
 Section~\ref{sec:mathlib} records the Mathlib engagement.
 Section~\ref{sec:evaluation} reports the audit methodology, and
 Section~\ref{sec:comparison} positions the development feature by feature.
@@ -318,8 +318,8 @@ characterization of the phase clause, run-literal state pinning, affine
 count-frequency dependence, decidable integer receipt window, and the
 minimal phase-mass receipt \\
 \texttt{Operational\allowbreak Phase\allowbreak Attainment} &
-recorded-decision inhabitant of the count-fit structure with produced count
-literals, exact Born consistency, deterministic scaling in every context,
+declared-effect inhabitant of the count-fit structure with generated
+expected-frequency numerators, stored Born-fit equations, scaling consequences,
 and the receipt-window clause \\
 \bottomrule
 \end{tabular}
@@ -932,13 +932,14 @@ with nonnegative weights summing to one, and its CHSH value against any four
 record-diagonal $[-1,1]$-valued readouts is at most $2$, strictly below the
 attained $2\sqrt2$ of the declared witness. The witness state itself carries an
 off-diagonal entry of one half, so no map that preserves record diagonality
-reaches it from the class. Producing the attained saturation from source
-data within the committed operations therefore requires an operation that
-writes off-diagonal record coherence; the premise register keeps exactly
-that production open. The delimitation constrains readouts outside the
-jointly diagonal class only through the reachable states' diagonality, and
-it is a statement about the committed operation class, not about every
-conceivable architecture extension. Like \texttt{Dynamics/ChoiCPTP.lean},
+reaches that particular witness from the class. This target-specific
+obstruction does not show that every realization of the value $2\sqrt2$
+requires non-diagonal preparation: non-jointly-diagonal or contextual
+readouts are outside the bound, and no slot-local separability theorem for
+arbitrary settings is proved here. Those remain viable construction routes.
+The result is a statement about the committed operation class and the
+declared Bell-state witness, not about every conceivable architecture
+extension. Like \texttt{Dynamics/ChoiCPTP.lean},
 the module is a companion in the wider library, outside this paper's
 fifteen-module count and scale table.
 
@@ -1026,53 +1027,49 @@ the minimal phase count mass over committed-core inhabitants is exactly two,
 attained by the synthetic inhabitant
 (\texttt{minimal\_phase\_count\_mass}).
 
-The reduction states the PR-04 residue exactly: for a committed-core
+The reduction states the phase residue exactly: for a committed-core
 inhabitant the state diagonal, the affine dependence of every count frequency
 on the one free coordinate, and the admissible count window are forced by the
 committed diagonal literals and the committed effects. What the row keeps
-open is count provenance, a custody condition the register holds outside the
-type system, together with source production of the phase operation and the
-common preparation. The window is a necessary condition on any producer-bound
-phase receipt and carries no provenance information, since the synthetic
-inhabitant meets it without a producer.
+open is not encoded by this static type: PR-64 asks for completely positive
+outcome maps, a trace-preserving summed channel, and effect/readback
+compatibility, while PR-65 asks for a source-produced common preparation,
+context selection, public outcomes, provenance, and custody. The window is a
+necessary arithmetic condition only and carries no provenance information,
+since the synthetic inhabitant meets it without a source run.
 
-\subsection{Recorded-decision attainment of the phase-count layer}
+\subsection{Static conformance fixture for the phase-effect layer}
 \label{sec:phase-attainment}
 
 Register row PR-04 of the premise register carries a recorded decision dated
 2026-08-18 under the row's axiomatize disposition: the committed exact lift
 $I/2 - (2\sqrt{3}/3)\,i\,(QP - PQ)$, equal to the Pauli $+Y$ projector, is a
-declared architecture operation. The module
-\path{OperationalPhaseAttainment.lean} consumes that decision and it
-inhabits \texttt{IdealPhasePOVMCountModel} over the committed core with
-produced count literals. A deterministic producer computes the complete outcome table
-of the declared operation and the committed web contexts on the committed
-record-diagonal run state $\mathrm{diag}(111/179, 68/179)$ in exact
-arithmetic over $\mathbb{Q}(\sqrt{3}, i)$: each context count pair is the
-exact Born weight of the context effect scaled to the least positive integer
-multiple of the committed run mass $179$ clearing its denominator, giving
+declared phase-sensitive effect. It is not a state transition or an
+instrument. The module \path{OperationalPhaseAttainment.lean} consumes that
+decision and inhabits \texttt{IdealPhasePOVMCountModel} over the committed
+core with static integer literals. A deterministic calculator expands the
+Born table of the declared effects on the declared matrix
+$\mathrm{diag}(111/179, 68/179)$ in exact arithmetic over
+$\mathbb{Q}(\sqrt{3}, i)$: each context pair is the exact Born weight of the
+context effect scaled to the least positive integer multiple of the reference
+mass $179$ clearing its denominator, giving
 $(111, 68)$ at mass $179$ in the diagonal and record-conjugate contexts,
 $(315, 401)$ at mass $716$ in the rotated contexts, and $(179, 179)$ at mass
-$358$ in the phase context. This is the explicitly exhaustive deterministic
-semantics that the non-discharge boundary above names as an acceptable
-validation route; no sampling, statistical estimate, or floating-point step
-occurs, and rerunning the producer reproduces the committed receipt byte for
-byte. An independent verifier sharing no arithmetic code rebuilds the table
+$358$ in the phase context. These are generated expected-frequency
+numerators, not observations or validation. No sampling or floating-point
+step occurs. An independent verifier sharing no arithmetic code rebuilds the table
 from the pinned payload and demands exact agreement with every receipt
 field, run-mass-multiple minimality and the integer window included. The
 composed receipt (\texttt{operationalPhaseAttainment\_receipt}) derives,
-from one antecedent bundle pinned to the decision's operation and
-preparation, the conjunction: committed core, declared operation in the
-phase slot, committed run state with vanishing off-diagonal as common
-preparation, committed diagonal literals, exact Born consistency and the
-deterministic-scaling law in every context, every count mass a positive
-multiple of $179$, and phase counts $(179, 179)$ inside the window of
-\texttt{phase\_counts\_receipt\_window}. The attainment is conditional
-structural under the axiomatized row: the operation is declared, never
-source-produced, the counts are produced, never measured, the row is
-consumed, never discharged, and the synthetic-inhabitant boundary of the
-preceding sections is unchanged. Source production of a phase operation
-remains the open obligation of the row.
+from one antecedent bundle pinned to the declared effect and matrix, the
+conjunction: committed core, declared effect in the phase slot, vanishing
+off-diagonal matrix entry, committed diagonal literals, the stored Born-fit
+equations and their cross-multiplied scaling consequences, positive integer
+masses, and phase counts inside the registered window. The Lean theorem does
+not prove leastness, source reachability of this two-dimensional matrix, or
+receipt provenance; the external verifier checks the deterministic
+least-denominator arithmetic separately. PR-64 and PR-65 are not discharged,
+nor is the independent cross-context additivity premise PR-03.
 
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}
@@ -1340,7 +1337,8 @@ companion module adds the custom CPTP proofs.
 It contains no Physlib
 spectral-partition correspondence and no source-selected quantum instrument;
 the two-qubit saturation witness consists of declared data, and the
-phase-operation instrument required by PR-04 is not constructed.
+operational phase instrument and source custody required by PR-64 and PR-65
+are not constructed.
 
 \section*{Declarations}
 

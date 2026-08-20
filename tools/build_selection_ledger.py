@@ -557,25 +557,31 @@ def render(rows: list[dict]) -> str:
         "unenumerated maps and are excluded from finite compression accounting."
     )
     lines.append(
-        "No tuning is hidden: every premise is named, and every unresolved selection has"
+        "Across the premise register and this ledger, declared inputs and unresolved"
     )
     lines.append(
-        "an owner. This"
+        "attachments are named. This ledger is the bounded discrete-selection and"
     )
     lines.append(
-        "ledger records every discrete structural selection in the framework exactly"
+        "compression inventory defined in `claims/selection_ledger.json`; it is not an"
     )
     lines.append(
-        "once, classified as FORCED (derived from the axioms and source objects), EXPOSED"
+        "exhaustive inventory of every theorem premise. Declared effects, evolution laws,"
+    )
+    lines.append(
+        "scheduler clauses, and finite action packets belong in the premise register."
+    )
+    lines.append(
+        "Rows here are classified as FORCED (derived from the axioms and source objects), EXPOSED"
     )
     lines.append(
         "PREMISE (chosen and declared in theorem antecedents), or OPEN (neither, with the"
     )
     lines.append(
-        "owning GitHub issue). It shows exactly what is proved and exactly what is left:"
+        "owning GitHub issue). It shows what is proved and open inside this finite menu:"
     )
     lines.append(
-        "pick an open row and work on it. It is the canonical free-versus-forced surface"
+        "pick an open row and work on it. It is the free-versus-forced surface"
     )
     lines.append("for")
     lines.append(

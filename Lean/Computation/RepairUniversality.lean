@@ -1,31 +1,37 @@
 import Mathlib
 
 /-!
-# Repair universality and A₅ word programs
+# Input-specialized repair satisfiability and width-five permutation programs
 
 Finite observer federations over Boolean registers: each observer holds a
 finite patch, an acceptance verdict computed from that patch alone, and a
 repair move that rewrites inside the patch.  Main statements:
 
-* `repair_universality` — for every Boolean function `f` there is a
-  federation family whose accepted-repair sweep, from every initial state,
-  reaches a consensus state whose output register carries `f x`;
+* `repair_universality` (a historical theorem name) states that for every
+  Boolean function `f` and every input `x` there is an input-specialized
+  federation whose declared sweep reaches a satisfying state with output
+  `f x`;
 * `consensus_agree` / `compile_output_unique` — consensus states of a
   compiled federation agree on every program register, so the reached
   consensus output is the unique one;
-* `bar_computes` / `bar_length` — every formula compiles to a width-five
-  permutation word program over conjugates of a fixed five-cycle, of length
-  at most `4 ^ depth`, whose product reads out the formula value
-  (Barrington-style `NC¹` expressiveness over the icosahedral group);
+* `bar_computes` / `bar_length` state that every formula compiles to a
+  width-five permutation word program in the ambient group `S₅`, using
+  conjugates of a fixed five-cycle, of length at most `4 ^ depth`, whose
+  product reads out the formula value.  The file does not type the program
+  in `A₅` or prove an even-permutation membership invariant;
 * `word_universality` / `echosahedral_universality` — the packaged
   universality statements for both engines;
 * kernel `decide` receipts for the SHA-256 primitive functions `Ch` and
   `Maj`, a full-adder sum, and end-to-end federation and word-program runs.
 
-The file formalizes expressiveness of the repair dynamics and of the
-word-program engine only.  It does not formalize the r2020 OMEGA hardware
-contract, analog noise margins, convergence rates on unpinned instances, or
-any speedup claim.
+The first construction is input-specialized straight-line constraint
+satisfaction, not one fixed repair computer reading its input from an
+initial state.  Its `RepairStep` relation records only a failing observer and
+an outside-patch frame condition; it permits stuttering and does not require
+the selected observer to accept after the step.  The file does not formalize
+the canonical OPH `acceptedStep`, the r2020 OMEGA hardware contract, analog
+noise margins, convergence rates on unpinned instances, uniform circuit
+families, or any speedup claim.
 -/
 
 namespace OPH.RepairUniversality
@@ -48,10 +54,18 @@ abbrev Federation := List Obs
 /-- Consensus: every observer accepts. -/
 def Consensus (F : Federation) (s : State) : Prop := ∀ o ∈ F, o.ok s = true
 
-/-- Accepted repair: some failing observer rewrites registers inside its own
-patch; registers outside the patch are untouched. -/
+/-- Weak patch step used by this file: some observer fails before the step
+and registers outside its patch are unchanged.  No change or post-step
+acceptance is required.  This relation is strictly weaker than the canonical
+OPH accepted-repair relation. -/
 def RepairStep (F : Federation) (s s' : State) : Prop :=
   ∃ o ∈ F, o.ok s = false ∧ ∀ i, i ∉ o.patch → s' i = s i
+
+/-- Explicit boundary control: the weak relation admits a stuttering step at
+every state with a failing observer. -/
+theorem repairStep_allows_stuttering (F : Federation) (s : State) (o : Obs)
+    (ho : o ∈ F) (hfail : o.ok s = false) : RepairStep F s s :=
+  ⟨o, ho, hfail, fun _ _ ↦ rfl⟩
 
 /-- Finitely many accepted repair steps. -/
 inductive Reaches (F : Federation) : State → State → Prop
@@ -580,10 +594,12 @@ theorem compile_output_unique (φ : Formula k) (x : Fin k → Bool) (s t : State
   rw [outReg, ← hmr]
   exact h
 
-/-- Repair universality: every Boolean function is computed by the accepted
-repair dynamics of a compiled federation — from every initial state, the
-sweep schedule is a chain of accepted repairs reaching a consensus state
-whose output register carries the function value. -/
+/-- Input-specialized satisfiability theorem (historical name).  For every
+Boolean function and input, the construction hardwires that input into a
+different federation and its weak-step sweep reaches a satisfying state with
+the required output.  This does not construct one fixed federation that reads
+immutable input registers from the initial state, and it does not use the
+canonical OPH accepted-repair relation. -/
 theorem repair_universality (k : ℕ) (f : (Fin k → Bool) → Bool) :
     ∃ φ : Formula k, ∀ (x : Fin k → Bool) (s₀ : State),
       Reaches (federation φ x) s₀ (sweepFrom s₀ (compile φ x)) ∧
@@ -593,7 +609,7 @@ theorem repair_universality (k : ℕ) (f : (Fin k → Bool) → Bool) :
   refine ⟨φ, fun x s₀ => ⟨compile_reaches φ x s₀, compile_consensus φ x s₀, ?_⟩⟩
   rw [compile_sweep_out, hφ]
 
-/-! ## Width-five word programs over the icosahedral group -/
+/-! ## Width-five word programs in the ambient symmetric group -/
 
 /-- Permutations of five letters; the ambient group of the word programs. -/
 abbrev P5 := Equiv.Perm (Fin 5)
@@ -868,6 +884,7 @@ theorem nand_word_kernel_receipt : ∀ x : Fin 2 → Bool, ∀ i : Fin 5,
 /-! ## Axiom audit -/
 
 #print axioms repair_universality
+#print axioms repairStep_allows_stuttering
 #print axioms compile_output_unique
 #print axioms bar_computes
 #print axioms bar_length

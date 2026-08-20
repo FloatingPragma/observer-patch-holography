@@ -107,23 +107,23 @@ def test_observation_row_advances_only_the_modal_partial_rung() -> None:
     row = _row(_json("tracking/observation_ledger.json")["rows"], "id", "OL-F1")
     assert row["status"] == "partial"
     assert row["lane_issue"] == 733
-    assert row["premises"] == ["PR-20", "PR-21", "PR-22"]
+    assert row["premises"] == ["PR-20", "PR-21", "PR-22", "PR-66"]
     assert row["open_premises"] == ["PR-15", "PR-53", "PR-54"]
     assert row["evidence"] == OBSERVATION_EVIDENCE
     notes = row["notes"]
     assert "modal package supplies an exact pseudodifferential first-order factorization" in notes
-    assert "LocalFaceMaxwellAction supplies the missing local finite operator" in notes
-    assert "The earlier dense global Hodge projector remains an exact comparison" in notes
-    assert "StaticSources keeps rho and J distinct" in notes
+    assert "LocalFaceMaxwellAction supplies the local finite operator H=C^T C" in notes
+    assert "TemporalMaxwellEvolution consumes PR-66" in notes
+    assert "conserved staggered form is not proved positive" in notes
+    assert "exact spectrum has unit-step growing modes" in notes
     assert "PR-15, PR-53, and PR-54 remain open" in notes
     assert "does not close issue" not in notes
     for required_boundary in (
-        "TemporalMaxwellEvolution adds the temporal layer",
-        "step index is a declared evolution parameter",
-        "Lorentz/spacetime attachment",
-        "physical field/current",
-        "continuum control",
-        "laboratory readout",
+        "Faraday, Gauss-continuity propagation",
+        "conditional consequences",
+        "timestep-scaled update with a Courant/stability proof",
+        "step index is not physical time",
+        "sources are declared",
     ):
         assert required_boundary in notes
 

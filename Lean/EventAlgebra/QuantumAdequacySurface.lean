@@ -129,15 +129,15 @@ instrument. -/
 structure AlgebraicPhaseCompletion where
   /-- The declared phase-sensitive effect. -/
   lift : Matrix (Fin 2) (Fin 2) ℂ
-  /-- The declared operation is a projection event of the represented
+  /-- The declared effect is a projection event of the represented
   algebra. -/
   isEvent : IsEvent lift
-  /-- The declared operation separates the two Pauli-Y states that the
+  /-- The declared effect separates the two Pauli-Y states that the
   phase-free real closure cannot distinguish. -/
   separates : bornWeight OPH.QFT.rhoYPlus lift = 1 ∧
     bornWeight OPH.QFT.rhoYMinus lift = 0
   /-- Tomographic completion: together with the committed record
-  projector and the committed rotated projector, the declared operation
+  projector and the committed rotated projector, the declared effect
   determines every matrix on each fixed-trace slice. -/
   completes : ∀ rho sigma : Matrix (Fin 2) (Fin 2) ℂ,
     Matrix.trace rho = Matrix.trace sigma →
@@ -377,11 +377,11 @@ section PhaseCompletion
 
 open OPH.QFT
 
-/-- The committed algebraic lift inhabits the PR-04 bundle: it is a
+/-- The committed algebraic lift inhabits the declared-effect PR-04 bundle: it is a
 projection event, it separates the two Pauli-Y states, and it closes
-operator tomography on every fixed-trace slice. The instrument character
-of the row (source-produced outcome receipts) is the declared part; this
-inhabitant witnesses the algebraic fields only. -/
+operator tomography on every fixed-trace slice. The operational instrument
+and source-produced outcome/custody obligations are separate PR-64/PR-65
+rows; this inhabitant witnesses the algebraic effect fields only. -/
 noncomputable def committedAlgebraicPhaseCompletion : AlgebraicPhaseCompletion where
   lift := sourcePhaseLift
   isEvent := sourcePhaseLift_isEvent
@@ -397,8 +397,8 @@ noncomputable def committedAlgebraicPhaseCompletion : AlgebraicPhaseCompletion w
 /-- **Full operator tomography on states.** Under any inhabitant of the
 declared algebraic phase-completion fields associated with PR-04, two states
 agreeing on the record projector, the rotated projector, and the declared
-phase operation are equal.  This does not inhabit PR-04's operational
-preparation, operation, or outcome receipts. -/
+phase effect are equal. This does not inhabit PR-64's channel/readback or
+PR-65's preparation, outcome, and custody receipts. -/
 theorem phase_states_determined (I : AlgebraicPhaseCompletion)
     {rho sigma : Matrix (Fin 2) (Fin 2) ℂ}
     (hrho : IsState rho) (hsigma : IsState sigma)
@@ -425,9 +425,9 @@ theorem real_closure_blind :
               bornWeight sigma (complexifyRealMatrix E) :=
   realSourceEffectClosure_not_tomographically_complete
 
-/-- **The declared operation is outside the real closure.** No amount of
+/-- **The declared effect is outside the real closure.** No amount of
 the phase-free real processing produces the committed lift; the missing
-capability is exactly a phase-sensitive operation. -/
+capability is exactly a phase-sensitive effect. -/
 theorem phase_lift_outside_real_closure :
     ¬ ∃ E : Matrix (Fin 2) (Fin 2) ℝ,
       RealSourceEffectClosure E ∧

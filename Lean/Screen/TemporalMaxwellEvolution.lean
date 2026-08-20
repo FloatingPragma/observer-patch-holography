@@ -32,22 +32,25 @@ declared seam current driving the E-update across integer step `n+1`.
 The Faraday law `B (n+1) - B n = -C (E n)` is a theorem of the definitions,
 not a second postulate.
 
-The receipts are: (1) charge-current continuity, both directions: along the
+The receipts are conditional on the declared Ampere update: (1)
+charge-current continuity, both directions: along the
 evolution the Gauss constraint `∂ (E n) = ρ n` propagates from step `n` to
 `n+1` exactly when `ρ (n+1) - ρ n + ∂ (J n) = 0` (`gauss_step_iff`), and
 with the continuity equation it propagates from the initial step to every
-step (`gauss_propagation`); (2) an exact per-step energy identity for the
-staggered field energy
+step (`gauss_propagation`); (2) an exact per-step identity for the
+staggered quadratic form
 `(1/2)‖E n‖² + (1/2)⟨B n, B (n+1)⟩` with source work term
 `-(1/2)⟨E n + E (n+1), J n⟩` (`energy_balance`), hence exact conservation
-for `J = 0` (`energy_conserved`); (3) full time-dependent gauge invariance:
+of this staggered quadratic form for `J = 0` (`energy_conserved`).  The form
+is not proved positive and its conservation is not a stability theorem;
+(3) full time-dependent gauge invariance:
 `A ↦ A + d (χ n)`, `φ ↦ φ - (χ (n+1) - χ n)` leaves `E`, `B`, the evolution
-law, and the energy invariant; (4) the static join: a constant-in-time
-solution with `J = 0` has zero magnetic field, a forced-neutral load, and
+law, and the quadratic form invariant; (4) the static join: a constant-in-time
+zero-current solution has zero magnetic field, a forced-neutral load, and
 electric field exactly the canonical Coulomb field `realCoulombField ρ` of
 `DiscreteCoulombGreen`/`PositionSpaceMaxwellAction` (`static_join`), and the
 canonical Green potential supplies such a static solution for every neutral
-load (`coulombStaticSolution`); (5) the exact discrete wave law: source-free
+load (`coulombStaticSolution`); (5) the exact discrete wave law: zero-current
 evolution forces
 `A (n+2) - 2 A (n+1) + A n + CᵀC (A (n+1)) + d (φ (n+1) - φ n) = 0`
 (`wave_law`).  One composed receipt
@@ -67,10 +70,14 @@ The sources `ρ` and `J` are declared inputs, not source-produced currents;
 the source gauge-field/current/action attachment stays open under PR-54.
 No photon, propagation speed, Lorentz covariance, continuum limit, or
 laboratory readout is claimed; the physical propagation, frame, and
-comparison attachment stays open under PR-53.  The equal-weight pairing
-coincides with the PR-20 equal seam-counting selection and no premise row
-is consumed by any proof here.  Everything is exact finite mathematics on
-the committed carrier.
+comparison attachment stays open under PR-53.  The exact unit-step Ampere
+update is declared rather than derived from an OPH repair or variational law
+and is consumed under PR-66.  The equal-weight pairing coincides with the
+PR-20 equal seam-counting selection.  No positive energy, Courant bound, or
+stability estimate is proved.  The exact spectrum receipt for `C Cᵀ`
+contains eigenvalues above the unit-step leapfrog stability threshold, so a
+timestep-scaled update and stability proof remain viable required work under
+PR-53 rather than a no-go against temporal propagation.
 
 Axiom audit.  Every proof composes the committed receipts with exact real
 linear algebra; the module adds no project axiom and uses no native
@@ -179,7 +186,7 @@ theorem gauss_propagation (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → 
   | zero => exact h0
   | succ m ih => exact (gauss_step_iff A φ J ρ hAmp m ih).mpr (hcont m)
 
-/-! ## The exact staggered energy identity -/
+/-! ## The exact staggered quadratic-form identity -/
 
 theorem realSeamInner_sub_right (a b c : Fin 30 → ℝ) :
     realSeamInner a (b - c) = realSeamInner a b - realSeamInner a c := by
@@ -205,15 +212,15 @@ theorem realSeamEnergy_sub_eq_inner (x y : Fin 30 → ℝ) :
     simp only [Pi.add_apply, Pi.sub_apply]
     ring
 
-/-- Staggered discrete field energy with the committed equal-weight
+/-- Staggered discrete quadratic energy form with the committed equal-weight
 pairing: `(1/2)‖E n‖² + (1/2)⟨B n, B (n+1)⟩`.  The magnetic cross term at
 adjacent integer steps is the exactly conserved form for the leapfrog
-update. -/
+update.  No positivity or coercivity property is asserted. -/
 def fieldEnergy (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ) (n : ℕ) : ℝ :=
   (1 / 2) * realSeamEnergy (electricField A φ n) +
     (1 / 2) * faceInner (magneticField A n) (magneticField A (n + 1))
 
-/-- **Exact per-step energy balance.**  The energy change across integer
+/-- **Exact per-step quadratic-form balance.**  The form's change across integer
 step `n+1` is exactly minus the source work of `J n` against the
 time-averaged electric field. -/
 theorem energy_balance (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ)
@@ -254,7 +261,8 @@ theorem energy_balance (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ
   unfold fieldEnergy
   linarith [hdiff]
 
-/-- Exact energy conservation for source-free evolution. -/
+/-- Exact conservation of the staggered quadratic form for zero-current
+evolution.  This statement does not imply positivity or stability. -/
 theorem energy_conserved (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ)
     (hAmp : AmpereEvolution A φ (fun _ ↦ 0)) (n : ℕ) :
     fieldEnergy A φ n = fieldEnergy A φ 0 := by
@@ -329,8 +337,8 @@ theorem static_electricField (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 �
   unfold electricField
   rw [hA (n + 1), hA n, hφ n, sub_self, neg_zero, zero_sub]
 
-/-- **Static join, uniqueness direction.**  A constant-in-time solution of
-the evolution with `J = 0` and Gauss load `ρ` has forced-neutral `ρ`, zero
+/-- **Static join, uniqueness direction.**  A constant-in-time zero-current
+solution with Gauss load `ρ` has forced-neutral `ρ`, zero
 magnetic field, and electric field exactly the canonical Coulomb field of
 the committed Green solution. -/
 theorem static_join (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ)
@@ -457,13 +465,15 @@ structure MaxwellEvolutionBundle where
 conjunction from the single antecedent bundle: Gauss propagation to every
 step; the step-local continuity equivalence in both directions for every
 candidate load history; the Faraday law of the staggered definitions; the
-exact per-step energy balance with source work term; full time-dependent
-gauge invariance of `E`, `B`, the evolution law, and the energy; exact
-energy conservation and the exact discrete wave law in the source-free
-case; and the static join sending every constant source-free solution to
+exact per-step quadratic-form balance with source work term; full
+time-dependent gauge invariance of `E`, `B`, the evolution law, and the
+quadratic form; exact conservation and the exact discrete wave law in the
+zero-current case; and the static join sending every constant zero-current
+solution with its declared neutral load to
 the committed canonical Coulomb field with forced neutrality and zero
 magnetic field.  The step index is a declared evolution parameter and the
-sources are declared; PR-15, PR-53, and PR-54 stay open. -/
+sources are declared; PR-66 is consumed and PR-15, PR-53, and PR-54 stay
+open.  Positivity and stability are not clauses of the receipt. -/
 theorem temporalMaxwellEvolution_receipt (S : MaxwellEvolutionBundle) :
     (∀ n, realBoundary (electricField S.A S.phi n) = S.rho n)
     ∧ (∀ (ρ' : ℕ → Fin 12 → ℝ) (n : ℕ),
@@ -534,7 +544,7 @@ theorem demoInitial_apply (e : Fin 30) : demoInitial e = faceIncidenceR 0 e := b
 theorem demoInitial_boundary : realBoundary demoInitial = 0 :=
   realBoundary_faceCodifferential _
 
-/-- Concrete source-free history: zero initial data kicked by the face-zero
+/-- Concrete zero-current history: zero initial data kicked by the face-zero
 boundary cycle, then evolved by the leapfrog recursion itself. -/
 def demoA : ℕ → Fin 30 → ℝ
   | 0 => 0

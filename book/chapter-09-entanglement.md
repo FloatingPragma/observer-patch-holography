@@ -128,7 +128,7 @@ exactly, while a fixed record-diagonal state read by four observables diagonal
 in the same basis stays at or below 2. The attaining state and settings are
 entirely real. The proved gap is therefore entanglement, non-diagonal
 coherence, and noncommuting settings; it is not a proof that a genuinely
-complex phase operation is necessary, and it does not cover every contextual
+complex phase effect is necessary, and it does not cover every contextual
 classical experiment.
 
 That stronger pattern has been observed. In 2015, Ronald Hanson's group in

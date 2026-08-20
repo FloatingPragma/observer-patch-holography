@@ -1,27 +1,22 @@
 #!/usr/bin/env python3
-"""Deterministic producer for the PR-04 recorded-decision phase-operation receipt.
+"""Deterministic calculator for the legacy-named PR-04 phase receipt.
 
 Register row PR-04 carries a recorded decision (dated 2026-08-18, lane issue
 number 730): the exact phase lift ``I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q)``
-declared in ``code/born_context_phase_lift`` is a declared architecture
-operation under the row's axiomatize disposition. This producer computes the
-complete outcome table of that declared operation and of the committed web
-contexts on the committed record-diagonal run state, in exact arithmetic over
+declared in ``code/born_context_phase_lift`` is a declared phase-sensitive
+effect under the row's axiomatize disposition. This calculator expands its
+Born table and that of the committed web effects on a declared diagonal matrix, in exact arithmetic over
 ``Q(sqrt(3), i)``, and writes one receipt JSON.
 
-Count semantics, stated exactly: this is an explicitly exhaustive
-deterministic semantics, one of the two validation routes the committed
-boundary text of ``Lean/EventAlgebra/OperationalPhaseInstrument.lean`` names
-as acceptable. Each context count pair is the exact Born weight of the
+Count semantics, stated exactly: each integer pair is a generated
+expected-frequency numerator. It is the exact Born weight of the
 context effect under the committed state, scaled to the least positive
 integer multiple of the committed run mass 179 that clears the weight's
 denominator. No sampling, no randomness, and no floating-point arithmetic
 occurs anywhere; rerunning the producer reproduces the receipt byte for byte.
 
-Nonclaims: the operation is declared, never source-produced; the counts are
-produced by the declared semantics, never measured; no laboratory or
-emergent-instrument claim follows, and the physical-attachment premises of
-the register stay open.
+Nonclaims: this is a static effect calculation, not an operation, instrument,
+measurement, or validation. PR-03, PR-64, and PR-65 remain open.
 """
 
 from __future__ import annotations
@@ -49,9 +44,10 @@ DECISION_DATE = "2026-08-18"
 RECEIPT_SCHEMA = "oph.receipt.pr04_phase_operation.v1"
 
 SEMANTICS_DECLARATION = (
-    "Explicitly exhaustive deterministic semantics: every count pair is the "
-    "exact Born weight of the context effect under the committed "
-    "record-diagonal run state diag(111/179, 68/179), computed in exact "
+    "Explicitly exhaustive deterministic semantics for a static conformance "
+    "fixture: every integer pair is a generated expected-frequency numerator "
+    "for the exact Born weight of the context effect under the declared "
+    "diagonal matrix diag(111/179, 68/179), computed in exact "
     "arithmetic over Q(sqrt(3), i) and scaled to the least positive integer "
     "multiple of the committed run mass 179 that makes both counts integers. "
     "No sampling, no randomness, no statistical estimate, and no "
@@ -61,16 +57,17 @@ SEMANTICS_DECLARATION = (
 DECISION_STATEMENT = (
     "Recorded decision on register row PR-04 (disposition axiomatize): the "
     "committed exact lift I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q) of "
-    "code/born_context_phase_lift is a declared architecture operation. The "
-    "information cost is one declared non-diagonal operation with the exact "
+    "code/born_context_phase_lift is a declared phase-sensitive effect. The "
+    "information cost is one declared non-real effect with the exact "
     "matrix [[1/2, -i/2], [i/2, 1/2]], equal to the Pauli +Y projector."
 )
 
 NONCLAIMS = (
-    "The operation is declared, never source-produced. The counts are "
-    "produced by the declared deterministic semantics, never measured. No "
-    "laboratory or emergent-instrument claim follows; the physical-attachment "
-    "premises of the register stay open."
+    "The effect is declared, never source-produced. The integer pairs are "
+    "calculated expected-frequency numerators, never measured. This fixture "
+    "is not an operation, instrument, measurement, or validation. No "
+    "laboratory or emergent-instrument claim follows; PR-03, PR-64, PR-65, "
+    "and the physical-attachment premises stay open."
 )
 
 
@@ -217,7 +214,7 @@ def sha256_bytes(data: bytes) -> str:
 
 
 def phase_lift(commutator: Mat, coefficient: R3 | None = None) -> Mat:
-    """The declared operation ``I/2 - c*i*[Q, P]`` with committed
+    """The declared effect ``I/2 - c*i*[Q, P]`` with committed
     ``c = 2*sqrt(3)/3``; the coefficient knob exists for mutation tests."""
 
     if coefficient is None:
@@ -295,16 +292,16 @@ def build_receipt(payload: dict[str, Any], payload_sha256: str) -> dict[str, Any
         projectors.append(projector)
 
     commutator = msub(mmul(projectors[3], RECORD), mmul(RECORD, projectors[3]))
-    operation = phase_lift(commutator)
+    effect = phase_lift(commutator)
     plus_y = mat(
         (
             (Fraction(1, 2), X3(R3(), R3.of(Fraction(-1, 2)))),
             (X3(R3(), R3.of(Fraction(1, 2))), Fraction(1, 2)),
         )
     )
-    need(operation == plus_y, "declared operation is not the Pauli +Y projector")
-    need(mdagger(operation) == operation, "declared operation not Hermitian")
-    need(mmul(operation, operation) == operation, "declared operation not idempotent")
+    need(effect == plus_y, "declared effect is not the Pauli +Y projector")
+    need(mdagger(effect) == effect, "declared effect not Hermitian")
+    need(mmul(effect, effect) == effect, "declared effect not idempotent")
 
     state = mat(
         (
@@ -319,7 +316,7 @@ def build_receipt(payload: dict[str, Any], payload_sha256: str) -> dict[str, Any
     named_effects += [
         (f"web_conjugated_{g}", projectors[g]) for g in range(6)
     ]
-    named_effects.append(("phase", operation))
+    named_effects.append(("phase", effect))
     for name, effect in named_effects:
         weight = exact_rational_weight(state, effect)
         k, mass, first, second = deterministic_counts(weight)
@@ -363,14 +360,15 @@ def build_receipt(payload: dict[str, Any], payload_sha256: str) -> dict[str, Any
             "run_counts": list(RUN_COUNTS),
         },
         "declared_operation": {
+            "legacy_field_name": True,
             "formula": "I/2 - (2*sqrt(3)/3)*i*(Q*P - P*Q)",
-            "matrix": encode_matrix(operation),
+            "matrix": encode_matrix(effect),
             "equals_pauli_y_plus_projector": True,
             "scalar_encoding": "each scalar is [re_rational, re_sqrt3, im_rational, im_sqrt3] over Q",
         },
         "committed_state": {
             "matrix": encode_matrix(state),
-            "reading": "record-diagonal state of the committed run literals (111, 68) at mass 179",
+            "reading": "declared record-diagonal matrix built from literals (111, 68) at reference mass 179; no Fin-2 source-reachability witness",
         },
         "semantics": SEMANTICS_DECLARATION,
         "contexts": contexts,
@@ -410,7 +408,7 @@ def main() -> None:
     if args.check:
         committed = args.output.read_bytes() if args.output.is_file() else b""
         need(committed == data, "committed receipt differs from deterministic rerun")
-        print("phase-operation receipt: deterministic rerun matches the committed receipt")
+        print("phase-effect fixture: deterministic rerun matches the committed receipt")
         return
     args.output.write_bytes(data)
     print(f"wrote {args.output}")
