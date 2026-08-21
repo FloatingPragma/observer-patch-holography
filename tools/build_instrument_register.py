@@ -22,7 +22,11 @@ naming all three verdict labels, and no verdict receipts. A REPLICATED,
 FAILED, or INCONCLUSIVE row additionally carries at least one verdict
 receipt. A VOID row issues no verdict and carries freeze artifacts exactly
 when it carries a freeze time. Explicit ledger-control lineages prevent a
-SPECIFIED design or incomplete run from overwriting a completed verdict. A
+SPECIFIED design or incomplete run from overwriting a completed verdict.
+Every ledger control declares the exact row-status consequence of a selected
+decisive verdict and the open premises that verdict must preserve. A row with
+a null controller cannot be attained, and a later decisive verdict must be
+explicitly selected before its declared consequence applies. A
 REPLICATED instrument can support its ledger row only when explicitly selected
 by the ledger-control lineage. Artifact entries pin a relative path and a SHA-256 digest; an entry whose
 path resolves inside this repository is hashed against its pinned digest, and
@@ -48,7 +52,7 @@ REGISTER_PATH = ROOT / "claims" / "emergent_instrument_register.json"
 LEDGER_PATH = ROOT / "tracking" / "observation_ledger.json"
 SURFACE_PATH = ROOT / "docs" / "INSTRUMENT_REGISTER_V3.md"
 
-SCHEMA = "oph.emergent_instrument_register.v4"
+SCHEMA = "oph.emergent_instrument_register.v5"
 ISSUE = 737
 GENERATED_SURFACE = "docs/INSTRUMENT_REGISTER_V3.md"
 REPO_URL = "https://github.com/FloatingPragma/observer-patch-holography"
@@ -67,9 +71,21 @@ VERDICT_STATUSES = {"REPLICATED", "FAILED", "INCONCLUSIVE"}
 CONTROLLING_STATUSES = {"REPLICATED", "FAILED"}
 VERDICT_LABELS = ("REPLICATED", "FAILED", "INCONCLUSIVE")
 OWNING_ISSUE = 737
+REPLICATED_CONSEQUENCES = {"attain_row", "support_only"}
+FAILED_CONSEQUENCES = {"owe_row", "block_attainment"}
+LEDGER_STATUSES = {"owed", "partial", "attained"}
+REPLICATED_CONSEQUENCE_STATUS = {
+    "attain_row": "attained",
+    "support_only": "partial",
+}
+FAILED_CONSEQUENCE_STATUS = {
+    "owe_row": "owed",
+    "block_attainment": "partial",
+}
 
 ID_PATTERN = re.compile(r"^INS-\d{2}$")
 LEDGER_ID_PATTERN = re.compile(r"^OL-[A-N][1-9]$")
+PREMISE_ID_PATTERN = re.compile(r"^PR-\d{2}$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 BANNED_CHARACTERS = ("—", "–")
@@ -85,6 +101,10 @@ REGISTER_KEYS = {
 LEDGER_CONTROL_KEYS = {
     "ledger_row",
     "controlling_instrument",
+    "replicated_consequence",
+    "failed_consequence",
+    "replicated_preserves_open_premises",
+    "failed_preserves_open_premises",
     "supersession_policy",
 }
 ROW_KEYS = {
@@ -160,7 +180,7 @@ STATUS_MEANING = {
     "FAILED": (
         "The frozen decision rule returned its negative verdict. The row"
         " carries freeze artifacts and verdict receipts. When controlling,"
-        " it blocks or demotes the bound ledger row's emergent rung with"
+        " it applies the ledger control's declared negative consequence with"
         " equal prominence."
     ),
     "INCONCLUSIVE": (
@@ -407,7 +427,9 @@ def validate(
         if not isinstance(ledger_row, str) or not LEDGER_ID_PATTERN.match(ledger_row):
             fail(f"{where}: ledger_row must match OL-<A..N><digit>")
         if ledger_row not in ledger_rows:
-            fail(f"{where}: ledger_row {ledger_row} is not on the observation ledger")
+            fail(
+                f"{where}: ledger_row {ledger_row} is not on the observation ledger"
+            )
 
         status = row["status"]
         if status not in STATUSES:
@@ -533,10 +555,87 @@ def validate(
             fail(f"{where}: keys must equal {sorted(LEDGER_CONTROL_KEYS)}")
         ledger_row = control["ledger_row"]
         controlling_id = control["controlling_instrument"]
+        replicated_consequence = control["replicated_consequence"]
+        failed_consequence = control["failed_consequence"]
+        replicated_preserves = control["replicated_preserves_open_premises"]
+        failed_preserves = control["failed_preserves_open_premises"]
         _clean_prose(where, "supersession_policy", control["supersession_policy"])
+        if not isinstance(ledger_row, str) or not LEDGER_ID_PATTERN.fullmatch(
+            ledger_row
+        ):
+            fail(f"{where}: ledger_row must match OL-<A..N><digit>")
+        if ledger_row not in ledger_rows:
+            fail(f"{where}: ledger_row {ledger_row} is not on the observation ledger")
         if ledger_row in control_rows:
             fail(f"{where}: duplicate ledger control for {ledger_row}")
         control_rows.add(ledger_row)
+        if (
+            not isinstance(replicated_consequence, str)
+            or replicated_consequence not in REPLICATED_CONSEQUENCES
+        ):
+            fail(
+                f"{where}: replicated_consequence must be one of "
+                f"{sorted(REPLICATED_CONSEQUENCES)}"
+            )
+        if (
+            not isinstance(failed_consequence, str)
+            or failed_consequence not in FAILED_CONSEQUENCES
+        ):
+            fail(
+                f"{where}: failed_consequence must be one of "
+                f"{sorted(FAILED_CONSEQUENCES)}"
+            )
+        ledger_status = ledger_rows[ledger_row].get("status")
+        if not isinstance(ledger_status, str) or ledger_status not in LEDGER_STATUSES:
+            fail(f"{where}: ledger row {ledger_row} has an invalid status")
+        open_premises = ledger_rows[ledger_row].get("open_premises")
+        if not isinstance(open_premises, list) or any(
+            not isinstance(premise, str) for premise in open_premises
+        ):
+            fail(f"{where}: ledger row {ledger_row} has malformed open_premises")
+        open_premise_ids = set(open_premises)
+        for field, preserved in (
+            ("replicated_preserves_open_premises", replicated_preserves),
+            ("failed_preserves_open_premises", failed_preserves),
+        ):
+            if not isinstance(preserved, list):
+                fail(f"{where}: {field} must be a list")
+            if any(not isinstance(premise, str) for premise in preserved):
+                fail(f"{where}: {field} entries must match PR-<two digits>")
+            if len(preserved) != len(set(preserved)):
+                fail(f"{where}: {field} must be duplicate-free")
+            for premise in preserved:
+                if not PREMISE_ID_PATTERN.fullmatch(premise):
+                    fail(f"{where}: {field} entries must match PR-<two digits>")
+                if premise not in open_premise_ids:
+                    fail(
+                        f"{where}: {field} requires open premise {premise} on"
+                        f" {ledger_row}"
+                    )
+        if controlling_id is None:
+            decisive = [
+                row["id"]
+                for row in rows
+                if row["ledger_row"] == ledger_row
+                and row["status"] in CONTROLLING_STATUSES
+            ]
+            if decisive:
+                fail(
+                    f"{where}: a null controller cannot leave a decisive completed "
+                    f"instrument unselected ({', '.join(decisive)})"
+                )
+            if ledger_status == "attained":
+                fail(
+                    f"{where}: a null controller cannot govern an attained ledger row"
+                )
+            continue
+        if (
+            not isinstance(controlling_id, str)
+            or not ID_PATTERN.fullmatch(controlling_id)
+        ):
+            fail(
+                f"{where}: controlling_instrument must be null or an instrument id"
+            )
         controlling = seen_rows.get(controlling_id)
         if controlling is None or controlling["ledger_row"] != ledger_row:
             fail(f"{where}: controlling instrument must exist on {ledger_row}")
@@ -545,15 +644,22 @@ def validate(
                 f"{where}: controlling instrument must carry a decisive "
                 "completed verdict"
             )
-        ledger_status = ledger_rows[ledger_row].get("status")
-        if controlling["status"] == "FAILED" and ledger_status != "owed":
-            fail(
-                f"{where}: a controlling FAILED verdict requires the ledger row to be owed"
-            )
-        if controlling["status"] == "REPLICATED" and ledger_status != "attained":
-            fail(
-                f"{where}: a controlling REPLICATED verdict requires an attained ledger row"
-            )
+        if controlling["status"] == "FAILED":
+            required_status = FAILED_CONSEQUENCE_STATUS[failed_consequence]
+            if ledger_status != required_status:
+                fail(
+                    f"{where}: a controlling FAILED verdict with"
+                    f" {failed_consequence} consequence requires ledger status"
+                    f" {required_status}"
+                )
+        if controlling["status"] == "REPLICATED":
+            required_status = REPLICATED_CONSEQUENCE_STATUS[replicated_consequence]
+            if ledger_status != required_status:
+                fail(
+                    f"{where}: a controlling REPLICATED verdict with"
+                    f" {replicated_consequence} consequence requires ledger status"
+                    f" {required_status}"
+                )
     represented_rows = {row["ledger_row"] for row in rows}
     if control_rows != represented_rows:
         fail("ledger_controls must cover exactly the ledger rows in the register")
@@ -585,13 +691,14 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("")
     lines.append(
         f"One row per simulation-instrument design or frozen instrument of"
-        f" the emergent adequacy program. Lane {_issue_link(737)} owns the instruments"
+        f" the registered adequacy program. Lane {_issue_link(737)} owns the"
+        f" instruments"
         f" and this register."
         f" Each instrument binds to exactly one row of the observation ledger"
         f" (`docs/OBSERVATION_LEDGER_V3.md`). SPECIFIED is mutable design work,"
         f" not a preregistration or verdict. Only a completed decisive"
         f" instrument explicitly selected by the ledger-control lineage can"
-        f" block or support the bound emergent rung."
+        f" apply its declared consequence to the bound ledger row."
     )
     lines.append("")
     lines.append("## Separation from the frozen-prediction ladder")
@@ -633,8 +740,12 @@ def render(register: dict, rows: list[dict]) -> str:
         " carries at least one verdict receipt. A VOID row issues no verdict"
         " and carries freeze artifacts exactly when it carries a freeze time."
         " A REPLICATED instrument supports its observation row only when it is"
-        " explicitly selected by the ledger-control lineage. A controlling FAILED"
-        " verdict requires the ledger row to remain owed."
+        " explicitly selected by the ledger-control lineage. Each control"
+        " declares the exact row status required by REPLICATED and FAILED and"
+        " the open premises that each verdict must preserve."
+        " A represented ledger row with no decisive completed instrument has a"
+        " null controller and cannot be attained. A later decisive verdict must"
+        " be explicitly selected before its declared consequence applies."
         " An artifact entry whose path resolves inside this repository is"
         " hashed against its pinned digest. External entries require a"
         " canonical repository and full commit pin; their Git object bytes"
@@ -644,16 +755,40 @@ def render(register: dict, rows: list[dict]) -> str:
     lines.append("## Ledger-control lineages")
     lines.append("")
     for control in register["ledger_controls"]:
-        lines.append(
-            f"- {control['ledger_row']}: controlling instrument"
-            f" `{control['controlling_instrument']}`."
-            f" {control['supersession_policy']}"
+        controller = control["controlling_instrument"]
+        replicated_preserves = (
+            ", ".join(control["replicated_preserves_open_premises"]) or "none"
         )
+        failed_preserves = (
+            ", ".join(control["failed_preserves_open_premises"]) or "none"
+        )
+        consequences = (
+            f" REPLICATED consequence `{control['replicated_consequence']}`"
+            f" preserving open premises {replicated_preserves}; FAILED consequence"
+            f" `{control['failed_consequence']}` preserving open premises"
+            f" {failed_preserves}."
+        )
+        if controller is None:
+            lines.append(
+                f"- {control['ledger_row']}: no completed controlling verdict."
+                f"{consequences}"
+                f" {control['supersession_policy']}"
+            )
+        else:
+            lines.append(
+                f"- {control['ledger_row']}: controlling instrument"
+                f" `{controller}`."
+                f"{consequences}"
+                f" {control['supersession_policy']}"
+            )
     lines.append("")
     lines.append("## Instruments")
     lines.append("")
     lines.append("| Row | Instrument | Ledger row | Lane | Status | Frozen (UTC) |")
     lines.append("| --- | --- | --- | --- | --- | --- |")
+    controls_by_ledger = {
+        control["ledger_row"]: control for control in register["ledger_controls"]
+    }
     for row in rows:
         frozen = row["frozen_utc"] if row["frozen_utc"] is not None else "unfrozen"
         lines.append(
@@ -673,7 +808,12 @@ def render(register: dict, rows: list[dict]) -> str:
         lines.append(f"- Specification: `{row['spec_pointer']}`.")
         repository = row["custody_repository"]
         if repository is None:
-            lines.append("- Custody repository: none (all artifacts are local).")
+            if row["freeze_artifacts"] or row["verdict_receipts"]:
+                lines.append("- Custody repository: none (all artifacts are local).")
+            else:
+                lines.append(
+                    "- Custody repository: none (unfrozen; no artifacts pinned)."
+                )
         else:
             lines.append(
                 f"- Custody repository: `{repository['url']}` at commit"
@@ -686,10 +826,11 @@ def render(register: dict, rows: list[dict]) -> str:
             if row["lineage_predecessor"] is not None
             else "none"
         )
-        lines.append(
-            f"- Lineage predecessor: {predecessor}. This does not change the "
-            "controlling verdict."
-        )
+        if controls_by_ledger[row["ledger_row"]]["controlling_instrument"] is None:
+            lineage_boundary = "This does not create a controlling verdict."
+        else:
+            lineage_boundary = "This does not change the controlling verdict."
+        lines.append(f"- Lineage predecessor: {predecessor}. {lineage_boundary}")
         lines.append(f"- Reproducibility boundary: {row['limitations']}")
         lines.append("- Controls:")
         for control in row["controls"]:

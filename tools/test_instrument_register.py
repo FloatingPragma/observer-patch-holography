@@ -39,7 +39,7 @@ def _register() -> dict:
 def _fixture_row(
     status: str,
     *,
-    row_id: str = "INS-03",
+    row_id: str = "INS-04",
     frozen: bool = True,
     receipts: bool = False,
 ) -> dict:
@@ -71,15 +71,28 @@ def _replicated_ins02(register: dict) -> dict:
     return row
 
 
-def _ledger_rows(*, ol_a1_status: str = "owed") -> dict:
+def _completed_ins03(register: dict, status: str) -> dict:
+    row = register["rows"][2]
+    row["status"] = status
+    row["freeze_artifacts"] = copy.deepcopy(FIXTURE_FREEZE)
+    row["frozen_utc"] = "2026-08-11T00:00:00Z"
+    row["verdict_receipts"] = copy.deepcopy(FIXTURE_RECEIPTS)
+    return row
+
+
+def _ledger_rows(
+    *, ol_a1_status: str = "owed", ol_c5_status: str = "partial"
+) -> dict:
     rows = copy.deepcopy(register_tool.load_ledger_rows())
     rows["OL-A1"]["status"] = ol_a1_status
+    rows["OL-C5"]["status"] = ol_c5_status
     return rows
 
 
 def test_committed_register_validates() -> None:
     register = _register()
     rows = register_tool.validate(register)
+    assert register["schema"] == "oph.emergent_instrument_register.v5"
     assert rows[0]["id"] == "INS-01"
     assert rows[0]["ledger_row"] == "OL-A1"
     assert rows[0]["status"] == "FAILED"
@@ -101,7 +114,33 @@ def test_committed_register_validates() -> None:
     assert rows[1]["frozen_utc"] is None
     assert "not a preregistration or authorization to run" in rows[1]["limitations"]
     assert rows[1]["lineage_predecessor"] == "INS-01"
+    assert rows[2]["id"] == "INS-03"
+    assert rows[2]["ledger_row"] == "OL-C5"
+    assert rows[2]["status"] == "SPECIFIED"
+    assert rows[2]["custody_repository"] is None
+    assert rows[2]["freeze_artifacts"] == []
+    assert rows[2]["frozen_utc"] is None
+    assert rows[2]["lineage_predecessor"] is None
+    assert rows[2]["verdict_receipts"] == []
     assert register["ledger_controls"][0]["controlling_instrument"] == "INS-01"
+    assert register["ledger_controls"][0]["replicated_consequence"] == "attain_row"
+    assert register["ledger_controls"][0]["failed_consequence"] == "owe_row"
+    assert register["ledger_controls"][0]["replicated_preserves_open_premises"] == []
+    assert register["ledger_controls"][0]["failed_preserves_open_premises"] == []
+    assert register["ledger_controls"][1] == {
+        "ledger_row": "OL-C5",
+        "controlling_instrument": None,
+        "replicated_consequence": "support_only",
+        "failed_consequence": "block_attainment",
+        "replicated_preserves_open_premises": ["PR-03"],
+        "failed_preserves_open_premises": ["PR-03"],
+        "supersession_policy": (
+            "No completed decisive instrument controls OL-C5. INS-03 is SPECIFIED"
+            " design work only and cannot move the ledger row. A later decisive"
+            " verdict must be selected explicitly here in the same scientific"
+            " update that applies its ledger consequence."
+        ),
+    }
 
 
 def test_ins02_design_contract_is_explicit_and_unfrozen() -> None:
@@ -131,6 +170,58 @@ def test_ins02_design_contract_is_explicit_and_unfrozen() -> None:
     assert "through one fixed estimator" in row["decision_rule"]
 
 
+def test_ins03_design_contract_is_explicit_unfrozen_and_nonpromoting() -> None:
+    register = _register()
+    row = register["rows"][2]
+
+    assert row["id"] == "INS-03"
+    assert row["ledger_row"] == "OL-C5"
+    assert row["status"] == "SPECIFIED"
+    assert row["spec_pointer"] == (
+        "plan/INS03_SOURCE_BOUND_PHASE_INSTRUMENT_DESIGN.md"
+        " (oph-meta planning workspace)"
+    )
+    assert row["custody_repository"] is None
+    assert row["freeze_artifacts"] == []
+    assert row["frozen_utc"] is None
+    assert row["lineage_predecessor"] is None
+    assert row["verdict_receipts"] == []
+
+    rule = row["decision_rule"]
+    assert "future target-blind freeze" in rule
+    assert "PASS maps to REPLICATED" in rule
+    assert "FAIL maps to FAILED" in rule
+    assert "SOURCE_PRODUCER_MISSING or INCONCLUSIVE maps to INCONCLUSIVE" in rule
+    assert "-3/256 countermodel" in rule
+    assert "No numeric placeholder is bound here" in rule
+    assert "authorizes no execution" in rule
+
+    seeds = row["seeds_policy"]
+    assert "No seed has been drawn" in seeds
+    assert "prospective precision calculation" in seeds
+    assert "One fresh master seed" in seeds
+    assert "no redraw, no substitution, no optional stopping" in seeds
+
+    controls = " ".join(row["controls"])
+    assert "record-diagonal source control" in controls
+    assert "shuffled-context control" in controls
+    assert "no promotion authority" in controls
+    assert "classical reveal-only mock" in controls
+
+    limitations = row["limitations"]
+    assert "not a preregistration or an implemented simulator instrument" in limitations
+    assert "OL-C5 remains partial" in limitations
+    assert "PR-03" in limitations
+    assert "public-readback remainder of PR-64" in limitations
+    assert "PR-65 remain open" in limitations
+    assert "no endpoint in this design supplies" in limitations
+    assert "required to remove PR-03" in limitations
+    assert "REPLICATED support_only and FAILED block_attainment" in limitations
+    assert "neither verdict alone attains or owes the whole ledger row" in limitations
+    assert "OL-C5 has no controlling instrument" in limitations
+    assert "separate immutable preregistration and explicit authorization" in limitations
+
+
 def test_rebuild_parity_with_committed_surface() -> None:
     register = _register()
     rows = register_tool.validate(register)
@@ -144,6 +235,12 @@ def test_intro_explains_explicit_ledger_control() -> None:
     rendered = register_tool.render(register, register_tool.validate(register))
     assert "completed decisive instrument" in rendered
     assert "ledger-control lineage" in rendered
+    assert "OL-C5: no completed controlling verdict" in rendered
+    assert "REPLICATED consequence `support_only`" in rendered
+    assert "FAILED consequence `block_attainment`" in rendered
+    assert rendered.count("preserving open premises PR-03") == 2
+    assert "This does not create a controlling verdict" in rendered
+    assert "none (unfrozen; no artifacts pinned)" in rendered
 
 
 def test_check_mode_passes_on_committed_artifacts() -> None:
@@ -517,6 +614,10 @@ def test_ledger_id_range_includes_n() -> None:
         {
             "ledger_row": "OL-N1",
             "controlling_instrument": "INS-01",
+            "replicated_consequence": "attain_row",
+            "failed_consequence": "owe_row",
+            "replicated_preserves_open_premises": [],
+            "failed_preserves_open_premises": [],
             "supersession_policy": "Fixture supersession policy.",
         }
     ]
@@ -526,6 +627,7 @@ def test_ledger_id_range_includes_n() -> None:
             "OL-N1": {
                 "id": "OL-N1",
                 "status": "owed",
+                "open_premises": [],
             }
         },
     )
@@ -543,6 +645,179 @@ def test_specified_successor_cannot_control() -> None:
     register = _register()
     register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
     with pytest.raises(SystemExit, match="must carry a decisive completed verdict"):
+        register_tool.validate(register)
+
+
+def test_specified_ins03_cannot_control_ol_c5() -> None:
+    register = _register()
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    with pytest.raises(SystemExit, match="must carry a decisive completed verdict"):
+        register_tool.validate(register)
+
+
+def test_null_controller_accepts_inconclusive_completed_instrument() -> None:
+    register = _register()
+    row = register["rows"][2]
+    row["status"] = "INCONCLUSIVE"
+    row["freeze_artifacts"] = copy.deepcopy(FIXTURE_FREEZE)
+    row["frozen_utc"] = "2026-08-11T00:00:00Z"
+    row["verdict_receipts"] = copy.deepcopy(FIXTURE_RECEIPTS)
+    rows = register_tool.validate(register)
+    assert rows[2]["status"] == "INCONCLUSIVE"
+    assert register["ledger_controls"][1]["controlling_instrument"] is None
+
+
+def test_null_controller_rejects_unselected_decisive_instrument() -> None:
+    register = _register()
+    _completed_ins03(register, "FAILED")
+    with pytest.raises(
+        SystemExit,
+        match="null controller cannot leave a decisive completed instrument unselected",
+    ):
+        register_tool.validate(register)
+
+
+def test_null_controller_rejects_attained_ledger_row() -> None:
+    register = _register()
+    with pytest.raises(
+        SystemExit,
+        match="null controller cannot govern an attained ledger row",
+    ):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_c5_status="attained"),
+        )
+
+
+def test_replicated_ins03_can_supply_partial_support_without_attainment() -> None:
+    register = _register()
+    _completed_ins03(register, "REPLICATED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    rows = register_tool.validate(register)
+    assert rows[2]["status"] == "REPLICATED"
+    assert register["ledger_controls"][1]["replicated_consequence"] == "support_only"
+
+
+def test_replicated_support_only_instrument_cannot_leave_row_owed() -> None:
+    register = _register()
+    _completed_ins03(register, "REPLICATED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    with pytest.raises(SystemExit, match="support_only consequence requires"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_c5_status="owed"),
+        )
+
+
+def test_replicated_support_only_instrument_cannot_attain_whole_row() -> None:
+    register = _register()
+    _completed_ins03(register, "REPLICATED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    with pytest.raises(SystemExit, match="support_only consequence requires"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_c5_status="attained"),
+        )
+
+
+def test_failed_ins03_blocks_attainment_without_erasing_partial_evidence() -> None:
+    register = _register()
+    _completed_ins03(register, "FAILED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    rows = register_tool.validate(register)
+    assert rows[2]["status"] == "FAILED"
+    assert register["ledger_controls"][1]["failed_consequence"] == "block_attainment"
+
+
+def test_failed_block_attainment_instrument_rejects_attained_row() -> None:
+    register = _register()
+    _completed_ins03(register, "FAILED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    with pytest.raises(SystemExit, match="block_attainment consequence requires"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_c5_status="attained"),
+        )
+
+
+def test_failed_block_attainment_instrument_cannot_erase_partial_evidence() -> None:
+    register = _register()
+    _completed_ins03(register, "FAILED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    with pytest.raises(SystemExit, match="block_attainment consequence requires"):
+        register_tool.validate(
+            register,
+            ledger_rows=_ledger_rows(ol_c5_status="owed"),
+        )
+
+
+def test_ins03_consequences_preserve_pr03_open() -> None:
+    register = _register()
+    _completed_ins03(register, "REPLICATED")
+    register["ledger_controls"][1]["controlling_instrument"] = "INS-03"
+    ledger_rows = _ledger_rows()
+    ledger_rows["OL-C5"]["open_premises"].remove("PR-03")
+    with pytest.raises(SystemExit, match="requires open premise PR-03 on OL-C5"):
+        register_tool.validate(register, ledger_rows=ledger_rows)
+
+
+def test_ledger_consequence_enums_fail_closed() -> None:
+    register = _register()
+    register["ledger_controls"][1]["replicated_consequence"] = "attain_or_support"
+    with pytest.raises(SystemExit, match="replicated_consequence must be one of"):
+        register_tool.validate(register)
+
+
+def test_preserved_open_premise_contract_fails_closed() -> None:
+    register = _register()
+    register["ledger_controls"][1]["replicated_preserves_open_premises"] = "PR-03"
+    with pytest.raises(SystemExit, match="must be a list"):
+        register_tool.validate(register)
+
+    register = _register()
+    register["ledger_controls"][1]["failed_preserves_open_premises"] = [
+        "PR-03",
+        "PR-03",
+    ]
+    with pytest.raises(SystemExit, match="must be duplicate-free"):
+        register_tool.validate(register)
+
+    register = _register()
+    register["ledger_controls"][1]["replicated_preserves_open_premises"] = [
+        "premise-03"
+    ]
+    with pytest.raises(SystemExit, match="entries must match PR-<two digits>"):
+        register_tool.validate(register)
+
+    register = _register()
+    register["ledger_controls"][1]["failed_consequence"] = "maybe_partial"
+    with pytest.raises(SystemExit, match="failed_consequence must be one of"):
+        register_tool.validate(register)
+
+    register = _register()
+    register["ledger_controls"][1]["replicated_consequence"] = []
+    with pytest.raises(SystemExit, match="replicated_consequence must be one of"):
+        register_tool.validate(register)
+
+
+def test_controller_must_be_null_or_an_instrument_id() -> None:
+    register = _register()
+    register["ledger_controls"][1]["controlling_instrument"] = 3
+    with pytest.raises(SystemExit, match="must be null or an instrument id"):
+        register_tool.validate(register)
+
+
+def test_null_controller_ledger_row_must_be_registered() -> None:
+    register = _register()
+    register["ledger_controls"][1]["ledger_row"] = "OL-Z9"
+    with pytest.raises(SystemExit, match="ledger_row must match"):
+        register_tool.validate(register)
+
+
+def test_each_ledger_row_has_exactly_one_lineage_root() -> None:
+    register = _register()
+    register["rows"][2]["ledger_row"] = "OL-A1"
+    with pytest.raises(SystemExit, match="already has a root instrument"):
         register_tool.validate(register)
 
 
@@ -569,7 +844,7 @@ def test_completed_failed_successor_may_control_but_keeps_row_owed() -> None:
     rows = register_tool.validate(register)
     assert rows[1]["status"] == "FAILED"
 
-    with pytest.raises(SystemExit, match="requires the ledger row to be owed"):
+    with pytest.raises(SystemExit, match="requires ledger status owed"):
         register_tool.validate(
             register,
             ledger_rows=_ledger_rows(ol_a1_status="attained"),
@@ -580,7 +855,7 @@ def test_controlling_failed_verdict_forces_owed_ledger_status() -> None:
     register = _register()
     with pytest.raises(
         SystemExit,
-        match="controlling FAILED verdict requires the ledger row to be owed",
+        match="controlling FAILED verdict with owe_row consequence",
     ):
         register_tool.validate(
             register,
@@ -599,6 +874,14 @@ def test_replicated_successor_can_control_attained_ledger_row() -> None:
     assert rows[1]["status"] == "REPLICATED"
 
 
+def test_replicated_attain_row_successor_rejects_unattained_ledger_row() -> None:
+    register = _register()
+    _replicated_ins02(register)
+    register["ledger_controls"][0]["controlling_instrument"] = "INS-02"
+    with pytest.raises(SystemExit, match="attain_row consequence requires"):
+        register_tool.validate(register)
+
+
 def test_lineage_predecessor_must_name_earlier_same_ledger_instrument() -> None:
     register = _register()
     register["rows"][1]["lineage_predecessor"] = "INS-99"
@@ -610,4 +893,9 @@ def test_ledger_control_coverage_is_exact() -> None:
     register = _register()
     register["ledger_controls"] = []
     with pytest.raises(SystemExit, match="must be a nonempty list"):
+        register_tool.validate(register)
+
+    register = _register()
+    register["ledger_controls"] = [register["ledger_controls"][0]]
+    with pytest.raises(SystemExit, match="cover exactly"):
         register_tool.validate(register)

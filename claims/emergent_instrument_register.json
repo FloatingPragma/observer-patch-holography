@@ -1,13 +1,30 @@
 {
-  "schema": "oph.emergent_instrument_register.v4",
+  "schema": "oph.emergent_instrument_register.v5",
   "issue": 737,
   "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
-  "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support an observation-ledger rung only when the committed receipts satisfy the frozen decision rule and the ledger-control lineage explicitly selects it. A controlling FAILED verdict blocks or demotes the bound emergent rung to owed until an explicitly selected later instrument is REPLICATED; a later design or incomplete run cannot overwrite it. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
+  "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support an observation-ledger rung only when the committed receipts satisfy the frozen decision rule and the ledger-control lineage explicitly selects it. Each ledger control declares the exact row-status consequence of a selected REPLICATED or FAILED verdict and the open premises that verdict cannot remove; a later design or incomplete run cannot overwrite either boundary. A ledger row with no decisive completed instrument carries an explicit null controller and cannot be marked attained; a later decisive verdict must be selected explicitly in the same scientific update that applies its declared ledger consequence. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
   "ledger_controls": [
     {
       "ledger_row": "OL-A1",
       "controlling_instrument": "INS-01",
+      "replicated_consequence": "attain_row",
+      "failed_consequence": "owe_row",
+      "replicated_preserves_open_premises": [],
+      "failed_preserves_open_premises": [],
       "supersession_policy": "INS-01 remains controlling after its FAILED verdict. A later instrument may supersede it only when that instrument is REPLICATED under its frozen decision rule and is then explicitly selected here. Until both conditions hold, OL-A1 remains owed."
+    },
+    {
+      "ledger_row": "OL-C5",
+      "controlling_instrument": null,
+      "replicated_consequence": "support_only",
+      "failed_consequence": "block_attainment",
+      "replicated_preserves_open_premises": [
+        "PR-03"
+      ],
+      "failed_preserves_open_premises": [
+        "PR-03"
+      ],
+      "supersession_policy": "No completed decisive instrument controls OL-C5. INS-03 is SPECIFIED design work only and cannot move the ledger row. A later decisive verdict must be selected explicitly here in the same scientific update that applies its ledger consequence."
     }
   ],
   "rows": [
@@ -136,6 +153,28 @@
       "frozen_utc": null,
       "lineage_predecessor": "INS-01",
       "limitations": "This is an open SPECIFIED design, not a preregistration or authorization to run. Candidate carrier counts, absolute support sizes, fixed observer count, replicate count, statistics, and quantitative gates remain mutable until a target-blind freeze. INS-01 remains the controlling completed verdict and OL-A1 remains owed; INS-02 cannot supersede it unless a later frozen run returns REPLICATED and the ledger control explicitly selects it.",
+      "verdict_receipts": []
+    },
+    {
+      "id": "INS-03",
+      "title": "OL-C5 source-bound phase-sensitive readout instrument",
+      "owning_issue": 737,
+      "ledger_row": "OL-C5",
+      "status": "SPECIFIED",
+      "spec_pointer": "plan/INS03_SOURCE_BOUND_PHASE_INSTRUMENT_DESIGN.md (oph-meta planning workspace)",
+      "decision_rule": "Design-stage pointer only. A future target-blind freeze evaluates, in order, the source-produced common-preparation, provenance, and phase-discrimination gates; the PR-64 outcome-map, trace, effect, and readback interface; the controls; the phase residual and PR-03 additivity residual; and finally a non-promoting declared-table conformance check. PASS maps to REPLICATED, FAIL maps to FAILED, and SOURCE_PRODUCER_MISSING or INCONCLUSIVE maps to INCONCLUSIVE while retaining the specific receipt word. PASS requires a source-produced non-record-diagonal preparation that clears a frozen phase-content threshold, a phase residual inside EPS_PHASE, an additivity residual inside EPS_ADD with enough resolution to reject the committed -3/256 countermodel, exact algebraic interface residuals, finite-sample readback residuals within TOL_READBACK, and every control. No numeric placeholder is bound here, no component pass overwrites a failed control or endpoint, and this mutable rule authorizes no execution.",
+      "seeds_policy": "No seed has been drawn. Before a future freeze, every threshold, interval construction, multiplicity family, context and effect list, excluded-input set, missing-data rule, and block count binds target-blind. A prospective precision calculation fixes the block count from declared effects, interval widths, multiplicity, and attrition. One fresh master seed then uses a frozen collision-free derivation to paired block and cell seeds, with execution order randomized within blocks, no redraw, no substitution, no optional stopping, and one recorded runtime environment. Runtime-only pilots may measure cost but may not expose preparation coordinates, outcome counts, endpoints, or control results.",
+      "controls": [
+        "A record-diagonal source control recomputes every Born weight exactly from the exported preparation and effects, requires the phase weight to equal one half, and requires the frozen count interval to cover the recomputed weight.",
+        "A frozen shuffled-context control must destroy both the phase-equivalence endpoint and any apparent additivity violation; failure returns INCONCLUSIVE.",
+        "The declared-table comparison runs only after endpoint values are recorded, carries no promotion authority, and returns INCONCLUSIVE with a defect report on disagreement.",
+        "A classical reveal-only mock passes through the same observable path and must be rejected by the frozen interference check; failure to reject invalidates the estimator."
+      ],
+      "custody_repository": null,
+      "freeze_artifacts": [],
+      "frozen_utc": null,
+      "lineage_predecessor": null,
+      "limitations": "This is an unfrozen mutable design, not a preregistration or an implemented simulator instrument. The row pins no producer, export, custody repository, seed, freeze artifact, run, raw capture, verdict receipt, source preparation, public outcome, operational readback, provenance, or custody. OL-C5 remains partial; PR-03, the public-readback remainder of PR-64, and PR-65 remain open, while PR-04 remains a declared consumed effect. Because no endpoint in this design supplies the operational derivation required to remove PR-03, the registered consequence contract makes REPLICATED support_only and FAILED block_attainment; neither verdict alone attains or owes the whole ledger row. OL-C5 has no controlling instrument, and INS-03 neither supersedes INS-01 or INS-02 nor authorizes a simulator run. Any freeze or execution requires a separate immutable preregistration and explicit authorization.",
       "verdict_receipts": []
     }
   ]

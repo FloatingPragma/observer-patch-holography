@@ -33,6 +33,20 @@ def test_ol_a1_failed_control_and_unfrozen_followup_are_exact() -> None:
     assert "not frozen or authorized to run" in row["notes"]
 
 
+def test_ol_c5_ins03_registration_is_explicitly_nonpromoting() -> None:
+    rows = {row["id"]: row for row in _ledger()["rows"]}
+    row = rows["OL-C5"]
+    assert row["status"] == "partial"
+    assert row["open_premises"] == ["PR-03", "PR-64", "PR-65"]
+    assert "claims/emergent_instrument_register.json" in row["evidence"]
+    assert "unfrozen SPECIFIED design" in row["notes"]
+    assert "no seed, freeze, simulator custody pin, run, verdict" in row["notes"]
+    assert "or controlling instrument" in row["notes"]
+    assert "moves OL-C5 in no direction" in row["notes"]
+    assert "public-readback remainder of PR-64" in row["notes"]
+    assert "These results do not promote OL-C5 beyond partial" in row["notes"]
+
+
 def test_governance_row_and_lane_738_are_absent() -> None:
     rows = _ledger()["rows"]
     assert "OL-I1" not in {row["id"] for row in rows}
