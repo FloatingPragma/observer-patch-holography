@@ -6353,7 +6353,7 @@
     },
     {
       "claim_id": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
-      "statement": "On the declared finite carrier C^2 tensor C^2, the bond Hamiltonian H = (1 - Z tensor Z) / 2 is self-adjoint, positive semidefinite, and idempotent. The full two-site matrix algebra acts faithfully by bounded operators on the four-dimensional complex Hilbert space. The explicit vector |00> has norm one and is annihilated by the represented Hamiltonian; its rank-one density is positive semidefinite, has trace one, is annihilated by H on both sides, and has zero energy. The exponential U(t) = exp(-itH) is an exact unitary one-parameter group, and its Heisenberg conjugation flow has the identity and additive laws, is multiplicative, fixes the chosen density, and preserves commutation of jointly evolved left- and right-slot observables. The bond is not any sum of independent one-site Hamiltonians and belongs to neither one-site algebra image. The derivative at zero of a left Pauli-X observable is exactly -i[H,X_L], with one matrix entry equal to i and hence nonzero. Deleting only the Z tensor Z interaction and retaining the scalar offset H_del = (1 / 2) I makes the full conjugation flow static and the same generator zero. All residuals are exact on the declared finite domain. This benchmark is separate from, and is not a Hamiltonian attachment to, the selected-state completed-colimit GNS representation. The sites, Hamiltonian normalization, state, and time parameter are declared; the ground space is degenerate; no physical vacuum, clock or energy calibration, Lorentzian or spacetime localization, spectrum condition, continuum or infinite-volume limit, field algebra, renormalization flow, particle interpretation, scattering construction, detector readback, or physical time-slice theorem is supplied. PR-15, PR-52, PR-54, and PR-58 remain open; OL-C6 remains partial and issue 743 remains open.",
+      "statement": "On the declared finite carrier C^2 tensor C^2, the bond Hamiltonian H = (1 - Z tensor Z) / 2 is self-adjoint, positive semidefinite, and idempotent. The full two-site matrix algebra acts faithfully by bounded operators on the four-dimensional complex Hilbert space. The explicit vector |00> has norm one and is annihilated by the represented Hamiltonian; its rank-one density is positive semidefinite, has trace one, is annihilated by H on both sides, and has zero energy. The exponential U(t) = exp(-itH) is an exact unitary one-parameter group, and its Heisenberg conjugation flow has the identity and additive laws, is multiplicative, fixes the chosen density, and preserves commutation of jointly evolved left- and right-slot observables. The bond is not any sum of independent one-site Hamiltonians and belongs to neither one-site algebra image. The derivative at zero of a left Pauli-X observable is exactly -i[H,X_L], with one matrix entry equal to i and hence nonzero. Deleting only the Z tensor Z interaction and retaining the scalar offset H_del = (1 / 2) I makes the full conjugation flow static and the same generator zero. All residuals are exact on the declared finite domain. Taken alone, this benchmark is not a Hamiltonian attachment to the selected-state completed-colimit GNS representation; the separately registered downstream finite composition performs that exact attachment without changing this predecessor claim. The sites, Hamiltonian normalization, state, and time parameter are declared; the ground space is degenerate; no physical vacuum, clock or energy calibration, Lorentzian or spacetime localization, spectrum condition, continuum or infinite-volume limit, field algebra, renormalization flow, particle interpretation, scattering construction, detector readback, or physical time-slice theorem is supplied. PR-15, PR-52, PR-54, and PR-58 remain open; OL-C6 remains partial and issue 743 remains open.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
       "tier": "exact_declared_finite_two_site_interacting_Hilbert_dynamics_precursor",
       "assumptions": [
@@ -6364,7 +6364,7 @@
         "faithful_matrix_representation_on_Euclidean_space",
         "matrix_exponential_one_parameter_unitary_group"
       ],
-      "oph_specific_delta": "Packages one exact coupled two-site Hamiltonian on its explicit Hilbert carrier with a faithful bounded representation, positive projector Hamiltonian, normalized stationary zero-energy state, unitary multiplicative dynamics, jointly evolved equal-time slot locality, a proof that the bond is not a sum of one-site Hamiltonians, a nonzero infinitesimal local response, and an interaction-deleted scalar-Hamiltonian static control. The exact non-edge to the tower GNS representation and every missing physical attachment are part of the registered claim.",
+      "oph_specific_delta": "Packages one exact coupled two-site Hamiltonian on its explicit Hilbert carrier with a faithful bounded representation, positive projector Hamiltonian, normalized stationary zero-energy state, unitary multiplicative dynamics, jointly evolved equal-time slot locality, a proof that the bond is not a sum of one-site Hamiltonians, a nonzero infinitesimal local response, and an interaction-deleted scalar-Hamiltonian static control. Its standalone boundary to the tower GNS representation remains part of this predecessor claim; a distinct downstream claim registers their finite composition while every physical attachment stays open.",
       "novelty_type": "exact_two_site_interacting_Hilbert_and_unitary_dynamics_with_deletion_control",
       "evidence": [
         "Lean/QFT/FiniteTwoSiteIsingField.lean",
@@ -6375,6 +6375,48 @@
       "status": "exact_finite_two_site_interacting_Hilbert_dynamics_precursor_attained__tower_physical_and_continuum_QFT_attachments_open",
       "claim_class": "conditional_implication",
       "gates": [
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
+      "statement": "On one declared regulator, the canonical reindexing Fin 2 x Fin 2 ~= Fin 4 puts the exact two-site Ising algebra, ground density rho_00, and nonzero commutator generator delta(X) = -i[H_I,X] into one ConsensusTower. A scalar/left/right/top conditional-expectation diamond is transported onto that same M_4(C) stage; the declared-disjoint left and right slot algebras commute and jointly generate the ambient algebra. The tower-selected state constructs a normalized GNS triple, and the exact composite representation from M_4(C) through the colimit completion to bounded GNS operators is injective. The represented Hamiltonian is nonzero and self-adjoint, belongs to the represented top region, and annihilates the normalized nonzero cyclic unit class. The mapped propagators are unitary, obey the additive group law, and exactly intertwine the finite Heisenberg flow. The represented response -i[H_I,X_L] is nonzero and lies outside the represented left algebra, whereas deleting the interaction makes the corresponding represented response zero and the mapped control flow static. The left conditional expectation is explicitly not selected-state preserving: it sends 1 tensor Z to zero although rho_00 gives that observable expectation one. This attains a finite interacting C*-dynamical regional net on its tower-selected GNS Hilbert space and closes the prior finite carrier/GNS/Hamiltonian non-edge only. The regulator, factorization, state, Hamiltonian, and flow parameter are declared rather than source produced or physically calibrated; the ground sector is degenerate; no state-compatible regional expectation, physical vacuum, Lorentzian localization, spectrum condition, continuum or infinite-volume limit, renormalization group, fields, particles, scattering, detector readback, or physical time-slice theorem follows. PR-15, PR-52, PR-54, and PR-58 remain open; OL-C6 remains partial and issues 730 and 743 remain open.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "finite_selected_state_GNS_interacting_Hamiltonian_and_regional_diamond_composition",
+      "assumptions": [
+        "declared_one_regulator_ising_tower_attachment"
+      ],
+      "imported_results": [
+        "selected_tower_state_completed_colimit_GNS_Hilbert_attachment",
+        "exact_finite_two_site_interacting_Hilbert_dynamics",
+        "finite_two_slot_conditional_expectation_net"
+      ],
+      "oph_specific_delta": "Closes the exact type-level non-edge between the selected-state completed-colimit GNS construction and the finite interacting Ising benchmark. One rigid M_4(C) carrier now simultaneously holds the selected tower state, stored Hamiltonian commutator, two-slot conditional-expectation diamond, completed-colimit representation, faithful finite-stage GNS action, zero-energy cyclic vector, noncollapsed interacting response, exact mapped unitary flow, and interaction-deletion control. The response leaving the represented left factor and the selected-state failure of the left conditional expectation are proved as positive and negative boundary receipts rather than hidden behind physical terminology.",
+      "novelty_type": "finite_interacting_regional_net_and_declared_Hamiltonian_composed_on_tower_selected_GNS_Hilbert_space",
+      "evidence": [
+        "Lean/QFT/FiniteTwoSiteIsingColimitGNS.lean",
+        "Lean/QFT/FiniteTwoSiteIsingField.lean",
+        "Lean/QFT/ColimitSelectedStateGNS.lean",
+        "Lean/QFT/ColimitGNSRepresentation.lean",
+        "paper/reality_as_consensus_protocol.tex"
+      ],
+      "falsifier": "The claim fails if the reindexed density is not a state, the tower generator differs from the Ising commutator, the two slot algebras fail locality or joint coverage, the selected functional is not normalized, the finite-stage composite representation is not injective, the represented Hamiltonian vanishes, is not self-adjoint, fails to annihilate the cyclic unit, or misses the represented top algebra, the mapped propagators fail unitarity, addition, or Heisenberg intertwining, the represented interacting left response vanishes or remains in the represented left algebra, the interaction-deletion response is nonzero or its mapped flow is nonstatic, or the stated conditional-expectation incompatibility fails.",
+      "scope_if_false": "Only the finite same-carrier composition and its exact positive and negative controls fall. The standalone selected-state GNS construction, standalone finite Ising benchmark, generic conditional-expectation regional-net interface, completed colimit, and every physical or continuum QFT attachment remain separately assessed.",
+      "status": "finite_interacting_C_star_dynamical_regional_net_on_selected_GNS_attained__state_compatibility_and_physical_QFT_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
         743
       ],
       "premise_dependencies": {

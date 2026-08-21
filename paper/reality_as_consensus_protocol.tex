@@ -2839,13 +2839,15 @@ Hilbert space and representation above.  The committed one-regulator witness
 instantiates this construction, and its GNS unit class is nonzero with norm
 one.  This closes the formal algebra--selected-state--Hilbert-space rung.
 
-The coherent observer family and its finite density states are still declared
+Taken alone, this construction's coherent observer family and finite density
+states are still declared
 structural data, not a state selected by an experimental source.  Neither
 they nor \(\Omega_{\omega_\xi}\) are identified as a physical vacuum.  No
 Hamiltonian or physical dynamics, energy--momentum, field content, Lorentzian
 attachment, continuum or infinite-volume limit, interacting theory, or
 physical time-slice theorem follows.  Thus this is an actual mathematical
-Hilbert-space attachment to the committed tower, not yet a physical QFT;
+Hilbert-space attachment to the committed tower; the finite composition below
+adds one Hamiltonian without turning it into a physical QFT.
 PR-52 and PR-58 remain open and OL-C6 remains partial.
 (\path{Lean/QFT/ColimitGNSRepresentation.lean};
 \path{Lean/QFT/ColimitSelectedStateGNS.lean}).
@@ -2892,8 +2894,8 @@ with the committed matrix entry equal to \(i\).  Deleting only the
 makes the same infinitesimal generator zero.  These are
 zero-residual identities on the declared four-dimensional carrier.
 
-This is an exact coupled two-spin lattice benchmark, not an interacting
-quantum field theory and not yet a Hamiltonian attachment to
+Taken alone, this is an exact coupled two-spin lattice benchmark, not an
+interacting quantum field theory and not a Hamiltonian attachment to
 \((\mathcal H_{\omega_\xi},\pi_{\omega_\xi})\) above.  Its tensor factors are
 declared sites rather than Lorentzian regions; \(H_{\mathrm I}\), its
 normalization, and the state are supplied rather than selected by an OPH
@@ -2905,6 +2907,74 @@ particle interpretation, scattering construction, detector readout, or
 physical time-slice theorem follows.  PR-15, PR-52, PR-54, and PR-58
 therefore remain open, OL-C6 remains partial, and lane~\#743 remains open.
 (\path{Lean/QFT/FiniteTwoSiteIsingField.lean}).
+
+\paragraph{The finite Hamiltonian, regional diamond, and selected GNS on one
+carrier.}
+The two preceding constructions now compose in one typed finite model.  Use
+the canonical basis equivalence
+\(\operatorname{Fin}(2)\times\operatorname{Fin}(2)\simeq
+\operatorname{Fin}(4)\) to place the two-spin algebra on a one-regulator
+consensus tower \(T_{\mathrm I}\).  Its selected density is exactly
+\(\rho_{00}\), and its stored generator is not the constant tower adaptor's
+zero map but
+\[
+  \delta_{\mathrm I}(X)=-i[H_{\mathrm I},X].
+\]
+On the same carrier, the scalar/left/right/top conditional-expectation
+diamond has commuting declared-disjoint slot algebras, and its left and right
+algebras jointly generate \(M_4(\mathbb C)\).  Let \(\omega_{\mathrm I}\) be
+the tower-selected functional, let
+\((\mathcal H_{\mathrm I}^{\mathrm{GNS}},\pi_{\mathrm I},
+\Omega_{\mathrm I})\) be its GNS triple, and define
+\[
+ h_{\mathrm I}=\iota(H_{\mathrm I}),\qquad
+ \widehat H_{\mathrm I}=\pi_{\mathrm I}(h_{\mathrm I}),\qquad
+ \widehat U_{\mathrm I}(t)=
+   \pi_{\mathrm I}\!\left(\iota(U(t))\right).
+\]
+The exact composite representation from \(M_4(\mathbb C)\) through the
+colimit completion to bounded GNS operators is injective.  Consequently the
+ground-vector equations do not arise from a collapsed quotient:
+\[
+ \|\Omega_{\mathrm I}\|=1,
+ \qquad \widehat H_{\mathrm I}\ne0,
+ \qquad \widehat H_{\mathrm I}^{*}=\widehat H_{\mathrm I},
+ \qquad \widehat H_{\mathrm I}\Omega_{\mathrm I}=0.
+\]
+The Hamiltonian belongs to the represented top region, while the represented
+left and right Pauli observables retain their regional memberships and
+commute.  The mapped propagators are unitary, form an additive one-parameter
+group, and obey the exact intertwining identity
+\[
+ \pi_{\mathrm I}\!\left(\iota(\alpha_t(X))\right)
+ =\widehat U_{\mathrm I}(t)
+   \pi_{\mathrm I}\!\left(\iota(X)\right)
+   \widehat U_{\mathrm I}(-t).
+\]
+Interaction remains load bearing after representation:
+\(\pi_{\mathrm I}(\iota(-i[H_{\mathrm I},X_L]))\ne0\), and this
+first-order response is outside the represented left algebra, whereas the
+same represented response is zero after deleting the coupling.
+
+This closes the finite carrier--selected-state--GNS--Hamiltonian--regional-net
+composition gap, but it also exposes the next obstruction exactly.  The
+left conditional expectation \(E_L\) is trace preserving but does not preserve
+the selected pure state:
+\[
+ E_L(1\otimes Z)=0,
+ \qquad
+ \operatorname{Tr}(\rho_{00}(1\otimes Z))=1.
+\]
+Thus the construction is a finite interacting C*-dynamical regional net
+represented on its tower-selected GNS Hilbert space, not a state-compatible
+physical QFT.  The regulator, factorization, density, Hamiltonian, and flow
+parameter are declared rather than source produced or calibrated; the ground
+sector remains degenerate; and Lorentzian localization, a spectrum condition,
+continuum or infinite-volume control, renormalization flow, field and particle
+content, scattering, detector readback, and a physical time-slice theorem are
+still absent.  PR-15, PR-52, PR-54, and PR-58 therefore remain open, OL-C6
+remains partial, and lanes~\#730 and~\#743 remain open.
+(\path{Lean/QFT/FiniteTwoSiteIsingColimitGNS.lean}).
 
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of

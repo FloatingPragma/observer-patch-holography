@@ -146,7 +146,8 @@
   "OPH-QFT-COLIMIT-NORMED-COMPLETION",
   "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
   "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
-  "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
+  "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+  "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION"
  ],
  "edges": [
   {
@@ -1333,6 +1334,16 @@
    "from": "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
    "to": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
    "role": "supplies the declared two-slot matrix embeddings and their commuting-images theorem used by the finite interaction and equal-time locality receipts; it supplies no physical regions or spacetime attachment"
+  },
+  {
+   "from": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+   "to": "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
+   "role": "supplies the tower-selected normalized functional, completed-colimit GNS Hilbert space, cyclic unit, and representation infrastructure; the downstream finite composition proves faithfulness only on its concrete M4 stage and supplies no source-selected physical vacuum"
+  },
+  {
+   "from": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+   "to": "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
+   "role": "supplies the exact interacting Hamiltonian, ground density, unitary flow, nonzero local response, and interaction-deletion control that are transported onto the selected-state tower GNS carrier; it supplies no source, clock, spacetime, continuum, RG, or scattering attachment"
   }
  ]
 }

@@ -48,6 +48,7 @@ import QFT.ColimitNormedCompletion
 import QFT.ColimitGNSRepresentation
 import QFT.ColimitSelectedStateGNS
 import QFT.FiniteTwoSiteIsingField
+import QFT.FiniteTwoSiteIsingColimitGNS
 
 /-!
 # OPH construction QFT umbrella
@@ -153,7 +154,19 @@ one local Pauli observable has a nonzero exact infinitesimal response.  The
 Hamiltonian is no sum of independent one-site Hamiltonians (and lies in
 neither one-site algebra), while deleting the interaction term and retaining
 the scalar offset makes the flow static.
-This finite lattice benchmark is not attached to the tower
-GNS representation and supplies no physical regions, calibrated clock,
-continuum field theory, renormalization flow, particles, or scattering.
+Taken alone, that finite lattice benchmark is not an attachment to the tower
+GNS representation.  `QFT.FiniteTwoSiteIsingColimitGNS` closes this exact
+composition gap on one declared `M₄(ℂ)` carrier: the selected density and
+Hamiltonian commutator inhabit one consensus tower, the genuine two-slot
+conditional-expectation diamond is transported to the same carrier, and the
+Hamiltonian and unitary flow act faithfully on the tower-selected GNS Hilbert
+space.  The normalized cyclic unit has zero energy while the represented
+Hamiltonian and left-spin response remain nonzero; first-order interaction
+spreading and a static interaction-deletion control are both exact.  An
+explicit failure of selected-state invariance under the regional conditional
+expectation blocks a stronger state-compatible reading.  Thus the finite
+algebraic carrier/GNS/Hamiltonian/regional-net composition is attained, but
+source selection, physical regions and time, continuum or infinite-volume
+limits, renormalization flow, fields, particles, scattering, detectors, and a
+physical time-slice theorem remain open.
 -/

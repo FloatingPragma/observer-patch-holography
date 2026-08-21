@@ -9,6 +9,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CLAIM_ID = "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
 LEAN_PATH = "Lean/QFT/FiniteTwoSiteIsingField.lean"
+COMPOSITION_CLAIM_ID = "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION"
+COMPOSITION_LEAN_PATH = "Lean/QFT/FiniteTwoSiteIsingColimitGNS.lean"
 
 
 def _json(relative_path: str) -> dict:
@@ -38,20 +40,23 @@ def test_claim_is_exact_finite_and_keeps_physical_exits_open() -> None:
     statement = claim["statement"]
     assert "not any sum of independent one-site Hamiltonians" in statement
     assert "H_del = (1 / 2) I" in statement
-    assert "not a Hamiltonian attachment" in statement
+    assert "Taken alone, this benchmark is not a Hamiltonian attachment" in statement
+    assert "separately registered downstream finite composition" in statement
     assert "ground space is degenerate" in statement
     assert "issue 743 remains open" in statement
 
 
-def test_observation_row_stays_partial_and_records_the_non_edge() -> None:
+def test_observation_row_stays_partial_and_records_the_composition_boundary() -> None:
     row = _row(_json("tracking/observation_ledger.json")["rows"], "id", "OL-C6")
     assert row["status"] == "partial"
     assert row["lane_issue"] == 730
     assert row["open_premises"] == ["PR-15", "PR-52", "PR-58"]
     assert LEAN_PATH in row["evidence"]
+    assert COMPOSITION_LEAN_PATH in row["evidence"]
     notes = row["notes"]
     assert "non-reducibility to any sum of one-site Hamiltonians" in notes
-    assert "not composed with the selected-state tower GNS representation" in notes
+    assert "closes that finite carrier/GNS/Hamiltonian non-edge" in notes
+    assert "not to preserve the selected pure state" in notes
     assert "PR-54" in notes
 
 
@@ -63,8 +68,10 @@ def test_paper_states_exact_model_and_continuum_boundary() -> None:
     assert r"H_{\mathrm I}=\frac12\bigl(1-Z\otimes Z\bigr)" in paper
     assert r"H_L\otimes1+1\otimes H_R" in paper
     assert r"H_{\mathrm{del}}=\tfrac12 1" in paper
-    assert "not an interacting\nquantum field theory" in paper
-    assert "not yet a Hamiltonian attachment" in paper
+    assert "not an\ninteracting quantum field theory" in paper
+    assert "Taken alone, this is an exact coupled two-spin lattice benchmark" in paper
+    assert "The finite Hamiltonian, regional diamond, and selected GNS" in paper
+    assert "This closes the finite carrier--selected-state--GNS--Hamiltonian--regional-net" in paper
     assert "lane~\\#743 remains open" in paper
 
 
@@ -83,15 +90,56 @@ def test_lean_surface_and_umbrella_keep_the_controls_visible() -> None:
     assert "The ground space is\ndegenerate" in source
     umbrella = (ROOT / "Lean/QFT.lean").read_text(encoding="utf-8")
     assert umbrella.splitlines().count("import QFT.FiniteTwoSiteIsingField") == 1
-    assert "not attached to the tower\nGNS representation" in umbrella
+    assert umbrella.splitlines().count(
+        "import QFT.FiniteTwoSiteIsingColimitGNS"
+    ) == 1
+    assert "closes this exact\ncomposition gap" in umbrella
 
 
-def test_dependency_graph_has_exact_inputs_and_no_false_gns_edge() -> None:
+def test_dependency_graph_preserves_predecessors_and_adds_composition_node() -> None:
     edges = _json("claims/dependency_graph.json")["edges"]
     pairs = {(edge["from"], edge["to"]) for edge in edges}
     assert ("OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE", CLAIM_ID) in pairs
     assert ("OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH", CLAIM_ID) in pairs
     assert ("OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT", CLAIM_ID) not in pairs
+    assert (
+        "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+        COMPOSITION_CLAIM_ID,
+    ) in pairs
+    assert (CLAIM_ID, COMPOSITION_CLAIM_ID) in pairs
+
+
+def test_composition_claim_keeps_every_physical_exit_open() -> None:
+    claim = _row(
+        _json("claims/claim_registry.yaml")["claims"],
+        "claim_id",
+        COMPOSITION_CLAIM_ID,
+    )
+    assert claim["evidence"][0] == COMPOSITION_LEAN_PATH
+    assert claim["gates"] == [730, 743]
+    assert claim["premise_dependencies"] == {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": ["PR-15", "PR-52", "PR-54", "PR-58"],
+        "boundary": [],
+    }
+    statement = claim["statement"]
+    assert "composite representation" in statement
+    assert "lies outside the represented left algebra" in statement
+    assert "not selected-state preserving" in statement
+    assert "issues 730 and 743 remain open" in statement
+
+    source = (ROOT / COMPOSITION_LEAN_PATH).read_text(encoding="utf-8")
+    for declaration in [
+        "def isingTower",
+        "def slotNet",
+        "theorem stageRepresentation_injective",
+        "theorem representedHamiltonian_cyclicUnit_eq_zero",
+        "theorem representedLeftPauliXGenerator_not_mem_left",
+        "theorem selectedGroundState_not_leftExpectationInvariant",
+        "theorem finiteSelectedGNSHamiltonianAttachment",
+    ]:
+        assert declaration in source
 
 
 def test_no_frozen_prediction_is_emitted() -> None:
@@ -100,3 +148,5 @@ def test_no_frozen_prediction_is_emitted() -> None:
         encoded = json.dumps(row, sort_keys=True)
         assert CLAIM_ID not in encoded
         assert LEAN_PATH not in encoded
+        assert COMPOSITION_CLAIM_ID not in encoded
+        assert COMPOSITION_LEAN_PATH not in encoded
