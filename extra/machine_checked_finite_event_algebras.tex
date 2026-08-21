@@ -1108,6 +1108,33 @@ declared selection, no source implements it, and the instrument representation,
 the source-produced preparation, and cross-context additivity stay open. The module is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
+The companion module \texttt{SourcePhaseSelection} asks whether the phase
+slot of that instrument can be produced from source fields. Its generator
+reads two inputs only, the six exact rows of the two-dimensional
+irreducible representation and the diagonal record projector, forms the
+orbit of the projector, enumerates the twelve noncommuting orbit pairs, and
+normalizes each commutator by its own off-diagonal magnitude into a rank-one
+projector. The generated effect values are exactly the two Pauli-$Y$
+projectors (\texttt{generated\_effect\_values\_exact}); the first pair in
+lexicographic index order selects the $+Y$ projector, which equals the
+declared lift and the instrument's phase slot
+(\texttt{source\_selected\_generated\_effect\_eq\_sourcePhaseLift},
+\texttt{source\_selected\_generated\_effect\_eq\_declared\_lueders\_effect}).
+Eight pairs give $+Y$ and four give $-Y$, so the theorem is effect-value
+equality rather than witness uniqueness, and the orientation is fixed by two
+producer conventions, the commutator order and the pair index: reversing
+either selects the transpose effect
+(\texttt{effectMatrix\_negative\_eq\_transpose\_positive}). What the source
+fixes without convention is the unordered pair of $Y$ projectors. The
+module's enabled-domain relation reproduces the canonical $36/12$ split
+between state-changing L\"uders updates and equality stutters
+(\texttt{changingEnabledCellCensus},
+\texttt{alreadyOperationEnabledCellCensus}). It constructs no instrument
+and supplies no preparation, outcome, readback, or provenance; the
+phase-sensitive-effect declaration keeps the orientation choice. Like the
+reachability module, it is a companion in the wider library, outside the
+fifteen-module count and scale table.
+
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}
 
@@ -1240,9 +1267,9 @@ Module & Lines & Audited declarations \\
 \texttt{OperationalPhaseInstrument} & 878 & 40 \\
 \texttt{PhaseInstrumentDetermination} & 503 & 24 \\
 \texttt{OperationalPhaseAttainment} & 383 & 22 \\
-\texttt{EventAlgebra} (root) & 133 & 0 \\
+\texttt{EventAlgebra} (root) & 147 & 0 \\
 \midrule
-Total & 5964 & 277 \\
+Total & 5978 & 277 \\
 \bottomrule
 \end{tabular}
 \caption{Source lines and per-module counts of declarations covered by the

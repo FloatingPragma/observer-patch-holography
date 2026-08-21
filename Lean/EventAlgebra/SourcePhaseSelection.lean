@@ -4,6 +4,29 @@ import EventAlgebra.LuedersPhaseInstrument
 
 set_option autoImplicit false
 
+/-!
+# Source-derived phase-effect selection
+
+The generated family is built from two source inputs only: the six exact rows
+of the two-dimensional irreducible representation and the diagonal record
+projector.  The orbit of the projector yields twelve noncommuting pairs, each
+commutator is normalized by its own off-diagonal magnitude into a rank-one
+projector, and the generated effect values are exactly the two Pauli-Y
+projectors.  The first pair in lexicographic index order selects the +Y
+projector, which equals the declared lift and the phase slot of the declared
+Lüders instrument.
+
+Scope.  Eight pairs give +Y and four give -Y, so the theorems state
+effect-value equality and not witness uniqueness.  The orientation of the
+selected effect is fixed by two producer conventions, the commutator order
+`P_right * P_left - P_left * P_right` and the lexicographic pair index;
+reversing either convention selects the transpose effect
+(`effectMatrix_negative_eq_transpose_positive`).  What the source fixes
+without convention is the unordered pair of Y projectors.  The module
+constructs no instrument and supplies no preparation, outcome, readback, or
+provenance.
+-/
+
 namespace EventAlgebra.SourcePhaseSelection
 
 open Matrix
@@ -24,6 +47,13 @@ theorem generated_positive_effect_unique :
     cases value with
     | positive => rfl
     | negative => norm_num [upperImaginaryNegative, effectMatrix] at hvalue
+
+/-- The two generated effect values are transposes of each other: the
+orientation convention of the producer exchanges them. -/
+theorem effectMatrix_negative_eq_transpose_positive :
+    effectMatrix .negative = (effectMatrix .positive).transpose := by
+  ext i j
+  fin_cases i <;> fin_cases j <;> simp [effectMatrix, Matrix.transpose_apply]
 
 theorem first_noncommuting_effect_eq_positive :
     sourceSelectedGeneratedEffect = effectMatrix .positive := by
@@ -183,6 +213,7 @@ theorem anchored_phase_effect_source_selection_candidate :
 
 #print axioms generated_effect_values_exact
 #print axioms generated_positive_effect_unique
+#print axioms effectMatrix_negative_eq_transpose_positive
 #print axioms first_noncommuting_effect_eq_positive
 #print axioms source_selected_generated_effect_eq_sourcePhaseLift
 #print axioms source_selected_generated_effect_eq_declared_lueders_effect
