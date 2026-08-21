@@ -31,6 +31,7 @@ import EventAlgebra.PauliMinimalCoupling
 import EventAlgebra.OperationalPhaseAttainment
 import EventAlgebra.OperationalAdditivityBoundary
 import EventAlgebra.LuedersPhaseInstrument
+import EventAlgebra.SourcePhaseSelection
 import EventAlgebra.ProductSplitSeparability
 
 /-!

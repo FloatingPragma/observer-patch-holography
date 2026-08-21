@@ -85,7 +85,8 @@
     "code/phase_operation_producer/produce_phase_operation_receipt.py",
     "code/phase_operation_producer/verify_phase_operation_receipt.py",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
-    "Lean/EventAlgebra/LuedersPhaseInstrument.lean"
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
+    "Lean/EventAlgebra/SourcePhaseSelection.lean"
    ],
    "evidence_roles": {
     "code/born_context_phase_lift/README.md": "statement",
@@ -97,9 +98,10 @@
     "code/phase_operation_producer/produce_phase_operation_receipt.py": "conditional_consumer",
     "code/phase_operation_producer/verify_phase_operation_receipt.py": "conditional_consumer",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "conditional_consumer",
-    "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "conditional_consumer"
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "conditional_consumer",
+    "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer"
    },
-   "notes": "Recorded decision 2026-08-18, lane issue 730: the exact matrix [[1/2, -i/2], [i/2, 1/2]] is axiomatized as one declared phase effect. OperationalPhaseInstrument deliberately types only a static exact-fit model, and synthetic_ideal_phase_fit proves that such a fit carries no custody. PhaseInstrumentDetermination proves the one-coordinate reduction and integer window. The phase-operation producer is a deterministic semantic conformance calculator: it evaluates declared Born weights and scales them to exact integer pairs, with an independent verifier; it is not measurement or validation. OperationalPhaseAttainment proves static fit equalities but its Lean bundle contains no CP maps, summed channel, producer binding, or least-multiple generation law. PR-64 owns operational instrument realization, PR-65 owns source preparation and readback provenance, PR-03 owns valuation additivity, and PR-52 owns physical attachment. LuedersPhaseInstrument consumes the declared effect as the phase slot of a declared Lüders instrument with proved CP, trace-nonincreasing, CPTP-sum, and induced-effect clauses; it derives nothing about the effect and leaves PR-64 readback, PR-65, PR-03, and PR-52 open."
+   "notes": "Recorded decision 2026-08-18, lane issue 730: the exact matrix [[1/2, -i/2], [i/2, 1/2]] is axiomatized as one declared phase effect. OperationalPhaseInstrument deliberately types only a static exact-fit model, and synthetic_ideal_phase_fit proves that such a fit carries no custody. PhaseInstrumentDetermination proves the one-coordinate reduction and integer window. The phase-operation producer is a deterministic semantic conformance calculator: it evaluates declared Born weights and scales them to exact integer pairs, with an independent verifier; it is not measurement or validation. OperationalPhaseAttainment proves static fit equalities but its Lean bundle contains no CP maps, summed channel, producer binding, or least-multiple generation law. PR-64 owns operational instrument realization, PR-65 owns source preparation and readback provenance, PR-03 owns valuation additivity, and PR-52 owns physical attachment. LuedersPhaseInstrument consumes the declared effect as the phase slot of a declared Lüders instrument with proved CP, trace-nonincreasing, CPTP-sum, and induced-effect clauses; it derives nothing about the effect and leaves PR-64 readback, PR-65, PR-03, and PR-52 open. SourcePhaseSelection is candidate evidence that a target-free source-only selector produces the exact declared phase effect; PR-04 remains axiomatized pending maintainer review and any required consumer rewiring."
   },
   {
    "id": "PR-05",
@@ -1516,16 +1518,18 @@
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
     "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json",
     "claims/assumption_dictionary.md",
-    "Lean/EventAlgebra/LuedersPhaseInstrument.lean"
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
+    "Lean/EventAlgebra/SourcePhaseSelection.lean"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "no_go",
     "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json": "statement",
     "claims/assumption_dictionary.md": "statement",
-    "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "statement"
+    "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "statement",
+    "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row."
+   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row. SourcePhaseSelection advances only the effect-selection conjunct; common preparation, instrument selection, public outcomes, readback, run binding, provenance, and custody remain open."
   },
   {
    "id": "PR-66",
