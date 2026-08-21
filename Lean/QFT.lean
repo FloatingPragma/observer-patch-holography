@@ -47,6 +47,7 @@ import QFT.OperatorLayerMorphismBoundary
 import QFT.ColimitNormedCompletion
 import QFT.ColimitGNSRepresentation
 import QFT.ColimitSelectedStateGNS
+import QFT.FiniteTwoSiteIsingField
 
 /-!
 # OPH construction QFT umbrella
@@ -143,4 +144,16 @@ therefore has an explicit nonzero normalized GNS unit class.  The observer
 family and finite states remain declared structural data: no source selection,
 physical state or vacuum, dynamics, field content, continuum limit, or
 spacetime attachment is constructed.
+`QFT.FiniteTwoSiteIsingField` separately realizes the exact coupled bond
+`(1 - Z ⊗ Z) / 2` on the declared Hilbert space `ℂ² ⊗ ℂ²`: the full matrix
+algebra acts faithfully by bounded operators, the Hamiltonian is positive and
+self-adjoint, an explicit normalized ground vector and stationary density are
+given, the unitary conjugation flow preserves equal-time slot commutation, and
+one local Pauli observable has a nonzero exact infinitesimal response.  The
+Hamiltonian is no sum of independent one-site Hamiltonians (and lies in
+neither one-site algebra), while deleting the interaction term and retaining
+the scalar offset makes the flow static.
+This finite lattice benchmark is not attached to the tower
+GNS representation and supplies no physical regions, calibrated clock,
+continuum field theory, renormalization flow, particles, or scattering.
 -/

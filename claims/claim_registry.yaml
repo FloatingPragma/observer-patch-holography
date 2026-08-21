@@ -6350,6 +6350,44 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+      "statement": "On the declared finite carrier C^2 tensor C^2, the bond Hamiltonian H = (1 - Z tensor Z) / 2 is self-adjoint, positive semidefinite, and idempotent. The full two-site matrix algebra acts faithfully by bounded operators on the four-dimensional complex Hilbert space. The explicit vector |00> has norm one and is annihilated by the represented Hamiltonian; its rank-one density is positive semidefinite, has trace one, is annihilated by H on both sides, and has zero energy. The exponential U(t) = exp(-itH) is an exact unitary one-parameter group, and its Heisenberg conjugation flow has the identity and additive laws, is multiplicative, fixes the chosen density, and preserves commutation of jointly evolved left- and right-slot observables. The bond is not any sum of independent one-site Hamiltonians and belongs to neither one-site algebra image. The derivative at zero of a left Pauli-X observable is exactly -i[H,X_L], with one matrix entry equal to i and hence nonzero. Deleting only the Z tensor Z interaction and retaining the scalar offset H_del = (1 / 2) I makes the full conjugation flow static and the same generator zero. All residuals are exact on the declared finite domain. This benchmark is separate from, and is not a Hamiltonian attachment to, the selected-state completed-colimit GNS representation. The sites, Hamiltonian normalization, state, and time parameter are declared; the ground space is degenerate; no physical vacuum, clock or energy calibration, Lorentzian or spacetime localization, spectrum condition, continuum or infinite-volume limit, field algebra, renormalization flow, particle interpretation, scattering construction, detector readback, or physical time-slice theorem is supplied. PR-15, PR-52, PR-54, and PR-58 remain open; OL-C6 remains partial and issue 743 remains open.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "exact_declared_finite_two_site_interacting_Hilbert_dynamics_precursor",
+      "assumptions": [
+        "declared_finite_two_site_ising_carrier_generator_and_ground_state"
+      ],
+      "imported_results": [
+        "finite_complex_matrix_C_star_algebra",
+        "faithful_matrix_representation_on_Euclidean_space",
+        "matrix_exponential_one_parameter_unitary_group"
+      ],
+      "oph_specific_delta": "Packages one exact coupled two-site Hamiltonian on its explicit Hilbert carrier with a faithful bounded representation, positive projector Hamiltonian, normalized stationary zero-energy state, unitary multiplicative dynamics, jointly evolved equal-time slot locality, a proof that the bond is not a sum of one-site Hamiltonians, a nonzero infinitesimal local response, and an interaction-deleted scalar-Hamiltonian static control. The exact non-edge to the tower GNS representation and every missing physical attachment are part of the registered claim.",
+      "novelty_type": "exact_two_site_interacting_Hilbert_and_unitary_dynamics_with_deletion_control",
+      "evidence": [
+        "Lean/QFT/FiniteTwoSiteIsingField.lean",
+        "paper/reality_as_consensus_protocol.tex"
+      ],
+      "falsifier": "The claim fails if the declared Hamiltonian is not self-adjoint, positive semidefinite, or idempotent, if its bounded representation is not faithful, if the explicit vector or density fails a normalization, positivity, annihilation, or zero-energy equation, if the propagator fails identity, addition, or unitarity, if the Heisenberg flow fails multiplicativity, stationarity, or jointly evolved equal-time commutation, if the bond equals a sum of one-site Hamiltonians, if the committed local derivative entry is not i or the derivative is zero, or if deleting the interaction while retaining the scalar offset does not make the flow static and its generator zero.",
+      "scope_if_false": "Only the declared four-dimensional Ising benchmark and its exact control packet fall. The selected-state GNS attachment, completed colimit, structural regional net, and every physical or continuum QFT attachment are assessed separately.",
+      "status": "exact_finite_two_site_interacting_Hilbert_dynamics_precursor_attained__tower_physical_and_continuum_QFT_attachments_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54",
+          "PR-58"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

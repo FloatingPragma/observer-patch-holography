@@ -145,7 +145,8 @@
   "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
   "OPH-QFT-COLIMIT-NORMED-COMPLETION",
   "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
-  "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT"
+  "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+  "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
  ],
  "edges": [
   {
@@ -1322,6 +1323,16 @@
    "from": "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
    "to": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
    "role": "supplies the generic completed-colimit GNS Hilbert-space adapter whose free functional is constructed from coherently selected tower states here; it supplies no physical vacuum, Hamiltonian dynamics, fields, spacetime, or continuum attachment"
+  },
+  {
+   "from": "OPH-PUBLIC-PRIVATE-DYNAMICS-FINITE",
+   "to": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+   "role": "supplies the exact finite matrix exponential, unitary-group, Heisenberg-conjugation, and derivative infrastructure specialized to the declared Ising Hamiltonian; it supplies no source-selected generator, clock, or physical dynamics"
+  },
+  {
+   "from": "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
+   "to": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+   "role": "supplies the declared two-slot matrix embeddings and their commuting-images theorem used by the finite interaction and equal-time locality receipts; it supplies no physical regions or spacetime attachment"
   }
  ]
 }

@@ -2850,6 +2850,62 @@ PR-52 and PR-58 remain open and OL-C6 remains partial.
 (\path{Lean/QFT/ColimitGNSRepresentation.lean};
 \path{Lean/QFT/ColimitSelectedStateGNS.lean}).
 
+\paragraph{An exact finite two-site Hamiltonian benchmark.}
+As a separate finite-dimensional test of the Hamiltonian structures still
+missing from the completed-net attachment, take
+\[
+  \mathcal H_{\mathrm I}
+    = \mathbb C^2\otimes\mathbb C^2 \cong \mathbb C^4,
+  \qquad
+  H_{\mathrm I}=\frac12\bigl(1-Z\otimes Z\bigr).
+\]
+The full matrix algebra acts faithfully by bounded operators on
+\(\mathcal H_{\mathrm I}\).  Exact matrix proofs give
+\(H_{\mathrm I}^{*}=H_{\mathrm I}\), \(H_{\mathrm I}\geq0\), and
+\(H_{\mathrm I}^{2}=H_{\mathrm I}\).  The explicit unit vector
+\(\lvert00\rangle\) and density
+\(\rho_{00}=\lvert00\rangle\langle00\rvert\) obey
+\[
+  \|\lvert00\rangle\|=1,\qquad
+  H_{\mathrm I}\lvert00\rangle=0,\qquad
+  H_{\mathrm I}\rho_{00}=\rho_{00}H_{\mathrm I}=0,
+  \qquad \operatorname{Tr}(\rho_{00})=1.
+\]
+Thus \(\rho_{00}\) is a normalized stationary ground-state density; the
+orthogonal unit state \(\lvert11\rangle\) also has zero energy, so the ground space is degenerate and no unique vacuum is selected.  The
+propagator \(U(t)=\exp(-itH_{\mathrm I})\) is unitary and obeys
+\(U(s+t)=U(s)U(t)\); its conjugation flow
+\(\alpha_t(X)=U(t)XU(-t)\) is multiplicative, fixes \(\rho_{00}\), and
+preserves commutation between jointly evolved left- and right-slot
+observables.  The bond is genuinely interacting in the exact finite sense
+that \(H_{\mathrm I}\) is not any sum \(H_L\otimes1+1\otimes H_R\) of
+one-site Hamiltonians; in particular it belongs to neither one-site
+matrix-algebra image.  The
+evolution is nontrivial: for \(X_L=X\otimes1\),
+\[
+  \left.\frac{d}{dt}\right|_{t=0}\alpha_t(X_L)
+    =-i[H_{\mathrm I},X_L]\ne0,
+\]
+with the committed matrix entry equal to \(i\).  Deleting only the
+\(Z\otimes Z\) interaction leaves the scalar Hamiltonian
+\(H_{\mathrm{del}}=\tfrac12 1\), makes the full conjugation flow static, and
+makes the same infinitesimal generator zero.  These are
+zero-residual identities on the declared four-dimensional carrier.
+
+This is an exact coupled two-spin lattice benchmark, not an interacting
+quantum field theory and not yet a Hamiltonian attachment to
+\((\mathcal H_{\omega_\xi},\pi_{\omega_\xi})\) above.  Its tensor factors are
+declared sites rather than Lorentzian regions; \(H_{\mathrm I}\), its
+normalization, and the state are supplied rather than selected by an OPH
+source; and \(t\) has no physical clock or energy calibration.  Equal-time
+commutation here preserves one finite tensor-product commutator and is not a
+microcausality theorem.  No continuum or infinite-volume limit, field
+algebra, Lorentz covariance, spectrum condition, renormalization flow,
+particle interpretation, scattering construction, detector readout, or
+physical time-slice theorem follows.  PR-15, PR-52, PR-54, and PR-58
+therefore remain open, OL-C6 remains partial, and lane~\#743 remains open.
+(\path{Lean/QFT/FiniteTwoSiteIsingField.lean}).
+
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
 \texttt{TimeIndexedNetEvolution} over the committed 86/247 diamond in both
