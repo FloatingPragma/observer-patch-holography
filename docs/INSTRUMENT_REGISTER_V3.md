@@ -55,6 +55,28 @@ A SPECIFIED row carries no freeze time, no freeze artifacts, and no verdict rece
   - `oph-physics-sim/scripts/ol_a1_signature_replication.py` sha256 `6cd6b179e9f62e7d7f5f1177ec4cfa329a07c0279ef9e7aedc7aef2383e8acc1`
   - `oph-physics-sim/docs/OL_A1_PREREGISTERED_SIGNATURE_REPLICATION_2026-08-12.md` sha256 `b4953ec083e9af7121baf0656d97ab538598e705575f7b6742a26c9ade7490ae`
   - `oph-physics-sim/docs/OL_A1_SEED_TABLE_2026-08-12.json` sha256 `acc8d5d67c2a4eaffe25c07fcdbfdcd7175a8b9a82142b8edb53d0d402f70f05`
+- Instrument defect (2026-08-21): the event chart mixes an integer
+  ancestry-depth coordinate with three spectral coordinates whose spreads
+  differ by about three orders of magnitude (depth standard deviation 29.11
+  against spectral 0.043 to 0.049 on a 2,048-carrier capture). The quadratic
+  form was fitted on those raw coordinates, so the depth direction dominated
+  and the spectral directions collapsed to an eigenvalue at 1.3e-05 relative
+  magnitude; the reported signature turned on which side of the inertia cut
+  that degenerate direction fell. Repaired in `oph-physics-sim` commit
+  `017ec2a` by `standardize_chart` plus a `standardize` flag on the fit, which
+  resolves every direction and makes the signature invariant under
+  per-coordinate rescaling. The flag defaults to off so committed receipts
+  replay unchanged. The repair does not restore discriminating power: against
+  the C-ANCESTRY null the null still reproduces the data inertia in 4 of 5
+  permutations before and after, and the held-out cone margin is unchanged and
+  still negative. Eigenvalue sign counts do not test attribution to ancestry
+  structure, so a repaired rerun was not performed. Full record:
+  `oph-physics-sim/docs/OL_A1_INSTRUMENT_DEFECT_2026-08-21.md`.
+- Reader-facing status (2026-08-21): the measurement and its verdict were
+  removed from the flagship, the compact case, and the core papers, because a
+  defective instrument with no discriminating power is not evidence in either
+  direction. The FAILED campaign is retained here and in the simulator as the
+  instrument record.
 - Frozen (UTC): 2026-08-12T19:14:51Z.
 - Verdict receipts:
   - `oph-physics-sim/data/ol_a1_replication/manifest.json` sha256 `befad341fdc5dfe8dcc1370c9ec613748b3891f7744957b133251ac36ac85d28`

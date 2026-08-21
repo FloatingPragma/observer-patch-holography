@@ -87,7 +87,9 @@ mechanism is conditional on the finite ground-state-transform/cross-fiber and un
 The finite ground-state-transform/cross-fiber receipt
 (Assumption~\ref{ass:finite-transfer-receipt}) is the load-bearing unverified physical input of
 the paper: it assumes the gap-friendly spectral structure whose gap the later sections account
-for, and it has not been verified on any lattice gauge system, however small.
+for. Section~\ref{sec:boundaries} evaluates it on \(\mathbb Z_2\) lattice gauge theory: the
+receipt holds exactly in the free limit, fails for the Wilson transfer matrix at every finite
+coupling, and holds for the local Hamiltonian only with fiber-dependent rates.
 The Clay-facing Yang--Mills theorem additionally depends on the continuum certificate stated in
 Assumption~\ref{ass:ym-continuum-certificate}: renormalized four-dimensional identification,
 reflection positivity and OS regularity, transfer/vacuum convergence, and noncollapse.
@@ -621,6 +623,92 @@ closure, gauge and zero-mode data, and independent continuum and transfer
 receipts. None of these data is supplied by the calibration.
 \end{remark}
 
+\section{Machine-Checked Boundaries and a Finite Gauge Diagnostic}
+\label{sec:boundaries}
+
+Three finite results constrain how the receipts of
+Assumption~\ref{ass:finite-transfer-receipt} and
+Definition~\ref{def:admissible-collar-tower} can be discharged. Two are
+machine-checked theorems in the OPH Lean formalization~\cite{ophlean}; the third is
+an exact computation on the smallest interacting gauge system~\cite{ophz2}.
+
+\paragraph{Noncommuting collars.}
+The formalization contains the commuting-projection special case of
+Theorem~\ref{prop:finite-gap}, in which pairwise commuting collar projections
+give \(L^{\Rep}_r\ge c_*(I-P_0)\), together with a three-state rational
+countermodel: two proper symmetric idempotent Markov projections that fail to
+commute, whose unit-rate generator has eigenvalues \(1/2\) and \(3/2\) in
+place of the commuting subset sums \(0\), \(1\), and \(2\). Spectral
+accounting by subset sums does not transfer to the noncommuting collars of
+Definition~\ref{def:admissible-collar-tower}. The Dobrushin route in
+Theorem~\ref{prop:finite-gap} is the route that applies, and commutation is
+used nowhere in it.
+
+\paragraph{Uniform gap and carrier growth.}
+A second machine-checked theorem states that a refinement interface carrying
+a uniform bound on carrier cardinality cannot also carry a cofinal family with
+strict carrier growth. An admissible collar tower has strictly growing
+carriers along refinement, so the uniform floor (4) must be stated through
+the finite type table, as in Proposition~\ref{lem:floor}, and never through a
+bound on carrier size.
+
+\paragraph{The finite transfer receipt on \texorpdfstring{\(\mathbb Z_2\)}{Z2} gauge theory.}
+Assumption~\ref{ass:finite-transfer-receipt} is decidable on any finite gauge
+system. The accompanying computation evaluates it for \(\mathbb Z_2\) lattice
+gauge theory on an \(L\times L\) periodic spatial torus, \(L\in\{2,3\}\), in
+the Gauss-law sector, with one collar per spatial link and the
+\(\pi_r\)-preserving heat bath on the fiber \(\{o,X_lo\}\), where \(X_l\)
+flips link \(l\) and \(o\) ranges over gauge orbits. The ground-state
+transform is the Doob transform by the Perron vector \(\Omega\), with
+\(\pi_r=\Omega^2\). Two transfer objects are tested: the reflection-positive
+Wilson transfer matrix \(T=e^{\beta_sP/2}Ke^{\beta_sP/2}\), with
+\(K(s,s')=\prod_l e^{\beta_ts_ls'_l}\), \(P\) the spatial plaquette sum, and
+\(H=-\log(T/\lambda_{\max})\); and the Kogut--Susskind Hamiltonian
+\(H=-\lambda\sum_lX_l-\sum_pU_p\).
+
+For the Wilson transfer matrix the receipt holds exactly at \(\beta_s=0\),
+where \(K=\prod_l(e^{\beta_t}I+e^{-\beta_t}X_l)\) is a constant multiple
+of \(\exp\bigl(\tfrac12\log\coth\beta_t\sum_lX_l\bigr)\) and every rate
+equals the dual coupling \(\log\coth\beta_t\); the relative residual is
+below \(10^{-12}\) for both tori. For every
+\(\beta_s>0\) it fails. The operator \(\log T\) couples configurations at all
+Hamming distances, and the best constant-rate approximant
+\(\sum_lc_l(I-E_l)\) leaves a relative Frobenius residual of \(0.038\) at
+\(\beta_s=\beta_t=0.1\), \(0.084\) at \(0.5\), and \(0.24\) at \(1.0\) on the
+\(L=3\) torus.
+
+For the Kogut--Susskind Hamiltonian the single-flip structure survives the
+transform exactly,
+\[
+L^{\Rep}=\sum_lc_l(o)\,(I-E_l),
+\qquad
+c_l(o)=\lambda\bigl(r_l(o)+r_l(o)^{-1}\bigr),
+\qquad
+r_l(o)=\frac{\Omega(o)}{\Omega(X_lo)},
+\]
+so the cross-fiber condition of Assumption~\ref{ass:finite-transfer-receipt}
+holds only where \(\log\Omega\) jumps by one fixed amount under each flip of
+link \(l\). The measured spread \(\max_oc_l(o)/\min_oc_l(o)\) on the \(L=3\)
+torus is \(1.036\) at \(\lambda=2\), \(1.17\) at \(\lambda=1\), and \(2.05\)
+at \(\lambda=1/2\). The Dobrushin sum \(\eta_*\) of the single-link
+conditional kernels is below one only at \(\beta_s=\beta_t=0.1\), where
+\(\eta_*=0.59\), and at \(\lambda=2\), where \(\eta_*=0.82\); at every other
+tested coupling item \textup{(G3)} fails on this system.
+
+The diagnostic fixes three facts about the receipt on the smallest
+interacting gauge system. It is exact in the free limit. It fails for the
+Wilson transfer matrix at every finite spacing because the transfer
+Hamiltonian is nonlocal. It fails for the local Hamiltonian through the fiber
+dependence of the rates. A receipt on a physical compact-gauge tower must
+therefore either admit fiber-dependent rates, replacing each scalar \(c_C\)
+by a positive fiber-constant function bounded below by \(c_*\), or name a
+transfer object other than the Wilson matrix whose ground-state transform is
+a constant-rate heat-bath sum. The floor in Theorem~\ref{prop:finite-gap}
+survives the first option without change, since its proof uses only
+\(c_{v,r,b}\ge c_*\) and each rate function is constant on its own collar
+fiber; the scalar form of Theorem~\ref{thm:ec-law} is what the cross-fiber
+equality buys, and the floor does not need it.
+
 \section{Continuum Extraction}
 \label{sec:continuum-extraction}
 
@@ -1145,9 +1233,9 @@ support-visible compact-gauge excitation is not fixed by all local repair collar
 active collar must relax it. Because active collar rates have a uniform positive floor and the
 source law has one uniform approximate-tensorization constant, every non-vacuum finite-regulator
 state pays a positive Euclidean repair cost. The finite-stage statements are exact theorems on the
-declared cylinder system, with every assumption named and the load-bearing unverified receipt
-isolated in one place; the mechanism inherits the wider program's discipline of finite
-core theorems and zero continuous dials.
+declared cylinder system, with every assumption named, the load-bearing receipt isolated in
+one place, and that receipt evaluated on a finite gauge system; the mechanism inherits the wider
+program's discipline of finite core theorems and zero continuous dials.
 
 The Clay-facing conclusion is conditional. If the regulator family also satisfies the
 renormalized continuum, reflection-positivity, OS, nontriviality, and transfer/intertwiner
@@ -1210,6 +1298,20 @@ B.~M\"uller,
 2026.\\
 Source: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observer_patch_holography_as_string_vacuum_selector.tex}.\\
 PDF: \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/observer_patch_holography_as_string_vacuum_selector.pdf}.
+
+\bibitem{ophlean}
+B.~M\"uller et al.,
+\emph{Observer-Patch Holography: machine-checked Lean formalization},
+modules \texttt{YangMillsGap}, \texttt{YangMillsGapWitness}, and
+\texttt{CofinalSpectralTailFamily},
+2026.\\
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean}.
+
+\bibitem{ophz2}
+B.~M\"uller,
+\emph{Finite \(\mathbb Z_2\) lattice-gauge diagnostic for the ground-state-transform receipt},
+2026.\\
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/yang_mills}.
 
 \bibitem{clay}
 Clay Mathematics Institute,
