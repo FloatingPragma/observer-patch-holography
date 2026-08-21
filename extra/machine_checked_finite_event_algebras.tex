@@ -1135,6 +1135,25 @@ phase-sensitive-effect declaration keeps the orientation choice. Like the
 reachability module, it is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
+The companion module
+\texttt{SourcePhaseInstrumentOutcomeBridge} joins those generated source
+semantics to the already declared L\"uders phase instrument. It maps every
+generated $+Y$ event to the declared phase-outcome index $0$ and every
+generated $-Y$ event to index $1$, then proves exact equality of the generated
+effect with that entry of the committed effect pair
+(\texttt{generatedEffect\_eq\_committedPhaseOutcome}). All five generated
+state matrices are positive semidefinite with trace one
+(\texttt{stateMatrix\_isState}). For each of the 48
+enabled source steps the corresponding Born weight is nonzero, and the
+normalized output of the indexed declared L\"uders map equals the generated
+semantic result matrix
+(\texttt{sourceStep\_normalized\_lueders\_outcome\_eq\_result}). This is a
+matrix-level compatibility theorem. The index is not a recorded public
+outcome, and the result neither source-selects nor implements the L\"uders
+instrument, nor supplies one common cross-context preparation, readback, run
+binding, provenance, or custody. The clauses are conjoined in
+\texttt{sourcePhaseInstrumentOutcomeBridge\_receipt}.
+
 The module \texttt{SourcePhaseBornWeightBoundary} proves the exact
 single-shot identity
 \[

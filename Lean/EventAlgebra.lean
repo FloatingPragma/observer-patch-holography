@@ -32,6 +32,7 @@ import EventAlgebra.OperationalPhaseAttainment
 import EventAlgebra.OperationalAdditivityBoundary
 import EventAlgebra.LuedersPhaseInstrument
 import EventAlgebra.SourcePhaseSelection
+import EventAlgebra.SourcePhaseInstrumentOutcomeBridge
 import EventAlgebra.SourcePhaseBornWeightBoundary
 import EventAlgebra.ProductSplitSeparability
 
@@ -142,6 +143,12 @@ Lüders instrument, joined to the committed run fixture, with a swap-twisted
 comparison instrument proving that the effect table does not determine the
 instrument.  `EventAlgebra.SourcePhaseSelection` derives the phase-slot
 effect from the enumerated source family.  The companion
+`EventAlgebra.SourcePhaseInstrumentOutcomeBridge` proves that every enabled
+generated source transition is the corresponding normalized outcome of the
+declared Lüders phase instrument.  Its outcome index is semantic, not a
+recorded public outcome; it derives no instrument implementation, common
+preparation protocol, readback, run binding, provenance, or custody.  The
+companion
 `EventAlgebra.SourcePhaseBornWeightBoundary` proves the exact selected-effect
 identity `1/2 - Im(rho 0 1)` and the conditional half-weight boundary for
 prospective source-to-phase preparation bridges that preserve record

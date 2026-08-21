@@ -5913,6 +5913,51 @@
       }
     },
     {
+      "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-INSTRUMENT-OUTCOME-BRIDGE",
+      "statement": "The mechanically generated target-free source-phase relation contains five matrix states and 48 enabled state/event transitions. Every generated state matrix is positive semidefinite with trace one. Mapping a generated +Y event to outcome index 0 and a generated -Y event to index 1 identifies its generated effect exactly with the corresponding entry of the declared Lüders instrument's phase-context effect pair. For every enabled SourceStep, the generated semantic result matrix is exactly the normalized output of that declared Lüders outcome map, and the input Born weight is nonzero, so the equality does not pass through the totalized zero-weight branch. This is a source-semantic-to-declared-instrument compatibility theorem. The outcome index is not a recorded public outcome; the theorem does not source-select or implement the Lüders instrument, establish one common cross-context preparation, bind readback to a run, supply provenance or custody, derive cross-context additivity, or make a physical measurement claim.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "exact_generated_source_transition_to_declared_lueders_outcome_bridge",
+      "assumptions": [
+        "source_phase_sensitive_instrument_deferred",
+        "lueders_instrument_declared_as_selection",
+        "recorded_pr04_axiomatize_decision_declares_phase_effect"
+      ],
+      "imported_results": [
+        "finite_exhaustive_source_relation",
+        "finite_dimensional_complex_matrix_algebra",
+        "lueders_conditioning"
+      ],
+      "oph_specific_delta": "Certifies all five generated phase-state matrices as states and joins every enabled transition of the generated target-free phase-selection relation to an outcome map of the existing declared Lüders instrument: the generated orientation determines the table index, the semantic result is the indexed effect, nonzero weight is proved, and normalized map output equals the generated result. The theorem keeps a strict boundary between source-generated semantics and the still-declared, unimplemented instrument and public-readback layers.",
+      "novelty_type": "exact_source_semantic_transition_to_declared_instrument_outcome_compatibility",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean",
+        "Lean/EventAlgebra/SourcePhaseSelection.lean",
+        "Lean/EventAlgebra/LuedersPhaseInstrument.lean"
+      ],
+      "falsifier": "The claim fails if a generated state matrix is not a state, a generated event maps to the wrong declared phase outcome index, a generated effect differs from that table entry, a semantic result differs from the generated effect, an enabled step has zero Born weight, the normalized declared Lüders outcome differs from the semantic result, or any receipt clause fails.",
+      "scope_if_false": "Only the generated-source-transition to declared-instrument compatibility bridge falls. Source-derived effect selection, the independently declared Lüders channel clauses, the Born-weight boundary, and the open public-readback, common-run, provenance, custody, additivity, and physical-attachment obligations remain separately assessed.",
+      "status": "all_enabled_generated_source_transitions_match_declared_lueders_outcomes__public_readback_instrument_source_selection_common_run_and_custody_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-03",
+          "PR-52",
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
       "statement": "For every normalized two-dimensional state rho, the single-shot Born weight of the source-selected Pauli +Y effect is exactly 1/2 - Im(rho_01). Therefore a non-half weight requires a nonzero imaginary off-diagonal coordinate; real off-diagonal coherence alone is insufficient. For the current enumerated source-reachable class, every prospective typed preparation bridge that maps reachable source matrices to states and preserves record diagonality gives weight exactly 1/2 to that effect. On record-diagonal two-dimensional states the generated -Y orientation and the diagonal comparator (1/2)I have the same weight. A constant diagonal bridge inhabits the preserving side, while an off-diagonal constant control gives weight one and fails preservation, so the hypothesis is logically load-bearing. This is a conditional single-shot Born-weight theorem; it derives no source bridge, common preparation, source operation, public outcome, sequential instrument behavior, operational readback, run, provenance, custody, physical region, or validation.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
