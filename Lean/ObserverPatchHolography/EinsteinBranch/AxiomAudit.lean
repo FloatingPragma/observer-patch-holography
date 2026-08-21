@@ -1,5 +1,6 @@
 import Mathlib.Util.AssertNoSorry
 import ObserverPatchHolography.EinsteinBranch.Composition
+import ObserverPatchHolography.EinsteinBranch.DarkSector
 
 /-!
 # Einstein-branch theorem audit
@@ -97,6 +98,18 @@ assert_no_sorry continuumEinstein_from_explicit_premises
 assert_no_sorry composedEinsteinBranch
 assert_no_sorry composedEinsteinAdmissibleTower
 
+/-! ## Generic dark sector and modular-anomaly source -/
+
+assert_no_sorry totalStress_eq_luminous_add_dark
+assert_no_sorry geometry_responds_to_all_charge
+assert_no_sorry luminousOnlyRelation_iff_darkStress_eq_zero
+assert_no_sorry exists_dark_source_of_geometric_excess
+assert_no_sorry darkStress_nonneg_of_charges_nonneg
+assert_no_sorry anomalousStress_abs_le
+assert_no_sorry anomalousStress_eq_zero_of_recovered
+assert_no_sorry anomalousStress_tendsto_zero
+assert_no_sorry comovingDensity_mul_scale_cubed
+
 /-! Human-readable per-theorem reports are emitted into the build receipt. -/
 
 #print axioms bare_consensus_not_einstein_complete
@@ -124,5 +137,8 @@ assert_no_sorry composedEinsteinAdmissibleTower
 #print axioms continuumEinstein_from_explicit_premises
 #print axioms composedEinsteinBranch
 #print axioms composedEinsteinAdmissibleTower
+#print axioms luminousOnlyRelation_iff_darkStress_eq_zero
+#print axioms exists_dark_source_of_geometric_excess
+#print axioms anomalousStress_tendsto_zero
 
 end OPH.EinsteinBranch

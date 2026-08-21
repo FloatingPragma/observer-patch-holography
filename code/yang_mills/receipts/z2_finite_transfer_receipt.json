@@ -1,0 +1,944 @@
+{
+  "collars": "one collar per spatial link, fiber {o, X_l o}, pi-preserving heat bath",
+  "ground_state_transform": "Doob transform by the Perron vector, pi = Omega^2",
+  "physical_clay_receipt": false,
+  "receipt_under_test": "finite ground-state-transform and cross-fiber receipt: U_r H_r U_r^{-1} = sum_C c_C (I - E_C) with c_C independent of the repaired value",
+  "runs": [
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 0.7719368329053057,
+        "rate_min": 0.7719368329053037,
+        "rates": [
+          0.7719368329053037,
+          0.7719368329053056,
+          0.7719368329053056,
+          0.7719368329053048,
+          0.7719368329053057,
+          0.7719368329053057,
+          0.7719368329053056,
+          0.7719368329053052
+        ],
+        "relative_frobenius_residual": 1.5882839549490251e-15
+      },
+      "control": "beta_s_zero",
+      "dobrushin": {
+        "dobrushin_condition_holds": true,
+        "eta_star": 1.5432100042289676e-14,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.9999999999999846
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 4.3489989092836696e-13,
+        "offdiagonal_mass_single_flip": 98.80791461187926,
+        "rate_max": 0.7719368329053108,
+        "rate_min": 0.7719368329053037,
+        "spread_max_over_min": 1.000000000000009
+      },
+      "lambda_max": 669.2070474044677,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "beta_s": 0.0,
+        "beta_t": 0.5
+      },
+      "spectral": {
+        "gap_H": 1.5438736658106085,
+        "gap_unit_rate_heat_bath": 1.9999999999999982,
+        "pi_max": 0.031250000000000056,
+        "pi_min": 0.031249999999999795
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 2.300627359206142,
+        "rate_min": 2.300627359203372,
+        "rates": [
+          2.300627359206142,
+          2.3006273592033994,
+          2.3006273592051034,
+          2.300627359203372,
+          2.300627359206062,
+          2.300627359204193,
+          2.300627359205092,
+          2.3006273592042064
+        ],
+        "relative_frobenius_residual": 0.05480588040290739
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": true,
+        "eta_star": 0.592252427080374,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.40774757291962604
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 16.950873712041563,
+        "offdiagonal_mass_single_flip": 296.06782588890985,
+        "rate_max": 2.335609710328749,
+        "rate_min": 2.290451877248467,
+        "spread_max_over_min": 1.0197156873404956
+      },
+      "lambda_max": 271.83097585555333,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "beta_s": 0.1,
+        "beta_t": 0.1
+      },
+      "spectral": {
+        "gap_H": 4.59137342287585,
+        "gap_unit_rate_heat_bath": 1.8863066123093062,
+        "pi_max": 0.045697020460258635,
+        "pi_min": 0.02052973191958638
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 1.2521294482191838,
+        "rate_min": 1.2521294482191607,
+        "rates": [
+          1.2521294482191836,
+          1.2521294482191827,
+          1.2521294482191607,
+          1.2521294482191834,
+          1.2521294482191838,
+          1.2521294482191683,
+          1.252129448219165,
+          1.2521294482191683
+        ],
+        "relative_frobenius_residual": 0.11550780163041609
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 1.6386262251593386,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 24.005047699342665,
+        "offdiagonal_mass_single_flip": 164.87428579253964,
+        "rate_max": 1.388733132141517,
+        "rate_min": 1.189277610169935,
+        "spread_max_over_min": 1.167711491636576
+      },
+      "lambda_max": 440.416875204335,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "beta_s": 0.3,
+        "beta_t": 0.3
+      },
+      "spectral": {
+        "gap_H": 2.2629149300329283,
+        "gap_unit_rate_heat_bath": 1.2484281361400917,
+        "pi_max": 0.08770604848806773,
+        "pi_min": 0.007671859099813444
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 0.9025423863080982,
+        "rate_min": 0.9025423863080893,
+        "rates": [
+          0.9025423863080949,
+          0.9025423863080924,
+          0.9025423863080911,
+          0.9025423863080937,
+          0.9025423863080893,
+          0.9025423863080936,
+          0.9025423863080982,
+          0.9025423863080926
+        ],
+        "relative_frobenius_residual": 0.12749610312564197
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 2.5516791496819433,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 21.111092636844646,
+        "offdiagonal_mass_single_flip": 117.60577536836306,
+        "rate_max": 1.135455097690009,
+        "rate_min": 0.7355742417550702,
+        "spread_max_over_min": 1.5436308576831463
+      },
+      "lambda_max": 1214.8566710385553,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "beta_s": 0.5,
+        "beta_t": 0.5
+      },
+      "spectral": {
+        "gap_H": 1.0202186358700869,
+        "gap_unit_rate_heat_bath": 0.5388572756045539,
+        "pi_max": 0.15516637736027844,
+        "pi_min": 0.001897703250622349
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 0.8460884522776317,
+        "rate_min": 0.8460884522776067,
+        "rates": [
+          0.8460884522776175,
+          0.8460884522776067,
+          0.8460884522776217,
+          0.8460884522776129,
+          0.8460884522776199,
+          0.8460884522776317,
+          0.8460884522776209,
+          0.8460884522776263
+        ],
+        "relative_frobenius_residual": 0.19453023235541775
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 3.615236178348441,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 18.961488183176243,
+        "offdiagonal_mass_single_flip": 104.89678777588284,
+        "rate_max": 1.299893579744215,
+        "rate_min": 0.49411074262136556,
+        "spread_max_over_min": 2.630773767127578
+      },
+      "lambda_max": 6500.940715326014,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "beta_s": 0.7,
+        "beta_t": 0.7
+      },
+      "spectral": {
+        "gap_H": 0.35971462992520103,
+        "gap_unit_rate_heat_bath": 0.12010413741451284,
+        "pi_max": 0.22428514231515187,
+        "pi_min": 0.00018217990133353857
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 0.9529363317140112,
+        "rate_min": 0.9529363317139999,
+        "rates": [
+          0.9529363317140023,
+          0.9529363317140053,
+          0.9529363317140025,
+          0.9529363317140112,
+          0.9529363317140029,
+          0.952936331714003,
+          0.9529363317139999,
+          0.9529363317140033
+        ],
+        "relative_frobenius_residual": 0.3748128602725979
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 5.315257178442986,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 21.551929786621958,
+        "offdiagonal_mass_single_flip": 118.02421370338368,
+        "rate_max": 1.920502063373532,
+        "rate_min": 0.32951158346139814,
+        "spread_max_over_min": 5.8283294420164635
+      },
+      "lambda_max": 177079.03529781007,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "beta_s": 1.0,
+        "beta_t": 1.0
+      },
+      "spectral": {
+        "gap_H": 0.08239142282833327,
+        "gap_unit_rate_heat_bath": 0.007972481848200577,
+        "pi_max": 0.24826411500290851,
+        "pi_min": 1.786044530452226e-06
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 1.2934414431671417,
+        "rate_min": 1.293441443167139,
+        "rates": [
+          1.2934414431671408,
+          1.293441443167139,
+          1.2934414431671417,
+          1.2934414431671413,
+          1.2934414431671413,
+          1.2934414431671413,
+          1.2934414431671417,
+          1.2934414431671413
+        ],
+        "relative_frobenius_residual": 0.1564493982469572
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 3.240112975350775,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 0.0,
+        "offdiagonal_mass_single_flip": 167.2400595041762,
+        "rate_max": 1.7842677961360254,
+        "rate_min": 1.0359649148032777,
+        "spread_max_over_min": 1.7223245407638588
+      },
+      "ground_energy": -5.226251859505505,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "lam": 0.5
+      },
+      "spectral": {
+        "gap_H": 0.7541159045059251,
+        "gap_unit_rate_heat_bath": 0.4761498394433145,
+        "pi_max": 0.16625727221685352,
+        "pi_min": 0.0029369016073060726
+      },
+      "transfer": "kogut_susskind"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 2.134724885792497,
+        "rate_min": 2.1347248857924925,
+        "rates": [
+          2.1347248857924925,
+          2.1347248857924943,
+          2.1347248857924956,
+          2.1347248857924956,
+          2.134724885792497,
+          2.1347248857924943,
+          2.1347248857924943,
+          2.1347248857924948
+        ],
+        "relative_frobenius_residual": 0.04326925498089315
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 1.6180041208424325,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 0.0,
+        "offdiagonal_mass_single_flip": 273.37973824894175,
+        "rate_max": 2.3287952354893466,
+        "rate_min": 2.004315987459199,
+        "spread_max_over_min": 1.1618902658365156
+      },
+      "ground_energy": -8.54311682027943,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "lam": 1.0
+      },
+      "spectral": {
+        "gap_H": 2.8862625707870486,
+        "gap_unit_rate_heat_bath": 1.3039453136656802,
+        "pi_max": 0.08370224666936654,
+        "pi_min": 0.01098080020109181
+      },
+      "transfer": "kogut_susskind"
+    },
+    {
+      "L": 2,
+      "constant_rate_fit": {
+        "rate_max": 4.063758407750089,
+        "rate_min": 4.063758407750075,
+        "rates": [
+          4.063758407750075,
+          4.063758407750089,
+          4.063758407750086,
+          4.0637584077500835,
+          4.063758407750084,
+          4.063758407750086,
+          4.063758407750086,
+          4.063758407750086
+        ],
+        "relative_frobenius_residual": 0.01136037481492024
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": true,
+        "eta_star": 0.7870257796653003,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.2129742203346997
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 0.0,
+        "offdiagonal_mass_single_flip": 520.184342793103,
+        "rate_max": 4.142987124308211,
+        "rate_min": 4.000503002774724,
+        "spread_max_over_min": 1.0356165515773044
+      },
+      "ground_energy": -16.25576071228447,
+      "n_links": 8,
+      "n_orbits": 32,
+      "parameters": {
+        "lam": 2.0
+      },
+      "spectral": {
+        "gap_H": 7.311488802285307,
+        "gap_unit_rate_heat_bath": 1.7930275947877294,
+        "pi_max": 0.05154798905037646,
+        "pi_min": 0.018871010563840655
+      },
+      "transfer": "kogut_susskind"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 0.7719368329053224,
+        "rate_min": 0.7719368329051627,
+        "rates": [
+          0.7719368329052924,
+          0.7719368329051627,
+          0.7719368329052915,
+          0.7719368329052335,
+          0.7719368329052825,
+          0.7719368329052904,
+          0.7719368329052649,
+          0.7719368329052743,
+          0.7719368329052883,
+          0.7719368329052881,
+          0.7719368329052964,
+          0.7719368329052606,
+          0.7719368329052978,
+          0.771936832905285,
+          0.7719368329053224,
+          0.7719368329052835,
+          0.7719368329053174,
+          0.7719368329053006
+        ],
+        "relative_frobenius_residual": 3.371162628192539e-13
+      },
+      "control": "beta_s_zero",
+      "dobrushin": {
+        "dobrushin_condition_holds": true,
+        "eta_star": 7.824851877558103e-13,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.9999999999992175
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 7.390522906156721e-08,
+        "offdiagonal_mass_single_flip": 7114.169852053901,
+        "rate_max": 0.7719368329058399,
+        "rate_min": 0.7719368329048039,
+        "spread_max_over_min": 1.0000000000013423
+      },
+      "lambda_max": 2277776.6583769005,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "beta_s": 0.0,
+        "beta_t": 0.5
+      },
+      "spectral": {
+        "gap_H": 2.315810498715896,
+        "gap_unit_rate_heat_bath": 2.999999999999984,
+        "pi_max": 0.0009765625000000121,
+        "pi_min": 0.0009765624999998356
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 2.3050052635483045,
+        "rate_min": 2.3049845387388364,
+        "rates": [
+          2.3050022199906186,
+          2.3049931806480206,
+          2.3050035085043303,
+          2.304988944853522,
+          2.3049929065330956,
+          2.3049862020264134,
+          2.3050052635483045,
+          2.304992618757733,
+          2.3049893375242467,
+          2.3050032987853233,
+          2.3049966821663355,
+          2.3049939241645747,
+          2.304999374799341,
+          2.304986462059083,
+          2.304998856008294,
+          2.3049888260994815,
+          2.3049845387388364,
+          2.3049859839032902
+        ],
+        "relative_frobenius_residual": 0.03843279675441643
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": true,
+        "eta_star": 0.592239988784322,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.40776001121567795
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 6413.719521828631,
+        "offdiagonal_mass_single_flip": 21231.079573470313,
+        "rate_max": 2.336789183953144,
+        "rate_min": 2.2712244888438367,
+        "spread_max_over_min": 1.028867553793717
+      },
+      "lambda_max": 299968.77774011344,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "beta_s": 0.1,
+        "beta_t": 0.1
+      },
+      "spectral": {
+        "gap_H": 6.915034808316341,
+        "gap_unit_rate_heat_bath": 2.8947902047101888,
+        "pi_max": 0.002296802711362606,
+        "pi_min": 0.0004635704571806555
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 1.2644971720907596,
+        "rate_min": 1.2644971720773517,
+        "rates": [
+          1.2644971720829257,
+          1.2644971720907596,
+          1.2644971720872136,
+          1.2644971720904685,
+          1.2644971720848044,
+          1.2644971720828195,
+          1.2644971720856861,
+          1.264497172080211,
+          1.2644971720815774,
+          1.2644971720841856,
+          1.2644971720886322,
+          1.2644971720801759,
+          1.2644971720850307,
+          1.2644971720810545,
+          1.264497172080672,
+          1.2644971720773517,
+          1.2644971720866682,
+          1.2644971720892453
+        ],
+        "relative_frobenius_residual": 0.07999658874271023
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 1.6322769550030112,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 3052.595188282329,
+        "offdiagonal_mass_single_flip": 11867.000608987571,
+        "rate_max": 1.4012040002364736,
+        "rate_min": 1.1778788571306826,
+        "spread_max_over_min": 1.1895994157241365
+      },
+      "lambda_max": 872816.5560800355,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "beta_s": 0.3,
+        "beta_t": 0.3
+      },
+      "spectral": {
+        "gap_H": 3.5789824605654608,
+        "gap_unit_rate_heat_bath": 2.0874614950663783,
+        "pi_max": 0.010033782830974497,
+        "pi_min": 7.708858162211178e-05
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 0.8958036934667983,
+        "rate_min": 0.8958036934666869,
+        "rates": [
+          0.8958036934667367,
+          0.8958036934666869,
+          0.8958036934667305,
+          0.8958036934667299,
+          0.8958036934667163,
+          0.8958036934667196,
+          0.8958036934667304,
+          0.8958036934667621,
+          0.8958036934667245,
+          0.8958036934667366,
+          0.8958036934667153,
+          0.8958036934667639,
+          0.8958036934667384,
+          0.895803693466754,
+          0.8958036934667278,
+          0.8958036934667983,
+          0.8958036934667606,
+          0.8958036934667728
+        ],
+        "relative_frobenius_residual": 0.08411504958673525
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 2.5329961816143087,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 2584.0187819048438,
+        "offdiagonal_mass_single_flip": 8396.356595704909,
+        "rate_max": 1.1404014070146238,
+        "rate_min": 0.7248453206838851,
+        "spread_max_over_min": 1.5733031234010937
+      },
+      "lambda_max": 7435267.394168531,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "beta_s": 0.5,
+        "beta_t": 0.5
+      },
+      "spectral": {
+        "gap_H": 1.6614656163285946,
+        "gap_unit_rate_heat_bath": 1.0055571323905308,
+        "pi_max": 0.039630231121988296,
+        "pi_min": 6.120659015735853e-06
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 0.8163915831712211,
+        "rate_min": 0.8163915831712018,
+        "rates": [
+          0.816391583171204,
+          0.8163915831712153,
+          0.8163915831712034,
+          0.8163915831712087,
+          0.8163915831712195,
+          0.816391583171211,
+          0.8163915831712116,
+          0.8163915831712103,
+          0.8163915831712083,
+          0.8163915831712018,
+          0.8163915831712109,
+          0.8163915831712211,
+          0.8163915831712143,
+          0.8163915831712091,
+          0.816391583171202,
+          0.8163915831712042,
+          0.816391583171221,
+          0.8163915831712167
+        ],
+        "relative_frobenius_residual": 0.11965353296090103
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 4.726772385901033,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 2069.530696152381,
+        "offdiagonal_mass_single_flip": 7395.71744079143,
+        "rate_max": 1.6043869807828381,
+        "rate_min": 0.478815447247625,
+        "spread_max_over_min": 3.3507418985860555
+      },
+      "lambda_max": 253975834.5041292,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "beta_s": 0.7,
+        "beta_t": 0.7
+      },
+      "spectral": {
+        "gap_H": 0.3215072982410292,
+        "gap_unit_rate_heat_bath": 0.14975134266989243,
+        "pi_max": 0.17135581595317062,
+        "pi_min": 5.5064622581502176e-08
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 1.0165188467738062,
+        "rate_min": 1.01651884677115,
+        "rates": [
+          1.0165188467721624,
+          1.0165188467733801,
+          1.016518846772369,
+          1.0165188467718456,
+          1.0165188467738062,
+          1.0165188467724975,
+          1.0165188467724195,
+          1.0165188467722588,
+          1.0165188467720203,
+          1.0165188467726267,
+          1.0165188467735136,
+          1.0165188467720196,
+          1.01651884677115,
+          1.0165188467715445,
+          1.016518846773154,
+          1.016518846771965,
+          1.0165188467722515,
+          1.0165188467729669
+        ],
+        "relative_frobenius_residual": 0.2413553809534724
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 10.542165339209344,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": false,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 1913.2748833428086,
+        "offdiagonal_mass_single_flip": 8768.845531677864,
+        "rate_max": 3.3397526484892617,
+        "rate_min": 0.2661509292867712,
+        "spread_max_over_min": 12.548341113965298
+      },
+      "lambda_max": 548240415545.3178,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "beta_s": 1.0,
+        "beta_t": 1.0
+      },
+      "spectral": {
+        "gap_H": 0.01997550657108511,
+        "gap_unit_rate_heat_bath": 0.004027988782362196,
+        "pi_max": 0.24738687792179473,
+        "pi_min": 9.344348023645655e-13
+      },
+      "transfer": "wilson"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 1.2664712476470308,
+        "rate_min": 1.2664712476470048,
+        "rates": [
+          1.2664712476470308,
+          1.2664712476470048,
+          1.26647124764702,
+          1.2664712476470181,
+          1.2664712476470175,
+          1.2664712476470228,
+          1.2664712476470186,
+          1.2664712476470215,
+          1.2664712476470155,
+          1.2664712476470197,
+          1.2664712476470161,
+          1.2664712476470197,
+          1.2664712476470095,
+          1.2664712476470161,
+          1.266471247647019,
+          1.2664712476470186,
+          1.2664712476470272,
+          1.2664712476470137
+        ],
+        "relative_frobenius_residual": 0.07014207193509944
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 4.112606165962443,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 0.0,
+        "offdiagonal_mass_single_flip": 11614.09596253018,
+        "rate_max": 2.0516294720776407,
+        "rate_min": 0.9999999999999997,
+        "spread_max_over_min": 2.0516294720776416
+      },
+      "ground_energy": -11.34189058840837,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "lam": 0.5
+      },
+      "spectral": {
+        "gap_H": 1.0206618335800892,
+        "gap_unit_rate_heat_bath": 0.6898183339483441,
+        "pi_max": 0.0634393207716263,
+        "pi_min": 1.2456044860031231e-05
+      },
+      "transfer": "kogut_susskind"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 2.127336854284557,
+        "rate_min": 2.127336854284475,
+        "rates": [
+          2.127336854284557,
+          2.127336854284492,
+          2.1273368542844797,
+          2.1273368542844806,
+          2.127336854284481,
+          2.1273368542844917,
+          2.1273368542844944,
+          2.127336854284489,
+          2.127336854284475,
+          2.127336854284484,
+          2.127336854284489,
+          2.127336854284482,
+          2.1273368542844935,
+          2.1273368542844913,
+          2.127336854284508,
+          2.127336854284491,
+          2.127336854284476,
+          2.1273368542844846
+        ],
+        "relative_frobenius_residual": 0.01915286991344531
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": false,
+        "eta_star": 1.7481898548015042,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.0
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 0.0,
+        "offdiagonal_mass_single_flip": 19590.51961249161,
+        "rate_max": 2.3395142885354967,
+        "rate_min": 1.9999999999999996,
+        "spread_max_over_min": 1.1697571442677486
+      },
+      "ground_energy": -19.131366809073842,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "lam": 1.0
+      },
+      "spectral": {
+        "gap_H": 4.775509325586996,
+        "gap_unit_rate_heat_bath": 2.2186667437643,
+        "pi_max": 0.008561772120683408,
+        "pi_min": 0.00014186768267192808
+      },
+      "transfer": "kogut_susskind"
+    },
+    {
+      "L": 3,
+      "constant_rate_fit": {
+        "rate_max": 4.062824755274839,
+        "rate_min": 4.0628247552747725,
+        "rates": [
+          4.062824755274819,
+          4.062824755274777,
+          4.062824755274814,
+          4.0628247552748205,
+          4.0628247552748,
+          4.0628247552748356,
+          4.062824755274806,
+          4.062824755274797,
+          4.062824755274805,
+          4.062824755274808,
+          4.0628247552748125,
+          4.062824755274839,
+          4.062824755274818,
+          4.062824755274821,
+          4.0628247552747725,
+          4.0628247552748045,
+          4.0628247552748284,
+          4.062824755274825
+        ],
+        "relative_frobenius_residual": 0.004990155367112901
+      },
+      "dobrushin": {
+        "dobrushin_condition_holds": true,
+        "eta_star": 0.8204871877127776,
+        "unit_rate_floor_c_star_times_1_minus_eta": 0.17951281228722238
+      },
+      "doob_generator_is_markov": true,
+      "doob_generator_offdiagonal_nonpositive": true,
+      "fiber_dependent_rates": {
+        "all_rates_positive": true,
+        "offdiagonal_mass_outside_single_flip": 0.0,
+        "offdiagonal_mass_single_flip": 37440.75903117653,
+        "rate_max": 4.14346582853219,
+        "rate_min": 3.999999999999999,
+        "spread_max_over_min": 1.0358664571330478
+      },
+      "ground_energy": -36.56324124138334,
+      "n_links": 18,
+      "n_orbits": 1024,
+      "parameters": {
+        "lam": 2.0
+      },
+      "spectral": {
+        "gap_H": 11.45053787556353,
+        "gap_unit_rate_heat_bath": 2.816608111291904,
+        "pi_max": 0.002943840882951199,
+        "pi_min": 0.0003895445468821311
+      },
+      "transfer": "kogut_susskind"
+    }
+  ],
+  "schema": "oph.yang_mills.z2_finite_transfer_receipt.v1",
+  "scope": "finite_gauge_diagnostic",
+  "sha256_of_runs": "10e5f200d33d2bcb80ba8cad17ae9902dbc901bda27904c7537c63cf17c744ae",
+  "system": "Z2 lattice gauge theory, L x L periodic spatial torus, gauge-invariant sector"
+}

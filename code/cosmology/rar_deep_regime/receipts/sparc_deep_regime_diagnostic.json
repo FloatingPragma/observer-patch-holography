@@ -1,0 +1,88 @@
+{
+  "additive_all_gradient_extension": {
+    "additive_form_passes_solar_system": false,
+    "mean_residual_dex_additive_all_points": -0.09541202978560877,
+    "mls16_own_fit_a0_m_s2": 1.1615652133093544e-10,
+    "n_points": 2700,
+    "rms_scatter_dex_additive_all_points": 0.16382121544403042,
+    "rms_scatter_dex_mls16_own_fit": 0.13265136997108354,
+    "rms_scatter_dex_mls16_same_a0": 0.1360049628811167,
+    "solar_system_bound_cassini_relative": 1e-08,
+    "solar_system_relative_anomaly_at_1au": 0.00015345865219643125
+  },
+  "baryonic_tully_fisher": {
+    "a0_fixed_exponent_m_s2": 1.5531372754010943e-10,
+    "free_exponent_M_of_V": 3.752695784236939,
+    "free_exponent_bootstrap_sd": 0.0985864855795919,
+    "law_exponent": 4.0,
+    "n_galaxies": 123,
+    "rms_scatter_dex_in_a0": 0.2555599415978555,
+    "upsilon_disk": 0.5
+  },
+  "constant_consistency": {
+    "a0_btfr_m_s2": 1.5531372754010943e-10,
+    "a0_deep_rar_m_s2": 1.3965085444506256e-10,
+    "log10_ratio_btfr_over_deep": 0.046166245675024725,
+    "within_combined_scatter": true
+  },
+  "deep_radial_acceleration": {
+    "a0_fixed_exponent_m_s2": 1.3965085444506256e-10,
+    "deep_fraction_of_a0": 0.1,
+    "free_exponent": 0.57002139390691,
+    "free_exponent_bootstrap_sd": 0.021291093364404923,
+    "law_exponent": 0.5,
+    "n_points": 1043,
+    "rms_scatter_dex_fixed_exponent": 0.1474411044265484,
+    "rms_scatter_dex_free_exponent": 0.1464331428387672
+  },
+  "deep_radial_acceleration_fraction_sweep": [
+    {
+      "a0_fixed_exponent_m_s2": 1.569548382761401e-10,
+      "deep_fraction_of_a0": 0.3,
+      "free_exponent": 0.6021697362571418,
+      "free_exponent_bootstrap_sd": 0.009152356275276264,
+      "law_exponent": 0.5,
+      "n_points": 1651,
+      "rms_scatter_dex_fixed_exponent": 0.14366985665924525,
+      "rms_scatter_dex_free_exponent": 0.13841500292154485
+    },
+    {
+      "a0_fixed_exponent_m_s2": 1.3965085444506256e-10,
+      "deep_fraction_of_a0": 0.1,
+      "free_exponent": 0.57002139390691,
+      "free_exponent_bootstrap_sd": 0.021291093364404923,
+      "law_exponent": 0.5,
+      "n_points": 1043,
+      "rms_scatter_dex_fixed_exponent": 0.1474411044265484,
+      "rms_scatter_dex_free_exponent": 0.1464331428387672
+    },
+    {
+      "a0_fixed_exponent_m_s2": 1.2766207600275434e-10,
+      "deep_fraction_of_a0": 0.03,
+      "free_exponent": 0.38871308141127714,
+      "free_exponent_bootstrap_sd": 0.07754344134681335,
+      "law_exponent": 0.5,
+      "n_points": 233,
+      "rms_scatter_dex_fixed_exponent": 0.16542055445697543,
+      "rms_scatter_dex_free_exponent": 0.16459677081974222
+    }
+  ],
+  "law": {
+    "baryonic_tully_fisher": "v^4 = G M_b a_0",
+    "deep_radial_acceleration": "a_R = sqrt(a_b a_0)",
+    "parameter_free_content": "exponents 1/2 and 4; a_0 is a fitted comparison value"
+  },
+  "physical_claim": false,
+  "sample": {
+    "catalogue": "SPARC, CDS J/AJ/152/157 (Lelli, McGaugh, Schombert 2016)",
+    "cuts": "quality <= 2, inclination >= 30 deg, e_Vobs/Vobs <= 0.10, g_bar > 0",
+    "data_sha256": "e38670c34bcdd900db57d556321ba30cf27641bc66c7cd1d588d3062ad2d6b84",
+    "n_galaxies_after_cuts": 149,
+    "n_points_after_cuts": 2700,
+    "upsilon_bulge": 0.7,
+    "upsilon_disk": 0.5
+  },
+  "schema": "oph.cosmology.rar_deep_regime_diagnostic.v1",
+  "scope": "diagnostic_postdiction_one_fitted_constant",
+  "source_derived_output": false
+}

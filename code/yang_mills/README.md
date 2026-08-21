@@ -45,3 +45,31 @@ python3 code/yang_mills/finite_collar_gap_certificate.py verify \
   --receipt code/yang_mills/receipts/atomic_4d_ising_calibration.receipt.json
 python3 -m pytest code/yang_mills/tests/test_finite_collar_gap_certificate.py
 ```
+
+## Finite Z2 transfer-receipt diagnostic
+
+`z2_finite_transfer_receipt.py` evaluates the paper's finite
+ground-state-transform and cross-fiber receipt on Z2 lattice gauge theory
+(L x L periodic spatial torus, Gauss-law sector, one heat-bath collar per
+spatial link). The ground-state transform is the Doob transform by the Perron
+vector. Two transfer objects are tested: the Wilson transfer matrix with
+`H = -log(T / lambda_max)` and the Kogut-Susskind Hamiltonian.
+
+Result on the committed receipt (`receipts/z2_finite_transfer_receipt.json`):
+
+* the receipt is exact at `beta_s = 0` (every rate equals `log coth beta_t`, the dual coupling);
+* for the Wilson matrix at any `beta_s > 0` it fails: `log T` is nonlocal and
+  the best constant-rate fit leaves a 4% to 24% relative residual at `L = 3`;
+* for the Kogut-Susskind Hamiltonian the single-flip form is exact with
+  fiber-dependent rates `c_l(o) = lam (r + 1/r)`, `r = Omega(o)/Omega(X_l o)`,
+  so the cross-fiber equality fails (rate spread 1.04 to 2.05 at `L = 3`);
+* the Dobrushin sum `eta_*` is below one only at the weakest couplings.
+
+This is a finite diagnostic on a toy gauge system (`physical_clay_receipt:
+false`), not a compact-simple-gauge receipt.
+
+```bash
+python3 code/yang_mills/z2_finite_transfer_receipt.py --L 2 3 \
+  --output code/yang_mills/receipts/z2_finite_transfer_receipt.json
+python3 -m pytest code/yang_mills/tests/test_z2_finite_transfer_receipt.py
+```
