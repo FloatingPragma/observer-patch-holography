@@ -5868,6 +5868,51 @@
       }
     },
     {
+      "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
+      "statement": "The permitted EventAlgebra source fields generate a finite noncommuting-pair family, a deterministic target-free selector chooses pair:00-02, and the selected effect equals the phase-slot effect consumed by the declared Lueders instrument.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "source_derived_phase_effect_selection",
+      "assumptions": [
+        "committed_diagonal_record_algebra_and_web_contexts",
+        "recorded_pr04_axiomatize_decision_declares_phase_effect",
+        "source_phase_sensitive_instrument_deferred"
+      ],
+      "imported_results": [
+        "finite_exhaustive_search",
+        "finite_matrix_algebra",
+        "lueders_conditioning"
+      ],
+      "oph_specific_delta": "Derives the finite noncommuting-pair family from permitted repository source fields, selects pair:00-02 without reading the target, proves exact equality to the declared phase effect, connects the 48/12 source relation to the 36/12 canonical bridge, and makes source deletion load-bearing. Eight source events produce the same +Y effect, so effect-value equality is claimed and event-witness uniqueness is not.",
+      "novelty_type": "source_derived_effect_selection",
+      "evidence": [
+        "Lean/EventAlgebra/SourcePhaseSelection.lean",
+        "Lean/EventAlgebra/SourcePhaseSelectionRelation.lean",
+        "code/born_context_phase_lift/source_phase_selection_family.py",
+        "tools/test_source_phase_selection.py"
+      ],
+      "falsifier": "The claim fails if deleting the source family leaves the theorem intact, the selector drifts from pair:00-02, exact effect equality is lost, the 48/12 or 36/12 boundary drifts, a load-bearing mutation survives, generated source differs from the committed modules, or any receipt clause fails.",
+      "scope_if_false": "Only source-derived phase-effect selection falls. The declared phase effect, declared Lueders instrument, its channel clauses, and the separately open preparation, outcome, readback, provenance, custody, and physical-attachment obligations are assessed independently.",
+      "status": "source_selected_effect_proved__instrument_preparation_outcomes_readback_and_provenance_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-03",
+          "PR-52",
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
       "statement": "On the PR-44 product split of a finite bipartite carrier, with the two slots given by the fixed embeddings A -> A tensor 1 and B -> 1 tensor B, every record-law state (diagonal in the product basis with nonnegative real weights summing to one) is the explicit convex combination of the product point states single a a 1 tensor single b b 1 weighted by its diagonal, hence a finite convex combination of product states of the two slots; and for every four Loewner unit-interval settings, two in each slot, with no commutation assumed inside a slot, the CHSH trace of such a state against the slot-local CHSH operator is real with modulus at most 2. The declared Tsirelson witness operator is an instance of the slot-local CHSH operator. On the committed 86/247 and 86/88 pair carriers every state of the committed source-reachable class is separable across the split and obeys the bound against all slot-local unit-interval readouts. Cross-wing commutation is not a sufficient hypothesis: on the two-qubit split the product-diagonal pure state |00><00| with the Bell settings conjugated by CNOT (H tensor 1) gives four unit-interval observables that commute pairwise across the wings, reach CHSH trace exactly 2*sqrt(2), and include one observable in neither slot. A slot-local CHSH excess above 2 certifies that the matrix is not a record law, for positive semidefinite trace-one states that it carries off-diagonal record coherence, and on the committed pair carriers non-reachability. The split is the declared PR-44 datum; readouts that are not slot-local with respect to the split are outside the bound; no source entangled preparation, instrument, physical region, or spacelike separation is produced.",
       "owner_paper": "paper/observers_are_all_you_need.tex",

@@ -135,6 +135,7 @@
   "OPH-SCREEN-CHARGED-CURRENT-DICTIONARY",
   "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
   "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+  "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
   "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
   "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
   "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
@@ -1196,6 +1197,16 @@
    "from": "OPH-QUANTUM-OPERATIONAL-PHASE-INTERFACE",
    "to": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
    "role": "supplies the context family, the committed effect table, and the event certificates of its entries"
+  },
+  {
+   "from": "OPH-FINITE-BORN-FRAME-RANK-GAP",
+   "to": "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
+   "role": "supplies the exact algebraic sourcePhaseLift target and the bounded source-attached phase-effect boundary; it supplies no deterministic source selector"
+  },
+  {
+   "from": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
+   "to": "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
+   "role": "supplies the current declared instrument phase slot consumed by the equality theorem; it supplies no source selection, preparation, outcome, provenance, or custody"
   },
   {
    "from": "OPH-QUANTUM-TSIRELSON-SATURATION",
