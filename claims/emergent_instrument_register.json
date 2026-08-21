@@ -1,119 +1,119 @@
 {
- "schema": "oph.emergent_instrument_register.v4",
- "issue": 737,
- "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
- "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support an observation-ledger rung only when the committed receipts satisfy the frozen decision rule and the ledger-control lineage explicitly selects it. A controlling FAILED verdict blocks or demotes the bound emergent rung to owed until an explicitly selected later instrument is REPLICATED; a later design or incomplete run cannot overwrite it. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
- "ledger_controls": [
-  {
-   "ledger_row": "OL-A1",
-   "controlling_instrument": "INS-01",
-   "supersession_policy": "INS-01 remains controlling after its FAILED verdict. A later instrument may supersede it only when that instrument is REPLICATED under its frozen decision rule and is then explicitly selected here. Until both conditions hold, OL-A1 remains owed."
-  }
- ],
- "rows": [
-  {
-   "id": "INS-01",
-   "title": "OL-A1 (1,3) signature replication instrument",
-   "owning_issue": 737,
-   "ledger_row": "OL-A1",
-   "status": "FAILED",
-   "spec_pointer": "plan/OL_A1_SIGNATURE_REPLICATION_SPEC.md (oph-meta planning workspace)",
-   "decision_rule": "Pointer while SPECIFIED: the binding text is the Tier A decision rule in the specification, copied verbatim into this field at freeze time. Tier A summary: arms A1 = 16384/128/96, A2 = 65536/256/96, and C1 = 16384/128/6 with five declared replicates per arm; observables O1 threshold inertia, O2 robust inertia at relative tau 1e-3 with reference (1,2)/(1,2)/(2,1), O3 degeneracy ratio against the reference band 2e-5..4e-5, O4 cone margin and rung ratio (retained 0.5725, declared band 0.35..0.80), O5 structural diagnostics, and O6 split-half inertia concordance; verdict REPLICATED, FAILED, or INCONCLUSIVE per the frozen rule, and FAILED demotes the OL-A1 emergent rung with equal prominence. Eigenvalue caution: the archived (1,3) threshold verdict rides on one eigenvalue at relative magnitude about 3e-5 against a 1e-12 threshold; at a relative threshold of 1e-3 the robust inertia of the retained rungs is (1,2) with one degenerate direction, matching the independently measured (1,2) receipt, and a fresh seed can flip (1,3) to (2,2) with no change in physical content. Every public sentence about this instrument carries that caution.",
-   "seeds_policy": "One fresh seed drawn at freeze time and five declared replicate ids per arm. The held-out split is stride-structured per rung (strides 8/35/141), so train/held-out parity structure is recorded and stratified across replicates. N = 5 resolves seed fragility at the 1-in-5 level only, and the report states so. The runtime environment is single and recorded.",
-   "controls": [
-    "C-SUPPORT: matched support-density control at 16384/128/6; a fired control reads as mean signature degradation plus halved cross edges.",
-    "C-ANCESTRY: ancestry-permutation null at zero extra runtime; the null destroys (1,3) on at least 4 of 5 replicates."
-   ],
-   "custody_repository": {
-    "url": "https://github.com/muellerberndt/oph-physics-sim",
-    "commit": "42aa96607f40dae94c5a8b65e9dd8e71e5b6434e"
-   },
-   "freeze_artifacts": [
+  "schema": "oph.emergent_instrument_register.v4",
+  "issue": 737,
+  "generated_surface": "docs/INSTRUMENT_REGISTER_V3.md",
+  "policy": "This register distinguishes an open SPECIFIED design from a preregistered FROZEN instrument: SPECIFIED means mutable design only, with no freeze, authorization, or evidential verdict. A completed positive verdict can support an observation-ledger rung only when the committed receipts satisfy the frozen decision rule and the ledger-control lineage explicitly selects it. A controlling FAILED verdict blocks or demotes the bound emergent rung to owed until an explicitly selected later instrument is REPLICATED; a later design or incomplete run cannot overwrite it. The register is separate from the frozen-prediction ladder, which is reserved for physical predictions against external data. Negative and control outcomes are reported with the same prominence as positive ones. Fail closed on post-hoc analyses labeled as validation, parameters revised after data, silent reruns, omitted controls, and any run whose configuration is not reproducible from committed artifacts.",
+  "ledger_controls": [
     {
-     "path": "oph-physics-sim/scripts/ol_a1_signature_replication.py",
-     "sha256": "6cd6b179e9f62e7d7f5f1177ec4cfa329a07c0279ef9e7aedc7aef2383e8acc1"
-    },
-    {
-     "path": "oph-physics-sim/docs/OL_A1_PREREGISTERED_SIGNATURE_REPLICATION_2026-08-12.md",
-     "sha256": "b4953ec083e9af7121baf0656d97ab538598e705575f7b6742a26c9ade7490ae"
-    },
-    {
-     "path": "oph-physics-sim/docs/OL_A1_SEED_TABLE_2026-08-12.json",
-     "sha256": "acc8d5d67c2a4eaffe25c07fcdbfdcd7175a8b9a82142b8edb53d0d402f70f05"
+      "ledger_row": "OL-A1",
+      "controlling_instrument": "INS-01",
+      "supersession_policy": "INS-01 remains controlling after its FAILED verdict. A later instrument may supersede it only when that instrument is REPLICATED under its frozen decision rule and is then explicitly selected here. Until both conditions hold, OL-A1 remains owed."
     }
-   ],
-   "frozen_utc": "2026-08-12T19:14:51Z",
-   "lineage_predecessor": null,
-   "limitations": "The committed campaign retains the manifest, summary, and fifteen per-arm receipt files but no raw feature matrices or fit captures from which an independent implementation could reconstruct every observable. The simulator's validate-only mode rechecks the committed receipt fields and frozen decision rule using the producer implementation; it is not an independent observable recomputation. The pinned campaign commit is present in the sibling custody checkout and is reachable from the configured GitHub remote's main branch; remote reachability closes only the publication-custody check and does not supply the missing raw captures or an independent observable recomputation.",
-   "verdict_receipts": [
+  ],
+  "rows": [
     {
-     "path": "oph-physics-sim/data/ol_a1_replication/manifest.json",
-     "sha256": "befad341fdc5dfe8dcc1370c9ec613748b3891f7744957b133251ac36ac85d28"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/campaign_summary.json",
-     "sha256": "e9f8cd54f1451b546a88341f678203f87f500dd4207584309dbe9a0612d2fe6b"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r1.json",
-     "sha256": "66be4d632ae4a37b42369b6a89ee0bee4d6c667fd9cc612449fbc7f7fbb9b515"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r2.json",
-     "sha256": "87841e0a5fab7feca514cba821c158c177bb308c53cba6f9d3a8c96d2276f765"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r3.json",
-     "sha256": "03d5b2e305bd5652d73b60bdc757d8c9812007a9b81648602e02772522161674"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r4.json",
-     "sha256": "07c43363eb37ae908d6ef2d203b9b4afbe080d05a52802c69ce20d80bc649ece"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r5.json",
-     "sha256": "bf81a4f85aca32f6292458005d481590d7c9556ae9829025a607d9c0f048125a"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r1.json",
-     "sha256": "0a4dd46e524914f54c307ebbd970e85fe8bba1abc733f2e62b6a970c32b1e016"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r2.json",
-     "sha256": "e2da7a503978ef7e66b780a40017e491c09f80e03da10c9c5f0095975f64a416"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r3.json",
-     "sha256": "86f387b87ae7dd16792a0df6a1f5d09b99c759deb30f8696848739b1fdd67d24"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r4.json",
-     "sha256": "83e1719b8efec4a73a9decf9f2cb8ddddb46ed1f4fb5d842ee7a04771c1e5bba"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r5.json",
-     "sha256": "5dc398c3f86f8b172bfd5cee1332c3077d7c69a7381f4b46092fc96953e77eb4"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r1.json",
-     "sha256": "ae4d18d3c7a4c113d5fa279b4198218589d546b962b7294736f48045c8b0b8c4"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r2.json",
-     "sha256": "b38f02987fb5c10b8ef4971b6078b4cda2943f2f0258fd3267416618cc2abcb2"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r3.json",
-     "sha256": "39cbb3c7a4bcd37c71e68302bece6dba606bbe7f3f3413d077a6c5257e0b1bd7"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r4.json",
-     "sha256": "109257fa22802d15c9fd8d2bff14dfc0e1584d634e05bda038c77a559d387e7c"
-    },
-    {
-     "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r5.json",
-     "sha256": "0461bc690c019ed34ad974aee7deaba0247c2d64b607c78ba107202e649404f4"
-    }
+      "id": "INS-01",
+      "title": "OL-A1 (1,3) signature replication instrument",
+      "owning_issue": 737,
+      "ledger_row": "OL-A1",
+      "status": "FAILED",
+      "spec_pointer": "plan/OL_A1_SIGNATURE_REPLICATION_SPEC.md (oph-meta planning workspace)",
+      "decision_rule": "Pointer while SPECIFIED: the binding text is the Tier A decision rule in the specification, copied verbatim into this field at freeze time. Tier A summary: arms A1 = 16384/128/96, A2 = 65536/256/96, and C1 = 16384/128/6 with five declared replicates per arm; observables O1 threshold inertia, O2 robust inertia at relative tau 1e-3 with reference (1,2)/(1,2)/(2,1), O3 degeneracy ratio against the reference band 2e-5..4e-5, O4 cone margin and rung ratio (retained 0.5725, declared band 0.35..0.80), O5 structural diagnostics, and O6 split-half inertia concordance; verdict REPLICATED, FAILED, or INCONCLUSIVE per the frozen rule, and FAILED demotes the OL-A1 emergent rung with equal prominence. Eigenvalue caution: the archived (1,3) threshold verdict rides on one eigenvalue at relative magnitude about 3e-5 against a 1e-12 threshold; at a relative threshold of 1e-3 the robust inertia of the retained rungs is (1,2) with one degenerate direction, matching the independently measured (1,2) receipt, and a fresh seed can flip (1,3) to (2,2) with no change in physical content. Every public sentence about this instrument carries that caution.",
+      "seeds_policy": "One fresh seed drawn at freeze time and five declared replicate ids per arm. The held-out split is stride-structured per rung (strides 8/35/141), so train/held-out parity structure is recorded and stratified across replicates. N = 5 resolves seed fragility at the 1-in-5 level only, and the report states so. The runtime environment is single and recorded.",
+      "controls": [
+        "C-SUPPORT: matched support-density control at 16384/128/6; a fired control reads as mean signature degradation plus halved cross edges.",
+        "C-ANCESTRY: ancestry-permutation null at zero extra runtime; the null destroys (1,3) on at least 4 of 5 replicates."
+      ],
+      "custody_repository": {
+        "url": "https://github.com/muellerberndt/oph-physics-sim",
+        "commit": "42aa96607f40dae94c5a8b65e9dd8e71e5b6434e"
+      },
+      "freeze_artifacts": [
+        {
+          "path": "oph-physics-sim/scripts/ol_a1_signature_replication.py",
+          "sha256": "6cd6b179e9f62e7d7f5f1177ec4cfa329a07c0279ef9e7aedc7aef2383e8acc1"
+        },
+        {
+          "path": "oph-physics-sim/docs/OL_A1_PREREGISTERED_SIGNATURE_REPLICATION_2026-08-12.md",
+          "sha256": "b4953ec083e9af7121baf0656d97ab538598e705575f7b6742a26c9ade7490ae"
+        },
+        {
+          "path": "oph-physics-sim/docs/OL_A1_SEED_TABLE_2026-08-12.json",
+          "sha256": "acc8d5d67c2a4eaffe25c07fcdbfdcd7175a8b9a82142b8edb53d0d402f70f05"
+        }
+      ],
+      "frozen_utc": "2026-08-12T19:14:51Z",
+      "lineage_predecessor": null,
+      "limitations": "The committed campaign retains the manifest, summary, and fifteen per-arm receipt files but no raw feature matrices or fit captures from which an independent implementation could reconstruct every observable. The simulator's validate-only mode rechecks the committed receipt fields and frozen decision rule using the producer implementation; it is not an independent observable recomputation. The pinned campaign commit is present in the sibling custody checkout and is reachable from the configured GitHub remote's main branch; remote reachability closes only the publication-custody check and does not supply the missing raw captures or an independent observable recomputation. Instrument defect found 2026-08-21: the event chart mixes an integer ancestry-depth coordinate with three spectral coordinates whose spreads differ by about three orders of magnitude (depth standard deviation 29.11 against spectral 0.043 to 0.049 on a 2,048-carrier capture), so the quadratic form was dominated by the depth direction and the spectral directions collapsed to an eigenvalue at 1.3e-05 relative magnitude; the reported signature turned on which side of the inertia cut that degenerate direction fell, which is the recorded seed fragility. Repaired in oph-physics-sim commit 017ec2a by standardize_chart and a standardize flag on the fit, which resolves every direction and makes the signature invariant under per-coordinate rescaling, with the flag defaulting to off so committed receipts replay unchanged. The repair does not restore discriminating power: against the C-ANCESTRY null the null still reproduces the data inertia in 4 of 5 permutations before and after, and the held-out cone margin is unchanged and still negative, because eigenvalue sign counts do not test attribution to ancestry structure. No repaired rerun was performed on that basis. The measurement was removed from the reader-facing papers on 2026-08-21 and is retained here as the instrument record.",
+      "verdict_receipts": [
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/manifest.json",
+          "sha256": "befad341fdc5dfe8dcc1370c9ec613748b3891f7744957b133251ac36ac85d28"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/campaign_summary.json",
+          "sha256": "e9f8cd54f1451b546a88341f678203f87f500dd4207584309dbe9a0612d2fe6b"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r1.json",
+          "sha256": "66be4d632ae4a37b42369b6a89ee0bee4d6c667fd9cc612449fbc7f7fbb9b515"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r2.json",
+          "sha256": "87841e0a5fab7feca514cba821c158c177bb308c53cba6f9d3a8c96d2276f765"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r3.json",
+          "sha256": "03d5b2e305bd5652d73b60bdc757d8c9812007a9b81648602e02772522161674"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r4.json",
+          "sha256": "07c43363eb37ae908d6ef2d203b9b4afbe080d05a52802c69ce20d80bc649ece"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A1_ola1.r5.json",
+          "sha256": "bf81a4f85aca32f6292458005d481590d7c9556ae9829025a607d9c0f048125a"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r1.json",
+          "sha256": "0a4dd46e524914f54c307ebbd970e85fe8bba1abc733f2e62b6a970c32b1e016"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r2.json",
+          "sha256": "e2da7a503978ef7e66b780a40017e491c09f80e03da10c9c5f0095975f64a416"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r3.json",
+          "sha256": "86f387b87ae7dd16792a0df6a1f5d09b99c759deb30f8696848739b1fdd67d24"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r4.json",
+          "sha256": "83e1719b8efec4a73a9decf9f2cb8ddddb46ed1f4fb5d842ee7a04771c1e5bba"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_A2_ola1.r5.json",
+          "sha256": "5dc398c3f86f8b172bfd5cee1332c3077d7c69a7381f4b46092fc96953e77eb4"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r1.json",
+          "sha256": "ae4d18d3c7a4c113d5fa279b4198218589d546b962b7294736f48045c8b0b8c4"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r2.json",
+          "sha256": "b38f02987fb5c10b8ef4971b6078b4cda2943f2f0258fd3267416618cc2abcb2"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r3.json",
+          "sha256": "39cbb3c7a4bcd37c71e68302bece6dba606bbe7f3f3413d077a6c5257e0b1bd7"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r4.json",
+          "sha256": "109257fa22802d15c9fd8d2bff14dfc0e1584d634e05bda038c77a559d387e7c"
+        },
+        {
+          "path": "oph-physics-sim/data/ol_a1_replication/run_C1_ola1.r5.json",
+          "sha256": "0461bc690c019ed34ad974aee7deaba0247c2d64b607c78ba107202e649404f4"
+        }
       ]
     },
     {
