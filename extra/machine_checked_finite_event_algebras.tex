@@ -1154,6 +1154,31 @@ instrument, nor supplies one common cross-context preparation, readback, run
 binding, provenance, or custody. The clauses are conjoined in
 \texttt{sourcePhaseInstrumentOutcomeBridge\_receipt}.
 
+The companion module \texttt{SourcePhaseCommonPreparationHull} identifies
+the exact common-support surface of the generated phase relation. Exactly the
+three real orbit states admit all twelve generated phase events
+(\texttt{hasAllPhaseEvents\_iff}). Their normalized real mixture with weights
+\[
+  \frac{265}{537},\qquad \frac{136}{537},\qquad \frac{136}{537}
+\]
+is exactly the declared run state; this is theorem
+\texttt{commonSupportMixture\_eq\_committedRunState}. Equality to that matrix
+uniquely determines all three coefficients, without assuming normalization
+(\texttt{commonSupportMixture\_coefficients\_unique}). Each common-support
+state assigns weight $1/2$ to either generated Pauli-$Y$ orientation, and
+every common-support state/event pair inherits the normalized declared
+L\"uders-outcome equality. The declared run matrix is not any generated state,
+no generated source step starts from it, and the result of every generated
+phase event lacks all-event support. This is retrospective convex-hull
+compatibility, not a source-produced or enabled common preparation. The
+pointwise one-step cells supply no convex-lift, mixing, reset,
+re-preparation, or sequential schedule. The twelve generated events are not
+the eight public instrument contexts, and the theorem supplies no instrument
+implementation, public outcome, readback, run binding, provenance, custody,
+cross-context additivity, or physical attachment; PR-65 remains open. The
+clauses are conjoined in
+\texttt{sourcePhaseCommonPreparationHull\_receipt}.
+
 The module \texttt{SourcePhaseBornWeightBoundary} proves the exact
 single-shot identity
 \[

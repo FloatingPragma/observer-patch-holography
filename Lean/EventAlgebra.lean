@@ -33,6 +33,7 @@ import EventAlgebra.OperationalAdditivityBoundary
 import EventAlgebra.LuedersPhaseInstrument
 import EventAlgebra.SourcePhaseSelection
 import EventAlgebra.SourcePhaseInstrumentOutcomeBridge
+import EventAlgebra.SourcePhaseCommonPreparationHull
 import EventAlgebra.SourcePhaseBornWeightBoundary
 import EventAlgebra.ProductSplitSeparability
 
@@ -149,6 +150,14 @@ declared Lüders phase instrument.  Its outcome index is semantic, not a
 recorded public outcome; it derives no instrument implementation, common
 preparation protocol, readback, run binding, provenance, or custody.  The
 companion
+`EventAlgebra.SourcePhaseCommonPreparationHull` proves that exactly the three
+real orbit states enable every generated phase event and that their unique
+normalized real mixture with weights `265/537`, `136/537`, and `136/537`
+equals the declared run state.  This is retrospective convex-hull
+compatibility, not a source-produced common preparation or an eight-context
+protocol: the run state is not generated, no source step starts from it, and
+every generated result loses all-event support.  No reset, re-preparation, or
+sequential schedule is supplied.  The companion
 `EventAlgebra.SourcePhaseBornWeightBoundary` proves the exact selected-effect
 identity `1/2 - Im(rho 0 1)` and the conditional half-weight boundary for
 prospective source-to-phase preparation bridges that preserve record

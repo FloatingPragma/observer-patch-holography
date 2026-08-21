@@ -5958,6 +5958,51 @@
       }
     },
     {
+      "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-COMMON-PREPARATION-HULL",
+      "statement": "The generated source-phase relation has exactly three states from which all twelve generated phase events are enabled: orbit00, orbit02, and orbit04. Their normalized real convex combination with coefficients 265/537, 136/537, and 136/537 is exactly the declared run state, and any real coefficient triple on those same three matrices equal to the run state has those coefficients. Every common-support state assigns Born weight one half to either generated Pauli-Y orientation, and each of its state/event pairs obeys the existing normalized declared Lueders-outcome equality. The declared run matrix is not any generated state, no generated SourceStep starts from it, and the result of every generated event lacks all-event support. This is retrospective convex-hull compatibility with separate pointwise one-step cells, not convex closure, a reset or re-preparation rule, or a sequential protocol. No source rule selects or samples the coefficients; the twelve generated events are not the eight public instrument contexts; and no source-produced common preparation, instrument implementation, public outcome, readback, run binding, provenance, custody, cross-context additivity, or physical attachment is established.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "exact_unique_common_support_convex_hull_compatibility_with_declared_run_state",
+      "assumptions": [
+        "committed_diagonal_record_algebra_and_web_contexts",
+        "lueders_instrument_declared_as_selection",
+        "source_phase_preparation_readback_provenance_deferred"
+      ],
+      "imported_results": [
+        "finite_exhaustive_source_relation",
+        "finite_dimensional_complex_matrix_algebra",
+        "source_phase_instrument_outcome_bridge"
+      ],
+      "oph_specific_delta": "Determines the exact common event-support subset of the generated source relation, proves that the already declared run matrix lies in its convex hull with a coefficient triple unique even without assuming normalization, propagates the existing half-weight and normalized-outcome identities over every common-support state/event pair, and proves that the hull point is not generated and the all-event support is lost after one step, while keeping mixing, reset, sequential-protocol, source-selection, and public-run custody semantics absent.",
+      "novelty_type": "exact_common_source_support_and_unique_declared_preparation_hull_compatibility",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean",
+        "Lean/EventAlgebra/SourcePhaseSelection.lean",
+        "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean"
+      ],
+      "falsifier": "The claim fails if the all-event support contains a different generated state, one listed state lacks an enabled event, the weights are negative or fail to sum to one, their matrix mixture differs from the declared run state, another real coefficient triple gives that state, some generated state equals the declared run matrix, a generated SourceStep starts from it, a generated result retains all-event support, a common-support state gives either generated orientation a weight other than one half, an inherited normalized outcome equality fails, or any receipt clause fails.",
+      "scope_if_false": "Only the generated common-support, declared-run convex-hull, and one-step boundary packet falls. Source effect selection, the per-step outcome bridge, the declared instrument channel clauses, the single-shot Born-weight boundary, and all open operational and physical obligations remain separately assessed.",
+      "status": "exact_common_support_and_unique_declared_run_hull_attained__source_mixing_public_contexts_readback_run_custody_and_pr65_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-03",
+          "PR-52",
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
       "statement": "For every normalized two-dimensional state rho, the single-shot Born weight of the source-selected Pauli +Y effect is exactly 1/2 - Im(rho_01). Therefore a non-half weight requires a nonzero imaginary off-diagonal coordinate; real off-diagonal coherence alone is insufficient. For the current enumerated source-reachable class, every prospective typed preparation bridge that maps reachable source matrices to states and preserves record diagonality gives weight exactly 1/2 to that effect. On record-diagonal two-dimensional states the generated -Y orientation and the diagonal comparator (1/2)I have the same weight. A constant diagonal bridge inhabits the preserving side, while an off-diagonal constant control gives weight one and fails preservation, so the hypothesis is logically load-bearing. This is a conditional single-shot Born-weight theorem; it derives no source bridge, common preparation, source operation, public outcome, sequential instrument behavior, operational readback, run, provenance, custody, physical region, or validation.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
