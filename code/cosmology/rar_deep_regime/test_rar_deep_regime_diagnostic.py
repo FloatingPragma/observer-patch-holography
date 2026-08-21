@@ -47,3 +47,22 @@ def test_committed_receipt_matches_code() -> None:
             fresh[key]["a0_fixed_exponent_m_s2"], rel=1e-9
         )
     assert receipt["additive_all_gradient_extension"]["additive_form_passes_solar_system"] is False
+
+
+def test_quadrupole_crosscheck_matches_published_values() -> None:
+    import qumond_quadrupole_crosscheck as qc
+
+    out = qc.run(epsrel=1e-8)
+    fl = out["field_law"]
+    assert fl["simple_function_blanchet_novak_inputs"]["relative_difference"] < 0.05
+    assert fl["rar_function_park_inputs"]["relative_difference"] < 1e-3
+    assert fl["rar_function_park_inputs"]["pull_vs_cassini_sigma"] > 10
+    dens = out["density_formulation"]
+    assert dens["quadrupole_s2"] == 0.0
+    assert dens["tidal_scale_s2"] < 1e-30
+    path = HERE / "receipts" / "qumond_quadrupole_crosscheck.json"
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    assert receipt["physical_claim"] is False
+    assert receipt["field_law"]["rar_function_park_inputs"]["Q2_s2"] == pytest.approx(
+        fl["rar_function_park_inputs"]["Q2_s2"], rel=1e-4
+    )

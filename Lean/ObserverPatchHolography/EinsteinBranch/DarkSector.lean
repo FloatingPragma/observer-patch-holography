@@ -27,6 +27,15 @@ records the algebraic consequences.
   screening interface: where recovery saturates, the dark source switches off.
 * A conserved comoving charge dilutes as the inverse cube of the scale factor
   (`comovingDensity_mul_scale_cubed`), the cold-background scaling.
+* The deep-regime anomalous density with linear enclosed mass,
+  `rho_A = sqrt(Mb a0 / G) / (4 pi r^2)`, gives the deep radial-acceleration
+  relation `a_A = sqrt(a_b a0)`, a flat rotation curve, and the baryonic
+  Tully--Fisher relation `v^4 = G Mb a0` (`deep_radial_acceleration`,
+  `circularSpeedSq_const`, `baryonic_tully_fisher`).
+* An ambient isotropic density has no quadrupole
+  (`isotropic_quadrupole_projection_zero`), and the tidal scale of the local
+  dark density is below a thousandth of the Cassini quadrupole uncertainty
+  (`localHaloTidal_below_cassini`).
 
 What is not proved here: that the physical stress contraction is the total
 modular charge (universal coupling is a premise field), that the anomalous
@@ -232,6 +241,123 @@ theorem comovingDensity_mul_scale_cubed (X : ComovingCharge) (n : ℕ) :
   have h : X.a n ^ 3 ≠ 0 := pow_ne_zero 3 (ne_of_gt (X.a_pos n))
   exact div_mul_cancel₀ X.Q h
 
+/-! ## Deep-regime profile of an anomalous density -/
+
+/-- Deep-regime data: a baryonic mass `Mb`, the acceleration constant `a0`,
+and Newton's constant `G`.  The profile below is the anomalous density whose
+enclosed mass grows linearly with radius. -/
+structure DeepProfile where
+  G : ℝ
+  G_pos : 0 < G
+  a0 : ℝ
+  a0_pos : 0 < a0
+  Mb : ℝ
+  Mb_pos : 0 < Mb
+
+/-- Enclosed anomalous mass `M_A(r) = r sqrt(Mb a0 / G)`. -/
+def enclosedMass (D : DeepProfile) (r : ℝ) : ℝ :=
+  r * Real.sqrt (D.Mb * D.a0 / D.G)
+
+/-- Anomalous density `rho_A(r) = sqrt(Mb a0 / G) / (4 pi r^2)`. -/
+def anomalousDensity (D : DeepProfile) (r : ℝ) : ℝ :=
+  Real.sqrt (D.Mb * D.a0 / D.G) / (4 * Real.pi * r ^ 2)
+
+/-- The enclosed mass is the shell integral of the density: `M_A' = 4 pi r^2 rho_A`. -/
+theorem enclosedMass_hasDerivAt (D : DeepProfile) (r : ℝ) (hr : r ≠ 0) :
+    HasDerivAt (enclosedMass D) (4 * Real.pi * r ^ 2 * anomalousDensity D r) r := by
+  have h : HasDerivAt (enclosedMass D) (Real.sqrt (D.Mb * D.a0 / D.G)) r := by
+    unfold enclosedMass
+    simpa using (hasDerivAt_id r).mul_const (Real.sqrt (D.Mb * D.a0 / D.G))
+  convert h using 1
+  unfold anomalousDensity
+  have hpi : Real.pi ≠ 0 := Real.pi_ne_zero
+  field_simp
+
+/-- Anomalous acceleration from the enclosed mass. -/
+def anomalousAcceleration (D : DeepProfile) (r : ℝ) : ℝ :=
+  D.G * enclosedMass D r / r ^ 2
+
+/-- Baryonic Newtonian acceleration of the point mass. -/
+def baryonicAcceleration (D : DeepProfile) (r : ℝ) : ℝ := D.G * D.Mb / r ^ 2
+
+theorem sqrt_G_mul (D : DeepProfile) :
+    D.G * Real.sqrt (D.Mb * D.a0 / D.G) = Real.sqrt (D.G * D.Mb * D.a0) := by
+  have hG : 0 ≤ D.G := le_of_lt D.G_pos
+  have hGne : D.G ≠ 0 := ne_of_gt D.G_pos
+  calc D.G * Real.sqrt (D.Mb * D.a0 / D.G)
+      = Real.sqrt (D.G ^ 2) * Real.sqrt (D.Mb * D.a0 / D.G) := by
+        rw [Real.sqrt_sq hG]
+    _ = Real.sqrt (D.G ^ 2 * (D.Mb * D.a0 / D.G)) := by
+        rw [Real.sqrt_mul (sq_nonneg _)]
+    _ = Real.sqrt (D.G * D.Mb * D.a0) := by
+        congr 1
+        field_simp
+
+/-- The linear profile gives the deep law `a_A = sqrt(G Mb a0) / r`. -/
+theorem anomalousAcceleration_eq (D : DeepProfile) (r : ℝ) (hr : 0 < r) :
+    anomalousAcceleration D r = Real.sqrt (D.G * D.Mb * D.a0) / r := by
+  unfold anomalousAcceleration enclosedMass
+  rw [← sqrt_G_mul D]
+  have hrne : r ≠ 0 := ne_of_gt hr
+  field_simp
+
+/-- Deep radial-acceleration relation: `a_A = sqrt(a_b a0)`. -/
+theorem deep_radial_acceleration (D : DeepProfile) (r : ℝ) (hr : 0 < r) :
+    anomalousAcceleration D r = Real.sqrt (baryonicAcceleration D r * D.a0) := by
+  rw [anomalousAcceleration_eq D r hr]
+  unfold baryonicAcceleration
+  have hrne : r ≠ 0 := ne_of_gt hr
+  have h2 : (0 : ℝ) ≤ r ^ 2 := sq_nonneg r
+  rw [show D.G * D.Mb / r ^ 2 * D.a0 = (D.G * D.Mb * D.a0) / r ^ 2 by ring,
+    Real.sqrt_div' _ h2, Real.sqrt_sq (le_of_lt hr)]
+
+/-- Squared circular speed supported by the anomalous acceleration. -/
+def circularSpeedSq (D : DeepProfile) (r : ℝ) : ℝ := anomalousAcceleration D r * r
+
+/-- Flat rotation curve: the anomalous circular speed is radius independent. -/
+theorem circularSpeedSq_const (D : DeepProfile) (r : ℝ) (hr : 0 < r) :
+    circularSpeedSq D r = Real.sqrt (D.G * D.Mb * D.a0) := by
+  unfold circularSpeedSq
+  rw [anomalousAcceleration_eq D r hr]
+  have hrne : r ≠ 0 := ne_of_gt hr
+  field_simp
+
+/-- Baryonic Tully--Fisher relation: `v^4 = G Mb a0`. -/
+theorem baryonic_tully_fisher (D : DeepProfile) (r : ℝ) (hr : 0 < r) :
+    (circularSpeedSq D r) ^ 2 = D.G * D.Mb * D.a0 := by
+  rw [circularSpeedSq_const D r hr]
+  have hnn : 0 ≤ D.G * D.Mb * D.a0 := by
+    have := D.G_pos; have := D.Mb_pos; have := D.a0_pos
+    positivity
+  exact Real.sq_sqrt hnn
+
+/-! ## Solar-System footprint of an ambient isotropic density -/
+
+/-- An isotropic potential has no quadrupole: the Legendre `P2` weight
+`mu^2 - 1/3` integrates to zero over the sphere. -/
+theorem isotropic_quadrupole_projection_zero :
+    ∫ μ in (-1 : ℝ)..1, (μ ^ 2 - 1 / 3) = 0 := by
+  have h2 : IntervalIntegrable (fun μ : ℝ => μ ^ 2) MeasureTheory.volume (-1) 1 :=
+    (by fun_prop : Continuous (fun μ : ℝ => μ ^ 2)).intervalIntegrable _ _
+  have hc : IntervalIntegrable (fun _ : ℝ => (1 / 3 : ℝ)) MeasureTheory.volume (-1) 1 :=
+    intervalIntegrable_const
+  rw [intervalIntegral.integral_sub h2 hc, integral_pow, intervalIntegral.integral_const]
+  norm_num
+
+/-- The tidal scale `4 pi G rho / 3` of the local dark density
+(`rho = 6.8e-22 kg m^-3`) is below one thousandth of the Cassini
+quadrupole uncertainty `1.8e-27 s^-2`. -/
+theorem localHaloTidal_below_cassini :
+    4 * Real.pi * (6.6743e-11 : ℝ) * (6.8e-22 : ℝ) / 3 < (1.8e-27 : ℝ) / 1000 := by
+  have hpi : Real.pi < 4 := Real.pi_lt_four
+  have hpos : (0 : ℝ) < 6.6743e-11 * 6.8e-22 := by norm_num
+  calc 4 * Real.pi * (6.6743e-11 : ℝ) * (6.8e-22 : ℝ) / 3
+      = Real.pi * (4 * (6.6743e-11 * 6.8e-22) / 3) := by ring
+    _ < 4 * (4 * (6.6743e-11 * 6.8e-22) / 3) := by
+        apply mul_lt_mul_of_pos_right hpi
+        positivity
+    _ < (1.8e-27 : ℝ) / 1000 := by norm_num
+
 /-! ## Per-theorem axiom audit -/
 
 #print axioms totalStress_eq_luminous_add_dark
@@ -243,6 +369,11 @@ theorem comovingDensity_mul_scale_cubed (X : ComovingCharge) (n : ℕ) :
 #print axioms anomalousStress_eq_zero_of_recovered
 #print axioms anomalousStress_tendsto_zero
 #print axioms comovingDensity_mul_scale_cubed
+#print axioms enclosedMass_hasDerivAt
+#print axioms deep_radial_acceleration
+#print axioms baryonic_tully_fisher
+#print axioms isotropic_quadrupole_projection_zero
+#print axioms localHaloTidal_below_cassini
 
 end
 

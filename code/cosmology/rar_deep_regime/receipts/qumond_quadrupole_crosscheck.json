@@ -1,0 +1,35 @@
+{
+  "cassini": {
+    "Q2_s2": 1.6e-27,
+    "sigma_s2": 1.8e-27
+  },
+  "density_formulation": {
+    "enclosed_mass_kg_within_radius": 9536572232697164.0,
+    "enclosed_mass_solar_within_radius": 4.795934679777499e-15,
+    "quadrupole_s2": 0.0,
+    "radius_m": 1496000000000.0,
+    "rho_local_kg_m3": 6.8e-22,
+    "tidal_over_cassini_sigma": 0.00010561624930771083,
+    "tidal_scale_s2": 1.9010924875387949e-31
+  },
+  "field_law": {
+    "rar_function_blanchet_novak_inputs": {
+      "Q2_s2": 4.200888588566857e-26
+    },
+    "rar_function_park_inputs": {
+      "Q2_s2": 3.386716542109263e-26,
+      "published_Q2_s2": 3.387e-26,
+      "pull_vs_cassini_sigma": 17.926203011718126,
+      "relative_difference": 8.368995888309865e-05
+    },
+    "simple_function_blanchet_novak_inputs": {
+      "Q2_s2": 4.194524740545451e-26,
+      "published_Q2_s2": 4.1e-26,
+      "relative_difference": 0.02305481476718323
+    },
+    "verdict": "local field law excluded by the Cassini quadrupole; arithmetic confirmed against two independent published computations"
+  },
+  "physical_claim": false,
+  "schema": "oph.cosmology.qumond_quadrupole_crosscheck.v1",
+  "scope": "documentary_crosscheck_of_retired_field_law"
+}

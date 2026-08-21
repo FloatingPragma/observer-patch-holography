@@ -109,6 +109,12 @@ assert_no_sorry anomalousStress_abs_le
 assert_no_sorry anomalousStress_eq_zero_of_recovered
 assert_no_sorry anomalousStress_tendsto_zero
 assert_no_sorry comovingDensity_mul_scale_cubed
+assert_no_sorry enclosedMass_hasDerivAt
+assert_no_sorry deep_radial_acceleration
+assert_no_sorry circularSpeedSq_const
+assert_no_sorry baryonic_tully_fisher
+assert_no_sorry isotropic_quadrupole_projection_zero
+assert_no_sorry localHaloTidal_below_cassini
 
 /-! Human-readable per-theorem reports are emitted into the build receipt. -/
 
