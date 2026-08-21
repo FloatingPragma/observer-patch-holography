@@ -224,7 +224,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `completed_vacuum_stability_gate` | The string selector assumes the vacuum-stability gate completed for surviving candidates. | String-selector note |
 | `constraint_augmented_moduli_locking_gate` | The string selector assumes the constraint-augmented moduli-locking gate. | String-selector note |
 | `constructor_access_to_capacity_or_bridge_target` | The readback no-go assumes the constructor can access the capacity value or bridge target it is asked to reproduce. | Observers synthesis |
-| `dark_sector_collar_remainder` | The dark-matter continuation assumes the collar remainder as the dark-sector carrier. | oph_dark_matter_paper |
+| `modular_anomaly_source_identification` | The dark-matter continuation identifies the non-luminous gravitating charge with the anomalous modular energy carried on overlap collars, with the small-ball kernel inverse as its rest-frame normalization; the quotient-invariant localization receipt is work in progress. | oph_dark_matter_paper |
 | `declared_bounded_A5_software_machine` | The finite control assumes the declared bounded software machine carrying the A5 action. | Observers synthesis |
 | `declared_charged_double_triplet_algebraic_construction` | The charged-double-triplet matrix construction is a declared exact witness of the A1/A2-forced Lie type. The semantic response artifact constrains its signs and frame without selecting its representation or bracket. | specialist derivation papers |
 | `declared_equal_weight_oriented_face_rule` | For every pinned oriented face \((a,b,c)\), add the same cyclic bracket contributions \([e_a,e_b]=e_c\), \([e_b,e_c]=e_a\), and \([e_c,e_a]=e_b\). The exact certificate proves that this declared deterministic construction is \(60R_{13}\) and fails Jacobi. The three axioms do not force equal face weights or this construction rule. | Standard Model gauge paper, issue #734 |
@@ -274,7 +274,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `single_normalized_Z6_presence_attachment` | One connected normalized finite collar cut contributes its exact quotient-presence factor once to the conditional capacity balance. Conditional on the declared total \(P/4\), class equidistribution, one-class event, and scalar-weighted receipt, the finite theorem gives the survival factor \(1-P/24\). Its attachment to one global cosmic capacity is a separate physical premise. | Screen microphysics; N-reserve candidate boundary |
 | `poisson_mean_count_carrier` | The alternative exponential reserve branch assumes a source-derived mean-count or projective-limit carrier that turns \(P/24\) into an additive logarithmic load. The finite presence theorem alone does not supply this carrier. | N-reserve candidate boundary |
 | `full_observer_signature_is_declared` | Presentation invariance assumes the full observer signature is declared. | Screen microphysics |
-| `galaxy_equilibrium_limit` | The dark-matter continuation assumes the galaxy equilibrium limit. | oph_dark_matter_paper |
+| `codimension_one_collar_count` | The dark-matter continuation takes the deep-regime exponent from a codimension-one collar count around a point source, scaling as the square root of the baryonic acceleration ratio. | oph_dark_matter_paper |
 | `heterotic_critical_edge_certificate` | The string selector assumes the heterotic critical-edge certificate. | String-selector note |
 | `independent_complete_MGNS1_certificate_on_the_same_tower` | The cap chart assumes an independent complete MGNS1 certificate on the same tower. | specialist derivation papers |
 | `independently_typed_federation_and_support_screens` | The carrier bridge assumes independently typed federation and support screens. | Screen microphysics |
@@ -329,7 +329,7 @@ Dictionary closure is a fail-closed validator check (issue #512): every assumpti
 | `trace_balanced_C3_W2_carrier` | The exterior witness assumes the trace-balanced block carrier V = C + W with dimensions 3 + 2. | specialist derivation papers |
 | `transfer_vacuum_OS_noncollapse_receipts` | The Yang-Mills package assumes transfer-vacuum Osterwalder-Schrader non-collapse receipts. | Yang-Mills note |
 | `translation_rotation_covariance` | The cosmological spectrum assumes translation and rotation covariance of the declared kernels. | SCREEN_SPECTRUM_THEOREMS |
-| `transported_stress_dynamics` | The dark-matter continuation assumes transported stress dynamics. | oph_dark_matter_paper |
+| `collar_recovery_screening` | The dark-matter continuation assumes that the collar recovery defect vanishes in the repair-saturated regime of a compact source, which switches the anomalous source off where the Cassini bound applies. | oph_dark_matter_paper |
 | `typed_local_federation_and_global_support_screens` | The typed spine assumes typed local federation and global support screens. | specialist derivation papers |
 | `uniform_L2_approximate_tensorization` | The Yang-Mills gap assumes uniform L2 approximate tensorization across collars. | Yang-Mills note |
 | `uniform_local_repair_rate_floor` | The Yang-Mills gap assumes a uniform local repair-rate floor. | Yang-Mills note |

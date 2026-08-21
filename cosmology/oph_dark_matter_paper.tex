@@ -17,16 +17,14 @@
 \setlength{\emergencystretch}{3em}
 
 \newcommand{\OPH}{\mathrm{OPH}}
-\newcommand{\RPC}{\mathrm{RPC}}
-\newcommand{\chinu}{\chi_\nu}
-\newcommand{\chican}{\chi_\nu^{\mathrm{can}}}
 \newcommand{\dd}{\,\mathrm d}
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{corollary}[proposition]{Corollary}
-\newtheorem{definition}[proposition]{Definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
 
 \title{Observer-Patch Holography and the Dark Matter Phenomenon\\
-\large A Repair-Charge Condensate Completion}
+\large The Modular-Anomaly Source}
 \author{Bernhard Mueller \and David Matscheko}
 \date{\OPHPaperReleaseDate}
 \input{../paper/release_info}
@@ -43,337 +41,267 @@
 \end{center}
 
 \begin{abstract}
-Observer-patch holography contains a distinguished scalar repair register but
-does not assign that register a propagation law. This paper states a candidate
-dynamical completion: integer repair occupation and a conjugate repair phase
-form a lattice rotor. The proposed action has an exact repair-current balance
-law and a metric stress tensor. Its dilute homogeneous phase is pressureless,
-while a cubic condensed-phase link energy gives the deep radial-acceleration
-law and the baryonic Tully--Fisher scaling. Coherent material couples through
-the canonical susceptibility \(\chi_\nu^{\rm can}\), producing a lawful force
-only through genuine repair charge, an external repair gradient, or explicit
-field-momentum exchange. The canonical pair, source normalizations, complete
-constitutive law, relativistic limit, abundance, lensing, CMB, cluster, and
-laboratory receipts are work in progress. The construction is a conditional
-dark-sector mechanism, not a closed cosmological prediction.
+In observer-patch holography the Einstein equation sources curvature from the
+modular-charge stress of the screen under a universal coupling. Every screen
+source that carries modular charge therefore gravitates, whether or not it
+carries the electromagnetic readout, and the luminous-only Einstein relation
+holds exactly when the non-luminous charge vanishes. A dark sector is
+generic. The candidate source is the anomalous modular energy carried on
+overlap collars, the same finite-stage remainder that the Einstein derivation
+controls. Its rest-frame stress is bounded by the collar recovery defect,
+vanishes at full recovery, and dilutes as the inverse cube of the scale
+factor when conserved. These statements are machine-checked. The source must
+meet two data boundaries: on the SPARC rotation-curve sample the deep-regime
+law reproduces the radial-acceleration and Tully--Fisher relations with one
+constant near \(1.4\times10^{-10}\,\mathrm{m\,s^{-2}}\), and the Cassini
+quadrupole excludes any universal fixed-coefficient extension of that law at
+nineteen standard deviations. The magnitude of the anomalous charge, its
+radial profile, and the vanishing of the recovery defect at high record
+density are work in progress.
 \end{abstract}
 
 \section*{Claim Boundary}
 
-The scalar repair register lives on the federated OPH screen: each screen cell
-exposes repair channels beside its ports and records,
-and the register named here is the scalar sector of that repair machinery,
-aggregated over the federation. The finite OPH results supply the scalar
-register, the coherent-material
-same-channel theorem, and the protected-reserve coefficient
-\begin{equation}
-\chican=1-\frac{P}{24},
-\qquad
-\chican(P_C)=0.9320429912748350\ldots .
-\label{eq:chi-value}
-\end{equation}
-Here \(P_C=1.630968209403959\ldots\) is the CODATA-derived
-measured-endpoint comparison pixel. The decimal is therefore a comparison
-evaluation, not a source-selected OPH value.
-They do not supply a canonical conjugate, kinetic term, stress tensor, baryonic
-source map, or dimensional coherent-source coupling.
+The finite OPH results used here are the rest-frame Einstein relation on its
+named small-ball premises, the decomposition of the cap modular generator into
+a bulk part, a central part, and a collar-carried anomalous part, and the
+controlled bound on that anomalous part~\cite{ophEinstein,ophmicro}. The
+theorems of Sections~\ref{sec:generic} and \ref{sec:source} are algebraic
+consequences of those objects and are checked in the Lean
+formalization~\cite{ophlean}. Universal coupling is a premise of the Einstein
+branch, named as a structure field in the formalization and not established
+there.
 
-The repair-charge condensate action below is a proposed completion. Given that
-action, its continuity equation, stress balance, dilute-fluid equation of
-state, spherical deep-gradient law, and device-force ledger are mathematical
-consequences. Deriving the action from finite OPH repair dynamics is work in
-progress. No cosmological result carries an OPH falsification verdict.
+What the paper does not supply: a quotient-invariant receipt localizing the
+anomalous modular energy on collars, the value of the collar constant, the
+radial profile of the anomalous charge around a baryonic source, a proof that
+the recovery defect vanishes in any physical regime, and any cosmological
+likelihood. No cosmological result carries an OPH falsification verdict.
 
 \tableofcontents
 
-\section{The Missing Dynamical Object}
+\section{What Sources Gravity in OPH}
 
-A scalar channel identifies where a perturbation lives. Dynamics requires a
-canonical pair. Let the fixed-cutoff OPH carrier be an oriented causal cell
-complex with sites \(v\), oriented links \(e\), metric-dependent weights
-\(V_v\) and \(W_e\), integer signed repair occupation \(n_v\), and conjugate
-phase \(\theta_v\). The pair obeys
+The Einstein arrow of the spacetime paper ends in
 \begin{equation}
-n_v\in\mathbb Z,
+G_{ab}+\Lambda g_{ab}=8\pi G\langle T_{ab}\rangle,
+\label{eq:einstein}
+\end{equation}
+where \(\langle T_{ab}\rangle\) is the local conserved stress reconstructed
+from positive null translations and modular charges of the record
+algebra~\cite{ophEinstein}. In the rest frame the relation is obtained from
+three premises on a small geodesic ball of radius \(\ell\): generalized
+entropy is stationary, the bulk entropy variation equals
+\((8\pi^2\ell^4/15)\,\delta\langle T_{00}\rangle\), and the fixed-volume area
+variation equals \(-(4\pi\ell^4/15)\,\delta G_{00}\). Exact arithmetic then
+gives \(\delta G_{00}=8\pi G\,\delta\langle T_{00}\rangle\).
+
+The stress entering this relation is modular charge. The screen does not
+consult the electromagnetic readout of a source before responding to it. That
+is the content of the universal-coupling premise, and it is the only input
+the dark-sector question needs from the gravity derivation.
+
+\section{The Generic Dark Sector}
+\label{sec:generic}
+
+Let a finite family of screen sources be indexed by \(i\), each with
+rest-frame modular-charge contribution \(q_i\) and a flag recording whether
+it carries the electromagnetic readout. Write \(Q_{\rm lum}\) for the sum over
+flagged sources and \(Q_{\rm dark}\) for the sum over the others, so that
+\(Q_{\rm tot}=Q_{\rm lum}+Q_{\rm dark}\).
+
+\begin{definition}[Universal coupling]
+The stress contraction entering the rest-frame Einstein relation equals
+\(Q_{\rm tot}\), with no readout-dependent weight.
+\end{definition}
+
+\begin{theorem}[Geometry responds to all modular charge]
+\label{thm:all-charge}
+Under universal coupling,
+\(\delta G_{00}=8\pi G\,(Q_{\rm lum}+Q_{\rm dark})\).
+\end{theorem}
+
+\begin{theorem}[The luminous-only relation]
+\label{thm:iff}
+Under universal coupling, \(\delta G_{00}=8\pi G\,Q_{\rm lum}\) holds if and
+only if \(Q_{\rm dark}=0\).
+\end{theorem}
+
+\begin{corollary}[A geometric excess forces a dark source]
+\label{cor:excess}
+If \(\delta G_{00}\neq8\pi G\,Q_{\rm lum}\), some source without the
+electromagnetic readout carries nonzero modular charge.
+\end{corollary}
+
+\begin{proposition}[Attractive sign]
+If every non-luminous charge is nonnegative, \(Q_{\rm dark}\ge0\), and the
+dark contribution enters the weak-field equation with the sign of baryonic
+mass.
+\end{proposition}
+
+The proofs are finite sums and the positivity of \(8\pi G\). Their value is
+the direction of the inference. In a theory where gravity is sourced by
+modular charge, the question is not whether a dark sector exists; any
+geometric excess over the luminous prediction is by itself the statement
+that non-luminous modular charge is present. The open questions are which
+screen object carries that charge, how much of it there is, and how it is
+distributed.
+
+\section{The Modular-Anomaly Source}
+\label{sec:source}
+
+On the support-visible branch the cap modular generator has the local form
+\begin{equation}
+K_C=2\pi B_C+K_C^{\rm anom}+\mathrm{const},
+\label{eq:split}
+\end{equation}
+with \(B_C\) the bulk boost generator and \(K_C^{\rm anom}\) the nonadditive
+part carried on the overlap collar~\cite{ophEinstein}. At finite regulator
+stage the Einstein derivation carries this part as a remainder and bounds it:
+\begin{equation}
+\bigl|\delta\langle E_C^{(\delta)}\rangle\bigr|\le C_C\,\eta_\delta,
+\label{eq:bound}
+\end{equation}
+where \(\eta_\delta\) is the collar recovery defect and \(C_C\) depends only
+on the collar model and the bounded observable class.
+
+\begin{definition}[Anomalous stress]
+\begin{equation}
+\delta\langle T_{00}^{\rm anom}\rangle
+:=\frac{15}{8\pi^2\ell^4}\,\delta\langle E_C^{(\delta)}\rangle .
+\label{eq:tanom}
+\end{equation}
+\end{definition}
+
+This is the Einstein branch's own bookkeeping term. The dark-sector proposal
+is that it is not bookkeeping: the anomalous modular energy is a physical
+non-luminous charge in the sense of Section~\ref{sec:generic}. Three
+consequences follow from \eqref{eq:bound} and \eqref{eq:tanom} alone.
+
+\begin{theorem}[Bounded source]
+\label{thm:bounded}
+\(\bigl|\delta\langle T_{00}^{\rm anom}\rangle\bigr|
+\le 15\,C_C\,\eta_\delta/(8\pi^2\ell^4)\).
+\end{theorem}
+
+\begin{theorem}[Full recovery switches the source off]
+\label{thm:off}
+If \(\eta_\delta=0\) then \(\delta\langle T_{00}^{\rm anom}\rangle=0\).
+Along any family with fixed \(\ell\), bounded \(C_C\), and
+\(\eta_\delta\to0\), the anomalous stress tends to zero.
+\end{theorem}
+
+\begin{theorem}[Cold scaling]
+\label{thm:cold}
+A conserved anomalous charge in a comoving cell of physical volume
+\(\propto a^3\) has density \(\propto a^{-3}\).
+\end{theorem}
+
+Theorem~\ref{thm:off} is the screening interface. Wherever repair saturates
+and the collar recovery defect vanishes, the dark source is absent. Whether
+\(\eta_\delta\) vanishes in the high-acceleration, high-record-density regime
+of a planetary system is the physical question on which the Solar-System
+bound below turns; the theorem states what follows if it does.
+
+\section{Data Boundaries the Source Must Meet}
+\label{sec:data}
+
+\subsection{Deep regime}
+
+A static spherical source law of the form
+\begin{equation}
+a_{\rm dark}=\sqrt{a_b\,a_0},
 \qquad
-\theta_v\in S^1.
+v^4=GM_b\,a_0,
+\label{eq:deep}
 \end{equation}
-The local formulae use a real lift of \(\theta\). A global compact-phase
-completion must make the exponentiated source coupling single-valued. That
-quantization condition is work in progress.
+is the deep-regime target. One OPH mechanism for its exponent is a
+codimension-one collar count: repair opportunities on closed cuts around a
+point source scale as \(\sqrt{g_b/a_0}=r_M/r\) rather than as the area count
+\(g_b/a_0\)~\cite{ophmicro}. That count is a premise, not a consequence of
+Section~\ref{sec:source}.
 
-Let \(S_{{\rm coh},v}^{\rm can}\) be the canonical coherent-material source
-and \(\mathcal Q_{b,v}\) the baryonic repair demand. The fixed-chart
-Lorentzian action is
-\begin{align}
-I_{\RPC}={}&I_{\rm Regge}[\ell]+I_{\rm SM}[\ell,\Psi]
-\nonumber\\
-&+\int\dd\tau\left[
--\sum_v V_v n_vD_\tau\theta_v
--\sum_vV_v\varepsilon(n_v)
--\sum_eW_e\mathcal K\!\left(|(d\theta)_e|\right)
-\right.\nonumber\\
-&\hspace{34mm}\left.
--\sum_vV_v\theta_v
-\left(\mathcal Q_{b,v}+q_\star\chican
-S_{{\rm coh},v}^{\rm can}\right)
-\right].
-\label{eq:rpc-action}
-\end{align}
-Here \(q_\star\) is the dimensional coherent-source calibration. The
-infrared constitutive functions are
-\begin{equation}
-\varepsilon(n)=m_R|n|+\frac{u_R}{3}|n|^3+\cdots,
-\qquad
-\mathcal K(y)=\frac{\kappa_R}{3}y^3+\cdots,
-\label{eq:constitutive}
-\end{equation}
-with \(m_R,u_R,\kappa_R>0\). The omitted terms must provide a positive convex
-high-gradient completion.
+The law is compared with the SPARC sample of 175 disk galaxies with
+\(3.6\,\mu\)m photometry~\cite{sparc2016} under the standard cuts of McGaugh,
+Lelli, and Schombert~\cite{mls2016}: quality flag at most 2, inclination at
+least \(30^\circ\), velocity error at most ten percent, stellar
+mass-to-light ratios \(0.5\) for disks and \(0.7\) for bulges, leaving 2700
+points in 149 galaxies~\cite{ophrar}. On the self-consistent deep subset
+\(g_{\rm bar}<fa_0\) the fixed-exponent fit gives
+\[
+a_0=1.57\times10^{-10},\quad
+1.40\times10^{-10},\quad
+1.28\times10^{-10}\ \mathrm{m\,s^{-2}}
+\]
+for \(f=0.3\), \(0.1\), \(0.03\), with 1651, 1043, 233 points and rms
+scatter between \(0.14\) and \(0.17\) dex; the free exponents are
+\(0.60\pm0.01\), \(0.57\pm0.02\), \(0.39\pm0.08\). For the 123 galaxies with
+a measured flat velocity, \(M_b=0.5L_{[3.6]}+1.33M_{\rm HI}\), the
+fixed-exponent Tully--Fisher normalization gives
+\(a_0=1.55\times10^{-10}\,\mathrm{m\,s^{-2}}\) with \(0.26\) dex scatter and
+free exponent \(3.75\pm0.10\). The two constants differ by \(0.046\) dex,
+inside the combined scatter. The exponents are the parameter-free content of
+\eqref{eq:deep}; \(a_0\) is a fitted comparison value, and no OPH
+construction supplies it.
 
-Let \(D_\tau n_v:=V_v^{-1}\partial_\tau(V_vn_v)\), and define the lattice
-divergence by
-\begin{equation}
-\sum_vV_v f_v(\operatorname{div}_R j)_v
-=-\sum_eW_e(df)_ej_e
-\label{eq:divergence-convention}
-\end{equation}
-for compactly supported \(f\). These conventions make phase variation produce
-a positive source, and translation of a positive localized source gives
-\(-Q_R\nabla\theta\).
+\subsection{Solar System}
 
-\section{Repair Charge, Current, and Stress}
+Applied unchanged to the Sun inside the measured Galactic field, the
+collar-count law with the fixed coefficient \(1-P/24\) predicts an
+external-field quadrupole
+\(Q_2=3.62\times10^{-26}\,\mathrm{s^{-2}}\), against the Cassini value
+\((1.6\pm1.8)\times10^{-27}\,\mathrm{s^{-2}}\)~\cite{park2026}: a
+\(19\sigma\) exclusion at fixed inputs, and about \(11\sigma\) after the Gaia
+uncertainty on the Galactic acceleration~\cite{gaia2021}. Equivalently, the
+additive form \(g=g_{\rm bar}+\sqrt{g_{\rm bar}a_0}\) predicts a relative
+anomaly of \(1.5\times10^{-4}\) at one astronomical unit against a bound near
+\(10^{-8}\). Any universal fixed-coefficient extension of \eqref{eq:deep} is
+excluded.
 
-Variation with respect to the phase gives
-\begin{equation}
-D_\tau n+\operatorname{div}_R j_R
-=\mathcal Q_b+q_\star\chican S_{\rm coh}^{\rm can},
-\label{eq:gauss}
-\end{equation}
-where
-\begin{equation}
-j_{R,e}=\mathcal K'\!\left(|(d\theta)_e|\right)
-\frac{(d\theta)_e}{|(d\theta)_e|}.
-\end{equation}
-For the cubic infrared branch,
-\begin{equation}
-j_{R,e}=\kappa_R|(d\theta)_e|(d\theta)_e.
-\end{equation}
-Summation over a finite region \(\Omega\) gives the exact lattice balance law
-\begin{equation}
-\frac{\dd}{\dd\tau}\sum_{v\in\Omega}V_vn_v
-+\sum_{e\in\partial\Omega}W_ej_{R,e}
-=\sum_{v\in\Omega}V_v
-\left(\mathcal Q_{b,v}+q_\star\chican
-S_{{\rm coh},v}^{\rm can}\right).
-\label{eq:finite-balance}
-\end{equation}
+This is why Theorem~\ref{thm:off} is the first open target rather than a
+remark. A suppression rule introduced after reading Cassini would be a fitted
+continuation. A proof that the collar recovery defect vanishes where record
+density saturates would be the same object that sources the halo switching
+itself off, and it would be decided before any further data are examined.
 
-Equation~\eqref{eq:finite-balance} leaves three lawful source classes. A
-compact neutral source has no monopole and begins at dipole order. A source
-with nonzero integrated repair charge has a noncompact field tail. A driven
-source exchanges repair charge and momentum through its boundary. A compact
-neutral scalar contrast cannot produce a static support force by itself.
+\section{Open Targets}
+\label{sec:open}
 
-In the static cubic branch the spatial stress is
-\begin{equation}
-T^R_{ij}=\kappa_R|\nabla\theta|\,
-\partial_i\theta\,\partial_j\theta
--\delta_{ij}\frac{\kappa_R}{3}|\nabla\theta|^3+\cdots .
-\label{eq:repair-stress}
-\end{equation}
-Translation invariance gives the momentum ledger
-\begin{equation}
-F_i^{\rm matter}+\frac{\dd P_i^R}{\dd t}
-+\oint_{\partial\Omega}T^R_{ij}n^j\dd A=0.
-\label{eq:momentum-ledger}
-\end{equation}
-
-\section{Dilute Homogeneous Phase}
-
-Variation with respect to \(n_v\) gives
-\begin{equation}
-D_\tau\theta_v=-\varepsilon'(n_v).
-\end{equation}
-On the positive homogeneous branch,
-\begin{equation}
-\rho_R=m_Rn+\frac{u_R}{3}n^3,
-\qquad
-p_R=n\varepsilon'(n)-\varepsilon(n)=\frac{2u_R}{3}n^3.
-\label{eq:eos}
-\end{equation}
-For \(u_Rn^2\ll m_R\), the repair medium satisfies
-\begin{equation}
-p_R\ll\rho_R,
-\qquad
-\rho_R\simeq m_Rn.
-\end{equation}
-With no active source, Eq.~\eqref{eq:gauss} gives repair-charge conservation.
-In a homogeneous expanding chart,
-\begin{equation}
-\dot n+3Hn=0,
-\qquad
-n\propto a^{-3},
-\qquad
-\rho_R\propto a^{-3},
-\qquad
-w_R\simeq0.
-\label{eq:dust}
-\end{equation}
-The proposed repair medium therefore contains a cold-dark-matter-like
-background phase. Its abundance and perturbation transfer functions are not
-fixed by Eq.~\eqref{eq:dust}.
-
-\section{Condensed Galactic Phase}
-
-In a static condensed region, take
-\begin{equation}
-\nabla\!\cdot\!\left(\kappa_R|\nabla\theta|\nabla\theta\right)
-=\mathcal Q_b,
-\qquad
-\mathcal Q_b=\beta_b\rho_b,
-\qquad
-\mathbf a_R=-\beta_b\nabla\theta.
-\label{eq:galaxy-system}
-\end{equation}
-For a spherical baryonic source of mass \(M_b\), the exterior attractive
-branch satisfies
-\begin{equation}
-4\pi r^2\kappa_R|\theta'|\theta'=\beta_bM_b,
-\end{equation}
-and hence
-\begin{equation}
-a_R=\sqrt{\frac{\beta_b^3M_b}{4\pi\kappa_R}}\frac1r.
-\end{equation}
-Define
-\begin{equation}
-a_0=\frac{\beta_b^3}{4\pi G\kappa_R}.
-\label{eq:a0}
-\end{equation}
-Then
-\begin{equation}
-\boxed{a_R=\frac{\sqrt{GM_ba_0}}{r}=\sqrt{a_ba_0}},
-\qquad
-\boxed{v^4=GM_ba_0}.
-\label{eq:deep-law}
-\end{equation}
-Thus the cubic link energy implies the deep radial-acceleration relation and
-the baryonic Tully--Fisher scaling on the stated spherical, static,
-condensed-phase premises. The complete interpolation, nonspherical dynamics,
-external-field behavior, and value of \(a_0\) require the full microscopic
-function \(\mathcal K\) and the source-derived constants \(\beta_b,\kappa_R\).
-
-A single medium with a pressureless normal phase and a MOND-like condensed
-response also appears in superfluid dark-matter models
-\cite{berezhiani2015}. Dipolar media provide another action-based example in
-which cosmological dust behavior and galactic polarization coexist
-\cite{blanchet2008}. These analogies establish mathematical precedent, not an
-OPH derivation.
-
-\section{High-Gradient Branch}
-
-The constitutive completion may have
-\begin{equation}
-\mathcal K(y)\sim\frac{\kappa_R}{3}y^3
-\quad\text{at low gradient},
-\qquad
-\mathcal K(y)\sim\frac{\kappa_\infty}{p}y^p,
-\quad p>3,
-\quad\text{at high gradient}.
-\label{eq:screening}
-\end{equation}
-For fixed source flux, the high-power branch makes the field gradient grow
-sublinearly with source strength. This is a kinetic-screening route rather
-than a system label. K-mouflage models show that nonlinear kinetic screening
-can coexist with Solar-System and cosmological constraints, subject to strong
-parameter bounds~\cite{barreira2015}. Equation~\eqref{eq:screening} does not
-establish Solar-System viability. The Sun-plus-Galaxy boundary problem and the
-relativistic coupling are work in progress.
-
-\section{Coherent Matter and \texorpdfstring{\(\chi_\nu\)}{chi-nu}}
-
-The coherent source in Eq.~\eqref{eq:rpc-action} is
-\begin{equation}
-\mathcal Q_{\rm coh}=q_\star\chican S_{\rm coh}^{\rm can}.
-\label{eq:coherent-charge}
-\end{equation}
-The coefficient \(\chican\) is the dimensionless efficiency with which the
-canonical coherent source enters the repair-charge channel. It is not a
-complete force coefficient. The dimensional normalization \(q_\star\), the
-ambient repair field, and the source charge are separate objects.
-
-If an engineering chart uses
-\begin{equation}
-S_{\rm coh}^{\rm eng}=N_{\rm coh}S_{\rm coh}^{\rm can},
-\end{equation}
-then
-\begin{equation}
-\chi_\nu^{\rm eng}=\frac{\chican}{N_{\rm coh}}.
-\end{equation}
-This is a coordinate change. It fixes neither \(q_\star\) nor a device force.
-
-A coherent source in an external repair field experiences
-\begin{equation}
-F_i^{\rm coh}=-q_\star\chican
-\int_\Omega S_{\rm coh}^{\rm can}(x)
-\,\partial_i\theta_{\rm ext}(x)\dd^3x.
-\label{eq:coherent-force}
-\end{equation}
-Define
-\begin{equation}
-Q_R^{\rm dev}=q_\star\chican
-\int_\Omega S_{\rm coh}^{\rm can}\dd^3x.
-\end{equation}
-For a slowly varying external field,
-\begin{equation}
-F_i^{\rm dev}\simeq-Q_R^{\rm dev}\partial_i\theta_{\rm ext}.
-\label{eq:device-force}
-\end{equation}
-Signed repair charge permits attractive or repulsive response while
-\(\varepsilon(n)=\varepsilon(|n|)\) keeps the onsite energy positive.
-
-A local repulsive response therefore requires either
-\begin{equation}
-Q_R^{\rm dev}\ne0
-\end{equation}
-with its field tail, or nonzero field-momentum transfer in
-Eq.~\eqref{eq:momentum-ledger}. A static, closed, repair-neutral device cannot
-support itself through an internal top-to-bottom coherence contrast.
-
-\section{Physical Completion Conditions}
-
-The conditional mechanism becomes an OPH dark-sector theory only if one
-construction supplies all of the following:
 \begin{enumerate}
-\item a compact phase canonically conjugate to the scalar repair occupation;
-\item a globally well-defined source coupling for the compact phase;
-\item the baryonic source map \(\mathcal Q_b\) from the modular/Borel--Weil
-gravity bridge;
-\item the dimensional coherent-source calibration \(q_\star\);
-\item a positive convex constitutive law \(\mathcal K\) covering galactic and
-high-gradient regimes;
-\item a relativistic refinement limit and complete conserved stress tensor;
-\item a source-derived cosmic repair abundance and perturbation initial data;
-\item CMB, lensing, cluster, merger, growth, and Solar-System likelihoods;
-\item an instrument-independent coherent-source observable;
-\item a laboratory receipt for nonzero repair monopole charge or outgoing
-repair-field momentum.
+\item \textbf{Screening from recovery.} Prove or refute that \(\eta_\delta\to0\)
+in the repair-saturated regime of a compact source, with a rate in the local
+acceleration or record density. Theorem~\ref{thm:off} then gives the
+Solar-System suppression; a refutation retires the modular-anomaly source.
+\item \textbf{Magnitude.} Attach the normalization of
+\(\delta\langle E_C^{(\delta)}\rangle\) to repair conservation on the
+Ward/Bianchi rung of the gravity premise ladder, so that \(a_0\) is a
+consequence rather than a value borrowed from \(H_0\) and \(\Lambda\).
+\item \textbf{Profile.} Derive the codimension-one collar count, or replace
+it, from the collar geometry of a point source, so that the exponent in
+\eqref{eq:deep} is a theorem on the same premises as
+Section~\ref{sec:source}.
+\item \textbf{Localization.} Supply the quotient-invariant receipt identifying
+the collar operator in \eqref{eq:split} with the small-ball remainder in
+\eqref{eq:tanom}.
 \end{enumerate}
 
-No cosmological target or laboratory lift value is specified. Diagnostic
-simulations and known-data comparisons carry no falsification verdict while
-these constructions are work in progress.
+A rotor completion, with integer repair occupation and a conjugate phase,
+is admissible only under the identification of the occupation with the
+anomalous modular charge and of the phase with the modular flow angle. Without
+that identification it is a parametrization of items 2 and 3 rather than a
+derivation, and it is not used here.
 
 \section{Conclusion}
 
-The proposed scalar repair register is a dynamical rotor with occupation
-\(n\) and phase \(\theta\). Its normal phase has pressureless background
-scaling. Its cubic condensed phase gives the deep galaxy law. Coherent matter
-enters through the same scalar channel with coefficient \(\chican\), while a
-lawful device force requires repair charge, an external gradient, and a closed
-momentum ledger. This unifies the dark-sector and coherent-material mechanisms
-at the level of one conditional action. The OPH derivation and physical
-evidence are work in progress.
+Under universal coupling the screen gravitates according to its total
+modular charge. A dark sector is therefore a theorem-level feature of OPH,
+and any geometric excess over the luminous prediction is the presence of
+non-luminous modular charge. The anomalous modular energy on overlap collars
+is the one candidate for that charge that the Einstein derivation itself
+carries; it is bounded by the recovery defect, absent at full recovery, and
+cold when conserved. The deep-regime galaxy data fix the target its profile
+must reach, and the Cassini bound fixes the target its screening must reach.
+The proofs that close those targets are work in progress.
 
 \begin{thebibliography}{99}
 
@@ -388,28 +316,42 @@ B. Mueller et al.,
 \emph{Federated Echosahedral Screen Microphysics: Patch Hardware, Records, and Observer Synchronization in OPH}.
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/paper/screen_microphysics_and_observer_synchronization.pdf}
 
-\bibitem{ophchi}
-B. Mueller, A. Osika, and D. Matscheko,
-\emph{Theoretical Bounds on \(\chi_\nu\) in Observer-Patch Holography}.
-\url{https://github.com/FloatingPragma/observer-patch-holography/blob/main/extra/chi_nu_susceptibility_bounds.pdf}
+\bibitem{ophlean}
+B. Mueller et al.,
+\emph{Observer-Patch Holography: machine-checked Lean formalization},
+Einstein-branch modules \texttt{SmallBall} and \texttt{DarkSector},
+2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean/ObserverPatchHolography/EinsteinBranch}
 
-\bibitem{berezhiani2015}
-L. Berezhiani and J. Khoury,
-\emph{Theory of Dark Matter Superfluidity},
-Phys. Rev. D 92, 103510 (2015), arXiv:1507.01019.
-\url{https://arxiv.org/abs/1507.01019}
+\bibitem{ophrar}
+B. Mueller,
+\emph{Deep-regime comparison of the OPH galaxy law with SPARC},
+2026.
+\url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/rar_deep_regime}
 
-\bibitem{blanchet2008}
-L. Blanchet and A. Le Tiec,
-\emph{Model of Dark Matter and Dark Energy Based on Gravitational Polarization},
-Phys. Rev. D 78, 024031 (2008), arXiv:0804.3518.
-\url{https://arxiv.org/abs/0804.3518}
+\bibitem{sparc2016}
+F. Lelli, S. S. McGaugh, and J. M. Schombert,
+\emph{SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves},
+Astron. J. 152, 157 (2016), arXiv:1606.09251.
+\url{https://arxiv.org/abs/1606.09251}
 
-\bibitem{barreira2015}
-A. Barreira, P. Brax, S. Clesse, B. Li, and P. Valageas,
-\emph{K-mouflage gravity models that pass Solar System and cosmological constraints},
-Phys. Rev. D 91, 123522 (2015), arXiv:1504.01493.
-\url{https://arxiv.org/abs/1504.01493}
+\bibitem{mls2016}
+S. S. McGaugh, F. Lelli, and J. M. Schombert,
+\emph{Radial Acceleration Relation in Rotationally Supported Galaxies},
+Phys. Rev. Lett. 117, 201101 (2016), arXiv:1609.05917.
+\url{https://arxiv.org/abs/1609.05917}
+
+\bibitem{park2026}
+R. S. Park et al.,
+\emph{Cassini spacecraft navigation data constrain modified gravity in the Solar System},
+2026, arXiv:2602.17884.
+\url{https://arxiv.org/abs/2602.17884}
+
+\bibitem{gaia2021}
+Gaia Collaboration,
+\emph{Gaia Early Data Release 3: Acceleration of the Solar System from Gaia astrometry},
+Astron. Astrophys. 649, A9 (2021), arXiv:2012.02036.
+\url{https://arxiv.org/abs/2012.02036}
 
 \end{thebibliography}
 

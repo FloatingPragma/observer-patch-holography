@@ -3611,27 +3611,33 @@
     },
     {
       "claim_id": "OPH-DM-CONT",
-      "statement": "The OPH dark-sector continuation models dark gravity as transported record-repair collar stress, with a MOND-like settled-galaxy limit and separate cluster/cosmology contracts; the scalar collar CMI and its recovery error are not this stress source.",
+      "statement": "The OPH dark-sector continuation identifies the non-luminous gravitating charge with the anomalous modular energy carried on overlap collars, the finite-stage remainder of the Einstein derivation. Under the universal-coupling premise the geometry responds to total modular charge, so the luminous-only Einstein relation holds exactly when the non-luminous charge vanishes; the anomalous stress is bounded by the collar recovery defect, vanishes at full recovery, and dilutes as the inverse cube of the scale factor when conserved. The deep-regime galaxy law and the Cassini quadrupole are the two data boundaries the source must meet; its magnitude, radial profile, localization receipt, and the vanishing of the recovery defect at high record density are work in progress.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "phenomenological_continuation",
       "assumptions": [
-        "dark_sector_collar_remainder",
-        "galaxy_equilibrium_limit",
-        "transported_stress_dynamics",
+        "universal_coupling_receipt",
+        "modular_anomaly_source_identification",
+        "collar_recovery_screening",
+        "codimension_one_collar_count",
         "joint_likelihood_contract"
       ],
       "imported_results": [
         "MOND_RAR_phenomenology",
+        "SPARC_rotation_curve_sample",
+        "Cassini_quadrupole_bound",
         "LCDM_observational_targets",
         "weak_lensing_and_CMB_benchmarks"
       ],
-      "oph_specific_delta": "The missing gravitating sector is identified with electromagnetically dark observer-repair stress rather than a new luminous charge carrier; collar CMI remains a scalar consistency/recovery diagnostic and is not promoted to the source.",
+      "oph_specific_delta": "The dark sector is a consequence of sourcing gravity by modular charge under universal coupling rather than a new particle species; the candidate carrier is the Einstein branch's own collar-carried anomalous modular energy, so the same bound that controls the Einstein remainder bounds the dark source and switches it off at full recovery. The acceleration constant a_0 is a fitted comparison value, never a source-derived output.",
       "novelty_type": "phenomenological_continuation",
       "evidence": [
-        "cosmology/oph_dark_matter_paper.tex"
+        "cosmology/oph_dark_matter_paper.tex",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+        "code/cosmology/rar_deep_regime/rar_deep_regime_diagnostic.py",
+        "code/cosmology/rar_deep_regime/receipts/sparc_deep_regime_diagnostic.json"
       ],
-      "falsifier": "No binding falsifier exists while the source law, constants, relativistic completion, and joint likelihood are open. After those objects are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
-      "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive unless they import this stress law.",
+      "falsifier": "A proof that the collar recovery defect does not vanish in the repair-saturated regime of a compact source retires the modular-anomaly source, since the Cassini quadrupole excludes every universal fixed-coefficient extension of the deep law at nineteen standard deviations. The deep-regime comparison fails if the Tully-Fisher or radial-acceleration exponent measured on the declared sample departs from 4 and 1/2 beyond the stated scatter, or if the constants recovered from the two relations disagree. After the open objects are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
+      "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive, and the generic-dark-sector theorems survive as statements about whichever non-luminous charge exists.",
       "status": "resource_deferred",
       "claim_class": "declared_structure",
       "gates": [
