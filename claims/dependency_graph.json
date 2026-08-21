@@ -143,7 +143,9 @@
   "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
   "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
   "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
-  "OPH-QFT-COLIMIT-NORMED-COMPLETION"
+  "OPH-QFT-COLIMIT-NORMED-COMPLETION",
+  "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
+  "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT"
  ],
  "edges": [
   {
@@ -1305,6 +1307,21 @@
    "from": "OPH-FINITE-CAUSAL-OBSERVER-NET",
    "to": "OPH-QFT-COLIMIT-NORMED-COMPLETION",
    "role": "supplies the finite region-indexed net, the declared disjointness relation, and the committed support-graded witness on which the four transported regional statements are instantiated; it supplies no physical causal region, evolution, or spacetime attachment"
+  },
+  {
+   "from": "OPH-QFT-COLIMIT-NORMED-COMPLETION",
+   "to": "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
+   "role": "supplies the completed C*-algebra and completed regional algebras whose conditional GNS representation and represented images are constructed; it supplies no normalized positive functional, vacuum, dynamics, or physical attachment"
+  },
+  {
+   "from": "OPH-CONSENSUS-TOWER-INTERFACE",
+   "to": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+   "role": "supplies one normalized finite density state per observer and exact expectation naturality under refinement; the coherent observer choice remains explicit structural input and no physical source selection is supplied"
+  },
+  {
+   "from": "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
+   "to": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+   "role": "supplies the generic completed-colimit GNS Hilbert-space adapter whose free functional is constructed from coherently selected tower states here; it supplies no physical vacuum, Hamiltonian dynamics, fields, spacetime, or continuum attachment"
   }
  ]
 }

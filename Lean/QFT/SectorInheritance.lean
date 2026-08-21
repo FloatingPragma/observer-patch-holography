@@ -78,22 +78,25 @@ the commutant restriction is load-bearing, not decorative.
 
 ## Part 3 — TYPED NON-EVALUABLE EXIT: full DHR reconstruction
 
-Full DHR sector theory — localized transportable endomorphisms of the
-quasi-local algebra relative to a vacuum representation, their
+Full DHR sector theory — localized transportable endomorphisms of a
+quasi-local net in a selected vacuum representation, their
 intertwiner categories, and Doplicher–Roberts reconstruction of a
 compact gauge group — is not evaluable against the committed carriers,
 and this module declines it rather than approximating it.  The missing
-types are: no quasi-local (inductive-limit) observable algebra exists
-— E3's own claim boundary (`LocallyCovariantLimit.lean`) records the
-filtered-colimit algebra as a declared later deliverable, explicitly
-not constructed; no Hilbert-space representation of the net, hence no
-vacuum representation and no superselection criterion relative to one;
+types are: `ColimitNormedCompletion.lean`,
+`ColimitGNSRepresentation.lean`, and `ColimitSelectedStateGNS.lean` now
+construct the completed colimit and its mathematical GNS representation from
+a supplied coherent observer family and the tower's compatible selected
+density states, but they construct no
+source-selected physical state, no vacuum representation, no proof that the
+represented regional-algebra image family forms the DHR quasi-local net, and
+no superselection criterion relative to one;
 no transportability statement is even statable, since transporting a
 localized morphism requires an unbounded supply of mutually disjoint
 regions and the two-site example has exactly one declared disjoint
-pair; and the pinned Mathlib has no representation theory of
-C*-algebras and no sector category.  Until the limit algebra and a
-represented net exist, full DHR is a typed exit of this row, exactly
+pair; and the pinned Mathlib has no sector category.  Until the selected
+vacuum representation, quasi-local net, and transportability structures
+exist, full DHR is a typed exit of this row, exactly
 as horizon thermality is a typed exit of the KMS row and time-slice is
 a typed exit of E3.
 

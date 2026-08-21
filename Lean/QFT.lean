@@ -45,6 +45,8 @@ import QFT.CarrierJoinTransport
 import QFT.JoinNetMorphism
 import QFT.OperatorLayerMorphismBoundary
 import QFT.ColimitNormedCompletion
+import QFT.ColimitGNSRepresentation
+import QFT.ColimitSelectedStateGNS
 
 /-!
 # OPH construction QFT umbrella
@@ -133,4 +135,12 @@ common multiplier rescaling: the relative factor coefficient is identifiable,
 not gauge.  These kernels are built from the supplied costs; neither module
 identifies an OPH source kernel or selects the coefficients.  A state-dependent
 control proves that translation invariance is load-bearing.
+The colimit-GNS modules represent the completed colimit and the images of its
+completed regional algebras on a GNS Hilbert space.  A coherent observer
+family makes the tower's compatible selected density states descend to a
+normalized positive functional on the completion, and the committed witness
+therefore has an explicit nonzero normalized GNS unit class.  The observer
+family and finite states remain declared structural data: no source selection,
+physical state or vacuum, dynamics, field content, continuum limit, or
+spacetime attachment is constructed.
 -/

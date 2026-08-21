@@ -2801,6 +2801,55 @@ order-theoretic equality of the tower, and the time-indexed evolution
 interface and every physical attachment are open premises.
 (\path{Lean/QFT/ColimitNormedCompletion.lean}).
 
+\paragraph{A selected-state Hilbert-space representation of the completed net.}
+Equip the completed colimit with the canonical C*-spectral order.  For every
+positive complex-linear functional \(\omega\) normalized by
+\(\omega(1)=1\), the GNS construction gives a complex Hilbert space
+\(\mathcal H_\omega\) and a unital star representation
+\(\pi_\omega\) of the completed colimit by bounded operators.  The completion
+image \(\Omega_\omega\) of the algebra unit is explicit and obeys
+\[
+ \|\Omega_\omega\|=1,
+ \qquad
+ \langle\Omega_\omega,\pi_\omega(a)\Omega_\omega\rangle
+   =\omega(a),
+ \qquad
+ \overline{\{\pi_\omega(a)\Omega_\omega:a\}}=\mathcal H_\omega.
+\]
+Sending every completed regional algebra to its image under the same
+representation preserves isotony, refinement independence, elementwise
+locality for the declared-disjoint regions, and the already committed
+order-theoretic Cauchy-embedding equality.  Images are used rather than
+identified with their sources because normalization does not imply that the
+representation is faithful.
+
+For the committed tower interface, the functional need not be added as an
+unrelated input.  Let \(\xi_r\) be an explicitly supplied observer family
+compatible with every regulator refinement, and let \(\rho_{r,\xi_r}\) be
+the selected density state already carried by the tower.  State naturality
+makes
+\[
+  \omega_\xi(\iota_r(X))
+    :=\operatorname{Tr}(\rho_{r,\xi_r}X)
+\]
+well defined on the algebraic colimit.  The finite state-expectation bound
+extends it continuously to the completed colimit, where it is positive for
+the spectral order and normalized.  Hence \(\omega_\xi\) supplies the GNS
+Hilbert space and representation above.  The committed one-regulator witness
+instantiates this construction, and its GNS unit class is nonzero with norm
+one.  This closes the formal algebra--selected-state--Hilbert-space rung.
+
+The coherent observer family and its finite density states are still declared
+structural data, not a state selected by an experimental source.  Neither
+they nor \(\Omega_{\omega_\xi}\) are identified as a physical vacuum.  No
+Hamiltonian or physical dynamics, energy--momentum, field content, Lorentzian
+attachment, continuum or infinite-volume limit, interacting theory, or
+physical time-slice theorem follows.  Thus this is an actual mathematical
+Hilbert-space attachment to the committed tower, not yet a physical QFT;
+PR-52 and PR-58 remain open and OL-C6 remains partial.
+(\path{Lean/QFT/ColimitGNSRepresentation.lean};
+\path{Lean/QFT/ColimitSelectedStateGNS.lean}).
+
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
 \texttt{TimeIndexedNetEvolution} over the committed 86/247 diamond in both

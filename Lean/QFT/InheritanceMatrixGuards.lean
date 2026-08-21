@@ -44,7 +44,7 @@ Tomita TODO in `Mathlib/Analysis/InnerProductSpace/StandardSubspace.lean`.
 | 1 | `Mathlib.Analysis.InnerProductSpace.StandardSubspace` exists (cited TODO home) | presence |
 | 2 | `Mathlib.LinearAlgebra.CliffordAlgebra.SpinGroup` and `spinGroup` exist (cited as present-but-unconnected) | presence |
 | 2 | no spin-structure declaration in the closure | env scan |
-| 3 | no quasi-local algebra, vacuum representation, or Doplicher-Roberts declaration in the closure | env scan |
+| 3 | no DHR quasi-local net, selected vacuum representation, or Doplicher-Roberts declaration in the closure | env scan |
 | 6 | no Lorentz/globally-hyperbolic/Cauchy-surface/Cauchy-embedding declaration or module in pinned Mathlib | env scan |
 | 6 | no Cauchy-embedding declaration in the closure | env scan |
 | 6 | the finite `TimeIndexedNetEvolution` interface and its row anchor remain present | tree companion |
@@ -120,7 +120,7 @@ def projectAbsenceProbes : List AbsenceProbe :=
      claim := "no spin structure exists in the tree"
      probes := ["spinstructure"] },
    { row := 3
-     claim := "no quasi-local algebra, vacuum representation, or \
+     claim := "no DHR quasi-local net, selected vacuum representation, or \
        Doplicher-Roberts reconstruction in tree (full-DHR exit)"
      probes := ["quasilocal", "vacuumrepresentation", "doplicherroberts"] },
    { row := 6

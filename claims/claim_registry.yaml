@@ -6274,6 +6274,82 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
+      "statement": "For every committed consensus tower and every explicitly supplied normalized complex-linear functional on its completed colimit that is positive for Mathlib's canonical C*-spectral order, the Gelfand-Naimark-Segal construction gives a complex Hilbert space and a unital star representation of the completed colimit by bounded operators. The completion image of the algebra unit is explicit: the representation sends an element acting on that class to its canonical dense pre-GNS class, the matrix coefficient with the unit class in the first slot equals the supplied functional, normalization omega(1) = 1 makes the unit class have norm one, and the orbit of that class under the completed colimit is dense. Each completed regional algebra is sent to its image under the same representation; these images preserve isotony, refinement independence, elementwise locality for declared-disjoint regions, and the committed order-theoretic Cauchy-embedding equality. The construction is conditional on the supplied functional and does not construct or source-select one. The represented images are used rather than identified with their sources because no faithfulness hypothesis is assumed. No physical state, vacuum, dynamics, energy-momentum, field, particle, Lorentzian or spacetime attachment, Haag-Kastler or Wightman system, physical time-slice property, interacting theory, or continuum/infinite-volume interpretation is constructed; PR-52 and PR-58 remain open and OL-C6 remains partial.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "conditional_completed_colimit_GNS_Hilbert_representation_and_represented_regional_net",
+      "assumptions": [
+        "supplied_normalized_positive_functional_on_completed_colimit"
+      ],
+      "imported_results": [
+        "canonical_C_star_spectral_order",
+        "Gelfand_Naimark_Segal_construction"
+      ],
+      "oph_specific_delta": "The standard GNS construction is attached to the committed completed consensus-tower colimit under a locally scoped canonical spectral order. The unit class is made explicit and its action, correctly oriented matrix coefficient, normalized norm, and dense cyclic orbit are proved. The closures of the committed limit local algebras are represented on that one Hilbert space and their isotony, refinement, locality, and order-theoretic Cauchy equality are transported without assuming faithfulness. The sole state-like input and every physical interpretation remain explicit nonclaims.",
+      "novelty_type": "conditional_GNS_representation_of_completed_consensus_colimit_and_regional_net",
+      "evidence": [
+        "Lean/QFT/ColimitGNSRepresentation.lean",
+        "Lean/QFT/ColimitNormedCompletion.lean",
+        "paper/reality_as_consensus_protocol.tex"
+      ],
+      "falsifier": "The claim fails if, for some supplied functional satisfying the stated positivity and normalization, the representation acting on the unit class differs from the canonical dense pre-GNS class, the matrix coefficient with the unit class in the first slot differs from the functional, the unit class does not have norm one, its orbit is not dense, or any represented isotony, refinement-independence, locality, or committed order-theoretic Cauchy-equality statement fails.",
+      "scope_if_false": "Only the conditional GNS adapter and the represented-image regional statements fall. The completed colimit C*-algebra, its unrepresented completed regional algebras, their analytic laws, and all questions of state selection and physical attachment remain separately assessed.",
+      "status": "conditional_mathematical_GNS_Hilbert_interface_attained__functional_selection_faithfulness_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+      "statement": "For every committed consensus tower equipped with an explicitly supplied coherent observer family, the tower's selected finite density states descend to a complex-linear expectation on the algebraic filtered colimit. Its value on a stage image is exactly Tr(rho_(r,xi_r) X), state naturality and observer coherence make that value representative independent, and the finite state-expectation bound makes its norm at most the colimit norm. The expectation therefore extends continuously to the completed colimit, where it is positive for Mathlib's canonical C*-spectral order and normalized at the unit. Feeding this constructed functional to the completed-colimit GNS adapter gives a complex Hilbert space and bounded-operator star representation without an externally supplied functional. The committed one-regulator witness and its coherent observer family instantiate the construction; the resulting GNS unit class is nonzero and has norm one. The coherent observer family and tower density states are declared structural data, not selected by a physical source. No faithfulness, physical state or vacuum, Hamiltonian or physical dynamics, energy-momentum, field content, Lorentzian or spacetime attachment, Haag-Kastler or Wightman system, physical time-slice property, interacting theory, continuum limit, or infinite-volume interpretation is constructed; PR-52 and PR-58 remain open and OL-C6 remains partial.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "selected_tower_state_completed_colimit_GNS_Hilbert_attachment",
+      "assumptions": [
+        "coherent_observer_family_for_selected_tower_state"
+      ],
+      "imported_results": [
+        "finite_density_state_expectation_bound",
+        "continuous_extension_to_uniform_completion",
+        "canonical_C_star_spectral_order",
+        "Gelfand_Naimark_Segal_construction"
+      ],
+      "oph_specific_delta": "The density states and exact expectation naturality already stored in a consensus tower are joined through a coherent observer family, descended to the algebraic colimit, bounded by the attained colimit norm, extended to the C*-completion, and proved normalized and positive. This removes the free-functional input from the GNS attachment for the selected tower state. The committed witness instantiates the construction and has an explicit nonzero norm-one GNS unit class, while source selection and every physical interpretation remain explicit nonclaims.",
+      "novelty_type": "coherently_selected_tower_state_to_completed_colimit_GNS_Hilbert_attachment",
+      "evidence": [
+        "Lean/QFT/ColimitSelectedStateGNS.lean",
+        "Lean/QFT/ColimitGNSRepresentation.lean",
+        "Lean/QFT/ColimitNormedCompletion.lean",
+        "Lean/QFT/LocallyCovariantLimit.lean",
+        "paper/reality_as_consensus_protocol.tex"
+      ],
+      "falsifier": "The claim fails if the selected finite expectations do not respect the germ relation, the stage-evaluation identity fails, the descended expectation exceeds the colimit norm, its extension is not complex-linear, positive, or normalized, the committed witness does not instantiate the construction, or its GNS unit class is zero or has norm other than one.",
+      "scope_if_false": "Only the selected-state functional and its instantiated GNS attachment fall. The conditional GNS adapter for an independently supplied normalized positive functional, the completed colimit C*-algebra, its regional-algebra image laws, and every physical attachment question remain separately assessed.",
+      "status": "mathematical_selected_state_GNS_Hilbert_attachment_attained__source_selection_and_physical_QFT_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-58"
+        ],
+        "boundary": []
+      }
     }
   ]
 }
