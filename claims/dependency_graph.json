@@ -136,6 +136,7 @@
   "OPH-COMPUTATION-REPAIR-PROGRAM-BOUNDARY",
   "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
   "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
+  "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
   "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
   "OPH-GR-EINSTEIN-BRANCH-INHABITANT",
   "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
@@ -1207,6 +1208,16 @@
    "from": "OPH-QUANTUM-LUEDERS-PHASE-INSTRUMENT",
    "to": "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
    "role": "supplies the current declared instrument phase slot consumed by the equality theorem; it supplies no source selection, preparation, outcome, provenance, or custody"
+  },
+  {
+   "from": "OPH-EVENTALGEBRA-SOURCE-REACHABILITY-DIAGONAL-CHSH",
+   "to": "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
+   "role": "supplies the enumerated reachable class and its exact record-law and record-diagonality closure; it supplies no map into the two-dimensional phase carrier"
+  },
+  {
+   "from": "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
+   "to": "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
+   "role": "supplies the source-selected Pauli-Y effect and its opposite generated orientation; it supplies no preparation bridge, public outcome, readback, or custody"
   },
   {
    "from": "OPH-QUANTUM-TSIRELSON-SATURATION",

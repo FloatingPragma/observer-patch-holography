@@ -32,6 +32,7 @@ import EventAlgebra.OperationalPhaseAttainment
 import EventAlgebra.OperationalAdditivityBoundary
 import EventAlgebra.LuedersPhaseInstrument
 import EventAlgebra.SourcePhaseSelection
+import EventAlgebra.SourcePhaseBornWeightBoundary
 import EventAlgebra.ProductSplitSeparability
 
 /-!
@@ -139,7 +140,13 @@ self-adjoint generator of the supplied flow.
 committed eight-context effect table and inhabits them with the declared
 Lüders instrument, joined to the committed run fixture, with a swap-twisted
 comparison instrument proving that the effect table does not determine the
-instrument.  `EventAlgebra.ProductSplitSeparability` proves that every
+instrument.  `EventAlgebra.SourcePhaseSelection` derives the phase-slot
+effect from the enumerated source family.  The companion
+`EventAlgebra.SourcePhaseBornWeightBoundary` proves the exact selected-effect
+identity `1/2 - Im(rho 0 1)` and the conditional half-weight boundary for
+prospective source-to-phase preparation bridges that preserve record
+diagonality; it derives no bridge, operation, outcome, or readback.
+`EventAlgebra.ProductSplitSeparability` proves that every
 record-law state on the declared slot split is a convex combination of
 product states and obeys the classical CHSH bound against all slot-local
 unit-interval settings, with a conjugated counter-witness showing that

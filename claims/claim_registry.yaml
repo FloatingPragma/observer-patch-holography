@@ -5913,6 +5913,51 @@
       }
     },
     {
+      "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
+      "statement": "For every normalized two-dimensional state rho, the single-shot Born weight of the source-selected Pauli +Y effect is exactly 1/2 - Im(rho_01). Therefore a non-half weight requires a nonzero imaginary off-diagonal coordinate; real off-diagonal coherence alone is insufficient. For the current enumerated source-reachable class, every prospective typed preparation bridge that maps reachable source matrices to states and preserves record diagonality gives weight exactly 1/2 to that effect. On record-diagonal two-dimensional states the generated -Y orientation and the diagonal comparator (1/2)I have the same weight. A constant diagonal bridge inhabits the preserving side, while an off-diagonal constant control gives weight one and fails preservation, so the hypothesis is logically load-bearing. This is a conditional single-shot Born-weight theorem; it derives no source bridge, common preparation, source operation, public outcome, sequential instrument behavior, operational readback, run, provenance, custody, physical region, or validation.",
+      "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
+      "tier": "conditional_current_source_phase_born_weight_boundary",
+      "assumptions": [
+        "committed_source_walk_payload_carriers",
+        "prospective_source_to_phase_preparation_bridge_preserves_record_diagonality",
+        "recorded_pr04_axiomatize_decision_declares_phase_effect"
+      ],
+      "imported_results": [
+        "finite_dimensional_complex_matrix_algebra",
+        "Born_trace_pairing",
+        "current_source_reachability_record_law_closure"
+      ],
+      "oph_specific_delta": "Places the current source-reachability closure and the source-selected phase effect behind an explicit prospective cross-carrier preparation interface, proves the exact selected-effect identity 1/2 - Im(rho_01), and shows conditionally that record preservation forces the half-weight boundary on every reachable source input. A preserving inhabitant and an off-diagonal control make the conditional hypothesis logically nonvacuous and load-bearing.",
+      "novelty_type": "typed_current_source_phase_born_weight_boundary_with_exact_coordinate_identity",
+      "evidence": [
+        "extra/machine_checked_finite_event_algebras.tex",
+        "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean",
+        "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
+        "Lean/EventAlgebra/SourcePhaseSelection.lean"
+      ],
+      "falsifier": "The claim fails if the selected-effect Born weight of a normalized two-dimensional state differs from 1/2 - Im(rho_01), if a reachable source state transported by a record-diagonality-preserving bridge gives a non-half weight, if the orientation/comparator equalities fail on a normalized record-diagonal state, if either logical control has the wrong preservation behavior, or if any receipt clause fails.",
+      "scope_if_false": "Only this conditional current-source phase Born-weight boundary falls. Source-derived effect selection, the declared Lueders channel clauses, broader source extensions, and the open operational and physical attachments remain separately assessed.",
+      "status": "conditional_single_shot_born_weight_boundary_proved__source_bridge_operation_outcomes_readback_and_pr65_custody_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-03",
+          "PR-52",
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
+    },
+    {
       "claim_id": "OPH-EVENTALGEBRA-PRODUCT-SPLIT-SLOT-LOCAL-CHSH",
       "statement": "On the PR-44 product split of a finite bipartite carrier, with the two slots given by the fixed embeddings A -> A tensor 1 and B -> 1 tensor B, every record-law state (diagonal in the product basis with nonnegative real weights summing to one) is the explicit convex combination of the product point states single a a 1 tensor single b b 1 weighted by its diagonal, hence a finite convex combination of product states of the two slots; and for every four Loewner unit-interval settings, two in each slot, with no commutation assumed inside a slot, the CHSH trace of such a state against the slot-local CHSH operator is real with modulus at most 2. The declared Tsirelson witness operator is an instance of the slot-local CHSH operator. On the committed 86/247 and 86/88 pair carriers every state of the committed source-reachable class is separable across the split and obeys the bound against all slot-local unit-interval readouts. Cross-wing commutation is not a sufficient hypothesis: on the two-qubit split the product-diagonal pure state |00><00| with the Bell settings conjugated by CNOT (H tensor 1) gives four unit-interval observables that commute pairwise across the wings, reach CHSH trace exactly 2*sqrt(2), and include one observable in neither slot. A slot-local CHSH excess above 2 certifies that the matrix is not a record law, for positive semidefinite trace-one states that it carries off-diagonal record coherence, and on the committed pair carriers non-reachability. The split is the declared PR-44 datum; readouts that are not slot-local with respect to the split are outside the bound; no source entangled preparation, instrument, physical region, or spacelike separation is produced.",
       "owner_paper": "paper/observers_are_all_you_need.tex",

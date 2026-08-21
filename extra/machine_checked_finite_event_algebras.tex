@@ -1135,6 +1135,28 @@ phase-sensitive-effect declaration keeps the orientation choice. Like the
 reachability module, it is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
+The module \texttt{SourcePhaseBornWeightBoundary} proves the exact
+single-shot identity
+\[
+  \operatorname{Tr}(\rho P_{+Y})=\frac12-\operatorname{Im}(\rho_{01})
+\]
+for every normalized two-dimensional state. Thus a non-half selected-effect
+weight requires nonzero imaginary off-diagonal coherence; real off-diagonal
+coherence alone is insufficient
+(\texttt{state\_sourceSelected\_weight\_eq\_half\_sub\_im}). It then places
+the selected effect and the enumerated source-reachable class behind an
+explicit prospective preparation-bridge interface. If such a bridge maps
+reachable matrices to states and preserves record diagonality, the selected
+$+Y$ effect has Born weight exactly $1/2$ on every bridged preparation
+(\texttt{reachable\_recordPreserving\_phase\_weight\_half}). On a
+record-diagonal state the generated $-Y$ orientation and the diagonal
+comparator $(1/2)I$ have the same weight. Constant diagonal and off-diagonal
+bridges show that the preservation hypothesis is logically inhabitable and
+load-bearing. Both are mathematical controls that ignore their inputs. The
+result derives no source bridge or operation, common preparation, public
+outcome, sequential instrument behavior, operational readback, run,
+provenance, or custody.
+
 \section{Working over Mathlib: scopes, gaps, and affordances}
 \label{sec:mathlib}
 

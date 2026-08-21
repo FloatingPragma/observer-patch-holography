@@ -1519,7 +1519,8 @@
     "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json",
     "claims/assumption_dictionary.md",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
-    "Lean/EventAlgebra/SourcePhaseSelection.lean"
+    "Lean/EventAlgebra/SourcePhaseSelection.lean",
+    "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
@@ -1527,9 +1528,10 @@
     "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json": "statement",
     "claims/assumption_dictionary.md": "statement",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "statement",
-    "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer"
+    "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer",
+    "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean": "conditional_consumer"
    },
-   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row. SourcePhaseSelection advances only the effect-selection conjunct; common preparation, instrument selection, public outcomes, readback, run binding, provenance, and custody remain open."
+   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row. SourcePhaseSelection advances only the effect-selection conjunct. SourcePhaseBornWeightBoundary is a conditional consumer: it proves Born(+Y)=1/2-Im(rho_01) and shows that any prospective preparation bridge preserving record diagonality has half weight on every current reachable source input. It derives no such bridge or operation; its constant bridges are logical controls only. Common preparation, instrument selection, public outcomes, readback, run binding, provenance, and custody remain open."
   },
   {
    "id": "PR-66",
