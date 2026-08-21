@@ -1,114 +1,72 @@
-\paragraph{Structural QFT inheritance status of the covariant-net layer.}
-Above the regional-algebra interfaces, the Lean development promotes the
-finite observer net to a finite event-region and causal-embedding
-category with a covariant observable functor
-(\path{Lean/QFT/LocallyCovariantLimit.lean}); the causal embeddings are
-proof-only order data, so the category is thin, and no Lorentzian or
-spacetime reading is attached.  Against these carriers the development
-maintains a machine-checked status matrix
-(\path{Lean/QFT/InheritanceMatrix.lean}) for seven structural
-quantum-field-theoretic inheritance targets, with exactly three verdict
-shapes admitted per target: a theorem, a countermodel, or a typed
-non-evaluable exit naming the precise missing structure.  The matrix
-row counts behind the summary below are themselves kernel-checked
-against the matrix data.  The resulting status is:
+\paragraph{Finite covariant-net consequences and limitations.}
+The finite observer net determines a category of event regions and causal
+embeddings together with a covariant observable functor
+(\path{Lean/QFT/LocallyCovariantLimit.lean}).  Its causal embeddings are
+proof-only order data, so the category is thin and carries no Lorentzian
+geometry.  In particular, these carriers provide no region reflection,
+antiunitary conjugation, distinguished vacuum, spin structure, symmetry-group
+action, Lorentzian Cauchy-embedding class, translation action, or spectrum condition.
+Consequently they lack the data needed to formulate CPT, spin--statistics,
+relative-Cauchy
+stress response, or Haag--Ruelle scattering.  These are limitations of the
+mathematical carrier, not negative theorems about QFTs built from richer data
+(\path{Lean/QFT/InheritanceMatrix.lean}).
 
-\begin{center}
-\footnotesize
-\begin{tabular}{@{}p{0.20\linewidth}p{0.22\linewidth}p{0.50\linewidth}@{}}
-\raggedright\textbf{Target} & \raggedright\textbf{Status} &
-\raggedright\textbf{Carrier or missing structure} \tabularnewline
-\hline
-\raggedright CPT & \raggedright not statable: typed exit &
-\raggedright no antiunitary conjugation, region reflection, or distinguished
-vacuum on the order-theoretic event regions; the Tomita conjugation is an
-explicit TODO in the pinned Mathlib \tabularnewline
-\raggedright spin--statistics & \raggedright not statable: typed exit &
-\raggedright causal embeddings are proof-irrelevant, so the event-region
-category is thin and carries no symmetry-group action data; no spin structure
-in the development \tabularnewline
-\raggedright DHR sectors & \raggedright restricted bijective-endomorphism
-surrogate collapses; full DHR a typed exit & \raggedright every bijective
-localized endomorphism of the finite witness is inner and hence equivalent to
-the identity under the declared finite relation
-(\path{Lean/QFT/SectorInheritance.lean}); coherently selected tower states now
-induce a mathematical GNS representation of the completed colimit, but no
-source-selected vacuum representation, DHR quasi-local net, transportability
-structure, or reconstructed gauge group exists in the development
-\tabularnewline
-\raggedright field/action reconstruction & \raggedright gated by design &
-\raggedright exact finite precursors include the response-word algebra and a
-global seam Hodge comparison.  A stronger local precursor is available:
-the oriented-face curvature has kernel exactly the port gradients, and its
+The same module encodes seven structural questions and kernel-checks their
+partition by mathematical conclusion.  Four---CPT, spin--statistics,
+relative-Cauchy stress response, and particle scattering---lack defining
+geometric or spectral data on this carrier.  Full field/action reconstruction
+likewise cannot be inferred from the finite static identities alone.  Of the
+two remaining questions, the restricted endomorphism surrogate collapses as
+described next, while the finite KMS identity coexists with the net- and
+public-algebra counterexamples below.  Thus the seven-way classification is a
+statement about what follows from the specified carrier.
+
+The finite sector theorem has a narrower exact content.  Every bijective
+localized endomorphism of the witness net is inner and hence equivalent to the
+identity under the declared finite equivalence relation
+(\path{Lean/QFT/SectorInheritance.lean}).  This does not constitute DHR
+reconstruction: the carrier supplies no source-selected vacuum
+representation, quasi-local net, transportability structure, or reconstructed
+gauge group.  The selected tower states nevertheless induce mathematical GNS
+representations of the completed colimit, as described below.
+Innerness of this restricted class supplies no charge or flavor quantum
+number.
+
+Two further finite results delimit thermality and field reconstruction.  The
+oriented-face curvature has kernel exactly the port gradients, and its
 five-neighbor seam action is gauge invariant exactly for conserved seam
-currents.  It is finite and static, and supplies no temporal dynamics,
-charge--current continuity map, source-selected physical current,
-physical matter/Spin action, spacetime carrier, or continuum limit;
-the full field/action reconstruction packet is therefore not supplied
-\tabularnewline
-\raggedright KMS/thermality & \raggedright finite Gibbs core proved; net-level
-degenerate; public-level refuted; horizon a typed exit & \raggedright the
-normalised Gibbs state satisfies the finite algebraic KMS identity on the
-private block, but on the constructed example net every functional is KMS for
-every grading-preserving flow at every complex time, and the public record
-algebra admits no nontrivial continuous star flow at all
-(\path{Lean/QFT/StructuralInheritance.lean}) \tabularnewline
-\raggedright relative-Cauchy stress response & \raggedright not statable:
-finite one-step precursor only & \raggedright no Cauchy-embedding class is
-present, and the pinned Mathlib contains no Lorentzian geometry. A corrected
-transport-aware one-step net-evolution interface and one constant-region
-inhabitant exist (\path{Lean/QFT/PathTimeSliceInterface.lean}).  A common
-triple-observer carrier additionally recovers both committed pair paths,
-counted states, checkpoint partitions, and all 31 adjacent-step marginal
-intertwiners (\path{Lean/QFT/TripleCarrierJoin.lean}), but it is not a regional
-net or tower morphism. There is no multi-step cocycle, Cauchy geometry,
-physical time, or source selection. The prior raw-generation forced-invariance inference is
-withdrawn and supplies no no-go against other net shapes \tabularnewline
-\raggedright particle/scattering & \raggedright not statable: typed exit &
-\raggedright no translation action on event regions and no spectrum condition;
-no Haag--Ruelle material in the pinned Mathlib.  A separate general
-topological-group theorem excludes only the direct fixed-cutoff limit
-$U^n\to U_\infty$ for a nonidentity exact unitary update; it neither supplies
-nor excludes a relative scattering construction \tabularnewline
-\end{tabular}
-\end{center}
+currents.  This is a static finite action identity; it supplies no temporal
+dynamics, charge--current continuity map, source-selected physical current,
+physical matter or Spin action, spacetime carrier, or continuum limit.  On a
+private finite block, the normalized Gibbs state satisfies the algebraic KMS
+identity.  On the constructed example net, however, every functional is KMS
+for every grading-preserving flow at every complex time, while the public
+record algebra admits no nontrivial continuous star flow
+(\path{Lean/QFT/StructuralInheritance.lean}).  The finite Gibbs identity
+therefore does not establish thermality of the observer net.
 
-The summary is deliberately negative: the constructed net does not
-inherit quantum-field-theoretic structure.  Of the seven targets, five
-are not statable against the committed carriers --- four blocked on
-structure that exists neither in the development nor in the pinned
-Mathlib, one gated by design on separate finite-reconstruction packets
---- one has a refutable restricted surrogate (bijective localized
-endomorphisms are inner), and one
-carries a finite provable core whose net-level reading is degenerate
-and whose public-level reading is refuted.  Two downstream gates
-follow.  The Einstein-branch readout completion may consume the finite
-Gibbs-KMS identity as finite-block algebra, but its modular readout
-cannot be carried by a public flow (no nontrivial one exists), its
-stress readout receives nothing (the stress row is a typed exit), and
-no statement here supports ``the net is thermal''.  Particle-sector
-promotion receives exactly two finite receipts --- the Gibbs-KMS core and
-innerness of the restricted bijective localized-endomorphism class --- and one
-constraint: no candidate may infer a charge or flavor quantum number from that
-restricted automorphism surrogate. Non-bijective transportable endomorphisms
-and full DHR reconstruction are unavailable; the spin-statistics, pole, and
-continuum receipts that promotion additionally requires are typed exits or
-absent structures here, not available results.
+The one-step transport interface and the common triple-observer carrier below
+recover exact finite evolution and marginal identities, but they carry no
+Cauchy geometry, multi-step cocycle, physical time, or source-selected
+dynamics (\path{Lean/QFT/PathTimeSliceInterface.lean};
+\path{Lean/QFT/TripleCarrierJoin.lean}).  They therefore imply neither a
+relative-Cauchy stress response nor a physical time-slice theorem.
 
-Natural powers nevertheless give one exact architecture constraint on the
-scattering exit: in every Hausdorff topological group, $g^n\to a$ forces
+Natural powers give one exact constraint on a fixed-cutoff scattering
+construction: in every Hausdorff topological group, $g^n\to a$ forces
 $g=1$ (\path{Lean/QFT/FiniteUnitaryScatteringNoGo.lean}).  Hence a nontrivial exact
 unitary update at fixed finite cutoff cannot itself settle to an ordinary
-matrix-topology large-time limit.  The same module proves the scope control
-$(g^n)^{-1}g^n=1$: relative evolution can converge even when the individual
+matrix-topology large-time limit.  The same module proves
+$(g^n)^{-1}g^n=1$, so relative evolution can converge even when the individual
 powers do not.  Any fixed-cutoff direct-power construction that uses $U^n$
-itself as its asymptotic carrier must therefore do something beyond full
-convergence of that sequence.  At fixed finite dimension, merely passing to
-full weak-operator convergence does not evade the obstruction because the
-standard finite-dimensional operator topologies coincide.  Routes not
-excluded here include comparison dynamics, selected projected scalar or
-observable readouts, an infinite-dimensional weak limit after a continuum or
-infinite-volume passage, or open-system evolution.  A finite-time operational
-or recurrence-aware readout is another route not excluded here.  The theorem
-proves no S-matrix, asymptotic state, optical theorem, cross section, or
-interacting continuum limit, and the interacting-QFT/RG/scattering construction remains unresolved.
+itself as its asymptotic carrier cannot use full convergence of that sequence;
+it must change the asymptotic carrier or dynamics, or use a projected or
+weaker convergence notion.  At fixed finite dimension, full weak-operator convergence
+does not evade the obstruction because the standard finite-dimensional
+operator topologies coincide.  Comparison dynamics, selected projected scalar
+or observable readouts, an infinite-dimensional weak limit after a continuum or
+infinite-volume passage, open-system evolution, and finite-time or
+recurrence-aware readouts lie outside this no-go.  The theorem constructs no
+S-matrix, asymptotic state, optical theorem, cross section, or interacting
+continuum limit.

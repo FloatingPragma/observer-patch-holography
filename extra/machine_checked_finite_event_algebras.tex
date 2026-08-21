@@ -534,7 +534,7 @@ the bundled state and event interfaces.
 \section{Random-unitary pinching and the entropy support boundary}
 \label{sec:spectral-boundary}
 
-The first B9 majorization precursor has an exact finite representation. For
+The support-aware majorization precursor has an exact finite representation. For
 each sign assignment \(s:\{0,\ldots,k-1\}\to\{\pm1\}\), set
 \[
  U_s=\sum_i s(i)P_i .
@@ -891,7 +891,7 @@ The boundary is declared data. The saturating state and the four events
 are declarations of the module; no theorem produces them from committed
 source runs, and no physical regions, spacelike separation, or observer
 instruments are constructed. Identification of the finite causal structure with an
-observer-produced physical spacetime stays open, and the receipt consumes the
+observer-produced physical spacetime is not supplied, and the receipt consumes the
 bipartite slot split as a supplied datum.
 
 \subsection{The record-diagonal classical delimitation}
@@ -957,7 +957,7 @@ settings conjugated by $\mathrm{CNOT}\,(H\otimes1)$ commute pairwise across the 
 in the unit interval, and reach exactly $2\sqrt2$ on the product-diagonal state
 $|00\rangle\langle00|$, with one of them in neither slot
 (\texttt{crossWing\_commutation\_not\_sufficient}). A slot-local value above $2$ on a state certifies
-off-diagonal record coherence; regions and source preparation stay with the open premises.
+off-diagonal record coherence; the theorem supplies neither physical regions nor a source preparation.
 Like the reachability module, it is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
@@ -1006,8 +1006,8 @@ certify custody or establish the phase-sensitive effect. A genuine target needs
 source-attached CP outcome maps, a trace-preserving summed channel,
 operation/readback and common-preparation semantics, producer-bound receipts,
 and a preregistered statistical validation rule (or an explicitly exhaustive
-deterministic semantics). Operational additivity and composition remain a
-separate cross-context additivity obligation.
+deterministic semantics). Operational additivity and composition require a
+separate cross-context additivity premise.
 
 \subsection{Exact determination boundary and the integer receipt window}
 \label{sec:phase-determination}
@@ -1087,7 +1087,7 @@ not prove leastness, source reachability of this two-dimensional matrix, or
 receipt provenance; the external verifier checks the deterministic
 least-denominator arithmetic separately. The instrument representation, the
 source-produced preparation, and the independent cross-context additivity
-premise all stay open.
+premise are not supplied.
 
 The module \texttt{LuedersPhaseInstrument} types the channel clauses as a
 structure \texttt{PhaseInstrument} on the eight committed contexts: outcome maps
@@ -1105,7 +1105,7 @@ swap-twisted instrument meets every channel clause with the same induced effects
 differs on the record entry, and fails repeatability
 (\texttt{effect\_table\_does\_not\_determine\_instrument}). The L\"uders choice is a
 declared selection, no source implements it, and the instrument representation,
-the source-produced preparation, and cross-context additivity stay open. The module is a companion in the wider library, outside the
+the source-produced preparation, and cross-context additivity are not supplied. The module is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
 The companion module \texttt{SourcePhaseSelection} asks whether the phase
@@ -1137,7 +1137,7 @@ fifteen-module count and scale table.
 
 The companion module
 \texttt{SourcePhaseInstrumentOutcomeBridge} joins those generated source
-semantics to the already declared L\"uders phase instrument. It maps every
+semantics to the declared L\"uders phase instrument. It maps every
 generated $+Y$ event to the declared phase-outcome index $0$ and every
 generated $-Y$ event to index $1$, then proves exact equality of the generated
 effect with that entry of the committed effect pair
@@ -1175,7 +1175,7 @@ pointwise one-step cells supply no convex-lift, mixing, reset,
 re-preparation, or sequential schedule. The twelve generated events are not
 the eight public instrument contexts, and the theorem supplies no instrument
 implementation, public outcome, readback, run binding, provenance, custody,
-cross-context additivity, or physical attachment; PR-65 remains open. The
+cross-context additivity, or physical attachment. The
 clauses are conjoined in
 \texttt{sourcePhaseCommonPreparationHull\_receipt}.
 

@@ -29,7 +29,7 @@
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{assumption}[theorem]{Assumption}
-\newtheorem{target}[theorem]{Target}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
@@ -39,10 +39,9 @@
 \newcommand{\Ent}{S}
 
 \title{A Finite Black-Hole Information Ledger for\\
-Observer-Patch Holography\\
-\large Working draft under issue B19; not a release asset}
+Observer-Patch Holography}
 \author{The OPH collaboration}
-\date{\OPHPaperReleaseDate\ (draft; release lineage \OPHPaperReleaseID)}
+\date{\OPHPaperReleaseDate\quad\texttt{\OPHPaperReleaseID}}
 
 \begin{document}
 \maketitle
@@ -57,38 +56,33 @@ conflict constitutes the black-hole information problem are separate
 machine-checked results: within a supplied pointwise-continuous
 one-parameter star-automorphism class, private dynamics is forced to be
 unitary conjugation, and the public record channel is an exact uniform mixture of
-sign unitaries, hence unital and entropy-nondecreasing. This draft
-assembles those landed results, the exact data-processing and second-law
-theorems, and the retained conditional rich-fibre packet into one program: the
-finite information ledger. Its core claim, partly proved and partly a
-stated target, is that in this model information is never destroyed but
-exactly relocated, and the public loss is the computable publicization
-defect $\Ent(\mathcal E(\rho))-\Ent(\rho)=\KL{\rho}{\mathcal E(\rho)}$,
-nonnegative and vanishing precisely at the public fixed states. A
-generalized-second-law-shaped monotone, complementarity receipts on the
-committed net, and a nondegenerate finite KMS receipt are the companion
-targets. Every statement is finite; no continuum horizon, collapse,
+sign unitaries, hence unital. This paper combines
+those results, the exact data-processing and second-law theorems, and a
+conditional rich-fibre packet in a finite information ledger. The no-loss
+conjecture identifies the publicization defect
+$\Ent(\mathcal E(\rho))-\Ent(\rho)=\KL{\rho}{\mathcal E(\rho)}$ with information
+relocated to observer-inaccessible coherences. The displayed equality, a
+generalized-second-law-shaped monotone, complementarity on the finite net, and
+a nondegenerate finite KMS identity are explicitly stated conjectures unless
+labeled as theorems. Every statement is finite; no continuum horizon, collapse,
 Hawking flux, island formula, or evaporating-spacetime Page curve is
-claimed, and the black-hole reading is a declared finite-model
-formulation whose physical attachment is owned by separate live issues.
+claimed. The black-hole reading is a declared finite-model formulation;
+physical attachment requires separate source-clock and geometry constructions.
 \end{abstract}
 
-\section*{Status and claim boundary}
+\section*{Finite-model scope and theorem boundary}
 
-This is a working draft under live issue B19 and is excluded from release
-assets. Statements labeled \emph{Theorem} are machine-checked in the Lean
-library at the cited modules. Statements labeled \emph{Target} are the
-declared obligations of issue
-B19 and are open statements; nothing in
-this draft should be read as claiming them. The phrase ``black hole''
+Statements labeled \emph{Theorem} are machine-checked in the Lean
+library at the cited modules. Statements labeled \emph{Conjecture} are the
+explicitly unproved statements; nothing in
+this paper should be read as claiming them. The phrase ``black hole''
 names the shape of the question, not a constructed physical object: the
 model has no continuum horizon, no gravitational collapse, no Hawking
 flux, and no evaporation endpoint. The bridge from the finite ledger to
-physical black-hole statements requires the source-realized clock (E5),
-the Einstein-branch geometry (F1), and, for any observable, the
-target-clean preflight (G2) under immutable custody (G1). The existing
-compact-transient ringdown custody retains its separate frozen payloads;
-this draft freezes no prediction.
+physical black-hole statements requires a source-realized clock,
+Einstein-branch geometry, and, for any observable, a prospectively fixed
+measurement contract under immutable custody. No observable prediction follows
+from this finite ledger.
 
 \section{The question in finite form}
 
@@ -115,21 +109,21 @@ Second, the record channel is not a generic decoherence map. For every
 projective partition, the publicization pinching is exactly the uniform
 average of the $2^{k}$ independently signed block reflections. The
 channel that produces the public record is therefore an explicit uniform
-mixture of unitaries: doubly stochastic in the quantum sense, unital,
-and entropy-nondecreasing, with the mixing unitaries named.
+mixture of unitaries, with the mixing unitaries named. It is unital; entropy
+nondecrease for this channel is part of Conjecture~\ref{tgt:core}.
 
-The ledger program turns these two facts, plus the exact thermodynamic
-theorems of the library, into a single bookkeeping statement:
-every bit the public record lacks is located, with an exact formula, in
-the observer-inaccessible coherences of the ambient state.
+The conjectured ledger combines these two facts with the exact thermodynamic
+theorems. It would identify the information absent from the public record with
+observer-inaccessible coherences of the ambient state through the formula in
+Conjecture~\ref{tgt:core}.
 
-\section{Landed inputs}
+\section{Machine-checked inputs}
 
 Each input below is a machine-checked result in the repository, cited by
-module. None is new to this draft; the draft's contribution is the
-assembly and the target list of Section~\ref{sec:targets}.
+module. Their joint consequence and the precise conjectures are stated in
+Section~\ref{sec:targets}.
 
-\begin{theorem}[Forced unitarity; B3 Stone packet]
+\begin{theorem}[Forced unitarity; finite Stone packet]
 Every pointwise-continuous one-parameter star-automorphism group of a
 unital finite-dimensional private star subalgebra containing the ambient
 identity is blockwise unitary conjugation, generated per Wedderburn block
@@ -176,7 +170,7 @@ reconstruction corollary
 \texttt{QFT/RichFibreRegionalNet.lean}).
 The source does not produce the matrix units, state, regional restrictions,
 or repair, and the corner is neither a tensor factor nor a
-\texttt{TensorSplitReceipt}. E1 closure requires a source-attached operator
+\texttt{TensorSplitReceipt}. A source-attached regional-factor theorem requires an operator
 algebra and a justified factor or local-channel adapter.
 \end{theorem}
 
@@ -185,96 +179,91 @@ The finite algebraic KMS identity holds for Gibbs states of
 support-graded flows, and the truncation-8 nets inherit KMS
 structure only degenerately (\texttt{QFT/StructuralInheritance.lean}).
 The nondegenerate continuation on the rich-fibre net is
-Target~\ref{tgt:kms}.
+Conjecture~\ref{tgt:kms}.
 \end{theorem}
 
-\section{The ledger targets}
+\section{Finite conjectures}
 \label{sec:targets}
 
 Throughout, $\rho$ is a finite density matrix on the ambient algebra,
 $\mathcal E$ the pinching of a supplied projective partition, $\Ent$ the
 support-aware von Neumann entropy, and $\KL{\cdot}{\cdot}$ the
-support-aware relative entropy. Targets~\ref{tgt:core}--\ref{tgt:kms}
-are the obligations of issue B19; their statements are the intended
-final forms and may be narrowed by proved counterboundaries, which would
-themselves discharge the corresponding obligation.
+support-aware relative entropy. Conjectures~\ref{tgt:core}--\ref{tgt:kms}
+state the additional finite hypotheses; they do not follow from the preceding
+theorems.
 
-\begin{target}[Support-aware entropy core]
+\begin{conjecture}[Support-aware entropy core]
 \label{tgt:core}
-Exact finite definitions and basic laws for $\Ent(\rho)$ and
-$\KL{\rho}{\sigma}$ with explicit support handling; the pinching
-identity
+There are finite support-aware definitions of $\Ent(\rho)$ and
+$\KL{\rho}{\sigma}$ obeying the basic entropy laws. For pinching they satisfy
 \[
   \Ent(\mathcal E(\rho))-\Ent(\rho)=\KL{\rho}{\mathcal E(\rho)}\ge 0 ,
 \]
 with equality exactly at the public fixed states, where
-($\mathcal E(\rho)=\rho$); and entropy non-decrease for the sign-unitary
-mixture specialized from unitality. This core is the subset of the B9
-spectral-information chain that the ledger requires; B9 retains the
-general majorization, maximum-entropy, and H-theorem scope.
-\end{target}
+($\mathcal E(\rho)=\rho$), and the sign-unitary mixture is
+entropy-nondecreasing. This core is the subset of the
+spectral-information chain required by the ledger; the more general
+majorization, maximum-entropy, and H-theorem scope is not used here.
+\end{conjecture}
 
-\begin{target}[No-loss theorem]
-Under the committed ambient repair dynamics the global state evolves by
+\begin{conjecture}[Finite no-loss statement]
+Under the specified ambient repair dynamics the global state evolves by
 the forced unitary conjugation of the Stone packet. Ordinary entropy of
 the state is preserved; when both arguments co-evolve under the same
 unitary, each explicitly named jointly unitarily invariant quantity is
 also preserved (including support-aware relative entropy and trace
-distance when those quantities are defined). The statement quantifies over the committed
+distance when those quantities are defined). The statement quantifies over the specified
 dynamics class; no toy evolution is substituted and no arbitrary
 coordinate-dependent divergence is covered.
-\end{target}
+\end{conjecture}
 
-\begin{target}[Ledger identity and relocation]
-For the committed record channel, the public entropy gain equals
+\begin{conjecture}[Ledger identity and relocation]
+For the specified record channel, the public entropy gain equals
 $\KL{\rho}{\mathcal E(\rho)}$; the quantity is nonnegative, vanishes
 exactly at the public fixed states, and is carried entirely by the off-block
-coherences that no access cut of the committed net exposes. Information
+coherences that no access cut of the specified net exposes. Information
 is relocated, never destroyed, and the relocation is exactly quantified.
-\end{target}
+\end{conjecture}
 
-\begin{target}[Generalized-second-law-shaped monotone]
+\begin{conjecture}[Generalized-second-law-shaped monotone]
 The composition of the cap first law with Kullback--Leibler contraction
 yields one exact monotone combining record entropy and the capacity
 ledger under repair, with finite constants and a negative control
 exhibiting failure of the monotone when unitality of the record channel
 is dropped.
-\end{target}
+\end{conjecture}
 
-\begin{target}[Complementarity receipts]
-Compose the generic E6 access-cut interface with the retained rich-fibre
-literals and a justified E1 operator/local-channel adapter. Prove a
-two-observer ledger in which each accessible algebra determines its own
+\begin{conjecture}[Complementarity receipts]
+There is a composition of the generic operational access-cut interface, the
+supplied rich-fibre data, and a justified operator/local-channel adapter
+that forms a two-observer ledger in which each accessible algebra determines its own
 record entropy, the declared block-commutation theorem supplies an algebraic
 locality receipt, and a glued top observable is uniquely reconstructed within
 the declared restriction system. No physical no-signalling or
 refinement-natural interpretation follows before that attachment.
-\end{target}
+\end{conjecture}
 
-\begin{target}[Nondegenerate finite KMS receipt]
+\begin{conjecture}[Nondegenerate finite KMS receipt]
 \label{tgt:kms}
 The modular data of a restricted state on one genuinely noncommutative
 rich-fibre region satisfies the finite KMS identity at a capacity-linked
-inverse temperature, nondegenerately. This receipt feeds the E4
-thermality row as a landed artifact and does not close E4.
-\end{target}
+inverse temperature, nondegenerately. This receipt supplies a finite KMS
+input but does not establish structural QFT thermality.
+\end{conjecture}
 
-\begin{target}[Optional: finite Page-crossover inequality]
-Using the exact $2^{k}$ sign-unitary average in place of Haar
-integration, an exact finite inequality locating the crossover of
-accessible-record information for a bipartition of the committed net.
-\end{target}
+\begin{conjecture}[Finite Page-crossover inequality]
+For a bipartition of the specified finite net, the exact $2^{k}$ sign-unitary
+average obeys a finite inequality that locates the crossover of
+accessible-record information without Haar integration.
+\end{conjecture}
 
-\begin{remark}[What a completed ledger would say]
-With Targets~\ref{tgt:core}--\ref{tgt:kms} proved, the finite model
-supports the following exact sentence: ambient unitarity and a thermal
-public record are simultaneously theorems, and the information the
-record lacks is neither lost nor paradoxical but equals
-$\KL{\rho}{\mathcal E(\rho)}$, an explicitly computable functional that
-the access structure of the net localizes in observer-inaccessible
-coherences. In this finite model the information question closes without
-tension. Whether that closure survives the physical attachments is a
-separate, harder question owned by the live geometry and clock issues.
+\begin{remark}[Conditional finite implication]
+Conjectures~\ref{tgt:core}--\ref{tgt:kms} would imply simultaneous ambient
+unitarity and a thermal public record, with the inaccessible information equal
+to the computable functional $\KL{\rho}{\mathcal E(\rho)}$ and localized in
+observer-inaccessible coherences. The implication supplies no physical
+black-hole attachment; source-derived geometry and clock maps are additional
+hypotheses.
 \end{remark}
 
 \section{Relation to standard approaches}
@@ -291,29 +280,23 @@ converse theorem rather than postulated, and the record channel is an
 explicitly named mixture of unitaries rather than a generic
 coarse-graining. What the model does not contribute is any statement
 about gravitating systems: there is no horizon, no semiclassical limit,
-and no replica computation, and this draft asserts none.
+and no replica computation, and this paper asserts none.
 
 \section{Observables discipline}
 
-No observable statement is made or frozen by this draft. Any future
-black-hole-adjacent observable derived from the ledger, such as
+The finite ledger implies no observable black-hole signature. A proposed
+observable claim derived from the ledger, such as
 saturation-regime relaxation structure or record-capacity signatures in
-compact-object transients, must pass through the target-clean G2
-preflight with declared clock, frame, scale, and readout contracts, and
-enter custody under G1 before any data comparison. The existing
-compact-transient ringdown custody, with its separate frozen payloads and
-exposure history, is the template and remains untouched by this work.
+compact-object transients, requires a prospectively fixed clock, frame, scale,
+and readout contract under immutable custody before any data comparison.
 
 \section{Verification surface}
 
-The landed theorems cited in Section~2 carry \texttt{\#print axioms}
+The proved theorems cited in Section~2 carry \texttt{\#print axioms}
 receipts with only the standard axioms, no admissions, and no
-native-evaluation shortcut, in the modules named inline. The B19
-obligations land under the same discipline, with the support-aware
-entropy core coordinated with issue B9 so the definitions exist exactly
-once. The issue tracker entry for B19 is the execution source of truth
-for the target list; where a target closes as a scoped no-go, this draft
-will record the counterboundary in place of the claim.
+native-evaluation shortcut, in the modules named inline. The support-aware
+entropy statements use the general spectral-information definitions.
+Conjectures \ref{tgt:core}--\ref{tgt:kms} are not proved by those receipts.
 
 \begin{thebibliography}{9}
 

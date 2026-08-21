@@ -92,7 +92,8 @@ def test_papers_state_the_result_and_the_non_vacuum_boundary() -> None:
     assert "A source-counted finite history Hamiltonian on the selected GNS" in consensus
     assert r"\operatorname{Tr}(\rho_{\rm hist}H_{\rm hist})" in consensus
     assert r"\pi_{\rm hist}(H_{\rm hist})\Omega_{\rm hist}\ne0" in consensus
-    assert "The retained run was hash pinned" in consensus
+    assert "The retained run was hash-pinned" in consensus
+    assert "jointly preregistered" in consensus
     observers = (ROOT / "paper/observers_are_all_you_need.tex").read_text(
         encoding="utf-8"
     )

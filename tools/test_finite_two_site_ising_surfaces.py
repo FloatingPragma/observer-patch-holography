@@ -71,7 +71,11 @@ def test_paper_states_exact_model_and_continuum_boundary() -> None:
     assert "not an\ninteracting quantum field theory" in paper
     assert "Taken alone, this is an exact coupled two-spin lattice benchmark" in paper
     assert "The finite Hamiltonian, regional diamond, and selected GNS" in paper
-    assert "This closes the finite carrier--selected-state--GNS--Hamiltonian--regional-net" in paper
+    assert "The left conditional expectation \\(E_L\\) is trace preserving" in paper
+    assert (
+        "This closes the finite carrier--selected-state--GNS--Hamiltonian--regional-net"
+        not in paper
+    )
     assert "No continuum or infinite-volume limit" in paper
 
 

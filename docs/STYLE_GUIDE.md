@@ -13,14 +13,16 @@ states of the research.
   "currently", "presently", "latest", "still", "not yet", "going forward",
   "in the future", "will be added", "an earlier version", "has been updated",
   and "new" when it describes a research artifact or result.
-- Allowed: "is work in progress" for unclosed derivations and similar open
-  lanes. "Is open" for open obligations. Dated artifact names (a certificate
-  carries its date in its filename; that is provenance, not narrative).
-- Ledgers and audits identify artifact versions, dates, hashes, and exact
-  classifications without narrating the evolution of the research. Papers
-  state the theorem, premises, and status label that apply.
-- Claim-status idiom such as "stays on record as a display packet only" is a
-  classification of an artifact, and stays legal.
+- In papers, also banned: "work in progress", "stays open", "remains open",
+  "remains partial", and equivalent live-project phrasing. State the
+  scientific boundary directly: "the construction supplies no physical clock"
+  or "no continuum theorem is proved here."
+- Ledgers, audits, and plans may identify artifact versions, dates, hashes,
+  obligations, and exact classifications. Papers give the theorem, premises,
+  evidence, and nonclaims without narrating project progress.
+- Scientific classifications such as conditional, unproved, refuted, or
+  outside the theorem's hypotheses are allowed when they classify a claim
+  rather than a work item.
 
 ## AI giveaways
 
@@ -63,6 +65,10 @@ the repository, the ledgers, or the other papers.
   carry no meaning outside the project, so the prose states the thing itself:
   "exact finite quantization", "formal perturbative quantization", "the modular
   algebra-state reconstruction data".
+- Premise-register identifiers, observation-ledger identifiers, GitHub issue
+  numbers, issue-lane codes, project phases, and live status summaries never
+  appear in a paper. Examples include PR-65, OL-C6, issue B19, and ``lane
+  \#743.'' Put that information in the owning ledger, plan, or issue.
 - Where a paper depends on a companion result, it states the result in words
   and cites the companion paper. It does not hand the reader a label.
 

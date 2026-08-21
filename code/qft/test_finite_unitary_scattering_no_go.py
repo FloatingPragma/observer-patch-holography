@@ -65,9 +65,9 @@ def test_lean_source_has_no_proof_escape_hatches() -> None:
 def test_paper_boundary_forbids_scattering_promotion() -> None:
     boundary = " ".join(BOUNDARY_SURFACE.read_text(encoding="utf-8").split())
     assert "relative evolution can converge" in boundary
-    assert "Routes not excluded here include comparison dynamics" in boundary
-    assert "proves no S-matrix" in boundary
-    assert "interacting-QFT/RG/scattering construction remains unresolved" in boundary
+    assert "Comparison dynamics, selected projected scalar" in boundary
+    assert "The theorem constructs no S-matrix" in boundary
+    assert "interacting-QFT/RG/scattering construction remains unresolved" not in boundary
     assert r"it does not close issue~\#743" not in boundary
 
 

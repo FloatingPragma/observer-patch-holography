@@ -14,7 +14,7 @@ The main OPH papers establish the structural observer, geometry, gravity, and ma
 | [Cosmological Vacuum And Structure Formation](oph_cosmological_vacuum_and_structure_formation.pdf) ([source](oph_cosmological_vacuum_and_structure_formation.tex)) | Vacuum boundary, fluctuation ensembles, proto-objects, worldlines, and structure seeds |
 | [Cosmology Data And Likelihood Contracts](oph_cosmology_data_likelihood_contracts.pdf) ([source](oph_cosmology_data_likelihood_contracts.tex)) | Boundary between the conditional source theorem, finite source instantiation, transfer, nuisance treatment, and official likelihood comparison |
 | [Boltzmann Transport Derivation](oph_boltzmann_transport_derivation.pdf) ([source](oph_boltzmann_transport_derivation.tex)) | Finite transport interface between OPH sources and observable distribution functions |
-| [Black-Hole Information Ledger](oph_black_hole_information_ledger.pdf) ([source](oph_black_hole_information_ledger.tex)) | Working draft under issue B19: unitarity within the supplied pointwise-continuous star-automorphism class plus sign-unitary publicization assembled into the finite information ledger, with the entropy core, GSL-shaped monotone, complementarity, and finite KMS receipts as open targets; not a release asset |
+| [Black-Hole Information Ledger](oph_black_hole_information_ledger.pdf) ([source](oph_black_hole_information_ledger.tex)) | Finite ledger combining proved unitary private dynamics and sign-unitary publicization with explicitly unproved entropy, generalized-second-law, complementarity, and nondegenerate-KMS targets; no continuum black-hole attachment is claimed |
 
 The [formal radial-lift theorem fragment](../paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex)
 contains the one-shell non-identifiability proof, physical source-dilation
@@ -23,13 +23,13 @@ finite-window bound. The
 [simulator contract](../code/cosmology/SIMULATOR_RADIAL_CONTRACT_330.md)
 specifies the fail-closed evidence split used by finite runs.
 
-The [physical CMB theorem program](physical_cmb_theorem_program.md) collects the remaining source, lift, stress, abundance, transfer, and likelihood obligations in one place.
+The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the unsupplied source, lift, stress, abundance, transfer, and likelihood inputs in one place.
 
 ## Dark-Gravity Structure
 
 The dark-sector action yields a pressureless dilute background and, through its cubic condensed link energy, a spherical deep-acceleration law with baryonic Tully–Fisher scaling. The same action supplies a repair current, stress channel, and coherent-source coupling weighted by $\chi_\nu^{\rm can}$.
 
-Physical promotion requires the canonical repair pair, a relativistic constitutive completion, abundance and lensing maps, CMB and cluster transfer, Solar-System response, and calibrated laboratory receipts to close on the same branch. Existing analytic and numerical comparisons are evidence for developing those maps; the papers state their precise status.
+Physical promotion requires the canonical repair pair, a relativistic constitutive completion, abundance and lensing maps, CMB and cluster transfer, Solar-System response, and calibrated laboratory receipts to close on the same branch. Existing analytic and numerical comparisons are evidence for developing those maps; the papers state the exact theorems, hypotheses, and nonclaims.
 
 ## Reproducibility
 

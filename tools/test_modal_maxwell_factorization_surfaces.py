@@ -138,9 +138,12 @@ def test_detailed_paper_states_exact_result_and_full_boundary() -> None:
     assert r"\mathcal G_{a,k}^{\,2}(E,B)" in paper
     assert "same-sign mutation" in prose
     assert "generally pseudodifferential" in prose
-    assert "No registered premise is removed" in prose
-    assert "no frozen prediction is emitted" in prose
-    assert "attachments remain unresolved" in prose
+    assert "The result depends on every stated premise" in prose
+    assert "implies no empirical prediction" in prose
+    assert (
+        "no physical local-field, gauge-action, source-current, continuum, or readout "
+        "attachment" in prose
+    )
     assert r"issue~\#733 remains open" not in prose
     for excluded in (
         "local position-space curl operator",

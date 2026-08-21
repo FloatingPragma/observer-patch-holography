@@ -77,7 +77,15 @@ PROGRESS_PATTERNS = [
     (re.compile(r"\bno longer\b", re.IGNORECASE), "progress phrase: no longer"),
     (re.compile(r"\bstill\b", re.IGNORECASE), "progress word: still"),
     (re.compile(r"\b(?:has|have|had)?\s*not yet\b", re.IGNORECASE), "progress phrase: not yet"),
-    (re.compile(r"\bremains? open\b", re.IGNORECASE), "progress phrase: remains open"),
+    (
+        re.compile(
+            r"\b(?:attachment|bridge|construction|derivation|identification|"
+            r"map|obligation|premise|question|receipt|route|selection|theorem|"
+            r"verdict|work)s?[\s~]+remains?[\s~]+open\b",
+            re.IGNORECASE,
+        ),
+        "progress phrase: remains open",
+    ),
     (re.compile(r"\bso far\b", re.IGNORECASE), "progress phrase: so far"),
     (re.compile(r"\bfuture work\b", re.IGNORECASE), "progress phrase: future work"),
     (re.compile(r"\bnext step\b", re.IGNORECASE), "progress phrase: next step"),
@@ -135,14 +143,19 @@ ABSTRACT_IDENTIFIER_PATTERNS = [
 PAPER_TRACKING_PATTERNS = [
     (
         re.compile(
-            r"(?:GitHub[\s~]+)?issues?[\s~]*(?:\\#|#)?[\s~]*\d+",
+            r"(?:GitHub[\s~]+issues?[\s~]*(?:\\#|#)?[\s~]*\d+|"
+            r"issues?[\s~]*(?:\\#|#)[\s~]*\d+|"
+            r"https?://github\.com/[^\s{}]+/issues/\d+)",
             re.IGNORECASE,
         ),
         "project issue reference in paper",
     ),
-    (re.compile(r"\\#\s*\d+"), "project issue number in paper"),
     (
-        re.compile(r"\bPhase[\s~]+(?:[IVX]+|\d+)\b", re.IGNORECASE),
+        re.compile(
+            r"\b(?:project|completion|research|work)[\s-]+phase[\s~]+(?:[IVX]+|\d+)\b|"
+            r"\bPhase[\s~]+(?:[IVX]+|\d+)[\s-]+(?:milestone|plan|work)\b",
+            re.IGNORECASE,
+        ),
         "project phase reference in paper",
     ),
     (re.compile(r"\bmilestones?\b", re.IGNORECASE), "project milestone reference in paper"),
@@ -169,14 +182,18 @@ PAPER_TRACKING_PATTERNS = [
     (
         re.compile(
             r"\b(?:(?:OPH|theorem|proof|source|carrier|consistency) stack|"
-            r"sidecars?|corpus|open work|remaining work|public theorem|"
+            r"sidecars?|(?:paper|release|project) corpus|open work|remaining work|public theorem|"
             r"public-output policy|audit-only|source-audit|target-audit)\b",
             re.IGNORECASE,
         ),
         "project-workflow language in paper",
     ),
     (
-        re.compile(r"\blanes?\b(?![\s~]+permutation)", re.IGNORECASE),
+        re.compile(
+            r"\b(?:project|issue|completion|research)[\s-]+lanes?\b|"
+            r"\blanes?[\s~]+(?:\\#|#)[\s~]*\d+\b",
+            re.IGNORECASE,
+        ),
         "project-lane language in paper",
     ),
     (
@@ -204,6 +221,40 @@ PAPER_TRACKING_PATTERNS = [
     (
         re.compile(r"\b(?:premise |register )?row PR-\d+\b", re.IGNORECASE),
         "internal premise-register row in paper",
+    ),
+    (
+        re.compile(r"\bPR-[A-Z0-9][A-Z0-9-]*\b"),
+        "internal premise-register identifier in paper",
+    ),
+    (
+        re.compile(r"\bOL-[A-Z0-9][A-Z0-9-]*\b"),
+        "internal observation-ledger identifier in paper",
+    ),
+    (
+        re.compile(r"\bissues?[\s~]+[A-Z]\d+\b", re.IGNORECASE),
+        "letter-coded project issue in paper",
+    ),
+    (
+        re.compile(
+            r"\bwork in progress\b|"
+            r"\b(?:attachment|bridge|construction|derivation|identification|"
+            r"map|obligation|premise|question|receipt|route|selection|theorem|"
+            r"verdict|work)s?[\s~]+(?:is|are|stays?|remains?)[\s~]+"
+            r"(?:open|partial|unresolved)\b|"
+            r"\bopen[\s~]+(?:(?:physical|source|laboratory|realization)[\s~]+)?"
+            r"(?:attachment|bridge|map|obligation|premise|problem|question|"
+            r"receipt|route|selection|theorem|verdict|work)s?\b",
+            re.IGNORECASE,
+        ),
+        "project-progress phrase in paper",
+    ),
+    (
+        re.compile(
+            r"\b(?:claim-status|status (?:matrix|table|summary|tracker|tracking)|"
+            r"issue tracker|live issues?|release workflow)\b",
+            re.IGNORECASE,
+        ),
+        "project-status framing in paper",
     ),
     (
         re.compile(r"\bpremise register\b|\bregister rows?\b", re.IGNORECASE),

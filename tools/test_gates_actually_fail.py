@@ -19,6 +19,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from tools import check_reader_style
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PUBLIC_BLOCK_START = "<!-- PUBLIC-QUANTITATIVE-CLAIMS:BEGIN -->"
@@ -29,6 +31,51 @@ NULL_CHECKER = ROOT / "tools/check_null_models.py"
 PUBLIC_BUILDER = ROOT / "tools/build_public_quantitative_section.py"
 PUBLIC_CHECKER = ROOT / "tools/check_public_surface_claims.py"
 RELEASE_CHECKER = ROOT / "tools/check_github_release_channel.py"
+
+
+def test_paper_style_gate_rejects_control_plane_identifiers_and_progress() -> None:
+    samples = (
+        "PR-65 labels the premise.",
+        "PR-CC is listed in the paper.",
+        "OL-C6 labels the observation.",
+        "lane #743 tracks this construction.",
+        "issue B19 owns this result.",
+        "GitHub issue 730 owns this result.",
+        "See https://github.com/example/project/issues/730.",
+        "The physical attachment is work in progress.",
+        "The continuum route stays open.",
+        "The physical attachment is open.",
+        "This is an open realization map.",
+        "The status matrix lists seven exits.",
+        "See the claim-status table.",
+    )
+    for sample in samples:
+        assert any(
+            pattern.search(sample)
+            for pattern, _label in check_reader_style.PAPER_TRACKING_PATTERNS
+        ), sample
+
+
+def test_paper_style_gate_allows_scientific_open_and_identifier_lookalikes() -> None:
+    samples = (
+        "Pr-141 is a praseodymium isotope.",
+        "The interval remains open.",
+        "The channel stays open.",
+        "The order remains partial.",
+        "Each SIMD lane carries one word.",
+        "Phase II is the deconfined phase.",
+        "Issue 5 of the journal contains the erratum.",
+        r"The cardinality is \# 3.",
+        "The linguistic corpus contains 200 documents.",
+    )
+    for sample in samples:
+        assert not any(
+            pattern.search(sample)
+            for pattern, _label in (
+                check_reader_style.PROGRESS_PATTERNS
+                + check_reader_style.PAPER_TRACKING_PATTERNS
+            )
+        ), sample
 
 
 def _run(*arguments: str) -> subprocess.CompletedProcess[str]:

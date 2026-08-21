@@ -90,12 +90,15 @@ def test_detailed_paper_states_fixed_cutoff_scope_without_issue_status() -> None
         encoding="utf-8"
     )
     prose = " ".join(fragment.split())
+    assert "encodes seven structural questions" in prose
+    assert "supplies no charge or flavor quantum number" in prose
     assert "Any fixed-cutoff direct-power construction" in prose
     assert "Any asymptotic construction must" not in prose
     assert "full weak-operator convergence does not evade" in prose
     assert "selected projected scalar or observable readouts" in prose
     assert "infinite-dimensional weak limit" in prose
-    assert "interacting-QFT/RG/scattering construction remains unresolved" in prose
+    assert "The theorem constructs no S-matrix" in prose
+    assert "interacting-QFT/RG/scattering construction remains unresolved" not in prose
     assert r"it does not close issue~\#743" not in prose
 
 
