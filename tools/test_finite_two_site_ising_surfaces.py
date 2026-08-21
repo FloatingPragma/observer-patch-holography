@@ -43,7 +43,7 @@ def test_claim_is_exact_finite_and_keeps_physical_exits_open() -> None:
     assert "Taken alone, this benchmark is not a Hamiltonian attachment" in statement
     assert "separately registered downstream finite composition" in statement
     assert "ground space is degenerate" in statement
-    assert "issue 743 remains open" in statement
+    assert "issue 743 is open" in statement
 
 
 def test_observation_row_stays_partial_and_records_the_composition_boundary() -> None:
@@ -72,7 +72,7 @@ def test_paper_states_exact_model_and_continuum_boundary() -> None:
     assert "Taken alone, this is an exact coupled two-spin lattice benchmark" in paper
     assert "The finite Hamiltonian, regional diamond, and selected GNS" in paper
     assert "This closes the finite carrier--selected-state--GNS--Hamiltonian--regional-net" in paper
-    assert "lane~\\#743 remains open" in paper
+    assert "No continuum or infinite-volume limit" in paper
 
 
 def test_lean_surface_and_umbrella_keep_the_controls_visible() -> None:
@@ -127,7 +127,7 @@ def test_composition_claim_keeps_every_physical_exit_open() -> None:
     assert "composite representation" in statement
     assert "lies outside the represented left algebra" in statement
     assert "not selected-state preserving" in statement
-    assert "issues 730 and 743 remain open" in statement
+    assert "issues 730 and 743 are open" in statement
 
     source = (ROOT / COMPOSITION_LEAN_PATH).read_text(encoding="utf-8")
     for declaration in [

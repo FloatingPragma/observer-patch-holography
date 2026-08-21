@@ -147,7 +147,8 @@
   "OPH-QFT-COMPLETED-COLIMIT-GNS-INTERFACE",
   "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
   "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
-  "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION"
+  "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
+  "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT"
  ],
  "edges": [
   {
@@ -1344,6 +1345,16 @@
    "from": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
    "to": "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
    "role": "supplies the exact interacting Hamiltonian, ground density, unitary flow, nonzero local response, and interaction-deletion control that are transported onto the selected-state tower GNS carrier; it supplies no source, clock, spacetime, continuum, RG, or scattering attachment"
+  },
+  {
+   "from": "OPH-FINITE-HISTORY-VARIATIONAL-HELPERS",
+   "to": "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
+   "role": "supplies the exact retained eight-history window counts, strictly positive empirical law, repair-count action, state-change formula, and exact mean action 197/1754; it supplies no full matrix quantum extension, coherence, clock, spacetime, or physical Hamiltonian interpretation"
+  },
+  {
+   "from": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
+   "to": "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
+   "role": "supplies the tower-selected normalized functional, completed-colimit GNS Hilbert space, cyclic unit, and representation infrastructure instantiated by the source-history density and commutator generator; it supplies no physical vacuum, region net, clock, spacetime, or continuum attachment"
   }
  ]
 }

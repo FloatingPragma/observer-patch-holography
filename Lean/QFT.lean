@@ -49,6 +49,7 @@ import QFT.ColimitGNSRepresentation
 import QFT.ColimitSelectedStateGNS
 import QFT.FiniteTwoSiteIsingField
 import QFT.FiniteTwoSiteIsingColimitGNS
+import QFT.SourceHistoryGNSDynamics
 
 /-!
 # OPH construction QFT umbrella
@@ -169,4 +170,15 @@ algebraic carrier/GNS/Hamiltonian/regional-net composition is attained, but
 source selection, physical regions and time, continuum or infinite-volume
 limits, renormalization flow, fields, particles, scattering, detectors, and a
 physical time-slice theorem remain open.
+`QFT.SourceHistoryGNSDynamics` closes a different finite attachment gap. The
+exact empirical law and repair-count action of the retained eight-history
+source packet become a diagonal density and positive Hamiltonian on one
+`M₈(ℂ)` tower stage. The selected-state construction represents that
+Hamiltonian and its nonzero off-diagonal commutator response faithfully on the
+completed-colimit GNS Hilbert space, with exact mean energy `197 / 1754` and
+unitary stationary dynamics. The source receipts fix the diagonal entries;
+the full-matrix quantum extension, coherence probe, and real flow parameter
+are mathematical adapters. The cyclic unit has nonzero energy and is not a
+vacuum. No regional net, calibrated clock, spacetime, continuum, field,
+particle, scattering, detector, or physical time-slice attachment follows.
 -/

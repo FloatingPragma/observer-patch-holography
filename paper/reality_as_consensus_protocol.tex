@@ -2818,7 +2818,7 @@ image \(\Omega_\omega\) of the algebra unit is explicit and obeys
 \]
 Sending every completed regional algebra to its image under the same
 representation preserves isotony, refinement independence, elementwise
-locality for the declared-disjoint regions, and the already committed
+locality for the declared-disjoint regions, and the committed
 order-theoretic Cauchy-embedding equality.  Images are used rather than
 identified with their sources because normalization does not imply that the
 representation is faithful.
@@ -2826,7 +2826,7 @@ representation is faithful.
 For the committed tower interface, the functional need not be added as an
 unrelated input.  Let \(\xi_r\) be an explicitly supplied observer family
 compatible with every regulator refinement, and let \(\rho_{r,\xi_r}\) be
-the selected density state already carried by the tower.  State naturality
+the selected density state carried by the tower.  State naturality
 makes
 \[
   \omega_\xi(\iota_r(X))
@@ -2840,7 +2840,7 @@ instantiates this construction, and its GNS unit class is nonzero with norm
 one.  This closes the formal algebra--selected-state--Hilbert-space rung.
 
 Taken alone, this construction's coherent observer family and finite density
-states are still declared
+states are declared
 structural data, not a state selected by an experimental source.  Neither
 they nor \(\Omega_{\omega_\xi}\) are identified as a physical vacuum.  No
 Hamiltonian or physical dynamics, energy--momentum, field content, Lorentzian
@@ -2848,13 +2848,12 @@ attachment, continuum or infinite-volume limit, interacting theory, or
 physical time-slice theorem follows.  Thus this is an actual mathematical
 Hilbert-space attachment to the committed tower; the finite composition below
 adds one Hamiltonian without turning it into a physical QFT.
-PR-52 and PR-58 remain open and OL-C6 remains partial.
 (\path{Lean/QFT/ColimitGNSRepresentation.lean};
 \path{Lean/QFT/ColimitSelectedStateGNS.lean}).
 
 \paragraph{An exact finite two-site Hamiltonian benchmark.}
-As a separate finite-dimensional test of the Hamiltonian structures still
-missing from the completed-net attachment, take
+As a separate finite-dimensional test of Hamiltonian structures outside the
+completed-net attachment, take
 \[
   \mathcal H_{\mathrm I}
     = \mathbb C^2\otimes\mathbb C^2 \cong \mathbb C^4,
@@ -2904,13 +2903,12 @@ commutation here preserves one finite tensor-product commutator and is not a
 microcausality theorem.  No continuum or infinite-volume limit, field
 algebra, Lorentz covariance, spectrum condition, renormalization flow,
 particle interpretation, scattering construction, detector readout, or
-physical time-slice theorem follows.  PR-15, PR-52, PR-54, and PR-58
-therefore remain open, OL-C6 remains partial, and lane~\#743 remains open.
+physical time-slice theorem follows.
 (\path{Lean/QFT/FiniteTwoSiteIsingField.lean}).
 
 \paragraph{The finite Hamiltonian, regional diamond, and selected GNS on one
 carrier.}
-The two preceding constructions now compose in one typed finite model.  Use
+The two preceding constructions compose in one typed finite model.  Use
 the canonical basis equivalence
 \(\operatorname{Fin}(2)\times\operatorname{Fin}(2)\simeq
 \operatorname{Fin}(4)\) to place the two-spin algebra on a one-regulator
@@ -2972,9 +2970,70 @@ parameter are declared rather than source produced or calibrated; the ground
 sector remains degenerate; and Lorentzian localization, a spectrum condition,
 continuum or infinite-volume control, renormalization flow, field and particle
 content, scattering, detector readback, and a physical time-slice theorem are
-still absent.  PR-15, PR-52, PR-54, and PR-58 therefore remain open, OL-C6
-remains partial, and lanes~\#730 and~\#743 remain open.
+absent.
 (\path{Lean/QFT/FiniteTwoSiteIsingColimitGNS.lean}).
+
+\paragraph{A source-counted finite history Hamiltonian on the selected GNS
+space.}
+The retained eight-history packet supplies a separate finite attachment in
+which the state and diagonal action entries are source counted rather than
+freely chosen.  For each binary path
+\(g=(s_0,s_1,s_2)\), let \(n_g>0\) be its exact window count among the
+1754 retained windows and let
+\[
+ S_g=\mathbf 1_{s_0\ne s_1}+\mathbf 1_{s_1\ne s_2}.
+\]
+On \(M_8(\mathbb C)\), define
+\[
+ \rho_{\rm hist}=\operatorname{diag}\!\left(\frac{n_g}{1754}\right),
+ \qquad
+ H_{\rm hist}=\operatorname{diag}(S_g).
+\]
+The source receipts prove every \(n_g\) positive and prove the displayed
+state-change formula for \(S_g\).  Exact matrix proofs then give
+\[
+ \rho_{\rm hist}\geq0,\quad \operatorname{Tr}\rho_{\rm hist}=1,\quad
+ H_{\rm hist}\geq0,\quad H_{\rm hist}^{*}=H_{\rm hist},\quad
+ [\rho_{\rm hist},H_{\rm hist}]=0,
+\]
+with \(H_{\rm hist}\) nonzero and non-scalar.  The selected energy retains the
+counted source value
+\[
+ \operatorname{Tr}(\rho_{\rm hist}H_{\rm hist})
+   =\frac{197}{1754}.
+\]
+
+Place this pair in one consensus-tower stage with stored generator
+\(\delta_{\rm hist}(X)=-i[H_{\rm hist},X]\).  The selected density constructs
+a normalized GNS triple
+\((\mathcal H_{\rm hist},\pi_{\rm hist},\Omega_{\rm hist})\), and the
+composite representation of \(M_8(\mathbb C)\) is injective.  Thus the
+represented Hamiltonian is nonzero and self-adjoint.  Its cyclic matrix
+coefficient is exactly \(197/1754\), which also proves
+\[
+ \pi_{\rm hist}(H_{\rm hist})\Omega_{\rm hist}\ne0.
+\]
+The matrix unit \(E_{01}\) supplies a nonclassical control:
+\[
+ \bigl(-i[H_{\rm hist},E_{01}]\bigr)_{01}=i,
+\]
+so the represented commutator response is nonzero.  The exponential
+propagators are unitary, obey the additive group law, intertwine exactly with
+the represented Heisenberg flow, and leave \(\rho_{\rm hist}\) stationary.
+
+This is a source-counted finite-history Hamiltonian GNS attachment.  It is
+not a physical QFT.  The retained run was hash pinned, but the empirical law
+and repair-count postprocessing were not fixed together by a prospective
+source contract.  The packet fixes the diagonal density and action values;
+the full \(M_8(\mathbb C)\) quantum extension, off-diagonal coherence probe,
+one-regulator tower, and real flow parameter are mathematical adapters.  The
+nonzero energy of \(\Omega_{\rm hist}\) prevents its promotion to a vacuum or
+ground vector.  No regional net is attached to this carrier, and there is no
+physical clock or energy calibration, Lorentzian localization, spectrum
+condition, continuum or infinite-volume control, renormalization flow,
+field/particle interpretation, scattering, detector readback, or physical
+time-slice theorem.
+(\path{Lean/QFT/SourceHistoryGNSDynamics.lean}).
 
 \paragraph{Region families of the corrected one-step interface.}
 The same module settles the region-family freedom of
