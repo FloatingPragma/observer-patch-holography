@@ -137,8 +137,9 @@ incluent la base formelle partagée.
    cohérents, se raffinent en un support sphérique orienté et exposent un
    état local, une relecture, des registres, des mouvements de réparation et
    des points de contrôle. Formellement : pour chaque régulateur $r$ il
-   existe un objet typé $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,
-   \mathcal R_r,\mathcal I_r,\mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$ dont
+   existe un objet typé
+   $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,\mathcal R_r,\mathcal I_r,\mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$
+   dont
    les porteurs portent douze projections de port centrales primitives et le
    paquet de bord exact $K=(P,E,F,o)$, joints par des algèbres de coutures
    en un nerf muni d’un pont de degré un vers le support sphérique orienté,
@@ -163,8 +164,7 @@ incluent la base formelle partagée.
    satisfont les contraintes finies visibles par les observateurs. La
    couverture finie engendrée par A1 détermine l’état sur cet ensemble
    réalisable, et ses poids exacts sont strictement positifs :
-   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
-   D(\rho_{r,P}\Vert\tau_{r,P})$.
+   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P} D(\rho_{r,P}\Vert\tau_{r,P})$.
 
 Aucun des axiomes ne contient un groupe de jauge, une liste de particules,
 une loi de récupération ou une règle qui sélectionne le contenu en champs ou
@@ -362,6 +362,16 @@ Le [programme de falsification OPH](docs/OPH_FALSIFICATION_PROGRAM.md)
 recense les affirmations mûres avec les observations exactes qui les
 briseraient.
 
+## Carte des dépendances
+
+<p align="center">
+  <a href="assets/prediction-chain.svg" target="_blank" rel="noopener noreferrer">
+    <img src="assets/prediction-chain.svg" alt="Chaîne de reconstruction OPH" width="92%">
+  </a>
+</p>
+
+<p align="center"><sub>La carte typée des dépendances d’OPH. Elle sépare les branches exactes et conditionnelles des ponts ouverts de source, de support, de courant, d’attachement et d’échelle qui en feraient une seule réalisation physique.</sub></p>
+
 ## Guide du dépôt
 
 - [`paper/`](paper) : articles principaux, sources TeX, PDF et métadonnées de version.
@@ -381,7 +391,18 @@ briseraient.
 - [Simulation interactive](https://simulation.floatingpragma.io)
 - [Applications et matériel OMEGA](https://omega.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
+- [Carnet d’étude avec vidéos explicatives](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 - OPH Sage sur [Telegram](https://t.me/HoloObserverBot) et [X](https://x.com/OphSage)
+
+## Contribuer
+
+OPH accueille les preuves, les contre-exemples, les simulations, les revues
+indépendantes et les explications lisibles. Le [guide de reproduction](REPRODUCE.md)
+reconstruit les certificats et les vérifications à partir d’un clone propre. Les
+[questions de recherche cadrées](https://github.com/FloatingPragma/observer-patch-holography/issues)
+identifient les contributions adaptées, tandis que le
+[registre de sélection](docs/SELECTION_LEDGER.md) énonce leurs prémisses de
+théorème exactes et les entrées mathématiques non résolues.
 
 ## Licence
 

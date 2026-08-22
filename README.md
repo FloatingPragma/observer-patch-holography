@@ -122,8 +122,8 @@ basis.
    typed seams and coherent triple overlaps, refine to an oriented spherical
    support, and expose local state, readback, records, repair moves, and
    checkpoints. Formally: for every regulator $r$ there is a typed object
-   $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,\mathcal R_r,\mathcal I_r,
-   \mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$ whose carriers carry twelve
+   $\mathfrak N_r=(\mathcal P_r,\mathcal A_r,\mathcal R_r,\mathcal I_r,\mathcal U_r,\mathcal C_r,N_r,S_r,b_r)$
+   whose carriers carry twelve
    primitive central port projections and the exact boundary packet
    $K=(P,E,F,o)$, joined by seam algebras into a nerve with a degree-one
    bridge to the oriented spherical support, all commuting with refinement.
@@ -143,8 +143,7 @@ basis.
    finite observer-visible constraints. The finite A1-generated observer
    cover is state-determining on that feasible set, and its exact weights are
    strictly positive:
-   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P}
-   D(\rho_{r,P}\Vert\tau_{r,P})$.
+   $\rho_r=\arg\min_{\rho\in\mathcal K_r}\sum_P w_{r,P} D(\rho_{r,P}\Vert\tau_{r,P})$.
 
 None of the axioms contains a gauge group, a particle list, a recovery law,
 or a rule that selects field content or multiplicity; A3 selects one state
@@ -370,6 +369,7 @@ cited here.
 - [Interactive simulation](https://simulation.floatingpragma.io)
 - [OMEGA applications and hardware](https://omega.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
+- [Study notebook with explainer videos](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 - OPH Sage on [Telegram](https://t.me/HoloObserverBot) and [X](https://x.com/OphSage)
 
 ## Contribute
