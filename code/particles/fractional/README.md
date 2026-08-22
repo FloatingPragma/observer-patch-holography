@@ -15,9 +15,9 @@ python3 fractional/build_fractional_quotient_receipts.py
 
 ## Lean verdict certificate
 
-The four quotient-correctness gates — `CANONICALIZER_IDEMPOTENCE`,
+The four quotient-correctness gates (`CANONICALIZER_IDEMPOTENCE`,
 `REPRESENTATIVE_INVARIANCE`, `QUOTIENT_LUMPABILITY`, and
-`NO_ORBIT_SIZE_BIAS` — are read from
+`NO_ORBIT_SIZE_BIAS`) are read from
 `fractional_quotient_certificate.json`, whose verdicts are computed by the
 certified decision procedures in
 `Lean/ObserverPatchHolography/QuotientLumpability.lean` on the exact sandbox

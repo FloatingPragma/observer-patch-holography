@@ -3,8 +3,8 @@
 ## Mathematical completion theorem stack and computational receipt contract
 
 **Version:** 4.2 (integrated scientific specification)
-**Date:** 2026-07-20  
-**Status:** corrected *draft sufficiency specification*; production receipt schemas and a production aggregate verifier remain open  
+**Date:** 2026-07-20
+**Status:** corrected *draft sufficiency specification*; production receipt schemas and a production aggregate verifier remain open
 **Permitted present claim:** `DRAFT_SUFFICIENCY_STACK_DEFINED__SIMULATION_RECEIPTS_OPEN__NO_OPH_NATIVE_POLE_PROMOTION`
 
 ---
@@ -33,9 +33,9 @@ The same distinction applies to the counterterm scheme: a scheme is a coordinate
 
 ---
 
-# Part I — Exact non-entailment results
+# Part I: Exact non-entailment results
 
-## Theorem 1 — Structural gauge data do not determine a local action
+## Theorem 1: Structural gauge data do not determine a local action
 
 Let `T_struct` be any theory whose relevant outputs are:
 
@@ -67,11 +67,11 @@ z(p)=\frac{g^2+g'^2}{4}\frac{-m^2}{\lambda}
 
 vary continuously with \(p\). Choosing, for example, the same \(g,g'\) and different ratios \(-m^2/\lambda\) gives different W and Z poles. At one loop the self-energies also depend on \(\lambda\) and on the Yukawa matrices. Hence there are at least two models of `T_struct` with different pole outputs. By elementary model-theoretic non-definability, no unique pole pair is entailed. ∎
 
-## Corollary 1.1 — A representation witness is not a generating functional
+## Corollary 1.1: A representation witness is not a generating functional
 
 An exterior-algebra decomposition, anomaly cancellation, a compact-group reconstruction, or a finite response rank can constrain which local operators are allowed. None assigns coefficients to all allowed operators or fixes a quantum state/measure. Therefore none alone supplies the renormalized 1PI functional \(\Gamma\).
 
-## Theorem 2 — Normal-form closure does not select a source law
+## Theorem 2: Normal-form closure does not select a source law
 
 Let \(N:Q\to Q_{\rm nf}\) be an idempotent repair/normal-form map. The pushforward operator on laws, \(\mu\mapsto N_\#\mu\), is idempotent and fixes every law supported on \(Q_{\rm nf}\). Therefore repair confluence cannot select a unique probability law or Euclidean action on the normal-form set.
 
@@ -79,7 +79,7 @@ Let \(N:Q\to Q_{\rm nf}\) be an idempotent repair/normal-form map. The pushforwa
 
 Since \(N\circ N=N\), one has \(N_\#N_\#\mu=(N\circ N)_\#\mu=N_\#\mu\). If \(\mu(Q_{\rm nf})=1\), then \(N(q)=q\) \(\mu\)-almost surely, hence \(N_\#\mu=\mu\). Distinct laws supported on \(Q_{\rm nf}\) are therefore all fixed. ∎
 
-## Theorem 2.1 — A MaxEnt state does not determine the Lorentzian dynamics
+## Theorem 2.1: A MaxEnt state does not determine the Lorentzian dynamics
 
 Let \(\rho\) be a faithful finite-dimensional density matrix. Knowledge of \(\rho\), even together with its MaxEnt representation
 
@@ -97,7 +97,7 @@ Every Hermitian \(H\) satisfying \([H,\rho]=0\) makes \(\rho\) stationary under 
 
 The local-MaxEnt/refinement clause can constrain a finite operator family and produce a Gibbs state once its moments are supplied. It does not, without a transfer/reflection-positivity and continuum packet, identify \(-\log\rho\) with the physical Lorentzian Standard-Model action. A simulator must reject any source bridge that performs this relabeling without the missing theorem.
 
-## Theorem 3 — Gauge fixing is not source-identifiable and need not be
+## Theorem 3: Gauge fixing is not source-identifiable and need not be
 
 Suppose the gauge-invariant action \(S_{\rm inv}\) is fixed. Let \(\Psi_1\) and \(\Psi_2\) be two admissible gauge-fixing fermions connected within a nonsingular BRST family. Then
 
@@ -113,9 +113,9 @@ The difference \(S_2-S_1=s(\Psi_2-\Psi_1)\) is BRST exact. BRST-closed observabl
 
 ---
 
-# Part II — One explicit sufficient augmented source branch
+# Part II: One explicit sufficient augmented source branch
 
-## Definition 4 — `OPH+SM-EFT+FJ` source packet
+## Definition 4: `OPH+SM-EFT+FJ` source packet
 
 A sufficient source-side augmentation is an equivalence class
 
@@ -149,7 +149,7 @@ order.
 
 This definition is sufficient input structure. It is **not** claimed to follow from current OPH.
 
-## Proposition 4A — Conditional finite-source-to-1PI reconstruction route
+## Proposition 4A: Conditional finite-source-to-1PI reconstruction route
 
 A genuine nonperturbative OPH derivation of \(\mathfrak G_{\rm src}\), rather
 than an explicit augmentation, would be sufficient if it supplied a cofinal
@@ -190,9 +190,9 @@ finite-measure/continuum hypotheses remain necessary.
 
 ---
 
-# Part III — The gauge-invariant local action
+# Part III: The gauge-invariant local action
 
-## Theorem 4 — Canonical local Standard-Model action
+## Theorem 4: Canonical local Standard-Model action
 
 Choose the perturbative chart with Minkowski signature \((+---)\), \(Q=T_3+Y\), standard hypercharges, and \(g'\equiv g_Y\) (not the GUT-normalized \(g_1=\sqrt{5/3}\,g'\)). Freeze
 
@@ -251,7 +251,7 @@ The kinetic terms are constructed from curvatures and covariant derivatives. Eac
 
 The potential depends only on \(H^\dagger H\). Thus every term is invariant under the local Lie algebra, and the selected hypercharge lattice makes it well defined under the global \(\mathbb Z_6\) quotient. ∎
 
-## Theorem 5 — Perturbative anomaly cancellation and conventional SU(2) Witten check
+## Theorem 5: Perturbative anomaly cancellation and conventional SU(2) Witten check
 
 Using left-handed Weyl fields
 
@@ -293,9 +293,9 @@ global-anomaly or bordism receipt for the precise spacetime and bundle class.
 
 ---
 
-# Part IV — Electroweak vacuum and full Yukawa packet
+# Part IV: Electroweak vacuum and full Yukawa packet
 
-## Theorem 6 — FJ tree coordinate and electroweak mass matrix
+## Theorem 6: FJ tree coordinate and electroweak mass matrix
 
 Assume \(m^2<0\) and \(\lambda>0\). Define
 
@@ -356,7 +356,7 @@ v_{\rm chart}(P)=E_{\rm cell}(P)
 
 must remain typed `v_chart` until a source theorem identifies it with the positive root \(v_F\) of a canonically normalized Higgs action. Numerical proximity or a tree mass formula is not such a theorem.
 
-## Definition 7 — Full Yukawa receipt
+## Definition 7: Full Yukawa receipt
 
 At scale \(Q\), a complete receipt contains three complex \(3\times3\) matrices and unitary diagonalizations
 
@@ -384,7 +384,7 @@ with the right-handed down basis fixed by declaration. Running masses are
 m_{f}(Q)=\frac{v_F(Q)}{\sqrt2}y_f(Q).
 \]
 
-## Theorem 7.1 — Basis covariance of the pole
+## Theorem 7.1: Basis covariance of the pole
 
 Unitary flavor-basis changes conjugate the fermion kinetic/Yukawa blocks and leave all closed-loop traces and hence W/Z pole positions invariant, provided the CKM matrix and counterterms are transformed consistently.
 
@@ -403,9 +403,9 @@ A physical one-loop pole/width receipt must include all active fermion eigenvalu
 
 ---
 
-# Part V — BRST quantization and nonlinear gauge family
+# Part V: BRST quantization and nonlinear gauge family
 
-## Definition 8 — BRST differential in the gauge basis
+## Definition 8: BRST differential in the gauge basis
 
 Introduce ghosts \(c_s^A,c^a,c^B\), antighosts \(\bar c^I\), and Nakanishi--Lautrup fields \(b^I\). The classical BRST operator is
 
@@ -426,7 +426,7 @@ s\bar c^I&=b^I,
 
 It is extended as a graded derivation. Jacobi identities and the representation property imply \(s^2=0\).
 
-## Theorem 8.1 — BRST invariance of the invariant action
+## Theorem 8.1: BRST invariance of the invariant action
 
 \[
 sS_{\rm inv}=0.
@@ -436,7 +436,7 @@ sS_{\rm inv}=0.
 
 BRST acts as an infinitesimal gauge transformation with the commuting gauge parameter replaced by a ghost. Gauge invariance of every term in Theorem 4 therefore gives zero. Nilpotence follows from closure of the gauge algebra and the matter representations. ∎
 
-## Definition 9 — Frozen nonlinear gauge family
+## Definition 9: Frozen nonlinear gauge family
 
 Use
 
@@ -482,7 +482,7 @@ After eliminating the \(b\)-fields, the gauge-fixing terms are
 
 and the ghost action is the corresponding \(-\bar c\,sF\) expression in the frozen sign convention.
 
-## Theorem 9.1 — Gauge-fixed BRST invariance
+## Theorem 9.1: Gauge-fixed BRST invariance
 
 \[
 s(S_{\rm inv}+S_{\rm gf+gh})=0.
@@ -524,9 +524,9 @@ The ghost action and all ghost vertices must be generated by symbolic applicatio
 
 ---
 
-# Part VI — Renormalization and counterterm theorem
+# Part VI: Renormalization and counterterm theorem
 
-## Definition 10 — Frozen one-loop renormalization chart
+## Definition 10: Frozen one-loop renormalization chart
 
 Use dimensional regularization in \(d=4-2\epsilon\) with a declared chiral \(\gamma_5\) treatment (the reference contract uses BMHV) and \(\overline{\rm MS}\) subtraction for the independent invariant parameters. Bare objects are written
 
@@ -556,7 +556,7 @@ Because \(v_F\) is derived,
 
 at first order. The finite FJ tadpole shift of Part VII is a separate object and must not be merged silently into this parameter counterterm.
 
-## Theorem 10.1 — One-loop algebraic renormalizability, conditional form
+## Theorem 10.1: One-loop algebraic renormalizability, conditional form
 
 Assume:
 
@@ -610,9 +610,9 @@ The independent checker must verify:
 
 ---
 
-# Part VII — FJ tadpoles and the two-engine equivalence theorem
+# Part VII: FJ tadpoles and the two-engine equivalence theorem
 
-## Definition 11 — Direct FJ route
+## Definition 11: Direct FJ route
 
 The FJ coordinate is the positive renormalized tree-parameter root
 
@@ -630,7 +630,7 @@ T_h^{(1)}+\Gamma_{hh}^{(0)}(0)\,\Delta v^{(1)}=0
 
 in the declared 1PI sign convention.
 
-## Definition 12 — Converted tadpole-free route
+## Definition 12: Converted tadpole-free route
 
 Let \(p_L\) denote a separately calculated tadpole-free parameter chart, for example a Landau effective-potential-minimum chart. The complete finite map is
 
@@ -640,7 +640,7 @@ p_L=p_F+\hbar\Delta p^{(1)}+O(\hbar^2),
 
 including field shifts, parameter shifts, mass arguments, counterterms, mixing angles and every induced Taylor term. The map orientation is part of the receipt.
 
-## Theorem 12.1 — Exact field-redefinition invariance of pole locations
+## Theorem 12.1: Exact field-redefinition invariance of pole locations
 
 A local invertible translation of the Higgs integration variable, with the action and sources transformed consistently, does not change the zeros of the physical propagator determinant.
 
@@ -648,7 +648,7 @@ A local invertible translation of the Higgs integration variable, with the actio
 
 The path integral is unchanged by an invertible change of integration variable up to a field-independent Jacobian for a translation. Connected and 1PI functionals are related by the corresponding source/field reparametrization. Their Hessians are conjugate by the invertible Jacobian of the field map, up to terms proportional to the transformed equations of motion that are included by the complete source transformation. Hence the determinant is multiplied by a nonvanishing analytic factor and has the same zero set. ∎
 
-## Theorem 12.2 — Strict finite-order reparametrization rule
+## Theorem 12.2: Strict finite-order reparametrization rule
 
 Let a pole coordinate have the expansion
 
@@ -695,9 +695,9 @@ and separately for their real and imaginary parts. Replacing only `v` in tree ma
 
 ---
 
-# Part VIII — Charged and neutral complex-pole mathematics
+# Part VIII: Charged and neutral complex-pole mathematics
 
-## Definition 13 — Frozen inverse-propagator convention
+## Definition 13: Frozen inverse-propagator convention
 
 Let \(\kappa=(16\pi^2)^{-1}\) be the loop-counting factor (distinct from the
 Higgs fluctuation \(h\) and from Planck's constant). Use
@@ -724,7 +724,7 @@ All \(\Pi\)'s are renormalized, analytically continued complex functions on the 
 D_N(s)=\det\Gamma_N^T(s).
 \]
 
-## Theorem 13.1 — Strict charged pole coefficients
+## Theorem 13.1: Strict charged pole coefficients
 
 If \(w\ne0\) and the self-energies are analytic near the reference root on the chosen sheet, the root
 
@@ -749,7 +749,7 @@ and
 
 Insert the series into \(\Gamma_W^T(s_W)=0\), Taylor expand, and equate powers of \(\kappa\). The coefficient of \(\kappa\) gives the first formula; the coefficient of \(\kappa^2\) gives the second. ∎
 
-## Theorem 13.2 — Strict neutral pole coefficients and mixing order
+## Theorem 13.2: Strict neutral pole coefficients and mixing order
 
 The massive neutral root
 
@@ -786,7 +786,7 @@ At order \(\kappa\), the first factor is \(z+O(\kappa)\) and the second gives \(
 
 **Order firewall.** The product \(\Pi_{ZA}^{(1)}\Pi_{AZ}^{(1)}\) must be computed for matrix identities but must not enter a strict-one-loop root. It is mandatory at strict two loops.
 
-## Theorem 13.3 — Strict mass/width series
+## Theorem 13.3: Strict mass/width series
 
 Let
 
@@ -818,9 +818,9 @@ The exact square root of a truncated \(s\) is a useful display coordinate but co
 
 ---
 
-# Part IX — Ward, Slavnov--Taylor and Nielsen theorems
+# Part IX: Ward, Slavnov--Taylor and Nielsen theorems
 
-## Definition 14 — Extended Slavnov--Taylor identity
+## Definition 14: Extended Slavnov--Taylor identity
 
 Let \(K_\Phi\) be the external source coupled to \(s\Phi\). The renormalized 1PI functional obeys
 
@@ -834,7 +834,7 @@ where \(\mathcal S\) is the usual antibracket/BRST Slavnov functional including 
 
 The simulator must derive all two-point ST residuals by differentiating this exact master identity in the declared field/source basis. This is safer than maintaining convention-dependent component formulas by hand.
 
-## Theorem 14.1 — Photon Ward protection
+## Theorem 14.1: Photon Ward protection
 
 On the unbroken electromagnetic branch, the renormalized transverse neutral block satisfies
 
@@ -846,7 +846,7 @@ On the unbroken electromagnetic branch, the renormalized transverse neutral bloc
 
 Differentiate the electromagnetic Ward identity with respect to the photon and neutral fields, evaluate at vanishing fields, and use the unbroken \(U(1)_Q\) vacuum. The first identity protects the massless photon; the second prevents a photon--Z mass mixing at zero momentum. In the executable receipt these are recomputed from the full counterterm-completed 1PI functional. ∎
 
-## Theorem 14.2 — Matrix Nielsen identity
+## Theorem 14.2: Matrix Nielsen identity
 
 Differentiating the extended Slavnov--Taylor identity with respect to \(\chi_i\) and the neutral fields gives matrices \(\Lambda_i,\widetilde\Lambda_i\), regular at a simple physical pole, such that
 
@@ -878,7 +878,7 @@ The first relation is the two-point projection of the differentiated extended Sl
 
 and cyclicity of the trace gives the formula. Analytic continuation extends it to a neighborhood of a simple zero. ∎
 
-## Theorem 14.3 — Gauge independence of a simple complex pole
+## Theorem 14.3: Gauge independence of a simple complex pole
 
 If \(D_N(s_Z,\eta)=0\) and \(\partial_sD_N(s_Z,\eta)\ne0\), then
 
@@ -905,13 +905,13 @@ This theorem proves gauge independence for the correctly constructed theory. It 
 
 ---
 
-# Part X — Physical resonance interpretation
+# Part X: Physical resonance interpretation
 
-## Definition 15 — Second-sheet continuation
+## Definition 15: Second-sheet continuation
 
 The scalar integrals and self-energies are first defined by the Feynman \(+i0\) prescription in the Euclidean/upper-half-plane domain. The receipt names every physical cut and defines the continuation path to the resonance sheet. A sheet is identified by its cut-crossing vector, not by an informal string such as `physical`.
 
-## Theorem 15.1 — Laurent pole of a mixed propagator
+## Theorem 15.1: Laurent pole of a mixed propagator
 
 Let \(\Gamma(s)\) be an analytic \(n\times n\) matrix near \(s_p\). Assume
 
@@ -950,7 +950,7 @@ makes that zero simple, with derivative proportional to
 rank-one principal part; rescaling either null vector cancels between numerator
 and denominator. ∎
 
-## Theorem 15.2 — Physical pole criterion for unstable W/Z bosons
+## Theorem 15.2: Physical pole criterion for unstable W/Z bosons
 
 A two-point determinant zero is promoted to a physical W or Z resonance pole only if:
 
@@ -967,7 +967,7 @@ Insert the Laurent expansion between amputated BRST-closed production and decay 
 
 This corrects an overly strong “positive-residue pole” requirement sometimes appropriate for stable particles: W and Z are unstable resonances, not asymptotic Hilbert-space states.
 
-## Theorem 15.3 — Certified pole uniqueness by Rouché
+## Theorem 15.3: Certified pole uniqueness by Rouché
 
 Let \(C\) be a closed contour on the declared sheet. If a reference analytic determinant \(D_0\) has exactly one zero inside \(C\), no zero on \(C\), and
 
@@ -985,9 +985,9 @@ The contour receipt must use complex balls and prove the strict inequality point
 
 ---
 
-# Part XI — Matching, source law, covariance and units
+# Part XI: Matching, source law, covariance and units
 
-## Theorem 16.0 — One-loop pure-SM gauge beta coefficients from the census
+## Theorem 16.0: One-loop pure-SM gauge beta coefficients from the census
 
 For three generations, one complex Higgs doublet and the standard hypercharge convention \(g'=g_Y\), define
 
@@ -1062,7 +1062,7 @@ a frozen reference implementation may use
 
 The production checker must nevertheless derive or independently verify the equations from the exact interval census and convention; this displayed system is not a license to reuse it under a different EFT or normalization.
 
-## Definition 16 — `EFT-1` matching packet
+## Definition 16: `EFT-1` matching packet
 
 For every scale interval \([Q_j,Q_{j+1}]\), emit:
 
@@ -1078,7 +1078,7 @@ For every scale interval \([Q_j,Q_{j+1}]\), emit:
 
 The checker independently derives the one-loop beta coefficients from the census. An MSSM coefficient triple may not be consumed by a pure-SM pole engine without an actual MSSM/equivalent interval and finite matching map.
 
-## Theorem 16.1 — Deterministic matching uniqueness and stability
+## Theorem 16.1: Deterministic matching uniqueness and stability
 
 If the beta vector field is locally Lipschitz on each interval, threshold maps are deterministic and Lipschitz, and the ordered threshold list, schemes and term mask are fixed, then one source point determines one matched parameter point. Perturbations are bounded by the product of Grönwall and threshold-map Lipschitz factors plus the declared remainders.
 
@@ -1086,7 +1086,7 @@ If the beta vector field is locally Lipschitz on each interval, threshold maps a
 
 Picard--Lindelöf gives uniqueness between thresholds; Grönwall bounds the flow difference. Apply each finite threshold map and iterate. ∎
 
-## Theorem 16.2 — Source covariance is not an interval
+## Theorem 16.2: Source covariance is not an interval
 
 A non-singleton source enclosure does not determine a covariance matrix.
 
@@ -1137,7 +1137,7 @@ the real Jacobian of \(x\); an exact nonlinear pushforward requires direct
 law/ensemble propagation. Certified truncation, continuation, and numerical
 remainders remain separate deterministic set-valued objects.
 
-## Theorem 16.3 — Operational-unit attachment
+## Theorem 16.3: Operational-unit attachment
 
 Before a source clock closes, the only licensed outputs are
 
@@ -1172,17 +1172,17 @@ The current OPH clock checksum does not instantiate this theorem until its elect
 
 ---
 
-# Part XII — Exact simulator/producer receipt obligations
+# Part XII: Exact simulator/producer receipt obligations
 
 ## 17.1 Claim lanes
 
 Every run must select exactly one lane:
 
-1. `OPH_CHART_ONLY` — current D10/D11 coordinates; no pole interpretation;
-2. `EXTERNAL_SM_EFT_VALIDATION` — imported complete SM parameter packet; validates field-theory machinery but is not OPH-native;
-3. `OPH_NATIVE_DIMENSIONLESS` — source/matching/FJ/BRST gates pass, clock open; emits \(s/E_\star^2\);
-4. `OPH_NATIVE_PHYSICAL` — all prior gates plus clock and physical-amplitude pole interpretation;
-5. `TARGET_COMPARISON_ONLY` — immutable post-processing with no source write access.
+1. `OPH_CHART_ONLY`: current D10/D11 coordinates; no pole interpretation;
+2. `EXTERNAL_SM_EFT_VALIDATION`: imported complete SM parameter packet; validates field-theory machinery but is not OPH-native;
+3. `OPH_NATIVE_DIMENSIONLESS`: source/matching/FJ/BRST gates pass, clock open; emits \(s/E_\star^2\);
+4. `OPH_NATIVE_PHYSICAL`: all prior gates plus clock and physical-amplitude pole interpretation;
+5. `TARGET_COMPARISON_ONLY`: immutable post-processing with no source write access.
 
 The lanes are exclusive. A target-comparison process must not share a writable directory or environment variables with source producers.
 
@@ -1407,7 +1407,7 @@ every evidence result, as required by
 
 ---
 
-# Part XIII — OPH paper-side implications
+# Part XIII: OPH paper-side implications
 
 ## 18.1 What must be changed in the papers
 
@@ -1438,7 +1438,7 @@ It cannot by itself prove that OPH selects the action, the Yukawa matrices, the 
 
 # Final theorem
 
-## Theorem 19 — Sufficient OPH-native Physical W/Z complex-pole theorem
+## Theorem 19: Sufficient OPH-native Physical W/Z complex-pole theorem
 
 Assume:
 

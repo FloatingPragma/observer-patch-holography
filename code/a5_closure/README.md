@@ -215,8 +215,8 @@ arbitrary OPH carriers must have this type.
   proves the unordered conjugate pair is the unique nonempty chiral
   anomaly-free selection at exterior-module scope
   (`Lean/Screen/ExteriorSelection.lean`). The MGFC-grade exclusion of light
-  sectors beyond the exterior module — direct sums, inert doublets,
-  vectorlike matter, neutral singlets — is owned by #609.
+  sectors beyond the exterior module (direct sums, inert doublets,
+  vectorlike matter, neutral singlets) is owned by #609.
 - **PORT-WEAK-INTERTWINER** and **PORT-LOAD-TRACE**: identify a physical
   four-dimensional screen invariant with the four weak-doublet copies and
   prove that its normalized additive load is the physical `4P` readout.
@@ -246,10 +246,10 @@ noncentrality witness. `Z6Exact.lean` formalizes the six-axis lattice quotient,
 `UnitSplit12.lean` proves only that twelve positive integer weights summing to
 twelve are all one. `A5OPH.lean` (merged 2026-07-23 from the external
 cross-audit lane, rebuilt under the project toolchain) formalizes the finite
-core of the compact-Lie trichotomy — triviality of every `A5`-action on at
+core of the compact-Lie trichotomy (triviality of every `A5`-action on at
 most four objects, the unique partitions `11 = 3+8` and `12 = 3+3+3+3` over
 the compact-simple dimension list, the excluded semisimple dimensions
-`1, 2, 4, 5, 7`, the characteristic-centre step — plus the paper's
+`1, 2, 4, 5, 7`, the characteristic-centre step) plus the paper's
 noncentral-quintet witness, the gluing-class quotient with both invariance
 clauses, the `A5 ⊄ SU(2)` unique-involution obstruction, and the absence of
 `ℤ/6` in `A5`. `A5CharacterField.lean` (#605, closed) proves the
@@ -264,7 +264,7 @@ three-dimensional invariant subspace and no `3 + 3` invariant splitting.
 `A5PortModule.lean` (#604, closed) carries the matching S5 centre receipt on
 the twelve-port module: the sixty port rotations (row-for-row identical to
 `A5PortAction.perms`) fix exactly the constant line, so a centrally trivial
-submodule — the centre under an inner action — has dimension at most
+submodule (the centre under an inner action) has dimension at most
 one. `A5Commutant.lean` (#568, closed) proves the four-orbit structure of
 ordered port pairs and the exact four-dimensional orbital commutant of the
 port action, with entry invariance equivalent to commutation;
@@ -297,8 +297,8 @@ and physical descent retain their separate support boundaries (the
 compact-Lie trichotomy's finite steps are now Lean-checked in `A5OPH.lean`,
 with the former paper steps #604/#605 discharged in `A5SixAxes.lean`,
 `A5PortModule.lean`, and `A5CharacterField.lean`, leaving the Lie-theoretic
-classical inputs — compact-simple classification, reductive decomposition,
-exponential surjectivity, torus/cocharacter step — as the declared
+classical inputs (compact-simple classification, reductive decomposition,
+exponential surjectivity, torus/cocharacter step) as the declared
 remainder); only the conditional current algebra and the conditional matter
 lift are certified here. Source reconstruction of the current and matter
 actions remains open.

@@ -1,4 +1,4 @@
-# Optional target-free D11 seed — not a complete W/Z backend
+# Optional target-free D11 seed: not a complete W/Z backend
 
 A previously constructed target-free *candidate* high-scale seed imposes, at
 

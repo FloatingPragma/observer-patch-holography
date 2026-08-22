@@ -964,20 +964,20 @@ Mapping between Lean 4 theorems in this project and statements in
   subgroups of `A5`, nonabelian hence `≅ S3`), `A5NoZ6` (no element of
   order six, hence no `ℤ/6`; the odd order-six `S5` element exhibited as
   the sharpness control), `OPHGap` (negative control: a `G`-equivariant
-  linear isomorphism does not determine a Lie bracket — guards the
+  linear isomorphism does not determine a Lie bracket; guards the
   module-decomposition step against over-reading; no corpus surface makes
   the guarded claim), `OPHSelection` (finite core of the compact-Lie
   trichotomy: every `A5`-action on at most four objects is trivial;
   `11 = 3+8` and `12 = 3+3+3+3` uniquely over the compact-simple dimension
   list `{3,8,10}`), `OPHInner` (the centre is characteristic; the
   inner-action reduction (H2) ⇒ (H*) stated modulo two declared classical
-  inputs — exponential surjectivity and `Ad(G) = Inn` on compact connected
+  inputs: exponential surjectivity and `Ad(G) = Inn` on compact connected
   groups; `A5` embeds in no group with a unique involution, hence
   `A5 ⊄ SU(2)`), `OPHTrichotomy` (no compact semisimple algebra in
   dimensions 1, 2, 4, 5, 7; the paper's noncentral-quintet witness
   `[iS, iT] = -2(E₁₂ - E₂₁) ≠ 0`; the screen gluing class
   `Λ₊/(Λ₁ ⊕ Λ₅) ≅ ℤ/6` with proper-rotation invariance and antipodal sign
-  reversal — the bare quotient isomorphism is also in `Z6Exact.lean`; this
+  reversal; the bare quotient isomorphism is also in `Z6Exact.lean`; this
   module adds the two invariance clauses and the trichotomy context).
   Provenance: authored in the external cross-audit lane (Aristotle build,
   Lean/Mathlib v4.28.0), rebuilt verbatim under this project's toolchain
@@ -986,12 +986,12 @@ Mapping between Lean 4 theorems in this project and statements in
   classification, reductive decomposition, exponential surjectivity, and
   the torus/cocharacter step. The former paper steps are discharged in
   companion modules: the dimension-six branch module argument (#604,
-  closed) in `Screen/A5SixAxes.lean` — sixty-element six-axis
+  closed) in `Screen/A5SixAxes.lean` (sixty-element six-axis
   `PSL(2, F5)` list, kernel-checked closure/2-transitivity/sharp fiber
   counts, `ℚ`-irreducibility of the five-dimensional summand by
   stabilizer-coset averaging, no three-dimensional invariant subspace and
-  no `3 + 3` invariant splitting of `1 ⊕ 5` — and its S5 centre half in
-  `Screen/A5PortModule.lean` — the sixty port rotations (row-for-row
+  no `3 + 3` invariant splitting of `1 ⊕ 5`), and its S5 centre half in
+  `Screen/A5PortModule.lean`, where the sixty port rotations (row-for-row
   identical to `A5PortAction.perms`) fix exactly the constant line, so a
   centrally trivial submodule has dimension at most one; the `ℚ(√5)`
   rationality lemma's Galois-stability half (#605, closed) in
@@ -1038,7 +1038,7 @@ Mapping between Lean 4 theorems in this project and statements in
   (`no_nonzero_word_commutator`), the word span is exactly the equivariant
   commutant of `Screen/A5Commutant.lean` (`equivariant_iff_word_span`), and
   no twelve span members are linearly independent
-  (`no_twelve_independent_words`) — the registered response supplies
+  (`no_twelve_independent_words`): the registered response supplies
   neither twelve independent generators nor a nonzero commutator (issue
   #705, boundary items one and two). Negative controls: deleting one edge
   breaks the readback and the quartic at explicit entries
@@ -1104,7 +1104,7 @@ Mapping between Lean 4 theorems in this project and statements in
   permutation matrix satisfies
   `10J = A^3 - 4A^2 - 5A + 10I` exactly;
   the trace-balanced cover kernel is checked exactly on central
-  parameters — six elements, cyclic with generator `(ω₃I₃, -I₂, e^{iπ/3})`,
+  parameters: six elements, cyclic with generator `(ω₃I₃, -I₂, e^{iπ/3})`,
   `U(1)` coordinate bijective, negation reversing the generator; the
   trichotomy enumeration is assembled with every hypothesis in the theorem
   signature (rational-centre dimension list, declared compact-simple list,

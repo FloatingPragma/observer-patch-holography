@@ -252,29 +252,29 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
 
 ## Theorem Gates
 
-1. **Normal forms do not select compact-object probability laws.**  
+1. **Normal forms do not select compact-object probability laws.**
    Let $c:Q_r^{obj}\to Q_r^{obj}$ satisfy $c^2=c$, with normal-form
    image $N=\operatorname{im}c$. Then $`c_\#(c_\#\mu)=c_\#\mu`$, and
    every law supported on $N$ is fixed. Idempotence therefore leaves many
    laws possible; a source law must be supplied separately.
 
-2. **Record density is quotient-invariant.**  
+2. **Record density is quotient-invariant.**
    If load, volume, record activation, readout, and bin membership are defined
    on `Q^{obj}_r`, then hidden representatives cannot change
    `rho_rec,r(B)`.
 
-3. **Compactness is readout, not assembly.**  
+3. **Compactness is readout, not assembly.**
    Small effective radius, high record density, or low PSF compactness does not
    imply old stellar age, high stellar mass, high dynamical mass, or completed
    assembly unless the finite object parent and degeneracy receipts close.
 
-4. **Finite total-stress closure requires a parent.**  
+4. **Finite total-stress closure requires a parent.**
    A physical object parent must carry packet sectors, mass shells, momenta,
    weights, exchange channels, stress readouts, radiative transfer, lensing,
    chemistry, and star-formation history. Scalar rows cannot be promoted to
    stress, mass, or maturity.
 
-5. **Source-only abundance needs a no-target source DAG.**  
+5. **Source-only abundance needs a no-target source DAG.**
    The expected object load is source-only only when the quotient, source law,
    release state, object parent, load map, and no-target ledger are frozen
    without paths from JWST catalog counts, anomaly labels, posterior summaries,
@@ -288,7 +288,7 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
    noisy or approximate version needs an explicit readout metric, noise ball,
    and stability modulus; "large degeneracy support" alone is not a theorem.
 
-7. **Mass/age tension promotion requires full degeneracy closure.**  
+7. **Mass/age tension promotion requires full degeneracy closure.**
    A compact object may be labeled `PHYSICAL_MASS_AGE_TENSION` only after
    redshift, SED, dynamical, lensing, AGN, dust, nebular, population,
    morphology, PSF, and selection receipts close and the remaining allowed
@@ -302,7 +302,7 @@ density, halo-mass density, black-hole mass density, or galaxy number density.
    imply old age, high stellar mass, large black-hole seed mass, or completed
    assembly.
 
-9. **Forward counts are pushforwards.**  
+9. **Forward counts are pushforwards.**
    JWST-facing expected counts are the pushforward histogram of
    `mu^{obj}_r` through the frozen JWST forward operator.
 

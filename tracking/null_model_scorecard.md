@@ -10,7 +10,7 @@ Therefore the detailed RSCC covariance ledger is not selected by its
 own retrospective comparison metric. These numbers are diagnostics,
 not likelihoods.
 
-## W3a — constant substitution in the pixel closure
+## W3a: constant substitution in the pixel closure
 
 Map: `P = c₁ + sqrt(c₂)/A_T(P)` using the existing
 `thomson_structured_running_plus_gauge_width` chain. Every row below
@@ -86,7 +86,7 @@ no positive evidential weight.
 | `3−√2` | `3` | `134.53495151880774052663646449702992706` | `[2.501047658178895636152845732, 2.501047658205623310574222619]` | `[1.8251026541926869436926495801034078959186250207320e-2, 1.8251026542121910700403945864097371830410527280626e-2]` |  |
 | `3−√2` | `π/2` | `134.26195404760044404110263268612966718` | `[2.774045129389892780957493713, 2.774045129409219136837239524]` | `[2.0243185338524433831716503375045114259480202542049e-2, 2.0243185338665465064354748182696209422042239662138e-2]` |  |
 
-## W3b — selector and port-menu ablation
+## W3b: selector and port-menu ablation
 
 Within A1's declared twelve-port icosahedral boundary and the A2 same-response internal-holonomy premise, the abstract Lie type u(1)+su(2)+su(3) is forced. This is an axiom-domain theorem, not a selection among eight deltahedral carriers. The seven counterfactual carriers lie outside A1 and have no compatible producer; they are not counted as exclusions. Source reconstruction of the matrix current remains open.
 
@@ -123,7 +123,7 @@ rank-15 projector is verified, but the sterile-singlet completion is not
 excluded. Seven alternative deltahedra lie outside A1 and lack a compatible
 producer. They are counterfactual ablations, not competing OPH branches.
 
-## W3c — RSCC zero-`w²` ablation gate
+## W3c: RSCC zero-`w²` ablation gate
 
 | Model | Maximum residual | Raw residual sum |
 |---|---:|---:|
@@ -133,7 +133,7 @@ producer. They are counterfactual ablations, not competing OPH branches.
 Negative control beats full model: **true**.
 The checker exits nonzero if this result is absent from the page header.
 
-## W3d — bounded quark Clebsch assignment audit
+## W3d: bounded quark Clebsch assignment audit
 
 The full six-permutation menu of `(1, 1/3, 3)` over
 `(b/τ, s/μ, d/e)` is recomputed through the current five-Yukawa plus
@@ -216,7 +216,7 @@ for both declared `N_f` rows.
 
 CONDITIONAL_ALGEBRAIC_CONSEQUENCE_OF_DECLARED_ARCHITECTURE: the direct invariant is derived from the MCPR roots and equals (1+exp(-2 chi))/3 without a charged target input, but the response architecture, phase, and balanced amplitude are stipulated and historically target-informed rather than blinded. The companion finite tracial-GNS theorem derives balance inside its conditional event model; the physical chiral mass-response attachment remains open. Therefore physical Koide is neither a runtime target imposed on the MCPR solve nor a blind/source-derived physical prediction.
 
-## W-F6 — bounded correction-expression grammar null
+## W-F6: bounded correction-expression grammar null
 
 NOT_REPRODUCIBLE_AS_STATED: the cited 280-expression menu does not declare its small-integer range, tree depth, operand ordering, duplicate equivalence, or value filter. The rates below are fresh results for the fully declared grammar in this receipt.
 

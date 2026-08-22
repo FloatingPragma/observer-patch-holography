@@ -1,6 +1,6 @@
 # Strict-one-loop W/Z complex-pole map: theorems and proofs
 
-Prepared: 2026-07-20  
+Prepared: 2026-07-20
 Status: proved algebraically under the stated finite-order input contract; **not** an OPH-native physical prediction
 
 ## 1. Scope and frozen conventions

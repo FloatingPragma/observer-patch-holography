@@ -1,4 +1,4 @@
-# Mathlib notes — EventAlgebra development (2026-07-15)
+# Mathlib notes: EventAlgebra development (2026-07-15)
 
 Running log of every Mathlib gap, friction point, and affordance hit while
 building the `EventAlgebra` library (toolchain `leanprover/lean4:v4.29.1`,
@@ -40,12 +40,12 @@ paper's formalisation-experience section.
    (Loewner order), fails on
    `Matrix (Fin n) (Fin n) ℂ` with two unsynthesized classes:
    `NonUnitalContinuousFunctionalCalculus ℝ (Matrix (Fin n) (Fin n) ℂ)
-   IsSelfAdjoint` and `NonnegSpectrumClass ℝ (Matrix (Fin n) (Fin n) ℂ)` —
+   IsSelfAdjoint` and `NonnegSpectrumClass ℝ (Matrix (Fin n) (Fin n) ℂ)`,
    even with `ComplexOrder` and `MatrixOrder` open. (Mathlib's own
    `Analysis/Matrix/Order.lean` uses the lemma successfully inside its own
    section context; downstream, with the Pi topology on matrices, the
    instance chain did not resolve for us.) **Workaround:** the elementary
-   spectral route — `Matrix.IsHermitian.spectral_theorem`
+   spectral route: `Matrix.IsHermitian.spectral_theorem`
    (`M = U D U⋆` via `Unitary.conjStarAlgAut_apply`),
    `PosSemidef.eigenvalues_nonneg`, cycle the trace, and sum
    termwise-nonnegative diagonal products. Robust and about a dozen lines.
@@ -54,9 +54,9 @@ paper's formalisation-experience section.
    side relations (involutivity, `aᵢbⱼ = bⱼaᵢ`); `noncomm_ring` cannot use
    hypotheses and `linear_combination` is commutative-only.
    **Workaround:** a hand-rolled confluent rewrite system as a `simp only`
-   set — ∀-quantified association-compatible forms
+   set (∀-quantified association-compatible forms
    `b·(a·x) = a·(b·x)` and `a·(a·x) = x` derived from the hypotheses by
-   reassociation — followed by `abel`. Terminates because each rewrite
+   reassociation) followed by `abel`. Terminates because each rewrite
    strictly decreases the number of letters out of normal order.
 7. **`rw` on a projection-heavy goal picks the wrong occurrence.**
    Rewriting with the definition equation of `bornWeight` unfolds the
@@ -72,7 +72,7 @@ paper's formalisation-experience section.
 
 9. **`Matrix.PosSemidef` API is definition-agnostic.** The pinned Mathlib
    defines `PosSemidef` via finitely-supported vectors (`n →₀ R`); we
-   never had to unfold it — `mul_mul_conjTranspose_same`,
+   never had to unfold it: `mul_mul_conjTranspose_same`,
    `conjTranspose_mul_mul_same`, `posSemidef_sum`, `PosSemidef.smul`,
    `diag_nonneg`, `trace_nonneg`, `trace_eq_zero_iff`,
    `posSemidef_conjTranspose_mul_self` covered every need.
@@ -88,7 +88,7 @@ paper's formalisation-experience section.
     `IsSelfAdjoint.norm_mul_self` (`‖x·x‖ = ‖x‖²`), the `NormOneClass`
     instance for nontrivial C*-rings, and `norm_nsmul_le` reduce the
     analytic half of the Tsirelson bound to ~40 lines over bare
-    `[NormedRing A] [StarRing A] [CStarRing A] [Nontrivial A]` — no
+    `[NormedRing A] [StarRing A] [CStarRing A] [Nontrivial A]`, with no
     completeness, no `CStarAlgebra` bundle needed.
 12. **Mathlib prior art:** `Mathlib/Algebra/Star/CHSH.lean` already
     contains `IsCHSHTuple` and the *order-form* Tsirelson inequality
@@ -104,7 +104,7 @@ entries prove CHSH/Tsirelson matrix-first over a bespoke density-matrix and
 L2-norm stack.
 
 - **Shorter in Lean/Mathlib:** (a) the norm-form Tsirelson bound is proved
-  *abstractly* for any unital C*-ring — the C*-identity, `norm_mul_le`,
+  *abstractly* for any unital C*-ring: the C*-identity, `norm_mul_le`,
   and `NormOneClass` are typeclass-generic, so the finite matrix case is a
   two-line instantiation rather than the theorem; (b) Born-weight
   positivity/upper bounds live directly in the partial order of `ℂ`

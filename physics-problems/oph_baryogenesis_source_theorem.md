@@ -1,6 +1,6 @@
 # Finite-Quotient OPH Baryogenesis Source Theorem
 
-**Status:** theorem and no-go audit  
+**Status:** theorem and no-go audit
 **Purpose:** derive the exact meaning of the source coefficient, sign, and temperature history from quotient-level repair data, and determine what the existing OPH screen winding does and does not supply.
 
 ## Motivating Result
