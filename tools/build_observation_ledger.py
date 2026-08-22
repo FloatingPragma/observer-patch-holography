@@ -237,6 +237,11 @@ GROUPS = (
 )
 
 
+
+def _cell(text: object) -> str:
+    """Escape pipes so free text cannot break a Markdown table row."""
+    return str(text).replace("|", "\\|")
+
 def fail(message: str) -> None:
     raise SystemExit(f"observation ledger: {message}")
 
@@ -579,11 +584,11 @@ def render(rows: list[dict]) -> str:
                 else "none"
             )
             lines.append(
-                f"| {row['id']} | {row['target']} | {row['rung']} |"
+                f"| {row['id']} | {_cell(row['target'])} | {row['rung']} |"
                 f" {row['status']} | {_lane_link(row['lane_issue'])} |"
                 f" {frozen_targets} | {premises} |"
                 f" {open_premises} | {evidence} |"
-                f" {row['notes']} |"
+                f" {_cell(row['notes'])} |"
             )
 
     status_counts = {status: 0 for status in STATUSES}

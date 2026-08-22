@@ -2,7 +2,7 @@
 
 > La réalité est le monde public stable reconstruit par des observateurs finis et auto-lecteurs qui comparent leurs recouvrements et réparent leurs désaccords.
 
-[Read in English](README.md) · [Article phare](flagship/from_observer_consensus_to_standard_physics.pdf) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/)
+[Read in English](README.md) · [Article phare](flagship/from_observer_consensus_to_standard_physics.pdf) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/) · [Chat LLM](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 
 L’Holographie des parcelles d’observateur, ou OPH, est un programme de
 recherche pour une théorie du tout sans boutons de réglage, construit sur une

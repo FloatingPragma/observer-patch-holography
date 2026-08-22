@@ -2,7 +2,7 @@
 
 > Reality is the stable public world reconstructed by finite, self-reading observers that compare their overlaps and repair disagreement.
 
-[Read in French](README_FR.md) · [Technical paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/)
+[Technical paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/) · [LLM Chat](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 
 Observer Patch Holography (OPH) is a zero-dial theory-of-everything research
 program built on one central thesis: **observers are primary, and objective
@@ -370,6 +370,7 @@ cited here.
 - [OMEGA applications and hardware](https://omega.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
 - [Study notebook with explainer videos](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
+- [This README in French](README_FR.md)
 - OPH Sage on [Telegram](https://t.me/HoloObserverBot) and [X](https://x.com/OphSage)
 
 ## Contribute

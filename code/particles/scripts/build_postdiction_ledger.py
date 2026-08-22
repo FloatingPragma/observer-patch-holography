@@ -4454,7 +4454,7 @@ def _render_md(ledger: dict[str, Any]) -> str:
             receipts.append(row["artifact_ref"])
         receipts.extend(row.get("artifact_refs", []))
         receipt_txt = ", ".join(f"`{r}`" for r in receipts)
-        add(f"| {row['statement']} | {row['observed_counterpart']} | "
+        add(f"| {_cell(row['statement'])} | {_cell(row['observed_counterpart'])} | "
             f"`{row['match']}` | {receipt_txt} |")
     add("")
     add("Lean declaration bindings:")
@@ -4643,6 +4643,12 @@ def _render_md(ledger: dict[str, Any]) -> str:
         add(f"- {row['statement']} (`{row['artifact_ref']}`).")
     add("")
     return "\n".join(lines)
+
+
+
+def _cell(text: object) -> str:
+    """Escape pipes so free text cannot break a Markdown table row."""
+    return str(text).replace("|", "\\|")
 
 
 def main() -> None:
