@@ -65,7 +65,6 @@
   "OPH-ALPHA-PIXEL",
   "OPH-DM-CONT",
   "OPH-YM-GAP",
-  "OPH-CHI-NU",
   "OPH-STRING-SELECTOR",
   "OPH-POW-PHOTONIC",
   "OPH-IBM-GENERATIVE-REPAIR",
@@ -148,7 +147,8 @@
   "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
   "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
   "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
-  "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT"
+  "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
+  "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS"
  ],
  "edges": [
   {
@@ -460,11 +460,6 @@
    "from": "OPH-GAUGE-D7-D9",
    "to": "OPH-YM-GAP",
    "role": "supplies compact-gauge branch"
-  },
-  {
-   "from": "OPH-DM-CONT",
-   "to": "OPH-CHI-NU",
-   "role": "supplies dark-sector scalar channel"
   },
   {
    "from": "OPH-GAUGE-D7-D9",
@@ -1355,6 +1350,16 @@
    "from": "OPH-QFT-SELECTED-STATE-GNS-ATTACHMENT",
    "to": "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
    "role": "supplies the tower-selected normalized functional, completed-colimit GNS Hilbert space, cyclic unit, and representation infrastructure instantiated by the source-history density and commutator generator; it supplies no physical vacuum, region net, clock, spacetime, or continuum attachment"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
+   "to": "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
+   "role": "supplies the exact source-counted density, repair Hamiltonian, finite commutator generator, selected-GNS Hilbert carrier, and injective stage representation; the downstream claim tensor-localizes them without turning history coordinates into physical time or regions"
+  },
+  {
+   "from": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
+   "to": "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
+   "role": "supplies the exact two-slot tensor embeddings and positive Ising domain-wall bond used on the two adjacent history intervals; it supplies no source selection, state-preserving regional expectation, physical clock, spacetime, continuum, RG, or scattering attachment"
   }
  ]
 }

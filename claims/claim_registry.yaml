@@ -3704,39 +3704,6 @@
       }
     },
     {
-      "claim_id": "OPH-CHI-NU",
-      "statement": "The coherent-matter susceptibility note translates the OPH dark-sector scalar channel into a laboratory construction window.",
-      "owner_paper": "extra/chi_nu_susceptibility_bounds.tex",
-      "tier": "work_in_progress_experimental_continuation",
-      "assumptions": [
-        "canonical_dark_sector_scalar_channel",
-        "coherent_matter_source_branch",
-        "engineering_chart_capacity_factor"
-      ],
-      "imported_results": [
-        "basic_material_response_bookkeeping"
-      ],
-      "oph_specific_delta": "The invariant collar susceptibility is separated from the engineering response coefficient used in platform design.",
-      "novelty_type": "conditional_experimental_program",
-      "evidence": [
-        "extra/chi_nu_susceptibility_bounds.tex"
-      ],
-      "falsifier": "No binding force falsifier exists until the coherent-source receipt, dimensional coupling, ambient repair field, and momentum ledger are operational. Once those objects are fixed, repeated receipt-complete null force results retire the coherent-matter force continuation.",
-      "scope_if_false": "The coherent-matter construction branch falls; the dark-sector theory is affected only if it depends on the same source branch.",
-      "status": "resource_deferred",
-      "claim_class": "empirical_implementation",
-      "gates": [
-        742
-      ],
-      "premise_dependencies": {
-        "classification": "explicit_non_consumer",
-        "consumed": [],
-        "open": [],
-        "boundary": [],
-        "rationale": "This is a resource-deferred laboratory concept conditional on a separate dark-sector channel and engineering factor, not a claimed core derivation or canonical PR consumer."
-      }
-    },
-    {
       "claim_id": "OPH-STRING-SELECTOR",
       "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology row against OPH gates; the issue-369 rank obstruction retracts that row from selected or passing string status.",
       "owner_paper": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
@@ -6462,6 +6429,49 @@
       "gates": [
         730,
         739,
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
+      "statement": "The exact source encoding reindexes the eight retained length-three binary histories as (Fin 2 x Fin 2) x Fin 2 by ((s0,s1),s2) -> 4*s0 + 2*s1 + s2. On the induced M_2(C) tensor M_2(C) tensor M_2(C) carrier, the one-slot star algebras A0, A1, and A2, the adjacent interval algebras A01 and A12, and the full algebra A012 form one explicit tensor-local system with the declared isotony inclusions and exact endpoint locality between A0 and A2. The positive adjacent domain-wall bonds H01 = (1 - Z0 Z1)/2 and H12 = (1 - Z1 Z2)/2 lie in A01 and A12 and decompose the source repair Hamiltonian exactly as H = H01 + H12, with source-state expectations 47/877 and 103/1754, respectively. Restricting the certified source state to any local star subalgebra gives a normalized positive functional, and these restrictions agree exactly along every inclusion. This compatible restriction of one global state is not a construction of conditional expectations E_U : A012 -> A_U satisfying omega composed with E_U = omega; in particular, no existing trace-preserving tensor expectation is promoted to a source-state-preserving map. For the finite commutator generator delta(X) = -i[H,X], slot-zero observables map into A01 and slot-two observables map into A12. The existing injective selected-GNS representation transports both bonds, their sum, endpoint locality, and these endpoint propagation statements to the same GNS Hilbert carrier. The history-coordinate tensor reading, full matrix factors, off-diagonal observables, one-regulator tower, and real flow parameter remain mathematical adapters. The slots are not calibrated physical times or Lorentzian regions, and no state-preserving regional expectation, physical vacuum, clock or energy calibration, spectrum condition, Cauchy or time-slice theorem, continuum or infinite-volume limit, renormalization flow, field, particle, scattering, or detector attachment is constructed. PR-15, PR-52, PR-54, and PR-58 are open; OL-C6 remains partial and issues 730 and 743 remain open.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "source_counted_three_slot_tensor_local_Hamiltonian_and_selected_GNS_representation",
+      "assumptions": [
+        "tensor_local_history_coordinate_reading_adapter"
+      ],
+      "imported_results": [
+        "source_counted_finite_history_GNS_dynamics",
+        "finite_two_site_Ising_tensor_factor_and_domain_wall_bond",
+        "finite_matrix_star_subalgebra_and_GNS_transport"
+      ],
+      "oph_specific_delta": "Reuses the exact source path coordinates to place the source-counted M_8(C) GNS attachment on one explicit three-factor carrier, localizes the two exact repair-change contributions on adjacent interval algebras, proves exact endpoint locality and first-commutator propagation, and transports those statements through the same faithful selected-GNS representation. It records normalized positive compatible restrictions of the source state while explicitly separating that attained fact from the stronger, unconstructed existence of source-state-preserving regional conditional expectations.",
+      "novelty_type": "source_history_three_slot_tensor_local_bond_decomposition_and_selected_GNS_transport",
+      "evidence": [
+        "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
+        "Lean/QFT/SourceHistoryGNSDynamics.lean",
+        "Lean/QFT/FiniteTwoSiteIsingField.lean",
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/observers_are_all_you_need.tex",
+        "extra/compact_proof_of_oph.tex"
+      ],
+      "falsifier": "The attained claim fails if the history equivalence does not recover the three source coordinates; a declared algebra inclusion or endpoint commutation fails; either bond is not positive or does not lie in its adjacent interval algebra; the bond sum differs from the source repair Hamiltonian; either exact bond expectation is wrong; a restricted source functional is not positive, is not normalized, or fails inclusion compatibility; an endpoint generator response leaves its adjacent interval algebra; or the represented bond sum, endpoint locality, or generator membership fails on the selected-GNS carrier.",
+      "scope_if_false": "Only the three-slot tensor-local decomposition, compatible local-state restrictions, finite propagation statements, and their selected-GNS transport fall. The predecessor source-history GNS attachment, the standalone finite two-site Ising Hilbert benchmark, and every physical, conditional-expectation, continuum, renormalization, field, particle, scattering, and detector attachment remain separately assessed.",
+      "status": "source_counted_three_slot_tensor_local_GNS_dynamics_attained__state_preserving_expectations_and_physical_QFT_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
         743
       ],
       "premise_dependencies": {

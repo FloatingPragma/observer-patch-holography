@@ -50,6 +50,7 @@ import QFT.ColimitSelectedStateGNS
 import QFT.FiniteTwoSiteIsingField
 import QFT.FiniteTwoSiteIsingColimitGNS
 import QFT.SourceHistoryGNSDynamics
+import QFT.SourceHistoryThreeSlotLocalGNS
 
 /-!
 # OPH construction QFT umbrella
@@ -165,7 +166,8 @@ space.  The normalized cyclic unit has zero energy while the represented
 Hamiltonian and left-spin response remain nonzero; first-order interaction
 spreading and a static interaction-deletion control are both exact.  An
 explicit failure of selected-state invariance under the regional conditional
-expectation blocks a stronger state-compatible reading.  Thus the finite
+expectation diagnoses that particular expectation; compatible restrictions
+of the global state to the regional algebras still exist.  Thus the finite
 algebraic carrier/GNS/Hamiltonian/regional-net composition is attained, but
 source selection, physical regions and time, continuum or infinite-volume
 limits, renormalization flow, fields, particles, scattering, detectors, and a
@@ -179,6 +181,15 @@ completed-colimit GNS Hilbert space, with exact mean energy `197 / 1754` and
 unitary stationary dynamics. The source receipts fix the diagonal entries;
 the full-matrix quantum extension, coherence probe, and real flow parameter
 are mathematical adapters. The cyclic unit has nonzero energy and is not a
-vacuum. No regional net, calibrated clock, spacetime, continuum, field,
-particle, scattering, detector, or physical time-slice attachment follows.
+vacuum. `QFT.SourceHistoryThreeSlotLocalGNS` then reindexes the same carrier
+as three binary tensor slots, constructs the one-slot and adjacent-interval
+algebras, proves endpoint locality, and decomposes the Hamiltonian exactly as
+two positive adjacent domain-wall bonds with source energies `94 / 1754` and
+`103 / 1754`.  The commutator generator maps either endpoint algebra into its
+adjacent interval at first order, the source functional restricts compatibly
+along the regional inclusions, and these identities survive the injective GNS
+representation.  The slots are successive history coordinates, not
+Lorentzian regions or calibrated times; no spectrum condition, continuum/RG,
+field, particle, scattering, detector, or physical time-slice attachment
+follows.
 -/

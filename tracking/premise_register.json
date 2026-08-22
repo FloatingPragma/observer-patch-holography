@@ -367,16 +367,18 @@
     "claims/claim_registry.yaml",
     "Lean/Thermodynamics/FourLawAdequacySurface.lean",
     "Lean/Geometry/CommonWorldInstrumentJoin.lean",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
     "claims/claim_registry.yaml": "conditional_consumer",
     "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer",
     "Lean/Geometry/CommonWorldInstrumentJoin.lean": "statement",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
    },
-   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open."
+   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open. SourceHistoryThreeSlotLocalGNS decomposes the same uncalibrated finite repair Hamiltonian into two local positive bonds and proves first-order local generator propagation, but supplies neither a physical clock nor an energy-unit calibration; this import is unchanged."
   },
   {
    "id": "PR-16",
@@ -1200,7 +1202,8 @@
     "Lean/QFT/CarrierJoinTransport.lean",
     "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
     "Lean/Geometry/CommonWorldIslandBridge.lean",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/CanonicalLorentzModule.lean": "statement",
@@ -1211,9 +1214,10 @@
     "Lean/QFT/CarrierJoinTransport.lean": "statement",
     "Lean/EventAlgebra/SourceReachabilityDelimitation.lean": "no_go",
     "Lean/Geometry/CommonWorldIslandBridge.lean": "statement",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
    },
-   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open. SourceHistoryGNSDynamics attaches counted history data to a finite GNS Hamiltonian carrier without a regional or Lorentzian map, so it does not discharge this row."
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open. SourceHistoryGNSDynamics attaches counted history data to a finite GNS Hamiltonian carrier without a regional or Lorentzian map, so it does not discharge this row. SourceHistoryThreeSlotLocalGNS supplies a finite tensor-factor net over ordered history coordinates, not a map to observer-produced spacetime, rods, clocks, causal reachability, or continuum soldering; it does not discharge this row."
   },
   {
    "id": "PR-53",
@@ -1268,7 +1272,8 @@
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "Lean/Screen/FermionSectorAssembly.lean",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
@@ -1277,9 +1282,10 @@
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex": "statement",
     "Lean/Screen/TemporalMaxwellEvolution.lean": "statement",
     "Lean/Screen/FermionSectorAssembly.lean": "statement",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
    },
-   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing. SourceHistoryGNSDynamics represents a retained repair-count observable as a finite diagonal Hamiltonian; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action, so PR-54 remains open."
+   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing. SourceHistoryGNSDynamics represents a retained repair-count observable as a finite diagonal Hamiltonian; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action, so PR-54 remains open. SourceHistoryThreeSlotLocalGNS identifies the repair-count Hamiltonian with two adjacent Ising bonds on the history carrier, but these are not a gauge connection, current algebra, field strength, covariant matter operator, or spacetime-local action; this row remains open."
   },
   {
    "id": "PR-55",
@@ -1362,7 +1368,8 @@
     "Lean/QFT/TripleCarrierJoin.lean",
     "Lean/QFT/CarrierJoinTransport.lean",
     "Lean/QFT/ColimitNormedCompletion.lean",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
@@ -1370,9 +1377,10 @@
     "Lean/QFT/TripleCarrierJoin.lean": "statement",
     "Lean/QFT/CarrierJoinTransport.lean": "statement",
     "Lean/QFT/ColimitNormedCompletion.lean": "statement",
-    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement"
+    "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open. ColimitNormedCompletion transports the committed order-theoretic Cauchy-embedding equality to the closures of the limit local algebras in the C*-completion of the colimit; the time-indexed net-compatible evolution and slice-generation interface stay open. SourceHistoryGNSDynamics gives a nontrivial unitary flow on one source-counted full matrix block, but attaches no regions, Cauchy interface, slice-generation theorem, or physical clock, so it does not discharge PR-58."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open. ColimitNormedCompletion transports the committed order-theoretic Cauchy-embedding equality to the closures of the limit local algebras in the C*-completion of the colimit; the time-indexed net-compatible evolution and slice-generation interface stay open. SourceHistoryGNSDynamics gives a nontrivial unitary flow on one source-counted full matrix block, but attaches no regions, Cauchy interface, slice-generation theorem, or physical clock, so it does not discharge PR-58. SourceHistoryThreeSlotLocalGNS adds isotone history-slot and adjacent-interval algebras, endpoint locality, normalized compatible source-state restrictions, and first-commutator-order propagation into adjacent intervals, and transports the operator statements to the selected GNS carrier. It supplies no time-indexed region family, finite-time net covariance, Cauchy or slice-generation theorem, or physical clock, so it does not discharge this row."
   },
   {
    "id": "PR-59",

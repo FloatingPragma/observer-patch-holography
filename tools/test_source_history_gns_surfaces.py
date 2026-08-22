@@ -92,7 +92,8 @@ def test_papers_state_the_result_and_the_non_vacuum_boundary() -> None:
     assert "A source-counted finite history Hamiltonian on the selected GNS" in consensus
     assert r"\operatorname{Tr}(\rho_{\rm hist}H_{\rm hist})" in consensus
     assert r"\pi_{\rm hist}(H_{\rm hist})\Omega_{\rm hist}\ne0" in consensus
-    assert "The retained run was hash-pinned" in consensus
+    normalized_consensus = " ".join(consensus.split())
+    assert "The retained run was hash-pinned" in normalized_consensus
     assert "jointly preregistered" in consensus
     observers = (ROOT / "paper/observers_are_all_you_need.tex").read_text(
         encoding="utf-8"
@@ -113,7 +114,7 @@ def test_observation_and_premise_rows_stay_open() -> None:
     assert observation["status"] == "partial"
     assert observation["open_premises"] == ["PR-15", "PR-52", "PR-58"]
     assert LEAN_PATH in observation["evidence"]
-    assert "this carrier has no regional net" in observation["notes"]
+    assert "that module alone supplies no regional net" in observation["notes"]
 
     premises = _json("tracking/premise_register.json")["rows"]
     for premise_id in ["PR-15", "PR-52", "PR-54", "PR-58"]:

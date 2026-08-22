@@ -2949,13 +2949,16 @@ the selected pure state:
  \operatorname{Tr}(\rho_{00}(1\otimes Z))=1.
 \]
 Thus the construction is a finite interacting C*-dynamical regional net
-represented on its tower-selected GNS Hilbert space, not a state-compatible
-physical QFT.  The regulator, factorization, density, Hamiltonian, and flow
-parameter are declared rather than source produced or calibrated; the ground
-sector is degenerate; and Lorentzian localization, a spectrum condition,
-continuum or infinite-volume control, renormalization flow, field and particle
-content, scattering, detector readback, and a physical time-slice theorem are
-absent.
+represented on its tower-selected GNS Hilbert space.  The failure above is a
+property of that particular trace-preserving expectation, not a failure of a
+global state to restrict to the regional algebras.  It therefore supplies a
+useful incompatibility diagnostic but is not itself the criterion separating
+a finite net from a physical QFT.  The regulator, factorization, density,
+Hamiltonian, and flow parameter are declared rather than source produced or
+calibrated; the ground sector is degenerate; and Lorentzian localization, a
+spectrum condition, continuum or infinite-volume control, renormalization
+flow, field and particle content, scattering, detector readback, and a
+physical time-slice theorem are absent.
 (\path{Lean/QFT/FiniteTwoSiteIsingColimitGNS.lean}).
 
 \paragraph{A source-counted finite history Hamiltonian on the selected GNS
@@ -3006,19 +3009,66 @@ so the represented commutator response is nonzero.  The exponential
 propagators are unitary, obey the additive group law, intertwine exactly with
 the represented Heisenberg flow, and leave \(\rho_{\rm hist}\) stationary.
 
-This is a source-counted finite-history Hamiltonian GNS attachment. It is
-not a physical QFT. The retained run was hash-pinned, but the empirical law
-and repair-count postprocessing were not jointly preregistered. The packet
-fixes the diagonal density and action values;
-the full \(M_8(\mathbb C)\) quantum extension, off-diagonal coherence probe,
-one-regulator tower, and real flow parameter are mathematical adapters.  The
-nonzero energy of \(\Omega_{\rm hist}\) prevents its promotion to a vacuum or
-ground vector.  No regional net is attached to this carrier, and there is no
-physical clock or energy calibration, Lorentzian localization, spectrum
-condition, continuum or infinite-volume control, renormalization flow,
-field/particle interpretation, scattering, detector readback, or physical
-time-slice theorem.
-(\path{Lean/QFT/SourceHistoryGNSDynamics.lean}).
+The same carrier has an exact tensor-local history decomposition.  The
+source encoding identifies its basis with
+\(((s_0,s_1),s_2)\in(\mathbb Z/2)^3\).  Tensor-factor embeddings define the
+one-slot algebras \(\mathcal A_0,\mathcal A_1,\mathcal A_2\), the generated
+adjacent interval algebras
+\(\mathcal A_{01}=\mathcal A_0\vee\mathcal A_1\) and
+\(\mathcal A_{12}=\mathcal A_1\vee\mathcal A_2\), and
+\(\mathcal A_{012}=M_8(\mathbb C)\).  The inclusions are isotone and the
+separated endpoint algebras obey exact locality,
+\[
+ [\mathcal A_0,\mathcal A_2]=0.
+\]
+Writing the two adjacent domain-wall projectors as
+\[
+ H_{01}=\operatorname{diag}(\mathbf 1_{s_0\ne s_1}),\qquad
+ H_{12}=\operatorname{diag}(\mathbf 1_{s_1\ne s_2}),
+\]
+gives the residual-free local decomposition
+\[
+ H_{\rm hist}=H_{01}+H_{12},\qquad
+ H_{01}\in\mathcal A_{01},\qquad H_{12}\in\mathcal A_{12}.
+\]
+Both bonds are positive, and their separately counted source energies are
+\[
+ \operatorname{Tr}(\rho_{\rm hist}H_{01})=\frac{94}{1754},\qquad
+ \operatorname{Tr}(\rho_{\rm hist}H_{12})=\frac{103}{1754}.
+\]
+For \(\delta_{\rm hist}(X)=-i[H_{\rm hist},X]\), locality removes the
+remote bond exactly, so
+\[
+ \delta_{\rm hist}(\mathcal A_0)\subseteq\mathcal A_{01},\qquad
+ \delta_{\rm hist}(\mathcal A_2)\subseteq\mathcal A_{12}.
+\]
+These are first-commutator finite-support statements, not a continuum
+finite-speed theorem.  The single source functional
+\(\omega(X)=\operatorname{Tr}(\rho_{\rm hist}X)\) restricts to compatible
+states on every displayed algebra: for each inclusion
+\(\mathcal A_U\subseteq\mathcal A_V\),
+\(\omega_V|_{\mathcal A_U}=\omega_U\).  The injective selected-GNS
+representation transports the endpoint locality, the two bond memberships,
+the Hamiltonian decomposition, and the generator-support statements without
+collapse.  This compatible restriction is the state compatibility required
+of the finite net; it does not assert a source-state-preserving conditional
+expectation from the full algebra onto every region.
+
+This is a source-counted finite three-history-slot local dynamical system on
+its selected GNS Hilbert space, not a physical QFT. The retained run was
+hash-pinned, but the empirical law and repair-count postprocessing were not
+jointly preregistered. The packet fixes the diagonal density and the two
+repair-change contributions; the full \(M_8(\mathbb C)\) quantum extension,
+tensor-factor locality reading, off-diagonal coherence probe, one-regulator
+tower, and real flow parameter are mathematical adapters.  The nonzero energy
+of \(\Omega_{\rm hist}\) prevents its promotion to a vacuum or ground vector.
+The three successive history coordinates are not calibrated physical times or
+Lorentzian regions, and there is no physical clock or energy calibration,
+spectrum condition, continuum or infinite-volume control, renormalization
+flow, field/particle interpretation, scattering, detector readback, or
+physical time-slice theorem.
+(\path{Lean/QFT/SourceHistoryGNSDynamics.lean};
+\path{Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean}).
 
 \paragraph{Region families of the one-step interface.}
 The module \path{Lean/QFT/CarrierJoinTransport.lean} settles the region-family freedom of
