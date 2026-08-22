@@ -1926,7 +1926,7 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
         ]
 
     lines += [
-        "## W3a — constant substitution in the pixel closure",
+        "## W3a: constant substitution in the pixel closure",
         "",
         "Map: `P = c₁ + sqrt(c₂)/A_T(P)` using the existing",
         "`thomson_structured_running_plus_gauge_width` chain. Every row below",
@@ -1985,7 +1985,7 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
 
     lines += [
         "",
-        "## W3b — selector and port-menu ablation",
+        "## W3b: selector and port-menu ablation",
         "",
         selector["summary"]["verdict"],
         "",
@@ -2026,7 +2026,7 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
         "excluded. Seven alternative deltahedra lie outside A1 and lack a compatible",
         "producer. They are counterfactual ablations, not competing OPH branches.",
         "",
-        "## W3c — RSCC zero-`w²` ablation gate",
+        "## W3c: RSCC zero-`w²` ablation gate",
         "",
         "| Model | Maximum residual | Raw residual sum |",
         "|---|---:|---:|",
@@ -2044,7 +2044,7 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
         f"Negative control beats full model: **{str(rscc['ablation_beats_full_model']).lower()}**.",
         "The checker exits nonzero if this result is absent from the page header.",
         "",
-        "## W3d — bounded quark Clebsch assignment audit",
+        "## W3d: bounded quark Clebsch assignment audit",
         "",
         "The full six-permutation menu of `(1, 1/3, 3)` over",
         "`(b/τ, s/μ, d/e)` is recomputed through the current five-Yukawa plus",
@@ -2158,7 +2158,7 @@ def render_scorecard(report: Mapping[str, Any]) -> str:
         "",
         koide["classification"],
         "",
-        "## W-F6 — bounded correction-expression grammar null",
+        "## W-F6: bounded correction-expression grammar null",
         "",
         expression_null["source_grammar_reconstruction_status"],
         "",
