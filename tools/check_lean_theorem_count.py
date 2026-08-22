@@ -33,7 +33,6 @@ LEAN_ROOT = REPO_ROOT / "Lean"
 CLAIM_FILES = [
     REPO_ROOT / "README.md",
     REPO_ROOT / "README_FR.md",
-    REPO_ROOT / "extra" / "compact_proof_of_oph.tex",
 ]
 
 # Public declarations only: same-line attributes and public modifiers are

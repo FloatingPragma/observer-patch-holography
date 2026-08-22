@@ -34,7 +34,6 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
     assert "within two standard uncertainties" in rule
 
     surfaces = {
-        "compact": ROOT / "extra/compact_proof_of_oph.tex",
         "flagship": ROOT / "flagship/from_observer_consensus_to_standard_physics.tex",
         "particle paper": ROOT / "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
         "Koide paper": ROOT / "extra/koide_identity_from_positive_c3_face_circulants.tex",
@@ -54,10 +53,8 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
         text = path.read_text(encoding="utf-8")
         assert not forbidden.search(text), f"{name} restores the obsolete window kill rule"
 
-    compact = surfaces["compact"].read_text(encoding="utf-8").lower()
     readme = " ".join(surfaces["English README"].read_text(encoding="utf-8").lower().split())
     french = " ".join(surfaces["French README"].read_text(encoding="utf-8").lower().split())
-    assert "more than three" in compact and "standard uncertainties" in compact
     # The reader-facing case states the Koide premise and presents capacity
     # as a high-level scientific program. Detailed negative/comparison status
     # belongs in the technical surfaces, not the marketing README files.

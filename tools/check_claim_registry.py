@@ -50,7 +50,7 @@ PREMISE_DEPENDENCY_CLASSIFICATIONS = {
 }
 PREMISE_ID = re.compile(r"^PR-[0-9]{2}$")
 PREMISE_DEPENDENCY_PROJECTION_SHA256 = (
-    "9da8af7984160e86d5a5b5d9b1ae2026cb034db8b525c1a9dbb286c0d35f1dcd"
+    "d41b50ca8ba1691bfe666a18d7c9e0dfd4eeef923081e3a15b879ef2999cd932"
 )
 
 # Controlled claim classification (issue #512). `status` stays descriptive
@@ -122,7 +122,6 @@ REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
     "OPH-ALPHA-PIXEL": frozenset({744}),
     "OPH-DM-CONT": frozenset({742}),
     "OPH-YM-GAP": frozenset({743, 744}),
-    "OPH-CHI-NU": frozenset({742}),
     "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX": frozenset({743}),
     "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO": frozenset({743}),
 }

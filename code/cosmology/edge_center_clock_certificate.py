@@ -898,7 +898,7 @@ def build(
                 "binding_theorem_present": False,
             },
             "presence_reading": {
-                "artifact": "extra/chi_nu_susceptibility_bounds.tex",
+                "artifact": "Lean/ObserverPatchHolography/CapacityClosurePrinciple.lean",
                 "statement": (
                     "the finite one-step survival is the presence value 1 - P/24; "
                     "e^(-P/24) is the depth limit, unreachable at any finite regulator"

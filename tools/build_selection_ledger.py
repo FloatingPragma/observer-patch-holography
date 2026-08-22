@@ -60,7 +60,6 @@ REQUIRED_SELECTOR_IDS = {
     "echosahedral_carrier_lineage",
     "compact_gauge_refinement_receipt",
     "declared_matter_completion_one_higgs_witness",
-    "z6_reserve_pricing_input",
     "br0_cell_product_reading",
     "publicness_policy",
     "scheduler_selection_fair_block",

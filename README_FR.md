@@ -107,7 +107,7 @@ simulations reproductibles :
   fermeture du pixel, proche de la constante de structure fine mesurée,
   conserve un statut diagnostique. Ces calculs font des constantes des cibles
   concrètes de dérivation et de falsification plutôt que des données libres.
-- **Vérifié machine et falsifiable.** Plus de 7300 théorèmes Lean sans
+- **Vérifié machine et falsifiable.** Plus de 7400 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
   reçus épinglés. Une échelle de prédictions gelées enregistre des bandes
@@ -116,12 +116,10 @@ simulations reproductibles :
 
 Les articles liés donnent le statut précis de chaque étape. Ensemble, ces
 résultats tracent une voie testable des trois axiomes d’observateurs vers une
-théorie physique complète. Le dossier condensé, avec ses reçus en une table,
-est le [dossier compact d’OPH](extra/compact_proof_of_oph.pdf) ; la voie
-technique complète est
+théorie physique complète. La voie technique complète est
 l’[article phare](flagship/from_observer_consensus_to_standard_physics.pdf).
 
-Le reste de ce README présente l’architecture d’où vient ce dossier.
+Le reste de ce README présente l’architecture derrière ces résultats.
 
 ## Les trois axiomes
 
@@ -299,7 +297,6 @@ résultats finis et structurels exacts constituent la partie la plus solide.
 
 | Pour découvrir... | Commencer ici |
 | --- | --- |
-| L’argument persuasif le plus court | [Le cas compact pour OPH](extra/compact_proof_of_oph.pdf) |
 | La dérivation de l’espace-temps et d’Einstein | [Espace-temps des observateurs et dynamique d’Einstein](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Les deux routes de jauge du Modèle standard | [Structure de jauge du Modèle standard](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | La synthèse complète | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |

@@ -219,34 +219,6 @@
     },
     {
       "row": 7,
-      "selector_id": "z6_reserve_pricing_input",
-      "label": "Z6 reserve pricing input l_shared = P/4",
-      "class": "exposed_premise",
-      "conditional_on": [],
-      "canonical_claim_id": "OPH-CHI-NU",
-      "secondary_claim_ids": [],
-      "owner_issues": [],
-      "where": "Declared branch input to the reserve-trace theorem (`thm:z6-reserve-trace`, screen microphysics paper); every downstream reserve number inherits it.",
-      "menu": {
-        "size": null,
-        "alternatives": "declared continuous input; no finite alternative enumeration exists, so the row is a theorem antecedent and not a compression-menu input",
-        "enumeration_source": null
-      },
-      "compression_input": false,
-      "receipts": [],
-      "lean": [],
-      "negative_controls": [
-        "the presence and poisson readings of the same reserve trace are both carried and are separated at branch axis BR-1"
-      ],
-      "paper_anchors": [
-        {
-          "file": "paper/screen_microphysics_and_observer_synchronization.tex",
-          "anchor": "thm:z6-reserve-trace"
-        }
-      ]
-    },
-    {
-      "row": 8,
       "selector_id": "br0_cell_product_reading",
       "label": "BR-0: cell product reading of the screen count",
       "class": "exposed_premise",
@@ -271,7 +243,7 @@
       "paper_anchors": []
     },
     {
-      "row": 9,
+      "row": 8,
       "selector_id": "publicness_policy",
       "label": "Publicness policy",
       "class": "exposed_premise",
@@ -294,7 +266,7 @@
       "paper_anchors": []
     },
     {
-      "row": 10,
+      "row": 9,
       "selector_id": "scheduler_selection_fair_block",
       "label": "Scheduler selection (fair-block contraction branch)",
       "class": "exposed_premise",
@@ -317,7 +289,7 @@
       "paper_anchors": []
     },
     {
-      "row": 11,
+      "row": 10,
       "selector_id": "quantitative_closure_map_declaration",
       "label": "Quantitative closure map declaration (pixel closure)",
       "class": "open",
@@ -350,7 +322,7 @@
       "paper_anchors": []
     },
     {
-      "row": 12,
+      "row": 11,
       "selector_id": "physical_port_current_realization",
       "label": "A1/A2 compact port-current Lie type",
       "class": "forced",
@@ -396,7 +368,7 @@
       ]
     },
     {
-      "row": 13,
+      "row": 12,
       "selector_id": "z6_global_form_descent",
       "label": "Declared-lattice Z6 descent and open physical global form",
       "class": "exposed_premise",
@@ -455,7 +427,7 @@
       ]
     },
     {
-      "row": 14,
+      "row": 13,
       "selector_id": "physical_matter_spin_lift",
       "label": "Conditional exterior matter and finite Spin fixture",
       "class": "exposed_premise",
@@ -504,7 +476,7 @@
       ]
     },
     {
-      "row": 15,
+      "row": 14,
       "selector_id": "screen_to_family_attachment",
       "label": "Rank-three screen response and conditional family candidate",
       "class": "open",
@@ -533,7 +505,7 @@
       "paper_anchors": []
     },
     {
-      "row": 16,
+      "row": 15,
       "selector_id": "capacity_closure_selector",
       "label": "Capacity-closure selector (required one-zero law open)",
       "class": "open",
@@ -582,7 +554,7 @@
       "paper_anchors": []
     },
     {
-      "row": 17,
+      "row": 16,
       "selector_id": "br1_reserve_semantics",
       "label": "BR-1: reserve semantics",
       "class": "open",
@@ -614,7 +586,7 @@
       "paper_anchors": []
     },
     {
-      "row": 18,
+      "row": 17,
       "selector_id": "br2_reserve_attachment",
       "label": "BR-2: reserve attachment",
       "class": "open",
@@ -646,7 +618,7 @@
       "paper_anchors": []
     },
     {
-      "row": 19,
+      "row": 18,
       "selector_id": "br3_readback_count_effect",
       "label": "BR-3: count effect of the readback record",
       "class": "open",
@@ -677,7 +649,7 @@
       "paper_anchors": []
     },
     {
-      "row": 20,
+      "row": 19,
       "selector_id": "br4_subfederation_marking",
       "label": "BR-4: observer/checkpoint subfederation marking",
       "class": "open",
@@ -708,7 +680,7 @@
       "paper_anchors": []
     },
     {
-      "row": 21,
+      "row": 20,
       "selector_id": "br5_symmetry_quotient",
       "label": "BR-5: symmetry quotient",
       "class": "open",
@@ -739,7 +711,7 @@
       "paper_anchors": []
     },
     {
-      "row": 22,
+      "row": 21,
       "selector_id": "br6_cap_read_family",
       "label": "BR-6: Cap_read family",
       "class": "open",
@@ -770,7 +742,7 @@
       "paper_anchors": []
     },
     {
-      "row": 23,
+      "row": 22,
       "selector_id": "oriented_face_minimum_repair_rule",
       "label": "B14 oriented-face Jacobi repair rule",
       "class": "open",
@@ -807,7 +779,7 @@
       "paper_anchors": []
     },
     {
-      "row": 24,
+      "row": 23,
       "selector_id": "post_hoc_repair_count_phase_pairing",
       "label": "B13 post-hoc repair-count statistic and completion pairing",
       "class": "exposed_premise",

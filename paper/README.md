@@ -2,8 +2,7 @@
 
 This directory is the canonical publication surface for the main OPH papers. Each paper is kept as a TeX source beside its built PDF.
 
-For a first reading, begin with the short [compact
-case](../extra/compact_proof_of_oph.pdf). Continue with *Observers Are All You
+For a first reading, begin with *Observers Are All You
 Need* for the observer interpretation and the two quantitative closures, then
 use the two technical derivation papers for spacetime and gravity on one side
 and Standard Model gauge structure on the other. The consensus, particle, and screen papers provide the finite
@@ -27,7 +26,6 @@ a separate conditional attachment.
 | [Federated Echosahedral Screen Microphysics](screen_microphysics_and_observer_synchronization.pdf) ([source](screen_microphysics_and_observer_synchronization.tex)) | Twelve-port source selector, central records, and observer synchronization |
 | [Paradise as Fixed-Point Consensus](paradise_as_fixed_point_consensus.pdf) ([source](paradise_as_fixed_point_consensus.tex)) | Observer continuation and interpretation |
 
-The shortest informal introduction is [A Compact Case for OPH](../extra/compact_proof_of_oph.pdf).
 The flavor theorem is developed in [The Positive-Chamber Koide Identity for
 Icosahedral Face Circulants](../extra/koide_identity_from_positive_c3_face_circulants.pdf).
 The finite de Sitter theorem is developed in [The de Sitter Time-Advance Sign

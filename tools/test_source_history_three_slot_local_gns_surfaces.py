@@ -15,7 +15,6 @@ SOURCE_GNS_PARENT = "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT"
 ISING_PARENT = "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
 CONSENSUS_PAPER = "paper/reality_as_consensus_protocol.tex"
 OBSERVERS_PAPER = "paper/observers_are_all_you_need.tex"
-COMPACT_PAPER = "extra/compact_proof_of_oph.tex"
 
 
 def _json(relative_path: str) -> dict:
@@ -47,7 +46,6 @@ def test_claim_records_exact_scope_and_open_physical_exits() -> None:
         "Lean/QFT/FiniteTwoSiteIsingField.lean",
         CONSENSUS_PAPER,
         OBSERVERS_PAPER,
-        COMPACT_PAPER,
     ]
     assert claim["gates"] == [730, 743]
     assert claim["premise_dependencies"] == {
@@ -182,15 +180,6 @@ def test_all_three_papers_state_the_local_rung_and_physical_boundary() -> None:
         "not calibrated physical times or Lorentzian regions",
     ]:
         assert text in observers
-
-    compact = _collapsed(COMPACT_PAPER)
-    for text in [
-        "Reindexing the eight histories",
-        r"H_{\rm hist}&=H_{01}+H_{12}",
-        "source state restricts compatibly along the regional inclusions",
-        "not Lorentzian regions or calibrated physical times",
-    ]:
-        assert text in compact
 
 
 def test_observation_and_premise_surfaces_keep_the_physical_exits_open() -> None:

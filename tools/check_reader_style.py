@@ -61,7 +61,6 @@ PAPER_GLOBS = [
     "paper/**/*.tex",
     "extra/**/*.tex",
     "cosmology/**/*.tex",
-    "extra/hacking-the-simulation-anti-gravity-exploit/**/*.md",
 ]
 
 PROGRESS_PATTERNS = [

@@ -74,10 +74,10 @@ gives `3.5323546226...e122`, the value recorded by
 | direct public-record map, closure `N = log M_0(U_N)`, count kernel | [F_READBACK_SPEC.md](F_READBACK_SPEC.md); `correctable_public_record_capacity.py` |
 | twelve-port sieve, load `X = log(N/pi)` read as `X/12` | `paper/screen_microphysics_and_observer_synchronization.tex`, `thm:icosahedral-screen-sieve`; oriented register `def:oriented-24-slot-register` |
 | D6 radius identity `r_CRC/ell_star = (N/pi)^(1/2)` | `code/particles/hierarchy/certificates/R_N_global_repair_tick_certificate.json`, `proved_by_certificate` |
-| D10 pixel closure, `alpha_U(P)`, `t_tr = 2*pi/(beta_EW*alpha_U)`, `beta_EW = N_c+1 = 4` | `code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json`; `code/P_derivation/paper_math.py` (pixel residual, line 588); `code/P_derivation/FULL_DERIVATION.md`; `extra/compact_proof_of_oph.tex` |
+| D10 pixel closure, `alpha_U(P)`, `t_tr = 2*pi/(beta_EW*alpha_U)`, `beta_EW = N_c+1 = 4` | `code/particles/runs/calibration/d10_ew_forward_transmutation_certificate.json`; `code/P_derivation/paper_math.py` (pixel residual, line 588); `code/P_derivation/FULL_DERIVATION.md` |
 | repair tick `-log|g_*'| = log(N/pi)/48`, round count `m_rep = 24` | `R_N_global_repair_tick_certificate.json`; `R_m_rep_24_certificate.json` |
 | tick projection `Pi_EW = 24*pi/(alpha_U*X)` and bridge algebra | `R_EW_tick_projection_certificate.json` (derivation chain steps 1 to 3, 5) |
-| EW share of screen depth `Gamma_EW = (P/12)*log(N/pi)` | `extra/compact_proof_of_oph.tex`, QCD-free hierarchy witness |
+| EW share of screen depth `Gamma_EW = (P/12)*log(N/pi)` | `paper/deriving_the_particle_zoo_from_observer_consistency.tex`, QCD-free hierarchy witness |
 | contraction carrier, `lambda = 1/2` free | `R_EW_global_capacity_certificate.json`, derivation chain step 7 |
 | seed fixed point `pi` of the pure port inversion | [F_CONSTRUCTION_2026-07-14.md](F_CONSTRUCTION_2026-07-14.md) Section 2.2; [F_candidate_capP.py](F_candidate_capP.py) |
 | `beta_EW = 4` relation | conditional D10 relation stated in the Standard Model gauge paper; no registered comparison target |

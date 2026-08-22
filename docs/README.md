@@ -18,8 +18,7 @@ run data so you can watch the universe assemble itself.
 - **First encounter:** the [technical paper](../flagship/from_observer_consensus_to_standard_physics.pdf),
   [textbooks](https://learn.floatingpragma.io/), and the
   [simulation](https://simulation.floatingpragma.io/) above, then the
-  [compact case](../extra/compact_proof_of_oph.pdf) and the repository
-  [README](../README.md) from the three axioms through the twist.
+  repository [README](../README.md) from the three axioms through the twist.
 - **Technical verification:** use the [claim registry](../claims/claim_registry.yaml),
   the [observation ledger](OBSERVATION_LEDGER_V3.md), the [premise register](PREMISE_REGISTER_V3.md),
   the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).

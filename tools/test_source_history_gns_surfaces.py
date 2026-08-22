@@ -33,7 +33,6 @@ def test_claim_records_the_source_counted_attachment_and_open_exits() -> None:
         "Lean/QFT/ColimitSelectedStateGNS.lean",
         "paper/reality_as_consensus_protocol.tex",
         "paper/observers_are_all_you_need.tex",
-        "extra/compact_proof_of_oph.tex",
     ]
     assert claim["gates"] == [730, 739, 743]
     assert claim["premise_dependencies"] == {
@@ -100,11 +99,6 @@ def test_papers_state_the_result_and_the_non_vacuum_boundary() -> None:
     )
     assert "The retained length-three history packet also has an exact finite operator" in observers
     assert "The cyclic unit has nonzero" in observers
-    compact = (ROOT / "extra/compact_proof_of_oph.tex").read_text(
-        encoding="utf-8"
-    )
-    assert "source-counted operator attachment is exact" in compact
-    assert "unit has nonzero energy and is not a vacuum" in compact
 
 
 def test_observation_and_premise_rows_stay_open() -> None:

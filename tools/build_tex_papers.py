@@ -47,11 +47,8 @@ COSMOLOGY_PAPERS = {
     path.stem: path
     for path in sorted(COSMOLOGY_DIR.glob("*.tex"))
 }
-# The compact proof remains manifest-bound for the challenge backend. No
-# extra/ or cosmology/ PDF is attached to the public GitHub Release.
-RELEASED_ADJUNCT_PAPERS = {
-    "compact_proof_of_oph": EXTRA_PAPERS["compact_proof_of_oph"],
-}
+# No extra/ or cosmology/ PDF is attached to the public GitHub Release.
+RELEASED_ADJUNCT_PAPERS: dict[str, object] = {}
 ALL_PAPERS = {**PAPERS, **EXTRA_PAPERS, **COSMOLOGY_PAPERS}
 
 TECTONIC_FETCH_ATTEMPTS = 3

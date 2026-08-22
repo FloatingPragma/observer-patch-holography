@@ -93,7 +93,7 @@ calculations and reproducible simulations:
   fine-structure constant carries diagnostic status. These calculations turn
   constants into concrete derivation and falsification targets rather than
   free inputs.
-- **Machine-checked and falsifiable.** More than 7300 Lean theorems with
+- **Machine-checked and falsifiable.** More than 7400 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
   frozen-prediction ladder registers kill bands under cryptographic custody
@@ -102,12 +102,10 @@ calculations and reproducible simulations:
 
 The linked papers record each step's precise status. Together, these results
 define a testable path from three observer axioms toward a complete theory.
-The condensed case, with its receipts in one table, is the
-[compact case for OPH](extra/compact_proof_of_oph.pdf); the full technical
-route is the
+The full technical route is the
 [flagship paper](flagship/from_observer_consensus_to_standard_physics.pdf).
 
-The rest of this README is the architecture that case comes from.
+The rest of this README is the architecture behind those results.
 
 ## The Three Axioms
 
@@ -327,7 +325,6 @@ them.
 | If you want... | Start here |
 | --- | --- |
 | The flagship introduction to OPH | [From Observer Consensus to Standard Physics](flagship/from_observer_consensus_to_standard_physics.pdf) |
-| The shortest persuasive overview | [A Compact Case for OPH](extra/compact_proof_of_oph.pdf) |
 | The spacetime and Einstein derivation | [Recovering Observer Spacetime and Einstein Dynamics](paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf) |
 | Both Standard Model gauge routes | [Deriving Standard Model Gauge Structure](paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf) |
 | The finite consensus mechanism | [Reality as a Consensus Protocol](paper/reality_as_consensus_protocol.pdf) |
@@ -352,7 +349,7 @@ The [paper index](paper/) gives the curated publication map. Focused research PD
 
 - [`flagship/`](flagship): the primary standalone OPH paper, its TeX source, and release PDF.
 - [`paper/`](paper): core papers, TeX sources, PDFs, and release metadata.
-- [`extra/`](extra): the published compact proof plus repository-only focused research PDFs.
+- [`extra/`](extra): repository-only focused research PDFs.
 - [`code/`](code): certificates, simulations, particle calculations, and experiments.
 - [`book/`](book): legacy book source and downloadable PDF, retained outside the primary reading path.
 - [`cosmology/`](cosmology): dark-sector and cosmology research.

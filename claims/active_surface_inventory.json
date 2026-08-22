@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 276,
+  "surface_count": 275,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -9,7 +9,6 @@
   ],
   "pdf_surfaces": [
     "flagship/from_observer_consensus_to_standard_physics.pdf",
-    "extra/compact_proof_of_oph.pdf",
     "extra/observable_normal_forms.pdf",
     "paper/observers_are_all_you_need.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -218,11 +217,6 @@
     {
       "path": "flagship/from_observer_consensus_to_standard_physics.tex",
       "glob": "flagship/*.tex",
-      "allowlisted": false
-    },
-    {
-      "path": "extra/compact_proof_of_oph.tex",
-      "glob": "extra/compact_proof_of_oph.tex",
       "allowlisted": false
     },
     {

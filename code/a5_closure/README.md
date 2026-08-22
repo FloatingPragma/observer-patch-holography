@@ -4,7 +4,7 @@ Exact representation-theoretic certificate for the icosahedral closure theorem:
 the twelve-port screen module, the compact-Lie trichotomy, the rank-five
 noncentral corollary, and the oriented face-phase multiplicities.
 
-Referenced as **[C19]** in `extra/compact_proof_of_oph.tex` and as the
+Referenced as the
 closure certificate in `paper/observers_are_all_you_need.tex` and
 `paper/recovering_relativity_..._compact.tex`.
 

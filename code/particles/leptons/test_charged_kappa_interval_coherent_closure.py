@@ -107,16 +107,13 @@ def test_public_papers_use_outward_display_rounding():
         / "paper"
         / "deriving_the_particle_zoo_from_observer_consistency.tex"
     ).read_text(encoding="utf-8")
-    compact_paper = (
-        lane.REPO_ROOT / "extra" / "compact_proof_of_oph.tex"
-    ).read_text(encoding="utf-8")
     for expected in (
         "[0.5001,\\,0.5178]",
         "[103.40,\\,107.06]",
         "[1.7390,\\,1.8004]",
     ):
         assert expected in particle_paper
-    for source in (particle_paper, compact_paper):
+    for source in (particle_paper,):
         assert "logarithmic half-width" in source
         assert "Target-anchored" in source or "target-anchored" in source
 

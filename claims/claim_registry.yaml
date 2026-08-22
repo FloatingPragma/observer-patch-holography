@@ -1828,7 +1828,6 @@
       "novelty_type": "public_record_classical_representation_with_broadcasting_boundary",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
-        "extra/compact_proof_of_oph.tex",
         "Lean/EventAlgebra/PublicRecordAlgebra.lean",
         "Lean/EventAlgebra/NoBroadcastingAdapter.lean",
         "Lean/docs/B1_PUBLIC_RECORD_ALGEBRA.md"
@@ -3161,7 +3160,6 @@
       "evidence": [
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "flagship/from_observer_consensus_to_standard_physics.tex",
-        "extra/compact_proof_of_oph.tex",
         "code/e9_kinetic/compute_kinetic_form.py",
         "code/e9_kinetic/kinetic_form_v1.json",
         "code/e9_kinetic/validate_kinetic_form.py",
@@ -6419,8 +6417,7 @@
         "Lean/InformationProjection/SourceHistoryPacket.lean",
         "Lean/QFT/ColimitSelectedStateGNS.lean",
         "paper/reality_as_consensus_protocol.tex",
-        "paper/observers_are_all_you_need.tex",
-        "extra/compact_proof_of_oph.tex"
+        "paper/observers_are_all_you_need.tex"
       ],
       "falsifier": "The attained claim fails if the diagonal density is not positive, normalized, or strictly positive entrywise; if a diagonal entry differs from the retained window count divided by 1754; if the Hamiltonian is not positive, self-adjoint, nonzero, or non-scalar; if an energy entry differs from the exact two-step change count; if the density and Hamiltonian do not commute or their trace pairing differs from 197/1754; if the tower stores a different generator; if the selected functional or cyclic unit is not normalized and nonzero; if the finite-stage GNS representation is not injective; if the represented Hamiltonian or off-diagonal response vanishes; if the represented Hamiltonian annihilates the cyclic unit; if the mapped propagators fail unitarity, addition, Heisenberg intertwining, or density stationarity; or if any stronger physical claim treats the quantum extension, flow parameter, region, clock, spacetime, continuum, or detector attachment as source established.",
       "scope_if_false": "Only the source-history diagonal-state/action to finite selected-GNS dynamics composition falls. The retained history-law literals and variational receipts, the generic selected-state GNS construction, the separate finite Ising regional-net composition, and every physical or continuum QFT attachment remain separately assessed.",
@@ -6463,8 +6460,7 @@
         "Lean/QFT/SourceHistoryGNSDynamics.lean",
         "Lean/QFT/FiniteTwoSiteIsingField.lean",
         "paper/reality_as_consensus_protocol.tex",
-        "paper/observers_are_all_you_need.tex",
-        "extra/compact_proof_of_oph.tex"
+        "paper/observers_are_all_you_need.tex"
       ],
       "falsifier": "The attained claim fails if the history equivalence does not recover the three source coordinates; a declared algebra inclusion or endpoint commutation fails; either bond is not positive or does not lie in its adjacent interval algebra; the bond sum differs from the source repair Hamiltonian; either exact bond expectation is wrong; a restricted source functional is not positive, is not normalized, or fails inclusion compatibility; an endpoint generator response leaves its adjacent interval algebra; or the represented bond sum, endpoint locality, or generator membership fails on the selected-GNS carrier.",
       "scope_if_false": "Only the three-slot tensor-local decomposition, compatible local-state restrictions, finite propagation statements, and their selected-GNS transport fall. The predecessor source-history GNS attachment, the standalone finite two-site Ising Hilbert benchmark, and every physical, conditional-expectation, continuum, renormalization, field, particle, scattering, and detector attachment remain separately assessed.",

@@ -92,9 +92,7 @@ pairing, and source-side D-optimal tomography of
 - **BR-1b (presence):** survival factor `1 - P/24` per unit. The presence reading of
   the same reserve trace: `epsilon` is a conditional trace of the Z6 projection, a
   presence probability, and the receipt-consistent survival is `1 - P/24`
-  (`extra/chi_nu_susceptibility_bounds.tex`, ``Protected-Reserve
-  Coefficient``; Lean module `CollarGatePresence.lean`; the corpus carries
-  both readings).
+  (Lean module `CapacityClosurePrinciple.lean`; the corpus carries both readings).
 - **BR-1c (none):** reserve slots hold repair records that remain countable states;
   no exclusion from the count.
 
