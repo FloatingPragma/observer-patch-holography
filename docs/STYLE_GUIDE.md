@@ -69,8 +69,21 @@ the repository, the ledgers, or the other papers.
   numbers, issue-lane codes, project phases, and live status summaries never
   appear in a paper. Examples include PR-65, OL-C6, issue B19, and ``lane
   \#743.'' Put that information in the owning ledger, plan, or issue.
+- This prohibition covers every rendered part of a paper, including titles,
+  abstracts, body text, footnotes, captions, tables, appendices, and source or
+  provenance notes. A stable scientific citation or artifact path may support
+  reproducibility. It never carries task ownership, open/closed state,
+  completion history, or a project update.
+- A paper records the scientific result and its boundary. State the theorem,
+  hypotheses, evidence, counterexample, conditionality, or nonclaim directly.
+  Work queues, roadmaps, milestone narration, and descriptions of what a
+  revision closed belong in the workspace plan or the owning issue.
 - Where a paper depends on a companion result, it states the result in words
   and cites the companion paper. It does not hand the reader a label.
+- After any paper-prose edit, run `python3 tools/check_reader_style.py` from
+  the repository root. When changing this policy or its checker, also run
+  `python3 -m pytest -q tools/test_gates_actually_fail.py`. Do not add an
+  exception merely to retain project-control prose in a paper.
 
 ## Abstracts and informal surfaces
 
