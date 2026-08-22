@@ -527,8 +527,9 @@ inventory.
 
 Koide relation
 :   The Koide relation is the observation that the three charged-lepton
-masses sit at $Q=(m_e+m_\mu+m_\tau)/(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2
-=2/3$ to remarkable precision; the measured value is $Q=0.66666446\ldots$. In
+masses sit at
+$Q=(m_e+m_\mu+m_\tau)/(\sqrt{m_e}+\sqrt{m_\mu}+\sqrt{m_\tau})^2=2/3$
+to remarkable precision; the measured value is $Q=0.66666446\ldots$. In
 OPH the circulant structure gives the exact identity
 $Q=\tfrac13+\tfrac23(|b|/a)^2$, with the balanced point $Q=2/3$ reached at
 $|b|/a=1/\sqrt2$. At the balanced point the measured electron and muon masses
