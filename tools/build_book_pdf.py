@@ -107,6 +107,11 @@ TEX_SYMBOL_REPLACEMENTS = [
 
 ORDER_PREFIX = re.compile(r"^(\d{2})-")
 
+# Files that live in book/ without being units of the book.  Anything else lacking an
+# order prefix is an error rather than a skip, so a misnamed chapter cannot silently
+# vanish from the manuscript.
+NON_UNIT_FILENAMES = frozenset({"README.md"})
+
 # Units that take \chapter* rather than a number: the front matter, the prologue, the
 # epilogue and the three appendices.  Appendices carry their own label in their title.
 UNNUMBERED_STEMS = ("front-matter", "prologue", "epilogue", "appendix-")
@@ -132,7 +137,11 @@ def source_files() -> list[Path]:
     per-kind globbing and no hard-coded positions.  Duplicated prefixes are rejected
     rather than silently ordered by name.
     """
-    files = sorted(BOOK_DIR.glob("*.md"), key=order_key)
+    candidates = [
+        path for path in BOOK_DIR.glob("*.md")
+        if path.name not in NON_UNIT_FILENAMES
+    ]
+    files = sorted(candidates, key=order_key)
     if not files:
         raise SystemExit(f"no book sources found in {BOOK_DIR}")
     seen: dict[int, Path] = {}

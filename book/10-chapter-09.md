@@ -56,9 +56,9 @@ The top corner sits at 6 and its two neighbors average 1.5, so it gets 9. The bo
 
 Three numbers in, three numbers out. Each output says how far above or below its own neighborhood that corner sits, scaled by how many neighbors it has, and the three outputs sum to zero, because every gap in the list appears twice with opposite signs. The operation is called the **graph Laplacian**, it is defined on any graph whatever, and the sentence carried out three times with the pencil is all of it:
 
-$$(Lx)_{\text{me}} \;=\; (\text{how many neighbors I have}) \times \left( x_{\text{me}} - \text{the average of } x \text{ over my neighbors} \right)$$
+$$(Lx)_{\text{me}} \;=\; n_{\text{me}} \times \left( x_{\text{me}} - \text{average of } x \text{ over my neighbors} \right)$$
 
-Here x is the list of readings, one number per corner, x with the subscript me is the reading at my own corner, and L is the name of the operation that turns one such list into another. Nothing on the right-hand side looks past the corners a corner is joined to, which is why an observer can work out its own entry without leaving its patch.
+Here x is the list of readings, one number per corner, x with the subscript me is the reading at my own corner, n with the subscript me is how many neighbors my corner has, and L is the name of the operation that turns one such list into another. Nothing on the right-hand side looks past the corners a corner is joined to, which is why an observer can work out its own entry without leaving its patch.
 
 Repair a seam by hand. Take the 6 and the 3, whose midpoint is 4.5, and send both there: the triangle reads 4.5, 0, 4.5. Add them. Start over and repair the 0 and the 3 instead, which puts both at 1.5: the triangle reads 6, 1.5, 1.5. Add them. Three seams, six orders of working through them, and the running total is 9 at every point in every one of those histories, because a move that sends two numbers to their midpoint puts back exactly what it took out of them. No corner holds the 9, and no move available on the triangle can spend it.
 

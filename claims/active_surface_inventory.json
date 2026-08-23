@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 275,
+  "surface_count": 297,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -260,127 +260,237 @@
       "allowlisted": false
     },
     {
+      "path": "book/00-front-matter.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/01-prologue.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/02-chapter-01.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/03-chapter-02.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/04-chapter-03.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/05-chapter-04.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/06-chapter-05.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/07-chapter-06.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/08-chapter-07.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/09-chapter-08.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/10-chapter-09.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/11-chapter-10.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/12-chapter-11.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/13-chapter-12.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/14-chapter-13.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/15-chapter-14.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/16-chapter-15.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/17-chapter-16.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/18-chapter-17.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/19-chapter-18.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/20-chapter-19.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/21-chapter-20.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/22-chapter-21.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/23-chapter-22.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/24-chapter-23.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/25-chapter-24.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/26-chapter-25.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/27-chapter-26.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/28-chapter-27.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/29-chapter-28.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/30-chapter-29.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/31-chapter-30.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/32-chapter-31.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/33-chapter-32.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/34-chapter-33.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/35-chapter-34.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/36-chapter-35.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/37-chapter-36.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/38-chapter-37.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/39-chapter-38.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/40-chapter-39.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/41-chapter-40.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/42-epilogue.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/43-appendix-a.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/44-appendix-b.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "book/45-appendix-c.md",
+      "glob": "book/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "book/README.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/appendix-concept-glossary.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/appendix-extended-interludes.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-01-consistency.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-02-lineage.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-03-screen.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-04-entropy.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-05-algebra.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-06-overlap.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-07-recovery.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-08-holography.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-09-entanglement.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-10-error-correction.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-11-maxent.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-12-symmetry.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-13-desitter.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-14-standard-model.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-15-relativity.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-16-matter.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-17-darwin.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-18-strangeloop.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-19-synthesis.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/chapter-20-metaphysics.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/epilogue.md",
-      "glob": "book/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "book/prologue.md",
       "glob": "book/*.md",
       "allowlisted": false
     },
