@@ -515,9 +515,14 @@ def test_preview_ci_accepts_same_release_previews_and_rejects_artifact_drift() -
         REPO_ROOT / ".github" / "workflows" / "publication-build.yml"
     ).read_text(encoding="utf-8")
     assert "git diff --quiet --" in workflow
-    assert "book/reverse-engineering-reality-book.pdf" in workflow
+    # The committed book PDF is a release artifact rebuilt when a release is cut, so the
+    # preview job must neither diff against it nor write over it.  It builds the book to a
+    # scratch path instead, which still proves the manuscript compiles, still enforces the
+    # warning budget, and still requires two builds to agree byte for byte.
+    assert "book/reverse-engineering-reality-book.pdf" not in workflow
     assert workflow.count("python tools/refresh_paper_release.py --preview") == 2
-    assert "python tools/build_book_pdf.py" in workflow
+    assert workflow.count('python tools/build_book_pdf.py --output "${RUNNER_TEMP}/') == 2
+    assert 'diff -u "${RUNNER_TEMP}/book-first.sha256"' in workflow
     assert "No release bump is required" in workflow
     assert "paper-preview:" in workflow
     assert "publication-build:" not in workflow
