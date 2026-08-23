@@ -222,21 +222,19 @@ def expected_assets(
             )
             paths.append(path)
 
-    # The book is no longer a GitHub Release asset.  It is published on its own cadence to
-    # the reader-facing site, and its PDF is rebuilt only when a release is cut rather than
-    # on every paper bump, so ``built_for_release_id`` records which release produced the
-    # committed bytes and is deliberately allowed to lag the current release.  The receipt
-    # is still validated, because the manifest must not claim a file it does not have.
+    # The book is no longer a GitHub Release asset: it publishes on its own cadence to the
+    # reader-facing site.  The receipt is still validated in full, including that it was
+    # built for this release, because cutting a release does rebuild the book.  Between
+    # releases the committed PDF may lag the markdown, which is what the preview job no
+    # longer objects to; at the moment a release is published the two agree again.
     book = manifest.get("book")
     if not isinstance(book, dict):
         raise ReleaseChannelError(
             "paper release manifest has no canonical book receipt"
         )
-    if not isinstance(book.get("built_for_release_id"), str) or not book[
-        "built_for_release_id"
-    ].strip():
+    if book.get("built_for_release_id") != release_id:
         raise ReleaseChannelError(
-            "book.built_for_release_id must name the release that built the committed PDF"
+            "book.built_for_release_id must match the manifest release_id"
         )
     if book.get("pdf_path") != BOOK_RELATIVE.as_posix():
         raise ReleaseChannelError(
