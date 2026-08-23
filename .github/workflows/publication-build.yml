@@ -116,10 +116,15 @@ jobs:
           done
           exit 1
 
+      # Built to a scratch path on purpose. The committed book PDF is a release artifact
+      # rebuilt when a release is cut, and writing it here would both clobber it and, since
+      # the canonical build stamps the manifest receipt alongside it, leave the receipt
+      # disagreeing with the committed bytes. What CI needs is proof that the manuscript
+      # compiles, stays inside its warning budget, and compiles to the same bytes twice.
       - name: Build the book and enforce its warning budget
         run: |
           for attempt in 1 2 3; do
-            if python tools/build_book_pdf.py; then
+            if python tools/build_book_pdf.py --output "${RUNNER_TEMP}/book-first.pdf"; then
               exit 0
             fi
             echo "book build attempt ${attempt} failed; backing off before retry"
@@ -148,13 +153,13 @@ jobs:
             | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-first.sha256"
           sha256sum paper/paper_release_manifest.json \
             > "${RUNNER_TEMP}/manifest-first.sha256"
-          sha256sum book/reverse-engineering-reality-book.pdf \
+          sha256sum "${RUNNER_TEMP}/book-first.pdf" | awk '{print $1}' \
             > "${RUNNER_TEMP}/book-first.sha256"
 
       - name: Rebuild every preview artifact
         run: |
           python tools/refresh_paper_release.py --preview
-          python tools/build_book_pdf.py
+          python tools/build_book_pdf.py --output "${RUNNER_TEMP}/book-second.pdf"
 
       - name: Require byte-identical second pass
         run: |
@@ -163,7 +168,7 @@ jobs:
             | xargs -0 sha256sum > "${RUNNER_TEMP}/papers-second.sha256"
           sha256sum paper/paper_release_manifest.json \
             > "${RUNNER_TEMP}/manifest-second.sha256"
-          sha256sum book/reverse-engineering-reality-book.pdf \
+          sha256sum "${RUNNER_TEMP}/book-second.pdf" | awk '{print $1}' \
             > "${RUNNER_TEMP}/book-second.sha256"
           diff -u "${RUNNER_TEMP}/papers-first.sha256" "${RUNNER_TEMP}/papers-second.sha256"
           diff -u "${RUNNER_TEMP}/manifest-first.sha256" "${RUNNER_TEMP}/manifest-second.sha256"

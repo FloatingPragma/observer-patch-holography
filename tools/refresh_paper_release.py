@@ -117,7 +117,7 @@ def main() -> int:
     if args.publication:
         run(
             "build the canonical book and stamp its release receipt",
-            [python, "tools/build_book_pdf.py", "--stamp-receipt"],
+            [python, "tools/build_book_pdf.py"],
         )
     run(
         "validate the release manifest",
