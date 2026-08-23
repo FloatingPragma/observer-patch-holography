@@ -127,11 +127,17 @@ jobs:
           done
           exit 1
 
+      # The book PDF is deliberately absent from this check. Book updates are independent
+      # of the paper release and land sporadically, and the committed PDF is rebuilt when a
+      # release is cut, so between releases it legitimately lags the markdown. The book is
+      # still built below and still has to build twice to the same bytes, so a broken or
+      # non-deterministic manuscript is caught here; only the claim that the committed
+      # bytes track every edit is dropped.
       - name: Require committed preview artifacts to match the source rebuild
         run: |
-          if ! git diff --quiet -- paper flagship extra book/reverse-engineering-reality-book.pdf; then
+          if ! git diff --quiet -- paper flagship extra; then
             echo "::error::The committed PDFs or manifest do not match the source rebuild. No release bump is required. Run 'python3 tools/refresh_paper_release.py --preview' and 'python3 tools/build_book_pdf.py', inspect the PDFs, then commit the rebuilt artifacts."
-            git diff --stat -- paper flagship extra book/reverse-engineering-reality-book.pdf
+            git diff --stat -- paper flagship extra
             exit 1
           fi
 

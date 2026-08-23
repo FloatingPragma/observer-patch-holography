@@ -291,7 +291,7 @@ geometry:
     return "\n\n".join(sections).rstrip() + "\n"
 
 
-def build(output: Path) -> None:
+def build(output: Path, *, stamp_receipt: bool = False) -> None:
     ensure_tool("pandoc")
     ensure_tool("tectonic")
 
@@ -358,12 +358,26 @@ def build(output: Path) -> None:
     built_pdf = BUILD_DIR / f"{tex_path.stem}.pdf"
     output.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(built_pdf, output)
-    if output.resolve() == DEFAULT_OUTPUT.resolve():
+    # Stamping the manifest receipt is opt-in, because building the book and releasing it
+    # are now separate acts.  A preview build proves the manuscript still compiles and
+    # still compiles deterministically; it must not claim the committed bytes changed,
+    # since the committed PDF is rebuilt when a release is cut rather than on every edit.
+    if stamp_receipt and output.resolve() == DEFAULT_OUTPUT.resolve():
         update_book_manifest_entry(REPO_ROOT)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the OPH book PDF.")
+    parser.add_argument(
+        "--stamp-receipt",
+        action="store_true",
+        help=(
+            "Update the book receipt in paper/paper_release_manifest.json to the bytes "
+            "just built. Used when a release is cut. A plain build leaves the receipt "
+            "alone, so a preview build verifies the manuscript without asserting that "
+            "the committed PDF has moved."
+        ),
+    )
     parser.add_argument(
         "--output",
         type=Path,
@@ -375,7 +389,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    build(args.output.resolve())
+    build(args.output.resolve(), stamp_receipt=args.stamp_receipt)
     print(f"Built book PDF at {args.output.resolve()}")
 
 
