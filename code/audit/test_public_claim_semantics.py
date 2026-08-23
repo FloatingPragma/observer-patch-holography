@@ -37,13 +37,20 @@ def test_fz10_public_wording_matches_the_frozen_decision_rule() -> None:
         "flagship": ROOT / "flagship/from_observer_consensus_to_standard_physics.tex",
         "particle paper": ROOT / "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
         "Koide paper": ROOT / "extra/koide_identity_from_positive_c3_face_circulants.tex",
-        "standard-model chapter": ROOT / "book/chapter-14-standard-model.md",
-        "matter chapter": ROOT / "book/chapter-16-matter.md",
-        "book synthesis": ROOT / "book/chapter-19-synthesis.md",
         "English README": ROOT / "README.md",
         "French README": ROOT / "README_FR.md",
-        "English glossary": ROOT / "book/appendix-concept-glossary.md",
     }
+    # Every book unit, discovered rather than listed.  This used to name four first-edition
+    # chapters by filename, which silently stopped covering anything when the book was
+    # replaced: the paths simply ceased to exist and the assertion could not fail.  The
+    # claim being made is that no reader-facing surface restores the obsolete window kill
+    # rule, so the whole book is the surface, and a chapter added or renamed later is
+    # covered without anyone remembering to add it here.
+    book_units = sorted(
+        path for path in (ROOT / "book").glob("*.md") if path.name != "README.md"
+    )
+    assert len(book_units) >= 40, f"book surface looks wrong: {len(book_units)} files"
+    surfaces.update({f"book {path.name}": path for path in book_units})
     forbidden = re.compile(
         r"(?:outside|lands? outside).{0,40}(?:72.{0,5}ev|window|enclosure)"
         r".{0,40}(?:refutes?|kills?)",
