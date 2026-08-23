@@ -222,29 +222,33 @@ def expected_assets(
             )
             paths.append(path)
 
+    # The book is no longer a GitHub Release asset.  It is published on its own cadence to
+    # the reader-facing site, and its PDF is rebuilt only when a release is cut rather than
+    # on every paper bump, so ``built_for_release_id`` records which release produced the
+    # committed bytes and is deliberately allowed to lag the current release.  The receipt
+    # is still validated, because the manifest must not claim a file it does not have.
     book = manifest.get("book")
     if not isinstance(book, dict):
         raise ReleaseChannelError(
             "paper release manifest has no canonical book receipt"
         )
-    if book.get("built_for_release_id") != release_id:
+    if not isinstance(book.get("built_for_release_id"), str) or not book[
+        "built_for_release_id"
+    ].strip():
         raise ReleaseChannelError(
-            "book.built_for_release_id must match the manifest release_id"
+            "book.built_for_release_id must name the release that built the committed PDF"
         )
     if book.get("pdf_path") != BOOK_RELATIVE.as_posix():
         raise ReleaseChannelError(
             f"book.pdf_path must be {BOOK_RELATIVE.as_posix()!r}"
         )
-    paths.extend(
-        (
-            validated_manifest_asset(
-                repo_root=normalized_root,
-                record=book,
-                where="book",
-            ),
-            normalized_manifest,
-        )
+    # Validated for hash and size, then deliberately NOT appended to ``paths``.
+    validated_manifest_asset(
+        repo_root=normalized_root,
+        record=book,
+        where="book",
     )
+    paths.append(normalized_manifest)
     names = [path.name for path in paths]
     if len(names) != len({name.casefold() for name in names}):
         raise ReleaseChannelError(

@@ -248,8 +248,10 @@ def _write_release_fixture(root: Path) -> tuple[Path, Path, Path, Path, str]:
             "extra_papers": {},
         },
     )
+    # The book PDF is written into the fixture and recorded in the manifest, but it is not
+    # a release asset: the book publishes on its own cadence to the reader-facing site.
     assets = []
-    for path in (paper, book, manifest):
+    for path in (paper, manifest):
         assets.append(
             {
                 "name": path.name,

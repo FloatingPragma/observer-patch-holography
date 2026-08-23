@@ -105,17 +105,45 @@ TEX_SYMBOL_REPLACEMENTS = [
 ]
 
 
-def chapter_key(path: Path) -> int:
-    match = re.match(r"chapter-(\d+)-", path.name)
+ORDER_PREFIX = re.compile(r"^(\d{2})-")
+
+# Units that take \chapter* rather than a number: the front matter, the prologue, the
+# epilogue and the three appendices.  Appendices carry their own label in their title.
+UNNUMBERED_STEMS = ("front-matter", "prologue", "epilogue", "appendix-")
+
+
+def order_key(path: Path) -> int:
+    match = ORDER_PREFIX.match(path.name)
     if not match:
-        raise ValueError(f"unexpected chapter filename: {path.name}")
+        raise ValueError(f"book source is missing its two-digit order prefix: {path.name}")
     return int(match.group(1))
 
 
+def is_unnumbered(path: Path) -> bool:
+    stem = ORDER_PREFIX.sub("", path.stem)
+    return stem.startswith(UNNUMBERED_STEMS)
+
+
 def source_files() -> list[Path]:
-    chapters = sorted(BOOK_DIR.glob("chapter-*.md"), key=chapter_key)
-    appendices = sorted(BOOK_DIR.glob("appendix-*.md"))
-    return [BOOK_DIR / "prologue.md", *chapters, *appendices, BOOK_DIR / "epilogue.md"]
+    """Reading order is the filename prefix and nothing else.
+
+    Every unit is named ``NN-<unit>.md`` where NN is its position, so sorting on the
+    prefix gives front matter, prologue, forty chapters, epilogue, appendices, with no
+    per-kind globbing and no hard-coded positions.  Duplicated prefixes are rejected
+    rather than silently ordered by name.
+    """
+    files = sorted(BOOK_DIR.glob("*.md"), key=order_key)
+    if not files:
+        raise SystemExit(f"no book sources found in {BOOK_DIR}")
+    seen: dict[int, Path] = {}
+    for path in files:
+        index = order_key(path)
+        if index in seen:
+            raise SystemExit(
+                f"duplicate order prefix {index:02d}: {seen[index].name} and {path.name}"
+            )
+        seen[index] = path
+    return files
 
 
 def ensure_tool(name: str) -> None:
@@ -244,7 +272,7 @@ geometry:
     sections = [metadata]
 
     for path in source_files():
-        unnumbered = path.name in {"prologue.md", "epilogue.md"}
+        unnumbered = is_unnumbered(path)
         rewritten_lines = [rewrite_heading(line, unnumbered) for line in path.read_text().splitlines(keepends=True)]
         body = "".join(rewritten_lines).strip()
         body = rewrite_assets(body, asset_map)

@@ -1,118 +1,47 @@
-# OPH Book Source
+# Reverse Engineering Reality
 
-*Reverse Engineering Reality* is the reader-facing account of OPH: the
-theory, its discovery, and the case for it. The published editions are the
-[web edition](https://oph-book.floatingpragma.io/) and the
-[print PDF](https://cfxrbtseaimxxqsxlrku.supabase.co/storage/v1/object/public/books/reverse-engineering-reality.pdf).
+*An Observer-First Theory of Everything.*
 
-This directory contains the canonical Markdown source for *Reverse Engineering
-Reality*, the OPH book:
+Forty chapters, a prologue, an epilogue and three appendices, in 46 files.
 
-- `prologue.md`
-- `chapter-01-*.md` through `chapter-20-*.md`
-- `appendix-*.md`
-- `epilogue.md`
+## Reading order
 
-## Contents
+The two-digit filename prefix is the reading order and the only ordering rule. Sorting
+`*.md` by name gives front matter, prologue, chapters 1 to 40, epilogue, appendices A to
+C. `tools/build_book_pdf.py` does exactly that and rejects a file with no prefix or a
+duplicated one.
 
-- [Prologue](prologue.md)
+The ten parts are a property of the chapter ranges rather than of the directory:
 
-1. [Consistency](chapter-01-consistency.md)
-2. [Lineage](chapter-02-lineage.md)
-3. [The Screen](chapter-03-screen.md)
-4. [Entropy](chapter-04-entropy.md)
-5. [Algebra](chapter-05-algebra.md)
-6. [Overlap](chapter-06-overlap.md)
-7. [Recovery](chapter-07-recovery.md)
-8. [Holography](chapter-08-holography.md)
-9. [Entanglement](chapter-09-entanglement.md)
-10. [Error Correction](chapter-10-error-correction.md)
-11. [Maximum Entropy](chapter-11-maxent.md)
-12. [Symmetry](chapter-12-symmetry.md)
-13. [de Sitter Space](chapter-13-desitter.md)
-14. [The Standard Model](chapter-14-standard-model.md)
-15. [Relativity](chapter-15-relativity.md)
-16. [Matter](chapter-16-matter.md)
-17. [Darwinian Selection](chapter-17-darwin.md)
-18. [The Strange Loop](chapter-18-strangeloop.md)
-19. [Synthesis](chapter-19-synthesis.md)
-20. [Metaphysics](chapter-20-metaphysics.md)
+| Part | Chapters | Title |
+|---|---|---|
+| One | 1 to 6 | The Only Place to Stand |
+| Two | 7 to 12 | The Protocol |
+| Three | 13 to 16 | The Machine |
+| Four | 17 to 21 | What an Observer Finds |
+| Five | 22 to 24 | Why Gravity Is Different |
+| Six | 25 to 27 | The Parts List |
+| Seven | 28 to 30 | The Numbers and the One Line |
+| Eight | 31 to 34 | Coming Back Down |
+| Nine | 35 to 36 | The Loop Closes |
+| Ten | 37 to 40 | Being One of These |
 
-- [Appendix: Concept Glossary](appendix-concept-glossary.md)
-- [Appendix: Extended Interludes](appendix-extended-interludes.md)
-- [Epilogue](epilogue.md)
+## Building
 
-The list above follows the build order: prologue, numbered chapters,
-appendices, epilogue. Narration exports for the audiobook are generated from
-these files and live in
-[`../../book/audiobook-chapters/`](../../book/audiobook-chapters/).
+    python3 tools/build_book_pdf.py
 
-## Print PDF Build
+Produces `book/reverse-engineering-reality-book.pdf` on a 6x9 trade trim through pandoc
+and tectonic.
 
-The polished print-style PDF is built with:
+## Conventions
 
-```bash
-cd reverse-engineering-reality
-python3 tools/build_book_pdf.py
-```
+Paragraphs are single lines in the source, separated by blank lines, and wrapping is left
+to the renderer. Straight quotes, American spelling. Bold marks a key term at first use
+and is not used for emphasis. There are no em-dashes anywhere, by rule.
 
-This writes the finished PDF inside this repo as:
+## The first edition
 
-- `book/reverse-engineering-reality-book.pdf`
-
-The build also writes temporary intermediate files under:
-
-- `../temp/book_pdf_build/`
-
-## Requirements
-
-The builder expects these tools to be available in `PATH`:
-
-- `pandoc`
-- `tectonic`
-
-The SVG-to-PDF regeneration command also requires:
-
-- `rsvg-convert`
-- Ghostscript (`gs`)
-
-## Layout And Styling
-
-The book PDF builder is implemented in:
-
-- `tools/build_book_pdf.py`
-
-The LaTeX header and print styling live in:
-
-- `tools/book_pdf_header.tex`
-
-Current output style:
-
-- trade-book trim (`6in x 9in`)
-- two-sided layout
-- full-page cover using `assets/book-cover.svg`
-- curated inline diagrams from `assets/book_diagrams/`
-- chapter-level table of contents
-- widow/orphan control
-- running headers
-- tightened long-table handling for summary tables
-
-## Notes
-
-- The builder automatically combines the prologue, numbered chapters, appendices, and epilogue in order.
-- Unnumbered front/back matter gets corrected running heads (`Prologue`, `Epilogue`).
-- The build validates and embeds the exact PDF renderings under
-  `assets/book_pdf_renderings/`. Their manifest binds every rendering to its
-  source SVG by path and SHA-256 digest, so host font and librsvg differences
-  cannot change the book PDF.
-- After editing a book SVG, regenerate the canonical renderings with
-  `python3 tools/generate_book_pdf_assets.py` and commit the changed PDF plus
-  `assets/book_pdf_renderings/manifest.json`.
-- A few long inline scientific expressions are normalized into TeX-safe forms before compilation.
-- `book/reverse-engineering-reality-book.pdf` is a release artifact. Rebuild it before publishing
-  whenever book chapters or public release materials change.
-
-## License
-
-The OPH book source and generated book artifact are part of the OPH public
-repository. See the main [LICENSE](../LICENSE).
+The first edition, 114,319 words across 20 chapters, is at `archive/book-v1/`. It is
+superseded rather than deprecated: the second edition rebuilds the argument from the
+ground up, and chapter numbers do not carry across. Anything mapping old references to
+new needs the redirect table in the migration note rather than a numeric correspondence.
