@@ -38,7 +38,7 @@ Write **0** for same and **1** for different.
 
 Then chain two records together. If Alice and Bob are the same, and Bob and Charlie are the same, Alice and Charlie are the same: 0 and 0 give 0. If Alice and Bob are the same and Bob and Charlie differ, then Alice and Charlie differ: 0 and 1 give 1. And if Alice and Bob differ and Bob and Charlie differ, then Alice and Charlie are back to being the same, because two flips return you to where you started: 1 and 1 give 0.
 
-That last line is the whole of it. Ordinary addition says one plus one is two. Here there is no two, because there are only two states in the world being described. The count that matters is whether the number of flips is even or odd. So one plus one is zero.
+Ordinary addition says one plus one is two. Here there is no two, because there are only two states in the world being described. The count that matters is whether the number of flips is even or odd. So one plus one is zero.
 
 This is called **arithmetic modulo 2**. It is the arithmetic of light switches: flick the switch twice and the room is as you found it. It is the arithmetic of turning a sock inside out. Every fact in it fits on two lines, the whole of what the coins require.
 
@@ -104,13 +104,17 @@ Twelve observers. Wire them as the corners of an icosahedron, the twenty-sided s
 
 Each observer holds one bit. That is four thousand and ninety-six arrangements. Flipping all twelve at once changes no comparison anywhere, so there are two thousand and forty-eight distinct states.
 
-Two thousand and forty-eight is a number you can exhaust. So exhaust it. Start the system in every one of those states and let the observers repair: find a neighbor you disagree with, and fix it. Do that in every order. The order matters enormously in principle, because these observers have no clock, no leader, and no queue, so the sixteen different schedules used here are sixteen different worlds as far as anyone inside can tell. Across the whole sweep the machine executes eleven thousand two hundred and sixty-four repairs.
+Each of the thirty overlaps holds a record of the kind the corridor produced: same or different, the relation between two bits and nothing about either one. The thirty used here are a set whose nineteen loop sums all come out zero, so by the argument above the bits can satisfy them.
+
+Two thousand and forty-eight is a number you can exhaust. So exhaust it. Start the system in every one of those states and let the observers repair: find an overlap whose record the two bits at its ends violate, and flip one of them to satisfy it. Do that in every order. The order matters enormously in principle, because these observers have no clock, no leader, and no queue, so the sixteen different schedules used here are sixteen different worlds as far as anyone inside can tell. Across the whole sweep the machine executes eleven thousand two hundred and sixty-four repairs.
 
 Two thousand and forty-eight states, sixteen schedules apiece, and eleven thousand two hundred and sixty-four repairs is not a sample. It is the whole space. Nothing here rests on a well-chosen starting configuration or a lucky order, because there was no choosing and no luck: every configuration this universe admits was started, and every order these observers could repair in was run.
 
 Two results come out. The first is the boring one that has to be true before the second means anything.
 
-Exactly one of the two thousand and forty-eight states is globally consistent. Every single run lands on it. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. Nineteen loops, nineteen holonomies, all zero. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
+Exactly one of the two thousand and forty-eight states is globally consistent. That one is arithmetic rather than news from the machine. The spanning tree argument already settled it: the nineteen loop sums are zero, so fix one observer's bit and every other bit is forced, which leaves one free choice, two assignments, and one distinct state once the all-over flip is divided out.
+
+The second result is the machine's. Every single run lands on that state. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
 
 ## One edge
 
