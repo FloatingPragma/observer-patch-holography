@@ -12,7 +12,7 @@ The line working physicists write down when somebody asks what the world is made
 
 On 15 April 1744, before the Académie Royale des Sciences in Paris, Pierre-Louis Moreau de Maupertuis read a paper called "Accord de différentes lois de la nature qui avaient jusqu'ici paru incompatibles", agreement between different laws of nature which had until then seemed incompatible. The laws were the ones for how light bends and how it bounces. He proposed that a single quantity, which he named the action, comes out as small as it can be whenever anything in nature changes.
 
-Two years later in Berlin, running Frederick's academy, he published "Les Loix du mouvement et du repos déduites d'un principe métaphysique", and there the principle acquired a second job. Maupertuis presented it as a demonstration of a supreme being, and ranked it above the older proofs drawn from the beauty and the order of the world, on the ground that an equation is harder to argue with than a wonder.
+Two years later in Berlin, running Frederick's academy, he published "Les Loix du mouvement et du repos déduites d'un principe métaphysique". There the principle acquired a second job. Maupertuis presented it as a demonstration of a supreme being, and ranked it above the older proofs drawn from the beauty and the order of the world, on the ground that an equation is harder to argue with than a wonder.
 
 The inference is the obvious one: a rule that picks the smallest total out of every total available looks like an economy, and an economy has a treasurer.
 
@@ -54,11 +54,11 @@ The arc that overshoots and the arc that undershoots score the same number, and 
 
 $$\text{score} \;=\; 2h^{2} \;-\; 5h$$
 
-The cost grows with the square of the midpoint height and the payment grows in proportion to it, so the cost overtakes. At one midpoint height and no other, raising the peak by a hair costs exactly what it pays, and there the total has slope zero. That is the height the rule selects, one and a quarter meters, and it is where a ball airborne for a second peaks: it leaves the floor at five meters per second, sheds ten of those every second, and stops climbing after half of one. Three moments is the coarsest account of a flight with any freedom left in it, and it lands on the height exactly. Cut the second into four hops instead of two and the corners of the selected shape land on a parabola, and into forty and they land on the same one.
+The cost grows with the square of the midpoint height and the payment grows in proportion to it, so the cost overtakes. At one midpoint height and no other, raising the peak by a hair costs exactly what it pays, and there the total has slope zero. That is the height the rule selects, one and a quarter meters, where a ball airborne for a second peaks: it leaves the floor at five meters per second, sheds ten of those every second, and stops climbing after half of one. Three moments is the coarsest account of a flight with any freedom left in it, and it lands on the height exactly. Cut the second into four hops instead of two and the corners of the selected shape land on a parabola, and into forty and they land on the same one.
 
 Look at what had to be in your hand to do any of that. All three sums used the landing. Fixing the speed on each hop took the ball being back on the floor at one second, and without the finish there was nothing to add up. The ball has the start. It leaves your hand with a place and a speed and no information whatever about where it comes down, and the rule says it flies the arc whose total sits at the bottom of a parabola whose shape depends on where it comes down. Something in that description knows the ending before it happens, and it is not the ball. Maupertuis put a treasurer in the gap, which at least has the merit of being a mechanism.
 
-The one function of where you are and how fast you are going is the **Lagrangian**. Its running total along a path is the **action**, which is the word chapter twelve used for a single number scored over a whole arrangement, and this is the same object scored along a history instead of across a wiring. The rule that selects the path where wiggling changes nothing is **stationary action**.
+The one function of where you are and how fast you are going is the **Lagrangian**. Its running total along a path is the **action**, which is the word chapter twelve used for a single number scored over a whole arrangement. This is the same object scored along a history instead of across a wiring. The rule that selects the path where wiggling changes nothing is **stationary action**.
 
 Everything about a system is in its Lagrangian. Hand somebody that function and every quantity the system has gets its equation of motion, by the same handle-turning in each case: take the function's sensitivity to how fast the quantity is changing, ask how that sensitivity changes as the run proceeds, and set it equal to the function's sensitivity to the quantity itself. One line goes in and the entire behavior comes out. **A Lagrangian is a compression**: the thing you keep when you throw away the histories, chosen so that the histories can be regenerated from it.
 
@@ -76,7 +76,7 @@ Chapter five gave the correspondence and chapter eighteen used it: every continu
 
 Take the Lagrangian. Find a change you can make to it continuously, by an amount you can dial down to nothing, which leaves its value alone: slide the whole system a hair sideways, turn it by a small angle, advance every clock by the same interval, add the same small amount to a phase everywhere. Each of those is a direction of change with a size attached to it.
 
-Then, for every quantity the system has, take the Lagrangian's sensitivity to how fast that quantity is changing. That sensitivity is the momentum belonging to the quantity, and it falls out of the function rather than being defined off to one side. Multiply each sensitivity by how far the symmetry moves its own quantity, and add the products over the whole list. Advancing the clock takes one more move, since shifting the clock shifts the running total too: subtract the function's own value times the interval.
+Then, for every quantity the system has, take the Lagrangian's sensitivity to how fast that quantity is changing. That sensitivity is the momentum belonging to the quantity, and falls out of the function rather than being defined off to one side. Multiply each sensitivity by how far the symmetry moves its own quantity, and add the products over the whole list. Advancing the clock takes one more move, since shifting the clock shifts the running total too: subtract the function's own value times the interval.
 
 The number you get does not change along any history the Lagrangian selects. One symmetry in, one number out, by a recipe that does not care which symmetry it was fed.
 
@@ -138,7 +138,7 @@ Four things added together, and the chapters behind this one built every symbol 
 
 The script L on the left is a Lagrangian in the sense taught above, with one change of scale. Where the thrown ball had a position and a speed, this one takes a field's value at a place and how fast that value is changing, and its running total runs over all of space and all of time rather than along a single arc.
 
-The first term is the carriers. Chapter twenty-five split the twelve dials of the wiring into a central one, a block of three and a block of eight, with nothing else arithmetically available, and this term holds the energy stored in what those dials do around a loop. Chapter twelve's loop readings are the field strength, and squaring them and adding over the arrangement is the term.
+The first term is the carriers. Chapter twenty-five split the twelve dials of the wiring into a central one, a block of three and a block of eight, with nothing else arithmetically available. This term holds the energy stored in what those dials do around a loop. Chapter twelve's loop readings are the field strength, and squaring them and adding over the arrangement is the term.
 
 The second term is matter, carrying chapter twenty-six's fifteen states, three families over. Inside it sits a comparison between a reading here and a reading next door, taken after the reading next door has been run through the dictionary sitting on the seam between them, which is chapter twelve's connection written with derivatives instead of exchange rates. That comparison is the entire content of the phrase "the force acts on matter".
 
@@ -158,7 +158,7 @@ A compression is allowed to be lossy, and the useful ones generally are.
 
 This one presumes a continuum. The running total runs over space and time, the fields are smooth, and the handle-turning that produces the equations of motion needs slopes to exist at every point of every path. Chapter fifteen was careful about that limit for a reason that bites here: an observer holds six whole numbers and sits at some finite number of passes, which is a scatter of isolated points with gaps between them that never close at any stage. Smoothness stands to that scatter as pi stands to 3.1416. The line is written where the tally is heading, and no observer's tally has ever been there.
 
-The second loss is sharper, and it can be written down exactly.
+The second loss is sharper, and can be written down exactly.
 
 Take the line and add a term chosen so that it comes out zero at every configuration the world realizes. On a chain, the realized configurations sit at the corners, and a term that vanishes at every corner adds nothing to the score of any realized history. So every realized history keeps its old score. Swap an interior configuration for another the world can realize, holding the ends, and the answer comes back what it was: the same run is the most probable run, and it sits at the bottom against every single-step swap.
 

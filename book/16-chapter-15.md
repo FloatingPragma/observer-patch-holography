@@ -8,9 +8,9 @@ He published in January 1890, in the *Philosophical Magazine*, under the title "
 
 One entry is a hemispherical bell of about three hundredweight, a little over 150 kilograms of bronze, lent to him by the London founders Mears and Stainbank. Four tones came out of it plainly and he named all four. Then this: "The gravest tone has a long duration. When the bell is struck by a hard body, the higher tones are at first predominant, but after a time they die away, and leave e-flat in possession of the field."
 
-For a fraction of a second the bell has four voices, and the loudest of them are the high ones. After that it has one. Which of those two descriptions is the bell depends on how fast the listener is. Give the job to an instrument that cannot register anything shorter than a few seconds, and the four voices never happen. It reports one note, the lowest, and it reports that note as the whole bell.
+For a fraction of a second the bell has four voices. The loudest of them are the high ones. After that it has one. Which of those two descriptions is the bell depends on how fast the listener is. Give the job to an instrument that cannot register anything shorter than a few seconds, and the four voices never happen. It reports one note, the lowest, and it reports that note as the whole bell.
 
-You can walk forward, walk sideways, and climb a ladder, and any motion you are capable of is some combination of those three. Three numbers pin a body down and two will not: an air traffic controller is given latitude, longitude and altitude, and losing any one of the three leaves a whole line of places the aircraft could be sitting. A fourth independent number has never been available to anybody. General relativity generalizes the shape of space in every respect except the count of directions, which it takes as a starting datum, and nothing in its field equations prefers three to five or to ten. The same equations take it for granted that the three run smooth, with a place between any two places and no smallest step anywhere in them.
+You can walk forward, walk sideways, and climb a ladder, and any motion you are capable of is some combination of those three. Three numbers pin a body down and two will not: an air traffic controller is given latitude, longitude and altitude, and losing any one of the three leaves a whole line of places the aircraft could be sitting. A fourth independent number has never been available to anybody. General relativity generalizes the shape of space in every respect except the count of directions, which it takes as a starting datum. Nothing in its field equations prefers three to five or to ten. The same equations take it for granted that the three run smooth, with a place between any two places and no smallest step anywhere in them.
 
 It comes out of a bell.
 
@@ -28,7 +28,7 @@ The question the bell asks is what the grid does after many passes. That means a
 
 ## Two observers and a number raised to a power
 
-Alice holds 10 and Bob holds 0, and the only rule in operation is that each of them moves a tenth of the way toward the other.
+Alice holds 10 and Bob holds 0. The only rule in operation is that each of them moves a tenth of the way toward the other.
 
 One pass: Alice holds 9, Bob holds 1. Second pass: 8.2 and 1.8. Third: 7.56 and 2.44. Do the fourth on paper. Nine tenths of 7.56 plus a tenth of 2.44 gives Alice 7.048, and the same sum with the tenths swapped gives Bob 2.952. The numbers are unpleasant and getting worse, and their sum is 10 at every stage, and their difference goes 10, then 8, then 6.4, then 5.12, then the 4.096 you just produced.
 
@@ -52,7 +52,7 @@ The rule cannot tell one port from another. It is written entirely in terms of w
 
 That is a heavy constraint, and it turns into a count. The sixty rotations shuffle the twelve readings around among themselves, and under that shuffling the twelve directions of reading-space fall into pieces: collections of directions that the rotations mix internally and never mix with anything outside. Some such pieces can be cut into smaller pieces of the same kind. Some cannot, and the ones that cannot are where the argument lands. For twelve readings on this wiring the uncuttable pieces have sizes one, three, three and five, and one plus three plus three plus five is twelve.
 
-A rule that commutes with all sixty rotations acts on each uncuttable piece as multiplication by a single number. Suppose it did something else, treating one direction inside a piece differently from another. The rotations carry the first direction to the second, so the rule would have to agree with itself about two directions it was distinguishing, and it does not get to do both. That argument is **Schur's lemma**, which Issai Schur published in Berlin in 1905 to put the character theory of finite groups on a new footing, and it is chapter five's symmetry doing arithmetic on 144 unknown weights.
+A rule that commutes with all sixty rotations acts on each uncuttable piece as multiplication by a single number. Suppose it did something else, treating one direction inside a piece differently from another. The rotations carry the first direction to the second, so the rule would have to agree with itself about two directions it was distinguishing, and it does not get to do both. That argument is **Schur's lemma**, which Issai Schur published in Berlin in 1905 to put the character theory of finite groups on a new footing. It is chapter five's symmetry doing arithmetic on 144 unknown weights.
 
 So a rule respecting this wiring, however elaborate its 144 entries look, has at most four distinct answers in it. One for each uncuttable piece.
 
@@ -62,7 +62,7 @@ The two pieces of size three are not copies of each other. The sixty rotations m
 
 The piece of size one is the direction in which all twelve ports shift together. Nobody disagrees with anybody, there is nothing for a repair to close, and the rule leaves it exactly where it is: eigenvalue one, forever. It also carries no comparison, which means no observer inside the arrangement can read it, and it drops out. Eleven directions are left.
 
-The other three numbers are the fraction of a disagreement that survives one pass of repair in each of the three remaining pieces, and two of the three are irrational.
+The other three numbers are the fraction of a disagreement that survives one pass of repair in each of the three remaining pieces. Two of the three are irrational.
 
 $$\frac{55+\sqrt{5}}{60} \approx 0.9539 \qquad \frac{9}{10} = 0.9000 \qquad \frac{55-\sqrt{5}}{60} \approx 0.8794$$
 
@@ -70,7 +70,7 @@ Three directions keep 0.9539 of whatever they were holding, five keep exactly ni
 
 The square root of five is the same square root of five a reader met in chapter two, in one plus the square root of five all over two, which a calculator kept landing on from any starting number. It is here because the solid carrying the twelve ports is built out of it, and because a fraction cannot be its own reciprocal plus one. The distance between the top rate and the bottom one is the square root of five divided by thirty, which comes to 0.0745 per pass, and thirty is the number of seams. One of the two pieces of size three fades slower than the other by that margin, which is a small number to have a body in.
 
-Both of them can be written down. Set the arrangement on a table, choose any flat surface to measure heights above, and give each port a reading equal to its own height above that surface. Those twelve numbers fade at 0.9539 a pass and at no other rate, and there are three independent versions of the pattern because there are three independent directions to measure a height along. The other three-dimensional piece is the same recipe run on a different solid. Chapter two's calculator settled on 1.618034 and the quadratic behind it had a second solution, minus 0.618034, a fixed point that nothing ever arrives at. Build the twelve corners using minus 0.618034 everywhere the golden ratio stood, read the heights off those, and the patterns that come back are the ones that fade at 0.8794.
+Both of them can be written down. Set the arrangement on a table, choose any flat surface to measure heights above, and give each port a reading equal to its own height above that surface. Those twelve numbers fade at 0.9539 a pass and at no other rate. There are three independent versions of the pattern because there are three independent directions to measure a height along. The other three-dimensional piece is the same recipe run on a different solid. Chapter two's calculator settled on 1.618034 and the quadratic behind it had a second solution, minus 0.618034, a fixed point that nothing ever arrives at. Build the twelve corners using minus 0.618034 everywhere the golden ratio stood, read the heights off those, and the patterns that come back are the ones that fade at 0.8794.
 
 ## Slow ears
 
@@ -84,9 +84,9 @@ Which is Rayleigh's hemispherical bell, with the founder's name filed off. Four 
 
 Observers here are built out of repair records, and a repair record is not made in one pass. Chapter nine's limit on how fast influence travels says one seam per repair, and the two most distant ports on this wiring sit three seams apart, so the quickest possible confirmation between that pair is three repairs out and three back. Six repairs is longer than the fast band's half-life of 5.4 passes, so more than half the fast content is gone before the quickest question this arrangement can ask about itself has its answer back. Any observer inside this arrangement is therefore reading it late, after the fast content has gone, which makes observers built out of repair records slow ears. Over those same six passes the slow band loses a quarter of what it holds and no more.
 
-That settles which content can carry a position. A position is a quantity two separated observers can compare and both get the same answer for, and the comparison takes rounds to run. Content that has faded to nothing before the comparison completes cannot anchor anything: by the time the second observer reports, the quantity it was reporting on has relaxed away. Only the slowest band lasts long enough, and its size is three.
+That settles which content can carry a position. A position is a quantity two separated observers can compare and both get the same answer for. The comparison takes rounds to run. Content that has faded to nothing before the comparison completes cannot anchor anything: by the time the second observer reports, the quantity it was reporting on has relaxed away. Only the slowest band lasts long enough, and its size is three.
 
-The five-dimensional piece is the largest one on the wiring and it loses anyway. Its content halves in 6.6 passes against the slow band's 14.7, and after sixty passes the five directions are holding about a twentieth of what the three are holding. Whatever an observer writes into those five directions has drained most of the way out before a second observer can be told about it, and a quantity like that describes nothing that has a place.
+The five-dimensional piece is the largest one on the wiring and it loses anyway. Its content halves in 6.6 passes against the slow band's 14.7, and after sixty passes the five directions are holding about a twentieth of what the three are holding. Whatever an observer writes into those five directions has drained most of the way out before a second observer can be told about it. A quantity like that describes nothing that has a place.
 
 That is where three comes from. It is the number of independent directions in the one band that outlives every other band, on a wiring that has no alternatives.
 
@@ -94,15 +94,15 @@ That is where three comes from. It is the number of independent directions in th
 
 The slow band is three directions wide. Look at what the twelve ports are doing inside it.
 
-Each port leaves a shadow in the slow band, a direction with a length. To compare two directions, take the number that says how much they point the same way: one when they coincide, zero when they are at right angles, minus one when they point exactly opposite. It is the cosine of the angle between them, and it is the only thing about two directions that survives forgetting where they are.
+Each port leaves a shadow in the slow band, a direction with a length. To compare two directions, take the number that says how much they point the same way: one when they coincide, zero when they are at right angles, minus one when they point exactly opposite. It is the cosine of the angle between them, the only thing about two directions that survives forgetting where they are.
 
 Do that for all 144 pairs of port shadows and the table has exactly four different numbers in it. A port against itself gives 1. Two ports sharing a seam give one divided by the square root of five, which is 0.4472, an angle of 63.43 degrees. Two ports that are two seams apart give minus that. A port and the port directly across the arrangement from it give minus 1.
 
-Those are the angles the twelve ports of chapter fourteen's arrangement stand at, and they arrive here out of a rule about disagreement rather than out of anybody having measured anything. What went into the calculation was a list of which port shares a seam with which. What came back was a solid.
+Those are the angles the twelve ports of chapter fourteen's arrangement stand at, arriving here out of a rule about disagreement rather than out of anybody having measured anything. What went into the calculation was a list of which port shares a seam with which. What came back was a solid.
 
 The count of independent directions in a table like that is called its **rank**: how many of the twelve shadows you have to be given before the other shadows are forced. Two will not do it. Four is more than necessary. The rank of that table is three. Every entry in it is 1, or minus 1, or one over the square root of five with a sign in front, so the whole calculation runs in arithmetic built out of the square root of five and nothing anywhere in it is rounded.
 
-That three is the slow band's size arriving a second time, since shadows lying in a three-directional band cannot supply more independent rows than the band has directions. A world with four directions in it would need a slowest band of size four, and the sizes available on this wiring are one, three, three and five.
+That three is the slow band's size arriving a second time, since shadows lying in a three-directional band cannot supply more independent rows than the band has directions. A world with four directions in it would need a slowest band of size four. The sizes available on this wiring are one, three, three and five.
 
 ## Six counters
 
@@ -112,7 +112,7 @@ What an observer holds about where it is, at any moment, is a tally. Every compa
 
 Six whole numbers, dropped into a space with three directions in it. That looks like it should lose information, and on ordinary coordinates it does: six real coordinates fed through the table of angles collapse onto three. On whole numbers it loses nothing. For two different tallies to name the same point, some collection of whole numbers other than all zeros would have to be flattened by the table, and the flattening needs the square root of five to be a ratio of two whole numbers. It is not, and no two histories of comparison ever name the same place.
 
-What those tallies do instead is fill the space. Take any point of the three-dimensional band and any tolerance you care to name, and some finite history of comparisons lands inside that tolerance of it. The landing places can be numbered off one after another the way the fractions can, and they are packed everywhere. No history of comparisons lands on the point itself.
+What those tallies do instead is fill the space. Take any point of the three-dimensional band and any tolerance you care to name, and some finite history of comparisons lands inside that tolerance of it. The landing places can be numbered off one after another the way the fractions can. They are packed everywhere. No history of comparisons lands on the point itself.
 
 ## Nobody ever holds pi
 
@@ -144,7 +144,7 @@ Run the repair grid any finite number of passes and count the independent direct
 
 The tally has the same shape. Cap the comparisons at any figure you like, a thousand or a thousand billion, and the places an observer can be sitting are finite in number, a scatter with gaps between them, and raising the cap never closes a gap. They close in the completion, which is a statement about where the sequence is heading rather than a place any tally has reached. An observer a billion comparisons old holds six integers, sits at a finite number of passes, and is separated from the continuum by exactly as many steps as it was at the beginning, which is all of them.
 
-So the three-dimensional continuum is what both constructions converge on, and nothing inside the world is sitting at it. Every observer sits at some finite number of passes and holds some finite number of counts, and every rate, rank and angle quoted here holds at that resolution and at no other. Space is smooth in exactly the way 3.1416 is pi: in a limit, exactly, and at no stage anybody occupies.
+So the three-dimensional continuum is what both constructions converge on, and nothing inside the world is sitting at it. Every observer sits at some finite number of passes and holds some finite number of counts. Every rate, rank and angle quoted here holds at that resolution and at no other. Space is smooth in exactly the way 3.1416 is pi: in a limit, exactly, and at no stage anybody occupies.
 
 Every quantity in both constructions is one somebody could write down: twelve ports, thirty seams, six counts on six axes, a whole number of passes. Smooth three-dimensional space is where descriptions like those accumulate, in Weierstrass's sense of the word, and nobody occupies it, the way no total on the list of halves is ever 1. Zeno's runner crosses the room at walking pace, because crossing a room was never the same act as finishing a list with no last entry on it.
 

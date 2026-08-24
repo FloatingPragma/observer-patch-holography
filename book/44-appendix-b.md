@@ -164,7 +164,7 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Running coupling.** A force strength is one number only if nothing surrounds the charge. Screening puts more of the charge in view the closer an experiment gets, so every strength quoted carries a distance with it.
 
-**Schedule independence.** Every order of repairs lands on the same final arrangement. That is what objectivity amounts to here, and it is why no observer has to be told when to move.
+**Schedule independence.** Every order of repairs lands on the same final arrangement. That is what objectivity amounts to here, and why no observer has to be told when to move.
 
 **Screen.** Every reading on every port an observer has facing outward. Nobody looks at it, it points nowhere, and its size is counted in readings rather than measured in meters.
 

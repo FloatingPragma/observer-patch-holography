@@ -22,7 +22,7 @@ Take the pair apart looking for a clock.
 
 The algebra is a list of questions with a rule for composing them, and nothing in a list ticks. The state is an assignment of numbers to that list, and an assignment of numbers is a table. There is no parameter anywhere in either object, no reading that changes, nothing that distinguishes one moment from another, because the specification contains no moments. If time were a primitive ingredient of this world, it would have to be posted in from outside the pair by something that owns a clock and is willing to lend it, and chapter four's inside-only clause rules that out at the top of the argument: there is no outside to post it from.
 
-Chapter ten's run makes the same point in hardware. Sixty-five thousand patches worked all 390,924 seams between them into agreement, and the cycles the run is reported in were put there by whoever wrote the report. No patch in the network counted a cycle or waited for one to end, and the machinery has no tick in it anywhere. Whatever supplies the rate has to be manufactured out of a list of questions and a table of odds, because nothing else was ever delivered.
+Chapter ten's run makes the same point in hardware. Sixty-five thousand patches worked all 390,924 seams between them into agreement. The cycles the run is reported in were put there by whoever wrote the report. No patch in the network counted a cycle or waited for one to end, and the machinery has no tick in it anywhere. Whatever supplies the rate has to be manufactured out of a list of questions and a table of odds, because nothing else was ever delivered.
 
 ## A room left alone
 
@@ -38,11 +38,11 @@ So work out what it would have to be.
 
 A change that qualifies is a reshuffling of the observer's questions among themselves that respects the algebra: questions go to questions, sums to sums, products to products, and the whole thing is reversible. Line those shuffles up, one for every real number, and the family is what chapter eighteen called a flow, driven by the move it repeats, its generator.
 
-Two demands pick out a flow, and they are the only two in the construction.
+Two demands pick out a flow, the only two in the construction.
 
 The first is that the state's odds are unchanged by it. Every question is worth after the shuffle exactly what it was worth before. That is what being settled means, written out.
 
-The second is where the non-commuting part earns its keep. In a world where every pair of questions could be answered together, the state's weight for asking A and then B would equal its weight for asking B and then A, because there would be nothing to tell the two orders apart. Chapter nineteen's entire subject is that they differ. So the state carries a gap between the two orders, one gap for every pair of questions, and the gap is a fixed feature of the state rather than a nuisance to be argued away. The second demand is that swapping the order costs exactly one unit of the shuffle, the same one unit for every pair of questions, with the amount of shuffling measured along a direction at right angles to the flow's own parameter. That last clause is complex analysis, and it is the one step in the whole construction that cannot be done on a table.
+The second is where the non-commuting part earns its keep. In a world where every pair of questions could be answered together, the state's weight for asking A and then B would equal its weight for asking B and then A, because there would be nothing to tell the two orders apart. Chapter nineteen's entire subject is that they differ. So the state carries a gap between the two orders, one gap for every pair of questions, and the gap is a fixed feature of the state rather than a nuisance to be argued away. The second demand is that swapping the order costs exactly one unit of the shuffle, the same one unit for every pair of questions, with the amount of shuffling measured along a direction at right angles to the flow's own parameter. That last clause is complex analysis, the one step in the whole construction that cannot be done on a table.
 
 Those two demands admit exactly one flow, for any state that leaves no question with odds of exactly zero. Uniqueness is the theorem here, and it is what takes the choice away: the two demands are the state's own bookkeeping written down, and the flow is what solves them. The parameter running along that flow is the observer's own time.
 
@@ -130,7 +130,7 @@ That boundary fixes the observer's algebra: the questions about everything on th
 
 Feed those two objects into the construction and turn the handle. Out comes a one-parameter family of transformations of the region's questions, determined by the pair, with nobody choosing anything. The family is the boost that carries the accelerating observer along, at every value of the parameter, exactly, with the parameter proportional to the time the observer's own wristwatch records.
 
-Joseph Bisognano and Eyvind Wichmann proved it for quantum field theory in two papers in the *Journal of Mathematical Physics*, "On the duality condition for a Hermitian scalar field" in volume 16 in 1975 and "On the duality condition for quantum fields" in volume 17 in 1976. They were not working on a theory of time. The question in front of them was technical, whether the operators available inside a region exhaust the operators that commute with everything outside it, and the flow of the region turned out to be a Lorentz transformation.
+Joseph Bisognano and Eyvind Wichmann proved it for quantum field theory in two papers in the *Journal of Mathematical Physics*, "On the duality condition for a Hermitian scalar field" in volume 16 in 1975 and "On the duality condition for quantum fields" in volume 17 in 1976. They were not working on a theory of time. The question in front of them was technical, whether the operators available inside a region exhaust the operators that commute with everything outside it. The flow of the region turned out to be a Lorentz transformation.
 
 An observer's clock is a physical article. It ages, it can be photographed, and relativity says exactly how much of it elapses along a given path through the world. The flow a state determines is an abstraction pulled out of an algebra by two demands about bookkeeping, with no clock and no motion anywhere among its inputs. In the one case where both can be computed independently and laid side by side, they are the same motion, at every value of the parameter.
 
@@ -142,7 +142,7 @@ The state of empty space, restricted to the region the accelerating observer can
 
 Bill Unruh worked out what an instrument would read. Put a small detector on the ship, something with two levels that can absorb a quantum and record that it did, and count how often it fires. A detector at rest in empty space fires never. The same detector, accelerated, fires at the rate it would fire at while sitting in a bath of radiation at a definite temperature, and the acceleration alone fixes which temperature.
 
-He did that calculation in 1976, in a paper called "Notes on black-hole evaporation" in *Physical Review D*, and the temperature is proportional to the acceleration. The constant of proportionality is about four parts in ten to the twenty-first of a degree for every meter per second squared.
+He did that calculation in 1976, in a paper called "Notes on black-hole evaporation" in *Physical Review D*. The temperature is proportional to the acceleration. The constant of proportionality is about four parts in ten to the twenty-first of a degree for every meter per second squared.
 
 Which is why nobody has run into this by accident. Warming yourself by a single degree calls for an acceleration around twenty-five billion billion times the strength of gravity at the Earth's surface, sustained, with you in the vehicle. Every acceleration a human body has ever survived leaves the reading far below what any thermometer built resolves, and the passengers have complaints about the other effects.
 

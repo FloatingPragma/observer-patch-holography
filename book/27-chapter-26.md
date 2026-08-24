@@ -18,7 +18,7 @@ So the charges are locked to each other, across species that have nothing else i
 
 ## Three colors, two weak slots
 
-Chapter twenty-five counted the forces and came back with twelve directions, split as one plus three plus eight. The three belongs to the weak force and the eight to the strong force, and those two numbers say how many things each force shuffles.
+Chapter twenty-five counted the forces and came back with twelve directions, split as one plus three plus eight. The three belongs to the weak force and the eight to the strong force. Those two numbers say how many things each force shuffles.
 
 The one is electromagnetism. What that single dial reads on a species taken by itself, before the weak force has said which member of a pair the species is, is a tag called **hypercharge**, and adding the pairing to the tag gives electric charge.
 
@@ -28,19 +28,19 @@ Two slots is ruled out for the strong force on separate grounds as well. With tw
 
 Three color slots, then, and two weak slots. Five slots, and matter is what you can build out of them.
 
-Each slot carries a hypercharge tag. Two conditions fix the tags, and both are conditions on the finished list rather than choices anybody makes. The three color tags and the two weak tags, added with their multiplicities, have to come to zero. And the charges have to sit on the coarsest grid that carries all of them as whole multiples of one step. Those two requirements leave one answer and its mirror image: each color slot tagged minus one third, each weak slot tagged plus one half. Check the balance. Three times minus one third is minus one, two times one half is one, and they cancel.
+Each slot carries a hypercharge tag. Two conditions fix the tags, both of them conditions on the finished list rather than choices anybody makes. The three color tags and the two weak tags, added with their multiplicities, have to come to zero. And the charges have to sit on the coarsest grid that carries all of them as whole multiples of one step. Those two requirements leave one answer and its mirror image: each color slot tagged minus one third, each weak slot tagged plus one half. Check the balance. Three times minus one third is minus one, two times one half is one, and they cancel.
 
 ## Choose two, choose four
 
 Take the five slots and build things out of them by picking a handful at a time.
 
-One rule governs the picking, and it is the rule that makes matter behave like matter. Write a pick as an ordered list of slot names, and demand that swapping any two names flips the sign of the whole object. That is **antisymmetry**, and it has an immediate consequence: pick the same slot twice and swapping the two copies changes nothing while also flipping the sign, so the object equals minus itself, so the object is zero. Every slot appears at most once. Order stops mattering, since any reordering costs a sign and nothing else, and what survives is the bare question of which slots are in and which are out.
+One rule governs the picking, the rule that makes matter behave like matter. Write a pick as an ordered list of slot names, and demand that swapping any two names flips the sign of the whole object. That is **antisymmetry**. It has an immediate consequence: pick the same slot twice and swapping the two copies changes nothing while also flipping the sign, so the object equals minus itself, so the object is zero. Every slot appears at most once. Order stops mattering, since any reordering costs a sign and nothing else, and what survives is the bare question of which slots are in and which are out.
 
-The number of ways to choose two things from five is the number of pairs you can make, which is five choices for the first, four for the second, and a division by two because each pair got counted in both orders. Ten. The number of ways to choose four from five is easier, because choosing four is the same as leaving one out, and there are five slots to leave out. Five. Numbers of this kind are called **binomial coefficients**, and for cases this small you can write the choices down and count them.
+The number of ways to choose two things from five is the number of pairs you can make, which is five choices for the first, four for the second, and a division by two because each pair got counted in both orders. Ten. The number of ways to choose four from five is easier, because choosing four is the same as leaving one out, and there are five slots to leave out. Five. Numbers of this kind are called **binomial coefficients**. For cases this small you can write the choices down and count them.
 
 Ten and five. Fifteen.
 
-Fifteen is the number of states in one generation of matter, and the charges come out with it. The hypercharge of a combination is the sum of the tags of the slots in it, and the strong and weak forces act on whichever of their own slots are present.
+Fifteen is the number of states in one generation of matter, and the charges come out with it. The hypercharge of a combination is the sum of the tags of the slots in it. The strong and weak forces act on whichever of their own slots are present.
 
 | Slots picked | Ways | Hypercharge | What it is |
 |-|-|-|-|
@@ -56,11 +56,11 @@ Electric charge is one more addition. Where a pick includes exactly one of the t
 
 That is the roster. Up and down quarks in three colors, the electron, its neutrino, and the antiparticles of the ones that need them, with every charge in the Standard Model's table reproduced, out of choosing two or four from five slots and adding up tags.
 
-Two further counts fall out of the same table. The quark pair appears once per color and the lepton pair once, so a generation carries four weak pairs. And a spin-zero object carrying the weak slots' own tag of plus one half can be tied to the list in exactly three ways: the quark pair to the anti-up, the quark pair to the anti-down, and the lepton pair to the positron. Three channels, and they are the three that give the up-type quarks, the down-type quarks and the charged leptons their masses.
+Two further counts fall out of the same table. The quark pair appears once per color and the lepton pair once, so a generation carries four weak pairs. And a spin-zero object carrying the weak slots' own tag of plus one half can be tied to the list in exactly three ways: the quark pair to the anti-up, the quark pair to the anti-down, and the lepton pair to the positron. Three channels, the three that give the up-type quarks, the down-type quarks and the charged leptons their masses.
 
 ## Dirac's holes
 
-Three of the five rows above are antiparticles. In 1928 Paul Dirac wrote an equation for the electron that respected relativity, and it came with solutions of negative energy that nobody wanted. He tried for a while to identify the holes in that sea with protons, and in a paper submitted to the Royal Society on 29 May 1931 he gave that up and proposed instead a particle nobody had seen: the mass of an electron, the opposite charge. Carl Anderson photographed one at Caltech on 2 August 1932, a track in a cloud chamber curving the wrong way through a magnetic field, and the name came from an editor at *Physical Review*, who proposed it when Anderson sent the discovery paper in: positron. The pattern turned out to be general. Every species of matter has a partner with the same mass and every charge reversed, and the partner is as ordinary as the original: hospitals make positrons to order out of fluorine-18, and the pair of flashes from each annihilation is what a scanner photographs. Writing a species as its antiparticle is therefore a change of notation rather than a change of content, which is why the roster above lists an anti-up quark where a textbook table lists a right-handed up quark, and the reason for preferring one of those descriptions is cobalt.
+Three of the five rows above are antiparticles. In 1928 Paul Dirac wrote an equation for the electron that respected relativity. It came with solutions of negative energy that nobody wanted. He tried for a while to identify the holes in that sea with protons, and in a paper submitted to the Royal Society on 29 May 1931 he gave that up and proposed instead a particle nobody had seen: the mass of an electron, the opposite charge. Carl Anderson photographed one at Caltech on 2 August 1932, a track in a cloud chamber curving the wrong way through a magnetic field, and the name came from an editor at *Physical Review*, who proposed it when Anderson sent the discovery paper in: positron. The pattern turned out to be general. Every species of matter has a partner with the same mass and every charge reversed, and the partner is as ordinary as the original: hospitals make positrons to order out of fluorine-18, and the pair of flashes from each annihilation is what a scanner photographs. Writing a species as its antiparticle is therefore a change of notation rather than a change of content, which is why the roster above lists an anti-up quark where a textbook table lists a right-handed up quark, and the reason for preferring one of those descriptions is cobalt.
 
 ## Wu's cobalt
 
@@ -78,7 +78,7 @@ The electrons came out against the spin. Reverse the magnetic field and the coun
 
 What her cobalt established is that the weak force acts on left-handed particles and declines to act on right-handed ones. Which is why the roster above is written the way it is: put every species into its left-handed form, converting the right-handed ones into their left-handed antiparticles as you go, and the list becomes a list of things the weak force either pairs up or leaves alone. The quark pair and the lepton pair are the pairs. The anti-up, the anti-down and the positron are the singles. A list of that shape differs from its own mirror image, and a list that differs from its own mirror image is called chiral.
 
-Chirality is the symmetry the world conspicuously lacks. Every other structural fact about matter says that some distinction was never there; this one says that a distinction nobody put in is physical, and it is why the roster has to be rewritten all in one handedness before it can be counted at all.
+Chirality is the symmetry the world conspicuously lacks. Every other structural fact about matter says that some distinction was never there; this one says that a distinction nobody put in is physical. It is why the roster has to be rewritten all in one handedness before it can be counted at all.
 
 ## One thousand and twenty-four lists
 
@@ -96,7 +96,7 @@ The search asked each list for two things, that it be chiral and that its four s
 
 Chapter twelve proved that a force works if and only if its charge is conserved, which is tight enough that violating it leaves no theory at all rather than a damaged one. The quantum version of that proof comes with a bill, and the bill is arithmetic.
 
-Certain sums, taken over every species on the list at once, have to come out at exactly zero. When one of them does not, the conservation law the force depends on fails and the theory stops predicting anything. Sums of this kind are called **anomalies**, and a matter list either satisfies all of them or describes no possible world. Every entry contributes, so the list has to be checked whole, and a species cannot be added or dropped on its own.
+Certain sums, taken over every species on the list at once, have to come out at exactly zero. When one of them does not, the conservation law the force depends on fails and the theory stops predicting anything. Sums of this kind are called **anomalies**. A matter list either satisfies all of them or describes no possible world. Every entry contributes, so the list has to be checked whole, and a species cannot be added or dropped on its own.
 
 Five conditions apply to a list like this one. Take the first.
 
@@ -138,13 +138,13 @@ Start with the floor, which comes from the matter around you existing at all.
 
 Charge conjugation swaps every particle for its antiparticle. Combine it with a mirror reflection and you have an operation turning any process into its opposite-and-reflected version, and the question is whether the two run at the same rate. On 27 July 1964 James Christenson, James Cronin, Val Fitch and René Turlay published the answer from the Brookhaven accelerator: among the long-lived neutral kaons in their beam, 45 events decayed the way the symmetry forbids, about one in five hundred. Matter and antimatter are physically different, by a little, and the little is why the universe did not annihilate itself into a bath of light with nobody in it.
 
-The weak force is what makes them different, and it does so through the way it mixes the down-type quarks across families. That mixing is a square table of numbers with one row and one column per family, and a real difference between matter and antimatter needs an entry in it carrying a complex phase that no relabeling of the fields removes. Plain rotation angles are useless here, because a rotation angle looks the same to matter and to antimatter. Counting the phases that survive relabeling is arithmetic on the size of the table:
+The weak force is what makes them different, and does so through the way it mixes the down-type quarks across families. That mixing is a square table of numbers with one row and one column per family, and a real difference between matter and antimatter needs an entry in it carrying a complex phase that no relabeling of the fields removes. Plain rotation angles are useless here, because a rotation angle looks the same to matter and to antimatter. Counting the phases that survive relabeling is arithmetic on the size of the table:
 
 $$\frac{(N-1)(N-2)}{2}$$
 
 Here N is the number of families, and the expression counts the complex phases left over after every field has been re-phased to absorb whatever can be absorbed. Put N equal to one and the answer is zero. Put N equal to two and it is zero again. Put N equal to three and it is one. With fewer than three families, matter and antimatter behave identically, kaons decay symmetrically, and there is nobody here to have this argument. Makoto Kobayashi and Toshihide Maskawa ran that reasoning in 1973, when three quarks were known and a fourth was a rumor, and concluded that there had to be six.
 
-The ceiling comes from asymptotic freedom. Put a charge in a vacuum and the vacuum responds: pairs flicker in and out around it, orient themselves and screen it, so the charge you measure from far away is smaller than the charge close up. The strong force does the reverse, because its own carriers carry the charge they transmit, which spreads the charge outward instead of hiding it and leaves the force feebler at short range than at long. David Gross, David Politzer and Frank Wilczek worked this out in 1973, and it is why quarks rattle around almost freely inside a proton while being impossible to pull out of one.
+The ceiling comes from asymptotic freedom. Put a charge in a vacuum and the vacuum responds: pairs flicker in and out around it, orient themselves and screen it, so the charge you measure from far away is smaller than the charge close up. The strong force does the reverse, because its own carriers carry the charge they transmit, which spreads the charge outward instead of hiding it and leaves the force feebler at short range than at long. David Gross, David Politzer and Frank Wilczek worked this out in 1973. It is why quarks rattle around almost freely inside a proton while being impossible to pull out of one.
 
 Species of matter push the other way, back toward ordinary screening, and each family adds species. The tally that runs out first belongs to the weak charge. It starts at twenty-two thirds, each family costs four thirds because a family brings three colored quark pairs plus one lepton pair, the spin-zero field costs a sixth, and the total has to stay positive. Solve it and the world is permitted five families and three eighths of a family.
 

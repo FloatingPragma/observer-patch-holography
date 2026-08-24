@@ -10,7 +10,7 @@ Hand somebody an unfamiliar board and the first thing they look for is the port:
 
 Chapter twelve left twelve observers wired into thirty seams, nineteen independent loops, and one unit of charge sitting where no relabeling reached it. All of that came off a wiring diagram. A wiring diagram says which port is joined to which port and says nothing whatever about what sits behind either one.
 
-Open one. The question is what a piece of the world is made of when you get all the way down, and the answer comes back as six parts and six moves.
+Open one. The question is what a piece of the world is made of when you get all the way down. The answer comes back as six parts and six moves.
 
 ## The parts list
 
@@ -20,11 +20,11 @@ A **port** is one place where a patch exposes part of itself to whatever is outs
 
 Suppose a port could show any value on a continuous dial. Reading it to a hundred decimal places takes a hundred digits of storage in the reader, reading it exactly takes an infinite amount, and a machine with bounded state cannot hold either. A neighbor who writes down the first four digits and drops the rest has not read that port. It has read a different, coarser port with a finite list of settings, which is the port the architecture had all along.
 
-Two ports routed to each other make a **seam**. Chapter six drew these as edges and counted thirty of them. A seam is where two patches read the same thing twice, once from each side, and it is the only place in the architecture where a disagreement can be detected at all.
+Two ports routed to each other make a **seam**. Chapter six drew these as edges and counted thirty of them. A seam is where two patches read the same thing twice, once from each side, the only place in the architecture where a disagreement can be detected at all.
 
 Everything any patch can ever learn about its neighbor arrives through the seams they share. Collect all of it, every reading available at every interface an observer has, and what you are holding is that observer's **screen**. A screen is where an observer's accessible information lives, in the same sense that the boundary-scan chain is where a chip's pin states live. It shows nothing to anybody, it faces no direction, and there is no seat in front of it.
 
-An observer assembled out of several patches has a screen too, and it is the readings on the ports facing outward from the assembly. The ports that patches inside the assembly share with each other are internal wiring to everything beyond it. So the size of a screen is a count of readings rather than a width in meters, and asking what an observer's screen looks like is asking how many distinct things its outward ports can be doing at once.
+An observer assembled out of several patches has a screen too, the readings on the ports facing outward from the assembly. The ports that patches inside the assembly share with each other are internal wiring to everything beyond it. So the size of a screen is a count of readings rather than a width in meters, and asking what an observer's screen looks like is asking how many distinct things its outward ports can be doing at once.
 
 Last, a **record**. A patch that completes a move writes the outcome into the part of its state that later moves are required to leave alone. Chapter three priced this and chapter nine identified what gets written, which is the accepted repair. A record is a write that survives the next read, and survives it because the rules of the machine protect that region of the state rather than because writing is somehow permanent.
 
@@ -34,7 +34,7 @@ Six words, and every one of them names something you could point at on a board: 
 
 A patch does one thing, over and over.
 
-It reads the packets exposed on its ports. It compares them against its own, through a declared rule saying which of its readings answers which of the neighbor's, since two patches keeping their state in private conventions have to be told what corresponds to what before a comparison means anything. That rule is chapter twelve's dictionary on the seam, and the technical word for whether the comparison is possible at all is commensurability. Then, if the comparison came back unequal, the patch chooses a move from a finite menu of allowed local updates, one entry off a printed card. It writes a record of the move it made. It exposes the resulting packet at its ports, so the neighbor's next read sees the new state rather than the old one. And any claim about what it did is settled by an exact check run on the exposed data, by anything that has access to that data, with the patch's own opinion of its work carrying no vote.
+It reads the packets exposed on its ports. It compares them against its own, through a declared rule saying which of its readings answers which of the neighbor's, since two patches keeping their state in private conventions have to be told what corresponds to what before a comparison means anything. That rule is chapter twelve's dictionary on the seam. The technical word for whether the comparison is possible at all is commensurability. Then, if the comparison came back unequal, the patch chooses a move from a finite menu of allowed local updates, one entry off a printed card. It writes a record of the move it made. It exposes the resulting packet at its ports, so the neighbor's next read sees the new state rather than the old one. And any claim about what it did is settled by an exact check run on the exposed data, by anything that has access to that data, with the patch's own opinion of its work carrying no vote.
 
 Read, compare, choose, write, expose, verify. That is the entire operational repertoire of a piece of reality. No move reaches a patch on the far side of the network, none of them consults a clock, and the menu they are drawn from has an end to it.
 
@@ -48,9 +48,9 @@ Each seam can score itself. Take the two packets, apply the seam's dictionary to
 
 Add the scores over every seam. What comes out is one number for the whole arrangement, the total mismatch. Every accepted repair lowers it. The score is built from finitely many seams each carrying finitely many possible values, so it takes values in a finite ordered set, and a quantity that steps down and has a floor runs out of room.
 
-Chapter ten watched that number come down. Of the 390,924 seams in that run, 326,047 were scoring above zero at the start, and at cycle 96 out of 128 none of them were. The settling curve counted the seams contributing anything at all, and the quantity the machine was working against was their sum.
+Chapter ten watched that number come down. Of the 390,924 seams in that run, 326,047 were scoring above zero at the start, and at cycle 96 out of 128 none of them were. The settling curve counted the seams contributing anything at all. The quantity the machine was working against was their sum.
 
-So every sequence of repairs stops. Wherever it stops, no patch has a move available: each one has read its ports, compared, and found nothing its menu can improve. That is a local normal form, and it is exactly as much as the descent argument buys.
+So every sequence of repairs stops. Wherever it stops, no patch has a move available: each one has read its ports, compared, and found nothing its menu can improve. That is a local normal form, exactly as much as the descent argument buys.
 
 Everybody stopping and everybody stopping in the same place are two different claims, and the score has paid for one of them.
 

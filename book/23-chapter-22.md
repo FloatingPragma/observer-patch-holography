@@ -26,7 +26,7 @@ Wait. The right side heats up and the left side cools down, out of a box that st
 
 Maxwell called his employee a finite being and later grumbled that it was really more of a valve. William Thomson named it a demon in *Nature* in 1874, meaning the word in its Greek sense, a spirit working quietly in the background.
 
-The demon survived every attempt to kill it for sixty-two years, because every attempt went looking in the wrong place. People examined the door, the hinges, the light the demon needed to see by. Leo Szilard moved the search in 1929, in a paper in *Zeitschrift für Physik* whose title says where he was looking: on the decrease of entropy in a thermodynamic system by the intervention of intelligent beings. He stripped the gas down to a single molecule in a box, with a partition dropped in the middle. The demon looks, records which side the molecule is on, and uses that one recorded fact to let the molecule push the partition outward and lift a weight. The work per cycle comes out as the temperature times the logarithm of two, and it comes out of a box at one temperature, from one bit of recorded information.
+The demon survived every attempt to kill it for sixty-two years, because every attempt went looking in the wrong place. People examined the door, the hinges, the light the demon needed to see by. Leo Szilard moved the search in 1929, in a paper in *Zeitschrift für Physik* whose title says where he was looking: on the decrease of entropy in a thermodynamic system by the intervention of intelligent beings. He stripped the gas down to a single molecule in a box, with a partition dropped in the middle. The demon looks, records which side the molecule is on, and uses that one recorded fact to let the molecule push the partition outward and lift a weight. The work per cycle comes out as the temperature times the logarithm of two, out of a box at one temperature, from one bit of recorded information.
 
 The books balance only if the bit costs at least what the bit earns. Rolf Landauer, at IBM, worked out in 1961 which operation carries the charge, in a paper called "Irreversibility and heat generation in the computing process". Looking is not the expensive part. Forgetting is. An operation that takes two distinguishable states of a memory to one state has thrown away the distinction, and the distinction has to leave the device, because the only exit a memory has is heat. The floor he computed for that heat depends on nothing but the temperature outside the device.
 
@@ -50,7 +50,7 @@ Chapter three listed three requirements for anything that counts as an observer,
 
 ## Four laws, numbered out of order
 
-Thermodynamics has four laws, and they were not discovered in the order they are taught.
+Thermodynamics has four laws. They were not discovered in the order they are taught.
 
 Start with the one everybody uses without noticing. Nobody has ever established that a bath and a bowl of soup are at the same temperature by putting the soup in the bath. You put a thermometer in the soup, wait, read it, then put the same thermometer in the bath, wait, read it, and compare two numbers taken minutes apart with an instrument that has been in contact with each and never with both at once.
 
@@ -74,7 +74,7 @@ Four laws, arrived at over eighty years by people working on engines, gases, che
 
 Read it first as a rule about descriptions. Jaynes's instruction from chapter nineteen applies unchanged: among all the descriptions consistent with what has actually been measured, take the one with the largest entropy, the one that adds nothing else. Apply that with one quantity held fixed, the average energy, and the answer is forced. The odds fall off exponentially with energy, cheap arrangements common and expensive ones rare, with a single multiplier in the exponent setting how fast the fall is. Chapter twenty-one ran into that exponential from the far side, in a two-outcome system whose flow came out as the energy divided by the temperature.
 
-That multiplier is one over the temperature, and the temperature arrives as a conversion rather than as a property of anything. Fix the average energy of a description and the least assumption you can make about the rest of it carries exactly one number, and that number says how many joules the world charges for one yes-or-no question. A temperature is a count of joules per bit, and at three hundred kelvin the count is 2.87 divided by ten to the twenty-first of them.
+That multiplier is one over the temperature. The temperature arrives as a conversion rather than as a property of anything. Fix the average energy of a description and the least assumption you can make about the rest of it carries exactly one number, and that number says how many joules the world charges for one yes-or-no question. A temperature is a count of joules per bit, and at three hundred kelvin the count is 2.87 divided by ten to the twenty-first of them.
 
 The zeroth law follows from the arithmetic of that exponential rather than from a habit of laboratories. Two systems that have settled with each other carry one multiplier between them, and equality of numbers is transitive, so a thermometer that matches the soup and matches the bath has established that the soup matches the bath. There is one condition on the thermometer: the instrument must have two arrangements of different energy. A thermometer whose two states cost the same reads the same number in a furnace and in liquid helium, because the temperature shows up only in the ratio of odds between two different energies, and an instrument with one energy has no such ratio to offer.
 
@@ -82,7 +82,7 @@ Read the rule the second way, as a rule about transitions. A repair step is hand
 
 That instruction picks out one map. Applying it twice does nothing that applying it once did not do, because the second application finds the same settled facts and the same reference. It leaves the reference where it is, since redrawing from the reference cannot move it. And it preserves the average of every quantity that can be read off the settled part, which is the first law in the form chapter nine derived it: a repair that changed a total would have to know the total. The heat and the work come off the same map. Shifting the energies of the arrangements without touching the settled odds is the work channel, redrawing the odds at fixed energies is the heat channel, and the cross term is what a step that does both at once picks up on the way through.
 
-Three of the four laws drop out of that map without further argument. Distance to the reference falls at every step and never climbs, which is the second law, and it is the data-processing fact of chapter sixteen with the process named: repair is error correction, and running your description through an error-correcting step cannot carry it further from the truth.
+Three of the four laws drop out of that map without further argument. Distance to the reference falls at every step and never climbs, which is the second law, the data-processing fact of chapter sixteen with the process named: repair is error correction, and running your description through an error-correcting step cannot carry it further from the truth.
 
 Every schedule of repairs on chapter nine's twelve observers lands on the same arrangement, and things that land on one fixed point together are in equilibrium with each other, which is transitivity again, reached from the transition side this time instead of from the exponential, and with the thermometer taken out of it. And one repair step leaves every arrangement with some weight on it: the step redraws from a reference that gives everything a positive share, so a possibility that had a share before the step has one after it. Finitely many steps extinguish nothing, which is why the floor of the third law is approached and never arrived at.
 
@@ -92,7 +92,7 @@ Landauer's bill is a corollary of the same map rather than a separate discovery.
 
 Chapter sixteen's fluctuation relations lean on one extra condition: measured against the reference, the weight a step carries from one state to a second matches the weight it carries back. The condition has a name, **detailed balance**.
 
-The second law does not need it, and the cheapest way to see that is a machine with three states and a permanent circulation in it.
+The second law does not need it. The cheapest way to see that is a machine with three states and a permanent circulation in it.
 
 Label three states one, two and three. From each state, the rule is: stay where you are with probability one half, or step clockwise to the next state with probability one half. There is no counterclockwise move at all. Nothing in this machine can go from state two to state one, ever, except the long way through state three, which takes four steps on average.
 
@@ -102,7 +102,7 @@ Detailed balance fails outright. The traffic from state one to state two is a th
 
 Watch the second law hold anyway. Start with all the weight on state one, which is a description sitting the logarithm of three away from the flat one, 1.585 bits. One step spreads it into halves on states one and two, and the distance falls to 0.585 bits. A second step gives a quarter, a half and a quarter, at 0.085 bits. A third step brings it to 0.024. The descent is exact, it never reverses, and it happens inside a machine with a one-way street in it.
 
-Stationarity is what the second law asks for: that the reference be left alone. Detailed balance is a stronger and separate demand, and the extra content it carries buys the detailed fluctuation relations of chapter sixteen and Lars Onsager's paired transport coefficients. A world could have the second law with none of those and this loop is what it would look like.
+Stationarity is what the second law asks for: that the reference be left alone. Detailed balance is a stronger and separate demand. The extra content it carries buys the detailed fluctuation relations of chapter sixteen and Lars Onsager's paired transport coefficients. A world could have the second law with none of those and this loop is what it would look like.
 
 ## The price of settling
 

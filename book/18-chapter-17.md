@@ -4,7 +4,7 @@ On 3 December 1725, in a house on Kew Green, James Bradley pointed a telescope s
 
 The instrument belonged to Samuel Molyneux, who had ordered it from the clockmaker George Graham. Twenty-four feet from lens to eyepiece, hung from an iron frame bolted to the chimney stack, because a chimney is the most rigid thing in an English house. Pointing it at the zenith and nowhere else was the design: a star directly overhead is seen through the least air, so any displacement left over belongs to the sky rather than the weather.
 
-The star was gamma Draconis, which passes almost exactly overhead at London, and what the two of them wanted from it was parallax. If the Earth goes around the Sun, a nearby star should shift against the distant ones, one way in June and the other in December, and nobody had ever caught it happening.
+The star was gamma Draconis, which passes almost exactly overhead at London. What the two of them wanted from it was parallax. If the Earth goes around the Sun, a nearby star should shift against the distant ones, one way in June and the other in December, and nobody had ever caught it happening.
 
 The star moved. It moved the wrong way, it moved too far, and it moved at the wrong time of year.
 
@@ -74,7 +74,7 @@ The maps of a sphere onto itself that preserve every crossing angle have a pictu
 
 It does one further thing. Every circle on the sphere arrives on the table as a circle, except for circles through the north pole, which arrive as straight lines, a straight line being what a circle of unlimited size looks like.
 
-Which turns the question into a question about the flat table, and the table has an arithmetic on it.
+Which turns the question into a question about the flat table. The table has an arithmetic on it.
 
 Write a point two units right of the origin and three units up as the single number $2 + 3i$, where $i$ is the instruction "turn a quarter turn counterclockwise". Turn twice and you are facing backwards, so $i$ times $i$ is $-1$, and that is the entire content of the symbol. Numbers of this shape are **complex numbers**, and they add the way arrows add, tip to tail. The useful part is that they multiply. Multiply $2 + 3i$ by $i$ using the ordinary rules of school algebra and you get $2i + 3i^2$, which is $-3 + 2i$: the point three left and two up, which is the arrow you started with swung a quarter turn to the left. Nothing was arranged to make that come out. It follows from two quarter turns making a half turn, and from the rule for expanding brackets. Multiplying the whole table by one complex number turns it through an angle and stretches it by a factor, both at once, everywhere at the same time.
 
@@ -86,7 +86,7 @@ Turn them and watch the sky. Three of the six rotate it rigidly, the way you tur
 
 Those six, three rotations and three crowdings, are the Lorentz group, named for Hendrik Lorentz, who wrote the transformations down in 1904 as a way of keeping the ether. They are the transformations relating observers in relative motion, the ones Einstein reached from two postulates, and the sphere carries them as the only thing it can do to itself without disturbing an angle.
 
-Textbooks from 1905 onward drew a fast-moving sphere as an ellipsoid squashed along its direction of travel, and the question of what a camera would record went fifty years without a general answer. In 1959 Roger Penrose published three pages in the Proceedings of the Cambridge Philosophical Society pointing out that a camera records no such thing. The outline of a sphere is a set of directions, angle-preserving maps take circles to circles, and a photograph of a sphere at any speed you like comes out round. James Terrell got there independently the same year in the Physical Review, under the title "Invisibility of the Lorentz Contraction".
+Textbooks from 1905 onward drew a fast-moving sphere as an ellipsoid squashed along its direction of travel. The question of what a camera would record went fifty years without a general answer. In 1959 Roger Penrose published three pages in the Proceedings of the Cambridge Philosophical Society pointing out that a camera records no such thing. The outline of a sphere is a set of directions, angle-preserving maps take circles to circles, and a photograph of a sphere at any speed you like comes out round. James Terrell got there independently the same year in the Physical Review, under the title "Invisibility of the Lorentz Contraction".
 
 ## Four numbers in a square
 
@@ -118,7 +118,7 @@ Take the rank-one blocks with $t$ positive, which is the future half of the cone
 
 Chapter fourteen counted sixty rotations carrying a twelve-port carrier onto itself, and no port came out distinguished, because some rotation among the sixty carries any port to any other. The motions that leave a determinant where they found it do that work one level up. They close under doing two in a row and each has one that puts the square back, so they are a group, and they are the six knobs on the sky: the group Einstein's two postulates about light were describing.
 
-Pick a direction into the future with determinant one and call it an observer at rest. Ask which separations are perpendicular to it, using the interval to decide perpendicular rather than ordinary distance. The answer is a space of three dimensions, and on that space the interval with its sign reversed is positive for everything except zero, which is ordinary Euclidean distance in three dimensions. Every observer gets one, and it is the same three directions chapter fifteen read off the slow band of the carrier.
+Pick a direction into the future with determinant one and call it an observer at rest. Ask which separations are perpendicular to it, using the interval to decide perpendicular rather than ordinary distance. The answer is a space of three dimensions, and on that space the interval with its sign reversed is positive for everything except zero, which is ordinary Euclidean distance in three dimensions. Every observer gets one, the same three directions chapter fifteen read off the slow band of the carrier.
 
 One more count comes from the same subtraction. A light ray picks a direction inside that three-dimensional rest space, the way it is going. The directions left over, the ones perpendicular to it, make up a space of three minus one dimensions. Two. A light wave has exactly two independent ways of waving, which is why polarized sunglasses cut glare and why they stop cutting it when you tilt your head far enough.
 

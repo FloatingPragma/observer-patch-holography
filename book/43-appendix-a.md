@@ -64,7 +64,7 @@ Two things ride along inside it: that an observer is a person, and that looking 
 
 An observer here is anything bounded that keeps records. Sunlight leaving the moon is a comparison, the tide in the Bay of Fundy is a record of where the moon was, and the rock holds its own state against everything it touches, with nobody on a hillside required.
 
-Definiteness is a count of copies. Sixteen copies of a sixteen-bit fact drive the odds on a forgery below one part in ten to the seventy-seventh without adding a single bit of content, and an object that size is copied into its surroundings far more often than sixteen times. The answerable question is how many records carry the moon's position, and it is written into every square meter of sunlight it turns back, which is why its place is as definite as anything in the sky. Ask about a single atom nothing has interacted with and the odds stop being one and zero, which is the same arithmetic read at the other end.
+Definiteness is a count of copies. Sixteen copies of a sixteen-bit fact drive the odds on a forgery below one part in ten to the seventy-seventh without adding a single bit of content, and an object that size is copied into its surroundings far more often than sixteen times. The answerable question is how many records carry the moon's position. It is written into every square meter of sunlight it turns back, which is why its place is as definite as anything in the sky. Ask about a single atom nothing has interacted with and the odds stop being one and zero, which is the same arithmetic read at the other end.
 
 ## If there is no now, why does time feel like it passes?
 
@@ -72,7 +72,7 @@ No finite exchange of messages between observers recovers a shared present. Then
 
 The word is doing three jobs at once, and the question welds them into one object and then finds that object missing.
 
-Order is a partial order on committed repairs, and it is the only global temporal structure there is. Direction comes from the commit, which is an arithmetic loss: seven possible pasts average into one reading and 2.807 bits go with them. Flow is what a state makes its own algebra do, one shuffle for each amount of shuffling, extracted from what an observer holds with nothing added.
+Order is a partial order on committed repairs, the only global temporal structure there is. Direction comes from the commit, which is an arithmetic loss: seven possible pasts average into one reading and 2.807 bits go with them. Flow is what a state makes its own algebra do, one shuffle for each amount of shuffling, extracted from what an observer holds with nothing added.
 
 A universal present appears nowhere on that list. Two observers in different states run at different rates and neither is wrong. The part of a person that has been written into a record is the part standing still, because the flow moves only what fails to commute, and a record commutes with everything. Read the same flow sideways and it is a temperature, one that acceleration alone sets, at about four parts in ten to the twenty-first of a degree for every meter per second squared.
 

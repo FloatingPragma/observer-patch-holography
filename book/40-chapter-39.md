@@ -10,7 +10,7 @@ How a system discriminates between things around it, categorizes them and reacts
 
 Seven items, and he called them the easy problems of consciousness, with a warning attached to the adjective: getting the details right, he wrote, will probably take a century or two of difficult empirical work. They count as easy because in every case anybody can say what an answer would look like. It would be a mechanism. Specify the machinery that retrieves information about internal states and makes it available for verbal report, and reportability has been explained.
 
-Then the other one. When our cognitive systems engage in visual and auditory information-processing, he wrote, we have visual or auditory experience: the quality of deep blue, the sensation of middle C. Thomas Nagel had supplied the standard phrase for it twenty years before, in the October 1974 issue of the *Philosophical Review*: an organism is conscious if there is something it is like to be that organism. Why physical processing should give rise to any of that seems objectively unreasonable, Chalmers wrote, and yet it does. The talk went into the *Journal of Consciousness Studies* the following year, volume 2, pages 200 to 219, under the title "Facing Up to the Problem of Consciousness", and the phrase the hard problem became the standard name for that question.
+Then the other one. When our cognitive systems engage in visual and auditory information-processing, he wrote, we have visual or auditory experience: the quality of deep blue, the sensation of middle C. Thomas Nagel had supplied the standard phrase for it twenty years before, in the October 1974 issue of the *Philosophical Review*: an organism is conscious if there is something it is like to be that organism. Why physical processing should give rise to any of that seems objectively unreasonable, Chalmers wrote, and yet it does. The talk went into the *Journal of Consciousness Studies* the following year, volume 2, pages 200 to 219, under the title "Facing Up to the Problem of Consciousness". The phrase the hard problem became the standard name for that question.
 
 Descartes had a physical world made of extended stuff and a thinking thing that occupies no place at all, and his trouble was traffic between the two: how a decision taken in something with no location moves an arm that has one. He put the meeting at the pineal gland, on the grounds that every other part of the brain comes in pairs and that one does not, so it was the only place the signals from two eyes and two ears could be brought together into one impression. Every version since has kept the shape and dropped the gland. There is an account of the world written in the third person, there is what it is like to be one of the things in it, and nobody has a rule that turns either into the other. The name for that is the **mind-body problem**.
 
@@ -28,7 +28,7 @@ The twin writes the paper about zombies. It sits down, works through the conceiv
 
 Look at the operation the argument asks for, one step at a time. Take the complete physical description of a person. Remove the interior. Hand back what is left and call it the same physical situation.
 
-Everything rests on the first step, and it is the step nobody pauses on, because taking a complete physical description sounds like the part you get for free.
+Everything rests on the first step, the step nobody pauses on, because taking a complete physical description sounds like the part you get for free.
 
 ## The mechanical properties of the ether
 
@@ -139,7 +139,7 @@ He puts it in the vocabulary of divine foreknowledge. If the whole order is poss
 
 The answer has two parts and both survive translation out of the vocabulary.
 
-The first is a distinction between two necessities. One is simple: men are necessarily mortal. The other is conditional: if you know that someone is walking, he is necessarily walking. The second attaches to the act only while the condition holds, and it is imported by the knowing rather than produced by the walking. Then the test question, which Boethius puts directly: does the act of vision add any necessity to the things you see before your eyes? Watching a man cross a courtyard does not make him cross it.
+The first is a distinction between two necessities. One is simple: men are necessarily mortal. The other is conditional: if you know that someone is walking, he is necessarily walking. The second attaches to the act only while the condition holds, imported by the knowing rather than produced by the walking. Then the test question, which Boethius puts directly: does the act of vision add any necessity to the things you see before your eyes? Watching a man cross a courtyard does not make him cross it.
 
 The second part is his definition of eternity: the possession of endless life whole and perfect at a single moment. That is chapter thirty-six's first order, written down in a cell in Pavia. A structure with no ordering inside it is not a very long time. It is no time at all, nothing in it is earlier than anything else, and nothing in it gets to be the reason for anything else by having come first.
 

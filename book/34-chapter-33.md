@@ -6,7 +6,7 @@ Nothing heavier has ever been caught doing that.
 
 The natural reading is that the bands hold up to some weight and give out above it, and that a kitchen chair misses the cutoff by a margin nobody would bother writing down. The natural reading is wrong, and an experiment run fifteen years earlier in the same city says why.
 
-In 2004 Lucia Hackermüller, Klaus Hornberger, Björn Brezger, Anton Zeilinger and Markus Arndt put C70 fullerenes through an interferometer, seventy carbon atoms each, and heated them on the way in with a multi-pass laser. Every photon a molecule absorbed raised its internal temperature by about 140 kelvin, and the beam entered the interferometer at temperatures approaching three thousand. A molecule that hot glows. The bands weakened as the molecules got hotter, and the weakening matched, quantity for quantity, the rate at which the emitted infrared light was carrying off which route through the gratings the molecule had taken.
+In 2004 Lucia Hackermüller, Klaus Hornberger, Björn Brezger, Anton Zeilinger and Markus Arndt put C70 fullerenes through an interferometer, seventy carbon atoms each, and heated them on the way in with a multi-pass laser. Every photon a molecule absorbed raised its internal temperature by about 140 kelvin. The beam entered the interferometer at temperatures approaching three thousand. A molecule that hot glows. The bands weakened as the molecules got hotter, and the weakening matched, quantity for quantity, the rate at which the emitted infrared light was carrying off which route through the gratings the molecule had taken.
 
 Nobody read that light. There was no detector aimed at it, no experimenter waiting on it, and no measurement in any sense a laboratory notebook would recognize. The molecule wrote its own position into the room, in a handful of infrared photons, and the writing was enough. Weight was never the variable. The pattern ended when a record got written.
 
@@ -60,7 +60,7 @@ The everyday world is therefore one exact copy plus one lossy average, and multi
 
 ## A world that cannot flow
 
-There is a second obstruction, and it is the one that decides whether a classical world could ever have been the ground floor.
+There is a second obstruction, the one that decides whether a classical world could ever have been the ground floor.
 
 A record takes one of finitely many values. A change of the record layer that preserves its structure has to send alternatives to alternatives, which is to say it shuffles the labels, and a finite list has only finitely many shuffles. So consider a continuous family of them, one shuffle for every real number, starting from the shuffle that does nothing: the kind of family that any dynamics, any symmetry with a dial on it, any smooth motion whatsoever would have to supply.
 
@@ -68,7 +68,7 @@ Such a family cannot move. To carry a label off itself it would have to pass thr
 
 Every continuous one-parameter group of purely classical public symmetries is the identity. The proof is the connectedness of the real numbers on one side and the gaps between the labels on the other, and there is nothing else in it.
 
-Try to write down the rate of change of a record and the same wall arrives from the other direction. A rate of change is a difference divided by a shrinking interval, and it needs the quantity to take values arbitrarily close to the one it has. A record takes the value heads, and the values near heads are heads. Every derivative of it is zero, every equation of motion for it says nothing changes, and the only motion the layer supports is a jump from one label to another with no time spent in between.
+Try to write down the rate of change of a record and the same wall arrives from the other direction. A rate of change is a difference divided by a shrinking interval, and needs the quantity to take values arbitrarily close to the one it has. A record takes the value heads, and the values near heads are heads. Every derivative of it is zero, every equation of motion for it says nothing changes, and the only motion the layer supports is a jump from one label to another with no time spent in between.
 
 Chapter twenty-one pulled a clock out of a state and found the flow living on the part of the algebra that refuses to commute, reversible, supplied by whatever the observer holds. The connectedness argument reaches the same place from the classical side. A purely classical world cannot flow. It can be relabeled in steps, and between the steps it does nothing whatever.
 
@@ -110,7 +110,7 @@ The scholium was an excellent local approximation, and Newton wrote it down as a
 
 ## What the abstraction is an abstraction of
 
-The prologue put the everyday picture on the table: a three-dimensional container, time running inside it at one rate for everybody, objects at positions in it, physics describing how the objects move. It named that picture a leaky abstraction, in Joel Spolsky's sense of a simplification that holds until the thing underneath does something the simplification has no words for, and it listed six places the leaks come through.
+The prologue put the everyday picture on the table: a three-dimensional container, time running inside it at one rate for everybody, objects at positions in it, physics describing how the objects move. It named that picture a leaky abstraction, in Joel Spolsky's sense of a simplification that holds until the thing underneath does something the simplification has no words for, and listed six places the leaks come through.
 
 Thirty-two chapters later, the everyday container is the commuting, redundant, coarse-grained readout of a finite network of observers repairing their disagreements. Commuting, because the questions that survive being written down are the ones that refuse nothing, and that is the center. Redundant, because a fact written in enough places has odds no experiment can lift off zero or lower off one. Coarse-grained, because the only downward map is an average, and the average discards the order in which questions are asked. And a readout, because the layer it reads has no motion of its own and never did.
 

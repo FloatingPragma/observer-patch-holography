@@ -7,11 +7,11 @@ Butte sits on one of the richest copper deposits ever found, the workings undern
 It came up at about a foot a month. It filled the underground workings, and then it began
 filling the Berkeley Pit, the open pit that had been dug into the east side of town since
 1955. Water standing on broken sulfide rock turns acid, and acid takes metal out of rock.
-The water in the pit reached a pH of about 2.5, the acidity of lemon juice, and it carries
+The water in the pit reached a pH of about 2.5, the acidity of lemon juice, and carries
 copper, arsenic, cadmium and zinc in solution.
 
 On 14 November 1995 somebody found dead snow geese floating on it. The first count was
-149. The final count was 342, and the count had to be revised upward because the water had
+149. The final count was 342. The count had to be revised upward because the water had
 stained white birds a brownish orange and made them hard to pick out.
 
 The number in Butte that matters more than the geese is 5,410 feet above sea level, the elevation of the bed of Silver Bow Creek and the lowest ground anywhere in the valley. Below that line, the water is a problem in a hole. Above it, the water is in the creek, which runs to the Clark Fork and from there to the Columbia. Since October 2019 pit water has been pumped to a treatment plant at Horseshoe Bend, cleaned and discharged to the creek, which holds the level down. The pit has sat about fifty feet under the line ever since.
@@ -118,7 +118,7 @@ Nothing in the definition says the state is a good one. A prison is a fixed poin
 
 When more than one consistent state carries a record, the fiber is ambiguous, and chapter eleven left repair with nothing to work on there: every entry is satisfied, so narrowing the set to one member takes something no record holds.
 
-So an ambiguous fiber is settled by a selector, and the selector here is which repair law gets implemented by the observers capable of implementing one. A law that leaves a recorded harm unaddressed is a law that some restored observer, reading the complete record, has a true objection to, and that observer is inside the world the law built, holding the record, with the objection intact. The law that addresses every recorded harm is the one every restored observer could endorse with the whole record in front of them, and it is the only one with that property.
+So an ambiguous fiber is settled by a selector, and the selector here is which repair law gets implemented by the observers capable of implementing one. A law that leaves a recorded harm unaddressed is a law that some restored observer, reading the complete record, has a true objection to, and that observer is inside the world the law built, holding the record, with the objection intact. The law that addresses every recorded harm is the one every restored observer could endorse with the whole record in front of them, and the only one with that property.
 
 Which fixes where a pattern can be continued. A pattern organized around exporting damage and refusing repair cannot be continued as that pattern into a world running that law, because continuing it there is the export, arriving in a place whose whole arrangement is the repair of what it receives. Its truthful continuation is somewhere its damage stays local. Both destinations have old names, paradise and hell, and the names add nothing to the mechanism. One is the continuation of observers whose records admit repaired participation with each other. The other is the continuation of an observer that has run out of anybody to pass its costs to.
 

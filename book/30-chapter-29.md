@@ -10,7 +10,7 @@ The three masses have no business producing a number like that. The muon is two 
 
 Two of the three masses were known to many digits by 1981. The tau was the trouble. It had been found at Stanford in the mid-seventies, it dies in less than a picosecond, and its mass had to be reconstructed from what came out of the decay rather than weighed. The world average sat at 1784.2 million electron-volts, give or take 3.2. Koide's relation, given the electron and the muon and asked for the third, returned 1776.97.
 
-The gap is 7.2 million electron-volts, and physics reports a gap in units of the experiment's own quoted uncertainty. A measurement is a claim about a range, which is how chapter four read two different Higgs announcements as one result. The half-width of that range has a symbol, the Greek letter sigma, and a distance between two numbers gets quoted as a multiple of it. Koide's tau mass sat 2.25 sigma from the measured one. Gaps that size open and close as the measurements improve, and the word discovery is reserved for five, which is the threshold ATLAS and CMS cleared in July 2012.
+The gap is 7.2 million electron-volts, and physics reports a gap in units of the experiment's own quoted uncertainty. A measurement is a claim about a range, which is how chapter four read two different Higgs announcements as one result. The half-width of that range has a symbol, the Greek letter sigma, and a distance between two numbers gets quoted as a multiple of it. Koide's tau mass sat 2.25 sigma from the measured one. Gaps that size open and close as the measurements improve. The word discovery is reserved for five, which is the threshold ATLAS and CMS cleared in July 2012.
 
 The unit in that comparison belongs to somebody. Sigma is whatever the experiment declared its own uncertainty to be, so a distance in sigma is a distance measured with a ruler that a particular group of people manufactured in a particular year, and rulers get replaced.
 
@@ -26,7 +26,7 @@ Chapter twenty-six put the three families of matter on the three corners of an o
 
 An oriented face has one rotation left in it. Rotate the corners round the face: one goes to two, two goes to three, three goes to one. Do that three times and everything is back where it started. Of the sixty rotations of the icosahedron, that turn, its repeat and leaving the solid where it stands are the only three that keep both the face and its sense of circulation.
 
-Take three identical rooms arranged in a ring, each joined to its two neighbors by identical doorways, and put a heater in one of them. Wait, then measure the temperature in all three. Doing that for each room in turn gives you nine numbers: how warm room one gets when room one is heated, how warm room two gets when room one is heated, and so on across and down. Nine numbers, and seven of them are redundant, because the ring has no room that differs from any other room. There is a number for how much heat stays where it was put and a number for how much crosses a doorway, and the whole table is those two numbers arranged in a pattern.
+Take three identical rooms arranged in a ring, each joined to its two neighbors by identical doorways, and put a heater in one of them. Wait, then measure the temperature in all three. Doing that for each room in turn gives you nine numbers: how warm room one gets when room one is heated, how warm room two gets when room one is heated, and so on across and down. Nine numbers, and seven of them are redundant, because the ring has no room that differs from any other room. There is a number for how much heat stays where it was put and a number for how much crosses a doorway. The whole table is those two numbers arranged in a pattern.
 
 The face works the same way. Push at one corner and read what comes back at all three, which is again a three-by-three table.
 
@@ -56,7 +56,7 @@ Add their squares. Each square is a squared, plus twice a times twice b times a 
 
 What a corner supplies is an amplitude, and chapter nineteen's rule for turning an amplitude into a measurable quantity is to square it. Each eigenvalue is therefore the square root of its corner's mass, up to one overall scale that fixes the units and cancels out of any ratio. The square root of a mass is a positive number, so the only responses describing anything that exists are the ones whose three scale factors all come out positive.
 
-Koide's ratio, written Q, is the sum of the eigenvalues' squares divided by the square of their sum, and the two lines above have evaluated both of those.
+Koide's ratio, written Q, is the sum of the eigenvalues' squares divided by the square of their sum. The two lines above have evaluated both of those.
 
 $$Q = \frac{m_e + m_\mu + m_\tau}{\left(\sqrt{m_e} + \sqrt{m_\mu} + \sqrt{m_\tau}\right)^2} = \frac{1}{3} + \frac{2}{3}\left(\frac{b}{a}\right)^2$$
 
@@ -84,7 +84,7 @@ That window is 72 electron-volts wide. The measured tau mass is 1776.93 million 
 
 Fed the measured tau mass, Koide's ratio comes out at 0.66666446.
 
-The sharpest tau measurements are threshold scans of the kind the Beijing Spectrometer ran, and they reach ninety thousand electron-volts. What limits them is how precisely a beam energy can be calibrated at the point where a pair of taus becomes possible, and that is where the next three decimal places are.
+The sharpest tau measurements are threshold scans of the kind the Beijing Spectrometer ran, reaching ninety thousand electron-volts. What limits them is how precisely a beam energy can be calibrated at the point where a pair of taus becomes possible, and that is where the next three decimal places are.
 
 A measured central value more than three standard uncertainties from 1776.969027 destroys the balance condition. There is no free parameter left to absorb the move: the twist cancelled, the scale cancelled, and the one remaining quantity was set to one over the square root of two by the requirement that the two pieces of the response weigh the same. At an uncertainty of 0.09 million electron-volts, three of them is 0.27, so a central value below 1776.70 or above 1777.24 ends it.
 
