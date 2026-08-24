@@ -100,7 +100,7 @@ Frustration is the coin problem in a material, and a measurable one. It changes 
 
 The triangle is small enough to be dismissed as a puzzle. So take the smallest thing that deserves to be called a universe and check every state of it.
 
-Twelve observers. Wire them as the corners of an icosahedron, the twenty-sided solid, so that each observer has exactly five neighbors and there are thirty overlaps in all. Twelve corners, thirty edges. The count above says the graph has thirty minus twelve plus one, which is nineteen independent loops, so nineteen conditions have to hold at once for the thing to be settable.
+Twelve observers. Wire them as the corners of an icosahedron, the twenty-sided solid, so that each observer has exactly five neighbors and there are thirty edges in all. Each edge is an overlap in chapter four's sense: two observers with something they can both check, and no way to reach each other except by checking it. Alice and Bob's overlap was the stretch of Barcelona street they could both see. Here it is one comparison, which is as small as an overlap can get and still be one. Twelve corners, thirty edges. The count above says the graph has thirty minus twelve plus one, which is nineteen independent loops, so nineteen conditions have to hold at once for the thing to be settable.
 
 Each observer holds one bit. That is four thousand and ninety-six arrangements. Flipping all twelve at once changes no comparison anywhere, so there are two thousand and forty-eight distinct states.
 
@@ -112,7 +112,7 @@ Two thousand and forty-eight states, sixteen schedules apiece, and eleven thousa
 
 Two results come out. The first is the boring one that has to be true before the second means anything.
 
-Exactly one of the two thousand and forty-eight states is globally consistent. That one is arithmetic rather than news from the machine. The spanning tree argument already settled it: the nineteen loop sums are zero, so fix one observer's bit and every other bit is forced, which leaves one free choice, two assignments, and one distinct state once the all-over flip is divided out.
+Exactly one of the two thousand and forty-eight states is globally consistent. That one is arithmetic. The spanning tree argument already settled it: the nineteen loop sums are zero, so fix one observer's bit and every other bit is forced, which leaves one free choice, two assignments, and one distinct state once the all-over flip is divided out.
 
 The second result is the machine's. Every single run lands on that state. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
 
