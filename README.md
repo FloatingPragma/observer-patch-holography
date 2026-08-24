@@ -2,7 +2,7 @@
 
 > Reality is the stable public world reconstructed by finite, self-reading observers that compare their overlaps and repair disagreement.
 
-[Technical paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Hardware](https://omega.floatingpragma.io/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
+[Book](https://oph-book.floatingpragma.io/) · [Technical paper](flagship/from_observer_consensus_to_standard_physics.pdf) · [Textbooks](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Notebook](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 
 Observer Patch Holography (OPH) is a zero-dial theory-of-everything research
 program built on one central thesis: **observers are primary, and objective
@@ -32,10 +32,16 @@ foundation. Spacetime, matter, and the constants become precise reconstruction
 problems that can be attacked theorem by theorem and tested receipt by receipt.
 The material below takes you through that shift from a standing start.
 
+- **The book.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/)
+  is the general-audience account, written for readers with no physics
+  background. Forty chapters carry the argument from why the problem is hard
+  to where the constants come from, with the mathematics left to the
+  textbooks and the papers.
 - **The technical paper.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
   gives the primary technical account of the observer-first reconstruction.
 - **The textbooks.** The [OPH textbooks](https://learn.floatingpragma.io/)
-  teach the theory the long way. Every basic derivation is worked in full,
+  teach the theory the long way, for readers with a physics or computer
+  science background. Every basic derivation is worked in full,
   with the required math built up as you go. Volume one covers the
   computational substrate and the consensus machinery; volume two connects
   that machinery to classical physics. Each is readable online or as a PDF.
@@ -363,11 +369,11 @@ cited here.
 
 ## Explore OPH
 
+- [The book](https://oph-book.floatingpragma.io) (general readers)
 - [The technical paper](flagship/from_observer_consensus_to_standard_physics.pdf)
 - [Core paper index](paper/)
-- [Textbooks](https://learn.floatingpragma.io)
+- [Textbooks](https://learn.floatingpragma.io) (physics and computer science)
 - [Interactive simulation](https://simulation.floatingpragma.io)
-- [OMEGA applications and hardware](https://omega.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
 - [Study notebook with explainer videos](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 - [This README in French](README_FR.md)

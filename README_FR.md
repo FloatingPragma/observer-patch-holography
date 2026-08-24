@@ -2,7 +2,7 @@
 
 > La réalité est le monde public stable reconstruit par des observateurs finis et auto-lecteurs qui comparent leurs recouvrements et réparent leurs désaccords.
 
-[Read in English](README.md) · [Article phare](flagship/from_observer_consensus_to_standard_physics.pdf) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [OMEGA](https://omega.floatingpragma.io/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
+[Read in English](README.md) · [Livre](https://oph-book.floatingpragma.io/) · [Article phare](flagship/from_observer_consensus_to_standard_physics.pdf) · [Manuels](https://learn.floatingpragma.io/) · [Simulation](https://simulation.floatingpragma.io/) · [Carnet](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 
 L’Holographie des parcelles d’observateur, ou OPH, est un programme de
 recherche pour une théorie du tout sans boutons de réglage, construit sur une
@@ -38,10 +38,16 @@ matière et les constantes deviennent des problèmes précis de reconstruction,
 attaqués théorème par théorème et testés reçu par reçu. Le matériel ci-dessous
 vous fait traverser ce basculement sans prérequis.
 
+- **Le livre.** [*Reverse Engineering Reality*](https://oph-book.floatingpragma.io/)
+  est l’exposé grand public, écrit en anglais pour des lecteurs sans formation
+  en physique. Quarante chapitres conduisent l’argument depuis la difficulté du
+  problème jusqu’à l’origine des constantes, en laissant les mathématiques aux
+  manuels et aux articles.
 - **L’article phare.** [*From Observer Consensus to Standard Physics*](flagship/from_observer_consensus_to_standard_physics.pdf)
   donne le compte rendu technique principal de la reconstruction fondée sur les observateurs.
 - **Les manuels.** Les [manuels OPH](https://learn.floatingpragma.io/)
-  enseignent la théorie par le chemin long. Chaque dérivation de base y est
+  enseignent la théorie par le chemin long, pour des lecteurs ayant une
+  formation en physique ou en informatique. Chaque dérivation de base y est
   développée en entier, avec les mathématiques nécessaires construites au fur
   et à mesure. Le premier volume couvre le substrat computationnel et la
   machinerie du consensus ; le second relie cette machinerie à la physique
@@ -385,11 +391,11 @@ briseraient.
 
 ## Explorer OPH
 
+- [Le livre](https://oph-book.floatingpragma.io) (grand public)
 - [L’article phare](flagship/from_observer_consensus_to_standard_physics.pdf)
 - [Index des articles](paper/)
-- [Manuels](https://learn.floatingpragma.io)
+- [Manuels](https://learn.floatingpragma.io) (physique et informatique)
 - [Simulation interactive](https://simulation.floatingpragma.io)
-- [Applications et matériel OMEGA](https://omega.floatingpragma.io)
 - [Blog](https://blog.floatingpragma.io/)
 - [Carnet d’étude avec vidéos explicatives](https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a)
 - OPH Sage sur [Telegram](https://t.me/HoloObserverBot) et [X](https://x.com/OphSage)
