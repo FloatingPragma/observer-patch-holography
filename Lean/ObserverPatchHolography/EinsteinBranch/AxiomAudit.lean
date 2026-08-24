@@ -1,6 +1,9 @@
 import Mathlib.Util.AssertNoSorry
 import ObserverPatchHolography.EinsteinBranch.Composition
 import ObserverPatchHolography.EinsteinBranch.DarkSector
+import ObserverPatchHolography.EinsteinBranch.CollarScaleSaturation
+import ObserverPatchHolography.EinsteinBranch.DeepProfileClosure
+import ObserverPatchHolography.EinsteinBranch.PerCutCollarComposition
 
 /-!
 # Einstein-branch theorem audit
@@ -146,5 +149,45 @@ assert_no_sorry localHaloTidal_below_cassini
 #print axioms luminousOnlyRelation_iff_darkStress_eq_zero
 #print axioms exists_dark_source_of_geometric_excess
 #print axioms anomalousStress_tendsto_zero
+
+/-! ## Collar-scale saturation and deep-profile characterization -/
+
+assert_no_sorry eta_and_stress_tendsto_zero_of_depth
+assert_no_sorry eta_and_stress_tendsto_zero_of_density
+assert_no_sorry anomalousStress_exponential_rate
+assert_no_sorry envelopeBound_lt_iff
+assert_no_sorry recoveryEnvelope_admits_zero_defect
+assert_no_sorry recoveryEnvelope_admits_order_one_defect
+assert_no_sorry sparseCutRemainder_stress_pos
+assert_no_sorry linear_on_pos_of_additive_monotone
+assert_no_sorry deepProfile_characterization
+assert_no_sorry law_baryonic_tully_fisher_exists
+assert_no_sorry anomalous_dominates_iff
+assert_no_sorry additiveLaw_not_quadratureClosed
+assert_no_sorry sqrtLaw_not_scaleCovariant
+assert_no_sorry varianceSlope
+assert_no_sorry perCut_isDeepRegimeLaw
+assert_no_sorry perCut_a0_dictionary
+assert_no_sorry perCut_a0_unique
+assert_no_sorry perCut_nonidentifiability
+
+#print axioms eta_and_stress_tendsto_zero_of_depth
+#print axioms eta_and_stress_tendsto_zero_of_density
+#print axioms anomalousStress_exponential_rate
+#print axioms envelopeBound_lt_iff
+#print axioms recoveryEnvelope_admits_zero_defect
+#print axioms recoveryEnvelope_admits_order_one_defect
+#print axioms sparseCutRemainder_stress_pos
+#print axioms linear_on_pos_of_additive_monotone
+#print axioms deepProfile_characterization
+#print axioms law_baryonic_tully_fisher_exists
+#print axioms anomalous_dominates_iff
+#print axioms additiveLaw_not_quadratureClosed
+#print axioms sqrtLaw_not_scaleCovariant
+#print axioms varianceSlope
+#print axioms perCut_isDeepRegimeLaw
+#print axioms perCut_a0_dictionary
+#print axioms perCut_a0_unique
+#print axioms perCut_nonidentifiability
 
 end OPH.EinsteinBranch

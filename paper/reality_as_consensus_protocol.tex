@@ -3070,6 +3070,34 @@ physical time-slice theorem.
 (\path{Lean/QFT/SourceHistoryGNSDynamics.lean};
 \path{Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean}).
 
+The state-preserving half of this regional structure lives exactly on the
+record layer.  For every slot region \(S\subseteq\{0,1,2\}\), conditioning
+the committed window law on the slots in \(S\) defines a regional
+expectation \(E_S\) on record observables that is linear, unital, positive,
+localized to its region, idempotent, and tower-compatible,
+\(E_S\circ E_T=E_S\) for \(S\subseteq T\); the full-region expectation is
+the identity because the three slots separate the eight histories, the
+empty-region expectation is the constant empirical mean, and every \(E_S\)
+preserves that mean.  The two domain walls are fixed points of their own
+interval expectations, every regional expectation preserves the bond means
+\(94/1754\) and \(103/1754\) and the repair total \(197/1754\), and the
+exact conditional weights of the late slot are \(383/415\) in the
+\((s_0,s_1)=(0,0)\) cell against \(2/89\) in the \((0,1)\) cell, so the net
+genuinely averages.  The same counts refute the matrix extension: no
+complex-linear map of \(M_8(\mathbb C)\) into \(\mathcal A_{01}\) satisfies
+the \(\mathcal A_{01}\)-bimodule law and preserves \(\omega\).  An interval
+bimodule projection would give the slot-two projector a single conditional
+weight over \(\mathcal A_{01}\), and the two cells demand \(383/415\) and
+\(2/89\); the identity map satisfies the bimodule and state-preservation
+clauses alone, so the obstruction is produced exactly by compression into
+the interval algebra.  The record layer therefore carries the full
+state-preserving regional expectation net while its off-diagonal matrix
+extension across the late wall does not exist: the slot correlation across
+the late wall is the structural content, and both the net's state
+preservation and the wall coefficients transport to represented diagonal
+elements on the selected GNS carrier
+(\path{Lean/QFT/SourceHistoryExpectationNet.lean}).
+
 \paragraph{Region families of the one-step interface.}
 The module \path{Lean/QFT/CarrierJoinTransport.lean} settles the region-family freedom of
 \texttt{TimeIndexedNetEvolution} over the finite 86/247 diamond in both

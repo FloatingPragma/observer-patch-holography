@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 297,
+  "surface_count": 301,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -775,6 +775,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/Screen/CertifiedScaledStepInstrument.lean",
+      "glob": "Lean/Screen/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/Screen/ChargedCurrentDictionary.lean",
       "glob": "Lean/Screen/*.lean",
       "allowlisted": false
@@ -1225,6 +1230,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/CollarScaleSaturation.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -1240,12 +1250,22 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/DeepProfileClosure.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/Entropy.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/Manifest.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/PerCutCollarComposition.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

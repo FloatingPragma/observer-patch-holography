@@ -58,10 +58,14 @@ magnitude below the Cassini bound. In the deep regime the anomalous density
 with linear enclosed mass gives the radial-acceleration relation
 \(a=\sqrt{a_ba_0}\), flat rotation curves, and the baryonic Tully--Fisher
 relation \(v^4=GM_ba_0\); on the SPARC sample both relations are reproduced
-with one constant near \(1.4\times10^{-10}\,\mathrm{m\,s^{-2}}\). All
-structural statements are machine-checked. The magnitude of the anomalous
-charge, its full radial profile, and the collar-scale theorem are not derived
-here.
+with one constant near \(1.4\times10^{-10}\,\mathrm{m\,s^{-2}}\). The
+compact-source half of the collar-scale premise is a conditional theorem
+under an exponential recovery envelope, with a rate in the local record
+density, and the deep profile with its single constant is characterized as
+the unique law satisfying deep-regime scale covariance and quadrature
+composition of independent sources. All structural statements are
+machine-checked. The magnitude of the anomalous charge and the physical
+attachment of the envelope are not derived here.
 \end{abstract}
 
 \section*{Claim Boundary}
@@ -72,9 +76,14 @@ a bulk part, a central part, and a collar-carried anomalous part, and the
 controlled bound on that anomalous part~\cite{ophEinstein,ophmicro}. Every
 theorem and proposition below is an algebraic or analytic consequence of
 those objects together with the premises named in the text, and each is
-checked in the Lean formalization~\cite{ophlean}. Universal coupling, the
-collar-scale premise, and the linear enclosed-mass premise are structure
-fields or named hypotheses in that formalization; none is established there.
+checked in the Lean formalization~\cite{ophlean}. Universal coupling and the
+collar-scale premise are structure fields or named hypotheses in that
+formalization; neither is established there. The linear enclosed-mass form
+is derived inside the formalization from two named premises, deep-regime
+scale covariance and quadrature source composition, which are themselves
+structure fields; the exponential recovery envelope behind the saturation
+theorem is the conditional mixing branch of the collar-recovery claim, taken
+as a hypothesis.
 
 The paper does not supply a quotient-invariant receipt localizing the
 anomalous modular energy on collars, the value of the collar constant, the
@@ -249,7 +258,49 @@ generate anomalous charge of its own; it sits in the ambient anomalous
 density \(\rho_A\) of its neighbourhood.
 \end{premise}
 
-Under this premise the Solar System is a test of the ambient density alone.
+The compact-source half of this premise is a conditional theorem. The
+collar-recovery claim of the spacetime paper~\cite{ophEinstein} bounds the
+defect on its conditional mixing branch by an exponential envelope, which we
+write in the local record density \(\rho\) as
+\begin{equation}
+\eta_\delta\le\kappa\,B\,
+\exp\!\Bigl(-\frac{\delta\rho^{1/3}-r_0}{\zeta}\Bigr),
+\label{eq:envelope}
+\end{equation}
+with \(\kappa\) the mixing prefactor, \(B\) the boundary size in UV cells,
+\(r_0\) an offset, \(\zeta\) the decay constant, and \(\delta\rho^{1/3}\)
+the collar depth counted in UV record spacings.
+
+\begin{theorem}[Compact-source saturation]
+\label{thm:saturation}
+Under the envelope \eqref{eq:envelope}, along any family of collars with
+fixed radius \(\ell\) and bounded collar constant \(C_C\), the recovery
+defect and the anomalous stress tend to zero as the depth grows at fixed
+record density, and as the record density grows at fixed positive depth.
+Quantitatively,
+\begin{equation}
+\bigl|\delta\langle T_{00}^{\rm anom}\rangle\bigr|
+\le\frac{15\,C_C}{8\pi^2\ell^4}\,\kappa B\,
+\exp\!\Bigl(-\frac{\delta\rho^{1/3}-r_0}{\zeta}\Bigr),
+\label{eq:rate}
+\end{equation}
+and the envelope bound falls below \(\varepsilon\) exactly when
+\(\delta\rho^{1/3}>r_0+\zeta\log(\kappa B/\varepsilon)\). Where records are
+dense, a source generates no persistent anomalous charge of its own.
+\end{theorem}
+
+The delimitation is exact in both directions and machine-checked. The
+identically zero defect satisfies every envelope hypothesis, so the envelope
+never forces a nonzero defect: that the galactic-scale settled cuts carry an
+order-one defect is a premise, not a consequence. And an explicit sparsely
+recorded instance sits at the bound with an order-one defect and strictly
+positive stress, so the same hypotheses that screen dense regions admit a
+nonzero dark source on sparse cuts. What is not established is that physical
+collars satisfy \eqref{eq:envelope}: the envelope is the conditional mixing
+branch of the collar-recovery claim, taken here as a hypothesis.
+
+Under Premise~\ref{pre:scale} the Solar System is a test of the ambient
+density alone.
 
 \begin{proposition}[An isotropic ambient density has no quadrupole]
 \label{prop:isotropic}
@@ -280,22 +331,83 @@ Section~\ref{sec:solar} and nothing else in the construction.
 
 Around a baryonic mass \(M_b\), the codimension-one collar count of the
 microphysics paper~\cite{ophmicro} gives the number of settled cuts enclosing
-the source within radius \(r\) as proportional to \(r\), each cut carrying a
-fixed anomalous charge set by \(M_b\) and the acceleration constant.
+the source within radius \(r\) as proportional to \(r\). Rather than positing
+the enclosed-mass profile as a functional form, the deep regime is
+characterized by two premises, each independently falsifiable.
 
-\begin{premise}[Linear enclosed mass]
-\label{pre:linear}
-In the deep regime the anomalous mass enclosed within radius \(r\) is
+\begin{premise}[Deep-regime scale covariance]
+\label{pre:cov}
+In the deep regime the enclosed anomalous mass is degree-one homogeneous in
+the radius: \(M_A(M_b,\lambda r)=\lambda\,M_A(M_b,r)\) for every
+\(\lambda>0\). A sparsely recorded deep cut retains no length scale, so
+rescaling the radius rescales the enclosed mass by the same factor.
+\end{premise}
+
+\begin{premise}[Quadrature composition]
+\label{pre:quad}
+The anomalous amplitudes of independent baryonic sources compose in
+quadrature:
+\(M_A(m_1+m_2,r)^2=M_A(m_1,r)^2+M_A(m_2,r)^2\). The collar defects of
+distinct sources are independent, their variances add, and the gravitating
+anomalous charge is the amplitude of the unrecovered record fluctuation.
+\end{premise}
+
+\begin{theorem}[Profile characterization]
+\label{thm:char}
+Let \(M_A(M_b,r)\) be nonnegative, monotone in the source, somewhere
+nonzero, and satisfy Premises~\ref{pre:cov} and \ref{pre:quad}. Then there
+is a unique constant \(a_0>0\) with
 \begin{equation}
 M_A(r)=r\sqrt{\frac{M_ba_0}{G}},
 \qquad
 \rho_A(r)=\frac{1}{4\pi r^2}\sqrt{\frac{M_ba_0}{G}}.
 \label{eq:profile}
 \end{equation}
-\end{premise}
+\end{theorem}
 
-The density is the shell derivative of the enclosed mass,
-\(M_A'(r)=4\pi r^2\rho_A(r)\).
+\begin{proof}
+Scale covariance factorizes \(M_A(M_b,r)=r\,f(M_b)\). Quadrature
+composition makes \(f^2\) additive on positive sources, monotonicity makes
+it monotone, and a function additive and monotone on the positive reals is
+linear: \(f^2=\lambda M_b\) with \(\lambda>0\) by nondegeneracy. Setting
+\(a_0=\lambda G\) gives \eqref{eq:profile}; uniqueness follows by
+evaluating at \(M_b=r=1\). Each premise is load-bearing: an additive law
+\(M_A\propto rM_b\) satisfies everything except quadrature composition, and
+an \(r^2\) law everything except scale covariance.
+\end{proof}
+
+\begin{corollary}[Linear enclosed mass]
+\label{pre:linear}
+The deep-regime density is the shell derivative of the enclosed mass,
+\(M_A'(r)=4\pi r^2\rho_A(r)\), with \(M_A\) linear in \(r\) and the
+coefficient \(\sqrt{M_ba_0/G}\) forced by
+Theorem~\ref{thm:char}.
+\end{corollary}
+
+Deep-limit scale invariance is the known symmetry of the modified-dynamics
+limit~\cite{milgrom2009}, and square-root mass laws appear in
+entropic-gravity proposals~\cite{verlinde2016}. The characterization here
+derives the full profile with its unique constant from the two premises
+jointly, and it reads the square root as the variance additivity of
+independent collar defects under source composition.
+
+Premise~\ref{pre:quad} itself follows from a more primitive per-cut model.
+Suppose the \(nr\) nested cuts within radius \(r\) each carry anomalous
+amplitude \(\sqrt{V(M_b)}\), the standard deviation of the collar defect
+sourced by the baryons, with the variances of independent sources adding
+and the variance monotone in the source. Then the variance function is
+forced linear, \(V(M_b)=cM_b\) with a unique \(c>0\), quadrature
+composition is a theorem rather than a premise, the induced law satisfies
+Theorem~\ref{thm:char}, and its constant is exactly
+\begin{equation}
+a_0=G\,n^2c .
+\label{eq:dictionary}
+\end{equation}
+The dictionary is exact but determines only the product \(n^2c\): two
+models with different cut densities and equal \(n^2c\) induce the same
+enclosed-mass law, machine-checked. The magnitude question is therefore
+the value of the collar density and of the per-cut variance constant;
+neither is derived here.
 
 \begin{theorem}[Deep radial-acceleration relation]
 \label{thm:rar}
@@ -326,12 +438,14 @@ removes the radius; squaring gives \eqref{eq:btfr}.
 The exponents \(1/2\) in \eqref{eq:deep} and \(4\) in \eqref{eq:btfr} are
 the parameter-free content of the profile. The constant \(a_0\) collects
 \(C_C\), the collar density, and the small-ball normalization; none of these
-is fixed by the source at present, so \(a_0\) enters every comparison as a
-fitted value. The deep regime is the range \(a_b\ll a_0\), equivalently
-\(r\gg r_M=\sqrt{GM_b/a_0}\), where the anomalous acceleration dominates the
-baryonic one. Inside \(r_M\) the enclosed anomalous mass is small compared
-with \(M_b\) and the response is Newtonian; the profile between the two
-regimes is not fixed by Premise~\ref{pre:linear}.
+is fixed by the source, so \(a_0\) enters every comparison as a fitted
+value. The deep regime is the range \(a_b\ll a_0\), equivalently
+\(r\gg r_M=\sqrt{GM_b/a_0}\). At the matching radius both accelerations
+equal \(a_0\) exactly, and the anomalous acceleration dominates the baryonic
+one precisely outside \(r_M\); both statements are machine-checked. Inside
+\(r_M\) the enclosed anomalous mass is small compared with \(M_b\) and the
+response is Newtonian; the profile through the transition is not fixed by
+Premises~\ref{pre:cov} and \ref{pre:quad}.
 
 \section{Lensing and the Relativistic Source}
 \label{sec:lensing}
@@ -419,18 +533,23 @@ scaling is the statement that the medium is cold.
 \label{sec:open}
 
 \begin{enumerate}
-\item \textbf{Collar scale.} Premise~\ref{pre:scale} requires that the
-recovery defect \(\eta_\delta\) saturates to zero on the collars of a compact
-source and is carried on galactic-scale settled cuts, with a rate in the
-local record density. Theorem~\ref{thm:off} then makes the Solar-System
-footprint of Section~\ref{sec:solar} is conditional on this input.
+\item \textbf{Collar scale.} The compact-source half of
+Premise~\ref{pre:scale} is Theorem~\ref{thm:saturation}, conditional on the
+exponential envelope \eqref{eq:envelope}. What remains is the physical
+attachment: a proof that physical collars satisfy the mixing branch behind
+the envelope, and a positive mechanism for the order-one defect on
+galactic-scale settled cuts, which the envelope provably does not force.
 \item \textbf{Magnitude.} The normalization of
 \(\delta\langle E_C^{(\delta)}\rangle\) to repair conservation on the
-Ward/Bianchi branch is not derived; such a normalization would make \(a_0\) a
-consequence of \(C_C\) and the collar density.
-\item \textbf{Profile.} Premise~\ref{pre:linear} requires a linear enclosed
-mass derived from the collar geometry of a point source and extended through
-the transition to the Newtonian regime.
+Ward/Bianchi branch is not derived. The per-cut dictionary
+\eqref{eq:dictionary} reduces the question to the collar density \(n\) and
+the per-cut variance constant \(c\): a repair-conservation normalization
+would fix \(c\), and the codimension-one collar count of the microphysics
+paper would fix \(n\).
+\item \textbf{Profile.} Theorem~\ref{thm:char} reduces the profile to
+Premises~\ref{pre:cov} and \ref{pre:quad}; what remains is deriving those
+two premises from the collar geometry of a point source, and extending the
+profile through the transition to the Newtonian regime.
 \item \textbf{Localization.} No quotient-invariant receipt is supplied that
 identifies the collar operator in \eqref{eq:split} with the small-ball
 remainder in \eqref{eq:tanom}.
@@ -451,9 +570,14 @@ galactic-scale collars, invisible to the Solar System by four orders of
 magnitude. Its deep-regime profile gives the radial-acceleration relation,
 flat rotation curves, and the baryonic Tully--Fisher relation with one
 constant, and the SPARC sample returns that constant consistently from both
-relations. The collar-scale theorem, the magnitude of the charge, and the
-full profile are the work that turns the premises of
-Sections~\ref{sec:solar} and \ref{sec:deep} into derivations.
+relations. The compact-source half of the collar-scale premise is a
+conditional saturation theorem with an exponential rate in the local record
+density, and the profile with its unique constant is characterized by
+deep-regime scale covariance and quadrature composition of independent
+sources. The physical attachment of the envelope, the mechanism selecting
+galactic-scale cuts, and the magnitude of the charge are the work that
+turns the remaining premises of Sections~\ref{sec:solar} and \ref{sec:deep}
+into derivations.
 
 \begin{thebibliography}{99}
 
@@ -471,7 +595,9 @@ B. Mueller et al.,
 \bibitem{ophlean}
 B. Mueller et al.,
 \emph{Observer-Patch Holography: machine-checked Lean formalization},
-Einstein-branch modules \texttt{SmallBall} and \texttt{DarkSector},
+Einstein-branch modules \texttt{SmallBall}, \texttt{DarkSector},
+\texttt{CollarScaleSaturation}, \texttt{DeepProfileClosure}, and
+\texttt{PerCutCollarComposition},
 2026.
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean/ObserverPatchHolography/EinsteinBranch}
 
@@ -492,6 +618,18 @@ S. S. McGaugh, F. Lelli, and J. M. Schombert,
 \emph{Radial Acceleration Relation in Rotationally Supported Galaxies},
 Phys. Rev. Lett. 117, 201101 (2016), arXiv:1609.05917.
 \url{https://arxiv.org/abs/1609.05917}
+
+\bibitem{milgrom2009}
+M. Milgrom,
+\emph{The MOND limit from spacetime scale invariance},
+Astrophys. J. 698, 1630 (2009), arXiv:0810.4065.
+\url{https://arxiv.org/abs/0810.4065}
+
+\bibitem{verlinde2016}
+E. Verlinde,
+\emph{Emergent Gravity and the Dark Universe},
+SciPost Phys. 2, 016 (2017), arXiv:1611.02269.
+\url{https://arxiv.org/abs/1611.02269}
 
 \bibitem{park2026}
 R. S. Park et al.,

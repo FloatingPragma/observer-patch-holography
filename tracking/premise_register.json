@@ -368,7 +368,9 @@
     "Lean/Thermodynamics/FourLawAdequacySurface.lean",
     "Lean/Geometry/CommonWorldInstrumentJoin.lean",
     "Lean/QFT/SourceHistoryGNSDynamics.lean",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
+    "Lean/QFT/SourceHistoryExpectationNet.lean",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
@@ -376,9 +378,11 @@
     "Lean/Thermodynamics/FourLawAdequacySurface.lean": "conditional_consumer",
     "Lean/Geometry/CommonWorldInstrumentJoin.lean": "statement",
     "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
+    "Lean/QFT/SourceHistoryExpectationNet.lean": "statement",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement"
    },
-   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open. SourceHistoryThreeSlotLocalGNS decomposes the same uncalibrated finite repair Hamiltonian into two local positive bonds and proves first-order local generator propagation, but supplies neither a physical clock nor an energy-unit calibration; this import is unchanged."
+   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open. SourceHistoryThreeSlotLocalGNS decomposes the same uncalibrated finite repair Hamiltonian into two local positive bonds and proves first-order local generator propagation, but supplies neither a physical clock nor an energy-unit calibration; this import is unchanged. SourceHistoryExpectationNet averages record observables against the committed window law and preserves its mean, but attaches no clock or energy-unit calibration; this import is unchanged. CertifiedScaledStepInstrument certifies the declared step 4/5 below the sharp threshold and types the design-only handoff, but supplies no physical clock or unit calibration."
   },
   {
    "id": "PR-16",
@@ -1203,7 +1207,8 @@
     "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
     "Lean/Geometry/CommonWorldIslandBridge.lean",
     "Lean/QFT/SourceHistoryGNSDynamics.lean",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
+    "Lean/QFT/SourceHistoryExpectationNet.lean"
    ],
    "evidence_roles": {
     "Lean/Geometry/CanonicalLorentzModule.lean": "statement",
@@ -1215,9 +1220,10 @@
     "Lean/EventAlgebra/SourceReachabilityDelimitation.lean": "no_go",
     "Lean/Geometry/CommonWorldIslandBridge.lean": "statement",
     "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
+    "Lean/QFT/SourceHistoryExpectationNet.lean": "statement"
    },
-   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open. SourceHistoryGNSDynamics attaches counted history data to a finite GNS Hamiltonian carrier without a regional or Lorentzian map, so it does not discharge this row. SourceHistoryThreeSlotLocalGNS supplies a finite tensor-factor net over ordered history coordinates, not a map to observer-produced spacetime, rods, clocks, causal reachability, or continuum soldering; it does not discharge this row."
+   "notes": "Removal needs one source-derived, refinement-compatible spacetime witness and explicit maps from the finite observer records to its causal and metric structure. TripleCarrierJoin places both committed pair paths, counted states, and checkpoint families on one finite carrier, but supplies no physical regions, spacetime, causality, or clock. Evidence context: Lean/Geometry/CausalOrderComposition.lean composes the committed finite region orders with the causal order of the declared Lorentz module through declared vertex assignments, with two-directional order equivalence, disjointness-to-spacelike receipts, and oriented-chart and overlap-cocycle invariance; the module and the assignments are declared, so this row stays open. Lean/Geometry/CommonWorldIslandBridge.lean joins the screen Gram quotient to the rest fiber of the witness frame as a typed metric-exact dictionary and states that no physical position, rod, or spacetime attachment is claimed, so the row stays open. SourceHistoryGNSDynamics attaches counted history data to a finite GNS Hamiltonian carrier without a regional or Lorentzian map, so it does not discharge this row. SourceHistoryThreeSlotLocalGNS supplies a finite tensor-factor net over ordered history coordinates, not a map to observer-produced spacetime, rods, clocks, causal reachability, or continuum soldering; it does not discharge this row. SourceHistoryExpectationNet supplies slot-regional conditional expectations of the record law and the exact matrix-level obstruction, not physical regions, spacetime, causality, or clocks; it does not discharge this row."
   },
   {
    "id": "PR-53",
@@ -1237,7 +1243,8 @@
     "docs/FROZEN_PREDICTION_LADDER.md",
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "Lean/Geometry/CommonWorldIslandBridge.lean",
-    "Lean/Screen/ScaledMaxwellStability.lean"
+    "Lean/Screen/ScaledMaxwellStability.lean",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
@@ -1246,9 +1253,10 @@
     "docs/FROZEN_PREDICTION_LADDER.md": "conditional_consumer",
     "Lean/Screen/TemporalMaxwellEvolution.lean": "statement",
     "Lean/Geometry/CommonWorldIslandBridge.lean": "statement",
-    "Lean/Screen/ScaledMaxwellStability.lean": "statement"
+    "Lean/Screen/ScaledMaxwellStability.lean": "statement",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies a conditional declared-step recurrence with continuity, quadratic-form balance, gauge, static-Coulomb, and wave receipts. ScaledMaxwellStability supplies the step-scaled evolution as the Euler-Lagrange system of a declared discrete action, exact conservation, nonnegativity under the Courant condition, uniform bounds for h^2 Lambda < 4, the sharp committed-carrier constant Lambda = 3 + sqrt(5), and the exact instability threshold; a calibrated frame and scale, a physical source and readout, and a continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open."
+   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies a conditional declared-step recurrence with continuity, quadratic-form balance, gauge, static-Coulomb, and wave receipts. ScaledMaxwellStability supplies the step-scaled evolution as the Euler-Lagrange system of a declared discrete action, exact conservation, nonnegativity under the Courant condition, uniform bounds for h^2 Lambda < 4, the sharp committed-carrier constant Lambda = 3 + sqrt(5), and the exact instability threshold; a calibrated frame and scale, a physical source and readout, and a continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open. CertifiedScaledStepInstrument fixes the certified step and the typed handoff fields a preregistered run must bind, but performs no run and attaches no physical source or readout; this row stays open."
   },
   {
    "id": "PR-54",
@@ -1273,7 +1281,9 @@
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "Lean/Screen/FermionSectorAssembly.lean",
     "Lean/QFT/SourceHistoryGNSDynamics.lean",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
+    "Lean/QFT/SourceHistoryExpectationNet.lean",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/SMStructureAdequacySurface.lean": "statement",
@@ -1283,9 +1293,11 @@
     "Lean/Screen/TemporalMaxwellEvolution.lean": "statement",
     "Lean/Screen/FermionSectorAssembly.lean": "statement",
     "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
+    "Lean/QFT/SourceHistoryExpectationNet.lean": "statement",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement"
    },
-   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing. SourceHistoryGNSDynamics represents a retained repair-count observable as a finite diagonal Hamiltonian; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action, so PR-54 remains open. SourceHistoryThreeSlotLocalGNS identifies the repair-count Hamiltonian with two adjacent Ising bonds on the history carrier, but these are not a gauge connection, current algebra, field strength, covariant matter operator, or spacetime-local action; this row remains open."
+   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing. SourceHistoryGNSDynamics represents a retained repair-count observable as a finite diagonal Hamiltonian; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action, so PR-54 remains open. SourceHistoryThreeSlotLocalGNS identifies the repair-count Hamiltonian with two adjacent Ising bonds on the history carrier, but these are not a gauge connection, current algebra, field strength, covariant matter operator, or spacetime-local action; this row remains open. SourceHistoryExpectationNet conditions the record law on history slots; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action; this row remains open. CertifiedScaledStepInstrument instantiates the stability layer at one declared step and pins the preregistration handoff; it attaches no physical source, matter operator, or spacetime action."
   },
   {
    "id": "PR-55",
@@ -1369,7 +1381,8 @@
     "Lean/QFT/CarrierJoinTransport.lean",
     "Lean/QFT/ColimitNormedCompletion.lean",
     "Lean/QFT/SourceHistoryGNSDynamics.lean",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
+    "Lean/QFT/SourceHistoryExpectationNet.lean"
    ],
    "evidence_roles": {
     "Lean/QFT/StructuralNetAdequacySurface.lean": "statement",
@@ -1378,9 +1391,10 @@
     "Lean/QFT/CarrierJoinTransport.lean": "statement",
     "Lean/QFT/ColimitNormedCompletion.lean": "statement",
     "Lean/QFT/SourceHistoryGNSDynamics.lean": "statement",
-    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement"
+    "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
+    "Lean/QFT/SourceHistoryExpectationNet.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open. ColimitNormedCompletion transports the committed order-theoretic Cauchy-embedding equality to the closures of the limit local algebras in the C*-completion of the colimit; the time-indexed net-compatible evolution and slice-generation interface stay open. SourceHistoryGNSDynamics gives a nontrivial unitary flow on one source-counted full matrix block, but attaches no regions, Cauchy interface, slice-generation theorem, or physical clock, so it does not discharge PR-58. SourceHistoryThreeSlotLocalGNS adds isotone history-slot and adjacent-interval algebras, endpoint locality, normalized compatible source-state restrictions, and first-commutator-order propagation into adjacent intervals, and transports the operator statements to the selected GNS carrier. It supplies no time-indexed region family, finite-time net covariance, Cauchy or slice-generation theorem, or physical clock, so it does not discharge this row."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open. ColimitNormedCompletion transports the committed order-theoretic Cauchy-embedding equality to the closures of the limit local algebras in the C*-completion of the colimit; the time-indexed net-compatible evolution and slice-generation interface stay open. SourceHistoryGNSDynamics gives a nontrivial unitary flow on one source-counted full matrix block, but attaches no regions, Cauchy interface, slice-generation theorem, or physical clock, so it does not discharge PR-58. SourceHistoryThreeSlotLocalGNS adds isotone history-slot and adjacent-interval algebras, endpoint locality, normalized compatible source-state restrictions, and first-commutator-order propagation into adjacent intervals, and transports the operator statements to the selected GNS carrier. It supplies no time-indexed region family, finite-time net covariance, Cauchy or slice-generation theorem, or physical clock, so it does not discharge this row. SourceHistoryExpectationNet adds the state-preserving regional expectations of the record layer and proves no state-preserving interval-bimodule projection of the matrix carrier exists; it supplies no time-indexed Cauchy interface or evolved-region generation theorem, so this row stays open."
   },
   {
    "id": "PR-59",
@@ -1520,8 +1534,8 @@
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean": "conditional_consumer"
-  },
-  "notes": "Lean/EventAlgebra/LuedersPhaseInstrument.lean constructs a declared Lüders instrument on the committed eight-context effect table and proves the channel clauses as exact finite matrix algebra: each outcome map X ↦ E X E is completely positive through a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of each context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table with the declared Pauli-Y projector in the phase slot. The normalized post-measurement state is certain of its effect, a state-update proxy for readback. SourcePhaseInstrumentOutcomeBridge proves that all 48 enabled entries of the generated source phase relation agree with the corresponding normalized outcome of this declared instrument. SourcePhaseCommonPreparationHull evaluates those declared outcome maps on every common-support source state and proves an exact convex-hull compatibility with the declared run state. The run state is outside the generated state domain, no generated source step starts there, and a generated result loses all-event support; the hull therefore supplies neither a source implementation nor a sequential instrument protocol. Its generated outcome index is semantic, not a recorded public outcome. The clause that outcome readback agrees with a recorded public outcome is open: no public outcome is typed. The module proves that the effect table does not determine the instrument: a swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lüders instrument on the committed run state, and fails repeatability, so the Lüders choice is a declared selection. Removal needs a source-facing instrument whose readback is bound to public outcomes under PR-65."
+   },
+   "notes": "Lean/EventAlgebra/LuedersPhaseInstrument.lean constructs a declared Lüders instrument on the committed eight-context effect table and proves the channel clauses as exact finite matrix algebra: each outcome map X ↦ E X E is completely positive through a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of each context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table with the declared Pauli-Y projector in the phase slot. The normalized post-measurement state is certain of its effect, a state-update proxy for readback. SourcePhaseInstrumentOutcomeBridge proves that all 48 enabled entries of the generated source phase relation agree with the corresponding normalized outcome of this declared instrument. SourcePhaseCommonPreparationHull evaluates those declared outcome maps on every common-support source state and proves an exact convex-hull compatibility with the declared run state. The run state is outside the generated state domain, no generated source step starts there, and a generated result loses all-event support; the hull therefore supplies neither a source implementation nor a sequential instrument protocol. Its generated outcome index is semantic, not a recorded public outcome. The clause that outcome readback agrees with a recorded public outcome is open: no public outcome is typed. The module proves that the effect table does not determine the instrument: a swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lüders instrument on the committed run state, and fails repeatability, so the Lüders choice is a declared selection. Removal needs a source-facing instrument whose readback is bound to public outcomes under PR-65."
   },
   {
    "id": "PR-65",
@@ -1554,8 +1568,8 @@
     "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean": "conditional_consumer"
-  },
-  "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row. SourcePhaseSelection advances the effect-selection conjunct. SourcePhaseInstrumentOutcomeBridge proves exact semantic compatibility between every enabled generated source transition and the normalized outcome of the declared Lüders phase instrument. It does not supply one common cross-context preparation, source-select or implement that instrument, produce a public outcome, or bind any readback to a run. SourcePhaseCommonPreparationHull proves that exactly the three real orbit states enable every generated phase event and that their mixture with coefficients 265/537, 136/537, and 136/537 equals the declared run state; equality to that matrix uniquely determines all three coefficients, without assuming normalization. Every common-support state gives either generated phase orientation weight one half and inherits the normalized declared-outcome equality. This is retrospective convex-hull compatibility: the run state is not generated, no source step starts from it, a generated result loses all-event support, no source rule selects or samples the mixture, no mixing/reset/re-preparation/sequential protocol is constructed, and the twelve generated events are not the eight public instrument contexts. SourcePhaseBornWeightBoundary is a conditional consumer: it proves Born(+Y)=1/2-Im(rho_01) and shows that any prospective preparation bridge preserving record diagonality has half weight on every current reachable source input. It derives no such bridge or operation; its constant bridges are logical controls only. Common preparation, instrument selection, public outcomes, readback, run binding, provenance, and custody remain open."
+   },
+   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row. SourcePhaseSelection advances the effect-selection conjunct. SourcePhaseInstrumentOutcomeBridge proves exact semantic compatibility between every enabled generated source transition and the normalized outcome of the declared Lüders phase instrument. It does not supply one common cross-context preparation, source-select or implement that instrument, produce a public outcome, or bind any readback to a run. SourcePhaseCommonPreparationHull proves that exactly the three real orbit states enable every generated phase event and that their mixture with coefficients 265/537, 136/537, and 136/537 equals the declared run state; equality to that matrix uniquely determines all three coefficients, without assuming normalization. Every common-support state gives either generated phase orientation weight one half and inherits the normalized declared-outcome equality. This is retrospective convex-hull compatibility: the run state is not generated, no source step starts from it, a generated result loses all-event support, no source rule selects or samples the mixture, no mixing/reset/re-preparation/sequential protocol is constructed, and the twelve generated events are not the eight public instrument contexts. SourcePhaseBornWeightBoundary is a conditional consumer: it proves Born(+Y)=1/2-Im(rho_01) and shows that any prospective preparation bridge preserving record diagonality has half weight on every current reachable source input. It derives no such bridge or operation; its constant bridges are logical controls only. Common preparation, instrument selection, public outcomes, readback, run binding, provenance, and custody remain open."
   },
   {
    "id": "PR-66",
@@ -1570,15 +1584,17 @@
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json",
     "claims/assumption_dictionary.md",
-    "Lean/Screen/ScaledMaxwellStability.lean"
+    "Lean/Screen/ScaledMaxwellStability.lean",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/TemporalMaxwellEvolution.lean": "conditional_consumer",
     "code/electromagnetism/runtime/local_face_maxwell_action_receipt.json": "statement",
     "claims/assumption_dictionary.md": "statement",
-    "Lean/Screen/ScaledMaxwellStability.lean": "conditional_consumer"
+    "Lean/Screen/ScaledMaxwellStability.lean": "conditional_consumer",
+    "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement"
    },
-   "notes": "The staggered form (1/2)|E_n|^2 + (1/2)<B_n, B_{n+1}> is exactly conserved for zero current and is nonnegative under h^2 Lambda <= 4 for any Courant constant Lambda with |C v|^2 <= Lambda |v|^2; for h^2 Lambda < 4 the electric and magnetic energies are bounded at every step by 8 E_0/(4 - h^2 Lambda) and 16 E_0/(4 - h^2 Lambda). On the committed carrier the sharp constant Lambda = 3 + sqrt(5) is proved by explicit rational spectral projectors of C C^T; an explicit eigenvector of C^T C for 3 + sqrt(5) gives an unbounded zero-current solution whenever h^2 (3 + sqrt(5)) > 4, and an explicit integer eigenvector for 5 gives one whenever 5 h^2 > 4, so the declared unit step h = 1 is unstable. Removal of this row needs a derivation of the kinetic term from the three OPH axioms or from repair dynamics; physical time, calibration, and comparison stay under PR-15 and PR-53."
+   "notes": "The staggered form (1/2)|E_n|^2 + (1/2)<B_n, B_{n+1}> is exactly conserved for zero current and is nonnegative under h^2 Lambda <= 4 for any Courant constant Lambda with |C v|^2 <= Lambda |v|^2; for h^2 Lambda < 4 the electric and magnetic energies are bounded at every step by 8 E_0/(4 - h^2 Lambda) and 16 E_0/(4 - h^2 Lambda). On the committed carrier the sharp constant Lambda = 3 + sqrt(5) is proved by explicit rational spectral projectors of C C^T; an explicit eigenvector of C^T C for 3 + sqrt(5) gives an unbounded zero-current solution whenever h^2 (3 + sqrt(5)) > 4, and an explicit integer eigenvector for 5 gives one whenever 5 h^2 > 4, so the declared unit step h = 1 is unstable. Removal of this row needs a derivation of the kinetic term from the three OPH axioms or from repair dynamics; physical time, calibration, and comparison stay under PR-15 and PR-53. CertifiedScaledStepInstrument consumes the declared kinetic-term step layer at the committed selection h = 4/5 with a rational margin certificate; the kinetic term itself stays declared."
   },
   {
    "id": "PR-67",

@@ -7,6 +7,9 @@ import ObserverPatchHolography.EinsteinBranch.Composition
 import ObserverPatchHolography.EinsteinBranch.AxiomAudit
 import ObserverPatchHolography.EinsteinBranch.RegisterSurface
 import ObserverPatchHolography.EinsteinBranch.DarkSector
+import ObserverPatchHolography.EinsteinBranch.CollarScaleSaturation
+import ObserverPatchHolography.EinsteinBranch.DeepProfileClosure
+import ObserverPatchHolography.EinsteinBranch.PerCutCollarComposition
 
 /-!
 # Corrected Einstein-branch formalisation (GitHub #578)

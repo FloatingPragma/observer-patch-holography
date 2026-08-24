@@ -51,6 +51,7 @@ import QFT.FiniteTwoSiteIsingField
 import QFT.FiniteTwoSiteIsingColimitGNS
 import QFT.SourceHistoryGNSDynamics
 import QFT.SourceHistoryThreeSlotLocalGNS
+import QFT.SourceHistoryExpectationNet
 
 /-!
 # OPH construction QFT umbrella
@@ -192,4 +193,15 @@ representation.  The slots are successive history coordinates, not
 Lorentzian regions or calibrated times; no spectrum condition, continuum/RG,
 field, particle, scattering, detector, or physical time-slice attachment
 follows.
+`QFT.SourceHistoryExpectationNet` supplies the state-preserving half of that
+rung on the record layer: for every slot region the conditional expectation of
+the empirical window law is linear, unital, positive, localized, idempotent,
+tower-compatible, and preserves the committed mean, with the walls fixed by
+their own regional expectations and the exact conditional witnesses
+`383 / 415` and `2 / 89` in the two `(s₀,s₁)` cells over the late slot.  The
+same counts refute any state-preserving interval-bimodule projection of the
+full matrix carrier onto the slot-`(0,1)` interval algebra, so the
+state-preserving regional structure lives exactly on the record layer while
+its off-diagonal matrix extension across the late wall does not exist.  Slots
+stay uncalibrated history coordinates and no physical-QFT attachment follows.
 -/

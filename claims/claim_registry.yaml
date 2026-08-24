@@ -3609,7 +3609,7 @@
     },
     {
       "claim_id": "OPH-DM-CONT",
-      "statement": "The OPH dark sector is the non-luminous modular charge of the screen. Under the universal-coupling premise the geometry responds to total modular charge, so the luminous-only Einstein relation holds exactly when the non-luminous charge vanishes. The carrier is the anomalous modular energy on overlap collars, the finite-stage remainder of the Einstein derivation: its stress is bounded by the collar recovery defect, vanishes at full recovery, and dilutes as the inverse cube of the scale factor when conserved. On the collar-scale premise a compact source sees only the ambient anomalous density, whose Solar-System footprint is an isotropic tidal scale four orders below the Cassini quadrupole uncertainty. On the linear enclosed-mass premise the deep-regime density gives the radial-acceleration relation, flat rotation curves, and the baryonic Tully-Fisher relation with one constant, which the SPARC sample returns consistently from both relations. The collar-scale theorem, the magnitude of the charge, the full profile, the localization receipt, and the abundance are work in progress.",
+      "statement": "The OPH dark sector is the non-luminous modular charge of the screen. Under the universal-coupling premise the geometry responds to total modular charge, so the luminous-only Einstein relation holds exactly when the non-luminous charge vanishes. The carrier is the anomalous modular energy on overlap collars, the finite-stage remainder of the Einstein derivation: its stress is bounded by the collar recovery defect, vanishes at full recovery, and dilutes as the inverse cube of the scale factor when conserved. On the collar-scale premise a compact source sees only the ambient anomalous density, whose Solar-System footprint is an isotropic tidal scale four orders below the Cassini quadrupole uncertainty. On the linear enclosed-mass premise the deep-regime density gives the radial-acceleration relation, flat rotation curves, and the baryonic Tully-Fisher relation with one constant, which the SPARC sample returns consistently from both relations. The compact-source half of the collar-scale premise is a conditional saturation theorem under the exponential recovery envelope, and the deep profile is characterized from radial scale covariance and quadrature source composition; the physical envelope attachment, galactic-scale sourcing, the magnitude of the charge, the localization receipt, and the abundance are work in progress.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "phenomenological_continuation",
       "assumptions": [
@@ -3632,6 +3632,8 @@
       "evidence": [
         "cosmology/oph_dark_matter_paper.tex",
         "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/CollarScaleSaturation.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DeepProfileClosure.lean",
         "code/cosmology/rar_deep_regime/rar_deep_regime_diagnostic.py",
         "code/cosmology/rar_deep_regime/receipts/sparc_deep_regime_diagnostic.json",
         "code/cosmology/rar_deep_regime/qumond_quadrupole_crosscheck.py",
@@ -6480,6 +6482,198 @@
           "PR-58"
         ],
         "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-DM-COLLAR-SATURATION",
+      "statement": "The exponential recovery envelope of the conditional collar-recovery mixing branch, with the collar defect at depth delta bounded by kappa * B * exp(-(delta * rho^(1/3) - r0)/zeta) in the local record density rho, composes exactly with the committed dark-sector screening interface. Along remainder families with fixed collar radius and bounded collar constant, the recovery defect and the anomalous collar stress tend to zero as the collar depth grows at fixed record density, and as the record density grows at fixed positive depth; the quantitative stress rate is |T_anom| <= 15 C/(8 pi^2 ell^4) * kappa * B * exp(-(delta * rho^(1/3) - r0)/zeta), and the settled-cut threshold is exact: the envelope bound falls below eps precisely when delta * rho^(1/3) exceeds r0 + zeta * log(kappa * B / eps). The delimitation is exact in both directions: the identically zero defect satisfies every envelope hypothesis, so the envelope never forces a nonzero defect and galactic-scale sourcing stays a premise; and an explicit sparsely recorded instance sits at the bound with an order-one defect and strictly positive stress 15/(4 pi^2), so the same hypotheses admit a nonzero dark source on sparse cuts. That physical collars satisfy the envelope is the conditional mixing branch of the collar-recovery claim, taken as a hypothesis; no physical value of any envelope parameter is asserted, and no galactic defect is proved nonzero.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "conditional_saturation_composition_theorem",
+      "assumptions": [
+        "exponential_recovery_envelope_mixing_branch",
+        "fixed_radius_bounded_collar_constant_family"
+      ],
+      "imported_results": [
+        "real_exponential_and_squeeze_limits"
+      ],
+      "oph_specific_delta": "Composes the Einstein branch's collar-recovery rate schema with the dark-sector screening interface, so the compact-source half of the collar-scale premise becomes a conditional theorem with an exact exponential rate in the local record density and an exact settled-cut threshold, while the galactic-sourcing half is proved to be genuinely premise-level: the envelope admits both the zero defect and an order-one sparse-cut defect.",
+      "novelty_type": "conditional_saturation_composition_with_exact_two_sided_delimitation",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/CollarScaleSaturation.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "A saturation, rate, or threshold theorem fails under the stated envelope hypotheses; the composition with the screening interface fails; either delimitation instance fails the hypotheses it claims to satisfy; or the sparse instance's exact stress value 15/(4 pi^2) is wrong.",
+      "scope_if_false": "Only this composition falls. The screening interface, the generic dark-sector theorems, and the conditional collar-recovery claim remain separately assessed.",
+      "status": "conditional_saturation_composition_attained__physical_envelope_attachment_and_galactic_sourcing_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The envelope constants and defect function are paper-local structure fields carried by the dark-sector lane outside the canonical derivation-premise register; the composition consumes the committed screening interface, not a registered derivation premise."
+      }
+    },
+    {
+      "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+      "statement": "On deep-regime enclosed-mass laws M(Mb, r) satisfying two atomic premises, degree-one radial scale covariance (no retained length scale on sparsely recorded deep cuts) and quadrature closure under baryonic source composition (independent per-source collar defects compose in variance, so amplitudes add in quadrature), together with nonnegativity, source monotonicity, and nondegeneracy, there is a unique constant a0 > 0 with M(Mb, r) = r * sqrt(Mb * a0 / G): the committed linear enclosed-mass profile is a theorem rather than a functional-form premise. The proof factorizes the law radially by scale covariance and forces the square root by a self-contained Cauchy lemma: a function additive and monotone on the positive reals is linear there. The deep radial-acceleration relation, the flat rotation curve, and the baryonic Tully-Fisher relation transfer to every such law. The matching radius r_M = sqrt(G * Mb / a0) carries both the baryonic and the anomalous acceleration exactly equal to a0, and the anomalous acceleration dominates the baryonic one exactly outside r_M. Each atomic premise is load-bearing: an additive law satisfies every premise except quadrature closure, an r^2 law every premise except scale covariance, and an explicit unit law inhabits the full bundle. The value of a0 is not determined, neither atomic premise is derived from the axioms, and the transition region inside r_M is not modelled.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "premise_reduction_characterization_theorem",
+      "assumptions": [
+        "deep_regime_radial_scale_covariance",
+        "quadrature_source_composition",
+        "enclosed_mass_regularity_bundle"
+      ],
+      "imported_results": [
+        "Cauchy_functional_equation_on_positive_reals",
+        "deep_limit_scale_invariance_literature",
+        "emergent_gravity_square_root_laws"
+      ],
+      "oph_specific_delta": "Replaces the committed functional-form premise by two independently falsifiable structural premises, one geometric and one consensus-theoretic, and proves that the committed profile with its single constant is their unique common solution. The square-root source dependence, elsewhere an ansatz or an entropic model output, is exactly the additivity of defect variance under independent source composition, and the matching radius and dominance criterion are exact consequences.",
+      "novelty_type": "deep_profile_uniqueness_characterization_from_scale_covariance_and_quadrature_closure",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/DeepProfileClosure.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "The characterization fails on some law satisfying the premise bundle; the Cauchy lemma fails; a transferred deep law fails; a matching-radius or dominance identity fails; either load-bearing counterexample satisfies the clause it is claimed to violate; or the unit inhabitant fails a premise.",
+      "scope_if_false": "Only the characterization and its transfers fall. The committed DeepProfile theorems, the SPARC comparison, and the generic dark-sector theorems remain separately assessed.",
+      "status": "characterization_attained__premise_derivation_and_a0_magnitude_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The two atomic premises and the regularity bundle are lane-local structure fields of the dark-sector continuation outside the canonical derivation-premise register; the theorem consumes only the committed DeepProfile layer of the same lane."
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
+      "statement": "On the source-counted eight-history carrier, for every slot region S of the three binary history slots the conditional expectation of the committed empirical window law (counts 1149, 96, 2, 87, 3, 2, 3, 412 of 1754) is linear, unital, positive, localized to its region, idempotent, tower-compatible for nested regions, and preserves the committed empirical mean; the full-region expectation is the identity because the three slots separate the eight histories, and the empty-region expectation is the constant mean. The two domain-wall observables are fixed points of their own interval expectations, every regional expectation preserves the exact wall means 94/1754 and 103/1754 and the repair mean 197/1754, and the exact conditional witnesses over the late slot are 383/415 in the (s0,s1) = (0,0) cell and 2/89 in the (0,1) cell, which differ, so the net genuinely averages. A bundled net structure carrying all clauses is inhabited by the committed counts. At matrix level the same counts refute the extension: no complex-linear map of the full M_8(C) carrier into the slot-(0,1) interval algebra satisfies the interval-bimodule law and preserves the committed source state; the identity-on-subalgebra clause is not needed for the contradiction, and the identity map separately satisfies the bimodule and state-preservation clauses, so the obstruction is produced exactly by compression into the interval algebra. Through the diagonal embedding, the committed density trace, and the selected GNS functional, the net's state preservation and the wall coefficients transport to represented diagonal elements. Slots are retained-window positions with no calibrated physical clock; the obstruction is a structural fact about the committed record law, a slot correlation across the late wall; no Lorentzian localization, spectrum condition, continuum or infinite-volume limit, renormalization flow, fields, particles, scattering, or detector attachment is constructed. PR-15, PR-52, PR-54, and PR-58 are open; OL-C6 remains partial and issues 730 and 743 remain open.",
+      "owner_paper": "paper/reality_as_consensus_protocol.tex",
+      "tier": "source_counted_state_preserving_record_net_with_exact_matrix_obstruction",
+      "assumptions": [
+        "tensor_local_history_coordinate_reading_adapter"
+      ],
+      "imported_results": [
+        "source_history_three_slot_tensor_local_decomposition",
+        "source_counted_finite_history_GNS_dynamics",
+        "finite_conditional_expectation_of_a_probability_law"
+      ],
+      "oph_specific_delta": "Supplies the state-preserving half of the three-slot rung at its attainable level: the record layer carries the full state-preserving regional conditional-expectation net of the committed empirical law with exact rational witnesses, while the committed counts themselves refute any state-preserving interval-bimodule projection of the full matrix carrier, locating the state-compatible regional structure exactly on the record layer and the obstruction exactly at the off-diagonal extension across the late wall.",
+      "novelty_type": "source_counted_record_layer_conditional_expectation_net_and_count_decided_matrix_obstruction",
+      "evidence": [
+        "Lean/QFT/SourceHistoryExpectationNet.lean",
+        "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
+        "Lean/QFT/SourceHistoryGNSDynamics.lean",
+        "paper/reality_as_consensus_protocol.tex",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A net clause (linearity, unitality, positivity, localization, idempotence, tower, or state preservation) fails for some region; the full-region expectation is not the identity; a wall fails to be fixed by its interval expectation; an exact rational witness (94/1754, 103/1754, 197/1754, 383/415, 2/89) is wrong; a linear map into the interval algebra satisfies the bimodule and state-preservation clauses; or a represented coefficient statement fails on the selected GNS carrier.",
+      "scope_if_false": "Only the record-layer net, its exact witnesses, the matrix obstruction, and their GNS transport fall. The three-slot tensor-local decomposition, the source-history GNS attachment, and every physical or continuum QFT attachment remain separately assessed.",
+      "status": "record_layer_state_preserving_net_attained_with_exact_matrix_obstruction__physical_QFT_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54",
+          "PR-58"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
+      "statement": "On the committed twelve-port, thirty-seam, twenty-oriented-face carrier, the declared step h = 4/5 satisfies the strict stability certificate (4/5)^2 * (3 + sqrt 5) <= 84/25 < 4 against the sharp Courant constant, with sqrt 5 < 9/4 supplying the rational margin 4 - (4/5)^2 * (3 + sqrt 5) >= 16/25 and no numeric axiom. At that step the scaled staggered form is nonnegative for every history and every step count, exactly conserved for zero current, obeys the exact per-step balance with literal coefficient 2/5, and uniformly bounds the electric seam energy by 25/2 and the magnetic face energy by 25 times the initial staggered form for every zero-current solution at every step count. A certified-instrument structure packages the step, the strict certificate, and the positivity, energy-bound, and conservation receipts; any positive step strictly below the threshold constructs an instrument, a second inhabitant at h = 1/2 proves the committed 4/5 is a declared selection among qualifying steps, and the committed step inhabits the parent scaled-Maxwell antecedent bundle on the nonstatic demonstration history with the rational bound applying to it. A design-only handoff interface types what a preregistered instrument-lane run must bind: the certified instrument, the carrier constant with its Courant proof, a declared readout map, declared control histories, and a nonempty rational kill band, with the kill condition stated as a proposition; an explicit inhabitant at the committed step carries the band [-1, 1]. No run is authorized or performed, no seed or frozen prediction exists, and no physical clock, units, source coupling, or laboratory readout is claimed; the calibration and physical-attachment premises stay open.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "stability_certified_declared_step_instrument_with_design_only_handoff",
+      "assumptions": [
+        "committed_oriented_twenty_face_thirty_seam_complex",
+        "declared_step_selection_four_fifths",
+        "declared_readout_controls_and_kill_band_as_design_fields"
+      ],
+      "imported_results": [
+        "scaled_maxwell_stability_receipts",
+        "finite_cellular_laplacian_linear_algebra"
+      ],
+      "oph_specific_delta": "Instantiates the sharp scaled-Maxwell stability layer at one committed rational step with a rational margin certificate and literal-coefficient receipts, packages it as the instrument the simulation lane must run, proves the step choice is a declared selection by exhibiting a second qualifying step, and pins the preregistration surface as a typed design-only handoff with an explicit kill-band inhabitant.",
+      "novelty_type": "committed_step_stability_certificate_and_typed_preregistration_handoff",
+      "evidence": [
+        "Lean/Screen/CertifiedScaledStepInstrument.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "paper/screen_microphysics_and_observer_synchronization.tex"
+      ],
+      "falsifier": "The rational margin or strict certificate fails; a specialized receipt (positivity, conservation, balance coefficient 2/5, bound 25/2 or 25) fails at the committed step; the general constructor fails for some qualifying step; the second inhabitant fails; the bundle inhabitant fails the parent antecedent clauses or is static; or the handoff inhabitant leaves its declared band.",
+      "scope_if_false": "Only the certified-step layer and its handoff fall. The sharp Courant threshold, the scaled-action layer, and the instrument lane's separate preregistration obligations remain separately assessed.",
+      "status": "certified_step_and_design_only_handoff_attained__no_run_authorized_and_physical_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        737,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-66"
+        ],
+        "open": [
+          "PR-15",
+          "PR-53",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-DM-PER-CUT-COMPOSITION",
+      "statement": "In the per-cut collar model of a point source, with a cut linear density n > 0 (n r settled codimension-one cuts nested within radius r), a per-cut defect variance function V that is additive across independent sources, monotone, nonnegative, and somewhere nonzero, and each cut carrying the anomalous amplitude sqrt(V(Mb)), the variance function is forced linear with a unique strictly positive slope c, quadrature closure of the induced enclosed mass n r sqrt(V(Mb)) is a theorem rather than a premise, the induced law inhabits the deep-regime premise bundle at the same G, and its characterized acceleration constant is exactly a0 = G n^2 c, positive and unique through the deep-profile characterization. The dictionary determines only the product n^2 c: two explicit models with different cut densities and equal product induce the same enclosed-mass law for all sources and radii. Variance additivity of independent per-source collar defects and the linear cut count are premises of the model, not derived from the axioms; no numeric value of n, c, or a0 is asserted or derived; no comparison with data is made.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "per_cut_model_composition_and_magnitude_dictionary",
+      "assumptions": [
+        "per_cut_variance_additivity",
+        "linear_cut_count_around_point_source"
+      ],
+      "imported_results": [
+        "Cauchy_functional_equation_on_positive_reals"
+      ],
+      "oph_specific_delta": "Reduces the quadrature-composition premise of the deep-profile characterization to variance additivity of independent per-source collar defects on a linear family of nested cuts, and extracts the exact magnitude dictionary a0 = G n^2 c together with the exact non-identifiability of its factors, so the open magnitude question becomes the value of the collar density and the per-cut variance constant.",
+      "novelty_type": "per_cut_variance_composition_with_exact_a0_dictionary_and_factor_non_identifiability",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/PerCutCollarComposition.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DeepProfileClosure.lean",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "The variance-slope theorem, the derivation of quadrature closure from variance additivity, the deep-regime inhabitation, the dictionary value G n^2 c, its uniqueness through the characterization, the non-identifiability receipt, or an inhabitant fails.",
+      "scope_if_false": "Only the per-cut composition and dictionary fall. The deep-profile characterization, the committed DeepProfile theorems, and the dark-sector continuation remain separately assessed.",
+      "status": "per_cut_composition_and_dictionary_attained__collar_density_and_variance_constant_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The per-cut model's variance-additivity and cut-count premises are lane-local structure fields of the dark-sector continuation outside the canonical derivation-premise register; the composition consumes only the same lane's characterization layer."
       }
     }
   ]

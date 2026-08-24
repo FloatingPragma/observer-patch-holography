@@ -148,7 +148,12 @@
   "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
   "OPH-QFT-SELECTED-GNS-ISING-HAMILTONIAN-COMPOSITION",
   "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
-  "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS"
+  "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
+  "OPH-DM-COLLAR-SATURATION",
+  "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+  "OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
+  "OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
+  "OPH-DM-PER-CUT-COMPOSITION"
  ],
  "edges": [
   {
@@ -1360,6 +1365,41 @@
    "from": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS",
    "to": "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
    "role": "supplies the exact two-slot tensor embeddings and positive Ising domain-wall bond used on the two adjacent history intervals; it supplies no source selection, state-preserving regional expectation, physical clock, spacetime, continuum, RG, or scattering attachment"
+  },
+  {
+   "from": "OPH-GR-D2-COLLAR-RECOVERY",
+   "to": "OPH-DM-COLLAR-SATURATION",
+   "role": "supplies the conditional exponential mixing envelope schema whose prefactor, boundary size, offset, and decay constants the saturation module types as the recovery-envelope hypothesis; it supplies no physical record density value and no proof that any physical collar satisfies the envelope"
+  },
+  {
+   "from": "OPH-DM-CONT",
+   "to": "OPH-DM-COLLAR-SATURATION",
+   "role": "supplies the anomaly-remainder structure and the committed screening interface (stress bound, switch-off at full recovery, limit theorem) that the envelope composes with; it supplies no envelope, rate, or threshold"
+  },
+  {
+   "from": "OPH-DM-CONT",
+   "to": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+   "role": "supplies the committed DeepProfile layer (enclosed mass, accelerations, deep radial-acceleration, flat-curve, and Tully-Fisher theorems) that the characterized laws transfer onto; it supplies no uniqueness or premise reduction"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-HISTORY-THREE-SLOT-LOCAL-GNS-DYNAMICS",
+   "to": "OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
+   "role": "supplies the three-slot reindexing, interval algebras, domain-wall bonds with exact expectations, and slot embeddings on which the record-layer net and the interval-algebra obstruction are stated; it supplies no conditional expectation and no state-preserving map"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-HISTORY-GNS-HAMILTONIAN-ATTACHMENT",
+   "to": "OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
+   "role": "supplies the committed density, repair Hamiltonian, selected functional, and injective stage representation through which the net's state preservation and wall coefficients transport; it supplies no regional expectation structure"
+  },
+  {
+   "from": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "to": "OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
+   "role": "supplies the scaled evolution, staggered form, sharp Courant constant, stability and energy-bound theorems, and demonstration history that the certified step instantiates at h = 4/5; it supplies no committed step selection and no handoff interface"
+  },
+  {
+   "from": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+   "to": "OPH-DM-PER-CUT-COMPOSITION",
+   "role": "supplies the deep-regime premise bundle, the Cauchy lemma, and the uniqueness characterization through which the per-cut model's induced law is classified and its dictionary constant is pinned; it supplies no per-cut variance model and no factor decomposition of a0"
   }
  ]
 }
