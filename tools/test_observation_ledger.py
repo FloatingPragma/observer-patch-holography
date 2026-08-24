@@ -85,7 +85,7 @@ def test_attained_predictive_row_requires_locked_target() -> None:
     row = next(row for row in ledger["rows"] if row["id"] == "OL-B4")
     row["status"] = "attained"
     row["open_premises"] = []
-    assert row["frozen_targets"] == ["FZ-06"]
+    assert row["frozen_targets"] == ["FZ-06", "FZ-14"]
     with pytest.raises(SystemExit, match="all targets in its fixed contract"):
         tool.validate(ledger)
 

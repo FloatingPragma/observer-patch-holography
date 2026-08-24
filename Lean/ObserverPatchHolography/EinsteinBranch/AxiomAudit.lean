@@ -7,6 +7,7 @@ import ObserverPatchHolography.EinsteinBranch.PerCutCollarComposition
 import ObserverPatchHolography.EinsteinBranch.SparseRecordDefectWitness
 import ObserverPatchHolography.EinsteinBranch.CollarPremiseDerivation
 import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
+import ObserverPatchHolography.EinsteinBranch.FixedCapacityWLaw
 
 /-!
 # Einstein-branch theorem audit
@@ -194,6 +195,17 @@ assert_no_sorry anomalousPart_supported_on_collar
 assert_no_sorry anomalousPart_collar_boost_free
 assert_no_sorry boostedState_anomalousPart
 
+/-! ## Fixed-capacity dark-energy w-law -/
+
+assert_no_sorry CapacityLaw.w_eq_neg_one_of_constN
+assert_no_sorry CapacityLaw.w_eq_drift
+assert_no_sorry CapacityLaw.w_ge_neg_one_of_monotone
+assert_no_sorry CapacityLaw.deriv_N_neg_of_w_lt_neg_one
+assert_no_sorry cpl_at_neg_one_unique
+assert_no_sorry CapacityLaw.cpl_forced_of_constN
+assert_no_sorry powerCapacity_w
+assert_no_sorry decreasingCapacity_w_lt_neg_one
+
 #print axioms eta_and_stress_tendsto_zero_of_depth
 #print axioms eta_and_stress_tendsto_zero_of_density
 #print axioms anomalousStress_exponential_rate
@@ -229,5 +241,13 @@ assert_no_sorry boostedState_anomalousPart
 #print axioms anomalousPart_supported_on_collar
 #print axioms anomalousPart_collar_boost_free
 #print axioms boostedState_anomalousPart
+#print axioms CapacityLaw.w_eq_neg_one_of_constN
+#print axioms CapacityLaw.w_eq_drift
+#print axioms CapacityLaw.w_ge_neg_one_of_monotone
+#print axioms CapacityLaw.deriv_N_neg_of_w_lt_neg_one
+#print axioms cpl_at_neg_one_unique
+#print axioms CapacityLaw.cpl_forced_of_constN
+#print axioms powerCapacity_w
+#print axioms decreasingCapacity_w_lt_neg_one
 
 end OPH.EinsteinBranch

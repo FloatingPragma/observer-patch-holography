@@ -373,7 +373,8 @@
     "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
     "Lean/QFT/SourceHistoryExpectationNet.lean",
     "Lean/Screen/CertifiedScaledStepInstrument.lean",
-    "Lean/Geometry/CommonWorldMaxwellClockJoin.lean"
+    "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
+    "Lean/Thermodynamics/PhysicalCalibrationImport.lean"
    ],
    "evidence_roles": {
     "claims/assumption_dictionary.md": "statement",
@@ -384,9 +385,10 @@
     "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
     "Lean/QFT/SourceHistoryExpectationNet.lean": "statement",
     "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement",
-    "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement"
+    "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
+    "Lean/Thermodynamics/PhysicalCalibrationImport.lean": "statement"
    },
-   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open. SourceHistoryThreeSlotLocalGNS decomposes the same uncalibrated finite repair Hamiltonian into two local positive bonds and proves first-order local generator propagation, but supplies neither a physical clock nor an energy-unit calibration; this import is unchanged. SourceHistoryExpectationNet averages record observables against the committed window law and preserves its mean, but attaches no clock or energy-unit calibration; this import is unchanged. CertifiedScaledStepInstrument certifies the declared step 4/5 below the sharp threshold and types the design-only handoff, but supplies no physical clock or unit calibration. CommonWorldMaxwellClockJoin joins the Maxwell island to the clock worldline at the same step index but proves the join fixes no clock calibration: two joined inhabitants differ only in the declared step duration; this import stays open."
+   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open. SourceHistoryThreeSlotLocalGNS decomposes the same uncalibrated finite repair Hamiltonian into two local positive bonds and proves first-order local generator propagation, but supplies neither a physical clock nor an energy-unit calibration; this import is unchanged. SourceHistoryExpectationNet averages record observables against the committed window law and preserves its mean, but attaches no clock or energy-unit calibration; this import is unchanged. CertifiedScaledStepInstrument certifies the declared step 4/5 below the sharp threshold and types the design-only handoff, but supplies no physical clock or unit calibration. CommonWorldMaxwellClockJoin joins the Maxwell island to the clock worldline at the same step index but proves the join fixes no clock calibration: two joined inhabitants differ only in the declared step duration; this import stays open. PhysicalCalibrationImport fixes the exact SI anchor layer and reduces the import's empirical content to one declared tick duration with affine-exact conversions and non-forcing receipts; the tick identification is open and the row keeps its import disposition."
   },
   {
    "id": "PR-16",

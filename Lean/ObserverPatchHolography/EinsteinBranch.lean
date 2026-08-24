@@ -13,6 +13,7 @@ import ObserverPatchHolography.EinsteinBranch.PerCutCollarComposition
 import ObserverPatchHolography.EinsteinBranch.SparseRecordDefectWitness
 import ObserverPatchHolography.EinsteinBranch.CollarPremiseDerivation
 import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
+import ObserverPatchHolography.EinsteinBranch.FixedCapacityWLaw
 
 /-!
 # Corrected Einstein-branch formalisation (GitHub #578)

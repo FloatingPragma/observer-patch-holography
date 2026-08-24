@@ -404,6 +404,22 @@
    "surface": "FZ-12"
   },
   {
+   "classification": "ACTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
+   "forecast_use": "Use only under the live registered comparison protocol: no comparison protocol is frozen; the proposed protocol (post-freeze published DESI DR3 and Euclid w0waCDM posteriors only, with DESI DR1 and DR2 and every pre-freeze contour excluded as seen data) awaits the owner's freeze and is recorded in code/cosmology/fixed_capacity_wlaw/FZ13_REGISTRATION_PROPOSAL.md",
+   "owning_issue": 742,
+   "registry_kind": "active_register",
+   "registry_status": "registered_pending_freeze",
+   "surface": "FZ-13"
+  },
+  {
+   "classification": "ACTIVE_REGISTER_ROW__REGISTERED_PENDING_FREEZE",
+   "forecast_use": "Use only under the live registered comparison protocol: no comparison protocol is frozen; the drafted contract (events published after anchoring only, published remnant mass and spin posteriors and secondary spectral feature candidates as the analyst inputs, per-event Bayes-factor structure, GW150914 and GW250114 named as seen audit-only data) awaits the owner's freeze and is recorded in code/gravitation/ringdown_comb/REGISTRATION_CONTRACT_DRAFT.md; the FZ-01 erratum's registration obligation is the source of this row and nothing of FZ-01 or FZ-06 is altered",
+   "owning_issue": 729,
+   "registry_kind": "active_register",
+   "registry_status": "registered_pending_freeze",
+   "surface": "FZ-14"
+  },
+  {
    "classification": "RETROSPECTIVE_RESULT__RETROSPECTIVE_NOT_EVALUABLE",
    "forecast_use": "No prospective kill band was frozen. Any future raw-dispersive, independent-code, or lattice-HVP class requires a new target-quarantined registration before evaluation",
    "former_ladder_reservation": "FZ-04",
@@ -457,7 +473,7 @@
   "candidate_inventory_sha256": "sha256:12c8a569a92f265f0b033a9df4b20fa59adce6c05b8d63d918e81ce553731752",
   "contract_schema_sha256": "sha256:518ca92a84a073f25f0e967e8b4cedf92f7243d56d6c9e10c958cbe9a460ae62",
   "forecast_freeze_policy_sha256": "sha256:ae9508d362de40dec25c2935d96606ce3cb4d9d7d40f255b6c00576abeb9b2c5",
-  "frozen_prediction_register_sha256": "sha256:944cb0fb5b82dbf4522916afcef2385da204d03b0f94a5cc42cadc2548045326",
+  "frozen_prediction_register_sha256": "sha256:db0a6499f742cc5d5c0c7180daec7aa3185a31b8fc9682bda08ea14532a33243",
   "module_sha256": "sha256:27cf76a626733e58c5246d13d87cb8ce0904b954f63887fd03d7c73399441a35"
  },
  "potential_upgrade_routes": {
@@ -481,5 +497,5 @@
   "rule": "This C1 draft orders its static seed rows by candidate_class, integer selection_priority, and candidate_id. It is not the C3 ranking contract. Before any C3 candidate generation or evaluation, a successor policy must pin the complete issue-647 grammar, numerical weights, eligibility, tie breaker, skip policy, exposure class, direct-N non-reentry rule, and campaign-wide one-comparison stop.",
   "status": "DRAFT_UNFROZEN"
  },
- "state_sha256": "sha256:9a05a35790938ca2d83ea15df3a6b10ba79a1d91570ff06686f337bea14a4b30"
+ "state_sha256": "sha256:3bb5b846e04e73cbeb988f5c1031f31c6719ad02953089a31a15f21ec33e8ea8"
 }

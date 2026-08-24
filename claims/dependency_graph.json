@@ -158,7 +158,10 @@
   "OPH-DM-COLLAR-PREMISE-DERIVATION",
   "OPH-DM-FINITE-CAP-GENERATOR-SPLIT",
   "OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
-  "OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN"
+  "OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN",
+  "OPH-DE-FIXED-CAPACITY-WLAW",
+  "OPH-GW-INTEGER-K-COMB-TEMPLATE",
+  "OPH-CAL-SI-ANCHOR-IMPORT"
  ],
  "edges": [
   {
@@ -1445,6 +1448,21 @@
    "from": "OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
    "to": "OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN",
    "role": "supplies the certified-instrument structure and rational bounds the joined 4/5 inhabitant carries; it supplies no record fields and no join"
+  },
+  {
+   "from": "OPH-DM-CONT",
+   "to": "OPH-DE-FIXED-CAPACITY-WLAW",
+   "role": "supplies the closed-dark-sector reading of the scored expansion history the P4 premise names; it supplies no capacity relation and no equation-of-state theorem"
+  },
+  {
+   "from": "OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
+   "to": "OPH-CAL-SI-ANCHOR-IMPORT",
+   "role": "supplies the committed dimensionless certified step whose wrong seconds-reading the calibration receipt blocks; it supplies no anchors and no tick"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN",
+   "to": "OPH-CAL-SI-ANCHOR-IMPORT",
+   "role": "supplies the joined step record whose step dictionary and clock the calibration receipts read dimensionfully under a declared tick; it supplies no laboratory units"
   }
  ]
 }

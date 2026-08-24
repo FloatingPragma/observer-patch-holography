@@ -51,7 +51,7 @@ FROZEN_TARGET_STATUSES = {
 # listed target is part of the row contract; `any` is reserved for a future
 # row whose alternatives are explicitly interchangeable.
 PREDICTIVE_TARGET_CONTRACTS = {
-    "OL-B4": {"targets": ("FZ-06",), "attainment": "all"},
+    "OL-B4": {"targets": ("FZ-06", "FZ-14"), "attainment": "all"},
     "OL-F4": {"targets": ("FZ-11", "FZ-12"), "attainment": "all"},
     "OL-H7": {"targets": ("FZ-03",), "attainment": "all"},
     "OL-I2": {"targets": ("FZ-09",), "attainment": "all"},

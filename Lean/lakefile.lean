@@ -44,7 +44,8 @@ lean_lib «OPHThermodynamics» where
     `LowTemperatureControl, `MixingChainRealization, `CommonObjectBinding,
     `CommonReferenceObstruction, `RepairCurrentOrientation,
     `FourLawAdequacySurface, `HorizonThermalitySurface,
-    `CoherentRefinementFamily, `CofinalSpectralTailFamily]
+    `CoherentRefinementFamily, `CofinalSpectralTailFamily,
+    `PhysicalCalibrationImport]
 
 @[default_target]
 lean_lib «OPHScreen» where

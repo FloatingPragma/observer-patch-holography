@@ -20,6 +20,7 @@ import Geometry.CommonWorldIslandBridge
 import Geometry.EinsteinBranchInhabitant
 import Geometry.CommonWorldInstrumentJoin
 import Geometry.CommonWorldMaxwellClockJoin
+import Geometry.IntegerKCombInvariance
 
 /-!
 # OPH construction geometry umbrella

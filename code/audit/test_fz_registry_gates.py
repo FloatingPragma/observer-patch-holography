@@ -45,6 +45,8 @@ def test_ladder_excludes_the_retrospective_fz04_reservation():
         "FZ-10",
         "FZ-11",
         "FZ-12",
+        "FZ-13",
+        "FZ-14",
     ]
     result = live_register()["retrospective_results"][0]
     assert result["id"] == "RR-506-ALPHA-HVP"
@@ -461,6 +463,8 @@ def test_pending_owners_are_current_and_frozen_owners_are_historical():
         "FZ-10": 546,
         "FZ-11": 655,
         "FZ-12": 666,
+        "FZ-13": 742,
+        "FZ-14": 729,
     }
     rendered = fz_tool.render(register, fz_tool.validate(register))
     assert "[#745](https://github.com" in rendered

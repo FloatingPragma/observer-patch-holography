@@ -1850,7 +1850,7 @@ def validate(register: dict) -> list[dict]:
             f"rows: {sorted(overlap)}"
         )
     allocated = sorted(set(seen_ids) | former_reservations)
-    expected_allocated = [f"FZ-{index:02d}" for index in range(1, 13)]
+    expected_allocated = [f"FZ-{index:02d}" for index in range(1, 15)]
     if allocated != expected_allocated:
         fail(
             "ladder rows and explicitly retired reservations must account for "

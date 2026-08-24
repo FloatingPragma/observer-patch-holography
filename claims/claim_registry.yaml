@@ -6873,6 +6873,119 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-DE-FIXED-CAPACITY-WLAW",
+      "statement": "Reading the dark-energy density through the de Sitter capacity relation as rho_DE(a) = kappa / N(a), with kappa one positive constant packaging c^4 3 pi/(8 pi G l_P^2), and defining the effective equation of state through the FRW continuity relation, w(a) = -1 - (1/3) d ln rho / d ln a, exactly the object a w0waCDM analysis reconstructs: on the fixed-capacity branch (constant N) the equation of state is w(a) = -1 identically with the capacity value cancelling, and the CPL representation is forced to (w0, wa) = (-1, 0) exactly, with zero continuous freedom. The exact converse drift map holds on the domain: w(a) = -1 + (1/3) d ln N / d ln a, with the power law N proportional to a^eps giving the exact line w = -1 + eps/3. On the monotone-capacity branch (N nondecreasing) w(a) >= -1 at every scale factor, so the capacity reading forbids a phantom equation of state on both branches, and the strict readback holds: an established w(a0) < -1 forces capacity loss, N'(a0) < 0. A decreasing instance with w = -4/3 proves the monotone hypothesis load-bearing. Register row FZ-13 carries the stance at registered_pending_freeze with the proposed DESI DR3/Euclid comparison protocol and every numeric kill cell an owner slot; DESI DR1 and DR2 are seen data excluded from any prospective comparison, no comparison is armed, and the fixed-capacity, monotone-capacity, capacity-relation, constant-l_P, and closed-dark-sector premises are named branch premises, not theorems.",
+      "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+      "tier": "machine_checked_zero_parameter_equation_of_state_law_with_registered_pending_freeze_stance",
+      "assumptions": [
+        "fixed_or_monotone_capacity_branch",
+        "de_sitter_capacity_relation_and_constant_lP",
+        "continuity_defined_effective_fluid_reading"
+      ],
+      "imported_results": [
+        "FRW_continuity_relation_as_reconstruction_convention",
+        "CPL_parameterization"
+      ],
+      "oph_specific_delta": "Turns the capacity reading of the vacuum term into an exact falsifiable law with zero continuous freedom: the fixed branch pins (w0, wa) = (-1, 0) with the capacity value cancelling, the drift branch is an exact two-directional readback between measured w and capacity drift, and the monotone branch adds the no-phantom bound, so a single published posterior can kill a branch through machine-checked arithmetic; the stance is registered pending the owner's freeze rather than claimed frozen.",
+      "novelty_type": "capacity_equation_of_state_law_with_no_phantom_bound_and_drift_readback",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/FixedCapacityWLaw.lean",
+        "code/cosmology/fixed_capacity_wlaw/FZ13_REGISTRATION_PROPOSAL.md",
+        "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
+        "claims/frozen_prediction_register.json"
+      ],
+      "falsifier": "The fixed-N theorem, the drift map, the no-phantom bound, the strict readback, the CPL projection, or an inhabitant's exact value fails; or a comparison is scored without the owner's freeze, which would violate rather than execute this claim.",
+      "scope_if_false": "Only the w-law layer and its stance row fall. The de Sitter capacity relation, the time-advance results of the owning paper, and the frozen-prediction discipline remain separately assessed.",
+      "status": "wlaw_machine_checked_and_stance_registered__owner_freeze_and_any_comparison_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        742
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The capacity relation, branch selection, and continuity-defined effective-fluid reading are lane-local named premises of the cosmology stance outside the canonical derivation-premise register; the SI-constant bundle enters as one positive constant."
+      }
+    },
+    {
+      "claim_id": "OPH-GW-INTEGER-K-COMB-TEMPLATE",
+      "statement": "The integer-k Kerr ringdown transition comb instrument is completed target-blind at the level the FZ-01 erratum demands. The frozen ratio law places candidate spectral features above the remnant rotation line at universal-coordinate positions x_k = ln k/(8 pi) for integers k >= 2, with x = (G M/(c^3 g(chi))) (omega - m Omega_H); the statement-pinned normalization is g(chi) = 2 sqrt(1 - chi^2)/(1 + sqrt(1 - chi^2)) = 4 G M kappa_surface/c^3, derived in the template rather than declared, after the naive surface-gravity fallback was proved inconsistent with the frozen coordinate by a factor of four. The template producer computes exact Kerr horizon quantities (Omega_H, surface gravity), tooth frequency offsets Delta f_k = c^3 g(chi) ln k/(16 pi^2 G M), KMS weights (k-1)/k, and the declared linewidth model, on a declared synthetic reference remnant; an independent verifier rebuilds the canonical receipt byte-identically, and mutation-guarded tests pin the frozen constants. The machine-checked invariance layer proves the offset-subtracted ratio of any two teeth equals ln k_a/ln k_b independent of the template's scale and offset, hence of remnant mass, spin, and redshift, with exact rational bracketings of the ladder constants through integer power bounds such as 2^158 < 3^100 < 2^159. Register row FZ-14 carries the instrument at registered_pending_freeze; the drafted registration contract restricts any future comparison to events published after the owner anchors it, GW150914 and GW250114 are seen audit-only data, no event likelihood has been evaluated, and every threshold cell is an owner slot.",
+      "owner_paper": "cosmology/oph_black_hole_information_ledger.tex",
+      "tier": "target_blind_ringdown_comb_instrument_with_machine_checked_invariance",
+      "assumptions": [
+        "frozen_integer_k_ratio_law_and_pinned_normalization",
+        "declared_linewidth_and_synthetic_reference_selections"
+      ],
+      "imported_results": [
+        "Kerr_horizon_geometry",
+        "KMS_weight_reading"
+      ],
+      "oph_specific_delta": "Executes the registration obligation the FZ-01 erratum recorded: the build-stage integer-k template becomes an exact, reproducible, target-blind instrument with the normalization derived from the frozen coordinate, the observable's mass, spin, and redshift invariance machine-checked with exact ladder bracketings, and the complete comparison contract drafted with owner-slot thresholds, so the ringdown lane has a qualifying instrument path without any comparison access.",
+      "novelty_type": "integer_k_comb_template_completion_with_exact_invariance_receipts",
+      "evidence": [
+        "code/gravitation/ringdown_comb/integer_k_comb_template.py",
+        "code/gravitation/ringdown_comb/verify_integer_k_comb_independent.py",
+        "code/gravitation/ringdown_comb/test_integer_k_comb.py",
+        "code/gravitation/ringdown_comb/REGISTRATION_CONTRACT_DRAFT.md",
+        "code/gravitation/ringdown_comb/runtime/integer_k_comb_template_receipt.json",
+        "Lean/Geometry/IntegerKCombInvariance.lean",
+        "cosmology/oph_black_hole_information_ledger.tex"
+      ],
+      "falsifier": "A Kerr horizon quantity, the g(chi) derivation, a tooth offset, a KMS weight, a ladder bracketing, the ratio invariance, or the verifier's byte agreement fails; or any comparison, event likelihood, or threshold is evaluated before the owner anchors the contract, which would violate rather than execute this claim.",
+      "scope_if_false": "Only the template instrument and its invariance layer fall. The frozen FZ-01 custody record, the erratum, and the void status of the historical alpha = 4 line remain separately assessed.",
+      "status": "template_completed_target_blind_and_registered__owner_freeze_and_any_comparison_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The frozen ratio law, the pinned normalization, and the declared nuisance selections are lane-local instrument premises under the falsification program's custody discipline outside the canonical derivation-premise register."
+      }
+    },
+    {
+      "claim_id": "OPH-CAL-SI-ANCHOR-IMPORT",
+      "statement": "The physical calibration import is typed one level further than its register row. The 2019 SI anchors, the cesium hyperfine frequency 9192631770 Hz, the speed of light 299792458 m/s, and the Planck constant 6.62607015e-34 J s, enter as exact rational literals whose structure has exactly one inhabitant, so the anchor dictionary itself carries no measurement uncertainty and no free parameter; the empirical content of the import is one declared positive tick duration tau in SI seconds together with the propositional identification premise. Under a declared tick the conversions are exact and affine: internal duration t to t tau seconds, internal angular rate m to m/(2 pi tau) hertz, internal energy gap E to E (h/(2 pi))/tau joules, with the dictionary embedding into the committed positive affine clock-map algebra, composition commuting, and round trips identities. Composition receipts, each conditional on the declared tick: the common-world step dictionary reads laboratory time n tau seconds with the period criterion transported; the committed certified step 4/5 is a dimensionless Courant fraction whose per-step laboratory duration is tau independent of the step value, blocking a wrong seconds-reading; and an internal clock rate attaches to its laboratory frequency exactly, with the cesium-period worked example carried as an example of the dictionary rather than a physical identification. Two distinct tick declarations give distinct laboratory frequencies for one internal rate, so the calibration is an import, never derived; the register row keeps its import disposition and no source-derived clock exists.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_si_anchor_dictionary_with_declared_tick_conversions",
+      "assumptions": [
+        "declared_tick_duration_import",
+        "corpus_clock_cesium_identification_premise"
+      ],
+      "imported_results": [
+        "SI_2019_definitional_constants"
+      ],
+      "oph_specific_delta": "Splits the calibration import exactly: the SI anchor layer is definitional and unique with zero uncertainty, the whole empirical burden sits in one declared tick, the conversions are affine-exact against the committed clock algebra, and the dimensionful readings of three committed corpus surfaces are produced conditionally with a non-forcing receipt, so every later dimensionful claim can name the single number it depends on.",
+      "novelty_type": "typed_si_anchor_import_with_single_tick_reduction",
+      "evidence": [
+        "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
+        "paper/observers_are_all_you_need.tex",
+        "docs/PREMISE_REGISTER_V3.md"
+      ],
+      "falsifier": "An anchor literal differs from the SI definition, the uniqueness of the anchor structure fails, a conversion or round-trip identity fails, a composition receipt fails on its committed surface, or the non-forcing receipt fails.",
+      "scope_if_false": "Only the typed import layer falls. The register row's import disposition and the committed clock algebra remain separately assessed.",
+      "status": "anchor_dictionary_and_tick_reduction_attained__tick_identification_and_source_clock_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        732
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

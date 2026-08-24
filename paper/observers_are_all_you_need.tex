@@ -547,7 +547,15 @@ equilibrium is insufficient as a simulation.
 
 The local readout of the selected normal form supplies an internal record history, not by itself a
 physical clock. Operational time requires an observer-readable transition process, event
-correspondence, and affine calibration; it is not the external update parameter. In OPH,
+correspondence, and affine calibration; it is not the external update parameter. The calibration
+import is typed one level further in the Lean corpus: the 2019 SI anchors, the cesium hyperfine
+frequency, the speed of light, and the Planck constant, enter as exact rational literals with a
+unique inhabitant, so the dictionary itself carries no measurement uncertainty, and the entire
+empirical content of the import is one declared tick duration. Under a declared tick the internal
+step count, angular rate, and energy gap convert exactly to laboratory seconds, hertz, and joules,
+the conversions compose affinely with the committed clock algebra, and two distinct tick
+declarations give distinct laboratory frequencies for the same internal rate, so the calibration
+is an import and never a derivation. In OPH,
 ``simulation'' means this certified observer-facing self-consistency
 structure, not a bare fixed point and not a frame renderer. The executable OPH-FPE simulator
 and its finite-run receipt bundles are a separate public evidence surface for finite OPH

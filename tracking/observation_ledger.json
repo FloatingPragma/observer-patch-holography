@@ -143,13 +143,16 @@
    "status": "owed",
    "lane_issue": 729,
    "frozen_targets": [
-    "FZ-06"
+    "FZ-06",
+    "FZ-14"
    ],
    "premises": [],
    "evidence": [
-    "docs/FROZEN_PREDICTION_LADDER.md"
+    "docs/FROZEN_PREDICTION_LADDER.md",
+    "Lean/Geometry/IntegerKCombInvariance.lean",
+    "code/gravitation/ringdown_comb/integer_k_comb_template.py"
    ],
-   "notes": "The frozen register records the historical ringdown line as void and the integer-k template as build-stage with no frozen numeric prediction; a qualifying frozen instrument is owed.",
+   "notes": "The frozen register records the historical ringdown line as void and the integer-k template as build-stage with no frozen numeric prediction; a qualifying frozen instrument is owed. The integer-k comb instrument the FZ-01 erratum demands is built target-blind: exact Kerr template with the statement-pinned g(chi), producer, independent byte-identical verifier, mutation-guarded tests, the machine-checked mass, spin, and redshift invariance of the offset-subtracted ratio, and the drafted registration contract. Register row FZ-14 carries it at registered_pending_freeze; anchoring and threshold cells are owner actions, no event likelihood has been evaluated, and the row stays owed until a freeze exists.",
    "open_premises": []
   },
   {
@@ -801,9 +804,10 @@
    "evidence": [
     "cosmology/oph_cosmological_vacuum_and_structure_formation.tex",
     "Lean/ObserverPatchHolography/DeSitterCapacityShock.lean",
-    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean"
+    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/FixedCapacityWLaw.lean"
    ],
-   "notes": "The two reserve corrections are exact retrospective conditional arithmetic. The alpha_U branch inherits the closure-map and electroweak selections, and the common-load and global-capacity bridge PR-51 is registered but undischarged.",
+   "notes": "The two reserve corrections are exact retrospective conditional arithmetic. The alpha_U branch inherits the closure-map and electroweak selections, and the common-load and global-capacity bridge PR-51 is registered but undischarged. The fixed-capacity w-law is machine-checked: constant capacity forces w = -1 exactly with the capacity value cancelling, the exact drift map w = -1 + (1/3) d ln N/d ln a holds on the domain, monotone capacity forbids any phantom epoch, and an established w < -1 forces capacity loss through the strict readback. Register row FZ-13 carries the stance at registered_pending_freeze; the freeze, anchoring, and numeric kill cells are owner actions before the DESI DR3 release, and no comparison is armed.",
    "open_premises": []
   },
   {
@@ -909,9 +913,10 @@
    ],
    "evidence": [
     "Lean/Time/ProperTimeCalibration.lean",
-    "Lean/Time/ClockReadout.lean"
+    "Lean/Time/ClockReadout.lean",
+    "Lean/Thermodynamics/PhysicalCalibrationImport.lean"
    ],
-   "notes": "Calibration enters as the flagged import row PR-15, shared with the thermodynamics lane; a source-derived physical clock is not yet supplied.",
+   "notes": "Calibration enters as the flagged import row PR-15, shared with the thermodynamics lane; a source-derived physical clock is not yet supplied. PhysicalCalibrationImport types the import one level further: the 2019 SI anchors enter as exact rational literals with a unique inhabitant, the single empirical number is one declared tick duration, the dictionary is affine-exact against the committed clock algebra, and dimensionful composition receipts attach the step dictionary, the certified step, and the internal-clock rate to seconds and hertz conditionally on the declared tick. Two distinct ticks give distinct laboratory frequencies, so the calibration stays an import.",
    "open_premises": []
   },
   {
