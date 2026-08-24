@@ -10,7 +10,7 @@ Fasting and a meat diet produce the same rabbit. A rabbit that has stopped eatin
 
 The urine is the smallest part of this. What the fasting animal was defending is the composition of the fluid its cells sit in: the sugar in it, the salt, the water, the acid, the heat. Cut the supply from outside and those quantities hold. They hold because the liver dismantles the animal in order to hold them. Bernard proved that the liver manufactures sugar rather than merely storing it by washing a freshly removed dog's liver until no sugar could be found in it, leaving it overnight, and finding it full of sugar in the morning. That was 1855. He had pure glycogen out of liver tissue by 1857.
 
-Repair happens by itself. Two readings disagree, a repair fires, the disagreement drops, and nothing anywhere wants anything. A rabbit interrupts that pattern. It holds a set of numbers fixed at its own expense and goes on holding them until it has nothing left to spend. Why does anything do that, what exactly is it spending, and what does the spending buy that nothing else buys?
+Repair happens by itself. Two readings disagree, a repair fires, the disagreement drops, and nothing anywhere wants anything: chapter six ran two thousand and forty-eight universes to a standstill on exactly that, and no observer in any of them was trying to get anywhere. A rabbit interrupts that pattern. It holds a set of numbers fixed at its own expense and goes on holding them until it has nothing left to spend. Why does anything do that, what exactly is it spending, and what does the spending buy that nothing else buys?
 
 ## The internal environment
 
@@ -37,6 +37,8 @@ The symmetries of the earlier chapters arrive free of charge. The laws not carin
 So there are two ways for a reading to be invariant, two different physical situations wearing one word. In the first, the invariance is a property of the world's laws, and the observer has nothing to do with it. In the second, the invariance is manufactured by a bounded observer out of its own capacity, continuously, for as long as it can afford the outlay. What the vital principle was tracking is the outlay, which in Bernard's rabbits was paid in liver.
 
 The outlay has to be continuous because seams do not sit quiet. An observer's neighbors are repairing as well, every commit any of them makes is irreversible in the sense chapter sixteen gave that word, and the entries on a shared boundary get rewritten whether or not the observer on the other side of it wanted them rewritten. A pattern that spends nothing inherits whatever its neighbors' repairs happen to leave on its boundary. Holding an invariant against that traffic is a rate rather than an act, which is why the liver does not finish, and why a mammal that stops paying cools toward the temperature of the room it is lying in.
+
+Chapters eighteen and twenty-one already priced that rate. A region's energy is what drives its own clock, and what drives that clock is the repair running through its records. So the outlay here is the same quantity a calorimeter reads rather than a metaphor borrowed from biology, and eating is how an animal settles it.
 
 ## What a living thing is
 
