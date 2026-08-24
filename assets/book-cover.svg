@@ -3,18 +3,18 @@
     <style>
       .bg { fill: #0d1117; }
       .grid { fill: none; stroke: #161b22; stroke-width: 1; }
-      .terminal-text { font-family: 'Fira Code', 'Courier New', monospace; font-size: 14px; fill: #7ee787; }
-      .terminal-muted { font-family: 'Fira Code', 'Courier New', monospace; font-size: 14px; fill: #8b949e; }
-      .title { font-family: 'Fira Code', 'Courier New', monospace; font-size: 46px; font-weight: bold; fill: #c9d1d9; letter-spacing: 2px; }
-      .subtitle { font-family: 'Fira Code', 'Courier New', monospace; font-size: 56px; font-weight: bold; fill: #ffffff; letter-spacing: 4px; }
-      .glitch-cyan { font-family: 'Fira Code', 'Courier New', monospace; font-size: 56px; font-weight: bold; fill: #00ffff; letter-spacing: 4px; opacity: 0.7; }
-      .glitch-magenta { font-family: 'Fira Code', 'Courier New', monospace; font-size: 56px; font-weight: bold; fill: #ff0055; letter-spacing: 4px; opacity: 0.7; }
+      .terminal-text { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 14px; fill: #7ee787; }
+      .terminal-muted { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 14px; fill: #8b949e; }
+      .title { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 46px; font-weight: bold; fill: #c9d1d9; letter-spacing: 2px; }
+      .subtitle { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 56px; font-weight: bold; fill: #ffffff; letter-spacing: 4px; }
+      .glitch-cyan { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 56px; font-weight: bold; fill: #00ffff; letter-spacing: 4px; opacity: 0.7; }
+      .glitch-magenta { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 56px; font-weight: bold; fill: #ff0055; letter-spacing: 4px; opacity: 0.7; }
       .math-box { fill: #161b22; stroke: #30363d; stroke-width: 2px; rx: 6px; }
       .math-text { font-family: 'Cambria Math', 'Times New Roman', serif; font-size: 34px; font-style: italic; fill: #58a6ff; }
       .subscript { font-size: 20px; }
-      .author-label { font-family: 'Fira Code', 'Courier New', monospace; font-size: 16px; fill: #8b949e; letter-spacing: 2px; }
-      .author-name { font-family: 'Fira Code', 'Courier New', monospace; font-size: 26px; font-weight: bold; fill: #c9d1d9; letter-spacing: 2px; }
-      .footer-link { font-family: 'Fira Code', 'Courier New', monospace; font-size: 12px; fill: #484f58; letter-spacing: 1px; }
+      .author-label { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 16px; fill: #8b949e; letter-spacing: 2px; }
+      .author-name { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 26px; font-weight: bold; fill: #c9d1d9; letter-spacing: 2px; }
+      .footer-link { font-family: 'Menlo', 'DejaVu Sans Mono', 'Fira Code', 'Courier New', monospace; font-size: 12px; fill: #484f58; letter-spacing: 1px; }
     </style>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M 40 0 L 0 0 0 40" class="grid"/>

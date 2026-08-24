@@ -243,6 +243,12 @@ def polish_tex_layout(text: str) -> str:
         flags=re.DOTALL,
     )
 
+    # Every numbered chapter's markdown H1 carries its own number ("# 1. Why ..."), and
+    # \chapter numbers it again, so the page printed "CHAPTER 1" above "1. Why ..." and
+    # the contents line read "1 1. Why ...".  Drop the source number and let the counter
+    # own it.  \chapter*{} units are untouched: they carry their own labels.
+    text = re.sub(r"(\\chapter\{)\s*\d+\.\s+", r"\1", text)
+
     return text.replace(
         "{\\def\\LTcaptype{none} % do not increment counter\n\\begin{longtable}",
         "{\\small\\setlength{\\tabcolsep}{4.5pt}\\def\\LTcaptype{none} % do not increment counter\n\\begin{longtable}",
