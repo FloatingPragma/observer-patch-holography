@@ -111,6 +111,13 @@ def test_attained_predictive_row_accepts_locked_target(monkeypatch) -> None:
     premise_rows = json.loads(json.dumps(premise_rows))
     pr15 = next(item for item in premise_rows if item["id"] == "PR-15")
     pr15["consuming_lanes"].remove(733)
+    # The arming rows PR-70 through PR-76 are carried by OL-F4 alone on
+    # lane 733; the attained scenario empties that row's open premises, so
+    # the synthetic register drops the lane from them as well.
+    for item in premise_rows:
+        if item["id"] in {f"PR-7{i}" for i in range(7)} and \
+                733 in item["consuming_lanes"]:
+            item["consuming_lanes"].remove(733)
     monkeypatch.setattr(
         tool,
         "load_premise_register",

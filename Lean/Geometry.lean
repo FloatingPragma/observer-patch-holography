@@ -21,6 +21,7 @@ import Geometry.EinsteinBranchInhabitant
 import Geometry.CommonWorldInstrumentJoin
 import Geometry.CommonWorldMaxwellClockJoin
 import Geometry.IntegerKCombInvariance
+import Geometry.CommonWorldJointAction
 
 /-!
 # OPH construction geometry umbrella

@@ -6986,6 +6986,175 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
+      "statement": "The joined Maxwell-clock record carries one variational principle for both of its islands, at the direct-sum rung. The discrete worldline action sums the committed Lorentz quadratic form of the path increments over the declared window; its exact expansion has the clock action of the variation as the whole quadratic remainder, and the discrete geodesic characterization holds: on a positive window a path is stationary under all endpoint-fixed variations exactly when all its increments are equal, through the nondegeneracy of the polarizing bilinear form, proved in the module. The record's clock worldline has constant increment stepDuration times the frame, is stationary on every window, and is the unique stationary path with its committed endpoints, so the kinematics island's worldline is variational rather than declared. The joint action is the committed scaled-Maxwell window action plus the worldline action on the shared window; on one typed record, stationarity under Maxwell-sector variations at the record's committed bundle is equivalent to the scaled Ampere and Gauss clauses through the committed equivalences, stationarity under worldline variations is equivalent to the equal-increment clause, and the committed configuration of every inhabitant is jointly stationary: one action, both dynamics. The delimitation is exact: the joint action is a direct sum with proved partial-variation independence in both directions, so it couples nothing, and the missing common-world joins after this module are exactly the coupling term of the common action, the carrier map, matter dynamics, and observer readout. Because the form is Lorentzian, stationarity is not minimality: an explicit endpoint-fixed spatial variation has clock action exactly -2 and the displaced history strictly beats the stationary worldline. A kink path with an explicit nonzero interior variation makes the characterization nonvacuous in both directions, and two joint inhabitants differing only in step duration both carry both stationarity properties, so the action selects the shape and not the calibration.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "direct_sum_joint_action_with_discrete_geodesic_characterization",
+      "assumptions": [
+        "declared_window_and_endpoint_fixing",
+        "committed_lorentz_form_signature_convention"
+      ],
+      "imported_results": [
+        "discrete_variational_calculus_summation_by_parts"
+      ],
+      "oph_specific_delta": "Executes the first rung of the common-action gate: the worldline the record carried as a definition becomes the unique stationary path of a discrete geodesic action, one composed action carries the Maxwell laws and the clock line on one typed record, the direct-sum boundary is proved rather than admitted (exact partial-variation independence, Lorentzian non-minimality receipt), and the residual obligation is narrowed to the coupling term.",
+      "novelty_type": "joint_direct_sum_action_with_unique_stationary_worldline",
+      "evidence": [
+        "Lean/Geometry/CommonWorldJointAction.lean",
+        "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The exact expansion misses a term; a stationary path on a positive window has unequal increments or conversely; the worldline fails uniqueness with committed endpoints; a sector equivalence fails in either direction; a partial-variation independence identity fails; the kink path is stationary; the spatial variation's action differs from -2; or a calibration-distinct inhabitant fails a stationarity property.",
+      "scope_if_false": "Only the joint-action layer falls. The joined record, the committed Maxwell equivalences, and the common-world gate's remaining obligations are separately assessed.",
+      "status": "direct_sum_joint_action_attained__coupling_term_carrier_map_matter_and_readout_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04",
+          "PR-07",
+          "PR-18",
+          "PR-19",
+          "PR-42",
+          "PR-66"
+        ],
+        "open": [
+          "PR-03",
+          "PR-15",
+          "PR-52",
+          "PR-53",
+          "PR-54",
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-DISPERSION-ARMING-INTERFACE",
+      "statement": "The arming premises the frozen dispersion row names in prose are typed. The interface structure carries one named field per clause of the frozen comparison protocol: the source-derived homogeneous position action with the complete edge orbit as sole direct support and equal source weights, the continuous-field same-operator sector attachment, cofinal gluing into the compared regime, the declared finite carrier scale, coherent frame and boost transport, the frozen nuisance and coverage readout rules, and the source-derived positive exclusivity lower bound. The eligibility theorem states that an armed comparison is constructible exactly from an interface inhabitant together with a post-custody dataset contract token, typed abstractly, with the folded conjunction strictly sufficient for the protocol antecedent and the null-verdict refinement of the lower-bound clause recorded. Attainment is split exactly: the committed corpus supplies the coefficient-manifold and carrier-scale ingredients, while the propositional clauses are proved external input in the custody-externality style, required-to-hold fields carrying no separation, and no inhabitant of the full interface exists in the corpus. The seven clauses enter the premise register as rows PR-70 through PR-76 under the axiomatize-or-remove discipline; the frozen row's bytes are immutable and untouched, no comparison data enters, and nothing here arms, scores, or discharges anything.",
+      "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
+      "tier": "typed_arming_interface_for_the_frozen_dispersion_prediction",
+      "assumptions": [
+        "frozen_dispersion_protocol_clause_fidelity",
+        "abstract_post_custody_contract_token"
+      ],
+      "imported_results": [
+        "propositional_extensionality"
+      ],
+      "oph_specific_delta": "Turns the frozen dispersion prediction's prose eligibility conditions into seven atomic register rows and one typed interface with exact attainment and externality receipts per clause, so the only unarmed frozen numeric prediction of the ladder acquires a checkable arming path instead of a paragraph.",
+      "novelty_type": "clause_typed_arming_path_for_a_frozen_prediction",
+      "evidence": [
+        "Lean/Screen/DispersionArmingInterface.lean",
+        "code/electromagnetism/fz12_arming/PREMISE_ROW_PROPOSALS.md",
+        "docs/PREMISE_REGISTER_V3.md",
+        "claims/frozen_prediction_register.json"
+      ],
+      "falsifier": "An interface field weakens its protocol clause; the eligibility equivalence fails in either direction; a claimed attainment receipt fails on the committed objects; a claimed externality receipt fails to quantify; or any statement arms, scores, or alters the frozen row.",
+      "scope_if_false": "Only the typed interface and the register rows fall. The frozen row, its custody, and the committed coefficient surfaces are separately assessed.",
+      "status": "arming_interface_typed_and_rows_registered__every_arming_premise_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        733,
+        742
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-70",
+          "PR-71",
+          "PR-72",
+          "PR-73",
+          "PR-74",
+          "PR-75",
+          "PR-76"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-SOURCE-CLOCK-CANDIDATE",
+      "statement": "A source-derived clock candidate replaces the arbitrary declared tick of the calibration import by one duration of one committed process. The candidate types the retained-window sequence of the committed source-history packet as its tick stream, with the per-path window multiplicities pinned to the committed counts totalling 1754, the per-window counting observable pinned to the committed repair values with exact mean rate 197/1754, and the wall decomposition 94/1754 + 103/1754 carried as exact rate invariants. Composition with the calibration import: a declared window duration makes the candidate a clock calibration, under which the repair rate attaches to the exact laboratory rate (197/1754) per window duration, with the wall rates and their sum identity exact-symbolic; the composed dictionary is fully determined by the single identification, two calibrations agreeing on it agree everywhere, and two distinct durations give distinct laboratory rates, so the import stays an import. The delimitation is exact: the packet fixes rates per window and no theorem produces the duration; and candidate selection is itself a declared choice, witnessed by the wall-only subprocess as a second candidate with the distinct rate invariant 94/1754. The open empirical content of the calibration import shrinks from an arbitrary declared tick to one duration of one committed source process; the identification field is open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "source_produced_tick_candidate_with_exact_rate_invariants",
+      "assumptions": [
+        "window_duration_identification_open",
+        "candidate_selection_declared"
+      ],
+      "imported_results": [
+        "counting_process_rate_conventions"
+      ],
+      "oph_specific_delta": "Executes the calibration lane's named follow-up: the tick candidate is source-produced committed data with exact rational rate invariants rather than a free declaration, the whole dictionary hangs on one open identification, and the selection freedom among committed processes is proved rather than hidden.",
+      "novelty_type": "committed_process_tick_candidate_with_single_identification_reduction",
+      "evidence": [
+        "Lean/QFT/SourceClockCandidate.lean",
+        "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
+        "Lean/InformationProjection/SourceHistoryPacket.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A tick or rate invariant differs from the committed counts; the composed laboratory rates or their sum identity fail; the uniqueness or non-forcing receipt fails; or the second-candidate receipt fails to exhibit a distinct invariant.",
+      "scope_if_false": "Only the candidate layer falls. The calibration import, the source-history packet, and the register row's import disposition are separately assessed.",
+      "status": "candidate_typed_with_exact_invariants__window_duration_identification_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-INS03-EXPORT-VALIDATOR",
+      "statement": "The receiving half of the source-binding handshake exists as a fail-closed conformance validator for the designed simulator export schema. The validator checks, with exact rational and Q(sqrt 3) arithmetic and no floats outside the display block: the schema identity and canonical serialization; the exact-scalar and matrix encodings; the required fields per context and outcome; the algebraic conformance computable from the export alone, each Kraus family's induced effect equal to the declared effect, per-context effects summing to the identity, and declared run-state outcome traces equal to the declared frequencies; the committed-table cross-check against the committed context set with the literal run-state entries 111/179 and 68/179 and the eight committed outcome-0 values, with a partial overlap of committed context names refused outright so a renamed context cannot route around the cross-check; and the canonical digest recomputation. A synthetic sample built from committed objects validates with the distinct provenance class synthetic, which can never present as a producer export; mutation guards cover wrong effects, non-summing contexts, wrong literals, stray floats, wrong digests, missing fields, and the renamed-context evasion. The validator certifies schema and algebraic conformance and digest integrity only; source production, provenance, custody, and run reality are exactly the externality the binding interface proves, and a genuine producer export supplies the custody digest the interface consumes. No run exists and nothing here discharges the source-production row.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "fail_closed_export_conformance_validator_with_committed_cross_check",
+      "assumptions": [
+        "designed_export_schema_as_reference",
+        "synthetic_sample_marked_and_distinct"
+      ],
+      "imported_results": [
+        "SI_free_exact_rational_arithmetic"
+      ],
+      "oph_specific_delta": "Builds the corpus-side handshake for the instrument lane's export before any producer exists: exact algebraic conformance and committed-literal cross-checks that a source-bound run must pass, with the synthetic/producer distinction typed into the verdict, so the external custody content the binding interface isolated has a concrete receipt surface waiting for it.",
+      "novelty_type": "pre_producer_conformance_surface_for_the_source_binding_handshake",
+      "evidence": [
+        "code/phase_instrument_export/ins03_export_validator.py",
+        "code/phase_instrument_export/test_ins03_export_validator.py",
+        "code/phase_instrument_export/sample_conforming_export.json",
+        "code/phase_instrument_export/VALIDATOR_CONTRACT.md",
+        "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean"
+      ],
+      "falsifier": "A conformance check accepts a mutated export; the committed reference literals differ from the Lean module's; the synthetic sample presents as a producer export; the renamed-context evasion passes; or the digest recomputation disagrees with a byte-identical export.",
+      "scope_if_false": "Only the validator surface falls. The binding interface's externality theorems and the design document are separately assessed.",
+      "status": "validator_attained_with_synthetic_sample__producer_export_and_any_run_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        737
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

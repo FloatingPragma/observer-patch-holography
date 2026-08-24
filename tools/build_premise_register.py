@@ -421,6 +421,48 @@ EXPECTED_ROWS = (
         "selection_rule",
         "remove",
     ),
+    (
+        "PR-70",
+        "source homogeneous edge position action",
+        "selection_rule",
+        "remove",
+    ),
+    (
+        "PR-71",
+        "continuous field same-operator sector attachment",
+        "selection_rule",
+        "remove",
+    ),
+    (
+        "PR-72",
+        "cofinal gluing into the compared regime",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-73",
+        "declared finite carrier scale",
+        "numerical_input",
+        "axiomatize",
+    ),
+    (
+        "PR-74",
+        "coherent frame and boost transport",
+        "structural_rule",
+        "remove",
+    ),
+    (
+        "PR-75",
+        "frozen nuisance and coverage readout rules",
+        "representation_choice",
+        "axiomatize",
+    ),
+    (
+        "PR-76",
+        "source-derived positive exclusivity lower bound",
+        "numerical_input",
+        "remove",
+    ),
 )
 
 DISPOSITION_MEANING = {

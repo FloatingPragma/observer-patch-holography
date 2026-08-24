@@ -52,6 +52,7 @@ import QFT.FiniteTwoSiteIsingColimitGNS
 import QFT.SourceHistoryGNSDynamics
 import QFT.SourceHistoryThreeSlotLocalGNS
 import QFT.SourceHistoryExpectationNet
+import QFT.SourceClockCandidate
 
 /-!
 # OPH construction QFT umbrella
