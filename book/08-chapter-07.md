@@ -12,9 +12,11 @@ Going east, the flying clocks had lost 59 nanoseconds against the ones on the gr
 
 Look at what those numbers are attached to. Each came out of subtracting one reading from another in one room, at the end, with the clocks side by side.
 
-That is not the only comparison available, and being exact about why the others do not help is the whole of the point. Nothing stops you comparing clocks at a distance. Radio does it, and a navigation satellite does nothing else all day: the plane could have sent its reading down and the observatory could have written down what arrived. What that hands you is two events, a transmission and a reception, with a delay between them. Turning it into a statement about noon means saying how much of that delay belonged to the outbound leg, and no measurement supplies the split. Einstein's convention gives it half, which is a choice rather than a finding. Choose differently and the answer moves, and nothing anybody recorded objects.
+That is not the only comparison available, and why the others do not help is the whole of the point. Nothing stops you comparing clocks at a distance. Radio does it, and a navigation satellite does nothing else all day: the plane could have sent its reading down and the observatory could have written down what arrived.
 
-What did the flying clock read at the instant the bench clock read noon on the second day out? Every route to an answer runs through a convention that somebody picked.
+The trouble is that the message takes time. The reading arrives stale, and correcting for that means knowing how long the trip took. You can time a round trip without difficulty: send a pulse up, wait for it to come back, read your own clock twice. Splitting that total into the trip out and the trip back is where it stops. Calling the two halves equal is the usual move and a perfectly good working rule, but nothing measures it, and checking it would mean comparing two clocks that are far apart, which is the thing you were trying to do.
+
+What did the flying clock read at the instant the bench clock read noon on the second day out? Every route to an answer goes through an assumption somebody made rather than a measurement somebody took.
 
 Everyone carries a picture around without inspecting it. There is a single present moment, everything in the universe is doing something in it, and clocks are devices for finding out what. On that picture the question about noon on the second day has an answer that Hafele and Keating merely failed to measure. It has none. The single present moment is a part of the description rather than a part of the world. The evidence is that no instrument reads it and no procedure produces one.
 

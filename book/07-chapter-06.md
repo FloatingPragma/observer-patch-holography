@@ -112,7 +112,7 @@ First the machine needs a move. The one used here is the spanning tree of two se
 
 That move is a demonstration engine rather than a law. Nothing so far says repair has to work this way, and chapter nine is where the move an observer actually makes gets derived from what a repair is allowed to cost. What this one buys is a machine small enough to enumerate.
 
-It also stops, and for a reason worth having. Score a state by the records its bits violate, weighting the tree edges by depth so heavily that fixing an observer near the root outweighs anything it disturbs below. Every repair lowers that score, the score cannot fall below zero, so no run goes on forever. And a run can only stop when every observer agrees with its parent, which, once the root is pinned, leaves exactly one assignment.
+It also stops. Repairs run outward from the root. An observer that has just been fixed can be unsettled again if its parent changes later, but its parent sits nearer the root, and nothing unsettles the root at all, so agreement sets from the root outward and every run runs out of work. A run can only stop when every observer agrees with its parent, and with the root pinned that leaves exactly one assignment.
 
 Start in every one of the two thousand and forty-eight states and repair until nothing is left to do. That is one **run**: one starting state, one order of working through the observers, carried to a stop. Do it in every order. Sixteen schedules apiece, which for observers with no clock, no leader and no queue are sixteen different worlds as far as anyone inside can tell. Counted over every state, the machine has eleven thousand two hundred and sixty-four repairs available to it.
 
@@ -128,7 +128,7 @@ The second result is the machine's. Every single run lands on that state. Every 
 
 Flip a single edge, one of the nineteen the tree did not use. Change one record, out of thirty, from same to different. Change nothing else. Every observer has five neighbors, every overlap works, and the machine is untouched.
 
-Some loop now sums to 1. How many of the nineteen do depends on which nineteen you happened to draw, because a basis of loops is a choice and the altered record runs through different numbers of them. What no choice affects is that the loops no longer all close.
+Some loop now sums to 1. How many of the nineteen do depends on which nineteen you drew, since there is more than one way to pick them. What the choice does not affect is that they no longer all close.
 
 Of the two thousand and forty-eight states, the number that are globally consistent is zero. There is no way to set twelve bits that satisfies all thirty records. No amount of repair produces one, because the obstruction is a property of the loops rather than of the bits.
 
