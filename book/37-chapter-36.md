@@ -84,6 +84,8 @@ That single requirement is severe, in chapter two's sense, and does most of the 
 
 Nothing outside supplies the description. Asking what switched the universe on assumes an outside to switch it on from, and the demand that picks out this object is the demand that there is no outside. Anybody asking has to supply the outside themselves, and every outside anybody has supplied has needed one of its own.
 
+There is a dividend in that which nobody went looking for. A description obliged to specify the structure it came out of cannot leave a number loose, because a loose number is a second structure answering to the same description, and the fiber has to hold one member. Chapter twenty-eight is where that gets cashed. The grain, the fine-structure constant, the capacity and the cosmological constant are written in terms of each other, the loop admits one solution, and a quantity that every other physics has to measure and enter by hand is computed instead. Constants are what a world with no outside is not free to leave open.
+
 ## Three orders
 
 The word loop invites a picture of something traveling backward into its own past. Three different orderings are in play, and every paradox that gets built out of the loop comes from confusing two of them.
