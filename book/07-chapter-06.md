@@ -106,7 +106,15 @@ Each observer holds one bit. That is four thousand and ninety-six arrangements. 
 
 Each of the thirty overlaps holds a record of the kind the corridor produced: same or different, the relation between two bits and nothing about either one. The thirty used here are a set whose nineteen loop sums all come out zero, so by the argument above the bits can satisfy them.
 
-Two thousand and forty-eight is a number you can exhaust. So exhaust it. Start the system in every one of those states and let the observers repair: find an overlap whose record the two bits at its ends violate, and flip one of them to satisfy it. Carry that on until no observer has a move left, and what has been performed is one **run**: one starting state, one order of working through the overlaps, taken to the point where nothing further can be done. Do that in every order. The order matters enormously in principle, because these observers have no clock, no leader, and no queue, so the sixteen different schedules used here are sixteen different worlds as far as anyone inside can tell. Across the whole sweep the machine executes eleven thousand two hundred and sixty-four repairs.
+Two thousand and forty-eight is a number you can exhaust. So exhaust it.
+
+First the machine needs a move. The one used here is the spanning tree of two sections ago, run as a procedure: take eleven of the thirty edges, enough to reach all twelve observers without closing a loop, and root them at one observer. An observer repairs by copying its parent's bit through the record on the edge between them. That is the whole move. The remaining nineteen edges are never repaired against. They are the conditions being checked.
+
+That move is a demonstration engine rather than a law. Nothing so far says repair has to work this way, and chapter nine is where the move an observer actually makes gets derived from what a repair is allowed to cost. What this one buys is a machine small enough to enumerate.
+
+It also stops, and for a reason worth having. Score a state by the records its bits violate, weighting the tree edges by depth so heavily that fixing an observer near the root outweighs anything it disturbs below. Every repair lowers that score, the score cannot fall below zero, so no run goes on forever. And a run can only stop when every observer agrees with its parent, which, once the root is pinned, leaves exactly one assignment.
+
+Start in every one of the two thousand and forty-eight states and repair until nothing is left to do. That is one **run**: one starting state, one order of working through the observers, carried to a stop. Do it in every order. Sixteen schedules apiece, which for observers with no clock, no leader and no queue are sixteen different worlds as far as anyone inside can tell. Counted over every state, the machine has eleven thousand two hundred and sixty-four repairs available to it.
 
 Two thousand and forty-eight states, sixteen schedules apiece, and eleven thousand two hundred and sixty-four repairs is not a sample. It is the whole space. Nothing here rests on a well-chosen starting configuration or a lucky order, because there was no choosing and no luck: every configuration this universe admits was started, and every order these observers could repair in was run.
 
@@ -114,13 +122,13 @@ Two results come out. The first is the boring one that has to be true before the
 
 Exactly one of the two thousand and forty-eight states is globally consistent. That one is arithmetic. The spanning tree argument already settled it: the nineteen loop sums are zero, so fix one observer's bit and every other bit is forced, which leaves one free choice, two assignments, and one distinct state once the all-over flip is divided out.
 
-The second result is the machine's. Every single run lands on that state. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. Why it does not is chapter ten's whole subject, and the argument there needs machinery this chapter has not built yet. What the sweep supplies is the fact, checked across every case there is. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
+The second result is the machine's. Every single run lands on that state. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. This machine's indifference is bought by the score, which falls whichever order you work in. Whether a repair rule has to behave that way in general is chapter ten's subject. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
 
 ## One edge
 
-Flip a single edge. Change one record, out of thirty, from same to different. Change nothing else. Every observer has five neighbors, every overlap works, and the machine is untouched.
+Flip a single edge, one of the nineteen the tree did not use. Change one record, out of thirty, from same to different. Change nothing else. Every observer has five neighbors, every overlap works, and the machine is untouched.
 
-Two of the nineteen loops sum to 1.
+Some loop now sums to 1. How many of the nineteen do depends on which nineteen you happened to draw, because a basis of loops is a choice and the altered record runs through different numbers of them. What no choice affects is that the loops no longer all close.
 
 Of the two thousand and forty-eight states, the number that are globally consistent is zero. There is no way to set twelve bits that satisfies all thirty records. No amount of repair produces one, because the obstruction is a property of the loops rather than of the bits.
 
@@ -136,7 +144,7 @@ You can move it. Repair in a different order and it sits somewhere else. What yo
 
 Look at what that leftover does.
 
-It has a definite quantity, exactly one, not approximately one and not one on average. It has a location, in the sense that the two loops carrying holonomy tell you where it is. It survives every process the world can apply to it. It is not a property of any single observer, because every observer is behaving correctly and repairing whatever it finds. And it is not a property of any pair, because every pair is satisfiable and always was.
+It has a definite quantity, exactly one, not approximately one and not one on average. It has a location, in the sense that the loops carrying holonomy tell you where it is. It survives every process the world can apply to it. It is not a property of any single observer, because every observer is behaving correctly and repairing whatever it finds. And it is not a property of any pair, because every pair is satisfiable and always was.
 
 It is a property of the way the whole thing is wired. It is as real as anything else in the arrangement, in the only sense of real that has been available since chapter four: it is what survives comparison between every point of view.
 
