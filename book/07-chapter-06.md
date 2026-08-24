@@ -106,7 +106,7 @@ Each observer holds one bit. That is four thousand and ninety-six arrangements. 
 
 Each of the thirty overlaps holds a record of the kind the corridor produced: same or different, the relation between two bits and nothing about either one. The thirty used here are a set whose nineteen loop sums all come out zero, so by the argument above the bits can satisfy them.
 
-Two thousand and forty-eight is a number you can exhaust. So exhaust it. Start the system in every one of those states and let the observers repair: find an overlap whose record the two bits at its ends violate, and flip one of them to satisfy it. Do that in every order. The order matters enormously in principle, because these observers have no clock, no leader, and no queue, so the sixteen different schedules used here are sixteen different worlds as far as anyone inside can tell. Across the whole sweep the machine executes eleven thousand two hundred and sixty-four repairs.
+Two thousand and forty-eight is a number you can exhaust. So exhaust it. Start the system in every one of those states and let the observers repair: find an overlap whose record the two bits at its ends violate, and flip one of them to satisfy it. Carry that on until no observer has a move left, and what has been performed is one **run**: one starting state, one order of working through the overlaps, taken to the point where nothing further can be done. Do that in every order. The order matters enormously in principle, because these observers have no clock, no leader, and no queue, so the sixteen different schedules used here are sixteen different worlds as far as anyone inside can tell. Across the whole sweep the machine executes eleven thousand two hundred and sixty-four repairs.
 
 Two thousand and forty-eight states, sixteen schedules apiece, and eleven thousand two hundred and sixty-four repairs is not a sample. It is the whole space. Nothing here rests on a well-chosen starting configuration or a lucky order, because there was no choosing and no luck: every configuration this universe admits was started, and every order these observers could repair in was run.
 
@@ -114,7 +114,7 @@ Two results come out. The first is the boring one that has to be true before the
 
 Exactly one of the two thousand and forty-eight states is globally consistent. That one is arithmetic. The spanning tree argument already settled it: the nineteen loop sums are zero, so fix one observer's bit and every other bit is forced, which leaves one free choice, two assignments, and one distinct state once the all-over flip is divided out.
 
-The second result is the machine's. Every single run lands on that state. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
+The second result is the machine's. Every single run lands on that state. Every starting point, every schedule, every order of repair. The answer does not depend on who went first. Why it does not is chapter ten's whole subject, and the argument there needs machinery this chapter has not built yet. What the sweep supplies is the fact, checked across every case there is. The leftover at the end is zero, which is to say the observers end up in complete agreement and the agreement was never a matter of who spoke loudest.
 
 ## One edge
 
