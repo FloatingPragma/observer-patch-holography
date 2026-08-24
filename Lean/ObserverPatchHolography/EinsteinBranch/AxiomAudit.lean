@@ -4,6 +4,9 @@ import ObserverPatchHolography.EinsteinBranch.DarkSector
 import ObserverPatchHolography.EinsteinBranch.CollarScaleSaturation
 import ObserverPatchHolography.EinsteinBranch.DeepProfileClosure
 import ObserverPatchHolography.EinsteinBranch.PerCutCollarComposition
+import ObserverPatchHolography.EinsteinBranch.SparseRecordDefectWitness
+import ObserverPatchHolography.EinsteinBranch.CollarPremiseDerivation
+import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
 
 /-!
 # Einstein-branch theorem audit
@@ -171,6 +174,26 @@ assert_no_sorry perCut_a0_dictionary
 assert_no_sorry perCut_a0_unique
 assert_no_sorry perCut_nonidentifiability
 
+/-! ## Sparse-record mechanism, premise derivation, and cap-generator split -/
+
+assert_no_sorry recordDefect_isLeast
+assert_no_sorry recordDefect_isLeast_randomized
+assert_no_sorry unrecordedCut_error_ge_half
+assert_no_sorry recordDefect_lt_iff
+assert_no_sorry sparseRecordRemainder_stress_pos
+assert_no_sorry recordRemainder_eta_and_stress_tendsto_zero
+assert_no_sorry AtomicDefectModel.compoundVariance_disjUnion
+assert_no_sorry composed_deep_law
+assert_no_sorry correlated_pair_breaks_variance_additivity
+assert_no_sorry density_necessary
+assert_no_sorry modularGenerator_split
+assert_no_sorry split_unique
+assert_no_sorry split_nonunique_without_normalization
+assert_no_sorry anomalousPart_rescale
+assert_no_sorry anomalousPart_supported_on_collar
+assert_no_sorry anomalousPart_collar_boost_free
+assert_no_sorry boostedState_anomalousPart
+
 #print axioms eta_and_stress_tendsto_zero_of_depth
 #print axioms eta_and_stress_tendsto_zero_of_density
 #print axioms anomalousStress_exponential_rate
@@ -189,5 +212,22 @@ assert_no_sorry perCut_nonidentifiability
 #print axioms perCut_a0_dictionary
 #print axioms perCut_a0_unique
 #print axioms perCut_nonidentifiability
+#print axioms recordDefect_isLeast
+#print axioms recordDefect_isLeast_randomized
+#print axioms unrecordedCut_error_ge_half
+#print axioms recordDefect_lt_iff
+#print axioms sparseRecordRemainder_stress_pos
+#print axioms recordRemainder_eta_and_stress_tendsto_zero
+#print axioms AtomicDefectModel.compoundVariance_disjUnion
+#print axioms composed_deep_law
+#print axioms correlated_pair_breaks_variance_additivity
+#print axioms density_necessary
+#print axioms modularGenerator_split
+#print axioms split_unique
+#print axioms split_nonunique_without_normalization
+#print axioms anomalousPart_rescale
+#print axioms anomalousPart_supported_on_collar
+#print axioms anomalousPart_collar_boost_free
+#print axioms boostedState_anomalousPart
 
 end OPH.EinsteinBranch

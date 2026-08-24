@@ -6675,6 +6675,204 @@
         "boundary": [],
         "rationale": "The per-cut model's variance-additivity and cut-count premises are lane-local structure fields of the dark-sector continuation outside the canonical derivation-premise register; the composition consumes only the same lane's characterization layer."
       }
+    },
+    {
+      "claim_id": "OPH-DM-SPARSE-DEFECT-MECHANISM",
+      "statement": "In the finite erasure-record model, a source bit perfectly correlated with its complement observable and a collar record that carries the bit with probability p and an erasure otherwise, the recovery defect is computed rather than postulated: the minimum prediction error over all deterministic predictors, and over all probability mixtures of them, is exactly (1 - p)/2, attained by the informed predictor. At p = 0 every predictor errs at least 1/2, so an unrecorded cut carries an order-one defect necessarily; at p = 1 the defect is zero; the defect is strictly decreasing and continuous in the density and falls below eps exactly when p > 1 - 2 eps, the mechanism-side counterpart of the envelope's settled-cut threshold. Composed with the committed screening interface, the sparse instance at unit radius and unit collar constant carries anomalous stress exactly 15/(16 pi^2) > 0, and along any density family tending to one the defect and the stress tend to zero. The identification of the model defect with the collar recovery defect is a named modeling premise carried as a structure field; it forces the density bound p <= 1 and yields the exact stress bound with (1 - p)/2 in place of the defect. The model is one record process, the erasure of a perfectly correlated bit; no physical record density value is asserted and which density a galactic-scale settled cut realizes is open.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "finite_record_mechanism_witness_with_exact_optimality",
+      "assumptions": [
+        "erasure_record_process",
+        "model_defect_collar_identification"
+      ],
+      "imported_results": [
+        "finite_probability_and_convexity"
+      ],
+      "oph_specific_delta": "Complements the saturation module's proof that the recovery envelope forces nothing with the positive half: an explicit record process in which sparse recording forces an order-one recovery defect by computation, with the exact optimality lower bound over deterministic and randomized predictors, an exact density threshold, and the composed dark-sector stress values, so the collar-scale premise's galactic half acquires an existence-level mechanism class instead of resting on possibility alone.",
+      "novelty_type": "computed_defect_mechanism_with_predictor_optimality_and_density_threshold",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/SparseRecordDefectWitness.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "A predictor beats the (1 - p)/2 bound; the informed predictor misses it; the p = 0 or p = 1 exact values fail; the threshold equivalence fails; the sparse-instance stress differs from 15/(16 pi^2); or the density-family limit fails.",
+      "scope_if_false": "Only the record-model mechanism falls. The saturation composition, the generic dark-sector theorems, and the collar-scale premise's register status remain separately assessed.",
+      "status": "mechanism_witness_attained__physical_record_process_and_density_value_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The erasure process and the defect identification are lane-local model premises of the dark-sector continuation outside the canonical derivation-premise register; the composition consumes only the same lane's screening interface."
+      }
+    },
+    {
+      "claim_id": "OPH-DM-COLLAR-PREMISE-DERIVATION",
+      "statement": "The two load-bearing premises of the per-cut collar model are derived one level deeper. Probabilistic side: in an atomic defect model, a probability space carrying pairwise independent per-atom defect contributions with finite second moments and a common positive per-atom variance, the compound variance of every finite atom family equals the sum of the per-atom variances by the Mathlib independence theorem, so disjoint-union composition makes compound variances additive: the variance-additivity premise shape is a theorem of independence. With unit atom mass the measured compound variance is slope times mass, and the linear extension induces the full per-cut model and, through the landed chain, the deep-regime law with dictionary constant G (1/s)^2 slope. Geometric side: a cut family with positive first cut that is s-separated and s-dense is forced to be exactly the arithmetic progression cut k = cut 0 + k s; the cut count in (0, r] obeys the exact sandwich r/s - 1 <= count <= r/s + 1, count r / r tends to 1/s, and the counted enclosed mass deviates from the linear law (r/s) a by at most one per-cut amplitude at every radius. Load-bearing receipts: a perfectly correlated pair has Var(X + X) = 1 against 1/2, so independence is necessary; a one-cut family violates the sandwich lower bound, so density is necessary; a two-coin product model and the unit cut family compose to the deep law with constant 1/4. Independence, common per-atom variance, and the separated-dense geometry are premises of the two structures; the extension between modeled masses is fixed by linearity, not measurement; no physical value of s, slope, or a0 is asserted.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "premise_derivation_from_independence_and_cut_geometry",
+      "assumptions": [
+        "atomic_defect_independence",
+        "separated_dense_cut_geometry"
+      ],
+      "imported_results": [
+        "Mathlib_variance_of_independent_sums",
+        "Cauchy_functional_equation_on_positive_reals"
+      ],
+      "oph_specific_delta": "Turns the per-cut model's variance-additivity premise into a theorem of genuine probabilistic independence on a measure space and its linear cut count into an exact rigidity-plus-sandwich statement of separated-dense cut geometry, with necessity receipts for both hypotheses, so the deep galaxy law rests on independence of source records and cut spacing rather than on model-level stipulations.",
+      "novelty_type": "independence_derived_variance_additivity_and_rigid_cut_count_with_necessity_receipts",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/CollarPremiseDerivation.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/PerCutCollarComposition.lean",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "The compound-variance identity fails under the stated independence and moment hypotheses; the disjoint-union additivity fails; the arithmetic-progression rigidity, sandwich, limit, or bounded-deviation statement fails; a necessity receipt satisfies the clause it violates; or the composed dictionary constant differs from G (1/s)^2 slope.",
+      "scope_if_false": "Only the derivation layer falls. The per-cut composition, the deep-profile characterization, and the dark-sector continuation remain separately assessed.",
+      "status": "both_premises_derived_one_level__physical_s_and_slope_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The independence, moment, and cut-geometry hypotheses are lane-local model premises of the dark-sector continuation outside the canonical derivation-premise register; the composition consumes only the same lane's per-cut and characterization layers."
+      }
+    },
+    {
+      "claim_id": "OPH-DM-FINITE-CAP-GENERATOR-SPLIT",
+      "statement": "On a finite carrier of microstates labelled bulk or collar, with strictly positive weights, a declared boost datum vanishing on the collar, and the modular generator K = -log w, the split K = 2 pi B + K_anom + c 1 exists with c the bulk-weighted mean of K - 2 pi B, and it is unique among splits whose anomalous part has vanishing bulk-weighted mean; without that normalization clause the split is non-unique by an explicit constant shuffle. The localization is quotient-invariant: the state rescaling w -> exp(-t) w shifts the constant to c + t and leaves the anomalous part and its collar expectation unchanged. If the bulk weights are exactly Gibbs for 2 pi B, the anomalous part vanishes on the bulk and is carried entirely on the collar, its state expectation equals its collar expectation, and on the collar it reads the modular generator directly since the boost vanishes there. Under a defect hypothesis bounding the collar expectation by C eta, the split's collar part builds the anomaly remainder the dark-sector interface consumes, identifying the finite counterpart of the paper's anomalous collar energy with the small-ball remainder quotient-invariantly. Explicit inhabitants carry exact numbers, one with zero boost and one Gibbs inhabitant with a nonzero boost, both with anomalous part (0, 0, 1). The finite carrier, the declared boost datum, the normalization clause, and the Gibbs-on-bulk condition are model premises; no continuum cap, physical modular flow, or claim about the physical cap generator enters.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "finite_localization_receipt_with_quotient_invariant_uniqueness",
+      "assumptions": [
+        "finite_cap_boost_datum_and_bulk_normalization",
+        "gibbs_on_bulk_condition"
+      ],
+      "imported_results": [
+        "finite_weighted_means_and_logarithms"
+      ],
+      "oph_specific_delta": "Realizes the dark-matter paper's cap-generator split as a machine-checked finite object for the first time: existence with an explicit normalizing constant, uniqueness pinned by the bulk-mean clause and proved load-bearing, invariance under the additive-constant quotient, conditional collar support under the Gibbs condition, and the typed identification of the collar part with the anomaly remainder the screening interface consumes.",
+      "novelty_type": "finite_cap_generator_split_localization_receipt",
+      "evidence": [
+        "Lean/ObserverPatchHolography/EinsteinBranch/FiniteCapGeneratorSplit.lean",
+        "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "The split identity, the normalization of the canonical part, the uniqueness under the clause, the non-uniqueness without it, a rescale invariance, the Gibbs-conditional collar support, the collar-restriction identity, or an inhabitant's exact numbers fail.",
+      "scope_if_false": "Only the finite localization receipt falls. The dark-sector interface, the saturation composition, and the paper's continuum split remain separately assessed.",
+      "status": "finite_split_receipt_attained__continuum_cap_and_physical_modular_flow_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The carrier, boost datum, normalization clause, and Gibbs condition are lane-local model premises of the dark-sector continuation outside the canonical derivation-premise register; the receipt consumes only the same lane's remainder interface."
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
+      "statement": "The source-binding obligation of the committed phase packet is typed against the committed objects, and exactly its determined part is proved attained. The determined interface fixes a common preparation equal to the committed run-state diagonal with literals 111/179 and 68/179, a public outcome table equal to the committed effect table read on that preparation, and a readback clause identifying induced effects with the table; every phase instrument inhabits it, every determined public table is the fixture frequency table with phase entry 1/2 and the literal eight-entry outcome-0 row, and the committed Lüders instrument gives the explicit partial inhabitant. The custody data is proved external: the custody digest is a free injective parameter over the committed determined part, two bindings agree on every determined field and differ, and required-to-hold binding propositions carry no separation because propositional extensionality identifies any two holding assignments, so within the corpus only data-level custody can separate bindings. The determined interface does not pin the instrument: the swap-twisted comparison instrument inhabits the same fields with the same preparation and table, and only the repeatability clause separates the two, even at the full-binding level with equal digests. The additivity rung: the affine family between the committed run Born valuation and the committed cubic countermodel matches every fixture frequency, sends the sure effect to one, obeys the complement rule, and is additive on every committed coexistent sum at every parameter t, with exact additivity residue -(3/256) t at the witness pair; the family is injective, and a member is an additive effect valuation, equivalently the Born functional of a state, precisely at t = 0. Between the committed clauses and the full cross-context additivity premise lies a one-parameter continuum on which the premise fails everywhere except at the Born member. No run, export, producer, or custody artifact exists or is constructed; the register rows for source production and additivity are open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "typed_source_binding_interface_with_externality_and_additivity_continuum",
+      "assumptions": [
+        "declared_phase_instrument_parameter",
+        "stipulated_custody_binding_fields"
+      ],
+      "imported_results": [
+        "propositional_extensionality"
+      ],
+      "oph_specific_delta": "Separates the source-binding obligation into a determined part, proved attained by the committed corpus uniformly in the instrument, and a custody part, proved genuinely external with the exact logical obstruction that Prop-level binding clauses cannot carry separation; and sharpens the additivity boundary from one countermodel to an injective affine continuum through the Born valuation with an exact linear residue, so full cross-context additivity is equivalent to selecting the Born member out of a continuum of committed-clause-satisfying valuations.",
+      "novelty_type": "determined_external_split_of_source_binding_and_affine_additivity_continuum",
+      "evidence": [
+        "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean",
+        "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
+        "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A determined-field identity fails (a public-table entry off the fixture frequencies, the literal row wrong, a readback trace off); the digest family fails injectivity; two holding binding assignments differ; the swap-twisted instrument fails a determined field; the residue differs from -(3/256) t; or a member with nonzero t is an additive effect valuation or Born functional of a state.",
+      "scope_if_false": "Only the interface typing, the externality split, and the affine continuum fall. The committed instrument, the additivity boundary module, and the register rows remain separately assessed.",
+      "status": "determined_part_attained_and_custody_proved_external__source_production_and_additivity_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04"
+        ],
+        "open": [
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": [
+          "PR-03"
+        ]
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN",
+      "statement": "The instrumented common-world record is extended by one Maxwell-clock join field: a single function of the step index producing the pair of the scaled staggered-form value of the record's certified bundle and the clock worldline event at the record's declared step time. Four clauses hold for every inhabitant. Same-index binding: both projection identities, the pair identity, injectivity in the index, and exclusion of the successor-shifted reading. Causal-energy compatibility: joined events of ordered indices are causally ordered, the joined value is nonnegative, the record's step satisfies the sharp certificate h^2 (3 + sqrt 5) < 4 and is the step of a certified instrument, and for zero seam current the electric and magnetic energies at every index are bounded by the committed multiples of the joined value at index zero. Conservation transport: the clock phase advances by the declared rotation of the elapsed step time, and for zero current the joined value is constant along every causally ordered index pair, the first record-level clause relating the screen island to the kinematics island; on the committed inhabitant the joined value is constant while the clock does not repeat with period one step. Non-supply: the event component is a function of frame and step duration alone and the value component of the certified bundle alone, and no field maps a port, seam, or face to a point, interval, or cone of the Lorentz module. The joined record over the committed instrumented inhabitant and over the certified 4/5 bundle are explicit inhabitants, the latter carrying the rational certified bounds; two joined inhabitants over one base differ only in step duration, so the join fixes no clock calibration. After this module the missing common-world joins are exactly four: the common action across carriers, the port/seam/face-to-module carrier map, matter dynamics, and observer readout.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "typed_maxwell_clock_step_join_on_the_instrumented_record",
+      "assumptions": [
+        "declared_instrumented_record_fields_as_committed",
+        "declared_step_duration_calibration_free_join"
+      ],
+      "imported_results": [
+        "finite_product_type_pairing_and_convex_order_transport"
+      ],
+      "oph_specific_delta": "Adds the join the instrumented record's boundary named as missing: one typed function reading the Maxwell island and the clock worldline at the same step index, with causal ordering, certified-step energy bounds, and zero-current conservation transported onto the joined object, shrinking the missing-join list of the common-world gate to exactly the common action, the carrier map, matter dynamics, and observer readout.",
+      "novelty_type": "same_index_maxwell_clock_join_with_conservation_transport",
+      "evidence": [
+        "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
+        "Lean/Geometry/CommonWorldInstrumentJoin.lean",
+        "Lean/Screen/CertifiedScaledStepInstrument.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A projection identity, the injectivity, the shifted-reading exclusion, a causal ordering, the sharp certificate, a zero-current bound, the conservation transport, a non-supply agreement, or an inhabitant clause fails.",
+      "scope_if_false": "Only the join layer falls. The instrumented record, the certified-step instrument, and the common-world gate's remaining obligations are separately assessed.",
+      "status": "maxwell_clock_join_attained__common_action_carrier_map_matter_and_readout_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [
+          "PR-02",
+          "PR-04",
+          "PR-07",
+          "PR-18",
+          "PR-19",
+          "PR-42",
+          "PR-66"
+        ],
+        "open": [
+          "PR-03",
+          "PR-15",
+          "PR-52",
+          "PR-53",
+          "PR-54",
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
     }
   ]
 }

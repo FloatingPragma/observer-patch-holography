@@ -85,11 +85,12 @@ structure fields; the exponential recovery envelope behind the saturation
 theorem is the conditional mixing branch of the collar-recovery claim, taken
 as a hypothesis.
 
-The paper does not supply a quotient-invariant receipt localizing the
-anomalous modular energy on collars, the value of the collar constant, the
-profile of the anomalous density outside the deep regime, a proof that the
-collars carrying the anomaly are galactic-scale, or a cosmological
-likelihood. The acceleration constant \(a_0\) is a fitted comparison value.
+The paper supplies a finite quotient-invariant receipt localizing the
+anomalous modular energy on collars, under model premises; the continuum
+receipt for the physical cap generator, the value of the collar constant,
+the profile of the anomalous density outside the deep regime, a proof that
+the collars carrying the anomaly are galactic-scale, and a cosmological
+likelihood are not supplied. The acceleration constant \(a_0\) is a fitted comparison value.
 No cosmological result carries an OPH falsification verdict.
 
 \tableofcontents
@@ -229,6 +230,20 @@ a squeeze along the family. Theorem~\ref{thm:cold} is
 \(\rho\,a^3=Q\).
 \end{proof}
 
+The split \eqref{eq:split} has a machine-checked finite counterpart. On a
+finite carrier of microstates labelled bulk or collar, with strictly
+positive weights, a declared boost datum vanishing on the collar, and
+modular generator \(K=-\log w\), the decomposition
+\(K=2\pi B+K^{\rm anom}+c\,\mathbf 1\) exists with \(c\) the bulk-weighted
+mean of \(K-2\pi B\), is unique among splits whose anomalous part has
+vanishing bulk mean, and is invariant under the additive-constant
+quotient \(w\mapsto e^{-t}w\). When the bulk weights are exactly Gibbs for
+\(2\pi B\), the anomalous part vanishes on the bulk and is carried
+entirely on the collar, and its expectation is the remainder bounded in
+\eqref{eq:bound}. The finite carrier, the boost datum, the normalization
+clause, and the Gibbs condition are model premises; the receipt is the
+finite counterpart of \eqref{eq:split}, at exactly that strength.
+
 In the weak-field limit the anomalous density enters the Poisson equation
 beside the baryons,
 \begin{equation}
@@ -298,6 +313,20 @@ positive stress, so the same hypotheses that screen dense regions admit a
 nonzero dark source on sparse cuts. What is not established is that physical
 collars satisfy \eqref{eq:envelope}: the envelope is the conditional mixing
 branch of the collar-recovery claim, taken here as a hypothesis.
+
+The delimitation has a positive counterpart in which the defect is computed
+rather than admitted. In the erasure-record model, a source bit perfectly
+correlated with its complement and a collar record carrying the bit with
+probability \(p\), the minimum prediction error over all predictors,
+deterministic or randomized, is exactly \((1-p)/2\): an unrecorded cut
+carries an order-one defect necessarily, a saturated record carries none,
+and the defect falls below \(\varepsilon\) exactly when
+\(p>1-2\varepsilon\), the mechanism-side counterpart of the settled-cut
+threshold. Composed with Theorem~\ref{thm:off} the sparse instance carries
+anomalous stress \(15/(16\pi^2)\) exactly. The identification of the model
+defect with \(\eta_\delta\) is a modeling premise, and which record density
+a galactic-scale settled cut realizes is open; the model shows the
+mechanism class exists, with an exact defect-density law.
 
 Under Premise~\ref{pre:scale} the Solar System is a test of the ambient
 density alone.
@@ -408,6 +437,22 @@ models with different cut densities and equal \(n^2c\) induce the same
 enclosed-mass law, machine-checked. The magnitude question is therefore
 the value of the collar density and of the per-cut variance constant;
 neither is derived here.
+
+Both premises of the per-cut model rest one level deeper. Variance
+additivity is a theorem of probabilistic independence: for atomic defect
+contributions with finite second moments, pairwise independence, and a
+common per-atom variance on one probability space, the variance of the
+compound defect of every finite atom family is the sum of the per-atom
+variances, so disjoint-union composition is additive and \(V(m)=cm\) on
+the modeled masses. And the linear cut count is forced by cut geometry: a
+cut family with a positive first cut, consecutive gaps of at least \(s\),
+and every length-\(s\) interval meeting a cut is exactly the arithmetic
+progression with spacing \(s\), its count obeys
+\(r/s-1\le N(r)\le r/s+1\), and the counted enclosed mass deviates from
+the linear law by at most one per-cut amplitude at every radius, with
+\(n=1/s\). Independence of the source records and the cut spacing are the
+remaining premises; a perfectly correlated pair and a gappy cut family
+violate the respective conclusions, so both are load-bearing.
 
 \begin{theorem}[Deep radial-acceleration relation]
 \label{thm:rar}
@@ -550,9 +595,11 @@ paper would fix \(n\).
 Premises~\ref{pre:cov} and \ref{pre:quad}; what remains is deriving those
 two premises from the collar geometry of a point source, and extending the
 profile through the transition to the Newtonian regime.
-\item \textbf{Localization.} No quotient-invariant receipt is supplied that
-identifies the collar operator in \eqref{eq:split} with the small-ball
-remainder in \eqref{eq:tanom}.
+\item \textbf{Localization.} The finite quotient-invariant receipt of
+Section~\ref{sec:source} identifies the collar operator with the bounded
+remainder on a finite carrier under the Gibbs-on-bulk condition; what
+remains is the continuum identification for the physical cap generator,
+whose modular flow the finite boost datum only declares.
 \item \textbf{Abundance.} The comoving anomalous charge of the early screen,
 the resulting \(\Omega_A\), and the joint galaxy, cluster, lensing, CMB, and
 growth likelihood are not derived.
@@ -596,8 +643,9 @@ B. Mueller et al.,
 B. Mueller et al.,
 \emph{Observer-Patch Holography: machine-checked Lean formalization},
 Einstein-branch modules \texttt{SmallBall}, \texttt{DarkSector},
-\texttt{CollarScaleSaturation}, \texttt{DeepProfileClosure}, and
-\texttt{PerCutCollarComposition},
+\texttt{CollarScaleSaturation}, \texttt{DeepProfileClosure},
+\texttt{PerCutCollarComposition}, \texttt{SparseRecordDefectWitness},
+\texttt{CollarPremiseDerivation}, and \texttt{FiniteCapGeneratorSplit},
 2026.
 \url{https://github.com/FloatingPragma/observer-patch-holography/tree/main/Lean/ObserverPatchHolography/EinsteinBranch}
 

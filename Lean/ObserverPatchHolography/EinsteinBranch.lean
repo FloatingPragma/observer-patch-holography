@@ -10,6 +10,9 @@ import ObserverPatchHolography.EinsteinBranch.DarkSector
 import ObserverPatchHolography.EinsteinBranch.CollarScaleSaturation
 import ObserverPatchHolography.EinsteinBranch.DeepProfileClosure
 import ObserverPatchHolography.EinsteinBranch.PerCutCollarComposition
+import ObserverPatchHolography.EinsteinBranch.SparseRecordDefectWitness
+import ObserverPatchHolography.EinsteinBranch.CollarPremiseDerivation
+import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
 
 /-!
 # Corrected Einstein-branch formalisation (GitHub #578)

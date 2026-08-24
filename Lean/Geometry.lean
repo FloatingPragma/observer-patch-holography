@@ -19,6 +19,7 @@ import Geometry.RestFiberShellTransport
 import Geometry.CommonWorldIslandBridge
 import Geometry.EinsteinBranchInhabitant
 import Geometry.CommonWorldInstrumentJoin
+import Geometry.CommonWorldMaxwellClockJoin
 
 /-!
 # OPH construction geometry umbrella
