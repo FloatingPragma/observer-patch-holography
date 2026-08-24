@@ -76,9 +76,7 @@ There is the closure of the whole arrangement, the state that the repair operati
 
 The eighth is the one the everyday picture assumes. It is also the only one on the list that a given arrangement of events may simply fail to admit. No arrangement of observers keeping their own records hands one out.
 
-A machine-checked file declares those eight as eight separate types. For each ordered pair of them it asks the compiler to produce an automatic conversion from the first to the second, and requires the answer to be a failure. Eight types make fifty-six ordered pairs. The file passes when all fifty-six requests fail, and if anybody later writes a shortcut that lets a repair position be read as a duration, or a clock reading be read as a proper-time interval, the request stops failing and the build breaks. Confusing two notions of time has been given the same status as a syntax error.
-
-"That repair took about a nanosecond" reads a position in a list as a duration. Accept it once and the positions can be added up, and a stretch of the world's history acquires an elapsed time in units, with no clock anywhere in the reasoning and no calibration performed by anybody. The sentence is humdrum, which is the whole reason for catching it mechanically. A reviewer might let it through on a tired afternoon. The compiler declines fifty-six ways and does not get tired.
+"That repair took about a nanosecond" reads a position in a list as a duration. Accept it once and the positions can be added up, and a stretch of the world's history acquires an elapsed time in units, with no clock anywhere in the reasoning and no calibration performed by anybody. The sentence is humdrum, which is exactly why it gets through. Nothing about it sounds like a mistake.
 
 Crossing between two of the eight costs an explicit map with a name on it, supplied by hand, doing the work in the open. Going from a clock readout to a proper time takes a calibration, a physical claim that somebody has to make and defend.
 
