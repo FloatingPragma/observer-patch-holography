@@ -72,11 +72,11 @@ Nothing in that sentence adds to chapter three's list. A boundary, a place to wr
 
 Which cells implement which coordinate, why activity in one part of the visual cortex reads as color while activity a few centimeters away reads as motion, what a stroke takes away when it takes a coordinate away, how many coordinates a mouse reads on itself, and at which point in an anesthesiologist's induction a person stops reading any, are questions for people with electrodes and scanners.
 
-No instrument reads a coordinate from outside, and none could be built. A coordinate readable from outside would be a seam entry, and it would have sat on the shared list from the beginning.
+No instrument reads a coordinate from outside, and none could be built. A coordinate readable from outside would be a seam entry, and would have sat on the shared list from the beginning.
 
 ## Three cells down the diagonal
 
-Ask somebody what red is like and everything comes back except the thing you asked for. A wavelength. The name the paint shop prints on the can. Both of those cross the gap between two people intact, and neither answers the question. The word for what failed to cross is a **quale**, plural qualia, and it means how a particular experience is for the thing undergoing it, as against the wavelength, the firing pattern or the word.
+Ask somebody what red is like and everything comes back except the thing you asked for. A wavelength. The name the paint shop prints on the can. Both of those cross the gap between two people intact, and neither answers the question. The word for what failed to cross is a **quale**, plural qualia, meaning how a particular experience is for the thing undergoing it, as against the wavelength, the firing pattern or the word.
 
 Every quantity in the preceding chapters is somebody's readout, taken at a bounded interface, and a readout comes in two parts. Chapter nineteen wrote an observer's questions as tables of numbers, so a readout that tells three things apart is three rows by three columns. Nine cells. Three of them lie down the diagonal, one for each alternative, and those three commute with each other, which is what makes a record a record: readable without disturbance, and the same again in a neighbor's notebook. The other six sit off the diagonal. They are what makes the order of two questions matter, and chapter twenty-one found the observer's entire supply of rate in them, because the flow leaves the record layer where it finds it and moves only the part that refuses to be answered alongside itself.
 

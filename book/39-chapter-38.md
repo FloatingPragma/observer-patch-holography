@@ -52,7 +52,7 @@ Run the population from the early part of its own past and it cannot get to citr
 
 Chapter thirty-seven left a living thing as a pattern that keeps its public reading extendable at its own expense, and behavior as a policy over the two ways of spending: on itself, or on the record it shares with a neighbor.
 
-A pattern persists by being re-asserted into the record every cycle, and a record costs capacity, and the capacity is finite and shared. Two patterns whose re-assertions cannot both be extended cannot both persist, and which of them does is settled by which one keeps having an extension. Nothing about food or territory is needed to get this started. The scarcity is in the bookkeeping, and it would be there in a universe with unlimited everything else.
+A pattern persists by being re-asserted into the record every cycle, and a record costs capacity, and the capacity is finite and shared. Two patterns whose re-assertions cannot both be extended cannot both persist, and which of them does is settled by which one keeps having an extension. Nothing about food or territory is needed to get this started. The scarcity is in the bookkeeping, and would be there in a universe with unlimited everything else.
 
 Chapter thirty-five ran that argument on laws, and got a filter with no chooser in it: what survives is what closes, and the share held by the descriptions that close does not decrease. This is the same argument one level down, with organisms where the laws were. Selection at the level of physics and selection at the level of bacteria are one filter applied at two grain sizes, and the finer one inherits its shape from the coarser.
 
@@ -94,7 +94,7 @@ Chapter eleven gave that its general form. A reading has a fiber, which is the s
 
 Seen from outside, the twelve observers are a solve: a system with a unique consistent state settling into it. There is no outside. The only available view is the one from within, held by the patterns that came through, and from there it looks like something else entirely. Some patterns are here and others are not. The ones here are the ones whose readings kept having an extension, and the missing ones ran out of world to be consistent with.
 
-That is selection, and it needs no agent, because differential persistence is the whole requirement. Lenski's laboratory has a pipette that cannot tell one cell from another. The universe contains no sampling device of any kind.
+That is selection, and needs no agent, because differential persistence is the whole requirement. Lenski's laboratory has a pipette that cannot tell one cell from another. The universe contains no sampling device of any kind.
 
 So the filter and the fixed point are one object seen from two positions, and one of the two positions is not available to anybody. Selection is what a fixed point looks like from the inside, when the patterns competing to be in it are the ones doing the looking.
 

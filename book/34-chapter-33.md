@@ -18,7 +18,7 @@ Take a fact worth sixteen yes-or-no questions: enough to fix where something is 
 
 Write it into sixteen places instead.
 
-The liar has to produce all sixteen copies without holding the original, because a single copy that disagrees with its neighbors exposes the whole attempt. Take 65,536, the odds against faking one copy, and multiply it by 65,536 fifteen more times, once for every copy after the first. That is two hundred and fifty-six bits of blind guessing, and it comes off about once in 1.16 times ten to the seventy-seventh.
+The liar has to produce all sixteen copies without holding the original, because a single copy that disagrees with its neighbors exposes the whole attempt. Take 65,536, the odds against faking one copy, and multiply it by 65,536 fifteen more times, once for every copy after the first. That is two hundred and fifty-six bits of blind guessing, and comes off about once in 1.16 times ten to the seventy-seventh.
 
 Look at what the sixteenth copy contributed to the world's knowledge. Nothing. It says what the first copy says, to the bit. The world learned sixteen bits when the first copy was written, and it holds sixteen bits after all sixteen exist, and the entire effect of the other fifteen is on what it would cost to lie.
 
@@ -86,7 +86,7 @@ A position fixed to one part in 65,536 takes sixteen yes-or-no questions, each o
 
 Sixty-three questions therefore place a point on your counter to about a meter divided by ten to the nineteenth, which is the wobble those four-kilometer arms register. Going from where a chair is to the finest length anybody has measured costs four times the questions and nothing else.
 
-Ask a sixty-fourth and what you hold is one bit longer and a whole number. Ask sixty-three more, a second copy of everything between your counter and Louisiana, and it is a longer whole number, finite, exactly as it was at the first question, and with as many questions left to ask as there were before anybody asked one. The smooth counter is where those answers pile up, and every answer anybody holds about it is a finite list of whole numbers.
+Ask a sixty-fourth and what you hold is one bit longer and a whole number. Ask sixty-three more, a second copy of everything between your counter and Louisiana, a longer whole number, finite, exactly as it was at the first question, and with as many questions left to ask as there were before anybody asked one. The smooth counter is where those answers pile up, and every answer anybody holds about it is a finite list of whole numbers.
 
 Calculus works on the world for that reason and no other. A derivative is a limit of differences, so writing one down commits you to differences taken at every scale, and the world supplies them down to whatever depth the apparatus reaches and no further. The answers agree because the disagreement is parked below the last decimal place any instrument has produced, which is exactly where an abstraction hides its leak until the day somebody builds a better instrument.
 

@@ -74,9 +74,9 @@ Which is where the schoolroom gloss goes wrong. Repair makes the world tidier an
 
 ## Two messages down one channel
 
-The quantity that runs one way is a comparison rather than a count. Take a settled arrangement of the sort the repair law leaves alone, and call the odds it assigns to each state the reference. Take your own odds over states, which need not be the reference. Ask how many extra questions per state your odds cost you compared with the reference, and the answer is a second quantity, the **relative entropy** of your odds against the reference. It is zero exactly when the two agree, positive otherwise, and it measures how far your description sits from the settled one.
+The quantity that runs one way is a comparison rather than a count. Take a settled arrangement of the sort the repair law leaves alone, and call the odds it assigns to each state the reference. Take your own odds over states, which need not be the reference. Ask how many extra questions per state your odds cost you compared with the reference, and the answer is a second quantity, the **relative entropy** of your odds against the reference. It is zero exactly when the two agree, positive otherwise, and measures how far your description sits from the settled one.
 
-Pass both descriptions through the same process, whatever the process is, and they get harder to tell apart. Send two distinguishable messages through the same noisy channel and the outputs are closer together than the inputs were; nothing you do to both of them afterwards can make them further apart again. Relative entropy is the number that quantifies that, and it can only fall under further processing.
+Pass both descriptions through the same process, whatever the process is, and they get harder to tell apart. Send two distinguishable messages through the same noisy channel and the outputs are closer together than the inputs were; nothing you do to both of them afterwards can make them further apart again. Relative entropy is the number that quantifies that, and can only fall under further processing.
 
 A repair step is a process, and it preserves the reference. So the relative entropy of any description against the reference falls at every step and never climbs. That is the second law, in the arrangement, with no appeal to counting microstates and no claim about how anything started.
 

@@ -34,7 +34,7 @@ Here the elementary move is a commit, and a commit is a write that destroys what
 
 An arrangement at the beginning can bias which configurations are common and which are rare. Making a write reversible is beyond it.
 
-So the asymmetry belongs to the operation, and it works on the first repair of a fresh arrangement exactly as it works on the ten billionth. Loschmidt's reversal turns every velocity around and un-writes nothing, and the bits the commits threw away have nowhere to come back from.
+So the asymmetry belongs to the operation, and works on the first repair of a fresh arrangement exactly as it works on the ten billionth. Loschmidt's reversal turns every velocity around and un-writes nothing, and the bits the commits threw away have nowhere to come back from.
 
 ## A hundred and twenty orders of magnitude
 

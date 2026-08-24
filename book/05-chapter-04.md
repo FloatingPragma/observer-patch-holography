@@ -84,7 +84,7 @@ France wanted a unit of length that no king had defined. The Academy of Sciences
 
 Méchain finished his southern latitude work at the fortress on Montjuïc, the hill above Barcelona harbour, and had earlier measured the latitude at his lodgings in the city. Both were careful measurements of the same quantity by the same excellent astronomer with the same instrument. In March 1794 he compared them and they disagreed by three seconds of arc.
 
-Three seconds of arc is about a six-hundredth of the width of the full moon. On the ground, it is a little over ninety meters. It is a very small number, and it was fatal, because the two figures were both his and there was no third figure to adjudicate. War with Spain had closed the border behind him and he could not get back to the hill to remeasure.
+Three seconds of arc is about a six-hundredth of the width of the full moon. On the ground, it is a little over ninety meters. It is a very small number, and a fatal one, because the two figures were both his and there was no third figure to adjudicate. War with Spain had closed the border behind him and he could not get back to the hill to remeasure.
 
 He concealed it. When the international commission met in Paris in 1799 to fix the meter, the numbers Méchain supplied had been adjusted to remove the discrepancy. He spent the rest of his life trying to make the disagreement go away, went back into Spain in 1803 to redo the work, contracted yellow fever, and died at Castellón de la Plana on 20 September 1804 at the age of sixty. Delambre, preparing the official record of the survey afterwards, worked through the notebooks and found the alterations.
 

@@ -82,7 +82,7 @@ The confusion has a way of surviving its own refutation. Schrödinger invented t
 
 So, unambiguously, because the whole structure rests on it:
 
-An observer here is any bounded system that keeps records. A thermostat is one. A photographic plate is one. A rock with a scratch on it is not one, and it fails on the requirement people would think of last: nothing reads the scratch. Put the rock where the scratch works a lever and it joins the list. Consciousness has nothing to do with any of it. Conscious observers are a special case that appears very late, arriving without anything being added to the list of three.
+An observer here is any bounded system that keeps records. A thermostat is one. A photographic plate is one. A rock with a scratch on it is not one, and fails on the requirement people would think of last: nothing reads the scratch. Put the rock where the scratch works a lever and it joins the list. Consciousness has nothing to do with any of it. Conscious observers are a special case that appears very late, arriving without anything being added to the list of three.
 
 ## Constraint-first
 

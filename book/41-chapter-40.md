@@ -22,7 +22,7 @@ What is that quantity, exactly? Who is holding it? And is there any way to look 
 
 ## Two strings
 
-Sound two guitar strings together when one of them is slightly sharp and the loudness pulses. The pulse rate is the difference of the two frequencies, so two strings three cycles a second apart beat three times a second. Each string alone has a frequency and no beat at all. The pulse is a property of the pair, and it goes to zero exactly when they match.
+Sound two guitar strings together when one of them is slightly sharp and the loudness pulses. The pulse rate is the difference of the two frequencies, so two strings three cycles a second apart beat three times a second. Each string alone has a frequency and no beat at all. The pulse is a property of the pair, and goes to zero exactly when they match.
 
 An observer stands in that relation to everything around it. It has a state. Around the state is a field, chapter twenty-five's object with a reading at every place: what the neighbors have written at every point of this observer's boundary. The state has a size and a direction, the field has a size and a direction, and the question that decides everything downstream is how much of the state points the way the field does.
 
@@ -96,7 +96,7 @@ The story is about who was watching, and the watchers are not the ones holding t
 
 Where a harm is hidden by a falsified record rather than by an unread one, the arithmetic is chapter six's flipped edge exactly. Change one entry from what happened to what did not, two of the loops through it stop closing, and the reading goes unrealizable, chapter eleven's verdict on a record with no world under it. A cover-up buys the offender a record that describes no world at all, and every loop running through the false entry picks up the residue.
 
-A residue with an address gets moved by every repair that runs near it. Chapter six shifted its leftover around the twelve-patch net by reordering the repairs, and it weighed one at every address it landed on. That is the mechanism by which an unrepaired harm turns up in people who did nothing: the residue settles on whoever's seams the repairs happen to reach, which in a family or a town is rarely the person who wrote the entry.
+A residue with an address gets moved by every repair that runs near it. Chapter six shifted its leftover around the twelve-patch net by reordering the repairs. It weighed one at every address it landed on. That is the mechanism by which an unrepaired harm turns up in people who did nothing: the residue settles on whoever's seams the repairs happen to reach, which in a family or a town is rarely the person who wrote the entry.
 
 Hidden harm is deferred repair. It changes which continuations can truthfully hold the offender, the victim and the community around them, and it goes on changing that whether or not anybody has read the entry.
 

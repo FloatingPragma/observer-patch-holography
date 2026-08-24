@@ -102,8 +102,8 @@ The company gets the same result with the accounts written out. A firm can spend
 
 ## The entry is one entry
 
-An entry on a seam is one entry. It is read by both patches, owned by neither, and it holds a single value at a time.
+An entry on a seam is one entry. It is read by both patches, owned by neither, and holds a single value at a time.
 
 Two observers spending on the same entry are spending against each other. Whatever stands written there when the spending stops is what both of them have to live with, and each brings a finite budget to the argument. A bacterium in a gradient is in that position with respect to every other bacterium in the same drop of water, which is why the gradient it is climbing is partly a record of what the others have taken out of it.
 
-That is a competition. It is settled by which pattern goes on having a consistent extension afterwards, and it was running on the thirty seams of a twelve-patch net long before anything with a flagellum turned up to enter it.
+That is a competition. It is settled by which pattern goes on having a consistent extension afterwards, and was running on the thirty seams of a twelve-patch net long before anything with a flagellum turned up to enter it.

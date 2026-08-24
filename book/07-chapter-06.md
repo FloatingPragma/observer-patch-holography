@@ -94,7 +94,7 @@ Gregory Wannier worked out the consequences for a whole triangular lattice in 19
 
 Gerard Toulouse gave the phenomenon its name in 1977, while working on spin glasses, and gave it the same test the coins gave it. Go around a closed loop of bonds and multiply out what each one demands. If the loop comes back consistent, the region can settle. If it does not, the loop is **frustrated**. No arrangement of the moments inside it satisfies every bond, however long you wait.
 
-Frustration is the coin problem in a material, and it is measurable. It changes the heat capacity, it shows up in neutron scattering, and it is the reason a class of magnets never orders properly no matter how carefully they are cooled. The obstruction lives in the loops, exactly where the arithmetic said it would.
+Frustration is the coin problem in a material, and a measurable one. It changes the heat capacity, it shows up in neutron scattering, and it is the reason a class of magnets never orders properly no matter how carefully they are cooled. The obstruction lives in the loops, exactly where the arithmetic said it would.
 
 ## Twelve patches
 

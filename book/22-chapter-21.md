@@ -16,7 +16,7 @@ Chapter sixteen pulled three objects out of the single word and answered two of 
 
 An observer holds an algebra of questions, which is everything it can ask about its own patch, carrying the brackets that record which pairs can be asked together and which cannot. And it holds a state, which is the odds it puts on every one of them.
 
-That pair fixed the floor under position and momentum, and it put the ceiling on separated agreement at 2√2 and not a thousandth higher. It also decided which part of the world is classical, by collecting the questions that commute with everything into a center and letting the records live there.
+That pair fixed the floor under position and momentum, and put the ceiling on separated agreement at 2√2 and not a thousandth higher. It also decided which part of the world is classical, by collecting the questions that commute with everything into a center and letting the records live there.
 
 Take the pair apart looking for a clock.
 
@@ -44,7 +44,7 @@ The first is that the state's odds are unchanged by it. Every question is worth 
 
 The second is where the non-commuting part earns its keep. In a world where every pair of questions could be answered together, the state's weight for asking A and then B would equal its weight for asking B and then A, because there would be nothing to tell the two orders apart. Chapter nineteen's entire subject is that they differ. So the state carries a gap between the two orders, one gap for every pair of questions, and the gap is a fixed feature of the state rather than a nuisance to be argued away. The second demand is that swapping the order costs exactly one unit of the shuffle, the same one unit for every pair of questions, with the amount of shuffling measured along a direction at right angles to the flow's own parameter. That last clause is complex analysis, the one step in the whole construction that cannot be done on a table.
 
-Those two demands admit exactly one flow, for any state that leaves no question with odds of exactly zero. Uniqueness is the theorem here, and it is what takes the choice away: the two demands are the state's own bookkeeping written down, and the flow is what solves them. The parameter running along that flow is the observer's own time.
+Those two demands admit exactly one flow, for any state that leaves no question with odds of exactly zero. Uniqueness is the theorem here, and what takes the choice away: the two demands are the state's own bookkeeping written down, and the flow is what solves them. The parameter running along that flow is the observer's own time.
 
 Minoru Tomita, who lost his hearing at the age of two and published very little in a long career, wrote the construction down in 1967 in a manuscript that the people who received it found close to unreadable. Masamichi Takesaki worked out what it said, passed the results to Jacques Dixmier in the summer of that year, and published a usable version in 1970 as a thin volume of Springer lecture notes. The thing is called **modular flow**, after the algebraic machinery it drops out of rather than after anything it does, and its generator, in chapter eighteen's sense of the word, is called the modular Hamiltonian.
 

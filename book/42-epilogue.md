@@ -54,7 +54,7 @@ Observers capable of running a repair law is a description of somebody, and call
 6. Why isn't agreeing with your neighbors enough? Every pair can agree while a loop carries a residue, and a leftover of exactly one survives every repair order.
 7. Why is there no such thing as now? Causality is a partial order, time is a total order, and nothing in the arrangement builds the second.
 8. Why can strangers agree without a boss? Influence along declared ports is a finite dependency cone.
-9. What move does reality actually make? One move is admissible, both readings to the midpoint, and it preserves their sum by construction.
+9. What move does reality actually make? One move is admissible, both readings to the midpoint, preserving their sum by construction.
 10. Why doesn't it matter who goes first? 326,047 disagreeing seams reach zero at cycle 96 under every order.
 11. What does everybody actually end up holding? Objective reality is the observable normal form, unique relative to the boundary data.
 12. Why is the world made of relations and not of things? The sourced action is gauge-invariant if and only if the source is conserved.
@@ -65,7 +65,7 @@ Observers capable of running a repair law is a description of somebody, and call
 17. Why is there a speed limit? The angle-preserving transformations of an observer's sky are the Lorentz transformations.
 18. Why does anything have energy? Energy is how fast repair gets through a region's records, timed by the clock that region makes for itself.
 19. Why can't you ask everything at once? Refusing to answer two questions together is what makes an undocumented machine readable from a seat inside it, and the questions that refuse nothing form the center where records sit.
-20. Why does nature cheat, but only by exactly 2√2? The ceiling is a product of commutators, and it sits at 2.8284.
+20. Why does nature cheat, but only by exactly 2√2? The ceiling is a product of commutators, and sits at 2.8284.
 21. Why does time feel like it's moving? The state supplies its own flow, and the flow is trivial on records.
 22. Why does writing something down cost heat? All four laws of thermodynamics come out of one repair rule, and at three hundred kelvin the world charges 2.87 joules divided by ten to the twenty-first for every yes-or-no question a record settles.
 23. Why does a region's memory scale with its surface? A finite overlap network is a constraint code, and a code of that kind carries no distance.

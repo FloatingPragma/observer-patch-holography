@@ -14,7 +14,7 @@ What Gödel had was a construction. Hand it a system that can talk about its own
 
 Every programmer has wanted the same tool at some point. Something you can point at a piece of code that tells you whether the code finishes or runs forever, and answers by deciding rather than by waiting, correctly, on any program you hand it.
 
-Suppose you have it. Call it the oracle. It takes a program's text along with an input, and it answers finishes or runs forever, and it is never wrong.
+Suppose you have it. Call it the oracle. It takes a program's text along with an input, answers finishes or runs forever, and is never wrong.
 
 Then write the following, which takes about four lines. It reads a piece of program text. It asks the oracle what that program does when it is fed its own text as its input. If the oracle says finishes, it goes into an infinite loop. If the oracle says runs forever, it stops immediately.
 
@@ -44,7 +44,7 @@ Turing's four lines are that walk with programs on the list and the oracle's pre
 
 The numbering is the engineering and the self-reference is what falls out of it. Give every symbol a number. A formula is a list of symbols, so code the list by prime powers: symbols numbered three and one give two cubed times three, which is twenty-four, and twenty-four factors into primes one way only, so the code hands back three and one. Proofs are lists of formulas and get their numbers the same way, so the relation between a proof and what it proves is arithmetic, and "no number codes a proof of the formula coded by twenty-four" is a statement about numbers that a system able to do arithmetic can write down.
 
-Getting a sentence to carry its own code with no regress is Quine's device, and it works in English with no numbers in it at all. Take a phrase, write it once inside quotation marks, then write it again outside them.
+Getting a sentence to carry its own code with no regress is Quine's device, and works in English with no numbers in it at all. Take a phrase, write it once inside quotation marks, then write it again outside them.
 
 "is twenty words long when appended to its own quotation" is twenty words long when appended to its own quotation.
 
@@ -80,7 +80,7 @@ Here x is whatever is being solved for and f is the operation applied to it. On 
 
 Chapter eleven's three verdicts apply to that description the way they apply to any other. The fiber could be empty, and a description with an empty fiber names no consistent state, which is the reading a witness produces when no arrangement of the world satisfies the testimony. It could hold several, and then more than one structure answers to the description and the description is of none of them in particular. Closure is the middle verdict, taken at the top: the fiber holds exactly one member, and the member is the structure the description came out of.
 
-That single requirement is severe, in chapter two's sense, and it does most of the work of existing. Let a structure's description specify something other than that structure, and the description is of the other one, so the structure it came out of is not described at all, which is a way of failing to be anything rather than a way of being wrong. A structure whose observers could never recover its architecture from their records fails the same demand from the other side, because then the description its observers hold is not a description of it, and the operation returns something else.
+That single requirement is severe, in chapter two's sense, and does most of the work of existing. Let a structure's description specify something other than that structure, and the description is of the other one, so the structure it came out of is not described at all, which is a way of failing to be anything rather than a way of being wrong. A structure whose observers could never recover its architecture from their records fails the same demand from the other side, because then the description its observers hold is not a description of it, and the operation returns something else.
 
 Nothing outside supplies the description. Asking what switched the universe on assumes an outside to switch it on from, and the demand that picks out this object is the demand that there is no outside. Anybody asking has to supply the outside themselves, and every outside anybody has supplied has needed one of its own.
 
@@ -120,7 +120,7 @@ So the thousand-machine run settles into the state the one-machine run settles i
 
 That is a symmetry, in chapter five's sense and in no weaker one. Name the change: divide the work differently. Name the invariant it leaves alone: everything anybody can measure. Chapter five also supplied the deflation. It applies here at full strength. A symmetry is the claim that part of your description was never physical, and how the work was divided was never physical.
 
-Nothing else in the architecture moves as much. Rotating the carrier moves twelve ports. A gauge change moves a convention chosen separately in every place. This one moves the entire execution, and it goes uncounted as a symmetry because it looks like a fact about implementation rather than a fact about the world, which is what the labeling of the twelve ports and the choice of gauge in every place both looked like until somebody counted them.
+Nothing else in the architecture moves as much. Rotating the carrier moves twelve ports. A gauge change moves a convention chosen separately in every place. This one moves the entire execution, and goes uncounted as a symmetry because it looks like a fact about implementation rather than a fact about the world, which is what the labeling of the twelve ports and the choice of gauge in every place both looked like until somebody counted them.
 
 A rendering loop has a frame number, and every object in the scene shares it, which is what makes it readable: ask any two objects what frame it is and they agree. Ask which step a given patch is on here, and two runs that agree on every measurement anybody can take come back with different numbers. A quantity that differs between runs nobody can tell apart belongs to the bookkeeping. No frame, no tick, no rendering loop, and no place to stand and watch the next frame get drawn. What there is instead is a state picked out by the constraints and arrived at by descent from wherever the system happened to be, and the descent has no rate, because a rate would be a step count.
 

@@ -82,7 +82,7 @@ Nothing has happened. The floor on the proton's lifetime has been pushed past te
 
 **Lattice quantum chromodynamics, also 1974.** In the same year, Kenneth Wilson made spacetime discrete, as a way of computing rather than as a claim about the world. The equations of the strong force cannot be solved with pen and paper, so put the world on a grid of points, let a computer grind through it, and shrink the spacing at the end. It works. It is how we know the proton's mass from first principles. The calculations run on some of the largest machines ever built.
 
-This is the closest thing mainstream physics has to a granular world, and it repays a careful look, because a finite world and a finite calculation are not the same animal.
+This is the closest thing mainstream physics has to a granular world, and repays a careful look, because a finite world and a finite calculation are not the same animal.
 
 The lattice is scaffolding. The spacing is a parameter that goes to zero at the end of every calculation. If it did not go to zero the answers would be wrong. The grid sits inside an ordinary spacetime, carrying a time direction imposed from outside so the computer knows which way to step. Nobody in the field claims otherwise. The whole art of the subject is controlling the error you make by not having taken the spacing to zero yet. Lattice quantum chromodynamics is a discrete method for computing the consequences of a continuous theory in a continuous spacetime. It is a triumph, and it surrendered nothing.
 
@@ -104,7 +104,7 @@ None of them gave up the arena. A set of events. A place for things to happen. S
 
 ## The rule
 
-There is a fifth program, and it sits outside that tally because it did the one thing the other four would not.
+There is a fifth program. It sits outside that tally because it did the one thing the other four would not.
 
 On 14 April 2020 Stephen Wolfram announced a project that had been running quietly for years, with most of the technical work carried by a young mathematician named Jonathan Gorard. Its starting object is not a spacetime. It is a **hypergraph**: a collection of relations among elements that are nothing in particular, carrying no positions, no distances and no dimension. One rewriting rule says that wherever some pattern of relations appears, replace it with another pattern. Apply it wherever it matches, and keep applying it.
 

@@ -38,7 +38,7 @@ The disagreement outstanding across a region's seams is a sum of squares, which 
 
 Arthur Wightman wrote that into the axioms of quantum field theory in the 1950s and called it the spectrum condition. It has to be assumed there, because without it every system has somewhere lower to drop into and hydrogen radiates without limit. Here it is the floor of a sum of squares.
 
-Additivity comes off the seams. Two regions with no seam between them have no comparison to make across the gap, so they have no repair to do across it, and neither one's rate says anything about the other's. The rates add. That is why energy accounting works at all: a calorimeter that stops two beams together reports the sum of what it reports for each of them alone, an assumption so ordinary that nobody writes it down, and it holds because separated regions share no seam.
+Additivity comes off the seams. Two regions with no seam between them have no comparison to make across the gap, so they have no repair to do across it, and neither one's rate says anything about the other's. The rates add. That is why energy accounting works at all: a calorimeter that stops two beams together reports the sum of what it reports for each of them alone, an assumption so ordinary that nobody writes it down, and holds because separated regions share no seam.
 
 That sum has a condition on it, and the condition breaks the moment the two regions touch. Run a seam between them and their rates stop adding, since the seam carries a disagreement belonging to neither of them and repair at that seam changes both. The gap between the joint rate and the sum of the separate rates is the quantity a chemist charges for a bond, and the sign of that gap is why two hydrogen atoms end up as a molecule.
 
