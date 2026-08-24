@@ -102,6 +102,24 @@ Every one of them gave up something that had looked non-negotiable. Every one of
 
 None of them gave up the arena. A set of events. A place for things to happen. Something along which they happen. Read the log again and the first half is a sequence of assumptions being removed, one per revolution, at forty-year intervals. The second half is a sequence of structures being added on top of an assumption that nobody touched.
 
+## The rule
+
+There is a fifth program, and it sits outside that tally because it did the one thing the other four would not.
+
+On 14 April 2020 Stephen Wolfram announced a project that had been running quietly for years, with most of the technical work carried by a young mathematician named Jonathan Gorard. Its starting object is not a spacetime. It is a **hypergraph**: a collection of relations among elements that are nothing in particular, carrying no positions, no distances and no dimension. One rewriting rule says that wherever some pattern of relations appears, replace it with another pattern. Apply it wherever it matches, and keep applying it.
+
+Everything else is supposed to come out of that. Space is what the graph looks like from far enough away, and the number of dimensions is a property you measure on the graph rather than a number entered in advance. Time is the updating. What an observer can know is the causal graph, the record of which updates fed which. Gorard's contribution is the sharpest part of it: if the causal graph comes out the same whatever order the updates are applied in, a condition he named causal invariance, then two observers who disagree about the order still agree about the causes, and special relativity is what that agreement looks like from inside. Keep the orders running in parallel rather than collapsing them and the branching has the shape of quantum mechanics.
+
+Put that beside the four. Every program in the previous section defended the arena. This one deleted it, which is the only attempt anybody has made at a world with no place for anything to be in, and every argument in this book is downstream of that move being available at all. The debt is not a courtesy.
+
+Then look at what went onto the board in its place.
+
+The rule. One rule, drawn from a space of candidates that is not small, wanted because it produces this universe rather than one of the others. The method for finding it was to search: enumerate simple rules, run them, inspect what comes out. Two decades of that has not produced a rule that returns this universe, and nothing inside the framework prefers any candidate to any other. The later proposal, that every rule runs and an observer samples the whole collection of them, is a way of living with the difficulty rather than a way of ending it.
+
+Which is Fermi's objection arriving one floor up. Four parameters will fit an elephant, and a free rule carries more freedom than any list of parameters does, because the parameters are what a rule has once somebody has chosen one. The arena came off the board and the largest adjustable thing anybody has written down went on in its place.
+
+So the tally closes on a question rather than a fifth entry. Delete the arena, and what selects the rule? It cannot be a search run from outside, because the outside is the thing that was just deleted. Whatever does the selecting has to be inside, and has to be something the world does to itself.
+
 ## What is left
 
 Every mainstream framework in physics begins by assuming four things: a spacetime, a collection of fields living on it, a symmetry group chosen to match what has been observed, and a page of numbers copied off instruments. Every item on that list is load-bearing and each was hard-won. Take any of them away and the equations stop.

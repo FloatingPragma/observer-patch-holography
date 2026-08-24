@@ -50,6 +50,26 @@ The road to that sentence ran through a bell in an Essex church tower, a bead he
 
 Stuff is what it feels like, and the feeling has an account too. You are made of the same entries. The hand you put on a table is a set of patterns with a standing cost, the pressure you feel is a rate, the table's refusal to let the hand through is one pattern declining to occupy a state another pattern is holding, and your conviction that you have touched something solid is a commitment written into the part of you where everything commutes. There is nowhere in that arrangement to stand and look at the accountancy from outside, because the eye, the ruler and the place to stand would each have to be built out of more of it.
 
+## The shape of space
+
+Cosmology puts a question to the sky that sounds like the most concrete question anybody could ask. Is space finite or infinite? Does it curve away like the surface of a ball, so that a straight line eventually comes home, or run flat forever, or close on itself the way a doughnut does, joined up in a direction nobody can point at? There are instruments aimed at it and a number attached to it, and the number comes back flat to within a fraction of a percent.
+
+Take the question apart before answering it.
+
+It asks for the shape of an object. Being a ball or being a doughnut is a property of a set of points: which points there are, and which of them lie near which. Chapter fifteen got the three directions as the rank of the slowest band a repair rule leaves standing, and the first entry on this chapter's sheet says what that buys, which is a count of comparisons. A rank is not the kind of thing that can be a ball. There is no set of points anywhere on the inventory for a shape to be the shape of.
+
+It also asks for the shape now. A shape at an instant needs the instant. Chapter seven went looking for one and came back with a partial order: among twelve observers, a hundred and twenty pairs of repairs carry a fact about which came first and three hundred and fifteen carry no such fact anywhere in the world. Nothing in that hands over a slice through everything that two observers would draw the same way. So the question wants a space and a moment, and the sheet carries neither.
+
+A question whose terms name nothing does not get a false answer. It stops having one. Space is not a ball, and it is not a doughnut, and it is not infinite either, in the same way that the ether was not moving slowly.
+
+Which leaves the instruments, because they are measuring something. Observers hold records. Where two of them overlap, the records agree or they get repaired until they do. Glue the compatible ones, coarse-grain until individual seams stop being visible, and out comes a geometry: distances, angles, curvature, the whole apparatus chapter twenty-four assembled, standing in for more separate agreements than anybody is ever going to count. That description has a shape. The shape belongs to the description, to the coarse-graining that produced it, and to the slicing whoever took the reading chose. It is an effective account of a virtual slice, and every cosmological measurement ever published is a measurement of it. Ask what shape space has and the answer has to name a resolution and a slicing before it can begin.
+
+The same assumption is buried in the other question everyone asks. Galaxies recede, the recession runs faster the further out you look, so wind the film backwards. The scale shrinks. Keep winding and it reaches zero, so everything was at one point, at one moment, and that moment was the beginning. Every step of that is sound arithmetic performed on the effective description. What the last step needs, and helps itself to, is a global clock to run backwards and a spacetime to shrink.
+
+What the reconstruction is made of is records held now, inside finite patches, extrapolated. The hot dense era at the far end of that extrapolation is as well evidenced as anything in the subject, and nothing here disturbs it. The step that does not follow is the one that converts a limit of an effective description into a first moment of the world, because a first moment of the world is a reading on a clock that no observer holds and that nothing in the arrangement ever started.
+
+Chapter thirty-six is where the word first gets taken away properly. The smaller point will do here. Both questions are the container picture asking to be let back in, at the two places the argument has not yet shut: the edge, and the beginning.
+
 ## The Link Trainer
 
 In 1929, in his family's organ factory in Binghamton, New York, Edwin Link built a stubby wooden aircraft that went nowhere. Organ bellows underneath it, driven by an electric pump, pitched and rolled the box while the pilot inside worked the controls, and the instruments on the panel moved the way instruments move in the air. The first customers were amusement parks. In the spring of 1934 the Army Air Corps was carrying the mail and losing aircraft to weather, and Link flew in to a demonstration in conditions nobody else would fly in. They ordered six, at three thousand five hundred dollars each.

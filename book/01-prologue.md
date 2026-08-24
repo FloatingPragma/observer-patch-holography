@@ -54,6 +54,10 @@ In 2002 the programmer Joel Spolsky wrote down a rule about descriptions of that
 
 ## One equation at a time
 
+The framework being described has a name. It is called Observer Patch Holography, and the full version of it lives outside this book: papers carrying the theorems, longer treatments that build the mathematics as they go, and machine-checked proofs for the parts that have to bear weight. Appendix C says where all of it sits.
+
+None of that is reproduced here, because reproducing it would produce a different book. What follows is the argument rather than the apparatus: the concepts, the constructions, and the points at which a number falls out with nothing fed in to produce it. Where a step is carrying real load you will be told what it rests on and where the checkable version can be found.
+
 There are equations in this book, not many, and every one of them is doing work. Each one is introduced by a sentence saying what it is about to say and followed by a sentence saying what it said. Every symbol in it is explained in words on the same page.
 
 An equation is compressed prose. It decompresses under four questions.

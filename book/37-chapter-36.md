@@ -60,6 +60,8 @@ In January 1948 M. C. Escher printed a lithograph, 28.2 by 33.2 centimeters, sho
 
 Chapter six borrowed the impossible staircase, which this artist put into a lithograph twelve years later. The staircase fails at the closing: every individual step up is unobjectionable and the loop cannot be assembled. *Drawing Hands* fails nowhere. Every line in it is a line an artist could draw. Both hands are drawn and both hands are drawing, and cover any part of it you like and what is left is consistent. What the picture lacks is a ground floor. Neither hand is the real one, and there is no corner of the composition to stand in and ask which was drawn first.
 
+Douglas Hofstadter named the arrangement in *Gödel, Escher, Bach* in 1979 and spent seven hundred pages on it. A **strange loop** is a hierarchy that climbs through its levels and arrives back at the level it started from, with no level underneath holding the rest of them up. The staircase is what a strange loop looks like when it fails. The hands are what one looks like when it holds. Everything remaining in this chapter is the second picture with something else in the cuffs.
+
 ## The description and the thing described
 
 Chapter eleven put a name on what a network of observers holds in common. The record map takes the full state and returns the part that survives comparison, which is every seam entry and nothing that only one observer could have known. That list has a fiber, the set of consistent states carrying it, and when the fiber holds exactly one member, that member is the observable normal form. Objective reality is that state, up to changes nothing can see.

@@ -84,6 +84,10 @@ Somebody found this out the expensive way, in June 1902. The letter that did it 
 
 Which is why *Principia Mathematica* runs to three volumes. The several hundred pages of preparation, and one plus one arriving at proposition 110.643, are not eccentricity. They are the price of a system that Russell's letter could not be written to.
 
+The defense did not hold. In 1931 Kurt Gödel proved that Russell's letter can always be written. Any system strong enough to carry out ordinary arithmetic is strong enough to describe its own formulas, and once a system can describe its own formulas, sentences about itself are among the things it can build. Whitehead and Russell had bought a system that could not be attacked the way Frege's had been. What was not for sale was a system with nothing to say about itself, because a system with nothing to say about itself is too weak to be the foundation of anything. Chapter thirty-six is where the construction gets taken apart.
+
+The result was read as a demolition, and as a demolition it was decisive: the programme of standing mathematics on logic did not recover. Read the same theorem as a specification and it says something the demolition reading discards. A structure rich enough to describe arithmetic is rich enough to describe itself, and no arrangement of the axioms takes that capability away. It arrives with the strength.
+
 Chapter one gave you the tool for seeing why that matters here. A theory with infinitely many free parameters fits anything and forbids nothing, which was the fatal problem with quantizing gravity by brute force. A contradiction is the same disease in its terminal form: not many knobs but all of them, not a poor prediction but every prediction at once. Consistency is what buys a description the right to rule anything out.
 
 So the demand this book starts from can be stated. **A structure counts as existing exactly insofar as it accounts for itself with nothing left over.** No external cause is allowed, because a cause is one more thing standing in need of an account. No leftover assumptions are allowed, because an assumption is a thing you would have to explain. And it must not contradict itself, because a contradiction buys everything and therefore purchases nothing.
@@ -113,6 +117,8 @@ It is the number that the operation leaves alone. If you feed in a number and ge
 The hunting has a mechanism. When your number is too big, one over it is too small, so the answer comes out below the target. When your number is too small, one over it is large, so the answer overshoots above. Every step lands on the far side of the destination from where you started, and lands closer. The error does not merely shrink, it changes sign each time and shrinks, which is why the decimals settle from both directions at once.
 
 A number that a process leaves alone is called a **fixed point**. This is the first of many in this book. The number itself turns up in enough seaside-gift-shop literature to have earned a bad reputation. Where it came from is the part that matters. Nothing was measured. No experiment was performed and no data existed at any point in the procedure. A single demand, that the operation return what it is given, reached into the continuum of real numbers and picked out exactly one.
+
+Look at the shape of that demand rather than at the number it produced. The equation reads x equals one plus one over x, and the unknown stands on both sides of the equals sign. What is being solved for appears inside its own specification, which in most arguments is the move that gets called circular and thrown out. Here it is the entire mechanism. Take the self-reference out and no equation is left, only a continuum with nothing in it to prefer.
 
 That is the shape of the answer to the question in the title. A requirement severe enough to have exactly one solution.
 
@@ -163,5 +169,7 @@ Every one of those is a property of a description rather than of a lump of world
 Which puts a clause into the founding demand that nobody wrote there. "Accounts for itself" has no application to a structure containing no accounts. Ask whether a universe with nothing in it that keeps a record is consistent, and the question slides off: there is nothing in such a place to be right or wrong about anything, so there is nothing for consistency to be a property of. The word does not become false. It stops reaching.
 
 So the founding demand turns out to require something nobody put into it and nobody would have wanted. Somewhere in that structure there has to be a thing that holds a description, sets it against something, and is capable of getting it wrong. Otherwise the demand has nothing to bite on, and a structure the demand cannot bite on fails it, and by its own terms it does not exist.
+
+One more thing follows, and it does not get settled here. If the structure is everything, then whatever its record-keepers describe is inside it, so some of what they hold is a description of the thing they are part of. Gödel's theorem says a structure that strong can carry such a description. The demand above says it has to.
 
 A calculator, two letters of the alphabet, and a bank ledger with two entries on it. What comes out at the bottom of them is that the universe has to contain something capable of being wrong.
