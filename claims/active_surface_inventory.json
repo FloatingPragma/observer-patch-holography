@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 306,
+  "surface_count": 305,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -511,11 +511,6 @@
     },
     {
       "path": "docs/CONSTANTS_ANCESTRY_V3.md",
-      "glob": "docs/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/DARK_SECTOR_FIELD_LAW_POSTMORTEM.md",
       "glob": "docs/*.md",
       "allowlisted": false
     },
