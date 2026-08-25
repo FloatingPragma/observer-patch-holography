@@ -13,13 +13,10 @@ FRW continuity relation,
   `w(a) = -1 - (1/3) * (a * rho'(a)) / rho(a)`,
 
 which is `w(a) = -1 - (1/3) d ln rho / d ln a` wherever `rho` is positive.
-Per the P4 remark of the DK-01 theorem file
-(`proof/epic_wins/dk01_wlaw/DK01_FIXED_N_WLAW.md` in the oph-meta
-metarepository), this definition-through-continuity is exactly the object a
-`w0waCDM` analyst reconstructs: the fit reads the dark-energy density from
-the shape of `H^2(a)` beyond the matter and radiation terms and defines
-`w_eff` from that density through continuity, so the theorems below are
-stated for exactly the object the comparator measures.
+A `w0waCDM` posterior is a model- and likelihood-dependent CPL projection
+of the expansion history, not a direct pointwise measurement of this
+capacity law.  Any later comparison therefore requires a separately frozen
+likelihood, scored range, nuisance policy, and projection contract.
 
 Formalization choice.  The domain is all scale factors `a > 0`, taken as
 `Set.Ioi (0 : ℝ)`; this is the cleanest single domain.  Every pointwise
@@ -54,8 +51,9 @@ Results:
   plane.
 * Inhabitants: the constant-capacity instance (`constCapacity`, with
   `w = -1` computed), the power-law family (`powerCapacity` with
-  `N(a) = N0 * a ^ eps`, giving `w = -1 + eps / 3` exactly, an exact
-  thawing-side line for `eps > 0` and monotone for `eps >= 0`), and the
+  `N(a) = N0 * a ^ eps`, giving `w = -1 + eps / 3` exactly, a constant
+  quintessence-side line with `wa = 0` for `eps > 0` and monotone for
+  `eps >= 0`), and the
   decreasing instance `eps = -1` with `w = -4/3 < -1`, which shows the
   monotone hypothesis of the no-phantom bound is load-bearing.
 
@@ -102,9 +100,8 @@ def CapacityLaw.rho (C : CapacityLaw) (a : ℝ) : ℝ := C.kappa / C.N a
 
 /-- The effective-fluid equation of state, DEFINED through the FRW
 continuity relation: `w(a) = -1 - (1/3) * (a * rho'(a)) / rho(a)`.  This is
-`-1 - (1/3) d ln rho / d ln a` wherever `rho` is positive, and per the P4
-remark of the DK-01 theorem file it is exactly the object a `w0waCDM`
-analyst reconstructs from the expansion history. -/
+`-1 - (1/3) d ln rho / d ln a` wherever `rho` is positive.  Comparison to a
+`w0waCDM` posterior is a separate model/likelihood projection. -/
 def CapacityLaw.w (C : CapacityLaw) (a : ℝ) : ℝ :=
   -1 - (1 / 3) * (a * deriv C.rho a) / C.rho a
 
@@ -258,8 +255,8 @@ theorem CapacityLaw.cpl_forced_of_constN (C : CapacityLaw) (c w0 wa : ℝ)
 
 The constant-capacity instance realizes the fixed branch with `w = -1`
 computed.  The power-law family realizes the drift branch exactly:
-`N(a) = N0 * a ^ eps` gives `w = -1 + eps / 3` at every point, an exact
-thawing-side line for `eps > 0`, monotone for `eps >= 0`, and for
+`N(a) = N0 * a ^ eps` gives `w = -1 + eps / 3` at every point, a constant
+quintessence-side line (`wa = 0`) for `eps > 0`, monotone for `eps >= 0`, and for
 `eps = -1` a decreasing capacity with `w = -4/3 < -1`, which shows the
 monotone hypothesis of the no-phantom bound is load-bearing. -/
 
@@ -340,8 +337,9 @@ theorem powerCapacity_monotoneOn (N0 : ℝ) (hN0 : 0 < N0) {eps : ℝ}
   exact mul_le_mul_of_nonneg_left
     (Real.rpow_le_rpow (le_of_lt hx0) hxy heps) (le_of_lt hN0)
 
-/-- Growing capacity, thawing side: `eps > 0` places `w` strictly above
-`-1`, at the exact value `-1 + eps / 3`. -/
+/-- Growing power-law capacity, quintessence side: `eps > 0` places the
+constant `w` strictly above `-1`, at the exact value `-1 + eps / 3`.  This
+is not a thawing history because its CPL slope is zero. -/
 theorem powerCapacity_w_gt_neg_one (N0 : ℝ) (hN0 : 0 < N0) {eps : ℝ}
     (heps : 0 < eps) {a : ℝ} (ha : a ∈ Set.Ioi (0 : ℝ)) :
     -1 < (powerCapacity N0 hN0 eps).w a := by

@@ -26,10 +26,10 @@ Exit status 0 on byte equality, 1 on any difference. The SHA-256 of both
 serializations is printed.
 
 What is not proved here. Byte agreement certifies that two disjoint
-implementations of the frozen formulas produce the same rendered
+implementations of the imported continuation formulas produce the same rendered
 numbers; it does not certify the physical reading of the template, does
-not register a prediction, and touches no event data or comparison
-dataset.
+not derive the integer-division transition, does not register a prediction,
+and touches no event data or comparison dataset.
 """
 
 from __future__ import annotations
@@ -184,8 +184,8 @@ def v_build_receipt() -> dict:
     for k in ks:
         dfk = base * ln[k]
         fk = rot + dfk
-        lw_a10 = 64 * pi * pi * p0 / (a_hi * ln[k])
-        lw_a1 = 64 * pi * pi * p0 / (a_lo * ln[k])
+        lw_a10 = 64 * pi * pi * p0 / (a_hi * g_chi * g_chi * ln[k])
+        lw_a1 = 64 * pi * pi * p0 / (a_lo * g_chi * g_chi * ln[k])
         key = "k%02d" % k
         teeth.append(
             {
@@ -202,12 +202,12 @@ def v_build_receipt() -> dict:
         display["reference.teeth.%s.linewidth_fraction_a1" % key] = float(lw_a1)
 
     receipt = {
-        "schema": "oph.ringdown.integer_k_comb_template.v1",
+        "schema": "oph.ringdown.integer_k_comb_template.v3",
         "status": (
             "build-stage instrument, target-blind draft; not a registered, "
             "frozen, or scored prediction"
         ),
-        "frozen_law": {
+        "imported_continuation_law": {
             "source_of_record": (
                 "falsification/frozen_targets/fz01_2026-07-17/"
                 "frozen_target_integer_k_comb_2026-07-17.md"
@@ -223,6 +223,19 @@ def v_build_receipt() -> dict:
                 "(f_a - m*Omega_H/(2*pi)) / (f_b - m*Omega_H/(2*pi)) "
                 "= ln(k_a)/ln(k_b), integers k >= 2"
             ),
+            "transition_rule": (
+                "d_before = k*d_after with positive integer dimensions and "
+                "k >= 2; therefore k must divide d_before"
+            ),
+            "transition_status": (
+                "imported continuation premise; not source-derived by OPH"
+            ),
+            "signed_black_hole_entropy_change": (
+                "ln(d_after)-ln(d_before) = -ln(k)"
+            ),
+            "positive_entropy_loss": (
+                "ln(d_before)-ln(d_after) = ln(k)"
+            ),
             "universal_coordinate": (
                 "x = (G*M/(c^3*g(chi))) * (omega - m*Omega_H); "
                 "x_k = ln(k)/(8*pi)"
@@ -234,7 +247,20 @@ def v_build_receipt() -> dict:
             ),
             "tooth_offset": "Delta_f_k = c^3*g(chi)*ln(k)/(16*pi^2*G*M)",
             "kms_weight": "(k-1)/k",
-            "linewidth_fraction": "64*pi^2*p_0/(a*ln(k))",
+            "kms_scope": (
+                "within-line net absorption-minus-stimulated-emission factor; "
+                "not a normalized cross-k transition probability or prior"
+            ),
+            "linewidth_fraction": "64*pi^2*p_0/(a*g(chi)^2*ln(k))",
+            "linewidth_scope": "Gamma/Delta_E_k linewidth-to-spacing ratio",
+            "transition_approximation": (
+                "leading small-transition Kerr first-law template; finite-step "
+                "background corrections are not derived"
+            ),
+            "computed_k_scope": (
+                "finite display/submodel candidate k in {2,...,12}; not an "
+                "unrestricted integer-family likelihood"
+            ),
             "kerr_functions": {
                 "r_plus": "(G*M/c^2)*(1 + sqrt(1-chi^2))",
                 "omega_h": "c^3*chi/(2*G*M*(1 + sqrt(1-chi^2)))",
@@ -253,7 +279,7 @@ def v_build_receipt() -> dict:
         "declared_selections": {
             "a_range": {
                 "value": list(V_A_RANGE),
-                "status": "declared; frozen-statement nuisance interval",
+                "status": "declared; historical-draft nuisance interval",
             },
             "a_display_endpoints": {
                 "value": list(V_A_RANGE),
@@ -263,14 +289,15 @@ def v_build_receipt() -> dict:
                 "value": V_P0,
                 "status": (
                     "declared; Page emission coefficient as pinned in the "
-                    "companion statement"
+                    "historical companion statement"
                 ),
             },
             "k_range": {
                 "value": [V_K_MIN, V_K_MAX],
                 "status": (
-                    "declared; matches the frozen target KILL-condition "
-                    "ladder set {2, ..., 12}"
+                    "declared finite display/submodel candidate matching the "
+                    "historical draft's ladder set {2, ..., 12}; not an "
+                    "unrestricted integer-family support"
                 ),
             },
             "mass_parameterization": {
@@ -281,10 +308,11 @@ def v_build_receipt() -> dict:
                 ),
             },
             "g_of_chi_provenance": {
-                "value": "statement-pinned, derived from the KMS reading",
+                "value": "algebraically fixed within the imported KMS reading",
                 "status": (
                     "not a free selection; the identity "
-                    "g = 4*G*M*kappa/c^3 is recorded in frozen_law.g_of_chi"
+                    "g = 4*G*M*kappa/c^3 is recorded in "
+                    "imported_continuation_law.g_of_chi"
                 ),
             },
             "reference_point": {
@@ -305,7 +333,7 @@ def v_build_receipt() -> dict:
             "mass_nominal_solar": V_MASS_SOLAR,
             "chi": V_CHI,
             "m_azimuthal": V_M_AZ,
-            "frame": "source frame; detector frame carries 1/(1+z)",
+            "frame": "source frame; observed hertz require M_det=(1+z)M_source",
             "omega_h_rad_per_s_sig40": v_sig40(omega_h),
             "kappa_per_s_sig40": v_sig40(kappa),
             "g_chi_sig40": v_sig40(g_chi),
@@ -321,13 +349,31 @@ def v_build_receipt() -> dict:
             "rendered_significant_digits": 40,
             "pi_method": "Machin: 16*arctan(1/5) - 4*arctan(1/239)",
         },
+        "frame_contract": {
+            "detector_mass": "M_det = (1+z)*M_source",
+            "observed_frequency_rule": (
+                "evaluate Omega_H and every tooth with M_det; equivalently "
+                "divide all source-frame frequencies by 1+z"
+            ),
+            "ratio_boundary": (
+                "redshift cancellation holds only when tooth and rotation "
+                "offset use the same frame"
+            ),
+        },
+        "comparison_contract_boundary": (
+            "Published posterior samples alone are not a detector likelihood "
+            "or model evidence. A future comparison needs a common "
+            "strain/readout likelihood or sufficient likelihood product, "
+            "sampling-prior and normalization metadata, prospectively "
+            "normalized model priors, and convergence diagnostics."
+        ),
         "boundary": (
             "Target-blind build-stage instrument. No gravitational-wave "
             "event data, remnant posterior, detector likelihood, or "
             "comparison dataset was read, fetched, or evaluated. The "
-            "physical reading of the template scale as a Kerr remnant "
-            "quantity is the frozen target's declared identification. "
-            "Registration is open pending the owner's freeze."
+            "integer-division transition and physical reading of the template "
+            "scale as a Kerr remnant quantity are imported continuation "
+            "premises. Source derivation and registration remain open."
         ),
     }
     return receipt

@@ -163,15 +163,17 @@ GNS representation.  `QFT.FiniteTwoSiteIsingColimitGNS` closes this exact
 composition gap on one declared `M₄(ℂ)` carrier: the selected density and
 Hamiltonian commutator inhabit one consensus tower, the genuine two-slot
 conditional-expectation diamond is transported to the same carrier, and the
-Hamiltonian and unitary flow act faithfully on the tower-selected GNS Hilbert
-space.  The normalized cyclic unit has zero energy while the represented
-Hamiltonian and left-spin response remain nonzero; first-order interaction
-spreading and a static interaction-deletion control are both exact.  An
+Hamiltonian and unitary flow act on the ambient algebra and faithfully on the
+tower-selected GNS Hilbert space.  The normalized cyclic unit has zero energy
+while the represented Hamiltonian and left-spin response remain nonzero;
+first-order interaction spreading leaves the left regional algebra, and a
+static interaction-deletion control is exact.  An
 explicit failure of selected-state invariance under the regional conditional
 expectation diagnoses that particular expectation; compatible restrictions
-of the global state to the regional algebras still exist.  Thus the finite
-algebraic carrier/GNS/Hamiltonian/regional-net composition is attained, but
-source selection, physical regions and time, continuum or infinite-volume
+of the global state to the regional algebras still exist.  Thus a finite
+regional diamond and ambient dynamics are co-located on the GNS carrier, but
+the result is not a dynamics-preserved regional net.  Source selection,
+physical regions and time, continuum or infinite-volume
 limits, renormalization flow, fields, particles, scattering, detectors, and a
 physical time-slice theorem remain open.
 `QFT.SourceHistoryGNSDynamics` closes a different finite attachment gap. The
@@ -194,15 +196,16 @@ representation.  The slots are successive history coordinates, not
 Lorentzian regions or calibrated times; no spectrum condition, continuum/RG,
 field, particle, scattering, detector, or physical time-slice attachment
 follows.
-`QFT.SourceHistoryExpectationNet` supplies the state-preserving half of that
-rung on the record layer: for every slot region the conditional expectation of
-the empirical window law is linear, unital, positive, localized, idempotent,
-tower-compatible, and preserves the committed mean, with the walls fixed by
-their own regional expectations and the exact conditional witnesses
-`383 / 415` and `2 / 89` in the two `(s₀,s₁)` cells over the late slot.  The
-same counts refute any state-preserving interval-bimodule projection of the
-full matrix carrier onto the slot-`(0,1)` interval algebra, so the
-state-preserving regional structure lives exactly on the record layer while
-its off-diagonal matrix extension across the late wall does not exist.  Slots
-stay uncalibrated history coordinates and no physical-QFT attachment follows.
+`QFT.SourceHistoryExpectationNet` supplies a finite-probability
+record-conditioning net on the rational record layer.  For every slot
+region its map is rational-linear, unital, pointwise positive, localized,
+idempotent, tower-compatible, and preserves the committed mean, with the walls
+fixed by their own regional maps and exact conditional witnesses `383 / 415`
+and `2 / 89` in two `(s₀,s₁)` cells over the late slot.  The same counts prove
+a narrower matrix no-go: no complex-linear map into the fixed slot-`(0,1)`
+algebra `algebra01` both obeys its bimodule law and preserves the committed
+state.  This does not exclude ordinary AQFT inclusions with state restriction,
+different or enlarged target algebras, ancillary boundary memory, generalized
+expectations, or non-bimodule positive/CP channels.  Slots stay uncalibrated
+history coordinates and no physical-QFT attachment follows.
 -/

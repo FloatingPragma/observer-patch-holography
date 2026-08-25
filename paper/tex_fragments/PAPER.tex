@@ -3274,8 +3274,8 @@ This subsection separates two result classes. The structural
 black-hole package is a four-step chain: fixed-cutoff edge-center collar decomposition on the
 exact-Markov or idealized exact-recoverability horizon carrier, the small-CMI recoverability
 reading of interior encoding on that same carrier, Hawking/KMS normalization on the geometric
-modular branch, and the discrete area spectrum together with the Schwarzschild transition identity
-\(\Delta E = k_B T_H \ln(d'/d)\) for an actual sector change \(d \to d'\). Finite same-boundary
+modular branch, and the discrete area spectrum together with the leading semiclassical
+Schwarzschild first-law relation for an actual sector change. Finite same-boundary
 records and finite reconstruction thresholds do not by themselves supply physical radiation
 entropy, exterior time, evaporation flux, a geometric island, a radiative quotient, or an
 asymptotic waveform readout. Any clean comb structure, QNM selector, Page-type linewidth estimate,
@@ -3301,38 +3301,58 @@ where \(\ell_\star^2=\hbar G_{\mathrm{SI}}/c^3\) is the scale-readout area displ
 Planck area. Since \(d_\alpha\) is a positive integer, \textbf{areas are discretely spaced} with
 logarithmic gaps.
 
-\textbf{Hawking emission energy quantization.} For a Schwarzschild black hole with \(A(M) = 16\pi G^2 M^2/c^4\), a transition between sectors \(d \to d'\) changes the area by
+\textbf{Hawking emission energy quantization.} For a Schwarzschild black hole with \(A(M) = 16\pi G^2 M^2/c^4\), define the signed change of the hole for a transition from \(d_{\rm before}\) to \(d_{\rm after}\) by
 
 \[
-\Delta A = 4\ell_\star^2 \ln(d'/d).
+\Delta_{\rm BH} A = 4\ell_\star^2
+\ln(d_{\rm after}/d_{\rm before}).
 \]
 
-The corresponding ADM energy change of the hole is \(\Delta(Mc^2) = c^2 \Delta M\), with \(\Delta M = \Delta A / (dA/dM)\). This gives
+The differential first law, evaluated on the initial background, gives the leading semiclassical relation
 
 \[
-\Delta(Mc^2) = \frac{\hbar c^3}{8\pi G M} \ln(d'/d).
+\Delta_{\rm BH}(Mc^2) = k_B T_H
+\ln(d_{\rm after}/d_{\rm before})
 \]
 
-Using the Hawking temperature \(T_H = \hbar c^3 / (8\pi G k_B M)\), whose \(2\pi\) normalization is fixed by the BW\(_{S^2}\) tangent-limit normalization of Theorem 4.2:
-
-\[
-\Delta(Mc^2) = k_B T_H \ln(d'/d).
-\]
+with \(T_H = \hbar c^3/(8\pi G k_B M)\), whose \(2\pi\)
+normalization is fixed by the BW\(_{S^2}\) tangent-limit normalization of
+Theorem 4.2. This is not an exact finite-difference identity: using the exact
+Schwarzschild mass--area relation, an emission with entropy loss \(\ln k\)
+has
+\(E_{\rm emit}=Mc^2[1-\sqrt{1-\ln k/S_{\rm BH}}]\), whose expansion is
+\(k_BT_H\ln k[1+O(\ln k/S_{\rm BH})]\).
 
 \textbf{Continuation-level spectroscopy templates.} The remainder of this subsection is not part of the recovered core. It records what follows only if one adds extra discrete-horizon selection rules and, where stated, standard semiclassical inputs such as evaporation-power models, QNM/transition identifications, or greybody matching.
 
-\textbf{Integer transitions.} If dominant emission steps reduce the edge dimension by an integer factor \(k\) (i.e., \(d'=d/k\)), the emitted spectrum becomes a discrete comb:
+\textbf{Integer transitions.} If one imports the additional rule that dominant
+emission steps reduce the edge dimension by an integer factor \(k\), then
+\(d_{\rm before}=k d_{\rm after}\), so \(k\) must divide the initial
+dimension. The signed black-hole entropy change is \(-\ln k\), while the
+positive entropy loss is \(\ln k\). To leading semiclassical order the emitted
+spectrum becomes a discrete comb:
 
 \[
 \Delta E_k = k_B T_H \ln k, \qquad
 \Delta f_k = \frac{c^3}{16\pi^2 G M} \ln k.
 \]
 
-\textbf{Structural condition: comb vs. generic discreteness.} The log-integer \emph{comb} structure requires the additional dynamical assumption that integer-ratio emission steps (\(d \to d/k\)) dominate. If generic transitions between arbitrary integers dominate instead, the set of \(|\ln(d'/d)|\) values becomes a dense log-rational set that may appear quasi-continuous after folding in linewidths and astrophysical effects. What the recovered finite edge-sector structure supplies, under the stated generalized-entropy and horizon-area dictionaries, is the \emph{discrete area spectrum}; the clean comb pattern follows only with that selection rule.
+\textbf{Structural condition: comb vs. generic discreteness.} The log-integer
+\emph{comb} structure requires the imported dynamical assumption that such
+integer-ratio emission steps dominate. A fixed \(d_{\rm before}\) admits only
+its divisors; the displayed all-\(k\) ladder is a union of candidate
+continuations, not a source-produced transition set. If generic transitions
+between arbitrary integers dominate instead, the set of
+\(|\ln(d_{\rm after}/d_{\rm before})|\) values becomes a dense log-rational
+set that may appear quasi-continuous after folding in linewidths and
+astrophysical effects. What the recovered finite edge-sector structure
+supplies, under the stated generalized-entropy and horizon-area dictionaries,
+is the \emph{discrete area spectrum}; the clean comb pattern follows only with
+that selection rule.
 
 \textbf{Continuation-level template (Discrete Hawking spectrum).} If the additional integer-transition selection rule is realized, the Hawking emission spectrum consists of discrete lines with spacing \(\Delta E_k = k_B T_H \ln k\), where \(k\) is an integer characterizing the dominant sector transitions, instead of a continuous thermal profile.
 
-\textbf{Mass-independent fractional linewidth (continuation-level estimate).} Using Page\textquotesingle s semiclassical calculation for emission power \(P(M) = p_0 \hbar c^6 / (G^2 M^2)\) with \(p_0 \approx 2 \times 10^{-4}\), the emission rate is \(\dot{N} \approx P /
+\textbf{Mass-independent linewidth-to-spacing ratio (continuation-level estimate).} Using Page\textquotesingle s semiclassical calculation for emission power \(P(M) = p_0 \hbar c^6 / (G^2 M^2)\) with \(p_0 \approx 2 \times 10^{-4}\), the emission rate is \(\dot{N} \approx P /
 \langle E \rangle\) where \(\langle E \rangle = a \, k_B T_H\) with \(a \sim
 \mathcal{O}(1-10)\). The natural linewidth \(\Gamma \sim \hbar \dot{N}\) divided by the level spacing gives:
 
@@ -3399,7 +3419,11 @@ LHAASO-WCDA & 1--15 TeV & 5\ensuremath{\times}10\textsuperscript{5}--7\ensuremat
 \end{longtable}
 }
 
-\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level linewidth estimate is \(64\pi^2 p_0/(a\ln k)\), spanning \(1.8\%\)--\(18\%\) at \(k=2\) over the declared \(a\in[1,10]\) (mass-independent at every \((a,k)\)). Published detector energy resolutions:
+\textbf{Detector resolution vs. intrinsic linewidth.} The continuation-level
+Schwarzschild linewidth-to-spacing estimate is
+\(\Gamma/\Delta E_k=64\pi^2 p_0/(a\ln k)\), spanning
+\(1.8\%\)--\(18\%\) at \(k=2\) over the declared \(a\in[1,10]\)
+(mass-independent at every \((a,k)\)). Published detector energy resolutions:
 
 \begin{itemize}
 \tightlist
@@ -3448,20 +3472,26 @@ Within this template, the comb could be resolvable with GBM/LAT; at TeV energies
 
 \textbf{Continuation-level GW horizon spectroscopy template for Kerr remnants.}
 
-The same continuation-level discrete-horizon branch extends to gravitational wave observables. For Kerr black holes, the thermodynamic first law is \(\delta M = T_H \delta S +
-\Omega_H \delta J\), so the entropy change for absorbing a quantum with frequency \(\omega\) and azimuthal number \(m\) is:
-
-\[
-\delta S = \frac{\hbar(\omega - m\Omega_H)}{k_B T_H}.
-\]
-
-In the edge-sector framework, \(\delta S = \ln(d'/d)\), so the discreteness condition becomes:
+The same continuation-level discrete-horizon branch extends to gravitational
+wave observables. For Kerr black holes, the thermodynamic first law fixes the
+leading small-transition relation. For emission the hole changes by
+\(\delta E_{\rm BH}=-\hbar\omega\) and
+\(\delta J_{\rm BH}=-\hbar m\), while the imported integer-division rule has
+\(\delta S_{\rm BH}=-\ln k\). Hence
 
 \[
 \hbar(\omega - m\Omega_H) = k_B T_H \ln k, \qquad k \in \{2, 3, 4, \ldots\}
 \]
 
-Under those additional discrete-horizon assumptions, this gives the \textbf{GW horizon spectroscopy comb}: a continuation-level set of discrete resonant frequencies where the horizon can efficiently absorb or emit energy. A physical QNM or ringdown claim needs a separate exterior-background bridge, a radiative quotient, a finite operator converging to the continuum perturbation generator, future-horizon and future-null-infinity boundary conditions, and an asymptotic readout map. A finite repair spectrum or fitted clock scale is not that bridge.
+up to finite-step corrections from the changing Kerr background. Under those
+additional discrete-horizon assumptions, this gives the \textbf{GW horizon
+spectroscopy comb}: a continuation-level set of candidate resonant
+frequencies. The integer-division selection and its all-\(k\) union are
+imported, not selected by the edge-sector spectrum alone. A physical QNM or
+ringdown claim needs a separate exterior-background bridge, a radiative
+quotient, a finite operator converging to the continuum perturbation generator,
+future-horizon and future-null-infinity boundary conditions, and an asymptotic
+readout map. A finite repair spectrum or fitted clock scale is not that bridge.
 
 \textbf{Kerr line frequencies.} For a remnant with mass \(M\) and dimensionless spin \(\chi = a_*/M\), define the spin correction factor:
 
@@ -3478,13 +3508,21 @@ f_{k,m}(M,\chi) = \frac{m \, \Omega_H(M,\chi)}{2\pi} + \frac{c^3}{16\pi^2 GM} \,
 
 Within this continuation template, once LIGO/Virgo infers \((M, \chi)\) for a remnant, the line pattern is fixed by the inferred remnant parameters and the assumed discrete-horizon rule. The line pattern belongs to a continuation template outside recovered core.
 
-\textbf{Line weights from GR envelope + discretization.} In this continuation template, the line strengths are modeled by matching to the known GR greybody absorption spectrum in the semiclassical limit. The discretization rule gives bin width \(\Delta\omega_k \approx \omega_T \ln(1 + 1/k)\) where \(\omega_T = k_B T_H/\hbar\). The net line weight (absorption minus stimulated emission) is:
+\textbf{Within-line KMS response, not a cross-line prior.} In this continuation
+template, the GR greybody absorption response may be combined with a declared
+bin width \(\Delta\omega_k \approx \omega_T \ln(1 + 1/k)\), where
+\(\omega_T = k_B T_H/\hbar\). KMS detailed balance then supplies the net
+absorption-minus-stimulated-emission factor at each candidate frequency:
 
 \[
 W^{\mathrm{net}}_{k,\ell m} = \Gamma^{\mathrm{GR}}_{\ell m}(\omega_{k,m}) \cdot \Delta\omega_k \cdot \frac{k-1}{k}
 \]
 
-where \(\Gamma^{\mathrm{GR}}_{\ell m}\) is the standard GR greybody factor and the \((k-1)/k\) factor arises from KMS detailed balance with \(e^{(\omega-m\Omega_H)/T_H} = k\).
+where \(\Gamma^{\mathrm{GR}}_{\ell m}\) is the standard GR greybody factor and
+the \((k-1)/k\) factor follows from KMS detailed balance with
+\(e^{(\omega-m\Omega_H)/T_H}=k\). This factor does not determine transition
+rates across different \(k\), and it cannot be normalized into a cross-\(k\)
+prior without an additional rate model.
 
 \textbf{Universal stacking coordinate.} Define the dimensionless rescaled frequency:
 
@@ -3500,16 +3538,26 @@ x_k = \frac{\ln k}{8\pi} \qquad (k = 2, 3, 4, \ldots)
 
 Numerically: \(x_2 = 0.02758\), \(x_3 = 0.04371\), \(x_4 = 0.05516\), \(x_5 = 0.06404\).
 
-\textbf{Stacking test.} Multiple BBH events can be mapped to this universal \(x\) coordinate and stacked. If the comb is real, peaks align across events with different \((M, \chi)\); detector noise does not stack coherently.
+\textbf{Stacking test.} Multiple BBH events can be mapped to this universal
+\(x\) coordinate and stacked only after fixing a common frame. Observed hertz
+must use \(M_{\rm det}=(1+z)M_{\rm source}\) in both \(\Omega_H\) and the
+thermal offset. Under a prospectively normalized comb submodel, its peaks then
+align across events with different \((M,\chi)\); detector noise need not stack
+coherently.
 
-\textbf{Comparison to existing work.} Prior area-quantization searches~\cite{laghi21} used parameterized models with one free spacing constant. The OPH prediction is more constrained: multiple lines with exact \(\ln k\) ratios, plus the \((k-1)/k\) weight hierarchy from detailed balance.
+\textbf{Comparison to existing work.} Prior area-quantization
+searches~\cite{laghi21} used parameterized models with one free spacing
+constant. The imported continuation considered here has multiple candidate
+lines with exact \(\ln k\) ratios. The \((k-1)/k\) detailed-balance factor is
+a within-line net-response factor, not a derived hierarchy of transition
+probabilities.
 
 \textbf{Numerical example (GW170608).} Remnant parameters: \(M_f \approx 18.0 M_\odot\), \(\chi_f \approx 0.69\). For \(m = 2\), the horizon rotation frequency is \(m\Omega_H/(2\pi) \approx 719\) Hz. The \textbf{thermal comb spacing} (the part that encodes the area quantization) is:
 
 {\def\LTcaptype{none} % do not increment counter
 \begin{longtable}[]{@{}>{\raggedright\arraybackslash}p{0.320\textwidth}>{\raggedright\arraybackslash}p{0.320\textwidth}>{\raggedright\arraybackslash}p{0.320\textwidth}@{}}
 \toprule\noalign{}
-k & \(\Delta f_k := \frac{c^3 g(\chi)}{16\pi^2 GM} \ln k\) (Hz) & Relative weight \((k-1)/k\) \\
+k & \(\Delta f_k := \frac{c^3 g(\chi)}{16\pi^2 GM} \ln k\) (Hz) & KMS net-response factor \((k-1)/k\) \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -3522,14 +3570,25 @@ k & \(\Delta f_k := \frac{c^3 g(\chi)}{16\pi^2 GM} \ln k\) (Hz) & Relative weigh
 \end{longtable}
 }
 
-The full physical frequencies are \(f_{k,2} = 719 + \Delta f_k\) Hz (i.e., 760--827 Hz), outside LIGO\textquotesingle s most sensitive band for this remnant. However, the \textbf{stacking analysis} uses the rescaled coordinate \(x = GM(\omega -
-m\Omega_H)/(c^3 g(\chi))\), which maps the thermal spacing to universal constants \(x_k = \ln k / 8\pi\) regardless of the rotation offset.
+The displayed values are source-frame frequencies. Detector-frame frequencies
+are lower by \(1+z\), equivalently obtained by replacing \(M_f\) with
+\(M_{\rm det}=(1+z)M_f\) throughout. A stacking analysis uses the rescaled
+coordinate \(x=GM(\omega-m\Omega_H)/(c^3g(\chi))\) with all quantities in one
+frame, which maps the thermal spacing to universal constants
+\(x_k=\ln k/(8\pi)\) regardless of the rotation offset.
 
 \textbf{Template-matching criterion.} After rescaling by \((M, \chi)\), spectral features in this continuation template must satisfy the offset-subtracted ratio
 \[
 \frac{f_{k,m} - m\,\Omega_H/(2\pi)}{f_{2,m} - m\,\Omega_H/(2\pi)} = \frac{\ln k}{\ln 2}
 \]
-exactly, equivalently \(x_k/x_2 = \ln k/\ln 2\) in the universal coordinate defined above, independent of remnant parameters. The full frequencies \(f_{k,m}\) do not satisfy \(f_k/f_2 = \ln k/\ln 2\) at nonzero \(\Omega_H\): the additive rotation offset breaks the ratio, and only the thermal comb pieces carry it. Absence of coherent stacking at the predicted \(x_k\) values would challenge the discrete-horizon continuation template, not by itself the derived area-spectrum statement.
+exactly, equivalently \(x_k/x_2 = \ln k/\ln 2\) in the universal coordinate
+defined above, independent of a common scale and offset. The full frequencies
+\(f_{k,m}\) do not satisfy \(f_k/f_2=\ln k/\ln 2\) at nonzero \(\Omega_H\):
+the additive rotation offset breaks the ratio, and only the thermal comb pieces
+carry it. A null result can challenge only the finite support or normalized
+prior fixed before comparison. It cannot exclude the unrestricted integer
+family merely by ruling out \(2\le k\le12\), and it does not by itself test the
+derived area-spectrum statement.
 
 \subsubsection{Classical mechanics from emergent GR}\label{512-classical-mechanics-from-emergent-gr}
 

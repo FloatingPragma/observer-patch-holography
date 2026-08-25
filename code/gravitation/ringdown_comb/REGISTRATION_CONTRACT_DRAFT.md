@@ -20,29 +20,51 @@ model, event selection, likelihood, and decision rule registered before
 comparison access. Each of the following sections supplies one of those
 components in draft form.
 
-## 2. Source-derived transition
+## 2. Imported continuation transition; source derivation open
 
-The transition law is the frozen ratio law of
+The transition law is imported from the attested but explicitly unanchored
+FZ-01 draft
 `falsification/frozen_targets/fz01_2026-07-17/frozen_target_integer_k_comb_2026-07-17.md`
 (companion derivation in
-`proof/epic_wins/ringdown_comb/INTEGER_K_COMB_STATEMENT.md`), taken as
-the source of record and not modified here. Candidate spectral features
-above the rotation line satisfy, under the comb hypothesis,
+`proof/epic_wins/ringdown_comb/INTEGER_K_COMB_STATEMENT.md`). It is a
+Bekenstein--Mukhanov-style continuation premise, not a transition derived from
+the OPH source. The FZ-01 erratum's source-derivation obligation therefore
+remains open.
+
+For an emission, the rule assumes positive integer record dimensions with
+`d_before = k*d_after`, so `k >= 2` must divide `d_before`. The signed
+black-hole entropy change is
+
+    ln(d_after) - ln(d_before) = -ln(k),
+
+while the positive entropy loss entering the emitted-energy formula is
+`ln(k)`. The tooth formula uses the leading small-transition Kerr first law;
+a finite-step model must account for the changing background. Conditional on
+that imported selection, candidate spectral features
+above the rotation line satisfy
 
     (f_a - m*Omega_H/(2*pi)) / (f_b - m*Omega_H/(2*pi)) = ln(k_a)/ln(k_b)
 
-for integers k >= 2, equivalently universal-coordinate positions
+for eligible integer divisors `k >= 2`, equivalently universal-coordinate positions
 x_k = ln(k)/(8*pi) with x = (G*M/(c^3*g(chi))) * (omega - m*Omega_H)
 and g(chi) = 2*sqrt(1-chi^2)/(1+sqrt(1-chi^2)). Secondary structure:
-the (k-1)/k KMS weight hierarchy and the mass-independent fractional
-linewidth 64*pi^2*p_0/(a*ln(k)) with declared a in [1, 10]. The
+the within-line (k-1)/k KMS net-response factor and the mass-independent but
+spin-dependent linewidth-to-spacing ratio
+64*pi^2*p_0/(a*g(chi)^2*ln(k)) with declared a in
+[1, 10]. The earlier draft omitted the g(chi)^(-2) factor; its k=2
+1.8--18 percent band is only the Schwarzschild limit. The constant-p_0 model
+is not controlled near extremality, so a spin-dependent Page/greybody power
+model is required before such remnants are eligible. A fixed record dimension
+admits only its actual divisors; the all-integer display is a union of
+candidate continuations, not a source-produced transition set. The
 build-stage numeric instrument for this law is
 `integer_k_comb_template.py` in this directory, with the independently
 verified receipt `runtime/integer_k_comb_template_receipt.json` and the
 exact invariance theorems in `Lean/Geometry/IntegerKCombInvariance.lean`
-(mass, spin, and redshift invariance of the offset-subtracted ratio;
-strict tooth monotonicity; rational bracketing of the reference ladder;
-KMS hierarchy).
+(abstract scale-and-offset invariance of the offset-subtracted ratio;
+strict tooth monotonicity; rational bracketing of the reference ladder; and
+algebraic properties of the declared KMS factor). The KMS factor is not a
+transition probability or prior across different `k`.
 
 ## 3. Event-selection rule
 
@@ -50,11 +72,18 @@ KMS hierarchy).
   anchors this contract. The anchoring timestamp partitions the
   literature; nothing published on or before it can enter the decision
   dataset.
-- Analyst inputs per event: the published remnant mass and spin
-  posteriors (M, chi) and any published secondary spectral feature
-  candidates (frequency posteriors of post-merger features beyond the
-  dominant mode), at the published-posterior level. No reprocessing of
-  strain below the published-posterior level is part of this contract.
+- Required comparison input per event: detector strain/readout data together
+  with the prospectively specified likelihood, or a released sufficient
+  likelihood product that supports both hypotheses and preserves the needed
+  normalization. Published posterior samples may be nuisance-proposal samples
+  only when their sampling prior, likelihood values, evidence normalization,
+  support, and reweighting diagnostics are available. Posterior samples alone
+  are not a likelihood or model evidence.
+- Frame inputs per event: the joint detector-frame remnant mass and spin
+  distribution and detector-frame secondary-feature frequencies. If a release
+  supplies source-frame mass, the contract must transform it with the same
+  redshift inference and covariance used by the likelihood:
+  `M_det=(1+z)M_source`.
 - Seen data, audit-only: GW150914 and GW250114 are named here as
   provenance references for the historical alpha = 4 audits recorded in
   the frozen target's supersession section. Both are already-seen data
@@ -69,35 +98,47 @@ KMS hierarchy).
   statement; marginalized with a prior fixed at anchoring
   [OWNER-FIX: prior density on a].
 - Page coefficient: p_0 = 2e-4, declared, statement-pinned.
-- Remnant marginalization, stated abstractly: per event, the comb
-  hypothesis is evaluated marginally over the published joint (M, chi)
-  posterior, mapping each posterior draw to tooth positions through the
-  template; frequency-error-only propagation is inadmissible per the
-  frozen target. The concrete marginalization estimator is an
-  owner-fixed cell [OWNER-FIX: estimator and convergence criterion].
-- Redshift: offset-subtracted ratios and universal-coordinate positions
-  are redshift-free; no redshift nuisance enters the ratio observable.
+- Remnant marginalization, stated abstractly: per event, the comb likelihood
+  is marginalized over the joint detector-frame `(M_det, chi)` nuisance model.
+  A pre-existing posterior may be used as a proposal only under the validity
+  conditions above; treating posterior density as likelihood is forbidden.
+  Frequency-error-only propagation is inadmissible. The concrete estimator,
+  proposal correction, and convergence rule are owner-fixed cells
+  [OWNER-FIX: estimator, proposal correction, and convergence criterion].
+- Redshift and frame: observed frequencies use `M_det=(1+z)M_source` in both
+  `Omega_H` and the tooth offset. The offset-subtracted ratio is redshift-free
+  only when the offset and teeth use the same frame. Any source-frame
+  conversion and its covariance belong to the frozen nuisance model.
 - Selection effects and trials accounting: owner-fixed cells
   [OWNER-FIX: selection model], [OWNER-FIX: trials correction].
 
 ## 5. Likelihood specification (structure only)
 
-Per event, the contract compares two hypotheses at the
-published-posterior level:
+Per event, the contract must compare two hypotheses on the same detector data
+`D` through a common strain/readout likelihood interface:
 
 - H_comb: the secondary feature frequencies sit at the template teeth
-  f_{k,m} = m*Omega_H/(2*pi) + c^3*g(chi)*ln(k)/(16*pi^2*G*M) for one
-  integer assignment per feature, k in {2, ..., 12}, weighted across k
-  by the normalized (k-1)/k hierarchy times GR greybody factors
-  [OWNER-FIX: greybody normalization artifact], with linewidths from
-  the nuisance model.
+  f_{k,m} = m*Omega_H/(2*pi) + c^3*g(chi)*ln(k)/(16*pi^2*G*M_det) for one
+  integer assignment per feature, k in {2, ..., 12}. A separate normalized
+  pre-data transition prior across k is required [OWNER-FIX: transition-rate
+  model and normalized prior]. The within-line `(k-1)/k` KMS net-response
+  factor may multiply a GR greybody response but does not supply that prior
+  [OWNER-FIX: greybody normalization artifact]. Linewidths come from the
+  nuisance model.
 - H_no_comb: the published no-comb description of the same features
   (owner-fixed reference model [OWNER-FIX: no-comb reference]).
 
-The per-event statistic is the Bayes factor BF = Z(H_comb)/Z(H_no_comb)
-with both evidences computed over the same published posteriors and the
-nuisance model of section 4. Stacking across events is performed in the
-universal coordinate x. This section fixes structure only: no numeric
+For each hypothesis, the evidence is
+
+    Z(H) = integral L(D | theta, H) pi(theta | H) d theta.
+
+The per-event statistic is the Bayes factor BF = Z(H_comb)/Z(H_no_comb).
+It cannot be obtained merely by integrating over a published posterior from a
+different model; any posterior-recycling estimator must divide out the known
+sampling prior, retain the required likelihood/evidence normalization, cover
+the target support, and pass frozen importance-weight diagnostics. Stacking
+across events is performed in the universal coordinate computed consistently
+with `M_det`. This section fixes structure only: no numeric
 evaluation of any likelihood, evidence, or Bayes factor has been
 performed, and none may be performed before anchoring. The frozen
 target additionally requires a derived strain/asymptotic-readout
@@ -120,11 +161,17 @@ cell at anchoring; until then no decision rule exists.
 
 Proposed verdict structure, mirroring the frozen target:
 
-- KILL band: a resolved pair clearing the gates whose offset-subtracted
+- BOUNDED-SUBMODEL KILL band: a resolved pair clearing the gates whose offset-subtracted
   ratio excludes every ratio ln(k_a)/ln(k_b) with k_a, k_b in the
   ladder set at the frozen confidence, under the frozen likelihood and
-  covariance. This kills the integer-division continuation template; it
-  does not by itself kill the derived area-spectrum statement.
+  covariance. This kills only the prospectively normalized finite submodel
+  with k in {2,...,12}. It cannot kill the unrestricted integer-k family:
+  ratios ln(m)/ln(n) with unbounded integers are dense on the positive line,
+  so a finite-resolution interval admits sufficiently large integer pairs.
+  A claim about all k therefore requires a normalized prior with a declared
+  tail and a likelihood-level exclusion of its prior-predictive distribution.
+  If a source theory later supplies a fixed `d_before`, its divisor support
+  replaces the unrestricted family and must be frozen before comparison.
 - DETECTION-CANDIDATE band: coherent stacking at the predicted x_k
   positions with the strongest-pair ratio consistent with a single
   integer pair at the frozen confidence with trials correction; a
@@ -137,8 +184,12 @@ Proposed verdict structure, mirroring the frozen target:
 This contract is a draft, registered only when the owner anchors it.
 No comparison access has occurred; no event likelihood was evaluated;
 no event was selected. The template instrument in this directory is
-target-blind and its receipt contains no event-derived number. The
-derived strain likelihood, the normalized pre-data prior over k, the
-event list, and the trials accounting are open owner actions listed in
-the frozen target. Nothing in this directory may be cited as a
-registered, frozen, or scored prediction.
+target-blind and its receipt contains no event-derived number. The derived
+source transition, strain/readout likelihood or sufficient likelihood product,
+detector-frame nuisance convention, normalized pre-data prior over k
+(including a source/declared transition-rate model and the finite-submodel or
+tail decision), finite-step background treatment, event list and cuts,
+selection model, trials accounting, greybody/Page normalization, no-comb
+reference, and estimator convergence receipt are open prerequisites. This
+draft is not anchorable until those artifacts exist. Nothing in this directory
+may be cited as a registered, frozen, or scored prediction.

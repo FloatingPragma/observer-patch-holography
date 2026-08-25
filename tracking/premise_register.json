@@ -88,7 +88,9 @@
     "code/phase_operation_producer/verify_phase_operation_receipt.py",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
-    "Lean/EventAlgebra/SourcePhaseSelection.lean"
+    "Lean/EventAlgebra/SourcePhaseSelection.lean",
+    "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_PACKET.v1.json",
+    "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_SEMANTICS_RECEIPT.v1.json"
    ],
    "evidence_roles": {
     "code/born_context_phase_lift/README.md": "statement",
@@ -101,9 +103,11 @@
     "code/phase_operation_producer/verify_phase_operation_receipt.py": "conditional_consumer",
     "Lean/EventAlgebra/OperationalPhaseAttainment.lean": "conditional_consumer",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "conditional_consumer",
-    "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer"
+    "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer",
+    "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_PACKET.v1.json": "conditional_consumer",
+    "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_SEMANTICS_RECEIPT.v1.json": "conditional_consumer"
    },
-   "notes": "Recorded decision 2026-08-18, lane issue 730: the exact matrix [[1/2, -i/2], [i/2, 1/2]] is axiomatized as one declared phase effect. OperationalPhaseInstrument deliberately types only a static exact-fit model, and synthetic_ideal_phase_fit proves that such a fit carries no custody. PhaseInstrumentDetermination proves the one-coordinate reduction and integer window. The phase-operation producer is a deterministic semantic conformance calculator: it evaluates declared Born weights and scales them to exact integer pairs, with an independent verifier; it is not measurement or validation. OperationalPhaseAttainment proves static fit equalities but its Lean bundle contains no CP maps, summed channel, producer binding, or least-multiple generation law. PR-64 owns operational instrument realization, PR-65 owns source preparation and readback provenance, PR-03 owns valuation additivity, and PR-52 owns physical attachment. LuedersPhaseInstrument consumes the declared effect as the phase slot of a declared Lüders instrument with proved CP, trace-nonincreasing, CPTP-sum, and induced-effect clauses; it derives nothing about the effect and leaves PR-64 readback, PR-65, PR-03, and PR-52 open. SourcePhaseSelection is candidate evidence that a target-free source-only selector produces the exact declared phase effect. Maintainer review 2026-08-21: the source fixes the unordered pair of Pauli-Y projectors; the orientation of the selected effect is set by the producer's commutator order and lexicographic pair index, so the declaration's content that the selector does not supply is the choice between the two orientations. PR-04 stays axiomatized with that reduced content."
+   "notes": "Recorded decision 2026-08-18, lane issue 730: +Y is axiomatized as one declared phase effect. The static fit, deterministic Born-weight calculator, and declared Lueders instrument do not derive that orientation or supply operational provenance. The audited SourcePhaseSelection replay starts from a declared representation/projector and normalized-commutator complexification and yields the unordered {+Y,-Y} pair. The current first labeled pair is +Y, but the first-label rule is not source-forced and reversing the event list still begins with a +Y pair; only reversing a chosen pair's commutator order swaps the transpose effects. The committed derived packet and semantics receipt make this conditional enumeration reproducible, not physically oriented. PR-04 therefore remains axiomatized; PR-03, PR-52, PR-64, and PR-65 stay open."
   },
   {
    "id": "PR-05",
@@ -392,7 +396,7 @@
     "Lean/QFT/SourceClockCandidate.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement"
    },
-   "notes": "Laboratory-unit attachment is calibration against measured standards, so the row stays an import. It neither supplies nor replaces the separate source-generated scale-selection receipt. CommonWorldInstrumentJoin carries a declared positive step duration identifying the Maxwell evolution step with the proper-time parameter of the record's clock worldline; the dictionary is declared, its positivity is load-bearing, and it identifies no physical time. SourceHistoryGNSDynamics represents the exact repair-count action by a positive finite Hamiltonian and gives its unitary real-parameter flow, but supplies no clock or energy-unit calibration, so this import remains open. SourceHistoryThreeSlotLocalGNS decomposes the same uncalibrated finite repair Hamiltonian into two local positive bonds and proves first-order local generator propagation, but supplies neither a physical clock nor an energy-unit calibration; this import is unchanged. SourceHistoryExpectationNet averages record observables against the committed window law and preserves its mean, but attaches no clock or energy-unit calibration; this import is unchanged. CertifiedScaledStepInstrument certifies the declared step 4/5 below the sharp threshold and types the design-only handoff, but supplies no physical clock or unit calibration. CommonWorldMaxwellClockJoin joins the Maxwell island to the clock worldline at the same step index but proves the join fixes no clock calibration: two joined inhabitants differ only in the declared step duration; this import stays open. PhysicalCalibrationImport fixes the exact SI anchor layer and reduces the import's empirical content to one declared tick duration with affine-exact conversions and non-forcing receipts; the tick identification is open and the row keeps its import disposition. SourceClockCandidate reduces the open import content to one duration of one committed source process with exact rate invariants; the identification stays open and the disposition stays import. CommonWorldJointAction proves the joint action does not fix the step duration: two calibration-distinct inhabitants carry both stationarity properties."
+   "notes": "Laboratory-unit attachment is calibration against measured standards, so PR-15 stays an import. PhysicalCalibrationImport records exact SI definitions and conditional conversions around one declared positive tick duration; it derives no tick identification. The source-history Hamiltonians, finite record-conditioning maps, certified Maxwell step, formal same-index product, and formal direct-sum action remain dimensionless and do not select a clock or relative physical normalization. SourceClockCandidate supplies only overlapping-window action-incidence statistics 94/1754, 103/1754, and their multiplicity sum 197/1754. These are neither distinct event counts nor a periodic clock, and the calibration dictionary does not consume them. Consequently the candidate does not reduce this import. A viable source clock still needs a source-selected periodic or otherwise operational time process plus a physical identification and uncertainty/custody contract."
   },
   {
    "id": "PR-16",
@@ -1270,7 +1274,7 @@
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge. LocalFaceMaxwellAction supplies an exact finite static local-curvature action and TemporalMaxwellEvolution supplies a conditional declared-step recurrence with continuity, quadratic-form balance, gauge, static-Coulomb, and wave receipts. ScaledMaxwellStability supplies the step-scaled evolution as the Euler-Lagrange system of a declared discrete action, exact conservation, nonnegativity under the Courant condition, uniform bounds for h^2 Lambda < 4, the sharp committed-carrier constant Lambda = 3 + sqrt(5), and the exact instability threshold; a calibrated frame and scale, a physical source and readout, and a continuum attachment stay missing. A predictive comparison remains ineligible until this row and the applicable frozen decision-rule and power requirements are met. The common-world island bridge carries only the derived rank-three control quotient; the twelve ports, thirty seams, and twenty faces have no map to points, intervals, or cones of the declared module, so the row stays open. CertifiedScaledStepInstrument fixes the certified step and the typed handoff fields a preregistered run must bind, but performs no run and attaches no physical source or readout; this row stays open. CommonWorldMaxwellClockJoin proves its join supplies no carrier map: the event component depends on frame and step duration alone and the value component on the certified bundle alone, so no port, seam, or face is mapped to the Lorentz module; this row stays open. CommonWorldJointAction adds no carrier map: both sectors of the joint action read the record's own fields and no port, seam, or face is mapped to the Lorentz module; this row stays open."
+   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open."
   },
   {
    "id": "PR-54",
@@ -1315,7 +1319,7 @@
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement"
    },
-   "notes": "Removal needs one observer-native gauge and matter action that composes with the spacetime, quantum, and calibration lanes. LocalFaceMaxwellAction supplies a local finite U(1)-shaped static vector action plus a separate scalar Coulomb action, but it types port charge and seam current separately; TemporalMaxwellEvolution proves the typed continuity equivalence along the declared evolution without identifying the two source types; a matter operator, physical source production, spacetime attachment, and nonabelian sector stay missing. SourceHistoryGNSDynamics represents a retained repair-count observable as a finite diagonal Hamiltonian; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action, so PR-54 remains open. SourceHistoryThreeSlotLocalGNS identifies the repair-count Hamiltonian with two adjacent Ising bonds on the history carrier, but these are not a gauge connection, current algebra, field strength, covariant matter operator, or spacetime-local action; this row remains open. SourceHistoryExpectationNet conditions the record law on history slots; it supplies no gauge connection, current algebra, field strength, covariant matter operator, or spacetime action; this row remains open. CertifiedScaledStepInstrument instantiates the stability layer at one declared step and pins the preregistration handoff; it attaches no physical source, matter operator, or spacetime action. CommonWorldMaxwellClockJoin transports zero-current conservation onto the joined object but supplies no common variational principle across the carriers; this row stays open. CommonWorldJointAction attains the common action at the direct-sum rung: one variational principle carries the scaled Maxwell laws and the clock line on the joined record with proved sector decoupling; the worldline-field coupling term producing a Lorentz-force-shaped clause is exactly what this row still owes."
+   "notes": "Removal needs one observer-native gauge and matter action on the same physical spacetime carrier, with source-produced connection/current/field strength, covariant matter, calibration, and readout. The finite Maxwell, source-history, and certified-step modules do not supply that package. CommonWorldMaxwellClockJoin transports independent projection facts only. CommonWorldJointAction does not attain a common-action premise: it is a formal zero-coupling direct sum whose clock functional and relative sector coefficient are declared. It is a regression target any future coupled action should reduce to. A viable next route is a gauge-invariant discrete A.J or worldline interaction on a derived carrier map whose A-variation yields current and x-variation yields a Lorentz-force-shaped clause. PR-54 stays open."
   },
   {
    "id": "PR-55",
@@ -1412,7 +1416,7 @@
     "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean": "statement",
     "Lean/QFT/SourceHistoryExpectationNet.lean": "statement"
    },
-   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and a net-compatible evolution proving the required slice-to-region generation or isomorphism. A continuous flow, a moving region family, equal algebras for Cauchy neighborhoods, or a fixed algebra with coherent nontrivial dynamics are possible routes; none is the definition by itself. PathTimeSliceInterface gives only a finite one-step transport-aware interface. TripleCarrierJoin supplies one common state/path/checkpoint carrier and exact intertwining across the 31 actual adjacent source transitions, but its positive trace-preserving marginals are not algebra or net morphisms and no tower-state identification is made. Neither module supplies a multi-step cocycle, Cauchy geometry, clock, physical time, or source selection. CarrierJoinTransport delimits the corrected interface's region freedom (region-preserving evolutions force step-invariant regions; any change is a slot exchange) and exhibits a slot-exchanging time-dependent inhabitant; the source-selected time-slice content of the premise stays open. ColimitNormedCompletion transports the committed order-theoretic Cauchy-embedding equality to the closures of the limit local algebras in the C*-completion of the colimit; the time-indexed net-compatible evolution and slice-generation interface stay open. SourceHistoryGNSDynamics gives a nontrivial unitary flow on one source-counted full matrix block, but attaches no regions, Cauchy interface, slice-generation theorem, or physical clock, so it does not discharge PR-58. SourceHistoryThreeSlotLocalGNS adds isotone history-slot and adjacent-interval algebras, endpoint locality, normalized compatible source-state restrictions, and first-commutator-order propagation into adjacent intervals, and transports the operator statements to the selected GNS carrier. It supplies no time-indexed region family, finite-time net covariance, Cauchy or slice-generation theorem, or physical clock, so it does not discharge this row. SourceHistoryExpectationNet adds the state-preserving regional expectations of the record layer and proves no state-preserving interval-bimodule projection of the matrix carrier exists; it supplies no time-indexed Cauchy interface or evolved-region generation theorem, so this row stays open."
+   "notes": "Removal needs a source-selected time-indexed or Cauchy-region interface and net-compatible evolution proving slice-to-region generation or isomorphism. Existing finite transport, colimit, GNS, and three-slot modules supply useful ingredients but no physical clock, Cauchy geometry, multi-step covariance, or slice theorem. SourceHistoryExpectationNet is only a finite-probability conditioning family on overlapping record slots. Its matrix no-go excludes exactly an A01-bimodular, source-state-preserving complex-linear map M8(C)->A01 for the fixed target and state. It does not exclude enlarged targets, ancillas, generalized or non-bimodule CP maps, different states, or ordinary AQFT inclusions. Those viable routes remain open; PR-58 stays open."
   },
   {
    "id": "PR-59",
@@ -1555,7 +1559,7 @@
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean": "statement"
    },
-   "notes": "Lean/EventAlgebra/LuedersPhaseInstrument.lean constructs a declared Lüders instrument on the committed eight-context effect table and proves the channel clauses as exact finite matrix algebra: each outcome map X ↦ E X E is completely positive through a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of each context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table with the declared Pauli-Y projector in the phase slot. The normalized post-measurement state is certain of its effect, a state-update proxy for readback. SourcePhaseInstrumentOutcomeBridge proves that all 48 enabled entries of the generated source phase relation agree with the corresponding normalized outcome of this declared instrument. SourcePhaseCommonPreparationHull evaluates those declared outcome maps on every common-support source state and proves an exact convex-hull compatibility with the declared run state. The run state is outside the generated state domain, no generated source step starts there, and a generated result loses all-event support; the hull therefore supplies neither a source implementation nor a sequential instrument protocol. Its generated outcome index is semantic, not a recorded public outcome. The clause that outcome readback agrees with a recorded public outcome is open: no public outcome is typed. The module proves that the effect table does not determine the instrument: a swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lüders instrument on the committed run state, and fails repeatability, so the Lüders choice is a declared selection. Removal needs a source-facing instrument whose readback is bound to public outcomes under PR-65. SourceBoundInstrumentInterface identifies induced effects with the fixture frequency table as the readback surface and proves the determined interface does not pin the instrument; a recorded public outcome is not typed in the corpus, so the readback clause of this row stays open."
+   "notes": "Lean/EventAlgebra/LuedersPhaseInstrument.lean constructs a declared Lüders instrument on the committed eight-context effect table and proves the channel clauses as exact finite matrix algebra: each outcome map X ↦ E X E is completely positive through a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of each context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table with the declared Pauli-Y projector in the phase slot. The normalized post-measurement state is certain of its effect, a state-update proxy for readback. SourcePhaseInstrumentOutcomeBridge proves that all 48 enabled entries of the generated source phase relation agree with the corresponding normalized outcome of this declared instrument. SourcePhaseCommonPreparationHull evaluates those declared outcome maps on every common-support source state and proves an exact convex-hull compatibility with the declared run state. The run state is outside the generated state domain, no generated source step starts there, and a generated result loses all-event support; the hull therefore supplies neither a source implementation nor a sequential instrument protocol. Its generated outcome index is semantic, not a recorded public outcome. The clause that outcome readback agrees with a recorded public outcome is open: no public outcome is typed. The module proves that the effect table does not determine the instrument: a swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lüders instrument on the committed run state, and fails repeatability, so the Lüders choice is a declared selection. Removal needs a source-facing instrument whose readback is bound to public outcomes under PR-65. SourceBoundInstrumentInterface identifies induced effects with the static outcome-map trace/expected-frequency surface and proves the determined interface does not pin the instrument; a recorded public outcome is not typed in the corpus, so the readback clause of this row stays open."
   },
   {
    "id": "PR-65",
@@ -1574,11 +1578,13 @@
     "claims/assumption_dictionary.md",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
     "Lean/EventAlgebra/SourcePhaseSelection.lean",
+    "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_PACKET.v1.json",
     "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean",
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean",
     "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean",
     "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean",
-    "code/phase_instrument_export/ins03_export_validator.py"
+    "code/phase_instrument_export/ins03_export_validator.py",
+    "code/phase_instrument_export/VALIDATOR_CONTRACT.md"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
@@ -1587,13 +1593,15 @@
     "claims/assumption_dictionary.md": "statement",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "statement",
     "Lean/EventAlgebra/SourcePhaseSelection.lean": "conditional_consumer",
+    "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_PACKET.v1.json": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean": "statement",
-    "code/phase_instrument_export/ins03_export_validator.py": "statement"
+    "code/phase_instrument_export/ins03_export_validator.py": "statement",
+    "code/phase_instrument_export/VALIDATOR_CONTRACT.md": "statement"
    },
-   "notes": "Removal needs a common source-produced preparation and a producer-bound run receipt. The committed integer table is a semantic conformance fixture generated from declared Born weights; it is neither sampled data nor an operational provenance record. PR-64 separately owns the channel structure and PR-03 separately owns cross-context valuation additivity. LuedersPhaseInstrument types a declared Lüders instrument with no source preparation, public outcome, provenance, or custody, and proves that the declared effect table does not determine the instrument; instrument selection is therefore a declared choice and sits with preparation and readback provenance under this row. SourcePhaseSelection advances the effect-selection conjunct. SourcePhaseInstrumentOutcomeBridge proves exact semantic compatibility between every enabled generated source transition and the normalized outcome of the declared Lüders phase instrument. It does not supply one common cross-context preparation, source-select or implement that instrument, produce a public outcome, or bind any readback to a run. SourcePhaseCommonPreparationHull proves that exactly the three real orbit states enable every generated phase event and that their mixture with coefficients 265/537, 136/537, and 136/537 equals the declared run state; equality to that matrix uniquely determines all three coefficients, without assuming normalization. Every common-support state gives either generated phase orientation weight one half and inherits the normalized declared-outcome equality. This is retrospective convex-hull compatibility: the run state is not generated, no source step starts from it, a generated result loses all-event support, no source rule selects or samples the mixture, no mixing/reset/re-preparation/sequential protocol is constructed, and the twelve generated events are not the eight public instrument contexts. SourcePhaseBornWeightBoundary is a conditional consumer: it proves Born(+Y)=1/2-Im(rho_01) and shows that any prospective preparation bridge preserving record diagonality has half weight on every current reachable source input. It derives no such bridge or operation; its constant bridges are logical controls only. Common preparation, instrument selection, public outcomes, readback, run binding, provenance, and custody remain open. SourceBoundInstrumentInterface types the row's clauses against the committed objects, proves the determined part (preparation, public table, readback at the frequency surface) attained uniformly in the instrument, and proves the custody data external: the digest is a free parameter and required-to-hold binding propositions carry no separation; no source construction, recorded outcome, or custody artifact exists, so this row stays open. The export validator fixes the conformance surface a producer export must pass, with committed-literal cross-checks and the synthetic/producer distinction; no producer export, run, or custody artifact exists, so this row stays open."
+   "notes": "Removal needs a common source-produced preparation, an oriented effect or orientation-invariant binary context, a selected instrument, recorded public outcomes, and an authenticated producer/run/custody receipt. The Lueders instrument and source-transition bridge are exact compatibility mathematics only. The source-phase enumeration conditionally yields unordered {+Y,-Y} under a declared adapter; it does not source-select +Y. The convex hull is retrospective and supplies no mixing or sequential protocol. SourceBoundInstrumentInterface's determined table is an expected-frequency surface, not public readback, while its inhabited Prop fields and natural-number digest are freely stipulable placeholders, not a proof that custody is external. INS-03 v1 is now explicitly static-only: it checks exact fixture conformance and correct 0<=E<=I bounds, emits STATIC_COMMITTED_FIXTURE_CONFORMANT, and rejects every producer claim because authentication is unimplemented. A viable v2 must bind raw producer artifacts, identity, run configuration, outcomes, and cryptographic custody independently. PR-65 stays open."
   },
   {
    "id": "PR-66",
@@ -1708,7 +1716,7 @@
     "Lean/Screen/SeamCurrentHomogeneousAction.lean": "conditional_consumer",
     "claims/frozen_prediction_register.json": "statement"
    },
-   "notes": "Removal needs a source theorem selecting the homogeneous direct-only equal-weight edge action as the physical position action. The interface fields homogeneousPositionAction and equalSourceWeights type the clause; prop_fields_carry_no_separation proves their content is external input."
+   "notes": "Removal needs a source theorem selecting the homogeneous direct-only equal-weight edge action as the physical position action. The current interface fields are inhabited Prop placeholders; propext shows only that this schema carries no data-level witness, not that every future source construction is impossible."
   },
   {
    "id": "PR-71",
@@ -1732,7 +1740,7 @@
     "code/a5_fingerprint/carrier_class_dispersion_certificate.py": "conditional_consumer",
     "claims/frozen_prediction_register.json": "statement"
    },
-   "notes": "Removal needs a source attachment theorem for the continuous field sector and operator. The interface field sectorAttachment types the clause as a required-to-hold proposition whose content is external input."
+   "notes": "Removal needs a data-bearing source attachment theorem for the continuous field sector and operator. The current required-to-hold Prop field is a checklist placeholder and does not itself encode or validate such an attachment."
   },
   {
    "id": "PR-72",
@@ -1752,14 +1760,14 @@
     "Lean/Screen/DispersionArmingInterface.lean": "statement",
     "claims/frozen_prediction_register.json": "statement"
    },
-   "notes": "Removal needs a machine-checked cofinal gluing statement covering this clause. The interface field cofinalGluing types the clause; its content is external input."
+   "notes": "Removal needs a machine-checked cofinal gluing witness covering this clause. The current cofinalGluing Prop field is a placeholder that stipulated mock records set to True; it supplies no gluing map or no-go."
   },
   {
    "id": "PR-73",
    "name": "declared finite carrier scale",
    "type": "numerical_input",
    "disposition": "axiomatize",
-   "statement": "One declared positive carrier scale fills the committed coefficient slot, giving C4 = -a^2/20, B0 = a^4/840, and B6 = -a^4/12600 at that scale. The committed manifold ratios are scale free: they hold at every positive scale (edgeScale_ray), no positive scale is singled out (committed_ray_selects_no_scale), and the scale-boundary module proves the metric coefficient counterfamily, so the value is external declared input.",
+   "statement": "One declared positive carrier scale fills the committed coefficient slot, giving C4 = -a^2/20, B0 = a^4/840, and B6 = -a^4/12600 at that scale. The committed manifold ratios are scale free and therefore do not select a value by themselves. This scoped non-forcing leaves independent source invariants such as a correlation length, refinement scale, defect density, or spectral gap as viable scale-selection routes.",
    "consuming_lanes": [
     733,
     742
@@ -1774,7 +1782,7 @@
     "Lean/Screen/PrimitivePortScaleBoundary.lean": "no_go",
     "claims/frozen_prediction_register.json": "statement"
    },
-   "notes": "Declared choice recorded as declared. A later source scale theorem would convert this row to disposition remove; the committed corpus proves nonforcing of the scale, not a value. No scale number is proposed here."
+   "notes": "Declared choice recorded as declared. The current ratio and permissive-schema theorems prove only that those inputs do not select a scale; they are not a universal no-go. A later independent source-scale theorem would convert this row to disposition remove. No scale number is proposed here."
   },
   {
    "id": "PR-74",
@@ -1794,7 +1802,7 @@
     "Lean/Screen/DispersionArmingInterface.lean": "statement",
     "claims/frozen_prediction_register.json": "statement"
    },
-   "notes": "Removal needs a transport theorem on the completed carrier connecting source and comparison frames. The interface field frameBoostTransport types the clause; its content is external input. The frozen decision rule marks unresolved-frame outcomes INCONCLUSIVE."
+   "notes": "Removal needs a data-bearing transport theorem on the completed carrier connecting source and comparison frames. The current Prop field is only a mockable checklist slot. The frozen decision rule marks unresolved-frame outcomes INCONCLUSIVE."
   },
   {
    "id": "PR-75",
@@ -1816,14 +1824,14 @@
     "claims/frozen_prediction_register.json": "statement",
     "docs/FROZEN_PREDICTION_LADDER.md": "statement"
    },
-   "notes": "Declared choice recorded as declared. The interface field nuisanceCoverageRules types the clause as a required-to-hold proposition whose content is external input. No coverage rule content is proposed here."
+   "notes": "Declared choice recorded as declared. The current Prop field merely names the slot and supplies no nuisance or coverage rule content. A future freeze must bind concrete preregistered rules and artifacts."
   },
   {
    "id": "PR-76",
    "name": "source-derived positive exclusivity lower bound",
    "type": "numerical_input",
    "disposition": "remove",
-   "statement": "A pre-exposure same-action, same-sector source theorem fixes a positive lower bound a_min for the admissible scales in the comparison units, and the preregistered sensitivity and remainder contract covers every admissible scale at or above a_min. The frozen append-only clarification makes a null verdict conditional on exactly this obligation, owned by issue #664. The committed corpus supplies no such bound: every positive value is realized as the lower bound of a stipulated interface inhabitant (committed_corpus_selects_no_lower_bound), so a stipulated value is inadmissible for a null verdict.",
+   "statement": "A pre-exposure same-action, same-sector source theorem fixes a positive lower bound a_min for the admissible scales in the comparison units, and the preregistered sensitivity and remainder contract covers every admissible scale at or above a_min. The frozen append-only clarification makes a null verdict conditional on exactly this obligation, owned by issue #664. No current source theorem supplies the bound. The permissive checklist realizes every positive label only because it stipulates the field; this proves no universal lower-bound no-go.",
    "consuming_lanes": [
     733,
     742
@@ -1838,7 +1846,7 @@
     "claims/frozen_prediction_register.json": "statement",
     "docs/FROZEN_PREDICTION_LADDER.md": "statement"
    },
-   "notes": "Removal needs the source lower-bound theorem the frozen clarification names. Disposition remove rather than axiomatize because the protocol itself rules out a declared value for null verdicts; the interface fields exclusivityLowerBound and lowerBoundSourceDerived type the obligation."
+   "notes": "Removal needs the data-bearing source lower-bound theorem the frozen clarification names. Disposition remove rather than axiomatize because a stipulated value is inadmissible for a null verdict. Independent source invariants remain viable; the current numeric and Prop placeholders do not block them."
   }
  ]
 }

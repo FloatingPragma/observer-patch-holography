@@ -6,7 +6,7 @@ set_option autoImplicit false
 namespace EventAlgebra
 
 /-!
-# Typed source-binding interface for the declared Lüders phase instrument
+# Placeholder source-binding schema for the declared Lüders phase instrument
 
 Register row PR-65 states the source-production obligation of the committed
 phase packet: one source construction supplies the common preparation used
@@ -27,7 +27,7 @@ additivity boundary module.
 * Interface.  `SourceBoundDeterminedData Φ` types the fields of a source
   binding that the committed corpus determines for a phase instrument `Φ`:
   a common preparation equal to the committed run-state diagonal with the
-  committed count literals `111/179` and `68/179`, a public outcome table
+  committed count literals `111/179` and `68/179`, a declared expected-frequency table
   equal to the committed effect table read on that preparation, and a
   readback clause identifying the instrument's induced effects on the
   preparation with the public table.  `SourceBoundInstrumentBinding Φ`
@@ -46,7 +46,7 @@ additivity boundary module.
   enumerated outcome-`0` entries are the literal table with values
   `111/179`, `315/716`, and `1/2`
   (`SourceBoundDeterminedData.publicTable_literal`).
-* Externality of the custody data.  The digest is a free parameter over
+* Placeholder freedom of the custody fields.  The digest is a free parameter over
   the same determined part (`binding_digest_free_parameter`,
   `bindingOfInstrumentDigest_injective`); two bindings agreeing on every
   determined field and differing at the digest exist
@@ -54,9 +54,10 @@ additivity boundary module.
   inhabitants have propositionally equal binding assignments
   (`SourceBoundInstrumentBinding.outcomeBinding_eq`), so with
   propositional extensionality the required-to-hold Prop clauses carry no
-  separation and the digest is the only datum that distinguishes
-  bindings.  The committed corpus therefore determines every field of the
-  interface except the custody data, whose value is external input.
+  data separation in this representation.  This shows that the placeholder
+  schema constrains neither the digest nor the inhabited propositions; it
+  does not prove that real provenance can only be carried by a digest or a
+  universal custody-externality theorem.
 * Non-forcing.  The committed swap-twisted comparison instrument inhabits
   the same determined fields with the same preparation and the same
   public table (`determined_interface_does_not_pin_instrument`), and full
@@ -82,16 +83,19 @@ additivity boundary module.
   `affineRunValuation_born_iff`).  Between additivity on the committed
   coexistent sums, which holds at every `t`, and the full PR-03
   additivity premise, which holds only at `t = 0`, lies a one-parameter
-  continuum of valuations satisfying every committed clause.
+  affine family satisfying every committed fixture clause.  The members
+  are probability-valued on all effects on the convex interval
+  `0 ≤ t ≤ 1` (`affineRunValuation_probability`); no probability-range
+  claim is made for parameters outside that interval.
 * Composed receipt.  `sourceBoundInterface_receipt` derives the
   conjunction of the clauses above.
 
 ## What is not proved here
 
 No run, no export, no producer, and no custody artifact exists in the
-corpus, and none is constructed.  The interface types what a source-bound
-run must supply, and the externality theorems prove that the custody
-fields are freely stipulable from inside the corpus: an inhabitant of the
+corpus, and none is constructed.  The schema records placeholders a source-bound
+run must replace with data-bearing evidence; its freedom theorems show that
+the present fields are freely stipulable.  An inhabitant of the
 full binding certifies no source production, no provenance, and no
 custody.  Register rows PR-65 and PR-03 are open: nothing here supplies a
 source construction, a recorded public outcome, a run binding, or an
@@ -117,7 +121,7 @@ is a separate design document and nothing here consumes it.
   exists.
 * PR-65 (subject of the interface; open): the clauses of the row are
   mirrored as fields; the determined fields are attained, and the custody
-  fields are proved external to the committed corpus.
+  placeholder fields are proved unconstrained by this schema.
 * PR-03 (subject of the rung; open): consumed only as the hypothesis
   `IsEffectValuation` in the `t = 0` characterizations; the affine family
   proves that the committed clauses hold on a continuum on which the full
@@ -178,11 +182,11 @@ structure SourceBoundDeterminedData (Φ : PhaseInstrument) where
   committed count literals `111/179` and `68/179` (register row PR-02). -/
   prep_eq_run_state : prep = Matrix.diagonal ![(111 / 179 : ℂ), (68 / 179 : ℂ)]
   /-- PR-65 clause "produces the public outcomes through that
-  instrument": the public outcome table, one exact value per context and
+  instrument": a declared expected-frequency table, one exact value per context and
   outcome.  Only the frequency surface is typed; a recorded public
   outcome is not typed in the corpus. -/
   publicTable : InstrumentContext → Fin 2 → ℂ
-  /-- The public outcome table is the committed effect table read on the
+  /-- The declared expected-frequency table is the committed effect table read on the
   preparation. -/
   publicTable_eq_born : ∀ (c : InstrumentContext) (i : Fin 2),
     publicTable c i = bornWeight prep (committedEffectPair c i)
@@ -255,7 +259,7 @@ theorem sourceBoundDeterminedData_nonempty (Φ : PhaseInstrument) :
     Nonempty (SourceBoundDeterminedData Φ) :=
   ⟨determinedDataOfInstrument Φ⟩
 
-/-! ## The full binding interface and the externality of its custody data -/
+/-! ## The full binding schema and freedom of its custody placeholders -/
 
 /-- **A source-bound instrument binding.**  The determined data extended
 by the custody clauses of register row PR-65: "binds preparation,
@@ -276,8 +280,8 @@ structure SourceBoundInstrumentBinding (Φ : PhaseInstrument) extends
   outcomeBinding : InstrumentContext → Fin 2 → Prop
   /-- The binding propositions hold.  Under propositional extensionality
   any two assignments satisfying this field are equal
-  (`SourceBoundInstrumentBinding.outcomeBinding_eq`), so the digest
-  carries all separation between bindings. -/
+  (`SourceBoundInstrumentBinding.outcomeBinding_eq`), so the digest is the
+  only data field separating bindings in this placeholder record. -/
   outcomeBinding_holds : ∀ (c : InstrumentContext) (i : Fin 2),
     outcomeBinding c i
 
@@ -312,10 +316,10 @@ theorem bindingOfInstrumentDigest_injective (Φ : PhaseInstrument) :
     Function.Injective (bindingOfInstrumentDigest Φ) := fun _ _ h =>
   congrArg (fun B : SourceBoundInstrumentBinding Φ => B.custodyDigest) h
 
-/-- **The committed corpus does not determine the source binding.**  Two
-bindings of the committed Lüders instrument agree on every determined
-field and differ at the custody digest; the custody data is external
-input, not derivable from the committed corpus. -/
+/-- **The placeholder schema does not determine its digest label.**  Two
+mock bindings of the committed Lüders instrument agree on every determined
+field and differ at the digest.  This is not an authenticated-custody or
+universal provenance-externality theorem. -/
 theorem committed_corpus_does_not_determine_binding :
     ∃ B₁ B₂ : SourceBoundInstrumentBinding luedersPhaseInstrument,
       B₁.toSourceBoundDeterminedData = B₂.toSourceBoundDeterminedData ∧
@@ -328,11 +332,12 @@ theorem committed_corpus_does_not_determine_binding :
       (fun B : SourceBoundInstrumentBinding luedersPhaseInstrument =>
         B.custodyDigest) h)
 
-/-- **The required-to-hold binding propositions carry no separation.**
+/-- **The required-to-hold binding propositions carry no data separation.**
 Any two bindings of the same instrument have equal binding assignments:
 each binding proposition holds in both, so propositional extensionality
-identifies them.  The custody digest is therefore the only field that can
-distinguish two bindings over the same determined data. -/
+identifies them.  The digest is therefore the only data field in this
+placeholder record that can distinguish two bindings over the same determined
+data; a real producer receipt requires a richer data-bearing type. -/
 theorem SourceBoundInstrumentBinding.outcomeBinding_eq {Φ : PhaseInstrument}
     (B₁ B₂ : SourceBoundInstrumentBinding Φ) :
     B₁.outcomeBinding = B₂.outcomeBinding := by
@@ -490,13 +495,27 @@ theorem affineRunValuation_gap (t : ℝ) :
   rw [affineRunValuation_witnessSum, affineRunValuation_halfWitness]
   ring
 
-/-- The family is injective: distinct parameters give distinct
-valuations, separated at the witness sum. -/
+/-- The family is injective: distinct parameters give distinct affine
+functionals, separated at the witness sum. -/
 theorem affineRunValuation_injective : Function.Injective affineRunValuation := by
   intro t₁ t₂ h
   have h' := congrFun h witnessSum
   rw [affineRunValuation_witnessSum, affineRunValuation_witnessSum] at h'
   linarith
+
+/-- On the convex interval between the Born functional and the cubic
+countermodel, every member is probability-valued on every effect.  This is
+the interval on which the affine family can be described as a continuum of
+probability assignments; outside it the algebraic identities above still
+hold, but no range bound is asserted. -/
+theorem affineRunValuation_probability {t : ℝ} (ht0 : 0 ≤ t) (ht1 : t ≤ 1)
+    {E : Matrix (Fin 2) (Fin 2) ℂ} (hE : IsEffect E) :
+    0 ≤ affineRunValuation t E ∧ affineRunValuation t E ≤ 1 := by
+  have hb0 := bornRunValuation_isEffectValuation.nonneg hE
+  have hb1 := bornRunValuation_isEffectValuation.le_one hE
+  have hp0 := producedCubicValuation_nonneg hE
+  have hp1 := producedCubicValuation_le_one hE
+  constructor <;> unfold affineRunValuation <;> nlinarith
 
 /-- **Full additivity singles out the Born member.**  A member of the
 affine family is an additive effect valuation, the full PR-03 additivity
@@ -543,13 +562,12 @@ theorem affineRunValuation_born_iff (t : ℝ) :
 /-- **The source-binding interface receipt.**  One conjunction:
 
 1. every phase instrument inhabits the determined interface;
-2. every determined datum of every instrument has the fixture frequency
-   table as its public table and as its readback traces;
-3. the custody digest is a free parameter over the committed determined
-   part;
-4. two bindings of the committed Lüders instrument agree on every
-   determined field and are distinct: the committed corpus does not
-   determine the binding;
+2. every determined datum of every instrument has the fixture expected-
+   frequency table as its declared table and as its trace surface;
+3. the custody-digest label is a free parameter over the committed
+   determined part;
+4. two mock bindings of the committed Lüders instrument agree on every
+   determined field and differ only in the placeholder label;
 5. the swap-twisted instrument inhabits the same determined fields with
    the same preparation and public table, and exactly one of the two
    instruments is repeatable;
@@ -633,6 +651,7 @@ end
 #print axioms affineRunValuation_witnessSum
 #print axioms affineRunValuation_gap
 #print axioms affineRunValuation_injective
+#print axioms affineRunValuation_probability
 #print axioms affineRunValuation_isEffectValuation_iff
 #print axioms affineRunValuation_born_iff
 #print axioms sourceBoundInterface_receipt

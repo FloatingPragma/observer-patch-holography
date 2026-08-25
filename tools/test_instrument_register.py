@@ -188,11 +188,11 @@ def test_ins03_design_contract_is_explicit_unfrozen_and_nonpromoting() -> None:
     assert row["verdict_receipts"] == []
 
     rule = row["decision_rule"]
-    assert "future target-blind freeze" in rule
-    assert "PASS maps to REPLICATED" in rule
-    assert "FAIL maps to FAILED" in rule
-    assert "SOURCE_PRODUCER_MISSING or INCONCLUSIVE maps to INCONCLUSIVE" in rule
-    assert "-3/256 countermodel" in rule
+    assert "implemented v1 validator is static-only" in rule
+    assert "STATIC_COMMITTED_FIXTURE_CONFORMANT" in rule
+    assert "PRODUCER_AUTHENTICATION_UNIMPLEMENTED" in rule
+    assert "Neither result maps to REPLICATED or FAILED" in rule
+    assert "future authenticated v2" in rule
     assert "No numeric placeholder is bound here" in rule
     assert "authorizes no execution" in rule
 
@@ -203,13 +203,13 @@ def test_ins03_design_contract_is_explicit_unfrozen_and_nonpromoting() -> None:
     assert "no redraw, no substitution, no optional stopping" in seeds
 
     controls = " ".join(row["controls"])
-    assert "record-diagonal source control" in controls
-    assert "shuffled-context control" in controls
+    assert "positive-semidefinite certificates" in controls
+    assert "matrix-unit trace-action table as a diagnostic" in controls
     assert "no promotion authority" in controls
-    assert "classical reveal-only mock" in controls
+    assert "PRODUCER_AUTHENTICATION_UNIMPLEMENTED" in controls
 
     limitations = row["limitations"]
-    assert "not a preregistration or an implemented simulator instrument" in limitations
+    assert "not a preregistration or an authenticated simulator instrument" in limitations
     assert "OL-C5 remains partial" in limitations
     assert "PR-03" in limitations
     assert "public-readback remainder of PR-64" in limitations
@@ -219,7 +219,7 @@ def test_ins03_design_contract_is_explicit_unfrozen_and_nonpromoting() -> None:
     assert "REPLICATED support_only and FAILED block_attainment" in limitations
     assert "neither verdict alone attains or owes the whole ledger row" in limitations
     assert "OL-C5 has no controlling instrument" in limitations
-    assert "separate immutable preregistration and explicit authorization" in limitations
+    assert "separate immutable authenticated-v2 preregistration and explicit authorization" in limitations
 
 
 def test_rebuild_parity_with_committed_surface() -> None:

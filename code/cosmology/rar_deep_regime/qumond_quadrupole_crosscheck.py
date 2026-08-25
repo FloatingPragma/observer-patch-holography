@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""External-field quadrupole of a local nonlinear field law, cross-checked.
+"""External-field quadrupole of two unscreened QUMOND responses, cross-checked.
 
 A dark response written as a local nonlinear Poisson law in the Newtonian
 field, ``div[nu(|grad Phi_N|/a0) grad Phi_N]``, gives every point mass its own
@@ -10,9 +10,11 @@ by the inner multipole expansion of the phantom potential and compares it with
 the published Blanchet--Novak value for the simple function and with the
 Park et al. (2026) benchmark for the radial-acceleration function.
 
-The purpose is documentary: it fixes that the Cassini exclusion of the
-field-law formulation is arithmetic-correct, so that the dark-sector paper can
-drop that formulation on physical grounds and not on a suspected bug.
+The purpose is documentary: it fixes that the Cassini tension for the two
+specified interpolation functions and fixed inputs is arithmetic-correct, so
+that this particular OPH response can be retired on physical grounds and not
+on a suspected bug. It is not a theorem excluding every local, screened,
+environment-dependent, nonlocal, or dynamical response law.
 
 Convention (Blanchet--Novak): ``U = -Phi``, ``U_quad = (1/2) Q_ij x^i x^j``,
 ``Q_ij = Q2 (e_i e_j - delta_ij / 3)``, hence ``Phi_quad = -(1/3) Q2 r^2 P2``.
@@ -129,7 +131,11 @@ def run(epsrel: float = 1e-9) -> dict[str, Any]:
                 "relative_difference": abs(rar_park - PARK_RAR_Q2) / PARK_RAR_Q2,
                 "pull_vs_cassini_sigma": (rar_park - CASSINI_Q2) / CASSINI_SIGMA,
             },
-            "verdict": "local field law excluded by the Cassini quadrupole; arithmetic confirmed against two independent published computations",
+            "verdict": (
+                "the tested unscreened QUMOND responses are in Cassini tension "
+                "at the declared fixed inputs; arithmetic agrees with two "
+                "independent published computations"
+            ),
         },
         "density_formulation": local_halo_footprint(),
         "cassini": {"Q2_s2": CASSINI_Q2, "sigma_s2": CASSINI_SIGMA},

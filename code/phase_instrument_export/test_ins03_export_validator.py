@@ -1,16 +1,18 @@
 """Tests for the INS-03 export conformance validator.
 
 Covered here: the shipped synthetic sample validates as
-SCHEMA_CONFORMANT_SYNTHETIC and equals the builder's canonical text; each
-required mutation guard fires its named error code (wrong effect entry,
-non-summing context, wrong run-state literal, float outside
-derived_for_display, wrong digest, missing field); the committed reference
+STATIC_COMMITTED_FIXTURE_CONFORMANT and equals the builder's canonical text;
+each required mutation guard fires its named error code (wrong effect entry,
+non-summing context, non-PSD effect complement, wrong run-state literal,
+float outside derived_for_display, wrong digest, missing field); the committed
+reference
 constants match the literals of
 Lean/EventAlgebra/LuedersPhaseInstrument.lean and
 Lean/EventAlgebra/SourceBoundInstrumentInterface.lean, including the eight
 outcome-0 entries 111/179, 111/179, 111/179, 315/716, 315/716, 315/716,
-315/716, 1/2; and the synthetic/producer verdict distinction is exposed and
-fail-closed.
+315/716, 1/2; matrix-unit trace differences remain diagnostics rather than
+zero residuals; and every producer claim is fail-closed because v1 has no
+provenance authenticator.
 
 What is not proved here: these tests exercise the validator against one
 synthetic document and named mutations of it.  They certify no source
@@ -53,10 +55,10 @@ def _codes(report: dict) -> set[str]:
 # ---------------------------------------------------------------------------
 
 
-def test_sample_is_schema_conformant_synthetic() -> None:
+def test_sample_is_static_fixture_conformant() -> None:
     report = validator.validate_file(SAMPLE_PATH)
     assert report["errors"] == []
-    assert report["verdict"] == "SCHEMA_CONFORMANT_SYNTHETIC"
+    assert report["verdict"] == validator.STATIC_FIXTURE_VERDICT
     assert report["provenance_class"] == "synthetic"
 
 
@@ -69,6 +71,29 @@ def test_sample_declares_synthetic_provenance_class() -> None:
     assert sample["provenance_class"] == "synthetic"
     assert sample["labels"]["evidential"] is False
     assert validator.SYNTHETIC_MARKER in sample["provenance"]["run_id"]
+
+
+def test_matrix_unit_trace_differences_are_diagnostic_not_zero_residuals() -> None:
+    """A correct nontrivial outcome channel has a nonzero basis trace
+    difference. V1 must recompute it exactly without demanding zero."""
+    sample = _load_sample()
+    diagnostics = sample["outcome_maps"]["web_diagonal"]["1"][
+        "trace_nonincreasing"]
+    e00 = next(entry for entry in diagnostics if entry["basis_unit"] == [0, 0])
+    assert e00["difference"] == ["-1", "0", "0", "0"]
+    report = validator.validate_file(SAMPLE_PATH)
+    assert report["errors"] == []
+    assert report["verdict"] == validator.STATIC_FIXTURE_VERDICT
+
+
+def test_exact_two_by_two_psd_helper() -> None:
+    identity = validator.mat_identity(2)
+    assert validator.mat_is_pos_semidefinite_2x2(identity)
+    not_psd = [
+        [validator.c3_rational(-1), validator.C3_ZERO],
+        [validator.C3_ZERO, validator.c3_rational(1)],
+    ]
+    assert not validator.mat_is_pos_semidefinite_2x2(not_psd)
 
 
 # ---------------------------------------------------------------------------
@@ -152,6 +177,27 @@ def test_mutation_non_summing_context() -> None:
     report = _validate_object(obj)
     assert report["verdict"] == "NONCONFORMANT"
     assert "CONTEXT_SUM_NOT_IDENTITY" in _codes(report)
+
+
+def test_mutation_non_psd_effect_complement_fails_closed() -> None:
+    """A Kraus-derived positive effect above the identity has a non-PSD
+    complement and therefore cannot be a trace-nonincreasing outcome."""
+    obj = _load_sample()
+    kraus = [
+        [validator.c3_rational(2), validator.C3_ZERO],
+        [validator.C3_ZERO, validator.C3_ZERO],
+    ]
+    effect = validator.mat_mul(validator.mat_dagger(kraus), kraus)
+    outcome = obj["outcome_maps"]["web_diagonal"]["0"]
+    outcome["kraus"] = [validator.encode_matrix(kraus)]
+    outcome["effect_from_kraus"] = validator.encode_matrix(effect)
+    outcome["declared_effect"] = validator.encode_matrix(effect)
+    outcome["effect_residual"] = validator.encode_matrix(validator.mat_zero(2))
+    outcome["trace_nonincreasing"] = validator._trace_entries([[kraus]], 2)
+    report = _validate_object(obj)
+    assert report["verdict"] == "NONCONFORMANT"
+    assert "EFFECT_COMPLEMENT_MISMATCH" in _codes(report)
+    assert "EFFECT_COMPLEMENT_NOT_PSD" in _codes(report)
 
 
 def test_mutation_wrong_run_state_literal() -> None:
@@ -241,13 +287,12 @@ def test_producer_class_with_synthetic_markers_fails_closed() -> None:
     report = _validate_object(obj)
     assert report["verdict"] == "NONCONFORMANT"
     assert "SYNTHETIC_MARKER_IN_PRODUCER" in _codes(report)
+    assert "PRODUCER_AUTHENTICATION_UNIMPLEMENTED" in _codes(report)
 
 
-def test_producer_classification_path_is_distinct_verdict() -> None:
-    """A fabricated marker-free variant classifies as
-    SCHEMA_CONFORMANT_PRODUCER: the verdict word differs from the synthetic
-    one.  The inputs are fabricated test data; the validator certifies no
-    provenance either way, per VALIDATOR_CONTRACT.md."""
+def test_marker_free_fabricated_producer_fails_authentication() -> None:
+    """Marker removal and self-consistent fabricated hashes cannot turn a
+    schema document into authenticated producer evidence."""
     obj = _load_sample()
     obj["provenance_class"] = "producer"
     prep = obj["preparation"]
@@ -283,8 +328,8 @@ def test_producer_classification_path_is_distinct_verdict() -> None:
             prep["source_record_ids"], prep["rho_00"], prep["rho_01"],
             prep["rho_11"])
     report = _validate_object(obj)
-    assert report["errors"] == []
-    assert report["verdict"] == "SCHEMA_CONFORMANT_PRODUCER"
+    assert report["verdict"] == "NONCONFORMANT"
+    assert _codes(report) == {"PRODUCER_AUTHENTICATION_UNIMPLEMENTED"}
 
 
 def test_synthetic_evidential_conflict() -> None:

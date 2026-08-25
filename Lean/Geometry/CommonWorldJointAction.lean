@@ -5,7 +5,7 @@ set_option autoImplicit false
 open scoped BigOperators Matrix
 
 /-!
-# CW1 joint action on the Maxwell-clock joined record (issue #740; PR-54 stays open)
+# CW1 formal direct-sum action on the Maxwell-clock product record
 
 WHAT IS PROVED.  The joined step record `MaxwellClockJoinedArchitecture` of
 `Geometry/CommonWorldMaxwellClockJoin.lean` carries the scaled Maxwell
@@ -14,10 +14,10 @@ separately: the scaled Ampere update and the Gauss constraint are the
 Euler-Lagrange system of the committed window action `windowAction` of
 `Screen/ScaledMaxwellStability.lean` through the committed equivalences
 `action_stationary_A_iff_ampere` and `action_stationary_phi_iff_gauss`,
-while the worldline is defined, not varied.  This module builds the missing
-variational principle for the kinematics island and composes one action on
-the joined record, at the attainable first rung: a direct sum, not a
-coupled action.
+while the worldline is defined, not varied.  This module chooses a quadratic
+functional for the kinematics island and forms its formal direct sum with the
+existing Maxwell functional.  It is a regression surface, not a physical
+common action or a coupled action.
 
 (1) The discrete worldline action.  For a declared step window of length
 `M` and a path `x : ℕ → Herm2` read at the nodes `0, …, M`, the action
@@ -43,15 +43,16 @@ variation by telescoping.  The corollary: the record's clock worldline,
 read as the path `joinedPath` of joined events, has constant increment
 `stepDuration • frame` (`joinedPath_increment`), is stationary on every
 window (`worldline_clockStationary`), and is the unique stationary path
-with its committed endpoints (`worldline_is_stationary_path`), so the
-kinematics island's worldline is variational, not merely declared.
+with its committed endpoints (`worldline_is_stationary_path`).  This is
+conditional on the chosen quadratic functional and the already declared
+endpoints; no theorem source-selects that functional.
 
 (2) The joint action.  `jointAction J N A φ x` is the sum of the committed
 window action of the Maxwell configuration `(A, φ)` at the record's
 declared sources over the window `0, …, N` and the clock action of the
-path `x` over the window `0, …, N + 1`, the two windows sharing the
-endpoint-fixing structure: both sectors' variations vanish at the nodes
-`0` and `N + 1`.  The composed theorem `jointAction_one_principle` states,
+path `x` over the window `0, …, N + 1`.  Worldline variations and Maxwell
+`A`-variations have their declared endpoint conditions; Maxwell `φ`-
+variations are unrestricted.  The composed theorem `jointAction_one_principle` states,
 on one typed record, both equivalences as conjuncts: stationarity of the
 joint action under Maxwell-sector variations at the record's committed
 bundle is equivalent to the conjunction of the scaled Ampere residual
@@ -61,21 +62,20 @@ equivalences, which are reused and not re-proved), and stationarity under
 worldline variations is equivalent to the equal-increment clause
 (`jointAction_worldline_sector`), hence, with the committed endpoints, to
 the record's clock line (`worldline_sector_solution`).  The committed
-configuration of every inhabitant is jointly stationary
-(`committed_configuration_stationary`): one variational principle carries
-both dynamics.  The receipt `jointAction_receipt` composes the three.
+configuration of every inhabitant is stationary in both independent sectors
+(`committed_configuration_stationary`).  The receipt `jointAction_receipt`
+composes the three.
 
 (3) The exact delimitation.  `jointAction_sector_decoupling` proves the
 joint action is a direct sum: the Maxwell variation of the joint action is
 independent of the worldline argument and the worldline variation is
 independent of the Maxwell arguments, as exact partial-variation
-independence identities.  The direct-sum action carries both dynamics on
-one carrier but couples nothing: a genuine interaction term, a
-worldline-field coupling producing a Lorentz-force-shaped clause, is
-exactly what the open source-action premise PR-54 still owes.  After this
-module the common-world missing joins are exactly the four labels of
-`MissingJoin`: the coupling term of the common action, the carrier map,
-the matter dynamics, and the observer readout.
+independence identities.  The direct-sum action is defined on a product
+configuration and couples nothing: a shared physical carrier and a
+worldline-field coupling producing a Lorentz-force-shaped clause are among
+what the open source-action premise PR-54 still owes.  The four labels of
+`MissingJoin` remain a named checklist, not an exhaustive theorem about
+every physical attachment requirement.
 
 (4) Receipts.  The committed joined inhabitant's worldline satisfies the
 equal-increment clause with the computed increment `(1, 0)`
@@ -96,9 +96,12 @@ differ while both carry both stationarity properties: the action selects
 the shape of the worldline, not the calibration (PR-15 open).
 
 DECLARED DATA.  The window length, the endpoint-fixing of the variation
-classes, the step duration, and every field of the joined record are
-declared exactly as recorded in the underlying modules; the joint action
-adds no datum and selects none of them.
+classes, the step duration, every field of the product record, the chosen
+clock functional, and the displayed relative coefficient one between the
+two summands are declared.  Because the sectors decouple, their separate
+stationarity equations cannot select a relative normalization: independent
+nonzero rescalings leave those equations unchanged.  A physical relative
+coefficient would require coupling or another normalization principle.
 
 FALSIFIER.  The module fails if the exact expansion misses a term, if some
 stationary path on a positive window has unequal increments or some
@@ -110,7 +113,7 @@ of the partial-variation independence identities fails, if the kink path
 is stationary, if the spatial variation has nonnegative clock action, or
 if the two calibration-distinct inhabitants fail a stationarity property.
 
-WHAT IS NOT PROVED HERE.  No physical units, no coupling, and no continuum
+WHAT IS NOT PROVED HERE.  No physical units, no common carrier, no coupling, and no continuum
 limit: the joint action is dimensionless, its two summands share only the
 step index, and no clause relates the Maxwell field at a step to the
 worldline event at that step beyond the shared window.  The window and the
@@ -120,8 +123,9 @@ port, seam, or face is mapped to a point, interval, or cone of the Lorentz
 module (PR-53 open).  The direct sum contains no worldline-field coupling
 and produces no Lorentz-force-shaped clause; the source gauge-field,
 current, and action attachment is open (PR-54), and issue #740 stays open.
-The missing joins after this module are the coupling term of the common
-action, the carrier map, the matter dynamics, and the observer readout.
+Named residual categories include a physical common action, the carrier map,
+matter dynamics, and observer readout; further compatibility conditions may
+also be required.
 
 Axiom audit.  Every proof composes committed receipts with exact
 mathematics; the module adds no project axiom and uses no native decision
@@ -643,11 +647,12 @@ theorem committed_configuration_stationary
     intro k _
     exact joinedPath_uniform J k
 
-/-- **One variational principle, both dynamics (issue #740; PR-54 stays
-open).**  On one typed record, the two sector equivalences as conjuncts:
-Maxwell-sector stationarity of the joint action is the scaled Ampere and
-Gauss system, and worldline-sector stationarity is the equal-increment
-clause. -/
+/-- **One formal direct sum, two independent stationarity clauses (issue
+#740; PR-54 stays open).**  On one product configuration, the two declared
+sector equivalences appear as conjuncts: Maxwell-sector stationarity of the
+decoupled sum is the scaled Ampere and Gauss system, while worldline-sector
+stationarity is the equal-increment clause.  This conjunction supplies no
+interaction or shared physical variational mechanism. -/
 theorem jointAction_one_principle (J : MaxwellClockJoinedArchitecture)
     (N : ℕ) (x : ℕ → Herm2) :
     (MaxwellSectorStationary J N x ↔
@@ -693,8 +698,9 @@ theorem jointAction_receipt (J : MaxwellClockJoinedArchitecture) (N : ℕ) :
 window action plus clock action, a Maxwell displacement moves it
 independently of the worldline argument in both slots, and a worldline
 displacement moves it independently of both Maxwell arguments.  The
-direct-sum action carries both dynamics on one carrier but couples
-nothing. -/
+  direct-sum action packages both clauses on one formal product
+  configuration; it supplies no shared physical carrier and couples
+  nothing. -/
 theorem jointAction_sector_decoupling (J : MaxwellClockJoinedArchitecture)
     (N : ℕ) :
     (∀ (A : ℕ → Fin 30 → ℝ) (φ : ℕ → Fin 12 → ℝ) (x : ℕ → Herm2),
@@ -721,12 +727,13 @@ theorem jointAction_sector_decoupling (J : MaxwellClockJoinedArchitecture)
     unfold jointAction
     ring
 
-/-- The common-world joins that stay missing after this module, as named
-labels: the coupling term of the common action, that is a worldline-field
+/-- A non-exhaustive label checklist of common-world joins that stay missing
+after this module: the coupling term of the common action, that is a worldline-field
 interaction producing a Lorentz-force-shaped clause (PR-54 open); the
 carrier map from ports, seams, and faces to points, intervals, and cones of
 the Lorentz module (PR-53 open); the matter dynamics beyond the committed
-structure premises; and the observer readout. -/
+structure premises; and the observer readout.  Calibration, relative sector
+normalization, and other physical identifications are also absent. -/
 inductive MissingJoin : Type
   /-- The interaction term of the common action: a worldline-field coupling
   producing a Lorentz-force-shaped clause. -/

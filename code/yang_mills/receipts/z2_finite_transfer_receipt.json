@@ -1,7 +1,27 @@
 {
   "collars": "one collar per spatial link, fiber {o, X_l o}, pi-preserving heat bath",
+  "grid_scope": {
+    "L": [
+      2,
+      3
+    ],
+    "kogut_susskind_lambda": [
+      0.5,
+      1.0,
+      2.0
+    ],
+    "universal_no_go": false,
+    "wilson_diagonal_beta_s_eq_beta_t": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      1.0
+    ]
+  },
   "ground_state_transform": "Doob transform by the Perron vector, pi = Omega^2",
   "physical_clay_receipt": false,
+  "producer_sha256": "621dba4f74205c05b77fd4fd297c112db257bf171ae2ec6a5860cb5e405bed66",
   "receipt_under_test": "finite ground-state-transform and cross-fiber receipt: U_r H_r U_r^{-1} = sum_C c_C (I - E_C) with c_C independent of the repaired value",
   "runs": [
     {
@@ -27,8 +47,8 @@
         "eta_star": 1.5432100042289676e-14,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.9999999999999846
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 4.3489989092836696e-13,
@@ -74,8 +94,8 @@
         "eta_star": 0.592252427080374,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.40774757291962604
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 16.950873712041563,
@@ -121,8 +141,8 @@
         "eta_star": 1.6386262251593386,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 24.005047699342665,
@@ -168,8 +188,8 @@
         "eta_star": 2.5516791496819433,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 21.111092636844646,
@@ -215,8 +235,8 @@
         "eta_star": 3.615236178348441,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 18.961488183176243,
@@ -262,8 +282,8 @@
         "eta_star": 5.315257178442986,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 21.551929786621958,
@@ -309,8 +329,8 @@
         "eta_star": 3.240112975350775,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 0.0,
@@ -331,7 +351,14 @@
         "pi_max": 0.16625727221685352,
         "pi_min": 0.0029369016073060726
       },
-      "transfer": "kogut_susskind"
+      "transfer": "kogut_susskind",
+      "variable_rate_floor": {
+        "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+        "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+        "lower_bound_value": 1.0,
+        "numerical_min_respects_bound": true,
+        "scope": "finite Kogut-Susskind Doob transform; quotient-space approximate tensorization and continuum transfer not proved"
+      }
     },
     {
       "L": 2,
@@ -355,8 +382,8 @@
         "eta_star": 1.6180041208424325,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 0.0,
@@ -377,7 +404,14 @@
         "pi_max": 0.08370224666936654,
         "pi_min": 0.01098080020109181
       },
-      "transfer": "kogut_susskind"
+      "transfer": "kogut_susskind",
+      "variable_rate_floor": {
+        "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+        "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+        "lower_bound_value": 2.0,
+        "numerical_min_respects_bound": true,
+        "scope": "finite Kogut-Susskind Doob transform; quotient-space approximate tensorization and continuum transfer not proved"
+      }
     },
     {
       "L": 2,
@@ -401,8 +435,8 @@
         "eta_star": 0.7870257796653003,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.2129742203346997
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 0.0,
@@ -423,7 +457,14 @@
         "pi_max": 0.05154798905037646,
         "pi_min": 0.018871010563840655
       },
-      "transfer": "kogut_susskind"
+      "transfer": "kogut_susskind",
+      "variable_rate_floor": {
+        "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+        "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+        "lower_bound_value": 4.0,
+        "numerical_min_respects_bound": true,
+        "scope": "finite Kogut-Susskind Doob transform; quotient-space approximate tensorization and continuum transfer not proved"
+      }
     },
     {
       "L": 3,
@@ -458,8 +499,8 @@
         "eta_star": 7.824851877558103e-13,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.9999999999992175
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 7.390522906156721e-08,
@@ -515,8 +556,8 @@
         "eta_star": 0.592239988784322,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.40776001121567795
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 6413.719521828631,
@@ -572,8 +613,8 @@
         "eta_star": 1.6322769550030112,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 3052.595188282329,
@@ -629,8 +670,8 @@
         "eta_star": 2.5329961816143087,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 2584.0187819048438,
@@ -686,8 +727,8 @@
         "eta_star": 4.726772385901033,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 2069.530696152381,
@@ -743,8 +784,8 @@
         "eta_star": 10.542165339209344,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": false,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 1913.2748833428086,
@@ -800,8 +841,8 @@
         "eta_star": 4.112606165962443,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 0.0,
@@ -822,7 +863,14 @@
         "pi_max": 0.0634393207716263,
         "pi_min": 1.2456044860031231e-05
       },
-      "transfer": "kogut_susskind"
+      "transfer": "kogut_susskind",
+      "variable_rate_floor": {
+        "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+        "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+        "lower_bound_value": 1.0,
+        "numerical_min_respects_bound": true,
+        "scope": "finite Kogut-Susskind Doob transform; quotient-space approximate tensorization and continuum transfer not proved"
+      }
     },
     {
       "L": 3,
@@ -856,8 +904,8 @@
         "eta_star": 1.7481898548015042,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.0
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 0.0,
@@ -878,7 +926,14 @@
         "pi_max": 0.008561772120683408,
         "pi_min": 0.00014186768267192808
       },
-      "transfer": "kogut_susskind"
+      "transfer": "kogut_susskind",
+      "variable_rate_floor": {
+        "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+        "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+        "lower_bound_value": 2.0,
+        "numerical_min_respects_bound": true,
+        "scope": "finite Kogut-Susskind Doob transform; quotient-space approximate tensorization and continuum transfer not proved"
+      }
     },
     {
       "L": 3,
@@ -912,8 +967,8 @@
         "eta_star": 0.8204871877127776,
         "unit_rate_floor_c_star_times_1_minus_eta": 0.17951281228722238
       },
-      "doob_generator_is_markov": true,
       "doob_generator_offdiagonal_nonpositive": true,
+      "doob_generator_rows_sum_zero": true,
       "fiber_dependent_rates": {
         "all_rates_positive": true,
         "offdiagonal_mass_outside_single_flip": 0.0,
@@ -934,11 +989,18 @@
         "pi_max": 0.002943840882951199,
         "pi_min": 0.0003895445468821311
       },
-      "transfer": "kogut_susskind"
+      "transfer": "kogut_susskind",
+      "variable_rate_floor": {
+        "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+        "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+        "lower_bound_value": 4.0,
+        "numerical_min_respects_bound": true,
+        "scope": "finite Kogut-Susskind Doob transform; quotient-space approximate tensorization and continuum transfer not proved"
+      }
     }
   ],
-  "schema": "oph.yang_mills.z2_finite_transfer_receipt.v1",
+  "schema": "oph.yang_mills.z2_finite_transfer_receipt.v2",
   "scope": "finite_gauge_diagnostic",
-  "sha256_of_runs": "10e5f200d33d2bcb80ba8cad17ae9902dbc901bda27904c7537c63cf17c744ae",
+  "sha256_of_runs": "70ecc0525ae0426de02ce46b9a9d4bbf12f87b5f899a9c7d929c31341ab4240d",
   "system": "Z2 lattice gauge theory, L x L periodic spatial torus, gauge-invariant sector"
 }

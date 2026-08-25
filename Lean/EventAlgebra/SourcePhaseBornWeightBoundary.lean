@@ -7,16 +7,17 @@ set_option autoImplicit false
 /-!
 # Source-phase Born-weight boundary
 
-This module joins the current source-reachable class to the source-selected
-two-dimensional phase effect without inventing a map between their different
-carriers.  A prospective bridge is typed explicitly.  If it sends every
+This module joins the current source-reachable class to the current
+first-labelled `+Y` effect under the declared complexification and pair-order
+conventions, without inventing a map between their different carriers.  A
+prospective bridge is typed explicitly.  If it sends every
 record-diagonal source matrix to a record-diagonal two-dimensional
 preparation, then every reachable preparation assigns Born weight `1/2` to
 both source-generated Pauli-Y orientations.  The same weight is assigned to
 the diagonal comparator `(1/2) I`.
 
-More exactly, the selected-effect weight of any two-dimensional state is
-`1/2 - Im(rho 0 1)`.  Thus a non-half selected-effect weight requires a
+More exactly, the conventional `+Y` weight of any two-dimensional state is
+`1/2 - Im(rho 0 1)`.  Thus a non-half `+Y` weight requires a
 nonzero imaginary off-diagonal entry.  A prospective source-to-phase bridge
 whose output differs from `1/2` therefore cannot preserve record diagonality
 on that input.  This is a conditional, single-shot Born-weight statement,
@@ -38,7 +39,7 @@ noncomputable section
 
 abbrev PhaseMatrix := Matrix (Fin 2) (Fin 2) ℂ
 
-/-! ## Exact selected-effect weight on two-dimensional preparations -/
+/-! ## Exact current-`+Y` weight on two-dimensional preparations -/
 
 /-- The lower off-diagonal entry of a two-dimensional state is the complex
 conjugate of the upper entry. -/
@@ -48,7 +49,8 @@ theorem state_offdiag_conj {rho : PhaseMatrix} (hrho : IsState rho) :
   rw [Matrix.conjTranspose_apply] at h
   simpa using h.symm
 
-/-- The source-selected Pauli-`+Y` effect in commutator coordinates. -/
+/-- The current first-labelled Pauli-`+Y` effect in commutator coordinates,
+under the declared complexification and ordering convention. -/
 theorem state_sourceSelected_weight_commutator_form
     {rho : PhaseMatrix} (hrho : IsState rho) :
     bornWeight rho sourceSelectedGeneratedEffect =
@@ -60,8 +62,8 @@ theorem state_sourceSelected_weight_commutator_form
   simp [rhoYPlus]
   linear_combination (1 / 2 : ℂ) * htrace
 
-/-- The source-selected Pauli-`+Y` effect reads exactly the imaginary part of
-the upper off-diagonal coordinate of any two-dimensional state. -/
+/-- The current conventional Pauli-`+Y` effect reads exactly the imaginary
+part of the upper off-diagonal coordinate of any two-dimensional state. -/
 theorem state_sourceSelected_weight_eq_half_sub_im
     {rho : PhaseMatrix} (hrho : IsState rho) :
     bornWeight rho sourceSelectedGeneratedEffect =
@@ -70,6 +72,15 @@ theorem state_sourceSelected_weight_eq_half_sub_im
     state_offdiag_conj hrho, Complex.sub_conj]
   push_cast
   linear_combination ((rho 0 1).im : ℂ) * Complex.I_sq
+
+/-- Accurate public alias: the effect is the current first-labelled member
+under the declared adapter and ordering convention.  The legacy theorem name
+above is retained for API stability. -/
+theorem state_current_first_labelled_weight_eq_half_sub_im
+    {rho : PhaseMatrix} (hrho : IsState rho) :
+    bornWeight rho currentFirstLabelledGeneratedEffect =
+      1 / 2 - ((rho 0 1).im : ℂ) :=
+  state_sourceSelected_weight_eq_half_sub_im hrho
 
 /-- The diagonal comparator with the same diagonal entries as either
 source-generated Pauli-Y projector.  It is an effect, not a projection and
@@ -80,7 +91,7 @@ theorem diagonalComparator_isEffect : IsEffect diagonalComparator := by
   exact isEffect_one.smul (by norm_num) (by norm_num)
 
 /-- Every normalized record-diagonal two-dimensional preparation gives the
-source-selected phase effect weight `1/2`. -/
+current conventional `+Y` phase-effect weight `1/2`. -/
 theorem recordDiagonal_state_sourceSelected_weight_half
     {rho : PhaseMatrix} (hrho : IsState rho) (hdiag : IsRecordDiagonal rho) :
     bornWeight rho sourceSelectedGeneratedEffect = 1 / 2 := by
@@ -93,6 +104,12 @@ theorem recordDiagonal_state_sourceSelected_weight_half
   simp [bornWeight, rhoYPlus, Matrix.trace, Matrix.diag, Matrix.mul_apply,
     Fin.sum_univ_two, h01, h10]
   linear_combination (1 / 2 : ℂ) * htrace
+
+/-- Accurate public alias for the record-diagonal half-weight statement. -/
+theorem recordDiagonal_state_current_first_labelled_weight_half
+    {rho : PhaseMatrix} (hrho : IsState rho) (hdiag : IsRecordDiagonal rho) :
+    bornWeight rho currentFirstLabelledGeneratedEffect = 1 / 2 :=
+  recordDiagonal_state_sourceSelected_weight_half hrho hdiag
 
 /-- The opposite source-generated orientation has the same weight `1/2` on
 every normalized record-diagonal preparation. -/
@@ -116,9 +133,9 @@ theorem state_diagonalComparator_weight_half
     simp [diagonalComparator, Matrix.smul_apply, Complex.real_smul]]
   simp [bornWeight, Matrix.trace_smul, hrho.2]
 
-/-- On a record-diagonal preparation the selected orientation, the opposite
-orientation, and the diagonal comparator have equal single-shot Born
-weights. -/
+/-- On a record-diagonal preparation the current conventional `+Y`
+orientation, the opposite orientation, and the diagonal comparator have
+equal single-shot Born weights. -/
 theorem recordDiagonal_state_phase_weights_equal
     {rho : PhaseMatrix} (hrho : IsState rho) (hdiag : IsRecordDiagonal rho) :
     bornWeight rho sourceSelectedGeneratedEffect =
@@ -149,7 +166,7 @@ def PreservesRecordDiagonality {c : Carrier}
     IsRecordDiagonal M → IsRecordDiagonal (B.prepare M)
 
 /-- Every record-preserving bridge from a reachable committed source state
-gives the source-selected phase effect weight `1/2`. -/
+gives the current conventional `+Y` phase-effect weight `1/2`. -/
 theorem reachable_recordPreserving_phase_weight_half
     {c : Carrier} (B : SourceToPhasePreparationBridge c)
     (hpres : PreservesRecordDiagonality B)
@@ -158,7 +175,7 @@ theorem reachable_recordPreserving_phase_weight_half
   exact recordDiagonal_state_sourceSelected_weight_half
     (B.state_of_reachable hM) (hpres M (reachable_recordDiagonal hM))
 
-/-- A non-half selected-effect weight on a reachable source state forces the
+/-- A non-half current-`+Y` weight on a reachable source state forces the
 bridge output to have a nonzero imaginary off-diagonal coordinate. -/
 theorem nonhalf_weight_requires_nonzero_im
     {c : Carrier} (B : SourceToPhasePreparationBridge c)
@@ -171,8 +188,8 @@ theorem nonhalf_weight_requires_nonzero_im
     him]
   simp
 
-/-- Consequently, a bridge whose output has a non-half selected-effect weight
-on a reachable input does not preserve record diagonality. -/
+/-- Consequently, a bridge whose output has a non-half current-`+Y` weight on
+a reachable input does not preserve record diagonality. -/
 theorem nonhalf_weight_refutes_recordPreservation
     {c : Carrier} (B : SourceToPhasePreparationBridge c)
     {M : Matrix c.Index c.Index ℂ} (hM : Reachable c M)
@@ -208,9 +225,9 @@ theorem constantDiagonalControlBridge_weight_half
     constantDiagonalControlBridge_preserves hM
 
 /-- A deliberately off-diagonal control bridge.  It ignores its input and
-returns the selected Pauli-Y state, so it is not a source construction; its
-purpose is to prove that dropping record preservation permits a non-half
-selected-effect weight. -/
+returns the current conventional Pauli-Y state, so it is not a source
+construction; its purpose is to prove that dropping record preservation
+permits a non-half current-`+Y` weight. -/
 def offDiagonalControlBridge :
     SourceToPhasePreparationBridge Carrier.pair247 where
   prepare _ := sourceSelectedGeneratedEffect
@@ -248,8 +265,8 @@ theorem offDiagonalControlBridge_not_preserving :
 
 /-- The composed stated-domain receipt: all current reachable matrices obey
 the record law; every record-preserving phase bridge assigns equal half
-weight to both source orientations and the diagonal comparator; and a
-non-half selected-effect weight requires a nonzero imaginary off-diagonal
+weight to both generated orientations and the diagonal comparator; and a
+non-half current-`+Y` weight requires a nonzero imaginary off-diagonal
 entry. -/
 theorem sourcePhaseBornWeightBoundary_receipt :
     IsEffect diagonalComparator ∧

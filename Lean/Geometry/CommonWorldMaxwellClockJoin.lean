@@ -6,16 +6,16 @@ set_option autoImplicit false
 open scoped BigOperators Matrix
 
 /-!
-# CW1 Maxwell-clock step join on the instrumented record (issue #740)
+# CW1 formal Maxwell-clock same-index product on the instrumented record
 
-WHAT IS PROVED.  The instrumented common-world record
+WHAT IS PROVED.  The instrumented architecture record
 `InstrumentedCommonWorldArchitecture` of
 `Geometry/CommonWorldInstrumentJoin.lean` carries its certified Maxwell
 bundle and its clock worldline on one record, linked by the shared step
 index type `ℕ` and by no clause: the boundary paragraph of that module
 records that no clause relates a Maxwell quantity at step `n` to the clock
 or the worldline event at step `n`.  This module extends that record by one
-join field and proves four clauses of every inhabitant.
+formal product field and proves identities inherited from its two projections.
 
 The join field.  `MaxwellClockJoinedArchitecture` extends the instrumented
 record by a single function `join : ℕ → ℝ × Herm2` whose first component is
@@ -23,20 +23,20 @@ the scaled staggered form `fieldEnergyScaled scaled.h scaled.A scaled.phi n`
 of the record's certified bundle and whose second component is the clock
 worldline event `frameWorldline frame (stepTime stepDuration n)` of the
 record's own frame at the record's declared step time.  One function of one
-index produces both components, so the two islands are read at the same
-index by construction rather than by convention.
+index produces both components.  This is same-index packaging by definition,
+not a dynamical, geometric, or physical relation between the components.
 
 Clause 1, same-index binding (`CarriesJoinedStepIndex`).  The two
 projection identities hold (`join_energy`, `join_stepEvent`), the join is
 the pair of the two committed readings (`join_eq_pair`), and the join is
-injective in the step index (`join_injective`), so the index is recovered
-from the joined object.  The binding is load-bearing: at every index the
+injective in the step index (`join_injective`) because its already injective
+clock-event projection recovers the index.  At every index the
 joined event differs from the event of the successor index
 (`join_event_ne_succ`), so no inhabitant's join is the successor-shifted
 reading (`shifted_join_excluded`).
 
-Clause 2, causal-energy compatibility (`CarriesJoinedCausalEnergy`).  Along
-the join, successive events are causally ordered in the record's cone order
+Clause 2, paired projection receipts (`CarriesJoinedCausalEnergy`).  In the
+clock projection, successive events are causally ordered in the record's cone order
 and the ordering extends to every pair of indices `n ≤ m`
 (`joined_causal_mono`, from the landed `stepEvent_causal_mono`); the joined
 value is nonnegative at every index (`joined_energy_nonneg`); the record's
@@ -50,14 +50,14 @@ the joined value at index `0` over the record's margin `4 - h² Λ`
 (`joined_causal_energy_bound`), which states the landed uniform bound with
 the joined object on the right.
 
-Clause 3, conservation transport (`CarriesJoinedConservation`).  The clock
+Clause 3, componentwise clock and conservation identities
+(`CarriesJoinedConservation`).  The clock
 phase between two step indices advances by the declared rotation of the
 elapsed step time (`joined_clock_advance`), and for zero seam current the
 joined value at the later index of every causally ordered pair equals the
-joined value at the earlier index (`joined_conservation`).  This is the
-first record-level clause relating the screen island and the kinematics
-island of the record: one conserved screen quantity transported along the
-record's own clock.  On the committed inhabitant the two sides are not both
+joined value at the earlier index (`joined_conservation`).  These are two
+independent consequences carried by the projections; no theorem makes the
+clock transport or constrain the Maxwell value.  On the committed inhabitant the two sides are not both
 constant: the joined value is constant at every index while the clock does
 not repeat with period one step
 (`committedJoinedWitness_energy_constant_clock_moving`, through
@@ -96,23 +96,24 @@ FALSIFIER.  The module fails if some inhabitant's join misses a projection
 identity, if some join is noninjective in the index, if some inhabitant
 admits the successor-shifted event reading, if some pair of joined events
 of ordered indices is causally unordered, if some record's step misses the
-sharp certificate, if the zero-current bound or the conservation transport
-fails at some index, if the two non-supply agreements fail, or if the
+sharp certificate, if the zero-current bound or the componentwise
+conservation pairing fails at some index, if the two independence agreements fail, or if the
 extended record type is uninhabited over the committed inhabitant.
 
 WHAT IS NOT PROVED HERE.  The step dictionary stays a declared calibration:
 `stepDuration` is a positive real with no unit, the join identifies no
 physical time and no physical space, and no clock is calibrated (PR-15
-open).  After this module the common-world joins that stay missing are
-exactly four: no common action across carriers, that is no one variational
-principle carrying the screen action of the scaled Maxwell island and the
-kinematic flow of the Lorentz module on one carrier (PR-54 open); no port,
+open).  At least the following named attachment categories remain: no physical
+common action across carriers, interaction, or relative normalization joining
+the screen action of the scaled Maxwell island to the kinematic flow of the
+Lorentz module (PR-54 open); no port,
 seam, or face of the screen carrier mapped to a point, interval, or cone of
 the Lorentz module (PR-53 open), which clause 4 states as a non-supply of
 the join itself; no matter dynamics beyond the committed structure
 premises; and no observer readout, the instrument carrying channel clauses
 and a repeatability proxy with no public outcome, readback, or provenance
-(PR-64 readback and PR-65 open).  The joined value is the staggered form of
+(PR-64 readback and PR-65 open).  This checklist is not an exhaustiveness
+theorem, and further physical compatibility conditions may be required.  The joined value is the staggered form of
 the record's declared bundle and is not an energy in any unit; the
 conservation clause is conditional on the record's zero seam current.
 Nothing here closes issue #740, and no observation-ledger row is promoted.
@@ -304,7 +305,7 @@ theorem carriesJoinedCausalEnergy (J : MaxwellClockJoinedArchitecture) :
     joined_step_certified J, certifiedStepOfJoin_step J,
     fun hJ n => joined_causal_energy_bound J hJ n⟩
 
-/-! ## Clause 3: conservation transport along the clock -/
+/-! ## Clause 3: independent clock-order and Maxwell-conservation pairing -/
 
 /-- The clock phase between two step indices advances by the declared
 rotation of the elapsed step time. -/
@@ -319,9 +320,10 @@ theorem joined_clock_advance (J : MaxwellClockJoinedArchitecture) (n m : ℕ) :
   push_cast
   ring
 
-/-- **Conservation transport.**  For zero seam current, along every
-causally ordered pair of joined events the joined value at the later index
-equals the joined value at the earlier index. -/
+/-- **Componentwise conservation pairing.**  For zero seam current, the
+declared event component is causally ordered while the independently computed
+Maxwell value is equal at the two indices.  No transport or coupling between
+the components is proved. -/
 theorem joined_conservation (J : MaxwellClockJoinedArchitecture)
     (hJ : J.maxwell.J = (fun _ ↦ 0)) {n m : ℕ} (h : n ≤ m) :
     causalLE (J.join n).2 (J.join m).2 ∧ (J.join m).1 = (J.join n).1 := by
@@ -332,10 +334,9 @@ theorem joined_conservation (J : MaxwellClockJoinedArchitecture)
     energy_conserved_scaled J.scaled.h J.scaled.h_pos.ne' J.scaled.A J.scaled.phi
       (joined_scaled_ampere_zero J hJ) n]
 
-/-- The conservation-transport clause of the composed receipt: the clock
-phase advances by the declared rotation between any two indices, and for
-zero seam current the joined value is unchanged along every causally
-ordered pair. -/
+/-- The componentwise pairing clause of the composed receipt: the clock phase
+advances by the declared rotation between any two indices, and independently,
+for zero seam current, the Maxwell value is unchanged between those indices. -/
 def CarriesJoinedConservation (J : MaxwellClockJoinedArchitecture) : Prop :=
   (∀ n m : ℕ, stepClock J.toInstrumentedCommonWorldArchitecture m =
     stepClock J.toInstrumentedCommonWorldArchitecture n *
@@ -349,14 +350,15 @@ theorem carriesJoinedConservation (J : MaxwellClockJoinedArchitecture) :
     CarriesJoinedConservation J :=
   ⟨joined_clock_advance J, fun hJ _ _ h => joined_conservation J hJ h⟩
 
-/-! ## Clause 4: the join supplies no carrier map -/
+/-! ## Clause 4: component independence and the missing carrier-map boundary -/
 
-/-- The non-supply clause: the join's event component is a function of the
-record's frame and step duration alone, and its value component is a
-function of the record's certified bundle alone.  No field of the join
-takes a port, a seam, or a face to a point, an interval, or a cone of the
-Lorentz module; the two agreement statements are the form in which that is
-checked against the structure. -/
+/-- The component-dependence equalities used as a non-supply diagnostic: the
+join's event component depends only on the record's frame and step duration,
+and its value component only on the certified bundle.  Their independence is
+evidence that this formal product contains no carrier map; this proposition
+does not quantify over, and therefore cannot exclude, carrier maps supplied by
+an enriched future structure.  The legacy definition name is retained for API
+stability. -/
 def JoinSuppliesNoCarrierMap (J : MaxwellClockJoinedArchitecture) : Prop :=
   (∀ n : ℕ, (J.join n).2 = frameWorldline J.frame (stepTime J.stepDuration n)) ∧
   (∀ K : MaxwellClockJoinedArchitecture, K.frame = J.frame →
@@ -370,13 +372,25 @@ theorem joinSuppliesNoCarrierMap (J : MaxwellClockJoinedArchitecture) :
   · rw [K.join_event, J.join_event, hf, hδ]
   · rw [K.join_energy, J.join_energy, hs]
 
+/-- Accurate public alias for the component-dependence equalities.  The legacy
+`JoinSuppliesNoCarrierMap` name is retained above, but the proposition proves
+independence of the two packaged components rather than a universal no-go for
+future carrier-map enrichments. -/
+def JoinComponentIndependence (J : MaxwellClockJoinedArchitecture) : Prop :=
+  JoinSuppliesNoCarrierMap J
+
+theorem joinComponentIndependence (J : MaxwellClockJoinedArchitecture) :
+    JoinComponentIndependence J :=
+  joinSuppliesNoCarrierMap J
+
 /-! ## The composed receipt -/
 
 /-- **The Maxwell-clock joined receipt (issue #740, one added join; CW1
 stays open).**  Every joined record carries the four join clauses of the
 instrumented record and the four clauses of the step join: same-index
-binding, causal-energy compatibility, conservation transport along the
-clock, and the non-supply of a carrier map.  The ten base clauses of the
+  binding, causal-energy compatibility, independent clock-order and
+  Maxwell-conservation pairing, and the component-independence diagnostic.
+  The ten base clauses of the
 bridged receipt transport unchanged through
 `instrumentedCommonWorld_receipt` at
 `toInstrumentedCommonWorldArchitecture`. -/

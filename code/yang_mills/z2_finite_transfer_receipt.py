@@ -5,9 +5,11 @@ The Yang--Mills gap paper assumes a finite ground-state-transform and
 cross-fiber receipt: a unitary ``U_r`` with ``U_r Omega_r = 1`` such that
 ``U_r H_r U_r^{-1} = sum_C D_C`` with each ``D_C = c_C (I - E_C)`` a heat-bath
 collar generator whose rate ``c_C`` is independent of the repaired value.
-This module evaluates that receipt on the smallest gauge systems that admit
-an exact computation: Z2 lattice gauge theory on an ``L x L`` periodic spatial
-torus in the gauge-invariant (Gauss-law) sector.
+This module evaluates that receipt numerically on two small gauge systems:
+Z2 lattice gauge theory on an ``L x L`` periodic spatial torus in the
+gauge-invariant (Gauss-law) sector.  The free control has an analytic exact
+identity; interacting eigendecompositions and matrix logarithms use float64
+arithmetic and the serialized tolerances.
 
 Two transfer objects are tested.
 
@@ -48,7 +50,7 @@ from typing import Any
 
 import numpy as np
 
-SCHEMA = "oph.yang_mills.z2_finite_transfer_receipt.v1"
+SCHEMA = "oph.yang_mills.z2_finite_transfer_receipt.v2"
 
 
 # ----------------------------------------------------------------------------
@@ -325,7 +327,9 @@ def evaluate(orbits: Z2GaugeOrbits, transfer: str, **params: float) -> dict[str,
         "parameters": params,
         "n_orbits": int(orbits.n_orbits),
         "n_links": int(orbits.n_links),
-        "doob_generator_is_markov": bool(np.allclose(Lgen.sum(axis=1), 0, atol=1e-9)),
+        "doob_generator_rows_sum_zero": bool(
+            np.allclose(Lgen.sum(axis=1), 0, atol=1e-9)
+        ),
         "doob_generator_offdiagonal_nonpositive": bool(
             np.all(Lgen - np.diag(np.diag(Lgen)) <= 1e-12)
         ),
@@ -343,6 +347,20 @@ def evaluate(orbits: Z2GaugeOrbits, transfer: str, **params: float) -> dict[str,
             "pi_max": float(pi.max()),
         },
     }
+    if transfer == "kogut_susskind":
+        analytic_floor = 2.0 * params["lam"]
+        result["variable_rate_floor"] = {
+            "identity": "c_l(o) = lambda * (r_l(o) + 1/r_l(o))",
+            "analytic_lower_bound": "c_l(o) >= 2 * lambda by AM-GM",
+            "lower_bound_value": analytic_floor,
+            "numerical_min_respects_bound": bool(
+                fibre["rate_min"] >= analytic_floor - 1e-10
+            ),
+            "scope": (
+                "finite Kogut-Susskind Doob transform; quotient-space "
+                "approximate tensorization and continuum transfer not proved"
+            ),
+        }
     result.update(extra)
     return result
 
@@ -361,6 +379,13 @@ def run(L_values: list[int], betas: list[float], lams: list[float]) -> dict[str,
         "schema": SCHEMA,
         "scope": "finite_gauge_diagnostic",
         "physical_clay_receipt": False,
+        "producer_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "grid_scope": {
+            "L": L_values,
+            "wilson_diagonal_beta_s_eq_beta_t": betas,
+            "kogut_susskind_lambda": lams,
+            "universal_no_go": False,
+        },
         "system": "Z2 lattice gauge theory, L x L periodic spatial torus, gauge-invariant sector",
         "receipt_under_test": (
             "finite ground-state-transform and cross-fiber receipt: "

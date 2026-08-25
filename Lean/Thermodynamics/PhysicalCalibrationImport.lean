@@ -255,9 +255,10 @@ theorem toAffineMap_map (t : ℝ) :
   simp only [toAffineMap, PositiveAffineClockMap.map, labSeconds_def]
   ring
 
-/-- Composition of two calibrations: the tick durations multiply.  The
-composite converts through the first dictionary and then rescales
-through the second. -/
+/-- Composition in the abstract positive affine-scale algebra. The two
+positive coordinates multiply. This is not a dimensional composition of two
+quantities both read as SI seconds per tick; a physical use must type one
+factor as an intermediate dimensionless scale. -/
 def comp (second first : ClockCalibration) : ClockCalibration where
   tau := second.tau * first.tau
   tau_pos := mul_pos second.tau_pos first.tau_pos
@@ -265,10 +266,11 @@ def comp (second first : ClockCalibration) : ClockCalibration where
 @[simp] theorem comp_tau (second first : ClockCalibration) :
     (comp second first).tau = second.tau * first.tau := rfl
 
-/-- **Affine exactness of composition.**  The embedding into the
+/-- **Abstract affine exactness of composition.**  The embedding into the
 committed affine clock algebra sends composition of calibrations to the
 committed affine composition: the dictionary composes with the existing
-calibration algebra instead of duplicating it. -/
+scale algebra instead of duplicating it. No seconds-squared reading is
+asserted. -/
 theorem toAffineMap_comp (second first : ClockCalibration) :
     (comp second first).toAffineMap =
       PositiveAffineClockMap.comp second.toAffineMap first.toAffineMap := by

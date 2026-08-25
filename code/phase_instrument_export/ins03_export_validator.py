@@ -1,13 +1,16 @@
-"""Conformance validator for the INS-03 simulator export interface.
+"""Static committed-fixture checker for the INS-03 v1 export interface.
 
 Schema under validation: ``oph.sim.ins03_phase_instrument_export.v1``, the
 simulator-side export specified in section A of
 ``plan/INS03_SOURCE_BOUND_PHASE_INSTRUMENT_DESIGN.md`` (OPH meta planning
-surface).  The typed Lean binding interface
-``Lean/EventAlgebra/SourceBoundInstrumentInterface.lean`` proves that the
-custody data of a source binding is external to the committed corpus; this
-validator is the receiving half of that interface on the export side.  It
-checks, fail-closed with named error codes:
+surface).  In the typed Lean binding interface
+``Lean/EventAlgebra/SourceBoundInstrumentInterface.lean``, the current
+placeholder fields are not determined by the committed objects and do not
+authenticate custody.  A richer in-corpus or external data-bearing
+construction remains viable.  This v1 checker receives or authenticates no
+such data.  It checks a
+static synthetic transcription of the committed fixture, fail-closed with
+named error codes:
 
 * schema id and version (the ``.v1`` suffix of the schema string);
 * canonical serialization: ``json.dumps(obj, sort_keys=True, indent=2,
@@ -23,8 +26,9 @@ checks, fail-closed with named error codes:
   extension (row-major entries beside the integer ``n``) otherwise;
 * required fields per context and outcome, per design section A: the Kraus
   families (field 1), ``effect_from_kraus`` against ``declared_effect`` with
-  the exact residual matrix (field 2), the trace values on the frozen
-  spanning set of matrix units (field 3), the summed-channel Kraus
+  the exact residual matrix (field 2), the legacy-named
+  ``trace_nonincreasing`` diagnostic trace values on the frozen spanning set
+  of matrix units (field 3), the summed-channel Kraus
   normalization and trace checks (field 4), the readback counts with the
   exact compatibility residual (field 5), the preparation coordinatization
   with its positivity certificate, operation list, and content hash
@@ -33,9 +37,13 @@ checks, fail-closed with named error codes:
   dimension;
 * exact algebraic conformance in rational and symbolic ``Q(sqrt(3))``
   arithmetic, with no floating-point value in any check: each Kraus family's
-  induced effect ``sum_k K_k^dagger K_k`` equals the declared effect;
-  per-context effects sum to the identity; declared run-state outcome traces
-  ``Tr(rho E)`` equal the declared frequencies ``count/mass``;
+  induced effect ``sum_k K_k^dagger K_k`` equals the declared effect and is
+  positive semidefinite; each outcome's complement equals the other induced
+  effect and is positive semidefinite; per-context effects sum to the
+  identity; declared fixture-state outcome traces ``Tr(rho E)`` equal the
+  committed fixture frequencies ``count/mass``.  The matrix-unit trace data
+  are recomputation diagnostics only: their differences need not be zero and
+  do not certify an order inequality;
 * the committed-table cross-check: where the export declares the committed
   eight contexts, its effect table, run state, and count table must equal
   the committed literals, hard-coded below as reference constants with their
@@ -43,13 +51,12 @@ checks, fail-closed with named error codes:
 * the custody digest: the canonical SHA-256 over the content, recomputed and
   compared with the export's declared digest.
 
-Verdict grammar: ``SCHEMA_CONFORMANT_SYNTHETIC`` for a conformant export
-whose ``provenance_class`` is ``synthetic``, ``SCHEMA_CONFORMANT_PRODUCER``
-for a conformant export whose ``provenance_class`` is ``producer``, and
-``NONCONFORMANT`` otherwise.  The ``provenance_class`` field is a
-validator-lane addition to the design's field list; it exposes the
-distinction between a synthetic schema sample and a genuine producer export
-and is required.
+Verdict grammar: ``STATIC_COMMITTED_FIXTURE_CONFORMANT`` for a conformant
+export whose ``provenance_class`` is ``synthetic``, and ``NONCONFORMANT``
+otherwise.  The reserved ``producer`` class always fails with
+``PRODUCER_AUTHENTICATION_UNIMPLEMENTED``.  Marker-free strings and
+self-declared hashes cannot authenticate a run, so v1 intentionally has no
+producer success verdict.
 
 Digest convention: the digest is the lowercase hexadecimal SHA-256 of the
 UTF-8 bytes of the canonical serialization of the export object with the
@@ -86,20 +93,21 @@ Committed reference constants and their sources:
   from ``Lean/EventAlgebra/SourceReachabilityDelimitation.lean``, as
   transcribed in design section A field 6.
 
-What is not proved here: the validator certifies schema and exact algebraic
-conformance of one JSON document and the integrity of its declared digest,
-and nothing else.  It cannot certify source production, provenance,
-custody, or run reality; those are exactly the fields that
-``SourceBoundInstrumentInterface.lean`` proves external to the committed
-corpus (``committed_corpus_does_not_determine_binding``,
+What is not proved here: the checker certifies static-fixture schema and exact
+algebraic conformance of one JSON document and the integrity of its declared
+digest, and nothing else.  It cannot certify source production, provenance,
+custody, or run reality.  The current placeholder fields in
+``SourceBoundInstrumentInterface.lean`` are freely stipulable and
+non-authenticating (``committed_corpus_does_not_determine_binding``,
 ``binding_digest_free_parameter``), so a passing validation is attainable by
 freely stipulated data and discharges no register row.  No run exists; the
 shipped sample is synthetic and marked; register rows PR-03, PR-64, and
 PR-65 are open, and nothing here discharges the source-production row.  The
 frozen decision rule of design section C, including the ``TOL_READBACK``
 band for produced sampling residuals, binds at freeze time and is outside
-this validator; the readback checks here are the exact-equality reading
-that a deterministic committed-table export satisfies.
+this checker; the readback checks here are the exact-equality reading that a
+deterministic committed-table fixture satisfies.  A future finite-run v2
+validator must be separately frozen and implemented.
 
 Pure standard-library Python.  All checks run in exact arithmetic over
 ``fractions.Fraction`` and a minimal exact ``Q(sqrt(3))`` implementation;
@@ -120,6 +128,7 @@ from typing import Any
 
 SCHEMA_ID = "oph.sim.ins03_phase_instrument_export.v1"
 VALIDATOR_ID = "ins03_export_validator.v1"
+STATIC_FIXTURE_VERDICT = "STATIC_COMMITTED_FIXTURE_CONFORMANT"
 
 PROVENANCE_CLASSES = ("synthetic", "producer")
 SYNTHETIC_MARKER = "SYNTHETIC_PLACEHOLDER"
@@ -304,6 +313,27 @@ def mat_eq(x: Matrix, y: Matrix) -> bool:
 
 def mat_is_zero(x: Matrix) -> bool:
     return all(entry.is_zero() for row in x for entry in row)
+
+
+def mat_is_pos_semidefinite_2x2(x: Matrix) -> bool:
+    """Exact Hermitian PSD test for the two-dimensional v1 carrier.
+
+    A Hermitian two-by-two matrix is positive semidefinite exactly when its
+    two diagonal entries and determinant are nonnegative.  All comparisons
+    stay in ``Q(sqrt(3))``.  The v1 preparation field already rejects every
+    carrier dimension other than two, so this is the complete PSD test needed
+    by a conformant v1 document.
+    """
+    if len(x) != 2 or any(len(row) != 2 for row in x):
+        return False
+    if not mat_eq(x, mat_dagger(x)):
+        return False
+    diagonal = (x[0][0], x[1][1])
+    if any(not entry.im.is_zero() or not entry.re.is_nonneg()
+           for entry in diagonal):
+        return False
+    determinant = x[0][0] * x[1][1] - x[0][1] * x[1][0]
+    return determinant.im.is_zero() and determinant.re.is_nonneg()
 
 
 def mat_unit(n: int, i: int, j: int) -> Matrix:
@@ -668,6 +698,10 @@ def _validate_outcome_map(node: Any, dimension: int, where: str,
     if not mat_eq(effect_from_kraus, declared_effect):
         errors.add("EFFECT_DECLARED_MISMATCH", where,
                    "effect_from_kraus differs from declared_effect")
+    if dimension == 2 and not mat_is_pos_semidefinite_2x2(effect_from_kraus):
+        errors.add("EFFECT_NOT_PSD", where,
+                   "effect_from_kraus is not positive semidefinite under the "
+                   "exact Hermitian two-by-two test")
     recomputed_residual = mat_sub(effect_from_kraus, declared_effect)
     if not mat_eq(effect_residual, recomputed_residual) \
             or not mat_is_zero(effect_residual):
@@ -675,8 +709,12 @@ def _validate_outcome_map(node: Any, dimension: int, where: str,
                    "effect_residual must equal the recomputed difference and "
                    "be exactly zero")
 
-    # Field 3: trace values on the frozen spanning set of matrix units,
-    # row-major order.
+    # Field 3: diagnostic trace values on the frozen spanning set of matrix
+    # units, row-major order.  The schema key is retained for v1 compatibility
+    # but is legacy-named: matrix units span the linear map, not the PSD cone,
+    # and their trace differences are not required to vanish.  Outcome trace
+    # nonincrease is certified below at the context level by E_i >= 0 and
+    # I - E_i = E_(1-i) >= 0.
     trace_nodes = node["trace_nonincreasing"]
     expected_units = [(i, j) for i in range(dimension) for j in range(dimension)]
     ok_shape = (isinstance(trace_nodes, list)
@@ -713,8 +751,9 @@ def _validate_outcome_map(node: Any, dimension: int, where: str,
                     or declared_input != recomputed_input
                     or declared_diff != recomputed_output - recomputed_input):
                 errors.add("TRACE_CHECK_MISMATCH", entry_where,
-                           "declared trace values differ from the exact "
-                           "recomputation over the Kraus family")
+                           "diagnostic trace values differ from the exact "
+                           "recomputation over the Kraus family; no zero-"
+                           "difference condition is imposed")
 
     return {"kraus": kraus, "effect_from_kraus": effect_from_kraus,
             "declared_effect": declared_effect}
@@ -1129,13 +1168,36 @@ def validate_export_text(text: str, export_path: str = "<text>") -> dict[str, An
                         decoded[outcome] = result
                 if set(decoded.keys()) == {"0", "1"}:
                     outcome_data[context] = decoded
-                    total = mat_add(decoded["0"]["effect_from_kraus"],
-                                    decoded["1"]["effect_from_kraus"])
-                    if not mat_eq(total, mat_identity(dimension)):
+                    identity = mat_identity(dimension)
+                    effect0 = decoded["0"]["effect_from_kraus"]
+                    effect1 = decoded["1"]["effect_from_kraus"]
+                    total = mat_add(effect0, effect1)
+                    if not mat_eq(total, identity):
                         errors.add("CONTEXT_SUM_NOT_IDENTITY",
                                    f"outcome_maps.{context}",
                                    "the two induced effects do not sum to the "
                                    "identity")
+                    for outcome, effect, other_effect in (
+                            ("0", effect0, effect1),
+                            ("1", effect1, effect0)):
+                        complement = mat_sub(identity, effect)
+                        complement_where = \
+                            f"outcome_maps.{context}.{outcome}"
+                        if not mat_eq(complement, other_effect):
+                            errors.add(
+                                "EFFECT_COMPLEMENT_MISMATCH",
+                                complement_where,
+                                "identity minus this induced effect differs "
+                                "from the other outcome's induced effect")
+                        if dimension == 2 and not \
+                                mat_is_pos_semidefinite_2x2(complement):
+                            errors.add(
+                                "EFFECT_COMPLEMENT_NOT_PSD",
+                                complement_where,
+                                "identity minus this induced effect is not "
+                                "positive semidefinite under the exact "
+                                "Hermitian two-by-two test; outcome trace "
+                                "nonincrease is therefore uncertified")
 
     # Summed channels (field 4).
     if "summed_channel" in parsed and contexts is not None \
@@ -1235,7 +1297,10 @@ def validate_export_text(text: str, export_path: str = "<text>") -> dict[str, An
     if "labels" in parsed:
         _validate_labels(parsed["labels"], provenance_class, errors)
 
-    # Producer exports must carry no synthetic markers.
+    # The v1 checker has no authenticator and therefore no producer success
+    # path.  Marker scanning remains useful diagnostic output, but even a
+    # marker-free self-declaration fails closed: syntax, self-hashes, and a
+    # canonical document digest do not establish that a producer ran.
     if provenance_class == "producer":
         found: list[str] = []
         _scan_synthetic_markers(parsed, "", found)
@@ -1243,6 +1308,11 @@ def validate_export_text(text: str, export_path: str = "<text>") -> dict[str, An
             errors.add("SYNTHETIC_MARKER_IN_PRODUCER", path,
                        "a producer export must not carry synthetic "
                        "placeholder values")
+        errors.add(
+            "PRODUCER_AUTHENTICATION_UNIMPLEMENTED", "provenance_class",
+            "the v1 checker is restricted to the static committed fixture; "
+            "producer provenance is self-asserted and cannot receive a "
+            "conformant or evidential verdict")
 
     # Committed-table cross-check: triggered when the export declares the
     # committed contexts.  A context set that overlaps the committed names
@@ -1285,10 +1355,8 @@ def validate_export_text(text: str, export_path: str = "<text>") -> dict[str, An
                            "preparation differs from the committed run-state "
                            "literal diag(111/179, 68/179)")
 
-    if not errors.items:
-        report["verdict"] = ("SCHEMA_CONFORMANT_SYNTHETIC"
-                             if provenance_class == "synthetic"
-                             else "SCHEMA_CONFORMANT_PRODUCER")
+    if not errors.items and provenance_class == "synthetic":
+        report["verdict"] = STATIC_FIXTURE_VERDICT
     return report
 
 
@@ -1511,8 +1579,9 @@ def sample_file_text() -> str:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description=("Fail-closed conformance validator for the "
-                     f"{SCHEMA_ID} export interface."))
+        description=("Fail-closed static committed-fixture checker for the "
+                     f"{SCHEMA_ID} export interface; producer claims are "
+                     "unsupported."))
     parser.add_argument("export_path", help="path to the export JSON file")
     args = parser.parse_args(argv)
     report = validate_file(args.export_path)
@@ -1520,7 +1589,7 @@ def main(argv: list[str] | None = None) -> int:
     if report["errors"] and report["errors"][0]["code"] in ("FILE_UNREADABLE",
                                                             "JSON_PARSE"):
         return 2
-    return 0 if report["verdict"].startswith("SCHEMA_CONFORMANT") else 1
+    return 0 if report["verdict"] == STATIC_FIXTURE_VERDICT else 1
 
 
 if __name__ == "__main__":

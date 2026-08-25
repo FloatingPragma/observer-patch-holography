@@ -53,16 +53,24 @@ rest-frame stress is bounded by the collar recovery defect, vanishes at full
 recovery, and dilutes as the inverse cube of the scale factor when conserved.
 The collars that carry it are galactic-scale objects, so a compact source sees
 only the ambient anomalous density; an isotropic ambient density has no
-quadrupole, and its tidal scale in the Solar System is four orders of
-magnitude below the Cassini bound. In the deep regime the anomalous density
-with linear enclosed mass gives the radial-acceleration relation
-\(a=\sqrt{a_ba_0}\), flat rotation curves, and the baryonic Tully--Fisher
-relation \(v^4=GM_ba_0\); on the SPARC sample both relations are reproduced
-with one constant near \(1.4\times10^{-10}\,\mathrm{m\,s^{-2}}\). The
+trace-free quadrupole. Its traceful tidal scale in the Solar System is four
+orders of magnitude below the dimensionally comparable Cassini quadrupole
+uncertainty, although Cassini does not directly bound the isotropic channel.
+In the deep regime the anomalous density
+with linear enclosed mass gives \(a_A=\sqrt{a_ba_0}\), flat rotation curves,
+and the baryonic Tully--Fisher relation \(v^4=GM_ba_0\). A corrected SPARC
+diagnostic compares the observed acceleration with
+\(a_b+\sqrt{a_ba_0}\); under fixed mass-to-light ratios, its galaxy-bootstrap
+interval for \(a_0\) does not overlap the corresponding Tully--Fisher
+proxy interval. The proxy treats the measured finite-radius flat speed as its
+asymptotic value, so the mismatch is a tension for the declared diagnostic,
+not a clean profile falsification or a verdict on the generic dark-sector
+theorem. The
 compact-source half of the collar-scale premise is a conditional theorem
 under an exponential recovery envelope, with a rate in the local record
-density, and the deep profile with its single constant is characterized as
-the unique law satisfying deep-regime scale covariance and quadrature
+density, and the deep profile with its single constant is characterized,
+conditional on two named premises, as the unique law satisfying deep-regime
+scale covariance and quadrature
 composition of independent sources. All structural statements are
 machine-checked. The magnitude of the anomalous charge and the physical
 attachment of the envelope are not derived here.
@@ -347,9 +355,10 @@ from Galactic kinematics~\cite{desalas2021}, the tidal scale is
 \frac{4\pi G\rho_A}{3}=1.9\times10^{-31}\,\mathrm{s^{-2}},
 \label{eq:tidal}
 \end{equation}
-against the Cassini quadrupole bound
-\(Q_2=(1.6\pm1.8)\times10^{-27}\,\mathrm{s^{-2}}\)~\cite{park2026}: four
-orders of magnitude below the uncertainty, with zero quadrupole. The
+For a dimensional scale comparison, the Cassini trace-free quadrupole result
+is \(Q_2=(1.6\pm1.8)\times10^{-27}\,\mathrm{s^{-2}}\)~\cite{park2026}, four
+orders of magnitude above the isotropic scale. It is not a direct bound on
+the traceful isotropic channel, whose quadrupole is identically zero. The
 anomalous mass enclosed within ten astronomical units is
 \(5\times10^{-15}\,M_\odot\). Both numbers are machine-checked inequalities
 in the formalization. The Solar System constrains the premise of
@@ -438,21 +447,26 @@ enclosed-mass law, machine-checked. The magnitude question is therefore
 the value of the collar density and of the per-cut variance constant;
 neither is derived here.
 
-Both premises of the per-cut model rest one level deeper. Variance
-additivity is a theorem of probabilistic independence: for atomic defect
+One sufficient realization of both premises rests one level deeper. Variance
+additivity follows from probabilistic independence: for atomic defect
 contributions with finite second moments, pairwise independence, and a
 common per-atom variance on one probability space, the variance of the
 compound defect of every finite atom family is the sum of the per-atom
 variances, so disjoint-union composition is additive and \(V(m)=cm\) on
-the modeled masses. And the linear cut count is forced by cut geometry: a
+the modeled masses. Independence is stronger than necessary; pairwise zero
+covariance and other dependent but uncorrelated constructions remain viable.
+An exact linear-asymptotic cut count follows from one rigid geometry: a
 cut family with a positive first cut, consecutive gaps of at least \(s\),
 and every length-\(s\) interval meeting a cut is exactly the arithmetic
 progression with spacing \(s\), its count obeys
 \(r/s-1\le N(r)\le r/s+1\), and the counted enclosed mass deviates from
 the linear law by at most one per-cut amplitude at every radius, with
-\(n=1/s\). Independence of the source records and the cut spacing are the
-remaining premises; a perfectly correlated pair and a gappy cut family
-violate the respective conclusions, so both are load-bearing.
+\(n=1/s\). A perfectly correlated pair and a one-cut family show only that
+the conclusions do not follow after deleting every decorrelation or density
+condition. They do not make independence or exact spacing necessary.
+Irregular or ergodic cut families with asymptotic density and sublinear count
+error remain possible. The exact \(nr\) per-cut law is the continuum or
+mean extension; the discrete count above differs from it by a bounded error.
 
 \begin{theorem}[Deep radial-acceleration relation]
 \label{thm:rar}
@@ -485,40 +499,24 @@ the parameter-free content of the profile. The constant \(a_0\) collects
 \(C_C\), the collar density, and the small-ball normalization; none of these
 is fixed by the source, so \(a_0\) enters every comparison as a fitted
 value. The deep regime is the range \(a_b\ll a_0\), equivalently
-\(r\gg r_M=\sqrt{GM_b/a_0}\). At the matching radius both accelerations
-equal \(a_0\) exactly, and the anomalous acceleration dominates the baryonic
-one precisely outside \(r_M\); both statements are machine-checked. Inside
-\(r_M\) the enclosed anomalous mass is small compared with \(M_b\) and the
-response is Newtonian; the profile through the transition is not fixed by
-Premises~\ref{pre:cov} and \ref{pre:quad}.
+\(r\gg r_M=\sqrt{GM_b/a_0}\). If the deep expression is algebraically
+extended to the matching radius, both accelerations equal \(a_0\) there and
+the anomalous term dominates outside \(r_M\); those algebraic statements are
+machine-checked. The premises are asserted only in the deep regime, so they
+do not determine the physical transition or the response inside \(r_M\).
 
 \section{Lensing and the Relativistic Source}
 \label{sec:lensing}
 
-The anomalous charge enters \eqref{eq:einstein} through the same
-\(\langle T_{ab}\rangle\) that sources the timelike response. Under
-Premise~\ref{pre:universal} there is one stress tensor, and the null
-directions of the spacetime paper's tomography frame read the same charge as
-the timelike ones~\cite{ophEinstein}.
-
-\begin{proposition}[One source for lensing and dynamics]
-\label{prop:lensing}
-Under Premise~\ref{pre:universal}, the mass inferred from null geodesics
-through a region equals the mass inferred from timelike orbits in it: both
-are \(Q_{\rm lum}+Q_{\rm dark}\).
-\end{proposition}
-
-\begin{proof}
-Both readouts are contractions of the one tensor in \eqref{eq:einstein}
-with the respective tangent vectors, and the premise supplies no
-readout-dependent weight.
-\end{proof}
-
-The proposition is structural. No relativistic refinement limit is supplied that turns
-the weak-field density \eqref{eq:profile} into a full \(T_{ab}^{\rm anom}\)
-with its pressure and anisotropic stress; consequently, the
-lensing statement is that the anomalous charge lenses with the same weight
-with which it moves stars.
+The anomalous charge must enter \eqref{eq:einstein} through one stress tensor;
+Premise~\ref{pre:universal} supplies no readout-dependent coupling. That fact
+does not imply equality of masses inferred from null geodesics and timelike
+orbits. Those observables contract different components of the metric response
+and can differ in the presence of pressure, anisotropic stress, or gravitational
+slip. No relativistic refinement limit is supplied that turns the weak-field
+density \eqref{eq:profile} into a full \(T_{ab}^{\rm anom}\). A lensing law and
+the relation between lensing and dynamical mass therefore remain open physical
+constructions.
 
 \section{Comparison with Rotation-Curve Data}
 \label{sec:data}
@@ -532,24 +530,32 @@ bulges, leaving 2700 points in 149 galaxies. The computation is released
 with the paper~\cite{ophrar}.
 
 \paragraph{Radial acceleration.}
-On the self-consistent deep subset \(g_{\rm bar}<fa_0\), the fixed-exponent
-fit \(g_{\rm obs}=\sqrt{g_{\rm bar}a_0}\) gives
+On fixed absolute subsets \(g_{\rm bar}<f a_{\rm ref}\), with the
+comparison-only value
+\(a_{\rm ref}=1.2\times10^{-10}\,\mathrm{m\,s^{-2}}\) fixed before fitting,
+the density profile predicts the total acceleration
+\(g_{\rm obs}=g_{\rm bar}+\sqrt{g_{\rm bar}a_0}\). The fixed-exponent
+diagnostic gives
 \[
-a_0=1.57\times10^{-10},\quad
-1.40\times10^{-10},\quad
-1.28\times10^{-10}\ \mathrm{m\,s^{-2}}
+a_0=0.843\times10^{-10},\quad
+0.875\times10^{-10},\quad
+0.924\times10^{-10}\ \mathrm{m\,s^{-2}}
 \]
-for \(f=0.3\), \(0.1\), and \(0.03\), with 1651, 1043, and 233 points and
-rms scatter between \(0.14\) and \(0.17\) dex. The free exponents on the same
-subsets are \(0.60\pm0.01\), \(0.57\pm0.02\), and \(0.39\pm0.08\), with
-point-bootstrap errors. The exponent moves toward \(1/2\) as the cut deepens
-and the sample runs out of points before the deep regime is clean; the data
-are consistent with exponent \(1/2\) at the available depth, with the
-constant between \(1.3\) and \(1.6\times10^{-10}\,\mathrm{m\,s^{-2}}\)
-depending on the cut.
+for \(f=0.3\), \(0.1\), and \(0.03\), with 1519, 960, and 203 points in 141,
+115, and 40 galaxies and rms scatter between \(0.14\) and \(0.17\) dex. Fitting
+an anomalous power inside the total model, using every retained point rather
+than selecting on the sign of the noisy excess, gives exponents \(0.454\),
+\(0.461\), and \(0.239\). Galaxy-cluster bootstrap intervals contain
+\(1/2\) for the first two cuts; the deepest cut is sparse and its interval is
+wide. The computation uses equal retained-point weighting and does not
+marginalize distance, inclination, stellar-population, or correlated
+rotation-curve uncertainties, so it is a diagnostic rather than a full
+measurement likelihood.
 
 \paragraph{Baryonic Tully--Fisher.}
-For the 123 galaxies with a measured flat velocity that pass the same cuts,
+For the 123 galaxies with a positive measured flat velocity that pass the
+catalogue quality and inclination cuts (without applying the rotation-point
+fractional-velocity-error cut),
 with \(M_b=0.5L_{[3.6]}+1.33M_{\rm HI}\), the fixed-exponent normalization
 \(a_0=v_f^4/(GM_b)\) gives
 \(a_0=1.55\times10^{-10}\,\mathrm{m\,s^{-2}}\) with \(0.26\) dex scatter,
@@ -558,9 +564,23 @@ and the free exponent from an ordinary least-squares fit of \(\log v_f\) on
 
 \paragraph{One constant.}
 Theorems~\ref{thm:rar} and \ref{thm:btfr} share one \(a_0\). The constants
-recovered from the two relations differ by \(0.046\) dex at \(f=0.1\),
-inside the combined scatter. This is the one nontrivial check the deep
-profile admits with a single fitted constant, and it passes.
+recovered from the two relations differ by \(0.249\) dex at \(f=0.1\). The
+paired parent-galaxy bootstrap intervals are
+\([0.730,1.037]\times10^{-10}\,\mathrm{m\,s^{-2}}\) for the radial-acceleration
+diagnostic and
+\([1.405,1.723]\times10^{-10}\,\mathrm{m\,s^{-2}}\) for the Tully--Fisher
+proxy; the 95 percent interval for their log-ratio is \([0.180,0.317]\) dex.
+The earlier comparison omitted the baryonic term from the total acceleration
+and incorrectly treated raw scatter as parameter uncertainty. The remaining
+comparison uses the catalogued \(V_{\rm flat}\) as an asymptotic-speed proxy,
+although at its finite measurement radius the baryonic contribution to
+\(V^2\) has not been subtracted. That bias has the direction of the observed
+mismatch. Thus the declared fixed-mass-to-light, equal-point calculation is a
+mixed finite/asymptotic diagnostic in tension with the naive shared
+normalization, not a clean falsification of the profile. A physical verdict
+requires the joint nuisance and measurement-error likelihood named in
+Section~\ref{sec:open}; the generic modular-charge dark-sector statements do
+not depend on this profile fit.
 
 \section{Cosmological Scaling}
 \label{sec:cosmo}
@@ -568,11 +588,12 @@ profile admits with a single fitted constant, and it passes.
 If the total anomalous charge in a comoving region is conserved, which holds
 whenever the collar family of the region is stable under the expansion,
 Theorem~\ref{thm:cold} gives \(\rho_A\propto a^{-3}\): the anomalous medium
-is pressureless on cosmological scales. With Premise~\ref{pre:scale} it
-clusters with the galaxies whose collars carry it. The abundance
-\(\Omega_A\), the perturbation initial data, and the transfer functions
-require the collar density of the early screen and are not derived here; the
-scaling is the statement that the medium is cold.
+has the homogeneous dilution law of a pressureless component. This does not
+derive its pressure perturbations, anisotropic stress, sound speed, or
+clustering. Premise~\ref{pre:scale} associates its carrier with galactic
+collars but supplies no perturbation dynamics. The abundance \(\Omega_A\),
+initial data, transfer functions, and the claim that it clusters with galaxies
+therefore remain open.
 
 \section{Required Physical Constructions}
 \label{sec:open}
@@ -612,12 +633,16 @@ modular charge, so a dark sector is a theorem-level feature of OPH: any
 geometric excess over the luminous prediction is the presence of
 non-luminous modular charge. The anomalous modular energy on overlap collars
 is the carrier the Einstein derivation itself supplies. It is bounded by the
-recovery defect, absent at full recovery, cold when conserved, and, on
-galactic-scale collars, invisible to the Solar System by four orders of
-magnitude. Its deep-regime profile gives the radial-acceleration relation,
+recovery defect, absent at full recovery, and cold when conserved. On
+galactic-scale collars its Solar-System footprint has zero trace-free
+quadrupole and a small traceful isotropic tidal scale; the four-order Cassini
+comparison is dimensional, because that measurement does not directly bound
+the isotropic channel. Its deep-regime profile gives the radial-acceleration relation,
 flat rotation curves, and the baryonic Tully--Fisher relation with one
-constant, and the SPARC sample returns that constant consistently from both
-relations. The compact-source half of the collar-scale premise is a
+constant. Under the declared fixed-mass-to-light, equal-point diagnostic,
+the SPARC radial-acceleration and Tully--Fisher normalizations are instead in
+tension; a joint nuisance and measurement-error likelihood is required
+for a physical verdict. The compact-source half of the collar-scale premise is a
 conditional saturation theorem with an exponential rate in the local record
 density, and the profile with its unique constant is characterized by
 deep-regime scale covariance and quadrature composition of independent

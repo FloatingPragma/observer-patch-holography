@@ -1,8 +1,8 @@
 """Exact checks for the integer-k comb template and its receipt.
 
 Run with pytest. The tests exercise the producer's exact limits
-(Schwarzschild), the frozen ratio ladder, tooth monotonicity, the KMS
-hierarchy, verifier agreement, receipt determinism, and mutation guards
+(Schwarzschild), the imported ratio ladder, tooth monotonicity, the declared
+KMS net-response factor, verifier agreement, receipt determinism, and mutation guards
 on the frozen constants ln(k)/(8*pi).
 
 What is not proved here. These tests certify internal consistency of
@@ -19,6 +19,8 @@ import os
 import subprocess
 import sys
 from decimal import Decimal, getcontext
+
+import pytest
 
 import integer_k_comb_template as producer
 
@@ -65,6 +67,38 @@ def test_g_of_chi_surface_gravity_identity() -> None:
         assert _rel_close(lhs, rhs)
 
 
+def test_integer_division_entropy_sign_and_eligibility() -> None:
+    assert producer.integer_division_after(60, 3) == 20
+    signed_change, entropy_loss = producer.transition_entropy_nats(60, 3)
+    log_three = Decimal(3).ln()
+    assert _rel_close(signed_change, -log_three)
+    assert _rel_close(entropy_loss, log_three)
+    assert signed_change < 0 < entropy_loss
+    with pytest.raises(ValueError, match="divide"):
+        producer.integer_division_after(10, 3)
+    with pytest.raises(ValueError, match="at least 2"):
+        producer.integer_division_after(10, 1)
+
+
+def test_detector_frame_mass_and_frequency_scaling() -> None:
+    pi = producer.compute_pi()
+    source_mass = Decimal("62")
+    redshift = Decimal("0.25")
+    chi = Decimal("0.67")
+    mass_det = producer.detector_frame_mass_solar(source_mass, redshift)
+    assert mass_det == Decimal("77.50")
+    source_frequency = producer.tooth_frequency_hz(source_mass, chi, 2, 3, pi)
+    detector_frequency = producer.detector_frame_tooth_frequency_hz(
+        source_mass, redshift, chi, 2, 3, pi
+    )
+    assert _rel_close(detector_frequency, source_frequency / (1 + redshift))
+    source_rotation = producer.rotation_line_hz(source_mass, chi, 2, pi)
+    detector_rotation = producer.rotation_line_hz(mass_det, chi, 2, pi)
+    assert _rel_close(detector_rotation, source_rotation / (1 + redshift))
+    with pytest.raises(ValueError, match="nonnegative"):
+        producer.detector_frame_mass_solar(source_mass, Decimal("-0.1"))
+
+
 def test_ratio_ladder_values() -> None:
     pi = producer.compute_pi()
     assert float(producer.ladder_ratio(4)) == 2.0
@@ -104,7 +138,7 @@ def test_tooth_monotonicity() -> None:
             assert lo < hi
 
 
-def test_kms_hierarchy() -> None:
+def test_kms_net_response_factor_algebra() -> None:
     weights = [producer.kms_weight(k) for k in range(2, 13)]
     for lo, hi in zip(weights, weights[1:]):
         assert lo < hi
@@ -116,20 +150,27 @@ def test_kms_hierarchy() -> None:
 
 def test_linewidth_model() -> None:
     pi = producer.compute_pi()
-    # Mass independence is structural: the function takes no mass argument.
+    # Mass independence is structural, but the spin factor remains.
     params = inspect.signature(producer.linewidth_fraction).parameters
     assert "mass_solar" not in params
-    assert list(params) == ["a", "k", "pi"]
-    # Band endpoints at k = 2 match the statement's 1.8% to 18% band.
-    wide = producer.linewidth_fraction(Decimal(1), 2, pi)
-    narrow = producer.linewidth_fraction(Decimal(10), 2, pi)
-    assert 0.18 < float(wide) < 0.19
-    assert 0.018 < float(narrow) < 0.019
+    assert list(params) == ["a", "chi", "k", "pi"]
+    # The original 1.8%--18% band is the Schwarzschild g(0)=1 limit.
+    wide_schw = producer.linewidth_fraction(Decimal(1), Decimal(0), 2, pi)
+    narrow_schw = producer.linewidth_fraction(Decimal(10), Decimal(0), 2, pi)
+    assert 0.18 < float(wide_schw) < 0.19
+    assert 0.018 < float(narrow_schw) < 0.019
+    # At the synthetic Kerr spin chi=.67, g^-2 widens the k=2 tooth.
+    chi = Decimal(producer.DECLARED_REFERENCE_CHI)
+    wide = producer.linewidth_fraction(Decimal(1), chi, 2, pi)
+    narrow = producer.linewidth_fraction(Decimal(10), chi, 2, pi)
+    assert 0.25 < float(wide) < 0.26
+    assert 0.025 < float(narrow) < 0.026
     # Independent float path.
     for k in (2, 3, 5, 12):
         for a in (1, 4, 10):
-            expected = 64 * math.pi ** 2 * 2e-4 / (a * math.log(k))
-            got = float(producer.linewidth_fraction(Decimal(a), k, pi))
+            g = float(producer.g_of_chi(chi))
+            expected = 64 * math.pi ** 2 * 2e-4 / (a * g * g * math.log(k))
+            got = float(producer.linewidth_fraction(Decimal(a), chi, k, pi))
             assert abs(got - expected) < 1e-12 * expected
 
 
@@ -159,16 +200,24 @@ def test_reference_point_cross_check() -> None:
         close("reference.teeth.k%02d.f_hz" % k, rot + base * math.log(k))
 
 
-def test_mutation_guard_frozen_constants() -> None:
+def test_mutation_guard_imported_template_constants() -> None:
     receipt = _load_receipt()
-    law = receipt["frozen_law"]
+    law = receipt["imported_continuation_law"]
     assert law["ratio_law"] == (
         "(f_a - m*Omega_H/(2*pi)) / (f_b - m*Omega_H/(2*pi)) "
         "= ln(k_a)/ln(k_b), integers k >= 2"
     )
     assert law["universal_coordinate"].endswith("x_k = ln(k)/(8*pi)")
     assert law["kms_weight"] == "(k-1)/k"
-    assert law["linewidth_fraction"] == "64*pi^2*p_0/(a*ln(k))"
+    assert "not a normalized cross-k" in law["kms_scope"]
+    assert law["linewidth_scope"].startswith("Gamma/Delta_E_k")
+    assert law["transition_approximation"].startswith("leading small-transition")
+    assert law["linewidth_fraction"] == "64*pi^2*p_0/(a*g(chi)^2*ln(k))"
+    assert law["transition_status"].startswith("imported continuation")
+    assert law["signed_black_hole_entropy_change"].endswith("= -ln(k)")
+    assert law["positive_entropy_loss"].endswith("= ln(k)")
+    assert "finite display/submodel" in law["computed_k_scope"]
+    assert receipt["schema"].endswith(".v3")
     assert law["tooth_offset"] == "Delta_f_k = c^3*g(chi)*ln(k)/(16*pi^2*G*M)"
     consts = receipt["constants_exact"]
     assert consts["c_m_per_s"] == "299792458"
@@ -191,6 +240,10 @@ def test_mutation_guard_frozen_constants() -> None:
     assert ref["chi"] == "0.67"
     assert ref["m_azimuthal"] == 2
     assert "synthetic" in ref["label"]
+    assert receipt["frame_contract"]["detector_mass"] == (
+        "M_det = (1+z)*M_source"
+    )
+    assert "posterior samples alone" in receipt["comparison_contract_boundary"]
 
 
 def test_receipt_determinism_and_hygiene() -> None:

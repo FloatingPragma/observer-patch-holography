@@ -29,16 +29,38 @@ def test_synthetic_deep_law_is_recovered() -> None:
     rng = np.random.default_rng(1)
     a0 = 1.2e-10
     g_bar = 10 ** rng.uniform(-13, -9, 4000)
-    g_obs = np.sqrt(g_bar * a0) * 10 ** rng.normal(0, 0.02, g_bar.size)
-    fit = rar.deep_fit(g_obs, g_bar)
+    # The observable is total acceleration.  Omitting the baryonic addend is
+    # the regression error this test is intended to prevent.
+    g_obs = (g_bar + np.sqrt(g_bar * a0)) * 10 ** rng.normal(
+        0, 0.02, g_bar.size
+    )
+    names = np.array([f"g{i // 40:03d}" for i in range(g_bar.size)])
+    fit = rar.deep_fit(
+        g_obs, g_bar, names, fraction=0.3, bootstrap_replicates=100
+    )
     assert fit["a0_fixed_exponent_m_s2"] == pytest.approx(a0, rel=0.02)
-    assert fit["free_exponent"] == pytest.approx(0.5, abs=0.02)
+    assert fit["free_anomalous_exponent_in_total_model"] == pytest.approx(0.5, abs=0.02)
+    assert fit["optimizer_solution_interior"] is True
+
+
+def test_deep_cut_is_fixed_before_fitting() -> None:
+    g_bar = np.array([1.0e-12, 2.0e-11, 4.0e-11])
+    a0 = 8.0e-11
+    g_obs = g_bar + np.sqrt(g_bar * a0)
+    names = np.array(["g", "g", "g"])
+    fit = rar.deep_fit(
+        g_obs, g_bar, names, fraction=0.3, bootstrap_replicates=20
+    )
+    assert fit["deep_cut_g_bar_max_m_s2"] == pytest.approx(3.6e-11)
+    assert fit["n_points"] == 2
 
 
 def test_committed_receipt_matches_code() -> None:
     path = HERE / "receipts" / "sparc_deep_regime_diagnostic.json"
     receipt = json.loads(path.read_text(encoding="utf-8"))
     fresh = rar.run()
+    assert receipt == fresh
+    assert receipt["schema"].endswith(".v2")
     assert receipt["physical_claim"] is False
     assert receipt["source_derived_output"] is False
     assert receipt["sample"]["data_sha256"] == fresh["sample"]["data_sha256"]
@@ -47,6 +69,15 @@ def test_committed_receipt_matches_code() -> None:
             fresh[key]["a0_fixed_exponent_m_s2"], rel=1e-9
         )
     assert receipt["additive_all_gradient_extension"]["additive_form_passes_solar_system"] is False
+    assert receipt["constant_consistency"]["diagnostic_verdict"] == \
+        "TENSION_UNDER_DECLARED_DIAGNOSTIC"
+    paired = receipt["constant_consistency"]["paired_parent_galaxy_bootstrap"]
+    assert paired["parent_catalogue_galaxies"] == 175
+    assert paired["log10_ratio_btfr_over_rar_95pct"][0] > 0
+    assert paired["bootstrap_nonpositive_log10_ratio_count"] == 0
+    assert paired["bootstrap_nonpositive_log10_ratio_plus_one_fraction"] == pytest.approx(
+        1 / (paired["bootstrap_replicates"] + 1)
+    )
 
 
 def test_quadrupole_crosscheck_matches_published_values() -> None:

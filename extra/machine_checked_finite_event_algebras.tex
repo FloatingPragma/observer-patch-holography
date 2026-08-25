@@ -1108,30 +1108,31 @@ declared selection, no source implements it, and the instrument representation,
 the source-produced preparation, and cross-context additivity are not supplied. The module is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
-The companion module \texttt{SourcePhaseSelection} asks whether the phase
-slot of that instrument can be produced from source fields. Its generator
-reads two inputs only, the six exact rows of the two-dimensional
-irreducible representation and the diagonal record projector, forms the
-orbit of the projector, enumerates the twelve noncommuting orbit pairs, and
-normalizes each commutator by its own off-diagonal magnitude into a rank-one
-projector. The generated effect values are exactly the two Pauli-$Y$
+The companion module \texttt{SourcePhaseSelection} asks what phase-sensitive
+effect candidates can be built from source-attached algebraic fields. Its
+generator reads two inputs only, the six exact rows of the declared
+two-dimensional irreducible representation and the diagonal record projector,
+forms the projector orbit, and enumerates the twelve noncommuting orbit pairs.
+A declared complexification adapter sends each nonzero real skew commutator
+$C$ to $I/2-iC/(2|C_{01}|)$. The generated effect values are exactly the two Pauli-$Y$
 projectors (\texttt{generated\_effect\_values\_exact}); the first pair in
-lexicographic index order selects the $+Y$ projector, which equals the
+the current stable label order has the $+Y$ projector, which equals the
 declared lift and the instrument's phase slot
-(\texttt{source\_selected\_generated\_effect\_eq\_sourcePhaseLift},
-\texttt{source\_selected\_generated\_effect\_eq\_declared\_lueders\_effect}).
+(\texttt{current\_first\_labelled\_effect\_eq\_sourcePhaseLift},
+\texttt{current\_first\_labelled\_effect\_eq\_declared\_lueders\_effect}).
 Eight pairs give $+Y$ and four give $-Y$, so the theorem is effect-value
-equality rather than witness uniqueness, and the orientation is fixed by two
-producer conventions, the commutator order and the pair index: reversing
-either selects the transpose effect
-(\texttt{effectMatrix\_negative\_eq\_transpose\_positive}). What the source
-fixes without convention is the unordered pair of $Y$ projectors. The
+equality rather than witness uniqueness. Reversing the commutator order for a
+fixed pair swaps the transpose effects
+(\texttt{effectMatrix\_negative\_eq\_transpose\_positive}), but reversing the
+event list does not generally flip the conventional first-labelled orientation: the last current
+pair is also $+Y$. No theorem source-selects the first-label rule. The robust
+result is the unordered pair of $Y$ projectors under the declared adapter. The
 module's enabled-domain relation reproduces the canonical $36/12$ split
 between state-changing L\"uders updates and equality stutters
 (\texttt{changingEnabledCellCensus},
 \texttt{alreadyOperationEnabledCellCensus}). It constructs no instrument
 and supplies no preparation, outcome, readback, or provenance; the
-phase-sensitive-effect declaration keeps the orientation choice. Like the
+phase-sensitive-effect declaration keeps the adapter and orientation choice. Like the
 reachability module, it is a companion in the wider library, outside the
 fifteen-module count and scale table.
 
@@ -1184,11 +1185,12 @@ single-shot identity
 \[
   \operatorname{Tr}(\rho P_{+Y})=\frac12-\operatorname{Im}(\rho_{01})
 \]
-for every normalized two-dimensional state. Thus a non-half selected-effect
+for every normalized two-dimensional state. Thus a non-half weight for the
+current conventional first-labelled $+Y$ effect under the declared adapter/order
 weight requires nonzero imaginary off-diagonal coherence; real off-diagonal
 coherence alone is insufficient
-(\texttt{state\_sourceSelected\_weight\_eq\_half\_sub\_im}). It then places
-the selected effect and the enumerated source-reachable class behind an
+(\texttt{state\_current\_first\_labelled\_weight\_eq\_half\_sub\_im}). It then places
+that conventional effect and the enumerated source-reachable class behind an
 explicit prospective preparation-bridge interface. If such a bridge maps
 reachable matrices to states and preserves record diagonality, the selected
 $+Y$ effect has Born weight exactly $1/2$ on every bridged preparation

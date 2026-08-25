@@ -77,7 +77,8 @@ def test_collar_saturation_claim_carries_rate_and_delimitation() -> None:
 def test_profile_claim_carries_uniqueness_and_load_bearing_receipts() -> None:
     statement = _claim(PROFILE_CLAIM)["statement"]
     for token in ("unique constant a0 > 0", "r * sqrt(Mb * a0 / G)",
-                  "Cauchy lemma", "matching radius",
+                  "Cauchy lemma", "algebraically extended",
+                  "do not determine the physical transition",
                   "additive law", "r^2 law",
                   "value of a0 is not determined"):
         assert token in statement, token
@@ -86,9 +87,9 @@ def test_profile_claim_carries_uniqueness_and_load_bearing_receipts() -> None:
 
 def test_percut_claim_carries_dictionary_and_non_identifiability() -> None:
     statement = _claim(PERCUT_CLAIM)["statement"]
-    for token in ("a0 = G n^2 c", "quadrature closure",
-                  "theorem rather than a premise", "n^2 c",
-                  "no numeric value of n, c, or a0"):
+    for token in ("a0 = G n^2 c", "Quadrature closure",
+                  "continuum or mean", "n^2 c", "bounded-error/asymptotic",
+                  "No numeric value of n, c, or a0"):
         assert token in statement, token
     assert PERCUT_LEAN in _claim(PERCUT_CLAIM)["evidence"]
 

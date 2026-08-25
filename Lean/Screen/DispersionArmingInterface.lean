@@ -10,91 +10,40 @@ open OPH.A5OrbitRaySeparation
 open OPH.PrimitivePortScaleBoundary
 
 /-!
-# Typed arming interface for the frozen dispersion row FZ-12
+# Schema-level arming checklist for the frozen dispersion row FZ-12
 
-The frozen prediction register row FZ-12 fixes the source-seam edge
-coefficient manifold `C4 = -a^2/20`, `B0 = a^4/840`, `B6 = -a^4/12600`,
-with the scale-free ratios `B0/C4^2 = 10/21`, `B6/C4^2 = -2/63`, and
-`B6/B0 = -1/15`.  Its comparison protocol declares physical comparison
-ineligible and unarmed, and names the premises an eligible comparison
-requires: a source-derived homogeneous position action with the complete
-edge orbit as its sole direct support, equal source weights, continuous
-field and same-operator sector attachment, cofinal gluing, finite scale,
-coherent frame and boost transport, frozen nuisance and coverage rules,
-and a post-custody dataset-specific contract; a null verdict additionally
-requires the source-derived positive lower bound of the separate
-exclusivity obligation.  Those premises exist in the corpus only as prose
-inside the frozen row.  This module types them against the committed
-objects of `SeamCurrentEdge30Moment`, `A5OrbitRaySeparation`, and
-`PrimitivePortScaleBoundary`.
+The frozen prediction register row FZ-12 fixes the source-seam coefficient
+manifold and names the physical premises required before a comparison can be
+armed.  This module mirrors those clauses as placeholder fields around the
+committed coefficient and control-support objects.
 
 ## What is proved
 
-* Coefficient slot.  `edgeScaleB6` is the edge-branch anisotropic
-  sixth-order coefficient at a declared scale, the exact companion of the
-  committed `scaleC4` and `scaleB0` slots.  For every scale the three
-  slots equal the committed seam-derived rational row times the declared
-  power of the scale (`edgeScale_matches_seam_row`), and for every
-  nonzero scale the slot ratios are the frozen manifold ratios
-  (`edgeScale_ray`).  The edge and vertex branches keep opposite
-  rank-six signs at every nonzero scale
-  (`edge_vertex_rank_six_sign_separation`).
-* Interface.  `DispersionArmingInterface` types one field per protocol
-  clause: seven premise clauses as required-to-hold `Prop` fields or
-  positive real data fields, and three determined clauses whose content
-  the committed corpus proves.  `ArmedComparison` extends the interface
-  by one abstract post-custody dataset contract token, and
-  `armedComparisonEquiv` with `armedComparison_constructible_iff` states
-  that an armed comparison is constructible precisely from an interface
-  inhabitant plus a contract token.  `eligibilityAntecedent_of_interface`
-  derives the conjunction of the protocol clauses from any interface
-  inhabitant.
-* Partial attainment.  The determined fields are attained from committed
-  theorems for every declared positive scale: the manifold ratios
-  (`edgeScale_ray`), the complete edge-orbit support certificate
-  (`source_seam_edge30_control_certificate`), and the coefficient slot
-  equalities (`edgeScale_matches_seam_row`).  `stipulatedInterface`
-  packages them under stipulated external fields.
-* Externality of the external fields.  The scale is a free parameter:
-  every positive real is realized as the carrier scale of an inhabitant
-  (`interface_scale_free_parameter`), two inhabitants agree on the lower
-  bound and differ at the scale
-  (`committed_corpus_does_not_determine_scale`), and the committed ray
-  holds at every positive scale, so no scale is singled out
-  (`committed_ray_selects_no_scale`).  The exclusivity lower bound is a
-  free parameter in the same way
-  (`interface_lower_bound_free_parameter`,
-  `committed_corpus_does_not_determine_lower_bound`,
-  `committed_corpus_selects_no_lower_bound`).  The required-to-hold
-  premise `Prop` fields carry no separation between inhabitants
-  (`prop_fields_carry_no_separation`), and the contract token digest is a
-  free parameter (`contract_digest_free_parameter`,
-  `contract_distinct_stipulations`).  The committed corpus therefore
-  determines the three determined fields and no external field: every
-  full inhabitant requires stipulations, in the style of the
-  custody-digest externality of
-  `EventAlgebra.SourceBoundInstrumentInterface`, with two distinct
-  stipulations both consistent with the corpus at each external field.
-* Composed receipt.  `dispersionArmingInterface_receipt` conjoins the
-  clauses above.
+* For every externally supplied nonzero scale, the three coefficient slots
+  obey the exact committed scale-free ratios; the edge and vertex branches
+  have opposite rank-six signs.
+* `DispersionArmingInterface` is a schema with one placeholder per protocol
+  clause.  `ArmedComparison` is definitionally just such a record paired with
+  a natural-number contract-token placeholder.  Its equivalence theorem is
+  packaging, not a physical eligibility theorem.
+* `stipulatedInterface` constructs mock inhabitants by setting each `Prop`
+  field to `True` and supplying arbitrary positive scale and lower-bound
+  labels.  These inhabitants show that this permissive schema constrains
+  neither label.  Propositional extensionality shows only that inhabited
+  `Prop` fields carry no data separation in this representation.
+* The coefficient ratios alone select no unique positive scale.
 
 ## What is not proved here
 
-No arming occurred and none is claimed.  The committed corpus supplies no
-inhabitant of the full interface: the inhabitants constructed in this
-module stipulate every external field, and the externality theorems prove
-that those stipulations are free parameters, so an inhabitant certifies
-no source derivation of the physical position action, no sector
-attachment, no cofinal gluing, no physical scale, no frame or boost
-transport, no nuisance or coverage rule, no exclusivity lower bound, and
-no dataset contract.  The numerals used in the externality witnesses are
-stipulation labels, not physical scales; no grain-scale number, no bound
-value, and no comparison datum enters.  The frozen bytes of row FZ-12 are
-immutable and untouched; this module reads none of them and restates the
-manifold from the committed Lean surfaces only.  Whether any premise can
-be discharged from source is open; the premise rows proposed alongside
-this module are proposals pending registration, and nothing here claims a
-discharged premise, a frozen record, or a scored comparison.
+No arming occurred.  The module has stipulated full inhabitants, but no
+source-derived, artifact-bound, custody-backed evidential inhabitant.  The
+mock `Prop` proofs, natural-number digest, scale, and lower-bound labels do not
+establish a physical action, sector attachment, gluing, frame transport,
+analysis contract, source scale, source lower bound, provenance, or custody.
+The schema-freedom receipts are not universal no-go theorems against a future
+source derivation.  A future evidential type must carry concrete witnesses and
+artifact-bound derivation and contract receipts.  The frozen FZ-12 bytes are
+untouched, no comparison datum enters, and the row remains unarmed.
 -/
 
 /-! ## The edge-branch coefficient slot at a declared scale -/
@@ -130,7 +79,7 @@ theorem edgeScale_matches_seam_row (a : ℝ) :
 
 /-- At every nonzero scale the slot ratios are exactly the frozen FZ-12
 manifold ratios.  The ratios are scale free, which is the content of the
-scale-externality receipts below. -/
+ratio-only scale-nonselection receipts below. -/
 theorem edgeScale_ray (a : ℝ) (ha : a ≠ 0) :
     scaleB0 a / scaleC4 a ^ 2 = 10 / 21 ∧
       edgeScaleB6 a / scaleC4 a ^ 2 = -2 / 63 ∧
@@ -159,9 +108,9 @@ theorem scale_parameter_faithful (a b : ℝ) (ha : 0 < a) (hb : 0 < b)
   · nlinarith
 
 /-- **The committed ray selects no scale.**  The frozen manifold ratios
-hold at every positive scale, so no positive scale is the unique one
-satisfying them: the finite-scale premise is not satisfied by any
-committed object as stated, and a scale choice is external input. -/
+hold at every positive scale, so no positive scale is uniquely selected by
+them.  This schema supplies no scale choice; an independent future source
+theorem may supply one. -/
 theorem committed_ray_selects_no_scale :
     ¬ ∃! a : ℝ, 0 < a ∧
       (scaleB0 a / scaleC4 a ^ 2 = 10 / 21 ∧
@@ -214,14 +163,14 @@ structure DispersionArmingInterface where
   /-- Protocol clause "a source-derived homogeneous position action with
   the complete edge orbit as its sole direct support": the physical
   position action is homogeneous and directly supported on the complete
-  edge orbit alone.  The content of this proposition is external
-  input. -/
+  edge orbit alone.  This schema does not supply or determine the
+  proposition; an independent future source theorem may do so. -/
   homogeneousPositionAction : Prop
   /-- The position-action clause holds. -/
   homogeneousPositionAction_holds : homogeneousPositionAction
   /-- Protocol clause "equal source weights": the physical action weights
-  the thirty directions equally.  The content of this proposition is
-  external input; the committed control normalization
+  the thirty directions equally.  This schema does not supply or determine
+  the proposition; the committed control normalization
   `OPH.SeamCurrentEdge30Moment.edge30Weight` is equal-weight, and no
   committed theorem attaches it to a physical action. -/
   equalSourceWeights : Prop
@@ -229,41 +178,42 @@ structure DispersionArmingInterface where
   equalSourceWeights_holds : equalSourceWeights
   /-- Protocol clause "continuous field and same-operator sector
   attachment": the compared field is continuous and the comparison reads
-  the same operator sector that the source theorem fixes.  The content of
-  this proposition is external input. -/
+  the same operator sector that the source theorem fixes.  This schema does
+  not supply or determine the proposition. -/
   sectorAttachment : Prop
   /-- The sector-attachment clause holds. -/
   sectorAttachment_holds : sectorAttachment
   /-- Protocol clause "cofinal gluing": the finite patch embeds
-  cofinally into the compared regime.  The content of this proposition is
-  external input. -/
+  cofinally into the compared regime.  This schema does not supply or
+  determine the proposition. -/
   cofinalGluing : Prop
   /-- The cofinal-gluing clause holds. -/
   cofinalGluing_holds : cofinalGluing
   /-- Protocol clause "finite scale": one declared positive carrier
-  scale filling the committed coefficient slot.  The value is external
-  input (`committed_ray_selects_no_scale`,
+  scale filling the committed coefficient slot.  The value is not supplied
+  or determined by this schema (`committed_ray_selects_no_scale`,
   `interface_scale_free_parameter`). -/
   carrierScale : ℝ
   /-- The declared scale is positive. -/
   carrierScale_pos : 0 < carrierScale
   /-- Protocol clause "coherent frame and boost transport": one coherent
   frame for the comparison and a boost transport connecting it to the
-  source frame.  The content of this proposition is external input. -/
+  source frame.  This schema does not supply or determine the proposition. -/
   frameBoostTransport : Prop
   /-- The frame-transport clause holds. -/
   frameBoostTransport_holds : frameBoostTransport
   /-- Protocol clause "frozen nuisance and coverage rules": the readout
   rule of the comparison, with nuisance isolation and calibrated
-  coverage, fixed before exposure.  The content of this proposition is
-  external input. -/
+  coverage, fixed before exposure.  This schema does not supply or determine
+  the proposition. -/
   nuisanceCoverageRules : Prop
   /-- The readout-rule clause holds. -/
   nuisanceCoverageRules_holds : nuisanceCoverageRules
   /-- Separate exclusivity obligation, protocol clause "the source-derived
   positive lower bound owned by issue #664": one positive lower bound for
-  the admissible scales in comparison units.  The value is external input
-  (`committed_corpus_selects_no_lower_bound`). -/
+  the admissible scales in comparison units.  The value is not supplied or
+  determined by this schema (`committed_corpus_selects_no_lower_bound`); an
+  independent future source theorem may supply it. -/
   exclusivityLowerBound : ℝ
   /-- The lower bound is positive. -/
   exclusivityLowerBound_pos : 0 < exclusivityLowerBound
@@ -272,9 +222,10 @@ structure DispersionArmingInterface where
   scale. -/
   exclusivityLowerBound_le_scale : exclusivityLowerBound ≤ carrierScale
   /-- The clause that the lower bound is source derived, in the sense of
-  the append-only clarification of the frozen row.  The content of this
-  proposition is external input; a stipulated inhabitant supplies no
-  source derivation. -/
+  the append-only clarification of the frozen row.  This schema does not
+  supply or determine the proposition; a stipulated inhabitant supplies no
+  source derivation, while an independent future source theorem remains
+  admissible. -/
   lowerBoundSourceDerived : Prop
   /-- The source-derivation clause holds. -/
   lowerBoundSourceDerived_holds : lowerBoundSourceDerived
@@ -343,7 +294,7 @@ noncomputable def unitStipulatedInterface : DispersionArmingInterface :=
 theorem dispersionArmingInterface_nonempty :
     Nonempty DispersionArmingInterface := ⟨unitStipulatedInterface⟩
 
-/-! ## Externality of the external fields -/
+/-! ## Underdetermination inside the placeholder schema -/
 
 /-- **The scale is a free parameter.**  Every positive real is realized
 as the carrier scale of an interface inhabitant. -/
@@ -358,10 +309,9 @@ theorem interface_lower_bound_free_parameter (m : ℝ) (hm : 0 < m) :
       I.exclusivityLowerBound = m ∧ I.carrierScale = m :=
   ⟨stipulatedInterface m m hm hm le_rfl, rfl, rfl⟩
 
-/-- **The committed corpus does not determine the scale.**  Two interface
-inhabitants agree at the exclusivity lower bound and differ at the
-carrier scale: two distinct stipulations, both consistent with the
-corpus. -/
+/-- **The placeholder schema does not determine the scale.**  Two mock
+inhabitants agree at the exclusivity lower-bound label and differ at the
+carrier-scale label.  This is not a no-go against future source derivations. -/
 theorem committed_corpus_does_not_determine_scale :
     ∃ I₁ I₂ : DispersionArmingInterface,
       I₁.exclusivityLowerBound = I₂.exclusivityLowerBound ∧
@@ -371,10 +321,9 @@ theorem committed_corpus_does_not_determine_scale :
   simp only [stipulatedInterface_carrierScale]
   norm_num
 
-/-- **The committed corpus does not determine the lower bound.**  Two
-interface inhabitants agree at the carrier scale and differ at the
-exclusivity lower bound: two distinct stipulations, both consistent with
-the corpus. -/
+/-- **The placeholder schema does not determine the lower bound.**  Two mock
+inhabitants agree at the carrier-scale label and differ at the lower-bound
+label.  This is not a universal source no-go. -/
 theorem committed_corpus_does_not_determine_lower_bound :
     ∃ I₁ I₂ : DispersionArmingInterface,
       I₁.carrierScale = I₂.carrierScale ∧
@@ -384,10 +333,9 @@ theorem committed_corpus_does_not_determine_lower_bound :
   simp only [stipulatedInterface_exclusivityLowerBound]
   norm_num
 
-/-- **No lower bound is singled out.**  Every positive real occurs as the
-lower bound of an inhabitant, so no positive real is the unique realized
-lower bound: the exclusivity bound of the separate obligation is not
-supplied by any committed object as stated. -/
+/-- **The permissive schema singles out no lower bound.**  Every positive
+real occurs as the lower-bound label of a stipulated inhabitant.  This proves
+only that the present record definition does not constrain the value. -/
 theorem committed_corpus_selects_no_lower_bound :
     ¬ ∃! m : ℝ, 0 < m ∧
       ∃ I : DispersionArmingInterface, I.exclusivityLowerBound = m := by
@@ -399,11 +347,12 @@ theorem committed_corpus_selects_no_lower_bound :
   have h12 : (1 : ℝ) = 2 := h1.trans h2.symm
   norm_num at h12
 
-/-- **The required-to-hold premise propositions carry no separation.**
+/-- **The required-to-hold premise propositions carry no data separation.**
 Any two interface inhabitants have propositionally equal premise `Prop`
 fields: each clause holds in both, so propositional extensionality
-identifies them.  All separation between inhabitants lives in the scale
-and lower-bound stipulations. -/
+identifies them.  This reflects the choice of inhabited `Prop` placeholders;
+it is not evidence that the physical clauses hold or that real custody can
+only be represented by the numeric labels. -/
 theorem prop_fields_carry_no_separation (I₁ I₂ : DispersionArmingInterface) :
     I₁.homogeneousPositionAction = I₂.homogeneousPositionAction ∧
       I₁.equalSourceWeights = I₂.equalSourceWeights ∧
@@ -431,11 +380,11 @@ theorem prop_fields_carry_no_separation (I₁ I₂ : DispersionArmingInterface) 
 
 /-- Abstract token for the protocol clause "a post-custody
 dataset-specific contract".  The digest stands for a contract artifact of
-one eligible dataset; no committed object constrains its value, and an
-inhabitant certifies no contract. -/
+one eligible dataset; this schema does not bind or authenticate its value,
+and an inhabitant certifies no contract. -/
 structure PostCustodyDatasetContract where
-  /-- Abstract digest of the dataset-specific contract.  External
-  input. -/
+  /-- Abstract digest of the dataset-specific contract.  This token does not
+  determine or authenticate its value. -/
   contractDigest : ℕ
 
 /-- Explicit nontrivial inhabitant with a stipulated nonzero digest.  It
@@ -447,8 +396,8 @@ realized as the digest of a token. -/
 theorem contract_digest_free_parameter (d : ℕ) :
     ∃ C : PostCustodyDatasetContract, C.contractDigest = d := ⟨⟨d⟩, rfl⟩
 
-/-- Two distinct contract stipulations, both consistent with the corpus:
-the contract clause is external input. -/
+/-- Two distinct contract stipulations, both consistent with the schema:
+the token alone selects no contract artifact. -/
 theorem contract_distinct_stipulations :
     ∃ C₁ C₂ : PostCustodyDatasetContract, C₁ ≠ C₂ := by
   refine ⟨⟨0⟩, ⟨1⟩, fun h => ?_⟩
@@ -470,8 +419,9 @@ interface and the stipulated contract.  It certifies no arming. -/
 noncomputable def stipulatedArmedComparison : ArmedComparison :=
   ⟨unitStipulatedInterface, stipulatedContract⟩
 
-/-- **Constructibility, exact form.**  An armed comparison is precisely
-an interface inhabitant paired with a contract token. -/
+/-- **Packaging, exact form.**  This record is definitionally an interface
+inhabitant paired with a contract-token placeholder; no physical eligibility
+follows. -/
 def armedComparisonEquiv :
     ArmedComparison ≃ DispersionArmingInterface × PostCustodyDatasetContract where
   toFun A := (A.armingInterface, A.datasetContract)
@@ -479,8 +429,8 @@ def armedComparisonEquiv :
   left_inv _ := rfl
   right_inv _ := rfl
 
-/-- An armed comparison is constructible precisely from an interface
-inhabitant plus a post-custody dataset contract token. -/
+/-- Nonemptiness of the packaging record is equivalent to nonemptiness of its
+two placeholder components. -/
 theorem armedComparison_constructible_iff :
     Nonempty ArmedComparison ↔
       Nonempty DispersionArmingInterface ∧
@@ -504,10 +454,9 @@ def EligibilityAntecedent (I : DispersionArmingInterface) : Prop :=
       I.exclusivityLowerBound ≤ I.carrierScale ∧
       I.lowerBoundSourceDerived)
 
-/-- Every interface inhabitant satisfies the eligibility antecedent: the
-conjunction of the interface fields is exactly the protocol antecedent.
-This transfers no eligibility to any physical comparison, because the
-inhabitants are stipulations. -/
+/-- Every interface inhabitant projects proofs of its stored proposition
+fields.  This tautological schema fact transfers no eligibility to a physical
+comparison, because the mock inhabitants simply set those fields to `True`. -/
 theorem eligibilityAntecedent_of_interface (I : DispersionArmingInterface) :
     EligibilityAntecedent I :=
   ⟨I.homogeneousPositionAction_holds, I.equalSourceWeights_holds,
@@ -524,11 +473,11 @@ theorem armed_eligibilityAntecedent (A : ArmedComparison) :
 
 /-! ## Composed receipt -/
 
-/-- Composed receipt: the committed manifold and support are attained at
-every declared positive scale, the external fields are free parameters
-with two distinct stipulations each, no scale and no lower bound is
-singled out, and an armed comparison is constructible precisely from an
-interface inhabitant plus a contract token. -/
+/-- Composed receipt: the coefficient identities and control support hold at
+every supplied positive scale, the placeholder schema admits distinct scale
+and lower-bound labels, the ratios alone select no scale, and the comparison
+record is definitionally a pair of placeholders.  No evidential arming
+conclusion follows. -/
 theorem dispersionArmingInterface_receipt :
     (∀ a : ℝ, a ≠ 0 →
       (scaleB0 a / scaleC4 a ^ 2 = 10 / 21 ∧

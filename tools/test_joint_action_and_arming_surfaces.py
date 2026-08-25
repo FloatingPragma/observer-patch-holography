@@ -49,17 +49,17 @@ def test_claims_registered_with_gates() -> None:
 
 def test_action_claim_carries_direct_sum_boundary() -> None:
     statement = _claim(ACTION_CLAIM)["statement"]
-    for token in ("unique stationary path", "one action, both dynamics",
-                  "direct sum", "exactly -2",
-                  "stationarity is not minimality",
-                  "coupling term of the common action"):
+    for token in ("unique stationary path", "formal direct sum",
+                  "exactly decoupled", "action -2",
+                  "supplies no shared carrier", "relative coefficient one"):
         assert token in statement, token
 
 
 def test_arming_claim_and_register_rows() -> None:
     statement = _claim(ARM_CLAIM)["statement"]
-    for token in ("PR-70 through PR-76", "external input",
-                  "nothing here arms, scores, or discharges"):
+    for token in ("PR-70 through PR-76", "schema-level checklist",
+                  "stipulated mock", "not a universal no-go",
+                  "nothing here arms or scores"):
         assert token in statement, token
     deps = _claim(ARM_CLAIM)["premise_dependencies"]
     assert deps["open"] == list(ARMING_ROWS)
@@ -76,16 +76,17 @@ def test_arming_claim_and_register_rows() -> None:
 
 def test_clock_claim_carries_exact_invariants() -> None:
     statement = _claim(CLK_CLAIM)["statement"]
-    for token in ("197/1754", "94/1754 + 103/1754", "1754",
-                  "single identification", "declared choice"):
+    for token in ("197/1754", "94/1754", "103/1754", "1754",
+                  "multiplicity", "does not replace or reduce PR-15"):
         assert token in statement, token
     assert _claim(CLK_CLAIM)["premise_dependencies"]["open"] == ["PR-15"]
 
 
 def test_validator_claim_and_package() -> None:
     statement = _claim(VAL_CLAIM)["statement"]
-    for token in ("111/179", "renamed context", "provenance class synthetic",
-                  "nothing here discharges the source-production row"):
+    for token in ("0 <= E_i <= I", "renamed-context rejection",
+                  "STATIC_COMMITTED_FIXTURE_CONFORMANT",
+                  "PRODUCER_AUTHENTICATION_UNIMPLEMENTED"):
         assert token in statement, token
     base = ROOT / "code/phase_instrument_export"
     for name in ("ins03_export_validator.py", "test_ins03_export_validator.py",
@@ -117,12 +118,12 @@ def test_lean_modules_carry_headline_declarations() -> None:
 def test_owner_papers_carry_the_results() -> None:
     observers = _collapsed("paper/observers_are_all_you_need.tex")
     for token in ("CommonWorldJointAction", "direct sum",
-                  "coupling term of the common action"):
+                  "zero-coupling", "relative sector coefficient"):
         assert token in observers, token
     screen = _collapsed(
         "paper/screen_microphysics_and_observer_synchronization.tex")
-    for token in ("typed arming path", "DispersionArmingInterface",
-                  "post-custody dataset contract token"):
+    for token in ("schema-level arming checklist", "DispersionArmingInterface",
+                  "natural-number digest labels"):
         assert token in screen, token
 
 
@@ -131,7 +132,8 @@ def test_ledger_rows_cite_without_promotion() -> None:
         encoding="utf-8"))
     rows = {row["id"]: row for row in ledger["rows"]}
     assert ACTION_LEAN in rows["OL-N1"]["evidence"]
-    assert "coupling term of the common action" in rows["OL-N1"]["notes"]
+    assert "exactly decoupled sum" in rows["OL-N1"]["notes"]
+    assert "Viable carrier-map" in rows["OL-N1"]["notes"]
     assert rows["OL-N1"]["status"] == "owed"
     assert ARM_LEAN in rows["OL-F4"]["evidence"]
     for pid in ARMING_ROWS:

@@ -3609,7 +3609,7 @@
     },
     {
       "claim_id": "OPH-DM-CONT",
-      "statement": "The OPH dark sector is the non-luminous modular charge of the screen. Under the universal-coupling premise the geometry responds to total modular charge, so the luminous-only Einstein relation holds exactly when the non-luminous charge vanishes. The carrier is the anomalous modular energy on overlap collars, the finite-stage remainder of the Einstein derivation: its stress is bounded by the collar recovery defect, vanishes at full recovery, and dilutes as the inverse cube of the scale factor when conserved. On the collar-scale premise a compact source sees only the ambient anomalous density, whose Solar-System footprint is an isotropic tidal scale four orders below the Cassini quadrupole uncertainty. On the linear enclosed-mass premise the deep-regime density gives the radial-acceleration relation, flat rotation curves, and the baryonic Tully-Fisher relation with one constant, which the SPARC sample returns consistently from both relations. The compact-source half of the collar-scale premise is a conditional saturation theorem under the exponential recovery envelope, and the deep profile is characterized from radial scale covariance and quadrature source composition; the physical envelope attachment, galactic-scale sourcing, the magnitude of the charge, the localization receipt, and the abundance are work in progress.",
+      "statement": "The OPH dark sector is the non-luminous modular charge of the screen. Under the universal-coupling premise the geometry responds to total modular charge, so the luminous-only Einstein relation holds exactly when the non-luminous charge vanishes. The carrier is the anomalous modular energy on overlap collars, the finite-stage remainder of the Einstein derivation: its stress is bounded by the collar recovery defect, vanishes at full recovery, and dilutes as the inverse cube of the scale factor when conserved. On the collar-scale premise a compact source sees only the ambient anomalous density, whose Solar-System footprint has zero trace-free quadrupole and a small traceful isotropic tidal scale; the Cassini quadrupole result is only a dimensional scale comparison, not a direct bound on that isotropic channel. On the linear enclosed-mass premise the deep-regime density conditionally gives the anomalous radial-acceleration relation, flat rotation curves, and the baryonic Tully-Fisher relation with one constant. A corrected fixed-mass-to-light SPARC diagnostic compares the observed total acceleration with the baryonic plus anomalous terms and finds a paired-bootstrap normalization mismatch against the naive Vflat^4/(G Mb) proxy. Because catalogued finite-radius Vflat is treated as the asymptotic anomalous speed without subtracting its baryonic contribution, this is a scoped mixed-proxy tension, not a clean profile falsification, full likelihood, or verdict on the generic dark-sector theorem. The compact-source half of the collar-scale premise is a conditional saturation theorem under the exponential recovery envelope, and the deep profile is characterized from radial scale covariance and quadrature source composition; the physical envelope attachment, galactic-scale sourcing, transition profile, relativistic stress and lensing relation, magnitude, localization receipt, abundance, and joint likelihood remain open.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "phenomenological_continuation",
       "assumptions": [
@@ -3638,11 +3638,11 @@
         "code/cosmology/rar_deep_regime/receipts/sparc_deep_regime_diagnostic.json",
         "code/cosmology/rar_deep_regime/qumond_quadrupole_crosscheck.py",
         "code/cosmology/rar_deep_regime/receipts/qumond_quadrupole_crosscheck.json",
-        "docs/DARK_SECTOR_FIELD_LAW_POSTMORTEM.md"
+        "code/cosmology/rar_deep_regime/DARK_SECTOR_FIELD_LAW_POSTMORTEM.md"
       ],
-      "falsifier": "A proof that the anomalous charge is a local function of the Newtonian field rather than a galactic-scale collar property retires the source, because the Cassini quadrupole excludes every local field-law response at the galaxy-fitting normalization. The deep-regime comparison fails if the Tully-Fisher or radial-acceleration exponent measured on the declared sample departs from 4 and 1/2 beyond the stated scatter, or if the constants recovered from the two relations disagree. After the open objects are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
+      "falsifier": "The tested unscreened QUMOND continuation is retired by its Cassini quadrupole at the declared fixed inputs. That result is scoped to the fixed-input realization; local, screened, environmental, nonlocal, and dynamical responses remain candidate continuations. The declared density-profile diagnostic is in tension because the galaxy-bootstrap intervals for the Tully-Fisher and radial-acceleration normalizations do not overlap. A physical exclusion requires a frozen joint nuisance and measurement-error likelihood. After the stress law and comparison protocol are fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires this continuation.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive, and the generic-dark-sector theorems survive as statements about whichever non-luminous charge exists.",
-      "status": "resource_deferred",
+      "status": "conditional_continuation_with_diagnostic_tension__physical_attachment_and_joint_likelihood_open",
       "claim_class": "declared_structure",
       "gates": [
         742
@@ -3657,7 +3657,7 @@
     },
     {
       "claim_id": "OPH-YM-GAP",
-      "statement": "On the support-visible compact-gauge branch carrying the finite-transfer, vacuum, Osterwalder-Schrader reconstruction, noncollapse, and uniform-gap certificates, the continuum Yang-Mills Hamiltonian mass gap is identified with the limiting OPH repair gap.",
+      "statement": "On the support-visible compact-gauge branch carrying the finite-transfer, vacuum, Osterwalder-Schrader reconstruction, noncollapse, and uniform-gap certificates, the continuum Yang-Mills Hamiltonian mass gap is identified with the limiting OPH repair gap. A separate finite numerical diagnostic tests Z2 gauge systems at L=2,3: the Wilson constant-rate receipt is analytic in the free limit and fails on the tested diagonal interacting grid, while the Kogut-Susskind Doob transform has exact positive fiber-dependent rates c_l=lambda(r+1/r) with the analytic floor c_l>=2 lambda. The finite grid is not a no-go for anisotropic limits, alternative transfer objects, or the variable-rate route; quotient-space approximate tensorization and continuum transfer remain open.",
       "owner_paper": "extra/yang_mills_gap_clay_problem.tex",
       "tier": "branch_theorem_conditional_on_construction",
       "assumptions": [
@@ -3680,14 +3680,17 @@
         "extra/yang_mills_gap_clay_problem.tex",
         "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
         "code/yang_mills/verify_collar_gap_certificate.py",
+        "code/yang_mills/z2_finite_transfer_receipt.py",
+        "code/yang_mills/tests/test_z2_finite_transfer_receipt.py",
+        "code/yang_mills/receipts/z2_finite_transfer_receipt.json",
         "Lean/ObserverPatchHolography/YangMillsLemma72.lean",
         "Lean/ObserverPatchHolography/YangMillsProp81.lean",
         "Lean/ObserverPatchHolography/YangMillsGap.lean",
         "Lean/ObserverPatchHolography/YangMillsGapWitness.lean",
         "Lean/ObserverPatchHolography/RepairGapChain.lean"
       ],
-      "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent.",
-      "scope_if_false": "The Clay-facing Yang-Mills claim falls; compact gauge reconstruction may survive without the mass-gap theorem.",
+      "falsifier": "The support-visible compact-gauge continuum construction fails, reflection positivity fails, or the uniform repair gap is absent. The finite diagnostic falls if its analytic free control, serialized matrices, tested-grid residuals, positive variable-rate identity, or independent replay fails.",
+      "scope_if_false": "The Clay-facing Yang-Mills claim falls if the conditional continuum chain fails; compact gauge reconstruction may survive without the mass-gap theorem. A failed finite diagnostic retracts only that finite computation. Its tested Wilson residuals do not exclude anisotropic limits, alternative transfer objects, fiber-dependent positive rates, or another compact-gauge tower.",
       "status": "resource_deferred__finite_transfer_results_not_promoted_to_continuum_gap",
       "claim_class": "conditional_implication",
       "gates": [
@@ -5836,12 +5839,13 @@
     },
     {
       "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-EFFECT-SELECTION",
-      "statement": "The permitted EventAlgebra source fields generate a finite noncommuting-pair family, a deterministic target-free selector chooses pair:00-02, and the selected effect equals the phase-slot effect consumed by the declared Lueders instrument.",
+      "statement": "The declared two-dimensional representation rows and diagonal record projector generate a finite noncommuting-pair family. Under the declared complexification adapter C -> I/2 - i C/(2 |C_01|), its effect values are exactly the two Pauli-Y projectors. The current stable label order places pair:00-02 first, and that pair equals the +Y phase-slot effect consumed by the declared Lueders instrument. Reversing the commutator order for a fixed pair swaps the transpose effects, but reversing the event list need not flip the selected sign and no theorem makes the first-label rule source-forced. The robust algebraic result is therefore the unordered pair under a declared adapter; the +Y orientation remains conventional.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
-      "tier": "source_derived_phase_effect_selection",
+      "tier": "declared_adapter_unordered_phase_pair_enumeration",
       "assumptions": [
         "committed_diagonal_record_algebra_and_web_contexts",
         "recorded_pr04_axiomatize_decision_declares_phase_effect",
+        "declared_normalized_commutator_complexification_and_pair_order",
         "source_phase_sensitive_instrument_deferred"
       ],
       "imported_results": [
@@ -5849,17 +5853,19 @@
         "finite_matrix_algebra",
         "lueders_conditioning"
       ],
-      "oph_specific_delta": "Derives the finite noncommuting-pair family from permitted repository source fields, selects pair:00-02 without reading the target, proves exact equality to the declared phase effect, connects the 48/12 source relation to the 36/12 canonical bridge, and makes source deletion load-bearing. Eight source events produce the same +Y effect, so effect-value equality is claimed and event-witness uniqueness is not. The source fixes the unordered pair of Pauli-Y projectors; the orientation of the selected effect (+Y rather than -Y) is set by two producer conventions, the commutator order P_right P_left - P_left P_right and the lexicographic pair index, and reversing either convention selects the transpose effect.",
-      "novelty_type": "source_derived_effect_selection",
+      "oph_specific_delta": "Builds the finite noncommuting-pair family from the pinned representation/projector packet without reading the declared target, proves that the declared complexification adapter yields exactly the unordered Pauli-Y pair, connects the 48/12 source relation to the 36/12 canonical bridge, and proves exact equality of the current first labeled pair to the declared +Y slot. It explicitly leaves the adapter and orientation/label selection as open declared choices.",
+      "novelty_type": "source_attached_unordered_phase_pair_under_declared_adapter",
       "evidence": [
         "Lean/EventAlgebra/SourcePhaseSelection.lean",
         "Lean/EventAlgebra/SourcePhaseSelectionRelation.lean",
+        "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_PACKET.v1.json",
+        "code/born_context_phase_lift/SOURCE_PHASE_SELECTION_SEMANTICS_RECEIPT.v1.json",
         "code/born_context_phase_lift/source_phase_selection_family.py",
         "tools/test_source_phase_selection.py"
       ],
-      "falsifier": "The claim fails if deleting the source family leaves the theorem intact, the selector drifts from pair:00-02, exact effect equality is lost, the 48/12 or 36/12 boundary drifts, a load-bearing mutation survives, generated source differs from the committed modules, or any receipt clause fails.",
-      "scope_if_false": "Only source-derived phase-effect selection falls. The declared phase effect, declared Lueders instrument, its channel clauses, and the separately open preparation, outcome, readback, provenance, custody, and physical-attachment obligations are assessed independently.",
-      "status": "source_selected_effect_proved__instrument_preparation_outcomes_readback_and_provenance_open",
+      "falsifier": "The claim fails if the declared-adapter derivation does not yield exactly the unordered {+Y,-Y} pair, the effect multiplicities or 48/12 and 36/12 counts drift, the committed packet fails replay, or a load-bearing mutation survives.",
+      "scope_if_false": "Only the declared-adapter unordered-pair and compatibility results fall. The declared +Y effect, declared Lueders instrument, adapter and label choices, and the separately open preparation, outcome, readback, provenance, custody, and physical-attachment obligations are assessed independently.",
+      "status": "source_attached_unordered_phase_pair_under_declared_adapter_proved__adapter_orientation_instrument_preparation_outcomes_readback_and_provenance_open",
       "claim_class": "conditional_implication",
       "gates": [
         730
@@ -5903,7 +5909,7 @@
         "Lean/EventAlgebra/LuedersPhaseInstrument.lean"
       ],
       "falsifier": "The claim fails if a generated state matrix is not a state, a generated event maps to the wrong declared phase outcome index, a generated effect differs from that table entry, a semantic result differs from the generated effect, an enabled step has zero Born weight, the normalized declared Lüders outcome differs from the semantic result, or any receipt clause fails.",
-      "scope_if_false": "Only the generated-source-transition to declared-instrument compatibility bridge falls. Source-derived effect selection, the independently declared Lüders channel clauses, the Born-weight boundary, and the open public-readback, common-run, provenance, custody, additivity, and physical-attachment obligations remain separately assessed.",
+      "scope_if_false": "Only the generated-source-transition to declared-instrument compatibility bridge falls. The declared-adapter unordered-effect enumeration, the independently declared Lüders channel clauses, the Born-weight boundary, and the open public-readback, common-run, provenance, custody, additivity, and physical-attachment obligations remain separately assessed.",
       "status": "all_enabled_generated_source_transitions_match_declared_lueders_outcomes__public_readback_instrument_source_selection_common_run_and_custody_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -5948,7 +5954,7 @@
         "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean"
       ],
       "falsifier": "The claim fails if the all-event support contains a different generated state, one listed state lacks an enabled event, the weights are negative or fail to sum to one, their matrix mixture differs from the declared run state, another real coefficient triple gives that state, some generated state equals the declared run matrix, a generated SourceStep starts from it, a generated result retains all-event support, a common-support state gives either generated orientation a weight other than one half, an inherited normalized outcome equality fails, or any receipt clause fails.",
-      "scope_if_false": "Only the generated common-support, declared-run convex-hull, and one-step boundary packet falls. Source effect selection, the per-step outcome bridge, the declared instrument channel clauses, the single-shot Born-weight boundary, and all open operational and physical obligations remain separately assessed.",
+      "scope_if_false": "Only the generated common-support, declared-run convex-hull, and one-step boundary packet falls. The declared-adapter unordered-effect enumeration, the per-step outcome bridge, the declared instrument channel clauses, the single-shot Born-weight boundary, and all open operational and physical obligations remain separately assessed.",
       "status": "exact_common_support_and_unique_declared_run_hull_attained__source_mixing_public_contexts_readback_run_custody_and_pr65_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -5971,12 +5977,13 @@
     },
     {
       "claim_id": "OPH-EVENTALGEBRA-SOURCE-PHASE-BORN-WEIGHT-BOUNDARY",
-      "statement": "For every normalized two-dimensional state rho, the single-shot Born weight of the source-selected Pauli +Y effect is exactly 1/2 - Im(rho_01). Therefore a non-half weight requires a nonzero imaginary off-diagonal coordinate; real off-diagonal coherence alone is insufficient. For the current enumerated source-reachable class, every prospective typed preparation bridge that maps reachable source matrices to states and preserves record diagonality gives weight exactly 1/2 to that effect. On record-diagonal two-dimensional states the generated -Y orientation and the diagonal comparator (1/2)I have the same weight. A constant diagonal bridge inhabits the preserving side, while an off-diagonal constant control gives weight one and fails preservation, so the hypothesis is logically load-bearing. This is a conditional single-shot Born-weight theorem; it derives no source bridge, common preparation, source operation, public outcome, sequential instrument behavior, operational readback, run, provenance, custody, physical region, or validation.",
+      "statement": "For every normalized two-dimensional state rho, the single-shot Born weight of the current first-labelled Pauli +Y effect under the declared complexification and pair-order conventions is exactly 1/2 - Im(rho_01). Therefore a non-half weight requires a nonzero imaginary off-diagonal coordinate; real off-diagonal coherence alone is insufficient. For the current enumerated source-reachable class, every prospective typed preparation bridge that maps reachable source matrices to states and preserves record diagonality gives weight exactly 1/2 to that conventional +Y effect. On record-diagonal two-dimensional states the generated -Y orientation and the diagonal comparator (1/2)I have the same weight. A constant diagonal bridge inhabits the preserving side, while an off-diagonal constant control gives weight one and fails preservation, so the hypothesis is logically load-bearing. The source enumeration yields an unordered pair and does not force the +Y label. This is a conditional single-shot Born-weight theorem; it derives no source bridge, common preparation, source operation, public outcome, sequential instrument behavior, operational readback, run, provenance, custody, physical region, or validation.",
       "owner_paper": "extra/machine_checked_finite_event_algebras.tex",
       "tier": "conditional_current_source_phase_born_weight_boundary",
       "assumptions": [
         "committed_source_walk_payload_carriers",
         "prospective_source_to_phase_preparation_bridge_preserves_record_diagonality",
+        "declared_normalized_commutator_complexification_and_pair_order",
         "recorded_pr04_axiomatize_decision_declares_phase_effect"
       ],
       "imported_results": [
@@ -5984,7 +5991,7 @@
         "Born_trace_pairing",
         "current_source_reachability_record_law_closure"
       ],
-      "oph_specific_delta": "Places the current source-reachability closure and the source-selected phase effect behind an explicit prospective cross-carrier preparation interface, proves the exact selected-effect identity 1/2 - Im(rho_01), and shows conditionally that record preservation forces the half-weight boundary on every reachable source input. A preserving inhabitant and an off-diagonal control make the conditional hypothesis logically nonvacuous and load-bearing.",
+      "oph_specific_delta": "Places the current source-reachability closure and the conventional first-labelled +Y member of the declared-adapter unordered phase pair behind an explicit prospective cross-carrier preparation interface, proves the exact +Y identity 1/2 - Im(rho_01), and shows conditionally that record preservation forces the half-weight boundary on every reachable source input. A preserving inhabitant and an off-diagonal control make the conditional hypothesis logically nonvacuous and load-bearing.",
       "novelty_type": "typed_current_source_phase_born_weight_boundary_with_exact_coordinate_identity",
       "evidence": [
         "extra/machine_checked_finite_event_algebras.tex",
@@ -5992,8 +5999,8 @@
         "Lean/EventAlgebra/SourceReachabilityDelimitation.lean",
         "Lean/EventAlgebra/SourcePhaseSelection.lean"
       ],
-      "falsifier": "The claim fails if the selected-effect Born weight of a normalized two-dimensional state differs from 1/2 - Im(rho_01), if a reachable source state transported by a record-diagonality-preserving bridge gives a non-half weight, if the orientation/comparator equalities fail on a normalized record-diagonal state, if either logical control has the wrong preservation behavior, or if any receipt clause fails.",
-      "scope_if_false": "Only this conditional current-source phase Born-weight boundary falls. Source-derived effect selection, the declared Lueders channel clauses, broader source extensions, and the open operational and physical attachments remain separately assessed.",
+      "falsifier": "The claim fails if the conventional first-labelled +Y Born weight of a normalized two-dimensional state differs from 1/2 - Im(rho_01), if a reachable source state transported by a record-diagonality-preserving bridge gives a non-half weight, if the orientation/comparator equalities fail on a normalized record-diagonal state, if either logical control has the wrong preservation behavior, or if any receipt clause fails.",
+      "scope_if_false": "Only this conditional Born-weight boundary for the current conventional +Y label falls. The declared-adapter unordered phase pair, declared Lueders channel clauses, broader source extensions, and the open operational and physical attachments remain separately assessed.",
       "status": "conditional_single_shot_born_weight_boundary_proved__source_bridge_operation_outcomes_readback_and_pr65_custody_open",
       "claim_class": "conditional_implication",
       "gates": [
@@ -6521,7 +6528,7 @@
     },
     {
       "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
-      "statement": "On deep-regime enclosed-mass laws M(Mb, r) satisfying two atomic premises, degree-one radial scale covariance (no retained length scale on sparsely recorded deep cuts) and quadrature closure under baryonic source composition (independent per-source collar defects compose in variance, so amplitudes add in quadrature), together with nonnegativity, source monotonicity, and nondegeneracy, there is a unique constant a0 > 0 with M(Mb, r) = r * sqrt(Mb * a0 / G): the committed linear enclosed-mass profile is a theorem rather than a functional-form premise. The proof factorizes the law radially by scale covariance and forces the square root by a self-contained Cauchy lemma: a function additive and monotone on the positive reals is linear there. The deep radial-acceleration relation, the flat rotation curve, and the baryonic Tully-Fisher relation transfer to every such law. The matching radius r_M = sqrt(G * Mb / a0) carries both the baryonic and the anomalous acceleration exactly equal to a0, and the anomalous acceleration dominates the baryonic one exactly outside r_M. Each atomic premise is load-bearing: an additive law satisfies every premise except quadrature closure, an r^2 law every premise except scale covariance, and an explicit unit law inhabits the full bundle. The value of a0 is not determined, neither atomic premise is derived from the axioms, and the transition region inside r_M is not modelled.",
+      "statement": "On deep-regime enclosed-mass laws M(Mb, r) satisfying two atomic premises, degree-one radial scale covariance (no retained length scale on sparsely recorded deep cuts) and quadrature closure under baryonic source composition (independent per-source collar defects compose in variance, so amplitudes add in quadrature), together with nonnegativity, source monotonicity, and nondegeneracy, there is a unique constant a0 > 0 with M(Mb, r) = r * sqrt(Mb * a0 / G): the committed linear enclosed-mass profile is a theorem rather than a functional-form premise. The proof factorizes the law radially by scale covariance and forces the square root by a self-contained Cauchy lemma: a function additive and monotone on the positive reals is linear there. The deep radial-acceleration relation, the flat rotation curve, and the baryonic Tully-Fisher relation transfer to every such law. If that deep expression is algebraically extended to r_M = sqrt(G * Mb / a0), the baryonic and anomalous accelerations are both a0 there and the anomalous term dominates outside r_M. Those identities do not determine the physical transition or the interior branch. Each atomic premise is load-bearing: an additive law satisfies every premise except quadrature closure, an r^2 law every premise except scale covariance, and an explicit unit law inhabits the full bundle. The value of a0 is not determined and neither atomic premise is derived from the axioms.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "premise_reduction_characterization_theorem",
       "assumptions": [
@@ -6559,9 +6566,9 @@
     },
     {
       "claim_id": "OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
-      "statement": "On the source-counted eight-history carrier, for every slot region S of the three binary history slots the conditional expectation of the committed empirical window law (counts 1149, 96, 2, 87, 3, 2, 3, 412 of 1754) is linear, unital, positive, localized to its region, idempotent, tower-compatible for nested regions, and preserves the committed empirical mean; the full-region expectation is the identity because the three slots separate the eight histories, and the empty-region expectation is the constant mean. The two domain-wall observables are fixed points of their own interval expectations, every regional expectation preserves the exact wall means 94/1754 and 103/1754 and the repair mean 197/1754, and the exact conditional witnesses over the late slot are 383/415 in the (s0,s1) = (0,0) cell and 2/89 in the (0,1) cell, which differ, so the net genuinely averages. A bundled net structure carrying all clauses is inhabited by the committed counts. At matrix level the same counts refute the extension: no complex-linear map of the full M_8(C) carrier into the slot-(0,1) interval algebra satisfies the interval-bimodule law and preserves the committed source state; the identity-on-subalgebra clause is not needed for the contradiction, and the identity map separately satisfies the bimodule and state-preservation clauses, so the obstruction is produced exactly by compression into the interval algebra. Through the diagonal embedding, the committed density trace, and the selected GNS functional, the net's state preservation and the wall coefficients transport to represented diagonal elements. Slots are retained-window positions with no calibrated physical clock; the obstruction is a structural fact about the committed record law, a slot correlation across the late wall; no Lorentzian localization, spectrum condition, continuum or infinite-volume limit, renormalization flow, fields, particles, scattering, or detector attachment is constructed. PR-15, PR-52, PR-54, and PR-58 are open; OL-C6 remains partial and issues 730 and 743 remain open.",
+      "statement": "On the source-counted eight-history carrier, for every subset S of the three binary retained-window slots, finite-probability conditioning of the committed empirical law (counts 1149, 96, 2, 87, 3, 2, 3, 412 of 1754) is linear, unital, positive, localized to its slot subalgebra, idempotent, tower-compatible for nested subsets, and preserves the committed empirical mean; the full-slot map is the identity because the three slots separate the eight histories, and the empty-slot map is the constant mean. The two domain-wall observables are fixed points of their own interval maps, every map preserves the exact wall means 94/1754 and 103/1754 and the action-incidence mean 197/1754, and the exact late-slot conditional witnesses are 383/415 in the (s0,s1) = (0,0) cell and 2/89 in the (0,1) cell. At matrix level the same counts give one sharply scoped obstruction: there is no complex-linear map E : M_8(C) -> A_01 into the fixed slot-(0,1) matrix subalgebra that is A_01-bimodular and preserves the committed source state. This does not exclude maps to enlarged subalgebras, ancilla or boundary extensions, generalized or non-bimodule completely positive maps, different states, or ordinary AQFT inclusion nets. Through the diagonal embedding, density trace, and selected GNS functional, the finite record-conditioning identities and wall coefficients transport to represented diagonal elements. The slots are overlapping retained-window positions, not calibrated times or Lorentzian regions; no C*- or von Neumann AQFT net, spectrum condition, continuum or infinite-volume limit, renormalization flow, fields, particles, scattering, or detector attachment is constructed. PR-15, PR-52, PR-54, and PR-58 are open; OL-C6 remains partial and issues 730 and 743 remain open.",
       "owner_paper": "paper/reality_as_consensus_protocol.tex",
-      "tier": "source_counted_state_preserving_record_net_with_exact_matrix_obstruction",
+      "tier": "source_counted_finite_conditioning_family_with_fixed_A01_matrix_obstruction",
       "assumptions": [
         "tensor_local_history_coordinate_reading_adapter"
       ],
@@ -6570,8 +6577,8 @@
         "source_counted_finite_history_GNS_dynamics",
         "finite_conditional_expectation_of_a_probability_law"
       ],
-      "oph_specific_delta": "Supplies the state-preserving half of the three-slot rung at its attainable level: the record layer carries the full state-preserving regional conditional-expectation net of the committed empirical law with exact rational witnesses, while the committed counts themselves refute any state-preserving interval-bimodule projection of the full matrix carrier, locating the state-compatible regional structure exactly on the record layer and the obstruction exactly at the off-diagonal extension across the late wall.",
-      "novelty_type": "source_counted_record_layer_conditional_expectation_net_and_count_decided_matrix_obstruction",
+      "oph_specific_delta": "Supplies a finite slot-indexed record-conditioning family for the committed empirical law with exact rational witnesses, while the committed counts refute only an A_01-bimodular, state-preserving projection from the full matrix carrier into the fixed A_01 target. The result identifies a concrete obstruction without turning it into a no-go against enlarged-target, ancillary, generalized-CP, non-bimodule, or AQFT-inclusion constructions.",
+      "novelty_type": "finite_record_conditioning_with_scoped_A01_bimodule_projection_obstruction",
       "evidence": [
         "Lean/QFT/SourceHistoryExpectationNet.lean",
         "Lean/QFT/SourceHistoryThreeSlotLocalGNS.lean",
@@ -6579,9 +6586,9 @@
         "paper/reality_as_consensus_protocol.tex",
         "paper/observers_are_all_you_need.tex"
       ],
-      "falsifier": "A net clause (linearity, unitality, positivity, localization, idempotence, tower, or state preservation) fails for some region; the full-region expectation is not the identity; a wall fails to be fixed by its interval expectation; an exact rational witness (94/1754, 103/1754, 197/1754, 383/415, 2/89) is wrong; a linear map into the interval algebra satisfies the bimodule and state-preservation clauses; or a represented coefficient statement fails on the selected GNS carrier.",
-      "scope_if_false": "Only the record-layer net, its exact witnesses, the matrix obstruction, and their GNS transport fall. The three-slot tensor-local decomposition, the source-history GNS attachment, and every physical or continuum QFT attachment remain separately assessed.",
-      "status": "record_layer_state_preserving_net_attained_with_exact_matrix_obstruction__physical_QFT_attachment_open",
+      "falsifier": "A finite conditioning clause (linearity, unitality, positivity, slot localization, idempotence, tower, or state preservation) fails for some slot subset; the full-slot map is not the identity; a wall fails to be fixed by its interval map; an exact rational witness (94/1754, 103/1754, 197/1754, 383/415, 2/89) is wrong; an A_01-bimodular state-preserving complex-linear map M_8(C) -> A_01 exists; or a represented diagonal coefficient fails on the selected GNS carrier.",
+      "scope_if_false": "Only the finite record-conditioning identities, exact witnesses, fixed-target A01 obstruction, and their diagonal GNS transport fall. Enlarged targets, ancillary or boundary memory, generalized or non-bimodule CP maps, alternate states, ordinary AQFT inclusions, the three-slot decomposition, and every physical or continuum QFT attachment remain separately assessed.",
+      "status": "finite_record_conditioning_attained_with_scoped_A01_projection_obstruction__AQFT_and_physical_attachment_open",
       "claim_class": "conditional_implication",
       "gates": [
         730,
@@ -6643,7 +6650,7 @@
     },
     {
       "claim_id": "OPH-DM-PER-CUT-COMPOSITION",
-      "statement": "In the per-cut collar model of a point source, with a cut linear density n > 0 (n r settled codimension-one cuts nested within radius r), a per-cut defect variance function V that is additive across independent sources, monotone, nonnegative, and somewhere nonzero, and each cut carrying the anomalous amplitude sqrt(V(Mb)), the variance function is forced linear with a unique strictly positive slope c, quadrature closure of the induced enclosed mass n r sqrt(V(Mb)) is a theorem rather than a premise, the induced law inhabits the deep-regime premise bundle at the same G, and its characterized acceleration constant is exactly a0 = G n^2 c, positive and unique through the deep-profile characterization. The dictionary determines only the product n^2 c: two explicit models with different cut densities and equal product induce the same enclosed-mass law for all sources and radii. Variance additivity of independent per-source collar defects and the linear cut count are premises of the model, not derived from the axioms; no numeric value of n, c, or a0 is asserted or derived; no comparison with data is made.",
+      "statement": "In the continuum or mean per-cut collar model of a point source, with cut linear density n > 0 (the exact extension n r), a per-cut defect variance function V that is additive across sources, monotone, nonnegative, and somewhere nonzero, and each cut carrying anomalous amplitude sqrt(V(Mb)), the variance function is forced linear with a unique strictly positive slope c. Quadrature closure of the induced enclosed mass n r sqrt(V(Mb)) is then a theorem, the induced law inhabits the deep-regime premise bundle, and its characterized acceleration constant is exactly a0 = G n^2 c. The dictionary determines only n^2 c. Variance additivity and the exact continuum cut count are model premises; the later discrete cut theorem supplies only a bounded-error/asymptotic realization. Coherent linear addition across nested cuts is part of this model and is not implied by statistical independence across cuts. No numeric value of n, c, or a0 is asserted or derived.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "per_cut_model_composition_and_magnitude_dictionary",
       "assumptions": [
@@ -6713,7 +6720,7 @@
     },
     {
       "claim_id": "OPH-DM-COLLAR-PREMISE-DERIVATION",
-      "statement": "The two load-bearing premises of the per-cut collar model are derived one level deeper. Probabilistic side: in an atomic defect model, a probability space carrying pairwise independent per-atom defect contributions with finite second moments and a common positive per-atom variance, the compound variance of every finite atom family equals the sum of the per-atom variances by the Mathlib independence theorem, so disjoint-union composition makes compound variances additive: the variance-additivity premise shape is a theorem of independence. With unit atom mass the measured compound variance is slope times mass, and the linear extension induces the full per-cut model and, through the landed chain, the deep-regime law with dictionary constant G (1/s)^2 slope. Geometric side: a cut family with positive first cut that is s-separated and s-dense is forced to be exactly the arithmetic progression cut k = cut 0 + k s; the cut count in (0, r] obeys the exact sandwich r/s - 1 <= count <= r/s + 1, count r / r tends to 1/s, and the counted enclosed mass deviates from the linear law (r/s) a by at most one per-cut amplitude at every radius. Load-bearing receipts: a perfectly correlated pair has Var(X + X) = 1 against 1/2, so independence is necessary; a one-cut family violates the sandwich lower bound, so density is necessary; a two-coin product model and the unit cut family compose to the deep law with constant 1/4. Independence, common per-atom variance, and the separated-dense geometry are premises of the two structures; the extension between modeled masses is fixed by linearity, not measurement; no physical value of s, slope, or a0 is asserted.",
+      "statement": "Two sufficient realizations of the per-cut collar premises are proved. Probabilistic side: pairwise independent per-atom defect contributions with finite second moments and common positive variance have additive compound variance, so the variance-additivity premise shape follows. Independence is not claimed necessary: pairwise zero covariance and dependent uncorrelated constructions remain viable. With unit atom mass the modeled compound variance is slope times mass; the extension between modeled masses is fixed by definition, not measurement. Geometric side: a positive-first-cut family that is both s-separated and s-dense is forced to be the exact arithmetic progression, its count obeys r/s - 1 <= count <= r/s + 1 and has asymptotic density 1/s, and its counted mass differs from the continuum linear extension by at most one per-cut amplitude. A correlated pair and a one-cut family show that deleting all decorrelation or density control does not guarantee those conclusions; they do not prove independence or exact spacing necessary. Irregular or ergodic families with asymptotic density and sublinear error remain viable. A two-coin product model and unit cut family inhabit the sufficient bundle. No physical value of s, slope, or a0 is asserted.",
       "owner_paper": "cosmology/oph_dark_matter_paper.tex",
       "tier": "premise_derivation_from_independence_and_cut_geometry",
       "assumptions": [
@@ -6724,16 +6731,16 @@
         "Mathlib_variance_of_independent_sums",
         "Cauchy_functional_equation_on_positive_reals"
       ],
-      "oph_specific_delta": "Turns the per-cut model's variance-additivity premise into a theorem of genuine probabilistic independence on a measure space and its linear cut count into an exact rigidity-plus-sandwich statement of separated-dense cut geometry, with necessity receipts for both hypotheses, so the deep galaxy law rests on independence of source records and cut spacing rather than on model-level stipulations.",
-      "novelty_type": "independence_derived_variance_additivity_and_rigid_cut_count_with_necessity_receipts",
+      "oph_specific_delta": "Supplies one exact probabilistic sufficient condition for variance additivity and one exact rigid cut family with bounded error around its continuum extension, while explicit controls show that wholly unconstrained correlation or density is insufficient. It leaves weaker decorrelation and irregular asymptotic-density mechanisms open.",
+      "novelty_type": "sufficient_independence_and_rigid_cut_realizations_with_bounded_error_controls",
       "evidence": [
         "Lean/ObserverPatchHolography/EinsteinBranch/CollarPremiseDerivation.lean",
         "Lean/ObserverPatchHolography/EinsteinBranch/PerCutCollarComposition.lean",
         "cosmology/oph_dark_matter_paper.tex"
       ],
-      "falsifier": "The compound-variance identity fails under the stated independence and moment hypotheses; the disjoint-union additivity fails; the arithmetic-progression rigidity, sandwich, limit, or bounded-deviation statement fails; a necessity receipt satisfies the clause it violates; or the composed dictionary constant differs from G (1/s)^2 slope.",
+      "falsifier": "The compound-variance identity fails under the stated independence and moment hypotheses; the disjoint-union additivity fails; the arithmetic-progression rigidity, sandwich, limit, or bounded-deviation statement fails; a control does not violate the removed sufficient condition or does not exhibit failure of the corresponding guarantee; or the composed continuum-extension dictionary differs from G (1/s)^2 slope.",
       "scope_if_false": "Only the derivation layer falls. The per-cut composition, the deep-profile characterization, and the dark-sector continuation remain separately assessed.",
-      "status": "both_premises_derived_one_level__physical_s_and_slope_open",
+      "status": "sufficient_realizations_attained__weaker_mechanisms_physical_attachment_s_and_slope_open",
       "claim_class": "conditional_implication",
       "gates": [
         742,
@@ -6784,9 +6791,9 @@
     },
     {
       "claim_id": "OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
-      "statement": "The source-binding obligation of the committed phase packet is typed against the committed objects, and exactly its determined part is proved attained. The determined interface fixes a common preparation equal to the committed run-state diagonal with literals 111/179 and 68/179, a public outcome table equal to the committed effect table read on that preparation, and a readback clause identifying induced effects with the table; every phase instrument inhabits it, every determined public table is the fixture frequency table with phase entry 1/2 and the literal eight-entry outcome-0 row, and the committed Lüders instrument gives the explicit partial inhabitant. The custody data is proved external: the custody digest is a free injective parameter over the committed determined part, two bindings agree on every determined field and differ, and required-to-hold binding propositions carry no separation because propositional extensionality identifies any two holding assignments, so within the corpus only data-level custody can separate bindings. The determined interface does not pin the instrument: the swap-twisted comparison instrument inhabits the same fields with the same preparation and table, and only the repeatability clause separates the two, even at the full-binding level with equal digests. The additivity rung: the affine family between the committed run Born valuation and the committed cubic countermodel matches every fixture frequency, sends the sure effect to one, obeys the complement rule, and is additive on every committed coexistent sum at every parameter t, with exact additivity residue -(3/256) t at the witness pair; the family is injective, and a member is an additive effect valuation, equivalently the Born functional of a state, precisely at t = 0. Between the committed clauses and the full cross-context additivity premise lies a one-parameter continuum on which the premise fails everywhere except at the Born member. No run, export, producer, or custody artifact exists or is constructed; the register rows for source production and additivity are open.",
+      "statement": "The source-binding obligation of the committed phase packet is mirrored by a placeholder schema. Its determined part fixes a common matrix equal to the committed run-state diagonal and a declared expected-frequency table equal to the committed effect table read on that matrix; every declared phase instrument inhabits this part, so it is compatibility data rather than source preparation or public readback. The full record adds a natural-number digest label and inhabited proposition fields. These placeholders are freely stipulable, and propositional extensionality erases data separation between their holding assignments; this shows the current schema carries no authenticated provenance, not that real custody is universally external or can only reside in one digest. The swap-twisted comparison instrument inhabits the same determined fields, so the schema does not select an instrument. Separately, the affine family between the run Born functional and the cubic countermodel matches the fixture, preserves normalization and complements, and has exact additivity residue -(3/256) t. On 0 <= t <= 1 it is probability-valued on every effect; outside that interval only algebraic identities are asserted. Full effect additivity and Born representability hold only at t = 0. No run, public outcome, authenticated export, producer, or custody artifact exists; PR-03, PR-64, and PR-65 remain open.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "typed_source_binding_interface_with_externality_and_additivity_continuum",
+      "tier": "placeholder_source_binding_schema_with_probability_bounded_affine_additivity_boundary",
       "assumptions": [
         "declared_phase_instrument_parameter",
         "stipulated_custody_binding_fields"
@@ -6794,17 +6801,17 @@
       "imported_results": [
         "propositional_extensionality"
       ],
-      "oph_specific_delta": "Separates the source-binding obligation into a determined part, proved attained by the committed corpus uniformly in the instrument, and a custody part, proved genuinely external with the exact logical obstruction that Prop-level binding clauses cannot carry separation; and sharpens the additivity boundary from one countermodel to an injective affine continuum through the Born valuation with an exact linear residue, so full cross-context additivity is equivalent to selecting the Born member out of a continuum of committed-clause-satisfying valuations.",
-      "novelty_type": "determined_external_split_of_source_binding_and_affine_additivity_continuum",
+      "oph_specific_delta": "Separates static compatibility fields from data-bearing producer evidence, exposes that the current Prop/digest schema is only a placeholder and cannot authenticate custody, and proves an injective affine additivity family with exact residue. Its convex interval is a probability-valued continuum satisfying the fixture clauses, while full cross-context additivity selects only the Born endpoint.",
+      "novelty_type": "placeholder_source_binding_schema_and_probability_bounded_affine_additivity_boundary",
       "evidence": [
         "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean",
         "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
         "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
         "paper/observers_are_all_you_need.tex"
       ],
-      "falsifier": "A determined-field identity fails (a public-table entry off the fixture frequencies, the literal row wrong, a readback trace off); the digest family fails injectivity; two holding binding assignments differ; the swap-twisted instrument fails a determined field; the residue differs from -(3/256) t; or a member with nonzero t is an additive effect valuation or Born functional of a state.",
-      "scope_if_false": "Only the interface typing, the externality split, and the affine continuum fall. The committed instrument, the additivity boundary module, and the register rows remain separately assessed.",
-      "status": "determined_part_attained_and_custody_proved_external__source_production_and_additivity_open",
+      "falsifier": "A static compatibility identity fails (an expected-frequency entry is off the fixture, the literal row is wrong, or a declared trace read differs); the freely labelled digest family fails its algebraic injectivity statement; the swap-twisted instrument fails a compatibility field; the affine formula or its 0 <= t <= 1 probability bound fails; the residue differs from -(3/256) t; or a member with nonzero t is a fully additive effect valuation or Born functional of a state.",
+      "scope_if_false": "Only the placeholder-schema typing, non-authentication delimitation, and probability-bounded affine family fall. The committed instrument, data-bearing producer and custody routes, additivity boundary module, and register rows remain separately assessed.",
+      "status": "static_compatibility_part_attained_and_custody_placeholders_unconstrained__data_bearing_source_production_readback_custody_and_additivity_open",
       "claim_class": "conditional_implication",
       "gates": [
         730
@@ -6826,9 +6833,9 @@
     },
     {
       "claim_id": "OPH-GEOMETRY-COMMON-WORLD-MAXWELL-CLOCK-JOIN",
-      "statement": "The instrumented common-world record is extended by one Maxwell-clock join field: a single function of the step index producing the pair of the scaled staggered-form value of the record's certified bundle and the clock worldline event at the record's declared step time. Four clauses hold for every inhabitant. Same-index binding: both projection identities, the pair identity, injectivity in the index, and exclusion of the successor-shifted reading. Causal-energy compatibility: joined events of ordered indices are causally ordered, the joined value is nonnegative, the record's step satisfies the sharp certificate h^2 (3 + sqrt 5) < 4 and is the step of a certified instrument, and for zero seam current the electric and magnetic energies at every index are bounded by the committed multiples of the joined value at index zero. Conservation transport: the clock phase advances by the declared rotation of the elapsed step time, and for zero current the joined value is constant along every causally ordered index pair, the first record-level clause relating the screen island to the kinematics island; on the committed inhabitant the joined value is constant while the clock does not repeat with period one step. Non-supply: the event component is a function of frame and step duration alone and the value component of the certified bundle alone, and no field maps a port, seam, or face to a point, interval, or cone of the Lorentz module. The joined record over the committed instrumented inhabitant and over the certified 4/5 bundle are explicit inhabitants, the latter carrying the rational certified bounds; two joined inhabitants over one base differ only in step duration, so the join fixes no clock calibration. After this module the missing common-world joins are exactly four: the common action across carriers, the port/seam/face-to-module carrier map, matter dynamics, and observer readout.",
+      "statement": "The instrumented architecture record is extended by a formal same-index product field: at each declared step index it pairs the scaled staggered-form value of the certified Maxwell bundle with the clock-worldline event at the declared step duration. Projection, index-injectivity, successor-shift exclusion, clock causal ordering, certified energy bounds, zero-current conservation, and calibration non-forcing are proved for this paired object. These facts are inherited componentwise: causal order comes from the declared clock component and conservation from the independently declared Maxwell component. No theorem identifies a port, seam, or face with a point, interval, or cone; derives the step duration; couples the two sectors; or makes one component dynamically constrain the other. Thus this is a typed synchronization/product precursor, not a physical Maxwell-clock join and not a discharge of the common-world gate. The physical carrier map, calibrated shared clock, interacting common action, matter dynamics, and observer readout all remain open.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "typed_maxwell_clock_step_join_on_the_instrumented_record",
+      "tier": "formal_same_index_maxwell_clock_product_on_instrumented_record",
       "assumptions": [
         "declared_instrumented_record_fields_as_committed",
         "declared_step_duration_calibration_free_join"
@@ -6836,17 +6843,17 @@
       "imported_results": [
         "finite_product_type_pairing_and_convex_order_transport"
       ],
-      "oph_specific_delta": "Adds the join the instrumented record's boundary named as missing: one typed function reading the Maxwell island and the clock worldline at the same step index, with causal ordering, certified-step energy bounds, and zero-current conservation transported onto the joined object, shrinking the missing-join list of the common-world gate to exactly the common action, the carrier map, matter dynamics, and observer readout.",
-      "novelty_type": "same_index_maxwell_clock_join_with_conservation_transport",
+      "oph_specific_delta": "Packages the independently committed Maxwell and clock quantities in one same-index typed product and proves exact projection, ordering, bound, and conservation identities. It is useful scaffolding for a later physical attachment, while explicitly leaving the carrier identification, shared calibration, cross-sector dynamics, matter, and readout untouched.",
+      "novelty_type": "same_index_formal_product_with_componentwise_receipts",
       "evidence": [
         "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
         "Lean/Geometry/CommonWorldInstrumentJoin.lean",
         "Lean/Screen/CertifiedScaledStepInstrument.lean",
         "paper/observers_are_all_you_need.tex"
       ],
-      "falsifier": "A projection identity, the injectivity, the shifted-reading exclusion, a causal ordering, the sharp certificate, a zero-current bound, the conservation transport, a non-supply agreement, or an inhabitant clause fails.",
-      "scope_if_false": "Only the join layer falls. The instrumented record, the certified-step instrument, and the common-world gate's remaining obligations are separately assessed.",
-      "status": "maxwell_clock_join_attained__common_action_carrier_map_matter_and_readout_open",
+      "falsifier": "A same-index product projection, index-injectivity, shifted-reading exclusion, independently inherited clock ordering, certified bound, independently inherited Maxwell conservation, component-independence agreement, or inhabitant clause fails.",
+      "scope_if_false": "Only the formal product layer falls. The independent instrumented-record and certified-step components, viable physical carrier/coupling constructions, and the common-world gate's remaining obligations are separately assessed.",
+      "status": "formal_same_index_product_attained__physical_join_calibration_coupling_carrier_map_matter_and_readout_open",
       "claim_class": "conditional_implication",
       "gates": [
         740
@@ -6876,9 +6883,9 @@
     },
     {
       "claim_id": "OPH-DE-FIXED-CAPACITY-WLAW",
-      "statement": "Reading the dark-energy density through the de Sitter capacity relation as rho_DE(a) = kappa / N(a), with kappa one positive constant packaging c^4 3 pi/(8 pi G l_P^2), and defining the effective equation of state through the FRW continuity relation, w(a) = -1 - (1/3) d ln rho / d ln a, exactly the object a w0waCDM analysis reconstructs: on the fixed-capacity branch (constant N) the equation of state is w(a) = -1 identically with the capacity value cancelling, and the CPL representation is forced to (w0, wa) = (-1, 0) exactly, with zero continuous freedom. The exact converse drift map holds on the domain: w(a) = -1 + (1/3) d ln N / d ln a, with the power law N proportional to a^eps giving the exact line w = -1 + eps/3. On the monotone-capacity branch (N nondecreasing) w(a) >= -1 at every scale factor, so the capacity reading forbids a phantom equation of state on both branches, and the strict readback holds: an established w(a0) < -1 forces capacity loss, N'(a0) < 0. A decreasing instance with w = -4/3 proves the monotone hypothesis load-bearing. Register row FZ-13 carries the stance at registered_pending_freeze with the proposed DESI DR3/Euclid comparison protocol and every numeric kill cell an owner slot; DESI DR1 and DR2 are seen data excluded from any prospective comparison, no comparison is armed, and the fixed-capacity, monotone-capacity, capacity-relation, constant-l_P, and closed-dark-sector premises are named branch premises, not theorems.",
+      "statement": "Conditional on the identification rho_DE(a) = kappa/N(a), constant kappa, and the continuity definition w(a) = -1 - (1/3) d ln rho/d ln a, constant N implies w = -1 and hence the exact CPL point (w0,wa)=(-1,0). This is an immediate conditional algebraic consequence, not a derivation of fixed capacity, the density identification, or a closed dark sector. The same definitions give w = -1 + (1/3) d ln N/d ln a; monotone nondecreasing N implies w >= -1, and w < -1 implies local capacity loss. The power-law family has constant w = -1 + eps/3 and wa = 0; eps > 0 is quintessence-side, not a thawing history. A w0waCDM posterior is a model- and likelihood-dependent projection rather than a direct capacity measurement. FZ-13 therefore remains pending and is not anchorable until a post-freeze dataset combination, scored range, statistic, complete thresholds, fallbacks, and direction-neutral nuisance policy are fixed. Exclusion of (-1,0) in any direction can fail the fixed branch; compatibility with it gives no OPH confirmation because it is also the LambdaCDM null. DESI DR1/DR2 and the existing display-bias mock are seen diagnostics only.",
       "owner_paper": "extra/de_sitter_time_advance_sign_from_fixed_screen_capacity.tex",
-      "tier": "machine_checked_zero_parameter_equation_of_state_law_with_registered_pending_freeze_stance",
+      "tier": "machine_checked_conditional_capacity_equation_of_state_identity_with_pending_protocol",
       "assumptions": [
         "fixed_or_monotone_capacity_branch",
         "de_sitter_capacity_relation_and_constant_lP",
@@ -6888,7 +6895,7 @@
         "FRW_continuity_relation_as_reconstruction_convention",
         "CPL_parameterization"
       ],
-      "oph_specific_delta": "Turns the capacity reading of the vacuum term into an exact falsifiable law with zero continuous freedom: the fixed branch pins (w0, wa) = (-1, 0) with the capacity value cancelling, the drift branch is an exact two-directional readback between measured w and capacity drift, and the monotone branch adds the no-phantom bound, so a single published posterior can kill a branch through machine-checked arithmetic; the stance is registered pending the owner's freeze rather than claimed frozen.",
+      "oph_specific_delta": "Proves the exact conditional map between a capacity law and its continuity-defined effective equation of state, including the fixed, monotone, and strict-readback cases. It supports prospective model discrimination only after a complete likelihood/projection protocol is frozen and supplies no independent confirmation of the load-bearing capacity premises.",
       "novelty_type": "capacity_equation_of_state_law_with_no_phantom_bound_and_drift_readback",
       "evidence": [
         "Lean/ObserverPatchHolography/EinsteinBranch/FixedCapacityWLaw.lean",
@@ -6898,7 +6905,7 @@
       ],
       "falsifier": "The fixed-N theorem, the drift map, the no-phantom bound, the strict readback, the CPL projection, or an inhabitant's exact value fails; or a comparison is scored without the owner's freeze, which would violate rather than execute this claim.",
       "scope_if_false": "Only the w-law layer and its stance row fall. The de Sitter capacity relation, the time-advance results of the owning paper, and the frozen-prediction discipline remain separately assessed.",
-      "status": "wlaw_machine_checked_and_stance_registered__owner_freeze_and_any_comparison_open",
+      "status": "conditional_wlaw_machine_checked__premise_derivation_complete_protocol_owner_freeze_and_any_comparison_open",
       "claim_class": "conditional_implication",
       "gates": [
         736,
@@ -6914,19 +6921,20 @@
     },
     {
       "claim_id": "OPH-GW-INTEGER-K-COMB-TEMPLATE",
-      "statement": "The integer-k Kerr ringdown transition comb instrument is completed target-blind at the level the FZ-01 erratum demands. The frozen ratio law places candidate spectral features above the remnant rotation line at universal-coordinate positions x_k = ln k/(8 pi) for integers k >= 2, with x = (G M/(c^3 g(chi))) (omega - m Omega_H); the statement-pinned normalization is g(chi) = 2 sqrt(1 - chi^2)/(1 + sqrt(1 - chi^2)) = 4 G M kappa_surface/c^3, derived in the template rather than declared, after the naive surface-gravity fallback was proved inconsistent with the frozen coordinate by a factor of four. The template producer computes exact Kerr horizon quantities (Omega_H, surface gravity), tooth frequency offsets Delta f_k = c^3 g(chi) ln k/(16 pi^2 G M), KMS weights (k-1)/k, and the declared linewidth model, on a declared synthetic reference remnant; an independent verifier rebuilds the canonical receipt byte-identically, and mutation-guarded tests pin the frozen constants. The machine-checked invariance layer proves the offset-subtracted ratio of any two teeth equals ln k_a/ln k_b independent of the template's scale and offset, hence of remnant mass, spin, and redshift, with exact rational bracketings of the ladder constants through integer power bounds such as 2^158 < 3^100 < 2^159. Register row FZ-14 carries the instrument at registered_pending_freeze; the drafted registration contract restricts any future comparison to events published after the owner anchors it, GW150914 and GW250114 are seen audit-only data, no event likelihood has been evaluated, and every threshold cell is an owner slot.",
+      "statement": "The integer-k Kerr ringdown comb is a target-blind build-stage implementation of an imported continuation premise, not a source-derived transition theorem. For emission the premise is d_before = k d_after with positive integer dimensions, so k must divide d_before; the signed black-hole entropy change is -ln k and the positive entropy loss entering the tooth formula is ln k. Conditional on the leading small-transition Kerr first law, candidate features above the remnant rotation line have x_k = ln k/(8 pi), with x = (G M/(c^3 g(chi))) (omega - m Omega_H) and g(chi) = 2 sqrt(1 - chi^2)/(1 + sqrt(1 - chi^2)) = 4 G M kappa_surface/c^3. The producer computes Kerr quantities, tooth offsets, the within-line KMS net-response factor, and the corrected linewidth-to-spacing ratio 64 pi^2 p_0/(a g(chi)^2 ln k), mass-independent but spin-dependent; constant p_0 is uncontrolled near extremality. The KMS factor is not a normalized transition prior across k. An independent verifier rebuilds the receipt byte-identically. Lean proves the divisibility and entropy-sign identities and abstract scale-and-offset ratio invariance with finite-ladder bracketings; it does not prove the physical mass, spin, redshift, finite-step correction, or transition attachment. Observed hertz require M_det = (1+z) M_source in both tooth and offset. FZ-14 remains registered_pending_freeze but unanchorable until a source-derived transition, strain/readout likelihood or sufficient likelihood product, detector-frame nuisance model, normalized integer prior or explicit finite submodel, event selection, trials, greybody/Page normalization, no-comb reference, and convergence artifacts are fixed. Posterior samples alone are not a likelihood or evidence. The computed k<=12 ladder is only a finite candidate submodel; no event likelihood has been evaluated.",
       "owner_paper": "cosmology/oph_black_hole_information_ledger.tex",
       "tier": "target_blind_ringdown_comb_instrument_with_machine_checked_invariance",
       "assumptions": [
-        "frozen_integer_k_ratio_law_and_pinned_normalization",
+        "imported_integer_division_comb_rule_and_pinned_normalization",
         "declared_linewidth_and_synthetic_reference_selections"
       ],
       "imported_results": [
+        "Bekenstein_Mukhanov_log_integer_area_spacing",
         "Kerr_horizon_geometry",
-        "KMS_weight_reading"
+        "KMS_within_line_net_response_reading"
       ],
-      "oph_specific_delta": "Executes the registration obligation the FZ-01 erratum recorded: the build-stage integer-k template becomes an exact, reproducible, target-blind instrument with the normalization derived from the frozen coordinate, the observable's mass, spin, and redshift invariance machine-checked with exact ladder bracketings, and the complete comparison contract drafted with owner-slot thresholds, so the ringdown lane has a qualifying instrument path without any comparison access.",
-      "novelty_type": "integer_k_comb_template_completion_with_exact_invariance_receipts",
+      "oph_specific_delta": "Implements and independently replays the imported continuation template with exact divisibility and entropy-sign receipts, a frame-explicit detector-mass rule, corrected spin-dependent linewidth, and machine-checked scale/offset invariance. It deliberately leaves the FZ-01 erratum's source-transition and likelihood/evidence obligations open.",
+      "novelty_type": "corrected_imported_integer_k_template_with_sign_frame_and_scope_receipts",
       "evidence": [
         "code/gravitation/ringdown_comb/integer_k_comb_template.py",
         "code/gravitation/ringdown_comb/verify_integer_k_comb_independent.py",
@@ -6936,9 +6944,9 @@
         "Lean/Geometry/IntegerKCombInvariance.lean",
         "cosmology/oph_black_hole_information_ledger.tex"
       ],
-      "falsifier": "A Kerr horizon quantity, the g(chi) derivation, a tooth offset, a KMS weight, a ladder bracketing, the ratio invariance, or the verifier's byte agreement fails; or any comparison, event likelihood, or threshold is evaluated before the owner anchors the contract, which would violate rather than execute this claim.",
+      "falsifier": "A divisibility or entropy-sign identity, Kerr horizon quantity, g(chi) algebra, tooth offset, corrected linewidth-to-spacing ratio, KMS net-response factor, detector-frame scaling identity, ladder bracketing, ratio invariance, or verifier byte agreement fails; or the KMS factor is treated as a normalized cross-k prior, the small-transition relation is called an exact finite step, a posterior is treated as a likelihood/evidence, source-frame mass is mixed with observed hertz, the finite ladder is promoted to the unrestricted family, or any comparison is evaluated before the owner anchors a complete contract.",
       "scope_if_false": "Only the template instrument and its invariance layer fall. The frozen FZ-01 custody record, the erratum, and the void status of the historical alpha = 4 line remain separately assessed.",
-      "status": "template_completed_target_blind_and_registered__owner_freeze_and_any_comparison_open",
+      "status": "target_blind_imported_template_corrected__source_derivation_and_comparison_contract_open",
       "claim_class": "conditional_implication",
       "gates": [
         729
@@ -6948,7 +6956,7 @@
         "consumed": [],
         "open": [],
         "boundary": [],
-        "rationale": "The frozen ratio law, the pinned normalization, and the declared nuisance selections are lane-local instrument premises under the falsification program's custody discipline outside the canonical derivation-premise register."
+        "rationale": "The integer-division selection, pinned normalization, and nuisance choices are lane-local imported continuation premises under the falsification program's custody discipline. No source theorem derives the transition, and no physical comparison consumes a canonical derivation-premise row yet."
       }
     },
     {
@@ -6989,18 +6997,19 @@
     },
     {
       "claim_id": "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
-      "statement": "The joined Maxwell-clock record carries one variational principle for both of its islands, at the direct-sum rung. The discrete worldline action sums the committed Lorentz quadratic form of the path increments over the declared window; its exact expansion has the clock action of the variation as the whole quadratic remainder, and the discrete geodesic characterization holds: on a positive window a path is stationary under all endpoint-fixed variations exactly when all its increments are equal, through the nondegeneracy of the polarizing bilinear form, proved in the module. The record's clock worldline has constant increment stepDuration times the frame, is stationary on every window, and is the unique stationary path with its committed endpoints, so the kinematics island's worldline is variational rather than declared. The joint action is the committed scaled-Maxwell window action plus the worldline action on the shared window; on one typed record, stationarity under Maxwell-sector variations at the record's committed bundle is equivalent to the scaled Ampere and Gauss clauses through the committed equivalences, stationarity under worldline variations is equivalent to the equal-increment clause, and the committed configuration of every inhabitant is jointly stationary: one action, both dynamics. The delimitation is exact: the joint action is a direct sum with proved partial-variation independence in both directions, so it couples nothing, and the missing common-world joins after this module are exactly the coupling term of the common action, the carrier map, matter dynamics, and observer readout. Because the form is Lorentzian, stationarity is not minimality: an explicit endpoint-fixed spatial variation has clock action exactly -2 and the displaced history strictly beats the stationary worldline. A kink path with an explicit nonzero interior variation makes the characterization nonvacuous in both directions, and two joint inhabitants differing only in step duration both carry both stationarity properties, so the action selects the shape and not the calibration.",
+      "statement": "On the typed Maxwell-clock product record, the discrete worldline action sums the declared Lorentz quadratic form of path increments over a declared window. Its exact variation formula and nondegeneracy give the finite geodesic characterization: for a positive-length window, endpoint-fixed stationarity is equivalent to equal increments, and the declared clock worldline is the unique stationary path with its declared endpoints. The module also defines the formal direct sum of this clock action and the independently committed scaled-Maxwell window action. Sectorwise stationarity equivalences and partial-variation independence are proved, as are a Lorentzian non-minimality witness with action -2 and calibration non-forcing. Because the sum is exactly decoupled, it supplies no shared carrier, interaction term, Lorentz-force clause, source coupling, calibrated clock, or physical principle selecting either functional or their displayed relative coefficient one; independent nonzero rescalings would leave the separate stationarity equations unchanged. It is therefore a useful formal product/direct-sum precursor, not attainment of the physical common-action or common-world gate; carrier attachment, interaction, relative normalization, matter dynamics, calibration, and observer readout remain open.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "direct_sum_joint_action_with_discrete_geodesic_characterization",
+      "tier": "formal_direct_sum_with_discrete_geodesic_characterization",
       "assumptions": [
         "declared_window_and_endpoint_fixing",
-        "committed_lorentz_form_signature_convention"
+        "committed_lorentz_form_signature_convention",
+        "declared_clock_quadratic_functional_and_relative_sector_coefficient"
       ],
       "imported_results": [
         "discrete_variational_calculus_summation_by_parts"
       ],
-      "oph_specific_delta": "Executes the first rung of the common-action gate: the worldline the record carried as a definition becomes the unique stationary path of a discrete geodesic action, one composed action carries the Maxwell laws and the clock line on one typed record, the direct-sum boundary is proved rather than admitted (exact partial-variation independence, Lorentzian non-minimality receipt), and the residual obligation is narrowed to the coupling term.",
-      "novelty_type": "joint_direct_sum_action_with_unique_stationary_worldline",
+      "oph_specific_delta": "Proves a finite discrete-geodesic variational characterization and packages it with the Maxwell action in an exactly decoupled direct sum, including explicit independence and Lorentzian non-minimality receipts. This isolates rather than discharges the missing physics: a shared carrier and a source-derived interaction or coupling principle.",
+      "novelty_type": "formal_direct_sum_with_geodesic_characterization_and_decoupling_boundary",
       "evidence": [
         "Lean/Geometry/CommonWorldJointAction.lean",
         "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
@@ -7008,8 +7017,8 @@
         "paper/observers_are_all_you_need.tex"
       ],
       "falsifier": "The exact expansion misses a term; a stationary path on a positive window has unequal increments or conversely; the worldline fails uniqueness with committed endpoints; a sector equivalence fails in either direction; a partial-variation independence identity fails; the kink path is stationary; the spatial variation's action differs from -2; or a calibration-distinct inhabitant fails a stationarity property.",
-      "scope_if_false": "Only the joint-action layer falls. The joined record, the committed Maxwell equivalences, and the common-world gate's remaining obligations are separately assessed.",
-      "status": "direct_sum_joint_action_attained__coupling_term_carrier_map_matter_and_readout_open",
+      "scope_if_false": "Only the formal direct-sum and finite-geodesic layer falls. The product record, the independently committed Maxwell equivalences, and viable carrier, interaction, normalization, and calibration routes remain separately assessed.",
+      "status": "formal_direct_sum_and_geodesic_characterization_attained__physical_common_action_coupling_carrier_map_calibration_matter_and_readout_open",
       "claim_class": "conditional_implication",
       "gates": [
         740
@@ -7039,9 +7048,9 @@
     },
     {
       "claim_id": "OPH-EM-DISPERSION-ARMING-INTERFACE",
-      "statement": "The arming premises the frozen dispersion row names in prose are typed. The interface structure carries one named field per clause of the frozen comparison protocol: the source-derived homogeneous position action with the complete edge orbit as sole direct support and equal source weights, the continuous-field same-operator sector attachment, cofinal gluing into the compared regime, the declared finite carrier scale, coherent frame and boost transport, the frozen nuisance and coverage readout rules, and the source-derived positive exclusivity lower bound. The eligibility theorem states that an armed comparison is constructible exactly from an interface inhabitant together with a post-custody dataset contract token, typed abstractly, with the folded conjunction strictly sufficient for the protocol antecedent and the null-verdict refinement of the lower-bound clause recorded. Attainment is split exactly: the committed corpus supplies the coefficient-manifold and carrier-scale ingredients, while the propositional clauses are proved external input in the custody-externality style, required-to-hold fields carrying no separation, and no inhabitant of the full interface exists in the corpus. The seven clauses enter the premise register as rows PR-70 through PR-76 under the axiomatize-or-remove discipline; the frozen row's bytes are immutable and untouched, no comparison data enters, and nothing here arms, scores, or discharges anything.",
+      "statement": "The frozen dispersion row's prose clauses are mirrored in a schema-level checklist with one placeholder field for each attachment, gluing, scale, frame, analysis, lower-bound, and contract obligation. The committed mathematics proves the edge-branch coefficient identities as functions of an externally supplied positive scale, the scale-free ratios, and the control-support certificate. The module also constructs stipulated mock checklist records by setting proposition fields to True and choosing arbitrary positive scale and lower-bound labels; ArmedComparison is definitionally such a record paired with a natural-number contract-token placeholder. Consequently, nonemptiness and the projected antecedent theorem are packaging tautologies, not physical eligibility or custody results. The ratio theorem proves only that those ratios alone select no unique scale. The permissive schema constrains neither numeric label, but this is not a universal no-go against a future source-derived scale, lower bound, attachment, or contract. No source-derived, artifact-bound, custody-backed evidential inhabitant exists in the current corpus. Rows PR-70 through PR-76 remain open or declared as registered, the frozen row is untouched, and nothing here arms or scores a comparison.",
       "owner_paper": "paper/screen_microphysics_and_observer_synchronization.tex",
-      "tier": "typed_arming_interface_for_the_frozen_dispersion_prediction",
+      "tier": "schema_level_arming_checklist_with_stipulated_mock_instances",
       "assumptions": [
         "frozen_dispersion_protocol_clause_fidelity",
         "abstract_post_custody_contract_token"
@@ -7049,17 +7058,17 @@
       "imported_results": [
         "propositional_extensionality"
       ],
-      "oph_specific_delta": "Turns the frozen dispersion prediction's prose eligibility conditions into seven atomic register rows and one typed interface with exact attainment and externality receipts per clause, so the only unarmed frozen numeric prediction of the ladder acquires a checkable arming path instead of a paragraph.",
-      "novelty_type": "clause_typed_arming_path_for_a_frozen_prediction",
+      "oph_specific_delta": "Turns the frozen dispersion prediction's prose conditions into seven atomic register rows and a typed checklist, proves the exact coefficient identities at an unfilled positive scale slot, and exposes that the current Prop/digest packaging admits only mock instances. It preserves source-derived scale, lower-bound, attachment, and data-bearing evidential-interface routes as open.",
+      "novelty_type": "placeholder_arming_schema_with_scoped_scale_nonselection",
       "evidence": [
         "Lean/Screen/DispersionArmingInterface.lean",
         "code/electromagnetism/fz12_arming/PREMISE_ROW_PROPOSALS.md",
         "docs/PREMISE_REGISTER_V3.md",
         "claims/frozen_prediction_register.json"
       ],
-      "falsifier": "An interface field weakens its protocol clause; the eligibility equivalence fails in either direction; a claimed attainment receipt fails on the committed objects; a claimed externality receipt fails to quantify; or any statement arms, scores, or alters the frozen row.",
-      "scope_if_false": "Only the typed interface and the register rows fall. The frozen row, its custody, and the committed coefficient surfaces are separately assessed.",
-      "status": "arming_interface_typed_and_rows_registered__every_arming_premise_open",
+      "falsifier": "A checklist field misstates its protocol clause; a coefficient or control-support identity fails; the mock-record packaging equivalence fails; the ratios uniquely select a scale despite holding for every positive scale; or any statement promotes a stipulated placeholder to physical eligibility, custody, premise discharge, or a scored comparison.",
+      "scope_if_false": "Only the placeholder checklist and scoped coefficient/nonselection statements fall. The registered premise rows, source-derived scale and lower-bound routes, frozen row, custody, and committed coefficient surfaces are separately assessed.",
+      "status": "schema_checklist_and_coefficient_slots_typed__data_bearing_evidential_interface_and_every_arming_premise_open",
       "claim_class": "conditional_implication",
       "gates": [
         733,
@@ -7082,9 +7091,9 @@
     },
     {
       "claim_id": "OPH-QFT-SOURCE-CLOCK-CANDIDATE",
-      "statement": "A source-derived clock candidate replaces the arbitrary declared tick of the calibration import by one duration of one committed process. The candidate types the retained-window sequence of the committed source-history packet as its tick stream, with the per-path window multiplicities pinned to the committed counts totalling 1754, the per-window counting observable pinned to the committed repair values with exact mean rate 197/1754, and the wall decomposition 94/1754 + 103/1754 carried as exact rate invariants. Composition with the calibration import: a declared window duration makes the candidate a clock calibration, under which the repair rate attaches to the exact laboratory rate (197/1754) per window duration, with the wall rates and their sum identity exact-symbolic; the composed dictionary is fully determined by the single identification, two calibrations agreeing on it agree everywhere, and two distinct durations give distinct laboratory rates, so the import stays an import. The delimitation is exact: the packet fixes rates per window and no theorem produces the duration; and candidate selection is itself a declared choice, witnessed by the wall-only subprocess as a second candidate with the distinct rate invariant 94/1754. The open empirical content of the calibration import shrinks from an arbitrary declared tick to one duration of one committed source process; the identification field is open.",
+      "statement": "The retained source-history histogram defines exact per-window action-incidence statistics on overlapping three-slot windows. The eight path multiplicities total 1754; the two adjacent-edge incidence means are 94/1754 and 103/1754, and their sum is 197/1754. The number 197 counts the two edge incidences with multiplicity and is not a count of distinct repair events. A declared window duration can convert these dimensionless incidences into rates, and distinct durations give distinct rates. However, the calibration-import structure neither consumes nor is determined by this statistic, no source theorem produces a physical duration or periodic tick process, and choosing the repair sum rather than either wall statistic is conventional. The module therefore supplies a bounded histogram-derived rate candidate only; it does not replace or reduce PR-15, which remains an empirical import.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "source_produced_tick_candidate_with_exact_rate_invariants",
+      "tier": "source_histogram_action_incidence_candidate",
       "assumptions": [
         "window_duration_identification_open",
         "candidate_selection_declared"
@@ -7092,17 +7101,17 @@
       "imported_results": [
         "counting_process_rate_conventions"
       ],
-      "oph_specific_delta": "Executes the calibration lane's named follow-up: the tick candidate is source-produced committed data with exact rational rate invariants rather than a free declaration, the whole dictionary hangs on one open identification, and the selection freedom among committed processes is proved rather than hidden.",
-      "novelty_type": "committed_process_tick_candidate_with_single_identification_reduction",
+      "oph_specific_delta": "Extracts exact rational incidence statistics from the committed overlapping-window histogram and proves their sum and duration-scaling identities, while making explicit that neither the duration nor the choice of statistic is source-selected and that the calibration dictionary is decoupled by construction from the candidate.",
+      "novelty_type": "source_histogram_action_incidence_candidate_with_nonforcing_boundary",
       "evidence": [
         "Lean/QFT/SourceClockCandidate.lean",
         "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
         "Lean/InformationProjection/SourceHistoryPacket.lean",
         "paper/observers_are_all_you_need.tex"
       ],
-      "falsifier": "A tick or rate invariant differs from the committed counts; the composed laboratory rates or their sum identity fail; the uniqueness or non-forcing receipt fails; or the second-candidate receipt fails to exhibit a distinct invariant.",
-      "scope_if_false": "Only the candidate layer falls. The calibration import, the source-history packet, and the register row's import disposition are separately assessed.",
-      "status": "candidate_typed_with_exact_invariants__window_duration_identification_open",
+      "falsifier": "An overlapping-window action-incidence count, exact mean, multiplicity sum, duration-scaling identity, alternative-candidate, or duration-nonforcing statement fails.",
+      "scope_if_false": "Only the histogram incidence-candidate layer falls. A source-selected physical tick process, calibration import, source-history packet, and the register row's import disposition are separately assessed.",
+      "status": "histogram_incidence_candidate_typed__physical_tick_selection_duration_and_calibration_binding_open",
       "claim_class": "conditional_implication",
       "gates": [
         736,
@@ -7119,9 +7128,9 @@
     },
     {
       "claim_id": "OPH-QUANTUM-INS03-EXPORT-VALIDATOR",
-      "statement": "The receiving half of the source-binding handshake exists as a fail-closed conformance validator for the designed simulator export schema. The validator checks, with exact rational and Q(sqrt 3) arithmetic and no floats outside the display block: the schema identity and canonical serialization; the exact-scalar and matrix encodings; the required fields per context and outcome; the algebraic conformance computable from the export alone, each Kraus family's induced effect equal to the declared effect, per-context effects summing to the identity, and declared run-state outcome traces equal to the declared frequencies; the committed-table cross-check against the committed context set with the literal run-state entries 111/179 and 68/179 and the eight committed outcome-0 values, with a partial overlap of committed context names refused outright so a renamed context cannot route around the cross-check; and the canonical digest recomputation. A synthetic sample built from committed objects validates with the distinct provenance class synthetic, which can never present as a producer export; mutation guards cover wrong effects, non-summing contexts, wrong literals, stray floats, wrong digests, missing fields, and the renamed-context evasion. The validator certifies schema and algebraic conformance and digest integrity only; source production, provenance, custody, and run reality are exactly the externality the binding interface proves, and a genuine producer export supplies the custody digest the interface consumes. No run exists and nothing here discharges the source-production row.",
+      "statement": "A fail-closed v1 validator checks a static committed-fixture export with exact rational and Q(sqrt 3) arithmetic and no floats outside the display block. It validates schema identity and canonical serialization, exact scalar and matrix encodings, required fields, Hermiticity, each induced effect's equality to the declared effect, the exact effect certificate 0 <= E_i <= I through positive-semidefiniteness of E_i and I-E_i, equality of I-E_i to the opposite declared outcome effect, per-context effect normalization, declared run-state traces, committed literals, renamed-context rejection, and digest recomputation. Matrix-unit trace differences are retained as diagnostics; they are generally nonzero and are not trace-nonincreasing certificates. The committed synthetic sample can receive only STATIC_COMMITTED_FIXTURE_CONFORMANT. Every export claiming producer provenance is rejected with PRODUCER_AUTHENTICATION_UNIMPLEMENTED, because v1 has no authenticated producer identity, independent artifact binding, or custody verification. Thus v1 is a robust static conformance checker, not the receiving half of an operational source-binding handshake; no run exists and PR-65 remains open.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
-      "tier": "fail_closed_export_conformance_validator_with_committed_cross_check",
+      "tier": "static_fixture_conformance_validator_with_producer_rejection",
       "assumptions": [
         "designed_export_schema_as_reference",
         "synthetic_sample_marked_and_distinct"
@@ -7129,8 +7138,8 @@
       "imported_results": [
         "SI_free_exact_rational_arithmetic"
       ],
-      "oph_specific_delta": "Builds the corpus-side handshake for the instrument lane's export before any producer exists: exact algebraic conformance and committed-literal cross-checks that a source-bound run must pass, with the synthetic/producer distinction typed into the verdict, so the external custody content the binding interface isolated has a concrete receipt surface waiting for it.",
-      "novelty_type": "pre_producer_conformance_surface_for_the_source_binding_handshake",
+      "oph_specific_delta": "Builds a fail-closed exact-arithmetic checker for the static committed fixture, including the correct two-outcome effect bounds and mutation guards. It also enforces the present authentication boundary by refusing all producer claims until an independently authenticated v2 producer/custody protocol exists.",
+      "novelty_type": "static_fixture_conformance_checker_with_explicit_producer_rejection",
       "evidence": [
         "code/phase_instrument_export/ins03_export_validator.py",
         "code/phase_instrument_export/test_ins03_export_validator.py",
@@ -7138,9 +7147,9 @@
         "code/phase_instrument_export/VALIDATOR_CONTRACT.md",
         "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean"
       ],
-      "falsifier": "A conformance check accepts a mutated export; the committed reference literals differ from the Lean module's; the synthetic sample presents as a producer export; the renamed-context evasion passes; or the digest recomputation disagrees with a byte-identical export.",
-      "scope_if_false": "Only the validator surface falls. The binding interface's externality theorems and the design document are separately assessed.",
-      "status": "validator_attained_with_synthetic_sample__producer_export_and_any_run_open",
+      "falsifier": "A static conformance check accepts a guarded mutation; the exact 0 <= E_i <= I or complement certificate is wrong; a committed reference literal differs; a producer claim is accepted; the renamed-context evasion passes; or digest recomputation disagrees with a byte-identical export.",
+      "scope_if_false": "Only the static-v1 validator surface falls. The placeholder binding schema, future authenticated-v2 producer/custody route, and design document remain separately assessed.",
+      "status": "static_fixture_validator_attained__producer_authentication_export_custody_and_any_run_open",
       "claim_class": "conditional_implication",
       "gates": [
         730,

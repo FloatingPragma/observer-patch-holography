@@ -1,19 +1,25 @@
 {
   "additive_all_gradient_extension": {
     "additive_form_passes_solar_system": false,
-    "mean_residual_dex_additive_all_points": -0.09541202978560877,
-    "mls16_own_fit_a0_m_s2": 1.1615652133093544e-10,
+    "mean_residual_dex_additive_all_points": -0.031004207681855786,
+    "mls16_own_fit_a0_m_s2": 1.160187060742836e-10,
     "n_points": 2700,
-    "rms_scatter_dex_additive_all_points": 0.16382121544403042,
-    "rms_scatter_dex_mls16_own_fit": 0.13265136997108354,
-    "rms_scatter_dex_mls16_same_a0": 0.1360049628811167,
+    "rms_scatter_dex_additive_all_points": 0.13971639213292325,
+    "rms_scatter_dex_mls16_own_fit": 0.13265126140082995,
+    "rms_scatter_dex_mls16_same_a0": 0.13988729545465212,
     "solar_system_bound_cassini_relative": 1e-08,
-    "solar_system_relative_anomaly_at_1au": 0.00015345865219643125
+    "solar_system_relative_anomaly_at_1au": 0.00012147407193024423
   },
   "baryonic_tully_fisher": {
     "a0_fixed_exponent_m_s2": 1.5531372754010943e-10,
+    "a0_galaxy_bootstrap_95pct_m_s2": [
+      1.4124475248574685e-10,
+      1.7244764534053507e-10
+    ],
+    "bootstrap_replicates": 1000,
+    "bootstrap_seed": 20260824,
     "free_exponent_M_of_V": 3.752695784236939,
-    "free_exponent_bootstrap_sd": 0.0985864855795919,
+    "free_exponent_bootstrap_sd": 0.09287762921042209,
     "law_exponent": 4.0,
     "n_galaxies": 123,
     "rms_scatter_dex_in_a0": 0.2555599415978555,
@@ -21,55 +27,169 @@
   },
   "constant_consistency": {
     "a0_btfr_m_s2": 1.5531372754010943e-10,
-    "a0_deep_rar_m_s2": 1.3965085444506256e-10,
-    "log10_ratio_btfr_over_deep": 0.046166245675024725,
-    "within_combined_scatter": true
+    "a0_deep_rar_m_s2": 8.750402247718735e-11,
+    "diagnostic_verdict": "TENSION_UNDER_DECLARED_DIAGNOSTIC",
+    "log10_ratio_btfr_over_deep": 0.24918182533599342,
+    "paired_parent_galaxy_bootstrap": {
+      "bootstrap_nonpositive_log10_ratio_count": 0,
+      "bootstrap_nonpositive_log10_ratio_plus_one_fraction": 0.000999000999000999,
+      "bootstrap_replicates": 1000,
+      "bootstrap_seed": 20260824,
+      "bootstrap_unit": "parent galaxy before RAR and BTFR cuts",
+      "btfr_a0_95pct_m_s2": [
+        1.4051355128767078e-10,
+        1.7229290617726852e-10
+      ],
+      "diagnostic_verdict": "TENSION_UNDER_DECLARED_DIAGNOSTIC",
+      "log10_ratio_btfr_over_rar_95pct": [
+        0.18001201203599435,
+        0.31682015663262747
+      ],
+      "parent_catalogue_galaxies": 175,
+      "rar_a0_95pct_m_s2": [
+        7.297568064907229e-11,
+        1.0367002741658125e-10
+      ]
+    },
+    "raw_scatter_is_not_parameter_uncertainty": true
   },
   "deep_radial_acceleration": {
-    "a0_fixed_exponent_m_s2": 1.3965085444506256e-10,
-    "deep_fraction_of_a0": 0.1,
-    "free_exponent": 0.57002139390691,
-    "free_exponent_bootstrap_sd": 0.021291093364404923,
+    "a0_fixed_exponent_m_s2": 8.750402247718735e-11,
+    "a0_galaxy_cluster_bootstrap_95pct_m_s2": [
+      7.390242699918679e-11,
+      1.037927571023286e-10
+    ],
+    "bootstrap_replicates": 1000,
+    "bootstrap_seed": 20260824,
+    "bootstrap_unit": "galaxy cluster",
+    "deep_cut_g_bar_max_m_s2": 1.2e-11,
+    "deep_cut_reference_a0_m_s2": 1.2e-10,
+    "deep_fraction_of_reference_a0": 0.1,
+    "free_anomalous_exponent_in_total_model": 0.46105074195250456,
+    "free_exponent_galaxy_cluster_bootstrap_95pct": [
+      0.3465665148246897,
+      0.59760542025169
+    ],
+    "free_exponent_galaxy_cluster_bootstrap_sd": 0.06393145718177926,
+    "free_model_a0_m_s2": 6.844881199626344e-11,
     "law_exponent": 0.5,
-    "n_points": 1043,
-    "rms_scatter_dex_fixed_exponent": 0.1474411044265484,
-    "rms_scatter_dex_free_exponent": 0.1464331428387672
+    "n_galaxies": 115,
+    "n_points": 960,
+    "optimizer_log10_a0_bounds": [
+      -12.0,
+      -9.0
+    ],
+    "optimizer_solution_interior": true,
+    "point_weighting": "equal retained rotation-curve points",
+    "rms_scatter_dex_fixed_exponent": 0.14728814766210696,
+    "rms_scatter_dex_free_total_model": 0.14710176712648043
   },
   "deep_radial_acceleration_fraction_sweep": [
     {
-      "a0_fixed_exponent_m_s2": 1.569548382761401e-10,
-      "deep_fraction_of_a0": 0.3,
-      "free_exponent": 0.6021697362571418,
-      "free_exponent_bootstrap_sd": 0.009152356275276264,
+      "a0_fixed_exponent_m_s2": 8.431196058105931e-11,
+      "a0_galaxy_cluster_bootstrap_95pct_m_s2": [
+        7.322312695881286e-11,
+        9.707984168575966e-11
+      ],
+      "bootstrap_replicates": 1000,
+      "bootstrap_seed": 20260824,
+      "bootstrap_unit": "galaxy cluster",
+      "deep_cut_g_bar_max_m_s2": 3.6e-11,
+      "deep_cut_reference_a0_m_s2": 1.2e-10,
+      "deep_fraction_of_reference_a0": 0.3,
+      "free_anomalous_exponent_in_total_model": 0.4542996317096466,
+      "free_exponent_galaxy_cluster_bootstrap_95pct": [
+        0.3787252757739896,
+        0.5331595619194586
+      ],
+      "free_exponent_galaxy_cluster_bootstrap_sd": 0.03871979412773477,
+      "free_model_a0_m_s2": 6.550839930601643e-11,
       "law_exponent": 0.5,
-      "n_points": 1651,
-      "rms_scatter_dex_fixed_exponent": 0.14366985665924525,
-      "rms_scatter_dex_free_exponent": 0.13841500292154485
+      "n_galaxies": 141,
+      "n_points": 1519,
+      "optimizer_log10_a0_bounds": [
+        -12.0,
+        -9.0
+      ],
+      "optimizer_solution_interior": true,
+      "point_weighting": "equal retained rotation-curve points",
+      "rms_scatter_dex_fixed_exponent": 0.13853150985899698,
+      "rms_scatter_dex_free_total_model": 0.13803518923931932
     },
     {
-      "a0_fixed_exponent_m_s2": 1.3965085444506256e-10,
-      "deep_fraction_of_a0": 0.1,
-      "free_exponent": 0.57002139390691,
-      "free_exponent_bootstrap_sd": 0.021291093364404923,
+      "a0_fixed_exponent_m_s2": 8.750402247718735e-11,
+      "a0_galaxy_cluster_bootstrap_95pct_m_s2": [
+        7.390242699918679e-11,
+        1.037927571023286e-10
+      ],
+      "bootstrap_replicates": 1000,
+      "bootstrap_seed": 20260824,
+      "bootstrap_unit": "galaxy cluster",
+      "deep_cut_g_bar_max_m_s2": 1.2e-11,
+      "deep_cut_reference_a0_m_s2": 1.2e-10,
+      "deep_fraction_of_reference_a0": 0.1,
+      "free_anomalous_exponent_in_total_model": 0.46105074195250456,
+      "free_exponent_galaxy_cluster_bootstrap_95pct": [
+        0.3465665148246897,
+        0.59760542025169
+      ],
+      "free_exponent_galaxy_cluster_bootstrap_sd": 0.06393145718177926,
+      "free_model_a0_m_s2": 6.844881199626344e-11,
       "law_exponent": 0.5,
-      "n_points": 1043,
-      "rms_scatter_dex_fixed_exponent": 0.1474411044265484,
-      "rms_scatter_dex_free_exponent": 0.1464331428387672
+      "n_galaxies": 115,
+      "n_points": 960,
+      "optimizer_log10_a0_bounds": [
+        -12.0,
+        -9.0
+      ],
+      "optimizer_solution_interior": true,
+      "point_weighting": "equal retained rotation-curve points",
+      "rms_scatter_dex_fixed_exponent": 0.14728814766210696,
+      "rms_scatter_dex_free_total_model": 0.14710176712648043
     },
     {
-      "a0_fixed_exponent_m_s2": 1.2766207600275434e-10,
-      "deep_fraction_of_a0": 0.03,
-      "free_exponent": 0.38871308141127714,
-      "free_exponent_bootstrap_sd": 0.07754344134681335,
+      "a0_fixed_exponent_m_s2": 9.235246121113281e-11,
+      "a0_galaxy_cluster_bootstrap_95pct_m_s2": [
+        6.300008749124774e-11,
+        1.2962442071410531e-10
+      ],
+      "bootstrap_replicates": 1000,
+      "bootstrap_seed": 20260824,
+      "bootstrap_unit": "galaxy cluster",
+      "deep_cut_g_bar_max_m_s2": 3.6e-12,
+      "deep_cut_reference_a0_m_s2": 1.2e-10,
+      "deep_fraction_of_reference_a0": 0.03,
+      "free_anomalous_exponent_in_total_model": 0.2388680201232687,
+      "free_exponent_galaxy_cluster_bootstrap_95pct": [
+        -0.07754762225768555,
+        0.5582287874125768
+      ],
+      "free_exponent_galaxy_cluster_bootstrap_sd": 0.16778367665075558,
+      "free_model_a0_m_s2": 1.193103247159169e-11,
       "law_exponent": 0.5,
-      "n_points": 233,
-      "rms_scatter_dex_fixed_exponent": 0.16542055445697543,
-      "rms_scatter_dex_free_exponent": 0.16459677081974222
+      "n_galaxies": 40,
+      "n_points": 203,
+      "optimizer_log10_a0_bounds": [
+        -12.0,
+        -9.0
+      ],
+      "optimizer_solution_interior": true,
+      "point_weighting": "equal retained rotation-curve points",
+      "rms_scatter_dex_fixed_exponent": 0.1690056314777055,
+      "rms_scatter_dex_free_total_model": 0.16574967562328655
     }
   ],
+  "inference_boundary": {
+    "btfr_proxy": "Vflat is used as an asymptotic-speed proxy. The receipt does not subtract the finite-radius baryonic contribution, parse a flat radius, or establish that Vflat equals V_infinity; this can bias the naive Vflat^4/(G M_b) normalization upward",
+    "deep_cut": "fixed absolute cuts g_bar < f * 1.2e-10 m/s^2; the reference is a comparison-only imported scale, not a fitted OPH output",
+    "likelihood": "unweighted log-residual diagnostic, not a measurement-error likelihood",
+    "systematics": "fixed mass-to-light ratios; distance, inclination, correlated rotation-curve, and stellar-population uncertainties are not marginalized",
+    "verdict_scope": "a tension applies only to this declared density-profile diagnostic, not to the recovered OPH core or the generic dark-sector theorem"
+  },
   "law": {
     "baryonic_tully_fisher": "v^4 = G M_b a_0",
-    "deep_radial_acceleration": "a_R = sqrt(a_b a_0)",
+    "deep_radial_acceleration": "a_A = sqrt(a_b a_0)",
+    "observed_total_acceleration": "g_model = g_bar + sqrt(g_bar a_0)",
     "parameter_free_content": "exponents 1/2 and 4; a_0 is a fitted comparison value"
   },
   "physical_claim": false,
@@ -82,7 +202,7 @@
     "upsilon_bulge": 0.7,
     "upsilon_disk": 0.5
   },
-  "schema": "oph.cosmology.rar_deep_regime_diagnostic.v1",
-  "scope": "diagnostic_postdiction_one_fitted_constant",
+  "schema": "oph.cosmology.rar_deep_regime_diagnostic.v2",
+  "scope": "diagnostic_postdiction_fixed_absolute_cuts_one_fitted_constant",
   "source_derived_output": false
 }

@@ -5,26 +5,26 @@ import EventAlgebra.LuedersPhaseInstrument
 set_option autoImplicit false
 
 /-!
-# Source-derived phase-effect selection
+# Declared-adapter phase-effect enumeration
 
-The generated family is built from two source inputs only: the six exact rows
-of the two-dimensional irreducible representation and the diagonal record
-projector.  The orbit of the projector yields twelve noncommuting pairs, each
-commutator is normalized by its own off-diagonal magnitude into a rank-one
-projector, and the generated effect values are exactly the two Pauli-Y
-projectors.  The first pair in lexicographic index order selects the +Y
-projector, which equals the declared lift and the phase slot of the declared
-Lüders instrument.
+The generated family starts from two source-attached inputs: the six exact
+rows of the declared two-dimensional irreducible representation and the
+diagonal record projector.  A declared complexification adapter sends each
+nonzero real skew commutator `C` to `I/2 - i C/(2 |C₀₁|)`.  The orbit yields
+twelve noncommuting pairs, and the adapter's generated effect values are
+exactly the two Pauli-Y projectors.  With the current stable labels and
+lexicographic order, the first pair is +Y, which equals the declared lift and
+the phase slot of the declared Lüders instrument.
 
 Scope.  Eight pairs give +Y and four give -Y, so the theorems state
-effect-value equality and not witness uniqueness.  The orientation of the
-selected effect is fixed by two producer conventions, the commutator order
-`P_right * P_left - P_left * P_right` and the lexicographic pair index;
-reversing either convention selects the transpose effect
-(`effectMatrix_negative_eq_transpose_positive`).  What the source fixes
-without convention is the unordered pair of Y projectors.  The module
-constructs no instrument and supplies no preparation, outcome, readback, or
-provenance.
+effect-value equality and not witness uniqueness.  Reversing the commutator
+order for a fixed noncommuting pair swaps the two transpose effects.  Merely
+reversing the event list need not do so (the last current pair is also +Y),
+and no theorem makes the first-label selector source-forced.  The robust
+algebraic result is therefore the unordered pair of Y projectors under the
+declared complexification adapter; choosing +Y is a labeling/orientation
+convention.  The module constructs no instrument and supplies no preparation,
+outcome, readback, or provenance.
 -/
 
 namespace EventAlgebra.SourcePhaseSelection
@@ -48,8 +48,8 @@ theorem generated_positive_effect_unique :
     | positive => rfl
     | negative => norm_num [upperImaginaryNegative, effectMatrix] at hvalue
 
-/-- The two generated effect values are transposes of each other: the
-orientation convention of the producer exchanges them. -/
+/-- The two generated effect values are transposes of each other: reversing
+the ordered-pair/commutator convention exchanges them. -/
 theorem effectMatrix_negative_eq_transpose_positive :
     effectMatrix .negative = (effectMatrix .positive).transpose := by
   ext i j
@@ -59,22 +59,38 @@ theorem first_noncommuting_effect_eq_positive :
     sourceSelectedGeneratedEffect = effectMatrix .positive := by
   rfl
 
-theorem source_selected_generated_effect_eq_sourcePhaseLift :
-    sourceSelectedGeneratedEffect = OPH.QFT.sourcePhaseLift := by
+/-- Accurate name for the current first-labelled effect identity. -/
+theorem current_first_labelled_effect_eq_sourcePhaseLift :
+    currentFirstLabelledGeneratedEffect = OPH.QFT.sourcePhaseLift := by
+  rw [show currentFirstLabelledGeneratedEffect =
+    sourceSelectedGeneratedEffect by rfl]
   rw [first_noncommuting_effect_eq_positive,
     OPH.QFT.sourcePhaseLift_eq_rhoYPlus]
   ext i j
   fin_cases i <;> fin_cases j <;>
     norm_num [effectMatrix, OPH.QFT.rhoYPlus] <;> ring
 
-/-- The source-selected effect is exactly the phase-slot effect consumed by
-the current declared Lünders instrument.  This proves effect selection only;
-it does not construct or source-produce an instrument. -/
+/-- Legacy compatibility theorem name.  The effect is the current
+first-labelled member, not a source-forced orientation. -/
+theorem source_selected_generated_effect_eq_sourcePhaseLift :
+    sourceSelectedGeneratedEffect = OPH.QFT.sourcePhaseLift := by
+  exact current_first_labelled_effect_eq_sourcePhaseLift
+
+/-- The current first-labelled effect is exactly the phase-slot effect
+consumed by the declared Lünders instrument.  The label and orientation are
+conventions; this does not construct or source-produce an instrument. -/
+theorem current_first_labelled_effect_eq_declared_lueders_effect :
+    currentFirstLabelledGeneratedEffect =
+      committedEffectPair InstrumentContext.phase 0 := by
+  rw [current_first_labelled_effect_eq_sourcePhaseLift]
+  rfl
+
+/-- Legacy compatibility theorem name; no source-forced orientation is
+asserted. -/
 theorem source_selected_generated_effect_eq_declared_lueders_effect :
     sourceSelectedGeneratedEffect =
       committedEffectPair InstrumentContext.phase 0 := by
-  rw [source_selected_generated_effect_eq_sourcePhaseLift]
-  rfl
+  exact current_first_labelled_effect_eq_declared_lueders_effect
 
 theorem pair_00_03_effect_eq_sourcePhaseLift :
     generatedEffect .pair0003 = OPH.QFT.sourcePhaseLift := by

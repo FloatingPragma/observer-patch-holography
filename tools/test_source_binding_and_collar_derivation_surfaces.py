@@ -73,9 +73,9 @@ def test_mechanism_claim_carries_exact_defect_law() -> None:
 
 def test_derivation_claim_carries_both_derivations() -> None:
     statement = _claim(DERIV_CLAIM)["statement"]
-    for token in ("pairwise independent", "disjoint-union",
+    for token in ("pairwise independent", "not claimed necessary",
                   "arithmetic progression", "r/s - 1 <= count <= r/s + 1",
-                  "G (1/s)^2 slope", "Var(X + X) = 1"):
+                  "at most one per-cut amplitude", "Irregular or ergodic"):
         assert token in statement, token
     assert DERIV_LEAN in _claim(DERIV_CLAIM)["evidence"]
 
@@ -91,9 +91,10 @@ def test_split_claim_carries_uniqueness_and_quotient_invariance() -> None:
 
 def test_binding_claim_carries_split_and_continuum() -> None:
     statement = _claim(BIND_CLAIM)["statement"]
-    for token in ("111/179", "68/179", "1/2", "-(3/256) t",
-                  "propositional extensionality", "precisely at t = 0",
-                  "No run, export, producer, or custody artifact"):
+    for token in ("placeholder schema", "expected-frequency table",
+                  "-(3/256) t", "propositional extensionality",
+                  "0 <= t <= 1", "only at t = 0",
+                  "No run, public outcome, authenticated export"):
         assert token in statement, token
     deps = _claim(BIND_CLAIM)["premise_dependencies"]
     assert deps["consumed"] == ["PR-02", "PR-04"]
@@ -101,10 +102,11 @@ def test_binding_claim_carries_split_and_continuum() -> None:
     assert deps["boundary"] == ["PR-03"]
 
 
-def test_join_claim_carries_four_clauses_and_missing_list() -> None:
+def test_join_claim_carries_formal_product_and_open_physical_join() -> None:
     statement = _claim(JOIN_CLAIM)["statement"]
-    for token in ("Same-index binding", "Causal-energy", "Conservation",
-                  "Non-supply", "exactly four", "h^2 (3 + sqrt 5) < 4"):
+    for token in ("formal same-index product", "inherited componentwise",
+                  "No theorem identifies a port", "not a physical Maxwell-clock join",
+                  "physical carrier map", "interacting common action"):
         assert token in statement, token
     deps = _claim(JOIN_CLAIM)["premise_dependencies"]
     assert deps["classification"] == "explicit_edges"
@@ -176,9 +178,9 @@ def test_owner_papers_carry_the_new_results() -> None:
                   "bulk-weighted mean"):
         assert token in dark, token
     observers = _collapsed(OBSERVERS_PAPER)
-    for token in ("-(3/256)", "custody data is external",
-                  "CommonWorldMaxwellClockJoin",
-                  "exactly those four joins missing"):
+    for token in ("-(3/256)", "placeholder binding schema",
+                  "CommonWorldMaxwellClockJoin", "formal same-index product",
+                  "not an exhaustive theorem"):
         assert token in observers, token
 
 

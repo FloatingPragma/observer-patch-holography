@@ -1,22 +1,33 @@
 """Integer-k Kerr ringdown comb template. Build-stage numeric instrument.
 
-Source of record (not modified here):
+Historical input (not modified here):
 `falsification/frozen_targets/fz01_2026-07-17/frozen_target_integer_k_comb_2026-07-17.md`
 with companion statement
 `proof/epic_wins/ringdown_comb/INTEGER_K_COMB_STATEMENT.md`, under the
 scientific-status erratum
 `falsification/frozen_targets/fz01_2026-07-17/SCIENTIFIC_STATUS_ERRATUM_2026-07-29.md`.
 
-Frozen ratio law. Candidate spectral features above the rotation line
+Imported continuation law. Candidate spectral features above the rotation line
 satisfy, under the comb hypothesis,
 
     (f_a - m*Omega_H/(2*pi)) / (f_b - m*Omega_H/(2*pi)) = ln(k_a)/ln(k_b)
 
 for integers k >= 2, equivalently universal-coordinate positions
 x_k = ln(k)/(8*pi) with x = (G*M/(c^3*g(chi))) * (omega - m*Omega_H).
-Secondary structure: the (k-1)/k KMS weight hierarchy and the
-mass-independent fractional linewidth 64*pi^2*p_0/(a*ln(k)) with declared
-a in [1, 10].
+Secondary structure: the within-line (k-1)/k KMS net-response factor and the
+mass-independent but spin-dependent linewidth-to-spacing ratio
+64*pi^2*p_0/(a*g(chi)^2*ln(k)) with declared a in [1, 10]. This factor follows
+from P = p_0*hbar*c^6/(G^2*M^2), mean emitted energy
+a*hbar*kappa/(2*pi), spacing hbar*kappa*ln(k)/(2*pi), and
+g(chi)=4*G*M*kappa/c^3. The superseded expression omitted g(chi)^(-2).
+
+Entropy sign and divisibility. For an emission with record dimensions
+d_before and d_after, the integer-division premise is
+d_before = k*d_after. It therefore requires k to divide d_before. With
+S_BH = ln(d), the signed black-hole entropy change is
+ln(d_after)-ln(d_before) = -ln(k); the positive entropy loss entering the
+emitted-frequency formula is +ln(k). The rule that such division steps dominate
+is an imported continuation premise, not a source-derived OPH theorem.
 
 Kerr horizon functions (geometric input, SI output). With
 s(chi) = sqrt(1 - chi^2):
@@ -25,25 +36,29 @@ s(chi) = sqrt(1 - chi^2):
     Omega_H     = c^3 * chi     / (2*G*M*(1 + s(chi)))      [rad/s]
     kappa       = c^3 * s(chi)  / (2*G*M*(1 + s(chi)))      [1/s]
 
-Derivation of g(chi) from the frozen law's universal coordinate (the
-KMS/temperature reading pinned by the companion statement). The first-law
-discreteness condition of the statement is
+Derivation of g(chi) from the imported law's universal coordinate (the
+KMS/temperature reading pinned by the companion statement). The leading
+semiclassical first-law template of the statement is
 
-    hbar*(omega - m*Omega_H) = k_B*T_H * ln(k),
+    hbar*(omega - m*Omega_H) = k_B*T_H * (S_before-S_after)
+                              = k_B*T_H * ln(k),
 
 and with the Hawking temperature k_B*T_H = hbar*kappa/(2*pi) (kappa in
 1/s as above) this reads
 
     omega - m*Omega_H = (kappa/(2*pi)) * ln(k).
 
-The frozen universal coordinate x = (G*M/(c^3*g(chi)))*(omega - m*Omega_H)
+The imported universal coordinate x = (G*M/(c^3*g(chi)))*(omega - m*Omega_H)
 takes the value ln(k)/(8*pi) on these lines exactly when
 
     kappa/(2*pi) = (c^3*g(chi)/(G*M)) / (8*pi),
 
 that is g(chi) = 4*G*M*kappa/c^3 = 2*sqrt(1-chi^2)/(1+sqrt(1-chi^2)),
-which is the explicit g(chi) of the companion statement. g(chi) is
-therefore statement-pinned, not a free selection; the receipt records the
+which is the explicit g(chi) of the companion statement. This relation treats
+the Kerr background as fixed during one transition; a finite-step completion
+must account for its change. g(chi) is
+therefore statement-pinned within this imported continuation, not a free
+numeric selection; the receipt records the
 identity g(chi) = 4*G*M*kappa/c^3 as its provenance. Note that the
 alternative normalization g = G*M*kappa/c^3 is inconsistent with
 x_k = ln(k)/(8*pi) by a factor of 4 and is not used.
@@ -57,6 +72,12 @@ omega = 2*pi*f,
               = c^3*g(chi)*ln(k) / (16*pi^2*G*M),
     f_{k,m}   = m*Omega_H/(2*pi) + Delta_f_k.
 
+Frame rule. The formulas return source-frame hertz when given source-frame
+mass. Observed detector-frame hertz require the redshifted mass
+M_det=(1+z)M_source in both Omega_H and the tooth offset. Equivalently, every
+source-frame frequency is divided by 1+z. The offset-subtracted ratio is
+redshift invariant only under this consistent transformation.
+
 Constants. Only exact definitional constants enter: the SI defined
 c = 299792458 m/s and the IAU 2015 Resolution B3 nominal solar mass
 parameter (GM)_sun = 1.3271244e20 m^3/s^2. Masses are parameterized in
@@ -64,11 +85,12 @@ nominal solar masses so that G*M = mass_solar * (GM)_sun with no separate
 measured G; this parameterization is a declared selection recorded in the
 receipt.
 
-Declared selections (all recorded in the receipt): the linewidth nuisance
+Declared selections (all recorded in the receipt): the imported
+integer-division rule; the linewidth nuisance
 range a in [1, 10] and the display endpoints a in {1, 10}; the Page
 emission coefficient p_0 = 2e-4 as pinned in the companion statement; the
-tooth range k in {2, ..., 12} matching the frozen target's KILL-condition
-ladder set; the mass parameterization above; and the synthetic reference
+tooth range k in {2, ..., 12} matching the historical draft's proposed
+finite ladder; the mass parameterization above; and the synthetic reference
 point M = 62 nominal solar masses, chi = 0.67, m = 2, which is a
 synthetic reference, not an event fit, and matches no published remnant
 posterior.
@@ -88,13 +110,16 @@ What is not proved here. This module is a build-stage template
 instrument, target-blind by construction: no gravitational-wave event
 data, no remnant posterior, no detector likelihood, and no comparison
 dataset is read, fetched, or evaluated anywhere in this directory. The
-physical reading of the template scale (that G*M/(c^3*g(chi)) belongs to
-a Kerr remnant) is the frozen target's declared identification, not
-derived here. Nothing in this module or its receipt is a registered,
+integer-division selection and physical reading of the template scale (that
+G*M/(c^3*g(chi)) belongs to a Kerr remnant) are imported continuation inputs,
+not derived here. The KMS factor is not a cross-k transition prior, and the
+small-transition first-law formula is not an exact finite-step result.
+Posterior samples alone do not supply a detector likelihood or evidence.
+Nothing in this module or its receipt is a registered,
 frozen, or scored prediction; the registration contract in this
-directory is a draft pending the owner's freeze, and the frozen strain
-likelihood, prior normalization, event selection, and trials accounting
-demanded by the frozen target are open.
+directory is a draft pending the owner's freeze. The strain likelihood/evidence
+interface, prior normalization, source-transition derivation, event selection,
+and trials accounting demanded by the scientific-status erratum are open.
 """
 
 from __future__ import annotations
@@ -155,6 +180,44 @@ def compute_pi() -> Decimal:
 
 def dec(value: str | int) -> Decimal:
     return Decimal(value)
+
+
+def integer_division_after(d_before: int, k: int) -> int:
+    """Return d_after for the imported rule d_before = k*d_after.
+
+    The function rejects nonpositive dimensions, k < 2, and nondivisible
+    pairs. It validates the continuation premise; it does not derive or select
+    a physical transition.
+    """
+    if d_before <= 0:
+        raise ValueError("d_before must be positive")
+    if k < 2:
+        raise ValueError("k must be at least 2")
+    d_after, remainder = divmod(d_before, k)
+    if remainder != 0:
+        raise ValueError("k must divide d_before")
+    if d_after <= 0:
+        raise ValueError("d_after must be positive")
+    return d_after
+
+
+def transition_entropy_nats(d_before: int, k: int) -> tuple[Decimal, Decimal]:
+    """Signed black-hole entropy change and positive entropy loss in nats."""
+    d_after = integer_division_after(d_before, k)
+    signed_change = Decimal(d_after).ln() - Decimal(d_before).ln()
+    entropy_loss = Decimal(d_before).ln() - Decimal(d_after).ln()
+    return signed_change, entropy_loss
+
+
+def detector_frame_mass_solar(
+    source_frame_mass_solar: Decimal, redshift: Decimal
+) -> Decimal:
+    """M_det=(1+z)M_source for an observed-frequency template."""
+    if source_frame_mass_solar <= 0:
+        raise ValueError("source-frame mass must be positive")
+    if redshift < 0:
+        raise ValueError("redshift must be nonnegative")
+    return (Decimal(1) + redshift) * source_frame_mass_solar
 
 
 def sqrt_one_minus_chi_squared(chi: Decimal) -> Decimal:
@@ -222,7 +285,11 @@ def ladder_ratio(k: int) -> Decimal:
 
 
 def kms_weight(k: int) -> Decimal:
-    """KMS detailed-balance weight (k-1)/k."""
+    """Within-line KMS net-response factor (k-1)/k.
+
+    The legacy function name does not make this a normalized transition
+    probability or prior across different k.
+    """
     return Decimal(k - 1) / Decimal(k)
 
 
@@ -234,19 +301,38 @@ def tooth_offset_hz(mass_solar: Decimal, chi: Decimal, k: int, pi: Decimal) -> D
 def tooth_frequency_hz(
     mass_solar: Decimal, chi: Decimal, m: int, k: int, pi: Decimal
 ) -> Decimal:
-    """f_{k,m} = m*Omega_H/(2*pi) + Delta_f_k in Hz (source frame)."""
+    """Frequency in the frame of ``mass_solar``.
+
+    Pass source-frame mass for source-frame hertz and detector-frame mass for
+    observed detector-frame hertz.
+    """
     return rotation_line_hz(mass_solar, chi, m, pi) + tooth_offset_hz(
         mass_solar, chi, k, pi
     )
 
 
-def linewidth_fraction(a: Decimal, k: int, pi: Decimal) -> Decimal:
-    """Mass-independent fractional linewidth 64*pi^2*p_0/(a*ln(k)).
+def detector_frame_tooth_frequency_hz(
+    source_frame_mass_solar: Decimal,
+    redshift: Decimal,
+    chi: Decimal,
+    m: int,
+    k: int,
+    pi: Decimal,
+) -> Decimal:
+    """Observed tooth frequency using M_det=(1+z)M_source."""
+    mass_det = detector_frame_mass_solar(source_frame_mass_solar, redshift)
+    return tooth_frequency_hz(mass_det, chi, m, k, pi)
 
-    Takes no mass argument: the fraction is mass-independent at every
-    (a, k) by the frozen statement."""
+
+def linewidth_fraction(a: Decimal, chi: Decimal, k: int, pi: Decimal) -> Decimal:
+    """Linewidth-to-spacing ratio 64*pi^2*p_0/(a*g(chi)^2*ln(k)).
+
+    The mass cancels, but the Kerr spin factor does not. The constant-p_0
+    approximation is a declared template nuisance model, not a controlled
+    near-extremal Page calculation."""
     p0 = dec(DECLARED_P0)
-    return 64 * pi * pi * p0 / (a * Decimal(k).ln())
+    g_chi = g_of_chi(chi)
+    return 64 * pi * pi * p0 / (a * g_chi * g_chi * Decimal(k).ln())
 
 
 def sig40(x: Decimal) -> str:
@@ -309,8 +395,8 @@ def build_receipt() -> dict:
     for k in ks:
         dfk = tooth_offset_hz(mass, chi, k, pi)
         fk = rot + dfk
-        lw_lo = linewidth_fraction(a_hi, k, pi)  # a = 10: narrow end
-        lw_hi = linewidth_fraction(a_lo, k, pi)  # a = 1: wide end
+        lw_lo = linewidth_fraction(a_hi, chi, k, pi)  # a = 10: narrow end
+        lw_hi = linewidth_fraction(a_lo, chi, k, pi)  # a = 1: wide end
         key = "k%02d" % k
         teeth.append(
             {
@@ -327,12 +413,12 @@ def build_receipt() -> dict:
         display["reference.teeth.%s.linewidth_fraction_a1" % key] = float(lw_hi)
 
     receipt = {
-        "schema": "oph.ringdown.integer_k_comb_template.v1",
+        "schema": "oph.ringdown.integer_k_comb_template.v3",
         "status": (
             "build-stage instrument, target-blind draft; not a registered, "
             "frozen, or scored prediction"
         ),
-        "frozen_law": {
+        "imported_continuation_law": {
             "source_of_record": (
                 "falsification/frozen_targets/fz01_2026-07-17/"
                 "frozen_target_integer_k_comb_2026-07-17.md"
@@ -348,6 +434,19 @@ def build_receipt() -> dict:
                 "(f_a - m*Omega_H/(2*pi)) / (f_b - m*Omega_H/(2*pi)) "
                 "= ln(k_a)/ln(k_b), integers k >= 2"
             ),
+            "transition_rule": (
+                "d_before = k*d_after with positive integer dimensions and "
+                "k >= 2; therefore k must divide d_before"
+            ),
+            "transition_status": (
+                "imported continuation premise; not source-derived by OPH"
+            ),
+            "signed_black_hole_entropy_change": (
+                "ln(d_after)-ln(d_before) = -ln(k)"
+            ),
+            "positive_entropy_loss": (
+                "ln(d_before)-ln(d_after) = ln(k)"
+            ),
             "universal_coordinate": (
                 "x = (G*M/(c^3*g(chi))) * (omega - m*Omega_H); "
                 "x_k = ln(k)/(8*pi)"
@@ -359,7 +458,20 @@ def build_receipt() -> dict:
             ),
             "tooth_offset": "Delta_f_k = c^3*g(chi)*ln(k)/(16*pi^2*G*M)",
             "kms_weight": "(k-1)/k",
-            "linewidth_fraction": "64*pi^2*p_0/(a*ln(k))",
+            "kms_scope": (
+                "within-line net absorption-minus-stimulated-emission factor; "
+                "not a normalized cross-k transition probability or prior"
+            ),
+            "linewidth_fraction": "64*pi^2*p_0/(a*g(chi)^2*ln(k))",
+            "linewidth_scope": "Gamma/Delta_E_k linewidth-to-spacing ratio",
+            "transition_approximation": (
+                "leading small-transition Kerr first-law template; finite-step "
+                "background corrections are not derived"
+            ),
+            "computed_k_scope": (
+                "finite display/submodel candidate k in {2,...,12}; not an "
+                "unrestricted integer-family likelihood"
+            ),
             "kerr_functions": {
                 "r_plus": "(G*M/c^2)*(1 + sqrt(1-chi^2))",
                 "omega_h": "c^3*chi/(2*G*M*(1 + sqrt(1-chi^2)))",
@@ -378,7 +490,7 @@ def build_receipt() -> dict:
         "declared_selections": {
             "a_range": {
                 "value": list(DECLARED_A_RANGE),
-                "status": "declared; frozen-statement nuisance interval",
+                "status": "declared; historical-draft nuisance interval",
             },
             "a_display_endpoints": {
                 "value": list(DECLARED_A_DISPLAY),
@@ -388,14 +500,15 @@ def build_receipt() -> dict:
                 "value": DECLARED_P0,
                 "status": (
                     "declared; Page emission coefficient as pinned in the "
-                    "companion statement"
+                    "historical companion statement"
                 ),
             },
             "k_range": {
                 "value": [DECLARED_K_MIN, DECLARED_K_MAX],
                 "status": (
-                    "declared; matches the frozen target KILL-condition "
-                    "ladder set {2, ..., 12}"
+                    "declared finite display/submodel candidate matching the "
+                    "historical draft's ladder set {2, ..., 12}; not an "
+                    "unrestricted integer-family support"
                 ),
             },
             "mass_parameterization": {
@@ -406,10 +519,11 @@ def build_receipt() -> dict:
                 ),
             },
             "g_of_chi_provenance": {
-                "value": "statement-pinned, derived from the KMS reading",
+                "value": "algebraically fixed within the imported KMS reading",
                 "status": (
                     "not a free selection; the identity "
-                    "g = 4*G*M*kappa/c^3 is recorded in frozen_law.g_of_chi"
+                    "g = 4*G*M*kappa/c^3 is recorded in "
+                    "imported_continuation_law.g_of_chi"
                 ),
             },
             "reference_point": {
@@ -430,7 +544,7 @@ def build_receipt() -> dict:
             "mass_nominal_solar": DECLARED_REFERENCE_MASS_SOLAR,
             "chi": DECLARED_REFERENCE_CHI,
             "m_azimuthal": DECLARED_REFERENCE_M_AZIMUTHAL,
-            "frame": "source frame; detector frame carries 1/(1+z)",
+            "frame": "source frame; observed hertz require M_det=(1+z)M_source",
             "omega_h_rad_per_s_sig40": sig40(omega_h),
             "kappa_per_s_sig40": sig40(kappa),
             "g_chi_sig40": sig40(g_chi),
@@ -446,13 +560,31 @@ def build_receipt() -> dict:
             "rendered_significant_digits": SIG_DIGITS,
             "pi_method": "Machin: 16*arctan(1/5) - 4*arctan(1/239)",
         },
+        "frame_contract": {
+            "detector_mass": "M_det = (1+z)*M_source",
+            "observed_frequency_rule": (
+                "evaluate Omega_H and every tooth with M_det; equivalently "
+                "divide all source-frame frequencies by 1+z"
+            ),
+            "ratio_boundary": (
+                "redshift cancellation holds only when tooth and rotation "
+                "offset use the same frame"
+            ),
+        },
+        "comparison_contract_boundary": (
+            "Published posterior samples alone are not a detector likelihood "
+            "or model evidence. A future comparison needs a common "
+            "strain/readout likelihood or sufficient likelihood product, "
+            "sampling-prior and normalization metadata, prospectively "
+            "normalized model priors, and convergence diagnostics."
+        ),
         "boundary": (
             "Target-blind build-stage instrument. No gravitational-wave "
             "event data, remnant posterior, detector likelihood, or "
             "comparison dataset was read, fetched, or evaluated. The "
-            "physical reading of the template scale as a Kerr remnant "
-            "quantity is the frozen target's declared identification. "
-            "Registration is open pending the owner's freeze."
+            "integer-division transition and physical reading of the template "
+            "scale as a Kerr remnant quantity are imported continuation "
+            "premises. Source derivation and registration remain open."
         ),
     }
     return receipt

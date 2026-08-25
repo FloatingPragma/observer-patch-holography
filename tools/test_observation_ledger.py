@@ -41,10 +41,10 @@ def test_ol_c5_ins03_registration_is_explicitly_nonpromoting() -> None:
     assert "claims/emergent_instrument_register.json" in row["evidence"]
     assert "unfrozen SPECIFIED design" in row["notes"]
     assert "no seed, freeze, simulator custody pin, run, verdict" in row["notes"]
-    assert "or controlling instrument" in row["notes"]
-    assert "moves OL-C5 in no direction" in row["notes"]
-    assert "public-readback remainder of PR-64" in row["notes"]
-    assert "These results do not promote OL-C5 beyond partial" in row["notes"]
+    assert "or promotion authority" in row["notes"]
+    assert "no ledger promotion follows" in row["notes"]
+    assert "PR-03, PR-64, PR-65" in row["notes"]
+    assert "rejects all producer claims" in row["notes"]
 
 
 def test_governance_row_and_lane_738_are_absent() -> None:

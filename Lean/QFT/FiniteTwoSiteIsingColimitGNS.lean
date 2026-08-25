@@ -15,7 +15,10 @@ reindexes the two-qubit algebra onto the rigid `Fin 4` tower carrier, installs
 the Ising ground density and commutator generator in one declared one-regulator
 `ConsensusTower`, transports the genuine two-slot conditional-expectation
 diamond onto that same carrier, and represents the resulting Hamiltonian and
-flow on the tower-selected GNS Hilbert space.
+flow on the tower-selected GNS Hilbert space.  The exact object is a finite
+regional diamond plus co-located dynamics on the ambient matrix algebra, not
+a dynamics-preserved regional net: the interacting first-order response of a
+left observable is proved to leave the left regional algebra.
 
 The load-bearing controls are internal to that one carrier: the cyclic unit
 class is normalized and has zero energy, the represented Hamiltonian and the

@@ -47,10 +47,22 @@ def generatedEffect (event : PhaseEvent) : Matrix (Fin 2) (Fin 2) ℂ :=
 def sourcePairOrder : List PhaseEvent :=
   [.pair0002, .pair0003, .pair0004, .pair0005, .pair0102, .pair0103, .pair0104, .pair0105, .pair0204, .pair0205, .pair0304, .pair0305]
 
-def sourceSelectedEvent : PhaseEvent := sourcePairOrder[0]
+/-- The current first event under the declared stable label order.
+This name does not assert a source-forced orientation. -/
+def currentFirstLabelledEvent : PhaseEvent := sourcePairOrder[0]
 
-def sourceSelectedGeneratedEffect : Matrix (Fin 2) (Fin 2) ℂ :=
-  generatedEffect sourceSelectedEvent
+/-- The generated effect of the current first-labelled event. -/
+def currentFirstLabelledGeneratedEffect : Matrix (Fin 2) (Fin 2) ℂ :=
+  generatedEffect currentFirstLabelledEvent
+
+/-- Legacy compatibility alias. No source theorem forces this label
+or its `+Y` orientation. -/
+abbrev sourceSelectedEvent : PhaseEvent := currentFirstLabelledEvent
+
+/-- Legacy compatibility alias. Prefer
+`currentFirstLabelledGeneratedEffect`. -/
+abbrev sourceSelectedGeneratedEffect : Matrix (Fin 2) (Fin 2) ℂ :=
+  currentFirstLabelledGeneratedEffect
 
 def generatedEffectValues : List EffectValue :=
   (sourcePairOrder.map effectValueOf).eraseDups
@@ -66,6 +78,7 @@ def sourceSelectionPacketSha256 : String :=
 #check stateMatrix
 #check effectMatrix
 #check generatedEffect
+#check currentFirstLabelledGeneratedEffect
 #check sourceSelectedGeneratedEffect
 
 end

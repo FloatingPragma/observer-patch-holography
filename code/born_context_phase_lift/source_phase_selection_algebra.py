@@ -1,25 +1,25 @@
 #!/usr/bin/env python3
-"""Target-free EventAlgebra source phase-effect selection algebra.
+"""Exact algebra utilities for target-free source-phase enumeration.
 
 The only accepted semantic input is the ``irrep`` table and the outcome-0
 record projector in ``BORN_CONTEXT_WEB_PAYLOAD.v1.json``.  Counts, PR rows,
 the historical declared phase matrix, receipt verdicts, and paper claims are
-never read.  The producer:
+never read.  The current packet producer lives in
+``source_phase_selection_family.py`` and:
 
 1. reconstructs the complete S3 projector orbit;
 2. enumerates every stable-index noncommuting pair;
-3. normalizes its commutator using the source-derived absolute off-diagonal
-   magnitude (no target coefficient);
+3. normalizes its commutator using the absolute off-diagonal magnitude computed
+   from the permitted declared irrep/projector inputs (no target coefficient);
 4. obtains a rank-one phase projection for every pair; and
-5. exhausts rank-one Lueders enabledness on all distinct orbit and phase
-   states, totalizing a disabled update as an equality stutter.
+5. enumerates all state/event cells, treating zero-weight cells as disabled
+   and creating no transition; enabled cells collapse to the event projector.
 
-The OPH bridge evaluator is deliberately conclusion-free.  For event ``e``
-it uses the canonical one-patch/one-self-edge carrier whose source projection
-is the state ID and whose target projection is the generated operation ID.
-Its unique local repair resets a non-target state to the operation target.
-Thus a source transition is either that exact accepted local repair or an
-equality stutter.  No per-row expected classification is an input.
+The OPH bridge is evaluated only on enabled ``SourceStep`` entries.  This
+module retains a quarantined legacy totalized-stutter packet builder for
+historical replay, under a distinct legacy schema.  Its command-line entry
+delegates to the current enabled-domain producer and cannot write the legacy
+object as v1.
 """
 
 from __future__ import annotations
@@ -37,7 +37,10 @@ from typing import Any, Iterable, Sequence
 EXPECTED_PAYLOAD_SHA256 = (
     "71a06f1c15192123cd09feb2386da702b572c8ac57c9b7633f5aa60c5d404e22"
 )
-PACKET_SCHEMA = "oph.eventalgebra.source_phase_selection.v1"
+LEGACY_PACKET_SCHEMA = (
+    "oph.eventalgebra.source_phase_selection.legacy_totalized_stutter.v0"
+)
+PACKET_SCHEMA = LEGACY_PACKET_SCHEMA
 SOURCE_VIEW_SCHEMA = "oph.eventalgebra.phase_source_view.v1"
 
 
@@ -348,6 +351,7 @@ def lueders_enabled_transition(state: CMatrix, event: CMatrix) -> tuple[bool, CM
 
 
 def build_packet(payload: dict[str, Any], payload_sha256: str | None = None) -> dict[str, Any]:
+    """Build the quarantined legacy totalized-stutter packet."""
     view = extract_source_view(payload)
     matrices, record = validate_source_view(view)
     orbit = [qmul(qmul(matrix, record), qtranspose(matrix)) for matrix in matrices]
@@ -456,6 +460,7 @@ def bridge_classification(packet: dict[str, Any]) -> dict[str, int]:
 
 
 def verify_packet(packet: dict[str, Any]) -> dict[str, Any]:
+    """Verify only the quarantined legacy totalized-stutter schema."""
     need(packet.get("schema") == PACKET_SCHEMA, "packet schema drift")
     states = {row["id"] for row in packet.get("states", [])}
     events = {row["id"]: row for row in packet.get("events", [])}
@@ -496,26 +501,13 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--payload", type=Path, required=True)
-    parser.add_argument("--output", type=Path)
-    parser.add_argument("--verify-hidden-mutant", action="store_true")
-    args = parser.parse_args()
-    digest = sha256(args.payload)
-    need(digest == EXPECTED_PAYLOAD_SHA256, "payload SHA-256 mismatch")
-    payload = json.loads(args.payload.read_text(encoding="utf-8"))
-    packet = build_packet(payload, digest)
-    report = verify_packet(packet)
-    if args.verify_hidden_mutant:
-        try:
-            verify_packet(hidden_transition_mutant(packet))
-        except GateError as exc:
-            report["hidden_transition_mutant"] = f"REJECTED:{exc}"
-        else:
-            raise GateError("hidden transition mutant survived")
-    if args.output:
-        args.output.write_bytes(canonical_json_bytes(packet))
-    print(json.dumps(report, indent=2, sort_keys=True))
+    # Import lazily to avoid a cycle: the current producer imports the exact
+    # scalar and matrix utilities above.  The old CLI therefore has one
+    # canonical enabled-domain behavior even though the legacy replay helpers
+    # remain callable under their explicitly different schema.
+    import source_phase_selection_family as family
+
+    family.main()
 
 
 if __name__ == "__main__":

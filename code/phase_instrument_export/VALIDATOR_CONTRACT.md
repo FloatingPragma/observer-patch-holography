@@ -1,4 +1,4 @@
-# INS-03 export validator contract
+# INS-03 v1 static committed-fixture checker contract
 
 Schema under validation: `oph.sim.ins03_phase_instrument_export.v1`, the
 simulator-side export interface specified in section A of
@@ -7,15 +7,18 @@ surface, outside this repository).  Validator:
 `code/phase_instrument_export/ins03_export_validator.py`.  Owning lanes:
 issues 730 (OL-C5, quantum) and 737 (instrument register).  The typed Lean
 binding interface `Lean/EventAlgebra/SourceBoundInstrumentInterface.lean` is
-the receiving half of this interface inside the corpus; this validator is
-the receiving half on the export side.
+the typed boundary inside the corpus. The v1 checker is not the receiving half
+of a producer handshake: it authenticates no external source, run, provenance,
+or custody data. It checks only a synthetic static transcription of the
+committed fixture. A finite produced run requires a separately frozen v2
+schema, decision rule, and authenticator.
 
 ## What the validator certifies
 
-A `SCHEMA_CONFORMANT_*` verdict certifies, for one JSON document, all of the
-following, checked fail-closed with named error codes and exact arithmetic
-(`fractions.Fraction` plus a minimal exact `Q(sqrt(3))` implementation; no
-floating-point value enters any check):
+A `STATIC_COMMITTED_FIXTURE_CONFORMANT` verdict certifies, for one synthetic
+JSON document, all of the following, checked fail-closed with named error
+codes and exact arithmetic (`fractions.Fraction` plus a minimal exact
+`Q(sqrt(3))` implementation; no floating-point value enters any check):
 
 1. **Schema id and version.** The `schema` field equals
    `oph.sim.ins03_phase_instrument_export.v1`; the version is the `.v1`
@@ -37,9 +40,9 @@ floating-point value enters any check):
 4. **Required fields per context and outcome**, transcribing design
    section A: `outcome_maps[c][i]` with the ordered Kraus family (field 1),
    `effect_from_kraus`, `declared_effect`, and the exact `effect_residual`
-   (field 2), and the `trace_nonincreasing` values on the frozen spanning
-   set of matrix units (field 3); `summed_channel[c]` with the Kraus
-   normalization, its residual, and the spanning-set trace checks
+   (field 2), and the legacy-named `trace_nonincreasing` diagnostic values on
+   the frozen spanning set of matrix units (field 3); `summed_channel[c]`
+   with the Kraus normalization, its residual, and the spanning-set trace checks
    (field 4); `readback[c][i]` with the public outcome symbol, integer
    count, context mass, and exact compatibility residual (field 5);
    `preparation` in the two-by-two coordinatization with the positivity
@@ -57,9 +60,17 @@ floating-point value enters any check):
 6. **Exact algebraic conformance**, computable from the export alone:
    * each Kraus family's induced effect `sum_k K_k^dagger K_k` equals the
      declared `effect_from_kraus`, which equals `declared_effect`, with the
-     residual matrix exactly zero;
+     residual matrix exactly zero, and the induced effect passes the exact
+     Hermitian two-by-two positive-semidefinite test;
+   * for each outcome, `1 - E_i` equals the other outcome's induced effect
+     and passes the same exact positive-semidefinite test. This is the
+     outcome trace-nonincreasing certificate: Kraus form gives `E_i >= 0`,
+     while `1 - E_i >= 0` gives `E_i <= 1` and hence
+     `Tr(Phi_i(X)) <= Tr(X)` for every positive-semidefinite input `X`;
    * the declared spanning-set trace values equal the exact recomputation
-     through the Kraus families, per outcome and for the summed channel;
+     through the Kraus families, per outcome and for the summed channel.
+     These matrix-unit values are diagnostics of the linear trace action,
+     not positivity tests, and their differences are not required to vanish;
    * the per-context effects sum exactly to the identity, and the
      summed-channel Kraus normalization equals the identity with residual
      exactly zero;
@@ -102,20 +113,20 @@ the same byte stream the canonical-serialization check pins.
 
 ## Verdict grammar and the provenance class
 
-* `SCHEMA_CONFORMANT_SYNTHETIC`: every check passes and `provenance_class`
-  is `synthetic`.  The shipped `sample_conforming_export.json` carries this
-  verdict.  It is a distinct verdict word from the producer one: a
-  synthetic export can demonstrate schema conformance and nothing else.
-* `SCHEMA_CONFORMANT_PRODUCER`: every check passes and `provenance_class`
-  is `producer`.  A producer export must carry no synthetic placeholder
-  values (no `SYNTHETIC_PLACEHOLDER` string, no all-zero commit or digest,
-  no `example.invalid` URL); any such value fails closed.
+* `STATIC_COMMITTED_FIXTURE_CONFORMANT`: every check passes and
+  `provenance_class` is `synthetic`. The shipped
+  `sample_conforming_export.json` carries this verdict. It demonstrates
+  static fixture/schema conformance and nothing else.
 * `NONCONFORMANT`: any check fails.  The report lists every named error.
 
 The `provenance_class` field is a validator-lane addition to the design's
-section A field list.  It exists to expose the synthetic/producer
-distinction the lane requires and is mandatory; a later freeze of the
-export schema may adopt or replace it.
+section A field list and is mandatory. `producer` is a reserved input value,
+but v1 always rejects it with `PRODUCER_AUTHENTICATION_UNIMPLEMENTED`, even
+when the document contains no known synthetic marker. Self-declared module
+hashes, commits, run identifiers, runtime logs, and a canonical document
+digest are not authentication. V1 intentionally exposes no producer success
+or evidential verdict. A later frozen v2 schema may add one only together
+with an external verifier of the referenced artifacts and execution.
 
 Named error codes: `FILE_UNREADABLE`, `JSON_PARSE`, `MISSING_FIELD`,
 `UNEXPECTED_FIELD`, `SCHEMA_ID_MISMATCH`, `PROVENANCE_CLASS_INVALID`,
@@ -124,8 +135,9 @@ Named error codes: `FILE_UNREADABLE`, `JSON_PARSE`, `MISSING_FIELD`,
 `MATRIX_ENCODING`, `DIMENSION_MISMATCH`, `CARRIER_DIMENSION_UNSUPPORTED`,
 `CONTEXT_COVERAGE`, `OUTCOME_COVERAGE`, `SPANNING_SET_INCOMPLETE`,
 `EFFECT_FROM_KRAUS_MISMATCH`, `EFFECT_DECLARED_MISMATCH`,
-`EFFECT_RESIDUAL_MISMATCH`, `TRACE_CHECK_MISMATCH`,
-`CONTEXT_SUM_NOT_IDENTITY`, `KRAUS_NORMALIZATION_MISMATCH`,
+`EFFECT_RESIDUAL_MISMATCH`, `EFFECT_NOT_PSD`, `TRACE_CHECK_MISMATCH`,
+`CONTEXT_SUM_NOT_IDENTITY`, `EFFECT_COMPLEMENT_MISMATCH`,
+`EFFECT_COMPLEMENT_NOT_PSD`, `KRAUS_NORMALIZATION_MISMATCH`,
 `KRAUS_NORMALIZATION_NOT_IDENTITY`, `KRAUS_NORMALIZATION_RESIDUAL`,
 `SUMMED_TRACE_MISMATCH`, `READBACK_COUNT_INVALID`, `MASS_INCONSISTENT`,
 `COUNT_MASS_MISMATCH`, `BORN_WEIGHT_NOT_RATIONAL`,
@@ -135,6 +147,7 @@ Named error codes: `FILE_UNREADABLE`, `JSON_PARSE`, `MISSING_FIELD`,
 `PREP_OPERATION_CLASS_MISMATCH`, `PREP_OPERATION_DESCRIPTION_MISSING`,
 `PREP_HASH_MISMATCH`, `PROVENANCE_FORMAT`, `LABELS_INVALID`,
 `SYNTHETIC_EVIDENTIAL_CONFLICT`, `SYNTHETIC_MARKER_IN_PRODUCER`,
+`PRODUCER_AUTHENTICATION_UNIMPLEMENTED`,
 `COMMITTED_EFFECT_MISMATCH`, `COMMITTED_RUN_STATE_MISMATCH`,
 `COMMITTED_FREQUENCY_MISMATCH`, `DIGEST_FORMAT`, `DIGEST_MISMATCH`.
 
@@ -145,31 +158,32 @@ production, provenance, custody, or run reality: whether any run happened,
 whether the declared source records exist, whether the declared producer
 modules produced the counts, whether the runtime read log is complete, or
 whether the import-graph independence report describes any actual
-execution.  This is exactly the externality the Lean binding interface
-proves: `committed_corpus_does_not_determine_binding` and
+execution.  The Lean binding interface proves only that its current
+placeholder fields are freely stipulable and do not authenticate custody:
+`committed_corpus_does_not_determine_binding` and
 `binding_digest_free_parameter` in
 `Lean/EventAlgebra/SourceBoundInstrumentInterface.lean` show that the
-custody data of a source binding is freely stipulable over the committed
+placeholder custody fields are freely stipulable over the committed
 determined part, so a document passing every check here is constructible
 without any source production, as the shipped synthetic sample
-demonstrates by existing.  A `SCHEMA_CONFORMANT_PRODUCER` verdict states
-that the document is well formed, algebraically exact, and free of
-synthetic markers; it does not state that a producer ran.
+demonstrates by existing. A richer in-corpus or external data-bearing
+construction remains viable. V1 therefore rejects every `producer` claim rather
+than attach an authentic-sounding verdict to unauthenticated declarations.
 
-The frozen decision rule of design section C is outside this validator.
+The frozen decision rule of design section C is outside this checker.
 No placeholder of section C.6 is bound here: no `TOL_READBACK`, no
 `DELTA_PHASE`, no `EPS_PHASE`, no `EPS_ADD`, no interval construction, and
 no verdict of the PASS/FAIL/SOURCE_PRODUCER_MISSING/INCONCLUSIVE grammar.
 The readback checks here are the exact-equality reading that a
 deterministic committed-table export satisfies; a produced run's sampling
 residuals are gated by the frozen `TOL_READBACK` band under the frozen
-rule, and the committed-table cross-check binds an export that declares
-the committed contexts to the committed literals, so a produced run under
-the frozen rule is evaluated by that rule and not by this validator.  A
-route-R4 export whose preparation lawfully departs from the committed
-run-state diagonal is likewise a matter for the frozen rule; this
-validator's cross-check reports the departure and the frozen rule decides
-its meaning.
+rule, and the v1 committed-table cross-check binds the preparation and counts
+to the old static literals. A produced run, including a route-R4 export whose
+preparation lawfully departs from the committed run-state diagonal, cannot be
+validated by v1. It requires a separately frozen v2 validator that carries
+the finite-run tolerance, per-context preparation/custody records, and an
+external provenance authenticator without hard-pinning the produced state or
+sampled counts to the static fixture.
 
 ## What is not proved here
 
@@ -183,30 +197,25 @@ freezes any instrument, or scores any comparison.  The `provenance_class`
 field and the digest-convention binding above are declared choices of this
 lane, recorded here pending any later registration under the owning lanes.
 
-## The handshake with the Lean binding interface
+## No producer handshake in v1
 
-A genuine producer export that passes this validator with
-`provenance_class` equal to `producer` supplies one value the corpus
-cannot supply for itself: its `custody_digest_sha256`, the custody
-artifact digest that the `custodyDigest` field of
-`SourceBoundInstrumentBinding` in
-`Lean/EventAlgebra/SourceBoundInstrumentInterface.lean` consumes under a
-declared mapping of hex digests into the natural numbers.  The Lean
-theorems prove that the committed corpus determines every other field of
-the binding and leaves exactly that custody data external; this validator
-is the conformance gate the external data passes through on its way in.
-Registration of such an export, the binding of the section C.6
-placeholders, any freeze, and any evidential use are owner and
-preregistration actions under the freeze discipline of issue 737 and are
-not performed, prepared, or implied by a validation verdict.
+The `custody_digest_sha256` check proves only that one JSON document is
+self-consistent under the declared canonical serialization. It does not show
+that the referenced source records, producer modules, runtime log, custody
+manifest, or run exist, and it cannot supply the external custody datum of
+`SourceBoundInstrumentBinding` evidentially. A future v2 authenticator must
+resolve and hash the referenced artifacts independently, bind them to a
+frozen rule and run receipt, and verify the source-to-outcome custody chain.
+Until then there is no producer handshake, no producer verdict, and no route
+from a v1 pass to a premise, instrument, or observation promotion.
 
 ## Files
 
 * `ins03_export_validator.py`: the validator, the committed reference
   constants with cited sources, and the synthetic sample builder.  CLI:
   `python3 ins03_export_validator.py <export.json>`; exit 0 on a
-  conformant export, 1 on a nonconformant one, 2 on an unreadable or
-  unparseable file.
+  conformant static synthetic fixture, 1 on a nonconformant or reserved
+  producer-class document, 2 on an unreadable or unparseable file.
 * `sample_conforming_export.json`: the synthetic conforming sample, built
   from the committed objects only (the Lueders Kraus family of each
   committed context is the singleton projector family, since each
@@ -214,4 +223,4 @@ not performed, prepared, or implied by a validation verdict.
   placeholders in every producer-side field the corpus does not fix.
 * `test_ins03_export_validator.py`: pytest coverage for the sample
   verdict, the mutation guards, the committed reference constants, and the
-  synthetic/producer verdict distinction.
+  fail-closed producer boundary.

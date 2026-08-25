@@ -127,7 +127,8 @@ theorem recordWeight_marginal (p : ℝ) (a : Fin 2) :
   rcases finTwoCases a with rfl | rfl <;>
     simp [recordWeight, Fintype.sum_option] <;> ring
 
-/-- The record law is a probability weight at every density. -/
+/-- The algebraic weights sum to one for every real `p`. Together with
+`recordWeight_nonneg`, they form a probability law only for `p ∈ [0,1]`. -/
 theorem recordWeight_sum (p : ℝ) :
     ∑ a : Fin 2, ∑ r : Option (Fin 2), recordWeight p a r = 1 := by
   rw [Fin.sum_univ_two, recordWeight_marginal, recordWeight_marginal]
@@ -190,8 +191,8 @@ theorem predErr_informedPredictor (p : ℝ) :
     predErr p informedPredictor = recordDefect p :=
   predErr_of_informed p informedPredictor fun _ => rfl
 
-/-- Optimality lower bound: every deterministic predictor errs at least the
-model defect. -/
+/-- Algebraic optimality lower bound for `p ≥ 0`. Its interpretation as a
+prediction-error bound additionally uses the probability range `p ≤ 1`. -/
 theorem recordDefect_le_predErr (p : ℝ) (hp0 : 0 ≤ p)
     (g : Option (Fin 2) → Fin 2) : recordDefect p ≤ predErr p g := by
   rcases finTwoCases (g none) with hn | hn <;>
@@ -201,9 +202,8 @@ theorem recordDefect_le_predErr (p : ℝ) (hp0 : 0 ≤ p)
           Fin.sum_univ_two, hn, h0, h1] <;>
         linarith
 
-/-- The model defect is the minimum deterministic prediction error:
-attained by the informed predictor and a lower bound for every
-predictor. -/
+/-- Algebraically, the model defect is the least deterministic error
+functional for `p ≥ 0`. It is a probability-error minimum when also `p ≤ 1`. -/
 theorem recordDefect_isLeast (p : ℝ) (hp0 : 0 ≤ p) :
     IsLeast (Set.range fun g : Option (Fin 2) → Fin 2 => predErr p g)
       (recordDefect p) :=
@@ -251,7 +251,9 @@ theorem recordDefect_le_randErr (p : ℝ) (hp0 : 0 ≤ p)
           mul_le_mul_of_nonneg_left (recordDefect_le_predErr p hp0 g)
             (R.w_nonneg g)
 
-/-- The model defect is also the minimum randomized prediction error. -/
+/-- Algebraically, the model defect is also the least randomized error
+functional for `p ≥ 0`; the probability interpretation additionally needs
+`p ≤ 1`. -/
 theorem recordDefect_isLeast_randomized (p : ℝ) (hp0 : 0 ≤ p) :
     IsLeast (Set.range fun R : RandomizedPredictor => randErr p R)
       (recordDefect p) :=

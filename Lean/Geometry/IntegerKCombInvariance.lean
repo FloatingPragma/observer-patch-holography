@@ -5,30 +5,37 @@ import Mathlib.Analysis.SpecificLimits.Basic
 # Exact invariance receipts for the integer-k ringdown comb template
 
 Build-stage companion to the numeric instrument in
-`code/gravitation/ringdown_comb/`, for the frozen target
+`code/gravitation/ringdown_comb/`, implementing the imported continuation
+law in the attested historical draft
 `falsification/frozen_targets/fz01_2026-07-17/frozen_target_integer_k_comb_2026-07-17.md`.
 The abstract template has teeth `f_k = f0 + s * ln k` for natural
-`k >= 2`, scale `s > 0`, and offset `f0`. In the frozen target's
-declared physical reading, `s` is `G M / (c^3 g(chi))` of a Kerr
-remnant scaled by the KMS bookkeeping and carries the entire mass,
-spin, and redshift dependence, while `f0` is the rotation line
-`m Omega_H / (2 pi)`.
+`k >= 2`, scale `s > 0`, and offset `f0`. In the build-stage template's
+declared physical reading, `s` is proportional to
+`c^3 g(chi) / (16 pi^2 G M)` in a consistently chosen frequency frame,
+while `f0` is the rotation line `m Omega_H / (2 pi)`. Observed hertz require
+the detector-frame mass `M_det = (1+z) M_source`.
 
 Proved here, exactly and for every template: the offset-subtracted
-ratio of any two teeth equals `ln a / ln b` and is therefore identical
-across all templates (mass, spin, and redshift invariance of the
-frozen observable); teeth are strictly monotone in `k` and sit above
+ratio of any two teeth equals `ln a / ln b` and is therefore invariant under
+changes that act through one common scale and offset; teeth are strictly
+monotone in `k` and sit above
 the offset for `k >= 2`; the reference ladder against the `k = 2`
 tooth satisfies exact rational brackets, `158/100 < ln 3 / ln 2 <
 159/100`, `ln 4 / ln 2 = 2` exactly, and `232/100 < ln 5 / ln 2 <
 233/100`, each bracket reduced to a natural-number power inequality;
-and the KMS weight hierarchy `(k-1)/k` is strictly increasing, bounded
-by one, and converges to one.
+and the declared KMS net-response factor `(k-1)/k` is strictly increasing,
+bounded by one, and converges to one. These algebraic facts do not make the
+factor a transition probability or a prior across different `k`.
 
-What is not proved here. The template's physical reading, that the
-scale belongs to a Kerr remnant through `G M / (c^3 g(chi))` and the
-offset to its rotation line, is the frozen target's declared
-identification, not derived in this module. No event data enters; no
+The module also checks the sign and arithmetic of the imported integer-division
+premise: an emission with `dBefore = k * dAfter` has signed black-hole entropy
+change `log dAfter - log dBefore = -log k` and positive entropy loss `log k`.
+This premise requires divisibility; it is not derived here.
+
+What is not proved here. The integer-division selection rule, the template's
+physical reading, and the map from mass, spin, redshift, and the rotation line
+to one common scale and offset are continuation inputs, not source-derived
+theorems in this module. No event data enters; no
 strain likelihood, prior normalization, or decision rule is
 formalized; and nothing here is a registered, frozen, or scored
 prediction. The join from this abstract template to a derived
@@ -46,6 +53,47 @@ structure CombTemplate where
   scale : ℝ
   offset : ℝ
   scale_pos : 0 < scale
+
+/-- One imported integer-division emission step. `dBefore = k * dAfter`
+records both the required divisibility and the direction of the transition.
+The structure does not claim that OPH selects or produces such a step. -/
+structure IntegerDivisionTransition where
+  dBefore : ℕ
+  dAfter : ℕ
+  k : ℕ
+  after_pos : 0 < dAfter
+  k_ge_two : 2 ≤ k
+  before_eq : dBefore = k * dAfter
+
+/-- The divisibility premise really gives `dAfter = dBefore / k`. -/
+theorem IntegerDivisionTransition.after_eq_before_div
+    (T : IntegerDivisionTransition) : T.dAfter = T.dBefore / T.k := by
+  have hk : 0 < T.k := lt_of_lt_of_le (by omega) T.k_ge_two
+  rw [T.before_eq, Nat.mul_div_cancel_left T.dAfter hk]
+
+/-- With `S_BH = log d`, emission has signed black-hole entropy change
+`S_after - S_before = -log k`, not `+log k`. -/
+theorem IntegerDivisionTransition.signed_entropy_change
+    (T : IntegerDivisionTransition) :
+    Real.log (T.dAfter : ℝ) - Real.log (T.dBefore : ℝ) =
+      -Real.log (T.k : ℝ) := by
+  have ha : (T.dAfter : ℝ) ≠ 0 := by
+    exact_mod_cast (ne_of_gt T.after_pos)
+  have hkNat : 0 < T.k := lt_of_lt_of_le (by omega) T.k_ge_two
+  have hk : (T.k : ℝ) ≠ 0 := by
+    exact_mod_cast (ne_of_gt hkNat)
+  rw [T.before_eq]
+  push_cast
+  rw [Real.log_mul hk ha]
+  ring
+
+/-- The positive quantity entering the emitted-energy formula is the entropy
+loss `S_before - S_after = log k`. -/
+theorem IntegerDivisionTransition.positive_entropy_loss
+    (T : IntegerDivisionTransition) :
+    Real.log (T.dBefore : ℝ) - Real.log (T.dAfter : ℝ) =
+      Real.log (T.k : ℝ) := by
+  linarith [T.signed_entropy_change]
 
 /-- Explicit nontrivial inhabitant with concrete scale and offset. -/
 noncomputable def referenceTemplate : CombTemplate :=
@@ -70,10 +118,9 @@ theorem offsetSubtracted_ratio (T : CombTemplate) (a b : ℕ) :
   have hs : T.scale ≠ 0 := ne_of_gt T.scale_pos
   rw [tooth_sub_offset, tooth_sub_offset, mul_div_mul_left _ _ hs]
 
-/-- Mass, spin, and redshift invariance of the frozen observable: the
-offset-subtracted ratio is identical for every template, hence for
-every remnant mass, spin, and redshift in the declared reading, since
-the scale carries all of that dependence and cancels. -/
+/-- Scale-and-offset invariance of the abstract observable. A physical
+mass/spin/redshift statement additionally requires a frame-consistent map of
+those quantities into the common scale and offset. -/
 theorem ratio_template_independent (T₁ T₂ : CombTemplate) (a b : ℕ) :
     (tooth T₁ a - T₁.offset) / (tooth T₁ b - T₁.offset)
       = (tooth T₂ a - T₂.offset) / (tooth T₂ b - T₂.offset) := by
@@ -215,15 +262,15 @@ theorem tooth_ratio_52_bounds (T : CombTemplate) :
   rw [h]
   exact log5_div_log2_bounds
 
-/-- KMS detailed-balance weight `(k-1)/k` of the frozen secondary
-structure. -/
+/-- Declared KMS net-response factor `(k-1)/k`. The legacy name `kmsWeight`
+does not assert a normalized cross-`k` transition weight. -/
 noncomputable def kmsWeight (k : ℕ) : ℝ := ((k : ℝ) - 1) / (k : ℝ)
 
 /-- The `k = 2` weight is one half. -/
 theorem kmsWeight_two : kmsWeight 2 = 1 / 2 := by
   norm_num [kmsWeight]
 
-/-- The KMS weight hierarchy is strictly increasing. -/
+/-- The declared KMS net-response factor is strictly increasing in `k`. -/
 theorem kmsWeight_strictMono {a b : ℕ} (ha : 1 ≤ a) (hab : a < b) :
     kmsWeight a < kmsWeight b := by
   have ha0 : (0 : ℝ) < (a : ℝ) := by
@@ -239,7 +286,7 @@ theorem kmsWeight_strictMono {a b : ℕ} (ha : 1 ≤ a) (hab : a < b) :
   rw [expandA, expandB]
   linarith
 
-/-- Every KMS weight is strictly below one. -/
+/-- Every declared KMS net-response factor is strictly below one. -/
 theorem kmsWeight_lt_one {k : ℕ} (hk : 1 ≤ k) : kmsWeight k < 1 := by
   have hk0 : (0 : ℝ) < (k : ℝ) := by
     exact_mod_cast Nat.lt_of_lt_of_le Nat.zero_lt_one hk
@@ -247,7 +294,7 @@ theorem kmsWeight_lt_one {k : ℕ} (hk : 1 ≤ k) : kmsWeight k < 1 := by
   rw [div_lt_one hk0]
   linarith
 
-/-- The KMS weight hierarchy converges to one. -/
+/-- The declared KMS net-response factor converges to one. -/
 theorem kmsWeight_tendsto_one :
     Tendsto kmsWeight atTop (nhds 1) := by
   have hinv : Tendsto (fun k : ℕ => ((k : ℝ))⁻¹) atTop (nhds 0) :=
@@ -274,6 +321,9 @@ end OPH.IntegerKCombInvariance
 
 -- Axiom audit: no project-specific axiom or admission is permitted here.
 #print axioms OPH.IntegerKCombInvariance.tooth_sub_offset
+#print axioms OPH.IntegerKCombInvariance.IntegerDivisionTransition.after_eq_before_div
+#print axioms OPH.IntegerKCombInvariance.IntegerDivisionTransition.signed_entropy_change
+#print axioms OPH.IntegerKCombInvariance.IntegerDivisionTransition.positive_entropy_loss
 #print axioms OPH.IntegerKCombInvariance.offsetSubtracted_ratio
 #print axioms OPH.IntegerKCombInvariance.ratio_template_independent
 #print axioms OPH.IntegerKCombInvariance.tooth_lt_tooth

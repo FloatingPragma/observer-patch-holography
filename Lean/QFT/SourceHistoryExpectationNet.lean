@@ -4,40 +4,36 @@ set_option autoImplicit false
 set_option relaxedAutoImplicit false
 
 /-!
-# State-preserving regional expectations on the source-history record layer
+# Finite-probability record conditioning on the source-history carrier
 
 The eight retained length-three histories carry three binary slots.  On the
-record (diagonal) layer this module constructs, for every slot region
-`S ⊆ {0,1,2}`, the conditional expectation `E_S` with respect to the
-empirical window law: `E_S f` at a history `g` averages `f` over the
-histories that agree with `g` on every slot of `S`, weighted by the
-committed window counts `![1149, 96, 2, 87, 3, 2, 3, 412]`.  Each `E_S` is
-linear, unital, positive, localized to its region, idempotent, satisfies
-the tower law `E_S ∘ E_T = E_S` for `S ⊆ T`, and preserves the empirical
-mean.  The two domain walls are fixed points of their own regional
-expectations, and every `E_S` preserves the exact bond means `94/1754`,
-`103/1754`, and the repair total `197/1754`.  The diagonal embedding
-carries the net onto the matrix carrier and, through the committed density
-trace and the selected GNS functional, onto represented diagonal elements.
+rational record layer `Fin 8 → ℚ`, this module constructs, for every slot
+region `S ⊆ {0,1,2}`, a finite-probability conditioning family `E_S`
+with respect to the empirical window law.  At a history `g`, `E_S f` averages
+`f` over histories agreeing with `g` on every slot of `S`, weighted by the
+committed window counts `![1149, 96, 2, 87, 3, 2, 3, 412]`.  Each `E_S` is linear over
+the rationals, unital, pointwise positive, localized, idempotent, tower-compatible,
+and preserves the empirical mean.  The two domain walls are fixed points of
+their own regional conditioning maps, and every `E_S` preserves the exact
+bond means `94/1754`, `103/1754`, and action mean `197/1754`.  The diagonal
+embedding relates these rational record observables to represented diagonal
+elements; it does not extend `E_S` to the full matrix algebra.
 
-The module then proves the exact matrix-level boundary of this net: no
-complex-linear map from the full `M₈(ℂ)` carrier into the slot-`(0,1)`
-interval algebra can simultaneously satisfy the interval-bimodule law and
-preserve the committed source state.  The obstruction is decided by the
-committed counts: the slot-two conditional weight is `383/415` in the
-`(s₀,s₁) = (0,0)` cell (`1149 : 96`) but `2/89` in the `(0,1)` cell
-(`2 : 87`), and a state-preserving interval bimodule projection would
-force the two to coincide.  The record layer therefore carries the full
-state-preserving net while its off-diagonal matrix extension across the
-late wall does not exist.
+The matrix no-go has a fixed and narrow scope: there is no complex-linear
+map from the full `M₈(ℂ)` carrier into the specific slot-`(0,1)` algebra
+`algebra01` that simultaneously has range in `algebra01`, obeys the
+`algebra01`-bimodule law, and preserves this committed state.  The slot-two
+conditional weight is `383/415` in the `(s₀,s₁) = (0,0)` cell (`1149 : 96`)
+but `2/89` in the `(0,1)` cell (`2 : 87`), whereas such a fixed-target
+bimodule projection would force equality.
 
-Slots are retained-window positions with no calibrated physical clock.
-The obstruction is a structural fact about the committed record law, a
-slot correlation across the late wall, not a defect of the carrier.  The
-classical net lives on the record layer, and no claim is made that the
-matrix algebra carries a state-compatible regional expectation.  No
-Lorentzian localization, spectrum condition, continuum limit, fields,
-particles, scattering, or detector readback is constructed here.
+This theorem does not rule out ordinary AQFT inclusions with state
+restriction, a different or enlarged target algebra, boundary memory or
+ancillas, generalized expectations, or non-bimodule positive/completely
+positive channels.  Those remain viable enriched routes.  Slots are
+retained-window positions with no calibrated physical clock; no Lorentzian
+localization, spectrum condition, continuum limit, fields, particles,
+scattering, or detector readback is constructed here.
 -/
 
 namespace OPH.QFT.SourceHistoryExpectationNet
@@ -168,9 +164,9 @@ theorem cellWeight_congr {S : Finset (Fin 3)} {g g' : Fin 8}
     (hgg' : agreesOn S g g') : cellWeight S g = cellWeight S g' :=
   Finset.sum_congr rfl fun h _ => by rw [cellIndicator_congr_left hgg' h]
 
-/-! ## The regional conditional expectation -/
+/-! ## Finite-probability regional record conditioning -/
 
-/-- Numerator of the regional conditional expectation: the cell-restricted
+/-- Numerator of the regional record-conditioning map: the cell-restricted
 window-weighted sum of `f`. -/
 def regionalNum (S : Finset (Fin 3)) (f : Fin 8 → ℚ) (g : Fin 8) : ℚ :=
   ∑ h, cellIndicator S g h * windowWeightQ h * f h
@@ -180,8 +176,8 @@ theorem regionalNum_congr {S : Finset (Fin 3)} {g g' : Fin 8}
     regionalNum S f g = regionalNum S f g' :=
   Finset.sum_congr rfl fun h _ => by rw [cellIndicator_congr_left hgg' h]
 
-/-- The conditional expectation of the record observable `f` with respect
-to the empirical window law, given the slots in `S`. -/
+/-- Finite-probability conditioning of the rational record observable `f`
+under the empirical window law, given the slots in `S`. -/
 def regionalExpectation (S : Finset (Fin 3)) (f : Fin 8 → ℚ) (g : Fin 8) : ℚ :=
   regionalNum S f g / cellWeight S g
 
@@ -193,7 +189,7 @@ theorem regionalExpectation_localized {S : Finset (Fin 3)} {g g' : Fin 8}
   unfold regionalExpectation
   rw [regionalNum_congr hgg' f, cellWeight_congr hgg']
 
-/-- Additivity of the regional conditional expectation. -/
+/-- Additivity of the regional record-conditioning map. -/
 theorem regionalExpectation_add (S : Finset (Fin 3)) (f f' : Fin 8 → ℚ) :
     regionalExpectation S (f + f') =
       regionalExpectation S f + regionalExpectation S f' := by
@@ -201,7 +197,7 @@ theorem regionalExpectation_add (S : Finset (Fin 3)) (f f' : Fin 8 → ℚ) :
   simp only [regionalExpectation, regionalNum, Pi.add_apply, mul_add]
   rw [Finset.sum_add_distrib, add_div]
 
-/-- Homogeneity of the regional conditional expectation. -/
+/-- Rational homogeneity of the regional record-conditioning map. -/
 theorem regionalExpectation_smul (S : Finset (Fin 3)) (c : ℚ) (f : Fin 8 → ℚ) :
     regionalExpectation S (c • f) = c • regionalExpectation S f := by
   funext g
@@ -211,14 +207,14 @@ theorem regionalExpectation_smul (S : Finset (Fin 3)) (c : ℚ) (f : Fin 8 → �
         = c * (cellIndicator S g h * windowWeightQ h * f h) by ring]
   rw [← Finset.mul_sum, mul_div_assoc]
 
-/-- The regional conditional expectation is unital. -/
+/-- The regional record-conditioning map is unital. -/
 theorem regionalExpectation_one (S : Finset (Fin 3)) :
     regionalExpectation S 1 = 1 := by
   funext g
   simp only [regionalExpectation, regionalNum, Pi.one_apply, mul_one]
   exact div_self (cellWeight_ne_zero S g)
 
-/-- The regional conditional expectation is positive on nonnegative record
+/-- The regional record-conditioning map is positive on nonnegative record
 observables. -/
 theorem regionalExpectation_nonneg (S : Finset (Fin 3)) (f : Fin 8 → ℚ)
     (hf : ∀ g, 0 ≤ f g) (g : Fin 8) : 0 ≤ regionalExpectation S f g :=
@@ -248,7 +244,7 @@ theorem regionalExpectation_of_localized {S : Finset (Fin 3)} {f : Fin 8 → ℚ
   unfold regionalExpectation
   rw [hnum, mul_div_cancel_right₀ _ (cellWeight_ne_zero S g)]
 
-/-- On the full region the conditional expectation is the identity: the
+/-- On the full region the record-conditioning map is the identity: the
 three slots separate the eight histories. -/
 theorem regionalExpectation_univ (f : Fin 8 → ℚ) :
     regionalExpectation Finset.univ f = f :=
@@ -282,7 +278,7 @@ theorem cellWeight_empty (g : Fin 8) : cellWeight ∅ g = 1754 := by
     sourceWindowCount_apply_7]
   norm_num
 
-/-- The empty-region conditional expectation is the constant empirical
+/-- The empty-region record-conditioning map is the constant empirical
 mean. -/
 theorem regionalExpectation_empty (f : Fin 8 → ℚ) :
     regionalExpectation ∅ f = fun _ => recordMean f := by
@@ -346,14 +342,14 @@ theorem regionalExpectation_tower {S T : Finset (Fin 3)} (hST : S ⊆ T)
       = regionalNum S f g / cellWeight S g
   rw [regionalNum_tower hST f g]
 
-/-- Idempotence of every regional conditional expectation. -/
+/-- Idempotence of every regional record-conditioning map. -/
 theorem regionalExpectation_idem (S : Finset (Fin 3)) (f : Fin 8 → ℚ) :
     regionalExpectation S (regionalExpectation S f) =
       regionalExpectation S f :=
   regionalExpectation_tower (subset_refl S) f
 
-/-- **State preservation.**  Every regional conditional expectation
-preserves the empirical mean: the tower law at the empty region. -/
+/-- **Mean preservation.**  Every regional record-conditioning map preserves
+the empirical mean: the tower law at the empty region. -/
 theorem recordMean_regionalExpectation (S : Finset (Fin 3)) (f : Fin 8 → ℚ) :
     recordMean (regionalExpectation S f) = recordMean f := by
   have h := congrFun
@@ -363,10 +359,9 @@ theorem recordMean_regionalExpectation (S : Finset (Fin 3)) (f : Fin 8 → ℚ) 
 
 /-! ## The bundled net and its inhabitant -/
 
-/-- A state-preserving regional conditional-expectation net on the record
-layer of the source-history carrier: a family of maps indexed by slot
-regions that is linear, unital, positive, localized, tower-compatible,
-and preserves the committed empirical mean. -/
+/-- A legacy-named bundle for the finite-probability record-conditioning
+net on `Fin 8 → ℚ`: the maps are rational-linear, unital, pointwise
+positive, localized, tower-compatible, and preserve the empirical mean. -/
 structure StatePreservingRegionalNet where
   expect : Finset (Fin 3) → (Fin 8 → ℚ) → Fin 8 → ℚ
   map_add : ∀ S f f', expect S (f + f') = expect S f + expect S f'
@@ -377,8 +372,8 @@ structure StatePreservingRegionalNet where
   tower : ∀ S T, S ⊆ T → ∀ f, expect S (expect T f) = expect S f
   statePreserving : ∀ S f, recordMean (expect S f) = recordMean f
 
-/-- The committed window counts inhabit the net: the regional conditional
-expectations of the empirical law satisfy every clause jointly. -/
+/-- The committed counts inhabit this finite-probability conditioning
+bundle: the rational record maps satisfy every listed clause jointly. -/
 def sourceRegionalNet : StatePreservingRegionalNet where
   expect := regionalExpectation
   map_add := regionalExpectation_add
@@ -461,18 +456,20 @@ theorem actionRecordQ_eq_bond_sum :
   simp only [actionRecordQ, bond01RecordQ, bond12RecordQ, Pi.add_apply]
   exact_mod_cast sourceAction_eq_bond_sum g
 
-/-- Every regional expectation preserves the early wall mean `94/1754`. -/
+/-- Every regional record-conditioning map preserves the first-edge wall
+mean `94/1754`. -/
 theorem recordMean_regional_bond01 (S : Finset (Fin 3)) :
     recordMean (regionalExpectation S bond01RecordQ) = 94 / 1754 := by
   rw [recordMean_regionalExpectation, recordMean_bond01]
 
-/-- Every regional expectation preserves the late wall mean `103/1754`. -/
+/-- Every regional record-conditioning map preserves the second-edge wall
+mean `103/1754`. -/
 theorem recordMean_regional_bond12 (S : Finset (Fin 3)) :
     recordMean (regionalExpectation S bond12RecordQ) = 103 / 1754 := by
   rw [recordMean_regionalExpectation, recordMean_bond12]
 
-/-- Every regional expectation preserves the repair mean `197/1754`: the
-wall pairing `94 + 103 = 197` in expectation. -/
+/-- Every regional record-conditioning map preserves the two-edge action-
+incidence mean `197/1754`: the position pairing `94 + 103 = 197`. -/
 theorem recordMean_regional_action (S : Finset (Fin 3)) :
     recordMean (regionalExpectation S actionRecordQ) = 197 / 1754 := by
   rw [recordMean_regionalExpectation, recordMean_action]
@@ -592,8 +589,8 @@ theorem recordDiagonal_action :
   unfold recordDiagonal sourceHistoryHamiltonian
   congr 1
 
-/-- Every regional expectation of the repair action keeps the committed
-mean energy `197/1754` under the density trace. -/
+/-- Every regional conditioning of the two-edge action keeps the committed
+mean `197/1754` under the density trace. -/
 theorem regional_action_matrix_expectation (S : Finset (Fin 3)) :
     EventAlgebra.expectation sourceHistoryDensity
         (recordDiagonal (regionalExpectation S actionRecordQ))
@@ -853,13 +850,14 @@ theorem identity_bimodule_statePreserving :
           = EventAlgebra.expectation sourceHistoryDensity X) :=
   ⟨fun _ _ _ _ _ => rfl, fun _ => rfl⟩
 
-/-- **Obstruction.**  No complex-linear map from the full source-counted
-matrix carrier into the slot-`(0,1)` interval algebra satisfies the
-interval-bimodule law and preserves the committed source state.  The
-committed counts decide it: such a map would give the slot-two projection
-a single conditional weight over the interval algebra, but the `(0,0)`
-cell demands `1149/1245 = 383/415` while the `(0,1)` cell demands
-`2/89`. -/
+/-- **Fixed-target obstruction.**  No complex-linear map from the full
+source-counted matrix carrier into the specific slot-`(0,1)` algebra
+`algebra01` satisfies the `algebra01`-bimodule law and preserves the
+committed source state.  Such a map would give the slot-two projection a
+single conditional weight over `algebra01`, but the `(0,0)` cell demands
+`1149/1245 = 383/415` while the `(0,1)` cell demands `2/89`.  This theorem
+does not address other targets, enlarged carriers, ancillary memory,
+generalized expectations, or non-bimodule positive/CP channels. -/
 theorem no_statePreserving_bimodule_projection_onto_interval01 :
     ¬ ∃ E : HistoryMatrix →ₗ[ℂ] HistoryMatrix,
         (∀ X : HistoryMatrix, E X ∈ algebra01) ∧
@@ -890,11 +888,12 @@ theorem no_statePreserving_bimodule_projection_onto_interval01 :
     linear_combination (1245 * 1754 : ℂ) * e2 - (89 * 1754 : ℂ) * e1
   norm_num at hcontra
 
-/-- **No state-preserving conditional expectation onto the interval
-algebra.**  The standard clause list (range in the interval algebra,
-identity on it, bimodule law, state preservation) is jointly
-unsatisfiable on the committed density; the identity clause is not needed
-for the contradiction. -/
+/-- **No state-preserving conditional expectation onto fixed
+`algebra01`.**  The clause list (range in `algebra01`, identity on it,
+`algebra01`-bimodule law, state preservation) is jointly unsatisfiable on
+the committed density; the identity clause is not needed for the
+contradiction.  This does not forbid a net of inclusions with ordinary
+state restriction or an enriched expectation construction. -/
 theorem no_statePreserving_conditional_expectation_onto_interval01 :
     ¬ ∃ E : HistoryMatrix →ₗ[ℂ] HistoryMatrix,
         (∀ X : HistoryMatrix, E X ∈ algebra01) ∧
@@ -923,8 +922,8 @@ theorem stage_matrixCoefficient (X : HistoryMatrix) :
   rw [colimitGNSUnitClass_expectation, selectedColimitFunctional_stage]
   rfl
 
-/-- State preservation of the net, expressed through the selected GNS
-functional on represented diagonal elements. -/
+/-- Mean preservation of the rational record-conditioning map, expressed
+through the selected GNS functional on represented diagonal elements. -/
 theorem represented_regional_statePreservation (S : Finset (Fin 3))
     (f : Fin 8 → ℚ) :
     ⟪cyclicUnit,
@@ -956,11 +955,10 @@ theorem represented_regional_bond12_coefficient :
 
 /-! ## Bundled receipt -/
 
-/-- One bundled receipt for the source-history state-preserving
-expectation-net rung: the record layer carries the full net with its
-committed wall means and exact conditional witnesses, while the matrix
-carrier admits no state-preserving bimodule projection onto the interval
-algebra. -/
+/-- One bundled receipt for finite-probability record conditioning, its
+committed wall means and exact conditional witnesses, together with the
+narrow matrix no-go: the fixed target `algebra01` admits no
+state-preserving `algebra01`-bimodule projection from this carrier. -/
 theorem sourceHistoryExpectationNetAttachment :
     (∀ S T : Finset (Fin 3), S ⊆ T → ∀ f,
         regionalExpectation S (regionalExpectation T f)

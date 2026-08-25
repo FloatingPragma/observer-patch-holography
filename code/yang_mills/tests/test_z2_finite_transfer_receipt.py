@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import math
 import sys
 from pathlib import Path
@@ -48,7 +49,10 @@ def test_free_control_receipt_is_exact(orbits: z2.Z2GaugeOrbits) -> None:
 
 def test_interacting_wilson_receipt_fails(orbits: z2.Z2GaugeOrbits) -> None:
     r = z2.evaluate(orbits, "wilson", beta_s=0.5, beta_t=0.5)
-    assert r["doob_generator_is_markov"]
+    assert r["doob_generator_rows_sum_zero"]
+    # Row conservation alone is not the Markov sign condition; the Wilson
+    # logarithm has positive off-diagonal entries at this interacting point.
+    assert not r["doob_generator_offdiagonal_nonpositive"]
     assert r["constant_rate_fit"]["relative_frobenius_residual"] > 1e-2
     assert r["fiber_dependent_rates"]["offdiagonal_mass_outside_single_flip"] > 1.0
     assert r["fiber_dependent_rates"]["spread_max_over_min"] > 1.01
@@ -57,13 +61,16 @@ def test_interacting_wilson_receipt_fails(orbits: z2.Z2GaugeOrbits) -> None:
 def test_kogut_susskind_single_flip_exact_but_fiber_dependent(orbits: z2.Z2GaugeOrbits) -> None:
     r = z2.evaluate(orbits, "kogut_susskind", lam=1.0)
     fib = r["fiber_dependent_rates"]
-    assert r["doob_generator_is_markov"]
+    assert r["doob_generator_rows_sum_zero"]
     assert r["doob_generator_offdiagonal_nonpositive"]
     assert fib["offdiagonal_mass_outside_single_flip"] < 1e-9
     assert fib["all_rates_positive"]
     assert fib["spread_max_over_min"] > 1.01
     # exact rate formula c = lam (r + 1/r) with r = Omega(o)/Omega(o') >= 2 lam
     assert fib["rate_min"] >= 2.0 - 1e-9
+    floor = r["variable_rate_floor"]
+    assert floor["lower_bound_value"] == pytest.approx(2.0)
+    assert floor["numerical_min_respects_bound"] is True
 
 
 def test_committed_receipt_matches_code() -> None:
@@ -71,6 +78,10 @@ def test_committed_receipt_matches_code() -> None:
     receipt = json.loads(path.read_text(encoding="utf-8"))
     assert receipt["schema"] == z2.SCHEMA
     assert receipt["physical_clay_receipt"] is False
+    assert receipt["grid_scope"]["universal_no_go"] is False
+    assert receipt["producer_sha256"] == hashlib.sha256(
+        (HERE / "z2_finite_transfer_receipt.py").read_bytes()
+    ).hexdigest()
     controls = [r for r in receipt["runs"] if r.get("control") == "beta_s_zero"]
     assert controls and all(
         r["constant_rate_fit"]["relative_frobenius_residual"] < 1e-10 for r in controls
@@ -79,10 +90,13 @@ def test_committed_receipt_matches_code() -> None:
     assert interacting and all(
         r["constant_rate_fit"]["relative_frobenius_residual"] > 1e-3 for r in interacting
     )
-    # reproduce one L=2 row exactly
-    orbits = z2.Z2GaugeOrbits(2)
-    row = next(r for r in interacting if r["L"] == 2)
-    fresh = z2.evaluate(orbits, "wilson", **row["parameters"])
-    assert fresh["constant_rate_fit"]["relative_frobenius_residual"] == pytest.approx(
-        row["constant_rate_fit"]["relative_frobenius_residual"], rel=1e-9
+    local_runs = [r for r in receipt["runs"] if r["transfer"] == "kogut_susskind"]
+    assert local_runs and all(
+        r["variable_rate_floor"]["numerical_min_respects_bound"] for r in local_runs
     )
+    fresh = z2.run([2, 3], [0.1, 0.3, 0.5, 0.7, 1.0], [0.5, 1.0, 2.0])
+    assert fresh == receipt
+    expected_runs_hash = hashlib.sha256(
+        json.dumps(receipt["runs"], sort_keys=True).encode("utf-8")
+    ).hexdigest()
+    assert receipt["sha256_of_runs"] == expected_runs_hash
