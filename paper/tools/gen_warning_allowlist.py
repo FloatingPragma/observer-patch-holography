@@ -12,13 +12,27 @@ source line-range is stable across rebuilds. Overfull boxes are never budgeted.
 
 Usage:
   1. Build all source-derived papers and the book with the canonical builders.
-  2. Pass every registered paper directory plus the current book log:
-       python3 paper/tools/gen_warning_allowlist.py \
-         paper extra cosmology temp/book_pdf_build/book_manuscript.log
+  2. Pass every registered paper log plus the current book log. Enumerate the
+     logs from ``build_tex_papers.ALL_PAPERS`` rather than naming directories,
+     because that mapping is the paper set the warning gate itself checks:
+
+       python3 - <<'PY'
+       import sys; sys.path.insert(0, "tools")
+       import build_tex_papers as ps
+       print("\n".join(str(p.with_suffix(".log")) for p in ps.ALL_PAPERS.values()))
+       PY
+
+     Naming directories by hand has already drifted from the paper set. A
+     hand-typed list that omits one directory silently shrinks the budget with
+     no error, and the run still reports success: ``paper extra`` drops the
+     cosmology logs, and ``paper extra cosmology`` drops the flagship log,
+     which lives in ``PAPERS`` under ``FLAGSHIP_DIR`` rather than in a
+     directory of its own.
 
 Every supplied log is used. The canonical warning budget therefore includes
-the core, supplemental, cosmology, and book logs; it never silently inherits
-the membership of an older allowlist.
+the flagship, core, supplemental, cosmology, and book logs; it never silently
+inherits the membership of an older allowlist. Compare the regenerated file
+against the committed one and confirm no log was dropped before staging it.
 """
 from __future__ import annotations
 
