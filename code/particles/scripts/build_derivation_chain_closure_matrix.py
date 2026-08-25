@@ -128,15 +128,19 @@ def build_payload() -> dict[str, Any]:
         },
         {
             "chain": "hierarchy_naturality_bridge",
-            "status": "exact_conditional_selected_branch__full_resonance_not_promoted",
-            "claim_level": "exact_conditional_selected_branch_source_side_theorem",
+            "status": "conditional_hierarchy_bridge__declared_naturality_identity_not_promoted",
+            "claim_level": "conditional_bridge_plus_declared_map_packaging_identity",
             "outputs": {
                 "N_CRC_EW": hierarchy_capacity_root["N_CRC_EW"],
                 "bridge_residual": hierarchy_capacity_root["bridge_residual"],
-                "epsilon_H": hierarchy_naturality["epsilon_H"],
+                "declared_map_epsilon_H": hierarchy_naturality["epsilon_H"],
             },
             "promotable": False,
-            "required_receipts": hierarchy_resonance["work_in_progress_receipts"],
+            "required_receipts": hierarchy_resonance["work_in_progress_receipts"]
+            + [
+                "source-derived RG/Higgs comparison maps",
+                "independent evaluation of both naturality residuals",
+            ],
             "evidence_artifacts": [
                 "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
                 "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
@@ -148,8 +152,10 @@ def build_payload() -> dict[str, Any]:
             ],
             "work_in_progress_receipts": hierarchy_resonance["work_in_progress_receipts"],
             "claim_boundary": (
-                "The hierarchy relation is exact under the declared screen premises; Higgs "
-                "naturality is exact on its selected branch. The public Thomson endpoint, W/Z "
+                "The hierarchy implication is exact under the declared screen premises. The stored "
+                "zero naturality defect follows only for separately declared comparison maps; the "
+                "source antecedents admit nonzero-defect completions, so source-derived maps and an "
+                "independent residual evaluation remain open. The public Thomson endpoint, W/Z "
                 "mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, "
                 "and full SI G are separate surfaces."
             ),

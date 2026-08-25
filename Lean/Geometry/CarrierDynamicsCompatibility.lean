@@ -90,8 +90,9 @@ WHAT IS PROVED.
 
 * Refinement compatibility at the committed barycentric level.  The
   matrix transport of the carrier extension commutes with the committed
-  refinement by exact scaling (`carrier_transport_refine`, ray-level
-  corollary `carrier_transport_refine_sameRay`); the aligned face-level
+  refinement by exact scaling (`carrier_transport_refine`, algebraic
+  `SameRay` corollary `carrier_transport_refine_sameRay`, including its
+  explicitly degenerate zero cases); the aligned face-level
   transport identity holds for both generators (`bary_transport_A`,
   `bary_transport_B`), with the coordinate alignment given by exact
   tables re-verified against the committed face table (`alignA_sound`,
@@ -808,8 +809,10 @@ theorem carrier_transport_refine (M : Fin 3 → Fin 3 → Zphi)
 
 noncomputable section
 
-/-- Ray-level corollary: the transported image of a refined barycentric
-point lies on the same ray as the transported image of the point. -/
+/-- Algebraic `SameRay` corollary under nonnegative scaling.  It also holds
+degenerately when `m = 0` or when the transported vector is zero; this theorem
+alone therefore does not assert that either vector determines a geometric
+ray. -/
 theorem carrier_transport_refine_sameRay (M : Fin 3 → Fin 3 → Zphi)
     (pm : Fin 12 → VecZ) (m : ℕ) (f : Fin 20) (x : Barycentric) :
     SameRay ℝ

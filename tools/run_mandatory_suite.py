@@ -787,6 +787,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "paper/tools/test_check_build_warnings.py",
+            "paper/tools/test_gen_warning_allowlist.py",
             "tools/test_reproducible_build_env.py",
         ],
     ),

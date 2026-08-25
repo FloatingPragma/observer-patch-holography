@@ -64,9 +64,10 @@ Deux registres portent le bilan quantitatif. Le
 comparaison : chaque confrontation certifiée à une valeur mesurée, avec
 ses prémisses et l’ascendance de ses entrées sur la ligne. L’
 [échelle des prédictions gelées](docs/FROZEN_PREDICTION_LADDER.md) est
-l’instrument prospectif : des positions enregistrées avec garde
-cryptographique et bandes d’élimination avant tout examen des données de
-comparaison, avec des règles fixes qui permettent leur réfutation par des
+l’instrument prospectif : elle consigne l’état réel de garde de chaque ligne
+et exige qu’une prédiction armée lie sa position et sa bande d’élimination
+avant tout examen des données de comparaison admissibles, avec des règles
+fixes qui permettent sa réfutation par des
 mesures admissibles.
 
 ## Une seule architecture, toute la physique
@@ -116,9 +117,10 @@ simulations reproductibles :
 - **Vérifié machine et falsifiable.** Plus de 8200 théorèmes Lean sans
   preuve admise, de l’arithmétique rationnelle exacte à la place de la
   confiance en virgule flottante, et des simulations déterministes avec
-  reçus épinglés. Une échelle de prédictions gelées enregistre des bandes
-  d’élimination sous garde cryptographique avant l’examen des données de
-  comparaison, de sorte qu’OPH s’engage à l’avance sur ce qui la réfuterait.
+  reçus épinglés. L’échelle des prédictions gelées exige que toute comparaison
+  armée lie sa bande d’élimination et sa garde avant l’examen des données
+  admissibles ; les lignes qui franchissent cette porte s’engagent ainsi à
+  l’avance sur ce qui les réfuterait.
 
 Les articles liés donnent le statut précis de chaque étape. Ensemble, ces
 résultats tracent une voie testable des trois axiomes d’observateurs vers une

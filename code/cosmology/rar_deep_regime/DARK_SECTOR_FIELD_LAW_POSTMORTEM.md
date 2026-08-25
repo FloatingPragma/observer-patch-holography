@@ -1,4 +1,4 @@
-# Tested unscreened QUMOND response: Cassini postmortem
+# Fixed-input QUMOND response: Cassini and certification boundary
 
 Status: executable-evidence note, 2026-08-24. This note is scoped to the two
 interpolation functions and fixed inputs recomputed by
@@ -16,24 +16,32 @@ with either the simple or radial-acceleration interpolation function. Applied
 unchanged to the Sun in the Galactic external field, the radial-acceleration
 function at the declared Park et al. inputs gives
 `Q_2 = 3.39e-26 s^-2`, compared with the Cassini estimate
-`(1.6 +- 1.8)e-27 s^-2`. This fixed-input response is in strong tension.
+`(1.6 +- 1.8)e-27 s^-2`. The published fixed-input response is in strong
+tension with that benchmark.
 
-The independent inner-multipole computation in this directory reproduces the
+The inner-multipole computation in this directory reproduces the
 Blanchet--Novak simple-function value to about two percent and the Park et al.
-radial-acceleration benchmark to `8e-5`. The result therefore does not appear
-to be a numerical-integration error.
+radial-acceleration central value to `8e-5`. This agreement is useful
+diagnostically, but the local integrations emit thousands of warnings and
+have neither a singularity-aware split nor certified radial-tail bounds. The
+local receipt therefore does not establish that its residual error is small
+and cannot independently certify the published tension.
 
-## What was retired
+## What the local receipt does not decide
 
-The tested OPH continuation was retired because it applied the unscreened
-QUMOND response at both galactic and Solar-System scales. Its phantom halo is
-anisotropic in an external field and produces the excluded quadrupole at the
-declared inputs. The post-hoc applicability switch and the later rotor wrapper
-did not supply a derived screening mechanism.
+The historical OPH continuation applied the unscreened QUMOND response at both
+galactic and Solar-System scales. Its phantom halo is anisotropic in an
+external field, and published calculations report a quadrupole incompatible
+with the declared Cassini comparison. That published result can motivate
+setting the continuation aside, but the current local receipt is not an
+independent numerical retirement certificate. Such a certificate needs a
+singularity-aware formulation, retained cubature errors, analytic or rigorous
+tail bounds, cutoff and precision refinement, and an independent
+high-precision replay.
 
-This establishes a no-go only for that frozen response grammar and its
-declared parameters. It does not establish that every possible local field
-law is excluded. Rapid-transition functions, derived screening or
+Even a certified exclusion would apply only to that fixed response grammar
+and its declared parameters. It would not establish that every possible local
+field law is excluded. Rapid-transition functions, derived screening or
 environmental dependence, extra degrees of freedom, nonlocal responses, and
 dynamical completions remain logically viable until individually specified
 and tested. Such a route must earn its extra structure prospectively rather
@@ -56,11 +64,13 @@ channel.
 That arithmetic does not derive the density branch. The galactic-scale
 carrier attachment, transition profile, full relativistic stress (including
 pressure and anisotropic stress), lensing relation, normalization, and joint
-likelihood remain open. The corrected SPARC diagnostic also reports a
-normalization tension under its fixed mass-to-light, equal-point protocol;
-its finite-radius `Vflat` input is only an asymptotic-speed proxy and the
-baryonic contribution there is not subtracted. That diagnostic neither
-validates nor cleanly falsifies the density continuation.
+likelihood remain open. The current matched SPARC diagnostic excludes
+bulge-ambiguous galaxies and gives a paired interval containing zero after
+changing the observable, radius, sample, and combination rule together. This
+is consistent with a mixed-proxy explanation of the older displacement but
+does not causally isolate it and neither validates nor falsifies the density
+continuation. The separate penalized objective is an uncalibrated sensitivity
+analysis, not a source-value rejection band.
 
 ## Receipts
 

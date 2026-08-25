@@ -135,12 +135,12 @@ theorem spectrum_multiplicities :
         expectedPairCount .threefoldTwofold ∧
       emittedPairCount .twofoldTwofold =
         expectedPairCount .twofoldTwofold := by
-  native_decide
+  decide
 
 /-- Across the six rows the receipt accounts for all 465 axis pairs. -/
 theorem spectrum_total_multiplicity :
     ∑ i : Fin 16, (spectrumEntry i).multiplicity = 465 := by
-  native_decide
+  decide
 
 private theorem sqrt_five_sq : (Real.sqrt 5) ^ 2 = 5 :=
   Real.sq_sqrt (by norm_num)

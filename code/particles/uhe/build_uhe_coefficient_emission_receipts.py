@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Build the high-energy messenger coefficient-emission receipt scaffold.
+"""Build the high-energy messenger coefficient-emission algebra scaffold.
 
-This is a paper-stack mirror for the simulator coefficient-emitter. It freezes
-the objects required for a source-only UHE coefficient claim, but it does not
-analyze neutrino, cosmic-ray, or gamma event data and does not promote any
-messenger excess into an OPH detection.
+This is a paper-stack mirror for the simulator coefficient-emitter.  The
+default values are planted examples: no source artifact is loaded, no moment
+interiority or feature-minimality calculation is performed, and no coefficient
+solve is run.  Therefore this script cannot emit a source receipt or authorize
+promotion.  It also checks that an optional configuration does not smuggle UHE
+target data into the source side.
 """
 
 from __future__ import annotations
@@ -111,7 +113,7 @@ def target_leak_hits(config: Path | None) -> list[str]:
     return sorted(token for token in FORBIDDEN_SOURCE_TOKENS if token in haystack)
 
 
-def default_coefficients() -> dict[str, Any]:
+def example_coefficients() -> dict[str, Any]:
     binary_eta = logit(0.70) - logit(0.40)
     poisson_eta = math.log(6.0 / 2.0)
     finite_eta = [0.25, 0.35, -0.20, 0.10, 0.05]
@@ -135,23 +137,31 @@ def default_coefficients() -> dict[str, Any]:
 def build_payloads(*, config: Path | None) -> dict[str, str | dict[str, Any]]:
     leak_hits = target_leak_hits(config)
     receipts = {
-        "BASELINE_FULL_SUPPORT": True,
-        "FEATURE_MINIMALITY": True,
-        "MOMENT_INTERIOR": True,
-        "SOURCE_LOAD_QUOTIENT_VISIBLE": True,
+        "BASELINE_FULL_SUPPORT": False,
+        "FEATURE_MINIMALITY": False,
+        "MOMENT_INTERIOR": False,
+        "SOURCE_LOAD_QUOTIENT_VISIBLE": False,
         "NO_UHE_DATA_USE": not leak_hits,
-        "REFINEMENT_COMPATIBILITY": True,
-        "COEFFICIENT_SOLVE_CONVERGED": True,
-        "COMMON_SOURCE_LOCK": True,
+        "REFINEMENT_COMPATIBILITY": False,
+        "COEFFICIENT_SOLVE_CONVERGED": False,
+        "COMMON_SOURCE_LOCK": False,
     }
-    claim = "SOURCE_ONLY_COEFFICIENT_EMITTED" if all(receipts.values()) else "INVALIDATED_COEFFICIENT_DAG"
-    coeffs = default_coefficients()
+    claim = (
+        "SYNTHETIC_COEFFICIENT_SCAFFOLD_ONLY"
+        if receipts["NO_UHE_DATA_USE"]
+        else "INVALIDATED_COEFFICIENT_DAG"
+    )
+    coeffs = example_coefficients()
     base = {
         "generated_utc": now_utc(),
-        "artifact_type": "UHE_COEFFICIENT_EMISSION_RECEIPT",
+        "artifact_type": "UHE_COEFFICIENT_EMISSION_SCAFFOLD",
         "claim": claim,
         "physical_claim": False,
+        "synthetic_fixture": True,
+        "source_artifact_bound": False,
+        "promotion_allowed": False,
         "readiness_gates": receipts,
+        "readiness_gate_status": "UNVERIFIED_EXCEPT_NO_UHE_DATA_USE",
         "nonclaims": list(NONCLAIMS),
     }
     source_dag = {
@@ -159,7 +169,11 @@ def build_payloads(*, config: Path | None) -> dict[str, str | dict[str, Any]]:
         "artifact": "uhe_source_dag",
         "forbidden_source_tokens": list(FORBIDDEN_SOURCE_TOKENS),
         "target_leak_hits": leak_hits,
-        "status": "PASS_EMPTY_COMPARISON_DAG" if not leak_hits else "FAIL_FORBIDDEN_SOURCE_INPUT",
+        "status": (
+            "PASS_NO_FORBIDDEN_INPUTS_SCAFFOLD_ONLY"
+            if not leak_hits
+            else "FAIL_FORBIDDEN_SOURCE_INPUT"
+        ),
     }
     feature_map = {
         "feature_names": [
@@ -170,6 +184,7 @@ def build_payloads(*, config: Path | None) -> dict[str, str | dict[str, Any]]:
             "Ahat_r*H_hidden",
         ],
         "minimality_receipt": receipts["FEATURE_MINIMALITY"],
+        "minimality_check_run": False,
         "hash": stable_hash(["Ahat_r", "C_compact", "H_hidden", "Ahat_r*C_compact", "Ahat_r*H_hidden"]),
     }
     return {
@@ -190,20 +205,23 @@ def build_payloads(*, config: Path | None) -> dict[str, str | dict[str, Any]]:
             **base,
             "artifact": "uhe_source_law",
             "law": "mu_r^rel(q)=Z_r^-1 m_r(q) exp[-S_r(q)]",
-            "source_only": not leak_hits,
+            "source_only": False,
+            "source_law_instantiated": False,
         },
         "source_loads.json": {
             **base,
             "artifact": "compact_engine_source_loads",
             "observable": "L_alpha,r^CE(q;g)=Pi_g,r sum_C V_C,r^phys omega_alpha,r S_nu,r,C",
-            "quotient_visible": True,
+            "quotient_visible": False,
+            "source_loads_supplied": False,
             "forbidden": "event coordinates, event energies, residual maps, likelihood values",
         },
         "baseline_measure.json": {
             **base,
             "artifact": "uhe_baseline_measure",
-            "full_support": True,
-            "fixed_before_uhe_comparison": True,
+            "full_support": False,
+            "baseline_supplied": False,
+            "fixed_before_uhe_comparison": False,
         },
         "feature_map.json": {**base, "artifact": "uhe_feature_map", **feature_map},
         "moment_targets.json": {
@@ -211,19 +229,22 @@ def build_payloads(*, config: Path | None) -> dict[str, str | dict[str, Any]]:
             "artifact": "uhe_source_moment_targets",
             "definition": "c_alpha,r(g)=N_alpha,r E_mu[L_alpha,r^CE(Q;g)]",
             "target_data_inputs_allowed": False,
+            "source_moments_supplied": False,
         },
         "coefficient_solver.json": {
             **base,
             "artifact": "uhe_coefficient_solver",
-            "solver": "deterministic damped Newton solve of A(eta)-eta.c",
-            "converged": True,
+            "solver": "not run; deterministic damped Newton is the intended production solver",
+            "converged": False,
+            "solver_status": "PLANTED_EXAMPLE_VALUES_ONLY",
             "receipts_checked": list(REQUIRED_RECEIPTS),
         },
         "emitted_coefficients.json": {
             **base,
             "artifact": "uhe_emitted_coefficients",
             "coefficients": coeffs,
-            "common_source_lock": True,
+            "coefficient_status": "PLANTED_EXAMPLES_NOT_SOURCE_DERIVED",
+            "common_source_lock": False,
             "species_downstream_only": ["neutrino", "cosmic_ray", "gamma"],
         },
         "source_dag.json": source_dag,
@@ -231,13 +252,18 @@ def build_payloads(*, config: Path | None) -> dict[str, str | dict[str, Any]]:
             **base,
             "artifact": "uhe_claim_ladder",
             "claim_tiers": [
+                "SYNTHETIC_COEFFICIENT_SCAFFOLD_ONLY",
                 "SOURCE_ONLY_COEFFICIENT_EMITTED",
                 "CONDITIONAL_SOURCE_MODEL",
                 "FITTED_OPH_COEFFICIENT",
                 "INVALIDATED_COEFFICIENT_DAG",
             ],
             "required_receipts": list(REQUIRED_RECEIPTS),
-            "first_blocked_gate": None if all(receipts.values()) else "NO_UHE_DATA_USE",
+            "first_blocked_gate": (
+                "SOURCE_ARTIFACT_AND_COMPUTED_READINESS_RECEIPTS"
+                if receipts["NO_UHE_DATA_USE"]
+                else "NO_UHE_DATA_USE"
+            ),
         },
         "claim.md": claim + "\n",
     }
@@ -271,19 +297,23 @@ def build_bundle(out_dir: Path, *, config: Path | None = None) -> dict[str, Any]
         "artifact": "uhe_coefficient_emission_manifest",
         "generated_utc": now_utc(),
         "milestone": "UHE_COEFFICIENT_EMISSION_AUDIT",
-        "artifact_type": "UHE_COEFFICIENT_EMISSION_RECEIPT",
+        "artifact_type": "UHE_COEFFICIENT_EMISSION_SCAFFOLD",
         "strongest_allowed_claim": claim,
         "first_blocked_gate": ladder.get("first_blocked_gate"),
-        "promotion_allowed": claim == "SOURCE_ONLY_COEFFICIENT_EMITTED",
+        "promotion_allowed": False,
         "physical_claim": False,
+        "synthetic_fixture": True,
+        "source_artifact_bound": False,
         "required_files": list(REQUIRED_FILES),
         "missing_files": missing,
         "target_leak_hits": source_dag.get("target_leak_hits", []),
         "file_hashes": file_hashes,
     }
     write_payload(out_dir / "manifest.json", manifest)
-    manifest["file_hashes"]["manifest.json"] = sha256_bytes((out_dir / "manifest.json").read_bytes())
-    write_payload(out_dir / "manifest.json", manifest)
+    # A file cannot contain its own byte hash without a separately specified
+    # canonicalization/fixed-point convention.  Hash only the other bundle
+    # members; the old write-then-rewrite sequence stored a necessarily stale
+    # manifest self-hash.
     return manifest
 
 

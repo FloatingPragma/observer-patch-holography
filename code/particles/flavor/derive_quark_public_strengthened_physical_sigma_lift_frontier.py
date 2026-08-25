@@ -121,6 +121,13 @@ def build_artifact(
                 "artifact": exact_forward["artifact"],
                 "forward_certified": exact_forward["forward_certified"],
                 "certification_status": exact_forward["certification_status"],
+                "forward_certification_scope": exact_forward.get(
+                    "forward_certification_scope"
+                ),
+                "source_certified": exact_forward.get("source_certified", False),
+                "predictive_promotion_allowed": exact_forward.get(
+                    "predictive_promotion_allowed", False
+                ),
                 "physical_yukawa_certified": False,
                 "singular_values_u": exact_forward["singular_values_u"],
                 "singular_values_d": exact_forward["singular_values_d"],
@@ -139,6 +146,13 @@ def build_artifact(
                 "artifact": exact_forward["artifact"],
                 "forward_certified": exact_forward["forward_certified"],
                 "certification_status": exact_forward["certification_status"],
+                "forward_certification_scope": exact_forward.get(
+                    "forward_certification_scope"
+                ),
+                "source_certified": exact_forward.get("source_certified", False),
+                "predictive_promotion_allowed": exact_forward.get(
+                    "predictive_promotion_allowed", False
+                ),
                 "physical_yukawa_certified": False,
                 "singular_values_u": exact_forward["singular_values_u"],
                 "singular_values_d": exact_forward["singular_values_d"],

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
 import subprocess
@@ -39,6 +40,10 @@ def test_build_hadron_source_backend_receipts(tmp_path: pathlib.Path) -> None:
 
     for rel_path in manifest["required_files"]:
         assert (out_dir / rel_path).is_file(), rel_path
+    assert "manifest.json" not in manifest["file_hashes"]
+    for rel_path, expected in manifest["file_hashes"].items():
+        actual = "sha256:" + hashlib.sha256((out_dir / rel_path).read_bytes()).hexdigest()
+        assert actual == expected, rel_path
 
     source_dag = json.loads((out_dir / "source_dag.json").read_text(encoding="utf-8"))
     assert source_dag["comparison_data_excluded"] is True

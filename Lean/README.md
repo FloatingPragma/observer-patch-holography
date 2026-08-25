@@ -6,7 +6,7 @@ normal forms, coupling algebra, the screen/trichotomy arithmetic, and the
 exact algebraic/compositional kernel of the typed Einstein branch. It also
 checks the finite de Sitter capacity-transfer identities, the eigenvalue signs
 of the declared analytic Hessian action, and the pure-de-Sitter shock
-normalization. The source contains no admitted proofs. Twenty-three finite
+normalization. The source contains no admitted proofs. Thirteen finite
 proofs use `native_decide`, whose generated native-code evaluation axioms are
 tracked by `tools/check_lean_native_decide_inventory.py`; the other audited
 proofs state their axiom dependencies in their module reports. Continuum

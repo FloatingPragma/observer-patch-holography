@@ -75,6 +75,11 @@ def build_artifact(
                 "step": 1,
                 "artifact": bridge["artifact"],
                 "lemma": "light_quark_overlap_defect_value_law / quark_d12_t1_value_law",
+                "input_classification": "conditional_identity_with_target_anchored_evaluation",
+                "bridge_proof_status": bridge.get("proof_status"),
+                "bridge_public_promotion_allowed": bridge.get(
+                    "public_promotion_allowed"
+                ),
                 "result": {
                     "Delta_ud_overlap": bridge["equivalent_wrappers"]["light_quark_overlap_defect_value_law"],
                     "t1": bridge["equivalent_wrappers"]["quark_d12_t1_value_law"],
@@ -112,6 +117,15 @@ def build_artifact(
                     "scope": exact_forward_yukawas["scope"],
                     "forward_certified": exact_forward_yukawas["forward_certified"],
                     "certification_status": exact_forward_yukawas["certification_status"],
+                    "forward_certification_scope": exact_forward_yukawas.get(
+                        "forward_certification_scope"
+                    ),
+                    "source_certified": exact_forward_yukawas.get(
+                        "source_certified", False
+                    ),
+                    "predictive_promotion_allowed": exact_forward_yukawas.get(
+                        "predictive_promotion_allowed", False
+                    ),
                 },
             },
         ],
@@ -121,6 +135,15 @@ def build_artifact(
             "scope": exact_forward_yukawas["scope"],
             "forward_certified": exact_forward_yukawas["forward_certified"],
             "certification_status": exact_forward_yukawas["certification_status"],
+            "forward_certification_scope": exact_forward_yukawas.get(
+                "forward_certification_scope"
+            ),
+            "source_certified": exact_forward_yukawas.get(
+                "source_certified", False
+            ),
+            "predictive_promotion_allowed": exact_forward_yukawas.get(
+                "predictive_promotion_allowed", False
+            ),
             "singular_values_u": exact_forward_yukawas["singular_values_u"],
             "singular_values_d": exact_forward_yukawas["singular_values_d"],
             "matrix_kind": matrix_audit.get(

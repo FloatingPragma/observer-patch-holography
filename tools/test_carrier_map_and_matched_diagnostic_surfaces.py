@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
 import yaml
 
 
@@ -50,6 +51,7 @@ def test_carrier_map_claim_stays_a_candidate() -> None:
     for token in ("candidate throughout",
                   "no clause identifies a port with a physical direction",
                   "sixty-word certificate",
+                  "positive refinement factor",
                   "declared selection among valid equivariant embeddings",
                   "not consumed and not discharged"):
         assert token in statement, token
@@ -59,21 +61,28 @@ def test_carrier_map_claim_stays_a_candidate() -> None:
 
 def test_matched_diagnostic_claim_is_direction_neutral() -> None:
     statement = _claim(DM_CLAIM)["statement"]
-    for token in ("v_A^2 = v_obs^2 - v_bar^2",
+    for token in ("97-galaxy common set",
                   "containing zero",
-                  "proxy mismatch",
-                  "no confirmation of OPH is claimed",
-                  "not the preregistered joint likelihood"):
+                  "consistent with a mixed-proxy explanation",
+                  "do not causally identify",
+                  "not a calibrated likelihood or OPH confirmation"):
         assert token in statement, token
 
 
 def test_matched_receipt_carries_the_quoted_numbers() -> None:
     receipt = json.loads((ROOT / DM_RECEIPT).read_text(encoding="utf-8"))
-    blob = json.dumps(receipt)
-    for token in ("8.75", "8.41", "115"):
-        assert token in blob, token
+    primary = receipt["primary_fraction_0p1"]
+    assert primary["channel_a_rar"]["a0_m_s2"] == pytest.approx(8.750402e-11)
+    assert primary["paired_common_set"]["channel_a_common_a0_m_s2"] == pytest.approx(
+        8.533413e-11)
+    assert primary["channel_b_matched"]["a0_unweighted_log_mean_m_s2"] == pytest.approx(
+        7.688961e-11)
+    assert primary["paired_common_set"]["n_common_galaxies"] == 97
+    assert primary["channel_b_matched"][
+        "n_excluded_bulge_luminosity_ambiguous"] == 18
     statement = _claim(DM_CLAIM)["statement"]
-    for token in ("8.42e-11", "8.75e-11", "[-0.080, +0.046]", "-0.017"):
+    for token in ("8.750e-11", "8.533e-11", "7.689e-11",
+                  "[-0.1166, +0.0264]", "-0.0453"):
         assert token in statement, token
 
 
@@ -82,7 +91,8 @@ def test_replay_claim_and_package() -> None:
     for token in ("TRANSCRIPT_REPLAY_VERIFIED_UNAUTHENTICATED",
                   "PRODUCER_AUTHENTICATION_UNIMPLEMENTED",
                   "fails closed",
-                  "owner freezes it before any producer transcript"):
+                  "must be owner-frozen before a producer transcript",
+                  "larger remaining conjunction"):
         assert token in statement, token
     base = ROOT / "code/phase_instrument_export/v2"
     for name in ("PRIMITIVE_GENERATION_SEMANTICS.md",
@@ -97,8 +107,8 @@ def test_ym_claim_keeps_finite_scope() -> None:
     statement = _claim(YM_CLAIM)["statement"]
     for token in ("minimum fiber rate",
                   "uniformly in every fiber ratio",
-                  "no mass gap, no Clay-problem step",
-                  "exact open gap"):
+                  "any mass-gap or Clay-problem step",
+                  "committed non-product L=2,3 orbit laws"):
         assert token in statement, token
     receipt = json.loads((ROOT / (
         "code/yang_mills/receipts/"
@@ -110,7 +120,8 @@ def test_ym_claim_keeps_finite_scope() -> None:
 def test_lean_modules_carry_headline_declarations() -> None:
     expectations = {
         MAP_LEAN: ("ScreenCarrierMapCandidate", "candidate_gram_bridge",
-                   "candidate_dot_table"),
+                   "candidate_dot_table", "evalVec_ne_zero",
+                   "baryCarrier_refine_meshRay"),
         YM_LEAN: ("OPH.KogutSusskindFiberRate", "two_mul_le_fiberRate",
                   "fiberRate_eq_two_mul_iff"),
     }
@@ -126,12 +137,13 @@ def test_owner_papers_carry_the_results() -> None:
                   "declared rather than forced"):
         assert token in observers, token
     dark = _collapsed("cosmology/oph_dark_matter_paper.tex")
-    for token in ("matched diagnostic removes the proxy mismatch",
-                  "contains zero", "Consistency on seen data selects nothing"):
+    for token in ("matched diagnostic removes the mixed observable",
+                  "contains zero", "Consistency on seen data selects nothing",
+                  "does not causally isolate"):
         assert token in dark, token
     ym = _collapsed("extra/yang_mills_gap_clay_problem.tex")
     for token in ("KogutSusskindFiberRateComparison",
-                  "minimum fiber rate", "exact open step"):
+                  "minimum fiber rate", "named residual steps"):
         assert token in ym, token
 
 
@@ -143,7 +155,8 @@ def test_ledger_rows_cite_without_promotion() -> None:
     assert "declared, not forced" in rows["OL-N1"]["notes"]
     assert rows["OL-N1"]["status"] == "owed"
     assert DM_PY in rows["OL-I3"]["evidence"]
-    assert "neither confirms nor selects" in rows["OL-I3"]["notes"]
+    assert "selects no model" in rows["OL-I3"]["notes"]
+    assert "does not causally isolate" in rows["OL-I3"]["notes"]
     assert rows["OL-I3"]["status"] == "owed"
     assert REPLAY_PY in rows["OL-C5"]["evidence"]
     assert rows["OL-C5"]["status"] == "partial"

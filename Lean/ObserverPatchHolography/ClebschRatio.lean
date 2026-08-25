@@ -80,11 +80,23 @@ theorem assignment_light_ratio_factors :
 theorem every_assignment_is_weight_permutation :
     ∀ assignment ∈ assignments,
       [assignment.b, assignment.s, assignment.d].Perm [1 / 3, 1, 3] := by
-  native_decide
+  intro assignment h
+  simp only [assignments, List.mem_cons, List.not_mem_nil, or_false] at h
+  rcases h with rfl | rfl | rfl | rfl | rfl | rfl
+  · exact List.Perm.swap _ _ _
+  · exact (List.Perm.swap _ _ _).trans
+      (List.Perm.cons _ (List.Perm.swap _ _ _))
+  · exact (List.Perm.cons _ (List.Perm.swap _ _ _)).trans
+      ((List.Perm.swap _ _ _).trans
+        (List.Perm.cons _ (List.Perm.swap _ _ _)))
+  · exact List.Perm.refl _
+  · exact (List.Perm.cons _ (List.Perm.swap _ _ _)).trans
+      (List.Perm.swap _ _ _)
+  · exact List.Perm.cons _ (List.Perm.swap _ _ _)
 
 /-- No generation assignment occurs twice in the declared table. -/
 theorem assignments_nodup : assignments.Nodup := by
-  native_decide
+  norm_num [assignments]
 
 /-- The assignment table has the cardinality of all permutations of three
 distinct weights. Together with the preceding membership and no-duplicate

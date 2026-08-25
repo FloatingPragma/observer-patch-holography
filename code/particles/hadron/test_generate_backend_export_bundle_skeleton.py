@@ -16,7 +16,7 @@ RECEIPT = ROOT / "particles" / "runs" / "hadron" / "runtime_schedule_receipt_N_t
 PAYLOAD = ROOT / "particles" / "runs" / "hadron" / "stable_channel_cfg_source_measure_payload.json"
 
 
-def test_manifest_only_backend_bundle_skeleton_exposes_full_production_contract() -> None:
+def test_manifest_only_backend_bundle_skeleton_is_fail_closed_until_backend_fills_it() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         out_dir = pathlib.Path(tmp) / "bundle"
         subprocess.run(
@@ -38,8 +38,9 @@ def test_manifest_only_backend_bundle_skeleton_exposes_full_production_contract(
         dataset_index = json.loads((out_dir / "dataset_index.json").read_text(encoding="utf-8"))
 
         assert manifest["artifact"] == "oph_hadron_backend_raw_export"
-        assert manifest["execution_class"] == "production"
-        assert manifest["public_promotion_allowed"] is True
+        assert manifest["execution_class"] == "production_request_template"
+        assert manifest["claim_tier"] == "unfilled_backend_export_template"
+        assert manifest["public_promotion_allowed"] is False
         assert manifest["files"]["correlators_hdf5"] == "correlators.h5"
         assert dataset_index["artifact"] == "oph_hadron_backend_dataset_index"
         assert dataset_index["placeholder_hdf5_written"] is False

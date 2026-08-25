@@ -102,6 +102,11 @@ class BackendExportBundleTest(unittest.TestCase):
             "build_id": "build-001",
             "machine": "test-node",
         }
+        # A real backend must opt in explicitly after replacing the generated
+        # template metadata and producing the correlators.
+        manifest["execution_class"] = "production"
+        manifest["claim_tier"] = "production_backend_export_bundle"
+        manifest["public_promotion_allowed"] = True
         (bundle_dir / "backend_run_manifest.json").write_text(
             json.dumps(manifest, indent=2, sort_keys=True) + "\n",
             encoding="utf-8",
@@ -129,6 +134,30 @@ class BackendExportBundleTest(unittest.TestCase):
             self.assertEqual(manifest["backend_name"], "ref_backend")
             self.assertEqual(manifest["backend_run_id"], "run-001")
             self.assertIn("raw_export_provenance", manifest)
+            self.assertTrue(manifest["public_promotion_requested"])
+            self.assertFalse(manifest["public_promotion_allowed"])
+            self.assertTrue(dump["public_promotion_requested"])
+            self.assertFalse(dump["public_promotion_allowed"])
+
+    def test_missing_execution_and_promotion_fields_fail_closed(self) -> None:
+        backend_input = {"artifact": "inline", "ensembles": {}}
+        self.assertEqual(
+            build_backend_manifest(
+                self.receipt,
+                self.payload,
+                backend_input,
+                backend_input_path="inline.json",
+            )["execution_class"],
+            "unclassified",
+        )
+        self.assertFalse(
+            build_backend_manifest(
+                self.receipt,
+                self.payload,
+                backend_input,
+                backend_input_path="inline.json",
+            )["public_promotion_allowed"]
+        )
 
 
 if __name__ == "__main__":

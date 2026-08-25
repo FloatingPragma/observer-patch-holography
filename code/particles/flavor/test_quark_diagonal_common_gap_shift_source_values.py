@@ -38,11 +38,14 @@ def main() -> int:
     if payload.get("source_emission_artifact") != "oph_family_excitation_diagonal_common_gap_shift_source_emission":
         print("quark diagonal source-values artifact should consume the source-emission layer", file=sys.stderr)
         return 1
-    if payload.get("smallest_constructive_missing_object") != "off_canonical_pure_B_source_payload_family":
-        print("quark diagonal source-values artifact should point to the off-canonical pure-B family", file=sys.stderr)
+    if payload.get("smallest_constructive_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("quark diagonal source-values artifact should retain the source-derived scalar gap", file=sys.stderr)
         return 1
     if payload.get("source_readback_artifact") != "oph_family_excitation_diagonal_common_gap_shift_source_readback":
         print("quark diagonal source-values artifact should reference the source-readback layer", file=sys.stderr)
+        return 1
+    if payload.get("proof_status") != "comparison_only_values_from_unpromotable_source_projection":
+        print("target-attached values must remain comparison-only", file=sys.stderr)
         return 1
     return 0
 

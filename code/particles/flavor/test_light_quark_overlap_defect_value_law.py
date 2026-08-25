@@ -26,20 +26,20 @@ def main() -> int:
     if payload["artifact"] != "oph_light_quark_overlap_defect_value_law":
         print("wrong selector-value artifact id", file=sys.stderr)
         return 1
-    if payload["proof_status"] != "closed_target_free_overlap_defect_theorem":
-        print("selector-value theorem should now be internalized", file=sys.stderr)
+    if payload["proof_status"] != "conditional_overlap_identity_selector_value_open":
+        print("selector-value identity should remain conditional", file=sys.stderr)
         return 1
-    if payload["public_promotion_allowed"] is not True:
-        print("selector-value theorem should now be promotable on the code surface", file=sys.stderr)
+    if payload["public_promotion_allowed"] is not False:
+        print("selector-value identity must not be publicly promotable", file=sys.stderr)
         return 1
-    if payload["exact_missing_object"] is not None:
-        print("selector-value theorem should no longer record itself as missing", file=sys.stderr)
+    if payload["exact_missing_object"] != "source_derived_c_d_over_c_u_or_Delta_ud_overlap":
+        print("selector-value identity must retain its source-value gap", file=sys.stderr)
         return 1
     if payload["selector_scalar_name"] != "Delta_ud_overlap":
         print("wrong selector scalar name", file=sys.stderr)
         return 1
-    if payload["target_free_map"]["formula"] != "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)":
-        print("selector-value theorem should expose the target-free bridge formula", file=sys.stderr)
+    if payload["target_free_map"]["formula"] != "Theta_ud^Delta(c_u, c_d) = (1/6) * log(c_d / c_u)":
+        print("selector-value identity should expose the conditional bridge formula", file=sys.stderr)
         return 1
     if payload["equivalent_ray_coordinate_presentation"]["theorem_id"] != "quark_d12_t1_value_law":
         print("selector-value scaffold should expose the t1 wrapper as equivalent presentation", file=sys.stderr)
@@ -47,11 +47,11 @@ def main() -> int:
     if payload["induced_mass_side_formulas"]["t1"] != "5 * Delta_ud_overlap":
         print("selector-value scaffold should derive t1 algebraically", file=sys.stderr)
         return 1
-    if payload["target_1_public_yukawa_consequence"]["does_target_1_close_after_this"] is not True:
-        print("selector-value scaffold should state that target 1 closes after this theorem", file=sys.stderr)
+    if payload["target_1_public_yukawa_consequence"]["does_target_1_close_after_this"] is not False:
+        print("selector-value identity must not close target 1 without a value source", file=sys.stderr)
         return 1
-    if payload["target_1_public_yukawa_consequence"]["target_1_status"] != "closed":
-        print("target 1 should now be marked closed", file=sys.stderr)
+    if payload["target_1_public_yukawa_consequence"]["target_1_status"] != "open_value_source_not_emitted":
+        print("target 1 should remain open", file=sys.stderr)
         return 1
     if payload["exact_transport_contract_after_selector"]["single_residual_object_on_each_fixed_sigma_branch"] != "Delta_ud_overlap":
         print("transport contract should keep Delta_ud_overlap as the only fixed-branch residual", file=sys.stderr)

@@ -24,17 +24,17 @@
     0.06478785725166157
   ],
   "delta_E_u_diag_log_per_side_source_formula": "beta_u_diag_B_source * B_ord",
-  "generated_utc": "2026-05-06T03:51:41Z",
+  "generated_utc": "2026-08-25T18:56:46Z",
   "mean_annihilator_d": 0.0,
   "mean_annihilator_d_formula": "0.0",
   "mean_annihilator_u": 0.0,
   "mean_annihilator_u_formula": "0.0",
   "notes": [
-    "This artifact derives the B-mode source values from the closed pure-B source-readback law when the beta-pair exists.",
-    "The predictive gap is the emitted pure-B payload pair beneath this derived shell; the odd projector outputs are algebraic consequences of that payload."
+    "This artifact derives B-mode arithmetic values when a beta pair exists, but unpromotable upstream values remain comparison-only.",
+    "The predictive gap is a source-derived c_d/c_u or t1 value; the odd projector outputs are algebraic consequences once it exists."
   ],
   "predictive_promotion_allowed": false,
-  "proof_status": "source_values_derived_from_source_emission",
+  "proof_status": "comparison_only_values_from_unpromotable_source_projection",
   "pure_B_mode_certificate_d": true,
   "pure_B_mode_certificate_d_formula": "true",
   "pure_B_mode_certificate_u": true,
@@ -43,11 +43,12 @@
   "quadratic_annihilator_d_formula": "0.0",
   "quadratic_annihilator_u": 0.0,
   "quadratic_annihilator_u_formula": "0.0",
-  "smallest_constructive_missing_object": "off_canonical_pure_B_source_payload_family",
+  "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
   "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_emission",
   "source_emission_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_emission",
-  "source_emission_status": "source_emission_derived_from_source_readback",
+  "source_emission_status": "comparison_only_projection_from_unpromotable_readback",
   "source_law_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
   "source_readback_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
-  "source_readback_status": "closed_public_selected_class_source_readback"
+  "source_readback_status": "comparison_only_readback_from_unpromotable_payload",
+  "value_classification": "comparison_only"
 }

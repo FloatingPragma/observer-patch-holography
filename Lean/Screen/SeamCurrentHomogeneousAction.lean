@@ -58,14 +58,14 @@ instance : Nonempty DirectedSeam :=
 
 /-- The exact directed seam alphabet has sixty elements. -/
 theorem directedSeam_card : Fintype.card DirectedSeam = 60 := by
-  native_decide
+  decide
 
 set_option maxHeartbeats 4000000 in
 /-- Every registered proper rotation preserves incidence. -/
 theorem portMap_preserves_adj :
     ∀ r : ProperRotation, ∀ i j : Fin 12,
       adj (portMap r i) (portMap r j) = adj i j := by
-  native_decide
+  decide
 
 /-- Relabel a directed seam by one registered proper carrier rotation. -/
 def rotateDirectedSeam (r : ProperRotation) (e : DirectedSeam) :
@@ -75,20 +75,22 @@ def rotateDirectedSeam (r : ProperRotation) (e : DirectedSeam) :
     exact e.2⟩
 
 set_option maxHeartbeats 8000000 in
+set_option maxRecDepth 8192 in
 /-- The listed proper rotations act transitively on directed seams. -/
 theorem proper_rotations_transitive_on_directed_seams :
     ∀ e f : DirectedSeam,
       ∃ r : ProperRotation, rotateDirectedSeam r e = f := by
-  native_decide
+  decide
 
 set_option maxHeartbeats 8000000 in
+set_option maxRecDepth 8192 in
 /-- At each directed seam, distinct registered rotations have distinct
 images.  This finite check avoids enumerating a redundant target variable. -/
 theorem proper_rotation_source_injective :
     ∀ e : DirectedSeam,
       Function.Injective (fun r : ProperRotation ↦
         rotateDirectedSeam r e) := by
-  native_decide
+  decide
 
 /-- A registered row carrying one directed seam to a declared target is
 unique. -/
@@ -670,10 +672,11 @@ theorem sourceCountingChartAverage_planeWave
 
 /-! ## Axiom audit
 
-The finite orbit checks use native evaluation and therefore report the
-standard native decision axiom.  The structural action and selection
-theorems use ordinary theorem arguments and Mathlib only.  No project axiom or
-`sorryAx` occurs.
+The finite orbit checks use kernel `decide` (with an enlarged recursion bound),
+and the structural action and selection theorems use ordinary theorem
+arguments and Mathlib only.  The printed receipts contain only standard
+axioms (`propext`, `Classical.choice`, and `Quot.sound`, as applicable): no
+native decision axiom, project axiom, or `sorryAx` occurs.
 -/
 
 #print axioms proper_rotations_transitive_on_directed_seams

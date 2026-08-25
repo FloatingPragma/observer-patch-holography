@@ -26,10 +26,19 @@ def test_current_family_transport_frame_exact_forward_yukawas_close() -> None:
     assert payload["proof_status"] == "closed_target_anchored_mixed_convention_mass_texture_audit"
     assert payload["scope"] == "current_family_common_refinement_transport_frame_only"
     assert payload["forward_certified"] is True
-    assert payload["certification_status"] == "forward_matrix_certified"
+    assert payload["matrix_arithmetic_valid"] is True
+    assert payload["source_certified"] is False
+    assert payload["predictive_promotion_allowed"] is False
+    assert payload["public_surface_candidate_allowed"] is False
+    assert payload["certification_status"] == (
+        "forward_matrix_arithmetic_certified_source_uncertified"
+    )
     assert payload["matrix_classification"] == "mixed_scheme_GeV_mass_texture_matrices"
     assert payload["physical_yukawa_certified"] is False
     assert payload["single_common_scale_running_sextet"] is False
-    assert payload["promotion_blockers"] == ["QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"]
+    assert payload["promotion_blockers"] == [
+        "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE",
+    ]
     assert abs(float(payload["singular_values_u"][0]) - 0.00216) < 1.0e-8
     assert abs(float(payload["singular_values_d"][0]) - 0.0047) < 1.0e-8

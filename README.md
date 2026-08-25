@@ -57,9 +57,9 @@ Two ledgers carry the quantitative record. The
 scoreboard: every certified comparison against a measured value,
 with its premises and input ancestry stated on the row. The
 [frozen-prediction ladder](docs/FROZEN_PREDICTION_LADDER.md) is the forward
-instrument: stances registered with cryptographic custody and kill bands
-before their comparison data is examined, with fixed rules that permit
-refutation by qualifying measurements.
+instrument: it records each row's actual custody status and requires an armed
+prediction to bind its stance and kill band before qualifying comparison data
+are examined.
 
 ## One Architecture, All Of Physics
 
@@ -102,9 +102,9 @@ calculations and reproducible simulations:
 - **Machine-checked and falsifiable.** More than 8200 Lean theorems with
   no admitted proofs, exact rational arithmetic in place of floating-point
   trust, and deterministic simulations with pinned receipts. A
-  frozen-prediction ladder registers kill bands under cryptographic custody
-  before comparison data is examined, so OPH commits in advance to what
-  would refute it.
+  frozen-prediction ladder requires every armed comparison to bind its kill
+  band and custody before the qualifying data are examined, so the rows that
+  reach that gate commit in advance to what would refute them.
 
 The linked papers record each step's precise status. Together, these results
 define a testable path from three observer axioms toward a complete theory.

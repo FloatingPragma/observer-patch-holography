@@ -536,7 +536,7 @@ Lean CI runs on pull requests and pushes that touch `Lean/**`, and can also be
 started manually. It builds from a cleaned project target, rejects admissions,
 global axioms, and `native_decide` in the Einstein-branch sources. It checks
 the audited Einstein theorem subset and locks the repository-wide inventory
-of 23 compiler-trusted `native_decide` proofs.
+of 13 compiler-trusted `native_decide` proofs.
 
 ## Provenance
 

@@ -31,6 +31,10 @@ def main() -> int:
     with tempfile.TemporaryDirectory() as tmpdir:
         diag_path = pathlib.Path(tmpdir) / "diagonal_gap_shift.json"
         out_path = pathlib.Path(tmpdir) / "quark_sector_descent.json"
+        absent_scalar_path = pathlib.Path(tmpdir) / "absent_scalar.json"
+        absent_tau_path = pathlib.Path(tmpdir) / "absent_tau.json"
+        absent_emitter_path = pathlib.Path(tmpdir) / "absent_emitter.json"
+        absent_b_odd_path = pathlib.Path(tmpdir) / "absent_b_odd.json"
         diag_path.write_text(json.dumps(diagonal, indent=2) + "\n", encoding="utf-8")
         subprocess.run(
             [
@@ -38,6 +42,14 @@ def main() -> int:
                 str(DESCENT_SCRIPT),
                 "--diagonal-gap-shift",
                 str(diag_path),
+                "--diagonal-gap-shift-scalar-evaluator",
+                str(absent_scalar_path),
+                "--diagonal-gap-shift-tau-map",
+                str(absent_tau_path),
+                "--diagonal-gap-shift-emitter",
+                str(absent_emitter_path),
+                "--b-odd-source-scalar-evaluator",
+                str(absent_b_odd_path),
                 "--output",
                 str(out_path),
             ],
@@ -55,11 +67,83 @@ def main() -> int:
     if descent.get("even_excitation_proof_status") != "closed":
         print("closed diagonal gap-shift should promote the even-excitation proof status", file=sys.stderr)
         return 1
+    if descent.get("tau_value_source_closed") is not True:
+        print("closed source map should mark the tau source as closed", file=sys.stderr)
+        return 1
     if any(abs(float(a) - float(b)) > 1.0e-12 for a, b in zip(descent["E_u_log"], expected_u)):
         print("up-sector logs did not absorb the diagonal gap shift", file=sys.stderr)
         return 1
     if any(abs(float(a) - float(b)) > 1.0e-12 for a, b in zip(descent["E_d_log"], expected_d)):
         print("down-sector logs did not absorb the diagonal gap shift", file=sys.stderr)
+        return 1
+
+    # Merely populating the same arithmetic in a comparison-only tau map must
+    # not reproduce the source-closed result.
+    with tempfile.TemporaryDirectory() as tmpdir:
+        diag_path = pathlib.Path(tmpdir) / "diagonal_gap_shift.json"
+        tau_path = pathlib.Path(tmpdir) / "comparison_tau_map.json"
+        scalar_path = pathlib.Path(tmpdir) / "comparison_scalar.json"
+        out_path = pathlib.Path(tmpdir) / "quark_sector_descent.json"
+        absent_emitter_path = pathlib.Path(tmpdir) / "absent_emitter.json"
+        absent_b_odd_path = pathlib.Path(tmpdir) / "absent_b_odd.json"
+        diag_path.write_text(json.dumps(diagonal, indent=2) + "\n", encoding="utf-8")
+        scalar_path.write_text(
+            json.dumps(
+                {
+                    "artifact": "oph_family_excitation_diagonal_gap_shift_scalar_evaluator",
+                    "proof_status": "comparison_only_scalar_projection_value_source_open",
+                    "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        tau_path.write_text(
+            json.dumps(
+                {
+                    "artifact": "oph_family_excitation_diagonal_gap_shift_tau_map",
+                    "proof_status": "comparison_only_scalar_projection_value_source_open",
+                    "source_value_promotion_ready": False,
+                    "value_classification": "comparison_only",
+                    "tau_u_log_per_side": 0.05,
+                    "tau_d_log_per_side": 0.08,
+                    "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+                },
+                indent=2,
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        subprocess.run(
+            [
+                sys.executable,
+                str(DESCENT_SCRIPT),
+                "--diagonal-gap-shift",
+                str(diag_path),
+                "--diagonal-gap-shift-scalar-evaluator",
+                str(scalar_path),
+                "--diagonal-gap-shift-tau-map",
+                str(tau_path),
+                "--diagonal-gap-shift-emitter",
+                str(absent_emitter_path),
+                "--b-odd-source-scalar-evaluator",
+                str(absent_b_odd_path),
+                "--output",
+                str(out_path),
+            ],
+            check=True,
+            cwd=ROOT,
+        )
+        comparison_descent = json.loads(out_path.read_text(encoding="utf-8"))
+    if comparison_descent.get("tau_value_source_closed") is not False:
+        print("comparison-only tau values must not be source closed", file=sys.stderr)
+        return 1
+    if comparison_descent.get("even_excitation_proof_status") != "comparison_only_diagonal_gap_shift_value_source_open":
+        print("comparison-only tau values must preserve the open source status", file=sys.stderr)
+        return 1
+    if comparison_descent.get("exact_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("comparison-only tau values should preserve the D12 value-source gap", file=sys.stderr)
         return 1
     return 0
 

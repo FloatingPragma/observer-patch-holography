@@ -97,9 +97,16 @@ python3 hadron/run_production_backend_writeback.py \
 The local diagnostic backend is target-anchored and carries
 `execution_class=diagnostic_surrogate`, so the readiness gate keeps
 `publication_bundle_ready=false` even when the numeric pipeline is populated.
-Replace that backend bundle with real RHMC/HMC or OPH-hardware correlators,
-with `execution_class=production`, before any source-only hadron row can be
-promoted.
+Replace that backend bundle with real RHMC/HMC or OPH-hardware correlators.
+After a real run, the backend owner must replace every placeholder provenance
+field and explicitly set `execution_class=production`, the appropriate
+production `claim_tier`, and request promotion.  This makes a numerical
+production candidate, but it does not make the bundle public-ready: the local
+ingestion path checks declared metadata and array shape, not the authenticity
+of backend custody.  `public_promotion_allowed` therefore remains false until
+an independent custody validator and cold-replay receipt are implemented.
+Absent fields and the generated request template are also deliberately
+non-promotable.
 
 Backend-side readiness report from the current local state:
 
@@ -125,10 +132,12 @@ python3 hadron/generate_backend_export_bundle_skeleton.py \
   --payload runs/hadron/stable_channel_cfg_source_measure_payload.json \
   --out-dir /path/to/backend_bundle
 
-# If h5py is unavailable on the handoff machine, emit only the production
-# manifest and dataset index. The backend owner must create correlators.h5 and
+# If h5py is unavailable on the handoff machine, emit only the fail-closed
+# request manifest and dataset index. The backend owner must create correlators.h5 and
 # fill every listed dataset path with real production arrays before ingestion,
 # or fill the listed array_file text files and assemble an inline backend export.
+# Filling arrays alone does not promote the template: complete provenance and
+# explicit production/promotion fields are also required.
 python3 hadron/generate_backend_export_bundle_skeleton.py \
   --receipt runs/hadron/runtime_schedule_receipt_N_therm_and_N_sep.json \
   --payload runs/hadron/stable_channel_cfg_source_measure_payload.json \

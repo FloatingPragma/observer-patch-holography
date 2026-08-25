@@ -328,6 +328,15 @@ def build_payload(
             "minimal_exact_blocker_set": current_family_transport_yukawa_theorem["minimal_exact_blocker_set"],
             "forward_certified": current_family_transport_yukawa_theorem["forward_yukawa_artifact"]["forward_certified"],
             "certification_status": current_family_transport_yukawa_theorem["forward_yukawa_artifact"]["certification_status"],
+            "forward_certification_scope": current_family_transport_yukawa_theorem[
+                "forward_yukawa_artifact"
+            ].get("forward_certification_scope"),
+            "source_certified": current_family_transport_yukawa_theorem[
+                "forward_yukawa_artifact"
+            ].get("source_certified", False),
+            "predictive_promotion_allowed": current_family_transport_yukawa_theorem[
+                "forward_yukawa_artifact"
+            ].get("predictive_promotion_allowed", False),
             "matrix_kind": physical_yukawa_audit["current_classification"],
             "stored_entry_dimension": physical_yukawa_audit["stored_entry_dimension"],
             "certified_physical_yukawa_matrices": False,
@@ -519,6 +528,15 @@ def build_payload(
                 "scope": current_family_transport_forward_yukawas["scope"],
                 "forward_certified": current_family_transport_forward_yukawas["forward_certified"],
                 "certification_status": current_family_transport_forward_yukawas["certification_status"],
+                "forward_certification_scope": current_family_transport_forward_yukawas.get(
+                    "forward_certification_scope"
+                ),
+                "source_certified": current_family_transport_forward_yukawas.get(
+                    "source_certified", False
+                ),
+                "predictive_promotion_allowed": current_family_transport_forward_yukawas.get(
+                    "predictive_promotion_allowed", False
+                ),
             },
             "exact_yukawa_theorem": {
                 "artifact": current_family_transport_yukawa_theorem["artifact"],
@@ -591,8 +609,9 @@ def build_payload(
         },
         "public_current_family_yukawa_frontier": {
             "definition": (
-                "Target-free source identities close the ordered D12 profile rays only. Absolute up/down spreads "
-                "remain a two-modulus fiber, and the target-side GeV matrices remain mixed-scheme mass textures."
+                "Conditional source identities expose the ordered D12 profile rays but do not emit the light-ratio "
+                "selector value. Absolute up/down spreads independently remain a two-modulus fiber, and the "
+                "target-side GeV matrices remain mixed-scheme mass textures."
             ),
             "sharper_target_1_primitive": {
                 "artifact": selector_value_law["artifact"],
@@ -623,16 +642,18 @@ def build_payload(
                 ),
             },
             "minimal_exact_blocker_set": [
+                "QUARK_D12_SOURCE_DERIVED_LIGHT_RATIO_OR_T1_VALUE",
                 "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
                 "QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT",
                 "QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION",
                 "QUARK_THRESHOLD_AND_TOP_CONVERSION",
                 "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE",
             ],
-            "target_1_status": "closed_profile_ray_only_absolute_spreads_nonidentifiable",
+            "target_1_status": "open_conditional_profile_identity_value_and_absolute_spreads_not_source_emitted",
             "why_not_closed": (
-                "The internalized overlap-defect law fixes a ray coordinate, not its two absolute sector spans. "
-                "Independent positive rescaling preserves all current source identities and changes the mass readout."
+                "The internalized overlap-defect formula is conditional and does not emit c_d/c_u, Delta_ud_overlap, "
+                "or t1. Even after that scalar is sourced, independent positive rescaling leaves the two absolute "
+                "sector spans open and changes the mass readout."
             ),
             "why_edge_statistics_candidate_does_not_close_source": (
                 "Even after granting the edge packet, sigma_u=S_13+c_u*delta21 and "
@@ -656,15 +677,23 @@ def build_payload(
             {
                 "id": "light_quark_overlap_defect_value_law",
                 "proof_status": selector_value_law["proof_status"],
+                "classification": "conditional_identity_value_source_open",
                 "formula": selector_value_law["target_free_map"]["formula"],
             },
             {
                 "id": "quark_d12_t1_value_law",
                 "proof_status": t1_value_law["proof_status"],
+                "classification": "conditional_identity_value_source_open",
                 "formula": "t1 = (5/6) * log(c_d / c_u)",
             },
         ],
         "exact_missing_theorems": [
+            {
+                "id": "quark_d12_source_derived_light_ratio_or_t1_value",
+                "current_conditional_identity": t1_value_law["artifact"],
+                "exact_missing_object": t1_value_law["exact_missing_object"],
+                "viable_route": "emitted_same_family_D12_mass_ray",
+            },
             {
                 "id": "quark_source_spread_pair_action_breaking_theorem",
                 "current_obstruction": sigma_source_obstruction["artifact"],
@@ -684,14 +713,15 @@ def build_payload(
             },
         ],
         "closure_chain": [
-            "(axioms + light-data transport) => light_quark_overlap_defect_value_law => Delta_ud_overlap => quark_d12_t1_value_law => t1 => (eta_Q_centered, kappa_Q, tau_u, tau_d)",
+            "(source-derived c_d/c_u or t1 value) + conditional D12 identities => Delta_ud_overlap => t1 => (eta_Q_centered, kappa_Q, beta_u, beta_d)",
+            "(source-derived Delta_ud_overlap + source-emitted positive sigma branch) => exact overlap transport => (tau_u,tau_d)",
             "(target-free source identities) => (v_u,v_d) with E_u=sigma_u*v_u and E_d=sigma_d*v_d => compatible fiber (R_{>0})^2",
             "(selected public quark frame class chosen by P) => representative-independent descent, but no selection of (sigma_u,sigma_d)",
             "(externally supplied target sigma pair) => conditional affine/readout algebra => mixed-convention six-row target packet",
             "(common-scale running coordinates + threshold/top conversion + v(mu)) => dimensionless physical Yukawa matrices; these inputs are not emitted by the current source corpus",
         ],
         "notes": [
-            "The overlap-defect and D12 value laws close shape information, not the two absolute spread moduli.",
+            "The overlap-defect and D12 value laws are exact conditional identities; their scalar value source and the two absolute spread moduli remain open.",
             "The theorem-grade current-corpus obstruction closes issues 377, 379, and 380 only in the accepted sharper-obstruction mode; it does not emit numerical quark rows.",
             "The target-anchored current-family algebra remains available for audit and regression testing.",
             "The declared six-row target packet mixes light MSbar coordinates at 2 GeV, charm and bottom self-scale coordinates, and a separate top extraction coordinate.",

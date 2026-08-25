@@ -1,4 +1,4 @@
-"""Cross-surface gates for the carrier-dynamics, profile-likelihood,
+"""Cross-surface gates for the carrier-dynamics, penalized-profile objective,
 enlarged-target, and quotient-descent rungs."""
 
 from __future__ import annotations
@@ -50,8 +50,8 @@ def test_quotient_claim_keeps_invariant_subspace_scope() -> None:
     statement = _claim(QUO_CLAIM)["statement"]
     for token in ("descent-and-restriction",
                   "gauge-invariant subspace",
-                  "orbit-space carrier formulation the named residual",
-                  "moved-link ratios are pinned to one",
+                  "orbit-space carrier formulation left open",
+                  "committed L=2,3 receipt tori",
                   "no mass gap and no Clay-problem step"):
         assert token in statement, token
 
@@ -68,14 +68,15 @@ def test_dynamics_claim_stays_candidate_level() -> None:
         "PR-15", "PR-52", "PR-53"]
 
 
-def test_likelihood_claim_is_conditional_and_direction_neutral() -> None:
+def test_objective_claim_is_conditional_and_direction_neutral() -> None:
     statement = _claim(LIK_CLAIM)["statement"]
-    for token in ("no combined two-channel likelihood formed",
-                  "7.9e-11 at rho = 0 to 5.8e-11",
-                  "3.6 and 16.4",
-                  "understates the observed scatter",
-                  "consistency is shared with the standard null",
-                  "The source does not fix a0"):
+    for token in ("penalized profile objective exists",
+                  "not confidence intervals",
+                  "7.943e-11 at rho=0 to 5.821e-11",
+                  "neither denominator is an effective degrees-of-freedom theorem",
+                  "disconnected threshold components",
+                  "only partially paired",
+                  "No source value is fixed"):
         assert token in statement, token
 
 
@@ -87,8 +88,10 @@ def test_likelihood_receipt_matches_quoted_numbers() -> None:
     deep = receipt["subset_results"]["deep_f_0p1"]
     assert deep["n_points"] == 960 and deep["n_galaxies"] == 115
     by_rho = {row["rho"]: row for row in deep["per_rho"]}
-    assert abs(by_rho[0.0]["a0_ml_m_s2"] - 7.94e-11) < 0.02e-11
-    assert abs(by_rho[0.6]["a0_ml_m_s2"] - 5.82e-11) < 0.02e-11
+    assert abs(by_rho[0.0]["a0_objective_min_m_s2"] - 7.94e-11) < 0.02e-11
+    assert abs(by_rho[0.6]["a0_objective_min_m_s2"] - 5.82e-11) < 0.02e-11
+    assert receipt["calibration"]["confidence_interval_claim"] is False
+    assert receipt["calibration"]["coverage_calibration_open"] is True
     for row in deep["per_rho"]:
         paired = row["paired_btfr"]
         low, high = paired["log10_ratio_95pct"]
@@ -101,7 +104,8 @@ def test_enlarged_claim_keeps_finite_matrix_scope() -> None:
     for token in ("no AQFT vocabulary attached",
                   "single clause whose target algebra changes",
                   "proved of non-product form",
-                  "both required",
+                  "some non-product state extension",
+                  "not proved unique",
                   "197/1754"):
         assert token in statement, token
     assert _claim(ENL_CLAIM)["premise_dependencies"]["open"] == [
@@ -121,7 +125,7 @@ def test_lean_modules_carry_headline_declarations() -> None:
                    "dirichlet_bound_restricts",
                    "quotient_kogutSusskind_floor",
                    "instance_quotient_gap",
-                   "distinct incident sites"),
+                   "repeated self-loop incidences cancel"),
     }
     for relative_path, tokens in expectations.items():
         text = (ROOT / relative_path).read_text(encoding="utf-8")
@@ -140,7 +144,7 @@ def test_likelihood_package_files_exist() -> None:
     conventions = _collapsed(f"{LIK_DIR}/LIKELIHOOD_CONVENTIONS.md")
     assert "no combined two-channel likelihood over both data channels" in \
         conventions
-    assert "point-count dof convention" in conventions
+    assert "two nominal denominators" in conventions
 
 
 def test_owner_papers_carry_the_results() -> None:
@@ -152,10 +156,10 @@ def test_owner_papers_carry_the_results() -> None:
                       "enlarged-target path is constructed")):
         assert token in observers, token
     dark = _collapsed("cosmology/oph_dark_matter_paper.tex")
-    for token in ("Profile likelihood",
-                  "dominates the systematic budget",
+    for token in ("Penalized profile objective",
+                  "large unresolved sensitivity",
                   "understates the observed scatter",
-                  "measurement-side interval"):
+                  "not acceptance or rejection bands"):
         assert token in dark, token
     ym = _collapsed("extra/yang_mills_gap_clay_problem.tex")
     for token in ("GaugeOrbitQuotientGap",
@@ -171,7 +175,7 @@ def test_ledger_rows_cite_without_promotion() -> None:
     assert DYN_LEAN in rows["OL-N1"]["evidence"]
     assert rows["OL-N1"]["status"] == "owed"
     assert f"{LIK_DIR}/joint_rar_likelihood.py" in rows["OL-I3"]["evidence"]
-    assert "dominates the systematic budget" in rows["OL-I3"]["notes"]
+    assert "uncalibrated sensitivity contours" in rows["OL-I3"]["notes"]
     assert rows["OL-I3"]["status"] == "owed"
     assert ENL_LEAN in rows["OL-C6"]["evidence"]
     assert rows["OL-C6"]["status"] == "partial"

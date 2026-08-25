@@ -126,9 +126,13 @@ def main() -> int:
 
     cert: dict[str, Any] = {
         "issue": 332,
-        "theorem": "Conditional RG/coarse-graining commuting square for the selected source-to-Higgs comparison map",
-        "mode": "exact_selected_OPH_branch_conditional_readout",
+        "theorem": "Declared-map RG/coarse-graining commuting-square identity",
+        "mode": "exact_declared_comparison_map_identity_not_source_naturality",
         "accepted": bool(accepted),
+        "accepted_scope": "arithmetic identity for the supplied comparison maps only",
+        "source_comparison_maps_derived": False,
+        "physical_naturality_result": False,
+        "predictive_promotion_allowed": False,
         "epsilon_n": decstr(eps_n),
         "epsilon_h": decstr(eps_h),
         "epsilon_H": decstr(epsilon_H),
@@ -152,7 +156,7 @@ def main() -> int:
             "tolerance": decstr(tol),
             "strict_resonance": bool(args.strict_resonance),
             "resonance_ok": bool(optional_resonance_ok),
-            "note": "N_CRC and g_tick belong to upstream resonance records. Issue #332 checks the RG/Higgs naturality defect.",
+            "note": "N_CRC and g_tick belong to upstream resonance records. Issue #332 checks only the defect of supplied RG/Higgs comparison maps.",
         },
         "comparison_map": {
             "rho_sH": "[x]_s -> [P(x), N(x), Theta(x), Pi_HT F_D11 F_D10(P(x), N(x))]_H",
@@ -160,14 +164,18 @@ def main() -> int:
             "obstruction_map": "chi_sH maps source holonomy/relevant-scalar obstruction data to Higgs-stage obstruction coordinates",
         },
         "claim_boundary": {
-            "closed_here": "epsilon_n=epsilon_h=epsilon_H=0 for the declared selected comparison-map square",
+            "closed_here": "epsilon_n=epsilon_h=epsilon_H=0 for the supplied comparison-map square",
             "conditional_on": "HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen and its alpha_U/B_EW attachment",
             "not_closed_here": [
                 "a derivation of HIERARCHY-SCREEN-READOUT",
                 "an independently emitted physical cosmic capacity",
+                "source derivation of rho_sH, n_s, n_H, h_s, chi_sH, and h_H",
+                "an independent residual evaluation on source-produced maps",
+                "a Higgs-naturalness result",
                 "a physical Higgs or electroweak pole-mass theorem",
             ],
             "receipt_class": "conditional_identity",
+            "antecedent_only_countermodel_receipt": "certificates/antecedent_only_nonidentifiability_receipt.json",
         },
         "allowed_inputs": [
             "OPH local pixel fixed point P_star and its source certificate",
@@ -191,7 +199,7 @@ def main() -> int:
             "#336 emits global repair-tick |g_*'|=(N_CRC/pi)^(-1/48)",
             "#337 defines Pi_EW and proves Pi_EW=4P iff B_EW=0; it does not derive CP-1",
             "#631 owns the local physical common-load attachment; #547 composes it with direct record capacity into the N-dependent hierarchy equality",
-            "#332 proves the selected comparison-map identities rho_sH n_s = n_H rho_sH and chi_sH h_s = h_H rho_sH, hence epsilon_H=0 conditional on that readout",
+            "#332 verifies the supplied comparison-map identities rho_sH n_s = n_H rho_sH and chi_sH h_s = h_H rho_sH; the antecedent-only receipt shows that the source packet does not select these maps or epsilon_H=0",
         ],
         "verifier_command": "python3 code/particles/hierarchy/verify_issue_332_rg_naturality.py --check --output code/particles/hierarchy/issue_332_rg_naturality_certificate.json",
     }

@@ -73,6 +73,9 @@ def build_artifact(
         },
         "bridge_scalars": {
             "source_artifact": bridge.get("artifact"),
+            "proof_status": bridge.get("proof_status"),
+            "public_promotion_allowed": bridge.get("public_promotion_allowed"),
+            "exact_missing_object": bridge.get("exact_missing_object"),
             "presentation": bridge.get("equivalent_wrappers"),
             "computed_current_family_target_check": bridge.get("computed_current_family_target_check"),
         },

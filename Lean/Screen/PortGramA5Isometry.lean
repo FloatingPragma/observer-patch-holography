@@ -21,10 +21,14 @@ permutation matrices and checks that every row
 * restricts to an isometric linear action on the intrinsic rank-three carrier
   `range(P3)`.
 
-The exact finite matrix statements are closed by native evaluation.  The
-range restriction and isometry statements are theorem proofs over the real
-counting space.  The name `A5` follows the registered port-action module; the
-formal object used here is the explicit order-sixty proper-rotation list.
+The finite port-map range and bijectivity checks are closed by kernel
+evaluation.  The larger exact rational matrix tables currently use native
+evaluation; their exported axiom receipts therefore remain outside the
+kernel-only trust profile.  The range restriction and isometry statements are
+theorem proofs over the real counting space, but inherit those table receipts
+where they consume them.  The name `A5` follows the registered port-action
+module; the formal object used here is the explicit order-sixty proper-rotation
+list.
 Identifying it with abstract `A5`, selecting this local action as a physical
 position action, extending it to the metric completion, and gluing actions
 across observer overlaps or refinements are outside this file.
@@ -51,13 +55,13 @@ not hide a wrapped label. -/
 theorem portMap_no_wrap :
     ∀ r : ProperRotation, ∀ i : Fin 12,
       (portMap r i).val = OPH.A5PortAction.app (rotationRow r) i.val := by
-  native_decide
+  decide
 
 set_option maxHeartbeats 4000000 in
 /-- Every registered port map is bijective. -/
 theorem portMap_bijective :
     ∀ r : ProperRotation, Function.Bijective (portMap r) := by
-  native_decide
+  decide
 
 /-- Exact permutation matrix of a registered proper rotation.  Column `j`
 is sent to the unit vector at `portMap r j`. -/

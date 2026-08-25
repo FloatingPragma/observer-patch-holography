@@ -637,7 +637,7 @@ def test_issue_343_m_rep_certificate_derives_twenty_four_rounds() -> None:
     )
 
 
-def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
+def test_issue_332_declared_map_identity_is_zero_defect_and_not_promoted() -> None:
     result = _run(
         "validators/validate_issue_332_rg_naturality.py",
         "issue_332_rg_naturality_certificate.json",
@@ -654,12 +654,36 @@ def test_issue_332_rg_higgs_naturality_certificate_is_zero_defect() -> None:
     assert cert["accepted"] is True
     assert cert["epsilon_H_interval"] == ["0", "0"]
     assert cert["optional_upstream_resonance_check"]["strict_resonance"] is False
-    assert cert["mode"] == "exact_selected_OPH_branch_conditional_readout"
+    assert cert["mode"] == "exact_declared_comparison_map_identity_not_source_naturality"
     assert cert["claim_boundary"]["receipt_class"] == "conditional_identity"
-    assert "selected source-to-Higgs comparison map" in cert["theorem"]
+    assert "Declared-map" in cert["theorem"]
+    assert cert["source_comparison_maps_derived"] is False
+    assert cert["physical_naturality_result"] is False
+    assert cert["predictive_promotion_allowed"] is False
+    assert cert["claim_boundary"]["antecedent_only_countermodel_receipt"] == (
+        "certificates/antecedent_only_nonidentifiability_receipt.json"
+    )
     forbidden = cert["forbidden_calibrations"]
     assert any("measured weak scale" in item for item in forbidden)
     assert any("measured Higgs" in item for item in forbidden)
+
+
+def test_naturality_boundary_is_consistent_across_paper_registry_and_status_sources() -> None:
+    repo = ROOT.parents[2]
+    paper = (repo / "paper" / "deriving_the_particle_zoo_from_observer_consistency.tex").read_text(
+        encoding="utf-8"
+    )
+    registry = (repo / "claims" / "claim_registry.yaml").read_text(encoding="utf-8")
+    ledger = (ROOT.parent / "ledger.yaml").read_text(encoding="utf-8")
+
+    assert "declared-map packaging identity" in paper
+    assert "source-derived comparison maps" in paper.lower()
+    assert "The current packet supplies no OPH result about Higgs naturalness" in paper
+    assert "zero Higgs naturality defect in its declared chart" not in paper
+    assert "naturality bridge is closed on its selected branch" not in paper
+    assert "declared_naturality_identity_quarantined" in registry
+    assert "same-source-antecedent" in ledger
+    assert "not a source-derived Higgs-naturalness result" in ledger
 
 
 def test_issue_335_local_global_resonance_is_exact_conditional_statement() -> None:

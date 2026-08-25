@@ -38,12 +38,21 @@ def build_artifact(source_law: dict, source_readback: dict | None = None, source
     mean_d = None if delta_d is None else sum(delta_d)
     quad_u = None if delta_u is None else sum(u * q for u, q in zip(delta_u, q_ord))
     quad_d = None if delta_d is None else sum(d * q for d, q in zip(delta_d, q_ord))
+    values_present = beta_u is not None and beta_d is not None
+    source_closed = (
+        values_present
+        and source_emission.get("proof_status")
+        == "source_emission_derived_from_source_readback"
+    )
+    comparison_only = values_present and not source_closed
     return {
         "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_values",
         "generated_utc": _timestamp(),
         "proof_status": (
             "source_values_derived_from_source_emission"
-            if beta_u is not None and beta_d is not None
+            if source_closed
+            else "comparison_only_values_from_unpromotable_source_projection"
+            if comparison_only
             else "source_values_shell_waiting_pure_B_payload_pair"
         ),
         "predictive_promotion_allowed": False,
@@ -53,6 +62,9 @@ def build_artifact(source_law: dict, source_readback: dict | None = None, source
         "source_readback_status": source_readback.get("proof_status"),
         "source_emission_artifact": source_emission.get("artifact"),
         "source_emission_status": source_emission.get("proof_status"),
+        "value_classification": (
+            "source_emitted" if source_closed else "comparison_only" if comparison_only else "absent"
+        ),
         "B_ord": b_ord,
         "Q_ord": q_ord,
         "beta_u_diag_B_source": beta_u,
@@ -86,8 +98,8 @@ def build_artifact(source_law: dict, source_readback: dict | None = None, source
             "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
         ),
         "notes": [
-            "This artifact derives the B-mode source values from the closed pure-B source-readback law when the beta-pair exists.",
-            "The predictive gap is the emitted pure-B payload pair beneath this derived shell; the odd projector outputs are algebraic consequences of that payload.",
+            "This artifact derives B-mode arithmetic values when a beta pair exists, but unpromotable upstream values remain comparison-only.",
+            "The predictive gap is a source-derived c_d/c_u or t1 value; the odd projector outputs are algebraic consequences once it exists.",
         ],
     }
 

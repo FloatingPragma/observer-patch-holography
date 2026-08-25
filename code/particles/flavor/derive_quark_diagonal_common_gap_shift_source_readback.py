@@ -28,19 +28,36 @@ def build_artifact(source_law: dict, source_payload: dict | None = None) -> dict
     beta_d = source_payload.get("beta_d_diag_B_source")
     j_b_u = source_payload.get("J_B_source_u")
     j_b_d = source_payload.get("J_B_source_d")
-    payload_closed = source_u is not None and source_d is not None and beta_u is not None and beta_d is not None
+    values_present = (
+        source_u is not None
+        and source_d is not None
+        and beta_u is not None
+        and beta_d is not None
+    )
+    payload_closed = (
+        values_present and source_payload.get("public_promotion_allowed") is True
+    )
+    comparison_only = values_present and not payload_closed
     return {
         "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
         "generated_utc": _timestamp(),
         "proof_status": (
             "closed_public_selected_class_source_readback"
             if payload_closed
+            else "comparison_only_readback_from_unpromotable_payload"
+            if comparison_only
             else "source_readback_law_closed_waiting_pure_B_payload_pair"
         ),
         "predictive_promotion_allowed": False,
         "source_artifact": source_law.get("artifact"),
         "source_payload_artifact": source_payload.get("artifact"),
         "source_payload_status": source_payload.get("proof_status"),
+        "source_payload_promotion_allowed": source_payload.get(
+            "public_promotion_allowed"
+        ),
+        "value_classification": (
+            "source_emitted" if payload_closed else "comparison_only" if comparison_only else "absent"
+        ),
         "B_ord": b_ord,
         "B_ord_norm_sq": sum(value * value for value in b_ord),
         "J_B_functional_kind": "pure_B_odd_point_separating_projection",
@@ -57,7 +74,13 @@ def build_artifact(source_law: dict, source_payload: dict | None = None) -> dict
             "pure_B_residual": [0.0, 0.0, 0.0],
         },
         "first_data_bearing_primitive_beneath_scalar_pair": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
-        "payload_pair_status": "emitted_selected_public_class" if payload_closed else "open_waiting_value_emission",
+        "payload_pair_status": (
+            "emitted_selected_public_class"
+            if payload_closed
+            else "comparison_only_unpromotable"
+            if comparison_only
+            else "open_waiting_value_emission"
+        ),
         "J_B_source_u": j_b_u,
         "J_B_source_d": j_b_d,
         "beta_u_diag_B_source": beta_u,
@@ -89,18 +112,22 @@ def build_artifact(source_law: dict, source_payload: dict | None = None) -> dict
         "smallest_constructive_missing_object": (
             "off_canonical_pure_B_source_payload_family"
             if payload_closed
+            else "source_derived_c_d_over_c_u_or_t1_value"
+            if comparison_only
             else "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
         ),
         "next_single_residual_object": (
             "off_canonical_pure_B_source_payload_family"
             if payload_closed
+            else "source_derived_c_d_over_c_u_or_t1_value"
+            if comparison_only
             else "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
         ),
         "derived_scalar_pair_after_payload_emission": "J_B_source_u_and_J_B_source_d",
         "notes": [
             "The source-readback law is closed: the minimal pure-B readback is uniquely [-beta, 0, +beta] on B_ord = [-1, 0, 1].",
-            "The first data-bearing primitive beneath the odd scalar pair is the emitted pure-B payload pair source_readback_u_log_per_side and source_readback_d_log_per_side.",
-            "The remaining quark gap is the emitted pure-B payload pair itself; once that payload exists, the odd projector values J_B_source_u and J_B_source_d follow algebraically from its endpoints.",
+            "Numerical values inherited from an unpromotable payload remain comparison-only even though the readback arithmetic is exact.",
+            "The remaining source gap is a source-derived c_d/c_u or t1 value; once emitted, the odd projector values follow algebraically.",
         ],
     }
 

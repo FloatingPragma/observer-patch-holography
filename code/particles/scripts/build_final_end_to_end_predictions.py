@@ -222,8 +222,10 @@ def _hierarchy_surface() -> dict[str, Any]:
             "readback_status": (readback or {}).get("status") or readback_resolution.get("status"),
             "m_rep_status": (m_rep or {}).get("status") or round_count.get("status"),
             "screen_sieve_status": (screen_sieve or {}).get("status") or screen_sieve_summary.get("status"),
-            "higgs_naturality_status": (naturality or {}).get("status") or (
-                "closed_exact_selected_branch" if (naturality or {}).get("accepted") else None
+            "higgs_naturality_status": (
+                "declared_map_identity_only__source_maps_and_independent_residual_open"
+                if (naturality or {}).get("accepted")
+                else (naturality or {}).get("status")
             ),
         },
         "source_values": {
@@ -247,12 +249,13 @@ def _hierarchy_surface() -> dict[str, Any]:
             "curvature_charge": screen_sieve_summary.get("total_curvature_charge", 12),
             "m_rep": round_count.get("m_rep", 24),
             "specialized_exponent": round_count.get("specialized_exponent", "-1/48"),
-            "higgs_naturality_defect": (naturality or {}).get("epsilon_H"),
+            "declared_map_higgs_naturality_defect": (naturality or {}).get("epsilon_H"),
         },
         "claim_boundary": {
             "improves": (
-                "The selected branch has zero algebraic bridge residual and epsilon_H=0. "
-                "Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT."
+                "The selected branch has zero algebraic bridge residual at its bridge-defined coordinate. "
+                "The stored epsilon_H=0 is a declared-map packaging identity, not a source-derived "
+                "naturality value. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT."
             ),
             "count_independence": (
                 "m_rep=24 is derived from the doubled observer-visible product adjoint, "
@@ -262,6 +265,11 @@ def _hierarchy_surface() -> dict[str, Any]:
             "missing_bridge": (
                 "HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; "
                 "the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0."
+            ),
+            "missing_naturality_producer": (
+                "Derive rho_sH, n_s, n_H, h_s, chi_sH, and h_H from the source, then "
+                "evaluate both residuals independently; same-antecedent completions currently attain "
+                "both zero and nonzero defect."
             ),
             "does_not_promote": [
                 "public Thomson endpoint without the missing hadronic spectral payload",
@@ -791,8 +799,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"`exponent={hierarchy_factors['specialized_exponent']}`",
             f"- Count independence: {hierarchy['claim_boundary']['count_independence']}",
             f"- Missing hierarchy bridge: {hierarchy['claim_boundary']['missing_bridge']}",
-            f"- Higgs naturality defect: `epsilon_H={hierarchy_factors['higgs_naturality_defect']}`",
+            f"- Declared-map defect: `epsilon_H={hierarchy_factors['declared_map_higgs_naturality_defect']}`",
             f"- Boundary: {hierarchy['claim_boundary']['improves']}",
+            f"- Missing naturality producer: {hierarchy['claim_boundary']['missing_naturality_producer']}",
             f"- Physical capacity conditions: "
             f"{'; '.join(hierarchy['claim_boundary']['capacity_conditions'])}",
             f"- Not promoted by this bridge: {', '.join(hierarchy['claim_boundary']['does_not_promote'])}",

@@ -1,6 +1,6 @@
 {
   "artifact": "RG_Higgs_naturality_defect_certificate",
-  "status": "closed_exact_selected_branch_by_issue_332_certificate",
+  "status": "declared_map_identity_closed__source_maps_and_physical_naturality_open",
   "normal_form_condition": "H_OPH o Theta_RG = H_OPH on Q_HT",
   "defect_definition": "epsilon_H = sup_x | H_r(rho_sr n_s(x)) - H_r(n_r rho_sr(x)) |",
   "closed_value": {
@@ -12,6 +12,12 @@
       "0"
     ]
   },
+  "closed_value_scope": "defect of the supplied comparison maps only",
+  "source_comparison_maps_derived": false,
+  "physical_naturality_result": false,
+  "predictive_promotion_allowed": false,
+  "antecedent_only_countermodel_certificate": "antecedent_only_nonidentifiability_receipt.json",
+  "live_route": "derive every comparison map from the source and independently evaluate both residuals",
   "source_theorem_used": "coarse-graining commutes with reconciliation up to max(epsilon_n, epsilon_h); exact naturality is zero-defect.",
   "certificate": "../issue_332_rg_naturality_certificate.json",
   "forbidden_inputs": [

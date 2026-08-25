@@ -55,6 +55,7 @@ def test_comb_claim_carries_template_and_pending_status() -> None:
     statement = _claim(COMB_CLAIM)["statement"]
     for token in ("ln k/(8 pi)", "2 sqrt(1 - chi^2)/(1 + sqrt(1 - chi^2))",
                   "64 pi^2", "d_before = k d_after", "-ln k",
+                  "denominator teeth b>=2",
                   "M_det = (1+z) M_source", "registered_pending_freeze",
                   "Posterior samples alone",
                   "no event likelihood has been evaluated"):
@@ -94,7 +95,9 @@ def test_lean_modules_carry_headline_declarations() -> None:
                     "w_ge_neg_one_of_monotone",
                     "deriv_N_neg_of_w_lt_neg_one", "cpl_forced_of_constN",
                     "decreasingCapacity_w_lt_neg_one"),
-        COMB_LEAN: ("offsetSubtracted_ratio", "ratio_template_independent",
+        COMB_LEAN: ("offsetSubtracted_ratio_totalized",
+                    "tooth_sub_offset_ne_zero", "offsetSubtracted_ratio",
+                    "ratio_template_independent",
                     "pow_bound_32_lower", "log_ladder_32_lower",
                     "after_eq_before_div", "signed_entropy_change",
                     "positive_entropy_loss"),

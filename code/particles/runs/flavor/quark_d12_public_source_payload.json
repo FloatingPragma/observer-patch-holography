@@ -14,36 +14,49 @@
   "beta_d_diag_B_source_formula": "-t1 / 10",
   "beta_u_diag_B_source": 0.06478785725166157,
   "beta_u_diag_B_source_formula": "t1 / 10",
+  "comparison_only_light_ratio_input": {
+    "ell_ud": 0.7774542870199389,
+    "ell_ud_formula": "log(m_d / m_u)",
+    "m_d_gev": 0.004699999999999999,
+    "m_u_gev": 0.0021600000000000005
+  },
   "d12_scalars": {
     "Delta_ud_overlap": 0.12957571450332314,
     "Delta_ud_overlap_formula": "(1/6) * log(m_d / m_u)",
     "t1": 0.6478785725166157,
     "t1_formula": "(5/6) * log(m_d / m_u)"
   },
-  "exact_light_ratio_source": {
-    "ell_ud": 0.7774542870199389,
-    "ell_ud_formula": "log(m_d / m_u)",
-    "m_d_gev": 0.004699999999999999,
-    "m_u_gev": 0.0021600000000000005
-  },
-  "generated_utc": "2026-08-14T05:39:23Z",
+  "generated_utc": "2026-08-25T18:56:45Z",
   "input_artifacts": {
     "d12_t1_value_law": "oph_quark_d12_t1_value_law",
     "public_exact_yukawa_theorem": "oph_quark_public_exact_yukawa_end_to_end_theorem",
     "source_readback_law": "oph_family_excitation_diagonal_common_gap_shift_source_readback"
   },
+  "input_status_audit": {
+    "d12_t1_exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+    "d12_t1_promotion_allowed": false,
+    "d12_t1_proof_status": "conditional_mass_ray_identity_value_source_open",
+    "physical_yukawa_construction_closed": false,
+    "promotion_inherited_fail_closed": true,
+    "public_yukawa_promotion_allowed": false,
+    "public_yukawa_proof_status": "blocked_mixed_scheme_dimensionful_mass_textures_not_physical_yukawas"
+  },
   "notes": [
-    "This is a constructive data-bearing payload, not a placeholder shell.",
-    "It uses the public exact selected-class output as theorem input, not a reference fit.",
-    "Issue #212 still requires a separate arbitrary-P transport theorem before this can be promoted to an off-canonical evaluator family."
+    "The arithmetic payload is retained only as a comparison audit while either upstream promotion gate is open.",
+    "A future source payload requires common-scale dimensionless Yukawas with scheme, threshold, and running-v(mu) provenance, plus a source-derived light ratio or t1.",
+    "The D12 scalar-emission route remains open and viable; this blocked payload is not a no-go for that route."
   ],
   "off_canonical_boundary": {
     "arbitrary_P_transport_closed": false,
     "reason": "This payload is evaluated on the selected public class emitted by OPH axioms + P. It does not classify all public quark frame classes or prove an arbitrary-P source-payload family."
   },
   "off_canonical_promotion_allowed": false,
-  "proof_status": "closed_public_selected_class_pure_B_source_payload",
-  "public_promotion_allowed": true,
+  "promotion_blockers": [
+    "PUBLIC_COMMON_SCALE_DIMENSIONLESS_SOURCE_YUKAWA_THEOREM",
+    "SOURCE_DERIVED_C_D_OVER_C_U_OR_T1_VALUE"
+  ],
+  "proof_status": "blocked_unpromotable_yukawa_input_and_open_d12_value_source",
+  "public_promotion_allowed": false,
   "pure_B_certificates": {
     "J_B_from_endpoint_d": -0.06478785725166157,
     "J_B_from_endpoint_u": 0.06478785725166157,
@@ -54,7 +67,7 @@
     "endpoint_sum_d": 0.0,
     "endpoint_sum_u": 0.0
   },
-  "scope": "selected_public_physical_quark_frame_class_only",
+  "scope": "selected_class_conditional_payload_and_target_attached_audit_only",
   "selected_public_physical_frame_class": {
     "representative": {
       "imag": [
@@ -124,5 +137,6 @@
     0.06478785725166157
   ],
   "source_readback_u_log_per_side_formula": "beta_u_diag_B_source * B_ord",
-  "theorem_statement": "On the selected public quark frame class, the public exact quark theorem emits the exact light ratio m_d/m_u. The D12 value law gives Delta_ud_overlap = (1/6) log(m_d/m_u) and t1 = 5 Delta_ud_overlap. The pure-B source payload is therefore beta_u = t1/10, beta_d = -t1/10, with source readbacks beta_u * B_ord and beta_d * B_ord."
+  "theorem_statement": "Conditional on a source-emitted common-scale dimensionless light ratio and a closed D12 value law, Delta_ud_overlap = (1/6) log(y_d/y_u), t1 = 5 Delta_ud_overlap, and the pure-B payload is beta_u = t1/10, beta_d = -t1/10. The current stored numbers come from an unpromotable target-attached mixed-scheme mass-texture audit and do not satisfy those premises.",
+  "value_classification": "comparison_only_projection_from_unpromotable_inputs"
 }

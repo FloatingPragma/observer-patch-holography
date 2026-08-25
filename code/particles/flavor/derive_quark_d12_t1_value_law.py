@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the ray-coordinate one-scalar D12 quark value-law theorem.
+"""Emit the conditional ray-coordinate D12 quark identity package.
 
 Chain role: record the smallest target-free theorem object left on the emitted
 same-family D12 mass ray.
@@ -10,9 +10,10 @@ is then induced by
 `Delta_ud_overlap = t1 / 5` and
 `eta_Q_centered = -((1 - x2^2) / 27) * t1`.
 
-Output: the ray-coordinate theorem `quark_d12_t1_value_law`, with
-the smaller primitive `light_quark_overlap_defect_value_law` beneath it and
-`intrinsic_scale_law_D12` retained only as a derived wrapper above it.
+The current source corpus does not emit ``c_d/c_u`` or a numerical ``t1``.
+The output therefore records the exact conditional identities while keeping
+the scalar-emission route open.  Its retained numerical point is diagnostic
+only and cannot promote the package.
 """
 
 from __future__ import annotations
@@ -44,22 +45,29 @@ def build_payload(mass_ray: dict[str, Any], overlap_law: dict[str, Any] | None =
     overlap_law = overlap_law or {}
     exact_transport = dict(overlap_law.get("exact_transport_contract", {}))
     main_builder_branch = dict((overlap_law.get("sigma_branch_contracts") or {}).get("main_builder_sigma_pair") or {})
+    main_builder_sigma_status = main_builder_branch.get("provider_status")
+    main_builder_sigma_source_emitted = main_builder_sigma_status in {
+        "closed_source_emission",
+        "source_emitted",
+        "source_values_derived_from_source_emission",
+    }
     return {
         "artifact": "oph_quark_d12_t1_value_law",
         "generated_utc": _timestamp(),
         "scope": "D12_continuation_only",
-        "proof_status": "closed_mass_ray_one_scalar_value_law",
-        "public_promotion_allowed": True,
-        "exact_missing_object": None,
+        "proof_status": "conditional_mass_ray_identity_value_source_open",
+        "public_promotion_allowed": False,
+        "exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+        "value_emission_status": "open_viable_scalar_emission_route",
         "parent_emitted_object": {
             "artifact": mass_ray["artifact"],
             "id": mass_ray["emitted_object"]["id"],
         },
         "theorem_statement": (
-            "On the minimal light branch and the emitted same-family D12 mass ray, the mass-side "
-            "scalar closes to t1 = (5/6) * log(c_d / c_u). Equivalently, "
+            "Conditional on a source-derived positive coefficient ratio c_d/c_u, the minimal light branch "
+            "and emitted same-family D12 mass ray imply t1 = (5/6) * log(c_d / c_u). Equivalently, "
             "t1 = 5 * Delta_ud_overlap and ray_modulus = t1 on D12_ud_mass_ray. "
-            "The larger wrapper intrinsic_scale_law_D12 is therefore derived automatically from the emitted ray formulas."
+            "These identities do not emit c_d/c_u or select a numerical point of the ray."
         ),
         "smaller_primitive_equivalent_theorem": {
             "id": "light_quark_overlap_defect_value_law",
@@ -108,7 +116,7 @@ def build_payload(mass_ray: dict[str, Any], overlap_law: dict[str, Any] | None =
             ),
         },
         "candidate_public_construction_route": {
-            "status": "closed_theorem_internalized",
+            "status": "conditional_identity_value_source_open",
             "minimal_light_branch": {
                 "textures": [
                     "y_u = c_u * epsilon^6",
@@ -127,20 +135,33 @@ def build_payload(mass_ray: dict[str, Any], overlap_law: dict[str, Any] | None =
                 "t1 = 5 * Delta_ud_overlap = (5/6) * log(c_d / c_u)",
             ],
             "closure_note": (
-                "The mass-side route is internalized directly from the minimal light branch together with the emitted D12 mass ray."
+                "The algebraic reduction is internalized, but the source law selecting c_d/c_u or t1 remains open."
             ),
         },
         "current_public_yukawa_frontier": {
-            "theorem_grade_sigma_branch_artifact": main_builder_branch.get("provider_artifact"),
-            "theorem_grade_sigma_branch_status": main_builder_branch.get("provider_status"),
-            "theorem_grade_sigma_branch_kind": main_builder_branch.get("sigma_source_kind"),
-            "transport_side_status_on_that_branch": "closed",
-            "remaining_exact_blocker_set_if_this_branch_is_used": [],
-            "target_1_status": "closed",
+            "main_builder_sigma_branch_artifact": main_builder_branch.get(
+                "provider_artifact"
+            ),
+            "main_builder_sigma_branch_status": main_builder_sigma_status,
+            "main_builder_sigma_branch_kind": main_builder_branch.get(
+                "sigma_source_kind"
+            ),
+            "main_builder_sigma_source_emitted": main_builder_sigma_source_emitted,
+            "transport_side_status_given_that_branch": "closed_conditionally",
+            "remaining_exact_blocker_set_if_this_branch_is_used": [
+                "source_derived_c_d_over_c_u_or_t1_value",
+                *(
+                    []
+                    if main_builder_sigma_source_emitted
+                    else ["supported_source_sigma_branch_emission"]
+                ),
+            ],
+            "target_1_status": "open_value_source_not_emitted",
             "equivalent_ray_coordinate_presentation": "quark_d12_t1_value_law",
             "optional_nonminimal_strengthening": "edge_statistics_mean_surface_compatibility_theorem",
         },
         "sample_same_family_point": {
+            "classification": "diagnostic_sample_only_not_value_emission",
             "t1": float(sample["t1_sample"]),
             "ray_modulus": float(sample["ray_modulus"]),
             "x2": float(sample["x2"]),
@@ -164,8 +185,10 @@ def build_payload(mass_ray: dict[str, Any], overlap_law: dict[str, Any] | None =
             "meaning": "the induced mass-side wrapper on D12_ud_mass_ray after t1 is fixed intrinsically",
         },
         "notes": [
-            "This artifact closes the D12 ray-coordinate theorem on the local code surface.",
-            "The larger wrapper intrinsic_scale_law_D12 remains valid language, but only as the derived mass-ray wrapper above quark_d12_t1_value_law.",
+            "This artifact proves a conditional coordinate identity; it does not emit the unresolved scalar.",
+            "The same-family D12 mass ray remains a viable open derivation route, not a no-go.",
+            "The exact transport identity does not upgrade the diagnostic sigma witness consumed by the current main builder.",
+            "The larger wrapper intrinsic_scale_law_D12 is only a conditional derived wrapper above quark_d12_t1_value_law.",
         ],
     }
 

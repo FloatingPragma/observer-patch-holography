@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the selected-public-class D12 pure-B quark source payload.
+"""Emit the selected-class D12 pure-B conditional payload audit.
 
 Chain role: materialize the pure-B source readback pair from the public exact
 quark theorem on the selected frame class.
@@ -15,8 +15,10 @@ The pure-B source payload is then forced by the D12 source corollary:
     beta_u = t1 / 10, beta_d = -t1 / 10,
     source_u = beta_u * B_ord, source_d = beta_d * B_ord.
 
-Output: a data-bearing source payload on the selected public class. This is
-not an arbitrary-P off-canonical transport theorem.
+The current upstream artifact contains target-attached mixed-scheme GeV mass
+textures, not source-emitted dimensionless Yukawas, and the D12 value package
+does not emit ``t1``.  The numerical projection is retained as a comparison
+audit but promotion is inherited fail-closed from both upstreams.
 """
 
 from __future__ import annotations
@@ -58,13 +60,59 @@ def build_artifact(public_yukawa: dict[str, Any], t1_law: dict[str, Any], source
     source_d = [beta_d * value for value in b_ord]
     b_norm_sq = float(sum(value * value for value in b_ord))
 
+    public_yukawa_ready = (
+        public_yukawa.get("public_promotion_allowed") is True
+        and public_yukawa.get("proof_status")
+        == "closed_source_only_public_exact_yukawa_end_to_end_theorem"
+        and public_yukawa.get("physical_yukawa_construction_closed") is True
+        and (public_yukawa.get("non_circularity_status") or {}).get(
+            "promotion_allowed"
+        )
+        is True
+    )
+    t1_value_ready = (
+        t1_law.get("public_promotion_allowed") is True
+        and t1_law.get("exact_missing_object") in {None, ""}
+    )
+    promotion_blockers: list[str] = []
+    if not public_yukawa_ready:
+        promotion_blockers.append(
+            "PUBLIC_COMMON_SCALE_DIMENSIONLESS_SOURCE_YUKAWA_THEOREM"
+        )
+    if not t1_value_ready:
+        promotion_blockers.append("SOURCE_DERIVED_C_D_OVER_C_U_OR_T1_VALUE")
+    promotion_allowed = not promotion_blockers
+
     return {
         "artifact": "oph_quark_d12_public_source_payload",
         "generated_utc": _timestamp(),
-        "scope": "selected_public_physical_quark_frame_class_only",
-        "proof_status": "closed_public_selected_class_pure_B_source_payload",
-        "public_promotion_allowed": True,
+        "scope": "selected_class_conditional_payload_and_target_attached_audit_only",
+        "proof_status": (
+            "closed_public_selected_class_pure_B_source_payload"
+            if promotion_allowed
+            else "blocked_unpromotable_yukawa_input_and_open_d12_value_source"
+        ),
+        "public_promotion_allowed": promotion_allowed,
         "off_canonical_promotion_allowed": False,
+        "value_classification": (
+            "source_emitted_selected_class_payload"
+            if promotion_allowed
+            else "comparison_only_projection_from_unpromotable_inputs"
+        ),
+        "promotion_blockers": promotion_blockers,
+        "input_status_audit": {
+            "public_yukawa_proof_status": public_yukawa.get("proof_status"),
+            "public_yukawa_promotion_allowed": public_yukawa.get(
+                "public_promotion_allowed"
+            ),
+            "physical_yukawa_construction_closed": public_yukawa.get(
+                "physical_yukawa_construction_closed"
+            ),
+            "d12_t1_proof_status": t1_law.get("proof_status"),
+            "d12_t1_promotion_allowed": t1_law.get("public_promotion_allowed"),
+            "d12_t1_exact_missing_object": t1_law.get("exact_missing_object"),
+            "promotion_inherited_fail_closed": True,
+        },
         "input_artifacts": {
             "public_exact_yukawa_theorem": public_yukawa.get("artifact"),
             "d12_t1_value_law": t1_law.get("artifact"),
@@ -72,12 +120,12 @@ def build_artifact(public_yukawa: dict[str, Any], t1_law: dict[str, Any], source
         },
         "selected_public_physical_frame_class": public_yukawa["selected_public_physical_frame_class"],
         "theorem_statement": (
-            "On the selected public quark frame class, the public exact quark theorem emits the exact light ratio "
-            "m_d/m_u. The D12 value law gives Delta_ud_overlap = (1/6) log(m_d/m_u) and t1 = 5 Delta_ud_overlap. "
-            "The pure-B source payload is therefore beta_u = t1/10, beta_d = -t1/10, with source readbacks "
-            "beta_u * B_ord and beta_d * B_ord."
+            "Conditional on a source-emitted common-scale dimensionless light ratio and a closed D12 value law, "
+            "Delta_ud_overlap = (1/6) log(y_d/y_u), t1 = 5 Delta_ud_overlap, and the pure-B payload is "
+            "beta_u = t1/10, beta_d = -t1/10. The current stored numbers come from an unpromotable "
+            "target-attached mixed-scheme mass-texture audit and do not satisfy those premises."
         ),
-        "exact_light_ratio_source": {
+        "comparison_only_light_ratio_input": {
             "m_u_gev": m_u,
             "m_d_gev": m_d,
             "ell_ud": ell_ud,
@@ -121,9 +169,9 @@ def build_artifact(public_yukawa: dict[str, Any], t1_law: dict[str, Any], source
             ),
         },
         "notes": [
-            "This is a constructive data-bearing payload, not a placeholder shell.",
-            "It uses the public exact selected-class output as theorem input, not a reference fit.",
-            "Issue #212 still requires a separate arbitrary-P transport theorem before this can be promoted to an off-canonical evaluator family.",
+            "The arithmetic payload is retained only as a comparison audit while either upstream promotion gate is open.",
+            "A future source payload requires common-scale dimensionless Yukawas with scheme, threshold, and running-v(mu) provenance, plus a source-derived light ratio or t1.",
+            "The D12 scalar-emission route remains open and viable; this blocked payload is not a no-go for that route.",
         ],
     }
 

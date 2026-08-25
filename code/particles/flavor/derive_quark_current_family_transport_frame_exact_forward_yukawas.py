@@ -74,11 +74,17 @@ def build_artifact(strengthened_theorem: dict[str, Any], completion: dict[str, A
     forward["scope"] = "current_family_common_refinement_transport_frame_only"
     forward["proof_status"] = "closed_target_anchored_mixed_convention_mass_texture_audit"
     forward["public_promotion_allowed"] = False
+    forward["predictive_promotion_allowed"] = False
+    forward["source_certified"] = False
+    forward["forward_certification_scope"] = "target_anchored_matrix_arithmetic_only"
     forward["matrix_classification"] = "mixed_scheme_GeV_mass_texture_matrices"
     forward["stored_entry_dimension"] = "GeV"
     forward["physical_yukawa_certified"] = False
     forward["single_common_scale_running_sextet"] = False
-    forward["promotion_blockers"] = ["QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"]
+    forward["promotion_blockers"] = [
+        "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE",
+    ]
     forward["supporting_artifacts"] = {
         "strengthened_physical_sigma_lift_theorem": strengthened_theorem["artifact"],
         "exact_pdg_completion": completion["artifact"],

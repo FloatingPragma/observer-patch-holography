@@ -12,40 +12,136 @@ source line-range is stable across rebuilds. Overfull boxes are never budgeted.
 
 Usage:
   1. Build all source-derived papers and the book with the canonical builders.
-  2. Pass every registered paper log plus the current book log. Enumerate the
-     logs from ``build_tex_papers.ALL_PAPERS`` rather than naming directories,
-     because that mapping is the paper set the warning gate itself checks:
+  2. Run this script with no positional arguments. It obtains the paper set
+     directly from ``build_tex_papers.ALL_PAPERS`` and adds the canonical
+     reader-facing book log:
 
-       python3 - <<'PY'
-       import sys; sys.path.insert(0, "tools")
-       import build_tex_papers as ps
-       print("\n".join(str(p.with_suffix(".log")) for p in ps.ALL_PAPERS.values()))
-       PY
+       python3 paper/tools/gen_warning_allowlist.py
 
-     Naming directories by hand has already drifted from the paper set. A
-     hand-typed list that omits one directory silently shrinks the budget with
-     no error, and the run still reports success: ``paper extra`` drops the
-     cosmology logs, and ``paper extra cosmology`` drops the flagship log,
-     which lives in ``PAPERS`` under ``FLAGSHIP_DIR`` rather than in a
-     directory of its own.
+     Positional files or directories remain available for explicit runs, but
+     their expanded log set must equal the registered set exactly. Missing,
+     duplicate, and unregistered logs are rejected before the allowlist is
+     written. This prevents a hand-typed directory list from silently dropping
+     the cosmology or flagship logs and shrinking the warning budget.
 
-Every supplied log is used. The canonical warning budget therefore includes
-the flagship, core, supplemental, cosmology, and book logs; it never silently
-inherits the membership of an older allowlist. Compare the regenerated file
-against the committed one and confirm no log was dropped before staging it.
+The canonical warning budget therefore includes the flagship, core,
+supplemental, cosmology, and reader-facing book logs. Compare the regenerated
+file against the committed one before staging it; a content change should now
+mean warning-content drift, not accidental registry-membership drift.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 from check_build_warnings import parse_log  # noqa: E402
 
+REPO_ROOT = TOOLS.parents[1]
+ROOT_TOOLS = REPO_ROOT / "tools"
+sys.path.insert(0, str(ROOT_TOOLS))
+import build_tex_papers  # noqa: E402
+
 ALLOWLIST = TOOLS.parent / "build_warning_allowlist.json"
+BOOK_LOG = REPO_ROOT.parent / "temp" / "book_pdf_build" / "book_manuscript.log"
+
+
+def registered_logs() -> dict[Path, str]:
+    """Return the exact publication-log registry as canonical path -> label.
+
+    Paper membership comes from the same ``ALL_PAPERS`` mapping consumed by
+    the publication build/warning gate. The book is registered separately
+    because its generated TeX root is owned by ``build_book_pdf.py`` rather
+    than ``ALL_PAPERS``.
+    """
+
+    logs: dict[Path, str] = {}
+    for paper_id, tex_path in build_tex_papers.ALL_PAPERS.items():
+        log_path = tex_path.with_suffix(".log").resolve()
+        if log_path in logs:
+            raise RuntimeError(
+                "duplicate registered paper log path: "
+                f"{log_path} ({logs[log_path]}, paper:{paper_id})"
+            )
+        logs[log_path] = f"paper:{paper_id}"
+
+    book_path = BOOK_LOG.resolve()
+    if book_path in logs:
+        raise RuntimeError(f"book log collides with a registered paper log: {book_path}")
+    logs[book_path] = "book:reader-facing"
+
+    # The checker keys allowlist entries by basename. A basename collision
+    # would make two distinct publication roots indistinguishable there.
+    basenames = Counter(path.name for path in logs)
+    collisions = sorted(name for name, count in basenames.items() if count > 1)
+    if collisions:
+        raise RuntimeError(
+            "registered log basenames are not unique: " + ", ".join(collisions)
+        )
+    return logs
+
+
+def expand_log_inputs(inputs: list[Path]) -> list[Path]:
+    """Expand explicit file/directory inputs without deduplicating them."""
+
+    logs: list[Path] = []
+    for candidate in inputs:
+        if candidate.is_dir():
+            logs.extend(sorted(candidate.glob("*.log")))
+        else:
+            logs.append(candidate)
+    return logs
+
+
+def validate_exact_coverage(
+    log_paths: list[Path], expected: dict[Path, str]
+) -> list[Path]:
+    """Validate exact registered coverage and return canonical ordered paths.
+
+    Validation is path-based, not basename-based: a copied log with the name
+    of a registered paper is not the registered build artifact. Duplicate
+    inputs are checked before converting to a set so overlapping directory and
+    file arguments cannot be silently absorbed.
+    """
+
+    canonical = [path.resolve() for path in log_paths]
+    counts = Counter(canonical)
+    supplied = set(canonical)
+    expected_paths = set(expected)
+
+    duplicate = sorted(path for path, count in counts.items() if count > 1)
+    missing = sorted(expected_paths - supplied)
+    unregistered = sorted(supplied - expected_paths)
+    not_files = sorted(path for path in supplied & expected_paths if not path.is_file())
+
+    problems: list[str] = []
+    if duplicate:
+        problems.append(
+            "duplicate logs:\n  "
+            + "\n  ".join(f"{path} ({counts[path]} copies)" for path in duplicate)
+        )
+    if missing:
+        problems.append(
+            "missing registered logs:\n  "
+            + "\n  ".join(f"{path} [{expected[path]}]" for path in missing)
+        )
+    if unregistered:
+        problems.append(
+            "unregistered logs:\n  " + "\n  ".join(str(path) for path in unregistered)
+        )
+    if not_files:
+        problems.append(
+            "registered logs not found on disk (build with --keep-logs first):\n  "
+            + "\n  ".join(str(path) for path in not_files)
+        )
+    if problems:
+        raise ValueError("\n".join(problems))
+
+    return sorted(expected_paths)
 
 
 def build(log_paths: list[Path]) -> dict:
@@ -86,18 +182,48 @@ def build(log_paths: list[Path]) -> dict:
     }
 
 
-def main() -> int:
-    dirs = [Path(a) for a in sys.argv[1:]] or [Path.cwd()]
-    logs: list[Path] = []
-    for d in dirs:
-        logs.extend(sorted(d.glob("*.log")) if d.is_dir() else [d])
-    if not logs:
-        print("no .log files found; build the roots with tectonic --keep-logs first", file=sys.stderr)
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Regenerate the anchored underfull-warning allowlist from the exact "
+            "registered paper and reader-facing book log set."
+        )
+    )
+    parser.add_argument(
+        "logs",
+        nargs="*",
+        type=Path,
+        help=(
+            "Optional explicit .log files or directories. Their expanded set "
+            "must exactly match the registry; default: use registered paths."
+        ),
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=ALLOWLIST,
+        help=f"allowlist output path (default: {ALLOWLIST})",
+    )
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    expected = registered_logs()
+    supplied = expand_log_inputs(args.logs) if args.logs else list(expected)
+    try:
+        logs = validate_exact_coverage(supplied, expected)
+    except ValueError as exc:
+        print(f"gen_warning_allowlist: {exc}", file=sys.stderr)
         return 2
+
     doc = build(logs)
-    ALLOWLIST.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
+    args.output.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
     boxes = sum(e["max_count"] for e in doc["allow"])
-    print(f"wrote {len(doc['allow'])} anchored entries covering {boxes} underfull boxes -> {ALLOWLIST}")
+    print(
+        f"wrote {len(doc['allow'])} anchored entries covering {boxes} "
+        f"underfull boxes from {len(logs)} registered logs -> {args.output}"
+    )
     return 0
 
 

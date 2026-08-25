@@ -340,7 +340,7 @@
       "status": "certified_source_root_plus_public_width_diagnostic"
     }
   },
-  "generated_utc": "2026-08-14T05:35:45Z",
+  "generated_utc": "2026-08-25T19:00:17Z",
   "hadron_policy": {
     "empirical_hadron_closure_allowed_for_display": true,
     "empirical_payload_schema": "particles/hadron/empirical_ee_hadronic_spectral_measure.schema.json",
@@ -375,12 +375,13 @@
         "strong CP",
         "SI G without the full no-G clock stack"
       ],
-      "improves": "The selected branch has zero algebraic bridge residual and epsilon_H=0. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT.",
-      "missing_bridge": "HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0."
+      "improves": "The selected branch has zero algebraic bridge residual at its bridge-defined coordinate. The stored epsilon_H=0 is a declared-map packaging identity, not a source-derived naturality value. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT.",
+      "missing_bridge": "HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0.",
+      "missing_naturality_producer": "Derive rho_sH, n_s, n_H, h_s, chi_sH, and h_H from the source, then evaluate both residuals independently; same-antecedent completions currently attain both zero and nonzero defect."
     },
     "factor_origins": {
       "curvature_charge": 12,
-      "higgs_naturality_defect": "0",
+      "declared_map_higgs_naturality_defect": "0",
       "m_rep": 24,
       "screen_ports": 12,
       "specialized_exponent": "-1/48"
@@ -479,7 +480,7 @@
       "accepted": true,
       "ew_capacity_status": "closed_bridge_refined_global_capacity_fixed_point_certificate",
       "full_theorem_grade_resonance_promoted": false,
-      "higgs_naturality_status": "closed_exact_selected_branch",
+      "higgs_naturality_status": "declared_map_identity_only__source_maps_and_independent_residual_open",
       "m_rep_status": "closed_representation_to_spectrum_round_count",
       "readback_status": "closed_finite_readback_resolution_certificate",
       "resonance_status": "exact_conditional_local_global_hierarchy_resonance",

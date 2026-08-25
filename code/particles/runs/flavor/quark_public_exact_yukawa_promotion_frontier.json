@@ -129,11 +129,18 @@
         ]
       },
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "matrix_arithmetic_valid": true,
       "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
       "physical_yukawa_certified": false,
+      "predictive_promotion_allowed": false,
+      "promotion_blockers": [
+        "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+      ],
       "scope": "current_family_common_refinement_transport_frame_only",
       "singular_values_d": [
         0.0046999999996463915,
@@ -145,6 +152,7 @@
         1.2729000000026323,
         172.09999999999968
       ],
+      "source_certified": false,
       "stored_entry_dimension": "GeV"
     },
     "proof_status": "closed_target_anchored_mixed_convention_mass_texture_audit",
@@ -272,11 +280,18 @@
           ]
         },
         "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-        "certification_status": "forward_matrix_certified",
+        "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+        "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
         "forward_certified": true,
         "jarlskog": -3.735348679490123e-06,
+        "matrix_arithmetic_valid": true,
         "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
         "physical_yukawa_certified": false,
+        "predictive_promotion_allowed": false,
+        "promotion_blockers": [
+          "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+          "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+        ],
         "scope": "current_family_common_refinement_transport_frame_only",
         "singular_values_d": [
           0.0046999999996463915,
@@ -288,6 +303,7 @@
           1.2729000000026323,
           172.09999999999968
         ],
+        "source_certified": false,
         "stored_entry_dimension": "GeV"
       },
       "pair_status": "consistent_declared_mass_texture_singular_spectrum",
@@ -406,11 +422,18 @@
         ]
       },
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "matrix_arithmetic_valid": true,
       "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
       "physical_yukawa_certified": false,
+      "predictive_promotion_allowed": false,
+      "promotion_blockers": [
+        "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+      ],
       "scope": "current_family_common_refinement_transport_frame_only",
       "singular_values_d": [
         0.0046999999996463915,
@@ -422,6 +445,7 @@
         1.2729000000026323,
         172.09999999999968
       ],
+      "source_certified": false,
       "stored_entry_dimension": "GeV"
     },
     "statement": "Public promotion is blocked until a new source map breaks the two-modulus spread action and a common-scale dimensionless Yukawa construction is certified."
@@ -493,7 +517,7 @@
     },
     "statement": "Let f_P be the physical quark frame class selected by P, represented on the realized quark lane by the explicit same-label common-refinement transport-frame class [F0^dagger F1]. For any two declared current-family/common-refinement transport-frame realizations r,r' in the selected same-label bridge fiber R_decl(f_P), the emitted Sigma_ud^phys element and attached exact physical sigma datum (sigma_seed_ud, eta_ud, sigma_u, sigma_d) agree. Equivalently, the exact sigma readout is constant on R_decl(f_P) and descends uniquely to a representative-independent datum on the selected physical quark frame class. This descent proves constancy on the selected bridge fiber only; it does not select the sigma value from P. If the attached sigma value is inherited from the current-family exact target surface, the descended public value remains target-derived."
   },
-  "generated_utc": "2026-08-14T05:39:23Z",
+  "generated_utc": "2026-08-25T18:56:50Z",
   "minimal_exact_blocker_set": [
     "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
     "QUARK_SOURCE_SPREAD_SECTOR_ATTACHMENT_AND_REFINEMENT",

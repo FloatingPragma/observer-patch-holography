@@ -309,6 +309,25 @@ def test_unknown_primitive_named_failure() -> None:
                for error in report["errors"])
 
 
+def test_non_string_primitive_fails_closed_without_exception() -> None:
+    """A JSON-valid but unhashable primitive name must return a report.
+
+    This is the malformed-content boundary promised by
+    ``verify_transcript_text``; previously ``primitive = []`` escaped as a
+    ``TypeError`` from the executor dictionary lookup.
+    """
+    transcript = copy.deepcopy(_load_sample())
+    transcript["steps"][STEP_LOAD]["primitive"] = []
+    report = _verify_object(transcript)
+    assert report["verdict"] == trv.NONCONFORMANT_VERDICT
+    assert any(
+        error["code"] == "UNKNOWN_PRIMITIVE"
+        and error["where"] == f"steps[{STEP_LOAD}]"
+        and "must be a string" in error["detail"]
+        for error in report["errors"]
+    )
+
+
 def test_argument_outside_grammar_named_failure() -> None:
     """A preparation whose diagonal does not sum to one is outside the
     grammar's domain; the named failure is ARGUMENT_OUTSIDE_GRAMMAR."""

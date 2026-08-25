@@ -113,10 +113,13 @@ Closed inside this bundle:
    dimension `8+3+1=12`; reversible orientation gives `m_rep=24`. Screen selection,
    the global quotient, and matter-menu completeness are not premises. The physical-current
    identification is upstream.
-13. The RG/Higgs naturality square for the selected exact branch:
-   `epsilon_H=max(epsilon_n,epsilon_h)=0`, conditional on the named hierarchy
-   readout, with measured weak-scale, Higgs, W/Z, gravity, Planck-area, and
-   Lambda inputs excluded.
+13. The declared-map RG/Higgs commuting square:
+   `epsilon_H=max(epsilon_n,epsilon_h)=0` for the supplied comparison maps,
+   with measured weak-scale, Higgs, W/Z, gravity, Planck-area, and Lambda
+   inputs excluded. This is a packaging identity, not a source-derived
+   naturality result. The antecedent-only receipt has same-fingerprint exact
+   completions with defects zero and one; source-derived maps and independent
+   residual evaluation remain open.
 14. The issue-#335 certificate composes the exact conditional local/global
    resonance. The screen supplies `X/12`, the product adjoint independently
    supplies `m_rep=24`, and `HIERARCHY-SCREEN-READOUT` is required to identify

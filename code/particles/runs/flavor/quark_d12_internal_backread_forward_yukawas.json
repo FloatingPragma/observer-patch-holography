@@ -180,7 +180,7 @@
     ]
   },
   "artifact": "oph_quark_d12_internal_backread_forward_yukawas",
-  "certification_status": "forward_matrix_certified",
+  "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
   "commutator_invariant": {
     "det_abs": 1.6088513324935436,
     "det_imag": 1.6088513324935436,
@@ -197,12 +197,14 @@
   "dense_entrywise_amplitude_used": false,
   "even_excitation_source_artifact": "oph_quark_edge_statistics_spread_candidate",
   "even_excitation_source_status": "internal_backread_edge_bridge_closed_on_sidecar",
+  "forward_certification_scope": "continuation_sidecar_matrix_arithmetic_only",
   "forward_certified": true,
-  "generated_utc": "2026-04-12T03:53:29Z",
+  "generated_utc": "2026-08-25T18:56:48Z",
   "jarlskog": 1.505308417752448e-10,
+  "matrix_arithmetic_valid": true,
   "metadata": {
     "base_descent_artifact": "oph_quark_sector_descent",
-    "note": "Continuation-only forward Yukawas built from the explicit D12 internal-backread descent. This surface is certified on its own continuation-side inputs, but it does not promote the public quark theorem frontier.",
+    "note": "Continuation-only forward Yukawas built from the explicit D12 internal-backread descent. Its matrix arithmetic is certified on continuation-side inputs, but those internal backreads are not source-derived and cannot promote the public frontier.",
     "overlap_law_artifact": "oph_quark_d12_overlap_transport_law",
     "shared_charged_seed_kind": "averaged_u_d_candidate",
     "source_payload_artifact": "oph_quark_d12_internal_backread_source_payload"
@@ -211,11 +213,14 @@
     "fro_norm": 0.00027640229325291395,
     "status": "closed"
   },
-  "predictive_promotion_allowed": true,
-  "promotion_blockers": [],
+  "predictive_promotion_allowed": false,
+  "promotion_blockers": [
+    "D12_INTERNAL_BACKREAD_NOT_SOURCE_DERIVED",
+    "D12_RAY_VALUE_SOURCE_OPEN"
+  ],
   "proof_status": "internal_backread_continuation_forward_yukawas_emitted",
   "public_promotion_allowed": false,
-  "public_surface_candidate_allowed": true,
+  "public_surface_candidate_allowed": false,
   "public_surface_candidate_scope": [
     "m_u",
     "m_d",
@@ -223,7 +228,7 @@
     "m_c",
     "m_b"
   ],
-  "public_surface_candidate_status": "best_available_reference_free_current_family_candidate",
+  "public_surface_candidate_status": "not_allowed",
   "quark_descent_proof_status": "closed",
   "scope": "D12_continuation_internal_backread_only",
   "sector_mean_split_artifact": "oph_quark_sector_mean_split",
@@ -239,6 +244,7 @@
     1.2553945652974103,
     171.0879574165533
   ],
+  "source_certified": false,
   "source_descent_artifact": "oph_quark_d12_internal_backread_descent",
   "source_mode": "factorized_descent",
   "spread_sigma_d_total_log_per_side": 3.4210589139721543,

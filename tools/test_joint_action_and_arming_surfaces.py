@@ -107,6 +107,7 @@ def test_lean_modules_carry_headline_declarations() -> None:
         ARM_LEAN: ("DispersionArmingInterface", "ArmedComparison",
                    "prop_fields_carry_no_separation"),
         CLK_LEAN: ("SourceClockCandidate", "197", "1754",
+                   "windowIdentification : ℝ → Prop",
                    "identification_field_free"),
     }
     for relative_path, tokens in expectations.items():

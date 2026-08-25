@@ -35,15 +35,16 @@ Clause comparison with the committed obstruction, clause for clause:
   restriction along the ampliation is exactly the committed source state,
   and the record embedding preserves it.
 
-Two delimiting theorems locate the escape exactly.  First, for every
+Two delimiting theorems establish two necessary features of this escape.
+First, for every
 ancilla matrix `σ` the product functional `Tr((ρ ⊗ σ) · )` admits no map
 satisfying the three transported clauses: enlarging the target while
 keeping a product-form state extension keeps the obstruction.  Second, a
 map whose range lies in the ampliated copy `algebra01 ⊗ 1` is obstructed
 even against the exhibited correlated state: the ancilla factor must be
-used.  The construction therefore needs both the target enlargement and
-the record-correlated state extension, and the exhibited extension is
-provably of non-product form.
+used.  Within this clause family, target enlargement and some non-product
+state extension are therefore necessary.  The exhibited record-correlated
+extension is one witness; it is not proved to be the unique such extension.
 
 The ancilla dimension is two.  The ancilla-free instance of the clause
 list is the committed fixed-target obstruction, reading the dimension-one
@@ -864,8 +865,9 @@ clause quantifies over the committed interval algebra transported by the
 ampliation, and the range clause is the single clause whose target algebra
 changes.  The state clause evaluates a strictly different functional, the
 exhibited non-product extension of the committed state
-(`enlargedDensity_ne_product`), whose necessity the delimitation
-`no_product_state_bimodule_map_into_enlargedTarget` proves. -/
+(`enlargedDensity_ne_product`).  The delimitation
+`no_product_state_bimodule_map_into_enlargedTarget` proves necessity only of
+leaving the product-form family; it does not single out this extension. -/
 theorem single_changed_clause_receipt :
     (∀ B ∈ algebra01, recordEmbedding B = ampliation B) ∧
       (∀ X : HistoryMatrix,

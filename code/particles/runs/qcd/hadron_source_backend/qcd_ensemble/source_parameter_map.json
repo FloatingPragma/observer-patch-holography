@@ -14,11 +14,17 @@
     "artifact": "oph_qcd_lambda_msbar3",
     "borrowed_qft_piece": "perturbative_qcd_running_and_threshold_matching",
     "exists": true,
-    "generated_utc": "2026-03-27T05:53:37Z",
+    "generated_utc": "2026-07-12T03:51:03Z",
+    "input_promotion_audit": {
+      "forward_yukawas_forward_certified": false,
+      "forward_yukawas_predictive_promotion_allowed": false,
+      "promotion_inherited_fail_closed": true,
+      "quark_thresholds_source_certified": false
+    },
     "law_id": "oph_qcd_lambda_msbar3_from_d10_alpha3",
     "loops": 4,
     "notes": [
-      "This artifact is a secondary QCD descendant from the live OPH D10 alpha3 closure plus the current reference-free quark thresholds.",
+      "This artifact is a secondary QCD descendant from the live D10 alpha3 coordinate and the current quark-threshold artifact. Those thresholds are not source-certified on the live corpus, so this descendant is not a source-only prediction.",
       "It uses perturbative MS-bar running and simple threshold continuity at m_b and m_c.",
       "No hadron masses or PDG hadron inputs are used anywhere in this descendant."
     ],
@@ -29,8 +35,8 @@
       "Lambda_MSbar_gev": 0.3344017072821104
     },
     "path": "particles/runs/qcd/lambda_msbar_descendant.json",
-    "predictive_promotion_allowed": true,
-    "proof_status": "secondary_quantitative_descendant",
+    "predictive_promotion_allowed": false,
+    "proof_status": "unpromotable_descendant_of_uncertified_quark_thresholds",
     "source_artifacts": {
       "d10_observable_family": "oph_d10_ew_observable_family",
       "forward_yukawas": "oph_forward_yukawas"

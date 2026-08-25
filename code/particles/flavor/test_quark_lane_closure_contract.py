@@ -231,13 +231,19 @@ def test_quark_lane_contract_records_two_independent_obstructions_and_audit_only
 
     missing_ids = [item["id"] for item in payload["exact_missing_theorems"]]
     assert missing_ids == [
+        "quark_d12_source_derived_light_ratio_or_t1_value",
         "quark_source_spread_pair_action_breaking_theorem",
         "quark_rg_covariant_scheme_readout_or_invariant",
         "quark_common_scale_dimensionless_yukawa_certificate",
     ]
 
     frontier = payload["public_current_family_yukawa_frontier"]
-    assert frontier["target_1_status"] == "closed_profile_ray_only_absolute_spreads_nonidentifiable"
+    assert frontier["target_1_status"] == (
+        "open_conditional_profile_identity_value_and_absolute_spreads_not_source_emitted"
+    )
+    assert "QUARK_D12_SOURCE_DERIVED_LIGHT_RATIO_OR_T1_VALUE" in frontier[
+        "minimal_exact_blocker_set"
+    ]
     sigma_branch = frontier["theorem_grade_sigma_branch"]
     assert sigma_branch["artifact"] == "oph_quark_sigma_source_nonidentifiability_obstruction"
     assert sigma_branch["spread_emitter_status"] == "source_only_spread_pair_nonidentifiable"

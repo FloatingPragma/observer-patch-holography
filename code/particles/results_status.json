@@ -3,12 +3,14 @@
     {
       "required_scientific_evidence": [
         "HIERARCHY-SCREEN-READOUT",
-        "source production of the strict unit cost, inverse pairing, and D-optimal selector"
+        "source production of the strict unit cost, inverse pairing, and D-optimal selector",
+        "source-derived rho_sH, n_s, n_H, h_s, chi_sH, and h_H",
+        "independent evaluation of both commuting-square residuals"
       ],
-      "scientific_boundary": "This theorem is scoped to hierarchy/naturality and does not promote W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G.",
-      "status": "selected_branch_theorem",
-      "summary": "Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0.",
-      "topic": "Electroweak hierarchy/naturality bridge",
+      "scientific_boundary": "The zero defect is a packaging identity, not a source-derived Higgs-naturalness result. A physical naturality test requires source-derived comparison maps and independent evaluation of both residuals. W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G remain separate.",
+      "status": "conditional_hierarchy_bridge_with_packaging_identity",
+      "summary": "Conditional hierarchy bridge plus declared-map identity. The local/global bridge has exact residual zero only at its bridge-defined N_CRC^EW. The stored source-to-Higgs maps commute by declaration, so their defined epsilon_H is zero; same-source-antecedent exact completions also attain epsilon_H=1.",
+      "topic": "Electroweak hierarchy and declared-map square",
       "topic_id": "hierarchy_naturality"
     },
     {
@@ -153,7 +155,7 @@
       "unit": "eV^2"
     }
   ],
-  "generated_utc": "2026-08-14T05:26:31Z",
+  "generated_utc": "2026-08-25T19:00:15Z",
   "inputs": {
     "P": 1.630968209403959,
     "hadron_profile": "suppressed",

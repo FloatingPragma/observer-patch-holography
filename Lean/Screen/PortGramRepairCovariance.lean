@@ -34,6 +34,13 @@ limiting carrier-position readback, while record order and repair cost remain
 separate.  Such a completion is one abstract local carrier, canonical only up
 to port-label-preserving isometry.  A faithful isometric action on it and
 overlap/refinement gluing are not formalized here.
+
+TRUST BOUNDARY.  Seven large exact rational table identities in this file are
+closed with `native_decide`; their printed axiom receipts contain generated
+native decision axioms, which place those identities and downstream theorems
+that consume them outside the kernel-only trust profile.  Replacing them
+requires explicit normalized-rational table certificates or entrywise proofs;
+plain kernel `decide` does not reduce these quotient-valued matrix equalities.
 -/
 
 /-- Exact quadratic coefficient field represented by `x + y sqrt(5)`. -/

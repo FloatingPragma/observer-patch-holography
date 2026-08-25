@@ -46,6 +46,15 @@ def build_artifact(forward: dict, chain: dict) -> dict:
             "scope": forward["scope"],
             "forward_certified": forward["forward_certified"],
             "certification_status": forward["certification_status"],
+            "matrix_arithmetic_valid": forward.get("matrix_arithmetic_valid"),
+            "source_certified": forward.get("source_certified", False),
+            "predictive_promotion_allowed": forward.get(
+                "predictive_promotion_allowed", False
+            ),
+            "forward_certification_scope": forward.get(
+                "forward_certification_scope"
+            ),
+            "promotion_blockers": forward.get("promotion_blockers", []),
             "Y_u": forward["Y_u"],
             "Y_d": forward["Y_d"],
             "V_CKM": forward["V_CKM"],

@@ -34,18 +34,21 @@ python3 code/cosmology/rar_deep_regime/rar_deep_regime_diagnostic.py \
 python3 -m pytest code/cosmology/rar_deep_regime
 ```
 
-## Quadrupole cross-check (documentary)
+## Quadrupole cross-check (uncertified diagnostic)
 
 `qumond_quadrupole_crosscheck.py` computes the Solar-System external-field
 quadrupole `Q2` of a local nonlinear field law from first principles (inner
 multipole expansion of the phantom potential) and compares it with Blanchet
 and Novak (2011) for the simple function (2 percent) and with the Park et al.
-(2026) benchmark for the radial-acceleration function (`8e-5`). It also
+(2026) benchmark for the radial-acceleration function (`8e-5`). The central
+values are not a local numerical certificate: the integrations emit thousands
+of warnings and lack singularity subtraction, radial-tail bounds, and an
+independent high-precision replay. It also
 records the footprint of the density formulation used in the paper: zero
 quadrupole for an isotropic ambient density, tidal scale `1.9e-31 s^-2`, and
-`5e-15` solar masses inside ten astronomical units. The reason the tested
-unscreened QUMOND response was retired is documented in
-`DARK_SECTOR_FIELD_LAW_POSTMORTEM.md` beside this executable evidence.
+`5e-15` solar masses inside ten astronomical units. The historical field-law
+assessment and the current certification boundary are documented in
+`DARK_SECTOR_FIELD_LAW_POSTMORTEM.md`.
 
 ```bash
 python3 code/cosmology/rar_deep_regime/qumond_quadrupole_crosscheck.py \

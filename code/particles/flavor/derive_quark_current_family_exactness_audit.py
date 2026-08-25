@@ -355,7 +355,7 @@ def main() -> int:
         "source_readback_payload_kind": "pure_B_light_sector_payload_pair",
         "recovered_core_no_go_for_nonzero_light_quark_pure_b_selector": True,
         "recovered_core_no_go_basis": "March 28, 2026 final-wave consolidation against the OPH tier ledger in the uploaded corpus",
-        "active_builder_smallest_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+        "active_builder_smallest_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
         "broader_supported_frontier": (
             "oph_light_quark_isospin_overlap_defect_selector_law"
             if physical_branch_repair is not None
@@ -368,7 +368,7 @@ def main() -> int:
             else "missing"
         ),
         "smallest_exact_obstruction": (
-            "the builder-facing pure-B payload pair is still open on the active public branch, "
+            "the builder-facing pure-B arithmetic currently descends from an unpromotable target-attached value, so a source-derived c_d/c_u or t1 remains open, "
             + (
                 "the emitted local same-label left-handed orbit has already collapsed to sigma_ref, so the broader D12 continuation branch is now waiting on the intrinsic D12 scale law on the selected mass ray while the CKM-shell no-go persists on that branch"
                 if physical_branch_repair is not None
@@ -377,9 +377,9 @@ def main() -> int:
             )
         ),
         "smallest_constructive_missing_object": (
-            "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
-            if j_b_evaluator is not None
-            else "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
+                "source_derived_c_d_over_c_u_or_t1_value"
+                if j_b_evaluator is not None
+                else "source_derived_c_d_over_c_u_or_t1_value"
         ),
         "notes": [
             "The current local quark rays are already close to the measured centered log profiles.",
@@ -387,7 +387,7 @@ def main() -> int:
             "The spread emitter is now read back from the closed mean surface rather than seeded diagnostically.",
             "The unique quadratic residual basis Q_ord isolates the only same-surface skew mode left on the ordered three-point family.",
             "Projecting the residual onto Q_ord only slightly reduces the mismatch, and the leftover is exactly a diagonal gap-shift pattern [-tau, 0, +tau].",
-            "That means the family shell and pure-B source-readback law are already known; on the active builder path the missing predictive step is the emitted pure-B payload pair, not another larger quark family.",
+            "The pure-B projection law is known, but the present numerical payload is comparison-only; the missing predictive step is a source-derived c_d/c_u or t1 value on the viable D12 ray.",
             "The March 28, 2026 final-wave consolidation also establishes a tier boundary: a nonzero light-quark pure-B selector is not available at recovered-core tier in the uploaded corpus.",
             (
                 "The broader repair frontier has therefore moved past the discrete selector: on the emitted local solver surface sigma_ud closes to sigma_ref, the broader supported D12 primitive is the light-quark overlap-defect scalar Delta_ud_overlap, and on the selected mass ray this is equivalently the downstream law quark_d12_t1_value_law, with intrinsic_scale_law_D12 retained only as the derived wrapper, even though the active local builder still waits first on the pure-B payload pair."

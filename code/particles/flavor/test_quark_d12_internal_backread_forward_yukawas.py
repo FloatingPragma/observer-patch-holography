@@ -45,11 +45,20 @@ def main() -> int:
     if forward.get("forward_certified") is not True:
         print("continuation-only backread forward Yukawas should be certified on their own sidecar inputs", file=sys.stderr)
         return 1
-    if forward.get("certification_status") != "forward_matrix_certified":
-        print("continuation-only backread forward Yukawas should emit a certified forward matrix surface", file=sys.stderr)
+    if forward.get("certification_status") != "forward_matrix_arithmetic_certified_source_uncertified":
+        print("continuation-only backread should certify arithmetic without source provenance", file=sys.stderr)
         return 1
-    if forward.get("promotion_blockers") != []:
-        print("continuation-only backread forward Yukawas should not carry placeholder blockers", file=sys.stderr)
+    if forward.get("predictive_promotion_allowed") is not False or forward.get("source_certified") is not False:
+        print("continuation-only backread values must not become predictive source outputs", file=sys.stderr)
+        return 1
+    if forward.get("public_surface_candidate_allowed") is not False:
+        print("source-uncertified continuation values must not become a public-surface candidate", file=sys.stderr)
+        return 1
+    if forward.get("promotion_blockers") != [
+        "D12_INTERNAL_BACKREAD_NOT_SOURCE_DERIVED",
+        "D12_RAY_VALUE_SOURCE_OPEN",
+    ]:
+        print("continuation-only backread forward Yukawas should expose their source blockers", file=sys.stderr)
         return 1
     if any(value <= 0.0 for value in forward["singular_values_u"] + forward["singular_values_d"]):
         print("continuation-only backread forward Yukawas should emit positive singular values", file=sys.stderr)

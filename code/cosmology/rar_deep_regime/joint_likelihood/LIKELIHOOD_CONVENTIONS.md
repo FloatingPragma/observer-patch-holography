@@ -1,21 +1,22 @@
-# Joint SPARC rotation-curve and BTFR profile likelihood: declared conventions
+# Joint SPARC rotation-curve and BTFR penalized-profile objective
 
 Producer: `joint_rar_likelihood.py`. Receipt:
 `runtime/joint_likelihood_receipt.json`. Independent replay:
 `verify_joint_likelihood_independent.py` (byte-identical recomputation from
 the snapshot). Tests: `test_joint_rar_likelihood.py`. This document lists
 every choice the numbers depend on, with its status, and closes with the
-exact list of what this likelihood does not do.
+exact list of what this objective does not do.
 
 Scope of the word "joint" in the title: the two channels share one set of
 profiled nuisance values and are resampled jointly in the paired bootstrap;
-the likelihood object itself is the per-point rotation-curve likelihood,
+the data term itself is the per-point rotation-curve likelihood,
 and no combined two-channel likelihood over both data channels is formed.
 The BTFR channel enters as a matched estimator compared through the paired
 bootstrap.
 
-Status vocabulary: **declared** (a fixed analysis choice, made before
-reading the results and carried in the receipt), **catalogue-supplied**
+Status vocabulary: **declared** (an analysis convention recorded in the
+receipt; this seen-data postdiction has no custody evidence that the choice
+predated exposure to results), **catalogue-supplied**
 (taken per galaxy or per point from the committed SPARC snapshot),
 **open** (a needed construction that does not exist here; the receipt says
 so).
@@ -60,44 +61,54 @@ so).
 | Bulge mass-to-light | fixed at 0.7 | none | declared fixed fallback; the snapshot carries no per-galaxy bulge datum |
 | Absent error datum | nuisance fixed at the catalogue value, counted in the receipt | none | declared fallback; count is 0 on this snapshot for both distance and inclination |
 
-## Fitting, intervals, goodness of fit
+## Fitting, reference contours, and residual diagnostics
 
 | Choice | Value | Status |
 | --- | --- | --- |
 | a0 grid | log10 a0 in [-11.0, -9.5], 301 points, step 0.005 dex | declared |
-| Profiling | per galaxy and per a0, minimize penalized -2 ln L over the nuisance grid; curves are summed over galaxies | declared |
-| ML point | grid argmin (inside its own intervals by construction); the three-point parabola vertex is a labeled refinement row | declared |
-| Intervals | delta(-2 ln L) thresholds 1.0 (68.3 percent) and 3.84 (95 percent), one-parameter asymptotic chi-square, linear crossing on the grid | declared; approximate under grid profiling with penalties; intervals narrower than one grid step carry a resolution flag |
-| Goodness of fit | data quadratic form at the ML grid point, reduced by two dof conventions (with and without counting the profiled nuisances) that bound the effective count | declared |
-| Misfit statement | likelihood-only: reduced chi-square, boundary-pinned endpoints, nuisance grid-edge stacking; no posterior quantity | declared |
+| Profiling | per galaxy and per a0, minimize the data term plus nuisance penalties over the grid; curves are summed over galaxies | declared penalized objective |
+| Objective minimum | grid argmin (inside its own contours by construction); the three-point parabola vertex is a labeled numerical refinement | declared; not called maximum likelihood |
+| Reference contours | delta-objective thresholds 1.0 and 3.84, with linear crossings on the grid; every disconnected sublevel-set component is reported | uncalibrated sensitivity contours, not 68.3/95 percent confidence intervals; Wilks coverage is not established because the mass-to-light term is an astrophysical prior and the nuisance optimization is gridded |
+| Residual ratios | data quadratic form at the objective minimum, divided by two nominal denominators (nuisances counted fixed or free) | diagnostic only; penalties and boundaries mean these are neither calibrated effective degrees of freedom nor proved bounds |
+| Misfit statement | objective/residual diagnostic: high quadratic-form ratios, boundary-pinned contours, nuisance grid-edge stacking; no confidence or posterior quantity | declared |
 | Seed | 20260825, fresh generator per bootstrap block | declared |
-| Bootstrap | 1000 replicates, common-set galaxies resampled with replacement; channel A re-minimized per replicate; channel-B nuisances held at point estimates (declared simplification); zero tallies as counts with plus-one fractions | declared |
-| Channel-B estimator | a0_B = (v_A^2)^2 / (G M_b d^2), v_A^2 = (v_obs(r_out) s(i))^2 - d v_bar_cat^2(r_out, U), at the profiled (U, d, i) of the subset ML for the same rho | declared; matched to the channel-A observable family |
+| Bootstrap | 1000 replicates, common-set galaxies resampled with replacement; channel A re-minimized per replicate; channel-B nuisances held at full-sample point estimates | partial paired bootstrap with an explicit asymmetry, not a full nuisance re-fit in both channels |
+| Channel-B estimator | a0_B = (v_A^2)^2 / (G M_b d^2), v_A^2 = (v_obs(r_out) s(i))^2 - d v_bar_cat^2(r_out, U), at the profiled (U, d, i) of the subset objective minimum for the same rho | declared; galaxies with any nonzero retained V_bulge are excluded because table 1 gives only total L_[3.6], not the disk/bulge luminosity split needed for a consistent denominator |
 | Verdict rule | direction-neutral tension/consistent labels on the 95 percent paired interval; consistency is shared with the standard null and is not evidence for OPH; a tension counts only against this declared submodel | declared |
 
 ## What the receipt shows (headline rows, committed snapshot)
 
-Reduced chi-square sits well above one on every row (3.6 to 16.4 across
-subsets and rho values under the point-count dof convention; 5.7 to 19.6
-counting the profiled nuisances as free), so the declared error family understates the
-observed scatter and the quoted intervals are conditional on that family;
-many 68 percent intervals carry the grid-resolution flag for the same
-reason. At f = 0.1 the a0 maximum-likelihood point moves from 7.94e-11
+The data quadratic form divided by the two nominal denominators sits well
+above one on every row (3.6 to 16.4 when nuisances are counted fixed; 5.7 to
+19.6 when counted free), so the declared error family understates the observed
+scatter. The delta-objective contours are conditional sensitivity diagnostics,
+not confidence intervals; many delta=1 contours also carry the grid-resolution
+flag. At f = 0.1 the a0 objective minimum moves from 7.94e-11
 (rho = 0) to 5.82e-11 m/s^2 (rho = 0.6): the correlation choice, which is
-open, dominates the systematic budget. The paired channel comparison is
+open, shifts the fit by 0.135 dex and is a large unresolved sensitivity within
+this scanned covariance family. Other unquantified systematics prevent a total
+systematic ranking. The paired channel comparison is
 CONSISTENT_INTERVAL_CONTAINS_ZERO at every (f, rho) combination, for
 example [-0.027, +0.178] dex at f = 0.1, rho = 0. Consistency selects
 nothing: every model reproducing both relations, including the standard
 null, shares it.
 
-## What this likelihood does NOT do
+The gridded objective is not unimodal at every threshold. In particular,
+some f = 0.3 covariance rows have disconnected delta-objective sublevel
+sets. The receipt reports all components rather than truncating at the first
+crossing around the global minimum. This jaggedness reinforces the need for
+denser or continuous nuisance optimization before inferential use.
+
+## What this objective does NOT do
 
 1. It does not derive a source value of a0. The OPH source does not fix
    a0; a0 enters as a fitted comparison parameter, and the source-value
    question is open. Order item 4's "derive or falsify a source value"
    therefore resolves as: no source value exists to test, and this receipt
-   supplies the measurement-side interval that any future source derivation
-   must meet.
+   supplies a measurement-side sensitivity contour only. It is not an
+   acceptance/rejection band for a future source derivation. Such a prediction
+   must be scored against a prospectively frozen, calibrated covariance and
+   intrinsic-scatter likelihood.
 2. It does not calibrate the intra-galaxy covariance; the equal-correlation
    family is a declared stand-in and the rho scan bounds the sensitivity.
 3. It does not model intrinsic scatter; the reduced chi-square rows above
@@ -112,3 +123,6 @@ null, shares it.
    seen committed snapshot.
 7. It does not authenticate the snapshot; the sha256 pins bytes, never
    provenance or custody.
+8. It does not calibrate confidence coverage. The synthetic fixture is a
+   numerical regression check under matched toy assumptions, not a calibration
+   for the misspecified seen-data objective.

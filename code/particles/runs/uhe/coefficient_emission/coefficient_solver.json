@@ -1,18 +1,22 @@
 {
-  "generated_utc": "2026-07-08T13:09:27Z",
-  "artifact_type": "UHE_COEFFICIENT_EMISSION_RECEIPT",
-  "claim": "SOURCE_ONLY_COEFFICIENT_EMITTED",
+  "generated_utc": "2026-08-25T18:41:16Z",
+  "artifact_type": "UHE_COEFFICIENT_EMISSION_SCAFFOLD",
+  "claim": "SYNTHETIC_COEFFICIENT_SCAFFOLD_ONLY",
   "physical_claim": false,
+  "synthetic_fixture": true,
+  "source_artifact_bound": false,
+  "promotion_allowed": false,
   "readiness_gates": {
-    "BASELINE_FULL_SUPPORT": true,
-    "FEATURE_MINIMALITY": true,
-    "MOMENT_INTERIOR": true,
-    "SOURCE_LOAD_QUOTIENT_VISIBLE": true,
+    "BASELINE_FULL_SUPPORT": false,
+    "FEATURE_MINIMALITY": false,
+    "MOMENT_INTERIOR": false,
+    "SOURCE_LOAD_QUOTIENT_VISIBLE": false,
     "NO_UHE_DATA_USE": true,
-    "REFINEMENT_COMPATIBILITY": true,
-    "COEFFICIENT_SOLVE_CONVERGED": true,
-    "COMMON_SOURCE_LOCK": true
+    "REFINEMENT_COMPATIBILITY": false,
+    "COEFFICIENT_SOLVE_CONVERGED": false,
+    "COMMON_SOURCE_LOCK": false
   },
+  "readiness_gate_status": "UNVERIFIED_EXCEPT_NO_UHE_DATA_USE",
   "nonclaims": [
     "source-only coefficient emission is not a detected UHE source",
     "a finite MaxEnt solve is not an event-map fit",
@@ -21,8 +25,9 @@
     "target-data leakage invalidates a source-only label"
   ],
   "artifact": "uhe_coefficient_solver",
-  "solver": "deterministic damped Newton solve of A(eta)-eta.c",
-  "converged": true,
+  "solver": "not run; deterministic damped Newton is the intended production solver",
+  "converged": false,
+  "solver_status": "PLANTED_EXAMPLE_VALUES_ONLY",
   "receipts_checked": [
     "BASELINE_FULL_SUPPORT",
     "FEATURE_MINIMALITY",

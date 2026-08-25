@@ -38,11 +38,28 @@ def build_artifact(payload: dict[str, Any]) -> dict[str, Any]:
     forward["scope"] = "D12_continuation_internal_backread_only"
     forward["proof_status"] = "internal_backread_continuation_forward_yukawas_emitted"
     forward["public_promotion_allowed"] = False
+    forward["predictive_promotion_allowed"] = False
+    forward["source_certified"] = False
+    forward["public_surface_candidate_allowed"] = False
+    forward["public_surface_candidate_status"] = "not_allowed"
+    forward["certification_status"] = (
+        "forward_matrix_arithmetic_certified_source_uncertified"
+    )
+    forward["forward_certification_scope"] = (
+        "continuation_sidecar_matrix_arithmetic_only"
+    )
+    forward["promotion_blockers"] = sorted(
+        set(forward.get("promotion_blockers", []))
+        | {
+            "D12_INTERNAL_BACKREAD_NOT_SOURCE_DERIVED",
+            "D12_RAY_VALUE_SOURCE_OPEN",
+        }
+    )
     forward["source_descent_artifact"] = payload.get("artifact")
     metadata = dict(forward.get("metadata", {}))
     metadata["note"] = (
         "Continuation-only forward Yukawas built from the explicit D12 internal-backread descent. "
-        "This surface is certified on its own continuation-side inputs, but it does not promote the public quark theorem frontier."
+        "Its matrix arithmetic is certified on continuation-side inputs, but those internal backreads are not source-derived and cannot promote the public frontier."
     )
     forward["metadata"] = metadata
     return forward

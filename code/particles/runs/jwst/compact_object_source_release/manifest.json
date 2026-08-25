@@ -1,20 +1,19 @@
 {
   "artifact": "jwst_compact_object_source_release_manifest",
   "file_hashes": {
-    "abundance_selector.json": "sha256:d276adf6f05104650431e42cbc01cc33da871b4563f18979a75e074cc2064af9",
+    "abundance_selector.json": "sha256:6cce4e5eb055c5a378aca7478ec4d355e1a74c81e04bd5707a513715429950bb",
     "claim.md": "sha256:7c417d9b5a77e6ff78270c145140d7f0cdd2c674b3caa2449673ef3f35a6b89b",
-    "claim_ladder.json": "sha256:e5a849772df9d64a7aaeee63269eccb80818c6e71d7824413edf52669aec72cc",
-    "compact_record_surface.json": "sha256:8bb4e3528bb702d5613f2d0adfd6bb25a6fdd7620f6cf31b2b2e2e34bbadfb62",
-    "degeneracy_audit.json": "sha256:f6c9bc8bb29a5fab6d33c58ac40b14dfda7269a4685aad6021e8f77fd9c6d95e",
-    "frozen_likelihood.json": "sha256:55f368271ac20f8001e3078abd675cdb3f1f49caba2b876539e80ee4458668f5",
-    "jwst_forward_operator.json": "sha256:8219aa0f13be4a72058394848c2cc0381554e0e7927e6b959d9781e824da81ac",
-    "manifest.json": "sha256:cd6d310226a857ba80b08943625029424abc12103ceacc4bda112452129b0522",
-    "no_target_leak_dag.json": "sha256:0eaba8588243d201ef622514dd5fd0722e09a5b6207e27bf56674ec87029210a",
-    "object_parent.json": "sha256:0efd21bba546f3741519f345ce2c1046420cdc0ba91cc810a7b7da98a914da48",
-    "quotient_ensemble.json": "sha256:88eba38568b26a6cd1238c105c89eede48adec761c0dfd7278025ad3242c545e",
-    "release_state.json": "sha256:794a09feccbb767c191841c3d1a4794176edda6c3fbbe92c3a56f447730424a9",
-    "source_artifact.json": "sha256:63b128396ba78fd1ccab5ea7f7e8c92cd654d74802b08e74cb4db2255adc501b",
-    "source_law.json": "sha256:3d087c1300c2f8a5eb2c7ed94870b9be25309088d9fc636a9bcb37d2f64a43b4"
+    "claim_ladder.json": "sha256:c108b9a0839e6b0b8028f060313f814fc143fe2969bbaf1e7c4bbb5308940fa3",
+    "compact_record_surface.json": "sha256:2a29d1e06baab6443203a66c40c02f2ef06a647631f31f1c21f5f3dc97baf6fd",
+    "degeneracy_audit.json": "sha256:21747039741ee61ff068b3fbfa4bc0ba1f0e3eca448d3ef56b0866be5d4bbdca",
+    "frozen_likelihood.json": "sha256:1df66d7649b4e95b61c7093f9b9bab1279c7aec500524e3c77eebbdbf1ee1539",
+    "jwst_forward_operator.json": "sha256:b9826a3b1f4c71d2514abcfa45da181f6d61be01a10453a72ed33d8344e56d51",
+    "no_target_leak_dag.json": "sha256:099903e023f3940e61f0cf673793c60dc2f3090a91f37ff325bd4944338394ac",
+    "object_parent.json": "sha256:8661618e6798f37b9693d48b6d2111645269eac071c6afdd9816ce20e296d8c0",
+    "quotient_ensemble.json": "sha256:bbe07d4ee6d11bf57d6e6f94ed406526acbd4640eb19d0746497915541abfee0",
+    "release_state.json": "sha256:ab3e1640bcbe876ee036e416a936545bfc7803e56bd838f7d475876300dab8a8",
+    "source_artifact.json": "sha256:220d50f22b40a576c565fd0fcd9821f6e130dafeff3b3ea5fccbc7fb2b919df9",
+    "source_law.json": "sha256:479102ec694816ada5159ae6f8f98b2a1be27c9b050103db6845ef3b385aabed"
   },
   "first_blocked_gate": "CATALOG_INGESTION_RECEIPT",
   "forbidden_source_tokens": [
@@ -30,7 +29,7 @@
     "model_comparison_score",
     "mass_age_tension_label"
   ],
-  "generated_utc": "2026-07-08T10:37:58Z",
+  "generated_utc": "2026-08-25T18:20:23Z",
   "milestone": "Q3_JWST_COMPACT_OBJECT_SOURCE_RELEASE_AUDIT",
   "missing_files": [],
   "nonclaims": [

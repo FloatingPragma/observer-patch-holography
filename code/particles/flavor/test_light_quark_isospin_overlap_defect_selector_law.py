@@ -28,5 +28,10 @@ def test_light_quark_isospin_selector_law_is_explicit_but_value_open() -> None:
     assert payload["next_single_residual_object"] == "Delta_ud_overlap"
     assert payload["selector_equivalence_formula"] == "Delta_ud_overlap = beta_u_diag_B_source - beta_d_diag_B_source"
     assert payload["odd_budget_neutrality_formula"] == "beta_u_diag_B_source + beta_d_diag_B_source = 0"
+    assert payload["tau_u_log_per_side_formula"].startswith(
+        "sigma_d_total_log_per_side * Delta_ud_overlap"
+    )
+    assert payload["tau_d_log_per_side_formula"].startswith(
+        "sigma_u_total_log_per_side * Delta_ud_overlap"
+    )
     assert payload["Delta_ud_overlap"] is None
-

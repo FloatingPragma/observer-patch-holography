@@ -34,18 +34,30 @@ def build_artifact(source_law: dict, source_readback: dict | None = None) -> dic
     beta_d = None if source_d is None else sum(float(d) * b for d, b in zip(source_d, b_ord)) / sum(value * value for value in b_ord)
     residual_u = None if source_u is None or beta_u is None else [float(u) - beta_u * b for u, b in zip(source_u, b_ord)]
     residual_d = None if source_d is None or beta_d is None else [float(d) - beta_d * b for d, b in zip(source_d, b_ord)]
+    values_present = source_u is not None and source_d is not None
+    source_closed = (
+        values_present
+        and source_readback.get("payload_pair_status")
+        == "emitted_selected_public_class"
+    )
+    comparison_only = values_present and not source_closed
     return {
         "artifact": "oph_family_excitation_diagonal_common_gap_shift_source_emission",
         "generated_utc": _timestamp(),
         "proof_status": (
             "source_emission_derived_from_source_readback"
-            if source_u is not None and source_d is not None
+            if source_closed
+            else "comparison_only_projection_from_unpromotable_readback"
+            if comparison_only
             else "source_emission_waiting_pure_B_payload_pair"
         ),
         "predictive_promotion_allowed": False,
         "source_artifact": source_law.get("artifact"),
         "source_readback_artifact": source_readback.get("artifact"),
         "source_readback_status": source_readback.get("proof_status"),
+        "source_readback_value_classification": source_readback.get(
+            "value_classification"
+        ),
         "B_ord": b_ord,
         "B_ord_norm_sq": sum(value * value for value in b_ord),
         "Q_ord": q_ord,
@@ -57,7 +69,9 @@ def build_artifact(source_law: dict, source_readback: dict | None = None) -> dic
         "B_mode_residual_d": residual_d,
         "source_emission_status": (
             "source_emission_derived_from_source_readback"
-            if source_u is not None and source_d is not None
+            if source_closed
+            else "comparison_only_projection_from_unpromotable_readback"
+            if comparison_only
             else "source_readback_law_closed_waiting_pure_B_payload_pair"
         ),
         "J_B_source_u": source_readback.get("J_B_source_u"),
@@ -82,8 +96,8 @@ def build_artifact(source_law: dict, source_readback: dict | None = None) -> dic
             "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
         ),
         "notes": [
-            "This artifact is now a derived projection layer on top of the closed pure-B source-readback law.",
-            "The current mean and quadratic annihilators are blind to the B-mode amplitude, so the predictive gap sits first in the emitted pure-B payload pair beneath this projection.",
+            "This artifact is an exact projection layer, but values inherited from an unpromotable readback remain comparison-only.",
+            "The predictive gap is the source-derived c_d/c_u or t1 value beneath this projection.",
         ],
     }
 

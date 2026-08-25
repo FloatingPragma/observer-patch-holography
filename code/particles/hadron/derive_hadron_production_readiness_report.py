@@ -32,7 +32,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from particles.hadron.validate_production_hadron_closure import _get_schedule_scalars, _is_finite_number
-from particles.hadron.production_execution_support import PRODUCTION_EXECUTION_CLASSES
+from particles.hadron.production_execution_support import (
+    PRODUCTION_EXECUTION_CLASSES,
+    PUBLIC_PROMOTION_BLOCKER,
+)
 
 DEFAULT_RECEIPT = ROOT / "particles" / "runs" / "hadron" / "runtime_schedule_receipt_N_therm_and_N_sep.json"
 DEFAULT_PAYLOAD = ROOT / "particles" / "runs" / "hadron" / "stable_channel_cfg_source_measure_payload.json"
@@ -119,13 +122,13 @@ def _manifest_provenance_status(manifest: dict[str, Any] | None) -> dict[str, An
             populated.append(path)
         else:
             missing.append(path)
-    execution_class = str(manifest.get("execution_class") or "production")
-    public_promotion_allowed = bool(manifest.get("public_promotion_allowed", True))
+    execution_class = str(manifest.get("execution_class") or "unclassified")
+    public_promotion_allowed = bool(manifest.get("public_promotion_allowed", False))
     return {
         "manifest_present": True,
         "execution_class": execution_class,
         "public_promotion_allowed": public_promotion_allowed,
-        "production_execution_class": execution_class in PRODUCTION_EXECUTION_CLASSES and public_promotion_allowed,
+        "production_execution_class": execution_class in PRODUCTION_EXECUTION_CLASSES,
         "required_paths": required_paths,
         "populated_paths": populated,
         "missing_or_placeholder_paths": missing,
@@ -209,6 +212,8 @@ def build_readiness_report(
         )
     elif not manifest_status["production_execution_class"]:
         smallest_residual = "real production backend execution class, not a diagnostic or surrogate backend bundle"
+    elif not manifest_status["public_promotion_allowed"] or not dump_status["public_promotion_allowed"]:
+        smallest_residual = PUBLIC_PROMOTION_BLOCKER
     elif not manifest_status["publication_complete"]:
         smallest_residual = "publication-complete backend manifest provenance on the seeded family"
     elif not dump_status["dump_present"] or not dump_status["production_execution"] or not dump_status["all_required_arrays_finite"]:

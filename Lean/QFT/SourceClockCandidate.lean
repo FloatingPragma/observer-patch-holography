@@ -25,7 +25,8 @@ means `197/1754`, `94/1754`, and `103/1754`, their exact split, and their
 agreement with the committed diagonal-state expectations.
 
 (2) Conditional unit conversion.  `windowIdentification` is an
-unconstrained proposition and is never proved.  More strongly,
+unconstrained predicate on proposed real window-duration values; the structure
+stores no witness that it holds for any duration.  More strongly,
 `toClockCalibration` deliberately ignores its candidate argument and
 uses only an externally declared positive real `tau_w`.  The quantities
 named `labRate` are consequently just the algebraic quotients of the
@@ -60,8 +61,9 @@ open OPH.QFT.SourceHistoryThreeSlotLocalGNS
 /-- A legacy-named package for a committed window histogram, a chosen
 counting observable, and its exact empirical averages.  The histogram
 contains no ordering or successor relation and hence is not itself a
-tick process.  The single open identification field
-`windowIdentification` is carried as an unproved proposition. -/
+tick process.  The identification field `windowIdentification` is only a
+freely replaceable predicate on proposed durations; no proof or selected
+duration is stored. -/
 structure SourceClockCandidate where
   /-- The per-history multiplicity histogram of retained windows. -/
   tickCount : Fin 8 → ℕ
@@ -93,10 +95,10 @@ structure SourceClockCandidate where
   wall12_committed : wallRate12 = ∑ g, sourceTauEmpQ g * (wall12Count g : ℚ)
   /-- Source-fixed positivity of the mean statistic. -/
   rate_pos : 0 < ratePerWindow
-  /-- An unproved identification schema.  No field relates this
-  proposition to a duration, and `toClockCalibration` below does not
-  consume it. -/
-  windowIdentification : Prop
+  /-- A freely supplied predicate on proposed real window durations.  The
+  structure stores no duration and no proof that this predicate holds;
+  `toClockCalibration` below does not consume it. -/
+  windowIdentification : ℝ → Prop
 
 /-- **Wall split of the mean statistics.**  For every candidate the two
 component means sum exactly to the total mean; this is an identity of the
@@ -125,8 +127,8 @@ theorem SourceClockCandidate.source_fixed_receipt (c : SourceClockCandidate) :
 It counts the two domain-wall incidences inside each overlapping window,
 with exact mean `197/1754` and position split `94/1754 + 103/1754`.
 Thus `197` is an overlapping two-edge incidence total, not the number of
-distinct underlying repair events.  The identification field is only a
-stand-in schema saying that some positive real exists. -/
+distinct underlying repair events.  Its identification predicate is empty:
+the committed statistic itself marks no real duration as identified. -/
 def repairClockCandidate : SourceClockCandidate where
   tickCount := sourceWindowCount
   eventCount := sourceAction
@@ -141,7 +143,7 @@ def repairClockCandidate : SourceClockCandidate where
   wall01_committed := sourceTauEmpQ_bond01_mean.symm
   wall12_committed := sourceTauEmpQ_bond12_mean.symm
   rate_pos := by norm_num
-  windowIdentification := ∃ tau_w : ℝ, 0 < tau_w
+  windowIdentification := fun _ => False
 
 /-- The repair candidate uses the committed window histogram. -/
 @[simp] theorem repairClockCandidate_tickCount :
@@ -209,12 +211,12 @@ theorem repairClockCandidate_rates_are_source_expectations :
       repairClockCandidate_wallRate12]
     norm_num
 
-/-- **The identification field is unconstrained.**  For every
-proposition there is a candidate carrying it in the identification field
+/-- **The identification field is unconstrained.**  For every duration
+predicate there is a candidate carrying it in the identification field
 while agreeing with the repair candidate on the histogram and the mean
 statistic: the structure fixes these data and never asserts, selects, or
 discharges the identification. -/
-theorem identification_field_free (p : Prop) :
+theorem identification_field_free (p : ℝ → Prop) :
     ∃ c : SourceClockCandidate,
       c.windowIdentification = p
         ∧ c.tickCount = repairClockCandidate.tickCount
@@ -407,7 +409,7 @@ def wallOnlyClockCandidate : SourceClockCandidate where
   wall01_committed := sourceTauEmpQ_bond01_mean.symm
   wall12_committed := by simp
   rate_pos := by norm_num
-  windowIdentification := ∃ tau_w : ℝ, 0 < tau_w
+  windowIdentification := fun _ => False
 
 /-- The wall-only observable uses the same committed histogram. -/
 @[simp] theorem wallOnlyClockCandidate_tickCount :

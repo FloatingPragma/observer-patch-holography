@@ -58,12 +58,30 @@ SCHEMA = "oph.yang_mills.z2_finite_transfer_receipt.v2"
 # ----------------------------------------------------------------------------
 
 
+def require_nondegenerate_periodic_lattice(L: int) -> None:
+    """Reject the self-loop ``L = 1`` cellulation.
+
+    The bit-mask implementation below stores an incidence set with bitwise OR.
+    On the physical one-site periodic cellulation each link is incident to the
+    same site twice and each plaquette traverses each link twice, so those
+    incidences cancel over Z2.  The OR representation is faithful only for the
+    non-self-loop tori used by the committed receipt.
+    """
+    if L < 2:
+        raise ValueError(
+            "the physical periodic Z2 receipt requires L >= 2; at L = 1 "
+            "repeated self-loop incidences cancel and cannot be represented "
+            "by these OR masks"
+        )
+
+
 def link_index(L: int, x: int, y: int, direction: int) -> int:
     """Index of the link leaving site ``(x, y)`` in ``direction`` (0 = x, 1 = y)."""
     return 2 * ((x % L) * L + (y % L)) + direction
 
 
 def plaquette_masks(L: int) -> list[int]:
+    require_nondegenerate_periodic_lattice(L)
     masks = []
     for x in range(L):
         for y in range(L):
@@ -78,6 +96,7 @@ def plaquette_masks(L: int) -> list[int]:
 
 def star_masks(L: int) -> list[int]:
     """Coboundary of each site: links with exactly that site as an endpoint."""
+    require_nondegenerate_periodic_lattice(L)
     masks = []
     for x in range(L):
         for y in range(L):
@@ -117,6 +136,7 @@ class Z2GaugeOrbits:
     """Gauge orbits of Z2 link configurations on the L x L periodic torus."""
 
     def __init__(self, L: int) -> None:
+        require_nondegenerate_periodic_lattice(L)
         self.L = L
         self.n_links = 2 * L * L
         self.n_configs = 1 << self.n_links

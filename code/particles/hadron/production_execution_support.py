@@ -23,6 +23,11 @@ PRODUCTION_EXECUTION_CLASSES = {
     "external_production",
     "rhmc_hmc_production",
 }
+PUBLIC_PROMOTION_BLOCKER = (
+    "Public promotion requires an independently validated backend-custody receipt "
+    "and cold replay; this ingestion path currently validates shape and declared "
+    "metadata only."
+)
 
 
 def timestamp() -> str:
@@ -52,7 +57,7 @@ def backend_execution_class(backend_input: dict[str, Any]) -> str:
         backend_input.get("execution_class")
         or raw_export_provenance.get("execution_class")
         or backend_meta.get("execution_class")
-        or "production"
+        or "unclassified"
     )
 
 
@@ -265,6 +270,9 @@ def build_backend_manifest(
             }
         )
     raw_export_provenance = copy.deepcopy(backend_input.get("raw_export_provenance") or {})
+    promotion_requested = bool(backend_input.get("public_promotion_allowed", False))
+    if raw_export_provenance.get("public_promotion_allowed") is not None:
+        promotion_requested = bool(raw_export_provenance.get("public_promotion_allowed"))
     out = {
         "artifact": "oph_hadron_production_backend_manifest",
         "generated_utc": timestamp(),
@@ -272,7 +280,9 @@ def build_backend_manifest(
         "backend_input_artifact": backend_input.get("artifact"),
         "backend_input_path": backend_input_path,
         "execution_class": backend_execution_class(backend_input),
-        "public_promotion_allowed": bool(backend_input.get("public_promotion_allowed", True)),
+        "public_promotion_requested": promotion_requested,
+        "public_promotion_allowed": False,
+        "public_promotion_blocker": PUBLIC_PROMOTION_BLOCKER,
         "claim_tier": backend_input.get("claim_tier"),
         "schedule_scalars": copy.deepcopy(receipt.get("required_schedule_scalars")),
         "execution_input_provenance": copy.deepcopy(receipt.get("execution_input_provenance")),
@@ -288,8 +298,6 @@ def build_backend_manifest(
             value = raw_export_provenance.get(key)
             if value is not None:
                 out[key] = value
-        if raw_export_provenance.get("public_promotion_allowed") is not None:
-            out["public_promotion_allowed"] = bool(raw_export_provenance.get("public_promotion_allowed"))
         if raw_export_provenance.get("claim_tier") is not None:
             out["claim_tier"] = raw_export_provenance.get("claim_tier")
         backend_meta = raw_export_provenance.get("backend") or {}
@@ -318,6 +326,10 @@ def build_production_dump(
         for entry in payload.get("ensemble_payloads", [])
     }
     backend_tree = _normalized_backend_tree(backend_input)
+    promotion_requested = bool(backend_input.get("public_promotion_allowed", False))
+    raw_export_provenance = backend_input.get("raw_export_provenance") or {}
+    if raw_export_provenance.get("public_promotion_allowed") is not None:
+        promotion_requested = bool(raw_export_provenance.get("public_promotion_allowed"))
     dump: dict[str, Any] = {
         "artifact": "backend_correlator_dump.production",
         "generated_utc": timestamp(),
@@ -327,7 +339,9 @@ def build_production_dump(
         "diagnostic_execution": not production_execution,
         "tiny_geometry_pilot": False,
         "execution_class": execution_class,
-        "public_promotion_allowed": production_execution and bool(backend_input.get("public_promotion_allowed", True)),
+        "public_promotion_requested": production_execution and promotion_requested,
+        "public_promotion_allowed": False,
+        "public_promotion_blocker": PUBLIC_PROMOTION_BLOCKER,
         "claim_tier": backend_input.get("claim_tier"),
         "receipt_artifact": receipt.get("artifact"),
         "manifest_artifact": "oph_hadron_production_backend_manifest",
@@ -340,6 +354,10 @@ def build_production_dump(
     if not production_execution:
         dump["notes"].append(
             "This backend input is diagnostic/surrogate execution; normalized arrays are not promotable as production hadron values."
+        )
+    else:
+        dump["notes"].append(
+            "Production-class arrays are a numerical candidate only: this path does not authenticate backend custody or perform a cold replay, so public promotion remains blocked."
         )
     for ensemble_id, sched in schedule_map.items():
         payload_entry = payload_map.get(ensemble_id)

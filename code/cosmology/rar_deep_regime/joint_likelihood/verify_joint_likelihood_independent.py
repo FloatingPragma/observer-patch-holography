@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Independent verifier for the joint rotation-curve likelihood receipt.
+"""Independent verifier for the joint penalized-profile objective receipt.
 
 This script imports nothing from ``joint_rar_likelihood.py``.  It re-parses
 the committed SPARC snapshot with its own fixed-width parser built from the
 CDS ReadMe byte ranges, replays the declared computation (per-point Gaussian
-velocity likelihood, per-galaxy nuisance-grid profiling, equal-correlation
-block covariance scan, grid-anchored profile intervals, matched channel-B
+velocity data likelihood, per-galaxy nuisance-grid penalties and profiling,
+equal-correlation block covariance scan, grid-anchored delta-objective
+contours, matched channel-B
 estimator, paired bootstrap with the declared seed), serializes the result
 as canonical JSON (sorted keys, two-space indent, trailing newline), and
 byte-compares it against ``runtime/joint_likelihood_receipt.json``.
@@ -53,7 +54,7 @@ INCLINATION_CLIP = (10.0, 89.9)
 THRESHOLD_68 = 1.0
 THRESHOLD_95 = 3.84
 SEED = 20260825
-SCHEMA = "oph.cosmology.joint_rar_btfr_profile_likelihood.v1"
+SCHEMA = "oph.cosmology.joint_rar_btfr_penalized_profile_objective.v2"
 
 LOG10_A0_MIN = -11.0
 LOG10_A0_MAX = -9.5
@@ -300,38 +301,83 @@ def vertex(x: np.ndarray, y: np.ndarray, m: int) -> float:
     return float(x[m])
 
 
-def curve_interval(log10_a0_grid: np.ndarray, curve: np.ndarray) -> dict[str, Any]:
+def curve_contour(log10_a0_grid: np.ndarray, curve: np.ndarray) -> dict[str, Any]:
     m = int(np.argmin(curve))
-    x_ml = float(log10_a0_grid[m])
+    x_min = float(log10_a0_grid[m])
     step = float(log10_a0_grid[1] - log10_a0_grid[0])
     delta = curve - curve[m]
 
-    def crossing(direction: int, threshold: float) -> tuple[float, bool]:
-        j = m
-        while 0 <= j + direction < len(delta):
-            if delta[j + direction] >= threshold:
-                x0 = log10_a0_grid[j]
-                x1 = log10_a0_grid[j + direction]
-                d0 = delta[j]
-                d1 = delta[j + direction]
-                return float(x0 + (x1 - x0) * (threshold - d0) / (d1 - d0)), False
-            j += direction
-        return float(log10_a0_grid[0 if direction < 0 else -1]), True
+    def components(threshold: float) -> list[dict[str, Any]]:
+        inside = delta <= threshold
+        result: list[dict[str, Any]] = []
+        start: int | None = None
+        for idx in range(len(inside) + 1):
+            is_inside = bool(inside[idx]) if idx < len(inside) else False
+            if is_inside and start is None:
+                start = idx
+            if not is_inside and start is not None:
+                end = idx - 1
+                if start == 0:
+                    lo, lo_pinned = float(log10_a0_grid[0]), True
+                else:
+                    x0, x1 = log10_a0_grid[start - 1], log10_a0_grid[start]
+                    d0, d1 = delta[start - 1], delta[start]
+                    lo = float(x0 + (x1 - x0) * (threshold - d0) / (d1 - d0))
+                    lo_pinned = False
+                if end == len(delta) - 1:
+                    hi, hi_pinned = float(log10_a0_grid[-1]), True
+                else:
+                    x0, x1 = log10_a0_grid[end], log10_a0_grid[end + 1]
+                    d0, d1 = delta[end], delta[end + 1]
+                    hi = float(x0 + (x1 - x0) * (threshold - d0) / (d1 - d0))
+                    hi_pinned = False
+                result.append(
+                    {
+                        "log10": [lo, hi],
+                        "a0_m_s2": [10.0 ** lo, 10.0 ** hi],
+                        "pinned_at_grid_boundary": [lo_pinned, hi_pinned],
+                        "grid_resolution_limited": bool(hi - lo < step),
+                        "contains_objective_min": start <= m <= end,
+                    }
+                )
+                start = None
+        return result
 
     out: dict[str, Any] = {
-        "log10_a0_ml": x_ml,
-        "a0_ml_m_s2": 10.0 ** x_ml,
-        "a0_ml_parabola_refined_m_s2": 10.0 ** vertex(log10_a0_grid, curve, m),
-        "ml_grid_index": m,
-        "min_minus2lnl": float(curve[m]),
+        "log10_a0_objective_min": x_min,
+        "a0_objective_min_m_s2": 10.0 ** x_min,
+        "a0_objective_min_parabola_refined_m_s2": 10.0 ** vertex(log10_a0_grid, curve, m),
+        "objective_min_grid_index": m,
+        "min_penalized_objective": float(curve[m]),
+        "reference_sublevel_sets": {},
     }
     for label, threshold in (("68", THRESHOLD_68), ("95", THRESHOLD_95)):
-        lo, lo_pinned = crossing(-1, threshold)
-        hi, hi_pinned = crossing(+1, threshold)
-        out[f"a0_interval{label}_m_s2"] = [10.0 ** lo, 10.0 ** hi]
-        out[f"interval{label}_log10"] = [lo, hi]
-        out[f"interval{label}_pinned_at_grid_boundary"] = [lo_pinned, hi_pinned]
-        out[f"interval{label}_grid_resolution_limited"] = bool(hi - lo < step)
+        all_components = components(threshold)
+        containing_min = [c for c in all_components if c["contains_objective_min"]]
+        if len(containing_min) != 1:
+            raise AssertionError("objective minimum must lie in exactly one contour component")
+        lo, hi = containing_min[0]["log10"]
+        lo_pinned, hi_pinned = containing_min[0]["pinned_at_grid_boundary"]
+        out[f"a0_delta_objective_contour{label}_m_s2"] = [10.0 ** lo, 10.0 ** hi]
+        out[f"delta_objective_contour{label}_log10"] = [lo, hi]
+        out[f"contour{label}_pinned_at_grid_boundary"] = [lo_pinned, hi_pinned]
+        out[f"contour{label}_grid_resolution_limited"] = bool(hi - lo < step)
+        out[f"contour{label}_all_components_log10"] = [
+            component["log10"] for component in all_components
+        ]
+        out[f"contour{label}_n_components"] = len(all_components)
+        out[f"contour{label}_has_disconnected_components"] = len(all_components) > 1
+        out["reference_sublevel_sets"][f"delta_{'1' if label == '68' else '3p84'}"] = {
+            "threshold": threshold,
+            "components": all_components,
+            "n_components": len(all_components),
+            "global_min_component_index": next(
+                idx
+                for idx, component in enumerate(all_components)
+                if component["contains_objective_min"]
+            ),
+            "disconnected": len(all_components) > 1,
+        }
     return out
 
 
@@ -442,6 +488,7 @@ def paired_block(
     n_not_deep = 0
     n_nonpositive_va2 = 0
     n_nonpositive_mb = 0
+    excluded_bulge_luminosity_ambiguous: list[str] = []
     used_names: list[str] = []
     used_logs: list[float] = []
     used_rows: list[int] = []
@@ -452,6 +499,9 @@ def paired_block(
         k = gal["idx_out"]
         if not (gal["g_bar_cat"][k] < fraction * REFERENCE_A0):
             n_not_deep += 1
+            continue
+        if bool(np.any(gal["bul_term"] != 0.0)):
+            excluded_bulge_luminosity_ambiguous.append(g["name"])
             continue
         grids = grids_by_name[g["name"]]
         flat_index = int(g["rho"][rho]["argmin_flat"][ml_index])
@@ -473,6 +523,12 @@ def paired_block(
         "n_outermost_not_deep": n_not_deep,
         "n_nonpositive_anomalous_speed2": n_nonpositive_va2,
         "n_nonpositive_baryonic_mass": n_nonpositive_mb,
+        "n_excluded_bulge_luminosity_ambiguous": len(
+            excluded_bulge_luminosity_ambiguous
+        ),
+        "excluded_bulge_luminosity_ambiguous": sorted(
+            excluded_bulge_luminosity_ambiguous
+        ),
         "n_used": len(used_names),
         "a0_b_unweighted_log_mean_m_s2": float(10.0 ** np.mean(log_a0_b)),
         **paired,
@@ -544,9 +600,9 @@ def compute() -> dict[str, Any]:
             curves = np.stack([g["rho"][rho]["curve"] for g in per_gal])
             chi2_data = np.stack([g["rho"][rho]["chi2_data"] for g in per_gal])
             total_curve = curves.sum(axis=0)
-            interval = curve_interval(log10_a0_grid, total_curve)
-            m = interval["ml_grid_index"]
-            chi2_data_ml = float(chi2_data[:, m].sum())
+            contour = curve_contour(log10_a0_grid, total_curve)
+            m = contour["objective_min_grid_index"]
+            chi2_data_at_min = float(chi2_data[:, m].sum())
             n_edge = 0
             for g in per_gal:
                 grids = grids_by_name[g["name"]]
@@ -569,19 +625,21 @@ def compute() -> dict[str, Any]:
             dof_lower = rec["n_points"] - 1 - n_free_by_subset[subset_name]
             row: dict[str, Any] = {
                 "rho": rho,
-                **interval,
-                "chi2_data_at_ml": chi2_data_ml,
+                **contour,
+                "chi2_data_at_objective_min": chi2_data_at_min,
                 "dof_no_nuisance_count": dof_upper,
                 "dof_full_nuisance_count": dof_lower,
-                "reduced_chi2_dof_no_nuisance": chi2_data_ml / dof_upper,
+                "reduced_chi2_dof_no_nuisance": chi2_data_at_min / dof_upper,
                 "reduced_chi2_dof_full_nuisance": (
-                    chi2_data_ml / dof_lower if dof_lower > 0 else None
+                    chi2_data_at_min / dof_lower if dof_lower > 0 else None
                 ),
                 "dof_convention": (
-                    "bounds on the effective count: penalized profiled "
-                    "nuisances sit between fully free and fully fixed"
+                    "two nominal sensitivity denominators, with the profiled "
+                    "nuisances counted either fixed or free; penalties and "
+                    "grid boundaries mean neither denominator is a calibrated "
+                    "effective dof or a proved bound"
                 ),
-                "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": n_edge,
+                "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": n_edge,
             }
             if fraction is not None:
                 row["paired_btfr"] = paired_block(
@@ -619,11 +677,11 @@ def compute() -> dict[str, Any]:
                     "reduced_chi2_dof_full_nuisance": row[
                         "reduced_chi2_dof_full_nuisance"
                     ],
-                    "interval95_pinned_at_grid_boundary": row[
-                        "interval95_pinned_at_grid_boundary"
+                    "contour95_pinned_at_grid_boundary": row[
+                        "contour95_pinned_at_grid_boundary"
                     ],
-                    "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": row[
-                        "n_galaxies_profiled_nuisance_at_grid_edge_at_ml"
+                    "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": row[
+                        "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min"
                     ],
                 }
             )
@@ -632,7 +690,7 @@ def compute() -> dict[str, Any]:
     return {
         "schema": SCHEMA,
         "scope": (
-            "labeled_postdiction_profile_likelihood_declared_conventions_"
+            "labeled_postdiction_penalized_profile_objective_declared_conventions_"
             "fixed_absolute_cuts"
         ),
         "physical_claim": False,
@@ -683,13 +741,13 @@ def compute() -> dict[str, Any]:
             "per_point": (
                 "Gaussian in velocity with sigma = e_Vobs sin(i_cat)/sin(i); "
                 "the 2 n ln s(i) variance-normalization term is kept in the "
-                "profiled objective and a0-independent constants are dropped"
+                "penalized objective and a0-independent constants are dropped"
             ),
             "intra_galaxy_covariance": (
                 "equal-correlation block R = (1-rho) I + rho J per galaxy, "
                 "closed-form quadratic form; rho is a declared family "
                 "parameter scanned over a fixed grid; a full covariance "
-                "calibration for SPARC rotation curves is open, so intervals "
+                "calibration for SPARC rotation curves is open, so contours "
                 "are reported at every rho and no single rho is selected"
             ),
             "rho_grid": list(RHO_GRID),
@@ -757,16 +815,21 @@ def compute() -> dict[str, Any]:
             },
         },
         "calibration": {
-            "thresholds_delta_minus2lnl": {"68": THRESHOLD_68, "95": THRESHOLD_95},
+            "reference_delta_objective_thresholds": {
+                "delta_1": THRESHOLD_68,
+                "delta_3p84": THRESHOLD_95,
+            },
             "status": (
-                "asymptotic chi-square, one parameter, declared approximate "
-                "under grid profiling with Gaussian penalties; delta is "
-                "measured from the grid minimum, the headline "
-                "maximum-likelihood point is the grid argmin so it lies "
-                "inside its own intervals, the parabola vertex is a labeled "
-                "refinement row, and intervals narrower than one grid step "
-                "carry a grid-resolution flag"
+                "uncalibrated reference contours on a penalized profile "
+                "objective; the mass-to-light term is an astrophysical prior, "
+                "not an identified auxiliary-data likelihood, so Wilks "
+                "coverage and maximum-likelihood labels are not licensed; "
+                "delta is measured from the grid minimum, the parabola vertex "
+                "is a numerical refinement row, and contours narrower than "
+                "one grid step carry a grid-resolution flag"
             ),
+            "confidence_interval_claim": False,
+            "coverage_calibration_open": True,
         },
         "seed": SEED,
         "subset_results": subset_results,
@@ -777,9 +840,17 @@ def compute() -> dict[str, Any]:
                 "M_b = (U L_[3.6] + 1.33 M_HI) 1e9 M_sun at catalogue "
                 "distance"
             ),
+            "bulge_exclusion": (
+                "channel B excludes every galaxy with any nonzero retained "
+                "V_bulge because table 1 L_[3.6] is total luminosity and the "
+                "snapshot supplies no disk/bulge luminosity split; retaining "
+                "such galaxies would mix a 0.7 bulge subtraction with a "
+                "disk-Upsilon total-luminosity denominator"
+            ),
             "nuisance_application": (
                 "per galaxy the profiled (U, d, i) at the subset "
-                "maximum-likelihood a0 for the same rho; channel-B nuisance "
+                "penalized-objective-minimizing a0 for the same rho; "
+                "channel-B nuisance "
                 "values are held at these point estimates inside the "
                 "bootstrap, a declared simplification, while channel A "
                 "re-profiles a0 exactly per replicate"
@@ -793,18 +864,18 @@ def compute() -> dict[str, Any]:
             "rule": (
                 "Under this model and error family, misfit would appear as "
                 "reduced chi-square far above one at every rho on the "
-                "declared grid, as interval endpoints pinned at the declared "
+                "declared grid, as contour endpoints pinned at the declared "
                 "grid boundary, or as profiled nuisances stacked at their "
-                "grid edges across the sample. These are likelihood "
-                "statements; no posterior probability is computed or "
-                "implied."
+                "grid edges across the sample. These are objective/residual "
+                "diagnostics; no confidence or posterior probability is "
+                "computed or implied."
             ),
             "observed": observed,
         },
         "verdict_rule": VERDICT_RULE,
         "inference_boundary": {
             "status": (
-                "labeled postdiction likelihood on the seen committed "
+                "labeled postdiction penalized objective on the seen committed "
                 "snapshot; no new data, no arming, no discharge, no scored "
                 "comparison, no frozen contract"
             ),
@@ -816,8 +887,8 @@ def compute() -> dict[str, Any]:
             "covariance_status": (
                 "the equal-correlation family is a declared stand-in; a "
                 "calibrated covariance model for SPARC rotation curves is "
-                "open, and interval widths at different rho values bound "
-                "the sensitivity"
+                "open, and contour widths at different rho values diagnose "
+                "the sensitivity without furnishing confidence coverage"
             ),
             "full_sample_scope": (
                 "the full-sample row extrapolates the deep-regime profile "
@@ -827,7 +898,7 @@ def compute() -> dict[str, Any]:
                 "are the derived regime of the candidate law"
             ),
             "neutrality": (
-                "consistency of the channels or agreement of the interval "
+                "consistency of the channels or agreement of the contour "
                 "with any external value is shared with every model that "
                 "reproduces the same relations, including the standard "
                 "null, and is not evidence for OPH"

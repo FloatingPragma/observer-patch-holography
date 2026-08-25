@@ -199,10 +199,11 @@ def build() -> dict:
         "instances": instances,
         "committed_receipt_cross_check": committed_cross_check(),
         "open_step": (
-            "variable-rate approximate-tensorization comparison on the "
-            "gauge-orbit quotient, then the anisotropic "
-            "Wilson-to-Hamiltonian scan; the quotient structure has no Lean "
-            "formalization"
+            "variable-rate approximate-tensorization comparison for the "
+            "committed non-product L=2,3 orbit laws, then the anisotropic "
+            "Wilson-to-Hamiltonian scan.  GaugeOrbitQuotientGap formalizes "
+            "invariant-subspace descent only for the independent product "
+            "under moved-link symmetry; it does not instantiate these laws."
         ),
     }
     return receipt

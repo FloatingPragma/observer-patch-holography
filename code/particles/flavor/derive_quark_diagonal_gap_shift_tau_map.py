@@ -28,6 +28,10 @@ def build_artifact(
     q_ord = [float(value) for value in spread_map["quadratic_residual_basis_vector"]]
     b_ord = [float(value) for value in diagonal_gap_shift_map["B_ord"]]
     scalar_evaluator = scalar_evaluator or {}
+    source_value_promotion_ready = (
+        scalar_evaluator.get("source_value_promotion_ready") is True
+        and scalar_evaluator.get("value_classification") == "source_emitted"
+    )
     return {
         "artifact": "oph_family_excitation_diagonal_gap_shift_tau_map",
         "generated_utc": _timestamp(),
@@ -41,6 +45,11 @@ def build_artifact(
         "output_kind": "sector_diagonal_gap_shift_coefficients",
         "scalar_evaluator_artifact": scalar_evaluator.get("artifact"),
         "scalar_evaluator_status": scalar_evaluator.get("proof_status"),
+        "source_value_promotion_ready": source_value_promotion_ready,
+        "value_classification": scalar_evaluator.get(
+            "value_classification", "absent"
+        ),
+        "promotion_blockers": scalar_evaluator.get("promotion_blockers", []),
         "B_ord": b_ord,
         "tau_u_log_per_side": scalar_evaluator.get("tau_u_log_per_side"),
         "tau_d_log_per_side": scalar_evaluator.get("tau_d_log_per_side"),
@@ -59,7 +68,8 @@ def build_artifact(
         ),
         "notes": [
             "The diagonal residual family is fixed, and the tau-map is the first data-bearing shell consumed by the active quark builder.",
-            "The tau-pair is algebraically equivalent to the source-side beta-pair on the pure-B law, so the smaller live primitive remains the emitted source-readback payload pair.",
+            "The source-side beta difference fixes Delta_ud_overlap; the D12 overlap map then combines it with a fixed positive sigma branch to produce tau_u and tau_d.",
+            "A comparison-only beta pair or sigma branch is carried for arithmetic auditing but cannot promote the tau-map.",
             "No PDG quark values are consumed here."
         ]
     }

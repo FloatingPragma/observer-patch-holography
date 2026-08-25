@@ -21,10 +21,17 @@ def main(path: str = "issue_332_rg_naturality_certificate.json") -> int:
         "higgs_mass_forbidden": any("Higgs" in item for item in cert.get("forbidden_calibrations", [])),
         "diagnostic_N_not_source": optional.get("n_crc_source") != "provided",
         "strict_resonance_not_required": optional.get("strict_resonance") is False,
-        "selected_normal_form_scope_named": (
-            cert.get("mode") == "exact_selected_OPH_branch_conditional_readout"
-            and "selected source-to-Higgs comparison map" in cert.get("theorem", "")
+        "declared_map_identity_scope_named": (
+            cert.get("mode") == "exact_declared_comparison_map_identity_not_source_naturality"
+            and "Declared-map" in cert.get("theorem", "")
             and cert.get("claim_boundary", {}).get("receipt_class") == "conditional_identity"
+        ),
+        "source_and_physical_promotion_fail_closed": (
+            cert.get("source_comparison_maps_derived") is False
+            and cert.get("physical_naturality_result") is False
+            and cert.get("predictive_promotion_allowed") is False
+            and "antecedent_only_countermodel_receipt"
+            in cert.get("claim_boundary", {})
         ),
         "physical_promotions_excluded": (
             any("measured weak scale" in item for item in cert.get("forbidden_calibrations", []))

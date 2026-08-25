@@ -15,18 +15,22 @@ without rerunning the simulation. `manifest.json` binds every file by sha256.
   commit `4f0169c0e319468112d076afe6ce5aa14fbfe0d5`. The three smaller
   configurations first occur at `07e2faca7a31e456dcf8133ba4c2b0fde92708fa`;
   every archived file in this directory matches the tree at `4f0169c`.
-- Producer: `scripts/einstein_convergence_ladder.py` (deterministic; seed
-  20260751; canonical capture path with `observer_cross_reads`,
-  `snapshot_coverage=spanning`, `geometry_transport=held_out_flow`).
+- Historical producer: `scripts/einstein_convergence_ladder.py` (seed
+  20260751; capture path with `observer_cross_reads`,
+  `snapshot_coverage=spanning`, `geometry_transport=held_out_flow`). At the
+  archived `4f0169c` revision its default writer keyed files only by carrier
+  count, so the two 262,144-carrier configurations alias one output name.
+  Consequently that revision's one-command invocation does **not** reproduce
+  this four-file bundle and must not be cited as an exact replay.
 - Full per-rung configuration is embedded in each `rung_*.json` summary.
-- Reproduction: use a detached clean checkout of
-  `4f0169c0e319468112d076afe6ce5aa14fbfe0d5`, install the dependencies
-  declared by that commit's `pyproject.toml`, and run
-  `.venv/bin/python scripts/einstein_convergence_ladder.py`. Compare the
-  reported scientific fields against the archived summaries and the generated
-  arrays against the hash-bound archive. The producer records elapsed runtime,
-  and that commit supplies bounded dependency versions instead of a lock file,
-  so byte identity of a fresh cross-environment replay is not claimed.
+- Custody and replay boundary: `manifest.json` binds the historical v1 files
+  by SHA-256, but v1 has no independent numerical validator. The stable
+  four-row identifiers, collision guard, summary-to-array refit, mutation
+  tests, and `--validate-only` mode first appear at simulator commit
+  `2493188af5cab6a58002cfe6704b1d340b841704`, which emits the distinct
+  canonical v2 bundle. Until this archive is migrated to that format, it is a
+  hash-bound historical measurement bundle rather than a clean-checkout
+  end-to-end replay certificate.
 
 ## Measured ladder
 

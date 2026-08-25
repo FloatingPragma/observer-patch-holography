@@ -217,6 +217,9 @@ def test_build_compact_transient_receipts_defaults_to_stated_cr1_boundary(
 
     for rel_path in manifest["required_files"]:
         assert (out_dir / rel_path).is_file(), rel_path
+    assert "manifest.json" not in manifest["file_hashes"]
+    for rel_path, expected in manifest["file_hashes"].items():
+        assert sha256((out_dir / rel_path).read_bytes()) == expected, rel_path
 
     frb = json.loads((out_dir / "frb_controls.json").read_text(encoding="utf-8"))
     assert frb["controls"]["M2"] == "young_plus_old_gc_repair_reload_timing"

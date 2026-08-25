@@ -125,8 +125,8 @@ premises; physical-current identification is upstream.
 
 The issue-#335 close-out certificate accounts for the closed global tick,
 projection bridge, exact capacity fixed point, finite readback resolution,
-representation-to-spectrum round count, joint product branch, and RG/Higgs
-naturality records. Their composition is an exact conditional local/global
+representation-to-spectrum round count, joint product branch, and declared-map
+RG/Higgs identity records. Their composition is an exact conditional local/global
 resonance. The screen supplies `X/12`; the product adjoint independently
 supplies `m_rep=24`. The physical relation requires
 `HIERARCHY-SCREEN-READOUT: log(E_cell/v)=Gamma_screen`, whose source production
@@ -139,8 +139,8 @@ contains genuine cross-feedback, the package records the necessary
 weighted-sup derivative condition `max(a+b/r,d+r*c)<1`. The coupled branch
 has residual freedom unless that condition is supplied.
 
-The issue-#332 artifact certifies the RG/Higgs naturality square on the selected
-comparison-map branch conditional on `HIERARCHY-SCREEN-READOUT`. The verifier emits
+The issue-#332 artifact verifies the RG/Higgs square for the supplied
+comparison maps. The verifier emits
 
 ```text
 epsilon_n = epsilon_h = epsilon_H = 0
@@ -148,7 +148,11 @@ epsilon_H in [0, 0]
 ```
 
 and forbids measured weak-scale, Higgs, W/Z, gravity, Planck-area, Lambda, and
-tuned bare-Higgs/cutoff-counterterm inputs. The optional `N_CRC` and repair-tick
+tuned bare-Higgs/cutoff-counterterm inputs. The zero is a declared-map
+packaging identity. The antecedent-only receipt constructs exact completions
+with the same source fingerprint and defects zero and one, so a physical
+naturality result requires source-derived comparison maps followed by an
+independent evaluation of both residuals. The optional `N_CRC` and repair-tick
 checks are diagnostic unless supplied by the upstream resonance records.
 
 Run the local guard with:

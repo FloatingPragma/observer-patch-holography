@@ -1,7 +1,7 @@
 {
   "committed_receipt_cross_check": {
     "committed_receipt": "receipts/z2_finite_transfer_receipt.json",
-    "committed_receipt_sha256_at_read": "75b4621ec60f487bf485f171259c71be7ccce429ca2cf8b0c447d16a60fbee73",
+    "committed_receipt_sha256_at_read": "6cc104f99ea90f4423f5d86dae027019f52f6de38a237f0a2581983f5901e9aa",
     "kogut_susskind_runs": [
       {
         "L": 2,
@@ -142,8 +142,8 @@
     "instanceB_gap",
     "instanceB_attains_floor"
   ],
-  "open_step": "variable-rate approximate-tensorization comparison on the gauge-orbit quotient, then the anisotropic Wilson-to-Hamiltonian scan; the quotient structure has no Lean formalization",
-  "producer_self_digest_sha256": "53b4e8243e4ea0eae684b80d53e6aa510cae2f5adeef4218a6bac62f47fdaca9",
+  "open_step": "variable-rate approximate-tensorization comparison for the committed non-product L=2,3 orbit laws, then the anisotropic Wilson-to-Hamiltonian scan.  GaugeOrbitQuotientGap formalizes invariant-subspace descent only for the independent product under moved-link symmetry; it does not instantiate these laws.",
+  "producer_self_digest_sha256": "6c87a0c9a239572f0f44b03fcf39f1a40bbc3b336de99c27dc9ac2b98c7d1c65",
   "schema": "oph.yang_mills.kogut_susskind_fiber_rate_instances.v1",
   "scope": "independent-product model of two-point fibers with one constant rate per fiber; exact rational arithmetic; structure conformance only.  Not a gauge-orbit quotient result, not a production, provenance, or custody record, not a physical receipt, and not evidence for OPH.",
   "self_digest_note": "producer_self_digest_sha256 is a self-digest for replay convenience; it is not authenticated custody",

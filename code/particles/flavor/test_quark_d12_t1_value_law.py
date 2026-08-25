@@ -25,14 +25,14 @@ def main() -> int:
     if payload.get("artifact") != "oph_quark_d12_t1_value_law":
         print("wrong quark D12 t1 value-law artifact id", file=sys.stderr)
         return 1
-    if payload.get("proof_status") != "closed_mass_ray_one_scalar_value_law":
+    if payload.get("proof_status") != "conditional_mass_ray_identity_value_source_open":
         print("unexpected quark D12 t1 value-law proof status", file=sys.stderr)
         return 1
-    if payload.get("public_promotion_allowed") is not True:
-        print("quark D12 t1 value-law should now be promotable on the code surface", file=sys.stderr)
+    if payload.get("public_promotion_allowed") is not False:
+        print("conditional t1 identity must not be publicly promotable", file=sys.stderr)
         return 1
-    if payload.get("exact_missing_object") is not None:
-        print("quark D12 t1 value-law should no longer record itself as missing", file=sys.stderr)
+    if payload.get("exact_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("quark D12 t1 identity must retain the source-value gap", file=sys.stderr)
         return 1
     forced = payload["forced_source_payload_after_t1"]
     if forced["beta_u_diag_B_source"] != "t1 / 10" or forced["beta_d_diag_B_source"] != "-t1 / 10":
@@ -55,21 +55,27 @@ def main() -> int:
     ]:
         print("unexpected candidate scalar route identities", file=sys.stderr)
         return 1
-    if route["status"] != "closed_theorem_internalized":
-        print("candidate route should now be marked internalized", file=sys.stderr)
+    if route["status"] != "conditional_identity_value_source_open":
+        print("candidate route should remain conditional", file=sys.stderr)
         return 1
     frontier = payload["current_public_yukawa_frontier"]
-    if frontier["remaining_exact_blocker_set_if_this_branch_is_used"] != []:
-        print("public current-family Yukawa frontier should now be closed on the main sigma branch", file=sys.stderr)
+    if frontier["remaining_exact_blocker_set_if_this_branch_is_used"] != [
+        "source_derived_c_d_over_c_u_or_t1_value",
+        "supported_source_sigma_branch_emission",
+    ]:
+        print("public current-family Yukawa frontier must retain both source gaps", file=sys.stderr)
         return 1
-    if frontier["target_1_status"] != "closed":
-        print("target 1 should now be marked closed", file=sys.stderr)
+    if frontier["target_1_status"] != "open_value_source_not_emitted":
+        print("target 1 should remain open until a source value is emitted", file=sys.stderr)
         return 1
     if frontier["equivalent_ray_coordinate_presentation"] != "quark_d12_t1_value_law":
         print("t1 scaffold should still identify itself as the equivalent ray-coordinate presentation", file=sys.stderr)
         return 1
-    if frontier["theorem_grade_sigma_branch_status"] != "closed":
-        print("main-builder sigma branch should already be theorem-grade", file=sys.stderr)
+    if frontier["main_builder_sigma_branch_status"] != "diagnostic_witness_not_source_emission":
+        print("main-builder sigma branch should preserve its diagnostic status", file=sys.stderr)
+        return 1
+    if frontier["main_builder_sigma_source_emitted"] is not False:
+        print("diagnostic sigma branch must not be marked source-emitted", file=sys.stderr)
         return 1
     return 0
 

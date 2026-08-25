@@ -11,29 +11,36 @@
   "gamma21_u_effective_formula": "gamma21_u_base + tau_u_log_per_side",
   "gamma32_d_effective_formula": "gamma32_d_base + tau_d_log_per_side",
   "gamma32_u_effective_formula": "gamma32_u_base + tau_u_log_per_side",
-  "generated_utc": "2026-03-27T08:40:35Z",
+  "generated_utc": "2026-08-25T18:56:46Z",
   "notes": [
     "The diagonal gap-shift map is the correct next-family normal form after the current surface is exhausted.",
-    "The remaining predictive object is the source-side amplitude pair beta_u and beta_d beneath the closed pure-B readback law, not a broader quark family.",
+    "The remaining predictive inputs are the source-side beta difference and a source-emitted positive sigma branch beneath the exact D12 overlap transport law, not a broader quark family.",
+    "Comparison-only tau values are retained as arithmetic witnesses but do not close this emitter.",
     "Audit-only best-fit tau values remain quarantined and are not promoted here."
   ],
   "orthogonality_certificate": {
     "dot_B_ord_Q_ord": 0.0,
     "sum_B_ord": 0.0
   },
-  "promotion_rule": "predictive_promotion_allowed iff tau_map_status == 'closed'",
-  "proof_status": "emitter_shell_waiting_scalar_evaluator",
+  "predictive_promotion_allowed": false,
+  "promotion_blockers": [
+    "source_derived_c_d_over_c_u_or_t1_value",
+    "supported_source_sigma_branch_emission"
+  ],
+  "promotion_rule": "predictive_promotion_allowed iff the tau map carries a source-emitted pair with source_value_promotion_ready == true",
+  "proof_status": "comparison_only_tau_pair_value_source_open",
   "scalar_evaluator_artifact": "oph_family_excitation_diagonal_gap_shift_scalar_evaluator",
-  "scalar_evaluator_status": "current_family_scalar_law_closed_waiting_beta_pair",
+  "scalar_evaluator_status": "comparison_only_scalar_projection_value_source_open",
   "sigma_d_effective_total_log_per_side_formula": "sigma_d_total_log_per_side + 2 * tau_d_log_per_side",
   "sigma_u_effective_total_log_per_side_formula": "sigma_u_total_log_per_side + 2 * tau_u_log_per_side",
-  "smallest_constructive_missing_object": "beta_u_diag_B_source_and_beta_d_diag_B_source",
+  "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
   "source_artifact": "oph_family_excitation_diagonal_gap_shift_map",
-  "tau_d_formula": "(delta_gamma21_d_log_per_side + delta_gamma32_d_log_per_side) / 2",
-  "tau_d_log_per_side": null,
-  "tau_emitter_status": "waiting_scalar_evaluator",
+  "tau_d_formula": "sigma_u_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+  "tau_d_log_per_side": 0.040717282636577784,
+  "tau_emitter_status": "comparison_only_tau_pair_value_source_open",
   "tau_map_artifact": "oph_family_excitation_diagonal_gap_shift_tau_map",
-  "tau_map_status": "current_family_scalar_law_closed_waiting_beta_pair",
-  "tau_u_formula": "(delta_gamma21_u_log_per_side + delta_gamma32_u_log_per_side) / 2",
-  "tau_u_log_per_side": null
+  "tau_map_status": "comparison_only_scalar_projection_value_source_open",
+  "tau_u_formula": "sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+  "tau_u_log_per_side": 0.02407057461508379,
+  "value_classification": "comparison_only"
 }

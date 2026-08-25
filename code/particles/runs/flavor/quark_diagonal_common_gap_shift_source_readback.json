@@ -34,21 +34,21 @@
   "beta_u_diag_B_source_formula": "(source_readback_u_log_per_side[2] - source_readback_u_log_per_side[0]) / 2",
   "derived_scalar_pair_after_payload_emission": "J_B_source_u_and_J_B_source_d",
   "first_data_bearing_primitive_beneath_scalar_pair": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
-  "generated_utc": "2026-07-27T08:32:13Z",
-  "next_single_residual_object": "off_canonical_pure_B_source_payload_family",
+  "generated_utc": "2026-08-25T18:56:45Z",
+  "next_single_residual_object": "source_derived_c_d_over_c_u_or_t1_value",
   "notes": [
     "The source-readback law is closed: the minimal pure-B readback is uniquely [-beta, 0, +beta] on B_ord = [-1, 0, 1].",
-    "The first data-bearing primitive beneath the odd scalar pair is the emitted pure-B payload pair source_readback_u_log_per_side and source_readback_d_log_per_side.",
-    "The remaining quark gap is the emitted pure-B payload pair itself; once that payload exists, the odd projector values J_B_source_u and J_B_source_d follow algebraically from its endpoints."
+    "Numerical values inherited from an unpromotable payload remain comparison-only even though the readback arithmetic is exact.",
+    "The remaining source gap is a source-derived c_d/c_u or t1 value; once emitted, the odd projector values follow algebraically."
   ],
-  "payload_pair_status": "emitted_selected_public_class",
+  "payload_pair_status": "comparison_only_unpromotable",
   "predictive_promotion_allowed": false,
-  "proof_status": "closed_public_selected_class_source_readback",
+  "proof_status": "comparison_only_readback_from_unpromotable_payload",
   "pure_B_source_certificate_d": 0.0,
   "pure_B_source_certificate_d_formula": "0.0",
   "pure_B_source_certificate_u": 0.0,
   "pure_B_source_certificate_u_formula": "0.0",
-  "smallest_constructive_missing_object": "off_canonical_pure_B_source_payload_family",
+  "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
   "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
   "source_payload_artifact": "oph_quark_d12_public_source_payload",
   "source_payload_constraints": {
@@ -61,10 +61,11 @@
     ]
   },
   "source_payload_kind": "pure_B_odd_source_readback_pair",
+  "source_payload_promotion_allowed": false,
   "source_payload_shape": [
     3
   ],
-  "source_payload_status": "closed_public_selected_class_pure_B_source_payload",
+  "source_payload_status": "blocked_unpromotable_yukawa_input_and_open_d12_value_source",
   "source_readback_center_residual_d": 0.0,
   "source_readback_center_residual_d_formula": "0.0",
   "source_readback_center_residual_u": 0.0,
@@ -84,5 +85,6 @@
     0.0,
     0.06478785725166157
   ],
-  "source_readback_u_log_per_side_formula": "beta_u_diag_B_source * B_ord"
+  "source_readback_u_log_per_side_formula": "beta_u_diag_B_source * B_ord",
+  "value_classification": "comparison_only"
 }

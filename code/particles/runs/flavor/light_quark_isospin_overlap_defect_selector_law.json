@@ -10,12 +10,13 @@
   "beta_d_diag_B_source_formula": "-Delta_ud_overlap / 2",
   "beta_u_diag_B_source": null,
   "beta_u_diag_B_source_formula": "Delta_ud_overlap / 2",
-  "generated_utc": "2026-07-27T08:32:15Z",
+  "generated_utc": "2026-08-25T18:59:54Z",
   "next_single_residual_object": "Delta_ud_overlap",
   "notes": [
     "This is the supported D12 continuation-level selector law for light-quark isospin splitting.",
     "It does not override the recovered-core no-go: the selector value itself is still open and therefore not promotable as a recovered-core nonzero pure-B source selector.",
-    "Once Delta_ud_overlap is emitted on the supported D12 route, the light-sector pure-B payload pair and tau pair follow algebraically on the ordered three-point family."
+    "Once Delta_ud_overlap is emitted on the supported D12 route, the light-sector pure-B payload pair and tau pair follow algebraically on the ordered three-point family.",
+    "The source amplitudes beta_u and beta_d are distinct from the transport coefficients tau_u and tau_d; the latter also require a fixed positive sigma branch."
   ],
   "odd_budget_neutrality_formula": "beta_u_diag_B_source + beta_d_diag_B_source = 0",
   "proof_status": "selector_law_closed_value_open",
@@ -31,7 +32,7 @@
   "source_readback_u_log_per_side_formula": "(Delta_ud_overlap / 2) * B_ord",
   "status": "closed_smaller_primitive",
   "tau_d_log_per_side": null,
-  "tau_d_log_per_side_formula": "beta_d_diag_B_source",
+  "tau_d_log_per_side_formula": "sigma_u_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
   "tau_u_log_per_side": null,
-  "tau_u_log_per_side_formula": "beta_u_diag_B_source"
+  "tau_u_log_per_side_formula": "sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))"
 }

@@ -153,14 +153,43 @@ def build_artifact(
     tau_u = diagonal_gap_shift_tau_map.get("tau_u_log_per_side")
     tau_d = diagonal_gap_shift_tau_map.get("tau_d_log_per_side")
     tau_source = "tau_map" if tau_u is not None and tau_d is not None else "none"
+    tau_source_payload = diagonal_gap_shift_tau_map if tau_source == "tau_map" else {}
     if tau_source == "none":
         tau_u = diagonal_gap_shift_emitter.get("tau_u_log_per_side")
         tau_d = diagonal_gap_shift_emitter.get("tau_d_log_per_side")
         tau_source = "emitter" if tau_u is not None and tau_d is not None else "none"
+        tau_source_payload = diagonal_gap_shift_emitter if tau_source == "emitter" else {}
     if tau_source == "none":
         tau_u = diagonal_gap_shift_map.get("tau_u_log_per_side")
         tau_d = diagonal_gap_shift_map.get("tau_d_log_per_side")
         tau_source = "map" if tau_u is not None and tau_d is not None else "none"
+        tau_source_payload = diagonal_gap_shift_map if tau_source == "map" else {}
+    tau_pair_missing = tau_u is None or tau_d is None
+    tau_pair_source_closed = (
+        not tau_pair_missing
+        and (
+            (
+                tau_source == "tau_map"
+                and tau_source_payload.get("source_value_promotion_ready") is True
+                and tau_source_payload.get("value_classification") == "source_emitted"
+            )
+            or (
+                tau_source == "emitter"
+                and tau_source_payload.get("predictive_promotion_allowed") is True
+                and tau_source_payload.get("value_classification") == "source_emitted"
+            )
+            or (
+                tau_source == "map"
+                and tau_source_payload.get("proof_status") in {"closed", "exact"}
+            )
+        )
+    )
+    tau_pair_source_open = tau_pair_missing or not tau_pair_source_closed
+    # Keep an unpromotable numerical pair visible only as a comparison audit.
+    # Feeding it into the active descent would silently let a target-attached
+    # mixed-scheme backread alter the purported source-side prediction.
+    active_tau_u = tau_u if tau_pair_source_closed else None
+    active_tau_d = tau_d if tau_pair_source_closed else None
     if spread_map.get("E_u_log") is not None and spread_map.get("E_d_log") is not None:
         e_u_log = [float(value) for value in spread_map["E_u_log"]]
         e_d_log = [float(value) for value in spread_map["E_d_log"]]
@@ -171,13 +200,18 @@ def build_artifact(
         e_u_log = (float(sigma_u) * v_u).tolist()
         e_d_log = (float(sigma_d) * v_d).tolist()
         even_excitation_proof_status = "candidate_spread_values_populated"
-    if e_u_log is not None and e_d_log is not None and tau_u is not None and tau_d is not None:
+    if (
+        e_u_log is not None
+        and e_d_log is not None
+        and active_tau_u is not None
+        and active_tau_d is not None
+    ):
         b_ord = np.asarray(
             diagonal_gap_shift_emitter.get("B_ord", diagonal_gap_shift_map.get("B_ord", [-1.0, 0.0, 1.0])),
             dtype=float,
         )
-        e_u_log = (np.asarray(e_u_log, dtype=float) + float(tau_u) * b_ord).tolist()
-        e_d_log = (np.asarray(e_d_log, dtype=float) + float(tau_d) * b_ord).tolist()
+        e_u_log = (np.asarray(e_u_log, dtype=float) + float(active_tau_u) * b_ord).tolist()
+        e_d_log = (np.asarray(e_d_log, dtype=float) + float(active_tau_d) * b_ord).tolist()
         diagonal_status = str(
             diagonal_gap_shift_tau_map.get("proof_status", "candidate_only")
             if tau_source == "tau_map"
@@ -185,21 +219,43 @@ def build_artifact(
             if tau_source == "emitter"
             else diagonal_gap_shift_map.get("proof_status", "candidate_only")
         )
-        even_excitation_proof_status = "closed" if diagonal_status in {"closed", "exact"} else "diagonal_gap_shift_candidate_populated"
+        if tau_pair_source_closed and diagonal_status in {
+            "closed",
+            "exact",
+            "current_family_scalar_law_closed_with_source_derived_values",
+            "source_derived_tau_pair_emitted",
+        }:
+            even_excitation_proof_status = "closed"
+        elif tau_pair_source_open:
+            even_excitation_proof_status = (
+                "pure_B_source_value_open"
+                if tau_pair_missing
+                else "comparison_only_diagonal_gap_shift_value_source_open"
+            )
+        else:
+            even_excitation_proof_status = "diagonal_gap_shift_candidate_populated"
+    elif not tau_pair_missing and not tau_pair_source_closed:
+        even_excitation_proof_status = (
+            "comparison_only_diagonal_gap_shift_value_source_open"
+        )
     b_odd_source_values_open = (
         b_odd_source_scalar_evaluator.get("artifact") == "oph_quark_diagonal_B_odd_source_scalar_evaluator"
         and (
             b_odd_source_scalar_evaluator.get("J_B_source_u") is None
             or b_odd_source_scalar_evaluator.get("J_B_source_d") is None
+            or b_odd_source_scalar_evaluator.get(
+                "predictive_J_B_source_law_status"
+            )
+            != "selected_public_class_closed"
         )
     )
-    tau_pair_open = tau_u is None or tau_d is None
-    if tau_pair_open and even_excitation_proof_status == "closed":
+    if tau_pair_source_open and even_excitation_proof_status == "closed":
         even_excitation_proof_status = "pure_B_source_readback_open"
     elif b_odd_source_values_open and even_excitation_proof_status == "closed":
         even_excitation_proof_status = "pure_B_odd_source_values_open"
     exact_missing_object = None
-    if tau_pair_open and (
+    exact_missing_objects: list[str] = []
+    if tau_pair_source_open and (
         diagonal_gap_shift_tau_map.get("artifact") == "oph_family_excitation_diagonal_gap_shift_tau_map"
         or diagonal_gap_shift_scalar_evaluator.get("artifact") == "oph_family_excitation_diagonal_gap_shift_scalar_evaluator"
     ):
@@ -210,11 +266,20 @@ def build_artifact(
                 "tau_u_log_per_side_and_tau_d_log_per_side",
             ),
         )
+        exact_missing_objects = list(
+            diagonal_gap_shift_tau_map.get(
+                "promotion_blockers",
+                diagonal_gap_shift_scalar_evaluator.get(
+                    "promotion_blockers", [exact_missing_object]
+                ),
+            )
+        )
     elif b_odd_source_values_open:
         exact_missing_object = b_odd_source_scalar_evaluator.get(
             "smallest_constructive_missing_object",
             "J_B_source_u_and_J_B_source_d",
         )
+        exact_missing_objects = [exact_missing_object]
     elif not str(even_excitation_proof_status).startswith("current_family_exact") and even_excitation_proof_status != "closed":
         exact_missing_object = (
             diagonal_gap_shift_scalar_evaluator.get(
@@ -231,6 +296,7 @@ def build_artifact(
             )
             else "oph_family_excitation_spread_map"
         )
+        exact_missing_objects = [exact_missing_object]
 
     return {
         "artifact": "oph_quark_sector_descent",
@@ -283,6 +349,7 @@ def build_artifact(
         "ordered_branch_coordinate_formula": "x_a = 2*(lambda_a-lambda_1)/(lambda_3-lambda_1) - 1",
         "even_evaluator_centering_mode": "trace_zero",
         "exact_missing_object": exact_missing_object,
+        "exact_missing_objects": exact_missing_objects,
         "hierarchy_driver_status": (
             "candidate_spread_values_populated"
             if e_u_log is not None and e_d_log is not None
@@ -308,8 +375,16 @@ def build_artifact(
         "b_odd_source_scalar_evaluator_status": b_odd_source_scalar_evaluator.get("proof_status"),
         "J_B_source_u": b_odd_source_scalar_evaluator.get("J_B_source_u"),
         "J_B_source_d": b_odd_source_scalar_evaluator.get("J_B_source_d"),
-        "tau_u_log_per_side": tau_u,
-        "tau_d_log_per_side": tau_d,
+        "tau_u_log_per_side": active_tau_u,
+        "tau_d_log_per_side": active_tau_d,
+        "comparison_only_tau_u_log_per_side": (
+            tau_u if not tau_pair_missing and not tau_pair_source_closed else None
+        ),
+        "comparison_only_tau_d_log_per_side": (
+            tau_d if not tau_pair_missing and not tau_pair_source_closed else None
+        ),
+        "tau_value_source": tau_source,
+        "tau_value_source_closed": tau_pair_source_closed,
         "even_excitation_proof_status": even_excitation_proof_status,
         "E_u_log": e_u_log,
         "E_d_log": e_d_log,

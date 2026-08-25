@@ -40,8 +40,14 @@ def test_runtime_surface_preserves_rejected_neutrino_rows_and_canonical_refs(tmp
     assert active["neutrino_repaired_branch"] is False
     assert companion
     companion_by_id = {row["topic_id"]: row for row in companion}
-    assert companion_by_id["hierarchy_naturality"]["status"] == "selected_branch_theorem"
-    assert "epsilon_H=0" in companion_by_id["hierarchy_naturality"]["summary"]
+    assert companion_by_id["hierarchy_naturality"]["status"] == (
+        "conditional_hierarchy_bridge_with_packaging_identity"
+    )
+    hierarchy_summary = companion_by_id["hierarchy_naturality"]["summary"]
+    hierarchy_boundary = companion_by_id["hierarchy_naturality"]["scientific_boundary"]
+    assert "same-source-antecedent" in hierarchy_summary
+    assert "packaging identity" in hierarchy_boundary
+    assert "not a source-derived Higgs-naturalness result" in hierarchy_boundary
     assert companion_by_id["strong_cp"]["status"] == "open"
     assert all("next_action" not in row for row in companion)
     assert all("blocked_by" not in row for row in companion)

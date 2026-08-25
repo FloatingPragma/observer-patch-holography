@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Emit the target-free light-quark overlap-defect theorem.
+"""Emit the conditional light-quark overlap-defect identity package.
 
 Chain role: expose the exact one-theorem frontier for public current-family
 quark Yukawas on the emitted D12 mass ray.
 
-Mathematics: once the selector value `Delta_ud_overlap` is emitted target-free
-on the public D12 light-quark mass data, the emitted mass ray and the closed
-transport law force the full mass-side/source-side package algebraically.
+Mathematics: once a source-derived coefficient ratio or selector value is
+emitted, the D12 mass ray and closed conditional transport law force the full
+mass-side/source-side package algebraically.  The current corpus supplies no
+such numerical source value, so this producer must not promote its identities.
 
 OPH-derived inputs: the explicit D12 selector law, the emitted D12 mass ray,
-the fixed-sigma overlap transport law, and the theorem-grade mean-surface sigma
-branch.
+the fixed-sigma overlap transport law, and the current comparison-only
+mean-surface sigma branch.
 
 Output: a machine-readable theorem package for
 `light_quark_overlap_defect_value_law`, the smaller primitive beneath the
@@ -62,22 +63,24 @@ def build_payload(
         "artifact": "oph_light_quark_overlap_defect_value_law",
         "generated_utc": _timestamp(),
         "scope": "D12_continuation_only",
-        "proof_status": "closed_target_free_overlap_defect_theorem",
-        "public_promotion_allowed": True,
-        "exact_missing_object": None,
+        "proof_status": "conditional_overlap_identity_selector_value_open",
+        "public_promotion_allowed": False,
+        "exact_missing_object": "source_derived_c_d_over_c_u_or_Delta_ud_overlap",
+        "value_emission_status": "open_viable_scalar_emission_route",
         "selector_scalar_name": "Delta_ud_overlap",
         "theorem_statement": (
-            "On the minimal light branch y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with "
+            "Conditional on source-derived positive coefficients c_u and c_d, the minimal light branch "
+            "y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with "
             "epsilon = 1/6, the normalized light overlap defect is "
             "Delta_ud_overlap = (1/6) * log(y_d / y_u) = (1/6) * log(c_d / c_u). "
-            "On the emitted D12 mass ray this closes the target-free mass bridge and yields the "
-            "equivalent ray-coordinate theorem quark_d12_t1_value_law via t1 = 5 * Delta_ud_overlap."
+            "On the emitted D12 mass ray this implies t1 = 5 * Delta_ud_overlap. "
+            "The identity does not emit c_d/c_u or a numerical selector value."
         ),
         "target_free_map": {
             "id": "light_quark_overlap_defect_value_law",
-            "domain": "public light-quark D12 data",
+            "domain": "source-derived positive light-branch coefficient pair (c_u, c_d)",
             "codomain": "R",
-            "formula": "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)",
+            "formula": "Theta_ud^Delta(c_u, c_d) = (1/6) * log(c_d / c_u)",
             "must_not_use_target_masses": True,
             "must_not_use_ckm_cp": True,
         },
@@ -134,7 +137,7 @@ def build_payload(
             "eta_Q_centered": "-(5 * (1 - x2^2) / 27) * Delta_ud_overlap",
             "kappa_Q": "-(5 * Delta_ud_overlap) / 54",
         },
-        "theorem_grade_sigma_branch": sigma_branch,
+        "comparison_only_sigma_branch": sigma_branch,
         "induced_source_payload_after_selector": {
             "odd_budget_neutrality_formula": selector_law["odd_budget_neutrality_formula"],
             "selector_equivalence_formula": selector_law["selector_equivalence_formula"],
@@ -150,18 +153,18 @@ def build_payload(
             "single_residual_object_on_each_fixed_sigma_branch": exact_transport["single_residual_object_on_each_fixed_sigma_branch"],
         },
         "target_1_public_yukawa_consequence": {
-            "does_target_1_close_after_this": True,
-            "target_1_status": "closed",
+            "does_target_1_close_after_this": False,
+            "target_1_status": "open_value_source_not_emitted",
             "statement": (
-                "This theorem closes target 1 on the emitted D12 mass ray, because the emitted ray "
-                "then fixes t1 = 5 * Delta_ud_overlap and the closed sigma/transport laws force the "
-                "full target-1 source and transport package."
+                "The conditional identity reduces target 1 to emission of a source-derived c_d/c_u or "
+                "Delta_ud_overlap value. Once that value exists, the ray and transport identities force "
+                "the remaining package; the present artifact does not supply it."
             ),
         },
         "notes": [
-            "This is the sharper primitive beneath the ray-coordinate theorem quark_d12_t1_value_law.",
-            "The theorem is internalized directly from the minimal light branch and the emitted D12 mass ray.",
-            "It applies only to target 1: public current-family quark Yukawas on the emitted D12 mass ray.",
+            "This is the conditional primitive beneath the ray-coordinate package quark_d12_t1_value_law.",
+            "The algebraic identity is internalized; its source-derived scalar value remains open.",
+            "The emitted D12 mass ray remains a viable open route rather than a no-go.",
         ],
     }
 

@@ -30,14 +30,14 @@ def main() -> int:
     if payload.get("artifact") != "oph_quark_diagonal_B_odd_source_scalar_evaluator":
         print("wrong quark B-odd source scalar evaluator artifact id", file=sys.stderr)
         return 1
-    if payload.get("smallest_constructive_missing_object") != "off_canonical_pure_B_source_payload_family":
-        print("quark B-odd evaluator should reduce to the off-canonical pure-B family", file=sys.stderr)
+    if payload.get("smallest_constructive_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("quark B-odd evaluator should retain the source-derived scalar gap", file=sys.stderr)
         return 1
     if payload.get("J_B_on_B_ord") != 1.0 or payload.get("J_B_on_center_vector") != 0.0 or payload.get("J_B_on_Q_ord") != 0.0:
         print("quark B-odd evaluator should expose the projector normalization certificates", file=sys.stderr)
         return 1
-    if payload.get("predictive_J_B_source_law_status") != "selected_public_class_closed":
-        print("quark B-odd evaluator should close the selected-public-class J_B source values", file=sys.stderr)
+    if payload.get("predictive_J_B_source_law_status") != "comparison_only_unpromotable":
+        print("quark B-odd evaluator should quarantine target-attached values", file=sys.stderr)
         return 1
     return 0
 

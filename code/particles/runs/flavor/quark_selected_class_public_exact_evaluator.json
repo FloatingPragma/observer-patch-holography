@@ -8,18 +8,14 @@
   "arbitrary_P_off_canonical_motion_closed": false,
   "artifact": "oph_quark_selected_class_public_exact_evaluator",
   "bridge_scalars": {
-    "computed_current_family_target_check": {
-      "Delta_ud_overlap": 0.12957571450332311,
-      "ell_ud": 0.7774542870199387,
-      "eta_Q_centered": -0.01756721274463154,
-      "kappa_Q": -0.011997751342900289,
-      "ray_modulus": 0.6478785725166156,
-      "t1": 0.6478785725166156
-    },
+    "computed_current_family_target_check": null,
+    "exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
     "presentation": {
       "light_quark_overlap_defect_value_law": "Delta_ud_overlap = (1/6) * log(c_d / c_u)",
       "quark_d12_t1_value_law": "t1 = ray_modulus = (5/6) * log(c_d / c_u)"
     },
+    "proof_status": "conditional_bridge_identity_value_source_open",
+    "public_promotion_allowed": false,
     "source_artifact": "oph_quark_target_free_bridge_theorem"
   },
   "claim_tier": "selected_class_target_audit_mass_texture_only",
@@ -37,7 +33,7 @@
     "selected_class_target_audit": true
   },
   "downstream_algebra_closed": false,
-  "generated_utc": "2026-07-27T08:32:19Z",
+  "generated_utc": "2026-08-25T18:56:50Z",
   "mass_texture_algebra_closed": true,
   "notes": [
     "Use this artifact only for selected-class target-audit mass coordinates and textures, not public source-only predictions.",
@@ -246,12 +242,18 @@
       ]
     },
     "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-    "certification_status": "forward_matrix_certified",
+    "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+    "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
     "forward_certified": true,
     "jarlskog": -3.735348679490123e-06,
+    "matrix_arithmetic_valid": true,
     "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
     "physical_yukawa_certified": false,
-    "promotion_blockers": [],
+    "predictive_promotion_allowed": false,
+    "promotion_blockers": [
+      "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+      "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+    ],
     "scope": "current_family_common_refinement_transport_frame_only",
     "singular_values_d": [
       0.0046999999996463915,
@@ -263,6 +265,7 @@
       1.2729000000026323,
       172.09999999999968
     ],
+    "source_certified": false,
     "stored_entry_dimension": "GeV"
   },
   "theorem_scope": "selected_public_physical_quark_frame_class_only",

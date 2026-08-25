@@ -64,8 +64,8 @@ def test_assemble_backend_export_from_array_files_roundtrips_manifest_contract()
         )
         payload = json.loads(output_path.read_text(encoding="utf-8"))
         assert payload["artifact"] == "oph_hadron_backend_raw_export_inlined"
-        assert payload["execution_class"] == "production"
-        assert payload["public_promotion_allowed"] is True
+        assert payload["execution_class"] == "production_request_template"
+        assert payload["public_promotion_allowed"] is False
         first_ensemble = payload["ensembles"]["qcd_2p1_seed_n0"]
         first_source = first_ensemble["cfgs"]["qcd_2p1_seed_n0__cfg0"]["sources"]["src0"]
         assert len(first_source["pi_iso"]) == 291

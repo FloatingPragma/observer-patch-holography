@@ -31,35 +31,36 @@
   "beta_d_diag_B_source_formula": "dot(source_readback_d_log_per_side, B_ord) / B_ord_norm_sq",
   "beta_u_diag_B_source": 0.06478785725166157,
   "beta_u_diag_B_source_formula": "dot(source_readback_u_log_per_side, B_ord) / B_ord_norm_sq",
-  "generated_utc": "2026-05-06T03:51:41Z",
+  "generated_utc": "2026-08-25T18:56:46Z",
   "non_inverse_fit_certificate": {
     "reference_values_consumed": false,
     "status": "required"
   },
   "notes": [
-    "This artifact is now a derived projection layer on top of the closed pure-B source-readback law.",
-    "The current mean and quadratic annihilators are blind to the B-mode amplitude, so the predictive gap sits first in the emitted pure-B payload pair beneath this projection."
+    "This artifact is an exact projection layer, but values inherited from an unpromotable readback remain comparison-only.",
+    "The predictive gap is the source-derived c_d/c_u or t1 value beneath this projection."
   ],
   "pdg_independence_certificate": {
     "reference_values_consumed": false,
     "status": "required"
   },
   "predictive_promotion_allowed": false,
-  "proof_status": "source_emission_derived_from_source_readback",
-  "smallest_constructive_missing_object": "off_canonical_pure_B_source_payload_family",
+  "proof_status": "comparison_only_projection_from_unpromotable_readback",
+  "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
   "source_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_law",
   "source_emission_closed_formula": "B_mode_residual_u == 0 and B_mode_residual_d == 0",
-  "source_emission_status": "source_emission_derived_from_source_readback",
+  "source_emission_status": "comparison_only_projection_from_unpromotable_readback",
   "source_readback_artifact": "oph_family_excitation_diagonal_common_gap_shift_source_readback",
   "source_readback_d_log_per_side": [
     0.06478785725166157,
     -0.0,
     -0.06478785725166157
   ],
-  "source_readback_status": "closed_public_selected_class_source_readback",
+  "source_readback_status": "comparison_only_readback_from_unpromotable_payload",
   "source_readback_u_log_per_side": [
     -0.06478785725166157,
     0.0,
     0.06478785725166157
-  ]
+  ],
+  "source_readback_value_classification": "comparison_only"
 }

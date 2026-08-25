@@ -1,5 +1,5 @@
 {
-  "active_builder_smallest_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
+  "active_builder_smallest_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
   "artifact": "oph_quark_current_family_exactness_audit",
   "b_mode_amplitude_blindness_audit": {
     "B_ord": [
@@ -20,9 +20,9 @@
   "b_mode_odd_projector_evaluator": {
     "J_B_formula": "dot(v, B_ord) / B_ord_norm_sq",
     "artifact": "oph_quark_diagonal_B_odd_source_scalar_evaluator",
-    "predictive_J_B_source_law_status": "selected_public_class_closed",
-    "proof_status": "closed_public_selected_class_pure_B_odd_source_scalar_evaluator",
-    "smallest_constructive_missing_object": "off_canonical_pure_B_source_payload_family"
+    "predictive_J_B_source_law_status": "comparison_only_unpromotable",
+    "proof_status": "comparison_only_odd_scalar_projection_value_source_open",
+    "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value"
   },
   "broader_supported_frontier": "oph_light_quark_isospin_overlap_defect_selector_law",
   "centered_ray_fit": {
@@ -626,7 +626,7 @@
     "tau_d_best_fit": 0.08866863932321174,
     "tau_u_best_fit": 0.05140755363848667
   },
-  "generated_utc": "2026-07-27T08:32:14Z",
+  "generated_utc": "2026-08-25T18:56:49Z",
   "mean_split_audit": {
     "current_log_shift_d": -2.0281337286007872,
     "current_log_shift_u": -0.16973941452778685,
@@ -659,7 +659,7 @@
     "The spread emitter is now read back from the closed mean surface rather than seeded diagnostically.",
     "The unique quadratic residual basis Q_ord isolates the only same-surface skew mode left on the ordered three-point family.",
     "Projecting the residual onto Q_ord only slightly reduces the mismatch, and the leftover is exactly a diagonal gap-shift pattern [-tau, 0, +tau].",
-    "That means the family shell and pure-B source-readback law are already known; on the active builder path the missing predictive step is the emitted pure-B payload pair, not another larger quark family.",
+    "The pure-B projection law is known, but the present numerical payload is comparison-only; the missing predictive step is a source-derived c_d/c_u or t1 value on the viable D12 ray.",
     "The March 28, 2026 final-wave consolidation also establishes a tier boundary: a nonzero light-quark pure-B selector is not available at recovered-core tier in the uploaded corpus.",
     "The broader repair frontier has therefore moved past the discrete selector: on the emitted local solver surface sigma_ud closes to sigma_ref, the broader supported D12 primitive is the light-quark overlap-defect scalar Delta_ud_overlap, and on the selected mass ray this is equivalently the downstream law quark_d12_t1_value_law, with intrinsic_scale_law_D12 retained only as the derived wrapper, even though the active local builder still waits first on the pure-B payload pair.",
     "The D12 selector-law shell remains explicit on disk: one continuation-level overlap-defect scalar `Delta_ud_overlap` would fix the light-sector pure-B payload pair by odd-budget neutrality, but the emitted local branch selector now closes trivially to sigma_ref rather than opening a new physical CKM branch.",
@@ -672,7 +672,7 @@
     "The same-family D12 mass ray is now an explicit emitted object on disk: D12_ud_mass_ray = { ray_modulus * (1/5, -((1 - x2^2) / 27)) }, and on that emitted ray the broader supported frontier Delta_ud_overlap is equivalently the downstream scalar burden quark_d12_t1_value_law, with intrinsic_scale_law_D12 retained as the derived wrapper.",
     "The mass-side theorem boundary remains sharp too: with D12_ud_mass_ray emitted, the broader supported D12 primitive remains Delta_ud_overlap, and on the emitted ray that same missing value is packaged as quark_d12_t1_value_law rather than another larger mass-side carrier."
   ],
-  "predictive_J_B_source_law_status": "selected_public_class_closed",
+  "predictive_J_B_source_law_status": "comparison_only_unpromotable",
   "quadratic_residual_audit": {
     "Q_ord": [
       0.2440347951122107,
@@ -713,8 +713,8 @@
     ]
   },
   "scope": "current_family_only",
-  "smallest_constructive_missing_object": "source_readback_u_log_per_side_and_source_readback_d_log_per_side",
-  "smallest_exact_obstruction": "the builder-facing pure-B payload pair is still open on the active public branch, the emitted local same-label left-handed orbit has already collapsed to sigma_ref, so the broader D12 continuation branch is now waiting on the intrinsic D12 scale law on the selected mass ray while the CKM-shell no-go persists on that branch",
+  "smallest_constructive_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+  "smallest_exact_obstruction": "the builder-facing pure-B arithmetic currently descends from an unpromotable target-attached value, so a source-derived c_d/c_u or t1 remains open, the emitted local same-label left-handed orbit has already collapsed to sigma_ref, so the broader D12 continuation branch is now waiting on the intrinsic D12 scale law on the selected mass ray while the CKM-shell no-go persists on that branch",
   "source_readback_payload_kind": "pure_B_light_sector_payload_pair",
   "spread_emitter_audit": {
     "sigma_d_total_log_per_side": 3.3049,

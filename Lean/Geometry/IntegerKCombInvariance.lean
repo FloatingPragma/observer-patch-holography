@@ -110,21 +110,51 @@ theorem tooth_sub_offset (T : CombTemplate) (k : ℕ) :
     tooth T k - T.offset = T.scale * Real.log (k : ℝ) := by
   simp [tooth]
 
-/-- The frozen ratio law at template level: the offset-subtracted
-ratio of any two teeth is `ln a / ln b`, with the scale cancelled. -/
-theorem offsetSubtracted_ratio (T : CombTemplate) (a b : ℕ) :
+/-- Totalized algebraic identity behind the ratio law.  Lean defines division
+by zero, so this statement also reduces at `b = 0` and `b = 1`; use
+`offsetSubtracted_ratio` below for the physically meaningful nonzero-
+denominator statement. -/
+theorem offsetSubtracted_ratio_totalized (T : CombTemplate) (a b : ℕ) :
     (tooth T a - T.offset) / (tooth T b - T.offset)
       = Real.log (a : ℝ) / Real.log (b : ℝ) := by
   have hs : T.scale ≠ 0 := ne_of_gt T.scale_pos
   rw [tooth_sub_offset, tooth_sub_offset, mul_div_mul_left _ _ hs]
 
-/-- Scale-and-offset invariance of the abstract observable. A physical
-mass/spin/redshift statement additionally requires a frame-consistent map of
-those quantities into the common scale and offset. -/
-theorem ratio_template_independent (T₁ T₂ : CombTemplate) (a b : ℕ) :
+/-- For a physical comb denominator `b ≥ 2`, the offset-subtracted denominator
+is nonzero. -/
+theorem tooth_sub_offset_ne_zero (T : CombTemplate) {b : ℕ} (hb : 2 ≤ b) :
+    tooth T b - T.offset ≠ 0 := by
+  rw [tooth_sub_offset]
+  apply mul_ne_zero (ne_of_gt T.scale_pos)
+  apply ne_of_gt
+  apply Real.log_pos
+  have : 1 < b := by omega
+  exact_mod_cast this
+
+/-- The physically meaningful frozen ratio law: for denominator tooth
+`b ≥ 2`, the offset-subtracted ratio is `ln a / ln b`, with a proved nonzero
+denominator and the common scale cancelled. -/
+theorem offsetSubtracted_ratio (T : CombTemplate) (a b : ℕ) (hb : 2 ≤ b) :
+    (tooth T a - T.offset) / (tooth T b - T.offset)
+      = Real.log (a : ℝ) / Real.log (b : ℝ) := by
+  have hlog : Real.log (b : ℝ) ≠ 0 := by
+    apply ne_of_gt
+    apply Real.log_pos
+    have : 1 < b := by omega
+    exact_mod_cast this
+  rw [tooth_sub_offset, tooth_sub_offset]
+  have hs : T.scale ≠ 0 := ne_of_gt T.scale_pos
+  field_simp [hs, hlog]
+
+/-- Scale-and-offset invariance of the abstract observable on the nonzero-
+denominator comb domain. A physical mass/spin/redshift statement additionally
+requires a frame-consistent map of those quantities into the common scale and
+offset. -/
+theorem ratio_template_independent (T₁ T₂ : CombTemplate) (a b : ℕ)
+    (hb : 2 ≤ b) :
     (tooth T₁ a - T₁.offset) / (tooth T₁ b - T₁.offset)
       = (tooth T₂ a - T₂.offset) / (tooth T₂ b - T₂.offset) := by
-  rw [offsetSubtracted_ratio, offsetSubtracted_ratio]
+  rw [offsetSubtracted_ratio T₁ a b hb, offsetSubtracted_ratio T₂ a b hb]
 
 /-- Strict monotonicity of teeth in `k`. -/
 theorem tooth_lt_tooth (T : CombTemplate) {a b : ℕ}
@@ -239,7 +269,7 @@ ratio of every template lies in `(158/100, 159/100)`. -/
 theorem tooth_ratio_32_bounds (T : CombTemplate) :
     (158 : ℝ) / 100 < (tooth T 3 - T.offset) / (tooth T 2 - T.offset) ∧
       (tooth T 3 - T.offset) / (tooth T 2 - T.offset) < (159 : ℝ) / 100 := by
-  have h := offsetSubtracted_ratio T 3 2
+  have h := offsetSubtracted_ratio T 3 2 (by norm_num)
   push_cast at h
   rw [h]
   exact log3_div_log2_bounds
@@ -248,7 +278,7 @@ theorem tooth_ratio_32_bounds (T : CombTemplate) :
 tooth ratio of every template is exactly two. -/
 theorem tooth_ratio_42 (T : CombTemplate) :
     (tooth T 4 - T.offset) / (tooth T 2 - T.offset) = 2 := by
-  have h := offsetSubtracted_ratio T 4 2
+  have h := offsetSubtracted_ratio T 4 2 (by norm_num)
   push_cast at h
   rw [h, log4_div_log2]
 
@@ -257,7 +287,7 @@ ratio of every template lies in `(232/100, 233/100)`. -/
 theorem tooth_ratio_52_bounds (T : CombTemplate) :
     (232 : ℝ) / 100 < (tooth T 5 - T.offset) / (tooth T 2 - T.offset) ∧
       (tooth T 5 - T.offset) / (tooth T 2 - T.offset) < (233 : ℝ) / 100 := by
-  have h := offsetSubtracted_ratio T 5 2
+  have h := offsetSubtracted_ratio T 5 2 (by norm_num)
   push_cast at h
   rw [h]
   exact log5_div_log2_bounds
@@ -324,6 +354,8 @@ end OPH.IntegerKCombInvariance
 #print axioms OPH.IntegerKCombInvariance.IntegerDivisionTransition.after_eq_before_div
 #print axioms OPH.IntegerKCombInvariance.IntegerDivisionTransition.signed_entropy_change
 #print axioms OPH.IntegerKCombInvariance.IntegerDivisionTransition.positive_entropy_loss
+#print axioms OPH.IntegerKCombInvariance.offsetSubtracted_ratio_totalized
+#print axioms OPH.IntegerKCombInvariance.tooth_sub_offset_ne_zero
 #print axioms OPH.IntegerKCombInvariance.offsetSubtracted_ratio
 #print axioms OPH.IntegerKCombInvariance.ratio_template_independent
 #print axioms OPH.IntegerKCombInvariance.tooth_lt_tooth

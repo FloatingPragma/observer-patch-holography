@@ -48,10 +48,10 @@ D11 rigidity, top-threshold dependence, or the Higgs complex-pole and
 uncertainty receipts. The displayed GeV coordinate is therefore conditional,
 not a promoted physical pole mass.
 
-## Corollary: OPH Higgs naturalness
+## Declared-map identity and the open Higgs-naturalness route
 
-The selected exact source-to-Higgs comparison map has zero RG/coarse-graining
-defect:
+The supplied source-to-Higgs comparison maps have zero RG/coarse-graining
+defect by their declared definitions:
 
 ```math
 \epsilon_H =
@@ -70,9 +70,12 @@ The certificate is `issue_332_rg_naturality_certificate.json`. It allows only
 the OPH source branch, the D10 source `alpha_U(P_star)` interval, the upstream
 repair-tick/tick-projection/joint-stability records, and the declared D10/D11
 maps. It forbids measured weak-scale, Higgs, W/Z, gravity, Planck-area, Lambda,
-and tuned bare-Higgs/cutoff-counterterm inputs. On the selected exact branch,
-the bare/counterterm split is a regulator-coordinate split. Observer-facing
-fine tuning does not appear as a proof datum.
+and tuned bare-Higgs/cutoff-counterterm inputs. This proves only a
+declared-map commuting-square identity. The same source antecedents admit
+exact finite completions with defects zero and one, so they do not select a
+Higgs-naturalness value. The live route is to derive all six comparison maps
+from the source and then evaluate both residuals independently. Declaring the
+bare/counterterm split a regulator-coordinate split cannot replace that work.
 
 ## Theorem C: Joint `(P,N_CRC)` product fixed point
 

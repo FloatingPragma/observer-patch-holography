@@ -66,7 +66,8 @@
     "supporting_algebraic_collapse_artifact": "oph_quark_absolute_readout_algebraic_collapse"
   },
   "closure_chain": [
-    "(axioms + light-data transport) => light_quark_overlap_defect_value_law => Delta_ud_overlap => quark_d12_t1_value_law => t1 => (eta_Q_centered, kappa_Q, tau_u, tau_d)",
+    "(source-derived c_d/c_u or t1 value) + conditional D12 identities => Delta_ud_overlap => t1 => (eta_Q_centered, kappa_Q, beta_u, beta_d)",
+    "(source-derived Delta_ud_overlap + source-emitted positive sigma branch) => exact overlap transport => (tau_u,tau_d)",
     "(target-free source identities) => (v_u,v_d) with E_u=sigma_u*v_u and E_d=sigma_d*v_d => compatible fiber (R_{>0})^2",
     "(selected public quark frame class chosen by P) => representative-independent descent, but no selection of (sigma_u,sigma_d)",
     "(externally supplied target sigma pair) => conditional affine/readout algebra => mixed-convention six-row target packet",
@@ -135,10 +136,13 @@
     },
     "exact_forward_yukawas": {
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
+      "predictive_promotion_allowed": false,
       "proof_status": "closed_target_anchored_mixed_convention_mass_texture_audit",
-      "scope": "current_family_common_refinement_transport_frame_only"
+      "scope": "current_family_common_refinement_transport_frame_only",
+      "source_certified": false
     },
     "exact_pdg_reconstruction": {
       "artifact": "oph_quark_current_family_exact_pdg_theorem",
@@ -258,6 +262,12 @@
   },
   "exact_missing_theorems": [
     {
+      "current_conditional_identity": "oph_quark_d12_t1_value_law",
+      "exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+      "id": "quark_d12_source_derived_light_ratio_or_t1_value",
+      "viable_route": "emitted_same_family_D12_mass_ray"
+    },
+    {
       "current_obstruction": "oph_quark_sigma_source_nonidentifiability_obstruction",
       "id": "quark_source_spread_pair_action_breaking_theorem",
       "required_independent_scalar_count": 2
@@ -309,6 +319,9 @@
     "lemma_chain": [
       {
         "artifact": "oph_quark_target_free_bridge_theorem",
+        "bridge_proof_status": "conditional_bridge_identity_value_source_open",
+        "bridge_public_promotion_allowed": false,
+        "input_classification": "conditional_identity_with_target_anchored_evaluation",
         "lemma": "light_quark_overlap_defect_value_law / quark_d12_t1_value_law",
         "result": {
           "Delta_ud_overlap": "Delta_ud_overlap = (1/6) * log(c_d / c_u)",
@@ -354,9 +367,12 @@
         "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
         "lemma": "dimensionful_mass_texture_emission",
         "result": {
-          "certification_status": "forward_matrix_certified",
+          "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+          "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
           "forward_certified": true,
-          "scope": "current_family_common_refinement_transport_frame_only"
+          "predictive_promotion_allowed": false,
+          "scope": "current_family_common_refinement_transport_frame_only",
+          "source_certified": false
         },
         "step": 5
       }
@@ -397,31 +413,36 @@
   "exact_yukawa_derivation_target": {
     "artifact": "oph_quark_current_family_transport_frame_exact_yukawa_theorem",
     "audit_scope_statement": "The stored matrices reproduce the target packet as GeV-valued singular spectra. They are mass textures, not common-scale dimensionless physical Yukawa matrices.",
-    "certification_status": "forward_matrix_certified",
+    "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
     "certified_physical_yukawa_matrices": false,
+    "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
     "forward_certified": true,
     "matrix_kind": "mixed_scheme_GeV_mass_texture_matrices",
     "minimal_exact_blocker_set": [
       "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
     ],
     "not_the_same_as": "target_free_public_physical_sheet_yukawa_promotion",
+    "predictive_promotion_allowed": false,
+    "source_certified": false,
     "status": "closed_algebraic_mass_texture_audit_not_physical_yukawa",
     "stored_entry_dimension": "GeV",
     "target_name": "mixed_scheme_dimensionful_quark_mass_texture_audit",
     "theorem_scope": "current_family_common_refinement_transport_frame_only",
     "wrapper_theorem": "oph_quark_exact_yukawa_end_to_end_theorem"
   },
-  "generated_utc": "2026-08-14T05:39:23Z",
+  "generated_utc": "2026-08-25T18:56:51Z",
   "internalized_theorems": [
     {
-      "formula": "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)",
+      "classification": "conditional_identity_value_source_open",
+      "formula": "Theta_ud^Delta(c_u, c_d) = (1/6) * log(c_d / c_u)",
       "id": "light_quark_overlap_defect_value_law",
-      "proof_status": "closed_target_free_overlap_defect_theorem"
+      "proof_status": "conditional_overlap_identity_selector_value_open"
     },
     {
+      "classification": "conditional_identity_value_source_open",
       "formula": "t1 = (5/6) * log(c_d / c_u)",
       "id": "quark_d12_t1_value_law",
-      "proof_status": "closed_mass_ray_one_scalar_value_law"
+      "proof_status": "conditional_mass_ray_identity_value_source_open"
     }
   ],
   "mass_comparison_surface": {
@@ -460,7 +481,7 @@
     "target_derived_sigma_datum_used": true
   },
   "notes": [
-    "The overlap-defect and D12 value laws close shape information, not the two absolute spread moduli.",
+    "The overlap-defect and D12 value laws are exact conditional identities; their scalar value source and the two absolute spread moduli remain open.",
     "The theorem-grade current-corpus obstruction closes issues 377, 379, and 380 only in the accepted sharper-obstruction mode; it does not emit numerical quark rows.",
     "The target-anchored current-family algebra remains available for audit and regression testing.",
     "The declared six-row target packet mixes light MSbar coordinates at 2 GeV, charm and bottom self-scale coordinates, and a separate top extraction coordinate.",
@@ -501,8 +522,9 @@
         }
       }
     },
-    "definition": "Target-free source identities close the ordered D12 profile rays only. Absolute up/down spreads remain a two-modulus fiber, and the target-side GeV matrices remain mixed-scheme mass textures.",
+    "definition": "Conditional source identities expose the ordered D12 profile rays but do not emit the light-ratio selector value. Absolute up/down spreads independently remain a two-modulus fiber, and the target-side GeV matrices remain mixed-scheme mass textures.",
     "minimal_exact_blocker_set": [
+      "QUARK_D12_SOURCE_DERIVED_LIGHT_RATIO_OR_T1_VALUE",
       "QUARK_SOURCE_SPREAD_PAIR_ACTION_BREAKING_THEOREM",
       "QUARK_RG_COVARIANT_TRAJECTORY_OR_INVARIANT",
       "QUARK_OPERATIONAL_SCHEME_AND_SCALE_SECTION",
@@ -540,11 +562,11 @@
     "sharper_target_1_primitive": {
       "artifact": "oph_light_quark_overlap_defect_value_law",
       "equivalent_ray_coordinate_presentation": "quark_d12_t1_value_law",
-      "exact_missing_object": null,
-      "proof_status": "closed_target_free_overlap_defect_theorem"
+      "exact_missing_object": "source_derived_c_d_over_c_u_or_Delta_ud_overlap",
+      "proof_status": "conditional_overlap_identity_selector_value_open"
     },
-    "target_1_internalized_theorem_text": "On the minimal light branch y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with epsilon = 1/6, the normalized light overlap defect is Delta_ud_overlap = (1/6) * log(y_d / y_u) = (1/6) * log(c_d / c_u). On the emitted D12 mass ray this closes the target-free mass bridge and yields the equivalent ray-coordinate theorem quark_d12_t1_value_law via t1 = 5 * Delta_ud_overlap.",
-    "target_1_status": "closed_profile_ray_only_absolute_spreads_nonidentifiable",
+    "target_1_internalized_theorem_text": "Conditional on source-derived positive coefficients c_u and c_d, the minimal light branch y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with epsilon = 1/6, the normalized light overlap defect is Delta_ud_overlap = (1/6) * log(y_d / y_u) = (1/6) * log(c_d / c_u). On the emitted D12 mass ray this implies t1 = 5 * Delta_ud_overlap. The identity does not emit c_d/c_u or a numerical selector value.",
+    "target_1_status": "open_conditional_profile_identity_value_and_absolute_spreads_not_source_emitted",
     "theorem_grade_sigma_branch": {
       "artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
       "compatible_fiber": "(R_{>0})^2",
@@ -563,7 +585,7 @@
       "why_not_a_source_closure": "Fixing a sigma branch is an extra premise. The target-free corpus does not select the two positive sector spans to which the conditional reduction is applied."
     },
     "why_edge_statistics_candidate_does_not_close_source": "Even after granting the edge packet, sigma_u=S_13+c_u*delta21 and sigma_d=S_23+c_d*delta21 retain independent free coefficients c_u and c_d.",
-    "why_not_closed": "The internalized overlap-defect law fixes a ray coordinate, not its two absolute sector spans. Independent positive rescaling preserves all current source identities and changes the mass readout."
+    "why_not_closed": "The internalized overlap-defect formula is conditional and does not emit c_d/c_u, Delta_ud_overlap, or t1. Even after that scalar is sourced, independent positive rescaling leaves the two absolute sector spans open and changes the mass readout."
   },
   "public_exact_yukawa_derivation_target": {
     "artifact": "oph_quark_public_exact_yukawa_end_to_end_theorem",
@@ -685,11 +707,18 @@
         ]
       },
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "matrix_arithmetic_valid": true,
       "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
       "physical_yukawa_certified": false,
+      "predictive_promotion_allowed": false,
+      "promotion_blockers": [
+        "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+      ],
       "scope": "current_family_common_refinement_transport_frame_only",
       "singular_values_d": [
         0.0046999999996463915,
@@ -701,6 +730,7 @@
         1.2729000000026323,
         172.09999999999968
       ],
+      "source_certified": false,
       "stored_entry_dimension": "GeV"
     },
     "minimal_exact_blocker_set": [
@@ -841,11 +871,18 @@
             ]
           },
           "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-          "certification_status": "forward_matrix_certified",
+          "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+          "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
           "forward_certified": true,
           "jarlskog": -3.735348679490123e-06,
+          "matrix_arithmetic_valid": true,
           "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
           "physical_yukawa_certified": false,
+          "predictive_promotion_allowed": false,
+          "promotion_blockers": [
+            "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+            "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+          ],
           "scope": "current_family_common_refinement_transport_frame_only",
           "singular_values_d": [
             0.0046999999996463915,
@@ -857,6 +894,7 @@
             1.2729000000026323,
             172.09999999999968
           ],
+          "source_certified": false,
           "stored_entry_dimension": "GeV"
         },
         "pair_status": "consistent_declared_mass_texture_singular_spectrum",

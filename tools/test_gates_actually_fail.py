@@ -78,6 +78,130 @@ def test_paper_style_gate_allows_scientific_open_and_identifier_lookalikes() -> 
         ), sample
 
 
+def test_main_paper_relevance_diagnostic_preserves_live_rg_routes() -> None:
+    text = " ".join(
+        (ROOT / "paper/tex_fragments/PAPER.tex")
+        .read_text(encoding="utf-8")
+        .split()
+    )
+    for required in (
+        r"relevance alone does not generate \(\mathcal O\)",
+        "vanishing operator mixing",
+        "not an exhaustive protection theorem",
+        "does not select chirality by itself",
+    ):
+        assert required in text, required
+    for forbidden in (
+        "only if symmetry forbids that direction",
+        "is generated under refinement unless",
+        "requires chiral matter content",
+    ):
+        assert forbidden not in text, forbidden
+
+
+def test_main_paper_keeps_generalized_entropy_stationarity_as_interface() -> None:
+    text = " ".join(
+        (ROOT / "paper/tex_fragments/PAPER.tex")
+        .read_text(encoding="utf-8")
+        .split()
+    )
+    for required in (
+        "proved finite MaxEnt envelope identities",
+        "declared fixed-cap generalized-entropy stationarity interface",
+        "does not, by itself, identify a variation of the state constraints with a geometric area variation",
+        "declared joint state--geometry balance",
+    ):
+        assert required in text, required
+    for forbidden in (
+        "MaxEnt selection implies that for variations",
+        "derived fixed-cap generalized-entropy stationarity theorem",
+        "MaxEnt-selected fixed-cap generalized-entropy stationarity theorem",
+    ):
+        assert forbidden not in text, forbidden
+
+
+def test_einstein_surfaces_keep_local_stress_and_ward_supplies_conditional() -> None:
+    main_text = " ".join(
+        (ROOT / "paper/tex_fragments/PAPER.tex")
+        .read_text(encoding="utf-8")
+        .split()
+    )
+    wrapper_text = " ".join(
+        (
+            ROOT
+            / "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
+        )
+        .read_text(encoding="utf-8")
+        .split()
+    )
+    supplement_text = " ".join(
+        (ROOT / "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex")
+        .read_text(encoding="utf-8")
+        .split()
+    )
+    publication_text = f"{main_text} {wrapper_text} {supplement_text}"
+    for required in (
+        "Charge compatibility and tensor tomography alone imply neither the face cancellation nor its continuum limit",
+        "declared fixed-cap generalized-entropy stationarity interface",
+        "conditional same-source local-stress and weak-Ward bridge",
+        "conditional local null-stress reading under effective-locality and same-source matching",
+        "assume the effective-locality and same-source bridge that identifies the proved half-line endpoint derivative",
+        "finite null tomography does not supply them",
+    ):
+        assert required in publication_text, required
+    for forbidden in (
+        "Positive null translations and modular charges reconstruct the local conserved stress tensor",
+        "Positive null translations and modular charges reconstruct a local conserved stress tensor",
+        "closure packets construct the local conserved stress tensor",
+        "exact identification of \\(P_\\Omega\\) with the local null-stress charge",
+        "half-line generator/charge identification proved inside the null modular bridge itself",
+        "half-line generator/charge identification",
+        "null modular data reconstruct the stress tensor",
+    ):
+        assert forbidden not in publication_text, forbidden
+    assert "derived fixed-cap generalized-entropy stationarity theorem" not in publication_text
+    assert "generator/charge identification internally" not in publication_text
+
+    novelty = (ROOT / "claims/novelty_matrix.csv").read_text(encoding="utf-8")
+    falsification = (ROOT / "claims/falsification_matrix.csv").read_text(
+        encoding="utf-8"
+    )
+    assert "T_ab is constructed from OPH modular charges" not in novelty
+    dependency_graph = (ROOT / "claims/dependency_graph.json").read_text(
+        encoding="utf-8"
+    )
+    assert "the MI linearity clause consumed by null tomography" not in dependency_graph
+    assert "constructed modular stress channel" not in dependency_graph
+    assert (
+        "Every stated component implication and common-domain premise holds, but the typed Einstein composition fails"
+        in falsification
+    )
+    assert "The D3--D4 Lorentz branch falls" not in next(
+        line
+        for line in falsification.splitlines()
+        if line.startswith("OPH-GR-E2E-BRANCH-ENTRY,")
+    )
+
+    registry = json.loads(
+        (ROOT / "claims/claim_registry.yaml").read_text(encoding="utf-8")
+    )
+    by_id = {row["claim_id"]: row for row in registry["claims"]}
+    expected = [f"PR-{number}" for number in range(23, 29)]
+    for claim_id in (
+        "OPH-GR-D5A-ABSOLUTE-EINSTEIN",
+        "OPH-GR-E2E-BRANCH-ENTRY",
+    ):
+        dependencies = by_id[claim_id]["premise_dependencies"]
+        assert dependencies["classification"] == "explicit_edges"
+        assert dependencies["consumed"] == expected
+        assert "null_stress_bridge" in by_id[claim_id]["assumptions"]
+        assert "weak_ward_conservation" in by_id[claim_id]["assumptions"]
+
+    stress_assumptions = by_id["OPH-GR-D4C-LOCAL-STRESS"]["assumptions"]
+    assert "null_stress_bridge" in stress_assumptions
+    assert "weak_ward_conservation" in stress_assumptions
+
+
 def _run(*arguments: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         [sys.executable, *arguments],

@@ -49,11 +49,15 @@
       "result": "C_EW(P,x)=(1-lambda)*x+lambda*6*pi/(P*alpha_U(P)) is a contraction at lambda=1/2; its unique fixed point gives N_CRC^EW=pi*exp[6*pi/(P_star*alpha_U(P_star))] and B_EW(P_star,N_CRC^EW)=0"
     },
     {
-      "name": "RG/coarse-graining naturality theorem",
+      "name": "declared-map RG/coarse-graining identity",
       "artifact": "../issue_332_rg_naturality_certificate.json",
-      "status": "closed_exact_selected_branch",
-      "result": "epsilon_n=epsilon_h=epsilon_H=0 on the selected exact source-to-Higgs normal-form square, with measured weak-scale and gravity inputs forbidden"
+      "status": "declared_map_identity_closed__source_maps_and_physical_naturality_open",
+      "result": "epsilon_n=epsilon_h=epsilon_H=0 for the supplied source-to-Higgs maps; same-source-antecedent exact completions attain nonzero defect, so source-derived maps and independent residual evaluation remain open"
     }
   ],
-  "promotion_requires": []
+  "promotion_requires": [
+    "source-derived rho_sH, n_s, n_H, h_s, chi_sH, and h_H",
+    "independent evaluation of both comparison-square residuals",
+    "HIERARCHY-SCREEN-READOUT and the separate physical attachments"
+  ]
 }

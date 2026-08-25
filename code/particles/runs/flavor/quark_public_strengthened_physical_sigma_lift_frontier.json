@@ -48,10 +48,12 @@
         ]
       },
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
       "physical_yukawa_certified": false,
+      "predictive_promotion_allowed": false,
       "singular_values_d": [
         0.0046999999996463915,
         0.092899999999985,
@@ -61,7 +63,8 @@
         0.0021600002720956663,
         1.2729000000026323,
         172.09999999999968
-      ]
+      ],
+      "source_certified": false
     }
   },
   "algebraic_consequence_if_closed": {
@@ -113,10 +116,12 @@
         ]
       },
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
       "physical_yukawa_certified": false,
+      "predictive_promotion_allowed": false,
       "singular_values_d": [
         0.0046999999996463915,
         0.092899999999985,
@@ -126,7 +131,8 @@
         0.0021600002720956663,
         1.2729000000026323,
         172.09999999999968
-      ]
+      ],
+      "source_certified": false
     }
   },
   "alternate_upstream_route": {
@@ -228,7 +234,7 @@
     "why_sufficient": "If a new source observable breaks the independent positive-rescaling action and emits both spread moduli, this descent makes that supplied datum intrinsic on the selected physical quark frame class. The affine mean law would then emit sector scales algebraically. Scheme-labelled masses would still require an RG trajectory and declared comparison chart, and physical Yukawa matrices would require common-scale dimensionless normalization. In the current artifact the descended datum is target-derived."
   },
   "frontier_role": "blocked_direct_public_descent_candidate_plus_historical_upstream_alternative",
-  "generated_utc": "2026-07-12T03:21:54Z",
+  "generated_utc": "2026-08-25T18:56:50Z",
   "non_circularity_status": {
     "missing_source_object": "quark_sigma_source_datum_no_target_leak_required",
     "promotion_allowed": false,

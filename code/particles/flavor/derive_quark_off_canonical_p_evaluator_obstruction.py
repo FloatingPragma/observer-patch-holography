@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Emit the closure certificate for theorem-grade off-canonical quark P transport.
 
-Chain role: make the current failure to close issue #212 executable. The
-selected public quark theorem is closed, but the arbitrary-P moving evaluator
-still needs a theorem-grade sigma lift and odd scale law.
+Chain role: make the current failure to close the arbitrary-P moving evaluator
+executable. The selected-class target audit is present but is not a source-only
+physical Yukawa theorem; off-canonical transport independently still needs a
+theorem-grade sigma lift and odd scale law.
 
 Mathematics: the ordered even family reduces exactly to a free positive pair
 ``(sigma_u, sigma_d)``. Current edge statistics provide candidate coefficients
@@ -181,8 +182,12 @@ def build_artifact(
         },
         "selected_public_pure_B_payload": {
             "closed": public_source_payload is not None
-            and public_source_payload.get("proof_status") == "closed_public_selected_class_pure_B_source_payload",
+            and public_source_payload.get("proof_status") == "closed_public_selected_class_pure_B_source_payload"
+            and public_source_payload.get("public_promotion_allowed") is True,
             "proof_status": None if public_source_payload is None else public_source_payload.get("proof_status"),
+            "public_promotion_allowed": None
+            if public_source_payload is None
+            else public_source_payload.get("public_promotion_allowed"),
             "off_canonical_promotion_allowed": None
             if public_source_payload is None
             else public_source_payload.get("off_canonical_promotion_allowed"),
@@ -293,9 +298,8 @@ def build_artifact(
             "oph_arbitrary_P_public_quark_frame_transport_classification",
         ],
         "notes": [
-            "The selected public exact quark theorem is closed and can be used as a theorem-grade static evaluator.",
-            "The selected-public-class pure-B source payload is now data-bearing when present.",
-            "Those selected-class closures do not supply an arbitrary-P off-canonical sigma or odd-scale family.",
+            "The selected-class mass-texture audit and conditional pure-B arithmetic are not source-only public closures on the current inputs.",
+            "The D12 scalar-emission route remains open in addition to the independent off-canonical sigma and odd-scale gaps.",
         ],
     }
 

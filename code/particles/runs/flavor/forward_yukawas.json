@@ -197,9 +197,11 @@
   "dense_entrywise_amplitude_used": false,
   "even_excitation_source_artifact": "oph_family_excitation_spread_map",
   "even_excitation_source_status": "diagnostic_witness_not_source_emission",
+  "forward_certification_scope": "declared_descent_contract",
   "forward_certified": false,
-  "generated_utc": "2026-07-27T08:32:19Z",
+  "generated_utc": "2026-08-25T18:56:47Z",
   "jarlskog": 3.8133260918360656e-10,
+  "matrix_arithmetic_valid": true,
   "metadata": {
     "note": "This artifact stays a sandbox placeholder until the quark descent law closes. The exact reduced even family is already fixed on the current spectrum class; if a current-family spread pair is populated, the builder now emits a real hierarchy candidate, but it remains non-promotable until the spread emitter itself is theorem-fed. Factorized-only mode is allowed, and dense entrywise amplitudes are not promotable in certified quark mode. When the spread map carries a direct edge-statistics bridge, this builder preserves that constructive provenance instead of burying it.",
     "shared_charged_seed_kind": "averaged_u_d_candidate"
@@ -213,7 +215,7 @@
     "quark_even_excitation_candidate_only",
     "quark_source_mode_unresolved"
   ],
-  "public_surface_candidate_allowed": true,
+  "public_surface_candidate_allowed": false,
   "public_surface_candidate_scope": [
     "m_u",
     "m_d",
@@ -221,7 +223,7 @@
     "m_c",
     "m_b"
   ],
-  "public_surface_candidate_status": "best_available_reference_free_current_family_candidate",
+  "public_surface_candidate_status": "not_allowed",
   "quark_descent_proof_status": "closed",
   "sector_mean_split_artifact": "oph_quark_sector_mean_split",
   "sector_mean_split_status": "closed_current_family_predictive_law",
@@ -236,6 +238,7 @@
     1.2566920642121726,
     164.4626302858475
   ],
+  "source_certified": false,
   "source_mode": "factorized_descent",
   "spread_sigma_d_total_log_per_side": 3.3049,
   "spread_sigma_source_kind": "hard_coded_diagnostic_witness",

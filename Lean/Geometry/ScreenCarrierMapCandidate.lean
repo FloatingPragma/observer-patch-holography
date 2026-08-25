@@ -71,8 +71,9 @@ WHAT IS PROVED.
   same-parent barycentric face coordinates by denominator multiplication.
   The carrier extension `baryCarrierZ` maps a barycentric point to the
   exact integer combination of its face's three vertex rays; `refine m`
-  scales the image vector by `m` (`baryCarrier_refine`), hence fixes
-  every mesh ray (`baryCarrier_refine_sameRay`); corner points map to
+  scales the image vector by `m` (`baryCarrier_refine`).  For `m > 0` and
+  nonzero barycentric coordinate sum, both images are nonzero and determine
+  the same mesh ray (`baryCarrier_refine_meshRay`); corner points map to
   the port rays (`baryCarrier_corner_first` and companions); and points
   with a nonzero coordinate sum map to nonzero vectors
   (`baryCarrier_ne_zero`).
@@ -809,6 +810,15 @@ theorem evalVec_injective : Function.Injective evalVec := by
   funext k
   exact evalPhi_injective (congrFun h k)
 
+/-- Exact nonzero carrier vectors remain nonzero after real evaluation. -/
+theorem evalVec_ne_zero {v : VecZ} (hv : v ≠ 0) : evalVec v ≠ 0 := by
+  intro h
+  apply hv
+  have hzero : evalVec (0 : VecZ) = 0 := by
+    funext k
+    simp [evalVec, evalPhi]
+  exact evalVec_injective (h.trans hzero.symm)
+
 theorem evalVec_vneg (v : VecZ) : evalVec (vneg v) = -evalVec v := by
   funext k
   show evalPhi (zneg (v k)) = -evalPhi (v k)
@@ -1102,17 +1112,42 @@ theorem baryCarrier_ne_zero (f : Fin 20) (x : Barycentric)
 
 noncomputable section
 
-/-- Refinement fixes every mesh ray: the real image of a refined
-barycentric point lies on the same ray as the image of the original
-point.  This holds for every port assignment and every denominator,
-including zero, where the scaled image is the zero vector and `SameRay`
-holds degenerately. -/
+/-- Algebraic same-ray relation under every nonnegative scaling.  This holds
+for every port assignment and every multiplier, including zero, where the
+scaled image is the zero vector and `SameRay` holds degenerately.  Use
+`baryCarrier_refine_meshRay` for the nonzero geometric statement. -/
 theorem baryCarrier_refine_sameRay (pm : Fin 12 → VecZ) (m : ℕ) (f : Fin 20)
     (x : Barycentric) :
     SameRay ℝ (evalVec (baryCarrierZ pm f x))
       (evalVec (baryCarrierZ pm f (OPH.DiscreteRefinement.refine m x))) := by
   rw [baryCarrier_refine, evalVec_vsc]
   exact SameRay.sameRay_nonneg_smul_right _ (Nat.cast_nonneg m)
+
+/-- Positive refinement preserves an actual canonical mesh ray.  If the
+original barycentric coordinates have nonzero sum and `m > 0`, both exact
+carrier images and both real evaluations are nonzero, and the evaluations
+satisfy `SameRay`.  This excludes the degenerate zero-multiplier case of
+`baryCarrier_refine_sameRay`. -/
+theorem baryCarrier_refine_meshRay (m : ℕ) (hm : 0 < m) (f : Fin 20)
+    (x : Barycentric) (hx : x.i + x.j + x.k ≠ 0) :
+    baryCarrierZ candidateRayZ f x ≠ 0 ∧
+      baryCarrierZ candidateRayZ f (OPH.DiscreteRefinement.refine m x) ≠ 0 ∧
+        evalVec (baryCarrierZ candidateRayZ f x) ≠ 0 ∧
+          evalVec (baryCarrierZ candidateRayZ f
+            (OPH.DiscreteRefinement.refine m x)) ≠ 0 ∧
+            SameRay ℝ (evalVec (baryCarrierZ candidateRayZ f x))
+              (evalVec (baryCarrierZ candidateRayZ f
+                (OPH.DiscreteRefinement.refine m x))) := by
+  have horig := baryCarrier_ne_zero f x hx
+  have hrefined :
+      baryCarrierZ candidateRayZ f (OPH.DiscreteRefinement.refine m x) ≠ 0 := by
+    apply baryCarrier_ne_zero
+    change m * x.i + m * x.j + m * x.k ≠ 0
+    have hsum : 0 < x.i + x.j + x.k := Nat.pos_of_ne_zero hx
+    have hprod : 0 < m * (x.i + x.j + x.k) := Nat.mul_pos hm hsum
+    exact ne_of_gt (by simpa [Nat.mul_add, Nat.add_assoc] using hprod)
+  exact ⟨horig, hrefined, evalVec_ne_zero horig, evalVec_ne_zero hrefined,
+    baryCarrier_refine_sameRay candidateRayZ m f x⟩
 
 end
 
@@ -1178,6 +1213,7 @@ end OPH.ScreenCarrierMapCandidate
 #print axioms OPH.ScreenCarrierMapCandidate.evalPhi_ne_zero
 #print axioms OPH.ScreenCarrierMapCandidate.evalPhi_injective
 #print axioms OPH.ScreenCarrierMapCandidate.evalVec_injective
+#print axioms OPH.ScreenCarrierMapCandidate.evalVec_ne_zero
 #print axioms OPH.ScreenCarrierMapCandidate.evalPhi_dotZ
 #print axioms OPH.ScreenCarrierMapCandidate.evalPhi_crossZ
 #print axioms OPH.ScreenCarrierMapCandidate.candidateRay_ne_zero
@@ -1198,3 +1234,4 @@ end OPH.ScreenCarrierMapCandidate
 #print axioms OPH.ScreenCarrierMapCandidate.faceCenter_dot_bary
 #print axioms OPH.ScreenCarrierMapCandidate.baryCarrier_ne_zero
 #print axioms OPH.ScreenCarrierMapCandidate.baryCarrier_refine_sameRay
+#print axioms OPH.ScreenCarrierMapCandidate.baryCarrier_refine_meshRay

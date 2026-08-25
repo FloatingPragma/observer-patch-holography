@@ -60,4 +60,7 @@ def test_quark_public_exact_yukawa_promotion_frontier_records_both_public_burden
     induced = payload["closed_public_endpoint"]["public_exact_outputs"]["forward_yukawa_artifact"]
     assert induced["artifact"] == "oph_quark_current_family_transport_frame_exact_forward_yukawas"
     assert induced["forward_certified"] is True
-    assert induced["certification_status"] == "forward_matrix_certified"
+    assert induced["certification_status"] == (
+        "forward_matrix_arithmetic_certified_source_uncertified"
+    )
+    assert induced["predictive_promotion_allowed"] is False

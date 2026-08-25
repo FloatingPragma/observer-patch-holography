@@ -34,14 +34,20 @@ def main() -> int:
     if payload.get("artifact") != "oph_family_excitation_diagonal_gap_shift_tau_map":
         print("wrong quark diagonal gap-shift tau-map artifact id", file=sys.stderr)
         return 1
-    if payload.get("tau_u_log_per_side") is not None or payload.get("tau_d_log_per_side") is not None:
-        print("tau-map coefficients should remain unset until emitted from OPH inputs", file=sys.stderr)
+    if payload.get("tau_u_log_per_side") is None or payload.get("tau_d_log_per_side") is None:
+        print("tau-map should retain the quarantined comparison coefficients", file=sys.stderr)
+        return 1
+    if payload.get("source_value_promotion_ready") is not False:
+        print("comparison-only tau values must not be promotion ready", file=sys.stderr)
+        return 1
+    if payload.get("value_classification") != "comparison_only":
+        print("tau-map values should be classified as comparison-only", file=sys.stderr)
         return 1
     if payload.get("scalar_evaluator_artifact") != "oph_family_excitation_diagonal_gap_shift_scalar_evaluator":
         print("tau-map should reference the scalar evaluator artifact", file=sys.stderr)
         return 1
-    if payload.get("smallest_constructive_missing_object") != "source_readback_u_log_per_side_and_source_readback_d_log_per_side":
-        print("tau-map should now identify the emitted pure-B payload pair as the next predictive object on the active builder path", file=sys.stderr)
+    if payload.get("smallest_constructive_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("tau-map should identify the source-derived light ratio or t1 as the next object", file=sys.stderr)
         return 1
     return 0
 

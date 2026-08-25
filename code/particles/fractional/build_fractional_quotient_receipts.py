@@ -558,8 +558,6 @@ def build_bundle(
         "simulator_surface": "oph-physics-sim/oph_fractional",
     }
     write_payload(out_dir / "manifest.json", manifest)
-    manifest["file_hashes"]["manifest.json"] = sha256_bytes((out_dir / "manifest.json").read_bytes())
-    write_payload(out_dir / "manifest.json", manifest)
     return manifest
 
 

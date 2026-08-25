@@ -55,8 +55,8 @@ def build_artifact(source_readback: dict) -> dict:
         "B_ord": b_ord,
         "source_readback_u_log_per_side_formula": "(Delta_ud_overlap / 2) * B_ord",
         "source_readback_d_log_per_side_formula": "(-Delta_ud_overlap / 2) * B_ord",
-        "tau_u_log_per_side_formula": "beta_u_diag_B_source",
-        "tau_d_log_per_side_formula": "beta_d_diag_B_source",
+        "tau_u_log_per_side_formula": "sigma_d_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
+        "tau_d_log_per_side_formula": "sigma_u_total_log_per_side * Delta_ud_overlap / (2 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
         "Delta_ud_overlap": None,
         "beta_u_diag_B_source": None,
         "beta_d_diag_B_source": None,
@@ -68,6 +68,7 @@ def build_artifact(source_readback: dict) -> dict:
             "This is the supported D12 continuation-level selector law for light-quark isospin splitting.",
             "It does not override the recovered-core no-go: the selector value itself is still open and therefore not promotable as a recovered-core nonzero pure-B source selector.",
             "Once Delta_ud_overlap is emitted on the supported D12 route, the light-sector pure-B payload pair and tau pair follow algebraically on the ordered three-point family.",
+            "The source amplitudes beta_u and beta_d are distinct from the transport coefficients tau_u and tau_d; the latter also require a fixed positive sigma branch.",
         ],
         "source_artifact": source_readback.get("artifact"),
     }

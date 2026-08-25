@@ -31,16 +31,44 @@ def build_artifact(
     tau_map = tau_map or {}
     q_ord = [float(value) for value in spread_map["quadratic_residual_basis_vector"]]
     b_ord = [float(value) for value in diagonal_gap_shift_map["B_ord"]]
+    tau_values_present = (
+        tau_map.get("tau_u_log_per_side") is not None
+        and tau_map.get("tau_d_log_per_side") is not None
+    )
+    source_values_closed = (
+        tau_values_present
+        and tau_map.get("source_value_promotion_ready") is True
+        and tau_map.get("value_classification") == "source_emitted"
+    )
+    comparison_only = tau_values_present and not source_values_closed
+    proof_status = (
+        "source_derived_tau_pair_emitted"
+        if source_values_closed
+        else "comparison_only_tau_pair_value_source_open"
+        if comparison_only
+        else "emitter_shell_waiting_scalar_evaluator"
+    )
     return {
         "artifact": "oph_family_excitation_diagonal_gap_shift_emitter",
         "generated_utc": _timestamp(),
-        "proof_status": "emitter_shell_waiting_scalar_evaluator",
+        "proof_status": proof_status,
+        "predictive_promotion_allowed": source_values_closed,
+        "value_classification": (
+            "source_emitted"
+            if source_values_closed
+            else "comparison_only"
+            if comparison_only
+            else "absent"
+        ),
+        "promotion_blockers": tau_map.get(
+            "promotion_blockers", scalar_evaluator.get("promotion_blockers", [])
+        ),
         "source_artifact": diagonal_gap_shift_map.get("artifact"),
         "scalar_evaluator_artifact": scalar_evaluator.get("artifact"),
         "scalar_evaluator_status": scalar_evaluator.get("proof_status"),
         "tau_map_artifact": tau_map.get("artifact"),
         "tau_map_status": tau_map.get("proof_status"),
-        "tau_emitter_status": "waiting_scalar_evaluator",
+        "tau_emitter_status": proof_status,
         "B_ord": b_ord,
         "orthogonality_certificate": {
             "sum_B_ord": sum(b_ord),
@@ -58,14 +86,18 @@ def build_artifact(
         "gamma32_d_effective_formula": "gamma32_d_base + tau_d_log_per_side",
         "sigma_u_effective_total_log_per_side_formula": "sigma_u_total_log_per_side + 2 * tau_u_log_per_side",
         "sigma_d_effective_total_log_per_side_formula": "sigma_d_total_log_per_side + 2 * tau_d_log_per_side",
-        "promotion_rule": "predictive_promotion_allowed iff tau_map_status == 'closed'",
+        "promotion_rule": (
+            "predictive_promotion_allowed iff the tau map carries a source-emitted pair "
+            "with source_value_promotion_ready == true"
+        ),
         "smallest_constructive_missing_object": scalar_evaluator.get(
             "smallest_constructive_missing_object",
             "beta_u_diag_B_source_and_beta_d_diag_B_source",
         ),
         "notes": [
             "The diagonal gap-shift map is the correct next-family normal form after the current surface is exhausted.",
-            "The remaining predictive object is the source-side amplitude pair beta_u and beta_d beneath the closed pure-B readback law, not a broader quark family.",
+            "The remaining predictive inputs are the source-side beta difference and a source-emitted positive sigma branch beneath the exact D12 overlap transport law, not a broader quark family.",
+            "Comparison-only tau values are retained as arithmetic witnesses but do not close this emitter.",
             "Audit-only best-fit tau values remain quarantined and are not promoted here.",
         ],
     }

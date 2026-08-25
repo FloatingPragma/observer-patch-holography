@@ -1,6 +1,6 @@
 # Particle Pipeline Status
 
-Generated: `2026-08-14T05:35:45Z`
+Generated: `2026-08-25T19:00:17Z`
 
 Scope: `nonhadron_particle_pipeline_with_empirical_hadron_closure_policy`
 Claim label: `no_promotable_numerical_particle_predictions__conditional_candidates_classical_carriers_and_empirical_hadrons_separated`
@@ -135,8 +135,9 @@ Target-anchored empirical-closure diagnostics; the compare-only witness triple l
 - Factor origins: `ports=12`, `m_rep=24`, `exponent=-1/48`
 - Count independence: m_rep=24 is derived from the doubled observer-visible product adjoint, independently of the screen sieve. The screen's twelve ports and oriented 24-slot register are an arithmetic alignment, not a physical identification.
 - Missing hierarchy bridge: HIERARCHY-SCREEN-READOUT must identify log(E_cell/v)=Gamma_screen; the alpha_U branch must then establish Pi_EW=4P, equivalently B_EW=0.
-- Higgs naturality defect: `epsilon_H=0`
-- Boundary: The selected branch has zero algebraic bridge residual and epsilon_H=0. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT.
+- Declared-map defect: `epsilon_H=0`
+- Boundary: The selected branch has zero algebraic bridge residual at its bridge-defined coordinate. The stored epsilon_H=0 is a declared-map packaging identity, not a source-derived naturality value. Its hierarchy interpretation is conditional on HIERARCHY-SCREEN-READOUT.
+- Missing naturality producer: Derive rho_sH, n_s, n_H, h_s, chi_sH, and h_H from the source, then evaluate both residuals independently; same-antecedent completions currently attain both zero and nonzero defect.
 - Physical capacity conditions: supply HIERARCHY-SCREEN-READOUT and the Pi_EW=4P identification; construct the physical readback map F; discharge CP-1, CP-2, and CP-3; propagate the joint cosmological posterior before comparison
 - Not promoted by this bridge: public Thomson endpoint without the missing hadronic spectral payload, electroweak massive-boson mass rows, charged-lepton absolute masses, source-only hadron masses, strong CP, SI G without the full no-G clock stack
 

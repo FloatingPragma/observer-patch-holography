@@ -22,6 +22,15 @@ def orbits() -> z2.Z2GaugeOrbits:
     return z2.Z2GaugeOrbits(2)
 
 
+def test_self_loop_lattice_is_rejected() -> None:
+    with pytest.raises(ValueError, match="repeated self-loop incidences cancel"):
+        z2.Z2GaugeOrbits(1)
+    with pytest.raises(ValueError, match="requires L >= 2"):
+        z2.star_masks(1)
+    with pytest.raises(ValueError, match="requires L >= 2"):
+        z2.plaquette_masks(1)
+
+
 def test_orbit_count_and_free_action(orbits: z2.Z2GaugeOrbits) -> None:
     # 8 links, gauge group Z2^4 / global = 8 elements, free action
     assert orbits.n_links == 8

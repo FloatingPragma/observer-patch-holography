@@ -60,7 +60,7 @@ def test_quark_exactness_audit_identifies_current_family_residual_after_spread_c
     diag = payload["diagonal_gap_shift_audit"]
     assert all(abs(value) < 1.0e-12 for value in diag["residual_u_after_best_diagonal_shift"])
     assert all(abs(value) < 1.0e-12 for value in diag["residual_d_after_best_diagonal_shift"])
-    assert payload["smallest_constructive_missing_object"] == "source_readback_u_log_per_side_and_source_readback_d_log_per_side"
+    assert payload["smallest_constructive_missing_object"] == "source_derived_c_d_over_c_u_or_t1_value"
     blind = payload["b_mode_amplitude_blindness_audit"]
     assert abs(blind["sum_B_ord"]) < 1.0e-12
     assert abs(blind["dot_B_ord_Q_ord"]) < 1.0e-12
@@ -81,6 +81,6 @@ def test_quark_exactness_audit_identifies_current_family_residual_after_spread_c
     assert payload["d12_physical_branch_repair_theorem"]["minimal_branch_shift_repair_theorem"]["must_emit"] == "quark_relative_sheet_selector"
     assert payload["d12_physical_branch_repair_theorem"]["minimal_branch_shift_repair_theorem"]["selected_value"]["sigma_id"] == "sigma_ref"
     assert payload["broader_supported_frontier"] == "oph_light_quark_isospin_overlap_defect_selector_law"
-    assert payload["predictive_J_B_source_law_status"] == "selected_public_class_closed"
+    assert payload["predictive_J_B_source_law_status"] == "comparison_only_unpromotable"
     assert payload["diagnostic_fit_promotion_allowed"] is False
     assert payload["diagnostic_only_tau_best_fit"]["tau_u_best_fit"] is not None

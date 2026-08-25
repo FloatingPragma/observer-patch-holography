@@ -1,7 +1,8 @@
-"""Tests for the joint rotation-curve and BTFR profile likelihood.
+"""Tests for the joint rotation-curve and BTFR penalized-profile objective.
 
 Covers a synthetic fixture with known a0 and known noise (recovery inside
-the stated intervals plus interval-coverage sanity), mutation guards for a
+the reference contours plus a deliberately limited regression sanity check),
+mutation guards for a
 flipped baryonic subtraction sign, a shifted deep cut, a wrong mass-to-light
 convention, and a broken covariance block, and byte verification of the
 committed receipt through the producer replay and the independent verifier.
@@ -155,15 +156,15 @@ def test_receipt_pins_the_snapshot_digest(result: dict) -> None:
     assert result["sample"]["data_sha256"] == expected
 
 
-def test_ml_inside_intervals_and_flags(result: dict) -> None:
+def test_objective_min_inside_contours_and_flags(result: dict) -> None:
     for block in result["subset_results"].values():
         for row in block["per_rho"]:
-            ml = row["log10_a0_ml"]
-            lo68, hi68 = row["interval68_log10"]
-            lo95, hi95 = row["interval95_log10"]
-            assert lo68 <= ml <= hi68
+            objective_min = row["log10_a0_objective_min"]
+            lo68, hi68 = row["delta_objective_contour68_log10"]
+            lo95, hi95 = row["delta_objective_contour95_log10"]
+            assert lo68 <= objective_min <= hi68
             assert lo95 <= lo68 and hi68 <= hi95
-            assert row["interval95_pinned_at_grid_boundary"] == [False, False]
+            assert row["contour95_pinned_at_grid_boundary"] == [False, False]
             if "paired_btfr" in row:
                 p = row["paired_btfr"]
                 n = p["bootstrap_replicates"]
@@ -172,6 +173,27 @@ def test_ml_inside_intervals_and_flags(result: dict) -> None:
                     frac = p[f"{side}_plus_one_fraction"]
                     assert frac == pytest.approx((count + 1) / (n + 1))
                     assert frac > 0.0
+
+
+def test_contour_reports_disconnected_reentries() -> None:
+    grid = np.arange(7, dtype=float)
+    curve = np.array([5.0, 0.0, 5.0, 0.5, 5.0, 6.0, 7.0])
+    row = mod.contour_from_curve(grid, curve)
+    sublevel = row["reference_sublevel_sets"]["delta_1"]
+    assert sublevel["n_components"] == 2
+    assert sublevel["disconnected"] is True
+    assert sublevel["global_min_component_index"] == 0
+    assert all(len(component["log10"]) == 2 for component in sublevel["components"])
+
+
+def test_committed_objective_exposes_real_disconnected_sublevel_sets(result: dict) -> None:
+    rows = {
+        row["rho"]: row
+        for row in result["subset_results"]["deep_f_0p3"]["per_rho"]
+    }
+    assert rows[0.4]["reference_sublevel_sets"]["delta_3p84"]["n_components"] == 2
+    assert rows[0.6]["reference_sublevel_sets"]["delta_1"]["n_components"] == 2
+    assert rows[0.6]["reference_sublevel_sets"]["delta_3p84"]["n_components"] == 2
 
 
 # ---------------------------------------------------------------------------
@@ -183,7 +205,7 @@ def test_noiseless_synthetic_recovers_a0_in_both_channels() -> None:
     out = mod.run(t1, t2, TEST_CONFIG, include_provenance=False)
     for block in out["subset_results"].values():
         for row in block["per_rho"]:
-            assert abs(row["log10_a0_ml"] - math.log10(A0_TRUE)) <= 0.005
+            assert abs(row["log10_a0_objective_min"] - math.log10(A0_TRUE)) <= 0.005
     deep = out["subset_results"]["deep_f_0p3"]["per_rho"][0]
     paired = deep["paired_btfr"]
     assert paired["n_used"] == len(MASSES_MSUN)
@@ -194,12 +216,12 @@ def test_noiseless_synthetic_recovers_a0_in_both_channels() -> None:
     assert paired["verdict"] == "CONSISTENT_INTERVAL_CONTAINS_ZERO"
 
 
-def test_noisy_synthetic_interval_contains_truth() -> None:
+def test_noisy_synthetic_reference_contour_contains_truth() -> None:
     rng = np.random.default_rng(20260825)
     t1, t2 = synthetic_tables(noise_kms=4.0, rng=rng)
     out = mod.run(t1, t2, CHANNEL_A_ONLY, include_provenance=False)
     row = out["subset_results"]["full"]["per_rho"][0]
-    lo95, hi95 = row["interval95_log10"]
+    lo95, hi95 = row["delta_objective_contour95_log10"]
     assert lo95 <= math.log10(A0_TRUE) <= hi95
     # Matched declared noise: the reduced chi-square sits near one, unlike
     # the committed-snapshot rows where the declared family underestimates
@@ -207,12 +229,12 @@ def test_noisy_synthetic_interval_contains_truth() -> None:
     assert 0.4 <= row["reduced_chi2_dof_no_nuisance"] <= 1.5
 
 
-def test_interval_coverage_sanity() -> None:
-    """68 percent interval coverage on repeated known-noise realizations.
+def test_reference_contour_regression_sanity_on_matched_fixture() -> None:
+    """Delta=1 contour inclusion on a matched synthetic fixture.
 
-    25 replicates with matched declared noise; the binomial band
-    [10, 24] around 0.683 * 25 = 17 catches gross undercoverage (intervals
-    far too narrow) and gross overcoverage (intervals far too wide).
+    This catches gross numerical breakage.  It is not a coverage calibration
+    for the SPARC objective: the fixture puts every nuisance constraint at its
+    generating value and omits the real model/covariance misspecification.
     """
     hits = 0
     replicates = 25
@@ -221,10 +243,10 @@ def test_interval_coverage_sanity() -> None:
         t1, t2 = synthetic_tables(noise_kms=4.0, rng=rng)
         out = mod.run(t1, t2, CHANNEL_A_ONLY, include_provenance=False)
         row = out["subset_results"]["full"]["per_rho"][0]
-        lo68, hi68 = row["interval68_log10"]
+        lo68, hi68 = row["delta_objective_contour68_log10"]
         if lo68 <= math.log10(A0_TRUE) <= hi68:
             hits += 1
-    assert 10 <= hits <= 24, f"68 percent interval covered truth {hits}/25"
+    assert 10 <= hits <= 24, f"delta=1 contour contained truth {hits}/25"
 
 
 # ---------------------------------------------------------------------------
@@ -360,12 +382,12 @@ def test_wrong_mass_to_light_shifts_the_estimate() -> None:
     t1, t2 = synthetic_tables(disk_encoding_upsilon=0.5)
     out = mod.run(t1, t2, CHANNEL_A_ONLY, include_provenance=False)
     row = out["subset_results"]["full"]["per_rho"][0]
-    assert abs(row["log10_a0_ml"] - math.log10(A0_TRUE)) <= 0.005
+    assert abs(row["log10_a0_objective_min"] - math.log10(A0_TRUE)) <= 0.005
 
     t1_bad, t2_bad = synthetic_tables(disk_encoding_upsilon=1.0)
     out_bad = mod.run(t1_bad, t2_bad, CHANNEL_A_ONLY, include_provenance=False)
     row_bad = out_bad["subset_results"]["full"]["per_rho"][0]
-    assert abs(row_bad["log10_a0_ml"] - math.log10(A0_TRUE)) > 0.04
+    assert abs(row_bad["log10_a0_objective_min"] - math.log10(A0_TRUE)) > 0.04
 
 
 def test_broken_covariance_block_fails_loudly() -> None:
@@ -425,13 +447,13 @@ def test_profiled_curve_matches_explicit_inverse_at_nonzero_rho() -> None:
         )
 
 
-def test_covariance_widens_or_shifts_reported_intervals(result: dict) -> None:
+def test_covariance_widens_or_shifts_reported_contours(result: dict) -> None:
     # The rho scan is live on the committed snapshot: at least one deep
-    # subset row changes its maximum-likelihood point or interval across
+    # subset row changes its objective minimum or contour across
     # rho values, so silently dropping the scan is detectable.
     rows = result["subset_results"]["deep_f_0p1"]["per_rho"]
     assert len(rows) == len(result["error_model"]["rho_grid"])
-    values = {json.dumps(r["interval95_log10"]) for r in rows}
+    values = {json.dumps(r["delta_objective_contour95_log10"]) for r in rows}
     assert len(values) > 1
 
 

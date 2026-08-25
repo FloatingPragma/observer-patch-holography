@@ -28,11 +28,11 @@ def main() -> int:
     if payload.get("artifact") != "oph_family_excitation_diagonal_common_gap_shift_source_readback":
         print("wrong quark diagonal source-readback artifact id", file=sys.stderr)
         return 1
-    if payload.get("proof_status") != "closed_public_selected_class_source_readback":
-        print("quark source-readback law should consume the selected-class pure-B payload", file=sys.stderr)
+    if payload.get("proof_status") != "comparison_only_readback_from_unpromotable_payload":
+        print("quark source-readback must inherit the payload promotion block", file=sys.stderr)
         return 1
-    if payload.get("smallest_constructive_missing_object") != "off_canonical_pure_B_source_payload_family":
-        print("quark source-readback artifact should now reduce to the off-canonical pure-B family", file=sys.stderr)
+    if payload.get("smallest_constructive_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("quark source-readback must retain the scalar source gap", file=sys.stderr)
         return 1
     if payload.get("first_data_bearing_primitive_beneath_scalar_pair") != "source_readback_u_log_per_side_and_source_readback_d_log_per_side":
         print("quark source-readback artifact should expose the pure-B payload pair as the first data-bearing primitive", file=sys.stderr)
@@ -41,7 +41,10 @@ def main() -> int:
         print("quark source-readback artifact should expose the pure-B odd projector", file=sys.stderr)
         return 1
     if payload.get("source_readback_u_log_per_side") is None or payload.get("source_readback_d_log_per_side") is None:
-        print("quark source-readback arrays should be emitted on the selected public class", file=sys.stderr)
+        print("quark source-readback comparison arrays should remain available for audit", file=sys.stderr)
+        return 1
+    if payload.get("payload_pair_status") != "comparison_only_unpromotable":
+        print("quark source-readback arrays must be quarantined as comparison-only", file=sys.stderr)
         return 1
     return 0
 

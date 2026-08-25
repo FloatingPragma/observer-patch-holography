@@ -10,7 +10,7 @@
     "version": "<fill-me>"
   },
   "boundary_conditions": {},
-  "claim_tier": "production_backend_export_bundle",
+  "claim_tier": "unfilled_backend_export_template",
   "contractions": {},
   "ensembles": [
     {
@@ -233,7 +233,7 @@
       "ensemble_id": "qcd_2p1_seed_n2"
     }
   ],
-  "execution_class": "production",
+  "execution_class": "production_request_template",
   "files": {
     "correlators_hdf5": "correlators.h5"
   },
@@ -243,7 +243,8 @@
     "branch": "seeded_2p1_qed_off",
     "notes": [
       "Fill this manifest with the exact backend profile and runtime provenance before publication.",
-      "Do not replace NaN datasets with synthetic values. All datasets must come from real backend execution."
+      "Do not replace NaN datasets with synthetic values. All datasets must come from real backend execution.",
+      "This generated template is fail-closed. A backend owner must explicitly replace execution_class, claim_tier, and public_promotion_allowed only after a real run and complete provenance."
     ],
     "target_channels": [
       "pi_iso",
@@ -251,7 +252,7 @@
     ]
   },
   "profile_id": "oph_reference_backend_v1",
-  "public_promotion_allowed": true,
+  "public_promotion_allowed": false,
   "solvers": {},
   "sources": {}
 }

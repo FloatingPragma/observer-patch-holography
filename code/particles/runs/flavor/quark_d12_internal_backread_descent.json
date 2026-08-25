@@ -187,6 +187,8 @@
   },
   "channel_splitter_kind": "odd_projector_resolved_splitter",
   "coefficient_free": true,
+  "comparison_only_tau_d_log_per_side": 0.040717282636577784,
+  "comparison_only_tau_u_log_per_side": 0.02407057461508379,
   "constructive_edge_statistics_bridge_artifact": "oph_quark_edge_statistics_spread_candidate",
   "constructive_edge_statistics_bridge_candidate_sigmas": {
     "sigma_d_total_log_per_side": 3.4210589139721543,
@@ -200,12 +202,12 @@
   "dense_entrywise_amplitude_used": false,
   "diagonal_gap_shift_artifact": "oph_family_excitation_diagonal_gap_shift_map",
   "diagonal_gap_shift_emitter_artifact": "oph_family_excitation_diagonal_gap_shift_emitter",
-  "diagonal_gap_shift_emitter_status": "emitter_shell_waiting_scalar_evaluator",
+  "diagonal_gap_shift_emitter_status": "comparison_only_tau_pair_value_source_open",
   "diagonal_gap_shift_scalar_evaluator_artifact": "oph_family_excitation_diagonal_gap_shift_scalar_evaluator",
-  "diagonal_gap_shift_scalar_evaluator_status": "current_family_scalar_law_closed_waiting_source_readback_pair",
+  "diagonal_gap_shift_scalar_evaluator_status": "comparison_only_scalar_projection_value_source_open",
   "diagonal_gap_shift_status": "next_family_declared_after_current_surface_obstruction",
   "diagonal_gap_shift_tau_map_artifact": "oph_family_excitation_diagonal_gap_shift_tau_map",
-  "diagonal_gap_shift_tau_map_status": "current_family_scalar_law_closed_waiting_source_readback_pair",
+  "diagonal_gap_shift_tau_map_status": "comparison_only_scalar_projection_value_source_open",
   "even_evaluator_centering_mode": "trace_zero",
   "even_evaluator_family": "trace_zero_quadratic_on_ordered_branch_generator",
   "even_excitation_diagonal_gap_shift_candidate": "oph_family_excitation_diagonal_gap_shift_map",
@@ -217,10 +219,14 @@
   "even_excitation_spread_map_candidate": "oph_family_excitation_spread_map",
   "even_excitation_theorem_candidate": "oph_family_excitation_evaluator",
   "exact_missing_object": null,
+  "exact_missing_objects": [
+    "source_derived_c_d_over_c_u_or_t1_value",
+    "supported_source_sigma_branch_emission"
+  ],
   "g_ch": 0.9231656602589082,
   "g_d": 0.12172551081512113,
   "g_u": 0.7797392875757557,
-  "generated_utc": "2026-04-12T03:53:28Z",
+  "generated_utc": "2026-08-25T18:56:48Z",
   "hierarchy_driver_status": "candidate_spread_values_populated",
   "metadata": {
     "base_descent_artifact": "oph_quark_sector_descent",
@@ -258,6 +264,8 @@
   "spread_sigma_u_total_log_per_side": 5.578418804072826,
   "tau_d_log_per_side": 0.04162901312802894,
   "tau_u_log_per_side": 0.02552969066028697,
+  "tau_value_source": "tau_map",
+  "tau_value_source_closed": false,
   "u_raw_channel_norm_candidate": 0.7797392875757557,
   "uses_full_projector_algebra": true
 }

@@ -177,8 +177,12 @@ def build_artifact(payload: dict[str, Any]) -> dict[str, Any]:
         source_mode = "explicit_matrices"
         template_amplitude_fallback_used = False
         up_down_sector_distinct = not np.allclose(y_u, y_d)
+        # This branch certifies only the numerical forward calculation.  Bare
+        # matrices carry no source derivation or provenance contract, so they
+        # must never become predictive merely by being supplied to this
+        # arithmetic helper.
         forward_certified = True
-        promotion_blockers: list[str] = []
+        promotion_blockers: list[str] = ["explicit_matrix_source_uncertified"]
     else:
         factorized_mode = all(
             key in payload
@@ -209,9 +213,19 @@ def build_artifact(payload: dict[str, Any]) -> dict[str, Any]:
     masses_u, u_left = _sorted_left_diagonalizer(y_u)
     masses_d, d_left = _sorted_left_diagonalizer(y_d)
     ckm = u_left.conj().T @ d_left
-    certification_status = "forward_matrix_certified" if forward_certified else "placeholder_unpromotable"
+    source_certified = forward_certified and source_mode != "explicit_matrices"
+    predictive_promotion_allowed = source_certified
+    certification_status = (
+        "forward_matrix_arithmetic_certified_source_uncertified"
+        if source_mode == "explicit_matrices"
+        else "forward_matrix_certified"
+        if forward_certified
+        else "placeholder_unpromotable"
+    )
     public_surface_candidate_allowed = (
-        source_mode == "factorized_descent"
+        source_certified
+        and predictive_promotion_allowed
+        and source_mode == "factorized_descent"
         and not template_amplitude_fallback_used
         and up_down_sector_distinct
         and not bool(payload.get("dense_entrywise_amplitude_used", False))
@@ -239,7 +253,14 @@ def build_artifact(payload: dict[str, Any]) -> dict[str, Any]:
         "constructive_edge_statistics_bridge_status": payload.get("constructive_edge_statistics_bridge_status"),
         "constructive_edge_statistics_bridge_candidate_sigmas": payload.get("constructive_edge_statistics_bridge_candidate_sigmas"),
         "degenerate_placeholder_fallback_used": payload.get("degenerate_placeholder_fallback_used"),
-        "predictive_promotion_allowed": forward_certified,
+        "matrix_arithmetic_valid": True,
+        "source_certified": source_certified,
+        "forward_certification_scope": (
+            "numerical_matrix_arithmetic_only"
+            if source_mode == "explicit_matrices"
+            else "declared_descent_contract"
+        ),
+        "predictive_promotion_allowed": predictive_promotion_allowed,
         "public_surface_candidate_allowed": public_surface_candidate_allowed,
         "public_surface_candidate_scope": ["m_u", "m_d", "m_s", "m_c", "m_b"],
         "public_surface_candidate_status": (

@@ -103,7 +103,7 @@
       }
     ]
   },
-  "generated_utc": "2026-08-14T05:39:23Z",
+  "generated_utc": "2026-08-25T18:56:49Z",
   "input_artifacts": {
     "edge_statistics_candidate": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",
@@ -112,9 +112,8 @@
     "spread_map": "oph_family_excitation_spread_map"
   },
   "notes": [
-    "The selected public exact quark theorem is closed and can be used as a theorem-grade static evaluator.",
-    "The selected-public-class pure-B source payload is now data-bearing when present.",
-    "Those selected-class closures do not supply an arbitrary-P off-canonical sigma or odd-scale family."
+    "The selected-class mass-texture audit and conditional pure-B arithmetic are not source-only public closures on the current inputs.",
+    "The D12 scalar-emission route remains open in addition to the independent off-canonical sigma and odd-scale gaps."
   ],
   "odd_response_scale_obstruction": {
     "admissible_kappa_witnesses": [
@@ -298,9 +297,10 @@
     "theorem_scope": "selected_public_physical_quark_frame_class_only"
   },
   "selected_public_pure_B_payload": {
-    "closed": true,
+    "closed": false,
     "off_canonical_promotion_allowed": false,
-    "proof_status": "closed_public_selected_class_pure_B_source_payload"
+    "proof_status": "blocked_unpromotable_yukawa_input_and_open_d12_value_source",
+    "public_promotion_allowed": false
   },
   "theorem_grade_closure": false
 }

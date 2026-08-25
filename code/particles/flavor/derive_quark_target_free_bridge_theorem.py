@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Emit the internalized target-free bridge theorem package for quark D12 mass closure.
+"""Emit the conditional D12 light-ratio bridge identity package.
 
 Chain role: make the exact missing public bridge theorem explicit as a theorem
 package with statement, proof skeleton, and corollaries, rather than leaving it
@@ -17,8 +17,10 @@ On the emitted D12 mass ray one also has
 therefore
     t1 = (5/6) * log(c_d / c_u).
 
-Output: an internalized theorem package for the public bridge, together with
-the induced D12/source/transport corollaries on the code surface.
+Output: exact conditional identities and induced corollaries.  The current
+source corpus does not emit ``c_d/c_u`` or ``t1``; an optional target-anchored
+sidecar may be attached only by an explicit command-line argument and never
+changes promotion status.
 """
 
 from __future__ import annotations
@@ -62,15 +64,17 @@ def build_payload(
         "artifact": "oph_quark_target_free_bridge_theorem",
         "generated_utc": _timestamp(),
         "scope": "public_bridge_theorem_package",
-        "proof_status": "closed_target_free_bridge_theorem_internalized",
-        "public_promotion_allowed": True,
-        "bridge_closure_status": "internalized_on_code_surface",
+        "proof_status": "conditional_bridge_identity_value_source_open",
+        "public_promotion_allowed": False,
+        "bridge_closure_status": "conditional_algebra_closed_value_emission_open",
+        "exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+        "value_emission_status": "open_viable_scalar_emission_route",
         "theorem_ids": [
             "light_quark_overlap_defect_value_law",
             "quark_d12_t1_value_law",
         ],
         "principal_theorem_statement": (
-            "Assume OPH axioms + P together with the minimal light branch "
+            "Conditional on a source-derived positive coefficient pair c_u,c_d, assume the minimal light branch "
             "y_u = c_u * epsilon^6, y_d = c_d * epsilon^6, epsilon = 1/6, and the emitted same-family "
             "D12 mass ray D12_ud^mass = R_D12^ud. Then the target-free light overlap-defect scalar is "
             "Delta_ud_overlap = (1/6) * log(c_d / c_u). On the emitted D12 mass ray one has "
@@ -132,12 +136,18 @@ def build_payload(
             "tau_d_log_per_side": "sigma_u_total_log_per_side * t1 / (10 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
             "Lambda_ud_B_transport": "sigma_u_total_log_per_side * sigma_d_total_log_per_side * t1 / (10 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
         },
-        "single_bridge_gap_to_internalize": None,
+        "single_bridge_gap_to_internalize": "source_derived_c_d_over_c_u_or_t1_value",
         "computed_current_family_target_check": target_values,
+        "target_check_attachment": {
+            "attached": target_values is not None,
+            "classification": "explicit_comparison_only_target_anchored_sidecar",
+            "used_as_proof_premise": False,
+            "changes_public_promotion": False,
+        },
         "notes": [
-            "This artifact internalizes the target-free bridge theorem directly on the local code surface.",
-            "The computed current-family target values remain a numerical check, not a proof premise.",
-            "The attached current-family target values are included only as a numerical check for the proposed theorem package.",
+            "This artifact internalizes only the conditional bridge identities; it does not emit their scalar input.",
+            "The D12 mass ray remains a viable open source-emission route, not a no-go.",
+            "A current-family target check is absent by default and, when explicitly attached, remains comparison-only.",
         ],
     }
 
@@ -147,16 +157,27 @@ def main() -> int:
     parser.add_argument("--mass-ray", default=str(MASS_RAY_JSON))
     parser.add_argument("--overlap-law", default=str(OVERLAP_LAW_JSON))
     parser.add_argument("--spread-map", default=str(SPREAD_MAP_JSON))
-    parser.add_argument("--current-family-target", default=str(CURRENT_FAMILY_TARGET_JSON))
+    parser.add_argument(
+        "--current-family-target",
+        default=None,
+        help=(
+            "Optional explicit comparison-only target sidecar. It is never "
+            "loaded by default and cannot change promotion status."
+        ),
+    )
     parser.add_argument("--output", default=str(DEFAULT_OUT))
     args = parser.parse_args()
 
-    current_family_target_path = Path(args.current_family_target)
+    current_family_target_path = (
+        Path(args.current_family_target) if args.current_family_target else None
+    )
     payload = build_payload(
         _load_json(Path(args.mass_ray)),
         _load_json(Path(args.overlap_law)),
         _load_json(Path(args.spread_map)),
-        _load_json(current_family_target_path) if current_family_target_path.exists() else None,
+        _load_json(current_family_target_path)
+        if current_family_target_path is not None and current_family_target_path.exists()
+        else None,
     )
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)

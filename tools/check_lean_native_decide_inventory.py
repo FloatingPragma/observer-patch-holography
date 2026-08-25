@@ -17,10 +17,7 @@ LEAN_ROOT = REPO_ROOT / "Lean"
 
 EXPECTED = Counter(
     {
-        "ObserverPatchHolography/ClebschRatio.lean": 2,
-        "ObserverPatchHolography/IcosahedralAxisNoGo.lean": 2,
-        "Screen/SeamCurrentHomogeneousAction.lean": 4,
-        "Screen/PortGramA5Isometry.lean": 8,
+        "Screen/PortGramA5Isometry.lean": 6,
         "Screen/PortGramRepairCovariance.lean": 7,
     }
 )

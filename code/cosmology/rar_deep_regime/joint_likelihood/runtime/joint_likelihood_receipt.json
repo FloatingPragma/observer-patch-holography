@@ -1,20 +1,23 @@
 {
   "btfr_channel": {
+    "bulge_exclusion": "channel B excludes every galaxy with any nonzero retained V_bulge because table 1 L_[3.6] is total luminosity and the snapshot supplies no disk/bulge luminosity split; retaining such galaxies would mix a 0.7 bulge subtraction with a disk-Upsilon total-luminosity denominator",
     "deep_requirement": "outermost retained point passes the same fixed absolute cut g_bar_cat < f * 1.2e-10 m/s^2 as the channel-A subset",
     "estimator": "a0_B = (v_A^2)^2 / (G M_b d^2), v_A^2 = (v_obs(r_out) s(i))^2 - d v_bar_cat^2(r_out, U), M_b = (U L_[3.6] + 1.33 M_HI) 1e9 M_sun at catalogue distance",
-    "nuisance_application": "per galaxy the profiled (U, d, i) at the subset maximum-likelihood a0 for the same rho; channel-B nuisance values are held at these point estimates inside the bootstrap, a declared simplification, while channel A re-profiles a0 exactly per replicate"
+    "nuisance_application": "per galaxy the profiled (U, d, i) at the subset penalized-objective-minimizing a0 for the same rho; channel-B nuisance values are held at these point estimates inside the bootstrap, a declared simplification, while channel A re-profiles a0 exactly per replicate"
   },
   "calibration": {
-    "status": "asymptotic chi-square, one parameter, declared approximate under grid profiling with Gaussian penalties; delta is measured from the grid minimum, the headline maximum-likelihood point is the grid argmin so it lies inside its own intervals, the parabola vertex is a labeled refinement row, and intervals narrower than one grid step carry a grid-resolution flag",
-    "thresholds_delta_minus2lnl": {
-      "68": 1.0,
-      "95": 3.84
-    }
+    "confidence_interval_claim": false,
+    "coverage_calibration_open": true,
+    "reference_delta_objective_thresholds": {
+      "delta_1": 1.0,
+      "delta_3p84": 3.84
+    },
+    "status": "uncalibrated reference contours on a penalized profile objective; the mass-to-light term is an astrophysical prior, not an identified auxiliary-data likelihood, so Wilks coverage and maximum-likelihood labels are not licensed; delta is measured from the grid minimum, the parabola vertex is a numerical refinement row, and contours narrower than one grid step carry a grid-resolution flag"
   },
   "error_model": {
-    "intra_galaxy_covariance": "equal-correlation block R = (1-rho) I + rho J per galaxy, closed-form quadratic form; rho is a declared family parameter scanned over a fixed grid; a full covariance calibration for SPARC rotation curves is open, so intervals are reported at every rho and no single rho is selected",
+    "intra_galaxy_covariance": "equal-correlation block R = (1-rho) I + rho J per galaxy, closed-form quadratic form; rho is a declared family parameter scanned over a fixed grid; a full covariance calibration for SPARC rotation curves is open, so contours are reported at every rho and no single rho is selected",
     "not_propagated": "luminosity and HI-mass measurement errors, stellar-population systematics beyond the declared mass-to-light prior, baryonic-model decomposition errors, and inter-galaxy correlations",
-    "per_point": "Gaussian in velocity with sigma = e_Vobs sin(i_cat)/sin(i); the 2 n ln s(i) variance-normalization term is kept in the profiled objective and a0-independent constants are dropped",
+    "per_point": "Gaussian in velocity with sigma = e_Vobs sin(i_cat)/sin(i); the 2 n ln s(i) variance-normalization term is kept in the penalized objective and a0-independent constants are dropped",
     "rho_grid": [
       0.0,
       0.2,
@@ -32,51 +35,51 @@
   },
   "inference_boundary": {
     "a0_source_status": "the OPH source does not fix a0; nothing here derives a source value, so a0 is a fitted comparison parameter and the source-value question is open",
-    "covariance_status": "the equal-correlation family is a declared stand-in; a calibrated covariance model for SPARC rotation curves is open, and interval widths at different rho values bound the sensitivity",
+    "covariance_status": "the equal-correlation family is a declared stand-in; a calibrated covariance model for SPARC rotation curves is open, and contour widths at different rho values diagnose the sensitivity without furnishing confidence coverage",
     "full_sample_scope": "the full-sample row extrapolates the deep-regime profile to all gradients; its misfit bears on that additive extension submodel under the declared error family, never on the framework beyond that scope, and the deep subsets are the derived regime of the candidate law",
-    "neutrality": "consistency of the channels or agreement of the interval with any external value is shared with every model that reproduces the same relations, including the standard null, and is not evidence for OPH",
+    "neutrality": "consistency of the channels or agreement of the contour with any external value is shared with every model that reproduces the same relations, including the standard null, and is not evidence for OPH",
     "not_done_here": "no relativistic lensing, no cosmological observables, no cluster or CMB likelihood, no covariance calibration, no source derivation of a0, no preregistration",
-    "status": "labeled postdiction likelihood on the seen committed snapshot; no new data, no arming, no discharge, no scored comparison, no frozen contract"
+    "status": "labeled postdiction penalized objective on the seen committed snapshot; no new data, no arming, no discharge, no scored comparison, no frozen contract"
   },
   "misfit_statement": {
     "observed": {
       "deep_f_0p1": [
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 34,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 34,
           "reduced_chi2_dof_full_nuisance": 5.674422763613729,
           "reduced_chi2_dof_no_nuisance": 3.6330506536588425,
           "rho": 0.0
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 34,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 34,
           "reduced_chi2_dof_full_nuisance": 6.544036786264496,
           "reduced_chi2_dof_no_nuisance": 4.189821258359125,
           "rho": 0.2
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 42,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 42,
           "reduced_chi2_dof_full_nuisance": 8.200561084685669,
           "reduced_chi2_dof_no_nuisance": 5.250411372259647,
           "rho": 0.4
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 42,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 42,
           "reduced_chi2_dof_full_nuisance": 11.73455851251844,
           "reduced_chi2_dof_no_nuisance": 7.513054146701065,
           "rho": 0.6
@@ -84,41 +87,41 @@
       ],
       "deep_f_0p3": [
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 47,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 47,
           "reduced_chi2_dof_full_nuisance": 5.864515280941926,
           "reduced_chi2_dof_no_nuisance": 4.230332169058899,
           "rho": 0.0
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 43,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 43,
           "reduced_chi2_dof_full_nuisance": 6.496812153680269,
           "reduced_chi2_dof_no_nuisance": 4.686435644453158,
           "rho": 0.2
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 48,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 48,
           "reduced_chi2_dof_full_nuisance": 8.048226797254726,
           "reduced_chi2_dof_no_nuisance": 5.805539092881373,
           "rho": 0.4
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 52,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 52,
           "reduced_chi2_dof_full_nuisance": 11.39017699408738,
           "reduced_chi2_dof_no_nuisance": 8.21623439296817,
           "rho": 0.6
@@ -126,48 +129,48 @@
       ],
       "full": [
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 61,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 61,
           "reduced_chi2_dof_full_nuisance": 9.678851358372802,
           "reduced_chi2_dof_no_nuisance": 8.07587004781606,
           "rho": 0.0
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 70,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 70,
           "reduced_chi2_dof_full_nuisance": 10.51158517807441,
           "reduced_chi2_dof_no_nuisance": 8.770689077815328,
           "rho": 0.2
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 74,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 74,
           "reduced_chi2_dof_full_nuisance": 13.412443545806344,
           "reduced_chi2_dof_no_nuisance": 11.191116289424189,
           "rho": 0.4
         },
         {
-          "interval95_pinned_at_grid_boundary": [
+          "contour95_pinned_at_grid_boundary": [
             false,
             false
           ],
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 78,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 78,
           "reduced_chi2_dof_full_nuisance": 19.647805185935113,
           "reduced_chi2_dof_no_nuisance": 16.393796694600177,
           "rho": 0.6
         }
       ]
     },
-    "rule": "Under this model and error family, misfit would appear as reduced chi-square far above one at every rho on the declared grid, as interval endpoints pinned at the declared grid boundary, or as profiled nuisances stacked at their grid edges across the sample. These are likelihood statements; no posterior probability is computed or implied."
+    "rule": "Under this model and error family, misfit would appear as reduced chi-square far above one at every rho on the declared grid, as contour endpoints pinned at the declared grid boundary, or as profiled nuisances stacked at their grid edges across the sample. These are objective/residual diagnostics; no confidence or posterior probability is computed or implied."
   },
   "model": {
     "acceleration_law": "g_model = g_bar + sqrt(g_bar a0)",
@@ -210,8 +213,8 @@
     "n_retained_points": 2700,
     "outermost_point": "largest radius among the retained points of each galaxy"
   },
-  "schema": "oph.cosmology.joint_rar_btfr_profile_likelihood.v1",
-  "scope": "labeled_postdiction_profile_likelihood_declared_conventions_fixed_absolute_cuts",
+  "schema": "oph.cosmology.joint_rar_btfr_penalized_profile_objective.v2",
+  "scope": "labeled_postdiction_penalized_profile_objective_declared_conventions_fixed_absolute_cuts",
   "seed": 20260825,
   "seen_data_postdiction": true,
   "source_derived_output": false,
@@ -224,263 +227,611 @@
       "n_points": 960,
       "per_rho": [
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             7.932442043728713e-11,
             8.021530395709738e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             7.901736182462779e-11,
             8.140314257654525e-11
           ],
-          "a0_ml_m_s2": 7.943282347242822e-11,
-          "a0_ml_parabola_refined_m_s2": 7.977900320468285e-11,
-          "chi2_data_at_ml": 3484.09557685883,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 614,
-          "dof_no_nuisance_count": 959,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 7.943282347242822e-11,
+          "a0_objective_min_parabola_refined_m_s2": 7.977900320468285e-11,
+          "chi2_data_at_objective_min": 3484.09557685883,
+          "contour68_all_components_log10": [
+            [
+              -10.100593092272714,
+              -10.095742766503168
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.102277474327224,
+              -10.089358828804803
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.100593092272714,
             -10.095742766503168
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.102277474327224,
             -10.089358828804803
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.1,
-          "min_minus2lnl": 3978.8652412774977,
-          "ml_grid_index": 180,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 34,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 614,
+          "dof_no_nuisance_count": 959,
+          "log10_a0_objective_min": -10.1,
+          "min_penalized_objective": 3978.8652412774977,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 34,
+          "objective_min_grid_index": 180,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 8.461369742106457e-11,
+            "a0_b_unweighted_log_mean_m_s2": 8.124816310067839e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
             "channel_a_common_a0_m_s2": 7.943282347242822e-11,
-            "channel_b_common_a0_m_s2": 8.461369742106457e-11,
-            "count_log10_ratio_ge_zero": 863,
-            "count_log10_ratio_le_zero": 137,
-            "ge_zero_plus_one_fraction": 0.8631368631368631,
-            "le_zero_plus_one_fraction": 0.13786213786213786,
+            "channel_b_common_a0_m_s2": 8.124816310067839e-11,
+            "count_log10_ratio_ge_zero": 691,
+            "count_log10_ratio_le_zero": 309,
+            "excluded_bulge_luminosity_ambiguous": [
+              "NGC2683",
+              "NGC2841",
+              "NGC4013",
+              "NGC4157",
+              "NGC5033",
+              "NGC6674",
+              "UGC02487",
+              "UGC02885",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.6913086913086913,
+            "le_zero_plus_one_fraction": 0.3096903096903097,
             "log10_ratio_95pct": [
-              -0.027080822837475926,
-              0.1782083458136754
+              -0.05318216252422978,
+              0.15700963788947508
             ],
             "n_candidate_galaxies": 115,
-            "n_common_galaxies": 115,
+            "n_common_galaxies": 97,
+            "n_excluded_bulge_luminosity_ambiguous": 18,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 0,
-            "n_used": 115,
-            "point_log10_ratio_b_over_a": 0.027440673120160824,
+            "n_used": 97,
+            "point_log10_ratio_b_over_a": 0.009813551013900601,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 5.674422763613729,
           "reduced_chi2_dof_no_nuisance": 3.6330506536588425,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.932442043728713e-11,
+                    8.021530395709738e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.100593092272714,
+                    -10.095742766503168
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.901736182462779e-11,
+                    8.140314257654525e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.102277474327224,
+                    -10.089358828804803
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.0
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             7.379595439280394e-11,
             7.435143467332005e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             7.317798751679927e-11,
             7.498098055857215e-11
           ],
-          "a0_ml_m_s2": 7.413102413009162e-11,
-          "a0_ml_parabola_refined_m_s2": 7.404222803574435e-11,
-          "chi2_data_at_ml": 4018.038586766401,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 614,
-          "dof_no_nuisance_count": 959,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 7.413102413009162e-11,
+          "a0_objective_min_parabola_refined_m_s2": 7.404222803574435e-11,
+          "chi2_data_at_objective_min": 4018.038586766401,
+          "contour68_all_components_log10": [
+            [
+              -10.13196744621274,
+              -10.128710646984732
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.135619538308923,
+              -10.12504888442137
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.13196744621274,
             -10.128710646984732
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.135619538308923,
             -10.12504888442137
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.13,
-          "min_minus2lnl": 4480.682721104903,
-          "ml_grid_index": 174,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 34,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 614,
+          "dof_no_nuisance_count": 959,
+          "log10_a0_objective_min": -10.13,
+          "min_penalized_objective": 4480.682721104903,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 34,
+          "objective_min_grid_index": 174,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 8.081098289742823e-11,
+            "a0_b_unweighted_log_mean_m_s2": 7.79100597239664e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
             "channel_a_common_a0_m_s2": 7.413102413009162e-11,
-            "channel_b_common_a0_m_s2": 8.081098289742823e-11,
-            "count_log10_ratio_ge_zero": 936,
-            "count_log10_ratio_le_zero": 64,
-            "ge_zero_plus_one_fraction": 0.936063936063936,
-            "le_zero_plus_one_fraction": 0.06493506493506493,
+            "channel_b_common_a0_m_s2": 7.79100597239664e-11,
+            "count_log10_ratio_ge_zero": 913,
+            "count_log10_ratio_le_zero": 87,
+            "excluded_bulge_luminosity_ambiguous": [
+              "NGC2683",
+              "NGC2841",
+              "NGC4013",
+              "NGC4157",
+              "NGC5033",
+              "NGC6674",
+              "UGC02487",
+              "UGC02885",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.913086913086913,
+            "le_zero_plus_one_fraction": 0.08791208791208792,
             "log10_ratio_95pct": [
-              -0.03304415424909867,
-              0.1888913926762308
+              -0.026061171159707096,
+              0.2239188853883921
             ],
             "n_candidate_galaxies": 115,
-            "n_common_galaxies": 115,
+            "n_common_galaxies": 97,
+            "n_excluded_bulge_luminosity_ambiguous": 18,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 0,
-            "n_used": 115,
-            "point_log10_ratio_b_over_a": 0.03747038908652736,
+            "n_used": 97,
+            "point_log10_ratio_b_over_a": 0.021593537268733663,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 6.544036786264496,
           "reduced_chi2_dof_no_nuisance": 4.189821258359125,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.379595439280394e-11,
+                    7.435143467332005e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.13196744621274,
+                    -10.128710646984732
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.317798751679927e-11,
+                    7.498098055857215e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.135619538308923,
+                    -10.12504888442137
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.2
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             5.8069550786682714e-11,
             5.858828781021382e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             5.7671614712343174e-11,
             5.908899487309484e-11
           ],
-          "a0_ml_m_s2": 5.821032177708722e-11,
-          "a0_ml_parabola_refined_m_s2": 5.836315151917913e-11,
-          "chi2_data_at_ml": 5035.144505997001,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 614,
-          "dof_no_nuisance_count": 959,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 5.821032177708722e-11,
+          "a0_objective_min_parabola_refined_m_s2": 5.836315151917913e-11,
+          "chi2_data_at_objective_min": 5035.144505997001,
+          "contour68_all_components_log10": [
+            [
+              -10.236051533560605,
+              -10.232189193670951
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.239037888872728,
+              -10.228493397476438
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.236051533560605,
             -10.232189193670951
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.239037888872728,
             -10.228493397476438
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.235,
-          "min_minus2lnl": 5554.299762267078,
-          "ml_grid_index": 153,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 42,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 614,
+          "dof_no_nuisance_count": 959,
+          "log10_a0_objective_min": -10.235,
+          "min_penalized_objective": 5554.299762267078,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 42,
+          "objective_min_grid_index": 153,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 6.756096658164979e-11,
+            "a0_b_unweighted_log_mean_m_s2": 6.540593146605192e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
-            "channel_a_common_a0_m_s2": 5.821032177708722e-11,
-            "channel_b_common_a0_m_s2": 6.756096658164979e-11,
-            "count_log10_ratio_ge_zero": 529,
-            "count_log10_ratio_le_zero": 471,
-            "ge_zero_plus_one_fraction": 0.5294705294705294,
-            "le_zero_plus_one_fraction": 0.47152847152847155,
+            "channel_a_common_a0_m_s2": 5.888436553555884e-11,
+            "channel_b_common_a0_m_s2": 6.540593146605192e-11,
+            "count_log10_ratio_ge_zero": 572,
+            "count_log10_ratio_le_zero": 428,
+            "excluded_bulge_luminosity_ambiguous": [
+              "NGC2683",
+              "NGC2841",
+              "NGC4013",
+              "NGC4157",
+              "NGC5033",
+              "NGC6674",
+              "UGC02487",
+              "UGC02885",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.5724275724275725,
+            "le_zero_plus_one_fraction": 0.42857142857142855,
             "log10_ratio_95pct": [
-              -0.09247700133499404,
-              0.22105812228809685
+              -0.08992537482694893,
+              0.22528262865522014
             ],
             "n_candidate_galaxies": 115,
-            "n_common_galaxies": 115,
+            "n_common_galaxies": 97,
+            "n_excluded_bulge_luminosity_ambiguous": 18,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 0,
-            "n_used": 115,
-            "point_log10_ratio_b_over_a": 0.0646958543103668,
+            "n_used": 97,
+            "point_log10_ratio_b_over_a": 0.04561713496291376,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 8.200561084685669,
           "reduced_chi2_dof_no_nuisance": 5.250411372259647,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    5.8069550786682714e-11,
+                    5.858828781021382e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.236051533560605,
+                    -10.232189193670951
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    5.7671614712343174e-11,
+                    5.908899487309484e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.239037888872728,
+                    -10.228493397476438
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.4
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             5.80827175084487e-11,
             5.840262962906669e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             5.772184461711354e-11,
             5.890284419908022e-11
           ],
-          "a0_ml_m_s2": 5.821032177708722e-11,
-          "a0_ml_parabola_refined_m_s2": 5.827769172962607e-11,
-          "chi2_data_at_ml": 7205.018926686322,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 614,
-          "dof_no_nuisance_count": 959,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 5.821032177708722e-11,
+          "a0_objective_min_parabola_refined_m_s2": 5.827769172962607e-11,
+          "chi2_data_at_objective_min": 7205.018926686322,
+          "contour68_all_components_log10": [
+            [
+              -10.235953072553926,
+              -10.233567597961535
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.238659798607078,
+              -10.229863734242722
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.235953072553926,
             -10.233567597961535
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.238659798607078,
             -10.229863734242722
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.235,
-          "min_minus2lnl": 7722.08199827863,
-          "ml_grid_index": 153,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 42,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 614,
+          "dof_no_nuisance_count": 959,
+          "log10_a0_objective_min": -10.235,
+          "min_penalized_objective": 7722.08199827863,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 42,
+          "objective_min_grid_index": 153,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 6.912157189676282e-11,
+            "a0_b_unweighted_log_mean_m_s2": 6.680770206743351e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
-            "channel_a_common_a0_m_s2": 5.821032177708722e-11,
-            "channel_b_common_a0_m_s2": 6.912157189676282e-11,
-            "count_log10_ratio_ge_zero": 668,
-            "count_log10_ratio_le_zero": 332,
-            "ge_zero_plus_one_fraction": 0.6683316683316683,
-            "le_zero_plus_one_fraction": 0.33266733266733267,
+            "channel_a_common_a0_m_s2": 5.888436553555884e-11,
+            "channel_b_common_a0_m_s2": 6.680770206743351e-11,
+            "count_log10_ratio_ge_zero": 663,
+            "count_log10_ratio_le_zero": 337,
+            "excluded_bulge_luminosity_ambiguous": [
+              "NGC2683",
+              "NGC2841",
+              "NGC4013",
+              "NGC4157",
+              "NGC5033",
+              "NGC6674",
+              "UGC02487",
+              "UGC02885",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.6633366633366633,
+            "le_zero_plus_one_fraction": 0.33766233766233766,
             "log10_ratio_95pct": [
-              -0.09467352972292345,
-              0.2573670333554623
+              -0.08923359739538568,
+              0.2549677759644205
             ],
             "n_candidate_galaxies": 115,
-            "n_common_galaxies": 115,
+            "n_common_galaxies": 97,
+            "n_excluded_bulge_luminosity_ambiguous": 18,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 0,
-            "n_used": 115,
-            "point_log10_ratio_b_over_a": 0.07461360589340404,
+            "n_used": 97,
+            "point_log10_ratio_b_over_a": 0.054826533921092505,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 11.73455851251844,
           "reduced_chi2_dof_no_nuisance": 7.513054146701065,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    5.80827175084487e-11,
+                    5.840262962906669e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.235953072553926,
+                    -10.233567597961535
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    5.772184461711354e-11,
+                    5.890284419908022e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.238659798607078,
+                    -10.229863734242722
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.6
         }
       ]
@@ -493,263 +844,711 @@
       "n_points": 1519,
       "per_rho": [
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             8.28931426023861e-11,
             8.322263615583614e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             8.217787243299884e-11,
             8.335415217864947e-11
           ],
-          "a0_ml_m_s2": 8.317637711026709e-11,
-          "a0_ml_parabola_refined_m_s2": 8.283250133756039e-11,
-          "chi2_data_at_ml": 6421.644232631408,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 1095,
-          "dof_no_nuisance_count": 1518,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 8.317637711026709e-11,
+          "a0_objective_min_parabola_refined_m_s2": 8.283250133756039e-11,
+          "chi2_data_at_objective_min": 6421.644232631408,
+          "contour68_all_components_log10": [
+            [
+              -10.081481395301651,
+              -10.079758531636072
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.085245106716997,
+              -10.079072761482516
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.081481395301651,
             -10.079758531636072
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.085245106716997,
             -10.079072761482516
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.08,
-          "min_minus2lnl": 7057.463673946247,
-          "ml_grid_index": 184,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 47,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 1095,
+          "dof_no_nuisance_count": 1518,
+          "log10_a0_objective_min": -10.08,
+          "min_penalized_objective": 7057.463673946247,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 47,
+          "objective_min_grid_index": 184,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 9.162861266805974e-11,
+            "a0_b_unweighted_log_mean_m_s2": 8.686051484765007e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
-            "channel_a_common_a0_m_s2": 8.317637711026709e-11,
-            "channel_b_common_a0_m_s2": 9.162861266805974e-11,
-            "count_log10_ratio_ge_zero": 750,
-            "count_log10_ratio_le_zero": 250,
-            "ge_zero_plus_one_fraction": 0.7502497502497503,
-            "le_zero_plus_one_fraction": 0.25074925074925075,
+            "channel_a_common_a0_m_s2": 7.943282347242822e-11,
+            "channel_b_common_a0_m_s2": 8.686051484765007e-11,
+            "count_log10_ratio_ge_zero": 908,
+            "count_log10_ratio_le_zero": 92,
+            "excluded_bulge_luminosity_ambiguous": [
+              "IC4202",
+              "NGC2683",
+              "NGC2841",
+              "NGC2955",
+              "NGC4013",
+              "NGC4138",
+              "NGC4157",
+              "NGC4217",
+              "NGC5033",
+              "NGC5985",
+              "NGC6195",
+              "NGC6674",
+              "NGC6946",
+              "NGC7331",
+              "NGC7814",
+              "UGC02487",
+              "UGC02885",
+              "UGC02916",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.9080919080919081,
+            "le_zero_plus_one_fraction": 0.09290709290709291,
             "log10_ratio_95pct": [
-              -0.11345657952229171,
-              0.0748493002917971
+              -0.02265228804514976,
+              0.13125984404080096
             ],
             "n_candidate_galaxies": 141,
-            "n_common_galaxies": 140,
+            "n_common_galaxies": 112,
+            "n_excluded_bulge_luminosity_ambiguous": 28,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 1,
-            "n_used": 140,
-            "point_log10_ratio_b_over_a": 0.04203111104206765,
+            "n_used": 112,
+            "point_log10_ratio_b_over_a": 0.038822399224123706,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 5.864515280941926,
           "reduced_chi2_dof_no_nuisance": 4.230332169058899,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    8.28931426023861e-11,
+                    8.322263615583614e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.081481395301651,
+                    -10.079758531636072
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    8.217787243299884e-11,
+                    8.335415217864947e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.085245106716997,
+                    -10.079072761482516
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.0
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             7.975113866693334e-11,
             8.07286367696734e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             7.888140212717858e-11,
             8.134886777133201e-11
           ],
-          "a0_ml_m_s2": 8.035261221856161e-11,
-          "a0_ml_parabola_refined_m_s2": 8.024467100219433e-11,
-          "chi2_data_at_ml": 7114.009308279894,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 1095,
-          "dof_no_nuisance_count": 1518,
-          "interval68_grid_resolution_limited": false,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 8.035261221856161e-11,
+          "a0_objective_min_parabola_refined_m_s2": 8.024467100219433e-11,
+          "chi2_data_at_objective_min": 7114.009308279894,
+          "contour68_all_components_log10": [
+            [
+              -10.098263107477859,
+              -10.092972381201795
+            ]
+          ],
+          "contour68_grid_resolution_limited": false,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.103025378357355,
+              -10.089648487276412
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.098263107477859,
             -10.092972381201795
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.103025378357355,
             -10.089648487276412
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.095,
-          "min_minus2lnl": 7743.721640498051,
-          "ml_grid_index": 181,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 43,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 1095,
+          "dof_no_nuisance_count": 1518,
+          "log10_a0_objective_min": -10.095,
+          "min_penalized_objective": 7743.721640498051,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 43,
+          "objective_min_grid_index": 181,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 9.088228579832789e-11,
+            "a0_b_unweighted_log_mean_m_s2": 8.60554907927024e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
-            "channel_a_common_a0_m_s2": 8.035261221856161e-11,
-            "channel_b_common_a0_m_s2": 9.088228579832789e-11,
-            "count_log10_ratio_ge_zero": 598,
-            "count_log10_ratio_le_zero": 402,
-            "ge_zero_plus_one_fraction": 0.5984015984015985,
-            "le_zero_plus_one_fraction": 0.4025974025974026,
+            "channel_a_common_a0_m_s2": 7.762471166286927e-11,
+            "channel_b_common_a0_m_s2": 8.60554907927024e-11,
+            "count_log10_ratio_ge_zero": 893,
+            "count_log10_ratio_le_zero": 107,
+            "excluded_bulge_luminosity_ambiguous": [
+              "IC4202",
+              "NGC2683",
+              "NGC2841",
+              "NGC2955",
+              "NGC4013",
+              "NGC4138",
+              "NGC4157",
+              "NGC4217",
+              "NGC5033",
+              "NGC5985",
+              "NGC6195",
+              "NGC6674",
+              "NGC6946",
+              "NGC7331",
+              "NGC7814",
+              "UGC02487",
+              "UGC02885",
+              "UGC02916",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.8931068931068931,
+            "le_zero_plus_one_fraction": 0.10789210789210789,
             "log10_ratio_95pct": [
-              -0.06788190258513489,
-              0.08886834379009594
+              -0.03497225235534911,
+              0.19588339412350803
             ],
             "n_candidate_galaxies": 141,
-            "n_common_galaxies": 140,
+            "n_common_galaxies": 112,
+            "n_excluded_bulge_luminosity_ambiguous": 28,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 1,
-            "n_used": 140,
-            "point_log10_ratio_b_over_a": 0.05347924153063839,
+            "n_used": 112,
+            "point_log10_ratio_b_over_a": 0.04477858581865845,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 6.496812153680269,
           "reduced_chi2_dof_no_nuisance": 4.686435644453158,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.975113866693334e-11,
+                    8.07286367696734e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.098263107477859,
+                    -10.092972381201795
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.888140212717858e-11,
+                    8.134886777133201e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.103025378357355,
+                    -10.089648487276412
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.2
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             7.802237185735187e-11,
             7.870078869198019e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             7.743369587311981e-11,
             7.920629244393785e-11
           ],
-          "a0_ml_m_s2": 7.85235634610071e-11,
-          "a0_ml_parabola_refined_m_s2": 7.830725427959863e-11,
-          "chi2_data_at_ml": 8812.808342993925,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 1095,
-          "dof_no_nuisance_count": 1518,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 7.85235634610071e-11,
+          "a0_objective_min_parabola_refined_m_s2": 7.830725427959863e-11,
+          "chi2_data_at_objective_min": 8812.808342993925,
+          "contour68_all_components_log10": [
+            [
+              -10.107780851397946,
+              -10.104020915380978
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.111070011574698,
+              -10.101240315062954
+            ],
+            [
+              -10.095737884786661,
+              -10.084351030734792
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": true,
+          "contour95_n_components": 2,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.107780851397946,
             -10.104020915380978
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.111070011574698,
             -10.101240315062954
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.105,
-          "min_minus2lnl": 9461.55181228288,
-          "ml_grid_index": 179,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 48,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 1095,
+          "dof_no_nuisance_count": 1518,
+          "log10_a0_objective_min": -10.105,
+          "min_penalized_objective": 9461.55181228288,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 48,
+          "objective_min_grid_index": 179,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 9.082358160164937e-11,
+            "a0_b_unweighted_log_mean_m_s2": 8.605189253496139e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
-            "channel_a_common_a0_m_s2": 7.85235634610071e-11,
-            "channel_b_common_a0_m_s2": 9.082358160164937e-11,
-            "count_log10_ratio_ge_zero": 671,
-            "count_log10_ratio_le_zero": 329,
-            "ge_zero_plus_one_fraction": 0.6713286713286714,
-            "le_zero_plus_one_fraction": 0.32967032967032966,
+            "channel_a_common_a0_m_s2": 8.128305161640995e-11,
+            "channel_b_common_a0_m_s2": 8.605189253496139e-11,
+            "count_log10_ratio_ge_zero": 939,
+            "count_log10_ratio_le_zero": 61,
+            "excluded_bulge_luminosity_ambiguous": [
+              "IC4202",
+              "NGC2683",
+              "NGC2841",
+              "NGC2955",
+              "NGC4013",
+              "NGC4138",
+              "NGC4157",
+              "NGC4217",
+              "NGC5033",
+              "NGC5985",
+              "NGC6195",
+              "NGC6674",
+              "NGC6946",
+              "NGC7331",
+              "NGC7814",
+              "UGC02487",
+              "UGC02885",
+              "UGC02916",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.939060939060939,
+            "le_zero_plus_one_fraction": 0.061938061938061936,
             "log10_ratio_95pct": [
-              -0.07333609652653998,
-              0.13581542589298354
+              -0.042435023323847826,
+              0.19188354173605382
             ],
             "n_candidate_galaxies": 141,
-            "n_common_galaxies": 140,
+            "n_common_galaxies": 112,
+            "n_excluded_bulge_luminosity_ambiguous": 28,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 1,
-            "n_used": 140,
-            "point_log10_ratio_b_over_a": 0.06319862417981882,
+            "n_used": 112,
+            "point_log10_ratio_b_over_a": 0.024760426185395062,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 8.048226797254726,
           "reduced_chi2_dof_no_nuisance": 5.805539092881373,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.802237185735187e-11,
+                    7.870078869198019e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.107780851397946,
+                    -10.104020915380978
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.743369587311981e-11,
+                    7.920629244393785e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.111070011574698,
+                    -10.101240315062954
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "a0_m_s2": [
+                    8.021620562771621e-11,
+                    8.234722513304536e-11
+                  ],
+                  "contains_objective_min": false,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.095737884786661,
+                    -10.084351030734792
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": true,
+              "global_min_component_index": 0,
+              "n_components": 2,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.4
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             7.797879788384868e-11,
             7.858645596839417e-11
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             7.743030500404566e-11,
             7.87653454982236e-11
           ],
-          "a0_ml_m_s2": 7.85235634610071e-11,
-          "a0_ml_parabola_refined_m_s2": 7.816560653533193e-11,
-          "chi2_data_at_ml": 12472.243808525682,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 1095,
-          "dof_no_nuisance_count": 1518,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 7.85235634610071e-11,
+          "a0_objective_min_parabola_refined_m_s2": 7.816560653533193e-11,
+          "chi2_data_at_objective_min": 12472.243808525682,
+          "contour68_all_components_log10": [
+            [
+              -10.108023464152332,
+              -10.104652296263861
+            ],
+            [
+              -10.090043828551691,
+              -10.089894873455908
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": true,
+          "contour68_n_components": 2,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -10.111089030013066,
+              -10.103664817653225
+            ],
+            [
+              -10.091260698913123,
+              -10.08697610542064
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": true,
+          "contour95_n_components": 2,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -10.108023464152332,
             -10.104652296263861
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -10.111089030013066,
             -10.103664817653225
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -10.105,
-          "min_minus2lnl": 13155.265507683414,
-          "ml_grid_index": 179,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 52,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 1095,
+          "dof_no_nuisance_count": 1518,
+          "log10_a0_objective_min": -10.105,
+          "min_penalized_objective": 13155.265507683414,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 52,
+          "objective_min_grid_index": 179,
           "paired_btfr": {
-            "a0_b_unweighted_log_mean_m_s2": 9.181182170446895e-11,
+            "a0_b_unweighted_log_mean_m_s2": 8.680894934417594e-11,
             "bootstrap_replicates": 1000,
             "bootstrap_seed": 20260825,
             "bootstrap_unit": "common-set galaxy, both channels resampled together",
             "channel_a_common_a0_m_s2": 7.85235634610071e-11,
-            "channel_b_common_a0_m_s2": 9.181182170446895e-11,
-            "count_log10_ratio_ge_zero": 686,
-            "count_log10_ratio_le_zero": 314,
-            "ge_zero_plus_one_fraction": 0.6863136863136863,
-            "le_zero_plus_one_fraction": 0.3146853146853147,
+            "channel_b_common_a0_m_s2": 8.680894934417594e-11,
+            "count_log10_ratio_ge_zero": 921,
+            "count_log10_ratio_le_zero": 79,
+            "excluded_bulge_luminosity_ambiguous": [
+              "IC4202",
+              "NGC2683",
+              "NGC2841",
+              "NGC2955",
+              "NGC4013",
+              "NGC4138",
+              "NGC4157",
+              "NGC4217",
+              "NGC5033",
+              "NGC5985",
+              "NGC6195",
+              "NGC6674",
+              "NGC6946",
+              "NGC7331",
+              "NGC7814",
+              "UGC02487",
+              "UGC02885",
+              "UGC02916",
+              "UGC02953",
+              "UGC03205",
+              "UGC03546",
+              "UGC03580",
+              "UGC05253",
+              "UGC06614",
+              "UGC06786",
+              "UGC06787",
+              "UGC08699",
+              "UGC09133"
+            ],
+            "ge_zero_plus_one_fraction": 0.9210789210789211,
+            "le_zero_plus_one_fraction": 0.07992007992007992,
             "log10_ratio_95pct": [
-              -0.12102237014509254,
-              0.14679188794118764
+              -0.05482116979259803,
+              0.19988881388624874
             ],
             "n_candidate_galaxies": 141,
-            "n_common_galaxies": 140,
+            "n_common_galaxies": 112,
+            "n_excluded_bulge_luminosity_ambiguous": 28,
             "n_nonpositive_anomalous_speed2": 0,
             "n_nonpositive_baryonic_mass": 0,
             "n_outermost_not_deep": 1,
-            "n_used": 140,
-            "point_log10_ratio_b_over_a": 0.06789860462683704,
+            "n_used": 112,
+            "point_log10_ratio_b_over_a": 0.043564499951184346,
             "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
           },
           "reduced_chi2_dof_full_nuisance": 11.39017699408738,
           "reduced_chi2_dof_no_nuisance": 8.21623439296817,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.797879788384868e-11,
+                    7.858645596839417e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.108023464152332,
+                    -10.104652296263861
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "a0_m_s2": [
+                    8.127484902848627e-11,
+                    8.13027296021164e-11
+                  ],
+                  "contains_objective_min": false,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.090043828551691,
+                    -10.089894873455908
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": true,
+              "global_min_component_index": 0,
+              "n_components": 2,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    7.743030500404566e-11,
+                    7.87653454982236e-11
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -10.111089030013066,
+                    -10.103664817653225
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                },
+                {
+                  "a0_m_s2": [
+                    8.104743990701813e-11,
+                    8.185098207351603e-11
+                  ],
+                  "contains_objective_min": false,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -10.091260698913123,
+                    -10.08697610542064
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": true,
+              "global_min_component_index": 0,
+              "n_components": 2,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.6
         }
       ]
@@ -762,167 +1561,431 @@
       "n_points": 2700,
       "per_rho": [
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             1.2279830302382811e-10,
             1.2371351330641974e-10
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             1.2215146571587278e-10,
             1.2449975237015673e-10
           ],
-          "a0_ml_m_s2": 1.2302687708123812e-10,
-          "a0_ml_parabola_refined_m_s2": 1.2338085225469606e-10,
-          "chi2_data_at_ml": 21796.77325905555,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 2252,
-          "dof_no_nuisance_count": 2699,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 1.2302687708123812e-10,
+          "a0_objective_min_parabola_refined_m_s2": 1.2338085225469606e-10,
+          "chi2_data_at_objective_min": 21796.77325905555,
+          "contour68_all_components_log10": [
+            [
+              -9.910807634762275,
+              -9.90758285951498
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -9.913101317487135,
+              -9.904831512378538
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -9.910807634762275,
             -9.90758285951498
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -9.913101317487135,
             -9.904831512378538
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -9.91,
-          "min_minus2lnl": 22648.582425127257,
-          "ml_grid_index": 218,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 61,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 2252,
+          "dof_no_nuisance_count": 2699,
+          "log10_a0_objective_min": -9.91,
+          "min_penalized_objective": 22648.582425127257,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 61,
+          "objective_min_grid_index": 218,
           "reduced_chi2_dof_full_nuisance": 9.678851358372802,
           "reduced_chi2_dof_no_nuisance": 8.07587004781606,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.2279830302382811e-10,
+                    1.2371351330641974e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -9.910807634762275,
+                    -9.90758285951498
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.2215146571587278e-10,
+                    1.2449975237015673e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -9.913101317487135,
+                    -9.904831512378538
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.0
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             1.5843275855202482e-10,
             1.5903265679142589e-10
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             1.5827223622167697e-10,
             1.604454708079669e-10
           ],
-          "a0_ml_m_s2": 1.584893192461111e-10,
-          "a0_ml_parabola_refined_m_s2": 1.5923105525835337e-10,
-          "chi2_data_at_ml": 23672.089821023572,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 2252,
-          "dof_no_nuisance_count": 2699,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 1.584893192461111e-10,
+          "a0_objective_min_parabola_refined_m_s2": 1.5923105525835337e-10,
+          "chi2_data_at_objective_min": 23672.089821023572,
+          "contour68_all_components_log10": [
+            [
+              -9.800155016007505,
+              -9.798513685691917
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -9.800595261468818,
+              -9.794672538031676
+            ]
+          ],
+          "contour95_grid_resolution_limited": false,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -9.800155016007505,
             -9.798513685691917
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": false,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -9.800595261468818,
             -9.794672538031676
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -9.8,
-          "min_minus2lnl": 24655.355939525216,
-          "ml_grid_index": 240,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 70,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 2252,
+          "dof_no_nuisance_count": 2699,
+          "log10_a0_objective_min": -9.8,
+          "min_penalized_objective": 24655.355939525216,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 70,
+          "objective_min_grid_index": 240,
           "reduced_chi2_dof_full_nuisance": 10.51158517807441,
           "reduced_chi2_dof_no_nuisance": 8.770689077815328,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.5843275855202482e-10,
+                    1.5903265679142589e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -9.800155016007505,
+                    -9.798513685691917
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.5827223622167697e-10,
+                    1.604454708079669e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": false,
+                  "log10": [
+                    -9.800595261468818,
+                    -9.794672538031676
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.2
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             1.637644809630563e-10,
             1.6415140134997487e-10
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             1.629309907041148e-10,
             1.6441416960902328e-10
           ],
-          "a0_ml_m_s2": 1.6405897731995387e-10,
-          "a0_ml_parabola_refined_m_s2": 1.635660938805903e-10,
-          "chi2_data_at_ml": 30204.822865155886,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 2252,
-          "dof_no_nuisance_count": 2699,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 1.6405897731995387e-10,
+          "a0_objective_min_parabola_refined_m_s2": 1.635660938805903e-10,
+          "chi2_data_at_objective_min": 30204.822865155886,
+          "contour68_all_components_log10": [
+            [
+              -9.785780286913061,
+              -9.784755405374705
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -9.787996301746151,
+              -9.784060756638864
+            ]
+          ],
+          "contour95_grid_resolution_limited": true,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -9.785780286913061,
             -9.784755405374705
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": true,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -9.787996301746151,
             -9.784060756638864
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -9.785,
-          "min_minus2lnl": 31301.763326996734,
-          "ml_grid_index": 243,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 74,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 2252,
+          "dof_no_nuisance_count": 2699,
+          "log10_a0_objective_min": -9.785,
+          "min_penalized_objective": 31301.763326996734,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 74,
+          "objective_min_grid_index": 243,
           "reduced_chi2_dof_full_nuisance": 13.412443545806344,
           "reduced_chi2_dof_no_nuisance": 11.191116289424189,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.637644809630563e-10,
+                    1.6415140134997487e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -9.785780286913061,
+                    -9.784755405374705
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.629309907041148e-10,
+                    1.6441416960902328e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -9.787996301746151,
+                    -9.784060756638864
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.4
         },
         {
-          "a0_interval68_m_s2": [
+          "a0_delta_objective_contour68_m_s2": [
             1.6400540293198076e-10,
             1.6415363874552883e-10
           ],
-          "a0_interval95_m_s2": [
+          "a0_delta_objective_contour95_m_s2": [
             1.638533470478755e-10,
             1.644227751276585e-10
           ],
-          "a0_ml_m_s2": 1.6405897731995387e-10,
-          "a0_ml_parabola_refined_m_s2": 1.6432075148494263e-10,
-          "chi2_data_at_ml": 44246.857278725874,
-          "dof_convention": "bounds on the effective count: penalized profiled nuisances sit between fully free and fully fixed",
-          "dof_full_nuisance_count": 2252,
-          "dof_no_nuisance_count": 2699,
-          "interval68_grid_resolution_limited": true,
-          "interval68_log10": [
+          "a0_objective_min_m_s2": 1.6405897731995387e-10,
+          "a0_objective_min_parabola_refined_m_s2": 1.6432075148494263e-10,
+          "chi2_data_at_objective_min": 44246.857278725874,
+          "contour68_all_components_log10": [
+            [
+              -9.785141844483434,
+              -9.784749485949632
+            ]
+          ],
+          "contour68_grid_resolution_limited": true,
+          "contour68_has_disconnected_components": false,
+          "contour68_n_components": 1,
+          "contour68_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "contour95_all_components_log10": [
+            [
+              -9.785544682816385,
+              -9.784038026046588
+            ]
+          ],
+          "contour95_grid_resolution_limited": true,
+          "contour95_has_disconnected_components": false,
+          "contour95_n_components": 1,
+          "contour95_pinned_at_grid_boundary": [
+            false,
+            false
+          ],
+          "delta_objective_contour68_log10": [
             -9.785141844483434,
             -9.784749485949632
           ],
-          "interval68_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "interval95_grid_resolution_limited": true,
-          "interval95_log10": [
+          "delta_objective_contour95_log10": [
             -9.785544682816385,
             -9.784038026046588
           ],
-          "interval95_pinned_at_grid_boundary": [
-            false,
-            false
-          ],
-          "log10_a0_ml": -9.785,
-          "min_minus2lnl": 45408.36113103211,
-          "ml_grid_index": 243,
-          "n_galaxies_profiled_nuisance_at_grid_edge_at_ml": 78,
+          "dof_convention": "two nominal sensitivity denominators, with the profiled nuisances counted either fixed or free; penalties and grid boundaries mean neither denominator is a calibrated effective dof or a proved bound",
+          "dof_full_nuisance_count": 2252,
+          "dof_no_nuisance_count": 2699,
+          "log10_a0_objective_min": -9.785,
+          "min_penalized_objective": 45408.36113103211,
+          "n_galaxies_profiled_nuisance_at_grid_edge_at_objective_min": 78,
+          "objective_min_grid_index": 243,
           "reduced_chi2_dof_full_nuisance": 19.647805185935113,
           "reduced_chi2_dof_no_nuisance": 16.393796694600177,
+          "reference_sublevel_sets": {
+            "delta_1": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.6400540293198076e-10,
+                    1.6415363874552883e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -9.785141844483434,
+                    -9.784749485949632
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 1.0
+            },
+            "delta_3p84": {
+              "components": [
+                {
+                  "a0_m_s2": [
+                    1.638533470478755e-10,
+                    1.644227751276585e-10
+                  ],
+                  "contains_objective_min": true,
+                  "grid_resolution_limited": true,
+                  "log10": [
+                    -9.785544682816385,
+                    -9.784038026046588
+                  ],
+                  "pinned_at_grid_boundary": [
+                    false,
+                    false
+                  ]
+                }
+              ],
+              "disconnected": false,
+              "global_min_component_index": 0,
+              "n_components": 1,
+              "threshold": 3.84
+            }
+          },
           "rho": 0.6
         }
       ]

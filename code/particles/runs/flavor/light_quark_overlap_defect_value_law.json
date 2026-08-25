@@ -1,5 +1,13 @@
 {
   "artifact": "oph_light_quark_overlap_defect_value_law",
+  "comparison_only_sigma_branch": {
+    "artifact": "oph_family_excitation_spread_map",
+    "proof_status": "candidate_only_spread_values",
+    "sigma_d_total_log_per_side": 3.3049,
+    "sigma_source_kind": "hard_coded_diagnostic_witness",
+    "sigma_u_total_log_per_side": 5.5905,
+    "spread_emitter_status": "diagnostic_witness_not_source_emission"
+  },
   "emitted_mass_ray": {
     "artifact": "oph_quark_d12_mass_ray",
     "emitted_object": {
@@ -34,7 +42,7 @@
     ],
     "theorem_id": "quark_d12_t1_value_law"
   },
-  "exact_missing_object": null,
+  "exact_missing_object": "source_derived_c_d_over_c_u_or_Delta_ud_overlap",
   "exact_transport_contract_after_selector": {
     "closed_identities": {
       "Lambda_from_tau_d": "sigma_d_total_log_per_side * tau_d_log_per_side",
@@ -50,7 +58,7 @@
     "law_statement": "On any fixed ordered-family sigma branch with positive totals (sigma_u_total_log_per_side, sigma_d_total_log_per_side), the D12 pure-B transport pair is not free. It is an exact affine readback of the single selector scalar Delta_ud_overlap.",
     "single_residual_object_on_each_fixed_sigma_branch": "Delta_ud_overlap"
   },
-  "generated_utc": "2026-07-12T02:31:10Z",
+  "generated_utc": "2026-08-25T18:59:54Z",
   "induced_mass_side_formulas": {
     "eta_Q_centered": "-(5 * (1 - x2^2) / 27) * Delta_ud_overlap",
     "kappa_Q": "-(5 * Delta_ud_overlap) / 54",
@@ -66,9 +74,9 @@
     "source_readback_u_log_per_side": "(Delta_ud_overlap / 2) * B_ord"
   },
   "notes": [
-    "This is the sharper primitive beneath the ray-coordinate theorem quark_d12_t1_value_law.",
-    "The theorem is internalized directly from the minimal light branch and the emitted D12 mass ray.",
-    "It applies only to target 1: public current-family quark Yukawas on the emitted D12 mass ray."
+    "This is the conditional primitive beneath the ray-coordinate package quark_d12_t1_value_law.",
+    "The algebraic identity is internalized; its source-derived scalar value remains open.",
+    "The emitted D12 mass ray remains a viable open route rather than a no-go."
   ],
   "proof_skeleton": [
     {
@@ -84,8 +92,8 @@
       "step": 3
     }
   ],
-  "proof_status": "closed_target_free_overlap_defect_theorem",
-  "public_promotion_allowed": true,
+  "proof_status": "conditional_overlap_identity_selector_value_open",
+  "public_promotion_allowed": false,
   "scope": "D12_continuation_only",
   "selector_law_artifact": {
     "artifact": "oph_light_quark_isospin_overlap_defect_selector_law",
@@ -94,25 +102,18 @@
   },
   "selector_scalar_name": "Delta_ud_overlap",
   "target_1_public_yukawa_consequence": {
-    "does_target_1_close_after_this": true,
-    "statement": "This theorem closes target 1 on the emitted D12 mass ray, because the emitted ray then fixes t1 = 5 * Delta_ud_overlap and the closed sigma/transport laws force the full target-1 source and transport package.",
-    "target_1_status": "closed"
+    "does_target_1_close_after_this": false,
+    "statement": "The conditional identity reduces target 1 to emission of a source-derived c_d/c_u or Delta_ud_overlap value. Once that value exists, the ray and transport identities force the remaining package; the present artifact does not supply it.",
+    "target_1_status": "open_value_source_not_emitted"
   },
   "target_free_map": {
     "codomain": "R",
-    "domain": "public light-quark D12 data",
-    "formula": "Theta_ud^Delta(public light-quark D12 data) = (1/6) * log(c_d / c_u)",
+    "domain": "source-derived positive light-branch coefficient pair (c_u, c_d)",
+    "formula": "Theta_ud^Delta(c_u, c_d) = (1/6) * log(c_d / c_u)",
     "id": "light_quark_overlap_defect_value_law",
     "must_not_use_ckm_cp": true,
     "must_not_use_target_masses": true
   },
-  "theorem_grade_sigma_branch": {
-    "artifact": "oph_family_excitation_spread_map",
-    "proof_status": "exact_reduced_family_on_simple_ordered_three_point_spectrum",
-    "sigma_d_total_log_per_side": 3.3049,
-    "sigma_source_kind": "theorem_grade_mean_surface_readback",
-    "sigma_u_total_log_per_side": 5.5905,
-    "spread_emitter_status": "closed"
-  },
-  "theorem_statement": "On the minimal light branch y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with epsilon = 1/6, the normalized light overlap defect is Delta_ud_overlap = (1/6) * log(y_d / y_u) = (1/6) * log(c_d / c_u). On the emitted D12 mass ray this closes the target-free mass bridge and yields the equivalent ray-coordinate theorem quark_d12_t1_value_law via t1 = 5 * Delta_ud_overlap."
+  "theorem_statement": "Conditional on source-derived positive coefficients c_u and c_d, the minimal light branch y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with epsilon = 1/6, the normalized light overlap defect is Delta_ud_overlap = (1/6) * log(y_d / y_u) = (1/6) * log(c_d / c_u). On the emitted D12 mass ray this implies t1 = 5 * Delta_ud_overlap. The identity does not emit c_d/c_u or a numerical selector value.",
+  "value_emission_status": "open_viable_scalar_emission_route"
 }

@@ -6,6 +6,9 @@
   "required": [
     "artifact",
     "format_version",
+    "execution_class",
+    "claim_tier",
+    "public_promotion_allowed",
     "profile_id",
     "backend",
     "files",
@@ -18,6 +21,17 @@
     "format_version": {
       "type": "integer",
       "minimum": 1
+    },
+    "execution_class": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim_tier": {
+      "type": "string",
+      "minLength": 1
+    },
+    "public_promotion_allowed": {
+      "type": "boolean"
     },
     "profile_id": {
       "type": "string",

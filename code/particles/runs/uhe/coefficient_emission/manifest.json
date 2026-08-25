@@ -1,12 +1,14 @@
 {
   "artifact": "uhe_coefficient_emission_manifest",
-  "generated_utc": "2026-07-08T13:09:27Z",
+  "generated_utc": "2026-08-25T18:41:16Z",
   "milestone": "UHE_COEFFICIENT_EMISSION_AUDIT",
-  "artifact_type": "UHE_COEFFICIENT_EMISSION_RECEIPT",
-  "strongest_allowed_claim": "SOURCE_ONLY_COEFFICIENT_EMITTED",
-  "first_blocked_gate": null,
-  "promotion_allowed": true,
+  "artifact_type": "UHE_COEFFICIENT_EMISSION_SCAFFOLD",
+  "strongest_allowed_claim": "SYNTHETIC_COEFFICIENT_SCAFFOLD_ONLY",
+  "first_blocked_gate": "SOURCE_ARTIFACT_AND_COMPUTED_READINESS_RECEIPTS",
+  "promotion_allowed": false,
   "physical_claim": false,
+  "synthetic_fixture": true,
+  "source_artifact_bound": false,
   "required_files": [
     "manifest.json",
     "source_release_quotient.json",
@@ -24,17 +26,16 @@
   "missing_files": [],
   "target_leak_hits": [],
   "file_hashes": {
-    "source_release_quotient.json": "sha256:53e930bdab692947da97d022a0b8814016dc6221d688bbd658fc7bb174b08f2c",
-    "source_law.json": "sha256:5f93b689f61dd84b986dab3e5bbcd733b2e6b1079967a51d73ce1c310612ff16",
-    "source_loads.json": "sha256:e8d2aaba27ddc4d86fb51bd95a1dcda32427c633b1c02f001f06d96d1394b590",
-    "baseline_measure.json": "sha256:b91d323d7f92893bc57ff8d3e0c2eddb84680de103bcc247b65c222266085486",
-    "feature_map.json": "sha256:1235044b76897103e5a5cfe14990336ffa37d63928f5b024d6ec563f457020e7",
-    "moment_targets.json": "sha256:e06dcb020626b456ebc3fc2fae9bb443e47c4a18a63bd05703ed28729ad48f14",
-    "coefficient_solver.json": "sha256:73a48453bd911cad8d419b6b7b00999c88c419145f81fc724e7990f6128c97c5",
-    "emitted_coefficients.json": "sha256:f53001711c32307e4fa9bca58003010d3181f852d80a78b612874ac84dc257a7",
-    "source_dag.json": "sha256:660d3c1968f700150796ca53347df6d3832e1c31a6f8c0429488169b22334005",
-    "claim_ladder.json": "sha256:1ef033bf4c6a442f4791acdaa40e14687f04d5864dbd0324dd6a75dd558be14f",
-    "claim.md": "sha256:762674f8d72e26e54626007d580585052803ab440ea56e08fbfbd8290917eb29",
-    "manifest.json": "sha256:043e4f436776ed80b0bf4b71ba89b5ab95e63baed7b2d2cd1c7a89cecdd8784a"
+    "source_release_quotient.json": "sha256:ca01bcdc23f7bb7ffcd837642ee55dd6caf8f869d7065be80970ffb5d02a25e4",
+    "source_law.json": "sha256:b62dab5a4b6cc907c40f912ba4f0cb9dcb41e057a4cba6c9bd759081182aba66",
+    "source_loads.json": "sha256:64a6030442e565ffaf34b3eabf475a222a9f14e016c125fc7848330640fcec7f",
+    "baseline_measure.json": "sha256:b856ef1331cd964529e2ec4fb730c29ab93f2778b9ce2b0d213d2ed23c0eea57",
+    "feature_map.json": "sha256:a410d238660bebaefb13c90de1e4b657fab384d9eb8e148e5e37643ed580fdd6",
+    "moment_targets.json": "sha256:cab04d11d368234ae33a9e7b7bf13e0fa20f3fc257b40cba25a06070bb54c31c",
+    "coefficient_solver.json": "sha256:a5b2fd759bf904c1173c547a8cd355009c169ae81ac8208442fd4ca2c0f7c62d",
+    "emitted_coefficients.json": "sha256:73ec90fb3dde4204972aa5bbdef15253ea1545b8e514f6a8e181eba9d783312c",
+    "source_dag.json": "sha256:c1eb256d79bb06a1430fbb223b11f307f979ae8c3c8c4e68ba78df26ad7dd2e4",
+    "claim_ladder.json": "sha256:875470b00ce5354de3c20a1458ea95f3987d3a989c5f1d2445b4cc60af21f90b",
+    "claim.md": "sha256:a7a6b76ed7b2726cade09d3d7fe6d3b900fe5318e59316cd94b9258ce988f3b1"
   }
 }

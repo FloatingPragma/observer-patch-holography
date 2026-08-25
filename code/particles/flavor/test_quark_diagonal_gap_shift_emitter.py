@@ -32,11 +32,17 @@ def main() -> int:
     if payload.get("artifact") != "oph_family_excitation_diagonal_gap_shift_emitter":
         print("wrong quark diagonal gap-shift emitter artifact id", file=sys.stderr)
         return 1
-    if payload.get("tau_u_log_per_side") is not None or payload.get("tau_d_log_per_side") is not None:
-        print("predictive tau slots should remain unset until emitted from OPH inputs", file=sys.stderr)
+    if payload.get("tau_u_log_per_side") is None or payload.get("tau_d_log_per_side") is None:
+        print("emitter should retain the quarantined comparison tau values", file=sys.stderr)
         return 1
-    if payload.get("smallest_constructive_missing_object") != "beta_u_diag_B_source_and_beta_d_diag_B_source":
-        print("diagonal gap-shift emitter should point to the beta-pair amplitudes as the next predictive object", file=sys.stderr)
+    if payload.get("predictive_promotion_allowed") is not False:
+        print("comparison-only emitter values must not be promotable", file=sys.stderr)
+        return 1
+    if payload.get("proof_status") != "comparison_only_tau_pair_value_source_open":
+        print("emitter should preserve the open value-source status", file=sys.stderr)
+        return 1
+    if payload.get("smallest_constructive_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("diagonal gap-shift emitter should point to the source-derived light ratio or t1", file=sys.stderr)
         return 1
     return 0
 

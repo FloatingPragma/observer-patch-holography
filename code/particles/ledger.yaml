@@ -52,23 +52,23 @@ entries:
     blocked_by: ["populated source spectral measure payload", "source-complete RG/threshold/scheme packet from #32", "same-scheme interval certificate"]
   - id: theorem.hierarchy_naturality.local_global_bridge
     output_keys: ["N_CRC_EW", "B_EW", "epsilon_H"]
-    label: "Electroweak hierarchy/naturality bridge"
-    tier: selected_branch_theorem
+    label: "Electroweak hierarchy and declared-map square"
+    tier: conditional_hierarchy_bridge_with_packaging_identity
     branch: hierarchy
-    oph_derived_piece: "local P -> alpha_U -> v/E_star lane; bridge-defined N_CRC^EW identity; conditional 12-port screen with a 24-slot register; independent product-adjoint m_rep=24; conditional source-to-Higgs square"
+    oph_derived_piece: "local P -> alpha_U -> v/E_star lane; bridge-defined N_CRC^EW identity; conditional 12-port screen with a 24-slot register; independent product-adjoint m_rep=24; declared-map source-to-Higgs commuting square"
     borrowed_qft_piece: null
-    extra_ansatz: "selected branch plus HIERARCHY-SCREEN-READOUT; this does not identify the screen register with m_rep or promote physical cosmic capacity, W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G"
+    extra_ansatz: "selected branch plus HIERARCHY-SCREEN-READOUT; the six RG/Higgs comparison maps are separately declared rather than source-derived; this does not identify the screen register with m_rep or promote physical cosmic capacity, Higgs naturalness, W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G"
     numeric_outputs:
       N_CRC_EW: "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122"
       bridge_residual: "0"
       epsilon_H: "0"
-    status_summary: "Closed selected-branch theorem. The local/global resonance bridge has exact residual zero at N_CRC^EW, the 12-port screen sieve and 24-slot oriented repair register supply the hierarchy normalization, and the source-to-Higgs square has epsilon_H=0."
-    scientific_boundary: "This theorem is scoped to hierarchy/naturality and does not promote W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, or full SI G."
+    status_summary: "Conditional hierarchy bridge plus declared-map identity. The local/global bridge has exact residual zero only at its bridge-defined N_CRC^EW. The stored source-to-Higgs maps commute by declaration, so their defined epsilon_H is zero; same-source-antecedent exact completions also attain epsilon_H=1."
+    scientific_boundary: "The zero defect is a packaging identity, not a source-derived Higgs-naturalness result. A physical naturality test requires source-derived comparison maps and independent evaluation of both residuals. W/Z masses, the public Thomson endpoint, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G remain separate."
     caveats:
-      - "#332 gives epsilon_H=0 on the selected comparison-map branch conditional on HIERARCHY-SCREEN-READOUT."
+      - "#332 gives epsilon_H=0 only for the declared comparison maps; the antecedent-only receipt gives exact same-fingerprint completions with epsilon_H=0 and 1."
       - "#335 is exact conditional on HIERARCHY-SCREEN-READOUT and the named screen-selector premises."
       - "#337 derives the electroweak projection map and the equivalence Pi_EW=4P iff B_EW=0; #631 owns the local physical common-load attachment and #547 owns the N-dependent balance."
-    required_scientific_evidence: ["HIERARCHY-SCREEN-READOUT", "source production of the strict unit cost, inverse pairing, and D-optimal selector"]
+    required_scientific_evidence: ["HIERARCHY-SCREEN-READOUT", "source production of the strict unit cost, inverse pairing, and D-optimal selector", "source-derived rho_sH, n_s, n_H, h_s, chi_sH, and h_H", "independent evaluation of both commuting-square residuals"]
   - id: calibration.d11.higgs_top
     output_keys: ["crit_mt_MS", "crit_mt_pole", "crit_mH_tree"]
     label: "D11 Higgs/top declared-surface candidate"

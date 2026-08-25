@@ -58,12 +58,15 @@ are proved below as `fiberRate_heatBath_offdiagonal`,
 
 ## What is not proved here
 
-The independent-product model is not the gauge-orbit quotient: on the
+The independent-product model is not the committed gauge-orbit law: on the
 committed `Z2` orbit space the stationary law `π = Ω²` is not a product
 measure and the rates `c_l(o)` vary over orbits, so the product
 eigenstructure theorems below do not apply to it directly.  The committed
-quotient structure (`Z2GaugeOrbits` in the producer) has no Lean
-formalization, and no quotient-space spectral-gap theorem is proved here.
+non-product quotient structure (`Z2GaugeOrbits` in the producer) has no Lean
+approximate-tensorization theorem.  A downstream module proves descent to
+the invariant subspace for the independent product under moved-link
+symmetry, but no spectral-gap theorem for the committed orbit law is proved
+here.
 The exact open step is the one the 2026-08-24 deep audit names:
 "The next proof is a variable-rate approximate-tensorization comparison on
 the gauge-orbit quotient, followed by an anisotropic Wilson-to-Hamiltonian

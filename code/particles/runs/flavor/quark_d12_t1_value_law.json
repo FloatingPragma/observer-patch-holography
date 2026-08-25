@@ -5,7 +5,7 @@
       "log(c_d / c_u) = (6/5) * t1",
       "t1 = 5 * Delta_ud_overlap = (5/6) * log(c_d / c_u)"
     ],
-    "closure_note": "The mass-side route is internalized directly from the minimal light branch together with the emitted D12 mass ray.",
+    "closure_note": "The algebraic reduction is internalized, but the source law selecting c_d/c_u or t1 remains open.",
     "minimal_light_branch": {
       "light_isospin_breaking_scalar": "Delta_ud_overlap = (1/6) * log(c_d / c_u)",
       "same_forward_surface_ratio_identification": "c_u / c_d = y_u / y_d",
@@ -19,24 +19,28 @@
       "difference": "C_1(u^c) - C_1(d^c) = 1/5",
       "ray_identity": "Delta_ud_overlap = t1 / 5"
     },
-    "status": "closed_theorem_internalized"
+    "status": "conditional_identity_value_source_open"
   },
   "current_public_yukawa_frontier": {
     "equivalent_ray_coordinate_presentation": "quark_d12_t1_value_law",
+    "main_builder_sigma_branch_artifact": "oph_family_excitation_spread_map",
+    "main_builder_sigma_branch_kind": "hard_coded_diagnostic_witness",
+    "main_builder_sigma_branch_status": "diagnostic_witness_not_source_emission",
+    "main_builder_sigma_source_emitted": false,
     "optional_nonminimal_strengthening": "edge_statistics_mean_surface_compatibility_theorem",
-    "remaining_exact_blocker_set_if_this_branch_is_used": [],
-    "target_1_status": "closed",
-    "theorem_grade_sigma_branch_artifact": "oph_family_excitation_spread_map",
-    "theorem_grade_sigma_branch_kind": "hard_coded_diagnostic_witness",
-    "theorem_grade_sigma_branch_status": "diagnostic_witness_not_source_emission",
-    "transport_side_status_on_that_branch": "closed"
+    "remaining_exact_blocker_set_if_this_branch_is_used": [
+      "source_derived_c_d_over_c_u_or_t1_value",
+      "supported_source_sigma_branch_emission"
+    ],
+    "target_1_status": "open_value_source_not_emitted",
+    "transport_side_status_given_that_branch": "closed_conditionally"
   },
   "derived_wrapper": {
     "derived_from": "quark_d12_t1_value_law",
     "id": "intrinsic_scale_law_D12",
     "meaning": "the induced mass-side wrapper on D12_ud_mass_ray after t1 is fixed intrinsically"
   },
-  "exact_missing_object": null,
+  "exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
   "forced_source_payload_after_t1": {
     "Delta_ud_overlap": "t1 / 5",
     "J_B_source_d": "-t1 / 10",
@@ -47,7 +51,7 @@
     "source_readback_d_log_per_side": "(+t1/10, 0, -t1/10)",
     "source_readback_u_log_per_side": "(-t1/10, 0, +t1/10)"
   },
-  "generated_utc": "2026-07-27T08:32:16Z",
+  "generated_utc": "2026-08-25T18:56:47Z",
   "minimal_new_theorem": {
     "id": "quark_d12_t1_value_law",
     "identifies": "ray_modulus = t1",
@@ -64,8 +68,10 @@
     "unique_intersection_with": "D12_ud_mass_ray"
   },
   "notes": [
-    "This artifact closes the D12 ray-coordinate theorem on the local code surface.",
-    "The larger wrapper intrinsic_scale_law_D12 remains valid language, but only as the derived mass-ray wrapper above quark_d12_t1_value_law."
+    "This artifact proves a conditional coordinate identity; it does not emit the unresolved scalar.",
+    "The same-family D12 mass ray remains a viable open derivation route, not a no-go.",
+    "The exact transport identity does not upgrade the diagnostic sigma witness consumed by the current main builder.",
+    "The larger wrapper intrinsic_scale_law_D12 is only a conditional derived wrapper above quark_d12_t1_value_law."
   ],
   "one_scalar_reduction": {
     "emitted_ray_formulas": {
@@ -89,10 +95,11 @@
     "artifact": "oph_quark_d12_mass_ray",
     "id": "D12_ud_mass_ray"
   },
-  "proof_status": "closed_mass_ray_one_scalar_value_law",
-  "public_promotion_allowed": true,
+  "proof_status": "conditional_mass_ray_identity_value_source_open",
+  "public_promotion_allowed": false,
   "sample_same_family_point": {
     "Delta_ud_overlap": 0.13391235422942327,
+    "classification": "diagnostic_sample_only_not_value_emission",
     "eta_Q_centered": -0.018155152181872827,
     "kappa_Q": -0.012399292058279932,
     "ray_modulus": 0.6695617711471163,
@@ -105,7 +112,7 @@
     "id": "light_quark_overlap_defect_value_law",
     "selector_scalar_name": "Delta_ud_overlap"
   },
-  "theorem_statement": "On the minimal light branch and the emitted same-family D12 mass ray, the mass-side scalar closes to t1 = (5/6) * log(c_d / c_u). Equivalently, t1 = 5 * Delta_ud_overlap and ray_modulus = t1 on D12_ud_mass_ray. The larger wrapper intrinsic_scale_law_D12 is therefore derived automatically from the emitted ray formulas.",
+  "theorem_statement": "Conditional on a source-derived positive coefficient ratio c_d/c_u, the minimal light branch and emitted same-family D12 mass ray imply t1 = (5/6) * log(c_d / c_u). Equivalently, t1 = 5 * Delta_ud_overlap and ray_modulus = t1 on D12_ud_mass_ray. These identities do not emit c_d/c_u or select a numerical point of the ray.",
   "transport_side_reduction": {
     "closed_identities_after_t1": {
       "tau_d_over_tau_u": "sigma_u_total_log_per_side / sigma_d_total_log_per_side",
@@ -120,5 +127,6 @@
       "tau_d_log_per_side": "sigma_u_total_log_per_side * t1 / (10 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))",
       "tau_u_log_per_side": "sigma_d_total_log_per_side * t1 / (10 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))"
     }
-  }
+  },
+  "value_emission_status": "open_viable_scalar_emission_route"
 }

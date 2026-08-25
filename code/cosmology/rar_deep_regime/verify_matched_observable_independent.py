@@ -175,10 +175,20 @@ def outermost_rows(
         if g_bar <= 0:
             continue
         cur = rows.get(r["name"])
+        has_nonzero_bulge = r["vbul_kms"] != 0.0 or bool(
+            cur and cur["has_nonzero_bulge"]
+        )
         if cur is None or r["rad_kpc"] > cur["rad_kpc"]:
             rows[r["name"]] = dict(
-                r, v_a2=v_a2, vbar2=vbar2, g_bar=g_bar, radius_m=radius_m
+                r,
+                v_a2=v_a2,
+                vbar2=vbar2,
+                g_bar=g_bar,
+                radius_m=radius_m,
+                has_nonzero_bulge=has_nonzero_bulge,
             )
+        else:
+            cur["has_nonzero_bulge"] = has_nonzero_bulge
     return rows
 
 
@@ -194,9 +204,13 @@ def channel_b(
     n_not_deep = 0
     n_nonpositive_va2 = 0
     n_nonpositive_mb = 0
+    excluded_bulge_luminosity_ambiguous: list[str] = []
     for name, r in rows.items():
         if not (r["g_bar"] < fraction * REFERENCE_A0):
             n_not_deep += 1
+            continue
+        if r["has_nonzero_bulge"]:
+            excluded_bulge_luminosity_ambiguous.append(name)
             continue
         if r["v_a2"] <= 0:
             n_nonpositive_va2 += 1
@@ -232,6 +246,12 @@ def channel_b(
             "n_outermost_not_deep": n_not_deep,
             "n_nonpositive_anomalous_speed2": n_nonpositive_va2,
             "n_nonpositive_baryonic_mass": n_nonpositive_mb,
+            "n_excluded_bulge_luminosity_ambiguous": len(
+                excluded_bulge_luminosity_ambiguous
+            ),
+            "excluded_bulge_luminosity_ambiguous": sorted(
+                excluded_bulge_luminosity_ambiguous
+            ),
             "n_used": 0,
             "a0_unweighted_log_mean_m_s2": None,
             "empty_selection": (
@@ -257,6 +277,12 @@ def channel_b(
             "n_outermost_not_deep": n_not_deep,
             "n_nonpositive_anomalous_speed2": n_nonpositive_va2,
             "n_nonpositive_baryonic_mass": n_nonpositive_mb,
+            "n_excluded_bulge_luminosity_ambiguous": len(
+                excluded_bulge_luminosity_ambiguous
+            ),
+            "excluded_bulge_luminosity_ambiguous": sorted(
+                excluded_bulge_luminosity_ambiguous
+            ),
             "n_used": int(len(names)),
             "a0_unweighted_log_mean_m_s2": float(10.0 ** np.mean(log_arr)),
             "scatter_dex": scatter,
@@ -404,9 +430,11 @@ def resolution_statement(
     if primary_verdict == "CONSISTENT_INTERVAL_CONTAINS_ZERO":
         return (
             f"{matched} and contains zero, while {mixed} and excluded zero. "
-            "Under this diagnostic the mixed-proxy displacement is "
-            "attributable to the finite-radius total-speed proxy, not to a "
-            "normalization disagreement between the two relations. This "
+            "The combined matched-analysis changes remove the displacement "
+            "and are consistent with a mixed-proxy explanation. Because the "
+            "observable, radius choice, eligible sample, and combination rule "
+            "change together, this comparison does not causally isolate which "
+            "change is responsible. This "
             "consistency is shared with the standard null and is not "
             "evidence for OPH."
         )
@@ -545,9 +573,9 @@ def compute() -> dict[str, Any]:
                 "sensitivity"
             ),
             "bulge_mass_convention": (
-                "table-1 masses apply the disk mass-to-light value to the "
-                "total luminosity while the table-2 subtraction separates "
-                "bulges; inherited from the committed comparison"
+                "galaxies with any nonzero retained V_bulge are excluded from "
+                "channel B because table 1 gives total L_[3.6] and the "
+                "snapshot supplies no disk/bulge luminosity split"
             ),
             "neutrality": (
                 "consistency with zero is shared with the standard null and "

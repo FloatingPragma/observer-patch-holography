@@ -10,7 +10,7 @@
   "display_allowed_as_selected_class_exact_witness": false,
   "display_allowed_as_selected_class_mass_texture_audit": true,
   "downstream_algebra_closed": false,
-  "generated_utc": "2026-08-14T05:39:23Z",
+  "generated_utc": "2026-08-25T18:56:50Z",
   "lemma_chain": [
     "oph_quark_public_physical_sigma_datum_descent",
     "oph_quark_absolute_readout_algebraic_collapse",
@@ -212,11 +212,18 @@
         ]
       },
       "artifact": "oph_quark_current_family_transport_frame_exact_forward_yukawas",
-      "certification_status": "forward_matrix_certified",
+      "certification_status": "forward_matrix_arithmetic_certified_source_uncertified",
+      "forward_certification_scope": "target_anchored_matrix_arithmetic_only",
       "forward_certified": true,
       "jarlskog": -3.735348679490123e-06,
+      "matrix_arithmetic_valid": true,
       "matrix_classification": "mixed_scheme_GeV_mass_texture_matrices",
       "physical_yukawa_certified": false,
+      "predictive_promotion_allowed": false,
+      "promotion_blockers": [
+        "TARGET_ANCHORED_MATRIX_INPUT_NOT_PREDICTIVE",
+        "QUARK_COMMON_SCALE_DIMENSIONLESS_YUKAWA_CERTIFICATE"
+      ],
       "scope": "current_family_common_refinement_transport_frame_only",
       "singular_values_d": [
         0.0046999999996463915,
@@ -228,6 +235,7 @@
         1.2729000000026323,
         172.09999999999968
       ],
+      "source_certified": false,
       "stored_entry_dimension": "GeV"
     },
     "pair_status": "consistent_declared_mass_texture_singular_spectrum",

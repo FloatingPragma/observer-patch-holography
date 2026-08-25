@@ -1,11 +1,10 @@
 """Numeric companion to ``Lean/Screen/GaugeOrbitQuotientGap.lean``.
 
-Checks the worked two-fiber quotient instance against the committed
-conventions of ``z2_finite_transfer_receipt.py``:
+Checks the worked abstract two-fiber quotient instance used by the Lean
+module:
 
-* the producer's ``star_masks`` at ``L = 1`` evaluates to one mask
-  flipping both links, and ``gauge_group_masks`` to the order-two group
-  ``{0, both}``, the generating data of the Lean instance;
+* the declared global-complement action flips both abstract bits and generates
+  the order-two group ``{0, both}``;
 * on the four-configuration product space with symmetric weights
   ``(1/2, 1/2)`` and one constant rate per fiber, the generator
   ``sum_l c_l (I - E_l)`` restricted to gauge-invariant mean-zero
@@ -15,21 +14,18 @@ conventions of ``z2_finite_transfer_receipt.py``:
   ``min(c_0, c_1)``, so the minimum-rate lower bound holds on the
   quotient and is strict for positive rates.
 
-The script asserts every claim and prints a JSON summary.  It writes no
-receipt and registers nothing.
+This is not the physical ``L = 1`` periodic lattice: on that self-loop
+cellulation the two endpoint incidences cancel over Z2, while the committed
+receipt code deliberately supports only ``L >= 2``.  The script asserts every
+claim and prints a JSON summary.  It writes no receipt and registers nothing.
 """
 
 from __future__ import annotations
 
 import json
 import sys
-from pathlib import Path
 
 import numpy as np
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from z2_finite_transfer_receipt import gauge_group_masks, star_masks
 
 
 def fiber_rate(lam: float, r: float) -> float:
@@ -41,10 +37,9 @@ def build_instance(c0: float, c1: float) -> dict[str, float]:
     n_links = 2
     n_cfg = 1 << n_links  # configurations as bitmasks 0..3
 
-    stars = star_masks(1)
-    assert stars == [0b11], f"star_masks(1) = {stars}, expected [0b11]"
-    group = sorted(int(g) for g in gauge_group_masks(1))
-    assert group == [0b00, 0b11], f"gauge_group_masks(1) = {group}"
+    abstract_generator = 0b11
+    group = [0b00, abstract_generator]
+    assert group == [0b00, 0b11], f"abstract complement group = {group}"
 
     w = 0.5  # symmetric fiber weights, the descent condition on moved links
     pi = np.full(n_cfg, w * w)
@@ -119,10 +114,16 @@ def main() -> None:
     generic = build_instance(2.5, 10.0 / 3.0)
 
     summary = {
-        "schema": "oph.yang_mills.gauge_orbit_quotient_instances.v1",
+        "schema": "oph.yang_mills.gauge_orbit_quotient_instances.v2",
         "lean_module": "Lean/Screen/GaugeOrbitQuotientGap.lean",
-        "star_masks_L1": [3],
-        "gauge_group_masks_L1": [0, 3],
+        "physical_lattice_instance": False,
+        "abstract_action": "global complement on two independent bits",
+        "abstract_generator_masks": [3],
+        "abstract_group_masks": [0, 3],
+        "L1_periodic_lattice_nonclaim": (
+            "Repeated endpoint and plaquette incidences cancel over Z2 at L=1; "
+            "the committed physical receipt code requires L>=2."
+        ),
         "committed_rates_lambda1": committed,
         "generic_rates": generic,
         "checks": "all assertions passed",

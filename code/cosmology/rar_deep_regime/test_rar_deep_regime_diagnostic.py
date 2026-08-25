@@ -88,12 +88,22 @@ def test_quadrupole_crosscheck_matches_published_values() -> None:
     assert fl["simple_function_blanchet_novak_inputs"]["relative_difference"] < 0.05
     assert fl["rar_function_park_inputs"]["relative_difference"] < 1e-3
     assert fl["rar_function_park_inputs"]["pull_vs_cassini_sigma"] > 10
+    assert out["promotion_allowed"] is False
+    for row in (
+        fl["simple_function_blanchet_novak_inputs"],
+        fl["rar_function_blanchet_novak_inputs"],
+        fl["rar_function_park_inputs"],
+    ):
+        assert row["numerically_certified"] is False
+        assert row["tail_bound_certified"] is False
+        assert row["integration_warning_count"] > 0
     dens = out["density_formulation"]
     assert dens["quadrupole_s2"] == 0.0
     assert dens["tidal_scale_s2"] < 1e-30
     path = HERE / "receipts" / "qumond_quadrupole_crosscheck.json"
     receipt = json.loads(path.read_text(encoding="utf-8"))
     assert receipt["physical_claim"] is False
+    assert receipt["promotion_allowed"] is False
     assert receipt["field_law"]["rar_function_park_inputs"]["Q2_s2"] == pytest.approx(
         fl["rar_function_park_inputs"]["Q2_s2"], rel=1e-4
     )

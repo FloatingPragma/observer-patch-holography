@@ -589,6 +589,12 @@ PRIMITIVE_EXECUTORS = {
 def execute_primitive(state: ReplayState, primitive: str, args: Any,
                       where: str) -> None:
     """Execute one primitive on the state; raises ReplayError fail-closed."""
+    if not isinstance(primitive, str):
+        raise ReplayError(
+            "UNKNOWN_PRIMITIVE",
+            where,
+            f"primitive name must be a string, found {type(primitive).__name__}",
+        )
     executor = PRIMITIVE_EXECUTORS.get(primitive)
     if executor is None:
         raise ReplayError("UNKNOWN_PRIMITIVE", where,

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import pathlib
@@ -61,6 +62,10 @@ def test_build_fractional_quotient_receipts(tmp_path: pathlib.Path) -> None:
 
     for rel_path in manifest["required_files"]:
         assert (out_dir / rel_path).is_file(), rel_path
+    assert "manifest.json" not in manifest["file_hashes"]
+    for rel_path, expected in manifest["file_hashes"].items():
+        actual = "sha256:" + hashlib.sha256((out_dir / rel_path).read_bytes()).hexdigest()
+        assert actual == expected, rel_path
 
     receipts = json.loads((out_dir / "receipts.json").read_text(encoding="utf-8"))
     gates = receipts["readiness_gates"]

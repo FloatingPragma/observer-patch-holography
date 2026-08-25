@@ -40,6 +40,9 @@ def _make_request(bundle_dir: pathlib.Path) -> None:
 def _fill_manifest_provenance(bundle_dir: pathlib.Path) -> None:
     manifest_path = bundle_dir / "backend_run_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["execution_class"] = "production"
+    manifest["claim_tier"] = "production_backend_export_bundle"
+    manifest["public_promotion_allowed"] = True
     manifest["backend"] = {
         "family": "rhmc_hmc",
         "name": "pytest-production-backend",
@@ -160,4 +163,5 @@ def test_external_runner_validates_existing_array_files_and_runs_writeback() -> 
         )
         assert backend_export.exists()
         readiness_payload = json.loads(readiness.read_text(encoding="utf-8"))
-        assert readiness_payload["publication_bundle_ready"] is True
+        assert readiness_payload["publication_bundle_ready"] is False
+        assert "custody receipt" in readiness_payload["smallest_backend_residual_object"]

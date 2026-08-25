@@ -101,7 +101,7 @@
     "sigma_d(P)": "sigma_d_reference * (alpha_U(P) / alpha_u_reference) ** alpha_exponent_down",
     "sigma_u(P)": "sigma_u_reference * (alpha_U(P) / alpha_u_reference) ** alpha_exponent_up"
   },
-  "generated_utc": "2026-05-06T03:51:41Z",
+  "generated_utc": "2026-08-25T18:56:49Z",
   "input_artifacts": {
     "edge_statistics": "oph_quark_edge_statistics_spread_candidate",
     "odd_response": "oph_quark_odd_response_law",
@@ -110,7 +110,7 @@
   "input_statuses": {
     "edge_statistics_bridge_status": "candidate_only",
     "odd_response_proof_status": "candidate_only",
-    "pure_b_source_status": "source_values_derived_from_source_emission"
+    "pure_b_source_status": "comparison_only_values_from_unpromotable_source_projection"
   },
   "notes": [
     "The exact default-universe masses are still anchor values, not arbitrary-P theorem emissions.",
@@ -122,7 +122,7 @@
     "default_universe_anchor_not_removed",
     "edge_statistics_bridge_not_closed",
     "off_canonical_odd_response_not_closed",
-    "off_canonical_pure_B_payload_family_not_closed"
+    "pure_B_source_payload_not_closed"
   ],
   "proof_status": "candidate_only",
   "public_promotion_allowed": false,

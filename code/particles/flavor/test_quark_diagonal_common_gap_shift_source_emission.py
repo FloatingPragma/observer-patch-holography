@@ -33,14 +33,17 @@ def main() -> int:
     if payload.get("beta_u_diag_B_source") is None or payload.get("beta_d_diag_B_source") is None:
         print("quark source-emission amplitudes should be populated on the selected public class", file=sys.stderr)
         return 1
-    if payload.get("smallest_constructive_missing_object") != "off_canonical_pure_B_source_payload_family":
-        print("quark source-emission artifact should now point at the off-canonical pure-B family", file=sys.stderr)
+    if payload.get("smallest_constructive_missing_object") != "source_derived_c_d_over_c_u_or_t1_value":
+        print("quark source-emission artifact should retain the scalar source gap", file=sys.stderr)
         return 1
     if payload.get("source_readback_artifact") != "oph_family_excitation_diagonal_common_gap_shift_source_readback":
         print("quark source-emission artifact should consume the source-readback layer", file=sys.stderr)
         return 1
-    if payload.get("source_readback_status") != "closed_public_selected_class_source_readback":
-        print("quark source-emission artifact should see the selected-class source-readback closure", file=sys.stderr)
+    if payload.get("source_readback_status") != "comparison_only_readback_from_unpromotable_payload":
+        print("quark source-emission artifact should inherit the readback quarantine", file=sys.stderr)
+        return 1
+    if payload.get("proof_status") != "comparison_only_projection_from_unpromotable_readback":
+        print("quark source-emission values must remain comparison-only", file=sys.stderr)
         return 1
     return 0
 

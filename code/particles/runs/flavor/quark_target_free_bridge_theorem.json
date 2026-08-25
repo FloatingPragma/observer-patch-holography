@@ -1,19 +1,13 @@
 {
   "artifact": "oph_quark_target_free_bridge_theorem",
-  "bridge_closure_status": "internalized_on_code_surface",
-  "computed_current_family_target_check": {
-    "Delta_ud_overlap": 0.12957571450332311,
-    "ell_ud": 0.7774542870199387,
-    "eta_Q_centered": -0.01756721274463154,
-    "kappa_Q": -0.011997751342900289,
-    "ray_modulus": 0.6478785725166156,
-    "t1": 0.6478785725166156
-  },
+  "bridge_closure_status": "conditional_algebra_closed_value_emission_open",
+  "computed_current_family_target_check": null,
   "equivalent_wrappers": {
     "light_quark_overlap_defect_value_law": "Delta_ud_overlap = (1/6) * log(c_d / c_u)",
     "quark_d12_t1_value_law": "t1 = ray_modulus = (5/6) * log(c_d / c_u)"
   },
-  "generated_utc": "2026-07-27T08:32:19Z",
+  "exact_missing_object": "source_derived_c_d_over_c_u_or_t1_value",
+  "generated_utc": "2026-08-25T18:56:47Z",
   "induced_d12_mass_side_corollaries": {
     "Delta_ud_overlap": "(1/6) * log(c_d / c_u)",
     "eta_Q_centered": "-((1 - x2^2) / 27) * t1",
@@ -36,11 +30,11 @@
     "tau_u_log_per_side": "sigma_d_total_log_per_side * t1 / (10 * (sigma_u_total_log_per_side + sigma_d_total_log_per_side))"
   },
   "notes": [
-    "This artifact internalizes the target-free bridge theorem directly on the local code surface.",
-    "The computed current-family target values remain a numerical check, not a proof premise.",
-    "The attached current-family target values are included only as a numerical check for the proposed theorem package."
+    "This artifact internalizes only the conditional bridge identities; it does not emit their scalar input.",
+    "The D12 mass ray remains a viable open source-emission route, not a no-go.",
+    "A current-family target check is absent by default and, when explicitly attached, remains comparison-only."
   ],
-  "principal_theorem_statement": "Assume OPH axioms + P together with the minimal light branch y_u = c_u * epsilon^6, y_d = c_d * epsilon^6, epsilon = 1/6, and the emitted same-family D12 mass ray D12_ud^mass = R_D12^ud. Then the target-free light overlap-defect scalar is Delta_ud_overlap = (1/6) * log(c_d / c_u). On the emitted D12 mass ray one has Delta_ud_overlap = t1 / 5 and ray_modulus = t1. Therefore t1 = (5/6) * log(c_d / c_u), equivalently Delta_ud_overlap = t1 / 5 = (1/6) * log(c_d / c_u).",
+  "principal_theorem_statement": "Conditional on a source-derived positive coefficient pair c_u,c_d, assume the minimal light branch y_u = c_u * epsilon^6, y_d = c_d * epsilon^6, epsilon = 1/6, and the emitted same-family D12 mass ray D12_ud^mass = R_D12^ud. Then the target-free light overlap-defect scalar is Delta_ud_overlap = (1/6) * log(c_d / c_u). On the emitted D12 mass ray one has Delta_ud_overlap = t1 / 5 and ray_modulus = t1. Therefore t1 = (5/6) * log(c_d / c_u), equivalently Delta_ud_overlap = t1 / 5 = (1/6) * log(c_d / c_u).",
   "proof_skeleton": [
     {
       "statement": "On the minimal light branch, y_u = c_u * epsilon^6 and y_d = c_d * epsilon^6 with epsilon = 1/6. The common sixth-order factor cancels, so log(y_d / y_u) = log(c_d / c_u).",
@@ -55,12 +49,19 @@
       "step": 3
     }
   ],
-  "proof_status": "closed_target_free_bridge_theorem_internalized",
-  "public_promotion_allowed": true,
+  "proof_status": "conditional_bridge_identity_value_source_open",
+  "public_promotion_allowed": false,
   "scope": "public_bridge_theorem_package",
-  "single_bridge_gap_to_internalize": null,
+  "single_bridge_gap_to_internalize": "source_derived_c_d_over_c_u_or_t1_value",
+  "target_check_attachment": {
+    "attached": false,
+    "changes_public_promotion": false,
+    "classification": "explicit_comparison_only_target_anchored_sidecar",
+    "used_as_proof_premise": false
+  },
   "theorem_ids": [
     "light_quark_overlap_defect_value_law",
     "quark_d12_t1_value_law"
-  ]
+  ],
+  "value_emission_status": "open_viable_scalar_emission_route"
 }

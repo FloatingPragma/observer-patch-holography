@@ -22,7 +22,7 @@
       "hadrons"
     ]
   },
-  "generated_utc": "2026-08-14T05:35:45Z",
+  "generated_utc": "2026-08-25T19:00:43Z",
   "provenance": {
     "artifact": "oph_blind_prediction_provenance_ledger",
     "promotion_allowed": false
@@ -98,8 +98,8 @@
     },
     {
       "chain": "hierarchy_naturality_bridge",
-      "claim_boundary": "The hierarchy relation is exact under the declared screen premises; Higgs naturality is exact on its selected branch. The public Thomson endpoint, W/Z mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G are separate surfaces.",
-      "claim_level": "exact_conditional_selected_branch_source_side_theorem",
+      "claim_boundary": "The hierarchy implication is exact under the declared screen premises. The stored zero naturality defect follows only for separately declared comparison maps; the source antecedents admit nonzero-defect completions, so source-derived maps and an independent residual evaluation remain open. The public Thomson endpoint, W/Z mass promotion, charged-lepton absolute masses, source-only hadrons, Strong CP, and full SI G are separate surfaces.",
+      "claim_level": "conditional_bridge_plus_declared_map_packaging_identity",
       "evidence_artifacts": [
         "code/particles/hierarchy/certificates/R_local_global_hierarchy_resonance_closeout_335.json",
         "code/particles/hierarchy/certificates/R_EW_global_capacity_certificate.json",
@@ -109,15 +109,17 @@
       "outputs": {
         "N_CRC_EW": "3.5323546226929906511187512962330547600462096590942035604238177731136802717148740820434110040644403858228611984E+122",
         "bridge_residual": "0.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-        "epsilon_H": "0"
+        "declared_map_epsilon_H": "0"
       },
       "promotable": false,
       "required_receipts": [
         "source production of the unit cost, inverse pairing, and D-optimal selector",
-        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"
+        "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch",
+        "source-derived RG/Higgs comparison maps",
+        "independent evaluation of both naturality residuals"
       ],
       "resonance_status": "exact_conditional_local_global_hierarchy_resonance",
-      "status": "exact_conditional_selected_branch__full_resonance_not_promoted",
+      "status": "conditional_hierarchy_bridge__declared_naturality_identity_not_promoted",
       "work_in_progress_receipts": [
         "source production of the unit cost, inverse pairing, and D-optimal selector",
         "HIERARCHY-SCREEN-READOUT: identify log(E_cell/v)=Gamma_screen and attach it to the alpha_U/B_EW branch"

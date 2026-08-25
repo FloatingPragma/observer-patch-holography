@@ -24,7 +24,11 @@ def test_quark_off_canonical_p_evaluator_obstruction_records_hard_blockers() -> 
     assert payload["proof_status"] == "off_canonical_p_evaluator_underdetermined_current_corpus"
     assert payload["theorem_grade_closure"] is False
     assert payload["selected_public_exact_surface"]["closed"] is False
-    assert payload["selected_public_pure_B_payload"]["closed"] is True
+    assert payload["selected_public_pure_B_payload"]["closed"] is False
+    assert payload["selected_public_pure_B_payload"]["public_promotion_allowed"] is False
+    assert payload["selected_public_pure_B_payload"]["proof_status"] == (
+        "blocked_unpromotable_yukawa_input_and_open_d12_value_source"
+    )
     assert payload["scientific_result"]["closure_kind"] == "hard_no_go_current_corpus"
     assert payload["scientific_result"]["off_canonical_evaluator_supplied"] is False
     assert payload["scientific_result"]["theorem_grade_surface"] == (

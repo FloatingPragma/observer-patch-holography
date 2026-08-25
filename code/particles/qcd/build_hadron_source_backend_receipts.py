@@ -356,10 +356,6 @@ def build_bundle(out_dir: Path, *, claim: str, tier: str, lambda_path: Path) -> 
         "file_hashes": file_hashes,
     }
     write_payload(out_dir / "manifest.json", manifest)
-    manifest["file_hashes"]["manifest.json"] = "sha256:" + hashlib.sha256(
-        (out_dir / "manifest.json").read_bytes()
-    ).hexdigest()
-    write_payload(out_dir / "manifest.json", manifest)
     return manifest
 
 
