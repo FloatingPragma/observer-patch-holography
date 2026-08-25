@@ -23,6 +23,7 @@ import Geometry.CommonWorldMaxwellClockJoin
 import Geometry.IntegerKCombInvariance
 import Geometry.CommonWorldJointAction
 import Geometry.ScreenCarrierMapCandidate
+import Geometry.CarrierDynamicsCompatibility
 
 /-!
 # OPH construction geometry umbrella

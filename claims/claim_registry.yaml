@@ -7315,6 +7315,155 @@
         "boundary": [],
         "rationale": "The finite fiber-product scope and transfer conventions are lane-local mathematical hypotheses of the Yang-Mills diagnostic program outside the canonical derivation-premise register."
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+      "statement": "The carrier-map candidate is dynamics compatible, and every statement is compatibility of the candidate, never a physical identification. A constrained transport structure, a port bijection, a seam bijection with a seam sign, and a face bijection tied to the committed seam table and signed face incidence by exact clauses, intertwines the committed screen evolution exactly: the port coboundary, face curvature, face codifferential, and incidence boundary intertwine, the scaled electric and magnetic fields transport, the scaled Ampere update holds for a transported history exactly when it holds for the original, the Gauss constraint transports with pulled-back charge, the staggered energy form is invariant, and the transport commutes with the committed gauge transformation, all uniformly in the step, so no step and no calibration is selected. The two generator inhabitants are kernel-verified row by row against the committed tables, the clauses are closed under composition and satisfied by the identity, and through the committed word certificate every row of the committed sixty-element action is the port component of a transport, so every committed symmetry transports the evolution. The generators act geometrically through the candidate embedding by the two exact rotation matrices at port, seam, and face level; the sixty-element level is combinatorial through the word certificate, and word-level matrix products are not assembled. At the committed certified step 4/5 every transport carries zero-current solutions to zero-current solutions with the same staggered form and the same rational energy bound 25/2. Transport commutes with the committed barycentric refinement along both routes, at the barycentric level the corpus commits. A declared interaction candidate couples the worldline increment to the seam electric field through the embedded seam directions: it is gauge invariant at every relative normalization, its zero value recovers the decoupled direct sum of the committed joint action, and an explicit pulse configuration separates normalizations with exact witness value 4, so the coupling is declared. Two distinct transports satisfy every clause, so no frame identification is forced. No equation of motion, force law, back-reaction, observer readout, or physical scale follows; the propagation, source-attachment, and calibration premise rows stay open and unconsumed.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_candidate_dynamics_transport_with_declared_interaction",
+      "assumptions": [
+        "declared_candidate_selection_among_equivariant_embeddings",
+        "declared_interaction_shape_and_free_normalization"
+      ],
+      "imported_results": [
+        "finite_permutation_word_certificates"
+      ],
+      "oph_specific_delta": "Joins the carrier-map candidate to the committed Maxwell dynamics: the full committed symmetry action transports the scaled evolution exactly with kernel-verified tables, refinement compatibility holds along both routes, certified-step receipts survive transport, and a first gauge-invariant interaction candidate exists with its normalization proved free, so the common-world program moves from a static embedding candidate to a dynamics-compatible one with the interaction normalization exposed as the next selection obligation.",
+      "novelty_type": "machine_checked_equivariant_evolution_transport_for_a_candidate_embedding",
+      "evidence": [
+        "Lean/Geometry/CarrierDynamicsCompatibility.lean",
+        "Lean/Geometry/ScreenCarrierMapCandidate.lean",
+        "Lean/Screen/CertifiedScaledStepInstrument.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "An intertwining identity misses a sign or term, a listed permutation row has no transport, a generator transport disagrees with the geometric action of its rotation matrix, the two barycentric routes disagree, the certified-step transport fails, the gauge variation of the interaction candidate is nonzero, or a non-forcing inhabitant fails.",
+      "scope_if_false": "Only the dynamics-compatibility layer falls. The carrier-map candidate's fidelity clauses and the committed evolution receipts are separately assessed.",
+      "status": "candidate_dynamics_compatibility_attained__interaction_selection_calibration_and_readout_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-DM-ROTATION-CURVE-PROFILE-LIKELIHOOD",
+      "statement": "The declared-convention half of the rotation-curve likelihood named by the audited order exists as a labeled seen-data postdiction, and the word joint names the shared-nuisance jointly-resampled treatment, with no combined two-channel likelihood formed. A per-point Gaussian velocity likelihood for g_model = g_bar + sqrt(g_bar a0) profiles disk mass-to-light under a log-normal prior centered at 0.5, distance and inclination at their catalogued per-galaxy errors, keeps the variance-normalization term, and scans a declared equal-correlation intra-galaxy covariance family over rho in {0, 0.2, 0.4, 0.6}, reporting profile-likelihood intervals for a0 at every rho on the full retained sample and the fixed deep subsets. On the deep f = 0.1 subset the maximum-likelihood constant moves from 7.9e-11 at rho = 0 to 5.8e-11 m/s^2 at rho = 0.6, so the open covariance calibration dominates the systematic budget and no single rho is selected. Reduced chi-square lies between 3.6 and 16.4 under the point-count dof convention on every row, so the declared error family, with no intrinsic-scatter term, understates the observed scatter and every interval is conditional on it. The paired comparison against the matched baryon-subtracted channel under the same profiled nuisances and joint galaxy resampling contains zero at every cut and correlation value, direction-neutrally: consistency is shared with the standard null and supports nothing. The source does not fix a0, so the order item resolves as recording the measurement-side interval per declared rho that a future source derivation must meet. A synthetic sample with known a0 recovers it on both channels with coverage sanity, an independent script re-derives the receipt byte for byte, and mutation guards cover the subtraction sign, cut placement, mass-to-light encoding, and the covariance algebra on both the helper and the production path. Calibrated covariance, intrinsic scatter, luminosity and HI-mass error propagation, and every relativistic and cosmological attachment stay open.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "declared_convention_profile_likelihood_with_covariance_scan",
+      "assumptions": [
+        "committed_mass_to_light_and_deep_cut_selections",
+        "declared_equal_correlation_covariance_family_and_nuisance_priors"
+      ],
+      "imported_results": [
+        "SPARC_rotation_curve_sample",
+        "seen_data_postdiction_discipline"
+      ],
+      "oph_specific_delta": "Executes the measurement half of the audited order item: the deep-regime profile faces a full per-point likelihood with profiled nuisances instead of an estimator diagnostic, the covariance scan exposes the dominant open systematic as a 0.13 dex drift of the fitted constant, the misfit rows show the declared error family understates the scatter, and the matched-channel consistency of the diagnostic survives the likelihood treatment at every scanned correlation value.",
+      "novelty_type": "profiled_nuisance_rotation_curve_likelihood_with_declared_covariance_scan",
+      "evidence": [
+        "code/cosmology/rar_deep_regime/joint_likelihood/joint_rar_likelihood.py",
+        "code/cosmology/rar_deep_regime/joint_likelihood/verify_joint_likelihood_independent.py",
+        "code/cosmology/rar_deep_regime/joint_likelihood/test_joint_rar_likelihood.py",
+        "code/cosmology/rar_deep_regime/joint_likelihood/runtime/joint_likelihood_receipt.json",
+        "code/cosmology/rar_deep_regime/joint_likelihood/LIKELIHOOD_CONVENTIONS.md",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "The receipt fails byte-verification, the synthetic fixture fails recovery or coverage sanity, a mutation guard passes, a quoted interval or chi-square row is misreported, or the likelihood is presented as a posterior, as covariance-calibrated, or as an OPH verdict, which would violate rather than execute this claim.",
+      "scope_if_false": "Only the declared-convention likelihood falls. The matched diagnostic, the deep-profile theorems, and the open calibrated-likelihood program are separately assessed.",
+      "status": "declared_convention_likelihood_attained__covariance_calibration_intrinsic_scatter_and_source_a0_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The nuisance priors, covariance family, correlation grid, and interval conventions are lane-local declared measurement conventions on seen data outside the canonical derivation-premise register."
+      }
+    },
+    {
+      "claim_id": "OPH-QFT-ENLARGED-TARGET-RECORD-EMBEDDING",
+      "statement": "The enlarged-target live path of the scoped fixed-target obstruction is constructed, and the construction is a finite-matrix existence statement with no AQFT vocabulary attached. A unital injective star-algebra embedding of the eight-history carrier M8(C) into M8(C) tensor M2(C) reads the slot-two record bit of each history into one qubit ancilla; its range is exactly the enlarged target, the star subalgebra generated by the ampliated interval algebra and the ancilla factor. The headline pair holds clause for clause in the exact linear-map clause shape of the committed obstruction: on the fixed target the conjunction of range, bimodule, and state-preservation clauses is obstructed, and on the enlarged target it is inhabited, with the bimodule clause quantifying over the same committed interval algebra through the canonical ampliation, on which the embedding coincides with the ampliation. The range clause is the single clause whose target algebra changes; the state clause evaluates the exhibited extension, a diagonal density pairing each history with its own slot-two bit, proved a state, proved to restrict along the ampliation to the committed source state, and proved of non-product form. Two delimitations locate the escape exactly: for every ancilla matrix the product-form functional admits no map with the transported clauses, and a map whose range lies in the ampliated copy alone is obstructed even against the correlated extension, so the ancilla factor and the record-correlated extension are both required. The committed record means 197/1754, 94/1754, and 103/1754 are preserved through the embedding. The ancilla dimension two is least in this tensor-factor family, reading the dimension-one instance through the canonical identification stated as prose; minimality over arbitrary enlarged targets, uniqueness of the extension, regions, time slices, dynamics, and continuum attachment are open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_enlarged_target_embedding_with_delimited_escape",
+      "assumptions": [
+        "exhibited_state_extension_without_uniqueness"
+      ],
+      "imported_results": [
+        "finite_matrix_star_algebra_theory"
+      ],
+      "oph_specific_delta": "Converts the audited no-go boundary into a constructive existence on its first live path: the record bit escapes the fixed interval algebra through one qubit of ancilla with the committed clause list otherwise verbatim, and the two delimitations prove the enlargement and the record-correlated state extension are each necessary, so the obstruction's exact scope is certified from both sides.",
+      "novelty_type": "clause_exact_enlarged_target_escape_of_a_committed_matrix_no_go",
+      "evidence": [
+        "Lean/QFT/EnlargedTargetRecordEmbedding.lean",
+        "Lean/QFT/SourceHistoryExpectationNet.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The embedding fails a homomorphism, injectivity, or range clause; the headline pair, a delimitation, the non-product proof, a preserved mean, or the state restriction fails; or the construction is presented with net, locality, inclusion, or dynamics vocabulary.",
+      "scope_if_false": "Only the enlarged-target construction falls. The committed fixed-target obstruction and the other live alternatives are separately assessed.",
+      "status": "enlarged_target_existence_attained__regions_dynamics_uniqueness_and_continuum_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        743
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT",
+      "statement": "The finite descent-and-restriction part of the gauge-orbit quotient step named by the fiber-rate comparison is proved, with the quotient formalized as the gauge-invariant subspace and the orbit-space carrier formulation the named residual formalization delta. The committed Z2 gauge action is formalized in the producer's convention: a gauge transformation is an XOR mask on link configurations with incidence counted over distinct incident sites, the gauge group of a generating mask set is the permutation subgroup generated by the mask translations, and every element is itself a mask translation supported on the moved links. With fiber weights symmetric on every moved link, a condition proved equivalent to ratio one there under the committed pi = Omega^2 reading and exactly the equality case of the 2 lambda floor, each collar conditional expectation and the product generator commute with every gauge translation, the product weight is gauge invariant, and the generator maps the invariant submodule, which contains the constants, to itself; the quotient generator is the restriction. Restriction shrinks the constraint set of a Dirichlet inequality, so every product-space Dirichlet constant survives on the quotient: every uniform fiber-rate floor, the minimum fiber rate, and the Kogut-Susskind 2 lambda floor are Dirichlet constants for the quotient generator on mean-zero gauge-invariant observables, the floor uniform in the unmoved-link ratios while the moved-link ratios are pinned to one by the descent condition. A worked two-fiber instance with the both-links star mask, the value the committed star-mask convention takes on the one-by-one periodic torus, has gauge group of order two, invariant mean-zero observables that are eigenvectors with eigenvalue c0 + c1, exact best quotient Dirichlet constant c0 + c1, and committed-rate value 4, strictly above the 2 lambda = 2 floor, so the bound is one-sided and no sharpness on the quotient is claimed. The committed receipt tori with several star generators, the non-product orbit law with orbit-dependent rates, the approximate-tensorization comparison, the anisotropic limit, refinement, volume, and every continuum statement stay open; no mass gap and no Clay-problem step.",
+      "owner_paper": "extra/yang_mills_gap_clay_problem.tex",
+      "tier": "finite_gauge_descent_with_restriction_bound_on_invariant_subspace",
+      "assumptions": [
+        "finite_two_point_fiber_product_scope",
+        "moved_link_weight_symmetry_as_descent_condition"
+      ],
+      "imported_results": [
+        "finite_markov_generator_spectral_theory"
+      ],
+      "oph_specific_delta": "Closes the named open gap of the fiber-rate comparison at its provable finite level: the committed gauge action gets an exact Lean formalization matched to the producer's bit convention, the generator descends to the invariant subspace under a proved characterization of the gauge-invariance condition, and the uniform 2 lambda floor survives the quotient by restriction, with the exact instance showing the quotient constant can sit strictly above the floor, so the remaining distance to the committed receipt tori is isolated in the named non-product-law and orbit-carrier deltas.",
+      "novelty_type": "machine_checked_gauge_descent_and_restriction_bound",
+      "evidence": [
+        "Lean/Screen/GaugeOrbitQuotientGap.lean",
+        "Lean/Screen/KogutSusskindFiberRateComparison.lean",
+        "code/yang_mills/gauge_orbit_quotient_instances.py",
+        "extra/yang_mills_gap_clay_problem.tex"
+      ],
+      "falsifier": "A mask-translation, descent, or invariance identity fails; the restriction principle or a quotient Dirichlet bound fails; the instance eigenvalue, exact constant, or committed-rate value fails; the weight-symmetry characterization fails; or any statement is presented at orbit-space, all-coupling, continuum, or mass-gap strength.",
+      "scope_if_false": "Only the descent-and-restriction layer falls. The product-space fiber-rate comparison and the committed transfer receipts are separately assessed.",
+      "status": "descent_and_restriction_attained__orbit_carrier_non_product_law_and_continuum_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        743,
+        744
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The finite fiber-product scope, the producer's mask convention, and the moved-link symmetry condition are lane-local mathematical hypotheses of the Yang-Mills quotient program outside the canonical derivation-premise register."
+      }
     }
   ]
 }

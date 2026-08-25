@@ -730,9 +730,28 @@ eigenstructure, hence bounded below by \(2\lambda\) uniformly in every fiber
 ratio. Concrete two- and three-fiber instances with distinct ratios carry
 computed exact gaps in a released receipt tied to the finite-transfer
 conventions of this section. The comparison is proved on the independent
-fiber product; carrying it through the gauge-orbit quotient is the exact
-open step, and testing the anisotropic Wilson-to-Hamiltonian limit is the
-other live constructive route. The scalar form of
+fiber product, and the finite descent-and-restriction part of the
+gauge-orbit quotient step is machine-checked
+(\path{Lean/Screen/GaugeOrbitQuotientGap.lean}): the \(\mathbb Z_2\)
+gauge action of the transfer receipts, an XOR mask per site star with
+incidence over distinct incident sites, is formalized as a permutation
+subgroup whose every element is a mask translation; with fiber weights
+symmetric on every moved link, a condition proved equivalent to ratio one
+there under the \(\pi=\Omega^2\) reading and exactly the equality case of
+the \(2\lambda\) floor, the product generator commutes with every gauge
+translation and restricts to the gauge-invariant subspace, and every
+product-space Dirichlet constant survives that restriction, so the
+minimum fiber rate and the \(2\lambda\) floor bound the quotient
+generator on mean-zero invariant observables, uniformly in the
+unmoved-link ratios. A worked two-fiber instance has exact quotient
+constant \(c_0+c_1=4\) at \(\lambda=1\), strictly above the floor \(2\),
+so the bound is one-sided. The quotient is formalized as the invariant
+subspace; the orbit-space carrier formulation, the committed receipt tori
+with several star generators, the non-product orbit law with
+orbit-dependent rates, and the approximate-tensorization comparison are
+the named residual steps, and testing the anisotropic
+Wilson-to-Hamiltonian limit is the other live constructive route. The
+scalar form of
 Theorem~\ref{thm:ec-law} is what cross-fiber equality buys; the floor itself
 does not require scalar rates.
 

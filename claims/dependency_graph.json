@@ -169,7 +169,11 @@
   "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
   "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
   "OPH-QUANTUM-INS03-V2-REPLAY-GATE",
-  "OPH-YM-FIBER-RATE-COMPARISON"
+  "OPH-YM-FIBER-RATE-COMPARISON",
+  "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+  "OPH-DM-ROTATION-CURVE-PROFILE-LIKELIHOOD",
+  "OPH-QFT-ENLARGED-TARGET-RECORD-EMBEDDING",
+  "OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT"
  ],
  "edges": [
   {
@@ -1536,6 +1540,41 @@
    "from": "OPH-YM-GAP",
    "to": "OPH-YM-FIBER-RATE-COMPARISON",
    "role": "supplies the constructive program, the committed finite-transfer conventions, and the gauge-orbit quotient target that the finite fiber-dependent-rate comparison executes at its provable level"
+  },
+  {
+   "from": "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+   "to": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+   "role": "supplies the candidate embedding, its exact rays, rotation matrices, word certificate, and refinement action whose dynamics compatibility the transport structure proves"
+  },
+  {
+   "from": "OPH-EM-CERTIFIED-SCALED-STEP-INSTRUMENT",
+   "to": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+   "role": "supplies the committed scaled evolution, staggered form, and certified step 4/5 receipts that every transport is proved to carry to themselves"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
+   "to": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+   "role": "supplies the decoupled direct-sum action that the interaction candidate's zero-normalization value recovers as its regression limit"
+  },
+  {
+   "from": "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
+   "to": "OPH-DM-ROTATION-CURVE-PROFILE-LIKELIHOOD",
+   "role": "supplies the matched baryon-subtracted channel, cuts, and conventions that the likelihood re-examines under profiled nuisances and the declared covariance scan"
+  },
+  {
+   "from": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+   "to": "OPH-DM-ROTATION-CURVE-PROFILE-LIKELIHOOD",
+   "role": "supplies the unique deep-regime profile whose single constant the likelihood fits; the likelihood tests the profile against the declared error family, never the characterization theorem"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-HISTORY-STATE-PRESERVING-RECORD-NET",
+   "to": "OPH-QFT-ENLARGED-TARGET-RECORD-EMBEDDING",
+   "role": "supplies the committed fixed-target obstruction, its clause list, the interval algebra, and the source state whose enlarged-target escape the embedding constructs clause for clause"
+  },
+  {
+   "from": "OPH-YM-FIBER-RATE-COMPARISON",
+   "to": "OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT",
+   "role": "supplies the product-space rate identity, minimum-rate gap, and 2 lambda floor whose survival on the gauge-invariant subspace the descent-and-restriction theorems prove, and names the quotient step this claim executes at its finite level"
   }
  ]
 }

@@ -597,6 +597,33 @@ physical verdict requires the joint nuisance and measurement-error
 likelihood named in Section~\ref{sec:open}. The generic modular-charge
 dark-sector statements do not depend on this profile fit.
 
+\paragraph{Profile likelihood.}
+The declared-convention half of that likelihood is released with the
+paper: a per-point rotation-curve likelihood for
+\(g_{\rm obs}=g_{\rm bar}+\sqrt{g_{\rm bar}a_0}\) with per-galaxy profiled
+nuisances (disk mass-to-light under a log-normal prior centered at
+\(0.5\), distance and inclination at their catalogued errors), the
+variance-normalization term kept in the objective, and a declared
+equal-correlation intra-galaxy covariance family scanned over
+\(\rho\in\{0,0.2,0.4,0.6\}\). On the \(f=0.1\) deep subset the
+maximum-likelihood constant moves from \(0.794\) to
+\(0.582\times10^{-10}\,\mathrm{m\,s^{-2}}\) as \(\rho\) runs from \(0\) to
+\(0.6\), so the covariance choice, whose calibration is open, dominates
+the systematic budget and no single \(\rho\) is selected. Reduced
+chi-square sits between \(3.6\) and \(16.4\) under the point-count
+degrees-of-freedom convention on every subset and correlation value, so
+the declared error family, which carries no intrinsic-scatter term,
+understates the observed scatter, and every quoted interval is conditional
+on that family. The paired comparison against the matched
+baryon-subtracted channel, under the same profiled nuisances and joint
+galaxy resampling, contains zero at every cut and correlation value. The
+source does not fix \(a_0\); the released receipt records the
+measurement-side interval, per declared correlation value, that a future
+source derivation of \(a_0\) must meet. An independent script re-derives
+the receipt byte for byte, a synthetic sample with known \(a_0\) recovers
+it through the same pipeline, and mutation guards cover the subtraction
+sign, the cut, the mass-to-light encoding, and the covariance algebra.
+
 \section{Cosmological Scaling}
 \label{sec:cosmo}
 
@@ -638,7 +665,10 @@ remains is the continuum identification for the physical cap generator,
 whose modular flow the finite boost datum only declares.
 \item \textbf{Abundance.} The comoving anomalous charge of the early screen,
 the resulting \(\Omega_A\), and the joint galaxy, cluster, lensing, CMB, and
-growth likelihood are not derived.
+growth likelihood are not derived. Within rotation curves, the released
+profile likelihood is conditional on its declared error family: a
+calibrated intra-galaxy covariance, an intrinsic-scatter model, and a
+source value of \(a_0\) are the open measurement-side constructions.
 \end{enumerate}
 
 \section{Conclusion}
@@ -656,9 +686,12 @@ the isotropic channel. Its deep-regime profile gives the radial-acceleration rel
 flat rotation curves, and the baryonic Tully--Fisher relation with one
 constant. Under the declared fixed-mass-to-light diagnostic, the SPARC
 radial-acceleration and matched anomalous-speed channels agree on that
-constant within the paired bootstrap interval, on seen data; a joint
-nuisance and measurement-error likelihood is required for a physical
-verdict. The compact-source half of the collar-scale premise is a
+constant within the paired bootstrap interval, on seen data, and the
+released profile likelihood with profiled nuisances reproduces the
+agreement at every scanned intra-galaxy correlation value; a calibrated
+covariance and intrinsic-scatter treatment stays required for a physical
+verdict, and the correlation choice dominates the systematic budget. The
+compact-source half of the collar-scale premise is a
 conditional saturation theorem with an exponential rate in the local record
 density, and the profile with its unique constant is characterized by
 deep-regime scale covariance and quadrature composition of independent

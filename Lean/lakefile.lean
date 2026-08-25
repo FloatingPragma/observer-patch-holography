@@ -85,6 +85,7 @@ lean_lib «OPHScreen» where
     `LocalFaceMaxwellAction, `TemporalMaxwellEvolution,
     `ScaledMaxwellStability, `CertifiedScaledStepInstrument,
     `DispersionArmingInterface, `KogutSusskindFiberRateComparison,
+    `GaugeOrbitQuotientGap,
     `SMStructureAdequacySurface, `SMStructureComposition,
     `MatterGrammarIndexBridge, `ElectroweakBreakingComposition,
     `AssembledActionComposition, `GlobalFormCharacterDescent,

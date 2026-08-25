@@ -1261,7 +1261,8 @@
     "Lean/Screen/CertifiedScaledStepInstrument.lean",
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
     "Lean/Geometry/CommonWorldJointAction.lean",
-    "Lean/Geometry/ScreenCarrierMapCandidate.lean"
+    "Lean/Geometry/ScreenCarrierMapCandidate.lean",
+    "Lean/Geometry/CarrierDynamicsCompatibility.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
@@ -1274,9 +1275,10 @@
     "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement",
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
     "Lean/Geometry/CommonWorldJointAction.lean": "statement",
-    "Lean/Geometry/ScreenCarrierMapCandidate.lean": "statement"
+    "Lean/Geometry/ScreenCarrierMapCandidate.lean": "statement",
+    "Lean/Geometry/CarrierDynamicsCompatibility.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open. The screen carrier-map candidate embeds the twelve-port complex into the spatial slice with proved Gram, incidence, equivariance, refinement, and spacelike fidelity, and proves the selection non-forced; it attaches no physical field sector, frame law, calibration, continuum domain, or readout, so this premise stays open and unconsumed."
+   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open. The screen carrier-map candidate embeds the twelve-port complex into the spatial slice with proved Gram, incidence, equivariance, refinement, and spacelike fidelity, and proves the selection non-forced; it attaches no physical field sector, frame law, calibration, continuum domain, or readout, so this premise stays open and unconsumed. The dynamics-compatibility module extends the candidate with exact evolution transport under the committed sixty-element action, barycentric refinement compatibility, and a declared gauge-invariant interaction candidate whose normalization is proved non-forced; it attaches no field-sector identification, frame law, calibration, or readout, so this premise stays open and unconsumed."
   },
   {
    "id": "PR-54",
