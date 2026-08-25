@@ -18,9 +18,9 @@ Everything that follows is that experiment, run for longer with better equipment
 
 What follows is six behaviors of the machine, for now without explanations which take the rest of the book.
 
-**Galileo's cabin has never been beaten.** Four hundred years of trying, with instruments he could not have imagined, and no experiment performed inside a smoothly moving laboratory has ever revealed that it was moving. The nineteenth century made a particular effort, looking for the laboratory's motion through the medium that light was supposed to be waving in, and came up empty to a precision that embarrassed everyone involved. The information is missing with a thoroughness that looks less like a limitation of instruments and more like a decision somebody made.
+**Galileo's cabin has never been beaten.** Four hundred years of trying, with instruments he could not have imagined. No experiment performed inside a smoothly moving laboratory has ever revealed that it was moving. The nineteenth century made a particular effort, looking for the laboratory's motion through the medium that light was supposed to be waving in, and came up empty to a precision that embarrassed everyone involved. The information is missing with a thoroughness that looks less like a limitation of instruments and more like a decision somebody made.
 
-**Clocks disagree, and the disagreement is engineered around.** The satellites your phone uses to find itself carry atomic clocks, wrong in two directions at once. They move quickly, which makes them tick slow by about seven microseconds a day. They sit high up where gravity is weaker, which makes them tick fast by about forty-five. The two effects do not cancel. Without a correction the position your phone reports would drift off by something like ten kilometers a day.
+**Clocks disagree. The disagreement is engineered around.** The satellites your phone uses to find itself carry atomic clocks, wrong in two directions at once. They move quickly, which makes them tick slow by about seven microseconds a day. They sit high up where gravity is weaker, which makes them tick fast by about forty-five. The two effects do not cancel. Without a correction the position your phone reports would drift off by something like ten kilometers a day.
 
 When the first atomic clock of this kind went into orbit in 1977, the correction was built with a switch on it, because not everyone involved was convinced the physicists were right. It launched switched off. They watched the clock run fast by very close to the predicted amount for about three weeks, and then turned it on.
 
@@ -32,7 +32,7 @@ The second half of that result is even stranger. Put a detector in the apparatus
 
 **Falling into a black hole appears to destroy the record of what fell.** On 6 February 1997 Stephen Hawking and Kip Thorne signed a wager with John Preskill. Hawking and Thorne held that information swallowed by a black hole is erased from the world. Preskill held that it survives. The stake was an encyclopedia of the winner's choice, from which, as the bet specifies, information can be recovered at will. In July 2004, at a conference in Dublin, Hawking conceded and handed Preskill a baseball encyclopedia. Thorne did not concede. Hawking remarked afterwards that burning the encyclopedia and handing over the ashes would have made the losing case rather better than the book did.
 
-The bet was worth making because both positions are unacceptable. If the record is erased, quantum mechanics breaks. If it survives, it has to escape from the one place in the universe that nothing escapes from. Three of the most capable physicists alive spent seven years on which of two impossibilities to prefer, and at the end of it one of them changed his mind and one of them did not.
+The bet was worth making because both positions are unacceptable. If the record is erased, quantum mechanics breaks. If it survives, it has to escape from the one place in the universe that nothing escapes from. Three of the most capable physicists alive spent seven years on which of two impossibilities to prefer. At the end of it one of them changed his mind and one of them did not.
 
 **How much a region can hold is set by its surface.** This last one is arithmetic rather than anecdote. Ask how much information you can pack into a region of space. Storage scales with volume, obviously: a warehouse twice as wide in every direction holds eight times as much. What the equations give instead is that the capacity scales with the area of the boundary. Double the radius and you get four times the room, not eight. Nobody put this in. It falls out of the thermodynamics of black holes, and applies to regions of empty space that contain no black hole at all.
 
@@ -78,4 +78,4 @@ Nobody derives that line. It is written down, adjusted, and checked. The symmetr
 
 By the last third of this book you will be able to read that line and say where every symbol in it came from.
 
-That is the promise, and this prologue makes no other.
+That is the promise. This prologue makes no other.

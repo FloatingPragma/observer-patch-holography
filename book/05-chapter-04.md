@@ -30,11 +30,11 @@ That number is the most important quantity in the book. Physics is what happens 
 
 ## Two detectors
 
-Physics takes this problem seriously enough to spend money on it, and the money is the argument.
+Physics takes this problem seriously enough to spend money on it. The money is the argument.
 
 On 4 July 2012, two collaborations at CERN announced that they had found a new particle. ATLAS gave its mass as 126.0 billion electron-volts, with a statistical uncertainty of 0.4 and a systematic uncertainty of 0.4, at a significance of 5.9 standard deviations. CMS gave 125.3 billion electron-volts, give or take 0.6, at five standard deviations. Five is the bar particle physics sets before anybody uses the word discovery. It means the odds of a fluctuation doing it are about one in three and a half million.
 
-Those are different numbers. 126.0 is not 125.3. A reader who was told that physics had converged on a value might reasonably ask which one it converged on. Neither, is the answer. What was announced was that two intervals overlapped, and overlapping is what agreement between measurements has always meant. A measurement is a claim about a range. Two measurements agree when the ranges have points in common, and the sharper the measurements the more that agreement is worth, because the ranges are smaller and there is less room to overlap by luck.
+Those are different numbers. 126.0 is not 125.3. A reader who was told that physics had converged on a value might reasonably ask which one it converged on. Neither, is the answer. What was announced was that two intervals overlapped, and overlapping is what agreement between measurements has always meant. A measurement is a claim about a range. Two measurements agree when the ranges have points in common. The sharper the measurements, the more that agreement is worth, because the ranges are smaller and there is less room to overlap by luck.
 
 The reason there were two of them is the whole point. ATLAS and CMS sit at different places on the same ring and were built by different people to different designs. The differences are not cosmetic. ATLAS bends particle tracks with a thin two-tesla solenoid and then bends them again in three enormous air-core toroids. CMS does it with one superconducting solenoid six meters across running at 3.8 tesla, which is a different way to spend the same money. Different magnets, different detector materials, different trigger electronics, different reconstruction software, different graduate students, different arguments in different corridors.
 
@@ -74,7 +74,7 @@ Chaining is where it stops being bookkeeping. Take three firms, each pair of whi
 
 If it is not, somebody can go round the loop repeatedly and end up with more money than they started with, having bought and sold nothing. Currency traders call this triangular arbitrage, they have machines watching for it, and when it opens it closes in milliseconds. The condition that closes it is the requirement that going around a loop of translations brings you back to yourself.
 
-That condition is the whole content of what physicists call gauge structure. Accountants make it obvious and field theory makes it look hard. It is doing the work behind electromagnetism twenty chapters from here. Descriptions related by a permitted relabeling say the same thing. The relabelings can be undone and chained. And every closed loop of them has to come back to the identity, or there is something to be extracted for free, and the world does not offer that.
+That condition is the whole content of what physicists call gauge structure. Accountants make it obvious and field theory makes it look hard. It is doing the work behind electromagnetism twenty chapters from here. Descriptions related by a permitted relabeling say the same thing. The relabelings can be undone and chained. And every closed loop of them has to come back to the identity, or there is something to be extracted for free. The world does not offer that.
 
 ## Ninety meters
 
@@ -112,6 +112,6 @@ What makes it one world is that the leftovers on the overlaps go to zero. That i
 
 Which raises the question the next chapter exists to answer. Alice and Bob compared notes and their accounts were compatible. Compatible accounts are two labelings of one thing, in the way that 3 and 15 are two labelings of one bundle. The labeling is thrown away by the comparison.
 
-So something survived the comparison, and it was not either of their descriptions.
+So something survived the comparison. It was not either of their descriptions.
 
 They agree. On what?

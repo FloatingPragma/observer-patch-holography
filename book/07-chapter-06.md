@@ -66,7 +66,7 @@ The condition on the whole arrangement fits in one sentence.
 
 One direction of that is the coin argument again: if the coins can be set, then walking around any loop and coming home must find the coin you left, so the flips have to cancel.
 
-The other direction is constructive: Suppose every loop sums to zero. Pick any dot and set its coin however you like. Walk outward. Every time you cross an edge you know whether to keep the value or flip it, because the edge says same or different, so every dot you can reach gets a value. The only way this can go wrong is if two different routes to the same dot disagree. Two routes to the same dot form a loop, and every loop sums to zero. So they cannot disagree. The assignment is forced, everywhere, from one free choice at the start.
+The other direction is constructive: Suppose every loop sums to zero. Pick any dot and set its coin however you like. Walk outward. Every time you cross an edge you know whether to keep the value or flip it, because the edge says same or different, so every dot you can reach gets a value. The only way this can go wrong is if two different routes to the same dot disagree. Two routes to the same dot form a loop. Every loop sums to zero. So they cannot disagree. The assignment is forced, everywhere, from one free choice at the start.
 
 A route through the dots that reaches all of them without ever closing a loop is called a **spanning tree**, the skeleton of that construction. For any connected graph, a spanning tree has exactly one edge fewer than it has dots. Every remaining edge, the ones the tree did not use, closes exactly one independent loop when you put it back.
 

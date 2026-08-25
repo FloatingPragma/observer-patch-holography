@@ -12,7 +12,7 @@ Going east, the flying clocks had lost 59 nanoseconds against the ones on the gr
 
 Look at what those numbers are attached to. Each came out of subtracting one reading from another in one room, at the end, with the clocks side by side.
 
-That is not the only comparison available, and why the others do not help is the whole of the point. Nothing stops you comparing clocks at a distance. Radio does it, and a navigation satellite does nothing else all day: the plane could have sent its reading down and the observatory could have written down what arrived.
+That is not the only comparison available, and why the others do not help is the whole of the point. Nothing stops you comparing clocks at a distance. Radio does it. A navigation satellite does nothing else all day: the plane could have sent its reading down and the observatory could have written down what arrived.
 
 The trouble is that the message takes time. The reading arrives stale, and correcting for that means knowing how long the trip took. You can time a round trip without difficulty: send a pulse up, wait for it to come back, read your own clock twice. Splitting that total into the trip out and the trip back is where it stops. Calling the two halves equal is the usual move and a perfectly good working rule, but nothing measures it, and checking it would mean comparing two clocks that are far apart, which is the thing you were trying to do.
 
@@ -28,13 +28,13 @@ Take away the clock and look at what is left, which is two observers and a chann
 
 Two armies sit on hills either side of a valley. The enemy is in the valley. Either army alone loses; both together win, provided they attack at the same time. The only way to communicate is to send a messenger down through the valley, where the messenger may be captured.
 
-The first general sends a rider: attack at dawn. The rider may not arrive, so the first general cannot attack on the strength of having sent him. Suppose the rider does arrive. The second general reads the message and cannot attack either, because he knows that the first general does not know the message got through, and a general who suspects he may be attacking alone stays put. So the second general sends the rider back with an acknowledgment. That rider may be captured, so the second general cannot rely on the acknowledgment having landed. The first general receives it, and cannot attack, because he knows the second general does not know the acknowledgment arrived.
+The first general sends a rider: attack at dawn. The rider may not arrive, so the first general cannot attack on the strength of having sent him. Suppose the rider does arrive. The second general reads the message and cannot attack either, because he knows that the first general does not know the message got through. A general who suspects he may be attacking alone stays put. So the second general sends the rider back with an acknowledgment. That rider may be captured, so the second general cannot rely on the acknowledgment having landed. The first general receives it, and cannot attack, because he knows the second general does not know the acknowledgment arrived.
 
 Acknowledging the acknowledgment moves the problem one rider further down the road and changes nothing else.
 
 E. A. Akkoyunlu, K. Ekanadham and R. V. Huber published the impossibility proof in 1975, in a paper called "Some Constraints and Tradeoffs in the Design of Network Communications". The argument is three lines long. Any protocol that solves the problem delivers some finite number of messages. Consider the last one delivered. Its sender cannot know it arrived, so the sender's decision cannot have depended on it, and the receiver's decision cannot depend on a message that a working protocol has to be prepared to lose. Delete it. Both generals behave exactly as before. Delete the last message of what is left, and keep going, and you reduce any protocol whatever to one that sends no riders at all. Jim Gray named it the Two Generals Paradox in 1978, in a set of lecture notes on database operating systems. The name stuck to a result that was three years old.
 
-The proof kills certainty, for any number of exchanges, on any channel that can lose anything. Anyone who has operated a network knows what that leaves. A participant that has gone quiet and a participant that has stopped existing send you exactly the same thing, which is nothing, and no amount of listening tells the two cases apart. You can wait longer, and every system built on this planet does, which is what a timeout is: a decision to call a slow neighbor dead at a moment somebody chose in advance and wrote into a configuration file.
+The proof kills certainty, for any number of exchanges, on any channel that can lose anything. Anyone who has operated a network knows what that leaves. A participant that has gone quiet and a participant that has stopped existing send you exactly the same thing, which is nothing, and no amount of listening tells the two cases apart. You can wait longer, as every system built on this planet does, which is what a timeout is: a decision to call a slow neighbor dead at a moment somebody chose in advance and wrote into a configuration file.
 
 The channel does something else to messages besides losing them. Send two messages one after the other across a network with more than one route through it, and the second can land first, because the routes are of different lengths and one of them had a queue on it. The receiver writes them down as they arrive. That is a real order, it belongs to the receiver, and the sending order it fails to match is held by somebody else on another hill. There is a fix, and everyone who builds these systems uses it: put a number in each message before sending it. The number works because both parties agreed on the numbering in advance, which makes it a piece of freight the message is carrying rather than a fact the receiver discovered by looking at the sky.
 
@@ -50,7 +50,7 @@ Four of those steps are wired together and one is loose. Boiling has to come aft
 
 In how many different orders can this be cooked? The four wired steps have to happen in their one sequence. Grating can be dropped into any of five positions: before filling, between filling and boiling, between boiling and the pasta, between the pasta and draining, or after draining. Five orders, one dinner, and nothing distinguishes them afterward.
 
-Draw it. Four dots in a row with arrows running along them, filling to boiling to pasta to draining, and a fifth dot sitting off to one side with no arrow touching it at all. There is no left-to-right axis in that picture and no place to put one, because putting one in means deciding where the fifth dot goes, and nothing in the kitchen decides that.
+Draw it. Four dots in a row with arrows running along them, filling to boiling to pasta to draining, and a fifth dot sitting off to one side with no arrow touching it at all. There is no left-to-right axis in that picture and no place to put one, because putting one in means deciding where the fifth dot goes. Nothing in the kitchen decides that.
 
 The structure underneath is a relation that says, of some pairs of steps, that one must come after the other. The relation has to behave: no step comes after itself, and if grating comes after boiling and boiling comes after filling then grating comes after filling. Beyond that it is permitted to be silent, and about grating and boiling it says nothing at all. A relation like that is a **partial order**. When it is silent about no pair, when every two items are related one way or the other, it is a **total order**.
 
@@ -58,13 +58,13 @@ A printed recipe is a total order. Step one, step two, step three, down the card
 
 Leslie Lamport wrote the distributed-systems version in July 1978, in the *Communications of the ACM*, in a paper called "Time, Clocks, and the Ordering of Events in a Distributed System" that runs from page 558 to page 565. He defined one event as happening before another when the first could have influenced the second, showed that this relation is a partial order and nothing stronger, and then gave an algorithm for extending it to a total order so that a computer system could number things. The algorithm needs an arbitrary rule for breaking ties between events that the partial order leaves unrelated. Any rule will serve. Choose a different one and you get a different total order, equally correct, over the same events.
 
-Causality is the partial order. Time is a total order. You can have the first without the second, and the first is the one the world hands out. The second is available to anybody willing to break ties, which can be done more than one way.
+Causality is the partial order. Time is a total order. You can have the first without the second. The first is the one the world hands out. The second is available to anybody willing to break ties, which can be done more than one way.
 
 ## Caused, without earlier
 
 Putting the pasta into unboiled water is a different event from putting it into boiling water. The arrow from boiling to pasta records that dependency and nothing else. It says the second act consumes what the first produced. Nobody consulted a clock to establish it. The arrow would be there in a kitchen with no clock in it.
 
-Carry that across to observers. One record depends on another when it could not have been written the way it was without the other. That is a relation between two records, it is checkable by the observer holding them, and it costs nothing but the observer's own memory. Assemble all of those relations and you have the partial order, which is the entire causal structure available. Two records with no chain of dependency between them have no fact about which came first. Go looking for that fact and there are exactly two places to look, which are the two observers holding the records, and neither of them wrote it down, because neither of them was ever in a position to.
+Carry that across to observers. One record depends on another when it could not have been written the way it was without the other. That is a relation between two records, it is checkable by the observer holding them, and it costs nothing but the observer's own memory. Assemble all of those relations and you have the partial order, which is the entire causal structure available. Two records with no chain of dependency between them have no fact about which came first. Go looking for that fact and there are exactly two places to look, which are the two observers holding the records. Neither of them wrote it down, because neither was ever in a position to.
 
 ## Eight things called time
 
@@ -76,11 +76,11 @@ There is the closure of the whole arrangement, the state that the repair operati
 
 The eighth is the one the everyday picture assumes. It is also the only one on the list that a given arrangement of events may simply fail to admit. No arrangement of observers keeping their own records hands one out.
 
-"That repair took about a nanosecond" reads a position in a list as a duration. Accept it once and the positions can be added up, and a stretch of the world's history acquires an elapsed time in units, with no clock anywhere in the reasoning and no calibration performed by anybody. The sentence is humdrum, which is exactly why it gets through. Nothing about it sounds like a mistake.
+"That repair took about a nanosecond" reads a position in a list as a duration. Accept it once and the positions can be added up, so a stretch of the world's history acquires an elapsed time in units, with no clock anywhere in the reasoning and no calibration performed by anybody. The sentence is humdrum, which is exactly why it gets through. Nothing about it sounds like a mistake.
 
 Crossing between two of the eight costs an explicit map with a name on it, supplied by hand, doing the work in the open. Going from a clock readout to a proper time takes a calibration, a physical claim that somebody has to make and defend.
 
-Take any clock readout and add seventeen to every reading. Every record reads later than the records it depends on, exactly as before, so the shifted readout is a perfectly legal clock for the same history, and it is a different clock. Multiply every reading by any positive number instead and the same thing happens. The record order fixes neither the origin nor the rate, so a clock reading carries the order it was built from and nothing else.
+Take any clock readout and add seventeen to every reading. Every record reads later than the records it depends on, exactly as before, so the shifted readout is a perfectly legal clock for the same history. It is a different clock. Multiply every reading by any positive number instead and the same thing happens. The record order fixes neither the origin nor the rate, so a clock reading carries the order it was built from and nothing else.
 
 ## Two meetings
 
@@ -98,7 +98,7 @@ Go back to the twelve observers of chapter six, wired as an icosahedron, thirty 
 
 Calling them schedules was generous. The sixteen are sixteen lists, each naming which repair move occupies which position, with no duration attached to any position and no rate at which positions go by. Two of those lists that differ only by swapping a pair of moves touching no overlap in common are not two histories of the world. They are one partial order, written down twice, and the ordering between those two moves is the numbering on the recipe card.
 
-That is why all sixteen had to be run. Taking turns properly has nothing behind it here, so the agreement the twelve reach cannot be an artifact of a well-behaved order, and the same answer comes out of all sixteen lists.
+That is why all sixteen had to be run. Taking turns properly has nothing behind it here, so the agreement the twelve reach cannot be an artifact of a well-behaved order. The same answer comes out of all sixteen lists.
 
 Which leaves the twelve of them in the position the generals were in, with better equipment and no better prospects. Each sees five neighbors and nothing else. Each holds an order over its own records and over nobody else's. A message from a neighbor lands after an unbounded number of intervening moves, out of the sequence it was sent in, and sometimes it does not land at all. A leader would have to be recognized as one by observers with no way of comparing what they hold, and a vote would have to be taken in a present that none of them share.
 

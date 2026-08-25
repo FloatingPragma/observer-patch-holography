@@ -14,7 +14,7 @@ On 15 April 1744, before the Académie Royale des Sciences in Paris, Pierre-Loui
 
 Two years later in Berlin, running Frederick's academy, he published "Les Loix du mouvement et du repos déduites d'un principe métaphysique". There the principle acquired a second job. Maupertuis presented it as a demonstration of a supreme being, and ranked it above the older proofs drawn from the beauty and the order of the world, on the ground that an equation is harder to argue with than a wonder.
 
-The inference is the obvious one: a rule that picks the smallest total out of every total available looks like an economy, and an economy has a treasurer.
+The inference is the obvious one: a rule that picks the smallest total out of every total available looks like an economy. An economy has a treasurer.
 
 Maupertuis had earned the standing to say such things by going out and getting a number. In 1736 he led an expedition to the Torne valley in Swedish Lapland to measure the length of a degree of the meridian close to the Arctic Circle. The party came home in August 1737 with a degree longer than the one measured in France, which meant the Earth is flattened at the poles, which meant Newton was right and the Cassinis were wrong. Robert Levrac-Tournières painted him afterward in a fur hat and reindeer skins with one hand pressed down on a globe, squashing it out of round. Voltaire, an admirer at that stage, addressed him as the flattener of the world and of Cassini.
 
@@ -30,7 +30,7 @@ Here is the ordinary description. At each moment the ball has a position and a v
 
 Here is the other one. Draw every arc you like between those two points taking the same second: the true one, one that goes twice as high and comes down in a rush, one that dawdles halfway across and then sprints, one shaped like a staircase. Score each of them with a single number. The arc the ball flies is picked out by what its score does when you nudge it.
 
-The scoring rule has two parts, and the future appears in neither.
+The scoring rule has two parts. The future appears in neither.
 
 The first part is one function. At any instant, two things about the ball matter: where it is, and how fast it is going. Feed both into a single function and it hands back a number. For a thrown ball, that function is the part that grows with speed less the part that grows with height.
 
@@ -40,7 +40,7 @@ The second part is a running total. The number the function hands back is per se
 
 Selection uses slopes. Stand on a hillside and step one pace in any direction: your height changes by an amount proportional to the size of the step. Stand on the floor of the valley and step one pace: your height barely changes, because the ground under you is level, and the change you do get shrinks with the square of the step rather than with the step. The bottom of a valley is where the slope is zero.
 
-The arc a thrown ball flies is where the slope is zero. Push the middle of it up by a hair, holding both ends where they are, and the running total does not change. Push it down by a hair and the running total does not change. Every neighboring arc scores the same to first order, and the score is flat there in the way the valley floor is flat.
+The arc a thrown ball flies is where the slope is zero. Push the middle of it up by a hair, holding both ends where they are, and the running total does not change. Push it down by a hair and the running total does not change. Every neighboring arc scores the same to first order. The score is flat there in the way the valley floor is flat.
 
 Take the crudest version of that and check it by hand. Three moments and two hops: a one-kilogram ball starts on the floor, ends on the floor one second later, and the only freedom is how high it is at the halfway mark. Raising the midpoint costs in the speed part, because the ball has to climb further and fall further in the same second. It pays in the height part, because the ball spends the middle of the flight higher up. Each hop lasts half a second and there are two of them, so anything holding steady through both contributes its own value times one second to the running total, and the halves cancel out of the arithmetic before it starts.
 
@@ -50,13 +50,13 @@ A peak of one and a half meters. Three meters per second, four and a half joules
 
 A peak of one and a quarter. Two and a half meters per second, three and an eighth joules of motion, average height five eighths of a meter, six and a quarter joules owed. Minus three and an eighth.
 
-The arc that overshoots and the arc that undershoots score the same number, and the one between them scores below both, by an eighth of a joule-second in either direction. A single line says why, with h standing for the height of the halfway mark in meters and the total coming out in joule-seconds:
+The arc that overshoots and the arc that undershoots score the same number. The one between them scores below both, by an eighth of a joule-second in either direction. A single line says why, with h standing for the height of the halfway mark in meters and the total coming out in joule-seconds:
 
 $$\text{score} \;=\; 2h^{2} \;-\; 5h$$
 
-The cost grows with the square of the midpoint height and the payment grows in proportion to it, so the cost overtakes. At one midpoint height and no other, raising the peak by a hair costs exactly what it pays, and there the total has slope zero. That is the height the rule selects, one and a quarter meters, where a ball airborne for a second peaks: it leaves the floor at five meters per second, sheds ten of those every second, and stops climbing after half of one. Three moments is the coarsest account of a flight with any freedom left in it, and lands on the height exactly. Cut the second into four hops instead of two and the corners of the selected shape land on a parabola, and into forty and they land on the same one.
+The cost grows with the square of the midpoint height and the payment grows in proportion to it, so the cost overtakes. At one midpoint height and no other, raising the peak by a hair costs exactly what it pays. There the total has slope zero. That is the height the rule selects, one and a quarter meters, where a ball airborne for a second peaks: it leaves the floor at five meters per second, sheds ten of those every second, and stops climbing after half of one. Three moments is the coarsest account of a flight with any freedom left in it, and lands on the height exactly. Cut the second into four hops instead of two and the corners of the selected shape land on a parabola, and into forty and they land on the same one.
 
-Look at what had to be in your hand to do any of that. All three sums used the landing. Fixing the speed on each hop took the ball being back on the floor at one second, and without the finish there was nothing to add up. The ball has the start. It leaves your hand with a place and a speed and no information whatever about where it comes down, and the rule says it flies the arc whose total sits at the bottom of a parabola whose shape depends on where it comes down. Something in that description knows the ending before it happens, and it is not the ball. Maupertuis put a treasurer in the gap, which at least has the merit of being a mechanism.
+Look at what had to be in your hand to do any of that. All three sums used the landing. Fixing the speed on each hop took the ball being back on the floor at one second, and without the finish there was nothing to add up. The ball has the start. It leaves your hand with a place and a speed and no information whatever about where it comes down, and the rule says it flies the arc whose total sits at the bottom of a parabola whose shape depends on where it comes down. Something in that description knows the ending before it happens. It is not the ball. Maupertuis put a treasurer in the gap, which at least has the merit of being a mechanism.
 
 The one function of where you are and how fast you are going is the **Lagrangian**. Its running total along a path is the **action**, which is the word chapter twelve used for a single number scored over a whole arrangement. This is the same object scored along a history instead of across a wiring. The rule that selects the path where wiggling changes nothing is **stationary action**.
 
@@ -80,19 +80,19 @@ Then, for every quantity the system has, take the Lagrangian's sensitivity to ho
 
 The number you get does not change along any history the Lagrangian selects. One symmetry in, one number out, by a recipe that does not care which symmetry it was fed.
 
-Slide sideways and the number is momentum. Turn and it is angular momentum. Advance the clocks and it is energy. Add the same phase everywhere and it is electric charge, arriving by a second road. Chapter twelve reached it from the other end, by showing that a force whose charge leaks stops being a force at all, and the recipe here starts from the same phase and hands back the quantity you can total up.
+Slide sideways and the number is momentum. Turn and it is angular momentum. Advance the clocks and it is energy. Add the same phase everywhere and it is electric charge, arriving by a second road. Chapter twelve reached it from the other end, by showing that a force whose charge leaks stops being a force at all. The recipe here starts from the same phase and hands back the quantity you can total up.
 
 The same statement holds on a discrete chain with no limit taken anywhere. A run is a list of states with one step between each neighboring pair, and a symmetry is a change that carries each state to another while leaving each step's contribution to the running total alone. Take the contribution's sensitivity to the change across one step and it comes out the same across every step of the run. Segment by segment, the number holds, and there is no continuum anywhere in the argument.
 
-Bookkeeping in this world was never a separate law added on top of the dynamics. It is a property of the line, extracted by a fixed recipe, and a world has as many conservation laws as its line has continuous symmetries.
+Bookkeeping in this world was never a separate law added on top of the dynamics. It is a property of the line, extracted by a fixed recipe. A world has as many conservation laws as its line has continuous symmetries.
 
 ## A product of small numbers
 
-None of that touches Maupertuis's reading. The recipe is exact, and a rule that scores whole paths and selects the flat one continues to look like a comparison, which needs the losers to be somewhere in order to lose.
+None of that touches Maupertuis's reading. The recipe is exact. A rule that scores whole paths and selects the flat one continues to look like a comparison, which needs the losers to be somewhere in order to lose.
 
 Start again from the smallest assumption a world can be given.
 
-Something is in some configuration. There is a rule saying what it does next, and the rule has three properties. It is local, so the next step depends only on the configuration it is standing in. It is memoryless, so the rule does not consult how that configuration was arrived at. And it is strictly positive, so nothing is flatly forbidden: every configuration it could move to has some chance, however small.
+Something is in some configuration. There is a rule saying what it does next. The rule has three properties. It is local, so the next step depends only on the configuration it is standing in. It is memoryless, so the rule does not consult how that configuration was arrived at. And it is strictly positive, so nothing is flatly forbidden: every configuration it could move to has some chance, however small.
 
 That is the whole of the input. There is no action in it, no Lagrangian, no scoring, and nothing that looks at a history.
 
@@ -114,9 +114,9 @@ Then suppose somebody hands you a different running total, and a different overa
 
 A world whose step rule is local, memoryless and strictly positive has an action, then, whether or not anybody writes one down.
 
-Nothing in that argument looks ahead, because the step rule has nothing to look ahead with. The endpoint turns up in the statement of the principle because the statement is about a completed history, and a completed history has a finish in it the same way a receipt has a total printed at the bottom. A machine repairing locally, with no view past its own neighbors, produces a selection that looks global, because that is what taking the logarithm of a product of local factors does.
+Nothing in that argument looks ahead, because the step rule has nothing to look ahead with. The endpoint turns up in the statement of the principle because the statement is about a completed history. A completed history has a finish in it the same way a receipt has a total printed at the bottom. A machine repairing locally, with no view past its own neighbors, produces a selection that looks global, because that is what taking the logarithm of a product of local factors does.
 
-Maupertuis had found something real. The quantity a world comes out smallest on is improbability, and a chain of local steps runs that tally by itself, without a manager and without a comparison ever being performed.
+Maupertuis had found something real. The quantity a world comes out smallest on is improbability. A chain of local steps runs that tally by itself, without a manager and without a comparison ever being performed.
 
 ## Plateau's wire frames
 
@@ -134,7 +134,7 @@ The line has four terms in it, written schematically, each standing for a block 
 
 $$\mathcal{L} \;=\; \mathcal{L}_{\text{carry}} \;+\; \mathcal{L}_{\text{matter}} \;+\; \mathcal{L}_{\text{couple}} \;+\; \mathcal{L}_{\text{select}}$$
 
-Four things added together, and the chapters behind this one built every symbol in them.
+Four things added together. The chapters behind this one built every symbol in them.
 
 The script L on the left is a Lagrangian in the sense taught above, with one change of scale. Where the thrown ball had a position and a speed, this one takes a field's value at a place and how fast that value is changing, and its running total runs over all of space and all of time rather than along a single arc.
 
@@ -148,24 +148,24 @@ The fourth term belongs to the vector-selecting field itself, chapter twenty-sev
 
 Alongside the four sits gravity's term, chapter twenty-four's curvature, whose coupling is Newton's constant, which is the area of one cell of a screen, 2.61 times ten to the minus seventy square meters. And beside that the constant term, the one every light ray reads as exactly zero, which is why the cosmological constant sits in the field equation as a quantity no local calculation was ever going to reach.
 
-The prologue promised that by the last third of the book you would be able to read that line and say where every symbol in it came from, and it made no other promise. Chapter one gave the standing list of what a framework begins by assuming: a spacetime, a collection of fields living on it, a symmetry group chosen to match what was observed, and a page of numbers measured in laboratories. The four terms above are that list with none of the four assumed. The spacetime is chapter fifteen's completion of a tally of comparisons. The fields are chapter twenty-seven's five places a pattern can sit. The group is one, three and eight because twelve dials come apart into a center of one and a remainder of eleven, and eleven splits as three plus eight and in no other way. Where the wiring settles a number the chapters behind this one give it, and where the wiring stops, chapter twenty-nine printed the exact angle at which it stops.
+The prologue promised that by the last third of the book you would be able to read that line and say where every symbol in it came from. It made no other promise. Chapter one gave the standing list of what a framework begins by assuming: a spacetime, a collection of fields living on it, a symmetry group chosen to match what was observed, and a page of numbers measured in laboratories. The four terms above are that list with none of the four assumed. The spacetime is chapter fifteen's completion of a tally of comparisons. The fields are chapter twenty-seven's five places a pattern can sit. The group is one, three and eight because twelve dials come apart into a center of one and a remainder of eleven, and eleven splits as three plus eight and in no other way. Where the wiring settles a number the chapters behind this one give it, and where the wiring stops, chapter twenty-nine printed the exact angle at which it stops.
 
-Those are the same marks somebody else writes on line one, and the difference shows up in a single place. Written first, the line has three families in it because three families were found. Written here, it has three because an oriented face has three corners.
+Those are the same marks somebody else writes on line one. The difference shows up in a single place. Written first, the line has three families in it because three families were found. Written here, it has three because an oriented face has three corners.
 
 ## What a compression costs
 
 A compression is allowed to be lossy, and the useful ones generally are.
 
-This one presumes a continuum. The running total runs over space and time, the fields are smooth, and the handle-turning that produces the equations of motion needs slopes to exist at every point of every path. Chapter fifteen was careful about that limit for a reason that bites here: an observer holds six whole numbers and sits at some finite number of passes, which is a scatter of isolated points with gaps between them that never close at any stage. Smoothness stands to that scatter as pi stands to 3.1416. The line is written where the tally is heading, and no observer's tally has ever been there.
+This one presumes a continuum. The running total runs over space and time, the fields are smooth, and the handle-turning that produces the equations of motion needs slopes to exist at every point of every path. Chapter fifteen was careful about that limit for a reason that bites here: an observer holds six whole numbers and sits at some finite number of passes, which is a scatter of isolated points with gaps between them that never close at any stage. Smoothness stands to that scatter as pi stands to 3.1416. The line is written where the tally is heading. No observer's tally has ever been there.
 
 The second loss is sharper, and can be written down exactly.
 
-Take the line and add a term chosen so that it comes out zero at every configuration the world realizes. On a chain, the realized configurations sit at the corners, and a term that vanishes at every corner adds nothing to the score of any realized history. So every realized history keeps its old score. Swap an interior configuration for another the world can realize, holding the ends, and the answer comes back what it was: the same run is the most probable run, and sits at the bottom against every single-step swap.
+Take the line and add a term chosen so that it comes out zero at every configuration the world realizes. On a chain, the realized configurations sit at the corners. A term that vanishes at every corner adds nothing to the score of any realized history. So every realized history keeps its old score. Swap an interior configuration for another the world can realize, holding the ends, and the answer comes back what it was: the same run is the most probable run, and sits at the bottom against every single-step swap.
 
-The momentum changes. Momentum is the line's sensitivity to how fast a quantity is changing, and a term pinned to zero at every corner tilts as it passes through, in a direction no realized step ever moves. So the two lines assign different momenta to the same motion, and therefore different energies, since energy is what you get by trading the speeds for the momenta.
+The momentum changes. Momentum is the line's sensitivity to how fast a quantity is changing. A term pinned to zero at every corner tilts as it passes through, in a direction no realized step ever moves. So the two lines assign different momenta to the same motion, and therefore different energies, since energy is what you get by trading the speeds for the momenta.
 
-The freedom is one number. The added term bends with speed by any positive amount you like, and its bend with position is then forced, the two summing to one particular number the step odds themselves set. Under that constraint the most probable run stays at the bottom when an interior configuration slides continuously rather than jumping corner to corner, and the momentum stays a strictly increasing, invertible function of speed. Each setting is a different line carrying a different energy. Nothing in any history this world produces distinguishes them from each other. The histories are the same histories, and they were the only evidence there was.
+The freedom is one number. The added term bends with speed by any positive amount you like, and its bend with position is then forced, the two summing to one particular number the step odds themselves set. Under that constraint the most probable run stays at the bottom when an interior configuration slides continuously rather than jumping corner to corner, and the momentum stays a strictly increasing, invertible function of speed. Each setting is a different line carrying a different energy. Nothing in any history this world produces distinguishes them from each other. The histories are the same histories. They were the only evidence there was.
 
-So the line is the best compression anybody has written down, and a compression is not the thing compressed. Lagrange knew what he had taken out, which is why he mentioned it in the first sentence.
+So the line is the best compression anybody has written down. A compression is not the thing compressed. Lagrange knew what he had taken out, which is why he mentioned it in the first sentence.
 
 Hand the line to somebody with a computer and enough patience and out comes the arc of a thrown ball to as many decimal places as the ball has, the spectrum of hydrogen, the lifetime of a muon and the rate at which the sun burns. Then put the ball in their hand and push it, and watch it go. The line scores the path it takes. It says nothing whatever about why a pushed thing moves.

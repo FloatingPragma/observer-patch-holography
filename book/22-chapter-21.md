@@ -6,7 +6,7 @@ Augustine was in his forties and a year or two into the bishopric of Hippo Regiu
 
 The line gets quoted as a piece of wisdom, which flatters it. Augustine was after an instrument. He works through the possibilities in the chapters on either side of that sentence and discards each one: the past has gone and cannot be laid alongside a ruler, the future has not arrived and cannot either, and the present has no extent, because anything with extent divides into a part that has gone and a part that has not come. He ends the chapter holding a ruler with nothing in front of it.
 
-What he settles on, having run out of things in the world to measure, is that the measuring happens in the mind: the soul stretched across a memory, an attention and an expectation, so that the quantity being compared against a ruler is an impression rather than an interval of anything. He gives it a name, *distentio animi*, and the name has kept philosophers busy for sixteen hundred years. It moves the ruler indoors and leaves the question of what is being laid against it exactly where it was.
+What he settles on, having run out of things in the world to measure, is that the measuring happens in the mind: the soul stretched across a memory, an attention and an expectation, so that the quantity being compared against a ruler is an impression rather than an interval of anything. He gives it a name, *distentio animi*. The name has kept philosophers busy for sixteen hundred years. It moves the ruler indoors and leaves the question of what is being laid against it exactly where it was.
 
 Sixteen centuries of instrument-building have not improved his position. In 1967 the thirteenth General Conference on Weights and Measures redefined the second as the duration of 9,192,631,770 periods of the radiation from a particular transition in a cesium-133 atom, which is the most carefully specified duration in the history of the species and is a duration. A cesium clock counts periods and reports a count. Subtract two counts and you have an interval. Every timepiece anybody has built, from a notched candle to the fountain clocks that keep international atomic time to sixteen digits, reports a difference between two events, and none of them has an output for the present moment, because there is no part of the mechanism that could produce one.
 
@@ -20,19 +20,19 @@ That pair fixed the floor under position and momentum, and put the ceiling on se
 
 Take the pair apart looking for a clock.
 
-The algebra is a list of questions with a rule for composing them, and nothing in a list ticks. The state is an assignment of numbers to that list, and an assignment of numbers is a table. There is no parameter anywhere in either object, no reading that changes, nothing that distinguishes one moment from another, because the specification contains no moments. If time were a primitive ingredient of this world, it would have to be posted in from outside the pair by something that owns a clock and is willing to lend it, and chapter four's inside-only clause rules that out at the top of the argument: there is no outside to post it from.
+The algebra is a list of questions with a rule for composing them. Nothing in a list ticks. The state is an assignment of numbers to that list. An assignment of numbers is a table. There is no parameter anywhere in either object, no reading that changes, nothing that distinguishes one moment from another, because the specification contains no moments. If time were a primitive ingredient of this world, it would have to be posted in from outside the pair by something that owns a clock and is willing to lend it, and chapter four's inside-only clause rules that out at the top of the argument: there is no outside to post it from.
 
-Chapter ten's run makes the same point in hardware. Sixty-five thousand patches worked all 390,924 seams between them into agreement. The cycles the run is reported in were put there by whoever wrote the report. No patch in the network counted a cycle or waited for one to end, and the machinery has no tick in it anywhere. Whatever supplies the rate has to be manufactured out of a list of questions and a table of odds, because nothing else was ever delivered.
+Chapter ten's run makes the same point in hardware. Sixty-five thousand patches worked all 390,924 seams between them into agreement. The cycles the run is reported in were put there by whoever wrote the report. No patch in the network counted a cycle or waited for one to end. The machinery has no tick in it anywhere. Whatever supplies the rate has to be manufactured out of a list of questions and a table of odds, because nothing else was ever delivered.
 
 ## A room left alone
 
-Leave a room alone for long enough and everything in it arrives at one temperature. The coffee, the mug, the table, the air above the table. The description of that room has collapsed to a single number, and the collapse discards almost everything that was ever true about it.
+Leave a room alone for long enough and everything in it arrives at one temperature. The coffee, the mug, the table, the air above the table. The description of that room has collapsed to a single number. The collapse discards almost everything that was ever true about it.
 
 Look at what the single number does. Bring any object at all into the room and the number tells you which way heat will move and how fast, for that object and for every other one, without anybody consulting how the room got there. Physicists run that argument the other way daily: write down the system, work out which equilibrium it settles into, and the equilibrium follows from the machinery.
 
 Run that argument backwards.
 
-Chapter sixteen took a settled arrangement, the kind the repair law leaves where it finds it, and called the odds it assigns the reference. A state of that kind is in equilibrium, and equilibrium is a word with a hole in the middle of it. In equilibrium with respect to what? Being settled means being unchanged by something. A state is a list of odds, and no change is named anywhere on the list.
+Chapter sixteen took a settled arrangement, the kind the repair law leaves where it finds it, and called the odds it assigns the reference. A state of that kind is in equilibrium, and equilibrium is a word with a hole in the middle of it. In equilibrium with respect to what? Being settled means being unchanged by something. A state is a list of odds. No change is named anywhere on the list.
 
 So work out what it would have to be.
 
@@ -42,7 +42,7 @@ Two demands pick out a flow, the only two in the construction.
 
 The first is that the state's odds are unchanged by it. Every question is worth after the shuffle exactly what it was worth before. That is what being settled means, written out.
 
-The second is where the non-commuting part earns its keep. In a world where every pair of questions could be answered together, the state's weight for asking A and then B would equal its weight for asking B and then A, because there would be nothing to tell the two orders apart. Chapter nineteen's entire subject is that they differ. So the state carries a gap between the two orders, one gap for every pair of questions, and the gap is a fixed feature of the state rather than a nuisance to be argued away. The second demand is that swapping the order costs exactly one unit of the shuffle, the same one unit for every pair of questions, with the amount of shuffling measured along a direction at right angles to the flow's own parameter. That last clause is complex analysis, the one step in the whole construction that cannot be done on a table.
+The second is where the non-commuting part earns its keep. In a world where every pair of questions could be answered together, the state's weight for asking A and then B would equal its weight for asking B and then A, because there would be nothing to tell the two orders apart. Chapter nineteen's entire subject is that they differ. So the state carries a gap between the two orders, one gap for every pair of questions. The gap is a fixed feature of the state rather than a nuisance to be argued away. The second demand is that swapping the order costs exactly one unit of the shuffle, the same one unit for every pair of questions, with the amount of shuffling measured along a direction at right angles to the flow's own parameter. That last clause is complex analysis, the one step in the whole construction that cannot be done on a table.
 
 Those two demands admit exactly one flow, for any state that leaves no question with odds of exactly zero. Uniqueness is the theorem here, and what takes the choice away: the two demands are the state's own bookkeeping written down, and the flow is what solves them. The parameter running along that flow is the observer's own time.
 
@@ -64,11 +64,11 @@ Write the state as its array. Take the logarithm, which acts on the two diagonal
 
 The constant does nothing whatsoever. A generator shifted by a constant produces the same flow, since the constant piece commutes with the whole algebra and shuffles nothing. Delete it.
 
-What survives is the system's energy divided by its temperature, and the flow it generates is the time evolution written down for that system in every physics course on Earth. The state's own clock is the clock physicists have been using all along, running at a rate the temperature sets.
+What survives is the system's energy divided by its temperature. The flow it generates is the time evolution written down for that system in every physics course on Earth. The state's own clock is the clock physicists have been using all along, running at a rate the temperature sets.
 
-Put numbers on it, and take a pencil. A state for this system is a slip with two odds written on it, and one ratio settles both of them, because the two have to add up to one. Say the lower answer comes up twenty times for every once the upper one does. Write the slip: 20 in 21 and 1 in 21, and there is nothing else about the system left to write down.
+Put numbers on it, and take a pencil. A state for this system is a slip with two odds written on it. One ratio settles both of them, because the two have to add up to one. Say the lower answer comes up twenty times for every once the upper one does. Write the slip: 20 in 21 and 1 in 21, and there is nothing else about the system left to write down.
 
-The lower slot of the generator holds zero, so the whole generator is whatever stands in the upper slot, and that is the logarithm of the ratio between the two odds.
+The lower slot of the generator holds zero, so the whole generator is whatever stands in the upper slot. That is the logarithm of the ratio between the two odds.
 
 $$K = \log \frac{\text{odds of the lower answer}}{\text{odds of the upper answer}} = \log 20 = 2.996$$
 
@@ -82,7 +82,7 @@ Which reads, on first pass, as an elaborate way of handing back what was put in.
 
 The flow belongs to the state, so it changes when the state changes.
 
-Two observers holding different states extract different flows. They run at different rates against each other, and there is no third flow that either of them is failing to match, because a third flow would need a third state and no such state is held by anybody. Chapter seven left the shared present with nobody to hold it, and Hafele and Keating's flying clocks had a reading to report only when they stood next to the bench clocks. The rate goes the same way. It belongs to whoever holds the state, the way a patch's questions belong to the patch, and asking which of two observers runs at the true rate is asking for a state that nobody holds.
+Two observers holding different states extract different flows. They run at different rates against each other. There is no third flow that either of them is failing to match, because a third flow would need a third state and no such state is held by anybody. Chapter seven left the shared present with nobody to hold it, and Hafele and Keating's flying clocks had a reading to report only when they stood next to the bench clocks. The rate goes the same way. It belongs to whoever holds the state, the way a patch's questions belong to the patch, and asking which of two observers runs at the true rate is asking for a state that nobody holds.
 
 The two-outcome system makes the dependence cheap to check. Take it twice, once at a temperature and once at half that temperature, with the same two energies and the same single question available in both cases. The generator came out as the energy divided by the temperature, so halving the temperature doubles the generator, and the flow it produces covers twice as much ordinary evolution for each unit of its own parameter. On the slip it shows up as a squared ratio. Square the twenty to one, get four hundred to one, and since a logarithm turns a square into a double, the second slip comes to twice 2.996, which is 5.99. Same question, same energies, two states, two clocks running at a factor of two against each other, with nothing in either description marking one of them as the correct one.
 
@@ -112,9 +112,9 @@ Put the two together and you have the whole of what an observer undergoes, in tw
 
 Chapter eighteen defined energy and left an unpaid bill inside the definition.
 
-Repair works through a region's records at some rate, and that rate is the region's energy. Every rate is counted against a clock, and that one was counted against a clock nobody had built, with no universal time on offer to borrow instead.
+Repair works through a region's records at some rate. That rate is the region's energy. Every rate is counted against a clock. That one was counted against a clock nobody had built, with no universal time on offer to borrow instead.
 
-Here it is. The region holds a state, the state determines a flow, the flow has a parameter, and the parameter is the clock. Energy is well defined region by region because every region carries the thing its rate is counted against, manufactured out of what the region holds. Two regions running at different rates differ in the states they hold, and that is the whole of the difference.
+Here it is. The region holds a state, the state determines a flow, the flow has a parameter, and the parameter is the clock. Energy is well defined region by region because every region carries the thing its rate is counted against, manufactured out of what the region holds. Two regions running at different rates differ in the states they hold. That is the whole of the difference.
 
 Energy is the generator of a region's advance along its own clock. The generator of the modular flow is minus the logarithm of the region's state. Those are the same operator, and the second is a recipe for computing the first out of what the region holds, with no constants fitted to measurements and nobody at a desk choosing an operator to fit the apparatus.
 
@@ -124,7 +124,7 @@ Take an observer accelerating steadily through empty space, and have it keep the
 
 Chapter seventeen counted the motions that take one sky onto another and found six. Three of them turn the sky rigidly, and three gather the constellations toward the direction of travel and thin them away from behind, leaving every circle on the sky a circle, and those three are the boosts. Steady acceleration is a boost applied continuously: one parameter, running.
 
-Chapter seventeen also supplied the light cone, and the cone does something to this observer that it does not do to anyone traveling at a constant speed. Light chasing an accelerating ship from far enough behind never catches it. Signals from that part of the world arrive at no point of the trip, however long the trip is allowed to run. There is a boundary behind the observer, and past that boundary sits a region the observer can never ask a question about, at any time, ever.
+Chapter seventeen also supplied the light cone. The cone does something to this observer that it does not do to anyone traveling at a constant speed. Light chasing an accelerating ship from far enough behind never catches it. Signals from that part of the world arrive at no point of the trip, however long the trip is allowed to run. There is a boundary behind the observer, and past that boundary sits a region the observer can never ask a question about, at any time, ever.
 
 That boundary fixes the observer's algebra: the questions about everything on this side of it, and no others, because there are no others it could ever put. And the state is the vacuum, the state of a region with nothing in it, which is the same state everywhere in empty space and is therefore the only other thing the calculation needs.
 
@@ -136,9 +136,9 @@ An observer's clock is a physical article. It ages, it can be photographed, and 
 
 ## Warm
 
-The flow has one more property, and a thermometer can read it.
+The flow has one more property. A thermometer can read it.
 
-The state of empty space, restricted to the region the accelerating observer can ask about, sits unchanged under the flow, and the gap between its two orders of asking costs exactly one unit of that flow. Those are the two demands, and every state meets them against its own flow by construction, which makes them unremarkable until you notice what the flow is here. The flow is a physical motion, and the observer is riding it. That second demand, the gap costing one unit, is the condition a physicist writes down to say that a system sits in a heat bath, and here it is written against the ship's own motion. The observer is sitting in what any thermometer it carries will report as a warm bath, in a region of space with nothing in it.
+The state of empty space, restricted to the region the accelerating observer can ask about, sits unchanged under the flow, and the gap between its two orders of asking costs exactly one unit of that flow. Those are the two demands, and every state meets them against its own flow by construction, which makes them unremarkable until you notice what the flow is here. The flow is a physical motion. The observer is riding it. That second demand, the gap costing one unit, is the condition a physicist writes down to say that a system sits in a heat bath, and here it is written against the ship's own motion. The observer is sitting in what any thermometer it carries will report as a warm bath, in a region of space with nothing in it.
 
 Bill Unruh worked out what an instrument would read. Put a small detector on the ship, something with two levels that can absorb a quantum and record that it did, and count how often it fires. A detector at rest in empty space fires never. The same detector, accelerated, fires at the rate it would fire at while sitting in a bath of radiation at a definite temperature, and the acceleration alone fixes which temperature.
 
@@ -146,6 +146,6 @@ He did that calculation in 1976, in a paper called "Notes on black-hole evaporat
 
 Which is why nobody has run into this by accident. Warming yourself by a single degree calls for an acceleration around twenty-five billion billion times the strength of gravity at the Earth's surface, sustained, with you in the vehicle. Every acceleration a human body has ever survived leaves the reading far below what any thermometer built resolves, and the passengers have complaints about the other effects.
 
-Look at where that temperature came from. The clock was extracted from a state, by two demands about bookkeeping, with nothing put in beyond an algebra of questions and a rule assigning them odds. The temperature came out of those same two demands, applied to that same pair of objects. Nobody installed a thermometer and nobody installed a clock, and both came out welded together, because the equilibrium condition that fixes the flow is the condition that fixes a temperature.
+Look at where that temperature came from. The clock was extracted from a state, by two demands about bookkeeping, with nothing put in beyond an algebra of questions and a rule assigning them odds. The temperature came out of those same two demands, applied to that same pair of objects. Nobody installed a thermometer and nobody installed a clock. Both came out welded together, because the equilibrium condition that fixes the flow is the condition that fixes a temperature.
 
-So an observer's sense of duration and its sense of temperature are two readings taken off one object. A duration is a count of something, and the count sits in a cesium atom where anybody can go and look at it. What is a temperature a count of?
+So an observer's sense of duration and its sense of temperature are two readings taken off one object. A duration is a count of something. The count sits in a cesium atom where anybody can go and look at it. What is a temperature a count of?

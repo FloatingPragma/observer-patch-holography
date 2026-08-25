@@ -18,11 +18,11 @@ Chapter nine left this world with one move. Two neighbors share a seam, each hol
 
 The machine holds one move, one kind of seam and two readings at each seam. The descent of the outstanding disagreement is the only quantitative thing any of it does, so energy is made out of that descent, there being nothing else to make it out of.
 
-Take a screwdriver to a screw. One eighth of a turn, repeated, drives the screw into the wood, and the whole trip of the screw is that one small move done again and again.
+Take a screwdriver to a screw. One eighth of a turn, repeated, drives the screw into the wood. The whole trip of the screw is that one small move done again and again.
 
-A smooth continuous change is a flow. The small move whose repetition produces the flow is its **generator**, and the pairing runs both ways: a flow determines its generator, and a generator run out determines the flow. The trip of the screw is a long list of positions. The one turn is a single instruction, and the list follows from it.
+A smooth continuous change is a flow. The small move whose repetition produces the flow is its **generator**, and the pairing runs both ways: a flow determines its generator, and a generator run out determines the flow. The trip of the screw is a long list of positions. The one turn is a single instruction. The list follows from it.
 
-Every region in this world advances along a clock of its own. Something generates that advance, and that something is the region's energy. The energy of a region is the rate at which its records are worked through by repair, counted against that region's own clock.
+Every region in this world advances along a clock of its own. Something generates that advance. That something is the region's energy. The energy of a region is the rate at which its records are worked through by repair, counted against that region's own clock.
 
 The word behaves identically wherever physics uses it. What generates turning about an axis is the angular momentum about that axis, and what generates sliding sideways is the momentum in that direction. Advance along a clock has the energy for its generator, and quantum mechanics has run on exactly that definition since the 1920s without ever saying what does the advancing.
 
@@ -30,17 +30,17 @@ A clock of a region's own is the only kind this world has. Chapter ten ran sixty
 
 A region whose records agree everywhere generates no flow and reports nothing above the floor. A region holding standing disagreement drives its clock hard. The driving rate is the number a calorimeter or a particle detector hands you.
 
-In ordinary quantum mechanics the energy of a system is the operator somebody writes down for it. You pick an operator called a Hamiltonian to match the system in front of you and fit its constants to measurements, and the fitting is done by a person with a pencil. Here the operator is manufactured by the state the region holds, and the region holds its state whether or not anybody has written anything about it. Two regions in the same state have the same energy, and the pencil never enters.
+In ordinary quantum mechanics the energy of a system is the operator somebody writes down for it. You pick an operator called a Hamiltonian to match the system in front of you and fit its constants to measurements. The fitting is done by a person with a pencil. Here the operator is manufactured by the state the region holds. The region holds its state whether or not anybody has written anything about it. Two regions in the same state have the same energy. The pencil never enters.
 
 ## Positive, and additive
 
-The disagreement outstanding across a region's seams is a sum of squares, which puts a floor under it at zero, and zero is total agreement. Every process available in this world is a descent toward that floor, and no region can spend past it. So the rate is never negative, and there is no arrangement of records that goes on falling forever.
+The disagreement outstanding across a region's seams is a sum of squares, which puts a floor under it at zero, and zero is total agreement. Every process available in this world is a descent toward that floor. No region can spend past it. So the rate is never negative. There is no arrangement of records that goes on falling forever.
 
 Arthur Wightman wrote that into the axioms of quantum field theory in the 1950s and called it the spectrum condition. It has to be assumed there, because without it every system has somewhere lower to drop into and hydrogen radiates without limit. Here it is the floor of a sum of squares.
 
 Additivity comes off the seams. Two regions with no seam between them have no comparison to make across the gap, so they have no repair to do across it, and neither one's rate says anything about the other's. The rates add. That is why energy accounting works at all: a calorimeter that stops two beams together reports the sum of what it reports for each of them alone, an assumption so ordinary that nobody writes it down, and holds because separated regions share no seam.
 
-That sum has a condition on it, and the condition breaks the moment the two regions touch. Run a seam between them and their rates stop adding, since the seam carries a disagreement belonging to neither of them and repair at that seam changes both. The gap between the joint rate and the sum of the separate rates is the quantity a chemist charges for a bond, and the sign of that gap is why two hydrogen atoms end up as a molecule.
+That sum has a condition on it. The condition breaks the moment the two regions touch. Run a seam between them and their rates stop adding, since the seam carries a disagreement belonging to neither of them and repair at that seam changes both. The gap between the joint rate and the sum of the separate rates is the quantity a chemist charges for a bond. The sign of that gap is why two hydrogen atoms end up as a molecule.
 
 ## Both sides of every entry
 
@@ -50,7 +50,7 @@ Every transaction is written twice, once as a debit in one account and once as a
 
 The repair move has that shape by construction. Chapter nine's second requirement was that a repair leaves the total of the two readings it touches alone, which makes every repair two entries, what comes off one reading going onto the other, the pair of them one event. The requirement is there because a move that changed a total would have to know the total, and no register in this world holds one.
 
-Energy conservation is that fact read at the level of rates. A region is worked through at some rate, the working happens at seams, and every seam is shared with a neighbor, so what leaves one region's account arrives in the next one's, entered twice. The rule performing the entries is one rule, the same at every seam and at every event, carrying no parameter that could take a different value somewhere else. There is a general procedure for turning a symmetry into its conserved number, and it is not needed to see this one. Chapter five's correspondence, that energy is what you get when the laws do not care when, is this seen from the other end: the repair rule has no when in it to care about.
+Energy conservation is that fact read at the level of rates. A region is worked through at some rate, the working happens at seams, and every seam is shared with a neighbor, so what leaves one region's account arrives in the next one's, entered twice. The rule performing the entries is one rule, the same at every seam and at every event, carrying no parameter that could take a different value somewhere else. There is a general procedure for turning a symmetry into its conserved number. It is not needed to see this one. Chapter five's correspondence, that energy is what you get when the laws do not care when, is this seen from the other end: the repair rule has no when in it to care about.
 
 In 1775 the Royal Academy of Sciences in Paris resolved to examine no further proposals for perpetual motion, and put them on a list with squaring the circle, trisecting the angle and doubling the cube, none of which anybody had proved impossible either. Every one of those designs is a proposal to make an entry on one side of a boundary and not the other. The obstacle is the list of available moves. Repair acts on one seam, it touches the two readings at that seam's ends, and it leaves their total where it found it, so a wheel that gains what nothing else loses is asking for a move that has never been on the list.
 
@@ -62,7 +62,7 @@ What he chased was a shape. The water in the heap changed the entire way: each s
 
 The seam network holds patterns of that kind. A bounded set of records reproduces itself after every round of repair, because flattening it would open larger disagreements at the boundary of the set than it closes inside. Repair works on such a pattern at every event and gets nowhere with it, so holding the pattern costs repair work at every event, and what the work buys is the pattern being there for the next one.
 
-Mass is that standing cost: the rate a pattern demands while its records go nowhere. Nothing about a stone on a table is idle. The arrangement that makes it a stone is being re-asserted at every event, at a rate the stone's own clock sets, and that rate is what a balance reads off when you put the stone on one.
+Mass is that standing cost: the rate a pattern demands while its records go nowhere. Nothing about a stone on a table is idle. The arrangement that makes it a stone is being re-asserted at every event, at a rate the stone's own clock sets. That rate is what a balance reads off when you put the stone on one.
 
 A pattern of that kind turns its material over, exactly as the heap in the canal did, and the charge falls on the arrangement rather than on whichever records are holding the arrangement at a given event. So the cost is steady while the material under it is not, which is why the proton's mass comes out at 1.0072764665789 atomic mass units, with the uncertainty sitting in the last two of those digits, in every laboratory that has weighed one.
 
@@ -72,7 +72,7 @@ Chapter seventeen put four real numbers into a two-by-two Hermitian matrix and f
 
 A region's entry is four numbers of that kind. The first is the rate the region is worked through against that region's own clock, which is its energy. The other three are the drift of its records across the seam network in the three directions chapter fifteen supplied, which is the quantity Newton listed second among his definitions and called the quantity of motion: momentum.
 
-Put the four numbers into the matrix and take the determinant. Every observer agrees on it, and what they agree on is the square of the mass.
+Put the four numbers into the matrix and take the determinant. Every observer agrees on it. What they agree on is the square of the mass.
 
 Move the terms to the other side of the equals sign and the statement about the determinant becomes the relation everybody writes down, which says how tightly a region's energy, its mass and its drift are locked to one another.
 
@@ -80,9 +80,9 @@ $$E^2 = m^2 + p^2$$
 
 Here E is the region's energy, m is its mass, and p is the size of the drift, with distances counted in seams and durations in repair events so that the conversion between the two is one. Fix the mass and fix the drift and the energy has one value available to it, which is why a detector measuring two of the three is measuring all three.
 
-Set the three drift numbers to zero and the equation reads E = m. Run it the other way: if the energy equals the mass, then p squared is zero, and a sum of three squares comes to zero only when each of the three is zero, so the drift vanishes in every direction at once. Energy equals mass exactly when a pattern is going nowhere, and the exactly-when is a two-way statement about a matrix rather than an approximation for slow objects.
+Set the three drift numbers to zero and the equation reads E = m. Run it the other way: if the energy equals the mass, then p squared is zero, and a sum of three squares comes to zero only when each of the three is zero, so the drift vanishes in every direction at once. Energy equals mass exactly when a pattern is going nowhere. The exactly-when is a two-way statement about a matrix rather than an approximation for slow objects.
 
-Chapter nine counted the conversion that equation set to one: influence advances one seam per event and no faster, which chapter seventeen turned into the speed limit. Restore it to the case where the drift is zero, and the standing cost of a pattern is its mass multiplied by the square of that speed. E = mc² is the corner of a four-number statement with the interesting term deleted, and it is the equation for a brick going nowhere.
+Chapter nine counted the conversion that equation set to one: influence advances one seam per event and no faster, which chapter seventeen turned into the speed limit. Restore it to the case where the drift is zero, and the standing cost of a pattern is its mass multiplied by the square of that speed. E = mc² is the corner of a four-number statement with the interesting term deleted. It is the equation for a brick going nowhere.
 
 The corner is worth something because the conversion is squared. A helium-4 nucleus falls short of the two protons and two neutrons that make it by 0.0304 atomic mass units, and the energy released when those four combine, measured in the laboratory, is 28.3 million electronvolts, which is that shortfall multiplied by the square of the speed of light.
 

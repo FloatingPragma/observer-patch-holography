@@ -2,13 +2,13 @@
 
 In the Egyptian galleries of the Metropolitan Museum of Art there is a lump of serpentinite the size of a plum, 3.2 centimeters tall, cut into twenty triangular faces with a Greek letter carved into each one. A missionary named Chauncey Murch picked it up in Egypt at some point between 1883 and 1906, the museum bought it from his family in 1910 with money Helen Miller Gould put up, and the label allows the object itself anywhere from the second century BC to the fourth century AD. Nobody knows what it was for. The museum's own entry on it offers an alphabet oracle, a text with one line written out against each letter, where the letter that lands face up picks the line that is yours.
 
-Whoever cut it was working to one number, and the number was twenty. Twenty faces, twenty letters, twenty answers.
+Whoever cut it was working to one number. The number was twenty. Twenty faces, twenty letters, twenty answers.
 
 Count its corners. There are twelve, and five faces close around every one of them. Nobody in Ptolemaic Egypt sat down and picked twelve. Twelve is what happens when twenty triangles close up with five meeting at each corner, and any craftsman in any century who set out to make that object would have handed you the same twelve whether he wanted them or not. The same object sits on shelves in a good many houses in injection-molded plastic with the numbers one to twenty on its faces. Its corners come to twelve as well.
 
 Chapter thirteen opened one piece of the world and found a boundary with ports on it, packets going out through the ports, seams where two patches meet, and a verifier deciding claims. The question the boundary leaves standing is how many ports it has. That count is settled the same way the twelve corners in the museum case are settled, by four conditions on how the pieces meet and some arithmetic anyone can do on paper.
 
-The conditions are these. The boundary is cut into triangular faces, since three is the smallest number of patches whose comparisons close into a loop. Every seam has exactly two faces along it, because a seam is where two patches meet and a third would have nothing to meet across. The faces around any port close into a single ring with no loose end anywhere, because there is no edge of the world for a loose end to hang off, and that ring is five faces long. And any loop of comparisons you can walk on the boundary is the rim of some collection of faces, with none left over that the faces cannot reach.
+The conditions are these. The boundary is cut into triangular faces, since three is the smallest number of patches whose comparisons close into a loop. Every seam has exactly two faces along it, because a seam is where two patches meet and a third would have nothing to meet across. The faces around any port close into a single ring with no loose end anywhere, because there is no edge of the world for a loose end to hang off. That ring is five faces long. And any loop of comparisons you can walk on the boundary is the rim of some collection of faces, with none left over that the faces cannot reach.
 
 ## Count it twice
 
@@ -30,9 +30,9 @@ Nineteen and twenty sit one apart. The reason they do is the entire content of t
 
 Take the twenty faces and add up their boundaries in chapter six's arithmetic, where two of anything cancel. Each seam lies along exactly two faces, so each seam gets counted twice and drops out, and the grand total is nothing at all. So the twenty face boundaries carry exactly one relation between them: any nineteen of them determine the twentieth, and no smaller collection of faces adds up to nothing, since a collection that stopped short would have a seam with a face on one side of it and nothing on the other, and that seam has nothing to cancel against. Twenty faces supply nineteen independent loops.
 
-The wiring has nineteen independent loops. The faces supply nineteen independent loops. Those two nineteens are the same nineteen. Every closed walk across the ports is a sum of triangles, and there is nothing else in the boundary for a loop to be.
+The wiring has nineteen independent loops. The faces supply nineteen independent loops. Those two nineteens are the same nineteen. Every closed walk across the ports is a sum of triangles. There is nothing else in the boundary for a loop to be.
 
-That is what being a sphere consists of, checkable from inside the object without stepping back to look at it. Cut the surface of a doughnut into triangles and two loops on it are the boundary of nothing at all: the loop that goes around the hole and the loop that goes through it. Take any collection of triangles on the doughnut and its boundary misses both of them. On a doughnut the faces fall two short of the loops, and the shortfall runs two for every handle.
+That is what being a sphere consists of, checkable from inside the object without stepping back to look at it. Cut the surface of a doughnut into triangles and two loops on it are the boundary of nothing at all: the loop that goes around the hole and the loop that goes through it. Take any collection of triangles on the doughnut and its boundary misses both of them. On a doughnut the faces fall two short of the loops. The shortfall runs two for every handle.
 
 So for a boundary that closes into a sphere, faces minus one equals seams minus ports plus one. Move the terms about and the same statement reads: ports, minus seams, plus faces, equals two. Cut a sphere into a million triangles of wildly unequal size and the combination comes out two. Cut a doughnut any way at all and it comes out zero.
 
@@ -58,9 +58,9 @@ Change the ring around a port from five faces to four. Run the identical double 
 
 Six faces around a port drops the port count out of the arithmetic entirely. The double counting gives six times the ports equals twice the seams, and the combination collapses to zero times the ports, which is zero however many ports there are. Zero is the doughnut's number and the sphere's is two. Six triangles around every point is the flat triangular grid, which runs across a tabletop forever and closes up into a doughnut of any size you like, and never once closes into a sphere.
 
-Break the spherical condition instead. Take the twenty-faced object and glue every point of it to the point diametrically opposite, so that walking off one side brings you back on the other. Ports pair up and there are six of them left, seams pair up and there are fifteen, faces pair up and there are ten. Six minus fifteen plus ten is one. Five faces ring every port, and the surface has one side and cannot be a sphere. Its port count is six, and a sixth of six is one.
+Break the spherical condition instead. Take the twenty-faced object and glue every point of it to the point diametrically opposite, so that walking off one side brings you back on the other. Ports pair up and there are six of them left, seams pair up and there are fifteen, faces pair up and there are ten. Six minus fifteen plus ten is one. Five faces ring every port. The surface has one side and cannot be a sphere. Its port count is six, and a sixth of six is one.
 
-Break the triangles. Pick up the six-sided die from the same shelf and try to find a triangle in its wiring: start at a corner, walk along an edge, walk along another, and see whether a third edge takes you home. It never does. On a cube, no two neighbors of a corner are neighbors of each other, so there is no face anywhere in it whose three corners are pairwise joined. A cube does not fail the count. It fails to admit the structure at all, and no amount of relabeling its eight corners repairs that.
+Break the triangles. Pick up the six-sided die from the same shelf and try to find a triangle in its wiring: start at a corner, walk along an edge, walk along another, and see whether a third edge takes you home. It never does. On a cube, no two neighbors of a corner are neighbors of each other, so there is no face anywhere in it whose three corners are pairwise joined. A cube does not fail the count. It fails to admit the structure at all. No amount of relabeling its eight corners repairs that.
 
 ## Sixty rotations
 
@@ -78,7 +78,7 @@ Three, five and two, read off with a hand rather than argued. Every face can be 
 
 $$20 \times 3 = 12 \times 5 = 30 \times 2 = 60$$
 
-Twenty faces held three ways apiece, twelve corners held five ways, thirty edges held two ways. Three counts that share nothing except the lump they were taken from, and one answer. The solid reports the size of its own symmetry three times over, and the port count comes back out of it as sixty divided by five.
+Twenty faces held three ways apiece, twelve corners held five ways, thirty edges held two ways. Three counts that share nothing except the lump they were taken from, and one answer. The solid reports the size of its own symmetry three times over. The port count comes back out of it as sixty divided by five.
 
 Nobody picked those sixty turns. Four conditions on how comparisons meet forced twelve ports, and the twelve came with sixty turns attached, as much a consequence of the conditions as the corner count is. The symmetry belongs to the boundary the way the corner count belongs to it, arrived at rather than assumed, and every rule that can be written on such a boundary has to come back to itself under all sixty turns. Most rules do not.
 
@@ -88,17 +88,17 @@ Fifteen of the sixty are half turns, one for each pair of opposite seams. They f
 
 ## Ten thousand three hundred and ninety-five ways to pair up twelve things
 
-Twelve ports, and nothing in a list of twelve labels says which of them has anything to do with which.
+Twelve ports. Nothing in a list of twelve labels says which of them has anything to do with which.
 
 Pair them up, six pairs with every port used once. Take the first port and choose its partner from the remaining eleven. Take the lowest unpaired port and choose from the nine left. Then seven, then five, then three, then one. Eleven times nine times seven times five times three is ten thousand three hundred and ninety-five. That is how many pairings twelve labeled things admit. Every one of them is as good as every other, so long as the twelve are only labels.
 
-Put the wiring back and all but one of the pairings dies. Start at any port and count how far the others are, in seams, along the shortest route. Five ports are one seam away, which is the ring around it. Five more are two seams away. That accounts for eleven of the twelve, counting the port you started from, and the twelfth is three seams off. Chapter nine leaned on that three when it put a ceiling on how far news has to travel, and every port has exactly one port at distance three, never two.
+Put the wiring back and all but one of the pairings dies. Start at any port and count how far the others are, in seams, along the shortest route. Five ports are one seam away, which is the ring around it. Five more are two seams away. That accounts for eleven of the twelve, counting the port you started from. The twelfth is three seams off. Chapter nine leaned on that three when it put a ceiling on how far news has to travel, and every port has exactly one port at distance three, never two.
 
 One pairing out of ten thousand three hundred and ninety-five survives that, the one matching each port with the single port farthest from it. It uses every port once and gives six axes.
 
 The same six pairs can be found without counting a single distance. Take any two ports and count the ports adjacent to both of them. Sixty of the sixty-six pairs come back with two ports in common. The other six come back with none, the six axes again, each one a pair of ports that share no neighbor anywhere in the wiring.
 
-Any relabeling that preserves the wiring preserves distances, so it carries the far port of a port to the far port of its image, and none of the sixty turns can scramble the pairing. Count the group against the axes and the arithmetic closes again: six axes, and the moves holding one axis in place number ten.
+Any relabeling that preserves the wiring preserves distances, so it carries the far port of a port to the far port of its image. None of the sixty turns can scramble the pairing. Count the group against the axes and the arithmetic closes again: six axes, and the moves holding one axis in place number ten.
 
 The pairing itself is a move, sending every port to the port opposite. Include it and the moves that preserve the wiring number a hundred and twenty rather than sixty, the extra sixty being mirror moves that no amount of turning the solid in your hands reproduces. That single move commutes with every other one in the collection: whatever else happens to the ports, opposite stays opposite.
 
@@ -106,12 +106,12 @@ Pick up a modern twenty-sided die and check what the manufacturer did with the n
 
 ## Thirteen ports
 
-A boundary with thirteen ports on it, each with five seams running out, would have sixty-five seam-ends. Seams have two ends. Sixty-five is odd, and there is no such object, in this world or any other, for reasons that never get as far as physics. Fourteen ports pass that test and fail the other one: they give thirty-five seams, thirty-five seams give seventy face-sides, and seventy face-sides will not divide into triangles. Between them the two double counts dispose of every count that is not a multiple of six. The multiples of six need the surface to settle them. Eighteen ports would need ports minus seams plus faces to come out at three, twenty-four would need four, and no closed surface reaches either, since two is the ceiling and the sphere owns it. Six ports would need one, and one belongs to the surface you get by gluing every point to the point opposite, where a port and its far partner are the same port and a patch carried once around comes back mirrored. Twelve is the whole of what the conditions permit.
+A boundary with thirteen ports on it, each with five seams running out, would have sixty-five seam-ends. Seams have two ends. Sixty-five is odd. There is no such object, in this world or any other, for reasons that never get as far as physics. Fourteen ports pass that test and fail the other one: they give thirty-five seams, thirty-five seams give seventy face-sides, and seventy face-sides will not divide into triangles. Between them the two double counts dispose of every count that is not a multiple of six. The multiples of six need the surface to settle them. Eighteen ports would need ports minus seams plus faces to come out at three, twenty-four would need four, and no closed surface reaches either, since two is the ceiling and the sphere owns it. Six ports would need one, and one belongs to the surface you get by gluing every point to the point opposite, where a port and its far partner are the same port and a patch carried once around comes back mirrored. Twelve is the whole of what the conditions permit.
 
 The one line working physicists write down when somebody asks what the world is made of carries somewhere between nineteen and twenty-six numbers that were measured in laboratories and entered by hand. The number of particle families in it is three because three is how many the detectors reported. Twelve came by the other route. Four conditions on how comparisons meet, every one of them checkable by something sitting inside the boundary with no view of it, leave exactly one count standing, and the count is twelve, with thirty seams and twenty faces attached.
 
-None of which puts a small solid anywhere. The object in the case in New York is 3.2 centimeters of serpentinite lying on a shelf in a gallery. A screen is where an observer's accessible information lives. Being spherical was a statement about loops closing. An observer checks it by counting its own comparisons without ever standing outside anything. The three directions in that gallery are built out of twelve readings like these, and the count that produced the twelve used no direction anywhere in it.
+None of which puts a small solid anywhere. The object in the case in New York is 3.2 centimeters of serpentinite lying on a shelf in a gallery. A screen is where an observer's accessible information lives. Being spherical was a statement about loops closing. An observer checks it by counting its own comparisons without ever standing outside anything. The three directions in that gallery are built out of twelve readings like these. The count that produced the twelve used no direction anywhere in it.
 
 Twelve readings, one per port, is everything one piece of the world exposes about itself.
 
-Twelve numbers. The world an observer finds when it looks around has three directions in it, no more and no fewer, and every physics ever written has taken that three as a given and moved on.
+Twelve numbers. The world an observer finds when it looks around has three directions in it, no more and no fewer. Every physics ever written has taken that three as a given and moved on.

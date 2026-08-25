@@ -10,7 +10,7 @@ The cavity stayed quiet.
 
 The microphone put a ceiling on what it had failed to hear. The net charge on one molecule of sulfur hexafluoride came in below two parts in ten billion billion of the charge on a single electron. That molecule carries 146 units of atomic mass, so per unit of mass the difference between the charge on a proton and the charge on an electron sits below one part in a thousand billion billion. Hydrogen, which is one proton and one electron and nothing else, is electrically neutral to better than one part in a billion billion.
 
-Look at what has to be true for that. A proton is two up quarks and a down quark. The up quark carries two thirds of a unit of electric charge and the down quark carries minus one third, and two thirds plus two thirds minus one third is one. An electron contains no quarks. The strong force that binds the proton's insides passes through an electron without noticing it. The electron's charge is minus one, which is to say exactly three times the down quark's, and the exactness holds past every decimal place anyone has reached.
+Look at what has to be true for that. A proton is two up quarks and a down quark. The up quark carries two thirds of a unit of electric charge and the down quark carries minus one third. Two thirds plus two thirds minus one third is one. An electron contains no quarks. The strong force that binds the proton's insides passes through an electron without noticing it. The electron's charge is minus one, which is to say exactly three times the down quark's. The exactness holds past every decimal place anyone has reached.
 
 Nobody ordered that. Write the same physics down with the down quark at minus 0.333333 and the electron at minus 1.000000 and every equation goes through unchanged. What changes is the sky: a mismatch of one part in a billion billion would leave two hydrogen atoms pushing each other apart about as hard as their gravity pulls them together, and a cloud of the stuff would blow itself apart instead of collapsing into a star.
 
@@ -34,13 +34,13 @@ Each slot carries a hypercharge tag. Two conditions fix the tags, both of them c
 
 Take the five slots and build things out of them by picking a handful at a time.
 
-One rule governs the picking, the rule that makes matter behave like matter. Write a pick as an ordered list of slot names, and demand that swapping any two names flips the sign of the whole object. That is **antisymmetry**. It has an immediate consequence: pick the same slot twice and swapping the two copies changes nothing while also flipping the sign, so the object equals minus itself, so the object is zero. Every slot appears at most once. Order stops mattering, since any reordering costs a sign and nothing else, and what survives is the bare question of which slots are in and which are out.
+One rule governs the picking, the rule that makes matter behave like matter. Write a pick as an ordered list of slot names, and demand that swapping any two names flips the sign of the whole object. That is **antisymmetry**. It has an immediate consequence: pick the same slot twice and swapping the two copies changes nothing while also flipping the sign, so the object equals minus itself, so the object is zero. Every slot appears at most once. Order stops mattering, since any reordering costs a sign and nothing else. What survives is the bare question of which slots are in and which are out.
 
-The number of ways to choose two things from five is the number of pairs you can make, which is five choices for the first, four for the second, and a division by two because each pair got counted in both orders. Ten. The number of ways to choose four from five is easier, because choosing four is the same as leaving one out, and there are five slots to leave out. Five. Numbers of this kind are called **binomial coefficients**. For cases this small you can write the choices down and count them.
+The number of ways to choose two things from five is the number of pairs you can make, which is five choices for the first, four for the second, and a division by two because each pair got counted in both orders. Ten. The number of ways to choose four from five is easier, because choosing four is the same as leaving one out. There are five slots to leave out. Five. Numbers of this kind are called **binomial coefficients**. For cases this small you can write the choices down and count them.
 
 Ten and five. Fifteen.
 
-Fifteen is the number of states in one generation of matter, and the charges come out with it. The hypercharge of a combination is the sum of the tags of the slots in it. The strong and weak forces act on whichever of their own slots are present.
+Fifteen is the number of states in one generation of matter. The charges come out with it. The hypercharge of a combination is the sum of the tags of the slots in it. The strong and weak forces act on whichever of their own slots are present.
 
 | Slots picked | Ways | Hypercharge | What it is |
 |-|-|-|-|
@@ -52,7 +52,7 @@ Fifteen is the number of states in one generation of matter, and the charges com
 
 Every hypercharge in that column is the sum of the tags. Minus a third and minus a third is minus two thirds. Minus a third and a half is a sixth. Three color tags and one weak tag is minus one plus a half, which is minus a half. The rows add to three plus six plus one plus two plus three, which is fifteen.
 
-Electric charge is one more addition. Where a pick includes exactly one of the two weak slots, the weak force can rotate that choice into the other, so those states come in pairs, and the two members of a pair sit half a step either side of the hypercharge tag. A sixth plus a half is two thirds, the up quark. A sixth minus a half is minus one third, the down quark. Minus a half plus a half is zero, the neutrino. Minus a half minus a half is minus one, the electron. The unpaired rows carry their tag unchanged: minus two thirds, plus one third, plus one.
+Electric charge is one more addition. Where a pick includes exactly one of the two weak slots, the weak force can rotate that choice into the other, so those states come in pairs. The two members of a pair sit half a step either side of the hypercharge tag. A sixth plus a half is two thirds, the up quark. A sixth minus a half is minus one third, the down quark. Minus a half plus a half is zero, the neutrino. Minus a half minus a half is minus one, the electron. The unpaired rows carry their tag unchanged: minus two thirds, plus one third, plus one.
 
 That is the roster. Up and down quarks in three colors, the electron, its neutrino, and the antiparticles of the ones that need them, with every charge in the Standard Model's table reproduced, out of choosing two or four from five slots and adding up tags.
 
@@ -64,7 +64,7 @@ Three of the five rows above are antiparticles. In 1928 Paul Dirac wrote an equa
 
 ## Wu's cobalt
 
-Hold your hands out in front of you, palms down. They are the same object twice, and no amount of turning either one will make it into the other, because a mirror sits between them. A screw thread has the same property, and so does a particle: give it a direction of travel and a sense of spin, and either the spin turns the way a right-handed screw turns as it advances, or it turns the other way. The two cases are called right-handed and left-handed, a mirror swaps them, and the property is **chirality**.
+Hold your hands out in front of you, palms down. They are the same object twice. No amount of turning either one will make it into the other, because a mirror sits between them. A screw thread has the same property, and so does a particle: give it a direction of travel and a sense of spin, and either the spin turns the way a right-handed screw turns as it advances, or it turns the other way. The two cases are called right-handed and left-handed, a mirror swaps them, and the property is **chirality**.
 
 A symmetry is the claim that some part of a description was never physical. Mirror symmetry would say that left and right are a labeling convention, and that nothing in an experiment distinguishes a world from its reflection. Until 1956 every physicist assumed it, because electricity and the strong force obey it exactly and nobody had looked anywhere else.
 
@@ -72,7 +72,7 @@ Chien-Shiung Wu was born in Liuhe, near Shanghai, in 1912, took her doctorate at
 
 The experiment needs the cobalt nuclei lined up, which needs them cold. On 4 June 1956 Wu telephoned Ernest Ambler at the National Bureau of Standards in Washington, whose group could reach three thousandths of a degree above absolute zero by adiabatic demagnetization, and asked him to collaborate. Several months went into getting the apparatus to work. The first successful run began at four minutes past noon on 27 December 1956.
 
-A cobalt-60 nucleus decays by throwing out an electron. With the nuclei aligned by a magnetic field, the question is whether the electrons prefer the spin direction or the opposite one. In a mirror the spin direction survives, because a spin is a circulation rather than an arrow, while the direction the electron flies in is reversed. So a world obeying mirror symmetry has to emit equal numbers each way, and any asymmetry at all kills the symmetry outright.
+A cobalt-60 nucleus decays by throwing out an electron. With the nuclei aligned by a magnetic field, the question is whether the electrons prefer the spin direction or the opposite one. In a mirror the spin direction survives, because a spin is a circulation rather than an arrow, while the direction the electron flies in is reversed. So a world obeying mirror symmetry has to emit equal numbers each way. Any asymmetry at all kills the symmetry outright.
 
 The electrons came out against the spin. Reverse the magnetic field and the count dropped, then climbed back to baseline over about six minutes as the sample warmed and the alignment was lost. Wu, Ambler, R. W. Hayward, D. D. Hoppes and R. P. Hudson published it in *Physical Review* volume 105, page 1413, in 1957. Lee and Yang took the Nobel Prize in Physics that year. Wu took the first Wolf Prize in Physics, in 1978.
 
@@ -94,9 +94,9 @@ The search asked each list for two things, that it be chiral and that its four s
 
 ## Four sums and a count
 
-Chapter twelve proved that a force works if and only if its charge is conserved, which is tight enough that violating it leaves no theory at all rather than a damaged one. The quantum version of that proof comes with a bill, and the bill is arithmetic.
+Chapter twelve proved that a force works if and only if its charge is conserved, which is tight enough that violating it leaves no theory at all rather than a damaged one. The quantum version of that proof comes with a bill. The bill is arithmetic.
 
-Certain sums, taken over every species on the list at once, have to come out at exactly zero. When one of them does not, the conservation law the force depends on fails and the theory stops predicting anything. Sums of this kind are called **anomalies**. A matter list either satisfies all of them or describes no possible world. Every entry contributes, so the list has to be checked whole, and a species cannot be added or dropped on its own.
+Certain sums, taken over every species on the list at once, have to come out at exactly zero. When one of them does not, the conservation law the force depends on fails and the theory stops predicting anything. Sums of this kind are called **anomalies**. A matter list either satisfies all of them or describes no possible world. Every entry contributes, so the list has to be checked whole. A species cannot be added or dropped on its own.
 
 Five conditions apply to a list like this one. Take the first.
 
@@ -108,7 +108,7 @@ Nothing on that list was arranged to make it come out. The tags were fixed by a 
 
 The three conditions left over are cheaper. Adding the plain hypercharges of all fifteen states gives one, minus two, one, minus one and one, which is zero. Adding the hypercharges of the weak pairs gives three color copies at a sixth, which is a half, against the lepton pair's minus a half. The last condition is a count rather than a sum: a world with an odd number of weak pairs has no consistent weak force at all, which Edward Witten proved in 1982, and this generation carries four.
 
-Five conditions, and a list assembled by choosing slots and adding tags meets every one. In the way physics is normally taught these conditions arrive after the fact, as a check on charges that were read off a detector, and their passing is one of the things that make the Standard Model feel like something somebody got away with. Here they are the sieve, and 1,022 of the 1,024 lists die on them.
+Five conditions. A list assembled by choosing slots and adding tags meets every one. In the way physics is normally taught these conditions arrive after the fact, as a check on charges that were read off a detector, and their passing is one of the things that make the Standard Model feel like something somebody got away with. Here they are the sieve, and 1,022 of the 1,024 lists die on them.
 
 ## A clock with six positions
 
@@ -124,9 +124,9 @@ Try the anti-up, which takes two color slots and no weak slot and sits at hyperc
 
 So there is a combination of gauge moves that does nothing whatever to any piece of matter that exists, and repeating it generates a family of exactly six such combinations, counting the one that does nothing to start with. Six moves that nothing in the world can detect. By the argument chapter four made about permitted relabelings, they get bundled in with the identity, and the group that does the physical work is the quotient.
 
-Which is where the sixths come from. The bundling holds together only if the hypercharge dial advances in steps that fit that six-element pattern. A species whose hypercharge misses a whole multiple of one sixth turns through an angle that spoils the cancellation above, so it cannot exist without breaking a bundle that is a fact about which moves the world can tell apart. Every hypercharge in nature is a whole number of sixths, and which sixth is tied to how many color slots the species carries. That tie is where the electric charges land: anything carrying color comes out on a third, and anything without color comes out on a whole number.
+Which is where the sixths come from. The bundling holds together only if the hypercharge dial advances in steps that fit that six-element pattern. A species whose hypercharge misses a whole multiple of one sixth turns through an angle that spoils the cancellation above, so it cannot exist without breaking a bundle that is a fact about which moves the world can tell apart. Every hypercharge in nature is a whole number of sixths. Which sixth is tied to how many color slots the species carries. That tie is where the electric charges land: anything carrying color comes out on a third, and anything without color comes out on a whole number.
 
-That is the lock. The down quark and the electron are separated by everything, and they are counted in the same unit, because the unit belongs to the wiring rather than to either of them. The down quark stands at minus one third, which is minus two sixths, and the electron stands at minus one, which is minus six sixths, and three times two is six, exactly and leaving zero room for a discrepancy in the twentieth decimal place. The proton, being two ups and a down, lands on plus one for the same reason, and the microphone in the cavity had nothing to hear.
+That is the lock. The down quark and the electron are separated by everything. They are counted in the same unit, because the unit belongs to the wiring rather than to either of them. The down quark stands at minus one third, which is minus two sixths, and the electron stands at minus one, which is minus six sixths, and three times two is six, exactly and leaving zero room for a discrepancy in the twentieth decimal place. The proton, being two ups and a down, lands on plus one for the same reason. The microphone in the cavity had nothing to hear.
 
 ## Three at the least, five at the most
 
@@ -138,7 +138,7 @@ Start with the floor, which comes from the matter around you existing at all.
 
 Charge conjugation swaps every particle for its antiparticle. Combine it with a mirror reflection and you have an operation turning any process into its opposite-and-reflected version, and the question is whether the two run at the same rate. On 27 July 1964 James Christenson, James Cronin, Val Fitch and René Turlay published the answer from the Brookhaven accelerator: among the long-lived neutral kaons in their beam, 45 events decayed the way the symmetry forbids, about one in five hundred. Matter and antimatter are physically different, by a little, and the little is why the universe did not annihilate itself into a bath of light with nobody in it.
 
-The weak force is what makes them different, and does so through the way it mixes the down-type quarks across families. That mixing is a square table of numbers with one row and one column per family, and a real difference between matter and antimatter needs an entry in it carrying a complex phase that no relabeling of the fields removes. Plain rotation angles are useless here, because a rotation angle looks the same to matter and to antimatter. Counting the phases that survive relabeling is arithmetic on the size of the table:
+The weak force is what makes them different, and does so through the way it mixes the down-type quarks across families. That mixing is a square table of numbers with one row and one column per family. A real difference between matter and antimatter needs an entry in it carrying a complex phase that no relabeling of the fields removes. Plain rotation angles are useless here, because a rotation angle looks the same to matter and to antimatter. Counting the phases that survive relabeling is arithmetic on the size of the table:
 
 $$\frac{(N-1)(N-2)}{2}$$
 
@@ -150,10 +150,10 @@ Species of matter push the other way, back toward ordinary screening, and each f
 
 Which leaves three, four or five, and the shape of the problem is familiar to anybody who has tried to get a week into cabin luggage: a floor set by what the trip needs, a ceiling set by what the case holds, and nothing in either constraint that picks a number.
 
-The carrier picks it. The twelve ports of chapter fourteen sit on a solid with twenty triangular faces, the sixty rotations carry any face to any other, and each face has its own threefold rotation cycling its three corners. Something has to carry that threefold turn, and the number of copies of the roster is the width of whatever carries it. Chapter fifteen inventoried what is available: the twelve directions break into uncuttable pieces of sizes one, three, three and five, and the piece of size one takes the same value under every rotation and can therefore carry no phase whatever. There is no piece of size four anywhere on the list, so a fourth copy of the roster has nowhere to ride, and no piece of size two either.
+The carrier picks it. The twelve ports of chapter fourteen sit on a solid with twenty triangular faces, the sixty rotations carry any face to any other, and each face has its own threefold rotation cycling its three corners. Something has to carry that threefold turn. The number of copies of the roster is the width of whatever carries it. Chapter fifteen inventoried what is available: the twelve directions break into uncuttable pieces of sizes one, three, three and five, and the piece of size one takes the same value under every rotation and can therefore carry no phase whatever. There is no piece of size four anywhere on the list, so a fourth copy of the roster has nowhere to ride, and no piece of size two either.
 
 The three eligible pieces can also be priced. Ask what it costs the screen to carry a family band in each of them, and the three answers are five minus the square root of five, six, and five plus the square root of five: 2.7639, 6 and 7.2361. The cheapest is the first, which is a piece of size three.
 
-Three families, and the count is checkable from outside. Through the 1990s the four detectors at CERN's Large Electron-Positron collider measured how often the Z boson decays into things nobody sees, which is neutrinos, and divided by the rate for a single species. The full data set gives 2.9840 plus or minus 0.0082 light neutrino species, which is three to within a percent and leaves no room for a fourth.
+Three families. The count is checkable from outside. Through the 1990s the four detectors at CERN's Large Electron-Positron collider measured how often the Z boson decays into things nobody sees, which is neutrinos, and divided by the rate for a single species. The full data set gives 2.9840 plus or minus 0.0082 light neutrino species, which is three to within a percent and leaves no room for a fourth.
 
-Every entry on that roster is a set of charges, and a charge is an answer: what the strong force gets back when it asks, what the weak force gets back, what the dial reads. Ask an up quark what it is, as opposed to what it answers to, and five slots and fifteen states say nothing at all.
+Every entry on that roster is a set of charges. A charge is an answer: what the strong force gets back when it asks, what the weak force gets back, what the dial reads. Ask an up quark what it is, as opposed to what it answers to, and five slots and fifteen states say nothing at all.

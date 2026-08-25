@@ -6,7 +6,7 @@ The thing he built is on your wall. It has a sensor, a number you set, and a swi
 
 Chapter two ended by discovering that consistency is a property of descriptions, and that descriptions have to be held by something. The obvious next move is to reach for a person. It is the wrong move, because reaching for a person means assuming a brain, a body, a planet, several billion years of chemistry and a spacetime for all of it to happen in, which is every assumption chapter one deleted arriving back through the side door.
 
-The right move is to ask what the job actually requires, and then find the cheapest object in the universe that can do it. The answer is the thermostat on the wall, and nothing has to be added to it.
+The right move is to ask what the job actually requires, and then find the cheapest object in the universe that can do it. The answer is the thermostat on the wall. Nothing has to be added to it.
 
 ## What the job requires
 
@@ -16,13 +16,13 @@ Take the job seriously. Something has to hold a description of part of the world
 
 Lewis Carroll got there first. In *Sylvie and Bruno Concluded*, published in 1893, a character called Mein Herr explains that his country's cartographers began with maps at six inches to the mile, then tried six yards to the mile, then a hundred yards, and finally arrived at the grandest idea of all, a map on the scale of a mile to the mile. It has never been spread out, he admits: the farmers objected that it would cover the whole country and shut out the sunlight. So we now use the country itself, as its own map, and I assure you it does nearly as well.
 
-That is the whole argument. A description that leaves nothing out is a duplicate, and a duplicate tells you precisely as much as the original does, which is to say it does the job nearly as well and to no purpose whatever. Description begins where something gets left out. A boundary is what makes a thing a describer rather than a copy. It belongs at the top of the list rather than in a footnote about limitations.
+That is the whole argument. A description that leaves nothing out is a duplicate. A duplicate tells you precisely as much as the original does, which is to say it does the job nearly as well and to no purpose whatever. Description begins where something gets left out. A boundary is what makes a thing a describer rather than a copy. It belongs at the top of the list rather than in a footnote about limitations.
 
 **It has to write.** A description exists where it is recorded and nowhere else, because an unrecorded one leaves the world in exactly the state it would have been in had nobody formed it. So there has to be a somewhere: a state, a mark, a position, a magnetisation, anything at all that can be in one configuration rather than another and stay that way.
 
 **It has to read what it holds, and the reading has to make a difference.** Seal the thermostat's set number behind glass where the switch cannot get at it. Every part still works. The sensor senses, the number sits there at twenty degrees, the room is cold, and the boiler stays off, because nothing in the device ever consults the number for any purpose. What is left on the wall is a thermometer and a decoration.
 
-So the requirement is not that a record be accurate. It is that something downstream depends on it. A mark nothing consults is a mark the world runs identically without, and if the world runs identically without it then it is not describing anything, whatever it happens to say.
+So the requirement is not that a record be accurate. It is that something downstream depends on it. A mark nothing consults is a mark the world runs identically without. If the world runs identically without it then it is not describing anything, whatever it happens to say.
 
 This is also the place where one thing gets to matter to another, worth being slow about, because everything later rests on it. Two systems can sit beside each other forever, each in whatever state it is in, with their states correlating as tightly as you like, and nothing whatever passing between them. What makes the second one matter to the first is that the first reads it and does something different for having read it. Remove that and there is no sense in which anything affects anything: there are states, and there is a tally of how often they coincide, and there is nothing else.
 
@@ -44,7 +44,7 @@ Three for three. It is screwed to the wall, so it holds each of its numbers from
 
 Then score the thermometer beside it, because a list of requirements is worth nothing until something fails one. A mercury thermometer has a bounded view: one number, one place, nothing else. It writes, in the sense that matters, since the height of the column is a physical configuration that can be one thing rather than another, and rewrites whenever the room changes. It persists, being made largely of glass and screwed to the same wall.
 
-Two for three. Nothing in the glass consults the column. The mercury stands where it stands and no part of the instrument is downstream of where it stands, so the height makes no difference to anything the thermometer does, there being nothing the thermometer does. Engrave a second number on the case and nothing changes, because a number on a case is not consulted either. A thermometer has a state. A thermostat has a state and an opinion about it, and the gap between those two sentences is the gap between a thing and an observer.
+Two for three. Nothing in the glass consults the column. The mercury stands where it stands and no part of the instrument is downstream of where it stands, so the height makes no difference to anything the thermometer does, there being nothing the thermometer does. Engrave a second number on the case and nothing changes, because a number on a case is not consulted either. A thermometer has a state. A thermostat has a state and an opinion about it. The gap between those two sentences is the gap between a thing and an observer.
 
 That is a useful failure, because it shows which of the three is load-bearing. Take away the boundary and you get a duplicate. Take away the writing and nothing is retained. But take away the reading and you are left with something that looks entirely functional, sits on the wall for decades, correlates with the world to a fraction of a degree, and observes nothing whatsoever.
 
@@ -88,7 +88,7 @@ An observer here is any bounded system that keeps records. A thermostat is one. 
 
 There is a second misreading, subtler than the first and more persistent, and the one that makes people suspicious of observer-centered physics for good reasons.
 
-Putting observers at the bottom sounds like putting *us* at the bottom, and that sounds like a demotion of the universe in favour of the people looking at it. It sounds like the world is somehow for us, or shaped by us, or waiting on our attention. Every anthropic argument ever made has this flavour, and the flavour is unpleasant for a reason: a universe arranged around the preferences of its inhabitants is exactly the kind of story people invent.
+Putting observers at the bottom sounds like putting *us* at the bottom. That sounds like a demotion of the universe in favour of the people looking at it. It sounds like the world is somehow for us, or shaped by us, or waiting on our attention. Every anthropic argument ever made has this flavour. The flavour is unpleasant for a reason: a universe arranged around the preferences of its inhabitants is exactly the kind of story people invent.
 
 That is the opposite of what is being said. An observer in this book does not get what it wants. It gets what it can consistently record. The second is a much harsher master than the first. The thermostat cannot decide the room is warm. It can hold a number, and the number can be wrong, and being wrong has consequences it does not choose. Everything in the next thirty chapters comes from what a bounded record-keeper is *forbidden* to do: it cannot see everything, it cannot write without limit, it cannot compare what it has no access to, and it cannot disagree with its neighbors indefinitely without something giving way.
 
@@ -110,9 +110,9 @@ That is a sentence you can build a physics out of without assuming a stage. Whet
 
 One thing has been quietly assumed for six pages and it comes due later.
 
-Writing a record costs something. It costs room, because a mark occupies whatever it is a mark on, and there is only so much of that. And it costs energy, because setting a physical system into one configuration rather than another means moving something. No observer has ever been built that writes for free, and the reason is not engineering.
+Writing a record costs something. It costs room, because a mark occupies whatever it is a mark on, and there is only so much of that. And it costs energy, because setting a physical system into one configuration rather than another means moving something. No observer has ever been built that writes for free. The reason is not engineering.
 
-The three requirements above were stated as though they were free. They are not, and the price of a written record turns out to be one of the more important numbers in physics.
+The three requirements above were stated as though they were free. They are not. The price of a written record turns out to be one of the more important numbers in physics.
 
 That is the whole starting position: bounded record-keepers, comparing what they hold against what they see, at a cost.
 

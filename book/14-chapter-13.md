@@ -14,7 +14,7 @@ Open one. The question is what a piece of the world is made of when you get all 
 
 ## The parts list
 
-Start with the thing that holds a state. A **patch** is a machine small enough to be described completely: a bounded amount of internal state, a set of interfaces, and a finite list of moves it is allowed to make. Bounded has been in force since the definition of an observer. A patch that could hold unlimited state would have an unlimited amount to compare, and the comparison would never finish.
+Start with the thing that holds a state. A **patch** is a machine small enough to be described completely: a bounded amount of internal state, a set of interfaces, and a finite list of moves it is allowed to make. Bounded has been in force since the definition of an observer. A patch that could hold unlimited state would have an unlimited amount to compare. The comparison would never finish.
 
 A **port** is one place where a patch exposes part of itself to whatever is outside it. What appears at a port is a **packet**: a reading, drawn from a finite set of possible readings, that anything on the other side can pick up. The packet is not the patch's state. It is what the state looks like from the outside at that one interface, in the way that the cell beside a pin holds what that pin is doing rather than what the die is thinking.
 
@@ -46,13 +46,13 @@ The sixth move is the one engineers recognize on sight. A patch can be wrong. It
 
 Each seam can score itself. Take the two packets, apply the seam's dictionary to one of them, and produce a number that is zero when they answer each other and positive when they do not. That number is local: it involves the two ends of one seam and nothing else in the world.
 
-Add the scores over every seam. What comes out is one number for the whole arrangement, the total mismatch. Every accepted repair lowers it. The score is built from finitely many seams each carrying finitely many possible values, so it takes values in a finite ordered set, and a quantity that steps down and has a floor runs out of room.
+Add the scores over every seam. What comes out is one number for the whole arrangement, the total mismatch. Every accepted repair lowers it. The score is built from finitely many seams each carrying finitely many possible values, so it takes values in a finite ordered set. A quantity that steps down and has a floor runs out of room.
 
 Chapter ten watched that number come down. Of the 390,924 seams in that run, 326,047 were scoring above zero at the start, and at cycle 96 out of 128 none of them were. The settling curve counted the seams contributing anything at all. The quantity the machine was working against was their sum.
 
 So every sequence of repairs stops. Wherever it stops, no patch has a move available: each one has read its ports, compared, and found nothing its menu can improve. That is a local normal form, exactly as much as the descent argument buys.
 
-Everybody stopping and everybody stopping in the same place are two different claims, and the score has paid for one of them.
+Everybody stopping and everybody stopping in the same place are two different claims. The score has paid for one of them.
 
 ## What the second claim costs
 
@@ -68,7 +68,7 @@ With the menu complete, the gluing condition holding, and the diamond closing wh
 
 Two patches on one seam gave chapter ten two endings out of one start. The score in that arrangement runs down to zero, every move taken is an entry on the card applied to a mismatch that was there, and the sixth move's check passes on every reading either patch exposed. The descent supplies all of that and leaves both endings standing. A gap in the menu and an interior that cannot support its boundary are both printed into the card and the wiring before the first repair runs.
 
-Those three requirements are the **synchronization contract**: obligations on the parts, and any assembly that meets them synchronizes. The descent gets the machine to stop. The contract is what makes the place it stops one place rather than a place per schedule, which is to say that whether there is a single world at the end of the repairs is a question about the connector.
+Those three requirements are the **synchronization contract**: obligations on the parts. Any assembly that meets them synchronizes. The descent gets the machine to stop. The contract is what makes the place it stops one place rather than a place per schedule, which is to say that whether there is a single world at the end of the repairs is a question about the connector.
 
 ## Four things that have to travel
 
@@ -96,7 +96,7 @@ The architecture supplies the checks and does not supply the distance. Nor does 
 
 Take a patch and ask what anything outside it can determine about it.
 
-Everything arrives through the ports, and what arrives at a port is one packet from a finite set. So two interior states that expose the same packets on every port are the same state to every neighbor, to every neighbor's neighbor, and to the network entire. They can differ internally in any way you like. The difference has nowhere to be read.
+Everything arrives through the ports. What arrives at a port is one packet from a finite set. So two interior states that expose the same packets on every port are the same state to every neighbor, to every neighbor's neighbor, and to the network entire. They can differ internally in any way you like. The difference has nowhere to be read.
 
 Which turns the amount that can be known about a region into a count of arrangements of its boundary. The number of values one port can show, multiplied by itself once for every port the patch has. In the runs of chapter twelve the freedom each patch held was one of the six ways of permuting three labels, so a reading in that arrangement is one of six things, and the bound is six multiplied by itself once per port.
 
@@ -104,7 +104,7 @@ Assemble many patches into one observer and the same argument applies to the ass
 
 The interior does not appear in that product anywhere. However much a patch holds inside, and however finely it holds it, what can be known about it is fixed by its boundary. That is half of the area law: the information associated with a region of space goes as the area of the surface around it rather than as the volume inside, and black holes are where that was first noticed. The other half is a number, how much information one unit of boundary area holds, and fixing that number takes a horizon and a thermodynamic argument. Getting this far took a machine with a bounded interior and finitely many ports, and nothing about gravity at all.
 
-Six, multiplied by itself once per port. The six is an accident of one arrangement's three labels. The exponent is a count of holes in a connector, and the six moves do not fix it.
+Six, multiplied by itself once per port. The six is an accident of one arrangement's three labels. The exponent is a count of holes in a connector. The six moves do not fix it.
 
 The connector is a closed surface, its ports have to be arranged so that every one of them sees the same thing, and the seams have to pair up with nothing left over. Impose them all at once and the arithmetic permits one count and no other.
 

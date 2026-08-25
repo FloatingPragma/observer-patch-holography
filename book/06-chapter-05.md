@@ -4,7 +4,7 @@ Bob's kitchen table is oak, scratched, and a hundred and twelve centimeters alon
 
 Alice, coming in behind him, turns on the light and sees the whole thing at once.
 
-Two accounts of the table, and the physical signals behind them have nothing in common. Alice receives photons, scattered off the oak in a band of wavelengths a few hundred nanometers wide, focused onto a patch of light-sensitive cells at the back of each eye. Bob receives mechanical deformation of the skin of his palm, transduced by pressure receptors that would not respond to a laser shone directly at them. No signal either of them receives is available to the other. The two channels do not overlap anywhere in the physics.
+Two accounts of the table. The physical signals behind them have nothing in common. Alice receives photons, scattered off the oak in a band of wavelengths a few hundred nanometers wide, focused onto a patch of light-sensitive cells at the back of each eye. Bob receives mechanical deformation of the skin of his palm, transduced by pressure receptors that would not respond to a laser shone directly at them. No signal either of them receives is available to the other. The two channels do not overlap anywhere in the physics.
 
 They agree about the table instantly and without discussion. Neither of them experiences the agreement as an achievement.
 
@@ -34,7 +34,7 @@ Most people find four and stop. The four are the rotations: leave it alone, turn
 
 Eight. There are exactly eight. Three things about those eight can be checked with the paper in your hand.
 
-Do one move, then do another. Whatever you did, the result is one of the eight. A quarter turn counterclockwise followed by a flip about the diagonal that runs up to the right is a flip about the horizontal line. You can watch the dot arrive to confirm it. There was nothing else it could have been, because the square is back on its outline, and there are only eight ways to be back on your outline. The set is closed. Nothing you can do with these moves takes you outside them.
+Do one move, then do another. Whatever you did, the result is one of the eight. A quarter turn counterclockwise followed by a flip about the diagonal that runs up to the right is a flip about the horizontal line. You can watch the dot arrive to confirm it. There was nothing else it could have been, because the square is back on its outline, with only eight ways to be back on your outline. The set is closed. Nothing you can do with these moves takes you outside them.
 
 Every move can be undone by another one on the list. The quarter turn is undone by the three-quarter turn. Each of the four flips is undone by itself. No move in the set strands you.
 
@@ -63,7 +63,7 @@ The other two blanks are quieter. Row 3 under column 3 is a three-quarter turn d
 
 Count along any row of the finished grid. Each of the eight moves appears exactly once, and the same holds down every column. The row for the quarter turn shows why. Two different second moves cannot land the square in the same place there, because a three-quarter turn stuck in front of both sequences cancels the quarter turn and leaves the second move standing on its own, so those two second moves would have to have been one move. Eight second moves, eight different answers, and only eight moves available for the answers to be. All eight are in the row, once each, and nothing anywhere in the grid produces a ninth thing.
 
-Closed, undoable, and containing the do-nothing move. A collection of changes with those properties is called a **group**. Mathematicians have been calling it that since the 1830s. The word arrives last on purpose. The object was in your hands before it had a name, and it would have been there if nobody had ever named it.
+Closed, undoable, and containing the do-nothing move. A collection of changes with those properties is called a **group**. Mathematicians have been calling it that since the 1830s. The word arrives last on purpose. The object was in your hands before it had a name. It would have been there if nobody had ever named it.
 
 The three properties fit on one line of symbols. Write G for the collection of the eight moves, g and h for any two moves in it, and a dot between them for doing g and then doing h. Write e for leaving the square alone, and g with a raised minus one for the move that undoes g. The rounded E is read as "is one of". The conditions come in the order closure, do-nothing move, undo, because the undo is defined by what it gets you back to.
 
@@ -75,7 +75,7 @@ A group is a set with one operation obeying those conditions. Nothing in them me
 
 One more thing to see with the paper. The dot moves. Under the eight moves it visits all four corners, every corner reachable from every other. The set of places a thing can be sent by the moves in a group is its **orbit**, so the orbit of a corner is the four corners. The orbit of the midpoint of an edge is the four edge midpoints, a different set of four. No move carries a corner to an edge midpoint.
 
-The center of the square has an orbit of one. It sits where it sits under every one of the eight, and nothing you can do to the square touches it.
+The center of the square has an orbit of one. It sits where it sits under every one of the eight. Nothing you can do to the square touches it.
 
 That is an invariant, in your hand, on a scrap of paper. Something the moves leave alone.
 
@@ -93,13 +93,13 @@ Which gives a sentence that is absolutely essential to reality and, by extension
 
 A symmetry is a change that leaves a named invariant alone, so a symmetry is the claim that part of your description was never physical.
 
-Brown is not physical in this exact sense: it is what changes when you switch from Alice's channel to Bob's. The world does not change when you make that switch. The distance from corner to corner does not change, and that one is the table.
+Brown is not physical in this exact sense: it is what changes when you switch from Alice's channel to Bob's. The world does not change when you make that switch. The distance from corner to corner does not change. That one is the table.
 
 ## Nought degrees
 
 The clearest case of a quantity everybody treated as a fact about the world, until it was subtracted, is the one printed on every map.
 
-Latitude has an origin the planet supplies. The equator is where the spin axis says it is. Any surveyor anywhere can find it without asking permission. Longitude has no such thing. The Earth is very close to symmetric about its spin axis, which means that turning the whole planet through some angle about that axis leaves every measurable relation between places exactly as it was. Rotating everything is a symmetry, so the number you attach to a meridian is a labeling, and no experiment can read it off the ground.
+Latitude has an origin the planet supplies. The equator is where the spin axis says it is. Any surveyor anywhere can find it without asking permission. Longitude has no such thing. The Earth is very close to symmetric about its spin axis, which means that turning the whole planet through some angle about that axis leaves every measurable relation between places exactly as it was. Rotating everything is a symmetry, so the number you attach to a meridian is a labeling. No experiment can read it off the ground.
 
 For three centuries this was treated as an unsettled question rather than an empty one. The French measured from Paris, the Spanish from Cádiz or Tenerife, the Americans from Washington, and captains carried tables for converting between them. In October 1884 forty-one delegates from twenty-six nations sat down in Washington to fix it, and on the thirteenth they voted: twenty-two in favour of Greenwich, one against, which was San Domingo, and two abstentions, which were France and Brazil. France went on printing charts from Paris for another quarter of a century.
 
@@ -107,7 +107,7 @@ What the conference settled was a convention, and everybody in the room knew it.
 
 Distances between places survived the vote unchanged. Distance is the invariant, the labeling was never physical, and the world's response to twenty-two votes was to carry on exactly as before.
 
-Every symmetry anybody has found in physics is that same operation run on a bigger description. Here is a change you can make to how the world is written down. Here is what survives it. Whatever did not survive was never a fact about the world, and the fact that people wrote it down for two hundred years is a fact about people.
+Every symmetry anybody has found in physics is that same operation run on a bigger description. Here is a change you can make to how the world is written down. Here is what survives it. Whatever did not survive was never a fact about the world. That people wrote it down for two hundred years is a fact about people.
 
 ## Vienna, orbit, and the Cretaceous
 
@@ -151,7 +151,7 @@ The evidence is in the room. Atoms have a definite size. A hydrogen atom is abou
 
 The consequences are structural rather than decorative. Galileo worked one of them out in 1638, in the *Two New Sciences*, and illustrated it with a drawing of a bone. Scale an animal up by a factor of ten in every direction and its weight goes up by a factor of a thousand, while the cross-section of the bones that carry the weight goes up by a hundred. The scaled animal is ten times worse off than the original, and its legs snap. Which is why you cannot design a bridge by building a small bridge and then being more ambitious. Every engineer who has tested a model in a wind tunnel has had to do arithmetic to correct for the fact that the model is not a small copy of the world. That arithmetic is a bill for a symmetry the world does not have.
 
-So symmetry is a claim with content, and the way you can tell is that it is false about scale.
+So symmetry is a claim with content. The way you can tell is that it is false about scale.
 
 ## What the table was
 
@@ -163,4 +163,4 @@ There is a question left over. Alice and Bob cannot answer it between them, beca
 
 Put a third person in the room. Alice agrees with Bob. Bob agrees with Charlie. Charlie agrees with Alice. Every pair compares records, finds a translation, and comes away satisfied. Each pair shares one invariant, and each pair is content.
 
-That has the sound of a settled matter, and three coins in three separate rooms are enough to take it apart.
+That has the sound of a settled matter. Three coins in three separate rooms are enough to take it apart.

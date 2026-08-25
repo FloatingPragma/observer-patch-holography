@@ -18,7 +18,7 @@ Chapter ten put sixty-five thousand patches through the repair process and the l
 
 ## The list everybody can check
 
-When Alice and Bob met in the corridor with their coins, they wrote down one word, same or different, and never which way either coin was facing. That was the only restriction in the whole arrangement. Two observers cannot compare what only one of them holds; they can compare the relation between them, and the relation is what gets written down.
+When Alice and Bob met in the corridor with their coins, they wrote down one word, same or different, and never which way either coin was facing. That was the only restriction in the whole arrangement. Two observers cannot compare what only one of them holds; they can compare the relation between them. The relation is what gets written down.
 
 Collect every one of those written comparisons into a single list. That list is what anybody can check, in the sense that any observer can walk up to the seam it names and find out whether the entry is right. Everything else in the network is somebody's private state.
 
@@ -48,11 +48,11 @@ Three readings, one question put to each, and the fibers came back holding one w
 
 A fiber can have three sizes, counting a state and its all-over flip as one. The three sizes are three different situations rather than three points on a scale.
 
-It can be empty. No consistent state produces this record, so the testimony describes nothing that could have happened, and no amount of further questioning will produce a story that fits. The reading is **unrealizable**.
+It can be empty. No consistent state produces this record, so the testimony describes nothing that could have happened. No amount of further questioning will produce a story that fits. The reading is **unrealizable**.
 
 It can hold exactly one. The record pins down the world completely. Any two observers who hold the record hold the same world whether or not they ever compare anything else. The reading is **reconstructing**.
 
-It can hold several. Every state in it satisfies every record, and nothing anybody wrote distinguishes them. The reading is **ambiguous**. This is the fiber a jury is looking at when it acquits somebody it privately suspects, and the acquittal is the correct output: an ambiguous fiber has more than one member and the record does not name one.
+It can hold several. Every state in it satisfies every record. Nothing anybody wrote distinguishes them. The reading is **ambiguous**. This is the fiber a jury is looking at when it acquits somebody it privately suspects. The acquittal is the correct output: an ambiguous fiber has more than one member and the record does not name one.
 
 Advocates argue about which of the three they are in. The defense wants the fiber shown to hold more than one member, and needs only one alternative story that fits every piece of testimony. The prosecution wants it shown to hold exactly one. A witness caught in an unrealizable reading has produced an account that no arrangement of the world satisfies, which is a result rather than a doubt.
 
@@ -60,9 +60,9 @@ Only the middle case convicts.
 
 The twelve-patch net supplies all three. Its consistent record list is reconstructing: two coin settings satisfy it, they differ by flipping every coin in the world, and no meeting anyone could arrange would tell them apart. Flip one edge of the record, changing a single entry out of thirty from same to different, and the reading goes unrealizable: two of the nineteen independent loops carry a residue, and the number of coin settings satisfying all thirty records drops from two to zero.
 
-For the ambiguous case, take away a patch's ability to talk. Its five seams go unread, so the record shrinks to twenty-five entries. The eleven patches that go on comparing are pinned exactly as before, and the silent patch's coin is not pinned at all: four settings of the twelve coins satisfy every record that exists, in two pairs that differ by the all-over flip. The reading leaves one bit undetermined, and the bit has an address.
+For the ambiguous case, take away a patch's ability to talk. Its five seams go unread, so the record shrinks to twenty-five entries. The eleven patches that go on comparing are pinned exactly as before, and the silent patch's coin is not pinned at all: four settings of the twelve coins satisfy every record that exists, in two pairs that differ by the all-over flip. The reading leaves one bit undetermined. The bit has an address.
 
-Repair cannot fix that. Repair works by reducing disagreement, and there is no disagreement anywhere: every record is satisfied. A rule that picked one of the two would be picking on grounds no record contains, which makes it a choice rather than a repair.
+Repair cannot fix that. Repair works by reducing disagreement. There is no disagreement anywhere: every record is satisfied. A rule that picked one of the two would be picking on grounds no record contains, which makes it a choice rather than a repair.
 
 ## Four demands
 
@@ -72,7 +72,7 @@ The check is a procedure with a four-line specification. Take any state at all, 
 
 The third demand is the one doing the work, and the one an ordinary repair procedure fails. Returning the same answer for two states with the same record forbids the procedure from consulting anything the record does not contain, including which state it was handed and which repairs it happened to run. Hand it an ambiguous reading and no procedure meets all four, because the third requires one answer and the second requires two.
 
-Bottom is a proof that the fiber is empty, which is not what a search reports when it runs out of patience. On the twelve-patch net you can hold the proof in your hand. Add up the entries around each of the nineteen loops in the arithmetic where one and one make zero. Two of the sums come out one, and a loop summing to one demands that some coin differ from itself. Nineteen sums settle four thousand and ninety-six settings without a coin being set, and they name the two loops the obstruction sits in, which no amount of running through the settings would.
+Bottom is a proof that the fiber is empty, which is not what a search reports when it runs out of patience. On the twelve-patch net you can hold the proof in your hand. Add up the entries around each of the nineteen loops in the arithmetic where one and one make zero. Two of the sums come out one. A loop summing to one demands that some coin differ from itself. Nineteen sums settle four thousand and ninety-six settings without a coin being set, and they name the two loops the obstruction sits in, which no amount of running through the settings would.
 
 A normal form in chapter nine's sense was what a process stops at, which made it a statement about the process. This one is a statement about the reading: the settled state is determined by the record rather than by the path, so it is an **observation-determined normal form**. Two observers who agree on the record agree on the world. They can be handed the record by anybody, in any order, having watched none of the repairs.
 
@@ -94,11 +94,11 @@ Changes nothing could see form a group, in chapter five's sense: doing two of th
 
 That fixes what physics is allowed to talk about. Only quantities that survive a change of description may be called physical. Chapter five arrived at that sentence by watching what two accounts of one table had in common, and the settled answer enforces it: relabel every patch's internal state however you like, run the repair, and the result is the relabeled version of the result you would have got. The answer is a statement about whole families of descriptions rather than about any one of them, which is called **presentation invariance**. It means no internal labeling choice anybody makes can reach the physics.
 
-So the word objective has an exact referent here, and it is a state. Objective reality is the observable normal form of the network: the consistent state that the shared record picks out, up to changes nothing can see. There is no further fact about the world hiding behind it, because a further fact would be a difference no record distinguishes, and those are exactly what the group deletes.
+So the word objective has an exact referent here. It is a state. Objective reality is the observable normal form of the network: the consistent state that the shared record picks out, up to changes nothing can see. There is no further fact about the world hiding behind it, because a further fact would be a difference no record distinguishes. Those are exactly what the group deletes.
 
 ## Paths and fibers
 
-Schedule independence and reconstruction sound alike. They are statements about different objects, and the first does not give the second.
+Schedule independence and reconstruction sound alike. They are statements about different objects. The first does not give the second.
 
 Confluence is a property of paths. It takes one starting state, lets two repair sequences run out of it, and says the branches come back together. Reconstruction is a property of fibers. It takes two starting states that happen to carry the same record and says they settle to the same place. The first says nothing whatever about the second, because the first never mentions a second starting state.
 
@@ -120,7 +120,7 @@ Build one. At level n there are two consistent states a full unit apart, and the
 
 So being determined by the record is not the same as being determined stably by the record. What separates them is the largest factor by which a difference in the record can be magnified into a difference in the state, which is the conditioning of the reconstruction, and a tower of readings has a limit worth speaking of exactly when the conditioning is bounded all the way up rather than level by level. Chapter ten's curve went to zero across all 390,924 seams in the network, and 390,924 seams is one level. The bound is what says a finer one would have gone to the same place.
 
-This is why a continuum is available at all. Space that looks smooth at the scale of a laboratory is a limit of finite readings, and a limit taken through a tower with unbounded conditioning is an artifact of whichever level you stopped at. With the bound, different solvers, different refinements and different orders land on one limit. The smooth description is a thing about the world rather than about the grid.
+This is why a continuum is available at all. Space that looks smooth at the scale of a laboratory is a limit of finite readings. A limit taken through a tower with unbounded conditioning is an artifact of whichever level you stopped at. With the bound, different solvers, different refinements and different orders land on one limit. The smooth description is a thing about the world rather than about the grid.
 
 ## Hold the boundary fixed
 
@@ -128,12 +128,12 @@ An accepted repair leaves the record it was handed exactly as it found it, so a 
 
 The settled state is unique given the boundary data, which is the part of the record fixed from outside the region doing the repairing. Every start carrying that boundary data lands in the same world. Change the boundary data and the region settles into a different world, just as consistent, just as settled, and just as indifferent to who went first.
 
-On the twelve-patch net the boundary data is easy to point at. Repair a region of the net and the entries on the seams that leave the region are handed to it from outside: the patches inside cannot change them, and every setting the region can settle into has to agree with them. Those entries are the region's boundary, and the settled interior is a function of them. Two neighboring regions with different boundary entries settle into different interiors, and both are correct.
+On the twelve-patch net the boundary data is easy to point at. Repair a region of the net and the entries on the seams that leave the region are handed to it from outside: the patches inside cannot change them, and every setting the region can settle into has to agree with them. Those entries are the region's boundary. The settled interior is a function of them. Two neighboring regions with different boundary entries settle into different interiors, and both are correct.
 
 There is no single endpoint that the whole thing is heading toward. The terminal state is unique relative to its boundary record, and boundary records are not unique. Two different readings on the edge of a region produce two different settled interiors. Both of them are objective in the only sense the word has here, which is that every observer inside either one agrees with every other.
 
-Which is the whole of what a jury does. It is handed a record it did not choose, and the verdict follows from the record. Hand it a different record and a different verdict follows, with no less force. Twelve people, one transcript, and a verdict that belongs to the transcript rather than to any of them.
+Which is the whole of what a jury does. It is handed a record it did not choose. The verdict follows from the record. Hand it a different record and a different verdict follows, with no less force. Twelve people, one transcript, and a verdict that belongs to the transcript rather than to any of them.
 
 So look at what the settled world is made of. Thirty entries, each one a comparison between two patches, none of them a property of either patch on its own. The coins were the things in this world, in the sense that they were what the patches actually held, and the coins are the part that came out in the wash: two settings of them produce every entry identically, and the answer is stated about the pair rather than about either member.
 
-Thirty entries survived the procedure. Twelve coins did not appear anywhere in the answer, and the record map never once returned a coin.
+Thirty entries survived the procedure. Twelve coins did not appear anywhere in the answer. The record map never once returned a coin.

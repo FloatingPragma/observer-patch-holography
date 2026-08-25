@@ -16,7 +16,7 @@ Which makes it the only kind of object anybody can examine without assuming some
 
 The traditional replies come in two shapes.
 
-The first says: something outside made it. Something caused the world, and that something is the reason there is anything at all. This is the oldest answer on record and a serious one. Aristotle got to it by asking what moves a thing, and then what moves that, and noticing that the question does not stop on its own.
+The first says: something outside made it. Something caused the world. That something is the reason there is anything at all. This is the oldest answer on record and a serious one. Aristotle got to it by asking what moves a thing, and then what moves that, and noticing that the question does not stop on its own.
 
 The trouble it runs into is arithmetic. Whatever you nominate as the cause, you can ask the same question about it. There are two ways out, both bad. Either the chain runs backward forever, in which case you never arrive at a reason and have only postponed the problem an infinite number of times, or you stop at some point and declare that this one thing needs no cause. But if one thing can need no cause, the question is why that particular thing gets the exemption. No answer to that is available except that we stopped there. The item nominated as needing no cause has an almost perfect historical record of being the item the arguer arrived with.
 
@@ -34,9 +34,9 @@ The second reply says it is just here. A brute fact, with nothing behind it, and
 
 There is a way to feel the size of what that concedes. The mass of the electron is known to about eleven significant figures. Treat it as a brute fact and you have accepted that eleven digits arrived for no reason, and that the same is true of the other twenty-five numbers, and that the total quantity of unexplained precision in the world runs to a couple of hundred digits that simply are what they are. That is a great deal to put down to nothing in particular.
 
-Both replies point away from the thing they are explaining, one to a cause and one to a shrug. Pointing away is the move that has just been withdrawn. With no outside and no before, there is nowhere for an account to come from except the thing itself. So what is left is not a third option chosen over two others. It is the only one still standing, and it stands by elimination: a structure accounts for itself, holding together in a way that requires nothing to be added to it, so that asking what put it there has the same status as asking what makes a triangle have three sides.
+Both replies point away from the thing they are explaining, one to a cause and one to a shrug. Pointing away is the move that has just been withdrawn. With no outside and no before, there is nowhere for an account to come from except the thing itself. So what is left is not a third option chosen over two others. It is the only one still standing. It stands by elimination: a structure accounts for itself, holding together in a way that requires nothing to be added to it, so that asking what put it there has the same status as asking what makes a triangle have three sides.
 
-That also does something to the question in the title. "Why is there anything" wants a because, and a because wants somewhere to come from. Take away the outside and the before and the why has no room to operate in, while the question underneath it survives intact and turns out to be a question about structure: what does a thing have to be like, to be the kind of thing that can hold itself up? What follows is the beginning of that answer, and the beginning is small.
+That also does something to the question in the title. "Why is there anything" wants a because, and a because wants somewhere to come from. Take away the outside and the before and the why has no room to operate in, while the question underneath it survives intact and turns out to be a question about structure: what does a thing have to be like, to be the kind of thing that can hold itself up? What follows is the beginning of that answer. The beginning is small.
 
 Stated like that it is a phrase rather than a proposal. Phrases of that shape have a long history of sounding like wisdom and meaning nothing. It gets edges from three things: what it means for a system to have consequences nobody chose, what it costs to contradict yourself, and what happens when you demand that something survive its own description.
 
@@ -54,9 +54,9 @@ That is the whole system. Start from `ab` and apply the moves in any order you l
 
 Here is a question about that family. Can you reach `aab`?
 
-Try it for a minute and you will fail. By itself, failing to find something is not the same as showing it is not there. But look at the counts. The starting string has one a and one b. Move one adds one a and one b. Move two doubles both. So every string you can possibly reach has exactly as many a's as b's, in every case, forever, without anybody having written that down as a rule. `aab` has two a's and one b. It is unreachable, and you know this without searching. You have proved something about an infinite collection of strings by looking at four lines of rules. The proof was sitting there before you began searching, which is the standard experience in this subject and does not become less irritating with practice.
+Try it for a minute and you will fail. By itself, failing to find something is not the same as showing it is not there. But look at the counts. The starting string has one a and one b. Move one adds one a and one b. Move two doubles both. So every string you can possibly reach has exactly as many a's as b's, in every case, forever, without anybody having written that down as a rule. `aab` has two a's and one b. It is unreachable. You know this without searching. You have proved something about an infinite collection of strings by looking at four lines of rules. The proof was sitting there before you began searching, which is the standard experience in this subject and does not become less irritating with practice.
 
-The decisive quantity is the difference between the number of a's and the number of b's. It starts at zero, and neither move can change it: one move adds one to each side of the subtraction, the other doubles both. A quantity the rules cannot touch, however long you run them, is the most useful thing anybody can know about a system.
+The decisive quantity is the difference between the number of a's and the number of b's. It starts at zero. Neither move can change it: one move adds one to each side of the subtraction, the other doubles both. A quantity the rules cannot touch, however long you run them, is the most useful thing anybody can know about a system.
 
 There is a second thing about that little system that's easy to overlook. The strings it makes are not about anything. `aabb` is not a description of some other, realer `aabb` sitting elsewhere in a warehouse of genuine strings. Ask whether the one in front of you is the authentic article or a copy and the question dies on the way out, because there is nothing available for it to be a copy of. You ran the rules, and what came out is what there is.
 
@@ -66,7 +66,7 @@ That is the first useful property of a system with no meaning in it. Its consequ
 
 Suppose a bank's ledger says that an account holds nothing and also says that the same account holds a hundred pounds. Both entries, on the same page, at the same time.
 
-A clerk looking at that does something sensible. They decide one entry is a mistake, or they pay out the hundred and open an investigation, or they go and find the deposit slip. What a clerk does not do is conclude that the account holds nine million pounds. People reason around contradictions all day without much difficulty: two entries that cannot both hold get quarantined, and the rest of the ledger goes on working.
+A clerk looking at that does something sensible. They decide one entry is a mistake, or they pay out the hundred and open an investigation, or they go and find the deposit slip. What a clerk does not do is conclude that the account holds nine million pounds. People reason around contradictions all day without much difficulty: two entries that cannot both hold get quarantined, while the rest of the ledger goes on working.
 
 A formal system has no clerk. It has marks and moves, it applies every move that applies, and it has no faculty for deciding which of its own lines is the suspicious one. Applied honestly, the moves take it somewhere no clerk would follow.
 
@@ -86,7 +86,7 @@ Which is why *Principia Mathematica* runs to three volumes. The several hundred 
 
 The defense did not hold. Russell's letter worked by getting a system to talk about itself, and *Principia Mathematica* was built to make that impossible. In 1931 Kurt Gödel showed that it cannot be made impossible. Any system strong enough to carry out ordinary arithmetic is strong enough to describe its own formulas, and once a system can describe its own formulas, sentences about itself are among the things it can build. What Gödel assembled out of one was milder than Frege's disaster and worse to live with. Frege's system proved everything, which killed it outright. Gödel's sentence is true, the system it is written in cannot prove it, and no patch closes the gap, because the repaired system has a sentence of its own. Whitehead and Russell had bought a system that could not be attacked the way Frege's had been. What was not for sale was a system with nothing to say about itself, because a system with nothing to say about itself is too weak to be the foundation of anything. Chapter thirty-six is where the construction gets taken apart.
 
-The result was read as a demolition, and as a demolition it was decisive: the programme of standing mathematics on logic did not recover. Read the same theorem as a specification and it says something the demolition reading discards. A structure rich enough to describe arithmetic is rich enough to describe itself, and no arrangement of the axioms takes that capability away. It arrives with the strength.
+The result was read as a demolition, and as a demolition it was decisive: the programme of standing mathematics on logic did not recover. Read the same theorem as a specification and it says something the demolition reading discards. A structure rich enough to describe arithmetic is rich enough to describe itself. No arrangement of the axioms takes that capability away. It arrives with the strength.
 
 Chapter one gave you the tool for seeing why that matters here. A theory with infinitely many free parameters fits anything and forbids nothing, which was the fatal problem with quantizing gravity by brute force. A contradiction is the same disease in its terminal form: not many knobs but all of them, not a poor prediction but every prediction at once. Consistency is what buys a description the right to rule anything out.
 
@@ -118,7 +118,7 @@ The hunting has a mechanism. When your number is too big, one over it is too sma
 
 A number that a process leaves alone is called a **fixed point**. This is the first of many in this book. The number itself turns up in enough seaside-gift-shop literature to have earned a bad reputation. Where it came from is the part that matters. Nothing was measured. No experiment was performed and no data existed at any point in the procedure. A single demand, that the operation return what it is given, reached into the continuum of real numbers and picked out exactly one.
 
-Look at the shape of that demand rather than at the number it produced. The equation reads x equals one plus one over x, and the unknown stands on both sides of the equals sign. What is being solved for appears inside its own specification, which in most arguments is the move that gets called circular and thrown out. Here it is the entire mechanism. Take the self-reference out and no equation is left, only a continuum with nothing in it to prefer.
+Look at the shape of that demand rather than at the number it produced. The equation reads x equals one plus one over x. The unknown stands on both sides of the equals sign. What is being solved for appears inside its own specification, which in most arguments is the move that gets called circular and thrown out. Here it is the entire mechanism. Take the self-reference out and no equation is left, only a continuum with nothing in it to prefer.
 
 That is the shape of the answer to the question in the title. A requirement severe enough to have exactly one solution.
 
@@ -158,11 +158,11 @@ A hundred and eighty years later Einstein went looking for a mathematics of grav
 
 Two things come out of that. Four postulates and a decision about a fifth had been quietly fixing the shape of space for two thousand years. Nobody found out by inspection, because you cannot see a postulate by staring at it. They found out by working: by taking the requirements seriously and grinding out what they force, which took twenty centuries and was being got wrong as late as 1733. And the consequences of a small set of requirements are not up for negotiation. Saccheri disliked his and they were true anyway.
 
-That is the whole starting position, and there is a hole in it.
+That is the whole starting position. There is a hole in it.
 
 Look at what the three tools above have in common.
 
-A formal system produces consequences, and those consequences are strings: arrangements of marks that stand one way rather than another and can be read back. Consistency is a property only certain objects can fail to have. A rock cannot contradict itself. It sits there being whatever shape it is. No arrangement of atoms is a contradiction, because contradicting yourself means holding two claims about the same thing and a rock holds no claims. And a fixed point is whatever satisfies a condition, where a condition is a demand, and a demand has to be made of something and stated somewhere before it can do any demanding.
+A formal system produces consequences. Those consequences are strings: arrangements of marks that stand one way rather than another and can be read back. Consistency is a property only certain objects can fail to have. A rock cannot contradict itself. It sits there being whatever shape it is. No arrangement of atoms is a contradiction, because contradicting yourself means holding two claims about the same thing and a rock holds no claims. And a fixed point is whatever satisfies a condition, where a condition is a demand, and a demand has to be made of something and stated somewhere before it can do any demanding.
 
 Every one of those is a property of a description rather than of a lump of world.
 

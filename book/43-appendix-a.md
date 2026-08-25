@@ -12,7 +12,7 @@ Everything came out of something hot and dense about fourteen billion years ago,
 
 That is two questions welded together, and both halves lean on a first instant seen from outside: a moment when the arrangement switched on, watched by nobody in particular, with observers turning up later as furniture.
 
-The hot dense era is the far end of a reconstruction, and the reconstruction is built from records held inside finite patches. The microwave glow left over from when the plasma stopped being opaque is a record. So are the ratios of the light elements, the spectra of galaxies and the catalogs of supernovae. The Big Bang names the place where the record side of that reconstruction goes dark. As for before, the only ordering there is runs on committed repairs, and where none have committed the word has nothing to be a relation on.
+The hot dense era is the far end of a reconstruction. The reconstruction is built from records held inside finite patches. The microwave glow left over from when the plasma stopped being opaque is a record. So are the ratios of the light elements, the spectra of galaxies and the catalogs of supernovae. The Big Bang names the place where the record side of that reconstruction goes dark. As for before, the only ordering there is runs on committed repairs, and where none have committed the word has nothing to be a relation on.
 
 Two things follow. The arrow of time is not inherited from that era, since a commit destroys what it resolved, and does that at the ten billionth repair as thoroughly as at the first. And the early universe is the most constrained object there has ever been: twelve ports, three directions and one way round the arrow, with no earlier record for any of it to have come from. The grain, chapter twenty-eight's number for how fine a distinction a screen supports, shows up on the microwave sky, whose ripples are slightly stronger at large angles than at small ones. A forty-eighth of 1.630968209 is 0.033979, one minus that is 0.966021, and the Planck satellite measured 0.9649 give or take 0.0042.
 
@@ -24,7 +24,7 @@ Underneath it sits a rule about descriptions: one earns its keep by being the bo
 
 That container is the coarse-grained, heavily copied reading of a network of observers repairing their disagreements, and taking the reading is what a body does all day. The size of the error in it has been measured. In 1960 Robert Pound and Glen Rebka needed the 22.5-meter tower of the Jefferson Physical Laboratory, an iron-57 source and ten days of counting to catch a clock in a basement running slow against one on the roof, by 2.56 parts in ten to the fifteenth, give or take 0.25.
 
-So the corrections sit nine decimal places below anything in a workshop, and they arrive when the resolution rises. A clock in a navigation satellite runs fast by forty-five microseconds a day and slow by seven, and the correction had to be built into the hardware before the network could find anybody. A wheel balancer reads none of that, and the wheel comes back balanced.
+So the corrections sit nine decimal places below anything in a workshop. They arrive when the resolution rises. A clock in a navigation satellite runs fast by forty-five microseconds a day and slow by seven, and the correction had to be built into the hardware before the network could find anybody. A wheel balancer reads none of that. The wheel comes back balanced.
 
 ## Why does the Lagrangian come last?
 
@@ -32,19 +32,19 @@ Anybody who has taken a physics course met the one line in the first week and sp
 
 The assumption is that the most compressed statement of a subject is its foundation, so whatever fits on a coffee mug must be where the world starts.
 
-A Lagrangian is a compression, and a compression summarizes something that was there first. Written on line one, the line carries three families because three families were counted, a group because detectors reported one, and a page of numbers because laboratories measured them. Written last, it carries three families because an oriented face has three corners, and one plus three plus eight because that is the only way the eleven dials left over from a center of one come apart.
+A Lagrangian is a compression. A compression summarizes something that was there first. Written on line one, the line carries three families because three families were counted, a group because detectors reported one, and a page of numbers because laboratories measured them. Written last, it carries three families because an oriented face has three corners, and one plus three plus eight because that is the only way the eleven dials left over from a center of one come apart.
 
-The compression is also lossy, by an amount somebody can write down. Add a term built to vanish at every configuration the world realizes, and every realized history keeps its score, every stationary history stays stationary, and the same run comes out most probable. The momentum changes, since momentum is read off how the line responds to a rate of change, and the added term tilts where nothing is ever realized. Two lines, the same histories, different energies, and nothing in the world's own histories picks one of them over the other. The one on the mug is the best summary anybody has written.
+The compression is also lossy, by an amount somebody can write down. Add a term built to vanish at every configuration the world realizes, and every realized history keeps its score, every stationary history stays stationary, and the same run comes out most probable. The momentum changes, since momentum is read off how the line responds to a rate of change. The added term tilts where nothing is ever realized. Two lines, the same histories, different energies, and nothing in the world's own histories picks one of them over the other. The one on the mug is the best summary anybody has written.
 
 ## Twelve. Where does a number like that come from?
 
-A patch with twelve ports carries the forces, the matter and the three directions, and a specific small integer sitting at the base of a theory is what a fitted parameter looks like.
+A patch with twelve ports carries the forces, the matter and the three directions. A specific small integer sitting at the base of a theory is what a fitted parameter looks like.
 
 The suspicion assumes the number could have been otherwise, which is what a parameter is: a quantity whose value had to be chosen and can be moved.
 
 Count it instead. Every port meets five triangles, every edge belongs to two faces, and counting the same thing two ways forces the Euler relation, after which a spherical carrier has twelve ports, thirty seams and twenty faces. The count runs backwards as well, since twelve ports of that kind force the sphere.
 
-Change the degree and the arrangement fails. Drop the spherical closure and it fails. Try the cube, a perfectly good solid anybody can hold, and it admits no such structure at all. Then the wiring: of the 10,395 ways to pair the ports up, incidence at distance three selects one. Each of the nineteen numbers typed into the one line can be dialed to a different value and the equations survive. Twelve has nothing to turn. Move it to thirteen and the alignment that lets two patches compare readings stops existing, and there is no thirteen-port world sitting elsewhere with slightly different physics in it.
+Change the degree and the arrangement fails. Drop the spherical closure and it fails. Try the cube, a perfectly good solid anybody can hold, and it admits no such structure at all. Then the wiring: of the 10,395 ways to pair the ports up, incidence at distance three selects one. Each of the nineteen numbers typed into the one line can be dialed to a different value and the equations survive. Twelve has nothing to turn. Move it to thirteen and the alignment that lets two patches compare readings stops existing. There is no thirteen-port world sitting elsewhere with slightly different physics in it.
 
 ## If space is not a container, where is any of this happening?
 
@@ -52,13 +52,13 @@ Twelve ports, thirty seams, patches wired to neighbors. Draw that on a page and 
 
 The question hands itself a place for free: everything is in something, and a relation needs a room to be a relation in.
 
-Distance here is a count of comparisons. Two patches are far apart when many comparisons separate them, and a direction is a pattern in that tally rather than an arrow drawn in a room. The three directions come out of a fading rate. A repair operator's twelve readings split into blocks that fade at 0.9539, at exactly nine tenths and at 0.8794 a pass, with only the slowest block surviving enough rounds to carry a position, and the rank of that block is three.
+Distance here is a count of comparisons. Two patches are far apart when many comparisons separate them. A direction is a pattern in that tally rather than an arrow drawn in a room. The three directions come out of a fading rate. A repair operator's twelve readings split into blocks that fade at 0.9539, at exactly nine tenths and at 0.8794 a pass, with only the slowest block surviving enough rounds to carry a position, and the rank of that block is three.
 
 Turn the question on the room it asks for. A room for the network to sit in would have to be assembled out of comparisons between record-keepers, which is what a network is, and then that room would need a room. What exists is a tally, a rank of three, and observers doing the counting from inside while occupying no position in anything larger.
 
 ## Is the moon there when nobody is looking at it?
 
-The world is made of records held by observers. Turn the observers away and nothing gets written, so the parts nobody attends to should go soft, and the moon on a cloudy night is the test case everybody reaches for.
+The world is made of records held by observers. Turn the observers away and nothing gets written, so the parts nobody attends to should go soft. The moon on a cloudy night is the test case everybody reaches for.
 
 Two things ride along inside it: that an observer is a person, and that looking is something a mind does.
 
@@ -70,11 +70,11 @@ Definiteness is a count of copies. Sixteen copies of a sixteen-bit fact drive th
 
 No finite exchange of messages between observers recovers a shared present. Then there is the clock on the wall, the coffee going cold, and the distinct impression of moving forward through the afternoon.
 
-The word is doing three jobs at once, and the question welds them into one object and then finds that object missing.
+The word is doing three jobs at once. The question welds them into one object and then finds that object missing.
 
 Order is a partial order on committed repairs, the only global temporal structure there is. Direction comes from the commit, which is an arithmetic loss: seven possible pasts average into one reading and 2.807 bits go with them. Flow is what a state makes its own algebra do, one shuffle for each amount of shuffling, extracted from what an observer holds with nothing added.
 
-A universal present appears nowhere on that list. Two observers in different states run at different rates and neither is wrong. The part of a person that has been written into a record is the part standing still, because the flow moves only what fails to commute, and a record commutes with everything. Read the same flow sideways and it is a temperature, one that acceleration alone sets, at about four parts in ten to the twenty-first of a degree for every meter per second squared.
+A universal present appears nowhere on that list. Two observers in different states run at different rates and neither is wrong. The part of a person that has been written into a record is the part standing still, because the flow moves only what fails to commute. A record commutes with everything. Read the same flow sideways and it is a temperature, one that acceleration alone sets, at about four parts in ten to the twenty-first of a degree for every meter per second squared.
 
 ## When exactly does the particle decide?
 
@@ -82,9 +82,9 @@ A pattern of bands appears on a plate when nothing records which way each partic
 
 Asking for the moment assumes a mechanism with a rate and a threshold, sitting in the apparatus, waiting to be caught in the act.
 
-A record gets written. Between commits, every question about the spreading pattern lives in the part of the algebra where questions refuse to be answered together, and the phase and the frequency are the content. At a commit an entry lands in the center, where everything commutes, and what the plate holds afterward is one more count at one place. Wave and particle differ by how much of the thing has been written down, and the plate writes down only the arrival.
+A record gets written. Between commits, every question about the spreading pattern lives in the part of the algebra where questions refuse to be answered together, and the phase and the frequency are the content. At a commit an entry lands in the center, where everything commutes, and what the plate holds afterward is one more count at one place. Wave and particle differ by how much of the thing has been written down. The plate writes down only the arrival.
 
-So there is no rate to measure and no threshold to find, and what gets fixed instead is the odds. Any assignment of numbers to outcomes that lands in the unit interval, gives the certain event one and adds up consistently across compatible questions is the trace against a single density matrix, in every finite dimension. Alongside it sits a fake, built to reproduce every count a machine actually produced and belonging to no state at all: it scores one pair of questions 35/64 where adding up demands 143/256.
+So there is no rate to measure and no threshold to find. What gets fixed instead is the odds. Any assignment of numbers to outcomes that lands in the unit interval, gives the certain event one and adds up consistently across compatible questions is the trace against a single density matrix, in every finite dimension. Alongside it sits a fake, built to reproduce every count a machine actually produced and belonging to no state at all: it scores one pair of questions 35/64 where adding up demands 143/256.
 
 ## Where does the explaining stop?
 
@@ -92,9 +92,9 @@ The charges, the family count and the strength of electromagnetism all come off 
 
 The question expects an evasion, on the assumption that a structure either explains everything or is hiding something.
 
-The stopping point is printed to the same precision as the results. The carrier's geometry fixes the charges and the family count, and it does not fix the mixing between families. Every angle available on the twelve-port wiring was enumerated, and the smallest nonzero one is 20.9052 degrees, while the Cabibbo angle measured in the laboratory is 13.0029. No angle on that list lands within seven degrees of the measurement.
+The stopping point is printed to the same precision as the results. The carrier's geometry fixes the charges and the family count. It does not fix the mixing between families. Every angle available on the twelve-port wiring was enumerated, and the smallest nonzero one is 20.9052 degrees, while the Cabibbo angle measured in the laboratory is 13.0029. No angle on that list lands within seven degrees of the measurement.
 
-The other boundary is an instrument. The electromagnetic closure certifies 137.035660 where the measurement reads 137.035999, and the difference sits in the quark cloud. Closing it calls for one strong-force quantity known to four parts in a billion, and the best determinations reach four parts in a thousand after campaigns costing ten million processor-hours.
+The other boundary is an instrument. The electromagnetic closure certifies 137.035660 where the measurement reads 137.035999. The difference sits in the quark cloud. Closing it calls for one strong-force quantity known to four parts in a billion, and the best determinations reach four parts in a thousand after campaigns costing ten million processor-hours.
 
 ## You knew the answers before you started
 
@@ -108,7 +108,7 @@ Dark energy's pressure-to-density ratio is exactly minus one at every epoch, wit
 
 ## Isn't this what Leibniz said?
 
-Space as the order of things that coexist, inertia coming from the rest of the matter in the universe, quantities nobody can measure from inside declared to be no quantities at all. Leibniz, Berkeley and Mach between them cover a good deal of what is asserted here, and they managed it without a twelve-port carrier.
+Space as the order of things that coexist, inertia coming from the rest of the matter in the universe, quantities nobody can measure from inside declared to be no quantities at all. Leibniz, Berkeley and Mach between them cover a good deal of what is asserted here. They managed it without a twelve-port carrier.
 
 A position and a theory get treated there as the same kind of object.
 
@@ -118,9 +118,9 @@ The objection here comes with arithmetic attached. Twelve ports and thirty seams
 
 ## So we are living in a simulation?
 
-Records, repairs, updates, capacity. The vocabulary is a data center's vocabulary, and the word turns up within a paragraph or two of the parts list.
+Records, repairs, updates, capacity. The vocabulary is a data center's vocabulary. The word turns up within a paragraph or two of the parts list.
 
-The word carries an original. A flight simulator earns the name because there are aircraft aloft doing what the box is pointed at, and nothing is an imitation on its own.
+The word carries an original. A flight simulator earns the name because there are aircraft aloft doing what the box is pointed at. Nothing is an imitation on its own.
 
 Put the question to the inventory and look for the second end. Name the entry that substitutes for something, or the warehouse where the original repair rate is kept, or the object a loop residue resembles. The two-rule rewriter produced strings that described nothing filed anywhere else. Run the rules and the strings you get are the strings there are.
 
@@ -128,11 +128,11 @@ The word computed arrives with fake attached to it. Watch one repair: a disagree
 
 ## Does an observer have to be conscious?
 
-Observer-first sounds like a claim that the universe waits to be noticed, and the version of quantum mechanics that reaches most people has a mind collapsing something at the end of it.
+Observer-first sounds like a claim that the universe waits to be noticed. The version of quantum mechanics that reaches most people has a mind collapsing something at the end of it.
 
 The assumption is that observing is a mental act, so the word carries a mind wherever it goes.
 
-Keeping records takes three things and not one of them is a mind: a bounded view, somewhere to write, and a reading that makes a difference. A thermostat screwed to a classroom wall has all five, and none of the results built on the list would change if every observer in the network were plumbing.
+Keeping records takes three things and not one of them is a mind: a bounded view, somewhere to write, and a reading that makes a difference. A thermostat screwed to a classroom wall has all five. None of the results built on the list would change if every observer in the network were plumbing.
 
 Consciousness is a late special case, with a definition at the size the structure supports: owned boundary repair, read from the inside. An observer that holds coordinates on its own state, and computes its next move off them, is reading the half of the record that the map to the public list deletes. A thermostat reads one such coordinate. A person reads enough of them, across a division that runs far finer, that counting them is a job for biology. Nothing in the structure lets a wish move an entry.
 
@@ -142,9 +142,9 @@ Observers build the account of the world and the world builds the observers. Any
 
 The objection assumes the loop is an argument, whose premises would have to be in place before its conclusions.
 
-It is a fixed point, and a fixed point has no before in it. Three orderings get read as one whenever the loop sounds like reasoning: the fixed point, a condition on one structure that holds or fails with nothing running it; an observer's record time, where memory and the work of thinking something through sit; and the disagreement count, which falls at every accepted step until the repairs stop. Events inside the structure are ordered by the second and the third. The first is the loop, and it puts nothing before anything.
+It is a fixed point. A fixed point has no before in it. Three orderings get read as one whenever the loop sounds like reasoning: the fixed point, a condition on one structure that holds or fails with nothing running it; an observer's record time, where memory and the work of thinking something through sit; and the disagreement count, which falls at every accepted step until the repairs stop. Events inside the structure are ordered by the second and the third. The first is the loop. It puts nothing before anything.
 
-The demand rules out nearly everything. A description that picks out any structure other than the one it came from leaves that one undescribed, and there is nothing left for it to be. That demand is checkable on hardware: cut the run across a thousand machines and it finishes in the state the single machine finishes in, with the worker count, the restart history and the schedule appearing in no reading anybody inside can take. Circular reasoning does not usually come with a theorem about worker counts.
+The demand rules out nearly everything. A description that picks out any structure other than the one it came from leaves that one undescribed. There is nothing left for it to be. That demand is checkable on hardware: cut the run across a thousand machines and it finishes in the state the single machine finishes in, with the worker count, the restart history and the schedule appearing in no reading anybody inside can take. Circular reasoning does not usually come with a theorem about worker counts.
 
 ## Does this mean my choices are already made?
 
@@ -154,7 +154,7 @@ The argument drops four words from the theorem it is quoting: given the boundary
 
 Those four words point at the entries a region cannot touch, the ones sitting on its edge, set from outside it and different from one region to the next. Turn one of those thirty entries from same to different, and twelve coins that had exactly one consistent setting have none, and what the network settles onto carries a leftover of exactly one. One entry, and a different world.
 
-A repair is exactly the move that leaves those entries alone, so they have to be written by something else. That move spends capacity on an overlap, and no amount of private work reaches the same place at any budget. In a person's vocabulary those writes are what to admit, what to emit, what to repair, what to ignore, what to confess, what to protect and what to amplify. The convergence does not run around an observer doing that, and what it finds on the way past is what that observer put there.
+A repair is exactly the move that leaves those entries alone, so they have to be written by something else. That move spends capacity on an overlap. No amount of private work reaches the same place at any budget. In a person's vocabulary those writes are what to admit, what to emit, what to repair, what to ignore, what to confess, what to protect and what to amplify. The convergence does not run around an observer doing that, and what it finds on the way past is what that observer put there.
 
 ## Is this a religion?
 

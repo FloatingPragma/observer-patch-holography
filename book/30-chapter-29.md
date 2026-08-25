@@ -1,6 +1,6 @@
 # 29. Why Do the Masses Land Where They Do?
 
-At the end of 1981 Yoshio Koide was an associate professor at Shizuoka Women's University, working on composite models of quarks and leptons. Models of that kind put something smaller underneath the particles on the roster, so that the shape of the roster becomes a consequence of how few pieces there are to build from. The field was busy. In 1979 Haim Harari and Michael Shupe published the same proposal four pages apart in the same issue of *Physics Letters B*, without either knowing what the other was doing: every quark and every lepton built from triples of two objects, one carrying a third of the electron's charge and one carrying none. Harari called them rishons, and nobody has ever seen one. One line of arithmetic came out of Koide's model and stayed.
+At the end of 1981 Yoshio Koide was an associate professor at Shizuoka Women's University, working on composite models of quarks and leptons. Models of that kind put something smaller underneath the particles on the roster, so that the shape of the roster becomes a consequence of how few pieces there are to build from. The field was busy. In 1979 Haim Harari and Michael Shupe published the same proposal four pages apart in the same issue of *Physics Letters B*, without either knowing what the other was doing: every quark and every lepton built from triples of two objects, one carrying a third of the electron's charge and one carrying none. Harari called them rishons. Nobody has ever seen one. One line of arithmetic came out of Koide's model and stayed.
 
 Take the masses of the three charged leptons, the electron, the muon and the tau. Add them up. Then take the square root of each of the three masses, add the three square roots together, and square that total. Divide the first number by the second.
 
@@ -42,7 +42,7 @@ Three cosines, a hundred and twenty degrees apart. The face has fixed their spac
 
 ## Two lines about cosines
 
-Draw three arrows of length one from a single point, a hundred and twenty degrees apart. They are the spokes of an equilateral triangle drawn from its center, and they add up to nothing, because there is no direction for the sum to point. The cosine of an angle is the shadow one of those arrows casts on a chosen axis, and the shadow of a sum is the sum of the shadows.
+Draw three arrows of length one from a single point, a hundred and twenty degrees apart. They are the spokes of an equilateral triangle drawn from its center. They add up to nothing, because there is no direction for the sum to point. The cosine of an angle is the shadow one of those arrows casts on a chosen axis, and the shadow of a sum is the sum of the shadows.
 
 Three cosines a hundred and twenty degrees apart sum to zero.
 
@@ -64,7 +64,7 @@ On the left are the three charged lepton masses, measured in laboratories. On th
 
 Q equals two thirds exactly when b over a is one over the square root of two.
 
-The left side of that equation is trapped, for any three positive masses anybody cares to write down. Set all three equal and it gives one third, which the right side agrees with by sending b to zero. Let one mass run away from the other two and it climbs toward one, without arriving. So every possible triple of masses in the universe lands somewhere in the range from one third to one, and two thirds is the exact midpoint of that range. The three charged leptons, whose masses cover a factor of three and a half thousand, sit on the midpoint.
+The left side of that equation is trapped, for any three positive masses anybody cares to write down. Set all three equal and it gives one third, which the right side agrees with by sending b to zero. Let one mass run away from the other two and it climbs toward one, without arriving. So every possible triple of masses in the universe lands somewhere in the range from one third to one. Two thirds is the exact midpoint of that range. The three charged leptons, whose masses cover a factor of three and a half thousand, sit on the midpoint.
 
 Two pieces make up the response. There is the direction in which all three corners move together, which carries weight three a squared, and there is the two-dimensional plane in which they move against one another, which carries weight six b squared. Setting b over a to one over the square root of two sets those two weights equal. One condition on the response of a single face, and Koide's two thirds is that condition written out in masses.
 
@@ -74,7 +74,7 @@ Take the three square roots of the masses as the three coordinates of a point in
 
 ## Seventy-two electron-volts
 
-Feed in the two masses known best. The electron is 0.51099895 million electron-volts and the muon is 105.6583755 million electron-volts. Requiring the balance to hold turns the relation into a quadratic in the square root of the third mass, and a quadratic has two roots. One of them is 3.3174 million electron-volts, which would put the third charged lepton between the electron and the muon rather than above both of them. The tau is the heaviest of the three, which is why it can decay into a muon and a muon cannot decay into it, so the upper root is the one.
+Feed in the two masses known best. The electron is 0.51099895 million electron-volts and the muon is 105.6583755 million electron-volts. Requiring the balance to hold turns the relation into a quadratic in the square root of the third mass. A quadratic has two roots. One of them is 3.3174 million electron-volts, which would put the third charged lepton between the electron and the muon rather than above both of them. The tau is the heaviest of the three, which is why it can decay into a muon and a muon cannot decay into it, so the upper root is the one.
 
 Chapter twenty-eight turned a computation into a proof by carrying intervals rather than points. The same machinery applies here: give the electron and the muon their measured widths, do the arithmetic on the widths, and what comes back is an interval guaranteed to contain the answer.
 
@@ -92,17 +92,17 @@ A measured central value more than three standard uncertainties from 1776.969027
 
 In June 1963 Nicola Cabibbo published three pages in *Physical Review Letters* under the title "Unitary Symmetry and Leptonic Decays". Decays that changed strangeness were running slower than decays that did not, by a consistent factor, and the theory of the day had no room for a consistent factor. Cabibbo's move was to let the weak interaction couple to a rotated combination of the down quark and the strange quark, turned by a single angle. One number, fitted from decay rates, and the discrepancy went away.
 
-The strength of the transition from a down quark to a strange one is measured at 0.2250. The angle whose sine that is comes to 13.0029 degrees. Rates go as the square of that strength, so a decay that changes strangeness runs at about a twentieth of the rate of one that does not, and that factor of twenty is the suppression sitting in the data he was accounting for.
+The strength of the transition from a down quark to a strange one is measured at 0.2250. The angle whose sine that is comes to 13.0029 degrees. Rates go as the square of that strength, so a decay that changes strangeness runs at about a twentieth of the rate of one that does not. That factor of twenty is the suppression sitting in the data he was accounting for.
 
-An icosahedron has axes of three kinds. Six of them run through pairs of opposite corners, and a fifth of a turn about one of those leaves the solid looking untouched. Ten run through pairs of opposite faces, at a third of a turn. Fifteen run through pairs of opposite edge midpoints, at half a turn. Six and ten and fifteen is thirty-one.
+An icosahedron has axes of three kinds. Six of them run through pairs of opposite corners. A fifth of a turn about one of those leaves the solid looking untouched. Ten run through pairs of opposite faces, at a third of a turn. Fifteen run through pairs of opposite edge midpoints, at half a turn. Six and ten and fifteen is thirty-one.
 
 Take the angle between every pair of those axes. Four hundred and sixty-five pairs, one angle each, and the smallest nonzero angle anywhere in the list is 20.9052 degrees.
 
-13.0029 is not in the list, and the reason it cannot be got at is that 20.9052 is the floor. The smallest angle the geometry has to offer is sixty percent larger than the one the quarks require, and relabeling which axis is which does nothing, because the floor is a property of the solid rather than of the labeling. The angle that sets quark mixing is not an axis angle of this geometry.
+13.0029 is not in the list. The reason it cannot be got at is that 20.9052 is the floor. The smallest angle the geometry has to offer is sixty percent larger than the one the quarks require, and relabeling which axis is which does nothing, because the floor is a property of the solid rather than of the labeling. The angle that sets quark mixing is not an axis angle of this geometry.
 
 The list has an end, which is what makes an empty search a result: four hundred and sixty-five angles, written out in full and read down to the last one, at an arithmetic cost below what a phone spends drawing its own screen once.
 
-Koide's own model reached past the leptons to the quarks, and the quark side did not hold. Two structures built out of entirely different material, a set of subparticles and a twenty-sided solid, keep the charged leptons and stop at the quarks.
+Koide's own model reached past the leptons to the quarks. The quark side did not hold. Two structures built out of entirely different material, a set of subparticles and a twenty-sided solid, keep the charged leptons and stop at the quarks.
 
 The wiring fixes the electric charges to every decimal anyone has measured. It fixes the number of colors at three and the number of families at three. It fixes the balance at the corners of one oriented face to within 72 electron-volts, and prints the value at which the balance dies. It says nothing whatever about the angle by which the weak interaction turns a down quark into a strange quark, and 20.9052 against 13.0029 is a proof that it says nothing rather than a suspicion that it might not. Had 13.0029 turned up anywhere on that list, the charges and the family count would have been worth less, because a solid that yields whatever angle is asked of it has yielded nothing.
 

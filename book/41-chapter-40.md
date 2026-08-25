@@ -28,13 +28,13 @@ An observer stands in that relation to everything around it. It has a state. Aro
 
 The amount of the state lying along the field is the **alignment score**. Take the largest that score could be, which is the two sizes multiplied together and happens when the two point the same way, and subtract the score actually on hand. What is left is a number that cannot go below zero and reaches zero exactly when state and field agree, which is the reading a tuner is listening for when the beat disappears.
 
-That leftover is the misaligned remainder, and the work it names is the observer's **repair load**.
+That leftover is the misaligned remainder. The work it names is the observer's **repair load**.
 
 The public half of it came in chapter thirteen, where every seam scores the disagreement across itself and the scores add into one number for the arrangement, which every accepted repair lowers. Repair load is that accounting read at a single observer. Chapter thirty-seven priced the business of holding it near zero: neighbors repair too, whatever they write lands on the boundary they share with this observer, and the load comes back the moment the spending stops.
 
 ## Exported harm
 
-Mismatch has an address, and chapter thirty-seven's two budgets are the machinery for changing it. Capacity spent inside the boundary brings an observer into line with an entry it leaves standing. Spending on the entry itself changes what everyone wired to that seam will find there. The second move lowers the observer's own load by writing into something a neighbor also reads, and the neighbor inherits whatever the write leaves behind.
+Mismatch has an address, and chapter thirty-seven's two budgets are the machinery for changing it. Capacity spent inside the boundary brings an observer into line with an entry it leaves standing. Spending on the entry itself changes what everyone wired to that seam will find there. The second move lowers the observer's own load by writing into something a neighbor also reads. The neighbor inherits whatever the write leaves behind.
 
 Ordinary life is made of that move, running in both directions, all the time. Chapter thirty-nine found the difference that matters sitting in the record, between a patch that absorbed a mismatch at its own expense and one that wrote it onto a neighbor and let the neighbor pay. The second case takes a name once two conditions are attached: the mismatch is placed on other observers, and the actor who generated it declines the burden of repairing it while having the capacity to carry it. That is **exported harm**.
 
@@ -60,15 +60,15 @@ An action is evaluated by what it does to the long-horizon repair burden of the 
 
 Everything anybody argues about is in $\rho$ and $T$. Nobody who has ever exported a cost wrote down a value for either, and every one of them picked one. The water under Butte came up at about a foot a month, and a company reports its results four times a year.
 
-The horizon is the harder of the two, because it is set by the world rather than by preference. A horizon shorter than the consequence scores the act on a fragment of what it did, and the fragment can carry the opposite sign from the whole. Copper out of Butte between 1955 and 1982, evaluated over the years the mine was open, is a large positive number. The treatment plant at Horseshoe Bend is inside no accounting period that anybody drew, because the plan it runs on has no end date to draw one against.
+The horizon is the harder of the two, because it is set by the world rather than by preference. A horizon shorter than the consequence scores the act on a fragment of what it did. The fragment can carry the opposite sign from the whole. Copper out of Butte between 1955 and 1982, evaluated over the years the mine was open, is a large positive number. The treatment plant at Horseshoe Bend is inside no accounting period that anybody drew, because the plan it runs on has no end date to draw one against.
 
 ## Two registers, one shared
 
 Chapter thirty-seven measured the ceiling on private work on four states, one bit where a neighbor reads and one bit of the observer's own. Nothing assembled out of private moves reaches the arrangement in which the neighbor reads the opposite value, however long it runs and whatever it is allowed to spend, and every route that does reach it writes the shared bit.
 
-Put a harm in that shared bit. A burden written onto a record somebody else reads cannot be discharged in private, and the reason is which arrangements lie downstream of which moves rather than how hard the person worked at it.
+Put a harm in that shared bit. A burden written onto a record somebody else reads cannot be discharged in private. The reason is which arrangements lie downstream of which moves rather than how hard the person worked at it.
 
-Self-improvement is therefore not a substitute for repair. Somebody harms somebody, and spends the ten years afterward becoming a person who would not do it. Every one of those years is a private move. Every one of them can be real work, expensive and unfeigned, and the entry on the seam between those two people carries the value it carried on the first day. The two destinations are different states, and one of them is unreachable from anywhere the private budget can go.
+Self-improvement is therefore not a substitute for repair. Somebody harms somebody, and spends the ten years afterward becoming a person who would not do it. Every one of those years is a private move. Every one of them can be real work, expensive and unfeigned, and the entry on the seam between those two people carries the value it carried on the first day. The two destinations are different states. One of them is unreachable from anywhere the private budget can go.
 
 ## Elmira, May 1974
 
@@ -82,9 +82,9 @@ Each of those doors is a seam. What made the sentence unlike the ones above and 
 
 ## Local pain
 
-If lowering repair load were the whole of the rule, the rule would read as whatever hurts least is best, and that reading fails on arithmetic rather than on sentiment. The integral runs to a horizon. Comfort next week sits inside it with a weight, and so does everything after next week, and a term that raises the load for a month can lower the sum.
+If lowering repair load were the whole of the rule, the rule would read as whatever hurts least is best. That reading fails on arithmetic rather than on sentiment. The integral runs to a horizon. Comfort next week sits inside it with a weight, and so does everything after next week, and a term that raises the load for a month can lower the sum.
 
-Local pain is justified when it is the boundary-setting that lowers future mismatch. The opposite failure has a shape everybody recognizes: niceness that preserves abuse blocks repair and transfers the cost forward. A household that keeps its peace by leaving a record unwritten holds its own mismatch flat, and the observers who inherit that unwritten record are the ones who pay for the arrangement.
+Local pain is justified when it is the boundary-setting that lowers future mismatch. The opposite failure has a shape everybody recognizes: niceness that preserves abuse blocks repair and transfers the cost forward. A household that keeps its peace by leaving a record unwritten holds its own mismatch flat. The observers who inherit that unwritten record are the ones who pay for the arrangement.
 
 Four moves cost somebody something immediately and raise the long-run integrity of the field: an accurate confrontation, a court verdict, a difficult confession, and a refusal to amplify a popular falsehood. Each of them raises a load on the day it happens, and each writes onto a shared record something that was true and unwritten, which is the write that lowers the sum. The confession is the expensive one, because the record it puts into the field is about the observer writing it.
 
@@ -92,9 +92,9 @@ Four moves cost somebody something immediately and raise the long-run integrity 
 
 The old story says a person gets away with a harm when nobody sees it.
 
-The story is about who was watching, and the watchers are not the ones holding the load. A harm writes a new entry into the record, and chapter eleven named what an entry does: it narrows the fiber, leaving fewer whole worlds that carry the reading. Fewer worlds is a change in what can truthfully come next, and the narrowing happens whether or not a second party ever reads the entry. An unrepaired harm becomes a residue with an address.
+The story is about who was watching. The watchers are not the ones holding the load. A harm writes a new entry into the record, and chapter eleven named what an entry does: it narrows the fiber, leaving fewer whole worlds that carry the reading. Fewer worlds is a change in what can truthfully come next. The narrowing happens whether or not a second party ever reads the entry. An unrepaired harm becomes a residue with an address.
 
-Where a harm is hidden by a falsified record rather than by an unread one, the arithmetic is chapter six's flipped edge exactly. Change one entry from what happened to what did not, two of the loops through it stop closing, and the reading goes unrealizable, chapter eleven's verdict on a record with no world under it. A cover-up buys the offender a record that describes no world at all, and every loop running through the false entry picks up the residue.
+Where a harm is hidden by a falsified record rather than by an unread one, the arithmetic is chapter six's flipped edge exactly. Change one entry from what happened to what did not, two of the loops through it stop closing, and the reading goes unrealizable, chapter eleven's verdict on a record with no world under it. A cover-up buys the offender a record that describes no world at all. Every loop running through the false entry picks up the residue.
 
 A residue with an address gets moved by every repair that runs near it. Chapter six shifted its leftover around the twelve-patch net by reordering the repairs. It weighed one at every address it landed on. That is the mechanism by which an unrepaired harm turns up in people who did nothing: the residue settles on whoever's seams the repairs happen to reach, which in a family or a town is rarely the person who wrote the entry.
 
@@ -108,7 +108,7 @@ Restoration on those terms says nothing about scanning brains, nothing about reb
 
 The law is the piece that gets left behind. Feed a record into machinery whose allowed moves differ and the same history yields a different next step, so the law travels with the record or the thing that comes up is a different observer. A pattern restored under a law that permits the export it was built around is a continuation of the pattern. Restored under a law that repairs what it receives, it is a continuation of something else, and the argument about whether restoration counts as mercy has to start there.
 
-Records are on the list of four. A restored observer therefore arrives holding its record, and its record contains the harms it did along with the harms done to it, because a continuation that dropped them would be the continuation of a different observer. An offender's restoration and a victim's restoration carry the same entries about the same night, and the two readings have to be consistent with one world. That is the condition a transcript, a set of exhibits and twelve people in a room have been approximating for as long as there have been courts.
+Records are on the list of four. A restored observer therefore arrives holding its record, and its record contains the harms it did along with the harms done to it, because a continuation that dropped them would be the continuation of a different observer. An offender's restoration and a victim's restoration carry the same entries about the same night. The two readings have to be consistent with one world. That is the condition a transcript, a set of exhibits and twelve people in a room have been approximating for as long as there have been courts.
 
 ## A consistent prison
 
@@ -118,7 +118,7 @@ Nothing in the definition says the state is a good one. A prison is a fixed poin
 
 When more than one consistent state carries a record, the fiber is ambiguous, and chapter eleven left repair with nothing to work on there: every entry is satisfied, so narrowing the set to one member takes something no record holds.
 
-So an ambiguous fiber is settled by a selector, and the selector here is which repair law gets implemented by the observers capable of implementing one. A law that leaves a recorded harm unaddressed is a law that some restored observer, reading the complete record, has a true objection to, and that observer is inside the world the law built, holding the record, with the objection intact. The law that addresses every recorded harm is the one every restored observer could endorse with the whole record in front of them, and the only one with that property.
+So an ambiguous fiber is settled by a selector. The selector here is which repair law gets implemented by the observers capable of implementing one. A law that leaves a recorded harm unaddressed is a law that some restored observer, reading the complete record, has a true objection to, and that observer is inside the world the law built, holding the record, with the objection intact. The law that addresses every recorded harm is the one every restored observer could endorse with the whole record in front of them, and the only one with that property.
 
 Which fixes where a pattern can be continued. A pattern organized around exporting damage and refusing repair cannot be continued as that pattern into a world running that law, because continuing it there is the export, arriving in a place whose whole arrangement is the repair of what it receives. Its truthful continuation is somewhere its damage stays local. Both destinations have old names, paradise and hell, and the names add nothing to the mechanism. One is the continuation of observers whose records admit repaired participation with each other. The other is the continuation of an observer that has run out of anybody to pass its costs to.
 

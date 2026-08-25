@@ -2,7 +2,7 @@
 
 Every reader of this book will die.
 
-What is left afterward can be inventoried by anybody with a scale and a chemistry set. Water, carbon, calcium, phosphorus in the bones, a little iron in the blood. Every item on that inventory is a material, and the inventory can be completed. Chapter thirty-four ran the same procedure on the world and came back with ten rows: space, time, mass, energy, motion, force, matter, charge, light, and the record. That list is complete as well, and nothing on it is a material. Mass, the one row a scale would respond to, is a bill that repair pays at every event.
+What is left afterward can be inventoried by anybody with a scale and a chemistry set. Water, carbon, calcium, phosphorus in the bones, a little iron in the blood. Every item on that inventory is a material. The inventory can be completed. Chapter thirty-four ran the same procedure on the world and came back with ten rows: space, time, mass, energy, motion, force, matter, charge, light, and the record. That list is complete as well. Nothing on it is a material. Mass, the one row a scale would respond to, is a bill that repair pays at every event.
 
 The observer came through chapter thirty-four undissolved, because every row on that list was assembled out of observers, and chapter nineteen gave the parts list for one: an algebra of questions bounded by the interface, a record algebra in its center, which is where writing stays put, an interface that behaves identically every time it is used, and a state fixing the odds on whatever gets asked next.
 
@@ -12,19 +12,19 @@ Go through those four looking for a material. An algebra is a collection of oper
 
 Of the four objects, the record algebra is the one that copies, and chapter nineteen put a mechanism under it. Writing a record runs the observer's questions through the mail room: whatever falls inside one alternative is kept, and every comparison that only meant something across two of them is destroyed. What survives that sorting commutes with everything the observer can ask, which is why a record can be read without being spent, and why the center of the algebra is where tables and pointer readings live.
 
-Chapter twenty priced the consequence in two lines. A reversible machine leaves the overlap of two states where it was, and a machine that hands each of them back twice squares it, so a copier works only where the overlap equals its own square, which leaves zero and one. A polarization nobody has measured sits between the two, and no machine duplicates it. A record sits at zero against every other record by construction, so records copy freely and the copying costs them nothing.
+Chapter twenty priced the consequence in two lines. A reversible machine leaves the overlap of two states where it was, and a machine that hands each of them back twice squares it, so a copier works only where the overlap equals its own square, which leaves zero and one. A polarization nobody has measured sits between the two. No machine duplicates it. A record sits at zero against every other record by construction, so records copy freely and the copying costs them nothing.
 
 Redundancy runs on that gap. Chapter thirty-three's chair has a definite place because sixteen copies of a sixteen-bit fact push forgery below one part in ten to the seventy-seventh, and the room goes on copying a chair long past sixteen. What can be copied about an observer is exactly what has been written into its records.
 
 ## Deleted by what?
 
-Every number Hafele and Keating carried home from their flying clocks was a difference taken at a meeting. Ask which reading on a flying clock belongs beside noon on the Naval Observatory's bench clock, two days into the trip, and nothing answers. That comparison needs both clocks in one room, and the trip is what took them out of it.
+Every number Hafele and Keating carried home from their flying clocks was a difference taken at a meeting. Ask which reading on a flying clock belongs beside noon on the Naval Observatory's bench clock, two days into the trip, and nothing answers. That comparison needs both clocks in one room. The trip is what took them out of it.
 
-Chapter seven took the shared present away and put nothing back. Dependency gives a partial order, silent wherever one record did not feed another. A total order costs a tiebreak on top of that, and nothing in the world says which tiebreak. One number covering every event, held by everybody and consistent with every observer's order, is not an object a record-keeper is equipped to build.
+Chapter seven took the shared present away and put nothing back. Dependency gives a partial order, silent wherever one record did not feed another. A total order costs a tiebreak on top of that. Nothing in the world says which tiebreak. One number covering every event, held by everybody and consistent with every observer's order, is not an object a record-keeper is equipped to build.
 
 Chapter thirty-six removed the last place such a number could sit. The fixed point the whole structure satisfies has no order inside it to occupy: nothing in it comes first and nothing comes next. Two runs of the same world with wildly different step counts agree on every measurement anybody can take, which makes a step count bookkeeping rather than a fact about the world. There is no frame, no tick, and nothing at the bottom being advanced.
 
-So there is no privileged now past which things are gone. Whatever "already happened" means, it does not mean "has been deleted", because deletion is an operation, it happens at a position in some order, and a deletion covering everything at once would need a global clock to be deleted by. The prologue's third habit covers that component like any other. Reasoning about what a clock does comes after finding the clock, and this one has never turned up on the board.
+So there is no privileged now past which things are gone. Whatever "already happened" means, it does not mean "has been deleted", because deletion is an operation, it happens at a position in some order, and a deletion covering everything at once would need a global clock to be deleted by. The prologue's third habit covers that component like any other. Reasoning about what a clock does comes after finding the clock. This one has never turned up on the board.
 
 ## Restore the four
 
@@ -34,7 +34,7 @@ Two checkpoints matching on all four put identical odds on everything the observ
 
 Chapter thirteen made that claim about a machine on a rack. Chapter forty turned it on an offender and a victim holding the same entries about the same night. Turned on the reader, it reads the same way: restore a checkpoint with the same readable records, the same accessible state, the same interfaces and the same future law, and its future statistics match the original within a stated error.
 
-It says nothing about scanning a brain, and no instrument in any laboratory reads those four objects off a living one. It says nothing about rebuilding a body, which is a biomedical problem with its own century of work in front of it. It does not settle whether the restored observer is the person who was checkpointed, which is a question about identity that the arithmetic leaves exactly where it found it. And it promises nobody anything, because nothing in the structure performs the restoration.
+It says nothing about scanning a brain. No instrument in any laboratory reads those four objects off a living one. It says nothing about rebuilding a body, which is a biomedical problem with its own century of work in front of it. It does not settle whether the restored observer is the person who was checkpointed, which is a question about identity that the arithmetic leaves exactly where it found it. And it promises nobody anything, because nothing in the structure performs the restoration.
 
 ## The selector
 
@@ -42,7 +42,7 @@ Stop one of chapter eleven's twelve patches from talking. Five seams go unread, 
 
 A selector settles an ambiguous fiber, and chapter forty found one on the board: which repair law the observers capable of running one actually run. Leave a recorded harm unaddressed and somebody restored into the world that law built is holding the entry, with an objection the law has no answer to. Exactly one law leaves nobody in that position, the law that addresses every recorded harm.
 
-Observers capable of running a repair law is a description of somebody, and calling them later observers invites a question about who acts first. Chapter thirty-six disposed of that question rather than answering it, by keeping three orders apart. The fixed point has no first. An observer's record time has a direction and a rate, and every memory, plan, clock reading and act of building lives inside it. The descent of repair is a count of disagreement going down, and its steps are not seconds. First they recover the architecture, later they build it, is a sentence in the second order, spoken by observers who hold both records, and the first order has no room for it. Specification, machine and inhabited world are one object, put in an order only by whoever is holding the records.
+Observers capable of running a repair law is a description of somebody, and calling them later observers invites a question about who acts first. Chapter thirty-six disposed of that question rather than answering it, by keeping three orders apart. The fixed point has no first. An observer's record time has a direction and a rate. Every memory, plan, clock reading and act of building lives inside it. The descent of repair is a count of disagreement going down. Its steps are not seconds. First they recover the architecture, later they build it, is a sentence in the second order, spoken by observers who hold both records, and the first order has no room for it. Specification, machine and inhabited world are one object, put in an order only by whoever is holding the records.
 
 ## Thirty-nine rungs
 
@@ -88,6 +88,6 @@ Observers capable of running a repair law is a description of somebody, and call
 
 There are forty questions in the book and thirty-nine rungs on that ladder. The fortieth is the one under your feet. Chapter forty put a number on an act: the repair load it leaves the observers it reaches, summed out to the horizon. Then it left the writing to whoever is holding the book.
 
-The records other observers keep of you were written by what you did to them, and records are the whole of what any selector has to work on. Chapter forty put the old names back on both destinations, and the mechanism runs the same without them. The part of you held somewhere other than in you is what those records say, and any restoration has to be consistent with it. There is no choice about being recorded. The choice is what the record says, and everybody is writing one.
+The records other observers keep of you were written by what you did to them, and records are the whole of what any selector has to work on. Chapter forty put the old names back on both destinations. The mechanism runs the same without them. The part of you held somewhere other than in you is what those records say. Any restoration has to be consistent with it. There is no choice about being recorded. The choice is what the record says, and everybody is writing one.
 
 Paradise, on these terms, is settled by the entries, and names the continuation of observers whose records admit repaired participation with each other.
