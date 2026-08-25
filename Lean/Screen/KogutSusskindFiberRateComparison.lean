@@ -132,11 +132,12 @@ theorem fiberRate_eq_two_mul_iff {lam r : ℝ} (hlam : 0 < lam) (hr : 0 < r) :
       rcases div_eq_zero_iff.mp h4 with h | h
       · exact h
       · exact absurd h (ne_of_gt hr)
-    have h6 : r - 1 = 0 := pow_eq_zero_iff (two_ne_zero).mp h5
+    have h6 : r - 1 = 0 := (pow_eq_zero_iff two_ne_zero).mp h5
     linarith
   · rintro rfl
     unfold fiberRate
     norm_num
+    ring
 
 /-- Convention receipt, forward direction: the fiber rate times the
 heat-bath conditional flip weight `1 / (1 + r²)` reproduces the Doob
@@ -644,7 +645,7 @@ theorem walsh_linearIndependent (hw : ∀ l b, 0 < w l b)
 orthogonal nonzero vectors in dimension `2^n`. -/
 def walshBasis (hw : ∀ l b, 0 < w l b)
     (hsum : ∀ l, w l false + w l true = 1) :
-    Basis (Finset (Fin n)) ℝ (Obs n) :=
+    Module.Basis (Finset (Fin n)) ℝ (Obs n) :=
   basisOfLinearIndependentOfCardEqFinrank (walsh_linearIndependent hw hsum)
     (by
       rw [Fintype.card_finset, Fintype.card_fin,
@@ -661,7 +662,7 @@ theorem walshBasis_apply (hw : ∀ l b, 0 < w l b)
 theorem repr_expansion (hw : ∀ l b, 0 < w l b)
     (hsum : ∀ l, w l false + w l true = 1) (f : Obs n) :
     f = ∑ S, (walshBasis hw hsum).repr f S • walsh w S := by
-  conv_lhs => rw [← Basis.sum_repr (walshBasis hw hsum) f]
+  conv_lhs => rw [← Module.Basis.sum_repr (walshBasis hw hsum) f]
   exact Finset.sum_congr rfl fun S _ => by rw [walshBasis_apply]
 
 theorem statePairing_walsh_right (hw : ∀ l b, 0 < w l b)
@@ -865,7 +866,9 @@ theorem ksWeight_sum (r : Fin n → ℝ) :
   intro l
   have h1 : (1 : ℝ) + (r l) ^ 2 ≠ 0 := by positivity
   unfold ksWeight
-  field_simp
+  simp only [Bool.cond_false, Bool.cond_true]
+  rw [div_add_div_same]
+  exact div_self h1
 
 /-- The `ksWeight` fiber odds reproduce the squared ground-state ratio,
 matching the committed `π = Ω²` convention. -/
@@ -873,7 +876,8 @@ theorem ksWeight_ratio {r : Fin n → ℝ} (hr : ∀ l, 0 < r l) (l : Fin n) :
     ksWeight r l true / ksWeight r l false = (r l) ^ 2 := by
   have h1 : (1 : ℝ) + (r l) ^ 2 ≠ 0 := by positivity
   unfold ksWeight
-  field_simp
+  simp only [Bool.cond_false, Bool.cond_true]
+  rw [div_one_div, div_mul_cancel₀ _ h1]
 
 /-- Kogut--Susskind floor with the induced `π = Ω²` fiber weights. -/
 theorem kogutSusskind_ksWeight_floor {lam : ℝ} (hlam : 0 < lam)
@@ -894,14 +898,24 @@ section Instances
 /-- Ratios of the two-fiber instance: `r = (2, 3)`, `λ = 1`. -/
 def rA : Fin 2 → ℝ := ![2, 3]
 
+theorem rA_zero : rA 0 = 2 := rfl
+
+theorem rA_one : rA 1 = 3 := rfl
+
 theorem rA_pos : ∀ l, 0 < rA l := by
   intro l
-  fin_cases l <;> norm_num [rA]
+  fin_cases l
+  · exact lt_of_lt_of_eq (by norm_num) rA_zero.symm
+  · exact lt_of_lt_of_eq (by norm_num) rA_one.symm
 
 /-- Exact rates of the two-fiber instance: `(5/2, 10/3)`. -/
 theorem instanceA_rate_values :
     fiberRate 1 (rA 0) = 5 / 2 ∧ fiberRate 1 (rA 1) = 10 / 3 := by
-  constructor <;> norm_num [fiberRate, rA]
+  constructor
+  · rw [rA_zero]
+    norm_num [fiberRate]
+  · rw [rA_one]
+    norm_num [fiberRate]
 
 /-- Exact subset-sum eigenvalue table of the two-fiber instance:
 `0, 5/2, 10/3, 35/6`. -/
@@ -936,9 +950,8 @@ theorem instanceA_gap :
   · refine (dirichlet_constant_iff hw hs hc _).mpr ?_
     intro l
     fin_cases l
-    · rw [instanceA_rate_values.1]
-    · rw [instanceA_rate_values.2]
-      norm_num
+    · exact le_of_eq instanceA_rate_values.1.symm
+    · exact le_of_le_of_eq (by norm_num) instanceA_rate_values.2.symm
   · intro gam hgam
     have h := rate_le_of_dirichlet_bound hw hs hgam 0
     rwa [instanceA_rate_values.1] at h
@@ -948,23 +961,39 @@ theorem instanceA_gap_above_floor : (2 : ℝ) * 1 < 5 / 2 := by norm_num
 /-- Ratios of the three-fiber instance: `r = (1, 2, 3)`, `λ = 1/2`. -/
 def rB : Fin 3 → ℝ := ![1, 2, 3]
 
+theorem rB_zero : rB 0 = 1 := rfl
+
+theorem rB_one : rB 1 = 2 := rfl
+
+theorem rB_two : rB 2 = 3 := rfl
+
 theorem rB_pos : ∀ l, 0 < rB l := by
   intro l
-  fin_cases l <;> norm_num [rB]
+  fin_cases l
+  · exact lt_of_lt_of_eq (by norm_num) rB_zero.symm
+  · exact lt_of_lt_of_eq (by norm_num) rB_one.symm
+  · exact lt_of_lt_of_eq (by norm_num) rB_two.symm
 
 /-- Exact rates of the three-fiber instance: `(1, 5/4, 5/3)`. -/
 theorem instanceB_rate_values :
     fiberRate (1 / 2) (rB 0) = 1 ∧ fiberRate (1 / 2) (rB 1) = 5 / 4 ∧
       fiberRate (1 / 2) (rB 2) = 5 / 3 := by
-  refine ⟨?_, ?_, ?_⟩ <;> norm_num [fiberRate, rB]
+  refine ⟨?_, ?_, ?_⟩
+  · rw [rB_zero]
+    norm_num [fiberRate]
+  · rw [rB_one]
+    norm_num [fiberRate]
+  · rw [rB_two]
+    norm_num [fiberRate]
 
 /-- Exact full-level eigenvalue of the three-fiber instance:
 `1 + 5/4 + 5/3 = 47/12`. -/
 theorem instanceB_top_eigenvalue :
     (∑ l ∈ (Finset.univ : Finset (Fin 3)), fiberRate (1 / 2) (rB l))
       = 47 / 12 := by
-  rw [Fin.sum_univ_three]
-  norm_num [fiberRate, rB]
+  rw [Fin.sum_univ_three, instanceB_rate_values.1, instanceB_rate_values.2.1,
+    instanceB_rate_values.2.2]
+  norm_num
 
 /-- Exact gap of the three-fiber instance: the best Dirichlet constant is
 `1 = 2λ`; the floor is attained because the first ratio is `1`. -/
@@ -984,11 +1013,9 @@ theorem instanceB_gap :
   · refine (dirichlet_constant_iff hw hs hc _).mpr ?_
     intro l
     fin_cases l
-    · rw [instanceB_rate_values.1]
-    · rw [instanceB_rate_values.2.1]
-      norm_num
-    · rw [instanceB_rate_values.2.2]
-      norm_num
+    · exact le_of_eq instanceB_rate_values.1.symm
+    · exact le_of_le_of_eq (by norm_num) instanceB_rate_values.2.1.symm
+    · exact le_of_le_of_eq (by norm_num) instanceB_rate_values.2.2.symm
   · intro gam hgam
     have h := rate_le_of_dirichlet_bound hw hs hgam 0
     rwa [instanceB_rate_values.1] at h
