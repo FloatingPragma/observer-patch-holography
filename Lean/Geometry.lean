@@ -24,6 +24,8 @@ import Geometry.IntegerKCombInvariance
 import Geometry.CommonWorldJointAction
 import Geometry.ScreenCarrierMapCandidate
 import Geometry.CarrierDynamicsCompatibility
+import Geometry.ChargeFixedInteraction
+import Geometry.InternalEnergyInertia
 
 /-!
 # OPH construction geometry umbrella

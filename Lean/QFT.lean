@@ -54,6 +54,7 @@ import QFT.SourceHistoryThreeSlotLocalGNS
 import QFT.SourceHistoryExpectationNet
 import QFT.SourceClockCandidate
 import QFT.EnlargedTargetRecordEmbedding
+import QFT.SourceRecurrenceClock
 
 /-!
 # OPH construction QFT umbrella

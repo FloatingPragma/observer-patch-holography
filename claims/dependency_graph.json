@@ -173,7 +173,11 @@
   "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
   "OPH-DM-ROTATION-CURVE-PROFILE-LIKELIHOOD",
   "OPH-QFT-ENLARGED-TARGET-RECORD-EMBEDDING",
-  "OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT"
+  "OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT",
+  "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+  "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+  "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+  "OPH-EM-LOCAL-ENERGY-BALANCE"
  ],
  "edges": [
   {
@@ -1575,6 +1579,41 @@
    "from": "OPH-YM-FIBER-RATE-COMPARISON",
    "to": "OPH-YM-GAUGE-ORBIT-QUOTIENT-DESCENT",
    "role": "supplies the product-space rate identity, minimum-rate gap, and 2 lambda floor whose survival on the gauge-invariant subspace the descent-and-restriction theorems prove, and names the quotient step this claim executes at its finite level"
+  },
+  {
+   "from": "OPH-QFT-SOURCE-CLOCK-CANDIDATE",
+   "to": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+   "role": "supplies the rejected overlapping-window incidence candidate whose two missing properties, distinct-event counting and a source-determined tick-free ratio, the recurrence precursor exhibits on the committed chain"
+  },
+  {
+   "from": "OPH-CAL-SI-ANCHOR-IMPORT",
+   "to": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+   "role": "supplies the declared tick calibration through which every return duration is read and against which the tick-free ratio is proved invariant"
+  },
+  {
+   "from": "OPH-GEOMETRY-CARRIER-DYNAMICS-COMPATIBILITY",
+   "to": "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+   "role": "supplies the interaction candidate, its gauge invariance, its non-forced normalization, and the embedded seam directions whose two-sector variation the charge fixing performs"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
+   "to": "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+   "role": "supplies the committed window action, worldline functional, and equal-increment clause that the coupled action reduces to at augmented sources and zero coupling"
+  },
+  {
+   "from": "OPH-GEOMETRY-KINEMATIC-MASS-SHELL",
+   "to": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+   "role": "supplies the declared-mass four-momentum and rest identity that the composite momentum instantiates at the composite parameter"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
+   "to": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+   "role": "supplies the committed quadratic worldline functional and its expansion that both declared composite shapes are built on"
+  },
+  {
+   "from": "OPH-EM-SCALED-MAXWELL-STABILITY-ACTION",
+   "to": "OPH-EM-LOCAL-ENERGY-BALANCE",
+   "role": "supplies the scaled staggered packet, evolution, and global energy balance that the face-local law refines exactly"
   }
  ]
 }

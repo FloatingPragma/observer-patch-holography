@@ -7492,6 +7492,157 @@
         "boundary": [],
         "rationale": "The finite fiber-product scope, the producer's mask convention, and the moved-link symmetry condition are lane-local mathematical hypotheses of the Yang-Mills quotient program outside the canonical derivation-premise register."
       }
+    },
+    {
+      "claim_id": "OPH-QFT-SOURCE-RECURRENCE-CLOCK-PRECURSOR",
+      "statement": "A precursor on the source clock and duration row, touching no other of the three open rows and discharging none. Delimitation: the accepted-repair relation admits no cycle, since every accepted step strictly lowers the mismatch count, and the choice-canonical repair iteration admits no periodic orbit other than a fixed point and is eventually constant; a periodic clock cannot be hosted by accepted repair steps, which locates where a clock cannot come from and says nothing against a clock hosted by the source chain. Construction: on the committed two-state stationary source chain the first-return law of each state is written in closed form from the kernel, is a probability law, has finite exact mean, and satisfies Kac's identity, mean return time equal to the reciprocal stationary mass, with the exact rationals 61511/7155 steps for the stable class and 61511/54356 steps for the unstable class; the two mean return times stand in the ratio pi_1/pi_0 = 54356/7155, exact on the committed literals of one pinned run with no sampling uncertainty modeled, and this ratio is the same number under every declared tick, so it carries no tick. Boundaries: the return law is non-degenerate, return times 1 and 2 both carry positive probability, no single period exists, and no return time has probability one, so the process is recurrent with no period; one chain step stays a declared tick and two ticks give two return durations; a return count along a trajectory is an integer count of distinct visit events, bounded by the step count, growing by at most one per step, additive over adjacent blocks, the property the overlapping-window incidence statistic lacks. Kac's identity is proved for the committed chain by direct series computation; the return law is the excursion product of the kernel with no process object built, so its first-hitting reading is definitional. The abstract rate non-identifiability result is cited at its scope, an abstract-transition-system statement whose repair-layer bridge fails, and forbids nothing here; no Lagrangian shape appears. No physical duration is identified.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_recurrence_law_on_committed_chain_with_repair_layer_delimitation",
+      "assumptions": [
+        "declared_tick_duration_import",
+        "first_hitting_reading_of_excursion_product_definitional"
+      ],
+      "imported_results": [
+        "kac_recurrence_identity_finite_chain"
+      ],
+      "oph_specific_delta": "Locates the time row's obstruction and its first live construction exactly: accepted repair can host no periodic clock, while the committed stationary source chain supplies a recurrent process with exact tick-free mean-return ratio and a distinct-event return count, the two properties the rejected incidence candidate lacked, so the remaining distance to a source clock is a periodic or source-selected duration, named as declared.",
+      "novelty_type": "kac_recurrence_precursor_with_no_periodic_repair_delimitation",
+      "evidence": [
+        "Lean/QFT/SourceRecurrenceClock.lean",
+        "Lean/ObserverPatchHolography/RateBridgeObstruction.lean",
+        "Lean/Thermodynamics/MixingChainRealization.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The no-cycle or no-periodic-orbit theorem fails, the return law fails to sum to one, Kac's identity or a quoted rational fails, the tick-free ratio fails, the non-degeneracy or not-forced receipts fail, or the module is presented as a source clock or a physical duration.",
+      "scope_if_false": "Only the recurrence precursor falls. The rate-bridge obstruction, the committed chain, and the calibration import are separately assessed.",
+      "status": "recurrence_precursor_attained__periodic_process_and_physical_duration_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-CHARGE-FIXED-INTERACTION",
+      "statement": "A candidate coupled action on the finite thirty-seam complex, the committed scaled window action plus the committed interaction candidate, varied exactly in both sectors. Exact seam geometry: the incidence boundary of the embedded seam-direction field at every port is the constant 6 minus 2 phi times the candidate ray of that port, the candidate rays pair with a seam direction to exactly 2 at the larger endpoint and minus 2 at the smaller, and the seam-crossing constant 12 minus 4 phi is positive. Field sector: the coupled action equals the committed window action at augmented sources plus an endpoint term, the augmented sources being the declared current plus the induced current, kappa over the step squared times the forward difference of the worldline seam current, and the declared load plus the induced load, minus kappa over the step times the port boundary of that current; stationarity in the seam and port potentials is exactly the committed scaled Ampere update and Gauss constraint at the augmented sources, the induced sources satisfy the committed continuity equation identically, and the induced load is neutral at every step, a polarization-type bound load. Charge fixing, conditional: the induced load at a port is minus kappa over the step times the crossing factor, and the declared identification of that induced load with a declared port value q holds exactly when kappa equals minus q times the step divided by the crossing factor, unique at nonzero crossing factor; on the seam-crossing worldline the value is kappa = -(q h)/(12 - 4 phi), computed exactly and nonzero, with the smaller endpoint carrying -q. The identification is step-local and increment-proportional, a resting worldline induces no load, only kappa over the step is fixed, the declared value q is unconstrained, and without the identification the committed non-forcing holds unchanged. Worldline sector: with declared weight m on the committed worldline action, stationarity holds exactly when 2m times the forward second difference of the path equals the purely spatial vector kappa times the forward difference of the embedded seam electric field, the discrete momentum being twice the declared-mass momentum; at zero coupling the committed equal-increment clause returns. The force is polarization-type, kappa times the step difference of the field, with no magnetic term and no monopole identification; the A-paired minimal-coupling shape is the named live alternative. The committed port load carries the sign of a continuum negative charge density. No physical spacetime attachment, calibration, unit, or readout; the coupled-action row stays open because the identification and the worldline shape are declared.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_two_sector_variation_with_conditional_normalization_fixing",
+      "assumptions": [
+        "declared_interaction_shape_and_free_normalization",
+        "declared_port_load_identification_with_a_charge"
+      ],
+      "imported_results": [
+        "finite_permutation_word_certificates"
+      ],
+      "oph_specific_delta": "Turns the free normalization of the committed interaction candidate into a conditionally fixed one: a single declared identification of the induced Gauss-law load with a port value pins kappa over the step to an exact golden-ratio constant, and the same variation shows the candidate's coupling is polarization-type with a step-difference force, so the monopole route is isolated as the A-paired alternative and the coupled-action row's remaining content is the identification itself.",
+      "novelty_type": "conditional_charge_fixing_of_a_candidate_coupling_with_polarization_diagnosis",
+      "evidence": [
+        "Lean/Geometry/ChargeFixedInteraction.lean",
+        "Lean/Geometry/CarrierDynamicsCompatibility.lean",
+        "Lean/Geometry/CommonWorldJointAction.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A seam-geometry constant, the reduction identity, a stationarity equivalence, the continuity or neutrality identity, the fixing equivalence or its uniqueness, the seam-crossing value, the rest lemma, or the worldline equation fails; or the coupling is presented as a Lorentz force or the identification as forced.",
+      "scope_if_false": "Only the coupled-action variation falls. The interaction candidate's gauge invariance and the committed Maxwell equivalences are separately assessed.",
+      "status": "conditional_charge_fixing_attained__identification_shape_and_monopole_coupling_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR",
+      "statement": "A conditional finite precursor of the dynamical half of the mass-energy identity, located in one declared composite action shape; nothing here derives the identity. The internal energy ledger is the modular energy of the cap first law, bound to that module's objects. Composite shape A, declared: the rest parameter plus the internal energy multiplies the committed quadratic worldline functional of the joint action, and a declared step-indexed potential term paired with the increment is added; the expansion under a displacement is exact, and stationarity under endpoint-fixed variations is equivalent to the discrete equation of motion at every interior node, (m + E) times the second difference of the path equals the impulse of the potential, so the inertial coefficient is exactly m + E and internal energy enters inertia with coefficient one in the dimensionless module convention. The composite momentum is declared at parameter m + E, so at rest its scalar coordinate is m + E by the committed kinematic identity at that parameter. Non-forcing: composite shape B, declared, enters the same ledger as a path-independent additive term, is stationary-well-posed with inertial coefficient m, agrees with shape A at zero energy and on every unit-increment path including the committed joined worldline, and an explicit parabola history with an explicit potential is stationary for shape A at unit data and fails stationarity for shape B and for shape A at zero energy; the contribution of internal energy to inertia is selected by the shape, the open selection being the slope family m + lambda E with shapes A and B its endpoints. Both shapes are declared enrichments by the realized-history Legendre non-identifiability, cited at its scope, with no Lagrangian read off a history. The ledger converts to joules through the declared tick additively, and two ticks give two readings. The rest parameter is read in tick-energy units by declaration. The module touches the coupled-action row and the internal-energy identification and discharges neither; no source clock, no physical spacetime attachment, no derived mass.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "conditional_inertial_coefficient_theorem_under_declared_composite_shape",
+      "assumptions": [
+        "declared_composite_action_shape_selection",
+        "declared_tick_duration_import"
+      ],
+      "imported_results": [
+        "finite_calculus_of_variations_on_a_window"
+      ],
+      "oph_specific_delta": "Gives the dynamical content of the mass-energy identity its first machine-checked location: under one declared composite shape the modular energy of the cap first law enters the inertial coefficient with slope one, an explicit second shape enters with slope zero, and a discriminating history separates them, so the identity's physical content is isolated as the selection of the slope from the source, named open, with the kinematic half and the calibration import composing exactly.",
+      "novelty_type": "conditional_internal_energy_inertia_with_shape_selection_delimitation",
+      "evidence": [
+        "Lean/Geometry/InternalEnergyInertia.lean",
+        "Lean/Geometry/MassShellKinematics.lean",
+        "Lean/Thermodynamics/CapFirstLaw.lean",
+        "Lean/Variational/RealizedHistoryLegendreNoGo.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "The exact expansion misses a term, stationarity of either shape differs from its displayed equation of motion, the shapes disagree at zero energy or on the unit worldline, the parabola discriminator fails, the rest-frame identity fails, or the module is presented as deriving the mass-energy identity.",
+      "scope_if_false": "Only the composite-shape precursor falls. The kinematic shell, the cap first law, and the Legendre non-identifiability are separately assessed.",
+      "status": "conditional_precursor_attained__shape_selection_source_clock_and_attachment_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        736,
+        739
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-54"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-EM-LOCAL-ENERGY-BALANCE",
+      "statement": "A face-local discrete Poynting law, exact at every step of the committed scaled Ampere evolution on the twelve-port, thirty-seam, twenty-face complex, packaged as one conserved current on the face lattice, the finite precursor of one energy component of a weak Ward law. Every seam bounds exactly two faces with opposite induced signs, so the electric seam energy splits into equal quarters over the two faces, a declared symmetric convention within a one-parameter-per-seam family of exact face-local laws, and the face energy density sums over the twenty faces to the committed scaled staggered form exactly. The seam flux rate out of a face through its seam has the Poynting form, orientation sign times the half-step mean electric field times the mean magnetic field across the seam, and the flux rates of the two faces of a seam cancel. Headline: at every face and step, the forward difference of the face energy density equals minus the step times the sum of the discrete flux divergence and the face's share of the seam work, with positive divergence net outflow and positive work lowering the field energy; summing over faces recovers the committed global energy balance exactly. The discrete four-divergence of the density-flux pair equals minus the step times the face work rate, vanishes with zero current, and vanishes on any face whose seams carry no current. The receipt is inhabited by the committed demonstration bundle. Boundary: one component, energy only; no momentum or stress components, no symmetric tensor, no covariance, no continuum limit, no discrete-to-continuum face-balance theorem; the identification of the screen field energy with the modular energy the Einstein branch consumes is a named open join; the physical spacetime attachment row is touched only by naming what a face-balance limit must preserve, two-face antisymmetry, the face-sum identity, the sign conventions, and the absence of area weights, and nothing is discharged.",
+      "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+      "tier": "exact_face_local_poynting_law_on_committed_complex",
+      "assumptions": [
+        "declared_equal_quarter_seam_energy_split"
+      ],
+      "imported_results": [
+        "discrete_exterior_calculus_poynting_identity"
+      ],
+      "oph_specific_delta": "Refines the committed global energy balance into an exact local conservation law on the committed carrier, supplying the first same-source local balance object the audited Einstein route names as its missing input, with the two-face flux antisymmetry and the mean-field Poynting form proved rather than assumed, and the remaining distance to a local stress tensor isolated in momentum components, covariance, and the continuum face-balance limit.",
+      "novelty_type": "machine_checked_face_local_energy_continuity_as_ward_precursor",
+      "evidence": [
+        "Lean/Screen/LocalEnergyBalance.lean",
+        "Lean/Screen/TemporalMaxwellEvolution.lean",
+        "Lean/Screen/ScaledMaxwellStability.lean",
+        "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex"
+      ],
+      "falsifier": "The two-face incidence fact, the face-sum identity, the flux cancellation or Poynting form, the local balance, the recovery of the global balance, or a continuity statement fails; or the law is presented as a stress tensor, a Ward law, or a continuum statement.",
+      "scope_if_false": "Only the local balance layer falls. The committed global energy balance and the Maxwell evolution receipts are separately assessed.",
+      "status": "local_energy_balance_attained__stress_components_covariance_and_continuum_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        729,
+        733
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
     }
   ]
 }
