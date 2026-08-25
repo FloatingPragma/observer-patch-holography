@@ -38,7 +38,7 @@ Chapter nineteen said what an observer holds and how it comes to hold it. The de
 
 Take two patches together in a state pinned down as far as anything can be pinned down, where every question that can be settled about the pair at once has been settled. Cut it in two and average over one half. What comes back is vague. The definiteness was living in the relation between the two halves. The cut went through it. That content is **entanglement**. The number measuring how much of it the cut severed is the entropy of the half left behind.
 
-Of either half. Two sides of a cut through a definite whole come back with exactly equal entropies, however lopsided the two pieces are. A thimble of water cut out of an ocean returns the same number as the ocean it was cut from, which means the smaller side sets the ceiling for both, and it means the number was never a property of what is inside either piece. It belongs to the cut.
+Of either half. Two sides of a cut through a definite whole come back with exactly equal entropies, however lopsided the two pieces are. A thimble of water cut out of an ocean returns the same number as the ocean it was cut from. That means the smaller side sets the ceiling for both, and it means the number was never a property of what is inside either piece. It belongs to the cut.
 
 Chapter six's coins hold a record of that shape, with no quantum mechanics in the building. Alice and Bob write one word, same or different, which states the relation between two coins and says nothing about either coin: complete about the pair, silent about the halves. Read the entry and you know what will be on Bob's coin the moment you have seen Alice's, and you know nothing whatever about either one before that. The quantum version differs in one respect, which chapter twenty measured. There are no faces sitting underneath the entry for it to be a description of. The correlations run further than any set of faces could account for. The entry is the object. There are no coins under it.
 
@@ -52,7 +52,7 @@ If the answer is nothing, the doorway **screens** the two rooms. Given the doorw
 
 Run a cable through the wall and the screening breaks. The two rooms share something the doorway never carried, the far room goes on telling you things about the near one after the doorway has been fully described, and no amount of watching the doorway recovers what the cable is doing. Whether a boundary screens is a fact about how the rooms are wired. The cable is the thing to go and look for.
 
-Ask how much two systems tell you about each other once a third is given in full, and the answer is the **conditional mutual information** of that arrangement. Elliott Lieb and Mary Beth Ruskai proved in 1973 that the quantity is never negative, which is a way of saying that no doorway leaves you knowing less than nothing about the relation between its rooms. Zero is the interesting value. Zero means the doorway carries the whole relation.
+Ask how much two systems tell you about each other once a third is given in full, and the answer is the **conditional mutual information** of that arrangement. Elliott Lieb and Mary Beth Ruskai proved in 1973 that the quantity is never negative, a way of saying that no doorway leaves you knowing less than nothing about the relation between its rooms. Zero is the interesting value. Zero means the doorway carries the whole relation.
 
 Chop a network into three pieces of exactly this shape: a region, which is the **cap**; a thin band of patches around its edge, which is the **collar**; and everything else, which is the exterior. When the collar screens the cap from the exterior, the state splits: fix what the collar is doing and the inside and the outside become two independent descriptions, with nothing running between them that the band has not accounted for.
 
@@ -80,7 +80,7 @@ What Hamming had beyond his list of checks was seven relays bolted in a row on a
 
 Bekenstein's proportionality, with Hawking's quarter in it, runs in both directions. Left to right it prices a horizon: hand it an area and it returns an entropy. Right to left it prices a seam. Measure a horizon in Planck squares, meaning squares one Planck length on a side, take a quarter of the count, and what comes back is the number of seams a cut along that horizon severs. So each of those seams is worth four Planck squares of surface. No seam is worth more than another, because a seam is two ports joined and a connector has nothing printed on it that would make one join wider than the next. There is no such thing as a longer seam.
 
-A count of severed seams and a measurement in square meters are one measurement in two sets of units. The conversion between them is fixed once and holds everywhere in the world. Four Planck squares comes to 1.04 times ten to the minus sixty-ninth of a square meter, which puts about 9.6 times ten to the sixty-eighth severed seams in a square meter of boundary.
+A count of severed seams and a measurement in square meters are one measurement in two sets of units. The conversion between them is fixed once and holds everywhere in the world. Four Planck squares comes to 1.04 times ten to the minus sixty-ninth of a square meter, putting about 9.6 times ten to the sixty-eighth severed seams in a square meter of boundary.
 
 That count is what a surface has in place of a material. The area of a horizon is the number of its seams quoted in meters, so it arrives in whole numbers of one small square, the same square on every surface in the world, and no surface carries an area that lands between two of them. Take any region, cut along its boundary, count the seams the cut passes through, multiply by four of those squares, and out comes what a ruler laid against that boundary reports.
 
@@ -88,9 +88,9 @@ That count is what a surface has in place of a material. The area of a horizon i
 
 Draw a closed curve on a horizon, dividing the surface into two pieces. Finitely many seams cross that surface, so the curve can be routed between them, and every seam that a cut along the whole surface severs then belongs to one piece or to the other. The two counts add up to the count for the whole. Neither piece's count depends on anything happening across the curve.
 
-Entropy divides the way the seams divide. The number attached to a piece of boundary is a count of that piece's own severed seams, which makes halving the surface halve the number, and gives a piece with twice the area of another twice the count. Equal areas carry equal counts, on any horizon, whatever sits behind them, because the area is the count.
+Entropy divides the way the seams divide. The number attached to a piece of boundary is a count of that piece's own severed seams. Halving the surface halves the number, and a piece with twice the area of another gets twice the count. Equal areas carry equal counts, on any horizon, whatever sits behind them, because the area is the count.
 
-So the number belongs to the piece rather than to the whole surface, which puts a figure on a square you can cover with your hand. Ten centimeters on a side, drawn anywhere on any boundary in the world, and the seams a cut through it severs come to about ten to the sixty-seventh.
+So the number belongs to the piece rather than to the whole surface, putting a figure on a square you can cover with your hand. Ten centimeters on a side, drawn anywhere on any boundary in the world, and the seams a cut through it severs come to about ten to the sixty-seventh.
 
 A patch reads the seams of its own collar one at a time. A ruler laid along that collar reads the same seams four Planck squares at a time.
 

@@ -12,6 +12,8 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Alice and Bob.** Two observers with separate views and no access to each other's insides, on hand whenever a claim has to survive being checked by somebody else. Charlie joins when two parties are not enough to make the trouble visible.
 
+**Alignment score.** How much of what an observer holds points the way its field does. Whatever fails to point that way is the repair load, so the two are one reading taken from opposite ends.
+
 **Antimatter.** For every list of matter states there is a mirror list with every charge reversed. The two are one object, and a world built on either gets the same physics with the labels swapped.
 
 **Area law.** The surface around a region fixes how much can be known about the inside of it, and the volume does not come into it. Twice the radius buys four times the capacity where counting by volume promises eight.
@@ -27,6 +29,8 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 **Checkpoint.** The four things that have to travel for an interrupted observer to be the same observer when it resumes: its records, its accessible state, its interfaces, and the law saying which moves it may make.
 
 **Chirality.** Handedness. A pattern with a heading and a spin either turns the way a right-handed screw advances or turns the other way; a mirror swaps the two cases, and the world treats them differently.
+
+**Collar.** The thin band of patches wrapped around a region's edge, with the region inside it and everything else beyond. When a collar screens, the inside can be rebuilt from the collar alone, and what a region can hold is a count taken across that band rather than through the volume behind it.
 
 **Commensurability.** Whether two observers' readings answer each other at all. The rule saying which of your readings answers which of mine sits on the seam between us.
 
@@ -142,6 +146,8 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 
 **Patch.** A machine small enough to describe completely: bounded state inside, a set of interfaces, a finite list of moves. It is the smallest piece of the world there is.
 
+**Pinching.** Sorting every question into the alternatives a record distinguishes, keeping the parts that fall inside one of them and deleting every comparison that only meant something across two. This is what writing a record does to an observer's algebra, and decoherence is the usual name for the result.
+
 **Port.** A single place on a patch where part of its state is readable from outside. Twelve of them, arranged so that each sees what every other sees, is the only count the consistency conditions permit.
 
 **Probability.** A weight assigned to each yes-or-no question, adding correctly over any complete list of alternatives that exclude one another, rather than a tally of how often something came up over many trials. Additivity by itself forces the odds the world runs on.
@@ -153,6 +159,8 @@ Anode and cathode name a direction and a doorway. They say nothing whatever abou
 **Rank.** How many rows of a table of numbers are independent of the rest. Space has three directions because the slowest-fading band of comparisons has rank three, and light has two polarizations because the directions perpendicular to its travel make a plane.
 
 **Record.** A write into the protected part of a patch's state, the part later moves may not touch. It reads the same twice, it can be copied to a neighbor, and everything an observer holds onto is made of them.
+
+**Record map.** Takes the full state of a network and hands back the part that survives comparison: every seam entry, and nothing that only one observer could ever have known. What it deletes is exactly what no two parties were in a position to check against each other.
 
 **Refinement.** Describing something at ever finer resolution with no completed infinite object at the end, the way 3, 3.1, 3.14 describes pi and nobody ever holds pi. Space looks smooth for that reason, and the smooth version is a limit nobody occupies.
 

@@ -1,12 +1,12 @@
 # 25. Why Exactly These Forces?
 
-In February 1764 the French army sent a twenty-seven-year-old engineer named Charles-Augustin de Coulomb to Martinique to build a fort. Eight years on Fort Bourbon got him a good deal of what is taught as soil mechanics and a succession of tropical illnesses that damaged his health for the rest of his life. He came home a captain in June 1772.
+The French army sent a twenty-seven-year-old engineer named Charles-Augustin de Coulomb to Martinique in February 1764 to build a fort. Eight years on Fort Bourbon got him a good deal of what is taught as soil mechanics and a succession of tropical illnesses that damaged his health for the rest of his life. He came home a captain in June 1772.
 
 The Academy of Sciences in Paris wanted a better mariner's compass, and Coulomb's entry, which took a share of the grand prize in 1777, hung the needle from a fine thread instead of resting it on a pivot, because a pivot has friction in it and a thread has almost none. That left him needing to know exactly how hard a twisted thread pulls back, so he measured it, at length, and published the numbers in 1784: the pull rises with the fourth power of the wire's diameter, falls off with its length, and holds exact proportion to the angle of twist, which makes a long thin one as weak a spring as an experimenter could want and an exact one.
 
 In 1785 he hung a light horizontal arm from one, mounted a small ball on its end, charged it, and brought a second charged ball up beside it. The two pushed apart, the arm swung, and the twist in the thread read off how hard they pushed.
 
-Three readings from that first memoir on electricity carry the whole argument. Left alone, the thread let the balls settle thirty-six degrees apart and carried thirty-six degrees of twist. He turned its top through a hundred and twenty-six degrees, forcing them closer, and they came to rest eighteen degrees apart, held by a hundred and twenty-six plus eighteen, which is a hundred and forty-four degrees of twist. Half the separation, four times the push. He wound the top through five hundred and sixty-seven degrees, better than a full revolution, and the balls held out at eight and a half degrees, with five hundred and seventy-five and a half degrees of twist in the thread. The separation had come down by a factor of a little over four, and sixteen times thirty-six is five hundred and seventy-six.
+Three readings from that first memoir on electricity carry the whole argument. Left alone, the thread let the balls settle thirty-six degrees apart and carried thirty-six degrees of twist. He turned its top through a hundred and twenty-six degrees, forcing them closer, and they came to rest eighteen degrees apart, held by a hundred and twenty-six plus eighteen, a hundred and forty-four degrees of twist. Half the separation, four times the push. He wound the top through five hundred and sixty-seven degrees, better than a full revolution, and the balls held out at eight and a half degrees, with five hundred and seventy-five and a half degrees of twist in the thread. The separation had come down by a factor of a little over four, and sixteen times thirty-six is five hundred and seventy-six.
 
 Which is a fact about distance: every version of the law written down since 1785 says only how far apart two things are. What does a force law look like on a carrier that has no distances in it, and how many forces will that carrier hold? The twelve observers of chapters six through fourteen have a wiring diagram, thirty pairings saying which port is joined to which, and not one number anywhere saying how far apart anything is.
 
@@ -24,7 +24,7 @@ On the twelve-port carrier the places are the ports. Give every port a number an
 
 ## Twelve numbers that add to nothing
 
-Chapter twelve left a law sitting at the ports: what a port pushes out along its five seams is the charge it holds, which is Gauss's law with the geometry taken out of it. By itself that law picks no field, since a current going round in a circle leaves every port's books balanced, so one list of charges comes back with a whole family. One member of the family has the least energy, the one with no circulation in it.
+Chapter twelve left a law sitting at the ports: what a port pushes out along its five seams is the charge it holds. That is Gauss's law with the geometry taken out of it. By itself that law picks no field, since a current going round in a circle leaves every port's books balanced, so one list of charges comes back with a whole family. One member of the family has the least energy, the one with no circulation in it.
 
 Energy on this carrier is a sum over the thirty seams. Each seam contributes the square of the number sitting on it. Squaring is what makes circulation expensive: a current running around a loop delivers nothing to any port and puts a value on every seam it crosses, and every one of those values gets squared and added in. So the arrangement of least energy is the one that has stopped moving anything it does not have to move. On a wiring diagram with nineteen independent loops there is exactly one such arrangement for any list of charges.
 
@@ -48,7 +48,7 @@ Put them over a common denominator of a hundred and eighty and they read thirty-
 
 They fall. Each ring reads lower than the ring inside it. The ordering was not put in anywhere. The hop counts came out of walking the wiring. The four values came out of the charge law and the least-energy condition. One of those was a walk and the other was a piece of algebra. They agree about which port lies further out.
 
-Subtract each value from the one inside it, in one-hundred-and-eightieths: thirty-five take two is thirty-three, two take minus seven is nine, and minus seven take minus ten is three. Over sixty those are eleven, three and one. The fall is steep near the source and shallow far from it, which is the shape of the thing Coulomb's thread was weighing.
+Subtract each value from the one inside it, in one-hundred-and-eightieths: thirty-five take two is thirty-three, two take minus seven is nine, and minus seven take minus ten is three. Over sixty those are eleven, three and one. The fall is steep near the source and shallow far from it, the shape of the thing Coulomb's thread was weighing.
 
 The potential crosses zero somewhere between the first ring and the second. A potential around an isolated charge in open space never does that, and this one has no way to avoid it: twelve numbers that must sum to nothing, with the largest of them sitting at the source, have to go negative somewhere further out.
 
@@ -74,7 +74,7 @@ Two more collections, the ones physicists reach for. Take an object with two slo
 
 Each slot has a dial of its own, which turns that slot and leaves the others where they were. Each pair of slots has two more, which lean the two members of the pair against each other. Two slots: two single dials, one pair, two pair dials, four. Three slots: three single dials, three pairs, six pair dials, nine. Singles and pairs together come to the number of slots multiplied by itself, every time.
 
-One dial in each collection turns every slot together by the same amount, which is a change of overall convention and says nothing about how the slots stand relative to each other. Divide it out. Four less one is three, nine less one is eight, and the count that survives needs nothing but how many slots there are:
+One dial in each collection turns every slot together by the same amount, a change of overall convention that says nothing about how the slots stand relative to each other. Divide it out. Four less one is three, nine less one is eight, and the count that survives needs nothing but how many slots there are:
 
 $$n^2 - 1$$
 
@@ -94,11 +94,11 @@ A group in which every pair of moves gives the same result in either order is **
 
 ## Twelve dials on a closed box
 
-Back to the carrier, which is a box with twelve ports and no lid.
+Back to the carrier, a box with twelve ports and no lid.
 
 Each port holds one reading. A response is whatever the box does when the readings are disturbed: twelve numbers go in, twelve come back, and the box is the thing in between. Reversible means the twelve that came back are enough to recover the twelve that went in, so nothing was thrown away in the middle. Ask for every response of that kind the ports admit. Those responses compose, they undo, and they come in a continuous supply, which makes them dials.
 
-Count them. Twelve, one for each reading the ports hold, and no dial among the twelve leaves all twelve readings alone. Turn any one of them by any amount and some port reads differently afterward, which is the condition that welds the dials to the ports instead of to machinery standing behind them. Every direction of response does something. There is nothing left over for a thirteenth to act on.
+Count them. Twelve, one for each reading the ports hold, and no dial among the twelve leaves all twelve readings alone. Turn any one of them by any amount and some port reads differently afterward. That is the condition that welds the dials to the ports instead of to machinery standing behind them. Every direction of response does something. There is nothing left over for a thirteenth to act on.
 
 Twelve dials, and how many forces there can be is settled by how those twelve fall apart into independent pieces.
 
@@ -108,7 +108,7 @@ One move of the twelve ports came out of chapter fourteen indifferent to order: 
 
 Collect, in any group, the moves that commute with every move in the group. That collection is the **center** of the group. Chapter nineteen used the same word for the questions inside an algebra that commute with every other question, which is where records live, and the property is identical, commuting with everything in sight; the difference is what is being commuted, an algebra of questions there and a group of moves here.
 
-Groups differ enormously in how much of themselves lives in the center. Settings of the single amplifier dial all commute with each other, so that group is its own center, every last move of it. Turns of a solid object in three dimensions go the other way: the book on the table showed that a quarter turn and a flip disagree about order, and if you work through the possibilities the only turn that commutes with every other one is the turn that does nothing. Its center holds a single move. The move is nothing happening, which is zero dials wide.
+Groups differ enormously in how much of themselves lives in the center. Settings of the single amplifier dial all commute with each other, so that group is its own center, every last move of it. Turns of a solid object in three dimensions go the other way: the book on the table showed that a quarter turn and a flip disagree about order, and if you work through the possibilities the only turn that commutes with every other one is the turn that does nothing. Its center holds a single move. The move is nothing happening, zero dials wide.
 
 Go back to the clause chapter four spent a section on. Two parties who cannot look a rate up anywhere outside the room have to manufacture one out of what both of them hold. The same clause binds the twelve ports harder, since nothing anywhere holds a preferred labeling of them. Any change in how the readings are labeled has to be a change the box itself can perform.
 
@@ -132,7 +132,7 @@ So the count of forces is a sum to be hit exactly. The parts come off that list,
 
 Suppose the center is nothing at all. Then twelve dials have to be assembled out of pieces of size three, eight and ten. Ten leaves two to find, and the list starts at three. Eight leaves four, and four is not on the list. Threes run three, six, nine, twelve, and the fourth one lands exactly. Three plus three plus three plus three is the only way to do it: four copies of the smallest simple group there is.
 
-Check whether the wiring has room for four copies. Pair every port with the port opposite it, which gives the six axes of chapter fourteen. Each axis carries two readings, splitting into the part that is the same at both ends and the part that is equal and opposite at the two ends: six even readings and six odd ones. Among the six even readings sits the uniform one, the same number everywhere, and taking it out leaves five. The six odd readings fall into two separate blocks of three. So the twelve come apart as one, three, three and five, and no rotation of the wiring mixes any block with any other.
+Check whether the wiring has room for four copies. Pairing every port with the port opposite it gives the six axes of chapter fourteen. Each axis carries two readings, splitting into the part that is the same at both ends and the part that is equal and opposite at the two ends: six even readings and six odd ones. Among the six even readings sits the uniform one, the same number everywhere, and taking it out leaves five. The six odd readings fall into two separate blocks of three. So the twelve come apart as one, three, three and five, and no rotation of the wiring mixes any block with any other.
 
 Four blocks of three are needed. Two exist. The rotations cannot get around that by shuffling four copies among themselves either, because a shuffle of four things would require the sixty rotations to fall into four families of fifteen, and no fifteen of the sixty close up into a group of their own.
 

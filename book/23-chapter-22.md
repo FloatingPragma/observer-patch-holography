@@ -12,7 +12,7 @@ Carnot got that while believing heat was a weightless fluid called caloric, whic
 
 Cholera reached Paris in the spring of 1832 and killed something near twenty thousand people in the city that year. Carnot caught it on 24 August and was dead within the day, at thirty-six. His belongings were burned as a precaution against contagion, and nearly all of his papers went with them. What survived was a set of working notes his brother Hippolyte published in 1878, in which the fluid had been quietly dropped.
 
-Look at what the surviving formula says. An engine's ceiling depends on the temperatures and on nothing else, which is a peculiar thing for a fact about brass and steam to be. Chapter twenty-one reached the same quantity from the other end, out of an algebra and a state, with no furnace anywhere in the argument. So what is a temperature a count of?
+Look at what the surviving formula says. An engine's ceiling depends on the temperatures and on nothing else. That is a peculiar thing for a fact about brass and steam to be. Chapter twenty-one reached the same quantity from the other end, out of an algebra and a state, with no furnace anywhere in the argument. So what is a temperature a count of?
 
 The everyday version of the same question sits on your desk. A drive with no moving parts gets warm while it is being written to. There is no friction in it to blame. No amount of engineering has ever brought the warmth to zero, in any machine anybody has built.
 
@@ -39,8 +39,7 @@ Put a room temperature into it, three hundred kelvin, and the bill for erasing o
 Charles Bennett finished the demon in a review of the thermodynamics of computation in
 1982. The demon's memory is finite. It can run a few cycles free, filling that memory with
 records of which side each molecule was on, and then it is full, and to take another
-measurement it has to clear space. Clearing the space costs the temperature times the
-logarithm of two per bit, which is exactly what the molecule paid it. The demon was never
+measurement it has to clear space. Clearing the space costs the temperature times the logarithm of two per bit, exactly what the molecule paid it. The demon was never
 an engine. It was a machine borrowing against its own memory. The loan came due at the
 same rate every time.
 
@@ -58,7 +57,7 @@ That procedure is a bet on transitivity. If the thermometer settles with the sou
 
 Transitivity is what makes temperature a number. A relation that is transitive, and symmetric, and holds between a thing and itself, sorts everything in the world into classes with nothing left over, and classes in a row can be labeled by numbers on a scale. Without transitivity you could say that this is hotter than that, pair by pair, and there would be no scale to write either of them on, no degrees, no thermometer, and no sentence of the form "the water is at 47 degrees".
 
-The first law gets taught as bookkeeping, in two terms. The energy of a thing changes when heat flows into it and when work is done on it, and heat and work are the two channels. The exact accounting has three terms rather than two. Work moves the energies of the available arrangements while the odds over them stay put, which is what a piston does. Heat changes the odds while the energies stay put, which is what contact with a flame does. Do both at once and there is a third term, the product of the two changes, which vanishes when you change one thing at a time and does not vanish otherwise. The textbook version is exact for a protocol that moves the piston and then opens the flame, and approximate for one that does both together.
+The first law gets taught as bookkeeping, in two terms. The energy of a thing changes when heat flows into it and when work is done on it, and heat and work are the two channels. The exact accounting has three terms rather than two. Work moves the energies of the available arrangements while the odds over them stay put. A piston does that. Heat changes the odds while the energies stay put. Contact with a flame does that. Do both at once and there is a third term, the product of the two changes, which vanishes when you change one thing at a time and does not vanish otherwise. The textbook version is exact for a protocol that moves the piston and then opens the flame, and approximate for one that does both together.
 
 The second law arrived in chapter sixteen, in a laboratory in Canberra with a latex bead in a dish of water. Take the odds a settled arrangement assigns, call them the reference, and ask how far your own description sits from it. That distance falls under any process and never climbs.
 
@@ -100,17 +99,17 @@ Check what it does to the flat description that puts a third of the weight on ea
 
 Detailed balance fails outright. The traffic from state one to state two is a third of a half, one sixth per step. The traffic from state two to state one is zero, because that move does not exist. There is a current going around the loop that never dies down.
 
-Watch the second law hold anyway. Start with all the weight on state one, which is a description sitting the logarithm of three away from the flat one, 1.585 bits. One step spreads it into halves on states one and two, and the distance falls to 0.585 bits. A second step gives a quarter, a half and a quarter, at 0.085 bits. A third step brings it to 0.024. The descent is exact, it never reverses, and it happens inside a machine with a one-way street in it.
+Watch the second law hold anyway. Start with all the weight on state one, a description sitting the logarithm of three away from the flat one, 1.585 bits. One step spreads it into halves on states one and two, and the distance falls to 0.585 bits. A second step gives a quarter, a half and a quarter, at 0.085 bits. A third step brings it to 0.024. The descent is exact, it never reverses, and it happens inside a machine with a one-way street in it.
 
 Stationarity is what the second law asks for: that the reference be left alone. Detailed balance is a stronger and separate demand. The extra content it carries buys the detailed fluctuation relations of chapter sixteen and Lars Onsager's paired transport coefficients. A world could have the second law with none of those and this loop is what it would look like.
 
 ## The price of settling
 
-Two observers hold readings of one shared quantity and the readings disagree. Before any repair, the description of that pair has two live arrangements in it and no fact distinguishing them, which is one bit of entropy, the logarithm of two. Repair them. Both readings go to one value. The description has one arrangement in it and its entropy is zero.
+Two observers hold readings of one shared quantity and the readings disagree. Before any repair, the description of that pair has two live arrangements in it and no fact distinguishing them: one bit of entropy, the logarithm of two. Repair them. Both readings go to one value. The description has one arrangement in it and its entropy is zero.
 
 Settling a disagreement lowers entropy. Every comparison in the world that comes out resolved, and every record written into the public account behind it, takes a description with two possibilities in it and hands back one.
 
-Nothing is violated by that. The second law is about the distance between a description and the reference. That distance is the quantity that never climbs. The bare entropy of a description is a different number. A settling process drives it down by one bit each time it settles a bit. A rule that only ever lowers entropy carries none of the second law's content, which is why the three-state loop had to be scored on its distance from the flat description rather than on its entropy.
+Nothing is violated by that. The second law is about the distance between a description and the reference. That distance is the quantity that never climbs. The bare entropy of a description is a different number. A settling process drives it down by one bit each time it settles a bit. A rule that only ever lowers entropy carries none of the second law's content. That is why the three-state loop had to be scored on its distance from the flat description rather than on its entropy.
 
 The bit had to go somewhere. It leaves the two observers as heat, at least the temperature times the logarithm of two of it, at whatever temperature the pair's own state sets, which is the multiplier in its own exponential. Chapter sixteen showed that a commit discards which of seven arrangements the seam used to hold, and priced it at 2.807 bits of the world's ability to say what it used to hold. The same commit has an energy attached: 2.807 bits of erasure at three hundred kelvin costs 8.06 divided by ten to the twenty-first joules, expelled as heat, per seam, per commit, forever, everywhere in a universe that is making a public record out of private disagreements.
 
@@ -118,6 +117,6 @@ The bit had to go somewhere. It leaves the two observers as heat, at least the t
 
 The same number has been read off five different instruments by five sets of people who did not know they were measuring the same thing.
 
-An engine reads it as the heat it took in divided by the temperature it took it at. That ratio is what Carnot's ceiling is a statement about. A gas reads it as Boltzmann's count of the arrangements a coarse description fails to distinguish. A memory reads it as Shannon's count of the questions it takes to identify what is stored, and Landauer's price per question. A horizon reads it as an area, in square meters, which is the strangest of the five. And a public record reads it as what a settled disagreement threw away, which is the one this world is built out of.
+An engine reads it as the heat it took in divided by the temperature it took it at. That ratio is what Carnot's ceiling is a statement about. A gas reads it as Boltzmann's count of the arrangements a coarse description fails to distinguish. A memory reads it as Shannon's count of the questions it takes to identify what is stored, and Landauer's price per question. A horizon reads it as an area, in square meters, the strangest of the five. And a public record reads it as what a settled disagreement threw away, the one this world is built out of.
 
-Every record ever written has been paid for in heat, at the temperature of whatever wrote it. The heat leaves through the edge of the region holding the record, which puts a bill on the edge rather than on the volume inside it. Ask how many records a region of space can hold, and the answer comes back in square meters.
+Every record ever written has been paid for in heat, at the temperature of whatever wrote it. The heat leaves through the edge of the region holding the record, putting a bill on the edge rather than on the volume inside it. Ask how many records a region of space can hold, and the answer comes back in square meters.

@@ -1,6 +1,6 @@
 # 31. Why Does Anything Move?
 
-In 1742 Benjamin Robins hung a broad iron plate from a frame, screwed a thick sheet of wood across the front of it, and fired a musket into the wood from twenty-five feet away.
+Benjamin Robins hung a broad iron plate from a frame in 1742, screwed a thick sheet of wood across the front of it, and fired a musket into the wood from twenty-five feet away.
 
 The plate swung back. A narrow ribbon ran from the plate through a clamp gripped just tightly enough to hold, so the swing dragged a length of ribbon out through the slot and left it lying there. Robins picked up the ribbon and measured it. Its length is the chord of the arc the plate traveled, the chord gives the speed the plate left with, and the speed the plate left with gives the speed of a ball nobody had ever seen move: sixteen hundred and seventy feet per second, for a three-quarter-inch ball out of a forty-five-inch barrel. The same ball measured at seventy-five feet from the muzzle came in at fifteen hundred and fifty, and at a hundred and twenty-five feet at fourteen hundred and twenty-five. The difference is what the air took.
 

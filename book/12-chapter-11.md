@@ -1,6 +1,6 @@
 # 11. What Does Everybody Actually End Up Holding?
 
-In 1974 Elizabeth Loftus and John Palmer sat forty-five students down at the University of Washington and showed them seven short films of traffic accidents. Afterward each student was asked how fast the cars had been going. It was the same question every time except for one word. Some were asked how fast the cars were going when they smashed into each other, and the others got collided, bumped, hit, or contacted.
+Elizabeth Loftus and John Palmer sat forty-five students down at the University of Washington in 1974 and showed them seven short films of traffic accidents. Afterward each student was asked how fast the cars had been going. It was the same question every time except for one word. Some were asked how fast the cars were going when they smashed into each other, and the others got collided, bumped, hit, or contacted.
 
 Everybody saw the same films. The smashed group put the cars at 40.8 miles an hour on average, the hit group at 34.0, and the contacted group at 31.8.
 

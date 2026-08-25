@@ -1,6 +1,6 @@
 # 33. Why Was Newton Right for Two Hundred Years?
 
-In 2019, in a laboratory at the University of Vienna, Yaakov Fein and Markus Arndt and six colleagues sent molecules down a two-meter tube and collected what came out the far end. The molecules were tailored oligoporphyrins, up to two thousand atoms apiece, weighing more than twenty-five thousand atomic mass units, which is roughly a small protein. What arrived at the detector was a pattern of light and dark bands. The wavelength that produced it was 53 femtometers, five orders of magnitude smaller than the molecules doing the interfering.
+Yaakov Fein, Markus Arndt and six colleagues sent molecules down a two-meter tube in a laboratory at the University of Vienna in 2019 and collected what came out the far end. The molecules were tailored oligoporphyrins, up to two thousand atoms apiece, weighing more than twenty-five thousand atomic mass units, which is roughly a small protein. What arrived at the detector was a pattern of light and dark bands. The wavelength that produced it was 53 femtometers, five orders of magnitude smaller than the molecules doing the interfering.
 
 Nothing heavier has ever been caught doing that.
 

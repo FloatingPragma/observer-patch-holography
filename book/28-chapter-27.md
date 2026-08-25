@@ -50,7 +50,7 @@ A wave is what mismatch does while it is being repaired. Its frequency and its s
 
 ## Two questions, two orders
 
-Amplitudes can cancel and probabilities cannot, which is chapter nineteen's difference and the reason there are dark bands at all. Cancellation needs a sign. A pattern that slides as one path is lengthened needs more than a sign, because it needs something that turns continuously, and the amplitude turns: it carries an angle, and the arithmetic of turning angles is the arithmetic of the square root of minus one.
+Amplitudes can cancel and probabilities cannot. That is chapter nineteen's difference and the reason there are dark bands at all. Cancellation needs a sign. A pattern that slides as one path is lengthened needs more than a sign, because it needs something that turns continuously, and the amplitude turns: it carries an angle, and the arithmetic of turning angles is the arithmetic of the square root of minus one.
 
 The suspicion that the turning is bookkeeping is reasonable enough. Turning arrows multiply conveniently, and physicists like conveniences, and somewhere underneath there might be real numbers doing the work.
 
@@ -58,13 +58,13 @@ The carrier settles it on a two-by-two table.
 
 The machine hands over two yes-or-no questions from behind one public reading, both real, both built out of labels an actual run produced, and the two fail to commute. It hands over two states as well, and every real question in the entire web scores those two states identically: put any of them to either state and the same odds come back. The states are different states. Nothing real tells them apart.
 
-Build the missing question out of what is there. Start with the even split, which is the do-nothing operation halved and which as a description gives fifty-fifty odds to every question in sight. Take the two questions, call them P and Q, do them in one order and then in the other, and subtract, which is chapter nineteen's commutator. Multiply that difference by the square root of minus one and by two divided by the square root of three. Subtract the result from the even split, and call what comes out Y.
+Build the missing question out of what is there. Start with the even split, which is the do-nothing operation halved and which as a description gives fifty-fifty odds to every question in sight. Take the two questions, call them P and Q, do them in one order and then in the other, and subtract. That is chapter nineteen's commutator. Multiply that difference by the square root of minus one and by two divided by the square root of three. Subtract the result from the even split, and call what comes out Y.
 
 $$Y = \frac{1}{2}I - \frac{2\sqrt{3}}{3}\,i\,(QP - PQ)$$
 
 I is the operation that does nothing, P and Q are the two real questions the carrier supplied, and i is the square root of minus one.
 
-Y squares to itself, which makes it a question in chapter nineteen's sense, with a yes, a no and no third possibility. Put it to the two states that nothing real could separate. It answers yes on one of them with certainty and no on the other with certainty.
+Y squares to itself, making it a question in chapter nineteen's sense, with a yes, a no and no third possibility. Put it to the two states that nothing real could separate. It answers yes on one of them with certainty and no on the other with certainty.
 
 The coefficient was not fitted to make that happen. The commutator of those two particular questions has off-diagonal entry exactly the square root of three over four, and two over the square root of three scales that entry to exactly one half, which is the value that makes the result square to itself. Two real questions and one subtraction produce the direction that neither of them held.
 
@@ -80,7 +80,7 @@ Twelve observers wired into an icosahedron, one record out of thirty flipped, tw
 
 That leftover satisfies three conditions. The three conditions are what a **particle** is.
 
-It is a pattern in the way record content moves from port to port, which is a property of the transport rule rather than a lump occupying a spot. Every observer whose patch overlaps yours reads the same pattern in the overlap, so it survives comparison and is not an artifact of one observer's labels. And it survives a regrade: change the resolution of the records, finer or coarser, and the pattern is there with its identity intact. Fluctuations of the repair process fail that last condition, because the faster bands decay faster and wash out under regrading.
+It is a pattern in the way record content moves from port to port, a property of the transport rule rather than a lump occupying a spot. Every observer whose patch overlaps yours reads the same pattern in the overlap, so it survives comparison and is not an artifact of one observer's labels. And it survives a regrade: change the resolution of the records, finer or coarser, and the pattern is there with its identity intact. Fluctuations of the repair process fail that last condition, because the faster bands decay faster and wash out under regrading.
 
 Two checks make it quantitative, and both of them are taken against the vacuum, which is the state the machine arrives at when every repair available has been performed and no record has been written anywhere. Chapter six's undamaged run landed on it from all two thousand and forty-eight starting configurations under every schedule.
 

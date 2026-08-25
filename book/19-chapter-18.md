@@ -1,6 +1,6 @@
 # 18. Why Does Anything Have Energy?
 
-In 1722 Willem 's Gravesande, who taught mathematics and astronomy at Leiden, laid a tray of soft clay on the floor and dropped brass balls into it from measured heights.
+Willem 's Gravesande, who taught mathematics and astronomy at Leiden, laid a tray of soft clay on the floor in 1722 and dropped brass balls into it from measured heights.
 
 He was settling an argument about which multiplication to perform. Both sides agreed that a moving ball carries something, and that the something grows with the weight of the ball and with its speed. Descartes' followers held that the quantity worth tracking is the weight multiplied by the speed. Leibniz's held that it is the weight multiplied by the square of the speed, and called it vis viva, living force. The dispute had run for decades, mostly in Latin, mostly in print, and neither side had proposed anything you could put on a floor.
 

@@ -1,6 +1,6 @@
 # 26. Why This Exact List of Matter, and Why Three Times Over?
 
-In 1973 two physicists at the Massachusetts Institute of Technology filled a metal cavity with sulfur hexafluoride and waited for the gas to sing.
+Two physicists at the Massachusetts Institute of Technology filled a metal cavity with sulfur hexafluoride in 1973 and waited for the gas to sing.
 
 Sulfur hexafluoride is heavy and chemically dead, which is why electrical engineers pump it into switchgear to keep the contacts from arcing. H. Frederick Dylla and John G. King wanted it for a different property. They wanted a gas whose molecules they could count.
 
@@ -36,7 +36,7 @@ Take the five slots and build things out of them by picking a handful at a time.
 
 One rule governs the picking, the rule that makes matter behave like matter. Write a pick as an ordered list of slot names, and demand that swapping any two names flips the sign of the whole object. That is **antisymmetry**. It has an immediate consequence: pick the same slot twice and swapping the two copies changes nothing while also flipping the sign, so the object equals minus itself, so the object is zero. Every slot appears at most once. Order stops mattering, since any reordering costs a sign and nothing else. What survives is the bare question of which slots are in and which are out.
 
-The number of ways to choose two things from five is the number of pairs you can make, which is five choices for the first, four for the second, and a division by two because each pair got counted in both orders. Ten. The number of ways to choose four from five is easier, because choosing four is the same as leaving one out. There are five slots to leave out. Five. Numbers of this kind are called **binomial coefficients**. For cases this small you can write the choices down and count them.
+The number of ways to choose two things from five is the number of pairs you can make: five choices for the first, four for the second, and a division by two because each pair got counted in both orders. Ten. The number of ways to choose four from five is easier, because choosing four is the same as leaving one out. There are five slots to leave out. Five. Numbers of this kind are called **binomial coefficients**. For cases this small you can write the choices down and count them.
 
 Ten and five. Fifteen.
 
@@ -50,7 +50,7 @@ Fifteen is the number of states in one generation of matter. The charges come ou
 | three color, one weak | 2 | minus one half | electron and its neutrino |
 | two color, two weak | 3 | plus one third | anti-down quark, one per color |
 
-Every hypercharge in that column is the sum of the tags. Minus a third and minus a third is minus two thirds. Minus a third and a half is a sixth. Three color tags and one weak tag is minus one plus a half, which is minus a half. The rows add to three plus six plus one plus two plus three, which is fifteen.
+Every hypercharge in that column is the sum of the tags. Minus a third and minus a third is minus two thirds. Minus a third and a half is a sixth. Three color tags and one weak tag is minus one plus a half, or minus a half. The rows add to three plus six plus one plus two plus three, which is fifteen.
 
 Electric charge is one more addition. Where a pick includes exactly one of the two weak slots, the weak force can rotate that choice into the other, so those states come in pairs. The two members of a pair sit half a step either side of the hypercharge tag. A sixth plus a half is two thirds, the up quark. A sixth minus a half is minus one third, the down quark. Minus a half plus a half is zero, the neutrino. Minus a half minus a half is minus one, the electron. The unpaired rows carry their tag unchanged: minus two thirds, plus one third, plus one.
 
@@ -82,7 +82,7 @@ Chirality is the symmetry the world conspicuously lacks. Every other structural 
 
 ## One thousand and twenty-four lists
 
-The five slots generate more than the fifteen states above. Pick none of them, pick one, pick three, pick all five: there are thirty-two picks in all, and they group into components according to how many color slots and how many weak slots each one uses. Drop the empty pick and the pick that takes everything, and ten components are left, each with its charges attached. Any subset of those ten is a possible content for matter, which is two to the tenth possible lists, or 1,024.
+The five slots generate more than the fifteen states above. Pick none of them, pick one, pick three, pick all five: there are thirty-two picks in all, and they group into components according to how many color slots and how many weak slots each one uses. Drop the empty pick and the pick that takes everything, and ten components are left, each with its charges attached. Any subset of those ten is a possible content for matter: two to the tenth possible lists, or 1,024.
 
 Each of the 1,024 gets tested against two demands. It has to be chiral, since the mirror is what Wu's cobalt says the world distinguishes, and it has to make four separate sums come out at zero.
 
@@ -94,7 +94,7 @@ The search asked each list for two things, that it be chiral and that its four s
 
 ## Four sums and a count
 
-Chapter twelve proved that a force works if and only if its charge is conserved, which is tight enough that violating it leaves no theory at all rather than a damaged one. The quantum version of that proof comes with a bill. The bill is arithmetic.
+Chapter twelve proved that a force works if and only if its charge is conserved, tight enough that violating it leaves no theory at all rather than a damaged one. The quantum version of that proof comes with a bill. The bill is arithmetic.
 
 Certain sums, taken over every species on the list at once, have to come out at exactly zero. When one of them does not, the conservation law the force depends on fails and the theory stops predicting anything. Sums of this kind are called **anomalies**. A matter list either satisfies all of them or describes no possible world. Every entry contributes, so the list has to be checked whole. A species cannot be added or dropped on its own.
 
@@ -106,7 +106,7 @@ The second is the harder one, because hypercharge enters three times over. The i
 
 Nothing on that list was arranged to make it come out. The tags were fixed by a balance condition and a grid, the multiplicities were fixed by counting ways to pick slots out of five, and five cubes over a common thirty-six come to nothing.
 
-The three conditions left over are cheaper. Adding the plain hypercharges of all fifteen states gives one, minus two, one, minus one and one, which is zero. Adding the hypercharges of the weak pairs gives three color copies at a sixth, which is a half, against the lepton pair's minus a half. The last condition is a count rather than a sum: a world with an odd number of weak pairs has no consistent weak force at all, which Edward Witten proved in 1982, and this generation carries four.
+The three conditions left over are cheaper. Adding the plain hypercharges of all fifteen states gives one, minus two, one, minus one and one, which is zero. Adding the hypercharges of the weak pairs gives three color copies at a sixth, a half in total, against the lepton pair's minus a half. The last condition is a count rather than a sum: a world with an odd number of weak pairs has no consistent weak force at all, which Edward Witten proved in 1982, and this generation carries four.
 
 Five conditions. A list assembled by choosing slots and adding tags meets every one. In the way physics is normally taught these conditions arrive after the fact, as a check on charges that were read off a detector, and their passing is one of the things that make the Standard Model feel like something somebody got away with. Here they are the sieve, and 1,022 of the 1,024 lists die on them.
 
@@ -116,7 +116,7 @@ The sums fix the charges relative to one another. The unit they are counted in c
 
 Chapter four's clock face bundles three and fifteen together and declares them one thing, because for a clock's purposes the difference between them does not exist. Do that to a group of symmetry moves and you get a **quotient group**: find the moves that change nothing observable, bundle every one of them in with doing nothing at all, and what is left over is the group that does the physical work. The clock bundles the multiples of twelve. The question here is which combinations of gauge moves this world bundles.
 
-Chapter twenty-five's center supplies the moves to try. The center of a group is the moves that commute with everything, and for the strong force it is the move that advances all three color slots together by a third of a full turn, for the weak force it is the half turn on both weak slots, and for hypercharge it is every rotation of the dial. Combine one from each and you get a move that might do nothing, which is settled by trying it on the roster.
+Chapter twenty-five's center supplies the moves to try. The center of a group is the moves that commute with everything, and for the strong force it is the move that advances all three color slots together by a third of a full turn, for the weak force it is the half turn on both weak slots, and for hypercharge it is every rotation of the dial. Combine one from each and you get a move that might do nothing, settled by trying it on the roster.
 
 Take the quark pair, which sits in three colors, in a weak pair, at hypercharge one sixth. Apply the color move: a third of a turn. Apply the weak move: half a turn. Apply the hypercharge move, under which a species turns through a fraction of a full turn equal to its hypercharge, so a hypercharge of one sixth turns through one sixth of a turn. Add the three angles. A third plus a half plus a sixth is two sixths plus three sixths plus one sixth, or six sixths, which is one complete turn. The quark pair comes back exactly where it started.
 
