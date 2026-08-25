@@ -7164,6 +7164,157 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+      "statement": "A candidate carrier map from the committed twelve-port screen complex into the spatial slice of the canonical Lorentz module exists with every fidelity clause proved rather than stipulated, and it is a candidate throughout: no clause identifies a port with a physical direction. The twelve exact Z[phi] rays reproduce the committed 144-entry Gram table exactly up to the single squared-length normalization (bridge identity 10(2 + phi) = 5(5 + sqrt 5), rederived), intertwine the committed antipode with exact vector negation, and are pairwise distinct as real rays, with antipodal pairs exactly opposite as the committed Gram value -1 forces for the exhibited assignment. Port, seam, and face images are injective against the committed incidence tables; two ports share a committed seam exactly when their rays pair to the golden ratio, in both directions, the reverse through the irrationality of phi. Equivariance holds for a generating set: two constructed Z[phi] rotation matrices (orthogonality M^T M = 4, determinant 8, so each halved matrix is a proper rotation) realize the two committed generator permutations, and a sixty-word certificate generates the full committed sixty-row action. The committed refinement notion acts on the barycentric carrier extension by exact scaling and fixes every mesh ray, with corner fidelity at every committed face and nondegeneracy through the exact face-center pairing 2 + 3 phi. Each embedded ray is spacelike for the committed determinant form. The canonical assignment and its negation both satisfy every clause, so the map is a declared selection among valid equivariant embeddings. No metric calibration, unit, causal content, dynamics compatibility, interaction, or observer readout enters; the carrier-map premise row is not consumed and not discharged; source selection among candidates and compatibility with a committed refined complex are open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "exact_candidate_carrier_map_with_proved_fidelity_and_equivariance",
+      "assumptions": [
+        "declared_candidate_selection_among_equivariant_embeddings",
+        "committed_lorentz_form_signature_convention"
+      ],
+      "imported_results": [
+        "golden_ratio_irrationality",
+        "finite_permutation_word_certificates"
+      ],
+      "oph_specific_delta": "Supplies the first candidate for the missing carrier map with the entire fidelity surface machine-checked: the committed Gram table, incidence and antipode structure, generator equivariance with exact golden-ratio rotation matrices and a sixty-word generation certificate, refinement action at the committed barycentric level, and spacelike embedding, while proving the selection non-forced, so the physical-join program acquires a concrete object to attach scale, dynamics, and source selection to instead of a name.",
+      "novelty_type": "machine_checked_icosahedral_carrier_embedding_candidate",
+      "evidence": [
+        "Lean/Geometry/ScreenCarrierMapCandidate.lean",
+        "Lean/Geometry/CommonWorldJointAction.lean",
+        "paper/observers_are_all_you_need.tex"
+      ],
+      "falsifier": "A Gram-table entry, the bridge identity, an injectivity or adjacency direction, a generator realization, the word certificate, a refinement or corner clause, the spacelike sign, or a non-forcing inhabitant fails.",
+      "scope_if_false": "Only the candidate layer falls. The committed Gram and incidence tables and the common-world gate's remaining obligations are separately assessed.",
+      "status": "candidate_attained_with_proved_fidelity__scale_dynamics_and_source_selection_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        740
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-15",
+          "PR-52",
+          "PR-53"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
+      "statement": "The matched-observable dark-sector diagnostic compares the same anomalous observable in both channels on the committed seen SPARC snapshot, as a labeled postdiction diagnostic, and the channel tension of the superseded mixed-proxy diagnostic dissolves. The anomalous squared speed at the outermost measured radius, v_A^2 = v_obs^2 - v_bar^2 with the committed mass-to-light ratios, restricted to galaxies whose outermost point passes the same fixed absolute deep cut, gives channel B a0 = 8.42e-11 m/s^2 against channel A (the committed corrected RAR fit) a0 = 8.75e-11 m/s^2 on 115 common galaxies; the paired log10 ratio is -0.017 with galaxy-level bootstrap 95 percent interval [-0.080, +0.046], containing zero, direction-neutrally consistent, with counts 707:293 of 1000 replicates and plus-one fractions reported. The f = 0.3 sensitivity row is consistent, and the superseded mixed-proxy interval [0.180, 0.317] is reproduced and identified as proxy mismatch: a finite-radius total speed used as an asymptotic anomalous speed without baryonic subtraction. A synthetic fixture with known a0 recovers unity in the paired ratio, the error model with its cot(i) inclination factor is declared and rederived, an independent parser byte-verifies the receipt, and mutation guards cover the subtraction sign, cut placement, and mass-to-light values. This is not the preregistered joint likelihood: covariance, asymptotic-velocity treatment, and a frozen contract are open, the inverse-variance weighting sensitivity row shows weight-estimate correlation, and no confirmation of OPH is claimed; the diagnostic outcome is that the deep-profile constant is consistent across matched channels on seen data.",
+      "owner_paper": "cosmology/oph_dark_matter_paper.tex",
+      "tier": "matched_observable_postdiction_diagnostic_with_estimator_controls",
+      "assumptions": [
+        "committed_mass_to_light_and_deep_cut_selections",
+        "declared_error_model_and_bootstrap_convention"
+      ],
+      "imported_results": [
+        "SPARC_rotation_curve_sample",
+        "seen_data_postdiction_discipline"
+      ],
+      "oph_specific_delta": "Resolves the audit-flagged channel tension by matching the observable rather than adjusting the model: with baryonic subtraction at the outermost radius and the same fixed cuts in both channels, the paired interval contains zero, identifying the earlier tension as proxy mismatch and leaving the deep profile with one consistent fitted constant on the diagnostic surface, stated direction-neutrally with the likelihood-grade items named open.",
+      "novelty_type": "matched_channel_diagnostic_dissolving_a_proxy_mismatch_tension",
+      "evidence": [
+        "code/cosmology/rar_deep_regime/matched_observable_diagnostic.py",
+        "code/cosmology/rar_deep_regime/verify_matched_observable_independent.py",
+        "code/cosmology/rar_deep_regime/test_matched_observable_diagnostic.py",
+        "code/cosmology/rar_deep_regime/runtime/matched_observable_receipt.json",
+        "cosmology/oph_dark_matter_paper.tex"
+      ],
+      "falsifier": "The receipt fails byte-verification; the synthetic fixture fails unity recovery; a mutation guard passes; the paired interval or counts are misreported; or the diagnostic is presented as a likelihood verdict or an OPH confirmation, which would violate rather than execute this claim.",
+      "scope_if_false": "Only the matched diagnostic falls. The corrected mixed-proxy record, the deep-profile theorems, and the open likelihood program are separately assessed.",
+      "status": "matched_channels_consistent_on_seen_data__joint_likelihood_and_any_prospective_contract_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        742,
+        751
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The mass-to-light, cut, error-model, and bootstrap selections are lane-local declared diagnostic conventions on seen data outside the canonical derivation-premise register."
+      }
+    },
+    {
+      "claim_id": "OPH-QUANTUM-INS03-V2-REPLAY-GATE",
+      "statement": "The INS-03 v2 gate's executable replay half exists with witnesses that are data verified by computation. The proposed frozen primitive-generation semantics fixes the grammar of production primitives with exact-arithmetic semantics and a transcript format carrying per-step canonical digests; the owner freezes it before any producer transcript carries evidential weight. The replay verifier re-executes every transcript step from the committed starting objects with exact arithmetic, checks each declared intermediate digest and the final export, and fails closed with named errors for unknown primitives, out-of-grammar arguments, per-step digest mismatches, reordered or deleted steps, and non-canonical serialization. The verdict vocabulary extends v1 exactly: a full replay match yields TRANSCRIPT_REPLAY_VERIFIED_UNAUTHENTICATED, explicitly not production or custody, with the synthetic sample additionally carrying the synthetic class marker beside that verdict; every producer or custody claim fails with PRODUCER_AUTHENTICATION_UNIMPLEMENTED. The marked synthetic transcript derives the committed static fixture through the grammar and replay-verifies; target-blind mutation controls cover argument, digest, order, deletion, final-export, and producer-claim mutations. The authenticated-binding specification records the missing custody half, owner key custody and a signature over the semantics digest, transcript digest, configuration, and outcomes, with the verification hook named and failing closed, and states why a self-digest cannot substitute. No producer, key, or run exists; the source-production and readback rows stay open.",
+      "owner_paper": "paper/observers_are_all_you_need.tex",
+      "tier": "executable_transcript_replay_gate_with_owner_slot_authentication",
+      "assumptions": [
+        "proposed_generation_semantics_pending_owner_freeze",
+        "synthetic_transcript_marked_and_distinct"
+      ],
+      "imported_results": [
+        "canonical_hashing_conventions"
+      ],
+      "oph_specific_delta": "Builds the half of authenticated production that computation can supply before any producer exists: derivation replay against a frozen grammar with per-step digests, so the remaining custody gap is exactly the owner-held signature, and no True-plus-token inhabitation can ever pass the gate.",
+      "novelty_type": "pre_producer_replay_verification_gate",
+      "evidence": [
+        "code/phase_instrument_export/v2/PRIMITIVE_GENERATION_SEMANTICS.md",
+        "code/phase_instrument_export/v2/transcript_replay_verifier.py",
+        "code/phase_instrument_export/v2/test_transcript_replay_verifier.py",
+        "code/phase_instrument_export/v2/sample_synthetic_transcript.json",
+        "code/phase_instrument_export/v2/AUTHENTICATED_BINDING_SPEC.md"
+      ],
+      "falsifier": "A mutated transcript replays clean; the sample fails replay; a producer claim passes; the verdict vocabulary drifts from the v1 contract; or a digest recomputation disagrees on byte-identical input.",
+      "scope_if_false": "Only the replay gate falls. The v1 conformance validator, the binding interface's externality theorems, and the instrument lane's obligations are separately assessed.",
+      "status": "replay_half_attained__owner_freeze_keys_producer_and_any_run_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        730,
+        737
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [
+          "PR-64",
+          "PR-65"
+        ],
+        "boundary": []
+      }
+    },
+    {
+      "claim_id": "OPH-YM-FIBER-RATE-COMPARISON",
+      "statement": "The constructive Kogut-Susskind route named by the audited plan is executed at its provable finite level. The single-fiber rate identity c_l = lambda (r + 1/r) holds with the exact bound c_l >= 2 lambda and equality exactly at r = 1, both directions. For a finite independent product of two-point fibers with fiber-dependent rates, the product generator's spectral gap equals the minimum fiber rate, with the eigenstructure explicit, so the gap is bounded below by 2 lambda uniformly in every fiber ratio: the variable-rate comparison holds exactly on the formalized product. The relation to the gauge-orbit quotient is stated at its attained level with the quotient step named as the exact open gap, with the committed quotient structure unformalized. Concrete two- and three-fiber instances with distinct ratios carry computed exact gaps, the r = 1 equality case is exhibited, and a receipt ties the Lean constants to the committed finite-transfer conventions. Scope is finite throughout: two-point fibers, independence, the stated fiber counts; no mass gap, no Clay-problem step, no all-coupling or continuum statement; the anisotropic Wilson-to-Hamiltonian limit, refinement, and volume extension are open.",
+      "owner_paper": "extra/yang_mills_gap_clay_problem.tex",
+      "tier": "finite_fiber_dependent_rate_gap_comparison",
+      "assumptions": [
+        "finite_two_point_fiber_product_scope",
+        "committed_transfer_conventions_as_reference"
+      ],
+      "imported_results": [
+        "finite_markov_generator_spectral_theory"
+      ],
+      "oph_specific_delta": "Turns the audit-promoted constructive identity into exact finite theorems: the product spectral gap equals the minimum fiber rate with the uniform 2 lambda floor independent of every fiber ratio, so the gap survives arbitrary rate heterogeneity at the formalized scale, and the single named gap to the gauge-orbit quotient replaces a diagonal-grid diagnostic with a proof target.",
+      "novelty_type": "exact_variable_rate_product_gap_with_uniform_floor",
+      "evidence": [
+        "Lean/Screen/KogutSusskindFiberRateComparison.lean",
+        "code/yang_mills/kogut_susskind_fiber_rate_instances.py",
+        "code/yang_mills/receipts/kogut_susskind_fiber_rate_instances.json",
+        "extra/yang_mills_gap_clay_problem.tex"
+      ],
+      "falsifier": "The rate identity, the 2 lambda bound or its equality case, the product-gap eigenstructure, an instance's computed gap, or the receipt tie fails; or any statement exceeds the stated finite scope.",
+      "scope_if_false": "Only the finite comparison falls. The finite-transfer receipts, the Doob-transform identity, and the open quotient and continuum program are separately assessed.",
+      "status": "product_gap_comparison_attained__gauge_orbit_quotient_and_anisotropic_limit_open",
+      "claim_class": "conditional_implication",
+      "gates": [
+        743,
+        744
+      ],
+      "premise_dependencies": {
+        "classification": "explicit_non_consumer",
+        "consumed": [],
+        "open": [],
+        "boundary": [],
+        "rationale": "The finite fiber-product scope and transfer conventions are lane-local mathematical hypotheses of the Yang-Mills diagnostic program outside the canonical derivation-premise register."
+      }
     }
   ]
 }

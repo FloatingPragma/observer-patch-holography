@@ -571,8 +571,10 @@ theorem pairFactor_of_mem_mem {S T : Finset (Fin n)} {l : Fin n}
   simp only [if_pos hS, if_pos hT, fiberSign_true, fiberSign_false]
   linear_combination (w l false * w l true) * hsum
 
-/-- Orthogonality of distinct Walsh functions in the product pairing. -/
-theorem statePairing_walsh_orthogonal (hsum : ∀ l, w l false + w l true = 1)
+/-- Orthogonality of distinct Walsh functions in the product pairing.  No
+weight normalization is needed: the mixed per-coordinate factor vanishes
+identically. -/
+theorem statePairing_walsh_orthogonal
     {S T : Finset (Fin n)} (hST : S ≠ T) :
     statePairing (prodWeight w) (walsh w S) (walsh w T) = 0 := by
   obtain ⟨l, hl⟩ : ∃ l, (l ∈ S ∧ l ∉ T) ∨ (l ∈ T ∧ l ∉ S) := by
@@ -633,7 +635,7 @@ theorem walsh_linearIndependent (hw : ∀ l b, 0 < w l b)
   rw [statePairing_sum_left] at h0
   rw [Finset.sum_eq_single T
     (fun S _ hST => by
-      rw [statePairing_smul_left, statePairing_walsh_orthogonal hsum hST,
+      rw [statePairing_smul_left, statePairing_walsh_orthogonal hST,
         mul_zero])
     (fun h => absurd (Finset.mem_univ T) h)] at h0
   rw [statePairing_smul_left] at h0
@@ -675,7 +677,7 @@ theorem statePairing_walsh_right (hw : ∀ l b, 0 < w l b)
   rw [Finset.sum_eq_single S
     (fun T _ hT => by
       rw [statePairing_smul_right,
-        statePairing_walsh_orthogonal hsum (Ne.symm hT), mul_zero])
+        statePairing_walsh_orthogonal (Ne.symm hT), mul_zero])
     (fun h => absurd (Finset.mem_univ S) h)]
   rw [statePairing_smul_right]
 
@@ -784,7 +786,7 @@ theorem rate_le_of_dirichlet_bound (hw : ∀ l b, 0 < w l b)
     (l : Fin n) : gam ≤ c l := by
   have hmz : piMean w (walsh w {l}) = 0 := by
     rw [← statePairing_walsh_empty_left]
-    exact statePairing_walsh_orthogonal hsum
+    exact statePairing_walsh_orthogonal
       (Ne.symm (Finset.singleton_ne_empty l))
   have hb := h (walsh w {l}) hmz
   have hgen : statePairing (prodWeight w) (walsh w {l})
@@ -809,7 +811,7 @@ theorem dirichlet_constant_iff (hw : ∀ l b, 0 < w l b)
           ≤ statePairing (prodWeight w) f (generator w c f))
       ↔ ∀ l, gam ≤ c l :=
   ⟨fun h l => rate_le_of_dirichlet_bound hw hsum h l,
-    fun hgam f hf => dirichlet_lower_bound hw hsum hc hgam hf⟩
+    fun hgam _ hf => dirichlet_lower_bound hw hsum hc hgam hf⟩
 
 /-- The best Dirichlet constant is exactly the minimum fiber rate
 (`n ≥ 1`): membership is the lower bound, maximality is sharpness at the
@@ -867,17 +869,18 @@ theorem ksWeight_sum (r : Fin n → ℝ) :
   have h1 : (1 : ℝ) + (r l) ^ 2 ≠ 0 := by positivity
   unfold ksWeight
   simp only [Bool.cond_false, Bool.cond_true]
-  rw [div_add_div_same]
+  rw [← add_div]
   exact div_self h1
 
 /-- The `ksWeight` fiber odds reproduce the squared ground-state ratio,
-matching the committed `π = Ω²` convention. -/
-theorem ksWeight_ratio {r : Fin n → ℝ} (hr : ∀ l, 0 < r l) (l : Fin n) :
+matching the committed `π = Ω²` convention.  The identity needs no sign
+hypothesis; its physical range is `r_l > 0`. -/
+theorem ksWeight_ratio (r : Fin n → ℝ) (l : Fin n) :
     ksWeight r l true / ksWeight r l false = (r l) ^ 2 := by
   have h1 : (1 : ℝ) + (r l) ^ 2 ≠ 0 := by positivity
   unfold ksWeight
   simp only [Bool.cond_false, Bool.cond_true]
-  rw [div_one_div, div_mul_cancel₀ _ h1]
+  field_simp
 
 /-- Kogut--Susskind floor with the induced `π = Ω²` fiber weights. -/
 theorem kogutSusskind_ksWeight_floor {lam : ℝ} (hlam : 0 < lam)

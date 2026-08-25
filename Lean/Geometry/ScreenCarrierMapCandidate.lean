@@ -327,8 +327,8 @@ up to the single overall squared-length normalization.  Re-derivation of
 the constant, recorded against transcription error: `g5 = 5·G` with
 `G i j = dot i j / (2 + φ)`, so the claim `5·dot = (2 + φ)·g5·(1/5)·5`,
 cleared of halves by doubling, reads `5·(2·dot) = (5 + √5)·g5`; equality
-of the constants reduces to `10·(2 + φ) = 5·(5 + √5)·...` at a single
-pair, equivalently `2φ - 1 = √5`, which holds for `φ = (1 + √5)/2`.
+of the constants reduces at the diagonal pair to `10·(2 + φ) = 5·(5 + √5)`,
+equivalently `2φ - 1 = √5`, which holds for `φ = (1 + √5)/2`.
 Both sides below are exact `ℤ(√5)` products in the committed `mulZ5`. -/
 theorem candidate_gram_bridge :
     ∀ i j : Fin 12,
@@ -350,9 +350,11 @@ set_option maxHeartbeats 1000000 in
 set_option maxRecDepth 8192 in
 /-- Distinct non-antipodal ports have an exact nonzero cross product.
 Antipodal ports are excluded because their vectors are negatives of each
-other, hence parallel: the committed Gram value `-1` at the antipode
-forces exactly opposite rays, and no assignment matching the committed
-table can make antipodal pairs non-parallel. -/
+other, hence parallel: the exhibited assignment carries the committed Gram
+value `-1` at the antipode as exact vector negation
+(`candidate_antipode`), so its antipodal pairs are exactly opposite.  That
+every table-matching assignment shares this necessity is a Cauchy-Schwarz
+equality argument recorded here as prose, without a named theorem. -/
 theorem candidate_cross_ne_zero :
     ∀ i j : Fin 12, i ≠ j → j ≠ antipode i →
       ∃ k : Fin 3, crossZ (candidateRayZ i) (candidateRayZ j) k ≠ 0 := by
@@ -528,7 +530,8 @@ theorem perms_generated_by_two_rotations :
 
 Fields are exact equations on the committed tables.  The structure is not
 a stipulable schema: an inhabitant must reproduce all 144 committed Gram
-values and both generator actions.  Two distinct inhabitants are
+values, up to the single squared-length normalization of the bridge
+theorem, and both generator actions.  Two distinct inhabitants are
 exhibited below (`canonicalCandidate` and `negatedCandidate`), so the
 clauses select a class of maps and do not force a unique one. -/
 

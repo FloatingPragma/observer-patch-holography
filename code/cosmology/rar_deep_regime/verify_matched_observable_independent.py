@@ -4,7 +4,9 @@
 This script imports neither ``matched_observable_diagnostic.py`` nor the
 committed ``rar_deep_regime_diagnostic.py``.  It re-parses the snapshot with
 its own fixed-width parser built from the CDS ReadMe byte ranges, recomputes
-every number in the receipt from the raw tables, serializes the result as
+every matched-observable number in the receipt from the raw tables (the
+three quoted mixed-proxy values of the superseded block are carried over
+verbatim as the committed record they quote), serializes the result as
 canonical JSON (sorted keys, two-space indent, trailing newline), and
 byte-compares it against ``runtime/matched_observable_receipt.json``.
 

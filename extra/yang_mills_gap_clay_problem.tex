@@ -719,9 +719,20 @@ survives the first option without change, since its proof uses only
 \(c_{v,r,b}\ge c_*\) and each rate function is constant on its own collar
 fiber; multiplication then commutes with the corresponding conditional
 expectation. In the tested Kogut--Susskind transform,
-\(c_l=\lambda(r_l+r_l^{-1})\ge2\lambda\) by AM--GM. Formalizing this
-variable-rate comparison and testing the anisotropic Wilson-to-Hamiltonian
-limit are therefore live constructive routes. The scalar form of
+\(c_l=\lambda(r_l+r_l^{-1})\ge2\lambda\) by AM--GM. The variable-rate
+comparison is machine-checked at its finite level
+(\path{Lean/Screen/KogutSusskindFiberRateComparison.lean}): the single-fiber
+rate identity \(c_l=\lambda(r+r^{-1})\) with the sharp bound
+\(c_l\ge2\lambda\) and equality exactly at \(r=1\), and, for a finite
+independent product of two-point fibers with fiber-dependent rates, a
+product-generator spectral gap equal to the minimum fiber rate with explicit
+eigenstructure, hence bounded below by \(2\lambda\) uniformly in every fiber
+ratio. Concrete two- and three-fiber instances with distinct ratios carry
+computed exact gaps in a released receipt tied to the finite-transfer
+conventions of this section. The comparison is proved on the independent
+fiber product; carrying it through the gauge-orbit quotient is the exact
+open step, and testing the anisotropic Wilson-to-Hamiltonian limit is the
+other live constructive route. The scalar form of
 Theorem~\ref{thm:ec-law} is what cross-fiber equality buys; the floor itself
 does not require scalar rates.
 

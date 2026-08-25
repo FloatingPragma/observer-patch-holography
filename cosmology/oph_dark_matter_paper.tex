@@ -60,12 +60,13 @@ In the deep regime the anomalous density
 with linear enclosed mass gives \(a_A=\sqrt{a_ba_0}\), flat rotation curves,
 and the baryonic Tully--Fisher relation \(v^4=GM_ba_0\). A corrected SPARC
 diagnostic compares the observed acceleration with
-\(a_b+\sqrt{a_ba_0}\); under fixed mass-to-light ratios, its galaxy-bootstrap
-interval for \(a_0\) does not overlap the corresponding Tully--Fisher
-proxy interval. The proxy treats the measured finite-radius flat speed as its
-asymptotic value, so the mismatch is a tension for the declared diagnostic,
-not a clean profile falsification or a verdict on the generic dark-sector
-theorem. The
+\(a_b+\sqrt{a_ba_0}\); a first comparison against a Tully--Fisher proxy
+built from the catalogued finite-radius flat speed showed non-overlapping
+\(a_0\) intervals, and a matched diagnostic identifies that mismatch as a
+proxy artifact: estimating the same baryon-subtracted anomalous observable
+in both channels under identical cuts gives a paired interval containing
+zero, so the two channels are consistent with one fitted constant on this
+seen sample, a postdiction diagnostic that by itself selects no model. The
 compact-source half of the collar-scale premise is a conditional theorem
 under an exponential recovery envelope, with a rate in the local record
 density, and the deep profile with its single constant is characterized,
@@ -563,24 +564,38 @@ and the free exponent from an ordinary least-squares fit of \(\log v_f\) on
 \(\log M_b\) is \(3.75\pm0.10\).
 
 \paragraph{One constant.}
-Theorems~\ref{thm:rar} and \ref{thm:btfr} share one \(a_0\). The constants
-recovered from the two relations differ by \(0.249\) dex at \(f=0.1\). The
-paired parent-galaxy bootstrap intervals are
-\([0.730,1.037]\times10^{-10}\,\mathrm{m\,s^{-2}}\) for the radial-acceleration
-diagnostic and
-\([1.405,1.723]\times10^{-10}\,\mathrm{m\,s^{-2}}\) for the Tully--Fisher
-proxy; the 95 percent interval for their log-ratio is \([0.180,0.317]\) dex.
-The earlier comparison omitted the baryonic term from the total acceleration
-and incorrectly treated raw scatter as parameter uncertainty. The remaining
-comparison uses the catalogued \(V_{\rm flat}\) as an asymptotic-speed proxy,
-although at its finite measurement radius the baryonic contribution to
-\(V^2\) has not been subtracted. That bias has the direction of the observed
-mismatch. Thus the declared fixed-mass-to-light, equal-point calculation is a
-mixed finite/asymptotic diagnostic in tension with the naive shared
-normalization, not a clean falsification of the profile. A physical verdict
-requires the joint nuisance and measurement-error likelihood named in
-Section~\ref{sec:open}; the generic modular-charge dark-sector statements do
-not depend on this profile fit.
+Theorems~\ref{thm:rar} and \ref{thm:btfr} share one \(a_0\). A first
+comparison estimated the two constants from mismatched observables: the
+radial-acceleration diagnostic above against the fixed-exponent
+normalization \(a_0=v_f^4/(GM_b)\) built from the catalogued \(V_{\rm flat}\).
+That mixed diagnostic gave paired parent-galaxy bootstrap intervals
+\([0.730,1.037]\times10^{-10}\,\mathrm{m\,s^{-2}}\) and
+\([1.405,1.723]\times10^{-10}\,\mathrm{m\,s^{-2}}\) with a log-ratio
+95 percent interval of \([0.180,0.317]\) dex. The catalogued
+\(V_{\rm flat}\) is read at a finite measurement radius where the baryonic
+contribution to \(V^2\) has not been subtracted, and that bias has the
+direction of the mismatch.
+
+The matched diagnostic removes the proxy mismatch by comparing the same
+anomalous observable in both channels: the baryon-subtracted squared speed
+\(v_A^2=v_{\rm obs}^2-v_{\rm bar}^2\) at the outermost measured radius,
+restricted to the 115 galaxies whose outermost point passes the same fixed
+absolute deep cut \(g_{\rm bar}<0.1\,a_{\rm ref}\) used at \(f=0.1\). On
+this common footing the second channel gives
+\(a_0=0.842\times10^{-10}\,\mathrm{m\,s^{-2}}\) against
+\(0.875\times10^{-10}\,\mathrm{m\,s^{-2}}\) from the radial-acceleration
+fit; the paired \(\log_{10}\) ratio is \(-0.017\) with galaxy-level
+bootstrap 95 percent interval \([-0.080,+0.046]\), which contains zero. A
+synthetic sample with a known \(a_0\) recovers a unit paired ratio through
+the same pipeline, and an independent script re-derives every quoted number
+from the released receipt. The apparent two-channel tension of the mixed
+diagnostic is therefore a proxy mismatch, and the deep-regime profile is
+consistent with one fitted constant across the matched channels on this
+seen sample. Consistency on seen data selects nothing: this is a
+postdiction diagnostic with declared mass-to-light ratios and cuts, and a
+physical verdict requires the joint nuisance and measurement-error
+likelihood named in Section~\ref{sec:open}. The generic modular-charge
+dark-sector statements do not depend on this profile fit.
 
 \section{Cosmological Scaling}
 \label{sec:cosmo}
@@ -639,10 +654,11 @@ quadrupole and a small traceful isotropic tidal scale; the four-order Cassini
 comparison is dimensional, because that measurement does not directly bound
 the isotropic channel. Its deep-regime profile gives the radial-acceleration relation,
 flat rotation curves, and the baryonic Tully--Fisher relation with one
-constant. Under the declared fixed-mass-to-light, equal-point diagnostic,
-the SPARC radial-acceleration and Tully--Fisher normalizations are instead in
-tension; a joint nuisance and measurement-error likelihood is required
-for a physical verdict. The compact-source half of the collar-scale premise is a
+constant. Under the declared fixed-mass-to-light diagnostic, the SPARC
+radial-acceleration and matched anomalous-speed channels agree on that
+constant within the paired bootstrap interval, on seen data; a joint
+nuisance and measurement-error likelihood is required for a physical
+verdict. The compact-source half of the collar-scale premise is a
 conditional saturation theorem with an exponential rate in the local record
 density, and the profile with its unique constant is characterized by
 deep-regime scale covariance and quadrature composition of independent

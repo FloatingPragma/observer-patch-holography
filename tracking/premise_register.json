@@ -1260,7 +1260,8 @@
     "Lean/Screen/ScaledMaxwellStability.lean",
     "Lean/Screen/CertifiedScaledStepInstrument.lean",
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean",
-    "Lean/Geometry/CommonWorldJointAction.lean"
+    "Lean/Geometry/CommonWorldJointAction.lean",
+    "Lean/Geometry/ScreenCarrierMapCandidate.lean"
    ],
    "evidence_roles": {
     "Lean/Screen/LightSignalAdequacySurface.lean": "statement",
@@ -1272,9 +1273,10 @@
     "Lean/Screen/ScaledMaxwellStability.lean": "statement",
     "Lean/Screen/CertifiedScaledStepInstrument.lean": "statement",
     "Lean/Geometry/CommonWorldMaxwellClockJoin.lean": "statement",
-    "Lean/Geometry/CommonWorldJointAction.lean": "statement"
+    "Lean/Geometry/CommonWorldJointAction.lean": "statement",
+    "Lean/Geometry/ScreenCarrierMapCandidate.lean": "statement"
    },
-   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open."
+   "notes": "Removal needs a target-clean physical field/readout bridge with frame, calibrated scales, gluing, and operational comparison. The finite Maxwell action, evolution, stability, and certified-step receipts are exact but conditional. CommonWorldMaxwellClockJoin is only a same-index product; it maps no port, seam, or face into the Lorentz module and relates no field value to its paired event. CommonWorldJointAction is a decoupled sum on a product configuration and likewise supplies no carrier map, units, interaction, or relative normalization. These modules are useful regression surfaces, not physical attachment. A viable route remains to derive a refinement-compatible screen-cell-to-event/edge map before adding a gauge-invariant interaction and readout. PR-53 stays open. The screen carrier-map candidate embeds the twelve-port complex into the spatial slice with proved Gram, incidence, equivariance, refinement, and spacelike fidelity, and proves the selection non-forced; it attaches no physical field sector, frame law, calibration, continuum domain, or readout, so this premise stays open and unconsumed."
   },
   {
    "id": "PR-54",
@@ -1548,7 +1550,9 @@
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
     "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean",
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean",
-    "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean"
+    "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean",
+    "code/phase_instrument_export/v2/transcript_replay_verifier.py",
+    "code/phase_instrument_export/v2/AUTHENTICATED_BINDING_SPEC.md"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
@@ -1557,9 +1561,11 @@
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseInstrumentOutcomeBridge.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourcePhaseCommonPreparationHull.lean": "conditional_consumer",
-    "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean": "statement"
+    "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean": "statement",
+    "code/phase_instrument_export/v2/transcript_replay_verifier.py": "statement",
+    "code/phase_instrument_export/v2/AUTHENTICATED_BINDING_SPEC.md": "statement"
    },
-   "notes": "Lean/EventAlgebra/LuedersPhaseInstrument.lean constructs a declared Lüders instrument on the committed eight-context effect table and proves the channel clauses as exact finite matrix algebra: each outcome map X ↦ E X E is completely positive through a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of each context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table with the declared Pauli-Y projector in the phase slot. The normalized post-measurement state is certain of its effect, a state-update proxy for readback. SourcePhaseInstrumentOutcomeBridge proves that all 48 enabled entries of the generated source phase relation agree with the corresponding normalized outcome of this declared instrument. SourcePhaseCommonPreparationHull evaluates those declared outcome maps on every common-support source state and proves an exact convex-hull compatibility with the declared run state. The run state is outside the generated state domain, no generated source step starts there, and a generated result loses all-event support; the hull therefore supplies neither a source implementation nor a sequential instrument protocol. Its generated outcome index is semantic, not a recorded public outcome. The clause that outcome readback agrees with a recorded public outcome is open: no public outcome is typed. The module proves that the effect table does not determine the instrument: a swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lüders instrument on the committed run state, and fails repeatability, so the Lüders choice is a declared selection. Removal needs a source-facing instrument whose readback is bound to public outcomes under PR-65. SourceBoundInstrumentInterface identifies induced effects with the static outcome-map trace/expected-frequency surface and proves the determined interface does not pin the instrument; a recorded public outcome is not typed in the corpus, so the readback clause of this row stays open."
+   "notes": "Lean/EventAlgebra/LuedersPhaseInstrument.lean constructs a declared Lüders instrument on the committed eight-context effect table and proves the channel clauses as exact finite matrix algebra: each outcome map X ↦ E X E is completely positive through a singleton Kraus family and trace-nonincreasing on positive-semidefinite inputs, the summed channel of each context is trace preserving on every matrix and hence CPTP, and the induced effects equal the committed table with the declared Pauli-Y projector in the phase slot. The normalized post-measurement state is certain of its effect, a state-update proxy for readback. SourcePhaseInstrumentOutcomeBridge proves that all 48 enabled entries of the generated source phase relation agree with the corresponding normalized outcome of this declared instrument. SourcePhaseCommonPreparationHull evaluates those declared outcome maps on every common-support source state and proves an exact convex-hull compatibility with the declared run state. The run state is outside the generated state domain, no generated source step starts there, and a generated result loses all-event support; the hull therefore supplies neither a source implementation nor a sequential instrument protocol. Its generated outcome index is semantic, not a recorded public outcome. The clause that outcome readback agrees with a recorded public outcome is open: no public outcome is typed. The module proves that the effect table does not determine the instrument: a swap-twisted instrument satisfies every channel clause with the same induced effects, differs from the Lüders instrument on the committed run state, and fails repeatability, so the Lüders choice is a declared selection. Removal needs a source-facing instrument whose readback is bound to public outcomes under PR-65. SourceBoundInstrumentInterface identifies induced effects with the static outcome-map trace/expected-frequency surface and proves the determined interface does not pin the instrument; a recorded public outcome is not typed in the corpus, so the readback clause of this row stays open. The INS-03 v2 replay gate adds executable transcript verification against a proposed generation semantics; every verdict is explicitly unauthenticated and no instrument realization follows, so this premise stays open."
   },
   {
    "id": "PR-65",
@@ -1584,7 +1590,9 @@
     "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean",
     "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean",
     "code/phase_instrument_export/ins03_export_validator.py",
-    "code/phase_instrument_export/VALIDATOR_CONTRACT.md"
+    "code/phase_instrument_export/VALIDATOR_CONTRACT.md",
+    "code/phase_instrument_export/v2/transcript_replay_verifier.py",
+    "code/phase_instrument_export/v2/AUTHENTICATED_BINDING_SPEC.md"
    ],
    "evidence_roles": {
     "Lean/EventAlgebra/OperationalPhaseInstrument.lean": "statement",
@@ -1599,9 +1607,11 @@
     "Lean/EventAlgebra/SourcePhaseBornWeightBoundary.lean": "conditional_consumer",
     "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean": "statement",
     "code/phase_instrument_export/ins03_export_validator.py": "statement",
-    "code/phase_instrument_export/VALIDATOR_CONTRACT.md": "statement"
+    "code/phase_instrument_export/VALIDATOR_CONTRACT.md": "statement",
+    "code/phase_instrument_export/v2/transcript_replay_verifier.py": "statement",
+    "code/phase_instrument_export/v2/AUTHENTICATED_BINDING_SPEC.md": "statement"
    },
-   "notes": "Removal needs a common source-produced preparation, an oriented effect or orientation-invariant binary context, a selected instrument, recorded public outcomes, and an authenticated producer/run/custody receipt. The Lueders instrument and source-transition bridge are exact compatibility mathematics only. The source-phase enumeration conditionally yields unordered {+Y,-Y} under a declared adapter; it does not source-select +Y. The convex hull is retrospective and supplies no mixing or sequential protocol. SourceBoundInstrumentInterface's determined table is an expected-frequency surface, not public readback, while its inhabited Prop fields and natural-number digest are freely stipulable placeholders, not a proof that custody is external. INS-03 v1 is now explicitly static-only: it checks exact fixture conformance and correct 0<=E<=I bounds, emits STATIC_COMMITTED_FIXTURE_CONFORMANT, and rejects every producer claim because authentication is unimplemented. A viable v2 must bind raw producer artifacts, identity, run configuration, outcomes, and cryptographic custody independently. PR-65 stays open."
+   "notes": "Removal needs a common source-produced preparation, an oriented effect or orientation-invariant binary context, a selected instrument, recorded public outcomes, and an authenticated producer/run/custody receipt. The Lueders instrument and source-transition bridge are exact compatibility mathematics only. The source-phase enumeration conditionally yields unordered {+Y,-Y} under a declared adapter; it does not source-select +Y. The convex hull is retrospective and supplies no mixing or sequential protocol. SourceBoundInstrumentInterface's determined table is an expected-frequency surface, not public readback, while its inhabited Prop fields and natural-number digest are freely stipulable placeholders, not a proof that custody is external. INS-03 v1 is now explicitly static-only: it checks exact fixture conformance and correct 0<=E<=I bounds, emits STATIC_COMMITTED_FIXTURE_CONFORMANT, and rejects every producer claim because authentication is unimplemented. A viable v2 must bind raw producer artifacts, identity, run configuration, outcomes, and cryptographic custody independently. PR-65 stays open. The v2 authenticated-binding specification names the owner-key custody half exactly and the replay verifier fail-closes every producer claim; no source production, run, or custody exists, so this premise stays open."
   },
   {
    "id": "PR-66",

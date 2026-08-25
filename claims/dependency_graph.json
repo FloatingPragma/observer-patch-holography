@@ -165,7 +165,11 @@
   "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
   "OPH-EM-DISPERSION-ARMING-INTERFACE",
   "OPH-QFT-SOURCE-CLOCK-CANDIDATE",
-  "OPH-QUANTUM-INS03-EXPORT-VALIDATOR"
+  "OPH-QUANTUM-INS03-EXPORT-VALIDATOR",
+  "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+  "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
+  "OPH-QUANTUM-INS03-V2-REPLAY-GATE",
+  "OPH-YM-FIBER-RATE-COMPARISON"
  ],
  "edges": [
   {
@@ -1497,6 +1501,41 @@
    "from": "OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
    "to": "OPH-QUANTUM-INS03-EXPORT-VALIDATOR",
    "role": "supplies the committed expected-frequency fixture, run literals, and placeholder-freedom/non-authentication statements mirrored by the validator; it supplies no authenticated producer or custody machinery"
+  },
+  {
+   "from": "OPH-SCREEN-CARRIER-SUPPORT-BRIDGE",
+   "to": "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+   "role": "supplies the committed twelve-port screen complex with its 144-entry Gram table, seam and face incidence tables, antipode, generator permutations, and refinement notion that every fidelity clause of the candidate embedding is checked against"
+  },
+  {
+   "from": "OPH-GEOMETRY-COMMON-WORLD-JOINT-ACTION",
+   "to": "OPH-GEOMETRY-SCREEN-CARRIER-MAP-CANDIDATE",
+   "role": "names the missing carrier attachment on the common-world gate that the candidate map is built to address; it supplies the target Lorentz module and determinant form, not any selection among embeddings"
+  },
+  {
+   "from": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION",
+   "to": "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
+   "role": "supplies the unique deep-regime profile whose single constant the matched channels estimate; the diagnostic tests cross-channel consistency of that constant, not the characterization theorem"
+  },
+  {
+   "from": "OPH-DM-CONT",
+   "to": "OPH-DM-MATCHED-OBSERVABLE-DIAGNOSTIC",
+   "role": "supplies the corrected RAR channel-A fit, the seen-data postdiction discipline, and the superseded mixed-proxy record whose tension the matched observable dissolves"
+  },
+  {
+   "from": "OPH-QUANTUM-INS03-EXPORT-VALIDATOR",
+   "to": "OPH-QUANTUM-INS03-V2-REPLAY-GATE",
+   "role": "supplies the v1 static fixture, export schema, verdict vocabulary, and fail-closed producer rejection that the replay gate extends with executable transcript verification"
+  },
+  {
+   "from": "OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
+   "to": "OPH-QUANTUM-INS03-V2-REPLAY-GATE",
+   "role": "supplies the committed starting objects and non-authentication boundary statements that the replay semantics derives its transcripts from and that the binding specification's custody half must eventually discharge"
+  },
+  {
+   "from": "OPH-YM-GAP",
+   "to": "OPH-YM-FIBER-RATE-COMPARISON",
+   "role": "supplies the constructive program, the committed finite-transfer conventions, and the gauge-orbit quotient target that the finite fiber-dependent-rate comparison executes at its provable level"
   }
  ]
 }
