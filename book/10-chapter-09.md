@@ -24,7 +24,7 @@ So what is a repair allowed to be? Three requirements fix it.
 
 First, it changes nothing outside the seam it repairs. The two readings at that seam's ends and the record between them are all it can touch, because an observer talks through its ports and nowhere else, and a move that reached further would need a fact about a place it cannot see.
 
-Second, it leaves the total of those two readings alone. What the two of them are disagreeing about is one shared quantity described twice, so a repair re-attributes between two accounts rather than adding to them.
+Second, it leaves the total of those two readings alone. What the two of them are disagreeing about is one shared quantity described twice, so a repair re-attributes between two accounts rather than adding to them. The readings have no absolute level for a repair to correct them toward.
 
 Third, when it is finished the two readings are equal. A move that leaves them disagreeing has repaired nothing.
 
@@ -41,6 +41,8 @@ Three consequences arrive free. If a and b are equal to start with, the move doe
 Remove the second requirement and the answer disperses: both readings going to a, both going to b, both going to zero, and every weighted blend of the two are all legal moves. No information available at the seam picks between them. Restore it and one move survives.
 
 The requirement belongs there because a rule that changed the total would have to say by how much, and every answer to that question is a fact about a quantity nothing in this world holds. The two observers can add their own two readings together. There is no register anywhere carrying the total of all twelve, no clearing house, and nobody to ask. A universe that repairs locally cannot help conserving things, because a local repair that changed a total would have to know the total. Nothing here knows a total.
+
+The sharper version of that is the thing to carry out of this chapter. These readings have no absolute level. Add the same amount to every observer's books and every seam in the arrangement reads exactly what it read before, which makes the level a convention of the kind chapter five found at Greenwich: unmeasurable from inside, impossible to be wrong about. The gap between the two numbers is the whole of what the pair carries. Now look again at the moves the requirement threw out. Both readings to zero, or to nine tenths of the midpoint, or to any weighted blend of a and b: every one of them needs a zero to move toward, and a level fixed by convention supplies none. Shift every book by the same amount and the midpoint shifts with it, while each of the alternatives lands somewhere else. Conservation is what survives when a move is forbidden to know where the origin is. Chapter twelve takes that freedom seriously enough to get a force out of it.
 
 No admissible move alters the total of the two readings it touches, and reaches no reading beyond those two, so the total across all twelve observers is the same after one repair, after a thousand, in any order, forever. The total is an invariant, a quantity that comes out the same under a change, and the change it survives is every repair the world can perform.
 
