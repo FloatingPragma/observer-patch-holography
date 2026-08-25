@@ -1,0 +1,147 @@
+{
+  "deep_cut": {
+    "convention": "g_bar < f * reference, fixed before fitting, identical for the channel-A subset and the channel-B outermost-point requirement; the reference is a comparison-only imported scale, not a fitted OPH output",
+    "reference_a0_m_s2": 1.2e-10
+  },
+  "diagnostic_verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO",
+  "inference_boundary": {
+    "bulge_mass_convention": "table-1 masses apply the disk mass-to-light value to the total luminosity while the table-2 subtraction separates bulges; inherited from the committed comparison",
+    "enclosed_mass": "the exterior point-mass limit at r_out is not separately enforced; enclosed mass below the total biases a0_B downward; the same-radius mass variant bounds this sensitivity",
+    "error_model_limits": "only e_Vobs and inclination error through the observed term are propagated; distance, mass-to-light, stellar-population, correlated rotation-curve, and baryonic-model uncertainties are not",
+    "neutrality": "consistency with zero is shared with the standard null and does not support OPH; a tension in either direction would count against the shared normalization only within this declared diagnostic",
+    "not_a_preregistered_likelihood": "the joint likelihood needs a measurement-error and nuisance covariance model, an asymptotic-velocity treatment, and a frozen contract before exposure to any new data; that work is open",
+    "status": "labeled postdiction diagnostic on the seen committed snapshot; no new data, no arming, no discharge, no scored comparison",
+    "verdict_scope": "applies to this declared diagnostic, not to the recovered OPH core or the generic dark-sector theorem"
+  },
+  "matched_observable": {
+    "channel_a": "the same anomalous component fitted pointwise inside the total model on the fixed absolute deep subset",
+    "channel_b": "a0_B = (v_A^2(r_out))^2 / (G M_b) per galaxy, restricted to outermost points passing the same fixed deep cut",
+    "definition": "v_A^2(r_out) = v_obs(r_out)^2 - v_bar(r_out)^2 with v_bar^2 = v_gas|v_gas| + 0.5 v_disk|v_disk| + 0.7 v_bul|v_bul|",
+    "derivation": "v_A^2(r) = r sqrt(a_0 G M_b / r^2) = sqrt(G M_b a_0) in the deep exterior regime; inversion a_0 = (v_A^2)^2/(G M_b); asymptotic agreement with v^4 = G M_b a_0; dimension and sign checks in the module docstring"
+  },
+  "physical_claim": false,
+  "primary_fraction_0p1": {
+    "channel_a_rar": {
+      "a0_m_s2": 8.750402247718735e-11,
+      "model": "g_model = g_bar + sqrt(g_bar a0), unweighted log residuals",
+      "n_galaxies": 115,
+      "n_points": 960
+    },
+    "channel_b_matched": {
+      "a0_inverse_variance_weighted_m_s2": 1.1142160477311545e-10,
+      "a0_same_radius_mass_variant_m_s2": 7.416829161851532e-11,
+      "a0_unweighted_log_mean_m_s2": 8.41877215104347e-11,
+      "baryonic_mass": "M_b = 0.5 L_[3.6] + 1.33 M_HI from table 1, committed declared mass-to-light and helium choices",
+      "deep_outermost_requirement_g_bar_max_m_s2": 1.2e-11,
+      "error_model": "sigma(v_A^2) = hypot(2 v_obs e_Vobs, 2 v_obs^2 cot(i) e_i); distance, mass-to-light, and baryonic-model errors are not propagated",
+      "estimator": "a0_B = (v_obs(r_out)^2 - v_bar(r_out)^2)^2 / (G M_b)",
+      "inverse_variance_weighting_caution": "sensitivity row only: the observed scatter is dominated by unpropagated terms, and measurement-error weights correlate with the estimate, so the primary combination is unweighted",
+      "median_propagated_sigma_log10_dex": 0.15487618003536585,
+      "n_candidate_galaxies": 149,
+      "n_nonpositive_anomalous_speed2": 0,
+      "n_nonpositive_baryonic_mass": 0,
+      "n_outermost_not_deep": 34,
+      "n_used": 115,
+      "same_radius_mass_variant": "G M_b replaced by v_bar^2(r_out) r_out; exact in the exterior point-mass limit; sensitivity row only",
+      "scatter_dex": 0.3453872655170667,
+      "scatter_dominated_by_unpropagated_terms": true
+    },
+    "deep_cut_g_bar_max_m_s2": 1.2e-11,
+    "fraction_of_reference": 0.1,
+    "paired_common_set": {
+      "bootstrap_replicates": 1000,
+      "bootstrap_seed": 20260825,
+      "bootstrap_unit": "common-set galaxy, both channels resampled together",
+      "channel_a_common_a0_m_s2": 8.750402247718735e-11,
+      "channel_b_common_a0_m_s2": 8.41877215104347e-11,
+      "count_log10_ratio_ge_zero": 293,
+      "count_log10_ratio_le_zero": 707,
+      "ge_zero_plus_one_fraction": 0.2937062937062937,
+      "le_zero_plus_one_fraction": 0.7072927072927073,
+      "log10_ratio_95pct": [
+        -0.07957482119775687,
+        0.046308037961187605
+      ],
+      "n_channel_a_points_common": 960,
+      "n_common_galaxies": 115,
+      "point_log10_ratio_b_over_a": -0.01677926182591349,
+      "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
+    }
+  },
+  "sample": {
+    "catalogue": "SPARC, CDS J/AJ/152/157 (Lelli, McGaugh, Schombert 2016)",
+    "cuts": "quality <= 2, inclination >= 30 deg, e_Vobs/Vobs <= 0.10, g_bar > 0; identical for both channels",
+    "data_sha256": "e38670c34bcdd900db57d556321ba30cf27641bc66c7cd1d588d3062ad2d6b84",
+    "gas_helium_factor": 1.33,
+    "mass_to_light_status": "committed declared comparison choices, not source-derived",
+    "outermost_point": "largest radius among the retained points of each galaxy, so the same point-level cuts govern both channels",
+    "upsilon_bulge": 0.7,
+    "upsilon_disk": 0.5
+  },
+  "schema": "oph.cosmology.matched_observable_dark_sector_diagnostic.v1",
+  "scope": "labeled_postdiction_diagnostic_matched_anomalous_observable_fixed_absolute_cuts",
+  "seen_data_postdiction": true,
+  "sensitivity_fraction_0p3": {
+    "channel_a_rar": {
+      "a0_m_s2": 8.431196058105931e-11,
+      "model": "g_model = g_bar + sqrt(g_bar a0), unweighted log residuals",
+      "n_galaxies": 141,
+      "n_points": 1519
+    },
+    "channel_b_matched": {
+      "a0_inverse_variance_weighted_m_s2": 1.1433196774161419e-10,
+      "a0_same_radius_mass_variant_m_s2": 7.166262231271494e-11,
+      "a0_unweighted_log_mean_m_s2": 8.096359533734161e-11,
+      "baryonic_mass": "M_b = 0.5 L_[3.6] + 1.33 M_HI from table 1, committed declared mass-to-light and helium choices",
+      "deep_outermost_requirement_g_bar_max_m_s2": 3.6e-11,
+      "error_model": "sigma(v_A^2) = hypot(2 v_obs e_Vobs, 2 v_obs^2 cot(i) e_i); distance, mass-to-light, and baryonic-model errors are not propagated",
+      "estimator": "a0_B = (v_obs(r_out)^2 - v_bar(r_out)^2)^2 / (G M_b)",
+      "inverse_variance_weighting_caution": "sensitivity row only: the observed scatter is dominated by unpropagated terms, and measurement-error weights correlate with the estimate, so the primary combination is unweighted",
+      "median_propagated_sigma_log10_dex": 0.1580228115379091,
+      "n_candidate_galaxies": 149,
+      "n_nonpositive_anomalous_speed2": 0,
+      "n_nonpositive_baryonic_mass": 0,
+      "n_outermost_not_deep": 9,
+      "n_used": 140,
+      "same_radius_mass_variant": "G M_b replaced by v_bar^2(r_out) r_out; exact in the exterior point-mass limit; sensitivity row only",
+      "scatter_dex": 0.3551910587455333,
+      "scatter_dominated_by_unpropagated_terms": true
+    },
+    "deep_cut_g_bar_max_m_s2": 3.6e-11,
+    "fraction_of_reference": 0.3,
+    "paired_common_set": {
+      "bootstrap_replicates": 1000,
+      "bootstrap_seed": 20260825,
+      "bootstrap_unit": "common-set galaxy, both channels resampled together",
+      "channel_a_common_a0_m_s2": 8.443335732245618e-11,
+      "channel_b_common_a0_m_s2": 8.096359533734161e-11,
+      "count_log10_ratio_ge_zero": 228,
+      "count_log10_ratio_le_zero": 772,
+      "ge_zero_plus_one_fraction": 0.22877122877122877,
+      "le_zero_plus_one_fraction": 0.7722277722277723,
+      "log10_ratio_95pct": [
+        -0.06858739961652088,
+        0.02802536351872411
+      ],
+      "n_channel_a_points_common": 1517,
+      "n_common_galaxies": 140,
+      "point_log10_ratio_b_over_a": -0.018224272893153384,
+      "verdict": "CONSISTENT_INTERVAL_CONTAINS_ZERO"
+    }
+  },
+  "source_derived_output": false,
+  "superseded_mixed_proxy_diagnostic": {
+    "displacement_removed_dex": 0.2659610871619069,
+    "matched_point_log10_ratio": -0.01677926182591349,
+    "mixed_proxy_log10_ratio_95pct": [
+      0.18001201203599435,
+      0.31682015663262747
+    ],
+    "mixed_proxy_point_log10_ratio": 0.24918182533599342,
+    "proxy_defect": "catalogue Vflat is a finite-radius total speed used as an asymptotic anomalous-speed proxy without baryonic subtraction",
+    "receipt_path": "receipts/sparc_deep_regime_diagnostic.json",
+    "receipt_sha256": "b52c06698523ada1b8fe6337f61d81b5a0c57421c03453679dccf1872f56f2e9",
+    "resolution_statement": "the matched-observable paired interval is [-0.080, 0.046] dex and contains zero, while the superseded mixed-proxy paired interval was [0.180, 0.317] dex and excluded zero. Under this diagnostic the mixed-proxy displacement is attributable to the finite-radius total-speed proxy, not to a normalization disagreement between the two relations. This consistency is shared with the standard null and is not evidence for OPH."
+  },
+  "verdict_rule": "The 95 percent paired interval for log10(a0_B/a0_A) decides the label: entirely above zero gives TENSION_MATCHED_CHANNEL_B_ABOVE_CHANNEL_A, entirely below zero gives TENSION_MATCHED_CHANNEL_B_BELOW_CHANNEL_A, otherwise CONSISTENT_INTERVAL_CONTAINS_ZERO. The rule is symmetric in direction. An interval containing zero is compatible with every model that reproduces both relations, including the standard null, and is not evidence for OPH."
+}
