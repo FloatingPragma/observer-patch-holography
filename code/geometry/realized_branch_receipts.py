@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Realized-branch receipt evaluation for the Einstein branch-entry gate (#503).
 
-Evaluates the decidable incidence receipts of The spacetime and Einstein paper's
-geometry-producer packet (Definition `def:spherical-incidence-receipt`) on the
-currently exported realized consensus artifacts, and emits the machine status
-consumed by Remark `rem:realized-branch-status`:
+Evaluates the decidable spherical-incidence receipt (i) of Theorem 4.3c in
+`paper/tex_fragments/PAPER.tex` (included by The spacetime and Einstein paper)
+on the exported realized consensus artifacts, and emits the machine status
+report.  The report's `paper_anchor` key keeps the label
+`rem:realized-branch-status`, which has no LaTeX label in the .tex sources; the
+report is pinned by digest in the quantum-carrier status projection, so that
+key is left unchanged here:
 
 * the verified rooted-tree packet-net domain (issue #238 export) is the only
   repair domain with a full correctness export to date; its overlap structure

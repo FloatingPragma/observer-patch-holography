@@ -303,9 +303,14 @@ equivalent to one step of the discrete Hamilton flow. The same complete
 binary history law admits distinct strictly convex real enrichments and
 Hamiltonians, so it does not select the required velocity curvature; the
 corner-invisible quadratic enrichments are classified exactly as a
-two-parameter family, and one named velocity-only clause restores unique
-selection of the committed curvature, with each clause proved
-load-bearing. A declared
+two-parameter family, and inside that declared quadratic grammar one named
+velocity-only clause restores unique selection of the committed curvature,
+with each clause proved load-bearing. The selection is grammar-bound: a
+machine-checked velocity-only quartic continuation passes corner
+invisibility, stationarity, single-site minimality, and momentum
+invertibility outside the quadratic grammar, and a fourth boost clause
+pins the committed point inside the full polynomial grammar only
+(Section~\ref{sec:forced-dynamics-composed}). A declared
 equal-weight bracket on the twenty oriented faces is exactly \(60R_{13}\)
 and fails Jacobi in \(240\) coordinates. Over the complete cone of
 invariant carrier metrics (the commutant of the port action is exactly
@@ -3354,9 +3359,19 @@ same history is a fixed-endpoint single-site minimizer at every interior
 junction, so the composed conditional is inhabited on the committed kernel.
 The two-parameter corner-invisible counterfamily shows that this rule does not
 select a unique real enrichment beyond the one-parameter ansatz, and no global
-simultaneous multi-site minimum is claimed. The principle references
+simultaneous multi-site minimum is claimed. Inside the quadratic two-slot
+grammar, a declared velocity-only clause returns the committed member
+uniquely; outside it, for every \(0<\lambda<a_\star\) the velocity-only
+quartic continuation \(L_{a_\star}+\lambda y^2(y-1)^2\) is corner-invisible,
+shares the junction stationarity and the single-site minimum, and has an
+invertible momentum map, so those clauses select inside the quadratic
+grammar only. A fourth clause, second-order boost null covariance, pins the
+committed point inside the full polynomial grammar and fails at that
+quartic, with every clause proved load-bearing
+(\path{Lean/Variational/PolynomialEnrichmentSelection.lean}). The principle references
 off-alphabet variations and is declared; the non-identifiability theorem
-stands.
+stands, and finer alphabets, refinement limits, and other source data are
+untested by it.
 
 The strongest new finite discriminator uses only the pinned oriented
 incidence. A declared equal-weight cyclic rule on its twenty faces gives the

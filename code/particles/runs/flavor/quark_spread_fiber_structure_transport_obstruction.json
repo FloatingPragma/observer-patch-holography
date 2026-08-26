@@ -1,5 +1,6 @@
 {
   "artifact": "oph_quark_spread_fiber_structure_transport_obstruction",
+  "blindness_scan_kind": "key_name_heuristic_over_leaf_paths",
   "checks": {
     "axiom_level_theorem_intact": true,
     "base_fiber_intact": true,
@@ -67,6 +68,7 @@
           "path": "/exterior_matter_contract/yukawa_channels[2][2]"
         }
       ],
+      "method": "key_name_heuristic_over_leaf_paths",
       "needles": [
         "yukawa",
         "sigma_u",
@@ -168,6 +170,7 @@
           "path": "/yukawa_sector/statement"
         }
       ],
+      "method": "key_name_heuristic_over_leaf_paths",
       "needles": [
         "yukawa",
         "sigma_u",
@@ -188,6 +191,7 @@
       "document": "port_current_manifest",
       "matched_leaf_count": 0,
       "matched_leaves": [],
+      "method": "key_name_heuristic_over_leaf_paths",
       "needles": [
         "yukawa",
         "sigma_u",
@@ -208,6 +212,7 @@
       "document": "port_current_receipt",
       "matched_leaf_count": 0,
       "matched_leaves": [],
+      "method": "key_name_heuristic_over_leaf_paths",
       "needles": [
         "yukawa",
         "sigma_u",
@@ -256,8 +261,8 @@
       "CODATA"
     ],
     "input_sha256": {
-      "axiom": "e375a64997fb767f4978cf18dc83d89e7ba2bec9def2b98ba50a48e37708d6df",
-      "base": "821d23cbce7cb27bc768f2a0fb66536f3f4e0d93d8205933b08ac0cfdb397116",
+      "axiom": "6da7ef7e9636aae26da83e4cd834d58e1b9095753adf6544148d1bb1f6fd195a",
+      "base": "e8c8aa4ca90634de580c576be8cd88e52fb3153cb8352fee774e452a9e0ee6d5",
       "candidates": "7b79bf2abecdd497fceed8b73102d9434ba0d992a0e5e083cfdcb15d34d7b01d",
       "matter_manifest": "cb627653c332996adcec8f9d501299e0fcb272958b346316946b613253040c59",
       "matter_receipt": "528090fb708fb398ec1d385486757c483e2d0b5ad84500592aa61f3b17748ef3",
@@ -336,7 +341,7 @@
     ],
     "group": "(R_{>0})^2"
   },
-  "generated_utc": "2026-07-30T17:48:53Z",
+  "generated_utc": "2026-08-25T21:01:04Z",
   "github_issues": [
     591
   ],
@@ -377,20 +382,49 @@
   },
   "minimal_future_cut": {
     "inherited_requirement": {
-      "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "acceptable_form": "A theorem-grade source map into the six-scalar interface (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), or, inside a source-derived ordered shape law and mean law, two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "generic_physical_interface": {
+        "note": "The granted ordered shape law is candidate-only and template-descended, and the affine mean law ties the sector means to the spans only inside that subfamily. A source theory must emit the shape law, the sector means, and the two spans, or a typed map fixing all six.",
+        "scalars": [
+          "mu_u",
+          "sigma_u",
+          "rho_u",
+          "mu_d",
+          "sigma_d",
+          "rho_d"
+        ],
+        "unemitted": {
+          "sector_means": [
+            "mu_u",
+            "mu_d"
+          ],
+          "shape_law": [
+            "rho_u",
+            "rho_d"
+          ],
+          "spans": [
+            "sigma_u",
+            "sigma_d"
+          ]
+        },
+        "unemitted_scalar_count": 6
+      },
       "must_break_free_action": true,
       "must_replace_template_ancestry": true,
-      "required_independent_scalar_count": 2
+      "required_independent_scalar_count": 2,
+      "required_independent_scalar_count_scope": "the endpoint spans (sigma_u, sigma_d) inside the granted reciprocal-ray, affine-mean subfamily"
     },
     "must_break_free_action": true,
     "routes": [
       "source current and same-current holonomy (#566), physical matter typing (#314), source character and global-form selection (#567), and laboratory-current attachment (#569)",
       "source-derived attachment of the icosahedral screen action to three physical families (#569)",
-      "a thirteenth selector candidate under the frozen SELECTOR_SPEC single-comparison discipline"
+      "a thirteenth selector candidate under the frozen SELECTOR_SPEC single-comparison discipline",
+      "the conditional Higgs/top double-criticality coordinate (m_t = 172.63 GeV at two loops, runs/calibration/d11_criticality_boundary_scan.json; conditional on the witness-level P root, the declared one-loop chart couplings, the double-criticality boundary law, and the boundary-scale selection premises): granted together with a source-side scheme conversion to the running frame, the up-sector endpoint fixes one combination of (sigma_u, sigma_d) under the affine mean law and cuts the fiber to one dimension; this surface is outside the present scan"
     ]
   },
   "notes": [
-    "The fork is computed from the receipts on every run; a receipt that grows a Yukawa-magnitude field flips it.",
+    "The fork is computed from the receipts on every run; a scanned receipt that grows a Yukawa-magnitude field flips it.",
+    "The invariance clause quantifies over the scanned set only: four documents inspected by a key-name heuristic over leaf paths, the invariant-line dimensions, and the selector blindness flags. Leaves under other key names and receipts outside the set are not inspected.",
     "This certificate does not prove that no future OPH extension can emit the spread pair.",
     "Conditionality is inherited: #314 and #566 are conditional on their declared branch premises, and this transport is conditional on the same set."
   ],
@@ -402,7 +436,18 @@
     "running_quark_numeric_rows": "withheld"
   },
   "public_promotion_allowed": false,
+  "scanned_set": {
+    "documents": [
+      "super_tannakian_matter_manifest",
+      "super_tannakian_matter_receipt",
+      "port_current_manifest",
+      "port_current_receipt"
+    ],
+    "input_hashes_pinned_at_emission": true,
+    "receipts_outside_this_set_scanned": false,
+    "selector_menu": "twelve frozen candidates, blindness flags read from candidates_evaluated"
+  },
   "source_only_sigma_emitted": false,
   "theorem_grade_obstruction": true,
-  "theorem_statement": "The 2026-07 certified structure set - the conditional super-Tannakian matter lift (#314), the conditional port-current algebra (#566), and the twelve frozen flavor-orbit selector candidates - does not cut the (R_{>0})^2 quark spread fiber. Every certified datum of that set is invariant under the fiber action (Y_u, Y_d) -> (lambda_u Y_u, lambda_d Y_d) along the two one-dimensional hadronic Yukawa invariant lines, so the fiber coordinates are exactly the free scalar coefficients along those lines. Any future cut must pass through the physical bindings (#599, #567), the family attachment (#569), or a new selector under the frozen SELECTOR_SPEC discipline, and must break the free action."
+  "theorem_statement": "The 2026-07 certified structure set, namely the conditional super-Tannakian matter lift (#314), the conditional port-current algebra (#566), and the twelve frozen flavor-orbit selector candidates, with input hashes pinned at emission, does not cut the (R_{>0})^2 quark spread fiber inherited from the sigma obstruction, which grants a candidate-only ordered shape law. Within that set, no datum reached by the key-name blindness scan, the invariant-line dimension check, or the selector blindness flags moves under the fiber action (Y_u, Y_d) -> (lambda_u Y_u, lambda_d Y_d) along the two one-dimensional hadronic Yukawa invariant lines, so the fiber coordinates are the free scalar coefficients along those lines. Receipts outside this set are outside the scan. Any cut must pass through the physical bindings (#599, #567), the family attachment (#569), a new selector under the frozen SELECTOR_SPEC discipline, or the conditional Higgs/top criticality coordinate, and must break the free action."
 }

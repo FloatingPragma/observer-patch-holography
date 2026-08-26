@@ -155,7 +155,7 @@ def test_baseline_invisible_to_first_variations():
 
 
 # ---------------------------------------------------------------------------
-# realized-branch evaluation (rem:realized-branch-status)
+# realized-branch evaluation (report key rem:realized-branch-status; Theorem 4.3c receipt (i))
 # ---------------------------------------------------------------------------
 
 def test_tree_packet_net_fails_spherical_incidence():

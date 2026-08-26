@@ -1,23 +1,34 @@
 #!/usr/bin/env python3
-"""No-go for the entropic conditioned charged branch.
+"""No-go for the entropic conditioned charged branch at leading cubic order.
 
 Conditioning the twelve-port record on a nonzero W5 norm leaves the
 quadratic repair cost flat on the W5 sphere, so orbit selection falls to the
 universal Taylor coefficients of the record entropy,
 ``-sum q ln q = const - |w|^2/2 + S3(w)/6 - S4(w)/12 + ...`` with the
-port-wise power sums ``S_k``.  The selection functional at leading order is
-therefore parameter-free.
+port-wise power sums ``S_k``.  At leading order in the band amplitude the
+selection functional is the cubic ``S3`` alone, with no chosen coefficient.
 
-Theorem (certified numerically here): the extremal orbit of ``S3`` on the
-W5 unit sphere is the C5-axis orbit, stabilizer order ten, whose quadrupole
-spectrum is exactly doubly degenerate.  Both orientations give the same
-orbit type.  The entropic conditioned branch therefore produces two equal
-charged masses and cannot generate the observed family.  Together with the
-homogeneous shape-silence theorem this closes the second of the three
-candidate mechanisms; the surviving route is a source-emitted charged
-interaction whose invariant mix lies off the entropic ray, inside the
-simple-spectrum region, on the reference-fit locus of the decision-geometry
-lane.
+Statement (certified numerically here, forty-seed projected ascent,
+degeneracy tolerance 1e-8): the maximum of ``S3`` on the W5 unit sphere of
+the twelve-port carrier is attained on the C5-axis orbit, stabilizer order
+ten, whose quadrupole spectrum is exactly doubly degenerate.  Since
+``S3(-w) = -S3(w)``, the minimum is attained at the antipode ``-w`` of the
+maximizer, the same orbit type with the sign of the quadrupole flipped, so
+both orientations are degenerate; the antipodal spectrum is recorded next
+to the maximizer.  At cubic order the entropic conditioned branch therefore
+produces two equal charged masses.
+
+Scope.  The statement covers the leading cubic term at small band amplitude
+only.  The quartic certificate (``flavor/entropy_w5_shape_certificate.py``)
+shows that the same parameter-free packet, truncated at quartic order,
+selects a simple-spectrum golden-ratio branch above the exact crossing
+amplitude r_c = 2.776 and below the positivity bound r < 2 sqrt(6) of that
+branch; the golden branch is excluded by comparison with the measured
+charged-lepton shape at 16.7 percent, and packets beyond quartic truncation
+stay open.  Of the three candidate mechanisms, the second is closed at
+cubic order, excluded by comparison at quartic order, and open beyond; the
+surviving route is a source-emitted charged interaction whose invariant mix
+lies off the entropic ray, inside the simple-spectrum region.
 """
 
 from __future__ import annotations
@@ -72,10 +83,19 @@ def build() -> dict[str, Any]:
         eigenvalues[1] - eigenvalues[0], eigenvalues[2] - eigenvalues[1]
     )
     degenerate = min_gap < 1.0e-8
+    # S3 is odd, so the minimizer is the antipode of the maximizer.
+    antipodal_eigenvalues = spectrum_report(-w)["eigenvalues"]
+    antipodal_value = float(np.sum((-w) ** 3))
+    antipodal_gap = min(
+        antipodal_eigenvalues[1] - antipodal_eigenvalues[0],
+        antipodal_eigenvalues[2] - antipodal_eigenvalues[1],
+    )
     checks = {
         "extremum_found": value > 0.5,
         "extremal_spectrum_degenerate": bool(degenerate),
-        "no_go_certified": bool(degenerate),
+        "antipodal_value_is_negated": abs(antipodal_value + value) < 1.0e-12,
+        "antipodal_spectrum_degenerate": bool(antipodal_gap < 1.0e-8),
+        "no_go_certified": bool(degenerate and antipodal_gap < 1.0e-8),
     }
     return {
         "artifact": "oph_charged_entropic_branch_no_go",
@@ -84,17 +104,43 @@ def build() -> dict[str, Any]:
         "row_class": "parameter_free_no_go_certificate",
         "promotion_allowed": False,
         "selection_functional": (
-            "universal entropy cubic S3 on the W5 unit sphere; no chosen "
-            "coefficient"
+            "universal entropy cubic S3 on the W5 unit sphere, the leading "
+            "term in the band amplitude; no chosen coefficient"
         ),
         "extremal_value_s3": value,
         "extremal_spectrum": eigenvalues,
         "minimum_gap": min_gap,
-        "consequence": (
-            "two equal charged masses on the entropic branch; the observed "
-            "family requires a source-emitted charged interaction off the "
-            "entropic ray, on the reference-fit locus"
+        "antipodal_value_s3": antipodal_value,
+        "antipodal_spectrum": antipodal_eigenvalues,
+        "oddness": (
+            "S3(-w) = -S3(w), so the minimizer of S3 on the sphere is the "
+            "antipode of the maximizer: the same C5-axis orbit type with the "
+            "sign of the quadrupole flipped, degenerate in both orientations"
         ),
+        "consequence": (
+            "two equal charged masses on the entropic branch at leading cubic "
+            "order; the observed family requires a source-emitted charged "
+            "interaction off the entropic ray, inside the simple-spectrum "
+            "region"
+        ),
+        "scope": {
+            "truncation_order": "leading cubic term at small band amplitude",
+            "quartic_order": (
+                "the same parameter-free packet truncated at quartic order "
+                "selects a simple-spectrum golden-ratio branch above the "
+                "exact crossing amplitude r_c = 2.776 and below that "
+                "branch's positivity bound r < 2 sqrt(6); the golden branch "
+                "is excluded by comparison with the measured charged-lepton "
+                "shape at 16.7 percent only"
+            ),
+            "quartic_certificate": "runs/flavor/entropy_w5_shape_certificate.json",
+            "beyond_quartic": "open",
+            "mechanism_status": (
+                "second of three candidate mechanisms: closed at cubic "
+                "order, excluded by comparison at quartic order, open beyond"
+            ),
+            "universal_impossibility_claimed": False,
+        },
         "checks": checks,
         "checks_pass": all(bool(v) for v in checks.values()),
     }

@@ -39,7 +39,7 @@ def test_quark_class_uniform_public_frame_descent_obstruction_is_scientific_no_g
     assert payload["selected_class_descent"]["closed"] is True
     assert payload["selected_class_descent"]["source_only_sigma_emitted"] is False
     assert payload["selected_class_descent"]["theorem_scope"] == "selected_public_physical_quark_frame_class_only"
-    assert payload["scientific_result"]["result_kind"] == "hard_no_go_current_corpus"
+    assert payload["scientific_result"]["result_kind"] == "current_corpus_underdetermination"
     assert payload["promotion_boundary"]["public_promotion_allowed"] is False
     assert "oph_arbitrary_P_public_quark_frame_transport_classification" in payload["missing_global_objects"]
     assert payload["formal_countermodel_witness"]["free_even_sigma_family"]["name"] == (

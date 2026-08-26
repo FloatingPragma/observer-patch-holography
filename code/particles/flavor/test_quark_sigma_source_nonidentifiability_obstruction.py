@@ -101,6 +101,14 @@ def test_free_rescaling_gives_same_source_packet_and_distinct_spreads_and_means(
     models = action["formal_countermodels"]
     assert len(models) == 2
     assert models[0]["source_projection_token"] == models[1]["source_projection_token"]
+    assert float(action["max_abs_source_projection_difference"]) < 1.0e-12
+    for key in ("v_u_recomputed", "v_d_recomputed", "up_gap_ratio", "down_gap_ratio", "trace_u", "trace_d"):
+        left = models[0]["source_projection"][key]
+        right = models[1]["source_projection"][key]
+        if isinstance(left, list):
+            assert all(math.isclose(float(a), float(b), rel_tol=0.0, abs_tol=1.0e-12) for a, b in zip(left, right))
+        else:
+            assert math.isclose(float(left), float(right), rel_tol=0.0, abs_tol=1.0e-12)
     assert models[0]["sigma_tuple"] != models[1]["sigma_tuple"]
     assert all(
         float(model["sigma_tuple"][key]) > 0.0

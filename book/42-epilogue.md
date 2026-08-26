@@ -72,7 +72,7 @@ Observers capable of running a repair law is a description of somebody, and call
 24. Why does gravity look like geometry? Curvature is what a settled network of observers looks like from a distance, and Newton's constant comes out 6.6742999959 times ten to the minus eleven cubic meters per kilogram per second squared, against a measured 6.67430.
 25. Why exactly these forces? One plus three plus eight, and nothing else survives the arithmetic.
 26. Why this exact list of matter, and why three times over? Fifteen states make one generation, and of 1,024 possible matter contents exactly two survive as mirror images of each other.
-27. What is a particle, what is a wave, and why does it look like both? They are one object read at two record depths, and proton decay is exactly absent.
+27. What is a particle, what is a wave, and why does it look like both? They are one object read at two record depths, and the unified route to proton decay is exactly absent.
 28. Why 1/137, and why is there a limit to what the universe can remember? A closure with no measured number in it gives 137.035660 against a measured 137.035999.
 29. Why do the masses land where they do? The tau is pinned inside a window 72 electron-volts wide, sitting 0.43 sigma from the measurement.
 30. What is a Lagrangian, and why is it the last thing? A running total with one contribution per step and no foresight in it, whose smallest value is the likeliest history.

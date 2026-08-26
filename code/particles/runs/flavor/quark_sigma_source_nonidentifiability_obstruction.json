@@ -192,6 +192,22 @@
           "sigma_seed_ud": 1.0,
           "sigma_u": 1.0
         },
+        "source_projection": {
+          "down_gap_ratio": 0.7726273959416414,
+          "trace_d": 6.938893903907228e-18,
+          "trace_u": -6.938893903907228e-18,
+          "up_gap_ratio": 1.294284936377706,
+          "v_d_recomputed": [
+            -0.4786218840482289,
+            -0.042756231903542156,
+            0.5213781159517711
+          ],
+          "v_u_recomputed": [
+            -0.5213781159517711,
+            0.042756231903542156,
+            0.4786218840482289
+          ]
+        },
         "source_projection_token": "same_target_free_source_packet",
         "structural_identity_residuals": {
           "down_gap_ratio_minus_reciprocal_rho": 0.0,
@@ -221,6 +237,22 @@
           "sigma_seed_ud": 2.5,
           "sigma_u": 2.0
         },
+        "source_projection": {
+          "down_gap_ratio": 0.7726273959416415,
+          "trace_d": -1.942890293094024e-16,
+          "trace_u": -1.3877787807814457e-17,
+          "up_gap_ratio": 1.294284936377706,
+          "v_d_recomputed": [
+            -0.478621884048229,
+            -0.042756231903542156,
+            0.5213781159517711
+          ],
+          "v_u_recomputed": [
+            -0.5213781159517711,
+            0.042756231903542156,
+            0.4786218840482289
+          ]
+        },
         "source_projection_token": "same_target_free_source_packet",
         "structural_identity_residuals": {
           "down_gap_ratio_minus_reciprocal_rho": 1.1102230246251565e-16,
@@ -233,11 +265,12 @@
       }
     ],
     "group": "(R_{>0})^2",
+    "max_abs_source_projection_difference": 2.0122792321330962e-16,
     "max_abs_structural_identity_residual": 1.942890293094024e-16,
     "requested_tuple_not_invariant": true,
     "source_projection_fixed": true
   },
-  "generated_utc": "2026-08-25T18:56:03Z",
+  "generated_utc": "2026-08-25T21:06:26Z",
   "issue_composition": {
     "issue_377_all_quark": {
       "closure": "closed_as_current_corpus_nonidentifiability_obstruction",
@@ -258,15 +291,44 @@
     }
   },
   "minimal_future_extension": {
-    "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+    "acceptable_form": "A theorem-grade source map into the six-scalar interface (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), or, inside a source-derived ordered shape law and mean law, two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+    "generic_physical_interface": {
+      "note": "The granted ordered shape law is candidate-only and template-descended, and the affine mean law ties the sector means to the spans only inside that subfamily. A source theory must emit the shape law, the sector means, and the two spans, or a typed map fixing all six.",
+      "scalars": [
+        "mu_u",
+        "sigma_u",
+        "rho_u",
+        "mu_d",
+        "sigma_d",
+        "rho_d"
+      ],
+      "unemitted": {
+        "sector_means": [
+          "mu_u",
+          "mu_d"
+        ],
+        "shape_law": [
+          "rho_u",
+          "rho_d"
+        ],
+        "spans": [
+          "sigma_u",
+          "sigma_d"
+        ]
+      },
+      "unemitted_scalar_count": 6
+    },
     "must_break_free_action": true,
     "must_replace_template_ancestry": true,
-    "required_independent_scalar_count": 2
+    "required_independent_scalar_count": 2,
+    "required_independent_scalar_count_scope": "the endpoint spans (sigma_u, sigma_d) inside the granted reciprocal-ray, affine-mean subfamily"
   },
   "notes": [
     "The unit and independently rescaled pairs are formal model witnesses only; neither is a physical sigma proposal.",
     "This certificate does not prove that no future OPH extension can emit the spread pair.",
-    "It proves that the present target-free corpus, even after granting its strongest candidate source packet, does not identify it."
+    "It proves that the present target-free corpus, even after granting its strongest candidate source packet, does not identify it.",
+    "The granted ordered shape law is candidate-only and is rejected at common scale on the properly typed target surface; without the grant the shape law, the sector means, and the spans are all unemitted and the fiber only enlarges.",
+    "The conditional Higgs/top double-criticality coordinate, granted together with a source-side scheme conversion, would fix one combination of the two spans through the up-sector endpoint; that route is recorded as live and is outside this certificate."
   ],
   "numeric_quark_rows_allowed": false,
   "ordered_source_geometry": {
@@ -310,6 +372,7 @@
   },
   "scope": {
     "conclusion_kind": "nonidentifiability_not_absolute_impossibility_in_future_extensions",
+    "granted_shape_law": "candidate-only ordered three-point reciprocal-ray law; rejected at common scale on the properly typed target surface, so the grant is a restriction to a subfamily",
     "premise": "Target-free current-corpus quark source signature, granting the current template-derived ordered branch-generator and edge packets for the sake of a stronger obstruction.",
     "stronger_than_upstream_status_boundary": true
   },
@@ -344,5 +407,5 @@
     "positive_source_emission_blocked_upstream": true
   },
   "theorem_grade_obstruction": true,
-  "theorem_statement": "After all target-derived and compare-only ancestors are removed, the strongest current quark source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present source theory does not identify a unique quark spread package or running quark mass sextet."
+  "theorem_statement": "Granting the candidate-only, template-descended ordered three-point shape law (adjacent-gap ratio rho_ord in the up sector and 1/rho_ord in the down sector) and the edge cocycle as the target-free source packet, after all target-derived and compare-only ancestors are removed, the packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber inside that granted subfamily is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present target-free corpus identifies neither a unique quark spread package nor six source-only absolute quark masses. Without the grant the shape law, the sector means, and the spans are all unemitted, so the fiber can only enlarge."
 }

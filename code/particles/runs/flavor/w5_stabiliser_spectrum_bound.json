@@ -115,6 +115,49 @@
         "-alpha/3",
         "-alpha/3"
       ]
+    },
+    "V4": {
+      "fixed_locus_dimension": 2,
+      "free_coordinates": [
+        "a",
+        "d"
+      ],
+      "general_invariant_form": "diag(a,d,-a-d)",
+      "generators": {
+        "x_half_turn": "diag(1,-1,-1)",
+        "z_half_turn": "diag(-1,-1,1)"
+      },
+      "group": "V4",
+      "group_order": 4,
+      "linear_constraint_rank_in_W5": 3,
+      "membership": "the three coordinate half-turns permute the standard icosahedron vertices (0,+-1,+-phi) and cyclic permutations, so V4 is a subgroup of the rotation group A5",
+      "nonzero_projective_dimension": 1,
+      "simple_spectrum_possible": true,
+      "simple_spectrum_witness": {
+        "matrix": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            0,
+            -3
+          ]
+        ],
+        "spectrum": [
+          1,
+          2,
+          -3
+        ]
+      },
+      "witness_max_residual": 0.0
     }
   },
   "determinism": {
@@ -122,6 +165,9 @@
     "timestamp_omitted": true
   },
   "hard_self_tests": {
+    "klein_four_constraint_rank": 3,
+    "klein_four_fixed_dimension": 2,
+    "klein_four_projective_dimension": 1,
     "order_2_constraint_rank": 2,
     "order_2_fixed_dimension": 3,
     "order_2_projective_dimension": 2,
@@ -142,10 +188,37 @@
     "literature_claims_used": false,
     "not_excluded": [
       "simple_spectrum_points_with_C2_or_trivial_stabiliser",
+      "simple_spectrum_points_with_V4_stabiliser",
       "selection_by_a_specific_screen_derived_A5_invariant_potential",
       "predictive_models_with_additional_dynamical_input"
     ],
     "universal_impossibility_claimed": false
+  },
+  "subgroup_lattice_argument": {
+    "argument": "every subgroup of A5 other than 1, C2, and V4 contains a threefold or fivefold rotation, so its fixed locus lies inside the axial line alpha*(n*n^T-I/3) of that rotation (a double eigenvalue) or is zero; 1, C2, and V4 leave four, two, and one projective parameters free. Hence no residual stabilizer pins an isolated simple-spectrum orbit.",
+    "conjugacy_classes_of_subgroups": [
+      "1",
+      "C2",
+      "C3",
+      "V4",
+      "C5",
+      "S3",
+      "D5",
+      "A4",
+      "A5"
+    ],
+    "exhaustive": true,
+    "fixed_locus_dimension_by_subgroup": {
+      "1": 5,
+      "A4": 0,
+      "A5": 0,
+      "C2": 3,
+      "C3": 1,
+      "C5": 1,
+      "D5": 1,
+      "S3": 1,
+      "V4": 2
+    }
   },
   "symbolic_fixed_space_argument": {
     "block_coordinates": {
@@ -171,7 +244,7 @@
   "w5_orb_reclassification": {
     "current_gap_type": "screen_derived_potential_selection_required",
     "previous_gap_type_rejected": "symmetry_geometry_alone_selects_unique_simple_spectrum_orbit",
-    "reason": "C3 and C5 invariance force a double eigenvalue. C2 invariance leaves a three-dimensional linear locus, hence two parameters after scaling, which is exactly enough freedom to carry two mass ratios without predicting them from symmetry alone.",
+    "reason": "C3 and C5 invariance force a double eigenvalue. C2 invariance leaves a three-dimensional linear locus, hence two parameters after scaling, which is exactly enough freedom to carry two mass ratios without predicting them from symmetry alone. V4 invariance leaves the diagonal traceless forms, one projective parameter with generic simple spectrum. Every other subgroup of A5 contains C3 or C5.",
     "screen_derived_potential_required": true,
     "symmetry_alone_sufficient": false
   }

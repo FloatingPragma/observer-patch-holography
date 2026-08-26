@@ -43,11 +43,21 @@ generates nothing outside the retained span).
 
 ## Faithfulness notes (scope, stated up front)
 
-1. `Flux = Z(K)` is in general a *superset* of the paper's
-   `π_L(Z(C*(K̂_Σ)))` (image-of-center ⊆ center-of-image). Refuting
-   membership in the superset therefore refutes the paper's form, and the
-   positive witness below lands in the smaller set too (its `K` is
-   commutative, so the two coincide). No overclaim in either direction.
+1. `Flux = Z(K)` is the center of the realized subring `K`. On the model
+   layer below, `K = ⟨uu⟩ = ⟨u ⊗ u⟩` is the *diagonal* image of the
+   boundary symmetry, so `Flux = span{1, uu}`, and this UNDERCOUNTS the
+   paper's flux set `π_L(Z(C*(K̂_Σ)))`: the one-sided charges `u ⊗ 1` and
+   `1 ⊗ u` restrict to the sector label on the `uu`-invariant subspace
+   (where `uu` acts as `1`), so they are flux functions in the paper's
+   sense while lying outside `Z(⟨uu⟩)` (`wMix_notMem_fluxC` in
+   `CollarModularT2.lean`). The image-of-center inclusion
+   `π(Z(C*(K̂))) ⊆ Z(π(C*(K̂)))` needs `K` to be the one-sided image, and
+   the model's `K` is the diagonal image. Consequences for the witnesses
+   below: `XX` swaps the two sector blocks on the invariant subspace, so
+   it violates the paper's clause directly, and refuting `XX ∈ Z(K)` is
+   the model shadow of that violation; `uu` lands in both flux sets. The
+   independence verdict survives; the reading of `Flux` as a superset of
+   the paper's set is withdrawn.
 2. Only the **algebraic core** of the declared density and cross-scale
    interfaces is shadowed. The state-side and analytic content (A3
    information projection, closure-defect trace norms,
@@ -59,12 +69,16 @@ generates nothing outside the retained span).
 
 ## The verdict: INDEPENDENCE (machine-checked two-model exhibit)
 
-Two retained families over **one** collar layer `modelLayer` : the
-algebraic double of the pinned failure mode in
+Two retained families over **one** collar layer `modelLayer`, a
+countermodel in the same spirit as the pinned failure mode in
 `code/collar_alignment/test_msa_characterizations.py`
 (`test_descent_invariant_but_noncentral_interface_breaks_alignment`:
 "invariance alone is not the clause; centrality is"), over integer
-matrices `M₂(ℤ) ⊗ M₂(ℤ)`:
+matrices `M₂(ℤ) ⊗ M₂(ℤ)`. The two violate the paper's clause by
+different mechanisms: the Python `H_X` couples multiplicity factors
+inside one flux block (a within-block violator), while the Lean `XX`
+swaps the two sector blocks on the invariant subspace (a sector-mixing
+violator); both are countermodels, neither is the other's double:
 
 * `posFamily` (= the paper's *lattice-gauge-type regulator*, which
   "satisfies the clause manifestly"): its single cross-cut density is the

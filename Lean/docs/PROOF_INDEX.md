@@ -545,7 +545,9 @@ Mapping between Lean 4 theorems in this project and statements in
   Gibbs action, but its canonical bilinear real extension is affine in
   velocity and has no global momentum solver. Distinct strictly convex real
   enrichments agree on every realized binary history yet give distinct
-  Hamiltonians. Thus the source law does not select real variation curvature.
+  Hamiltonians. Thus the realized two-state history law, on the committed
+  chain literals, does not select real variation curvature; finer alphabets,
+  refinement limits, and other source data are untested by it and stay live.
   `InformationProjection/ReferenceNormalForm.lean` adds the reference gauge
   normal form: among row-stochastic kernels, independent target-scrambling
   invariance at fixed source,
@@ -901,21 +903,24 @@ Mapping between Lean 4 theorems in this project and statements in
   orbit selection, and any physical family attachment remain outside the
   Lean theorem.
 - Narrow real-three-dimensional icosahedral residual-axis no-go
-  (`ObserverPatchHolography/IcosahedralAxisNoGo.lean`): 6 / 6 public
+  (`ObserverPatchHolography/IcosahedralAxisNoGo.lean`): 8 / 8 public
   theorems, sorry-free. The module records the exact sixteen-row
   `cos² ∈ ℚ(√5)` spectrum emitted by the independent coordinate receipt,
   retains the multiplicity of every fivefold/threefold/twofold pair-family
   row, checks that those multiplicities account for all 465 pairs among the
   declared `6 + 10 + 15 = 31` unoriented axes, and proves by exact algebraic
   inequalities that every emitted acute sine-square coordinate strictly
-  exceeds `(9/40)²`, the compare-only `|V_us| = 0.2250` coordinate. The
-  coordinate construction of the axes remains in the byte-exact Python
-  receipt; Lean checks the finite spectrum certificate and comparison, not
-  that geometric construction. This excludes only direct equality between
-  the Cabibbo angle and an acute Euclidean angle in the canonical real
+  exceeds `(9/40)²`, the compare-only `|V_us| = 0.2250` coordinate. Two
+  further theorems check the eigenvector-overlap readings
+  `|V_us| = cos θ_axis` and `|V_us|² = sin² θ_axis / 2` against the same
+  sixteen rows: neither coordinate occurs. The coordinate construction of
+  the axes is certified by the byte-exact Python receipt; Lean certifies the
+  finite spectrum certificate and comparison on the emitted table, not that
+  geometric construction. This excludes only the direct reading and the two
+  overlap readings of an acute Euclidean angle in the canonical real
   three-dimensional 31-axis menu. Spinorial or other representations,
-  symmetry-breaking corrections, general overlap geometry, and a physical
-  flavor attachment are outside the theorem.
+  symmetry-breaking corrections, overlap geometry beyond those two readings,
+  and a physical flavor attachment are outside the theorem.
 - Physical A5-to-SM reduct boundary
   (`Screen/PhysicalA5ForcingNoGo.lean`): 6 / 6 declarations, sorry-free.
   The finite theorems prove non-reconstruction of defect, current, and matter
@@ -1251,8 +1256,16 @@ math-seat audit (2026-05-19): previous "3+2" undercounted by ≈3×.
 > kills the cross-cut coupling without forcing the clause
 > (deselection ≠ exclusion). `CollarModularT2.lean` (T2) proves
 > `naive_modular_recast_does_not_exclude` and
-> `centralizer_diagonal_strictly_contains_flux`: the naive modular recast
-> is vacuous and the corrected recast buys only the diagonal clause.
+> `centralizer_diagonal_strictly_contains_flux` on the fixed 4×4 model,
+> quantifying over the multipliers of one commuting two-element family:
+> the naive modular recast does not exclude the non-central witness
+> `XXC` on the realized branch, and the corrected recast (one-sided
+> boundary charges) yields the diagonal clause
+> `retained ⊆ span{1, uLC, uRC, uuC}`, a strict superset of the model's
+> `FluxC = Z(⟨u⊗u⟩)`. Relative to the paper's MSA form that diagonal
+> algebra is the clause itself, and the route is circular because the
+> one-sided-charge vacuum presupposes it; the clause stays a declared
+> branch premise.
 > `CollarStatesBridge.lean` records the reuse receipts against the
 > `EventAlgebra` library (`fluxPartition`,
 > `collarReindex_EfluxL_eq_compressed_pinching`,

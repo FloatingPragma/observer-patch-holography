@@ -10,11 +10,11 @@ A rule that fails on short recordings and holds on long ones is a statement abou
 
 ## Three jobs, one word
 
-Ask anybody what time is and you get a description with four separate claims folded into it: events fall in a single line, the line runs forward and cannot be run backward, the line is the same for everybody, and it goes at one rate. Chapter seven took away the third one. Two clocks in different places have no shared present in which to disagree, and Hafele and Keating's flying clocks could be read against the bench clocks only at the two moments the two sets of clocks were in one room.
+Ask anybody what time is and you get a description with four separate claims folded into it: events fall in a single line, the line runs forward and cannot be run backward, the line is the same for everybody, and it goes at one rate. Chapter seven took away the third one. Two clocks in different places have no shared present in which to disagree.
 
 The other three claims are three different objects with one word stretched over them.
 
-The first is **order**: which of two things happened before which. Order is a relation between events. It has no units, no rate and no duration in it, and chapter seven's recipe carried the whole of it, four steps wired in a line and a fifth that floats.
+The first is **order**: which of two things happened before which. Order is a relation between events. It has no units, no rate and no duration in it. Chapter seven's recipe carried the whole of it, four steps wired in a line and a fifth that floats.
 
 The second is **direction**: why the relation runs one way round and never the other. That is a property of an operation rather than of a relation, and the one the bead in Canberra was testing.
 

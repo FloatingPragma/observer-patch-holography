@@ -151,6 +151,36 @@ def _sigma_tuple(sigma_u: float, sigma_d: float) -> dict[str, float]:
     }
 
 
+def _source_projection(e_u: list[float], e_d: list[float]) -> dict[str, Any]:
+    """Recompute the target-free source fields carried by a spread pair.
+
+    The rays, the adjacent-gap ratios, and the traces are the data the source
+    packet fixes; a countermodel shares the source projection exactly when
+    these recomputed fields agree.
+    """
+    span_u = e_u[2] - e_u[0]
+    span_d = e_d[2] - e_d[0]
+    return {
+        "v_u_recomputed": [value / span_u for value in e_u],
+        "v_d_recomputed": [value / span_d for value in e_d],
+        "up_gap_ratio": (e_u[1] - e_u[0]) / (e_u[2] - e_u[1]),
+        "down_gap_ratio": (e_d[1] - e_d[0]) / (e_d[2] - e_d[1]),
+        "trace_u": sum(e_u),
+        "trace_d": sum(e_d),
+    }
+
+
+def _source_projection_difference(a: dict[str, Any], b: dict[str, Any]) -> float:
+    diffs: list[float] = []
+    for key in a:
+        left, right = a[key], b[key]
+        if isinstance(left, list):
+            diffs.extend(abs(float(x) - float(y)) for x, y in zip(left, right))
+        else:
+            diffs.append(abs(float(left) - float(right)))
+    return max(diffs)
+
+
 def _countermodel(
     name: str,
     sigma_u: float,
@@ -172,6 +202,7 @@ def _countermodel(
         "name": name,
         "role": "formal_nonidentifiability_witness_not_a_prediction",
         "source_projection_token": "same_target_free_source_packet",
+        "source_projection": _source_projection(e_u, e_d),
         "sigma_tuple": _sigma_tuple(sigma_u, sigma_d),
         "E_u_log": e_u,
         "E_d_log": e_d,
@@ -344,18 +375,26 @@ def build_artifact(
             "down_type_source_spread_nonidentifiability": True,
         },
         "theorem_statement": (
-            "After all target-derived and compare-only ancestors are removed, the strongest current quark "
-            "source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent "
-            "positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with "
-            "E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum "
-            "and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the "
-            "affine sector means, and the ordered log shapes. Therefore the present source theory does not "
-            "identify a unique quark spread package or running quark mass sextet."
+            "Granting the candidate-only, template-descended ordered three-point shape law (adjacent-gap "
+            "ratio rho_ord in the up sector and 1/rho_ord in the down sector) and the edge cocycle as the "
+            "target-free source packet, after all target-derived and compare-only ancestors are removed, "
+            "the packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent "
+            "positive moduli. The compatible spread fiber inside that granted subfamily is exactly "
+            "(R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes "
+            "every source datum and every emitted shape identity while changing "
+            "(sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. "
+            "Therefore the present target-free corpus identifies neither a unique quark spread package nor "
+            "six source-only absolute quark masses. Without the grant the shape law, the sector means, and "
+            "the spans are all unemitted, so the fiber can only enlarge."
         ),
         "scope": {
             "premise": (
                 "Target-free current-corpus quark source signature, granting the current template-derived "
                 "ordered branch-generator and edge packets for the sake of a stronger obstruction."
+            ),
+            "granted_shape_law": (
+                "candidate-only ordered three-point reciprocal-ray law; rejected at common scale on the "
+                "properly typed target surface, so the grant is a restriction to a subfamily"
             ),
             "conclusion_kind": "nonidentifiability_not_absolute_impossibility_in_future_extensions",
             "stronger_than_upstream_status_boundary": True,
@@ -417,7 +456,13 @@ def build_artifact(
             "requested_tuple_not_invariant": True,
             "formal_countermodels": [model_a, model_b],
             "countermodels_share_source_projection": (
-                model_a["source_projection_token"] == model_b["source_projection_token"]
+                _source_projection_difference(
+                    model_a["source_projection"], model_b["source_projection"]
+                )
+                < 1.0e-12
+            ),
+            "max_abs_source_projection_difference": _source_projection_difference(
+                model_a["source_projection"], model_b["source_projection"]
             ),
             "countermodels_have_distinct_requested_tuples": model_a["sigma_tuple"] != model_b["sigma_tuple"],
             "max_abs_structural_identity_residual": max_countermodel_residual,
@@ -445,9 +490,28 @@ def build_artifact(
         },
         "minimal_future_extension": {
             "required_independent_scalar_count": 2,
+            "required_independent_scalar_count_scope": (
+                "the endpoint spans (sigma_u, sigma_d) inside the granted reciprocal-ray, affine-mean subfamily"
+            ),
+            "generic_physical_interface": {
+                "scalars": ["mu_u", "sigma_u", "rho_u", "mu_d", "sigma_d", "rho_d"],
+                "unemitted": {
+                    "shape_law": ["rho_u", "rho_d"],
+                    "sector_means": ["mu_u", "mu_d"],
+                    "spans": ["sigma_u", "sigma_d"],
+                },
+                "unemitted_scalar_count": 6,
+                "note": (
+                    "The granted ordered shape law is candidate-only and template-descended, and the affine "
+                    "mean law ties the sector means to the spans only inside that subfamily. A source theory "
+                    "must emit the shape law, the sector means, and the two spans, or a typed map fixing all six."
+                ),
+            },
             "acceptable_form": (
-                "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector "
-                "normalizations, together with sector attachment and refinement compatibility."
+                "A theorem-grade source map into the six-scalar interface (mu_u, sigma_u, rho_u, mu_d, "
+                "sigma_d, rho_d), or, inside a source-derived ordered shape law and mean law, two independent "
+                "source-emitted sector normalizations, together with sector attachment and refinement "
+                "compatibility."
             ),
             "must_break_free_action": True,
             "must_replace_template_ancestry": True,
@@ -476,6 +540,8 @@ def build_artifact(
             "The unit and independently rescaled pairs are formal model witnesses only; neither is a physical sigma proposal.",
             "This certificate does not prove that no future OPH extension can emit the spread pair.",
             "It proves that the present target-free corpus, even after granting its strongest candidate source packet, does not identify it.",
+            "The granted ordered shape law is candidate-only and is rejected at common scale on the properly typed target surface; without the grant the shape law, the sector means, and the spans are all unemitted and the fiber only enlarges.",
+            "The conditional Higgs/top double-criticality coordinate, granted together with a source-side scheme conversion, would fix one combination of the two spans through the up-sector endpoint; that route is recorded as live and is outside this certificate.",
         ],
     }
 

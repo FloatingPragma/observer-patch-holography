@@ -17,16 +17,19 @@ fork (i)  - some certified datum of the new structure moves under the fiber
             datum is a new source equation and a constrained combination
             becomes emittable.  The builder records the cut and exits nonzero
             so the promotion is a reviewed step, never an automatic one.
-fork (ii) - every certified datum is invariant under the fiber action; the
-            non-identifiability theorem extends verbatim to the enlarged
-            corpus and the fiber coordinates are exactly the free scalar
-            coefficients along the two hadronic Yukawa invariant lines.
+fork (ii) - no scanned datum of that set moves under the fiber action; the
+            non-identifiability theorem extends to that set and the fiber
+            coordinates are the free scalar coefficients along the two
+            hadronic Yukawa invariant lines.
 
 The decision is computed from the receipts, not asserted: a coefficient
 blindness scan over every leaf of the matter and port manifests/receipts, the
 invariant-line dimensions, the family-attachment gate, the port claim
-boundary, and the frozen selector-menu exclusions.  A receipt that ever grows
-a Yukawa-magnitude field flips the fork on the next run.
+boundary, and the frozen selector-menu exclusions.  The blindness scan is a
+key-name heuristic: it inspects leaves whose path contains one of the declared
+needles and no others, and it covers the four listed documents only; receipts
+outside that set are outside the scan.  A scanned receipt that ever grows a
+Yukawa-magnitude field flips the fork on the next run.
 """
 
 from __future__ import annotations
@@ -168,6 +171,7 @@ def coefficient_blindness_scan(name: str, document: dict[str, Any]) -> dict[str,
             violations.append({**entry, "reason": "numeric_string_magnitude"})
     return {
         "document": name,
+        "method": "key_name_heuristic_over_leaf_paths",
         "needles": list(BLINDNESS_NEEDLES),
         "matched_leaf_count": len(matched),
         "matched_leaves": matched,
@@ -322,17 +326,21 @@ def build_artifact(
         model["changes_requested_sextet_coordinates"] = True
 
     theorem_statement = (
-        "The 2026-07 certified structure set - the conditional super-Tannakian "
+        "The 2026-07 certified structure set, namely the conditional super-Tannakian "
         "matter lift (#314), the conditional port-current algebra (#566), and "
-        "the twelve frozen flavor-orbit selector candidates - does not cut the "
-        "(R_{>0})^2 quark spread fiber. Every certified datum of that set is "
-        "invariant under the fiber action (Y_u, Y_d) -> (lambda_u Y_u, "
+        "the twelve frozen flavor-orbit selector candidates, with input hashes "
+        "pinned at emission, does not cut the (R_{>0})^2 quark spread fiber "
+        "inherited from the sigma obstruction, which grants a candidate-only "
+        "ordered shape law. Within that set, no datum reached by the key-name "
+        "blindness scan, the invariant-line dimension check, or the selector "
+        "blindness flags moves under the fiber action (Y_u, Y_d) -> (lambda_u Y_u, "
         "lambda_d Y_d) along the two one-dimensional hadronic Yukawa invariant "
-        "lines, so the fiber coordinates are exactly the free scalar "
-        "coefficients along those lines. Any future cut must pass through the "
-        "physical bindings (#599, #567), the family attachment (#569), or a "
-        "new selector under the frozen SELECTOR_SPEC discipline, and must "
-        "break the free action."
+        "lines, so the fiber coordinates are the free scalar coefficients along "
+        "those lines. Receipts outside this set are outside the scan. Any cut "
+        "must pass through the physical bindings (#599, #567), the family "
+        "attachment (#569), a new selector under the frozen SELECTOR_SPEC "
+        "discipline, or the conditional Higgs/top criticality coordinate, and "
+        "must break the free action."
         if not fiber_cut_detected
         else "A certified datum of the 2026-07 structure set moves under the "
         "spread-fiber action; the moved datum is a candidate source equation. "
@@ -378,6 +386,13 @@ def build_artifact(
             ],
         },
         "checks": checks,
+        "scanned_set": {
+            "documents": [scan["document"] for scan in blindness_scans],
+            "selector_menu": "twelve frozen candidates, blindness flags read from candidates_evaluated",
+            "input_hashes_pinned_at_emission": True,
+            "receipts_outside_this_set_scanned": False,
+        },
+        "blindness_scan_kind": "key_name_heuristic_over_leaf_paths",
         "coefficient_blindness_scans": blindness_scans,
         "coefficient_blindness_violations": scan_violations,
         "invariant_line_transport": invariant_lines,
@@ -405,6 +420,15 @@ def build_artifact(
                 "source current and same-current holonomy (#566), physical matter typing (#314), source character and global-form selection (#567), and laboratory-current attachment (#569)",
                 "source-derived attachment of the icosahedral screen action to three physical families (#569)",
                 "a thirteenth selector candidate under the frozen SELECTOR_SPEC single-comparison discipline",
+                (
+                    "the conditional Higgs/top double-criticality coordinate (m_t = 172.63 GeV at two loops, "
+                    "runs/calibration/d11_criticality_boundary_scan.json; conditional on the witness-level P root, "
+                    "the declared one-loop chart couplings, the double-criticality boundary law, and the "
+                    "boundary-scale selection premises): granted together with a source-side scheme conversion "
+                    "to the running frame, the up-sector endpoint fixes one combination of (sigma_u, sigma_d) "
+                    "under the affine mean law and cuts the fiber to one dimension; this surface is outside the "
+                    "present scan"
+                ),
             ],
             "must_break_free_action": True,
             "inherited_requirement": base.get("minimal_future_extension", {}),
@@ -428,7 +452,8 @@ def build_artifact(
             ),
         },
         "notes": [
-            "The fork is computed from the receipts on every run; a receipt that grows a Yukawa-magnitude field flips it.",
+            "The fork is computed from the receipts on every run; a scanned receipt that grows a Yukawa-magnitude field flips it.",
+            "The invariance clause quantifies over the scanned set only: four documents inspected by a key-name heuristic over leaf paths, the invariant-line dimensions, and the selector blindness flags. Leaves under other key names and receipts outside the set are not inspected.",
             "This certificate does not prove that no future OPH extension can emit the spread pair.",
             "Conditionality is inherited: #314 and #566 are conditional on their declared branch premises, and this transport is conditional on the same set.",
         ],

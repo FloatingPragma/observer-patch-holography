@@ -4159,10 +4159,17 @@ def _quark_rows(
         {
             "id": "quark_absolute_masses_obstruction",
             "statement": (
-                "No absolute quark mass is emitted: the two-modulus spread "
-                "fiber survives every certified structure transport, so the "
-                "six absolute masses are non-identifiable from the corpus, by "
-                "theorem rather than by omission"
+                "No absolute quark mass is emitted. The two-modulus spread "
+                "fiber (R>0)^2, obtained by granting a candidate-only ordered "
+                "shape law, survives the 2026-07 certified structure set "
+                "(matter receipt #314, port receipt #566, twelve frozen "
+                "selector candidates; input hashes pinned 2026-07-30), so the "
+                "six source-only absolute masses are non-identifiable from that "
+                "set, by an explicit rescaling symmetry of the registered data. "
+                "Live cuts: a Yukawa-typed source equation through the physical "
+                "bindings or the family attachment, a new selector under the "
+                "frozen discipline, or the conditional Higgs/top criticality "
+                "coordinate"
             ),
             "fork": obstruction["fork"],
             "fiber_cut_detected": obstruction["fiber_cut_detected"],

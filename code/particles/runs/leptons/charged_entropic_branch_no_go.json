@@ -1,12 +1,20 @@
 {
+  "antipodal_spectrum": [
+    -1.0327955589886446,
+    0.5163977794942883,
+    0.5163977794943561
+  ],
+  "antipodal_value_s3": -0.5163977794943226,
   "artifact": "oph_charged_entropic_branch_no_go",
   "checks": {
+    "antipodal_spectrum_degenerate": true,
+    "antipodal_value_is_negated": true,
     "extremal_spectrum_degenerate": true,
     "extremum_found": true,
     "no_go_certified": true
   },
   "checks_pass": true,
-  "consequence": "two equal charged masses on the entropic branch; the observed family requires a source-emitted charged interaction off the entropic ray, on the reference-fit locus",
+  "consequence": "two equal charged masses on the entropic branch at leading cubic order; the observed family requires a source-emitted charged interaction off the entropic ray, inside the simple-spectrum region",
   "extremal_spectrum": [
     -0.5163977794943561,
     -0.5163977794942883,
@@ -14,9 +22,18 @@
   ],
   "extremal_value_s3": 0.5163977794943226,
   "minimum_gap": 6.772360450213455e-14,
+  "oddness": "S3(-w) = -S3(w), so the minimizer of S3 on the sphere is the antipode of the maximizer: the same C5-axis orbit type with the sign of the quadrupole flipped, degenerate in both orientations",
   "promotion_allowed": false,
   "row_class": "parameter_free_no_go_certificate",
   "schema_version": 1,
-  "selection_functional": "universal entropy cubic S3 on the W5 unit sphere; no chosen coefficient",
+  "scope": {
+    "beyond_quartic": "open",
+    "mechanism_status": "second of three candidate mechanisms: closed at cubic order, excluded by comparison at quartic order, open beyond",
+    "quartic_certificate": "runs/flavor/entropy_w5_shape_certificate.json",
+    "quartic_order": "the same parameter-free packet truncated at quartic order selects a simple-spectrum golden-ratio branch above the exact crossing amplitude r_c = 2.776 and below that branch's positivity bound r < 2 sqrt(6); the golden branch is excluded by comparison with the measured charged-lepton shape at 16.7 percent only",
+    "truncation_order": "leading cubic term at small band amplitude",
+    "universal_impossibility_claimed": false
+  },
+  "selection_functional": "universal entropy cubic S3 on the W5 unit sphere, the leading term in the band amplitude; no chosen coefficient",
   "status": "ENTROPIC_CONDITIONED_BRANCH_NO_GO"
 }

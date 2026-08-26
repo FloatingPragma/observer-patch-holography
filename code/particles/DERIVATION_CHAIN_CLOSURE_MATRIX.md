@@ -1,6 +1,6 @@
 # Particle Derivation Chain Classification Matrix
 
-Generated: `2026-08-25T19:00:43Z`
+Generated: `2026-08-25T21:01:04Z`
 
 Classification: `scientific_chain_boundaries_and_required_receipts`
 Promotable chains: `none`

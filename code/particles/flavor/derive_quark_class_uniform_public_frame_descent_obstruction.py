@@ -41,7 +41,7 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
     return {
         "artifact": "oph_quark_class_uniform_public_frame_descent_obstruction",
         "scope": "global_class_uniform_public_quark_frame_descent",
-        "proof_status": "hard_no_go_current_corpus_global_classification_not_emitted",
+        "proof_status": "current_corpus_underdetermination_global_classification_not_emitted",
         "theorem_grade_global_descent": False,
         "public_promotion_allowed": False,
         "selected_class_descent": {
@@ -67,7 +67,7 @@ def build_artifact(selected_descent: dict[str, Any], off_canonical: dict[str, An
             "b: R_decl -> F_phys with a source-derived quotient-intrinsic sigma law."
         ),
         "scientific_result": {
-            "result_kind": "hard_no_go_current_corpus",
+            "result_kind": "current_corpus_underdetermination",
             "established_scope": "selected_class_theorem_plus_global_classification_obstruction",
             "why_no_global_theorem": (
                 "The selected fiber theorem uses the realized same-label line-lift section. Away from f_P, "

@@ -44,8 +44,12 @@ only.  The committed obstruction of `Variational.FiniteHistoryBridge`
 separates alphabet variations from real variations, so real
 fixed-endpoint minimality is a hypothesis here and mode-ness is a
 consequence by restriction; no clause states or implies that a mode of
-the path law satisfies the Hamilton equations, which the committed
-stationary-maximum scoping and the enrichment no-go both forbid.
+the path law satisfies the Hamilton equations independently of the
+enrichment.  The enrichment no-go forbids that enrichment-independent
+implication: the distinct convex enrichments of
+`Variational.RealizedHistoryLegendreNoGo` share every mode, while the
+junction stationarity equation of a binary mode is linear in the
+curvature parameter and holds for at most one member of the family.
 Endpoint sites are excluded because the endpoint variation functional of
 the committed curvature family is affine and unbounded below.
 

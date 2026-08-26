@@ -551,7 +551,7 @@
     },
     {
       "claim_id": "OPH-GR-D3H-GEOMETRY-PRODUCER",
-      "statement": "The support-visible incidence complex is computable from repaired quotient normal forms and is schedule/gauge/refinement invariant. On towers carrying the spherical-incidence, disk/mesh, coherent complex cross-ratio, source-bound cap-flow, KMS-normalization, and related finite receipts, the round S2, its conformal structure, the oriented round-cap family, and every clause of FiniteCapBWCertificate are produced with quantitative error envelopes. BW nevertheless requires a separate complete MGNS-1 algebra-state certificate on the same tower. Repair confluence alone underdetermines topology, dimension, orientation framing, modular normalization, and the MGNS state (explicit T2, boundary-of-4-simplex, wedge, and wrong-normalization countermodels).",
+      "statement": "The support-visible incidence complex is computable from repaired quotient normal forms and is schedule/gauge/refinement invariant. On towers carrying the spherical-incidence, disk/mesh, coherent complex cross-ratio, source-bound cap-flow, KMS-normalization, and related finite receipts, the round S2, its conformal structure, the oriented round-cap family, and every clause of FiniteCapBWCertificate are produced with quantitative error envelopes. BW nevertheless requires a separate complete MGNS-1 algebra-state certificate on the same tower. Repair confluence alone, at the rewrite signature (patches in the seed record, repair steps) = (3,1) shared by all four countermodel systems, underdetermines topology, dimension, and modular normalization (explicit T2, boundary-of-4-simplex 2-skeleton, wedge, and wrong-normalization countermodels). Orientation framing and the MGNS state are separately typed receipts with no countermodel artifact of their own. The receipt set is one sufficient certificate; its semantic minimality stays open pending the isolated full-tower countermodel matrix.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "producer_theorem_plus_underdetermination_no_go",
       "assumptions": [
@@ -1831,7 +1831,7 @@
     },
     {
       "claim_id": "OPH-PUBLIC-RECORD-ALGEBRA-NOCLONING",
-      "statement": "For every finite projective partition, the span of its projectors is a commutative matrix star subalgebra contained in the partition commutant. After zero projectors are removed, trace coordinates and projector synthesis are mutual inverses and give an exact star-algebra equivalence between the public record algebra and complex-valued functions on the active labels. Independently, if one complex Hilbert-space linear isometry copies two sharp states from the same normalized blank, inner-product preservation forces their overlap z to satisfy z squared equals z, hence z is zero or one. The cloning equations force copied-vector norms to be zero or one, and the overlap-one branch forces equality. Two distinct alternatives copied by one device are therefore orthogonal. The mixed-state no-broadcasting implication is exposed as an explicit adapter premise rather than asserted as a theorem.",
+      "statement": "For every finite projective partition, the span of its projectors is a commutative matrix star subalgebra contained in the partition commutant. After zero projectors are removed, trace coordinates and projector synthesis are mutual inverses and give an exact star-algebra equivalence between the public record algebra and complex-valued functions on the active labels. Independently, if one linear isometry of the algebraic tensor product H (x) H over a complex inner product space (the Hilbert tensor product in finite dimension), ancilla-free, copies two sharp states from the same normalized blank, inner-product preservation forces their overlap z to satisfy z squared equals z, hence z is zero or one. The cloning equations force copied-vector norms to be zero or one, and the overlap-one branch forces equality. Two distinct alternatives copied by one device are therefore orthogonal. The mixed-state no-broadcasting implication is exposed as an explicit adapter premise rather than asserted as a theorem.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "exact_finite_public_record_algebra_and_sharp_no_cloning",
       "assumptions": [
@@ -2688,7 +2688,7 @@
     },
     {
       "claim_id": "OPH-SM-SIMPLE-GUT-XY-CHANNEL-ABSENCE",
-      "statement": "For the A1/A2-forced product Lie type u(1)+su(3)+su(2), the adjoint is the direct sum (8,1,0)+(1,3,0)+(1,1,0). It contains no mixed (3,2,-5/6) or conjugate X/Y generator. The ordinary minimal simple-GUT gauge-exchange channel is therefore absent from this product adjoint. This algebraic corollary does not establish general proton stability or a proton lifetime and does not exclude scalar mediators, higher-dimensional baryon violation, or other ultraviolet gauge mechanisms.",
+      "statement": "For the forced abstract product Lie type u(1)+su(3)+su(2), instantiated by the declared charged-double-triplet current witness whose physical source gate is false, the adjoint is the direct sum (8,1,0)+(1,3,0)+(1,1,0). It contains no mixed (3,2,-5/6) or conjugate X/Y generator inside the twelve-dimensional current algebra. The ordinary minimal simple-GUT gauge-exchange channel is therefore absent from this product adjoint. This algebraic corollary does not establish general proton stability or a proton lifetime and does not exclude scalar mediators, higher-dimensional baryon violation, or other ultraviolet gauge mechanisms.",
       "owner_paper": "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
       "tier": "exact_product_lie_type_adjoint_corollary",
       "assumptions": [
@@ -2706,7 +2706,7 @@
         "docs/POSTDICTION_LEDGER.md",
         "paper/tex_fragments/DERIVATION_TECHNICAL_SUPPLEMENT_PORT.tex"
       ],
-      "falsifier": "The forced product Lie algebra contains a mixed (3,2,-5/6) or conjugate generator, or its adjoint does not decompose as (8,1,0)+(1,3,0)+(1,1,0).",
+      "falsifier": "The premise a1_a2_forced_standard_model_lie_type fails at one of its adapter inputs in Lean/Screen/A2HolonomyBridge.lean: the twelve-dimensional compact port response algebra, the centre bound dz <= 1 (hcentreBound), the centreless four-factor exclusion (hcentreless), the compact-simple dimension list SimpleDims, or the reductive split; the product type is then unforced and the corollary loses its premise. Given the product type, the direct-sum adjoint (8,1,0)+(1,3,0)+(1,1,0) with no mixed (3,2,-5/6) generator is a representation-theoretic identity and carries no independent falsifier.",
       "scope_if_false": "Only the product-adjoint X/Y-channel exclusion and the current classification supporting it are reopened. No general proton-stability or lifetime claim is made.",
       "status": "exact_product_adjoint_xy_channel_exclusion__general_proton_stability_not_claimed",
       "claim_class": "conditional_implication",
@@ -3007,7 +3007,7 @@
     },
     {
       "claim_id": "OPH-A5-REAL-AXIS-CABIBBO-NOGO",
-      "statement": "Exhaustive construction of the 31 antipode-identified real three-dimensional icosahedral residual axes gives six five-fold, ten three-fold, and fifteen two-fold axes. Their complete acute pairwise spectrum has minimum nonzero angle 20.905157 degrees, with sine 0.356822, while the compare-only |V_us|=0.2250 coordinate corresponds to 13.002878 degrees. Therefore the narrowly defined hypothesis that the Cabibbo angle is directly an acute Euclidean angle between two axes in this menu is excluded. The receipt does not exclude all A5 flavor models, spinorial or other representations, higher-order symmetry breaking, or arbitrary overlap geometry.",
+      "statement": "Exhaustive construction of the 31 antipode-identified real three-dimensional icosahedral residual axes gives six five-fold, ten three-fold, and fifteen two-fold axes. Their complete acute pairwise spectrum has minimum nonzero angle 20.905157 degrees, with sine 0.356822, while the compare-only |V_us|=0.2250 coordinate corresponds to 13.002878 degrees. Therefore the narrowly defined hypothesis that the Cabibbo angle is directly an acute Euclidean angle between two axes in this menu is excluded. The two eigenvector-overlap readings |V_us|=cos(theta_axis) and |V_us|^2=sin^2(theta_axis)/2 are likewise absent from the same sixteen-row exact table. The coordinate construction of the axes is certified by the Python receipt; Lean certifies the finite comparison on the emitted table. The receipt does not exclude all A5 flavor models, spinorial or other representations, higher-order symmetry breaking, or overlap geometry beyond those two readings.",
       "owner_paper": "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
       "tier": "exact_finite_no_go_for_direct_real_3d_icosahedral_axis_Cabibbo_identification",
       "assumptions": [
@@ -3736,7 +3736,7 @@
     },
     {
       "claim_id": "OPH-STRING-SELECTOR",
-      "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology row against OPH gates; the issue-369 rank obstruction retracts that row from selected or passing string status.",
+      "statement": "The string-vacuum selector paper treats string theory as an effective OPH edge language and tests a Bouchard-Donagi massless-cohomology row against OPH gates; the issue-369 fail-closed moduli-locking gate retracts that row from selected or passing string status because the published-slice rank certificate is absent and the only executable target-side proxy consumes no BD branch value and has rank zero. A certified completion that cuts the physical slice to five or fewer dimensions stays open.",
       "owner_paper": "extra/observer_patch_holography_as_string_vacuum_selector.tex",
       "tier": "fail_closed_selector_continuation",
       "assumptions": [
@@ -3763,7 +3763,7 @@
       ],
       "falsifier": "Failure of the critical edge, OPH comparison registry, safety layer, stable completion, thresholds, decoupling, augmented isolation, or branch coverage retracts the BD witness. Its five-row proxy has rank zero on the published pre-completion slice, while the completed constraints, stable point, physical forward map, augmented Jacobian, and interval box are absent.",
       "scope_if_false": "Failure retracts OPH-correct selected-candidate status for the named BD row; the structural BD audit, OPH recovered core, and other string candidates are separate.",
-      "status": "resource_deferred__rank_gate_failed_structural_benchmark_only",
+      "status": "resource_deferred__moduli_locking_gate_fail_closed_structural_benchmark_only",
       "claim_class": "emitted_artifact",
       "gates": [],
       "premise_dependencies": {

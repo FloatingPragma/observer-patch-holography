@@ -92,7 +92,7 @@ The charges, the family count and the strength of electromagnetism all come off 
 
 The question expects an evasion, on the assumption that a structure either explains everything or is hiding something.
 
-The stopping point is printed to the same precision as the results. The carrier's geometry fixes the charges and the family count. It does not fix the mixing between families. Every angle available on the twelve-port wiring was enumerated, and the smallest nonzero one is 20.9052 degrees, while the Cabibbo angle measured in the laboratory is 13.0029. No angle on that list lands within seven degrees of the measurement.
+The stopping point is printed to the same precision as the results. The carrier's geometry fixes the charges and the family count. It does not fix the mixing between families. Every angle between two symmetry axes of the twelve-port solid was enumerated, four hundred and sixty-five of them, and the smallest nonzero one is 20.9052 degrees, while the Cabibbo angle measured in the laboratory is 13.0029. No angle on that list lands within seven degrees of the measurement.
 
 The other boundary is an instrument. The electromagnetic closure certifies 137.035660 where the measurement reads 137.035999. The difference sits in the quark cloud. Closing it calls for one strong-force quantity known to four parts in a billion, and the best determinations reach four parts in a thousand after campaigns costing ten million processor-hours.
 
@@ -162,7 +162,7 @@ The account ends in the words good and evil, a law that addresses every recorded
 
 Subject matter is doing the categorizing: touch those topics and whatever you are doing becomes doctrine.
 
-Every statement here carries something that would contradict it. A measured ratio that moves takes the capacity relation and the fine-structure closure with it, and one decay event in a tank of water takes the argument about the proton. There is no authority to defer to and no text to accept: the twelve-patch enumeration runs over two thousand and forty-eight states and can be done by hand in an evening.
+Every statement here carries something that would contradict it. A measured ratio that moves takes the capacity relation and the fine-structure closure with it, and one proton decaying by the unified route in a tank of water takes the argument about the proton. There is no authority to defer to and no text to accept: the twelve-patch enumeration runs over two thousand and forty-eight states and can be done by hand in an evening.
 
 The traffic has run the other way before. Maupertuis announced least action to the Académie in 1744 and took it for proof of a supreme being, because it looked like the universe economizing, and the economizing turned out to be what taking logarithms of a product of local factors does. The claim about continuation is a statement about a checkpoint: records, accessible state, interfaces and future law. Nothing in the arrangement performs a restoration, so nobody is being offered one.
 

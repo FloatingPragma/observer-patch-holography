@@ -78,12 +78,17 @@ degeneracy is a property of the graded algebras, not of a flow that was
 trivial anyway.
 
 Public level: by the cited B3 rigidity theorem
-`OPH.Dynamics.ContinuousPublicStarFlow.toAut_eq_refl`, the finite
-public record algebra admits NO nontrivial pointwise-continuous
-real-parameter star flow at all (`publicRecord_no_thermal_flow`,
-`publicRecord_flow_fixes`).  Public thermality is therefore refuted,
-not merely unproved: there is no public flow with respect to which a
-KMS condition could hold nontrivially.
+`OPH.Dynamics.ContinuousPublicStarFlow.toAut_eq_refl`, every
+pointwise-continuous real-parameter group of star automorphisms of the
+finite public record algebra is the identity
+(`publicRecord_no_thermal_flow`, `publicRecord_flow_fixes`).  KMS
+relative to any pointwise-continuous public star flow is therefore
+degenerate, because every such flow is the identity.  The theorem
+excludes continuous automorphism groups only, stated over an abstract
+finite label type: classical detailed-balance thermality of public
+records relative to continuous row-stochastic semigroups, the class
+`OPH.Dynamics.positive_unital_iff_stochastic` keeps live, is not
+evaluated here.
 
 ## Part 3 — TYPED NON-EVALUABLE EXIT: horizon thermality
 
@@ -488,14 +493,17 @@ theorem witnessHamiltonian_flow_moves :
 
 end DegenerateInheritance
 
-/-! ## Part 2, public side — thermality refuted by the B3 rigidity theorem -/
+/-! ## Part 2, public side: continuous-automorphism KMS degenerate by the B3 rigidity theorem -/
 
-/-- Citation of B3: the finite public record algebra admits no
-nontrivial pointwise-continuous real-parameter star flow.  There is no
-public flow with respect to which a KMS condition could hold
-nontrivially, so public thermality is refuted, not merely unproved.
-The proof is `OPH.Dynamics.ContinuousPublicStarFlow.toAut_eq_refl`,
-cited, not re-proved. -/
+/-- Citation of B3: every pointwise-continuous real-parameter group of
+star automorphisms of the finite public record algebra is the identity.
+KMS relative to any such public star flow is degenerate because the flow
+is the identity.  Excluded: continuous automorphism groups only, over an
+abstract finite label type.  Live: continuous row-stochastic public
+semigroups (`OPH.Dynamics.positive_unital_iff_stochastic`), whose
+detailed-balance thermality is not evaluated here.  The proof is
+`OPH.Dynamics.ContinuousPublicStarFlow.toAut_eq_refl`, cited, not
+re-proved. -/
 theorem publicRecord_no_thermal_flow {κ : Type*} [Fintype κ] [DecidableEq κ]
     (A : OPH.Dynamics.ContinuousPublicStarFlow κ) (t : ℝ) :
     A.toAut t = StarAlgEquiv.refl :=

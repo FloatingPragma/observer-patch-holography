@@ -1,5 +1,12 @@
 {
   "artifact": "oph_d11_reference_exact_adapter",
+  "auxiliary_direct_top_codomain": {
+    "description": "t-Quark Mass (Direct Measurements)",
+    "mt_gev": 172.6,
+    "role": "compare_only_alternative_extraction_codomain",
+    "sigma_gev": 0.27,
+    "summary_id": "Q007TP"
+  },
   "exact_fit_residuals_gev": {
     "mH_gev": 0.0,
     "mt_pole_gev": 0.0
@@ -15,7 +22,7 @@
     "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
     "mt_pole_gev": "mt_pole_core_gev + d_mt_pole_d_y_t * delta_y_t_mt"
   },
-  "generated_utc": "2026-07-28T18:01:20Z",
+  "generated_utc": "2026-08-26T04:16:40Z",
   "inverse_slice_coordinates": {
     "delta_lambda_mt": -0.003109645833333345,
     "delta_y_t_mt": 0.009940801211007214
@@ -37,7 +44,16 @@
   },
   "promotable": false,
   "proof_status": "compare_only_exact_reference_adapter",
+  "reference_codomain": {
+    "mH_summary_id": "S126M",
+    "mt_pole_description": "t-Quark Pole Mass from Cross-Section Measurements",
+    "mt_pole_summary_id": "Q007TP4"
+  },
   "reference_source": "code/particles/data/particle_reference_values.json",
+  "reference_uncertainties_gev": {
+    "mH_gev": 0.11,
+    "mt_pole_gev": 0.6
+  },
   "scope": "compare_only_inverse_slice",
   "source_artifact": "code/particles/runs/calibration/d11_declared_calibration_surface.json",
   "strictly_not_claimed": [

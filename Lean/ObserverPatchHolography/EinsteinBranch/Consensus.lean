@@ -147,8 +147,12 @@ theorem demoTower_boundaryFiber : BoundaryFiber demoTower := by
 /-! ## Model-extension non-entailment -/
 
 /-- Geometry/stress decoration of a bare tower.  None of these fields occurs
-in `BareConsensusTower`.  Integer scalar components suffice for the logical
-separation; the result is about definability, not continuum geometry. -/
+in `BareConsensusTower`, and no field ties the decoration to `reduct.Quot`:
+the decoration is free.  Integer scalar components suffice for the logical
+separation; the result is about definability, not continuum geometry.
+Extensions whose geometry is a function of the quotient are a different
+object; they are handled by `CommonReadoutTower` and the composition
+theorems below. -/
 structure GeometricExtension where
   reduct : BareConsensusTower ℕ
   Point : Type
@@ -199,7 +203,10 @@ theorem not_einsteinEq_demoNonEinsteinExtension :
   omega
 
 /-- Bare finite consensus is not Einstein-complete: no predicate of the bare
-tower agrees with `EinsteinEq` on every geometric extension. -/
+tower agrees with `EinsteinEq` on every geometric extension.  The quantifier
+ranges over free decorations of the reduct; the witness pair decorates the
+constant `demoTower` with curvature `0` and `1`.  Nothing is claimed about
+extensions whose geometry is read from `Quot`. -/
 theorem bare_consensus_not_einstein_complete :
     ¬ ∃ decide : BareConsensusTower ℕ → Prop,
         ∀ E : GeometricExtension, (decide E.reduct ↔ EinsteinEq E) := by

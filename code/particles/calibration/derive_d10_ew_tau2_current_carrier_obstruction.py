@@ -51,6 +51,19 @@ def build_artifact(source_pair: dict, population: dict, fiberwise_tree_law: dict
     mz_current = v_value * math.sqrt(math.pi * (alpha_y + alpha2) * n0)
     mw_exact = float(references["w_boson"]["value_gev"])
     mz_exact = float(references["z_boson"]["value_gev"])
+    mw_sigma = float(references["w_boson"]["error_plus_gev"])
+    mz_sigma = float(references["z_boson"]["error_plus_gev"])
+
+    # First-order germ coefficients at the current point and the tau2 value each
+    # leg would need on its own. A single tau2 serves both legs at first order
+    # only when the two required values share a sign.
+    germ_w = 0.5
+    germ_z = beta_ew / (2.0 * n0)
+    w_offset = mw_current - mw_exact
+    z_offset = mz_current - mz_exact
+    tau2_required_w = (mw_exact / mw_current - 1.0) / germ_w
+    tau2_required_z = (mz_exact / mz_current - 1.0) / germ_z
+    single_tau2_possible = (tau2_required_w > 0.0) == (tau2_required_z > 0.0)
 
     return {
         "artifact": "oph_d10_ew_tau2_current_carrier_obstruction",
@@ -83,10 +96,24 @@ def build_artifact(source_pair: dict, population: dict, fiberwise_tree_law: dict
             "MW_pole": mw_exact,
             "MZ_pole": mz_exact,
         },
+        "proof_scope": "first_order_germ_at_current_point_against_current_reference_central_values",
         "direction_obstruction": {
-            "W_current_minus_exact_sign": "positive" if mw_current > mw_exact else "negative" if mw_current < mw_exact else "zero",
-            "Z_current_minus_exact_sign": "positive" if mz_current > mz_exact else "negative" if mz_current < mz_exact else "zero",
-            "single_tau2_possible": False,
+            "W_current_minus_exact_sign": "positive" if w_offset > 0 else "negative" if w_offset < 0 else "zero",
+            "Z_current_minus_exact_sign": "positive" if z_offset > 0 else "negative" if z_offset < 0 else "zero",
+            "germ_coefficient_W": germ_w,
+            "germ_coefficient_Z": germ_z,
+            "tau2_required_for_W_first_order": tau2_required_w,
+            "tau2_required_for_Z_first_order": tau2_required_z,
+            "single_tau2_possible": single_tau2_possible,
+            "evaluation": "computed from the two offset signs and the germ coefficient signs at the current point",
+        },
+        "reference_distance": {
+            "W_offset_gev": w_offset,
+            "Z_offset_gev": z_offset,
+            "W_reference_sigma_gev": mw_sigma,
+            "Z_reference_sigma_gev": mz_sigma,
+            "W_offset_sigma": w_offset / mw_sigma,
+            "Z_offset_sigma": z_offset / mz_sigma,
         },
         "minimal_extra_scalar_or_invariant": {
             "symbol": "delta_n_tree_exact",

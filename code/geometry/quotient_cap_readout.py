@@ -1,31 +1,34 @@
 #!/usr/bin/env python3
 """Machine receipts for the quotient-intrinsic geometry producer (GitHub #523).
 
-Implements the objects of The spacetime and Einstein paper's subsection
-`subsec:quotient-intrinsic-geometry-producer`:
+Implements the objects of Theorem 4.3c (quotient-intrinsic geometry producer
+and dimension-selection boundary) in `paper/tex_fragments/PAPER.tex`, the
+technical fragment included by The spacetime and Einstein paper; the clause
+names below are descriptive and carry no LaTeX label in the .tex sources:
 
 * a finite transactional quotient repair system whose record layer binds one
   record token per 2-cell of an abstract patch adjacency (the adjacency is
   never consumed directly by the readout: the incidence complex is recomputed
   from the repaired record tokens of the normal form);
-* the support-visible incidence complex `K(W)` of
-  Definition `def:support-visible-incidence-complex`, with the invariance
-  checks of Lemma `lem:incidence-invariance` (schedule, gauge, refinement);
-* the computable receipts of Definition `def:spherical-incidence-receipt`
+* the support-visible incidence complex `K(W)`, with the invariance
+  checks (schedule, gauge, refinement);
+* the computable spherical-incidence receipt (i) of Theorem 4.3c
   (closed combinatorial surface, connected, Euler characteristic 2, coherent
-  orientation) and the wrong-beta KMS receipt clause;
-* the topology-production step of Theorem `thm:topology-production`
-  (surface classification by orientability + Euler characteristic);
-* the conformal production step of Theorem `thm:conformal-cap-production`:
-  modular cross-ratios against a fixed gauge triple reconstruct the celestial
-  embedding, cap normals `n_C` are produced from boundary circles by the
-  formula of Proposition `prop:round-cap-normal`, and the residuals shrink
-  under refinement;
-* the underdetermination countermodels of
-  Theorem `thm:incidence-underdetermination`: repair systems with isomorphic
-  rewrite structure over S^2, T^2 (Csaszar torus), the 2-skeleton of the
-  boundary of the 4-simplex, and a wedge of two spheres, distinguished only
-  by the receipts.
+  orientation) and the wrong-beta scalar KMS receipt clause;
+* the topology-production step (surface classification by orientability +
+  Euler characteristic);
+* the conformal production step: modular cross-ratios against a fixed gauge
+  triple reconstruct the celestial embedding, cap normals `n_C` are produced
+  from boundary circles by the round-cap-normal formula, and the residuals
+  shrink under refinement;
+* the underdetermination countermodels of Theorem 4.3c: four repair systems
+  with one rewrite signature `(3, 1)` (patches in the seed record, repair
+  steps) over S^2, T^2 (Csaszar torus), the 2-skeleton of the boundary of
+  the 4-simplex, and a wedge of two spheres, distinguished only by the
+  receipts.  They show that confluence alone does not select topology,
+  dimension, or modular normalization; no orientation-framing or MGNS-state
+  countermodel is built here, and the receipt set is one sufficient
+  certificate whose semantic minimality stays open.
 """
 
 from __future__ import annotations
@@ -301,7 +304,7 @@ def spherical_incidence_receipt(K: IncidenceComplex) -> bool:
 
 
 def classify_surface(K: IncidenceComplex) -> str:
-    """Theorem thm:topology-production: classification by receipts."""
+    """Topology-production step of Theorem 4.3c: classification by receipts."""
     if not is_connected(K):
         return "DISCONNECTED"
     if not is_closed_surface(K):

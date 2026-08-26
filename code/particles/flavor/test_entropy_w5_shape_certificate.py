@@ -80,6 +80,16 @@ class EntropyW5ShapeTests(unittest.TestCase):
         self.assertGreater(r_c, 2.0)
         self.assertLess(r_c, 3.0)
 
+    def test_positivity_domain_brackets_the_crossing(self) -> None:
+        crossing = self.payload["crossing"]
+        domain = crossing["positivity_domain"]["branches"]
+        self.assertEqual(domain["prolate"]["r_squared_bound"], "60 + 0*sqrt5")
+        self.assertEqual(domain["golden"]["r_squared_bound"], "24 + 0*sqrt5")
+        r_c = float(crossing["r_c_display"])
+        self.assertLess(r_c, float(domain["golden"]["r_bound_display"]))
+        self.assertIn("positivity", crossing["selection"])
+        self.assertIn("r^2 > 96", crossing["other_critical_orbits"])
+
     def test_no_lepton_value_outside_the_comparison_block(self) -> None:
         payload = {k: v for k, v in self.payload.items() if k != "comparison"}
         text = json.dumps(payload)

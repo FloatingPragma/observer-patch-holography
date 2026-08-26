@@ -105,11 +105,18 @@ def closed_entries() -> list[dict[str, Any]]:
             "family": "charged leptons",
             "class": "closed",
             "statement": (
-                "the parameter-free entropic conditioned branch selects the "
-                "C5-axis orbit with an exactly degenerate spectrum: two "
-                "equal charged masses; the second of the three candidate "
-                "mechanisms is closed, and the surviving route is a "
-                "source-emitted charged interaction off the entropic ray"
+                "at leading cubic order in the band amplitude the "
+                "parameter-free entropic conditioned branch selects the "
+                "C5-axis orbit, whose spectrum is exactly degenerate (two "
+                "equal charged masses) in both orientations; at quartic "
+                "order the same packet emits a simple-spectrum golden-ratio "
+                "branch above the exact crossing amplitude, excluded by "
+                "comparison with the measured charged-lepton shape at 16.7 "
+                "percent only; the second of the three candidate mechanisms "
+                "is closed at cubic order, excluded by comparison at quartic "
+                "order, and open beyond quartic truncation; the surviving "
+                "route is a source-emitted charged interaction off the "
+                "entropic ray, inside the simple-spectrum region"
             ),
             "artifact": "runs/leptons/charged_entropic_branch_no_go.json",
         },

@@ -194,7 +194,7 @@ def build_artifact(
         },
         "scientific_result": {
             "off_canonical_evaluator_supplied": False,
-            "closure_kind": "hard_no_go_current_corpus",
+            "closure_kind": "current_corpus_underdetermination",
             "theorem_grade_surface": "selected_public_physical_quark_frame_class_only",
             "blocked_surface": "arbitrary_P_off_canonical_quark_evaluator",
             "runtime_surface_classification": (

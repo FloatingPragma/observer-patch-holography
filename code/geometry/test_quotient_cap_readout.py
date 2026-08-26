@@ -123,7 +123,7 @@ def test_refinement_naturality():
 
 
 # ---------------------------------------------------------------------------
-# receipts and topology production (thm:topology-production)
+# receipts and topology production (Theorem 4.3c, paper/tex_fragments/PAPER.tex)
 # ---------------------------------------------------------------------------
 
 def test_topology_production_and_underdetermination():

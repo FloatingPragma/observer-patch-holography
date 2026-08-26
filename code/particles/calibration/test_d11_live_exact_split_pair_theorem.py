@@ -40,7 +40,9 @@ def test_d11_live_exact_split_pair_theorem_closes_exact_pair() -> None:
     assert payload["non_circularity_status"]["missing_source_object"] == (
         "closed_promotable_EWTargetFreeRepairValueLaw_D10"
     )
-    assert payload["closure_logic"]["fixed_ray_blocked"] is True
+    assert payload["closure_logic"]["fixed_ray_central_pair_off_ray"] is True
+    assert payload["closure_logic"]["fixed_ray_data_compatible_within_one_sigma"] is True
+    assert payload["closure_logic"]["split_role"] == "chosen_extension"
     assert payload["exact_split_pair"]["mH_gev"] == 125.1995304097179
     assert payload["exact_split_pair"]["mt_pole_gev"] == 172.3523553288312
     assert payload["exact_split_pair"]["w_HT_exact"] == pytest.approx(-0.0003857630977715052, abs=5.0e-18)

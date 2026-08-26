@@ -114,7 +114,7 @@
    "name": "counting path reference",
    "type": "selection_rule",
    "disposition": "remove",
-   "statement": "The path-space reference is a supplied initial law times the uniform-step counting weight; among row-stochastic kernels this normal form is characterized by invariance under independent relabeling of transition targets at fixed source, by row-constant weight, or by constant log-transition step action, and Axiom 3 selects neither the counting reference nor the trivial datum whose conditional resampling realizes it. The reference is formalized in Lean/InformationProjection/LogTransitionAction.lean; Lean/InformationProjection/ReferenceNormalForm.lean proves the characterization, and Lean/InformationProjection/SourceReferenceSelection.lean proves the counting-reference realization and the non-selection boundary.",
+   "statement": "The path-space reference is a supplied initial law times the uniform-step counting weight; among row-stochastic kernels this normal form is characterized by invariance under independent relabeling of transition targets at fixed source, by row-constant weight, or by constant log-transition step action, and the formalized Axiom 3 takes the reference as an input, so no theorem selects the counting reference or the trivial datum whose conditional resampling realizes it. The reference is formalized in Lean/InformationProjection/LogTransitionAction.lean; Lean/InformationProjection/ReferenceNormalForm.lean proves the characterization, and Lean/InformationProjection/SourceReferenceSelection.lean proves the conditional counting-reference realization together with the rescaling and initial-law non-uniqueness controls.",
    "consuming_lanes": [
     731
    ],
@@ -128,7 +128,7 @@
    "evidence_roles": {
     "Lean/InformationProjection/ReferenceNormalForm.lean": "conditional_consumer",
     "Lean/InformationProjection/LogTransitionAction.lean": "statement",
-    "Lean/InformationProjection/SourceReferenceSelection.lean": "no_go",
+    "Lean/InformationProjection/SourceReferenceSelection.lean": "conditional_consumer",
     "claims/assumption_dictionary.md": "statement",
     "Lean/Variational/SourceToHamiltonianComposed.lean": "conditional_consumer"
    },
@@ -139,7 +139,7 @@
    "name": "real Legendre enrichment",
    "type": "representation_choice",
    "disposition": "remove",
-   "statement": "The finite source law fixes its four-corner log-transition action and a bilinear real extension that is affine in the velocity slot; adding (a/2)*y*(y - 1) for any a > 0 changes no realized source history and yields strictly convex Legendre-Hamilton systems that differ between values of a. Selecting one real velocity curvature is therefore a representation choice beyond the realized-history law, proved as a sharp finite no-go in Lean/Variational/RealizedHistoryLegendreNoGo.lean with the bridge itself in Lean/Variational/LegendreBridge.lean.",
+   "statement": "The finite source law fixes its four-corner log-transition action and a bilinear real extension that is affine in the velocity slot; adding (a/2)*y*(y - 1) for any a > 0 changes no realized source history and yields strictly convex Legendre-Hamilton systems that differ between values of a. Selecting one real velocity curvature is therefore a representation choice beyond the realized-history law, proved as an explicit-witness nonidentifiability on the committed chain literals in Lean/Variational/RealizedHistoryLegendreNoGo.lean with the bridge itself in Lean/Variational/LegendreBridge.lean; finer alphabets, refinement limits, and other source data are untested by it.",
    "consuming_lanes": [
     731
    ],
@@ -1158,7 +1158,7 @@
    "name": "Yukawa interaction-line and coupling-matrix attachment",
    "type": "selection_rule",
    "disposition": "remove",
-   "statement": "The gauge-invariant up, down, and charged-lepton interaction lines are selected on the one-Higgs matter package and furnished with complete Yukawa matrices, including family labels and physical chiral attachment. The exterior grammar records compatible invariant lines, while exact non-identifiability receipts show that it does not determine their matrices, eigenvalues, textures, or phases.",
+   "statement": "The gauge-invariant up, down, and charged-lepton interaction lines are selected on the one-Higgs matter package and furnished with complete Yukawa matrices, including family labels and physical chiral attachment. The exterior grammar records compatible invariant lines. The exact non-identifiability receipt holds both frames fixed and frees the two eigenvalue moduli, while matrices, textures, and phases are absent from the registered one-generation grammar.",
    "consuming_lanes": [
     735,
     736,

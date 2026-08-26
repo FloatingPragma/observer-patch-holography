@@ -14,7 +14,9 @@ the reals by the bilinear function `chainLogLagrangian`.  This module audits
 whether that realized-history object itself determines a regular
 Legendre--Hamilton system.
 
-The answer is a sharp finite no-go.
+The answer is an explicit-witness nonidentifiability on the committed chain
+literals: four binary corner values fix no real function, and the regular
+counterfamily below makes that underdetermination concrete.
 
 * The bilinear extension is affine in its second (velocity) slot.  Its
   momentum is independent of velocity, so no global velocity solver exists.
@@ -32,7 +34,9 @@ Thus the finite source dynamics **does produce** the corner action, but it
 does not produce the real velocity curvature, regular Legendre map, or
 Hamiltonian.  The curvature parameter and off-alphabet extension below are
 constructed enrichments.  Selecting one requires additional source data or a
-new principle; it cannot be inferred from the current realized-history law.
+new principle; it cannot be inferred from the two-state realized-history
+law alone.  Finer alphabets of the same run, refinement limits, other
+source data, and declared principles are untested here and stay live.
 No continuum, physical clock, units, amplitudes, or laboratory current are
 claimed.
 -/

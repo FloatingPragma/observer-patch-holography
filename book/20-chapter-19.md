@@ -160,9 +160,9 @@ Ask how the family changes over a single instant rather than over a stretch and 
 
 The flow fixes its generator to within one real number. Add a fixed amount to the Hamiltonian everywhere at once, which is to say add a multiple of the operation that does nothing, and that piece commutes with every question in the block and moves none of them, so the family of changes comes back exactly as it was. Two generators producing the same flow differ by that one amount and by nothing else. The gaps between the energies, the ratios of the gaps, the whole spectrum up to a rigid shift, all of it is pinned by the motion. Which is why a laboratory reads differences in energy. Balmer's four wavelengths are differences. The one number the flow declines to fix cancels out of every one of them.
 
-The mirror statement is stranger and it is about the record layer. Every change of a record algebra that preserves the structure is a permutation of the finitely many labels the records can take. There are finitely many such permutations. A continuous family of them that starts at the identity has nowhere to go, since it would have to jump, so it sits at the identity forever. A purely classical public record cannot flow continuously at all.
+The mirror statement is stranger and it is about the record layer. Every change of a record algebra that preserves the structure is a permutation of the finitely many labels the records can take. There are finitely many such permutations. A continuous family of them that starts at the identity has nowhere to go, since it would have to jump, so it sits at the identity forever. A purely classical public record cannot flow continuously and reversibly at all.
 
-Put those two together. The world of pointer readings has no continuous dynamics of its own, in the exact sense that its only structure-preserving motions are discrete relabelings. Whatever flows is flowing in the part that refuses to commute. The record layer changes by relabeling or it changes not at all.
+Put those two together. The world of pointer readings has no continuous reversible dynamics of its own, in the exact sense that its only structure-preserving motions are discrete relabelings. Whatever flows is flowing in the part that refuses to commute. The record layer changes by relabeling or it changes not at all.
 
 ## A rule that fits every count
 

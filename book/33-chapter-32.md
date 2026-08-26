@@ -102,7 +102,7 @@ Why are there three families of matter rather than one or seven? Because a physi
 
 Why do the charges come in sixths? Because six combinations of gauge moves do nothing whatever to any piece of matter, so they get bundled in with the move that does nothing at all, and the bundle holds only if every hypercharge advances in whole multiples of one sixth. That is the lock that leaves hydrogen neutral to better than one part in a billion billion.
 
-Why does the proton refuse to decay? Because the term you would have to write down needs a carrier direction coupling color to weak charge at once, the twelve-dimensional list of directions splits into eight, three and one and holds no such direction, and the amplitude is zero at every order with no small coupling in it and no heavy mass in any denominator.
+Why does the proton refuse to decay the grand-unified way? Because the carrier that route needs, one direction coupling color to weak charge at once, is missing from a twelve-dimensional list that splits into eight, three and one, and a missing direction cannot be made small or slow: that route is closed exactly.
 
 Why is the fine-structure constant near one part in 137? Because the grain of a screen has two readings that have to agree, and the equation saying so has a single root: 137.035660 against a measured 137.035999, with the difference sitting in the quark cloud and waiting on an instrument.
 

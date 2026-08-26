@@ -37,8 +37,17 @@ WHAT IS PROVED (exact, in Q(sqrt5)):
   exactly phi.
 * The exact branch invariants give the exact crossing amplitude r_c at
   which the simple-spectrum branch overtakes the prolate branch, so the
-  entropy packet selects: the degenerate prolate orbit below r_c and the
-  golden-ratio orbit above it.
+  entropy packet selects, on the compared strata: the degenerate prolate
+  orbit below r_c and the golden-ratio orbit above it.
+* The record is a probability vector, q_i = (1 + r w_i)/12 > 0, so each
+  branch is admissible only inside its positivity domain
+  r < 1/|min_i w_i|: r^2 < 60 for the prolate branch and r^2 < 24 for the
+  golden branch, both recorded exactly.  The C3-axis orbit is a further
+  critical point by symmetric criticality; its cubic vanishes exactly
+  (two-value antipodal profile), its quartic energy is r^4/144, and it
+  undercuts the golden branch only for r^2 > 96, outside every positivity
+  bound.  The two-branch selection therefore holds on the whole admissible
+  amplitude domain.
 
 THE VERDICT (compare-only, both orientation conventions reported):
 
@@ -252,6 +261,7 @@ def prolate_orbit() -> dict[str, Any]:
         "S2": s2,
         "S3": s3,
         "S4": s4,
+        "min_port_value": ring,
     }
 
 
@@ -285,6 +295,8 @@ def golden_orbit() -> dict[str, Any]:
         "the centered triple must be proportional to (-(phi^4-1), -1, phi^4)",
     )
     s2, s3, s4 = port_sums(q)
+    min_port = min(port_profile(q), key=lambda v: v.to_float())
+    require(min_port == Q5(-1), "GOLDEN_MIN_PORT", "the golden profile minimum must be -1")
     return {
         "orbit": "diagonal_D2_cubic_extremal",
         "eigenvalues": [value.render() for value in triple],
@@ -301,6 +313,7 @@ def golden_orbit() -> dict[str, Any]:
         "S3": s3,
         "S4": s4,
         "q_diagonal": [value.render() for value in q],
+        "min_port_value": min_port,
     }
 
 
@@ -344,6 +357,25 @@ def crossing_amplitude(prolate: dict[str, Any], golden: dict[str, Any]) -> dict[
     s3p = math.sqrt(p32.to_float())
     s3g = math.sqrt(g32.to_float())
     r_c = 2.0 * (s3p - s3g) / (p4 - g4).to_float()
+    # Positivity domain: the record q_i = (1 + r w_i)/12 with unit-S2 profile
+    # w stays a probability vector exactly when r < 1/|min_i w_i|, i.e.
+    # r^2 < S2 / (min_i port value)^2, an exact Q(sqrt5) number per branch.
+    positivity = {}
+    r2_bound_float = {}
+    for name, branch in (("prolate", prolate), ("golden", golden)):
+        min_port = branch["min_port_value"]
+        require(not min_port.is_positive() and not min_port.is_zero(), "POSITIVITY_SIGN", "the minimal port value must be negative")
+        r2_bound = branch["S2"] / (min_port * min_port)
+        r2_bound_float[name] = r2_bound.to_float()
+        positivity[name] = {
+            "r_squared_bound": r2_bound.render(),
+            "r_bound_display": f"{math.sqrt(r2_bound_float[name]):.12f}",
+        }
+    require(
+        r_c * r_c < r2_bound_float["golden"] and r_c * r_c < r2_bound_float["prolate"],
+        "CROSSING_OUTSIDE_POSITIVITY",
+        "the crossing must lie inside both positivity domains",
+    )
     return {
         "equation": "2*(sqrt(s3n2_prolate) - sqrt(s3n2_golden)) = r_c * (s4n_prolate - s4n_golden)",
         "s3n2_prolate": p32.render(),
@@ -351,11 +383,26 @@ def crossing_amplitude(prolate: dict[str, Any], golden: dict[str, Any]) -> dict[
         "s4n_prolate": p4.render(),
         "s4n_golden": g4.render(),
         "r_c_display": f"{r_c:.12f}",
+        "positivity_domain": {
+            "condition": "r < 1/|min_i w_i| for the unit-S2 profile w, i.e. r^2 < S2/(min port value)^2",
+            "branches": positivity,
+        },
         "selection": (
-            "below r_c the prolate branch has the lower shape energy; above "
-            "r_c the golden branch does"
+            "on the compared strata and inside each branch's positivity "
+            "domain: below r_c the prolate branch has the lower shape "
+            "energy; between r_c and the golden positivity bound the golden "
+            "branch does; above that bound the golden record leaves the "
+            "probability simplex and the packet emits no admissible "
+            "simple-spectrum branch"
         ),
-        "display_only_note": "r_c_display is a float rendering of the recorded exact equation",
+        "other_critical_orbits": (
+            "the C3-axis orbit is critical by symmetric criticality with "
+            "S3 = 0 exactly (two-value antipodal profile), S4/S2^2 = 1/12, "
+            "positivity bound r^2 < 12, and shape energy r^4/144; it "
+            "undercuts the golden branch only for r^2 > 96, outside every "
+            "positivity bound, so it never enters the selection"
+        ),
+        "display_only_note": "r_c_display and r_bound_display are float renderings of the recorded exact quantities",
     }
 
 
@@ -493,7 +540,7 @@ def build_payload() -> dict[str, Any]:
 
     def strip(branch: dict[str, Any]) -> dict[str, Any]:
         out = dict(branch)
-        for key in ("S2", "S3", "S4"):
+        for key in ("S2", "S3", "S4", "min_port_value"):
             out[key] = branch[key].render()
         return out
 
@@ -519,9 +566,10 @@ def build_payload() -> dict[str, Any]:
             "premise": (
                 "the shape functional is the quartic-truncated expansion "
                 "restricted to the quintet band at fixed band amplitude; the "
-                "amplitude is a declared parameter of the premise, and the "
-                "branch selection depends on it only through the recorded "
-                "exact crossing"
+                "amplitude is a declared parameter of the premise, ranging "
+                "over the positivity domain of the record, and the branch "
+                "selection depends on it only through the recorded exact "
+                "crossing and positivity bounds"
             ),
         },
         "branches": {

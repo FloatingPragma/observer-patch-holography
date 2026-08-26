@@ -74,8 +74,10 @@ constraint family; the collar clause is a declared input, not a theorem),
 and the `CollarStates`/`CollarStatesT1`/`CollarModularT2` modules carry the
 state-side no-gos: the stated state-side axioms do not force the clause
 (T0), the flux conditional expectation exists and deselects the cross-cut
-coupling without excluding it (T1), and the naive modular recast is
-vacuous while the corrected recast buys only the diagonal clause (T2).
+coupling without excluding it (T1), and on the fixed 4×4 model the naive
+modular recast does not exclude the non-central witness while the
+corrected recast yields the diagonal clause, which coincides with the
+paper's MSA form and is circular as a derivation (T2).
 
 The `BridgeEquivalence`, `CapacityFixedPoint`, `CapacityClosurePrinciple`,
 `ClosurePreflight`, and `SeedPi` modules carry

@@ -430,7 +430,7 @@
     "theorem_scope": "current_family_common_refinement_transport_frame_only",
     "wrapper_theorem": "oph_quark_exact_yukawa_end_to_end_theorem"
   },
-  "generated_utc": "2026-08-25T18:56:51Z",
+  "generated_utc": "2026-08-25T21:06:26Z",
   "internalized_theorems": [
     {
       "classification": "conditional_identity_value_source_open",
@@ -952,10 +952,37 @@
     "proof_status": "closed_exact_current_corpus_obstruction",
     "public_promotion_allowed": false,
     "reopen_requirement": {
-      "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "acceptable_form": "A theorem-grade source map into the six-scalar interface (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), or, inside a source-derived ordered shape law and mean law, two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "generic_physical_interface": {
+        "note": "The granted ordered shape law is candidate-only and template-descended, and the affine mean law ties the sector means to the spans only inside that subfamily. A source theory must emit the shape law, the sector means, and the two spans, or a typed map fixing all six.",
+        "scalars": [
+          "mu_u",
+          "sigma_u",
+          "rho_u",
+          "mu_d",
+          "sigma_d",
+          "rho_d"
+        ],
+        "unemitted": {
+          "sector_means": [
+            "mu_u",
+            "mu_d"
+          ],
+          "shape_law": [
+            "rho_u",
+            "rho_d"
+          ],
+          "spans": [
+            "sigma_u",
+            "sigma_d"
+          ]
+        },
+        "unemitted_scalar_count": 6
+      },
       "must_break_free_action": true,
       "must_replace_template_ancestry": true,
-      "required_independent_scalar_count": 2
+      "required_independent_scalar_count": 2,
+      "required_independent_scalar_count_scope": "the endpoint spans (sigma_u, sigma_d) inside the granted reciprocal-ray, affine-mean subfamily"
     },
     "resolved_by_theorem_artifact": "oph_quark_sigma_source_nonidentifiability_obstruction",
     "status_statement": "Selected-class descent removes representative dependence but does not break the independent positive rescaling action on the up- and down-sector spreads."
@@ -1160,10 +1187,37 @@
       "sigma_d"
     ],
     "minimal_future_extension": {
-      "acceptable_form": "A theorem-grade source map into (R_{>0})^2, or two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "acceptable_form": "A theorem-grade source map into the six-scalar interface (mu_u, sigma_u, rho_u, mu_d, sigma_d, rho_d), or, inside a source-derived ordered shape law and mean law, two independent source-emitted sector normalizations, together with sector attachment and refinement compatibility.",
+      "generic_physical_interface": {
+        "note": "The granted ordered shape law is candidate-only and template-descended, and the affine mean law ties the sector means to the spans only inside that subfamily. A source theory must emit the shape law, the sector means, and the two spans, or a typed map fixing all six.",
+        "scalars": [
+          "mu_u",
+          "sigma_u",
+          "rho_u",
+          "mu_d",
+          "sigma_d",
+          "rho_d"
+        ],
+        "unemitted": {
+          "sector_means": [
+            "mu_u",
+            "mu_d"
+          ],
+          "shape_law": [
+            "rho_u",
+            "rho_d"
+          ],
+          "spans": [
+            "sigma_u",
+            "sigma_d"
+          ]
+        },
+        "unemitted_scalar_count": 6
+      },
       "must_break_free_action": true,
       "must_replace_template_ancestry": true,
-      "required_independent_scalar_count": 2
+      "required_independent_scalar_count": 2,
+      "required_independent_scalar_count_scope": "the endpoint spans (sigma_u, sigma_d) inside the granted reciprocal-ray, affine-mean subfamily"
     },
     "numeric_quark_rows_allowed": false,
     "proof_status": "closed_exact_current_corpus_obstruction",
@@ -1174,6 +1228,6 @@
     ],
     "source_only_sigma_emitted": false,
     "theorem_grade_obstruction": true,
-    "theorem_statement": "After all target-derived and compare-only ancestors are removed, the strongest current quark source packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present source theory does not identify a unique quark spread package or running quark mass sextet."
+    "theorem_statement": "Granting the candidate-only, template-descended ordered three-point shape law (adjacent-gap ratio rho_ord in the up sector and 1/rho_ord in the down sector) and the edge cocycle as the target-free source packet, after all target-derived and compare-only ancestors are removed, the packet fixes the trace-zero ordered profile rays v_u and v_d but not their independent positive moduli. The compatible spread fiber inside that granted subfamily is exactly (R_{>0})^2, with E_u=sigma_u*v_u and E_d=sigma_d*v_d. Independent positive rescaling fixes every source datum and every emitted shape identity while changing (sigma_seed_ud,eta_ud,sigma_u,sigma_d), the affine sector means, and the ordered log shapes. Therefore the present target-free corpus identifies neither a unique quark spread package nor six source-only absolute quark masses. Without the grant the shape law, the sector means, and the spans are all unemitted, so the fiber can only enlarge."
   }
 }

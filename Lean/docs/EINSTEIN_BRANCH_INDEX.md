@@ -15,8 +15,8 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 
 | Lean declaration | Compact-paper anchor | Level | What is proved / what remains input |
 |---|---|---|---|
-| `BareConsensusTower` | `def:compact-bare-finite-consensus-reduct` | exact finite structure | Finite states/quotients, mismatch, repair, normal forms, boundary data, and typed coarse maps. |
-| `bare_consensus_not_einstein_complete` | `thm:compact-bare-consensus-not-einstein-complete` | model-theoretic exact | Two geometric extensions share one nondegenerate reduct and disagree on Einstein truth. |
+| `BareConsensusTower` | `def:bare-finite-consensus-reduct` (`paper/reality_as_consensus_protocol.tex`) | exact finite structure | Finite states/quotients, mismatch, repair, normal forms, boundary data, and typed coarse maps. |
+| `bare_consensus_not_einstein_complete` | `thm:bare-consensus-not-einstein-complete` (`paper/reality_as_consensus_protocol.tex`); Theorem 4.3h in `paper/tex_fragments/PAPER.tex` | model-theoretic exact | Two free geometric decorations of the constant demo tower share one reduct and disagree on the integer Einstein identity. The quantifier ranges over free decorations; extensions whose geometry is read from `Quot` are the object of the readout and composition rows below. |
 | `TypedArrowCommutation`, `ReadoutNaturality` | `def:einstein-admissible-realized-tower`, EB2 | explicit receipt predicates | Common-domain typed arrows and refinement diagrams are failable premises, not constructor truths. |
 | `EinsteinAdmissibleTower` | `def:einstein-admissible-realized-tower` | bundled conditional structure | Packages one bare source tower, its typed readouts, boundary fibre, arrow commutation, and refinement naturality; no inhabitant is constructed. |
 | `boundary_fiber_readout_composition` | EB1; D1 composition | exact finite composition | Same protected boundary plus consistent fibre uniqueness gives identical geometry/modular/event/stress/entropy/scale readouts. |

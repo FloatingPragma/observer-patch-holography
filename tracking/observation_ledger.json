@@ -250,7 +250,6 @@
    ],
    "evidence": [
     "Lean/Locality.lean",
-    "Lean/EventAlgebra/NoBroadcastingAdapter.lean",
     "Lean/EventAlgebra/SlotLocalitySurface.lean"
    ],
    "notes": "The no-signalling receipt is composed on the registered slot split and threaded into the PR-02 trace pairing: local operations on one slot preserve the remote marginal of every represented state. Physical regions, spacelike separation, laboratory channels, and the causal reading stay open under PR-52.",

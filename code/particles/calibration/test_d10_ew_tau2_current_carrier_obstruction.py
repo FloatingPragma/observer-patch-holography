@@ -28,4 +28,11 @@ def test_d10_tau2_current_carrier_obstruction_is_emitted() -> None:
     assert payload["status"] == "closed_smaller_primitive"
     assert payload["proof_status"] == "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z"
     assert payload["next_single_residual_object"] == "delta_n_tree_exact"
-    assert payload["direction_obstruction"]["single_tau2_possible"] is False
+    direction = payload["direction_obstruction"]
+    assert direction["single_tau2_possible"] is False
+    assert direction["germ_coefficient_W"] > 0.0
+    assert direction["germ_coefficient_Z"] > 0.0
+    assert (direction["tau2_required_for_W_first_order"] > 0.0) != (direction["tau2_required_for_Z_first_order"] > 0.0)
+    distance = payload["reference_distance"]
+    assert distance["W_offset_sigma"] > 0.0
+    assert distance["Z_offset_sigma"] < 0.0

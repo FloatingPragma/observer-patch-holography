@@ -5,8 +5,9 @@ Chain role: replace the old target-anchored split-pair assembler with one
 forward algebraic map on the unpromoted D10 repair candidate and the declared
 D11 core/Jacobian surface.
 
-Mathematics: the one-scalar fixed ray is obstructed by nonzero `w_HT`, so the
-live D11 lane must be split. The conditional map evaluates the pair
+Mathematics: the reference central pair sits 0.7 sigma off the one-scalar
+fixed ray on the declared linear surface, and the two-coordinate split of the
+D11 lane is a chosen extension. The conditional map evaluates the pair
 `(pi_y, pi_lambda)` from the D10 candidate tuple
 `(eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact)` via
 one integrated shared scalar `rho_HT = log(1 + tau2_tree_exact)` and two
@@ -14,8 +15,8 @@ declared residual selectors.  Their source uniqueness and deformation
 rigidity are not proved here.
 
 Inputs: the D10 source transport pair, the target-free-input D10 repair
-candidate, the declared D11 calibration surface, and the fixed-ray no-go
-theorem.  The D10 selector, D11 core/Jacobian provenance, absolute scale, and
+candidate, the declared D11 calibration surface, and the fixed-ray point
+statement.  The D10 selector, D11 core/Jacobian provenance, absolute scale, and
 physical-pole attachment remain upstream gates.
 
 Output: a machine-readable conditional split-pair artifact that is exact only
@@ -201,7 +202,12 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
             "mH_gev": "mH_core_gev + d_mH_d_lambda * delta_lambda_mt",
         },
         "closure_logic": {
-            "fixed_ray_blocked": True,
+            "fixed_ray_central_pair_off_ray": no_go["fixed_ray_point_test"]["central_pair_on_fixed_ray"] is False,
+            "fixed_ray_data_compatible_within_one_sigma": bool(
+                no_go["fixed_ray_point_test"]["central_pair_within_one_sigma_of_fixed_ray"]
+            ),
+            "fixed_ray_pull_sigma": float(no_go["uncertainty_pull"]["abs_pull_sigma"]),
+            "split_role": "chosen_extension",
             "fixed_ray_no_go_theorem_id": no_go["theorem_id"],
             "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_source(mu_t) = (pi_y, pi_lambda)",
             "equivalent_coordinates": "(Sigma_HT_exact, eta_HT_exact)",
@@ -209,7 +215,12 @@ def build_artifact(d10_source: dict, d10_repair: dict, d11_surface: dict, no_go:
             "exact_split_value": pi_y - pi_lambda,
         },
         "proof": [
-            "The fixed-ray no-go theorem proves that the exact Higgs/top pair cannot lie on the old one-scalar branch because w_HT is nonzero there.",
+            (
+                "The fixed-ray point statement records that the reference central Higgs/top pair lies off the old one-scalar branch "
+                f"(w_HT = {float(no_go['exact_compare_witness']['w_HT_exact']):.5f}, "
+                f"{float(no_go['uncertainty_pull']['abs_pull_sigma']):.2f} sigma on the declared linear surface); "
+                "the one-scalar ray stays data-compatible and the two-coordinate split is a chosen extension."
+            ),
             "The unpromoted D10 repair candidate supplies the tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) used by this local implication.",
             "The declared D11 map evaluates rho_HT = log(1 + tau2_tree_exact) and the stored top_residual and higgs_residual formulas from that tuple.",
             "Those formulas determine pi_y and pi_lambda without an inverse adapter or direct reference-mass argument at runtime; this does not establish that their historical or physical selector is source-derived.",

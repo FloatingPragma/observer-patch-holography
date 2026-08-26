@@ -71,7 +71,7 @@ Status `postdiction_comparison`; owning observation-ledger row OL-H3.
 
 Status `postdiction_comparison`; owning observation-ledger row OL-H4.
 
-- Value or enclosure: `code/particles/runs/status/postdiction_ledger.json`. The quarks section records that no absolute quark mass is emitted: the two-modulus spread fiber survives every certified structure transport, so the six absolute masses are non-identifiable from the corpus by theorem. The down-type register-Clebsch ratio row is recorded as a rejected conditional candidate under the retrospective conservative gate.
+- Value or enclosure: `code/particles/runs/status/postdiction_ledger.json`. The quarks section records that no absolute quark mass is emitted: the two-modulus spread fiber, obtained by granting a candidate-only ordered shape law, survives the 2026-07 certified structure set (matter receipt #314, port receipt #566, twelve frozen selector candidates; input hashes pinned 2026-07-30), so the six source-only absolute masses are non-identifiable from that set by an explicit rescaling symmetry of the registered data. A Yukawa-typed source equation, a new selector under the frozen discipline, or the conditional Higgs/top criticality coordinate stays live as a cut. The down-type register-Clebsch ratio row is recorded as a rejected conditional candidate under the retrospective conservative gate.
 - Ancestry:
   - `derived`: family transport kernels and the conditional kappa-interval surface arithmetic under their declared transport premises.
   - `derived`: two-modulus spread-fiber nonidentifiability obstruction transport.

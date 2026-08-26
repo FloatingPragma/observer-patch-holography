@@ -138,7 +138,8 @@ def build_entries() -> list[dict[str, Any]]:
                 "readout theorem inside `current_family_only`, and with the scoped affine coordinate "
                 "`A_ch_current_family` closed on that same exact family. The charged theorem lane does not "
                 "emit a theorem-grade absolute anchor; [#201](https://github.com/FloatingPragma/observer-patch-holography/issues/201) "
-                "is closed as a corpus-limited no-go by `code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json`."
+                "is closed on the current-corpus gap certificate `code/particles/runs/leptons/charged_end_to_end_impossibility_theorem.json`, "
+                "whose named live route is the trace-lift attachment `3 mu(r) = sum_e M_e^ch log q_e(r)`."
             ),
         },
         {

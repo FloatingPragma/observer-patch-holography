@@ -73,6 +73,26 @@ def test_c2_fixed_locus_has_three_linear_and_two_projective_dimensions(
     )
 
 
+def test_klein_four_fixed_locus_has_one_projective_parameter(
+    tmp_path: pathlib.Path,
+) -> None:
+    payload = _run_to(tmp_path / "w5.json")
+    record = payload["canonical_rotation_checks"]["V4"]
+    assert record["linear_constraint_rank_in_W5"] == 3
+    assert record["fixed_locus_dimension"] == 2
+    assert record["nonzero_projective_dimension"] == 1
+    assert record["general_invariant_form"] == "diag(a,d,-a-d)"
+    assert record["simple_spectrum_possible"] is True
+    lattice = payload["subgroup_lattice_argument"]
+    assert lattice["exhaustive"] is True
+    assert set(lattice["conjugacy_classes_of_subgroups"]) == {
+        "1", "C2", "C3", "V4", "C5", "S3", "D5", "A4", "A5"
+    }
+    dims = lattice["fixed_locus_dimension_by_subgroup"]
+    assert dims["V4"] == 2
+    assert all(dims[g] <= 1 for g in ("C3", "C5", "S3", "D5", "A4", "A5"))
+
+
 def test_conclusion_requires_potential_selection_without_universal_no_go(
     tmp_path: pathlib.Path,
 ) -> None:

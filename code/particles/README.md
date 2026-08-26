@@ -395,8 +395,11 @@ map are absent. The electroweak readout (#594) is not evaluable and is outside t
 
 These artifacts fix the quark claim boundary on the local code surface. After
 all target rows, exact target witnesses, fitted spreads, and residuals against
-them are removed, the source equations determine two ordered profile rays but
-leave their endpoint spans independent. The compatible spread fiber is exactly
+them are removed, and granting the candidate-only ordered three-point shape
+law of the template-descended branch generator (rejected at common scale,
+rho_u rho_d = 0.835), the target-free source packet fixes two ordered profile
+rays and leaves their endpoint spans free; without that grant the shape law
+itself is unemitted. The compatible spread fiber is exactly
 `(R_{>0})^2`. Its free rescaling action preserves the source identities and
 changes the affine mass readout, so it is a physical non-identifiability rather
 than a gauge redundancy. The selected-class descent proves representative

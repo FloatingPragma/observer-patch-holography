@@ -17,11 +17,25 @@ The comparison coordinate is the declared compare-only value
 `every_axis_sine_sq_exceeds_cabibbo` proves with exact algebraic inequalities
 that every entry in the finite menu has a larger sine-square coordinate.
 
+Division of labour: the coordinate construction of the axes is certified by
+the Python receipt; Lean certifies the finite comparison on the emitted
+table.  Nothing in this module constructs the icosahedron or proves that the
+table is its axis spectrum.
+
+Three readings of the sixteen-row table are compared with `9/40`.  The
+direct reading `sin θ_C = sin θ_axis` is `every_axis_sine_sq_exceeds_cabibbo`.
+The two eigenvector-overlap readings used in residual-symmetry model
+building, `|V_us| = cos θ_axis` for two real axes and
+`|V_us|² = sin² θ_axis / 2` for an axis-to-plane overlap, are
+`cabibbo_cosine_sq_not_in_axis_menu` and
+`cabibbo_half_sine_sq_not_in_axis_menu`.
+
 This does **not** exclude arbitrary `A5` flavor models.  In particular it says
 nothing about spinorial or other representations, symmetry-breaking
-corrections, or general overlap geometry.  It excludes only direct equality
-between the Cabibbo angle and an acute Euclidean angle in this declared
-31-axis real-three-dimensional menu.
+corrections, or overlap geometry beyond the two readings above.  It excludes
+only equality between the Cabibbo coordinate and one of these three readings
+of an acute Euclidean angle in the declared 31-axis real-three-dimensional
+menu.
 -/
 
 namespace OPH.IcosahedralAxisNoGo
@@ -152,6 +166,10 @@ private theorem sqrt_five_lt_nine_fourths :
     Real.sqrt 5 < (9 : ℝ) / 4 := by
   nlinarith [sqrt_five_sq]
 
+private theorem sqrt_five_gt_eleven_fifths :
+    (11 : ℝ) / 5 < Real.sqrt 5 := by
+  nlinarith [sqrt_five_sq, sqrt_five_nonneg]
+
 /-- Every emitted exact coordinate is a valid cosine square. -/
 theorem spectrum_coordinates_in_unit_interval (i : Fin 16) :
     0 ≤ (spectrumEntry i).cosSq.eval ∧
@@ -184,6 +202,32 @@ theorem cabibbo_sine_sq_not_in_axis_menu (i : Fin 16) :
     1 - (spectrumEntry i).cosSq.eval ≠ ((9 : ℝ) / 40) ^ 2 :=
   ne_of_gt (every_axis_sine_sq_exceeds_cabibbo i)
 
+/--
+Eigenvector-overlap reading for two real axes, `|V_us| = cos θ_axis`: the
+declared Cabibbo coordinate squared, `(9/40)²`, is no cosine-square entry of
+the menu.
+-/
+theorem cabibbo_cosine_sq_not_in_axis_menu (i : Fin 16) :
+    (spectrumEntry i).cosSq.eval ≠ ((9 : ℝ) / 40) ^ 2 := by
+  fin_cases i <;>
+    simp [spectrumEntry, QsqrtFive.eval] <;>
+    intro h <;>
+    nlinarith [sqrt_five_sq, sqrt_five_nonneg,
+      sqrt_five_lt_nine_fourths, sqrt_five_gt_eleven_fifths]
+
+/--
+Axis-to-plane overlap reading, `|V_us|² = sin² θ_axis / 2`: the declared
+Cabibbo coordinate squared, `(9/40)²`, is no half-sine-square entry of the
+menu.
+-/
+theorem cabibbo_half_sine_sq_not_in_axis_menu (i : Fin 16) :
+    (1 - (spectrumEntry i).cosSq.eval) / 2 ≠ ((9 : ℝ) / 40) ^ 2 := by
+  fin_cases i <;>
+    simp [spectrumEntry, QsqrtFive.eval] <;>
+    intro h <;>
+    nlinarith [sqrt_five_sq, sqrt_five_nonneg,
+      sqrt_five_lt_nine_fourths, sqrt_five_gt_eleven_fifths]
+
 end OPH.IcosahedralAxisNoGo
 
 #print axioms OPH.IcosahedralAxisNoGo.axis_menu_count
@@ -192,3 +236,5 @@ end OPH.IcosahedralAxisNoGo
 #print axioms OPH.IcosahedralAxisNoGo.spectrum_coordinates_in_unit_interval
 #print axioms OPH.IcosahedralAxisNoGo.every_axis_sine_sq_exceeds_cabibbo
 #print axioms OPH.IcosahedralAxisNoGo.cabibbo_sine_sq_not_in_axis_menu
+#print axioms OPH.IcosahedralAxisNoGo.cabibbo_cosine_sq_not_in_axis_menu
+#print axioms OPH.IcosahedralAxisNoGo.cabibbo_half_sine_sq_not_in_axis_menu

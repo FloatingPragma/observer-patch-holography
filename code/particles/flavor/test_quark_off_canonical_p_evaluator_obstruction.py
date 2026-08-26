@@ -29,7 +29,7 @@ def test_quark_off_canonical_p_evaluator_obstruction_records_hard_blockers() -> 
     assert payload["selected_public_pure_B_payload"]["proof_status"] == (
         "blocked_unpromotable_yukawa_input_and_open_d12_value_source"
     )
-    assert payload["scientific_result"]["closure_kind"] == "hard_no_go_current_corpus"
+    assert payload["scientific_result"]["closure_kind"] == "current_corpus_underdetermination"
     assert payload["scientific_result"]["off_canonical_evaluator_supplied"] is False
     assert payload["scientific_result"]["theorem_grade_surface"] == (
         "selected_public_physical_quark_frame_class_only"

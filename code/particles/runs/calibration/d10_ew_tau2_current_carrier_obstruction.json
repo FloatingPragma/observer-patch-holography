@@ -12,12 +12,17 @@
   "direction_obstruction": {
     "W_current_minus_exact_sign": "positive",
     "Z_current_minus_exact_sign": "negative",
-    "single_tau2_possible": false
+    "evaluation": "computed from the two offset signs and the germ coefficient signs at the current point",
+    "germ_coefficient_W": 0.5,
+    "germ_coefficient_Z": 0.2720449288141337,
+    "single_tau2_possible": false,
+    "tau2_required_for_W_first_order": -0.0005919340708930854,
+    "tau2_required_for_Z_first_order": 0.00020138612110535875
   },
   "eta_source": 0.02214700087196129,
   "fiberwise_population_tree_law_artifact": "oph_d10_ew_fiberwise_population_tree_law_beneath_single_tree_identity",
   "fiberwise_tauY_formula": "-(tau2_tree_exact + 2*eta_source) / (1 + 4*tau2_tree_exact^2)",
-  "generated_utc": "2026-07-27T08:32:04Z",
+  "generated_utc": "2026-08-26T04:16:40Z",
   "local_affine_germ": {
     "MW_relative_formula": "1 + 0.5 * tau2_tree_exact + O(tau2_tree_exact^2)",
     "MZ_relative_formula": "1 + (beta_EW / (2 * n0)) * tau2_tree_exact + O(tau2_tree_exact^2)",
@@ -34,7 +39,16 @@
   "next_single_residual_object": "delta_n_tree_exact",
   "object_id": "EWCurrentCarrierTau2Obstruction_D10",
   "population_evaluator_artifact": "oph_d10_ew_population_evaluator",
+  "proof_scope": "first_order_germ_at_current_point_against_current_reference_central_values",
   "proof_status": "no_single_tau2_on_closed_current_carrier_can_hit_exact_W_and_exact_Z",
+  "reference_distance": {
+    "W_offset_gev": 0.023791692442756585,
+    "W_offset_sigma": 3.089830187370985,
+    "W_reference_sigma_gev": 0.0077,
+    "Z_offset_gev": -0.004995553257572283,
+    "Z_offset_sigma": -2.4977766287861414,
+    "Z_reference_sigma_gev": 0.002
+  },
   "reference_targets": {
     "MW_pole": 80.3625,
     "MZ_pole": 91.1879

@@ -22,7 +22,9 @@ seven targets, five are not statable against the committed carriers,
 one has a refutable restricted surrogate (every bijective localized
 endomorphism is inner), and one
 carries a finite provable core whose net-level reading is degenerate
-and whose public-level reading is refuted.**  The five non-statable
+and whose public-level reading is refuted for KMS relative to continuous
+automorphism groups only, with stochastic public semigroups
+unevaluated.**  The five non-statable
 rows are the point of this document, not a gap in it: each names the
 precise structure that would have to exist first, with the citation.
 
@@ -41,7 +43,7 @@ orphaning the matrix.
 | 2 | Spin-statistics | TYPED NON-EVALUABLE EXIT | No carrier.  The hom-type `CausalEmbedding` is proof-only and `Subsingleton` (receipt `causalEmbedding_proof_irrelevant` below), so the event-region category is thin and carries no symmetry-group action data, hence no rotation double cover; no spin structure exists in the tree.  `Mathlib/LinearAlgebra/CliffordAlgebra/SpinGroup.lean` exists but nothing connects it to the net; the statistics side is additionally gated on row 3's exit. |
 | 3 | DHR / sector reconstruction | RESTRICTED SURROGATE COLLAPSES + exit (full DHR) | `QFT/SectorInheritance.lean`: every bijective localized endomorphism of the finite constructed net is inner (`privateSector_localized_inner`) and hence equivalent to the identity under the file's declared finite relation; nonvacuity by `sectorWitness_inner`.  This does not construct a DHR category or perform Doplicher–Roberts reconstruction.  The completed colimit now has a mathematical GNS representation induced by coherently selected tower states, but full DHR still lacks a source-selected vacuum representation, a DHR quasi-local net, and transportability. |
 | 4 | Field / action reconstruction | GATED BY DESIGN | Exact finite precursors now include the response-word algebra, the dense global Hodge comparison, the genuinely local face-curvature/static scalar-vector action of `Screen/LocalFaceMaxwellAction.lean`, and the declared-step leapfrog evolution of `Screen/TemporalMaxwellEvolution.lean` with its proved Gauss-continuity equivalence, exact energy balance, and discrete wave law.  The step index is a declared evolution parameter, and the sources are declared histories: no source-selected physical current, physical matter/Spin action, spacetime carrier, physical time, or continuum limit is supplied.  Thus the full field/action reconstruction packet E4 would consume is still not supplied. |
-| 5 | KMS / thermality | PROVABLE (finite core) + REFUTABLE (net and public) + exit (horizon) | `QFT/StructuralInheritance.lean`: the finite algebraic Gibbs-KMS theorem on the witness private block (`privateGibbsState_kms`); the degeneracy countermodel — on the support-graded net every functional is KMS for every grading-preserving flow at every complex time (`supportGradedNet_regionalExpectation_kms_degenerate`); the cited B3 rigidity refuting public thermality (`publicRecord_no_thermal_flow`).  Horizon thermality is that module's typed exit. |
+| 5 | KMS / thermality | PROVABLE (finite core) + REFUTABLE (net) + REFUTABLE (public, continuous automorphism KMS only) + exit (horizon) | `QFT/StructuralInheritance.lean`: the finite algebraic Gibbs-KMS theorem on the witness private block (`privateGibbsState_kms`); the degeneracy countermodel — on the support-graded net every functional is KMS for every grading-preserving flow at every complex time (`supportGradedNet_regionalExpectation_kms_degenerate`); the cited B3 rigidity: every pointwise-continuous group of public star automorphisms is the identity, so KMS relative to any such flow is degenerate (`publicRecord_no_thermal_flow`); classical detailed-balance thermality of public records relative to continuous row-stochastic semigroups is not evaluated.  Horizon thermality is that module's typed exit. |
 | 6 | Relative-Cauchy stress response | TYPED NON-EVALUABLE EXIT | A finite one-step interface exists in `QFT/PathTimeSliceInterface.lean`.  `QFT/TripleCarrierJoin.lean` additionally gives one common state/path/checkpoint carrier and exact marginal intertwining over the 31 actual source transitions.  `QFT/LocallyCovariantLimit.lean` now supplies the order-theoretic E3 Cauchy embedding class `IsCauchyEmbedding`, defined through the net's contravariant restriction maps, with the limit-level time-slice property; its claim boundary attaches no Lorentzian reading.  None of these supplies a regional-net morphism, coherent physical evolution, Lorentzian metric perturbations, or a stress-response derivative. |
 | 7 | Particle / scattering | TYPED NON-EVALUABLE EXIT | No carrier.  Haag–Ruelle theory needs a translation group action on the net, a spectrum condition, and asymptotic limits; `EventRegion` carries no ℝ-action and no energy-momentum object exists in the tree (B9 `#685`, the optional spectral adapter, has no module).  Pinned Mathlib has zero Haag/scattering material. |
 
@@ -66,10 +68,12 @@ readouts.  What E4 supplies to F1:
   (`e4Row5_provable_anchor`), a finite-block algebra fact F1's modular
   readout may consume as algebra — with no physical temperature, no
   spacetime, and no vacuum attached;
-* two constraints F1 must respect rather than results it may cite: the
-  public record algebra admits no nontrivial pointwise-continuous star
-  flow (`e4Row5_public_refutation_anchor`), so no F1 modular readout
-  can be carried by a public flow; and on the constructed example net
+* two constraints F1 must respect rather than results it may cite: every
+  pointwise-continuous group of public star automorphisms is the identity
+  (`e4Row5_public_refutation_anchor`), so no F1 modular readout can be
+  carried by a pointwise-continuous public star flow, while continuous
+  row-stochastic public semigroups stay live; and on the constructed
+  example net
   the KMS condition distinguishes no state and no temperature
   (`e4Row5_degeneracy_anchor`), so a modular readout must bring its own
   selection structure and may not point at E4 for one.
@@ -83,7 +87,10 @@ order-theoretic with no Lorentzian reading, and there is no Lorentzian
 metric or metric perturbation, relative-Cauchy evolution, or stress
 derivative.  No statement of this module or of the two row
 modules may be cited by F1 as "the net is thermal" or "the net carries
-stress response".  Where thermality was testable, E4 refuted it.
+stress response".  Where thermality was testable as KMS relative to a
+continuous automorphism group, E4 found it degenerate on both the net and
+the public record; detailed-balance thermality relative to stochastic
+public semigroups is not evaluated by E4.
 
 ### H2 (`#697`, particle masses and mixings)
 
@@ -200,7 +207,8 @@ def e4StatusMatrix : List E4Row :=
      citation := "Finite Gibbs-KMS theorem (privateGibbsState_kms); \
        net-level degeneracy countermodel \
        (supportGradedNet_regionalExpectation_kms_degenerate) and \
-       public-flow rigidity (publicRecord_no_thermal_flow); horizon \
+       public-flow rigidity for continuous automorphism groups only \
+       (publicRecord_no_thermal_flow); horizon \
        thermality is that module's typed exit." },
    { index := 6
      target := "relative-Cauchy stress response"
@@ -338,9 +346,10 @@ theorem e4Row5_degeneracy_anchor
       (witnessSelectedState o * (b * a)).trace :=
   supportGradedNet_regionalExpectation_kms_degenerate o hH ha hb z
 
-/-- Row 5 anchor, public refutable half: the public record algebra
-admits no nontrivial pointwise-continuous star flow, so public
-thermality is refuted rather than unproved.  Cites
+/-- Row 5 anchor, public refutable half: every pointwise-continuous
+group of public star automorphisms is the identity, so KMS relative to
+any such flow is degenerate.  Continuous automorphism groups only;
+stochastic public semigroups are not evaluated.  Cites
 `publicRecord_no_thermal_flow` of `QFT/StructuralInheritance.lean`,
 itself citing B3's `ContinuousPublicStarFlow.toAut_eq_refl`. -/
 theorem e4Row5_public_refutation_anchor {κ : Type*} [Fintype κ]

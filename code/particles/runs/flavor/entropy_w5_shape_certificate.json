@@ -12,6 +12,7 @@
         "5/4 + -3/4*sqrt5",
         "5/4 + 3/4*sqrt5"
       ],
+      "min_port_value": "-1 + 0*sqrt5",
       "orbit": "diagonal_D2_cubic_extremal",
       "q_diagonal": [
         "-5/2 + 0*sqrt5",
@@ -27,6 +28,7 @@
       "S4": "448/1125 + 0*sqrt5",
       "double_eigenvalue": true,
       "eigenvalue_pattern": "(2, -1, -1)/3 about the vertex axis",
+      "min_port_value": "-2/15 + 0*sqrt5",
       "orbit": "vertex_axis_prolate_C5",
       "port_values": {
         "pole": "2/3 + 0*sqrt5",
@@ -68,14 +70,28 @@
     }
   },
   "crossing": {
-    "display_only_note": "r_c_display is a float rendering of the recorded exact equation",
+    "display_only_note": "r_c_display and r_bound_display are float renderings of the recorded exact quantities",
     "equation": "2*(sqrt(s3n2_prolate) - sqrt(s3n2_golden)) = r_c * (s4n_prolate - s4n_golden)",
+    "other_critical_orbits": "the C3-axis orbit is critical by symmetric criticality with S3 = 0 exactly (two-value antipodal profile), S4/S2^2 = 1/12, positivity bound r^2 < 12, and shape energy r^4/144; it undercuts the golden branch only for r^2 > 96, outside every positivity bound, so it never enters the selection",
+    "positivity_domain": {
+      "branches": {
+        "golden": {
+          "r_bound_display": "4.898979485566",
+          "r_squared_bound": "24 + 0*sqrt5"
+        },
+        "prolate": {
+          "r_bound_display": "7.745966692415",
+          "r_squared_bound": "60 + 0*sqrt5"
+        }
+      },
+      "condition": "r < 1/|min_i w_i| for the unit-S2 profile w, i.e. r^2 < S2/(min port value)^2"
+    },
     "r_c_display": "2.775765637888",
     "s3n2_golden": "1/24 + 0*sqrt5",
     "s3n2_prolate": "4/15 + 0*sqrt5",
     "s4n_golden": "1/8 + 0*sqrt5",
     "s4n_prolate": "7/20 + 0*sqrt5",
-    "selection": "below r_c the prolate branch has the lower shape energy; above r_c the golden branch does"
+    "selection": "on the compared strata and inside each branch's positivity domain: below r_c the prolate branch has the lower shape energy; between r_c and the golden positivity bound the golden branch does; above that bound the golden record leaves the probability simplex and the packet emits no admissible simple-spectrum branch"
   },
   "issue_context": [
     546,
@@ -84,7 +100,7 @@
   "packet_derivation": {
     "band_selection": "S3 vanishes identically on the antipode-odd frame band, so the quintet band is the only nontrivial band with a cubic entropy response",
     "expansion": "D(u(1+x)||u) = u(S2/2 - S3/6 + S4/12) + O(x^5), u = 1/12",
-    "premise": "the shape functional is the quartic-truncated expansion restricted to the quintet band at fixed band amplitude; the amplitude is a declared parameter of the premise, and the branch selection depends on it only through the recorded exact crossing"
+    "premise": "the shape functional is the quartic-truncated expansion restricted to the quintet band at fixed band amplitude; the amplitude is a declared parameter of the premise, ranging over the positivity domain of the record, and the branch selection depends on it only through the recorded exact crossing and positivity bounds"
   },
   "schema": "oph.entropy_w5_shape_certificate.v1"
 }

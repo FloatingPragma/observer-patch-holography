@@ -64,7 +64,8 @@ The source packet does not contain the local matrix entries and Jacobian minor
 needed to certify pullback transversality, so the corresponding rank-two
 pullback statement is conditional.
 After known presentation redundancies are removed, the documented
-pre-completion one-Higgs source has
+pre-completion one-Higgs source (smooth-point tangent counts taken from the
+hash-pinned Bouchard-Donagi literature packet) has
 
     11 + 11 + (51 - 2) = 71 complex = 142 real
 
@@ -77,9 +78,12 @@ infinitesimal nullity at least 137.
 Those bounds do not determine the dimension after stabilization, vacuum, and
 decoupling constraints. The packet supplies neither that completed constraint
 locus nor a selected point or physical Jacobian. The moduli-locking gate
-therefore fails. This retracts the operator-safe selected BD candidate status
-while retaining the structural BD audit row and leaving the recovered OPH core
-unchanged.
+therefore fails closed on certificate absence. The rank-zero value belongs to
+the proxy as executed and says nothing about how physical BD couplings or
+masses respond to the moduli; a certified completion that cuts the physical
+slice to five or fewer dimensions stays open. This retracts the operator-safe
+selected BD candidate status while retaining the structural BD audit row and
+leaving the recovered OPH core unchanged.
 
 The companion simulator contract in
 `oph-physics-sim/docs/STRING_VACUUM_SELECTION_RECEIPT_CONTRACT.md` defines the

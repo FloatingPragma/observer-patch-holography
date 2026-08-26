@@ -76,9 +76,9 @@ surface for the OPH consensus layer. Contents:
   `EventAlgebra/PublicRecordAlgebra.lean` and
   `EventAlgebra/NoBroadcastingAdapter.lean`. The span of a projective
   partition is a commutative star subalgebra exactly equivalent to complex
-  functions on its nonzero labels. A common linear isometry that sharply
-  copies two distinct states from one normalized blank forces them to be
-  orthogonal. The mixed-state no-broadcasting implication is an explicit adapter
+  functions on its nonzero labels. A common ancilla-free linear isometry of
+  the algebraic tensor product that sharply copies two distinct states from
+  one normalized blank forces them to be orthogonal. The mixed-state no-broadcasting implication is an explicit adapter
   premise, not a theorem of the package. See `B1_PUBLIC_RECORD_ALGEBRA.md`.
 - A sorry-free A3 root interface in `Tower/ConsensusTower.lean`. One directed
   tower packages finite observer and record fibers, A1 record orders, private
@@ -104,9 +104,13 @@ surface for the OPH consensus layer. Contents:
 - A sorry-free bounded B3 public/private dynamics package in
   `Dynamics/PublicMarkov.lean` and `Dynamics/PrivateInner.lean`. Positive
   unital active-record maps are exactly row-stochastic kernels, continuous
-  label-permutation flows are trivial, every automorphism of one finite full
-  private matrix block is unitarily inner, and a fixed self-adjoint Hamiltonian
-  gives a unitary real-parameter von Neumann flow. The finite central-block
+  label-permutation flows on a discrete label set are trivial (strengthened in
+  `Dynamics/PublicAutomorphism.lean`, `ContinuousPublicStarFlow.toAut_eq_refl`,
+  to every pointwise-continuous group of star automorphisms with no topology
+  on the labels, while continuous row-stochastic semigroups stay live), every
+  automorphism of one finite full private matrix block is unitarily inner, and
+  a fixed self-adjoint Hamiltonian gives a unitary real-parameter von Neumann
+  flow. The finite central-block
   decomposition and converse continuous-group-to-Hamiltonian theorem are also
   attained; source selection of dynamics, rate, and physical clock remains
   outside the bounded package. See `B3_PUBLIC_PRIVATE_DYNAMICS.md`.
@@ -379,7 +383,10 @@ surface for the OPH consensus layer. Contents:
   `Variational/RealizedHistoryLegendreNoGo.lean` proves that the same binary
   source law admits distinct strictly convex real enrichments and distinct
   Hamiltonians while the canonical bilinear extension has no global momentum
-  solver. The source does not select the real curvature.
+  solver. The realized two-state history law, on the committed chain
+  literals, does not select the real curvature; finer alphabets, refinement
+  limits, other source data, and declared principles are untested by that
+  module and stay live.
   `InformationProjection/ReferenceNormalForm.lean` fixes the reference gauge
   within a declared normal form: independent target-scrambling invariance at
   fixed source, row-constant weight, and constant step

@@ -43,6 +43,7 @@ def build_artifact(d11_surface: dict, references: dict) -> dict:
     jacobian = dict(d11_surface["jacobian"])
     higgs_ref = dict(references["higgs"])
     top_ref = dict(references["top_quark"])
+    top_aux_ref = dict(references["top_quark_direct_aux"])
 
     m_h_core = float(core["mH_core_gev"])
     m_t_core = float(core["mt_pole_core_gev"])
@@ -75,6 +76,22 @@ def build_artifact(d11_surface: dict, references: dict) -> dict:
         "exact_reference_targets": {
             "mH_gev": m_h_target,
             "mt_pole_gev": m_t_target,
+        },
+        "reference_uncertainties_gev": {
+            "mH_gev": float(higgs_ref["error_plus_gev"]),
+            "mt_pole_gev": float(top_ref["error_plus_gev"]),
+        },
+        "reference_codomain": {
+            "mH_summary_id": str(higgs_ref["source"]["summary_id"]),
+            "mt_pole_summary_id": str(top_ref["source"]["summary_id"]),
+            "mt_pole_description": str(top_ref["description"]),
+        },
+        "auxiliary_direct_top_codomain": {
+            "summary_id": str(top_aux_ref["source"]["summary_id"]),
+            "description": str(top_aux_ref["description"]),
+            "mt_gev": float(top_aux_ref["value_gev"]),
+            "sigma_gev": float(top_aux_ref["error_plus_gev"]),
+            "role": "compare_only_alternative_extraction_codomain",
         },
         "inverse_slice_coordinates": {
             "delta_lambda_mt": delta_lambda,

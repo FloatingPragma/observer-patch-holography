@@ -3,10 +3,13 @@
   "closure_logic": {
     "equivalent_coordinates": "(Sigma_HT_exact, eta_HT_exact)",
     "exact_split_value": -0.00038576309777150347,
-    "fixed_ray_blocked": true,
+    "fixed_ray_central_pair_off_ray": true,
+    "fixed_ray_data_compatible_within_one_sigma": true,
     "fixed_ray_no_go_theorem_id": "D11FixedRayNoGoTheorem",
+    "fixed_ray_pull_sigma": 0.6799284804392846,
     "fixed_ray_value_formula": "pi_y = pi_lambda = sigma_D11_HT",
-    "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_source(mu_t) = (pi_y, pi_lambda)"
+    "smallest_exact_object_above_fixed_ray": "Theta_D11_HT_source(mu_t) = (pi_y, pi_lambda)",
+    "split_role": "chosen_extension"
   },
   "declared_surface_exactifier_functions": {
     "c_H_live_formula": "(-(4/3) * tau2_tree_exact + (4/3 - beta_EW/54) * log(1 + tau2_tree_exact) - higgs_residual) / delta_n_tree_exact",
@@ -26,7 +29,7 @@
     "pi_y": 0.012281958891788196,
     "w_HT_exact": -0.00038576309777150347
   },
-  "generated_utc": "2026-07-28T18:01:20Z",
+  "generated_utc": "2026-08-26T04:16:40Z",
   "legacy_theorem_id": "D11SourceSplitForwardExactness",
   "non_circularity_status": {
     "missing_source_object": "closed_promotable_EWTargetFreeRepairValueLaw_D10",
@@ -44,7 +47,7 @@
   ],
   "prediction_promotion_allowed": false,
   "proof": [
-    "The fixed-ray no-go theorem proves that the exact Higgs/top pair cannot lie on the old one-scalar branch because w_HT is nonzero there.",
+    "The fixed-ray point statement records that the reference central Higgs/top pair lies off the old one-scalar branch (w_HT = -0.00249, 0.68 sigma on the declared linear surface); the one-scalar ray stays data-compatible and the two-coordinate split is a chosen extension.",
     "The unpromoted D10 repair candidate supplies the tuple (eta_source, beta_EW, lambda_EW, tau2_tree_exact, delta_n_tree_exact) used by this local implication.",
     "The declared D11 map evaluates rho_HT = log(1 + tau2_tree_exact) and the stored top_residual and higgs_residual formulas from that tuple.",
     "Those formulas determine pi_y and pi_lambda without an inverse adapter or direct reference-mass argument at runtime; this does not establish that their historical or physical selector is source-derived.",

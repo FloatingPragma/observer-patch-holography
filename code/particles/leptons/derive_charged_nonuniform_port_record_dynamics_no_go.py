@@ -61,8 +61,9 @@ def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
                 "no-marked-point MaxEnt constraints are A5-invariant; uniqueness from strict "
                 "entropy concavity therefore makes the expected port record A5-invariant and "
                 "uniform. Its centered first and quadrupole moments vanish. Consequently the "
-                "the declared homogeneous screen branch cannot derive a deterministic refinement-stable "
-                "non-singlet port record."
+                "declared homogeneous screen branch does not derive a deterministic refinement-stable "
+                "non-singlet port record. Step 6 of the proof, that fluctuations select no "
+                "refinement-stable orientation, enters as a premise."
             ),
             "proof": [
                 "Cauchy-Schwarz gives sum_i q_i^2 >= (sum_i q_i)^2/12 = 12, with equality iff every q_i=1.",
@@ -70,8 +71,9 @@ def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
                 "The constraint set and entropy are invariant under the transitive A5 port action.",
                 "Strict concavity makes the MaxEnt state unique, so applying any A5 permutation returns the same state.",
                 "Every one-port expectation is therefore equal; centering annihilates the record.",
-                "Individual fluctuations do not select an ID-independent refinement-stable orientation unless an additional record/conditioning rule is emitted.",
+                "Premise (asserted, no argument in this artifact): individual fluctuations do not select an ID-independent refinement-stable orientation unless an additional record/conditioning rule is emitted.",
             ],
+            "premise_steps": [6],
             "checks": {
                 "uniform_minimum_matches_certificate": uniform_forced,
                 "first_moment_norm": float(np.linalg.norm(first)),
@@ -101,8 +103,8 @@ def build_artifact(screen: dict[str, Any]) -> dict[str, Any]:
         },
         "claim_boundary": (
             "A nonuniform twelve-port record is not derivable on the declared homogeneous "
-            "strict-unit screen branch. A source-derived observer-conditioned non-equilibrium or "
-            "spontaneous-symmetry-breaking branch with its own refinement theorem."
+            "strict-unit screen branch. The live alternative is a source-derived observer-conditioned "
+            "non-equilibrium or spontaneous-symmetry-breaking branch with its own refinement theorem."
         ),
     }
 
