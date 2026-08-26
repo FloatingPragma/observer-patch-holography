@@ -19,6 +19,16 @@ lean_lib «ObserverPatchHolography» where
   srcDir := "."
 
 @[default_target]
+lean_lib «OphGap» where
+  srcDir := "."
+  -- The folded proof predates this repository's project-wide explicit-binder
+  -- policy. Keep its elaboration environment unchanged during the Mathlib bump.
+  leanOptions := #[
+    ⟨`autoImplicit, true⟩,
+    ⟨`relaxedAutoImplicit, true⟩
+  ]
+
+@[default_target]
 lean_lib «EventAlgebra» where
   srcDir := "."
 
